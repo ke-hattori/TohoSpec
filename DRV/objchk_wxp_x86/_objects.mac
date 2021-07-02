@@ -1,0 +1,24 @@
+386_OBJECTS= \
+    $(_OBJ_DIR)\i386\nanopt2k.res \
+    $(_OBJ_DIR)\i386\nanopt2k.obj
+
+PASS0_386_OBJECTS=
+
+IA64_OBJECTS= \
+    $(_OBJ_DIR)\ia64\nanopt2k.res \
+    $(_OBJ_DIR)\ia64\nanopt2k.obj
+
+PASS0_IA64_OBJECTS=
+
+AMD64_OBJECTS= \
+    $(_OBJ_DIR)\amd64\nanopt2k.res \
+    $(_OBJ_DIR)\amd64\nanopt2k.obj
+
+PASS0_AMD64_OBJECTS=
+
+ARM_OBJECTS= \
+    $(_OBJ_DIR)\arm\nanopt2k.res \
+    $(_OBJ_DIR)\arm\nanopt2k.obj
+
+PASS0_ARM_OBJECTS=
+

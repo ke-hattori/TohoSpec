@@ -1,0 +1,451 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 日本語 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 17, 1\r\n"
+    "#pragma code_page(932)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\MotSys.rc2""  // Microsoft Visual C++ 以外のツールで編集されたリソース\r\n"
+    "#include ""l.jpn\\afxres.rc""          // 標準のコンポーネント\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\MotSysG.ico"
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,0,0,1
+ PRODUCTVERSION 2,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "Toho Technology\0"
+            VALUE "FileDescription", "MotSys MFC Application\0"
+            VALUE "FileVersion", "2, 0, 0, 1\0"
+            VALUE "InternalName", "MotSys\0"
+            VALUE "LegalCopyright", "Copyright (C) 2009\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "MotSysNSPT.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "MotSys Application\0"
+            VALUE "ProductVersion", "2, 0, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "MotSys Version Information(&A)..."
+END
+
+#endif    // 日本語 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 英語 (ｱﾒﾘｶ) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 169, 85
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Motion System Driver Version Information"
+FONT 9, "Lucida Console"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,5,5,20,20
+    LTEXT           "MotSys Version 2.0",IDC_STATIC,30,5,85,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2003-2009\nToho Technology Corp. TTC\nhmenjo.",
+                    IDC_STATIC,30,15,105,25
+    DEFPUSHBUTTON   "OK",IDOK,140,5,25,30
+    GROUPBOX        "Communication Log",IDC_STATIC,5,45,160,30
+    PUSHBUTTON      "Enable",IDC_BTN_COMLOGENA,10,55,70,15
+    PUSHBUTTON      "Clear",IDC_BTN_COMLOGCLR,90,55,70,15
+END
+
+IDD_MOTSYS_DIALOG DIALOGEX 0, 0, 195, 345
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Motion System Driver"
+FONT 9, "Lucida Console"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,0,0,6,6,NOT WS_VISIBLE
+    DEFPUSHBUTTON   "About",IDC_BTN_ABOUT,165,5,25,30,BS_ICON | BS_CENTER | 
+                    BS_VCENTER | NOT WS_TABSTOP
+    PUSHBUTTON      "Hide",IDC_BTN_HIDE,120,5,40,15,NOT WS_TABSTOP
+    PUSHBUTTON      "SrvOF",IDC_BTN_SERVO_OFF,165,40,25,10,NOT WS_TABSTOP
+    LTEXT           "",IDC_STATIC_STATUS,5,10,110,10,SS_CENTERIMAGE | NOT 
+                    WS_GROUP,WS_EX_CLIENTEDGE
+    LTEXT           "",IDC_STATIC_PROCPRI,5,30,155,10,SS_CENTERIMAGE | NOT 
+                    WS_GROUP,WS_EX_CLIENTEDGE
+    LTEXT           "",IDC_STATIC_PROCPRI2,5,50,155,10,SS_CENTERIMAGE | NOT 
+                    WS_GROUP,WS_EX_CLIENTEDGE
+    LTEXT           "",IDC_STATIC_COMSTAT,5,70,125,10,SS_CENTERIMAGE | NOT 
+                    WS_GROUP,WS_EX_CLIENTEDGE
+    LTEXT           "Process Priority",IDC_STATIC,5,20,65,8
+    LTEXT           "Status",IDC_STATIC,5,0,25,8
+    LTEXT           "Process Priority(previous)",IDC_STATIC,5,40,105,8
+    LTEXT           "COMM",IDC_STATIC,5,60,20,8
+    LTEXT           "Axis Staus",IDC_STATIC,5,80,45,8
+    CTEXT           "0000 0000 0000 0000",IDC_STATIC_AXIS_X,20,90,80,10,
+                    SS_CENTERIMAGE | WS_DISABLED | NOT WS_GROUP,
+                    WS_EX_CLIENTEDGE
+    LTEXT           "X",IDC_STATIC_LBL_STS_X,5,90,10,8,WS_DISABLED
+    LTEXT           "YM",IDC_STATIC_LBL_STS_YM,5,100,10,8,WS_DISABLED
+    CTEXT           "0000 0000 0000 0000",IDC_STATIC_AXIS_YM,20,100,80,10,
+                    SS_CENTERIMAGE | WS_DISABLED | NOT WS_GROUP,
+                    WS_EX_CLIENTEDGE
+    CTEXT           "0000 0000 0000 0000",IDC_STATIC_AXIS_YS,20,110,80,10,
+                    SS_CENTERIMAGE | WS_DISABLED | NOT WS_GROUP,
+                    WS_EX_CLIENTEDGE
+    CTEXT           "0000 0000 0000 0000",IDC_STATIC_AXIS_Z,20,120,80,10,
+                    SS_CENTERIMAGE | WS_DISABLED | NOT WS_GROUP,
+                    WS_EX_CLIENTEDGE
+    CTEXT           "0000 0000 0000 0000",IDC_STATIC_AXIS_T,20,130,80,10,
+                    SS_CENTERIMAGE | WS_DISABLED | NOT WS_GROUP,
+                    WS_EX_CLIENTEDGE
+    LTEXT           "YS",IDC_STATIC_LBL_STS_YS,5,110,10,8,WS_DISABLED
+    LTEXT           "Z",IDC_STATIC_LBL_STS_Z,5,120,10,8,WS_DISABLED
+    LTEXT           "T",IDC_STATIC_LBL_STS_T,5,130,10,8,WS_DISABLED
+    CTEXT           "s",IDC_STATIC_SEND,135,70,10,10,SS_CENTERIMAGE | NOT 
+                    WS_GROUP,WS_EX_CLIENTEDGE
+    CTEXT           "r",IDC_STATIC_RECV,150,70,10,10,SS_CENTERIMAGE | NOT 
+                    WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "00",IDC_STATIC_MODE_X,105,90,15,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    LTEXT           "Mode",IDC_STATIC,105,80,20,8
+    RTEXT           "00",IDC_STATIC_MODE_YM,105,100,15,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "--",IDC_STATIC_MODE_YS,105,110,15,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "00",IDC_STATIC_MODE_Z,105,120,15,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "00",IDC_STATIC_MODE_T,105,130,15,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_POS_X,125,90,60,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    LTEXT           "Position",IDC_STATIC,125,80,35,8
+    RTEXT           "0",IDC_STATIC_POS_YM,125,100,60,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_POS_YS,125,110,60,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_POS_Z,125,120,60,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_POS_T,125,130,60,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "X ORG",IDC_BTN_ORGtestX,165,145,25,10,WS_DISABLED | NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "SrvON",IDC_BTN_SERVO_ON,165,50,25,10,NOT WS_TABSTOP
+    PUSHBUTTON      "Y ORG",IDC_BTN_ORGtestY,165,155,25,10,WS_DISABLED | NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "Z ORG",IDC_BTN_ORGtestZ,165,165,25,10,WS_DISABLED | NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "T ORG",IDC_BTN_ORGtestT,165,175,25,10,WS_DISABLED | NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "X ABS1",IDC_BTN_ABStestX,135,145,25,10,WS_DISABLED | 
+                    NOT WS_TABSTOP
+    PUSHBUTTON      "Y ABS1",IDC_BTN_ABStestY,135,155,25,10,WS_DISABLED | 
+                    NOT WS_TABSTOP
+    PUSHBUTTON      "Z ABS1",IDC_BTN_ABStestZ,135,165,25,10,WS_DISABLED | 
+                    NOT WS_TABSTOP
+    PUSHBUTTON      "T ABS1",IDC_BTN_ABStestT,135,175,25,10,WS_DISABLED | 
+                    NOT WS_TABSTOP
+    PUSHBUTTON      "X INC+",IDC_BTN_INCtestX,75,145,25,10,WS_DISABLED | NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "Y INC+",IDC_BTN_INCtestY,75,155,25,10,WS_DISABLED | NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "Z INC+",IDC_BTN_INCtestZ,75,165,25,10,WS_DISABLED | NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "T INC+",IDC_BTN_INCtestT,75,175,25,10,WS_DISABLED | NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "X HP",IDC_BTN_HPtestX,15,145,25,10,WS_DISABLED | NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "Y HP",IDC_BTN_HPtestY,15,155,25,10,WS_DISABLED | NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "Z HP",IDC_BTN_HPtestZ,15,165,25,10,WS_DISABLED | NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "T HP",IDC_BTN_HPtestT,15,175,25,10,WS_DISABLED | NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "X ABS2",IDC_BTN_ABStestX2,105,145,25,10,WS_DISABLED | 
+                    NOT WS_TABSTOP
+    PUSHBUTTON      "X INC-",IDC_BTN_INCtestX2,45,145,25,10,WS_DISABLED | 
+                    NOT WS_TABSTOP
+    PUSHBUTTON      "Y ABS2",IDC_BTN_ABStestY2,105,155,25,10,WS_DISABLED | 
+                    NOT WS_TABSTOP
+    PUSHBUTTON      "Y INC-",IDC_BTN_INCtestY2,45,155,25,10,WS_DISABLED | 
+                    NOT WS_TABSTOP
+    PUSHBUTTON      "Z INC-",IDC_BTN_INCtestZ2,45,165,25,10,WS_DISABLED | 
+                    NOT WS_TABSTOP
+    PUSHBUTTON      "T INC-",IDC_BTN_INCtestT2,45,175,25,10,WS_DISABLED | 
+                    NOT WS_TABSTOP
+    PUSHBUTTON      "Z ABS2",IDC_BTN_ABStestZ2,105,165,25,10,WS_DISABLED | 
+                    NOT WS_TABSTOP
+    PUSHBUTTON      "T ABS2",IDC_BTN_ABStestT2,105,175,25,10,WS_DISABLED | 
+                    NOT WS_TABSTOP
+    LTEXT           "X",IDC_STATIC_LBL_PTN_X,5,200,8,8,SS_CENTERIMAGE | 
+                    WS_DISABLED
+    LTEXT           "Y",IDC_STATIC_LBL_PTN_Y,5,210,8,8,SS_CENTERIMAGE | 
+                    WS_DISABLED
+    LTEXT           "Z",IDC_STATIC_LBL_PTN_Z,5,220,8,8,SS_CENTERIMAGE | 
+                    WS_DISABLED
+    LTEXT           "T",IDC_STATIC_LBL_PTN_T,5,230,8,8,SS_CENTERIMAGE | 
+                    WS_DISABLED
+    LTEXT           "ptn",IDC_STATIC,15,190,15,8
+    LTEXT           "Soft HP",IDC_STATIC,40,190,35,8
+    LTEXT           "Speed",IDC_STATIC,100,190,30,8
+    LTEXT           "Dest Pos",IDC_STATIC,135,190,35,8
+    RTEXT           "0",IDC_STATIC_DESTPOS_X,135,200,55,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_DESTPOS_Y,135,210,55,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_DESTPOS_Z,135,220,55,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_DESTPOS_T,135,230,55,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    CTEXT           "-",IDC_STATIC_PTN_X,15,200,10,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    CTEXT           "-",IDC_STATIC_PTN_Y,15,210,10,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    CTEXT           "-",IDC_STATIC_PTN_Z,15,220,10,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    CTEXT           "-",IDC_STATIC_PTN_T,15,230,10,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_SOFTHP_X,40,200,55,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_SOFTHP_Y,40,210,55,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_SOFTHP_Z,40,220,55,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_SOFTHP_T,40,230,55,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_SPEED_X,100,200,30,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_SPEED_Y,100,210,30,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_SPEED_Z,100,220,30,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_SPEED_T,100,230,30,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    CTEXT           "-",IDC_STATIC_PRC_X,25,200,10,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    CTEXT           "-",IDC_STATIC_PRC_Y,25,210,10,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    CTEXT           "-",IDC_STATIC_PRC_Z,25,220,10,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    CTEXT           "-",IDC_STATIC_PRC_T,25,230,10,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_DPOSR_X,15,250,50,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_DPOSR_YM,15,260,50,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_DPOSR_YS,15,270,50,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_DPOSR_Z,15,280,50,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_DPOSR_T,15,290,50,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    LTEXT           "YM",IDC_STATIC_LBL_POS_YM,5,260,10,8,WS_DISABLED
+    LTEXT           "X",IDC_STATIC_LBL_POS_X,5,250,10,8,WS_DISABLED
+    LTEXT           "YS",IDC_STATIC_LBL_POS_YS,5,270,10,8,WS_DISABLED
+    LTEXT           "Z",IDC_STATIC_LBL_POS_Z,5,280,10,8,WS_DISABLED
+    LTEXT           "T",IDC_STATIC_LBL_POS_T,5,290,10,8,WS_DISABLED
+    RTEXT           "0",IDC_STATIC_DPOSPP_X,140,250,50,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_DPOSPM_X,85,250,50,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "C",IDC_BTN_DPOSP_CLR_X,70,250,11,10,WS_DISABLED | NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "C",IDC_BTN_DPOSP_CLR_YM,70,260,11,10,WS_DISABLED | NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "C",IDC_BTN_DPOSP_CLR_YS,70,270,11,10,WS_DISABLED | NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "C",IDC_BTN_DPOSP_CLR_Z,70,280,11,10,WS_DISABLED | NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "C",IDC_BTN_DPOSP_CLR_T,70,290,11,10,WS_DISABLED | NOT 
+                    WS_TABSTOP
+    RTEXT           "0",IDC_STATIC_DPOSPP_YM,140,260,50,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_DPOSPP_YS,140,270,50,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_DPOSPP_Z,140,280,50,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_DPOSPP_T,140,290,50,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_DPOSPM_YM,85,260,50,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_DPOSPM_YS,85,270,50,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_DPOSPM_Z,85,280,50,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    RTEXT           "0",IDC_STATIC_DPOSPM_T,85,290,50,10,SS_CENTERIMAGE | 
+                    WS_DISABLED | NOT WS_GROUP,WS_EX_CLIENTEDGE
+    LTEXT           "DI",IDC_STATIC,5,305,10,8
+    CTEXT           "0000 0000 0000 0000  0000 0000 0000 0000",IDC_STATIC_DI,
+                    15,305,165,10,SS_CENTERIMAGE | NOT WS_GROUP,
+                    WS_EX_CLIENTEDGE
+    CTEXT           "0000 0000 0000 0000  0000 0000 0000 0000",IDC_STATIC_DO,
+                    15,315,165,10,SS_CENTERIMAGE | NOT WS_GROUP,
+                    WS_EX_CLIENTEDGE
+    LTEXT           "DO",IDC_STATIC,5,315,10,8
+    LTEXT           "d_Pos",IDC_STATIC,15,240,50,8
+    LTEXT           "d_Pos minus",IDC_STATIC,85,240,50,8
+    LTEXT           "d_Pos plus",IDC_STATIC,140,240,50,8
+    PUSHBUTTON      "Srv\nPrm",IDC_BTN_SERVO_PARAM,165,66,25,20,BS_MULTILINE | 
+                    NOT WS_TABSTOP
+    CTEXT           "00",IDC_STATIC_DRVNO,30,330,15,10,SS_CENTERIMAGE | NOT 
+                    WS_GROUP,WS_EX_CLIENTEDGE
+    CTEXT           "00",IDC_STATIC_GRPNO,75,330,15,10,SS_CENTERIMAGE | NOT 
+                    WS_GROUP,WS_EX_CLIENTEDGE
+    LTEXT           "DrvNo.",IDC_STATIC,5,330,25,8
+    LTEXT           "GrpNo.",IDC_STATIC,50,330,25,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 162
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 78
+    END
+
+    IDD_MOTSYS_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 187
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 230
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // 英語 (ｱﾒﾘｶ) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE 17, 1
+#pragma code_page(932)
+#endif //_WIN32
+#include "res\MotSys.rc2"  // Microsoft Visual C++ 以外のツールで編集されたリソース
+#include "l.jpn\afxres.rc"          // 標準のコンポーネント
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

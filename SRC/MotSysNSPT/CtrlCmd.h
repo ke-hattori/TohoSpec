@@ -1,0 +1,278 @@
+/*
+ *	include files
+ */
+
+#ifdef	MASTER
+	#define	_EXTCC
+#else
+	#define	_EXTCC	extern
+#endif
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/*
+ *	define macros
+ */
+
+//#define	CC_DEB_BUTTON	1
+#define	CC_COM_LOG		FALSE	// シリアル通信 のログ
+#define	CC_INIT_TIMEOUT			5000	// 初期設定値書込み完了タイムアウト
+#define	CC_SERVO_ONOFF_TIMEOUT	5000	// サーボ ON/OFF タイムアウト
+#define	CC_CLEAR_ALARM_TIMEOUT	5000	// アラームクリア タイムアウト
+// 軸定義(必ず連番にしてください．欠番禁止．順序は不問)
+#define	CC_AXIS_X	0	// X 軸 (1)
+#define	CC_AXIS_Y	1	// Y 軸 (2)
+#define	CC_AXIS_Z	2	// Z 軸 (3)		(Nano では未使用)
+#define	CC_AXIS_T	3	// T 軸 (4)		(Nano では未使用)
+#define	CC_AXIS_NUM	4	// 最大軸数
+// 出力ポートビット位置
+#define	CC_OUTBIT_SERVO			0	// サーボ ON/OFF
+#define	CC_OUTBIT_RUN_X			1	// X 軸 動作 開始/停止
+#define	CC_OUTBIT_RUN_Y			2	// Y 軸 動作 開始/停止
+#define	CC_OUTBIT_RUN_Z			3	// Z 軸 動作 開始/停止(Nano では未使用)
+#define	CC_OUTBIT_RUN_T			4	// T 軸 動作 開始/停止(Nano では未使用)
+#define	CC_OUTBIT_CLEAR_ALARM	5	// アラームクリア
+#define	CC_OUTBIT_CHANGE_GAIN_X	6	// X 軸 ゲイン切換え hmenjo4 20030801
+#define	CC_OUTBIT_CHANGE_GAIN_Y	7	// Y 軸 ゲイン切換え hmenjo4 20030801
+#define	CC_OUTBIT_CHANGE_GAIN_Z	8	// Z 軸 ゲイン切換え hmenjo4 20030801(Nano では未使用)
+#define	CC_OUTBIT_CHANGE_GAIN_T	9	// T 軸 ゲイン切換え hmenjo4 20030801(Nano では未使用)
+#define	CC_OUTBIT_VAC_VALVE		10	// Vacuum Valve (未使用)
+#define	CC_OUTBIT_VAC_DEST		11	// Vacuum Destructive (未使用)
+#define	CC_OUTBIT_SPARE_12		12	// (予備)
+#define	CC_OUTBIT_SPARE_13		13	// (予備)
+#define	CC_OUTBIT_SPARE_14		14	// (予備)
+#define	CC_OUTBIT_SPARE_15		15	// (予備)
+#define	CC_OUTBIT_JOY_MODE		16	// JOYSTICK モード選択
+#define	CC_OUTBIT_JOY_SPEED1	17	// JOYSTICK 速度１
+#define	CC_OUTBIT_JOY_SPEED2	18	// JOYSTICK 速度２
+#define	CC_OUTBIT_JOY_SPEED3	19	// JOYSTICK 速度３
+#define	CC_OUTBIT_SPARE_20		20	// (予備)
+#define	CC_OUTBIT_SPARE_21		21	// (予備)
+#define	CC_OUTBIT_SPARE_22		22	// (予備)
+#define	CC_OUTBIT_SPARE_23		23	// (予備)
+#define	CC_OUTBIT_SPARE_24		24	// (予備)
+#define	CC_OUTBIT_SPARE_25		25	// (予備)
+#define	CC_OUTBIT_SPARE_26		26	// (予備)
+#define	CC_OUTBIT_SPARE_27		27	// (予備)
+#define	CC_OUTBIT_SPARE_28		28	// (予備)
+#define	CC_OUTBIT_SPARE_29		29	// (予備)
+#define	CC_OUTBIT_SPARE_30		30	// (予備)
+#define	CC_OUTBIT_SPARE_31		31	// (予備)
+
+// 入力ポートビット位置
+#define	CC_INBIT_WD				0	// W.D.
+#define	CC_INBIT_SERVO			1	// サーボ ON/OFF
+#define	CC_INBIT_ALARM_X		2	// X 軸 アラーム発生
+#define	CC_INBIT_INP_X			3	// X 軸 位置決め完了
+#define	CC_INBIT_ALARM_Y		4	// Y 軸 アラーム発生
+#define	CC_INBIT_INP_Y			5	// Y 軸 位置決め完了
+#define	CC_INBIT_ALARM_Z		6	// Z 軸 アラーム発生(Nano では未使用)
+#define	CC_INBIT_INP_Z			7	// Z 軸 位置決め完了(Nano では未使用)
+#define	CC_INBIT_ALARM_T		8	// T 軸 アラーム発生(Nano では未使用)
+#define	CC_INBIT_INP_T			9	// T 軸 位置決め完了(Nano では未使用)
+#define CC_INBIT_INP_VAC		10	// Chuck Vaccum (未使用)
+#define CC_INBIT_INTERLOCK		11	// Alignment Interlock (未使用)
+#define CC_INBIT_INP2_X			12	// X 軸 位置決め完了２
+#define CC_INBIT_INP2_Y			13	// Y 軸 位置決め完了２
+#define CC_INBIT_INP2_Z			14	// Z 軸 位置決め完了２(Nano では未使用)
+#define CC_INBIT_INP2_T			15	// T 軸 位置決め完了２(Nano では未使用)
+#define CC_INBIT_JOY_STATUS		16	// JOYSTICK 状態
+#define CC_INBIT_SPARE_17		17	// JOYSTICK 速度１
+#define CC_INBIT_SPARE_18		18	// JOYSTICK 速度２
+#define CC_INBIT_SPARE_19		19	// JOYSTICK 速度３
+#define CC_INBIT_SPARE_20		20	// (予備)
+#define CC_INBIT_SPARE_21		21	// (予備)
+#define CC_INBIT_SPARE_22		22	// (予備)
+#define CC_INBIT_SPARE_23		23	// (予備)
+#define CC_INBIT_SPARE_24		24	// (予備)
+#define CC_INBIT_SPARE_25		25	// (予備)
+#define CC_INBIT_SPARE_26		26	// (予備)
+#define CC_INBIT_SPARE_27		27	// (予備)
+#define CC_INBIT_SPARE_28		28	// (予備)
+#define CC_INBIT_SPARE_29		29	// (予備)
+#define CC_INBIT_SPARE_30		30	// (予備)
+#define CC_INBIT_RESERVE_31		31	// (システム予約)
+// ファイル名
+#define	SERVOPARAMNAME	_T("..\\cfg\\ServoParam.dat")	// サーボパラメタ
+
+
+/*
+ *	define prototypes
+ */
+//_EXTCC	CWinThread* g_pCCThread;	// Thread pointer
+UINT	CC_Main_Loop(LPVOID pParam);
+//_EXTCC	void CC_Main_Loop(void);
+_EXTCC	DWORD CC_Initialize_Controller(void);
+_EXTCC	int CC_ReadCommand(char *SendData, char *RecvData);
+_EXTCC	int CC_WriteCommand(char *SendData, char *RecvData);
+_EXTCC	BOOL CC_LoadInitData(void);
+_EXTCC	DWORD CC_DioOpen(void);
+_EXTCC	DWORD CC_DioClose(void);
+_EXTCC	DWORD CC_DioInpBit(WORD wRBitNo, BYTE *pucRBitData);
+_EXTCC	DWORD CC_DioOutBit(WORD wWBitNo, BYTE ucWBitData);
+_EXTCC	DWORD CC_DioInpDWord(DWORD *pdwRData);
+_EXTCC	void CC_DioError(void);
+_EXTCC	BOOL CC_checkWD(void);
+_EXTCC	void CC_MsgReboot(void);
+_EXTCC	void CC_PollingAlarm(void);
+_EXTCC	WORD CC_PollingStatus(void);
+_EXTCC	BOOL CC_ServoONOFF(int on_off);
+_EXTCC	void CC_ServoON_Ctrl(void);
+_EXTCC	void CC_Initial(void);
+_EXTCC	int CC_ReadCommand2(char *SendData, char *RecvData, short DataNum, void *ReadData);
+_EXTCC	void CC_ServoOFF_RunOFF(void);
+_EXTCC	BOOL CC_LoadServoParam(void);
+_EXTCC	BOOL CC_InitServo(LPVOID pParam);
+_EXTCC	void CC_ServoFailure(void);
+_EXTCC	void SetDefaultData(void);
+
+_EXTCC	long CC_get_true_position(short axis);
+_EXTCC	void CC_local_emergency_stop(short axis);
+_EXTCC	int CC_motion_set_soft_home(short axis, long soft_home);
+_EXTCC	int CC_motion_move_at_speed(short axis, short velocity);
+_EXTCC	CC_motion_move_to_position(short axis, long position, short velocity);
+_EXTCC	int CC_motion_move_at_speed_to_dest(short axis, long destination, short velocity);
+_EXTCC	int CC_motion_go_home(short axis);
+_EXTCC	void CC_X_Manager(void);
+_EXTCC	void CC_Y_Manager(void);
+_EXTCC	void CC_Z_Manager(void);
+_EXTCC	void CC_T_Manager(void);
+_EXTCC	void CC_SendMotionMessage(short Axis, short Result);
+_EXTCC	void CC_ThetaAdjust(long *position, long pluslimit, long minuslimit);
+_EXTCC	long CC_ConvSpeed_Z(long org_speed);
+_EXTCC	void CC_AdjustAccel_Y(long Dest, long *AccelTimeT, long *AccelTimeS);
+_EXTCC	void CC_ChangeGainAll(BOOL onoff);				// hmenjo4 20030801
+_EXTCC	void CC_ChangeGain(short sAxis, DWORD dwGainSel);
+_EXTCC	long CC_ConvSpeed_XYT(short Axis, long org_speed);	// hmenjo10 20031009
+_EXTCC	short CC_CnvAxisToSPT(short Axis);
+_EXTCC	short CC_CnvAxisFromSPT(short Axis);
+_EXTCC	BOOL CC_IsJoyMode(void);
+_EXTCC	int CC_SetJoyMode(int iMode, int iSpeedSel);
+_EXTCC	int CC_GetMaxSpeed(short Axis);
+_EXTCC	int CC_GetMotionSize(short Axis);
+_EXTCC	int CC_GetElectronicGear(short Axis);
+_EXTCC	int CC_GetSoftLimit(short Axis, short signflag);
+_EXTCC	int CC_SetJoySpeed(short Axis, int iSpeedSel, short velocity);
+
+_EXTCC	void CC_DispOthers(void);
+_EXTCC	void CC_DispFuncParam(short axis, short Speed, long position);
+_EXTCC	void mmtest(void);
+_EXTCC	void mmtest2(void);
+_EXTCC	void mmtestORGX(int mode);
+_EXTCC	void mmtestORGXdone(void);
+_EXTCC	void mmtestORGY(int mode);
+_EXTCC	void mmtestORGYdone(void);
+_EXTCC	void mmtestORGZ(int mode);
+_EXTCC	void mmtestORGZdone(void);
+_EXTCC	void mmtestORGT(int mode);
+_EXTCC	void mmtestORGTdone(void);
+/* added 2009.11.11 hmenjo MotSys 軸タイムアウト ---------- { ---------- */
+_EXTCC	int CC_MotionTimeout(int iMode, short wAxis);
+_EXTCC	void CC_MotTimeoutCheck(short wAxis, short *wPrc);
+/* added 2009.11.11 hmenjo MotSys 軸タイムアウト ---------- } ---------- */
+/* added 2009.12.14 hmenjo MotSys DIO ログ追加 ---------- { ---------- */
+_EXTCC	void CC_DioLog(DWORD dwDi, DWORD dwDo);
+/* added 2009.12.14 hmenjo MotSys DIO ログ追加 ---------- } ---------- */
+
+
+/*
+ *	define structures
+ */
+// 軸アラーム
+typedef struct {
+	BOOL	Axis0;	// 軸０ : BigX
+	BOOL	Axis1;	// 軸１ : BigY
+	BOOL	Axis2;	// 軸２ : Z
+	BOOL	Axis3;	// 軸３ : X Slow
+	BOOL	Axis4;	// 軸４ : Theta
+	BOOL	Axis5;	// 軸５ : Level
+	BOOL	Axis6;	// 軸６ : X Fast
+	BOOL	Axis7;	// 軸７ : (T)
+} CC_AXISALARM;
+
+// 軸情報
+typedef struct {
+	WORD	Mode;			// 動作モード
+	long	Position;		// 位置
+	long	Velocity;		// 速度
+	long	Current;		// 電流値
+	long	Order_Position;	// 指令位置
+	long	Order_Velocity;	// 指令速度
+	long	Order_Current;	// 指令電流値
+	WORD	Status;			// 状態
+	long	d_Position;		// 位置偏差 hmenjo5 20030801
+} CC_AXIS_INFO;
+
+// サーボパラメタ
+typedef struct {
+	long	ORG1_AccelTimeT;	// 原点復帰 第１加減速時間
+	long	ORG1_AccelTimeS;	//				Ｓ字加減速時間
+	long	ORG1_Speed;			//				移動速度
+	long	ORG2_AccelTimeT;	//			第２加減速時間
+	long	ORG2_AccelTimeS;	//				Ｓ字加減速時間
+	long	ORG2_Speed;			//				移動速度
+	long	ORG3_AccelTimeT;	//			第３加減速時間
+	long	ORG3_AccelTimeS;	//				Ｓ字加減速時間
+	long	ORG3_Speed;			//				移動速度
+	long	HP_AccelTimeT;		// HP 移動	加減速時間
+	long	HP_AccelTimeS;		//			Ｓ字加減速時間
+	long	HP_BaseBand;		//			移動済判断基準
+	long	HP_Speed;			//			速度
+	long	ABS_AccelTimeT;		// ABS 移動	加減速時間
+	long	ABS_AccelTimeS;		//			Ｓ字加減速時間
+	long	ABS_Speed;			//			速度
+	long	INC_AccelTimeT;		// INC 移動	加減速時間
+	long	INC_AccelTimeS;		//			Ｓ字加減速時間
+	long	INC_Speed;			//			速度
+} SERVO_PARAM;
+
+
+/*
+ *	define constant values
+ */
+
+
+/*
+ *	define variable values
+ */
+_EXTCC	BOOL	g_CC_CommAbort;							// シリアル通信中断
+_EXTCC	BOOL	g_CC_ThreadLoop;						// スレッドループフラグ
+_EXTCC	BOOL	g_CC_bInitialize;						// 初期化フラグ
+_EXTCC	DWORD	g_CC_OutPort;							// DIO 出力ポート(総合)
+_EXTCC	DWORD	g_CC_InPort;							// DIO 入力ポート(総合)
+_EXTCC	BOOL	g_CC_bSetAlarm[CC_AXIS_NUM];			// アラームセットフラグ
+_EXTCC	BOOL	g_CC_bClearAlarm[CC_AXIS_NUM];			// アラームクリアフラグ
+_EXTCC	BOOL	g_CC_ServoONReq;						// サーボ ON 要求
+_EXTCC	BOOL	g_CC_ServoOFFReq;						// サーボ OFF 要求
+_EXTCC	BOOL	g_CC_ServoONOFFerr;						// サーボタイムアウトエラー
+_EXTCC	BOOL	g_CC_ComError;							// 通信エラー
+_EXTCC	long	g_CC_Count[CC_AXIS_NUM];				// 各軸のカウント
+_EXTCC	CC_AXIS_INFO	g_CC_AxisInfo[CC_AXIS_NUM + 1];	// 各軸の情報
+_EXTCC	SERVO_PARAM	ServoParam[CC_AXIS_NUM];			// サーボパラメタ
+_EXTCC	long	g_CC_HP_Pos[CC_AXIS_NUM];				// 各軸の HP 位置
+_EXTCC	short	g_CC_Axis_prc[CC_AXIS_NUM];				// 各軸の処理状態
+														//		0：起動待ち
+														//		1：INP 監視前の待ち時間
+														//		2：INP 待ち
+														//		3：動作モードの通常への変化待ち
+_EXTCC	short	g_CC_Axis_mode[CC_AXIS_NUM];			// 各軸の処理モード
+														//		0：通常(停止時)
+														//		1：原点復帰
+														//		2：HP 移動
+														//		3：ABS 移動
+														//		4：INC 移動
+_EXTCC	BOOL	g_CC_Axis_HP_Req[CC_AXIS_NUM];			// HP 移動要求				(未使用)
+
+_EXTCC	BOOL	g_CC_Axis_ORG_Req[CC_AXIS_NUM];			// 原点復帰要求
+_EXTCC	short	g_CC_Axis_pattern[CC_AXIS_NUM];			// 各軸の処理パターン
+														//		1 : CC_motion_move_at_speed()
+														//		2 : CC_motion_move_to_position()
+														//		3 : CC_motion_move_at_speed_to_dest()
+														//		4 : CC_motion_go_home()
+_EXTCC	long	g_CC_MaxSpeed[CC_AXIS_NUM];				// 最大速度制限値
+
+#ifdef __cplusplus
+}
+#endif

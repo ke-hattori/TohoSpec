@@ -1,0 +1,386 @@
+//
+//
+//			Nanospec Pcb I/O Interface Dynamic Link Library for Windows NT
+//			Date : 2001/03/30
+//			Name : K.Sumiyoshi
+//			File : Port_nt.c
+//
+//
+
+#define WIN32_LEAN_AND_MEAN
+
+#include <windows.h>
+#include <winioctl.h>
+#include <stddef.h>
+#include <string.h>
+#include <stdio.h>
+#include <tchar.h>
+#include <crtdbg.h>
+
+#define _PORTNTDLL_
+
+#include "port_nt.hxx"
+
+#ifdef		_DEBUG
+#define 	PortErrorMsg( s, title )	\
+				MessageBox( NULL, s, title, MB_OK );
+#else
+#define 	PortErrorMsg( s, title )
+
+#endif
+
+long		SetIOError;
+HANDLE		hDriver;
+int 		osVer=0;
+
+union	{
+	ULONG	LongData;
+	USHORT	ShortData;
+	UCHAR	CharData;
+}	DataBuffer;
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+HANDLE g_hmutexPORT_NT = 0;
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+
+DWORD GetNTVersion()
+{
+OSVERSIONINFO os;
+
+	ZeroMemory(&os, sizeof(OSVERSIONINFO));
+
+	os.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+
+	GetVersionEx(&os);
+
+	if ( os.dwPlatformId == VER_PLATFORM_WIN32_NT )
+		return os.dwMajorVersion;
+
+	return 0;
+}
+
+BOOL WINAPI DllMain( HANDLE hInst, ULONG ul_reason_for_call, LPVOID lpReserved )
+{
+	switch ( ul_reason_for_call ){
+	case DLL_PROCESS_ATTACH:
+		osVer = ( int )GetNTVersion();
+		if ( osVer == 4 ){
+			hDriver = CreateFile(	DrvName,
+									GENERIC_WRITE | GENERIC_READ,
+									FILE_SHARE_READ | FILE_SHARE_WRITE,
+									NULL,
+									OPEN_EXISTING,
+									FILE_FLAG_OVERLAPPED,
+									NULL
+									);
+		}
+		else if ( osVer >= 5 ){
+			hDriver = CreateFile(	DrvName2k,
+									GENERIC_WRITE | GENERIC_READ,
+									FILE_SHARE_READ | FILE_SHARE_WRITE,
+									NULL,
+									OPEN_EXISTING,
+									FILE_FLAG_OVERLAPPED,
+									NULL
+									);
+		}
+
+		if ( hDriver == INVALID_HANDLE_VALUE ){
+			PortErrorMsg( "Invalid Handle Value", "Port_nt.dll Open" );
+		}
+/*		else{
+			PortErrorMsg( "Create File", "Port_nt.dll Open" );
+		}
+*/
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+		g_hmutexPORT_NT = ::CreateMutex(0, FALSE, _T("PORT_NT"));
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+		break;
+
+	case DLL_PROCESS_DETACH:
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+		if (0 != g_hmutexPORT_NT) {
+			::ReleaseMutex(g_hmutexPORT_NT);
+			::CloseHandle(g_hmutexPORT_NT);
+			g_hmutexPORT_NT = 0;
+		}
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+		CloseHandle( hDriver );
+		break;
+	}
+
+//	PortErrorMsg( "Entry Point", "Port_nt.dll Open" );
+
+	return TRUE;
+}
+
+long Open_NtPta( char* drvname )
+{
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+	::WaitForSingleObject(g_hmutexPORT_NT, INFINITE);
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+	SetIOError = 0;
+	if ( osVer == 0 ) return -1;
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+	::ReleaseMutex(g_hmutexPORT_NT);
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+	return 0;
+}
+
+long Close_NtPta( ULONG DeviceNo )
+{
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+	::WaitForSingleObject(g_hmutexPORT_NT, INFINITE);
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+	::ReleaseMutex(g_hmutexPORT_NT);
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+	return 0;
+}
+
+UCHAR InByte( ULONG DeviceNo, USHORT Address )
+{
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+	::WaitForSingleObject(g_hmutexPORT_NT, INFINITE);
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+ULONG add, dtlen, rclen;
+char msg[1024];
+BOOL rc;
+//SYSTEMTIME sysTime;
+//	  ::GetLocalTime(&sysTime);
+//	  TCHAR szBuffer[256];
+//	  sprintf(szBuffer,
+//		  "%04d.%02d.%02d %02d:%02d:%02d:%03d [InByte ]DeviceNo=%d, Address=%d\n",
+//		  sysTime.wYear, sysTime.wMonth, sysTime.wDay,
+//		  sysTime.wHour, sysTime.wMinute, sysTime.wSecond, sysTime.wMilliseconds,
+//		  DeviceNo, Address);
+//	  _RPTF0(_CRT_WARN, szBuffer);
+
+	SetIOError = 0;
+	add = ( ULONG )((( DeviceNo << 12 ) & 0x0000F000 ) | ( Address & 0x00FF ));
+	dtlen = sizeof( DataBuffer.CharData );
+
+	rc = DeviceIoControl(	hDriver,
+							( DWORD )IO_READ_UCHAR,
+							&add,
+							sizeof( add ),
+							&DataBuffer,
+							dtlen,
+							&rclen,
+							NULL
+							);
+
+	if ( rc ){
+		if ( dtlen != rclen ){
+			sprintf( msg, "Transfered %d bytes, Expected %d bytes", rclen, dtlen );
+			goto IO_Read_Error;
+		}
+		if ( rclen != sizeof( UCHAR )){
+			sprintf( msg, "Invalid Retrun Value form the DeviceIoControl");
+			goto IO_Read_Error;
+		}
+/* modified 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+//		else
+//			return DataBuffer.CharData;
+/* modified 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ----------              */
+		else {
+			UCHAR l_ucData = DataBuffer.CharData;
+			::ReleaseMutex(g_hmutexPORT_NT);
+			return l_ucData;
+		}
+/* modified 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+	}
+	else
+		sprintf( msg, "Ioctl Failed with code=%ld", GetLastError());
+
+IO_Read_Error:
+	PortErrorMsg( msg, "Port_nt.dll InByte Error" );
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+	::ReleaseMutex(g_hmutexPORT_NT);
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+	return 0;
+}
+
+USHORT InWord( ULONG DeviceNo, USHORT Address )
+{
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+	::WaitForSingleObject(g_hmutexPORT_NT, INFINITE);
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+ULONG add, dtlen, rclen;
+char msg[1024];
+BOOL rc;
+
+	SetIOError = 0;
+	add = ( ULONG )((( DeviceNo << 12 ) & 0x0000F000 ) | ( Address & 0x00FF ));
+	dtlen = sizeof( DataBuffer.ShortData );
+
+	rc = DeviceIoControl(	hDriver,
+							( DWORD )IO_READ_UCHAR,
+							&add,
+							sizeof( add ),
+							&DataBuffer,
+							dtlen,
+							&rclen,
+							NULL
+							);
+
+	if ( rc ){
+		if ( dtlen != rclen ){
+			sprintf( msg, "Transfered %d bytes, Expected %d bytes", rclen, dtlen );
+			goto IO_Read_Error;
+		}
+		if ( rclen != sizeof( USHORT )){
+			sprintf( msg, "Invalid Retrun Value form the DeviceIoControl");
+			goto IO_Read_Error;
+		}
+/* modified 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+//		else
+//			return DataBuffer.ShortData;
+/* modified 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ----------              */
+		else {
+			USHORT l_uData = DataBuffer.ShortData;
+			::ReleaseMutex(g_hmutexPORT_NT);
+			return l_uData;
+		}
+/* modified 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+	}
+	else
+		sprintf( msg, "Ioctl Failed with code=%ld", GetLastError());
+
+IO_Read_Error:
+	PortErrorMsg( msg, "Port_nt.dll InWord Error" );
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+	::ReleaseMutex(g_hmutexPORT_NT);
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+	return 0;
+}
+
+int OutByte( ULONG DeviceNo, USHORT Address, UCHAR Data )
+{
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+	::WaitForSingleObject(g_hmutexPORT_NT, INFINITE);
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+ULONG rclen, dtlen;
+PortBuffData buff;
+char msg[1024];
+BOOL rc;
+
+//SYSTEMTIME sysTime;
+//	  ::GetLocalTime(&sysTime);
+//	  TCHAR szBuffer[256];
+//	  sprintf(szBuffer,
+//		  "%04d.%02d.%02d %02d:%02d:%02d:%03d [OutByte]DeviceNo=%d, Address=%d\n",
+//		  sysTime.wYear, sysTime.wMonth, sysTime.wDay,
+//		  sysTime.wHour, sysTime.wMinute, sysTime.wSecond, sysTime.wMilliseconds,
+//		  DeviceNo, Address);
+//	  _RPTF0(_CRT_WARN, szBuffer);
+
+	SetIOError = 0;
+	buff.PortNumber = ( ULONG )((( DeviceNo << 12 ) & 0x0000F000 ) | ( Address & 0x00FF ));
+	buff.CharData = Data;
+	dtlen = offsetof( PortBuffData, CharData ) + sizeof( buff.CharData );
+
+	rc = DeviceIoControl(	hDriver,
+							( DWORD )IO_WRITE_UCHAR,
+							&buff,
+							dtlen,
+							NULL,
+							0,
+							&rclen,
+							NULL
+							);
+
+/* modified 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+//	if ( rc )
+//		return 0;
+/* modified 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ----------              */
+	if ( rc ) {
+		::ReleaseMutex(g_hmutexPORT_NT);
+		return 0;
+	}
+/* modified 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+	else{
+		sprintf( msg, "Ioctl Failed with code=%ld", GetLastError());
+		PortErrorMsg( msg, "Port_nt.dll OutByte Error" );
+	}
+
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+	::ReleaseMutex(g_hmutexPORT_NT);
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+	return -1;
+}
+
+int OutWord( ULONG DeviceNo, USHORT Address, USHORT Data )
+{
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+	::WaitForSingleObject(g_hmutexPORT_NT, INFINITE);
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+ULONG rclen, dtlen;
+PortBuffData buff;
+char msg[1024];
+BOOL rc;
+
+	SetIOError = 0;
+	buff.PortNumber = ( ULONG )((( DeviceNo << 12 ) & 0x0000F000 ) | ( Address & 0x00FF ));
+	buff.ShortData = Data;
+	dtlen = offsetof( PortBuffData, ShortData ) + sizeof( buff.ShortData );
+
+	rc = DeviceIoControl(	hDriver,
+							( DWORD )IO_WRITE_UCHAR,
+							&buff,
+							dtlen,
+							NULL,
+							0,
+							&rclen,
+							NULL
+							);
+
+/* modified 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+//	if ( rc )
+//		return 0;
+/* modified 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ----------              */
+	if ( rc ) {
+		::ReleaseMutex(g_hmutexPORT_NT);
+		return 0;
+	}
+/* modified 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+	else{
+		sprintf( msg, "Ioctl Failed with code=%ld", GetLastError());
+		PortErrorMsg( msg, "Port_nt.dll OutWord Error" );
+	}
+
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+	::ReleaseMutex(g_hmutexPORT_NT);
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+	return -1;
+}
+
+long GetNtPtaError()
+{
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+	::WaitForSingleObject(g_hmutexPORT_NT, INFINITE);
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+long rc;
+
+	rc = ( long )GetLastError();
+	switch ( rc ){
+	case ERROR_INVALID_FUNCTION:
+		rc = -12;
+		break;
+	case ERROR_INVALID_PARAMETER:
+		rc = -2;
+		break;
+	case ERROR_NOACCESS:
+		rc = -3;
+		break;
+	case NO_ERROR:
+		rc = SetIOError;
+		break;
+	}
+	SetIOError = 0;
+
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+	::ReleaseMutex(g_hmutexPORT_NT);
+/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+	return rc;
+}

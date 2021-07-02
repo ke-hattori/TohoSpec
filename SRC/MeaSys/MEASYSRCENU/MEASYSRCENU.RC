@@ -1,0 +1,130 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "..\resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Japanese resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "..\\resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Japanese resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING01            "Cannot Use %s"
+    IDS_STRING02            "Comm WriteFile Error"
+    IDS_STRING03            "Comm ReadFile Error"
+    IDS_STRING04            "Invalid Response Error"
+    IDS_STRING11            "Q5 Error : NO Head"
+    IDS_STRING12            "Q5 Error : Dip-Sw Miss"
+    IDS_STRING13            "Q5 Error"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING21            "Create XMP ADAP Process failed."
+    IDS_STRING22            "XMP WVASE32 Response Timeout Error"
+    IDS_STRING23            "XMP DDE Communication Timeout Error"
+    IDS_STRING24            "XMP SCOUT Response Timeout Error"
+    IDS_STRING31            "SE WVASE32 Process failed."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING32            "SE WVASE32 Response Timeout Error"
+    IDS_STRING33            "SE WVASE32 Communication Established Error"
+    IDS_STRING34            "SE WVASE32 Initialization Error"
+    IDS_STRING41            "CompleteEASE Communication Established Error"
+    IDS_STRING42            "CompleteEASE Initialization Error"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING51            "CompleteEASE Async Port Communication Established Error"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CAUSE_CODE          "CauseCode:%d\n%s"
+    IDS_FILE_NOT_FOUND      " FileNotFound"
+    IDS_BAD_PATH            " BadPath"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_RS_TITLE            "MeaSys Resist"
+    IDS_RS_INITFAILCONT     "Failed to initialize Resist unit.\nConfirm below.\n  1.Resist Unit must Power On. \n  2.Connection switch of Resist Unit must set remote mode. "
+    IDS_CTA_TITLE           "MeaSys CTA"
+    IDS_CTA_INITFAILCONT    "Failed to initialize ContactAngle unit.\nConfirm below.\n  1.Software (FAMAS) of CTA PC must start. \n  2.Reactivate the CTA PC for a remote reconnection if software (FAMAS) of CTA PC is starting. "
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

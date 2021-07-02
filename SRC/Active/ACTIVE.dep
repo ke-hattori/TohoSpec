@@ -1,0 +1,5 @@
+# Microsoft Developer Studio Generated Dependency File, included by ACTIVE.mak
+
+.\ACTIVE.CPP : \
+	"..\..\inc\active.hxx"\
+	

@@ -1,0 +1,125 @@
+#define WIN32_LEAN_AND_MEAN
+
+#pragma warning (disable:4786)
+
+#define _NEXINIDLL_
+
+#include <windows.h>
+#define __NEXTRA_INTERNAL
+#include <nexmisc.hxx>
+#include <nexini.hxx>
+
+using namespace std;
+using namespace nano;
+
+BEGIN_PROFILE_MEMBER_MAP(NEXINIPARAMS, NexIniTable)
+	PROFILE_MEMBER_ENTRY("System",			"Language", 					'W',	"0",		System.Language)
+	PROFILE_MEMBER_ENTRY("",				"Type", 						'B',	"0",		System.Type)
+	PROFILE_MEMBER_ENTRY("",				"Mode", 						'B',	"1",		System.Mode)
+	PROFILE_MEMBER_ENTRY("",				"Vacuum Feedback",				'b',	"TRUE", 	System.VacuumFeedback)
+	PROFILE_MEMBER_ENTRY("",				"Confirm Operator", 			'b',	"TRUE", 	System.ConfirmOperator)
+	PROFILE_MEMBER_ENTRY("",				"Robot Arm Interlock",			'b',	"TRUE", 	System.RobotArmInterlock)
+	PROFILE_MEMBER_ENTRY("",				"Show", 						'I',	"0",		System.CmdShow)
+// matsuhisa 2011.11.12 added >>
+	PROFILE_MEMBER_ENTRY("",				"FirstValve", 					'I',	"0",		System.FirstValve)
+// matsuhisa 2011.11.12 added <<<
+	PROFILE_MEMBER_ENTRY("Dio", 			"Driver No",					'W',	"2",		Dio.driver)
+	PROFILE_MEMBER_ENTRY("",				"Group No", 					'W',	"1",		Dio.group)
+	PROFILE_MEMBER_ENTRY("",				"Port Num", 					'W',	"8",		Dio.port)
+	PROFILE_MEMBER_ENTRY("Sio", 			"Axis 1 Port No",				'W',	"3",		Sio[0].port)
+	PROFILE_MEMBER_ENTRY("",				"Axis 1 Baud Rate", 			'W',	"9600", 	Sio[0].baudrate)
+	PROFILE_MEMBER_ENTRY("",				"Axis 2 Port No",				'W',	"4",		Sio[1].port)
+	PROFILE_MEMBER_ENTRY("",				"Axis 2 Baud Rate", 			'W',	"9600", 	Sio[1].baudrate)
+	PROFILE_MEMBER_ENTRY("Timeouts",		"Homing",						'D',	"30000",	MotionTimeouts.Homing)
+	PROFILE_MEMBER_ENTRY("",				"Origin Return",				'D',	"30000",	MotionTimeouts.Origin)
+	PROFILE_MEMBER_ENTRY("",				"Teach Location",				'D',	"30000",	MotionTimeouts.TeachLoc)
+	PROFILE_MEMBER_ENTRY("",				"Work Guide Open/Close",		'D',	"30000",	MotionTimeouts.WorkGuide)
+	PROFILE_MEMBER_ENTRY("",				"Vacuum On",					'D',	"30000",	MotionTimeouts.VacuumOn)
+	PROFILE_MEMBER_ENTRY("",				"Vacuum Off",					'D',	"30000",	MotionTimeouts.VacuumOff)
+	PROFILE_MEMBER_ENTRY("",				"Shutter Open", 				'D',	"30000",	MotionTimeouts.ShutterOpen)
+	PROFILE_MEMBER_ENTRY("",				"Shutter Close",				'D',	"30000",	MotionTimeouts.ShutterClose)
+	PROFILE_MEMBER_ENTRY("Delay",			"Work Guide Open",				'D',	"30000",	MotionDelay.WorkGuideOpen)
+	PROFILE_MEMBER_ENTRY("",				"Work Guide Close", 			'D',	"30000",	MotionDelay.WorkGuideClose)
+	PROFILE_MEMBER_ENTRY("",				"Vacuum Destruct",				'D',	"30000",	MotionDelay.VacuumDestruct)
+	PROFILE_MEMBER_ENTRY("",				"Servo On", 					'D',	"500",		MotionDelay.ServoOn)
+	PROFILE_MEMBER_ENTRY("ADAX",			"H/W Simulation",				'B',	"0",		ADAX.HardwareSimulation)
+	PROFILE_MEMBER_ENTRY("",				"Resolution",					'D',	"8192", 	ADAX.Resolution)
+	PROFILE_MEMBER_ENTRY("",				"T1",							'D',	"3000", 	ADAX.TimeoutsT1)
+	PROFILE_MEMBER_ENTRY("",				"T2",							'D',	"3000", 	ADAX.TimeoutsT2)
+	PROFILE_MEMBER_ENTRY("",				"T3",							'D',	"3000", 	ADAX.TimeoutsT3)
+	PROFILE_MEMBER_ENTRY("Shutter", 		"Cylinder", 					'B',	"2",		Shutter.Cylinder)
+	PROFILE_MEMBER_ENTRY("",				"Initial Close",				'b',	"FALSE",	Shutter.InitialClose)
+	PROFILE_MEMBER_ENTRY("Robo Cylinder",	"Initial Pos No",				'B',	"1",		RoboCylinder.InitialPosNo)
+	PROFILE_MEMBER_ENTRY("",				"Servo On", 					'D',	"30000",	RoboCylinder.Timeouts.ServoOn)
+	PROFILE_MEMBER_ENTRY("",				"Homing",						'D',	"30000",	RoboCylinder.Timeouts.Homing)
+	PROFILE_MEMBER_ENTRY("",				"Teach Position",				'D',	"30000",	RoboCylinder.Timeouts.TeachPos)
+	PROFILE_MEMBER_ENTRY("Options", 		"Shutter",						'b',	"TRUE", 	Options.Shutter)
+	PROFILE_MEMBER_ENTRY("",				"Air Float",					'b',	"TRUE", 	Options.AirFloat)
+	PROFILE_MEMBER_ENTRY("",				"Robo Cylinder",				'b',	"FALSE",	Options.RoboCylinder)
+	PROFILE_MEMBER_ENTRY("Glass Exist", 	"Count",						'I',	"1", 		GlassExist.ExistCount)
+END_PROFILE_MEBER_MAP()
+
+TProfileData<NEXINIPARAMS> profile(NexIniTable, NEXINI_INIFILE_NAME, FALSE);
+/* added 2009.07.07 hmenjo dll 相対パス対応 nexini.dll ---------- { ---------- */
+TCHAR g_tszProcDir[_MAX_PATH] = _T("");		/* 呼出しプロセスのディレクトリ('\'付き)*/
+/* added 2009.07.07 hmenjo dll 相対パス対応 nexini.dll ---------- } ---------- */
+
+// ===========================================================================
+// NEXADAX local helper function declarations
+// ===========================================================================
+
+BOOL APIENTRY DllMain( HANDLE hModule,
+					   DWORD  ul_reason_for_call,
+					   LPVOID lpReserved
+					 )
+{
+	switch ( ul_reason_for_call ) {
+	case DLL_PROCESS_ATTACH:
+/* added 2009.07.07 hmenjo dll 相対パス対応 nexini.dll ---------- { ---------- */
+		if (0 == _tcscmp(g_tszProcDir, _T(""))) {
+			TCHAR l_tszProcessFName[_MAX_PATH];	/* 呼出しプロセスのフルパス*/
+			::GetModuleFileName(0, l_tszProcessFName, sizeof(l_tszProcessFName));
+			TCHAR l_tszDrive[_MAX_DRIVE];
+			TCHAR l_tszDir[_MAX_DIR];
+			_tsplitpath(l_tszProcessFName, l_tszDrive, l_tszDir, 0, 0);
+			_stprintf(g_tszProcDir, _T("%s%s"), l_tszDrive, l_tszDir);
+			if (0 != _tcslen(g_tszProcDir)) {
+				if (_T('\\') != g_tszProcDir[_tcslen(g_tszProcDir) - 1]) {
+					_tcscat(g_tszProcDir, _T("\\"));
+				}
+			}
+		}
+		TCHAR l_tszIniPath[_MAX_PATH];
+		_stprintf(l_tszIniPath, _T("%s") _T(NEXINI_INIFILE_NAME), g_tszProcDir);
+		profile.SetFilePath(l_tszIniPath);
+		profile.Get();
+/* added 2009.07.07 hmenjo dll 相対パス対応 nexini.dll ---------- } ---------- */
+		break;
+	case DLL_THREAD_ATTACH:
+		break;
+	case DLL_THREAD_DETACH:
+		break;
+	case DLL_PROCESS_DETACH:
+		break;
+	}
+	return TRUE;
+}
+
+// ---------------------------------------------------------------------------
+// nexiniGetParameter
+// ---------------------------------------------------------------------------
+NEXINIAPI void __stdcall nexiniGetParameter(PNEXINIPARAMS pParams)
+{
+	basic_interface::copymemory(pParams, &profile);
+}
+
+// ---------------------------------------------------------------------------
+// nexiniSetParameter
+// ---------------------------------------------------------------------------
+NEXINIAPI void __stdcall nexiniSetParameter(PNEXINIPARAMS pParams)
+{
+	if ( pParams != NULL )
+		basic_interface::copymemory(&profile, pParams);
+
+	profile.Write();
+}

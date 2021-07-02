@@ -1,0 +1,16 @@
+[StageProgram]
+NumScans=10
+[Point]
+1:1,Pattern1-1,0,Pattern1-2,1
+2:0,Pattern2-1,1,Pattern2-2,2
+3:1,Pattern3-1,2,Pattern3-2,3
+4:0,Pattern4-1,0,Pattern4-2,0
+5:1,Pattern5-1,0,Pattern5-2,0
+6:0,Pattern6-1,0,Pattern6-2,0
+7:1,Pattern7-1,0,Pattern7-2,0
+8:0,Pattern8-1,0,Pattern8-2,0
+9:1,Pattern9-1,0,Pattern9-2,0
+10:0,Pattern10-1,0,Pattern10-2,0
+
+注）上記内容は下記のフォーマットになっています
+ポイント番号：TRUE/FALSE,パターン名１,パターン名２

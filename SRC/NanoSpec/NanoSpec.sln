@@ -1,0 +1,10 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{059D6162-CD51-11D0-AE1F-00A0C90FFFC3}") = "NanoSpec", "NanoSpec.dsp", "{CDA8A0D5-05D8-4B84-95E8-4F90A0888404}"
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

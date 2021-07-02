@@ -1,0 +1,1470 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+#include <nexrc.hxx>
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIO_TYPEA_DIALOG DIALOGEX 0, 0, 437, 399
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "NexI/O Monitor"
+FONT 8, "Times New Roman", 0, 0, 0x1
+BEGIN
+    CONTROL         "Emergency Stop",IDC_CN1_IN000,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,15,100,10
+    CONTROL         "Door Interlock",IDC_CN1_IN001,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,25,100,10
+    CONTROL         "Eq Power",IDC_CN1_IN002,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,35,100,10
+    CONTROL         "Safety Plug ON",IDC_CN1_IN003,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,44,100,10
+    CONTROL         "Hepa Power",IDC_CN1_IN004,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,60,100,10
+    CONTROL         "",IDC_CN1_IN005,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,70,100,10
+    CONTROL         "Air Pressure Level Low",IDC_CN1_IN006,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,80,100,10
+    CONTROL         "MOVO2 Alarm",IDC_CN1_IN007,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,90,100,10
+    CONTROL         "",IDC_CN1_IN010,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,105,100,10
+    CONTROL         "Maintenance SW",IDC_CN1_IN011,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,115,100,10
+    CONTROL         "Eng. Maintenance SW",IDC_CN1_IN012,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,125,100,10
+    CONTROL         "",IDC_CN1_IN013,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,135,100,10
+    CONTROL         "",IDC_CN1_IN014,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,150,100,10
+    CONTROL         "",IDC_CN1_IN015,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,160,100,10
+    CONTROL         "Stress Scan Start Position X",IDC_CN1_IN016,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,170,100,10
+    CONTROL         "Stress Scan End Position X",IDC_CN1_IN017,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,180,100,10
+    CONTROL         "Shutter Open",IDC_CN1_IN020,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,195,100,10
+    CONTROL         "Shutter Top1",IDC_CN1_IN021,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,205,100,10
+    CONTROL         "Shutter Bottom1",IDC_CN1_IN022,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,215,100,10
+    CONTROL         "Shutter Top2",IDC_CN1_IN023,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,225,100,10
+    CONTROL         "Shutter Bottom2",IDC_CN1_IN024,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,240,100,10
+    CONTROL         "Robot Arm",IDC_CN1_IN025,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,250,100,10
+    CONTROL         "",IDC_CN1_IN026,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,260,100,10
+    CONTROL         "Stress Unit Alarm",IDC_CN1_IN027,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,270,100,10
+    CONTROL         "Vacuum Pressure1",IDC_CN1_IN030,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,285,100,10
+    CONTROL         "Vacuum Pressure2",IDC_CN1_IN031,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,295,100,10
+    CONTROL         "",IDC_CN1_IN032,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,305,100,10
+    CONTROL         "Glass Existence1",IDC_CN1_IN033,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,315,100,10
+    CONTROL         "Glass Existence2",IDC_CN1_IN034,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,330,100,10
+    CONTROL         "Load Position X",IDC_CN1_IN035,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,340,100,10
+    CONTROL         "Load Position Y",IDC_CN1_IN036,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,350,100,10
+    CONTROL         "Retract Position Z",IDC_CN1_IN037,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,360,100,10
+    CONTROL         "Servo1 ON",IDC_CN1_IN040,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,110,15,100,10
+    CONTROL         "Servo1 Ready",IDC_CN1_IN041,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,110,25,100,10
+    CONTROL         "Servo1 Alarm",IDC_CN1_IN042,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,110,35,100,10
+    CONTROL         "Servo1 Position Comp",IDC_CN1_IN043,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,45,100,10
+    CONTROL         "Servo1 Upper Pos",IDC_CN1_IN044,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,60,100,10
+    CONTROL         "Servo1 Alignment Pos",IDC_CN1_IN045,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,70,100,10
+    CONTROL         "Servo1 Lower Pos",IDC_CN1_IN046,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,80,100,10
+    CONTROL         "Pin1 Down Pos",IDC_CN1_IN047,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,90,100,10
+    CONTROL         "Servo2 ON",IDC_CN1_IN050,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,110,105,100,10
+    CONTROL         "Servo2 Ready",IDC_CN1_IN051,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,110,115,100,10
+    CONTROL         "Servo2 Alarm",IDC_CN1_IN052,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,110,125,100,10
+    CONTROL         "Servo2 Position Comp",IDC_CN1_IN053,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,135,100,10
+    CONTROL         "Servo2 Upper Pos",IDC_CN1_IN054,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,150,100,10
+    CONTROL         "Servo2 Alignment Pos",IDC_CN1_IN055,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,160,100,10
+    CONTROL         "Servo2 Lower Pos",IDC_CN1_IN056,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,170,100,10
+    CONTROL         "Pin2 Down Pos",IDC_CN1_IN057,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,180,100,10
+    CONTROL         "Work Guide1 FWD",IDC_CN1_IN060,"Button",
+                    BS_AUTORADIOBUTTON,110,195,100,10
+    CONTROL         "Work Guide1 REV",IDC_CN1_IN061,"Button",
+                    BS_AUTORADIOBUTTON,110,205,100,10
+    CONTROL         "Work Guide2 FWD",IDC_CN1_IN062,"Button",
+                    BS_AUTORADIOBUTTON,110,215,100,10
+    CONTROL         "Work Guide2 REV",IDC_CN1_IN063,"Button",
+                    BS_AUTORADIOBUTTON,110,225,100,10
+    CONTROL         "Work Guide3 FWD",IDC_CN1_IN064,"Button",
+                    BS_AUTORADIOBUTTON,110,240,100,10
+    CONTROL         "Work Guide3 REV",IDC_CN1_IN065,"Button",
+                    BS_AUTORADIOBUTTON,110,250,100,10
+    CONTROL         "Work Guide4 FWD",IDC_CN1_IN066,"Button",
+                    BS_AUTORADIOBUTTON,110,260,100,10
+    CONTROL         "Work Guide4 REV",IDC_CN1_IN067,"Button",
+                    BS_AUTORADIOBUTTON,110,270,100,10
+    CONTROL         "Work Guide5 FWD",IDC_CN1_IN070,"Button",
+                    BS_AUTORADIOBUTTON,110,285,100,10
+    CONTROL         "Work Guide5 REV",IDC_CN1_IN071,"Button",
+                    BS_AUTORADIOBUTTON,110,295,100,10
+    CONTROL         "Work Guide6 FWD",IDC_CN1_IN072,"Button",
+                    BS_AUTORADIOBUTTON,110,305,100,10
+    CONTROL         "Work Guide6 REV",IDC_CN1_IN073,"Button",
+                    BS_AUTORADIOBUTTON,110,315,100,10
+    CONTROL         "Work Guide7 FWD",IDC_CN1_IN074,"Button",
+                    BS_AUTORADIOBUTTON,110,330,100,10
+    CONTROL         "Work Guide7 REV",IDC_CN1_IN075,"Button",
+                    BS_AUTORADIOBUTTON,110,340,100,10
+    CONTROL         "Work Guide8 FWD",IDC_CN1_IN076,"Button",
+                    BS_AUTORADIOBUTTON,110,350,100,10
+    CONTROL         "Work Guide8 REV",IDC_CN1_IN077,"Button",
+                    BS_AUTORADIOBUTTON,110,360,100,10
+    CONTROL         "Equipment Status Run",IDC_CN1_OUT000,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,230,15,100,10
+    CONTROL         "Equipment power OFF",IDC_CN1_OUT001,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,230,25,100,10
+    CONTROL         "",IDC_CN1_OUT002,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,230,35,100,10
+    CONTROL         "",IDC_CN1_OUT003,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,230,45,100,10
+    CONTROL         "",IDC_CN1_OUT004,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,230,60,100,10
+    CONTROL         "",IDC_CN1_OUT005,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,230,70,100,10
+    CONTROL         "",IDC_CN1_OUT006,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,230,80,100,10
+    CONTROL         "",IDC_CN1_OUT007,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,230,90,100,10
+    CONTROL         "Vacuum1 ON",IDC_CN1_OUT010,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,230,105,100,10
+    CONTROL         "Vacuum2 ON",IDC_CN1_OUT011,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,230,115,100,10
+    CONTROL         "Vacuum Destruct1 ON",IDC_CN1_OUT012,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,230,125,100,10
+    CONTROL         "Vacuum Destruct2 ON",IDC_CN1_OUT013,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,230,135,100,10
+    CONTROL         "Air Float1 ON",IDC_CN1_OUT014,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,230,150,100,10
+    CONTROL         "Air Float2 ON",IDC_CN1_OUT015,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,230,160,100,10
+    CONTROL         "",IDC_CN1_OUT016,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,230,170,100,10
+    CONTROL         "",IDC_CN1_OUT017,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,230,180,100,10
+    CONTROL         "Shutter Open",IDC_CN1_OUT020,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,230,195,100,10
+    CONTROL         "Shutter Close",IDC_CN1_OUT021,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,230,205,100,10
+    CONTROL         "",IDC_CN1_OUT022,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,230,215,100,10
+    CONTROL         "",IDC_CN1_OUT023,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,230,225,100,10
+    CONTROL         "",IDC_CN1_OUT024,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,230,240,100,10
+    CONTROL         "",IDC_CN1_OUT025,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,230,250,100,10
+    CONTROL         "",IDC_CN1_OUT026,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,230,260,100,10
+    CONTROL         "",IDC_CN1_OUT027,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,230,270,100,10
+    CONTROL         "Vacuum1 ON",IDC_CN1_OUT030,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,230,285,100,10
+    CONTROL         "Vacuum2 ON",IDC_CN1_OUT031,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,230,295,100,10
+    CONTROL         "Vacuum Destruct1 ON",IDC_CN1_OUT032,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,230,305,100,10
+    CONTROL         "Vacuum Destruct2 ON",IDC_CN1_OUT033,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,230,315,100,10
+    CONTROL         "Air Float1 ON",IDC_CN1_OUT034,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,230,330,100,10
+    CONTROL         "Air Float2 ON",IDC_CN1_OUT035,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,230,340,100,10
+    CONTROL         "",IDC_CN1_OUT036,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,230,350,100,10
+    CONTROL         "",IDC_CN1_OUT037,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,230,360,100,10
+    CONTROL         "Servo1 ON",IDC_CN1_OUT040,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,330,15,100,10
+    CONTROL         "Servo1 Alarm Reset",IDC_CN1_OUT041,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,330,25,100,10
+    CONTROL         "Servo1 Brake",IDC_CN1_OUT042,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,330,35,100,10
+    CONTROL         "",IDC_CN1_OUT043,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,330,45,100,10
+    CONTROL         "",IDC_CN1_OUT044,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,330,60,100,10
+    CONTROL         "",IDC_CN1_OUT045,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,330,70,100,10
+    CONTROL         "",IDC_CN1_OUT046,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,330,80,100,10
+    CONTROL         "",IDC_CN1_OUT047,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,330,90,100,10
+    CONTROL         "Servo2 ON",IDC_CN1_OUT050,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,330,105,100,10
+    CONTROL         "Servo2 Alarm Reset",IDC_CN1_OUT051,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,330,115,100,10
+    CONTROL         "Servo2 Brake",IDC_CN1_OUT052,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,330,125,100,10
+    CONTROL         "",IDC_CN1_OUT053,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,330,135,100,10
+    CONTROL         "",IDC_CN1_OUT054,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,330,150,100,10
+    CONTROL         "",IDC_CN1_OUT055,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,330,160,100,10
+    CONTROL         "",IDC_CN1_OUT056,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,330,170,100,10
+    CONTROL         "",IDC_CN1_OUT057,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,330,180,100,10
+    CONTROL         "Work Guide1 FWD",IDC_CN1_OUT060,"Button",
+                    BS_AUTORADIOBUTTON,330,195,100,10
+    CONTROL         "Work Guide1 REV",IDC_CN1_OUT061,"Button",
+                    BS_AUTORADIOBUTTON,330,205,100,10
+    CONTROL         "Work Guide2 FWD",IDC_CN1_OUT062,"Button",
+                    BS_AUTORADIOBUTTON,330,215,100,10
+    CONTROL         "Work Guide2 REV",IDC_CN1_OUT063,"Button",
+                    BS_AUTORADIOBUTTON,330,225,100,10
+    CONTROL         "",IDC_CN1_OUT064,"Button",BS_AUTORADIOBUTTON,330,240,
+                    100,10
+    CONTROL         "",IDC_CN1_OUT065,"Button",BS_AUTORADIOBUTTON,330,250,
+                    100,10
+    CONTROL         "",IDC_CN1_OUT066,"Button",BS_AUTORADIOBUTTON,330,260,
+                    100,10
+    CONTROL         "",IDC_CN1_OUT067,"Button",BS_AUTORADIOBUTTON,330,270,
+                    100,10
+    CONTROL         "Stress Measurement Triger",IDC_CN1_OUT070,"Button",
+                    BS_AUTORADIOBUTTON,330,285,100,10
+    CONTROL         "",IDC_CN1_OUT071,"Button",BS_AUTORADIOBUTTON,330,295,
+                    100,10
+    CONTROL         "",IDC_CN1_OUT072,"Button",BS_AUTORADIOBUTTON,330,305,
+                    100,10
+    CONTROL         "",IDC_CN1_OUT073,"Button",BS_AUTORADIOBUTTON,330,315,
+                    100,10
+    CONTROL         "",IDC_CN1_OUT074,"Button",BS_AUTORADIOBUTTON,330,330,
+                    100,10
+    CONTROL         "",IDC_CN1_OUT075,"Button",BS_AUTORADIOBUTTON,330,340,
+                    100,10
+    CONTROL         "",IDC_CN1_OUT076,"Button",BS_AUTORADIOBUTTON,330,350,
+                    100,10
+    CONTROL         "",IDC_CN1_OUT077,"Button",BS_AUTORADIOBUTTON,330,360,
+                    100,10
+    DEFPUSHBUTTON   "OK",IDOK,382,380,50,15,0,WS_EX_CLIENTEDGE
+    CONTROL         "Manual Input",IDC_MANUAL_INPUT,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,5,380,65,10
+    CONTROL         "Manual Output",IDC_MANUAL_OUTPUT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,75,380,65,10
+    PUSHBUTTON      "Cancel",IDCANCEL,0,0,6,6,NOT WS_VISIBLE,
+                    WS_EX_CLIENTEDGE
+    GROUPBOX        "INPUT",IDC_STATIC,5,5,210,370
+    GROUPBOX        "OUTPUT",IDC_STATIC,222,5,210,370
+END
+
+IDD_DIO_TYPEB_DIALOG DIALOGEX 0, 0, 507, 399
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "NexI/O Monitor"
+FONT 8, "Times New Roman", 0, 0, 0x1
+BEGIN
+    CONTROL         "Emergency Stop",IDC_CN1_IN000,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,15,115,10
+    CONTROL         "Door Open",IDC_CN1_IN001,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,24,115,10
+    CONTROL         "Eq Power",IDC_CN1_IN002,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,35,115,10
+    CONTROL         "",IDC_CN1_IN003,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,44,115,10
+    CONTROL         "",IDC_CN1_IN004,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,59,115,10
+    CONTROL         "",IDC_CN1_IN005,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,69,115,10
+    CONTROL         "CDA Pressure Low",IDC_CN1_IN006,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,79,115,10
+    CONTROL         "",IDC_CN1_IN007,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,89,115,10
+    CONTROL         "",IDC_CN1_IN010,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,104,115,10
+    CONTROL         "Maintenance SW",IDC_CN1_IN011,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,115,115,10
+    CONTROL         "Eng. Maintenance SW",IDC_CN1_IN012,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,124,115,10
+    CONTROL         "",IDC_CN1_IN013,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,135,115,10
+    CONTROL         "",IDC_CN1_IN014,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,149,115,10
+    CONTROL         "",IDC_CN1_IN015,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,159,115,10
+    CONTROL         "",IDC_CN1_IN016,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,169,115,10
+    CONTROL         "",IDC_CN1_IN017,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,179,115,10
+    CONTROL         "",IDC_CN1_IN020,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,194,115,10
+    CONTROL         "",IDC_CN1_IN021,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,204,115,10
+    CONTROL         "",IDC_CN1_IN022,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,214,115,10
+    CONTROL         "",IDC_CN1_IN023,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,224,115,10
+    CONTROL         "",IDC_CN1_IN024,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,239,115,10
+    CONTROL         "Robot Arm",IDC_CN1_IN025,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,249,115,10
+    CONTROL         "",IDC_CN1_IN026,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,259,115,10
+    CONTROL         "",IDC_CN1_IN027,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,269,115,10
+    CONTROL         "Vacuum Pressure",IDC_CN1_IN030,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,284,115,10
+    CONTROL         "",IDC_CN1_IN031,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,294,115,10
+    CONTROL         "",IDC_CN1_IN032,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,304,115,10
+    CONTROL         "Glass Existence1",IDC_CN1_IN033,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,314,115,10
+    CONTROL         "Glass Existence2",IDC_CN1_IN034,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,329,115,10
+    CONTROL         "Load Position X",IDC_CN1_IN035,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,339,115,10
+    CONTROL         "Load Position Y",IDC_CN1_IN036,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,349,115,10
+    CONTROL         "",IDC_CN1_IN037,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,359,115,10
+    CONTROL         "Lifter Cylinder1 Upper Position",IDC_CN1_IN040,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,130,15,115,10
+    CONTROL         "Lifter Cylinder1 Lower Position",IDC_CN1_IN041,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,130,25,115,10
+    CONTROL         "Lifter Cylinder2 Upper Position",IDC_CN1_IN042,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,130,35,115,10
+    CONTROL         "Lifter Cylinder2 Lower Position",IDC_CN1_IN043,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,130,45,115,10
+    CONTROL         "",IDC_CN1_IN044,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,130,60,115,10
+    CONTROL         "",IDC_CN1_IN045,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,130,70,115,10
+    CONTROL         "",IDC_CN1_IN046,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,130,80,115,10
+    CONTROL         "",IDC_CN1_IN047,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,130,90,115,10
+    CONTROL         "",IDC_CN1_IN050,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,130,105,115,10
+    CONTROL         "",IDC_CN1_IN051,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,130,115,115,10
+    CONTROL         "",IDC_CN1_IN052,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,130,125,115,10
+    CONTROL         "",IDC_CN1_IN053,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,130,135,115,10
+    CONTROL         "",IDC_CN1_IN054,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,130,150,115,10
+    CONTROL         "",IDC_CN1_IN055,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,130,160,115,10
+    CONTROL         "",IDC_CN1_IN056,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,130,170,115,10
+    CONTROL         "",IDC_CN1_IN057,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,130,180,115,10
+    CONTROL         "Work Guide1 FWD",IDC_CN1_IN060,"Button",
+                    BS_AUTORADIOBUTTON,130,195,115,10
+    CONTROL         "Work Guide1 REV",IDC_CN1_IN061,"Button",
+                    BS_AUTORADIOBUTTON,130,205,115,10
+    CONTROL         "Work Guide2 FWD",IDC_CN1_IN062,"Button",
+                    BS_AUTORADIOBUTTON,130,215,115,10
+    CONTROL         "Work Guide2 REV",IDC_CN1_IN063,"Button",
+                    BS_AUTORADIOBUTTON,130,225,115,10
+    CONTROL         "Work Guide3 FWD",IDC_CN1_IN064,"Button",
+                    BS_AUTORADIOBUTTON,130,240,115,10
+    CONTROL         "Work Guide3 REV",IDC_CN1_IN065,"Button",
+                    BS_AUTORADIOBUTTON,130,250,115,10
+    CONTROL         "Work Guide4 FWD",IDC_CN1_IN066,"Button",
+                    BS_AUTORADIOBUTTON,130,260,115,10
+    CONTROL         "Work Guide4 REV",IDC_CN1_IN067,"Button",
+                    BS_AUTORADIOBUTTON,130,270,115,10
+    CONTROL         "Work Guide5 FWD",IDC_CN1_IN070,"Button",
+                    BS_AUTORADIOBUTTON,130,285,115,10
+    CONTROL         "Work Guide5 REV",IDC_CN1_IN071,"Button",
+                    BS_AUTORADIOBUTTON,130,295,115,10
+    CONTROL         "Work Guide6 FWD",IDC_CN1_IN072,"Button",
+                    BS_AUTORADIOBUTTON,130,305,115,10
+    CONTROL         "Work Guide6 REV",IDC_CN1_IN073,"Button",
+                    BS_AUTORADIOBUTTON,130,315,115,10
+    CONTROL         "",IDC_CN1_IN074,"Button",BS_AUTORADIOBUTTON,130,330,115,
+                    10
+    CONTROL         "",IDC_CN1_IN075,"Button",BS_AUTORADIOBUTTON,130,340,115,
+                    10
+    CONTROL         "",IDC_CN1_IN076,"Button",BS_AUTORADIOBUTTON,130,350,115,
+                    10
+    CONTROL         "",IDC_CN1_IN077,"Button",BS_AUTORADIOBUTTON,130,360,115,
+                    10
+    CONTROL         "Eq Unit Moving Status",IDC_CN1_OUT000,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,262,15,115,10
+    CONTROL         "",IDC_CN1_OUT001,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,25,115,10
+    CONTROL         "",IDC_CN1_OUT002,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,36,115,10
+    CONTROL         "",IDC_CN1_OUT003,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,45,115,10
+    CONTROL         "",IDC_CN1_OUT004,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,60,115,10
+    CONTROL         "",IDC_CN1_OUT005,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,70,115,10
+    CONTROL         "",IDC_CN1_OUT006,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,80,115,10
+    CONTROL         "",IDC_CN1_OUT007,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,90,115,10
+    CONTROL         "",IDC_CN1_OUT010,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,105,115,10
+    CONTROL         "",IDC_CN1_OUT011,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,116,115,10
+    CONTROL         "",IDC_CN1_OUT012,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,125,115,10
+    CONTROL         "",IDC_CN1_OUT013,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,136,115,10
+    CONTROL         "",IDC_CN1_OUT014,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,150,115,10
+    CONTROL         "",IDC_CN1_OUT015,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,160,115,10
+    CONTROL         "",IDC_CN1_OUT016,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,170,115,10
+    CONTROL         "",IDC_CN1_OUT017,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,180,115,10
+    CONTROL         "",IDC_CN1_OUT020,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,195,115,10
+    CONTROL         "",IDC_CN1_OUT021,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,205,115,10
+    CONTROL         "",IDC_CN1_OUT022,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,216,115,10
+    CONTROL         "",IDC_CN1_OUT023,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,225,115,10
+    CONTROL         "",IDC_CN1_OUT024,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,240,115,10
+    CONTROL         "",IDC_CN1_OUT025,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,250,115,10
+    CONTROL         "",IDC_CN1_OUT026,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,260,115,10
+    CONTROL         "",IDC_CN1_OUT027,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,270,115,10
+    CONTROL         "Vacuum",IDC_CN1_OUT030,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,285,115,10
+    CONTROL         "",IDC_CN1_OUT031,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,296,115,10
+    CONTROL         "Vacuum Destruction",IDC_CN1_OUT032,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,262,305,115,10
+    CONTROL         "",IDC_CN1_OUT033,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,316,115,10
+    CONTROL         "",IDC_CN1_OUT034,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,330,115,10
+    CONTROL         "",IDC_CN1_OUT035,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,340,115,10
+    CONTROL         "",IDC_CN1_OUT036,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,350,115,10
+    CONTROL         "",IDC_CN1_OUT037,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,262,360,115,10
+    CONTROL         "Lifter Cylinder1 Up",IDC_CN1_OUT040,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,382,15,115,10
+    CONTROL         "Lifter Cylinder1 Down",IDC_CN1_OUT041,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,382,25,115,10
+    CONTROL         "Lifter Cylinder2 Up",IDC_CN1_OUT042,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,382,35,115,10
+    CONTROL         "Lifter Cylinder1 Down",IDC_CN1_OUT043,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,382,45,115,10
+    CONTROL         "",IDC_CN1_OUT044,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,382,60,115,10
+    CONTROL         "",IDC_CN1_OUT045,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,382,70,115,10
+    CONTROL         "",IDC_CN1_OUT046,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,382,80,115,10
+    CONTROL         "",IDC_CN1_OUT047,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,382,90,115,10
+    CONTROL         "",IDC_CN1_OUT050,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,382,105,115,10
+    CONTROL         "",IDC_CN1_OUT051,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,382,115,115,10
+    CONTROL         "",IDC_CN1_OUT052,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,382,125,115,10
+    CONTROL         "",IDC_CN1_OUT053,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,382,135,115,10
+    CONTROL         "",IDC_CN1_OUT054,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,382,150,115,10
+    CONTROL         "",IDC_CN1_OUT055,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,382,160,115,10
+    CONTROL         "",IDC_CN1_OUT056,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,382,170,115,10
+    CONTROL         "",IDC_CN1_OUT057,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,382,180,115,10
+    CONTROL         "Work Guide1 FWD",IDC_CN1_OUT060,"Button",
+                    BS_AUTORADIOBUTTON,382,195,115,10
+    CONTROL         "Work Guide1 REV",IDC_CN1_OUT061,"Button",
+                    BS_AUTORADIOBUTTON,382,205,115,10
+    CONTROL         "Work Guide2 FWD",IDC_CN1_OUT062,"Button",
+                    BS_AUTORADIOBUTTON,382,215,115,10
+    CONTROL         "Work Guide2 REV",IDC_CN1_OUT063,"Button",
+                    BS_AUTORADIOBUTTON,382,225,115,10
+    CONTROL         "",IDC_CN1_OUT064,"Button",BS_AUTORADIOBUTTON,382,240,
+                    115,10
+    CONTROL         "",IDC_CN1_OUT065,"Button",BS_AUTORADIOBUTTON,382,250,
+                    115,10
+    CONTROL         "",IDC_CN1_OUT066,"Button",BS_AUTORADIOBUTTON,382,260,
+                    115,10
+    CONTROL         "",IDC_CN1_OUT067,"Button",BS_AUTORADIOBUTTON,382,270,
+                    115,10
+    CONTROL         "",IDC_CN1_OUT070,"Button",BS_AUTORADIOBUTTON,382,285,
+                    115,10
+    CONTROL         "",IDC_CN1_OUT071,"Button",BS_AUTORADIOBUTTON,382,295,
+                    115,10
+    CONTROL         "",IDC_CN1_OUT072,"Button",BS_AUTORADIOBUTTON,382,305,
+                    115,10
+    CONTROL         "",IDC_CN1_OUT073,"Button",BS_AUTORADIOBUTTON,382,315,
+                    115,10
+    CONTROL         "",IDC_CN1_OUT074,"Button",BS_AUTORADIOBUTTON,382,330,
+                    115,10
+    CONTROL         "",IDC_CN1_OUT075,"Button",BS_AUTORADIOBUTTON,382,340,
+                    115,10
+    CONTROL         "",IDC_CN1_OUT076,"Button",BS_AUTORADIOBUTTON,382,350,
+                    115,10
+    CONTROL         "",IDC_CN1_OUT077,"Button",BS_AUTORADIOBUTTON,382,360,
+                    115,10
+    DEFPUSHBUTTON   "OK",IDOK,450,380,50,15,0,WS_EX_CLIENTEDGE
+    CONTROL         "Manual Input",IDC_MANUAL_INPUT,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,5,380,65,10
+    CONTROL         "Manual Output",IDC_MANUAL_OUTPUT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,75,380,65,10
+    PUSHBUTTON      "Cancel",IDCANCEL,0,0,6,6,NOT WS_VISIBLE,
+                    WS_EX_CLIENTEDGE
+    GROUPBOX        "INPUT",IDC_STATIC,5,5,245,370
+    GROUPBOX        "OUTPUT",IDC_STATIC,255,5,245,370
+END
+
+IDD_PASSWORD_CFG_DIALOG DIALOGEX 0, 0, 222, 93
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Password Configuration"
+FONT 8, "Times New Roman", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_NEW_PASSWORD,115,5,100,12,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_CONFIRM_NEW_PASSWORD,115,25,100,12,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    CONTROL         "Password Enable",IDC_PASSWORD_EANABLE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,10,55,100,9
+    DEFPUSHBUTTON   "OK",IDOK,110,75,50,14,0,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Cancel",IDCANCEL,165,75,50,14,0,WS_EX_CLIENTEDGE
+    LTEXT           "New Password",IDC_STATIC,10,5,100,12,SS_CENTERIMAGE
+    LTEXT           "Confirm New Password",IDC_STATIC,10,25,100,12,
+                    SS_CENTERIMAGE
+END
+
+IDD_PASSWORD_DIALOG DIALOGEX 0, 0, 100, 30
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Password"
+FONT 8, "Times New Roman", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_PASSWORD,0,0,100,14,ES_PASSWORD | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,0,15,50,15,0,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Cancel",IDCANCEL,50,15,50,15,0,WS_EX_CLIENTEDGE
+END
+
+IDD_NEXTRA_DIALOG DIALOGEX 0, 0, 432, 153
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "NextraWindow"
+FONT 8, "Times New Roman", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,0,0,6,6,NOT WS_VISIBLE
+    PUSHBUTTON      "Cancel",IDCANCEL,6,0,6,6,NOT WS_VISIBLE
+    CONTROL         "List1",IDC_ALARM_LIST,"SysListView32",LVS_REPORT | 
+                    LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,15,90,350,46,
+                    WS_EX_CLIENTEDGE
+    GROUPBOX        "Alarm",IDC_STATIC,5,75,420,70
+    PUSHBUTTON      "History",IDC_BUTTON_ALARM_HISTORY,370,90,45,15,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Reset",IDC_BUTTON_ALARM_RESET,370,110,45,15,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "",IDC_BUTTON_TEACH_OPERATION,15,20,11,10,WS_DISABLED
+    GROUPBOX        "Operation",IDC_STATIC,5,5,205,65
+    LTEXT           "Teach Location",IDC_TEACH_OPERATION,35,20,70,8,
+                    WS_DISABLED
+    PUSHBUTTON      "",IDC_BUTTON_MANUAL_OPERATION,15,35,11,10,WS_DISABLED
+    LTEXT           "Manual Operation",IDC_MANUAL_OPERATION,35,35,70,8,
+                    WS_DISABLED
+    GROUPBOX        "Configuration",IDC_STATIC,220,5,205,65
+    PUSHBUTTON      "",IDC_BUTTON_SYSTEM_CONFIGURATION,230,18,11,10
+    LTEXT           "System Configuration",IDC_STATIC,250,20,70,8
+    PUSHBUTTON      "",IDC_BUTTON_CHANGE_PASSWORD,230,35,11,10
+    LTEXT           "Change Password",IDC_STATIC,250,35,70,8
+    PUSHBUTTON      "",IDC_BUTTON_DIO_OPERATION,110,20,11,10
+    LTEXT           "DI/O Monitor",IDC_STATIC,130,20,70,8
+END
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About NEXTRA"
+FONT 8, "Times New Roman"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "NEXTRA Version 1.0",IDC_NEXTRA_VERSION,40,10,119,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright (C) 2009",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_TEACH_LOCATION_DIALOG DIALOGEX 0, 0, 415, 313
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Teach Location"
+FONT 8, "Times New Roman", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,345,295,50,12,0,WS_EX_CLIENTEDGE
+    COMBOBOX        IDC_COMBO_CURRENT_AXIS,50,5,30,50,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Speed",IDC_RADIO_JOG_SPEED,"Button",BS_AUTORADIOBUTTON,
+                    24,140,75,12
+    CONTROL         "Distance",IDC_RADIO_JOG_DISTANCE,"Button",
+                    BS_AUTORADIOBUTTON,24,152,75,12
+    EDITTEXT        IDC_EDIT_JOG_SPEED,109,140,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_JOG_DISTANCE,109,152,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "Fwd",IDC_BUTTON_MOTION_UP,163,127,30,12,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Rev",IDC_BUTTON_MOTION_DOWN,163,139,30,12,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Stop",IDC_BUTTON_MOTION_STOP,163,151,30,12,0,
+                    WS_EX_CLIENTEDGE
+    EDITTEXT        IDC_EDIT_UPPER_POS,109,179,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "Set",IDC_BUTTON_UPPER_POS_SET,163,179,30,12,0,
+                    WS_EX_CLIENTEDGE
+    EDITTEXT        IDC_EDIT_ALIGNMENT_POS,109,191,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "Set",IDC_BUTTON_ALIGNMENT_POS_SET,163,191,30,12,0,
+                    WS_EX_CLIENTEDGE
+    EDITTEXT        IDC_EDIT_LOWER_POS,109,203,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "Set",IDC_BUTTON_LOWER_POS_SET,163,203,30,12,0,
+                    WS_EX_CLIENTEDGE
+    EDITTEXT        IDC_EDIT_ALIGNMENT_DECEL_POS,109,215,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "Set",IDC_BUTTON_ALIGNMENT_DECEL_POS_SET,163,215,30,12,0,
+                    WS_EX_CLIENTEDGE
+    EDITTEXT        IDC_EDIT_UPPER_POS_SPEED1,343,51,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_UPPER_POS_SPEED2,343,63,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ALIGNMENT_POS_SPEED1,343,75,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ALIGNMENT_POS_SPEED2,343,87,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_LOWER_POS_SPEED1,343,99,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_LOWER_POS_SPEED2,343,111,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ALIGNMENT_POS_DECEL_SPEED,343,123,50,12,
+                    ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_TEACH_LOCATION_ACCEL_TIME,343,135,50,12,
+                    ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_TEACH_LOCATION_DECEL_TIME,343,147,50,12,
+                    ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_HOMING_FWD_SPEED,343,188,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_HOMING_REV_SPEED,343,200,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_HOMING_ACCEL_TIME,343,212,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_HOMING_DECEL_TIME,343,224,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PULSE_JOG_SPEED,343,264,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "Saving...",IDC_BUTTON_MOTION_PARAMS_SAVE,21,265,85,12,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Reload",IDC_BUTTON_MOTION_PARAMS_RELOAD,107,265,85,12,0,
+                    WS_EX_CLIENTEDGE
+    RTEXT           "0000000000",IDC_CURRENT_POS,109,128,50,12,SS_SUNKEN
+    LTEXT           "Current Position",IDC_STATIC,24,128,75,12,
+                    SS_CENTERIMAGE
+    LTEXT           "(pls)",IDC_STATIC,137,169,20,8,SS_CENTERIMAGE
+    LTEXT           "Upper Position",IDC_STATIC,24,179,85,12,SS_CENTERIMAGE
+    LTEXT           "Alignment Position",IDC_STATIC,24,191,85,12,
+                    SS_CENTERIMAGE
+    LTEXT           "Lower Position",IDC_STATIC,24,203,85,12,SS_CENTERIMAGE
+    GROUPBOX        "Teach Location Operation",IDC_STATIC,13,110,187,124
+    LTEXT           "(min-1)",IDC_JOG_UNIT,136,118,23,8,SS_CENTERIMAGE
+    LTEXT           "(pls)",IDC_STATIC,139,42,20,8,SS_CENTERIMAGE
+    RTEXT           "12345678",IDC_UPPER_POS,109,51,50,12,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    LTEXT           "Upper Position",IDC_STATIC,24,51,85,12,SS_CENTERIMAGE
+    RTEXT           "12345678",IDC_ALIGNMENT_POS,109,63,50,12,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    LTEXT           "Alignment Position",IDC_STATIC,24,63,85,12,
+                    SS_CENTERIMAGE
+    RTEXT           "12345678",IDC_LOWER_POS,109,75,50,12,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    LTEXT           "Lower Position",IDC_STATIC,24,75,85,12,SS_CENTERIMAGE
+    GROUPBOX        "Current Location Position",IDC_STATIC,13,35,187,70
+    LTEXT           "Jog Speed",IDC_STATIC,24,140,75,12,SS_CENTERIMAGE
+    LTEXT           "(min-1)",IDC_STATIC,363,42,30,8,SS_CENTERIMAGE
+    LTEXT           "Alignment",IDC_STATIC,223,63,45,12,SS_CENTERIMAGE
+    LTEXT           "Lower",IDC_STATIC,223,51,45,12,SS_CENTERIMAGE
+    LTEXT           "Lower",IDC_STATIC,223,75,45,12,SS_CENTERIMAGE
+    GROUPBOX        "Motion Parameter",IDC_STATIC,5,20,404,269
+    LTEXT           "Upper",IDC_STATIC,223,87,45,12,SS_CENTERIMAGE
+    LTEXT           "Upper",IDC_STATIC,223,111,45,12,SS_CENTERIMAGE
+    LTEXT           "Alignment",IDC_STATIC,223,99,45,12,SS_CENTERIMAGE
+    GROUPBOX        "Teach Location",IDC_STATIC,207,35,194,130
+    LTEXT           "Accel Time",IDC_STATIC,223,135,70,12,SS_CENTERIMAGE
+    LTEXT           "Decel Time",IDC_STATIC,223,147,70,12,SS_CENTERIMAGE
+    LTEXT           "Alignment Position Decel",IDC_STATIC,24,215,85,12,
+                    SS_CENTERIMAGE
+    RTEXT           "12345678",IDC_ALIGNMENT_DECEL_POS,109,87,50,12,
+                    SS_CENTERIMAGE | SS_SUNKEN
+    LTEXT           "Alignment Position Decel",IDC_STATIC,24,87,85,12,
+                    SS_CENTERIMAGE
+    LTEXT           "Alignment Decel",IDC_STATIC,223,123,100,12,
+                    SS_CENTERIMAGE
+    LTEXT           "",IDC_ARROW1,273,51,15,12
+    LTEXT           "Upper",IDC_STATIC,293,51,45,12,SS_CENTERIMAGE
+    LTEXT           "",IDC_ARROW2,273,63,15,12,SS_CENTERIMAGE
+    LTEXT           "",IDC_ARROW3,273,75,15,12,SS_CENTERIMAGE
+    LTEXT           "",IDC_ARROW4,273,87,15,12,SS_CENTERIMAGE
+    LTEXT           "",IDC_ARROW5,273,99,15,12,SS_CENTERIMAGE
+    LTEXT           "",IDC_ARROW6,273,111,15,12,SS_CENTERIMAGE
+    LTEXT           "Upper",IDC_STATIC,293,63,45,12,SS_CENTERIMAGE
+    LTEXT           "Alignment",IDC_STATIC,293,75,45,12,SS_CENTERIMAGE
+    LTEXT           "Alignment",IDC_STATIC,293,87,45,12,SS_CENTERIMAGE
+    LTEXT           "Lower",IDC_STATIC,293,99,45,12,SS_CENTERIMAGE
+    LTEXT           "Lower",IDC_STATIC,293,111,45,12,SS_CENTERIMAGE
+    GROUPBOX        "Home",IDC_STATIC,207,170,194,72
+    LTEXT           "Forward Speed",IDC_STATIC,223,188,70,12,SS_CENTERIMAGE
+    LTEXT           "Reverse Speed",IDC_STATIC,223,200,70,12,SS_CENTERIMAGE
+    LTEXT           "Accel Time",IDC_STATIC,223,212,70,12,SS_CENTERIMAGE
+    LTEXT           "Decel Time",IDC_STATIC,223,224,70,12,SS_CENTERIMAGE
+    LTEXT           "(min-1)",IDC_STATIC,363,177,30,8,SS_CENTERIMAGE
+    GROUPBOX        "Pulse Jog",IDC_STATIC,207,247,194,35
+    LTEXT           "Pulse Jog Speed",IDC_STATIC,223,264,70,12,
+                    SS_CENTERIMAGE
+    LTEXT           "(min-1)",IDC_STATIC,363,254,30,8,SS_CENTERIMAGE
+    LTEXT           "Current Axis:",IDC_STATIC,5,5,45,12,SS_CENTERIMAGE
+END
+
+IDD_JOG_OPERATION_DIALOG DIALOGEX 0, 0, 202, 108
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Jog Operation"
+FONT 8, "Times New Roman", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_JOG_SPEED,93,45,70,12,ES_RIGHT | ES_AUTOHSCROLL
+    PUSHBUTTON      "OK",IDOK,145,90,50,14,0,WS_EX_CLIENTEDGE
+    COMBOBOX        IDC_COMBO_CURRENT_AXIS,50,5,30,50,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Up",IDC_BUTTON_MOTION_UP,17,65,50,12,0,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Down",IDC_BUTTON_MOTION_DOWN,75,65,50,12,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Stop",IDC_BUTTON_MOTION_STOP,133,65,50,12,0,
+                    WS_EX_CLIENTEDGE
+    GROUPBOX        "Jog",IDC_STATIC,5,20,190,65
+    LTEXT           "Jog Speed",IDC_STATIC,14,45,70,10,SS_CENTERIMAGE
+    LTEXT           "(min-1)",IDC_STATIC,168,48,27,10,SS_CENTERIMAGE
+    LTEXT           "Current Position",IDC_STATIC,14,35,70,10,SS_CENTERIMAGE
+    RTEXT           "0000000000",IDC_CURRENT_POS,93,35,70,10,SS_SUNKEN
+    LTEXT           "pls",IDC_STATIC,168,38,18,10
+    LTEXT           "Current Axis:",IDC_STATIC,5,5,45,12,SS_CENTERIMAGE
+END
+
+IDD_ALARM_HISTORY_DIALOG DIALOGEX 0, 0, 338, 253
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Alarm History"
+FONT 8, "Times New Roman", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,280,235,55,15,0,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Cancel",IDCANCEL,0,0,6,6,NOT WS_VISIBLE,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "List1",IDC_ALARM_LIST,"SysListView32",LVS_REPORT | 
+                    LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,1,0,335,225,
+                    WS_EX_CLIENTEDGE
+END
+
+IDD_INFORMATION_DIALOG DIALOG DISCARDABLE  0, 0, 156, 43
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+FONT 8, "Times New Roman"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,7,6,6,NOT WS_VISIBLE
+    PUSHBUTTON      "Cancel",IDCANCEL,16,7,6,6,NOT WS_VISIBLE
+    LTEXT           "",IDC_TEXT,40,15,80,8
+END
+
+IDD_MANUAL_OPERATION_DIALOG DIALOGEX 0, 0, 394, 255
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Manual Operation"
+FONT 8, "Times New Roman", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,338,236,50,14,0,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Cancel",IDCANCEL,131,210,70,12,0,WS_EX_CLIENTEDGE
+    GROUPBOX        "Pin",IDC_STATIC,5,5,282,35
+    PUSHBUTTON      "Upper",IDC_BUTTON_MOVE_TO_UPPER_POS,23,20,70,12,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Alignment",IDC_BUTTON_MOVE_TO_ALIGNMENT_POS,115,20,70,
+                    12,0,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Lower",IDC_BUTTON_MOVE_TO_LOWER_POS,210,20,70,12,0,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_RADIO_MOVE_TO_ALIGNMENT_POS,"Button",
+                    BS_AUTORADIOBUTTON,100,22,10,8
+    CONTROL         "",IDC_RADIO_MOVE_TO_UPPER_POS,"Button",
+                    BS_AUTORADIOBUTTON,10,22,10,8
+    CONTROL         "",IDC_RADIO_MOVE_TO_LOWER_POS,"Button",
+                    BS_AUTORADIOBUTTON,195,22,10,8
+    GROUPBOX        "Vacuum",IDC_STATIC,5,43,187,35
+    PUSHBUTTON      "On",IDC_BUTTON_VACUUM_ON,23,58,70,12,0,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Off",IDC_BUTTON_VACUUM_OFF,115,58,70,12,0,
+                    WS_EX_CLIENTEDGE
+    GROUPBOX        "Load/Unload",IDC_STATIC,13,130,187,35
+    PUSHBUTTON      "Load",IDC_BUTTON_START_LOAD,35,145,70,12,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Unload",IDC_BUTTON_START_UNLOAD,125,145,70,12,0,
+                    WS_EX_CLIENTEDGE
+    GROUPBOX        "Clamp",IDC_STATIC,14,169,187,35
+    PUSHBUTTON      "Open",IDC_BUTTON_OPEN_WORK_GUIDE,34,184,70,12,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Close",IDC_BUTTON_CLOSE_WORK_GUIDE,124,184,70,12,0,
+                    WS_EX_CLIENTEDGE
+    GROUPBOX        "Air Float",IDC_STATIC,5,81,187,35
+    PUSHBUTTON      "On",IDC_BUTTON_AIR_FLOAT_ON,23,95,70,12,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Off",IDC_BUTTON_AIR_FLOAT_OFF,115,96,70,12,0,
+                    WS_EX_CLIENTEDGE
+    GROUPBOX        "Shutter",IDC_STATIC,200,43,187,35
+    PUSHBUTTON      "Open",IDC_BUTTON_OPEN_SHUTTER,217,58,70,12,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Close",IDC_BUTTON_CLOSE_SHUTTER,310,58,70,12,0,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_RADIO_OPEN_WORK_GUIDE,"Button",BS_AUTORADIOBUTTON,
+                    21,186,10,8
+    CONTROL         "",IDC_RADIO_CLOSE_WORK_GUIDE,"Button",
+                    BS_AUTORADIOBUTTON,111,186,10,8
+    CONTROL         "",IDC_RADIO_OPEN_SHUTTER,"Button",BS_AUTORADIOBUTTON,
+                    205,61,10,8
+    CONTROL         "",IDC_RADIO_CLOSE_SHUTTER,"Button",BS_AUTORADIOBUTTON,
+                    295,61,10,8
+    CONTROL         "",IDC_RADIO_VACUUM_ON,"Button",BS_AUTORADIOBUTTON,10,61,
+                    10,8
+    CONTROL         "",IDC_RADIO_VACUUM_OFF,"Button",BS_AUTORADIOBUTTON,100,
+                    61,10,8
+    CONTROL         "",IDC_RADIO_AIR_FLOAT_ON,"Button",BS_AUTORADIOBUTTON,10,
+                    99,10,8
+    CONTROL         "",IDC_RADIO_AIR_FLOAT_OFF,"Button",BS_AUTORADIOBUTTON,
+                    100,99,10,8
+    GROUPBOX        "Sequence",IDC_STATIC,5,120,203,109
+    COMBOBOX        IDC_COMBO_RC_MODE,330,18,48,92,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Robo Cylinder",IDC_STATIC,295,5,90,35
+    LTEXT           "mode:",IDC_STATIC,305,20,20,8
+END
+
+IDD_SYSTEM_CFG_DIALOG DIALOGEX 0, 0, 165, 243
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "System Configuration"
+FONT 8, "Times New Roman", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_TIMEOUTS_HOMING,120,15,35,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_TIMEOUTS_ORT,120,27,35,12,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_TIMEOUTS_TEACH_LOC,120,39,35,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_TIMEOUTS_CLAMP,120,51,35,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_TIMEOUTS_VAC_ON,120,63,35,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_TIMEOUTS_VAC_OFF,120,75,35,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_TIMEOUTS_SHUTTER_OPEN,120,87,35,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_TIMEOUTS_SHUTTER_CLOSE,120,99,35,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_DELAY_CLAMP,120,128,35,12,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_DELAY_UNCLAMP,120,140,35,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_DELAY_VAC_DEST,120,152,35,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    CONTROL         "Enable Vacuum Feedback",IDC_ENABLE_VACUUM_FEEDBACK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,176,93,10
+    CONTROL         "Enable Confirm Operator",IDC_ENABLE_CONFIRM_OPERATOR,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,186,95,10
+    DEFPUSHBUTTON   "OK",IDOK,24,223,50,14,0,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Cancel",IDCANCEL,90,223,50,14,0,WS_EX_CLIENTEDGE
+    LTEXT           "Homing",IDC_STATIC,15,15,100,10,SS_CENTERIMAGE
+    LTEXT           "Origin Return",IDC_STATIC,15,27,100,10,SS_CENTERIMAGE
+    LTEXT           "Clamp",IDC_STATIC,15,128,100,10,SS_CENTERIMAGE
+    LTEXT           "Unclamp",IDC_STATIC,15,140,100,10,SS_CENTERIMAGE
+    GROUPBOX        "Timeouts (msec)",IDC_STATIC,5,5,155,110
+    GROUPBOX        "Delay (msec)",IDC_STATIC,5,119,155,50
+    LTEXT           "Move to Teach Location",IDC_STATIC,15,39,100,10,
+                    SS_CENTERIMAGE
+    LTEXT           "Vacuum On",IDC_STATIC,15,63,100,10,SS_CENTERIMAGE
+    LTEXT           "Vacuum Off",IDC_STATIC,15,75,100,10,SS_CENTERIMAGE
+    LTEXT           "Shutter Open",IDC_STATIC,15,87,100,10,SS_CENTERIMAGE
+    LTEXT           "Shutter Close",IDC_STATIC,15,99,100,10,SS_CENTERIMAGE
+    LTEXT           "Vacuum Destruct",IDC_STATIC,15,152,100,10,
+                    SS_CENTERIMAGE
+    LTEXT           "Clamp",IDC_STATIC,15,50,100,10,SS_CENTERIMAGE
+END
+
+IDD_DIO_MONITOR_DIALOG DIALOGEX 0, 0, 559, 418
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "NexI/O Monitor"
+FONT 8, "Times New Roman", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,505,400,50,14,0,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Cancel",IDCANCEL,0,0,6,6,NOT WS_VISIBLE
+    CONTROL         "Tab1",IDC_TABCTRL,"SysTabControl32",0x0,0,0,559,395
+    CONTROL         "Manual Input",IDC_MANUAL_INPUT,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,5,400,65,10
+    CONTROL         "Manual Output",IDC_MANUAL_OUTPUT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,75,400,65,10
+END
+
+IDD_DIO_MONITOR_TAB DIALOG DISCARDABLE  0, 0, 559, 382
+STYLE WS_CHILD
+FONT 8, "Times New Roman"
+BEGIN
+    CONTROL         "Emergency Stop",IDC_CN1_IN000,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,15,130,10
+    CONTROL         "Door Interlock",IDC_CN1_IN001,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,25,130,10
+    CONTROL         "Eq Power",IDC_CN1_IN002,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,35,130,10
+    CONTROL         "Safety Plug ON",IDC_CN1_IN003,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,44,130,10
+    CONTROL         "Hepa Power",IDC_CN1_IN004,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,60,130,10
+    CONTROL         "",IDC_CN1_IN005,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,70,130,10
+    CONTROL         "Air Pressure Level Low",IDC_CN1_IN006,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,80,130,10
+    CONTROL         "MOVO2 Alarm",IDC_CN1_IN007,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,90,130,10
+    CONTROL         "",IDC_CN1_IN010,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,105,130,10
+    CONTROL         "Maintenance SW",IDC_CN1_IN011,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,115,130,10
+    CONTROL         "Eng. Maintenance SW",IDC_CN1_IN012,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,125,130,10
+    CONTROL         "",IDC_CN1_IN013,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,135,130,10
+    CONTROL         "",IDC_CN1_IN014,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,150,130,10
+    CONTROL         "",IDC_CN1_IN015,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,160,130,10
+    CONTROL         "Stress Scan Start Position X",IDC_CN1_IN016,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,170,130,10
+    CONTROL         "Stress Scan End Position X",IDC_CN1_IN017,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,180,130,10
+    CONTROL         "Shutter Open",IDC_CN1_IN020,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,195,130,10
+    CONTROL         "Shutter Top1",IDC_CN1_IN021,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,205,130,10
+    CONTROL         "Shutter Bottom1",IDC_CN1_IN022,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,215,130,10
+    CONTROL         "Shutter Top2",IDC_CN1_IN023,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,225,130,10
+    CONTROL         "Shutter Bottom2",IDC_CN1_IN024,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,240,130,10
+    CONTROL         "Robot Arm",IDC_CN1_IN025,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,250,130,10
+    CONTROL         "",IDC_CN1_IN026,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,260,130,10
+    CONTROL         "Stress Unit Alarm",IDC_CN1_IN027,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,270,130,10
+    CONTROL         "Vacuum Pressure1",IDC_CN1_IN030,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,285,130,10
+    CONTROL         "Vacuum Pressure2",IDC_CN1_IN031,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,295,130,10
+    CONTROL         "",IDC_CN1_IN032,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,305,130,10
+    CONTROL         "Glass Existence1",IDC_CN1_IN033,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,315,130,10
+    CONTROL         "Glass Existence2",IDC_CN1_IN034,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,330,130,10
+    CONTROL         "Load Position X",IDC_CN1_IN035,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,340,130,10
+    CONTROL         "Load Position Y",IDC_CN1_IN036,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,350,130,10
+    CONTROL         "Retract Position Z",IDC_CN1_IN037,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,360,130,10
+    CONTROL         "Servo1 ON",IDC_CN1_IN040,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,140,15,130,10
+    CONTROL         "Servo1 Ready",IDC_CN1_IN041,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,140,25,130,10
+    CONTROL         "Servo1 Alarm",IDC_CN1_IN042,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,140,35,130,10
+    CONTROL         "Servo1 Position Comp",IDC_CN1_IN043,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,140,45,130,10
+    CONTROL         "Servo1 Upper Pos",IDC_CN1_IN044,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,140,60,130,10
+    CONTROL         "Servo1 Alignment Pos",IDC_CN1_IN045,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,140,70,130,10
+    CONTROL         "Servo1 Lower Pos",IDC_CN1_IN046,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,140,80,130,10
+    CONTROL         "Pin1 Down Pos",IDC_CN1_IN047,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,140,90,130,10
+    CONTROL         "Servo2 ON",IDC_CN1_IN050,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,140,105,130,10
+    CONTROL         "Servo2 Ready",IDC_CN1_IN051,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,140,115,130,10
+    CONTROL         "Servo2 Alarm",IDC_CN1_IN052,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,140,125,130,10
+    CONTROL         "Servo2 Position Comp",IDC_CN1_IN053,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,140,135,130,10
+    CONTROL         "Servo2 Upper Pos",IDC_CN1_IN054,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,140,150,130,10
+    CONTROL         "Servo2 Alignment Pos",IDC_CN1_IN055,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,140,160,130,10
+    CONTROL         "Servo2 Lower Pos",IDC_CN1_IN056,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,140,170,130,10
+    CONTROL         "Pin2 Down Pos",IDC_CN1_IN057,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,140,180,130,10
+    CONTROL         "Work Guide1 FWD",IDC_CN1_IN060,"Button",
+                    BS_AUTORADIOBUTTON,140,195,130,10
+    CONTROL         "Work Guide1 REV",IDC_CN1_IN061,"Button",
+                    BS_AUTORADIOBUTTON,140,205,130,10
+    CONTROL         "Work Guide2 FWD",IDC_CN1_IN062,"Button",
+                    BS_AUTORADIOBUTTON,140,215,130,10
+    CONTROL         "Work Guide2 REV",IDC_CN1_IN063,"Button",
+                    BS_AUTORADIOBUTTON,140,225,130,10
+    CONTROL         "Work Guide3 FWD",IDC_CN1_IN064,"Button",
+                    BS_AUTORADIOBUTTON,140,240,130,10
+    CONTROL         "Work Guide3 REV",IDC_CN1_IN065,"Button",
+                    BS_AUTORADIOBUTTON,140,250,130,10
+    CONTROL         "Work Guide4 FWD",IDC_CN1_IN066,"Button",
+                    BS_AUTORADIOBUTTON,140,260,130,10
+    CONTROL         "Work Guide4 REV",IDC_CN1_IN067,"Button",
+                    BS_AUTORADIOBUTTON,140,270,130,10
+    CONTROL         "Work Guide5 FWD",IDC_CN1_IN070,"Button",
+                    BS_AUTORADIOBUTTON,140,285,130,10
+    CONTROL         "Work Guide5 REV",IDC_CN1_IN071,"Button",
+                    BS_AUTORADIOBUTTON,140,295,130,10
+    CONTROL         "Work Guide6 FWD",IDC_CN1_IN072,"Button",
+                    BS_AUTORADIOBUTTON,140,305,130,10
+    CONTROL         "Work Guide6 REV",IDC_CN1_IN073,"Button",
+                    BS_AUTORADIOBUTTON,140,315,130,10
+    CONTROL         "Work Guide7 FWD",IDC_CN1_IN074,"Button",
+                    BS_AUTORADIOBUTTON,140,330,130,10
+    CONTROL         "Work Guide7 REV",IDC_CN1_IN075,"Button",
+                    BS_AUTORADIOBUTTON,140,340,130,10
+    CONTROL         "Work Guide8 FWD",IDC_CN1_IN076,"Button",
+                    BS_AUTORADIOBUTTON,140,350,130,10
+    CONTROL         "Work Guide8 REV",IDC_CN1_IN077,"Button",
+                    BS_AUTORADIOBUTTON,140,360,130,10
+    CONTROL         "Equipment Status Run",IDC_CN1_OUT000,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,290,15,130,10
+    CONTROL         "Equipment power OFF",IDC_CN1_OUT001,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,290,25,130,10
+    CONTROL         "",IDC_CN1_OUT002,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,35,130,10
+    CONTROL         "",IDC_CN1_OUT003,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,45,130,10
+    CONTROL         "",IDC_CN1_OUT004,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,60,130,10
+    CONTROL         "",IDC_CN1_OUT005,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,70,130,10
+    CONTROL         "",IDC_CN1_OUT006,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,80,130,10
+    CONTROL         "",IDC_CN1_OUT007,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,90,130,10
+    CONTROL         "Vacuum1 ON",IDC_CN1_OUT010,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,105,130,10
+    CONTROL         "Vacuum2 ON",IDC_CN1_OUT011,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,115,130,10
+    CONTROL         "Vacuum Destruct1 ON",IDC_CN1_OUT012,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,290,125,130,10
+    CONTROL         "Vacuum Destruct2 ON",IDC_CN1_OUT013,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,290,135,130,10
+    CONTROL         "Air Float1 ON",IDC_CN1_OUT014,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,290,150,130,10
+    CONTROL         "Air Float2 ON",IDC_CN1_OUT015,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,290,160,130,10
+    CONTROL         "",IDC_CN1_OUT016,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,170,130,10
+    CONTROL         "",IDC_CN1_OUT017,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,180,130,10
+    CONTROL         "Shutter Open",IDC_CN1_OUT020,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,290,195,130,10
+    CONTROL         "Shutter Close",IDC_CN1_OUT021,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,290,205,130,10
+    CONTROL         "",IDC_CN1_OUT022,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,215,130,10
+    CONTROL         "",IDC_CN1_OUT023,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,225,130,10
+    CONTROL         "",IDC_CN1_OUT024,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,240,130,10
+    CONTROL         "",IDC_CN1_OUT025,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,250,130,10
+    CONTROL         "",IDC_CN1_OUT026,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,260,130,10
+    CONTROL         "",IDC_CN1_OUT027,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,270,130,10
+    CONTROL         "Vacuum1 ON",IDC_CN1_OUT030,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,285,130,10
+    CONTROL         "Vacuum2 ON",IDC_CN1_OUT031,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,295,130,10
+    CONTROL         "Vacuum Destruct1 ON",IDC_CN1_OUT032,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,290,305,130,10
+    CONTROL         "Vacuum Destruct2 ON",IDC_CN1_OUT033,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,290,315,130,10
+    CONTROL         "Air Float1 ON",IDC_CN1_OUT034,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,290,330,130,10
+    CONTROL         "Air Float2 ON",IDC_CN1_OUT035,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,290,340,130,10
+    CONTROL         "",IDC_CN1_OUT036,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,350,130,10
+    CONTROL         "",IDC_CN1_OUT037,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,360,130,10
+    CONTROL         "Servo1 ON",IDC_CN1_OUT040,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,420,15,130,10
+    CONTROL         "Servo1 Alarm Reset",IDC_CN1_OUT041,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,420,25,130,10
+    CONTROL         "Servo1 Brake",IDC_CN1_OUT042,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,420,35,130,10
+    CONTROL         "",IDC_CN1_OUT043,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,420,45,130,10
+    CONTROL         "",IDC_CN1_OUT044,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,420,60,130,10
+    CONTROL         "",IDC_CN1_OUT045,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,420,70,130,10
+    CONTROL         "",IDC_CN1_OUT046,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,420,80,130,10
+    CONTROL         "",IDC_CN1_OUT047,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,420,90,130,10
+    CONTROL         "Servo2 ON",IDC_CN1_OUT050,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,420,105,130,10
+    CONTROL         "Servo2 Alarm Reset",IDC_CN1_OUT051,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,420,115,130,10
+    CONTROL         "Servo2 Brake",IDC_CN1_OUT052,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,420,125,130,10
+    CONTROL         "",IDC_CN1_OUT053,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,420,135,130,10
+    CONTROL         "",IDC_CN1_OUT054,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,420,150,130,10
+    CONTROL         "",IDC_CN1_OUT055,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,420,160,130,10
+    CONTROL         "",IDC_CN1_OUT056,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,420,170,130,10
+    CONTROL         "",IDC_CN1_OUT057,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,420,180,130,10
+    CONTROL         "Work Guide1 FWD",IDC_CN1_OUT060,"Button",
+                    BS_AUTORADIOBUTTON,420,195,130,10
+    CONTROL         "Work Guide1 REV",IDC_CN1_OUT061,"Button",
+                    BS_AUTORADIOBUTTON,420,205,130,10
+    CONTROL         "Work Guide2 FWD",IDC_CN1_OUT062,"Button",
+                    BS_AUTORADIOBUTTON,420,215,130,10
+    CONTROL         "Work Guide2 REV",IDC_CN1_OUT063,"Button",
+                    BS_AUTORADIOBUTTON,420,225,130,10
+    CONTROL         "",IDC_CN1_OUT064,"Button",BS_AUTORADIOBUTTON,420,240,
+                    130,10
+    CONTROL         "",IDC_CN1_OUT065,"Button",BS_AUTORADIOBUTTON,420,250,
+                    130,10
+    CONTROL         "",IDC_CN1_OUT066,"Button",BS_AUTORADIOBUTTON,420,260,
+                    130,10
+    CONTROL         "",IDC_CN1_OUT067,"Button",BS_AUTORADIOBUTTON,420,270,
+                    130,10
+    CONTROL         "Stress Measurement Triger",IDC_CN1_OUT070,"Button",
+                    BS_AUTORADIOBUTTON,420,285,130,10
+    CONTROL         "",IDC_CN1_OUT071,"Button",BS_AUTORADIOBUTTON,420,295,
+                    130,10
+    CONTROL         "",IDC_CN1_OUT072,"Button",BS_AUTORADIOBUTTON,420,305,
+                    130,10
+    CONTROL         "",IDC_CN1_OUT073,"Button",BS_AUTORADIOBUTTON,420,315,
+                    130,10
+    CONTROL         "",IDC_CN1_OUT074,"Button",BS_AUTORADIOBUTTON,420,330,
+                    130,10
+    CONTROL         "",IDC_CN1_OUT075,"Button",BS_AUTORADIOBUTTON,420,340,
+                    130,10
+    CONTROL         "",IDC_CN1_OUT076,"Button",BS_AUTORADIOBUTTON,420,350,
+                    130,10
+    CONTROL         "",IDC_CN1_OUT077,"Button",BS_AUTORADIOBUTTON,420,360,
+                    130,10
+    GROUPBOX        "INPUT",IDC_STATIC,5,5,270,370
+    GROUPBOX        "OUTPUT",IDC_STATIC,282,5,270,370
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "#include <nexrc.hxx>\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\\\nextra.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""  \t// Standard components\r\n"
+    "#endif\r\n"
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\NEXTRA.ICO"
+IDI_OFFLINE             ICON    DISCARDABLE     "res\\OFFLINE.ICO"
+IDI_ARROW_ICON          ICON    DISCARDABLE     "res\\Arrow.ico"
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041104B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "NEXTRA MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "NEXTRA\0"
+            VALUE "LegalCopyright", "Copyright (C) 2008\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "NEXTRA.EXE\0"
+            VALUE "ProductName", "NEXTRA Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x411, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_POPUP_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "popup"
+    BEGIN
+        MENUITEM "&Alarm history",              IDM_ALARM_HISTORY
+        MENUITEM "&DI/O monitor",               IDM_DIO_MONITOR
+        MENUITEM SEPARATOR
+        MENUITEM "Manual operation",            IDM_MANUAL_OPERATION, GRAYED
+        MENUITEM "Teach operation",             IDM_TEACH_OPERATION, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "&System configuration",       IDM_SYSTEM_CONFIGURATION
+        MENUITEM SEPARATOR
+        MENUITEM "Quit Nextra application",     IDM_QUIT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_TEACH_LOCATION_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_CURRENT_AXIS, 0x403, 2, 0
+0x0031, 
+    IDC_COMBO_CURRENT_AXIS, 0x403, 2, 0
+0x0032, 
+    0
+END
+
+IDD_JOG_OPERATION_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_CURRENT_AXIS, 0x403, 2, 0
+0x0031, 
+    IDC_COMBO_CURRENT_AXIS, 0x403, 2, 0
+0x0032, 
+    0
+END
+
+IDD_MANUAL_OPERATION_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_RC_MODE, 0x403, 7, 0
+0x6f4e, 0x6d72, 0x6c61, "\000" 
+    IDC_COMBO_RC_MODE, 0x403, 9, 0
+0x6554, 0x6361, 0x6968, 0x676e, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_ARROW               BITMAP  DISCARDABLE     "res\\Arrow.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_DIO_MONITOR_DIALOG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 551
+        BOTTOMMARGIN, 411
+    END
+
+    IDD_DIO_MONITOR_TAB, DIALOG
+    BEGIN
+        RIGHTMARGIN, 478
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PASSWORD_CONFIRM_TITLE "Password Confirm"
+    IDS_PASSWORD_CONFIG_TITLE "Password Configuration"
+    IDS_PASSWORD_DEFFERENT  "The password is defferent."
+    IDS_PASSWROD_CONFIRM_ERR 
+                            "The Passwords you typed do not match. Type the new password in both text boxes."
+    IDS_PASSWORD_SAVE       "Are you sure want to change password ?"
+    IDS_NEXTRA_APP_TITLE    "Nextra Application"
+    IDS_NEXTRA_CLAMP_FAILED "Nextra clamp failed."
+    IDS_ABOUTBOX            "&About Nextra..."
+    IDS_SYSTEMU_MENU_MOVE   "Move(&M)"
+    IDS_SYSTEMU_MENU_CLOSE  "X Close(&C)    Alt+F4"
+    IDS_NEXIO_TITLE         "DI/O Module"
+    IDS_NEXIO_OPEN_FAILED   "Open failed."
+    IDS_NEXTRA_QUIT_TITLE   "Nextra Quit"
+    IDS_NEXTRA_QUIT_TEXT    "Are you sure you want to quit Nextra Application ?"
+    IDS_MOTION_PARAMS_SAVED "Data has not been saved. Do you want to save it ?"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_NEXTRA_NOT_INITIALIZED "Initialization is not completed."
+    IDS_MOTPARAMS_TITLE     "Motion parameter"
+    IDS_MOTPARAMS_LOADING   "Loading..."
+    IDS_MOTPARAMS_SAVING    "Saving..."
+    IDS_MOTPARAMS_LOAD_FAILED "Motion parameter loading failed."
+    IDS_MOTPARAMS_SAVE_FAILED "Motion parameter saving failed."
+    IDS_UPARAMS_UNAVAILABLE "Upper position must not be less than alignment position"
+    IDS_APARAMS_UNAVAILABLE "Alignment position must not be less than alignment decel position"
+    IDS_LPARAMS_UNAVAILABLE "Lower position must not be greater than alignment decel position"
+    IDS_SYSTEM_CONFIG_TITLE "System Configuration"
+    IDS_SYSTEM_CONFIG_TEXT  "Are you sure ?"
+    IDS_UNKNOWN_CURRENT_POSITION "Unknown current position."
+    IDS_JOGOP_EXECUTE_FAILED "Jog operation execution failed."
+    IDS_JOGOP_APP_TITLE     "Jog Application"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\\nextra.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"  	// Standard components
+#endif
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,118 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "..\resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Japanese resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "..\\resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING01            "%s 使用できません"
+    IDS_STRING02            "シリアル通信 送信エラー"
+    IDS_STRING03            "シリアル通信 受信エラー"
+    IDS_STRING04            "シリアル受信 応答エラー"
+    IDS_STRING11            "Q5 エラー : NO ヘッド"
+    IDS_STRING12            "Q5 エラー : Dip-Sw ミス"
+    IDS_STRING13            "Q5 エラー"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING21            "XMP ADAP起動失敗"
+    IDS_STRING22            "XMP WVASE32 応答タイムアウトエラー"
+    IDS_STRING23            "XMP DDE通信 タイムアウトエラー"
+    IDS_STRING24            "XMP SCOUT 応答タイムアウトエラー"
+    IDS_STRING31            "SE WVASE32 起動失敗"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING32            "SE WVASE32 応答タイムアウトエラー"
+    IDS_STRING33            "SE WVASE32 通信接続確立エラー"
+    IDS_STRING34            "SE WVASE32 初期化エラー"
+    IDS_STRING41            "CompleteEASE 通信接続確立エラー"
+    IDS_STRING42            "CompleteEASE 初期化エラー"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING51            "CompleteEASE 非同期ポート 通信接続確立エラー"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CAUSE_CODE          "原因コード:%d\n%s"
+    IDS_FILE_NOT_FOUND      " ファイルがみつかりません"
+    IDS_BAD_PATH            " 指定パスが不正です"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_RS_TITLE            "MeaSys Resist"
+    IDS_RS_INITFAILCONT     "シート抵抗の初期化に失敗しました。\n以下について、確認してください。\n  1.シート抵抗ユニットの電源がオンであること\n  2.シート抵抗ユニットの接続スイッチがリモートモードであること"
+    IDS_CTA_TITLE           "MeaSys CTA"
+    IDS_CTA_INITFAILCONT    "コンタクトアングルの初期化に失敗しました。\n以下について、確認してください。\n  1.CTA PCのソフトウェア（FAMAS）が起動していること\n  2.CTA PCのソフトウェア（FAMAS）が起動中であれば、\n    リモート再接続をするために、ソフトウェア（FAMAS）を再起動すること"
+END
+
+#endif    // Japanese resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

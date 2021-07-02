@@ -1,0 +1,1450 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+#include <nexrc.hxx>
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(932)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIO_TYPEA_DIALOG DIALOGEX 0, 0, 414, 399
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "NexI/O モニター"
+FONT 9, "MS UI Gothic", 0, 0, 0x1
+BEGIN
+    CONTROL         "緊急停止",IDC_CN1_IN000,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,15,85,10
+    CONTROL         "ドアインターロック",IDC_CN1_IN001,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,25,85,10
+    CONTROL         "装置電源",IDC_CN1_IN002,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,35,85,10
+    CONTROL         "セーフティプラグ ON",IDC_CN1_IN003,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,45,85,10
+    CONTROL         "HEPA 電源",IDC_CN1_IN004,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,60,85,10
+    CONTROL         "",IDC_CN1_IN005,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,70,85,10
+    CONTROL         "供給 CDA 圧力低下",IDC_CN1_IN006,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,80,85,10
+    CONTROL         "MOVO2 アラーム",IDC_CN1_IN007,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,90,85,10
+    CONTROL         "",IDC_CN1_IN010,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,105,85,10
+    CONTROL         "メンテナンススイッチ",IDC_CN1_IN011,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,115,85,10
+    CONTROL         "東朋メンテナンススイッチ",IDC_CN1_IN012,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,125,85,10
+    CONTROL         "",IDC_CN1_IN013,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,135,85,10
+    CONTROL         "",IDC_CN1_IN014,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,150,85,10
+    CONTROL         "",IDC_CN1_IN015,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,160,85,10
+    CONTROL         "ストレス スキャン スタート",IDC_CN1_IN016,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,170,85,10
+    CONTROL         "ストレス スキャン エンド",IDC_CN1_IN017,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,180,85,10
+    CONTROL         "シャッター開",IDC_CN1_IN020,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,195,85,10
+    CONTROL         "シャッターシリンダ1上端",IDC_CN1_IN021,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,205,85,10
+    CONTROL         "シャッターシリンダ1下端",IDC_CN1_IN022,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,215,85,10
+    CONTROL         "シャッターシリンダ2上端",IDC_CN1_IN023,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,225,85,10
+    CONTROL         "シャッターシリンダ2下端",IDC_CN1_IN024,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,240,85,10
+    CONTROL         "ロボットアーム",IDC_CN1_IN025,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,250,85,10
+    CONTROL         "",IDC_CN1_IN026,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,260,85,10
+    CONTROL         "ストレス ユニット アラーム",IDC_CN1_IN027,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,270,85,10
+    CONTROL         "バキューム1",IDC_CN1_IN030,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,285,85,10
+    CONTROL         "バキューム2",IDC_CN1_IN031,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,295,85,10
+    CONTROL         "",IDC_CN1_IN032,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,305,85,10
+    CONTROL         "ガラス在荷1",IDC_CN1_IN033,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,315,85,10
+    CONTROL         "ガラス在荷2",IDC_CN1_IN034,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,330,85,10
+    CONTROL         "X軸 ロードポジション",IDC_CN1_IN035,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,340,85,10
+    CONTROL         "Y軸 ロードポジション",IDC_CN1_IN036,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,350,85,10
+    CONTROL         "Z軸 退避ポジション",IDC_CN1_IN037,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,360,85,10
+    CONTROL         "サーボ1 ON",IDC_CN1_IN040,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,110,15,85,10
+    CONTROL         "サーボ1 運転準備",IDC_CN1_IN041,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,25,85,10
+    CONTROL         "サーボ1 アラーム",IDC_CN1_IN042,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,35,85,10
+    CONTROL         "サーボ1 位置決完了",IDC_CN1_IN043,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,45,85,10
+    CONTROL         "サーボ1 リフター上端",IDC_CN1_IN044,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,60,85,10
+    CONTROL         "サーボ1 リフター中間",IDC_CN1_IN045,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,70,85,10
+    CONTROL         "サーボ1 リフター下端",IDC_CN1_IN046,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,80,85,10
+    CONTROL         "リフター1 下端センサー",IDC_CN1_IN047,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,90,85,10
+    CONTROL         "サーボ2 ON",IDC_CN1_IN050,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,110,105,85,10
+    CONTROL         "サーボ2 運転準備",IDC_CN1_IN051,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,115,85,10
+    CONTROL         "サーボ2 アラーム",IDC_CN1_IN052,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,125,85,10
+    CONTROL         "サーボ2 位置決完了",IDC_CN1_IN053,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,135,85,10
+    CONTROL         "サーボ2 リフター上端",IDC_CN1_IN054,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,150,85,10
+    CONTROL         "サーボ2 リフター中間",IDC_CN1_IN055,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,160,85,10
+    CONTROL         "サーボ2 リフター下端",IDC_CN1_IN056,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,170,85,10
+    CONTROL         "リフター2 下端センサー",IDC_CN1_IN057,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,180,85,10
+    CONTROL         "ワークガイド1 FWD",IDC_CN1_IN060,"Button",
+                    BS_AUTORADIOBUTTON,110,195,85,10
+    CONTROL         "ワークガイド1 REV",IDC_CN1_IN061,"Button",
+                    BS_AUTORADIOBUTTON,110,205,85,10
+    CONTROL         "ワークガイド2 FWD",IDC_CN1_IN062,"Button",
+                    BS_AUTORADIOBUTTON,110,215,85,10
+    CONTROL         "ワークガイド2 REV",IDC_CN1_IN063,"Button",
+                    BS_AUTORADIOBUTTON,110,225,85,10
+    CONTROL         "ワークガイド3 FWD",IDC_CN1_IN064,"Button",
+                    BS_AUTORADIOBUTTON,110,240,85,10
+    CONTROL         "ワークガイド3 REV",IDC_CN1_IN065,"Button",
+                    BS_AUTORADIOBUTTON,110,250,85,10
+    CONTROL         "ワークガイド4 FWD",IDC_CN1_IN066,"Button",
+                    BS_AUTORADIOBUTTON,110,260,85,10
+    CONTROL         "ワークガイド4 REV",IDC_CN1_IN067,"Button",
+                    BS_AUTORADIOBUTTON,110,270,85,10
+    CONTROL         "ワークガイド5 FWD",IDC_CN1_IN070,"Button",
+                    BS_AUTORADIOBUTTON,110,285,85,10
+    CONTROL         "ワークガイド5 REV",IDC_CN1_IN071,"Button",
+                    BS_AUTORADIOBUTTON,110,295,85,10
+    CONTROL         "ワークガイド6 FWD",IDC_CN1_IN072,"Button",
+                    BS_AUTORADIOBUTTON,110,305,85,10
+    CONTROL         "ワークガイド6 REV",IDC_CN1_IN073,"Button",
+                    BS_AUTORADIOBUTTON,110,315,85,10
+    CONTROL         "ワークガイド7 FWD",IDC_CN1_IN074,"Button",
+                    BS_AUTORADIOBUTTON,110,330,85,10
+    CONTROL         "ワークガイド7 REV",IDC_CN1_IN075,"Button",
+                    BS_AUTORADIOBUTTON,110,340,85,10
+    CONTROL         "ワークガイド8 FWD",IDC_CN1_IN076,"Button",
+                    BS_AUTORADIOBUTTON,110,350,85,10
+    CONTROL         "ワークガイド8 REV",IDC_CN1_IN077,"Button",
+                    BS_AUTORADIOBUTTON,110,360,85,10
+    CONTROL         "装置動作中",IDC_CN1_OUT000,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,15,85,10
+    CONTROL         "装置電源 OFF",IDC_CN1_OUT001,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,217,25,85,10
+    CONTROL         "",IDC_CN1_OUT002,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,35,85,10
+    CONTROL         "",IDC_CN1_OUT003,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,45,85,10
+    CONTROL         "",IDC_CN1_OUT004,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,60,85,10
+    CONTROL         "",IDC_CN1_OUT005,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,70,85,10
+    CONTROL         "",IDC_CN1_OUT006,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,80,85,10
+    CONTROL         "HEPA 電源 OFF",IDC_CN1_OUT007,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,217,90,85,10
+    CONTROL         "",IDC_CN1_OUT010,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,105,85,10
+    CONTROL         "",IDC_CN1_OUT011,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,115,85,10
+    CONTROL         "",IDC_CN1_OUT012,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,125,85,10
+    CONTROL         "",IDC_CN1_OUT013,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,135,85,10
+    CONTROL         "",IDC_CN1_OUT014,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,150,85,10
+    CONTROL         "",IDC_CN1_OUT015,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,160,85,10
+    CONTROL         "",IDC_CN1_OUT016,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,170,85,10
+    CONTROL         "",IDC_CN1_OUT017,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,180,85,10
+    CONTROL         "シャッター開",IDC_CN1_OUT020,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,217,195,85,10
+    CONTROL         "シャッター閉",IDC_CN1_OUT021,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,217,205,85,10
+    CONTROL         "",IDC_CN1_OUT022,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,215,85,10
+    CONTROL         "",IDC_CN1_OUT023,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,224,85,10
+    CONTROL         "",IDC_CN1_OUT024,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,240,85,10
+    CONTROL         "",IDC_CN1_OUT025,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,250,85,10
+    CONTROL         "",IDC_CN1_OUT026,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,260,85,10
+    CONTROL         "",IDC_CN1_OUT027,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,270,85,10
+    CONTROL         "バキューム1",IDC_CN1_OUT030,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,285,85,10
+    CONTROL         "バキューム2",IDC_CN1_OUT031,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,295,85,10
+    CONTROL         "バキューム 破壊1",IDC_CN1_OUT032,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,217,305,85,10
+    CONTROL         "バキューム 破壊2",IDC_CN1_OUT033,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,217,315,85,10
+    CONTROL         "エアー浮上1",IDC_CN1_OUT034,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,330,85,10
+    CONTROL         "エアー浮上2",IDC_CN1_OUT035,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,340,85,10
+    CONTROL         "",IDC_CN1_OUT036,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,350,85,10
+    CONTROL         "",IDC_CN1_OUT037,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,360,85,10
+    CONTROL         "サーボ1 ON",IDC_CN1_OUT040,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,312,15,85,10
+    CONTROL         "サーボ1 アラームリセット",IDC_CN1_OUT041,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,312,25,85,10
+    CONTROL         "サーボ1 ブレーキ",IDC_CN1_OUT042,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,312,35,85,10
+    CONTROL         "",IDC_CN1_OUT043,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,312,45,85,10
+    CONTROL         "",IDC_CN1_OUT044,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,312,60,85,10
+    CONTROL         "",IDC_CN1_OUT045,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,312,70,85,10
+    CONTROL         "",IDC_CN1_OUT046,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,312,80,85,10
+    CONTROL         "",IDC_CN1_OUT047,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,312,90,85,10
+    CONTROL         "サーボ2 ON",IDC_CN1_OUT050,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,312,105,85,10
+    CONTROL         "サーボ2 アラームリセット",IDC_CN1_OUT051,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,312,115,85,10
+    CONTROL         "サーボ2 ブレーキ",IDC_CN1_OUT052,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,312,125,85,10
+    CONTROL         "",IDC_CN1_OUT053,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,312,135,85,10
+    CONTROL         "",IDC_CN1_OUT054,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,312,150,85,10
+    CONTROL         "",IDC_CN1_OUT055,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,312,160,85,10
+    CONTROL         "",IDC_CN1_OUT056,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,312,170,85,10
+    CONTROL         "",IDC_CN1_OUT057,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,312,180,85,10
+    CONTROL         "ワークガイド1 FWD",IDC_CN1_OUT060,"Button",
+                    BS_AUTORADIOBUTTON,312,195,85,10
+    CONTROL         "ワークガイド1 REV",IDC_CN1_OUT061,"Button",
+                    BS_AUTORADIOBUTTON,312,205,85,10
+    CONTROL         "ワークガイド2 FWD",IDC_CN1_OUT062,"Button",
+                    BS_AUTORADIOBUTTON,312,215,85,10
+    CONTROL         "ワークガイド2 REV",IDC_CN1_OUT063,"Button",
+                    BS_AUTORADIOBUTTON,312,225,85,10
+    CONTROL         "",IDC_CN1_OUT064,"Button",BS_AUTORADIOBUTTON,312,240,16,
+                    8
+    CONTROL         "",IDC_CN1_OUT065,"Button",BS_AUTORADIOBUTTON,312,250,85,
+                    10
+    CONTROL         "",IDC_CN1_OUT066,"Button",BS_AUTORADIOBUTTON,312,260,16,
+                    8
+    CONTROL         "",IDC_CN1_OUT067,"Button",BS_AUTORADIOBUTTON,312,270,85,
+                    10
+    CONTROL         "ストレス トリガー",IDC_CN1_OUT070,"Button",
+                    BS_AUTORADIOBUTTON,312,285,85,10
+    CONTROL         "",IDC_CN1_OUT071,"Button",BS_AUTORADIOBUTTON,312,295,85,
+                    10
+    CONTROL         "",IDC_CN1_OUT072,"Button",BS_AUTORADIOBUTTON,312,305,16,
+                    8
+    CONTROL         "",IDC_CN1_OUT073,"Button",BS_AUTORADIOBUTTON,312,315,85,
+                    10
+    CONTROL         "",IDC_CN1_OUT074,"Button",BS_AUTORADIOBUTTON,312,330,16,
+                    8
+    CONTROL         "",IDC_CN1_OUT075,"Button",BS_AUTORADIOBUTTON,312,340,85,
+                    10
+    CONTROL         "",IDC_CN1_OUT076,"Button",BS_AUTORADIOBUTTON,312,350,16,
+                    8
+    CONTROL         "",IDC_CN1_OUT077,"Button",BS_AUTORADIOBUTTON,312,360,85,
+                    10
+    DEFPUSHBUTTON   "OK",IDOK,360,380,50,15,0,WS_EX_CLIENTEDGE
+    CONTROL         "マニュアル入力",IDC_MANUAL_INPUT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,5,380,65,10
+    CONTROL         "マニュアル出力",IDC_MANUAL_OUTPUT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,80,380,65,10
+    PUSHBUTTON      "Cancel",IDCANCEL,0,0,6,6,NOT WS_VISIBLE,
+                    WS_EX_CLIENTEDGE
+    GROUPBOX        "INPUT",IDC_STATIC,5,5,200,370
+    GROUPBOX        "OUTPUT",IDC_STATIC,210,5,200,370
+END
+
+IDD_DIO_TYPEB_DIALOG DIALOGEX 0, 0, 414, 399
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "NexI/O モニター"
+FONT 9, "MS UI Gothic", 0, 0, 0x1
+BEGIN
+    CONTROL         "緊急停止",IDC_CN1_IN000,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,15,85,10
+    CONTROL         "ドアオープン",IDC_CN1_IN001,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,25,85,10
+    CONTROL         "装置電源",IDC_CN1_IN002,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,35,85,10
+    CONTROL         "",IDC_CN1_IN003,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,45,85,10
+    CONTROL         "",IDC_CN1_IN004,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,60,85,10
+    CONTROL         "",IDC_CN1_IN005,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,70,85,10
+    CONTROL         "CDA 圧力低下",IDC_CN1_IN006,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,80,85,10
+    CONTROL         "",IDC_CN1_IN007,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,90,85,10
+    CONTROL         "",IDC_CN1_IN010,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,105,85,10
+    CONTROL         "メンテナンススイッチ",IDC_CN1_IN011,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,115,85,10
+    CONTROL         "東朋メンテナンススイッチ",IDC_CN1_IN012,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,125,85,10
+    CONTROL         "",IDC_CN1_IN013,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,135,85,10
+    CONTROL         "",IDC_CN1_IN014,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,150,85,10
+    CONTROL         "",IDC_CN1_IN015,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,160,85,10
+    CONTROL         "",IDC_CN1_IN016,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,170,85,10
+    CONTROL         "",IDC_CN1_IN017,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,180,85,10
+    CONTROL         "",IDC_CN1_IN020,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,195,85,10
+    CONTROL         "",IDC_CN1_IN021,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,205,85,10
+    CONTROL         "",IDC_CN1_IN022,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,215,85,10
+    CONTROL         "",IDC_CN1_IN023,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,225,85,10
+    CONTROL         "",IDC_CN1_IN024,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,240,85,10
+    CONTROL         "ロボットアーム",IDC_CN1_IN025,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,250,85,10
+    CONTROL         "",IDC_CN1_IN026,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,260,85,10
+    CONTROL         "",IDC_CN1_IN027,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,270,85,10
+    CONTROL         "バキューム",IDC_CN1_IN030,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,285,85,10
+    CONTROL         "",IDC_CN1_IN031,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,295,85,10
+    CONTROL         "",IDC_CN1_IN032,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,305,85,10
+    CONTROL         "ガラス在荷1",IDC_CN1_IN033,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,315,85,10
+    CONTROL         "ガラス在荷2",IDC_CN1_IN034,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,330,85,10
+    CONTROL         "X軸 ロードポジション",IDC_CN1_IN035,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,340,85,10
+    CONTROL         "Y軸 ロードポジション",IDC_CN1_IN036,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,350,85,10
+    CONTROL         "",IDC_CN1_IN037,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,360,85,10
+    CONTROL         "リフターシリンダ1 上昇端",IDC_CN1_IN040,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,15,85,10
+    CONTROL         "リフターシリンダ1 下降端",IDC_CN1_IN041,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,25,85,10
+    CONTROL         "リフターシリンダ2 上昇端",IDC_CN1_IN042,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,35,85,10
+    CONTROL         "リフターシリンダ2 下降端",IDC_CN1_IN043,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,110,45,85,10
+    CONTROL         "",IDC_CN1_IN044,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,110,60,85,10
+    CONTROL         "",IDC_CN1_IN045,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,110,70,85,10
+    CONTROL         "",IDC_CN1_IN046,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,110,80,85,10
+    CONTROL         "",IDC_CN1_IN047,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,110,90,85,10
+    CONTROL         "",IDC_CN1_IN050,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,110,105,85,10
+    CONTROL         "",IDC_CN1_IN051,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,110,115,85,10
+    CONTROL         "",IDC_CN1_IN052,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,110,125,85,10
+    CONTROL         "",IDC_CN1_IN053,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,110,135,85,10
+    CONTROL         "",IDC_CN1_IN054,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,110,150,85,10
+    CONTROL         "",IDC_CN1_IN055,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,110,160,85,10
+    CONTROL         "",IDC_CN1_IN056,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,110,170,85,10
+    CONTROL         "",IDC_CN1_IN057,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,110,180,85,10
+    CONTROL         "ワークガイド1 FWD",IDC_CN1_IN060,"Button",
+                    BS_AUTORADIOBUTTON,110,195,85,10
+    CONTROL         "ワークガイド1 REV",IDC_CN1_IN061,"Button",
+                    BS_AUTORADIOBUTTON,110,205,85,10
+    CONTROL         "ワークガイド2 FWD",IDC_CN1_IN062,"Button",
+                    BS_AUTORADIOBUTTON,110,215,85,10
+    CONTROL         "ワークガイド2 REV",IDC_CN1_IN063,"Button",
+                    BS_AUTORADIOBUTTON,110,225,85,10
+    CONTROL         "ワークガイド3 FWD",IDC_CN1_IN064,"Button",
+                    BS_AUTORADIOBUTTON,110,240,85,10
+    CONTROL         "ワークガイド3 REV",IDC_CN1_IN065,"Button",
+                    BS_AUTORADIOBUTTON,110,250,85,10
+    CONTROL         "ワークガイド4 FWD",IDC_CN1_IN066,"Button",
+                    BS_AUTORADIOBUTTON,110,260,85,10
+    CONTROL         "ワークガイド4 REV",IDC_CN1_IN067,"Button",
+                    BS_AUTORADIOBUTTON,110,270,85,10
+    CONTROL         "ワークガイド5 FWD",IDC_CN1_IN070,"Button",
+                    BS_AUTORADIOBUTTON,110,285,85,10
+    CONTROL         "ワークガイド5 REV",IDC_CN1_IN071,"Button",
+                    BS_AUTORADIOBUTTON,110,295,85,10
+    CONTROL         "ワークガイド6 FWD",IDC_CN1_IN072,"Button",
+                    BS_AUTORADIOBUTTON,110,305,85,10
+    CONTROL         "ワークガイド6 REV",IDC_CN1_IN073,"Button",
+                    BS_AUTORADIOBUTTON,110,315,85,10
+    CONTROL         "",IDC_CN1_IN074,"Button",BS_AUTORADIOBUTTON,110,330,85,
+                    10
+    CONTROL         "",IDC_CN1_IN075,"Button",BS_AUTORADIOBUTTON,110,340,85,
+                    10
+    CONTROL         "",IDC_CN1_IN076,"Button",BS_AUTORADIOBUTTON,110,350,85,
+                    10
+    CONTROL         "",IDC_CN1_IN077,"Button",BS_AUTORADIOBUTTON,110,360,85,
+                    10
+    CONTROL         "装置動作中",IDC_CN1_OUT000,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,15,85,10
+    CONTROL         "",IDC_CN1_OUT001,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,25,85,10
+    CONTROL         "",IDC_CN1_OUT002,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,35,85,10
+    CONTROL         "",IDC_CN1_OUT003,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,45,85,10
+    CONTROL         "",IDC_CN1_OUT004,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,60,85,10
+    CONTROL         "",IDC_CN1_OUT005,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,70,85,10
+    CONTROL         "",IDC_CN1_OUT006,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,80,85,10
+    CONTROL         "",IDC_CN1_OUT007,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,90,85,10
+    CONTROL         "",IDC_CN1_OUT010,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,105,85,10
+    CONTROL         "",IDC_CN1_OUT011,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,115,85,10
+    CONTROL         "",IDC_CN1_OUT012,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,125,85,10
+    CONTROL         "",IDC_CN1_OUT013,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,135,85,10
+    CONTROL         "",IDC_CN1_OUT014,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,150,85,10
+    CONTROL         "",IDC_CN1_OUT015,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,160,85,10
+    CONTROL         "",IDC_CN1_OUT016,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,170,85,10
+    CONTROL         "",IDC_CN1_OUT017,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,180,85,10
+    CONTROL         "",IDC_CN1_OUT020,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,195,85,10
+    CONTROL         "",IDC_CN1_OUT021,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,205,85,10
+    CONTROL         "",IDC_CN1_OUT022,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,215,85,10
+    CONTROL         "",IDC_CN1_OUT023,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,224,85,10
+    CONTROL         "",IDC_CN1_OUT024,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,240,85,10
+    CONTROL         "",IDC_CN1_OUT025,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,250,85,10
+    CONTROL         "",IDC_CN1_OUT026,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,260,85,10
+    CONTROL         "",IDC_CN1_OUT027,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,270,85,10
+    CONTROL         "バキューム",IDC_CN1_OUT030,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,285,85,10
+    CONTROL         "",IDC_CN1_OUT031,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,295,85,10
+    CONTROL         "バキューム 破壊",IDC_CN1_OUT032,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,217,305,85,10
+    CONTROL         "",IDC_CN1_OUT033,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,315,85,10
+    CONTROL         "",IDC_CN1_OUT034,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,330,85,10
+    CONTROL         "",IDC_CN1_OUT035,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,340,85,10
+    CONTROL         "",IDC_CN1_OUT036,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,350,85,10
+    CONTROL         "",IDC_CN1_OUT037,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,217,360,85,10
+    CONTROL         "リフターシリンダ1 上昇",IDC_CN1_OUT040,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,312,15,85,10
+    CONTROL         "リフターシリンダ1 下降",IDC_CN1_OUT041,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,312,25,85,10
+    CONTROL         "リフターシリンダ1 上昇",IDC_CN1_OUT042,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,312,35,85,10
+    CONTROL         "リフターシリンダ2 下降",IDC_CN1_OUT043,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,312,45,85,10
+    CONTROL         "",IDC_CN1_OUT044,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,312,60,85,10
+    CONTROL         "",IDC_CN1_OUT045,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,312,70,85,10
+    CONTROL         "",IDC_CN1_OUT046,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,312,80,85,10
+    CONTROL         "",IDC_CN1_OUT047,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,312,90,85,10
+    CONTROL         "",IDC_CN1_OUT050,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,312,105,85,10
+    CONTROL         "",IDC_CN1_OUT051,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,312,115,85,10
+    CONTROL         "",IDC_CN1_OUT052,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,312,125,85,10
+    CONTROL         "",IDC_CN1_OUT053,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,312,135,85,10
+    CONTROL         "",IDC_CN1_OUT054,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,312,150,85,10
+    CONTROL         "",IDC_CN1_OUT055,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,312,160,85,10
+    CONTROL         "",IDC_CN1_OUT056,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,312,170,85,10
+    CONTROL         "",IDC_CN1_OUT057,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,312,180,85,10
+    CONTROL         "ワークガイド1 FWD",IDC_CN1_OUT060,"Button",
+                    BS_AUTORADIOBUTTON,312,195,85,10
+    CONTROL         "ワークガイド1 REV",IDC_CN1_OUT061,"Button",
+                    BS_AUTORADIOBUTTON,312,205,85,10
+    CONTROL         "ワークガイド2 FWD",IDC_CN1_OUT062,"Button",
+                    BS_AUTORADIOBUTTON,312,215,85,10
+    CONTROL         "ワークガイド2 REV",IDC_CN1_OUT063,"Button",
+                    BS_AUTORADIOBUTTON,312,225,85,10
+    CONTROL         "",IDC_CN1_OUT064,"Button",BS_AUTORADIOBUTTON,312,240,16,
+                    8
+    CONTROL         "",IDC_CN1_OUT065,"Button",BS_AUTORADIOBUTTON,312,250,85,
+                    10
+    CONTROL         "",IDC_CN1_OUT066,"Button",BS_AUTORADIOBUTTON,312,260,16,
+                    8
+    CONTROL         "",IDC_CN1_OUT067,"Button",BS_AUTORADIOBUTTON,312,270,85,
+                    10
+    CONTROL         "",IDC_CN1_OUT070,"Button",BS_AUTORADIOBUTTON,312,285,16,
+                    8
+    CONTROL         "",IDC_CN1_OUT071,"Button",BS_AUTORADIOBUTTON,312,295,85,
+                    10
+    CONTROL         "",IDC_CN1_OUT072,"Button",BS_AUTORADIOBUTTON,312,305,16,
+                    8
+    CONTROL         "",IDC_CN1_OUT073,"Button",BS_AUTORADIOBUTTON,312,315,85,
+                    10
+    CONTROL         "",IDC_CN1_OUT074,"Button",BS_AUTORADIOBUTTON,312,330,16,
+                    8
+    CONTROL         "",IDC_CN1_OUT075,"Button",BS_AUTORADIOBUTTON,312,340,85,
+                    10
+    CONTROL         "",IDC_CN1_OUT076,"Button",BS_AUTORADIOBUTTON,312,350,16,
+                    8
+    CONTROL         "",IDC_CN1_OUT077,"Button",BS_AUTORADIOBUTTON,312,360,85,
+                    10
+    DEFPUSHBUTTON   "OK",IDOK,360,380,50,15,0,WS_EX_CLIENTEDGE
+    CONTROL         "マニュアル入力",IDC_MANUAL_INPUT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,5,380,65,10
+    CONTROL         "マニュアル出力",IDC_MANUAL_OUTPUT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,80,380,65,10
+    PUSHBUTTON      "Cancel",IDCANCEL,0,0,6,6,NOT WS_VISIBLE,
+                    WS_EX_CLIENTEDGE
+    GROUPBOX        "INPUT",IDC_STATIC,5,5,200,370
+    GROUPBOX        "OUTPUT",IDC_STATIC,210,5,200,370
+END
+
+IDD_PASSWORD_CFG_DIALOG DIALOGEX 0, 0, 222, 93
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "パスワードの設定"
+FONT 9, "MS UI Gothic", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_NEW_PASSWORD,115,5,100,12,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_CONFIRM_NEW_PASSWORD,115,25,100,12,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    CONTROL         "有効 ・ 無効",IDC_PASSWORD_EANABLE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,10,55,100,9
+    DEFPUSHBUTTON   "OK",IDOK,110,75,50,14,0,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "キャンセル",IDCANCEL,165,75,50,14,0,WS_EX_CLIENTEDGE
+    LTEXT           "新しいパスワード",IDC_STATIC,10,5,100,12,SS_CENTERIMAGE
+    LTEXT           "新しいパスワードの確認入力",IDC_STATIC,10,25,100,12,
+                    SS_CENTERIMAGE,WS_EX_ACCEPTFILES | WS_EX_RTLREADING
+END
+
+IDD_PASSWORD_DIALOG DIALOGEX 0, 0, 101, 31
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "パスワードの確認"
+FONT 9, "MS UI Gothic", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_PASSWORD,0,0,100,14,ES_PASSWORD | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,0,15,50,15,0,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "キャンセル",IDCANCEL,50,15,50,15,0,WS_EX_CLIENTEDGE
+END
+
+IDD_NEXTRA_DIALOG DIALOGEX 0, 0, 432, 153
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "NextraWindow"
+FONT 9, "ＭＳ Ｐゴシック", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,0,0,6,6,NOT WS_VISIBLE
+    PUSHBUTTON      "キャンセル",IDCANCEL,6,0,6,6,NOT WS_VISIBLE
+    CONTROL         "List1",IDC_ALARM_LIST,"SysListView32",LVS_REPORT | 
+                    LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,15,90,350,46,
+                    WS_EX_CLIENTEDGE
+    GROUPBOX        "アラーム",IDC_STATIC,5,75,420,70
+    PUSHBUTTON      "履歴",IDC_BUTTON_ALARM_HISTORY,370,90,45,15,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "解除",IDC_BUTTON_ALARM_RESET,370,110,45,15,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "",IDC_BUTTON_TEACH_OPERATION,15,20,11,10,WS_DISABLED
+    GROUPBOX        "操作",IDC_STATIC,5,5,205,65
+    LTEXT           "位置決め",IDC_TEACH_OPERATION,35,20,70,8,WS_DISABLED
+    PUSHBUTTON      "",IDC_BUTTON_MANUAL_OPERATION,15,35,11,10,WS_DISABLED
+    LTEXT           "手動操作",IDC_MANUAL_OPERATION,35,35,70,8,WS_DISABLED
+    GROUPBOX        "設定",IDC_STATIC,220,5,205,65
+    PUSHBUTTON      "",IDC_BUTTON_SYSTEM_CONFIGURATION,230,18,11,10
+    LTEXT           "システム設定",IDC_STATIC,250,20,70,8
+    PUSHBUTTON      "",IDC_BUTTON_CHANGE_PASSWORD,230,35,11,10
+    LTEXT           "パスワード変更",IDC_STATIC,250,35,70,8
+    PUSHBUTTON      "",IDC_BUTTON_DIO_OPERATION,110,20,11,10
+    LTEXT           "DI/Oモニター",IDC_STATIC,130,20,70,8
+END
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "NEXTRAのﾊﾞｰｼﾞｮﾝ情報"
+FONT 9, "MS UI Gothic"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "NEXTRA Version 1.0",IDC_NEXTRA_VERSION,40,10,119,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright (C) 2009",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_TEACH_LOCATION_DIALOG DIALOGEX 0, 0, 415, 321
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "位置決め"
+FONT 9, "MS UI Gothic", 0, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_COMBO_CURRENT_AXIS,50,5,30,50,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "速度",IDC_RADIO_JOG_SPEED,"Button",BS_AUTORADIOBUTTON,
+                    24,140,75,12
+    CONTROL         "移動量",IDC_RADIO_JOG_DISTANCE,"Button",
+                    BS_AUTORADIOBUTTON,24,152,75,12
+    EDITTEXT        IDC_EDIT_JOG_SPEED,109,140,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_JOG_DISTANCE,109,152,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "正転",IDC_BUTTON_MOTION_UP,163,127,30,14,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "逆転",IDC_BUTTON_MOTION_DOWN,163,139,30,14,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "停止",IDC_BUTTON_MOTION_STOP,163,151,30,14,0,
+                    WS_EX_CLIENTEDGE
+    EDITTEXT        IDC_EDIT_UPPER_POS,109,184,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ALIGNMENT_POS,109,196,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_LOWER_POS,109,208,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ALIGNMENT_DECEL_POS,109,220,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "セット",IDC_BUTTON_UPPER_POS_SET,163,183,30,14,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "セット",IDC_BUTTON_ALIGNMENT_POS_SET,163,195,30,14,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "セット",IDC_BUTTON_LOWER_POS_SET,163,207,30,14,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "セット",IDC_BUTTON_ALIGNMENT_DECEL_POS_SET,163,219,30,
+                    14,0,WS_EX_CLIENTEDGE
+    EDITTEXT        IDC_EDIT_UPPER_POS_SPEED1,343,51,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_UPPER_POS_SPEED2,343,63,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ALIGNMENT_POS_SPEED1,343,75,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ALIGNMENT_POS_SPEED2,343,87,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_LOWER_POS_SPEED1,343,99,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_LOWER_POS_SPEED2,343,111,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ALIGNMENT_POS_DECEL_SPEED,343,123,50,12,
+                    ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_TEACH_LOCATION_ACCEL_TIME,343,135,50,12,
+                    ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_TEACH_LOCATION_DECEL_TIME,343,147,50,12,
+                    ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_HOMING_FWD_SPEED,343,188,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_HOMING_REV_SPEED,343,200,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_HOMING_ACCEL_TIME,343,212,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_HOMING_DECEL_TIME,343,224,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PULSE_JOG_SPEED,343,264,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "保存...",IDC_BUTTON_MOTION_PARAMS_SAVE,21,265,85,14,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "再読込み",IDC_BUTTON_MOTION_PARAMS_RELOAD,107,265,85,14,
+                    0,WS_EX_CLIENTEDGE
+    DEFPUSHBUTTON   "OK",IDOK,149,300,50,14,0,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "キャンセル",IDCANCEL,215,300,50,14,0,WS_EX_CLIENTEDGE
+    RTEXT           "0000000000",IDC_CURRENT_POS,109,128,50,12,SS_SUNKEN
+    LTEXT           "現在位置",IDC_STATIC,24,128,75,12,SS_CENTERIMAGE
+    LTEXT           "(pls)",IDC_STATIC,145,174,20,8,SS_CENTERIMAGE
+    LTEXT           "上端位置",IDC_STATIC,24,184,85,12,SS_CENTERIMAGE
+    LTEXT           "アライメント位置",IDC_STATIC,24,196,85,12,
+                    SS_CENTERIMAGE
+    LTEXT           "下端位置",IDC_STATIC,24,208,85,12,SS_CENTERIMAGE
+    GROUPBOX        "位置決め操作",IDC_STATIC,13,110,187,129
+    LTEXT           "(min-1)",IDC_JOG_UNIT,142,118,23,8,SS_CENTERIMAGE
+    LTEXT           "(pls)",IDC_STATIC,145,42,20,8,SS_CENTERIMAGE
+    RTEXT           "12345678",IDC_UPPER_POS,109,51,50,12,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    LTEXT           "上端位置",IDC_STATIC,24,51,85,12,SS_CENTERIMAGE
+    RTEXT           "12345678",IDC_ALIGNMENT_POS,109,63,50,12,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    LTEXT           "アライメント位置",IDC_STATIC,24,63,85,12,SS_CENTERIMAGE
+    RTEXT           "12345678",IDC_LOWER_POS,109,75,50,12,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    LTEXT           "下端位置",IDC_STATIC,24,75,85,12,SS_CENTERIMAGE
+    GROUPBOX        "現在位置",IDC_STATIC,13,35,187,70
+    LTEXT           "(min-1)",IDC_STATIC,363,42,30,8,SS_CENTERIMAGE
+    LTEXT           "アライメント",IDC_STATIC,223,63,45,12,SS_CENTERIMAGE
+    LTEXT           "下端",IDC_STATIC,223,51,45,12,SS_CENTERIMAGE
+    LTEXT           "下端",IDC_STATIC,223,75,45,12,SS_CENTERIMAGE
+    GROUPBOX        "動作パラメータ",IDC_STATIC,5,20,404,271
+    LTEXT           "上端",IDC_STATIC,223,87,45,12,SS_CENTERIMAGE
+    LTEXT           "上端",IDC_STATIC,223,111,45,12,SS_CENTERIMAGE
+    LTEXT           "アライメント",IDC_STATIC,223,99,45,12,SS_CENTERIMAGE
+    GROUPBOX        "位置決め",IDC_STATIC,207,35,194,130
+    LTEXT           "加速時間",IDC_STATIC,223,135,70,12,SS_CENTERIMAGE
+    LTEXT           "減速時間",IDC_STATIC,223,147,70,12,SS_CENTERIMAGE
+    LTEXT           "アライメント位置減速",IDC_STATIC,24,220,85,12,
+                    SS_CENTERIMAGE
+    RTEXT           "12345678",IDC_ALIGNMENT_DECEL_POS,109,87,50,12,
+                    SS_CENTERIMAGE | SS_SUNKEN
+    LTEXT           "アライメント位置減速",IDC_STATIC,24,87,85,12,
+                    SS_CENTERIMAGE
+    LTEXT           "アライメント減速",IDC_STATIC,223,123,100,12,
+                    SS_CENTERIMAGE
+    LTEXT           "",IDC_ARROW1,273,51,15,12
+    LTEXT           "上端",IDC_STATIC,293,51,45,12,SS_CENTERIMAGE
+    LTEXT           "",IDC_ARROW2,273,63,15,12,SS_CENTERIMAGE
+    LTEXT           "",IDC_ARROW3,273,75,15,12,SS_CENTERIMAGE
+    LTEXT           "",IDC_ARROW4,273,87,15,12,SS_CENTERIMAGE
+    LTEXT           "",IDC_ARROW5,273,99,15,12,SS_CENTERIMAGE
+    LTEXT           "",IDC_ARROW6,273,111,15,12,SS_CENTERIMAGE
+    LTEXT           "上端",IDC_STATIC,293,63,45,12,SS_CENTERIMAGE
+    LTEXT           "アライメント",IDC_STATIC,293,75,45,12,SS_CENTERIMAGE
+    LTEXT           "アライメント",IDC_STATIC,293,87,45,12,SS_CENTERIMAGE
+    LTEXT           "下端",IDC_STATIC,293,99,45,12,SS_CENTERIMAGE
+    LTEXT           "下端",IDC_STATIC,293,111,45,12,SS_CENTERIMAGE
+    GROUPBOX        "原点復帰",IDC_STATIC,207,170,194,72
+    LTEXT           "正転",IDC_STATIC,223,188,70,12,SS_CENTERIMAGE
+    LTEXT           "逆転",IDC_STATIC,223,200,70,12,SS_CENTERIMAGE
+    LTEXT           "加速時間",IDC_STATIC,223,212,70,12,SS_CENTERIMAGE
+    LTEXT           "減速時間",IDC_STATIC,223,224,70,12,SS_CENTERIMAGE
+    LTEXT           "(min-1)",IDC_STATIC,363,177,30,8,SS_CENTERIMAGE
+    GROUPBOX        "パルスジョグ",IDC_STATIC,207,247,194,35
+    LTEXT           "パルスジョグ速度",IDC_STATIC,223,264,70,12,
+                    SS_CENTERIMAGE
+    LTEXT           "(min-1)",IDC_STATIC,363,254,30,8,SS_CENTERIMAGE
+    LTEXT           "現在軸:",IDC_STATIC,5,5,45,12,SS_CENTERIMAGE
+END
+
+IDD_JOG_OPERATION_DIALOG DIALOGEX 0, 0, 201, 119
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ジョグ操作"
+FONT 9, "MS UI Gothic", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_JOG_SPEED,93,48,70,12,ES_RIGHT | ES_AUTOHSCROLL
+    PUSHBUTTON      "OK",IDOK,145,100,50,14,0,WS_EX_CLIENTEDGE
+    COMBOBOX        IDC_COMBO_CURRENT_AXIS,50,5,30,50,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "正転",IDC_BUTTON_MOTION_UP,17,68,50,14,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "逆転",IDC_BUTTON_MOTION_DOWN,75,68,50,14,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "停止",IDC_BUTTON_MOTION_STOP,133,68,50,14,0,
+                    WS_EX_CLIENTEDGE
+    GROUPBOX        "ジョグ",IDC_STATIC,5,20,190,70
+    LTEXT           "ジョグ速度",IDC_STATIC,14,48,70,10,SS_CENTERIMAGE
+    LTEXT           "(min-1)",IDC_STATIC,168,48,22,10,SS_CENTERIMAGE
+    LTEXT           "現在位置",IDC_STATIC,14,35,70,10,SS_CENTERIMAGE
+    RTEXT           "0000000000",IDC_CURRENT_POS,93,38,70,10,SS_SUNKEN
+    LTEXT           "pls",IDC_STATIC,168,38,18,10
+    LTEXT           "現在軸:",IDC_STATIC,5,5,45,12,SS_CENTERIMAGE
+END
+
+IDD_ALARM_HISTORY_DIALOG DIALOGEX 0, 0, 338, 253
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "アラーム履歴"
+FONT 9, "MS UI Gothic", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,280,235,55,15,0,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "キャンセル",IDCANCEL,0,0,6,6,NOT WS_VISIBLE,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "List1",IDC_ALARM_LIST,"SysListView32",LVS_REPORT | 
+                    LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,1,0,335,225,
+                    WS_EX_CLIENTEDGE
+END
+
+IDD_INFORMATION_DIALOG DIALOG DISCARDABLE  0, 0, 156, 43
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+FONT 9, "MS UI Gothic"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,7,6,6,NOT WS_VISIBLE
+    PUSHBUTTON      "キャンセル",IDCANCEL,16,7,6,6,NOT WS_VISIBLE
+    LTEXT           "",IDC_TEXT,40,15,80,8
+END
+
+IDD_MANUAL_OPERATION_DIALOG DIALOGEX 0, 0, 369, 295
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "手動操作"
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,315,275,50,14,0,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "キャンセル",IDCANCEL,110,245,70,15,0,WS_EX_CLIENTEDGE
+    GROUPBOX        "リフター",IDC_STATIC,5,5,261,37
+    PUSHBUTTON      "上昇端",IDC_BUTTON_MOVE_TO_UPPER_POS,20,20,70,15,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "アライメント",IDC_BUTTON_MOVE_TO_ALIGNMENT_POS,105,20,
+                    70,15,0,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "下降端",IDC_BUTTON_MOVE_TO_LOWER_POS,190,20,70,15,0,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_RADIO_MOVE_TO_ALIGNMENT_POS,"Button",
+                    BS_AUTORADIOBUTTON,95,23,8,8
+    CONTROL         "",IDC_RADIO_MOVE_TO_UPPER_POS,"Button",
+                    BS_AUTORADIOBUTTON,10,23,8,8
+    CONTROL         "",IDC_RADIO_MOVE_TO_LOWER_POS,"Button",
+                    BS_AUTORADIOBUTTON,180,23,8,8
+    GROUPBOX        "バキューム",IDC_STATIC,5,50,176,37
+    PUSHBUTTON      "オン",IDC_BUTTON_VACUUM_ON,21,65,70,15,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "オフ",IDC_BUTTON_VACUUM_OFF,105,65,70,15,0,
+                    WS_EX_CLIENTEDGE
+    GROUPBOX        "投入／取り出し",IDC_STATIC,12,155,176,37
+    PUSHBUTTON      "投入",IDC_BUTTON_START_LOAD,27,170,70,15,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "取り出し",IDC_BUTTON_START_UNLOAD,112,170,70,15,0,
+                    WS_EX_CLIENTEDGE
+    GROUPBOX        "ワークガイド",IDC_STATIC,12,200,176,37
+    PUSHBUTTON      "開",IDC_BUTTON_OPEN_WORK_GUIDE,27,215,70,15,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "閉",IDC_BUTTON_CLOSE_WORK_GUIDE,112,215,70,15,0,
+                    WS_EX_CLIENTEDGE
+    GROUPBOX        "エア浮上",IDC_STATIC,5,95,176,37
+    PUSHBUTTON      "オン",IDC_BUTTON_AIR_FLOAT_ON,20,109,70,15,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "オフ",IDC_BUTTON_AIR_FLOAT_OFF,105,110,70,15,0,
+                    WS_EX_CLIENTEDGE
+    GROUPBOX        "シャッター",IDC_STATIC,188,50,176,37
+    PUSHBUTTON      "開",IDC_BUTTON_OPEN_SHUTTER,203,65,70,15,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "閉",IDC_BUTTON_CLOSE_SHUTTER,288,65,70,15,0,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_RADIO_OPEN_WORK_GUIDE,"Button",BS_AUTORADIOBUTTON,
+                    17,219,8,8
+    CONTROL         "",IDC_RADIO_CLOSE_WORK_GUIDE,"Button",
+                    BS_AUTORADIOBUTTON,102,219,8,8
+    CONTROL         "",IDC_RADIO_OPEN_SHUTTER,"Button",BS_AUTORADIOBUTTON,
+                    193,69,8,8
+    CONTROL         "",IDC_RADIO_CLOSE_SHUTTER,"Button",BS_AUTORADIOBUTTON,
+                    278,69,8,8
+    CONTROL         "",IDC_RADIO_VACUUM_ON,"Button",BS_AUTORADIOBUTTON,11,68,
+                    8,8
+    CONTROL         "",IDC_RADIO_VACUUM_OFF,"Button",BS_AUTORADIOBUTTON,95,
+                    68,8,8
+    CONTROL         "",IDC_RADIO_AIR_FLOAT_ON,"Button",BS_AUTORADIOBUTTON,10,
+                    113,8,8
+    CONTROL         "",IDC_RADIO_AIR_FLOAT_OFF,"Button",BS_AUTORADIOBUTTON,
+                    95,113,8,8
+    GROUPBOX        "シーケンス",IDC_STATIC,5,140,190,127
+    COMBOBOX        IDC_COMBO_RC_MODE,309,20,48,92,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "ロボシリンダ",IDC_STATIC,273,5,90,37
+    LTEXT           "モード:",IDC_STATIC,283,23,20,8
+END
+
+IDD_SYSTEM_CFG_DIALOG DIALOGEX 0, 0, 166, 245
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "システム設定"
+FONT 9, "MS UI Gothic", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_TIMEOUTS_HOMING,120,15,35,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_TIMEOUTS_ORT,120,27,35,12,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_TIMEOUTS_TEACH_LOC,120,39,35,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_TIMEOUTS_VAC_ON,120,63,35,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_TIMEOUTS_VAC_OFF,120,75,35,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_TIMEOUTS_SHUTTER_OPEN,120,87,35,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_TIMEOUTS_SHUTTER_CLOSE,120,99,35,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_DELAY_CLAMP,120,133,35,12,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_DELAY_UNCLAMP,120,145,35,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_DELAY_VAC_DEST,120,157,35,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    CONTROL         "吸着確認 有効・無効",IDC_ENABLE_VACUUM_FEEDBACK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,5,181,93,10
+    CONTROL         "オペレータ確認 有効・無効",IDC_ENABLE_CONFIRM_OPERATOR,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,191,95,10
+    DEFPUSHBUTTON   "OK",IDOK,20,225,50,14,0,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "キャンセル",IDCANCEL,86,225,50,14,0,WS_EX_CLIENTEDGE
+    LTEXT           "原点復帰移動",IDC_STATIC,15,15,100,10,SS_CENTERIMAGE
+    LTEXT           "装置原点復帰",IDC_STATIC,15,27,100,10,SS_CENTERIMAGE
+    LTEXT           "ワークガイド",IDC_STATIC,15,133,100,10,SS_CENTERIMAGE
+    LTEXT           "アンワークガイド",IDC_STATIC,15,145,100,10,
+                    SS_CENTERIMAGE
+    GROUPBOX        "タイムアウト (msec)",IDC_STATIC,5,5,155,113
+    GROUPBOX        "遅延 (msec)",IDC_STATIC,5,124,155,50
+    LTEXT           "位置決め位置移動",IDC_STATIC,15,39,100,10,
+                    SS_CENTERIMAGE
+    LTEXT           "吸着",IDC_STATIC,15,63,100,10,SS_CENTERIMAGE
+    LTEXT           "吸着オフ",IDC_STATIC,15,75,100,10,SS_CENTERIMAGE
+    LTEXT           "シャッター開",IDC_STATIC,15,87,100,10,SS_CENTERIMAGE
+    LTEXT           "シャッター閉",IDC_STATIC,15,99,100,10,SS_CENTERIMAGE
+    LTEXT           "吸着破壊",IDC_STATIC,15,157,100,10,SS_CENTERIMAGE
+    LTEXT           "ワークガイド",IDC_STATIC,15,51,100,10,SS_CENTERIMAGE
+    EDITTEXT        IDC_TIMEOUTS_CLAMP,120,51,35,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+END
+
+IDD_DIO_MONITOR_TAB DIALOGEX 0, 0, 559, 382
+STYLE WS_CHILD
+FONT 9, "MS UI Gothic", 0, 0, 0x1
+BEGIN
+    CONTROL         "緊急停止",IDC_CN1_IN000,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,15,130,10
+    CONTROL         "ドアインターロック",IDC_CN1_IN001,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,25,130,10
+    CONTROL         "装置電源",IDC_CN1_IN002,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,35,130,10
+    CONTROL         "セーフティプラグ ON",IDC_CN1_IN003,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,45,130,10
+    CONTROL         "HEPA 電源",IDC_CN1_IN004,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,60,130,10
+    CONTROL         "",IDC_CN1_IN005,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,70,130,10
+    CONTROL         "供給 CDA 圧力低下",IDC_CN1_IN006,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,80,130,10
+    CONTROL         "MOVO2 アラーム",IDC_CN1_IN007,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,90,130,10
+    CONTROL         "",IDC_CN1_IN010,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,105,130,10
+    CONTROL         "メンテナンススイッチ",IDC_CN1_IN011,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,115,130,10
+    CONTROL         "東朋メンテナンススイッチ",IDC_CN1_IN012,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,125,130,10
+    CONTROL         "",IDC_CN1_IN013,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,135,130,10
+    CONTROL         "",IDC_CN1_IN014,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,150,130,10
+    CONTROL         "",IDC_CN1_IN015,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,160,130,10
+    CONTROL         "ストレス スキャン スタート",IDC_CN1_IN016,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,170,130,10
+    CONTROL         "ストレス スキャン エンド",IDC_CN1_IN017,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,180,130,10
+    CONTROL         "シャッター開",IDC_CN1_IN020,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,195,130,10
+    CONTROL         "シャッターシリンダ1上端",IDC_CN1_IN021,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,205,130,10
+    CONTROL         "シャッターシリンダ1下端",IDC_CN1_IN022,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,215,130,10
+    CONTROL         "シャッターシリンダ2上端",IDC_CN1_IN023,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,225,130,10
+    CONTROL         "シャッターシリンダ2下端",IDC_CN1_IN024,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,240,130,10
+    CONTROL         "ロボットアーム",IDC_CN1_IN025,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,250,130,10
+    CONTROL         "",IDC_CN1_IN026,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,260,130,10
+    CONTROL         "ストレス ユニット アラーム",IDC_CN1_IN027,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,270,130,10
+    CONTROL         "バキューム1",IDC_CN1_IN030,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,285,130,10
+    CONTROL         "バキューム2",IDC_CN1_IN031,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,295,130,10
+    CONTROL         "",IDC_CN1_IN032,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,305,130,10
+    CONTROL         "ガラス在荷1",IDC_CN1_IN033,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,315,130,10
+    CONTROL         "ガラス在荷2",IDC_CN1_IN034,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,10,330,130,10
+    CONTROL         "X軸 ロードポジション",IDC_CN1_IN035,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,340,130,10
+    CONTROL         "Y軸 ロードポジション",IDC_CN1_IN036,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,350,130,10
+    CONTROL         "Z軸 退避ポジション",IDC_CN1_IN037,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,10,360,130,10
+    CONTROL         "サーボ1 ON",IDC_CN1_IN040,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,140,15,130,10
+    CONTROL         "サーボ1 運転準備",IDC_CN1_IN041,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,140,25,130,10
+    CONTROL         "サーボ1 アラーム",IDC_CN1_IN042,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,140,35,130,10
+    CONTROL         "サーボ1 位置決完了",IDC_CN1_IN043,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,140,45,130,10
+    CONTROL         "サーボ1 リフター上端",IDC_CN1_IN044,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,140,60,130,10
+    CONTROL         "サーボ1 リフター中間",IDC_CN1_IN045,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,140,70,130,10
+    CONTROL         "サーボ1 リフター下端",IDC_CN1_IN046,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,140,80,130,10
+    CONTROL         "リフター1 下端センサー",IDC_CN1_IN047,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,140,90,130,10
+    CONTROL         "サーボ2 ON",IDC_CN1_IN050,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,140,105,130,10
+    CONTROL         "サーボ2 運転準備",IDC_CN1_IN051,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,140,115,130,10
+    CONTROL         "サーボ2 アラーム",IDC_CN1_IN052,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,140,125,130,10
+    CONTROL         "サーボ2 位置決完了",IDC_CN1_IN053,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,140,135,130,10
+    CONTROL         "サーボ2 リフター上端",IDC_CN1_IN054,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,140,150,130,10
+    CONTROL         "サーボ2 リフター中間",IDC_CN1_IN055,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,140,160,130,10
+    CONTROL         "サーボ2 リフター下端",IDC_CN1_IN056,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,140,170,130,10
+    CONTROL         "リフター2 下端センサー",IDC_CN1_IN057,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,140,180,130,10
+    CONTROL         "ワークガイド1 FWD",IDC_CN1_IN060,"Button",
+                    BS_AUTORADIOBUTTON,140,195,130,10
+    CONTROL         "ワークガイド1 REV",IDC_CN1_IN061,"Button",
+                    BS_AUTORADIOBUTTON,140,205,130,10
+    CONTROL         "ワークガイド2 FWD",IDC_CN1_IN062,"Button",
+                    BS_AUTORADIOBUTTON,140,215,130,10
+    CONTROL         "ワークガイド2 REV",IDC_CN1_IN063,"Button",
+                    BS_AUTORADIOBUTTON,140,225,130,10
+    CONTROL         "ワークガイド3 FWD",IDC_CN1_IN064,"Button",
+                    BS_AUTORADIOBUTTON,140,240,130,10
+    CONTROL         "ワークガイド3 REV",IDC_CN1_IN065,"Button",
+                    BS_AUTORADIOBUTTON,140,250,130,10
+    CONTROL         "ワークガイド4 FWD",IDC_CN1_IN066,"Button",
+                    BS_AUTORADIOBUTTON,140,260,130,10
+    CONTROL         "ワークガイド4 REV",IDC_CN1_IN067,"Button",
+                    BS_AUTORADIOBUTTON,140,270,130,10
+    CONTROL         "ワークガイド5 FWD",IDC_CN1_IN070,"Button",
+                    BS_AUTORADIOBUTTON,140,285,130,10
+    CONTROL         "ワークガイド5 REV",IDC_CN1_IN071,"Button",
+                    BS_AUTORADIOBUTTON,140,295,130,10
+    CONTROL         "ワークガイド6 FWD",IDC_CN1_IN072,"Button",
+                    BS_AUTORADIOBUTTON,140,305,130,10
+    CONTROL         "ワークガイド6 REV",IDC_CN1_IN073,"Button",
+                    BS_AUTORADIOBUTTON,140,315,130,10
+    CONTROL         "ワークガイド7 FWD",IDC_CN1_IN074,"Button",
+                    BS_AUTORADIOBUTTON,140,330,130,10
+    CONTROL         "ワークガイド7 REV",IDC_CN1_IN075,"Button",
+                    BS_AUTORADIOBUTTON,140,340,130,10
+    CONTROL         "ワークガイド8 FWD",IDC_CN1_IN076,"Button",
+                    BS_AUTORADIOBUTTON,140,350,130,10
+    CONTROL         "ワークガイド8 REV",IDC_CN1_IN077,"Button",
+                    BS_AUTORADIOBUTTON,140,360,130,10
+    CONTROL         "装置動作中",IDC_CN1_OUT000,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,15,130,10
+    CONTROL         "装置電源 OFF",IDC_CN1_OUT001,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,290,25,130,10
+    CONTROL         "",IDC_CN1_OUT002,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,35,130,10
+    CONTROL         "",IDC_CN1_OUT003,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,45,130,10
+    CONTROL         "",IDC_CN1_OUT004,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,60,130,10
+    CONTROL         "",IDC_CN1_OUT005,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,70,130,10
+    CONTROL         "",IDC_CN1_OUT006,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,80,130,10
+    CONTROL         "HEPA 電源 OFF",IDC_CN1_OUT007,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,290,90,130,10
+    CONTROL         "",IDC_CN1_OUT010,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,105,130,10
+    CONTROL         "",IDC_CN1_OUT011,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,115,130,10
+    CONTROL         "",IDC_CN1_OUT012,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,125,130,10
+    CONTROL         "",IDC_CN1_OUT013,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,135,130,10
+    CONTROL         "",IDC_CN1_OUT014,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,150,130,10
+    CONTROL         "",IDC_CN1_OUT015,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,160,130,10
+    CONTROL         "",IDC_CN1_OUT016,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,170,130,10
+    CONTROL         "",IDC_CN1_OUT017,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,180,130,10
+    CONTROL         "シャッター開",IDC_CN1_OUT020,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,290,195,130,10
+    CONTROL         "シャッター閉",IDC_CN1_OUT021,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,290,205,130,10
+    CONTROL         "",IDC_CN1_OUT022,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,215,130,10
+    CONTROL         "",IDC_CN1_OUT023,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,224,130,10
+    CONTROL         "",IDC_CN1_OUT024,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,240,130,10
+    CONTROL         "",IDC_CN1_OUT025,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,250,130,10
+    CONTROL         "",IDC_CN1_OUT026,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,260,130,10
+    CONTROL         "",IDC_CN1_OUT027,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,270,130,10
+    CONTROL         "バキューム1",IDC_CN1_OUT030,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,285,130,10
+    CONTROL         "バキューム2",IDC_CN1_OUT031,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,295,130,10
+    CONTROL         "バキューム 破壊1",IDC_CN1_OUT032,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,290,305,130,10
+    CONTROL         "バキューム 破壊2",IDC_CN1_OUT033,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,290,315,130,10
+    CONTROL         "エアー浮上1",IDC_CN1_OUT034,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,330,130,10
+    CONTROL         "エアー浮上2",IDC_CN1_OUT035,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,340,130,10
+    CONTROL         "",IDC_CN1_OUT036,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,350,130,10
+    CONTROL         "",IDC_CN1_OUT037,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,290,360,130,10
+    CONTROL         "サーボ1 ON",IDC_CN1_OUT040,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,420,15,130,10
+    CONTROL         "サーボ1 アラームリセット",IDC_CN1_OUT041,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,420,25,130,10
+    CONTROL         "サーボ1 ブレーキ",IDC_CN1_OUT042,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,420,35,130,10
+    CONTROL         "",IDC_CN1_OUT043,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,420,45,130,10
+    CONTROL         "",IDC_CN1_OUT044,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,420,60,130,10
+    CONTROL         "",IDC_CN1_OUT045,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,420,70,130,10
+    CONTROL         "",IDC_CN1_OUT046,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,420,80,130,10
+    CONTROL         "",IDC_CN1_OUT047,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,420,90,130,10
+    CONTROL         "サーボ2 ON",IDC_CN1_OUT050,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,420,105,130,10
+    CONTROL         "サーボ2 アラームリセット",IDC_CN1_OUT051,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,420,115,130,10
+    CONTROL         "サーボ2 ブレーキ",IDC_CN1_OUT052,"Button",
+                    BS_AUTORADIOBUTTON | BS_VCENTER,420,125,130,10
+    CONTROL         "",IDC_CN1_OUT053,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,420,135,130,10
+    CONTROL         "",IDC_CN1_OUT054,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,420,150,130,10
+    CONTROL         "",IDC_CN1_OUT055,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,420,160,130,10
+    CONTROL         "",IDC_CN1_OUT056,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,420,170,130,10
+    CONTROL         "",IDC_CN1_OUT057,"Button",BS_AUTORADIOBUTTON | 
+                    BS_VCENTER,420,180,130,10
+    CONTROL         "ワークガイド1 FWD",IDC_CN1_OUT060,"Button",
+                    BS_AUTORADIOBUTTON,420,195,130,10
+    CONTROL         "ワークガイド1 REV",IDC_CN1_OUT061,"Button",
+                    BS_AUTORADIOBUTTON,420,205,130,10
+    CONTROL         "ワークガイド2 FWD",IDC_CN1_OUT062,"Button",
+                    BS_AUTORADIOBUTTON,420,215,130,10
+    CONTROL         "ワークガイド2 REV",IDC_CN1_OUT063,"Button",
+                    BS_AUTORADIOBUTTON,420,225,130,10
+    CONTROL         "",IDC_CN1_OUT064,"Button",BS_AUTORADIOBUTTON,420,240,
+                    130,10
+    CONTROL         "",IDC_CN1_OUT065,"Button",BS_AUTORADIOBUTTON,420,250,
+                    130,10
+    CONTROL         "",IDC_CN1_OUT066,"Button",BS_AUTORADIOBUTTON,420,260,
+                    130,10
+    CONTROL         "",IDC_CN1_OUT067,"Button",BS_AUTORADIOBUTTON,420,270,
+                    130,10
+    CONTROL         "ストレス トリガー",IDC_CN1_OUT070,"Button",
+                    BS_AUTORADIOBUTTON,420,285,130,10
+    CONTROL         "",IDC_CN1_OUT071,"Button",BS_AUTORADIOBUTTON,420,295,
+                    130,10
+    CONTROL         "",IDC_CN1_OUT072,"Button",BS_AUTORADIOBUTTON,420,305,
+                    130,10
+    CONTROL         "",IDC_CN1_OUT073,"Button",BS_AUTORADIOBUTTON,420,315,
+                    130,10
+    CONTROL         "",IDC_CN1_OUT074,"Button",BS_AUTORADIOBUTTON,420,330,
+                    130,10
+    CONTROL         "",IDC_CN1_OUT075,"Button",BS_AUTORADIOBUTTON,420,340,
+                    130,10
+    CONTROL         "",IDC_CN1_OUT076,"Button",BS_AUTORADIOBUTTON,420,350,
+                    130,10
+    CONTROL         "",IDC_CN1_OUT077,"Button",BS_AUTORADIOBUTTON,420,360,
+                    130,10
+    PUSHBUTTON      "Cancel",IDCANCEL,0,0,6,6,NOT WS_VISIBLE,
+                    WS_EX_CLIENTEDGE
+    GROUPBOX        "INPUT",IDC_STATIC,5,5,270,370
+    GROUPBOX        "OUTPUT",IDC_STATIC,282,5,270,370
+END
+
+IDD_DIO_MONITOR_DIALOG DIALOGEX 0, 0, 559, 418
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "NexI/O モニター"
+FONT 9, "MS UI Gothic", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,505,400,50,15,0,WS_EX_CLIENTEDGE
+    CONTROL         "マニュアル入力",IDC_MANUAL_INPUT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,5,400,65,10
+    CONTROL         "マニュアル出力",IDC_MANUAL_OUTPUT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,80,400,65,10
+    PUSHBUTTON      "Cancel",IDCANCEL,0,0,6,6,NOT WS_VISIBLE,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "Tab1",IDC_TABCTRL,"SysTabControl32",0x0,0,0,559,395
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "#include <nexrc.hxx>\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 17, 1\r\n"
+    "#pragma code_page(932)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\nextra.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.jpn\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\NEXTRA.ICO"
+IDI_OFFLINE             ICON    DISCARDABLE     "res\\OFFLINE.ICO"
+IDI_ARROW_ICON          ICON    DISCARDABLE     "res\\Arrow.ico"
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041104B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "NEXTRA MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "NEXTRA\0"
+            VALUE "LegalCopyright", "Copyright (C) 2008\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "NEXTRA.EXE\0"
+            VALUE "ProductName", "NEXTRA Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x411, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_POPUP_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "popup"
+    BEGIN
+        MENUITEM "アラーム履歴(&A)",            IDM_ALARM_HISTORY
+        MENUITEM "DI/O モニター(&D)",           IDM_DIO_MONITOR
+        MENUITEM SEPARATOR
+        MENUITEM "手動操作(&M)",                IDM_MANUAL_OPERATION, GRAYED
+        MENUITEM "位置決め操作(&T)",            IDM_TEACH_OPERATION, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "装置設定(&S)",                IDM_SYSTEM_CONFIGURATION
+        MENUITEM SEPARATOR
+        MENUITEM "Nextra 終了(&X)",             IDM_QUIT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_TEACH_LOCATION_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_CURRENT_AXIS, 0x403, 2, 0
+0x0031, 
+    IDC_COMBO_CURRENT_AXIS, 0x403, 2, 0
+0x0032, 
+    0
+END
+
+IDD_JOG_OPERATION_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_CURRENT_AXIS, 0x403, 2, 0
+0x0031, 
+    IDC_COMBO_CURRENT_AXIS, 0x403, 2, 0
+0x0032, 
+    0
+END
+
+IDD_MANUAL_OPERATION_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_RC_MODE, 0x403, 5, 0
+0xca92, 0xed8f, "\000" 
+    IDC_COMBO_RC_MODE, 0x403, 5, 0
+0xb38b, 0xa68e, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_ARROW               BITMAP  DISCARDABLE     "res\\Arrow.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PASSWORD_CONFIRM_TITLE "パスワード確認"
+    IDS_PASSWORD_CONFIG_TITLE "パスワード設定"
+    IDS_PASSWORD_DEFFERENT  "パスワードが間違っています。再度入力してください。"
+    IDS_PASSWROD_CONFIRM_ERR 
+                            "パスワードが一致しません。新しいパスワードを両方のテキストボックスに入力してください。"
+    IDS_PASSWORD_SAVE       "パスワードを変更しますか？"
+    IDS_NEXTRA_APP_TITLE    "Nextra アプリケーション"
+    IDS_NEXTRA_CLAMP_FAILED "ワークガイドに失敗しました。"
+    IDS_ABOUTBOX            "&About Nextra..."
+    IDS_SYSTEMU_MENU_MOVE   "移動(&M"
+    IDS_SYSTEMU_MENU_CLOSE  "X 閉じる(&C)    Alt+F4"
+    IDS_NEXIO_TITLE         "DI/O モジュール"
+    IDS_NEXIO_OPEN_FAILED   "オープン失敗しました。"
+    IDS_NEXTRA_QUIT_TITLE   "Nextra 終了"
+    IDS_NEXTRA_QUIT_TEXT    "Nextra アプリケーションを終了しますか ?"
+    IDS_MOTION_PARAMS_SAVED "パラメータが保存されておりません\n保存しますか ？"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_NEXTRA_NOT_INITIALIZED "初期化が完了しておりません。"
+    IDS_MOTPARAMS_TITLE     "動作パラメータ"
+    IDS_MOTPARAMS_LOADING   "読み込み中です。"
+    IDS_MOTPARAMS_SAVING    "書き込み中です。"
+    IDS_MOTPARAMS_LOAD_FAILED "動作パラメータの読み込みに失敗しました。"
+    IDS_MOTPARAMS_SAVE_FAILED "動作パラメータの書き込みに失敗しました。"
+    IDS_UPARAMS_UNAVAILABLE "上昇端位置はアライメント位置より大きくなければなりません。"
+    IDS_APARAMS_UNAVAILABLE "アライメント位置は減速位置より大きくなければなりません。"
+    IDS_LPARAMS_UNAVAILABLE "下降端位置は減速位置より小さくなければなりません。"
+    IDS_SYSTEM_CONFIG_TITLE "システム設定"
+    IDS_SYSTEM_CONFIG_TEXT  "本当に良いですか    ?"
+    IDS_UNKNOWN_CURRENT_POSITION "現在位置が不明です。"
+    IDS_JOGOP_EXECUTE_FAILED "ジョグ操作起動に失敗しました。"
+    IDS_JOGOP_APP_TITLE     "Jog アプリケーション"
+END
+
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE 17, 1
+#pragma code_page(932)
+#endif //_WIN32
+#include "res\nextra.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.jpn\afxres.rc"          // Standard components
+#endif
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

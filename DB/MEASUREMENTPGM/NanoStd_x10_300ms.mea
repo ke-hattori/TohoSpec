@@ -1,0 +1,20 @@
+[MeasurementProgram]
+Name=NanoStd_x10_300ms
+HeadType=0
+ScanType=0
+[SrThickness]
+StartWaveLength=480
+EndWaveLength=800
+Lens=1
+IntergrationTime=0.300
+OpticalFilter=1
+EnhancedUvGain=FALSE
+Strategy=02 NanoStandard(SR)
+AddReflectanceMeasureFlag=FALSE
+FirstWaveLength=0
+SecondWaveLength=0
+ThirdWaveLength=0
+LifeTimeWaringFlag=FALSE
+LifeTime=1.000
+ReferenceStrategy=sio2(20a)_si-jaw(200-900nm)
+Comment=

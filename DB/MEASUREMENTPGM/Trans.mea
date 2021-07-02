@@ -1,0 +1,16 @@
+[MeasurementProgram]
+Name=Trans
+HeadType=0
+ScanType=3
+[SrGantryTransmit]
+Lens=2
+IntegrationTime=0.500
+OpticalFilter=0
+EnhancedUvGain=FALSE
+FirstWaveLength=450
+SecondWaveLength=550
+ThirdWaveLength=650
+LifeTimeWaringFlag=TRUE
+LifeTime=1440.000
+ReferenceStrategy=sio2(20a)_si-jaw(200-900nm)
+Comment=

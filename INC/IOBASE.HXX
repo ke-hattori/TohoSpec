@@ -1,0 +1,512 @@
+#if !defined( _IOBASE_HXX_ )
+#define _IOBASE_HXX_
+
+#pragma once
+
+#include <ctime>
+// matsuhisa 2013.05.21 added >>>
+#include <nexiobase.hxx>
+// matsuhisa 2013.05.21 added <<<
+
+#define IOBASE							0x0300
+
+#define PPI_P8B 						0x01
+#define PPI_CTRL						0x02
+
+#define PPI_MODE						0x03
+
+#define DPRAM_AD						0x01
+#define DPRAM_RW						0x08
+#define DPRAM_INP1						(510)
+#define DPRAM_INP2						(511)
+#define DPRAM_OUT1						(1535)
+
+#define FIFO_ST 						0x02
+#define FIFO_RD 						0x04
+#define FIFO_RST						0x06
+
+#define IOBASE_TIMEOUT					(700)
+
+#define MODE_DATA						0xC1
+
+#define IOBASE_ERR_INVALID_ACCESS		(-1)
+#define IOBASE_ERR_NONE 				(0)
+
+#define PPI_DELIMITER					0x2C
+#define PPI_STXCHAR 					0x2F
+#define PPI_CRCHAR						0x0D
+
+#define IOBASE_VERSION130				(130)
+#define IOBASE_VERSION131				(131)
+#define IOBASE_VERSION135				(135)
+#define IOBASE_VERSION139				(139)
+#define IOBASE_VERSION142				(142)
+#define IOBASE_VERSION200				(200)
+#define IOBASE_VERSION206				(206)
+#define IOBASE_VERSION215				(215)
+#define IOBASE_VERSION217				(217)
+#define IOBASE_VERSION221				(221)
+
+#if !defined( MSEC )
+#define MSEC 100L
+#endif
+
+// =========================================================================
+// for port_nt
+// =========================================================================
+#include <port_nt.hxx>
+
+#ifdef PORTNT_MODULE_NAME
+	#undef PORTNT_MODULE_NAME
+#endif PORTNT_MODULE_NAME
+
+#ifdef _DEBUG
+#define PORTNT_MODULE_NAME "dtnsport_nt.dll"
+#else
+#define PORTNT_MODULE_NAME "tnsport_nt.dll"
+#endif
+
+#pragma pack(push, 2)
+
+class iobase
+{
+public:
+	iobase(const void* data = NULL) : abort(FALSE), valid(FALSE), module(NULL) { ::ZeroMemory(&inputdata, sizeof(inputdata)); }
+	~iobase() {_detach();}
+	virtual BOOL _create(const void* data = NULL) {
+		module = ::LoadLibrary(PORTNT_MODULE_NAME);
+		if ( module == NULL ) return FALSE;
+		pfninb	= (PFNINBYTE)  ::GetProcAddress(module, "InByte");
+		pfnoutb = (PFNOUTBYTE) ::GetProcAddress(module, "OutByte");
+		valid = TRUE;
+		return _is_valid();
+	}
+	virtual void _detach(void) {
+		if ( module != NULL ) {
+			::FreeLibrary(module);
+			module = NULL;
+		}
+	}
+	virtual BOOL _is_valid(void) const { return valid; }
+
+	virtual unsigned short _getch(unsigned short) = 0;
+	virtual void _putch(unsigned short, unsigned short) = 0;
+
+	inline unsigned short _ife(void) {
+		return ife;
+	}
+	inline unsigned short _int(void) {
+		return interrupt;
+	}
+	inline unsigned short _stb(void) {
+		return strobe;
+	}
+	inline unsigned short _ibf(void) {
+		return ibf;
+	}
+	inline unsigned short _ack(void) {
+		return ack;
+	}
+	inline unsigned short _obf(void) {
+		return obf;
+	}
+	inline unsigned short _getlow(void) {
+		return low;
+	}
+	inline unsigned short _gethigh(void) {
+		return high;
+	}
+
+	virtual signed short _init(void) { return IOBASE_ERR_INVALID_ACCESS; }
+	virtual unsigned short _access(unsigned short) { return 0; }
+	virtual unsigned short _flush(unsigned short port) { return 0; }
+	virtual signed short _recv(unsigned short port) { return 0; }
+	virtual signed short _send(unsigned short port, unsigned short dataword) { return 0; }
+	virtual void _abort(void) { abort = TRUE; }
+
+	operator unsigned short() {
+		return inputdata;
+	}
+
+protected:
+	iobase* _inp(unsigned short port) {
+		 inputdata = pfninb(_getdev(port), port);
+		 return this;
+	}
+	void _outp(unsigned short port, unsigned short dataword) {
+		pfnoutb(_getdev(port), port, dataword);
+	}
+	virtual void _setport(unsigned short port) {}
+
+	void _delay(unsigned long duration) {
+		unsigned long start, now, elapsed;
+		MSG msg;
+
+		// wait until finished
+		start	= ::GetTickCount();
+		elapsed = 0L;
+		while ( elapsed < duration ) {
+			// dispatch window messages for our client
+			while ( ::PeekMessage(&msg, NULL, 0, 0, PM_REMOVE) ) {
+				::TranslateMessage(&msg);
+				::DispatchMessage(&msg);
+			}
+
+			now = ::GetTickCount();
+			if ( now < start )
+				elapsed += now;
+			else
+				elapsed += (now - start);
+			start = now;
+		}
+	}
+	void do_events(void)
+	{
+		MSG msg;
+
+		// dispatch window messages for our client
+		while ( ::PeekMessage(&msg, NULL, 0, 0, PM_REMOVE) ) {
+			::TranslateMessage(&msg);
+			::DispatchMessage(&msg);
+		}
+	}
+	BOOL valid;
+	BOOL abort;
+private:
+	inline unsigned short _getdev(unsigned short port) {
+		return ((unsigned short) (((unsigned short) (port) >> 12) & 0x0F));
+	}
+	union {
+		unsigned short inputdata;
+		// for aux
+		struct {
+			unsigned short			 : 2;
+			unsigned short ife		 : 1;
+			unsigned short interrupt : 1;
+			unsigned short strobe	 : 1;
+			unsigned short ibf		 : 1;
+			unsigned short ack		 : 1;
+			unsigned short obf		 : 1;
+			unsigned short			 : 8;
+		};
+		//
+		// for future
+		// struct {
+		// };
+		//
+		union {
+			unsigned short : 16;
+			struct {
+				unsigned short low	: 8;
+				unsigned short high : 8;
+			};
+		};
+	};
+	typedef UCHAR (*PFNINBYTE) (ULONG, USHORT);
+	typedef int   (*PFNOUTBYTE) (ULONG, USHORT, UCHAR);
+	PFNINBYTE  pfninb;
+	PFNOUTBYTE pfnoutb;
+
+	HMODULE module;
+};
+
+class aux : public iobase
+{
+public:
+	aux() : iobase() { _create(); }
+
+	virtual iobase* _status(unsigned short port) {
+		_setport(port);
+		return _inp(IOBASE + PPI_CTRL);
+	}
+	virtual unsigned short _getch(unsigned short port) {
+		_setport(port);
+		return _inp(IOBASE)->_getlow();
+	}
+	virtual void _putch(unsigned short port, unsigned short dataword) {
+		_setport(port);
+		_outp(IOBASE, dataword & 0xFF);
+	}
+	virtual signed short _init(void) {
+		_outp(IOBASE + PPI_MODE, MODE_DATA);
+		_outp(IOBASE + PPI_P8B, 0x55/*01010101*/);
+		if ( ((unsigned short) *_inp(IOBASE + PPI_P8B)) != 0x55 ) return IOBASE_ERR_INVALID_ACCESS;
+		_outp(IOBASE + PPI_P8B, 0xAA/*10101010*/);
+		if ( ((unsigned short) *_inp(IOBASE + PPI_P8B)) != 0xAA ) return IOBASE_ERR_INVALID_ACCESS;
+		_outp(IOBASE + PPI_P8B, 0x00);
+		if ( _status(0)->_ibf() ) {
+			_inp(IOBASE + PPI_P8B);
+		}
+		return IOBASE_ERR_NONE;
+	}
+	unsigned short _access(unsigned short port) {
+		const int max_retries = 3;
+		const int max_counts  = 32;
+		int retries = 0;
+		int counts	= 0;
+		double start, elapse;
+
+		_send(port, PPI_CRCHAR);
+		_delay(MSEC);
+
+		while ( ++retries < max_retries ) {
+			while ( _status(port)->_ibf() &&
+					 (++counts < max_counts) ) {
+				_getch(port);
+				start = clock();
+				do {
+					elapse = (static_cast<double>(clock()) - start) / CLOCKS_PER_SEC;
+					if ( _status(port)->_ibf() ) {
+						_getch(port);
+					}
+				} while ( elapse < 0.2 );
+			}
+			if ( counts < max_counts ) {
+				if ( _send(port, PPI_STXCHAR) == IOBASE_ERR_NONE ) {
+					return port;
+				}
+			}
+			_delay(MSEC);
+		}
+		return IOBASE_ERR_INVALID_ACCESS;
+	}
+	inline signed short _recv(unsigned short port) {
+		double start, elapse;
+// matsuhisa 2013.06.04 deleted >>>
+//// matsuhisa 2013.05.21 added >>>
+//		static device_status emergency;
+//		static device_status eq_power;
+//// matsuhisa 2013.05.21 added <<<
+// matsuhisa 2013.06.04 deleted <<<
+
+		start = clock();
+		while ( !_status(port)->_ibf() ) {
+			if ( abort ) break;
+			elapse = (static_cast<double>(clock()) - start) / CLOCKS_PER_SEC;
+			if ( elapse > IOBASE_TIMEOUT ) {
+				return IOBASE_ERR_INVALID_ACCESS;
+			}
+// matsuhisa 2013.06.04 modified >>>
+//// matsuhisa 2013.05.21 added >>>
+//			if ( emergency.detect(nexioIsEmergencyStop()).is_down() ||
+//				 eq_power.detect(nexioIsEquipmentPower()).is_down() ) {
+//				return IOBASE_ERR_INVALID_ACCESS;
+//			}
+//// matsuhisa 2013.05.21 added <<<
+			if ( nexioIsEmergencyStop() == OFF || nexioIsEquipmentPower() == OFF ) {
+				return IOBASE_ERR_INVALID_ACCESS;
+			}
+// matsuhisa 2013.06.04 modified <<<
+		}
+		return _getch(port);
+	}
+	inline signed short _send(unsigned short port, unsigned short dataword) {
+		unsigned short ret;
+		double start, elapse;
+// matsuhisa 2013.06.04 deleted >>>
+//// matsuhisa 2013.05.21 added >>>
+//		static device_status emergency;
+//		static device_status eq_power;
+//// matsuhisa 2013.05.21 added <<<
+// matsuhisa 2013.06.04 deleted <<<
+
+		abort = FALSE;
+
+		start = clock();
+		while ( !_status(port)->_obf() ) {
+			elapse = (static_cast<double>(clock()) - start) / CLOCKS_PER_SEC;
+			if ( elapse > IOBASE_TIMEOUT ) {
+				return IOBASE_ERR_INVALID_ACCESS;
+			}
+// matsuhisa 2013.06.04 modified >>>
+//// matsuhisa 2013.05.21 added >>>
+//			if ( emergency.detect(nexioIsEmergencyStop()).is_down() ||
+//				 eq_power.detect(nexioIsEquipmentPower()).is_down() ) {
+//				return IOBASE_ERR_INVALID_ACCESS;
+//			}
+//// matsuhisa 2013.05.21 added <<<
+			if ( nexioIsEmergencyStop() == OFF || nexioIsEquipmentPower() == OFF ) {
+				return IOBASE_ERR_INVALID_ACCESS;
+			}
+// matsuhisa 2013.06.04 modified <<<
+		}
+		_putch(port, dataword);
+		ret = _recv(port);
+		return dataword == ret ? IOBASE_ERR_NONE : ret;
+	}
+
+protected:
+	virtual void _setport(unsigned short port) {
+		_outp(IOBASE + PPI_P8B, ((((unsigned short) *_inp(IOBASE + PPI_P8B)) & 0xF8) | (port & 0x07)));
+	}
+};
+
+class dpram : public aux
+{
+public:
+	dpram() : aux() {}
+
+	unsigned short _getch(unsigned short port) {
+		_setport(port);
+		unsigned short addr = _getaddr(port);
+		return _inp(addr)->_getlow();
+	}
+	void _putch(unsigned short port, unsigned short dataword) {
+		_setport(port);
+		unsigned short addr = _getaddr(port);
+		_outp(addr, dataword & 0xFF);					// change k.matsuo 20071119
+	}
+	inline signed short _fifo() {
+		if ( !_inp(IOBASE + FIFO_ST)->_ife() ) {
+			return IOBASE_ERR_INVALID_ACCESS;
+		}
+		return _inp(IOBASE + FIFO_RD)->_getlow();
+	}
+// added 20111110 hmenjo {
+	inline void _fifo_reset() {
+		_inp(IOBASE + FIFO_RST);
+	}
+// added 20111110 hmenjo }
+protected:
+	void _setport(unsigned short port) {
+		_outp(IOBASE + DPRAM_AD, (((unsigned short) *_inp(IOBASE + DPRAM_AD)) & 0x0F) | ((port & 0x78) * 0x02));
+	}
+private:
+	inline unsigned short _getaddr(unsigned short port) {
+		unsigned long addr =
+			((unsigned short) (((unsigned short) (port & 0x0780) << 5) + ((unsigned short) (port & 0x07) + 0x0308)));
+		return (unsigned short) (addr > 0x7FFF ? addr |= 0xFFFF0000 : addr);
+	}
+};
+
+class sio : public iobase
+{
+public:
+	sio(const void* data) : iobase(data) {}
+	virtual BOOL _create(const void* data = NULL) {
+		handle = ::CreateFile((PCSTR) data, GENERIC_READ | GENERIC_WRITE,
+					 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+
+		if ( handle == INVALID_HANDLE_VALUE ) {
+			handle = NULL;
+			return FALSE;
+		}
+
+		DCB dcb = { sizeof(DCB) };
+
+		::GetCommState(handle, &dcb);
+
+		dcb.BaudRate	 = CBR_9600;
+		dcb.ByteSize	 = 8;
+		dcb.Parity		 = NOPARITY;
+		dcb.StopBits	 = ONESTOPBIT;
+		dcb.fOutxDsrFlow = 0;
+		dcb.fDtrControl  = DTR_CONTROL_ENABLE;
+		dcb.fOutxCtsFlow = 0;
+		dcb.fRtsControl  = RTS_CONTROL_ENABLE;
+		dcb.fInX		 = 0;
+		dcb.fOutX		 = 0;
+
+		::SetCommState(handle, &dcb);
+
+		COMMTIMEOUTS timeouts ;
+		timeouts.ReadIntervalTimeout		 = MAXDWORD;
+		timeouts.ReadTotalTimeoutMultiplier  = 0 ;
+		timeouts.ReadTotalTimeoutConstant	 = 0 ;
+		timeouts.WriteTotalTimeoutMultiplier = 5000;
+		timeouts.WriteTotalTimeoutConstant	 = 0 ;
+
+		::SetCommTimeouts(handle, &timeouts) ;
+
+		valid = TRUE;
+		return _is_valid();
+	}
+	void _detach(void) {
+		if ( handle != NULL ) {
+			::CloseHandle(handle);
+			handle = NULL;
+		}
+	}
+	BOOL _status(void) {
+		if ( handle == NULL ) return FALSE;
+		COMSTAT comstat;
+		unsigned long errors;
+		if ( !::ClearCommError(handle, &errors, &comstat) ) return FALSE;
+		return comstat.cbInQue != 0L;
+	}
+	unsigned short _getch(unsigned short/*port*/) {
+		unsigned char buffer;
+		unsigned long count;
+		::ReadFile(handle, &buffer, sizeof(unsigned char), &count, NULL);
+		return buffer;
+	}
+	void _putch(unsigned short /*port*/, unsigned short dataword) {
+		unsigned long count;
+		dataword &= 0xFF;
+		::WriteFile(handle, &dataword, sizeof(unsigned char), &count, NULL);
+	}
+	signed short _init(void) {
+		return handle != NULL ? IOBASE_ERR_NONE : IOBASE_ERR_INVALID_ACCESS;
+	}
+	unsigned short _flush(unsigned short port) {
+		const int max_counts  = 256;
+		int counts	= 0;
+		double start, elapse;
+
+		while ( _status() &&
+				 (++counts < max_counts) ) {
+			_getch(port);
+			start = clock();
+			do {
+				elapse = (static_cast<double>(clock()) - start) / CLOCKS_PER_SEC;
+			} while ( elapse < 0.2 );
+		}
+		if ( counts < max_counts ) {
+				return _send(port, PPI_STXCHAR);
+		}
+		return IOBASE_ERR_INVALID_ACCESS;
+	}
+	signed short _recv(unsigned short port) {
+		double start, elapse;
+// matsuhisa 2013.06.04 deleted >>>
+//// matsuhisa 2013.05.21 added >>>
+//		static device_status emergency;
+//		static device_status eq_power;
+//// matsuhisa 2013.05.21 added <<<
+// matsuhisa 2013.06.04 deleted <<<
+
+		start = clock();
+		while ( !_status() ) {
+			elapse = (static_cast<double>(clock()) - start) / CLOCKS_PER_SEC;
+			if ( elapse > IOBASE_TIMEOUT ) {
+				return IOBASE_ERR_INVALID_ACCESS;
+			}
+// matsuhisa 2013.06.04 modified >>>
+//// matsuhisa 2013.05.21 added >>>
+//			if ( emergency.detect(nexioIsEmergencyStop()).is_down() ||
+//				 eq_power.detect(nexioIsEquipmentPower()).is_down() ) {
+//				return IOBASE_ERR_INVALID_ACCESS;
+//			}
+//// matsuhisa 2013.05.21 added <<<
+			if ( nexioIsEmergencyStop() == OFF || nexioIsEquipmentPower() == OFF ) {
+				return IOBASE_ERR_INVALID_ACCESS;
+			}
+// matsuhisa 2013.06.04 modified <<<
+		}
+		return _getch(port);
+	}
+	signed short _send(unsigned short port, unsigned short dataword) {
+		signed short ret;
+
+		_putch(port, dataword);
+		ret = _recv(port);
+		return dataword == ret ? IOBASE_ERR_NONE : ret;
+	}
+
+protected:
+	HANDLE handle;
+};
+
+#pragma pack(pop)
+
+#endif // _IOBASE_HXX_

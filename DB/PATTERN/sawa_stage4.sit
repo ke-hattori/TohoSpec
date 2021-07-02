@@ -1,0 +1,6 @@
+[StageProgram]
+NumScans=2
+[Point]
+1:1,1,aa,0,1,bb,1
+2:0,1,p2_1,0,1,p2_2,0
+

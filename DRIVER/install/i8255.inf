@@ -1,0 +1,78 @@
+[Version]
+Signature="$WINDOWS NT$"
+Class=i8255
+ClassGuid={E276FD8E-BB0E-4e19-A441-6693EBC59832}
+Provider=%TOHO%
+DriverVer=02/14/2002,1.00.0001
+
+[DestinationDirs]
+DefaultDestDir = 10,System32\Drivers
+CopyLib = 11
+
+; ================= Class section =====================
+
+[ClassInstall32]
+Addreg=i8255ClassReg     
+
+[i8255ClassReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-5
+
+; ================= Device Install section =====================
+
+[Manufacturer]
+%TOHO%=TOHO
+
+[SourceDisksFiles]
+NanoPt2k.sys=1
+Port_nt.dll=1
+
+[SourceDisksNames]
+1=%DISK_NAME%,
+
+[TOHO]
+; DisplayName            Section           DeviceId
+; -----------       	 -------           --------
+%i8255.DRVDESC%=i8255_Inst,root\i8255
+
+[i8255_Inst.NT]
+CopyFiles=i8255.CopyFiles,CopyLib
+LogConfig=i8255.LC0, i8255.LC1
+
+[NanoIO.CopyFiles]
+i8255.sys
+
+[CopyLib]
+i8255.dll
+
+[i8255.NT.Services]
+AddService=i8255,0x00000002,NanoIO_Service 
+
+;;;;;Uncomment following lines if your device can only work with factory default settings
+;;;;;[PortIO.NT.FactDef]
+;;;;;ConfigPriority=HARDRECONFIG
+;;;;;IOConfig=300-31f(3ff::)  ; 10 bit decode ranging from 300 - 31f
+
+[NanoIO.LC0]
+ConfigPriority=DESIRED 
+IOConfig=300-31f(3ff::)  ; 10 bit decode ranging from 300 - 31f
+
+;;;;;;;[PortIO.LC1]
+;;;;;;;ConfigPriority=NORMAL
+;;;;;;;IOConfig=8@300-3ff(3ff::) ; 8 ports starting anywhere between 300 and 3fc
+
+[NanoIO_Service]
+DisplayName    = %NanoIO.SVCDESC%                            
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\NanoPt2k.sys                            
+
+[Strings]
+NANO = "Toho Technology Corp."
+MfgName = "Nanospec"
+ClassName = "Nanospec I/O Driver"
+NanoIO.SVCDESC = "Nanospec ISA BUS I/O Service"
+NanoIO.DRVDESC = "Nanospec ISA BUS I/O Driver"
+DISK_NAME = "NanoPt2k Install Disk"
+

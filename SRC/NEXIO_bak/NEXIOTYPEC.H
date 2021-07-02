@@ -1,0 +1,29 @@
+#if !defined( _NEXIOTYPEC_H_ )
+#define _NEXIOTYPEC_H_
+
+#pragma once
+
+using namespace nano;
+
+class cDioTypeC : public cDioTypeB
+{
+public:
+	cDioTypeC () {}
+
+	// NANOSPEC DI INTERFACE
+	virtual BOOL IsPinUpperPos (void)
+	{
+		return m_inp->LifterCylinder1UpperPos && m_inp->LifterCylinder2UpperPos && m_inp->LifterCylinder3UpperPos && m_inp->LifterCylinder4UpperPos;
+	}
+	virtual BOOL IsPinAlignmentPos (void)
+	{
+		return m_inp->LifterCylinder1UpperPos && m_inp->LifterCylinder2UpperPos && m_inp->LifterCylinder3LowerPos && m_inp->LifterCylinder4LowerPos;
+	}
+	virtual BOOL IsPinDownPos (void)
+	{
+		return m_inp->LifterCylinder1LowerPos && m_inp->LifterCylinder2LowerPos && m_inp->LifterCylinder3LowerPos && m_inp->LifterCylinder4LowerPos;
+	}
+	virtual BOOL IsSafetyPlug				 (void) { return TRUE; }
+};
+
+#endif // _NEXIOTYPEC_H_

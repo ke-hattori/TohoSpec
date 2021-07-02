@@ -1,0 +1,14 @@
+[RS]
+RsStartRange=+1
+RsThickUnit=nm
+RsLimitVol=0
+RsRCF=4.532
+RsThick=15.000
+RsMeasWaitTime=2.000
+Lens=1
+OpticalFilter=1
+Comment=
+[MeasurementProgram]
+Name=Resist_15nm3sec
+HeadType=3
+ScanType=0

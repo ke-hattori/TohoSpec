@@ -1,0 +1,617 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# åxçê: Ç±ÇÃ‹∞∏ΩÕﬂ∞Ω Ãß≤Ÿ Çï“èWÇ‹ÇΩÇÕçÌèúÇµÇ»Ç¢Ç≈Ç≠ÇæÇ≥Ç¢!
+
+###############################################################################
+
+Project: "ACTIVE"=.\SRC\Active\ACTIVE.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "AlarmIf"=.\SRC\AlarmIf\AlarmIf.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "ConfigFile"=.\SRC\ConfigFile\ConfigFile.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "DESKEW"=.\SRC\DESKEW\DESKEW.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "HOOK"=.\SRC\Hook\HOOK.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "MEASYS"=.\SRC\MEASYS\MEASYS.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name PORT_NT
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name UTILITY
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name RecipeFile
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ConfigFile
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name NEXIO
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "MEASYSRCENU"=.\SRC\MeaSys\MEASYSRCENU\MEASYSRCENU.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "MEASYSRCJPN"=.\SRC\MeaSys\MEASYSRCJPN\MEASYSRCJPN.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "MOTTSK"=.\SRC\MotTsk\MOTTSK.DSP - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name STAGE
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "MotSysCfg"=.\SRC\MotSysCfgN\MotSysCfg.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "MotSysG"=.\SRC\MotSysNSPT\MotSysG.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "NANOSPECRCENU"=.\SRC\NanoSpec\NANOSPECRCENU\NANOSPECRCENU.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "NANOSPECRCJPN"=.\SRC\NanoSpec\NANOSPECRCJPN\NANOSPECRCJPN.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "NANOSPECTITLERCENU"=.\SRC\Title\NANOSPECTITLERCENU\NANOSPECTITLERCENU.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "NANOSPECTITLERCJPN"=.\SRC\Title\NANOSPECTITLERCJPN\NANOSPECTITLERCJPN.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "NEXAX"=.\SRC\NEXAX\NEXAX.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name NEXIO
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name NEXIOTYPEA
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name NEXINI
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name NEXIF
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "NEXIF"=.\SRC\NEXIF\NEXIF.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "NEXINI"=.\SRC\NEXINI\NEXINI.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "NEXIO"=.\SRC\NEXIO\NEXIO.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name NEXPASS
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name NEXINI
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name NEXIOTYPEA
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name NEXUI
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name NEXIF
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "NEXPROC"=.\SRC\NEXPROC\NEXPROC.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name NEXAX
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name NEXIF
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name NEXIO
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name AlarmIf
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "NEXRCENU"=.\SRC\NEXRCENU\NEXRCENU.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "NEXRCJPN"=.\SRC\NEXRCJPN\NEXRCJPN.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "NEXTRA"=.\SRC\NEXTRA\NEXTRA.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name NEXAX
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name NEXPROC
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name NEXIF
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name NEXINI
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name NEXIO
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name NEXUI
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name AlarmIf
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "NEXUI"=.\SRC\NEXUI\NEXUI.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "NSSTAGERCENU"=.\SRC\NSStage\NSSTAGERCENU\NSSTAGERCENU.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "NSSTAGERCJPN"=.\SRC\NSStage\NSSTAGERCJPN\NSSTAGERCJPN.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "NSStage"=.\SRC\NSStage\NSStage.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name STAGE
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name RecipeFile
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "NanoSpec"=.\SRC\NanoSpec\NanoSpec.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name ACTIVE
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ConfigFile
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name RecipeFile
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name UTILITY
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name STAGE
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name OVERLAY
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name HOOK
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name MEASYS
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PORT_NT
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name DESKEW
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PATREC
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name CONFIG
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name RECIPE
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PifComm
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name NEXIO
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name NEXIF
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PatternFile
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name NEXPROC
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name AlarmIf
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name NSStage
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "NanoSpecTitle"=.\SRC\Title\NanoSpecTitle.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "OVERLAY"=.\SRC\OVERLAY\OVERLAY.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "PATREC"=.\SRC\PATREC\PATREC.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name OVERLAY
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "PORT_NT"=.\SRC\PORT_NT\PORT_NT.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "PatternFile"=.\SRC\PatternFile\PatternFile.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "PifComm"=.\SRC\PifComm\PifComm.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "RecipeFile"=.\SRC\RecipeFile\RecipeFile.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "STAGE"=.\SRC\STAGE\STAGE.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name PORT_NT
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name NEXINI
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name NEXIO
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "UTILITY"=.\SRC\UTILITY\UTILITY.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

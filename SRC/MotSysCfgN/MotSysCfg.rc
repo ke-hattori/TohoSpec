@@ -1,0 +1,716 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 日本語 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\MotSysCfg.rc2""  // Microsoft Visual C++ 以外のツールで編集されたリソース\r\n"
+    "#include ""afxres.rc""         // 標準のコンポーネント\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\MotSysCfg.ico"
+#endif    // 日本語 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 英語 (ｱﾒﾘｶ) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 222, 38
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About MotSysCfg"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,5,5,20,20
+    LTEXT           "MotSysCfg Version 2.0",IDC_STATIC,35,5,119,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright (C) 2009 Toho Technology Corp. TTC\nhmenjo.",
+                    IDC_STATIC,35,15,150,15
+    DEFPUSHBUTTON   "OK",IDOK,190,5,25,28,WS_GROUP
+END
+
+IDD_MOTSYSCFG_DIALOG DIALOGEX 0, 0, 134, 148
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "MotSysCfg"
+FONT 8, "Lucida Console"
+BEGIN
+    PUSHBUTTON      "OK",IDOK,0,0,6,6,NOT WS_VISIBLE
+    PUSHBUTTON      "Cancel",IDCANCEL,0,5,6,6,NOT WS_VISIBLE
+    DEFPUSHBUTTON   "",IDC_BTN_ABOUT,100,5,25,35,BS_ICON | BS_CENTER | 
+                    BS_VCENTER
+    CONTROL         "mot_cfg.dat",IDC_CHK_MOTCFG,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_DISABLED | WS_TABSTOP,10,5,80,20
+    CONTROL         "BigX",IDC_CHK_BIGX,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_DISABLED | WS_TABSTOP,10,45,35,20
+    CONTROL         "BigY",IDC_CHK_BIGY,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_DISABLED | WS_TABSTOP,10,70,35,20
+    CONTROL         "Z",IDC_CHK_Z,"Button",BS_AUTOCHECKBOX | BS_PUSHLIKE | 
+                    WS_DISABLED | WS_TABSTOP,10,95,35,20
+    CONTROL         "XSlow",IDC_CHK_XSLOW,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_DISABLED | WS_TABSTOP,10,120,35,20
+    CONTROL         "Theta",IDC_CHK_THETA,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_DISABLED | WS_TABSTOP,55,45,35,20
+    CONTROL         "Level",IDC_CHK_LEVEL,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_DISABLED | WS_TABSTOP,55,70,35,20
+    CONTROL         "XFast",IDC_CHK_XFAST,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_DISABLED | WS_TABSTOP,55,95,35,20
+    CONTROL         "Y",IDC_CHK_Y,"Button",BS_AUTOCHECKBOX | BS_PUSHLIKE | 
+                    WS_DISABLED | WS_TABSTOP,55,120,35,20
+    CONTROL         "ServoParam",IDC_CHK_SERVO,"Button",BS_AUTOCHECKBOX | 
+                    BS_CENTER | BS_VCENTER | BS_PUSHLIKE | BS_MULTILINE | 
+                    WS_TABSTOP,100,45,25,25
+END
+
+IDD_MOTCFG_DLG DIALOGEX 0, 0, 415, 243
+STYLE WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Mot_Cfg.dat"
+FONT 8, "Lucida Console", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Load",IDC_BTN_LOAD,5,5,30,30
+    PUSHBUTTON      "Save",IDC_BTN_SAVE,45,5,30,30
+    LTEXT           "Motion Base Address1",IDC_STATIC,90,5,85,15,
+                    SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT_BASE_ADDR1,180,5,60,15,ES_RIGHT | ES_UPPERCASE
+    LTEXT           "Motion Base Address2",IDC_STATIC,90,20,85,15,
+                    SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT_BASE_ADDR2,180,20,60,15,ES_RIGHT | ES_UPPERCASE
+    CTEXT           "Number of Axis",IDC_STATIC,245,5,60,10,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT_BASE_AXISNUM,310,5,60,15,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    LTEXT           "Axis Name",IDC_STATIC,5,60,40,15,SS_CENTERIMAGE
+    LTEXT           "HCTL Port",IDC_STATIC,5,80,40,15,SS_CENTERIMAGE
+    LTEXT           "HOME Port",IDC_STATIC,5,100,40,15,SS_CENTERIMAGE
+    LTEXT           "HOME Int Port",IDC_STATIC,5,120,40,15
+    LTEXT           "HOME Mask Bit",IDC_STATIC,5,160,40,15
+    LTEXT           "HOME Int Mask Bit",IDC_STATIC,5,180,40,15
+    LTEXT           "Stop Mask Bit",IDC_STATIC,5,200,40,15
+    LTEXT           "Unused",IDC_STATIC,5,220,40,15,SS_CENTERIMAGE
+    LTEXT           "BigX",IDC_STATIC,50,45,20,10,SS_CENTERIMAGE
+    LTEXT           "BigY",IDC_STATIC,95,45,20,10,SS_CENTERIMAGE
+    LTEXT           "Z",IDC_STATIC,135,45,20,10,SS_CENTERIMAGE
+    LTEXT           "XSlow",IDC_STATIC,185,45,20,10,SS_CENTERIMAGE
+    LTEXT           "Theta",IDC_STATIC,230,45,20,10,SS_CENTERIMAGE
+    LTEXT           "Level",IDC_STATIC,270,45,20,10,SS_CENTERIMAGE
+    LTEXT           "XFast",IDC_STATIC,320,45,20,10,SS_CENTERIMAGE
+    LTEXT           "Y",IDC_STATIC,365,45,20,10,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT_AXIS_NAME_BIGX,50,60,40,15,ES_UPPERCASE,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_HCTLPORT_BIGX,70,80,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEPORT_BIGX,70,100,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEINTPORT_BIGX,70,120,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEBIT_BIGX,70,160,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEINTBIT_BIGX,70,180,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_STOPBIT_BIGX,70,200,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_UNUSED_BIGX,70,220,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_AXIS_NAME_BIGY,95,60,40,15,ES_UPPERCASE,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_AXIS_NAME_Z,140,60,40,15,ES_UPPERCASE,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_AXIS_NAME_XSLOW,185,60,40,15,ES_UPPERCASE,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_AXIS_NAME_THETA,230,60,40,15,ES_UPPERCASE,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_AXIS_NAME_LEVEL,275,60,40,15,ES_UPPERCASE,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_AXIS_NAME_XFAST,320,60,40,15,ES_UPPERCASE,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_AXIS_NAME_Y,365,60,40,15,ES_UPPERCASE,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_HCTLPORT_BIGY,115,80,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HCTLPORT_Z,160,80,20,15,ES_RIGHT | ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HCTLPORT_XSLOW,205,80,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HCTLPORT_THETA,250,80,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HCTLPORT_LEVEL,295,80,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HCTLPORT_XFAST,340,80,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HCTLPORT_Y,385,80,20,15,ES_RIGHT | ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEPORT_BIGY,115,100,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEINTPORT_BIGY,115,120,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEBIT_BIGY,115,160,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEINTBIT_BIGY,115,180,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_STOPBIT_BIGY,115,200,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_UNUSED_BIGY,115,220,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEPORT_Z,160,100,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEINTPORT_Z,160,120,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEBIT_Z,160,160,20,15,ES_RIGHT | ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEINTBIT_Z,160,180,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_STOPBIT_Z,160,200,20,15,ES_RIGHT | ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_UNUSED_Z,160,220,20,15,ES_RIGHT | ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEPORT_XSLOW,205,100,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEINTPORT_XSLOW,205,120,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEBIT_XSLOW,205,160,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEINTBIT_XSLOW,205,180,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_STOPBIT_XSLOW,205,200,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_UNUSED_XSLOW,205,220,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEPORT_THETA,250,100,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEINTPORT_THETA,250,120,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEBIT_THETA,250,160,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEINTBIT_THETA,250,180,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_STOPBIT_THETA,250,200,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_UNUSED_THETA,250,220,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEPORT_LEVEL,295,100,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEINTPORT_LEVEL,295,120,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEBIT_LEVEL,295,160,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEINTBIT_LEVEL,295,180,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_STOPBIT_LEVEL,295,200,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_UNUSED_LEVEL,295,220,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEPORT_XFAST,340,100,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEINTPORT_XFAST,340,120,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEBIT_XFAST,340,160,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEINTBIT_XFAST,340,180,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_STOPBIT_XFAST,340,200,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_UNUSED_XFAST,340,220,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEPORT_Y,385,100,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEINTPORT_Y,385,120,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEBIT_Y,385,160,20,15,ES_RIGHT | ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_HOMEINTBIT_Y,385,180,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_STOPBIT_Y,385,200,20,15,ES_RIGHT | ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_UNUSED_Y,385,220,20,15,ES_RIGHT | ES_UPPERCASE
+    LTEXT           "Stop Port",IDC_STATIC,5,140,40,15,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT_STOPPORT_BIGX,70,140,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_STOPPORT_BIGY,115,140,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_STOPPORT_Z,160,140,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_STOPPORT_XSLOW,205,140,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_STOPPORT_THETA,250,140,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_STOPPORT_LEVEL,295,140,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_STOPPORT_XFAST,340,140,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+    EDITTEXT        IDC_EDIT_STOPPORT_Y,385,140,20,15,ES_RIGHT | 
+                    ES_UPPERCASE
+END
+
+IDD_AXIS_DLG DIALOGEX 0, 0, 259, 308
+STYLE WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FONT 8, "Lucida Console", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Load",IDC_BTN_LOAD,5,5,30,20
+    PUSHBUTTON      "Save",IDC_BTN_SAVE,40,5,30,20
+    GROUPBOX        "Motion Parameter",IDC_STATIC,5,30,120,270
+    GROUPBOX        "Motion Default Parameter",IDC_STATIC,130,30,120,195
+    LTEXT           "Low Gain",IDC_STATIC,10,40,50,15,SS_CENTERIMAGE
+    LTEXT           "High Gain",IDC_STATIC,10,60,50,15,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT_LOWGAIN,65,40,25,15,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    LTEXT           "Zero",IDC_STATIC,10,80,50,15,SS_CENTERIMAGE
+    LTEXT           "Pole",IDC_STATIC,10,100,50,15,SS_CENTERIMAGE
+    LTEXT           "SampleTime",IDC_STATIC,10,120,50,15,SS_CENTERIMAGE
+    LTEXT           "Pwm Max",IDC_STATIC,10,140,50,15,SS_CENTERIMAGE
+    LTEXT           "Pwm Filter Count",IDC_STATIC,10,160,50,15
+    LTEXT           "Mode",IDC_STATIC,10,180,50,15,SS_CENTERIMAGE
+    LTEXT           "Destination",IDC_STATIC,10,200,50,15,SS_CENTERIMAGE
+    LTEXT           "Max Velocity",IDC_STATIC,10,220,50,15,SS_CENTERIMAGE
+    LTEXT           "Integ Velocity",IDC_STATIC,10,240,50,20
+    LTEXT           "Prop Velocity",IDC_STATIC,10,260,50,20
+    LTEXT           "Acceleration",IDC_STATIC,10,280,50,15,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT_HIGHGAIN,65,60,25,15,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ZERO,65,80,25,15,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_POLE,65,100,25,15,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_SAMPLETIME,65,120,25,15,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_PWMMAX,65,140,20,15,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_PWMFILTER,65,160,20,15,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_MODE,65,180,25,15,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_DISTINATION,65,200,50,15,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_MAX_VELOCITY,65,220,25,15,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_INTEG_VELOCITY,65,240,25,15,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_PROP_VELOCITY,65,260,25,15,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_ACCEL,65,280,25,15,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    LTEXT           "HCTL Status Reg",IDC_STATIC,135,40,50,20
+    LTEXT           "Unused",IDC_STATIC,135,60,50,15,SS_CENTERIMAGE
+    LTEXT           "MinusLimit",IDC_STATIC,135,80,50,15,SS_CENTERIMAGE
+    LTEXT           "PlusLimit",IDC_STATIC,135,100,50,15,SS_CENTERIMAGE
+    LTEXT           "Inverted Sense",IDC_STATIC,135,120,50,15
+    LTEXT           "Forward For Home",IDC_STATIC,135,140,50,15
+    LTEXT           "Home Velocity",IDC_STATIC,135,160,50,15
+    LTEXT           "Home Accel",IDC_STATIC,135,180,50,15,SS_CENTERIMAGE
+    LTEXT           "&& Default Mot Params",IDC_STATIC,135,200,50,15
+    EDITTEXT        IDC_EDIT_HCTL_STAT,190,40,20,15,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_UNUSED,190,60,20,15,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER | WS_DISABLED,WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_MLIMIT,190,80,50,15,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_PLIMIT,190,100,50,15,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_INVERT,190,120,25,15,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_FWD_HOME,190,140,25,15,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_HOME_VELOCITY,190,160,25,15,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_HOME_ACCEL,190,180,25,15,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_DEFMOTP,190,200,40,15,ES_RIGHT | ES_UPPERCASE,
+                    WS_EX_STATICEDGE
+END
+
+IDD_MOTCTRLR_DLG DIALOGEX 0, 0, 339, 353
+STYLE WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Servo Parameters"
+FONT 8, "Lucida Console"
+BEGIN
+    LTEXT           "ORG 1 Accel Time(trap)",IDC_STATIC,5,35,95,10,
+                    SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT_ORG1_ATT_X,105,35,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    LTEXT           "ORG 1 Accel Time(S bend)",IDC_STATIC,5,50,95,10,
+                    SS_CENTERIMAGE
+    PUSHBUTTON      "Load",IDC_BTN_LOAD,5,5,30,15
+    PUSHBUTTON      "Save",IDC_BTN_SAVE,45,5,30,15
+    EDITTEXT        IDC_EDIT_ORG1_ATS_X,105,50,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    LTEXT           "ORG 1 Speed",IDC_STATIC,5,65,95,10,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT_ORG1_SPD_X,105,65,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    LTEXT           "X",IDC_STATIC_LBL_X,105,20,35,10,SS_CENTERIMAGE,
+                    WS_EX_STATICEDGE
+    LTEXT           "ORG 2 Accel Time(trap)",IDC_STATIC,5,85,95,10,
+                    SS_CENTERIMAGE
+    LTEXT           "ORG 2 Accel Time(S bend)",IDC_STATIC,5,100,95,10,
+                    SS_CENTERIMAGE
+    LTEXT           "ORG 2 Speed",IDC_STATIC,5,115,95,10,SS_CENTERIMAGE
+    LTEXT           "ORG 3 Accel Time(trap)",IDC_STATIC,5,135,95,10,
+                    SS_CENTERIMAGE
+    LTEXT           "ORG 3 Accel Time(S bend)",IDC_STATIC,5,150,95,10,
+                    SS_CENTERIMAGE
+    LTEXT           "HP Accel Time(trap)",IDC_STATIC,5,185,95,10,
+                    SS_CENTERIMAGE
+    LTEXT           "ORG 3 Speed",IDC_STATIC,5,165,95,10,SS_CENTERIMAGE
+    LTEXT           "HP Accel Time(S bend)",IDC_STATIC,5,200,95,10,
+                    SS_CENTERIMAGE
+    LTEXT           "HP Base",IDC_STATIC,5,215,95,10,SS_CENTERIMAGE
+    LTEXT           "ABS Accel Time(trap)",IDC_STATIC,5,250,95,10,
+                    SS_CENTERIMAGE
+    LTEXT           "ABS Accel Time(S bend)",IDC_STATIC,5,265,95,10,
+                    SS_CENTERIMAGE
+    LTEXT           "INC Accel Time(trap)",IDC_STATIC,5,300,95,10,
+                    SS_CENTERIMAGE
+    LTEXT           "INC Accel Time(S bend)",IDC_STATIC,5,316,95,10,
+                    SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT_ORG2_ATT_X,105,85,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG2_ATS_X,105,100,35,12,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG2_SPD_X,105,115,35,12,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG3_ATT_X,105,135,35,12,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG3_ATS_X,105,150,35,12,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG3_SPD_X,105,165,35,12,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_HP_ATT_X,105,185,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_HP_ATS_X,105,200,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_HP_BASE_X,105,215,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ABS_ATT_X,105,250,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ABS_ATS_X,105,265,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_INC_ATT_X,105,300,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_INC_ATS_X,105,316,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    LTEXT           "Y",IDC_STATIC_LBL_Y,150,20,35,10,SS_CENTERIMAGE,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_ORG1_ATT_Y,150,35,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG1_ATS_Y,150,50,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG1_SPD_Y,150,65,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG2_ATT_Y,150,85,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG2_ATS_Y,150,100,35,12,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG2_SPD_Y,150,115,35,12,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG3_ATT_Y,150,135,35,12,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG3_ATS_Y,150,150,35,12,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG3_SPD_Y,150,165,35,12,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_HP_ATT_Y,150,185,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_HP_ATS_Y,150,200,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_HP_BASE_Y,150,215,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ABS_ATT_Y,150,250,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ABS_ATS_Y,150,265,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_INC_ATT_Y,150,300,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_INC_ATS_Y,150,316,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    LTEXT           "Z",IDC_STATIC_LBL_Z,195,20,35,10,SS_CENTERIMAGE,
+                    WS_EX_STATICEDGE
+    LTEXT           "T",IDC_STATIC_LBL_T,240,20,35,10,SS_CENTERIMAGE,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_ORG1_ATT_Z,195,35,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG1_ATS_Z,195,50,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG1_SPD_Z,195,65,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG2_ATT_Z,195,85,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG2_ATS_Z,195,100,35,12,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG2_SPD_Z,195,115,35,12,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG3_ATT_Z,195,135,35,12,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG3_ATS_Z,195,150,35,12,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG3_SPD_Z,195,165,35,12,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_HP_ATT_Z,195,185,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_HP_ATS_Z,195,200,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_HP_BASE_Z,195,215,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ABS_ATT_Z,195,250,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ABS_ATS_Z,195,265,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_INC_ATT_Z,195,300,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_INC_ATS_Z,195,316,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG1_ATT_T,240,35,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG1_ATS_T,240,50,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG1_SPD_T,240,65,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG2_ATT_T,240,85,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG2_ATS_T,240,100,35,12,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG2_SPD_T,240,115,35,12,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG3_ATT_T,240,135,35,12,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG3_ATS_T,240,150,35,12,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_ORG3_SPD_T,240,165,35,12,ES_RIGHT | 
+                    ES_UPPERCASE | ES_NUMBER
+    EDITTEXT        IDC_EDIT_HP_ATT_T,240,185,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_HP_ATS_T,240,200,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_HP_BASE_T,240,215,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ABS_ATT_T,240,250,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ABS_ATS_T,240,265,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_INC_ATT_T,240,300,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_INC_ATS_T,240,316,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    LTEXT           "HP Speed",IDC_STATIC,5,230,95,10,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT_HP_SPD_X,105,230,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_HP_SPD_Y,150,230,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_HP_SPD_Z,195,230,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_HP_SPD_T,240,230,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    LTEXT           "ABS Speed",IDC_STATIC,5,280,95,10,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT_ABS_SPD_X,105,280,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ABS_SPD_Y,150,280,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ABS_SPD_Z,195,280,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ABS_SPD_T,240,280,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    LTEXT           "INC Speed",IDC_STATIC,5,330,95,10,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT_INC_SPD_X,105,330,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_INC_SPD_Y,150,330,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_INC_SPD_Z,195,330,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_INC_SPD_T,240,330,35,12,ES_RIGHT | ES_UPPERCASE | 
+                    ES_NUMBER
+    LTEXT           "[msec]",IDC_STATIC,280,35,50,10,SS_CENTERIMAGE
+    LTEXT           "[count/msec]",IDC_STATIC,280,65,50,10,SS_CENTERIMAGE
+    LTEXT           "[msec]",IDC_STATIC,280,50,50,10,SS_CENTERIMAGE
+    LTEXT           "[msec]",IDC_STATIC,280,85,50,10,SS_CENTERIMAGE
+    LTEXT           "[msec]",IDC_STATIC,280,100,50,10,SS_CENTERIMAGE
+    LTEXT           "[msec]",IDC_STATIC,280,135,50,10,SS_CENTERIMAGE
+    LTEXT           "[msec]",IDC_STATIC,280,150,50,10,SS_CENTERIMAGE
+    LTEXT           "[msec]",IDC_STATIC,280,185,50,10,SS_CENTERIMAGE
+    LTEXT           "[msec]",IDC_STATIC,280,200,50,10,SS_CENTERIMAGE
+    LTEXT           "[msec]",IDC_STATIC,280,250,50,10,SS_CENTERIMAGE
+    LTEXT           "[msec]",IDC_STATIC,280,265,50,10,SS_CENTERIMAGE
+    LTEXT           "[msec]",IDC_STATIC,280,300,50,10,SS_CENTERIMAGE
+    LTEXT           "[msec]",IDC_STATIC,280,315,50,10,SS_CENTERIMAGE
+    LTEXT           "[count/msec]",IDC_STATIC,280,115,50,10,SS_CENTERIMAGE
+    LTEXT           "[count/msec]",IDC_STATIC,280,165,50,10,SS_CENTERIMAGE
+    LTEXT           "[count]",IDC_STATIC,280,215,50,10,SS_CENTERIMAGE
+    LTEXT           "[count/msec]",IDC_STATIC,280,230,50,10,SS_CENTERIMAGE
+    LTEXT           "[count/msec]",IDC_STATIC,280,280,50,10,SS_CENTERIMAGE
+    LTEXT           "[count/msec]",IDC_STATIC,280,330,50,10,SS_CENTERIMAGE
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "Toho Technology\0"
+            VALUE "FileDescription", "MotSysCfg MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "MotSysCfg\0"
+            VALUE "LegalCopyright", "Copyright (C) 2009\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "MotSysCfgN.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "MotSysCfg Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 215
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 31
+    END
+
+    IDD_MOTSYSCFG_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 127
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 141
+    END
+
+    IDD_MOTCFG_DLG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 390
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About MotSysCfg..."
+END
+
+#endif    // 英語 (ｱﾒﾘｶ) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\MotSysCfg.rc2"  // Microsoft Visual C++ 以外のツールで編集されたリソース
+#include "afxres.rc"         // 標準のコンポーネント
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

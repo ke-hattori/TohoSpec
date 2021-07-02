@@ -1,0 +1,15 @@
+const TCHAR* ls_pszHWSMsg[] = {
+//		"abcde0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789",
+		"                                                                                                         ",
+		"     H           H    W     W     W     SSSSSSSSSSS                                                      ",
+		"     H           H    W     W     W    S           S                                                     ",
+		"     H           H    W    W W    W    S                                                                 ",
+		"     H           H    W    W W    W    S                                                                 ",
+		"     HHHHHHHHHHHHH    W    W W    W     SSSSSSSSSSS                                                      ",
+		"     H           H    W   W   W   W                S                                                     ",
+		"     H           H     W  W   W  W                 S                                                     ",
+		"     H           H     W  W   W  W     S           S                                                     ",
+		"     H           H      WW     WW       SSSSSSSSSSS                                                      ",
+		"                                                                                                         ",
+		"",
+	};

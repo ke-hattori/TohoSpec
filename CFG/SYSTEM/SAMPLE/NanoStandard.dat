@@ -1,0 +1,12 @@
+[Sample]
+Name=NanoStandard
+Shape=0
+Thickness=700.000
+Size_X=200000.000
+Size_Y=20000.000
+Origin_X=-170000
+Origin_Y=-294000
+MachineOrgSensorLoc=2
+OriginPosition=1
+CoordinateDirection_X=1
+CoordinateDirection_Y=2

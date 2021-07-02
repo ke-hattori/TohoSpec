@@ -1,0 +1,20 @@
+[MeasurementProgram]
+Name=Data Aaquisition x50
+HeadType=0
+ScanType=0
+[SrThickness]
+StartWaveLength=400
+EndWaveLength=800
+Lens=2
+IntergrationTime=0.500
+OpticalFilter=1
+EnhancedUvGain=FALSE
+Strategy=
+AddReflectanceMeasureFlag=FALSE
+FirstWaveLength=0
+SecondWaveLength=0
+ThirdWaveLength=0
+LifeTimeWaringFlag=FALSE
+LifeTime=1.000
+ReferenceStrategy=sio2(20a)_si-jaw(200-900nm)
+Comment=
