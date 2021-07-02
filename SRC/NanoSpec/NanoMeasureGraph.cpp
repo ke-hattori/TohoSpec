@@ -1003,10 +1003,16 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 		//内部のメモリの表示部分がOrigin/Maxのメモリの描画域に重ならないようにする。
 		if(cMemArea.left <= m_GraphInfo.GraphArea.left + (int)(tSize_X.cx / 2) + 5){
 			//X_Originと重ならないように。
+/* added 2020.05.30 hmenjo グラフ目盛りバグ ---------- { ---------- */
+			j++;
+/* added 2020.05.30 hmenjo グラフ目盛りバグ ---------- } ---------- */
 			continue;
 		}
 		if(cMemArea.right >= m_GraphInfo.GraphArea.right - (int)(tSize_X.cx) - 5){
 			//X_Maxと重ならないように。
+/* added 2020.05.30 hmenjo グラフ目盛りバグ ---------- { ---------- */
+			j++;
+/* added 2020.05.30 hmenjo グラフ目盛りバグ ---------- } ---------- */
 			continue;
 		}
 		//2009.10.17 bagus stress --}--
