@@ -695,20 +695,40 @@ BOOL CRecipeMeasurementSrThicknessProgramView::CheckData()
 		return FALSE;
 	}
 
-// 2009.12.08 K.Matsuo PKI Special Logic -->
 	///// Optical Filter /////
-	// スモールスポットは、レンズ5Xを選択したとき、オプティカルフィルターは、ND-30であること（サチュレーションしないためにです）
-	if ( m_SrConfig.nHeadType == SR_HEAD_TYPE_LAH1024_SS ) {
+	
+	if ( m_SrConfig.nHeadType == SR_HEAD_TYPE_LAH512 ) {
+		// 標準ヘッド指定時は、NDFilter利用すると、光量が落ちるため、使用しないよう警告
+		if ( m_ThickMeas.ScanParams._SR.wOpticsFilterType == OPT_FILTER_POS2 ||
+			  m_ThickMeas.ScanParams._SR.wOpticsFilterType == OPT_FILTER_POS3)
+		{
+			LoadStringML(IDS_NOMALHEAD_FILTER, l_strBuffer, "If LAH512 head, select Yellow Filter or Open Necessary.");
+			MessageBox(l_strBuffer, m_strCaption, MB_OK | MB_ICONSTOP);
+			GetDlgItem(IDC_SR_THICK_OPT_FILTER)->SetFocus();
+			return FALSE;
+		}
+	} else if ( m_SrConfig.nHeadType == SR_HEAD_TYPE_LAH1024_SS ) {
+		// 高分解能ヘッドはレンズ倍率により、使用フィルタを制限するよう警告
 		if ( m_strLens == "5 X" || m_strLens == "10 X" ) {
-			if ( m_ThickMeas.ScanParams._SR.wOpticsFilterType != OPT_FILTER_POS3 ) {
-				LoadStringML(IDS_SMALLSPOT_FILTER, l_strBuffer, "If Select 5X or 10X Lens, select ND-30 Filter Necessary.");
+			if ( m_ThickMeas.ScanParams._SR.wOpticsFilterType != OPT_FILTER_POS2 &&
+				 m_ThickMeas.ScanParams._SR.wOpticsFilterType != OPT_FILTER_POS3)
+			{
+				LoadStringML(IDS_HIGHRESO_HEAD_LOWMAGNI_LENS_FILTER, l_strBuffer, "If Select 5X or 10X Lens, select ND30 Filter or ND + Yellow Filter Necessary.");
+				MessageBox(l_strBuffer, m_strCaption, MB_OK | MB_ICONSTOP);
+				GetDlgItem(IDC_SR_THICK_OPT_FILTER)->SetFocus();
+				return FALSE;
+			}
+		} else {
+			if ( m_ThickMeas.ScanParams._SR.wOpticsFilterType == OPT_FILTER_POS2 ||
+				 m_ThickMeas.ScanParams._SR.wOpticsFilterType == OPT_FILTER_POS3)
+			{
+				LoadStringML(IDS_HIGHRESO_HEAD_HIGHMAGNI_LENS_FILTER, l_strBuffer, "If Select 50X or 100X Lens, select Yellow Filter or Open Necessary.");
 				MessageBox(l_strBuffer, m_strCaption, MB_OK | MB_ICONSTOP);
 				GetDlgItem(IDC_SR_THICK_OPT_FILTER)->SetFocus();
 				return FALSE;
 			}
 		}
 	}
-// 2009.12.08 K.Matsuo PKI Special Logic <--
 
 	///// Wave Length /////
 	if ( wStart >= wEnd ) {

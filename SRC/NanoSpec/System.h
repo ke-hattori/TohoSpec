@@ -84,7 +84,7 @@
 // Nanosepc Version Definition
 #define SOFT_VERSION					"Ver.2.3.0"
 /* added 2016.05.12 hmenjo 6500/TS3100 •Ê version ---------- { ---------- */
-#define SOFT_VERSION_TS3100				"Ver.1.11.15"
+#define SOFT_VERSION_TS3100				"Ver.1.11.16"
 /* added 2016.05.12 hmenjo 6500/TS3100 •Ê version ---------- } ---------- */
 
 /* added 2015.04.05 hmenjo FWXGA ‘Î‰ž2 ---------- { ---------- */

@@ -1,11 +1,10 @@
-Nanospec.exe
+Tohospec.exe
 NEXTRA.EXE
 jaw_adap.exe
-SC_adap.exe
-NanoPifSock.exe
+TohoPifSock.exe
 Wvase32.exe
 MotSysCfgN.exe
 MotSysNSPT.exe
 MOTTSK.exe
 nanomap32.exe
-NanoSpecTitle.exe
+TohoSpecTitle.exe

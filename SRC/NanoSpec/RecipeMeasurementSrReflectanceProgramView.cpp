@@ -390,6 +390,41 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::CheckData()
 		return FALSE;
 	}
 
+	///// Optical Filter /////
+	
+	if ( m_SrConfig.nHeadType == SR_HEAD_TYPE_LAH512 ) {
+		// 標準ヘッド指定時は、NDFilter利用すると、光量が落ちるため、使用しないよう警告
+		if ( m_ReflecMeas.ScanParams._SR.wOpticsFilterType == OPT_FILTER_POS2 ||
+			  m_ReflecMeas.ScanParams._SR.wOpticsFilterType == OPT_FILTER_POS3)
+		{
+			LoadStringML(IDS_NOMALHEAD_FILTER, l_strBuffer, "If LAH512 head, select Yellow Filter or Open Necessary.");
+			MessageBox(l_strBuffer, m_strCaption, MB_OK | MB_ICONSTOP);
+			GetDlgItem(IDC_MEAS_REFL_COMBO_OPT_FILTER)->SetFocus();
+			return FALSE;
+		}
+	} else if ( m_SrConfig.nHeadType == SR_HEAD_TYPE_LAH1024_SS ) {
+		// 高分解能ヘッドはレンズ倍率により、使用フィルタを制限するよう警告
+		if ( m_strLens == "5 X" || m_strLens == "10 X" ) {
+			if ( m_ReflecMeas.ScanParams._SR.wOpticsFilterType != OPT_FILTER_POS2 &&
+				 m_ReflecMeas.ScanParams._SR.wOpticsFilterType != OPT_FILTER_POS3)
+			{
+				LoadStringML(IDS_HIGHRESO_HEAD_LOWMAGNI_LENS_FILTER, l_strBuffer, "If Select 5X or 10X Lens, select ND30 Filter or ND + Yellow Filter Necessary.");
+				MessageBox(l_strBuffer, m_strCaption, MB_OK | MB_ICONSTOP);
+				GetDlgItem(IDC_MEAS_REFL_COMBO_OPT_FILTER)->SetFocus();
+				return FALSE;
+			}
+		} else {
+			if ( m_ReflecMeas.ScanParams._SR.wOpticsFilterType == OPT_FILTER_POS2 ||
+				 m_ReflecMeas.ScanParams._SR.wOpticsFilterType == OPT_FILTER_POS3)
+			{
+				LoadStringML(IDS_HIGHRESO_HEAD_HIGHMAGNI_LENS_FILTER, l_strBuffer, "If Select 50X or 100X Lens, select Yellow Filter or Open Necessary.");
+				MessageBox(l_strBuffer, m_strCaption, MB_OK | MB_ICONSTOP);
+				GetDlgItem(IDC_MEAS_REFL_COMBO_OPT_FILTER)->SetFocus();
+				return FALSE;
+			}
+		}
+	}
+
 	///// Integration Time /////
 	if ( m_ReflecMeas.ScanParams._SR.dIntegTime < MIN_INTEGRATION_TIME || MAX_INTEGRATION_TIME < m_ReflecMeas.ScanParams._SR.dIntegTime )
 	{

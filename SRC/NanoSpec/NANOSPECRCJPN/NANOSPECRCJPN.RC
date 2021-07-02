@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// ﾆｭｰﾄﾗﾙ resources
+// Neutral resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
 #ifdef _WIN32
@@ -47,12 +47,12 @@ IDI_FACE1               ICON    DISCARDABLE     "res\\b001.ico"
 IDI_FACE2               ICON    DISCARDABLE     "res\\b002.ico"
 IDI_FACE3               ICON    DISCARDABLE     "res\\b003..ico"
 IDI_GARBAGE_CAN         ICON    DISCARDABLE     "res\\GarbageCan.ico"
-#endif    // ﾆｭｰﾄﾗﾙ resources
+#endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// 日本語 resources
+// Japanese resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
 #ifdef _WIN32
@@ -702,7 +702,8 @@ STYLE WS_CHILD
 FONT 9, "MS UI Gothic"
 BEGIN
     PUSHBUTTON      "測定",IDC_MAIN_MENU_MEASUREMENT_BUTTON,0,80,76,24
-    PUSHBUTTON      "レシピ編集",IDC_MAIN_MENU_RECIPE_SETTING_BUTTON,76,80,38,24
+    PUSHBUTTON      "レシピ編集",IDC_MAIN_MENU_RECIPE_SETTING_BUTTON,76,80,
+                    38,24
     PUSHBUTTON      "データ",IDC_MAIN_MENU_DATA_BUTTON,0,104,38,24
     PUSHBUTTON      "ログオン",IDC_MAIN_MENU_LOG_ON_BUTTON,76,104,38,24
     CTEXT           "USER NAME",IDC_USER_NAME,0,0,114,18,SS_CENTERIMAGE | 
@@ -1716,9 +1717,12 @@ BEGIN
     EDITTEXT        IDC_MEAS_REFL_WAVE_LENG3,119,379,35,12,ES_RIGHT | 
                     ES_AUTOHSCROLL
     GROUPBOX        "測定波長",IDC_STATIC_WAVELEN,19,323,261,74
-    LTEXT           "測定波長１ (nm)",IDC_STATIC_WAVELEN1,29,339,85,12,SS_CENTERIMAGE
-    LTEXT           "測定波長２ (nm)",IDC_STATIC_WAVELEN2,29,359,85,12,SS_CENTERIMAGE
-    LTEXT           "測定波長３ (nm)",IDC_STATIC_WAVELEN3,29,379,85,12,SS_CENTERIMAGE
+    LTEXT           "測定波長１ (nm)",IDC_STATIC_WAVELEN1,29,339,85,12,
+                    SS_CENTERIMAGE
+    LTEXT           "測定波長２ (nm)",IDC_STATIC_WAVELEN2,29,359,85,12,
+                    SS_CENTERIMAGE
+    LTEXT           "測定波長３ (nm)",IDC_STATIC_WAVELEN3,29,379,85,12,
+                    SS_CENTERIMAGE
     CONTROL         "追加反射率測定",IDC_ADD_REFLECTANCE_MEASUREMENT,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,10,308,130,12
     CTEXT           "測定項目",IDC_STATIC,199,95,70,12,SS_CENTERIMAGE
@@ -1760,10 +1764,12 @@ FONT 9, "MS UI Gothic"
 BEGIN
     PUSHBUTTON      "メインレシピ リスト",IDC_MAIN_RECIPE_BUTTON,5,11,105,24
     PUSHBUTTON      "マルチレシピ",IDC_MULTI_RECIPE_BUTTON,5,35,105,24
-    PUSHBUTTON      "測定 プログラム リスト",IDC_MEASUREMENT_PROGRAM_BUTTON,5,80,105,24
-    PUSHBUTTON      "ステージ プログラム リスト",IDC_STAGE_PROGRAM_BUTTON,5,104,105,24
-    PUSHBUTTON      "リキャリブレーション プログラム リスト",IDC_RECALIBRATION_PROGRAM_BUTTON,
-                    5,128,105,24
+    PUSHBUTTON      "測定 プログラム リスト",IDC_MEASUREMENT_PROGRAM_BUTTON,
+                    5,80,105,24
+    PUSHBUTTON      "ステージ プログラム リスト",IDC_STAGE_PROGRAM_BUTTON,5,
+                    104,105,24
+    PUSHBUTTON      "リキャリブレーション プログラム リスト",
+                    IDC_RECALIBRATION_PROGRAM_BUTTON,5,128,105,24
     PUSHBUTTON      "ポイントデスキュー",IDC_POINT_DESKEW_PROGRAM_BUTTON,5,
                     152,105,24
     GROUPBOX        "レシピメニュー",IDC_RECIPE_GROUP,1,1,113,63
@@ -7341,7 +7347,6 @@ BEGIN
     IDS_TWO_POINT_DISTANCE_POS_SETTING_MESSAGE "２点間距離測定位置設定"
     IDS_STAGE_OFFSET_TEACHING_CAPTION "ステージオフセット - ティーチング"
     IDS_STAGE_OFFSET_TEACHING_MESSAGE "ステージオフセット - ティーチング"
-    IDS_SMALLSPOT_FILTER    "5倍レンズを選択した場合は、光学フィルターND-30を指定してください"
     IDS_RECALIB_NOT_EXIST   "存在しないリキャリブレーション設定です"
     IDS_DIFFERENT_HEADTYPE  "ヘッドタイプが一致しません"
     IDS_THICKNESS_UNIT_ZERO "指定した項目が無効のため、単位 はINDEXを0として保存しました"
@@ -7377,6 +7382,11 @@ BEGIN
     IDS_CHECK_SCAN          "チェックスキャン"
     IDS_DEFAULT_VALUE       " デフォルト値"
     IDS_MANUAL_MEASURE_SELECT_POINT "測定ポイントを選択してください。"
+    IDS_NOMALHEAD_FILTER    "LAH512ヘッドの場合、光学フィルタ-Yellowまたはオープンを選択してください"
+    IDS_HIGHRESO_HEAD_LOWMAGNI_LENS_FILTER 
+                            "5倍または10倍レンズを選択した場合は、光学フィルタ-ND30またはND + Yellowフィルタを選択してください"
+    IDS_HIGHRESO_HEAD_HIGHMAGNI_LENS_FILTER 
+                            "50倍または100倍レンズを選択した場合は、光学フィルタ-Yellowまたはオープンを選択してください"
     IDS_WARNING_NO_REF_POS  "リファレンス位置を選択したください。"
     IDS_TITLE_THICKNESS_SETTING "THICKNESS SETTING"
     IDS_STRESS_THICKNESS_MODLFIED 
@@ -7430,7 +7440,7 @@ BEGIN
     IDS_MRCS_INCLUDE        "含める"
 END
 
-STRINGTABLE DISCARDABLE
+STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_MRCS_EXCLUDE        "除外"
     IDS_MRCS_DELETE         "削除"
@@ -7441,12 +7451,12 @@ BEGIN
     IDS_MRCS_CONFIRM        "実行しますか？"
 END
 
-#endif    // 日本語 resources
+#endif    // Japanese resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// 英語 (ｱﾒﾘｶ) resources
+// English (U.S.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -7489,7 +7499,7 @@ BEGIN
     CTEXT           "Z (um)",IDC_STATIC,125,6,40,12,SS_CENTERIMAGE
 END
 
-#endif    // 英語 (ｱﾒﾘｶ) resources
+#endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

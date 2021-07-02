@@ -2,7 +2,7 @@
 Name=
 StartWaveLength=400
 EndWaveLength=800
-IntergrationTime=1.000
+IntergrationTime=0.300
 OpticalFilter=1
 Strategy=04 Data Aquisition (SR)
 LifeTimeWaringFlag=FALSE
@@ -10,7 +10,7 @@ LifeTime=1.000
 ReferenceStrategy=sio2(20a)_si-jaw(200-900nm)
 Comment=
 EnhancedUvGain=FALSE
-Lens=2
+Lens=0
 AddReflectanceMeasureFlag=FALSE
 FirstWaveLength=0
 SecondWaveLength=0
@@ -18,7 +18,7 @@ ThirdWaveLength=0
 [SrReflect]
 Name=
 IntegrationTime=2.000
-OpticalFilter=1
+OpticalFilter=0
 FirstWaveLength=450
 SecondWaveLength=550
 ThirdWaveLength=650

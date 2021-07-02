@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Æ­°Ä×Ù resources
+// Neutral resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
 #ifdef _WIN32
@@ -46,12 +46,12 @@ IDI_FACE1               ICON    DISCARDABLE     "res\\b001.ico"
 IDI_FACE2               ICON    DISCARDABLE     "res\\b002.ico"
 IDI_FACE3               ICON    DISCARDABLE     "res\\b003..ico"
 IDI_GARBAGE_CAN         ICON    DISCARDABLE     "res\\GarbageCan.ico"
-#endif    // Æ­°Ä×Ù resources
+#endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// “ú–{Œê resources
+// Japanese resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
 #ifdef _WIN32
@@ -242,12 +242,12 @@ BEGIN
     0
 END
 
-#endif    // “ú–{Œê resources
+#endif    // Japanese resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// ‰pŒê (±ÒØ¶) resources
+// English (U.S.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -1169,7 +1169,8 @@ FONT 9, "MS UI Gothic"
 BEGIN
     PUSHBUTTON      "MEASUREMENT",IDC_MAIN_MENU_MEASUREMENT_BUTTON,0,80,76,
                     24
-    PUSHBUTTON      "RECIPE EDIT",IDC_MAIN_MENU_RECIPE_SETTING_BUTTON,76,80,38,24
+    PUSHBUTTON      "RECIPE EDIT",IDC_MAIN_MENU_RECIPE_SETTING_BUTTON,76,80,
+                    38,24
     PUSHBUTTON      "DATA",IDC_MAIN_MENU_DATA_BUTTON,0,104,38,24
     PUSHBUTTON      "LOG ON",IDC_MAIN_MENU_LOG_ON_BUTTON,76,104,38,24
     CTEXT           "USER NAME",IDC_USER_NAME,0,0,114,18,SS_CENTERIMAGE | 
@@ -2194,12 +2195,12 @@ BEGIN
     EDITTEXT        IDC_MEAS_REFL_WAVE_LENG3,117,381,35,12,ES_RIGHT | 
                     ES_AUTOHSCROLL
     GROUPBOX        "Analysis Conditions",IDC_STATIC_WAVELEN,17,325,261,74
-    LTEXT           "1st Target Wavelength (nm)",IDC_STATIC_WAVELEN1,27,341,85,12,
-                    SS_CENTERIMAGE
-    LTEXT           "2nd Target Wavelength (nm)",IDC_STATIC_WAVELEN2,27,361,85,12,
-                    SS_CENTERIMAGE
-    LTEXT           "3rd Target Wavelength (nm)",IDC_STATIC_WAVELEN3,27,381,85,12,
-                    SS_CENTERIMAGE
+    LTEXT           "1st Target Wavelength (nm)",IDC_STATIC_WAVELEN1,27,341,
+                    85,12,SS_CENTERIMAGE
+    LTEXT           "2nd Target Wavelength (nm)",IDC_STATIC_WAVELEN2,27,361,
+                    85,12,SS_CENTERIMAGE
+    LTEXT           "3rd Target Wavelength (nm)",IDC_STATIC_WAVELEN3,27,381,
+                    85,12,SS_CENTERIMAGE
     CONTROL         "Additional Reflectance Measurement",
                     IDC_ADD_REFLECTANCE_MEASUREMENT,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,8,310,130,12
@@ -2243,10 +2244,12 @@ FONT 9, "MS UI Gothic"
 BEGIN
     PUSHBUTTON      "MAIN RECIPE LIST",IDC_MAIN_RECIPE_BUTTON,5,11,105,24
     PUSHBUTTON      "MULTI",IDC_MULTI_RECIPE_BUTTON,5,35,105,24
-    PUSHBUTTON      "MEASUREMENT PROGRAM LIST",IDC_MEASUREMENT_PROGRAM_BUTTON,5,80,105,24
-    PUSHBUTTON      "STAGE PROGRAM LIST",IDC_STAGE_PROGRAM_BUTTON,5,104,105,24
-    PUSHBUTTON      "RECALIBRATION PROGRAM LIST",IDC_RECALIBRATION_PROGRAM_BUTTON,5,128,
-                    105,24
+    PUSHBUTTON      "MEASUREMENT PROGRAM LIST",
+                    IDC_MEASUREMENT_PROGRAM_BUTTON,5,80,105,24
+    PUSHBUTTON      "STAGE PROGRAM LIST",IDC_STAGE_PROGRAM_BUTTON,5,104,105,
+                    24
+    PUSHBUTTON      "RECALIBRATION PROGRAM LIST",
+                    IDC_RECALIBRATION_PROGRAM_BUTTON,5,128,105,24
     PUSHBUTTON      "SITE PATTERN IMAGE",IDC_POINT_DESKEW_PROGRAM_BUTTON,5,
                     152,105,24
     GROUPBOX        "RECIPE MENU",IDC_RECIPE_GROUP,1,1,113,63
@@ -2761,8 +2764,8 @@ BEGIN
                     SS_CENTERIMAGE
     LTEXT           "%",IDC_REFLECTANCE2_LABEL,115,40,35,12,SS_CENTERIMAGE
     LTEXT           "%",IDC_TRANSMITTANCE2_LABEL,115,60,35,12,SS_CENTERIMAGE
-    CONTROL         "Integer part only",IDC_CHK_INT_ONLY,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,5,120,60,12
+    CONTROL         "Integer part only",IDC_CHK_INT_ONLY,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,5,120,60,12
 END
 
 IDD_SR_FILTER_SETTING_DLG DIALOG DISCARDABLE  0, 0, 159, 100
@@ -5079,6 +5082,40 @@ BEGIN
     ICON            "",IDC_MESSAGE_ICON,15,19,20,21
 END
 
+IDD_MANUREMEASRECALCSTAT_DLG DIALOG DISCARDABLE  0, 0, 249, 279
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Operation Selection"
+FONT 9, "MS UI Gothic"
+BEGIN
+    PUSHBUTTON      "OK",IDOK,0,0,6,6,NOT WS_VISIBLE | NOT WS_TABSTOP
+    PUSHBUTTON      "Cancel",IDCANCEL,0,5,6,6,NOT WS_VISIBLE | NOT 
+                    WS_TABSTOP
+    DEFPUSHBUTTON   "Cancel",IDC_BTN_MRCS_CANCEL,145,235,60,25
+    PUSHBUTTON      "(Run Button)",IDC_BTN_MRCS_RUN,45,235,60,25
+    LTEXT           "No. : ",IDC_STATIC,10,10,15,15,SS_CENTERIMAGE
+    GROUPBOX        "",IDC_STATIC,10,30,230,5
+    GROUPBOX        "",IDC_STATIC,10,165,230,5
+    RTEXT           "-----",IDC_STATIC_MRCS_LINE,25,10,25,15,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CONTROL         "Include selected data in statistical calculation",
+                    IDC_RADIO_MRCS_1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    10,45,220,15
+    CONTROL         "Exclude selected data from statistical calculation",
+                    IDC_RADIO_MRCS_2,"Button",BS_AUTORADIOBUTTON,10,70,220,
+                    15
+    CONTROL         "Delete data",IDC_RADIO_MRCS_3,"Button",
+                    BS_AUTORADIOBUTTON,10,95,220,15
+    CONTROL         "Restore deleted data",IDC_RADIO_MRCS_4,"Button",
+                    BS_AUTORADIOBUTTON,10,120,220,15
+    CONTROL         "Re-Measure",IDC_RADIO_MRCS_5,"Button",
+                    BS_AUTORADIOBUTTON,10,145,220,15
+    CONTROL         "Restore all deleted data",IDC_RADIO_MRCS_13,"Button",
+                    BS_AUTORADIOBUTTON,10,180,220,15
+    CONTROL         "Release specification of all data specified for statistical calculation",
+                    IDC_RADIO_MRCS_14,"Button",BS_AUTORADIOBUTTON,10,205,220,
+                    15
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -6549,40 +6586,6 @@ BEGIN
     BUTTON      ID_PRINT
 END
 
-IDD_MANUREMEASRECALCSTAT_DLG DIALOG DISCARDABLE  0, 0, 249, 279
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
-CAPTION "Operation Selection"
-FONT 9, "MS UI Gothic"
-BEGIN
-    PUSHBUTTON      "OK",IDOK,0,0,6,6,NOT WS_VISIBLE | NOT WS_TABSTOP
-    PUSHBUTTON      "Cancel",IDCANCEL,0,5,6,6,NOT WS_VISIBLE | NOT 
-                    WS_TABSTOP
-    DEFPUSHBUTTON   "Cancel",IDC_BTN_MRCS_CANCEL,145,235,60,25
-    PUSHBUTTON      "(Run Button)",IDC_BTN_MRCS_RUN,45,235,60,25
-    LTEXT           "No. : ",IDC_STATIC,10,10,15,15,SS_CENTERIMAGE
-    GROUPBOX        "",IDC_STATIC,10,30,230,5
-    GROUPBOX        "",IDC_STATIC,10,165,230,5
-    RTEXT           "-----",IDC_STATIC_MRCS_LINE,25,10,25,15,SS_CENTERIMAGE | 
-                    SS_SUNKEN
-    CONTROL         "Include selected data in statistical calculation",
-                    IDC_RADIO_MRCS_1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
-                    10,45,220,15
-    CONTROL         "Exclude selected data from statistical calculation",
-                    IDC_RADIO_MRCS_2,"Button",BS_AUTORADIOBUTTON,10,70,220,
-                    15
-    CONTROL         "Delete data",IDC_RADIO_MRCS_3,"Button",
-                    BS_AUTORADIOBUTTON,10,95,220,15
-    CONTROL         "Restore deleted data",IDC_RADIO_MRCS_4,"Button",
-                    BS_AUTORADIOBUTTON,10,120,220,15
-    CONTROL         "Re-Measure",IDC_RADIO_MRCS_5,"Button",
-                    BS_AUTORADIOBUTTON,10,145,220,15
-    CONTROL         "Restore all deleted data",IDC_RADIO_MRCS_13,"Button",
-                    BS_AUTORADIOBUTTON,10,180,220,15
-    CONTROL         "Release specification of all data specified for statistical calculation",
-                    IDC_RADIO_MRCS_14,"Button",BS_AUTORADIOBUTTON,10,205,220,
-                    15
-END
-
 
 #ifndef _MAC
 /////////////////////////////////////////////////////////////////////////////
@@ -7836,7 +7839,6 @@ BEGIN
                             "2POINT DISTANCE MEASUREMENT POSITION SETTING"
     IDS_STAGE_OFFSET_TEACHING_CAPTION "STAGE OFFSET - TEACHING"
     IDS_STAGE_OFFSET_TEACHING_MESSAGE "STAGE OFFSET - TEACHING"
-    IDS_SMALLSPOT_FILTER    "If Select 5X Lens, select ND-30 Filter Necessary."
     IDS_RECALIB_NOT_EXIST   "The Recalib is not exist."
     IDS_DIFFERENT_HEADTYPE  "The HeadType is not corresponding."
     IDS_THICKNESS_UNIT_ZERO "Invalid for the specified item, Thickness Unit is saved as an INDEX to 0."
@@ -7872,6 +7874,11 @@ BEGIN
     IDS_CHECK_SCAN          "CHECK SCAN"
     IDS_DEFAULT_VALUE       " DEFAULT VALUE"
     IDS_MANUAL_MEASURE_SELECT_POINT "Select measurement point."
+    IDS_NOMALHEAD_FILTER    "If LAH512 head, select Yellow Filter or Open Necessary."
+    IDS_HIGHRESO_HEAD_LOWMAGNI_LENS_FILTER 
+                            "If Select 5X or 10X Lens, select ND30 Filter or ND + Yellow Filter Necessary."
+    IDS_HIGHRESO_HEAD_HIGHMAGNI_LENS_FILTER 
+                            "If Select 50X or 100X Lens, select Yellow Filter or Open Necessary."
     IDS_WARNING_NO_REF_POS  "Please Select Reference Position."
     IDS_TITLE_THICKNESS_SETTING "THICKNESS SETTING"
     IDS_STRESS_THICKNESS_MODLFIED 
@@ -7925,7 +7932,7 @@ BEGIN
     IDS_MRCS_INCLUDE        "Include"
 END
 
-STRINGTABLE DISCARDABLE
+STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_MRCS_EXCLUDE        "Exclude"
     IDS_MRCS_DELETE         "Delete"
@@ -7936,7 +7943,7 @@ BEGIN
     IDS_MRCS_CONFIRM        "Are you sure ??"
 END
 
-#endif    // ‰pŒê (±ÒØ¶) resources
+#endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
