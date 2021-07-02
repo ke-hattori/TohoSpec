@@ -1929,7 +1929,13 @@ _tcscpy(l_tszIniPath, AfxGetApp()->m_pszProfileName);
 DWORD l_dwDT = ::GetPrivateProfileInt(_T("PreMove"), _T("tstdelay"), 0, l_tszIniPath);//hdebdeb
 ::Sleep(l_dwDT);//hdebdeb
 }//hdebdeb
+/* added 2019.02.01 hmenjo ログ追加 Ph1 ---------- { ---------- */
+			((CChiefView*) m_pcChiefView)->LogChief(_T("MEAS_Analysis() before call."));
+/* added 2019.02.01 hmenjo ログ追加 Ph1 ---------- } ---------- */
 			l_bRetAna = MEAS_Analysis(m_dwPointNo, &m_xmpDde);
+/* added 2019.02.01 hmenjo ログ追加 Ph1 ---------- { ---------- */
+			((CChiefView*) m_pcChiefView)->LogChief(_T("MEAS_Analysis() after call."));
+/* added 2019.02.01 hmenjo ログ追加 Ph1 ---------- } ---------- */
 			break;
 		}
 // 2009.09.29 K.Matsuo GTr <--

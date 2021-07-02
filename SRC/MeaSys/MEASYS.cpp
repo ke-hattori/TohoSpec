@@ -777,10 +777,20 @@ BOOL MEASYSAPI MEAS_Analysis(int iScanCnt, CDdeClient* pXmpDde)
 		switch ( g_prepareData.pMeasProgInfo->ScanParams.hdr.wScanType )
 		{
 		case MEAS_PROG_TYPE_SR_THICKNESS:
+/* added 2019.02.01 hmenjo ログ追加 Ph1 ---------- { ---------- */
+			pLogFile->Logging("MEAS_Analysis() : DoXmp() Start.");
+/* added 2019.02.01 hmenjo ログ追加 Ph1 ---------- } ---------- */
 			if ( !pSrAnalysis->DoXmp(szAdapResult, &analysisData, g_prepareData.pMainRcpInfo, g_prepareData.pMeasProgInfo, pXmpDde) )
 				return FALSE;
+/* added 2019.02.01 hmenjo ログ追加 Ph1 ---------- { ---------- */
+			pLogFile->Logging("MEAS_Analysis() : DoXmp() End.");
+			pLogFile->Logging("MEAS_Analysis() : LoadParams() Start.");
+/* added 2019.02.01 hmenjo ログ追加 Ph1 ---------- } ---------- */
 			if ( !xmpHelper.LoadParams(g_prepareData.pMeasProgInfo->ScanParams._SR.XMPDesc.szStrategyEntry) )
 				return FALSE;
+/* added 2019.02.01 hmenjo ログ追加 Ph1 ---------- { ---------- */
+			pLogFile->Logging("MEAS_Analysis() : LoadParams() End.");
+/* added 2019.02.01 hmenjo ログ追加 Ph1 ---------- } ---------- */
 
 			// ヘッダーアイテム名を保存
 			iCol = 0;
@@ -827,8 +837,14 @@ BOOL MEASYSAPI MEAS_Analysis(int iScanCnt, CDdeClient* pXmpDde)
 						if ( iCol == (g_prepareData.pMainRcpInfo->MainRcpParam._SR.RecalibItem[i] - 1) ) {	// RecalibItemのindexは、1から始まるため、1減算
 							_tcscpy(szBuff, g_prepareData.pMainRcpInfo->MainRcpParam._SR.szRecalib[i]);
 //							if ( _tcslen(szBuff) > 0 && (_tcscmp(szBuff, "None") != 0 && _tcscmp(szBuff, "無し") != 0) ) {
+/* added 2019.02.01 hmenjo ログ追加 Ph1 ---------- { ---------- */
+								pLogFile->Logging("MEAS_Analysis() : MEAS_Recalib() Start.");
+/* added 2019.02.01 hmenjo ログ追加 Ph1 ---------- } ---------- */
 								if ( !MEAS_Recalib(szBuff, smAdapResultDataBase.GetSharedMemoryPtr()->dData[iCol]) )
 									return FALSE;
+/* added 2019.02.01 hmenjo ログ追加 Ph1 ---------- { ---------- */
+								pLogFile->Logging("MEAS_Analysis() : MEAS_Recalib() End.");
+/* added 2019.02.01 hmenjo ログ追加 Ph1 ---------- } ---------- */
 								break;							// リキャリブレーション成功
 //							}
 						}
