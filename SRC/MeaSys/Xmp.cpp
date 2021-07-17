@@ -220,7 +220,7 @@ BOOL CXmp::RunXmp()
 /* deleted 2014.05.22 hmenjo SC_adap timeout 対策 ---------- } ---------- */
 
 	// Wvase32が正常起動したかチェック
-	timer.Restart(10);
+	timer.Restart(60);
 
 /* modified 2014.11.25 hmenjo XMP 表示/非表示 ---------- { ---------- */
 //	if(bSC_Adap){

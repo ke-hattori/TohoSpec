@@ -7384,7 +7384,7 @@ BEGIN
     IDS_MANUAL_MEASURE_SELECT_POINT "測定ポイントを選択してください。"
     IDS_NOMALHEAD_FILTER    "LAH512ヘッドの場合、光学フィルタ-Yellowまたはオープンを選択してください"
     IDS_HIGHRESO_HEAD_LOWMAGNI_LENS_FILTER 
-                            "5倍または10倍レンズを選択した場合は、光学フィルタ-ND30またはND + Yellowフィルタを選択してください"
+                            "5倍または10倍レンズを選択した場合は、光学フィルタ-N.D.またはN.D. + Yellowフィルタを選択してください"
     IDS_HIGHRESO_HEAD_HIGHMAGNI_LENS_FILTER 
                             "50倍または100倍レンズを選択した場合は、光学フィルタ-Yellowまたはオープンを選択してください"
     IDS_WARNING_NO_REF_POS  "リファレンス位置を選択したください。"

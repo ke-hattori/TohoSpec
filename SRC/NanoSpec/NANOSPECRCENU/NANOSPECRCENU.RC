@@ -7876,7 +7876,7 @@ BEGIN
     IDS_MANUAL_MEASURE_SELECT_POINT "Select measurement point."
     IDS_NOMALHEAD_FILTER    "If LAH512 head, select Yellow Filter or Open Necessary."
     IDS_HIGHRESO_HEAD_LOWMAGNI_LENS_FILTER 
-                            "If Select 5X or 10X Lens, select ND30 Filter or ND + Yellow Filter Necessary."
+                            "If Select 5X or 10X Lens, select N.D. Filter or N.D. + Yellow Filter Necessary."
     IDS_HIGHRESO_HEAD_HIGHMAGNI_LENS_FILTER 
                             "If Select 50X or 100X Lens, select Yellow Filter or Open Necessary."
     IDS_WARNING_NO_REF_POS  "Please Select Reference Position."
