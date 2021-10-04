@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// ∆≠∞ƒ◊Ÿ resources
+// Neutral resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
 #ifdef _WIN32
@@ -46,12 +46,12 @@ IDI_GARBAGE_CAN         ICON    DISCARDABLE     "res\\GarbageCan.ico"
 IDI_FACE1               ICON    DISCARDABLE     "res\\b001.ico"
 IDI_FACE2               ICON    DISCARDABLE     "res\\b002.ico"
 IDI_FACE3               ICON    DISCARDABLE     "res\\b003..ico"
-#endif    // ∆≠∞ƒ◊Ÿ resources
+#endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// ì˙ñ{åÍ resources
+// Japanese resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
 #ifdef _WIN32
@@ -2683,9 +2683,12 @@ BEGIN
     EDITTEXT        IDC_MEAS_REFL_WAVE_LENG3,119,379,35,12,ES_RIGHT | 
                     ES_AUTOHSCROLL
     GROUPBOX        "ë™íËîgí∑",IDC_STATIC_WAVELEN,19,323,261,74
-    LTEXT           "ë™íËîgí∑ÇP (nm)",IDC_STATIC_WAVELEN1,29,339,85,12,SS_CENTERIMAGE
-    LTEXT           "ë™íËîgí∑ÇQ (nm)",IDC_STATIC_WAVELEN2,29,359,85,12,SS_CENTERIMAGE
-    LTEXT           "ë™íËîgí∑ÇR (nm)",IDC_STATIC_WAVELEN3,29,379,85,12,SS_CENTERIMAGE
+    LTEXT           "ë™íËîgí∑ÇP (nm)",IDC_STATIC_WAVELEN1,29,339,85,12,
+                    SS_CENTERIMAGE
+    LTEXT           "ë™íËîgí∑ÇQ (nm)",IDC_STATIC_WAVELEN2,29,359,85,12,
+                    SS_CENTERIMAGE
+    LTEXT           "ë™íËîgí∑ÇR (nm)",IDC_STATIC_WAVELEN3,29,379,85,12,
+                    SS_CENTERIMAGE
     CONTROL         "í«â¡îΩéÀó¶ë™íË",IDC_ADD_REFLECTANCE_MEASUREMENT,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,10,308,130,12
     CTEXT           "ë™íËçÄñ⁄",IDC_STATIC,199,95,70,12,SS_CENTERIMAGE
@@ -5040,7 +5043,7 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,0,1
+ FILEVERSION 1,11,16,2
  PRODUCTVERSION 1,0,0,1
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
@@ -5057,16 +5060,16 @@ BEGIN
         BLOCK "041104b0"
         BEGIN
             VALUE "Comments", "\0"
-            VALUE "CompanyName", "\0"
+            VALUE "CompanyName", "Toho Technology Corporation\0"
             VALUE "FileDescription", "TohoSpec MFC ±Ãﬂÿπ∞ºÆ›\0"
-            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "FileVersion", "1, 11, 16, 2\0"
             VALUE "InternalName", "TohoSpec\0"
-            VALUE "LegalCopyright", "Copyright (C) 2007\0"
+            VALUE "LegalCopyright", "Copyright(C)  Toho Technology Corporation 2021\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "TohoSpec.EXE\0"
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "TohoSpec ±Ãﬂÿπ∞ºÆ›\0"
-            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "ProductVersion", "1, 11, 16, 2\0"
             VALUE "SpecialBuild", "\0"
         END
     END
@@ -6687,12 +6690,12 @@ BEGIN
     ID_AUTO_FOCUS           "Auto Focus"
 END
 
-#endif    // ì˙ñ{åÍ resources
+#endif    // Japanese resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// âpåÍ (±“ÿ∂) resources
+// English (U.S.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -6735,7 +6738,7 @@ BEGIN
     CTEXT           "Z (um)",IDC_STATIC,125,6,40,12,SS_CENTERIMAGE
 END
 
-#endif    // âpåÍ (±“ÿ∂) resources
+#endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
