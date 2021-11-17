@@ -1066,6 +1066,8 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 		cMemArea.bottom = (int)dIndex + 5;
 		if((m_Config.Y_Step * j) + (m_Config.Y_Origin - dStep) >= m_Config.Y_Max)
 			break;
+		if(cMemArea.top <= m_GraphInfo.GraphArea.top)
+			break;
 		wsprintf(szMem, "%d ", (int)((m_Config.Y_Step * j) + (m_Config.Y_Origin - dStep)));
 		strMem = szMem;
 		pDC->DrawText(strMem, &cMemArea, DT_VCENTER | DT_RIGHT | DT_SINGLELINE);
