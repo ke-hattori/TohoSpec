@@ -878,3 +878,8 @@ BOOL CSrMeasure::GTrReferecneMeasure(SCANDATA scanData[], int ccdData[], int iMe
 	}
 }
 
+int CSrMeasure::GetWaveLengthStepFromConfig()
+{
+	return m_SrConfig.nWavelengthStep;
+}
+

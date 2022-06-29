@@ -784,16 +784,28 @@ void CMeasurementOperationView::OnManualMeasurementButton()
 
 	//2010.01.15 bagus GTR --{--
 	//リファレンスの有効期限チェック
-	if(rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType == HEAD_TYPE_SR
-	&& rcp_data.MeasProgInfo.ScanParams.hdr.wScanType == MEAS_PROG_TYPE_SR_TRANSMITTANCE_G){
+	if(rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType == HEAD_TYPE_SR){
 		double l_dLifeTime = rcp_data.MeasProgInfo.Ref.hdr.dLifeTime;			// リファレンス更新間隔[ms](有効期限)
 		int l_iRet = MEAS_CheckRefFileElapsedTimeOut(rcp_data.szRecipeName, l_dLifeTime);
-		if(l_iRet != 0){
-			//リファレンス異常
-			LoadStringML(IDS_REFFILE_ELAPSED_TIMEOUT, strBuffer1, "Reference data is not exist or timeout.");
-			LoadStringML(IDS_TITLE_MEASUREMENT_START, strBuffer2, "MEASUREMENT START");
-			MessageBox(strBuffer1, strBuffer2, MB_OK | MB_ICONWARNING);
-			return;
+		
+		if(1 != l_iRet){
+			if(FALSE == MEAS_ReadRefFile(rcp_data.szRecipeName))
+			{
+				//リファレンス読み込み異常
+				LoadStringML(IDS_TITLE_MEASUREMENT_START, strBuffer2, "MEASUREMENT START");
+				MessageBox("Reference data is not exist", strBuffer2, MB_OK | MB_ICONWARNING);
+				return;
+			}
+		}
+		if(rcp_data.MeasProgInfo.ScanParams.hdr.wScanType == MEAS_PROG_TYPE_SR_TRANSMITTANCE_G){
+
+			if(l_iRet != 0){
+				//リファレンス異常
+				LoadStringML(IDS_REFFILE_ELAPSED_TIMEOUT, strBuffer1, "Reference data is not exist or timeout.");
+				LoadStringML(IDS_TITLE_MEASUREMENT_START, strBuffer2, "MEASUREMENT START");
+				MessageBox(strBuffer1, strBuffer2, MB_OK | MB_ICONWARNING);
+				return;
+			}
 		}
 	}
 	//2010.01.15 bagus GTR --}--

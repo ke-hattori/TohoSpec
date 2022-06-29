@@ -368,6 +368,21 @@ BOOL MEASYSAPI MEAS_Initialize(BOOL bHWS/*=FALSE*/)
 		if ( !pSrAnalysis->InitInstance() )
 			return FALSE;
 		MEAS_SrHead_ChangeCcdShutter(CSrHead::FILTER_OPEN);
+
+
+		for(int i = 0; i < MEASYS_STAT_TYPE_MAX_NUM; i++)
+		{
+			switch(pSrMeasure->GetWaveLengthStepFromConfig()){
+			case 1: /* SR_WAVELENGTH_STEP_05_NM */
+				scanData[i].dWavelengthStep = 0.5;
+				break;
+			case 0: /* SR_WAVELENGTH_STEP_1_NM */
+			default:
+				scanData[i].dWavelengthStep = 1.0;
+				break;
+			}
+		}
+
 	}
 
 	if ( systemConfig.HeadType.bSE ) {

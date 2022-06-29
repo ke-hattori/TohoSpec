@@ -26,6 +26,8 @@ public:
 	BOOL CloseTransShutter(BOOL bWait = TRUE);
 	BOOL IsIdle() {return m_bRun == FALSE;}
 	void GetScanData(double* DstArray, int MinTRWave, int MaxTRWave, const int iCcdDataArray[]);
+	
+	int GetWaveLengthStepFromConfig();
 
 private:
 // 2014.04.04 bagus wavelength step added -->
