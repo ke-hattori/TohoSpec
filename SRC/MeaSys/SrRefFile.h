@@ -6,6 +6,7 @@ class CSrRefFile
 {
 public:
 	static int CheckRefFileElapsedTimeOut(LPCTSTR pszMainRecipeName, double dLifeTime);
+	static int CheckRefFileElapsedTimeOut(LPCTSTR pszMainRecipeName, double dLifeTime,struct tm &tmFileTime);
 	static BOOL ReadRefFile(SCANDATA* pScanData, LPCTSTR pszMainRecipeName);
 	static BOOL ReadGTrRefFile(SCANDATA* pScanData, LPCTSTR pszMainRecipeName, int iCoordRefPos);
 	static BOOL ReadRefFile2ndRefT1(SCANDATA* pScanData, LPCTSTR pszMainRecipeName);

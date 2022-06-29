@@ -3166,6 +3166,10 @@
 #define IDS_SAFETY_PLUG_OPEN            40628
 #define IDS_SAMPLE_ID_DLG               40629
 #define IDS_MAINRCP_SMPID_TXT           40630
+#define IDS_REFFILE_ELAPSED_NOEXIST     40631
+#define IDS_EXIST                       40632
+#define IDS_NOEXIST                     40633
+#define IDS_EXPIRED                     40634
 #define IDS_STRESS_MODULUS_MAX_OVER     41000
 #define IDS_STRESS_MODULUS_SAME_NAME    41001
 #define IDS_STRESS_INPUT_PIN_NUM        41002

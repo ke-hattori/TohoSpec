@@ -5010,14 +5010,14 @@ BEGIN
     PUSHBUTTON      "DELETE",IDC_REFERENCE_DELETE_BUTTON,183,218,50,14
 END
 
-IDD_CONFIRM_DLG DIALOG DISCARDABLE  0, 0, 211, 81
+IDD_CONFIRM_DLG DIALOG DISCARDABLE  0, 0, 211, 106
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
 CAPTION "Confirm"
 FONT 9, "MS UI Gothic"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,57,58,51,15
-    PUSHBUTTON      "Cancel",IDCANCEL,112,58,51,15
-    LTEXT           "Message Text",IDC_MESSAGE_TEXT_STATIC,45,20,159,32
+    DEFPUSHBUTTON   "OK",IDOK,57,84,51,15
+    PUSHBUTTON      "Cancel",IDCANCEL,112,84,51,15
+    LTEXT           "Message Text",IDC_MESSAGE_TEXT_STATIC,45,20,159,52
     ICON            "",IDC_MESSAGE_ICON,15,19,20,21
 END
 
@@ -7250,6 +7250,10 @@ BEGIN
     IDS_SAFETY_PLUG_OPEN    "セーフティプラグが開いています"
     IDS_SAMPLE_ID_DLG       "サンプル ID"
     IDS_MAINRCP_SMPID_TXT   "サンプルIDを使用"
+    IDS_REFFILE_ELAPSED_NOEXIST "リファレンスファイルが存在しません"
+    IDS_EXIST               "有"
+    IDS_NOEXIST             "無"
+    IDS_EXPIRED             "期限切れ"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -7429,7 +7433,7 @@ BEGIN
     IDS_N_REF_EXPIRE_MESSAGE 
                             "リファレンスの有効期限が切れています．\nリファレンスを再取得しますか？"
     IDS_SET_LENS_CAPTION    "レンズとフィルタ"
-    IDS_SET_LENS_MESSAGE    "レンズとフィルタを合わせてください．\nレンズ：%s\nフィルタ：%s"
+    IDS_SET_LENS_MESSAGE    "レンズとフィルタを合わせてください．\nレンズ：%s\nフィルタ：%s\nリファレンス:%s"
     IDS_MOVE_N_REF_POS_CAPTION "リファレンス位置へ移動"
     IDS_MOVE_N_REF_POS_MESSAGE 
                             "リファレンス位置へ移動し，フォーカスを合わせて下さい．"

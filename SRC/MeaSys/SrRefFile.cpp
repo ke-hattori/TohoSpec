@@ -529,6 +529,86 @@ BOOL CSrRefFile::WriteRefFile2ndRefT2(SCANDATA* pScanData, LPCTSTR pszMainRecipe
 	return TRUE;
 }
 
+
+int CSrRefFile::CheckRefFileElapsedTimeOut(LPCTSTR pszMainRecipeName, double dLifeTime,struct tm &tmFileTime)
+// 0 : 正常（期限内有効）
+// 1 : エラー（ファイルが存在しない）
+// 2 : エラー（期限切れ）
+{
+	const int AVAILABLE 	= 0;
+	const int ERR_NOEXIST	= 1;
+	const int ERR_EXPIRED 	= 2;
+// 2009.09.10 K.Matsuo <--
+
+	//Saiki 20090603 Change ----->
+	CString strMsg, strTitle;
+	//Saiki 20090603 Change <-----
+	// 期限切れチェック
+	TCHAR szPath[MAX_PATH+1];
+	sprintf(szPath, "%s%s%s", g_tszData_Ref_Dir, pszMainRecipeName, DAT_EXT);
+	HANDLE hFile = CreateFile(szPath, GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);	// ファイルハンドル取得
+	if ( hFile == INVALID_HANDLE_VALUE )
+		return ERR_NOEXIST;    										// ファイルがない場合、期限切れとする
+
+	FILETIME ftFileTime;
+	FILETIME ftLocalFileTime;
+	SYSTEMTIME stLocalFileTime;
+	SYSTEMTIME stLocalTime; 										// ローカル時刻
+
+	GetFileTime(hFile, NULL, NULL, &ftFileTime);					// ファイル最終更新日時
+	CloseHandle(hFile);
+	FileTimeToLocalFileTime(&ftFileTime, &ftLocalFileTime); 		// ファイル最終更新日時（ローカル時刻）
+	FileTimeToSystemTime(&ftLocalFileTime, &stLocalFileTime);		// ファイル最終更新日時（ローカル時刻）SYSTEMTIME型
+	GetLocalTime(&stLocalTime); 									// 現在時刻（ローカル時刻）
+
+	struct tm tmCurrTime;
+	time_t timeFileTime;
+	time_t timeCurrTime;
+	ZeroMemory(&tmFileTime, sizeof(tmFileTime));
+	tmFileTime.tm_year = stLocalFileTime.wYear - 1900;				// 1900 年からの年
+	tmFileTime.tm_mon  = stLocalFileTime.wMonth - 1;				// 1 月からの月数 (0 ～ 11)
+	tmFileTime.tm_mday = stLocalFileTime.wDay;
+	tmFileTime.tm_hour = stLocalFileTime.wHour;
+	tmFileTime.tm_min  = stLocalFileTime.wMinute;
+	tmFileTime.tm_sec  = stLocalFileTime.wSecond;
+	//Saiki 20090603 Change ----->
+	//if ( (timeFileTime = mktime(&tmFileTime)) == (time_t)-1 )
+	//	  MessageBox(NULL, "mktime(&tmFileTime) の実行に失敗しました", "NanoSpec", MB_OK);
+//	LoadStringML(IDS_TMFILETIMR_FAILED, strMsg, "Failed to execute the mktime(&tmFileTime)");
+//	LoadStringML(IDS_TITLE_NANOSPEC, strTitle, "NanoSpec");
+//	if ( (timeFileTime = mktime(&tmFileTime)) == (time_t)-1 ){
+//		MessageBox(NULL, strMsg, strTitle, MB_OK);
+//	}
+	//Saiki 20090603 Change <-----
+	timeFileTime = mktime(&tmFileTime);
+
+	ZeroMemory(&tmCurrTime, sizeof(tmCurrTime));
+	tmCurrTime.tm_year = stLocalTime.wYear - 1900;					// 1900 年からの年
+	tmCurrTime.tm_mon  = stLocalTime.wMonth - 1;					// 1 月からの月数 (0 ～ 11)
+	tmCurrTime.tm_mday = stLocalTime.wDay;
+	tmCurrTime.tm_hour = stLocalTime.wHour;
+	tmCurrTime.tm_min  = stLocalTime.wMinute;
+	tmCurrTime.tm_sec  = stLocalTime.wSecond;
+	//Saiki 20090603 Change ----->
+	//if ( (timeCurrTime = mktime(&tmCurrTime)) == (time_t)-1 )
+	//	  MessageBox(NULL, "mktime(&tmCurrTime) の実行に失敗しました", "NanoSpec", MB_OK);
+//	LoadStringML(IDS_TMCURRTIME_FAILED, strMsg, "Failed to execute the mktime(&tmCurrTime)");
+//	LoadStringML(IDS_TITLE_NANOSPEC, strTitle, "NanoSpec");
+//	if ( (timeCurrTime = mktime(&tmCurrTime)) == (time_t)-1 ){
+//		MessageBox(NULL, strMsg, strTitle, MB_OK);
+//	}
+	//Saiki 20090603 Change <-----
+	timeCurrTime = mktime(&tmCurrTime);
+
+	double dElapsedTime;
+	if ( timeFileTime == (time_t)-1 || timeCurrTime == (time_t)-1 )
+		dElapsedTime = DBL_MAX;		// 万が一、時刻取得を失敗した場合は、期限切れにする
+	else
+		dElapsedTime = difftime(timeCurrTime, timeFileTime);
+
+	return ( ( dElapsedTime > dLifeTime * 60 ) ? ERR_EXPIRED : AVAILABLE ); // 秒数比較
+}
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // 2009.09.10 K.Matsuo -->

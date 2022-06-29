@@ -117,6 +117,7 @@ BOOL MEAS_RecalibMinusEntry(LPCTSTR szRecalib, double& dData);
 // Sr Reference File
 //
 int MEASYSAPI MEAS_CheckRefFileElapsedTimeOut(LPCTSTR pszMainRecipeName, double dLifeTime);
+int MEASYSAPI MEAS_CheckRefFileElapsedTimeOut(LPCTSTR pszMainRecipeName, double dLifeTime,struct tm &tmFileTime);
 BOOL MEASYSAPI MEAS_ReadRefFile(LPCTSTR pszMainRecipeName);
 BOOL MEASYSAPI MEAS_ReadGTrRefFile(LPCTSTR pszMainRecipeName, int iCoordRefPos);
 BOOL MEASYSAPI MEAS_ReadRefFile2ndRefT1(LPCTSTR pszMainRecipeName);

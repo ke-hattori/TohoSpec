@@ -1047,6 +1047,11 @@ int MEASYSAPI MEAS_CheckRefFileElapsedTimeOut(LPCTSTR pszMainRecipeName, double 
 	return CSrRefFile::CheckRefFileElapsedTimeOut(pszMainRecipeName, dLifeTime);
 }
 
+int MEASYSAPI MEAS_CheckRefFileElapsedTimeOut(LPCTSTR pszMainRecipeName, double dLifeTime,struct tm &tmFileTime)
+{
+	return CSrRefFile::CheckRefFileElapsedTimeOut(pszMainRecipeName, dLifeTime,tmFileTime);
+}
+
 BOOL MEASYSAPI MEAS_ReadRefFile(LPCTSTR pszMainRecipeName)
 {
 	return CSrRefFile::ReadRefFile(scanData, pszMainRecipeName);

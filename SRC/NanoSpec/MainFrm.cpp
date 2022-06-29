@@ -109,6 +109,9 @@
 #include "..\\..\\INC\\NexIf.hxx"
 #include "..\\..\\INC\\NSStage.hxx"
 //2009.08.31 bagus stress --{--
+
+#include "..\\..\\INC\\MeaSys.hxx"
+
 //for DBL_MIN,DBL_MAX
 #include <float.h>
 //2009.08.31 bagus stress --}--
@@ -9005,8 +9008,6 @@ BOOL CMainFrame::GetResistMeasureResult(RESISTRESULT *pResult)
 LRESULT CMainFrame::OnConfirmPopup(WPARAM wparam,LPARAM lparam)
 {
 	int iSrcCmdId = (int)wparam;
-	int iLens = (int)LOWORD(lparam);
-	int iFilter = (int)HIWORD(lparam);
 	CConfirmDlg dlg;
 	UINT nButtonStyle = MB_OKCANCEL;
 	UINT nIconType = MB_ICONQUESTION;
@@ -9024,17 +9025,53 @@ LRESULT CMainFrame::OnConfirmPopup(WPARAM wparam,LPARAM lparam)
 
 	switch(iSrcCmdId){
 	case 0: // set lens and filter.
-		LoadStringML(IDS_SET_LENS_CAPTION, l_strCaption, "Set Lens and filter");
-		LoadStringML(IDS_SET_LENS_MESSAGE, l_strFormat, "Please set lens and filter.\nLens:%s\nFilter:%s");
+		{
+			int iLens = (int)LOWORD(lparam);
+			int iFilter = (int)HIWORD(lparam);
+			LoadStringML(IDS_SET_LENS_CAPTION, l_strCaption, "Set Lens and filter");
+			LoadStringML(IDS_SET_LENS_MESSAGE, l_strFormat, "Please set lens and filter.\nLens:%s\nFilter:%s\nReference:%s");
 
-		ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
-		ConfigFile_GetNanoSpecIni(l_srTurret, CONFIG_FILE_SR_TURRET);
-		ConfigFile_GetNanoSpecIni(l_srFilter, CONFIG_FILE_SR_FILTER);
+			ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
+			ConfigFile_GetNanoSpecIni(l_srTurret, CONFIG_FILE_SR_TURRET);
+			ConfigFile_GetNanoSpecIni(l_srFilter, CONFIG_FILE_SR_FILTER);
 
-		l_strMessageText.Format(l_strFormat, l_srTurret[iLens].szName, pszFilterName[l_SystemConfig.nLanguage][iFilter]);
-		nButtonStyle = MB_OK;
-		nIconType = MB_ICONINFORMATION;
-		break;
+			RCP_DATA rcp;
+			m_pDoc->GetRcpData(&rcp);
+
+			struct tm tmFileTime;
+			int timeoutRes = MEAS_CheckRefFileElapsedTimeOut(rcp.szRecipeName, rcp.MeasProgInfo.Ref.hdr.dLifeTime,tmFileTime);
+
+			char szTime[256] = "";
+			
+			// 0 : 正常（期限内有効）
+			// 1 : エラー（ファイルが存在しない）
+			// 2 : エラー（期限切れ）
+			CString l_strExist;
+			switch(timeoutRes)
+			{
+				case 0:
+					LoadStringML(IDS_EXIST, l_strExist, "Exist");
+					sprintf(szTime,"(%d/%02d/%02d %02d:%02d:%02d)",tmFileTime.tm_year + 1900,tmFileTime.tm_mon + 1,tmFileTime.tm_mday,tmFileTime.tm_hour,tmFileTime.tm_min,tmFileTime.tm_sec);
+					l_strExist += szTime;
+					break;
+				case 1:
+					LoadStringML(IDS_NOEXIST, l_strExist, "No Exist");
+					break;
+				case 2:
+					LoadStringML(IDS_EXPIRED, l_strExist, "Expired");
+					sprintf(szTime,"(%d/%02d/%02d %02d:%02d:%02d)",tmFileTime.tm_year + 1900,tmFileTime.tm_mon + 1,tmFileTime.tm_mday,tmFileTime.tm_hour,tmFileTime.tm_min,tmFileTime.tm_sec);
+					l_strExist += szTime;
+					break;
+				default:
+					break;
+			}
+
+
+			l_strMessageText.Format(l_strFormat, l_srTurret[iLens].szName, pszFilterName[l_SystemConfig.nLanguage][iFilter],l_strExist);
+			nButtonStyle = MB_OK;
+			nIconType = MB_ICONINFORMATION;
+			break;
+		}
 	case 1: // normal reference expiration.
 		LoadStringML(IDS_N_REF_EXPIRE_CAPTION, l_strCaption, "Reference expiration");
 		LoadStringML(IDS_N_REF_EXPIRE_MESSAGE, l_strMessageText, "A term of validity of reference has expired. Is reference data re-acquired?");
