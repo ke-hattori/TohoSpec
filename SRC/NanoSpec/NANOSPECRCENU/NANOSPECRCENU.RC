@@ -7924,7 +7924,7 @@ BEGIN
     IDS_N_REF_EXPIRE_CAPTION "Reference expiration"
     IDS_N_REF_EXPIRE_MESSAGE 
                             "A term of validity of reference has expired. \nIs reference data re-acquired?"
-    IDS_SET_LENS_CAPTION    "Set Lens and filter"
+    IDS_SET_LENS_CAPTION    "Lens and filter and reference"
     IDS_SET_LENS_MESSAGE    "Please set lens and filter.\nLens:%s\nFilter:%s\nReference:%s"
     IDS_MOVE_N_REF_POS_CAPTION "Move to reference position"
     IDS_MOVE_N_REF_POS_MESSAGE 

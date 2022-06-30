@@ -7432,7 +7432,7 @@ BEGIN
     IDS_N_REF_EXPIRE_CAPTION "リファレンス期限切れ"
     IDS_N_REF_EXPIRE_MESSAGE 
                             "リファレンスの有効期限が切れています．\nリファレンスを再取得しますか？"
-    IDS_SET_LENS_CAPTION    "レンズとフィルタ"
+    IDS_SET_LENS_CAPTION    "レンズとフィルタとリファレンス"
     IDS_SET_LENS_MESSAGE    "レンズとフィルタを合わせてください．\nレンズ：%s\nフィルタ：%s\nリファレンス:%s"
     IDS_MOVE_N_REF_POS_CAPTION "リファレンス位置へ移動"
     IDS_MOVE_N_REF_POS_MESSAGE 
