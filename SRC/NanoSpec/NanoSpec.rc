@@ -226,7 +226,7 @@ BEGIN
     ICON            IDR_NANOSPTYPE,IDC_STATIC,11,17,20,20
     LTEXT           "ÉoÅ[ÉWÉáÉìèÓïÒ",IDC_STATIC,40,10,120,8,SS_NOPREFIX
     LTEXT           "Version",IDC_VERSION,40,25,120,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2007 - 2016 TOHO Technology Corp.",
+    LTEXT           "Copyright (C) 2007 - 2022 TOHO Technology Corp.",
                     IDC_STATIC,40,40,193,8
 END
 
@@ -5043,7 +5043,7 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,11,16,2
+ FILEVERSION 1,11,17,1
  PRODUCTVERSION 1,0,0,1
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
@@ -5062,14 +5062,14 @@ BEGIN
             VALUE "Comments", "\0"
             VALUE "CompanyName", "Toho Technology Corporation\0"
             VALUE "FileDescription", "TohoSpec MFC ±Ãﬂÿπ∞ºÆ›\0"
-            VALUE "FileVersion", "1, 11, 16, 2\0"
+            VALUE "FileVersion", "1, 11, 17, 1\0"
             VALUE "InternalName", "TohoSpec\0"
-            VALUE "LegalCopyright", "Copyright(C)  Toho Technology Corporation 2021\0"
+            VALUE "LegalCopyright", "Copyright(C)  Toho Technology Corporation 2022\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "TohoSpec.EXE\0"
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "TohoSpec ±Ãﬂÿπ∞ºÆ›\0"
-            VALUE "ProductVersion", "1, 11, 16, 2\0"
+            VALUE "ProductVersion", "1, 11, 17, 1\0"
             VALUE "SpecialBuild", "\0"
         END
     END
