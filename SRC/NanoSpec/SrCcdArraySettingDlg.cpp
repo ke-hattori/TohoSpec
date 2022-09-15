@@ -473,7 +473,7 @@ void CSrCcdArraySettingDlg::OnScanButton()
 		SR_FILTER l_srFilter[SR_FILTER_MAX];
 
 		LoadStringML(IDS_SET_LENS_CAPTION, l_strCaption, "Set Lens and filter");
-		LoadStringML(IDS_SET_LENS_MESSAGE, l_strFormat, "Please set lens and filter.\nLens:%s\nFilter:%s");
+		LoadStringML(IDS_SET_LENS_MESSAGE, l_strFormat, "Please set lens and filter.\nLens:%s\nFilter:%s\nReference:%s");
 
 		ConfigFile_GetNanoSpecIni(l_srTurret, CONFIG_FILE_SR_TURRET);
 		ConfigFile_GetNanoSpecIni(l_srFilter, CONFIG_FILE_SR_FILTER);
@@ -482,7 +482,7 @@ void CSrCcdArraySettingDlg::OnScanButton()
 			{OPTICAL_FILTER_TYPE_ITEM_JPN[0], OPTICAL_FILTER_TYPE_ITEM_JPN[1], OPTICAL_FILTER_TYPE_ITEM_JPN[2], l_srFilter[0].szName, l_srFilter[1].szName, l_srFilter[2].szName},	// Jpn
 		};
 
-		l_strMessageText.Format(l_strFormat, l_srTurret[iLens].szName, pszFilterName[l_SystemConfig.nLanguage][OPT_FILTER_OPEN]);
+		l_strMessageText.Format(l_strFormat, l_srTurret[iLens].szName, pszFilterName[l_SystemConfig.nLanguage][OPT_FILTER_OPEN],"-");
 
 		dlg.SetButtonStyle(MB_OK);
 		dlg.SetMessageText(l_strMessageText, l_strCaption, MB_ICONINFORMATION);
