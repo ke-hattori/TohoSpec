@@ -6,7 +6,11 @@
 #include "CurveFitting.hpp"
 
 #define CALIBFILEMAXLINE				  MAXDATANUM
-#define CCD_WCAL_MAX					  (6)
+/* modified 2024.01.08 hmenjo CCD ARRAY ’Ç‰Á ---------- { ---------- */
+//#define CCD_WCAL_MAX					  (6)
+/* modified 2024.01.08 hmenjo CCD ARRAY ’Ç‰Á ----------              */
+#define CCD_WCAL_MAX					  (7)
+/* modified 2024.01.08 hmenjo CCD ARRAY ’Ç‰Á ---------- } ---------- */
 
 class CSrMeasure
 {
@@ -26,7 +30,7 @@ public:
 	BOOL CloseTransShutter(BOOL bWait = TRUE);
 	BOOL IsIdle() {return m_bRun == FALSE;}
 	void GetScanData(double* DstArray, int MinTRWave, int MaxTRWave, const int iCcdDataArray[]);
-	
+
 	int GetWaveLengthStepFromConfig();
 
 private:

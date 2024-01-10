@@ -4,7 +4,11 @@
 
 //#define MAXDATANUM						(512)
 #define MAXDATANUM						  (512 * 10)
-#define MAXCOEF 						  (7)		// n-1次式
+/* modified 2024.01.08 hmenjo CCD ARRAY 追加 ---------- { ---------- */
+//#define MAXCOEF 						  (7)		// n-1次式
+/* modified 2024.01.08 hmenjo CCD ARRAY 追加 ----------              */
+#define MAXCOEF 						  (8)		// n-1次式
+/* modified 2024.01.08 hmenjo CCD ARRAY 追加 ---------- } ---------- */
 
 typedef struct _CURVEFITTINGST{
 	int datanum;
@@ -35,7 +39,12 @@ public:
 		   COEF4 = 4,
 		   COEF5 = 5,
 		   COEF6 = 6,
-		   COEF7 = 7, };
+/* modified 2024.01.08 hmenjo CCD ARRAY 追加 ---------- { ---------- */
+//		   COEF7 = 7, };
+/* modified 2024.01.08 hmenjo CCD ARRAY 追加 ----------              */
+		   COEF7 = 7,
+		   COEF8 = 8, };
+/* modified 2024.01.08 hmenjo CCD ARRAY 追加 ---------- } ---------- */
 
 	CCurveFitting(int nMaxCoef = MAXCOEF) : m_nMaxCoef(nMaxCoef)
 	{
@@ -81,7 +90,7 @@ public:
 	double GetFitValue(double dX)
 	{
 //		// 6次式の場合、下記の計算内容と同じ
-//		// y = ax^6 + bx^5 + cx^4 + dx^3 + ex^2 + fx + g 
+//		// y = ax^6 + bx^5 + cx^4 + dx^3 + ex^2 + fx + g
 //		double dSum = 0.0;
 //		dSum += m_dCoefficient[6] * pow(dX, 6);
 //		dSum += m_dCoefficient[5] * pow(dX, 5);

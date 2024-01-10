@@ -5062,14 +5062,14 @@ BEGIN
             VALUE "Comments", "\0"
             VALUE "CompanyName", "Toho Technology Corporation\0"
             VALUE "FileDescription", "TohoSpec MFC ±ÌßØ¹°¼®Ý\0"
-            VALUE "FileVersion", "1, 11, 17, 2\0"
+            VALUE "FileVersion", "1, 11, 18, 1\0"
             VALUE "InternalName", "TohoSpec\0"
             VALUE "LegalCopyright", "Copyright(C)  Toho Technology Corporation 2022\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "TohoSpec.EXE\0"
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "TohoSpec ±ÌßØ¹°¼®Ý\0"
-            VALUE "ProductVersion", "1, 11, 17, 2\0"
+            VALUE "ProductVersion", "1, 11, 18, 1\0"
             VALUE "SpecialBuild", "\0"
         END
     END

@@ -554,7 +554,11 @@ void CSrCcdArraySettingDlg::InitCombo_Lens()
 void CSrCcdArraySettingDlg::CalibPixelListGrid_Init()
 {
 	int Cols = 2 + 1;
-	int Rows = 7 + 1;
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- { ---------- */
+//	int Rows = 7 + 1;
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ----------              */
+	int Rows = SR_CCD_ARRAY_ITEM_MAX + 1;
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- } ---------- */
 	int FixRows = 1;
 	int FixCols = 2;
 	int row, col;
@@ -665,21 +669,33 @@ LRESULT CSrCcdArraySettingDlg::CalibrationSet(WPARAM wparam, LPARAM lparam)
 	int i,j;
 	BOOL bCheckSelectCell = FALSE;
 
-	for(i=1; i<=7; i++){
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- { ---------- */
+//	for(i=1; i<=7; i++){
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ----------              */
+	for (i = 1; i <= SR_CCD_ARRAY_ITEM_MAX; i++) {
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- } ---------- */
 		for(j=1; j<=2; j++){
 			if(m_CCDCalibListGrid.IsCellSelected(i,j) == TRUE)
 				bCheckSelectCell=TRUE;
 		}
 	}
 	if(bCheckSelectCell==FALSE){
-		for(i=1; i<=7; i++){
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- { ---------- */
+//		for(i=1; i<=7; i++){
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ----------              */
+		for (i = 1; i <= SR_CCD_ARRAY_ITEM_MAX; i++) {
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- } ---------- */
 			if(m_CCDCalibListGrid.GetItemText(i,2) == ""){
 				m_CCDCalibListGrid.SetSelectedRange(i, 0, i, 2 ,TRUE, TRUE);
 				m_CCDCalibListGrid.SetFocusCell(i,2);
 				break;
 			}
 			//if((i==7) && (m_CCDCalibListGrid.GetItemText(i,2) == "")){
-			if(i==7){
+/* modified 2024.01.22 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- { ---------- */
+//			if(i==7){
+/* modified 2024.01.22 hmenjo CCD ARRAY 2 ’Ç‰Á ----------              */
+			if (i == SR_CCD_ARRAY_ITEM_MAX) {
+/* modified 2024.01.22 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- } ---------- */
 				//AfxMessageBox("Already Set Calibration Value");
 				//Kojika 20090525 Change
 				LoadStringML(IDS_ALREADY_SET_CALIB_VALUE , strbuf, "Already Set Calibration Value");
@@ -696,9 +712,17 @@ LRESULT CSrCcdArraySettingDlg::CalibrationSet(WPARAM wparam, LPARAM lparam)
 	strBuffer.Format("%d",tCalibData.PointIndex[iPoint-1]);
 	cell = m_CCDCalibListGrid.GetFocusCell();
 	int iCount=0;
-	while(iCount <=7){
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- { ---------- */
+//	while(iCount <=7){
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ----------              */
+	while (iCount <= SR_CCD_ARRAY_ITEM_MAX) {
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- } ---------- */
 		if(m_CCDCalibListGrid.GetItemText(cell.row,2) != ""){
-			if (cell.row<7)
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- { ---------- */
+//			if (cell.row<7)
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ----------              */
+			if (cell.row < SR_CCD_ARRAY_ITEM_MAX)
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- } ---------- */
 				cell.row++;
 			else
 				cell.row =1;
@@ -708,7 +732,11 @@ LRESULT CSrCcdArraySettingDlg::CalibrationSet(WPARAM wparam, LPARAM lparam)
 			m_CCDCalibListGrid.SetFocusCell(cell.row,2);
 			break;
 		}
-		if(iCount==7) {
+/* modified 2024.01.22 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- { ---------- */
+//		if(iCount==7) {
+/* modified 2024.01.22 hmenjo CCD ARRAY 2 ’Ç‰Á ----------              */
+		if (iCount == SR_CCD_ARRAY_ITEM_MAX) {
+/* modified 2024.01.22 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- } ---------- */
 			//AfxMessageBox("Already Set Calibration Value");
 			//Kojika 20090525 Change
 			LoadStringML(IDS_ALREADY_SET_CALIB_VALUE , strbuf, "Already Set Calibration Value");
@@ -790,7 +818,11 @@ BOOL CSrCcdArraySettingDlg::CheckData()
 	CString strBuffer;
 //Kojika 20090525 Add End
 
-	for(int i=1; i<=7; i++){
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- { ---------- */
+//	for(int i=1; i<=7; i++){
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ----------              */
+	for (int i = 1; i <= SR_CCD_ARRAY_ITEM_MAX; i++) {
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- } ---------- */
 		if(m_CCDCalibListGrid.GetItemText(i,2) == ""){
 //			int iRet=AfxMessageBox("There are wave value not set.\n\rWould you save them?", MB_OKCANCEL);
 //Kojika 20090525 Change

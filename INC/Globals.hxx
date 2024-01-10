@@ -944,6 +944,9 @@ enum SR_CCD_ARRAY_ITEM
 	SR_CCD_ARRAY_ITEM5,
 	SR_CCD_ARRAY_ITEM6,
 	SR_CCD_ARRAY_ITEM7,
+/* added 2024.01.08 hmenjo CCD ARRAY 追加 ---------- { ---------- */
+	SR_CCD_ARRAY_ITEM8,
+/* added 2024.01.08 hmenjo CCD ARRAY 追加 ---------- } ---------- */
 	SR_CCD_ARRAY_ITEM_MAX,
 };
 
@@ -955,8 +958,15 @@ const LPCSTR g_lpszSrCcdArrayItem[] = {
 	"587.092nm-Kr",
 	"760.154nm-Kr",
 	"785.482nm-Kr",
+/* added 2024.01.08 hmenjo CCD ARRAY 追加 ---------- { ---------- */
+	"907.973nm",
+/* added 2024.01.08 hmenjo CCD ARRAY 追加 ---------- } ---------- */
 };
-#define CCD_ARRAYT_STR_INIT { "253.652nm-Hg", "312.566nm-Hg", "365.015nm-Hg", "546.074nm-Hg", "587.092nm-Kr", "760.154nm-Kr", "785.482nm-Kr" }
+/* modified 2024.01.08 hmenjo CCD ARRAY 追加 ---------- { ---------- */
+//#define CCD_ARRAYT_STR_INIT { "253.652nm-Hg", "312.566nm-Hg", "365.015nm-Hg", "546.074nm-Hg", "587.092nm-Kr", "760.154nm-Kr", "785.482nm-Kr" }
+/* modified 2024.01.08 hmenjo CCD ARRAY 追加 ----------              */
+#define CCD_ARRAYT_STR_INIT { "253.652nm-Hg", "312.566nm-Hg", "365.015nm-Hg", "546.074nm-Hg", "587.092nm-Kr", "760.154nm-Kr", "785.482nm-Kr", "907.973nm" }
+/* modified 2024.01.08 hmenjo CCD ARRAY 追加 ---------- } ---------- */
 
 // ##########################################################################
 // SR Head カラーフィルタ(CCD シャッタ)の設定

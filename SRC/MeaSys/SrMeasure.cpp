@@ -662,6 +662,10 @@ BOOL CSrMeasure::ReadCcdCalibDataFile(CCDCALIB* cb)
 	// CCDArray6_Data=462.947067711502
 	// CCDArray7_Item=785.482nm-Kr
 	// CCDArray7_Data=483.565708423033
+/* added 2024.01.08 hmenjo CCD ARRAY 追加 ---------- { ---------- */
+	// CCDArray8_Item=907.973nm
+	// CCDArray8_Data=600.0000000000
+/* added 2024.01.08 hmenjo CCD ARRAY 追加 ---------- } ---------- */
 
 	TCHAR szFilename[_MAX_PATH];
 	const int nMaxSize = 128;
@@ -743,6 +747,17 @@ BOOL CSrMeasure::ReadCcdCalibDataFile(CCDCALIB* cb)
 	::GetPrivateProfileString(pszIniSection, "CCDArray7_Data", _T("483.565708423033"), szBuff, sizeof(szBuff), szFilename);
 	cb->value[cb->datanum] = atof(szBuff);
 	cb->datanum++;
+/* added 2024.01.08 hmenjo CCD ARRAY 追加 ---------- { ---------- */
+
+	::GetPrivateProfileString(pszIniSection, "CCDArray8_Item", _T("907.973nm"), szBuff, sizeof(szBuff), szFilename);
+	psz = _tcsstr(szBuff, _T("nm"));						 // 波長が、nmの単位付きで書かれている場合、NULLにする
+	if ( psz != NULL )
+		*psz = NULL;
+	cb->point[cb->datanum] = atof(szBuff);
+	::GetPrivateProfileString(pszIniSection, "CCDArray8_Data", _T("600.0000000000"), szBuff, sizeof(szBuff), szFilename);
+	cb->value[cb->datanum] = atof(szBuff);
+	cb->datanum++;
+/* added 2024.01.08 hmenjo CCD ARRAY 追加 ---------- } ---------- */
 
 	return TRUE;
 }

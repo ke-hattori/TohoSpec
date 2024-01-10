@@ -446,6 +446,10 @@ const INIFILE SystemSrIniDesc[] =
 	{"",							"CCDArray7_Item",				'C',	g_lpszSrCcdArrayItem[6],NanoSysData.SrCcdArray[6].szItem										   },
 	{"",							"CCDArray7_Data",				'#',	"0",					&NanoSysData.SrCcdArray[6].dData										   },
 // 2009.05.14 k-matsuo <--
+/* added 2024.01.08 hmenjo CCD ARRAY ’Ç‰Á ---------- { ---------- */
+	{"",							"CCDArray8_Item",				'C',	g_lpszSrCcdArrayItem[7],NanoSysData.SrCcdArray[7].szItem										   },
+	{"",							"CCDArray8_Data",				'#',	"0",					&NanoSysData.SrCcdArray[7].dData										   },
+/* added 2024.01.08 hmenjo CCD ARRAY ’Ç‰Á ---------- } ---------- */
 };
 
 // 2013.02.04 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
