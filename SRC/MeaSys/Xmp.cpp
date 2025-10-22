@@ -153,7 +153,6 @@ BOOL CXmp::RunXmp()
 		if (FALSE != l_clsFindDirAS.FindFile(l_strSearchPath, 0)) {
 			DWORD l_dwAScnt = 0;
 			TCHAR l_tszFileTitle[MAX_PATH];
-			int i;
 			BOOL l_bLast = FALSE;
 			do {
 				if (FALSE == l_clsFindDirAS.FindNextFile()) {
