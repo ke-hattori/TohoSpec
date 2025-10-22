@@ -13,8 +13,8 @@
 extern CSharedMemory<STRESSRESULT> smStressResultDataBase;
 extern CLogFile* pLogFile;
 
-extern TCHAR g_tszProcDir[_MAX_PATH];		/* ŒÄo‚µƒvƒƒZƒX‚ÌƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
-extern TCHAR g_tszBaseDir[_MAX_PATH];		/* Šî€ƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
+extern TCHAR g_tszProcDir[_MAX_PATH];		/* ÄovZXÌƒfBNg('\'t)*/
+extern TCHAR g_tszBaseDir[_MAX_PATH];		/* î€fBNg('\'t)*/
 extern void GetProcBaseDir(LPTSTR ptszProcDir, LPTSTR ptszBaseDir);
 extern void AddAbsPath(LPTSTR ptszPath);
 
@@ -31,9 +31,12 @@ CStressAnalysis::CStressAnalysis()
 	m_pStageProgInfoHdr = NULL;
 	m_pStageProgStress = NULL;
 
-	for ( int i = 0; i < STRESS_LINES_MAX; i++ ) {
+	int i;
+
+
+	for ( i = 0; i < STRESS_LINES_MAX; i++ ) {
 		m_pFilmThicknessFitting[FIRST][i] = NULL;
-		m_pFilmThicknessFitting[SINGLE][i] = new CCurveFitting(CCurveFitting::COEF7);	// 6Ÿ®
+		m_pFilmThicknessFitting[SINGLE][i] = new CCurveFitting(CCurveFitting::COEF7);	// 6
 	}
 
 	m_dwLineNum = 0;
@@ -46,8 +49,13 @@ CStressAnalysis::~CStressAnalysis()
 {
 	TRACE(_T("CStressAnalysis::~CStressAnalysis()\n"));
 
-	for ( int i = 0; i < SUBSTRATE_MAX; i++ ) {
-		for ( int j = 0; j < STRESS_LINES_MAX; j++ ) {
+	int i;
+
+
+	for ( i = 0; i < SUBSTRATE_MAX; i++ ) {
+		int j;
+
+		for ( j = 0; j < STRESS_LINES_MAX; j++ ) {
 			if ( m_pFilmThicknessFitting[i][j] ) {
 				delete m_pFilmThicknessFitting[i][j];
 				m_pFilmThicknessFitting[i][j] = NULL;
@@ -65,11 +73,15 @@ BOOL CStressAnalysis::InitInstance()
 	ConfigFile_GetNanoSpecIni(&m_stressConfig, CONFIG_FILE_STRESS_CONFIG);
 
 	m_dwLineNum = min(m_stressConfig.dwLiftPinNumberOfLine, STRESS_LINES_MAX);
-	for ( int i = 0; i < (int)m_dwLineNum; i++)
+	int i;
+
+	for ( i = 0; i < (int)m_dwLineNum; i++)
 		m_dwSectionNum[i] = min(m_stressConfig.Line[i].dwSectionNum, STRESS_SECTIONS_MAX);
 
 	for ( i = 0; i < SUBSTRATE_MAX; i++ ) {
-		for ( int j = 0; j < (int)m_dwLineNum; j++ ) {
+		int j;
+
+		for ( j = 0; j < (int)m_dwLineNum; j++ ) {
 			m_substrateR[i][j].SetStageSpeed((double)m_stressConfig.dwScanSpeed);
 		}
 	}
@@ -123,7 +135,7 @@ void CStressAnalysis::SetDeflection(int iSubstrate, int iLine, const double* pDe
 	ASSERT(iSubstrate < SUBSTRATE_MAX);
 	ASSERT(iLine < STRESS_LINES_MAX);
 
-	/* •ÏˆÊ—Ê‚ğ“o˜^‚µ‚Ü‚· */
+	/* ÏˆÊ—Ê‚o^Ü‚ */
 	m_substrateR[iSubstrate][iLine].SetDeflection(pDeflection, nOccurence);
 }
 
@@ -136,7 +148,7 @@ void CStressAnalysis::SetDeflectionAtZero(int iSubstrate, int iLine, double** pD
 	ASSERT(iSubstrate < SUBSTRATE_MAX);
 	ASSERT(iLine < STRESS_LINES_MAX);
 
-	/* •ÏˆÊ—Ê‚ğ“o˜^‚µ‚Ü‚· */
+	/* ÏˆÊ—Ê‚o^Ü‚ */
 	m_substrateR[iSubstrate][iLine].SetDeflectionAtZero(pDeflection, nOccurence);
 }
 
@@ -154,7 +166,7 @@ void CStressAnalysis::SetFilmThickness(int iLine, CURVEFITTINGST* pCf)
 
 	ASSERT(iLine < STRESS_LINES_MAX);
 
-	/* –ŒŒú‚Ìƒ‰ƒCƒ“ƒ}ƒbƒsƒ“ƒO */
+	/* ÌƒC}bsO */
 	m_pFilmThicknessFitting[SINGLE][iLine]->SetParamData(*pCf);
 }
 
@@ -170,16 +182,18 @@ void CStressAnalysis::ReferenceData(int iLine)
 
 //	MakeScanDataLog();
 
-	// Œ‹‰Êƒf[ƒ^‚Ì•ÒW
+	// Êƒf[^Ì•ÒW
 	double key;
 	double value;
 
 	::ZeroMemory(smStressResultDataBase.GetSharedMemoryPtr()->DeflectionRaw, sizeof(smStressResultDataBase.GetSharedMemoryPtr()->DeflectionRaw));
 
-	// Œ‹‰Êƒf[ƒ^i•ÏˆÊ—Êj
+	// Êƒf[^iÏˆÊ—Êj
 	smStressResultDataBase.GetSharedMemoryPtr()->nDeflectionOccurence[FIRST] = m_substrateR[FIRST][iLine].m_DeflectionAtZeroData.GetCount();
 	key = dStartX;
-	for ( int i = 0; i < m_substrateR[FIRST][iLine].m_DeflectionAtZeroData.GetCount(); i++ ) {
+	int i;
+
+	for ( i = 0; i < m_substrateR[FIRST][iLine].m_DeflectionAtZeroData.GetCount(); i++ ) {
 		if ( !m_substrateR[FIRST][iLine].m_DeflectionAtZeroData.Lookup(key, value) )
 			ASSERT(FALSE);
 		smStressResultDataBase.GetSharedMemoryPtr()->DeflectionRaw[FIRST][i].dPosum = key * 1000;
@@ -206,7 +220,10 @@ void CStressAnalysis::CalcDeflectionStartAndEndAtZero(int iSubstrate, int iLine)
 
 	m_substrateR[iSubstrate][iLine].CalcDeflectionData(dStartX, dEndX, dStepX);
 
-	for ( int i = iFirstSectionIndex; i <= iLastSectionIndex; i++ ) {
+	int i;
+
+
+	for ( i = iFirstSectionIndex; i <= iLastSectionIndex; i++ ) {
 		bFirstSection = (i == iFirstSectionIndex);
 		bLastSection = (i == iLastSectionIndex);
 		dSectionStartX = m_stressConfig.Line[iLine].PinPos[i].lX * UNITCONV_UM_TO_MM;
@@ -228,25 +245,28 @@ BOOL CStressAnalysis::CalcStress(int iLine)
 
 	m_stressMap[iLine].RemoveAll();
 
-	// ŠY“–ƒ‰ƒCƒ“‚ÌƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^‚È‚µ
+	// YCÌƒt@Xf[^È‚
 	if ( m_substrateR[FIRST][iLine].m_DeflectionAtZeroData.GetCount() == 0 ) {
 		pLogFile->LoggingV("Stress No Reference Data, Line = %d", iLine);
 		::ZeroMemory(smStressResultDataBase.GetSharedMemoryPtr(), sizeof(STRESSRESULT));
-		// “Á•Êˆ—Bƒ‰ƒCƒ“‘ª’è‚ğŒp‘±‚³‚¹‚é‚½‚ß‚ÉTRUE
+		// ÊBCpé‚½ß‚TRUE
 		return TRUE;
 	}
 
-	/* Firsti‘fƒKƒ‰ƒXj‚ÆSinglei–Œ•tƒTƒ“ƒvƒ‹j‚Ì‹È—¦”¼Œa‚ğ‹‚ß‚Ü‚· */
+	/* FirstifKXjSingleitTvjÌ‹È—aß‚Ü‚ */
 	double dSectionStartX;
 	double dSectionEndX;
 
-//	CalcDeflectionStartAndEndAtZero(FIRST, iLine);					// FIRST‘ª’è‚ÌReferenceData()‚ÅÀ{Ï‚İ
+//	CalcDeflectionStartAndEndAtZero(FIRST, iLine);					// FIRSTèReferenceData()Å{Ï‚
 	CalcDeflectionStartAndEndAtZero(SINGLE, iLine);
 
 	m_substrateR[FIRST][iLine].CalcDeflectionTheta(dStartX, dEndX, dStepX);
 	m_substrateR[SINGLE][iLine].CalcDeflectionTheta(dStartX, dEndX, dStepX);
 
-	for ( int i = 0; i < (int)m_dwSectionNum[iLine]; i++ ) {
+	int i;
+
+
+	for ( i = 0; i < (int)m_dwSectionNum[iLine]; i++ ) {
 		if ( m_pStageProgStress->Line[iLine].bScanValid[i] ) {
 			dSectionStartX = (double)m_pStageProgStress->Line[iLine].SectPos[i].lScanStartPosX * UNITCONV_UM_TO_MM;
 			dSectionEndX = (double)m_pStageProgStress->Line[iLine].SectPos[i].lScanEndPosX * UNITCONV_UM_TO_MM;
@@ -258,7 +278,7 @@ BOOL CStressAnalysis::CalcStress(int iLine)
 
 //	MakeScanDataLog();
 
-	/* Stoney‚ÌŒö®‚É‚æ‚èAƒXƒgƒŒƒX‚ğ‹‚ß‚Ü‚· */
+	/* StoneyÌŒÉ‚AXgXß‚Ü‚ */
 	double dStressStartmm;
 	double dStressEndmm;
 //	double dStressStepmm;
@@ -276,28 +296,28 @@ BOOL CStressAnalysis::CalcStress(int iLine)
 //				d += dStressStepmm;
 //			}
 
-// 2009.12.16 K.Matsuo 2‚ÅŠ„‚èØ‚ê‚È‚¢”š‚ª‚ ‚é‚Ì‚ÅA¬”“_ˆÈ‰ºØÌ‚Ä -->
-			d = (int)((dStressStartmm + dStressEndmm) / 2);			// PINŠÔ‚Ì’†‰›
-// 2009.12.16 K.Matsuo 2‚ÅŠ„‚èØ‚ê‚È‚¢”š‚ª‚ ‚é‚Ì‚ÅA¬”“_ˆÈ‰ºØÌ‚Ä <--
+// 2009.12.16 K.Matsuo 2ÅŠØ‚È‚Ì‚ÅA_È‰ØÌ‚ -->
+			d = (int)((dStressStartmm + dStressEndmm) / 2);			// PINÔ‚Ì’
+// 2009.12.16 K.Matsuo 2ÅŠØ‚È‚Ì‚ÅA_È‰ØÌ‚ <--
 			dStress = StoneyFormula(iLine, d);
-// 2009.11.16 K.Matsuo ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‘Î‰ -->
+// 2009.11.16 K.Matsuo Lu[VÎ‰ -->
 			if ( !MEAS_RecalibMinusEntry(m_pMainPcpInfo->MainRcpParam._SR.szRecalib[0], dStress) ) {
 				pLogFile->Logging("Stress MEAS_RecalibMinusEntry Error");
 				::ZeroMemory(smStressResultDataBase.GetSharedMemoryPtr(), sizeof(STRESSRESULT));
 				return FALSE;
 			}
-// 2009.11.16 K.Matsuo ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‘Î‰ <--
+// 2009.11.16 K.Matsuo Lu[VÎ‰ <--
 			m_stressMap[iLine].SetAt(d, dStress);
 		}
 	}
 
-// Œ‹‰Êƒf[ƒ^‚Ì•ÒW
+// Êƒf[^Ì•ÒW
 	double key;
 	double value;
 
 	::ZeroMemory(smStressResultDataBase.GetSharedMemoryPtr()->DeflectionRaw, sizeof(smStressResultDataBase.GetSharedMemoryPtr()->DeflectionRaw));
 
-	// Œ‹‰Êƒf[ƒ^i•ÏˆÊ—Êj
+	// Êƒf[^iÏˆÊ—Êj
 	smStressResultDataBase.GetSharedMemoryPtr()->nDeflectionOccurence[FIRST] = m_substrateR[FIRST][iLine].m_DeflectionAtZeroData.GetCount();
 	key = dStartX;
 	for ( i = 0; i < m_substrateR[FIRST][iLine].m_DeflectionAtZeroData.GetCount(); i++ ) {
@@ -308,7 +328,7 @@ BOOL CStressAnalysis::CalcStress(int iLine)
 		key += dStepX;
 	}
 
-	// Œ‹‰Êƒf[ƒ^i•ÏˆÊ—Êj
+	// Êƒf[^iÏˆÊ—Êj
 	smStressResultDataBase.GetSharedMemoryPtr()->nDeflectionOccurence[SINGLE] = m_substrateR[SINGLE][iLine].m_DeflectionAtZeroData.GetCount();
 	ASSERT(smStressResultDataBase.GetSharedMemoryPtr()->nDeflectionOccurence[SINGLE] <= DEFL_CNT_MAX);
 
@@ -321,7 +341,7 @@ BOOL CStressAnalysis::CalcStress(int iLine)
 		key += dStepX;
 	}
 
-	// Œ‹‰Êƒf[ƒ^iŒX‚«j
+	// Êƒf[^iXj
 	smStressResultDataBase.GetSharedMemoryPtr()->nDyDxOccurence = m_substrateR[SINGLE][iLine].m_DeflectionThetaMap.GetCount();
 	ASSERT(smStressResultDataBase.GetSharedMemoryPtr()->nDyDxOccurence <= DYDX_CNT_MAX);
 
@@ -334,7 +354,7 @@ BOOL CStressAnalysis::CalcStress(int iLine)
 		key += dStepX;
 	}
 
-	// Œ‹‰Êƒf[ƒ^i‰—Íj
+	// Êƒf[^iÍj
 	smStressResultDataBase.GetSharedMemoryPtr()->nStressLineOccurrence = m_stressMap[iLine].GetCount();
 	ASSERT(smStressResultDataBase.GetSharedMemoryPtr()->nStressLineOccurrence <= STRESS_CNT_MAX);
 
@@ -353,7 +373,7 @@ BOOL CStressAnalysis::CalcStress(int iLine)
 		key += dStepX;
 	}
 
-	// Œ‹‰Êƒf[ƒ^i‰—ÍiƒXƒgƒŒƒXjiƒZƒNƒVƒ‡ƒ“‚²‚Æjj
+	// Êƒf[^iÍiXgXjiZNVÆjj
 	double dStressSection;
 	for ( i = 0; i < (int)m_dwSectionNum[iLine]; i++ ) {
 		if ( m_pStageProgStress->Line[iLine].bScanValid[i] ) {
@@ -361,7 +381,9 @@ BOOL CStressAnalysis::CalcStress(int iLine)
 			dStressSection = 0.0;
 			dSectionStartX = (double)m_pStageProgStress->Line[iLine].SectPos[i].lScanStartPosX * UNITCONV_UM_TO_MM;
 			dSectionEndX = (double)m_pStageProgStress->Line[iLine].SectPos[i].lScanEndPosX * UNITCONV_UM_TO_MM;
-			for ( int j = 0; j < smStressResultDataBase.GetSharedMemoryPtr()->nStressLineOccurrence; j++ ) {
+			int j;
+
+			for ( j = 0; j < smStressResultDataBase.GetSharedMemoryPtr()->nStressLineOccurrence; j++ ) {
 				if ( dSectionStartX <= smStressResultDataBase.GetSharedMemoryPtr()->StressRaw[j].dPosum * UNITCONV_UM_TO_MM &&
 					smStressResultDataBase.GetSharedMemoryPtr()->StressRaw[j].dPosum * UNITCONV_UM_TO_MM <= dSectionEndX ) {
 					dStressSection += GetStress(iLine, smStressResultDataBase.GetSharedMemoryPtr()->StressRaw[j].dPosum * UNITCONV_UM_TO_MM);
@@ -386,7 +408,7 @@ double CStressAnalysis::GetStress(int iLine, double dPosmm)
 {
 	TRACE(_T("CStressAnalysis::GetStress()\n"));
 
-	/* Stress‚ğæ“¾‚µ‚Ü‚· */
+	/* Stressæ“¾Ü‚ */
 	double dStress;
 
 	if ( !m_stressMap[iLine].Lookup(dPosmm, dStress) )
@@ -416,7 +438,7 @@ double CStressAnalysis::StoneyFormula(int iLine, double dPosmm)
 	TRACE("m_substrateR SINGLE : %lf\n", m_substrateR[SINGLE][iLine].GetDthetaDx(dPosmm));
 	TRACE("m_substrateR FIRST : %lf\n", m_substrateR[FIRST][iLine].GetDthetaDx(dPosmm));
 
-	if ( 0.0 ==	((m_substrateR[SINGLE][iLine].GetDthetaDx(dPosmm))	/* dƒÆ/dx(=1/R) */ -
+	if ( 0.0 ==	((m_substrateR[SINGLE][iLine].GetDthetaDx(dPosmm))	/* d/dx(=1/R) */ -
 				 (m_substrateR[FIRST][iLine].GetDthetaDx(dPosmm)))) {
 		// Zero Devide
 		dStress = 0.0;
@@ -429,7 +451,7 @@ double CStressAnalysis::StoneyFormula(int iLine, double dPosmm)
 			  /
 			  (
 			   6.0 * (dFilmThickness * UNITCONV_NM_TO_M) *
-			   (1 / ((m_substrateR[SINGLE][iLine].GetDthetaDx(dPosmm))	/* dƒÆ/dx(=1/R) */ -
+			   (1 / ((m_substrateR[SINGLE][iLine].GetDthetaDx(dPosmm))	/* d/dx(=1/R) */ -
 					 (m_substrateR[FIRST][iLine].GetDthetaDx(dPosmm))))
 			  );
 	}
@@ -454,7 +476,10 @@ void CStressAnalysis::MakeScanDataLog()
 	double dPosmm;
 	double dValue;
 
-	for ( int iLine = 0; iLine < 5; iLine++ ) {
+	int iLine;
+
+
+	for ( iLine = 0; iLine < 5; iLine++ ) {
 		_ftprintf(fp, _T("%s LINE%02d\n"), "FIRST", iLine + 1);
 		pos = m_substrateR[FIRST][iLine].m_DeflectionData.GetStartPosition();
 		while ( pos ) {

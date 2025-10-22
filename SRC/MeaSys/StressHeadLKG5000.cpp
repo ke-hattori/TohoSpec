@@ -16,7 +16,7 @@
 #define RS232C_SEND_CHAR		(256)
 #define RS232C_RECV_CHAR		(4096 * 4 *100)
 
-//	ƒRƒ}ƒ“ƒh
+//	R}h
 #define COMMMODE		 		_T("Q0")
 #define NORMALMODE		   		_T("R0")
 #define CHANGEPROGNO	   		_T("PW")
@@ -95,15 +95,15 @@ BOOL CStressHeadLKG5000::InitInstance()
 	::PurgeComm(m_hComm, PURGE_RXABORT | PURGE_RXCLEAR);
 
 /*
- *	ˆÈ‰ºA‰Šúˆ—‚ÌƒRƒ}ƒ“ƒhƒ`ƒFƒbƒN‚È‚ÇB
+ *	È‰AÌƒR}h`FbNÈ‚ÇB
  */
 
-	// ’Êíƒ‚[ƒh‚Ö‚ÌˆÚs
+	// Êíƒ‚[hÖ‚ÌˆÚs
 //	if ( !ChangeNormalMode() )
 //		return FALSE;
-	ChangeNormalMode();				// –‘O‚Éƒ‚[ƒhŠm”F‚Å‚«‚È‚¢‚æ‚¤‚È‚Ì‚ÅAƒGƒ‰[‚Å‚àOK‚Æ‚µ‚Ü‚·B
+	ChangeNormalMode();				// OÉƒ[hmFÅ‚È‚æ‚¤È‚Ì‚ÅAG[Å‚OKÆ‚Ü‚B
 
-	// ƒpƒlƒ‹ƒƒbƒNƒIƒ“
+	// plbNI
 	if ( !PanelLockOn() )
 		return FALSE;
 
@@ -116,22 +116,22 @@ BOOL CStressHeadLKG5000::InitInstance()
 			return FALSE;
 	}
 
-	// İ’è
-	// ƒvƒƒOƒ‰ƒ€ØŠ·
-//	ChangeCommMode();				// –‘O‚Éƒ‚[ƒhŠm”F‚Å‚«‚È‚¢‚æ‚¤‚È‚Ì‚ÅAƒGƒ‰[‚Å‚àOK‚Æ‚µ‚Ü‚·B
+	// İ’
+	// vOØŠ
+//	ChangeCommMode();				// OÉƒ[hmFÅ‚È‚æ‚¤È‚Ì‚ÅAG[Å‚OKÆ‚Ü‚B
 	if ( !ChangeCommMode() )
 		return FALSE;
 
-	if ( !Send("SW,HB,M,01,3") )	// ‘ª’èƒ‚[ƒh ƒtƒ@ƒ“ƒNƒVƒ‡ƒ“”Ô†i0F•W€A1F”¼“§–¾‘ÌA2F“§–¾‘ÌA3F“§–¾‘Ì2A4FŒõ‘ò÷‰
+	if ( !Send("SW,HB,M,01,3") )	// èƒ‚[h t@NVÔi0FWA1FÌA2FÌA3F2A4F
 		return FALSE;
-	if ( !Send("SW,HE,01,1") )		// İ’uƒ‚[ƒh ƒtƒ@ƒ“ƒNƒVƒ‡ƒ“”Ô†i0FŠgU”½ËA1F³”½Ëj
+	if ( !Send("SW,HE,01,1") )		// İ’u[h t@NVÔi0FgUËA1FËj
 		return FALSE;
 
-	if ( !Send("SW,CA,2") )			// ƒTƒ“ƒvƒŠƒ“ƒOüŠú 2:10microsec 5:100microsec, 8:1000microsec
+	if ( !Send("SW,CA,2") )			// TvO 2:10microsec 5:100microsec, 8:1000microsec
 		return FALSE;
-	if ( !Send("SW,CF,1200000,09") )// ƒf[ƒ^ƒXƒgƒŒ[ƒWİ’è ’~Ïƒf[ƒ^”A’~ÏüŠú 2:X5, 3:X10, 4:X20, 6:X100, 9:X1000
+	if ( !Send("SW,CF,1200000,09") )// f[^Xg[Wİ’ ~Ïƒf[^A~Ï 2:X5, 3:X10, 4:X20, 6:X100, 9:X1000
 		return FALSE;
-	if ( !Send("SW,CH,0") )			// ƒAƒ‰[ƒ€o—ÍŒ`‘Ô 0:ƒVƒXƒeƒ€ƒAƒ‰[ƒ€A1:‘ª’è’lƒAƒ‰[ƒ€A2:—¼•û
+	if ( !Send("SW,CH,0") )			// A[oÍŒ` 0:VXeA[A1:lA[A2:
 		return FALSE;
 
 	if ( !ChangeNormalMode() )
@@ -167,7 +167,7 @@ void CStressHeadLKG5000::ExitInstance()
 
 //---------------------------------------------------------------------------
 // ChangeCommMode
-// ƒ‚[ƒh•ÏXƒRƒ}ƒ“ƒh - ’ÊMƒ‚[ƒh‚Ö‚ÌˆÚs
+// [hÏXR}h - ÊM[hÖ‚ÌˆÚs
 BOOL CStressHeadLKG5000::ChangeCommMode()
 {
 	return Send(COMMMODE);
@@ -175,7 +175,7 @@ BOOL CStressHeadLKG5000::ChangeCommMode()
 
 //---------------------------------------------------------------------------
 // ChangeNormalMode
-// ƒ‚[ƒh•ÏXƒRƒ}ƒ“ƒh - ’Êíƒ‚[ƒh‚Ö‚ÌˆÚs
+// [hÏXR}h - Êíƒ‚[hÖ‚ÌˆÚs
 BOOL CStressHeadLKG5000::ChangeNormalMode()
 {
 	return Send(NORMALMODE);
@@ -183,7 +183,7 @@ BOOL CStressHeadLKG5000::ChangeNormalMode()
 
 //---------------------------------------------------------------------------
 // ChangeProgramNo
-// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒvƒƒOƒ‰ƒ€ØŠ·
+// è§R}h - vOØŠ
 BOOL CStressHeadLKG5000::ChangeProgramNo(int iNo)
 {
 	TCHAR szBuff[256];
@@ -194,7 +194,7 @@ BOOL CStressHeadLKG5000::ChangeProgramNo(int iNo)
 
 //---------------------------------------------------------------------------
 // ConfirmProgramNo
-// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒvƒƒOƒ‰ƒ€Šm”F
+// è§R}h - vOmF
 BOOL CStressHeadLKG5000::ConfirmProgramNo(int& iNo)
 {
 	TCHAR szBuff[256];
@@ -221,7 +221,7 @@ BOOL CStressHeadLKG5000::ConfirmProgramNo(int& iNo)
 
 //---------------------------------------------------------------------------
 // PanelLockOn
-// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒpƒlƒ‹ƒƒbƒNƒIƒ“
+// è§R}h - plbNI
 BOOL CStressHeadLKG5000::PanelLockOn()
 {
 	TCHAR szBuff[256];
@@ -232,7 +232,7 @@ BOOL CStressHeadLKG5000::PanelLockOn()
 
 //---------------------------------------------------------------------------
 // PanelLockOff
-// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒpƒlƒ‹ƒƒbƒNƒIƒt
+// è§R}h - plbNIt
 BOOL CStressHeadLKG5000::PanelLockOff()
 {
 	TCHAR szBuff[256];
@@ -243,7 +243,7 @@ BOOL CStressHeadLKG5000::PanelLockOff()
 
 //---------------------------------------------------------------------------
 // AutoZeroOn
-// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒI[ƒgƒ[ƒONi’Pˆêj
+// è§R}h - I[g[ONiPj
 BOOL CStressHeadLKG5000::AutoZeroOn(int iChannel)
 {
 	TCHAR szBuff[256];
@@ -254,7 +254,7 @@ BOOL CStressHeadLKG5000::AutoZeroOn(int iChannel)
 
 //---------------------------------------------------------------------------
 // AutoZeroOff
-// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒI[ƒgƒ[ƒOFFi’Pˆêj
+// è§R}h - I[g[OFFiPj
 BOOL CStressHeadLKG5000::AutoZeroOff(int iChannel)
 {
 	TCHAR szBuff[256];
@@ -265,7 +265,7 @@ BOOL CStressHeadLKG5000::AutoZeroOff(int iChannel)
 
 //---------------------------------------------------------------------------
 // InitDataStrage
-// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒf[ƒ^ƒXƒgƒŒ[ƒW‰Šú‰»
+// è§R}h - f[^Xg[W
 BOOL CStressHeadLKG5000::InitDataStrage()
 {
 	return Send(INITDATASTRAGE);
@@ -273,7 +273,7 @@ BOOL CStressHeadLKG5000::InitDataStrage()
 
 //---------------------------------------------------------------------------
 // StartDataStrage
-// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒf[ƒ^ƒXƒgƒŒ[ƒWŠJn
+// è§R}h - f[^Xg[WJn
 BOOL CStressHeadLKG5000::StartDataStrage()
 {
 	return Send(STARTDATASTRAGE);
@@ -281,7 +281,7 @@ BOOL CStressHeadLKG5000::StartDataStrage()
 
 //---------------------------------------------------------------------------
 // StopDataStrage
-// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒf[ƒ^ƒXƒgƒŒ[ƒW’â~
+// è§R}h - f[^Xg[W~
 BOOL CStressHeadLKG5000::StopDataStrage()
 {
 	return Send(STOPDATASTRAGE);
@@ -289,8 +289,8 @@ BOOL CStressHeadLKG5000::StopDataStrage()
 
 //---------------------------------------------------------------------------
 // StatusInfoDataStrage
-// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒf[ƒ^ƒXƒgƒŒ[ƒWE’~Ïó‘Ôo—Í
-BOOL CStressHeadLKG5000::StatusInfoDataStrage(int& iState, int& iData)			// OUT01ŒÅ’è
+// è§R}h - f[^Xg[WE~ÏÔo
+BOOL CStressHeadLKG5000::StatusInfoDataStrage(int& iState, int& iData)			// OUT01Å’
 {
 	TCHAR szBuff[256];
 	LPTSTR token;
@@ -320,19 +320,22 @@ BOOL CStressHeadLKG5000::StatusInfoDataStrage(int& iState, int& iData)			// OUT0
 
 //---------------------------------------------------------------------------
 // OutputDataStrage
-// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒf[ƒ^ƒXƒgƒŒ[ƒWEƒf[ƒ^o—Í
-BOOL CStressHeadLKG5000::OutputDataStrage(int iChannel, double dDataList[], int nOccurence)		// nOccurence = StatusInfoDataStrage‚Åæ“¾‚µ‚½ƒf[ƒ^”
+// è§R}h - f[^Xg[WEf[^o
+BOOL CStressHeadLKG5000::OutputDataStrage(int iChannel, double dDataList[], int nOccurence)		// nOccurence = StatusInfoDataStrageÅæ“¾f[^
 {
 	CStringArray stringArray;
 
 	stringArray.RemoveAll();
 	if ( !OutputDataStrage(iChannel, stringArray) )
 		return FALSE;
-	if ( stringArray.GetSize() != nOccurence )				// ƒf[ƒ^”‚ª‚ ‚í‚È‚¢
+	if ( stringArray.GetSize() != nOccurence )				// f[^È‚
 		return FALSE;
 
-	for ( int i = 0; i < nOccurence; i++ ) {
-		if ( stringArray[i] == _T("XXXXXXXX") )				// ‚ ‚è‚¦‚È‚¢‚Æv‚¤‚ªA”O‚Ì‚½‚ßƒK[ƒh‚µ‚Ä‚¨‚­
+	int i;
+
+
+	for ( i = 0; i < nOccurence; i++ ) {
+		if ( stringArray[i] == _T("XXXXXXXX") )				// è‚¦È‚ÆvAOÌ‚ßƒK[hÄ‚
 			dDataList[i] = 0.0;
 		else if ( stringArray[i] == _T("+FFFFFFF") )
 			dDataList[i] = 0.0;
@@ -347,7 +350,7 @@ BOOL CStressHeadLKG5000::OutputDataStrage(int iChannel, double dDataList[], int 
 
 //---------------------------------------------------------------------------
 // OutputDataStrage
-// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒf[ƒ^ƒXƒgƒŒ[ƒWEƒf[ƒ^o—Í
+// è§R}h - f[^Xg[WEf[^o
 BOOL CStressHeadLKG5000::OutputDataStrage(int iChannel, CStringArray& rStringArray)
 {
 	TCHAR szBuff[256];
@@ -412,9 +415,13 @@ BOOL CStressHeadLKG5000::SendCommand()
 	DWORD dwNumberOfBytesWritten;
 
 	const int MAXTIMES = 1;
-	for ( int iTry = 0; iTry < MAXTIMES; iTry++ ) {
+	int iTry;
+
+	for ( iTry = 0; iTry < MAXTIMES; iTry++ ) {
 		bError = FALSE;
-		for ( int i = 0; m_pszSendBuff[i]; i++ ) {
+		int i;
+
+		for ( i = 0; m_pszSendBuff[i]; i++ ) {
 			if ( !::WriteFile(m_hComm, &m_pszSendBuff[i], 1, &dwNumberOfBytesWritten, NULL) ) {
 				bError = TRUE;
 				break;
@@ -424,7 +431,7 @@ BOOL CStressHeadLKG5000::SendCommand()
 			continue;		// Error -> Retry
 
 		bySend = (BYTE)_TCHAR('\r');
-		if ( !::WriteFile(m_hComm, &bySend, 1, &dwNumberOfBytesWritten, NULL) ) // I’[•¶šCR‚Ìİ’è
+		if ( !::WriteFile(m_hComm, &bySend, 1, &dwNumberOfBytesWritten, NULL) ) // I[CRÌİ’
 			continue;		// Error -> Retry
 		return TRUE;		// Normal End
 	}
@@ -458,17 +465,20 @@ BOOL CStressHeadLKG5000::RecvData()
 {
 	DWORD dwNumberOfBytesRead;
 
-	for ( int i = 0; i < RS232C_RECV_CHAR; i++ ) {
+	int i;
+
+
+	for ( i = 0; i < RS232C_RECV_CHAR; i++ ) {
 		if ( !WaitForRecvData(RS232C_RECV_TIMEOUT) )
 			return FALSE;
 		if ( !::ReadFile(m_hComm, &m_pszRecvBuff[i], 1, &dwNumberOfBytesRead, NULL) )
 			return FALSE;
 		if ( m_pszRecvBuff[i] == _TCHAR('\r') ) {
-			m_pszRecvBuff[i] = NULL;								// I’[•¶šCR‚ğNULL•¶š‚É’uŠ·
+			m_pszRecvBuff[i] = NULL;								// I[CRNULLÉ’u
 			break;
 		}
 	}
-	if ( i == RS232C_RECV_CHAR ) {									// I’[•¶šCR‚ªŒ©‚Â‚©‚ç‚È‚©‚Á‚½
+	if ( i == RS232C_RECV_CHAR ) {									// I[CRÂ‚È‚
 		return FALSE;
 	}
 
@@ -493,8 +503,8 @@ BOOL CStressHeadLKG5000::CheckCmdAndStatusCode()
 
 //---------------------------------------------------------------------------
 // StringHexToint
-//   -1 : •ÏŠ·•s”\i•s³•¶š‚ªw’è‚³‚ê‚½j
-//   xx : intŒ^”’l
+//   -1 : ÏŠs\iswè‚³ê‚½j
+//   xx : int^l
 int CStressHeadLKG5000::StringHexToint(LPCTSTR psz, size_t count)
 {
 	ASSERT( 0 < count );
