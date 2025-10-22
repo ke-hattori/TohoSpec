@@ -43,9 +43,7 @@ BOOL CALLBACK FindWindowProc(HWND hwnd, LPARAM lParam);
 
 BOOL CMotTskApp::InitInstance ()
 {
-	// allow only one instance of this app
-	if (m_hPrevInstance != NULL)
-		return FALSE;
+	// allow only one instance of this app (handled by Mutex below)
 
 #ifdef _DEBUG			   // Enable trace flags, output debug Window
 	afxTraceFlags	= 0;
@@ -54,18 +52,18 @@ BOOL CMotTskApp::InitInstance ()
 
    TRACE ("MOTION SYSTEM Task -- Started \n");
 
-   	// “ñd‹N“®‚ð–hŽ~
+   	// ï¿½ï¿½dï¿½Nï¿½ï¿½ï¿½ï¿½hï¿½~
 //	m_hMutex_Run = ::CreateMutex(NULL, TRUE, m_pszExeName);
-	m_hMutex_Run = ::CreateMutex(NULL, TRUE, IDENT_CODE);	// exe ‚ÌƒŠƒl[ƒ€‚Å‚àŽÀso—ˆ‚È‚¢‚æ‚¤‚É‚·‚é‚½‚ß“Á’è‚Ì–¼‘O‚ðÝ’è
+	m_hMutex_Run = ::CreateMutex(NULL, TRUE, IDENT_CODE);	// exe ï¿½Ìƒï¿½ï¿½lï¿½[ï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½ï¿½sï¿½oï¿½ï¿½ï¿½È‚ï¿½ï¿½æ‚¤ï¿½É‚ï¿½ï¿½é‚½ï¿½ß“ï¿½ï¿½ï¿½Ì–ï¿½ï¿½Oï¿½ï¿½Ý’ï¿½
 	if ((m_hMutex_Run == NULL) || (::GetLastError() == ERROR_ALREADY_EXISTS)) {
-		// ‚·‚Å‚É‹N“®‚µ‚Ä‚¢‚éƒvƒƒZƒX‚ð‘O–Ê‚É‚·‚é
+		// ï¿½ï¿½ï¿½Å‚É‹Nï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Zï¿½Xï¿½ï¿½Oï¿½Ê‚É‚ï¿½ï¿½ï¿½
 		::EnumWindows(&FindWindowProc, NULL);
 		return	FALSE;
 	}
 
 	m_pMainWnd = new cMotTskWnd();
 	m_pMainWnd->ShowWindow(m_nCmdShow);
-/* added 2009.06.01 hmenjo Servo.ini ‚Å‰ŠúÅ¬‰»‚ðÝ’è ---------- { ---------- */
+/* added 2009.06.01 hmenjo Servo.ini ï¿½Åï¿½ï¿½ï¿½ï¿½Åï¿½ï¿½ï¿½ï¿½ï¿½Ý’ï¿½ ---------- { ---------- */
 	TCHAR	l_tszText[32];
 	::GetPrivateProfileString(_T("Window"), _T("AutoHide"), _T("2"), l_tszText, sizeof(l_tszText), _T("..\\cfg\\Servo.ini"));
 	int l_iAutoHide = _ttoi(l_tszText);
@@ -81,7 +79,7 @@ BOOL CMotTskApp::InitInstance ()
 	default:
 		break;
 	}
-/* added 2009.06.01 hmenjo Servo.ini ‚Å‰ŠúÅ¬‰»‚ðÝ’è ---------- } ---------- */
+/* added 2009.06.01 hmenjo Servo.ini ï¿½Åï¿½ï¿½ï¿½ï¿½Åï¿½ï¿½ï¿½ï¿½ï¿½Ý’ï¿½ ---------- } ---------- */
 	m_pMainWnd->UpdateWindow();
 
 	return TRUE;
@@ -93,7 +91,7 @@ int CMotTskApp::ExitInstance()
 		delete m_pMainWnd;
 	}
 
-	// “ñd‹N“®‚Ì–hŽ~‚Ì‚½‚ß‚Ì Mutex ŠJ•ú
+	// ï¿½ï¿½dï¿½Nï¿½ï¿½ï¿½Ì–hï¿½~ï¿½Ì‚ï¿½ï¿½ß‚ï¿½ Mutex ï¿½Jï¿½ï¿½
 	if (m_hMutex_Run != NULL) {
 		::ReleaseMutex(m_hMutex_Run);
 		::CloseHandle(m_hMutex_Run);
@@ -102,21 +100,21 @@ int CMotTskApp::ExitInstance()
 	return true;
 }
 
-/* EnumWindowsProcƒR[ƒ‹ƒoƒbƒNŠÖ” */
+/* EnumWindowsProcï¿½Rï¿½[ï¿½ï¿½ï¿½oï¿½bï¿½Nï¿½Öï¿½ */
 BOOL CALLBACK FindWindowProc(HWND hwnd, LPARAM lParam)
 {
-	/* Œ©‚Â‚©‚Á‚½ƒEƒBƒ“ƒhƒE‚ªA‚·‚Å‚É‹N“®‚µ‚Ä‚¢‚éƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌƒEƒBƒ“ƒhƒE‚©’²‚×‚é */
+	/* ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Å‚É‹Nï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Aï¿½vï¿½ï¿½ï¿½Pï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÌƒEï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½×‚ï¿½ */
 	if(::GetProp(hwnd, IDENT_CODE)) {
-		/* ƒAƒCƒRƒ“‰»‚³‚ê‚Ä‚¢‚é‚Ì‚Å‚ ‚ê‚ÎAŒ³‚ÌƒTƒCƒY‚É–ß‚· */
+		/* ï¿½Aï¿½Cï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Ì‚Å‚ï¿½ï¿½ï¿½ÎAï¿½ï¿½ï¿½ÌƒTï¿½Cï¿½Yï¿½É–ß‚ï¿½ */
 		if (IsIconic(hwnd)) {
 			::ShowWindow(hwnd, SW_RESTORE);
 		} else {
 			::ShowWindow(hwnd, SW_SHOWNORMAL);
 		}
-		/* Œ©‚Â‚©‚Á‚½ƒEƒBƒ“ƒhƒE‚ðƒtƒHƒAƒOƒ‰ƒEƒ“ƒhƒEƒBƒ“ƒhƒE‚É‚·‚é */
+		/* ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½tï¿½Hï¿½Aï¿½Oï¿½ï¿½ï¿½Eï¿½ï¿½ï¿½hï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½É‚ï¿½ï¿½ï¿½ */
 		::SetForegroundWindow(::GetLastActivePopup(hwnd));
-		// •\Ž¦‚·‚é(‚±‚±(SetForegroundWindow‚ÌŒã)‚¶‚á‚È‚¢‚Æ‚P‰ñ‚Ì SW_SHOW ‚Å•\Ž¦‚³‚ê‚È‚©‚Á‚½)
-		return FALSE;	/* —ñ‹“‚ð’†’f */
+		// ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½(SetForegroundWindowï¿½ÌŒï¿½)ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Æ‚Pï¿½ï¿½ï¿½ SW_SHOW ï¿½Å•\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½)
+		return FALSE;	/* ï¿½ñ‹“‚ð’†’f */
 	}
-	return TRUE;	/* —ñ‹“‚ð‘±‚¯‚é */
+	return TRUE;	/* ï¿½ñ‹“‚ð‘±‚ï¿½ï¿½ï¿½ */
 }

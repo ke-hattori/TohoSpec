@@ -10,7 +10,7 @@
 #include <functional>
 
 //#define __STATEPROC_DEBUG
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ nexproc.dll ---------- { ---------- */
+/* added 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ nexproc.dll ---------- { ---------- */
 #ifdef NEXPROC_MAS
     #define NEXPROC_EXT
 #else
@@ -21,10 +21,10 @@ NEXPROC_EXT TCHAR g_tszLogPath[_MAX_PATH]
 = _T("")
 #endif
 ;
-extern TCHAR g_tszProcDir[_MAX_PATH];       /* ŒÄo‚µƒvƒƒZƒX‚ÌƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
-extern TCHAR g_tszBaseDir[_MAX_PATH];       /* Šî€ƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
+extern TCHAR g_tszProcDir[_MAX_PATH];       /* ï¿½Äoï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Zï¿½Xï¿½Ìƒfï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½('\'ï¿½tï¿½ï¿½)*/
+extern TCHAR g_tszBaseDir[_MAX_PATH];       /* ï¿½î€ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½('\'ï¿½tï¿½ï¿½)*/
 extern void GetProcBaseDir(LPTSTR ptszProcDir, LPTSTR ptszBaseDir);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ nexproc.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ nexproc.dll ---------- } ---------- */
 
 // #########################################################################
 // DEFINITIONS
@@ -59,7 +59,7 @@ protected: \
 // ----------------------------------------------------------------------------
 // Macro BEGIN_STATEPROC_MAP (debug and release versions)
 // ----------------------------------------------------------------------------
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ nexproc.dll ---------- { ---------- */
+/* modified 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ nexproc.dll ---------- { ---------- */
 //#define BEGIN_STATEPROC_MAPEX(class_name) \
 //void class_name::EnterState (const cEventParams* const params) \
 //{ \
@@ -84,7 +84,7 @@ protected: \
 //#define BEGIN_STATEPROC_MAPEX BEGIN_STATEPROC_MAP
 //#define END_STATEPROC_MAPEX END_STATEPROC_MAP
 //#endif // __STATEPROC_DEBUG
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ nexproc.dll ----------              */
+/* modified 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ nexproc.dll ----------              */
 #define BEGIN_STATEPROC_MAPEX(class_name) \
 void class_name::EnterState (const cEventParams* const params) \
 { \
@@ -109,7 +109,7 @@ class_name::STATE_PROC_DEF class_name::StateProcMap[] = \
 #define BEGIN_STATEPROC_MAPEX BEGIN_STATEPROC_MAP
 #define END_STATEPROC_MAPEX END_STATEPROC_MAP
 #endif // __STATEPROC_DEBUG
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ nexproc.dll ---------- } ---------- */
+/* modified 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ nexproc.dll ---------- } ---------- */
 
 // =========================================================================
 // class : cCoord
@@ -140,9 +140,9 @@ public:
     cCoord (void);
     virtual ~ cCoord (void);
 
-    // ƒzƒXƒgƒCƒxƒ“ƒgŒ‹‰Ê’Ê’m
-	inline PostClientMessage (void) { return PostClientMessage(client.hwnd, client.event, client.result); }
-	inline PostClientMessage (HWND hwnd, WPARAM wp, LPARAM lp = NEXIF_OK)
+    // ï¿½zï¿½Xï¿½gï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Ê’Ê’m
+	inline BOOL PostClientMessage (void) { return PostClientMessage(client.hwnd, client.event, client.result); }
+	inline BOOL PostClientMessage (HWND hwnd, WPARAM wp, LPARAM lp = NEXIF_OK)
     {
 		m_lfs << arrange << datetime << "EV_ERROR" << std::endl;
         if ( hwnd != NULL ) {
@@ -223,7 +223,7 @@ public:
         pExecProcEx(num, ON);
 
         nano::basic_timer wait(msec);
-        // ƒLƒƒƒ“ƒZƒ‹‚³‚ê‚é‚Ü‚Åƒ‹[ƒv
+        // ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚Åƒï¿½ï¿½[ï¿½v
         while ( !is_cancel() ) {
             if ( pWaitProcEx(num) ) {
                 ret = TRUE;
@@ -242,7 +242,7 @@ public:
         return ret;
     }
 /*
- * ƒoƒLƒ…[ƒ€§ŒäƒNƒ‰ƒX
+ * ï¿½oï¿½Lï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½X
 */
     struct sample_size_t {
         double x;
@@ -260,31 +260,31 @@ public:
         cVacuum (void) { Initialize(); }
         virtual ~ cVacuum (void) {}
 
-        // ƒoƒLƒ…[ƒ€ƒIƒ“
+        // ï¿½oï¿½Lï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Iï¿½ï¿½
         virtual BOOL ChuckValve (BOOL wbit = TRUE)
         {
             BOOL retval = FALSE;
 
             ready();
 
-            // ƒTƒ“ƒvƒ‹XV
+            // ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Xï¿½V
             GetSample();
 
-            // “d¥•ÙƒŠƒXƒg‚ª‹ó‚Á‚Û
+            // ï¿½dï¿½ï¿½ï¿½Ùƒï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             if ( m_valve.empty() ) return retval;
             valve_list::iterator iter(m_valve.begin());
-            // ƒGƒA[•‚ãƒIƒt
+            // ï¿½Gï¿½Aï¿½[ï¿½ï¿½ï¿½ï¿½Iï¿½t
             for ( ; iter != m_valve.end(); ++iter ) {
                 nexioAirFloatEx(*iter, OFF);
             }
-            // “d¥•ÙƒIƒ“
+            // ï¿½dï¿½ï¿½ï¿½ÙƒIï¿½ï¿½
             for ( iter = m_valve.begin(); iter != m_valve.end(); ++iter ) {
                 nexioVacuumOnEx(*iter, ON);
             }
-            // ‹z’…Šm”F‚ğs‚¤‚©H
+            // ï¿½zï¿½ï¿½ï¿½mï¿½Fï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½H
             if ( !wbit ) return TRUE;
             basic_timer wait(m_params.MotionTimeouts.VacuumOn);
-            // ƒLƒƒƒ“ƒZƒ‹‚³‚ê‚é‚Ü‚Åƒ‹[ƒv
+            // ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚Åƒï¿½ï¿½[ï¿½v
             while ( !is_cancel() ) {
                 if ( nexioIsVacuumOn() ) {
                     retval = TRUE;
@@ -299,7 +299,7 @@ public:
             }
             return retval;
         }
-        // ”ñí’â~‚Í“d¥•ÙƒIƒt
+        // ï¿½ï¿½ï¿½ï¿½~ï¿½ï¿½ï¿½Í“dï¿½ï¿½ï¿½ÙƒIï¿½t
         virtual void emergency (void)
         {
             if ( !m_valve.empty() ) {
@@ -315,30 +315,30 @@ public:
 
             ready();
 
-            // ƒTƒ“ƒvƒ‹XV
+            // ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Xï¿½V
             GetSample();
 
-            // “d¥•ÙƒŠƒXƒg‚ª‹ó‚Á‚Û
+            // ï¿½dï¿½ï¿½ï¿½Ùƒï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             if ( m_valve.empty() ) return retval;
             valve_list::iterator iter(m_valve.begin());
-            // “d¥•ÙƒIƒt
+            // ï¿½dï¿½ï¿½ï¿½ÙƒIï¿½t
             for ( ; iter != m_valve.end(); ++iter ) {
                 nexioVacuumOnEx(*iter, OFF);
             }
-            // ”j‰ó“d¥•ÙƒIƒ“
+            // ï¿½jï¿½ï¿½dï¿½ï¿½ï¿½ÙƒIï¿½ï¿½
             for ( iter = m_valve.begin(); iter != m_valve.end(); ++iter ) {
                 nexioVacuumDestructEx(*iter, ON);
             }
-            // ”j‰ó’x‰„ˆ—
+            // ï¿½jï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             basic_timer timer;
             timer.delay(m_params.MotionDelay.VacuumDestruct);
             for ( iter = m_valve.begin(); iter != m_valve.end(); ++iter ) {
                 nexioVacuumDestructEx(*iter, OFF);
             }
-            // Šm”F‚ğs‚¤‚©H
+            // ï¿½mï¿½Fï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½H
             if ( !wbit ) return TRUE;
             basic_timer wait(m_params.MotionTimeouts.VacuumOff);
-            // ƒLƒƒƒ“ƒZƒ‹‚³‚ê‚é‚Ü‚Åƒ‹[ƒv
+            // ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚Åƒï¿½ï¿½[ï¿½v
             while ( !is_cancel() ) {
                 if ( nexioIsVacuumOff() ) {
                     retval = TRUE;
@@ -356,15 +356,15 @@ public:
 
         virtual void Initialize (void)
         {
-            // ƒoƒLƒ…[ƒ€İ’èƒtƒ@ƒCƒ‹“Ç‚İ‚İ
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ nexproc.dll ---------- { ---------- */
+            // ï¿½oï¿½Lï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½İ’ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ç‚İï¿½ï¿½ï¿½
+/* modified 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ nexproc.dll ---------- { ---------- */
 //            ifstream ifs(VACUUM_CFGFILE_NAME);
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ nexproc.dll ----------              */
+/* modified 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ nexproc.dll ----------              */
             GetProcBaseDir(g_tszProcDir, g_tszBaseDir);
             TCHAR l_tszVacCfgFPath[_MAX_PATH];
             _stprintf(l_tszVacCfgFPath, _T("%s") VACUUM_CFGFILE_NAME, g_tszProcDir);
             ifstream ifs(l_tszVacCfgFPath);
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ nexproc.dll ---------- } ---------- */
+/* modified 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ nexproc.dll ---------- } ---------- */
             string line;
             while ( std::getline(ifs, line) ) {
                 istringstream iss(line);
@@ -385,7 +385,7 @@ public:
         {
             if ( m_list.empty() ) return;
             sample_size_t size;
-            // Œ»İƒTƒ“ƒvƒ‹ƒTƒCƒYæ“¾
+            // ï¿½ï¿½ï¿½İƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Tï¿½Cï¿½Yï¿½æ“¾
             nexifGetSampleSize(&size.x, &size.y);
             m_valve.clear();
             vacuum_list::iterator iter(m_list.begin());
@@ -401,7 +401,7 @@ public:
     }; // cVacuum
 
 /*
- * ƒGƒA•‚ã§ŒäƒNƒ‰ƒX
+ * ï¿½Gï¿½Aï¿½ï¿½ï¿½ã§ï¿½ï¿½Nï¿½ï¿½ï¿½X
 */
     class cAirFloat : public cVacuum
     {
@@ -414,16 +414,16 @@ public:
         {
             if ( !is_valid() ) return FALSE;
 
-            // ƒTƒ“ƒvƒ‹XV
+            // ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Xï¿½V
             GetSample();
 
             if ( m_valve.empty() ) return FALSE;
             valve_list::iterator iter(m_valve.begin());
-            // ƒoƒLƒ…[ƒ€OFF
+            // ï¿½oï¿½Lï¿½ï¿½ï¿½[ï¿½ï¿½OFF
             for ( ; iter != m_valve.end(); ++iter ) {
                 nexioVacuumOnEx(*iter, OFF);
             }
-            // Air•‚ã
+            // Airï¿½ï¿½ï¿½ï¿½
             for ( iter = m_valve.begin(); iter != m_valve.end(); ++iter ) {
                 nexioAirFloatEx(*iter, ON);
             }
@@ -442,12 +442,12 @@ public:
         {
             if ( !is_valid() ) return FALSE;
 
-            // ƒTƒ“ƒvƒ‹XV
+            // ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Xï¿½V
             GetSample();
 
             if ( m_valve.empty() ) return FALSE;
             valve_list::iterator iter(m_valve.begin());
-            // Air•‚ã
+            // Airï¿½ï¿½ï¿½ï¿½
             for ( ; iter != m_valve.end(); ++iter ) {
                 nexioAirFloatEx(*iter, OFF);
             }
@@ -456,7 +456,7 @@ public:
     }; // cAirFloat
 
 /*
- * ƒVƒƒƒbƒ^[§ŒäƒNƒ‰ƒX
+ * ï¿½Vï¿½ï¿½ï¿½bï¿½^ï¿½[ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½X
 */
     class cShutter : public basic_coord
     {
@@ -482,7 +482,7 @@ public:
                 nexioShutterCloseEx(OFF);
             }
             nexioShutterOpenEx(ON);
-            // ƒLƒƒƒ“ƒZƒ‹‚³‚ê‚é‚Ü‚Åƒ‹[ƒv
+            // ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚Åƒï¿½ï¿½[ï¿½v
             while ( !is_cancel() ) {
                 if ( nexioIsShutterOpen() ) {
                     retval = TRUE;
@@ -515,12 +515,12 @@ public:
                     nexioShutterOpenEx(OFF);
                 }
                 nexioShutterCloseEx(ON);
-                // ƒLƒƒƒ“ƒZƒ‹‚³‚ê‚é‚Ü‚Åƒ‹[ƒv
+                // ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚Åƒï¿½ï¿½[ï¿½v
                 while ( !is_cancel() ) {
-                    // ƒƒ{ƒbƒgƒA[ƒ€ŒŸo
+                    // ï¿½ï¿½ï¿½{ï¿½bï¿½gï¿½Aï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½o
                     if ( !nexioIsRobotArmDetect() ) {
                         nexifAlarmSet(NEXALID_RobotArmDetected);
-                        // ƒI[ƒvƒ“ˆ—ˆÚs
+                        // ï¿½Iï¿½[ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ús
                         Open();
                         break;
                     }
@@ -543,7 +543,7 @@ public:
             }
             return retval;
         }
-        // ”ñí’â~‚Í“d¥•ÙƒIƒt
+        // ï¿½ï¿½ï¿½ï¿½~ï¿½ï¿½ï¿½Í“dï¿½ï¿½ï¿½ÙƒIï¿½t
         inline void emergency (void)
         {
             nexioShutterOpenEx(OFF);
@@ -552,7 +552,7 @@ public:
     }; // cShutter
 
 /*
- * ƒƒ{ƒVƒŠƒ“ƒ_[§ŒäƒNƒ‰ƒX
+ * ï¿½ï¿½ï¿½{ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½[ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½X
 */
     class cRoboCylinder : public basic_coord
     {
@@ -570,7 +570,7 @@ public:
                 retval = MoveToHomePos() && MoveToTeachPos(m_params.RoboCylinder.InitialPosNo);
             }
 
-            // ‰º’[ˆÊ’uƒZƒ“ƒT[‚ğŒ´“_•œ‹AŠ®—¹Œã‚ÉŠm”F
+            // ï¿½ï¿½ï¿½[ï¿½Ê’uï¿½Zï¿½ï¿½ï¿½Tï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÉŠmï¿½F
             return retval && nexioIsMS_LowerPos1() && nexioIsMS_LowerPos2();
         }
         inline BOOL JogPlus (void)
@@ -583,7 +583,7 @@ public:
             run();
 
             nexioRC_JOGM(OFF);
-            // «ƒ{ƒ^ƒ“‰Ÿ‰º’†‚È‚ço—Í
+            // ï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½oï¿½ï¿½
             if ( nexioIsMS_DownSwitch() ) {
                 nexioRC_JOGP(ON);
                 _RPTF0(_CRT_WARN, "RC - JOG PLUS\n");
@@ -604,7 +604,7 @@ public:
             run();
 
             nexioRC_JOGP(OFF);
-            // ªƒ{ƒ^ƒ“‰Ÿ‰º’†‚È‚ço—Í
+            // ï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½oï¿½ï¿½
             if ( nexioIsMS_UpSwitch() ) {
                 nexioRC_JOGM(ON);
                 _RPTF0(_CRT_WARN, "RC - JOG MINUS\n");
@@ -686,7 +686,7 @@ public:
 
             nexioRC_RES(ON);
 
-            // ƒAƒ‰[ƒ€ƒŠƒZƒbƒgM†iRESj‚ğ6msecˆÈã“ü—Í
+            // ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½bï¿½gï¿½Mï¿½ï¿½ï¿½iRESï¿½jï¿½ï¿½6msecï¿½Èï¿½ï¿½ï¿½ï¿½
             wait.set(500);
 
             while ( !is_cancel() ) {
@@ -726,18 +726,18 @@ public:
 
             run();
 
-            // w—ßƒ|ƒWƒVƒ‡ƒ“”Ô†
+            // ï¿½wï¿½ßƒ|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ôï¿½
             nexioRC_PC(num);
 
-            // ƒXƒ^[ƒgM†(CSTR)‚ÌON‘O‚É6msˆÈã‚Ì’x‰„
+            // ï¿½Xï¿½^ï¿½[ï¿½gï¿½Mï¿½ï¿½(CSTR)ï¿½ï¿½ONï¿½Oï¿½ï¿½6msï¿½Èï¿½Ì’xï¿½ï¿½
             wait.delay(500);
 
             nexioRC_CSTR(ON);
 
-            // ƒ^ƒCƒ€ƒAƒEƒg
+            // ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g
             wait.set(5000);
 
-            // ƒLƒƒƒ“ƒZƒ‹‚³‚ê‚é‚Ü‚Åƒ‹[ƒv
+            // ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚Åƒï¿½ï¿½[ï¿½v
             while ( !is_cancel() ) {
                 if ( !nexioIsRC_PEND() ) {
                     retval = TRUE;
@@ -752,11 +752,11 @@ public:
             }
             nexioRC_CSTR(OFF);
 
-            // ƒ^ƒCƒ€ƒAƒEƒg
+            // ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g
             wait.set(m_params.RoboCylinder.Timeouts.TeachPos);
 
             if ( retval ) {
-                // ƒLƒƒƒ“ƒZƒ‹‚³‚ê‚é‚Ü‚Åƒ‹[ƒv
+                // ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚Åƒï¿½ï¿½[ï¿½v
                 while (1) {
                     if ( nexioIsRC_PEND() && !nexioIsRC_MOVE() ) {
                         break;
@@ -785,7 +785,7 @@ public:
             return retval;
         }
 
-        // ”ñí’â~‚Í“d¥•ÙƒIƒt
+        // ï¿½ï¿½ï¿½ï¿½~ï¿½ï¿½ï¿½Í“dï¿½ï¿½ï¿½ÙƒIï¿½t
         inline void emergency (void)
         {
             ServoOff();
@@ -802,13 +802,13 @@ public:
 
             ready();
 
-            // ’x‰„‚µ‚ÄƒT[ƒ{ƒIƒ“‚·‚é
+            // ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½ÄƒTï¿½[ï¿½{ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             wait.delay(500);
 
             nexioRC_STP(ON);
             nexioRC_SON(ON);
 
-            // ƒT[ƒ{ƒIƒ“ƒ^ƒCƒ€ƒAƒEƒg
+            // ï¿½Tï¿½[ï¿½{ï¿½Iï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g
             wait.set(m_params.RoboCylinder.Timeouts.ServoOn);
 
             while ( !is_cancel() ) {
@@ -822,7 +822,7 @@ public:
                 }
                 basic_timer::do_events(1);
             }
-            // ƒLƒƒƒ“ƒZƒ‹‚Ü‚½‚Íƒ^ƒCƒ€ƒAƒEƒg‚Ío—ÍOFF‚·‚é
+            // ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½Ü‚ï¿½ï¿½Íƒ^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½Íoï¿½ï¿½OFFï¿½ï¿½ï¿½ï¿½
             if ( !retval ) {
                 nexioRC_STP(OFF);
                 nexioRC_SON(OFF);
@@ -849,14 +849,14 @@ public:
             BOOL retval = FALSE;
             basic_timer wait;
 
-            // Œ´“_•œ‹AÏ‚İ‚Ìê‡‚Í‚µ‚È‚¢
+            // ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½Ï‚İ‚Ìê‡ï¿½Í‚ï¿½ï¿½È‚ï¿½
             if ( nexioIsRC_HEND() ) {
                 return TRUE;
             }
 
             nexioRC_HOME(ON);
 
-            // Œ´“_•œ‹Aƒ^ƒCƒ€ƒAƒEƒg
+            // ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g
             wait.set(m_params.RoboCylinder.Timeouts.Homing);
 
             while ( !is_cancel() ) {
@@ -873,7 +873,7 @@ public:
                 }
                 basic_timer::do_events(1);
             }
-            // ío—ÍOFF‚·‚é
+            // ï¿½íï¿½oï¿½ï¿½OFFï¿½ï¿½ï¿½ï¿½
             nexioRC_HOME(OFF);
 
             return retval;
@@ -908,7 +908,7 @@ protected:
     }
 
     BOOL                m_initialized;
-    BOOL                m_emergency;                    // ”ñí’â~”­¶
+    BOOL                m_emergency;                    // ï¿½ï¿½ï¿½ï¿½~ï¿½ï¿½ï¿½ï¿½
     HMODULE             m_hModule;
     cVacuum*            m_vacuum;
     cAirFloat*          m_airfloat;
