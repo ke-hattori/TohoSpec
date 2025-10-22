@@ -40,12 +40,12 @@ BOOL CSrHeadDesktop::GetVersion(LPTSTR pszVersion)
 
 //---------------------------------------------------------------------------
 // CcdScan
-BOOL CSrHeadDesktop::CcdScan(int ccdScanData[], int iPixels, int iExposure, int iScans/*=1*/, BOOL bProhibitNotify/*=FALSE*/)	 // ccdScanData[iPixels]Šm•Û‚³‚ê‚Ä‚¢‚é‚±‚Æ
+BOOL CSrHeadDesktop::CcdScan(int ccdScanData[], int iPixels, int iExposure, int iScans/*=1*/, BOOL bProhibitNotify/*=FALSE*/)	 // ccdScanData[iPixels]mÛ‚Ä‚é‚±
 {
 	TRACE(_T("CSrHeadDesktop::CcdScan()\n"));
 
-// @@@ ‚‘¬‰»‘Î‰
-// ³íƒŠƒ^[ƒ“ƒR[ƒhóMAƒƒbƒZ[ƒW‚ğ’Ê’m‚·‚é
+// @@@ Î‰
+// íƒŠ^[R[hMAbZ[WÊ’m
 	if ( !bProhibitNotify ) {
 		if ( g_hNotifyWnd )
 			::PostMessage(g_hNotifyWnd, WM_MEAS_RECVDATA, 0, 0);
@@ -564,12 +564,16 @@ BOOL CSrHeadDesktop::CcdScan(int ccdScanData[], int iPixels, int iExposure, int 
 	ccdScanData[510] = 5033;
 	ccdScanData[511] = 5032;
 	if ( iPixels == 1024 ) {
-		for ( int i = 0; i < 512; i++ )
+		int i;
+
+		for ( i = 0; i < 512; i++ )
 			ccdScanData[i+512] = ccdScanData[i];
 	}
 
 	srand((unsigned)time(NULL));
-	for ( int i = 0; i < iPixels; i++ )
+	int i;
+
+	for ( i = 0; i < iPixels; i++ )
 		ccdScanData[i] += rand() % 1000;
 
 	return TRUE;
@@ -590,8 +594,8 @@ BOOL CSrHeadDesktop::OpenUvShutter()
 {
 	TRACE(_T("CSrHeadDesktop::OpenUvShutter()\n"));
 
-	// ƒVƒƒƒbƒ^[‚Ì“®ìŠ®—¹•ñ‚Í‚ ‚è‚Ü‚¹‚ñ‚Ì‚Å
-	// ŒÄ‚ÑŒ³‘¤‚ÅAƒ^ƒCƒ}[ƒfƒBƒŒƒC‚µ‚Ä‚­‚¾‚³‚¢
+	// Vb^[Ì“ìŠ®ñ‚Í‚Ü‚Ì‚
+	// Ä‚ÑŒÅA^C}[fBCÄ‚
 	return TRUE;
 }
 
@@ -601,8 +605,8 @@ BOOL CSrHeadDesktop::CloseUvShutter()
 {
 	TRACE(_T("CSrHeadDesktop::CloseUvShutter()\n"));
 
-	// ƒVƒƒƒbƒ^[‚Ì“®ìŠ®—¹•ñ‚Í‚ ‚è‚Ü‚¹‚ñ‚Ì‚Å
-	// ŒÄ‚ÑŒ³‘¤‚ÅAƒ^ƒCƒ}[ƒfƒBƒŒƒC‚µ‚Ä‚­‚¾‚³‚¢
+	// Vb^[Ì“ìŠ®ñ‚Í‚Ü‚Ì‚
+	// Ä‚ÑŒÅA^C}[fBCÄ‚
 	return TRUE;
 }
 
@@ -612,8 +616,8 @@ BOOL CSrHeadDesktop::OpenTransShutter()
 {
 	TRACE(_T("CSrHeadDesktop::OpenTransShutter()\n"));
 
-	// ƒVƒƒƒbƒ^[‚Ì“®ìŠ®—¹•ñ‚Í‚ ‚è‚Ü‚¹‚ñ‚Ì‚Å
-	// ŒÄ‚ÑŒ³‘¤‚ÅAƒ^ƒCƒ}[ƒfƒBƒŒƒC‚µ‚Ä‚­‚¾‚³‚¢
+	// Vb^[Ì“ìŠ®ñ‚Í‚Ü‚Ì‚
+	// Ä‚ÑŒÅA^C}[fBCÄ‚
 	return TRUE;
 }
 
@@ -623,7 +627,7 @@ BOOL CSrHeadDesktop::CloseTransShutter()
 {
 	TRACE(_T("CSrHeadDesktop::CloseTransShutter()\n"));
 
-	// ƒVƒƒƒbƒ^[‚Ì“®ìŠ®—¹•ñ‚Í‚ ‚è‚Ü‚¹‚ñ‚Ì‚Å
-	// ŒÄ‚ÑŒ³‘¤‚ÅAƒ^ƒCƒ}[ƒfƒBƒŒƒC‚µ‚Ä‚­‚¾‚³‚¢
+	// Vb^[Ì“ìŠ®ñ‚Í‚Ü‚Ì‚
+	// Ä‚ÑŒÅA^C}[fBCÄ‚
 	return TRUE;
 }

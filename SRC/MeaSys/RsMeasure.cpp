@@ -9,15 +9,15 @@
 
 extern CLogFile* pLogFile;
 extern BOOL bHwSimulation;
-extern TCHAR g_tszProcDir[_MAX_PATH];		/* ŒÄo‚µƒvƒƒZƒX‚ÌƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
-extern TCHAR g_tszBaseDir[_MAX_PATH];		/* Šî€ƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
+extern TCHAR g_tszProcDir[_MAX_PATH];		/* ÄovZXÌƒfBNg('\'t)*/
+extern TCHAR g_tszBaseDir[_MAX_PATH];		/* î€fBNg('\'t)*/
 extern void GetProcBaseDir(LPTSTR ptszProcDir, LPTSTR ptszBaseDir);
 extern void AddAbsPath(LPTSTR ptszPath);
-extern CSharedMemory<RESISTRESULT> smResistResultDataBase;	/* RS ‘ª’èŒ‹‰Ê DB ‹¤—LƒGƒŠƒA	*/
+extern CSharedMemory<RESISTRESULT> smResistResultDataBase;	/* RS èŒ‹ DB LGA	*/
 
 
-LPCTSTR CRsMeasure::m_pszRange[] = {"-3", "-2", "-1", "+0", "+1", "+2", "+3", "+4", "+5", "+6", "+7",}; // ƒŒƒVƒs‰æ–Ê‚ÌƒRƒ“ƒ{ƒ{ƒbƒNƒX‚Æ“¯‚¶‡˜‚Å‚ ‚é‚±‚Æ
-LPCTSTR CRsMeasure::m_pszThickUnit[] = {"MM", "UM", "NM", "AM",};	// ƒŒƒVƒs‰æ–Ê‚ÌƒRƒ“ƒ{ƒ{ƒbƒNƒX‚Æ“¯‚¶‡˜‚Å‚ ‚é‚±‚Æ
+LPCTSTR CRsMeasure::m_pszRange[] = {"-3", "-2", "-1", "+0", "+1", "+2", "+3", "+4", "+5", "+6", "+7",}; // VsÊ‚ÌƒR{{bNXÆ“Å‚é‚±
+LPCTSTR CRsMeasure::m_pszThickUnit[] = {"MM", "UM", "NM", "AM",};	// VsÊ‚ÌƒR{{bNXÆ“Å‚é‚±
 
 // --------------------------------------------------------------------------
 // CRsMeasure
@@ -40,7 +40,7 @@ BOOL CRsMeasure::InitInstance()
 
 	ConfigFile_GetNanoSpecIni(&m_RsConfig, CONFIG_FILE_RS_CONFIG);
 
-	// RSƒwƒbƒh‚ÌƒCƒ“ƒ^ƒtƒF[ƒX‚ğ‘I‘ğ‚·‚é
+	// RSwbhÌƒC^tF[XI
 	if ( bHwSimulation ) {
 		m_pRsHead = new CRsHeadDesktop();
 		pLogFile->Logging("Rs Head Type : CRsHeadDesktop");
@@ -50,18 +50,18 @@ BOOL CRsMeasure::InitInstance()
 		pLogFile->Logging("Rs Head Type : CRsHeadMCPT610");
 	}
 
-	// ƒCƒ“ƒ^[ƒƒbƒNiƒvƒ[ƒuƒwƒbƒh‚ğ‘Ş”ğˆÊ’u‚ÖˆÚ“®‚³‚¹‚éj
+	// C^[bNiv[uwbhŞ”Ê’uÖˆÚ“j
 	if ( !MoveProbeHeadLowerPos(FALSE) )
 		return FALSE;
 
-	// RSƒwƒbƒh‚Ì‰Šú‰»
+	// RSwbhÌ
 	if ( !m_pRsHead->InitInstance() ) {
 		pLogFile->Logging("Rs Head Initialize Error");
 		pLogFile->Logging(m_pRsHead->GetLastError());
 		return FALSE;
 	}
 
-	// ƒvƒ[ƒuƒ^ƒCƒv‚Ìİ’è
+	// v[u^CvÌİ’
 	if ( !m_pRsHead->SetProbe(m_RsConfig.nRsProbeType) ) {
 		pLogFile->Logging("Rs Head Set Probe Error");
 		return FALSE;
@@ -92,19 +92,19 @@ BOOL CRsMeasure::Measure(const MEAS_PROG_INFO* pMeasProgInfo)
 	int iRange;
 	int iMeasTime;
 
-	// ƒpƒ‰ƒ[ƒ^ƒ`ƒFƒbƒN
+	// p[^`FbN
 	if ( !CheckParams(pMeasProgInfo) )
 		return FALSE;
 
-	// ƒpƒ‰ƒ[ƒ^İ’è
+	// p[^İ’
 	if ( !SetParams(pMeasProgInfo) )
 		return FALSE;
 
-	// ƒvƒ[ƒuƒwƒbƒh‚ğŠî”Â‚É‰Ÿ‚µ•t‚¯‚é‚½‚ß‰º~“®ì‚³‚¹‚éi‘ª’èˆÊ’u‚ÖˆÚ“®‚³‚¹‚éj
+	// v[uwbhÂ‚É‰té‚½ß‰~ì‚³iÊ’uÖˆÚ“j
 	if ( !MoveProbeHeadLowerPos() )
 		return FALSE;
 
-	// ‘ª’èŠJn
+	// Jn
 	iRange = atoi(m_pszRange[pMeasProgInfo->ScanParams._RS.lStartIdx]);
 	iMeasTime = pMeasProgInfo->ScanParams._RS.dScanTime * 1000;
 
@@ -113,8 +113,10 @@ BOOL CRsMeasure::Measure(const MEAS_PROG_INFO* pMeasProgInfo)
 		return FALSE;
 	}
 
-	const int MAXTIMES = 20;		/* ƒŒƒ“ƒW‚ªˆê’è•ûŒü‚É¸~‚µ‚È‚¢ê‡i+0,+1,+0,+1...‚È‚Çj‚Ì–³ŒÀƒ‹[ƒv‰ñ”ğ */
-	for ( int iTry = 0; iTry < MAXTIMES; iTry++ ) {
+	const int MAXTIMES = 20;		/* WÉ~È‚ê‡i+0,+1,+0,+1...È‚ÇjÌ–[v */
+	int iTry;
+
+	for ( iTry = 0; iTry < MAXTIMES; iTry++ ) {
 
 		Sleep(iMeasTime);
 
@@ -126,8 +128,8 @@ BOOL CRsMeasure::Measure(const MEAS_PROG_INFO* pMeasProgInfo)
 			return FALSE;
 		}
 
-		// ‘ª’èŒ‹‰Êƒf[ƒ^‚ğ‰¼“ü‚ê
-		// iŒã‘±‚ÌƒI[ƒo[ƒŒƒ“ƒWEƒI[ƒo[ƒ[ƒhEƒAƒ“ƒ_[ƒŒƒ“ƒWƒ`ƒFƒbƒN‚ÅƒŠƒgƒ‰ƒCã‘‚«‚³‚ê‚éê‡‚ ‚èj
+		// èŒ‹Êƒf[^
+		// iã‘±ÌƒI[o[WEI[o[[hEA_[W`FbNÅƒgCã‘ê‡j
 		smResistResultDataBase.GetSharedMemoryPtr()->chDataValid = rsMeasData.chDataValid;
 		strcpy(smResistResultDataBase.GetSharedMemoryPtr()->szResistance,			rsMeasData.szResistance);
 		strcpy(smResistResultDataBase.GetSharedMemoryPtr()->szSurfaceResistivity,	rsMeasData.szSurfaceResistivity);
@@ -243,24 +245,24 @@ BOOL CRsMeasure::SetParams(const MEAS_PROG_INFO* pMeasProgInfo)
 // MoveProbeHeadLowerPos
 BOOL CRsMeasure::MoveProbeHeadLowerPos(BOOL bLowerPos/*=TRUE*/)
 {
-	// ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“
+	// V~[V
 	if ( bHwSimulation ) {
 		return TRUE;
 	}
 
-	// ƒvƒ[ƒuƒwƒbƒh“®ì
+	// v[uwbh
 	if ( bLowerPos ) {
-		// ‰º~“®ì
+		// ~
 		nexioRS_ProbeHeadUp(FALSE);
 		nexioRS_ProbeHeadDown(TRUE);
 	}
 	else {
-		// ã¸“®ì
+		// ã¸
 		nexioRS_ProbeHeadDown(FALSE);
 		nexioRS_ProbeHeadUp(TRUE);
 	}
 
-	// ƒCƒ“ƒ^[ƒƒbƒNŠÄ‹iƒvƒ[ƒuƒwƒbƒhˆÊ’u‚ª‰º~’[‚É‚È‚Á‚Ä‚¢‚é‚©j
+	// C^[bNÄiv[uwbhÊ’u~[É‚È‚Ä‚é‚©j
 	const int iTimeoutSec = 30;
 
 	CTimer timer;
@@ -268,12 +270,12 @@ BOOL CRsMeasure::MoveProbeHeadLowerPos(BOOL bLowerPos/*=TRUE*/)
 
 	while ( 1 ) {
 		if ( bLowerPos ) {
-			// ‰º~’[‚ÌƒZƒ“ƒT[‚ªƒIƒ“‚É‚È‚è‚Ü‚µ‚½‚©IH
+			// ~[ÌƒZT[IÉ‚È‚Ü‚IH
 			if ( !nexioIsRS_ProbeHeadUpperPos() && nexioIsRS_ProbeHeadLowerPos() )
 				break;
 		}
 		else {
-			// ã¸’[‚ÌƒZƒ“ƒT[‚ªƒIƒ“‚É‚È‚è‚Ü‚µ‚½‚©IH
+			// ã¸[ÌƒZT[IÉ‚È‚Ü‚IH
 			if ( nexioIsRS_ProbeHeadUpperPos() && !nexioIsRS_ProbeHeadLowerPos() )
 				break;
 		}

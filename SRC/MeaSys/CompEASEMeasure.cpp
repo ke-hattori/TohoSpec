@@ -14,12 +14,12 @@
 extern CLogFile* pLogFile;
 extern BOOL bHwSimulation;
 
-extern TCHAR g_tszProcDir[_MAX_PATH];		/* ŒÄo‚µƒvƒƒZƒX‚ÌƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
-extern TCHAR g_tszBaseDir[_MAX_PATH];		/* Šî€ƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
+extern TCHAR g_tszProcDir[_MAX_PATH];		/* ÄovZXÌƒfBNg('\'t)*/
+extern TCHAR g_tszBaseDir[_MAX_PATH];		/* î€fBNg('\'t)*/
 extern void GetProcBaseDir(LPTSTR ptszProcDir, LPTSTR ptszBaseDir);
 extern void AddAbsPath(LPTSTR ptszPath);
-extern CSharedMemory<ADAPRESULTDATABASE> smAdapResultDataBase;	/* ADAP ‘ª’èŒ‹‰Ê DB ‹¤—LƒGƒŠƒA	*/
-extern CSharedMemory<COMPEASERESULT_HELPER> smCompEASEResultHelperDataBase;	/* CompleteEASE ‘ª’èŒ‹‰Ê Helper DB ‹¤—LƒGƒŠƒA	*/
+extern CSharedMemory<ADAPRESULTDATABASE> smAdapResultDataBase;	/* ADAP èŒ‹ DB LGA	*/
+extern CSharedMemory<COMPEASERESULT_HELPER> smCompEASEResultHelperDataBase;	/* CompleteEASE èŒ‹ Helper DB LGA	*/
 
 // --------------------------------------------------------------------------
 // CCompEASEMeasure
@@ -43,7 +43,7 @@ BOOL CCompEASEMeasure::InitInstance()
 {
 	TRACE(_T("CCompEASEMeasure::InitInstance()\n"));
 
-	// CompEASEƒwƒbƒh‚ÌƒCƒ“ƒ^ƒtƒF[ƒX‚ğ‘I‘ğ‚·‚é
+	// CompEASEwbhÌƒC^tF[XI
 	if ( bHwSimulation ) {
 //		m_pCompEASEHead = new CCompEASEHeadDesktop();
 //		pLogFile->Logging("CompEASE Head Type : CCompEASEHeadDesktop");
@@ -55,7 +55,7 @@ BOOL CCompEASEMeasure::InitInstance()
 		pLogFile->Logging("CompEASE Head Type : CCompEASEHeadSock");
 	}
 
-	// CompEASEƒwƒbƒh‚Ì‰Šú‰»
+	// CompEASEwbhÌ
 	if ( !m_pCompEASEHead->InitInstance() ) {
 		pLogFile->Logging("CompEASE Head Initialize Error");
 		pLogFile->Logging(m_pCompEASEHead->GetLastError());
@@ -72,7 +72,7 @@ BOOL CCompEASEMeasure::InitInstance()
 	m_pCompEASEPolling->ResumeThread();
 	pLogFile->Logging("CompEASE : CompEASE Polling Status Start.");
 
-	// TCP”ñ“¯Šúƒ|[ƒg
+	// TCPñ“¯Š|[g
 	///// Tcp Async Port Thread /////
 	m_pTcpAsyncPort = (CTcpAsyncPort*)AfxBeginThread(
 		RUNTIME_CLASS(CTcpAsyncPort),
@@ -222,7 +222,7 @@ BOOL CCompEASEMeasure::Measure(DWORD dwPointNo, LPCTSTR pszSampleId, const MEAS_
 		return FALSE;
 	}
 
-	// ‘ª’èŒ‹‰Êƒf[ƒ^
+	// èŒ‹Êƒf[^
 	if ( !SetToAdapResultDataBase(dwPointNo, szMeasResult, pMainRcpInfo) ) {
 		return FALSE;
 	}
@@ -244,12 +244,16 @@ BOOL CCompEASEMeasure::SetToAdapResultDataBase(DWORD dwPointNo, LPCTSTR pszMeasR
 	int iIndex;
 
 	// CleanUp
-	for ( int iCol = 0; iCol < ADAPRESULT_COLS_MAX; iCol++ ) {
+	int iCol;
+
+	for ( iCol = 0; iCol < ADAPRESULT_COLS_MAX; iCol++ ) {
 		strcpy(smAdapResultDataBase.GetSharedMemoryPtr()->szLabel[iCol], "");
 		strcpy(smAdapResultDataBase.GetSharedMemoryPtr()->szLabelOri[iCol], "");
 		smAdapResultDataBase.GetSharedMemoryPtr()->dData[iCol] = 0.0;
 	}
-	for ( int i = 0; i < 100; i++ ) {
+	int i;
+
+	for ( i = 0; i < 100; i++ ) {
 		smCompEASEResultHelperDataBase.GetSharedMemoryPtr()->bItemEnable[i] = FALSE;
 	}
 	smCompEASEResultHelperDataBase.GetSharedMemoryPtr()->iItemEnableCount = 0;
@@ -292,7 +296,10 @@ BOOL CCompEASEMeasure::SetToAdapResultDataBase(DWORD dwPointNo, LPCTSTR pszMeasR
 
 	Split(pszMeasResult, ',', &strResults);
 
-	for ( int iResult = 0; iResult < strResults.GetSize(); iResult++ ) {
+	int iResult;
+
+
+	for ( iResult = 0; iResult < strResults.GetSize(); iResult++ ) {
 		// Split key and value.
 		strData.RemoveAll();
 		Split(strResults[iResult], '=', &strData);
@@ -339,14 +346,16 @@ BOOL CCompEASEMeasure::SetToAdapResultDataBase(DWORD dwPointNo, LPCTSTR pszMeasR
 
 		// Data
 		smAdapResultDataBase.GetSharedMemoryPtr()->dData[iIndex] = atof(strValue);
-		for  ( int i = 0; i < RECALIB_MAX; i++ ) {
-			if ( pMainRcpInfo->MainRcpParam._COMPEASE.RecalibItem[i] == 0 ) 		// RecalibItem‚Ìindex 0‚ÍAskip
+		int i;
+
+		for ( i = 0; i < RECALIB_MAX; i++ ) {
+			if ( pMainRcpInfo->MainRcpParam._COMPEASE.RecalibItem[i] == 0 ) 		// RecalibItemindex 0ÍAskip
 				continue;
-			if ( iIndex == (pMainRcpInfo->MainRcpParam._COMPEASE.RecalibItem[i] - 1) ) {	// RecalibItem‚Ìindex‚ÍA1‚©‚çn‚Ü‚é‚½‚ßA1Œ¸Z
+			if ( iIndex == (pMainRcpInfo->MainRcpParam._COMPEASE.RecalibItem[i] - 1) ) {	// RecalibItemindexÍA1nÜ‚é‚½ßA1Z
 				_tcscpy(szBuff, pMainRcpInfo->MainRcpParam._COMPEASE.szRecalib[i]);
 				if ( !MEAS_Recalib(szBuff, smAdapResultDataBase.GetSharedMemoryPtr()->dData[iIndex]) )
 					return FALSE;
-				break;							// ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“¬Œ÷
+				break;							// Lu[V
 			}
 		}
 	}
@@ -371,9 +380,11 @@ int CCompEASEMeasure::IsTargetItem(LPCTSTR pszKey)
 	int iColumnIndexInfo[iCount];
 	int iIndex;
 
-	///// ƒJƒ‰ƒ€ƒCƒ“ƒfƒbƒNƒX‚Ìì¬
+	///// JCfbNXÌì¬
 	iIndex = 0;
-	for ( int i = 0; i < iCount; i++ ) {
+	int i;
+
+	for ( i = 0; i < iCount; i++ ) {
 		iColumnIndexInfo[i] = i;
 	}
 
@@ -440,7 +451,9 @@ void CCompEASEMeasure::Split(CString strRecord, TCHAR chDel, CStringArray* pStrT
 	CString strBuffer;
 
 	// split by delimiter.
-	for( int iPos = 0; iPos < strRecord.GetLength(); iPos++ ) {
+	int iPos;
+
+	for ( iPos = 0; iPos < strRecord.GetLength(); iPos++ ) {
 		if( strRecord[iPos] == chDel ) {
 			strBuffer = strRecord.Mid(iStartIdx, iPos - iStartIdx);
 			pStrTsvDatas->Add(strBuffer);

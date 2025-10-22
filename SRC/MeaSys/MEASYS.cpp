@@ -5,9 +5,9 @@
 #include <afxdllx.h>
 #include <time.h>
 #include <math.h>
-/* added 2015.12.10 hmenjo ƒŠƒJƒŠƒu‹t‘ŠŠÖ‘Î‰ ---------- { ---------- */
+/* added 2015.12.10 hmenjo JutÖ‘Î‰ ---------- { ---------- */
 #include <FLOAT.H>
-/* added 2015.12.10 hmenjo ƒŠƒJƒŠƒu‹t‘ŠŠÖ‘Î‰ ---------- } ---------- */
+/* added 2015.12.10 hmenjo JutÖ‘Î‰ ---------- } ---------- */
 
 #ifdef _DEBUG
 #pragma comment(lib, "dtnsconfigfile.lib")
@@ -32,10 +32,10 @@
 #include "SeMeasure.h"
 #include "SeAnalysis.h"
 #include "SeHead.h"
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ -->
 #include "CompEASEMeasure.h"
 #include "CompEASEHead.h"
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ <--
 #include "Mojiretsu.h"
 #include "Xmp.h"
 #include "StressMeasure.h"
@@ -47,16 +47,16 @@
 #define _MEASYSTDLL_
 #include "../../INC/MeaSys.hxx"
 
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Mod (TohoSpecÎ‰) -->
 #define _MASTER_
 #include "System.h"
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Mod (TohoSpecÎ‰) <--
 
 #include "XmpHelper.hxx"
-/* added 2009.10.20 hmenjo CTA §Œä’Ç‰Á(‚P) ---------- { ---------- */
+/* added 2009.10.20 hmenjo CTA Ç‰(P) ---------- { ---------- */
 #include "..\\..\\inc\\NEXIOBASE.HXX"
 #include "CtaCtrl.h"
-/* added 2009.10.20 hmenjo CTA §Œä’Ç‰Á(‚P) ---------- } ---------- */
+/* added 2009.10.20 hmenjo CTA Ç‰(P) ---------- } ---------- */
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -72,14 +72,14 @@ static TCHAR THIS_FILE[] = __FILE__;
 #define MICROMETRE				(1000L)
 // 2009.12.10 K.Matsuo <--
 
-// CCD‚ÌÅ‘åPIXEL
+// CCDÌÅ‘PIXEL
 #define CCD_PIXEL_1024					(1024)
 
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á MeaSys.hxx‚ÖˆÚ“® -->
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ MeaSys.hxxÖˆÚ“ -->
 // BOOL IsNoRecalibration(LPCTSTR szRecalib);
 // BOOL MEAS_Recalib(LPCTSTR szRecalib, double& dData);
 // BOOL MEAS_RecalibMinusEntry(LPCTSTR szRecalib, double& dData);
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á MeaSys.hxx‚ÖˆÚ“® <--
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ MeaSys.hxxÖˆÚ“ <--
 
 ////////////////////////////////////////////////////////////////////////////////
 // Global Variables
@@ -110,7 +110,7 @@ typedef struct _PREPARE_DATA {
 static PREPARE_DATA g_prepareData;
 
 
-// ƒNƒ‰ƒXƒ|ƒCƒ“ƒ^
+// NX|C^
 CLogFile* pLogFile;
 CMojiretsu* pMojiretsu;
 CXmp* pXmp;
@@ -119,38 +119,38 @@ static CSrMeasure* pSrMeasure;
 static CSrAnalysis* pSrAnalysis;
 static CSeMeasure* pSeMeasure;
 static CSeAnalysis* pSeAnalysis;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ -->
 static CCompEASEMeasure* pCompEASEMeasure;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ <--
 static CRsMeasure* pRsMeasure;
 static CStressMeasure* pStressMeasure;
 static CStressAnalysis* pStressAnalysis;
-/* added 2009.10.20 hmenjo CTA §Œä’Ç‰Á(‚P) ---------- { ---------- */
+/* added 2009.10.20 hmenjo CTA Ç‰(P) ---------- { ---------- */
 static CCtaCtrl* lgs_pclsCCtaCtrl = 0;
-/* added 2009.10.20 hmenjo CTA §Œä’Ç‰Á(‚P) ---------- } ---------- */
+/* added 2009.10.20 hmenjo CTA Ç‰(P) ---------- } ---------- */
 
 STAGE_COORD_XYZ g_MeasPosXyz;
 
 THICKNESSFORSTRESS thicknessForStress[STRESS_LINES_MAX];
 
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ -->
 //static CSharedMemory<ADAPRESULTDATABASE> smAdapResultDataBase;
 CSharedMemory<ADAPRESULTDATABASE> smAdapResultDataBase;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ <--
 CSharedMemory<STRESSRESULT> smStressResultDataBase;
-CSharedMemory<RESISTRESULT> smResistResultDataBase; /* RS ‘ª’èŒ‹‰Ê DB ‹¤—LƒGƒŠƒA	*/
-/* added 2009.10.27 hmenjo CTA ‘ª’èŒ‹‰Ê DB ---------- { ---------- */
-CSharedMemory<CTARESULT> lg_smCtaResultDataBase;	/* CTA ‘ª’èŒ‹‰Ê DB ‹¤—LƒGƒŠƒA	*/
-/* added 2009.10.27 hmenjo CTA ‘ª’èŒ‹‰Ê DB ---------- } ---------- */
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+CSharedMemory<RESISTRESULT> smResistResultDataBase; /* RS èŒ‹ DB LGA	*/
+/* added 2009.10.27 hmenjo CTA èŒ‹ DB ---------- { ---------- */
+CSharedMemory<CTARESULT> lg_smCtaResultDataBase;	/* CTA èŒ‹ DB LGA	*/
+/* added 2009.10.27 hmenjo CTA èŒ‹ DB ---------- } ---------- */
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ -->
 CSharedMemory<COMPEASERESULT_HELPER> smCompEASEResultHelperDataBase;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ <--
 
 static AFX_EXTENSION_MODULE MEASYSDLL = { NULL, NULL };
 
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ---------- { ---------- */
-TCHAR g_tszProcDir[_MAX_PATH] = _T(""); 	/* ŒÄo‚µƒvƒƒZƒX‚ÌƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/          /* C:\NanoSpec\BIN\ or C:\NanoSpec\BIN_DEB\ */
-TCHAR g_tszBaseDir[_MAX_PATH] = _T(""); 	/* Šî€ƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/                      /* C:\NanoSpec\ */
+/* added 2009.07.07 hmenjo dll ÎƒpXÎ‰ MeaSys.dll ---------- { ---------- */
+TCHAR g_tszProcDir[_MAX_PATH] = _T(""); 	/* ÄovZXÌƒfBNg('\'t)*/          /* C:\NanoSpec\BIN\ or C:\NanoSpec\BIN_DEB\ */
+TCHAR g_tszBaseDir[_MAX_PATH] = _T(""); 	/* î€fBNg('\'t)*/                      /* C:\NanoSpec\ */
 TCHAR g_tszData_Ref_Dir[_MAX_PATH] = _T("");
 void GetProcBaseDir(
 		LPTSTR ptszProcDir,
@@ -158,23 +158,25 @@ void GetProcBaseDir(
 	)
 {
 	if (0 == _tcscmp(ptszProcDir, _T(""))) {
-		TCHAR l_tszProcessFName[_MAX_PATH]; /* ŒÄo‚µƒvƒƒZƒX‚Ìƒtƒ‹ƒpƒX*/
+		TCHAR l_tszProcessFName[_MAX_PATH]; /* ÄovZXÌƒtpX*/
 		::GetModuleFileName(0, l_tszProcessFName, sizeof(l_tszProcessFName));
 		TCHAR l_tszDrive[_MAX_DRIVE];
 		TCHAR l_tszDir[_MAX_DIR];
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Mod (TohoSpecÎ‰) -->
 		TCHAR l_tszFilename[_MAX_FNAME];
 //		_tsplitpath(l_tszProcessFName, l_tszDrive, l_tszDir, 0, 0);
 		_tsplitpath(l_tszProcessFName, l_tszDrive, l_tszDir, l_tszFilename, 0);
 
 		g_lAppNameType = APP_NAME_NANO; // default application name
-		for(int i = 0; i < APP_NAME_MAX; i++){
+		int i;
+
+		for ( i = 0; i < APP_NAME_MAX; i++){
 			if(_tcsncmp(l_tszFilename, g_lpszAppPrefix4[i], 4) == 0){
 				g_lAppNameType = i;
 				break;
 			}
 		}
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Mod (TohoSpecÎ‰) <--
 		_stprintf(ptszProcDir, _T("%s%s"), l_tszDrive, l_tszDir);
 		if (0 != _tcslen(ptszProcDir)) {
 			if (_T('\\') != ptszProcDir[_tcslen(ptszProcDir) - 1]) {
@@ -194,7 +196,7 @@ void GetProcBaseDir(
 
 	sprintf(g_tszData_Ref_Dir, "%s%s", g_tszBaseDir, "DATA\\REF\\");
 }
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ÎƒpXÎ‰ MeaSys.dll ---------- } ---------- */
 
 // --------------------------------------------------------------------
 // NanoSpecTitle
@@ -210,9 +212,9 @@ void NanoSpecTitle(int iParam)
 
 // --------------------------------------------------------------------
 // DllMain
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- { ---------- */
+/* added 2014.12.22 hmenjo DLL dNh~ ---------- { ---------- */
 #include <DllMutex.hxx>
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- } ---------- */
+/* added 2014.12.22 hmenjo DLL dNh~ ---------- } ---------- */
 extern "C" int APIENTRY
 DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 {
@@ -220,19 +222,19 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 
 	if (dwReason == DLL_PROCESS_ATTACH)
 	{
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- { ---------- */
+/* added 2014.12.22 hmenjo DLL dNh~ ---------- { ---------- */
 		if (FALSE == DllMutexCreate(_T("MeaSys"))) {
 			return TRUE;
 		}
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- } ---------- */
+/* added 2014.12.22 hmenjo DLL dNh~ ---------- } ---------- */
 		TRACE0(_T("MEASYS.DLL Initializing!\n"));
 
 		if (!AfxInitExtensionModule(MEASYSDLL, hInstance))
 			return 0;
 
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ---------- { ---------- */
+/* added 2009.07.07 hmenjo dll ÎƒpXÎ‰ MeaSys.dll ---------- { ---------- */
 		GetProcBaseDir(g_tszProcDir, g_tszBaseDir);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ÎƒpXÎ‰ MeaSys.dll ---------- } ---------- */
 
 		new CDynLinkLibrary(MEASYSDLL);
 
@@ -249,9 +251,9 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 		smAdapResultDataBase.Create(ADAPRESULTFILEMAPPINGNAME);
 		smStressResultDataBase.Create(STRESSFILEMAPPINGNAME);
 		smResistResultDataBase.Create(RESISTFILEMAPPINGNAME);
-/* added 2009.10.27 hmenjo CTA ‘ª’èŒ‹‰Ê DB ---------- { ---------- */
+/* added 2009.10.27 hmenjo CTA èŒ‹ DB ---------- { ---------- */
 		lg_smCtaResultDataBase.Create(CTAFILEMAPPINGNAME);
-/* added 2009.10.27 hmenjo CTA ‘ª’èŒ‹‰Ê DB ---------- } ---------- */
+/* added 2009.10.27 hmenjo CTA èŒ‹ DB ---------- } ---------- */
 		smCompEASEResultHelperDataBase.Create(COMPEASERESULT_HELPER_FILEMAPPINGNAME);
 
 		pXmp = new CXmp();
@@ -259,9 +261,9 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 		pSrAnalysis = new CSrAnalysis();
 		pSeMeasure = new CSeMeasure();
 		pSeAnalysis = new CSeAnalysis();
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ -->
 		pCompEASEMeasure = new CCompEASEMeasure();
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ <--
 		pRsMeasure = new CRsMeasure();
 		pStressMeasure = new CStressMeasure();
 		pStressAnalysis = new CStressAnalysis();
@@ -287,12 +289,12 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 			delete pSeAnalysis;
 			pSeAnalysis = NULL;
 		}
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ -->
 		if ( pCompEASEMeasure ) {
 			delete pCompEASEMeasure;
 			pCompEASEMeasure = NULL;
 		}
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ <--
 		if ( pRsMeasure ) {
 			delete pRsMeasure;
 			pRsMeasure = NULL;
@@ -319,9 +321,9 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 			delete pLogFile;
 			pLogFile = NULL;
 		}
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- { ---------- */
+/* added 2014.12.22 hmenjo DLL dNh~ ---------- { ---------- */
 		DllMutexRelease();
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- } ---------- */
+/* added 2014.12.22 hmenjo DLL dNh~ ---------- } ---------- */
 	}
 	return 1;
 }
@@ -352,11 +354,11 @@ BOOL MEASYSAPI MEAS_Initialize(BOOL bHWS/*=FALSE*/)
 
 	pMojiretsu->SetResourceHandle((HINSTANCE) hModule);
 
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ -->
 //	if ( systemConfig.HeadType.bSR || systemConfig.HeadType.bSE ) {
 	if ( (systemConfig.HeadType.bSR) ||
 		 (systemConfig.HeadType.bSE && systemConfig.HeadType.bCompEASE == FALSE) ) {
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ <--
 		if ( !pXmp->InitInstance() )
 			return FALSE;
 	}
@@ -370,7 +372,11 @@ BOOL MEASYSAPI MEAS_Initialize(BOOL bHWS/*=FALSE*/)
 		MEAS_SrHead_ChangeCcdShutter(CSrHead::FILTER_OPEN);
 
 
-		for(int i = 0; i < MEASYS_STAT_TYPE_MAX_NUM; i++)
+		int i;
+
+
+
+		for ( i = 0; i < MEASYS_STAT_TYPE_MAX_NUM; i++)
 		{
 			switch(pSrMeasure->GetWaveLengthStepFromConfig()){
 			case 1: /* SR_WAVELENGTH_STEP_05_NM */
@@ -387,7 +393,7 @@ BOOL MEASYSAPI MEAS_Initialize(BOOL bHWS/*=FALSE*/)
 
 	if ( systemConfig.HeadType.bSE ) {
 		NanoSpecTitle(TITLE_MSG2_INIT_MEAS_HEAD_SE);
-		// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+		// 2013.02.01 bagus CompleteEASEwbhÇ‰ -->
 		if (systemConfig.HeadType.bCompEASE) {
 			if ( !pCompEASEMeasure->InitInstance() )
 				return FALSE;
@@ -398,7 +404,7 @@ BOOL MEASYSAPI MEAS_Initialize(BOOL bHWS/*=FALSE*/)
 		if ( !pSeAnalysis->InitInstance() )
 			return FALSE;
 	}
-		// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+		// 2013.02.01 bagus CompleteEASEwbhÇ‰ <--
 	}
 
 	if ( systemConfig.HeadType.bResist ) {
@@ -419,28 +425,28 @@ BOOL MEASYSAPI MEAS_Initialize(BOOL bHWS/*=FALSE*/)
 		if ( !pStressAnalysis->InitInstance() )
 			return FALSE;
 	}
-/* added 2009.10.20 hmenjo CTA §Œä’Ç‰Á(‚P) ---------- { ---------- */
-	/* CTA ƒXƒŒƒbƒh‚ğ‹N“®	*/
+/* added 2009.10.20 hmenjo CTA Ç‰(P) ---------- { ---------- */
+	/* CTA XbhN	*/
 	lgs_pclsCCtaCtrl = 0;
 	if (0 != systemConfig.HeadType.bCTA) {
 		NanoSpecTitle(TITLE_MSG2_INIT_MEAS_HEAD_CTA);
-		nexioCA_Interlock(FALSE);	/* CTAILPO ƒIƒt */
+		nexioCA_Interlock(FALSE);	/* CTAILPO It */
 		pLogFile->Logging(_T("MEASYS   : Starting CCtaCtrl..."));
 		lgs_pclsCCtaCtrl = new CCtaCtrl(0);
 		BOOL l_bRslt = TRUE;
 		if (0 == lgs_pclsCCtaCtrl) {
-			/* ƒXƒŒƒbƒh\’z¸”s */
+			/* Xbh\zs */
 			pLogFile->Logging(_T("MEASYS   : Failed create CCtaCtrl. (new)"));
 			l_bRslt = FALSE;
 		} else
 		if (0 == lgs_pclsCCtaCtrl->m_hThread) {
-			/* ƒXƒŒƒbƒh‹N“®¸”s */
+			/* XbhNs */
 			pLogFile->Logging(_T("MEASYS   : Failed start CCtaCtrl thread. (thread)"));
 			l_bRslt = FALSE;
 		}
 		if (FALSE != l_bRslt) {
 			pLogFile->Logging(_T("MEASYS   : Started CCtaCtrl."));
-			/* ‰Šú‰»ˆ—	*/
+			/* 	*/
 			pLogFile->Logging(_T("MEASYS   : Initializing Cta unit..."));
 			if (FALSE == lgs_pclsCCtaCtrl->Cta_Initialize()) {
 				pLogFile->Logging(_T("MEASYS   : Failed to initialize Cta unit."));
@@ -459,7 +465,7 @@ BOOL MEASYSAPI MEAS_Initialize(BOOL bHWS/*=FALSE*/)
 		}
 // 2010.02.25 K.Matsuo <--
 	}
-/* added 2009.10.20 hmenjo CTA §Œä’Ç‰Á(‚P) ---------- } ---------- */
+/* added 2009.10.20 hmenjo CTA Ç‰(P) ---------- } ---------- */
 
 	return TRUE;
 }
@@ -479,24 +485,24 @@ BOOL MEASYSAPI MEAS_Shutdown(void)
 {
 	TRACE(_T("MEAS_Shutdown()\n"));
 
-/* added 2009.10.20 hmenjo CTA §Œä’Ç‰Á(‚P) ---------- { ---------- */
-	/* CTA ƒXƒŒƒbƒh‚ğI—¹	*/
+/* added 2009.10.20 hmenjo CTA Ç‰(P) ---------- { ---------- */
+	/* CTA XbhI	*/
 	if (0 != lgs_pclsCCtaCtrl) {
 		pLogFile->Logging(_T("MEASYS   : Deleting CCtaCtrl..."));
 		delete lgs_pclsCCtaCtrl;
 		lgs_pclsCCtaCtrl = 0;
 		pLogFile->Logging(_T("MEASYS   : Deleted CCtaCtrl."));
 	}
-/* added 2009.10.20 hmenjo CTA §Œä’Ç‰Á(‚P) ---------- } ---------- */
+/* added 2009.10.20 hmenjo CTA Ç‰(P) ---------- } ---------- */
 
 	SYSTEM_CONFIG systemConfig;
 	ConfigFile_GetNanoSpecIni(&systemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ -->
 //	if ( systemConfig.HeadType.bSR || systemConfig.HeadType.bSE ) {
 	if ( (systemConfig.HeadType.bSR) ||
 		 (systemConfig.HeadType.bSE && systemConfig.HeadType.bCompEASE == FALSE) ) {
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ <--
 		pXmp->ExitInstance();
 	}
 
@@ -505,7 +511,7 @@ BOOL MEASYSAPI MEAS_Shutdown(void)
 		pSrAnalysis->ExitInstance();
 	}
 	if ( systemConfig.HeadType.bSE ) {
-		// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+		// 2013.02.01 bagus CompleteEASEwbhÇ‰ -->
 		if (systemConfig.HeadType.bCompEASE) {
 			pCompEASEMeasure->ExitInstance();
 		}
@@ -513,7 +519,7 @@ BOOL MEASYSAPI MEAS_Shutdown(void)
 		pSeMeasure->ExitInstance();
 		pSeAnalysis->ExitInstance();
 	}
-		// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+		// 2013.02.01 bagus CompleteEASEwbhÇ‰ <--
 	}
 	if ( systemConfig.HeadType.bResist ) {
 		pRsMeasure->ExitInstance();
@@ -588,18 +594,18 @@ void MEASYSAPI MEAS_InitFirstMeasure()
 	TRACE(_T("MEAS_InitFirstMeasure()\n"));
 
 	::ZeroMemory(smAdapResultDataBase.GetSharedMemoryPtr(), sizeof(ADAPRESULTDATABASE));
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ -->
 	::ZeroMemory(smCompEASEResultHelperDataBase.GetSharedMemoryPtr(), sizeof(COMPEASERESULT_HELPER));
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ <--
 }
 
 // --------------------------------------------------------------------
 // MEAS_PrepareForMeasure
 BOOL MEASYSAPI MEAS_PrepareForMeasure(LPCTSTR pszLotId, LPCTSTR pszSampleId, LPCTSTR pszMainRecipeName, const MAIN_RCP_INFO* pMainRcpInfo, const MEAS_PROG_INFO* pMeasProgInfo, const STAGE_PROG_INFO_HDR* pStageProgInfoHdr)
 {
-// 2009.10.02 K.Matsuo ƒXƒgƒŒƒX“à‚ÌSR‘ª’è‚Å–â‘è‚ª‚ ‚é‚Ì‚ÅA‰Šú‰»‚µ‚È‚¢ -->
+// 2009.10.02 K.Matsuo XgXSRÅ–è‚ªÌ‚ÅAÈ‚ -->
 //	::ZeroMemory(&g_prepareData, sizeof(g_prepareData));
-// 2009.10.02 K.Matsuo ƒXƒgƒŒƒX“à‚ÌSR‘ª’è‚Å–â‘è‚ª‚ ‚é‚Ì‚ÅA‰Šú‰»‚µ‚È‚¢ <--
+// 2009.10.02 K.Matsuo XgXSRÅ–è‚ªÌ‚ÅAÈ‚ <--
 
 	g_prepareData.pszLotId			= pszLotId;
 	g_prepareData.pszSampleId		= pszSampleId;
@@ -608,14 +614,14 @@ BOOL MEASYSAPI MEAS_PrepareForMeasure(LPCTSTR pszLotId, LPCTSTR pszSampleId, LPC
 	g_prepareData.pMeasProgInfo 	= pMeasProgInfo;
 	g_prepareData.pStageProgInfoHdr = pStageProgInfoHdr;
 
-/* deleted 2009.10.28 hmenjo CTA ƒƒbƒgCƒTƒ“ƒvƒ‹İ’èŠÖ” ---------- { ---------- */
-///* added 2009.10.27 hmenjo CTA ƒƒbƒgCƒTƒ“ƒvƒ‹İ’èŠÖ” ---------- { ---------- */
+/* deleted 2009.10.28 hmenjo CTA bgCTvİ’Ö ---------- { ---------- */
+///* added 2009.10.27 hmenjo CTA bgCTvİ’Ö ---------- { ---------- */
 //	if (HEAD_TYPE_CTA == pMainRcpInfo->MainRcpParam.hdr.wHeadType) {
-//		/* CTA ƒwƒbƒh‚Ìê‡ */
+//		/* CTA wbhÌê‡ */
 //		if (0 == lgs_pclsCCtaCtrl) {
 //			return FALSE;
 //		} else {
-//			::ZeroMemory(lg_smCtaResultDataBase.GetSharedMemoryPtr(), sizeof(CTARESULT));	/* CTA —p‹¤—LƒGƒŠƒA ƒNƒŠƒA	*/
+//			::ZeroMemory(lg_smCtaResultDataBase.GetSharedMemoryPtr(), sizeof(CTARESULT));	/* CTA pLGA NA	*/
 //			return lgs_pclsCCtaCtrl->Cta_SetCstSample(
 //															g_prepareData.pszLotId, g_prepareData.pszSampleId,
 //															pMainRcpInfo,
@@ -623,8 +629,8 @@ BOOL MEASYSAPI MEAS_PrepareForMeasure(LPCTSTR pszLotId, LPCTSTR pszSampleId, LPC
 //														);
 //		}
 //	}
-/* added 2009.10.27 hmenjo CTA ƒƒbƒgCƒTƒ“ƒvƒ‹İ’èŠÖ” ---------- } ---------- */
-/* deleted 2009.10.28 hmenjo CTA ƒƒbƒgCƒTƒ“ƒvƒ‹İ’èŠÖ” ---------- } ---------- */
+/* added 2009.10.27 hmenjo CTA bgCTvİ’Ö ---------- } ---------- */
+/* deleted 2009.10.28 hmenjo CTA bgCTvİ’Ö ---------- } ---------- */
 
 	return TRUE;
 }
@@ -640,7 +646,7 @@ BOOL MEASYSAPI MEAS_Measure(int iScanCnt, const STAGE_COORD_XYZ* pStageCoordXyz)
 	g_MeasPosXyz = *pStageCoordXyz;
 
 	WORD wHeadType = g_prepareData.pMeasProgInfo->ScanParams.hdr.wHeadType;
-	// ƒXƒgƒŒƒX‘ª’è“à‚Ì–ŒŒú‘ª’è
+	// XgXÌ–
 	if (wHeadType == HEAD_TYPE_STRESS) {
 		wHeadType = HEAD_TYPE_SR;
 	}
@@ -648,7 +654,7 @@ BOOL MEASYSAPI MEAS_Measure(int iScanCnt, const STAGE_COORD_XYZ* pStageCoordXyz)
 	switch ( wHeadType ) {
 	case HEAD_TYPE_SR:
 		if ( g_prepareData.pMeasProgInfo->ScanParams.hdr.wScanType == MEAS_PROG_TYPE_SR_TRANSMITTANCE_G ) {
-			// STAGE CONFIG‚Æ‚Ì“Ë‡‚¹•K—v
+			// STAGE CONFIGÆ‚Ì“ËKv
 // 2009.10.26 K.Matsuo TR -->
 			if ( MEASYS_GTR_1 <= iScanCnt && iScanCnt <= MEASYS_GTR_LAST ) {
 				bRet = CSrRefFile::ReadGTrRefFile(scanData, g_prepareData.pszMainRecipeName, iScanCnt);
@@ -659,7 +665,7 @@ BOOL MEASYSAPI MEAS_Measure(int iScanCnt, const STAGE_COORD_XYZ* pStageCoordXyz)
 		}
 		//2009.10.28 bagus 2point-distance --{--
 		else if( g_prepareData.pMeasProgInfo->ScanParams.hdr.wScanType == MEAS_PROG_TYPE_SR_DISTANCE) {
-			//2“_ŠÔ‹——£‘ª’è‚Ìê‡‚É‚Í‚±‚±‚É—ˆ‚Ä‚Í‚¢‚¯‚È‚¢
+			//2_Ô‹Ìê‡É‚Í‚É—Ä‚Í‚È‚
 			bRet = FALSE;
 		}
 		//2009.10.28 bagus 2point-distance --}--
@@ -670,18 +676,18 @@ BOOL MEASYSAPI MEAS_Measure(int iScanCnt, const STAGE_COORD_XYZ* pStageCoordXyz)
 	case HEAD_TYPE_SE:
 		bRet = pSeMeasure->Measure(g_prepareData.pMeasProgInfo);
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ -->
 	case HEAD_TYPE_COMPEASE:
 // 2013.02.19 -->
 //		bRet = pCompEASEMeasure->Measure(g_prepareData.pszSampleId, g_prepareData.pMeasProgInfo, g_prepareData.pMainRcpInfo);
 		bRet = pCompEASEMeasure->Measure(iScanCnt, g_prepareData.pszSampleId, g_prepareData.pMeasProgInfo, g_prepareData.pMainRcpInfo);
 // 2013.02.19 <--
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ <--
 	case HEAD_TYPE_4PP:
 		bRet = pRsMeasure->Measure(g_prepareData.pMeasProgInfo);
 		break;
-/* added 2009.10.26 hmenjo CTA MEAS_Measure()ŒÄo‚µ ---------- { ---------- */
+/* added 2009.10.26 hmenjo CTA MEAS_Measure()Äo ---------- { ---------- */
 	case HEAD_TYPE_CTA:
 		if (0 == lgs_pclsCCtaCtrl) {
 			bRet = FALSE;
@@ -689,7 +695,7 @@ BOOL MEASYSAPI MEAS_Measure(int iScanCnt, const STAGE_COORD_XYZ* pStageCoordXyz)
 			bRet = lgs_pclsCCtaCtrl->Cta_Measure(iScanCnt, pStageCoordXyz);
 		}
 		break;
-/* added 2009.10.26 hmenjo CTA MEAS_Measure()ŒÄo‚µ ---------- } ---------- */
+/* added 2009.10.26 hmenjo CTA MEAS_Measure()Äo ---------- } ---------- */
 	default:
 		ASSERT(FALSE);
 		break;
@@ -714,14 +720,14 @@ BOOL MEASYSAPI MEAS_GTrReferenceMeasure(int iScanCnt, const STAGE_COORD_XYZ* pSt
 	if ( g_prepareData.pMeasProgInfo->ScanParams.hdr.wScanType != MEAS_PROG_TYPE_SR_TRANSMITTANCE_G )
 		return FALSE;
 
-// 2009.11.20 K.Matsuo GTr ‚²‚İ‚ÌƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^‚ªc‚Á‚Ä‚¢‚é‚Ì‚Å‰Šú‰»‚·‚é -->
+// 2009.11.20 K.Matsuo GTr İ‚Ìƒt@Xf[^cÄ‚Ì‚Å -->
 	if ( MEASYS_GTR_1 == iScanCnt )
 		::ZeroMemory(scanData, sizeof(scanData));
-// 2009.11.20 K.Matsuo GTr ‚²‚İ‚ÌƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^‚ªc‚Á‚Ä‚¢‚é‚Ì‚Å‰Šú‰»‚·‚é <--
+// 2009.11.20 K.Matsuo GTr İ‚Ìƒt@Xf[^cÄ‚Ì‚Å <--
 
 // 2009.10.26 K.Matsuo TR -->
 	if ( MEASYS_GTR_1 <= iScanCnt && iScanCnt <= MEASYS_GTR_LAST ) {
-		// SR GTriƒKƒ“ƒgƒŠ[“§‰ß—¦j‚Ìê‡AƒŠƒtƒ@ƒŒƒ“ƒXƒ|ƒCƒ“ƒg”Ô†‚ÌˆÊ’u‚ÉAƒf[ƒ^‚ğŠi”[
+		// SR GTriKg[ß—jÌê‡At@X|CgÔÌˆÊ’uÉAf[^i[
 		iMeaSysStatus = iScanCnt;
 		bRet = pSrMeasure->GTrReferecneMeasure(scanData, ccdData, iMeaSysStatus, g_prepareData.pMeasProgInfo);
 	}
@@ -770,7 +776,7 @@ BOOL MEASYSAPI MEAS_Analysis(int iScanCnt, CDdeClient* pXmpDde)
 	switch ( wHeadType )
 	{
 	case HEAD_TYPE_SR:
-	case HEAD_TYPE_STRESS:	// ƒXƒgƒŒƒX‘ª’è“à‚Ì–ŒŒú‘ª’è
+	case HEAD_TYPE_STRESS:	// XgXÌ–
 		::ZeroMemory(&analysisData, sizeof(analysisData));
 
 		analysisData.iScanStart = scanRange.GetScanStartRange();
@@ -792,29 +798,29 @@ BOOL MEASYSAPI MEAS_Analysis(int iScanCnt, CDdeClient* pXmpDde)
 		switch ( g_prepareData.pMeasProgInfo->ScanParams.hdr.wScanType )
 		{
 		case MEAS_PROG_TYPE_SR_THICKNESS:
-/* added 2019.02.01 hmenjo ƒƒO’Ç‰Á Ph1 ---------- { ---------- */
+/* added 2019.02.01 hmenjo OÇ‰ Ph1 ---------- { ---------- */
 			pLogFile->Logging("MEAS_Analysis() : DoXmp() Start.");
-/* added 2019.02.01 hmenjo ƒƒO’Ç‰Á Ph1 ---------- } ---------- */
+/* added 2019.02.01 hmenjo OÇ‰ Ph1 ---------- } ---------- */
 			if ( !pSrAnalysis->DoXmp(szAdapResult, &analysisData, g_prepareData.pMainRcpInfo, g_prepareData.pMeasProgInfo, pXmpDde) )
 				return FALSE;
-/* added 2019.02.01 hmenjo ƒƒO’Ç‰Á Ph1 ---------- { ---------- */
+/* added 2019.02.01 hmenjo OÇ‰ Ph1 ---------- { ---------- */
 			pLogFile->Logging("MEAS_Analysis() : DoXmp() End.");
 			pLogFile->Logging("MEAS_Analysis() : LoadParams() Start.");
-/* added 2019.02.01 hmenjo ƒƒO’Ç‰Á Ph1 ---------- } ---------- */
+/* added 2019.02.01 hmenjo OÇ‰ Ph1 ---------- } ---------- */
 			if ( !xmpHelper.LoadParams(g_prepareData.pMeasProgInfo->ScanParams._SR.XMPDesc.szStrategyEntry) )
 				return FALSE;
-/* added 2019.02.01 hmenjo ƒƒO’Ç‰Á Ph1 ---------- { ---------- */
+/* added 2019.02.01 hmenjo OÇ‰ Ph1 ---------- { ---------- */
 			pLogFile->Logging("MEAS_Analysis() : LoadParams() End.");
-/* added 2019.02.01 hmenjo ƒƒO’Ç‰Á Ph1 ---------- } ---------- */
+/* added 2019.02.01 hmenjo OÇ‰ Ph1 ---------- } ---------- */
 
-			// ƒwƒbƒ_[ƒAƒCƒeƒ€–¼‚ğ•Û‘¶
+			// wb_[ACeÛ‘
 			iCol = 0;
 			iRow = iScanCnt - 1;
 			if ( strncmp(szAdapResult, "Fit:", 4) == 0 )
 				pszAdapResult = &szAdapResult[4];
 			else
 				pszAdapResult = szAdapResult;
-			token = _tcstok(pszAdapResult, _T("=,"));			// Å‰‚Ìƒg[ƒNƒ“‚ğæ“¾‚µ‚Ü‚·
+			token = _tcstok(pszAdapResult, _T("=,"));			// ÅÌƒg[Næ“¾Ü‚
 			while ( token != NULL )
 			{
 				// 2009.08.19 K.Matsuo -->
@@ -826,7 +832,7 @@ BOOL MEASYSAPI MEAS_Analysis(int iScanCnt, CDdeClient* pXmpDde)
 					_tcscpy(smAdapResultDataBase.GetSharedMemoryPtr()->szLabel[iCol], szAdapRename);
 				else
 					_tcscpy(smAdapResultDataBase.GetSharedMemoryPtr()->szLabel[iCol], token);
-// 2009.11.12 K.Matsuo ADAP‚Ì•ñ€–Ú‚Ì§–ñ‘Î‰B2ŒÂ–Ú‚ÌN1[XXX],K1[XXX]‚ğ‚Ì‚Á‚Æ‚èA•Ê€–Ú‚Ì’l‚ğ•ñ -->
+// 2009.11.12 K.Matsuo ADAPÌ•ñÚ‚ÌÎ‰B2Â–Ú‚N1[XXX],K1[XXX]Ì‚Æ‚AÊÚ‚Ì’l -->
 //				_tcscpy(smAdapResultDataBase.GetSharedMemoryPtr()->szLabelOri[iCol], token);
 				if ( strncmp(szAdapRename, "Const", strlen("Const")) == 0 ||
 					 strncmp(szAdapRename, "Eg", strlen("Eg")) == 0 ||
@@ -836,31 +842,33 @@ BOOL MEASYSAPI MEAS_Analysis(int iScanCnt, CDdeClient* pXmpDde)
 				else {
 					_tcscpy(smAdapResultDataBase.GetSharedMemoryPtr()->szLabelOri[iCol], token);
 				}
-// 2009.11.12 K.Matsuo ADAP‚Ì•ñ€–Ú‚Ì§–ñ‘Î‰B2ŒÂ–Ú‚ÌN1[XXX],K1[XXX]‚ğ‚Ì‚Á‚Æ‚èA•Ê€–Ú‚Ì’l‚ğ•ñ <--
+// 2009.11.12 K.Matsuo ADAPÌ•ñÚ‚ÌÎ‰B2Â–Ú‚N1[XXX],K1[XXX]Ì‚Æ‚AÊÚ‚Ì’l <--
 				// 2009.08.19 K.Matsuo -->
-				// ƒXƒgƒŒƒXŒvZ‚Å–ŒŒú‚ğg—p‚·‚é‚½‚ßASR‘ª’è‚É‰¡æ‚è‚µ‚Ä‚¨‚­
+				// XgXvZÅ–gpé‚½ßASRèÉ‰è‚µÄ‚
 				if ( strcmp(token, _T("Thick1")) == 0 )
 					bFoundThickness = TRUE;
 				// 2009.08.19 K.Matsuo <--
-				token = _tcstok(NULL, _T("=,"));			// Ÿ‚Ìƒg[ƒNƒ“‚ğæ“¾‚µ‚Ü‚·
+				token = _tcstok(NULL, _T("=,"));			// Ìƒg[Næ“¾Ü‚
 				// Data
 				smAdapResultDataBase.GetSharedMemoryPtr()->dData[iCol] = atof(token);
 				if ( wHeadType == HEAD_TYPE_SR ) {
-					for  ( int i = 0; i < RECALIB_MAX; i++ ) {
-						if ( g_prepareData.pMainRcpInfo->MainRcpParam._SR.RecalibItem[i] == 0 ) 				// RecalibItem‚Ìindex 0‚ÍAskip
+					int i;
+
+					for ( i = 0; i < RECALIB_MAX; i++ ) {
+						if ( g_prepareData.pMainRcpInfo->MainRcpParam._SR.RecalibItem[i] == 0 ) 				// RecalibItemindex 0ÍAskip
 							continue;
-						if ( iCol == (g_prepareData.pMainRcpInfo->MainRcpParam._SR.RecalibItem[i] - 1) ) {	// RecalibItem‚Ìindex‚ÍA1‚©‚çn‚Ü‚é‚½‚ßA1Œ¸Z
+						if ( iCol == (g_prepareData.pMainRcpInfo->MainRcpParam._SR.RecalibItem[i] - 1) ) {	// RecalibItemindexÍA1nÜ‚é‚½ßA1Z
 							_tcscpy(szBuff, g_prepareData.pMainRcpInfo->MainRcpParam._SR.szRecalib[i]);
-//							if ( _tcslen(szBuff) > 0 && (_tcscmp(szBuff, "None") != 0 && _tcscmp(szBuff, "–³‚µ") != 0) ) {
-/* added 2019.02.01 hmenjo ƒƒO’Ç‰Á Ph1 ---------- { ---------- */
+//							if ( _tcslen(szBuff) > 0 && (_tcscmp(szBuff, "None") != 0 && _tcscmp(szBuff, "") != 0) ) {
+/* added 2019.02.01 hmenjo OÇ‰ Ph1 ---------- { ---------- */
 								pLogFile->Logging("MEAS_Analysis() : MEAS_Recalib() Start.");
-/* added 2019.02.01 hmenjo ƒƒO’Ç‰Á Ph1 ---------- } ---------- */
+/* added 2019.02.01 hmenjo OÇ‰ Ph1 ---------- } ---------- */
 								if ( !MEAS_Recalib(szBuff, smAdapResultDataBase.GetSharedMemoryPtr()->dData[iCol]) )
 									return FALSE;
-/* added 2019.02.01 hmenjo ƒƒO’Ç‰Á Ph1 ---------- { ---------- */
+/* added 2019.02.01 hmenjo OÇ‰ Ph1 ---------- { ---------- */
 								pLogFile->Logging("MEAS_Analysis() : MEAS_Recalib() End.");
-/* added 2019.02.01 hmenjo ƒƒO’Ç‰Á Ph1 ---------- } ---------- */
-								break;							// ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“¬Œ÷
+/* added 2019.02.01 hmenjo OÇ‰ Ph1 ---------- } ---------- */
+								break;							// Lu[V
 //							}
 						}
 					}
@@ -870,7 +878,9 @@ BOOL MEASYSAPI MEAS_Analysis(int iScanCnt, CDdeClient* pXmpDde)
 // 2009.12.10 K.Matsuo <--
 					// 2009.08.19 K.Matsuo -->
 					if ( bFoundThickness ) {
-						for ( int i = 0; i < STRESS_LINES_MAX; i++ ) {
+						int i;
+
+						for ( i = 0; i < STRESS_LINES_MAX; i++ ) {
 							if ( thicknessForStress[i].bValidLine == TRUE &&
 								 thicknessForStress[i].lScanPosY == g_MeasPosXyz.lY ) {
 // 2009.12.10 K.Matsuo -->
@@ -885,13 +895,15 @@ BOOL MEASYSAPI MEAS_Analysis(int iScanCnt, CDdeClient* pXmpDde)
 					}
 					// 2009.08.19 K.Matsuo <--
 				}
-				token = _tcstok(NULL, _T("=,"));			// Ÿ‚Ìƒg[ƒNƒ“‚ğæ“¾‚µ‚Ü‚·
+				token = _tcstok(NULL, _T("=,"));			// Ìƒg[Næ“¾Ü‚
 				iCol++;
 			}
 
 			if ( g_prepareData.pMeasProgInfo->ScanParams._SR.XMPDesc.bAddReflectanceMeasureFlag )	{
 				int iIndex;
-				for ( int i = 0; i < 3; i++ ) {
+				int i;
+
+				for ( i = 0; i < 3; i++ ) {
 					if ( g_prepareData.pMeasProgInfo->ScanParams._SR.iSpecificWavelen[i] ) {
 						sprintf(szBuff, "Target%d", i + 1);
 						_tcscpy(smAdapResultDataBase.GetSharedMemoryPtr()->szLabel[iCol], szBuff);
@@ -928,7 +940,7 @@ BOOL MEASYSAPI MEAS_Analysis(int iScanCnt, CDdeClient* pXmpDde)
 				if ( g_prepareData.pMeasProgInfo->ScanParams._SR.iSpecificWavelen[i] ) {
 					sprintf(szBuff, "Target%d", i + 1);
 					_tcscpy(smAdapResultDataBase.GetSharedMemoryPtr()->szLabel[iCol], szBuff);
-					// ƒXƒLƒƒƒ“ƒ^ƒCƒv•Ê‚Ìƒ‰ƒxƒ‹–¼‚ğì¬
+					// XL^CvÊ‚Ìƒxì¬
 					if ( g_prepareData.pMeasProgInfo->ScanParams.hdr.wScanType == MEAS_PROG_TYPE_SR_REFLECTANCE ) {
 						sprintf(szBuff, "Reflect%d", i + 1);
 					}
@@ -950,9 +962,9 @@ BOOL MEASYSAPI MEAS_Analysis(int iScanCnt, CDdeClient* pXmpDde)
 					}
 					smAdapResultDataBase.GetSharedMemoryPtr()->dData[iCol] = analysisData.dAnalysisReflectanceData[iIndex];
 
-					// ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“
+					// Lu[V
 					_tcscpy(szBuff, g_prepareData.pMainRcpInfo->MainRcpParam._SR.szRecalib[i]);
-//					if ( _tcslen(szBuff) > 0 && (_tcscmp(szBuff, "None") != 0 && _tcscmp(szBuff, "–³‚µ") != 0) ) {
+//					if ( _tcslen(szBuff) > 0 && (_tcscmp(szBuff, "None") != 0 && _tcscmp(szBuff, "") != 0) ) {
 						if ( !MEAS_Recalib(szBuff, smAdapResultDataBase.GetSharedMemoryPtr()->dData[iCol]) )
 							return FALSE;
 //					}
@@ -981,14 +993,14 @@ BOOL MEASYSAPI MEAS_Analysis(int iScanCnt, CDdeClient* pXmpDde)
 		if ( !xmpHelper.LoadParams(g_prepareData.pMeasProgInfo->ScanParams._SE.szStrategyEntry) )
 			return FALSE;
 
-		// ƒwƒbƒ_[ƒAƒCƒeƒ€–¼‚ğ•Û‘¶
+		// wb_[ACeÛ‘
 		iCol = 0;
 		iRow = iScanCnt - 1;
 		if ( strncmp(szAdapResult, "Fit:", 4) == 0 )
 			pszAdapResult = &szAdapResult[4];
 		else
 			pszAdapResult = szAdapResult;
-		token = _tcstok(pszAdapResult, _T("=,"));			// Å‰‚Ìƒg[ƒNƒ“‚ğæ“¾‚µ‚Ü‚·
+		token = _tcstok(pszAdapResult, _T("=,"));			// ÅÌƒg[Næ“¾Ü‚
 		while ( token != NULL )
 		{
 			// Label
@@ -996,7 +1008,7 @@ BOOL MEASYSAPI MEAS_Analysis(int iScanCnt, CDdeClient* pXmpDde)
 				_tcscpy(smAdapResultDataBase.GetSharedMemoryPtr()->szLabel[iCol], szAdapRename);
 			else
 				_tcscpy(smAdapResultDataBase.GetSharedMemoryPtr()->szLabel[iCol], token);
-// 2009.11.12 K.Matsuo ADAP‚Ì•ñ€–Ú‚Ì§–ñ‘Î‰B2ŒÂ–Ú‚ÌN1[XXX],K1[XXX]‚ğ‚Ì‚Á‚Æ‚èA•Ê€–Ú‚Ì’l‚ğ•ñ -->
+// 2009.11.12 K.Matsuo ADAPÌ•ñÚ‚ÌÎ‰B2Â–Ú‚N1[XXX],K1[XXX]Ì‚Æ‚AÊÚ‚Ì’l -->
 //			_tcscpy(smAdapResultDataBase.GetSharedMemoryPtr()->szLabelOri[iCol], token);
 			if ( strncmp(szAdapRename, "Const", strlen("Const")) == 0 ||
 				 strncmp(szAdapRename, "Eg", strlen("Eg")) == 0 ||
@@ -1006,23 +1018,25 @@ BOOL MEASYSAPI MEAS_Analysis(int iScanCnt, CDdeClient* pXmpDde)
 			else {
 				_tcscpy(smAdapResultDataBase.GetSharedMemoryPtr()->szLabelOri[iCol], token);
 			}
-// 2009.11.12 K.Matsuo ADAP‚Ì•ñ€–Ú‚Ì§–ñ‘Î‰B2ŒÂ–Ú‚ÌN1[XXX],K1[XXX]‚ğ‚Ì‚Á‚Æ‚èA•Ê€–Ú‚Ì’l‚ğ•ñ <--
-			token = _tcstok(NULL, _T("=,"));			// Ÿ‚Ìƒg[ƒNƒ“‚ğæ“¾‚µ‚Ü‚·
+// 2009.11.12 K.Matsuo ADAPÌ•ñÚ‚ÌÎ‰B2Â–Ú‚N1[XXX],K1[XXX]Ì‚Æ‚AÊÚ‚Ì’l <--
+			token = _tcstok(NULL, _T("=,"));			// Ìƒg[Næ“¾Ü‚
 			// Data
 			smAdapResultDataBase.GetSharedMemoryPtr()->dData[iCol] = atof(token);
-			for  ( int i = 0; i < RECALIB_MAX; i++ ) {
-				if ( g_prepareData.pMainRcpInfo->MainRcpParam._SE.RecalibItem[i] == 0 ) 			// RecalibItem‚Ìindex 0‚ÍAskip
+			int i;
+
+			for ( i = 0; i < RECALIB_MAX; i++ ) {
+				if ( g_prepareData.pMainRcpInfo->MainRcpParam._SE.RecalibItem[i] == 0 ) 			// RecalibItemindex 0ÍAskip
 					continue;
-				if ( iCol == (g_prepareData.pMainRcpInfo->MainRcpParam._SE.RecalibItem[i] - 1) ) {	// RecalibItem‚Ìindex‚ÍA1‚©‚çn‚Ü‚é‚½‚ßA1Œ¸Z
+				if ( iCol == (g_prepareData.pMainRcpInfo->MainRcpParam._SE.RecalibItem[i] - 1) ) {	// RecalibItemindexÍA1nÜ‚é‚½ßA1Z
 					_tcscpy(szBuff, g_prepareData.pMainRcpInfo->MainRcpParam._SE.szRecalib[i]);
-//					if ( _tcslen(szBuff) > 0 && (_tcscmp(szBuff, "None") != 0 && _tcscmp(szBuff, "–³‚µ") != 0) ) {
+//					if ( _tcslen(szBuff) > 0 && (_tcscmp(szBuff, "None") != 0 && _tcscmp(szBuff, "") != 0) ) {
 						if ( !MEAS_Recalib(szBuff, smAdapResultDataBase.GetSharedMemoryPtr()->dData[iCol]) )
 							return FALSE;
-						break;							// ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“¬Œ÷
+						break;							// Lu[V
 //					}
 				}
 			}
-			token = _tcstok(NULL, _T("=,"));			// Ÿ‚Ìƒg[ƒNƒ“‚ğæ“¾‚µ‚Ü‚·
+			token = _tcstok(NULL, _T("=,"));			// Ìƒg[Næ“¾Ü‚
 			iCol++;
 		}
 		break;
@@ -1215,7 +1229,7 @@ int MEASYSAPI MEAS_GetCcdData(int iPixel)
 {
 	TRACE(_T("MEAS_GetCcdData()\n"));
 
-	// ‘ª’èƒ|ƒWƒVƒ‡ƒ“i‘ª’è‰ñ”j‚Ìƒf[ƒ^ˆÊ’uæ“¾ CCDƒf[ƒ^‚Ìæ“¾
+	// |WViñ”jÌƒf[^Ê’uæ“¾ CCDf[^Ìæ“¾
 	return ccdData[iPixel - 1];
 }
 
@@ -1330,18 +1344,18 @@ double MEASYSAPI MEAS_GetScanSampleData(double dWave)
 }
 #endif // 2014.04.04 bagus wavelength step modified <--
 
-// 2009.11.16 K.Matsuo ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“—vE•s—v”»’è -->
+// 2009.11.16 K.Matsuo Lu[VvEsv -->
 // --------------------------------------------------------------------
 // IsNoRecalibration
 BOOL IsNoRecalibration(LPCTSTR szRecalib)
 {
-	if ( _tcscmp(szRecalib, "None") == 0 || _tcscmp(szRecalib, "–³‚µ") == 0 ) {
+	if ( _tcscmp(szRecalib, "None") == 0 || _tcscmp(szRecalib, "") == 0 ) {
 		return TRUE;
 	}
 
 	return FALSE;
 }
-// 2009.11.16 K.Matsuo ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“—vE•s—v”»’è <--
+// 2009.11.16 K.Matsuo Lu[VvEsv <--
 
 // --------------------------------------------------------------------
 // MEAS_Recalib
@@ -1356,50 +1370,54 @@ BOOL MEAS_Recalib(LPCTSTR szRecalib, double& dData)
 	RECALIB_PROG_INFO recalibProgInfo;
 	int iMaxEntryNum;
 
-// 2009.11.16 K.Matsuo ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“—vE•s—v”»’è -->
+// 2009.11.16 K.Matsuo Lu[VvEsv -->
 	if ( _tcslen(szRecalib) == 0 ) {
-// 2010.02.01 K.Matsuo ƒeƒXƒgƒ‚[ƒhA0•¶š‚Å‚­‚é‚Ì‚ÅAƒVƒXƒeƒ€ƒGƒ‰[‚©‚ç•s—v‚Öæˆµ‚¢‚ğ•ÏX‚·‚é -->
-//		// ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‚Ìƒf[ƒ^w’èŒë‚èiƒVƒXƒeƒ€ƒGƒ‰[j
+// 2010.02.01 K.Matsuo eXg[hA0Å‚Ì‚ÅAVXeG[svÖæˆµÏX -->
+//		// Lu[VÌƒf[^wiVXeG[j
 //		return FALSE;
 		return TRUE;
-// 2010.02.01 K.Matsuo ƒeƒXƒgƒ‚[ƒhA0•¶š‚Å‚­‚é‚Ì‚ÅAƒVƒXƒeƒ€ƒGƒ‰[‚©‚ç•s—v‚Öæˆµ‚¢‚ğ•ÏX‚·‚é <--
+// 2010.02.01 K.Matsuo eXg[hA0Å‚Ì‚ÅAVXeG[svÖæˆµÏX <--
 	}
 
 	if ( IsNoRecalibration(szRecalib) ) {
-		// ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“•s—v‚È‚Ì‚ÅAƒŠƒ^[ƒ“‚·‚é
+		// Lu[VsvÈ‚Ì‚ÅA^[
 		return TRUE;
 	}
-// 2009.11.16 K.Matsuo ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“—vE•s—v”»’è <--
+// 2009.11.16 K.Matsuo Lu[VvEsv <--
 
-	// ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“PGM‚Ìƒf[ƒ^æ“¾
+	// Lu[VPGMÌƒf[^æ“¾
 	if ( !RecipeFile_LoadRecipe(&recalibProgInfo, szRecalib, RECIPE_FILE_RECALIBRATION_PROGRAM) )
 		return FALSE;
-/* added 2010.05.11 hmenjo ƒŠƒLƒƒƒŠƒu’PˆÊƒoƒOC³ ---------- { ---------- */
+/* added 2010.05.11 hmenjo LuPÊƒoOC ---------- { ---------- */
 	if (1 == recalibProgInfo.wUnits) {
-		/* ’PˆÊ‚ª[A]‚Ìê‡‚Ì‚İ[nm]‚É•ÏŠ·‚µ‚Ü‚·D	*/
-		for (int i = 0; i < RECALIB_MAX_ENTRY; i++) {
+		/* PÊ‚[A]Ìê‡Ì‚[nm]É•ÏŠÜ‚D	*/
+		int i;
+
+		for ( i = 0; i < RECALIB_MAX_ENTRY; i++) {
 			recalibProgInfo.RecalibEntry[i].dActual /= 10.0;
 			recalibProgInfo.RecalibEntry[i].dMeasured /= 10.0;
 		}
 	}
-/* added 2010.05.11 hmenjo ƒŠƒLƒƒƒŠƒu’PˆÊƒoƒOC³ ---------- } ---------- */
+/* added 2010.05.11 hmenjo LuPÊƒoOC ---------- } ---------- */
 
-	RECALIB_ENTRY l_RecalibEntry[RECALIB_MAX_ENTRY + 1];						// ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“
+	RECALIB_ENTRY l_RecalibEntry[RECALIB_MAX_ENTRY + 1];						// Lu[V
 
 	::ZeroMemory(l_RecalibEntry, sizeof(l_RecalibEntry));
-	for ( int i = 0; i < RECALIB_MAX_ENTRY; i++ )
-		l_RecalibEntry[i+1] = recalibProgInfo.RecalibEntry[i];					// index‚Ì0‚ÍAactual=0.0,measured=0.0‚Æ‚·‚é
-/* added 2015.12.06 hmenjo ƒŠƒJƒŠƒu‹t‘ŠŠÖ‘Î‰ ---------- { ---------- */
+	int i;
+
+	for ( i = 0; i < RECALIB_MAX_ENTRY; i++ )
+		l_RecalibEntry[i+1] = recalibProgInfo.RecalibEntry[i];					// index0ÍAactual=0.0,measured=0.0Æ‚
+/* added 2015.12.06 hmenjo JutÖ‘Î‰ ---------- { ---------- */
 	if (2 <= recalibProgInfo.iEntryNum) {
-		/* v2.10 –¢–‚Í‹t‘ŠŠÖƒf[ƒ^‚Í‘¶İ‚µ‚Ü‚¹‚ñ‚Ì‚Åˆ—‚³‚ê‚Ü‚¹‚ñD	*/
+		/* v2.10 Í‹tÖƒf[^Í‘İ‚Ü‚Ì‚ÅÜ‚D	*/
 		if (l_RecalibEntry[1].dActual > l_RecalibEntry[2].dActual) {
-/* modified 2015.12.10 hmenjo ƒŠƒJƒŠƒu‹t‘ŠŠÖ‘Î‰ ---------- { ---------- */
-//			/* Šî€’l‚ÌƒIƒtƒZƒbƒg‚P¨‚Q‚Ì•Ï‰»‚ª‚O–¢–‚Ìê‡‚Í
-//				Šî€’l‚ÌƒIƒtƒZƒbƒg‚O‚ğƒIƒtƒZƒbƒg‚P‚Æ“¯‚¶’l‚É‚µ‚Ü‚·	*/
+/* modified 2015.12.10 hmenjo JutÖ‘Î‰ ---------- { ---------- */
+//			/* î€lÌƒItZbgPQÌ•Ï‰OÌê‡
+//				î€lÌƒItZbgOItZbgPÆ“lÉ‚Ü‚	*/
 //			l_RecalibEntry[0].dActual = l_RecalibEntry[1].dActual;
-/* modified 2015.12.10 hmenjo ƒŠƒJƒŠƒu‹t‘ŠŠÖ‘Î‰ ----------              */
-			/* Šî€’l‚ÌƒIƒtƒZƒbƒg‚P¨‚Q‚Ì•Ï‰»‚ª‚O–¢–‚Ìê‡‚Í
-				Šî€’l‚ÌƒIƒtƒZƒbƒg‚O‚ğƒIƒtƒZƒbƒg‚P¨‚Q‚ÌŒX‚«‚Å‹‚ß‚Ü‚·D	*/
+/* modified 2015.12.10 hmenjo JutÖ‘Î‰ ----------              */
+			/* î€lÌƒItZbgPQÌ•Ï‰OÌê‡
+				î€lÌƒItZbgOItZbgPQÌŒXÅ‹ß‚Ü‚D	*/
 			double l_dX1 = l_RecalibEntry[1].dMeasured;
 			double l_dX2 = l_RecalibEntry[2].dMeasured;
 			double l_dY1 = l_RecalibEntry[1].dActual;
@@ -1411,18 +1429,18 @@ BOOL MEAS_Recalib(LPCTSTR szRecalib, double& dData)
 				l_dYY = DBL_MAX;
 			}
 			l_RecalibEntry[0].dActual = l_dYY;
-/* modified 2015.12.10 hmenjo ƒŠƒJƒŠƒu‹t‘ŠŠÖ‘Î‰ ---------- } ---------- */
+/* modified 2015.12.10 hmenjo JutÖ‘Î‰ ---------- } ---------- */
 		}
 	}
-/* added 2015.12.06 hmenjo ƒŠƒJƒŠƒu‹t‘ŠŠÖ‘Î‰ ---------- } ---------- */
+/* added 2015.12.06 hmenjo JutÖ‘Î‰ ---------- } ---------- */
 
 	i = 0;
 	if ( l_RecalibEntry[i].dMeasured < dData ) {
 		if ( recalibProgInfo.iEntryNum == -1 ) {
-			// v2.10–¢–‚Æ‚Ìƒf[ƒ^ŒİŠ·«‚Ì‚½‚ß‚ÌƒƒWƒbƒN
+			// v2.10Æ‚Ìƒf[^İŠÌ‚ß‚ÌƒWbN
 			iMaxEntryNum = RECALIB_MAX_ENTRY + 1;
 			for ( i = 1; i < iMaxEntryNum; i++ ) {
-				if ( i > 1 && l_RecalibEntry[i].dMeasured == 0.0 ) {	// ƒf[ƒ^ŒÂ”‚ª•s–¾‚È‚Ì‚ÅA0.0‚ğƒXƒgƒbƒp[‚Æ‚İ‚È‚µ‚Ä‚¢‚é
+				if ( i > 1 && l_RecalibEntry[i].dMeasured == 0.0 ) {	// f[^ÂsÈ‚Ì‚ÅA0.0Xgbp[Æ‚İ‚È‚Ä‚
 					i -= 2;
 					break;
 				}
@@ -1432,15 +1450,15 @@ BOOL MEAS_Recalib(LPCTSTR szRecalib, double& dData)
 				}
 			}
 
-			// ƒCƒ“ƒfƒbƒNƒX‚ªÅŒã”ö‚Ìê‡Aƒf[ƒ^ŠÔ‚Éû‚Ü‚é‚æ‚¤‚É‚PŒ¸Z
+			// CfbNXÅŒÌê‡Af[^Ô‚ÉÜ‚æ‚¤É‚PZ
 			if ( i >= iMaxEntryNum - 1 )
 				i = iMaxEntryNum - 2;
 
-			if ( l_RecalibEntry[i + 1].dMeasured == 0.0 )				// ƒf[ƒ^ŒÂ”‚ª•s–¾‚È‚Ì‚ÅA0.0‚ğƒXƒgƒbƒp[‚Æ‚İ‚È‚µ‚Ä‚¢‚é
+			if ( l_RecalibEntry[i + 1].dMeasured == 0.0 )				// f[^ÂsÈ‚Ì‚ÅA0.0Xgbp[Æ‚İ‚È‚Ä‚
 				i -= 1;
 		}
 		else {
-			// v2.10ˆÈ~‚ÌƒƒWƒbƒN
+			// v2.10È~ÌƒWbN
 			iMaxEntryNum = recalibProgInfo.iEntryNum + 1;
 			for ( i = 1; i < iMaxEntryNum; i++ ) {
 				if ( l_RecalibEntry[i].dMeasured >= dData ) {
@@ -1449,7 +1467,7 @@ BOOL MEAS_Recalib(LPCTSTR szRecalib, double& dData)
 				}
 			}
 
-			// ƒCƒ“ƒfƒbƒNƒX‚ªÅŒã”ö‚Ìê‡Aƒf[ƒ^ŠÔ‚Éû‚Ü‚é‚æ‚¤‚É‚PŒ¸Z
+			// CfbNXÅŒÌê‡Af[^Ô‚ÉÜ‚æ‚¤É‚PZ
 			if ( i >= iMaxEntryNum - 1 )
 				i = iMaxEntryNum - 2;
 		}
@@ -1471,7 +1489,7 @@ BOOL MEAS_Recalib(LPCTSTR szRecalib, double& dData)
 	return TRUE;
 }
 
-// 2009.09.15 K.Matsuo ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‚Ìƒ}ƒCƒiƒX’l“ü—Í‘Î‰ -->
+// 2009.09.15 K.Matsuo Lu[VÌƒ}CiXlÍ‘Î‰ -->
 // --------------------------------------------------------------------
 // MEAS_RecalibMinusEntry
 BOOL MEAS_RecalibMinusEntry(LPCTSTR szRecalib, double& dData)
@@ -1485,33 +1503,35 @@ BOOL MEAS_RecalibMinusEntry(LPCTSTR szRecalib, double& dData)
 	RECALIB_PROG_INFO recalibProgInfo;
 	int iMaxEntryNum;
 
-// 2009.11.16 K.Matsuo ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“—vE•s—v”»’è -->
+// 2009.11.16 K.Matsuo Lu[VvEsv -->
 	if ( _tcslen(szRecalib) == 0 ) {
-// 2010.02.01 K.Matsuo ƒeƒXƒgƒ‚[ƒhA0•¶š‚Å‚­‚é‚Ì‚ÅAƒVƒXƒeƒ€ƒGƒ‰[‚©‚ç•s—v‚Öæˆµ‚¢‚ğ•ÏX‚·‚é -->
-//		// ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‚Ìƒf[ƒ^w’èŒë‚èiƒVƒXƒeƒ€ƒGƒ‰[j
+// 2010.02.01 K.Matsuo eXg[hA0Å‚Ì‚ÅAVXeG[svÖæˆµÏX -->
+//		// Lu[VÌƒf[^wiVXeG[j
 //		return FALSE;
 		return TRUE;
-// 2010.02.01 K.Matsuo ƒeƒXƒgƒ‚[ƒhA0•¶š‚Å‚­‚é‚Ì‚ÅAƒVƒXƒeƒ€ƒGƒ‰[‚©‚ç•s—v‚Öæˆµ‚¢‚ğ•ÏX‚·‚é <--
+// 2010.02.01 K.Matsuo eXg[hA0Å‚Ì‚ÅAVXeG[svÖæˆµÏX <--
 	}
 
 	if ( IsNoRecalibration(szRecalib) ) {
-		// ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“•s—v‚È‚Ì‚ÅAƒŠƒ^[ƒ“‚·‚é
+		// Lu[VsvÈ‚Ì‚ÅA^[
 		return TRUE;
 	}
-// 2009.11.16 K.Matsuo ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“—vE•s—v”»’è <--
+// 2009.11.16 K.Matsuo Lu[VvEsv <--
 
-	// ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“PGM‚Ìƒf[ƒ^æ“¾
+	// Lu[VPGMÌƒf[^æ“¾
 	if ( !RecipeFile_LoadRecipe(&recalibProgInfo, szRecalib, RECIPE_FILE_RECALIBRATION_PROGRAM) )
 		return FALSE;
-/* added 2010.05.11 hmenjo ƒŠƒLƒƒƒŠƒu’PˆÊƒoƒOC³ ---------- { ---------- */
+/* added 2010.05.11 hmenjo LuPÊƒoOC ---------- { ---------- */
 	if (1 == recalibProgInfo.wUnits) {
-		/* ’PˆÊ‚ª[A]‚Ìê‡‚Ì‚İ[nm]‚É•ÏŠ·‚µ‚Ü‚·D	*/
-		for (int i = 0; i < RECALIB_MAX_ENTRY; i++) {
+		/* PÊ‚[A]Ìê‡Ì‚[nm]É•ÏŠÜ‚D	*/
+		int i;
+
+		for ( i = 0; i < RECALIB_MAX_ENTRY; i++) {
 			recalibProgInfo.RecalibEntry[i].dActual /= 10.0;
 			recalibProgInfo.RecalibEntry[i].dMeasured /= 10.0;
 		}
 	}
-/* added 2010.05.11 hmenjo ƒŠƒLƒƒƒŠƒu’PˆÊƒoƒOC³ ---------- } ---------- */
+/* added 2010.05.11 hmenjo LuPÊƒoOC ---------- } ---------- */
 
 	int i = 0;
 	iMaxEntryNum = recalibProgInfo.iEntryNum;
@@ -1523,7 +1543,7 @@ BOOL MEAS_RecalibMinusEntry(LPCTSTR szRecalib, double& dData)
 			}
 		}
 
-		// ƒCƒ“ƒfƒbƒNƒX‚ªÅŒã”ö‚Ìê‡Aƒf[ƒ^ŠÔ‚Éû‚Ü‚é‚æ‚¤‚É‚PŒ¸Z
+		// CfbNXÅŒÌê‡Af[^Ô‚ÉÜ‚æ‚¤É‚PZ
 		if ( i >= iMaxEntryNum - 1 )
 			i = iMaxEntryNum - 2;
 
@@ -1540,7 +1560,7 @@ BOOL MEAS_RecalibMinusEntry(LPCTSTR szRecalib, double& dData)
 
 	return TRUE;
 }
-// 2009.09.15 K.Matsuo ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‚Ìƒ}ƒCƒiƒX’l“ü—Í‘Î‰ <--
+// 2009.09.15 K.Matsuo Lu[VÌƒ}CiXlÍ‘Î‰ <--
 
 // --------------------------------------------------------------------
 // MEAS_GetStratetyType
@@ -1549,20 +1569,20 @@ void MEASYSAPI MEAS_GetStratetyType(BOOL& bSr, BOOL& bSe, BOOL& bStress, LPCTSTR
 	BOOL bUsesReflectometer = FALSE;
 	BOOL bUsesEllipsometer = FALSE;
 
-// 2009.12.07 K.Matsuo ƒXƒgƒ‰ƒeƒW[”Ô†1‚ÍAƒŠƒXƒg‘ÎÛŠO -->
+// 2009.12.07 K.Matsuo XgeW[Ô1ÍAXgÎÛŠO -->
 	if ( atoi(pszStrategyEntry) == 1 ) {
 		bSr = FALSE;
 		bSe = FALSE;
 		bStress = FALSE;
 		return;
 	}
-// 2009.12.07 K.Matsuo ƒXƒgƒ‰ƒeƒW[”Ô†1‚ÍAƒŠƒXƒg‘ÎÛŠO <--
+// 2009.12.07 K.Matsuo XgeW[Ô1ÍAXgÎÛŠO <--
 
 // 2009.12.15 K.Matsuo Stress Type -->
-//	 "(STR)"‚ğŠÜ‚ŞƒXƒgƒ‰ƒeƒW[–¼‚ÍAƒXƒgƒŒƒX—p‚ÌƒXƒgƒ‰ƒeƒW[‚ğ¦‚·B
-//	iADAP‘¤ƒXƒgƒ‰ƒeƒW[ì¬Ò‚Æ‚Ìƒl[ƒ~ƒ“ƒOƒ‹[ƒ‹‚Å‰^—p‚µ‚Ä‚¢‚éBj
-//	 ƒXƒgƒŒƒX—pƒXƒgƒ‰ƒeƒW[‚ÍA–Œ‚ª1‘wiThick1j‚Å’è‹`‚³‚ê‚Ä‚¢‚é‚Í‚¸‚Å‚ ‚èA
-//	 ÀÛ‚ª‘½‘w–Œ‚Å‚ ‚Á‚Ä‚àA1‘w‚É‚Ü‚Æ‚ß‚Ä’è‹`‚³‚ê‚½A“Á•Ê‚ÈƒXƒgƒ‰ƒeƒW[‚ªì¬‚³‚ê‚Ä‚¢‚éB
+//	 "(STR)"Ü‚ŞƒXgeW[ÍAXgXpÌƒXgeW[B
+//	iADAPXgeW[ì¬Ò‚Æ‚Ìƒl[~O[Å‰^pÄ‚Bj
+//	 XgXpXgeW[ÍA1wiThick1jÅ’`Ä‚Í‚Å‚A
+//	 Û‚wÅ‚Ä‚A1wÉ‚Ü‚Æ‚ß‚Ä’`ê‚½AÊ‚ÈƒXgeW[ì¬Ä‚B
 	LPCTSTR pszSTR = _T("(STR)");
 	if ( strstr(pszStrategyEntry, pszSTR) ) {
 		bSr = FALSE;
@@ -1614,7 +1634,7 @@ BOOL MEASYSAPI MEAS_SeHead_CloseLampShutter(void)
 	return pSeMeasure->CloseShutter();
 }
 
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ -->
 // --------------------------------------------------------------------
 // MEAS_CompEASEHead_IsStatus
 int MEAS_CompEASEHead_IsStatus(void)
@@ -1652,7 +1672,7 @@ BOOL MEASYSAPI MEAS_CompEASEHead_CloseLampShutter(void)
 {
 	return pCompEASEMeasure->CloseShutter();
 }
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ <--
 
 // --------------------------------------------------------------------
 // MEAS_PrepareForStressMeasure
@@ -1675,10 +1695,14 @@ BOOL MEAS_PrepareForStressMeasure(int iMode, LPCTSTR pszSampleId, const MAIN_RCP
 
 	::ZeroMemory(smStressResultDataBase.GetSharedMemoryPtr(), sizeof(STRESSRESULT));
 	::ZeroMemory(thicknessForStress, sizeof(thicknessForStress));
-	for ( int i = 0; i < STRESS_LINES_MAX; i++ ) {
+	int i;
+
+	for ( i = 0; i < STRESS_LINES_MAX; i++ ) {
 		thicknessForStress[i].bValidLine = g_prepareData.pStageProgStress->Line[i].bValidLine;
 		if ( thicknessForStress[i].bValidLine ) {
-			for ( int j = 0; j < STRESS_SECTIONS_MAX; j++ ) {
+			int j;
+
+			for ( j = 0; j < STRESS_SECTIONS_MAX; j++ ) {
 				if ( !g_prepareData.pStageProgStress->Line[i].bScanValid[j] )
 					continue;
 				thicknessForStress[i].lScanPosY = g_prepareData.pStageProgStress->Line[i].SectPos[j].lScanPosY;
@@ -1707,7 +1731,7 @@ BOOL MEAS_PrepareForStressMeasure(int iMode, LPCTSTR pszSampleId, const MAIN_RCP
 	}
 	//Saiki 20110314 Add <-----
 
-	// ‚±‚±‚Åƒƒ‚ƒŠ‚É‘‚«–ß‚·
+	// ÅƒÉß‚
 	if ( g_prepareData.iStressMode == 1 ) {
 		if ( !ReadReferenceData(g_prepareData.pszSampleId) )
 			return FALSE;
@@ -1720,7 +1744,7 @@ BOOL MEAS_PrepareForStressMeasure(int iMode, LPCTSTR pszSampleId, const MAIN_RCP
 // ReadReferenceData
 BOOL MEASYSAPI ReadReferenceData(LPCTSTR pszSampleId)
 {
-//[C:\NanoSpec\RESULT\ƒTƒ“ƒvƒ‹ID –¼\%StressReference%\StressRefRawData.dat]
+//[C:\NanoSpec\RESULT\TvID \%StressReference%\StressRefRawData.dat]
 //[MainRecipe]
 //Name=SrHeadDesktop
 //[ValidScanLine]
@@ -1749,7 +1773,10 @@ BOOL MEASYSAPI ReadReferenceData(LPCTSTR pszSampleId)
 //	sprintf(szFilePath, "%s%s%s%s%s%s", g_tszBaseDir, "RESULT\\", pszSampleId, "\\", STRESS_REFERENCE_NAME, "\\StressRefRawData.dat");
 	sprintf(szFilePath, "%s%s%s%s", g_tszBaseDir, "DATA\\REF\\StressRef\\", pszSampleId, DAT_EXT);
 
-	for ( int iLine = 0; iLine < STRESS_LINES_MAX; iLine++ ) {
+	int iLine;
+
+
+	for ( iLine = 0; iLine < STRESS_LINES_MAX; iLine++ ) {
 		sprintf(szLineKeyName, "Line%dValidScan", iLine + 1);
 		GetPrivateProfileString(pszSectionName, szLineKeyName, "FALSE", szBuff, sizeof(szBuff), szFilePath);
 		bLineValidScan[iLine] = (strcmp(szBuff, "TRUE") == 0);
@@ -1757,18 +1784,25 @@ BOOL MEASYSAPI ReadReferenceData(LPCTSTR pszSampleId)
 
 //	double dDeflArray[DEFL_CNT_MAX][2];
 	double** dDeflArray = new double*[DEFL_CNT_MAX];
-	for ( int i = 0; i < DEFL_CNT_MAX; i++ )
+	int i;
+
+	for ( i = 0; i < DEFL_CNT_MAX; i++ )
 		dDeflArray[i] = new double[2];
 
 	TRY
 	{
 		CStdioFile stdioFile(szFilePath, CFile::modeRead);
-		for ( int iLine = 0; iLine < STRESS_LINES_MAX; iLine++ ) {
+		int iLine;
+
+		for ( iLine = 0; iLine < STRESS_LINES_MAX; iLine++ ) {
 			if ( !bLineValidScan[iLine] ) {
 				continue;
 			}
 
-			for ( int i = 0; i < DEFL_CNT_MAX; i++ )
+			int i;
+
+
+			for ( i = 0; i < DEFL_CNT_MAX; i++ )
 				::ZeroMemory(dDeflArray[i], sizeof(double) * 2);
 
 			sprintf(szLineKeyName, "[Line%d]", iLine + 1);
@@ -1852,12 +1886,12 @@ void MEASYSAPI MEAS_StressCancel()
 	pStressMeasure->Cancel();
 }
 
-/* added 2009.10.23 hmenjo CTA API ’è‹`’Ç‰Á ---------- { ---------- */
+/* added 2009.10.23 hmenjo CTA API `Ç‰ ---------- { ---------- */
 /*
- *	CTA ‘ª’èƒ‚[ƒhİ’è
- *		MEAS_CTA_MODE_1 ƒ‚[ƒh‚PFŠî”Â’PˆÊEƒIƒyƒŒ[ƒ^ƒf[ƒ^Šm”F‚È‚µ
- *		MEAS_CTA_MODE_2 ƒ‚[ƒh‚QFŠî”Â’PˆÊEƒIƒyƒŒ[ƒ^ƒf[ƒ^Šm”F‚ ‚è
- *		MEAS_CTA_MODE_3 ƒ‚[ƒh‚RFƒJƒZƒbƒg’PˆÊEƒIƒyƒŒ[ƒ^ƒf[ƒ^Šm”F‚ ‚è
+ *	CTA èƒ‚[hİ’
+ *		MEAS_CTA_MODE_1 [hPFÂ’PÊEIy[^f[^mFÈ‚
+ *		MEAS_CTA_MODE_2 [hQFÂ’PÊEIy[^f[^mF
+ *		MEAS_CTA_MODE_3 [hRFJZbgPÊEIy[^f[^mF
  */
 BOOL MEASYSAPI MEAS_CtaModeSet(int iCtaMode)
 {
@@ -1868,22 +1902,22 @@ BOOL MEASYSAPI MEAS_CtaModeSet(int iCtaMode)
 	return lgs_pclsCCtaCtrl->Cta_ModeSet(iCtaMode);
 }
 /*
- *	CTA Šî”ÂŒú‚İİ’è
+ *	CTA ÂŒİİ’
  */
 BOOL MEASYSAPI MEAS_CtaSetThick(
-		DWORD dwThick			/* Šî”ÂŒú‚İî•ñ[0.1mm]C”ÍˆÍ(0.0`10.0mm)	*/
+		DWORD dwThick			/* ÂŒİ[0.1mm]CÍˆ(0.0`10.0mm)	*/
 	)
 {
 	if (0 == lgs_pclsCCtaCtrl) {
 		return FALSE;
 	}
 
-	::ZeroMemory(lg_smCtaResultDataBase.GetSharedMemoryPtr(), sizeof(CTARESULT));	/* CTA —p‹¤—LƒGƒŠƒA ƒNƒŠƒA	*/
+	::ZeroMemory(lg_smCtaResultDataBase.GetSharedMemoryPtr(), sizeof(CTARESULT));	/* CTA pLGA NA	*/
 
 	return lgs_pclsCCtaCtrl->Cta_SetThick(dwThick);
 }
 /*
- *	CTA ‘ª’èI—¹
+ *	CTA I
  */
 BOOL MEASYSAPI MEAS_CtaMeasEnd(void)
 {
@@ -1894,7 +1928,7 @@ BOOL MEASYSAPI MEAS_CtaMeasEnd(void)
 	return lgs_pclsCCtaCtrl->Cta_MeasEnd();
 }
 /*
- *	CTA ‹­§I—¹
+ *	CTA I
  */
 BOOL MEASYSAPI MEAS_CtaForceEnd(void)
 {
@@ -1905,7 +1939,7 @@ BOOL MEASYSAPI MEAS_CtaForceEnd(void)
 	return lgs_pclsCCtaCtrl->Cta_ForceEnd();
 }
 /*
- *	CTA ‰Šú‰»
+ *	CTA 
  */
 BOOL MEASYSAPI MEAS_CtaInitialize(void)
 {
@@ -1916,19 +1950,19 @@ BOOL MEASYSAPI MEAS_CtaInitialize(void)
 	return lgs_pclsCCtaCtrl->Cta_Initialize();
 }
 /*
- *	ƒŠƒLƒƒƒŠƒu‚Ìƒ‰ƒbƒp
+ *	LuÌƒbp
  */
 BOOL CtaRecalib(LPCTSTR szRecalib, double& dData)
 {
 	return MEAS_Recalib(szRecalib, dData);
 }
 /*
- *	CTA ƒJƒZƒbƒg IDCŠî”Â ID İ’è
+ *	CTA JZbg IDC ID İ’
  */
 BOOL MEASYSAPI MEAS_CtaSetCstSample(
-		LPCSTR pstrCstID,					/* ƒJƒZƒbƒg ID	FASCII 80 •¶š */
-		LPCSTR pstrSampleID,				/* Šî”Â ID		FASCII 80 •¶š */
-		const MAIN_RCP_INFO* pMainRcpInfo	/* ƒƒCƒ“ƒŒƒVƒs‚ÌƒAƒhƒŒƒX	*/
+		LPCSTR pstrCstID,					/* JZbg ID	FASCII 80  */
+		LPCSTR pstrSampleID,				/*  ID		FASCII 80  */
+		const MAIN_RCP_INFO* pMainRcpInfo	/* CVsÌƒAhX	*/
 	)
 {
 	if (0 == lgs_pclsCCtaCtrl) {
@@ -1938,7 +1972,7 @@ BOOL MEASYSAPI MEAS_CtaSetCstSample(
 	return lgs_pclsCCtaCtrl->Cta_SetCstSample(pstrCstID, pstrSampleID, pMainRcpInfo);
 }
 /*
- *	CTA ó‘Ôæ“¾
+ *	CTA Ôæ“¾
  */
 BOOL MEASYSAPI MEAS_CtaGetStatus(long* plStatus)
 {
@@ -1948,7 +1982,7 @@ BOOL MEASYSAPI MEAS_CtaGetStatus(long* plStatus)
 
 	return lgs_pclsCCtaCtrl->Cta_GetStatus(plStatus);
 }
-/* added 2009.10.23 hmenjo CTA API ’è‹`’Ç‰Á ---------- } ---------- */
+/* added 2009.10.23 hmenjo CTA API `Ç‰ ---------- } ---------- */
 
 #if 0 // 2014.04.04 bagus wavelength step modified -->
 // //2010.01.11 bagus GTR --{--
@@ -1978,7 +2012,7 @@ double MEASYSAPI MEAS_GetScanGTrReferenceData(int iRefPos,double dWave)
 }
 #endif // 2014.04.04 bagus wavelength step modified <--
 
-/* added 2014.11.25 hmenjo XMP •\¦/”ñ•\¦ ---------- { ---------- */
+/* added 2014.11.25 hmenjo XMP \/\ ---------- { ---------- */
 BOOL MEASYSAPI MEAS_ShowXmp(int iShow)
 {
 	if (0 == pXmp) {
@@ -1987,9 +2021,9 @@ BOOL MEASYSAPI MEAS_ShowXmp(int iShow)
 
 	return pXmp->ShowXmp(iShow);
 }
-/* added 2014.11.25 hmenjo XMP •\¦/”ñ•\¦ ---------- } ---------- */
+/* added 2014.11.25 hmenjo XMP \/\ ---------- } ---------- */
 
-/* added 2016.02.24 hmenjo ƒoƒbƒ`ˆ— ---------- { ---------- */
+/* added 2016.02.24 hmenjo ob` ---------- { ---------- */
 long MEASYSAPI MEAS_BatchFlagSet(long lBatchFlag)
 {
 	g_lBatchFlag = lBatchFlag;
@@ -2000,4 +2034,4 @@ long MEASYSAPI MEAS_BatchFlagGet(void)
 {
 	return g_lBatchFlag;
 }
-/* added 2016.02.24 hmenjo ƒoƒbƒ`ˆ— ---------- } ---------- */
+/* added 2016.02.24 hmenjo ob` ---------- } ---------- */

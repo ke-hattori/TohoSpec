@@ -8,7 +8,7 @@
 #include "Mojiretsu.h"
 #include "Xmp.h"
 
-// XMPóp
+// XMPp
 #define DDE_SERVICE 			 		_T("jaw_adap")
 #define DDE_TOPIC				 		_T("dde")
 #define DDE_ITEM				 		_T("results")
@@ -97,7 +97,7 @@ BOOL CXmp::RunXmp()
 {
 	TRACE(_T("CXmp::RunXmp()\n"));
 
-	// XMP ãNìÆÅiAdap ãNìÆÅj
+	// XMP NiAdap Nj
 	STARTUPINFO si;
 	PROCESS_INFORMATION pi;
 	char szAdapExePath[MAX_PATH];
@@ -117,30 +117,32 @@ BOOL CXmp::RunXmp()
 	else{
 		strcpy(szAdapExePath, ADAP_EXE_PATH);
 	}
-/* added 2014.05.22 hmenjo SC_adap timeout ëŒçÙ ---------- { ---------- */
-/* modified 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ---------- { ---------- */
+/* added 2014.05.22 hmenjo SC_adap timeout Œç ---------- { ---------- */
+/* modified 2014.11.25 hmenjo XMP \/\ ---------- { ---------- */
 //	BOOL bSC_Adap = FALSE;
-/* modified 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ----------              */
+/* modified 2014.11.25 hmenjo XMP \/\ ----------              */
 	BOOL m_bSC_Adap = FALSE;
-/* modified 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ---------- } ---------- */
+/* modified 2014.11.25 hmenjo XMP \/\ ---------- } ---------- */
 	char szLowerAdapExePath[MAX_PATH];
 	memset(szLowerAdapExePath, 0, sizeof(szLowerAdapExePath));
-	for(int i = 0; i < strlen(srXmp.szAdapExePath); i++){
+	int i;
+
+	for ( i = 0; i < strlen(srXmp.szAdapExePath); i++){
 		szLowerAdapExePath[i] = tolower(srXmp.szAdapExePath[i]);
 	}
-/* modified 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ---------- { ---------- */
+/* modified 2014.11.25 hmenjo XMP \/\ ---------- { ---------- */
 //	bSC_Adap = (strstr(szLowerAdapExePath, "sc_adap.exe") != NULL);
-/* modified 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ----------              */
+/* modified 2014.11.25 hmenjo XMP \/\ ----------              */
 	m_bSC_Adap = (strstr(szLowerAdapExePath, "sc_adap.exe") != NULL);
-/* modified 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ---------- } ---------- */
+/* modified 2014.11.25 hmenjo XMP \/\ ---------- } ---------- */
 
 	DWORD l_dwSC2cnt = 5;	/* default	*/
-/* modified 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ---------- { ---------- */
+/* modified 2014.11.25 hmenjo XMP \/\ ---------- { ---------- */
 //	if (FALSE != bSC_Adap) {
-/* modified 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ----------              */
+/* modified 2014.11.25 hmenjo XMP \/\ ----------              */
 	if (FALSE != m_bSC_Adap) {
-/* modified 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ---------- } ---------- */
-		/* ÉXÉgÉâÉeÉW(ÉfÉBÉåÉNÉgÉä)ÇÉJÉEÉìÉg	*/
+/* modified 2014.11.25 hmenjo XMP \/\ ---------- } ---------- */
+		/* XgeW(fBNg)JEg	*/
 		CString l_strStrategyListPath = srXmp.szStrategyListPath;
 		CString l_strStrategyDir;
 		if (-1 != l_strStrategyListPath.ReverseFind('\\')) {
@@ -180,7 +182,7 @@ BOOL CXmp::RunXmp()
 			}
 		}
 	}
-/* added 2014.05.22 hmenjo SC_adap timeout ëŒçÙ ---------- } ---------- */
+/* added 2014.05.22 hmenjo SC_adap timeout Œç ---------- } ---------- */
 
 	// Start the child process.
 	if ( !::CreateProcess(NULL, szAdapExePath, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi) )
@@ -197,43 +199,44 @@ BOOL CXmp::RunXmp()
 	CTimer timer;
 
 // 2014.03.08 bagus SCOUT modified -->
-// 	// Wvase32Ç™ê≥èÌãNìÆÇµÇΩÇ©É`ÉFÉbÉN
+// 	// Wvase32N`FbN
 // 	timer.Restart(10);
 // 	while ( (hWnd = ::FindWindow(NULL, srXmp.szWvaseWindowTitle)) == NULL )	{
 // 		if ( timer.IsTimeout() ) {
-// 			// WVASE32âûìöÉ^ÉCÉÄÉAÉEÉgÉGÉâÅ[
+// 			// WVASE32^CAEgG[
 // 			::MessageBox(NULL, pMojiretsu->LoadString(IDS_STRING22), g_szMsgBoxCaption, MB_OK | MB_ICONSTOP);
 // 			return FALSE;
 // 		}
 // 		::Sleep(10);
 // 	}
 
-/* deleted 2014.05.22 hmenjo SC_adap timeout ëŒçÙ ---------- { ---------- */
+/* deleted 2014.05.22 hmenjo SC_adap timeout Œç ---------- { ---------- */
 //	BOOL bSC_Adap = FALSE;
 //
 //	char szLowerAdapExePath[MAX_PATH];
 //	memset(szLowerAdapExePath, 0, sizeof(szLowerAdapExePath));
-//	for(int i = 0; i < strlen(srXmp.szAdapExePath); i++){
+//	int i;
+	for ( i = 0; i < strlen(srXmp.szAdapExePath); i++){
 //		szLowerAdapExePath[i] = tolower(srXmp.szAdapExePath[i]);
 //	}
 //	bSC_Adap = (strstr(szLowerAdapExePath, "sc_adap.exe") != NULL);
-/* deleted 2014.05.22 hmenjo SC_adap timeout ëŒçÙ ---------- } ---------- */
+/* deleted 2014.05.22 hmenjo SC_adap timeout Œç ---------- } ---------- */
 
-	// Wvase32Ç™ê≥èÌãNìÆÇµÇΩÇ©É`ÉFÉbÉN
+	// Wvase32N`FbN
 	timer.Restart(60);
 
-/* modified 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ---------- { ---------- */
+/* modified 2014.11.25 hmenjo XMP \/\ ---------- { ---------- */
 //	if(bSC_Adap){
-/* modified 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ----------              */
+/* modified 2014.11.25 hmenjo XMP \/\ ----------              */
 	if (FALSE != m_bSC_Adap) {
-/* modified 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ---------- } ---------- */
+/* modified 2014.11.25 hmenjo XMP \/\ ---------- } ---------- */
 		g_bScoutAppExist = FALSE;
 		strcpy(g_szWindowTitle, srXmp.szWvaseWindowTitle);
 		while(TRUE){
 			EnumWindows(EnumWindowsProc, 0);
 			if(!g_bScoutAppExist){
 				if ( timer.IsTimeout() ) {
-					// SCOUTâûìöÉ^ÉCÉÄÉAÉEÉgÉGÉâÅ[
+					// SCOUT^CAEgG[
 					::MessageBox(NULL, pMojiretsu->LoadString(IDS_STRING24), g_szMsgBoxCaption, MB_OK | MB_ICONSTOP);
 					return FALSE;
 				}
@@ -247,7 +250,7 @@ BOOL CXmp::RunXmp()
 	else{
 		while ( (hWnd = ::FindWindow(NULL, srXmp.szWvaseWindowTitle)) == NULL )	{
 			if ( timer.IsTimeout() ) {
-				// WVASE32âûìöÉ^ÉCÉÄÉAÉEÉgÉGÉâÅ[
+				// WVASE32^CAEgG[
 				::MessageBox(NULL, pMojiretsu->LoadString(IDS_STRING22), g_szMsgBoxCaption, MB_OK | MB_ICONSTOP);
 				return FALSE;
 			}
@@ -258,53 +261,53 @@ BOOL CXmp::RunXmp()
 
 // 2014.03.08 bagus SCOUT modified -->
 //	::ShowWindow(hWnd, SW_HIDE);
-/* modified 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ---------- { ---------- */
+/* modified 2014.11.25 hmenjo XMP \/\ ---------- { ---------- */
 //	if(!bSC_Adap){
-/* modified 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ----------              */
+/* modified 2014.11.25 hmenjo XMP \/\ ----------              */
 	if (FALSE == m_bSC_Adap) {
-/* modified 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ---------- } ---------- */
+/* modified 2014.11.25 hmenjo XMP \/\ ---------- } ---------- */
 		::ShowWindow(hWnd, SW_HIDE);
 	}
 // 2014.03.08 bagus SCOUT modified <--
 
-	// XMP DDE í êMäJén
+	// XMP DDE  êMJn
 	CDdeClient xmpDde;
 	xmpDde.Init();
-/* modified 2014.05.22 hmenjo SC_adap timeout ëŒçÙ ---------- { ---------- */
+/* modified 2014.05.22 hmenjo SC_adap timeout Œç ---------- { ---------- */
 //	timer.Restart(10);
-/* modified 2014.05.22 hmenjo SC_adap timeout ëŒçÙ ----------              */
+/* modified 2014.05.22 hmenjo SC_adap timeout Œç ----------              */
 	double l_dAdapTimeout = 10.0;
-/* modified 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ---------- { ---------- */
+/* modified 2014.11.25 hmenjo XMP \/\ ---------- { ---------- */
 //	if (FALSE != bSC_Adap) {
-/* modified 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ----------              */
+/* modified 2014.11.25 hmenjo XMP \/\ ----------              */
 	if (FALSE != m_bSC_Adap) {
-/* modified 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ---------- } ---------- */
+/* modified 2014.11.25 hmenjo XMP \/\ ---------- } ---------- */
 		double l_dTO_ScoutStart = 30.0;		/* [s]	*/
 		double l_dTO_ReadSC2 = 12.0;		/* [s]	*/
 		l_dAdapTimeout = l_dTO_ScoutStart + (l_dTO_ReadSC2 * l_dwSC2cnt);
 	}
 	timer.Restart(l_dAdapTimeout);
-/* modified 2014.05.22 hmenjo SC_adap timeout ëŒçÙ ---------- } ---------- */
+/* modified 2014.05.22 hmenjo SC_adap timeout Œç ---------- } ---------- */
 	while ( !xmpDde.Connect(DDE_SERVICE, DDE_TOPIC) ) {
 		if ( timer.IsTimeout() ) {
-			// DDE Communication É^ÉCÉÄÉAÉEÉgÉGÉâÅ[
+			// DDE Communication ^CAEgG[
 			::MessageBox(NULL, pMojiretsu->LoadString(IDS_STRING23), g_szMsgBoxCaption, MB_OK | MB_ICONSTOP);
 			return FALSE;
 		}
 		else
 			::Sleep(10);
 	};
-	xmpDde.Execute(_T("WindowState(1)"));		// XMP unvisibleÇ…Ç∑ÇÈ
+	xmpDde.Execute(_T("WindowState(1)"));		// XMP unvisible…Ç
 	xmpDde.Disconnect();
 	xmpDde.Uninit();
 
 // 2014.03.08 bagus SCOUT modified -->
 //	::ShowWindow(hWnd, SW_HIDE);
-/* modified 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ---------- { ---------- */
+/* modified 2014.11.25 hmenjo XMP \/\ ---------- { ---------- */
 //	if(!bSC_Adap){
-/* modified 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ----------              */
+/* modified 2014.11.25 hmenjo XMP \/\ ----------              */
 	if (FALSE == m_bSC_Adap) {
-/* modified 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ---------- } ---------- */
+/* modified 2014.11.25 hmenjo XMP \/\ ---------- } ---------- */
 		::ShowWindow(hWnd, SW_HIDE);
 	}
 // 2014.03.08 bagus SCOUT modified <--
@@ -318,7 +321,7 @@ void CXmp::ShutDownXmp()
 {
 	TRACE(_T("CXmp::ShutDownXmp()\n"));
 
-	// XMP DDE í êMèIóπ
+	// XMP DDE  êMI
 	CDdeClient xmpDde;
 	xmpDde.Init();
 	xmpDde.Connect(DDE_SERVICE, DDE_TOPIC);
@@ -338,21 +341,21 @@ BOOL CXmp::DoXmp(LPTSTR pszXmpDdeText, LPCTSTR pszCmd, CDdeClient* pXmpDde)
 
 	pXmpDde->Execute(pszCmd);
 
-	// DDEí êMÇ≈ADAPÇ©ÇÁåãâ éÊìæ
+	// DDE êMADAPÁåã éÊìæ
 	if ( !pXmpDde->DataCopy(szBuff, DDE_ITEM) )	{
-		// DDEí êMÉGÉâÅ[
+		// DDE êMG[
 		return FALSE;
 	}
-	// WVASE32åvéZíÜÇÃÇΩÇﬂåãâ ë“ÇøÅBADAPÇÕÅAWVASE32.EXEÇÃFITílÇéÊìæÇ∑ÇÈÇ‹Ç≈ÇÃä‘ÅA""Çï‘ãpÇµÇƒÇ≠ÇÈ
+	// WVASE32vZÃÇﬂå ë“ÇBADAPÕÅAWVASE32.EXEFITlÊìæ‹Ç≈ÇÃä‘ÅA""‘ãpƒÇ
 	timer.Restart(ADAPTIMEOUT);
 	while ( _tcscmp(szBuff, _T("")) == 0 ) {
 		if ( timer.IsTimeout() ) {
-			// WVASE32âûìöÉ^ÉCÉÄÉAÉEÉgÉGÉâÅ[
+			// WVASE32^CAEgG[
 			return FALSE;
 		}
 		::Sleep(10);
 		if ( !pXmpDde->DataCopy(szBuff, DDE_ITEM) )	{
-			// DDEí êMÉGÉâÅ[
+			// DDE êMG[
 			return FALSE;
 		}
 	}
@@ -366,7 +369,7 @@ BOOL CXmp::DoXmp(LPTSTR pszXmpDdeText, LPCTSTR pszCmd, CDdeClient* pXmpDde)
 	return TRUE;
 }
 
-/* added 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ---------- { ---------- */
+/* added 2014.11.25 hmenjo XMP \/\ ---------- { ---------- */
 BOOL CXmp::ShowXmp(int iShow)
 {
 	TRACE(_T("CXmp::ShowXmp()\n"));
@@ -379,7 +382,7 @@ BOOL CXmp::ShowXmp(int iShow)
 		case 1:
 		case 2:
 			{
-				/* xmp Ç…ï\é¶/îÒï\é¶	*/
+				/* xmp …ï\/\	*/
 				int l_iCmd = 1;
 				switch (iShow) {
 				case 1:		l_iCmd = 1;	break;
@@ -393,16 +396,16 @@ BOOL CXmp::ShowXmp(int iShow)
 				l_xmpDde.Execute(l_tszCmd);
 				l_xmpDde.Disconnect();
 				l_xmpDde.Uninit();
-				/* ADAP Ç…ï\é¶/îÒï\é¶	*/
+				/* ADAP …ï\/\	*/
 				::ShowWindow(l_hWnd, (1 == l_iCmd)? SW_HIDE : SW_SHOWNORMAL);
 			}
 			break;
 		default:
-			/* âΩÇ‡ÇµÇ»Ç¢	*/
+			/* »Ç	*/
 			break;
 		}
 	}
 
 	return l_bRc;
 }
-/* added 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ---------- } ---------- */
+/* added 2014.11.25 hmenjo XMP \/\ ---------- } ---------- */

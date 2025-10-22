@@ -14,10 +14,12 @@ CScanRange::CScanRange(const MEAS_PROG_INFO* pMeasProgInfo)
 	SR_CONFIG srConfig;
 	ConfigFile_GetNanoSpecIni(&srConfig, CONFIG_FILE_SR_CONFIG);
 
-	// UvMeasure  Žw’è”g’·‚ªMIN_VS_SCANLi‰ÂŽ‹Œõü‰ºŒÀj–¢–ž
-	// VisMeasure Žw’è”g’·‚ªMIN_VS_SCANLi‰ÂŽ‹Œõü‰ºŒÀj‚æ‚è‘å‚«‚¢
+	// UvMeasure  wgMIN_VS_SCANLiÂŽj
+	// VisMeasure wgMIN_VS_SCANLiÂŽjå‚«
 	if ( IsDiscrete(pMeasProgInfo->ScanParams.hdr.wScanType) ) {
-		for ( int i = 0; i < SPECIFIED_WAVELENGTH_MAX; i++ ) {
+		int i;
+
+		for ( i = 0; i < SPECIFIED_WAVELENGTH_MAX; i++ ) {
 			if ( srScanInfo.iSpecificWavelen[i] < MIN_UV_SCAN )
 				continue;
 			if ( srScanInfo.iSpecificWavelen[i] < MIN_VS_SCANL )
@@ -33,7 +35,7 @@ CScanRange::CScanRange(const MEAS_PROG_INFO* pMeasProgInfo)
 			m_bVisMeasure = TRUE;
 	}
 
-	// ‘ª’è”g’·‚ÌŠJŽnEI—¹‚ðÝ’è
+	// gÌŠJnEIÝ’
 	if ( m_bUvMeasure ) {
 		m_iScanStart = MIN_UV_SCAN;
 		if ( !m_bVisMeasure )

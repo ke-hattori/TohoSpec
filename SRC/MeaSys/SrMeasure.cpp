@@ -5,9 +5,9 @@
 #include "ConfigFile.hxx"
 #include "ScanRange.h"
 #include "SrMeasure.h"
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Mod (TohoSpecÎ‰) -->
 #include "System.h"
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Mod (TohoSpecÎ‰) <--
 
 #define SCANDATADIRPATH 						CFG_SYSTEM_DIR
 #define RECALFILENAME							_T("SystemSR.ini")
@@ -19,9 +19,9 @@
 
 extern CLogFile* pLogFile;
 extern BOOL bHwSimulation;
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ---------- { ---------- */
-extern TCHAR g_tszProcDir[_MAX_PATH];		/* ŒÄo‚µƒvƒƒZƒX‚ÌƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
-extern TCHAR g_tszBaseDir[_MAX_PATH];		/* Šî€ƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
+/* added 2009.07.07 hmenjo dll ÎƒpXÎ‰ MeaSys.dll ---------- { ---------- */
+extern TCHAR g_tszProcDir[_MAX_PATH];		/* ÄovZXÌƒfBNg('\'t)*/
+extern TCHAR g_tszBaseDir[_MAX_PATH];		/* î€fBNg('\'t)*/
 extern void GetProcBaseDir(LPTSTR ptszProcDir, LPTSTR ptszBaseDir);
 void AddAbsPath(LPTSTR ptszPath)
 {
@@ -35,7 +35,7 @@ void AddAbsPath(LPTSTR ptszPath)
 		_stprintf(ptszPath, _T("%s%s"), g_tszProcDir, l_tszTempFName);
 	}
 }
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ÎƒpXÎ‰ MeaSys.dll ---------- } ---------- */
 
 // --------------------------------------------------------------------------
 // CSrMeasure
@@ -68,12 +68,12 @@ BOOL CSrMeasure::InitInstance()
 	char szVersion[256];
 	char szSaveScanDataLog[32];
 
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ---------- { ---------- */
+/* modified 2009.07.07 hmenjo dll ÎƒpXÎ‰ MeaSys.dll ---------- { ---------- */
 //	  ::GetPrivateProfileString(INISECTION_CCDDATA, INIKEY_SAVESCANDATALOG, "FALSE", szSaveScanDataLog, sizeof(szSaveScanDataLog), CFG_DIR NANOSPEC_INIFILENAME);
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ----------			  */
+/* modified 2009.07.07 hmenjo dll ÎƒpXÎ‰ MeaSys.dll ----------			  */
 	TCHAR l_tszIniPath[_MAX_PATH];
 	GetProcBaseDir(g_tszProcDir, g_tszBaseDir);
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Mod (TohoSpecÎ‰) -->
 //	_stprintf(l_tszIniPath, _T("%s") CFG_DIR NANOSPEC_INIFILENAME, g_tszProcDir);
 
 	CString strFilename;
@@ -83,14 +83,14 @@ BOOL CSrMeasure::InitInstance()
 		strFilename.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
 	}
 	_stprintf(l_tszIniPath, _T("%s%s%s"), CFG_DIR, g_tszProcDir, strFilename);
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Mod (TohoSpecÎ‰) <--
 	::GetPrivateProfileString(INISECTION_CCDDATA, INIKEY_SAVESCANDATALOG, "FALSE", szSaveScanDataLog, sizeof(szSaveScanDataLog), l_tszIniPath);
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ---------- } ---------- */
+/* modified 2009.07.07 hmenjo dll ÎƒpXÎ‰ MeaSys.dll ---------- } ---------- */
 	m_bSaveScanDataLog = ( strcmp(szSaveScanDataLog, "TRUE") == 0 ) ? TRUE : FALSE;
 
 	ConfigFile_GetNanoSpecIni(&m_SrConfig, CONFIG_FILE_SR_CONFIG);
 
-	// SRƒwƒbƒh‚ÌƒCƒ“ƒ^ƒtƒF[ƒX‚ğ‘I‘ğ‚·‚é
+	// SRwbhÌƒC^tF[XI
 	if ( bHwSimulation ) {
 		m_pSrHead = new CSrHeadDesktop();
 		pLogFile->Logging("Sr Head Type : CSrHeadDesktop");
@@ -106,32 +106,32 @@ BOOL CSrMeasure::InitInstance()
 		}
 	}
 
-	// SRƒwƒbƒh‚Ì‰Šú‰»
+	// SRwbhÌ
 	if ( !m_pSrHead->InitInstance() ) {
 		pLogFile->Logging("Sr Head Initialize Error");
 		pLogFile->Logging(m_pSrHead->GetLastError());
 		return FALSE;
 	}
 
-	// SRƒwƒbƒhi=NJPC025j‚Ìƒo[ƒWƒ‡ƒ“î•ñ‚Ìæ“¾
+	// SRwbhi=NJPC025jÌƒo[WÌæ“¾
 	if ( m_pSrHead->GetVersion(szVersion) ) {
 		pLogFile->LoggingV("%s%s", "Sr Head Version : ", szVersion);
 	}
 
-	// SRƒwƒbƒh‚Ìí—Ş‚ğ‘I‘ğ‚·‚é
+	// SRwbhÌŞ‚I
 	if ( m_SrConfig.nHeadType <=3 )	/* SR_HEAD_TYPE_LAH512, SR_HEAD_TYPE_LAH512_THICK, SR_HEAD_TYPE_LAH512_UV */
 		m_iCcdPixels = CCD_PIXEL_512;
 	else
 		m_iCcdPixels = CCD_PIXEL_1024;
 
 
-	// CCDƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‚Ìƒf[ƒ^æ“¾
+	// CCDLu[VÌƒf[^æ“¾
 	CCDCALIB cb;
 	::ZeroMemory(&cb, sizeof(CCDCALIB));
 	if ( !ReadCcdCalibDataFile(&cb) )
 		return FALSE;
 
-	// CCDƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‚Ìì¬
+	// CCDLu[VÌì¬
 	m_pCcdPosFitting = new CCurveFitting(CCD_WCAL_MAX);
 	if ( !m_pCcdPosFitting->SetParamData(cb) )
 		return FALSE;
@@ -176,8 +176,8 @@ BOOL CSrMeasure::Measure(SCANDATA scanData[], int ccdData[], int iMeaSysStatus, 
 
 	m_bRun = TRUE;
 
-	// UvMeasure or VisMeasure or Both!?	// @@@ ƒVƒƒƒbƒ^[ŠJ•Â‚ÍA–{‘Î‰‚ÅAchief‚ª’S“–‚É‚È‚è‚»‚¤
-	// ‘ª’è”g’·‚ÌŠJnEI—¹‚ğİ’è
+	// UvMeasure or VisMeasure or Both!?	// @@@ Vb^[JÂ‚ÍA{Î‰ÅAchiefSÉ‚È‚è‚»
+	// gÌŠJnEIİ’
 	if ( scanRange.IsUvMeasure() ) {
 		// UvMeasure
 		CloseTransShutter(FALSE);												// Transmission Light Off
@@ -316,7 +316,7 @@ double CSrMeasure::GetIntegTime(int iMeaSysStatus, const MEAS_PROG_INFO* pMeasPr
 }
 
 //---------------------------------------------------------------------------
-// UvFinally										/// @@@ ƒVƒƒƒbƒ^[ŠJ•Â‚ÍA–{‘Î‰‚ÅAchief‚ª’S“–‚É‚È‚è‚»‚¤
+// UvFinally										/// @@@ Vb^[JÂ‚ÍA{Î‰ÅAchiefSÉ‚È‚è‚»
 void CSrMeasure::UvFinally()
 {
 	CloseUvShutter();
@@ -356,7 +356,7 @@ BOOL CSrMeasure::OpenUvShutter()
 {
 	TRACE(_T("CSrMeasure::OpenUvShutter()\n"));
 
-	const double dOpenDelay  = 0.8; //'[SEC]                                    // “®ìŠ®—¹‚ğM‚¶‚ÄA‘Ò‚Â‚µ‚©‚È‚¢
+	const double dOpenDelay  = 0.8; //'[SEC]                                    // ìŠ®MÄAÒ‚Â‚È‚
 
 	if ( !m_SrConfig.bUv || !m_SrConfig.bUvAutoShutter )
 		return FALSE;
@@ -377,7 +377,7 @@ BOOL CSrMeasure::CloseUvShutter()
 {
 	TRACE(_T("CSrMeasure::CloseUvShutter()\n"));
 
-	const double dCloseDelay = 0.5; //'[SEC]                                    // “®ìŠ®—¹‚ğM‚¶‚ÄA‘Ò‚Â‚µ‚©‚È‚¢
+	const double dCloseDelay = 0.5; //'[SEC]                                    // ìŠ®MÄAÒ‚Â‚È‚
 
 	if ( !m_SrConfig.bUv || !m_SrConfig.bUvAutoShutter )
 		return FALSE;
@@ -398,7 +398,7 @@ BOOL CSrMeasure::OpenTransShutter()
 {
 	TRACE(_T("CSrMeasure::OpenTransShutter()\n"));
 
-	const double dOpenDelay = 0.5; //'[SEC]                                     // “®ìŠ®—¹‚ğM‚¶‚ÄA‘Ò‚Â‚µ‚©‚È‚¢
+	const double dOpenDelay = 0.5; //'[SEC]                                     // ìŠ®MÄAÒ‚Â‚È‚
 
 	if ( !m_SrConfig.bTransmittance )
 		return FALSE;
@@ -419,7 +419,7 @@ BOOL CSrMeasure::CloseTransShutter(BOOL bWait/*=TRUE*/)
 {
 	TRACE(_T("CSrMeasure::CloseTransShutter()\n"));
 
-	const double dCloseDelay = 0.5; //'[SEC]                                    // “®ìŠ®—¹‚ğM‚¶‚ÄA‘Ò‚Â‚µ‚©‚È‚¢
+	const double dCloseDelay = 0.5; //'[SEC]                                    // ìŠ®MÄAÒ‚Â‚È‚
 
 	if ( !m_SrConfig.bTransmittance )
 		return FALSE;
@@ -442,21 +442,21 @@ BOOL CSrMeasure::CcdScan(int iCcdDataArray[], double dIntegTime, BOOL bProhibitN
 {
 	TRACE(_T("CSrMeasure::CcdScan()\n"));
 
-	// iCcdDataArray[]‚ÉCcdScanŒ‹‰Ê‚ğ•ÒW‚·‚é
+	// iCcdDataArray[]CcdScanÊ‚ÒW
 	int iExposure;
 	iExposure = (int)(dIntegTime * EXPOSURE_NUM);
-/* added 2016.02.24 hmenjo ƒoƒbƒ`ˆ— ---------- { ---------- */
+/* added 2016.02.24 hmenjo ob` ---------- { ---------- */
 	if (1 == g_lBatchFlag) {
-		/* ƒoƒbƒ`—v‹ƒtƒ‰ƒO‚ğ‚Q‚É‚µ‚Ü‚·D	*/
+		/* ob`vtOQÉ‚Ü‚D	*/
 		g_lBatchFlag = 2;
 		pLogFile->Logging("CSrHeadDesktop::CcdScan() for Batch.");
 		CSrHeadDesktop l_pSrHeadDesktop;
 		return l_pSrHeadDesktop.CcdScan(iCcdDataArray, m_iCcdPixels, iExposure, 1, bProhibitNotify);
 	} else {
-		/* ƒoƒbƒ`—v‹ƒtƒ‰ƒO‚ğƒNƒŠƒA	*/
+		/* ob`vtONA	*/
 		g_lBatchFlag = 0;
 	}
-/* added 2016.02.24 hmenjo ƒoƒbƒ`ˆ— ---------- } ---------- */
+/* added 2016.02.24 hmenjo ob` ---------- } ---------- */
 	return m_pSrHead->CcdScan(iCcdDataArray, m_iCcdPixels, iExposure, 1, bProhibitNotify);
 }
 
@@ -484,11 +484,11 @@ void CSrMeasure::GetScanData_Step_1nm(double* DstArray, int MinTRWave, int MaxTR
 {
 	TRACE(_T("CSrMeasure::GetScanData_Step_1nm()\n"));
 
-	// ‘ª’è”g’·‘Sˆæ‚ÌŒõ—ÊZoŠÖ”
-	// ‘ª’è”g’·‚©‚çÀÛ‚Ì”g’·‚²‚Æ‚É‘Î‰‚µ‚½Œõ—Ê‚ğZoi1nm–ˆj
-	// E‘ª’è”g’·‚É‘Î‚·‚éÀÛ‚ÌƒfƒBƒeƒNƒ^ˆÊ’u‚ÍA”g’·iPix = m_ccdPosFitting.GetFitValue(double(p))‚Å‹‚ß‚é
-	// EÀÛ‚Ì”g’·‚ÌŒõ—Ê‚ÍA2“_üŒ`‰ÁdZo–@‚Å‹‚ß‚é
-	//	 i3“_”ä—¦‚Å‹‚ß‰Ád‚µ‚½2“_Zo‚µA‚»‚Ì2“_‚ÌüŒ`”ä—¦‚Å‰Ád‚·‚éj
+	// gSÌŒÊZoÖ
+	// gÛ‚Ì”gÆ‚É‘Î‰Ê‚Zoi1nmj
+	// EgÉ‘Î‚Û‚ÌƒfBeN^Ê’uÍAgiPix = m_ccdPosFitting.GetFitValue(double(p))Å‹ß‚
+	// EÛ‚Ì”gÌŒÊ‚ÍA2_`dZo@Å‹ß‚
+	//	 i3_ä—¦Å‹ß‰d2_ZoA2_Ì`ä—¦Å‰dj
 	int iPix;
 	double dPix;
 	double ddPix;
@@ -497,10 +497,13 @@ void CSrMeasure::GetScanData_Step_1nm(double* DstArray, int MinTRWave, int MaxTR
 	double dData;
 	int iIndex;
 
-	for ( int p = MinTRWave; p < MaxTRWave+1; p++ ) {
+	int p;
+
+
+	for ( p = MinTRWave; p < MaxTRWave+1; p++ ) {
 		dPix = m_pCcdPosFitting->GetFitValue(double(p));
 		iPix = (int)dPix;
-// ‰Ád•½‹ÏŒvZ‚ÌŠÖŒW‚ÅAƒCƒ“ƒfƒbƒNƒXQÆ‚ª•s³‚ÈˆÊ’u‚É‚È‚é‚Ì‚ÅA’[‚Ì‚P‚Â“à‘¤‚Ü‚Å‚µ‚©—˜—p‚µ‚È‚¢‚æ‚¤‚ÉC³
+// dÏŒvZÌŠÖŒWÅACfbNXQÆ‚sÈˆÊ’uÉ‚È‚Ì‚ÅA[Ì‚PÂ“Ü‚Å‚pÈ‚æ‚¤ÉC
 //		  if ( iPix <= 0 )
 //			  dData = iCcdDataArray[0];
 //		  else if ( iPix >= m_iCcdPixels )
@@ -528,11 +531,11 @@ void CSrMeasure::GetScanData_Step_05nm(double* DstArray, int MinTRWave, int MaxT
 {
 	TRACE(_T("CSrMeasure::GetScanData_Step_05nm()\n"));
 
-	// ‘ª’è”g’·‘Sˆæ‚ÌŒõ—ÊZoŠÖ”
-	// ‘ª’è”g’·‚©‚çÀÛ‚Ì”g’·‚²‚Æ‚É‘Î‰‚µ‚½Œõ—Ê‚ğZoi0.5nm–ˆj
-	// E‘ª’è”g’·‚É‘Î‚·‚éÀÛ‚ÌƒfƒBƒeƒNƒ^ˆÊ’u‚ÍA”g’·iPix = m_ccdPosFitting.GetFitValue(double(p))‚Å‹‚ß‚é
-	// EÀÛ‚Ì”g’·‚ÌŒõ—Ê‚ÍA2“_üŒ`‰ÁdZo–@‚Å‹‚ß‚é
-	//	 i3“_”ä—¦‚Å‹‚ß‰Ád‚µ‚½2“_Zo‚µA‚»‚Ì2“_‚ÌüŒ`”ä—¦‚Å‰Ád‚·‚éj
+	// gSÌŒÊZoÖ
+	// gÛ‚Ì”gÆ‚É‘Î‰Ê‚Zoi0.5nmj
+	// EgÉ‘Î‚Û‚ÌƒfBeN^Ê’uÍAgiPix = m_ccdPosFitting.GetFitValue(double(p))Å‹ß‚
+	// EÛ‚Ì”gÌŒÊ‚ÍA2_`dZo@Å‹ß‚
+	//	 i3_ä—¦Å‹ß‰d2_ZoA2_Ì`ä—¦Å‰dj
 	int iPix;
 	double dPix;
 	double ddPix;
@@ -545,7 +548,7 @@ void CSrMeasure::GetScanData_Step_05nm(double* DstArray, int MinTRWave, int MaxT
 	while ( p <= (double)MaxTRWave ) {
 		dPix = m_pCcdPosFitting->GetFitValue(p);
 		iPix = (int)dPix;
-// ‰Ád•½‹ÏŒvZ‚ÌŠÖŒW‚ÅAƒCƒ“ƒfƒbƒNƒXQÆ‚ª•s³‚ÈˆÊ’u‚É‚È‚é‚Ì‚ÅA’[‚Ì‚P‚Â“à‘¤‚Ü‚Å‚µ‚©—˜—p‚µ‚È‚¢‚æ‚¤‚ÉC³
+// dÏŒvZÌŠÖŒWÅACfbNXQÆ‚sÈˆÊ’uÉ‚È‚Ì‚ÅA[Ì‚PÂ“Ü‚Å‚pÈ‚æ‚¤ÉC
 //		  if ( iPix <= 0 )
 //			  dData = iCcdDataArray[0];
 //		  else if ( iPix >= m_iCcdPixels )
@@ -576,7 +579,7 @@ BOOL CSrMeasure::IsDiscrete(WORD wScanType)
 {
 	TRACE(_T("CSrMeasure::IsDiscrete(WORD wScanType)\n"));
 
-	// VB–¼Ì‚»‚Ì‚Ü‚ÜB‘ª’è”g’·‚ª”ò‚ÑÎw’è‚ÌˆÓ–¡‚Å‚µ‚å‚¤‚©
+	// VBÌ‚Ì‚Ü‚ÜBgÑÎwÌˆÓ–Å‚å‚¤
 	BOOL bRet = FALSE;
 	switch ( wScanType )
 	{
@@ -595,7 +598,7 @@ BOOL CSrMeasure::ReadCcdCalibDataFile(CCDCALIB* cb)
 {
 	TRACE(_T("CSrMeasure::ReadCcdCalibDataFile()\n"));
 #if 0
-	// CCD ƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“ƒtƒ@ƒCƒ‹‚ğ“Ç‚Ş
+	// CCD Lu[Vt@CÇ
 	//
 	// (* sample *)
 	// "ccd.ini"
@@ -616,9 +619,9 @@ BOOL CSrMeasure::ReadCcdCalibDataFile(CCDCALIB* cb)
 	FILE* fp;
 
 	_stprintf(szFilename, _T("%s%s"), CFG_SYSTEM_DIR, RECALFILENAME);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ---------- { ---------- */
+/* added 2009.07.07 hmenjo dll ÎƒpXÎ‰ MeaSys.dll ---------- { ---------- */
 	AddAbsPath(szFilename);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ÎƒpXÎ‰ MeaSys.dll ---------- } ---------- */
 	if ( (fp = fopen(szFilename, _T("r"))) == NULL )
 		return FALSE;
 
@@ -632,12 +635,12 @@ BOOL CSrMeasure::ReadCcdCalibDataFile(CCDCALIB* cb)
 		TCHAR* tokenWave = _tcsstr(szLine, _T(" "));
 		if ( tokenWave == NULL) {
 			fclose(fp);
-			return FALSE;												// ƒtƒH[ƒ}ƒbƒgƒGƒ‰[
+			return FALSE;												// tH[}bgG[
 		}
-		while ( *tokenWave == _TCHAR(' ') ) 							// ƒXƒy[ƒX•¶š‚ğ“Ç‚İ”ò‚Î‚·
+		while ( *tokenWave == _TCHAR(' ') ) 							// Xy[XÇ‚İ”Î‚
 			tokenWave = _tcsinc(tokenWave);
 
-		TCHAR* psz = _tcsstr(szLine, _T("nm")); 						// ”g’·‚ªAnm‚Ì’PˆÊ•t‚«‚Å‘‚©‚ê‚Ä‚¢‚éê‡ANULL‚É‚·‚é
+		TCHAR* psz = _tcsstr(szLine, _T("nm")); 						// gAnmÌ’PÊ•tÅÄ‚ê‡ANULLÉ‚
 		if ( psz != NULL )
 			*psz = NULL;
 		cb->point[cb->datanum] = atof(tokenWave);
@@ -662,10 +665,10 @@ BOOL CSrMeasure::ReadCcdCalibDataFile(CCDCALIB* cb)
 	// CCDArray6_Data=462.947067711502
 	// CCDArray7_Item=785.482nm-Kr
 	// CCDArray7_Data=483.565708423033
-/* added 2024.01.08 hmenjo CCD ARRAY ’Ç‰Á ---------- { ---------- */
+/* added 2024.01.08 hmenjo CCD ARRAY Ç‰ ---------- { ---------- */
 	// CCDArray8_Item=907.973nm
 	// CCDArray8_Data=600.0000000000
-/* added 2024.01.08 hmenjo CCD ARRAY ’Ç‰Á ---------- } ---------- */
+/* added 2024.01.08 hmenjo CCD ARRAY Ç‰ ---------- } ---------- */
 
 	TCHAR szFilename[_MAX_PATH];
 	const int nMaxSize = 128;
@@ -674,18 +677,18 @@ BOOL CSrMeasure::ReadCcdCalibDataFile(CCDCALIB* cb)
 	TCHAR* psz;
 
 	_stprintf(szFilename, _T("%s%s"), CFG_SYSTEM_DIR, RECALFILENAME);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ---------- { ---------- */
+/* added 2009.07.07 hmenjo dll ÎƒpXÎ‰ MeaSys.dll ---------- { ---------- */
 	AddAbsPath(szFilename);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ÎƒpXÎ‰ MeaSys.dll ---------- } ---------- */
 
 	cb->datanum = 0;
 
 	if ( m_SrConfig.nHeadType == 1 ||
 		 m_SrConfig.nHeadType == 2 )	/* SR_HEAD_TYPE_LAH512, SR_HEAD_TYPE_LAH512_UV */
 	{
-		// MAX SCAN RANGE ‚ª800nm‚ÌHEAD‚Ì‚Í‚¸‚È‚Ì‚ÅA253.652nm-Hg‚©‚çCCDƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‚ª‚³‚ê‚Ä‚¢‚é‚Í‚¸
+		// MAX SCAN RANGE 800nmHEADÌ‚Í‚È‚Ì‚ÅA253.652nm-HgCCDLu[VÄ‚Í‚
 		::GetPrivateProfileString(pszIniSection, "CCDArray1_Item", _T("253.652nm-Hg"), szBuff, sizeof(szBuff), szFilename);
-		psz = _tcsstr(szBuff, _T("nm"));						 // ”g’·‚ªAnm‚Ì’PˆÊ•t‚«‚Å‘‚©‚ê‚Ä‚¢‚éê‡ANULL‚É‚·‚é
+		psz = _tcsstr(szBuff, _T("nm"));						 // gAnmÌ’PÊ•tÅÄ‚ê‡ANULLÉ‚
 		if ( psz != NULL )
 			*psz = NULL;
 		cb->point[cb->datanum] = atof(szBuff);
@@ -695,7 +698,7 @@ BOOL CSrMeasure::ReadCcdCalibDataFile(CCDCALIB* cb)
 	}
 
 	::GetPrivateProfileString(pszIniSection, "CCDArray2_Item", _T("312.566nm-Hg"), szBuff, sizeof(szBuff), szFilename);
-	psz = _tcsstr(szBuff, _T("nm"));						 // ”g’·‚ªAnm‚Ì’PˆÊ•t‚«‚Å‘‚©‚ê‚Ä‚¢‚éê‡ANULL‚É‚·‚é
+	psz = _tcsstr(szBuff, _T("nm"));						 // gAnmÌ’PÊ•tÅÄ‚ê‡ANULLÉ‚
 	if ( psz != NULL )
 		*psz = NULL;
 	cb->point[cb->datanum] = atof(szBuff);
@@ -704,7 +707,7 @@ BOOL CSrMeasure::ReadCcdCalibDataFile(CCDCALIB* cb)
 	cb->datanum++;
 
 	::GetPrivateProfileString(pszIniSection, "CCDArray3_Item", _T("365.015nm-Hg"), szBuff, sizeof(szBuff), szFilename);
-	psz = _tcsstr(szBuff, _T("nm"));						 // ”g’·‚ªAnm‚Ì’PˆÊ•t‚«‚Å‘‚©‚ê‚Ä‚¢‚éê‡ANULL‚É‚·‚é
+	psz = _tcsstr(szBuff, _T("nm"));						 // gAnmÌ’PÊ•tÅÄ‚ê‡ANULLÉ‚
 	if ( psz != NULL )
 		*psz = NULL;
 	cb->point[cb->datanum] = atof(szBuff);
@@ -713,7 +716,7 @@ BOOL CSrMeasure::ReadCcdCalibDataFile(CCDCALIB* cb)
 	cb->datanum++;
 
 	::GetPrivateProfileString(pszIniSection, "CCDArray4_Item", _T("546.074nm-Hg"), szBuff, sizeof(szBuff), szFilename);
-	psz = _tcsstr(szBuff, _T("nm"));						 // ”g’·‚ªAnm‚Ì’PˆÊ•t‚«‚Å‘‚©‚ê‚Ä‚¢‚éê‡ANULL‚É‚·‚é
+	psz = _tcsstr(szBuff, _T("nm"));						 // gAnmÌ’PÊ•tÅÄ‚ê‡ANULLÉ‚
 	if ( psz != NULL )
 		*psz = NULL;
 	cb->point[cb->datanum] = atof(szBuff);
@@ -722,7 +725,7 @@ BOOL CSrMeasure::ReadCcdCalibDataFile(CCDCALIB* cb)
 	cb->datanum++;
 
 	::GetPrivateProfileString(pszIniSection, "CCDArray5_Item", _T("587.092nm-Kr"), szBuff, sizeof(szBuff), szFilename);
-	psz = _tcsstr(szBuff, _T("nm"));						 // ”g’·‚ªAnm‚Ì’PˆÊ•t‚«‚Å‘‚©‚ê‚Ä‚¢‚éê‡ANULL‚É‚·‚é
+	psz = _tcsstr(szBuff, _T("nm"));						 // gAnmÌ’PÊ•tÅÄ‚ê‡ANULLÉ‚
 	if ( psz != NULL )
 		*psz = NULL;
 	cb->point[cb->datanum] = atof(szBuff);
@@ -731,7 +734,7 @@ BOOL CSrMeasure::ReadCcdCalibDataFile(CCDCALIB* cb)
 	cb->datanum++;
 
 	::GetPrivateProfileString(pszIniSection, "CCDArray6_Item", _T("760.154nm-Kr"), szBuff, sizeof(szBuff), szFilename);
-	psz = _tcsstr(szBuff, _T("nm"));						 // ”g’·‚ªAnm‚Ì’PˆÊ•t‚«‚Å‘‚©‚ê‚Ä‚¢‚éê‡ANULL‚É‚·‚é
+	psz = _tcsstr(szBuff, _T("nm"));						 // gAnmÌ’PÊ•tÅÄ‚ê‡ANULLÉ‚
 	if ( psz != NULL )
 		*psz = NULL;
 	cb->point[cb->datanum] = atof(szBuff);
@@ -740,24 +743,24 @@ BOOL CSrMeasure::ReadCcdCalibDataFile(CCDCALIB* cb)
 	cb->datanum++;
 
 	::GetPrivateProfileString(pszIniSection, "CCDArray7_Item", _T("785.482nm-Kr"), szBuff, sizeof(szBuff), szFilename);
-	psz = _tcsstr(szBuff, _T("nm"));						 // ”g’·‚ªAnm‚Ì’PˆÊ•t‚«‚Å‘‚©‚ê‚Ä‚¢‚éê‡ANULL‚É‚·‚é
+	psz = _tcsstr(szBuff, _T("nm"));						 // gAnmÌ’PÊ•tÅÄ‚ê‡ANULLÉ‚
 	if ( psz != NULL )
 		*psz = NULL;
 	cb->point[cb->datanum] = atof(szBuff);
 	::GetPrivateProfileString(pszIniSection, "CCDArray7_Data", _T("483.565708423033"), szBuff, sizeof(szBuff), szFilename);
 	cb->value[cb->datanum] = atof(szBuff);
 	cb->datanum++;
-/* added 2024.01.08 hmenjo CCD ARRAY ’Ç‰Á ---------- { ---------- */
+/* added 2024.01.08 hmenjo CCD ARRAY Ç‰ ---------- { ---------- */
 
 	::GetPrivateProfileString(pszIniSection, "CCDArray8_Item", _T("907.973nm"), szBuff, sizeof(szBuff), szFilename);
-	psz = _tcsstr(szBuff, _T("nm"));						 // ”g’·‚ªAnm‚Ì’PˆÊ•t‚«‚Å‘‚©‚ê‚Ä‚¢‚éê‡ANULL‚É‚·‚é
+	psz = _tcsstr(szBuff, _T("nm"));						 // gAnmÌ’PÊ•tÅÄ‚ê‡ANULLÉ‚
 	if ( psz != NULL )
 		*psz = NULL;
 	cb->point[cb->datanum] = atof(szBuff);
 	::GetPrivateProfileString(pszIniSection, "CCDArray8_Data", _T("600.0000000000"), szBuff, sizeof(szBuff), szFilename);
 	cb->value[cb->datanum] = atof(szBuff);
 	cb->datanum++;
-/* added 2024.01.08 hmenjo CCD ARRAY ’Ç‰Á ---------- } ---------- */
+/* added 2024.01.08 hmenjo CCD ARRAY Ç‰ ---------- } ---------- */
 
 	return TRUE;
 }
@@ -789,20 +792,24 @@ void CSrMeasure::MakeScanDataLog(const int iCcdDataArray[], const double* DstArr
 	TCHAR szFilename[_MAX_PATH];
 	FILE* fp;
 
-	// CCDƒXƒLƒƒƒ“ƒf[ƒ^ƒƒO‚ğì¬‚·‚é
+	// CCDXLf[^Oì¬
 	GetScanDataFilename(szFilename);
 	if ( (fp = fopen(szFilename, _T("a"))) == NULL )
 		return;
 
-	_ftprintf(fp, _T("MTYPE: %s\n"), MEAS_PROG_TYPE_SR_ITEM[wScanType]);				// ƒwƒbƒ_î•ñi‘ª’èí—Şj
-	_ftprintf(fp, _T("PHASE: %s\n"), pszComment[iMeaSysStatus]);						// ƒwƒbƒ_î•ñiDARKˆ—AREFERENCEˆ—ASAMPLEˆ—j
-	for ( int iPixIdx = 0; iPixIdx < m_iCcdPixels; iPixIdx++ ) {						// CCDî•ñ
+	_ftprintf(fp, _T("MTYPE: %s\n"), MEAS_PROG_TYPE_SR_ITEM[wScanType]);				// wb_iŞj
+	_ftprintf(fp, _T("PHASE: %s\n"), pszComment[iMeaSysStatus]);						// wb_iDARKAREFERENCEASAMPLEj
+	int iPixIdx;
+
+	for ( iPixIdx = 0; iPixIdx < m_iCcdPixels; iPixIdx++ ) {						// CCD
 		_ftprintf(fp, _T("%3d%s%5d\n"), iPixIdx+1, _T(" "), iCcdDataArray[iPixIdx]);
 	}
 
 	_ftprintf(fp, _T("\n\n"));
-	_ftprintf(fp, _T("below [nm]\n"));													// ŒvZŒ‹‰Ê
-	for ( int i = 0; i < SCANDATA_POINT_MAX; i++ ) {
+	_ftprintf(fp, _T("below [nm]\n"));													// vZ
+	int i;
+
+	for ( i = 0; i < SCANDATA_POINT_MAX; i++ ) {
 		_ftprintf(fp, _T("%4d%s%lf\n"), i+1, _T(" "), DstArray[i]);
 	}
 	fclose(fp);
@@ -814,24 +821,24 @@ void CSrMeasure::GetScanDataFilename(LPTSTR pszFilename)
 {
 	TRACE(_T("CSrMeasure::GetScanDataFilename()\n"));
 
-	// CCDƒXƒLƒƒƒ“ƒf[ƒ^ƒƒO‚ÌŠi”[ƒtƒHƒ‹ƒ_‚ğì¬i“ú•tj
-	// CCDƒXƒLƒƒƒ“ƒf[ƒ^ƒƒO‚Ì"ƒpƒX–¼{ƒtƒ@ƒCƒ‹–¼.txt"‚ğ•Ô‹p
+	// CCDXLf[^OÌŠi[tH_ì¬itj
+	// CCDXLf[^O"pX{t@C.txt"Ô‹p
 	TCHAR szDate[] = _T("yyyymmdd");
 	TCHAR szTime[] = _T("hhmmss");
 	TCHAR szDateDirPath[_MAX_PATH];
 
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ---------- { ---------- */
+/* modified 2009.07.07 hmenjo dll ÎƒpXÎ‰ MeaSys.dll ---------- { ---------- */
 //	  SECURITY_ATTRIBUTES sa;
 //	  sa.lpSecurityDescriptor = NULL;
 //	  ::CreateDirectory(DATA_MEASUREMENTDATA_DIR, &sa);
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ----------			  */
+/* modified 2009.07.07 hmenjo dll ÎƒpXÎ‰ MeaSys.dll ----------			  */
 	GetProcBaseDir(g_tszProcDir, g_tszBaseDir);
 	TCHAR l_tszMeasDataDir[_MAX_PATH];
 	_stprintf(l_tszMeasDataDir, _T("%s") DATA_MEASUREMENTDATA_DIR, g_tszProcDir);
 	SECURITY_ATTRIBUTES sa;
 	sa.lpSecurityDescriptor = NULL;
 	::CreateDirectory(l_tszMeasDataDir, &sa);
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ---------- } ---------- */
+/* modified 2009.07.07 hmenjo dll ÎƒpXÎ‰ MeaSys.dll ---------- } ---------- */
 
 	SYSTEMTIME systime;
 	::GetLocalTime(&systime);
@@ -840,9 +847,9 @@ void CSrMeasure::GetScanDataFilename(LPTSTR pszFilename)
 	_stprintf(szTime, _T("%02d%02d%02d"), systime.wHour, systime.wMinute, systime.wSecond);
 
 	_stprintf(szDateDirPath, _T("%s%s%s"), DATA_MEASUREMENTDATA_DIR, szDate, _T("\\"));
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ---------- { ---------- */
+/* added 2009.07.07 hmenjo dll ÎƒpXÎ‰ MeaSys.dll ---------- { ---------- */
 	AddAbsPath(szDateDirPath);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ÎƒpXÎ‰ MeaSys.dll ---------- } ---------- */
 	::CreateDirectory(szDateDirPath, &sa);
 
 	_stprintf(pszFilename, _T("%s%s%s"), szDateDirPath, szTime, TXT_EXT);
@@ -854,7 +861,7 @@ BOOL CSrMeasure::GTrReferecneMeasure(SCANDATA scanData[], int ccdData[], int iMe
 {
 	TRACE(_T("CSrMeasure::GTrReferecneMeasure()\n"));
 
-	// iMeaSysStatus“Áê‰»
+	// iMeaSysStatusê‰»
 
 	const SR_SCAN_INFO& srScanInfo = pMeasProgInfo->ScanParams._SR;
 	int* iCcdDataArray = ccdData;

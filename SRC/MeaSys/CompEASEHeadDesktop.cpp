@@ -74,7 +74,9 @@ BOOL CCompEASEHeadDesktop::ListRecipes(LPTSTR pszListRecipes)
 	}
 
 	strListRecipes.RemoveAll();
-	for ( int i = 0; i < 100; i++ ) {
+	int i;
+
+	for ( i = 0; i < 100; i++ ) {
 		if ( i == 0 ) {
 			strBuffer.Format("TestRecipe%d.recipe", i + 1);
 		}
@@ -99,7 +101,7 @@ BOOL CCompEASEHeadDesktop::RunRecipe(LPCTSTR pszRecipeId, LPTSTR pszMeasResult)
 // 	if ( g_hNotifyWnd )
 // 		::PostMessage(g_hNotifyWnd, WM_MEAS_RECVDATA, 0, 0);
 
-	LPCTSTR pszExample = "MSE = 661.034,Roughness = 27.04 } 10.458 nm,Thickness # 2 = 67.77 } 10.700 nm,Einf = 2.236 } 13.2609,Amp1 = 154.4219 } 92.60231,Br1 = 1.587 } 2.2363,Eo1 = 3.034 } 0.3289,Amp2 = 9.461936 } 202.9963749,Br2 = 0.6418 } 4.76635,En2 = 7.281 } 30.8794,Resistivity (OhmEcm)3 = 1000.000000 } 2.1192E+11,Scat. Time (fs)3 = 376.671 } 1.6939E+10,Thickness # 1 = 6260.44 } 10.171 nm,N1 = 1.46791,K1 = 0.00000";
+	LPCTSTR pszExample = "MSE = 661.034,Roughness = 27.04 } 10.458 nm,Thickness # 2 = 67.77 } 10.700 nm,Einf = 2.236 } 13.2609,Amp1 = 154.4219 } 92.60231,Br1 = 1.587 } 2.2363,Eo1 = 3.034 } 0.3289,Amp2 = 9.461936 } 202.9963749,Br2 = 0.6418 } 4.76635,En2 = 7.281 } 30.8794,Resistivity (OhmEcm)3 = 1000.000000 } 2.1192E+11,Scat. Time (fs)3 = 376.671 } 1.6939E+10,Thickness # 1 = 6260.44 } 10.171 nm,N1 = 1.46791,K1 = 0.00000";
 
 	_tcscpy(pszMeasResult, pszExample);
 

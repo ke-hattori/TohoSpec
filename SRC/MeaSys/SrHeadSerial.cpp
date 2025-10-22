@@ -8,16 +8,16 @@
 #include "..\\..\\INC\\MeaSys.hxx"
 #include "resource.h"
 #include "Mojiretsu.h"
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Mod (TohoSpecÎ‰) -->
 #include "System.h"
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Mod (TohoSpecÎ‰) <--
 
 #define RS232C_RECV_TIMEOUT 		(5)
 #define RS232C_RECV_INTEG_TIMEOUT	(45)
 #define RS232C_SEND_CHAR			(256)
 #define RS232C_RECV_CHAR			(4096 * 4)
 
-//	ƒRƒ}ƒ“ƒh
+//	R}h
 #define SETCHP			   _T("G")		 // Set UV shutter position
 #define CCDSCN			   _T("L")		 // CCD Scan
 #define INITIL			   _T("Q")		 // Initialize & Calibrate Wavelength
@@ -33,12 +33,12 @@
 
 extern HWND g_hNotifyWnd;
 extern CMojiretsu* pMojiretsu;
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ---------- { ---------- */
-extern TCHAR g_tszProcDir[_MAX_PATH];		/* ŒÄo‚µƒvƒƒZƒX‚ÌƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
-extern TCHAR g_tszBaseDir[_MAX_PATH];		/* Šî€ƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
+/* added 2009.07.07 hmenjo dll ÎƒpXÎ‰ MeaSys.dll ---------- { ---------- */
+extern TCHAR g_tszProcDir[_MAX_PATH];		/* ÄovZXÌƒfBNg('\'t)*/
+extern TCHAR g_tszBaseDir[_MAX_PATH];		/* î€fBNg('\'t)*/
 extern void GetProcBaseDir(LPTSTR ptszProcDir, LPTSTR ptszBaseDir);
 extern void AddAbsPath(LPTSTR ptszPath);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ÎƒpXÎ‰ MeaSys.dll ---------- } ---------- */
 
 static char g_szMsgBoxCaption[256];
 
@@ -69,10 +69,10 @@ BOOL CSrHeadSerial::InitInstance()
 		strncpy(g_szMsgBoxCaption, g_lpszAppPrefix4[g_lAppNameType], 4);
 	}
 
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ---------- { ---------- */
+/* modified 2009.07.07 hmenjo dll ÎƒpXÎ‰ MeaSys.dll ---------- { ---------- */
 	TCHAR l_tszIniPath[_MAX_PATH];
 	GetProcBaseDir(g_tszProcDir, g_tszBaseDir);
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Mod (TohoSpecÎ‰) -->
 //	_stprintf(l_tszIniPath, _T("%s") CFG_DIR NANOSPEC_INIFILENAME, g_tszProcDir);
 
 	CString strFilename;
@@ -82,9 +82,9 @@ BOOL CSrHeadSerial::InitInstance()
 		strFilename.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
 	}
 	_stprintf(l_tszIniPath, _T("%s%s%s"), CFG_DIR, g_tszProcDir, strFilename);
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Mod (TohoSpecÎ‰) <--
 	iCcdDataTransferModeBinary = ::GetPrivateProfileInt(INISECTION_HEADCOM, INIKEY_CCDDATATRANSFERMODEBINARY, 1, l_tszIniPath);
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ---------- } ---------- */
+/* modified 2009.07.07 hmenjo dll ÎƒpXÎ‰ MeaSys.dll ---------- } ---------- */
 
 	///// Get Config Data /////
 	COM_SETTING comSetting;
@@ -222,16 +222,16 @@ BOOL CSrHeadSerial::GetVersion(LPTSTR pszVersion)
 
 //---------------------------------------------------------------------------
 // CcdScan
-BOOL CSrHeadSerial::CcdScan(int ccdScanData[], int iPixels, int iExposure, int iScans/*=1*/, BOOL bProhibitNotify/*=FALSE*/)	// ccdScanData[iPixels]Šm•Û‚³‚ê‚Ä‚¢‚é‚±‚Æ
+BOOL CSrHeadSerial::CcdScan(int ccdScanData[], int iPixels, int iExposure, int iScans/*=1*/, BOOL bProhibitNotify/*=FALSE*/)	// ccdScanData[iPixels]mÛ‚Ä‚é‚±
 {
 	TRACE(_T("CSrHeadSerial::CcdScan()\n"));
 
-	// 232C•û®‚ÌƒXƒLƒƒƒ“‰ñ”‚ÍA1‰ñ‚Ì‚İ‘Î‰iƒ{[ƒh‚©‚ç‚Ì“]‘—ƒf[ƒ^‚ª16ƒrƒbƒgŒÅ’è•\Œ»‚Ìd—l‚È‚Ì‚ÅBj
-	// ‰¼‚Éƒ{[ƒh‘¤‚ÉƒXƒLƒƒƒ“‰ñ”1‰ñˆÈŠO‚Ìƒpƒ‰ƒ[ƒ^‚ğ“n‚µ‚Ä‚àAƒpƒ‰ƒ[ƒ^ƒGƒ‰[‚Å•Ô‹p‚µ‚Ä‚­‚é‚Í‚¸
+	// 232CÌƒXLñ”‚ÍA1Ì‚İ‘Î‰i{[hÌ“]f[^16rbgÅ’\ÌdlÈ‚Ì‚ÅBj
+	// Éƒ{[hÉƒXL1ÈŠOÌƒp[^nÄ‚Ap[^G[Å•Ô‹pÄ‚Í‚
 	ASSERT( iScans == 1 );
 
-	// ¸”s‚µ‚½‚çAÅ‰‚Ìˆ—‚©‚ç‚â‚è’¼‚µB‰‰ñ1‰ñ{ƒŠƒgƒ‰ƒC2‰ñ‚Ü‚ÅÀ{‚·‚é
-	//	G o  T o •¶iƒ‰ƒxƒ‹‚Ö‘JˆÚj‚Ì’u‚«Š·‚¦‚ÍAcontinue‚ğg—p
+	// sAÅÌè’¼B1{gC2Ü‚Å{
+	//	G o  T o ixÖ‘JÚjÌ’uÍAcontinuegp
 
 	TCHAR szSendBuff[RS232C_SEND_CHAR];
 	TCHAR szRecvBuff[RS232C_RECV_CHAR];
@@ -243,7 +243,9 @@ BOOL CSrHeadSerial::CcdScan(int ccdScanData[], int iPixels, int iExposure, int i
 	LPTSTR token;
 
 	const int MAXTIMES = 3;
-	for ( int iTry = 0; iTry < MAXTIMES; iTry++ ) {
+	int iTry;
+
+	for ( iTry = 0; iTry < MAXTIMES; iTry++ ) {
 		_stprintf(szSendBuff, _T("%s%04X%s%02X"), CCDSCN, iExposure, _T(","), iScans);		// for example. "L04B0,01"
 		if ( !SendCommand(szSendBuff) ) {
 //			return FALSE;
@@ -252,7 +254,9 @@ BOOL CSrHeadSerial::CcdScan(int ccdScanData[], int iPixels, int iExposure, int i
 
 		if ( m_bTransferModeBinary ) {
 			bError = FALSE;
-			for ( int i = 0; i < 4; i++ ) { 												// for example. "L,00yyzz..."
+			int i;
+
+			for ( i = 0; i < 4; i++ ) { 												// for example. "L,00yyzz..."
 				if ( !WaitForRecvData(RS232C_RECV_INTEG_TIMEOUT) ) {
 					bError = TRUE;
 					break;
@@ -268,8 +272,8 @@ BOOL CSrHeadSerial::CcdScan(int ccdScanData[], int iPixels, int iExposure, int i
 			if ( !CheckCmdAndStatusCode(szSendBuff, szRecvBuff) )
 				continue;		// Error -> Retry
 
-// @@@ ‚‘¬‰»‘Î‰
-// ³íƒŠƒ^[ƒ“ƒR[ƒhóMAƒƒbƒZ[ƒW‚ğ’Ê’m‚·‚é
+// @@@ Î‰
+// íƒŠ^[R[hMAbZ[WÊ’m
 			if ( !bProhibitNotify ) {
 				if ( g_hNotifyWnd )
 					::PostMessage(g_hNotifyWnd, WM_MEAS_RECVDATA, 0, 0);
@@ -379,8 +383,8 @@ BOOL CSrHeadSerial::OpenUvShutter()
 {
 	TRACE(_T("CSrHeadSerial::OpenUvShutter()\n"));
 
-	// ƒVƒƒƒbƒ^[‚Ì“®ìŠ®—¹•ñ‚Í‚ ‚è‚Ü‚¹‚ñ‚Ì‚Å
-	// ŒÄ‚ÑŒ³‘¤‚ÅAƒ^ƒCƒ}[ƒfƒBƒŒƒC‚µ‚Ä‚­‚¾‚³‚¢
+	// Vb^[Ì“ìŠ®ñ‚Í‚Ü‚Ì‚
+	// Ä‚ÑŒÅA^C}[fBCÄ‚
 	return ChangeUvShutter(UV_OPEN);
 }
 
@@ -390,8 +394,8 @@ BOOL CSrHeadSerial::CloseUvShutter()
 {
 	TRACE(_T("CSrHeadSerial::CloseUvShutter()\n"));
 
-	// ƒVƒƒƒbƒ^[‚Ì“®ìŠ®—¹•ñ‚Í‚ ‚è‚Ü‚¹‚ñ‚Ì‚Å
-	// ŒÄ‚ÑŒ³‘¤‚ÅAƒ^ƒCƒ}[ƒfƒBƒŒƒC‚µ‚Ä‚­‚¾‚³‚¢
+	// Vb^[Ì“ìŠ®ñ‚Í‚Ü‚Ì‚
+	// Ä‚ÑŒÅA^C}[fBCÄ‚
 	return ChangeUvShutter(UV_CLOSE);
 }
 
@@ -401,8 +405,8 @@ BOOL CSrHeadSerial::OpenTransShutter()
 {
 	TRACE(_T("CSrHeadSerial::OpenTransShutter()\n"));
 
-	// ƒVƒƒƒbƒ^[‚Ì“®ìŠ®—¹•ñ‚Í‚ ‚è‚Ü‚¹‚ñ‚Ì‚Å
-	// ŒÄ‚ÑŒ³‘¤‚ÅAƒ^ƒCƒ}[ƒfƒBƒŒƒC‚µ‚Ä‚­‚¾‚³‚¢
+	// Vb^[Ì“ìŠ®ñ‚Í‚Ü‚Ì‚
+	// Ä‚ÑŒÅA^C}[fBCÄ‚
 	return ChangeTransShutter(TRANS_OPEN);
 }
 
@@ -412,8 +416,8 @@ BOOL CSrHeadSerial::CloseTransShutter()
 {
 	TRACE(_T("CSrHeadSerial::CloseTransShutter()\n"));
 
-	// ƒVƒƒƒbƒ^[‚Ì“®ìŠ®—¹•ñ‚Í‚ ‚è‚Ü‚¹‚ñ‚Ì‚Å
-	// ŒÄ‚ÑŒ³‘¤‚ÅAƒ^ƒCƒ}[ƒfƒBƒŒƒC‚µ‚Ä‚­‚¾‚³‚¢
+	// Vb^[Ì“ìŠ®ñ‚Í‚Ü‚Ì‚
+	// Ä‚ÑŒÅA^C}[fBCÄ‚
 	return ChangeTransShutter(TRANS_CLOSE);
 }
 
@@ -488,9 +492,13 @@ BOOL CSrHeadSerial::SendCommand(LPCTSTR pszCmd)
 	DWORD dwNumberOfBytesWritten, dwNumberOfBytesRead;
 
 	const int MAXTIMES = 3;
-	for ( int iTry = 0; iTry < MAXTIMES; iTry++ ) {
+	int iTry;
+
+	for ( iTry = 0; iTry < MAXTIMES; iTry++ ) {
 		bError = FALSE;
-		for ( int i = 0; pszCmd[i]; i++ ) {
+		int i;
+
+		for ( i = 0; pszCmd[i]; i++ ) {
 			if ( !::WriteFile(m_hComm, &pszCmd[i], 1, &dwNumberOfBytesWritten, NULL) ) {
 				bError = TRUE;
 				break;
@@ -512,7 +520,7 @@ BOOL CSrHeadSerial::SendCommand(LPCTSTR pszCmd)
 			continue;		// Error -> Retry
 
 		bySend = (BYTE)_TCHAR('\r');
-		if ( !::WriteFile(m_hComm, &bySend, 1, &dwNumberOfBytesWritten, NULL) ) // I’[•¶šCR‚Ìİ’è
+		if ( !::WriteFile(m_hComm, &bySend, 1, &dwNumberOfBytesWritten, NULL) ) // I[CRÌİ’
 			continue;		// Error -> Retry
 		if ( !WaitForRecvData(RS232C_RECV_TIMEOUT) )
 			continue;		// Error -> Retry
@@ -555,17 +563,20 @@ BOOL CSrHeadSerial::RecvData(LPTSTR pszData)
 	TCHAR szRecvBuff[RS232C_RECV_CHAR];
 	DWORD dwNumberOfBytesRead;
 
-	for ( int i = 0; i < RS232C_RECV_CHAR; i++ ) {
+	int i;
+
+
+	for ( i = 0; i < RS232C_RECV_CHAR; i++ ) {
 		if ( !WaitForRecvData(RS232C_RECV_TIMEOUT) )
 			return FALSE;
 		if ( !::ReadFile(m_hComm, &szRecvBuff[i], 1, &dwNumberOfBytesRead, NULL) )
 			return FALSE;
 		if ( szRecvBuff[i] == _TCHAR('\r') ) {
-			szRecvBuff[i] = NULL;									// I’[•¶šCR‚ğNULL•¶š‚É’uŠ·
+			szRecvBuff[i] = NULL;									// I[CRNULLÉ’u
 			break;
 		}
 	}
-	if ( i == RS232C_RECV_CHAR ) {									// I’[•¶šCR‚ªŒ©‚Â‚©‚ç‚È‚©‚Á‚½
+	if ( i == RS232C_RECV_CHAR ) {									// I[CRÂ‚È‚
 		return FALSE;
 	}
 	_tcscpy(pszData, szRecvBuff);
@@ -588,27 +599,30 @@ BOOL CSrHeadSerial::CheckCmdAndStatusCode(LPCTSTR pszSendCmd, LPCTSTR pszRecvDat
 // GetCcdScanData1By1
 int CSrHeadSerial::GetCcdScanData1By1()
 {
-	// CCD 1ƒhƒbƒg‚ÍA2ƒoƒCƒgi16ƒrƒbƒgj’PˆÊ‚Åƒf[ƒ^óM‚·‚éB
-	// ƒVƒŠƒAƒ‹’ÊM‚É‚¨‚¢‚ÄAƒXƒLƒƒƒ“‰ñ”‚Í1‰ñŒÅ’è‚È‚Ì‚ÅAÅ‘å65535i16ƒrƒbƒgMAXj‚Æ‚·‚é
+	// CCD 1hbgÍA2oCgi16rbgjPÊ‚Åƒf[^MB
+	// VAÊMÉ‚ÄAXLñ”‚1Å’È‚Ì‚ÅAÅ‘65535i16rbgMAXjÆ‚
 
 	int iCcdData = 0;
 	BYTE byData;
 	DWORD dwNumberOfBytesRead;
 
-	for ( int i = 2; i > 0; i-- ) {
+	int i;
+
+
+	for ( i = 2; i > 0; i-- ) {
 		if ( !WaitForRecvData(RS232C_RECV_TIMEOUT) )
 			return -1;
 		if ( !::ReadFile(m_hComm, &byData, 1, &dwNumberOfBytesRead, NULL) )
 			return -1;
-		iCcdData += byData << (8 * (i - 1));						// byData ‚ğ (8bit * (i - 1))•ªƒVƒtƒg‚µ‚Ä‰ÁZ
+		iCcdData += byData << (8 * (i - 1));						// byData  (8bit * (i - 1))VtgÄ‰Z
 	}
 	return iCcdData;
 }
 
 //---------------------------------------------------------------------------
 // StringHexToint
-//	 -1 : •ÏŠ·•s”\i•s³•¶š‚ªw’è‚³‚ê‚½j
-//	 xx : intŒ^”’l
+//	 -1 : ÏŠs\iswè‚³ê‚½j
+//	 xx : int^l
 int CSrHeadSerial::StringHexToint(LPCTSTR psz, size_t count)
 {
 	ASSERT( 0 < count );

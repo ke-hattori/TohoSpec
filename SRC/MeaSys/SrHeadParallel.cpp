@@ -7,9 +7,9 @@
 #include "..\\..\\INC\\MeaSys.hxx"
 #include "resource.h"
 #include "Mojiretsu.h"
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Mod (TohoSpecÎ‰) -->
 #include "System.h"
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Mod (TohoSpecÎ‰) <--
 
 #define DUALPORTRAM_TIMEOUT 		(5)
 #define DUALPORTRAM_INTEG_TIMEOUT	(45)
@@ -31,7 +31,7 @@
 #define DP_RAM_MAX_SEND_CHAR  (DP_RAM_IN1_P - DP_RAM_SEND_BUFFER)
 #define DP_RAM_MAX_RCV_CHAR   (RS_BUFF0 - DP_RAM_RCV_BUFFER)
 
-//	ƒRƒ}ƒ“ƒh
+//	R}h
 #define SETCHP			   _T("G")		 // Set UV shutter position
 #define CCDSCN			   _T("L")		 // CCD Scan
 #define INITIL			   _T("Q")		 // Initialize & Calibrate Wavelength
@@ -83,7 +83,7 @@ BOOL CSrHeadParallel::InitInstance()
 	SendCommand(szSendBuff);
 	if ( !WaitForStatusChange(DP_COMPLETE, DUALPORTRAM_TIMEOUT) )
 		return FALSE;
-	if ( !RecvData(szRecvBuff) )									// "a,00,A"‚ðŽóM‚Å‚«‚ê‚Î³í
+	if ( !RecvData(szRecvBuff) )									// "a,00,A"MÅ‚Î
 		return FALSE;
 	if ( !CheckCmdAndStatusCode(szSendBuff, szRecvBuff) )
 		return FALSE;
@@ -94,7 +94,7 @@ BOOL CSrHeadParallel::InitInstance()
 	SendCommand(szSendBuff);
 	if ( !WaitForStatusChange(DP_COMPLETE, DUALPORTRAM_TIMEOUT) )
 		return FALSE;
-	if ( !RecvData(szRecvBuff) )									// "b,00"‚ðŽóM‚Å‚«‚ê‚Î³í
+	if ( !RecvData(szRecvBuff) )									// "b,00"MÅ‚Î
 		return FALSE;
 	if ( !CheckCmdAndStatusCode(szSendBuff, szRecvBuff) )
 		return FALSE;
@@ -176,19 +176,21 @@ BOOL CSrHeadParallel::GetVersion(LPTSTR pszVersion)
 
 //---------------------------------------------------------------------------
 // CcdScan
-BOOL CSrHeadParallel::CcdScan(int ccdScanData[], int iPixels, int iExposure, int iScans/*=1*/, BOOL bProhibitNotify/*=FALSE*/)	  // ccdScanData[iPixels]Šm•Û‚³‚ê‚Ä‚¢‚é‚±‚Æ
+BOOL CSrHeadParallel::CcdScan(int ccdScanData[], int iPixels, int iExposure, int iScans/*=1*/, BOOL bProhibitNotify/*=FALSE*/)	  // ccdScanData[iPixels]mÛ‚Ä‚é‚±
 {
 	TRACE(_T("CSrHeadParallel::CcdScan()\n"));
 
-	// Ž¸”s‚µ‚½‚çAÅ‰‚Ìˆ—‚©‚ç‚â‚è’¼‚µB‰‰ñ1‰ñ{ƒŠƒgƒ‰ƒC2‰ñ‚Ü‚ÅŽÀŽ{‚·‚é
-	//	G o  T o •¶iƒ‰ƒxƒ‹‚Ö‘JˆÚj‚Ì’u‚«Š·‚¦‚ÍAcontinue‚ðŽg—p
+	// sAÅÌè’¼B1{gC2Ü‚ÅŽ{
+	//	G o  T o ixÖ‘JÚjÌ’uÍAcontinuegp
 
 	TCHAR szSendBuff[DP_RAM_MAX_SEND_CHAR];
 	TCHAR szRecvBuff[DP_RAM_MAX_RCV_CHAR];
 	int iCcdData;
 
 	const int MAXTIMES = 3;
-	for ( int iTry = 0; iTry < MAXTIMES; iTry++ ) {
+	int iTry;
+
+	for ( iTry = 0; iTry < MAXTIMES; iTry++ ) {
 		_stprintf(szSendBuff, _T("%s%04X%s%02X"), CCDSCN, iExposure, _T(","), iScans);	  // for example. "L04B0,01"
 // added 20111110 hmenjo {
 		_fifo_reset();
@@ -196,7 +198,9 @@ BOOL CSrHeadParallel::CcdScan(int ccdScanData[], int iPixels, int iExposure, int
 		SendCommand(szSendBuff);
 		if ( !WaitForStatusChange(DP_RCVING, DUALPORTRAM_INTEG_TIMEOUT) )
 			continue;		// Error -> Retry
-		for ( int iPixIdx = 0; iPixIdx < iPixels; iPixIdx++ ) {
+		int iPixIdx;
+
+		for ( iPixIdx = 0; iPixIdx < iPixels; iPixIdx++ ) {
 			if ( (iCcdData = GetCcdScanData1By1(DUALPORTRAM_TIMEOUT)) != IOBASE_ERR_INVALID_ACCESS )
 				ccdScanData[iPixIdx] = iCcdData;
 			else
@@ -251,8 +255,8 @@ BOOL CSrHeadParallel::OpenUvShutter()
 {
 	TRACE(_T("CSrHeadParallel::OpenUvShutter()\n"));
 
-	// ƒVƒƒƒbƒ^[‚Ì“®ìŠ®—¹•ñ‚Í‚ ‚è‚Ü‚¹‚ñ‚Ì‚Å
-	// ŒÄ‚ÑŒ³‘¤‚ÅAƒ^ƒCƒ}[ƒfƒBƒŒƒC‚µ‚Ä‚­‚¾‚³‚¢
+	// Vb^[Ì“ìŠ®ñ‚Í‚Ü‚Ì‚
+	// Ä‚ÑŒÅA^C}[fBCÄ‚
 	return ChangeUvShutter(UV_OPEN);
 }
 
@@ -262,8 +266,8 @@ BOOL CSrHeadParallel::CloseUvShutter()
 {
 	TRACE(_T("CSrHeadParallel::CloseUvShutter()\n"));
 
-	// ƒVƒƒƒbƒ^[‚Ì“®ìŠ®—¹•ñ‚Í‚ ‚è‚Ü‚¹‚ñ‚Ì‚Å
-	// ŒÄ‚ÑŒ³‘¤‚ÅAƒ^ƒCƒ}[ƒfƒBƒŒƒC‚µ‚Ä‚­‚¾‚³‚¢
+	// Vb^[Ì“ìŠ®ñ‚Í‚Ü‚Ì‚
+	// Ä‚ÑŒÅA^C}[fBCÄ‚
 	return ChangeUvShutter(UV_CLOSE);
 }
 
@@ -273,8 +277,8 @@ BOOL CSrHeadParallel::OpenTransShutter()
 {
 	TRACE(_T("CSrHeadParallel::OpenTransShutter()\n"));
 
-	// ƒVƒƒƒbƒ^[‚Ì“®ìŠ®—¹•ñ‚Í‚ ‚è‚Ü‚¹‚ñ‚Ì‚Å
-	// ŒÄ‚ÑŒ³‘¤‚ÅAƒ^ƒCƒ}[ƒfƒBƒŒƒC‚µ‚Ä‚­‚¾‚³‚¢
+	// Vb^[Ì“ìŠ®ñ‚Í‚Ü‚Ì‚
+	// Ä‚ÑŒÅA^C}[fBCÄ‚
 	return ChangeTransShutter(TRANS_OPEN);
 }
 
@@ -284,8 +288,8 @@ BOOL CSrHeadParallel::CloseTransShutter()
 {
 	TRACE(_T("CSrHeadParallel::CloseTransShutter()\n"));
 
-	// ƒVƒƒƒbƒ^[‚Ì“®ìŠ®—¹•ñ‚Í‚ ‚è‚Ü‚¹‚ñ‚Ì‚Å
-	// ŒÄ‚ÑŒ³‘¤‚ÅAƒ^ƒCƒ}[ƒfƒBƒŒƒC‚µ‚Ä‚­‚¾‚³‚¢
+	// Vb^[Ì“ìŠ®ñ‚Í‚Ü‚Ì‚
+	// Ä‚ÑŒÅA^C}[fBCÄ‚
 	return ChangeTransShutter(TRANS_CLOSE);
 }
 
@@ -328,22 +332,24 @@ signed short CSrHeadParallel::FifoRead()
 // GetCcdScanData1By1
 int CSrHeadParallel::GetCcdScanData1By1(int iTimeoutSec)
 {
-	// CCD 1ƒhƒbƒg‚ÍA3ƒoƒCƒgi24ƒrƒbƒgj’PˆÊ‚Åƒf[ƒ^ŽóM‚·‚éB
-	// ƒXƒLƒƒƒ“‰ñ”1‰ñ‚ÌŽž‚ÌMAX’l‚ÍA65535i16ƒrƒbƒgMAXj‚¾‚ª
-	// ƒXƒLƒƒƒ“‰ñ”2,4,8‰ñ‚ÌŽž‚ÍA‚»‚ê‚¼‚ê‰ñ”•ªæŽZ‚µ‚½’l‚ªMAX‚Æ‚È‚é‚Ì‚Å
-	// 24ƒrƒbƒg•ªƒGƒŠƒA‚ª—pˆÓ‚³‚ê‚Ä‚¢‚é
+	// CCD 1hbgÍA3oCgi24rbgjPÊ‚Åƒf[^MB
+	// XL1ÌŽMAXlÍA65535i16rbgMAXj
+	// XL2,4,8ÌŽÍAê‚¼ñ”•ZlMAXÆ‚È‚Ì‚
+	// 24rbgGApÓ‚Ä‚
 
 	int iCcdData = 0;
 	int iFifoRet;
 
 	CTimer timer;
 	timer.Restart(iTimeoutSec);
-	for ( int i = 0; i < 3; i++ ) {
-		while ( (iFifoRet = FifoRead()) == IOBASE_ERR_INVALID_ACCESS ) {   // ƒf[ƒ^‚ªŽæ“¾‚Å‚«‚È‚¢ƒ^ƒCƒ~ƒ“ƒO‚ª‚ ‚é
+	int i;
+
+	for ( i = 0; i < 3; i++ ) {
+		while ( (iFifoRet = FifoRead()) == IOBASE_ERR_INVALID_ACCESS ) {   // f[^æ“¾Å‚È‚^C~O
 			if ( timer.IsTimeout() )
 				return IOBASE_ERR_INVALID_ACCESS;
 		}
-		iCcdData += iFifoRet << (8 * i);						// iFifoRet ‚ð (8bit * i)•ªƒVƒtƒg‚µ‚Ä‰ÁŽZ
+		iCcdData += iFifoRet << (8 * i);						// iFifoRet  (8bit * i)VtgÄ‰Z
 		timer.Restart(iTimeoutSec);
 	}
 	return iCcdData;
@@ -396,10 +402,13 @@ void CSrHeadParallel::SendCommand(LPCTSTR pszCmd)
 	TRACE(_T("CSrHeadParallel::SendCommand()\n"));
 	TRACE1(_T("%s\n"), pszCmd);
 
-	for ( int i = 0; pszCmd[i]; i++ ) {
+	int i;
+
+
+	for ( i = 0; pszCmd[i]; i++ ) {
 		DualPortRam_Write(DP_RAM_SEND_BUFFER + i, pszCmd[i]);
 	}
-	DualPortRam_Write(DP_RAM_SEND_BUFFER + i, _TCHAR('\r'));	// I’[•¶ŽšCR‚ÌÝ’è
+	DualPortRam_Write(DP_RAM_SEND_BUFFER + i, _TCHAR('\r'));	// I[CRÌÝ’
 	SetStatus(DP_SEND);
 }
 
@@ -427,14 +436,16 @@ BOOL CSrHeadParallel::RecvData(LPTSTR pszData)
 	TRACE(_T("CSrHeadParallel::RecvData()\n"));
 
 	TCHAR szRecvBuff[DP_RAM_MAX_RCV_CHAR];
-	for ( int i = 0; i < DP_RAM_MAX_RCV_CHAR; i++ ) {
+	int i;
+
+	for ( i = 0; i < DP_RAM_MAX_RCV_CHAR; i++ ) {
 		szRecvBuff[i] = (TCHAR)DualPortRam_Read(DP_RAM_RCV_BUFFER + i);
 		if ( szRecvBuff[i] == _TCHAR('\r') ) {
-			szRecvBuff[i] = NULL;								// I’[•¶ŽšCR‚ðNULL•¶Žš‚É’uŠ·
+			szRecvBuff[i] = NULL;								// I[CRNULLÉ’u
 			break;
 		}
 	}
-	if ( i == DP_RAM_MAX_RCV_CHAR ) {							// I’[•¶ŽšCR‚ªŒ©‚Â‚©‚ç‚È‚©‚Á‚½
+	if ( i == DP_RAM_MAX_RCV_CHAR ) {							// I[CRÂ‚È‚
 		SetStatus(DP_IDLE);
 		return FALSE;
 	}

@@ -13,7 +13,7 @@ CRadiusOfCurvature::CRadiusOfCurvature()
 
 	m_dStageSpeed = 0.0;
 
-	m_pDeflectionThetaFitting = new CCurveFitting(CCurveFitting::COEF2);		// 1Ÿ‰ñ‹A
+	m_pDeflectionThetaFitting = new CCurveFitting(CCurveFitting::COEF2);		// 1A
 }
 
 // --------------------------------------------------------------------
@@ -34,7 +34,7 @@ void CRadiusOfCurvature::SetStageSpeed(double dStageSpeed)
 {
 	TRACE(_T("CRadiusOfCurvature::SetStageSpeed()\n"));
 
-	/* ƒXƒe[ƒW‘¬“x(mm/s)‚ğ“o˜^‚µ‚Ü‚· */
+	/* Xe[Wx(mm/s)o^Ü‚ */
 	m_dStageSpeed = dStageSpeed;
 }
 
@@ -44,10 +44,12 @@ void CRadiusOfCurvature::SetDeflection(const double* pDeflection, int nOccurence
 {
 	TRACE(_T("CRadiusOfCurvature::SetDeflection()\n"));
 
-	/* •ÏˆÊ—Êi‚½‚í‚İj‚ğ“o˜^‚µ‚Ü‚· */
+	/* ÏˆÊ—Êiİjo^Ü‚ */
 	m_DeflectionArray.RemoveAll();
 	m_DeflectionArray.SetSize(nOccurence);
-	for ( int i = 0; i < nOccurence; i++ )
+	int i;
+
+	for ( i = 0; i < nOccurence; i++ )
 		m_DeflectionArray.SetAt(i, pDeflection[i] * UNITCONV_MM_TO_UM);
 }
 
@@ -57,9 +59,11 @@ void CRadiusOfCurvature::SetDeflectionAtZero(double** pDeflection, int nOccurenc
 {
 	TRACE(_T("CRadiusOfCurvature::SetDeflectionAtZero()\n"));
 
-	/* •ÏˆÊ—Êi‚½‚í‚İj‚ğ“o˜^‚µ‚Ü‚· */
+	/* ÏˆÊ—Êiİjo^Ü‚ */
 	m_DeflectionAtZeroData.RemoveAll();
-	for ( int i = 0; i < nOccurence; i++ )
+	int i;
+
+	for ( i = 0; i < nOccurence; i++ )
 		m_DeflectionAtZeroData.SetAt(pDeflection[i][0] * UNITCONV_UM_TO_MM, pDeflection[i][1]);
 }
 
@@ -69,16 +73,16 @@ void CRadiusOfCurvature::SetDeflectionAtZero(double** pDeflection, int nOccurenc
 //{
 //	TRACE(_T("CRadiusOfCurvature::Calc()\n"));
 //
-//// 2009.09.15 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒX‚Æ‰—Í‘ª’è‚Ì—LŒøƒ‰ƒCƒ“•sˆê’vƒP[ƒX‚Ö‚Ì‘Î‰ -->
+//// 2009.09.15 K.Matsuo t@XÆ‰Í‘èÌ—LCsvP[XÖ‚Ì‘Î‰ -->
 ////	if ( m_DeflectionArray.GetSize() == 0 )
 ////		return FALSE;
-//// 2009.09.15 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒX‚Æ‰—Í‘ª’è‚Ì—LŒøƒ‰ƒCƒ“•sˆê’vƒP[ƒX‚Ö‚Ì‘Î‰ <--
+//// 2009.09.15 K.Matsuo t@XÆ‰Í‘èÌ—LCsvP[XÖ‚Ì‘Î‰ <--
 //
-//	// •ÏˆÊ—Êi‚½‚í‚İj‚Ìæ“¾
+//	// ÏˆÊ—ÊiİjÌæ“¾
 //	CalcDeflectionData(dDeflStartmm, dDeflEndmm, dDeflStepmm);
-//	// Šî”Â•\–Ê‚ÌŒXÎiƒÆ(=dy/dx)j
+//	// Â•\Ê‚ÌŒXÎi(=dy/dx)j
 //	CalcDeflectionTheta(dDeflStartmm, dDeflEndmm, dDeflStepmm);
-//	// Šî”Â•\–Ê‚ÌŒXÎ‚©‚ç‹È—¦”¼Œa‚ğ‹‚ß‚é‚½‚ßA1Ÿ‰ñ‹AŒvZ
+//	// Â•\Ê‚ÌŒXÎ‚È—aß‚é‚½ßA1AvZ
 //	CalcDeflectionThetaLinest(dDeflStartmm, dDeflEndmm, dDeflStepmm);
 //}
 
@@ -88,7 +92,7 @@ double CRadiusOfCurvature::GetDthetaDx(double dPosmm)
 {
 //	TRACE(_T("CRadiusOfCurvature::GetDthetaDx()\n"));
 
-	/* dƒÆ/dx‚ğæ“¾‚µ‚Ü‚· */
+	/* d/dxæ“¾Ü‚ */
 	double dRet;
 
 	if ( !m_DeflectionThetaLineStMap.Lookup(dPosmm, dRet) )
@@ -103,7 +107,7 @@ double CRadiusOfCurvature::GetRadius(double dPosmm)
 {
 	TRACE(_T("CRadiusOfCurvature::GetRadius()\n"));
 
-	/* Radius ‚ğ‹‚ß‚Ü‚· */
+	/* Radius ß‚Ü‚ */
 //	return 1.0 / GetDthetaDx(dPosmm);
 	if( GetDthetaDx(dPosmm) == 0.0 )
 		return DBL_MAX;
@@ -206,10 +210,10 @@ void CRadiusOfCurvature::CalcDeflectionThetaLinest(double dThetaStartmm, double 
 {
 	TRACE(_T("CRadiusOfCurvature::CalcDeflectionThetaLinest()\n"));
 
-	/* dƒÆ/dx‚ğ‹‚ß‚Ü‚· */
+	/* d/dxß‚Ü‚ */
 //	m_DeflectionThetaLineStMap.RemoveAll();
 
-// 2009.10.09 K.Matsuo ƒZƒNƒVƒ‡ƒ“ŠÔ‚ÅdƒÆ/dx(=1/R)‚ğŒvZ -->
+// 2009.10.09 K.Matsuo ZNVÔ‚d/dx(=1/R)vZ -->
 //	CURVEFITTINGST cf;
 //	const int DATANUM = 7;
 //
@@ -218,14 +222,15 @@ void CRadiusOfCurvature::CalcDeflectionThetaLinest(double dThetaStartmm, double 
 //	double d = dThetaStartmm + dThetaStepmm;
 //	while ( d + dThetaStepmm * 6 <= dThetaEndmm - dThetaStepmm ) {
 //		cf.datanum = DATANUM;
-//		for ( int i = 0; i < DATANUM; i++ ) {
+//		int i;
+		for ( i = 0; i < DATANUM; i++ ) {
 //			cf.point[i] = d + dThetaStepmm * i;
 //			if ( !m_DeflectionThetaMap.Lookup(d + dThetaStepmm * i, dTemp) )
 //				ASSERT(FALSE);
 //			cf.value[i] = dTemp;
 //		}
 //		m_pDeflectionThetaFitting->SetParamData(cf);
-//		dCoef = m_pDeflectionThetaFitting->GetCoefficient(1);				// ŒW”a‚Ìæ“¾iy = ax + bj
+//		dCoef = m_pDeflectionThetaFitting->GetCoefficient(1);				// WaÌæ“¾iy = ax + bj
 //		m_DeflectionThetaLineStMap.SetAt(d + dThetaStepmm * 3, dCoef);
 //		d += dThetaStepmm;
 //	}
@@ -245,7 +250,7 @@ void CRadiusOfCurvature::CalcDeflectionThetaLinest(double dThetaStartmm, double 
 		d += dThetaStepmm;
 	}
 	m_pDeflectionThetaFitting->SetParamData(cf);
-	dCoef = m_pDeflectionThetaFitting->GetCoefficient(1);				// ŒW”a‚Ìæ“¾iy = ax + bj
+	dCoef = m_pDeflectionThetaFitting->GetCoefficient(1);				// WaÌæ“¾iy = ax + bj
 
 	d = dThetaStartmm;
 	while ( d <= dThetaEndmm ) {
@@ -271,12 +276,12 @@ double CRadiusOfCurvature::GetDeflectionByPos(double dPosmm, double dOffsetmm)
 	ASSERT(m_dStageSpeed > 0.0);
 
 	dIndex = dPosmm - dOffsetmm;
-	dIndex = dIndex * ((1.0 / m_dStageSpeed) / (10.0 / 1000.0));	// (1.0 / m_dStageSpeed) / (ƒTƒ“ƒvƒŠƒ“ƒOƒCƒ“ƒ^[ƒoƒ‹10.0 / ƒf[ƒ^’~ÏŠÔŠu1000.0)
+	dIndex = dIndex * ((1.0 / m_dStageSpeed) / (10.0 / 1000.0));	// (1.0 / m_dStageSpeed) / (TvOC^[o10.0 / f[^~ÏŠÔŠu1000.0)
 
 	iIndex = (int)dIndex;
 	ddIndex = dIndex - (double)iIndex;
 
-	// ‰Ád•½‹ÏŒvZ‚ÌŠÖŒW‚ÅAƒCƒ“ƒfƒbƒNƒXQÆ‚ª•s³‚ÈˆÊ’u‚É‚È‚é‚Ì‚ÅA’[‚Ì‚P‚Â“à‘¤‚Ü‚Å‚µ‚©—˜—p‚µ‚È‚¢‚æ‚¤‚É‚·‚é
+	// dÏŒvZÌŠÖŒWÅACfbNXQÆ‚sÈˆÊ’uÉ‚È‚Ì‚ÅA[Ì‚PÂ“Ü‚Å‚pÈ‚æ‚¤É‚
 	if ( iIndex <= 1 ) {
 		dData = m_DeflectionArray[1];
 	}

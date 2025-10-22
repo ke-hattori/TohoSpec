@@ -15,19 +15,19 @@
 #define RS232C_SEND_CHAR		(256)
 #define RS232C_RECV_CHAR		(4096)
 
-//	ƒRƒ}ƒ“ƒh
-#define RESET		 		_T("RST")		// ‰Šú‰»
-#define AD_OFFSET	   		_T("ZRD")		// A/DƒRƒ“ƒo[ƒ^‚ÌƒIƒtƒZƒbƒg’²®‚ğÀsi–ñ10•bŠÔj
-#define RANGE		 		_T("RNG")		// ‘ª’èƒŒƒ“ƒWİ’èiRNGnn, nn=-3`+7j
-#define PROBE	  			_T("PRB")		// ‘ª’èƒvƒ[ƒuİ’èiPRBnj
-#define LIMITV 			   	_T("LMT")		// ƒŠƒ~ƒbƒ^“dˆ³İ’èiLMTn, n=0:10V,1:90Vj
-#define MEAS_START	   		_T("MES")		// ‘ª’èŠJn
-#define MEAS_END			_T("HLD")		// ‘ª’èI—¹
-#define STATUSREQ	 		_T("SRQ")		// ƒXƒe[ƒ^ƒX—v‹
-#define PARAMREQ			_T("PRQ")		// ƒpƒ‰ƒ[ƒ^—v‹
-#define MEAS_DATAREQ		_T("DRQ")		// ‘ª’èƒf[ƒ^—v‹
-#define RCF					_T("RCF")		// ’ïR—¦•â³ŒW”iRCFXXXXX, XXXXX=0.001`9999iÅ‘å5•¶šjj
-#define THICKDATA			_T("THK")		// —¿Œú‚İƒf[ƒ^iTHKXXXXX##, XXXXX=0.001`9999iÅ‘å5•¶šj, ##=MM,UM,NM,AMj
+//	R}h
+#define RESET		 		_T("RST")		// 
+#define AD_OFFSET	   		_T("ZRD")		// A/DRo[^ÌƒItZbgsi10bÔj
+#define RANGE		 		_T("RNG")		// èƒŒWİ’iRNGnn, nn=-3`+7j
+#define PROBE	  			_T("PRB")		// v[uİ’iPRBnj
+#define LIMITV 			   	_T("LMT")		// ~b^dİ’iLMTn, n=0:10V,1:90Vj
+#define MEAS_START	   		_T("MES")		// Jn
+#define MEAS_END			_T("HLD")		// I
+#define STATUSREQ	 		_T("SRQ")		// Xe[^Xv
+#define PARAMREQ			_T("PRQ")		// p[^v
+#define MEAS_DATAREQ		_T("DRQ")		// f[^v
+#define RCF					_T("RCF")		// Râ³WiRCFXXXXX, XXXXX=0.001`9999iÅ‘5jj
+#define THICKDATA			_T("THK")		// İƒf[^iTHKXXXXX##, XXXXX=0.001`9999iÅ‘5j, ##=MM,UM,NM,AMj
 
 extern CLogFile* pLogFile;
 extern CMojiretsu* pMojiretsu;
@@ -90,13 +90,15 @@ BOOL CRsHeadMCPT610::InitInstance()
 	::PurgeComm(m_hComm, PURGE_TXABORT | PURGE_TXCLEAR);
 	::PurgeComm(m_hComm, PURGE_RXABORT | PURGE_RXCLEAR);
 
-	// ƒƒŒƒXƒ^æà‚ÌƒTƒ“ƒvƒ‹ƒR[ƒh‚ª‰Šú‰»ƒRƒ}ƒ“ƒh‚ğ2‰ñ‘—M‚µ‚Ä‚¢‚é‚Ì‚ÅAƒ}ƒl‚ğ‚µ‚½
-	for ( int i = 0; i < 2; i++ ) {
+	// X^ÌƒTvR[hR}h2ñ‘—MÄ‚Ì‚ÅA}l
+	int i;
+
+	for ( i = 0; i < 2; i++ ) {
 		if ( !Reset() )
 			return FALSE;
 	}
 
-	// Œ»İ‚Ìİ’èƒpƒ‰ƒ[ƒ^î•ñ‚ğæ“¾‚·‚éB‚Ü‚½A’ÊM‚Å‚«‚é‚©‚Ìƒ`ƒFƒbƒN‚àŒ“‚Ë‚ÄA‰“š‚ğ•Ô‚·ƒRƒ}ƒ“ƒh‚ğ‘—M‚µ‚Ä‚¢‚é
+	// İ‚Ìİ’p[^æ“¾BÜ‚AÊMÅ‚é‚©Ìƒ`FbNË‚ÄAÔ‚R}hğ‘—MÄ‚
 	RSMEASPARAM rsMeasParam;
 	if ( !GetMeasParam(&rsMeasParam) ) {
 		MyMessageBox(NULL, pMojiretsu->LoadString(IDS_STRING04), g_szMsgBoxCaption, MB_OK | MB_ICONSTOP);
@@ -343,9 +345,13 @@ BOOL CRsHeadMCPT610::SendCommand(LPCTSTR pszCmd)
 	_tcscpy(m_pszSendBuff, pszCmd);
 
 	const int MAXTIMES = 1;
-	for ( int iTry = 0; iTry < MAXTIMES; iTry++ ) {
+	int iTry;
+
+	for ( iTry = 0; iTry < MAXTIMES; iTry++ ) {
 		bError = FALSE;
-		for ( int i = 0; pszCmd[i]; i++ ) {
+		int i;
+
+		for ( i = 0; pszCmd[i]; i++ ) {
 			if ( !::WriteFile(m_hComm, &pszCmd[i], 1, &dwNumberOfBytesWritten, NULL) ) {
 				bError = TRUE;
 				break;
@@ -355,7 +361,7 @@ BOOL CRsHeadMCPT610::SendCommand(LPCTSTR pszCmd)
 			continue;		// Error -> Retry
 
 		bySend = (BYTE)_TCHAR('\n');
-		if ( !::WriteFile(m_hComm, &bySend, 1, &dwNumberOfBytesWritten, NULL) ) // I’[•¶šLF‚Ìİ’è
+		if ( !::WriteFile(m_hComm, &bySend, 1, &dwNumberOfBytesWritten, NULL) ) // I[LFÌİ’
 			continue;		// Error -> Retry
 
 		pLogFile->Logging(m_pszSendBuff);
@@ -392,17 +398,20 @@ BOOL CRsHeadMCPT610::RecvData()
 {
 	DWORD dwNumberOfBytesRead;
 
-	for ( int i = 0; i < RS232C_RECV_CHAR; i++ ) {
+	int i;
+
+
+	for ( i = 0; i < RS232C_RECV_CHAR; i++ ) {
 		if ( !WaitForRecvData(RS232C_RECV_TIMEOUT) )
 			return FALSE;
 		if ( !::ReadFile(m_hComm, &m_pszRecvBuff[i], 1, &dwNumberOfBytesRead, NULL) )
 			return FALSE;
 		if ( m_pszRecvBuff[i] == _TCHAR('\n') ) {
-			m_pszRecvBuff[i] = NULL;								// I’[•¶šLF‚ğNULL•¶š‚É’uŠ·
+			m_pszRecvBuff[i] = NULL;								// I[LFNULLÉ’u
 			break;
 		}
 	}
-	if ( i == RS232C_RECV_CHAR ) {									// I’[•¶šLF‚ªŒ©‚Â‚©‚ç‚È‚©‚Á‚½
+	if ( i == RS232C_RECV_CHAR ) {									// I[LFÂ‚È‚
 		return FALSE;
 	}
 
