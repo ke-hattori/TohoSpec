@@ -1,0 +1,62 @@
+name: MSBuild (VS2022)
+
+on:
+  push:
+    branches: [ feature/vs2022 ]
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout (with submodules & LFS)
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+          lfs: true
+
+      - name: Setup MSBuild (vswhere)
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Restore (NuGet via MSBuild)
+        run: msbuild ".\NANOSPEC.sln" -t:Restore
+        shell: pwsh
+
+      - name: Build (x86/Debug)
+        run: >
+          msbuild ".\NANOSPEC.sln" /m /p:Configuration=Debug /p:Platform=x86
+          /flp1:"logfile=build.log;verbosity=diagnostic"
+          /flp2:"logfile=errors.log;errorsonly=true"
+          /flp3:"logfile=warnings.log;warningsonly=true"
+        shell: pwsh
+
+      - name: Summarize warnings by code
+        if: always()
+        shell: pwsh
+        run: |
+          $pat = ':\s*warning\s+(C\d{4,5})'
+          $t = @{}
+          if (Test-Path warnings.log) {
+            Get-Content warnings.log | ForEach-Object {
+              if ($_ -match $pat) { $code = $Matches[1]; $t[$code] = 1 + ($t[$code] ?? 0) }
+            }
+          }
+          $lines = @("code,count")
+          foreach ($k in ($t.Keys | Sort-Object {[int]($_ -replace '^C','')})) { $lines += "$k,$($t[$k])" }
+          $csv = $lines -join "`n"
+          $csv | Out-File warnings-summary.csv -Encoding utf8
+          $top = ($t.GetEnumerator() | Sort-Object Value -Descending | Select-Object -First 10)
+          "### Warning summary (top10)`n" + ($top | ForEach-Object { "- $($_.Key): $($_.Value)" } | Out-String) | Out-File $env:GITHUB_STEP_SUMMARY -Append
+
+      - name: Upload Logs (incl warnings)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: msbuild-logs
+          path: |
+            build.log
+            errors.log
+            warnings.log
+            warnings-summary.csv
