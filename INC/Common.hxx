@@ -6,6 +6,7 @@
 #include <windows.h>
 #include <tchar.h>
 #include <list>
+#include <string>
 #include <cstring>
 #include <ctime>
 #include <cassert>
