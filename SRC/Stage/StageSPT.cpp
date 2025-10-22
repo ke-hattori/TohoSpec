@@ -683,7 +683,7 @@ int CStageSPT::InitializeStage(void)
 	}
 	if (STAGE_ERR_NONE == l_iRc) {
 		// X/Y 軸の原点復帰の完了待ち
-		l_iRc = CStageNTN::Execute(CStageNTN::MotSys_WaitMotionXY, (LPVOID) MAKELONG(0, TIMEOUT_MOTSYS_ORG));
+		l_iRc = CStageNTN::Execute(&CStageNTN::MotSys_WaitMotionXY, (LPVOID) MAKELONG(0, TIMEOUT_MOTSYS_ORG));
 	}
 	if (STAGE_ERR_NONE == l_iRc) {
 		// X/Y 軸の最高速度を取得(内部変数にのみ取得のためパラメタを指定していません)
@@ -1258,7 +1258,7 @@ int CStageSPT::MoveAbsoluteAtSpeedEx(WORD wAxis, long lPos, double dSpeed, BOOL 
 		AdjustElevator(FALSE, &l_AdjEvPos);		// Z 補正
 		if (TRUE == bWait) {
 			// 移動完了を待ちます．
-			l_iRc = CStageNTN::Execute(CStageNTN::MotSys_WaitMotionAxis, (LPVOID) MAKELONG(MAKEWORD(wAxis, 1), TIMEOUT_MOTSYS_MOTION));
+			l_iRc = CStageNTN::Execute(&CStageNTN::MotSys_WaitMotionAxis, (LPVOID) MAKELONG(MAKEWORD(wAxis, 1), TIMEOUT_MOTSYS_MOTION));
 		}
 	}
 
@@ -1331,7 +1331,7 @@ int CStageSPT::MoveAbsoluteAtSpeedEx(STAGE_COORD* pPos, double dSpeed, BOOL bWai
 		AdjustElevator(FALSE, &l_AdjEvPos);		// Z 補正
 		if (TRUE == bWait) {
 			// 移動完了を待ちます．
-			l_iRc = CStageNTN::Execute(CStageNTN::MotSys_WaitMotionXY, (LPVOID) MAKELONG(MAKEWORD(0, 0), TIMEOUT_MOTSYS_MOTION));
+			l_iRc = CStageNTN::Execute(&CStageNTN::MotSys_WaitMotionXY, (LPVOID) MAKELONG(MAKEWORD(0, 0), TIMEOUT_MOTSYS_MOTION));
 		}
 	}
 
@@ -1470,7 +1470,7 @@ int CStageSPT::MoveAtSpeedEx(WORD wAxis, double dSpeed, BOOL bWait/*=TRUE*/)
 	if (STAGE_ERR_NONE == l_iRc) {
 		if (TRUE == bWait) {
 			// 移動完了を待ちます．
-			l_iRc = CStageNTN::Execute(CStageNTN::MotSys_WaitMotionAxis, (LPVOID) MAKELONG(MAKEWORD(wAxis, 1), TIMEOUT_MOTSYS_MOTION));
+			l_iRc = CStageNTN::Execute(&CStageNTN::MotSys_WaitMotionAxis, (LPVOID) MAKELONG(MAKEWORD(wAxis, 1), TIMEOUT_MOTSYS_MOTION));
 		}
 	}
 

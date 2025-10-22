@@ -591,7 +591,7 @@ private:
 	template <class T>
 	class aux_result
 	{
-	protected:
+	public:
 		typedef T* pointer;
 	public:
 		aux_result<T>(PCSTR result_buffer) : buffer(result_buffer) {};
