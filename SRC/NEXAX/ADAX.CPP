@@ -738,7 +738,7 @@ unsigned long cAdaxServo::ParseCommand(message_packet& msg/*=message_packet()*/)
 			break;
 		case eeprom_status:
 			m_lfs << "homing is"
-				  << m_msg.high == 0 ? "completion" : "not completion";
+				  << (m_msg.high == 0 ? "completion" : "not completion");
 			break;
 		}
 		break;
