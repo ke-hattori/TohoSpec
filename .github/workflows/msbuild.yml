@@ -3,77 +3,102 @@ name: MSBuild (VS2022)
 on:
   push:
     branches: [ feature/vs2022 ]
-  workflow_dispatch: {}
+  pull_request:
+    branches: [ feature/vs2022 ]
+
+env:
+  SOLUTION_PATH: NANOSPEC.sln
+
+permissions:
+  contents: read
+
+concurrency:
+  group: msbuild-vs2022-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   build:
+    name: Build ${{ matrix.configuration }} | ${{ matrix.platform }}
     runs-on: windows-latest
+
     strategy:
       fail-fast: false
       matrix:
-        cfg: [Debug, Release]
-        plat: [x86, x64]
+        configuration: [ Debug, Release ]
+        platform: [ x86 ]
+        # x64 も回す場合は下行のコメントを外してください
+        # platform: [ x86, x64 ]
 
-    env:
-      SOLUTION_PATH: NANOSPEC.sln
-      BINLOG: build-${{ matrix.plat }}-${{ matrix.cfg }}.binlog
-      BUILD_LOG: build-${{ matrix.plat }}-${{ matrix.cfg }}.log
-      ERR_LOG: errors-${{ matrix.plat }}-${{ matrix.cfg }}.log
-      WARN_LOG: warnings-${{ matrix.plat }}-${{ matrix.cfg }}.log
-      WARN_SUM: warnings-summary-${{ matrix.plat }}-${{ matrix.cfg }}.csv
+    defaults:
+      run:
+        shell: pwsh
 
     steps:
-      - name: Checkout (with submodules & LFS)
+      - name: Checkout
         uses: actions/checkout@v4
-        with:
-          submodules: recursive
-          fetch-depth: 0
-          lfs: true
 
-      - name: Setup MSBuild (vswhere)
+      - name: Setup MSBuild (VS2022)
         uses: microsoft/setup-msbuild@v2
+        with:
+          vs-version: '[17.0,18.0)'
 
-      - name: Restore (NuGet via MSBuild)
-        run: msbuild ".\${{ env.SOLUTION_PATH }}" -t:Restore
-        shell: pwsh
+      - name: Show MSBuild version
+        run: msbuild -version
 
-      - name: Build ${{ matrix.plat }} / ${{ matrix.cfg }}
-        run: >
-          msbuild ".\${{ env.SOLUTION_PATH }}" /m
-          /p:Configuration=${{ matrix.cfg }} /p:Platform=${{ matrix.plat }}
-          /bl:${{ env.BINLOG }}
-          /flp1:"logfile=${{ env.BUILD_LOG }};verbosity=diagnostic"
-          /flp2:"logfile=${{ env.ERR_LOG }};errorsonly=true"
-          /flp3:"logfile=${{ env.WARN_LOG }};warningsonly=true"
-        shell: pwsh
-
-      - name: Summarize warnings by code
-        if: always()
-        shell: pwsh
+      - name: Prepare log folders
         run: |
-          $pat = ':\s*warning\s+(C\d{4,5})'
-          $t = @{}
-          if (Test-Path "${{ env.WARN_LOG }}") {
-            Get-Content "${{ env.WARN_LOG }}" | ForEach-Object {
-              if ($_ -match $pat) { $code = $Matches[1]; $t[$code] = 1 + ($t[$code] ?? 0) }
-            }
-          }
-          $lines = @("code,count")
-          foreach ($k in ($t.Keys | Sort-Object {[int]($_ -replace '^C','')})) { $lines += "$k,$($t[$k])" }
-          $csv = $lines -join "`n"
-          $csv | Out-File "${{ env.WARN_SUM }}" -Encoding utf8
-          $totalW = (Test-Path "${{ env.WARN_LOG }}") ? ((Get-Content "${{ env.WARN_LOG }}" | Measure-Object -Line).Lines) : 0
-          $totalE = (Test-Path "${{ env.ERR_LOG }}") ? ((Get-Content "${{ env.ERR_LOG }}" | Measure-Object -Line).Lines) : 0
-          "### ${env:GITHUB_JOB} ${{ matrix.plat }}/${{ matrix.cfg }} Summary`n- Errors: $totalE`n- Warnings: $totalW" | Out-File $env:GITHUB_STEP_SUMMARY -Append
+          $logDir = "_logs/${{ matrix.configuration }}_${{ matrix.platform }}"
+          New-Item -ItemType Directory -Force -Path $logDir | Out-Null
+          Write-Host "LogDir = $logDir"
 
-      - name: Upload logs (${{ matrix.plat }}-${{ matrix.cfg }})
+      # 必要なら NuGet 復元。未使用なら残しても害はありません。
+      - name: Restore (NuGet/MSBuild)
+        run: |
+          if (Test-Path "$env:SOLUTION_PATH") {
+            msbuild "$env:SOLUTION_PATH" -t:Restore -m `
+              /p:Configuration=${{ matrix.configuration }} `
+              /p:Platform=${{ matrix.platform }}
+          } else {
+            Write-Error "Solution not found: $env:SOLUTION_PATH"
+            exit 1
+          }
+
+      - name: Build (collect logs)
+        run: |
+          $logDir = "_logs/${{ matrix.configuration }}_${{ matrix.platform }}"
+          $binLog = Join-Path $logDir "build_${{ matrix.configuration }}_${{ matrix.platform }}.binlog"
+          $buildLog = Join-Path $logDir "build.log"
+          $errLog   = Join-Path $logDir "errors.log"
+          $warnLog  = Join-Path $logDir "warnings.log"
+
+          msbuild "$env:SOLUTION_PATH" -m -t:Build `
+            /p:Configuration=${{ matrix.configuration }} `
+            /p:Platform=${{ matrix.platform }} `
+            /v:minimal `
+            /bl:"$binLog" `
+            /flp1:"logfile=$buildLog;verbosity=diagnostic" `
+            /flp2:"logfile=$errLog;errorsonly=true" `
+            /flp3:"logfile=$warnLog;warningsonly=true"
+
+      - name: Summarize counts (non-blocking)
+        continue-on-error: true
+        run: |
+          $logDir = "_logs/${{ matrix.configuration }}_${{ matrix.platform }}"
+          $errLog = Join-Path $logDir "errors.log"
+          $warnLog = Join-Path $logDir "warnings.log"
+          $errCount = (Test-Path $errLog)  ? (Select-String -Path $errLog -Pattern '.' | Measure-Object).Count : 0
+          $warnCount = (Test-Path $warnLog) ? (Select-String -Path $warnLog -Pattern '.' | Measure-Object).Count : 0
+          "Errors: $errCount"  | Tee-Object -FilePath (Join-Path $logDir "summary.txt")
+          "Warnings: $warnCount" | Tee-Object -FilePath (Join-Path $logDir "summary.txt") -Append
+          Write-Host "::notice title=Log Summary (${{ matrix.configuration }}|${{ matrix.platform }})::Errors=$errCount, Warnings=$warnCount"
+
+      - name: Upload artifacts (logs & binlog)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: msbuild-logs-${{ matrix.plat }}-${{ matrix.cfg }}
+          name: logs-${{ matrix.configuration }}-${{ matrix.platform }}
           path: |
-            ${{ env.BINLOG }}
-            ${{ env.BUILD_LOG }}
-            ${{ env.ERR_LOG }}
-            ${{ env.WARN_LOG }}
-            ${{ env.WARN_SUM }}
+            _logs/${{ matrix.configuration }}_${{ matrix.platform }}/*.log
+            _logs/${{ matrix.configuration }}_${{ matrix.platform }}/*.binlog
+            _logs/${{ matrix.configuration }}_${{ matrix.platform }}/summary.txt
+          if-no-files-found: warn
