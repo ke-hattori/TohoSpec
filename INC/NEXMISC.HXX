@@ -137,8 +137,8 @@ public:
 	basic_timer& operator = (const basic_timer& rhs) { duration = rhs.duration; return *this; }
 	basic_timer& operator = (unsigned long msec) { duration = msec; return *this; }
 
-	operator += (unsigned long msec) { duration += msec; }
-	operator -= (unsigned long msec) { duration -= msec; }
+	void operator += (unsigned long msec) { duration += msec; }
+	void operator -= (unsigned long msec) { duration -= msec; }
 	operator char* ()
 	{
 		sprintf(buffer, "%04d.%02d.%02d %02d:%02d:%02d:%03d",
@@ -178,7 +178,7 @@ public:
 		}
 		Sleep(msec);
 	}
-	inline delay (unsigned long msec)
+	inline void delay (unsigned long msec)
 	{
 		// set timer
 		set(msec);
