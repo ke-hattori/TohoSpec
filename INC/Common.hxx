@@ -165,37 +165,37 @@ public:
 		return *this == traits_type(1, rhs);
 	}
 	bool operator==(_stringex str) {
-		return (*this).compare(str) == 0);
+		return (*this).compare(str) == 0;
 	}
 	bool operator<=(const_reference rhs) {
 		return *this <= traits_type(1, rhs);
 	}
 	bool operator<=(_stringex str) {
-		return (*this).compare(str) <= 0);
+		return (*this).compare(str) <= 0;
 	}
 	bool operator>=(const_reference rhs) {
 		return *this >= traits_type(1, rhs);
 	}
 	bool operator>=(_stringex str) {
-		return (*this).compare(str) >= 0);
+		return (*this).compare(str) >= 0;
 	}
 	bool operator!=(const_reference rhs) {
 		return *this != traits_type(1, rhs);
 	}
 	bool operator!=(_stringex str) {
-		return (*this).compare(str) != 0);
+		return (*this).compare(str) != 0;
 	}
 	bool operator<(const_reference rhs) {
 		return *this < traits_type(1, rhs);
 	}
 	bool operator<(_stringex str) {
-		return (*this).compare(str) < 0);
+		return (*this).compare(str) < 0;
 	}
 	bool operator>(const_reference rhs) {
 		return *this > traits_type(1, rhs);
 	}
 	bool operator>(_stringex str) {
-		return (*this).compare(str) > 0);
+		return (*this).compare(str) > 0;
 	}
 	// CString ���l�؂�...
 	traits_type& format(traits_type fmt, ...) {
