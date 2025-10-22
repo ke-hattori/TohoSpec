@@ -1,4 +1,4 @@
-// MotSysDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// MotSysDlg.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include <io.h>
@@ -21,8 +21,8 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-UINT MOTDRV_SHOWALARM = RegisterWindowMessage("MOTDRV_SHOWALARM");	// ƒAƒ‰[ƒ€•\Ž¦—pƒƒbƒZ[ƒW’è‹`
-UINT MOTDRV_SRVINITCOMP = RegisterWindowMessage("MOTDRV_SRVINITCOMP");	// ƒT[ƒ{‰Šú‰»Š®—¹ƒƒbƒZ[ƒW’è‹`
+UINT MOTDRV_SHOWALARM = RegisterWindowMessage("MOTDRV_SHOWALARM");	// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½`
+UINT MOTDRV_SRVINITCOMP = RegisterWindowMessage("MOTDRV_SRVINITCOMP");	// ï¿½Tï¿½[ï¿½{ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½`
 
 CSio *g_pCSio;
 CLogFile *g_pComLogFile;
@@ -33,25 +33,25 @@ CWinThread* g_pCCThread;	// Thread pointer
 
 
 /////////////////////////////////////////////////////////////////////////////
-// ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Ìƒo[ƒWƒ‡ƒ“î•ñ‚ÅŽg‚í‚ê‚Ä‚¢‚é CAboutDlg ƒ_ƒCƒAƒƒO
+// ï¿½Aï¿½vï¿½ï¿½ï¿½Pï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ìƒoï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÅŽgï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ CAboutDlg ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½O
 
 class CAboutDlg : public CDialog
 {
 public:
 	CAboutDlg();
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½O ï¿½fï¿½[ï¿½^
 	//{{AFX_DATA(CAboutDlg)
 	enum { IDD = IDD_ABOUTBOX };
 	//}}AFX_DATA
 
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ð¶¬‚µ‚Ü‚·
+	// ClassWizard ï¿½Í‰ï¿½ï¿½zï¿½Öï¿½ï¿½ÌƒIï¿½[ï¿½oï¿½[ï¿½ï¿½ï¿½Cï¿½hï¿½ð¶ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½
 	//{{AFX_VIRTUAL(CAboutDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ‚ÌƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ï¿½ÌƒTï¿½|ï¿½[ï¿½g
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
 protected:
 	//{{AFX_MSG(CAboutDlg)
 	afx_msg void OnBtnComLogClear();
@@ -78,10 +78,10 @@ BOOL CAboutDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// TODO: ‚±‚ÌˆÊ’u‚É‰Šú‰»‚Ì•â‘«ˆ—‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½Éï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì•â‘«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	// ‚±‚Ìƒ_ƒCƒAƒƒO—p‚ÌƒAƒCƒRƒ“‚ðÝ’è
-	SetIcon(((CMotSysDlg*) (this->GetParent()))->m_hMainIcon, TRUE);	// ‘å‚«‚¢ƒAƒCƒRƒ“‚ðÝ’è
+	// ï¿½ï¿½ï¿½Ìƒ_ï¿½Cï¿½Aï¿½ï¿½ï¿½Oï¿½pï¿½ÌƒAï¿½Cï¿½Rï¿½ï¿½ï¿½ï¿½Ý’ï¿½
+	SetIcon(((CMotSysDlg*) (this->GetParent()))->m_hMainIcon, TRUE);	// ï¿½å‚«ï¿½ï¿½ï¿½Aï¿½Cï¿½Rï¿½ï¿½ï¿½ï¿½Ý’ï¿½
 
 	if (g_pCSio != NULL) {
 		if (g_pCSio->m_LogEnable == FALSE) {
@@ -91,14 +91,14 @@ BOOL CAboutDlg::OnInitDialog()
 		}
 	}
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ðÝ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-				  // —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Éƒtï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½Ý’è‚µï¿½È‚ï¿½ï¿½Æ‚ï¿½ï¿½Aï¿½ß‚ï¿½lï¿½ï¿½ TRUE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
+				  // ï¿½ï¿½O: OCX ï¿½vï¿½ï¿½ï¿½pï¿½eï¿½B ï¿½yï¿½[ï¿½Wï¿½Ì–ß‚ï¿½lï¿½ï¿½ FALSE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
 }
 
-// ƒƒOƒNƒŠƒAƒ{ƒ^ƒ“
+// ï¿½ï¿½ï¿½Oï¿½Nï¿½ï¿½ï¿½Aï¿½{ï¿½^ï¿½ï¿½
 void CAboutDlg::OnBtnComLogClear()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (g_pCSio != NULL) {
 		GetDlgItem(IDC_BTN_COMLOGENA)->EnableWindow(FALSE);
 		GetDlgItem(IDC_BTN_COMLOGCLR)->EnableWindow(FALSE);
@@ -108,20 +108,20 @@ void CAboutDlg::OnBtnComLogClear()
 	}
 }
 
-// ƒƒO‚Ì‹–‰Â/‹ÖŽ~
+// ï¿½ï¿½ï¿½Oï¿½Ì‹ï¿½ï¿½ï¿½/ï¿½ÖŽ~
 void CAboutDlg::OnBtnComLogEnable()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (g_pCSio != NULL) {
 		if (g_pCSio->m_LogEnable == FALSE) {
 			g_pCSio->m_LogEnable = TRUE;
 			SetDlgItemText(IDC_BTN_COMLOGENA, _T("Enable"));
-			// Servo.ini ‚É‹L‰¯‚µ‚Ä‚¨‚­
+			// Servo.ini ï¿½É‹Lï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
 			::WritePrivateProfileString(_T("Log"), _T("ComLog"), _T("1"), SERVO_INI);
 		} else {
 			g_pCSio->m_LogEnable = FALSE;
 			SetDlgItemText(IDC_BTN_COMLOGENA, _T("Disable"));
-			// Servo.ini ‚É‹L‰¯‚µ‚Ä‚¨‚­
+			// Servo.ini ï¿½É‹Lï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
 			::WritePrivateProfileString(_T("Log"), _T("ComLog"), _T("0"), SERVO_INI);
 		}
 	}
@@ -135,15 +135,15 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CMotSysDlg ƒ_ƒCƒAƒƒO
+// CMotSysDlg ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½O
 
 CMotSysDlg::CMotSysDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CMotSysDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CMotSysDlg)
-		// ƒƒ‚: ‚±‚ÌˆÊ’u‚É ClassWizard ‚É‚æ‚Á‚Äƒƒ“ƒo‚Ì‰Šú‰»‚ª’Ç‰Á‚³‚ê‚Ü‚·B
+		// ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ï¿½ ClassWizard ï¿½É‚ï¿½ï¿½ï¿½Äƒï¿½ï¿½ï¿½ï¿½oï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	//}}AFX_DATA_INIT
-	// ƒƒ‚: LoadIcon ‚Í Win32 ‚Ì DestroyIcon ‚ÌƒTƒuƒV[ƒPƒ“ƒX‚ð—v‹‚µ‚Ü‚¹‚ñB
+	// ï¿½ï¿½ï¿½ï¿½: LoadIcon ï¿½ï¿½ Win32 ï¿½ï¿½ DestroyIcon ï¿½ÌƒTï¿½uï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½B
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
@@ -151,7 +151,7 @@ void CMotSysDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CMotSysDlg)
-		// ƒƒ‚: ‚±‚ÌêŠ‚É‚Í ClassWizard ‚É‚æ‚Á‚Ä DDX ‚Æ DDV ‚ÌŒÄ‚Ño‚µ‚ª’Ç‰Á‚³‚ê‚Ü‚·B
+		// ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ÌêŠï¿½É‚ï¿½ ClassWizard ï¿½É‚ï¿½ï¿½ï¿½ï¿½ DDX ï¿½ï¿½ DDV ï¿½ÌŒÄ‚Ñoï¿½ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	//}}AFX_DATA_MAP
 }
 
@@ -221,15 +221,15 @@ BEGIN_MESSAGE_MAP(CMotSysDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CMotSysDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CMotSysDlg ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 
 BOOL CMotSysDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// "ƒo[ƒWƒ‡ƒ“î•ñ..." ƒƒjƒ…[€–Ú‚ðƒVƒXƒeƒ€ ƒƒjƒ…[‚Ö’Ç‰Á‚µ‚Ü‚·B
+	// "ï¿½oï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½..." ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ú‚ï¿½ï¿½Vï¿½Xï¿½eï¿½ï¿½ ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½Ö’Ç‰ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 
-	// IDM_ABOUTBOX ‚ÍƒRƒ}ƒ“ƒh ƒƒjƒ…[‚Ì”ÍˆÍ‚Å‚È‚¯‚ê‚Î‚È‚è‚Ü‚¹‚ñB
+	// IDM_ABOUTBOX ï¿½ÍƒRï¿½}ï¿½ï¿½ï¿½h ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½Ì”ÍˆÍ‚Å‚È‚ï¿½ï¿½ï¿½Î‚È‚ï¿½Ü‚ï¿½ï¿½ï¿½B
 	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
 	ASSERT(IDM_ABOUTBOX < 0xF000);
 
@@ -245,19 +245,19 @@ BOOL CMotSysDlg::OnInitDialog()
 		}
 	}
 
-	// ‚±‚Ìƒ_ƒCƒAƒƒO—p‚ÌƒAƒCƒRƒ“‚ðÝ’è‚µ‚Ü‚·BƒtƒŒ[ƒ€ƒ[ƒN‚ÍƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌƒƒCƒ“
-	// ƒEƒBƒ“ƒhƒE‚ªƒ_ƒCƒAƒƒO‚Å‚È‚¢Žž‚ÍŽ©“®“I‚ÉÝ’è‚µ‚Ü‚¹‚ñB
-	SetIcon(m_hIcon, TRUE);			// ‘å‚«‚¢ƒAƒCƒRƒ“‚ðÝ’è
-//	SetIcon(m_hIcon, FALSE);		// ¬‚³‚¢ƒAƒCƒRƒ“‚ðÝ’è
-	// ‚±‚Ìs‚ðÁ‚·‚ÆƒVƒXƒeƒ€‚ªŸŽè‚É16x16ƒAƒCƒRƒ“‚ð’T‚µ‚Ä‚­‚ê‚éD
-	// ‚½‚¾‚µC16x16ƒAƒCƒRƒ“‚Í—\‚ßì¬‚µ‚Ä‚¨‚­•K—v‚ª‚ ‚éD
+	// ï¿½ï¿½ï¿½Ìƒ_ï¿½Cï¿½Aï¿½ï¿½ï¿½Oï¿½pï¿½ÌƒAï¿½Cï¿½Rï¿½ï¿½ï¿½ï¿½Ý’è‚µï¿½Ü‚ï¿½ï¿½Bï¿½tï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½Nï¿½ÍƒAï¿½vï¿½ï¿½ï¿½Pï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ìƒï¿½ï¿½Cï¿½ï¿½
+	// ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½Oï¿½Å‚È‚ï¿½ï¿½ï¿½ï¿½ÍŽï¿½ï¿½ï¿½ï¿½Iï¿½ÉÝ’è‚µï¿½Ü‚ï¿½ï¿½ï¿½B
+	SetIcon(m_hIcon, TRUE);			// ï¿½å‚«ï¿½ï¿½ï¿½Aï¿½Cï¿½Rï¿½ï¿½ï¿½ï¿½Ý’ï¿½
+//	SetIcon(m_hIcon, FALSE);		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Cï¿½Rï¿½ï¿½ï¿½ï¿½Ý’ï¿½
+	// ï¿½ï¿½ï¿½Ìsï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÆƒVï¿½Xï¿½eï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½16x16ï¿½Aï¿½Cï¿½Rï¿½ï¿½ï¿½ï¿½Tï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½D
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½C16x16ï¿½Aï¿½Cï¿½Rï¿½ï¿½ï¿½Í—\ï¿½ßì¬ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½Kï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D
 
-	// TODO: “Á•Ê‚È‰Šú‰»‚ðs‚¤Žž‚Í‚±‚ÌêŠ‚É’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ï¿½ï¿½ï¿½Ê‚Èï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½ÌêŠï¿½É’Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 
-	// ƒEƒBƒ“ƒhƒE‚ÌƒvƒƒpƒeƒBƒŠƒXƒg‚ÉŽ¯•Êî•ñ‚ð’Ç‰Á
+	// ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½Ìƒvï¿½ï¿½ï¿½pï¿½eï¿½Bï¿½ï¿½ï¿½Xï¿½gï¿½ÉŽï¿½ï¿½Êï¿½ï¿½ï¿½Ç‰ï¿½
 	::SetProp(m_hWnd, IDENT_CODE, (HANDLE) 1);
 
-	//•Ï”‚Ì‰Šú‰»
+	//ï¿½Ïï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½
 	m_bOnClosing = FALSE;
 	m_bDIO_Opned = FALSE;
 	m_pComLogFile = 0;
@@ -270,7 +270,7 @@ BOOL CMotSysDlg::OnInitDialog()
 	memset(m_dPos, 0, sizeof(m_dPos));
 	InitMotionData();
 
-	// ƒRƒ“ƒgƒ[ƒ‹‚ÌƒCƒl[ƒuƒ‹Ý’è
+	// ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ÌƒCï¿½lï¿½[ï¿½uï¿½ï¿½ï¿½Ý’ï¿½
 	EnableDlgCtrl();
 
 	TCHAR	l_tszText[32];
@@ -279,15 +279,15 @@ BOOL CMotSysDlg::OnInitDialog()
 	if ((m_AutoHide < 0) || (2 < m_AutoHide)) {
 		m_AutoHide = 2;
 	}
-/* added 2009.12.14 hmenjo MotSys DIO ƒƒO’Ç‰Á ---------- { ---------- */
-	/* DIO ƒƒO ‚·‚é/‚µ‚È‚¢Ý’è“Çž‚Ý	*/
+/* added 2009.12.14 hmenjo MotSys DIO ï¿½ï¿½ï¿½Oï¿½Ç‰ï¿½ ---------- { ---------- */
+	/* DIO ï¿½ï¿½ï¿½O ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½È‚ï¿½ï¿½Ý’ï¿½Çï¿½ï¿½ï¿½	*/
 	::GetPrivateProfileString(_T("DIO"), _T("Log"), _T("0"), l_tszText, sizeof(l_tszText), SERVO_INI);
 	if (0 == _tcscmp(_T("1"), l_tszText)) {
 		m_bDioLog = TRUE;
 	} else {
 		m_bDioLog = FALSE;
 	}
-	/* DIO ƒƒO ƒtƒ@ƒCƒ‹Ý’è	*/
+	/* DIO ï¿½ï¿½ï¿½O ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ý’ï¿½	*/
 	if (TRUE == m_bDioLog) {
 		TCHAR l_tszDrive[_MAX_PATH], l_tszDir[_MAX_DIR], l_tszFName[_MAX_FNAME], l_tszExt[_MAX_EXT];
 		TCHAR l_tszFilePath[_MAX_PATH];
@@ -302,16 +302,16 @@ BOOL CMotSysDlg::OnInitDialog()
 	} else {
 		m_pcDioLog = 0;
 	}
-/* added 2009.12.14 hmenjo MotSys DIO ƒƒO’Ç‰Á ---------- } ---------- */
+/* added 2009.12.14 hmenjo MotSys DIO ï¿½ï¿½ï¿½Oï¿½Ç‰ï¿½ ---------- } ---------- */
 
 	SetDlgItemText(IDC_STATIC_STATUS, _T("Initializing..."));
 
-	// ƒAƒ‰[ƒ€ƒƒO‚Ì‰Šú‰»
+	// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½
 	{
 		TCHAR l_tszDrive[_MAX_PATH], l_tszDir[_MAX_PATH], l_tszFName[_MAX_FNAME], l_tszExt[8];
 		TCHAR	l_tszFilePath[_MAX_PATH];
 		_tsplitpath(ALARM_LOG, l_tszDrive, l_tszDir, l_tszFName, l_tszExt);
-		// ƒpƒX‚Æƒtƒ@ƒCƒ‹–¼‚ðì¬
+		// ï¿½pï¿½Xï¿½Æƒtï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì¬
 		_stprintf(l_tszFilePath, _T("%s%s"), l_tszDrive, l_tszDir);
 		m_pAlarmLogFile = new CLogFile(l_tszFName);
 		if (0 != m_pAlarmLogFile) {
@@ -321,24 +321,24 @@ BOOL CMotSysDlg::OnInitDialog()
 		}
 	}
 
-	// DIO ƒI[ƒvƒ“
+	// DIO ï¿½Iï¿½[ï¿½vï¿½ï¿½
 	if (0 == m_bInitFailed) {
 		if (CC_DioOpen() != 0) {
-			// ƒI[ƒvƒ“Ž¸”s
+			// ï¿½Iï¿½[ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½s
 			m_bInitFailed = TRUE;
 			SetDlgItemText(IDC_STATIC_STATUS, _T("Failed to DIO opened"));
 			SetDlgItemText(IDC_STATIC_COMSTAT, _T("Uninitialized"));
 			::MessageBox(NULL, _T("Failed to open DIO Driver."), MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
 		} else {
 			m_bDIO_Opned = TRUE;
-			// ƒVƒŠƒAƒ‹’ÊM‚ÌƒƒO‚Ì‰Šú‰»
+			// ï¿½Vï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ÊMï¿½Ìƒï¿½ï¿½Oï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½
 			if (InitializeCommLog() == FALSE) {
 				m_bInitFailed = TRUE;
 				SetDlgItemText(IDC_STATIC_STATUS, _T("Uninitialized"));
 				SetDlgItemText(IDC_STATIC_COMSTAT, _T("Failed to create Comm. Log"));
 				::MessageBox(NULL, _T("Failed to create Comm Log class"), MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
 			} else {
-				// ƒVƒŠƒAƒ‹’ÊM‚Ì‰Šú‰»
+				// ï¿½Vï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ÊMï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½
 				if (InitializeComm() == TRUE) {
 					char l_tszText[80], l_tszText2[8], l_tszText3[8];
 					switch (m_pSio->m_Parity) {
@@ -367,17 +367,17 @@ BOOL CMotSysDlg::OnInitDialog()
 		SetDlgItemText(IDC_STATIC_COMSTAT, _T("Uninitialized"));
 	}
 
-	// ƒAƒoƒEƒgƒ{ƒ^ƒ“‚É ICON ‚ðÝ’è
+	// ï¿½Aï¿½oï¿½Eï¿½gï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ ICON ï¿½ï¿½Ý’ï¿½
 	((CButton*) GetDlgItem(IDC_BTN_ABOUT))->SetIcon(m_hIcon);
 
-	// ƒEƒBƒ“ƒhƒE‚ðÅ‘O–Ê‚É‚·‚é
+	// ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½Å‘Oï¿½Ê‚É‚ï¿½ï¿½ï¿½
 #ifndef _DEBUG
 	SetWindowPos(&wndTopMost, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE);
 #endif
 
-	// ‚±‚ÌƒvƒƒZƒX‚Ì—Dæ“x‚ðÝ’è‚·‚é
+	// ï¿½ï¿½ï¿½Ìƒvï¿½ï¿½ï¿½Zï¿½Xï¿½Ì—Dï¿½ï¿½xï¿½ï¿½Ý’è‚·ï¿½ï¿½
 	HANDLE l_hCurProc = ::GetCurrentProcess();
-	// ‘O‚Ì—Dæ“x‚ðŽæ“¾
+	// ï¿½Oï¿½Ì—Dï¿½ï¿½xï¿½ï¿½ï¿½æ“¾
 	DWORD l_oldPriority = ::GetPriorityClass(l_hCurProc);
 	ChgToPriorityMsg(l_oldPriority, l_tszText);
 	SetDlgItemText(IDC_STATIC_PROCPRI2, l_tszText);
@@ -385,7 +385,7 @@ BOOL CMotSysDlg::OnInitDialog()
 //	BOOL l_err = SetPriorityClass(l_hCurProc, REALTIME_PRIORITY_CLASS);
 	BOOL l_err = SetPriorityClass(l_hCurProc, HIGH_PRIORITY_CLASS);
 	if (l_err == 0) {
-		// —Dæ“x‚ÌØ‘Ö‚¦Ž¸”s
+		// ï¿½Dï¿½ï¿½xï¿½ÌØ‘Ö‚ï¿½ï¿½ï¿½ï¿½s
 		DWORD l_errcode = GetLastError();
 		TCHAR l_tszErrMsg[255]; ShowLastError(l_errcode, l_tszText);
 		_stprintf(l_tszErrMsg, _T("Failed to change process priority.\n%s(0x%08x)"), l_tszText, l_errcode);
@@ -393,16 +393,16 @@ BOOL CMotSysDlg::OnInitDialog()
 			::MessageBox(NULL, l_tszErrMsg, MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
 		}
 	}
-	// V‚µ‚¢—Dæ“x‚ðŽæ“¾
+	// ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Dï¿½ï¿½xï¿½ï¿½ï¿½æ“¾
 	DWORD l_newPriority = GetPriorityClass(l_hCurProc);
 	ChgToPriorityMsg(l_newPriority, l_tszText);
 	SetDlgItemText(IDC_STATIC_PROCPRI, l_tszText);
 #endif
 
-	// ƒ^ƒCƒ}(OnTimer)‚ð‹N“®
+	// ï¿½^ï¿½Cï¿½}(OnTimer)ï¿½ï¿½ï¿½Nï¿½ï¿½
 	SetTimer(ID_MSD_BASE_TIMER, MSD_BASE_TIME, NULL);
 
-	return TRUE;  // TRUE ‚ð•Ô‚·‚ÆƒRƒ“ƒgƒ[ƒ‹‚ÉÝ’è‚µ‚½ƒtƒH[ƒJƒX‚ÍŽ¸‚í‚ê‚Ü‚¹‚ñB
+	return TRUE;  // TRUE ï¿½ï¿½Ô‚ï¿½ï¿½ÆƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ÉÝ’è‚µï¿½ï¿½ï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ÍŽï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½B
 }
 
 void CMotSysDlg::OnSysCommand(UINT nID, LPARAM lParam)
@@ -418,19 +418,19 @@ void CMotSysDlg::OnSysCommand(UINT nID, LPARAM lParam)
 	}
 }
 
-// ‚à‚µƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚ÉÅ¬‰»ƒ{ƒ^ƒ“‚ð’Ç‰Á‚·‚é‚È‚ç‚ÎAƒAƒCƒRƒ“‚ð•`‰æ‚·‚é
-// ƒR[ƒh‚ðˆÈ‰º‚É‹Lq‚·‚é•K—v‚ª‚ ‚è‚Ü‚·BMFC ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Í document/view
-// ƒ‚ƒfƒ‹‚ðŽg‚Á‚Ä‚¢‚é‚Ì‚ÅA‚±‚Ìˆ—‚ÍƒtƒŒ[ƒ€ƒ[ƒN‚É‚æ‚èŽ©“®“I‚Éˆ—‚³‚ê‚Ü‚·B
+// ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½Oï¿½{ï¿½bï¿½Nï¿½Xï¿½ÉÅï¿½ï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ÎAï¿½Aï¿½Cï¿½Rï¿½ï¿½ï¿½ï¿½`ï¿½æ‚·ï¿½ï¿½
+// ï¿½Rï¿½[ï¿½hï¿½ï¿½ï¿½È‰ï¿½ï¿½É‹Lï¿½qï¿½ï¿½ï¿½ï¿½Kï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½BMFC ï¿½Aï¿½vï¿½ï¿½ï¿½Pï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ document/view
+// ï¿½ï¿½ï¿½fï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Ì‚ÅAï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½Íƒtï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½Nï¿½É‚ï¿½èŽ©ï¿½ï¿½ï¿½Iï¿½Éï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 
 void CMotSysDlg::OnPaint()
 {
 	if (IsIconic())
 	{
-		CPaintDC dc(this); // •`‰æ—p‚ÌƒfƒoƒCƒX ƒRƒ“ƒeƒLƒXƒg
+		CPaintDC dc(this); // ï¿½`ï¿½ï¿½pï¿½Ìƒfï¿½oï¿½Cï¿½X ï¿½Rï¿½ï¿½ï¿½eï¿½Lï¿½Xï¿½g
 
 		SendMessage(WM_ICONERASEBKGND, (WPARAM) dc.GetSafeHdc(), 0);
 
-		// ƒNƒ‰ƒCƒAƒ“ƒg‚Ì‹éŒ`—Ìˆæ“à‚Ì’†‰›
+		// ï¿½Nï¿½ï¿½ï¿½Cï¿½Aï¿½ï¿½ï¿½gï¿½Ì‹ï¿½`ï¿½Ìˆï¿½ï¿½ï¿½Ì’ï¿½ï¿½ï¿½
 		int cxIcon = GetSystemMetrics(SM_CXICON);
 		int cyIcon = GetSystemMetrics(SM_CYICON);
 		CRect rect;
@@ -438,7 +438,7 @@ void CMotSysDlg::OnPaint()
 		int x = (rect.Width() - cxIcon + 1) / 2;
 		int y = (rect.Height() - cyIcon + 1) / 2;
 
-		// ƒAƒCƒRƒ“‚ð•`‰æ‚µ‚Ü‚·B
+		// ï¿½Aï¿½Cï¿½Rï¿½ï¿½ï¿½ï¿½`ï¿½æ‚µï¿½Ü‚ï¿½ï¿½B
 		dc.DrawIcon(x, y, m_hIcon);
 	}
 	else
@@ -447,8 +447,8 @@ void CMotSysDlg::OnPaint()
 	}
 }
 
-// ƒVƒXƒeƒ€‚ÍAƒ†[ƒU[‚ªÅ¬‰»ƒEƒBƒ“ƒhƒE‚ðƒhƒ‰ƒbƒO‚µ‚Ä‚¢‚éŠÔA
-// ƒJ[ƒ\ƒ‹‚ð•\Ž¦‚·‚é‚½‚ß‚É‚±‚±‚ðŒÄ‚Ño‚µ‚Ü‚·B
+// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½ÍAï¿½ï¿½ï¿½[ï¿½Uï¿½[ï¿½ï¿½ï¿½Åï¿½ï¿½ï¿½ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½hï¿½ï¿½ï¿½bï¿½Oï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ÔA
+// ï¿½Jï¿½[ï¿½\ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½é‚½ï¿½ß‚É‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 HCURSOR CMotSysDlg::OnQueryDragIcon()
 {
 	return (HCURSOR) m_hIcon;
@@ -456,38 +456,39 @@ HCURSOR CMotSysDlg::OnQueryDragIcon()
 
 void CMotSysDlg::OnOK()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚É‚»‚Ì‘¼‚ÌŒŸØ—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½É‚ï¿½ï¿½Ì‘ï¿½ï¿½ÌŒï¿½ï¿½Ø—pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	// "ƒŠƒ^[ƒ“"ƒL[‚ÅI—¹‚·‚é‚Ì‚ð‰ñ”ð‚·‚é‚½‚ß
+	// "ï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½"ï¿½Lï¿½[ï¿½ÅIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é‚½ï¿½ï¿½
 //	CDialog::OnOK();
 }
 
 void CMotSysDlg::OnBtnAbout()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
-	// ƒAƒoƒEƒg‚ð•\Ž¦
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// ï¿½Aï¿½oï¿½Eï¿½gï¿½ï¿½\ï¿½ï¿½
 	CAboutDlg dlgAbout;
 	dlgAbout.DoModal();
 }
 
-void CMotSysDlg::OnBtnHide()
+LRESULT CMotSysDlg::OnBtnHide(WPARAM wParam, LPARAM lParam)
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
-	// ƒEƒBƒ“ƒhƒE(ƒ_ƒCƒAƒƒOƒx[ƒX)‚ð”ñ•\Ž¦‚É‚·‚é
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½E(ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½Oï¿½xï¿½[ï¿½X)ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½
 	ShowWindow(SW_HIDE);
+	return 0;
 }
 
 LRESULT CMotSysDlg::OnMotsysShowWindow(WPARAM wParam, LPARAM lParam)
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
-	// ƒEƒBƒ“ƒhƒE(ƒ_ƒCƒAƒƒOƒx[ƒX)‚ð•\Ž¦‚É‚·‚é
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½E(ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½Oï¿½xï¿½[ï¿½X)ï¿½ï¿½\ï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½
 	ShowWindow(SW_SHOWNORMAL);
 	return 0;
 }
 
 void CMotSysDlg::OnTimer(UINT nIDEvent)
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚·‚é‚©‚Ü‚½‚ÍƒfƒtƒHƒ‹ƒg‚Ìˆ—‚ðŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½Éƒï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½é‚©ï¿½Ü‚ï¿½ï¿½Íƒfï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	switch (nIDEvent) {
 	case ID_MSD_BASE_TIMER:
@@ -495,13 +496,13 @@ void CMotSysDlg::OnTimer(UINT nIDEvent)
 			static BOOL l_bRunOnce = TRUE;
 			if ((0 != l_bRunOnce) && (0 == m_bInitFailed)) {
 				l_bRunOnce = FALSE;
-				// ƒRƒ“ƒgƒ[ƒ‰ŠÄŽ‹ƒXƒŒƒbƒh‚ð‹N“®(ƒRƒ“ƒgƒ[ƒ‰§Œä‚Ì’èŽüŠúˆ—)
+				// ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ÄŽï¿½ï¿½Xï¿½ï¿½ï¿½bï¿½hï¿½ï¿½ï¿½Nï¿½ï¿½(ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì’ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 				g_pCCThread = AfxBeginThread(CC_Main_Loop, (CWnd*) this, THREAD_PRIORITY_NORMAL);
 				g_pCCThread->m_bAutoDelete = FALSE;
 			}
 		}
 		if (0 == m_bInitFailed) {
-			// ‘—M/ŽóMƒ‰ƒ“ƒv‚Ì§Œä
+			// ï¿½ï¿½ï¿½M/ï¿½ï¿½Mï¿½ï¿½ï¿½ï¿½ï¿½vï¿½Ìï¿½ï¿½ï¿½
 			static BOOL ls_IndicateS = FALSE;
 			static BOOL ls_IndicateR = FALSE;
 			if (m_pSio != NULL) {
@@ -539,7 +540,7 @@ void CMotSysDlg::OnTimer(UINT nIDEvent)
 }
 
 /*
- *	ƒ‚[ƒVƒ‡ƒ“ƒƒbƒZ[ƒWˆ—
+ *	ï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½
  */
 LRESULT CMotSysDlg::OnMotdrv_Setwindow(WPARAM wParam, LPARAM lParam)
 {
@@ -606,7 +607,7 @@ LRESULT CMotSysDlg::OnMotdrv_SetJoySpeed(WPARAM wParam, LPARAM lParam)
 	return MotsysDriverProc(MOTDRV_SETJOYSPEED, wParam, lParam);
 }
 
-// ƒƒCƒ“ŠÖ”
+// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Öï¿½
 LRESULT CMotSysDlg::MotsysDriverProc(UINT uMsg, WPARAM lParam1, LPARAM lParam2)
 {
 	LRESULT	lRes = 0L;
@@ -619,7 +620,7 @@ LRESULT CMotSysDlg::MotsysDriverProc(UINT uMsg, WPARAM lParam1, LPARAM lParam2)
 
 	return lRes;
 }
-// ƒ‚[ƒVƒ‡ƒ“ŠÖ”
+// ï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Öï¿½
 LRESULT CMotSysDlg::MotsysProc(UINT uMsg, WPARAM lParam1, LPARAM lParam2)
 {
 	LRESULT	lRes = 0L;
@@ -646,7 +647,7 @@ LRESULT CMotSysDlg::MotsysProc(UINT uMsg, WPARAM lParam1, LPARAM lParam2)
 	} else if (uMsg == MOTDRV_GOHOME) {
 		axis = ConvAxis(LOWORD(lParam1));
 		lRes = motion_go_home(axis);
-//	} else if (uMsg == MOTDRV_MOVEATSPEEDTODEST) {	‚±‚ê‚Í MOTDRV_MOVETOPOSITION ‚Æ“¯‚¶‚È‚Ì‚ÅŽg‚í‚È‚¢‚±‚Æ‚É‚µ‚Ü‚·D
+//	} else if (uMsg == MOTDRV_MOVEATSPEEDTODEST) {	ï¿½ï¿½ï¿½ï¿½ï¿½ MOTDRV_MOVETOPOSITION ï¿½Æ“ï¿½ï¿½ï¿½ï¿½È‚Ì‚ÅŽgï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½Æ‚É‚ï¿½ï¿½Ü‚ï¿½ï¿½D
 //		axis = ConvAxis(LOWORD(lParam1));
 //		lRes = motion_move_at_speed_to_dest(axis, lParam2, HIWORD(lParam1));
 	} else if (uMsg == MOTDRV_ISSTOPPED) {
@@ -687,25 +688,25 @@ void CMotSysDlg::OnCancel()
 
 void CMotSysDlg::OnClose()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚·‚é‚©‚Ü‚½‚ÍƒfƒtƒHƒ‹ƒg‚Ìˆ—‚ðŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½Éƒï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½é‚©ï¿½Ü‚ï¿½ï¿½Íƒfï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	m_bOnClosing = TRUE;
 
-	// ƒT[ƒ{ OFFC‘SŽ²’âŽ~
+	// ï¿½Tï¿½[ï¿½{ OFFï¿½Cï¿½Sï¿½ï¿½ï¿½ï¿½~
 	if (0 != g_pCCThread) {
 		CC_ServoOFF_RunOFF();
 	}
 
-	/*	‰º‹L‚Ìˆ—‚Å GetExitCodeThread ‚É‚æ‚èƒXƒŒƒbƒh‚ÌI—¹‚ÌŠm”F‚ªo—ˆ‚È‚©‚Á‚½‚½‚ßC
-		‚±‚Ì‚æ‚¤‚Èˆ—‚É‚µ‚Ä‚¢‚éD
-		‚µ‚½‚ª‚Á‚ÄCƒƒ‚ƒŠƒŠ[ƒN‚ª”­¶‚µ‚Ä‚¢‚½‚çCƒŠƒu[ƒg‚ª•K—v‚©‚àD*/
+	/*	ï¿½ï¿½ï¿½Lï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ GetExitCodeThread ï¿½É‚ï¿½ï¿½Xï¿½ï¿½ï¿½bï¿½hï¿½ÌIï¿½ï¿½ï¿½ÌŠmï¿½Fï¿½ï¿½ï¿½oï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ßC
+		ï¿½ï¿½ï¿½Ì‚æ‚¤ï¿½Èï¿½ï¿½ï¿½ï¿½É‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½D
+		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÄCï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½uï¿½[ï¿½gï¿½ï¿½ï¿½Kï¿½vï¿½ï¿½ï¿½ï¿½ï¿½D*/
 
-	// •\Ž¦‚µ‚½‚Ü‚Ü‚Ì MessageBox ‚ª‚ ‚ê‚ÎƒNƒ[ƒY‚³‚¹‚é
+	// ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚Ü‚ï¿½ MessageBox ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎƒNï¿½ï¿½ï¿½[ï¿½Yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	HWND m_hwnd_MsgBox;
 	do {
 		if ((m_hwnd_MsgBox = ::FindWindow(NULL, MSD_MESSAGEBOX_TITLE)) != NULL) {
 			::PostMessage(m_hwnd_MsgBox, WM_CLOSE, 0, 0);
-			// ƒƒbƒZ[ƒW‚ðˆ—‚³‚¹‚é‚½‚ß‚ÉÄ“x WM_CLOSE ‚ð”­s‚µCOS ‚É§Œä‚ð“n‚·
+			// ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é‚½ï¿½ß‚ÉÄ“x WM_CLOSE ï¿½ð”­sï¿½ï¿½ï¿½COS ï¿½Éï¿½ï¿½ï¿½ï¿½nï¿½ï¿½
 			PostMessage(WM_CLOSE, 0, 0);
 			return;
 		}
@@ -734,24 +735,24 @@ void CMotSysDlg::OnClose()
 		g_pCCThread = NULL;
 	}
 
-	CloseObjects();		// ŠeŽíƒIƒuƒWƒFƒNƒg‚ðŠJ•ú‚·‚é
+	CloseObjects();		// ï¿½eï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	CDialog::OnClose();
 }
-// ŠeŽíƒIƒuƒWƒFƒNƒg‚ðŠJ•ú‚·‚é
+// ï¿½eï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void CMotSysDlg::CloseObjects()
 {
 	m_OnClose = TRUE;
 
-	// DIO ƒNƒ[ƒY
+	// DIO ï¿½Nï¿½ï¿½ï¿½[ï¿½Y
 	if (0 != m_bDIO_Opned) {
 		m_bDIO_Opned = FALSE;
 		if (CC_DioClose() != 0) {
-			;	// ƒNƒ[ƒYŽ¸”s
+			;	// ï¿½Nï¿½ï¿½ï¿½[ï¿½Yï¿½ï¿½ï¿½s
 		}
 	}
 
-	// ƒVƒŠƒAƒ‹’ÊM‚ÌŠJ•ú
+	// ï¿½Vï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ÊMï¿½ÌŠJï¿½ï¿½
 	if (m_pSio) {
 		delete m_pSio;
 		m_pSio = NULL;
@@ -767,7 +768,7 @@ void CMotSysDlg::CloseObjects()
 
 }
 
-// —Dæ“xƒR[ƒh‚ð•¶Žš—ñ‚É•ÏŠ·‚·‚é
+// ï¿½Dï¿½ï¿½xï¿½Rï¿½[ï¿½hï¿½ð•¶Žï¿½ï¿½ï¿½É•ÏŠï¿½ï¿½ï¿½ï¿½ï¿½
 void CMotSysDlg::ChgToPriorityMsg(DWORD code, TCHAR *ptszmsg)
 {
 	switch (code) {
@@ -789,7 +790,7 @@ void CMotSysDlg::ChgToPriorityMsg(DWORD code, TCHAR *ptszmsg)
 	}
 }
 
-// ƒGƒ‰[ƒR[ƒh‚©‚çƒVƒXƒeƒ€‚ÌƒGƒ‰[ƒƒbƒZ[ƒW‚ðŽæ“¾‚·‚é
+// ï¿½Gï¿½ï¿½ï¿½[ï¿½Rï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½ÌƒGï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½
 void CMotSysDlg::ShowLastError(DWORD code, TCHAR *ptszErrMsg)
 {
 	LPVOID lpMsgBuf;
@@ -816,28 +817,28 @@ void CMotSysDlg::ShowLastError(DWORD code, TCHAR *ptszErrMsg)
 	}
 }
 
-// ƒVƒŠƒAƒ‹’ÊM‚Ì‰Šú‰»
+// ï¿½Vï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ÊMï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½
 BOOL CMotSysDlg::InitializeComm()
 {
 	TCHAR	l_tszText[255];
-	::GetPrivateProfileString(_T("COM"), _T("No"), _T("3"), l_tszText, sizeof(l_tszText), MOT_INI);	// ƒ|[ƒg”Ô†“Ço‚µ
+	::GetPrivateProfileString(_T("COM"), _T("No"), _T("3"), l_tszText, sizeof(l_tszText), MOT_INI);	// ï¿½|ï¿½[ï¿½gï¿½Ôï¿½ï¿½Çoï¿½ï¿½
 	int l_PortCh = _ttoi(l_tszText);
-	m_pSio = g_pCSio = new CSio(l_PortCh);	// ’ÊMƒNƒ‰ƒXì¬
+	m_pSio = g_pCSio = new CSio(l_PortCh);	// ï¿½ÊMï¿½Nï¿½ï¿½ï¿½Xï¿½ì¬
 	if (m_pSio == NULL) {
 		return FALSE;
 	}
-	::GetPrivateProfileString(_T("Log"), _T("ComLog"), _T("0"), l_tszText, sizeof(l_tszText), SERVO_INI);	// ’ÊMƒƒO on/off
+	::GetPrivateProfileString(_T("Log"), _T("ComLog"), _T("0"), l_tszText, sizeof(l_tszText), SERVO_INI);	// ï¿½ÊMï¿½ï¿½ï¿½O on/off
 	m_pSio->m_LogEnable = _ttoi(l_tszText);
 	if (m_pSio->m_LogEnable != 0) {
 		m_pSio->m_LogEnable = TRUE;
 	} else {
 		m_pSio->m_LogEnable = FALSE;
 	}
-	::GetPrivateProfileString(_T("COM"), _T("BaudRate"), _T("38400"), l_tszText, sizeof(l_tszText), MOT_INI);	// ƒ{[ƒŒ[ƒg“Ço‚µ
+	::GetPrivateProfileString(_T("COM"), _T("BaudRate"), _T("38400"), l_tszText, sizeof(l_tszText), MOT_INI);	// ï¿½{ï¿½[ï¿½ï¿½ï¿½[ï¿½gï¿½Çoï¿½ï¿½
 	int l_BaudRate = _ttoi(l_tszText);
-	::GetPrivateProfileString(_T("COM"), _T("ByteSize"), _T("8"), l_tszText, sizeof(l_tszText), MOT_INI);		// ƒf[ƒ^’·“Ço‚µ
+	::GetPrivateProfileString(_T("COM"), _T("ByteSize"), _T("8"), l_tszText, sizeof(l_tszText), MOT_INI);		// ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½Çoï¿½ï¿½
 	int l_ByteSize = _ttoi(l_tszText);
-	::GetPrivateProfileString(_T("COM"), _T("Parity"), _T("0"), l_tszText, sizeof(l_tszText), MOT_INI);		// ƒpƒŠƒeƒB“Ço‚µ
+	::GetPrivateProfileString(_T("COM"), _T("Parity"), _T("0"), l_tszText, sizeof(l_tszText), MOT_INI);		// ï¿½pï¿½ï¿½ï¿½eï¿½Bï¿½Çoï¿½ï¿½
 	int l_Parity = _ttoi(l_tszText);
 	switch (l_Parity) {
 	case 0:	l_Parity = NOPARITY; break;
@@ -846,7 +847,7 @@ BOOL CMotSysDlg::InitializeComm()
 	case 3:	l_Parity = MARKPARITY; break;
 	case 4:	l_Parity = SPACEPARITY; break;
 	}
-	::GetPrivateProfileString(_T("COM"), _T("StopBits"), _T("0"), l_tszText, sizeof(l_tszText), MOT_INI);		// ƒXƒgƒbƒvƒrƒbƒg“Ço‚µ
+	::GetPrivateProfileString(_T("COM"), _T("StopBits"), _T("0"), l_tszText, sizeof(l_tszText), MOT_INI);		// ï¿½Xï¿½gï¿½bï¿½vï¿½rï¿½bï¿½gï¿½Çoï¿½ï¿½
 	int l_StopBits = _ttoi(l_tszText);
 	switch (l_StopBits) {
 	case 0:	l_StopBits = ONESTOPBIT; break;
@@ -864,7 +865,7 @@ BOOL CMotSysDlg::InitializeComm()
 	return TRUE;
 }
 
-// ƒVƒŠƒAƒ‹’ÊM‚ÌƒƒO‚Ì‰Šú‰»
+// ï¿½Vï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ÊMï¿½Ìƒï¿½ï¿½Oï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½
 BOOL CMotSysDlg::InitializeCommLog()
 {
 	TCHAR	l_tszText[_MAX_PATH] = _T("");
@@ -873,10 +874,10 @@ BOOL CMotSysDlg::InitializeCommLog()
 	BOOL	l_NoFile = TRUE;
 	TCHAR	l_tszFilePath[_MAX_PATH];
 
-	// ƒƒOƒfƒBƒŒƒNƒgƒŠ‚ðŽæ“¾
+	// ï¿½ï¿½ï¿½Oï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
 	::GetPrivateProfileString(_T("ComLog"), _T("Path"), _T("None"), l_tszText, sizeof(l_tszText), MOT_INI);
 	if ((_tcscmp(l_tszText, "None") == 0) || (l_tszText[0] == 0x00)) {
-		// Ý’è‚ª‚È‚©‚Á‚½
+		// ï¿½Ý’è‚ªï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½
 		l_NoFile = FALSE;
 	} else {
 		if (_tmktemp(l_tsztmpfile) != NULL) {
@@ -886,23 +887,23 @@ BOOL CMotSysDlg::InitializeCommLog()
 				fclose(fp);
 				_tremove(l_tszText);
 			} else {
-				// ƒI[ƒvƒ“Ž¸”s
+				// ï¿½Iï¿½[ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½s
 				l_NoFile = FALSE;
 			}
 		} else {
-			// temp ƒtƒ@ƒCƒ‹ì¬Ž¸”s
+			// temp ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ì¬ï¿½ï¿½ï¿½s
 			l_NoFile = FALSE;
 		}
 	}
 	if (l_NoFile == FALSE) {
-		// MOT_INI ‚ÌƒfƒBƒŒƒNƒgƒŠˆÊ’u‚Éì¬
+		// MOT_INI ï¿½Ìƒfï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½Ê’uï¿½Éì¬
 		TCHAR l_tszDrive[8], l_tszDir[_MAX_PATH], l_tszFName[_MAX_FNAME], l_tszExt[8];
 		_tsplitpath(MOT_INI, l_tszDrive, l_tszDir, l_tszFName, l_tszExt);
-		// ƒpƒX‚Æƒtƒ@ƒCƒ‹–¼‚ðì¬
+		// ï¿½pï¿½Xï¿½Æƒtï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì¬
 		_stprintf(l_tszFilePath, _T("%s%s"), l_tszDrive, l_tszDir);
 	}
 
-	// ƒƒOƒtƒ@ƒCƒ‹–¼‚ðŽæ“¾
+	// ï¿½ï¿½ï¿½Oï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
 	::GetPrivateProfileString(_T("ComLog"), _T("FileName"), COM_LOG_FILE, l_tszText, sizeof(l_tszText), MOT_INI);
 	if (_tcscmp(l_tszText, COM_LOG_FILE) != 0) {
 		_tcscpy(l_tsztmpfile, l_tszFilePath);
@@ -911,14 +912,14 @@ BOOL CMotSysDlg::InitializeCommLog()
 			fclose(fp);
 			_tremove(l_tsztmpfile);
 		} else {
-			// ƒI[ƒvƒ“Ž¸”s
+			// ï¿½Iï¿½[ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½s
 			l_NoFile = FALSE;
 			_tcscpy(l_tsztmpfile, l_tszFilePath);
 			_tcscat(l_tsztmpfile, COM_LOG_FILE);
 		}
 	}
 
-	// ’ÊMƒƒOƒNƒ‰ƒXì¬
+	// ï¿½ÊMï¿½ï¿½ï¿½Oï¿½Nï¿½ï¿½ï¿½Xï¿½ì¬
 	m_pComLogFile = g_pComLogFile = new CLogFile(l_tszText);
 	if (m_pComLogFile == NULL) {
 		return FALSE;
@@ -928,16 +929,16 @@ BOOL CMotSysDlg::InitializeCommLog()
 	return TRUE;
 }
 
-// ƒT[ƒ{‰Šú‰»Š®—¹ƒnƒ“ƒhƒ‰
-void CMotSysDlg::OnServoInitComp(WPARAM wParam, LPARAM lParam)
+// ï¿½Tï¿½[ï¿½{ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
+LRESULT CMotSysDlg::OnServoInitComp(WPARAM wParam, LPARAM lParam)
 {
 	BOOL l_bRc = (BOOL) wParam;
 
 	if (0 == wParam) {
-		// Ž¸”s
-		;	// ‰½‚à‚µ‚Ü‚¹‚ñD
+		// ï¿½ï¿½ï¿½s
+		;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½D
 	} else {
-		// ¬Œ÷
+		// ï¿½ï¿½ï¿½ï¿½
 		switch (m_AutoHide) {
 		case 0:
 			break;
@@ -951,9 +952,10 @@ void CMotSysDlg::OnServoInitComp(WPARAM wParam, LPARAM lParam)
 			break;
 		}
 	}
+	return 0;
 }
 
-// ƒAƒ‰[ƒ€•\Ž¦ˆ—
+// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void CMotSysDlg::ShowAlarm(WORD Mode, WORD Axis, WORD Code1, WORD Code2)
 {
 	WPARAM	l_WParam;
@@ -962,22 +964,22 @@ void CMotSysDlg::ShowAlarm(WORD Mode, WORD Axis, WORD Code1, WORD Code2)
 	l_WParam = MAKEWPARAM(Axis, Mode);
 	l_LParam = MAKELPARAM(Code2, Code1);
 
-	// ˆÙí‚ð’Ê’m‚µ‚Ü‚·D
+	// ï¿½Ùï¿½ï¿½Ê’mï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D
 	send_motion_message(-1, Mode);
 
 	PostMessage(MOTDRV_SHOWALARM, l_WParam, l_LParam);
 }
-// ƒAƒ‰[ƒ€•\Ž¦ƒƒbƒZ[ƒWˆ—
-void CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
+// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½
+LRESULT CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 {
 	//							 ----Motion System Driver Error----
 	TCHAR	l_tszText0[] = "Alarm\n----------------------------------\n";
 	TCHAR	l_tszText1[255];
 	TCHAR	l_tszText2[32];
 	TCHAR	l_tszText3[32];
-/* added 2010.02.24 hmenjo MotSys Y Ž²ƒAƒ‰[ƒ€ƒƒOC³ ---------- { ---------- */
+/* added 2010.02.24 hmenjo MotSys Y ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ ---------- { ---------- */
 	TCHAR	l_tszText4[32];
-/* added 2010.02.24 hmenjo MotSys Y Ž²ƒAƒ‰[ƒ€ƒƒOC³ ---------- } ---------- */
+/* added 2010.02.24 hmenjo MotSys Y ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ ---------- } ---------- */
 	TCHAR	l_tszText5[255];
 	WORD	l_Mode	= HIWORD(wParam);
 	WORD	l_Axis	= LOWORD(wParam);
@@ -989,7 +991,7 @@ void CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 	TCHAR	tszAlarmLog[255] = _T("Motion System Driver Alarm.");
 
 	switch (l_Mode) {
-	case 1:		// ƒXƒe[ƒWƒRƒ“ƒgƒ[ƒ‰‚Ì WD ƒGƒ‰[‚ª”­¶
+	case 1:		// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ WD ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		_tcscpy(l_tszText1, l_tszText0);
 		_tcscat(l_tszText1, _T("W.D. Error on Controller.\n"));
 		_tcscat(l_tszText1, _T("End Motion System Driver?\n"));
@@ -998,7 +1000,7 @@ void CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 		// AlarmLog Message
 		_tcscat(tszAlarmLog, _T(" W.D. Error on Controller."));
 		break;
-	case 2:		// ƒVƒXƒeƒ€ƒGƒ‰[FX
+	case 2:		// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[ï¿½Fï¿½X
 		_tcscpy(l_tszText1, l_tszText0);
 		_tcscat(l_tszText1, _T("System Error.\n"));
 		_tcscat(l_tszText1, _T("End Motion System Driver?\n"));
@@ -1007,7 +1009,7 @@ void CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 		// AlarmLog Message
 		_tcscat(tszAlarmLog, _T(" System Error."));
 		break;
-	case 3:		// Ž²ƒAƒ‰[ƒ€FX
+	case 3:		// ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Fï¿½X
 		switch (l_Axis) {
 		case AXIS_BIG_X:		_tcscpy(l_tszText2, _T("Big X"));			break;	// Big X
 		case AXIS_BIG_Y:		_tcscpy(l_tszText2, _T("Big YM"));			break;	// Big Y
@@ -1021,27 +1023,27 @@ void CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 		CnvWordToBin(l_Code1, l_tszText3, 2);
 		_stprintf(l_tszText1, _T("%sAlarm on Axis[%d] (%s).\nAlarm code : %s"), l_tszText0, l_Axis, l_tszText2, l_tszText3);
 		if (l_Axis == AXIS_BIG_Y) {
-			// Y Ž²‚Ìê‡‚Í YS ‚à•\Ž¦
-/* modified 2010.02.24 hmenjo MotSys Y Ž²ƒAƒ‰[ƒ€ƒƒOC³ ---------- { ---------- */
+			// Y ï¿½ï¿½ï¿½Ìê‡ï¿½ï¿½ YS ï¿½ï¿½ï¿½\ï¿½ï¿½
+/* modified 2010.02.24 hmenjo MotSys Y ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ ---------- { ---------- */
 //			CnvWordToBin(l_Code2, l_tszText3, 2);
 //			_stprintf(l_tszText5, _T("\nAlarm on Axis[%d] (%s).\nAlarm code : %s"), l_Axis, _T("Big YS"), l_tszText3);
-/* modified 2010.02.24 hmenjo MotSys Y Ž²ƒAƒ‰[ƒ€ƒƒOC³ ----------			  */
+/* modified 2010.02.24 hmenjo MotSys Y ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ ----------			  */
 			CnvWordToBin(l_Code2, l_tszText4, 2);
 			_stprintf(l_tszText5, _T("\nAlarm on Axis[%d] (%s).\nAlarm code : %s"), l_Axis, _T("Big YS"), l_tszText4);
-/* modified 2010.02.24 hmenjo MotSys Y Ž²ƒAƒ‰[ƒ€ƒƒOC³ ---------- } ---------- */
+/* modified 2010.02.24 hmenjo MotSys Y ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ ---------- } ---------- */
 			_tcscat(l_tszText1, l_tszText5);
 		}
 		l_MsgID = 1;
 		// AlarmLog Message
 		TCHAR tszTemp[256];
-/* modified 2010.02.24 hmenjo MotSys Y Ž²ƒAƒ‰[ƒ€ƒƒOC³ ---------- { ---------- */
+/* modified 2010.02.24 hmenjo MotSys Y ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ ---------- { ---------- */
 //		  _stprintf(tszTemp, _T(" Alarm on Axis (%s). Alarm code : %s."), l_tszText2, l_tszText3);
-/* modified 2010.02.24 hmenjo MotSys Y Ž²ƒAƒ‰[ƒ€ƒƒOC³ ----------			  */
+/* modified 2010.02.24 hmenjo MotSys Y ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ ----------			  */
 		_stprintf(tszTemp, _T(" Alarm on Axis (%sYS). Alarm code : %s    %s."), l_tszText2, l_tszText3, l_tszText4);
-/* modified 2010.02.24 hmenjo MotSys Y Ž²ƒAƒ‰[ƒ€ƒƒOC³ ---------- } ---------- */
+/* modified 2010.02.24 hmenjo MotSys Y ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ ---------- } ---------- */
 		_tcscat(tszAlarmLog, tszTemp);
 		break;
-	case 4:		// ‰Šú‰»Š®—¹ƒtƒ‰ƒO‚ª‚O‚É‚È‚ç‚È‚©‚Á‚½
+	case 4:		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½Oï¿½É‚È‚ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½
 		_tcscpy(l_tszText1, l_tszText0);
 		_tcscat(l_tszText1, _T("System Error.\n"));
 		_tcscat(l_tszText1, _T("Not be initialized on Controller.\n"));
@@ -1051,7 +1053,7 @@ void CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 		// AlarmLog Message
 		_tcscat(tszAlarmLog, _T(" System Error. Not be Initialized on Controller."));
 		break;
-	case 5:		// DIO ƒGƒ‰[
+	case 5:		// DIO ï¿½Gï¿½ï¿½ï¿½[
 		_tcscpy(l_tszText1, _T("DIO error.\n----------------------------------\n"));
 		_tcscat(l_tszText1, _T("System Error.\n"));
 		_tcscat(l_tszText1, _T("Not work DIO board.\n"));
@@ -1061,7 +1063,7 @@ void CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 		// AlarmLog Message
 		_tcscat(tszAlarmLog, _T(" DIO error."));
 		break;
-	case 6:		// ƒT[ƒ{ ON/OFF ƒGƒ‰[
+	case 6:		// ï¿½Tï¿½[ï¿½{ ON/OFF ï¿½Gï¿½ï¿½ï¿½[
 		_tcscpy(l_tszText1, _T("Servo ON/OFF timeout.\n----------------------------------\n"));
 		_tcscat(l_tszText1, _T("System Error.\n"));
 		if (l_Code1 == 0) {
@@ -1075,7 +1077,7 @@ void CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 		// AlarmLog Message
 		_tcscat(tszAlarmLog, _T(" Servo ON/OFF timeout."));
 		break;
-	case 7:		// ”ñí’âŽ~ ƒGƒ‰[
+	case 7:		// ï¿½ï¿½ï¿½ï¿½~ ï¿½Gï¿½ï¿½ï¿½[
 		_tcscpy(l_tszText1, _T("EMG error.\n----------------------------------\n"));
 		_tcscat(l_tszText1, _T("EMG button.\n"));
 		_tcscat(l_tszText1, _T("End Motion System Driver?\n"));
@@ -1084,7 +1086,7 @@ void CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 		// AlarmLog Message
 		_tcscat(tszAlarmLog, _T(" EMG error."));
 		break;
-	case 8: 	// Œ´“_•œ‹A ƒGƒ‰[	 Œ´“_•œ‹A‚ªs‚í‚ê‚È‚©‚Á‚½
+	case 8: 	// ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½A ï¿½Gï¿½ï¿½ï¿½[	 ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½sï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½
 		switch(l_Code1){
 		case MS_PARAMETER_ERROR:
 			_tcscat(l_tszHomeErrorMessage, _T(" Parameter error. "));
@@ -1136,21 +1138,21 @@ void CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 		break;
 	case 1:
 		if (0 == m_bOnClosing) {
-/* deleted 2009.06.02 hmenjo Ž²ƒAƒ‰[ƒ€‚Å‚Í COM ’ÊM’†’f‚¹‚¸ ---------- { ---------- */
+/* deleted 2009.06.02 hmenjo ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Å‚ï¿½ COM ï¿½ÊMï¿½ï¿½ï¿½fï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
 //			static ls_iMsgID_1 = 0;
 //			if (0 == ls_iMsgID_1) {ls_iMsgID_1 = 1;} else {break;}
 //			g_CC_CommAbort = TRUE;
-/* deleted 2009.06.02 hmenjo Ž²ƒAƒ‰[ƒ€‚Å‚Í COM ’ÊM’†’f‚¹‚¸ ---------- } ---------- */
+/* deleted 2009.06.02 hmenjo ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Å‚ï¿½ COM ï¿½ÊMï¿½ï¿½ï¿½fï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
 			l_ret = ::MessageBox(NULL, l_tszText1, MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
-/* deleted 2009.06.02 hmenjo Ž²ƒAƒ‰[ƒ€‚Å‚Í COM ’ÊM’†’f‚¹‚¸ ---------- { ---------- */
+/* deleted 2009.06.02 hmenjo ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Å‚ï¿½ COM ï¿½ÊMï¿½ï¿½ï¿½fï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
 //			g_CC_CommAbort = FALSE;
-/* deleted 2009.06.02 hmenjo Ž²ƒAƒ‰[ƒ€‚Å‚Í COM ’ÊM’†’f‚¹‚¸ ---------- } ---------- */
+/* deleted 2009.06.02 hmenjo ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Å‚ï¿½ COM ï¿½ÊMï¿½ï¿½ï¿½fï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
 			if (l_Mode == 3) {
 				g_CC_bClearAlarm[CC_CnvAxisToSPT(l_Axis)] = TRUE;
 			}
-/* deleted 2009.06.02 hmenjo Ž²ƒAƒ‰[ƒ€‚Å‚Í COM ’ÊM’†’f‚¹‚¸ ---------- { ---------- */
+/* deleted 2009.06.02 hmenjo ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Å‚ï¿½ COM ï¿½ÊMï¿½ï¿½ï¿½fï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
 //			ls_iMsgID_1 = 0;
-/* deleted 2009.06.02 hmenjo Ž²ƒAƒ‰[ƒ€‚Å‚Í COM ’ÊM’†’f‚¹‚¸ ---------- } ---------- */
+/* deleted 2009.06.02 hmenjo ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Å‚ï¿½ COM ï¿½ÊMï¿½ï¿½ï¿½fï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
 		}
 		break;
 	default:
@@ -1164,18 +1166,18 @@ void CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 		}
 		break;
 	}
-
+	return 0;
 }
 
-// ƒ[ƒhƒf[ƒ^‚ð‚Qi”•\‹L‚Ì•¶Žš—ñ‚É•ÏŠ·‚·‚é
-//	mode ‚É‚æ‚è•ªŠ„‚Å‚«‚éD
-//		=0 : •ªŠ„‚È‚µ
-//		=1 : 8 ƒrƒbƒg–ˆ‚É•ªŠ„
-//		=2 : 4 ƒrƒbƒg–ˆ‚É•ªŠ„
+// ï¿½ï¿½ï¿½[ï¿½hï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½Qï¿½iï¿½ï¿½ï¿½\ï¿½Lï¿½Ì•ï¿½ï¿½ï¿½ï¿½ï¿½É•ÏŠï¿½ï¿½ï¿½ï¿½ï¿½
+//	mode ï¿½É‚ï¿½è•ªï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½D
+//		=0 : ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
+//		=1 : 8 ï¿½rï¿½bï¿½gï¿½ï¿½ï¿½É•ï¿½ï¿½ï¿½
+//		=2 : 4 ï¿½rï¿½bï¿½gï¿½ï¿½ï¿½É•ï¿½ï¿½ï¿½
 void CMotSysDlg::CnvWordToBin(
-		WORD WordData,		// 16 bit ƒf[ƒ^
-		TCHAR *ptszBinary,	// •ÏŠ·Œãƒf[ƒ^•¶Žš—ñ
-		WORD mode			// ƒ‚[ƒh(ã‹LŽQÆ)
+		WORD WordData,		// 16 bit ï¿½fï¿½[ï¿½^
+		TCHAR *ptszBinary,	// ï¿½ÏŠï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		WORD mode			// ï¿½ï¿½ï¿½[ï¿½h(ï¿½ï¿½Lï¿½Qï¿½ï¿½)
 	)
 {
 	TCHAR	l_tszText1[32];
@@ -1208,94 +1210,94 @@ void CMotSysDlg::CnvWordToBin(
 
 BOOL CMotSysDlg::DestroyWindow()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉŒÅ—L‚Ìˆ—‚ð’Ç‰Á‚·‚é‚©A‚Ü‚½‚ÍŠî–{ƒNƒ‰ƒX‚ðŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉŒÅ—Lï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½é‚©ï¿½Aï¿½Ü‚ï¿½ï¿½ÍŠï¿½{ï¿½Nï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	// ƒEƒBƒ“ƒhƒE‚ÌƒvƒƒpƒeƒBƒŠƒXƒg‚©‚çŽ¯•Êî•ñ‚ðíœ
+	// ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½Ìƒvï¿½ï¿½ï¿½pï¿½eï¿½Bï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½çŽ¯ï¿½Êï¿½ï¿½ï¿½ï¿½íœ
 	::RemoveProp(m_hWnd, IDENT_CODE);
 
 	return CDialog::DestroyWindow();
 }
 
-// ƒT[ƒ{ OFF
+// ï¿½Tï¿½[ï¿½{ OFF
 void CMotSysDlg::OnBTNServoOFF()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	g_CC_ServoOFFReq = TRUE;
 }
 
-// ƒT[ƒ{ ON
+// ï¿½Tï¿½[ï¿½{ ON
 void CMotSysDlg::OnBTNServoON()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	g_CC_ServoONReq = TRUE;
 }
 
-// ƒT[ƒ{ƒpƒ‰ƒƒ^“Çž‚Ý
+// ï¿½Tï¿½[ï¿½{ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Çï¿½ï¿½ï¿½
 void CMotSysDlg::OnBtnServoParam()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	CC_LoadServoParam();
 
 }
 
-// X Ž² ˆÊ’u•Î·ƒs[ƒN’l‚ðƒNƒŠƒA
+// X ï¿½ï¿½ ï¿½Ê’uï¿½Îï¿½ï¿½sï¿½[ï¿½Nï¿½lï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½A
 void CMotSysDlg::OnBtnDPosPeakClearX()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	SetDlgItemText(g_iDlgCtrlID[19][AXIS_BIG_X], _T("0"));
 	SetDlgItemText(g_iDlgCtrlID[20][AXIS_BIG_X], _T("0"));
 	m_dPos[1][AXIS_BIG_X] = m_dPos[2][AXIS_BIG_X] = 0;
 }
-// YM Ž² ˆÊ’u•Î·ƒs[ƒN’l‚ðƒNƒŠƒA
+// YM ï¿½ï¿½ ï¿½Ê’uï¿½Îï¿½ï¿½sï¿½[ï¿½Nï¿½lï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½A
 void CMotSysDlg::OnBtnDPosPeakClearYM()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	SetDlgItemText(g_iDlgCtrlID[19][AXIS_BIG_Y], _T("0"));
 	SetDlgItemText(g_iDlgCtrlID[20][AXIS_BIG_Y], _T("0"));
 	m_dPos[1][AXIS_BIG_Y] = m_dPos[2][AXIS_BIG_Y] = 0;
 }
-// YS Ž² ˆÊ’u•Î·ƒs[ƒN’l‚ðƒNƒŠƒA
+// YS ï¿½ï¿½ ï¿½Ê’uï¿½Îï¿½ï¿½sï¿½[ï¿½Nï¿½lï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½A
 void CMotSysDlg::OnBtnDPosPeakClearYS()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	SetDlgItemText(g_iDlgCtrlID[19][AXIS_NUM], _T("0"));
 	SetDlgItemText(g_iDlgCtrlID[20][AXIS_NUM], _T("0"));
 	m_dPos[1][AXIS_NUM] = m_dPos[2][AXIS_NUM] = 0;
 }
-// Z Ž² ˆÊ’u•Î·ƒs[ƒN’l‚ðƒNƒŠƒA
+// Z ï¿½ï¿½ ï¿½Ê’uï¿½Îï¿½ï¿½sï¿½[ï¿½Nï¿½lï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½A
 void CMotSysDlg::OnBtnDPosPeakClearZ()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	SetDlgItemText(g_iDlgCtrlID[19][AXIS_Z], _T("0"));
 	SetDlgItemText(g_iDlgCtrlID[20][AXIS_Z], _T("0"));
 	m_dPos[1][AXIS_Z] = m_dPos[2][AXIS_Z] = 0;
 }
-// T Ž² ˆÊ’u•Î·ƒs[ƒN’l‚ðƒNƒŠƒA
+// T ï¿½ï¿½ ï¿½Ê’uï¿½Îï¿½ï¿½sï¿½[ï¿½Nï¿½lï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½A
 void CMotSysDlg::OnBtnDPosPeakClearT()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	SetDlgItemText(g_iDlgCtrlID[19][AXIS_T], _T("0"));
 	SetDlgItemText(g_iDlgCtrlID[20][AXIS_T], _T("0"));
 	m_dPos[1][AXIS_T] = m_dPos[2][AXIS_T] = 0;
 }
-// ŠeŽ²ˆÊ’u•Î·‚ð•\Ž¦
+// ï¿½eï¿½ï¿½ï¿½Ê’uï¿½Îï¿½ï¿½ï¿½\ï¿½ï¿½
 void CMotSysDlg::DispdPos(WORD wAxis, long d_Pos)
 {
 	TCHAR	l_tszText[32];
-//	short	l_sAxis = ConvAxis(wAxis);		// •s—v‚Ì‚Í‚¸
+//	short	l_sAxis = ConvAxis(wAxis);		// ï¿½sï¿½vï¿½Ì‚Í‚ï¿½
 	short	l_sAxis = wAxis;
 
-	// ƒŠƒAƒ‹ƒ^ƒCƒ€’l‚ðXV
+	// ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½lï¿½ï¿½ï¿½Xï¿½V
 	m_dPos[0][l_sAxis] = d_Pos;
 	_stprintf(l_tszText, _T("%11d"), m_dPos[0][l_sAxis]);
 	SetDlgItemText(g_iDlgCtrlID[17][l_sAxis], l_tszText);
-	// |‘¤ƒs[ƒN’l‚ðXV
+	// ï¿½|ï¿½ï¿½ï¿½sï¿½[ï¿½Nï¿½lï¿½ï¿½ï¿½Xï¿½V
 	if (m_dPos[0][l_sAxis] < m_dPos[1][l_sAxis]) {
 		m_dPos[1][l_sAxis] = m_dPos[0][l_sAxis];
 		_stprintf(l_tszText, _T("%11d"), m_dPos[1][l_sAxis]);
 		SetDlgItemText(g_iDlgCtrlID[19][l_sAxis], l_tszText);
 	}
-	// {‘¤ƒs[ƒN’l‚ðXV
+	// ï¿½{ï¿½ï¿½ï¿½sï¿½[ï¿½Nï¿½lï¿½ï¿½ï¿½Xï¿½V
 	if (m_dPos[2][l_sAxis] < m_dPos[0][l_sAxis]) {
 		m_dPos[2][l_sAxis] = m_dPos[0][l_sAxis];
 		_stprintf(l_tszText, _T("%11d"), m_dPos[2][l_sAxis]);
@@ -1304,113 +1306,113 @@ void CMotSysDlg::DispdPos(WORD wAxis, long d_Pos)
 }
 
 
-// ˆÈ‰º‚ÌƒR[ƒh‚ÍƒfƒoƒbƒO—p
+// ï¿½È‰ï¿½ï¿½ÌƒRï¿½[ï¿½hï¿½Íƒfï¿½oï¿½bï¿½Oï¿½p
 
-// Œ´“_•œ‹A
-void CMotSysDlg::OnBTNORGtest()		// uX ORGvƒ{ƒ^ƒ“
+// ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½A
+void CMotSysDlg::OnBTNORGtest()		// ï¿½uX ORGï¿½vï¿½{ï¿½^ï¿½ï¿½
 {
 	mmtestORGX(0);	//debdeb
 }
-void CMotSysDlg::OnBTNORGtestY()		// uY ORGvƒ{ƒ^ƒ“
+void CMotSysDlg::OnBTNORGtestY()		// ï¿½uY ORGï¿½vï¿½{ï¿½^ï¿½ï¿½
 {
 	mmtestORGY(0);	//debdeb
 }
-void CMotSysDlg::OnBTNORGtestZ()		// uZ ORGvƒ{ƒ^ƒ“
+void CMotSysDlg::OnBTNORGtestZ()		// ï¿½uZ ORGï¿½vï¿½{ï¿½^ï¿½ï¿½
 {
 	mmtestORGZ(0);	//debdeb
 }
-void CMotSysDlg::OnBTNORGtestT()		// uT ORGvƒ{ƒ^ƒ“
+void CMotSysDlg::OnBTNORGtestT()		// ï¿½uT ORGï¿½vï¿½{ï¿½^ï¿½ï¿½
 {
 	mmtestORGT(0);	//debdeb
 }
-// ABS ˆÚ“®
-void CMotSysDlg::OnBTNABStestX()		// uX ABS1vƒ{ƒ^ƒ“
+// ABS ï¿½Ú“ï¿½
+void CMotSysDlg::OnBTNABStestX()		// ï¿½uX ABS1ï¿½vï¿½{ï¿½^ï¿½ï¿½
 {
 	mmtestORGX(2);	//debdeb
 }
-void CMotSysDlg::OnBTNABStestX2()		// uX ABS2vƒ{ƒ^ƒ“
+void CMotSysDlg::OnBTNABStestX2()		// ï¿½uX ABS2ï¿½vï¿½{ï¿½^ï¿½ï¿½
 {
 	mmtestORGX(21);	//debdeb
 }
-void CMotSysDlg::OnBTNABStestY()		// uY ABS1vƒ{ƒ^ƒ“
+void CMotSysDlg::OnBTNABStestY()		// ï¿½uY ABS1ï¿½vï¿½{ï¿½^ï¿½ï¿½
 {
 	mmtestORGY(2);	//debdeb
 }
-void CMotSysDlg::OnBTNABStestY2()		// uY ABS2vƒ{ƒ^ƒ“
+void CMotSysDlg::OnBTNABStestY2()		// ï¿½uY ABS2ï¿½vï¿½{ï¿½^ï¿½ï¿½
 {
 	mmtestORGY(21);	//debdeb
 }
-void CMotSysDlg::OnBTNABStestZ()		// uZ ABS1vƒ{ƒ^ƒ“
+void CMotSysDlg::OnBTNABStestZ()		// ï¿½uZ ABS1ï¿½vï¿½{ï¿½^ï¿½ï¿½
 {
 	mmtestORGZ(2);	//debdeb
 }
-void CMotSysDlg::OnBTNABStestZ2()		// uZ ABS2vƒ{ƒ^ƒ“
+void CMotSysDlg::OnBTNABStestZ2()		// ï¿½uZ ABS2ï¿½vï¿½{ï¿½^ï¿½ï¿½
 {
 	mmtestORGZ(21);	//debdeb
 }
-void CMotSysDlg::OnBTNABStestT()		// uT ABS1vƒ{ƒ^ƒ“
+void CMotSysDlg::OnBTNABStestT()		// ï¿½uT ABS1ï¿½vï¿½{ï¿½^ï¿½ï¿½
 {
 	mmtestORGT(2);	//debdeb
 }
-void CMotSysDlg::OnBTNABStestT2()		// uT ABS2vƒ{ƒ^ƒ“
+void CMotSysDlg::OnBTNABStestT2()		// ï¿½uT ABS2ï¿½vï¿½{ï¿½^ï¿½ï¿½
 {
 	mmtestORGT(21);	//debdeb
 }
-// INC ˆÚ“®
-void CMotSysDlg::OnBTNINCtestX()		// uX INC+vƒ{ƒ^ƒ“
+// INC ï¿½Ú“ï¿½
+void CMotSysDlg::OnBTNINCtestX()		// ï¿½uX INC+ï¿½vï¿½{ï¿½^ï¿½ï¿½
 {
 	mmtestORGX(3);	//debdeb
 }
-void CMotSysDlg::OnBTNINCtestX2()		// uX INC-vƒ{ƒ^ƒ“
+void CMotSysDlg::OnBTNINCtestX2()		// ï¿½uX INC-ï¿½vï¿½{ï¿½^ï¿½ï¿½
 {
 	mmtestORGX(31);	//debdeb
 }
-void CMotSysDlg::OnBTNINCtestY()		// uY INC+vƒ{ƒ^ƒ“
+void CMotSysDlg::OnBTNINCtestY()		// ï¿½uY INC+ï¿½vï¿½{ï¿½^ï¿½ï¿½
 {
 	mmtestORGY(3);	//debdeb
 }
-void CMotSysDlg::OnBTNINCtestY2()		// uY INC-vƒ{ƒ^ƒ“
+void CMotSysDlg::OnBTNINCtestY2()		// ï¿½uY INC-ï¿½vï¿½{ï¿½^ï¿½ï¿½
 {
 	mmtestORGY(31);	//debdeb
 }
-void CMotSysDlg::OnBTNINCtestZ()		// uZ INC+vƒ{ƒ^ƒ“
+void CMotSysDlg::OnBTNINCtestZ()		// ï¿½uZ INC+ï¿½vï¿½{ï¿½^ï¿½ï¿½
 {
 	mmtestORGZ(3);	//debdeb
 }
-void CMotSysDlg::OnBTNINCtestZ2()		// uZ INC-vƒ{ƒ^ƒ“
+void CMotSysDlg::OnBTNINCtestZ2()		// ï¿½uZ INC-ï¿½vï¿½{ï¿½^ï¿½ï¿½
 {
 	mmtestORGZ(31);	//debdeb
 }
-void CMotSysDlg::OnBTNINCtestT()		// uT INC+vƒ{ƒ^ƒ“
+void CMotSysDlg::OnBTNINCtestT()		// ï¿½uT INC+ï¿½vï¿½{ï¿½^ï¿½ï¿½
 {
 	mmtestORGT(3);	//debdeb
 }
-void CMotSysDlg::OnBTNINCtestT2()		// uT INC-vƒ{ƒ^ƒ“
+void CMotSysDlg::OnBTNINCtestT2()		// ï¿½uT INC-ï¿½vï¿½{ï¿½^ï¿½ï¿½
 {
 	mmtestORGT(31);	//debdeb
 }
-// HP ˆÚ“®
-void CMotSysDlg::OnBTNHPtestX()		// uX HPvƒ{ƒ^ƒ“
+// HP ï¿½Ú“ï¿½
+void CMotSysDlg::OnBTNHPtestX()		// ï¿½uX HPï¿½vï¿½{ï¿½^ï¿½ï¿½
 {
 	mmtestORGX(1);	//debdeb
 }
-void CMotSysDlg::OnBTNHPtestY()		// uY HPvƒ{ƒ^ƒ“
+void CMotSysDlg::OnBTNHPtestY()		// ï¿½uY HPï¿½vï¿½{ï¿½^ï¿½ï¿½
 {
 	mmtestORGY(1);	//debdeb
 }
-void CMotSysDlg::OnBTNHPtestZ()		// uZ HPvƒ{ƒ^ƒ“
+void CMotSysDlg::OnBTNHPtestZ()		// ï¿½uZ HPï¿½vï¿½{ï¿½^ï¿½ï¿½
 {
 	mmtestORGZ(1);	//debdeb
 }
-void CMotSysDlg::OnBTNHPtestT()		// uT HPvƒ{ƒ^ƒ“
+void CMotSysDlg::OnBTNHPtestT()		// ï¿½uT HPï¿½vï¿½{ï¿½^ï¿½ï¿½
 {
 	mmtestORGT(1);	//debdeb
 }
 
-// ƒRƒ“ƒgƒ[ƒ‹‚Ì Enableˆ—
+// ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ Enableï¿½ï¿½ï¿½ï¿½
 void CMotSysDlg::EnableDlgCtrl()
 {
-	int l_iCtrlID[][9] = {	// ŠeŽ²‚²‚Æ‚ÉÅ‘å€–Ú”‚Í‚T‚OŒÂ‚Å‚·D(g_iDlgCtrlID[][]‚Å’è‹`)
+	int l_iCtrlID[][9] = {	// ï¿½eï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ÉÅ‘å€ï¿½Úï¿½ï¿½Í‚Tï¿½Oï¿½Â‚Å‚ï¿½ï¿½D(g_iDlgCtrlID[][]ï¿½Å’ï¿½`)
 	/*00*/	IDC_STATIC_LBL_STS_X,	IDC_STATIC_LBL_STS_YM,	IDC_STATIC_LBL_STS_Z,	0,	IDC_STATIC_LBL_STS_T,	0,	0,	0,	IDC_STATIC_LBL_STS_YS,
 	/*01*/	IDC_STATIC_AXIS_X,		IDC_STATIC_AXIS_YM,		IDC_STATIC_AXIS_Z,		0,	IDC_STATIC_AXIS_T,		0,	0,	0,	IDC_STATIC_AXIS_YS,
 	/*02*/	IDC_STATIC_MODE_X,		IDC_STATIC_MODE_YM,		IDC_STATIC_MODE_Z,		0,	IDC_STATIC_MODE_T,		0,	0,	0,	0,
@@ -1437,7 +1439,7 @@ void CMotSysDlg::EnableDlgCtrl()
 
 	int i, j;
 
-	// ƒRƒ“ƒgƒ[ƒ‹ ID ƒe[ƒuƒ‹‚ðÝ’è
+	// ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ ID ï¿½eï¿½[ï¿½uï¿½ï¿½ï¿½ï¿½Ý’ï¿½
 	memset(g_iDlgCtrlID, 0, sizeof(g_iDlgCtrlID));
 	i = 0;
 	while (-1 != l_iCtrlID[i][0]) {
@@ -1458,7 +1460,7 @@ void CMotSysDlg::EnableDlgCtrl()
 		g_iDlgCtrlID[i][j] = -1;
 	}
 
-	// Enable ˆ—
+	// Enable ï¿½ï¿½ï¿½ï¿½
 	if (0 != motion_data[AXIS_BIG_X].bEnable) {
 		i = 0;
 		while (-1 != g_iDlgCtrlID[i][AXIS_BIG_X]) {
@@ -1504,7 +1506,7 @@ void CMotSysDlg::EnableDlgCtrl()
 	}
 }
 
-//	ƒAƒ‰[ƒ€—pƒƒO
+//	ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½O
 void CMotSysDlg::AlarmLogging(TCHAR *ptszAlarmLog)
 {
 	if (0 == m_pAlarmLogFile) {
@@ -1513,7 +1515,7 @@ void CMotSysDlg::AlarmLogging(TCHAR *ptszAlarmLog)
 
 	TCHAR	l_tszLogBuff[1024] = _T("");
 
-	// “ú•tCŽž‚ðÝ’è
+	// ï¿½ï¿½ï¿½tï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý’ï¿½
 	m_pAlarmLogFile->AddTime(l_tszLogBuff, 2);
 	_tcscat(l_tszLogBuff, _T(" "));
 	_tcscat(l_tszLogBuff, ptszAlarmLog);
@@ -1521,7 +1523,7 @@ void CMotSysDlg::AlarmLogging(TCHAR *ptszAlarmLog)
 	m_pAlarmLogFile->Logging(l_tszLogBuff);
 }
 
-/* added 2009.12.14 hmenjo MotSys DIO ƒƒO’Ç‰Á ---------- { ---------- */
+/* added 2009.12.14 hmenjo MotSys DIO ï¿½ï¿½ï¿½Oï¿½Ç‰ï¿½ ---------- { ---------- */
 void CMotSysDlg::DioLogging(DWORD dwDi, DWORD dwDo)
 {
 	if (0 == m_pcDioLog) {
@@ -1542,7 +1544,7 @@ void CMotSysDlg::DioLogging(DWORD dwDi, DWORD dwDo)
 	this->CnvWordToBin(l_wDoLData, l_tszDoLData, 1);
 	this->CnvWordToBin(l_wDoHData, l_tszDoHData, 1);
 
-	/* “ú•tCŽž‚ðÝ’è	*/
+	/* ï¿½ï¿½ï¿½tï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý’ï¿½	*/
 	m_pcDioLog->AddTime(l_tszLogBuff, 4);
 	_tcscat(l_tszLogBuff, _T(" "));
 
@@ -1556,4 +1558,4 @@ void CMotSysDlg::DioLogging(DWORD dwDi, DWORD dwDo)
 
 	m_pcDioLog->Logging(l_tszLogBuff);
 }
-/* added 2009.12.14 hmenjo MotSys DIO ƒƒO’Ç‰Á ---------- } ---------- */
+/* added 2009.12.14 hmenjo MotSys DIO ï¿½ï¿½ï¿½Oï¿½Ç‰ï¿½ ---------- } ---------- */

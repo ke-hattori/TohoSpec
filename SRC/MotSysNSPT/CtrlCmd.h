@@ -17,85 +17,85 @@ extern "C" {
  */
 
 //#define	CC_DEB_BUTTON	1
-#define	CC_COM_LOG		FALSE	// ƒVƒŠƒAƒ‹’ÊM ‚ÌƒƒO
-#define	CC_INIT_TIMEOUT			5000	// ‰ŠúÝ’è’l‘ž‚ÝŠ®—¹ƒ^ƒCƒ€ƒAƒEƒg
-#define	CC_SERVO_ONOFF_TIMEOUT	5000	// ƒT[ƒ{ ON/OFF ƒ^ƒCƒ€ƒAƒEƒg
-#define	CC_CLEAR_ALARM_TIMEOUT	5000	// ƒAƒ‰[ƒ€ƒNƒŠƒA ƒ^ƒCƒ€ƒAƒEƒg
-// Ž²’è‹`(•K‚¸˜A”Ô‚É‚µ‚Ä‚­‚¾‚³‚¢DŒ‡”Ô‹ÖŽ~D‡˜‚Í•s–â)
-#define	CC_AXIS_X	0	// X Ž² (1)
-#define	CC_AXIS_Y	1	// Y Ž² (2)
-#define	CC_AXIS_Z	2	// Z Ž² (3)		(Nano ‚Å‚Í–¢Žg—p)
-#define	CC_AXIS_T	3	// T Ž² (4)		(Nano ‚Å‚Í–¢Žg—p)
-#define	CC_AXIS_NUM	4	// Å‘åŽ²”
-// o—Íƒ|[ƒgƒrƒbƒgˆÊ’u
-#define	CC_OUTBIT_SERVO			0	// ƒT[ƒ{ ON/OFF
-#define	CC_OUTBIT_RUN_X			1	// X Ž² “®ì ŠJŽn/’âŽ~
-#define	CC_OUTBIT_RUN_Y			2	// Y Ž² “®ì ŠJŽn/’âŽ~
-#define	CC_OUTBIT_RUN_Z			3	// Z Ž² “®ì ŠJŽn/’âŽ~(Nano ‚Å‚Í–¢Žg—p)
-#define	CC_OUTBIT_RUN_T			4	// T Ž² “®ì ŠJŽn/’âŽ~(Nano ‚Å‚Í–¢Žg—p)
-#define	CC_OUTBIT_CLEAR_ALARM	5	// ƒAƒ‰[ƒ€ƒNƒŠƒA
-#define	CC_OUTBIT_CHANGE_GAIN_X	6	// X Ž² ƒQƒCƒ“ØŠ·‚¦ hmenjo4 20030801
-#define	CC_OUTBIT_CHANGE_GAIN_Y	7	// Y Ž² ƒQƒCƒ“ØŠ·‚¦ hmenjo4 20030801
-#define	CC_OUTBIT_CHANGE_GAIN_Z	8	// Z Ž² ƒQƒCƒ“ØŠ·‚¦ hmenjo4 20030801(Nano ‚Å‚Í–¢Žg—p)
-#define	CC_OUTBIT_CHANGE_GAIN_T	9	// T Ž² ƒQƒCƒ“ØŠ·‚¦ hmenjo4 20030801(Nano ‚Å‚Í–¢Žg—p)
-#define	CC_OUTBIT_VAC_VALVE		10	// Vacuum Valve (–¢Žg—p)
-#define	CC_OUTBIT_VAC_DEST		11	// Vacuum Destructive (–¢Žg—p)
-#define	CC_OUTBIT_SPARE_12		12	// (—\”õ)
-#define	CC_OUTBIT_SPARE_13		13	// (—\”õ)
-#define	CC_OUTBIT_SPARE_14		14	// (—\”õ)
-#define	CC_OUTBIT_SPARE_15		15	// (—\”õ)
-#define	CC_OUTBIT_JOY_MODE		16	// JOYSTICK ƒ‚[ƒh‘I‘ð
-#define	CC_OUTBIT_JOY_SPEED1	17	// JOYSTICK ‘¬“x‚P
-#define	CC_OUTBIT_JOY_SPEED2	18	// JOYSTICK ‘¬“x‚Q
-#define	CC_OUTBIT_JOY_SPEED3	19	// JOYSTICK ‘¬“x‚R
-#define	CC_OUTBIT_SPARE_20		20	// (—\”õ)
-#define	CC_OUTBIT_SPARE_21		21	// (—\”õ)
-#define	CC_OUTBIT_SPARE_22		22	// (—\”õ)
-#define	CC_OUTBIT_SPARE_23		23	// (—\”õ)
-#define	CC_OUTBIT_SPARE_24		24	// (—\”õ)
-#define	CC_OUTBIT_SPARE_25		25	// (—\”õ)
-#define	CC_OUTBIT_SPARE_26		26	// (—\”õ)
-#define	CC_OUTBIT_SPARE_27		27	// (—\”õ)
-#define	CC_OUTBIT_SPARE_28		28	// (—\”õ)
-#define	CC_OUTBIT_SPARE_29		29	// (—\”õ)
-#define	CC_OUTBIT_SPARE_30		30	// (—\”õ)
-#define	CC_OUTBIT_SPARE_31		31	// (—\”õ)
+#define	CC_COM_LOG		FALSE	// ï¿½Vï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ÊM ï¿½Ìƒï¿½ï¿½O
+#define	CC_INIT_TIMEOUT			5000	// ï¿½ï¿½ï¿½ï¿½ï¿½Ý’ï¿½lï¿½ï¿½ï¿½ï¿½ï¿½ÝŠï¿½ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g
+#define	CC_SERVO_ONOFF_TIMEOUT	5000	// ï¿½Tï¿½[ï¿½{ ON/OFF ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g
+#define	CC_CLEAR_ALARM_TIMEOUT	5000	// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½A ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g
+// ï¿½ï¿½ï¿½ï¿½`(ï¿½Kï¿½ï¿½ï¿½Aï¿½Ô‚É‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Dï¿½ï¿½ï¿½Ô‹ÖŽ~ï¿½Dï¿½ï¿½ï¿½ï¿½ï¿½Í•sï¿½ï¿½)
+#define	CC_AXIS_X	0	// X ï¿½ï¿½ (1)
+#define	CC_AXIS_Y	1	// Y ï¿½ï¿½ (2)
+#define	CC_AXIS_Z	2	// Z ï¿½ï¿½ (3)		(Nano ï¿½Å‚Í–ï¿½ï¿½gï¿½p)
+#define	CC_AXIS_T	3	// T ï¿½ï¿½ (4)		(Nano ï¿½Å‚Í–ï¿½ï¿½gï¿½p)
+#define	CC_AXIS_NUM	4	// ï¿½Å‘åŽ²ï¿½ï¿½
+// ï¿½oï¿½Íƒ|ï¿½[ï¿½gï¿½rï¿½bï¿½gï¿½Ê’u
+#define	CC_OUTBIT_SERVO			0	// ï¿½Tï¿½[ï¿½{ ON/OFF
+#define	CC_OUTBIT_RUN_X			1	// X ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Jï¿½n/ï¿½ï¿½~
+#define	CC_OUTBIT_RUN_Y			2	// Y ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Jï¿½n/ï¿½ï¿½~
+#define	CC_OUTBIT_RUN_Z			3	// Z ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Jï¿½n/ï¿½ï¿½~(Nano ï¿½Å‚Í–ï¿½ï¿½gï¿½p)
+#define	CC_OUTBIT_RUN_T			4	// T ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Jï¿½n/ï¿½ï¿½~(Nano ï¿½Å‚Í–ï¿½ï¿½gï¿½p)
+#define	CC_OUTBIT_CLEAR_ALARM	5	// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½A
+#define	CC_OUTBIT_CHANGE_GAIN_X	6	// X ï¿½ï¿½ ï¿½Qï¿½Cï¿½ï¿½ï¿½ØŠï¿½ï¿½ï¿½ hmenjo4 20030801
+#define	CC_OUTBIT_CHANGE_GAIN_Y	7	// Y ï¿½ï¿½ ï¿½Qï¿½Cï¿½ï¿½ï¿½ØŠï¿½ï¿½ï¿½ hmenjo4 20030801
+#define	CC_OUTBIT_CHANGE_GAIN_Z	8	// Z ï¿½ï¿½ ï¿½Qï¿½Cï¿½ï¿½ï¿½ØŠï¿½ï¿½ï¿½ hmenjo4 20030801(Nano ï¿½Å‚Í–ï¿½ï¿½gï¿½p)
+#define	CC_OUTBIT_CHANGE_GAIN_T	9	// T ï¿½ï¿½ ï¿½Qï¿½Cï¿½ï¿½ï¿½ØŠï¿½ï¿½ï¿½ hmenjo4 20030801(Nano ï¿½Å‚Í–ï¿½ï¿½gï¿½p)
+#define	CC_OUTBIT_VAC_VALVE		10	// Vacuum Valve (ï¿½ï¿½ï¿½gï¿½p)
+#define	CC_OUTBIT_VAC_DEST		11	// Vacuum Destructive (ï¿½ï¿½ï¿½gï¿½p)
+#define	CC_OUTBIT_SPARE_12		12	// (ï¿½\ï¿½ï¿½)
+#define	CC_OUTBIT_SPARE_13		13	// (ï¿½\ï¿½ï¿½)
+#define	CC_OUTBIT_SPARE_14		14	// (ï¿½\ï¿½ï¿½)
+#define	CC_OUTBIT_SPARE_15		15	// (ï¿½\ï¿½ï¿½)
+#define	CC_OUTBIT_JOY_MODE		16	// JOYSTICK ï¿½ï¿½ï¿½[ï¿½hï¿½Iï¿½ï¿½
+#define	CC_OUTBIT_JOY_SPEED1	17	// JOYSTICK ï¿½ï¿½ï¿½xï¿½P
+#define	CC_OUTBIT_JOY_SPEED2	18	// JOYSTICK ï¿½ï¿½ï¿½xï¿½Q
+#define	CC_OUTBIT_JOY_SPEED3	19	// JOYSTICK ï¿½ï¿½ï¿½xï¿½R
+#define	CC_OUTBIT_SPARE_20		20	// (ï¿½\ï¿½ï¿½)
+#define	CC_OUTBIT_SPARE_21		21	// (ï¿½\ï¿½ï¿½)
+#define	CC_OUTBIT_SPARE_22		22	// (ï¿½\ï¿½ï¿½)
+#define	CC_OUTBIT_SPARE_23		23	// (ï¿½\ï¿½ï¿½)
+#define	CC_OUTBIT_SPARE_24		24	// (ï¿½\ï¿½ï¿½)
+#define	CC_OUTBIT_SPARE_25		25	// (ï¿½\ï¿½ï¿½)
+#define	CC_OUTBIT_SPARE_26		26	// (ï¿½\ï¿½ï¿½)
+#define	CC_OUTBIT_SPARE_27		27	// (ï¿½\ï¿½ï¿½)
+#define	CC_OUTBIT_SPARE_28		28	// (ï¿½\ï¿½ï¿½)
+#define	CC_OUTBIT_SPARE_29		29	// (ï¿½\ï¿½ï¿½)
+#define	CC_OUTBIT_SPARE_30		30	// (ï¿½\ï¿½ï¿½)
+#define	CC_OUTBIT_SPARE_31		31	// (ï¿½\ï¿½ï¿½)
 
-// “ü—Íƒ|[ƒgƒrƒbƒgˆÊ’u
+// ï¿½ï¿½ï¿½Íƒ|ï¿½[ï¿½gï¿½rï¿½bï¿½gï¿½Ê’u
 #define	CC_INBIT_WD				0	// W.D.
-#define	CC_INBIT_SERVO			1	// ƒT[ƒ{ ON/OFF
-#define	CC_INBIT_ALARM_X		2	// X Ž² ƒAƒ‰[ƒ€”­¶
-#define	CC_INBIT_INP_X			3	// X Ž² ˆÊ’uŒˆ‚ßŠ®—¹
-#define	CC_INBIT_ALARM_Y		4	// Y Ž² ƒAƒ‰[ƒ€”­¶
-#define	CC_INBIT_INP_Y			5	// Y Ž² ˆÊ’uŒˆ‚ßŠ®—¹
-#define	CC_INBIT_ALARM_Z		6	// Z Ž² ƒAƒ‰[ƒ€”­¶(Nano ‚Å‚Í–¢Žg—p)
-#define	CC_INBIT_INP_Z			7	// Z Ž² ˆÊ’uŒˆ‚ßŠ®—¹(Nano ‚Å‚Í–¢Žg—p)
-#define	CC_INBIT_ALARM_T		8	// T Ž² ƒAƒ‰[ƒ€”­¶(Nano ‚Å‚Í–¢Žg—p)
-#define	CC_INBIT_INP_T			9	// T Ž² ˆÊ’uŒˆ‚ßŠ®—¹(Nano ‚Å‚Í–¢Žg—p)
-#define CC_INBIT_INP_VAC		10	// Chuck Vaccum (–¢Žg—p)
-#define CC_INBIT_INTERLOCK		11	// Alignment Interlock (–¢Žg—p)
-#define CC_INBIT_INP2_X			12	// X Ž² ˆÊ’uŒˆ‚ßŠ®—¹‚Q
-#define CC_INBIT_INP2_Y			13	// Y Ž² ˆÊ’uŒˆ‚ßŠ®—¹‚Q
-#define CC_INBIT_INP2_Z			14	// Z Ž² ˆÊ’uŒˆ‚ßŠ®—¹‚Q(Nano ‚Å‚Í–¢Žg—p)
-#define CC_INBIT_INP2_T			15	// T Ž² ˆÊ’uŒˆ‚ßŠ®—¹‚Q(Nano ‚Å‚Í–¢Žg—p)
-#define CC_INBIT_JOY_STATUS		16	// JOYSTICK ó‘Ô
-#define CC_INBIT_SPARE_17		17	// JOYSTICK ‘¬“x‚P
-#define CC_INBIT_SPARE_18		18	// JOYSTICK ‘¬“x‚Q
-#define CC_INBIT_SPARE_19		19	// JOYSTICK ‘¬“x‚R
-#define CC_INBIT_SPARE_20		20	// (—\”õ)
-#define CC_INBIT_SPARE_21		21	// (—\”õ)
-#define CC_INBIT_SPARE_22		22	// (—\”õ)
-#define CC_INBIT_SPARE_23		23	// (—\”õ)
-#define CC_INBIT_SPARE_24		24	// (—\”õ)
-#define CC_INBIT_SPARE_25		25	// (—\”õ)
-#define CC_INBIT_SPARE_26		26	// (—\”õ)
-#define CC_INBIT_SPARE_27		27	// (—\”õ)
-#define CC_INBIT_SPARE_28		28	// (—\”õ)
-#define CC_INBIT_SPARE_29		29	// (—\”õ)
-#define CC_INBIT_SPARE_30		30	// (—\”õ)
-#define CC_INBIT_RESERVE_31		31	// (ƒVƒXƒeƒ€—\–ñ)
-// ƒtƒ@ƒCƒ‹–¼
-#define	SERVOPARAMNAME	_T("..\\cfg\\ServoParam.dat")	// ƒT[ƒ{ƒpƒ‰ƒƒ^
+#define	CC_INBIT_SERVO			1	// ï¿½Tï¿½[ï¿½{ ON/OFF
+#define	CC_INBIT_ALARM_X		2	// X ï¿½ï¿½ ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define	CC_INBIT_INP_X			3	// X ï¿½ï¿½ ï¿½Ê’uï¿½ï¿½ï¿½ßŠï¿½ï¿½ï¿½
+#define	CC_INBIT_ALARM_Y		4	// Y ï¿½ï¿½ ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define	CC_INBIT_INP_Y			5	// Y ï¿½ï¿½ ï¿½Ê’uï¿½ï¿½ï¿½ßŠï¿½ï¿½ï¿½
+#define	CC_INBIT_ALARM_Z		6	// Z ï¿½ï¿½ ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(Nano ï¿½Å‚Í–ï¿½ï¿½gï¿½p)
+#define	CC_INBIT_INP_Z			7	// Z ï¿½ï¿½ ï¿½Ê’uï¿½ï¿½ï¿½ßŠï¿½ï¿½ï¿½(Nano ï¿½Å‚Í–ï¿½ï¿½gï¿½p)
+#define	CC_INBIT_ALARM_T		8	// T ï¿½ï¿½ ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(Nano ï¿½Å‚Í–ï¿½ï¿½gï¿½p)
+#define	CC_INBIT_INP_T			9	// T ï¿½ï¿½ ï¿½Ê’uï¿½ï¿½ï¿½ßŠï¿½ï¿½ï¿½(Nano ï¿½Å‚Í–ï¿½ï¿½gï¿½p)
+#define CC_INBIT_INP_VAC		10	// Chuck Vaccum (ï¿½ï¿½ï¿½gï¿½p)
+#define CC_INBIT_INTERLOCK		11	// Alignment Interlock (ï¿½ï¿½ï¿½gï¿½p)
+#define CC_INBIT_INP2_X			12	// X ï¿½ï¿½ ï¿½Ê’uï¿½ï¿½ï¿½ßŠï¿½ï¿½ï¿½ï¿½Q
+#define CC_INBIT_INP2_Y			13	// Y ï¿½ï¿½ ï¿½Ê’uï¿½ï¿½ï¿½ßŠï¿½ï¿½ï¿½ï¿½Q
+#define CC_INBIT_INP2_Z			14	// Z ï¿½ï¿½ ï¿½Ê’uï¿½ï¿½ï¿½ßŠï¿½ï¿½ï¿½ï¿½Q(Nano ï¿½Å‚Í–ï¿½ï¿½gï¿½p)
+#define CC_INBIT_INP2_T			15	// T ï¿½ï¿½ ï¿½Ê’uï¿½ï¿½ï¿½ßŠï¿½ï¿½ï¿½ï¿½Q(Nano ï¿½Å‚Í–ï¿½ï¿½gï¿½p)
+#define CC_INBIT_JOY_STATUS		16	// JOYSTICK ï¿½ï¿½ï¿½
+#define CC_INBIT_SPARE_17		17	// JOYSTICK ï¿½ï¿½ï¿½xï¿½P
+#define CC_INBIT_SPARE_18		18	// JOYSTICK ï¿½ï¿½ï¿½xï¿½Q
+#define CC_INBIT_SPARE_19		19	// JOYSTICK ï¿½ï¿½ï¿½xï¿½R
+#define CC_INBIT_SPARE_20		20	// (ï¿½\ï¿½ï¿½)
+#define CC_INBIT_SPARE_21		21	// (ï¿½\ï¿½ï¿½)
+#define CC_INBIT_SPARE_22		22	// (ï¿½\ï¿½ï¿½)
+#define CC_INBIT_SPARE_23		23	// (ï¿½\ï¿½ï¿½)
+#define CC_INBIT_SPARE_24		24	// (ï¿½\ï¿½ï¿½)
+#define CC_INBIT_SPARE_25		25	// (ï¿½\ï¿½ï¿½)
+#define CC_INBIT_SPARE_26		26	// (ï¿½\ï¿½ï¿½)
+#define CC_INBIT_SPARE_27		27	// (ï¿½\ï¿½ï¿½)
+#define CC_INBIT_SPARE_28		28	// (ï¿½\ï¿½ï¿½)
+#define CC_INBIT_SPARE_29		29	// (ï¿½\ï¿½ï¿½)
+#define CC_INBIT_SPARE_30		30	// (ï¿½\ï¿½ï¿½)
+#define CC_INBIT_RESERVE_31		31	// (ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½\ï¿½ï¿½)
+// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½
+#define	SERVOPARAMNAME	_T("..\\cfg\\ServoParam.dat")	// ï¿½Tï¿½[ï¿½{ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^
 
 
 /*
@@ -132,7 +132,7 @@ _EXTCC	long CC_get_true_position(short axis);
 _EXTCC	void CC_local_emergency_stop(short axis);
 _EXTCC	int CC_motion_set_soft_home(short axis, long soft_home);
 _EXTCC	int CC_motion_move_at_speed(short axis, short velocity);
-_EXTCC	CC_motion_move_to_position(short axis, long position, short velocity);
+_EXTCC	int CC_motion_move_to_position(short axis, long position, short velocity);
 _EXTCC	int CC_motion_move_at_speed_to_dest(short axis, long destination, short velocity);
 _EXTCC	int CC_motion_go_home(short axis);
 _EXTCC	void CC_X_Manager(void);
@@ -168,64 +168,64 @@ _EXTCC	void mmtestORGZ(int mode);
 _EXTCC	void mmtestORGZdone(void);
 _EXTCC	void mmtestORGT(int mode);
 _EXTCC	void mmtestORGTdone(void);
-/* added 2009.11.11 hmenjo MotSys Ž²ƒ^ƒCƒ€ƒAƒEƒg ---------- { ---------- */
+/* added 2009.11.11 hmenjo MotSys ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g ---------- { ---------- */
 _EXTCC	int CC_MotionTimeout(int iMode, short wAxis);
 _EXTCC	void CC_MotTimeoutCheck(short wAxis, short *wPrc);
-/* added 2009.11.11 hmenjo MotSys Ž²ƒ^ƒCƒ€ƒAƒEƒg ---------- } ---------- */
-/* added 2009.12.14 hmenjo MotSys DIO ƒƒO’Ç‰Á ---------- { ---------- */
+/* added 2009.11.11 hmenjo MotSys ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g ---------- } ---------- */
+/* added 2009.12.14 hmenjo MotSys DIO ï¿½ï¿½ï¿½Oï¿½Ç‰ï¿½ ---------- { ---------- */
 _EXTCC	void CC_DioLog(DWORD dwDi, DWORD dwDo);
-/* added 2009.12.14 hmenjo MotSys DIO ƒƒO’Ç‰Á ---------- } ---------- */
+/* added 2009.12.14 hmenjo MotSys DIO ï¿½ï¿½ï¿½Oï¿½Ç‰ï¿½ ---------- } ---------- */
 
 
 /*
  *	define structures
  */
-// Ž²ƒAƒ‰[ƒ€
+// ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½
 typedef struct {
-	BOOL	Axis0;	// Ž²‚O : BigX
-	BOOL	Axis1;	// Ž²‚P : BigY
-	BOOL	Axis2;	// Ž²‚Q : Z
-	BOOL	Axis3;	// Ž²‚R : X Slow
-	BOOL	Axis4;	// Ž²‚S : Theta
-	BOOL	Axis5;	// Ž²‚T : Level
-	BOOL	Axis6;	// Ž²‚U : X Fast
-	BOOL	Axis7;	// Ž²‚V : (T)
+	BOOL	Axis0;	// ï¿½ï¿½ï¿½O : BigX
+	BOOL	Axis1;	// ï¿½ï¿½ï¿½P : BigY
+	BOOL	Axis2;	// ï¿½ï¿½ï¿½Q : Z
+	BOOL	Axis3;	// ï¿½ï¿½ï¿½R : X Slow
+	BOOL	Axis4;	// ï¿½ï¿½ï¿½S : Theta
+	BOOL	Axis5;	// ï¿½ï¿½ï¿½T : Level
+	BOOL	Axis6;	// ï¿½ï¿½ï¿½U : X Fast
+	BOOL	Axis7;	// ï¿½ï¿½ï¿½V : (T)
 } CC_AXISALARM;
 
-// Ž²î•ñ
+// ï¿½ï¿½ï¿½ï¿½ï¿½
 typedef struct {
-	WORD	Mode;			// “®ìƒ‚[ƒh
-	long	Position;		// ˆÊ’u
-	long	Velocity;		// ‘¬“x
-	long	Current;		// “d—¬’l
-	long	Order_Position;	// Žw—ßˆÊ’u
-	long	Order_Velocity;	// Žw—ß‘¬“x
-	long	Order_Current;	// Žw—ß“d—¬’l
-	WORD	Status;			// ó‘Ô
-	long	d_Position;		// ˆÊ’u•Î· hmenjo5 20030801
+	WORD	Mode;			// ï¿½ï¿½ï¿½ìƒ‚ï¿½[ï¿½h
+	long	Position;		// ï¿½Ê’u
+	long	Velocity;		// ï¿½ï¿½ï¿½x
+	long	Current;		// ï¿½dï¿½ï¿½ï¿½l
+	long	Order_Position;	// ï¿½wï¿½ßˆÊ’u
+	long	Order_Velocity;	// ï¿½wï¿½ß‘ï¿½ï¿½x
+	long	Order_Current;	// ï¿½wï¿½ß“dï¿½ï¿½ï¿½l
+	WORD	Status;			// ï¿½ï¿½ï¿½
+	long	d_Position;		// ï¿½Ê’uï¿½Îï¿½ hmenjo5 20030801
 } CC_AXIS_INFO;
 
-// ƒT[ƒ{ƒpƒ‰ƒƒ^
+// ï¿½Tï¿½[ï¿½{ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^
 typedef struct {
-	long	ORG1_AccelTimeT;	// Œ´“_•œ‹A ‘æ‚P‰ÁŒ¸‘¬ŽžŠÔ
-	long	ORG1_AccelTimeS;	//				‚rŽš‰ÁŒ¸‘¬ŽžŠÔ
-	long	ORG1_Speed;			//				ˆÚ“®‘¬“x
-	long	ORG2_AccelTimeT;	//			‘æ‚Q‰ÁŒ¸‘¬ŽžŠÔ
-	long	ORG2_AccelTimeS;	//				‚rŽš‰ÁŒ¸‘¬ŽžŠÔ
-	long	ORG2_Speed;			//				ˆÚ“®‘¬“x
-	long	ORG3_AccelTimeT;	//			‘æ‚R‰ÁŒ¸‘¬ŽžŠÔ
-	long	ORG3_AccelTimeS;	//				‚rŽš‰ÁŒ¸‘¬ŽžŠÔ
-	long	ORG3_Speed;			//				ˆÚ“®‘¬“x
-	long	HP_AccelTimeT;		// HP ˆÚ“®	‰ÁŒ¸‘¬ŽžŠÔ
-	long	HP_AccelTimeS;		//			‚rŽš‰ÁŒ¸‘¬ŽžŠÔ
-	long	HP_BaseBand;		//			ˆÚ“®Ï”»’fŠî€
-	long	HP_Speed;			//			‘¬“x
-	long	ABS_AccelTimeT;		// ABS ˆÚ“®	‰ÁŒ¸‘¬ŽžŠÔ
-	long	ABS_AccelTimeS;		//			‚rŽš‰ÁŒ¸‘¬ŽžŠÔ
-	long	ABS_Speed;			//			‘¬“x
-	long	INC_AccelTimeT;		// INC ˆÚ“®	‰ÁŒ¸‘¬ŽžŠÔ
-	long	INC_AccelTimeS;		//			‚rŽš‰ÁŒ¸‘¬ŽžŠÔ
-	long	INC_Speed;			//			‘¬“x
+	long	ORG1_AccelTimeT;	// ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½A ï¿½ï¿½Pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	long	ORG1_AccelTimeS;	//				ï¿½rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	long	ORG1_Speed;			//				ï¿½Ú“ï¿½ï¿½ï¿½ï¿½x
+	long	ORG2_AccelTimeT;	//			ï¿½ï¿½Qï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	long	ORG2_AccelTimeS;	//				ï¿½rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	long	ORG2_Speed;			//				ï¿½Ú“ï¿½ï¿½ï¿½ï¿½x
+	long	ORG3_AccelTimeT;	//			ï¿½ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	long	ORG3_AccelTimeS;	//				ï¿½rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	long	ORG3_Speed;			//				ï¿½Ú“ï¿½ï¿½ï¿½ï¿½x
+	long	HP_AccelTimeT;		// HP ï¿½Ú“ï¿½	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	long	HP_AccelTimeS;		//			ï¿½rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	long	HP_BaseBand;		//			ï¿½Ú“ï¿½ï¿½Ï”ï¿½ï¿½fï¿½î€
+	long	HP_Speed;			//			ï¿½ï¿½ï¿½x
+	long	ABS_AccelTimeT;		// ABS ï¿½Ú“ï¿½	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	long	ABS_AccelTimeS;		//			ï¿½rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	long	ABS_Speed;			//			ï¿½ï¿½ï¿½x
+	long	INC_AccelTimeT;		// INC ï¿½Ú“ï¿½	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	long	INC_AccelTimeS;		//			ï¿½rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	long	INC_Speed;			//			ï¿½ï¿½ï¿½x
 } SERVO_PARAM;
 
 
@@ -237,41 +237,41 @@ typedef struct {
 /*
  *	define variable values
  */
-_EXTCC	BOOL	g_CC_CommAbort;							// ƒVƒŠƒAƒ‹’ÊM’†’f
-_EXTCC	BOOL	g_CC_ThreadLoop;						// ƒXƒŒƒbƒhƒ‹[ƒvƒtƒ‰ƒO
-_EXTCC	BOOL	g_CC_bInitialize;						// ‰Šú‰»ƒtƒ‰ƒO
-_EXTCC	DWORD	g_CC_OutPort;							// DIO o—Íƒ|[ƒg(‘‡)
-_EXTCC	DWORD	g_CC_InPort;							// DIO “ü—Íƒ|[ƒg(‘‡)
-_EXTCC	BOOL	g_CC_bSetAlarm[CC_AXIS_NUM];			// ƒAƒ‰[ƒ€ƒZƒbƒgƒtƒ‰ƒO
-_EXTCC	BOOL	g_CC_bClearAlarm[CC_AXIS_NUM];			// ƒAƒ‰[ƒ€ƒNƒŠƒAƒtƒ‰ƒO
-_EXTCC	BOOL	g_CC_ServoONReq;						// ƒT[ƒ{ ON —v‹
-_EXTCC	BOOL	g_CC_ServoOFFReq;						// ƒT[ƒ{ OFF —v‹
-_EXTCC	BOOL	g_CC_ServoONOFFerr;						// ƒT[ƒ{ƒ^ƒCƒ€ƒAƒEƒgƒGƒ‰[
-_EXTCC	BOOL	g_CC_ComError;							// ’ÊMƒGƒ‰[
-_EXTCC	long	g_CC_Count[CC_AXIS_NUM];				// ŠeŽ²‚ÌƒJƒEƒ“ƒg
-_EXTCC	CC_AXIS_INFO	g_CC_AxisInfo[CC_AXIS_NUM + 1];	// ŠeŽ²‚Ìî•ñ
-_EXTCC	SERVO_PARAM	ServoParam[CC_AXIS_NUM];			// ƒT[ƒ{ƒpƒ‰ƒƒ^
-_EXTCC	long	g_CC_HP_Pos[CC_AXIS_NUM];				// ŠeŽ²‚Ì HP ˆÊ’u
-_EXTCC	short	g_CC_Axis_prc[CC_AXIS_NUM];				// ŠeŽ²‚Ìˆ—ó‘Ô
-														//		0F‹N“®‘Ò‚¿
-														//		1FINP ŠÄŽ‹‘O‚Ì‘Ò‚¿ŽžŠÔ
-														//		2FINP ‘Ò‚¿
-														//		3F“®ìƒ‚[ƒh‚Ì’Êí‚Ö‚Ì•Ï‰»‘Ò‚¿
-_EXTCC	short	g_CC_Axis_mode[CC_AXIS_NUM];			// ŠeŽ²‚Ìˆ—ƒ‚[ƒh
-														//		0F’Êí(’âŽ~Žž)
-														//		1FŒ´“_•œ‹A
-														//		2FHP ˆÚ“®
-														//		3FABS ˆÚ“®
-														//		4FINC ˆÚ“®
-_EXTCC	BOOL	g_CC_Axis_HP_Req[CC_AXIS_NUM];			// HP ˆÚ“®—v‹				(–¢Žg—p)
+_EXTCC	BOOL	g_CC_CommAbort;							// ï¿½Vï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ÊMï¿½ï¿½ï¿½f
+_EXTCC	BOOL	g_CC_ThreadLoop;						// ï¿½Xï¿½ï¿½ï¿½bï¿½hï¿½ï¿½ï¿½[ï¿½vï¿½tï¿½ï¿½ï¿½O
+_EXTCC	BOOL	g_CC_bInitialize;						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½O
+_EXTCC	DWORD	g_CC_OutPort;							// DIO ï¿½oï¿½Íƒ|ï¿½[ï¿½g(ï¿½ï¿½ï¿½ï¿½)
+_EXTCC	DWORD	g_CC_InPort;							// DIO ï¿½ï¿½ï¿½Íƒ|ï¿½[ï¿½g(ï¿½ï¿½ï¿½ï¿½)
+_EXTCC	BOOL	g_CC_bSetAlarm[CC_AXIS_NUM];			// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Zï¿½bï¿½gï¿½tï¿½ï¿½ï¿½O
+_EXTCC	BOOL	g_CC_bClearAlarm[CC_AXIS_NUM];			// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Aï¿½tï¿½ï¿½ï¿½O
+_EXTCC	BOOL	g_CC_ServoONReq;						// ï¿½Tï¿½[ï¿½{ ON ï¿½vï¿½ï¿½
+_EXTCC	BOOL	g_CC_ServoOFFReq;						// ï¿½Tï¿½[ï¿½{ OFF ï¿½vï¿½ï¿½
+_EXTCC	BOOL	g_CC_ServoONOFFerr;						// ï¿½Tï¿½[ï¿½{ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Gï¿½ï¿½ï¿½[
+_EXTCC	BOOL	g_CC_ComError;							// ï¿½ÊMï¿½Gï¿½ï¿½ï¿½[
+_EXTCC	long	g_CC_Count[CC_AXIS_NUM];				// ï¿½eï¿½ï¿½ï¿½ÌƒJï¿½Eï¿½ï¿½ï¿½g
+_EXTCC	CC_AXIS_INFO	g_CC_AxisInfo[CC_AXIS_NUM + 1];	// ï¿½eï¿½ï¿½ï¿½Ìï¿½ï¿½
+_EXTCC	SERVO_PARAM	ServoParam[CC_AXIS_NUM];			// ï¿½Tï¿½[ï¿½{ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^
+_EXTCC	long	g_CC_HP_Pos[CC_AXIS_NUM];				// ï¿½eï¿½ï¿½ï¿½ï¿½ HP ï¿½Ê’u
+_EXTCC	short	g_CC_Axis_prc[CC_AXIS_NUM];				// ï¿½eï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+														//		0ï¿½Fï¿½Nï¿½ï¿½ï¿½Ò‚ï¿½
+														//		1ï¿½FINP ï¿½ÄŽï¿½ï¿½Oï¿½Ì‘Ò‚ï¿½ï¿½ï¿½ï¿½ï¿½
+														//		2ï¿½FINP ï¿½Ò‚ï¿½
+														//		3ï¿½Fï¿½ï¿½ï¿½ìƒ‚ï¿½[ï¿½hï¿½Ì’Êï¿½Ö‚Ì•Ï‰ï¿½ï¿½Ò‚ï¿½
+_EXTCC	short	g_CC_Axis_mode[CC_AXIS_NUM];			// ï¿½eï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½h
+														//		0ï¿½Fï¿½Êï¿½(ï¿½ï¿½~ï¿½ï¿½)
+														//		1ï¿½Fï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½A
+														//		2ï¿½FHP ï¿½Ú“ï¿½
+														//		3ï¿½FABS ï¿½Ú“ï¿½
+														//		4ï¿½FINC ï¿½Ú“ï¿½
+_EXTCC	BOOL	g_CC_Axis_HP_Req[CC_AXIS_NUM];			// HP ï¿½Ú“ï¿½ï¿½vï¿½ï¿½				(ï¿½ï¿½ï¿½gï¿½p)
 
-_EXTCC	BOOL	g_CC_Axis_ORG_Req[CC_AXIS_NUM];			// Œ´“_•œ‹A—v‹
-_EXTCC	short	g_CC_Axis_pattern[CC_AXIS_NUM];			// ŠeŽ²‚Ìˆ—ƒpƒ^[ƒ“
+_EXTCC	BOOL	g_CC_Axis_ORG_Req[CC_AXIS_NUM];			// ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½vï¿½ï¿½
+_EXTCC	short	g_CC_Axis_pattern[CC_AXIS_NUM];			// ï¿½eï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½pï¿½^ï¿½[ï¿½ï¿½
 														//		1 : CC_motion_move_at_speed()
 														//		2 : CC_motion_move_to_position()
 														//		3 : CC_motion_move_at_speed_to_dest()
 														//		4 : CC_motion_go_home()
-_EXTCC	long	g_CC_MaxSpeed[CC_AXIS_NUM];				// Å‘å‘¬“x§ŒÀ’l
+_EXTCC	long	g_CC_MaxSpeed[CC_AXIS_NUM];				// ï¿½Å‘å‘¬ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½l
 
 #ifdef __cplusplus
 }

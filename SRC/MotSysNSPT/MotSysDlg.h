@@ -1,4 +1,4 @@
-// MotSysDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// MotSysDlg.h : ï¿½wï¿½bï¿½_ï¿½[ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #if !defined(AFX_MOTSYSDLG_H__5817BA20_B6FA_45E3_B048_A4FA69263851__INCLUDED_)
@@ -9,28 +9,28 @@
 #endif // _MSC_VER > 1000
 
 /*
- *	ƒ}ƒNƒ’è‹`
+ *	ï¿½}ï¿½Nï¿½ï¿½ï¿½ï¿½`
  */
-#define	IDENT_CODE		"MotSys"	// ¯•ÊƒR[ƒh(ƒvƒƒpƒeƒBƒŠƒXƒg‚Åg—p)
+#define	IDENT_CODE		"MotSys"	// ï¿½ï¿½ï¿½ÊƒRï¿½[ï¿½h(ï¿½vï¿½ï¿½ï¿½pï¿½eï¿½Bï¿½ï¿½ï¿½Xï¿½gï¿½Ågï¿½p)
 #define	MSD_MESSAGEBOX_TITLE	_T("Motion System Driver Error")
 
 class CSio;
 class CLogFile;
 
 /////////////////////////////////////////////////////////////////////////////
-// CMotSysDlg ƒ_ƒCƒAƒƒO
+// CMotSysDlg ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½O
 
 class CMotSysDlg : public CDialog
 {
-// \’z
+// ï¿½\ï¿½z
 
 // Matsuhisa 20040304 Add -->
 protected:
 public:
-/* added 2009.12.14 hmenjo MotSys DIO ƒƒO’Ç‰Á ---------- { ---------- */
+/* added 2009.12.14 hmenjo MotSys DIO ï¿½ï¿½ï¿½Oï¿½Ç‰ï¿½ ---------- { ---------- */
 	BOOL m_bDioLog;
 	void DioLogging(DWORD dwDi, DWORD dwDo);
-/* added 2009.12.14 hmenjo MotSys DIO ƒƒO’Ç‰Á ---------- } ---------- */
+/* added 2009.12.14 hmenjo MotSys DIO ï¿½ï¿½ï¿½Oï¿½Ç‰ï¿½ ---------- } ---------- */
 	BOOL m_bOnClosing;
 	HICON m_hMainIcon;
 // Matsuhisa 20040302 Add -->
@@ -52,27 +52,27 @@ public:
 	void ChgToPriorityMsg(DWORD code, TCHAR *ptszmsg);
 	LRESULT MotsysProc(UINT uMsg, WPARAM wParam, LPARAM lParam);
 	LRESULT MotsysDriverProc(UINT uMsg, WPARAM wParam, LPARAM lParam);
-	CMotSysDlg(CWnd* pParent = NULL);	// •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CMotSysDlg(CWnd* pParent = NULL);	// ï¿½Wï¿½ï¿½ï¿½ÌƒRï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½O ï¿½fï¿½[ï¿½^
 	//{{AFX_DATA(CMotSysDlg)
 	enum { IDD = IDD_MOTSYS_DIALOG };
-		// ƒƒ‚: ‚±‚ÌˆÊ’u‚É ClassWizard ‚É‚æ‚Á‚Äƒf[ƒ^ ƒƒ“ƒo‚ª’Ç‰Á‚³‚ê‚Ü‚·B
+		// ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ï¿½ ClassWizard ï¿½É‚ï¿½ï¿½ï¿½Äƒfï¿½[ï¿½^ ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	//}}AFX_DATA
 
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+	// ClassWizard ï¿½Í‰ï¿½ï¿½zï¿½Öï¿½ï¿½ÌƒIï¿½[ï¿½oï¿½[ï¿½ï¿½ï¿½Cï¿½hï¿½ğ¶ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	//{{AFX_VIRTUAL(CMotSysDlg)
 	public:
 	virtual BOOL DestroyWindow();
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ‚ÌƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ï¿½ÌƒTï¿½|ï¿½[ï¿½g
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
 protected:
 	HICON m_hIcon;
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½}ï¿½bï¿½vï¿½Öï¿½
 	//{{AFX_MSG(CMotSysDlg)
 	virtual BOOL OnInitDialog();
 	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
@@ -80,7 +80,7 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	virtual void OnOK();
 	afx_msg void OnBtnAbout();
-	afx_msg void OnBtnHide();
+	afx_msg LRESULT OnBtnHide(WPARAM wParam, LPARAM lParam);
 	afx_msg void OnTimer(UINT nIDEvent);
 	afx_msg void OnBTNServoOFF();
 	afx_msg void OnClose();
@@ -136,14 +136,14 @@ protected:
 	afx_msg LRESULT OnMotdrv_GetElectronicGear(WPARAM wParam, LPARAM lParam);
 	afx_msg LRESULT OnMotdrv_GetSoftLimit(WPARAM wParam, LPARAM lParam);
 	afx_msg LRESULT OnMotdrv_SetJoySpeed(WPARAM wParam, LPARAM lParam);
-	afx_msg void OnShowAlarm(WPARAM wParam, LPARAM lParam);
-	afx_msg void OnServoInitComp(WPARAM wParam, LPARAM lParam);
+	afx_msg LRESULT OnShowAlarm(WPARAM wParam, LPARAM lParam);
+	afx_msg LRESULT OnServoInitComp(WPARAM wParam, LPARAM lParam);
 	DECLARE_MESSAGE_MAP()
 
 private:
-/* added 2009.12.14 hmenjo MotSys DIO ƒƒO’Ç‰Á ---------- { ---------- */
+/* added 2009.12.14 hmenjo MotSys DIO ï¿½ï¿½ï¿½Oï¿½Ç‰ï¿½ ---------- { ---------- */
 	CLogFile* m_pcDioLog;
-/* added 2009.12.14 hmenjo MotSys DIO ƒƒO’Ç‰Á ---------- } ---------- */
+/* added 2009.12.14 hmenjo MotSys DIO ï¿½ï¿½ï¿½Oï¿½Ç‰ï¿½ ---------- } ---------- */
 	void AlarmLogging(TCHAR* ptszAlarmLog);
 	CLogFile* m_pAlarmLogFile;
 	void EnableDlgCtrl(void);
@@ -152,6 +152,6 @@ private:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ï¿½Í‘Oï¿½sï¿½Ì’ï¿½ï¿½Oï¿½É’Ç‰ï¿½ï¿½ÌéŒ¾ï¿½ï¿½}ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 
 #endif // !defined(AFX_MOTSYSDLG_H__5817BA20_B6FA_45E3_B048_A4FA69263851__INCLUDED_)
