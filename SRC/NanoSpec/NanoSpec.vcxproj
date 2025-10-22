@@ -1,0 +1,794 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|Win32">
+      <Configuration>Template</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName />
+    <SccLocalPath />
+    <Keyword>MFCProj</Keyword>
+    <ProjectGuid>{79BDD81E-048C-4135-808B-F582A4EA794B}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\Release\</OutDir>
+    <IntDir>.\Release\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules />
+    <CodeAnalysisRuleAssemblies />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\Debug\</OutDir>
+    <IntDir>.\Debug\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules />
+    <CodeAnalysisRuleAssemblies />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules />
+    <CodeAnalysisRuleAssemblies />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+      <AdditionalIncludeDirectories>..\..\INC;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\Release\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\Release\NanoSpec.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\Release\</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release\</ProgramDataBaseFileName>
+    </ClCompile>
+    <PostBuildEvent>
+      <Command>copy "$(TargetPath)" "$(TargetDir)TohoSpec.exe"</Command>
+    </PostBuildEvent>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\Release\NanoSpec.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0411</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release\NanoSpec.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>../../BIN/NanoSpec.exe</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <MinimalRebuild>true</MinimalRebuild>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>..\..\INC;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\Debug\</AssemblerListingLocation>
+      <BrowseInformation>true</BrowseInformation>
+      <PrecompiledHeaderOutputFile>.\Debug\NanoSpec.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\Debug\</ObjectFileName>
+      <ProgramDataBaseFileName>.\Debug\</ProgramDataBaseFileName>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+    </ClCompile>
+    <PostBuildEvent>
+      <Command>copy "$(TargetPath)" "$(TargetDir)TohoSpec.exe"</Command>
+    </PostBuildEvent>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\Debug\NanoSpec.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0411</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Debug\NanoSpec.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>../../BIN_DEB\NanoSpec.exe</OutputFile>
+      <AdditionalDependencies>dtnsnexif.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AccessLevelSettingDlg.cpp" />
+    <ClCompile Include="AdditionalMeasurementDlg.cpp" />
+    <ClCompile Include="Alarm.cpp" />
+    <ClCompile Include="AlarmHistoryListView.cpp" />
+    <ClCompile Include="AlarmHistoryOperationView.cpp" />
+    <ClCompile Include="AlarmLogDlg.cpp" />
+    <ClCompile Include="AutoFocusSettingDlg.cpp" />
+    <ClCompile Include="BackupDataSettingDlg.cpp" />
+    <ClCompile Include="BCMenu.cpp" />
+    <ClCompile Include="BitmapStatic.cpp" />
+    <ClCompile Include="BkDialogST.cpp" />
+    <ClCompile Include="BtnST.cpp" />
+    <ClCompile Include="CeXDib.cpp" />
+    <ClCompile Include="CheckData.cpp" />
+    <ClCompile Include="ChiefFrm.cpp" />
+    <ClCompile Include="ChiefThread.cpp" />
+    <ClCompile Include="ChiefView.cpp" />
+    <ClCompile Include="ChifRcvMailThread.cpp" />
+    <ClCompile Include="ChifTransiAF.cpp" />
+    <ClCompile Include="ChifTransiDeskew.cpp" />
+    <ClCompile Include="ChifTransiMaster.cpp" />
+    <ClCompile Include="ChifTransiSeq.cpp" />
+    <ClCompile Include="ChifTransiSr1Point.cpp" />
+    <ClCompile Include="ChifTransiSrRefer.cpp" />
+    <ClCompile Include="ChifTransiStress.cpp" />
+    <ClCompile Include="ColorStatic.cpp" />
+    <ClCompile Include="CompEASEConfigurationSettingDlg.cpp" />
+    <ClCompile Include="CompEASEIPAddressSettingDlg.cpp" />
+    <ClCompile Include="ComSetupDlg.cpp" />
+    <ClCompile Include="ComSetupGridCtrl.cpp" />
+    <ClCompile Include="ConfirmDlg.cpp" />
+    <ClCompile Include="CTACofigurationSettingDlg.cpp" />
+    <ClCompile Include="CTARecipeDefaultValueSettingDlg.cpp" />
+    <ClCompile Include="DataListOperationView.cpp" />
+    <ClCompile Include="DataListView.cpp" />
+    <ClCompile Include="DataReviewOperationView.cpp" />
+    <ClCompile Include="DataReviewView.cpp" />
+    <ClCompile Include="DataSearchDlg.cpp" />
+    <ClCompile Include="DebugDlg.cpp" />
+    <ClCompile Include="DeleteDataPeriodSettingDlg.cpp" />
+    <ClCompile Include="DeskewDlg.cpp" />
+    <ClCompile Include="DeskewSeq.cpp" />
+    <ClCompile Include="DeskewSeqWnd.cpp" />
+    <ClCompile Include="EdgeAlignerSettingDlg.cpp" />
+    <ClCompile Include="ExecutionDlg.cpp" />
+    <ClCompile Include="FileRetentionPeriod.cpp" />
+    <ClCompile Include="FocusConfigurationSettingDlg.cpp" />
+    <ClCompile Include="GeneralPositionSettingDlg.cpp" />
+    <ClCompile Include="GridCell.cpp" />
+    <ClCompile Include="GridCellBase.cpp" />
+    <ClCompile Include="GridCellCheck.cpp" />
+    <ClCompile Include="GridCellNumeric.cpp" />
+    <ClCompile Include="GridCtrl.cpp" />
+    <ClCompile Include="GridDropTarget.cpp" />
+    <ClCompile Include="GropeObject.cpp" />
+    <ClCompile Include="HandlerLoadPositionSettingDlg.cpp" />
+    <ClCompile Include="HostSetupDlg.cpp" />
+    <ClCompile Include="HyperLink.cpp" />
+    <ClCompile Include="InPlaceEdit.cpp" />
+    <ClCompile Include="InterlockDlg.cpp" />
+    <ClCompile Include="JogDirSettingDlg.cpp" />
+    <ClCompile Include="JogSettingDlg.cpp" />
+    <ClCompile Include="LensComboBox.cpp" />
+    <ClCompile Include="LogOffDlg.cpp" />
+    <ClCompile Include="LogOnDlg.cpp" />
+    <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="MainFrmMailRecvThread.cpp" />
+    <ClCompile Include="MainMenuView.cpp" />
+    <ClCompile Include="MaintenanceDateDlg.cpp" />
+    <ClCompile Include="MaintenanceNoticeDlg.cpp" />
+    <ClCompile Include="MaintenanceOperationView.cpp" />
+    <ClCompile Include="MaintenancePositionSettingDlg.cpp" />
+    <ClCompile Include="MaintenanceView.cpp" />
+    <ClCompile Include="ManualDeskewDlg.cpp" />
+    <ClCompile Include="ManualLoadPositionSettingDlg.cpp" />
+    <ClCompile Include="ManualMeasurementFormView.cpp" />
+    <ClCompile Include="ManualMeasurementProcessView.cpp" />
+    <ClCompile Include="ManualSitePtDlg.cpp" />
+    <ClCompile Include="ManualStageDlg.cpp" />
+    <ClCompile Include="ManuReMeasReCalcStatDlg.cpp" />
+    <ClCompile Include="MeasurementGraphDlg.cpp" />
+    <ClCompile Include="MeasurementGraphDlg2.cpp" />
+    <ClCompile Include="MeasurementListDlg.cpp" />
+    <ClCompile Include="MeasurementOperationView.cpp" />
+    <ClCompile Include="MeasurementProcessView.cpp" />
+    <ClCompile Include="MeasurementTabView.cpp" />
+    <ClCompile Include="MessageDlg.cpp" />
+    <ClCompile Include="MISC.CPP" />
+    <ClCompile Include="MotDataSetupDlg.cpp" />
+    <ClCompile Include="MotionComboBox.cpp" />
+    <ClCompile Include="MotionDlg.cpp" />
+    <ClCompile Include="MsCofigurationSettingDlg.cpp" />
+    <ClCompile Include="MsRoboCylinderSettingDlg.cpp" />
+    <ClCompile Include="MultiLangHelper.cpp" />
+    <ClCompile Include="MySplitterWnd.cpp" />
+    <ClCompile Include="NanoLineSelect.cpp" />
+    <ClCompile Include="NanoListCtrl.cpp" />
+    <ClCompile Include="NanoListUI.cpp" />
+    <ClCompile Include="NanoMeasureGraph.cpp" />
+    <ClCompile Include="NanoPointGraph.cpp" />
+    <ClCompile Include="NanoRecipeListUI.cpp" />
+    <ClCompile Include="NanoRecipeUI.cpp" />
+    <ClCompile Include="NanoSpec.cpp" />
+    <ClCompile Include="NanoSpecDoc.cpp" />
+    <ClCompile Include="NanoSpecIni.cpp" />
+    <ClCompile Include="NanoSpecView.cpp" />
+    <ClCompile Include="NanoUI.cpp" />
+    <ClCompile Include="OriginalPositionSettingDlg.cpp" />
+    <ClCompile Include="OverlayDialog.cpp" />
+    <ClCompile Include="PatRecDeskewDlg.cpp" />
+    <ClCompile Include="PointConfirmationDlg.cpp" />
+    <ClCompile Include="PointSetupDisposition2PointDlg.cpp" />
+    <ClCompile Include="PointSetupDispositionDlg.cpp" />
+    <ClCompile Include="PointSetupLinesDlg.cpp" />
+    <ClCompile Include="PointSetupMeasurement2PointDlg.cpp" />
+    <ClCompile Include="PointSetupRectangleDlg.cpp" />
+    <ClCompile Include="PointSetupTeaching2PointDlg.cpp" />
+    <ClCompile Include="PointSetupTeachingDlg.cpp" />
+    <ClCompile Include="PointSetupTeachingMSDlg.cpp" />
+    <ClCompile Include="RecipeDistanceStageProgramView.cpp" />
+    <ClCompile Include="RecipeGantryStageProgramView.cpp" />
+    <ClCompile Include="RecipeMainListView.cpp" />
+    <ClCompile Include="RecipeMainSrView.cpp" />
+    <ClCompile Include="RecipeMainStressView.cpp" />
+    <ClCompile Include="RecipeMeasurementCompEASEThicknessProgramView.cpp" />
+    <ClCompile Include="RecipeMeasurementCTAProgramView.cpp" />
+    <ClCompile Include="RecipeMeasurementMSProgramView.cpp" />
+    <ClCompile Include="RecipeMeasurementProgramListView.cpp" />
+    <ClCompile Include="RecipeMeasurementResistanceProgramView.cpp" />
+    <ClCompile Include="RecipeMeasurementSeThicknessProgramView.cpp" />
+    <ClCompile Include="RecipeMeasurementSrCieReflectanceProgramView.cpp" />
+    <ClCompile Include="RecipeMeasurementSrCieTransmittanceProgramView.cpp" />
+    <ClCompile Include="RecipeMeasurementSrDistanceProgramView.cpp" />
+    <ClCompile Include="RecipeMeasurementSrOdProgramView.cpp" />
+    <ClCompile Include="RecipeMeasurementSrReflectanceProgramView.cpp" />
+    <ClCompile Include="RecipeMeasurementSrThicknessProgramView.cpp" />
+    <ClCompile Include="RecipeMeasurementSrTransmittanceProgramView.cpp" />
+    <ClCompile Include="RecipeMeasurementStressProgramView.cpp" />
+    <ClCompile Include="RecipeMultiListView.cpp" />
+    <ClCompile Include="RecipeMultiView.cpp" />
+    <ClCompile Include="RecipeOperationView.cpp" />
+    <ClCompile Include="RecipePointDeskewProgramListView.cpp" />
+    <ClCompile Include="RecipePointDeskewProgramView.cpp" />
+    <ClCompile Include="RecipeRecalibrationProgramListView.cpp" />
+    <ClCompile Include="RecipeRecalibrationProgramView.cpp" />
+    <ClCompile Include="RecipeStageProgramListView.cpp" />
+    <ClCompile Include="RecipeStageProgramMeasurementPointGrid.cpp" />
+    <ClCompile Include="RecipeStageProgramView.cpp" />
+    <ClCompile Include="RecipeStressStageProgramView.cpp" />
+    <ClCompile Include="RecipeThicknessCopyForm.cpp" />
+    <ClCompile Include="RecipeThicknessSettingView.cpp" />
+    <ClCompile Include="ReferenceMenuDlg.cpp" />
+    <ClCompile Include="RSCofigurationSettingDlg.cpp" />
+    <ClCompile Include="SampleIdConDlg.cpp" />
+    <ClCompile Include="SampleIdDlg.cpp" />
+    <ClCompile Include="SampleListDlg.cpp" />
+    <ClCompile Include="SampleSettingDlg.cpp" />
+    <ClCompile Include="SaveAsDlg.cpp" />
+    <ClCompile Include="SaveModifiedDlg.cpp" />
+    <ClCompile Include="SaveNameOverlapDlg.cpp" />
+    <ClCompile Include="ScanDataGraphDlg.cpp" />
+    <ClCompile Include="SeCofigurationSettingDlg.cpp" />
+    <ClCompile Include="SeFigureFormatSettingDlg.cpp" />
+    <ClCompile Include="SelectHeadTypeDlg.cpp" />
+    <ClCompile Include="SelectMeasurementTypeDlg.cpp" />
+    <ClCompile Include="SelectSampleTypeDlg.cpp" />
+    <ClCompile Include="SelectStageProgramTypeDlg.cpp" />
+    <ClCompile Include="SelectStressReferenceTypeDlg.cpp" />
+    <ClCompile Include="SeRecipeDefaultValueSettingDlg.cpp" />
+    <ClCompile Include="SeXmpSettingDlg.cpp" />
+    <ClCompile Include="ShadeButtonST.cpp" />
+    <ClCompile Include="SignalTowerSettingDlg.cpp" />
+    <ClCompile Include="SitePatternEditDlg.cpp" />
+    <ClCompile Include="SitePatternSetDlg.cpp" />
+    <ClCompile Include="SitePtSeq.cpp" />
+    <ClCompile Include="SitePtSeqWnd.cpp" />
+    <ClCompile Include="SpecifyCoordinate2PointDlg.cpp" />
+    <ClCompile Include="SpecifyCoordinateDlg.cpp" />
+    <ClCompile Include="SpeedSettingDlg.cpp" />
+    <ClCompile Include="SrAutoFocusRetryTimesDlg.cpp" />
+    <ClCompile Include="SrCcdArraySettingDlg.cpp" />
+    <ClCompile Include="SrCofigurationSettingDlg.cpp" />
+    <ClCompile Include="SrFigureFormatSettingDlg.cpp" />
+    <ClCompile Include="SrFilterSettingDlg.cpp" />
+    <ClCompile Include="SrLensCenterOffsetSetingDlg.cpp" />
+    <ClCompile Include="SrRecipeDefaultValueSettingDlg.cpp" />
+    <ClCompile Include="SrReferencePositionSettingDlg.cpp" />
+    <ClCompile Include="SrTransmittanceSettingDlg.cpp" />
+    <ClCompile Include="SrTurretSettingDlg.cpp" />
+    <ClCompile Include="SrUserSettingPatternRecSettingDlg.cpp" />
+    <ClCompile Include="SrVideoCalibrationSettingDlg.cpp" />
+    <ClCompile Include="SrViewRangeSettingDlg.cpp" />
+    <ClCompile Include="SrXmpSettingDlg.cpp" />
+    <ClCompile Include="StageConfigSettingDlg.cpp" />
+    <ClCompile Include="StatusBarEx.cpp" />
+    <ClCompile Include="StatusView.cpp" />
+    <ClCompile Include="StdAfx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="StressCofigurationSettingDlg.cpp" />
+    <ClCompile Include="StressElasticModulusListDlg.cpp" />
+    <ClCompile Include="StressLineSectionSettingDlg.cpp" />
+    <ClCompile Include="StressReferenceListDlg.cpp" />
+    <ClCompile Include="StressSampleElasticModulusSettingDlg.cpp" />
+    <ClCompile Include="StressSelectSampleTypeDlg.cpp" />
+    <ClCompile Include="SubstrateThicknessSettingDlg.cpp" />
+    <ClCompile Include="SubstrateThicknessSettingListDlg.cpp" />
+    <ClCompile Include="SystemConfigurationSettingDlg.cpp" />
+    <ClCompile Include="SystemOperationCommonSettingDlg.cpp" />
+    <ClCompile Include="SystemOperationCompEASESettingDlg.cpp" />
+    <ClCompile Include="SystemOperationCTASettingDlg.cpp" />
+    <ClCompile Include="SystemOperationMsSettingDlg.cpp" />
+    <ClCompile Include="SystemOperationRSSettingDlg.cpp" />
+    <ClCompile Include="SystemOperationSeSettingDlg.cpp" />
+    <ClCompile Include="SystemOperationSrSettingDlg.cpp" />
+    <ClCompile Include="SystemOperationStressSettingDlg.cpp" />
+    <ClCompile Include="SystemOperationTabView.cpp" />
+    <ClCompile Include="SystemView.cpp" />
+    <ClCompile Include="TestMeasurementDlg.cpp" />
+    <ClCompile Include="TestMeasurementGantryDlg.cpp" />
+    <ClCompile Include="TestMeasurementOperationView.cpp" />
+    <ClCompile Include="TestScan.cpp" />
+    <ClCompile Include="TitleTip.cpp" />
+    <ClCompile Include="UserAccountListDlg.cpp" />
+    <ClCompile Include="UserAccountSettingDlg.cpp" />
+    <ClCompile Include="UserSettingOperationCommonSettingDlg.cpp" />
+    <ClCompile Include="UserSettingOperationCompEASESettingDlg.cpp" />
+    <ClCompile Include="UserSettingOperationCTASettingDlg.cpp" />
+    <ClCompile Include="UserSettingOperationMSSettingDlg.cpp" />
+    <ClCompile Include="UserSettingOperationRSSettingDlg.cpp" />
+    <ClCompile Include="UserSettingOperationSeSettingDlg.cpp" />
+    <ClCompile Include="UserSettingOperationSrSettingDlg.cpp" />
+    <ClCompile Include="UserSettingOperationStressSettingDlg.cpp" />
+    <ClCompile Include="UserSettingOperationTabView.cpp" />
+    <ClCompile Include="UserSettingView.cpp" />
+    <ClCompile Include="VacuumChangeDlg.cpp" />
+    <ClCompile Include="VideoCalibDlg.cpp" />
+    <ClCompile Include="ViewScreenDlg.cpp" />
+    <ClCompile Include="ViewWindowView.cpp" />
+    <ClCompile Include="WinXPButtonST.cpp" />
+    <ClCompile Include="ZAxisOffsetSettingDlg.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="NanoSpec.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AccessLevelSettingDlg.h" />
+    <ClInclude Include="AdditionalMeasurementDlg.h" />
+    <ClInclude Include="Alarm.h" />
+    <ClInclude Include="AlarmHistoryListView.h" />
+    <ClInclude Include="AlarmHistoryOperationView.h" />
+    <ClInclude Include="AlarmLogDlg.h" />
+    <ClInclude Include="AutoFocusSettingDlg.h" />
+    <ClInclude Include="BackupDataSettingDlg.h" />
+    <ClInclude Include="BCMenu.h" />
+    <ClInclude Include="BitmapStatic.h" />
+    <ClInclude Include="BkDialogST.h" />
+    <ClInclude Include="BtnST.h" />
+    <ClInclude Include="CellRange.h" />
+    <ClInclude Include="CeXDib.h" />
+    <ClInclude Include="CheckData.h" />
+    <ClInclude Include="ChiefExports.h" />
+    <ClInclude Include="ChiefFrm.h" />
+    <ClInclude Include="ChiefPFuncs.h" />
+    <ClInclude Include="ChiefThread.h" />
+    <ClInclude Include="ChiefView.h" />
+    <ClInclude Include="ChifRcvMailThread.h" />
+    <ClInclude Include="ChifTransiAF.h" />
+    <ClInclude Include="ChifTransiDeskew.h" />
+    <ClInclude Include="ChifTransiMaster.h" />
+    <ClInclude Include="ChifTransiSeq.h" />
+    <ClInclude Include="ChifTransiSr1Point.h" />
+    <ClInclude Include="ChifTransiSrRefer.h" />
+    <ClInclude Include="ChifTransiStress.h" />
+    <ClInclude Include="ColorStatic.h" />
+    <ClInclude Include="CompEASEConfigurationSettingDlg.h" />
+    <ClInclude Include="CompEASEIPAddressSettingDlg.h" />
+    <ClInclude Include="ComSetupDlg.h" />
+    <ClInclude Include="ComSetupGridCtrl.h" />
+    <ClInclude Include="ConfirmDlg.h" />
+    <ClInclude Include="CTACofigurationSettingDlg.h" />
+    <ClInclude Include="CTARecipeDefaultValueSettingDlg.h" />
+    <ClInclude Include="DataListOperationView.h" />
+    <ClInclude Include="DataListView.h" />
+    <ClInclude Include="DataReviewOperationView.h" />
+    <ClInclude Include="DataReviewView.h" />
+    <ClInclude Include="DataSearchDlg.h" />
+    <ClInclude Include="DebugDlg.h" />
+    <ClInclude Include="DeleteDataPeriodSettingDlg.h" />
+    <ClInclude Include="DeskewDlg.h" />
+    <ClInclude Include="DeskewSeq.h" />
+    <ClInclude Include="DeskewSeqWnd.h" />
+    <ClInclude Include="EdgeAlignerSettingDlg.h" />
+    <ClInclude Include="ExecutionDlg.h" />
+    <ClInclude Include="FileRetentionPeriod.h" />
+    <ClInclude Include="FocusConfigurationSettingDlg.h" />
+    <ClInclude Include="GeneralPositionSettingDlg.h" />
+    <ClInclude Include="GridCell.h" />
+    <ClInclude Include="GridCellBase.h" />
+    <ClInclude Include="GridCellCheck.h" />
+    <ClInclude Include="GridCellNumeric.h" />
+    <ClInclude Include="GridCtrl.h" />
+    <ClInclude Include="GridDropTarget.h" />
+    <ClInclude Include="GropeObject.h" />
+    <ClInclude Include="HandlerLoadPositionSettingDlg.h" />
+    <ClInclude Include="HostSetupDlg.h" />
+    <ClInclude Include="HyperLink.h" />
+    <ClInclude Include="InPlaceEdit.h" />
+    <ClInclude Include="InterlockDlg.h" />
+    <ClInclude Include="JogDirSettingDlg.h" />
+    <ClInclude Include="JogSettingDlg.h" />
+    <ClInclude Include="LensComboBox.h" />
+    <ClInclude Include="LogOffDlg.h" />
+    <ClInclude Include="LogOnDlg.h" />
+    <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="MainFrmMailRecvThread.h" />
+    <ClInclude Include="MainMenuView.h" />
+    <ClInclude Include="MaintenanceDateDlg.h" />
+    <ClInclude Include="MaintenanceNoticeDlg.h" />
+    <ClInclude Include="MaintenanceOperationView.h" />
+    <ClInclude Include="MaintenancePositionSettingDlg.h" />
+    <ClInclude Include="MaintenanceView.h" />
+    <ClInclude Include="ManualDeskewDlg.h" />
+    <ClInclude Include="ManualLoadPositionSettingDlg.h" />
+    <ClInclude Include="ManualMeasurementFormView.h" />
+    <ClInclude Include="ManualMeasurementOperationView.h" />
+    <ClInclude Include="ManualMeasurementProcessView.h" />
+    <ClInclude Include="ManualSitePtDlg.h" />
+    <ClInclude Include="ManualStageDlg.h" />
+    <ClInclude Include="ManuReMeasReCalcStatDlg.h" />
+    <ClInclude Include="MeasurementCancelView.h" />
+    <ClInclude Include="MeasurementGraphDlg.h" />
+    <ClInclude Include="MeasurementGraphDlg2.h" />
+    <ClInclude Include="MeasurementListDlg.h" />
+    <ClInclude Include="MeasurementOperationView.h" />
+    <ClInclude Include="MeasurementProcessView.h" />
+    <ClInclude Include="MeasurementTabView.h" />
+    <ClInclude Include="MemDC.h" />
+    <ClInclude Include="MessageDlg.h" />
+    <ClInclude Include="MISC.H" />
+    <ClInclude Include="MotDataSetupDlg.h" />
+    <ClInclude Include="MotionComboBox.h" />
+    <ClInclude Include="MotionDlg.h" />
+    <ClInclude Include="MsCofigurationSettingDlg.h" />
+    <ClInclude Include="MsRoboCylinderSettingDlg.h" />
+    <ClInclude Include="MultiLangHelper.h" />
+    <ClInclude Include="MySplitterWnd.h" />
+    <ClInclude Include="NanoGraphLib.h" />
+    <ClInclude Include="NanoLineSelect.h" />
+    <ClInclude Include="NanoListCtrl.h" />
+    <ClInclude Include="NanoListUI.h" />
+    <ClInclude Include="NanoMeasureGraph.h" />
+    <ClInclude Include="NanoPointGraph.h" />
+    <ClInclude Include="NanoRecipeListUI.h" />
+    <ClInclude Include="NanoRecipeUI.h" />
+    <ClInclude Include="NanoSpec.h" />
+    <ClInclude Include="NanoSpecDoc.h" />
+    <ClInclude Include="NanoSpecIni.h" />
+    <ClInclude Include="NanoSpecView.h" />
+    <ClInclude Include="NanoUI.h" />
+    <ClInclude Include="OriginalPositionSettingDlg.h" />
+    <ClInclude Include="OverlayDialog.h" />
+    <ClInclude Include="PatRecDeskewDlg.h" />
+    <ClInclude Include="PointConfirmationDlg.h" />
+    <ClInclude Include="PointSetupDisposition2PointDlg.h" />
+    <ClInclude Include="PointSetupDispositionDlg.h" />
+    <ClInclude Include="PointSetupLinesDlg.h" />
+    <ClInclude Include="PointSetupMeasurement2PointDlg.h" />
+    <ClInclude Include="PointSetupRectangleDlg.h" />
+    <ClInclude Include="PointSetupTeaching2PointDlg.h" />
+    <ClInclude Include="PointSetupTeachingDlg.h" />
+    <ClInclude Include="PointSetupTeachingMSDlg.h" />
+    <ClInclude Include="RecipeDistanceStageProgramView.h" />
+    <ClInclude Include="RecipeGantryStageProgramView.h" />
+    <ClInclude Include="RecipeMainListView.h" />
+    <ClInclude Include="RecipeMainSrView.h" />
+    <ClInclude Include="RecipeMainStressView.h" />
+    <ClInclude Include="RecipeMeasurementCompEASEThicknessProgramView.h" />
+    <ClInclude Include="RecipeMeasurementCTAProgramView.h" />
+    <ClInclude Include="RecipeMeasurementMSProgramView.h" />
+    <ClInclude Include="RecipeMeasurementProgramListView.h" />
+    <ClInclude Include="RecipeMeasurementResistanceProgramView.h" />
+    <ClInclude Include="RecipeMeasurementSeThicknessProgramView.h" />
+    <ClInclude Include="RecipeMeasurementSrCieReflectanceProgramView.h" />
+    <ClInclude Include="RecipeMeasurementSrCieTransmittanceProgramView.h" />
+    <ClInclude Include="RecipeMeasurementSrDistanceProgramView.h" />
+    <ClInclude Include="RecipeMeasurementSrOdProgramView.h" />
+    <ClInclude Include="RecipeMeasurementSrReflectanceProgramView.h" />
+    <ClInclude Include="RecipeMeasurementSrThicknessProgramView.h" />
+    <ClInclude Include="RecipeMeasurementSrTransmittanceProgramView.h" />
+    <ClInclude Include="RecipeMeasurementStressProgramView.h" />
+    <ClInclude Include="RecipeMultiListView.h" />
+    <ClInclude Include="RecipeMultiView.h" />
+    <ClInclude Include="RecipeOperationView.h" />
+    <ClInclude Include="RecipePointDeskewProgramListView.h" />
+    <ClInclude Include="RecipePointDeskewProgramView.h" />
+    <ClInclude Include="RecipeRecalibrationProgramListView.h" />
+    <ClInclude Include="RecipeRecalibrationProgramView.h" />
+    <ClInclude Include="RecipeStageProgramListView.h" />
+    <ClInclude Include="RecipeStageProgramMeasurementPointGrid.h" />
+    <ClInclude Include="RecipeStageProgramView.h" />
+    <ClInclude Include="RecipeStressStageProgramView.h" />
+    <ClInclude Include="RecipeThicknessCopyForm.h" />
+    <ClInclude Include="RecipeThicknessSettingView.h" />
+    <ClInclude Include="ReferenceMenuDlg.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="RSCofigurationSettingDlg.h" />
+    <ClInclude Include="SampleIdConDlg.h" />
+    <ClInclude Include="SampleIdDlg.h" />
+    <ClInclude Include="SampleListDlg.h" />
+    <ClInclude Include="SampleSettingDlg.h" />
+    <ClInclude Include="SaveAsDlg.h" />
+    <ClInclude Include="SaveModifiedDlg.h" />
+    <ClInclude Include="savenameoverlapdlg.h" />
+    <ClInclude Include="ScanDataGraphDlg.h" />
+    <ClInclude Include="SeCofigurationSettingDlg.h" />
+    <ClInclude Include="SeFigureFormatSettingDlg.h" />
+    <ClInclude Include="SelectHeadTypeDlg.h" />
+    <ClInclude Include="SelectMeasurementTypeDlg.h" />
+    <ClInclude Include="SelectSampleTypeDlg.h" />
+    <ClInclude Include="SelectStageProgramTypeDlg.h" />
+    <ClInclude Include="SelectStressReferenceTypeDlg.h" />
+    <ClInclude Include="SeRecipeDefaultValueSettingDlg.h" />
+    <ClInclude Include="SeXmpSettingDlg.h" />
+    <ClInclude Include="ShadeButtonST.h" />
+    <ClInclude Include="SignalTowerSettingDlg.h" />
+    <ClInclude Include="SitePatternEditDlg.h" />
+    <ClInclude Include="SitePatternSetDlg.h" />
+    <ClInclude Include="SitePtSeq.h" />
+    <ClInclude Include="SitePtSeqWnd.h" />
+    <ClInclude Include="SpecifyCoordinate2PointDlg.h" />
+    <ClInclude Include="SpecifyCoordinateDlg.h" />
+    <ClInclude Include="SpeedSettingDlg.h" />
+    <ClInclude Include="SrAutoFocusRetryTimesDlg.h" />
+    <ClInclude Include="SrCcdArraySettingDlg.h" />
+    <ClInclude Include="SrCofigurationSettingDlg.h" />
+    <ClInclude Include="SrFigureFormatSettingDlg.h" />
+    <ClInclude Include="SrFilterSettingDlg.h" />
+    <ClInclude Include="SrLensCenterOffsetSetingDlg.h" />
+    <ClInclude Include="SrRecipeDefaultValueSettingDlg.h" />
+    <ClInclude Include="SrReferencePositionSettingDlg.h" />
+    <ClInclude Include="SrTransmittanceSettingDlg.h" />
+    <ClInclude Include="SrTurretSettingDlg.h" />
+    <ClInclude Include="SrUserSettingPatternRecSettingDlg.h" />
+    <ClInclude Include="SrVideoCalibrationSettingDlg.h" />
+    <ClInclude Include="SrViewRangeSettingDlg.h" />
+    <ClInclude Include="SrXmpSettingDlg.h" />
+    <ClInclude Include="StageConfigSettingDlg.h" />
+    <ClInclude Include="StatusBarEx.h" />
+    <ClInclude Include="StatusView.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="StressCofigurationSettingDlg.h" />
+    <ClInclude Include="StressElasticModulusListDlg.h" />
+    <ClInclude Include="StressLineSectionSettingDlg.h" />
+    <ClInclude Include="StressReferenceListDlg.h" />
+    <ClInclude Include="StressSampleElasticModulusSettingDlg.h" />
+    <ClInclude Include="StressSelectSampleTypeDlg.h" />
+    <ClInclude Include="SubstrateThicknessSettingDlg.h" />
+    <ClInclude Include="SubstrateThicknessSettingListDlg.h" />
+    <ClInclude Include="System.h" />
+    <ClInclude Include="SystemConfigurationSettingDlg.h" />
+    <ClInclude Include="SystemOperationCommonSettingDlg.h" />
+    <ClInclude Include="SystemOperationCompEASESettingDlg.h" />
+    <ClInclude Include="SystemOperationCTASettingDlg.h" />
+    <ClInclude Include="SystemOperationMsSettingDlg.h" />
+    <ClInclude Include="SystemOperationRSSettingDlg.h" />
+    <ClInclude Include="SystemOperationSeSettingDlg.h" />
+    <ClInclude Include="SystemOperationSrSettingDlg.h" />
+    <ClInclude Include="SystemOperationStressSettingDlg.h" />
+    <ClInclude Include="SystemOperationTabView.h" />
+    <ClInclude Include="SystemView.h" />
+    <ClInclude Include="TestMeasurementDlg.h" />
+    <ClInclude Include="TestMeasurementGantryDlg.h" />
+    <ClInclude Include="TestMeasurementOperationView.h" />
+    <ClInclude Include="TestScan.h" />
+    <ClInclude Include="TitleTip.h" />
+    <ClInclude Include="UserAccountListDlg.h" />
+    <ClInclude Include="UserAccountSettingDlg.h" />
+    <ClInclude Include="UserSettingOperationCommonSettingDlg.h" />
+    <ClInclude Include="UserSettingOperationCompEASESettingDlg.h" />
+    <ClInclude Include="UserSettingOperationCTASettingDlg.h" />
+    <ClInclude Include="UserSettingOperationMSSettingDlg.h" />
+    <ClInclude Include="UserSettingOperationRSSettingDlg.h" />
+    <ClInclude Include="UserSettingOperationSeSettingDlg.h" />
+    <ClInclude Include="UserSettingOperationSrSettingDlg.h" />
+    <ClInclude Include="UserSettingOperationStressSettingDlg.h" />
+    <ClInclude Include="UserSettingOperationTabView.h" />
+    <ClInclude Include="UserSettingView.h" />
+    <ClInclude Include="VacuumChangeDlg.h" />
+    <ClInclude Include="VideoCalibDlg.h" />
+    <ClInclude Include="ViewScreenDlg.h" />
+    <ClInclude Include="ViewWindowView.h" />
+    <ClInclude Include="WinXPButtonST.h" />
+    <ClInclude Include="ZAxisOffsetSettingDlg.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\Arrow_Left.ico" />
+    <Image Include="res\b001.bmp" />
+    <Image Include="res\b001.ico" />
+    <Image Include="res\b001_Hilight.bmp" />
+    <Image Include="res\b002.ico" />
+    <Image Include="res\b003..ico" />
+    <Image Include="res\b009.ico" />
+    <Image Include="res\b010.ico" />
+    <Image Include="res\b012.ico" />
+    <Image Include="res\b013.ico" />
+    <Image Include="res\bitmap1.bmp" />
+    <Image Include="res\bmp00001.bmp" />
+    <Image Include="res\bmp00002.bmp" />
+    <Image Include="res\bmp00003.bmp" />
+    <Image Include="res\bmp00004.bmp" />
+    <Image Include="res\bmp00005.bmp" />
+    <Image Include="res\buttonA1M01.ico" />
+    <Image Include="res\buttonA1M03.ico" />
+    <Image Include="res\buttonA1M05.ico" />
+    <Image Include="res\buttonA1M07.ico" />
+    <Image Include="res\coordina.bmp" />
+    <Image Include="res\CoordinateFigure.bmp" />
+    <Image Include="res\data_bar.bmp" />
+    <Image Include="res\GarbageCan.ico" />
+    <Image Include="res\idr_nano.ico" />
+    <Image Include="res\jog_direction.bmp" />
+    <Image Include="res\NanoSpec.ico" />
+    <Image Include="res\NanoSpecDoc.ico" />
+    <Image Include="res\PointStage.bmp" />
+    <Image Include="res\recipe_d.bmp" />
+    <Image Include="res\right_ar.bmp" />
+    <Image Include="res\SampleCoordinate.bmp" />
+    <Image Include="res\SampleMap.bmp" />
+    <Image Include="res\sample_f.bmp" />
+    <Image Include="res\StageFigure.bmp" />
+    <Image Include="res\StageMap.bmp" />
+    <Image Include="res\stage_ma.bmp" />
+    <Image Include="res\Toho.ico" />
+    <Image Include="res\Toolbar.bmp" />
+    <Image Include="res\toolbar1.bmp" />
+    <Image Include="res\warning.ico" />
+    <Image Include="res\warning_.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="res\Cross_1.cur" />
+    <CustomBuild Include="res\cursor1.cur" />
+    <CustomBuild Include="res\NanoSpec.rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Active\ACTIVE.vcxproj">
+      <Project>{e2f37802-3005-4814-9e08-13f961d19d29}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\AlarmIf\AlarmIf.vcxproj">
+      <Project>{8adabe5f-225a-4f81-b251-03d1892ee05b}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\ConfigFile\ConfigFile.vcxproj">
+      <Project>{b8be460e-f586-44d9-af14-a8f4989e0018}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\Deskew\DESKEW.vcxproj">
+      <Project>{0e07db24-c2e1-4912-ab61-c24c4d766c18}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\Hook\HOOK.vcxproj">
+      <Project>{793e1b76-7f6e-425d-9b9e-6f6c9cfc5140}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\MeaSys\MEASYS.vcxproj">
+      <Project>{5767a8b2-9d5f-4d5e-851d-632f997f30dc}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\NEXIF\NEXIF.vcxproj">
+      <Project>{d82022a9-b600-4aa2-8df3-264e8b4ed7e4}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\NEXIO\NEXIO.vcxproj">
+      <Project>{8d1d97f1-2d2d-4482-8c05-cbc66ee7e009}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\NEXPROC\NEXPROC.vcxproj">
+      <Project>{8ffafe3d-bd75-430b-a637-6c8303a9c03c}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\NSStage\NSStage.vcxproj">
+      <Project>{9b7e1b16-8824-41ed-a976-4d1f0c3a920d}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\OVERLAY\OVERLAY.vcxproj">
+      <Project>{8df795bf-d26b-44bc-ad12-2d77ae073643}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\PatRec\PATREC.vcxproj">
+      <Project>{72404e8c-38ed-4266-acc3-35a43aee324f}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\PatternFile\PatternFile.vcxproj">
+      <Project>{0f364ac6-a018-448b-bd25-1a9e1fcec80f}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\PifComm\PifComm.vcxproj">
+      <Project>{274a646d-2489-40cf-b98e-904c65c4bfff}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\Port_NT\PORT_NT.vcxproj">
+      <Project>{ce076aa7-058d-49ed-a5a7-d602b64b85d4}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\RecipeFile\RecipeFile.vcxproj">
+      <Project>{4868dcf1-1e40-49e7-97da-ff434bcd058f}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\Stage\STAGE.vcxproj">
+      <Project>{c5bc96d2-c978-42d2-a2fc-e22a6f92f5f4}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\Utility\UTILITY.vcxproj">
+      <Project>{02d28890-cc03-4596-813f-8e36c63c43a8}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
