@@ -43,14 +43,14 @@
 	#define _countof(array) (sizeof(array)/sizeof(array[0]))
 #endif
 
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ Stage.dll ---------- { ---------- */
-extern TCHAR g_tszProcDir[_MAX_PATH];			/* ŒÄo‚µƒvƒƒZƒX‚ÌƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
-extern TCHAR g_tszBaseDir[_MAX_PATH];			/* Šî€ƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
-extern TCHAR g_tszLogDir[_MAX_PATH];			/* ƒƒO ƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
-extern TCHAR g_tszMapFilePath[_MAX_PATH];		/* ƒ}ƒbƒvƒtƒ@ƒCƒ‹–¼*/
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ Stage.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ Stage.dll ---------- { ---------- */
+extern TCHAR g_tszProcDir[_MAX_PATH];			/* ï¿½Äoï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Zï¿½Xï¿½Ìƒfï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½('\'ï¿½tï¿½ï¿½)*/
+extern TCHAR g_tszBaseDir[_MAX_PATH];			/* ï¿½î€ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½('\'ï¿½tï¿½ï¿½)*/
+extern TCHAR g_tszLogDir[_MAX_PATH];			/* ï¿½ï¿½ï¿½O ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½('\'ï¿½tï¿½ï¿½)*/
+extern TCHAR g_tszMapFilePath[_MAX_PATH];		/* ï¿½}ï¿½bï¿½vï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½*/
+/* added 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ Stage.dll ---------- } ---------- */
 /*
- *	Stage.dll ‹¤—Lƒf[ƒ^ -----------------------------------------------------
+ *	Stage.dll ï¿½ï¿½ï¿½Lï¿½fï¿½[ï¿½^ -----------------------------------------------------
  */
 #pragma comment(linker, "/section:StageData,rws")
 #ifdef _STAGE_MASTER_C_
@@ -60,27 +60,27 @@ extern TCHAR g_tszMapFilePath[_MAX_PATH];		/* ƒ}ƒbƒvƒtƒ@ƒCƒ‹–¼*/
 	#define	STAGE_C_EXT	extern
 #endif
 
-STAGE_C_EXT	int	volatile gc_iStageType			/* ƒXƒe[ƒWƒ^ƒCƒv				*/
+STAGE_C_EXT	int	volatile gc_iStageType			/* ï¿½Xï¿½eï¿½[ï¿½Wï¿½^ï¿½Cï¿½v				*/
 #ifdef _STAGE_MASTER_C_
 = STAGETYPE_NONE
 #endif
 ;
-STAGE_C_EXT	BOOL volatile gc_bInMotionMS[8]		/* ²“®ì’†ƒtƒ‰ƒO				*/
+STAGE_C_EXT	BOOL volatile gc_bInMotionMS[8]		/* ï¿½ï¿½ï¿½ï¿½ï¿½ì’†ï¿½tï¿½ï¿½ï¿½O				*/
 #ifdef _STAGE_MASTER_C_
 = {0}
 #endif
 ;
-STAGE_C_EXT	DWORD volatile gc_dwMotionStop[8]	/* ²’â~——R					*/
+STAGE_C_EXT	DWORD volatile gc_dwMotionStop[8]	/* ï¿½ï¿½ï¿½ï¿½~ï¿½ï¿½ï¿½R					*/
 #ifdef _STAGE_MASTER_C_
 = {0}
 #endif
 ;
-STAGE_C_EXT	DWORD volatile gc_dwMotSysComErr	/* MotSys ’ÊM ƒGƒ‰[ƒR[ƒh		*/
+STAGE_C_EXT	DWORD volatile gc_dwMotSysComErr	/* MotSys ï¿½ÊM ï¿½Gï¿½ï¿½ï¿½[ï¿½Rï¿½[ï¿½h		*/
 #ifdef _STAGE_MASTER_C_
 = {0}
 #endif
 ;
-STAGE_C_EXT	DWORD volatile gc_dwMotSysErr		/* MotSys ƒVƒXƒeƒ€ ƒGƒ‰[ƒR[ƒh	*/
+STAGE_C_EXT	DWORD volatile gc_dwMotSysErr		/* MotSys ï¿½Vï¿½Xï¿½eï¿½ï¿½ ï¿½Gï¿½ï¿½ï¿½[ï¿½Rï¿½[ï¿½h	*/
 #ifdef _STAGE_MASTER_C_
 = {0}
 #endif
@@ -142,11 +142,11 @@ private:
 	double m_min;
 
 	BOOL ReadMapFile(void) {
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ Stage.dll ---------- { ---------- */
+/* modified 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ Stage.dll ---------- { ---------- */
 //		  std::ifstream ifs(CFG_DIR STAGE_MAP_FILE_NAME DAT_EXT);
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ Stage.dll ---------- 			 */
+/* modified 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ Stage.dll ---------- 			 */
 		std::ifstream ifs(g_tszMapFilePath);
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ Stage.dll ---------- } ---------- */
+/* modified 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ Stage.dll ---------- } ---------- */
 		if ( !ifs.is_open() )
 			return FALSE;
 
@@ -178,7 +178,7 @@ public:
 	CAbstractStage();
 	virtual ~CAbstractStage();
 
-	// ƒXƒe[ƒ^ƒXæ“¾
+	// ï¿½Xï¿½eï¿½[ï¿½^ï¿½Xï¿½æ“¾
 	inline BOOL IsValid(void) { return m_bValid; }
 #if 0	// modified hmenjo 20090507 ---------- { -----
 	inline BOOL IsIdle(void) { return m_bIdle; }
@@ -189,7 +189,7 @@ public:
 	inline BOOL IsEnableStage(void) { return m_bEnableStage; }
 	inline BOOL IsEnableAutoFocus(void) { return m_bEnableAutoFocus; }
 
-	// ‘¬“xƒŠƒ~ƒbƒg§Œä
+	// ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½~ï¿½bï¿½gï¿½ï¿½ï¿½ï¿½
 #if 0	// modified hmenjo 20090507 ---------- { -----
 	inline void EnableSpeedLimit(void)
 #else	// modified hmenjo 20090507 ----------
@@ -286,7 +286,7 @@ public:
 	virtual int DisableJoystick(BOOL bDisable = TRUE) { return 0; }
 	virtual int SelectLens(UINT) { return 0; }
 	virtual int GetCurLens(void) { return m_nSelectLens; }
-	// ƒXƒe[ƒ^ƒX•ÏX
+	// ï¿½Xï¿½eï¿½[ï¿½^ï¿½Xï¿½ÏX
 	virtual int EnableJoystickMoveElevator(BOOL bEnable = TRUE) { return 0; }
 	virtual void SetLocalSpeed(double x, double y) {}
 // 2013.02.15 bagus Substrate thickness setting -->
@@ -295,7 +295,7 @@ public:
 	virtual void SetAFInvalidRegion(double dVal) {}
 // 2013.02.15 bagus Substrate thickness setting <--
 
-	// ƒXƒe[ƒ^ƒXæ“¾
+	// ï¿½Xï¿½eï¿½[ï¿½^ï¿½Xï¿½æ“¾
 	virtual void GetEEPromData(EEPROMDATA* pEEPromData) {}
 	virtual int GetStageSize(long* pStageSizeX, long* pStageSizeY) { return 0; }
 	virtual int GetOriginPos(STAGE_COORD* pPos) { return 0; }
@@ -346,7 +346,7 @@ protected:
 	long m_lElevatorSoftHomePos;
 
 #ifndef _DISABLETHREADSPOS
-	// Œ»İˆÊ’uî•ñƒ‚ƒjƒ^
+	// ï¿½ï¿½ï¿½İˆÊ’uï¿½ï¿½ñƒ‚ƒjï¿½^
 	void BeginMonitor(void) {
 		if ( m_hMonitorThread == NULL ) {
 			m_bMonitorRun = TRUE;
@@ -720,10 +720,10 @@ private:
 		operator PTSTR() {
 			return (PTSTR) m_szBuffer;
 		}
-		BOOL IsValid(void) { return result.is_valid(); }
-		T::pointer convert() {
-			return result.convert();
-		}
+	BOOL IsValid(void) { return result.is_valid(); }
+	typename T::pointer convert() {
+		return result.convert();
+	}
 		T* operator->() {
 			return &result;
 		}
@@ -737,7 +737,7 @@ private:
 	typedef CAuxResult<aux_z>	CAuxZ;
 
 #if 1	// added hmenjo 20090415 ---------- { -----
-		//		StageSPT —p ‰¼‘zŠÖ”’è‹`
+		//		StageSPT ï¿½p ï¿½ï¿½ï¿½zï¿½Öï¿½ï¿½ï¿½`
 public:
 	virtual int InitializeStage_WaitMotSysInit(LPVOID) {return 0;}
 	virtual int MotSys_WaitMotionXY(LPVOID pParams) {return 0;}
@@ -749,7 +749,7 @@ public:
 
 protected:
 #ifndef _DISABLETHREADSPOS
-	// Œ»İˆÊ’uî•ñƒ‚ƒjƒ^
+	// ï¿½ï¿½ï¿½İˆÊ’uï¿½ï¿½ñƒ‚ƒjï¿½^
 		virtual UINT MonitorThreadProc(void);
 #endif // _DISABLETHREADSPOS
 
@@ -919,7 +919,7 @@ public:
 				_stprintf(szBuffer, "%s%04d%c", pszCmdID, Val, CRCHAR);
 				break;
 			case szOutputPort:
-				// ‚±‚±‚Ì”äŠr®ˆÓ–¡•s–¾
+				// ï¿½ï¿½ï¿½ï¿½ï¿½Ì”ï¿½rï¿½ï¿½ï¿½Ó–ï¿½ï¿½sï¿½ï¿½
 				_stprintf(szBuffer, "%s%X%c", pszCmdID, Val, CRCHAR);
 				break;
 			case szJoystickStatusXy:

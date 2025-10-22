@@ -158,10 +158,10 @@ public:
 	void Initialize (void);
 	void Finalize (void);
 
-	// ADAXê—pƒAƒ‰[ƒ€
+	// ADAXï¿½ï¿½pï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½
 	inline void AlarmSet (unsigned long alid) { nexaxAlarmSet(alid, m_info.curr.axis); }
 
-	// ADAXƒƒbƒZ[ƒW
+	// ADAXï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W
 	class message_packet : public adax_data_t
 	{
 	public:
@@ -218,7 +218,7 @@ public:
 		inline unsigned long parse_command (void) { return hatol(command, 2); }
 		inline unsigned long error (void) { return hatol(data, 2); }
 
-		// BCCŒvZ
+		// BCCï¿½vï¿½Z
 		inline unsigned short calc_bcc (void)
 		{
 			short retval = 0;
@@ -233,7 +233,7 @@ public:
 	protected:
 		inline string substr (const char* s, string::size_type pos, string::size_type n = string::npos) { return string(s).substr(pos, n); }
 
-		// 16i•¶š—ñ•ÏŠ·
+		// 16ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÏŠï¿½
 		long hatol (const char* s, unsigned long n) { return hatol(substr(s, 0, n).c_str()); }
 		long hatol (const char* s)
 		{
@@ -298,8 +298,8 @@ public:
 		params_packet (const message_packet& msg) : message_packet(msg) {}
 		params_packet (const message_packet* pmsg) : message_packet(pmsg) {}
 
-		int compare (const char* s) { return strcmp(s, substr(data, 0, 4).c_str()); }
-		inline tol (string::size_type n) { return atol(c_str(n).c_str()); }
+	int compare (const char* s) { return strcmp(s, substr(data, 0, 4).c_str()); }
+	inline long tol (string::size_type n) { return atol(c_str(n).c_str()); }
 	protected:
 		virtual const string c_str (string::size_type n) { return substr(data, 0, n); }
 	};
@@ -335,31 +335,31 @@ public:
 	protected:
 		virtual const string c_str (string::size_type n) { return substr(data, 0, n); }
 	};
-	// ˆÊ’uŒˆ‚ßŠ®—¹‘Ò‚¿
+	// ï¿½Ê’uï¿½ï¿½ï¿½ßŠï¿½ï¿½ï¿½ï¿½Ò‚ï¿½
 	inline unsigned long WaitForMotionFinished (void)
 	{
 		unsigned long retval = NEXAXERR_INVALID_PARAMETER;
 
 		if ( m_pAdaxWaitProc == NULL ) return retval;
 
-		// ƒ^ƒCƒ€ƒAƒEƒgİ’è
+		// ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½İ’ï¿½
 		nano::basic_timer wait(m_params.MotionTimeouts.TeachLoc);
 		while ( 1 ) {
 			if ( m_pAdaxWaitProc(m_info.curr.axis) ) {
-				// ³íI—¹ ƒXƒe[ƒ^ƒXƒAƒCƒhƒ‹ˆÚs
+				// ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ ï¿½Xï¿½eï¿½[ï¿½^ï¿½Xï¿½Aï¿½Cï¿½hï¿½ï¿½ï¿½Ús
 				m_info.status = IDLE;
 				retval = NEXAXERR_NONE;
 				break;
 			}
 			else
 			if ( m_cancel ) {
-				// ƒLƒƒƒ“ƒZƒ‹ˆ—
+				// ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				retval = NEXAXERR_CANCELED;
 				break;
 			}
 			else
 			if ( IsAlarmExist() ) {
-				// ADAXƒAƒ‰[ƒ€“ü—Í
+				// ADAXï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				AlarmSet(NEXALID_ServoAlarm);
 				GetAlarmId();
 				retval = NEXAXERR_MOTION_FAILURE;
@@ -367,7 +367,7 @@ public:
 			}
 			else
 			if ( wait.is_timeout() ) {
-				// ƒ^ƒCƒ€ƒAƒEƒgƒGƒ‰[
+				// ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Gï¿½ï¿½ï¿½[
 				AlarmSet(NEXALID_MotionTimeouts);
 				retval = NEXAXERR_MOTION_TIMEOUTS;
 				break;
@@ -378,7 +378,7 @@ public:
 
 		return retval;
 	}
-	// ã¸’[ˆÚ“®
+	// ï¿½ã¸ï¿½[ï¿½Ú“ï¿½
 	inline unsigned long MoveToUpperPos (BOOL wait)
 	{
 		if ( !IsInitialized() ) {
@@ -398,7 +398,7 @@ public:
 		return wait ? WaitForMotionFinished() : NEXAXERR_NONE;
 	}
 
-	// ƒAƒ‰ƒCƒƒ“ƒgˆÚ“®
+	// ï¿½Aï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½gï¿½Ú“ï¿½
 	inline unsigned long MoveToAlignmentPos (BOOL wait)
 	{
 		if ( !IsInitialized() ) {
@@ -416,7 +416,7 @@ public:
 
 		return wait ? WaitForMotionFinished() : NEXAXERR_NONE;
 	}
-	// ‰º~’[ˆÚ“®
+	// ï¿½ï¿½ï¿½~ï¿½[ï¿½Ú“ï¿½
 	inline unsigned long MoveToLowerPos (BOOL wait)
 	{
 		if ( !IsInitialized() ) {
@@ -436,17 +436,17 @@ public:
 		return wait ? WaitForMotionFinished() : NEXAXERR_NONE;
 	}
 
-	// ˆÊ’uŒˆ‚ßŠ®—¹‘Ò‚¿
+	// ï¿½Ê’uï¿½ï¿½ï¿½ßŠï¿½ï¿½ï¿½ï¿½Ò‚ï¿½
 	inline unsigned long WaitForHomeMotionFinished (void)
 	{
 		unsigned long retval;
 
-		// ƒ^ƒCƒ€ƒAƒEƒgİ’è
+		// ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½İ’ï¿½
 		nano::basic_timer wait(m_params.MotionTimeouts.Homing);
 		while (1) {
-			// ³íI—¹FƒXƒe[ƒ^ƒXƒAƒCƒhƒ‹‹y‚ÑˆÊ’uŒˆ‚ßŠ®—¹M†ON
+			// ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½Fï¿½Xï¿½eï¿½[ï¿½^ï¿½Xï¿½Aï¿½Cï¿½hï¿½ï¿½ï¿½yï¿½ÑˆÊ’uï¿½ï¿½ï¿½ßŠï¿½ï¿½ï¿½ï¿½Mï¿½ï¿½ON
 			if ( IsAlarmExist() ) {
-				// ADAXƒAƒ‰[ƒ€“ü—Í
+				// ADAXï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				AlarmSet(NEXALID_ServoAlarm);
 				GetAlarmId();
 				retval = NEXAXERR_MOTION_FAILURE;
@@ -465,7 +465,7 @@ public:
 			}
 			basic_timer::do_events(1L);
 		}
-		// ‰Šú‰»¸”s
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½s
 		if ( retval != NEXAXERR_NONE )
 			AlarmSet(NEXALID_ServoInitializeFailure);
 
@@ -473,7 +473,7 @@ public:
 
 		return retval;
 	}
-	// Œ´“_•œ‹A
+	// ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½A
 	inline unsigned long MoveToHomePos (void)
 	{
 		unsigned long retval = NEXAXERR_NONE;
@@ -483,13 +483,13 @@ public:
 			return NEXAXERR_NOT_READY;
 		}
 
-		// ƒXƒŒƒbƒhŠJn
+		// ï¿½Xï¿½ï¿½ï¿½bï¿½hï¿½Jï¿½n
 		begin();
 
 		return retval;
 	}
 
-	// ƒ\ƒtƒgHPˆÚ“®
+	// ï¿½\ï¿½tï¿½gHPï¿½Ú“ï¿½
 	inline unsigned long MoveToSoftHomePos (void)
 	{
 		unsigned long retval = NEXAXERR_MOTION_TIMEOUTS;
@@ -514,21 +514,21 @@ public:
 		m_cancel = TRUE;
 		return MotionStop() == NEXAXERR_NONE;
 	}
-	// ƒ\ƒtƒgƒEƒFƒAƒo[ƒWƒ‡ƒ“î•ñ
+	// ï¿½\ï¿½tï¿½gï¿½Eï¿½Fï¿½Aï¿½oï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	inline BOOL SoftwareVersionReference (void)
 	{
 		message_packet msg;
 		msg.create(ADAXCMDID_SOFT_VER_REFERENCE);
 		return SendMsgWaitAck(msg);
 	}
-	// ƒn[ƒhƒEƒFƒAƒo[ƒWƒ‡ƒ“î•ñ(’ÊMŠm—§‚Æ‚µ‚Ä—p‚¢‚é)
+	// ï¿½nï¿½[ï¿½hï¿½Eï¿½Fï¿½Aï¿½oï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ÊMï¿½mï¿½ï¿½ï¿½Æ‚ï¿½ï¿½Ä—pï¿½ï¿½ï¿½ï¿½)
 	inline BOOL HardwareVersionReference (void)
 	{
 		message_packet msg;
 		msg.create(ADAXCMDID_HARD_VER_REFERENCE);
 		return SendMsgWaitAck(msg);
 	}
-	// ƒ‚[ƒh‘I‘ğ
+	// ï¿½ï¿½ï¿½[ï¿½hï¿½Iï¿½ï¿½
 	inline BOOL SelectMode (unsigned char mode)
 	{
 		message_packet msg;
@@ -538,7 +538,7 @@ public:
 		if ( !SendMsgWaitAck(msg) ) return FALSE;
 		return TRUE;
 	}
-	// ƒ‚[ƒhæ“¾
+	// ï¿½ï¿½ï¿½[ï¿½hï¿½æ“¾
 	inline BOOL GetCurrMode (void)
 	{
 		message_packet msg;
@@ -561,7 +561,7 @@ public:
 		return SendMsgWaitAck(msg);
 	}
 #endif
-	// ƒWƒ‡ƒO‰^“]
+	// ï¿½Wï¿½ï¿½ï¿½Oï¿½^ï¿½]
 	inline unsigned long NormalJog (short speed)
 	{
 		if ( !IsInitialized() ) {
@@ -583,7 +583,7 @@ public:
 		if ( !SendMsgWaitAck(msg) ) return NEXAXERR_COMMUNICATION_FAILURE;
 		return NEXAXERR_NONE;
 	}
-	// ƒpƒ‹ƒXƒWƒ‡ƒO‰^“]
+	// ï¿½pï¿½ï¿½ï¿½Xï¿½Wï¿½ï¿½ï¿½Oï¿½^ï¿½]
 	inline unsigned long PulseJog (long pls)
 	{
 		if ( !IsInitialized() ) {
@@ -601,7 +601,7 @@ public:
 		if ( !SendMsgWaitAck(msg) ) return NEXAXERR_COMMUNICATION_FAILURE;
 		return NEXAXERR_NONE;
 	}
-	// ²ˆÚ“®’â~
+	// ï¿½ï¿½ï¿½Ú“ï¿½ï¿½ï¿½~
 	inline unsigned long MotionStop (void)
 	{
 		if ( !IsInitialized() ) {
@@ -629,7 +629,7 @@ public:
 		if ( !SendMsgWaitAck(msg) ) return NEXAXERR_COMMUNICATION_FAILURE;
 		return NEXAXERR_NONE;
 	}
-	// Œ»İ’læ“¾
+	// ï¿½ï¿½ï¿½İ’lï¿½æ“¾
 	inline unsigned long GetCurrPos (long& pos)
 	{
 		if ( !IsInitialized() ) {
@@ -655,7 +655,7 @@ public:
 
 		return NEXAXERR_NONE;
 	}
-	// ƒ‚[ƒVƒ‡ƒ“ƒpƒ‰ƒ[ƒ^æ“¾
+	// ï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½^ï¿½æ“¾
 	unsigned long UploadMotionParams (motion_params_t* params)
 	{
 		BEGIN_NEXAX_RET_VAL_ERR()
@@ -676,7 +676,7 @@ public:
 		basic_interface::copymemory(params, &m_motparams);
 		END_NEXAX_RET_VAL_ERR()
 	}
-	// ƒ‚[ƒVƒ‡ƒ“ƒpƒ‰ƒ[ƒ^İ’è
+	// ï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½^ï¿½İ’ï¿½
 	unsigned long DownloadMotionParams (motion_params_t* params)
 	{
 		basic_interface::copymemory(&m_motparams, params);
@@ -744,7 +744,7 @@ protected:
 private:
 	inline BOOL IsHardwareSimulation (void) const { return m_params.ADAX.HardwareSimulation; }
 
-	// ˆÊ’uŒˆ‚ßˆÚ“®
+	// ï¿½Ê’uï¿½ï¿½ï¿½ßˆÚ“ï¿½
 	inline BOOL MoveToTeachLocation (short loc)
 	{
 		m_cancel = FALSE;
@@ -765,7 +765,7 @@ private:
 		unsigned short id;
 		const char*    msg;
 	};
-	// ‰“šƒGƒ‰[ƒƒbƒZ[ƒW
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W
 	inline const char* GetErrorMsg (message_packet& msg) const
 	{
 		static const adax_error_t adax_error_table [] = {
@@ -870,8 +870,8 @@ private:
 		return NEXAXERR_NONE;
 	}
 
-	CSio				   m_Sio;				// ƒVƒŠƒAƒ‹’ÊM
-	message_packet		   m_msg;				// óMƒoƒbƒtƒ@
+	CSio				   m_Sio;				// ï¿½Vï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ÊM
+	message_packet		   m_msg;				// ï¿½ï¿½Mï¿½oï¿½bï¿½tï¿½@
 	nano::lfstream		   m_lfs;
 	nano::basic_timer	   m_timerT3;
 	BOOL				   m_wbit;

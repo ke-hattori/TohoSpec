@@ -586,7 +586,7 @@ int CStageSPT::Initialize(void)
 	int l_iRc = STAGE_ERR_NONE;
 	if (STAGE_ERR_NONE == l_iRc) {
 		// ƒTƒuƒRƒ“ ‚Ì‰Šú‰»•Š®—¹‘Ò‚¿
-		l_iRc = CStageNTN::Execute(CStageNTN::Initialize);
+		l_iRc = CStageNTN::Execute(&CStageNTN::Initialize);
 		m_bIsInitializedStageSTD = (STAGE_ERR_NONE == l_iRc)? TRUE : FALSE;
 	}
 	if (STAGE_ERR_NONE == l_iRc) {
@@ -608,7 +608,7 @@ int CStageSPT::InitializeStage(void)
 	int l_iRc = STAGE_ERR_NONE;
 	if (STAGE_ERR_NONE == l_iRc) {
 		// MotSys ‚Ì‰Šú‰»Š®—¹‘Ò‚¿
-		if (STAGE_ERR_NONE == (l_iRc = CStageNTN::Execute(CStageNTN::InitializeStage_WaitMotSysInit))) {
+		if (STAGE_ERR_NONE == (l_iRc = CStageNTN::Execute(&CStageNTN::InitializeStage_WaitMotSysInit))) {
 			// MotSys ‚Ì‰Šú‰»‚ªŠ®—¹
 			m_bMotSysInitialized = TRUE;
 		}
