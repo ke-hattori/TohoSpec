@@ -80,7 +80,7 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	virtual void OnOK();
 	afx_msg void OnBtnAbout();
-	afx_msg LRESULT OnBtnHide(WPARAM wParam, LPARAM lParam);
+	afx_msg void OnBtnHide();
 	afx_msg void OnTimer(UINT nIDEvent);
 	afx_msg void OnBTNServoOFF();
 	afx_msg void OnClose();
@@ -120,6 +120,7 @@ protected:
 // Matsuhisa 20040302 Add <--
 	//}}AFX_MSG
 	afx_msg LRESULT OnMotsysShowWindow(WPARAM wParam, LPARAM lParam);
+	afx_msg LRESULT OnMotsysHideWindow(WPARAM wParam, LPARAM lParam);
 	afx_msg LRESULT OnMotdrv_Setwindow(WPARAM wParam, LPARAM lParam);
 	afx_msg LRESULT OnMotdrv_Setsofthome(WPARAM wParam, LPARAM lParam);
 	afx_msg LRESULT OnMotdrv_Emergencystop(WPARAM wParam, LPARAM lParam);

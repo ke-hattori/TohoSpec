@@ -199,7 +199,7 @@ BEGIN_MESSAGE_MAP(CMotSysDlg, CDialog)
 	ON_BN_CLICKED(IDC_BTN_DPOSP_CLR_T, OnBtnDPosPeakClearT)
 	//}}AFX_MSG_MAP
 	ON_REGISTERED_MESSAGE(MOTDRV_SHOWINDOW, OnMotsysShowWindow)
-	ON_REGISTERED_MESSAGE(MOTDRV_HIDEINDOW, OnBtnHide)
+	ON_REGISTERED_MESSAGE(MOTDRV_HIDEINDOW, OnMotsysHideWindow)
 	ON_REGISTERED_MESSAGE(MOTDRV_SETWINDOW, OnMotdrv_Setwindow)
 	ON_REGISTERED_MESSAGE(MOTDRV_SETSOFTHOME, OnMotdrv_Setsofthome)
 	ON_REGISTERED_MESSAGE(MOTDRV_EMERGENCYSTOP, OnMotdrv_Emergencystop)
@@ -470,9 +470,15 @@ void CMotSysDlg::OnBtnAbout()
 	dlgAbout.DoModal();
 }
 
-LRESULT CMotSysDlg::OnBtnHide(WPARAM wParam, LPARAM lParam)
+void CMotSysDlg::OnBtnHide()
 {
 	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
+	// �E�B���h�E(�_�C�A���O�x�[�X)���\���ɂ���
+	ShowWindow(SW_HIDE);
+}
+
+LRESULT CMotSysDlg::OnMotsysHideWindow(WPARAM wParam, LPARAM lParam)
+{
 	// �E�B���h�E(�_�C�A���O�x�[�X)���\���ɂ���
 	ShowWindow(SW_HIDE);
 	return 0;
@@ -1117,7 +1123,7 @@ LRESULT CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 	switch (l_MsgID) {
 	case 0:
 		if (0 == m_bOnClosing) {
-			static ls_iMsgID_0 = 0;
+			static int ls_iMsgID_0 = 0;
 			if (0 == ls_iMsgID_0) {ls_iMsgID_0 = 1;} else {break;}
 			g_CC_CommAbort = TRUE;
 			l_ret = ::MessageBox(NULL, l_tszText1, MSD_MESSAGEBOX_TITLE,
@@ -1157,7 +1163,7 @@ LRESULT CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 		break;
 	default:
 		if (0 == m_bOnClosing) {
-			static ls_iMsgID_def = 0;
+			static int ls_iMsgID_def = 0;
 			if (0 == ls_iMsgID_def) {ls_iMsgID_def = 1;} else {break;}
 			g_CC_CommAbort = TRUE;
 			l_ret = ::MessageBox(NULL, l_tszText1, MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
