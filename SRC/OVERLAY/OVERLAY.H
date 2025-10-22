@@ -18,18 +18,20 @@ class COverlay
 public:
 	COverlay()
 		: m_hwndOverlay(NULL), m_hwndMultiple(NULL), m_hwndDummy(NULL), m_dwSelectChannel(0L),
-		  m_bDrawFailedDeskewSite(FALSE), m_bDrawGoodDeskewSite(FALSE) { ::ZeroMemory(&m_DeskewResult, sizeof(m_DeskewResult)); }
+		m_bDrawFailedDeskewSite(FALSE), m_bDrawGoodDeskewSite(FALSE) {
+		::ZeroMemory(&m_DeskewResult, sizeof(m_DeskewResult));
+	}
 	virtual ~COverlay() {};
 
 public:
-/* added 2015.12.03 hmenjo カメラビデオフォーマット設定化 ---------- { ---------- */
+	/* added 2015.12.03 hmenjo カメラビデオフォーマット設定化 ---------- { ---------- */
 	virtual void SetVideoFmtSize(char* pszVideoFmtSize) {
-		strncpy(	g_szVideoFmtSize,
-					pszVideoFmtSize,
-					(sizeof(g_szVideoFmtSize) / sizeof(char)) - 1);
+		strncpy(g_szVideoFmtSize,
+			pszVideoFmtSize,
+			(sizeof(g_szVideoFmtSize) / sizeof(char)) - 1);
 		g_szVideoFmtSize[(sizeof(g_szVideoFmtSize) / sizeof(char)) - 1] = 0;
 	}
-/* added 2015.12.03 hmenjo カメラビデオフォーマット設定化 ---------- } ---------- */
+	/* added 2015.12.03 hmenjo カメラビデオフォーマット設定化 ---------- } ---------- */
 	virtual void Attach(HWND hwndOverlay) { m_hwndOverlay = hwndOverlay; }
 	virtual void Detach(void) { m_hwndOverlay = NULL; }
 
@@ -49,7 +51,9 @@ public:
 		int 	 nYStart,
 		int 	 nXEnd,
 		int 	 nYEnd
-		) { return FALSE; }
+	) {
+		return FALSE;
+	}
 	virtual void DrawRectangle(CONST RECT* lpRect, BOOL bDrawColor) {}
 	virtual BOOL Fill(COLORREF crColor) { return FALSE; }
 	virtual BOOL SetBkColor(COLORREF crColor) { return FALSE; }
@@ -59,7 +63,7 @@ public:
 	// for multiple windows
 	virtual void DrawFailedDeskewSite(BOOL bDrawFailedDeskewSite)
 	{
-		if ( bDrawFailedDeskewSite ) {
+		if (bDrawFailedDeskewSite) {
 			m_bDrawFailedDeskewSite = bDrawFailedDeskewSite;
 			m_bDrawGoodDeskewSite = FALSE;
 		}
@@ -70,8 +74,8 @@ public:
 
 	virtual void DrawGoodDeskewSite(BOOL bDrawGoodDeskewSite, LPDESKEW_RESULT lpDeskewResult)
 	{
-		if ( bDrawGoodDeskewSite ) {
-			if ( lpDeskewResult != NULL ) {
+		if (bDrawGoodDeskewSite) {
+			if (lpDeskewResult != NULL) {
 				m_DeskewResult = *lpDeskewResult;
 				m_bDrawGoodDeskewSite = bDrawGoodDeskewSite;
 				m_bDrawFailedDeskewSite = FALSE;
@@ -87,9 +91,9 @@ protected:
 	inline BOOL IsValid(void) { return m_bValid; }
 
 protected:
-/* added 2015.12.03 hmenjo カメラビデオフォーマット設定化 ---------- { ---------- */
+	/* added 2015.12.03 hmenjo カメラビデオフォーマット設定化 ---------- { ---------- */
 	char					g_szVideoFmtSize[128];
-/* added 2015.12.03 hmenjo カメラビデオフォーマット設定化 ---------- } ---------- */
+	/* added 2015.12.03 hmenjo カメラビデオフォーマット設定化 ---------- } ---------- */
 	BOOL					m_bValid;
 	HWND					m_hwndOverlay;
 	HWND					m_hwndMultiple;
@@ -127,7 +131,7 @@ public:
 		int 	 nYStart,
 		int 	 nXEnd,
 		int 	 nYEnd
-		);
+	);
 	virtual void DrawRectangle(CONST RECT* lpRect, BOOL bDrawColor);
 	virtual BOOL Fill(COLORREF crColor);
 	virtual BOOL SetBkColor(COLORREF crColor);
@@ -136,9 +140,9 @@ public:
 	virtual void GetWindowRect(LPRECT lpRect) {
 		long cx, cy;
 
-		if ( m_Grabber.isDevValid() ) {
+		if (m_Grabber.isDevValid()) {
 			m_Grabber.getWindowPosition(lpRect->left, lpRect->top, cx, cy);
-			lpRect->right  = cx - lpRect->left;
+			lpRect->right = cx - lpRect->left;
 			lpRect->bottom = cy - lpRect->top;
 		}
 	}
@@ -153,7 +157,7 @@ private:
 		return TRUE;
 	}
 	inline BOOL PreviewStart(DWORD dwPathPosition = ePP_DISPLAY) {
-		if ( m_hwndOverlay == NULL || m_Grabber.isLive() ) return FALSE;
+		if (m_hwndOverlay == NULL || m_Grabber.isLive()) return FALSE;
 
 		m_Grabber.setOverlayBitmapPathPosition(dwPathPosition);
 		smart_ptr<DShowLib::OverlayBitmap> pOverlayBitmap = m_Grabber.getOverlay(ePP_DISPLAY);
@@ -162,14 +166,14 @@ private:
 		return m_Grabber.startLive();
 	}
 	inline BOOL PreviewStop(void) {
-		if ( !m_Grabber.isLive() ) return FALSE;
+		if (!m_Grabber.isLive()) return FALSE;
 		return m_Grabber.stopLive();
 	}
 	virtual void frameReady(
-		Grabber&			 caller,
+		Grabber& caller,
 		smart_ptr<MemBuffer> pBuffer,
 		DWORD				 dwFrameNumber
-		);
+	);
 	void DrawDashLine(
 		WORD							   wAxis,
 		int 							   iStart,
@@ -179,7 +183,7 @@ private:
 		int 							   iOtherAxisVal,
 		COLORREF						   crColor,
 		smart_ptr<DShowLib::OverlayBitmap> pOverlayBitmap
-		);
+	);
 	void DrawOneLine(
 		WORD							   wAxis,
 		int 							   iStart,
@@ -187,7 +191,7 @@ private:
 		int 							   iOtherAxisVal,
 		COLORREF						   crColor,
 		smart_ptr<DShowLib::OverlayBitmap> pOverlayBitmap
-		);
+	);
 	void DrawMarkerOnDashLine(
 		WORD							   wAxis,
 		int 							   iStart,
@@ -197,7 +201,7 @@ private:
 		int 							   iOtherAxisVal,
 		COLORREF						   crColor,
 		smart_ptr<DShowLib::OverlayBitmap> pOverlayBitmap
-		);
+	);
 
 private:
 	DShowLib::Grabber					m_Grabber;

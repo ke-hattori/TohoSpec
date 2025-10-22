@@ -115,6 +115,8 @@
       <OutputFile>../../DLL/dTnsOverlay.dll</OutputFile>
       <ImportLibrary>../../LIB/dTnsOverlay.lib</ImportLibrary>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>IC Imaging Control 3.5\classlib\win32\debug;$(RepoLib);%(AdditionalLibraryDirectories)
+      </AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -157,6 +159,10 @@
       <OutputFile>../../DLL/TnsOverlay.dll</OutputFile>
       <ImportLibrary>../../LIB/TnsOverlay.lib</ImportLibrary>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+IC Imaging Control 3.5\classlib\win32\Release;$(RepoLib);
+%(AdditionalLibraryDirectories)
+ </AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
