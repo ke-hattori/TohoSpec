@@ -34,15 +34,15 @@ function
 #define FILEEXIST(lpszFileName) (::GetFileAttributes(lpszFileName) != 0xFFFFFFFF)
 
 // =========================================================================
-// NameF DoEvents
+// Nameï¿½F DoEvents
 void DoEvents(void);
 
 // =========================================================================
-// NameF Delay
+// Nameï¿½F Delay
 void Delay(DWORD dwDuration);
 
 // =========================================================================
-// NameF WaitWithMessageLoop
+// Nameï¿½F WaitWithMessageLoop
 BOOL WaitWithMessageLoop(HANDLE hEvent, DWORD dwTimeout);
 
 //===========================================================================
@@ -123,11 +123,11 @@ class _stringex : public T
 {
 protected:
 	typedef T					traits_type;
-	typedef T::reference		reference;
-	typedef T::const_reference	const_reference;
-	typedef T::size_type		size_type;
-	typedef T::pointer			pointer;
-	typedef T::const_pointer	const_pointer;
+	typedef typename T::reference		reference;
+	typedef typename T::const_reference	const_reference;
+	typedef typename T::size_type		size_type;
+	typedef typename T::pointer			pointer;
+	typedef typename T::const_pointer	const_pointer;
 public:
 	_stringex() {}
 	_stringex(traits_type val) {
@@ -196,7 +196,7 @@ public:
 	bool operator>(_stringex str) {
 		return (*this).compare(str) > 0);
 	}
-	// CString “lØ‚è...
+	// CString ï¿½ï¿½ï¿½lï¿½Ø‚ï¿½...
 	traits_type& format(traits_type fmt, ...) {
 		va_list args;
 		va_start(args, fmt);
