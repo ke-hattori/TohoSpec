@@ -1239,7 +1239,8 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		}
 		DWORD l_dwSectionNum[STRESS_LINES_MAX];
 		memset(l_dwSectionNum, 0, sizeof(l_dwSectionNum));
-		for (DWORD iLine = 0; iLine < l_dwLineNum; iLine++) {
+		DWORD iLine;
+	for (iLine = 0; iLine < l_dwLineNum; iLine++) {
 			l_dwSectionNum[iLine] = l_StressConfig.Line[iLine].dwSectionNum;
 			if (STRESS_SECTIONS_MAX < l_dwSectionNum[iLine]) {
 				l_dwSectionNum[iLine] = STRESS_SECTIONS_MAX;
@@ -2050,7 +2051,8 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		}
 		DWORD l_dwSectionNum[STRESS_LINES_MAX];
 		memset(l_dwSectionNum, 0, sizeof(l_dwSectionNum));
-		for (DWORD iLine = 0; iLine < l_dwLineNum; iLine++) {
+		DWORD iLine;
+	for (iLine = 0; iLine < l_dwLineNum; iLine++) {
 			l_dwSectionNum[iLine] = l_StressConfig.Line[iLine].dwSectionNum;
 			if (STRESS_SECTIONS_MAX < l_dwSectionNum[iLine]) {
 				l_dwSectionNum[iLine] = STRESS_SECTIONS_MAX;
@@ -3834,7 +3836,8 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 		}
 		DWORD l_dwSectionNum[STRESS_LINES_MAX];
 		memset(l_dwSectionNum, 0, sizeof(l_dwSectionNum));
-		for (DWORD iLine = 0; iLine < l_dwLineNum; iLine++) {
+		DWORD iLine;
+	for (iLine = 0; iLine < l_dwLineNum; iLine++) {
 			l_dwSectionNum[iLine] = l_StressConfig.Line[iLine].dwSectionNum;
 			if (STRESS_SECTIONS_MAX < l_dwSectionNum[iLine]) {
 				l_dwSectionNum[iLine] = STRESS_SECTIONS_MAX;
@@ -4344,7 +4347,8 @@ BOOL SetStressParam(LPVOID pVoid, LPCSTR lpszName, int iType)
 	if (STRESS_LINES_MAX < l_dwLineNum) {
 		l_dwLineNum = STRESS_LINES_MAX;
 	}
-	for (DWORD iLine = 0; iLine < l_dwLineNum; iLine++) {
+	DWORD iLine;
+	for (iLine = 0; iLine < l_dwLineNum; iLine++) {
 		for (DWORD iPoint = 0; iPoint < PIN_INTERVAL; iPoint++){
 			/* セクション位置を読出し	*/
 			_stprintf(l_tszKey, LnPtThickness, iLine + 1, iPoint + 1);
@@ -4403,7 +4407,8 @@ BOOL LoadStressParam(LPVOID pVoid, LPCSTR lpszName, int iType)
 		if (STRESS_LINES_MAX < l_dwLineNum) {
 			l_dwLineNum = STRESS_LINES_MAX;
 		}
-		for (DWORD iLine = 0; iLine < l_dwLineNum; iLine++) {
+		DWORD iLine;
+	for (iLine = 0; iLine < l_dwLineNum; iLine++) {
 			for (DWORD iPoint = 0; iPoint < PIN_INTERVAL; iPoint++) {
 				/* 固定膜厚値を読出し	*/
 				_stprintf(l_tszKey, LnPtThickness, iLine + 1, iPoint + 1);
