@@ -4,33 +4,33 @@
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// NanoListCtrl.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// NanoListCtrl.h : ï¿½wï¿½bï¿½_ï¿½[ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 // ##########################################################################
-// CNanoListCtrl ƒEƒBƒ“ƒhƒE
+// CNanoListCtrl ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½E
 // ##########################################################################
 
 class CNanoListCtrl : public CListCtrl
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½Vï¿½ï¿½ï¿½ï¿½
 public:
 	CNanoListCtrl();
 
-// ƒAƒgƒŠƒrƒ…[ƒg
+// ï¿½Aï¿½gï¿½ï¿½ï¿½rï¿½ï¿½ï¿½[ï¿½g
 public:
 
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ï¿½Iï¿½yï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
 public:
 
-// ƒI[ƒo[ƒ‰ƒCƒh
+// ï¿½Iï¿½[ï¿½oï¿½[ï¿½ï¿½ï¿½Cï¿½h
 	//{{AFX_VIRTUAL(CNanoListCtrl)
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
 public:
 	virtual ~CNanoListCtrl();
-	SetViewStyle();
+	void SetViewStyle();
 
 protected:
 	//{{AFX_MSG(CNanoListCtrl)
@@ -45,6 +45,6 @@ private:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ï¿½Í‘Oï¿½sï¿½Ì’ï¿½ï¿½Oï¿½É’Ç‰ï¿½ï¿½ÌéŒ¾ï¿½ï¿½}ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 
 #endif // !defined(AFX_CNANOLISTCTRL_H__28E6B317_D5D0_4C55_B164_5A7FE4CBBAA0__INCLUDED_)

@@ -1,4 +1,4 @@
-// SrVideoCalibrationSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// SrVideoCalibrationSettingDlg.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -19,7 +19,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // #########################################################################
-// CSrVideoCalibrationSettingDlg ƒ_ƒCƒAƒƒO
+// CSrVideoCalibrationSettingDlg ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½O
 // #########################################################################
 
 // =========================================================================
@@ -108,7 +108,7 @@ BEGIN_MESSAGE_MAP(CSrVideoCalibrationSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CSrVideoCalibrationSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSrVideoCalibrationSettingDlg ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 
 // =========================================================================
 //
@@ -143,8 +143,8 @@ BOOL CSrVideoCalibrationSettingDlg::OnInitDialog()
 	m_CancelButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_CancelButton.DrawFlatFocus(TRUE);
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Éƒtï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½İ’è‚µï¿½È‚ï¿½ï¿½Æ‚ï¿½ï¿½Aï¿½ß‚ï¿½lï¿½ï¿½ TRUE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
+					// ï¿½ï¿½O: OCX ï¿½vï¿½ï¿½ï¿½pï¿½eï¿½B ï¿½yï¿½[ï¿½Wï¿½Ì–ß‚ï¿½lï¿½ï¿½ FALSE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
 }
 
 // =========================================================================
@@ -161,7 +161,7 @@ void CSrVideoCalibrationSettingDlg::OnOK()
 //
 void CSrVideoCalibrationSettingDlg::OnCancel()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚É“Á•Ê‚ÈŒãˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½É“ï¿½ï¿½Ê‚ÈŒãˆï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 
 	CDialog::OnCancel();
 }
@@ -198,7 +198,7 @@ void CSrVideoCalibrationSettingDlg::OnLens4SetupButton()
 //
 void CSrVideoCalibrationSettingDlg::LensSetupButton(UINT nID)
 {
-	// Lens‚ÌSetupƒ{ƒ^ƒ“‚ÌID
+	// Lensï¿½ï¿½Setupï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ID
 	UINT Video_LensSetupButton_IDs[] = {
 		IDC_LENS1_SETUP_BUTTON,
 		IDC_LENS2_SETUP_BUTTON,
@@ -207,7 +207,8 @@ void CSrVideoCalibrationSettingDlg::LensSetupButton(UINT nID)
 	};
 
 	int nMaxCnt = sizeof(Video_LensSetupButton_IDs) / sizeof(Video_LensSetupButton_IDs[0]);
-	for ( UINT nIndex = 0; nIndex < nMaxCnt; nIndex++ )
+	UINT nIndex;
+	for ( nIndex = 0; nIndex < nMaxCnt; nIndex++ )
 		if ( nID == Video_LensSetupButton_IDs[nIndex] )
 			break;
 
