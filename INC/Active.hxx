@@ -255,6 +255,7 @@ class_name::STATE_PROC_DEF class_name::StateProcMap[] = \
 // Macro ENTER_STATE
 // ----------------------------------------------------------------------------
 #define ENTER_STATE(state, proc) { state, "::" #state ": " #proc "\n", &proc }
+#define ENTER_STATE_NULL(state) { state, "::" #state ": NULL\n", NULL }
 
 // ----------------------------------------------------------------------------
 // Macro END_STATEPROC_MAP
