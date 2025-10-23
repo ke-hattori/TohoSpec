@@ -1174,7 +1174,7 @@ long CNanoSpecApp::StartUpLogo(long lCmd/* = 0*/)
 	long l_lRc = 0;
 	TCHAR l_tszCaption[256] = SUL_CAPTION;
 	HWND l_hWnd = ::FindWindow(NULL, l_tszCaption);
-	static ls_dwProcessId = 0;
+	static DWORD ls_dwProcessId = 0;
 
 	long l_lCmd = lCmd;
 
