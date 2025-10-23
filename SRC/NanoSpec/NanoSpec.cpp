@@ -1,4 +1,4 @@
-// NanoSpec.cpp : ƒAƒvƒŠƒP[ƒVƒ‡ƒ“—pƒNƒ‰ƒX‚Ì‹@”\’è‹`‚ğs‚¢‚Ü‚·B
+// NanoSpec.cpp : ï¿½Aï¿½vï¿½ï¿½ï¿½Pï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½pï¿½Nï¿½ï¿½ï¿½Xï¿½Ì‹@ï¿½\ï¿½ï¿½`ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 //
 
 #include "stdafx.h"
@@ -23,13 +23,13 @@
 #include "LensComboBox.h"
 #include "MotionComboBox.h"
 
-/* deleted 2009.07.16 hmenjo ÀsƒpƒXİ’è íœ ---------- { ---------- */
-///* added 2009.07.13 hmenjo ÀsƒpƒXİ’è ---------- { ---------- */
+/* deleted 2009.07.16 hmenjo ï¿½ï¿½ï¿½sï¿½pï¿½Xï¿½İ’ï¿½ ï¿½íœ ---------- { ---------- */
+///* added 2009.07.13 hmenjo ï¿½ï¿½ï¿½sï¿½pï¿½Xï¿½İ’ï¿½ ---------- { ---------- */
 ///*
-// *	’x‰„ƒ[ƒh‚Ìİ’è
+// *	ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½Ìİ’ï¿½
 // */
 //#pragma comment(lib, "delayimp.lib")
-//#ifdef _DEBUG	/* ƒfƒoƒbƒOƒrƒ‹ƒh -------------------------*/
+//#ifdef _DEBUG	/* ï¿½fï¿½oï¿½bï¿½Oï¿½rï¿½ï¿½ï¿½h -------------------------*/
 //#pragma comment(linker, "/delayload:dTnsConfigFile.dll")
 //#pragma comment(linker, "/delayload:dTnsRecipeFile.dll")
 //#pragma comment(linker, "/delayload:dTnsStage.dll")
@@ -43,7 +43,7 @@
 //#pragma comment(linker, "/delayload:dTnsNexIf.dll")
 //#pragma comment(linker, "/delayload:dTnsDeskew.dll")
 //#pragma comment(linker, "/delayload:dTnsPatternFile.dll")
-//#else			/* ƒŠƒŠ[ƒXƒrƒ‹ƒh--------------------------*/
+//#else			/* ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½Xï¿½rï¿½ï¿½ï¿½h--------------------------*/
 //#pragma comment(linker, "/delayload:TnsConfigFile.dll")
 //#pragma comment(linker, "/delayload:TnsRecipeFile.dll")
 //#pragma comment(linker, "/delayload:TnsStage.dll")
@@ -58,8 +58,8 @@
 //#pragma comment(linker, "/delayload:TnsDeskew.dll")
 //#pragma comment(linker, "/delayload:TnsPatternFile.dll")
 //#endif
-///* added 2009.07.13 hmenjo ÀsƒpƒXİ’è ---------- } ---------- */
-/* deleted 2009.07.16 hmenjo ÀsƒpƒXİ’è íœ ---------- } ---------- */
+///* added 2009.07.13 hmenjo ï¿½ï¿½ï¿½sï¿½pï¿½Xï¿½İ’ï¿½ ---------- } ---------- */
+/* deleted 2009.07.16 hmenjo ï¿½ï¿½ï¿½sï¿½pï¿½Xï¿½İ’ï¿½ ï¿½íœ ---------- } ---------- */
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -101,12 +101,12 @@ BOOL SelectSubThickNotify(double dThickness)
 	SUBSTRATE_THICKNESS_TABLE substrateThicknessTable;
 	ConfigFile_GetNanoSpecIni(&substrateThicknessTable, CONFIG_FILE_SUBSTRATE_THICKNESS_CONFIG);
 
-	// ”ÂŒú‚©‚ç”Ô†‚ğ‹tˆø‚«ŒŸõ‚·‚éBƒŠƒtƒ@ƒŒƒ“ƒX‚Í‘ÎÛŠO
+	// ï¿½ÂŒï¿½ï¿½ï¿½ï¿½ï¿½Ôï¿½ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½Í‘ÎÛŠO
 	SUBSTRATE_THICKNESS substrateThickness;
 	double dRoundThickness;
 
-	// 1um‚Ì’PˆÊ‚ÍlÌŒÜ“ü‚ÅŠÛ‚ß‚Ä‘Î‰‚¨Šè‚¢‚µ‚Ü‚·
-	// (Ex.724umË720um)
+	// 1umï¿½Ì’Pï¿½Ê‚Ílï¿½ÌŒÜ“ï¿½ï¿½ÅŠÛ‚ß‚Ä‘Î‰ï¿½ï¿½ï¿½ï¿½è‚¢ï¿½ï¿½ï¿½Ü‚ï¿½
+	// (Ex.724umï¿½ï¿½720um)
 	dRoundThickness = ((int)((dThickness + 5.0) / 10.0)) * 10.0;
 	for (int i = 1; i < SUBSTRATE_THICKNESS_MAX; i++) {
 		substrateThickness = substrateThicknessTable.SubstrateThickness[i];
@@ -133,66 +133,66 @@ BEGIN_MESSAGE_MAP(CNanoSpecApp, CWinApp)
 	ON_COMMAND(ID_APP_ABOUT, OnAppAbout)
 	ON_COMMAND(IDM_DEBUG, OnDebug)
 	//}}AFX_MSG_MAP
-	// •W€‚Ìƒtƒ@ƒCƒ‹Šî–{ƒhƒLƒ…ƒƒ“ƒg ƒRƒ}ƒ“ƒh
+	// ï¿½Wï¿½ï¿½ï¿½Ìƒtï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½{ï¿½hï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½g ï¿½Rï¿½}ï¿½ï¿½ï¿½h
 	ON_COMMAND(ID_FILE_NEW, CWinApp::OnFileNew)
 	ON_COMMAND(ID_FILE_OPEN, CWinApp::OnFileOpen)
-	// •W€‚ÌˆóüƒZƒbƒgƒAƒbƒv ƒRƒ}ƒ“ƒh
+	// ï¿½Wï¿½ï¿½ï¿½Ìˆï¿½ï¿½ï¿½Zï¿½bï¿½gï¿½Aï¿½bï¿½v ï¿½Rï¿½}ï¿½ï¿½ï¿½h
 	ON_COMMAND(ID_FILE_PRINT_SETUP, CWinApp::OnFilePrintSetup)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CNanoSpecApp ƒNƒ‰ƒX‚Ì\’z
+// CNanoSpecApp ï¿½Nï¿½ï¿½ï¿½Xï¿½Ì\ï¿½z
 
 /////////////////////////////////////////////////////////////////////////////
 //
 CNanoSpecApp::CNanoSpecApp()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚É\’z—pƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
-	// ‚±‚±‚É InitInstance ’†‚Ìd—v‚È‰Šú‰»ˆ—‚ğ‚·‚×‚Ä‹Lq‚µ‚Ä‚­‚¾‚³‚¢B
-/* added 2009.06.05 hmenjo NanoSpecTitle Á‚¦‚È‚¢‘Îô ---------- { ---------- */
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½É\ï¿½zï¿½pï¿½Rï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ InitInstance ï¿½ï¿½ï¿½Ìdï¿½vï¿½Èï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×‚Ä‹Lï¿½qï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
+/* added 2009.06.05 hmenjo NanoSpecTitle ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Îï¿½ ---------- { ---------- */
 	m_dwProcIdNanoTitle = 0;
-/* added 2009.06.05 hmenjo NanoSpecTitle Á‚¦‚È‚¢‘Îô ---------- } ---------- */
+/* added 2009.06.05 hmenjo NanoSpecTitle ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Îï¿½ ---------- } ---------- */
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// —Bˆê‚Ì CNanoSpecApp ƒIƒuƒWƒFƒNƒg
+// ï¿½Bï¿½ï¿½ï¿½ CNanoSpecApp ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½g
 
 CNanoSpecApp theApp;
 
-/* added 2010.11.16 hmenjo ‹N“®‘S WVASE I—¹ ---------- { ---------- */
+/* added 2010.11.16 hmenjo ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½S WVASE ï¿½Iï¿½ï¿½ ---------- { ---------- */
 #include <tlhelp32.h>
 void CNanoSpecApp::ExitNanoProcesses(TCHAR (*ptszProcList)[][_MAX_FNAME])
 {
 //	TCHAR (*l_ptszProcList)[][_MAX_FNAME] = (TCHAR(*)[][_MAX_FNAME]) pvProcList;
 //	l_ptszProcList = (TCHAR(*)[][_MAX_FNAME]) pvProcList;
-	/* ƒvƒƒZƒXƒŠƒXƒg‚É‚ ‚éƒvƒƒZƒX‚ªÀs’†‚È‚çI—¹‚³‚¹‚Ü‚·D	*/
+	/* ï¿½vï¿½ï¿½ï¿½Zï¿½Xï¿½ï¿½ï¿½Xï¿½gï¿½É‚ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Zï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½È‚ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 	HANDLE l_hSnapProc = ::CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
 	if (0 != l_hSnapProc) {
-		BOOL l_bClose;		/* WM_CLOSE ‚Ì¬Œ÷	*/
-		long li;			/* ƒvƒƒZƒXƒŠƒXƒg”z—ñ‚Ì—v‘f”Ô†	*/
-		HANDLE l_hProc;		/* ƒvƒƒZƒXƒnƒ“ƒhƒ‹	*/
-		HWND l_hWnd;		/* ’T‚µ‚½ƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹	*/
-		DWORD l_dwProcID;	/* ’T‚µ‚½ƒvƒƒZƒX ID	*/
-		DWORD l_dwExitCode;	/* ƒvƒƒZƒX‚ÌI—¹Œ‹‰Ê	*/
-		DWORD l_dwTimeSta;	/* ƒ^ƒCƒ€ƒAƒEƒg—pŠJn	*/
+		BOOL l_bClose;		/* WM_CLOSE ï¿½Ìï¿½ï¿½ï¿½	*/
+		long li;			/* ï¿½vï¿½ï¿½ï¿½Zï¿½Xï¿½ï¿½ï¿½Xï¿½gï¿½zï¿½ï¿½Ì—vï¿½fï¿½Ôï¿½	*/
+		HANDLE l_hProc;		/* ï¿½vï¿½ï¿½ï¿½Zï¿½Xï¿½nï¿½ï¿½ï¿½hï¿½ï¿½	*/
+		HWND l_hWnd;		/* ï¿½Tï¿½ï¿½ï¿½ï¿½ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½nï¿½ï¿½ï¿½hï¿½ï¿½	*/
+		DWORD l_dwProcID;	/* ï¿½Tï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Zï¿½X ID	*/
+		DWORD l_dwExitCode;	/* ï¿½vï¿½ï¿½ï¿½Zï¿½Xï¿½ÌIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
+		DWORD l_dwTimeSta;	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½pï¿½Jï¿½nï¿½ï¿½ï¿½ï¿½	*/
 		PROCESSENTRY32 l_ProcEntry32;
 		BOOL l_bRc = ::Process32First(l_hSnapProc, &l_ProcEntry32);
 		while (0 != l_bRc) {
 			li = 0;
 			while (0 != _tcsicmp((*ptszProcList)[li], _T(""))) {
 				if (0 == _tcsicmp(l_ProcEntry32.szExeFile, (*ptszProcList)[li])) {
-					/* ƒvƒƒZƒXƒŠƒXƒg‚É‚ ‚è‚Ü‚µ‚½D	*/
+					/* ï¿½vï¿½ï¿½ï¿½Zï¿½Xï¿½ï¿½ï¿½Xï¿½gï¿½É‚ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D	*/
 					l_bClose = FALSE;
 					l_hProc = ::OpenProcess(PROCESS_ALL_ACCESS, FALSE, l_ProcEntry32.th32ProcessID);
-					/* ‚»‚ÌƒvƒƒZƒX ID ‚©‚çƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹‚ğæ“¾‚·‚é‚½‚ß‚É‘SƒEƒBƒ“ƒhƒE‚ğ’T‚µ‚Ü‚·D	*/
+					/* ï¿½ï¿½ï¿½Ìƒvï¿½ï¿½ï¿½Zï¿½X ID ï¿½ï¿½ï¿½ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½é‚½ï¿½ß‚É‘Sï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½Tï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 /* modified 2013.06.12 hmenjo ExitNanoProcesses ---------- { ---------- */
 //					l_hWnd = ::GetTopWindow(0);
 //					while (0 != l_hWnd) {
 //						::GetWindowThreadProcessId(l_hWnd, &l_dwProcID);
 //						if (l_dwProcID == l_ProcEntry32.th32ProcessID) {
-//							/* ’T‚µ‚½ƒEƒBƒ“ƒhƒE‚ÌƒvƒƒZƒX ID ‚ªˆê’v‚µ‚Ü‚µ‚½D	*/
+//							/* ï¿½Tï¿½ï¿½ï¿½ï¿½ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½Ìƒvï¿½ï¿½ï¿½Zï¿½X ID ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D	*/
 //							::SendMessage(l_hWnd, WM_CLOSE, 0, 0);
-//							/* ƒvƒƒZƒX‚ÌI—¹Šm”F‚Å‚·D	*/
+//							/* ï¿½vï¿½ï¿½ï¿½Zï¿½Xï¿½ÌIï¿½ï¿½ï¿½mï¿½Fï¿½Å‚ï¿½ï¿½D	*/
 //							if (0 != l_hProc) {
 //								l_dwTimeSta = ::GetTickCount();
 //								do {
@@ -221,7 +221,7 @@ void CNanoSpecApp::ExitNanoProcesses(TCHAR (*ptszProcList)[][_MAX_FNAME])
 					while (0 != l_hWnd) {
 						::GetWindowThreadProcessId(l_hWnd, &l_dwProcID);
 						if (l_dwProcID == l_ProcEntry32.th32ProcessID) {
-							/* ’T‚µ‚½ƒEƒBƒ“ƒhƒE‚ÌƒvƒƒZƒX ID ‚ªˆê’v‚µ‚Ü‚µ‚½D	*/
+							/* ï¿½Tï¿½ï¿½ï¿½ï¿½ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½Ìƒvï¿½ï¿½ï¿½Zï¿½X ID ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D	*/
 							l_hwndTop[0][l_iTop] = l_hWnd;
 							l_hwndTop[1][l_iTop] = ::GetWindow(l_hWnd, GW_OWNER);
 							if (0 != l_hwndTop[1][l_iTop]) {
@@ -235,7 +235,7 @@ void CNanoSpecApp::ExitNanoProcesses(TCHAR (*ptszProcList)[][_MAX_FNAME])
 					if (0 < l_iOwn) {
 						int l_iO;
 						int l_iT;
-						/* ƒI[ƒiƒEƒBƒ“ƒhƒE‚ª‚ ‚éƒI[ƒiƒEƒBƒ“ƒhƒE‚ğ“o˜^‚©‚çíœ‚µ‚Ü‚·D	*/
+						/* ï¿½Iï¿½[ï¿½iï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½iï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½oï¿½^ï¿½ï¿½ï¿½ï¿½íœï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 						for (l_iO = 0; l_iO < l_iOwn; l_iO++) {
 							for (l_iT = 0; l_iT < l_iTop; l_iT++) {
 								if ((l_hwndOwn[l_iO] == l_hwndTop[0][l_iT]) &&
@@ -247,7 +247,7 @@ void CNanoSpecApp::ExitNanoProcesses(TCHAR (*ptszProcList)[][_MAX_FNAME])
 								l_hwndOwn[l_iO] = 0;
 							}
 						}
-						/* c‚Á‚½ƒI[ƒi‚ğƒƒCƒ“ƒEƒBƒ“ƒhƒE‚Æ‚µ‚Ä WM_CLOSE ‚µ‚Ü‚·D	*/
+						/* ï¿½cï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½Æ‚ï¿½ï¿½ï¿½ WM_CLOSE ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 						for (l_iO = 0; l_iO < l_iOwn; l_iO++) {
 //							if (0 != l_hwndOwn[l_iO]) {
 								::PostMessage(l_hwndOwn[l_iO], WM_CLOSE, 0, 0);
@@ -270,8 +270,8 @@ void CNanoSpecApp::ExitNanoProcesses(TCHAR (*ptszProcList)[][_MAX_FNAME])
 								} while ((::GetTickCount() - l_dwTimeSta) <= 5000);
 /* modified 2013.06.12 hmenjo ExitNanoProcesses ---------- } ---------- */
 					if (FALSE == l_bClose) {
-						/* WM_CLOSE ‚ÅI—¹o—ˆ‚Ü‚¹‚ñ‚Å‚µ‚½‚Ì‚Å‹­§I—¹‚³‚¹‚Ü‚·D	*/
-						/*		‚ ‚é‚¢‚ÍƒEƒBƒ“ƒhƒE‚ª–³‚©‚Á‚½D	*/
+						/* WM_CLOSE ï¿½ÅIï¿½ï¿½ï¿½oï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½ï¿½Ì‚Å‹ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
+						/*		ï¿½ï¿½ï¿½é‚¢ï¿½ÍƒEï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 						if (0 != l_hProc) {
 							if (FALSE != ::TerminateProcess(l_hProc, 0)) {
 								l_dwTimeSta = ::GetTickCount();
@@ -288,7 +288,7 @@ void CNanoSpecApp::ExitNanoProcesses(TCHAR (*ptszProcList)[][_MAX_FNAME])
 									}
 								} while ((::GetTickCount() - l_dwTimeSta) <= 5000);
 								if (FALSE == l_bClose) {
-									/* I—¹o—ˆ‚Ü‚¹‚ñ‚Å‚µ‚½D	*/
+									/* ï¿½Iï¿½ï¿½ï¿½oï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½ï¿½D	*/
 								}
 							}
 						}
@@ -302,13 +302,13 @@ void CNanoSpecApp::ExitNanoProcesses(TCHAR (*ptszProcList)[][_MAX_FNAME])
 		}
 	}
 }
-/* added 2010.11.16 hmenjo ‹N“®‘S WVASE I—¹ ---------- } ---------- */
+/* added 2010.11.16 hmenjo ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½S WVASE ï¿½Iï¿½ï¿½ ---------- } ---------- */
 
 /////////////////////////////////////////////////////////////////////////////
-// CNanoSpecApp ƒNƒ‰ƒX‚Ì‰Šú‰»
+// CNanoSpecApp ï¿½Nï¿½ï¿½ï¿½Xï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½
 BOOL CNanoSpecApp::InitInstance()
 {
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) -->
 	g_lAppNameType = APP_NAME_NANO; // default application name
 	for(int i = 0; i < APP_NAME_MAX; i++){
 		if(_tcsncmp(m_pszExeName, g_lpszAppPrefix4[i], 4) == 0){
@@ -316,8 +316,8 @@ BOOL CNanoSpecApp::InitInstance()
 			break;
 		}
 	}
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) <--
-/* added 2014.12.24 hmenjo ‘½d‹N“®–h~ˆ—ˆÚ“® ---------- { ---------- */
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) <--
+/* added 2014.12.24 hmenjo ï¿½ï¿½ï¿½dï¿½Nï¿½ï¿½ï¿½hï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½Ú“ï¿½ ---------- { ---------- */
 	m_hMutex_Run = ::CreateMutex(NULL, TRUE, m_pszExeName);
 	if ((0 == m_hMutex_Run) ||
 		(::GetLastError() == ERROR_ALREADY_EXISTS)) {
@@ -349,15 +349,15 @@ BOOL CNanoSpecApp::InitInstance()
 		}
 		return FALSE;
 	}
-/* added 2014.12.24 hmenjo ‘½d‹N“®–h~ˆ—ˆÚ“® ---------- } ---------- */
+/* added 2014.12.24 hmenjo ï¿½ï¿½ï¿½dï¿½Nï¿½ï¿½ï¿½hï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½Ú“ï¿½ ---------- } ---------- */
 
 	MakePath();
-/* deleted 2009.07.16 hmenjo ÀsƒpƒXİ’è íœ ---------- { ---------- */
-///* added 2009.07.13 hmenjo ÀsƒpƒXİ’è ---------- { ---------- */
+/* deleted 2009.07.16 hmenjo ï¿½ï¿½ï¿½sï¿½pï¿½Xï¿½İ’ï¿½ ï¿½íœ ---------- { ---------- */
+///* added 2009.07.13 hmenjo ï¿½ï¿½ï¿½sï¿½pï¿½Xï¿½İ’ï¿½ ---------- { ---------- */
 //	SetEnvNanoPath();
-///* added 2009.07.13 hmenjo ÀsƒpƒXİ’è ---------- } ---------- */
-/* deleted 2009.07.16 hmenjo ÀsƒpƒXİ’è íœ ---------- } ---------- */
-/* added 2010.11.16 hmenjo ‹N“®‘S WVASE I—¹ ---------- { ---------- */
+///* added 2009.07.13 hmenjo ï¿½ï¿½ï¿½sï¿½pï¿½Xï¿½İ’ï¿½ ---------- } ---------- */
+/* deleted 2009.07.16 hmenjo ï¿½ï¿½ï¿½sï¿½pï¿½Xï¿½İ’ï¿½ ï¿½íœ ---------- } ---------- */
+/* added 2010.11.16 hmenjo ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½S WVASE ï¿½Iï¿½ï¿½ ---------- { ---------- */
 	TCHAR l_tszProcList1[][_MAX_FNAME] = {
 			_T("jaw_adap.exe"),
 // 2014.03.08 bagus SCOUT added -->
@@ -365,7 +365,7 @@ BOOL CNanoSpecApp::InitInstance()
 // 2014.03.08 bagus SCOUT added <--
 			0
 		};
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) -->
 // 	TCHAR l_tszProcList2[][_MAX_FNAME] = {
 // 			_T("wvase32.exe"),
 // 			_T("nextra.exe"),
@@ -386,36 +386,36 @@ BOOL CNanoSpecApp::InitInstance()
 	}
 	_tcscpy(l_tszProcList2[2], strBuffer);
 	_tcscpy(l_tszProcList2[3], "");
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) <--
 	this->ExitNanoProcesses((TCHAR(*)[][_MAX_FNAME]) &l_tszProcList1);
 	this->ExitNanoProcesses((TCHAR(*)[][_MAX_FNAME]) &l_tszProcList2);
-/* added 2010.11.16 hmenjo ‹N“®‘S WVASE I—¹ ---------- } ---------- */
+/* added 2010.11.16 hmenjo ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½S WVASE ï¿½Iï¿½ï¿½ ---------- } ---------- */
 
 	//Saiki 20090525 Add ----->
-// 2013.11.07 Bagus Delete (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Delete (TohoSpecï¿½Î‰ï¿½) -->
 //	CString strBuffer;
-// 2013.11.07 Bagus Delete (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Delete (TohoSpecï¿½Î‰ï¿½) <--
 	SYSTEM_CONFIG l_SystemConfig;
 
-	///// NanoSpec.ini‚ÌƒOƒ[ƒoƒ‹•Ï”‚Ì‰Šú‰» /////
+	///// NanoSpec.iniï¿½ÌƒOï¿½ï¿½ï¿½[ï¿½oï¿½ï¿½ï¿½Ïï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ /////
 	ConfigFile_LoadAllNanoSpecIni();
 	ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 	HANDLE m_hModule;
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) -->
 	#ifdef _DEBUG
 	strBuffer.Format("dtns%sspec", g_lpszAppPrefix4[g_lAppNameType]);
 	#else
 	strBuffer.Format("tns%sspec", g_lpszAppPrefix4[g_lAppNameType]);
 	#endif
 	m_hModule = ResourceLoadLibrary(l_SystemConfig.nLanguage, strBuffer);
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) <--
 	AfxSetResourceHandle((HINSTANCE) m_hModule);
 	//Saiki 20090525 Add <-----
 	_AFX_THREAD_STATE* pState = AfxGetThreadState();
 	if (!pState->m_bNeedTerm && !AfxOleInit()){
 	//Saiki 20090525 Change ----->
 //		AfxMessageBox(_T("OLE initialization failed. Make sure that the OLE libraries are the correct version"));
-//		  AfxMessageBox(_T("OLE ‰Šú‰»‚É¸”s‚µ‚Ü‚µ‚½. OLEƒ‰ƒCƒuƒ‰ƒŠ‚ª³‚µ‚¢ƒo[ƒWƒ‡ƒ“‚Å‚ ‚é‚©Šm”F‚µ‚Ä‚­‚¾‚³‚¢"));
+//		  AfxMessageBox(_T("OLE ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éï¿½ï¿½sï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½. OLEï¿½ï¿½ï¿½Cï¿½uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½é‚©ï¿½mï¿½Fï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"));
 		LoadStringML(IDS_OLE_INITIALIZATION_FAILED, strBuffer, "OLE initialization failed. Make sure that the OLE libraries are the correct version");
 		AfxMessageBox(strBuffer);
 	}
@@ -432,8 +432,8 @@ BOOL CNanoSpecApp::InitInstance()
 
 	AfxEnableControlContainer();
 
-/* added 2014.12.24 hmenjo ‘½d‹N“®–h~ˆ—ˆÚ“® ---------- { ---------- */
-//	// 2d‹N“®‚Ì–h~
+/* added 2014.12.24 hmenjo ï¿½ï¿½ï¿½dï¿½Nï¿½ï¿½ï¿½hï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½Ú“ï¿½ ---------- { ---------- */
+//	// 2ï¿½dï¿½Nï¿½ï¿½ï¿½Ì–hï¿½~
 //	::CreateMutex(NULL, TRUE, m_pszExeName);
 //	if( ::GetLastError() == ERROR_ALREADY_EXISTS)
 //	{
@@ -452,12 +452,12 @@ BOOL CNanoSpecApp::InitInstance()
 //		}
 //		return FALSE;
 //	}
-/* added 2014.12.24 hmenjo ‘½d‹N“®–h~ˆ—ˆÚ“® ---------- } ---------- */
+/* added 2014.12.24 hmenjo ï¿½ï¿½ï¿½dï¿½Nï¿½ï¿½ï¿½hï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½Ú“ï¿½ ---------- } ---------- */
 
 #ifdef _AFXDLL
-	Enable3dControls(); 	// ‹¤—L DLL ‚Ì’†‚Å MFC ‚ğg—p‚·‚éê‡‚É‚Í‚±‚±‚ğŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢B
+	Enable3dControls(); 	// ï¿½ï¿½ï¿½L DLL ï¿½Ì’ï¿½ï¿½ï¿½ MFC ï¿½ï¿½ï¿½gï¿½pï¿½ï¿½ï¿½ï¿½ê‡ï¿½É‚Í‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 #else
-	Enable3dControlsStatic();	// MFC ‚ÆÃ“I‚ÉƒŠƒ“ƒN‚µ‚Ä‚¢‚éê‡‚É‚Í‚±‚±‚ğŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢B
+	Enable3dControlsStatic();	// MFC ï¿½ÆÃ“Iï¿½Éƒï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ê‡ï¿½É‚Í‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 #endif
 
 	//First free the string allocated by MFC at CWinApp startup.
@@ -467,7 +467,7 @@ BOOL CNanoSpecApp::InitInstance()
 	//Change the name of the .INI file.
 	//The CWinApp destructor will free the memory.
 	char szFilePath[MAX_PATH];
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) -->
 //	sprintf(szFilePath, "%s%s", g_szCfg_Dir, NANOSPEC_INIFILENAME);
 	CString strFilename;
 
@@ -476,17 +476,17 @@ BOOL CNanoSpecApp::InitInstance()
 		strBuffer.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
 	}
 	sprintf(szFilePath, "%s%s", g_szCfg_Dir, strFilename);
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) <--
 	m_pszProfileName = _tcsdup( szFilePath);
 
-	// ƒAƒvƒŠƒP[ƒVƒ‡ƒ“—p‚ÌƒhƒLƒ…ƒƒ“ƒg ƒeƒ“ƒvƒŒ[ƒg‚ğ“o˜^‚µ‚Ü‚·BƒhƒLƒ…ƒƒ“ƒg ƒeƒ“ƒvƒŒ[ƒg
-	//	‚ÍƒhƒLƒ…ƒƒ“ƒgAƒtƒŒ[ƒ€ ƒEƒBƒ“ƒhƒE‚Æƒrƒ…[‚ğŒ‹‡‚·‚é‚½‚ß‚É‹@”\‚µ‚Ü‚·B
+	// ï¿½Aï¿½vï¿½ï¿½ï¿½Pï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½pï¿½Ìƒhï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½g ï¿½eï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½oï¿½^ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½Bï¿½hï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½g ï¿½eï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½g
+	//	ï¿½Íƒhï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½Aï¿½tï¿½ï¿½ï¿½[ï¿½ï¿½ ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½Æƒrï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é‚½ï¿½ß‚É‹@ï¿½\ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	CSingleDocTemplate* pDocTemplate;
 	pDocTemplate = new CSingleDocTemplate(
 //		IDR_MAINFRAME,
 		IDR_MEASUREMENT_MENU,
 		RUNTIME_CLASS(CNanoSpecDoc),
-		RUNTIME_CLASS(CMainFrame),		// ƒƒCƒ“ SDI ƒtƒŒ[ƒ€ ƒEƒBƒ“ƒhƒE
+		RUNTIME_CLASS(CMainFrame),		// ï¿½ï¿½ï¿½Cï¿½ï¿½ SDI ï¿½tï¿½ï¿½ï¿½[ï¿½ï¿½ ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½E
 		RUNTIME_CLASS(CNanoSpecView));
 	AddDocTemplate(pDocTemplate);
 
@@ -497,38 +497,38 @@ BOOL CNanoSpecApp::InitInstance()
 	NanoSpecTitle(NANOSPEC_TITLE_START);
 
 	///// Start Nextra.exe /////
-// 2009.12.29 K.Matsuo Nextra.exe‚ªc‚Á‚Ä‚¢‚½‚çAI—¹‚³‚¹‚Ä‚©‚ç‹N“®‚·‚é -->
+// 2009.12.29 K.Matsuo Nextra.exeï¿½ï¿½ï¿½cï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -->
 	NextraExe(NEXTRA_EXE_QUIT);
-// 2009.12.29 K.Matsuo Nextra.exe‚ªc‚Á‚Ä‚¢‚½‚çAI—¹‚³‚¹‚Ä‚©‚ç‹N“®‚·‚é <--
+// 2009.12.29 K.Matsuo Nextra.exeï¿½ï¿½ï¿½cï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ <--
 	if(!l_SystemConfig.bDisableNextra){
 		NextraExe(NEXTRA_EXE_START);
 	}
 
-	// DDEAfile open ‚È‚Ç•W€‚ÌƒVƒFƒ‹ ƒRƒ}ƒ“ƒh‚ÌƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚ğ‰ğÍ‚µ‚Ü‚·B
+	// DDEï¿½Afile open ï¿½È‚Ç•Wï¿½ï¿½ï¿½ÌƒVï¿½Fï¿½ï¿½ ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½ÌƒRï¿½}ï¿½ï¿½ï¿½hï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ü‚ï¿½ï¿½B
 	CCommandLineInfo cmdInfo;
 	ParseCommandLine(cmdInfo);
 
-	// ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚ÅƒfƒBƒXƒpƒbƒ` ƒRƒ}ƒ“ƒh‚ğw’è‚µ‚Ü‚·B
+	// ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Åƒfï¿½Bï¿½Xï¿½pï¿½bï¿½` ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½ï¿½ï¿½wï¿½è‚µï¿½Ü‚ï¿½ï¿½B
 	if(!ProcessShellCommand(cmdInfo))
 		return FALSE;
 
-	// MAIN MENU LOGON ”ñ•\¦ //
+	// MAIN MENU LOGON ï¿½ï¿½\ï¿½ï¿½ //
 	CWnd* pMain = AfxGetMainWnd();
 	CMenu* pMenu = pMain->GetMenu();
 	pMenu->DeleteMenu(IDM_LOGON, MF_BYCOMMAND);
-// 2013.11.12 Bagus Add (TohoSpec‘Î‰) -->
-// 2014.01.17 Bagus Add (Stage None‘Î‰) -->
+// 2013.11.12 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
+// 2014.01.17 Bagus Add (Stage Noneï¿½Î‰ï¿½) -->
 //	if(g_lModelType == MODEL_T3100){
 	if(l_SystemConfig.nStageType == STAGE_TYPE_NONE){
-// 2014.01.17 Bagus Add (Stage None‘Î‰) <--
+// 2014.01.17 Bagus Add (Stage Noneï¿½Î‰ï¿½) <--
 		CMenu* pSubMenu = pMenu->GetSubMenu(0);
-/* modified 2014.05.22 hmenjo è“® NanoMap ---------- { ---------- */
+/* modified 2014.05.22 hmenjo ï¿½è“®ï¿½ï¿½ NanoMap ---------- { ---------- */
 //		pSubMenu->DeleteMenu(IDM_DATA, MF_BYCOMMAND);
-/* modified 2014.05.22 hmenjo è“® NanoMap ----------              */
+/* modified 2014.05.22 hmenjo ï¿½è“®ï¿½ï¿½ NanoMap ----------              */
 		if (g_lModelType != MODEL_T3100) {
 			pSubMenu->DeleteMenu(IDM_DATA, MF_BYCOMMAND);
 		}
-/* modified 2014.05.22 hmenjo è“® NanoMap ---------- } ---------- */
+/* modified 2014.05.22 hmenjo ï¿½è“®ï¿½ï¿½ NanoMap ---------- } ---------- */
 
 		pSubMenu = pMenu->GetSubMenu(1);
 
@@ -544,9 +544,9 @@ BOOL CNanoSpecApp::InitInstance()
 
 		pSubMenu->DeleteMenu(1, MF_BYPOSITION);
 	}
-// 2013.11.12 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.12 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 
-	//ƒVƒXƒeƒ€ƒRƒ“ƒtƒBƒOİ’è“Ç‚İ‚İ
+	//ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½tï¿½Bï¿½Oï¿½İ’ï¿½Ç‚İï¿½ï¿½ï¿½
 	SYSTEM_CONFIG systemConfig;
 	ConfigFile_GetNanoSpecIni(&systemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 	if (!systemConfig.bHost){
@@ -566,9 +566,9 @@ BOOL CNanoSpecApp::InitInstance()
 	}
 	_tcslwr(l_tszAdapPath);
 	if (0 != _tcsstr(l_tszAdapPath, _T("sc_adap.exe"))) {
-		g_lXmpType = 1;		/* 1FSC_adap.exe[scout]	*/
+		g_lXmpType = 1;		/* 1ï¿½FSC_adap.exe[scout]	*/
 	} else {
-		g_lXmpType = 0;		/* 0Fjaw_adap.exe[WVASE]	*/
+		g_lXmpType = 0;		/* 0ï¿½Fjaw_adap.exe[WVASE]	*/
 	}
 /* added 2014.05.22 hmenjo get Xmp Type ---------- } ---------- */
 
@@ -584,7 +584,7 @@ BOOL CNanoSpecApp::InitInstance()
 	m_pDebugDlg = new CDebugDlg;
 	m_pDebugDlg->Create(CDebugDlg::IDD, NULL);
 
-	// ƒƒCƒ“ ƒEƒBƒ“ƒhƒE‚ª‰Šú‰»‚³‚ê‚½‚Ì‚ÅA•\¦‚ÆXV‚ğs‚¢‚Ü‚·B
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½Ì‚ÅAï¿½\ï¿½ï¿½ï¿½ÆXï¿½Vï¿½ï¿½ï¿½sï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	//m_pMainWnd->ShowWindow(m_nCmdShow);
 //	  m_pMainWnd->ShowWindow(SW_SHOWMAXIMIZED);
 	m_pMainWnd->ShowWindow(SW_MINIMIZE);
@@ -594,7 +594,7 @@ BOOL CNanoSpecApp::InitInstance()
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// CAboutDlg ƒ_ƒCƒAƒƒO                                                    //
+// CAboutDlg ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½O                                                    //
 //                                                                         //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -605,7 +605,7 @@ class CAboutDlg : public CDialog
 public:
 	CAboutDlg();
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½O ï¿½fï¿½[ï¿½^
 	//{{AFX_DATA(CAboutDlg)
 	enum { IDD = IDD_ABOUTBOX };
 	//}}AFX_DATA
@@ -615,13 +615,13 @@ public:
 public:
 	CShadeButtonST m_OkButton;
 
-	// ClassWizard ‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+	// ClassWizard ï¿½ï¿½ï¿½zï¿½Öï¿½ï¿½ÌƒIï¿½[ï¿½oï¿½[ï¿½ï¿½ï¿½Cï¿½hï¿½ğ¶ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	//{{AFX_VIRTUAL(CAboutDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ‚ÌƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ï¿½ÌƒTï¿½|ï¿½[ï¿½g
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
 protected:
 	//{{AFX_MSG(CAboutDlg)
 	virtual BOOL OnInitDialog();
@@ -655,10 +655,10 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
-// ƒ_ƒCƒAƒƒO‚ğÀs‚·‚é‚½‚ß‚ÌƒAƒvƒŠƒP[ƒVƒ‡ƒ“ ƒRƒ}ƒ“ƒh
+// ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½é‚½ï¿½ß‚ÌƒAï¿½vï¿½ï¿½ï¿½Pï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½Rï¿½}ï¿½ï¿½ï¿½h
 
 /////////////////////////////////////////////////////////////////////////////
-// CNanoSpecApp ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰                                        //
+// CNanoSpecApp ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½                                        //
 //                                                                         //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -671,7 +671,7 @@ void CNanoSpecApp::OnAppAbout()
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// CAboutDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰                                           //
+// CAboutDlg ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½                                           //
 //                                                                         //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -687,24 +687,24 @@ BOOL CAboutDlg::OnInitDialog()
 
 	char szBuff[100];
 
-/* modified 2016.05.12 hmenjo 6500/TS3100 •Ê version ---------- { ---------- */
+/* modified 2016.05.12 hmenjo 6500/TS3100 ï¿½ï¿½ version ---------- { ---------- */
 //	sprintf(szBuff, "%s (%s %s)", SOFT_VERSION, __DATE__, __TIME__);
-/* modified 2016.05.12 hmenjo 6500/TS3100 •Ê version ----------              */
+/* modified 2016.05.12 hmenjo 6500/TS3100 ï¿½ï¿½ version ----------              */
 	char l_szVersion[128];
 	switch (g_lModelType) {
 	case MODEL_T3100:	strcpy(l_szVersion, SOFT_VERSION_TS3100);	break;
 	default:			strcpy(l_szVersion, SOFT_VERSION);			break;
 	}
 	sprintf(szBuff, "%s (%s %s)", l_szVersion, __DATE__, __TIME__);
-/* modified 2016.05.12 hmenjo 6500/TS3100 •Ê version ---------- } ---------- */
+/* modified 2016.05.12 hmenjo 6500/TS3100 ï¿½ï¿½ version ---------- } ---------- */
 	SetDlgItemText(IDC_VERSION, szBuff);
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Éƒtï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½İ’è‚µï¿½È‚ï¿½ï¿½Æ‚ï¿½ï¿½Aï¿½ß‚ï¿½lï¿½ï¿½ TRUE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
+					// ï¿½ï¿½O: OCX ï¿½vï¿½ï¿½ï¿½pï¿½eï¿½B ï¿½yï¿½[ï¿½Wï¿½Ì–ß‚ï¿½lï¿½ï¿½ FALSE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// CNanoSpecApp ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰                                        //
+// CNanoSpecApp ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½                                        //
 //                                                                         //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -734,7 +734,7 @@ void CNanoSpecApp::OnDebug()
 //
 int CNanoSpecApp::ExitInstance()
 {
-	/* “ñd‹N“®‚Ì–h~‚Ì‚½‚ß‚Ì Mutex ŠJ•ú	*/
+	/* ï¿½ï¿½dï¿½Nï¿½ï¿½ï¿½Ì–hï¿½~ï¿½Ì‚ï¿½ï¿½ß‚ï¿½ Mutex ï¿½Jï¿½ï¿½	*/
 	if (0 != m_hMutex_Run) {
 		::ReleaseMutex(m_hMutex_Run);
 		::CloseHandle(m_hMutex_Run);
@@ -789,7 +789,7 @@ void CNanoSpecApp::NextraExe(int Cmd)
 		break;
 	case NEXTRA_EXE_QUIT:
 		if(hWnd != NULL){
-// 2009.12.29 K.Matsuo Nextra.exe I—¹‘Ò‚¿‘Îô -->
+// 2009.12.29 K.Matsuo Nextra.exe ï¿½Iï¿½ï¿½ï¿½Ò‚ï¿½ï¿½Îï¿½ -->
 			bRet = ::PostMessage(hWnd, WM_CLOSE, NULL, NULL);
 			if (0 != bRet) {
 				DWORD l_dwStartTime = ::GetTickCount();
@@ -797,7 +797,7 @@ void CNanoSpecApp::NextraExe(int Cmd)
 				while ( 1 ) {
 					hWnd = ::FindWindow(NULL, NEXTRA_WINDOW_NAME);
 					if ( hWnd == NULL ) {
-						// ³íI—¹‚µ‚Ü‚µ‚½
+						// ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½
 						break;
 					}
 					l_dwEndTime = ::GetTickCount();
@@ -807,13 +807,13 @@ void CNanoSpecApp::NextraExe(int Cmd)
 						l_dwElpsTime = l_dwEndTime - l_dwStartTime;
 					}
 					if (30000 <= l_dwElpsTime) {
-						// ƒ^ƒCƒ€ƒAƒEƒg‚É‚µ‚Ü‚·D
+						// ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½É‚ï¿½ï¿½Ü‚ï¿½ï¿½D
 						break;
 					}
 					::Sleep(100);
 				}
 			}
-// 2009.12.29 K.Matsuo Nextra.exe I—¹‘Ò‚¿‘Îô <--
+// 2009.12.29 K.Matsuo Nextra.exe ï¿½Iï¿½ï¿½ï¿½Ò‚ï¿½ï¿½Îï¿½ <--
 		}
 		break;
 	}
@@ -832,16 +832,16 @@ void CNanoSpecApp::NanoSpecTitle(int Cmd, int iParam/*=0*/)
 	switch(Cmd){
 	case NANOSPEC_TITLE_START:
 		if(hWnd == NULL){
-/* added 2014.11.22 hmenjo StartUpLogo ‹N“®/’â~ ---------- { ---------- */
-			this->StartUpLogo(1);	/* ‹N“®	*/
-/* added 2014.11.22 hmenjo StartUpLogo ‹N“®/’â~ ---------- } ---------- */
+/* added 2014.11.22 hmenjo StartUpLogo ï¿½Nï¿½ï¿½/ï¿½ï¿½~ ---------- { ---------- */
+			this->StartUpLogo(1);	/* ï¿½Nï¿½ï¿½	*/
+/* added 2014.11.22 hmenjo StartUpLogo ï¿½Nï¿½ï¿½/ï¿½ï¿½~ ---------- } ---------- */
 			STARTUPINFO StartInfo;
 			PROCESS_INFORMATION ProcessInfo;
 			ZeroMemory(&StartInfo,sizeof(StartInfo));
 			ZeroMemory(&ProcessInfo,sizeof(ProcessInfo));
 			StartInfo.wShowWindow = SW_SHOWNORMAL;
 			StartInfo.cb = sizeof(StartInfo);
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) -->
 //			sprintf(szFilePath, "%s%s", g_szBin_Dir, NANOSPEC_TITLE_EXE_NAME);
 			CString strBuffer;
 			strBuffer = NANOSPEC_TITLE_EXE_NAME;
@@ -849,7 +849,7 @@ void CNanoSpecApp::NanoSpecTitle(int Cmd, int iParam/*=0*/)
 				strBuffer.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
 			}
 			sprintf(szFilePath, "%s%s", g_szBin_Dir, (LPCTSTR)strBuffer);
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) <--
 			int ret = CreateProcess(	NULL,
 										szFilePath, 					// BIN_DIR "\\" NANOSPEC_TITLE_EXE_NAME,
 										NULL,
@@ -861,20 +861,20 @@ void CNanoSpecApp::NanoSpecTitle(int Cmd, int iParam/*=0*/)
 										&StartInfo,
 										&ProcessInfo
 									);
-/* added 2009.06.05 hmenjo NanoSpecTitle Á‚¦‚È‚¢‘Îô ---------- { ---------- */
+/* added 2009.06.05 hmenjo NanoSpecTitle ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Îï¿½ ---------- { ---------- */
 			m_dwProcIdNanoTitle = ProcessInfo.dwProcessId;
-/* deleted 2009.06.15 hmenjo ƒ^ƒCƒgƒ‹ƒEƒBƒ“ƒhƒE•\¦ˆ—‚ÌƒSƒ~íœ ---------- { ---------- */
+/* deleted 2009.06.15 hmenjo ï¿½^ï¿½Cï¿½gï¿½ï¿½ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÌƒSï¿½~ï¿½íœ ---------- { ---------- */
 //			ProcessInfo.hProcess;
-/* deleted 2009.06.15 hmenjo ƒ^ƒCƒgƒ‹ƒEƒBƒ“ƒhƒE•\¦ˆ—‚ÌƒSƒ~íœ ---------- } ---------- */
+/* deleted 2009.06.15 hmenjo ï¿½^ï¿½Cï¿½gï¿½ï¿½ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÌƒSï¿½~ï¿½íœ ---------- } ---------- */
 			if (0 != ret) {
-				/* ‹N“®‚µ‚½ƒvƒƒZƒX‚ÍƒEƒBƒ“ƒhƒE‚ğ‚Â‚Ì‚Å
-					ƒEƒBƒ“ƒhƒE‚ª¶¬‚³‚ê‚é‚Ü‚Å‚©C 30[s]ŠÔ‘Ò‚¿‚Ü‚·D*/
+				/* ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Zï¿½Xï¿½ÍƒEï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½Â‚Ì‚ï¿½
+					ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚Å‚ï¿½ï¿½C 30[s]ï¿½Ô‘Ò‚ï¿½ï¿½Ü‚ï¿½ï¿½D*/
 				DWORD l_dwStartTime = ::GetTickCount();
 				DWORD l_dwEndTime, l_dwElpsTime;
 				while (0 == ::FindWindow(NULL, NANOSPEC_TITLE_WINDOW_NAME)) {
-/* deleted 2009.06.15 hmenjo ƒ^ƒCƒgƒ‹ƒEƒBƒ“ƒhƒE•\¦ˆ—‚ÌƒSƒ~íœ ---------- { ---------- */
+/* deleted 2009.06.15 hmenjo ï¿½^ï¿½Cï¿½gï¿½ï¿½ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÌƒSï¿½~ï¿½íœ ---------- { ---------- */
 //					::Sleep(200);
-/* deleted 2009.06.15 hmenjo ƒ^ƒCƒgƒ‹ƒEƒBƒ“ƒhƒE•\¦ˆ—‚ÌƒSƒ~íœ ---------- } ---------- */
+/* deleted 2009.06.15 hmenjo ï¿½^ï¿½Cï¿½gï¿½ï¿½ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÌƒSï¿½~ï¿½íœ ---------- } ---------- */
 					l_dwEndTime = ::GetTickCount();
 					if (l_dwEndTime < l_dwStartTime) {
 						l_dwElpsTime = l_dwEndTime + (ULONG_MAX - l_dwStartTime) + 1;
@@ -882,13 +882,13 @@ void CNanoSpecApp::NanoSpecTitle(int Cmd, int iParam/*=0*/)
 						l_dwElpsTime = l_dwEndTime - l_dwStartTime;
 					}
 					if (30000 <= l_dwElpsTime) {
-						// ƒ^ƒCƒ€ƒAƒEƒg‚É‚µ‚Ü‚·D
+						// ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½É‚ï¿½ï¿½Ü‚ï¿½ï¿½D
 						break;
 					}
 				}
 				::Sleep(200);
 			}
-/* added 2009.06.05 hmenjo NanoSpecTitle Á‚¦‚È‚¢‘Îô ---------- } ---------- */
+/* added 2009.06.05 hmenjo NanoSpecTitle ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Îï¿½ ---------- } ---------- */
 		}
 		break;
 	case NANOSPEC_TITLE_SHOW:
@@ -920,14 +920,14 @@ void CNanoSpecApp::NanoSpecTitle(int Cmd, int iParam/*=0*/)
 // 2009.12.05 K.Matsuo <--
 	case NANOSPEC_TITLE_CLOSE:
 		if(hWnd != NULL){
-/* added 2014.11.22 hmenjo StartUpLogo ‹N“®/’â~ ---------- { ---------- */
-			this->StartUpLogo(2);	/* ’â~	*/
-/* added 2014.11.22 hmenjo StartUpLogo ‹N“®/’â~ ---------- } ---------- */
+/* added 2014.11.22 hmenjo StartUpLogo ï¿½Nï¿½ï¿½/ï¿½ï¿½~ ---------- { ---------- */
+			this->StartUpLogo(2);	/* ï¿½ï¿½~	*/
+/* added 2014.11.22 hmenjo StartUpLogo ï¿½Nï¿½ï¿½/ï¿½ï¿½~ ---------- } ---------- */
 			bRet = ::PostMessage(hWnd, WM_CLOSE, NULL, NULL);
-/* added 2009.06.05 hmenjo NanoSpecTitle Á‚¦‚È‚¢‘Îô ---------- { ---------- */
+/* added 2009.06.05 hmenjo NanoSpecTitle ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Îï¿½ ---------- { ---------- */
 			if (0 != bRet) {
-				/* ‹N“®‚µ‚½ƒvƒƒZƒX‚ÍƒEƒBƒ“ƒhƒE‚ğ‚Â‚Ì‚Å
-					ƒEƒBƒ“ƒhƒE‚ª¶¬‚³‚ê‚Ä‚¢‚È‚¢‚±‚Æ‚ğŠm”F‚·‚é‚©C 30[s]ŠÔ‘Ò‚¿‚Ü‚·D*/
+				/* ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Zï¿½Xï¿½ÍƒEï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½Â‚Ì‚ï¿½
+					ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½mï¿½Fï¿½ï¿½ï¿½é‚©ï¿½C 30[s]ï¿½Ô‘Ò‚ï¿½ï¿½Ü‚ï¿½ï¿½D*/
 				DWORD l_dwStartTime = ::GetTickCount();
 				DWORD l_dwEndTime, l_dwElpsTime;
 				while (0 != ::GetProcessVersion(m_dwProcIdNanoTitle)) {
@@ -938,22 +938,22 @@ void CNanoSpecApp::NanoSpecTitle(int Cmd, int iParam/*=0*/)
 						l_dwElpsTime = l_dwEndTime - l_dwStartTime;
 					}
 					if (30000 <= l_dwElpsTime) {
-						// ƒ^ƒCƒ€ƒAƒEƒg‚É‚µ‚Ü‚·D
+						// ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½É‚ï¿½ï¿½Ü‚ï¿½ï¿½D
 						break;
 					}
-/* added 2016.08.26 hmenjo ‹N“®ƒ_ƒ“ƒ}ƒŠ‘Îô ---------- { ---------- */
-					/*	CNanoSpecTitleDlg “à‚Ì SetForegroundWindow() ‚Æ
-						SetWindowPos() ‚É‚æ‚é OS ‚©‚ç‚ÌƒEƒBƒ“ƒhƒEƒƒbƒZ[ƒW‚ª
-						~‚Ü‚ç‚È‚¢‚æ‚¤‚É‚·‚é‚½‚ßD	*/
+/* added 2016.08.26 hmenjo ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½}ï¿½ï¿½ï¿½Îï¿½ ---------- { ---------- */
+					/*	CNanoSpecTitleDlg ï¿½ï¿½ï¿½ï¿½ SetForegroundWindow() ï¿½ï¿½
+						SetWindowPos() ï¿½É‚ï¿½ï¿½ OS ï¿½ï¿½ï¿½ï¿½ÌƒEï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½
+						ï¿½~ï¿½Ü‚ï¿½È‚ï¿½ï¿½æ‚¤ï¿½É‚ï¿½ï¿½é‚½ï¿½ßD	*/
 					MSG l_msg;
 					while (FALSE != ::PeekMessage(&l_msg, NULL, 0, 0, PM_REMOVE)) {
 						::TranslateMessage(&l_msg);
 						::DispatchMessage(&l_msg);
 					}
-/* added 2016.08.26 hmenjo ‹N“®ƒ_ƒ“ƒ}ƒŠ‘Îô ---------- } ---------- */
+/* added 2016.08.26 hmenjo ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½}ï¿½ï¿½ï¿½Îï¿½ ---------- } ---------- */
 				}
 			}
-/* added 2009.06.05 hmenjo NanoSpecTitle Á‚¦‚È‚¢‘Îô ---------- } ---------- */
+/* added 2009.06.05 hmenjo NanoSpecTitle ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Îï¿½ ---------- } ---------- */
 		}
 		break;
 	}
@@ -964,6 +964,7 @@ void CNanoSpecApp::NanoSpecTitle(int Cmd, int iParam/*=0*/)
 void CNanoSpecApp::MakePath()
 {
 	char*	ptr;
+	const char* cptr;
 	memset(g_szCurPath, 0, sizeof(g_szCurPath));
 	memset(g_szMyPath, 0, sizeof(g_szMyPath));
 	DWORD dRet = GetCurrentDirectory(MAX_PATH, g_szCurPath);
@@ -973,13 +974,13 @@ void CNanoSpecApp::MakePath()
 
 ///// BIN_DIR /////
 	strcpy(g_szBin_Dir, g_szMyPath);
-	ptr = strchr(BIN_DIR, '\\');
-	if(ptr) strcat(g_szBin_Dir, ptr);
+	cptr = strchr(BIN_DIR, '\\');
+	if(cptr) strcat(g_szBin_Dir, cptr);
 
 ///// LOG_DIR /////
 	strcpy(g_szLog_Dir, g_szMyPath);
-	ptr = strchr(LOG_DIR, '\\');
-	if(ptr) strcat(g_szLog_Dir, ptr);
+	cptr = strchr(LOG_DIR, '\\');
+	if(cptr) strcat(g_szLog_Dir, cptr);
 
 	///// PR_DIR /////
 	strcpy(g_szLog_Pr_Dir, g_szLog_Dir);
@@ -987,8 +988,8 @@ void CNanoSpecApp::MakePath()
 
 ///// CFG_DIR /////
 	strcpy(g_szCfg_Dir, g_szMyPath);
-	ptr = strchr(CFG_DIR, '\\');
-	if(ptr) strcat(g_szCfg_Dir, ptr);
+	cptr = strchr(CFG_DIR, '\\');
+	if(cptr) strcat(g_szCfg_Dir, cptr);
 
 	///// CFG_SYSTEM_DIR /////
 	strcpy(g_szCfg_System_Dir, g_szCfg_Dir);
@@ -1012,8 +1013,8 @@ void CNanoSpecApp::MakePath()
 
 ///// DB_DIR /////
 	strcpy(g_szDb_Dir, g_szMyPath);
-	ptr = strchr(DB_DIR, '\\');
-	if(ptr) strcat(g_szDb_Dir, ptr);
+	cptr = strchr(DB_DIR, '\\');
+	if(cptr) strcat(g_szDb_Dir, cptr);
 
 	///// DB_MAIN_RECIPE_DIR /////
 	strcpy(g_szDb_Main_Recipe_Dir, g_szDb_Dir);
@@ -1053,13 +1054,13 @@ void CNanoSpecApp::MakePath()
 
 ///// RESULT_DIR /////
 	strcpy(g_szResult_Dir, g_szMyPath);
-	ptr = strchr(RESULT_DIR, '\\');
-	if(ptr) strcat(g_szResult_Dir, ptr);
+	cptr = strchr(RESULT_DIR, '\\');
+	if(cptr) strcat(g_szResult_Dir, cptr);
 
 ///// DATA_DIR /////
 	strcpy(g_szData_Dir, g_szMyPath);
-	ptr = strchr(DATA_DIR, '\\');
-	if(ptr) strcat(g_szData_Dir, ptr);
+	cptr = strchr(DATA_DIR, '\\');
+	if(cptr) strcat(g_szData_Dir, cptr);
 
 	///// DATA_MEASUREMENTDATA_DIR /////
 	strcpy(g_szData_MeasurementData_Dir, g_szData_Dir);
@@ -1076,17 +1077,17 @@ void CNanoSpecApp::MakePath()
 	///// REF_DIR /////
 	strcpy(g_szData_Ref_Dir, g_szData_Dir);
 	strcat(g_szData_Ref_Dir, "ref\\");
-/* added 2009.07.31 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(9) ---------- { ---------- */
+/* added 2009.07.31 hmenjo ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½@ï¿½\ï¿½Ç‰ï¿½(9) ---------- { ---------- */
 	_tcscpy(g_szData_StressRef_Dir, g_szData_Ref_Dir);
 	_tcscat(g_szData_StressRef_Dir, _T("StressRef\\"));
-/* added 2009.07.31 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(9) ---------- } ---------- */
+/* added 2009.07.31 hmenjo ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½@ï¿½\ï¿½Ç‰ï¿½(9) ---------- } ---------- */
 }
 
-/* added 2009.07.13 hmenjo ÀsƒpƒXİ’è ---------- { ---------- */
-/*	NanoSpec —p‚ÌÀsƒpƒX‚ğİ’è‚µ‚Ü‚·D	*/
+/* added 2009.07.13 hmenjo ï¿½ï¿½ï¿½sï¿½pï¿½Xï¿½İ’ï¿½ ---------- { ---------- */
+/*	NanoSpec ï¿½pï¿½Ìï¿½ï¿½sï¿½pï¿½Xï¿½ï¿½İ’è‚µï¿½Ü‚ï¿½ï¿½D	*/
 int CNanoSpecApp::SetEnvNanoPath()
 {
-	/* Šî€ƒfƒBƒŒƒNƒgƒŠ‚ğ“±o	*/
+	/* ï¿½î€ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ğ“±o	*/
 	TCHAR l_tszTemp[_MAX_PATH];
 	if (0 == ::GetModuleFileName(0, l_tszTemp, sizeof(l_tszTemp))) {
 		return -1;
@@ -1100,32 +1101,32 @@ int CNanoSpecApp::SetEnvNanoPath()
 		return -2;
 	}
 	if (_T('\\') != l_tszBasePath[_tcslen(l_tszBasePath) - 1]) {
-		_tcscat(l_tszBasePath, _T("\\"));	/* ÅŒã‚É'\'‚ğ’Ç‰Á	*/
+		_tcscat(l_tszBasePath, _T("\\"));	/* ï¿½ÅŒï¿½ï¿½'\'ï¿½ï¿½Ç‰ï¿½	*/
 	}
-	/* ÀsƒpƒX‚ğì¬‚µ‚Ü‚·D	*/
+	/* ï¿½ï¿½ï¿½sï¿½pï¿½Xï¿½ï¿½ï¿½ì¬ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 	TCHAR l_tszPathBin[_MAX_PATH];								/* BIN		*/
 	_stprintf(l_tszPathBin, _T("%sBIN"), l_tszBasePath);
 	TCHAR l_tszPathBinDeb[_MAX_PATH];							/* BIN_DEB	*/
 	_stprintf(l_tszPathBinDeb, _T("%sBIN_DEB"), l_tszBasePath);
 	TCHAR l_tszPathDll[_MAX_PATH];								/* DLL		*/
 	_stprintf(l_tszPathDll, _T("%sDLL"), l_tszBasePath);
-	/* ŠÂ‹«•Ï”‚ÌÀsƒpƒX‚Ì•¶š—ñƒTƒCƒY‚ğæ“¾‚µ‚Ü‚·D	*/
+	/* ï¿½Â‹ï¿½ï¿½Ïï¿½ï¿½Ìï¿½ï¿½sï¿½pï¿½Xï¿½Ì•ï¿½ï¿½ï¿½ï¿½ï¿½Tï¿½Cï¿½Yï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 	DWORD l_dwEnvPathReqLen = ::GetEnvironmentVariable(_T("path"), 0, 0);
 	if (0 == l_dwEnvPathReqLen) {
 		return -3;
 	}
-	/* ŠÂ‹«•Ï”‚ÌÀsƒpƒXæ“¾—p‚Ì—Ìˆæ‚ğŠm•Û‚µ‚Ü‚·D	*/
+	/* ï¿½Â‹ï¿½ï¿½Ïï¿½ï¿½Ìï¿½ï¿½sï¿½pï¿½Xï¿½æ“¾ï¿½pï¿½Ì—Ìˆï¿½ï¿½ï¿½mï¿½Û‚ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 	int l_iAddLen = _tcslen(l_tszPathBin) + _tcslen(l_tszPathBinDeb) + _tcslen(l_tszPathDll) + (sizeof(TCHAR) * 3);
 	l_dwEnvPathReqLen += l_iAddLen + (sizeof(TCHAR) * 4);
 	TCHAR* l_ptszEnvPath = (TCHAR*) malloc(l_dwEnvPathReqLen);
 	if (0 == l_ptszEnvPath) {
 		return -4;
 	}
-	/* ŠÂ‹«•Ï”‚ÌÀsƒpƒX‚ğæ“¾‚µ‚Ü‚·D	*/
+	/* ï¿½Â‹ï¿½ï¿½Ïï¿½ï¿½Ìï¿½ï¿½sï¿½pï¿½Xï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 	memset(l_ptszEnvPath, 0, l_dwEnvPathReqLen);
 	DWORD l_dwEnvPathLen = ::GetEnvironmentVariable(_T("path"), l_ptszEnvPath, l_dwEnvPathReqLen);
 	_tcslwr(l_ptszEnvPath);
-	/* Nano ‚ÌÀsƒpƒX‚ª–³‚¯‚ê‚Î’Ç‰Á‚µ‚Ü‚·D	*/
+	/* Nano ï¿½Ìï¿½ï¿½sï¿½pï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î’Ç‰ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 	TCHAR l_tszAddPath[_MAX_PATH] = _T("");
 	TCHAR* l_ptszFind;
 	_tcslwr(l_tszPathBin);
@@ -1153,9 +1154,9 @@ int CNanoSpecApp::SetEnvNanoPath()
 		_tcscat(l_tszAddPath, _T(";")); _tcscat(l_tszAddPath, l_tszPathDll);
 	}
 	if (0 == _tcscmp(l_tszAddPath, _T(""))) {
-		/* ‚·‚×‚Ä‘¶İ‚µ‚½‚Ì‚Å’Ç‰Á‚ª‚ ‚è‚Ü‚¹‚ñD	*/
+		/* ï¿½ï¿½ï¿½×‚Ä‘ï¿½ï¿½İ‚ï¿½ï¿½ï¿½ï¿½Ì‚Å’Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½D	*/
 	} else {
-		/* ’Ç‰Á‚ª‚ ‚è‚Ü‚·‚Ì‚ÅŠÂ‹«•Ï”‚ÌÀsƒpƒX‚É’Ç‰Á‚µ‚Ü‚·D	*/
+		/* ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½Ì‚ÅŠÂ‹ï¿½ï¿½Ïï¿½ï¿½Ìï¿½ï¿½sï¿½pï¿½Xï¿½É’Ç‰ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 		_tcscat(l_ptszEnvPath, l_tszAddPath);
 		::SetEnvironmentVariable(_T("path"), l_ptszEnvPath);
 	}
@@ -1164,9 +1165,9 @@ int CNanoSpecApp::SetEnvNanoPath()
 
 	return 0;
 }
-/* added 2009.07.13 hmenjo ÀsƒpƒXİ’è ---------- } ---------- */
+/* added 2009.07.13 hmenjo ï¿½ï¿½ï¿½sï¿½pï¿½Xï¿½İ’ï¿½ ---------- } ---------- */
 
-/* added 2014.11.22 hmenjo StartUpLogo ‹N“®/’â~ ---------- { ---------- */
+/* added 2014.11.22 hmenjo StartUpLogo ï¿½Nï¿½ï¿½/ï¿½ï¿½~ ---------- { ---------- */
 #define	SUL_CAPTION	_T("StartUpLogo")
 long CNanoSpecApp::StartUpLogo(long lCmd/* = 0*/)
 {
@@ -1178,7 +1179,7 @@ long CNanoSpecApp::StartUpLogo(long lCmd/* = 0*/)
 	long l_lCmd = lCmd;
 
 	switch (l_lCmd) {
-	case 1:		/* ŠJn(CreateProcess)	*/
+	case 1:		/* ï¿½Jï¿½n(CreateProcess)	*/
 		if (l_hWnd == NULL) {
 			STARTUPINFO l_StartInfo;
 			PROCESS_INFORMATION l_ProcessInfo;
@@ -1188,11 +1189,11 @@ long CNanoSpecApp::StartUpLogo(long lCmd/* = 0*/)
 			l_StartInfo.wShowWindow = SW_SHOWNORMAL;
 			TCHAR l_tszPathExe[MAX_PATH];
 			_stprintf(l_tszPathExe, _T("%s%s.exe"), g_szBin_Dir, l_tszCaption);
-//			TCHAR l_tszParam[] = _T("ANIMATE1 WZOTOPMOST DISPTIME0 RECT-1,550,-1,-1");	/* ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“@ƒpƒ‰ƒƒ^	*/
-/* modified 2015.04.05 hmenjo FWXGA ‘Î‰2 ---------- { ---------- */
-//			TCHAR l_tszParam[] = _T("ANIMATE1 WZOTOPMOST2 DISPTIME0 RECT-1,550,-1,-1");	/* ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“@ƒpƒ‰ƒƒ^	*/
-/* modified 2015.04.05 hmenjo FWXGA ‘Î‰2 ----------              */
-			TCHAR l_tszParamFmt[] = _T("ANIMATE1 WZOTOPMOST2 DISPTIME0 RECT-1,%d,-1,-1");	/* ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“@ƒpƒ‰ƒƒ^	*/
+//			TCHAR l_tszParam[] = _T("ANIMATE1 WZOTOPMOST DISPTIME0 RECT-1,550,-1,-1");	/* ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½@ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^	*/
+/* modified 2015.04.05 hmenjo FWXGA ï¿½Î‰ï¿½2 ---------- { ---------- */
+//			TCHAR l_tszParam[] = _T("ANIMATE1 WZOTOPMOST2 DISPTIME0 RECT-1,550,-1,-1");	/* ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½@ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^	*/
+/* modified 2015.04.05 hmenjo FWXGA ï¿½Î‰ï¿½2 ----------              */
+			TCHAR l_tszParamFmt[] = _T("ANIMATE1 WZOTOPMOST2 DISPTIME0 RECT-1,%d,-1,-1");	/* ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½@ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^	*/
 			TCHAR l_tszParam[256] = _T("");
 			RECT l_rectDesktop;
 			CWnd::GetDesktopWindow()->GetClientRect(&l_rectDesktop);
@@ -1201,7 +1202,7 @@ long CNanoSpecApp::StartUpLogo(long lCmd/* = 0*/)
 				l_lHPos = 370;
 			}
 			_stprintf(l_tszParam, l_tszParamFmt, l_lHPos);
-/* modified 2015.04.05 hmenjo FWXGA ‘Î‰2 ---------- } ---------- */
+/* modified 2015.04.05 hmenjo FWXGA ï¿½Î‰ï¿½2 ---------- } ---------- */
 			if (0 < _tcslen(l_tszParam)) {
 				_tcscat(l_tszPathExe, _T(" "));
 				_tcscat(l_tszPathExe, l_tszParam);
@@ -1220,65 +1221,65 @@ long CNanoSpecApp::StartUpLogo(long lCmd/* = 0*/)
 			ls_dwProcessId = 0;
 			if (FALSE != l_bRc) {
 				ls_dwProcessId = l_ProcessInfo.dwProcessId;
-				/* ‹N“®‚µ‚½ƒvƒƒZƒX‚ÍƒEƒBƒ“ƒhƒE‚ğ‚Â‚Ì‚Å
-					ƒEƒBƒ“ƒhƒE‚ª¶¬‚³‚ê‚é‚Ü‚Å‚©C 30[s]ŠÔ‘Ò‚¿‚Ü‚·D*/
+				/* ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Zï¿½Xï¿½ÍƒEï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½Â‚Ì‚ï¿½
+					ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚Å‚ï¿½ï¿½C 30[s]ï¿½Ô‘Ò‚ï¿½ï¿½Ü‚ï¿½ï¿½D*/
 				DWORD l_dwStartTime = ::GetTickCount();
 				while (0 == ::FindWindow(NULL, l_tszCaption)) {
 					if (30000 <= (::GetTickCount() - l_dwStartTime)) {
-						/* ƒ^ƒCƒ€ƒAƒEƒg‚É‚µ‚Ü‚·D	*/
+						/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½É‚ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 						l_lRc = -11;
 						break;
 					}
 				}
 				::Sleep(200);
 			} else {
-				/* CreateProcess() ƒGƒ‰[	*/
+				/* CreateProcess() ï¿½Gï¿½ï¿½ï¿½[	*/
 				l_lRc = -12;
 			}
 		}
 		break;
-	case 2:		/* I—¹(WM_CLOSE)	*/
+	case 2:		/* ï¿½Iï¿½ï¿½(WM_CLOSE)	*/
 		if ((l_hWnd != NULL) && (0 != ls_dwProcessId)) {
 			BOOL l_bRc = ::PostMessage(l_hWnd, WM_CLOSE, NULL, NULL);
 			if (FALSE != l_bRc) {
-				/* ‹N“®‚µ‚½ƒvƒƒZƒX‚ÍƒEƒBƒ“ƒhƒE‚ğ‚Â‚Ì‚Å
-					ƒEƒBƒ“ƒhƒE‚ª¶¬‚³‚ê‚Ä‚¢‚È‚¢‚±‚Æ‚ğŠm”F‚·‚é‚©C 30[s]ŠÔ‘Ò‚¿‚Ü‚·D*/
+				/* ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Zï¿½Xï¿½ÍƒEï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½Â‚Ì‚ï¿½
+					ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½mï¿½Fï¿½ï¿½ï¿½é‚©ï¿½C 30[s]ï¿½Ô‘Ò‚ï¿½ï¿½Ü‚ï¿½ï¿½D*/
 				DWORD l_dwStartTime = ::GetTickCount();
 				DWORD l_dwPV = 0;
 				while (0 != (l_dwPV = ::GetProcessVersion(ls_dwProcessId))) {
 					if (30000 <= (::GetTickCount() - l_dwStartTime)) {
-						/* ƒ^ƒCƒ€ƒAƒEƒg‚É‚µ‚Ü‚·D	*/
+						/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½É‚ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 						l_lRc = -21;
-/* added 2016.09.02 hmenjo StartUpLogo ‰ü—Ç ---------- { ---------- */
+/* added 2016.09.02 hmenjo StartUpLogo ï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
 						::PostMessage(l_hWnd, WM_CLOSE, NULL, NULL);
-/* added 2016.09.02 hmenjo StartUpLogo ‰ü—Ç ---------- } ---------- */
+/* added 2016.09.02 hmenjo StartUpLogo ï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
 						break;
 					}
-/* added 2016.08.26 hmenjo ‹N“®ƒ_ƒ“ƒ}ƒŠ‘Îô ---------- { ---------- */
-					/*	CNanoSpecTitleDlg “à‚Ì SetForegroundWindow() ‚Æ
-						SetWindowPos() ‚É‚æ‚é OS ‚©‚ç‚ÌƒEƒBƒ“ƒhƒEƒƒbƒZ[ƒW‚ª
-						~‚Ü‚ç‚È‚¢‚æ‚¤‚É‚·‚é‚½‚ßD	*/
+/* added 2016.08.26 hmenjo ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½}ï¿½ï¿½ï¿½Îï¿½ ---------- { ---------- */
+					/*	CNanoSpecTitleDlg ï¿½ï¿½ï¿½ï¿½ SetForegroundWindow() ï¿½ï¿½
+						SetWindowPos() ï¿½É‚ï¿½ï¿½ OS ï¿½ï¿½ï¿½ï¿½ÌƒEï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½
+						ï¿½~ï¿½Ü‚ï¿½È‚ï¿½ï¿½æ‚¤ï¿½É‚ï¿½ï¿½é‚½ï¿½ßD	*/
 					MSG l_msg;
 					while (FALSE != ::PeekMessage(&l_msg, NULL, 0, 0, PM_REMOVE)) {
 						::TranslateMessage(&l_msg);
 						::DispatchMessage(&l_msg);
 					}
-/* added 2016.08.26 hmenjo ‹N“®ƒ_ƒ“ƒ}ƒŠ‘Îô ---------- } ---------- */
+/* added 2016.08.26 hmenjo ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½}ï¿½ï¿½ï¿½Îï¿½ ---------- } ---------- */
 				}
 				if (0 == l_dwPV) {
 					ls_dwProcessId = 0;
 				}
 			} else {
-				/* PostMessage() ƒGƒ‰[	*/
+				/* PostMessage() ï¿½Gï¿½ï¿½ï¿½[	*/
 				l_lRc = -22;
 			}
 		}
 		break;
 	default:
-		/* ‰½‚à‚µ‚È‚¢	*/
+		/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½	*/
 		break;
 	}
 
 	return l_lRc;
 }
-/* added 2014.11.22 hmenjo StartUpLogo ‹N“®/’â~ ---------- } ---------- */
+/* added 2014.11.22 hmenjo StartUpLogo ï¿½Nï¿½ï¿½/ï¿½ï¿½~ ---------- } ---------- */

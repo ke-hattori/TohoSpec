@@ -4,7 +4,7 @@
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// MeasurementTabView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// MeasurementTabView.h : ï¿½wï¿½bï¿½_ï¿½[ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 class CMeasurementListDlg;
@@ -12,7 +12,7 @@ class CMeasurementGraphDlg;
 class CMeasurementMapDlg;
 
 // ##########################################################################
-// CMeasurementTabView ƒtƒH[ƒ€ ƒrƒ…[
+// CMeasurementTabView ï¿½tï¿½Hï¿½[ï¿½ï¿½ ï¿½rï¿½ï¿½ï¿½[
 // ##########################################################################
 
 #ifndef __AFXEXT_H__
@@ -31,19 +31,19 @@ class CMeasurementTabView : public CNanoUI
 {
 public:
 //protected:
-	CMeasurementTabView();			// “®“I¶¬‚ÉŽg—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CMeasurementTabView();			// ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ÉŽgï¿½pï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½g ï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^ï¿½B
 	DECLARE_DYNCREATE(CMeasurementTabView)
 
-// ƒtƒH[ƒ€ ƒf[ƒ^
+// ï¿½tï¿½Hï¿½[ï¿½ï¿½ ï¿½fï¿½[ï¿½^
 public:
 	//{{AFX_DATA(CMeasurementTabView)
 	enum { IDD = IDD_MEASUREMENT_TAB_FORM };
 	//}}AFX_DATA
 
-// ƒAƒgƒŠƒrƒ…[ƒg
+// ï¿½Aï¿½gï¿½ï¿½ï¿½rï¿½ï¿½ï¿½[ï¿½g
 public:
 
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ï¿½Iï¿½yï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
 public:
 	CToolBar m_wndMeasurementBar;
 	CTabCtrl m_MeasurementTab;
@@ -60,9 +60,9 @@ public:
 	int m_iHostModeOld;
 	int m_iManuMeasModeOld;
 
-// 2014.01.17 Bagus Add (Stage None‘Î‰ž) -->
+// 2014.01.17 Bagus Add (Stage Noneï¿½Î‰ï¿½) -->
 	SYSTEM_CONFIG m_SystemConfig;
-// 2014.01.17 Bagus Add (Stage None‘Î‰ž) <--
+// 2014.01.17 Bagus Add (Stage Noneï¿½Î‰ï¿½) <--
 
 	void MeasurementListGrid_Init();
 	char m_szName[RECIPE_NAME_LEN + 1];
@@ -83,14 +83,14 @@ public:
 	int SaveOverlap(char* szSaveFullFilePath);
 	BOOL FileOrDirExists(LPCTSTR pszFileName);
 	char * GetFileName( const char *PathName );
-	char * strtail( const char *string );
+	const char * strtail( const char *string );
 	int isJMS( const char *str, int nPos );
 	void ButtonEnableChange(int Select);
 	int FolderCopy( LPCTSTR szFrom, LPCTSTR szTo );
 	int MakeDirectory(char* dir);
 	//2009.08.28 bagus stress --{--
 	//2009.08.28 bagus stress --}--
-/* added 2016.05.05 hmenjo Žè“® Ä‘ª’è/Žw’è“Œv ---------- { ---------- */
+/* added 2016.05.05 hmenjo ï¿½è“® ï¿½Ä‘ï¿½ï¿½ï¿½/ï¿½wï¿½è“ï¿½v ---------- { ---------- */
 	BOOL MRCS_RDblClk(POINT ptGrid, CGridCtrl* pclsGrid = 0);
 	WORD MRCS_SettingGet(long lIndex);
 	WORD MRCS_SettingStatusGet(long lIndex);
@@ -104,24 +104,24 @@ public:
 	WORD MRCS_IncludeColorSetNoGet();
 	void MRCS_IncludeColorSet(WORD wNo, BOOL bList, BOOL bGraph);
 	BOOL MRCS_ShowCompletionPointSnap(LPWORD pwList = 0, LPWORD pwGraph = 0);
-/* added 2016.05.05 hmenjo Žè“® Ä‘ª’è/Žw’è“Œv ---------- } ---------- */
+/* added 2016.05.05 hmenjo ï¿½è“® ï¿½Ä‘ï¿½ï¿½ï¿½/ï¿½wï¿½è“ï¿½v ---------- } ---------- */
 
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ð¶¬‚µ‚Ü‚·B
+// ï¿½Iï¿½[ï¿½oï¿½[ï¿½ï¿½ï¿½Cï¿½h
+	// ClassWizard ï¿½Í‰ï¿½ï¿½zï¿½Öï¿½ï¿½ÌƒIï¿½[ï¿½oï¿½[ï¿½ï¿½ï¿½Cï¿½hï¿½ð¶ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	//{{AFX_VIRTUAL(CMeasurementTabView)
 	public:
 	virtual void OnInitialUpdate();
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ï¿½Tï¿½|ï¿½[ï¿½g
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
 //protected:
 public:
 	virtual ~CMeasurementTabView();
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½}ï¿½bï¿½vï¿½Öï¿½
 	//{{AFX_MSG(CMeasurementTabView)
 	afx_msg void OnSelchangeMeasurementTab(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnUpdateSaveResultData(CCmdUI* pCmdUI);
@@ -137,20 +137,20 @@ public:
 	afx_msg LRESULT ManualMeasurementStart(WPARAM wparam, LPARAM lparam);
 	DECLARE_MESSAGE_MAP()
 private:
-/* added 2009.06.16 hmenjo Žg—p‹ÖŽ~•¶Žšƒ`ƒFƒbƒN ---------- { ---------- */
+/* added 2009.06.16 hmenjo ï¿½gï¿½pï¿½ÖŽ~ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N ---------- { ---------- */
 	void OnSaveAsMain(int iSaveWay);
-/* added 2009.06.16 hmenjo Žg—p‹ÖŽ~•¶Žšƒ`ƒFƒbƒN ---------- } ---------- */
-/* added 2016.05.05 hmenjo Žè“® Ä‘ª’è/Žw’è“Œv ---------- { ---------- */
+/* added 2009.06.16 hmenjo ï¿½gï¿½pï¿½ÖŽ~ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N ---------- } ---------- */
+/* added 2016.05.05 hmenjo ï¿½è“® ï¿½Ä‘ï¿½ï¿½ï¿½/ï¿½wï¿½è“ï¿½v ---------- { ---------- */
 	void MRCS_Initialize();
 	WORD m_MRCS_wShowCompletionPointSnapL;
 	WORD m_MRCS_wShowCompletionPointSnapG;
-	WORD m_MRCS_wReMeasureNo;	/* Ä‘ª’è No.	*/
-	WORD m_MRCS_wIncludeColorSetNo;	/* Žw’èsF”Ô†	*/
+	WORD m_MRCS_wReMeasureNo;	/* ï¿½Ä‘ï¿½ï¿½ï¿½ No.	*/
+	WORD m_MRCS_wIncludeColorSetNo;	/* ï¿½wï¿½ï¿½sï¿½Fï¿½Ôï¿½	*/
 	BOOL m_MRCS_bIncludeColorSetList;
 	BOOL m_MRCS_bIncludeColorSetGraph;
 	BOOL MRCS_CheckPermission(DWORD dwMode = 0);
 	BOOL MRCS_CheckRunPermission();
-	DWORD m_MRCS_dwSettings[SCAN_POINT_MAX + 1];	/* Ý’èƒoƒbƒtƒ@	*/
+	DWORD m_MRCS_dwSettings[SCAN_POINT_MAX + 1];	/* ï¿½Ý’ï¿½oï¿½bï¿½tï¿½@	*/
 	void MRCS_SettingSet(long lIndex, WORD wSetting);
 	void MRCS_GridLineColorSet(long lIndex, COLORREF cr = CLR_DEFAULT);
 	WORD MRCS_DeleteCountGet();
@@ -158,10 +158,10 @@ private:
 	WORD MRCS_DeleteCountDec(WORD wCount = 1);
 	WORD MRCS_IncludeCountInc(WORD wCount = 1);
 	WORD MRCS_IncludeCountDec(WORD wCount = 1);
-/* added 2016.05.05 hmenjo Žè“® Ä‘ª’è/Žw’è“Œv ---------- } ---------- */
+/* added 2016.05.05 hmenjo ï¿½è“® ï¿½Ä‘ï¿½ï¿½ï¿½/ï¿½wï¿½è“ï¿½v ---------- } ---------- */
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ð‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ï¿½Í‘Oï¿½sï¿½Ì’ï¿½ï¿½Oï¿½É’Ç‰ï¿½ï¿½ÌéŒ¾ï¿½ï¿½}ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 
 #endif // !defined(AFX_MEASUREMENTTABVIEW_H__A3A8BC63_850A_4C0A_A286_593E4F63680D__INCLUDED_)
