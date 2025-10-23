@@ -132,7 +132,7 @@ protected:
 	afx_msg void OnShowWindow(BOOL bShow, UINT nStatus);
 	afx_msg void OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized);
 	//}}AFX_MSG
-	afx_msg void OnLineSelectChange(WPARAM wparam,LPARAM lparam);
+	afx_msg LRESULT OnLineSelectChange(WPARAM wparam,LPARAM lparam);
 	DECLARE_MESSAGE_MAP()
 private:
 	BOOL IsValidLineNo(int nLineNo);

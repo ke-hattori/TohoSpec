@@ -122,7 +122,7 @@ protected:
 /* added 2009.06.15 hmenjo ユーザ定義メッセージハンドラ IF 修正 ---------- } ---------- */
 
 // 2009.11.09 bagus MS 修正 --{--
-	afx_msg void OnNexResponse(WPARAM wparam, LPARAM lparam);
+	afx_msg LRESULT OnNexResponse(WPARAM wparam, LPARAM lparam);
 // 2009.11.09 bagus MS 修正 --}--
 	DECLARE_MESSAGE_MAP()
 
