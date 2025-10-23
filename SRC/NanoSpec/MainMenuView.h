@@ -4,7 +4,7 @@
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// MainMenuView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// MainMenuView.h : ï¿½wï¿½bï¿½_ï¿½[ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #ifndef __AFXEXT_H__
@@ -21,33 +21,33 @@
 #define MAIN_MENU_VIEW_BUTTON_MAX		(200)
 
 /////////////////////////////////////////////////////////////////////////////
-// CMainMenuView ƒtƒH[ƒ€ ƒrƒ…[                                           //
+// CMainMenuView ï¿½tï¿½Hï¿½[ï¿½ï¿½ ï¿½rï¿½ï¿½ï¿½[                                           //
 //                                                                         //
 /////////////////////////////////////////////////////////////////////////////
 class CMainMenuView : public CNanoUI
 {
 protected:
-	CMainMenuView();			// “®“I¶¬‚ÉŽg—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CMainMenuView();			// ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ÉŽgï¿½pï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½g ï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^ï¿½B
 	DECLARE_DYNCREATE(CMainMenuView)
 
-// ƒtƒH[ƒ€ ƒf[ƒ^
+// ï¿½tï¿½Hï¿½[ï¿½ï¿½ ï¿½fï¿½[ï¿½^
 public:
 	//{{AFX_DATA(CMainMenuView)
 	enum { IDD = IDD_MAIN_MENU_FORM };
 	//}}AFX_DATA
 
-// ƒAƒgƒŠƒrƒ…[ƒg
+// ï¿½Aï¿½gï¿½ï¿½ï¿½rï¿½ï¿½ï¿½[ï¿½g
 public:
 
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ï¿½Iï¿½yï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
 public:
 	///// Variable //////////////////////////////////////////////////////////
 	CMainFrame* m_pMainFrame;
 	CNanoSpecDoc* m_pDoc;
 
-// 2014.01.17 Bagus Add (Stage None‘Î‰ž) -->
+// 2014.01.17 Bagus Add (Stage Noneï¿½Î‰ï¿½) -->
 	SYSTEM_CONFIG m_SystemConfig;
-// 2014.01.17 Bagus Add (Stage None‘Î‰ž) <--
+// 2014.01.17 Bagus Add (Stage Noneï¿½Î‰ï¿½) <--
 
 	CBrush m_Brush_UserName;
 	CBrush m_Brush_HostMode;
@@ -110,20 +110,20 @@ public:
 		}
 	}
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ð¶¬‚µ‚Ü‚·B
+// ï¿½Iï¿½[ï¿½oï¿½[ï¿½ï¿½ï¿½Cï¿½h
+	// ClassWizard ï¿½Í‰ï¿½ï¿½zï¿½Öï¿½ï¿½ÌƒIï¿½[ï¿½oï¿½[ï¿½ï¿½ï¿½Cï¿½hï¿½ð¶ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	//{{AFX_VIRTUAL(CMainMenuView)
 	public:
 	virtual void OnInitialUpdate();
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ï¿½Tï¿½|ï¿½[ï¿½g
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
 protected:
 	virtual ~CMainMenuView();
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½}ï¿½bï¿½vï¿½Öï¿½
 	//{{AFX_MSG(CMainMenuView)
 	afx_msg void OnMainMenuLogOnButton();
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
@@ -132,12 +132,12 @@ protected:
 	afx_msg void OnDestroy();
 	afx_msg void OnMainMenuDataButton();
 	//}}AFX_MSG
-	afx_msg LRESULT OnMainMenuButton(UINT nID);
+	afx_msg void OnMainMenuButton(UINT nID);
 	afx_msg LRESULT OnPifCommConnect(WPARAM wp, LPARAM lp);
 	DECLARE_MESSAGE_MAP()
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ð‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ï¿½Í‘Oï¿½sï¿½Ì’ï¿½ï¿½Oï¿½É’Ç‰ï¿½ï¿½ÌéŒ¾ï¿½ï¿½}ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 
 #endif // !defined(AFX_MAINMENUVIEW_H__87441AF2_F73F_4959_8859_3A6131545077__INCLUDED_)

@@ -1,4 +1,4 @@
-// SitePatternEditDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// SitePatternEditDlg.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -17,7 +17,7 @@ static char THIS_FILE[] = __FILE__;
 
 #define WAIT_TIMER				(1)
 
-// CallbackŠÖ”
+// Callbackï¿½Öï¿½
 int CALLBACK CSitePatternEditDlg::CompareFunc(LPARAM lParam1, LPARAM lParam2, LPARAM lParamSort)
 {
 	BOOL bOrder = (BOOL)LOWORD(lParamSort);
@@ -32,7 +32,7 @@ int CALLBACK CSitePatternEditDlg::CompareFunc(LPARAM lParam1, LPARAM lParam2, LP
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// CSitePatternEditDlg ƒ_ƒCƒAƒƒO
+// CSitePatternEditDlg ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½O
 
 
 CSitePatternEditDlg::CSitePatternEditDlg(CWnd* pParent /*=NULL*/)
@@ -41,7 +41,7 @@ CSitePatternEditDlg::CSitePatternEditDlg(CWnd* pParent /*=NULL*/)
 	::ZeroMemory(m_bSort, sizeof(m_bSort));
 
 	//{{AFX_DATA_INIT(CSitePatternEditDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ï¿½ï¿½ï¿½ï¿½ - ClassWizard ï¿½Í‚ï¿½ï¿½ÌˆÊ’uï¿½Éƒ}ï¿½bï¿½sï¿½ï¿½ï¿½Oï¿½pï¿½Ìƒ}ï¿½Nï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½Ü‚ï¿½ï¿½Ííœï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	//}}AFX_DATA_INIT
 }
 
@@ -76,7 +76,7 @@ BEGIN_MESSAGE_MAP(CSitePatternEditDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CSitePatternEditDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSitePatternEditDlg ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 
 BOOL CSitePatternEditDlg::OnInitDialog()
 {
@@ -99,7 +99,7 @@ BOOL CSitePatternEditDlg::OnInitDialog()
 		m_DeleteAllButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 		m_DeleteAllButton.DrawFlatFocus(TRUE);
 
-		// Cancelƒ{ƒ^ƒ“”ñ•\¦ ‚Æ Okƒ{ƒ^ƒ“ˆÚ“®
+		// Cancelï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ ï¿½ï¿½ Okï¿½{ï¿½^ï¿½ï¿½ï¿½Ú“ï¿½
 		GetDlgItem(IDCANCEL)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDCANCEL)->EnableWindow(FALSE);
 
@@ -131,8 +131,8 @@ BOOL CSitePatternEditDlg::OnInitDialog()
 	m_ExecuteSeq = 0;
 	SetTimer(WAIT_TIMER, 100, NULL);
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-				  // —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Éƒtï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½İ’è‚µï¿½È‚ï¿½ï¿½Æ‚ï¿½ï¿½Aï¿½ß‚ï¿½lï¿½ï¿½ TRUE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
+				  // ï¿½ï¿½O: OCX ï¿½vï¿½ï¿½ï¿½pï¿½eï¿½B ï¿½yï¿½[ï¿½Wï¿½Ì–ß‚ï¿½lï¿½ï¿½ FALSE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
 }
 
 // ==========================================================================
@@ -215,8 +215,8 @@ void CSitePatternEditDlg::List_HeaderSet()
 
 	LPTSTR Item_JPN[] = {
 		"",
-		"ƒpƒ^[ƒ“–¼",
-//		"ƒŒƒ“ƒY",
+		"ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½ï¿½",
+//		"ï¿½ï¿½ï¿½ï¿½ï¿½Y",
 	};
 	LPTSTR Item_ENU[] = {
 		"",
@@ -284,13 +284,13 @@ void CSitePatternEditDlg::List_DataSet()
 		if(Finder.IsDots())
 			continue;
 
-		// ƒtƒ@ƒCƒ‹–¼‚ğæ“¾
+		// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
 		strBuf = Finder.GetFileTitle();
 
 		sprintf(szFilePath, "%s%s%s", g_szDb_Pattern_Dir, strBuf, DAT_EXT);
 		bRet = PatternFile_ExistPatternFilePath(szFilePath, &lastWriteSystemTime);
 		if( bRet ){
-			// ƒTƒuî•ñƒtƒ@ƒCƒ‹‚à‘¶İ‚·‚éê‡‚Ì‚İ•\¦‘ÎÛ‚Æ‚·‚é
+			// ï¿½Tï¿½uï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½ï¿½ï¿½ê‡ï¿½Ì‚İ•\ï¿½ï¿½ï¿½ÎÛ‚Æ‚ï¿½ï¿½ï¿½
 			List_Add(strBuf);
 		}
 	}
@@ -346,12 +346,15 @@ void CSitePatternEditDlg::RenumberItem()
 
 // ==========================================================================
 //
-void CSitePatternEditDlg::OnClickPatternList(TBNOTIFY* pTBNOTIFY, LRESULT* /*pResult*/)
+void CSitePatternEditDlg::OnClickPatternList(NMHDR* pNMHDR, LRESULT* pResult)
 {
-	int nIndex = pTBNOTIFY->iItem;
+	NM_LISTVIEW* pNMListView = (NM_LISTVIEW*)pNMHDR;
+	int nIndex = pNMListView->iItem;
 
 	m_SelectItem = nIndex + 1;
 	DispPattern();
+	
+	*pResult = 0;
 }
 
 // ==========================================================================
@@ -377,7 +380,7 @@ void CSitePatternEditDlg::DispPattern()
 	m_stcSitePrImg.Invalidate(TRUE);
 
 	if( m_SelectItem > 0 ){
-		// ƒpƒ^[ƒ“–¼
+		// ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½ï¿½
 		m_SelectName = rfListCtrl().GetItemText(m_SelectItem-1, 1);
 
 //		PatternFile_MakePatternImageFilePath(szFilePath, m_SelectName, m_SelectLens);
@@ -385,16 +388,16 @@ void CSitePatternEditDlg::DispPattern()
 
 		bRet = PatternFile_ExistPatternFilePath(szFilePath, &lastWriteSystemTime);
 		if( bRet ){
-			// Pattern—L‚è
+			// Patternï¿½Lï¿½ï¿½
 			::CopyFile(szFilePath, PATTERN_IMG_TEMP, FALSE);
-			// ƒIƒtƒZƒbƒgî•ñ‚ğæ“¾
+			// ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
 			PatternFile_GetSubInfo(m_SelectName, &m_pPatSubInfo);
-			// ƒŒƒ“ƒY
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Y
 			SetDlgItemText(IDC_LENS1, srTurret[m_pPatSubInfo.iLens].szName);
-			// ƒIƒtƒZƒbƒgX
+			// ï¿½Iï¿½tï¿½Zï¿½bï¿½gX
 			_stprintf(szBuffer, "%.3lf", (double)(m_pPatSubInfo.ptOffset.x)/MICROMETRE);
 			SetDlgItemText(IDC_OFFSET_X1, szBuffer);
-			// ƒIƒtƒZƒbƒgY
+			// ï¿½Iï¿½tï¿½Zï¿½bï¿½gY
 			_stprintf(szBuffer, "%.3lf", (double)(m_pPatSubInfo.ptOffset.y)/MICROMETRE);
 			SetDlgItemText(IDC_OFFSET_Y1, szBuffer);
 		}
@@ -436,8 +439,8 @@ void CSitePatternEditDlg::InitialDataSet()
 //void CSitePatternEditDlg::OnExecutionStart()
 LRESULT CSitePatternEditDlg::OnExecutionStart(WPARAM wparam, LPARAM lparam)
 {
-//	MessageBox(	"ƒpƒ^[ƒ“ƒtƒ@ƒCƒ‹‚ª‘½‚¢‚ÆŠÔ‚ª‚©‚©‚é‚±‚Æ‚ª‚ ‚è‚Ü‚·\n‚µ‚Î‚ç‚­‚¨‘Ò‚¿‰º‚³‚¢...",
-//				"ƒpƒ^[ƒ““Ç‚İ‚İˆ—",
+//	MessageBox(	"ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æï¿½ï¿½Ô‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é‚±ï¿½Æ‚ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½\nï¿½ï¿½ï¿½Î‚ç‚­ï¿½ï¿½ï¿½Ò‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...",
+//				"ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Ç‚İï¿½ï¿½İï¿½ï¿½ï¿½",
 //				MB_OK);
 	CExecutionDlg dlg;
 //	dlg.SetCaption(IDS_EXECUTION_CAPTION);
@@ -445,7 +448,7 @@ LRESULT CSitePatternEditDlg::OnExecutionStart(WPARAM wparam, LPARAM lparam)
 	LoadStringML(IDS_EXECUTION_CAPTION, strBuffer, "EXECUTION");
 	dlg.SetCaption(strBuffer);
 	//Saiki 20090601 Change ----->
-	//dlg.SetMessage("ƒpƒ^[ƒ“ƒtƒ@ƒCƒ‹‚ª‘½‚¢‚ÆŠÔ‚ª‚©‚©‚é‚±‚Æ‚ª‚ ‚è‚Ü‚·\n‚µ‚Î‚ç‚­‚¨‘Ò‚¿‰º‚³‚¢...");
+	//dlg.SetMessage("ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æï¿½ï¿½Ô‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é‚±ï¿½Æ‚ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½\nï¿½ï¿½ï¿½Î‚ç‚­ï¿½ï¿½ï¿½Ò‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...");
 	LoadStringML(IDS_MANY_PAT_FILE_SOME_TIME, strBuffer, "If you have many Pattern Files, it may take some time \n Please wait ...");
 	dlg.SetMessage(strBuffer);
 	//Saiki 20090601 Change <-----
@@ -500,7 +503,7 @@ void CSitePatternEditDlg::OnDeleteButton()
 	LoadStringML(IDS_DELETE_PATTERN, strBuffer, "Would you Delete Pattern Image?");
 	LoadStringML(IDS_DELETE_PATTERN_CONFIRM, strTitle, "DELETE PATTERN IMAGE CONFIRM");
 	if ( MessageBox(strBuffer, strTitle, MB_ICONQUESTION | MB_OKCANCEL) == IDOK ){
-		// ƒpƒ^[ƒ“–¼
+		// ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½ï¿½
 		m_SelectName = rfListCtrl().GetItemText(m_SelectItem-1, 1);
 		sprintf(szFilePath, "%s%s%s", g_szDb_Pattern_Img_Dir, m_SelectName, PATTERN_IMAGE_EXT);
 		::DeleteFile(szFilePath);
@@ -535,7 +538,7 @@ void CSitePatternEditDlg::OnDeleteAllButton()
 			if(Finder.IsDots())
 				continue;
 
-			// ƒtƒ@ƒCƒ‹–¼‚ğæ“¾
+			// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
 			strBuf = Finder.GetFileTitle();
 			sprintf(szFilePath, "%s%s%s", g_szDb_Pattern_Img_Dir, strBuf, PATTERN_IMAGE_EXT);
 			::DeleteFile(szFilePath);
@@ -551,7 +554,7 @@ void CSitePatternEditDlg::OnDeleteAllButton()
 			if(Finder.IsDots())
 				continue;
 
-			// ƒtƒ@ƒCƒ‹–¼‚ğæ“¾
+			// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
 			strBuf = Finder.GetFileTitle();
 //			sprintf(szFilePath, "%s%s%s", g_szDb_Pattern_Img_Dir, strBuf, PATTERN_IMAGE_EXT);
 //			::DeleteFile(szFilePath);
