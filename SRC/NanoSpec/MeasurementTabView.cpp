@@ -2958,10 +2958,10 @@ BOOL CMeasurementTabView::FileOrDirExists(LPCTSTR pszFileName)
 //�p�X���̖�������p�X���Ō�� '\' �܂ł��A�t�@�C�����Ɣ��f����
 char * CMeasurementTabView::GetFileName( const char *PathName )
 {
-	for( char *p = strtail(PathName); p >= PathName; p-- ) // ������̍Ōォ��ŏ��܂�
+	for( const char *p = strtail(PathName); p >= PathName; p-- ) // ������̍Ōォ��ŏ��܂�
 	{
 		if ( ('\\'==*p) && !isJMS(PathName,p-PathName) )
-			return p+1;
+			return (char*)(p+1);
 	}
 	return (char *)PathName; // ������� '\' �͊܂܂�Ă��Ȃ�����
 }//GetFileName
