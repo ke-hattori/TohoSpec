@@ -7459,7 +7459,7 @@ void CMainFrame::DeleteOldFile(const SYSTEMTIME stDeleteBaseTime)
 	}
 	catch(CFileException* fe){
             long ErrorCode = fe->m_lOsError;
-            sprintf(szBuff, "(cfChkStressData) %s, ErrorCode = %l", "File Invalid Error", ErrorCode);
+            sprintf(szBuff, "(cfChkStressData) %s, ErrorCode = %ld", "File Invalid Error", ErrorCode);
 			g_pFileRetentionPeriod[0]->FileRetentionLogging(szBuff);
 	}
 
@@ -7571,7 +7571,7 @@ void CMainFrame::DeleteOldFile(const SYSTEMTIME stDeleteBaseTime)
 		}
         catch(CFileException* fe){
             long ErrorCode = fe->m_lOsError;
-            sprintf(szBuff, "(cfFilefind) %s, ErrorCode = %l", "File Invalid Error", ErrorCode);
+            sprintf(szBuff, "(cfFilefind) %s, ErrorCode = %ld", "File Invalid Error", ErrorCode);
 			g_pFileRetentionPeriod[0]->FileRetentionLogging(szBuff);
         }
 	}
@@ -7632,7 +7632,7 @@ void CMainFrame::DeleteOldFile(const SYSTEMTIME stDeleteBaseTime)
 		}
         catch(CFileException* fe){
             long ErrorCode = fe->m_lOsError;
-            sprintf(szBuff, "(cfFilefind2) %s, ErrorCode = %l", "File Invalid Error", ErrorCode);
+            sprintf(szBuff, "(cfFilefind2) %s, ErrorCode = %ld", "File Invalid Error", ErrorCode);
 			g_pFileRetentionPeriod[0]->FileRetentionLogging(szBuff);
         }
 //Saiki 20100517 Change <-----
