@@ -165,7 +165,7 @@ BOOL CLogFile::Rename(DWORD dwFileNum)
 
 	if ( ::GetFileAttributes(szFileName) != 0xFFFFFFFF ) {
 		if ( dwFileNum >= m_dwMaxFileNum ) {
-			unlink(szFileName);
+			_unlink(szFileName);
 		} else {
 			_stprintf(szFileReName, _TEXT("%s\\%s%03d") LOG_FILE_EXT,
 				m_szPathName, m_szFileName, dwFileNum + 1);

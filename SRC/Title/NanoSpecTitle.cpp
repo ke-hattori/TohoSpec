@@ -1,4 +1,4 @@
-// NanoSpecTitle.cpp : ƒAƒvƒŠƒP[ƒVƒ‡ƒ“—pƒNƒ‰ƒX‚Ì’è‹`‚ðs‚¢‚Ü‚·B
+// NanoSpecTitle.cpp : ï¿½Aï¿½vï¿½ï¿½ï¿½Pï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½pï¿½Nï¿½ï¿½ï¿½Xï¿½Ì’ï¿½`ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 //
 
 #include "stdafx.h"
@@ -22,45 +22,45 @@ BEGIN_MESSAGE_MAP(CNanoSpecTitleApp, CWinApp)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CNanoSpecTitleApp ƒNƒ‰ƒX‚Ì\’z
+// CNanoSpecTitleApp ï¿½Nï¿½ï¿½ï¿½Xï¿½Ì\ï¿½z
 
 CNanoSpecTitleApp::CNanoSpecTitleApp()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚É\’z—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
-	// ‚±‚±‚É InitInstance ’†‚Ìd—v‚È‰Šú‰»ˆ—‚ð‚·‚×‚Ä‹Lq‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½É\ï¿½zï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ InitInstance ï¿½ï¿½ï¿½Ìdï¿½vï¿½Èï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×‚Ä‹Lï¿½qï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// —Bˆê‚Ì CNanoSpecTitleApp ƒIƒuƒWƒFƒNƒg
+// ï¿½Bï¿½ï¿½ï¿½ CNanoSpecTitleApp ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½g
 
 CNanoSpecTitleApp theApp;
 
 /////////////////////////////////////////////////////////////////////////////
-// CNanoSpecTitleApp ƒNƒ‰ƒX‚Ì‰Šú‰»
+// CNanoSpecTitleApp ï¿½Nï¿½ï¿½ï¿½Xï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½
 
 BOOL CNanoSpecTitleApp::InitInstance()
 {
 	AfxEnableControlContainer();
 
-	// •W€“I‚È‰Šú‰»ˆ—
-	// ‚à‚µ‚±‚ê‚ç‚Ì‹@”\‚ðŽg—p‚¹‚¸AŽÀsƒtƒ@ƒCƒ‹‚ÌƒTƒCƒY‚ð¬‚³‚­‚µ‚½‚¯
-	//	‚ê‚ÎˆÈ‰º‚Ì“Á’è‚Ì‰Šú‰»ƒ‹[ƒ`ƒ“‚Ì’†‚©‚ç•s•K—v‚È‚à‚Ì‚ðíœ‚µ‚Ä
-	//	‚­‚¾‚³‚¢B
+	// ï¿½Wï¿½ï¿½ï¿½Iï¿½Èï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‹@ï¿½\ï¿½ï¿½ï¿½gï¿½pï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½sï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ÌƒTï¿½Cï¿½Yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//	ï¿½ï¿½ÎˆÈ‰ï¿½ï¿½Ì“ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½`ï¿½ï¿½ï¿½Ì’ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½Kï¿½vï¿½È‚ï¿½ï¿½Ì‚ï¿½ï¿½íœï¿½ï¿½ï¿½ï¿½
+	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 
 #ifdef _AFXDLL
-	Enable3dControls(); 		// ‹¤—L DLL “à‚Å MFC ‚ðŽg‚¤ê‡‚Í‚±‚±‚ðƒR[ƒ‹‚µ‚Ä‚­‚¾‚³‚¢B
+	// Enable3dControls(); 		// No longer needed in modern MFC
 #else
-	Enable3dControlsStatic();	// MFC ‚ÆÃ“I‚ÉƒŠƒ“ƒN‚·‚éê‡‚Í‚±‚±‚ðƒR[ƒ‹‚µ‚Ä‚­‚¾‚³‚¢B
+	// Enable3dControlsStatic();	// No longer needed in modern MFC
 #endif
-/* added 2009.06.05 hmenjo NanoSpecTitle Á‚¦‚È‚¢‘Îô ---------- { ---------- */
-	// “ñd‹N“®‚Ì–hŽ~ˆ—
+/* added 2009.06.05 hmenjo NanoSpecTitle ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Îï¿½ ---------- { ---------- */
+	// ï¿½ï¿½dï¿½Nï¿½ï¿½ï¿½Ì–hï¿½~ï¿½ï¿½ï¿½ï¿½
 	m_hMutex_Run = ::CreateMutex(NULL, TRUE, m_pszExeName);
 	if ((m_hMutex_Run == NULL) || (::GetLastError() == ERROR_ALREADY_EXISTS)) {
 		return	FALSE;
 	}
-/* added 2009.06.05 hmenjo NanoSpecTitle Á‚¦‚È‚¢‘Îô ---------- } ---------- */
+/* added 2009.06.05 hmenjo NanoSpecTitle ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Îï¿½ ---------- } ---------- */
 
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) -->
 	g_lAppNameType = APP_NAME_NANO; // default application name
 	for(int i = 0; i < APP_NAME_MAX; i++){
 		if(_tcsncmp(m_pszExeName, g_lpszAppPrefix4[i], 4) == 0){
@@ -68,26 +68,26 @@ BOOL CNanoSpecTitleApp::InitInstance()
 			break;
 		}
 	}
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) <--
 
 	//Saiki 20090525 Add ----->
 	CString strBuffer;
 	SYSTEM_CONFIG l_SystemConfig;
-	///// NanoSpec.ini‚ÌƒOƒ[ƒoƒ‹•Ï”‚Ì‰Šú‰» /////
+	///// NanoSpec.iniï¿½ÌƒOï¿½ï¿½ï¿½[ï¿½oï¿½ï¿½ï¿½Ïï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ /////
 	ConfigFile_LoadAllNanoSpecIni();
 	//Saiki 20090723 Delete ----->
 	//ConfigFile_SaveAllNanoSpecIni();
 	//Saiki 20090723 Delete <-----
 	ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 	HANDLE m_hModule;
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) -->
 	#ifdef _DEBUG
 	strBuffer.Format("dtns%sspecTitle", g_lpszAppPrefix4[g_lAppNameType]);
 	#else
 	strBuffer.Format("tns%sspecTitle", g_lpszAppPrefix4[g_lAppNameType]);
 	#endif
 	m_hModule = ResourceLoadLibrary(l_SystemConfig.nLanguage, strBuffer);
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) <--
 	AfxSetResourceHandle((HINSTANCE) m_hModule);
 	//Saiki 20090525 Add <-----
 
@@ -96,26 +96,26 @@ BOOL CNanoSpecTitleApp::InitInstance()
 	int nResponse = dlg.DoModal();
 	if (nResponse == IDOK)
 	{
-		// TODO: ƒ_ƒCƒAƒƒO‚ª <OK> ‚ÅÁ‚³‚ê‚½Žž‚ÌƒR[ƒh‚ð
-		//		 ‹Lq‚µ‚Ä‚­‚¾‚³‚¢B
+		// TODO: ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½Oï¿½ï¿½ <OK> ï¿½Åï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½
+		//		 ï¿½Lï¿½qï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 	}
 	else if (nResponse == IDCANCEL)
 	{
-		// TODO: ƒ_ƒCƒAƒƒO‚ª <·¬Ý¾Ù> ‚ÅÁ‚³‚ê‚½Žž‚ÌƒR[ƒh‚ð
-		//		 ‹Lq‚µ‚Ä‚­‚¾‚³‚¢B
+		// TODO: ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½Oï¿½ï¿½ <ï¿½ï¿½Ý¾ï¿½> ï¿½Åï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½
+		//		 ï¿½Lï¿½qï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 	}
 
-	// ƒ_ƒCƒAƒƒO‚ª•Â‚¶‚ç‚ê‚Ä‚©‚çƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌƒƒbƒZ[ƒW ƒ|ƒ“ƒv‚ðŠJŽn‚·‚é‚æ‚è‚ÍA
-	// ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ðI—¹‚·‚é‚½‚ß‚É FALSE ‚ð•Ô‚µ‚Ä‚­‚¾‚³‚¢B
+	// ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Aï¿½vï¿½ï¿½ï¿½Pï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ìƒï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½|ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Jï¿½nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÍA
+	// ï¿½Aï¿½vï¿½ï¿½ï¿½Pï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½é‚½ï¿½ß‚ï¿½ FALSE ï¿½ï¿½Ô‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 	return FALSE;
 }
 
-/* added 2009.06.05 hmenjo NanoSpecTitle Á‚¦‚È‚¢‘Îô ---------- { ---------- */
+/* added 2009.06.05 hmenjo NanoSpecTitle ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Îï¿½ ---------- { ---------- */
 int CNanoSpecTitleApp::ExitInstance()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉŒÅ—L‚Ìˆ—‚ð’Ç‰Á‚·‚é‚©A‚Ü‚½‚ÍŠî–{ƒNƒ‰ƒX‚ðŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉŒÅ—Lï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½é‚©ï¿½Aï¿½Ü‚ï¿½ï¿½ÍŠï¿½{ï¿½Nï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	// “ñd‹N“®‚Ì–hŽ~‚Ì‚½‚ß‚Ì Mutex ŠJ•ú
+	// ï¿½ï¿½dï¿½Nï¿½ï¿½ï¿½Ì–hï¿½~ï¿½Ì‚ï¿½ï¿½ß‚ï¿½ Mutex ï¿½Jï¿½ï¿½
 	if (m_hMutex_Run != NULL) {
 		::ReleaseMutex(m_hMutex_Run);
 		::CloseHandle(m_hMutex_Run);
@@ -123,4 +123,4 @@ int CNanoSpecTitleApp::ExitInstance()
 
 	return CWinApp::ExitInstance();
 }
-/* added 2009.06.05 hmenjo NanoSpecTitle Á‚¦‚È‚¢‘Îô ---------- } ---------- */
+/* added 2009.06.05 hmenjo NanoSpecTitle ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Îï¿½ ---------- } ---------- */

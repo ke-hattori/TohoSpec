@@ -778,7 +778,7 @@ private:
 
 		if ( is_exist(path.c_str()) ) {
 			if ( n >= max_fnum ) {
-				unlink(path.c_str());
+				_unlink(path.c_str());
 			}
 			else {
 				string temp;
