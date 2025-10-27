@@ -1,4 +1,4 @@
-// OriginalPositionSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// OriginalPositionSettingDlg.cpp : Cve[V t@C
 //
 
 #include "stdafx.h"
@@ -22,7 +22,7 @@ static char THIS_FILE[] = __FILE__;
 
 
 // #########################################################################
-// COriginalPositionSettingDlg ƒ_ƒCƒAƒƒO
+// COriginalPositionSettingDlg _CAO
 // #########################################################################
 
 // =========================================================================
@@ -105,14 +105,14 @@ BEGIN_MESSAGE_MAP(COriginalPositionSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// COriginalPositionSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// COriginalPositionSettingDlg bZ[W nh
 
 // =========================================================================
 //
 BOOL COriginalPositionSettingDlg::OnInitDialog()
 {
 // 2009.09.17 bagus SE --{--
-	//–¢‘Î‰‹@”\disable
+	//Î‰@\disable
 //	GetDlgItem(IDC_ALL_CLEAR)->EnableWindow(FALSE);
 // 2009.09.17 bagus SE --}--
 
@@ -130,7 +130,7 @@ BOOL COriginalPositionSettingDlg::OnInitDialog()
 	m_stcSE_X.SetBkColor(REFERENCE_COLOR);
 	m_stcSE_Y.SetBkColor(REFERENCE_COLOR);
 	m_stcSE_Z.SetBkColor(REFERENCE_COLOR);
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS Ç‰ --{--
 #if 0
 	m_stcIRSE_X.SetBkColor(REFERENCE_COLOR);
 	m_stcIRSE_Y.SetBkColor(REFERENCE_COLOR);
@@ -140,7 +140,7 @@ BOOL COriginalPositionSettingDlg::OnInitDialog()
 	m_stcMS_Y.SetBkColor(REFERENCE_COLOR);
 	m_stcMS_Z.SetBkColor(REFERENCE_COLOR);
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS Ç‰ --}--
 	m_stc4PP_X.SetBkColor(REFERENCE_COLOR);
 	m_stc4PP_Y.SetBkColor(REFERENCE_COLOR);
 	m_stc4PP_Z.SetBkColor(REFERENCE_COLOR);
@@ -210,8 +210,8 @@ BOOL COriginalPositionSettingDlg::OnInitDialog()
 	GetDlgItem(IDC_BASE_HEAD_TYPE)->EnableWindow(FALSE);
 // 2009.11.20 K.Matsuo ReEdit <--
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// Rg[ÉƒtH[JXİ’è‚µÈ‚Æ‚Aß‚l TRUE Æ‚È‚Ü‚
+					// O: OCX vpeB y[WÌ–ß‚l FALSE Æ‚È‚Ü‚
 }
 
 // =========================================================================
@@ -247,6 +247,7 @@ void COriginalPositionSettingDlg::OnOK()
 //
 BOOL COriginalPositionSettingDlg::Init()
 {
+	int iHead;
 // Kojika 20090526 Add
 	CString strBuffer1, strBuffer2;
 // Kojika 20090526 Add End
@@ -255,7 +256,7 @@ BOOL COriginalPositionSettingDlg::Init()
 
 	if(m_HeadType.bSR)
 		pCombo->AddString(HEAD_TYPE_ITEM[HEAD_TYPE_SR]);
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ -->
 // 	if(m_HeadType.bSE)
 // 		pCombo->AddString(HEAD_TYPE_ITEM[HEAD_TYPE_SE]);
 	if(m_HeadType.bSE) {
@@ -266,23 +267,23 @@ BOOL COriginalPositionSettingDlg::Init()
 		pCombo->AddString(HEAD_TYPE_ITEM[HEAD_TYPE_SE]);
 		}
 	}
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ <--
+// 2009.10.19 bagus MS Ç‰ --{--
 #if 0
 	if(m_HeadType.bMS)
 		pCombo->AddString(HEAD_TYPE_ITEM[HEAD_TYPE_IRSE]);
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS Ç‰ --}--
 	if(m_HeadType.bResist)
 		pCombo->AddString(HEAD_TYPE_ITEM[HEAD_TYPE_4PP]);
 	if(m_HeadType.bCTA)
 		pCombo->AddString(HEAD_TYPE_ITEM[HEAD_TYPE_CTA]);
 	if(m_HeadType.bStress)
 		pCombo->AddString(HEAD_TYPE_ITEM[HEAD_TYPE_STRESS]);
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS Ç‰ --{--
 	if(m_HeadType.bMS)
 		pCombo->AddString(HEAD_TYPE_ITEM[HEAD_TYPE_MS]);
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS Ç‰ --}--
 
 	if(pCombo->GetCount() <= 0){
 // Kojika 20090526 Change
@@ -294,27 +295,27 @@ BOOL COriginalPositionSettingDlg::Init()
 		return FALSE;
 	}
 
-	///// Base Head‚ªg—p•s‰Â‚Ì‚Æ‚« /////
+	///// Base HeadgpsÂ‚Ì‚Æ‚ /////
 	switch (m_iBaseHeadType){
 	case HEAD_TYPE_SR:
 		if(!m_HeadType.bSR)
 			m_bBaseHeadEnable = FALSE;
 		break;
 	case HEAD_TYPE_SE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ -->
 //		if (!m_HeadType.bSE)
 		if (!m_HeadType.bSE ||
 			m_HeadType.bSE && m_HeadType.bCompEASE)
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ <--
 			m_bBaseHeadEnable = FALSE;
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ -->
 	case HEAD_TYPE_COMPEASE:
 		if(!m_HeadType.bCompEASE)
 			m_bBaseHeadEnable = FALSE;
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ <--
+// 2009.10.19 bagus MS Ç‰ --{--
 #if 0
 	case HEAD_TYPE_IRSE:
 		if(!m_HeadType.bMS)
@@ -326,7 +327,7 @@ BOOL COriginalPositionSettingDlg::Init()
 			m_bBaseHeadEnable = FALSE;
 		break;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS Ç‰ --}--
 	case HEAD_TYPE_4PP:
 		if(!m_HeadType.bResist)
 			m_bBaseHeadEnable = FALSE;
@@ -361,7 +362,7 @@ BOOL COriginalPositionSettingDlg::Init()
 		pCombo->SetCurSel(m_iBaseHeadType);
 
 		pCombo->GetLBText(m_iBaseHeadType, strBuffer);
-		for ( int iHead = 0; iHead < HEAD_TYPE_MAX; iHead++ ) {
+		for (iHead = 0; iHead < HEAD_TYPE_MAX; iHead++ ) {
 			if ( strBuffer.Compare(HEAD_TYPE_ITEM[iHead]) == 0 )
 				break;
 		}
@@ -434,7 +435,7 @@ void COriginalPositionSettingDlg::OnSelchangeBaseHeadType()
 	int nSelect = pCombo->GetCurSel();
 	if ( nSelect != CB_ERR ) {
 		pCombo->GetLBText(pCombo->GetCurSel(), strBuffer);
-		for ( int iHead = 0; iHead < HEAD_TYPE_MAX; iHead++ ) {
+		for (iHead = 0; iHead < HEAD_TYPE_MAX; iHead++ ) {
 			if ( strBuffer.Compare(HEAD_TYPE_ITEM[iHead]) == 0 )
 				break;
 		}
@@ -499,9 +500,9 @@ void COriginalPositionSettingDlg::OnSrSetupButton()
 			SetDlgItemText(IDC_SR_Z, strBuffer);
 			break;
 		case HEAD_TYPE_SE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ -->
 		case HEAD_TYPE_COMPEASE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ <--
 			lX = dlgOverlay.m_lX - m_OriginalPosition.LocSe.lX;
 			strBuffer.Format("%ld", lX);
 			SetDlgItemText(IDC_SR_X, strBuffer);
@@ -514,7 +515,7 @@ void COriginalPositionSettingDlg::OnSrSetupButton()
 			strBuffer.Format("%ld", lZ);
 			SetDlgItemText(IDC_SR_Z, strBuffer);
 			break;
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS Ç‰ --{--
 #if 0
 		case HEAD_TYPE_IRSE:
 			lX = dlgOverlay.m_lX - m_OriginalPosition.LocIrse.lX;
@@ -544,7 +545,7 @@ void COriginalPositionSettingDlg::OnSrSetupButton()
 			SetDlgItemText(IDC_SR_Z, strBuffer);
 			break;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS Ç‰ --}--
 		case HEAD_TYPE_4PP:
 			lX = dlgOverlay.m_lX - m_OriginalPosition.Loc4PP.lX;
 			strBuffer.Format("%ld", lX);
@@ -624,11 +625,11 @@ void COriginalPositionSettingDlg::OnSeSetupButton()
 	dlgOverlay.m_lZ = atol(csTemp);
 
 	if(dlgOverlay.DoModal() == IDOK){
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ -->
 //		if(m_iBaseHeadType == HEAD_TYPE_SE){
 		if(m_iBaseHeadType == HEAD_TYPE_SE ||
 		   m_iBaseHeadType == HEAD_TYPE_COMPEASE){
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ <--
 			m_OriginalPosition.LocSe.lX = dlgOverlay.m_lX;
 			m_OriginalPosition.LocSe.lY = dlgOverlay.m_lY;
 			m_OriginalPosition.LocSe.lZ = dlgOverlay.m_lZ;
@@ -654,9 +655,9 @@ void COriginalPositionSettingDlg::OnSeSetupButton()
 			SetDlgItemText(IDC_SE_Z, strBuffer);
 			break;
 		case HEAD_TYPE_SE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ -->
 		case HEAD_TYPE_COMPEASE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ <--
 			lX = dlgOverlay.m_lX - m_OriginalPosition.LocSe.lX;
 			strBuffer.Format("%ld", lX);
 			SetDlgItemText(IDC_SE_X, strBuffer);
@@ -669,7 +670,7 @@ void COriginalPositionSettingDlg::OnSeSetupButton()
 			strBuffer.Format("%ld", lZ);
 			SetDlgItemText(IDC_SE_Z, strBuffer);
 			break;
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS Ç‰ --{--
 #if 0
 		case HEAD_TYPE_IRSE:
 			lX = dlgOverlay.m_lX - m_OriginalPosition.LocIrse.lX;
@@ -699,7 +700,7 @@ void COriginalPositionSettingDlg::OnSeSetupButton()
 			SetDlgItemText(IDC_SE_Z, strBuffer);
 			break;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS Ç‰ --}--
 		case HEAD_TYPE_4PP:
 			lX = dlgOverlay.m_lX - m_OriginalPosition.Loc4PP.lX;
 			strBuffer.Format("%ld", lX);
@@ -779,7 +780,7 @@ void COriginalPositionSettingDlg::OnMsSetupButton()
 	dlgOverlay.m_lZ = atol(csTemp);
 
 	if(dlgOverlay.DoModal() == IDOK){
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS Ç‰ --{--
 #if 0
 		if(m_iBaseHeadType == HEAD_TYPE_IRSE){
 			m_OriginalPosition.LocIrse.lX = dlgOverlay.m_lX;
@@ -803,7 +804,7 @@ void COriginalPositionSettingDlg::OnMsSetupButton()
 			UpDateBasePos();
 		}
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS Ç‰ --}--
 		switch (m_iBaseHeadType){
 		case HEAD_TYPE_SR:
 			lX = dlgOverlay.m_lX - m_OriginalPosition.LocSr.lX;
@@ -819,9 +820,9 @@ void COriginalPositionSettingDlg::OnMsSetupButton()
 			SetDlgItemText(IDC_MS_Z, strBuffer);
 			break;
 		case HEAD_TYPE_SE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ -->
 		case HEAD_TYPE_COMPEASE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ <--
 			lX = dlgOverlay.m_lX - m_OriginalPosition.LocSe.lX;
 			strBuffer.Format("%ld", lX);
 			SetDlgItemText(IDC_MS_X, strBuffer);
@@ -834,7 +835,7 @@ void COriginalPositionSettingDlg::OnMsSetupButton()
 			strBuffer.Format("%ld", lZ);
 			SetDlgItemText(IDC_MS_Z, strBuffer);
 			break;
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS Ç‰ --{--
 #if 0
 		case HEAD_TYPE_IRSE:
 			lX = dlgOverlay.m_lX - m_OriginalPosition.LocIrse.lX;
@@ -864,7 +865,7 @@ void COriginalPositionSettingDlg::OnMsSetupButton()
 			SetDlgItemText(IDC_MS_Z, strBuffer);
 			break;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS Ç‰ --}--
 		case HEAD_TYPE_4PP:
 			lX = dlgOverlay.m_lX - m_OriginalPosition.Loc4PP.lX;
 			strBuffer.Format("%ld", lX);
@@ -970,9 +971,9 @@ void COriginalPositionSettingDlg::On4PPSetupButton()
 			SetDlgItemText(IDC_4PP_Z, strBuffer);
 			break;
 		case HEAD_TYPE_SE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ -->
 		case HEAD_TYPE_COMPEASE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ <--
 			lX = dlgOverlay.m_lX - m_OriginalPosition.LocSe.lX;
 			strBuffer.Format("%ld", lX);
 			SetDlgItemText(IDC_4PP_X, strBuffer);
@@ -985,7 +986,7 @@ void COriginalPositionSettingDlg::On4PPSetupButton()
 			strBuffer.Format("%ld", lZ);
 			SetDlgItemText(IDC_4PP_Z, strBuffer);
 			break;
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS Ç‰ --{--
 #if 0
 		case HEAD_TYPE_IRSE:
 			lX = dlgOverlay.m_lX - m_OriginalPosition.LocIrse.lX;
@@ -1015,7 +1016,7 @@ void COriginalPositionSettingDlg::On4PPSetupButton()
 			SetDlgItemText(IDC_4PP_Z, strBuffer);
 			break;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS Ç‰ --}--
 		case HEAD_TYPE_4PP:
 			lX = dlgOverlay.m_lX - m_OriginalPosition.Loc4PP.lX;
 			strBuffer.Format("%ld", lX);
@@ -1121,9 +1122,9 @@ void COriginalPositionSettingDlg::OnContactAngleSetupButton()
 			SetDlgItemText(IDC_CONTACT_ANGLE_Z, strBuffer);
 			break;
 		case HEAD_TYPE_SE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ -->
 		case HEAD_TYPE_COMPEASE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ <--
 			lX = dlgOverlay.m_lX - m_OriginalPosition.LocSe.lX;
 			strBuffer.Format("%ld", lX);
 			SetDlgItemText(IDC_CONTACT_ANGLE_X, strBuffer);
@@ -1136,7 +1137,7 @@ void COriginalPositionSettingDlg::OnContactAngleSetupButton()
 			strBuffer.Format("%ld", lZ);
 			SetDlgItemText(IDC_CONTACT_ANGLE_Z, strBuffer);
 			break;
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS Ç‰ --{--
 #if 0
 		case HEAD_TYPE_IRSE:
 			lX = dlgOverlay.m_lX - m_OriginalPosition.LocIrse.lX;
@@ -1166,7 +1167,7 @@ void COriginalPositionSettingDlg::OnContactAngleSetupButton()
 			SetDlgItemText(IDC_CONTACT_ANGLE_Z, strBuffer);
 			break;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS Ç‰ --}--
 		case HEAD_TYPE_4PP:
 			lX = dlgOverlay.m_lX - m_OriginalPosition.Loc4PP.lX;
 			strBuffer.Format("%ld", lX);
@@ -1273,9 +1274,9 @@ void COriginalPositionSettingDlg::OnStressSetupButton()
 			SetDlgItemText(IDC_STRESS_Z, strBuffer);
 			break;
 		case HEAD_TYPE_SE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ -->
 		case HEAD_TYPE_COMPEASE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ <--
 			lX = dlgOverlay.m_lX - m_OriginalPosition.LocSe.lX;
 			strBuffer.Format("%ld", lX);
 			SetDlgItemText(IDC_STRESS_X, strBuffer);
@@ -1288,7 +1289,7 @@ void COriginalPositionSettingDlg::OnStressSetupButton()
 			strBuffer.Format("%ld", lZ);
 			SetDlgItemText(IDC_STRESS_Z, strBuffer);
 			break;
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS Ç‰ --{--
 #if 0
 		case HEAD_TYPE_IRSE:
 			lX = dlgOverlay.m_lX - m_OriginalPosition.LocIrse.lX;
@@ -1318,7 +1319,7 @@ void COriginalPositionSettingDlg::OnStressSetupButton()
 			SetDlgItemText(IDC_STRESS_Z, strBuffer);
 			break;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS Ç‰ --}--
 		case HEAD_TYPE_4PP:
 			lX = dlgOverlay.m_lX - m_OriginalPosition.Loc4PP.lX;
 			strBuffer.Format("%ld", lX);
@@ -1426,7 +1427,7 @@ void COriginalPositionSettingDlg::UpDate(BOOL bValid)
 		GetDlgItemText(IDC_SE_Z, csTemp);
 		m_OriginalPosition.LocSe.lZ = atol(csTemp);
 
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS Ç‰ --{--
 #if 0
 		// IRSE Original Position
 		// X
@@ -1450,7 +1451,7 @@ void COriginalPositionSettingDlg::UpDate(BOOL bValid)
 		GetDlgItemText(IDC_MS_Z, csTemp);
 		m_OriginalPosition.LocMs.lZ = atol(csTemp);
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS Ç‰ --}--
 
 		// 4PP Original Position
 		// X
@@ -1500,14 +1501,14 @@ void COriginalPositionSettingDlg::UpDate(BOOL bValid)
 			BaseOffsetZ = m_OriginalPosition.LocSr.lZ;
 			break;
 		case HEAD_TYPE_SE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ -->
 		case HEAD_TYPE_COMPEASE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ <--
 			BaseOffsetX = m_OriginalPosition.LocSe.lX;
 			BaseOffsetY = m_OriginalPosition.LocSe.lY;
 			BaseOffsetZ = m_OriginalPosition.LocSe.lZ;
 			break;
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS Ç‰ --{--
 #if 0
 		case HEAD_TYPE_IRSE:
 			BaseOffsetX = m_OriginalPosition.LocIrse.lX;
@@ -1521,7 +1522,7 @@ void COriginalPositionSettingDlg::UpDate(BOOL bValid)
 			BaseOffsetZ = m_OriginalPosition.LocMs.lZ;
 			break;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS Ç‰ --}--
 		case HEAD_TYPE_4PP:
 			BaseOffsetX = m_OriginalPosition.Loc4PP.lX;
 			BaseOffsetY = m_OriginalPosition.Loc4PP.lY;
@@ -1563,7 +1564,7 @@ void COriginalPositionSettingDlg::UpDate(BOOL bValid)
 		csTemp.Format("%ld", m_OriginalPosition.LocSe.lZ -BaseOffsetZ);
 		SetDlgItemText(IDC_SE_Z, csTemp);
 
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS Ç‰ --{--
 #if 0
 		// IRSE Original Position
 		// X
@@ -1587,7 +1588,7 @@ void COriginalPositionSettingDlg::UpDate(BOOL bValid)
 		csTemp.Format("%ld", m_OriginalPosition.LocMs.lZ - BaseOffsetZ);
 		SetDlgItemText(IDC_MS_Z, csTemp);
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS Ç‰ --}--
 
 		// 4PP Original Position
 		// X
@@ -1640,9 +1641,9 @@ void COriginalPositionSettingDlg::EnableSetButtons(BOOL flag)
 		GetDlgItem(IDC_STRESS_SETUP_BUTTON)->EnableWindow(m_HeadType.bStress ? flag : FALSE);
 		break;
 	case HEAD_TYPE_SE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ -->
 	case HEAD_TYPE_COMPEASE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEwbhÇ‰ <--
 		GetDlgItem(IDC_SR_SETUP_BUTTON)->EnableWindow(m_HeadType.bSR ? flag : FALSE);
 		GetDlgItem(IDC_SE_SETUP_BUTTON)->EnableWindow(m_HeadType.bSE ? !flag : FALSE);
 		GetDlgItem(IDC_MS_SETUP_BUTTON)->EnableWindow(m_HeadType.bMS ? flag : FALSE);
@@ -1650,7 +1651,7 @@ void COriginalPositionSettingDlg::EnableSetButtons(BOOL flag)
 		GetDlgItem(IDC_CONTACT_ANGLE_SETUP_BUTTON)->EnableWindow(m_HeadType.bCTA ? flag : FALSE);
 		GetDlgItem(IDC_STRESS_SETUP_BUTTON)->EnableWindow(m_HeadType.bStress ? flag : FALSE);
 		break;
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS Ç‰ --{--
 #if 0
 	case HEAD_TYPE_IRSE:
 		GetDlgItem(IDC_SR_SETUP_BUTTON)->EnableWindow(m_HeadType.bSR ? flag : FALSE);
@@ -1670,7 +1671,7 @@ void COriginalPositionSettingDlg::EnableSetButtons(BOOL flag)
 		GetDlgItem(IDC_STRESS_SETUP_BUTTON)->EnableWindow(m_HeadType.bStress ? flag : FALSE);
 		break;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS Ç‰ --}--
 	case HEAD_TYPE_4PP:
 		GetDlgItem(IDC_SR_SETUP_BUTTON)->EnableWindow(m_HeadType.bSR ? flag : FALSE);
 		GetDlgItem(IDC_SE_SETUP_BUTTON)->EnableWindow(m_HeadType.bSE ? flag : FALSE);
@@ -1703,7 +1704,7 @@ void COriginalPositionSettingDlg::EnableSetButtons(BOOL flag)
 // 2009.09.17 bagus SE --{--
 void COriginalPositionSettingDlg::OnCheck()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ÌˆÊ’uÉƒRg[Ê’mnhpÌƒR[hÇ‰Ä‚
 
 	CString			l_strCap, l_strMsg;
 	CManualStageDlg	dlg;
@@ -1715,26 +1716,26 @@ void COriginalPositionSettingDlg::OnCheck()
 
 	ORIGINAL_POSITION	OldOriginalPosition;
 
-	// Œ»İ‚Ìİ’è’l‚ğ“Ç‚İo‚·
+	// İ‚Ìİ’lÇ‚İo
 	ConfigFile_GetNanoSpecIni(&OldOriginalPosition, CONFIG_FILE_ORIGINAL_POSITION);
 
-	// ‰æ–Ê‚Ìİ’è’l‚ğ‘‚«‚Ş
+	// Ê‚Ìİ’l
 	ConfigFile_SetNanoSpecIni(&m_OriginalPosition, CONFIG_FILE_ORIGINAL_POSITION);
 	ConfigFile_SaveNanoSpecIni(SYSTEM_COMMON_INI_FILE);
 
 	dlg.m_bOriginalPositionSetting = TRUE;
 	dlg.DoModal();
-	// ƒwƒbƒhƒ^ƒCƒv‚ğSR‚É–ß‚µ‚Ä‚¨‚­
+	// wbh^CvSRÉ–ß‚Ä‚
 	SelectHeadTypeNotify(HEAD_TYPE_SR, FALSE);
 
-	// ƒoƒbƒNƒAƒbƒv‚µ‚½ƒf[ƒ^‚ğ–ß‚·
+	// obNAbvf[^ß‚
 	ConfigFile_SetNanoSpecIni(&OldOriginalPosition, CONFIG_FILE_ORIGINAL_POSITION);
 	ConfigFile_SaveNanoSpecIni(SYSTEM_COMMON_INI_FILE);
 }
 
 void COriginalPositionSettingDlg::OnApply()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ÌˆÊ’uÉƒRg[Ê’mnhpÌƒR[hÇ‰Ä‚
 
 	CString strBuffer1, strBuffer2;
 

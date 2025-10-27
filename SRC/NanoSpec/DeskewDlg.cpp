@@ -1,4 +1,4 @@
-// DeskewDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// DeskewDlg.cpp : Cve[V t@C
 //
 
 #include "stdafx.h"
@@ -18,7 +18,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // #########################################################################
-// CDeskewDlg ƒ_ƒCƒAƒƒO
+// CDeskewDlg _CAO
 // #########################################################################
 
 static UINT DeskewImageCtrlIDs[] =
@@ -76,15 +76,15 @@ void CDeskewDlg::DoDataExchange(CDataExchange* pDX)
 //
 void CDeskewDlg::DDX_CustomLocText(CDataExchange* pDX, int nIDC, long& value)
 {
-	// um¨mm•\Ž¦‘Î‰ž
+	// ummm\Î‰
 
 	TCHAR szBuff[256];
 
-//	•\Ž¦—p‚ÌƒRƒ“ƒgƒ[ƒ‹‚È‚Ì‚ÅAƒRƒƒ“ƒgƒAƒEƒg‚µ‚Ä‚¨‚­
+//	\pÌƒRg[È‚Ì‚ÅARgAEgÄ‚
 //	pDX->PrepareEditCtrl(nIDC);
 
 	if ( pDX->m_bSaveAndValidate ) {
-//		•\Ž¦—p‚ÌƒRƒ“ƒgƒ[ƒ‹‚È‚Ì‚ÅAƒRƒƒ“ƒgƒAƒEƒg‚µ‚Ä‚¨‚­
+//		\pÌƒRg[È‚Ì‚ÅARgAEgÄ‚
 //		GetDlgItemText(nIDC, szBuff, sizeof(szBuff));
 //		value = (long)(atof(szBuff) * MICROMETRE);
 	}
@@ -160,7 +160,7 @@ void CDeskewDlg::DDV_CustomComboFailOptionCheck(CDataExchange* pDX)
 	}
 }
 
-// 2009.05.07 AutoDeskew‚ÌƒŒƒ“ƒY‚ðAˆê’v‚³‚¹‚é‘Î‰ž
+// 2009.05.07 AutoDeskewÌƒYAvÎ‰
 /////////////////////////////////////////////////////////////////////////////
 //
 void CDeskewDlg::DDV_CustomAutoDeskewLensCheck(CDataExchange* pDX)
@@ -194,10 +194,11 @@ BEGIN_MESSAGE_MAP(CDeskewDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CDeskewDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CDeskewDlg bZ[W nh
 
 BOOL CDeskewDlg::OnInitDialog()
 {
+	int i;
 	TCHAR szFilePath[MAX_PATH];
 	TCHAR szFilePath2[MAX_PATH];
 	CString strBuffer;
@@ -243,22 +244,22 @@ BOOL CDeskewDlg::OnInitDialog()
 	::DeleteFile(DESKEW_IMG_2);
 
 // 2009.06.11 K.Matsuo -->
-	// “Çž‚ÝˆÙíŽž‚ÍAƒŠƒZƒbƒg
+	// ÇÝˆÙíŽžÍAZbg
 	switch ( m_pStageProgInfoHdr->nDeskewMode ) {
 	case DESKEW_MODE_PATTERN_DESKEW:
 		_stprintf(szFilePath,  "%s%s.D1", g_szDb_Deskew_Img_Dir, m_pStageProgInfoHdr->hdr.szName);
 		_stprintf(szFilePath2, "%s%s.D2", g_szDb_Deskew_Img_Dir, m_pStageProgInfoHdr->hdr.szName);
-		// DeskewImage ƒtƒ@ƒCƒ‹‘¶Ýƒ`ƒFƒbƒN
+		// DeskewImage t@CÝƒ`FbN
 		if ( ::GetFileAttributes(szFilePath) == 0xffffffff || ::GetFileAttributes(szFilePath2) == 0xffffffff ) {
 			LoadStringML(IDS_DESKEW_IMAGE_NOT_FOUND, strBuffer, "An image file of deskew is not found. The content of deskew setting is cleared.");
 			AfxMessageBox(strBuffer, MB_ICONEXCLAMATION);
 			::DeleteFile(szFilePath);
 			::DeleteFile(szFilePath2);
 
-			m_pStageProgInfoHdr->iLens = 0;									// ƒŒƒ“ƒY
-			m_pStageProgInfoHdr->nDeskewMode = 0;							// Deskew‚ÌŽí—Þ
-			m_pStageProgInfoHdr->nDeskewFailOption = 0;						// ƒpƒ^[ƒ“”FŽ¯Ž¸”sŽž‚ÌÝ’è
-			::ZeroMemory(m_pStageProgInfoHdr->DeskewSite, sizeof(m_pStageProgInfoHdr->DeskewSite));					// ƒpƒ^[ƒ“”FŽ¯
+			m_pStageProgInfoHdr->iLens = 0;									// Y
+			m_pStageProgInfoHdr->nDeskewMode = 0;							// DeskewÌŽ
+			m_pStageProgInfoHdr->nDeskewFailOption = 0;						// p^[FsÌÝ’
+			::ZeroMemory(m_pStageProgInfoHdr->DeskewSite, sizeof(m_pStageProgInfoHdr->DeskewSite));					// p^[F
 			::ZeroMemory(m_pStageProgInfoHdr->DeskewSiteManual,  sizeof(m_pStageProgInfoHdr->DeskewSiteManual));		// Manual Deskew
 			UpdateData(FALSE);
 		}
@@ -284,7 +285,7 @@ BOOL CDeskewDlg::OnInitDialog()
 		break;
 	}
 
-	// 2009.05.07 AutoDeskew‚ÌƒŒƒ“ƒY‚ðAˆê’v‚³‚¹‚é‘Î‰ž
+	// 2009.05.07 AutoDeskewÌƒYAvÎ‰
 	m_iAutoDeskewLensCheck[0] = m_pStageProgInfoHdr->iLens;
 	m_iAutoDeskewLensCheck[1] = m_pStageProgInfoHdr->iLens;
 
@@ -292,7 +293,7 @@ BOOL CDeskewDlg::OnInitDialog()
 	CComboBox* pCombo;
 	pCombo = (CComboBox*)GetDlgItem(IDC_DESKEW_EXECUTION_MODE);
 	pCombo->ResetContent();
-	for ( int i = 0; i < DESKEW_MODE_MAX; i++ ){
+	for (i = 0; i < DESKEW_MODE_MAX; i++ ){
 		if(l_SystemConfig.nLanguage == LANGUAGE_ENGLISH)
 			pCombo->AddString(g_lpszDeskewMode_ENU[i]);
 		else
@@ -314,8 +315,8 @@ BOOL CDeskewDlg::OnInitDialog()
 	OnSelchangeDeskewExecutionMode();
 	OnSelchangeDeskewFailOption();
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ðÝ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// Rg[ÉƒtH[JXÝ’è‚µÈ‚Æ‚Aß‚l TRUE Æ‚È‚Ü‚
+					// O: OCX vpeB y[WÌ–ß‚l FALSE Æ‚È‚Ü‚
 }
 
 // =========================================================================
@@ -332,7 +333,7 @@ void CDeskewDlg::OnOK()
 #if 0
 	switch ( m_pStageProgInfoHdr->nDeskewMode ) {
 	case DESKEW_MODE_NO_DESKEW:
-		// CleanUp ’è‹`Ï‚Ýƒtƒ‰ƒO“™‚ÌÁ‚µ‚±‚Ý
+		// CleanUp `Ï‚ÝƒtOÌ
 		m_pStageProgInfoHdr->DeskewSite[0].bDefined = FALSE;
 		m_pStageProgInfoHdr->DeskewSite[0].Loc.lX = 0;
 		m_pStageProgInfoHdr->DeskewSite[0].Loc.lY = 0;
@@ -352,7 +353,7 @@ void CDeskewDlg::OnOK()
 		break;
 	case DESKEW_MODE_PATTERN_DESKEW:
 		if ( m_pStageProgInfoHdr->nDeskewFailOption != DESKEW_FAIL_OPTION_MANUAL_DESKEW ) {
-			// CleanUp ’è‹`Ï‚Ýƒtƒ‰ƒO“™‚ÌÁ‚µ‚±‚Ý
+			// CleanUp `Ï‚ÝƒtOÌ
 			m_pStageProgInfoHdr->DeskewSiteManual[0].bDefined = FALSE;
 			m_pStageProgInfoHdr->DeskewSiteManual[0].Loc.lX = 0;
 			m_pStageProgInfoHdr->DeskewSiteManual[0].Loc.lY = 0;
@@ -360,14 +361,14 @@ void CDeskewDlg::OnOK()
 			m_pStageProgInfoHdr->DeskewSiteManual[1].Loc.lX = 0;
 			m_pStageProgInfoHdr->DeskewSiteManual[1].Loc.lY = 0;
 		}
-		// ƒpƒ^[ƒ“”FŽ¯‰æ‘œ‚Ì•Û‘¶
+		// p^[Fæ‘œÌ•Û‘
 		_stprintf(szFilePath, "%s%s.D1", g_szDb_Deskew_Img_Dir, m_pStageProgInfoHdr->hdr.szName);
 		::CopyFile(DESKEW_IMG_1, szFilePath, FALSE);
 		_stprintf(szFilePath, "%s%s.D2", g_szDb_Deskew_Img_Dir, m_pStageProgInfoHdr->hdr.szName);
 		::CopyFile(DESKEW_IMG_2, szFilePath, FALSE);
 		break;
 	case DESKEW_MODE_MANUAL_DESKEW:
-		// CleanUp ’è‹`Ï‚Ýƒtƒ‰ƒO“™‚ÌÁ‚µ‚±‚Ý
+		// CleanUp `Ï‚ÝƒtOÌ
 		m_pStageProgInfoHdr->DeskewSite[0].bDefined = FALSE;
 		m_pStageProgInfoHdr->DeskewSite[0].Loc.lX = 0;
 		m_pStageProgInfoHdr->DeskewSite[0].Loc.lY = 0;
@@ -387,7 +388,7 @@ void CDeskewDlg::OnOK()
 
 	switch ( m_pStageProgInfoHdr->nDeskewMode ) {
 	case DESKEW_MODE_PATTERN_DESKEW:
-		// ƒpƒ^[ƒ“”FŽ¯‰æ‘œ‚Ì•Û‘¶
+		// p^[Fæ‘œÌ•Û‘
 		_stprintf(szFilePath, "%s%s.D1", g_szDb_Deskew_Img_Dir, m_pStageProgInfoHdr->hdr.szName);
 		::CopyFile(DESKEW_IMG_1, szFilePath, FALSE);
 		_stprintf(szFilePath, "%s%s.D2", g_szDb_Deskew_Img_Dir, m_pStageProgInfoHdr->hdr.szName);
@@ -438,7 +439,7 @@ void CDeskewDlg::OnSelchangeDeskewExecutionMode()
 	GetDlgItem(IDC_MANUAL_DESKEW1_SETUP_BUTTON)->EnableWindow(iSel == DESKEW_MODE_MANUAL_DESKEW);
 	GetDlgItem(IDC_MANUAL_DESKEW2_SETUP_BUTTON)->EnableWindow(iSel == DESKEW_MODE_MANUAL_DESKEW);
 
-	/* DeskewFailOption ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚ÍADeskewExecutionMode ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚ª DESKEW_MODE_PATTERN_DESKEW ‚Ì‚Æ‚«‘I‘ð‰Â”\ */
+	/* DeskewFailOption R{{bNXÍADeskewExecutionMode R{{bNX DESKEW_MODE_PATTERN_DESKEW Ì‚Æ‚IÂ”\ */
 	GetDlgItem(IDC_DESKEW_FAIL_OPTION)->EnableWindow(iSel == DESKEW_MODE_PATTERN_DESKEW);
 }
 
@@ -446,8 +447,8 @@ void CDeskewDlg::OnSelchangeDeskewExecutionMode()
 //
 void CDeskewDlg::OnSelchangeDeskewFailOption()
 {
-	// DeskewFailOption ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚ÍADeskewExecutionMode ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚ª DESKEW_MODE_PATTERN_DESKEW ‚Ì‚Æ‚«‘I‘ð‰Â”\‚¾‚ªA
-	// ‰Šú’l•ÒW‚ÅŒÄ‚Î‚ê‚é‚Ì‚ÅAƒK[ƒh‚µ‚Ä‚¨‚­
+	// DeskewFailOption R{{bNXÍADeskewExecutionMode R{{bNX DESKEW_MODE_PATTERN_DESKEW Ì‚Æ‚IÂ”\A
+	// lÒWÅŒÄ‚Î‚Ì‚ÅAK[hÄ‚
 	if ( m_pStageProgInfoHdr->nDeskewMode != DESKEW_MODE_PATTERN_DESKEW )
 		return;
 
@@ -455,7 +456,7 @@ void CDeskewDlg::OnSelchangeDeskewFailOption()
 
 	m_pStageProgInfoHdr->nDeskewFailOption = iSel;
 
-	// DeskewFailOption ‚Å ƒ}ƒjƒ…ƒAƒ‹Deskew‚ª‘I‘ð‚³‚ê‚½‚Æ‚«Aƒ}ƒjƒ…ƒAƒ‹ƒZƒbƒgƒAƒbƒvƒ{ƒ^ƒ“‚ÌŽg—p‚ð‹–‰Â‚·‚é
+	// DeskewFailOption  }jADeskewIê‚½Æ‚A}jAZbgAbv{^ÌŽgpÂ‚
 	GetDlgItem(IDC_MANUAL_DESKEW1_SETUP_BUTTON)->EnableWindow(iSel == DESKEW_FAIL_OPTION_MANUAL_DESKEW);
 	GetDlgItem(IDC_MANUAL_DESKEW2_SETUP_BUTTON)->EnableWindow(iSel == DESKEW_FAIL_OPTION_MANUAL_DESKEW);
 }
@@ -467,7 +468,7 @@ void CDeskewDlg::OnAutoDeskew1SetupButton()
 	::CopyFile(DESKEW_IMG_1, DESKEW_IMG_TEMP, FALSE);
 
 	CPatRecDeskewDlg dlg(DESKEW_MODE, m_pStageProgInfoHdr->iLens, &m_pStageProgInfoHdr->DeskewSite[0]);
-	//SampleƒZƒbƒg
+	//SampleZbg
 	dlg.SetFileName(m_pStageProgInfoHdr->SampleInfo.szName);
 	dlg.SetSampleMode(1);
 
@@ -484,7 +485,7 @@ void CDeskewDlg::OnAutoDeskew1SetupButton()
 
 	if ( dlg.DoModal() == IDOK ) {
 		m_pStageProgInfoHdr->iLens = dlg.m_iLens;
-		// 2009.05.07 AutoDeskew‚ÌƒŒƒ“ƒY‚ðAˆê’v‚³‚¹‚é‘Î‰ž
+		// 2009.05.07 AutoDeskewÌƒYAvÎ‰
 		m_iAutoDeskewLensCheck[0] = m_pStageProgInfoHdr->iLens;
 		m_pStageProgInfoHdr->DeskewSite[0].bDefined = TRUE;
 		m_pStageProgInfoHdr->DeskewSite[0].Loc.lX = dlg.m_lX;
@@ -503,7 +504,7 @@ void CDeskewDlg::OnAutoDeskew2SetupButton()
 	::CopyFile(DESKEW_IMG_2, DESKEW_IMG_TEMP, FALSE);
 
 	CPatRecDeskewDlg dlg(DESKEW_MODE, m_pStageProgInfoHdr->iLens, &m_pStageProgInfoHdr->DeskewSite[1]);
-	//SampleƒZƒbƒg
+	//SampleZbg
 	dlg.SetFileName(m_pStageProgInfoHdr->SampleInfo.szName);
 	dlg.SetSampleMode(1);
 
@@ -520,7 +521,7 @@ void CDeskewDlg::OnAutoDeskew2SetupButton()
 
 	if ( dlg.DoModal() == IDOK ) {
 		m_pStageProgInfoHdr->iLens = dlg.m_iLens;
-		// 2009.05.07 AutoDeskew‚ÌƒŒƒ“ƒY‚ðAˆê’v‚³‚¹‚é‘Î‰ž
+		// 2009.05.07 AutoDeskewÌƒYAvÎ‰
 		m_iAutoDeskewLensCheck[1] = m_pStageProgInfoHdr->iLens;
 		m_pStageProgInfoHdr->DeskewSite[1].bDefined = TRUE;
 		m_pStageProgInfoHdr->DeskewSite[1].Loc.lX = dlg.m_lX;
@@ -545,7 +546,7 @@ void CDeskewDlg::OnManualDeskew1SetupButton()
 	LoadStringML(IDS_CLICK_CORRECT_POS , strBuffer, "CLICK CORRECT POSITION");
 	dlg.SetMessage(strBuffer);
 
-	//SampleƒZƒbƒg
+	//SampleZbg
 	dlg.SetFileName(m_pStageProgInfoHdr->SampleInfo.szName);
 	dlg.SetSampleMode(1);
 
@@ -595,7 +596,7 @@ void CDeskewDlg::OnManualDeskew2SetupButton()
 	LoadStringML(IDS_CLICK_CORRECT_POS , strBuffer, "CLICK CORRECT POSITION");
 	dlg.SetMessage(strBuffer);
 
-	//SampleƒZƒbƒg
+	//SampleZbg
 	dlg.SetFileName(m_pStageProgInfoHdr->SampleInfo.szName);
 	dlg.SetSampleMode(1);
 

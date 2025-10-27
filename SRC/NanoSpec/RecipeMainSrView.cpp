@@ -1,13 +1,13 @@
-// RecipeMainSrView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// RecipeMainSrView.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
 #include "System.h"
 #include "NanoSpec.h"
 #include "NanoSpecDoc.h"
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --{--
+// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --{--
 #include "MainFrm.h"
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --}--
+// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --}--
 #include "RecipeMainSrView.h"
 #include "..\\..\\INC\\PifComm.hxx"
 #include "RecipeThicknessSettingView.h"
@@ -18,7 +18,7 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-//2009.09.02 bagus se ‹@”\Šg’£ --{--
+//2009.09.02 bagus se ï¿½@ï¿½\ï¿½gï¿½ï¿½ --{--
 #define STAGE_OFFSET		15
 #define RADIUS				1
 #define ELLIPSE_RADIUS		2//4
@@ -26,7 +26,7 @@ static char THIS_FILE[] = __FILE__;
 //Saiki 20110207 Delete ----->
 //#define	PIN_INTERVAL		7
 //Saiki 20110207 Delete <-----
-//2009.09.02 bagus se ‹@”\Šg’£ --}--
+//2009.09.02 bagus se ï¿½@ï¿½\ï¿½gï¿½ï¿½ --}--
 
 // 2009.12.08 bagus --{--
 #if 1
@@ -35,9 +35,9 @@ const LPCSTR m_szScanTypeItem[] = {
 	"", 							// MEAS_PROG_TYPE_SR_REFLECTANCE
 	"(TR)", 						// MEAS_PROG_TYPE_SR_TRANSMITTANCE
 	"(GTR)",						// MEAS_PROG_TYPE_SR_TRANSMITTANCE_G
-// 2009.10.13 bagus Distance ’Ç‰Á --{--
+// 2009.10.13 bagus Distance ï¿½Ç‰ï¿½ --{--
 	"(DIS)",						// MEAS_PROG_TYPE_SR_DISTANCE
-// 2009.10.13 bagus Distance ’Ç‰Á --}--
+// 2009.10.13 bagus Distance ï¿½Ç‰ï¿½ --}--
 	"", 							// MEAS_PROG_TYPE_SR_REFLECTANCE_CIE
 	"", 							// MEAS_PROG_TYPE_SR_TRANSMITTANCE_CIE
 	"", 							// MEAS_PROG_TYPE_SR_OPTICAL_DENSITY
@@ -57,7 +57,7 @@ const LPCSTR m_szScanTypeItem[] = {
 // 2009.12.08 bagus --}--
 
 
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --{--
+// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --{--
 static struct {
 	int nHead;
 	int nScan;
@@ -78,13 +78,13 @@ static struct {
 #endif
 // 2009.12.08 bagus --}--
 };
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --}--
+// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --}--
 
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --{--
 // 2009.12.08 bagus --{--
 //#define	SCAN_TYPE_ITEM_RS		"RS"
 // 2009.12.08 bagus --}--
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --}--
 
 // 2013.01.09 bagus -->
 #define DIR_UNKNOWN    (0)
@@ -110,7 +110,7 @@ CRecipeMainSrView::CRecipeMainSrView() : CNanoRecipeUI(CRecipeMainSrView::IDD)
 	//m_strCaption = "SR MAIN RECIPE";
 //	m_strCaption = "MAIN RECIPE";
 	//Saiki 20090526 Change ----->
-	//m_strCaption = "ƒƒCƒ“ ƒŒƒVƒs";
+	//m_strCaption = "ï¿½ï¿½ï¿½Cï¿½ï¿½ ï¿½ï¿½ï¿½Vï¿½s";
 	CString strBuffer;
 	LoadStringML(IDS_CAPTION_MAIN_RECIPE, strBuffer, "MAIN RECIPE");
 	m_strCaption = strBuffer;
@@ -129,13 +129,13 @@ CRecipeMainSrView::CRecipeMainSrView() : CNanoRecipeUI(CRecipeMainSrView::IDD)
 	m_strRecalib3HeadType = _T("");
 	//}}AFX_DATA_INIT
 
-	//2009.09.02 bagus se ‹@”\Šg’£ --{--
+	//2009.09.02 bagus se ï¿½@ï¿½\ï¿½gï¿½ï¿½ --{--
 	::ZeroMemory(&m_StageProgInfoHdr, sizeof(m_StageProgInfoHdr));
 	::ZeroMemory(m_ScanPoint, sizeof(m_ScanPoint));
-	//2009.09.02 bagus se ‹@”\Šg’£ --}--
-	//2009.09.03 bagus se ‹@”\Šg’£ --{--
+	//2009.09.02 bagus se ï¿½@ï¿½\ï¿½gï¿½ï¿½ --}--
+	//2009.09.03 bagus se ï¿½@ï¿½\ï¿½gï¿½ï¿½ --{--
 	::ZeroMemory(&m_StageStressProg, sizeof(m_StageStressProg));
-	//2009.09.03 bagus se ‹@”\Šg’£ --{--
+	//2009.09.03 bagus se ï¿½@ï¿½\ï¿½gï¿½ï¿½ --{--
 
 	// 2009.10.02 bagus Gantry --{--
 	m_SRScanType = MEAS_PROG_TYPE_SR_THICKNESS;
@@ -163,9 +163,9 @@ void CRecipeMainSrView::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_RECALIB_1_HEAD_TYPE, m_strRecalib1HeadType);
 	DDX_Text(pDX, IDC_RECALIB_2_HEAD_TYPE, m_strRecalib2HeadType);
 	DDX_Text(pDX, IDC_RECALIB_3_HEAD_TYPE, m_strRecalib3HeadType);
-	//2009.09.02 bagus se ‹@”\Šg’£ --{--
+	//2009.09.02 bagus se ï¿½@ï¿½\ï¿½gï¿½ï¿½ --{--
 	DDX_Control(pDX, IDC_MEASUREMENT_STAGE_MAP, m_SamplePointGraph);
-	//2009.09.02 bagus se ‹@”\Šg’£ --}--
+	//2009.09.02 bagus se ï¿½@ï¿½\ï¿½gï¿½ï¿½ --}--
 	//}}AFX_DATA_MAP
 	DDX_Text(pDX, IDC_MAIN_RECIPE_NAME, m_MainRcpInfo.hdr.szName, RECIPE_NAME_LEN + 1);
 	DDX_Text(pDX, IDC_MEASUREMENT_PROGRAM, m_MainRcpInfo.MainRcpParam.hdr.szMeas, RECIPE_NAME_LEN + 1);
@@ -185,13 +185,13 @@ void CRecipeMainSrView::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_MEASUREMENT_REFERENCE, m_MainRcpInfo.MainRcpParam._SR.bMeasRef);
 	DDX_Check(pDX, IDC_REFERENCE_WITH_AF, m_MainRcpInfo.MainRcpParam._SR.bRefWithAF);
 	DDX_Text(pDX, IDC_COMMENT, m_MainRcpInfo.hdr.szComment, RECIPE_COMMENT_LEN + 1);
-	//2009.09.02 bagus se ‹@”\Šg’£ --{--
+	//2009.09.02 bagus se ï¿½@ï¿½\ï¿½gï¿½ï¿½ --{--
 	DDX_Text(pDX, IDC_STAGE_HEAD_TYPE, m_strStageHeadType);
 	DDX_Check(pDX, IDC_GRAPH_AUTO_SCALE, m_MainRcpInfo.MainRcpParam.hdr.bGraphAutoScale);
-	//2009.09.02 bagus se ‹@”\Šg’£ --}--
-	//2009.12.20 bagus •Û‘¶ƒtƒ@ƒCƒ‹–¼•ÏX --{--
+	//2009.09.02 bagus se ï¿½@ï¿½\ï¿½gï¿½ï¿½ --}--
+	//2009.12.20 bagus ï¿½Û‘ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ÏX --{--
 	DDX_Check(pDX, IDC_MEASUREMENT_RESULT_SAVE_WITH_DATE, m_MainRcpInfo.MainRcpParam.hdr.bSaveNameWithDate);
-	//2009.12.20 bagus •Û‘¶ƒtƒ@ƒCƒ‹–¼•ÏX --}--
+	//2009.12.20 bagus ï¿½Û‘ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ÏX --}--
 	//Saiki 20110207 Add ----->
 	DDX_Control(pDX, IDC_THICK_SETTING_BUTTON, m_ThickSettingButton);
 	//Saiki 20110207 Add <-----
@@ -226,7 +226,7 @@ BEGIN_MESSAGE_MAP(CRecipeMainSrView, CNanoRecipeUI)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CRecipeMainSrView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CRecipeMainSrView ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 
 // =========================================================================
 //
@@ -251,8 +251,8 @@ void CRecipeMainSrView::OnInitialUpdate()
 
 // 2009.12.08 bagus --{--
 #if 0
-// 2009.11.04 bagus RS ’Ç‰Á --{--
-//	m_strHeadType = HEAD_TYPE_ITEM[m_MainRcpInfo.MainRcpParam.hdr.wHeadType];					// SR‚µ‚©“ü‚ç‚È‚¢‚Æv‚¢‚Ü‚·DDD
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --{--
+//	m_strHeadType = HEAD_TYPE_ITEM[m_MainRcpInfo.MainRcpParam.hdr.wHeadType];					// SRï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Ævï¿½ï¿½ï¿½Ü‚ï¿½ï¿½Dï¿½Dï¿½D
 	switch (m_MainRcpInfo.MainRcpParam.hdr.wHeadType) {
 	case HEAD_TYPE_4PP:
 		m_strHeadType = SCAN_TYPE_ITEM_RS;
@@ -261,25 +261,25 @@ void CRecipeMainSrView::OnInitialUpdate()
 		m_strHeadType = HEAD_TYPE_ITEM[m_MainRcpInfo.MainRcpParam.hdr.wHeadType];
 		break;
 	}
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --}--
 #else
 // 2009.12.09 bagus --{--
 //	m_strHeadType = HEAD_TYPE_ITEM[m_MainRcpInfo.MainRcpParam.hdr.wHeadType];
 	m_strHeadType = HEAD_TYPE_ITEM_SHORT[m_MainRcpInfo.MainRcpParam.hdr.wHeadType];
 // 2009.12.09 bagus --}--
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --}--
 #endif
 // 2009.12.08 bagus --}--
 
 	CNanoRecipeUI::OnInitialUpdate();
 
-// 2013.11.12 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.12 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 	if(g_lModelType == MODEL_T3100){
-/* added 2014.05.22 hmenjo è“® lot ID •s—v ---------- { ---------- */
+/* added 2014.05.22 hmenjo ï¿½è“®ï¿½ï¿½ lot ID ï¿½sï¿½v ---------- { ---------- */
 		CString l_strTmp;
 		LoadStringML(IDS_MAINRCP_SMPID_TXT, l_strTmp, "Sample ID");
 		this->SetDlgItemText(IDC_SAMPLE_ID, l_strTmp);
-/* added 2014.05.22 hmenjo è“® lot ID •s—v ---------- } ---------- */
+/* added 2014.05.22 hmenjo ï¿½è“®ï¿½ï¿½ lot ID ï¿½sï¿½v ---------- } ---------- */
 		GetDlgItem(IDC_STAGE_GROUP)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_STAGE_PROGRAM)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_STR_POINT_DESKEW_HEAD_TYPE2)->ShowWindow(SW_HIDE);
@@ -299,8 +299,8 @@ void CRecipeMainSrView::OnInitialUpdate()
 		GetDlgItem(IDC_STAGE_MAP)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_MEASUREMENT_STAGE_MAP)->ShowWindow(SW_HIDE);
 	}
-// 2013.11.12 Bagus Add (TohoSpec‘Î‰) <--
-// 2014.01.17 Bagus Add (Stage None‘Î‰) -->
+// 2013.11.12 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
+// 2014.01.17 Bagus Add (Stage Noneï¿½Î‰ï¿½) -->
 	else{
 		if(m_SystemConfig.nStageType == STAGE_TYPE_NONE){
 			GetDlgItem(IDC_STAGE_GROUP)->ShowWindow(SW_HIDE);
@@ -312,14 +312,14 @@ void CRecipeMainSrView::OnInitialUpdate()
 			GetDlgItem(IDC_MEASUREMENT_STAGE_MAP)->ShowWindow(SW_HIDE);
 		}
 	}
-// 2014.01.17 Bagus Add (Stage None‘Î‰) <--
+// 2014.01.17 Bagus Add (Stage Noneï¿½Î‰ï¿½) <--
 	///// Tool Bar /////
 	RECT rect;
 	if(!m_wndToolBar.CreateEx(this, TBSTYLE_FLAT, WS_CHILD | WS_VISIBLE | CBRS_TOP
 		| CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
 		!m_wndToolBar.LoadToolBar(IDR_EDIT_RECIPE_BAR)){
 		TRACE0("Failed to create toolbar\n");
-		return; 	// ì¬‚É¸”s
+		return; 	// ï¿½ì¬ï¿½Éï¿½ï¿½s
 	}
 
 	GetClientRect(&rect);
@@ -342,15 +342,15 @@ void CRecipeMainSrView::OnInitialUpdate()
 	m_stcRecalib2HeadType.SetBkColor(WATER_COLOR);
 	m_stcRecalib3HeadType.SubclassWindow(GetDlgItem(IDC_RECALIB_3_HEAD_TYPE)->GetSafeHwnd());
 	m_stcRecalib3HeadType.SetBkColor(WATER_COLOR);
-	//2009.09.02 bagus se ‹@”\Šg’£ --{--
+	//2009.09.02 bagus se ï¿½@ï¿½\ï¿½gï¿½ï¿½ --{--
 	m_stcStageHeadType.SubclassWindow(GetDlgItem(IDC_STAGE_HEAD_TYPE)->GetSafeHwnd());
 	m_stcStageHeadType.SetBkColor(WATER_COLOR);
-	//2009.09.02 bagus se ‹@”\Šg’£ --}--
+	//2009.09.02 bagus se ï¿½@ï¿½\ï¿½gï¿½ï¿½ --}--
 
-	//2009.10.20 bagus MS ’Ç‰Á --{--
+	//2009.10.20 bagus MS ï¿½Ç‰ï¿½ --{--
 	CString strBuf;
 	LoadStringML(IDS_POINT_NAME_NONE, strBuf, "None");
-	//2009.10.20 bagus MS ’Ç‰Á --}--
+	//2009.10.20 bagus MS ï¿½Ç‰ï¿½ --}--
 
 //Saiki 20110207 Add ----->
 	/// Thick Setting Button ///
@@ -363,31 +363,31 @@ void CRecipeMainSrView::OnInitialUpdate()
 	switch(m_iNewHeadType){
 	case HEAD_TYPE_SR:
 		GetDlgItem(IDC_MEASUREMENT_REFERENCE)->ShowWindow(SW_SHOW);
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --{--
 //		GetDlgItem(IDC_REFERENCE_WITH_AF)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_REFERENCE_WITH_AF)->ShowWindow(SW_HIDE);
 		m_MainRcpInfo.MainRcpParam._SR.bRefWithAF = TRUE;
-// 2009.10.22 bagus Stress C³ --}--
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --}--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 		if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
-// 2009.12.11 bagus C³ --{--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
+// 2009.12.11 bagus ï¿½Cï¿½ï¿½ --{--
 			GetDlgItem(IDC_FOCUS_IF_FAIL_LABEL)->ShowWindow(SW_NORMAL);
-// 2009.12.11 bagus C³ --}--
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2009.12.11 bagus ï¿½Cï¿½ï¿½ --}--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 		}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 		break;
 	case HEAD_TYPE_SE:
 		GetDlgItem(IDC_MEASUREMENT_REFERENCE)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_REFERENCE_WITH_AF)->ShowWindow(SW_HIDE);
 		m_MainRcpInfo.MainRcpParam._SR.bMeasRef = FALSE;
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --{--
 //		m_MainRcpInfo.MainRcpParam._SR.bRefWithAF = FALSE;
 		m_MainRcpInfo.MainRcpParam._SR.bRefWithAF = TRUE;
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --}--
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 	case HEAD_TYPE_COMPEASE:
 		GetDlgItem(IDC_MEASUREMENT_REFERENCE)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_REFERENCE_WITH_AF)->ShowWindow(SW_HIDE);
@@ -397,10 +397,10 @@ void CRecipeMainSrView::OnInitialUpdate()
 		m_MainRcpInfo.MainRcpParam._SR.bMeasRef = FALSE;
 		m_MainRcpInfo.MainRcpParam._SR.bRefWithAF = TRUE;
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
 	case HEAD_TYPE_STRESS:
 		GetDlgItem(IDC_MEASUREMENT_REFERENCE)->ShowWindow(SW_SHOW);
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --{--
 //		GetDlgItem(IDC_REFERENCE_WITH_AF)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_REFERENCE_WITH_AF)->ShowWindow(SW_HIDE);
 		m_MainRcpInfo.MainRcpParam._SR.bRefWithAF = TRUE;
@@ -421,14 +421,14 @@ void CRecipeMainSrView::OnInitialUpdate()
 		m_MainRcpInfo.MainRcpParam.hdr.bSampleID = TRUE;
 		GetDlgItem(IDC_MEASUREMENT_RESULT_AUTO_SAVE)->EnableWindow(FALSE);
 		m_MainRcpInfo.MainRcpParam.hdr.bSaveMeasResult = TRUE;
-// 2009.10.22 bagus Stress C³ --}--
-// 2009.12.21 bagus stress C³ --{--
-//ƒXƒgƒŒƒX‘ª’è‚Ìê‡‚É‚Íg—p‚µ‚È‚¢
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --}--
+// 2009.12.21 bagus stress ï¿½Cï¿½ï¿½ --{--
+//ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Ìê‡ï¿½É‚Ígï¿½pï¿½ï¿½ï¿½È‚ï¿½
 		m_MainRcpInfo.MainRcpParam.hdr.bSaveNameWithDate = FALSE;
 		GetDlgItem(IDC_MEASUREMENT_RESULT_SAVE_WITH_DATE)->ShowWindow(SW_HIDE);
-// 2009.12.21 bagus stress C³ --}--
+// 2009.12.21 bagus stress ï¿½Cï¿½ï¿½ --}--
 		break;
-	// 2009.10.08 bagus CTA ’Ç‰Á --{--
+	// 2009.10.08 bagus CTA ï¿½Ç‰ï¿½ --{--
 	case HEAD_TYPE_CTA:
 		GetDlgItem(IDC_FOCUS_LABEL)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_FOCUS)->ShowWindow(SW_HIDE);
@@ -443,25 +443,25 @@ void CRecipeMainSrView::OnInitialUpdate()
 		m_MainRcpInfo.MainRcpParam._SR.nFinalFocusFailDataValidOption = 0;
 		m_MainRcpInfo.MainRcpParam._SR.bMeasRef = FALSE;
 		m_MainRcpInfo.MainRcpParam._SR.bRefWithAF = TRUE;
-// 2009.10.28 bagus CTA ’Ç‰ÁC³ --{--
+// 2009.10.28 bagus CTA ï¿½Ç‰ï¿½ï¿½Cï¿½ï¿½ --{--
 		GetDlgItem(IDC_RECALIBRATION_ITEM3)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_RECALIBRATION_3)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_RECALIB_3_HEAD_STATIC)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_RECALIB_3_HEAD_TYPE)->ShowWindow(SW_HIDE);
 		m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_3] = 0;
 		sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_3], "%s", strBuf);
-// 2009.10.28 bagus CTA ’Ç‰ÁC³ --}--
-//2009.12.01 bagus CTA C³ --{--
-// ƒTƒ“ƒvƒ‹ID‚ğg—p‚·‚é‚ğ•K‚¸ƒ`ƒFƒbƒN‚·‚éB‚©‚Â•ÏX•s‰Â
+// 2009.10.28 bagus CTA ï¿½Ç‰ï¿½ï¿½Cï¿½ï¿½ --}--
+//2009.12.01 bagus CTA ï¿½Cï¿½ï¿½ --{--
+// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½IDï¿½ï¿½ï¿½gï¿½pï¿½ï¿½ï¿½ï¿½ï¿½Kï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½Â•ÏXï¿½sï¿½ï¿½
 		m_MainRcpInfo.MainRcpParam.hdr.bSampleID = TRUE;
 		GetDlgItem(IDC_SAMPLE_ID)->EnableWindow(FALSE);
-//2009.12.01 bagus CTA C³ --}--
-//2009.12.07 bagus CTA C³ --{--
+//2009.12.01 bagus CTA ï¿½Cï¿½ï¿½ --}--
+//2009.12.07 bagus CTA ï¿½Cï¿½ï¿½ --{--
 		GetDlgItem(IDC_GRAPH_AUTO_SCALE)->ShowWindow(SW_HIDE);
-//2009.12.07 bagus CTA C³ --{--
+//2009.12.07 bagus CTA ï¿½Cï¿½ï¿½ --{--
 		break;
-	// 2009.10.08 bagus CTA ’Ç‰Á --}--
-	//2009.10.20 bagus MS ’Ç‰Á --{--
+	// 2009.10.08 bagus CTA ï¿½Ç‰ï¿½ --}--
+	//2009.10.20 bagus MS ï¿½Ç‰ï¿½ --{--
 	case HEAD_TYPE_MS:
 		GetDlgItem(IDC_RECALIB_GROUP)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_RECALIB_ITEM_STATIC)->ShowWindow(SW_HIDE);
@@ -486,9 +486,9 @@ void CRecipeMainSrView::OnInitialUpdate()
 		GetDlgItem(IDC_ADJUSTMENT_LABEL)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_POINT_MANUAL_ADJUSTMENT)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_SAMPLE_ID)->ShowWindow(SW_HIDE);
-		//2009.12.20 bagus 2009.12.20 bagus •Û‘¶ƒtƒ@ƒCƒ‹–¼C³--{--
+		//2009.12.20 bagus 2009.12.20 bagus ï¿½Û‘ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½--{--
 		GetDlgItem(IDC_MEASUREMENT_RESULT_SAVE_WITH_DATE)->ShowWindow(SW_HIDE);
-		//2009.12.20 bagus 2009.12.20 bagus •Û‘¶ƒtƒ@ƒCƒ‹–¼C³--}--
+		//2009.12.20 bagus 2009.12.20 bagus ï¿½Û‘ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½--}--
 		GetDlgItem(IDC_MEASUREMENT_RESULT_GROUP)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_MEASUREMENT_RESULT_AUTO_SAVE)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_MEASUREMENT_RESULT_AUTO_SAVE_LABEL)->ShowWindow(SW_HIDE);
@@ -514,8 +514,8 @@ void CRecipeMainSrView::OnInitialUpdate()
 		m_MainRcpInfo.MainRcpParam._SR.bMeasRef = FALSE;
 		m_MainRcpInfo.MainRcpParam._SR.bRefWithAF = TRUE;
 		break;
-	//2009.10.20 bagus MS ’Ç‰Á --}--
-	// 2009.11.04 bagus RS ’Ç‰Á --{--
+	//2009.10.20 bagus MS ï¿½Ç‰ï¿½ --}--
+	// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --{--
 	case HEAD_TYPE_4PP:
 		GetDlgItem(IDC_RECALIB_GROUP)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_RECALIB_ITEM_STATIC)->ShowWindow(SW_HIDE);
@@ -554,37 +554,37 @@ void CRecipeMainSrView::OnInitialUpdate()
 		m_MainRcpInfo.MainRcpParam._SR.bMeasRef = FALSE;
 		m_MainRcpInfo.MainRcpParam._SR.bRefWithAF = TRUE;
 		break;
-	// 2009.11.04 bagus RS ’Ç‰Á --}--
+	// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --}--
 	default:
 		break;
 	}
 // 2009.09.29 bagus SE --}--
-//2009.12.09 bagus C³ --{--
-// ‘ª’èPGM‚ÆStagePGM‚ÌComboBox‚ÌInit‚Å’l‚ª•ÏX‚³‚ê‚é‚Ì‚Å
-// ˆê’UƒŠƒLƒƒƒuƒŠƒŒ[ƒVƒ‡ƒ“‚Ì’l‚ğ‘Ş”ğ‚µ‚Ä‚¨‚­B
+//2009.12.09 bagus ï¿½Cï¿½ï¿½ --{--
+// ï¿½ï¿½ï¿½ï¿½PGMï¿½ï¿½StagePGMï¿½ï¿½ComboBoxï¿½ï¿½Initï¿½Å’lï¿½ï¿½ï¿½ÏXï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ï¿½
+// ï¿½ï¿½Uï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ì’lï¿½ï¿½Ş”ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½B
 	int 	RecalibItem[RECALIB_MAX];
 	TCHAR	szRecalib[RECALIB_MAX][RECIPE_NAME_LEN + 1];
 	memcpy(RecalibItem,m_MainRcpInfo.MainRcpParam._SR.RecalibItem,sizeof(int) * RECALIB_MAX);
 	memcpy(szRecalib,m_MainRcpInfo.MainRcpParam._SR.szRecalib,sizeof(TCHAR) * RECALIB_MAX * (RECIPE_NAME_LEN + 1));
-//2009.12.09 bagus C³ --}--
+//2009.12.09 bagus ï¿½Cï¿½ï¿½ --}--
 
 	///// Control Initialize /////
 	InitCombo_MeasurementProgram();
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) -->
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2014.01.17 Bagus Mod (Stage Noneï¿½Î‰ï¿½) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 //	if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 	if(m_SystemConfig.nStageType != STAGE_TYPE_NONE){
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) <--
+// 2014.01.17 Bagus Mod (Stage Noneï¿½Î‰ï¿½) <--
 		InitCombo_StageProgram();
-		//2009.12.09 bagus C³ --{--
+		//2009.12.09 bagus ï¿½Cï¿½ï¿½ --{--
 		OnSelchangeStageProgram();
-		//2009.12.09 bagus C³ --}--
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+		//2009.12.09 bagus ï¿½Cï¿½ï¿½ --}--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 	}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 	InitCombo_PointDeskewProgram();
-//2009.12.09 bagus C³ --{--
+//2009.12.09 bagus ï¿½Cï¿½ï¿½ --{--
 	memcpy(m_MainRcpInfo.MainRcpParam._SR.RecalibItem,RecalibItem,sizeof(int) * RECALIB_MAX);
 	memcpy(m_MainRcpInfo.MainRcpParam._SR.szRecalib,szRecalib,sizeof(TCHAR) * RECALIB_MAX * (RECIPE_NAME_LEN + 1));
 	InitCombo_RecalibrationProgram((CComboBox*)GetDlgItem(IDC_RECALIBRATION_1), m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_1]);
@@ -596,7 +596,7 @@ void CRecipeMainSrView::OnInitialUpdate()
 	OnSelchangeRecalibration1();
 	OnSelchangeRecalibration2();
 	OnSelchangeRecalibration3();
-//2009.12.09 bagus C³ --}--
+//2009.12.09 bagus ï¿½Cï¿½ï¿½ --}--
 	InitCombo_PointManualAdjustment();
 	InitCombo_Focus();
 	InitCombo_DefaultDisplay();
@@ -604,11 +604,11 @@ void CRecipeMainSrView::OnInitialUpdate()
 	InitThickOptionsForStress(m_iNewHeadType == HEAD_TYPE_STRESS ? TRUE : FALSE);
 //Saiki 20110315 Add <-----
 
-	// Šeíƒwƒbƒhƒ^ƒCƒv‚Ì•ÒW
+	// ï¿½eï¿½ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½Ì•ÒW
 	//OnSelchangeMeasurementProgram();
 	//OnSelchangePointDeskewProgram();
 
-	// ƒRƒƒ“ƒg•¶š”§ŒÀ
+	// ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	((CEdit*)GetDlgItem(IDC_COMMENT))->SetLimitText(RECIPE_COMMENT_LEN);
 
 	///// Default Recipe Setup /////
@@ -616,10 +616,10 @@ void CRecipeMainSrView::OnInitialUpdate()
 		DefaultSetting_Init();
 	}
 
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --{--
 #if 0
 	// 2009.08.28 bagus stress --{--
-	//ƒXƒgƒŒƒX‘ª’è‚ÍSAMPLEIDŒÅ’è
+	//ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½SAMPLEIDï¿½Å’ï¿½
 	CButton *pButton = (CButton *)GetDlgItem(IDC_SAMPLE_ID);
 	if (m_MainRcpInfo.MainRcpParam.hdr.wHeadType == HEAD_TYPE_STRESS) {
 		pButton->SetCheck(1);
@@ -631,54 +631,54 @@ void CRecipeMainSrView::OnInitialUpdate()
 	}
 	// 2009.08.28 bagus stress --}--
 #endif
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --}--
 
-	//2009.09.02 bagus se ‹@”\Šg’£ --{--
+	//2009.09.02 bagus se ï¿½@ï¿½\ï¿½gï¿½ï¿½ --{--
 	///// Stage Map /////
 	switch(m_iNewHeadType){
 	case HEAD_TYPE_STRESS:
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) -->
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2014.01.17 Bagus Mod (Stage Noneï¿½Î‰ï¿½) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 //		if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 		if(m_SystemConfig.nStageType != STAGE_TYPE_NONE){
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) <--
+// 2014.01.17 Bagus Mod (Stage Noneï¿½Î‰ï¿½) <--
 			m_SamplePointGraph.SetLineStatusMode(TRUE);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 		}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 		break;
 	case HEAD_TYPE_SR:
 	//2009.09.07 bagus se --{--
 	case HEAD_TYPE_SE:
 	//2009.09.07 bagus se --}--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 	case HEAD_TYPE_COMPEASE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-	// 2009.10.08 bagus CTA ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
+	// 2009.10.08 bagus CTA ï¿½Ç‰ï¿½ --{--
 	case HEAD_TYPE_CTA:
-	// 2009.10.08 bagus CTA ’Ç‰Á --}--
-	//2009.10.20 bagus MS ’Ç‰Á --{--
+	// 2009.10.08 bagus CTA ï¿½Ç‰ï¿½ --}--
+	//2009.10.20 bagus MS ï¿½Ç‰ï¿½ --{--
 	case HEAD_TYPE_MS:
-	//2009.10.20 bagus MS ’Ç‰Á --}--
-	// 2009.11.04 bagus RS ’Ç‰Á --{--
+	//2009.10.20 bagus MS ï¿½Ç‰ï¿½ --}--
+	// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --{--
 	case HEAD_TYPE_4PP:
-	// 2009.11.04 bagus RS ’Ç‰Á --}--
+	// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --}--
 	default:
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) -->
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2014.01.17 Bagus Mod (Stage Noneï¿½Î‰ï¿½) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 //		if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 		if(m_SystemConfig.nStageType != STAGE_TYPE_NONE){
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) <--
+// 2014.01.17 Bagus Mod (Stage Noneï¿½Î‰ï¿½) <--
 			m_SamplePointGraph.SetLineStatusMode(FALSE);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 		}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 		break;
 	}
 
-// 2014.01.07 bagus Add(Stage None‘Î‰) -->
+// 2014.01.07 bagus Add(Stage Noneï¿½Î‰ï¿½) -->
 	if(g_lModelType != MODEL_T3100){
 		if(m_SystemConfig.nStageType == STAGE_TYPE_NONE){
 			m_MainRcpInfo.MainRcpParam._SR.bMeasRef = FALSE;
@@ -686,16 +686,16 @@ void CRecipeMainSrView::OnInitialUpdate()
 			GetDlgItem(IDC_MEASUREMENT_REFERENCE)->ShowWindow(SW_HIDE);
 		}
 	}
-// 2014.01.07 bagus Add(Stage None‘Î‰) <--
+// 2014.01.07 bagus Add(Stage Noneï¿½Î‰ï¿½) <--
 
-	//2009.12.09 bagus C³ --{--
+	//2009.12.09 bagus ï¿½Cï¿½ï¿½ --{--
 	//OnSelchangeStageProgram();
-	//2009.12.09 bagus C³ --}--
-	//2009.12.21 bagus C³ --{--
+	//2009.12.09 bagus ï¿½Cï¿½ï¿½ --}--
+	//2009.12.21 bagus ï¿½Cï¿½ï¿½ --{--
 	OnMeasurementResultAutoSave();
-	//2009.12.21 bagus C³ --}--
-	//2009.09.02 bagus se ‹@”\Šg’£ --}--
-/* added 2015.04.05 hmenjo FWXGA ‘Î‰2 ---------- { ---------- */
+	//2009.12.21 bagus ï¿½Cï¿½ï¿½ --}--
+	//2009.09.02 bagus se ï¿½@ï¿½\ï¿½gï¿½ï¿½ --}--
+/* added 2015.04.05 hmenjo FWXGA ï¿½Î‰ï¿½2 ---------- { ---------- */
 	RECT l_rectThisView;	this->GetWindowRect(&l_rectThisView);
 	RECT l_rectComment;	this->GetDlgItem(IDC_COMMENT)->GetWindowRect(&l_rectComment);
 	RECT l_rectThisDlg = {0, 0, 605, 551};
@@ -707,18 +707,18 @@ void CRecipeMainSrView::OnInitialUpdate()
 		l_ldeltaY = l_rectComment.top - l_ldeltaY;
 		this->SetScrollSizes(MM_TEXT, CSize(0, 0));
 		POINT l_ptStart = {0, 0};
-		/* ƒRƒƒ“ƒg•¶š	*/
+		/* ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½	*/
 		RECT l_rectCommentStatic;	this->GetDlgItem(IDC_COMMENT_STATIC)->GetWindowRect(&l_rectCommentStatic);
 		l_ptStart.x = l_rectCommentStatic.left;
 		l_ptStart.y = l_rectCommentStatic.top - l_ldeltaY;
 		this->ScreenToClient(&l_ptStart);
 		this->GetDlgItem(IDC_COMMENT_STATIC)->SetWindowPos(0, l_ptStart.x, l_ptStart.y, 0, 0, SWP_NOZORDER | SWP_NOSIZE);
-		/* ƒRƒƒ“ƒg—“	*/
+		/* ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½	*/
 		l_ptStart.x = l_rectComment.left;
 		l_ptStart.y = l_rectComment.top - l_ldeltaY;
 		this->ScreenToClient(&l_ptStart);
 		this->GetDlgItem(IDC_COMMENT)->SetWindowPos(0, l_ptStart.x, l_ptStart.y, 0, 0, SWP_NOZORDER | SWP_NOSIZE);
-		/* ƒRƒ“ƒgƒ[ƒ‹‚ğˆÚ“®	*/
+		/* ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Ú“ï¿½	*/
 		RECT l_rectDelta = {10, 337 - 259 + 5, 87, 12};
 		((CDialog*) this)->MapDialogRect(&l_rectDelta);
 		struct {
@@ -754,11 +754,11 @@ void CRecipeMainSrView::OnInitialUpdate()
 							0, 0, SWP_NOZORDER | SWP_NOSIZE);
 		}
 	}
-/* added 2015.04.05 hmenjo FWXGA ‘Î‰2 ---------- } ---------- */
+/* added 2015.04.05 hmenjo FWXGA ï¿½Î‰ï¿½2 ---------- } ---------- */
 }
 
 // =========================================================================
-// ƒƒWƒƒƒƒ“ƒgƒvƒƒOƒ‰ƒ€ ƒRƒ“ƒ{‘I‘ğ ƒwƒbƒhƒ^ƒCƒv‚Ì•ÒW
+// ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ ï¿½Rï¿½ï¿½ï¿½{ï¿½Iï¿½ï¿½ï¿½ï¿½ ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½Ì•ÒW
 //
 void CRecipeMainSrView::OnSelchangeMeasurementProgram()
 {
@@ -772,25 +772,25 @@ void CRecipeMainSrView::OnSelchangeMeasurementProgram()
 	CComboBox* pComboAdjust = (CComboBox*)GetDlgItem(IDC_POINT_MANUAL_ADJUSTMENT);
 // 2009.10.02 bagus Gantry --}--
 
-// 2009.10.28 bagus 2“_ŠÔ --{--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ --{--
 	CString strBuf;
-// 2009.10.28 bagus 2“_ŠÔ --}--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ --}--
 
 	for(int i=0; i < RECALIB_MAX; i++)
 	{
 //		if(m_MainRcpInfo.MainRcpParam._SR.RecalibItem[i] == -1)
-			//wUpdateData(TRUE)x‚ÅA‹óƒRƒ“ƒ{ƒ{ƒbƒNƒX‚©‚çA-1‚ğ‘ã“ü‚³‚ê‚Ä‚µ‚Ü‚Á‚½•Ï”‚É0‚ğ“ü‚ê‚é
+			//ï¿½wUpdateData(TRUE)ï¿½xï¿½ÅAï¿½ï¿½Rï¿½ï¿½ï¿½{ï¿½{ï¿½bï¿½Nï¿½Xï¿½ï¿½ï¿½ï¿½A-1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½Ïï¿½ï¿½ï¿½0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			m_MainRcpInfo.MainRcpParam._SR.RecalibItem[i] = 0;
 	}
 
-	// ƒRƒ“ƒ{ƒ{ƒbƒNƒX‘I‘ğ‚³‚ê‚½–¼Ì‚Ìæ“¾
+	// ï¿½Rï¿½ï¿½ï¿½{ï¿½{ï¿½bï¿½Nï¿½Xï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½Ì‚Ìæ“¾
 	CString strBuffer = m_MainRcpInfo.MainRcpParam.hdr.szMeas;
 	///// Measurement Program - Head Type /////
 	if ( strBuffer.GetLength() ) {
 		if ( !RecipeFile_LoadRecipe(&m_MeasProgInfo, strBuffer, RECIPE_FILE_MEASUREMENT_PROGRAM) )
 			m_strMeasHeadType.Empty();
 		else
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --{--
 #if 0
 // 2009.09.30 bagus Gantry --{--
 //			m_strMeasHeadType = HEAD_TYPE_ITEM[m_MeasProgInfo.ScanParams.hdr.wHeadType];
@@ -832,35 +832,35 @@ void CRecipeMainSrView::OnSelchangeMeasurementProgram()
 #endif
 // 2009.12.08 bagus --}--
 #endif
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --}--
 			InitCombo_RecalibItemSetting();
 // 2009.10.02 bagus Gantry --{--
 			m_SRScanType = m_MeasProgInfo.ScanParams.hdr.wScanType;
 
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 			if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 				InitCombo_StageProgram();
 				OnSelchangeStageProgram();
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 			}
-// 2014.01.14 Bagus Add (TohoSpec‘Î‰ ƒƒCƒ“ƒŒƒVƒsV‹Kì¬‚ÉRecalib None‚ğ•\¦‚·‚é‚æ‚¤‚É‚·‚é) -->
+// 2014.01.14 Bagus Add (TohoSpecï¿½Î‰ï¿½ ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½Vï¿½Kï¿½ì¬ï¿½ï¿½ï¿½ï¿½Recalib Noneï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ‚¤ï¿½É‚ï¿½ï¿½ï¿½) -->
 			else{
 				UpdateData(TRUE);
 			}
-// 2014.01.14 Bagus Add (TohoSpec‘Î‰ ƒƒCƒ“ƒŒƒVƒsV‹Kì¬‚ÉRecalib None‚ğ•\¦‚·‚é‚æ‚¤‚É‚·‚é) <--
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2014.01.14 Bagus Add (TohoSpecï¿½Î‰ï¿½ ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½Vï¿½Kï¿½ì¬ï¿½ï¿½ï¿½ï¿½Recalib Noneï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ‚¤ï¿½É‚ï¿½ï¿½ï¿½) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 			InitCombo_RecalibrationProgram((CComboBox*)GetDlgItem(IDC_RECALIBRATION_1), m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_1]);
 			OnSelchangeRecalibration1();
 			InitCombo_RecalibrationProgram((CComboBox*)GetDlgItem(IDC_RECALIBRATION_2), m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_2]);
 			OnSelchangeRecalibration2();
 			InitCombo_RecalibrationProgram((CComboBox*)GetDlgItem(IDC_RECALIBRATION_3), m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_3]);
 			OnSelchangeRecalibration3();
-// 2009.10.28 bagus 2“_ŠÔ --{--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ --{--
 			InitCombo_DefaultDisplay();
-// 2009.10.28 bagus 2“_ŠÔ --}--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ --}--
 
-// 2009.10.08 bagus CTA ’Ç‰Á --{--
+// 2009.10.08 bagus CTA ï¿½Ç‰ï¿½ --{--
 #if 0
 			if (m_SRScanType == MEAS_PROG_TYPE_SR_TRANSMITTANCE) {
 				GetDlgItem(IDC_MEASUREMENT_REFERENCE)->ShowWindow(SW_HIDE);
@@ -871,34 +871,34 @@ void CRecipeMainSrView::OnSelchangeMeasurementProgram()
 				pComboFocus->EnableWindow(FALSE);
 				pComboFocus->SetCurSel(0);
 				m_MainRcpInfo.MainRcpParam._SR.nFocus = 0;
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 				if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 					GetDlgItem(IDC_FOCUS_IF_FAIL)->EnableWindow(FALSE);
 					GetDlgItem(IDC_FINAL_FOCUS)->EnableWindow(FALSE);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 				}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 				pComboAdjust->EnableWindow(FALSE);
 				pComboAdjust->SetCurSel(0);
 				m_MainRcpInfo.MainRcpParam.hdr.nPointManualAdjustment = 0;
 			} else {
 				GetDlgItem(IDC_MEASUREMENT_REFERENCE)->ShowWindow(SW_SHOW);
 				GetDlgItem(IDC_REFERENCE_WITH_AF)->ShowWindow(SW_SHOW);
-// 2009.10.09 K.Matsuo Šù‘¶‚Ìƒf[ƒ^ˆ—‚ÌƒfƒOƒŒ[ƒhƒoƒO <--
+// 2009.10.09 K.Matsuo ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒfï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒfï¿½Oï¿½ï¿½ï¿½[ï¿½hï¿½oï¿½O <--
 //				m_MainRcpInfo.MainRcpParam._SR.bMeasRef = FALSE;
 //				m_MainRcpInfo.MainRcpParam._SR.bRefWithAF = FALSE;
-// 2009.10.09 K.Matsuo Šù‘¶‚Ìƒf[ƒ^ˆ—‚ÌƒfƒOƒŒ[ƒhƒoƒO <--
+// 2009.10.09 K.Matsuo ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒfï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒfï¿½Oï¿½ï¿½ï¿½[ï¿½hï¿½oï¿½O <--
 
 				pComboFocus->EnableWindow(TRUE);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 				if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 					GetDlgItem(IDC_FOCUS_IF_FAIL)->EnableWindow(TRUE);
 					GetDlgItem(IDC_FINAL_FOCUS)->EnableWindow(TRUE);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 				}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 				pComboAdjust->EnableWindow(TRUE);
 			}
 #else
@@ -906,36 +906,36 @@ void CRecipeMainSrView::OnSelchangeMeasurementProgram()
 			case HEAD_TYPE_SR:
 				switch ( m_SRScanType ) {
 				case MEAS_PROG_TYPE_SR_TRANSMITTANCE:
-// 2009.10.27 bagus Gantry ’Ç‰ÁC³ --{--
+// 2009.10.27 bagus Gantry ï¿½Ç‰ï¿½ï¿½Cï¿½ï¿½ --{--
 				case MEAS_PROG_TYPE_SR_TRANSMITTANCE_G:
-// 2009.10.27 bagus Gantry ’Ç‰ÁC³ --}--
+// 2009.10.27 bagus Gantry ï¿½Ç‰ï¿½ï¿½Cï¿½ï¿½ --}--
 					GetDlgItem(IDC_MEASUREMENT_REFERENCE)->ShowWindow(SW_HIDE);
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --{--
 //					GetDlgItem(IDC_REFERENCE_WITH_AF)->ShowWindow(SW_HIDE);
-// 2009.10.22 bagus Stress C³ --}--
-// 2009.10.09 K.Matsuo Šù‘¶‚Ìƒf[ƒ^ˆ—‚ÌƒfƒOƒŒ[ƒhƒoƒO <--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --}--
+// 2009.10.09 K.Matsuo ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒfï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒfï¿½Oï¿½ï¿½ï¿½[ï¿½hï¿½oï¿½O <--
 //					m_MainRcpInfo.MainRcpParam._SR.bMeasRef = FALSE;
 //					m_MainRcpInfo.MainRcpParam._SR.bRefWithAF = TRUE;
-// 2009.10.09 K.Matsuo Šù‘¶‚Ìƒf[ƒ^ˆ—‚ÌƒfƒOƒŒ[ƒhƒoƒO <--
+// 2009.10.09 K.Matsuo ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒfï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒfï¿½Oï¿½ï¿½ï¿½[ï¿½hï¿½oï¿½O <--
 
 					pComboFocus->EnableWindow(FALSE);
 					pComboFocus->SetCurSel(0);
 					m_MainRcpInfo.MainRcpParam._SR.nFocus = 0;
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 					if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 						GetDlgItem(IDC_FOCUS_IF_FAIL)->EnableWindow(FALSE);
 						//2009.12.09 bagus --{--
 						GetDlgItem(IDC_FINAL_FOCUS_LABEL)->EnableWindow(FALSE);
 						//2009.12.09 bagus --}--
 						GetDlgItem(IDC_FINAL_FOCUS)->EnableWindow(FALSE);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 					}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 					pComboAdjust->EnableWindow(FALSE);
 					pComboAdjust->SetCurSel(0);
 					m_MainRcpInfo.MainRcpParam.hdr.nPointManualAdjustment = 0;
-// 2009.10.28 bagus 2“_ŠÔ --{--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ --{--
 					GetDlgItem(IDC_RECALIB_GROUP)->ShowWindow(SW_SHOW);
 					GetDlgItem(IDC_RECALIB_ITEM_STATIC)->ShowWindow(SW_SHOW);
 					GetDlgItem(IDC_RECALIBRATION_ITEM1)->ShowWindow(SW_SHOW);
@@ -951,23 +951,23 @@ void CRecipeMainSrView::OnSelchangeMeasurementProgram()
 					GetDlgItem(IDC_RECALIB_2_HEAD_TYPE)->ShowWindow(SW_SHOW);
 					GetDlgItem(IDC_RECALIB_3_HEAD_TYPE)->ShowWindow(SW_SHOW);
 
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 					if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 						GetDlgItem(IDC_ADJUSTMENT_LABEL)->ShowWindow(SW_SHOW);
 						GetDlgItem(IDC_POINT_MANUAL_ADJUSTMENT)->ShowWindow(SW_SHOW);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 					}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
-// 2009.10.28 bagus 2“_ŠÔ --}--
-// 2009.12.07 bagus 2“_ŠÔ --{--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ --}--
+// 2009.12.07 bagus 2ï¿½_ï¿½ï¿½ --{--
 					GetDlgItem(IDC_GRAPH_AUTO_SCALE)->ShowWindow(SW_SHOW);
-// 2009.12.07 bagus 2“_ŠÔ --}--
+// 2009.12.07 bagus 2ï¿½_ï¿½ï¿½ --}--
 					//Saiki 20110215 Add ----->
 					OnSelectThickOptionsForStress();
 					//Saiki 20110215 Add <-----
 					break;
-// 2009.10.28 bagus 2“_ŠÔ --{--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ --{--
 				case MEAS_PROG_TYPE_SR_DISTANCE:
 					GetDlgItem(IDC_RECALIB_GROUP)->ShowWindow(SW_HIDE);
 					GetDlgItem(IDC_RECALIB_ITEM_STATIC)->ShowWindow(SW_HIDE);
@@ -984,14 +984,14 @@ void CRecipeMainSrView::OnSelchangeMeasurementProgram()
 					GetDlgItem(IDC_RECALIB_2_HEAD_TYPE)->ShowWindow(SW_HIDE);
 					GetDlgItem(IDC_RECALIB_3_HEAD_TYPE)->ShowWindow(SW_HIDE);
 
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 					if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 						GetDlgItem(IDC_ADJUSTMENT_LABEL)->ShowWindow(SW_HIDE);
 						GetDlgItem(IDC_POINT_MANUAL_ADJUSTMENT)->ShowWindow(SW_HIDE);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 					}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 
 					GetDlgItem(IDC_MEASUREMENT_REFERENCE)->ShowWindow(SW_HIDE);
 
@@ -1008,54 +1008,54 @@ void CRecipeMainSrView::OnSelchangeMeasurementProgram()
 
 					m_MainRcpInfo.MainRcpParam._SR.bMeasRef = FALSE;
 
-// 2009.12.07 bagus 2“_ŠÔ --{--
+// 2009.12.07 bagus 2ï¿½_ï¿½ï¿½ --{--
 					m_MainRcpInfo.MainRcpParam._SR.nFocus = 0;
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 					if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 						GetDlgItem(IDC_FINAL_FOCUS)->ShowWindow(SW_HIDE);
 						//2009.12.09 bagus --{--
 						GetDlgItem(IDC_FINAL_FOCUS_LABEL)->ShowWindow(SW_HIDE);
 						//2009.12.09 bagus --}--
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 					}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 					GetDlgItem(IDC_GRAPH_AUTO_SCALE)->ShowWindow(SW_HIDE);
-// 2009.12.07 bagus 2“_ŠÔ --}--
+// 2009.12.07 bagus 2ï¿½_ï¿½ï¿½ --}--
 					OnSelectThickOptionsForStress();
 					break;
-// 2009.10.28 bagus 2“_ŠÔ --}--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ --}--
 				default:
 					if(m_SystemConfig.nStageType != STAGE_TYPE_NONE){
 						GetDlgItem(IDC_MEASUREMENT_REFERENCE)->ShowWindow(SW_SHOW);
 					}
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --{--
 //					GetDlgItem(IDC_REFERENCE_WITH_AF)->ShowWindow(SW_SHOW);
-// 2009.10.22 bagus Stress C³ --}--
-//2009.11.27 bagus C³ --{--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --}--
+//2009.11.27 bagus ï¿½Cï¿½ï¿½ --{--
 					//m_MainRcpInfo.MainRcpParam._SR.bMeasRef = FALSE;
-//2009.11.27 bagus C³ --}--
-// 2009.10.22 bagus Stress C³ --{--
+//2009.11.27 bagus ï¿½Cï¿½ï¿½ --}--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --{--
 //					m_MainRcpInfo.MainRcpParam._SR.bRefWithAF = FALSE;
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --}--
 
 					pComboFocus->EnableWindow(TRUE);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 					if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 						GetDlgItem(IDC_FOCUS_IF_FAIL)->EnableWindow(TRUE);
 						GetDlgItem(IDC_FINAL_FOCUS)->EnableWindow(TRUE);
 						GetDlgItem(IDC_FOCUS_IF_FAIL_LABEL)->ShowWindow(SW_NORMAL);
-// 2009.12.14 bagus SR ’Ç‰Á --{--
+// 2009.12.14 bagus SR ï¿½Ç‰ï¿½ --{--
 						GetDlgItem(IDC_FINAL_FOCUS)->ShowWindow(SW_NORMAL);
 						GetDlgItem(IDC_FINAL_FOCUS_LABEL)->EnableWindow(TRUE);
-// 2009.12.14 bagus SR ’Ç‰Á --}--
+// 2009.12.14 bagus SR ï¿½Ç‰ï¿½ --}--
 						GetDlgItem(IDC_FINAL_FOCUS_LABEL)->ShowWindow(SW_NORMAL);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 					}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 					pComboAdjust->EnableWindow(TRUE);
-// 2009.10.28 bagus 2“_ŠÔ --{--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ --{--
 					GetDlgItem(IDC_RECALIB_GROUP)->ShowWindow(SW_SHOW);
 					GetDlgItem(IDC_RECALIB_ITEM_STATIC)->ShowWindow(SW_SHOW);
 					GetDlgItem(IDC_RECALIBRATION_ITEM1)->ShowWindow(SW_SHOW);
@@ -1071,18 +1071,18 @@ void CRecipeMainSrView::OnSelchangeMeasurementProgram()
 					GetDlgItem(IDC_RECALIB_2_HEAD_TYPE)->ShowWindow(SW_SHOW);
 					GetDlgItem(IDC_RECALIB_3_HEAD_TYPE)->ShowWindow(SW_SHOW);
 
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 					if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 						GetDlgItem(IDC_ADJUSTMENT_LABEL)->ShowWindow(SW_SHOW);
 						GetDlgItem(IDC_POINT_MANUAL_ADJUSTMENT)->ShowWindow(SW_SHOW);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 					}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
-// 2009.10.28 bagus 2“_ŠÔ --}--
-// 2009.12.07 bagus 2“_ŠÔ --{--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ --}--
+// 2009.12.07 bagus 2ï¿½_ï¿½ï¿½ --{--
 					GetDlgItem(IDC_GRAPH_AUTO_SCALE)->ShowWindow(SW_SHOW);
-// 2009.12.07 bagus 2“_ŠÔ --}--
+// 2009.12.07 bagus 2ï¿½_ï¿½ï¿½ --}--
 //Saiki 20110215 Add ----->
 					OnSelectThickOptionsForStress();
 //Saiki 20110215 Add <-----
@@ -1091,26 +1091,26 @@ void CRecipeMainSrView::OnSelchangeMeasurementProgram()
 				break;
 			case HEAD_TYPE_CTA:
 				GetDlgItem(IDC_MEASUREMENT_REFERENCE)->ShowWindow(SW_HIDE);
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --{--
 //				GetDlgItem(IDC_REFERENCE_WITH_AF)->ShowWindow(SW_HIDE);
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --}--
 				m_MainRcpInfo.MainRcpParam._SR.bMeasRef = FALSE;
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --{--
 //				m_MainRcpInfo.MainRcpParam._SR.bRefWithAF = TRUE;
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --}--
 
 				pComboFocus->EnableWindow(FALSE);
 				pComboFocus->SetCurSel(0);
 				m_MainRcpInfo.MainRcpParam._SR.nFocus = 0;
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 				if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 					GetDlgItem(IDC_FOCUS_IF_FAIL)->EnableWindow(FALSE);
 					GetDlgItem(IDC_FINAL_FOCUS)->EnableWindow(FALSE);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 				}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
-				//2009.12.07 bagus CTA ˆÊ’u•â³€–Ú‚Í—LŒø‚É‚·‚é--{--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
+				//2009.12.07 bagus CTA ï¿½Ê’uï¿½â³ï¿½ï¿½ï¿½Ú‚Í—Lï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½--{--
 				//pComboAdjust->EnableWindow(FALSE);
 				pComboAdjust->SetCurSel(0);
 				//2009.12.07 bagus CTA --}--
@@ -1119,32 +1119,32 @@ void CRecipeMainSrView::OnSelchangeMeasurementProgram()
 				OnSelectThickOptionsForStress();
 				//Saiki 20110215 Add <-----
 				break;
-//2009.10.20 bagus MS ’Ç‰Á --{--
+//2009.10.20 bagus MS ï¿½Ç‰ï¿½ --{--
 			case HEAD_TYPE_MS:
 				GetDlgItem(IDC_MEASUREMENT_REFERENCE)->ShowWindow(SW_HIDE);
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --{--
 //				GetDlgItem(IDC_REFERENCE_WITH_AF)->ShowWindow(SW_HIDE);
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --}--
 				m_MainRcpInfo.MainRcpParam._SR.bMeasRef = FALSE;
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --{--
 //				m_MainRcpInfo.MainRcpParam._SR.bRefWithAF = TRUE;
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --}--
 
 				pComboFocus->EnableWindow(FALSE);
 				pComboFocus->SetCurSel(0);
 				m_MainRcpInfo.MainRcpParam._SR.nFocus = 0;
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 				if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 					GetDlgItem(IDC_FOCUS_IF_FAIL)->EnableWindow(FALSE);
 					GetDlgItem(IDC_FINAL_FOCUS)->EnableWindow(FALSE);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 				}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 				pComboAdjust->EnableWindow(FALSE);
 				pComboAdjust->SetCurSel(0);
 				m_MainRcpInfo.MainRcpParam.hdr.nPointManualAdjustment = 0;
-// 2009.10.28 bagus 2“_ŠÔ --{--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ --{--
 				GetDlgItem(IDC_RECALIB_GROUP)->ShowWindow(SW_HIDE);
 				GetDlgItem(IDC_RECALIB_ITEM_STATIC)->ShowWindow(SW_HIDE);
 				GetDlgItem(IDC_RECALIBRATION_ITEM1)->ShowWindow(SW_HIDE);
@@ -1160,21 +1160,21 @@ void CRecipeMainSrView::OnSelchangeMeasurementProgram()
 				GetDlgItem(IDC_RECALIB_2_HEAD_TYPE)->ShowWindow(SW_HIDE);
 				GetDlgItem(IDC_RECALIB_3_HEAD_TYPE)->ShowWindow(SW_HIDE);
 
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 				if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 					GetDlgItem(IDC_ADJUSTMENT_LABEL)->ShowWindow(SW_HIDE);
 					GetDlgItem(IDC_POINT_MANUAL_ADJUSTMENT)->ShowWindow(SW_HIDE);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 				}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
-// 2009.10.28 bagus 2“_ŠÔ --}--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ --}--
 				//Saiki 20110215 Add ----->
 				OnSelectThickOptionsForStress();
 				//Saiki 20110215 Add <-----
 				break;
-//2009.10.20 bagus MS ’Ç‰Á --}--
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+//2009.10.20 bagus MS ï¿½Ç‰ï¿½ --}--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --{--
 			case HEAD_TYPE_4PP:
 				GetDlgItem(IDC_MEASUREMENT_REFERENCE)->ShowWindow(SW_HIDE);
 				m_MainRcpInfo.MainRcpParam._SR.bMeasRef = FALSE;
@@ -1182,14 +1182,14 @@ void CRecipeMainSrView::OnSelchangeMeasurementProgram()
 				pComboFocus->EnableWindow(FALSE);
 				pComboFocus->SetCurSel(0);
 				m_MainRcpInfo.MainRcpParam._SR.nFocus = 0;
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 				if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 					GetDlgItem(IDC_FOCUS_IF_FAIL)->EnableWindow(FALSE);
 					GetDlgItem(IDC_FINAL_FOCUS)->EnableWindow(FALSE);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 				}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 				GetDlgItem(IDC_RECALIB_GROUP)->ShowWindow(SW_HIDE);
 				GetDlgItem(IDC_RECALIB_ITEM_STATIC)->ShowWindow(SW_HIDE);
 				GetDlgItem(IDC_RECALIBRATION_ITEM1)->ShowWindow(SW_HIDE);
@@ -1205,19 +1205,19 @@ void CRecipeMainSrView::OnSelchangeMeasurementProgram()
 				GetDlgItem(IDC_RECALIB_2_HEAD_TYPE)->ShowWindow(SW_HIDE);
 				GetDlgItem(IDC_RECALIB_3_HEAD_TYPE)->ShowWindow(SW_HIDE);
 
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 				if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 					GetDlgItem(IDC_ADJUSTMENT_LABEL)->ShowWindow(SW_SHOW);
 					GetDlgItem(IDC_POINT_MANUAL_ADJUSTMENT)->ShowWindow(SW_SHOW);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 				}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 				//Saiki 20110215 Add ----->
 				OnSelectThickOptionsForStress();
 				//Saiki 20110215 Add <-----
 				break;
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --}--
 // 2009.12.08 bagus Stress --{--
 			case HEAD_TYPE_STRESS:
 				GetDlgItem(IDC_MEASUREMENT_REFERENCE)->ShowWindow(SW_SHOW);
@@ -1244,7 +1244,7 @@ void CRecipeMainSrView::OnSelchangeMeasurementProgram()
 				OnSelectThickOptionsForStress();
 				//Saiki 20110215 Add <-----
 				break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 			case HEAD_TYPE_COMPEASE:
 				GetDlgItem(IDC_MEASUREMENT_REFERENCE)->ShowWindow(SW_HIDE);
 				GetDlgItem(IDC_REFERENCE_WITH_AF)->ShowWindow(SW_HIDE);
@@ -1255,30 +1255,30 @@ void CRecipeMainSrView::OnSelchangeMeasurementProgram()
 				m_MainRcpInfo.MainRcpParam._SR.bRefWithAF = TRUE;
 				OnSelectThickOptionsForStress();
 				break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
 // 2009.12.09 bagus SE --}--
 // 2009.12.08 bagus Stress --}--
 			default:
 				GetDlgItem(IDC_MEASUREMENT_REFERENCE)->ShowWindow(SW_SHOW);
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --{--
 //				GetDlgItem(IDC_REFERENCE_WITH_AF)->ShowWindow(SW_SHOW);
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --}--
 				m_MainRcpInfo.MainRcpParam._SR.bMeasRef = FALSE;
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --{--
 //				m_MainRcpInfo.MainRcpParam._SR.bRefWithAF = FALSE;
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --}--
 
 				pComboFocus->EnableWindow(TRUE);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 				if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 					GetDlgItem(IDC_FOCUS_IF_FAIL)->EnableWindow(TRUE);
 					GetDlgItem(IDC_FINAL_FOCUS)->EnableWindow(TRUE);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 				}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 				pComboAdjust->EnableWindow(TRUE);
-// 2009.10.28 bagus 2“_ŠÔ --{--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ --{--
 				GetDlgItem(IDC_RECALIB_GROUP)->ShowWindow(SW_SHOW);
 				GetDlgItem(IDC_RECALIB_ITEM_STATIC)->ShowWindow(SW_SHOW);
 				GetDlgItem(IDC_RECALIBRATION_ITEM1)->ShowWindow(SW_SHOW);
@@ -1294,22 +1294,22 @@ void CRecipeMainSrView::OnSelchangeMeasurementProgram()
 				GetDlgItem(IDC_RECALIB_2_HEAD_TYPE)->ShowWindow(SW_SHOW);
 				GetDlgItem(IDC_RECALIB_3_HEAD_TYPE)->ShowWindow(SW_SHOW);
 
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 				if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 					GetDlgItem(IDC_ADJUSTMENT_LABEL)->ShowWindow(SW_SHOW);
 					GetDlgItem(IDC_POINT_MANUAL_ADJUSTMENT)->ShowWindow(SW_SHOW);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 				}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
-// 2009.10.28 bagus 2“_ŠÔ --}--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ --}--
 				//Saiki 20110215 Add ----->
 				OnSelectThickOptionsForStress();
 				//Saiki 20110215 Add <-----
 				break;
 			}
 #endif
-// 2009.10.08 bagus CTA ’Ç‰Á --}--
+// 2009.10.08 bagus CTA ï¿½Ç‰ï¿½ --}--
 // 2009.10.02 bagus Gantry --}--
 	}
 	else {
@@ -1320,20 +1320,20 @@ void CRecipeMainSrView::OnSelchangeMeasurementProgram()
 }
 
 // =========================================================================
-// ƒ|ƒCƒ“ƒgƒfƒXƒLƒ…[ ƒRƒ“ƒ{‘I‘ğ ƒwƒbƒhƒ^ƒCƒvEƒŒƒ“ƒY‚Ì•ÒW
+// ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ ï¿½Rï¿½ï¿½ï¿½{ï¿½Iï¿½ï¿½ï¿½ï¿½ ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½Ì•ÒW
 //
 void CRecipeMainSrView::OnSelchangePointDeskewProgram()
 {
 	UpdateData(TRUE);
 
 	POINT_DESKEW_PROG_INFO PointDeskewProgInfo;
-	// ƒRƒ“ƒ{ƒ{ƒbƒNƒX‘I‘ğ‚³‚ê‚½–¼Ì‚Ìæ“¾
+	// ï¿½Rï¿½ï¿½ï¿½{ï¿½{ï¿½bï¿½Nï¿½Xï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½Ì‚Ìæ“¾
 	CString strBuffer = m_MainRcpInfo.MainRcpParam.hdr.szPointDeskew;
 	///// Point Deskew - Head Type /////
 	///// Point Deskew - Lens /////
 //	if ( strBuffer.GetLength() && strBuffer != "None" ) {
 	//Saiki 20090526 Change ----->
-	//if ( strBuffer.GetLength() && strBuffer != "–³‚µ" ) {
+	//if ( strBuffer.GetLength() && strBuffer != "ï¿½ï¿½ï¿½ï¿½" ) {
 	CString strBuf;
 	LoadStringML(IDS_POINT_NAME_NONE, strBuf, "None");
 	if ( strBuffer.GetLength() && strBuffer != strBuf ) {
@@ -1361,19 +1361,19 @@ void CRecipeMainSrView::OnSelchangePointDeskewProgram()
 }
 
 // =========================================================================
-// ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‚P ƒRƒ“ƒ{‘I‘ğ ƒwƒbƒhƒ^ƒCƒv‚Ì•ÒW
+// ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½P ï¿½Rï¿½ï¿½ï¿½{ï¿½Iï¿½ï¿½ï¿½ï¿½ ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½Ì•ÒW
 //
 void CRecipeMainSrView::OnSelchangeRecalibration1()
 {
 	UpdateData(TRUE);
 
 	RECALIB_PROG_INFO RecalibProgInfo;
-	// ƒRƒ“ƒ{ƒ{ƒbƒNƒX‘I‘ğ‚³‚ê‚½–¼Ì‚Ìæ“¾
+	// ï¿½Rï¿½ï¿½ï¿½{ï¿½{ï¿½bï¿½Nï¿½Xï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½Ì‚Ìæ“¾
 	CString strBuffer = m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_1];
 	///// Recalibration 1 - Head Type /////
 //	if ( strBuffer.GetLength() && strBuffer != "None" ) {
 	//Saiki 20090526 Change ----->
-	//if ( strBuffer.GetLength() && strBuffer != "–³‚µ" ) {
+	//if ( strBuffer.GetLength() && strBuffer != "ï¿½ï¿½ï¿½ï¿½" ) {
 	CString strBuf;
 	LoadStringML(IDS_POINT_NAME_NONE, strBuf, "None");
 	if ( strBuffer.GetLength() && strBuffer != strBuf ) {
@@ -1381,7 +1381,7 @@ void CRecipeMainSrView::OnSelchangeRecalibration1()
 		if ( !RecipeFile_LoadRecipe(&RecalibProgInfo, strBuffer, RECIPE_FILE_RECALIBRATION_PROGRAM) )
 			m_strRecalib1HeadType.Empty();
 		else
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --{--
 #if 0
 // 2009.09.30 bagus Gantry --{--
 //			m_strRecalib1HeadType = HEAD_TYPE_ITEM[RecalibProgInfo.wHeadType];
@@ -1423,7 +1423,7 @@ void CRecipeMainSrView::OnSelchangeRecalibration1()
 #endif
 // 2009.12.08 bagus --}--
 #endif
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --}--
 	}
 	else {
 		m_strRecalib1HeadType.Empty();
@@ -1433,19 +1433,19 @@ void CRecipeMainSrView::OnSelchangeRecalibration1()
 }
 
 // =========================================================================
-// ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‚Q ƒRƒ“ƒ{‘I‘ğ ƒwƒbƒhƒ^ƒCƒv‚Ì•ÒW
+// ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Q ï¿½Rï¿½ï¿½ï¿½{ï¿½Iï¿½ï¿½ï¿½ï¿½ ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½Ì•ÒW
 //
 void CRecipeMainSrView::OnSelchangeRecalibration2()
 {
 	UpdateData(TRUE);
 
 	RECALIB_PROG_INFO RecalibProgInfo;
-	// ƒRƒ“ƒ{ƒ{ƒbƒNƒX‘I‘ğ‚³‚ê‚½–¼Ì‚Ìæ“¾
+	// ï¿½Rï¿½ï¿½ï¿½{ï¿½{ï¿½bï¿½Nï¿½Xï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½Ì‚Ìæ“¾
 	CString strBuffer = m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_2];
 	///// Recalibration 2 - Head Type /////
 //	if ( strBuffer.GetLength() && strBuffer != "None" ) {
 	//Saiki 20090526 Change ----->
-	//if ( strBuffer.GetLength() && strBuffer != "–³‚µ" ) {
+	//if ( strBuffer.GetLength() && strBuffer != "ï¿½ï¿½ï¿½ï¿½" ) {
 	CString strBuf;
 	LoadStringML(IDS_POINT_NAME_NONE, strBuf, "None");
 	if ( strBuffer.GetLength() && strBuffer != strBuf ) {
@@ -1453,7 +1453,7 @@ void CRecipeMainSrView::OnSelchangeRecalibration2()
 		if ( !RecipeFile_LoadRecipe(&RecalibProgInfo, strBuffer, RECIPE_FILE_RECALIBRATION_PROGRAM) )
 			m_strRecalib2HeadType.Empty();
 		else
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --{--
 #if 0
 // 2009.09.30 bagus Gantry --{--
 //			m_strRecalib2HeadType = HEAD_TYPE_ITEM[RecalibProgInfo.wHeadType];
@@ -1495,7 +1495,7 @@ void CRecipeMainSrView::OnSelchangeRecalibration2()
 #endif
 // 2009.12.08 bagus --}--
 #endif
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --}--
 	}
 	else {
 		m_strRecalib2HeadType.Empty();
@@ -1505,27 +1505,27 @@ void CRecipeMainSrView::OnSelchangeRecalibration2()
 }
 
 // =========================================================================
-// ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‚R ƒRƒ“ƒ{‘I‘ğ ƒwƒbƒhƒ^ƒCƒv‚Ì•ÒW
+// ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½R ï¿½Rï¿½ï¿½ï¿½{ï¿½Iï¿½ï¿½ï¿½ï¿½ ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½Ì•ÒW
 //
 void CRecipeMainSrView::OnSelchangeRecalibration3()
 {
 	UpdateData(TRUE);
 
 	RECALIB_PROG_INFO RecalibProgInfo;
-	// ƒRƒ“ƒ{ƒ{ƒbƒNƒX‘I‘ğ‚³‚ê‚½–¼Ì‚Ìæ“¾
+	// ï¿½Rï¿½ï¿½ï¿½{ï¿½{ï¿½bï¿½Nï¿½Xï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½Ì‚Ìæ“¾
 	CString strBuffer = m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_3];
 	///// Recalibration 3 - Head Type /////
 //	if ( strBuffer.GetLength() && strBuffer != "None" ) {
 	//Saiki 20090526 Change ----->
 	CString strBuf;
-	//if ( strBuffer.GetLength() && strBuffer != "–³‚µ" ) {
+	//if ( strBuffer.GetLength() && strBuffer != "ï¿½ï¿½ï¿½ï¿½" ) {
 	LoadStringML(IDS_POINT_NAME_NONE, strBuf, "None");
 	if ( strBuffer.GetLength() && strBuffer != strBuf ) {
 	//Saiki 20090526 Change <-----
 		if ( !RecipeFile_LoadRecipe(&RecalibProgInfo, strBuffer, RECIPE_FILE_RECALIBRATION_PROGRAM) )
 			m_strRecalib3HeadType.Empty();
 		else
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --{--
 #if 0
 // 2009.09.30 bagus Gantry --{--
 //			m_strRecalib3HeadType = HEAD_TYPE_ITEM[RecalibProgInfo.wHeadType];
@@ -1567,7 +1567,7 @@ void CRecipeMainSrView::OnSelchangeRecalibration3()
 #endif
 // 2009.12.08 bagus --}--
 #endif
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --}--
 	}
 	else {
 		m_strRecalib3HeadType.Empty();
@@ -1577,7 +1577,7 @@ void CRecipeMainSrView::OnSelchangeRecalibration3()
 }
 
 // =========================================================================
-// ƒ|ƒCƒ“ƒgƒ}ƒjƒ…ƒAƒ‹ƒAƒWƒƒƒXƒgƒƒ“ƒg ƒRƒ“ƒ{‘I‘ğ
+// ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Aï¿½Wï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½ï¿½ï¿½g ï¿½Rï¿½ï¿½ï¿½{ï¿½Iï¿½ï¿½ï¿½ï¿½
 //
 void CRecipeMainSrView::OnSelchangePointManualAdjustment()
 {
@@ -1593,7 +1593,7 @@ void CRecipeMainSrView::OnSelchangePointManualAdjustment()
 }
 
 // =========================================================================
-// ƒTƒ“ƒvƒ‹ID ƒRƒ“ƒ{‘I‘ğ
+// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ID ï¿½Rï¿½ï¿½ï¿½{ï¿½Iï¿½ï¿½ï¿½ï¿½
 //
 void CRecipeMainSrView::OnSelchangeSampleId()
 {
@@ -1609,7 +1609,7 @@ void CRecipeMainSrView::OnSelchangeSampleId()
 }
 
 // =========================================================================
-// ƒtƒH[ƒJƒX ƒRƒ“ƒ{‘I‘ğ
+// ï¿½tï¿½Hï¿½[ï¿½Jï¿½X ï¿½Rï¿½ï¿½ï¿½{ï¿½Iï¿½ï¿½ï¿½ï¿½
 //
 void CRecipeMainSrView::OnSelchangeFocus()
 {
@@ -1625,7 +1625,7 @@ void CRecipeMainSrView::OnSelchangeFocus()
 }
 
 // =========================================================================
-// ƒtƒH[ƒJƒX¸”s“®ì ƒRƒ“ƒ{‘I‘ğ
+// ï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Rï¿½ï¿½ï¿½{ï¿½Iï¿½ï¿½ï¿½ï¿½
 //
 void CRecipeMainSrView::OnSelchangeFocusIfFail()
 {
@@ -1637,29 +1637,29 @@ void CRecipeMainSrView::OnSelchangeFocusIfFail()
 		return;
 	m_MainRcpInfo.MainRcpParam._SR.nAutoFocusFailOption = nSelect;
 	if(nSelect == AFOCUS_FAIL_OPTION_AUTO_RETRY_CANCEL_RECIPE || nSelect == AFOCUS_FAIL_OPTION_CANCEL_RECIPE){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 		if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 			GetDlgItem(IDC_FINAL_FOCUS)->EnableWindow(FALSE);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 		}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 	}
 	else{
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 		if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 			GetDlgItem(IDC_FINAL_FOCUS)->EnableWindow(TRUE);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 		}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 	}
 
 //	UpdateData(FALSE);
 }
 
 // =========================================================================
-// ƒfƒtƒHƒ‹ƒgƒfƒBƒXƒvƒŒƒC ƒRƒ“ƒ{‘I‘ğ
+// ï¿½fï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½fï¿½Bï¿½Xï¿½vï¿½ï¿½ï¿½C ï¿½Rï¿½ï¿½ï¿½{ï¿½Iï¿½ï¿½ï¿½ï¿½
 //
 void CRecipeMainSrView::OnSelchangeDefaultDisplay()
 {
@@ -1683,10 +1683,10 @@ void CRecipeMainSrView::LoadRecipeData()
 	//Saiki 20090526 Add <-----
 	switch ( m_nOpenMode )
 	{
-	case modeNew:				// ƒŒƒVƒsV‹Kì¬
-	case modeDefaultSetting:	// ƒRƒ“ƒtƒBƒO‰æ–Ê‚©‚ç‘JˆÚ‚µ‚Ä‚«‚½ƒP[ƒX
+	case modeNew:				// ï¿½ï¿½ï¿½Vï¿½sï¿½Vï¿½Kï¿½ì¬
+	case modeDefaultSetting:	// ï¿½Rï¿½ï¿½ï¿½tï¿½Bï¿½Oï¿½ï¿½Ê‚ï¿½ï¿½ï¿½Jï¿½Ú‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½Pï¿½[ï¿½X
 		//2009.08.28 bagus strsss --{--
-		//SR/STRESS‰æ–Ê‹¤—p‚Ìˆ×A•ÏXB
+		//SR/STRESSï¿½ï¿½Ê‹ï¿½ï¿½pï¿½Ìˆ×Aï¿½ÏXï¿½B
 		//if ( !RecipeFile_LoadRecipe(&m_MainRcpInfo, SR_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_SR_MAIN_RECIPE) ) {
 		//	m_MainRcpInfo.MainRcpParam.hdr.wHeadType = HEAD_TYPE_SR;
 		//}
@@ -1704,16 +1704,16 @@ void CRecipeMainSrView::LoadRecipeData()
 			}
 			break;
 		//2009.09.07 bagus se --}--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 		case HEAD_TYPE_COMPEASE:
 			if ( !RecipeFile_LoadRecipe(&m_MainRcpInfo, COMPEASE_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_COMPEASE_MAIN_RECIPE) ) {
 				m_MainRcpInfo.MainRcpParam.hdr.wHeadType = HEAD_TYPE_COMPEASE;
-				// ƒfƒtƒHƒ‹ƒg’lİ’è
+				// ï¿½fï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½lï¿½İ’ï¿½
 				m_MainRcpInfo.MainRcpParam.hdr.bSaveMeasResult = TRUE;
 				m_MainRcpInfo.MainRcpParam.hdr.bSaveNameWithDate = TRUE;
 			}
 			break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
 		case HEAD_TYPE_STRESS:
 //Saiki 20110303 Change ----->
 			//if ( !RecipeFile_LoadRecipe(&m_MainRcpInfo, STRESS_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_STRESS_MAIN_RECIPE) ) {
@@ -1727,35 +1727,35 @@ void CRecipeMainSrView::LoadRecipeData()
 			}
 //Saiki 20110303 Change <-----
 			break;
-		// 2009.10.08 bagus CTA ’Ç‰Á --{--
+		// 2009.10.08 bagus CTA ï¿½Ç‰ï¿½ --{--
 		case HEAD_TYPE_CTA:
 			if ( !RecipeFile_LoadRecipe(&m_MainRcpInfo, CTA_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_CTA_MAIN_RECIPE) ) {
 				m_MainRcpInfo.MainRcpParam.hdr.wHeadType = HEAD_TYPE_CTA;
 			}
 			break;
-		// 2009.10.08 bagus CTA ’Ç‰Á --}--
-		//2009.10.20 bagus MS ’Ç‰Á --{--
+		// 2009.10.08 bagus CTA ï¿½Ç‰ï¿½ --}--
+		//2009.10.20 bagus MS ï¿½Ç‰ï¿½ --{--
 		case HEAD_TYPE_MS:
 			if ( !RecipeFile_LoadRecipe(&m_MainRcpInfo, MS_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_MS_MAIN_RECIPE) ) {
 				m_MainRcpInfo.MainRcpParam.hdr.wHeadType = HEAD_TYPE_MS;
 			}
 			break;
-		//2009.10.20 bagus MS ’Ç‰Á --}--
-		// 2009.11.04 bagus RS ’Ç‰Á --{--
+		//2009.10.20 bagus MS ï¿½Ç‰ï¿½ --}--
+		// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --{--
 		case HEAD_TYPE_4PP:
 			if ( !RecipeFile_LoadRecipe(&m_MainRcpInfo, RES_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_4PP_MAIN_RECIPE) ) {
 				m_MainRcpInfo.MainRcpParam.hdr.wHeadType = HEAD_TYPE_4PP;
 			}
 			break;
-		// 2009.11.04 bagus RS ’Ç‰Á --}--
+		// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --}--
 		}
 		//2009.08.28 bagus strsss --}--
 		break;
-	default:					// ƒŒƒVƒsƒƒCƒ“ƒŠƒXƒg‰æ–Ê‚©‚ç‘JˆÚ‚µ‚Ä‚«‚½ƒP[ƒX
+	default:					// ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½Ê‚ï¿½ï¿½ï¿½Jï¿½Ú‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½Pï¿½[ï¿½X
 		if ( !RecipeFile_LoadRecipe(&m_MainRcpInfo, m_szRecipeName, RECIPE_FILE_MAIN_RECIPE) ) {
 			m_nOpenMode = modeNew;
 			//2009.08.28 bagus stress --{--
-			//SR/STRESS‰æ–Ê‹¤—p‚Ì‚½‚ß‚É•ÏX
+			//SR/STRESSï¿½ï¿½Ê‹ï¿½ï¿½pï¿½Ì‚ï¿½ï¿½ß‚É•ÏX
 			//if ( !RecipeFile_LoadRecipe(&m_MainRcpInfo, SR_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_SR_MAIN_RECIPE) ) {
 			//	m_MainRcpInfo.MainRcpParam.hdr.wHeadType = HEAD_TYPE_SR;
 			//}
@@ -1773,13 +1773,13 @@ void CRecipeMainSrView::LoadRecipeData()
 				}
 				break;
 			//2009.09.07 bagus se --}--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 			case HEAD_TYPE_COMPEASE:
 				if ( !RecipeFile_LoadRecipe(&m_MainRcpInfo, COMPEASE_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_COMPEASE_MAIN_RECIPE) ) {
 					m_MainRcpInfo.MainRcpParam.hdr.wHeadType = HEAD_TYPE_COMPEASE;
 				}
 				break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
 			case HEAD_TYPE_STRESS:
 				if ( !RecipeFile_LoadRecipe(&m_MainRcpInfo, STRESS_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_STRESS_MAIN_RECIPE) ) {
 					//Saiki 20110215 Change ----->
@@ -1790,27 +1790,27 @@ void CRecipeMainSrView::LoadRecipeData()
 					//Saiki 20110215 Change <-----
 				}
 				break;
-			// 2009.10.08 bagus CTA ’Ç‰Á --{--
+			// 2009.10.08 bagus CTA ï¿½Ç‰ï¿½ --{--
 			case HEAD_TYPE_CTA:
 				if ( !RecipeFile_LoadRecipe(&m_MainRcpInfo, CTA_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_CTA_MAIN_RECIPE) ) {
 					m_MainRcpInfo.MainRcpParam.hdr.wHeadType = HEAD_TYPE_CTA;
 				}
 				break;
-			// 2009.10.08 bagus CTA ’Ç‰Á --}--
-			//2009.10.20 bagus MS ’Ç‰Á --{--
+			// 2009.10.08 bagus CTA ï¿½Ç‰ï¿½ --}--
+			//2009.10.20 bagus MS ï¿½Ç‰ï¿½ --{--
 			case HEAD_TYPE_MS:
 				if ( !RecipeFile_LoadRecipe(&m_MainRcpInfo, MS_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_MS_MAIN_RECIPE) ) {
 					m_MainRcpInfo.MainRcpParam.hdr.wHeadType = HEAD_TYPE_MS;
 				}
 				break;
-			//2009.10.20 bagus MS ’Ç‰Á --}--
-			// 2009.11.04 bagus RS ’Ç‰Á --{--
+			//2009.10.20 bagus MS ï¿½Ç‰ï¿½ --}--
+			// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --{--
 			case HEAD_TYPE_4PP:
 				if ( !RecipeFile_LoadRecipe(&m_MainRcpInfo, RES_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_4PP_MAIN_RECIPE) ) {
 					m_MainRcpInfo.MainRcpParam.hdr.wHeadType = HEAD_TYPE_4PP;
 				}
 				break;
-			// 2009.11.04 bagus RS ’Ç‰Á --}--
+			// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --}--
 			}
 			//2009.08.28 bagus strsss --}--
 		}
@@ -1832,7 +1832,7 @@ void CRecipeMainSrView::LoadRecipeData()
 	if ( m_nOpenMode == modeNew ) {
 //		strcpy(m_MainRcpInfo.hdr.szName, "Untitled");
 		//Saiki 20090526 Change ----->
-		//strcpy(m_MainRcpInfo.hdr.szName, "ƒ^ƒCƒgƒ‹‚È‚µ");
+		//strcpy(m_MainRcpInfo.hdr.szName, "ï¿½^ï¿½Cï¿½gï¿½ï¿½ï¿½È‚ï¿½");
 		LoadStringML(IDS_UNTITLE, strBuffer, "Untitled");
 		strcpy(m_MainRcpInfo.hdr.szName, strBuffer);
 		//Saiki 20090526 Change <-----
@@ -1866,7 +1866,7 @@ void CRecipeMainSrView::InitCombo_MeasurementProgram()
 		if ( !RecipeFile_LoadRecipe(&m_MeasProgInfo, strName, RECIPE_FILE_MEASUREMENT_PROGRAM) )
 			continue;
 		// 2009.08.28 bagus stress --{--
-		// ƒƒCƒ“ƒŒƒVƒs‚Ìƒwƒbƒhƒ^ƒCƒv‚Æ“¯ˆê‚Ìƒwƒbƒhƒ^ƒCƒv‚Ì‘ª’èPGM‚Ì‚İ‚ğ•\¦‚·‚é
+		// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½Ìƒwï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½Æ“ï¿½ï¿½ï¿½Ìƒwï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½Ì‘ï¿½ï¿½ï¿½PGMï¿½Ì‚İ‚ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		//if ( m_MeasProgInfo.ScanParams.hdr.wHeadType != HEAD_TYPE_SR )
 		if (m_MeasProgInfo.ScanParams.hdr.wHeadType != m_MainRcpInfo.MainRcpParam.hdr.wHeadType)
 		// 2009.08.28 bagus stress --}--
@@ -1883,14 +1883,14 @@ void CRecipeMainSrView::InitCombo_MeasurementProgram()
 	m_bChage = FALSE;
 // 2009.10.02 bagus Gantry --}--
 
-	// ƒRƒ“ƒ{ƒ{ƒbƒNƒX‘I‘ğ‚³‚ê‚½–¼Ì‚Ìæ“¾
+	// ï¿½Rï¿½ï¿½ï¿½{ï¿½{ï¿½bï¿½Nï¿½Xï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½Ì‚Ìæ“¾
 	CString strBuffer = m_MainRcpInfo.MainRcpParam.hdr.szMeas;
 	///// Measurement Program - Head Type /////
 	if ( strBuffer.GetLength() ) {
 		if ( !RecipeFile_LoadRecipe(&m_MeasProgInfo, strBuffer, RECIPE_FILE_MEASUREMENT_PROGRAM) )
 			m_strMeasHeadType.Empty();
 		else
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --{--
 #if 0
 // 2009.09.30 bagus Gantry --{--
 //			m_strMeasHeadType = HEAD_TYPE_ITEM[m_MeasProgInfo.ScanParams.hdr.wHeadType];
@@ -1932,7 +1932,7 @@ void CRecipeMainSrView::InitCombo_MeasurementProgram()
 #endif
 // 2009.12.08 bagus --}--
 #endif
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --}--
 			InitCombo_RecalibItemSetting(m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_1],m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_2],m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_3]);
 	}
 	else {
@@ -1944,7 +1944,7 @@ void CRecipeMainSrView::InitCombo_MeasurementProgram()
 //
 void CRecipeMainSrView::InitCombo_StageProgram()
 {
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --{--
+// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --{--
 #if 0
 	//Saiki 20090526 Add ----->
 	CString strBuffer;
@@ -1953,14 +1953,14 @@ void CRecipeMainSrView::InitCombo_StageProgram()
 	pCombo->ResetContent();
 //	pCombo->AddString("None");
 	//Saiki 20090526 Change ----->
-	//pCombo->AddString("–³‚µ");
+	//pCombo->AddString("ï¿½ï¿½ï¿½ï¿½");
 	LoadStringML(IDS_POINT_NAME_NONE, strBuffer, "None");
 	pCombo->AddString(strBuffer);
 	//Saiki 20090526 Change <-----
 
-	//2009.09.02 bagus se ƒXƒe[ƒWíi‚İ --{--
+	//2009.09.02 bagus se ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½iï¿½ï¿½ï¿½ï¿½ --{--
 	STAGE_PROG_INFO_HDR StageProgInfoHdr;
-	//2009.09.02 bagus se ƒXƒe[ƒWíi‚İ --}--
+	//2009.09.02 bagus se ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½iï¿½ï¿½ï¿½ï¿½ --}--
 
 	CString strName;
 	CString strDirPath;
@@ -1975,31 +1975,31 @@ void CRecipeMainSrView::InitCombo_StageProgram()
 	//Saiki 20090410 Change <-----
 	while ( bLoop ) {
 		bLoop = Finder.FindNextFile();
-		// ƒtƒ@ƒCƒ‹–¼‚ğæ“¾
+		// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
 		strName = Finder.GetFileTitle();
 		if ( strName[0] == SYSTEM_RECIPE_BEGINNING_CHAR )
 			continue;
 
-		//2009.09.02 bagus stress ƒXƒe[ƒWíi‚İ --{--
-		//ƒƒCƒ“ƒŒƒVƒs‚Æ“¯ˆê‚Ìƒwƒbƒhƒ^ƒCƒv‚ğ‚ÂƒXƒe[ƒWPGM‚Ì‚İ‚ğ•\¦‚·‚é
-		//2009.09.07 bagus se ’A‚µSR‚ÆSE‚Í‹¤—p
+		//2009.09.02 bagus stress ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½iï¿½ï¿½ï¿½ï¿½ --{--
+		//ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½Æ“ï¿½ï¿½ï¿½Ìƒwï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ÂƒXï¿½eï¿½[ï¿½WPGMï¿½Ì‚İ‚ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		//2009.09.07 bagus se ï¿½Aï¿½ï¿½SRï¿½ï¿½SEï¿½Í‹ï¿½ï¿½p
 		if ( !RecipeFile_LoadRecipe(&StageProgInfoHdr, strName.GetBuffer(0), RECIPE_FILE_STAGE_PROGRAM) )
 			continue;
 		if (StageProgInfoHdr.wHeadType != m_MainRcpInfo.MainRcpParam.hdr.wHeadType){
 			//2009.09.07 bagus se --{--
-			//SR/SE ‚Í‹¤—p
+			//SR/SE ï¿½Í‹ï¿½ï¿½p
 			if((m_MainRcpInfo.MainRcpParam.hdr.wHeadType == HEAD_TYPE_SR || m_MainRcpInfo.MainRcpParam.hdr.wHeadType == HEAD_TYPE_SE)
 				&& (StageProgInfoHdr.wHeadType == HEAD_TYPE_SR || StageProgInfoHdr.wHeadType == HEAD_TYPE_SE)){
-				//SR/SE‚Í‹¤—p‚È‚Ì‚ÅOK
+				//SR/SEï¿½Í‹ï¿½ï¿½pï¿½È‚Ì‚ï¿½OK
 			}else{
 				continue;
 			}
 			//2009.09.07 bagus se --}--
 		}
-		//2009.09.02 bagus se ƒXƒe[ƒWíi‚İ --}--
+		//2009.09.02 bagus se ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½iï¿½ï¿½ï¿½ï¿½ --}--
 
 // 2009.10.02 bagus Gantry --{--
-// 2009.10.08 bagus CTA ’Ç‰Á --{--
+// 2009.10.08 bagus CTA ï¿½Ç‰ï¿½ --{--
 #if 0
 		switch (m_SRScanType){
 		case MEAS_PROG_TYPE_SR_THICKNESS:
@@ -2047,12 +2047,12 @@ void CRecipeMainSrView::InitCombo_StageProgram()
 			if (!m_SrConfig.bGantryType)
 				continue;
 			break;
-// 2009.10.28 bagus 2“_ŠÔ --{--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ --{--
 		case MEAS_PROG_TYPE_SR_DISTANCE:
 			if (StageProgInfoHdr.wScanType != MEAS_PROG_TYPE_SR_DISTANCE)
 				continue;
 			break;
-// 2009.10.28 bagus 2“_ŠÔ --}--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ --}--
 		case MEAS_PROG_TYPE_SR_REFLECTANCE_CIE:
 		case MEAS_PROG_TYPE_SR_TRANSMITTANCE_CIE:
 		case MEAS_PROG_TYPE_SR_OPTICAL_DENSITY:
@@ -2063,16 +2063,16 @@ void CRecipeMainSrView::InitCombo_StageProgram()
 		}
 		case HEAD_TYPE_STRESS:
 		case HEAD_TYPE_SE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 		case HEAD_TYPE_COMPEASE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
 		case HEAD_TYPE_CTA:
-		//2009.10.20 bagus MS ’Ç‰Á --{--
+		//2009.10.20 bagus MS ï¿½Ç‰ï¿½ --{--
 		case HEAD_TYPE_MS:
-		//2009.10.20 bagus MS ’Ç‰Á --}--
-		// 2009.11.04 bagus RS ’Ç‰Á --{--
+		//2009.10.20 bagus MS ï¿½Ç‰ï¿½ --}--
+		// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --{--
 		case HEAD_TYPE_4PP:
-		// 2009.11.04 bagus RS ’Ç‰Á --}--
+		// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --}--
 		default:
 			if (StageProgInfoHdr.wHeadType != m_iNewHeadType)
 				continue;
@@ -2080,7 +2080,7 @@ void CRecipeMainSrView::InitCombo_StageProgram()
 			break;
 		}
 #endif
-// 2009.10.08 bagus CTA ’Ç‰Á --}--
+// 2009.10.08 bagus CTA ï¿½Ç‰ï¿½ --}--
 // 2009.10.02 bagus Gantry --}--
 
 		pCombo->AddString(strName);
@@ -2094,15 +2094,15 @@ void CRecipeMainSrView::InitCombo_StageProgram()
 
 	pCombo->SetCurSel(nIndex);
 
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 	if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
-//2009.09.02 bagus se ‹@”\Šg’£ --{--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
+//2009.09.02 bagus se ï¿½@ï¿½\ï¿½gï¿½ï¿½ --{--
 		OnSelchangeStageProgram();
-//2009.09.02 bagus se ‹@”\Šg’£ --}--
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+//2009.09.02 bagus se ï¿½@ï¿½\ï¿½gï¿½ï¿½ --}--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 	}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 #else
 	CString strBuffer;
 	CComboBox* pCombo = (CComboBox*)GetDlgItem(IDC_STAGE_PROGRAM);
@@ -2127,16 +2127,16 @@ void CRecipeMainSrView::InitCombo_StageProgram()
 	BOOL bLoop = TRUE;
 	while ( bLoop ) {
 		bLoop = Finder.FindNextFile();
-		// ƒtƒ@ƒCƒ‹–¼‚ğæ“¾
+		// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
 		strName = Finder.GetFileTitle();
 		if ( strName[0] == SYSTEM_RECIPE_BEGINNING_CHAR )
 			continue;
 
-		//ƒƒCƒ“ƒŒƒVƒs‚Æ“¯ˆê‚Ìƒwƒbƒhƒ^ƒCƒv‚ğ‚ÂƒXƒe[ƒWPGM‚Ì‚İ‚ğ•\¦‚·‚é
+		//ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½Æ“ï¿½ï¿½ï¿½Ìƒwï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ÂƒXï¿½eï¿½[ï¿½WPGMï¿½Ì‚İ‚ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if ( !RecipeFile_LoadRecipe(&StageProgInfoHdr, strName.GetBuffer(0), RECIPE_FILE_STAGE_PROGRAM) )
 			continue;
 
-		// ‹ŒŒ^¨VŒ^‚Ö‚Ìƒwƒbƒhƒ^ƒCƒv•ÏŠ·
+		// ï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½Vï¿½^ï¿½Ö‚Ìƒwï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½ÏŠï¿½
 		nStagePGM = pDoc->GetStagePGM(m_MainRcpInfo.MainRcpParam.hdr.wHeadType, m_SRScanType);
 
 		switch ( m_iNewHeadType ) {
@@ -2153,7 +2153,7 @@ void CRecipeMainSrView::InitCombo_StageProgram()
 					continue;
 				}
 				break;
-// 2009.10.28 bagus 2“_ŠÔ --{--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ --{--
 			case MEAS_PROG_TYPE_SR_DISTANCE:
 				if ((m_MainRcpInfo.MainRcpParam.hdr.wHeadType == HEAD_TYPE_SR) && (StageProgInfoHdr.wScanType == SCAN_TYPE_SR_DISTANCE)) {
 					// OK
@@ -2164,35 +2164,35 @@ void CRecipeMainSrView::InitCombo_StageProgram()
 					continue;
 				}
 				break;
-// 2009.10.28 bagus 2“_ŠÔ --}--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ --}--
 			case MEAS_PROG_TYPE_SR_THICKNESS:
 			case MEAS_PROG_TYPE_SR_REFLECTANCE:
 			case MEAS_PROG_TYPE_SR_REFLECTANCE_CIE:
 			case MEAS_PROG_TYPE_SR_TRANSMITTANCE_CIE:
 			case MEAS_PROG_TYPE_SR_OPTICAL_DENSITY:
 			default:
-// 2009.10.23 bagus Stress C³ --{--
-// 2009.10.23 bagus Stress C³ --}--
+// 2009.10.23 bagus Stress ï¿½Cï¿½ï¿½ --{--
+// 2009.10.23 bagus Stress ï¿½Cï¿½ï¿½ --}--
 				if (StageProgInfoHdr.wHeadType != nStagePGM)
 					continue;
 				break;
 			}
 			break;
 		case HEAD_TYPE_STRESS:
-// 2009.10.23 bagus Stress C³ --{--
+// 2009.10.23 bagus Stress ï¿½Cï¿½ï¿½ --{--
 			if (StageProgInfoHdr.wHeadType != nStagePGM)
 				continue;
 			break;
-// 2009.10.23 bagus Stress C³ --}--
+// 2009.10.23 bagus Stress ï¿½Cï¿½ï¿½ --}--
 		case HEAD_TYPE_SE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 		case HEAD_TYPE_COMPEASE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
 		case HEAD_TYPE_CTA:
-		//2009.10.20 bagus MS ’Ç‰Á --{--
+		//2009.10.20 bagus MS ï¿½Ç‰ï¿½ --{--
 		case HEAD_TYPE_MS:
-		//2009.10.20 bagus MS ’Ç‰Á --}--
-// 2009.10.23 bagus Stress C³ --{--
+		//2009.10.20 bagus MS ï¿½Ç‰ï¿½ --}--
+// 2009.10.23 bagus Stress ï¿½Cï¿½ï¿½ --{--
 #if 0
 		default:
 			if (StageProgInfoHdr.wHeadType != nStagePGM)
@@ -2205,7 +2205,7 @@ void CRecipeMainSrView::InitCombo_StageProgram()
 				continue;
 			break;
 #endif
-// 2009.10.23 bagus Stress C³ --}--
+// 2009.10.23 bagus Stress ï¿½Cï¿½ï¿½ --}--
 		}
 
 		pCombo->AddString(strName);
@@ -2219,15 +2219,15 @@ void CRecipeMainSrView::InitCombo_StageProgram()
 
 	pCombo->SetCurSel(nIndex);
 
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 	if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 		OnSelchangeStageProgram();
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 	}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 #endif
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --}--
+// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --}--
 }
 
 // =========================================================================
@@ -2237,8 +2237,8 @@ void CRecipeMainSrView::InitCombo_PointDeskewProgram()
 	//Saiki 20090526 Add ----->
 	CString strBuffer;
 	//Saiki 20090526 Add <-----
-	//// Point Deskew ‚Ìİ’è€–Ú‚Ì•\¦/”ñ•\¦
-//šb’è‘Î‰@–Y‚ê‚é‚ÈI
+	//// Point Deskew ï¿½Ìİ’è€ï¿½Ú‚Ì•\ï¿½ï¿½/ï¿½ï¿½\ï¿½ï¿½
+//ï¿½ï¿½ï¿½bï¿½ï¿½Î‰ï¿½ï¿½@ï¿½Yï¿½ï¿½ï¿½ÈI
 #if 0
 	if ( m_SystemConfig.nPRMethod <=0 || m_SystemConfig.bSitePatternRec==FALSE){
 		GetDlgItem(IDC_POINT_DESKEW_PROGRAM_GROUP)->ShowWindow(SW_HIDE);
@@ -2264,7 +2264,7 @@ void CRecipeMainSrView::InitCombo_PointDeskewProgram()
 	pCombo->ResetContent();
 //	pCombo->AddString("None");
 	//Saiki 20090526 Change ----->
-	//pCombo->AddString("–³‚µ");
+	//pCombo->AddString("ï¿½ï¿½ï¿½ï¿½");
 	LoadStringML(IDS_POINT_NAME_NONE, strBuffer, "None");
 	pCombo->AddString(strBuffer);
 	//Saiki 20090526 Change <-----
@@ -2283,7 +2283,7 @@ void CRecipeMainSrView::InitCombo_PointDeskewProgram()
 	//Saiki 20090410 Change <-----
 	while ( bLoop ) {
 		bLoop = Finder.FindNextFile();
-		// ƒtƒ@ƒCƒ‹–¼‚ğæ“¾
+		// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
 		strName = Finder.GetFileTitle();
 		if ( strName[0] == SYSTEM_RECIPE_BEGINNING_CHAR )
 			continue;
@@ -2305,7 +2305,7 @@ void CRecipeMainSrView::InitCombo_PointDeskewProgram()
 //
 void CRecipeMainSrView::InitCombo_RecalibrationProgram(CComboBox* pCombo, LPCTSTR pszRecalib)
 {
-//	// ƒƒWƒƒƒƒ“ƒgƒŒƒVƒs‚Ìæ“¾
+//	// ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Vï¿½sï¿½Ìæ“¾
 //	LPCTSTR pszMeas = m_MainRcpInfo.MainRcpParam.hdr.szMeas;
 //	if ( !RecipeFile_LoadRecipe(&m_MeasProgInfo, pszMeas, RECIPE_FILE_MEASUREMENT_PROGRAM) )
 //		return;
@@ -2313,11 +2313,11 @@ void CRecipeMainSrView::InitCombo_RecalibrationProgram(CComboBox* pCombo, LPCTST
 	//Saiki 20090526 Add ----->
 	CString strBuffer;
 	//Saiki 20090526 Add <-----
-	// ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚Ì•ÒW
+	// ï¿½Rï¿½ï¿½ï¿½{ï¿½{ï¿½bï¿½Nï¿½Xï¿½Ì•ÒW
 	pCombo->ResetContent();
 //	pCombo->AddString("None");
 	//Saiki 20090526 Change ----->
-	//pCombo->AddString("–³‚µ");
+	//pCombo->AddString("ï¿½ï¿½ï¿½ï¿½");
 	LoadStringML(IDS_POINT_NAME_NONE, strBuffer, "None");
 	pCombo->AddString(strBuffer);
 	//Saiki 20090526 Change <-----
@@ -2337,7 +2337,7 @@ void CRecipeMainSrView::InitCombo_RecalibrationProgram(CComboBox* pCombo, LPCTST
 		//Saiki 20090410 Change <-----
 		while ( bLoop ) {
 			bLoop = Finder.FindNextFile();
-			// ƒtƒ@ƒCƒ‹–¼‚ğæ“¾
+			// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
 			strName = Finder.GetFileTitle();
 			if ( strName[0] == SYSTEM_RECIPE_BEGINNING_CHAR )
 				continue;
@@ -2349,7 +2349,7 @@ void CRecipeMainSrView::InitCombo_RecalibrationProgram(CComboBox* pCombo, LPCTST
 			// 2009.08.28 bagus stress --}--
 				continue;
 
-			//2009.12.07 bagus SR C³ --{--
+			//2009.12.07 bagus SR ï¿½Cï¿½ï¿½ --{--
 			if( RecalibProgInfo.wHeadType == HEAD_TYPE_SR){
 				if( (m_MeasProgInfo.ScanParams.hdr.wScanType == MEAS_PROG_TYPE_SR_TRANSMITTANCE || m_MeasProgInfo.ScanParams.hdr.wScanType == MEAS_PROG_TYPE_SR_TRANSMITTANCE_G)){
 					if(RecalibProgInfo.wScanType != MEAS_PROG_TYPE_SR_TRANSMITTANCE_G
@@ -2363,16 +2363,16 @@ void CRecipeMainSrView::InitCombo_RecalibrationProgram(CComboBox* pCombo, LPCTST
 					}
 				}
 			}
-			//2009.12.07 bagus SR C³ --}--
+			//2009.12.07 bagus SR ï¿½Cï¿½ï¿½ --}--
 
-// 2009.10.27 bagus Gantry ’Ç‰ÁC³ --{--
+// 2009.10.27 bagus Gantry ï¿½Ç‰ï¿½ï¿½Cï¿½ï¿½ --{--
 #if 0
 // 2009.10.02 bagus Gantry --{--
 			if (RecalibProgInfo.wScanType == MEAS_PROG_TYPE_SR_TRANSMITTANCE_G)
 				continue;
 // 2009.10.02 bagus Gantry --}--
 #endif
-// 2009.10.27 bagus Gantry ’Ç‰ÁC³ --}--
+// 2009.10.27 bagus Gantry ï¿½Ç‰ï¿½ï¿½Cï¿½ï¿½ --}--
 
 			pCombo->AddString(strName);
 		}
@@ -2387,7 +2387,7 @@ void CRecipeMainSrView::InitCombo_RecalibrationProgram(CComboBox* pCombo, LPCTST
 	//Saiki 20090410 Change <-----
 	while ( bLoop ) {
 		bLoop = Finder.FindNextFile();
-		// ƒtƒ@ƒCƒ‹–¼‚ğæ“¾
+		// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
 		strName = Finder.GetFileTitle();
 		if ( strName[0] == SYSTEM_RECIPE_BEGINNING_CHAR )
 			continue;
@@ -2446,7 +2446,7 @@ void CRecipeMainSrView::InitCombo_PointManualAdjustment()
 			pCombo->SetCurSel(m_MainRcpInfo.MainRcpParam.hdr.nPointManualAdjustment);
 			SaveRecipeData();
 			//Saiki 20090526 Change ----->
-			//MessageBox("w’è‚µ‚½€–Ú‚ª–³Œø‚Ì‚½‚ßA‘ª’èƒ|ƒWƒVƒ‡ƒ“‚Ì•â³ ‚ÍINDEX‚ğ0‚Æ‚µ‚Ä•Û‘¶‚µ‚Ü‚µ‚½B", "NanoSpec", MB_OK);
+			//MessageBox("ï¿½wï¿½è‚µï¿½ï¿½ï¿½ï¿½ï¿½Ú‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½ßAï¿½ï¿½ï¿½ï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ì•â³ ï¿½ï¿½INDEXï¿½ï¿½0ï¿½Æ‚ï¿½ï¿½Ä•Û‘ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½B", "NanoSpec", MB_OK);
 			LoadStringML(IDS_POINT_ADJUSTMENT_ZERO, strBuffer, "Invalid for the specified item, Correction of the measurement position is saved as an INDEX to 0.");
 			LoadStringML(IDS_TITLE_NANOSPEC, strTitle, "NanoSpec");
 			MessageBox(strBuffer, strTitle, MB_OK);
@@ -2497,7 +2497,7 @@ void CRecipeMainSrView::InitCombo_Focus()
 				pCombo->SetCurSel(m_MainRcpInfo.MainRcpParam._SR.nFocus);
 				SaveRecipeData();
 				//Saiki 20090526 Change ----->
-				//MessageBox("w’è‚µ‚½€–Ú‚ª–³Œø‚Ì‚½‚ßAƒtƒH[ƒJƒX ‚ÍINDEX‚ğ0‚Æ‚µ‚Ä•Û‘¶‚µ‚Ü‚µ‚½B", "NanoSpec", MB_OK);
+				//MessageBox("ï¿½wï¿½è‚µï¿½ï¿½ï¿½ï¿½ï¿½Ú‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½ßAï¿½tï¿½Hï¿½[ï¿½Jï¿½X ï¿½ï¿½INDEXï¿½ï¿½0ï¿½Æ‚ï¿½ï¿½Ä•Û‘ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½B", "NanoSpec", MB_OK);
 				LoadStringML(IDS_FOCUS_ZERO, strBuffer, "Invalid for the specified item, Focus is saved as an INDEX to 0.");
 				LoadStringML(IDS_TITLE_NANOSPEC, strTitle, "NanoSpec");
 				MessageBox(strBuffer, strTitle, MB_OK);
@@ -2508,28 +2508,28 @@ void CRecipeMainSrView::InitCombo_Focus()
 
 		InitCombo_FocusIfFail();
 
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --{--
 //		if (!m_SrConfig.bChooseAfFuncInReference){
 //			GetDlgItem(IDC_REFERENCE_WITH_AF)->ShowWindow(SW_HIDE);
 //		}
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --}--
 	}
 	else{
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 		if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 			GetDlgItem(IDC_FOCUS_LABEL)->ShowWindow(SW_HIDE);
 			GetDlgItem(IDC_FOCUS)->ShowWindow(SW_HIDE);
 			GetDlgItem(IDC_FOCUS_IF_FAIL)->ShowWindow(SW_HIDE);
 			GetDlgItem(IDC_FOCUS_IF_FAIL_LABEL)->ShowWindow(SW_HIDE);
 			GetDlgItem(IDC_FINAL_FOCUS)->ShowWindow(SW_HIDE);
 			GetDlgItem(IDC_FINAL_FOCUS_LABEL)->ShowWindow(SW_HIDE);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 		}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
-// 2009.10.22 bagus Stress C³ --{--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --{--
 //		GetDlgItem(IDC_REFERENCE_WITH_AF)->ShowWindow(SW_HIDE);
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --}--
 	}
 
 }
@@ -2544,13 +2544,14 @@ void CRecipeMainSrView::InitCombo_FocusIfFail()
 	ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 	//Saiki 20090526 Add <-----
 	CComboBox* pCombo;
+	int i;
 	pCombo= (CComboBox *)GetDlgItem(IDC_FOCUS_IF_FAIL);
 	pCombo->ResetContent();
 
 	//Saiki 20090527 Change ----->
 	//for ( int i = 0; i < AFOCUS_FAIL_OPTION_MAX; i++ )
 	//	  pCombo->AddString(g_lpszSrFocusIfFail[i]);
-	for ( int i = 0; i < AFOCUS_FAIL_OPTION_MAX; i++ ){
+	for ( i = 0; i < AFOCUS_FAIL_OPTION_MAX; i++ ){
 		if(l_SystemConfig.nLanguage == 0){
 			pCombo->AddString(g_lpszSrFocusIfFail_ENU[i]);
 		}
@@ -2573,7 +2574,7 @@ void CRecipeMainSrView::InitCombo_FocusIfFail()
 			pCombo->SetCurSel(m_MainRcpInfo.MainRcpParam._SR.nAutoFocusFailOption);
 			SaveRecipeData();
 			//Saiki 20090526 Change ----->
-			//MessageBox("w’è‚µ‚½€–Ú‚ª–³Œø‚Ì‚½‚ßAƒI[ƒgƒtƒH[ƒJƒX¸”s ‚ÍINDEX‚ğ0‚Æ‚µ‚Ä•Û‘¶‚µ‚Ü‚µ‚½B", "NanoSpec", MB_OK);
+			//MessageBox("ï¿½wï¿½è‚µï¿½ï¿½ï¿½ï¿½ï¿½Ú‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½ßAï¿½Iï¿½[ï¿½gï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ï¿½sï¿½ï¿½ ï¿½ï¿½INDEXï¿½ï¿½0ï¿½Æ‚ï¿½ï¿½Ä•Û‘ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½B", "NanoSpec", MB_OK);
 			LoadStringML(IDS_AUTOFOCUS_ZERO, strBuffer, "Invalid for the specified item, <AutoFocus Fail>is saved as an INDEX to 0.");
 			LoadStringML(IDS_TITLE_NANOSPEC, strTitle, "NanoSpec");
 			MessageBox(strBuffer, strTitle, MB_OK);
@@ -2610,7 +2611,7 @@ void CRecipeMainSrView::InitCombo_FocusIfFail()
 			pCombo->SetCurSel(m_MainRcpInfo.MainRcpParam._SR.nFinalFocusFailDataValidOption);
 			SaveRecipeData();
 			//Saiki 20090526 Change ----->
-			//MessageBox("w’è‚µ‚½€–Ú‚ª–³Œø‚Ì‚½‚ßAINDEX‚ğ0‚Æ‚µ‚Ä•Û‘¶‚µ‚Ü‚µ‚½B", "NanoSpec", MB_OK);
+			//MessageBox("ï¿½wï¿½è‚µï¿½ï¿½ï¿½ï¿½ï¿½Ú‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½ßAINDEXï¿½ï¿½0ï¿½Æ‚ï¿½ï¿½Ä•Û‘ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½B", "NanoSpec", MB_OK);
 			LoadStringML(IDS_INDEX_ZERO, strBuffer, "Invalid for the specified item,  saved as an INDEX to 0.");
 			LoadStringML(IDS_TITLE_NANOSPEC, strTitle, "NanoSpec");
 			MessageBox(strBuffer, strTitle, MB_OK);
@@ -2637,9 +2638,9 @@ void CRecipeMainSrView::InitCombo_DefaultDisplay()
 	SYSTEM_CONFIG l_SystemConfig;
 	ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 
-//2009.10.20 bagus MS ’Ç‰Á --{--
+//2009.10.20 bagus MS ï¿½Ç‰ï¿½ --{--
 	switch (m_iNewHeadType) {
-// 2009.10.28 bagus 2“_ŠÔ --{--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ --{--
 	case HEAD_TYPE_SR:
 		switch (m_SRScanType) {
 		case MEAS_PROG_TYPE_SR_DISTANCE:
@@ -2655,14 +2656,14 @@ void CRecipeMainSrView::InitCombo_DefaultDisplay()
 			break;
 		}
 		break;
-// 2009.10.28 bagus 2“_ŠÔ --}--
-// 2009.10.28 bagus CTA ’Ç‰ÁC³ --{--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ --}--
+// 2009.10.28 bagus CTA ï¿½Ç‰ï¿½ï¿½Cï¿½ï¿½ --{--
 	case HEAD_TYPE_CTA:
-// 2009.10.28 bagus CTA ’Ç‰ÁC³ --}--
+// 2009.10.28 bagus CTA ï¿½Ç‰ï¿½ï¿½Cï¿½ï¿½ --}--
 	case HEAD_TYPE_MS:
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --{--
 	case HEAD_TYPE_4PP:
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --}--
 		if(l_SystemConfig.nLanguage == 0){
 			pCombo->AddString(g_lpszSrDefaultDisplay_ENU[0]);
 		} else {
@@ -2674,7 +2675,7 @@ void CRecipeMainSrView::InitCombo_DefaultDisplay()
 	default:
 		break;
 	}
-//2009.10.20 bagus MS ’Ç‰Á --}--
+//2009.10.20 bagus MS ï¿½Ç‰ï¿½ --}--
 
 	for ( int i = 0; i < SR_DEFAULT_DISPLAY_MAX; i++ ){
 		if(l_SystemConfig.nLanguage == 0){
@@ -2700,7 +2701,7 @@ void CRecipeMainSrView::InitCombo_DefaultDisplay()
 			pCombo->SetCurSel(m_MainRcpInfo.MainRcpParam._SR.nDefaultDisplay);
 			SaveRecipeData();
 			//Kojika 20090527 Change
-			//MessageBox("w’è‚µ‚½€–Ú‚ª–³Œø‚Ì‚½‚ßA‰Šú•\¦‰æ–Ê‚ÍINDEX‚ğ0‚Æ‚µ‚Ä•Û‘¶‚µ‚Ü‚µ‚½B", "NanoSpec", MB_OK);
+			//MessageBox("ï¿½wï¿½è‚µï¿½ï¿½ï¿½ï¿½ï¿½Ú‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½ßAï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½Ê‚ï¿½INDEXï¿½ï¿½0ï¿½Æ‚ï¿½ï¿½Ä•Û‘ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½B", "NanoSpec", MB_OK);
 			LoadStringML(IDS_INIT_DISPLAY_ZERO, strBuffer, "Invalid for the specified item, Initial display screen is saved as an INDEX to 0.");
 			LoadStringML(IDS_TITLE_NANOSPEC, strTitle, "NanoSpec");
 			MessageBox(strBuffer, strTitle, MB_OK);
@@ -2774,11 +2775,11 @@ void CRecipeMainSrView::DefaultSetting_Init()
 
 // 2010.01.06 bagus RS --{--
 #if 0
-// 2009.12.21 bagus C³ --{--
-// ƒfƒtƒHƒ‹ƒgƒŒƒVƒs‚Ìİ’è‚Ìê‡‚É‚Í•ÏX•s‰Â
+// 2009.12.21 bagus ï¿½Cï¿½ï¿½ --{--
+// ï¿½fï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Vï¿½sï¿½Ìİ’ï¿½Ìê‡ï¿½É‚Í•ÏXï¿½sï¿½ï¿½
 	m_MainRcpInfo.MainRcpParam.hdr.bSaveNameWithDate = FALSE;
 	GetDlgItem(IDC_MEASUREMENT_RESULT_SAVE_WITH_DATE)->ShowWindow(SW_HIDE);
-// 2009.12.21 bagus C³ --}--
+// 2009.12.21 bagus ï¿½Cï¿½ï¿½ --}--
 #endif
 // 2010.01.06 bagus RS --}--
 	///// Comment /////
@@ -2807,7 +2808,7 @@ BOOL CRecipeMainSrView::CheckData()
 		{
 // Kojika 20090527 Change
 //			MessageBox("Please Select Measurement Program.", m_strCaption, MB_OK | MB_ICONSTOP);
-//			MessageBox("‘ª’èƒvƒƒOƒ‰ƒ€‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢", m_strCaption, MB_OK | MB_ICONSTOP);
+//			MessageBox("ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", m_strCaption, MB_OK | MB_ICONSTOP);
 			LoadStringML(IDS_SELECT_MEASERE_PROG, strBuffer, "Please Select Measurement Program.");
 			LoadStringML(IDS_TITLE_MAINRECIPE, strTitle, "MAIN RECIPE");
 			MessageBox(strBuffer, strTitle, MB_OK | MB_ICONSTOP);
@@ -2816,15 +2817,15 @@ BOOL CRecipeMainSrView::CheckData()
 			return FALSE;
 		}
 
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 		if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 			///// Stage Program /////
 			if ( strlen(m_MainRcpInfo.MainRcpParam.hdr.szStage) == 0 )
 			{
 // Kojika 20090527 Change
 //				MessageBox("Please Select Stage Program.", m_strCaption, MB_OK | MB_ICONSTOP);
-//				MessageBox("ƒXƒe[ƒWƒvƒƒOƒ‰ƒ€‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢", m_strCaption, MB_OK | MB_ICONSTOP);
+//				MessageBox("ï¿½Xï¿½eï¿½[ï¿½Wï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", m_strCaption, MB_OK | MB_ICONSTOP);
 				LoadStringML(IDS_SELECT_STAGE_PROG, strBuffer, "Please Select Stage Program.");
 				LoadStringML(IDS_TITLE_MAINRECIPE, strTitle, "MAIN RECIPE");
 				MessageBox(strBuffer, strTitle, MB_OK | MB_ICONSTOP);
@@ -2832,17 +2833,17 @@ BOOL CRecipeMainSrView::CheckData()
 				GetDlgItem(IDC_STAGE_PROGRAM)->SetFocus();
 				return FALSE;
 			}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 		}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 
 		///// Recalibration /////
-		//İ’è‚ª³í‚És‚í‚ê‚Ä‚¢‚È‚¢ê‡‚ÍAC³‚ª•K—v‚È€–Ú‚ÖƒtƒH[ƒJƒX‚ğ–ß‚·iSetFocusj
+		//ï¿½İ’è‚ªï¿½ï¿½ï¿½ï¿½Ésï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½ï¿½ê‡ï¿½ÍAï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Kï¿½vï¿½Èï¿½ï¿½Ú‚Öƒtï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ß‚ï¿½ï¿½iSetFocusï¿½j
 		if (m_MeasProgInfo.ScanParams.hdr.wScanType == MEAS_PROG_TYPE_SR_THICKNESS){
 			if ((m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_1] !=0) && (m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_1] == m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_2])){
 // Kojika 20090527 Change
 //				MessageBox("Item can be selected only once.\n\rPlease select it again.", m_strCaption, MB_OK | MB_ICONSTOP);
-//				MessageBox("ƒAƒCƒeƒ€‚Íˆê‚Â‚¾‚¯‚µ‚©‘I‘ğ‚Å‚«‚Ü‚¹‚ñ\n\rÄ“x‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢", m_strCaption, MB_OK | MB_ICONSTOP);
+//				MessageBox("ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½Íˆï¿½Â‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½Å‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½\n\rï¿½Ä“xï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", m_strCaption, MB_OK | MB_ICONSTOP);
 				LoadStringML(IDS_ITEM_SELECT_ONCE, strBuffer, "Item can be selected only once.\n\rPlease select it again.");
 				LoadStringML(IDS_TITLE_MAINRECIPE, strTitle, "MAIN RECIPE");
 				MessageBox(strBuffer, strTitle, MB_OK | MB_ICONSTOP);
@@ -2853,7 +2854,7 @@ BOOL CRecipeMainSrView::CheckData()
 			if ((m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_1] !=0) && (m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_1] == m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_3])){
 // Kojika 20090527 Change
 //				MessageBox("Item can be selected only once.\n\rPlease select it again.", m_strCaption, MB_OK | MB_ICONSTOP);
-//				MessageBox("ƒAƒCƒeƒ€‚Íˆê‚Â‚¾‚¯‚µ‚©‘I‘ğ‚Å‚«‚Ü‚¹‚ñ\n\rÄ“x‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢", m_strCaption, MB_OK | MB_ICONSTOP);
+//				MessageBox("ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½Íˆï¿½Â‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½Å‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½\n\rï¿½Ä“xï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", m_strCaption, MB_OK | MB_ICONSTOP);
 				LoadStringML(IDS_ITEM_SELECT_ONCE, strBuffer, "Item can be selected only once.\n\rPlease select it again.");
 				LoadStringML(IDS_TITLE_MAINRECIPE, strTitle, "MAIN RECIPE");
 				MessageBox(strBuffer, strTitle, MB_OK | MB_ICONSTOP);
@@ -2864,7 +2865,7 @@ BOOL CRecipeMainSrView::CheckData()
 			if ((m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_2] !=0) && (m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_2] == m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_3])){
 // Kojika 20090527 Change
 //				MessageBox("Item can be selected only once.\n\rPlease select it again.", m_strCaption, MB_OK | MB_ICONSTOP);
-//				MessageBox("ƒAƒCƒeƒ€‚Íˆê‚Â‚¾‚¯‚µ‚©‘I‘ğ‚Å‚«‚Ü‚¹‚ñ\n\rÄ“x‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢", m_strCaption, MB_OK | MB_ICONSTOP);
+//				MessageBox("ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½Íˆï¿½Â‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½Å‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½\n\rï¿½Ä“xï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", m_strCaption, MB_OK | MB_ICONSTOP);
 				LoadStringML(IDS_ITEM_SELECT_ONCE, strBuffer, "Item can be selected only once.\n\rPlease select it again.");
 				LoadStringML(IDS_TITLE_MAINRECIPE, strTitle, "MAIN RECIPE");
 				MessageBox(strBuffer, strTitle, MB_OK | MB_ICONSTOP);
@@ -2914,14 +2915,14 @@ BOOL CRecipeMainSrView::CheckData()
 
 		if (strcmp(strNone, m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_1]) != 0) {
 			if ( !RecipeFile_LoadRecipe(&RecalibProgInfo, m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_1], RECIPE_FILE_RECALIBRATION_PROGRAM) ) {
-				// ‘¶İ‚µ‚È‚¢ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“İ’è
+				// ï¿½ï¿½ï¿½İ‚ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½
 				LoadStringML(IDS_RECALIB_NOT_EXIST, strBuffer, "The Recalib is not exist.");
 				LoadStringML(IDS_TITLE_MAINRECIPE, strTitle, "MAIN RECIPE");
 				MessageBox(strBuffer, strTitle, MB_OK | MB_ICONSTOP);
 				return FALSE;
 			}
 			if ( RecalibProgInfo.wHeadType != m_MainRcpInfo.MainRcpParam.hdr.wHeadType ) {
-				// ƒwƒbƒhƒ^ƒCƒv‚ªˆÙ‚È‚é
+				// ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½ï¿½ï¿½Ù‚È‚ï¿½
 				LoadStringML(IDS_DIFFERENT_HEADTYPE, strBuffer, "The HeadType is not corresponding.");
 				LoadStringML(IDS_TITLE_MAINRECIPE, strTitle, "MAIN RECIPE");
 				MessageBox(strBuffer, strTitle, MB_OK | MB_ICONSTOP);
@@ -2930,14 +2931,14 @@ BOOL CRecipeMainSrView::CheckData()
 		}
 		if (strcmp(strNone, m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_2]) != 0) {
 			if ( !RecipeFile_LoadRecipe(&RecalibProgInfo, m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_2], RECIPE_FILE_RECALIBRATION_PROGRAM) ) {
-				// ‘¶İ‚µ‚È‚¢ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“İ’è
+				// ï¿½ï¿½ï¿½İ‚ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½
 				LoadStringML(IDS_RECALIB_NOT_EXIST, strBuffer, "The Recalib is not exist.");
 				LoadStringML(IDS_TITLE_MAINRECIPE, strTitle, "MAIN RECIPE");
 				MessageBox(strBuffer, strTitle, MB_OK | MB_ICONSTOP);
 				return FALSE;
 			}
 			if ( RecalibProgInfo.wHeadType != m_MainRcpInfo.MainRcpParam.hdr.wHeadType ) {
-				// ƒwƒbƒhƒ^ƒCƒv‚ªˆÙ‚È‚é
+				// ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½ï¿½ï¿½Ù‚È‚ï¿½
 				LoadStringML(IDS_DIFFERENT_HEADTYPE, strBuffer, "The HeadType is not corresponding.");
 				LoadStringML(IDS_TITLE_MAINRECIPE, strTitle, "MAIN RECIPE");
 				MessageBox(strBuffer, strTitle, MB_OK | MB_ICONSTOP);
@@ -2946,14 +2947,14 @@ BOOL CRecipeMainSrView::CheckData()
 		}
 		if (strcmp(strNone, m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_3]) != 0) {
 			if ( !RecipeFile_LoadRecipe(&RecalibProgInfo, m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_3], RECIPE_FILE_RECALIBRATION_PROGRAM) ) {
-				// ‘¶İ‚µ‚È‚¢ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“İ’è
+				// ï¿½ï¿½ï¿½İ‚ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½
 				LoadStringML(IDS_RECALIB_NOT_EXIST, strBuffer, "The Recalib is not exist.");
 				LoadStringML(IDS_TITLE_MAINRECIPE, strTitle, "MAIN RECIPE");
 				MessageBox(strBuffer, strTitle, MB_OK | MB_ICONSTOP);
 				return FALSE;
 			}
 			if ( RecalibProgInfo.wHeadType != m_MainRcpInfo.MainRcpParam.hdr.wHeadType ) {
-				// ƒwƒbƒhƒ^ƒCƒv‚ªˆÙ‚È‚é
+				// ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½ï¿½ï¿½Ù‚È‚ï¿½
 				LoadStringML(IDS_DIFFERENT_HEADTYPE, strBuffer, "The HeadType is not corresponding.");
 				LoadStringML(IDS_TITLE_MAINRECIPE, strTitle, "MAIN RECIPE");
 				MessageBox(strBuffer, strTitle, MB_OK | MB_ICONSTOP);
@@ -3013,8 +3014,8 @@ BOOL CRecipeMainSrView::SaveRecipeData()
 {
 	RECIPENAMEDATESET recipeNameDataSet;
 
-// 2013.11.15 Bagus Add (TohoSpec‘Î‰) -->
-// 2014.01.07 bagus Add(Stage None‘Î‰) -->
+// 2013.11.15 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
+// 2014.01.07 bagus Add(Stage Noneï¿½Î‰ï¿½) -->
 //	if(g_lModelType == MODEL_T3100){
 	if(g_lModelType != MODEL_T3100){
 		if (m_SystemConfig.nStageType == STAGE_TYPE_NONE){
@@ -3022,13 +3023,13 @@ BOOL CRecipeMainSrView::SaveRecipeData()
 		}
 	}
 	else{
-// 2014.01.07 bagus Add(Stage None‘Î‰) <--
+// 2014.01.07 bagus Add(Stage Noneï¿½Î‰ï¿½) <--
 		m_MainRcpInfo.MainRcpParam._SR.nFocus = SR_FOCUS_NONE;
 		m_MainRcpInfo.MainRcpParam._SR.nAutoFocusFailOption = AFOCUS_FAIL_OPTION_CANCEL_RECIPE;
 		m_MainRcpInfo.MainRcpParam._SR.nFinalFocusFailDataValidOption = FANAL_FOCUS_FAIL_DATA_VALID_OPTION_INVALID;
 		m_MainRcpInfo.MainRcpParam.hdr.nPointManualAdjustment = POINT_MANUAL_ADJUSTMENT_NONE;
 	}
-// 2013.11.15 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.15 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 
 	switch ( m_nOpenMode )
 	{
@@ -3061,30 +3062,30 @@ BOOL CRecipeMainSrView::SaveRecipeData()
 			if ( !RecipeFile_SaveRecipe(&m_MainRcpInfo, SE_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_SE_MAIN_RECIPE) )
 				return FALSE;
 			break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 		case HEAD_TYPE_COMPEASE:
 			if ( !RecipeFile_SaveRecipe(&m_MainRcpInfo, COMPEASE_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_COMPEASE_MAIN_RECIPE) )
 				return FALSE;
 			break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-		// 2009.10.08 bagus CTA ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
+		// 2009.10.08 bagus CTA ï¿½Ç‰ï¿½ --{--
 		case HEAD_TYPE_CTA:
 			if ( !RecipeFile_SaveRecipe(&m_MainRcpInfo, CTA_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_CTA_MAIN_RECIPE) )
 				return FALSE;
 			break;
-		// 2009.10.08 bagus CTA ’Ç‰Á --}--
-		//2009.10.20 bagus MS ’Ç‰Á --{--
+		// 2009.10.08 bagus CTA ï¿½Ç‰ï¿½ --}--
+		//2009.10.20 bagus MS ï¿½Ç‰ï¿½ --{--
 		case HEAD_TYPE_MS:
 			if ( !RecipeFile_SaveRecipe(&m_MainRcpInfo, MS_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_MS_MAIN_RECIPE) )
 				return FALSE;
 			break;
-		//2009.10.20 bagus MS ’Ç‰Á --}--
-		// 2009.11.04 bagus RS ’Ç‰Á --{--
+		//2009.10.20 bagus MS ï¿½Ç‰ï¿½ --}--
+		// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --{--
 		case HEAD_TYPE_4PP:
 			if ( !RecipeFile_SaveRecipe(&m_MainRcpInfo, RES_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_4PP_MAIN_RECIPE) )
 				return FALSE;
 			break;
-		// 2009.11.04 bagus RS ’Ç‰Á --}--
+		// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --}--
 		default:
 			return FALSE;
 			break;
@@ -3094,7 +3095,7 @@ BOOL CRecipeMainSrView::SaveRecipeData()
 #endif
 // 2009.09.29 bagus SE --}--
 	default:
-		// V‚µ‚¢ƒŒƒVƒs–¼‚ğİ’èiSave, SaveAsŒ“—pj
+		// ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½İ’ï¿½iSave, SaveAsï¿½ï¿½ï¿½pï¿½j
 		strcpy(m_MainRcpInfo.hdr.szName, m_szRecipeName);
 		if ( !RecipeFile_SaveRecipe(&m_MainRcpInfo, m_szRecipeName, RECIPE_FILE_SR_MAIN_RECIPE) )
 			return FALSE;
@@ -3113,7 +3114,7 @@ BOOL CRecipeMainSrView::SaveRecipeData()
 		{
 			PifComm_ChangeRecipeReplaceReport(0, &recipeNameDataSet);
 
-			//ƒƒCƒ“ƒŒƒVƒs•ÒW‚Æ“¯‚ÉƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^‚àíœ‚·‚é(modeNormal‚Ì‚İ)
+			//ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ÒWï¿½Æ“ï¿½ï¿½ï¿½ï¿½Éƒï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½íœï¿½ï¿½ï¿½ï¿½(modeNormalï¿½Ì‚ï¿½)
 			char szFilePath[MAX_PATH];
 			memset(szFilePath, 0, sizeof(szFilePath));
 			sprintf(szFilePath, "%s%s%s", g_szData_Ref_Dir, m_szRecipeName, DAT_EXT);
@@ -3212,7 +3213,7 @@ void CRecipeMainSrView::OnSelchangeRecalibrationItem3()
 }
 
 // =========================================================================
-//ƒŠƒLƒƒƒŠƒu€–Ú•\¦‚Ìİ’è
+//ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½Ú•\ï¿½ï¿½ï¿½Ìİ’ï¿½
 void CRecipeMainSrView::InitCombo_RecalibItemSetting(int iRicalibSetIndex1/*=0*/,int iRicalibSetIndex2/*=0*/,int iRicalibSetIndex3/*=0*/)
 {
 // Kojika 20090527 Add
@@ -3227,9 +3228,9 @@ void CRecipeMainSrView::InitCombo_RecalibItemSetting(int iRicalibSetIndex1/*=0*/
 	int iDummyOpticalFilter;
 
 
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --{--
 #if 0
-	// ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚Ì•ÒW
+	// ï¿½Rï¿½ï¿½ï¿½{ï¿½{ï¿½bï¿½Nï¿½Xï¿½Ì•ÒW
 	switch(m_MeasProgInfo.ScanParams.hdr.wScanType){
 	case MEAS_PROG_TYPE_SR_THICKNESS:
 		TCHAR szDdeTextItem[1024];
@@ -3238,10 +3239,10 @@ void CRecipeMainSrView::InitCombo_RecalibItemSetting(int iRicalibSetIndex1/*=0*/
 	//1st Recalib Combo
 		pCombo = (CComboBox*)GetDlgItem(IDC_RECALIBRATION_ITEM1);
 		pCombo->ResetContent();
-		// ƒXƒgƒ‰ƒeƒW[–ˆ‚Ì‘ª’è€–ÚƒCƒ“ƒfƒbƒNƒX‚ğ’Ç‰Á
+		// ï¿½Xï¿½gï¿½ï¿½ï¿½eï¿½Wï¿½[ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½è€ï¿½ÚƒCï¿½ï¿½ï¿½fï¿½bï¿½Nï¿½Xï¿½ï¿½Ç‰ï¿½
 //		pCombo->AddString("None");
 		//Saiki 20090527 Change ----->
-		//pCombo->AddString("–³‚µ");
+		//pCombo->AddString("ï¿½ï¿½ï¿½ï¿½");
 		LoadStringML(IDS_POINT_NAME_NONE, strBuffer, "None");
 		pCombo->AddString(strBuffer);
 		//Saiki 20090527 Change <-----
@@ -3263,10 +3264,10 @@ void CRecipeMainSrView::InitCombo_RecalibItemSetting(int iRicalibSetIndex1/*=0*/
 	//2nd Recalib Combo
 		pCombo = (CComboBox*)GetDlgItem(IDC_RECALIBRATION_ITEM2);
 		pCombo->ResetContent();
-		// ƒXƒgƒ‰ƒeƒW[–ˆ‚Ì‘ª’è€–ÚƒCƒ“ƒfƒbƒNƒX‚ğ’Ç‰Á
+		// ï¿½Xï¿½gï¿½ï¿½ï¿½eï¿½Wï¿½[ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½è€ï¿½ÚƒCï¿½ï¿½ï¿½fï¿½bï¿½Nï¿½Xï¿½ï¿½Ç‰ï¿½
 //		pCombo->AddString("None");
 		//Saiki 20090527 Change ----->
-		//pCombo->AddString("–³‚µ");
+		//pCombo->AddString("ï¿½ï¿½ï¿½ï¿½");
 		LoadStringML(IDS_POINT_NAME_NONE, strBuffer, "None");
 		pCombo->AddString(strBuffer);
 		//Saiki 20090527 Change <-----
@@ -3288,10 +3289,10 @@ void CRecipeMainSrView::InitCombo_RecalibItemSetting(int iRicalibSetIndex1/*=0*/
 	//3rd Recalib Combo
 		pCombo = (CComboBox*)GetDlgItem(IDC_RECALIBRATION_ITEM3);
 		pCombo->ResetContent();
-		// ƒXƒgƒ‰ƒeƒW[–ˆ‚Ì‘ª’è€–ÚƒCƒ“ƒfƒbƒNƒX‚ğ’Ç‰Á
+		// ï¿½Xï¿½gï¿½ï¿½ï¿½eï¿½Wï¿½[ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½è€ï¿½ÚƒCï¿½ï¿½ï¿½fï¿½bï¿½Nï¿½Xï¿½ï¿½Ç‰ï¿½
 //		pCombo->AddString("None");
 		//Saiki 20090527 Change ----->
-		//pCombo->AddString("–³‚µ");
+		//pCombo->AddString("ï¿½ï¿½ï¿½ï¿½");
 		LoadStringML(IDS_POINT_NAME_NONE, strBuffer, "None");
 		pCombo->AddString(strBuffer);
 		//Saiki 20090527 Change <-----
@@ -3323,7 +3324,7 @@ void CRecipeMainSrView::InitCombo_RecalibItemSetting(int iRicalibSetIndex1/*=0*/
 		//pCombo->EnableWindow(FALSE);
 // Kojika 20090527 Change
 //		pCombo->AddString("1st Wave");
-//		pCombo->AddString("‘æ‚P”g’·");
+//		pCombo->AddString("ï¿½ï¿½Pï¿½gï¿½ï¿½");
 		LoadStringML(IDS_INDEX_ONE_WAVE, l_strBuffer, "1st Wave");
 		pCombo->AddString(l_strBuffer);
 // Kojika 20090527 Change End
@@ -3339,7 +3340,7 @@ void CRecipeMainSrView::InitCombo_RecalibItemSetting(int iRicalibSetIndex1/*=0*/
 		//pCombo->EnableWindow(FALSE);
 // Kojika 20090527 Change
 //		pCombo->AddString("2nd Wave");
-//		pCombo->AddString("‘æ‚Q”g’·");
+//		pCombo->AddString("ï¿½ï¿½Qï¿½gï¿½ï¿½");
 		LoadStringML(IDS_INDEX_TWO_WAVE, l_strBuffer, "2nd Wave");
 		pCombo->AddString(l_strBuffer);
 // Kojika 20090527 Change End
@@ -3355,7 +3356,7 @@ void CRecipeMainSrView::InitCombo_RecalibItemSetting(int iRicalibSetIndex1/*=0*/
 		//pCombo->EnableWindow(FALSE);
 // Kojika 20090527 Change
 //		pCombo->AddString("3rd Wave");
-//		pCombo->AddString("‘æ‚R”g’·");
+//		pCombo->AddString("ï¿½ï¿½Rï¿½gï¿½ï¿½");
 		LoadStringML(IDS_INDEX_THR_WAVE, l_strBuffer, "3rd Wave");
 		pCombo->AddString(l_strBuffer);
 // Kojika 20090527 Change End
@@ -3416,7 +3417,7 @@ void CRecipeMainSrView::InitCombo_RecalibItemSetting(int iRicalibSetIndex1/*=0*/
 		//1st Recalib Combo
 			pCombo = (CComboBox*)GetDlgItem(IDC_RECALIBRATION_ITEM1);
 			pCombo->ResetContent();
-			// ƒXƒgƒ‰ƒeƒW[–ˆ‚Ì‘ª’è€–ÚƒCƒ“ƒfƒbƒNƒX‚ğ’Ç‰Á
+			// ï¿½Xï¿½gï¿½ï¿½ï¿½eï¿½Wï¿½[ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½è€ï¿½ÚƒCï¿½ï¿½ï¿½fï¿½bï¿½Nï¿½Xï¿½ï¿½Ç‰ï¿½
 			LoadStringML(IDS_POINT_NAME_NONE, strBuffer, "None");
 			pCombo->AddString(strBuffer);
 			if ( MEAS_GetAdapScriptFileDescriptDdeTextItem(szDdeTextItem, iDummyStartWaveLen, iDummyEndWaveLen, iDummyOpticalFilter, m_MeasProgInfo.ScanParams._SR.XMPDesc.szStrategyEntry) ){
@@ -3441,7 +3442,7 @@ void CRecipeMainSrView::InitCombo_RecalibItemSetting(int iRicalibSetIndex1/*=0*/
 		//2nd Recalib Combo
 			pCombo = (CComboBox*)GetDlgItem(IDC_RECALIBRATION_ITEM2);
 			pCombo->ResetContent();
-			// ƒXƒgƒ‰ƒeƒW[–ˆ‚Ì‘ª’è€–ÚƒCƒ“ƒfƒbƒNƒX‚ğ’Ç‰Á
+			// ï¿½Xï¿½gï¿½ï¿½ï¿½eï¿½Wï¿½[ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½è€ï¿½ÚƒCï¿½ï¿½ï¿½fï¿½bï¿½Nï¿½Xï¿½ï¿½Ç‰ï¿½
 			LoadStringML(IDS_POINT_NAME_NONE, strBuffer, "None");
 			pCombo->AddString(strBuffer);
 			if ( MEAS_GetAdapScriptFileDescriptDdeTextItem(szDdeTextItem, iDummyStartWaveLen, iDummyEndWaveLen, iDummyOpticalFilter, m_MeasProgInfo.ScanParams._SR.XMPDesc.szStrategyEntry) ){
@@ -3466,7 +3467,7 @@ void CRecipeMainSrView::InitCombo_RecalibItemSetting(int iRicalibSetIndex1/*=0*/
 		//3rd Recalib Combo
 			pCombo = (CComboBox*)GetDlgItem(IDC_RECALIBRATION_ITEM3);
 			pCombo->ResetContent();
-			// ƒXƒgƒ‰ƒeƒW[–ˆ‚Ì‘ª’è€–ÚƒCƒ“ƒfƒbƒNƒX‚ğ’Ç‰Á
+			// ï¿½Xï¿½gï¿½ï¿½ï¿½eï¿½Wï¿½[ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½è€ï¿½ÚƒCï¿½ï¿½ï¿½fï¿½bï¿½Nï¿½Xï¿½ï¿½Ç‰ï¿½
 			LoadStringML(IDS_POINT_NAME_NONE, strBuffer, "None");
 			pCombo->AddString(strBuffer);
 			if ( MEAS_GetAdapScriptFileDescriptDdeTextItem(szDdeTextItem, iDummyStartWaveLen, iDummyEndWaveLen, iDummyOpticalFilter, m_MeasProgInfo.ScanParams._SR.XMPDesc.szStrategyEntry) ){
@@ -3562,7 +3563,7 @@ void CRecipeMainSrView::InitCombo_RecalibItemSetting(int iRicalibSetIndex1/*=0*/
 		//1st Recalib Combo
 		pCombo = (CComboBox*)GetDlgItem(IDC_RECALIBRATION_ITEM1);
 		pCombo->ResetContent();
-		// ƒXƒgƒ‰ƒeƒW[–ˆ‚Ì‘ª’è€–ÚƒCƒ“ƒfƒbƒNƒX‚ğ’Ç‰Á
+		// ï¿½Xï¿½gï¿½ï¿½ï¿½eï¿½Wï¿½[ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½è€ï¿½ÚƒCï¿½ï¿½ï¿½fï¿½bï¿½Nï¿½Xï¿½ï¿½Ç‰ï¿½
 		LoadStringML(IDS_POINT_NAME_NONE, strBuffer, "None");
 		pCombo->AddString(strBuffer);
 		if ( MEAS_GetAdapScriptFileDescriptDdeTextItem(szDdeTextItem, iDummyStartWaveLen, iDummyEndWaveLen, iDummyOpticalFilter, m_MeasProgInfo.ScanParams._SE.szStrategyEntry) ){
@@ -3587,7 +3588,7 @@ void CRecipeMainSrView::InitCombo_RecalibItemSetting(int iRicalibSetIndex1/*=0*/
 		//2nd Recalib Combo
 		pCombo = (CComboBox*)GetDlgItem(IDC_RECALIBRATION_ITEM2);
 		pCombo->ResetContent();
-		// ƒXƒgƒ‰ƒeƒW[–ˆ‚Ì‘ª’è€–ÚƒCƒ“ƒfƒbƒNƒX‚ğ’Ç‰Á
+		// ï¿½Xï¿½gï¿½ï¿½ï¿½eï¿½Wï¿½[ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½è€ï¿½ÚƒCï¿½ï¿½ï¿½fï¿½bï¿½Nï¿½Xï¿½ï¿½Ç‰ï¿½
 		LoadStringML(IDS_POINT_NAME_NONE, strBuffer, "None");
 		pCombo->AddString(strBuffer);
 		if ( MEAS_GetAdapScriptFileDescriptDdeTextItem(szDdeTextItem, iDummyStartWaveLen, iDummyEndWaveLen, iDummyOpticalFilter, m_MeasProgInfo.ScanParams._SE.szStrategyEntry) ){
@@ -3612,7 +3613,7 @@ void CRecipeMainSrView::InitCombo_RecalibItemSetting(int iRicalibSetIndex1/*=0*/
 		//3rd Recalib Combo
 		pCombo = (CComboBox*)GetDlgItem(IDC_RECALIBRATION_ITEM3);
 		pCombo->ResetContent();
-		// ƒXƒgƒ‰ƒeƒW[–ˆ‚Ì‘ª’è€–ÚƒCƒ“ƒfƒbƒNƒX‚ğ’Ç‰Á
+		// ï¿½Xï¿½gï¿½ï¿½ï¿½eï¿½Wï¿½[ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½è€ï¿½ÚƒCï¿½ï¿½ï¿½fï¿½bï¿½Nï¿½Xï¿½ï¿½Ç‰ï¿½
 		LoadStringML(IDS_POINT_NAME_NONE, strBuffer, "None");
 		pCombo->AddString(strBuffer);
 		if ( MEAS_GetAdapScriptFileDescriptDdeTextItem(szDdeTextItem, iDummyStartWaveLen, iDummyEndWaveLen, iDummyOpticalFilter, m_MeasProgInfo.ScanParams._SE.szStrategyEntry) ){
@@ -3635,7 +3636,7 @@ void CRecipeMainSrView::InitCombo_RecalibItemSetting(int iRicalibSetIndex1/*=0*/
 		pCombo->SetCurSel(0);
 
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 	case HEAD_TYPE_COMPEASE:
 		{
 			int nItemIDs[] = {IDC_RECALIBRATION_ITEM1, IDC_RECALIBRATION_ITEM2, IDC_RECALIBRATION_ITEM3};
@@ -3667,15 +3668,15 @@ void CRecipeMainSrView::InitCombo_RecalibItemSetting(int iRicalibSetIndex1/*=0*/
 			}
 		}
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
 // 2009.12.08 bagus SE --}--
 	case HEAD_TYPE_IRSE:
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --{--
 //	case HEAD_TYPE_4PP:
-// 2009.11.04 bagus RS ’Ç‰Á --}--
-// 2009.10.28 bagus CTA ’Ç‰ÁC³ --{--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --}--
+// 2009.10.28 bagus CTA ï¿½Ç‰ï¿½ï¿½Cï¿½ï¿½ --{--
 //	case HEAD_TYPE_CTA:
-// 2009.10.28 bagus CTA ’Ç‰ÁC³ --}--
+// 2009.10.28 bagus CTA ï¿½Ç‰ï¿½ï¿½Cï¿½ï¿½ --}--
 	//1st Recalib Combo
 		pCombo = (CComboBox*)GetDlgItem(IDC_RECALIBRATION_ITEM1);
 		pCombo->ResetContent();
@@ -3789,7 +3790,7 @@ void CRecipeMainSrView::InitCombo_RecalibItemSetting(int iRicalibSetIndex1/*=0*/
 		pCombo->SetCurSel(0);
 
 		break;
-// 2009.10.28 bagus CTA ’Ç‰ÁC³ --{--
+// 2009.10.28 bagus CTA ï¿½Ç‰ï¿½ï¿½Cï¿½ï¿½ --{--
 	case HEAD_TYPE_CTA:
 	//1st Recalib Combo
 		pCombo = (CComboBox*)GetDlgItem(IDC_RECALIBRATION_ITEM1);
@@ -3822,8 +3823,8 @@ void CRecipeMainSrView::InitCombo_RecalibItemSetting(int iRicalibSetIndex1/*=0*/
 		pCombo->SetCurSel(0);
 
 		break;
-// 2009.10.28 bagus CTA ’Ç‰ÁC³ --}--
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.10.28 bagus CTA ï¿½Ç‰ï¿½ï¿½Cï¿½ï¿½ --}--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --{--
 	case HEAD_TYPE_4PP:
 	//1st Recalib Combo
 		pCombo = (CComboBox*)GetDlgItem(IDC_RECALIBRATION_ITEM1);
@@ -3856,7 +3857,7 @@ void CRecipeMainSrView::InitCombo_RecalibItemSetting(int iRicalibSetIndex1/*=0*/
 		pCombo->SetCurSel(0);
 
 		break;
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --}--
 	default:
 	//1st Recalib Combo
 		pCombo = (CComboBox*)GetDlgItem(IDC_RECALIBRATION_ITEM1);
@@ -3891,7 +3892,7 @@ void CRecipeMainSrView::InitCombo_RecalibItemSetting(int iRicalibSetIndex1/*=0*/
 		break;
 	}
 #endif
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --}--
 
 	UpdateData(FALSE);
 	//UpdateData(TRUE);
@@ -3899,7 +3900,7 @@ void CRecipeMainSrView::InitCombo_RecalibItemSetting(int iRicalibSetIndex1/*=0*/
 }
 
 // =========================================================================
-// ƒtƒH[ƒJƒX¸”s“®ì ƒRƒ“ƒ{‘I‘ğ
+// ï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Rï¿½ï¿½ï¿½{ï¿½Iï¿½ï¿½ï¿½ï¿½
 //
 void CRecipeMainSrView::OnSelchangeFinalFocus()
 {
@@ -3914,12 +3915,12 @@ void CRecipeMainSrView::OnSelchangeFinalFocus()
 //	UpdateData(FALSE);
 }
 
-//2009.09.02 bagus se ‹@”\Šg’£ --{--
+//2009.09.02 bagus se ï¿½@ï¿½\ï¿½gï¿½ï¿½ --{--
 void CRecipeMainSrView::OnPaint()
 {
-	CPaintDC dc(this); // •`‰æ—p‚ÌƒfƒoƒCƒX ƒRƒ“ƒeƒLƒXƒg
+	CPaintDC dc(this); // ï¿½`ï¿½ï¿½pï¿½Ìƒfï¿½oï¿½Cï¿½X ï¿½Rï¿½ï¿½ï¿½eï¿½Lï¿½Xï¿½g
 
-	//2009.12.21 bagus C³ --{--
+	//2009.12.21 bagus ï¿½Cï¿½ï¿½ --{--
 	long lDrawStageSizeX, lDrawStageSizeY;
 	CRect StageRect;
 //	CRect SampleRect;
@@ -3929,8 +3930,8 @@ void CRecipeMainSrView::OnPaint()
 	CDC* pDC = pPictBox->GetDC();
 	pPictBox->GetClientRect(&StageRect);
 
-	//2009.12.21 bagus C³ --{--
-	//ƒXƒe[ƒW•”‚Í•\¦‚µ‚È‚¢BƒTƒ“ƒvƒ‹‚Ì‚İ•\¦‚·‚é
+	//2009.12.21 bagus ï¿½Cï¿½ï¿½ --{--
+	//ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½Í•\ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Bï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Ì‚İ•\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	///// Draw Stage Color /////
 	CBrush BrushStage(BLACK_COLOR);
 	m_oldBrush = pDC->SelectObject(&BrushStage);
@@ -3943,7 +3944,7 @@ void CRecipeMainSrView::OnPaint()
 	long StageRectTop = StageRect.top + STAGE_OFFSET;
 	long StageRectBottom = StageRect.bottom - STAGE_OFFSET;
 
-	///// ƒXƒe[ƒW—LŒø”ÍˆÍ /////
+	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Lï¿½ï¿½ï¿½Íˆï¿½ /////
 // 	double dStageMaxSizeX = m_StageConfig.Size.dX - (2 * m_StageConfig.Edge.dX);
 // 	double dStageMaxSizeY = m_StageConfig.Size.dY - (2 * m_StageConfig.Edge.dY);
 	double dStageMaxSizeX = (m_StageConfig.StageMaxCoord.dRightX - m_StageConfig.StageMaxCoord.dLeftX) - (2 * m_StageConfig.Edge.dX);
@@ -3971,7 +3972,7 @@ void CRecipeMainSrView::OnPaint()
 //	pDC->Rectangle(CRect(m_dDrawStartStagePosX, m_dDrawStartStagePosY, m_dDrawEndStagePosX, m_dDrawEndStagePosY));
 	pDC->SelectObject(m_oldPen);
 	pDC->SelectObject(m_oldBrush);
-	//2009.12.21 bagus C³ --}--
+	//2009.12.21 bagus ï¿½Cï¿½ï¿½ --}--
 
 	///// Draw Sample /////
 	DrawSample(pDC, m_StageConfig.OrgPos, m_StageConfig.Dir.X, m_StageConfig.Dir.Y);
@@ -3981,20 +3982,20 @@ void CRecipeMainSrView::OnPaint()
 // 	DrawOriginMaker(m_StageConfig.OrgPos);
 // 2013.01.09 bagus <--
 
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 	if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 		SamplePointGraph_DataSet();
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 	}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 
-	// •`‰æ—pƒƒbƒZ[ƒW‚Æ‚µ‚Ä CDialog::OnPaint() ‚ğŒÄ‚Ño‚µ‚Ä‚Í‚¢‚¯‚Ü‚¹‚ñ
+	// ï¿½`ï¿½ï¿½pï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½Æ‚ï¿½ï¿½ï¿½ CDialog::OnPaint() ï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½Ä‚Í‚ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½
 	ReleaseDC(pDC);
 }
 
 // 2013.01.09 bagus -->
-// ²À•WiSTAGEAPI—pj‚É•ÏŠ·
+// ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½iSTAGEAPIï¿½pï¿½jï¿½É•ÏŠï¿½
 void CRecipeMainSrView::ToXyAxisCoord(STAGE_COORD* lpPoint)
 {
 	// X: RIGHT
@@ -4071,8 +4072,8 @@ void CRecipeMainSrView::DrawSample(CDC* pDC, int iOrg, int DirX, int DirY)
 	///// Region Map /////
 	GetDlgItem(IDC_STAGE_MAP)->GetWindowPlacement(&Stageplacement);
 
-	///// ƒXƒe[ƒW—LŒø”ÍˆÍ(•‚¢lŠp‚Í‚±‚ÌƒTƒCƒY‚Å•`‰æ‚³‚ê‚Ä‚¢‚é) /////
-// 2009.12.14 bagus C³ --{--
+	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Lï¿½ï¿½ï¿½Íˆï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½lï¿½pï¿½Í‚ï¿½ï¿½ÌƒTï¿½Cï¿½Yï¿½Å•`ï¿½æ‚³ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½) /////
+// 2009.12.14 bagus ï¿½Cï¿½ï¿½ --{--
 //	double dStageMaxSizeX = m_StageConfig.Size.dX - (2 * m_StageConfig.Edge.dX);
 //	double dStageMaxSizeY = m_StageConfig.Size.dY - (2 * m_StageConfig.Edge.dY);
 //	double dStageMaxSizeX = (m_StageConfig.StageMaxCoord.dRightX - m_StageConfig.StageMaxCoord.dLeftX) - (2 * m_StageConfig.Edge.dX);
@@ -4098,7 +4099,7 @@ void CRecipeMainSrView::DrawSample(CDC* pDC, int iOrg, int DirX, int DirY)
 		break;
 	}
 // 2013.01.17 bagus rotate xy view <--
-// 2009.12.14 bagus C³ --}--
+// 2009.12.14 bagus ï¿½Cï¿½ï¿½ --}--
 
 // 2013.01.09 bagus -->
 	double dSampleSizeX;
@@ -4130,25 +4131,25 @@ void CRecipeMainSrView::DrawSample(CDC* pDC, int iOrg, int DirX, int DirY)
 	}
 // 2013.01.17 bagus rotate xy view <--
 
-	///// @ƒTƒ“ƒvƒ‹ƒTƒCƒY‚ªƒXƒe[ƒW‚Ì‘å‚«‚³‚Æ‚è¬‚³‚¢‚©ƒ`ƒFƒbƒN /////
+	///// ï¿½@ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Tï¿½Cï¿½Yï¿½ï¿½ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ì‘å‚«ï¿½ï¿½ï¿½Æ‚è¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N /////
 // 	if ((m_StageProgInfoHdr.SampleInfo.Size.dx > dStageMaxSizeX) || (m_StageProgInfoHdr.SampleInfo.Size.dy > dStageMaxSizeY))
 // 		return;
 	if ((dSampleSizeX > dStageMaxSizeX) || (dSampleSizeY > dStageMaxSizeY))
 		return;
 
-	///// ƒTƒ“ƒvƒ‹•`‰æƒTƒCƒY‚ÌŒvZiƒXƒe[ƒW•`‰æƒTƒCƒY‘Î‚·‚éƒTƒ“ƒvƒ‹•`‰æƒTƒCƒY‚ğŒvZj /////
+	///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Tï¿½Cï¿½Yï¿½ÌŒvï¿½Zï¿½iï¿½Xï¿½eï¿½[ï¿½Wï¿½`ï¿½ï¿½Tï¿½Cï¿½Yï¿½Î‚ï¿½ï¿½ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Tï¿½Cï¿½Yï¿½ï¿½ï¿½vï¿½Zï¿½j /////
 // 	double dDrawSampleSizeX =(m_dDrawEndStagePosX - m_dDrawStartStagePosX) * m_StageProgInfoHdr.SampleInfo.Size.dx / dStageMaxSizeX;
 // 	double dDrawSampleSizeY =(m_dDrawEndStagePosY - m_dDrawStartStagePosY) * m_StageProgInfoHdr.SampleInfo.Size.dy / dStageMaxSizeY;
 // 	double dDrawSampleSizeX =(m_dDrawEndStagePosX - m_dDrawStartStagePosX) * dSampleSizeX / dStageMaxSizeX;
 // 	double dDrawSampleSizeY =(m_dDrawEndStagePosY - m_dDrawStartStagePosY) * dSampleSizeY / dStageMaxSizeY;
-	double dDrawSampleSizeX =(m_dDrawEndStagePosX - m_dDrawStartStagePosX); // ƒXƒe[ƒW‚Ì•‚¢•”•ª‚Í”ä—¦ŒvZ‚É‰Á–¡‚µ‚È‚¢
-	double dDrawSampleSizeY =(m_dDrawEndStagePosY - m_dDrawStartStagePosY); // ƒXƒe[ƒW‚Ì•‚¢•”•ª‚Í”ä—¦ŒvZ‚É‰Á–¡‚µ‚È‚¢
+	double dDrawSampleSizeX =(m_dDrawEndStagePosX - m_dDrawStartStagePosX); // ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í”ä—¦ï¿½vï¿½Zï¿½É‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
+	double dDrawSampleSizeY =(m_dDrawEndStagePosY - m_dDrawStartStagePosY); // ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í”ä—¦ï¿½vï¿½Zï¿½É‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 // 2013.01.09 bagus <--
 
-	///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l /////
+	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½l /////
 	double dTotalOrgOffsetPosX, dTotalOrgOffsetPosY;
 
-	///// ƒTƒ“ƒvƒ‹‚Ì•`‰æˆÊ’u /////
+	///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Ì•`ï¿½ï¿½Ê’u /////
 	double dtop, dbottom, dright, dleft;
 
 // 2009.12.02 K.Matsuo SampleOrigin -->
@@ -4165,24 +4166,24 @@ void CRecipeMainSrView::DrawSample(CDC* pDC, int iOrg, int DirX, int DirY)
 	ToXyAxisCoord(&XyAxisCoord);
 // 2013.01.09 bagus <--
 
-	//Sample•`‰æˆÊ’uİ’è
-	//lŠpŒ`óƒTƒ“ƒvƒ‹‚Ì‚İ‘Î‰
+	//Sampleï¿½`ï¿½ï¿½Ê’uï¿½İ’ï¿½
+	//ï¿½lï¿½pï¿½`ï¿½ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Ì‚İ‘Î‰ï¿½
 	switch(m_StageProgInfoHdr.SampleInfo.nShape){
 	case SAMPLE_SHAPE_RECTANGLE:		//Sample shaped RectAngle
 		switch(iOrg){
-		case 1: ///// ƒZƒ“ƒ^[Šî€	//X²F¨+@Y²Fª+‚Ì‚İ‘Î‰
+		case 1: ///// ï¿½Zï¿½ï¿½ï¿½^ï¿½[ï¿½î€	//Xï¿½ï¿½ï¿½Fï¿½ï¿½+ï¿½@Yï¿½ï¿½ï¿½Fï¿½ï¿½+ï¿½Ì‚İ‘Î‰ï¿½
 		default:
-			///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l‚ğŒvZ /////
+			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½lï¿½ï¿½ï¿½vï¿½Z /////
 // 2013.01.09 bagus -->
 // 2009.12.02 K.Matsuo SampleOrigin -->
 //			dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX - m_StageConfig.Edge.dX) + (m_StageProgInfoHdr.SampleInfo.Origin.lX)) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 //			dTotalOrgOffsetPosY = ((m_StageConfig.Origin.lY - m_StageConfig.Edge.dY) + (m_StageProgInfoHdr.SampleInfo.Origin.lY)) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
-// 2009.12.14 bagus C³ --{--
+// 2009.12.14 bagus ï¿½Cï¿½ï¿½ --{--
 //			dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX - m_StageConfig.Edge.dX) + (sampleInfo.Origin.lX)) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 //			dTotalOrgOffsetPosY = ((m_StageConfig.Origin.lY - m_StageConfig.Edge.dY) + (sampleInfo.Origin.lY)) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 // 			dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX) + (m_StageProgInfoHdr.SampleInfo.Origin.lX) - (m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1)))) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 // 			dTotalOrgOffsetPosY = ((m_StageConfig.Origin.lY) + (m_StageProgInfoHdr.SampleInfo.Origin.lY) - (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1)))) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
-// 2009.12.14 bagus C³ --}--
+// 2009.12.14 bagus ï¿½Cï¿½ï¿½ --}--
 // 2009.12.02 K.Matsuo SampleOrigin <--
 // 2013.01.17 bagus rotate xy view <--
 // 			dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX) + (XyAxisCoord.lX) - (m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1)))) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
@@ -4220,20 +4221,20 @@ void CRecipeMainSrView::DrawSample(CDC* pDC, int iOrg, int DirX, int DirY)
 			}
 // 2013.01.09 bagus -->
 
-			///// ƒTƒ“ƒvƒ‹•`‰æˆÊ’u‚ğŒvZ /////
-			//¶Šî€
+			///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Ê’uï¿½ï¿½ï¿½vï¿½Z /////
+			//ï¿½ï¿½ï¿½î€
 			dleft	= m_dDrawStartStagePosX + dTotalOrgOffsetPosX - (dDrawSampleSizeX / 2);
 			dright	= dleft + dDrawSampleSizeX;
-			//‰ºŠî€
+			//ï¿½ï¿½ï¿½î€
 			dbottom = m_dDrawEndStagePosY - dTotalOrgOffsetPosY + (dDrawSampleSizeY / 2);
 			dtop	= dbottom - dDrawSampleSizeY;
 			break;
 
 		case 2: /////LeftTop
 // 2013.01.09 bagus -->
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
-			///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l‚ğŒvZ /////
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
+			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½lï¿½ï¿½ï¿½vï¿½Z /////
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //			dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX - m_StageConfig.Edge.dX) + (m_StageProgInfoHdr.SampleInfo.Origin.lX)) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 //			dTotalOrgOffsetPosY = ((m_StageConfig.Origin.lY - m_StageConfig.Edge.dY) + (m_StageProgInfoHdr.SampleInfo.Origin.lY)) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 // 2009.12.02 K.Matsuo SampleOrigin -->
@@ -4242,52 +4243,52 @@ void CRecipeMainSrView::DrawSample(CDC* pDC, int iOrg, int DirX, int DirY)
 // 			dTotalOrgOffsetPosX = (sampleInfo.Origin.lX) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 // 			dTotalOrgOffsetPosY = (sampleInfo.Origin.lY) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 // 2009.12.02 K.Matsuo SampleOrigin <--
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 			dTotalOrgOffsetPosX = (XyAxisCoord.lX) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 			dTotalOrgOffsetPosY = (XyAxisCoord.lY) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 // 2013.01.09 bagus -->
 
-			///// ƒTƒ“ƒvƒ‹•`‰æˆÊ’u‚ğŒvZ /////
+			///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Ê’uï¿½ï¿½ï¿½vï¿½Z /////
 			dleft	= m_dDrawStartStagePosX + 1 + dTotalOrgOffsetPosX;
 			dright	= dleft + dDrawSampleSizeX;
 			dtop = m_dDrawStartStagePosY + 1 + dTotalOrgOffsetPosY;
 			dbottom = dtop + dDrawSampleSizeY;
 			break;
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		case 3: /////LeftBottom
 // 2013.01.09 bagus -->
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
-			///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l‚ğŒvZ /////
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
+			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½lï¿½ï¿½ï¿½vï¿½Z /////
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //			dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX - m_StageConfig.Edge.dX) + (m_StageProgInfoHdr.SampleInfo.Origin.lX)) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 //			dTotalOrgOffsetPosY = ((m_StageConfig.Origin.lY - m_StageConfig.Edge.dY) + (m_StageProgInfoHdr.SampleInfo.Origin.lY)) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 // 2009.12.02 K.Matsuo SampleOrigin -->
 //			dTotalOrgOffsetPosX = (m_StageProgInfoHdr.SampleInfo.Origin.lX) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 //			dTotalOrgOffsetPosY = (m_StageProgInfoHdr.SampleInfo.Origin.lY) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
-// 2009.12.14 bagus C³ --{--
+// 2009.12.14 bagus ï¿½Cï¿½ï¿½ --{--
 //			dTotalOrgOffsetPosX = (sampleInfo.Origin.lX) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 //			dTotalOrgOffsetPosY = (sampleInfo.Origin.lY) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 // 			dTotalOrgOffsetPosX = ((m_StageProgInfoHdr.SampleInfo.Origin.lX - (m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1)))) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX);
 // 			dTotalOrgOffsetPosY = ((m_StageProgInfoHdr.SampleInfo.Origin.lY - (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1)))) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY);
-// 2009.12.14 bagus C³ --}--
+// 2009.12.14 bagus ï¿½Cï¿½ï¿½ --}--
 // 2009.12.02 K.Matsuo SampleOrigin <--
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 			dTotalOrgOffsetPosX = ((XyAxisCoord.lX - (m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1)))) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX);
 			dTotalOrgOffsetPosY = ((XyAxisCoord.lY - (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1)))) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY);
 // 2013.01.09 bagus -->
 
-			///// ƒTƒ“ƒvƒ‹•`‰æˆÊ’u‚ğŒvZ /////
+			///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Ê’uï¿½ï¿½ï¿½vï¿½Z /////
 			dleft	= m_dDrawStartStagePosX + 1 + dTotalOrgOffsetPosX;
 			dright	= dleft + dDrawSampleSizeX;
 			dbottom = m_dDrawEndStagePosY - 1 - dTotalOrgOffsetPosY;
 			dtop	= dbottom - dDrawSampleSizeY;
 			break;
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		case 4: /////RightBottom
 // 2013.01.09 bagus -->
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
-			///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l‚ğŒvZ /////
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
+			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½lï¿½ï¿½ï¿½vï¿½Z /////
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //			dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX - m_StageConfig.Edge.dX) + (m_StageProgInfoHdr.SampleInfo.Origin.lX)) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 //			dTotalOrgOffsetPosY = ((m_StageConfig.Origin.lY - m_StageConfig.Edge.dY) + (m_StageProgInfoHdr.SampleInfo.Origin.lY)) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 // 2009.12.02 K.Matsuo SampleOrigin -->
@@ -4296,23 +4297,23 @@ void CRecipeMainSrView::DrawSample(CDC* pDC, int iOrg, int DirX, int DirY)
 // 			dTotalOrgOffsetPosX = (sampleInfo.Origin.lX) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 // 			dTotalOrgOffsetPosY = (sampleInfo.Origin.lY) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 // 2009.12.02 K.Matsuo SampleOrigin <--
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 			dTotalOrgOffsetPosX = (XyAxisCoord.lX) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 			dTotalOrgOffsetPosY = (XyAxisCoord.lY) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 // 2013.01.09 bagus -->
 
-			///// ƒTƒ“ƒvƒ‹•`‰æˆÊ’u‚ğŒvZ /////
+			///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Ê’uï¿½ï¿½ï¿½vï¿½Z /////
 			dright	= m_dDrawEndStagePosX - 1 - dTotalOrgOffsetPosX;
 			dleft	= dright - dDrawSampleSizeX;
 			dbottom = m_dDrawEndStagePosY - 1 - dTotalOrgOffsetPosY;
 			dtop	= dbottom - dDrawSampleSizeY;
 			break;
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		case 5: /////RightTop
 // 2013.01.09 bagus -->
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
-			///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l‚ğŒvZ /////
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
+			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½lï¿½ï¿½ï¿½vï¿½Z /////
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //			dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX - m_StageConfig.Edge.dX) + (m_StageProgInfoHdr.SampleInfo.Origin.lX)) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 //			dTotalOrgOffsetPosY = ((m_StageConfig.Origin.lY - m_StageConfig.Edge.dY) + (m_StageProgInfoHdr.SampleInfo.Origin.lY)) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 // 2009.12.02 K.Matsuo SampleOrigin -->
@@ -4321,28 +4322,28 @@ void CRecipeMainSrView::DrawSample(CDC* pDC, int iOrg, int DirX, int DirY)
 // 			dTotalOrgOffsetPosX = (sampleInfo.Origin.lX) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 // 			dTotalOrgOffsetPosY = (sampleInfo.Origin.lY) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 // 2009.12.02 K.Matsuo SampleOrigin <--
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 			dTotalOrgOffsetPosX = (XyAxisCoord.lX) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 			dTotalOrgOffsetPosY = (XyAxisCoord.lY) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 // 2013.01.09 bagus -->
 
-			///// ƒTƒ“ƒvƒ‹•`‰æˆÊ’u‚ğŒvZ /////
+			///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Ê’uï¿½ï¿½ï¿½vï¿½Z /////
 			dright	= m_dDrawEndStagePosX - 1 - dTotalOrgOffsetPosX;
 			dleft	= dright - dDrawSampleSizeX;
 			dtop = m_dDrawStartStagePosY + 1 + dTotalOrgOffsetPosY;
 			dbottom = dtop + dDrawSampleSizeY;
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 			break;
 		}
 
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) -->
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2014.01.17 Bagus Mod (Stage Noneï¿½Î‰ï¿½) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 //		if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 		if(m_SystemConfig.nStageType != STAGE_TYPE_NONE){
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) <--
+// 2014.01.17 Bagus Mod (Stage Noneï¿½Î‰ï¿½) <--
 // 2013.01.09 bagus -->
-			////DLGã‚ÌŠOŒ`ƒRƒ“ƒgƒ[ƒ‹ƒTƒCƒY(Sample Size)
+			////DLGï¿½ï¿½ÌŠOï¿½`ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Tï¿½Cï¿½Y(Sample Size)
 			WINDOWPLACEMENT placement;
 			m_SamplePointGraph.GetWindowPlacement(&placement);
 			placement = Stageplacement;
@@ -4351,24 +4352,24 @@ void CRecipeMainSrView::DrawSample(CDC* pDC, int iOrg, int DirX, int DirY)
 			placement.rcNormalPosition.left += 8;
 			placement.rcNormalPosition.right -= 8;
 
-			//ƒOƒ‰ƒtƒRƒ“ƒgƒ[ƒ‹ƒOƒ‰ƒt—ÌˆæƒTƒCƒY
+			//ï¿½Oï¿½ï¿½ï¿½tï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½tï¿½Ìˆï¿½Tï¿½Cï¿½Y
 			double dGraphSize_x = (placement.rcNormalPosition.right - placement.rcNormalPosition.left);
 			double dGraphSize_y = (placement.rcNormalPosition.bottom - placement.rcNormalPosition.top);
 			if ((dGraphSize_y / dGraphSize_x) < (dSampleSizeY / dSampleSizeX)){
-				//XƒTƒCƒYİ’è
+				//Xï¿½Tï¿½Cï¿½Yï¿½İ’ï¿½
 				double dDeltaGraphSize_x = dSampleSizeX * (dGraphSize_y / dSampleSizeY);
-				//ƒXƒy[ƒX‚ÌƒZƒ“ƒ^[‚ ‚í‚¹—pÀ•WŒvZ
+				//ï¿½Xï¿½yï¿½[ï¿½Xï¿½ÌƒZï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½í‚¹ï¿½pï¿½ï¿½ï¿½Wï¿½vï¿½Z
 				double dGraphCenterOffset_x = (dGraphSize_x - dDeltaGraphSize_x)/2;
 				placement.rcNormalPosition.left = placement.rcNormalPosition.left + dGraphCenterOffset_x;
 				placement.rcNormalPosition.right = placement.rcNormalPosition.left + dDeltaGraphSize_x;
 			}
 			else{
-				//YƒTƒCƒYİ’è
+				//Yï¿½Tï¿½Cï¿½Yï¿½İ’ï¿½
 				double dDeltaGraphSize_y = dSampleSizeY * (dGraphSize_x / dSampleSizeX);
 				placement.rcNormalPosition.bottom = placement.rcNormalPosition.top + dDeltaGraphSize_y;
 			}
 
-			//Y•ûŒü‚àƒZƒ“ƒ^[‚É‡‚í‚¹‚é
+			//Yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½^ï¿½[ï¿½Éï¿½ï¿½í‚¹ï¿½ï¿½
 			long sh = Stageplacement.rcNormalPosition.bottom - Stageplacement.rcNormalPosition.top;
 			long ph = placement.rcNormalPosition.bottom - placement.rcNormalPosition.top;
 			if(sh > ph){
@@ -4376,13 +4377,13 @@ void CRecipeMainSrView::DrawSample(CDC* pDC, int iOrg, int DirX, int DirY)
 				placement.rcNormalPosition.bottom = Stageplacement.rcNormalPosition.bottom - (sh - ph) / 2;
 			}
 
-			//ˆÊ’uw’è
+			//ï¿½Ê’uï¿½wï¿½ï¿½
 			m_SamplePointGraph.SetWindowPlacement(&placement);
 			m_SamplePointGraph.ShowWindow(SW_SHOW);
 // 2013.01.09 bagus <--
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 		}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 
 	}
 	pDC->SelectObject(m_oldPen);
@@ -4404,7 +4405,7 @@ void CRecipeMainSrView::DrawSample(CDC* pDC, int iOrg, int DirX, int DirY)
 // 	pDC->SelectObject(&BrushRed);
 // 	pDC->SelectObject(&PenRed);
 //
-// 	///// ƒXƒe[ƒW—LŒø”ÍˆÍ /////
+// 	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Lï¿½ï¿½ï¿½Íˆï¿½ /////
 // 	double dStageMaxSizeX = m_StageConfig.Size.dX - (2 * m_StageConfig.Edge.dX);
 // 	double dStageMaxSizeY = m_StageConfig.Size.dY - (2 * m_StageConfig.Edge.dY);
 //
@@ -4464,20 +4465,20 @@ void CRecipeMainSrView::SamplePointGraph_Init()
 	tConfig.OriginColor = GREEN_COLOR;
 	// 2013.01.09 bagus -->
 
-	////CNanoPointGraphƒNƒ‰ƒX“àƒTƒCƒY(Sample Size)
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+	////CNanoPointGraphï¿½Nï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½Tï¿½Cï¿½Y(Sample Size)
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //	tConfig.SampleSizeX = m_StageProgInfoHdr.SampleInfo.Size.dx;
 //	tConfig.SampleSizeY = m_StageProgInfoHdr.SampleInfo.Size.dy;
 // 	if (((m_StageConfig.Dir.X == 2) || (m_StageConfig.Dir.X == 4)) && ((m_StageConfig.Dir.Y == 1) || (m_StageConfig.Dir.Y == 3))) {
-// 		// X<->Y“ü‚ê‘Ö‚¦
+// 		// X<->Yï¿½ï¿½ï¿½ï¿½Ö‚ï¿½
 // 		tConfig.SampleSizeY = m_StageProgInfoHdr.SampleInfo.Size.dx;
 // 		tConfig.SampleSizeX = m_StageProgInfoHdr.SampleInfo.Size.dy;
 // 	} else if (((m_StageConfig.Dir.X == 1) || (m_StageConfig.Dir.X == 3)) && ((m_StageConfig.Dir.Y == 2) || (m_StageConfig.Dir.Y == 4))) {
-// 		// X-Y‚»‚Ì‚Ü‚Ü
+// 		// X-Yï¿½ï¿½ï¿½Ì‚Ü‚ï¿½
 // 		tConfig.SampleSizeX = m_StageProgInfoHdr.SampleInfo.Size.dx;
 // 		tConfig.SampleSizeY = m_StageProgInfoHdr.SampleInfo.Size.dy;
 // 	} else {
-// 		// –îˆóİ’è‚ª‚¨‚©‚µ‚¢
+// 		// ï¿½ï¿½ï¿½İ’è‚ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // 	}
 
 // 2013.01.17 bagus rotate xy view -->
@@ -4485,15 +4486,15 @@ void CRecipeMainSrView::SamplePointGraph_Init()
 	double dSampleSizeY;
 
 	if (((m_StageConfig.Dir.X == 2) || (m_StageConfig.Dir.X == 4)) && ((m_StageConfig.Dir.Y == 1) || (m_StageConfig.Dir.Y == 3))) {
-		// X<->Y“ü‚ê‘Ö‚¦
+		// X<->Yï¿½ï¿½ï¿½ï¿½Ö‚ï¿½
 		dSampleSizeY = m_StageProgInfoHdr.SampleInfo.Size.dx;
 		dSampleSizeX = m_StageProgInfoHdr.SampleInfo.Size.dy;
 	} else if (((m_StageConfig.Dir.X == 1) || (m_StageConfig.Dir.X == 3)) && ((m_StageConfig.Dir.Y == 2) || (m_StageConfig.Dir.Y == 4))) {
-		// X-Y‚»‚Ì‚Ü‚Ü
+		// X-Yï¿½ï¿½ï¿½Ì‚Ü‚ï¿½
 		dSampleSizeX = m_StageProgInfoHdr.SampleInfo.Size.dx;
 		dSampleSizeY = m_StageProgInfoHdr.SampleInfo.Size.dy;
 	} else {
-		// –îˆóİ’è‚ª‚¨‚©‚µ‚¢
+		// ï¿½ï¿½ï¿½İ’è‚ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
 
 	double dTemp;
@@ -4515,7 +4516,7 @@ void CRecipeMainSrView::SamplePointGraph_Init()
 	tConfig.SampleSizeY = dSampleSizeY;
 // 2013.01.17 bagus rotate xy view <--
 
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 	m_SamplePointGraph.SetConfig(&tConfig);
 
 	SamplePointGraph_DataSet();
@@ -4606,8 +4607,8 @@ void CRecipeMainSrView::SamplePointGraph_DataSet()
 	int i, j;
 
 	////Point Data
-	//ƒZƒ“ƒ^[Œ´“_‚Ìê‡
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+	//ï¿½Zï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½_ï¿½Ìê‡
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //	double dOffSetValueX = (m_StageProgInfoHdr.SampleInfo.Size.dx/2);
 //	double dOffSetValueY = (m_StageProgInfoHdr.SampleInfo.Size.dy/2);
 	double dOffSetValueX;
@@ -4634,10 +4635,10 @@ void CRecipeMainSrView::SamplePointGraph_DataSet()
 	case 2:
 // 2013.01.17 bagus rotate xy view -->
 // 		dOffSetValueX = 0;
-// // 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// // 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 // //		dOffSetValueY = m_StageProgInfoHdr.SampleInfo.Size.dy;
 // 		dOffSetValueY = 0;
-// // 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// // 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 		dOffSetValueX = 0;
 		dOffSetValueY = 0;
 		switch ( m_StageConfig.RotateXyView ) {
@@ -4660,10 +4661,10 @@ void CRecipeMainSrView::SamplePointGraph_DataSet()
 	case 3:
 // 2013.01.17 bagus rotate xy view -->
 // 		dOffSetValueX = 0;
-// // 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// // 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 // //		dOffSetValueY = 0;
 // 		dOffSetValueY = m_StageProgInfoHdr.SampleInfo.Size.dy;
-// // 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// // 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 		dOffSetValueX = 0;
 		dOffSetValueY = 0;
 		switch ( m_StageConfig.RotateXyView ) {
@@ -4686,10 +4687,10 @@ void CRecipeMainSrView::SamplePointGraph_DataSet()
 	case 4:
 // 2013.01.17 bagus rotate xy view -->
 // 		dOffSetValueX = m_StageProgInfoHdr.SampleInfo.Size.dx;
-// // 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// // 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 // //		dOffSetValueY = 0;
 // 		dOffSetValueY = m_StageProgInfoHdr.SampleInfo.Size.dy;
-// // 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// // 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 		dOffSetValueX = 0;
 		dOffSetValueY = 0;
 		switch ( m_StageConfig.RotateXyView ) {
@@ -4713,10 +4714,10 @@ void CRecipeMainSrView::SamplePointGraph_DataSet()
 	case 5:
 // 2013.01.17 bagus rotate xy view -->
 // 		dOffSetValueX = m_StageProgInfoHdr.SampleInfo.Size.dx;
-// // 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// // 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 // //		dOffSetValueY = m_StageProgInfoHdr.SampleInfo.Size.dy;
 // 		dOffSetValueY = 0;
-// // 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// // 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 		dOffSetValueX = 0;
 		dOffSetValueY = 0;
 		switch ( m_StageConfig.RotateXyView ) {
@@ -4737,7 +4738,7 @@ void CRecipeMainSrView::SamplePointGraph_DataSet()
 // 2013.01.17 bagus rotate xy view <--
 		break;
 	}
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 
 // 2013.01.09 bagus -->
 	double dOriginPointDataX;
@@ -4784,44 +4785,44 @@ void CRecipeMainSrView::SamplePointGraph_DataSet()
 	long lDirY = RotateXyAxisDir(m_StageConfig.Dir.Y);
 // 2013.01.17 bagus rotate xy view <--
 
-// 2009.10.28 bagus 2“_ŠÔ --{--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ --{--
 #if 0
 	for(int iPoint= 0; iPoint<m_StageProgInfoHdr.wNumScans; iPoint++){
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //		Scan_PointIncOffsetX = m_ScanPoint[iPoint].lX + dOffSetValueX;
 //		Scan_PointIncOffsetY = -(m_ScanPoint[iPoint].lY - dOffSetValueY);
 		switch (lDirX) {
-		case 1: 	// X:¨
+		case 1: 	// X:ï¿½ï¿½
 		default:
 			Scan_PointIncOffsetX = dOffSetValueX + m_ScanPoint[iPoint].lX;
 			break;
-		case 2: 	// X:ª
+		case 2: 	// X:ï¿½ï¿½
 			Scan_PointIncOffsetY = dOffSetValueX - m_ScanPoint[iPoint].lX;
 			break;
-		case 3: 	// X:©
+		case 3: 	// X:ï¿½ï¿½
 			Scan_PointIncOffsetX = dOffSetValueX - m_ScanPoint[iPoint].lX;
 			break;
-		case 4: 	// X:«
+		case 4: 	// X:ï¿½ï¿½
 			Scan_PointIncOffsetY = dOffSetValueX + m_ScanPoint[iPoint].lX;
 			break;
 		}
 
 		switch (lDirY) {
-		case 1: 	// Y:¨
+		case 1: 	// Y:ï¿½ï¿½
 			Scan_PointIncOffsetX = dOffSetValueY + m_ScanPoint[iPoint].lY;
 			break;
-		case 2: 	// Y:ª
+		case 2: 	// Y:ï¿½ï¿½
 		default:
 			Scan_PointIncOffsetY = dOffSetValueY - m_ScanPoint[iPoint].lY;
 			break;
-		case 3: 	// Y:©
+		case 3: 	// Y:ï¿½ï¿½
 			Scan_PointIncOffsetX = dOffSetValueY - m_ScanPoint[iPoint].lY;
 			break;
-		case 4: 	// Y:«
+		case 4: 	// Y:ï¿½ï¿½
 			Scan_PointIncOffsetY = dOffSetValueY + m_ScanPoint[iPoint].lY;
 			break;
 		}
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		m_SamplePointGraph.AddPoint(Scan_PointIncOffsetX, Scan_PointIncOffsetY);
 	}
 #else
@@ -4835,40 +4836,40 @@ void CRecipeMainSrView::SamplePointGraph_DataSet()
 
 	for(int iPoint= 0; iPoint<nCount; iPoint++){
 		switch (lDirX) {
-		case 1: 	// X:¨
+		case 1: 	// X:ï¿½ï¿½
 		default:
 			Scan_PointIncOffsetX = dOffSetValueX + m_ScanPoint[iPoint].lX;
 			break;
-		case 2: 	// X:ª
+		case 2: 	// X:ï¿½ï¿½
 			Scan_PointIncOffsetY = dOffSetValueX - m_ScanPoint[iPoint].lX;
 			break;
-		case 3: 	// X:©
+		case 3: 	// X:ï¿½ï¿½
 			Scan_PointIncOffsetX = dOffSetValueX - m_ScanPoint[iPoint].lX;
 			break;
-		case 4: 	// X:«
+		case 4: 	// X:ï¿½ï¿½
 			Scan_PointIncOffsetY = dOffSetValueX + m_ScanPoint[iPoint].lX;
 			break;
 		}
 
 		switch (lDirY) {
-		case 1: 	// Y:¨
+		case 1: 	// Y:ï¿½ï¿½
 			Scan_PointIncOffsetX = dOffSetValueY + m_ScanPoint[iPoint].lY;
 			break;
-		case 2: 	// Y:ª
+		case 2: 	// Y:ï¿½ï¿½
 		default:
 			Scan_PointIncOffsetY = dOffSetValueY - m_ScanPoint[iPoint].lY;
 			break;
-		case 3: 	// Y:©
+		case 3: 	// Y:ï¿½ï¿½
 			Scan_PointIncOffsetX = dOffSetValueY - m_ScanPoint[iPoint].lY;
 			break;
-		case 4: 	// Y:«
+		case 4: 	// Y:ï¿½ï¿½
 			Scan_PointIncOffsetY = dOffSetValueY + m_ScanPoint[iPoint].lY;
 			break;
 		}
 		m_SamplePointGraph.AddPoint(Scan_PointIncOffsetX, Scan_PointIncOffsetY);
 	}
 #endif
-// 2009.10.28 bagus 2“_ŠÔ --}--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ --}--
 
 	switch(m_iNewHeadType){
 	case HEAD_TYPE_STRESS:
@@ -4895,51 +4896,51 @@ void CRecipeMainSrView::SamplePointGraph_DataSet()
 				continue;
 			}
 
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //			tLineData.StartX = m_StressConfig.Line[i].SectPos[j].lScanStartPosX + dOffSetValueX;
 //			tLineData.StartY = -(m_StressConfig.Line[i].SectPos[j].lScanPosY - dOffSetValueY);
 //			tLineData.EndX = m_StressConfig.Line[i].SectPos[j].lScanEndPosX + dOffSetValueX;
 //			tLineData.EndY = -(m_StressConfig.Line[i].SectPos[j].lScanPosY - dOffSetValueY);
 			switch (lDirX) {
-			case 1: 	// X:¨
+			case 1: 	// X:ï¿½ï¿½
 			default:
 				tLineData.StartX = dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanStartPosX;
 				tLineData.EndX = dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanEndPosX;
 				break;
-			case 2: 	// X:ª
+			case 2: 	// X:ï¿½ï¿½
 				tLineData.StartY = dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanStartPosX;
 				tLineData.EndY = dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanEndPosX;
 				break;
-			case 3: 	// X:©
+			case 3: 	// X:ï¿½ï¿½
 				tLineData.StartX = dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanStartPosX;
 				tLineData.EndX = dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanEndPosX;
 				break;
-			case 4: 	// X:«
+			case 4: 	// X:ï¿½ï¿½
 				tLineData.StartY = dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanStartPosX;
 				tLineData.EndY = dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanEndPosX;
 				break;
 			}
 
 			switch (lDirY) {
-			case 1: 	// Y:¨
+			case 1: 	// Y:ï¿½ï¿½
 				tLineData.StartX = dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				tLineData.EndX = dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				break;
-			case 2: 	// Y:ª
+			case 2: 	// Y:ï¿½ï¿½
 			default:
 				tLineData.StartY = dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				tLineData.EndY = dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				break;
-			case 3: 	// Y:©
+			case 3: 	// Y:ï¿½ï¿½
 				tLineData.StartX = dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				tLineData.EndX = dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				break;
-			case 4: 	// Y:«
+			case 4: 	// Y:ï¿½ï¿½
 				tLineData.StartY = dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				tLineData.EndY = dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				break;
 			}
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 
 			m_SamplePointGraph.AddLineData(&tLineData);
 		}
@@ -4950,7 +4951,7 @@ void CRecipeMainSrView::OnSelchangeStageProgram()
 {
 	UpdateData(TRUE);
 
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	CComboBox* pCombo = (CComboBox*)GetDlgItem(IDC_STAGE_PROGRAM);
 
 	CString strBuffer;
@@ -4967,12 +4968,12 @@ void CRecipeMainSrView::OnSelchangeStageProgram()
 		m_strStageHeadType = "";
 		iNumScans = 0;
 		::ZeroMemory(m_ScanPoint, sizeof(m_ScanPoint));
-		//2009.09.03 bagus se ‹@”\Šg’£ --{--
+		//2009.09.03 bagus se ï¿½@ï¿½\ï¿½gï¿½ï¿½ --{--
 		::ZeroMemory(&m_StageStressProg, sizeof(m_StageStressProg));
-		//2009.09.03 bagus se ‹@”\Šg’£ --{--
+		//2009.09.03 bagus se ï¿½@ï¿½\ï¿½gï¿½ï¿½ --{--
 	} else {
 		///// Stage Program Header /////
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --{--
+// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --{--
 #if 0
 		if ( !RecipeFile_LoadRecipe(&m_StageProgInfoHdr, m_MainRcpInfo.MainRcpParam.hdr.szStage, RECIPE_FILE_STAGE_PROGRAM) ) {
 			::ZeroMemory(&m_StageProgInfoHdr, sizeof(m_StageProgInfoHdr));
@@ -4986,7 +4987,7 @@ void CRecipeMainSrView::OnSelchangeStageProgram()
 // 2009.09.30 bagus Gantry --}--
 			iNumScans = 0;
 		} else {
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --{--
 #if 0
 // 2009.09.30 bagus Gantry --{--
 //			m_strStageHeadType = HEAD_TYPE_ITEM[m_StageProgInfoHdr.wHeadType];
@@ -5028,7 +5029,7 @@ void CRecipeMainSrView::OnSelchangeStageProgram()
 #endif
 // 2009.12.08 bagus --}--
 #endif
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --}--
 			iNumScans = (int)m_StageProgInfoHdr.wNumScans;
 		}
 #else
@@ -5048,7 +5049,7 @@ void CRecipeMainSrView::OnSelchangeStageProgram()
 			iNumScans = (int)m_StageProgInfoHdr.wNumScans;
 		}
 
-// 2009.10.23 bagus Stress C³ --{--
+// 2009.10.23 bagus Stress ï¿½Cï¿½ï¿½ --{--
 #if 0
 		for(i=0; i<sizeof(s_StagePGMTable)/sizeof(s_StagePGMTable[0]); i++) {
 			if ((s_StagePGMTable[i].nHead == nHeadType) && (s_StagePGMTable[i].nScan == nScanType)) {
@@ -5059,7 +5060,7 @@ void CRecipeMainSrView::OnSelchangeStageProgram()
 #else
 		BOOL bOld = FALSE;
 
-		// ‹ŒŒ^d—l
+		// ï¿½ï¿½ï¿½^ï¿½dï¿½l
 		switch (nHeadType) {
 		case HEAD_TYPE_SR:
 // 2009.12.09 bagus --{--
@@ -5078,10 +5079,10 @@ void CRecipeMainSrView::OnSelchangeStageProgram()
 		case HEAD_TYPE_4PP:
 // 2009.12.08 bagus --{--
 #if 0
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --{--
 //			m_strStageHeadType = HEAD_TYPE_ITEM[nHeadType];
 			m_strStageHeadType = SCAN_TYPE_ITEM_RS;
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --}--
 #else
 // 2009.12.09 bagus --{--
 //			m_strStageHeadType = HEAD_TYPE_ITEM[nHeadType];
@@ -5109,7 +5110,7 @@ void CRecipeMainSrView::OnSelchangeStageProgram()
 			break;
 		}
 
-		// VŒ^d—l
+		// ï¿½Vï¿½^ï¿½dï¿½l
 		if (!bOld) {
 			for(i=0; i<sizeof(s_StagePGMTable)/sizeof(s_StagePGMTable[0]); i++) {
 				if ((s_StagePGMTable[i].nHead == nHeadType) && (s_StagePGMTable[i].nScan == nScanType)) {
@@ -5119,11 +5120,11 @@ void CRecipeMainSrView::OnSelchangeStageProgram()
 			}
 		}
 #endif
-// 2009.10.23 bagus Stress C³ --}--
+// 2009.10.23 bagus Stress ï¿½Cï¿½ï¿½ --}--
 #endif
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --}--
+// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --}--
 
-// 2009.10.28 bagus 2“_ŠÔ --{--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ --{--
 #if 0
 		///// Scan Points /////
 		if ( !RecipeFile_LoadPointList(m_ScanPoint, iNumScans, m_MainRcpInfo.MainRcpParam.hdr.szStage) ) {
@@ -5141,13 +5142,13 @@ void CRecipeMainSrView::OnSelchangeStageProgram()
 			}
 		}
 #endif
-// 2009.10.28 bagus 2“_ŠÔ --}--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ --}--
 
-		//2009.09.03 bagus se ‹@”\Šg’£ --{--
+		//2009.09.03 bagus se ï¿½@ï¿½\ï¿½gï¿½ï¿½ --{--
 		if ( !RecipeFile_LoadRecipe(&m_StageStressProg, m_MainRcpInfo.MainRcpParam.hdr.szStage, RECIPE_FILE_STAGE_PROGRAM_STRESS) ) {
 			::ZeroMemory(&m_StageStressProg, sizeof(m_StageStressProg));
 		}
-		//2009.09.03 bagus se ‹@”\Šg’£ --{--
+		//2009.09.03 bagus se ï¿½@ï¿½\ï¿½gï¿½ï¿½ --{--
 	}
 
 	UpdateData(FALSE);
@@ -5156,7 +5157,7 @@ void CRecipeMainSrView::OnSelchangeStageProgram()
 
 	Invalidate(TRUE);
 }
-//2009.09.02 bagus se ‹@”\Šg’£ --}--
+//2009.09.02 bagus se ï¿½@ï¿½\ï¿½gï¿½ï¿½ --}--
 
 //2009.12.21 bagus --{--
 void CRecipeMainSrView::OnMeasurementResultAutoSave()
@@ -5179,7 +5180,7 @@ void CRecipeMainSrView::OnMeasurementResultAutoSave()
 //Saiki 20110201 Add ----->
 // =========================================================================
 //bEnable : (Default)->FALSE
-//FALSE : ‰—Í‘ª’èˆÈŠO, TRUE : ‰—Í‘ª’è
+//FALSE : ï¿½ï¿½ï¿½Í‘ï¿½ï¿½ï¿½ÈŠO, TRUE : ï¿½ï¿½ï¿½Í‘ï¿½ï¿½ï¿½
 // =========================================================================
 void CRecipeMainSrView::InitThickOptionsForStress(BOOL bEnable)
 {
@@ -5301,14 +5302,14 @@ BOOL CRecipeMainSrView::CheckStressThicknessData(MAIN_RCP_INFO MainRcpInfo)
 		case modeDefaultSetting:
 		break;
 		default:
-		if( strlen(MainRcpInfo.MainRcpParam.hdr.szStage) == 0 ){//Stage Program –¢‘I‘ğ
+		if( strlen(MainRcpInfo.MainRcpParam.hdr.szStage) == 0 ){//Stage Program ï¿½ï¿½ï¿½Iï¿½ï¿½
 			return FALSE;
 		}
-		else{//StageProgram‘I‘ğÏ‚İ
+		else{//StageProgramï¿½Iï¿½ï¿½ï¿½Ï‚ï¿½
 			for(iCount=0; iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
 				for (jCount=0; jCount<PIN_INTERVAL; jCount++) {
 					strThick.Format("%f", m_StressParamInfo.Line[iCount].dPtThick[jCount]);
-					if (!m_StageStressProg.Line[iCount].bValidLine) {// –³ŒøLine‚Ìê‡
+					if (!m_StageStressProg.Line[iCount].bValidLine) {// ï¿½ï¿½ï¿½ï¿½Lineï¿½Ìê‡
 						if(CheckInputValueDouble(strThick, &dtmpVal)){
 							continue;
 						}
@@ -5327,7 +5328,7 @@ BOOL CRecipeMainSrView::CheckStressThicknessData(MAIN_RCP_INFO MainRcpInfo)
 						}
 					}
 					else{
-						if (CheckInputValueDouble(strThick, &dtmpVal)){// —LŒøLine‚Ìê‡
+						if (CheckInputValueDouble(strThick, &dtmpVal)){// ï¿½Lï¿½ï¿½Lineï¿½Ìê‡
 							if(dtmpVal > 0){
 								continue;
 							}

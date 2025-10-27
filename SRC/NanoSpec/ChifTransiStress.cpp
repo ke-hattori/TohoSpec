@@ -22,149 +22,149 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /*
- *	É}ÉNÉçíËã`
+ *	}N`
  */
-#define	STRS_HWS_TIME	1000	/* [ms] HWS ÉÇÅ[Éh Sleep éûä‘	*/
+#define	STRS_HWS_TIME	1000	/* [ms] HWS [h Sleep 	*/
 
 
 /*
- *	ç\ë¢ëÃíËã`
+ *	\Ãí`
  */
 
 
 /*
- *	ÉçÅ[ÉJÉãÉOÉçÅ[ÉoÉãíËã`
+ *	[JO[o`
  */
-UINT WM_CHIF_TRSTRS_SETEVENT = RegisterWindowMessage("WM_CHIF_TRSTRS_SETEVENT");	/* ÉgÉâÉìÉWÉVÉáÉìÉCÉxÉìÉgî≠çsópÉEÉBÉìÉhÉEÉÅÉbÉZÅ[ÉW	*/
-UINT WM_CHIF_TRSTRS_HEARTBEAT = RegisterWindowMessage("WM_CHIF_TRSTRS_HEARTBEAT");	/* HeartBeat ÉEÉBÉìÉhÉEÉÅÉbÉZÅ[ÉW	*/
+UINT WM_CHIF_TRSTRS_SETEVENT = RegisterWindowMessage("WM_CHIF_TRSTRS_SETEVENT");	/* gWVCxgspEBhEbZ[W	*/
+UINT WM_CHIF_TRSTRS_HEARTBEAT = RegisterWindowMessage("WM_CHIF_TRSTRS_HEARTBEAT");	/* HeartBeat EBhEbZ[W	*/
 
 
 /* ##########################################################################
- * class CChiefTransiStress : ÉXÉgÉåÉX ÉgÉâÉìÉWÉVÉáÉì
+ * class CChiefTransiStress : XgX gWV
  * ########################################################################*/
 
 /* =========================================================================//
- *	ÉgÉâÉìÉWÉVÉáÉìÉeÅ[ÉuÉã
+ *	gWVe[u
  * =========================================================================*/
 const Transition TransTable_Stress[] =
 {
 	//	OldState,				EventId,				NewState
 
-	{	ST_STRS_INIT,			EV_STRS_DO_INIT,		ST_STRS_INIT			},	/* èâä˙âªèàóùÇé¿çs(Ç∑ÇÆ EV_AAF_INIT_DONE Ç≈)			*/
-	{	ST_STRS_INIT,			EV_STRS_INIT_DONE,		ST_STRS_IDLE			},	/* èâä˙âªäÆóπÇµÇƒÉAÉCÉhÉãÇ÷								*/
+	{	ST_STRS_INIT,			EV_STRS_DO_INIT,		ST_STRS_INIT			},	/* s( EV_AAF_INIT_DONE )			*/
+	{	ST_STRS_INIT,			EV_STRS_INIT_DONE,		ST_STRS_IDLE			},	/* ƒÉACh								*/
 
-	{	ST_STRS_IDLE,			EV_STRS_START,			ST_STRS_START			},	/* ÉäÉtÉ@ÉåÉìÉX or é¿ë™íË îªíË Ç÷						*/
+	{	ST_STRS_IDLE,			EV_STRS_START,			ST_STRS_START			},	/* t@X or   						*/
 
-	{	ST_STRS_START,			EV_STRS_MODE_MEAS,		ST_STRS_SRMEAS			},	/* é¿ë™íËÉÇÅ[ÉhÇ≈ÅFSR ë™íËÉVÅ[ÉPÉìÉXäJén & äÆóπë“Çø Ç÷	*/
-	{	ST_STRS_START,			EV_STRS_MODE_REF,		ST_STRS_PRELDPOS		},	/* ÉäÉtÉ@ÉåÉìÉXÉÇÅ[ÉhÅFë™íËëO ÉçÅ[Éh Pos äÆóπë“Çø Ç÷	*/
+	{	ST_STRS_START,			EV_STRS_MODE_MEAS,		ST_STRS_SRMEAS			},	/* ËÉÇ[h≈ÅFSR V[PXJn & “Ç 	*/
+	{	ST_STRS_START,			EV_STRS_MODE_REF,		ST_STRS_PRELDPOS		},	/* t@X[hFO [h Pos “Ç 	*/
 //Saiki 20110308 Add ----->
-	{	ST_STRS_START,			EV_STRS_MODE_FIX_MEAS,	ST_STRS_PRELDPOS		},	/* é¿ë™íËÉÇÅ[Éh(å≈íËñåå˙íl)ÅFë™íËëO ÉçÅ[Éh Pos äÆóπë“Çø Ç÷	*/
+	{	ST_STRS_START,			EV_STRS_MODE_FIX_MEAS,	ST_STRS_PRELDPOS		},	/* ËÉÇ[h(≈íËñål)FO [h Pos “Ç 	*/
 //Saiki 20110308 Add <-----
-	{	ST_STRS_START,			EV_STRS_CANCEL,			ST_STRS_WAITABORT		},	/* àŸèÌÅCÉLÉÉÉìÉZÉãÇ≈ÅCAbort í‚é~ë“Çø Ç÷				*/
+	{	ST_STRS_START,			EV_STRS_CANCEL,			ST_STRS_WAITABORT		},	/* ŸèCLZ≈ÅCAbort ~“Ç 				*/
 
-	{	ST_STRS_SRMEAS,			EV_STRS_SRMEAS_DONE,	ST_STRS_SRMEAS_DONE		},	/* SR ë™íËÉVÅ[ÉPÉìÉXäÆóπèàóù Ç÷							*/
-	{	ST_STRS_SRMEAS,			EV_STRS_CANCEL,			ST_STRS_WAITABORT		},	/* àŸèÌÅCÉLÉÉÉìÉZÉãÇ≈ÅCAbort í‚é~ë“Çø Ç÷				*/
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(49) ---------- { ---------- */
-	{	ST_STRS_SRMEAS,			EV_STRS_PAUSE,			ST_STRS_PAUSE			},	/* É|Å[ÉYâèúë“Çø Ç÷									*/
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(49) ---------- } ---------- */
+	{	ST_STRS_SRMEAS,			EV_STRS_SRMEAS_DONE,	ST_STRS_SRMEAS_DONE		},	/* SR V[PX 							*/
+	{	ST_STRS_SRMEAS,			EV_STRS_CANCEL,			ST_STRS_WAITABORT		},	/* ŸèCLZ≈ÅCAbort ~“Ç 				*/
+/* added 2009.08.20 hmenjo XgX@\«â(49) ---------- { ---------- */
+	{	ST_STRS_SRMEAS,			EV_STRS_PAUSE,			ST_STRS_PAUSE			},	/* |[Y“Ç 									*/
+/* added 2009.08.20 hmenjo XgX@\«â(49) ---------- } ---------- */
 
-	{	ST_STRS_SRMEAS_DONE,	EV_STRS_MODE_MEAS,		ST_STRS_PRELDPOS		},	/* ë™íËëO ÉçÅ[Éh Pos äÆóπë“Çø Ç÷						*/
-	{	ST_STRS_SRMEAS_DONE,	EV_STRS_CANCEL,			ST_STRS_WAITABORT		},	/* àŸèÌÅCÉLÉÉÉìÉZÉãÇ≈ÅCAbort í‚é~ë“Çø Ç÷				*/
+	{	ST_STRS_SRMEAS_DONE,	EV_STRS_MODE_MEAS,		ST_STRS_PRELDPOS		},	/* O [h Pos “Ç 						*/
+	{	ST_STRS_SRMEAS_DONE,	EV_STRS_CANCEL,			ST_STRS_WAITABORT		},	/* ŸèCLZ≈ÅCAbort ~“Ç 				*/
 
-	{	ST_STRS_PRELDPOS,		EV_STRS_LDPOS_DONE,		ST_STRS_PINALIGN		},	/* ÉsÉì ÉAÉâÉCÉÅÉìÉgë“Çø Ç÷								*/
-	{	ST_STRS_PRELDPOS,		EV_STRS_CANCEL,			ST_STRS_WAITABORT		},	/* àŸèÌÅCÉLÉÉÉìÉZÉãÇ≈ÅCAbort í‚é~ë“Çø Ç÷				*/
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(49) ---------- { ---------- */
-	{	ST_STRS_PRELDPOS,		EV_STRS_PAUSE,			ST_STRS_PAUSE			},	/* É|Å[ÉYâèúë“Çø Ç÷									*/
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(49) ---------- } ---------- */
+	{	ST_STRS_PRELDPOS,		EV_STRS_LDPOS_DONE,		ST_STRS_PINALIGN		},	/* s ACg“Ç 								*/
+	{	ST_STRS_PRELDPOS,		EV_STRS_CANCEL,			ST_STRS_WAITABORT		},	/* ŸèCLZ≈ÅCAbort ~“Ç 				*/
+/* added 2009.08.20 hmenjo XgX@\«â(49) ---------- { ---------- */
+	{	ST_STRS_PRELDPOS,		EV_STRS_PAUSE,			ST_STRS_PAUSE			},	/* |[Y“Ç 									*/
+/* added 2009.08.20 hmenjo XgX@\«â(49) ---------- } ---------- */
 
-	{	ST_STRS_PINALIGN,		EV_STRS_PIN_DONE,		ST_STRS_LMVSTAPOS		},	/* ÉâÉCÉììÆçÏäJénà íu à⁄ìÆ & äÆóπë“Çø Ç÷				*/
-	{	ST_STRS_PINALIGN,		EV_STRS_CANCEL,			ST_STRS_WAITABORT		},	/* àŸèÌÅCÉLÉÉÉìÉZÉãÇ≈ÅCAbort í‚é~ë“Çø Ç÷				*/
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(49) ---------- { ---------- */
-	{	ST_STRS_PINALIGN,		EV_STRS_PAUSE,			ST_STRS_PAUSE			},	/* É|Å[ÉYâèúë“Çø Ç÷									*/
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(49) ---------- } ---------- */
+	{	ST_STRS_PINALIGN,		EV_STRS_PIN_DONE,		ST_STRS_LMVSTAPOS		},	/* CJn íu ⁄ì & “Ç 				*/
+	{	ST_STRS_PINALIGN,		EV_STRS_CANCEL,			ST_STRS_WAITABORT		},	/* ŸèCLZ≈ÅCAbort ~“Ç 				*/
+/* added 2009.08.20 hmenjo XgX@\«â(49) ---------- { ---------- */
+	{	ST_STRS_PINALIGN,		EV_STRS_PAUSE,			ST_STRS_PAUSE			},	/* |[Y“Ç 									*/
+/* added 2009.08.20 hmenjo XgX@\«â(49) ---------- } ---------- */
 
-	{	ST_STRS_LMVSTAPOS,		EV_STRS_LINEMOVE_DONE,	ST_STRS_LMVSTAPOS		},	/* èÛë‘ãLâØÇÃÇ›Ç≈ÇªÇÃÇ‹Ç‹								*/
-	{	ST_STRS_LMVSTAPOS,		EV_STRS_HEPA_STOP,		ST_STRS_LMVSTAPOS		},	/* èÛë‘ãLâØÇÃÇ›Ç≈ÇªÇÃÇ‹Ç‹								*/
-	{	ST_STRS_LMVSTAPOS,		EV_STRS_TO_LMENDPOS,	ST_STRS_LMVENDPOS		},	/* ÉâÉCÉììÆçÏèIóπà íu à⁄ìÆ & äÆóπë“Çø Ç÷				*/
-	{	ST_STRS_LMVSTAPOS,		EV_STRS_CANCEL,			ST_STRS_WAITABORT		},	/* àŸèÌÅCÉLÉÉÉìÉZÉãÇ≈ÅCAbort í‚é~ë“Çø Ç÷				*/
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(49) ---------- { ---------- */
-	{	ST_STRS_LMVSTAPOS,		EV_STRS_PAUSE,			ST_STRS_PAUSE			},	/* É|Å[ÉYâèúë“Çø Ç÷									*/
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(49) ---------- } ---------- */
+	{	ST_STRS_LMVSTAPOS,		EV_STRS_LINEMOVE_DONE,	ST_STRS_LMVSTAPOS		},	/* ‘ãLÃÇ›Ç≈ÇÃÇ‹Ç								*/
+	{	ST_STRS_LMVSTAPOS,		EV_STRS_HEPA_STOP,		ST_STRS_LMVSTAPOS		},	/* ‘ãLÃÇ›Ç≈ÇÃÇ‹Ç								*/
+	{	ST_STRS_LMVSTAPOS,		EV_STRS_TO_LMENDPOS,	ST_STRS_LMVENDPOS		},	/* CI íu ⁄ì & “Ç 				*/
+	{	ST_STRS_LMVSTAPOS,		EV_STRS_CANCEL,			ST_STRS_WAITABORT		},	/* ŸèCLZ≈ÅCAbort ~“Ç 				*/
+/* added 2009.08.20 hmenjo XgX@\«â(49) ---------- { ---------- */
+	{	ST_STRS_LMVSTAPOS,		EV_STRS_PAUSE,			ST_STRS_PAUSE			},	/* |[Y“Ç 									*/
+/* added 2009.08.20 hmenjo XgX@\«â(49) ---------- } ---------- */
 
-	{	ST_STRS_LMVENDPOS,		EV_STRS_LINEMOVE_DONE,	ST_STRS_LMVENDPOS		},	/* èÛë‘ãLâØÇÃÇ›Ç≈ÇªÇÃÇ‹Ç‹								*/
-	{	ST_STRS_LMVENDPOS,		EV_STRS_LINEMEAS_DONE,	ST_STRS_LMVENDPOS		},	/* èÛë‘ãLâØÇÃÇ›Ç≈ÇªÇÃÇ‹Ç‹								*/
-	{	ST_STRS_LMVENDPOS,		EV_STRS_LINEDATA_DONE,	ST_STRS_LMVENDPOS		},	/* èÛë‘ãLâØÇÃÇ›Ç≈ÇªÇÃÇ‹Ç‹								*/
-	{	ST_STRS_LMVENDPOS,		EV_STRS_LINE_NEXT,		ST_STRS_LMVSTAPOS		},	/* éüÇÃ ÉâÉCÉììÆçÏäJénà íu à⁄ìÆ & äÆóπë“Çø Ç÷			*/
-	{	ST_STRS_LMVENDPOS,		EV_STRS_LINE_ALLDONE,	ST_STRS_COMPLDPOS		},	/* äÆóπå„ ÉçÅ[Éh Pos äÆóπë“Çø Ç÷						*/
-	{	ST_STRS_LMVENDPOS,		EV_STRS_CANCEL,			ST_STRS_WAITABORT		},	/* àŸèÌÅCÉLÉÉÉìÉZÉãÇ≈ÅCAbort í‚é~ë“Çø Ç÷				*/
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(49) ---------- { ---------- */
-	{	ST_STRS_LMVENDPOS,		EV_STRS_PAUSE,			ST_STRS_PAUSE			},	/* É|Å[ÉYâèúë“Çø Ç÷									*/
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(49) ---------- } ---------- */
+	{	ST_STRS_LMVENDPOS,		EV_STRS_LINEMOVE_DONE,	ST_STRS_LMVENDPOS		},	/* ‘ãLÃÇ›Ç≈ÇÃÇ‹Ç								*/
+	{	ST_STRS_LMVENDPOS,		EV_STRS_LINEMEAS_DONE,	ST_STRS_LMVENDPOS		},	/* ‘ãLÃÇ›Ç≈ÇÃÇ‹Ç								*/
+	{	ST_STRS_LMVENDPOS,		EV_STRS_LINEDATA_DONE,	ST_STRS_LMVENDPOS		},	/* ‘ãLÃÇ›Ç≈ÇÃÇ‹Ç								*/
+	{	ST_STRS_LMVENDPOS,		EV_STRS_LINE_NEXT,		ST_STRS_LMVSTAPOS		},	/*  CJn íu ⁄ì & “Ç 			*/
+	{	ST_STRS_LMVENDPOS,		EV_STRS_LINE_ALLDONE,	ST_STRS_COMPLDPOS		},	/*  [h Pos “Ç 						*/
+	{	ST_STRS_LMVENDPOS,		EV_STRS_CANCEL,			ST_STRS_WAITABORT		},	/* ŸèCLZ≈ÅCAbort ~“Ç 				*/
+/* added 2009.08.20 hmenjo XgX@\«â(49) ---------- { ---------- */
+	{	ST_STRS_LMVENDPOS,		EV_STRS_PAUSE,			ST_STRS_PAUSE			},	/* |[Y“Ç 									*/
+/* added 2009.08.20 hmenjo XgX@\«â(49) ---------- } ---------- */
 
-	{	ST_STRS_COMPLDPOS,		EV_STRS_LDPOS_DONE,		ST_STRS_PINDOWNCOMP		},	/* äÆóπå„ ÉsÉì É_ÉEÉì & Complete ë“Çø Ç÷				*/
+	{	ST_STRS_COMPLDPOS,		EV_STRS_LDPOS_DONE,		ST_STRS_PINDOWNCOMP		},	/*  s _E & Complete “Ç 				*/
 // 2009.08.22 K.Matsuo -->
-	{	ST_STRS_COMPLDPOS,		EV_STRS_COMPLETE,		ST_STRS_COMPLDPOS		},	/* èÛë‘ãLâØÇÃÇ›Ç≈ÇªÇÃÇ‹Ç‹								*/
+	{	ST_STRS_COMPLDPOS,		EV_STRS_COMPLETE,		ST_STRS_COMPLDPOS		},	/* ‘ãLÃÇ›Ç≈ÇÃÇ‹Ç								*/
 // 2009.08.22 K.Matsuo -->
 
-	{	ST_STRS_PINDOWNCOMP,	EV_STRS_PIN_DONE,		ST_STRS_PINDOWNCOMP		},	/* èÛë‘ãLâØÇÃÇ›Ç≈ÇªÇÃÇ‹Ç‹								*/
-	{	ST_STRS_PINDOWNCOMP,	EV_STRS_COMPLETE,		ST_STRS_PINDOWNCOMP		},	/* èÛë‘ãLâØÇÃÇ›Ç≈ÇªÇÃÇ‹Ç‹								*/
-	{	ST_STRS_PINDOWNCOMP,	EV_STRS_PINCMP_DONE,	ST_STRS_COMPLETEDELAY	},	/* Complete éûä‘ë“Çø Ç÷									*/
-/* added 2009.10.19 hmenjo Stress ÉgÉâÉìÉWÉVÉáÉìÉeÅ[ÉuÉãí«â¡ ---------- { ---------- */
-	{	ST_STRS_PINDOWNCOMP,	EV_STRS_CANCEL,			ST_STRS_PINDOWNCOMP		},	/* (ÉsÉìé∏îsÇæÇØÇ«)èÛë‘ãLâØÇÃÇ›Ç≈ÇªÇÃÇ‹Ç‹				*/
-/* added 2009.10.19 hmenjo Stress ÉgÉâÉìÉWÉVÉáÉìÉeÅ[ÉuÉãí«â¡ ---------- } ---------- */
+	{	ST_STRS_PINDOWNCOMP,	EV_STRS_PIN_DONE,		ST_STRS_PINDOWNCOMP		},	/* ‘ãLÃÇ›Ç≈ÇÃÇ‹Ç								*/
+	{	ST_STRS_PINDOWNCOMP,	EV_STRS_COMPLETE,		ST_STRS_PINDOWNCOMP		},	/* ‘ãLÃÇ›Ç≈ÇÃÇ‹Ç								*/
+	{	ST_STRS_PINDOWNCOMP,	EV_STRS_PINCMP_DONE,	ST_STRS_COMPLETEDELAY	},	/* Complete ‘ë“Ç 									*/
+/* added 2009.10.19 hmenjo Stress gWVe[u«â ---------- { ---------- */
+	{	ST_STRS_PINDOWNCOMP,	EV_STRS_CANCEL,			ST_STRS_PINDOWNCOMP		},	/* (ss)‘ãLÃÇ›Ç≈ÇÃÇ‹Ç				*/
+/* added 2009.10.19 hmenjo Stress gWVe[u«â ---------- } ---------- */
 
-	{	ST_STRS_COMPLETEDELAY,	EV_STRS_COMPLETE_DONE,	ST_STRS_IDLE			},	/* ÉAÉCÉhÉã Ç÷											*/
+	{	ST_STRS_COMPLETEDELAY,	EV_STRS_COMPLETE_DONE,	ST_STRS_IDLE			},	/* ACh 											*/
 
-	{	ST_STRS_WAITABORT,		EV_STRS_CANCEL_DONE,	ST_STRS_ABORTLDPOS		},	/* Abort å„ ÉçÅ[Éh Pos äÆóπë“Çø Ç÷						*/
+	{	ST_STRS_WAITABORT,		EV_STRS_CANCEL_DONE,	ST_STRS_ABORTLDPOS		},	/* Abort  [h Pos “Ç 						*/
 
-	{	ST_STRS_ABORTLDPOS,		EV_STRS_LDPOS_DONE,		ST_STRS_ABORTPINDOWN	},	/* Abort å„ ÉsÉì É_ÉEÉìë“Çø Ç÷							*/
+	{	ST_STRS_ABORTLDPOS,		EV_STRS_LDPOS_DONE,		ST_STRS_ABORTPINDOWN	},	/* Abort  s _E“Ç 							*/
 
-	{	ST_STRS_ABORTPINDOWN,	EV_STRS_PIN_DONE,		ST_STRS_ABORTDELAY		},	/* Abort éûä‘ë“Çø Ç÷									*/
-/* added 2009.10.19 hmenjo Stress ÉgÉâÉìÉWÉVÉáÉìÉeÅ[ÉuÉãí«â¡ ---------- { ---------- */
-	{	ST_STRS_ABORTPINDOWN,	EV_STRS_CANCEL,			ST_STRS_ABORTDELAY		},	/* (ÉsÉìé∏îsÇæÇØÇ«)Abort éûä‘ë“Çø Ç÷					*/
-/* added 2009.10.19 hmenjo Stress ÉgÉâÉìÉWÉVÉáÉìÉeÅ[ÉuÉãí«â¡ ---------- } ---------- */
+	{	ST_STRS_ABORTPINDOWN,	EV_STRS_PIN_DONE,		ST_STRS_ABORTDELAY		},	/* Abort ‘ë“Ç 									*/
+/* added 2009.10.19 hmenjo Stress gWVe[u«â ---------- { ---------- */
+	{	ST_STRS_ABORTPINDOWN,	EV_STRS_CANCEL,			ST_STRS_ABORTDELAY		},	/* (ss)Abort ‘ë“Ç 					*/
+/* added 2009.10.19 hmenjo Stress gWVe[u«â ---------- } ---------- */
 
-	{	ST_STRS_ABORTDELAY,		EV_STRS_ABORT_DONE,		ST_STRS_IDLE			},	/* ÉAÉCÉhÉã Ç÷											*/
+	{	ST_STRS_ABORTDELAY,		EV_STRS_ABORT_DONE,		ST_STRS_IDLE			},	/* ACh 											*/
 
-	{	ST_STRS_PAUSE,			EV_STRS_RESUME,			ST_STRS_PRE_RESUME		},	/* ÉåÉWÉÖÅ[ÉÄëOèàóù Ç÷									*/
-	{	ST_STRS_PAUSE,			EV_STRS_SRMEAS_DONE,	ST_STRS_PAUSE			},	/* èÛë‘ãLâØÇÃÇ›Ç≈ÇªÇÃÇ‹Ç‹								*/
-	{	ST_STRS_PAUSE,			EV_STRS_LDPOS_DONE,		ST_STRS_PAUSE			},	/* èÛë‘ãLâØÇÃÇ›Ç≈ÇªÇÃÇ‹Ç‹								*/
-	{	ST_STRS_PAUSE,			EV_STRS_PIN_DONE,		ST_STRS_PAUSE			},	/* èÛë‘ãLâØÇÃÇ›Ç≈ÇªÇÃÇ‹Ç‹								*/
-	{	ST_STRS_PAUSE,			EV_STRS_CANCEL,			ST_STRS_WAITABORT		},	/* àŸèÌÅCÉLÉÉÉìÉZÉãÇ≈ÅCAbort í‚é~ë“Çø Ç÷				*/
+	{	ST_STRS_PAUSE,			EV_STRS_RESUME,			ST_STRS_PRE_RESUME		},	/* W[O 									*/
+	{	ST_STRS_PAUSE,			EV_STRS_SRMEAS_DONE,	ST_STRS_PAUSE			},	/* ‘ãLÃÇ›Ç≈ÇÃÇ‹Ç								*/
+	{	ST_STRS_PAUSE,			EV_STRS_LDPOS_DONE,		ST_STRS_PAUSE			},	/* ‘ãLÃÇ›Ç≈ÇÃÇ‹Ç								*/
+	{	ST_STRS_PAUSE,			EV_STRS_PIN_DONE,		ST_STRS_PAUSE			},	/* ‘ãLÃÇ›Ç≈ÇÃÇ‹Ç								*/
+	{	ST_STRS_PAUSE,			EV_STRS_CANCEL,			ST_STRS_WAITABORT		},	/* ŸèCLZ≈ÅCAbort ~“Ç 				*/
 
-	{	ST_STRS_PRE_RESUME,		EV_STRS_RSM_SRMEAS,		ST_STRS_SRMEAS			},	/* SR ë™íËÉVÅ[ÉPÉìÉXäJén & äÆóπë“Çø Ç÷					*/
-	{	ST_STRS_PRE_RESUME,		EV_STRS_RSM_SRMEASED,	ST_STRS_SRMEAS_DONE		},	/* SR ë™íËÉVÅ[ÉPÉìÉXäÆóπèàóù Ç÷							*/
-	{	ST_STRS_PRE_RESUME,		EV_STRS_RSM_PRELDPOS,	ST_STRS_PRELDPOS		},	/* ë™íËëO ÉçÅ[Éh Pos äÆóπë“Çø Ç÷						*/
-	{	ST_STRS_PRE_RESUME,		EV_STRS_RSM_PINALIGN,	ST_STRS_PINALIGN		},	/* ÉsÉì ÉAÉâÉCÉÅÉìÉgë“Çø Ç÷								*/
-	{	ST_STRS_PRE_RESUME,		EV_STRS_RSM_LMVSTAPOS,	ST_STRS_LMVSTAPOS		},	/* ÉâÉCÉììÆçÏäJénà íu à⁄ìÆ & äÆóπë“Çø Ç÷				*/
-	{	ST_STRS_PRE_RESUME,		EV_STRS_RSM_LMVENDPOS,	ST_STRS_LMVENDPOS		},	/* ÉâÉCÉììÆçÏèIóπà íu à⁄ìÆ & äÆóπë“Çø Ç÷				*/
+	{	ST_STRS_PRE_RESUME,		EV_STRS_RSM_SRMEAS,		ST_STRS_SRMEAS			},	/* SR V[PXJn & “Ç 					*/
+	{	ST_STRS_PRE_RESUME,		EV_STRS_RSM_SRMEASED,	ST_STRS_SRMEAS_DONE		},	/* SR V[PX 							*/
+	{	ST_STRS_PRE_RESUME,		EV_STRS_RSM_PRELDPOS,	ST_STRS_PRELDPOS		},	/* O [h Pos “Ç 						*/
+	{	ST_STRS_PRE_RESUME,		EV_STRS_RSM_PINALIGN,	ST_STRS_PINALIGN		},	/* s ACg“Ç 								*/
+	{	ST_STRS_PRE_RESUME,		EV_STRS_RSM_LMVSTAPOS,	ST_STRS_LMVSTAPOS		},	/* CJn íu ⁄ì & “Ç 				*/
+	{	ST_STRS_PRE_RESUME,		EV_STRS_RSM_LMVENDPOS,	ST_STRS_LMVENDPOS		},	/* CI íu ⁄ì & “Ç 				*/
 
 	// terminate the transition table
 	END_OF_TRANSITION_TABLE
 };
 
 /* =========================================================================//
- *	èÛë‘ï èàóùä÷êîÉeÅ[ÉuÉã
+ *	‘ï è÷êe[u
  * =========================================================================*/
 BEGIN_STATEPROC_MAP(CChiefTransiStress)
 	/*	0 */	ENTER_STATE(ST_STRS_INIT,			enter_ST_STRS_INIT),
 	/*	1 */	ENTER_STATE(ST_STRS_IDLE,			enter_ST_STRS_IDLE),
-	/*	2 */	ENTER_STATE(ST_STRS_START,			enter_ST_STRS_START),				/* (WAIT èÛë‘ñ≥Çµ)			*/
-	/*	3 */	ENTER_STATE(ST_STRS_SRMEAS,			enter_ST_STRS_SRMEAS),				/* (WAIT èÛë‘ñ≥ÇµÇÃèÍçáóLÇË)*/
-	/*	4 */	ENTER_STATE(ST_STRS_SRMEAS_DONE,	enter_ST_STRS_SRMEAS_DONE),			/* (WAIT èÛë‘ñ≥Çµ)			*/
-	/*	5 */	ENTER_STATE(ST_STRS_PRELDPOS,		enter_ST_STRS_PRELDPOS),			/* (WAIT èÛë‘ñ≥ÇµÇÃèÍçáóLÇË)*/
-	/*	6 */	ENTER_STATE(ST_STRS_PINALIGN,		enter_ST_STRS_PINALIGN),			/* (WAIT èÛë‘ñ≥ÇµÇÃèÍçáóLÇË)*/
-	/*	7 */	ENTER_STATE(ST_STRS_LMVSTAPOS,		enter_ST_STRS_LMVSTAPOS),			/* (WAIT èÛë‘ñ≥ÇµÇÃèÍçáóLÇË)*/
-	/*	8 */	ENTER_STATE(ST_STRS_LMVENDPOS,		enter_ST_STRS_LMVENDPOS),			/* (WAIT èÛë‘ñ≥ÇµÇÃèÍçáóLÇË)*/
-	/*	9 */	ENTER_STATE(ST_STRS_COMPLDPOS,		enter_ST_STRS_COMPLDPOS),			/* (WAIT èÛë‘ñ≥ÇµÇÃèÍçáóLÇË)*/
-	/*	10 */	ENTER_STATE(ST_STRS_PINDOWNCOMP,	enter_ST_STRS_PINDOWNCOMP),			/* (WAIT èÛë‘ñ≥ÇµÇÃèÍçáóLÇË)*/
-	/*	11 */	ENTER_STATE(ST_STRS_COMPLETEDELAY,	enter_ST_STRS_COMPLETEDELAY),		/* (WAIT èÛë‘ñ≥Çµ)			*/
-	/*	12 */	ENTER_STATE(ST_STRS_WAITABORT,		enter_ST_STRS_WAITABORT),			/* (WAIT èÛë‘ñ≥Çµ)			*/
-	/*	13 */	ENTER_STATE(ST_STRS_ABORTLDPOS,		enter_ST_STRS_ABORTLDPOS),			/* (WAIT èÛë‘ñ≥ÇµÇÃèÍçáóLÇË)*/
-	/*	14 */	ENTER_STATE(ST_STRS_ABORTPINDOWN,	enter_ST_STRS_ABORTPINDOWN),		/* (WAIT èÛë‘ñ≥ÇµÇÃèÍçáóLÇË)*/
-	/*	15 */	ENTER_STATE(ST_STRS_ABORTDELAY,		enter_ST_STRS_ABORTDELAY),			/* (WAIT èÛë‘ñ≥Çµ)			*/
-	/*	16 */	ENTER_STATE(ST_STRS_PAUSE,			enter_ST_STRS_PAUSE),				/* (WAIT èÛë‘ñ≥ÇµÇÃèÍçáóLÇË)*/
-	/*	17 */	ENTER_STATE(ST_STRS_PRE_RESUME,		enter_ST_STRS_PRE_RESUME),			/* (WAIT èÛë‘ñ≥Çµ)			*/
+	/*	2 */	ENTER_STATE(ST_STRS_START,			enter_ST_STRS_START),				/* (WAIT ‘ñ)			*/
+	/*	3 */	ENTER_STATE(ST_STRS_SRMEAS,			enter_ST_STRS_SRMEAS),				/* (WAIT ‘ñÃèÍçáL)*/
+	/*	4 */	ENTER_STATE(ST_STRS_SRMEAS_DONE,	enter_ST_STRS_SRMEAS_DONE),			/* (WAIT ‘ñ)			*/
+	/*	5 */	ENTER_STATE(ST_STRS_PRELDPOS,		enter_ST_STRS_PRELDPOS),			/* (WAIT ‘ñÃèÍçáL)*/
+	/*	6 */	ENTER_STATE(ST_STRS_PINALIGN,		enter_ST_STRS_PINALIGN),			/* (WAIT ‘ñÃèÍçáL)*/
+	/*	7 */	ENTER_STATE(ST_STRS_LMVSTAPOS,		enter_ST_STRS_LMVSTAPOS),			/* (WAIT ‘ñÃèÍçáL)*/
+	/*	8 */	ENTER_STATE(ST_STRS_LMVENDPOS,		enter_ST_STRS_LMVENDPOS),			/* (WAIT ‘ñÃèÍçáL)*/
+	/*	9 */	ENTER_STATE(ST_STRS_COMPLDPOS,		enter_ST_STRS_COMPLDPOS),			/* (WAIT ‘ñÃèÍçáL)*/
+	/*	10 */	ENTER_STATE(ST_STRS_PINDOWNCOMP,	enter_ST_STRS_PINDOWNCOMP),			/* (WAIT ‘ñÃèÍçáL)*/
+	/*	11 */	ENTER_STATE(ST_STRS_COMPLETEDELAY,	enter_ST_STRS_COMPLETEDELAY),		/* (WAIT ‘ñ)			*/
+	/*	12 */	ENTER_STATE(ST_STRS_WAITABORT,		enter_ST_STRS_WAITABORT),			/* (WAIT ‘ñ)			*/
+	/*	13 */	ENTER_STATE(ST_STRS_ABORTLDPOS,		enter_ST_STRS_ABORTLDPOS),			/* (WAIT ‘ñÃèÍçáL)*/
+	/*	14 */	ENTER_STATE(ST_STRS_ABORTPINDOWN,	enter_ST_STRS_ABORTPINDOWN),		/* (WAIT ‘ñÃèÍçáL)*/
+	/*	15 */	ENTER_STATE(ST_STRS_ABORTDELAY,		enter_ST_STRS_ABORTDELAY),			/* (WAIT ‘ñ)			*/
+	/*	16 */	ENTER_STATE(ST_STRS_PAUSE,			enter_ST_STRS_PAUSE),				/* (WAIT ‘ñÃèÍçáL)*/
+	/*	17 */	ENTER_STATE(ST_STRS_PRE_RESUME,		enter_ST_STRS_PRE_RESUME),			/* (WAIT ‘ñ)			*/
 
 END_STATEPROC_MAP(CChiefTransiStress)
 
@@ -179,14 +179,14 @@ CChiefTransiStress::CChiefTransiStress(CWnd* pParent /*=NULL*/) : cActive(TransT
 
 	m_pcChiefView = (CView*) pParent;
 
-	/*	ÉXÉåÉbÉhÇÃãNìÆë“Çø	*/
+	/*	XbhÃãN“Ç	*/
 	BOOL l_bThreadOK = CreateThread();
 	if (0 != this->m_hThread) {
 		CSingleLock	l_SingleLock(&m_cSyncEvent,TRUE);
 	}
 	((CChiefView*) m_pcChiefView)->LogChief(_T("Started  CChiefTransiStress."));
 
-	/*	ÉIÉuÉWÉFÉNÉgÇÃé©ìÆîjä¸Çã÷é~	*/
+	/*	IuWFNgÃéj÷é~	*/
 	m_bAutoDelete = FALSE;
 
 }
@@ -195,7 +195,7 @@ CChiefTransiStress::~CChiefTransiStress()
 {
 	TRACE(_T("CChiefTransiStress::~CChiefTransiStress() \n"));
 
-	/*	ÉXÉåÉbÉhÇÃè¡ñ≈ë“Çø	*/
+	/*	XbhÃè≈ë“Ç	*/
 	if (0 != this->m_hThread) {
 		if (0 == m_bAutoDelete) {
 			PostThreadMessage(WM_QUIT, 0, 0);
@@ -211,14 +211,14 @@ BOOL CChiefTransiStress::InitInstance()
 
 	TRACE(_T("CChiefTransiStress::InitInstance() \n"));
 
-	/* ÉRÉìÉXÉgÉâÉNÉ^ÇÃë“ÇøÇâèúÇµÇ‹Ç∑
-	 *		Ç¬Ç‹ÇËÅCÉXÉåÉbÉhÇÃê∂ê¨Ç∆ÉXÉåÉbÉhÉNÉâÉXÇÃç\ízÇÃìØä˙ÇéÊÇ¡ÇƒÇ¢Ç‹Ç∑ÅD	*/
+	/* RXgN^Ãë“Ç‹Ç
+	 *		¬Ç‹ÇCXbhÃê∆ÉXbhNXÃç\zÃìƒÇ‹ÇD	*/
 	m_cSyncEvent.SetEvent();
 
-	/* èâä˙èÛë‘èàóùópÉCÉxÉìÉgî≠çs	*/
+	/* ‘èpCxgs	*/
 	TransiEvent(0, 0);
 
-	/* ïœêîèâä˙âª	*/
+	/* œê	*/
 	m_dwHeartBeat = 0;
 
 	return TRUE;
@@ -245,18 +245,18 @@ END_MESSAGE_MAP()
 // CChiefTransiStress message handlers
 
 /*
- *	ÉgÉâÉìÉWÉVÉáÉìÉCÉxÉìÉgî≠çs ÉÅÉbÉZÅ[ÉWÉnÉìÉhÉâ
+ *	gWVCxgs bZ[Wnh
  */
 void CChiefTransiStress::OnTransiEvent(WPARAM wparam, LPARAM lparam)
 {
-	::Sleep(TRANSI_TIME);	/* ÉgÉâÉìÉWÉVÉáÉìä‘É^ÉCÉ~ÉìÉOí≤êÆ(Ç∆ÇËÇ†Ç¶Ç∏ÇæÇØÇ«çPãvÇ©Ç‡ÅEÅE)	*/
+	::Sleep(TRANSI_TIME);	/* gWV‘É^C~O(∆ÇËÇ†«çPvEE)	*/
 
 	Event((int) wparam, (cEventParams*) lparam);
 
 }
 
 /*
- *	HeartBeat ÉÅÉbÉZÅ[ÉWÉnÉìÉhÉâ
+ *	HeartBeat bZ[Wnh
  */
 void CChiefTransiStress::OnHeartBeat(WPARAM wparam, LPARAM lparam)
 {
@@ -265,25 +265,25 @@ void CChiefTransiStress::OnHeartBeat(WPARAM wparam, LPARAM lparam)
 
 
 /****************************************************************************
-	ÇªÇÃëºä÷êî
+	Ãë÷ê
 ****************************************************************************/
 
 /*
- *	ÉgÉâÉìÉWÉVÉáÉìÉCÉxÉìÉgî≠çsópä÷êî
+ *	gWVCxgsp÷ê
  */
 void CChiefTransiStress::TransiEvent(const int iEventNo, const cEventParams *const pEvParams)
 {
 	switch (iEventNo) {
 	case EV_STRS_CANCEL:
 		m_bCancel = TRUE;
-		/* Ç±Ç±Ç≈Ç‡Ç†ÇÁÇ©Ç∂Çﬂ ABORT Ç…ÇµÇƒÇ®Ç´Ç‹Ç∑	*/
+		/* ≈ÇÁÇ© ABORT …ÇƒÇ‹Ç	*/
 		if (TRANSI_MASTER == m_dwParentTransi) {((CChiefView*) m_pcChiefView)->ProcStatusSet(PROCESS_ABRT);}
 		break;
 	case EV_STRS_HEPA_STOP:
 		m_bHepaStopped = TRUE;
 		break;
 	case EV_STRS_PAUSE:
-/* modified 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(49) ---------- { ---------- */
+/* modified 2009.08.20 hmenjo XgX@\«â(49) ---------- { ---------- */
 //		{
 //			int l_iCurrentState = this->GetCurrentState();
 //			if (
@@ -299,10 +299,10 @@ void CChiefTransiStress::TransiEvent(const int iEventNo, const cEventParams *con
 //		}
 //		m_bPause = TRUE;
 //		if (false == ((CChiefTransiSeq*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq)->IsIdle()) {
-//			/* ÉVÅ[ÉPÉìÉXë™íË ÉgÉâÉìÉWÉVÉáÉìÇ÷É|Å[ÉYéwóﬂ	*/
+//			/* V[PX gWV÷É|[Yw	*/
 //			((CChiefTransiSeq*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq)->TransiEvent(EV_SEQ_PAUSE);
 //		}
-/* modified 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(49) ----------			   */
+/* modified 2009.08.20 hmenjo XgX@\«â(49) ----------			   */
 		{
 			int l_iCurrentState = this->GetCurrentState();
 			switch (l_iCurrentState) {
@@ -319,31 +319,31 @@ void CChiefTransiStress::TransiEvent(const int iEventNo, const cEventParams *con
 			m_iPausePreState = l_iCurrentState;
 			m_bPause = TRUE;
 			if (false == ((CChiefTransiSeq*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq)->IsIdle()) {
-				/* ÉVÅ[ÉPÉìÉXë™íË ÉgÉâÉìÉWÉVÉáÉìÇ÷É|Å[ÉYéwóﬂ	*/
+				/* V[PX gWV÷É|[Yw	*/
 				((CChiefTransiSeq*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq)->TransiEvent(EV_SEQ_PAUSE);
 			}
 			if (
 				(ST_STRS_LMVSTAPOS == l_iCurrentState)
 			 || (ST_STRS_LMVENDPOS == l_iCurrentState)
 				) {
-				/*	enter_ST_STRS_LMVSTAPOS()ÅCenter_ST_STRS_LMVENDPOS() ì‡Ç≈ÅC
-				 *	íºê⁄ÅCEvent() ÇégÇ¢Ç‹Ç∑ÇÃÇ≈ÅCWM_CHIF_TRSTRS_SETEVENT ÇÕî≠çsÇµÇ‹ÇπÇÒÅD	*/
+				/*	enter_ST_STRS_LMVSTAPOS()Center_ST_STRS_LMVENDPOS() ≈ÅC
+				 *	⁄ÅCEvent() g‹ÇÃÇ≈ÅCWM_CHIF_TRSTRS_SETEVENT Õîs‹ÇD	*/
 				return;
 			}
 		}
-/* modified 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(49) ---------- } ---------- */
+/* modified 2009.08.20 hmenjo XgX@\«â(49) ---------- } ---------- */
 		break;
 	}
 
-/* modified 2012.01.23 hmenjo [ÇV]èüéËÉAÉ{Å[ÉgëŒçÙ ---------- { ---------- */
+/* modified 2012.01.23 hmenjo [V]A{[gŒç ---------- { ---------- */
 //	PostThreadMessage(WM_CHIF_TRSTRS_SETEVENT, (WPARAM) iEventNo, (LPARAM) pEvParams);
-/* modified 2012.01.23 hmenjo [ÇV]èüéËÉAÉ{Å[ÉgëŒçÙ ----------              */
+/* modified 2012.01.23 hmenjo [V]A{[gŒç ----------              */
 	((CChiefView*) m_pcChiefView)->PostTransiEvent(this, WM_CHIF_TRSTRS_SETEVENT, _T("WM_CHIF_TRSTRS_SETEVENT"), 9, (WPARAM) iEventNo, (LPARAM) pEvParams);
-/* modified 2012.01.23 hmenjo [ÇV]èüéËÉAÉ{Å[ÉgëŒçÙ ---------- } ---------- */
+/* modified 2012.01.23 hmenjo [V]A{[gŒç ---------- } ---------- */
 }
 
 /*
- *	HeartBeat î≠çsópä÷êî
+ *	HeartBeat sp÷ê
  */
 void CChiefTransiStress::HeartBeatPulse(void)
 {
@@ -351,9 +351,9 @@ void CChiefTransiStress::HeartBeatPulse(void)
 }
 
 /*
- *	åªç›ÇÃèÛë‘Ç™ÅuÉAÉCÉhÉãÅvÇ©Ç«Ç§Ç©ÇÉ`ÉFÉbÉN
- *		ñﬂÇËílÅF	true	ÉAÉCÉhÉãÇ≈Ç†ÇÈ
- *					false	ÉAÉCÉhÉãÇ≈Ç»Ç¢
+ *	›ÇÃè‘ÇuAChv«Ç`FbN
+ *		ﬂÇlF	true	ACh≈Ç
+ *					false	ACh≈Ç»Ç
  */
 bool CChiefTransiStress::IsIdle()
 {
@@ -369,8 +369,8 @@ bool CChiefTransiStress::IsIdle()
 }
 
 /*
- *	åªç›ÇÃèÛë‘ÇéÊìæ
- *		ñﬂÇËílÅF	åªç›ÇÃèÛë‘
+ *	›ÇÃè‘ÇÊìæ
+ *		ﬂÇlF	›ÇÃè
  */
 int CChiefTransiStress::GetCurrentState()
 {
@@ -378,8 +378,8 @@ int CChiefTransiStress::GetCurrentState()
 }
 
 /*
- *	åªç›ÇÃë™íËÉ|ÉCÉìÉgî‘çÜÇéÊìæ
- *		ñﬂÇËílÅF	ë™íËÉ|ÉCÉìÉgî‘çÜ
+ *	›ÇÃë|Cg‘çÊìæ
+ *		ﬂÇlF	|Cg‘ç
  */
 DWORD CChiefTransiStress::GetCurrentLineNo()
 {
@@ -387,8 +387,8 @@ DWORD CChiefTransiStress::GetCurrentLineNo()
 }
 
 /*
- *	åªç›ÇÃÉ|Å[ÉYèÛë‘ÇéÊìæ
- *		ñﬂÇËílÅF	É|Å[ÉYèÛë‘
+ *	›ÇÃÉ|[Y‘ÇÊìæ
+ *		ﬂÇlF	|[Y
  */
 bool CChiefTransiStress::IsPauseSeq()
 {
@@ -396,80 +396,81 @@ bool CChiefTransiStress::IsPauseSeq()
 }
 
 /*
- *	åªç›ÅCë™íËíÜÇ©Ç«Ç§Ç©ÇéÊìæ
- *		ñﬂÇËílÅF	ë™íËèÛë‘
+ *	›ÅCËíÜ«ÇÊìæ
+ *		ﬂÇlF	
  */
 bool CChiefTransiStress::IsMeasuring()
 {
 	return (0 == m_bMeasStress)? false : true;
 }
 
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- { ---------- */
+/* added 2009.08.20 hmenjo XgX@\«â(46) ---------- { ---------- */
 bool CChiefTransiStress::IsPinAligningHWS()
 {
 	return (0 == m_bPinAligning)? false : true;
 }
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- } ---------- */
+/* added 2009.08.20 hmenjo XgX@\«â(46) ---------- } ---------- */
 
 /*
- *	ÉnÉìÉhÉâ ÉçÅ[ÉhÉ|ÉWÉVÉáÉìÇ÷à⁄ìÆ
+ *	nh [h|WV÷à⁄ì
  */
 BOOL CChiefTransiStress::MoveToLdPos()
 {
-	/* ç¿ïWÇéÊìæÇµÇ‹Ç∑ÅD	*/
+	int i;
+	/* WÊìæ‹ÇD	*/
 	STAGE_COORD l_SetPosition;
 	ConfigFile_GetNanoSpecIni(&l_SetPosition, CONFIG_FILE_HANDLER_LOAD_POSITION);
 
-/* added 2009.11.26 hmenjo ë™íË Seq ÇÕéwíËÉwÉbÉhÇ≈ìÆçÏ ---------- { ---------- */
-	/* SR ÉwÉbÉhÇ…ÇµÇ‹Ç∑ÅD	*/
+/* added 2009.11.26 hmenjo  Seq Õéwwbh≈ì ---------- { ---------- */
+	/* SR wbh…Ç‹ÇD	*/
 	((CChiefView*) m_pcChiefView)->SelectHead(HEAD_TYPE_SR, FALSE);
-/* added 2009.11.26 hmenjo ë™íË Seq ÇÕéwíËÉwÉbÉhÇ≈ìÆçÏ ---------- } ---------- */
+/* added 2009.11.26 hmenjo  Seq Õéwwbh≈ì ---------- } ---------- */
 
 	return NS_StageMoveAbsoluteEx(&l_SetPosition);
 }
 
 /*
- *	ë™íËÉ|ÉCÉìÉgêÊçsà⁄ìÆ
+ *	|Cgs⁄ì
  */
 void CChiefTransiStress::PreMove()
 {
 	if (0 != m_bPause) {
-		return;		/* É|Å[ÉYéwóﬂéûÇÕêÊçsà⁄ìÆÇµÇ‹ÇπÇÒÅD	*/
+		return;		/* |[YwﬂéÕês⁄ì‹ÇD	*/
 	}
 
 	if (2 == m_dwLineMoveToEndPos) {
-		/* ÉâÉCÉììÆçÏèIóπà íuÇ÷à⁄ìÆçœÇæÇ¡ÇΩÅD	*/
+		/* CI íu÷à⁄ìœÇD	*/
 		if (0 != ((CChiefView*) m_pcChiefView)->m_bPreMoveSW) {
-			/* êÊçsà⁄ìÆê›íËÇ™ÉCÉlÅ[ÉuÉã	*/
+			/* s⁄ì›íËÇ™Cl[u	*/
 			if (
-				(ST_STRS_LMVENDPOS == CurrState)	/* ÉâÉCÉììÆçÏèIóπà íu à⁄ìÆ & äÆóπë“Çø	*/
+				(ST_STRS_LMVENDPOS == CurrState)	/* CI íu ⁄ì & “Ç	*/
 				) {
-				/* êÊçsà⁄ìÆÇ™óLå¯	*/
+				/* s⁄ìL	*/
 				STRESS_CONFIG l_StressConfig;
 				ConfigFile_GetNanoSpecIni(&l_StressConfig, CONFIG_FILE_STRESS_CONFIG);
 				DWORD l_dwLineNo = m_dwLineNo + 1;
 				if (((CChiefView*) m_pcChiefView)->GetNextLineNo(&l_dwLineNo) <= l_StressConfig.dwLiftPinNumberOfLine) {
-					/* éüÇÃë™íËëŒè€ÉâÉCÉìÇ™Ç†Ç¡ÇΩÅD	*/
-					NS_RestoreStageSpeed();	/* ë¨ìxÇñﬂÇµÇ‹Ç∑ÅD	*/
+					/* ÃëŒè€ÉCD	*/
+					NS_RestoreStageSpeed();	/* xﬂÇ‹ÇD	*/
 					/*
-					 *	ÉRÉRÇ≈ÇÕÅCÉsÉìà íuÇ∆ Z é≤à íuÇÕÉ`ÉFÉbÉNÇµÇ‹ÇπÇÒÅD
+					 *	RR≈ÇÕÅCs íu Z  íuÕÉ`FbN‹ÇD
 					 */
-					/* ÉâÉCÉìç¿ïWÇì«èoÇµ	*/
+					/* CW«èo	*/
 					STAGE_COORD l_SetPosition;
 					STRESS_CONFIG l_StressConfig;
 					ConfigFile_GetNanoSpecIni(&l_StressConfig, CONFIG_FILE_STRESS_CONFIG);
-					l_SetPosition.lX = l_StressConfig.lLineStartPosX;		/* ÉâÉCÉììÆçÏäJénç¿ïW X	*/
+					l_SetPosition.lX = l_StressConfig.lLineStartPosX;		/* CJnW X	*/
 					LPSTAGE_PROG_STRESS l_pStageProgStress = (LPSTAGE_PROG_STRESS) ((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pStageProgStress;
-/* modified 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(52) ---------- { ---------- */
-///* modified 2009.08.18 hmenjo STRESS_LINESECTION çÌèú ---------- { ---------- */
-////					l_SetPosition.lY = l_pStageProgStress->Line[l_dwLineNo - 1].LineSec.SectPos[0].lScanPosY;	/* ÉâÉCÉììÆçÏäJénç¿ïW Y	*/
-////																					/*	ÉZÉNÉVÉáÉìÇPÇÃ Y ç¿ïWÇégÇ¢Ç‹Ç∑ÅD	*/
-///* modified 2009.08.18 hmenjo STRESS_LINESECTION çÌèú ----------				*/
-//					l_SetPosition.lY = l_pStageProgStress->Line[l_dwLineNo - 1].SectPos[0].lScanPosY;	/* ÉâÉCÉììÆçÏäJénç¿ïW Y	*/
-//																					/*	ÉZÉNÉVÉáÉìÇPÇÃ Y ç¿ïWÇégÇ¢Ç‹Ç∑ÅD	*/
-///* modified 2009.08.18 hmenjo STRESS_LINESECTION çÌèú ---------- } ---------- */
-/* modified 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(52) ----------			   */
-					for (int i = 0; i < l_StressConfig.Line[l_dwLineNo - 1].dwSectionNum; i++) {
+/* modified 2009.08.21 hmenjo XgX@\«â(52) ---------- { ---------- */
+///* modified 2009.08.18 hmenjo STRESS_LINESECTION Ìèú ---------- { ---------- */
+////					l_SetPosition.lY = l_pStageProgStress->Line[l_dwLineNo - 1].LineSec.SectPos[0].lScanPosY;	/* CJnW Y	*/
+////																					/*	ZNVP Y Wg‹ÇD	*/
+///* modified 2009.08.18 hmenjo STRESS_LINESECTION Ìèú ----------				*/
+//					l_SetPosition.lY = l_pStageProgStress->Line[l_dwLineNo - 1].SectPos[0].lScanPosY;	/* CJnW Y	*/
+//																					/*	ZNVP Y Wg‹ÇD	*/
+///* modified 2009.08.18 hmenjo STRESS_LINESECTION Ìèú ---------- } ---------- */
+/* modified 2009.08.21 hmenjo XgX@\«â(52) ----------			   */
+					for (i = 0; i < l_StressConfig.Line[l_dwLineNo - 1].dwSectionNum; i++) {
 						if (0 != l_pStageProgStress->Line[l_dwLineNo - 1].bScanValid[i]) {
 							break;
 						}
@@ -479,46 +480,46 @@ void CChiefTransiStress::PreMove()
 						_stprintf(l_tszLog, _T("No Sections in Line No.%d."), l_dwLineNo);
 						((CChiefView*) m_pcChiefView)->LogChief(l_tszLog);
 						((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(9, CHRAMSG_OK)), MAKELPARAM(0, ALID_MeasurementPointMoveFailed));
-						/* ÉLÉÉÉìÉZÉãÇÉ|ÉXÉg	*/
+						/* LZ|Xg	*/
 						this->TransiEvent(EV_STRS_CANCEL, (cEventParams*) TR_STRS_NOSECTION);
 					} else {
-					l_SetPosition.lY = l_pStageProgStress->Line[l_dwLineNo - 1].SectPos[i].lScanPosY;	/* ÉâÉCÉììÆçÏäJénç¿ïW Y	*/
-/* modified 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(52) ---------- } ---------- */
+					l_SetPosition.lY = l_pStageProgStress->Line[l_dwLineNo - 1].SectPos[i].lScanPosY;	/* CJnW Y	*/
+/* modified 2009.08.21 hmenjo XgX@\«â(52) ---------- } ---------- */
 					TCHAR l_tszLogText[256];
 					_stprintf(l_tszLogText, _T("Stage is moving to Line No.%3d. (PreMove)"), l_dwLineNo);
 					((CChiefView*) m_pcChiefView)->LogChief(l_tszLogText);
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- { ---------- */
+/* added 2009.08.20 hmenjo XgX@\«â(46) ---------- { ---------- */
 //					((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_STRS_STAPOS_PREMOVING);  // Status Bar
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- } ---------- */
+/* added 2009.08.20 hmenjo XgX@\«â(46) ---------- } ---------- */
 // 2009.08.27 K.Matsuo -->
 					TCHAR l_szMainRcpName[256];
 					((CChiefView*) m_pcChiefView)->GetCurrentMainRecipeName(l_szMainRcpName);
 // 2009.08.27 K.Matsuo <--
 					if (0 != ((CChiefView*) m_pcChiefView)->IsHWS()) {
-						/* HWS Ç≈Ç∑ÅD	*/
+						/* HWS ≈ÇD	*/
 						::Sleep(STRS_HWS_TIME);
-						m_dwLineMoveToStartPos = 1;	/* ÉâÉCÉììÆçÏäJénà íuÅFà⁄ìÆíÜ	*/
-						m_bPreMoving = TRUE;	/* êÊçsà⁄ìÆíÜ	*/
+						m_dwLineMoveToStartPos = 1;	/* CJn íuF⁄ì	*/
+						m_bPreMoving = TRUE;	/* s⁄ì	*/
 						this->TransiEvent(EV_STRS_LINEMOVE_DONE, (cEventParams*) EV_STRS_LINEMOVE_DONE);
 					} else
 // 2009.08.27 K.Matsuo -->
 //					if (0 == NS_StageMoveAbsoluteEx(&l_SetPosition)) {
 					if (0 == NS_SampleCoordStageMoveAbsoluteEx(&l_SetPosition, l_szMainRcpName, HEAD_TYPE_STRESS)) {
 // 2009.08.27 K.Matsuo <--
-						/* à⁄ìÆäJéné∏îs	*/
+						/* ⁄ìJns	*/
 						((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(9, CHRAMSG_OK)), MAKELPARAM(0, ALID_MeasurementPointMoveFailed_PreMotion));
-						/* ÉLÉÉÉìÉZÉãÇÉ|ÉXÉg	*/
+						/* LZ|Xg	*/
 						this->TransiEvent(EV_STRS_CANCEL, (cEventParams*) TR_STRS_LINEMOVE_FAIL);
 					} else {
-						/* à⁄ìÆäJénê¨å˜	*/
-						m_dwLineMoveToStartPos = 1;	/* ÉâÉCÉììÆçÏäJénà íuÅFà⁄ìÆíÜ	*/
-						m_bPreMoving = TRUE;	/* êÊçsà⁄ìÆíÜ	*/
-						((CChiefView*) m_pcChiefView)->m_dwStageMoveState = 73;	/* ÉâÉCÉììÆçÏ à⁄ìÆíÜ	*/
-						((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		/* ìÆçÏíÜÉtÉâÉO(XY ÉXÉeÅ[ÉW)ÇÉIÉì	*/
+						/* ⁄ìJn	*/
+						m_dwLineMoveToStartPos = 1;	/* CJn íuF⁄ì	*/
+						m_bPreMoving = TRUE;	/* s⁄ì	*/
+						((CChiefView*) m_pcChiefView)->m_dwStageMoveState = 73;	/* C ⁄ì	*/
+						((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		/* ÏíÜtO(XY Xe[W)I	*/
 					}
-/* added 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(52) ---------- { ---------- */
+/* added 2009.08.21 hmenjo XgX@\«â(52) ---------- { ---------- */
 					}
-/* added 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(52) ---------- } ---------- */
+/* added 2009.08.21 hmenjo XgX@\«â(52) ---------- } ---------- */
 				}
 			}
 		}
@@ -526,20 +527,20 @@ void CChiefTransiStress::PreMove()
 }
 
 /*--------------------------------------------------------------------------//
- *	èÛë‘ï èàóùä÷êîåQ
+ *	‘ï è÷êQ
  *--------------------------------------------------------------------------*/
 /*
- *	èâä˙èÛë‘
+ *	
  */
 void CChiefTransiStress::enter_ST_STRS_INIT(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_STRS_DISP[0], (DWORD) pEvParams);
 
-	m_bPinAligning = FALSE;		/* ÉsÉìÇÃÉAÉâÉCÉÅÉìÉgà íuíÜ(HWS óp)	*//* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) */
+	m_bPinAligning = FALSE;		/* sÃÉACg íu(HWS p)	*//* added 2009.08.20 hmenjo XgX@\«â(46) */
 }
 
 /*
- *	ÉAÉCÉhÉã
+ *	ACh
  */
 void CChiefTransiStress::enter_ST_STRS_IDLE(const cEventParams* const pEvParams)
 {
@@ -556,46 +557,46 @@ void CChiefTransiStress::enter_ST_STRS_IDLE(const cEventParams* const pEvParams)
 	m_iPausePreState = 0;
 	memset(&m_PauseStat, 0, sizeof(m_PauseStat));
 	m_bMeasStress = FALSE;
-	m_bPinAligning = FALSE;		/* ÉsÉìÇÃÉAÉâÉCÉÅÉìÉgà íuíÜ(HWS óp)	*//* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) */
+	m_bPinAligning = FALSE;		/* sÃÉACg íu(HWS p)	*//* added 2009.08.20 hmenjo XgX@\«â(46) */
 
 	if (TRANSI_MASTER == m_dwParentTransi) {((CChiefView*) m_pcChiefView)->ProcStatusSet(PROCESS_WAIT);}
 
-	NS_RestoreStageSpeed();	/* ë¨ìxÇñﬂÇµÇ‹Ç∑ÅD	*/
+	NS_RestoreStageSpeed();	/* xﬂÇ‹ÇD	*/
 
-	/* WAIT èÛë‘Ç…Ç∑ÇÈÇΩÇﬂèàóùÇÕÇ†ÇËÇ‹ÇπÇÒÅD	*/
+	/* WAIT ‘Ç…ÇÈÇΩﬂèÕÇ‹ÇD	*/
 }
 
 /*
- * ÉäÉtÉ@ÉåÉìÉX or é¿ë™íË îªíË(WAIT èÛë‘ñ≥Çµ)
+ * t@X or  (WAIT ‘ñ)
  */
 void CChiefTransiStress::enter_ST_STRS_START(const cEventParams* const pEvParams)
-/* added 2009.09.09 hmenjo à¯êîÉRÉÅÉìÉgí«â¡ ---------- { ---------- */
-/*				LOBYTE(LOWORD(pEvParams))ÅFåƒèoå≥ÉgÉâÉìÉWÉVÉáÉì
-/* added 2009.09.09 hmenjo à¯êîÉRÉÅÉìÉgí«â¡ ---------- } ---------- */
+/* added 2009.09.09 hmenjo Rg«â ---------- { ---------- */
+/*				LOBYTE(LOWORD(pEvParams))FƒèogWV
+/* added 2009.09.09 hmenjo Rg«â ---------- } ---------- */
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_STRS_DISP[2], (DWORD) pEvParams);
 
-	/* åƒèoÇµå≥ÉgÉâÉìÉWÉVÉáÉìÇï€ë∂	*/
-/* modified 2009.09.09 hmenjo à¯êîïœçX ---------- { ---------- */
+	/* ƒèogWV€ë	*/
+/* modified 2009.09.09 hmenjo œçX ---------- { ---------- */
 //	m_dwParentTransi = LOWORD(pEvParams);
-/* modified 2009.09.09 hmenjo à¯êîïœçX ----------			   */
+/* modified 2009.09.09 hmenjo œçX ----------			   */
 	m_dwParentTransi = LOBYTE(LOWORD(pEvParams));
-/* modified 2009.09.09 hmenjo à¯êîïœçX ---------- } ---------- */
-	/* ë™íËÉâÉCÉìî‘çÜÇèâä˙âª	*/
+/* modified 2009.09.09 hmenjo œçX ---------- } ---------- */
+	/* ËÉâC‘ç	*/
 	m_dwLineNo = 0;
 
 	if (TRANSI_MASTER == m_dwParentTransi) {((CChiefView*) m_pcChiefView)->ProcStatusSet(PROCESS_PROC);}
 
-	/* HEPA í‚é~	*/
+	/* HEPA ~	*/
 	((CChiefView*) m_pcChiefView)->LogChief(_T("Stopping HEPA..."));
 	char l_cHepaAlLevel;
 	if (TRUE != ((CChiefView*) m_pcChiefView)->HepaOnOff(FALSE, &l_cHepaAlLevel)) {
-		/* í‚é~àŸèÌÇ≈ÇµÇΩÅD	*/
+		/* ~Ÿè≈ÇD	*/
 		AlarmIf_Set(ALID_HepaStopFailed);
 		if ('W' != l_cHepaAlLevel) {
-			/* ÉAÉâÅ[ÉÄÉåÉxÉãÇ™åxçêà»äOÇæÇ¡ÇΩÇÃÇ≈èIóπÇµÇ‹Ç∑ÅD	*/
+			/* A[xx»äOÃÇ≈èI‹ÇD	*/
 			((CChiefView*) m_pcChiefView)->LogChief(_T("Failed to stop HEPA(alarm)."));
-			/* ÉgÉâÉìÉWÉVÉáÉìçXêV	*/
+			/* gWVXV	*/
 			this->TransiEvent(EV_STRS_CANCEL, (cEventParams*) TR_STRS_HEPASTP_FAIL);
 			return;
 		} else {
@@ -603,7 +604,7 @@ void CChiefTransiStress::enter_ST_STRS_START(const cEventParams* const pEvParams
 		}
 	}
 
-	/* ÉXÉgÉåÉX ÉVÅ[ÉPÉìÉXë™íËäJénÇâÊñ ÉÇÉWÉÖÅ[ÉãÇ÷í ím	*/
+	/* XgX V[PXJn ÉW[÷í ím	*/
 	SEQ_MEAS_START l_SeqMeasStart;
 	if ((0x0d == ((CChiefView*) m_pcChiefView)->m_szSampleID[0]) && (0x00 == ((CChiefView*) m_pcChiefView)->m_szSampleID[1])) {
 		l_SeqMeasStart.bGetSamplID = FALSE;
@@ -616,13 +617,13 @@ void CChiefTransiStress::enter_ST_STRS_START(const cEventParams* const pEvParams
 	l_CopyData.cbData = sizeof(SEQ_MEAS_START);
 	l_CopyData.lpData = &l_SeqMeasStart;
 	if (TRANSI_MASTER == m_dwParentTransi) {
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(48) ---------- { ---------- */
+/* added 2009.08.20 hmenjo XgX@\«â(48) ---------- { ---------- */
 		((CChiefView*) m_pcChiefView)->LogChief(_T("Notify WMCD_CHIF_MEAS_START to Data module."));
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(48) ---------- } ---------- */
+/* added 2009.08.20 hmenjo XgX@\«â(48) ---------- } ---------- */
 		((CMainFrame*) (((CChiefView*) m_pcChiefView)->m_pcMainFrame))->SendMessage(WM_COPYDATA, 0, (LPARAM) &l_CopyData);
 	}
 
-	/* ÉTÉìÉvÉã ID ÇéÊìæ	*/
+	/* Tv ID Êìæ	*/
 	TCHAR l_tszSampleID[SAMPLE_ID_LEN + 1];
 	if (TRUE == l_SeqMeasStart.bGetSamplID) {
 		_tcscpy(l_tszSampleID, ((CChiefView*) m_pcChiefView)->m_szSampleID);
@@ -632,16 +633,16 @@ void CChiefTransiStress::enter_ST_STRS_START(const cEventParams* const pEvParams
 		((CNanoSpecDoc*) ((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc)->GetSampleId(l_tszSampleID);
 		//2009.08.12 bagus stress --}--
 	}
-	/* ë™íËÉÇÅ[ÉhîªíË	*/
-	/*		[ÉTÉìÉvÉã ID].dat ÇÃóLñ≥ÇämîFÇµÇƒîªíËÇµÇ‹Ç∑ÅD	*/
+	/* ËÉÇ[h	*/
+	/*		[Tv ID].dat ÃóLmFƒîËÇµ‹ÇD	*/
 	TCHAR l_RefFilePath[_MAX_PATH];
 	_stprintf(l_RefFilePath, _T("%s%s.dat"), g_szData_StressRef_Dir, l_tszSampleID);
-	m_iMeasMode = 1;	/* é¿ë™íË	*/
+	m_iMeasMode = 1;	/* 	*/
 	if (-1 == ::GetFileAttributes(l_RefFilePath)) {
-		m_iMeasMode = 0;	/* (ÉtÉ@ÉCÉãÇ™ñ≥Ç©Ç¡ÇΩÇÃÇ≈)ÉäÉtÉ@ÉåÉìÉXë™íË	*/
+		m_iMeasMode = 0;	/* (t@CÃÇ)t@X	*/
 	}
-	/* ÉTÉìÉvÉã ID Çë™íËÉÇÉWÉÖÅ[ÉãÇ÷í ím	*/
-	// 2009.08.18 K.Matsuo ÉXÉgÉåÉXëŒâû -->
+	/* Tv ID ë™íËÉÇW[÷í ím	*/
+	// 2009.08.18 K.Matsuo XgXŒâ -->
 	LPMAIN_RCP_INFO l_pMainRcpInfo = (LPMAIN_RCP_INFO) ((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pMainRcpInfo;
 	LPMEAS_PROG_INFO l_pMeasProgInfo = (LPMEAS_PROG_INFO) ((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pMeasProgInfo;
 // 2009.10.06 K.Matsuo -->
@@ -654,25 +655,25 @@ void CChiefTransiStress::enter_ST_STRS_START(const cEventParams* const pEvParams
 	BOOL l_bRet = MEAS_PrepareForStressMeasure(m_iMeasMode, l_tszSampleID, l_pMainRcpInfo, l_pMeasProgInfo, l_pStageProgInfoHdr, l_pStageProgStress, l_pStressParamInfo);
 //Saiki 20110308 Change <-----
 // 2009.10.06 K.Matsuo <--
-	// 2009.08.18 K.Matsuo ÉXÉgÉåÉXëŒâû <--
+	// 2009.08.18 K.Matsuo XgXŒâ <--
 	if (TRUE != l_bRet) {
-		/* ë™íËÉÇÉWÉÖÅ[ÉãÇ©ÇÁàŸèÌÇ™ï‘ÇËÇ‹ÇµÇΩÅD	*/
+		/* ËÉÇW[ŸèÌÇ™‘Ç‹ÇD	*/
 		this->TransiEvent(EV_STRS_CANCEL, (cEventParams*) TR_STRS_MEASPRE_FAIL);
 	} else {
 		if (0 == m_iMeasMode) {
 			((CChiefView*) m_pcChiefView)->LogChief(_T("Start reference mode."));
-			this->TransiEvent(EV_STRS_MODE_REF);	/* ÉäÉtÉ@ÉåÉìÉXë™íË	*/
+			this->TransiEvent(EV_STRS_MODE_REF);	/* t@X	*/
 		} else {
 //Saiki 20110308 Change ----->
 //			((CChiefView*) m_pcChiefView)->LogChief(_T("Start stress mode."));
-//			this->TransiEvent(EV_STRS_MODE_MEAS);	/* é¿ë™íË	*/
+//			this->TransiEvent(EV_STRS_MODE_MEAS);	/* 	*/
 			if(TRUE == l_pStressParamInfo->bPriority){
 				((CChiefView*) m_pcChiefView)->LogChief(_T("Start stress fixed mode."));
-				this->TransiEvent(EV_STRS_MODE_FIX_MEAS);	/* é¿ë™íË(å≈íËíl)	*/
+				this->TransiEvent(EV_STRS_MODE_FIX_MEAS);	/* (≈íl)	*/
 			}
 			else{
 				((CChiefView*) m_pcChiefView)->LogChief(_T("Start stress actual mode."));
-				this->TransiEvent(EV_STRS_MODE_MEAS);	/* é¿ë™íË(é¿ë™íl)	*/
+				this->TransiEvent(EV_STRS_MODE_MEAS);	/* (l)	*/
 			}
 //Saiki 20110308 Change <-----
 		}
@@ -680,192 +681,192 @@ void CChiefTransiStress::enter_ST_STRS_START(const cEventParams* const pEvParams
 }
 
 /*
- * SR ë™íËÉVÅ[ÉPÉìÉXäJén & äÆóπë“Çø(WAIT èÛë‘ñ≥ÇµÇÃèÍçáóLÇË)
+ * SR V[PXJn & “Ç(WAIT ‘ñÃèÍçáL)
  */
 void CChiefTransiStress::enter_ST_STRS_SRMEAS(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_STRS_DISP[3], (DWORD) pEvParams);
 
 	if (1 == m_PauseStat.dwSrMeasuring) {
-		/* ë™íËíÜÇ≈ÅCÉ|Å[ÉYÇ©ÇÁïúãAÇÃÇΩÇﬂÅD*/
+		/* ËíÜ≈ÅC|[YÁïúAÃÇﬂÅD*/
 		m_PauseStat.dwSrMeasuring = 0;
-		/* WAIT èÛë‘Ç…Ç∑ÇÈÇΩÇﬂÉgÉâÉìÉWÉVÉáÉìÇçXêVÇµÇ‹ÇπÇÒÅD	*/
+		/* WAIT ‘Ç…ÇÈÇΩﬂÉgWVXV‹ÇD	*/
 		return;
 	}
 
-	/* SR ÉVÅ[ÉPÉìÉXë™íË äJén	*/
-/* modified 2012.01.23 hmenjo [ÇV]èüéËÉAÉ{Å[ÉgëŒçÙ ---------- { ---------- */
+	/* SR V[PX Jn	*/
+/* modified 2012.01.23 hmenjo [V]A{[gŒç ---------- { ---------- */
 //	if (false == ((CChiefTransiSeq*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq)->IsIdle()) {
-/* modified 2012.01.23 hmenjo [ÇV]èüéËÉAÉ{Å[ÉgëŒçÙ ----------              */
+/* modified 2012.01.23 hmenjo [V]A{[gŒç ----------              */
 	if (FALSE != ((CChiefView*) m_pcChiefView)->IsBusyTransi(6, 9)) {
-/* modified 2012.01.23 hmenjo [ÇV]èüéËÉAÉ{Å[ÉgëŒçÙ ---------- } ---------- */
-		/* SEQ ÉgÉâÉìÉWÉVÉáÉìÇ™ÉrÉWÅ[Ç≈ÇµÇΩÅD	*/
-/* modified 2012.01.23 hmenjo [ÇV]èüéËÉAÉ{Å[ÉgëŒçÙ ---------- { ---------- */
+/* modified 2012.01.23 hmenjo [V]A{[gŒç ---------- } ---------- */
+		/* SEQ gWVrW[≈ÇD	*/
+/* modified 2012.01.23 hmenjo [V]A{[gŒç ---------- { ---------- */
 //		((CChiefView*) m_pcChiefView)->LogChief(_T("SR Seq is busy."));
-/* modified 2012.01.23 hmenjo [ÇV]èüéËÉAÉ{Å[ÉgëŒçÙ ----------              */
+/* modified 2012.01.23 hmenjo [V]A{[gŒç ----------              */
 		((CChiefView*) m_pcChiefView)->LogChief(_T("CChiefTransiStress::enter_ST_STRS_SRMEAS() - SR Seq is busy."));
-/* modified 2012.01.23 hmenjo [ÇV]èüéËÉAÉ{Å[ÉgëŒçÙ ---------- } ---------- */
-		/* ÉgÉâÉìÉWÉVÉáÉìçXêV	*/
+/* modified 2012.01.23 hmenjo [V]A{[gŒç ---------- } ---------- */
+		/* gWVXV	*/
 		this->TransiEvent(EV_STRS_CANCEL, (cEventParams*) TR_STRS_TRSEQ_BUSY);
 	} else {
-		/* ÉVÅ[ÉPÉìÉXë™íË î≠çs	*/
-/* modified 2009.09.09 hmenjo à¯êîïœçX ---------- { ---------- */
+		/* V[PX s	*/
+/* modified 2009.09.09 hmenjo œçX ---------- { ---------- */
 //		((CChiefTransiSeq*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq)->TransiEvent(EV_SEQ_DO_MEAS, (cEventParams*) MAKELONG(TRANSI_STRESS_SEQ, pEvParams));
-/* modified 2009.09.09 hmenjo à¯êîïœçX ----------			   */
+/* modified 2009.09.09 hmenjo œçX ----------			   */
 		((CChiefTransiSeq*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq)->TransiEvent(EV_SEQ_DO_MEAS, (cEventParams*) MAKELONG(MAKEWORD(TRANSI_STRESS_SEQ, 0), pEvParams));
-/* modified 2009.09.09 hmenjo à¯êîïœçX ---------- } ---------- */
-		/* WAIT èÛë‘Ç…Ç∑ÇÈÇΩÇﬂÉgÉâÉìÉWÉVÉáÉìÇçXêVÇµÇ‹ÇπÇÒÅD	*/
+/* modified 2009.09.09 hmenjo œçX ---------- } ---------- */
+		/* WAIT ‘Ç…ÇÈÇΩﬂÉgWVXV‹ÇD	*/
 	}
 }
 
 /*
- * SR ë™íËÉVÅ[ÉPÉìÉXäÆóπèàóù(WAIT èÛë‘ñ≥Çµ)
+ * SR V[PX(WAIT ‘ñ)
  */
 void CChiefTransiStress::enter_ST_STRS_SRMEAS_DONE(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_STRS_DISP[4], (DWORD) pEvParams);
 
-	/* SR ÉVÅ[ÉPÉìÉXë™íË åãâ ämîF	*/
+	/* SR V[PX  ämF	*/
 	if (TR_SEQ_OK != (DWORD) pEvParams) {
-		/* àŸèÌèIóπÇ»ÇÃÇ≈ÉLÉÉÉìÉZÉãàµÇ¢Ç…ÇµÇ‹Ç∑ÅD	*/
+		/* ŸèI»ÇÃÇ≈ÉLZ…Ç‹ÇD	*/
 		((CChiefView*) m_pcChiefView)->LogChief(_T("SR seq is abnormal end."));
-		/* ÉgÉâÉìÉWÉVÉáÉìçXêV	*/
+		/* gWVXV	*/
 		this->TransiEvent(EV_STRS_CANCEL, pEvParams);
 	} else if (0 != m_bCancel) {
-		/* ÉLÉÉÉìÉZÉãéwóﬂ	*/
+		/* LZw	*/
 		this->TransiEvent(EV_STRS_CANCEL);
 	} else {
-		/* ÉgÉâÉìÉWÉVÉáÉìçXêV	*/
+		/* gWVXV	*/
 		this->TransiEvent(EV_STRS_MODE_MEAS);
 	}
 }
 
 /*
- * ë™íËëO ÉçÅ[Éh Pos äÆóπë“Çø(WAIT èÛë‘ñ≥ÇµÇÃèÍçáóLÇË)
+ * O [h Pos “Ç(WAIT ‘ñÃèÍçáL)
  */
 void CChiefTransiStress::enter_ST_STRS_PRELDPOS(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_STRS_DISP[5], (DWORD) pEvParams);
 
 	if (1 == m_PauseStat.dwPreLoadingPos) {
-		/* à⁄ìÆíÜÇ≈ÅCÉ|Å[ÉYÇ©ÇÁïúãAÇÃÇΩÇﬂÅD*/
+		/* ⁄ì≈ÅC|[YÁïúAÃÇﬂÅD*/
 		m_PauseStat.dwPreLoadingPos = 0;
-		/* WAIT èÛë‘Ç…Ç∑ÇÈÇΩÇﬂÉgÉâÉìÉWÉVÉáÉìÇçXêVÇµÇ‹ÇπÇÒÅD	*/
-/* added 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(53) ---------- { ---------- */
+		/* WAIT ‘Ç…ÇÈÇΩﬂÉgWVXV‹ÇD	*/
+/* added 2009.08.21 hmenjo XgX@\«â(53) ---------- { ---------- */
 		((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_HLDPOS_MOVING);  // Status Bar
-/* added 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(53) ---------- } ---------- */
+/* added 2009.08.21 hmenjo XgX@\«â(53) ---------- } ---------- */
 		return;
 	}
 
-	/* ÉçÅ[Éh Pos Ç÷à⁄ìÆ -------------------------------------- */
+	/* [h Pos ÷à⁄ì -------------------------------------- */
 	((CChiefView*) m_pcChiefView)->LogChief(_T("Stage is moving to LD Pos. (before-meas)"));
 	if (0 != ((CChiefView*) m_pcChiefView)->IsHWS()) {
-		/* HWS Ç≈Ç∑ÅD	*/
+		/* HWS ≈ÇD	*/
 		((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_HLDPOS_MOVING);  // Status Bar
 		::Sleep(STRS_HWS_TIME);
 		this->TransiEvent(EV_STRS_LDPOS_DONE);
 	} else
 	if (0 == this->MoveToLdPos()) {
-		/* à⁄ìÆäJéné∏îs	*/
-		((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		/* ìÆçÏíÜÉtÉâÉO(XY ÉXÉeÅ[ÉW)ÇÉIÉt	*/
+		/* ⁄ìJns	*/
+		((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		/* ÏíÜtO(XY Xe[W)It	*/
 		((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(9, CHRAMSG_OK)), MAKELPARAM(0, ALID_LoadPositionMoveStartFailed));
 		((CChiefView*) m_pcChiefView)->LogChief(_T("Failed to move to LD Pos. (before-meas)"));
-		/* ÉLÉÉÉìÉZÉãÇÉ|ÉXÉg	*/
+		/* LZ|Xg	*/
 		this->TransiEvent(EV_STRS_CANCEL, (cEventParams*) TR_STRS_HLDPOSMOVE_FAIL);
 	} else {
-		/* à⁄ìÆäJénê¨å˜	*/
-		((CChiefView*) m_pcChiefView)->m_dwStageMoveState = 72;	/* ÉnÉìÉhÉâ ÉçÅ[Éh É|ÉWÉVÉáÉì à⁄ìÆíÜ	*/
+		/* ⁄ìJn	*/
+		((CChiefView*) m_pcChiefView)->m_dwStageMoveState = 72;	/* nh [h |WV ⁄ì	*/
 		((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_HLDPOS_MOVING);  // Status Bar
-		((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		/* ìÆçÏíÜÉtÉâÉO(XY ÉXÉeÅ[ÉW)ÇÉIÉì	*/
-		/* WAIT èÛë‘Ç…Ç∑ÇÈÇΩÇﬂèàóùÇÕÇ†ÇËÇ‹ÇπÇÒÅD	*/
+		((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		/* ÏíÜtO(XY Xe[W)I	*/
+		/* WAIT ‘Ç…ÇÈÇΩﬂèÕÇ‹ÇD	*/
 	}
 }
 
 /*
- * ÉsÉì ÉAÉâÉCÉÅÉìÉgë“Çø(WAIT èÛë‘ñ≥ÇµÇÃèÍçáóLÇË)
+ * s ACg“Ç(WAIT ‘ñÃèÍçáL)
  */
 void CChiefTransiStress::enter_ST_STRS_PINALIGN(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_STRS_DISP[6], (DWORD) pEvParams);
 
-/* added 2009.11.26 hmenjo ë™íË Seq ÇÕéwíËÉwÉbÉhÇ≈ìÆçÏ ---------- { ---------- */
-	/* Stress ÉwÉbÉhÇ…ÇµÇ‹Ç∑ÅD	*/
+/* added 2009.11.26 hmenjo  Seq Õéwwbh≈ì ---------- { ---------- */
+	/* Stress wbh…Ç‹ÇD	*/
 	((CChiefView*) m_pcChiefView)->SelectHead(HEAD_TYPE_STRESS, FALSE);
-/* added 2009.11.26 hmenjo ë™íË Seq ÇÕéwíËÉwÉbÉhÇ≈ìÆçÏ ---------- } ---------- */
+/* added 2009.11.26 hmenjo  Seq Õéwwbh≈ì ---------- } ---------- */
 
 	if (1 == m_PauseStat.dwPinAligning) {
-		/* ìÆçÏíÜÇ≈ÅCÉ|Å[ÉYÇ©ÇÁïúãAÇÃÇΩÇﬂÅD*/
+		/* ÏíÜ≈ÅC|[YÁïúAÃÇﬂÅD*/
 		m_PauseStat.dwPinAligning = 0;
-		/* WAIT èÛë‘Ç…Ç∑ÇÈÇΩÇﬂÉgÉâÉìÉWÉVÉáÉìÇçXêVÇµÇ‹ÇπÇÒÅD	*/
-/* added 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(53) ---------- { ---------- */
+		/* WAIT ‘Ç…ÇÈÇΩﬂÉgWVXV‹ÇD	*/
+/* added 2009.08.21 hmenjo XgX@\«â(53) ---------- { ---------- */
 		((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_STRS_LIFT_ALIGN);	// Status Bar
-/* added 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(53) ---------- } ---------- */
+/* added 2009.08.21 hmenjo XgX@\«â(53) ---------- } ---------- */
 		return;
 	}
 
-	/* Z é≤Çä±è¬äOà íuÇ÷à⁄ìÆ	*/
+	/* Z ¬äO íu÷à⁄ì	*/
 	((CChiefView*) m_pcChiefView)->LogChief(_T("Retracting Z axis..."));
-	((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_ZAXIS, TRUE);		/* ìÆçÏíÜÉtÉâÉO(Z é≤)ÇÉIÉì	*/
+	((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_ZAXIS, TRUE);		/* ÏíÜtO(Z )I	*/
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_STRS_Z_MOVING);	// Status Bar
-/* modified 2009.09.29 hmenjo Stress Z é≤ÉXÉLÉÉÉìà íu ---------- { ---------- */
+/* modified 2009.09.29 hmenjo Stress Z XL íu ---------- { ---------- */
 //	if ((0 == StageElevatorMove(Z_RETRACT_POS)) && (0 == ((CChiefView*) m_pcChiefView)->IsHWS())) {
-/* modified 2009.09.29 hmenjo Stress Z é≤ÉXÉLÉÉÉìà íu ----------			  */
+/* modified 2009.09.29 hmenjo Stress Z XL íu ----------			  */
 	STRESS_CONFIG l_StressConfig;
 	ConfigFile_GetNanoSpecIni(&l_StressConfig, CONFIG_FILE_STRESS_CONFIG);
 	if ((0 == StageElevatorMove(l_StressConfig.lScanZAxisPosition)) && (0 == ((CChiefView*) m_pcChiefView)->IsHWS())) {
-/* modified 2009.09.29 hmenjo Stress Z é≤ÉXÉLÉÉÉìà íu ---------- } ---------- */
-		/* à⁄ìÆäJéné∏îs	*/
-		((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);		/* ìÆçÏíÜÉtÉâÉO(Z é≤)ÇÉIÉt	*/
+/* modified 2009.09.29 hmenjo Stress Z XL íu ---------- } ---------- */
+		/* ⁄ìJns	*/
+		((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);		/* ÏíÜtO(Z )It	*/
 		((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(9, CHRAMSG_OK)), MAKELPARAM(0, ALID_Z_AxisMoveFailed));
 		((CChiefView*) m_pcChiefView)->LogChief(_T("Failed to move to Z retract position."));
-		/* ÉLÉÉÉìÉZÉãÇÉ|ÉXÉg	*/
+		/* LZ|Xg	*/
 		this->TransiEvent(EV_STRS_CANCEL, (cEventParams*) TR_STRS_ZMOVE_FAIL);
 	} else {
 		if (0 != ((CChiefView*) m_pcChiefView)->IsHWS()) {
-			/* HWS Ç≈Ç∑ÅD	*/
+			/* HWS ≈ÇD	*/
 			::Sleep(STRS_HWS_TIME);
 		}
-		/* à⁄ìÆäÆóπ	*/
-		((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);		/* ìÆçÏíÜÉtÉâÉO(Z é≤)ÇÉIÉt	*/
+		/* ⁄ì	*/
+		((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);		/* ÏíÜtO(Z )It	*/
 		((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_STRS_Z_MOVED);	// Status Bar
 		((CChiefView*) m_pcChiefView)->LogChief(_T("Moved to Z retract position."));
-		/* ÉsÉìÇÉAÉâÉCÉÅÉìÉgà íuÇ÷à⁄ìÆ ----------------------------- */
+		/* sACg íu÷à⁄ì ----------------------------- */
 		((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_STRS_LIFT_ALIGN);	// Status Bar
 		((CChiefView*) m_pcChiefView)->LogChief(_T("Moving Lifter to alignment pos..."));
 		if (0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bLoadPos) {
-			/* ÉçÅ[ÉhÉ|ÉWÉVÉáÉìÇ≈ÇÕÇ»Ç©Ç¡ÇΩÅD	*/
+			/* [h|WV≈ÇÕÇ»ÇD	*/
 			((CChiefView*) m_pcChiefView)->LogChief(_T("Not LD position."));
 			((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(9, CHRAMSG_OK)), MAKELPARAM(0, ALID_LifterMoveStartFailed));
-			/* ÉLÉÉÉìÉZÉãÇÉ|ÉXÉg	*/
+			/* LZ|Xg	*/
 			this->TransiEvent(EV_STRS_CANCEL, (cEventParams*) TR_STRS_NO_HLDPOS);
 		} else {
 			BOOL l_bNexResult;
 			if (0 != ((CChiefView*) m_pcChiefView)->IsHWS()) {
-				/* HWS Ç≈Ç∑ÅD	*/
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- { ---------- */
+				/* HWS ≈ÇD	*/
+/* added 2009.08.20 hmenjo XgX@\«â(46) ---------- { ---------- */
 				m_bPinAligning = TRUE;
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- } ---------- */
+/* added 2009.08.20 hmenjo XgX@\«â(46) ---------- } ---------- */
 				::Sleep(STRS_HWS_TIME);
 				this->TransiEvent(EV_STRS_PIN_DONE);
 			} else
 			if (0 == (l_bNexResult = nexifMoveToAlignment(m_pcChiefView->m_hWnd))) {
-				/* é∏îs	*/
+				/* s	*/
 				((CChiefView*) m_pcChiefView)->LogChief(_T("Failed to move Lifter to alignment pos."));
 				((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(9, CHRAMSG_OK)), MAKELPARAM(0, ALID_LifterMoveStartFailed));
-				/* ÉLÉÉÉìÉZÉãÇÉ|ÉXÉg	*/
+				/* LZ|Xg	*/
 				this->TransiEvent(EV_STRS_CANCEL, (cEventParams*) TR_STRS_PINMOVE_FAIL);
 			} else {
-				/* ê¨å˜	*/
-				((CChiefView*) m_pcChiefView)->m_dwPinMoveState = 71;	/* ÉsÉìà⁄ìÆíÜ	*/
+				/* 	*/
+				((CChiefView*) m_pcChiefView)->m_dwPinMoveState = 71;	/* s⁄ì	*/
 				((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_PIN, TRUE);
-				/* WAIT èÛë‘Ç…Ç∑ÇÈÇΩÇﬂèàóùÇÕÇ†ÇËÇ‹ÇπÇÒÅD	*/
+				/* WAIT ‘Ç…ÇÈÇΩﬂèÕÇ‹ÇD	*/
 			}
 		}
 	}
 }
 
 /*
- * ÉâÉCÉììÆçÏäJénà íu à⁄ìÆ & äÆóπë“Çø(WAIT èÛë‘ñ≥ÇµÇÃèÍçáóLÇË)
+ * CJn íu ⁄ì & “Ç(WAIT ‘ñÃèÍçáL)
  */
 void CChiefTransiStress::enter_ST_STRS_LMVSTAPOS(const cEventParams* const pEvParams)
 {
@@ -874,14 +875,14 @@ void CChiefTransiStress::enter_ST_STRS_LMVSTAPOS(const cEventParams* const pEvPa
 	BOOL l_bCancelReq = FALSE;
 	DWORD l_dwErrCode = TR_STRS_OK;
 
-	m_bMeasStress = TRUE;	/* ÉXÉgÉåÉXë™íËíÜ	*/
+	m_bMeasStress = TRUE;	/* XgXËíÜ	*/
 
-	/* ÉâÉCÉììÆçÏà⁄ìÆäÆóπ ÉCÉxÉìÉg É`ÉFÉbÉN	*/
+	/* C⁄ì Cxg `FbN	*/
 	if ((1 == m_dwLineMoveToStartPos) && (EV_STRS_LINEMOVE_DONE == LOWORD(pEvParams))) {
-		m_dwLineMoveToStartPos = 2;		/* à⁄ìÆçœ	*/
+		m_dwLineMoveToStartPos = 2;		/* ⁄ì	*/
 		if (TRUE == m_bPreMoving) {
 			m_bPreMoving = FALSE;
-			/* ÉâÉCÉìî‘çÜÇçXêV	*/
+			/* C‘çXV	*/
 			m_dwLineNo++;
 			((CChiefView*) m_pcChiefView)->GetNextLineNo(&m_dwLineNo);
 		}
@@ -889,55 +890,55 @@ void CChiefTransiStress::enter_ST_STRS_LMVSTAPOS(const cEventParams* const pEvPa
 
 	if (0 == m_dwLineMoveToStartPos) {
 		if (TRUE == m_bPause) {
-			/* É|Å[ÉYéwóﬂóLÇ¡ÇΩÅD	*/
+			/* |[YwﬂóLD	*/
 			m_iPausePreState = ST_STRS_LMVSTAPOS;
-/* modified 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(49) ---------- { ---------- */
+/* modified 2009.08.20 hmenjo XgX@\«â(49) ---------- { ---------- */
 //			this->TransiEvent(EV_STRS_PAUSE);
-/* modified 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(49) ----------			   */
+/* modified 2009.08.20 hmenjo XgX@\«â(49) ----------			   */
 			Event(EV_STRS_PAUSE);
-/* modified 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(49) ---------- } ---------- */
+/* modified 2009.08.20 hmenjo XgX@\«â(49) ---------- } ---------- */
 			return;
 		}
-		/* ÉâÉCÉììÆçÏäJénà íuÇ÷à⁄ìÆ	*/
-/* modified 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- { ---------- */
+		/* CJn íu÷à⁄ì	*/
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ---------- { ---------- */
 //		if (0 == nexioIsPinAlignmentPos()) {
-/* modified 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ----------			   */
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ----------			   */
 		if (0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bPinAlign) {
-/* modified 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- } ---------- */
-			/* ÉsÉìÇ™ÉAÉâÉCÉÅÉìÉgà íuÇ≈Ç»Ç©Ç¡ÇΩÅD	*/
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ---------- } ---------- */
+			/* sACg íu≈Ç»ÇD	*/
 			((CChiefView*) m_pcChiefView)->LogChief(_T("Not Lifter is alignment position."));
 			((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(9, CHRAMSG_OK)), MAKELPARAM(0, ALID_LifterLowestPositionSensorOff));
-			/* ÉLÉÉÉìÉZÉãÇÉ|ÉXÉg	*/
+			/* LZ|Xg	*/
 			l_bCancelReq = TRUE;
 			l_dwErrCode = TR_STRS_NO_PIN_ALIGN;
 		} else if (0 == nexioIsRetractPosZ()) {
-			/* ÉXÉgÉåÉXóp Z é≤à íuÇ≈Ç»Ç©Ç¡ÇΩÅD	*/
+			/* XgXp Z  íu≈Ç»ÇD	*/
 			((CChiefView*) m_pcChiefView)->LogChief(_T("Z retract position is Invalid."));
 			((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(9, CHRAMSG_OK)), MAKELPARAM(0, ALID_Z_PositionRetractFailed));
-			/* ÉLÉÉÉìÉZÉãÇÉ|ÉXÉg	*/
+			/* LZ|Xg	*/
 			l_bCancelReq = TRUE;
 			l_dwErrCode = TR_STRS_NO_ZPOS;
 		} else {
-			NS_RestoreStageSpeed();	/* ë¨ìxÇñﬂÇµÇ‹Ç∑ÅD	*/
-			/* ÉâÉCÉìî‘çÜÇçXêV	*/
+			NS_RestoreStageSpeed();	/* xﬂÇ‹ÇD	*/
+			/* C‘çXV	*/
 			m_dwLineNo++;
 			((CChiefView*) m_pcChiefView)->GetNextLineNo(&m_dwLineNo);
-			/* ÉâÉCÉìç¿ïWÇì«èoÇµ	*/
+			/* CW«èo	*/
 			STAGE_COORD l_SetPosition;
 			STRESS_CONFIG l_StressConfig;
 			ConfigFile_GetNanoSpecIni(&l_StressConfig, CONFIG_FILE_STRESS_CONFIG);
-			l_SetPosition.lX = l_StressConfig.lLineStartPosX;		/* ÉâÉCÉììÆçÏäJénç¿ïW X	*/
+			l_SetPosition.lX = l_StressConfig.lLineStartPosX;		/* CJnW X	*/
 			LPSTAGE_PROG_STRESS l_pStageProgStress = (LPSTAGE_PROG_STRESS) ((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pStageProgStress;
-/* modified 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(51) ---------- { ---------- */
-///* modified 2009.08.18 hmenjo STRESS_LINESECTION çÌèú ---------- { ---------- */
-////			l_SetPosition.lY = l_pStageProgStress->Line[m_dwLineNo - 1].LineSec.SectPos[0].lScanPosY;	/* ÉâÉCÉììÆçÏäJénç¿ïW Y	*/
-////																			/*	ÉZÉNÉVÉáÉìÇPÇÃ Y ç¿ïWÇégÇ¢Ç‹Ç∑ÅD	*/
-///* modified 2009.08.18 hmenjo STRESS_LINESECTION çÌèú ----------				*/
-//			l_SetPosition.lY = l_pStageProgStress->Line[m_dwLineNo - 1].SectPos[0].lScanPosY;	/* ÉâÉCÉììÆçÏäJénç¿ïW Y	*/
-//																			/*	ÉZÉNÉVÉáÉìÇPÇÃ Y ç¿ïWÇégÇ¢Ç‹Ç∑ÅD	*/
-///* modified 2009.08.18 hmenjo STRESS_LINESECTION çÌèú ---------- } ---------- */
-/* modified 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(51) ----------			   */
-			for (int i = 0; i < l_StressConfig.Line[m_dwLineNo - 1].dwSectionNum; i++) {
+/* modified 2009.08.21 hmenjo XgX@\«â(51) ---------- { ---------- */
+///* modified 2009.08.18 hmenjo STRESS_LINESECTION Ìèú ---------- { ---------- */
+////			l_SetPosition.lY = l_pStageProgStress->Line[m_dwLineNo - 1].LineSec.SectPos[0].lScanPosY;	/* CJnW Y	*/
+////																			/*	ZNVP Y Wg‹ÇD	*/
+///* modified 2009.08.18 hmenjo STRESS_LINESECTION Ìèú ----------				*/
+//			l_SetPosition.lY = l_pStageProgStress->Line[m_dwLineNo - 1].SectPos[0].lScanPosY;	/* CJnW Y	*/
+//																			/*	ZNVP Y Wg‹ÇD	*/
+///* modified 2009.08.18 hmenjo STRESS_LINESECTION Ìèú ---------- } ---------- */
+/* modified 2009.08.21 hmenjo XgX@\«â(51) ----------			   */
+			for (i = 0; i < l_StressConfig.Line[m_dwLineNo - 1].dwSectionNum; i++) {
 				if (0 != l_pStageProgStress->Line[m_dwLineNo - 1].bScanValid[i]) {
 					break;
 				}
@@ -947,68 +948,68 @@ void CChiefTransiStress::enter_ST_STRS_LMVSTAPOS(const cEventParams* const pEvPa
 				_stprintf(l_tszLog, _T("No Sections in Line No.%d."), m_dwLineNo);
 				((CChiefView*) m_pcChiefView)->LogChief(l_tszLog);
 				((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(9, CHRAMSG_OK)), MAKELPARAM(0, ALID_MeasurementPointMoveFailed));
-				/* ÉLÉÉÉìÉZÉãÇÉ|ÉXÉg	*/
+				/* LZ|Xg	*/
 				l_bCancelReq = TRUE;
 				l_dwErrCode = TR_STRS_NOSECTION;
 			} else {
-			l_SetPosition.lY = l_pStageProgStress->Line[m_dwLineNo - 1].SectPos[i].lScanPosY;	/* ÉâÉCÉììÆçÏäJénç¿ïW Y	*/
-/* modified 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(51) ---------- } ---------- */
+			l_SetPosition.lY = l_pStageProgStress->Line[m_dwLineNo - 1].SectPos[i].lScanPosY;	/* CJnW Y	*/
+/* modified 2009.08.21 hmenjo XgX@\«â(51) ---------- } ---------- */
 			TCHAR l_tszLogText[256];
-/* modified 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(51) ---------- { ---------- */
+/* modified 2009.08.21 hmenjo XgX@\«â(51) ---------- { ---------- */
 //			_stprintf(l_tszLogText, _T("Stage is moving to Line No.%3d start position."), m_dwLineNo);
-/* modified 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(51) ----------			   */
+/* modified 2009.08.21 hmenjo XgX@\«â(51) ----------			   */
 			_stprintf(l_tszLogText, _T("Stage is moving to Line No.%3d start position. [%10d, %10d]"), m_dwLineNo, l_SetPosition.lX, l_SetPosition.lY);
-/* modified 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(51) ---------- } ---------- */
+/* modified 2009.08.21 hmenjo XgX@\«â(51) ---------- } ---------- */
 			((CChiefView*) m_pcChiefView)->LogChief(l_tszLogText);
 			TCHAR l_szMainRcpName[256];
 			((CChiefView*) m_pcChiefView)->GetCurrentMainRecipeName(l_szMainRcpName);
 			if (0 != ((CChiefView*) m_pcChiefView)->IsHWS()) {
-				/* HWS Ç≈Ç∑ÅD	*/
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- { ---------- */
+				/* HWS ≈ÇD	*/
+/* added 2009.08.20 hmenjo XgX@\«â(46) ---------- { ---------- */
 				CString l_strStatBar; l_strStatBar.Format(IDS_CHIF_STRS_STAPOS_MOVING, m_dwLineNo);
 				((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(l_strStatBar);  // Status Bar
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- } ---------- */
+/* added 2009.08.20 hmenjo XgX@\«â(46) ---------- } ---------- */
 				::Sleep(STRS_HWS_TIME);
-				m_dwLineMoveToStartPos = 1;		/* à⁄ìÆíÜ	*/
+				m_dwLineMoveToStartPos = 1;		/* ⁄ì	*/
 				this->TransiEvent(EV_STRS_LINEMOVE_DONE, (cEventParams*) EV_STRS_LINEMOVE_DONE);
 			} else
 			// 2009.08.27 K.Matsuo -->
 			if (0 == NS_SampleCoordStageMoveAbsoluteEx(&l_SetPosition, l_szMainRcpName, HEAD_TYPE_STRESS)) {
 			// 2009.08.27 K.Matsuo <--
-				/* à⁄ìÆäJéné∏îs	*/
-				((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		/* ìÆçÏíÜÉtÉâÉO(XY ÉXÉeÅ[ÉW)ÇÉIÉt	*/
+				/* ⁄ìJns	*/
+				((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		/* ÏíÜtO(XY Xe[W)It	*/
 				((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(9, CHRAMSG_OK)), MAKELPARAM(0, ALID_MeasurementPointMoveFailed));
 				((CChiefView*) m_pcChiefView)->LogChief(_T("Failed to move to line start position."));
-				/* ÉLÉÉÉìÉZÉãÇÉ|ÉXÉg	*/
+				/* LZ|Xg	*/
 				l_bCancelReq = TRUE;
 				l_dwErrCode = TR_STRS_LINEMOVE_FAIL;
 			} else {
-				/* à⁄ìÆäJénê¨å˜	*/
-				m_dwLineMoveToStartPos = 1;		/* à⁄ìÆíÜ	*/
-				((CChiefView*) m_pcChiefView)->m_dwStageMoveState = 73;	/* ÉâÉCÉììÆçÏ à⁄ìÆíÜ	*/
-/* modified 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- { ---------- */
+				/* ⁄ìJn	*/
+				m_dwLineMoveToStartPos = 1;		/* ⁄ì	*/
+				((CChiefView*) m_pcChiefView)->m_dwStageMoveState = 73;	/* C ⁄ì	*/
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ---------- { ---------- */
 //				((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_STRS_STAPOS_MOVING);	// Status Bar
-/* modified 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ----------			   */
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ----------			   */
 				CString l_strStatBar; l_strStatBar.Format(IDS_CHIF_STRS_STAPOS_MOVING, m_dwLineNo);
 				((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(l_strStatBar);  // Status Bar
-/* modified 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- } ---------- */
-				((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		/* ìÆçÏíÜÉtÉâÉO(XY ÉXÉeÅ[ÉW)ÇÉIÉì	*/
-				/* WAIT èÛë‘Ç…Ç∑ÇÈÇΩÇﬂèàóùÇÕÇ†ÇËÇ‹ÇπÇÒÅD	*/
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ---------- } ---------- */
+				((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		/* ÏíÜtO(XY Xe[W)I	*/
+				/* WAIT ‘Ç…ÇÈÇΩﬂèÕÇ‹ÇD	*/
 			}
-/* added 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(51) ---------- { ---------- */
+/* added 2009.08.21 hmenjo XgX@\«â(51) ---------- { ---------- */
 			}
-/* added 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(51) ---------- } ---------- */
+/* added 2009.08.21 hmenjo XgX@\«â(51) ---------- } ---------- */
 		}
 	} else if ((0 != m_bHepaStopped) && (2 == m_dwLineMoveToStartPos)) {
-		/* HEPA í‚é~çœ Åï à⁄ìÆçœ	*/
+		/* HEPA ~  ⁄ì	*/
 		m_dwLineMoveToStartPos = 0;
-		/* ÉgÉâÉìÉWÉVÉáÉìçXêV	*/
+		/* gWVXV	*/
 		this->TransiEvent(EV_STRS_TO_LMENDPOS);
 	} else {
-		/* WAIT èÛë‘Ç…Ç∑ÇÈÇΩÇﬂèàóùÇÕÇ†ÇËÇ‹ÇπÇÒÅD	*/
+		/* WAIT ‘Ç…ÇÈÇΩﬂèÕÇ‹ÇD	*/
 	}
 
-	/* ÉLÉÉÉìÉZÉãèàóù(Ç†ÇÍÇŒÅEÅEÅE)	*/
+	/* LZ(ŒÅEEE)	*/
 	if (TRUE == l_bCancelReq) {
 		m_dwLineMoveToStartPos = 0;
 		this->TransiEvent(EV_STRS_CANCEL, (cEventParams*) l_dwErrCode);
@@ -1016,7 +1017,7 @@ void CChiefTransiStress::enter_ST_STRS_LMVSTAPOS(const cEventParams* const pEvPa
 }
 
 /*
- * ÉâÉCÉììÆçÏèIóπà íu à⁄ìÆ & äÆóπë“Çø(WAIT èÛë‘ñ≥ÇµÇÃèÍçáóLÇË)
+ * CI íu ⁄ì & “Ç(WAIT ‘ñÃèÍçáL)
  */
 void CChiefTransiStress::enter_ST_STRS_LMVENDPOS(const cEventParams* const pEvParams)
 {
@@ -1025,107 +1026,107 @@ void CChiefTransiStress::enter_ST_STRS_LMVENDPOS(const cEventParams* const pEvPa
 	BOOL l_bCancelReq = FALSE;
 	DWORD l_dwErrCode = TR_STRS_OK;
 
-	static BOOL ls_bMeasEnd = FALSE;	/* ÇPÉâÉCÉìë™íËäÆóπ(ë™íËÉÇÉWÉÖÅ[ÉãÇÊÇË)	*/
-	static BOOL ls_AnaEndReply = FALSE;		/* ÇPÉâÉCÉìÉfÅ[É^èàóùäÆóπâûìö(ÉfÅ[É^èàóùÉÇÉWÉÖÅ[ÉãÇ©ÇÁ)	*/
+	static BOOL ls_bMeasEnd = FALSE;	/* PCËäÆ(ËÉÇW[)	*/
+	static BOOL ls_AnaEndReply = FALSE;		/* PCf[^(f[^W[)	*/
 
-	/* ÉCÉxÉìÉg É`ÉFÉbÉN	*/
+	/* Cxg `FbN	*/
 	switch (LOWORD(pEvParams)) {
-	case EV_STRS_LINEMOVE_DONE:		/* ÉâÉCÉììÆçÏà⁄ìÆäÆóπ	*/
+	case EV_STRS_LINEMOVE_DONE:		/* C⁄ì	*/
 		if (1 == m_dwLineMoveToEndPos) {
-			m_dwLineMoveToEndPos = 2;		/* à⁄ìÆçœ	*/
+			m_dwLineMoveToEndPos = 2;		/* ⁄ì	*/
 		}
-/* added 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(53) ---------- { ---------- */
+/* added 2009.08.21 hmenjo XgX@\«â(53) ---------- { ---------- */
 		if ((1 == m_dwLineMoveToStartPos) && (TRUE == m_bPreMoving)) {
-			/* êÊçsà⁄ìÆÇÃäÆóπ	*/
+			/* s⁄ìÃä	*/
 			m_dwLineMoveToStartPos = 2;
 		}
-/* added 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(53) ---------- } ---------- */
+/* added 2009.08.21 hmenjo XgX@\«â(53) ---------- } ---------- */
 		break;
-	case EV_STRS_LINEMEAS_DONE:		/* ÇPÉâÉCÉìë™íËäÆóπ	*/
+	case EV_STRS_LINEMEAS_DONE:		/* PCËäÆ	*/
 		ls_bMeasEnd = TRUE;
 		if (0 != HIWORD(pEvParams)) {
-			/* àŸèÌí ímÇ≈ÇµÇΩÅD	*/
+			/* Ÿè ím≈ÇD	*/
 			((CChiefView*) m_pcChiefView)->LogChief(_T("Measurement was failure.."));
 			((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(9, CHRAMSG_OK)), MAKELPARAM(0, ALID_MeasurementError));
 			l_bCancelReq = TRUE;
 			l_dwErrCode = TR_STRS_MEASEND_ERR;
 		} else {
-			/* ÅuÉfÅ[É^èàóùÉÇÉWÉÖÅ[ÉãÅvÇ÷ÇPÉâÉCÉìë™íËäÆóπÇí ímÇµÇ‹Ç∑ÅD	*/
+			/* uf[^W[v÷ÇPCËäÆ ím‹ÇD	*/
 			((CChiefView*) m_pcChiefView)->m_pcMainFrame->PostMessage(WM_CHIF_LINE_END, m_dwLineNo, m_iMeasMode);
 			((CChiefView*) m_pcChiefView)->LogChief(_T("Notify WM_CHIF_LINE_END to Data module."));
 		}
 		break;
-	case EV_STRS_LINEDATA_DONE:		/* ÇPÉâÉCÉìÉfÅ[É^èàóùäÆóπâûìö	*/
+	case EV_STRS_LINEDATA_DONE:		/* PCf[^	*/
 		ls_AnaEndReply = TRUE;
 		break;
 	default:
-		;	/* âΩÇ‡ÇµÇ‹ÇπÇÒÅD	*/
+		;	/* ‹ÇD	*/
 		break;
 	}
 
 	if (TRUE != l_bCancelReq) {
 		if (0 == m_dwLineMoveToEndPos) {
 			if (TRUE == m_bPause) {
-				/* É|Å[ÉYéwóﬂóLÇ¡ÇΩÅD	*/
+				/* |[YwﬂóLD	*/
 				m_iPausePreState = ST_STRS_LMVENDPOS;
-/* modified 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(49) ---------- { ---------- */
+/* modified 2009.08.20 hmenjo XgX@\«â(49) ---------- { ---------- */
 //				this->TransiEvent(EV_STRS_PAUSE);
-/* modified 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(49) ----------			   */
+/* modified 2009.08.20 hmenjo XgX@\«â(49) ----------			   */
 				Event(EV_STRS_PAUSE);
-/* modified 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(49) ---------- } ---------- */
+/* modified 2009.08.20 hmenjo XgX@\«â(49) ---------- } ---------- */
 				return;
 			}
-			/* ÉâÉCÉììÆçÏäJénà íuÇ÷à⁄ìÆ	*/
-/* modified 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- { ---------- */
+			/* CJn íu÷à⁄ì	*/
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ---------- { ---------- */
 //			if (0 == nexioIsPinAlignmentPos()) {
-/* modified 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ----------			   */
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ----------			   */
 			if (0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bPinAlign) {
-/* modified 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- } ---------- */
-				/* ÉsÉìÇ™ÉAÉâÉCÉÅÉìÉgà íuÇ≈Ç»Ç©Ç¡ÇΩÅD	*/
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ---------- } ---------- */
+				/* sACg íu≈Ç»ÇD	*/
 				((CChiefView*) m_pcChiefView)->LogChief(_T("Not Lifter is alignment position."));
 				((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(9, CHRAMSG_OK)), MAKELPARAM(0, ALID_LifterLowestPositionSensorOff));
-				/* ÉLÉÉÉìÉZÉãÇÉ|ÉXÉg	*/
+				/* LZ|Xg	*/
 				l_bCancelReq = TRUE;
 				l_dwErrCode = TR_STRS_NO_PIN_ALIGN;
 			} else if (0 == nexioIsRetractPosZ()) {
-				/* ÉXÉgÉåÉXóp Z é≤à íuÇ≈Ç»Ç©Ç¡ÇΩÅD	*/
+				/* XgXp Z  íu≈Ç»ÇD	*/
 				((CChiefView*) m_pcChiefView)->LogChief(_T("Z retract position is Invalid."));
 				((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(9, CHRAMSG_OK)), MAKELPARAM(0, ALID_Z_PositionRetractFailed));
-				/* ÉLÉÉÉìÉZÉãÇÉ|ÉXÉg	*/
+				/* LZ|Xg	*/
 				l_bCancelReq = TRUE;
 				l_dwErrCode = TR_STRS_NO_ZPOS;
 			} else {
-				/* ÅuÉfÅ[É^èàóùÉÇÉWÉÖÅ[ÉãÅvÇ÷ÉâÉCÉììÆçÏäJénÇí ímÇµÇ‹Ç∑ÅD	*/
+				/* uf[^W[v÷ÉCJn ím‹ÇD	*/
 				((CChiefView*) m_pcChiefView)->LogChief(_T("Start Measurement."));
 				((CChiefView*) m_pcChiefView)->m_pcMainFrame->PostMessage(WM_CHIF_LINE_START, m_dwLineNo, m_iMeasMode);
-				/* Åuë™íËÉÇÉWÉÖÅ[ÉãÅvÇ÷ÉâÉCÉììÆçÏäJénÇí ímÇµÇ‹Ç∑ÅD	*/
+				/* uËÉÇW[v÷ÉCJn ím‹ÇD	*/
 				BOOL l_bRet = MEAS_StressMeasure(m_dwLineNo);
 				if (TRUE != l_bRet) {
-					/* Åuë™íËÉÇÉWÉÖÅ[ÉãÅväJénÉGÉâÅ[Ç≈ÇµÇΩÅD	*/
+					/* uËÉÇW[vJnG[≈ÇD	*/
 					((CChiefView*) m_pcChiefView)->LogChief(_T("Failed to run MEAS_StressMeasure()."));
 					((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(9, CHRAMSG_OK)), MAKELPARAM(0, ALID_MeasurementError));
-					/* ÉLÉÉÉìÉZÉãÇÉ|ÉXÉg	*/
+					/* LZ|Xg	*/
 					l_bCancelReq = TRUE;
 					l_dwErrCode = TR_STRS_MEASSTA_FAIL;
 				} else {
-					/* ÉâÉCÉìç¿ïWÇì«èoÇµ	*/
+					/* CW«èo	*/
 					STAGE_COORD l_SetPosition;
 					STRESS_CONFIG l_StressConfig;
 					ConfigFile_GetNanoSpecIni(&l_StressConfig, CONFIG_FILE_STRESS_CONFIG);
-					l_SetPosition.lX = l_StressConfig.lLineEndPosX;		/* ÉâÉCÉììÆçÏèIóπç¿ïW X	*/
-					/* ë™íËë¨ìx ê›íË [mm/s]=[um/ms]	*/
+					l_SetPosition.lX = l_StressConfig.lLineEndPosX;		/* CIW X	*/
+					/* Ëë¨x ›í [mm/s]=[um/ms]	*/
 					NS_SetStageSpeed(l_StressConfig.dwScanSpeed);
 					LPSTAGE_PROG_STRESS l_pStageProgStress = (LPSTAGE_PROG_STRESS) ((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pStageProgStress;
-/* modified 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(51) ---------- { ---------- */
-///* modified 2009.08.18 hmenjo STRESS_LINESECTION çÌèú ---------- { ---------- */
-////					l_SetPosition.lY = l_pStageProgStress->Line[m_dwLineNo - 1].LineSec.SectPos[0].lScanPosY;	/* ÉâÉCÉììÆçÏäJénç¿ïW Y	*/
-////																					/*	ÉZÉNÉVÉáÉìÇPÇÃ Y ç¿ïWÇégÇ¢Ç‹Ç∑ÅD	*/
-///* modified 2009.08.18 hmenjo STRESS_LINESECTION çÌèú ----------				*/
-//					l_SetPosition.lY = l_pStageProgStress->Line[m_dwLineNo - 1].SectPos[0].lScanPosY;	/* ÉâÉCÉììÆçÏäJénç¿ïW Y	*/
-//																					/*	ÉZÉNÉVÉáÉìÇPÇÃ Y ç¿ïWÇégÇ¢Ç‹Ç∑ÅD	*/
-///* modified 2009.08.18 hmenjo STRESS_LINESECTION çÌèú ---------- } ---------- */
-/* modified 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(51) ----------			   */
-					for (int i = 0; i < l_StressConfig.Line[m_dwLineNo - 1].dwSectionNum; i++) {
+/* modified 2009.08.21 hmenjo XgX@\«â(51) ---------- { ---------- */
+///* modified 2009.08.18 hmenjo STRESS_LINESECTION Ìèú ---------- { ---------- */
+////					l_SetPosition.lY = l_pStageProgStress->Line[m_dwLineNo - 1].LineSec.SectPos[0].lScanPosY;	/* CJnW Y	*/
+////																					/*	ZNVP Y Wg‹ÇD	*/
+///* modified 2009.08.18 hmenjo STRESS_LINESECTION Ìèú ----------				*/
+//					l_SetPosition.lY = l_pStageProgStress->Line[m_dwLineNo - 1].SectPos[0].lScanPosY;	/* CJnW Y	*/
+//																					/*	ZNVP Y Wg‹ÇD	*/
+///* modified 2009.08.18 hmenjo STRESS_LINESECTION Ìèú ---------- } ---------- */
+/* modified 2009.08.21 hmenjo XgX@\«â(51) ----------			   */
+					for (i = 0; i < l_StressConfig.Line[m_dwLineNo - 1].dwSectionNum; i++) {
 						if (0 != l_pStageProgStress->Line[m_dwLineNo - 1].bScanValid[i]) {
 							break;
 						}
@@ -1135,61 +1136,61 @@ void CChiefTransiStress::enter_ST_STRS_LMVENDPOS(const cEventParams* const pEvPa
 						_stprintf(l_tszLog, _T("No Sections in Line No.%d."), m_dwLineNo);
 						((CChiefView*) m_pcChiefView)->LogChief(l_tszLog);
 						((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(9, CHRAMSG_OK)), MAKELPARAM(0, ALID_MeasurementPointMoveFailed));
-						/* ÉLÉÉÉìÉZÉãÇÉ|ÉXÉg	*/
+						/* LZ|Xg	*/
 						l_bCancelReq = TRUE;
 						l_dwErrCode = TR_STRS_NOSECTION;
 					} else {
-					l_SetPosition.lY = l_pStageProgStress->Line[m_dwLineNo - 1].SectPos[i].lScanPosY;	/* ÉâÉCÉììÆçÏäJénç¿ïW Y	*/
-/* modified 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(51) ---------- } ---------- */
+					l_SetPosition.lY = l_pStageProgStress->Line[m_dwLineNo - 1].SectPos[i].lScanPosY;	/* CJnW Y	*/
+/* modified 2009.08.21 hmenjo XgX@\«â(51) ---------- } ---------- */
 					TCHAR l_tszLogText[256];
-/* modified 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(51) ---------- { ---------- */
+/* modified 2009.08.21 hmenjo XgX@\«â(51) ---------- { ---------- */
 //					_stprintf(l_tszLogText, _T("Stage is moving to Line No.%3d end position."), m_dwLineNo);
-/* modified 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(51) ----------			   */
+/* modified 2009.08.21 hmenjo XgX@\«â(51) ----------			   */
 					_stprintf(l_tszLogText, _T("Stage is moving to Line No.%3d end position. [%10d, %10d]"), m_dwLineNo, l_SetPosition.lX, l_SetPosition.lY);
-/* modified 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(51) ---------- } ---------- */
+/* modified 2009.08.21 hmenjo XgX@\«â(51) ---------- } ---------- */
 					((CChiefView*) m_pcChiefView)->LogChief(l_tszLogText);
 					TCHAR l_szMainRcpName[256];
 					((CChiefView*) m_pcChiefView)->GetCurrentMainRecipeName(l_szMainRcpName);
 					if (0 != ((CChiefView*) m_pcChiefView)->IsHWS()) {
-						/* HWS Ç≈Ç∑ÅD	*/
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- { ---------- */
+						/* HWS ≈ÇD	*/
+/* added 2009.08.20 hmenjo XgX@\«â(46) ---------- { ---------- */
 						CString l_strStatBar; l_strStatBar.Format(IDS_CHIF_STRS_ENDPOS_MOVING, m_dwLineNo);
 						((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(l_strStatBar);  // Status Bar
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- } ---------- */
+/* added 2009.08.20 hmenjo XgX@\«â(46) ---------- } ---------- */
 						::Sleep(STRS_HWS_TIME);
-						m_dwLineMoveToEndPos = 1;		/* à⁄ìÆíÜ	*/
+						m_dwLineMoveToEndPos = 1;		/* ⁄ì	*/
 						this->TransiEvent(EV_STRS_LINEMOVE_DONE, (cEventParams*) EV_STRS_LINEMOVE_DONE);
 					} else
 					// 2009.08.27 K.Matsuo -->
 					if (0 == NS_SampleCoordStageMoveAbsoluteEx(&l_SetPosition, l_szMainRcpName, HEAD_TYPE_STRESS)) {
 					// 2009.08.27 K.Matsuo <--
-						/* à⁄ìÆäJéné∏îs	*/
-						((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		/* ìÆçÏíÜÉtÉâÉO(XY ÉXÉeÅ[ÉW)ÇÉIÉt	*/
+						/* ⁄ìJns	*/
+						((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		/* ÏíÜtO(XY Xe[W)It	*/
 						((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(9, CHRAMSG_OK)), MAKELPARAM(0, ALID_MeasurementPointMoveFailed));
 						((CChiefView*) m_pcChiefView)->LogChief(_T("Failed to move to line end position."));
-						/* ÉLÉÉÉìÉZÉãÇÉ|ÉXÉg	*/
+						/* LZ|Xg	*/
 						l_bCancelReq = TRUE;
 						l_dwErrCode = TR_STRS_LINEMOVE_FAIL;
 					} else {
-						/* à⁄ìÆäJénê¨å˜	*/
-						m_dwLineMoveToEndPos = 1;		/* à⁄ìÆíÜ	*/
-						((CChiefView*) m_pcChiefView)->m_dwStageMoveState = 73;	/* ÉâÉCÉììÆçÏ à⁄ìÆíÜ	*/
-/* modified 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- { ---------- */
+						/* ⁄ìJn	*/
+						m_dwLineMoveToEndPos = 1;		/* ⁄ì	*/
+						((CChiefView*) m_pcChiefView)->m_dwStageMoveState = 73;	/* C ⁄ì	*/
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ---------- { ---------- */
 //						((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_STRS_ENDPOS_MOVING);	// Status Bar
-/* modified 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ----------			   */
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ----------			   */
 						CString l_strStatBar; l_strStatBar.Format(IDS_CHIF_STRS_ENDPOS_MOVING, m_dwLineNo);
 						((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(l_strStatBar);  // Status Bar
-/* modified 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- } ---------- */
-						((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		/* ìÆçÏíÜÉtÉâÉO(XY ÉXÉeÅ[ÉW)ÇÉIÉì	*/
-						/* WAIT èÛë‘Ç…Ç∑ÇÈÇΩÇﬂèàóùÇÕÇ†ÇËÇ‹ÇπÇÒÅD	*/
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ---------- } ---------- */
+						((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		/* ÏíÜtO(XY Xe[W)I	*/
+						/* WAIT ‘Ç…ÇÈÇΩﬂèÕÇ‹ÇD	*/
 					}
-/* added 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(51) ---------- { ---------- */
+/* added 2009.08.21 hmenjo XgX@\«â(51) ---------- { ---------- */
 					}
-/* added 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(51) ---------- } ---------- */
+/* added 2009.08.21 hmenjo XgX@\«â(51) ---------- } ---------- */
 				}
 			}
 		} else if ((2 == m_dwLineMoveToEndPos) && (TRUE == ls_bMeasEnd) && (TRUE == ls_AnaEndReply)) {
-			/* à⁄ìÆçœ Åï ë™íËçœ Åï ÉfÅ[É^èàóùçœ	*/
+			/* ⁄ì    f[^	*/
 			m_dwLineMoveToEndPos = 0;
 			ls_bMeasEnd = FALSE;
 			ls_AnaEndReply = FALSE;
@@ -1198,34 +1199,34 @@ void CChiefTransiStress::enter_ST_STRS_LMVENDPOS(const cEventParams* const pEvPa
 			DWORD l_dwLineNo = m_dwLineNo + 1;
 			if ((l_StressConfig.dwLiftPinNumberOfLine <= m_dwLineNo)
 			 || (l_StressConfig.dwLiftPinNumberOfLine < ((CChiefView*) m_pcChiefView)->GetNextLineNo(&l_dwLineNo))) {
-				/* ç≈èIÉâÉCÉìî‘çÜÇæÇ¡ÇΩÇÃÇ≈ëSèIóπ	*/
-				/* ÉgÉâÉìÉWÉVÉáÉìçXêV	*/
-				NS_RestoreStageSpeed();	/* ë¨ìxÇñﬂÇµÇ‹Ç∑ÅD	*/
+				/* ≈èIC‘çÃÇ≈ëSI	*/
+				/* gWVXV	*/
+				NS_RestoreStageSpeed();	/* xﬂÇ‹ÇD	*/
 				this->TransiEvent(EV_STRS_LINE_ALLDONE);
 			} else {
-//				/* É|Å[ÉYÉ`ÉFÉbÉN	*/
-//				if (0) {	/* É|Å[ÉYånÇÃÉfÉoÉbÉOèIóπå„ÅCñ{ìñÇ…ïsóvÇ»ÇÁçÌèúÇ∑ÇÈÇ±Ç∆ÅD	*/
+//				/* |[Y`FbN	*/
+//				if (0) {	/* |[YnÃÉfobOIC{…ïsv»ÇÌèúÈÇ±∆ÅD	*/
 //					/**/
 //				} else {
-					/* éüÇÃÉâÉCÉìÇ÷	*/
-/* added 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(53) ---------- { ---------- */
+					/* ÃÉC	*/
+/* added 2009.08.21 hmenjo XgX@\«â(53) ---------- { ---------- */
 					if ((2 == m_dwLineMoveToStartPos) && (TRUE == m_bPreMoving)) {
 						m_bPreMoving = FALSE;
-						/* ÉâÉCÉìî‘çÜÇçXêV	*/
+						/* C‘çXV	*/
 						m_dwLineNo++;
 						((CChiefView*) m_pcChiefView)->GetNextLineNo(&m_dwLineNo);
 					}
-/* added 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(53) ---------- } ---------- */
-					/* ÉgÉâÉìÉWÉVÉáÉìçXêV	*/
+/* added 2009.08.21 hmenjo XgX@\«â(53) ---------- } ---------- */
+					/* gWVXV	*/
 					this->TransiEvent(EV_STRS_LINE_NEXT);
 //				}
 			}
 		} else {
-			/* WAIT èÛë‘Ç…Ç∑ÇÈÇΩÇﬂèàóùÇÕÇ†ÇËÇ‹ÇπÇÒÅD	*/
+			/* WAIT ‘Ç…ÇÈÇΩﬂèÕÇ‹ÇD	*/
 		}
 	}
 
-	/* ÉLÉÉÉìÉZÉãèàóù(Ç†ÇÍÇŒÅEÅEÅE)	*/
+	/* LZ(ŒÅEEE)	*/
 	if (TRUE == l_bCancelReq) {
 		m_dwLineMoveToEndPos = 0;
 		ls_bMeasEnd = FALSE;
@@ -1235,181 +1236,181 @@ void CChiefTransiStress::enter_ST_STRS_LMVENDPOS(const cEventParams* const pEvPa
 }
 
 /*
- * äÆóπå„ ÉçÅ[Éh Pos äÆóπë“Çø(WAIT èÛë‘ñ≥ÇµÇÃèÍçáóLÇË)
+ *  [h Pos “Ç(WAIT ‘ñÃèÍçáL)
  */
 void CChiefTransiStress::enter_ST_STRS_COMPLDPOS(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_STRS_DISP[9], (DWORD) pEvParams);
 
-	((CChiefView*) m_pcChiefView)->SentMeasPause(0, TRUE);	// É|Å[ÉYâèúí ím
+	((CChiefView*) m_pcChiefView)->SentMeasPause(0, TRUE);	// |[Y ím
 
-	m_bMeasStress = FALSE;	/* ÉXÉgÉåÉXë™íËíÜ âèú	*/
+	m_bMeasStress = FALSE;	/* XgXËíÜ 	*/
 
 // 2009.08.22 K.Matsuo -->
-	/* ÉCÉxÉìÉgÉ`ÉFÉbÉN	*/
+	/* Cxg`FbN	*/
 	switch (LOWORD(pEvParams)) {
-	case EV_STRS_COMPLETE:	/* ÇPñáë™íËäÆóπ âûìö	*/
+	case EV_STRS_COMPLETE:	/* PËäÆ 	*/
 		m_bCompleted = TRUE;
 		((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_SEQ_DATA_PROC_COMPLETE);	// Status Bar
 //		break;
 		return;
 	default:
-		;	/* âΩÇ‡ÇµÇ‹ÇπÇÒÅD	*/
+		;	/* ‹ÇD	*/
 		break;
 	}
 // 2009.08.22 K.Matsuo <--
 
 	if (TRUE != m_bCompleted) {
-		/* ÅuÉfÅ[É^èàóùÉÇÉWÉÖÅ[ÉãÅvÇ÷ÇPñáë™íËäÆóπÇí ím	*/
+		/* uf[^W[v÷ÇPËäÆ ím	*/
 		((CChiefView*) m_pcChiefView)->m_pcMainFrame->PostMessage(WM_CHIF_STRS_MEAS_END, 0, m_iMeasMode);
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- { ---------- */
+/* added 2009.08.20 hmenjo XgX@\«â(46) ---------- { ---------- */
 		((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_SEQ_DATA_PROCING);  // Status Bar
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- } ---------- */
+/* added 2009.08.20 hmenjo XgX@\«â(46) ---------- } ---------- */
 		((CChiefView*) m_pcChiefView)->LogChief(_T("Notify WM_CHIF_STRS_MEAS_END to Data module."));
 	}
 
-	/* ÉçÅ[Éh Pos Ç÷à⁄ìÆ -------------------------------------- */
+	/* [h Pos ÷à⁄ì -------------------------------------- */
 	((CChiefView*) m_pcChiefView)->LogChief(_T("Stage is moving to LD Pos. (after-meas)"));
 	if (0 != ((CChiefView*) m_pcChiefView)->IsHWS()) {
-		/* HWS Ç≈Ç∑ÅD	*/
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- { ---------- */
+		/* HWS ≈ÇD	*/
+/* added 2009.08.20 hmenjo XgX@\«â(46) ---------- { ---------- */
 		((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_HLDPOS_MOVING);  // Status Bar
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- } ---------- */
+/* added 2009.08.20 hmenjo XgX@\«â(46) ---------- } ---------- */
 		::Sleep(STRS_HWS_TIME);
 		this->TransiEvent(EV_STRS_LDPOS_DONE);
 	} else
 	if (0 == this->MoveToLdPos()) {
-		/* à⁄ìÆäJéné∏îs	*/
-		((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		/* ìÆçÏíÜÉtÉâÉO(XY ÉXÉeÅ[ÉW)ÇÉIÉt	*/
+		/* ⁄ìJns	*/
+		((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		/* ÏíÜtO(XY Xe[W)It	*/
 		((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(9, CHRAMSG_OK)), MAKELPARAM(0, ALID_LoadPositionMoveStartFailed));
 		((CChiefView*) m_pcChiefView)->LogChief(_T("Failed to move to LD Pos. (after-meas)"));
-		/* éüÇÃÉgÉâÉìÉWÉVÉáÉìÇ÷(ÉçÅ[Éh Pos Ç÷à⁄ìÆÇπÇ∏Ç…)	*/
+		/* ÃÉgWV([h Pos ÷à⁄ì)	*/
 		this->TransiEvent(EV_STRS_LDPOS_DONE);
 	} else {
-		/* à⁄ìÆäJénê¨å˜	*/
-		((CChiefView*) m_pcChiefView)->m_dwStageMoveState = 72;	/* ÉnÉìÉhÉâ ÉçÅ[Éh É|ÉWÉVÉáÉì à⁄ìÆíÜ	*/
+		/* ⁄ìJn	*/
+		((CChiefView*) m_pcChiefView)->m_dwStageMoveState = 72;	/* nh [h |WV ⁄ì	*/
 		((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_HLDPOS_MOVING);  // Status Bar
-		((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		/* ìÆçÏíÜÉtÉâÉO(XY ÉXÉeÅ[ÉW)ÇÉIÉì	*/
-		/* WAIT èÛë‘Ç…Ç∑ÇÈÇΩÇﬂèàóùÇÕÇ†ÇËÇ‹ÇπÇÒÅD	*/
+		((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		/* ÏíÜtO(XY Xe[W)I	*/
+		/* WAIT ‘Ç…ÇÈÇΩﬂèÕÇ‹ÇD	*/
 	}
 }
 
 /*
- * äÆóπå„ ÉsÉì É_ÉEÉì & Complete ë“Çø(WAIT èÛë‘ñ≥ÇµÇÃèÍçáóLÇË)
+ *  s _E & Complete “Ç(WAIT ‘ñÃèÍçáL)
  */
 void CChiefTransiStress::enter_ST_STRS_PINDOWNCOMP(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_STRS_DISP[10], (DWORD) pEvParams);
 
-	static BOOL ls_bPinDown = FALSE;	/* ÉsÉìÉ_ÉEÉì	*/
+	static BOOL ls_bPinDown = FALSE;	/* s_E	*/
 
-	/* ÉCÉxÉìÉgÉ`ÉFÉbÉN	*/
+	/* Cxg`FbN	*/
 	switch (LOWORD(pEvParams)) {
-	case EV_STRS_COMPLETE:	/* ÇPñáë™íËäÆóπ âûìö	*/
+	case EV_STRS_COMPLETE:	/* PËäÆ 	*/
 		m_bCompleted = TRUE;
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- { ---------- */
+/* added 2009.08.20 hmenjo XgX@\«â(46) ---------- { ---------- */
 		((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_SEQ_DATA_PROC_COMPLETE);	// Status Bar
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- } ---------- */
+/* added 2009.08.20 hmenjo XgX@\«â(46) ---------- } ---------- */
 		break;
-	case EV_STRS_PIN_DONE:	/* ÉsÉìÉ_ÉEÉìäÆóπ	*/
-/* added 2009.10.19 hmenjo Stress ÉgÉâÉìÉWÉVÉáÉìÉeÅ[ÉuÉãí«â¡ ---------- { ---------- */
-	case TR_STRS_PINMOVE_FAIL:	/* ÉsÉìé∏îs	*/
-/* added 2009.10.19 hmenjo Stress ÉgÉâÉìÉWÉVÉáÉìÉeÅ[ÉuÉãí«â¡ ---------- } ---------- */
+	case EV_STRS_PIN_DONE:	/* s_E	*/
+/* added 2009.10.19 hmenjo Stress gWVe[u«â ---------- { ---------- */
+	case TR_STRS_PINMOVE_FAIL:	/* ss	*/
+/* added 2009.10.19 hmenjo Stress gWVe[u«â ---------- } ---------- */
 		ls_bPinDown = TRUE;
 		break;
 	default:
-		;	/* âΩÇ‡ÇµÇ‹ÇπÇÒÅD	*/
+		;	/* ‹ÇD	*/
 		break;
 	}
 
 	if ((TRUE == ls_bPinDown) && (TRUE == m_bCompleted)) {
-		/* ÉsÉìÉ_ÉEÉì Åï ÇPñáë™íËäÆóπ âûìö	*/
+		/* s_E  PËäÆ 	*/
 		m_bCompleted = FALSE;
 		ls_bPinDown = FALSE;
-		/* ÉgÉâÉìÉWÉVÉáÉìçXêV	*/
+		/* gWVXV	*/
 		this->TransiEvent(EV_STRS_PINCMP_DONE);
 	} else if (TRUE != ls_bPinDown) {
-		/* ÉsÉìÉ_ÉEÉìÇ≈Ç»Ç¢ÇÃÇ≈ÅCÉsÉìÇâ∫ç~í[Ç÷à⁄ìÆ	*/
+		/* s_E≈Ç»ÇÃÇ≈ÅCs~[÷à⁄ì	*/
 		if (0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bLoadPos) {
-			/* ÉçÅ[ÉhÉ|ÉWÉVÉáÉìÇ≈ÇÕÇ»Ç©Ç¡ÇΩÅD	*/
+			/* [h|WV≈ÇÕÇ»ÇD	*/
 			((CChiefView*) m_pcChiefView)->LogChief(_T("Not LD position."));
 			((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(9, CHRAMSG_OK)), MAKELPARAM(0, ALID_LifterMoveStartFailed));
-			/* ÉsÉìÉ_ÉEÉìèoóàÇ»Ç¢ÇÃÇ≈ÅCéüÇÃÉgÉâÉìÉWÉVÉáÉìÇ÷(ÉsÉìÉ_ÉEÉìÇπÇ∏Ç…)	*/
+			/* s_Eo»ÇÃÇ≈ÅCÃÉgWV(s_E)	*/
 			this->TransiEvent(EV_STRS_PINCMP_DONE);
 		} else {
 			BOOL l_bNexResult;
 			if (0 != ((CChiefView*) m_pcChiefView)->IsHWS()) {
-				/* HWS Ç≈Ç∑ÅD	*/
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- { ---------- */
+				/* HWS ≈ÇD	*/
+/* added 2009.08.20 hmenjo XgX@\«â(46) ---------- { ---------- */
 		((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_STRS_LIFT_LOWER);  // Status Bar
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- } ---------- */
+/* added 2009.08.20 hmenjo XgX@\«â(46) ---------- } ---------- */
 				::Sleep(STRS_HWS_TIME);
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- { ---------- */
+/* added 2009.08.20 hmenjo XgX@\«â(46) ---------- { ---------- */
 				m_bPinAligning = FALSE;
-/* added 2009.08.20 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- } ---------- */
+/* added 2009.08.20 hmenjo XgX@\«â(46) ---------- } ---------- */
 				this->TransiEvent(EV_STRS_PINCMP_DONE);
 			} else
-/* added 2009.10.19 hmenjo â∫ç~í[Ç≈ÇÕÉsÉìÉ_ÉEÉìÇµÇ»Ç¢ ---------- { ---------- */
+/* added 2009.10.19 hmenjo ~[≈ÇÕÉs_E»Ç ---------- { ---------- */
 			if (0 != ((CChiefView*) m_pcChiefView)->m_DiInfo.bPinDown) {
-				/* ÉsÉìÇ™Ç∑Ç≈Ç…â∫ç~í[Ç»ÇÃÇ≈éüÇÃÉgÉâÉìÉWÉVÉáÉìÇ÷	*/
+				/* s≈Ç…â~[»ÇÃÇ≈éÃÉgWV	*/
 				this->TransiEvent(EV_STRS_PINCMP_DONE);
 			} else
-/* added 2009.10.19 hmenjo â∫ç~í[Ç≈ÇÕÉsÉìÉ_ÉEÉìÇµÇ»Ç¢ ---------- { ---------- */
-/* modified 2009.10.06 hmenjo Stress nexifLoad Ç…ïœçX ---------- { ---------- */
+/* added 2009.10.19 hmenjo ~[≈ÇÕÉs_E»Ç ---------- { ---------- */
+/* modified 2009.10.06 hmenjo Stress nexifLoad …ïœçX ---------- { ---------- */
 //			if (0 == (l_bNexResult = nexifMoveToLower(m_pcChiefView->m_hWnd))) {
-/* modified 2009.10.06 hmenjo Stress nexifLoad Ç…ïœçX ----------			  */
+/* modified 2009.10.06 hmenjo Stress nexifLoad …ïœçX ----------			  */
 			if (0 == (l_bNexResult = nexifLoad(m_pcChiefView->m_hWnd))) {
-/* modified 2009.10.06 hmenjo Stress nexifLoad Ç…ïœçX ---------- } ---------- */
-				/* é∏îs	*/
+/* modified 2009.10.06 hmenjo Stress nexifLoad …ïœçX ---------- } ---------- */
+				/* s	*/
 				((CChiefView*) m_pcChiefView)->LogChief(_T("Failed to move Lifter to lower pos."));
 				((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(9, CHRAMSG_OK)), MAKELPARAM(0, ALID_LifterMoveStartFailed));
-				/* éüÇÃÉgÉâÉìÉWÉVÉáÉìÇ÷(ÉsÉìÉ_ÉEÉìÇπÇ∏Ç…)	*/
+				/* ÃÉgWV(s_E)	*/
 				this->TransiEvent(EV_STRS_PINCMP_DONE);
 			} else {
-				/* ê¨å˜	*/
-				((CChiefView*) m_pcChiefView)->m_dwPinMoveState = 71;	/* ÉsÉìà⁄ìÆíÜ	*/
+				/* 	*/
+				((CChiefView*) m_pcChiefView)->m_dwPinMoveState = 71;	/* s⁄ì	*/
 				((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_PIN, TRUE);
-				/* WAIT èÛë‘Ç…Ç∑ÇÈÇΩÇﬂèàóùÇÕÇ†ÇËÇ‹ÇπÇÒÅD	*/
+				/* WAIT ‘Ç…ÇÈÇΩﬂèÕÇ‹ÇD	*/
 			}
 		}
 	} else {
-		/* WAIT èÛë‘Ç…Ç∑ÇÈÇΩÇﬂèàóùÇÕÇ†ÇËÇ‹ÇπÇÒÅD	*/
+		/* WAIT ‘Ç…ÇÈÇΩﬂèÕÇ‹ÇD	*/
 	}
 }
 
 /*
- * Complete éûä‘ë“Çø(WAIT èÛë‘ñ≥Çµ)
+ * Complete ‘ë“Ç(WAIT ‘ñ)
  */
 void CChiefTransiStress::enter_ST_STRS_COMPLETEDELAY(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_STRS_DISP[11], (DWORD) pEvParams);
 
-/* added 2009.11.26 hmenjo ë™íË Seq ÇÕéwíËÉwÉbÉhÇ≈ìÆçÏ ---------- { ---------- */
-	/* SR ÉwÉbÉhÇ…ñﬂÇµÇ‹Ç∑ÅD	*/
+/* added 2009.11.26 hmenjo  Seq Õéwwbh≈ì ---------- { ---------- */
+	/* SR wbh…ñﬂÇ‹ÇD	*/
 	((CChiefView*) m_pcChiefView)->SelectHead(HEAD_TYPE_SR, FALSE);
-/* added 2009.11.26 hmenjo ë™íË Seq ÇÕéwíËÉwÉbÉhÇ≈ìÆçÏ ---------- } ---------- */
+/* added 2009.11.26 hmenjo  Seq Õéwwbh≈ì ---------- } ---------- */
 
 	if (TRANSI_MASTER == m_dwParentTransi) {((CChiefView*) m_pcChiefView)->ProcStatusSet(PROCESS_COMP);}
 
-	/* HEPA ãNìÆ	*/
+	/* HEPA N	*/
 	((CChiefView*) m_pcChiefView)->HepaOnOff(TRUE);
 
-	/* éûä‘ë“Çø	*/
+	/* ‘ë“Ç	*/
 	::Sleep(TIMER_DELAY_COMPLETE);
 
-/* added 2009.08.18 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- { ---------- */
+/* added 2009.08.18 hmenjo XgX@\«â(46) ---------- { ---------- */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(_T(" "));	// Status Bar
-/* added 2009.08.18 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- } ---------- */
+/* added 2009.08.18 hmenjo XgX@\«â(46) ---------- } ---------- */
 
-	/* ÉgÉâÉìÉWÉVÉáÉìçXêV	*/
+	/* gWVXV	*/
 	TransiEvent(EV_STRS_COMPLETE_DONE);
 
-	/* åƒèoå≥ÉgÉâÉìÉWÉVÉáÉìÇ…äÆóπÇí ím	*/
+	/* ƒèogWV…ä ím	*/
 	((CChiefTransiMaster*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiMaster)->TransiEvent(EV_MAS_SEQ_DONE, TR_STRS_OK);
 }
 
 /*
- * Abort í‚é~ë“Çø(WAIT èÛë‘ñ≥Çµ)
+ * Abort ~“Ç(WAIT ‘ñ)
  */
 void CChiefTransiStress::enter_ST_STRS_WAITABORT(const cEventParams* const pEvParams)
 {
@@ -1419,181 +1420,181 @@ void CChiefTransiStress::enter_ST_STRS_WAITABORT(const cEventParams* const pEvPa
 
 	m_iCancelStat = (DWORD) pEvParams;
 
-	NS_RestoreStageSpeed();	/* ë¨ìxÇñﬂÇµÇ‹Ç∑ÅD	*/
+	NS_RestoreStageSpeed();	/* xﬂÇ‹ÇD	*/
 
 	m_bCancel = FALSE;
 
-	/* É|Å[ÉYâèúí ím	*/
+	/* |[Y ím	*/
 	((CChiefView*) m_pcChiefView)->SentMeasPause(0, TRUE);
 
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_SEQ_CANCELING);	// Status Bar
 
-	/* ë™íËÉÇÉWÉÖÅ[ÉãÇ…ÉLÉÉÉìÉZÉãÇí ím	*/
+	/* ËÉÇW[…ÉLZ ím	*/
 	((CChiefView*) m_pcChiefView)->LogChief(_T("Cancel Measurement."));
 	MEAS_StressCancel();
 
-	/* ÉVÅ[ÉPÉìÉXë™íË ÉgÉâÉìÉWÉVÉáÉìÇí‚é~	*/
+	/* V[PX gWV~	*/
 	BOOL l_bNeedStop = FALSE;
-/* modified 2009.08.18 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- { ---------- */
+/* modified 2009.08.18 hmenjo XgX@\«â(46) ---------- { ---------- */
 //	if (false == ((CChiefTransiStress*) (((CChiefView*) m_pcChiefView)->m_pcChiefTransiStress))->IsIdle()) {
-//		/* ÇPÉ|ÉCÉìÉgë™íË ÉgÉâÉìÉWÉVÉáÉìÇ™ìÆçÏíÜ	*/
+//		/* P|Cg gWVÏíÜ	*/
 //		l_bNeedStop = TRUE;
-//		/* èIóπÇ≥ÇπÇÈ	*/
+//		/* I	*/
 //		((CChiefTransiStress*) (((CChiefView*) m_pcChiefView)->m_pcChiefTransiStress))->TransiEvent(EV_STRS_CANCEL);
 //	}
-/* modified 2009.08.18 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ----------			   */
+/* modified 2009.08.18 hmenjo XgX@\«â(46) ----------			   */
 	if (false == ((CChiefTransiSeq*) (((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq))->IsIdle()) {
-		/* SR ÉVÅ[ÉPÉìÉXë™íË ÉgÉâÉìÉWÉVÉáÉìÇ™ìÆçÏíÜ	*/
+		/* SR V[PX gWVÏíÜ	*/
 		l_bNeedStop = TRUE;
-		/* èIóπÇ≥ÇπÇÈ	*/
+		/* I	*/
 		((CChiefTransiSeq*) (((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq))->TransiEvent(EV_SEQ_CANCEL);
 	}
-/* modified 2009.08.18 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- } ---------- */
+/* modified 2009.08.18 hmenjo XgX@\«â(46) ---------- } ---------- */
 
-	/* é≤Ç™ìÆçÏíÜÇÃèÍçáÇÕÉRÉRÇ≈í‚é~Ç≥ÇπÇ‹Ç∑ÅD	*/
+	/* ÏíÜÃèÍçáÕÉRR≈í~‹ÇD	*/
 	if (0 == NS_IsIdleStageMoveAsync()) {
 		l_bNeedStop = TRUE;	/*hdebdeb20090824*/
-		StageStop();	/* ñﬂÇËílÇÕñ≥éãÇµÇƒÇ¢Ç‹Ç∑ÅD	*/
+		StageStop();	/* ﬂÇlÕñƒÇ‹ÇD	*/
 	}
 
-	((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		/* ìÆçÏíÜÉtÉâÉO(XY ÉXÉeÅ[ÉW)ÇÉIÉt	*/
+	((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		/* ÏíÜtO(XY Xe[W)It	*/
 
 	if (0 != l_bNeedStop) {
-		/* à»â∫ÇÃÇ∑Ç◊ÇƒÇÃÉgÉâÉìÉWÉVÉáÉìÇ™ÉAÉCÉhÉãÇ…Ç»ÇÈÇ‹Ç≈ë“ÇøÇ‹Ç∑ÅD	*/
+		/* »âÃÇ◊ÇƒÇÃÉgWVACh…Ç»Ç‹Ç≈ë“Ç‹ÇD	*/
 		while (
-/* modified 2009.08.18 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- { ---------- */
+/* modified 2009.08.18 hmenjo XgX@\«â(46) ---------- { ---------- */
 //			(false == ((CChiefTransiStress*) (((CChiefView*) m_pcChiefView)->m_pcChiefTransiStress))->IsIdle())
-/* modified 2009.08.18 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ----------			   */
+/* modified 2009.08.18 hmenjo XgX@\«â(46) ----------			   */
 			(false == ((CChiefTransiSeq*) (((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq))->IsIdle())
 		 || (0 == NS_IsIdleStageMoveAsync())	/*hdebdeb20090824*/
-/* modified 2009.08.18 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- } ---------- */
+/* modified 2009.08.18 hmenjo XgX@\«â(46) ---------- } ---------- */
 			) {
 			::Sleep(1);
 		}
 	}
 
-	m_bMeasStress = FALSE;	/* ÉXÉgÉåÉXë™íËíÜ âèú	*/
+	m_bMeasStress = FALSE;	/* XgXËíÜ 	*/
 
-	::Sleep(2000);	/* ÉXÉeÅ[ÉWí‚é~ë“ÇøÇë“Ç¡ÇƒÇ›ÇÈ	*/
+	::Sleep(2000);	/* Xe[W~“Ç“ÇƒÇ›Ç	*/
 
-	/* ÇPñáë™íËèIóπÇ ÉfÅ[É^èàóù Ç÷í ím(àŸèÌ)	*/
+	/* PI f[^ ÷í ím(Ÿè)	*/
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->PostMessage(WM_CHIF_STRS_MEAS_END, 1, m_iMeasMode);
 	((CChiefView*) m_pcChiefView)->LogChief(_T("Notify WM_CHIF_STRS_MEAS_END with NG(or Cancel)."));
 
-	/* ÉgÉâÉìÉWÉVÉáÉìçXêV	*/
+	/* gWVXV	*/
 	TransiEvent(EV_STRS_CANCEL_DONE);
 }
 
 /*
- * Abort å„ ÉçÅ[Éh Pos äÆóπë“Çø(WAIT èÛë‘ñ≥ÇµÇÃèÍçáóLÇË)
+ * Abort  [h Pos “Ç(WAIT ‘ñÃèÍçáL)
  */
 void CChiefTransiStress::enter_ST_STRS_ABORTLDPOS(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_STRS_DISP[13], (DWORD) pEvParams);
 
-	/* ÉçÅ[Éh Pos Ç÷à⁄ìÆ -------------------------------------- */
+	/* [h Pos ÷à⁄ì -------------------------------------- */
 	((CChiefView*) m_pcChiefView)->LogChief(_T("Stage is moving to LD Pos. (abort)"));
 	if (0 != ((CChiefView*) m_pcChiefView)->IsHWS()) {
-		/* HWS Ç≈Ç∑ÅD	*/
+		/* HWS ≈ÇD	*/
 		::Sleep(STRS_HWS_TIME);
 		this->TransiEvent(EV_STRS_LDPOS_DONE);
 	} else
 	if (0 == this->MoveToLdPos()) {
-		/* à⁄ìÆäJéné∏îs	*/
-		((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		/* ìÆçÏíÜÉtÉâÉO(XY ÉXÉeÅ[ÉW)ÇÉIÉt	*/
+		/* ⁄ìJns	*/
+		((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		/* ÏíÜtO(XY Xe[W)It	*/
 		((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(9, CHRAMSG_OK)), MAKELPARAM(0, ALID_LoadPositionMoveStartFailed));
 		((CChiefView*) m_pcChiefView)->LogChief(_T("Failed to move to LD Pos. (abort)"));
-		/* éüÇÃÉgÉâÉìÉWÉVÉáÉìÇ÷(ÉçÅ[Éh Pos Ç÷à⁄ìÆÇπÇ∏Ç…)	*/
+		/* ÃÉgWV([h Pos ÷à⁄ì)	*/
 		this->TransiEvent(EV_STRS_LDPOS_DONE);
 	} else {
-		/* à⁄ìÆäJénê¨å˜	*/
-		((CChiefView*) m_pcChiefView)->m_dwStageMoveState = 72;	/* ÉnÉìÉhÉâ ÉçÅ[Éh É|ÉWÉVÉáÉì à⁄ìÆíÜ	*/
+		/* ⁄ìJn	*/
+		((CChiefView*) m_pcChiefView)->m_dwStageMoveState = 72;	/* nh [h |WV ⁄ì	*/
 		((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_HLDPOS_MOVING);  // Status Bar
-		((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		/* ìÆçÏíÜÉtÉâÉO(XY ÉXÉeÅ[ÉW)ÇÉIÉì	*/
-		/* WAIT èÛë‘Ç…Ç∑ÇÈÇΩÇﬂèàóùÇÕÇ†ÇËÇ‹ÇπÇÒÅD	*/
+		((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		/* ÏíÜtO(XY Xe[W)I	*/
+		/* WAIT ‘Ç…ÇÈÇΩﬂèÕÇ‹ÇD	*/
 	}
 }
 
 /*
- * Abort å„ ÉsÉì É_ÉEÉìë“Çø(WAIT èÛë‘ñ≥ÇµÇÃèÍçáóLÇË)
+ * Abort  s _E“Ç(WAIT ‘ñÃèÍçáL)
  */
 void CChiefTransiStress::enter_ST_STRS_ABORTPINDOWN(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_STRS_DISP[14], (DWORD) pEvParams);
 
-	/* ÉsÉìÇâ∫ç~í[Ç÷à⁄ìÆ	*/
+	/* s~[÷à⁄ì	*/
 	if (0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bLoadPos) {
-		/* ÉçÅ[ÉhÉ|ÉWÉVÉáÉìÇ≈ÇÕÇ»Ç©Ç¡ÇΩÅD	*/
+		/* [h|WV≈ÇÕÇ»ÇD	*/
 		((CChiefView*) m_pcChiefView)->LogChief(_T("Not LD position."));
 		((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(9, CHRAMSG_OK)), MAKELPARAM(0, ALID_LifterMoveStartFailed));
-		/* ÉsÉìÉ_ÉEÉìèoóàÇ»Ç¢ÇÃÇ≈ÅCéüÇÃÉgÉâÉìÉWÉVÉáÉìÇ÷(ÉsÉìÉ_ÉEÉìÇπÇ∏Ç…)	*/
+		/* s_Eo»ÇÃÇ≈ÅCÃÉgWV(s_E)	*/
 		this->TransiEvent(EV_STRS_PIN_DONE);
 	} else {
 		BOOL l_bNexResult;
 		if (0 != ((CChiefView*) m_pcChiefView)->IsHWS()) {
-			/* HWS Ç≈Ç∑ÅD	*/
+			/* HWS ≈ÇD	*/
 			::Sleep(STRS_HWS_TIME);
 			this->TransiEvent(EV_STRS_PIN_DONE);
 		} else
-/* added 2009.10.19 hmenjo â∫ç~í[Ç≈ÇÕÉsÉìÉ_ÉEÉìÇµÇ»Ç¢ ---------- { ---------- */
+/* added 2009.10.19 hmenjo ~[≈ÇÕÉs_E»Ç ---------- { ---------- */
 			if (0 != ((CChiefView*) m_pcChiefView)->m_DiInfo.bPinDown) {
-				/* ÉsÉìÇ™Ç∑Ç≈Ç…â∫ç~í[Ç»ÇÃÇ≈éüÇÃÉgÉâÉìÉWÉVÉáÉìÇ÷	*/
+				/* s≈Ç…â~[»ÇÃÇ≈éÃÉgWV	*/
 				this->TransiEvent(EV_STRS_PIN_DONE);
 			} else
-/* added 2009.10.19 hmenjo â∫ç~í[Ç≈ÇÕÉsÉìÉ_ÉEÉìÇµÇ»Ç¢ ---------- { ---------- */
-/* modified 2009.10.06 hmenjo Stress nexifLoad Ç…ïœçX ---------- { ---------- */
+/* added 2009.10.19 hmenjo ~[≈ÇÕÉs_E»Ç ---------- { ---------- */
+/* modified 2009.10.06 hmenjo Stress nexifLoad …ïœçX ---------- { ---------- */
 //		if (0 == (l_bNexResult = nexifMoveToLower(m_pcChiefView->m_hWnd))) {
-/* modified 2009.10.06 hmenjo Stress nexifLoad Ç…ïœçX ----------			  */
+/* modified 2009.10.06 hmenjo Stress nexifLoad …ïœçX ----------			  */
 		if (0 == (l_bNexResult = nexifLoad(m_pcChiefView->m_hWnd))) {
-/* modified 2009.10.06 hmenjo Stress nexifLoad Ç…ïœçX ---------- } ---------- */
-			/* é∏îs	*/
+/* modified 2009.10.06 hmenjo Stress nexifLoad …ïœçX ---------- } ---------- */
+			/* s	*/
 			((CChiefView*) m_pcChiefView)->LogChief(_T("Failed to move Lifter to lower pos."));
 			((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(9, CHRAMSG_OK)), MAKELPARAM(0, ALID_LifterMoveStartFailed));
-			/* éüÇÃÉgÉâÉìÉWÉVÉáÉìÇ÷(ÉsÉìÉ_ÉEÉìÇπÇ∏Ç…)	*/
+			/* ÃÉgWV(s_E)	*/
 			this->TransiEvent(EV_STRS_PIN_DONE);
 		} else {
-			/* ê¨å˜	*/
-			((CChiefView*) m_pcChiefView)->m_dwPinMoveState = 71;	/* ÉsÉìà⁄ìÆíÜ	*/
+			/* 	*/
+			((CChiefView*) m_pcChiefView)->m_dwPinMoveState = 71;	/* s⁄ì	*/
 			((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_PIN, TRUE);
-			/* WAIT èÛë‘Ç…Ç∑ÇÈÇΩÇﬂèàóùÇÕÇ†ÇËÇ‹ÇπÇÒÅD	*/
+			/* WAIT ‘Ç…ÇÈÇΩﬂèÕÇ‹ÇD	*/
 		}
 	}
 }
 
 /*
- * Abort éûä‘ë“Çø(WAIT èÛë‘ñ≥Çµ)
+ * Abort ‘ë“Ç(WAIT ‘ñ)
  */
 void CChiefTransiStress::enter_ST_STRS_ABORTDELAY(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_STRS_DISP[15], (DWORD) pEvParams);
 
-/* added 2009.11.26 hmenjo ë™íË Seq ÇÕéwíËÉwÉbÉhÇ≈ìÆçÏ ---------- { ---------- */
-	/* SR ÉwÉbÉhÇ…ñﬂÇµÇ‹Ç∑ÅD	*/
+/* added 2009.11.26 hmenjo  Seq Õéwwbh≈ì ---------- { ---------- */
+	/* SR wbh…ñﬂÇ‹ÇD	*/
 	((CChiefView*) m_pcChiefView)->SelectHead(HEAD_TYPE_SR, FALSE);
-/* added 2009.11.26 hmenjo ë™íË Seq ÇÕéwíËÉwÉbÉhÇ≈ìÆçÏ ---------- } ---------- */
+/* added 2009.11.26 hmenjo  Seq Õéwwbh≈ì ---------- } ---------- */
 
-	/* HEPA ãNìÆ	*/
+	/* HEPA N	*/
 	((CChiefView*) m_pcChiefView)->HepaOnOff(TRUE);
 
-	/* éûä‘ë“Çø	*/
+	/* ‘ë“Ç	*/
 	::Sleep(TIMER_DELAY_ABORT);
 
-	/* ë™íËÉLÉÉÉìÉZÉãäÆóπÇ Pif Ç÷ïÒçê	*/
+	/* LZ Pif ÷ï	*/
 	((CChiefView*) m_pcChiefView)->ReportCancelComplete(0);
 
-/* added 2009.08.18 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- { ---------- */
+/* added 2009.08.18 hmenjo XgX@\«â(46) ---------- { ---------- */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(_T(" "));	// Status Bar
-/* added 2009.08.18 hmenjo ÉXÉgÉåÉXã@î\í«â¡(46) ---------- } ---------- */
+/* added 2009.08.18 hmenjo XgX@\«â(46) ---------- } ---------- */
 
-	/* ÉgÉâÉìÉWÉVÉáÉìçXêV	*/
+	/* gWVXV	*/
 	TransiEvent(EV_STRS_ABORT_DONE);
 
-	/* åƒèoå≥ÉgÉâÉìÉWÉVÉáÉìÇ…äÆóπÇí ím	*/
+	/* ƒèogWV…ä ím	*/
 	((CChiefTransiMaster*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiMaster)->TransiEvent(EV_MAS_SEQ_DONE, (cEventParams*) m_iCancelStat);
 }
 
 /*
- * É|Å[ÉYâèúë“Çø(WAIT èÛë‘ñ≥ÇµÇÃèÍçáóLÇË)
+ * |[Y“Ç(WAIT ‘ñÃèÍçáL)
  */
 void CChiefTransiStress::enter_ST_STRS_PAUSE(const cEventParams* const pEvParams)
 {
@@ -1606,14 +1607,14 @@ void CChiefTransiStress::enter_ST_STRS_PAUSE(const cEventParams* const pEvParams
 	switch (m_iPausePreState) {
 	case ST_STRS_SRMEAS:
 		switch (m_PauseStat.dwSrMeasuring) {
-		case 0:	m_PauseStat.dwSrMeasuring = 1;	break;	/* ë™íËíÜ	*/
-		case 1:	m_PauseStat.dwSrMeasuring = 2;			/* ë™íËçœ	*/
+		case 0:	m_PauseStat.dwSrMeasuring = 1;	break;	/* ËíÜ	*/
+		case 1:	m_PauseStat.dwSrMeasuring = 2;			/* 	*/
 			switch ((DWORD) pEvParams) {
-			case TR_SEQ_OK:	/* ê≥èÌäÆóπ	*/
+			case TR_SEQ_OK:	/* ÌäÆ	*/
 				break;
 			default:
-				/* àŸèÌäÆóπ	*/
-				/* ÉLÉÉÉìÉZÉãÇÉ|ÉXÉg	*/
+				/* ŸèÌäÆ	*/
+				/* LZ|Xg	*/
 				this->TransiEvent(EV_STRS_CANCEL, pEvParams);
 				return;
 				break;
@@ -1625,15 +1626,15 @@ void CChiefTransiStress::enter_ST_STRS_PAUSE(const cEventParams* const pEvParams
 		break;
 	case ST_STRS_PRELDPOS:
 		switch (m_PauseStat.dwPreLoadingPos) {
-		case 0:	m_PauseStat.dwPreLoadingPos = 1;	break;	/* à⁄ìÆíÜ	*/
-		case 1:	m_PauseStat.dwPreLoadingPos = 2;	break;	/* à⁄ìÆçœ	*/
+		case 0:	m_PauseStat.dwPreLoadingPos = 1;	break;	/* ⁄ì	*/
+		case 1:	m_PauseStat.dwPreLoadingPos = 2;	break;	/* ⁄ì	*/
 		default:	break;
 		}
 		break;
 	case ST_STRS_PINALIGN:
 		switch (m_PauseStat.dwPinAligning) {
-		case 0:	m_PauseStat.dwPinAligning = 1;	break;	/* ìÆçÏíÜ	*/
-		case 1:	m_PauseStat.dwPinAligning = 2;	break;	/* ìÆçÏçœ	*/
+		case 0:	m_PauseStat.dwPinAligning = 1;	break;	/* ÏíÜ	*/
+		case 1:	m_PauseStat.dwPinAligning = 2;	break;	/* 	*/
 		default:	break;
 		}
 		break;
@@ -1643,11 +1644,11 @@ void CChiefTransiStress::enter_ST_STRS_PAUSE(const cEventParams* const pEvParams
 		break;
 	}
 
-	/* WAIT èÛë‘Ç…Ç∑ÇÈÇΩÇﬂèàóùÇÕÇ†ÇËÇ‹ÇπÇÒÅD	*/
+	/* WAIT ‘Ç…ÇÈÇΩﬂèÕÇ‹ÇD	*/
 }
 
 /*
- * ÉåÉWÉÖÅ[ÉÄëOèàóù(WAIT èÛë‘ñ≥Çµ)
+ * W[O(WAIT ‘ñ)
  */
 void CChiefTransiStress::enter_ST_STRS_PRE_RESUME(const cEventParams* const pEvParams)
 {
@@ -1660,46 +1661,46 @@ void CChiefTransiStress::enter_ST_STRS_PRE_RESUME(const cEventParams* const pEvP
 	switch (m_iPausePreState) {
 	case ST_STRS_SRMEAS:
 		if (1 == m_PauseStat.dwSrMeasuring) {
-			l_iEventNo = EV_STRS_RSM_SRMEAS;	/* ë™íËíÜÅFST_STRS_SRMEAS Ç÷		*/
+			l_iEventNo = EV_STRS_RSM_SRMEAS;	/* ËíÜFST_STRS_SRMEAS 		*/
 			l_dwEvParam = 0;
-/* added 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(50) ---------- { ---------- */
+/* added 2009.08.21 hmenjo XgX@\«â(50) ---------- { ---------- */
 			if (ST_SEQ_PAUSE == ((CChiefTransiSeq*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq)->GetCurrentState()) {
-				/* ÉVÅ[ÉPÉìÉXë™íË ÉgÉâÉìÉWÉVÉáÉìÇ÷ÉåÉWÉÖÅ[ÉÄéwóﬂ	*/
+				/* V[PX gWV÷ÉW[w	*/
 				((CChiefTransiSeq*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq)->TransiEvent(EV_SEQ_RESUME);
 			}
-/* added 2009.08.21 hmenjo ÉXÉgÉåÉXã@î\í«â¡(50) ---------- } ---------- */
+/* added 2009.08.21 hmenjo XgX@\«â(50) ---------- } ---------- */
 		} else {
-			l_iEventNo = EV_STRS_RSM_SRMEASED;	/* ë™íËçœÅFST_STRS_SRMEAS_DONE Ç÷	*/
+			l_iEventNo = EV_STRS_RSM_SRMEASED;	/* œÅFST_STRS_SRMEAS_DONE 	*/
 			l_dwEvParam = 0;
 			m_PauseStat.dwSrMeasuring = 0;
 		}
 		break;
 	case ST_STRS_PRELDPOS:
 		if (1 == m_PauseStat.dwPreLoadingPos) {
-			l_iEventNo = EV_STRS_RSM_PRELDPOS;	/* à⁄ìÆíÜÅFST_STRS_PRELDPOS Ç÷	*/
+			l_iEventNo = EV_STRS_RSM_PRELDPOS;	/* ⁄ìFST_STRS_PRELDPOS 	*/
 			l_dwEvParam = 0;
 		} else {
-			l_iEventNo = EV_STRS_RSM_PINALIGN;	/* à⁄ìÆçœÅFST_STRS_PINALIGN Ç÷	*/
+			l_iEventNo = EV_STRS_RSM_PINALIGN;	/* ⁄ìœÅFST_STRS_PINALIGN 	*/
 			l_dwEvParam = 0;
 			m_PauseStat.dwPreLoadingPos = 0;
 		}
 		break;
 	case ST_STRS_PINALIGN:
 		if (1 == m_PauseStat.dwPinAligning) {
-			l_iEventNo = EV_STRS_RSM_PINALIGN;	/* ìÆçÏíÜÅFST_STRS_PINALIGN Ç÷	*/
+			l_iEventNo = EV_STRS_RSM_PINALIGN;	/* ÏíÜFST_STRS_PINALIGN 	*/
 			l_dwEvParam = 0;
 		} else {
-			l_iEventNo = EV_STRS_RSM_LMVSTAPOS;	/* ìÆçÏçœÅFST_STRS_LMVSTAPOS Ç÷	*/
+			l_iEventNo = EV_STRS_RSM_LMVSTAPOS;	/* œÅFST_STRS_LMVSTAPOS 	*/
 			l_dwEvParam = 0;
 			m_PauseStat.dwPinAligning = 0;
 		}
 		break;
 	case ST_STRS_LMVSTAPOS:
-		l_iEventNo = EV_STRS_RSM_LMVSTAPOS;		/* ST_STRS_LMVSTAPOS Ç÷	*/
+		l_iEventNo = EV_STRS_RSM_LMVSTAPOS;		/* ST_STRS_LMVSTAPOS 	*/
 		l_dwEvParam = 0;
 		break;
 	case ST_STRS_LMVENDPOS:
-		l_iEventNo = EV_STRS_RSM_LMVENDPOS;		/* ST_STRS_LMVENDPOS Ç÷	*/
+		l_iEventNo = EV_STRS_RSM_LMVENDPOS;		/* ST_STRS_LMVENDPOS 	*/
 		l_dwEvParam = 0;
 		break;
 	}
