@@ -1,178 +1,178 @@
 #pragma once
 
 /*-------------------------------------------------------------------
- *	Chief ŠO•”ƒ‚ƒWƒ…[ƒ‹‚Ì‚½‚ß‚Ì’è‹`ƒtƒ@ƒCƒ‹
+ *	Chief ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½ß‚Ì’ï¿½`ï¿½tï¿½@ï¿½Cï¿½ï¿½
  *-----------------------------------------------------------------*/
 
-#define	CHIEF_INI	_T("Chief.ini")	// Chief —pÝ’èƒtƒ@ƒCƒ‹–¼
-#define CHIEF_DLG_CAPTION	_T("TRANSITION MONITOR")	// Chief ƒ_ƒCƒAƒƒO‚ÌƒLƒƒƒvƒVƒ‡ƒ“
-//#define ADAP_EXE_PATH	_T("C:\\WVASE32\\Adap\\jaw_adap.exe")	// XMP ƒpƒX
-#define	CHIEF_TRMAS_INIT_TIME	40000	// [ms] ƒ}ƒXƒ^ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‰Šú‰»‘Ò‚¿ŽžŠÔ
-#define	CHIEF_TRMAS_END_TIME	20000	// [ms] ƒ}ƒXƒ^ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“I—¹‘Ò‚¿ŽžŠÔ
-#define	TIMER_DELAY_COMPLETE	2000	// Complete ƒfƒBƒŒƒCƒ^ƒCƒ}’l[ms]
-#define	TIMER_DELAY_ABORT		2000	// Abort ƒfƒBƒŒƒCƒ^ƒCƒ}’l[ms]
-#define CIE_MINWAVE				(380)	// CIE/OD’lÅ¬”g’·		(SubTransition.cpp ‚©‚çˆÚ“®)
-#define CIE_MAXWAVE				(780)	// CIE/OD’lÅ‘å”g’·		(SubTransition.cpp ‚©‚çˆÚ“®)
-#define	TRANSI_TIME				10		// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“ŠÔƒ^ƒCƒ~ƒ“ƒO’²®(‚Æ‚è‚ ‚¦‚¸‚¾‚¯‚ÇP‹v‚©‚àEE)
-#define	CHIEF_STGMVABS_MODE		TRUE	// StageMoveAbsoluteEx() ‚Ì‘Ò‚¿ƒ‚[ƒhŽw’è(TRUEF‘Ò‚ÂCFALSEF‘Ò‚½‚È‚¢)
-#define	TIMER_EQPWOFF_TIMEOUT	10000	// ‘•’u“dŒ¹ƒIƒtŠÄŽ‹ŽžŠÔ[ms]
-// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“ ID ’è‹`
+#define	CHIEF_INI	_T("Chief.ini")	// Chief ï¿½pï¿½Ý’ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½
+#define CHIEF_DLG_CAPTION	_T("TRANSITION MONITOR")	// Chief ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½Oï¿½ÌƒLï¿½ï¿½ï¿½vï¿½Vï¿½ï¿½ï¿½ï¿½
+//#define ADAP_EXE_PATH	_T("C:\\WVASE32\\Adap\\jaw_adap.exe")	// XMP ï¿½pï¿½X
+#define	CHIEF_TRMAS_INIT_TIME	40000	// [ms] ï¿½}ï¿½Xï¿½^ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½ï¿½ï¿½ï¿½ï¿½
+#define	CHIEF_TRMAS_END_TIME	20000	// [ms] ï¿½}ï¿½Xï¿½^ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½Ò‚ï¿½ï¿½ï¿½ï¿½ï¿½
+#define	TIMER_DELAY_COMPLETE	2000	// Complete ï¿½fï¿½Bï¿½ï¿½ï¿½Cï¿½^ï¿½Cï¿½}ï¿½l[ms]
+#define	TIMER_DELAY_ABORT		2000	// Abort ï¿½fï¿½Bï¿½ï¿½ï¿½Cï¿½^ï¿½Cï¿½}ï¿½l[ms]
+#define CIE_MINWAVE				(380)	// CIE/ODï¿½lï¿½Åï¿½ï¿½gï¿½ï¿½		(SubTransition.cpp ï¿½ï¿½ï¿½ï¿½Ú“ï¿½)
+#define CIE_MAXWAVE				(780)	// CIE/ODï¿½lï¿½Å‘ï¿½gï¿½ï¿½		(SubTransition.cpp ï¿½ï¿½ï¿½ï¿½Ú“ï¿½)
+#define	TRANSI_TIME				10		// ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ôƒ^ï¿½Cï¿½~ï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½(ï¿½Æ‚è‚ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÇPï¿½vï¿½ï¿½ï¿½ï¿½ï¿½Eï¿½E)
+#define	CHIEF_STGMVABS_MODE		TRUE	// StageMoveAbsoluteEx() ï¿½Ì‘Ò‚ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½wï¿½ï¿½(TRUEï¿½Fï¿½Ò‚ÂCFALSEï¿½Fï¿½Ò‚ï¿½ï¿½È‚ï¿½)
+#define	TIMER_EQPWOFF_TIMEOUT	10000	// ï¿½ï¿½ï¿½uï¿½dï¿½ï¿½ï¿½Iï¿½tï¿½ÄŽï¿½ï¿½ï¿½ï¿½ï¿½[ms]
+// ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ ID ï¿½ï¿½`
 enum TRANSI_ID {
-	TRANSI_MASTER = 1,		// MAS	ƒ}ƒXƒ^ ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“
-	TRANSI_SEQ,				// SEQ	ƒV[ƒPƒ“ƒX‘ª’è ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“
-	TRANSI_SR_REFER,		// SREF ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’è ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“
-	TRANSI_DESKEW,			// DSKW ƒfƒXƒLƒ…[ ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“
-	TRANSI_AF,				// AAF	AF ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“
-	TRANSI_SR_1POINT,		// SR1P ‚Pƒ|ƒCƒ“ƒg‘ª’è ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“
-/* added 2009.07.31 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(9) ---------- { ---------- */
-	TRANSI_STRESS_SEQ,		/* STRS	ƒXƒgƒŒƒX‘ª’è ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“	*/
-/* added 2009.07.31 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(9) ---------- } ---------- */
+	TRANSI_MASTER = 1,		// MAS	ï¿½}ï¿½Xï¿½^ ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½
+	TRANSI_SEQ,				// SEQ	ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½
+	TRANSI_SR_REFER,		// SREF ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½
+	TRANSI_DESKEW,			// DSKW ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½
+	TRANSI_AF,				// AAF	AF ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½
+	TRANSI_SR_1POINT,		// SR1P ï¿½Pï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½
+/* added 2009.07.31 hmenjo ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½@ï¿½\ï¿½Ç‰ï¿½(9) ---------- { ---------- */
+	TRANSI_STRESS_SEQ,		/* STRS	ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½	*/
+/* added 2009.07.31 hmenjo ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½@ï¿½\ï¿½Ç‰ï¿½(9) ---------- } ---------- */
 // bagus add 2014.01.10 -->
-	TRANSI_MASTER_STD,		// MAS_STD	ƒ}ƒXƒ^ƒXƒ^ƒ“ƒ_[ƒh ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“
-	TRANSI_MASTER_DRK,		// MAS_DRK	ƒ}ƒXƒ^ƒ_[ƒN ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“
+	TRANSI_MASTER_STD,		// MAS_STD	ï¿½}ï¿½Xï¿½^ï¿½Xï¿½^ï¿½ï¿½ï¿½_ï¿½[ï¿½h ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½
+	TRANSI_MASTER_DRK,		// MAS_DRK	ï¿½}ï¿½Xï¿½^ï¿½_ï¿½[ï¿½N ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½
 // bagus add 2014.01.10 <--
-	TRANSI_SR_STD_REFER,	// SREF_STD ƒXƒ^ƒ“ƒ_[ƒhƒŠƒtƒ@ƒŒƒ“ƒX‘ª’è ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“
+	TRANSI_SR_STD_REFER,	// SREF_STD ï¿½Xï¿½^ï¿½ï¿½ï¿½_ï¿½[ï¿½hï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½
 };
-// AF VALID ƒf[ƒ^’è‹`
+// AF VALID ï¿½fï¿½[ï¿½^ï¿½ï¿½`
 #if 0
 typedef union {
 	DWORD	dwValid;
 	struct {
-		BYTE	ucRetry;				// AF ƒŠƒgƒ‰ƒC‰ñ”
-		BYTE	ucResultAF;				// AF Œ‹‰Ê				(0:AF –³‚µC1:AF ³íC2:Ž©“®‹­§‘ª’èC3:Ž©“®ƒXƒLƒbƒvC4:AF Ž¸”sC5:ƒŒƒVƒsI—¹)
-		BYTE	ucResultPopup;			// ƒ|ƒbƒvƒAƒbƒvŒ‹‰Ê		(0:ƒ|ƒbƒvƒAƒbƒv–³‚µC1:ƒŠƒgƒ‰ƒCƒ{ƒ^ƒ“C2:•Â‚¶‚é(OK)ƒ{ƒ^ƒ“C3:ƒXƒLƒbƒvƒ{ƒ^ƒ“C4:ƒLƒƒƒ“ƒZƒ‹ƒ{ƒ^ƒ“)
-										//			ƒ|ƒbƒvƒAƒbƒv‚ª‚ ‚Á‚½ê‡‚ÍC‚‚O‚É‚È‚è‚Ü‚·D
-		BYTE	bit1ManuXY		: 1;	// XY ƒ}ƒjƒ…ƒAƒ‹‘€ì	(1:‘€ì—L‚è)
-		BYTE	bit1ManuZ		: 1;	// Z ƒ}ƒjƒ…ƒAƒ‹‘€ì		(1:‘€ì—L‚è)
-		BYTE	bit1ManuAF		: 1;	// AF ƒ}ƒjƒ…ƒAƒ‹‘€ì	(1:‘€ì—L‚è)
-		BYTE	bit1ManuAfRslt	: 1;	// AF ƒ}ƒjƒ…ƒAƒ‹‘€ìŒ‹‰Ê(1:ƒ}ƒjƒ…ƒAƒ‹ AF Ž¸”s)
-		BYTE	bit3Reserve		: 3;	// (—\”õ)
-		BYTE	bit1Err			: 1;	// (—\–ñFŽg—p‹ÖŽ~)(‚±‚Ìƒrƒbƒg‚ª‚P‚Ìê‡C‚±‚ÌƒrƒbƒgˆÈŠO‚Ìƒrƒbƒg‚ÍƒGƒ‰[ƒXƒe[ƒ^ƒX‚ðŽ¦‚·ê‡‚ª‚ ‚è‚Ü‚·)
+		BYTE	ucRetry;				// AF ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½ï¿½
+		BYTE	ucResultAF;				// AF ï¿½ï¿½ï¿½ï¿½				(0:AF ï¿½ï¿½ï¿½ï¿½ï¿½C1:AF ï¿½ï¿½ï¿½ï¿½C2:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½C3:ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½Lï¿½bï¿½vï¿½C4:AF ï¿½ï¿½ï¿½sï¿½C5:ï¿½ï¿½ï¿½Vï¿½sï¿½Iï¿½ï¿½)
+		BYTE	ucResultPopup;			// ï¿½|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½ï¿½		(0:ï¿½|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½ï¿½ï¿½C1:ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½{ï¿½^ï¿½ï¿½ï¿½C2:ï¿½Â‚ï¿½ï¿½ï¿½(OK)ï¿½{ï¿½^ï¿½ï¿½ï¿½C3:ï¿½Xï¿½Lï¿½bï¿½vï¿½{ï¿½^ï¿½ï¿½ï¿½C4:ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½)
+										//			ï¿½|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½ÍCï¿½ï¿½ï¿½Oï¿½É‚È‚ï¿½Ü‚ï¿½ï¿½D
+		BYTE	bit1ManuXY		: 1;	// XY ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	(1:ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½)
+		BYTE	bit1ManuZ		: 1;	// Z ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½		(1:ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½)
+		BYTE	bit1ManuAF		: 1;	// AF ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	(1:ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½)
+		BYTE	bit1ManuAfRslt	: 1;	// AF ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ìŒ‹ï¿½ï¿½(1:ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ AF ï¿½ï¿½ï¿½s)
+		BYTE	bit3Reserve		: 3;	// (ï¿½\ï¿½ï¿½)
+		BYTE	bit1Err			: 1;	// (ï¿½\ï¿½ï¿½Fï¿½gï¿½pï¿½ÖŽ~)(ï¿½ï¿½ï¿½Ìƒrï¿½bï¿½gï¿½ï¿½ï¿½Pï¿½Ìê‡ï¿½Cï¿½ï¿½ï¿½Ìƒrï¿½bï¿½gï¿½ÈŠOï¿½Ìƒrï¿½bï¿½gï¿½ÍƒGï¿½ï¿½ï¿½[ï¿½Xï¿½eï¿½[ï¿½^ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½)
 	};
 } AF_VALID;
 #else
-typedef union {			// ‚±‚¿‚ç‚ªÅV‚Å‚·D
+typedef union {			// ï¿½ï¿½ï¿½ï¿½ï¿½ç‚ªï¿½ÅVï¿½Å‚ï¿½ï¿½D
 	DWORD	dwValid;
 	struct {
-		BYTE	ucRetry;				// AF ƒŠƒgƒ‰ƒC‰ñ”
-		BYTE	ucResultAF		: 3;	// AF Œ‹‰Ê				(0:AF –³‚µC1:AF ³íC2:Ž©“®‹­§‘ª’èC3:Ž©“®ƒXƒLƒbƒvC4:AF Ž¸”sC5:ƒŒƒVƒsI—¹)
-		BYTE	ucResultPopup	: 3;	// ƒ|ƒbƒvƒAƒbƒvŒ‹‰Ê		(0:ƒ|ƒbƒvƒAƒbƒv–³‚µC1:ƒŠƒgƒ‰ƒCƒ{ƒ^ƒ“C2:•Â‚¶‚é(OK)ƒ{ƒ^ƒ“C3:ƒXƒLƒbƒvƒ{ƒ^ƒ“C4:ƒLƒƒƒ“ƒZƒ‹ƒ{ƒ^ƒ“)
-										//			ƒ|ƒbƒvƒAƒbƒv‚ª‚ ‚Á‚½ê‡‚ÍC‚‚O‚É‚È‚è‚Ü‚·D
-		BYTE	bit2PopupKind	: 2;	// ƒ|ƒbƒvƒAƒbƒvŽí—Þ		(0:AF ‚Ì‚ÝC1:PMA ‚Ì‚ÝC2:AF & PMA)
-		BYTE	bitReserve16_23	: 8;	// (—\”õ)
-		BYTE	bit1ManuXY		: 1;	// XY ƒ}ƒjƒ…ƒAƒ‹‘€ì	(1:‘€ì—L‚è)
-		BYTE	bit1ManuZ		: 1;	// Z ƒ}ƒjƒ…ƒAƒ‹‘€ì		(1:‘€ì—L‚è)
-		BYTE	bit1ManuAF		: 1;	// AF ƒ}ƒjƒ…ƒAƒ‹‘€ì	(1:‘€ì—L‚è)
-		BYTE	bit1ManuAfRslt	: 1;	// AF ƒ}ƒjƒ…ƒAƒ‹‘€ìŒ‹‰Ê(1:ƒ}ƒjƒ…ƒAƒ‹ AF Ž¸”s)
-		BYTE	bitReserve28_30	: 3;	// (—\”õ)
-		BYTE	bit1Err			: 1;	// (—\–ñFŽg—p‹ÖŽ~)(‚±‚Ìƒrƒbƒg‚ª‚P‚Ìê‡C‚±‚ÌƒrƒbƒgˆÈŠO‚Ìƒrƒbƒg‚ÍƒGƒ‰[ƒXƒe[ƒ^ƒX‚ðŽ¦‚·ê‡‚ª‚ ‚è‚Ü‚·)
+		BYTE	ucRetry;				// AF ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½ï¿½
+		BYTE	ucResultAF		: 3;	// AF ï¿½ï¿½ï¿½ï¿½				(0:AF ï¿½ï¿½ï¿½ï¿½ï¿½C1:AF ï¿½ï¿½ï¿½ï¿½C2:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½C3:ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½Lï¿½bï¿½vï¿½C4:AF ï¿½ï¿½ï¿½sï¿½C5:ï¿½ï¿½ï¿½Vï¿½sï¿½Iï¿½ï¿½)
+		BYTE	ucResultPopup	: 3;	// ï¿½|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½ï¿½		(0:ï¿½|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½ï¿½ï¿½C1:ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½{ï¿½^ï¿½ï¿½ï¿½C2:ï¿½Â‚ï¿½ï¿½ï¿½(OK)ï¿½{ï¿½^ï¿½ï¿½ï¿½C3:ï¿½Xï¿½Lï¿½bï¿½vï¿½{ï¿½^ï¿½ï¿½ï¿½C4:ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½)
+										//			ï¿½|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½ÍCï¿½ï¿½ï¿½Oï¿½É‚È‚ï¿½Ü‚ï¿½ï¿½D
+		BYTE	bit2PopupKind	: 2;	// ï¿½|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½		(0:AF ï¿½Ì‚ÝC1:PMA ï¿½Ì‚ÝC2:AF & PMA)
+		BYTE	bitReserve16_23	: 8;	// (ï¿½\ï¿½ï¿½)
+		BYTE	bit1ManuXY		: 1;	// XY ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	(1:ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½)
+		BYTE	bit1ManuZ		: 1;	// Z ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½		(1:ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½)
+		BYTE	bit1ManuAF		: 1;	// AF ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	(1:ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½)
+		BYTE	bit1ManuAfRslt	: 1;	// AF ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ìŒ‹ï¿½ï¿½(1:ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ AF ï¿½ï¿½ï¿½s)
+		BYTE	bitReserve28_30	: 3;	// (ï¿½\ï¿½ï¿½)
+		BYTE	bit1Err			: 1;	// (ï¿½\ï¿½ï¿½Fï¿½gï¿½pï¿½ÖŽ~)(ï¿½ï¿½ï¿½Ìƒrï¿½bï¿½gï¿½ï¿½ï¿½Pï¿½Ìê‡ï¿½Cï¿½ï¿½ï¿½Ìƒrï¿½bï¿½gï¿½ÈŠOï¿½Ìƒrï¿½bï¿½gï¿½ÍƒGï¿½ï¿½ï¿½[ï¿½Xï¿½eï¿½[ï¿½^ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½)
 	};
 } AF_VALID;
 #endif
-// ‚Pƒ|ƒCƒ“ƒg‘ª’èI—¹(WM_COPYDATAFWMCD_CHIF_1POINT_END)ƒf[ƒ^’è‹`
+// ï¿½Pï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½(WM_COPYDATAï¿½FWMCD_CHIF_1POINT_END)ï¿½fï¿½[ï¿½^ï¿½ï¿½`
 typedef struct {
-		DWORD	dwPointNo;		// I—¹ƒ|ƒCƒ“ƒg”Ô†
-		DWORD	dwAFValid;		// AF_VALID ƒf[ƒ^
-		long	lX;				// X Ž²ˆÊ’u
-		long	lY;				// Y Ž²ˆÊ’u
-		long	lZ;				// Z Ž²ˆÊ’u
+		DWORD	dwPointNo;		// ï¿½Iï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Ôï¿½
+		DWORD	dwAFValid;		// AF_VALID ï¿½fï¿½[ï¿½^
+		long	lX;				// X ï¿½ï¿½ï¿½Ê’u
+		long	lY;				// Y ï¿½ï¿½ï¿½Ê’u
+		long	lZ;				// Z ï¿½ï¿½ï¿½Ê’u
 } MEAS_1POINT_RESULT;
-// ‘ª’èŠJŽn’Ê’m(WM_COPYDATAFWMCD_CHIF_MEAS_START)ƒf[ƒ^’è‹`
-/* added 2009.09.09 hmenjo “§‰ß—¦ Seq ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh(16) ---------- { ---------- */
+// ï¿½ï¿½ï¿½ï¿½Jï¿½nï¿½Ê’m(WM_COPYDATAï¿½FWMCD_CHIF_MEAS_START)ï¿½fï¿½[ï¿½^ï¿½ï¿½`
+/* added 2009.09.09 hmenjo ï¿½ï¿½ï¿½ß—ï¿½ Seq ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½h(16) ---------- { ---------- */
 enum MEASMODE_ID {
-	MEASMODE_NORM = 0,	/* ’Êí‘ª’è(SRCSEC“§‰ß—¦)	*/
-	MEASMODE_GTRREF,	/* ƒKƒ“ƒgƒŠ“§‰ß—¦ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’è	*/
-//2009.11.03 bagus 2poin-distance íœ --{--
-//	MEASMODE_DISTANCE,	/* 2“_ŠÔ‹——£ */
-//2009.11.03 bagus 2poin-distance íœ --}--
-/* added 2009.10.29 hmenjo CTA Seq API ’Ç‰Á ---------- { ---------- */
-	MEASMODE_CTA,		/* CTA ‘ª’è	*/
-/* added 2009.10.29 hmenjo CTA Seq API ’Ç‰Á ---------- } ---------- */
-//2009.11.03 bagus MS ’Ç‰Á --{--
+	MEASMODE_NORM = 0,	/* ï¿½Êí‘ªï¿½ï¿½(SRï¿½CSEï¿½Cï¿½ï¿½ï¿½ß—ï¿½)	*/
+	MEASMODE_GTRREF,	/* ï¿½Kï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ß—ï¿½ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½	*/
+//2009.11.03 bagus 2poin-distance ï¿½íœ --{--
+//	MEASMODE_DISTANCE,	/* 2ï¿½_ï¿½Ô‹ï¿½ï¿½ï¿½ */
+//2009.11.03 bagus 2poin-distance ï¿½íœ --}--
+/* added 2009.10.29 hmenjo CTA Seq API ï¿½Ç‰ï¿½ ---------- { ---------- */
+	MEASMODE_CTA,		/* CTA ï¿½ï¿½ï¿½ï¿½	*/
+/* added 2009.10.29 hmenjo CTA Seq API ï¿½Ç‰ï¿½ ---------- } ---------- */
+//2009.11.03 bagus MS ï¿½Ç‰ï¿½ --{--
 	MEASMODE_MS,
-//2009.11.03 bagus MS ’Ç‰Á --}--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+//2009.11.03 bagus MS ï¿½Ç‰ï¿½ --}--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 	MEASMODE_COMPEASE,
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
 };
-/* added 2009.09.09 hmenjo “§‰ß—¦ Seq ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh(16) ---------- } ---------- */
+/* added 2009.09.09 hmenjo ï¿½ï¿½ï¿½ß—ï¿½ Seq ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½h(16) ---------- } ---------- */
 typedef struct {
-	BOOL	bGetSamplID;		// FALSEFƒTƒ“ƒvƒ‹ ID ‚ÌŽw’è‚Í–³‚¢(‰æ–Ê‚©‚ç‚ÌƒV[ƒPƒ“ƒX‘ª’èŠJŽn‚Ì‚½‚ß)
-								// TRUE	FƒTƒ“ƒvƒ‹ ID ‚ÌŽw’è‚ª—L‚é(Pif ‚©‚ç‚ÌƒV[ƒPƒ“ƒX‘ª’èŠJŽn)
-	TCHAR	szSampleID[256];	// ƒTƒ“ƒvƒ‹ ID •¶Žš—ñ
-/* added 2009.10.29 hmenjo CTA ƒƒbƒg ID ‘Î‰ž ---------- { ---------- */
-	TCHAR	tszLotID[256];		/* ƒƒbƒg ID •¶Žš—ñ (bGetSamplID ‚ÉˆË‚é)	*/
-/* added 2009.10.29 hmenjo CTA ƒƒbƒg ID ‘Î‰ž ---------- } ---------- */
-/* added 2009.09.09 hmenjo “§‰ß—¦ Seq ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh(16) ---------- { ---------- */
-	MEASMODE_ID	enMeasMode;		/* ‘ª’èƒ‚[ƒh MEASMODE_ID	*/
-/* added 2009.09.09 hmenjo “§‰ß—¦ Seq ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh(16) ---------- } ---------- */
+	BOOL	bGetSamplID;		// FALSEï¿½Fï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ ID ï¿½ÌŽwï¿½ï¿½Í–ï¿½ï¿½ï¿½(ï¿½ï¿½Ê‚ï¿½ï¿½ï¿½ÌƒVï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Jï¿½nï¿½Ì‚ï¿½ï¿½ï¿½)
+								// TRUE	ï¿½Fï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ ID ï¿½ÌŽwï¿½è‚ªï¿½Lï¿½ï¿½(Pif ï¿½ï¿½ï¿½ï¿½ÌƒVï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Jï¿½n)
+	TCHAR	szSampleID[256];	// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ ID ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+/* added 2009.10.29 hmenjo CTA ï¿½ï¿½ï¿½bï¿½g ID ï¿½Î‰ï¿½ ---------- { ---------- */
+	TCHAR	tszLotID[256];		/* ï¿½ï¿½ï¿½bï¿½g ID ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (bGetSamplID ï¿½ÉˆË‚ï¿½)	*/
+/* added 2009.10.29 hmenjo CTA ï¿½ï¿½ï¿½bï¿½g ID ï¿½Î‰ï¿½ ---------- } ---------- */
+/* added 2009.09.09 hmenjo ï¿½ï¿½ï¿½ß—ï¿½ Seq ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½h(16) ---------- { ---------- */
+	MEASMODE_ID	enMeasMode;		/* ï¿½ï¿½ï¿½èƒ‚ï¿½[ï¿½h MEASMODE_ID	*/
+/* added 2009.09.09 hmenjo ï¿½ï¿½ï¿½ß—ï¿½ Seq ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½h(16) ---------- } ---------- */
 } SEQ_MEAS_START;
 
-/* added 2009.09.29 hmenjo Head –ˆ Main Rcp Inf “Ço‚µ ---------- { ---------- */
+/* added 2009.09.29 hmenjo Head ï¿½ï¿½ Main Rcp Inf ï¿½Çoï¿½ï¿½ ---------- { ---------- */
 typedef struct {
 	UINT nFocus;
 	UINT nAutoFocusFailOption;
 } HEAD_MAIN_RCP_INFO, *LPHEAD_MAIN_RCP_INFO;
 typedef const HEAD_MAIN_RCP_INFO *LPCHEAD_MAIN_RCP_INFO;
-/* added 2009.09.29 hmenjo Head –ˆ Main Rcp Inf “Ço‚µ ---------- } ---------- */
+/* added 2009.09.29 hmenjo Head ï¿½ï¿½ Main Rcp Inf ï¿½Çoï¿½ï¿½ ---------- } ---------- */
 
-/* added 2009.10.15 hmenjo Stage PGM ‹¤’Ê‰»‘Î‰ž ƒwƒbƒhƒ^ƒCƒv‘Š· ---------- { ---------- */
-/* ƒwƒbƒhƒ^ƒCƒv STD •ÏŠ·ƒe[ƒuƒ‹	*/
+/* added 2009.10.15 hmenjo Stage PGM ï¿½ï¿½ï¿½Ê‰ï¿½ï¿½Î‰ï¿½ ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
+/* ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½v STD ï¿½ÏŠï¿½ï¿½eï¿½[ï¿½uï¿½ï¿½	*/
 const WORD HEADTYPE_STD_TBL[] = {
 	HEAD_TYPE_SR,
 	HEAD_TYPE_SE,
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 	HEAD_TYPE_COMPEASE,
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
+// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --{--
 //	HEAD_TYPE_IRSE,
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --}--
 	HEAD_TYPE_4PP,
 	HEAD_TYPE_CTA,
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --{--
 	HEAD_TYPE_MS,
-// 2009.10.19 bagus MS ’Ç‰Á --}--
-	-1,
+// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --}--
+	static_cast<WORD>(-1),
 };
-/* added 2009.10.15 hmenjo Stage PGM ‹¤’Ê‰»‘Î‰ž ƒwƒbƒhƒ^ƒCƒv‘Š· ---------- } ---------- */
+/* added 2009.10.15 hmenjo Stage PGM ï¿½ï¿½ï¿½Ê‰ï¿½ï¿½Î‰ï¿½ ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
 
 /*
- *	ŠeŽíƒAƒ‰[ƒ€•ñ—p’è‹`
+ *	ï¿½eï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ñ—pï¿½ï¿½`
  */
-/*			ƒpƒ‰ƒƒ^à–¾
+/*			ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½ï¿½
  *				wparam
- *						[‚P]FLOBYTE(LOWORD(wparam))	•ñ•û–@
- *															ƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚Ì•\Ž¦‚Ì‚Ý
- *															ƒAƒ‰[ƒ€•ñ‚Ì‚Ý
- *															—¼•û
- *						[‚Q]FHIBYTE(LOWORD(wparam))	e’Ê’m(CMainFrame)
- *															‚µ‚È‚¢
- *															‚·‚é(‚»‚ÌŒã‚Ìˆ—‚ÍeŽŸ‘æ‚Å‚·)
- *						[‚R]FLOBYTE(HIWORD(wparam))	ƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚Ìƒ^ƒCƒgƒ‹”Ô†
- *						[‚S]FHIBYTE(HIWORD(wparam))	ƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚Ìƒ{ƒ^ƒ“•\Ž¦
+ *						[ï¿½P]ï¿½FLOBYTE(LOWORD(wparam))	ï¿½ñ•ï¿½ï¿½@
+ *															ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½{ï¿½bï¿½Nï¿½Xï¿½Ì•\ï¿½ï¿½ï¿½Ì‚ï¿½
+ *															ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ñ‚Ì‚ï¿½
+ *															ï¿½ï¿½ï¿½ï¿½
+ *						[ï¿½Q]ï¿½FHIBYTE(LOWORD(wparam))	ï¿½eï¿½Ê’m(CMainFrame)
+ *															ï¿½ï¿½ï¿½È‚ï¿½
+ *															ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ÌŒï¿½Ìï¿½ï¿½ï¿½ï¿½Íeï¿½ï¿½ï¿½ï¿½Å‚ï¿½)
+ *						[ï¿½R]ï¿½FLOBYTE(HIWORD(wparam))	ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½{ï¿½bï¿½Nï¿½Xï¿½Ìƒ^ï¿½Cï¿½gï¿½ï¿½ï¿½Ôï¿½
+ *						[ï¿½S]ï¿½FHIBYTE(HIWORD(wparam))	ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½{ï¿½bï¿½Nï¿½Xï¿½Ìƒ{ï¿½^ï¿½ï¿½ï¿½\ï¿½ï¿½
  *															OK
- *															YES/NO(YES ‚Ìê‡‚Íe’Ê’mŽž‚ÌƒAƒvƒŠI—¹ƒpƒ‰ƒƒ^‚ð TRUE ‚É‚·‚é)
+ *															YES/NO(YES ï¿½Ìê‡ï¿½Íeï¿½Ê’mï¿½ï¿½ï¿½ÌƒAï¿½vï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½ TRUE ï¿½É‚ï¿½ï¿½ï¿½)
  *				lparam
- *						[‚T]FLOWORD(lparam)			ƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚ÌƒeƒLƒXƒg”Ô†
- *						[‚U]FHIWORD(lparam)			ƒAƒ‰[ƒ€•ñ‚Ì ALID
- *			Žw’è•û–@
- *				PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD([‚P], [‚Q]), MAKEWORD([‚R], [‚S])), MAKELPARAM([‚T], [‚U]));
+ *						[ï¿½T]ï¿½FLOWORD(lparam)			ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½{ï¿½bï¿½Nï¿½Xï¿½Ìƒeï¿½Lï¿½Xï¿½gï¿½Ôï¿½
+ *						[ï¿½U]ï¿½FHIWORD(lparam)			ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ñ‚ï¿½ ALID
+ *			ï¿½wï¿½ï¿½ï¿½ï¿½@
+ *				PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD([ï¿½P], [ï¿½Q]), MAKEWORD([ï¿½R], [ï¿½S])), MAKELPARAM([ï¿½T], [ï¿½U]));
  */
-enum CHIEF_REP_ALARM_METHOD {		// [‚P]•ñ•û–@
-	CHRAMTD_NONE = 0,					// (‰½‚à‚µ‚È‚¢)
-	CHRAMTD_MSGBOX,						// ƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚Ì•\Ž¦‚Ì‚Ý
-	CHRAMTD_REP_ALARM,					// ƒAƒ‰[ƒ€•ñ‚Ì‚Ý
-	CHRAMTD_BOTH,						// —¼•û
+enum CHIEF_REP_ALARM_METHOD {		// [ï¿½P]ï¿½ñ•ï¿½ï¿½@
+	CHRAMTD_NONE = 0,					// (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½)
+	CHRAMTD_MSGBOX,						// ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½{ï¿½bï¿½Nï¿½Xï¿½Ì•\ï¿½ï¿½ï¿½Ì‚ï¿½
+	CHRAMTD_REP_ALARM,					// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ñ‚Ì‚ï¿½
+	CHRAMTD_BOTH,						// ï¿½ï¿½ï¿½ï¿½
 };
-enum CHIEF_REP_ALARM_NOTIFY {		// [‚Q]e’Ê’m
-	CHRANFY_NOTIFY_OFF = 0,				// ‚µ‚È‚¢
-	CHRANFY_NOTIFY_ON,					// ‚·‚é(‚»‚ÌŒã‚Ìˆ—‚ÍeŽŸ‘æ‚Å‚·)
+enum CHIEF_REP_ALARM_NOTIFY {		// [ï¿½Q]ï¿½eï¿½Ê’m
+	CHRANFY_NOTIFY_OFF = 0,				// ï¿½ï¿½ï¿½È‚ï¿½
+	CHRANFY_NOTIFY_ON,					// ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ÌŒï¿½Ìï¿½ï¿½ï¿½ï¿½Íeï¿½ï¿½ï¿½ï¿½Å‚ï¿½)
 };
-enum CHIEF_REP_ALARM_MSGBUTTON {	// [‚S]ƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚Ìƒ{ƒ^ƒ“•\Ž¦
+enum CHIEF_REP_ALARM_MSGBUTTON {	// [ï¿½S]ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½{ï¿½bï¿½Nï¿½Xï¿½Ìƒ{ï¿½^ï¿½ï¿½ï¿½\ï¿½ï¿½
 	CHRAMSG_OK = 0,						// OK
-	CHRAMSG_YESNO,						// YES/NO(YES ‚Ìê‡‚Íe’Ê’mŽž‚ÌƒAƒvƒŠI—¹ƒpƒ‰ƒƒ^‚ð TRUE ‚É‚·‚é)
+	CHRAMSG_YESNO,						// YES/NO(YES ï¿½Ìê‡ï¿½Íeï¿½Ê’mï¿½ï¿½ï¿½ÌƒAï¿½vï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½ TRUE ï¿½É‚ï¿½ï¿½ï¿½)
 };
-const LPSTR CHIEF_REP_ALARM_MSGTITLE[] = {		// [‚R]ƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚Ìƒ^ƒCƒgƒ‹
+const LPSTR CHIEF_REP_ALARM_MSGTITLE[] = {		// [ï¿½R]ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½{ï¿½bï¿½Nï¿½Xï¿½Ìƒ^ï¿½Cï¿½gï¿½ï¿½
 	/*	0 */ _T("NanoSpec Chief CChiefThread"),
 	/*	1 */ _T("NanoSpec Chief CChiefView"),
 	/*	2 */ _T("NanoSpec Chief CChiefRcvMailThread"),
@@ -182,12 +182,12 @@ const LPSTR CHIEF_REP_ALARM_MSGTITLE[] = {		// [‚R]ƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚Ìƒ^ƒCƒgƒ‹
 	/*	6 */ _T("NanoSpec Chief CChiefTransiSeq"),
 	/*	7 */ _T("NanoSpec Chief CChiefTransiSr1Point"),
 	/*	8 */ _T("NanoSpec Chief CChiefTransiSrRefer"),
-/* added 2012.01.23 hmenjo [‚V]ŸŽèƒAƒ{[ƒg‘Îô ---------- { ---------- */
+/* added 2012.01.23 hmenjo [ï¿½V]ï¿½ï¿½ï¿½ï¿½Aï¿½{ï¿½[ï¿½gï¿½Îï¿½ ---------- { ---------- */
 	/*	9 */ _T("NanoSpec Chief CChiefTransiStress"),
-/* added 2012.01.23 hmenjo [‚V]ŸŽèƒAƒ{[ƒg‘Îô ---------- } ---------- */
+/* added 2012.01.23 hmenjo [ï¿½V]ï¿½ï¿½ï¿½ï¿½Aï¿½{ï¿½[ï¿½gï¿½Îï¿½ ---------- } ---------- */
 	/*	0 */ _T("NONE"),
 };
-const LPSTR CHIEF_REP_ALARM_MSGTEXT[] = {		// [‚T]ƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚ÌƒeƒLƒXƒg
+const LPSTR CHIEF_REP_ALARM_MSGTEXT[] = {		// [ï¿½T]ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½{ï¿½bï¿½Nï¿½Xï¿½Ìƒeï¿½Lï¿½Xï¿½g
 	/*	0 */ _T("Failed to Start timer(SetTimer()) for Trace Data. \nTerminate this application ???"),
 	/*	1 */ _T("Failed to Kill timer(KillTimer()) for Trace Data. \nTerminate this application ???"),
 	/*	2 */ _T("Failed to Start Timer(SetTimer()) to Autohide Chief Dialog. \nTerminate this application ???"),
@@ -227,121 +227,121 @@ const LPSTR CHIEF_REP_ALARM_MSGTEXT[] = {		// [‚T]ƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚ÌƒeƒLƒXƒg
 // 2009.05.17 myanagida -->
 	/* 36 */ _T("Failed to allocate memory for SitePattern table. \nTerminate this application."),
 // 2009.05.17 myanagida <--
-/* added 2009.07.31 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(3) ---------- { ---------- */
+/* added 2009.07.31 hmenjo ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½@ï¿½\ï¿½Ç‰ï¿½(3) ---------- { ---------- */
 	/* 37 */ _T("Failed to Start timer(SetTimer()) for HEPA stop wait. \nTerminate this application ???"),
 	/* 38 */ _T("Failed to Kill timer(KillTimer()) for HEPA stop wait. \nTerminate this application ???"),
-/* added 2009.07.31 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(3) ---------- } ---------- */
-/* added 2012.01.23 hmenjo [‚V]ŸŽèƒAƒ{[ƒg‘Îô ---------- { ---------- */
+/* added 2009.07.31 hmenjo ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½@ï¿½\ï¿½Ç‰ï¿½(3) ---------- } ---------- */
+/* added 2012.01.23 hmenjo [ï¿½V]ï¿½ï¿½ï¿½ï¿½Aï¿½{ï¿½[ï¿½gï¿½Îï¿½ ---------- { ---------- */
 	/* 39 */ _T("Failed to TransiEvent(PostThreadMessage). \nTerminate this application ???"),
 	/* 40 */ _T("Transition busy. \nTerminate this application ???"),
-/* added 2012.01.23 hmenjo [‚V]ŸŽèƒAƒ{[ƒg‘Îô ---------- } ---------- */
-	/*	0 */ _T("NONE"),	//	0F
+/* added 2012.01.23 hmenjo [ï¿½V]ï¿½ï¿½ï¿½ï¿½Aï¿½{ï¿½[ï¿½gï¿½Îï¿½ ---------- } ---------- */
+	/*	0 */ _T("NONE"),	//	0ï¿½F
 };
 
 //Saiki 20090602 Delete ----->
 /*
- *	ˆÈ‰º‚Í MainFrame ‚ÌƒXƒe[ƒ^ƒXƒo[‚Ö•\Ž¦‚·‚éƒeƒLƒXƒg’è‹`‚Å‚·D
- *		«—ˆCƒŠƒ\[ƒX‚Ì String table ‚ÌƒŠƒ\[ƒX ID ‚É‚È‚é‰Â”\«‚ª‚ ‚é‚½‚ßC
- *		Ž—‚½‚æ‚¤‚È–¼‘O‚Å’è‹`‚µ‚Ü‚·D
+ *	ï¿½È‰ï¿½ï¿½ï¿½ MainFrame ï¿½ÌƒXï¿½eï¿½[ï¿½^ï¿½Xï¿½oï¿½[ï¿½Ö•\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½Lï¿½Xï¿½gï¿½ï¿½`ï¿½Å‚ï¿½ï¿½D
+ *		ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½ï¿½ String table ï¿½Ìƒï¿½ï¿½\ï¿½[ï¿½X ID ï¿½É‚È‚ï¿½Â”\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é‚½ï¿½ßC
+ *		ï¿½ï¿½ï¿½ï¿½ï¿½æ‚¤ï¿½È–ï¿½ï¿½Oï¿½Å’ï¿½`ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D
  */
-/*//// Chief ƒ_ƒCƒAƒƒO‚Å‚Ì§Œä
-//#define	IDS_CHIF_MLDPOS_MOVING				_T("ƒ}ƒjƒ…ƒAƒ‹ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“‚ÖˆÚ“®’†EEE")
-////#define IDS_CHIF_MLDPOS_MOVED				_T("ƒ}ƒjƒ…ƒAƒ‹ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“‚ÖˆÚ“®Š®—¹D")
+/*//// Chief ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½Oï¿½Å‚Ìï¿½ï¿½ï¿½
+//#define	IDS_CHIF_MLDPOS_MOVING				_T("ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÖˆÚ“ï¿½ï¿½ï¿½ï¿½Eï¿½Eï¿½E")
+////#define IDS_CHIF_MLDPOS_MOVED				_T("ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÖˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D")
 //#define	IDS_CHIF_MLDPOS_MOVED				_T("")
-//#define	IDS_CHIF_HLDPOS_MOVING				_T("ƒnƒ“ƒhƒ‰ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“‚ÖˆÚ“®’†EEE")
-////#define IDS_CHIF_HLDPOS_MOVED				_T("ƒnƒ“ƒhƒ‰ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“‚ÖˆÚ“®Š®—¹D")
+//#define	IDS_CHIF_HLDPOS_MOVING				_T("ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÖˆÚ“ï¿½ï¿½ï¿½ï¿½Eï¿½Eï¿½E")
+////#define IDS_CHIF_HLDPOS_MOVED				_T("ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÖˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D")
 //#define	IDS_CHIF_HLDPOS_MOVED				_T("")
-//#define	IDS_CHIF_GENPOS_MOVING				_T("”Ä—pƒ|ƒWƒVƒ‡ƒ“‚ÖˆÚ“®’†EEE")
-////#define IDS_CHIF_GENPOS_MOVED				_T("”Ä—pƒ|ƒWƒVƒ‡ƒ“‚ÖˆÚ“®Š®—¹EEE")
+//#define	IDS_CHIF_GENPOS_MOVING				_T("ï¿½Ä—pï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÖˆÚ“ï¿½ï¿½ï¿½ï¿½Eï¿½Eï¿½E")
+////#define IDS_CHIF_GENPOS_MOVED				_T("ï¿½Ä—pï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÖˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Eï¿½Eï¿½E")
 //#define	IDS_CHIF_GENPOS_MOVED				_T("")
-//#define	IDS_CHIF_HWS_MLDPOS_MOVING			_T("[ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh]ƒ}ƒjƒ…ƒAƒ‹ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“‚ÖˆÚ“®’†EEE")
-////#define IDS_CHIF_HWS_MLDPOS_MOVED			_T("[ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh]ƒ}ƒjƒ…ƒAƒ‹ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“‚ÖˆÚ“®Š®—¹D")
+//#define	IDS_CHIF_HWS_MLDPOS_MOVING			_T("[ï¿½nï¿½[ï¿½hï¿½Vï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½[ï¿½h]ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÖˆÚ“ï¿½ï¿½ï¿½ï¿½Eï¿½Eï¿½E")
+////#define IDS_CHIF_HWS_MLDPOS_MOVED			_T("[ï¿½nï¿½[ï¿½hï¿½Vï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½[ï¿½h]ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÖˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D")
 //#define	IDS_CHIF_HWS_MLDPOS_MOVED			_T("")
-//#define	IDS_CHIF_HWS_HLDPOS_MOVING			_T("[ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh]ƒnƒ“ƒhƒ‰ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“‚ÖˆÚ“®’†EEE")
-////#define IDS_CHIF_HWS_HLDPOS_MOVED			_T("[ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh]ƒnƒ“ƒhƒ‰ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“‚ÖˆÚ“®Š®—¹D")
+//#define	IDS_CHIF_HWS_HLDPOS_MOVING			_T("[ï¿½nï¿½[ï¿½hï¿½Vï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½[ï¿½h]ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÖˆÚ“ï¿½ï¿½ï¿½ï¿½Eï¿½Eï¿½E")
+////#define IDS_CHIF_HWS_HLDPOS_MOVED			_T("[ï¿½nï¿½[ï¿½hï¿½Vï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½[ï¿½h]ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÖˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D")
 //#define	IDS_CHIF_HWS_HLDPOS_MOVED			_T("")
-//#define	IDS_CHIF_HWS_GENPOS_MOVING			_T("[ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh]”Ä—pƒ|ƒWƒVƒ‡ƒ“‚ÖˆÚ“®’†EEE")
-////#define IDS_CHIF_HWS_GENPOS_MOVED			_T("[ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh]”Ä—pƒ|ƒWƒVƒ‡ƒ“‚ÖˆÚ“®Š®—¹EEE")
+//#define	IDS_CHIF_HWS_GENPOS_MOVING			_T("[ï¿½nï¿½[ï¿½hï¿½Vï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½[ï¿½h]ï¿½Ä—pï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÖˆÚ“ï¿½ï¿½ï¿½ï¿½Eï¿½Eï¿½E")
+////#define IDS_CHIF_HWS_GENPOS_MOVED			_T("[ï¿½nï¿½[ï¿½hï¿½Vï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½[ï¿½h]ï¿½Ä—pï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÖˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Eï¿½Eï¿½E")
 //#define	IDS_CHIF_HWS_GENPOS_MOVED			_T("")
-//// ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’è
-//#define IDS_CHIF_SREF_HWS_N_1ST_MEASING		_T("ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èF[ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh](ƒm[ƒ}ƒ‹)1stƒŠƒtƒ@ƒŒƒ“ƒX‘ª’è’†EEE")
-//#define IDS_CHIF_SREF_HWS_D_T1_MEASING		_T("ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èF[ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh]ƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒXT1‘ª’è’†EEE")
-//#define IDS_CHIF_SREF_HWS_D_T1_COMPLETE		_T("ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èF[ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh]ƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒXT1‘ª’èŠ®—¹D")
-//#define IDS_CHIF_SREF_N_STAGE_MOVING		_T("ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èF(ƒm[ƒ}ƒ‹)ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èˆÊ’u(‚w‚x)‚ÖˆÚ“®’†EEE")
-//#define IDS_CHIF_SREF_N_STAGE_MOVED			_T("ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èF(ƒm[ƒ}ƒ‹)ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èˆÊ’u(‚w‚x)‚ÖˆÚ“®Š®—¹D")
-//#define	IDS_CHIF_SREF_N_Z_MOVING			_T("ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èF(ƒm[ƒ}ƒ‹)ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èˆÊ’u(‚y)‚ÖˆÚ“®’†EEE")
-//#define	IDS_CHIF_SREF_N_Z_MOVED 			_T("ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èF(ƒm[ƒ}ƒ‹)ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èˆÊ’u(‚y)‚ÖˆÚ“®Š®—¹D")
-//#define	IDS_CHIF_SREF_N_SWAYSETTLING		_T("ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èF(ƒm[ƒ}ƒ‹)ƒŠƒtƒ@ƒŒƒ“ƒXFƒwƒbƒh—h‚êŽû‘©‘Ò‚¿EEE")
-//#define	IDS_CHIF_SREF_N_FOCUSING			_T("ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èF(ƒm[ƒ}ƒ‹)ƒŠƒtƒ@ƒŒƒ“ƒXFƒtƒH[ƒJƒX’†EEE")
-//#define	IDS_CHIF_SREF_N_FOCUS_FAILED		_T("ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èF(ƒm[ƒ}ƒ‹)ƒŠƒtƒ@ƒŒƒ“ƒXFƒtƒH[ƒJƒXŽ¸”sD")
-//#define	IDS_CHIF_SREF_N_1ST_MEASING 		_T("ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èF(ƒm[ƒ}ƒ‹)1stƒŠƒtƒ@ƒŒƒ“ƒX‘ª’è’†EEE")
-//#define	IDS_CHIF_SREF_N_1ST_MEAS_FAILED 	_T("ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èF(ƒm[ƒ}ƒ‹)1stƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èŽ¸”sD")
-//#define	IDS_CHIF_SREF_N_2ND_MEASING 		_T("ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èF(ƒm[ƒ}ƒ‹)2ndƒŠƒtƒ@ƒŒƒ“ƒX‘ª’è’†EEE")
-//#define	IDS_CHIF_SREF_N_2ND_T1_MEAS_FAILED	_T("ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èF(ƒm[ƒ}ƒ‹)2ndƒŠƒtƒ@ƒŒƒ“ƒXT1‘ª’èŽ¸”sD")
-//#define	IDS_CHIF_SREF_N_2ND_T2_MEAS_FAILED	_T("ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èF(ƒm[ƒ}ƒ‹)2ndƒŠƒtƒ@ƒŒƒ“ƒXT2‘ª’èŽ¸”sD")
-//#define	IDS_CHIF_SREF_D_STAGE_MOVING		_T("ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èFƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èˆÊ’u(‚w‚x)‚ÖˆÚ“®’†EEE")
-//#define	IDS_CHIF_SREF_D_STAGE_MOVED 		_T("ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èFƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èˆÊ’u(‚w‚x)‚ÖˆÚ“®Š®—¹D")
-//#define	IDS_CHIF_SREF_D_Z_MOVING			_T("ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èFƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èˆÊ’u(‚y)‚ÖˆÚ“®’†EEE")
-//#define	IDS_CHIF_SREF_D_Z_MOVED 			_T("ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èFƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èˆÊ’u(‚y)‚ÖˆÚ“®Š®—¹D")
-//#define	IDS_CHIF_SREF_D_SWAYSETTLING		_T("ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èFƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒXFƒwƒbƒh—h‚êŽû‘©‘Ò‚¿EEE")
-//#define	IDS_CHIF_SREF_D_T1_MEASING			_T("ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èFƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒXT1‘ª’è’†EEE")
-//#define	IDS_CHIF_SREF_D_T1_MEAS_FAILED		_T("ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èFƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒXT1‘ª’èŽ¸”sD")
-//#define	IDS_CHIF_SREF_D_T2_MEASING			_T("ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èFƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒXT2‘ª’è’†EEE")
-//#define	IDS_CHIF_SREF_D_T2_MEAS_FAILED		_T("ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èFƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒXT2‘ª’èŽ¸”sD")
-//#define	IDS_CHIF_SREF_COMPLETED 			_T("ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èFŠ®—¹D")
-//// ƒfƒXƒLƒ…[
-//#define	IDS_CHIF_DSKW_HWS_DESKEWING 		_T("ƒfƒXƒLƒ…[F[ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh]ƒfƒXƒLƒ…[’†EEE")
-//#define	IDS_CHIF_DSKW_HWS_DESKEWED			_T("ƒfƒXƒLƒ…[F[ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh]ƒfƒXƒLƒ…[Š®—¹D")
-//#define	IDS_CHIF_DSKW_FOCUSING				_T("ƒfƒXƒLƒ…[FƒtƒH[ƒJƒX’†EEE")
-//#define	IDS_CHIF_DSKW_FOCUS_CANCEL			_T("ƒfƒXƒLƒ…[FƒtƒH[ƒJƒX ƒLƒƒƒ“ƒZƒ‹D")
-//#define	IDS_CHIF_DSKW_AUTO_ING				_T("ƒfƒXƒLƒ…[FƒI[ƒgƒfƒXƒLƒ…[’†EEE")
-//#define	IDS_CHIF_DSKW_AUTO_COMPLETE 		_T("ƒfƒXƒLƒ…[FƒI[ƒgƒfƒXƒLƒ…[Š®—¹D")
-//#define	IDS_CHIF_DSKW_AUTO_FAILED			_T("ƒfƒXƒLƒ…[FƒI[ƒgƒfƒXƒLƒ…[Ž¸”sD")
-//#define	IDS_CHIF_DSKW_AUTO_CANCEL			_T("ƒfƒXƒLƒ…[FƒI[ƒgƒfƒXƒLƒ…[ ƒLƒƒƒ“ƒZƒ‹D")
-//#define	IDS_CHIF_DSKW_MANU_ING				_T("ƒfƒXƒLƒ…[Fƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[’†EEE")
-//#define	IDS_CHIF_DSKW_MANU_COMPLETE 		_T("ƒfƒXƒLƒ…[Fƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[Š®—¹D")
-//#define	IDS_CHIF_DSKW_MANU_CANCEL			_T("ƒfƒXƒLƒ…[Fƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[ ƒLƒƒƒ“ƒZƒ‹D")
-//#define	IDS_CHIF_DSKW_MANU_IGNORE			_T("ƒfƒXƒLƒ…[Fƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[–³ŒøD")
-//// ‚Pƒ|ƒCƒ“ƒg‘ª’è
-//#define	IDS_CHIF_SR1P_Z_MOVING				_T("ƒ|ƒCƒ“ƒg‘ª’èF‘ª’èˆÊ’u(‚y)‚ÖˆÚ“®’†EEE")
-//#define	IDS_CHIF_SR1P_Z_MOVED				_T("ƒ|ƒCƒ“ƒg‘ª’èF‘ª’èˆÊ’u(‚y)‚ÖˆÚ“®Š®—¹D")
-//#define	IDS_CHIF_SR1P_FOCUSING				_T("ƒ|ƒCƒ“ƒg‘ª’èFƒtƒH[ƒJƒX’†EEE")
-//#define	IDS_CHIF_SR1P_FOCUS_ABORTED 		_T("ƒ|ƒCƒ“ƒg‘ª’èFƒtƒH[ƒJƒX’†’fD")
-//#define	IDS_CHIF_SR1P_HWS_MEASING			_T("ƒ|ƒCƒ“ƒg‘ª’èF[ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh]‘ª’è’†EEE")
-//#define	IDS_CHIF_SR1P_MEASING				_T("ƒ|ƒCƒ“ƒg‘ª’èF‘ª’è’†EEE")
-//#define	IDS_CHIF_SR1P_MEAS_FAILED			_T("ƒ|ƒCƒ“ƒg‘ª’èF‘ª’èŽ¸”sD")
-//#define	IDS_CHIF_SR1P_ANALYZING 			_T("ƒ|ƒCƒ“ƒg‘ª’èF‰ðÍ’†EEE")
-//#define	IDS_CHIF_SR1P_ANALYZE_FAILED		_T("ƒ|ƒCƒ“ƒg‘ª’èF‰ðÍŽ¸”sD")
-//#define	IDS_CHIF_SR1P_DATA_PROCING			_T("ƒ|ƒCƒ“ƒg‘ª’èFƒf[ƒ^ˆ—’†EEE")
-//#define	IDS_CHIF_SR1P_DATA_PROC_COMPLETE	_T("ƒ|ƒCƒ“ƒg‘ª’èFƒf[ƒ^ˆ—Š®—¹D")
+//// ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½
+//#define IDS_CHIF_SREF_HWS_N_1ST_MEASING		_T("ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½F[ï¿½nï¿½[ï¿½hï¿½Vï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½[ï¿½h](ï¿½mï¿½[ï¿½}ï¿½ï¿½)1stï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½è’†ï¿½Eï¿½Eï¿½E")
+//#define IDS_CHIF_SREF_HWS_D_T1_MEASING		_T("ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½F[ï¿½nï¿½[ï¿½hï¿½Vï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½[ï¿½h]ï¿½_ï¿½[ï¿½Nï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½XT1ï¿½ï¿½ï¿½è’†ï¿½Eï¿½Eï¿½E")
+//#define IDS_CHIF_SREF_HWS_D_T1_COMPLETE		_T("ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½F[ï¿½nï¿½[ï¿½hï¿½Vï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½[ï¿½h]ï¿½_ï¿½[ï¿½Nï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½XT1ï¿½ï¿½ï¿½èŠ®ï¿½ï¿½ï¿½D")
+//#define IDS_CHIF_SREF_N_STAGE_MOVING		_T("ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½F(ï¿½mï¿½[ï¿½}ï¿½ï¿½)ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Ê’u(ï¿½wï¿½x)ï¿½ÖˆÚ“ï¿½ï¿½ï¿½ï¿½Eï¿½Eï¿½E")
+//#define IDS_CHIF_SREF_N_STAGE_MOVED			_T("ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½F(ï¿½mï¿½[ï¿½}ï¿½ï¿½)ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Ê’u(ï¿½wï¿½x)ï¿½ÖˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D")
+//#define	IDS_CHIF_SREF_N_Z_MOVING			_T("ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½F(ï¿½mï¿½[ï¿½}ï¿½ï¿½)ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Ê’u(ï¿½y)ï¿½ÖˆÚ“ï¿½ï¿½ï¿½ï¿½Eï¿½Eï¿½E")
+//#define	IDS_CHIF_SREF_N_Z_MOVED 			_T("ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½F(ï¿½mï¿½[ï¿½}ï¿½ï¿½)ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Ê’u(ï¿½y)ï¿½ÖˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D")
+//#define	IDS_CHIF_SREF_N_SWAYSETTLING		_T("ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½F(ï¿½mï¿½[ï¿½}ï¿½ï¿½)ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½Fï¿½wï¿½bï¿½hï¿½hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½ï¿½Eï¿½Eï¿½E")
+//#define	IDS_CHIF_SREF_N_FOCUSING			_T("ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½F(ï¿½mï¿½[ï¿½}ï¿½ï¿½)ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½Fï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ï¿½Eï¿½Eï¿½E")
+//#define	IDS_CHIF_SREF_N_FOCUS_FAILED		_T("ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½F(ï¿½mï¿½[ï¿½}ï¿½ï¿½)ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½Fï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ï¿½sï¿½D")
+//#define	IDS_CHIF_SREF_N_1ST_MEASING 		_T("ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½F(ï¿½mï¿½[ï¿½}ï¿½ï¿½)1stï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½è’†ï¿½Eï¿½Eï¿½E")
+//#define	IDS_CHIF_SREF_N_1ST_MEAS_FAILED 	_T("ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½F(ï¿½mï¿½[ï¿½}ï¿½ï¿½)1stï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½èŽ¸ï¿½sï¿½D")
+//#define	IDS_CHIF_SREF_N_2ND_MEASING 		_T("ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½F(ï¿½mï¿½[ï¿½}ï¿½ï¿½)2ndï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½è’†ï¿½Eï¿½Eï¿½E")
+//#define	IDS_CHIF_SREF_N_2ND_T1_MEAS_FAILED	_T("ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½F(ï¿½mï¿½[ï¿½}ï¿½ï¿½)2ndï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½XT1ï¿½ï¿½ï¿½èŽ¸ï¿½sï¿½D")
+//#define	IDS_CHIF_SREF_N_2ND_T2_MEAS_FAILED	_T("ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½F(ï¿½mï¿½[ï¿½}ï¿½ï¿½)2ndï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½XT2ï¿½ï¿½ï¿½èŽ¸ï¿½sï¿½D")
+//#define	IDS_CHIF_SREF_D_STAGE_MOVING		_T("ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Fï¿½_ï¿½[ï¿½Nï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Ê’u(ï¿½wï¿½x)ï¿½ÖˆÚ“ï¿½ï¿½ï¿½ï¿½Eï¿½Eï¿½E")
+//#define	IDS_CHIF_SREF_D_STAGE_MOVED 		_T("ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Fï¿½_ï¿½[ï¿½Nï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Ê’u(ï¿½wï¿½x)ï¿½ÖˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D")
+//#define	IDS_CHIF_SREF_D_Z_MOVING			_T("ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Fï¿½_ï¿½[ï¿½Nï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Ê’u(ï¿½y)ï¿½ÖˆÚ“ï¿½ï¿½ï¿½ï¿½Eï¿½Eï¿½E")
+//#define	IDS_CHIF_SREF_D_Z_MOVED 			_T("ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Fï¿½_ï¿½[ï¿½Nï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Ê’u(ï¿½y)ï¿½ÖˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D")
+//#define	IDS_CHIF_SREF_D_SWAYSETTLING		_T("ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Fï¿½_ï¿½[ï¿½Nï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½Fï¿½wï¿½bï¿½hï¿½hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½ï¿½Eï¿½Eï¿½E")
+//#define	IDS_CHIF_SREF_D_T1_MEASING			_T("ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Fï¿½_ï¿½[ï¿½Nï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½XT1ï¿½ï¿½ï¿½è’†ï¿½Eï¿½Eï¿½E")
+//#define	IDS_CHIF_SREF_D_T1_MEAS_FAILED		_T("ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Fï¿½_ï¿½[ï¿½Nï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½XT1ï¿½ï¿½ï¿½èŽ¸ï¿½sï¿½D")
+//#define	IDS_CHIF_SREF_D_T2_MEASING			_T("ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Fï¿½_ï¿½[ï¿½Nï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½XT2ï¿½ï¿½ï¿½è’†ï¿½Eï¿½Eï¿½E")
+//#define	IDS_CHIF_SREF_D_T2_MEAS_FAILED		_T("ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Fï¿½_ï¿½[ï¿½Nï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½XT2ï¿½ï¿½ï¿½èŽ¸ï¿½sï¿½D")
+//#define	IDS_CHIF_SREF_COMPLETED 			_T("ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½ï¿½ï¿½D")
+//// ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[
+//#define	IDS_CHIF_DSKW_HWS_DESKEWING 		_T("ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½F[ï¿½nï¿½[ï¿½hï¿½Vï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½[ï¿½h]ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Eï¿½Eï¿½E")
+//#define	IDS_CHIF_DSKW_HWS_DESKEWED			_T("ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½F[ï¿½nï¿½[ï¿½hï¿½Vï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½[ï¿½h]ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½D")
+//#define	IDS_CHIF_DSKW_FOCUSING				_T("ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½Fï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ï¿½Eï¿½Eï¿½E")
+//#define	IDS_CHIF_DSKW_FOCUS_CANCEL			_T("ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½Fï¿½tï¿½Hï¿½[ï¿½Jï¿½X ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½D")
+//#define	IDS_CHIF_DSKW_AUTO_ING				_T("ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½Fï¿½Iï¿½[ï¿½gï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Eï¿½Eï¿½E")
+//#define	IDS_CHIF_DSKW_AUTO_COMPLETE 		_T("ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½Fï¿½Iï¿½[ï¿½gï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½D")
+//#define	IDS_CHIF_DSKW_AUTO_FAILED			_T("ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½Fï¿½Iï¿½[ï¿½gï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½sï¿½D")
+//#define	IDS_CHIF_DSKW_AUTO_CANCEL			_T("ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½Fï¿½Iï¿½[ï¿½gï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½D")
+//#define	IDS_CHIF_DSKW_MANU_ING				_T("ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½Fï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Eï¿½Eï¿½E")
+//#define	IDS_CHIF_DSKW_MANU_COMPLETE 		_T("ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½Fï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½D")
+//#define	IDS_CHIF_DSKW_MANU_CANCEL			_T("ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½Fï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½D")
+//#define	IDS_CHIF_DSKW_MANU_IGNORE			_T("ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½Fï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½D")
+//// ï¿½Pï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½
+//#define	IDS_CHIF_SR1P_Z_MOVING				_T("ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½ï¿½Ê’u(ï¿½y)ï¿½ÖˆÚ“ï¿½ï¿½ï¿½ï¿½Eï¿½Eï¿½E")
+//#define	IDS_CHIF_SR1P_Z_MOVED				_T("ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½ï¿½Ê’u(ï¿½y)ï¿½ÖˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D")
+//#define	IDS_CHIF_SR1P_FOCUSING				_T("ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½Fï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ï¿½Eï¿½Eï¿½E")
+//#define	IDS_CHIF_SR1P_FOCUS_ABORTED 		_T("ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½Fï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ï¿½fï¿½D")
+//#define	IDS_CHIF_SR1P_HWS_MEASING			_T("ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½F[ï¿½nï¿½[ï¿½hï¿½Vï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½[ï¿½h]ï¿½ï¿½ï¿½è’†ï¿½Eï¿½Eï¿½E")
+//#define	IDS_CHIF_SR1P_MEASING				_T("ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½è’†ï¿½Eï¿½Eï¿½E")
+//#define	IDS_CHIF_SR1P_MEAS_FAILED			_T("ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½èŽ¸ï¿½sï¿½D")
+//#define	IDS_CHIF_SR1P_ANALYZING 			_T("ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½Fï¿½ï¿½Í’ï¿½ï¿½Eï¿½Eï¿½E")
+//#define	IDS_CHIF_SR1P_ANALYZE_FAILED		_T("ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½Fï¿½ï¿½ÍŽï¿½ï¿½sï¿½D")
+//#define	IDS_CHIF_SR1P_DATA_PROCING			_T("ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½Fï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Eï¿½Eï¿½E")
+//#define	IDS_CHIF_SR1P_DATA_PROC_COMPLETE	_T("ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½Fï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D")
 //// 2009.05.11 K.Matsuo SitePR -->
-//// ƒTƒCƒgƒpƒ^[ƒ“
-//#define	IDS_CHIF_SITEPR_AUTO_ING			_T("ƒTƒCƒgƒpƒ^[ƒ“FƒI[ƒgƒTƒCƒgƒpƒ^[ƒ“’†EEE")
-//#define	IDS_CHIF_SITEPR_AUTO_COMPLETE		_T("ƒTƒCƒgƒpƒ^[ƒ“FƒI[ƒgƒTƒCƒgƒpƒ^[ƒ“Š®—¹D")
-//#define	IDS_CHIF_SITEPR_AUTO_FAILED 		_T("ƒTƒCƒgƒpƒ^[ƒ“FƒI[ƒgƒTƒCƒgƒpƒ^[ƒ“Ž¸”sD")
-//#define	IDS_CHIF_SITEPR_AUTO_CANCEL 		_T("ƒTƒCƒgƒpƒ^[ƒ“FƒI[ƒgƒTƒCƒgƒpƒ^[ƒ“ ƒLƒƒƒ“ƒZƒ‹D")
-//#define	IDS_CHIF_SITEPR_MANU_ING			_T("ƒTƒCƒgƒpƒ^[ƒ“Fƒ}ƒjƒ…ƒAƒ‹ƒTƒCƒgƒpƒ^[ƒ“’†EEE")
-//#define	IDS_CHIF_SITEPR_MANU_COMPLETE		_T("ƒTƒCƒgƒpƒ^[ƒ“Fƒ}ƒjƒ…ƒAƒ‹ƒTƒCƒgƒpƒ^[ƒ“Š®—¹D")
-//#define	IDS_CHIF_SITEPR_MANU_CANCEL 		_T("ƒTƒCƒgƒpƒ^[ƒ“Fƒ}ƒjƒ…ƒAƒ‹ƒTƒCƒgƒpƒ^[ƒ“ ƒLƒƒƒ“ƒZƒ‹D")
+//// ï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½
+//#define	IDS_CHIF_SITEPR_AUTO_ING			_T("ï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½Iï¿½[ï¿½gï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Eï¿½Eï¿½E")
+//#define	IDS_CHIF_SITEPR_AUTO_COMPLETE		_T("ï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½Iï¿½[ï¿½gï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D")
+//#define	IDS_CHIF_SITEPR_AUTO_FAILED 		_T("ï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½Iï¿½[ï¿½gï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½D")
+//#define	IDS_CHIF_SITEPR_AUTO_CANCEL 		_T("ï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½Iï¿½[ï¿½gï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½D")
+//#define	IDS_CHIF_SITEPR_MANU_ING			_T("ï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Eï¿½Eï¿½E")
+//#define	IDS_CHIF_SITEPR_MANU_COMPLETE		_T("ï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D")
+//#define	IDS_CHIF_SITEPR_MANU_CANCEL 		_T("ï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½D")
 //// 2009.05.11 K.Matsuo SitePR <--
-//// ƒV[ƒPƒ“ƒX‘ª’è
-//#define	IDS_CHIF_SEQ_STAGE_PREMOVING		_T("ƒV[ƒPƒ“ƒX‘ª’èF‘ª’èˆÊ’u(‚w‚x)‚ÖæsˆÚ“®’†EEE")
-//#define IDS_CHIF_SEQ_STAGE_MOVED			_T("ƒV[ƒPƒ“ƒX‘ª’èF‘ª’èˆÊ’u(‚w‚x)‚ÖˆÚ“®Š®—¹D")
-//#define IDS_CHIF_SEQ_STAGE_MOVING 		_T("ƒV[ƒPƒ“ƒX‘ª’èF‘ª’èˆÊ’u(‚w‚x)‚ÖˆÚ“®’†EEE")
-//#define IDS_CHIF_SEQ_SWAYSETTLING 		_T("ƒV[ƒPƒ“ƒX‘ª’èFƒwƒbƒh—h‚êŽû‘©‘Ò‚¿EEE")
-//#define IDS_CHIF_SEQ_DATA_PROCING 		_T("ƒV[ƒPƒ“ƒX‘ª’èFƒf[ƒ^ˆ—’†EEE")
-//#define IDS_CHIF_SEQ_DATA_PROC_COMPLETE		_T("ƒV[ƒPƒ“ƒX‘ª’èFƒf[ƒ^ˆ—Š®—¹D")
-//#define IDS_CHIF_SEQ_CANCELING				_T("ƒV[ƒPƒ“ƒX‘ª’èFƒLƒƒƒ“ƒZƒ‹’âŽ~’†EEE")
-//#define IDS_CHIF_SEQ_CANCELED 			_T("ƒV[ƒPƒ“ƒX‘ª’èFƒLƒƒƒ“ƒZƒ‹Š®—¹D")
-//#define IDS_CHIF_SEQ_PAUSING				_T("ƒV[ƒPƒ“ƒX‘ª’èFˆêŽž’âŽ~’†(ƒ|[ƒY)EEE")
+//// ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½
+//#define	IDS_CHIF_SEQ_STAGE_PREMOVING		_T("ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½ï¿½Ê’u(ï¿½wï¿½x)ï¿½Öï¿½sï¿½Ú“ï¿½ï¿½ï¿½ï¿½Eï¿½Eï¿½E")
+//#define IDS_CHIF_SEQ_STAGE_MOVED			_T("ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½ï¿½Ê’u(ï¿½wï¿½x)ï¿½ÖˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D")
+//#define IDS_CHIF_SEQ_STAGE_MOVING 		_T("ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½ï¿½Ê’u(ï¿½wï¿½x)ï¿½ÖˆÚ“ï¿½ï¿½ï¿½ï¿½Eï¿½Eï¿½E")
+//#define IDS_CHIF_SEQ_SWAYSETTLING 		_T("ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Fï¿½wï¿½bï¿½hï¿½hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½ï¿½Eï¿½Eï¿½E")
+//#define IDS_CHIF_SEQ_DATA_PROCING 		_T("ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Fï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Eï¿½Eï¿½E")
+//#define IDS_CHIF_SEQ_DATA_PROC_COMPLETE		_T("ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Fï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D")
+//#define IDS_CHIF_SEQ_CANCELING				_T("ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Fï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½~ï¿½ï¿½ï¿½Eï¿½Eï¿½E")
+//#define IDS_CHIF_SEQ_CANCELED 			_T("ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Fï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D")
+//#define IDS_CHIF_SEQ_PAUSING				_T("ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Fï¿½êŽžï¿½ï¿½~ï¿½ï¿½(ï¿½|ï¿½[ï¿½Y)ï¿½Eï¿½Eï¿½E")
 //Saiki 20090602 Delete*/
 
-/* added 2012.01.23 hmenjo [‚V]ŸŽèƒAƒ{[ƒg‘Îô ---------- { ---------- */
+/* added 2012.01.23 hmenjo [ï¿½V]ï¿½ï¿½ï¿½ï¿½Aï¿½{ï¿½[ï¿½gï¿½Îï¿½ ---------- { ---------- */
 /*
- *	“à•”ƒEƒBƒ“ƒhƒEƒƒbƒZ[ƒWƒ`ƒFƒbƒN—p ’è‹`
+ *	ï¿½ï¿½ï¿½ï¿½ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½`ï¿½Fï¿½bï¿½Nï¿½p ï¿½ï¿½`
  */
-#define	CHIEF_TREVENT_RETRY_COUNT		10		/* WM_CHIF_TRxxxx_SETEVENT ƒŠƒgƒ‰ƒC‰ñ”	*/
-#define	CHIEF_TREVENT_RETRY_INTERVAL	50		/* WM_CHIF_TRxxxx_SETEVENT ƒŠƒgƒ‰ƒCŠÔŠu[ms]	*/
-#define	CHIEF_CHECK_BUSY_TIME			1000	/* ƒrƒW[ƒ`ƒFƒbƒNŽžŠÔ[ms]	*/
-#define	CHIEF_CHECK_BUSY_INTERVAL		100		/* ƒrƒW[ƒ`ƒFƒbƒNŠÔŠu[ms]	*/
-/* added 2012.01.23 hmenjo [‚V]ŸŽèƒAƒ{[ƒg‘Îô ---------- } ---------- */
+#define	CHIEF_TREVENT_RETRY_COUNT		10		/* WM_CHIF_TRxxxx_SETEVENT ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½ï¿½	*/
+#define	CHIEF_TREVENT_RETRY_INTERVAL	50		/* WM_CHIF_TRxxxx_SETEVENT ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½ÔŠu[ms]	*/
+#define	CHIEF_CHECK_BUSY_TIME			1000	/* ï¿½rï¿½Wï¿½[ï¿½`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½[ms]	*/
+#define	CHIEF_CHECK_BUSY_INTERVAL		100		/* ï¿½rï¿½Wï¿½[ï¿½`ï¿½Fï¿½bï¿½Nï¿½ÔŠu[ms]	*/
+/* added 2012.01.23 hmenjo [ï¿½V]ï¿½ï¿½ï¿½ï¿½Aï¿½{ï¿½[ï¿½gï¿½Îï¿½ ---------- } ---------- */

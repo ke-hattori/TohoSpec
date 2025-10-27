@@ -2424,7 +2424,7 @@ int CC_MotionTimeout(
 		short wAxis		/*	��	*/
 	)
 {
-	static DWORD ls_dwCounter[CC_AXIS_NUM] = {-1, -1, -1, -1};
+	static DWORD ls_dwCounter[CC_AXIS_NUM] = {static_cast<DWORD>(-1), static_cast<DWORD>(-1), static_cast<DWORD>(-1), static_cast<DWORD>(-1)};
 	static BOOL ls_bCountFlag[CC_AXIS_NUM] = {FALSE, FALSE, FALSE, FALSE};
 	int l_iRet = 0;
 	DWORD l_dwCounter[CC_AXIS_NUM];
