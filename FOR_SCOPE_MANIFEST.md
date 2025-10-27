@@ -21,9 +21,13 @@ Once the solution compiles cleanly, we need to:
 - **SRC/MeaSys/XmpHelper.HXX:761** - Hoisted variable 'i' (Policy A)
 
 ### NanoSpec Project ✅ COMPLETE
-**Result:** No for-scope errors after `/Zc:forScope-` removal!
+- **SRC/NanoSpec/SitePtSeq.cpp:125** - Hoisted variable 'iSite' (Policy A) - used after loop on lines 202-205, 233
+- **SRC/NanoSpec/RecipeStressStageProgramView.cpp:1406** - Added 'i' declaration in UpDate() function (Policy A)
+- **SRC/NanoSpec/RecipeStageProgramView.cpp:744** - Added 'i' declaration in OnAddButton() function (Policy A)
+- **SRC/NanoSpec/RecipeStageProgramView.cpp:931** - Added 'i' declaration in OnDeleteButton() function (Policy A)
+- **SRC/NanoSpec/RecipeStageProgramView.cpp:1274** - Added 'i' declaration in UpDate() function (Policy A)
 
-All previously identified for-scope issues were already fixed in earlier iterations:
+Previously fixed in earlier iterations:
 - SRC/NanoSpec/MotTsk/WIN.CPP (fixed - iteration 26)
 - SRC/NanoSpec/TestMeasurementDlg.cpp (fixed - iteration 26)
 - SRC/NanoSpec/SrVideoCalibrationSettingDlg.cpp (fixed - iteration 26)
@@ -75,7 +79,7 @@ use(i);  // OK
 
 ## Summary
 
-**Total for-scope fixes:** 3 locations in MEASYS only
+**Total for-scope fixes:** 8 locations (3 in MEASYS, 5 in NanoSpec)
 - All fixes applied Policy A (hoist loop variable to surrounding block)
 - No behavior changes
-- NanoSpec and MotTsk had no for-scope errors after flag removal
+- MotTsk had no for-scope errors after flag removal
