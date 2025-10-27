@@ -3576,6 +3576,7 @@ BOOL CMeasurementTabView::MRCS_CheckRunPermission()
 BOOL CMeasurementTabView::MRCS_RDblClk(POINT ptGrid, CGridCtrl* pclsGrid/* = 0*/)
 {
 	BOOL l_bRc = FALSE;
+	int i;
 
 	if (0 == pclsGrid) {
 		return FALSE;
@@ -3597,7 +3598,7 @@ BOOL CMeasurementTabView::MRCS_RDblClk(POINT ptGrid, CGridCtrl* pclsGrid/* = 0*/
 //	�e�X�g�p		if (FALSE != m_MeasurementListGrid.IsCellSelected(l_clsCellID)) {
 					int l_iSelCount = 0;
 					BOOL l_bIncludedInSelected = FALSE;	/* �I���s���Ɏw��s���݂�t���O	*/
-					for (int i = 1; i <= l_iMeasCount; i++) {
+					for (i = 1; i <= l_iMeasCount; i++) {
 						if (FALSE != l_pclsGrid->IsCellSelected(i, l_clsCellID.col)) {
 							/* �I���s	*/
 							l_iSelCount++;
