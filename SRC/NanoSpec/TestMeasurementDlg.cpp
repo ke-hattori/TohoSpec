@@ -1111,7 +1111,7 @@ void CTestMeasurementDlg::Init_SR_Transmittance_StageMenu()
 	pCombo->AddString(strSelectCaption);
 	//2009.12.11 bagus �C�� --{--
 	for(int iMeasPt =1; iMeasPt <= m_SrConfig.wGantryNumOfMeasPoint; iMeasPt++){
-		itoa(iMeasPt, szMeasPt, 10);
+		_itoa(iMeasPt, szMeasPt, 10);
 		pCombo->AddString(szMeasPt);
 	}
 	pCombo->SetCurSel(0);

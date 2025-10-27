@@ -517,7 +517,7 @@ void CManualMeasurementFormView::Init_SR_Transmittance_StageMenu()
 // 2010.01.29 bagus Gantry --{--
 #if 0
 	for(int iMeasPt =1; iMeasPt <= m_SrConfig.wGantryNumOfMeasPoint; iMeasPt++){
-		itoa(iMeasPt, szMeasPt, 10);
+		_itoa(iMeasPt, szMeasPt, 10);
 		pCombo->AddString(szMeasPt);
 	}
 #else
@@ -552,7 +552,7 @@ void CManualMeasurementFormView::Init_SR_Transmittance_StageMenu()
 			for (j=0; j<wNumScans; j++) {
 				if ((SrReferencePosition.LocGantryTransmitReference[iMeasPt-1].lX == tScanPoint[j].lX)
 				 && (SrReferencePosition.LocGantryTransmitReference[iMeasPt-1].lY == tScanPoint[j].lY)) {
-					itoa(iMeasPt, szMeasPt, 10);
+					_itoa(iMeasPt, szMeasPt, 10);
 					pCombo->AddString(szMeasPt);
 					break;
 				}
@@ -560,7 +560,7 @@ void CManualMeasurementFormView::Init_SR_Transmittance_StageMenu()
 		}
 	} else {
 		for(int iMeasPt =1; iMeasPt <= m_SrConfig.wGantryNumOfMeasPoint; iMeasPt++){
-			itoa(iMeasPt, szMeasPt, 10);
+			_itoa(iMeasPt, szMeasPt, 10);
 			pCombo->AddString(szMeasPt);
 		}
 	}

@@ -147,7 +147,7 @@ BOOL CAdditionalMeasurementDlg::OnInitDialog()
 // 2010.01.29 bagus Gantry --{--
 #if 0
 		for(int iMeasPt =1; iMeasPt <= SrConfig.wGantryNumOfMeasPoint; iMeasPt++){
-			itoa(iMeasPt, szMeasPt, 10);
+			_itoa(iMeasPt, szMeasPt, 10);
 			pCombo->AddString(szMeasPt);
 		}
 #else
@@ -179,7 +179,7 @@ BOOL CAdditionalMeasurementDlg::OnInitDialog()
 			for (j=0; j<wNumScans; j++) {
 				if ((SrReferencePosition.LocGantryTransmitReference[iMeasPt-1].lX == tScanPoint[j].lX)
 				 && (SrReferencePosition.LocGantryTransmitReference[iMeasPt-1].lY == tScanPoint[j].lY)) {
-					itoa(iMeasPt, szMeasPt, 10);
+					_itoa(iMeasPt, szMeasPt, 10);
 					pCombo->AddString(szMeasPt);
 					break;
 				}
