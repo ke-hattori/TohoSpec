@@ -838,6 +838,7 @@ void CRecipeStageProgramView::OnDeleteButton()
 	char szGridText[1024];
 	int Valid_X;
 	int Valid_Y;
+	int i;
 
 	///// SelectPoint /////
 	//CCellID CellID;
@@ -1196,6 +1197,7 @@ void CRecipeStageProgramView::UpDate()
 	int Valid_X;
 	int Valid_Y;
 	BOOL bShape = FALSE;
+	int i;
 
 // 2009.10.24 bagus 2�_�� �C�� --{--
 	long lTmp;
