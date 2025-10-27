@@ -4885,7 +4885,8 @@ int CMainFrame::ScanDataLabelGet_COMPEASE(char szLabel[][ADAPRESULTSTRINGLENMAX 
 	const PCOMPEASERESULT_HELPER pCompEASEData = pCompEASEResultHelper->GetSharedMemoryPtr();
 	int iCount = sizeof(pCompEASEData->bItemEnable) / sizeof(pCompEASEData->bItemEnable[0]);
 	int iDispPos = 0;
-	for ( int i = 0; i < iCount; i++ ) {
+	int i;
+	for ( i = 0; i < iCount; i++ ) {
 		if ( pCompEASEData->bItemEnable[i] ) {
 			iDispPos = pCompEASEData->iDispIndex[i];
 			if ( iDispPos < ADAPRESULT_COLS_MAX ) {
