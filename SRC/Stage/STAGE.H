@@ -941,16 +941,16 @@ public:
 				_stprintf(szBuffer, "%s%04X" CR, pszCmdID, Val);
 				break;
 // 2013.02.15 bagus Substrate thickness setting <--
-			case szUpDownZ:
-				_stprintf(szBuffer, "%s%02X" CR, pszCmdID, Val);
-				break;
-			case szSetPosZ:
-				_stprintf(szBuffer, "%s%+09.4f" CR, pszCmdID, Val);
-				break;
-			case szSetPosX:
-			case szSetPosY:
-				_stprintf(szBuffer, "%s%+010.4f" CR, pszCmdID, Val);
-				break;
+		case szUpDownZ:
+			_stprintf(szBuffer, "%s%02X" CR, pszCmdID, Val);
+			break;
+		case szSetPosZ:
+			_stprintf(szBuffer, "%s%+09.4f" CR, pszCmdID, static_cast<double>(Val));
+			break;
+		case szSetPosX:
+		case szSetPosY:
+			_stprintf(szBuffer, "%s%+010.4f" CR, pszCmdID, static_cast<double>(Val));
+			break;
 			case szSetExtCounter:
 				_stprintf(szBuffer, "%s%+010d" CR, pszCmdID, Val);
 				break;
