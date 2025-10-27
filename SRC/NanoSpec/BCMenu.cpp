@@ -2437,6 +2437,7 @@ HBITMAP BCMenu::LoadSysColorBitmap(int nResourceId)
 
 BOOL BCMenu::RemoveMenu(UINT uiId,UINT nFlags)
 {
+	int i;
 	if(MF_BYPOSITION&nFlags){
 		UINT uint = GetMenuState(uiId,MF_BYPOSITION);
 		if(uint&MF_SEPARATOR && !(uint&MF_POPUP)){
@@ -2447,7 +2448,7 @@ BOOL BCMenu::RemoveMenu(UINT uiId,UINT nFlags)
 			BCMenu* pSubMenu = (BCMenu*) GetSubMenu(uiId);
 			if(NULL==pSubMenu){
 				UINT uiCommandId = GetMenuItemID(uiId);
-				for(int i=0;i<m_MenuList.GetSize(); i++){
+				for(i=0;i<m_MenuList.GetSize(); i++){
 					if(m_MenuList[i]->nID==uiCommandId){
 						delete m_MenuList.GetAt(i);
 						m_MenuList.RemoveAt(i);
@@ -2467,7 +2468,7 @@ BOOL BCMenu::RemoveMenu(UINT uiId,UINT nFlags)
 					}
 				}
 				int num = pSubMenu->GetMenuItemCount();
-				for(int i=num-1;i>=0;--i)pSubMenu->RemoveMenu(i,MF_BYPOSITION);
+				for(i=num-1;i>=0;--i)pSubMenu->RemoveMenu(i,MF_BYPOSITION);
 				for(i=m_MenuList.GetUpperBound();i>=0;i--){
 					if(m_MenuList[i]->nID==(UINT)pSubMenu->m_hMenu){
 						delete m_MenuList.GetAt(i);
