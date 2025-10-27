@@ -7,8 +7,8 @@
 #include "SrHead.h"
 //#include "Mojiretsu.h"
 
-#define XMPSTRINGLENMAX 				(20)							// ADAP‚©‚ç‚ÌRESULTƒf[ƒ^‚ÌƒAƒCƒeƒ€Å‘å•¶š”
-#define XMPREGISTARMAX					(256)							// Å‘å“o˜^Œ”iparm.dat‚Ìƒf[ƒ^ŒÂ”j
+#define XMPSTRINGLENMAX 				(20)							// ADAPï¿½ï¿½ï¿½ï¿½ï¿½RESULTï¿½fï¿½[ï¿½^ï¿½ÌƒAï¿½Cï¿½eï¿½ï¿½ï¿½Å‘å•¶ï¿½ï¿½ï¿½ï¿½
+#define XMPREGISTARMAX					(256)							// ï¿½Å‘ï¿½oï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½iï¿½ï¿½parm.datï¿½Ìƒfï¿½[ï¿½^ï¿½Âï¿½ï¿½j
 
 #define MAXNAMELEN						(45)
 
@@ -30,7 +30,7 @@ public:
 		}
 	}
 
-	// ƒXƒgƒ‰ƒeƒW[”Ô†‚©‚çŠY“–‚Ìparms.dat‚ğæ“¾‚·‚é
+	// ï¿½Xï¿½gï¿½ï¿½ï¿½eï¿½Wï¿½[ï¿½Ôï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½ï¿½ï¿½parms.datï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½
 	BOOL LoadParams(LPCTSTR pszStrategyEntry)
 	{
 		return LoadParams(GetStrategyNo(pszStrategyEntry));
@@ -45,7 +45,7 @@ public:
 		return LoadAdapParamsFile(szPath);
 	}
 
-	// ƒtƒ@ƒCƒ‹uanalysis2.txtv‚É‹Lq‚µ‚Ä‚ ‚éƒRƒ}ƒ“ƒh "fitget(xxxx)" ‚ğæ“¾‚·‚é
+	// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½uanalysis2.txtï¿½vï¿½É‹Lï¿½qï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Rï¿½}ï¿½ï¿½ï¿½h "fitget(xxxx)" ï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½
 	BOOL GetScriptFileDescriptDdeTextItem(LPTSTR pszDdeTextItem, int& iStartWaveLen, int& iEndWaveLen, int& iColorFilter, LPCTSTR pszStrategyEntry)
 	{
 		return GetScriptFileDescriptDdeTextItem(pszDdeTextItem, iStartWaveLen, iEndWaveLen, iColorFilter, GetStrategyNo(pszStrategyEntry));
@@ -57,27 +57,27 @@ public:
 		TCHAR szBuff[256];
 		TCHAR szDelimiter[] = _T("=,");
 		LPTSTR token;
-// 2009.06.05 K.Matsuo ‘½‘w–Œ‚ÌADAP Dde’ÊM‚Å‚Ì•ñ€–Ú‡‚Ì‘Î‰ -->
+// 2009.06.05 K.Matsuo ï¿½ï¿½ï¿½wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ADAP Ddeï¿½ÊMï¿½Å‚Ì•ñï¿½ï¿½Úï¿½ï¿½Ì‘Î‰ï¿½ -->
 //		TCHAR szCommand[1024];
 //		TCHAR szAdapRename[ADAPRESULTSTRINGLENMAX + 1];
 //		TCHAR szAdapUnit[ADAPRESULTSTRINGLENMAX + 1];
 //		LPTSTR pDest;
-// 2009.06.05 K.Matsuo ‘½‘w–Œ‚ÌADAP Dde’ÊM‚Å‚Ì•ñ€–Ú‡‚Ì‘Î‰ <--
-// 2009.09.17 K.Matsuo ”g’·ƒŒƒ“ƒWæ“¾•û–@•ÏX -->
+// 2009.06.05 K.Matsuo ï¿½ï¿½ï¿½wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ADAP Ddeï¿½ÊMï¿½Å‚Ì•ñï¿½ï¿½Úï¿½ï¿½Ì‘Î‰ï¿½ <--
+// 2009.09.17 K.Matsuo ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½æ“¾ï¿½ï¿½ï¿½@ï¿½ÏX -->
 		BOOL bFoundNormalFit = FALSE;
-// 2009.09.17 K.Matsuo ”g’·ƒŒƒ“ƒWæ“¾•û–@•ÏX <--
+// 2009.09.17 K.Matsuo ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½æ“¾ï¿½ï¿½ï¿½@ï¿½ÏX <--
 		if ( !LoadParams(iStrategyNo) )
 			return FALSE;
 		GetAdapScriptFilePath(szPath, iStrategyNo);
 
-// 2009.06.05 K.Matsuo ‘½‘w–Œ‚ÌADAP Dde’ÊM‚Å‚Ì•ñ€–Ú‡‚Ì‘Î‰ -->
+// 2009.06.05 K.Matsuo ï¿½ï¿½ï¿½wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ADAP Ddeï¿½ÊMï¿½Å‚Ì•ñï¿½ï¿½Úï¿½ï¿½Ì‘Î‰ï¿½ -->
 //		BOOL bFindFitGetCommand = FALSE;
-// 2009.06.05 K.Matsuo ‘½‘w–Œ‚ÌADAP Dde’ÊM‚Å‚Ì•ñ€–Ú‡‚Ì‘Î‰ <--
+// 2009.06.05 K.Matsuo ï¿½ï¿½ï¿½wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ADAP Ddeï¿½ÊMï¿½Å‚Ì•ñï¿½ï¿½Úï¿½ï¿½Ì‘Î‰ï¿½ <--
 		const int nMaxSize = 1024;
 		TCHAR szLine[nMaxSize];
 		FILE* fp;
 
-		// ƒfƒtƒHƒ‹ƒg’lİ’è
+		// ï¿½fï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½lï¿½İ’ï¿½
 		SR_CONFIG srConfig;
 		ConfigFile_GetNanoSpecIni(&srConfig, CONFIG_FILE_SR_CONFIG);
 
@@ -95,13 +95,13 @@ public:
 		if ( (fp = fopen(szPath, _T("r"))) == NULL )
 			return FALSE;
 		while ( fgets(szLine, nMaxSize, fp) ) {
-// 2009.06.05 K.Matsuo ‘½‘w–Œ‚ÌADAP Dde’ÊM‚Å‚Ì•ñ€–Ú‡‚Ì‘Î‰ -->
+// 2009.06.05 K.Matsuo ï¿½ï¿½ï¿½wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ADAP Ddeï¿½ÊMï¿½Å‚Ì•ñï¿½ï¿½Úï¿½ï¿½Ì‘Î‰ï¿½ -->
 //			if ( _tcsstr(szLine, _T("fitget(")) && !bFindFitGetCommand ) {
 //				_tcscpy(szCommand, szLine); 							// ex. "fitget(Thick1=thick.1,Thick2=thick.2,MSE)"
 //				bFindFitGetCommand = TRUE;
 //			}
-// 2009.06.05 K.Matsuo ‘½‘w–Œ‚ÌADAP Dde’ÊM‚Å‚Ì•ñ€–Ú‡‚Ì‘Î‰ <--
-// 2009.09.17 K.Matsuo ”g’·ƒŒƒ“ƒWæ“¾•û–@•ÏX -->
+// 2009.06.05 K.Matsuo ï¿½ï¿½ï¿½wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ADAP Ddeï¿½ÊMï¿½Å‚Ì•ñï¿½ï¿½Úï¿½ï¿½Ì‘Î‰ï¿½ <--
+// 2009.09.17 K.Matsuo ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½æ“¾ï¿½ï¿½ï¿½@ï¿½ÏX -->
 //			  if ( _tcsstr(szLine, _T("//nanostartwave=")) ) {
 //				  _tcscpy(szBuff, &szLine[strlen(_T("//nanostartwave="))]);
 //				  token = _tcstok(szBuff, _T(" \n"));
@@ -113,11 +113,11 @@ public:
 //				  iEndWaveLen = _ttoi(token);
 //			  }
 			if ( _tcsstr(szLine, _T("$2")) ) {
-				// ƒm[ƒ}ƒ‹FIT‚Ì¯•Êq”­Œ©
+				// ï¿½mï¿½[ï¿½}ï¿½ï¿½FITï¿½Ìï¿½ï¿½Êqï¿½ï¿½ï¿½ï¿½
 				bFoundNormalFit = TRUE;
 			}
 			if ( _tcsstr(szLine, _T("exprange(")) ) {
-				// ƒm[ƒ}ƒ‹FIT‚Ì¯•Êq”­Œ©Ï‚İ‚Å‚ ‚é‚©IH
+				// ï¿½mï¿½[ï¿½}ï¿½ï¿½FITï¿½Ìï¿½ï¿½Êqï¿½ï¿½ï¿½ï¿½ï¿½Ï‚İ‚Å‚ï¿½ï¿½é‚©ï¿½Iï¿½H
 				if ( bFoundNormalFit ) {
 					_tcscpy(szBuff, &szLine[strlen(_T("exprange(wvlstart="))]);
 					token = _tcstok(szBuff, _T(","));
@@ -131,7 +131,7 @@ public:
 					bFoundNormalFit = FALSE;
 				}
 			}
-// 2009.09.17 K.Matsuo ”g’·ƒŒƒ“ƒWæ“¾•û–@•ÏX <--
+// 2009.09.17 K.Matsuo ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½æ“¾ï¿½ï¿½ï¿½@ï¿½ÏX <--
 			if ( _tcsstr(szLine, _T("//nanofilter=")) ) {
 				_tcscpy(szBuff, &szLine[strlen(_T("//nanofilter="))]);
 				token = _tcstok(szBuff, _T(" \n"));
@@ -146,7 +146,7 @@ public:
 		}
 		fclose(fp);
 
-// 2009.06.05 K.Matsuo ‘½‘w–Œ‚ÌADAP Dde’ÊM‚Å‚Ì•ñ€–Ú‡‚Ì‘Î‰ -->
+// 2009.06.05 K.Matsuo ï¿½ï¿½ï¿½wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ADAP Ddeï¿½ÊMï¿½Å‚Ì•ñï¿½ï¿½Úï¿½ï¿½Ì‘Î‰ï¿½ -->
 //		if ( !bFindFitGetCommand )
 //			  return FALSE;
 //
@@ -184,10 +184,10 @@ public:
 //		}
 //
 //		return FALSE;
-// 2009.06.05 K.Matsuo ‘½‘w–Œ‚ÌADAP Dde’ÊM‚Å‚Ì•ñ€–Ú‡‚Ì‘Î‰ <--
+// 2009.06.05 K.Matsuo ï¿½ï¿½ï¿½wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ADAP Ddeï¿½ÊMï¿½Å‚Ì•ñï¿½ï¿½Úï¿½ï¿½Ì‘Î‰ï¿½ <--
 
-// 2009.06.05 K.Matsuo ‘½‘w–Œ‚ÌADAP Dde’ÊM‚Å‚Ì•ñ€–Ú‡‚Ì‘Î‰ -->
-		// parms.dat‚Ì‡”Ô‚ÅDdeText‚ª•ñ‚³‚ê‚Ä‚­‚éBfitget‚Ì‡”Ô‚Å‚Í‚È‚¢‚Ì‚Å’ˆÓ
+// 2009.06.05 K.Matsuo ï¿½ï¿½ï¿½wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ADAP Ddeï¿½ÊMï¿½Å‚Ì•ñï¿½ï¿½Úï¿½ï¿½Ì‘Î‰ï¿½ -->
+		// parms.datï¿½Ìï¿½ï¿½Ô‚ï¿½DdeTextï¿½ï¿½ï¿½ñ‚ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Bfitgetï¿½Ìï¿½ï¿½Ô‚Å‚Í‚È‚ï¿½ï¿½Ì‚Å’ï¿½ï¿½ï¿½
 		_tcscpy(szBuff, m_searchTbl[0].szAdapRename);
 		for ( int i = 1; i < m_iMaxCnt; i++ ) {
 			_tcscat(szBuff, _T(","));
@@ -197,10 +197,10 @@ public:
 		_tcscpy(pszDdeTextItem, szBuff);
 
 		return TRUE;
-// 2009.06.05 K.Matsuo ‘½‘w–Œ‚ÌADAP Dde’ÊM‚Å‚Ì•ñ€–Ú‡‚Ì‘Î‰ <--
+// 2009.06.05 K.Matsuo ï¿½ï¿½ï¿½wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ADAP Ddeï¿½ÊMï¿½Å‚Ì•ñï¿½ï¿½Úï¿½ï¿½Ì‘Î‰ï¿½ <--
 	}
 
-	// ADAP‚©‚ç‚ÌRESULTƒf[ƒ^‚©‚çæ“¾‚µ‚½ƒAƒCƒeƒ€–¼‚ğ‚à‚Æ‚ÉA•\¦–¼‚Æ’PˆÊ‚ğæ“¾‚·‚é
+	// ADAPï¿½ï¿½ï¿½ï¿½ï¿½RESULTï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ÉAï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½Æ’Pï¿½Ê‚ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½
 	BOOL GetAdapRename(LPTSTR pszAdapRename, LPTSTR pszAdapUnit, LPCTSTR pszItemName)
 	{
 		for ( int i = 0; i < m_iMaxCnt; i++ ) {
@@ -586,7 +586,7 @@ BOOL LoadNMD(int iStrategyNo)
 		// of the file.
 		//-------------------------------------------------------------
 		if ( m_nmdParams.nAnalysisType == 6 ) {
-// ƒtƒ@ƒCƒ‹Œ`®•s–¾
+// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½`ï¿½ï¿½ï¿½sï¿½ï¿½
 //			ASSERT(FALSE);
 			return FALSE;
 //			  Input #fp, m_nmdParams.fProfilerRDishHighestPercent, m_nmdParams.fProfilerRDishLowestPercent
@@ -636,7 +636,7 @@ BOOL LoadNMD(int iStrategyNo)
 
 		stdioFile.ReadString(strBuffer);
 		if ( atoi(strBuffer) == 1 )
-			m_nmdParams.nUseAperture = TRUE;			// •s–¾BVB‚ÅAint‚ÉTrue‚ğ‘ã“ü‚µ‚Ä‚¢‚é
+			m_nmdParams.nUseAperture = TRUE;			// ï¿½sï¿½ï¿½ï¿½BVBï¿½ÅAintï¿½ï¿½Trueï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
 
 		stdioFile.ReadString(strBuffer);
 		m_nmdParams.nGratingDataType = atoi(strBuffer);
@@ -693,13 +693,14 @@ BOOL LoadNMD(int iStrategyNo)
 		stdioFile.ReadString(strBuffer);
 		m_nmdParams.dGratingAutoSlicingMaxSlices = atof(strBuffer);
 
-		//-----------------------------------------
-		// OCD Layer level parameters.
-		// Up to 30 layer parameters are possible
-		//-----------------------------------------
-		for ( nLayer = 1; nLayer < m_nmdParams.nNumFilmLayers + 1; nLayer++ ) {
-			stdioFile.ReadString(strBuffer); nDummy = atoi(strBuffer);
-			m_pLayers[nLayer].nGratingGlobalFitLineWidthPoints = nDummy;
+	//-----------------------------------------
+	// OCD Layer level parameters.
+	// Up to 30 layer parameters are possible
+	//-----------------------------------------
+	int nLayer;
+	for ( nLayer = 1; nLayer < m_nmdParams.nNumFilmLayers + 1; nLayer++ ) {
+		stdioFile.ReadString(strBuffer); nDummy = atoi(strBuffer);
+		m_pLayers[nLayer].nGratingGlobalFitLineWidthPoints = nDummy;
 
 			stdioFile.ReadString(strBuffer); nDummy = atoi(strBuffer);
 			m_pLayers[nLayer].nGratingLayerType = nDummy;
@@ -800,15 +801,15 @@ BOOL LoadNMD(int iStrategyNo)
 protected:
 	int GetStrategyNo(LPCTSTR pszStrategyEntry)
 	{
-// 2009.09.17 K.Matsuo ƒXƒgƒ‰ƒeƒW[‡‚æ“¾ Bug Fix ‘Î‰ -->
+// 2009.09.17 K.Matsuo ï¿½Xï¿½gï¿½ï¿½ï¿½eï¿½Wï¿½[ï¿½ï¿½ï¿½æ“¾ Bug Fix ï¿½Î‰ï¿½ -->
 //		  const int nStrategyNoLen = 2;
 //		  TCHAR szStrategyNo[nStrategyNoLen + 1];
 //
-//		  _tcsncpy(szStrategyNo, pszStrategyEntry, nStrategyNoLen);   //“ª2•¶š‚Ì”Ô†‚ğæ“¾
+//		  _tcsncpy(szStrategyNo, pszStrategyEntry, nStrategyNoLen);   //ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½Ì”Ôï¿½ï¿½ï¿½ï¿½æ“¾
 //		  szStrategyNo[nStrategyNoLen] = _TCHAR('\0');
 //		  return _ttoi(szStrategyNo);
 		return _ttoi(pszStrategyEntry);
-// 2009.09.17 K.Matsuo ƒXƒgƒ‰ƒeƒW[‡‚æ“¾ Bug Fix ‘Î‰ <--
+// 2009.09.17 K.Matsuo ï¿½Xï¿½gï¿½ï¿½ï¿½eï¿½Wï¿½[ï¿½ï¿½ï¿½æ“¾ Bug Fix ï¿½Î‰ï¿½ <--
 	}
 
 	void GetAdapParmsFilePath(LPTSTR pszPath, int iStrategyNo)
@@ -829,7 +830,7 @@ protected:
 
 	void GetAdapStrategyFolderPath(LPTSTR pszFolderPath, int iStrategyNo)
 	{
-		// Configƒtƒ@ƒCƒ‹‚©‚çADAP ANALYSIS‚ÌƒtƒHƒ‹ƒ_ƒpƒXæ“¾
+		// Configï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ADAP ANALYSISï¿½Ìƒtï¿½Hï¿½ï¿½ï¿½_ï¿½pï¿½Xï¿½æ“¾
 		SR_XMP srXmp;
 		TCHAR szPath_buffer[_MAX_PATH];
 		TCHAR szDrive[_MAX_DRIVE];
@@ -845,7 +846,7 @@ protected:
 
 	BOOL LoadAdapParamsFile(LPCTSTR pszPath)
 	{
-		// ƒtƒ@ƒCƒ‹uparms.datv‚©‚ç•\¦–¼æ“¾
+		// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½uparms.datï¿½vï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
 		const int nMaxSize = 256;
 		TCHAR szLine[nMaxSize];
 		TCHAR szBuff[nMaxSize];
@@ -858,25 +859,25 @@ protected:
 			return FALSE;
 		try
 		{
-			// ƒeƒLƒXƒg1s–Ú‚Éƒf[ƒ^ŒÂ”‚ª‘‚©‚ê‚Ä‚¢‚é
+			// ï¿½eï¿½Lï¿½Xï¿½g1ï¿½sï¿½Ú‚Éƒfï¿½[ï¿½^ï¿½Âï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
 			if ( fgets(szLine, nMaxSize, fp) == NULL )
 				throw _T("Text Fortmat Error");
 			iParmsLineCnt = _ttoi(szLine);
 			if ( iParmsLineCnt > XMPREGISTARMAX )
 				throw _T("Item Data Count Over");
-			// ƒeƒLƒXƒg2s–ÚˆÈ~‚Ìˆ—
+			// ï¿½eï¿½Lï¿½Xï¿½g2ï¿½sï¿½ÚˆÈ~ï¿½Ìï¿½ï¿½ï¿½
 			while ( fgets(szLine, nMaxSize, fp) != NULL )
 			{
 				_tcscpy(szBuff, szLine);
-				// ‚±‚±,****,****
+				// ï¿½ï¿½ï¿½ï¿½,****,****
 				if ( (token = _tcstok(szBuff, ",")) == NULL )
 					throw _T("Text Fortmat Error");
 				_tcscpy(m_searchTbl[m_iMaxCnt].szAdapName, token);
-				// ****,‚±‚±,****
+				// ****,ï¿½ï¿½ï¿½ï¿½,****
 				if ( (token = _tcstok(NULL, ",")) == NULL )
 					throw _T("Text Fortmat Error");
 				_tcscpy(m_searchTbl[m_iMaxCnt].szAdapRename, token);
-				// ****,****,‚±‚±
+				// ****,****,ï¿½ï¿½ï¿½ï¿½
 				if ( (token = _tcstok(NULL, "\n")) == NULL )
 					throw _T("Text Fortmat Error");
 				_tcscpy(m_searchTbl[m_iMaxCnt].szAdapUnit, token);
@@ -890,7 +891,7 @@ protected:
 			return FALSE;
 		}
 		fclose(fp);
-		// ƒeƒLƒXƒg1s–Ú‚ÌŒÂ”ƒf[ƒ^‚Æ“Ç‚İŒ”‚ª“¯‚¶‚Å‚ ‚é‚©ƒ`ƒFƒbƒN
+		// ï¿½eï¿½Lï¿½Xï¿½g1ï¿½sï¿½Ú‚ÌŒÂï¿½ï¿½fï¿½[ï¿½^ï¿½Æ“Çï¿½ï¿½İŒï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½é‚©ï¿½`ï¿½Fï¿½bï¿½N
 		if ( m_iMaxCnt != iParmsLineCnt )
 			return FALSE;
 		return TRUE;

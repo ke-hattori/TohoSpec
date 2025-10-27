@@ -18,10 +18,10 @@ extern TCHAR g_tszData_Ref_Dir[_MAX_PATH];
 /////////////////////////////////////////////////////////////////////////////
 //
 BOOL CSrRefFile::ReadRefFile(SCANDATA* pScanData, LPCTSTR pszMainRecipeName)
-// TRUE  : “Ç¬Œ÷
-// FALSE : “Ç¸”s
+// TRUE  : ï¿½Çï¿½ï¿½ï¿½ï¿½ï¿½
+// FALSE : ï¿½Çï¿½ï¿½ï¿½ï¿½s
 {
-	// ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^ƒtƒ@ƒCƒ‹‚ğ“Ç‚Ş
+	// ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½fï¿½[ï¿½^ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½Çï¿½ï¿½ï¿½
 	//
 	// (* sample *)
 	// Start=380
@@ -37,20 +37,20 @@ BOOL CSrRefFile::ReadRefFile(SCANDATA* pScanData, LPCTSTR pszMainRecipeName)
 
 	sprintf(szPath, "%s%s%s", g_tszData_Ref_Dir, pszMainRecipeName, DAT_EXT);
 	FILE* fp;
-	if ( (fp = fopen(szPath, "r")) == NULL )				// ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^ƒtƒ@ƒCƒ‹ OPEN
+	if ( (fp = fopen(szPath, "r")) == NULL )				// ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½fï¿½[ï¿½^ï¿½tï¿½@ï¿½Cï¿½ï¿½ OPEN
 		return FALSE;
 
 	PSCANDATA pCSDark = &pScanData[MEASYS_DARK_T1];
 	PSCANDATA pCSRef  = &pScanData[MEASYS_STDR_T1];
-	// ƒwƒbƒ_î•ñi1s–Új
+	// ï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½i1ï¿½sï¿½Új
 	_fgetts(szLine, nMaxSize, fp);
 	pCSDark->iScanStart = pCSRef->iScanStart = atoi(&szLine[strlen("Start=")]);
-	// ƒwƒbƒ_î•ñi2s–Új
+	// ï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½i2ï¿½sï¿½Új
 	_fgetts(szLine, nMaxSize, fp);
 	pCSDark->iScanEnd = pCSRef->iScanEnd = atoi(&szLine[strlen("End=")]);
-	// ƒwƒbƒ_î•ñi3s–Új
+	// ï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½i3ï¿½sï¿½Új
 	_fgetts(szLine, nMaxSize, fp);
-	// Œõ—Êi4s–ÚˆÈ~j
+	// ï¿½ï¿½ï¿½Êi4ï¿½sï¿½ÚˆÈ~ï¿½j
 // 2014.04.04 bagus wavelength step modified -->
 // 	int i = 0;
 // 	while ( _fgetts(szLine, nMaxSize, fp) != NULL )
@@ -59,9 +59,9 @@ BOOL CSrRefFile::ReadRefFile(SCANDATA* pScanData, LPCTSTR pszMainRecipeName)
 // 		strcpy(buf, szLine);
 // 		TCHAR* tokenWave = strtok(buf, " ");
 // 		tokenWave = strtok(NULL, " ");
-// 		pCSDark->dScanData[i] = atof(tokenWave);					// ƒ_[ƒNƒf[ƒ^‚Ìæ“¾
+// 		pCSDark->dScanData[i] = atof(tokenWave);					// ï¿½_ï¿½[ï¿½Nï¿½fï¿½[ï¿½^ï¿½Ìæ“¾
 // 		tokenWave = strtok(NULL, " ");
-// 		pCSRef->dScanData[i] = atof(tokenWave); 					// ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^‚Ìæ“¾
+// 		pCSRef->dScanData[i] = atof(tokenWave); 					// ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½fï¿½[ï¿½^ï¿½Ìæ“¾
 // 		i++;
 // 	}
 
@@ -72,9 +72,9 @@ BOOL CSrRefFile::ReadRefFile(SCANDATA* pScanData, LPCTSTR pszMainRecipeName)
 		strcpy(buf, szLine);
 		TCHAR* tokenWave = strtok(buf, " ");
 		tokenWave = strtok(NULL, " ");
-		pCSDark->SetScanData(d, atof(tokenWave));					// ƒ_[ƒNƒf[ƒ^‚Ìæ“¾
+		pCSDark->SetScanData(d, atof(tokenWave));					// ï¿½_ï¿½[ï¿½Nï¿½fï¿½[ï¿½^ï¿½Ìæ“¾
 		tokenWave = strtok(NULL, " ");
-		pCSRef->SetScanData(d, atof(tokenWave)); 					// ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^‚Ìæ“¾
+		pCSRef->SetScanData(d, atof(tokenWave)); 					// ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½fï¿½[ï¿½^ï¿½Ìæ“¾
 		d += pCSDark->dWavelengthStep;
 	}
 // 2014.04.04 bagus wavelength step modified <--
@@ -87,10 +87,10 @@ BOOL CSrRefFile::ReadRefFile(SCANDATA* pScanData, LPCTSTR pszMainRecipeName)
 /////////////////////////////////////////////////////////////////////////////
 //
 BOOL CSrRefFile::ReadGTrRefFile(SCANDATA* pScanData, LPCTSTR pszMainRecipeName, int iCoordRefPos)
-// TRUE  : “Ç¬Œ÷
-// FALSE : “Ç¸”s
+// TRUE  : ï¿½Çï¿½ï¿½ï¿½ï¿½ï¿½
+// FALSE : ï¿½Çï¿½ï¿½ï¿½ï¿½s
 {
-	// ƒKƒ“ƒgƒŠ[“§‰ß—¦—pEƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^ƒtƒ@ƒCƒ‹‚ğ“Ç‚Ş
+	// ï¿½Kï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ß—ï¿½ï¿½pï¿½Eï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½fï¿½[ï¿½^ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½Çï¿½ï¿½ï¿½
 	//
 	// (* sample *)
 	// Start=380
@@ -106,20 +106,20 @@ BOOL CSrRefFile::ReadGTrRefFile(SCANDATA* pScanData, LPCTSTR pszMainRecipeName, 
 
 	sprintf(szPath, "%s%s%s", g_tszData_Ref_Dir, pszMainRecipeName, DAT_EXT);
 	FILE* fp;
-	if ( (fp = fopen(szPath, "r")) == NULL )				// ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^ƒtƒ@ƒCƒ‹ OPEN
+	if ( (fp = fopen(szPath, "r")) == NULL )				// ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½fï¿½[ï¿½^ï¿½tï¿½@ï¿½Cï¿½ï¿½ OPEN
 		return FALSE;
 
 	PSCANDATA pCSDark = &pScanData[MEASYS_DARK_T1];
 	PSCANDATA pCSRef = &pScanData[MEASYS_STDR_T1];
-	// ƒwƒbƒ_î•ñi1s–Új
+	// ï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½i1ï¿½sï¿½Új
 	_fgetts(szLine, nMaxSize, fp);
 	pCSDark->iScanStart = pCSRef->iScanStart = atoi(&szLine[strlen("Start=")]);
-	// ƒwƒbƒ_î•ñi2s–Új
+	// ï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½i2ï¿½sï¿½Új
 	_fgetts(szLine, nMaxSize, fp);
 	pCSDark->iScanEnd = pCSRef->iScanEnd = atoi(&szLine[strlen("End=")]);
-	// ƒwƒbƒ_î•ñi3s–Új
+	// ï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½i3ï¿½sï¿½Új
 	_fgetts(szLine, nMaxSize, fp);
-	// Œõ—Êi4s–ÚˆÈ~j
+	// ï¿½ï¿½ï¿½Êi4ï¿½sï¿½ÚˆÈ~ï¿½j
 // 2014.04.04 bagus wavelength step modified -->
 // 	int i = 0;
 // 	while ( _fgetts(szLine, nMaxSize, fp) != NULL )
@@ -128,7 +128,7 @@ BOOL CSrRefFile::ReadGTrRefFile(SCANDATA* pScanData, LPCTSTR pszMainRecipeName, 
 // 		strcpy(buf, szLine);
 // 		TCHAR* tokenWave = strtok(buf, " ");
 // 		tokenWave = strtok(NULL, " ");
-// 		pCSDark->dScanData[i] = atof(tokenWave);					// ƒ_[ƒNƒf[ƒ^‚Ìæ“¾
+// 		pCSDark->dScanData[i] = atof(tokenWave);					// ï¿½_ï¿½[ï¿½Nï¿½fï¿½[ï¿½^ï¿½Ìæ“¾
 //
 // 		for ( int j = 1; j <= iCoordRefPos; j++ ) {
 // 			tokenWave = strtok(NULL, " ");
@@ -136,7 +136,7 @@ BOOL CSrRefFile::ReadGTrRefFile(SCANDATA* pScanData, LPCTSTR pszMainRecipeName, 
 // 				return FALSE;
 // 		}
 //
-// 		pCSRef->dScanData[i] = atof(tokenWave); 				   // ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^‚Ìæ“¾
+// 		pCSRef->dScanData[i] = atof(tokenWave); 				   // ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½fï¿½[ï¿½^ï¿½Ìæ“¾
 // 		i++;
 // 	}
 
@@ -147,7 +147,7 @@ BOOL CSrRefFile::ReadGTrRefFile(SCANDATA* pScanData, LPCTSTR pszMainRecipeName, 
 		strcpy(buf, szLine);
 		TCHAR* tokenWave = strtok(buf, " ");
 		tokenWave = strtok(NULL, " ");
-		pCSDark->SetScanData(d, atof(tokenWave));					// ƒ_[ƒNƒf[ƒ^‚Ìæ“¾
+		pCSDark->SetScanData(d, atof(tokenWave));					// ï¿½_ï¿½[ï¿½Nï¿½fï¿½[ï¿½^ï¿½Ìæ“¾
 
 		for ( int j = 1; j <= iCoordRefPos; j++ ) {
 			tokenWave = strtok(NULL, " ");
@@ -155,7 +155,7 @@ BOOL CSrRefFile::ReadGTrRefFile(SCANDATA* pScanData, LPCTSTR pszMainRecipeName, 
 				return FALSE;
 		}
 
-		pCSRef->SetScanData(d, atof(tokenWave)); 				   // ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^‚Ìæ“¾
+		pCSRef->SetScanData(d, atof(tokenWave)); 				   // ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½fï¿½[ï¿½^ï¿½Ìæ“¾
 		d += pCSDark->dWavelengthStep;
 	}
 // 2014.04.04 bagus wavelength step modified <--
@@ -168,10 +168,10 @@ BOOL CSrRefFile::ReadGTrRefFile(SCANDATA* pScanData, LPCTSTR pszMainRecipeName, 
 /////////////////////////////////////////////////////////////////////////////
 //
 BOOL CSrRefFile::ReadRefFile2ndRefT1(SCANDATA* pScanData, LPCTSTR pszMainRecipeName)
-// TRUE  : “Ç¬Œ÷
-// FALSE : “Ç¸”s
+// TRUE  : ï¿½Çï¿½ï¿½ï¿½ï¿½ï¿½
+// FALSE : ï¿½Çï¿½ï¿½ï¿½ï¿½s
 {
-	// ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^ƒtƒ@ƒCƒ‹‚ğ“Ç‚Ş
+	// ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½fï¿½[ï¿½^ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½Çï¿½ï¿½ï¿½
 	//
 	// (* sample *)
 	// Start=380
@@ -187,21 +187,21 @@ BOOL CSrRefFile::ReadRefFile2ndRefT1(SCANDATA* pScanData, LPCTSTR pszMainRecipeN
 
 	sprintf(szPath, "%s%s%s%s", g_tszData_Ref_Dir, pszMainRecipeName, DATAFILENAME2NDREFT1, DAT_EXT);
 	FILE* fp;
-	if ( (fp = fopen(szPath, "r")) == NULL )				// ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^ƒtƒ@ƒCƒ‹ OPEN
+	if ( (fp = fopen(szPath, "r")) == NULL )				// ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½fï¿½[ï¿½^ï¿½tï¿½@ï¿½Cï¿½ï¿½ OPEN
 		return FALSE;
 
 	PSCANDATA pCSDark	= &pScanData[MEASYS_DARK_T1];
 	PSCANDATA pCS1stRef = &pScanData[MEASYS_STDR_T1];
 	PSCANDATA pCS2ndRef = &pScanData[MEASYS_EXTR_T1];
-	// ƒwƒbƒ_î•ñi1s–Új
+	// ï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½i1ï¿½sï¿½Új
 	_fgetts(szLine, nMaxSize, fp);
 	pCSDark->iScanStart = pCS1stRef->iScanStart = pCS2ndRef->iScanStart = atoi(&szLine[strlen("Start=")]);
-	// ƒwƒbƒ_î•ñi2s–Új
+	// ï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½i2ï¿½sï¿½Új
 	_fgetts(szLine, nMaxSize, fp);
 	pCSDark->iScanEnd = pCS1stRef->iScanEnd = pCS2ndRef->iScanEnd = atoi(&szLine[strlen("End=")]);
-	// ƒwƒbƒ_î•ñi3s–Új
+	// ï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½i3ï¿½sï¿½Új
 	_fgetts(szLine, nMaxSize, fp);
-	// Œõ—Êi4s–ÚˆÈ~j
+	// ï¿½ï¿½ï¿½Êi4ï¿½sï¿½ÚˆÈ~ï¿½j
 // 2014.04.04 bagus wavelength step modified -->
 // 	int i = 0;
 // 	while ( _fgetts(szLine, nMaxSize, fp) != NULL )
@@ -210,11 +210,11 @@ BOOL CSrRefFile::ReadRefFile2ndRefT1(SCANDATA* pScanData, LPCTSTR pszMainRecipeN
 // 		strcpy(buf, szLine);
 // 		TCHAR* tokenWave = strtok(buf, " ");
 // 		tokenWave = strtok(NULL, " ");
-// 		pCSDark->dScanData[i] = atof(tokenWave);					// ƒ_[ƒNT1ƒf[ƒ^‚Ìæ“¾
+// 		pCSDark->dScanData[i] = atof(tokenWave);					// ï¿½_ï¿½[ï¿½NT1ï¿½fï¿½[ï¿½^ï¿½Ìæ“¾
 // 		tokenWave = strtok(NULL, " ");
-// 		pCS1stRef->dScanData[i] = atof(tokenWave);					// 1stƒŠƒtƒ@ƒŒƒ“ƒXT1ƒf[ƒ^‚Ìæ“¾
+// 		pCS1stRef->dScanData[i] = atof(tokenWave);					// 1stï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½XT1ï¿½fï¿½[ï¿½^ï¿½Ìæ“¾
 // 		tokenWave = strtok(NULL, " ");
-// 		pCS2ndRef->dScanData[i] = atof(tokenWave);					// 2stƒŠƒtƒ@ƒŒƒ“ƒXT1ƒf[ƒ^‚Ìæ“¾
+// 		pCS2ndRef->dScanData[i] = atof(tokenWave);					// 2stï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½XT1ï¿½fï¿½[ï¿½^ï¿½Ìæ“¾
 // 		i++;
 // 	}
 
@@ -225,11 +225,11 @@ BOOL CSrRefFile::ReadRefFile2ndRefT1(SCANDATA* pScanData, LPCTSTR pszMainRecipeN
 		strcpy(buf, szLine);
 		TCHAR* tokenWave = strtok(buf, " ");
 		tokenWave = strtok(NULL, " ");
-		pCSDark->SetScanData(d, atof(tokenWave));					// ƒ_[ƒNT1ƒf[ƒ^‚Ìæ“¾
+		pCSDark->SetScanData(d, atof(tokenWave));					// ï¿½_ï¿½[ï¿½NT1ï¿½fï¿½[ï¿½^ï¿½Ìæ“¾
 		tokenWave = strtok(NULL, " ");
-		pCS1stRef->SetScanData(d, atof(tokenWave));					// 1stƒŠƒtƒ@ƒŒƒ“ƒXT1ƒf[ƒ^‚Ìæ“¾
+		pCS1stRef->SetScanData(d, atof(tokenWave));					// 1stï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½XT1ï¿½fï¿½[ï¿½^ï¿½Ìæ“¾
 		tokenWave = strtok(NULL, " ");
-		pCS2ndRef->SetScanData(d, atof(tokenWave));					// 2stƒŠƒtƒ@ƒŒƒ“ƒXT1ƒf[ƒ^‚Ìæ“¾
+		pCS2ndRef->SetScanData(d, atof(tokenWave));					// 2stï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½XT1ï¿½fï¿½[ï¿½^ï¿½Ìæ“¾
 		d += pCSDark->dWavelengthStep;
 	}
 // 2014.04.04 bagus wavelength step modified <--
@@ -241,10 +241,10 @@ BOOL CSrRefFile::ReadRefFile2ndRefT1(SCANDATA* pScanData, LPCTSTR pszMainRecipeN
 /////////////////////////////////////////////////////////////////////////////
 //
 BOOL CSrRefFile::ReadRefFile2ndRefT2(SCANDATA* pScanData, LPCTSTR pszMainRecipeName)
-// TRUE  : “Ç¬Œ÷
-// FALSE : “Ç¸”s
+// TRUE  : ï¿½Çï¿½ï¿½ï¿½ï¿½ï¿½
+// FALSE : ï¿½Çï¿½ï¿½ï¿½ï¿½s
 {
-	// ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^ƒtƒ@ƒCƒ‹‚ğ“Ç‚Ş
+	// ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½fï¿½[ï¿½^ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½Çï¿½ï¿½ï¿½
 	//
 	// (* sample *)
 	// Start=380
@@ -260,20 +260,20 @@ BOOL CSrRefFile::ReadRefFile2ndRefT2(SCANDATA* pScanData, LPCTSTR pszMainRecipeN
 
 	sprintf(szPath, "%s%s%s%s", g_tszData_Ref_Dir, pszMainRecipeName, DATAFILENAME2NDREFT2, DAT_EXT);
 	FILE* fp;
-	if ( (fp = fopen(szPath, "r")) == NULL )				// ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^ƒtƒ@ƒCƒ‹ OPEN
+	if ( (fp = fopen(szPath, "r")) == NULL )				// ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½fï¿½[ï¿½^ï¿½tï¿½@ï¿½Cï¿½ï¿½ OPEN
 		return FALSE;
 
 	PSCANDATA pCSDark	= &pScanData[MEASYS_DARK_T2];
 	PSCANDATA pCS2ndRef = &pScanData[MEASYS_EXTR_T2];
-	// ƒwƒbƒ_î•ñi1s–Új
+	// ï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½i1ï¿½sï¿½Új
 	_fgetts(szLine, nMaxSize, fp);
 	pCSDark->iScanStart = pCS2ndRef->iScanStart = atoi(&szLine[strlen("Start=")]);
-	// ƒwƒbƒ_î•ñi2s–Új
+	// ï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½i2ï¿½sï¿½Új
 	_fgetts(szLine, nMaxSize, fp);
 	pCSDark->iScanEnd = pCS2ndRef->iScanEnd = atoi(&szLine[strlen("End=")]);
-	// ƒwƒbƒ_î•ñi3s–Új
+	// ï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½i3ï¿½sï¿½Új
 	_fgetts(szLine, nMaxSize, fp);
-	// Œõ—Êi4s–ÚˆÈ~j
+	// ï¿½ï¿½ï¿½Êi4ï¿½sï¿½ÚˆÈ~ï¿½j
 // 2014.04.04 bagus wavelength step modified -->
 // 	int i = 0;
 // 	while ( _fgetts(szLine, nMaxSize, fp) != NULL )
@@ -282,9 +282,9 @@ BOOL CSrRefFile::ReadRefFile2ndRefT2(SCANDATA* pScanData, LPCTSTR pszMainRecipeN
 // 		strcpy(buf, szLine);
 // 		TCHAR* tokenWave = strtok(buf, " ");
 // 		tokenWave = strtok(NULL, " ");
-// 		pCSDark->dScanData[i] = atof(tokenWave);					// ƒ_[ƒNT2ƒf[ƒ^‚Ìæ“¾
+// 		pCSDark->dScanData[i] = atof(tokenWave);					// ï¿½_ï¿½[ï¿½NT2ï¿½fï¿½[ï¿½^ï¿½Ìæ“¾
 // 		tokenWave = strtok(NULL, " ");
-// 		pCS2ndRef->dScanData[i] = atof(tokenWave);					// 2ndƒŠƒtƒ@ƒŒƒ“ƒXT2ƒf[ƒ^‚Ìæ“¾
+// 		pCS2ndRef->dScanData[i] = atof(tokenWave);					// 2ndï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½XT2ï¿½fï¿½[ï¿½^ï¿½Ìæ“¾
 // 		i++;
 // 	}
 
@@ -295,9 +295,9 @@ BOOL CSrRefFile::ReadRefFile2ndRefT2(SCANDATA* pScanData, LPCTSTR pszMainRecipeN
 		strcpy(buf, szLine);
 		TCHAR* tokenWave = strtok(buf, " ");
 		tokenWave = strtok(NULL, " ");
-		pCSDark->SetScanData(d, atof(tokenWave));					// ƒ_[ƒNT2ƒf[ƒ^‚Ìæ“¾
+		pCSDark->SetScanData(d, atof(tokenWave));					// ï¿½_ï¿½[ï¿½NT2ï¿½fï¿½[ï¿½^ï¿½Ìæ“¾
 		tokenWave = strtok(NULL, " ");
-		pCS2ndRef->SetScanData(d, atof(tokenWave));					// 2ndƒŠƒtƒ@ƒŒƒ“ƒXT2ƒf[ƒ^‚Ìæ“¾
+		pCS2ndRef->SetScanData(d, atof(tokenWave));					// 2ndï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½XT2ï¿½fï¿½[ï¿½^ï¿½Ìæ“¾
 		d += pCSDark->dWavelengthStep;
 	}
 // 2014.04.04 bagus wavelength step modified <--
@@ -310,7 +310,7 @@ BOOL CSrRefFile::ReadRefFile2ndRefT2(SCANDATA* pScanData, LPCTSTR pszMainRecipeN
 //
 BOOL CSrRefFile::WriteRefFile(SCANDATA* pScanData, LPCTSTR pszMainRecipeName)
 {
-	// ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^ƒtƒ@ƒCƒ‹‚É‘‚İ
+	// ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½fï¿½[ï¿½^ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Éï¿½ï¿½ï¿½ï¿½ï¿½
 	//
 	// (* sample *)
 	// Start=380
@@ -325,27 +325,27 @@ BOOL CSrRefFile::WriteRefFile(SCANDATA* pScanData, LPCTSTR pszMainRecipeName)
 
 	sprintf(szPath, "%s%s%s", g_tszData_Ref_Dir, pszMainRecipeName, DAT_EXT);
 	FILE* fp;
-	if ( (fp = fopen(szPath, "w")) == NULL )				// ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^ƒtƒ@ƒCƒ‹ OPEN
+	if ( (fp = fopen(szPath, "w")) == NULL )				// ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½fï¿½[ï¿½^ï¿½tï¿½@ï¿½Cï¿½ï¿½ OPEN
 		return FALSE;
 
 	PSCANDATA pCSDark = &pScanData[MEASYS_DARK_T1];
 	PSCANDATA pCSRef  = &pScanData[MEASYS_STDR_T1];
-	fprintf(fp, "Start=%3d\n", pCSDark->iScanStart);				// ƒwƒbƒ_î•ñi1s–Új
-	fprintf(fp, "End=%3d\n", pCSDark->iScanEnd);					// ƒwƒbƒ_î•ñi2s–Új
-	fputs("nm   Dark     Reference\n", fp); 						// ƒwƒbƒ_î•ñi3s–Új
+	fprintf(fp, "Start=%3d\n", pCSDark->iScanStart);				// ï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½i1ï¿½sï¿½Új
+	fprintf(fp, "End=%3d\n", pCSDark->iScanEnd);					// ï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½i2ï¿½sï¿½Új
+	fputs("nm   Dark     Reference\n", fp); 						// ï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½i3ï¿½sï¿½Új
 
 // 2014.04.04 bagus wavelength step modified -->
 //	for ( int i = 0; i < SCANDATA_POINT_MAX; i++ )
-//		fprintf(fp, "%4d %lf %lf\n", i+1, pCSDark->dScanData[i], pCSRef->dScanData[i]); 		// Œõ—Êi4s–ÚˆÈ~j
+//		fprintf(fp, "%4d %lf %lf\n", i+1, pCSDark->dScanData[i], pCSRef->dScanData[i]); 		// ï¿½ï¿½ï¿½Êi4ï¿½sï¿½ÚˆÈ~ï¿½j
 
 	if(pCSDark->dWavelengthStep == 0.5){
 		for ( double d = 0.5; d <= SCANDATA_POINT_MAX; d += 0.5 ) {
-			fprintf(fp, "%4.1lf %lf %lf\n", d, pCSDark->GetScanData(d), pCSRef->GetScanData(d)); 	// Œõ—Êi4s–ÚˆÈ~j
+			fprintf(fp, "%4.1lf %lf %lf\n", d, pCSDark->GetScanData(d), pCSRef->GetScanData(d)); 	// ï¿½ï¿½ï¿½Êi4ï¿½sï¿½ÚˆÈ~ï¿½j
 		}
 	}
 	else{
 		for ( int i = 1; i <= SCANDATA_POINT_MAX; i++ ) {
-			fprintf(fp, "%4d %lf %lf\n", i, pCSDark->GetScanData(i), pCSRef->GetScanData(i)); 	// Œõ—Êi4s–ÚˆÈ~j
+			fprintf(fp, "%4d %lf %lf\n", i, pCSDark->GetScanData(i), pCSRef->GetScanData(i)); 	// ï¿½ï¿½ï¿½Êi4ï¿½sï¿½ÚˆÈ~ï¿½j
 		}
 	}
 // 2014.04.04 bagus wavelength step modified <--
@@ -358,7 +358,7 @@ BOOL CSrRefFile::WriteRefFile(SCANDATA* pScanData, LPCTSTR pszMainRecipeName)
 //
 BOOL CSrRefFile::WriteGTrRefFile(SCANDATA* pScanData, LPCTSTR pszMainRecipeName)
 {
-	// ƒKƒ“ƒgƒŠ[“§‰ß—¦—pEƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^ƒtƒ@ƒCƒ‹‚É‘‚İ
+	// ï¿½Kï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ß—ï¿½ï¿½pï¿½Eï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½fï¿½[ï¿½^ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Éï¿½ï¿½ï¿½ï¿½ï¿½
 	//
 	// (* sample *)
 	// Start=380
@@ -376,16 +376,16 @@ BOOL CSrRefFile::WriteGTrRefFile(SCANDATA* pScanData, LPCTSTR pszMainRecipeName)
 
 	sprintf(szPath, "%s%s%s", g_tszData_Ref_Dir, pszMainRecipeName, DAT_EXT);
 	FILE* fp;
-	if ( (fp = fopen(szPath, "w")) == NULL )				// ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^ƒtƒ@ƒCƒ‹ OPEN
+	if ( (fp = fopen(szPath, "w")) == NULL )				// ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½fï¿½[ï¿½^ï¿½tï¿½@ï¿½Cï¿½ï¿½ OPEN
 		return FALSE;
 
 	PSCANDATA pCSDark = &pScanData[MEASYS_DARK_T1];
 	PSCANDATA pCSRef = &pScanData[MEASYS_GTR_1];
 
-	fprintf(fp, "Start=%3d\n", pCSDark->iScanStart);				// ƒwƒbƒ_î•ñi1s–Új
-	fprintf(fp, "End=%3d\n", pCSDark->iScanEnd);					// ƒwƒbƒ_î•ñi2s–Új
+	fprintf(fp, "Start=%3d\n", pCSDark->iScanStart);				// ï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½i1ï¿½sï¿½Új
+	fprintf(fp, "End=%3d\n", pCSDark->iScanEnd);					// ï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½i2ï¿½sï¿½Új
 
-	strcpy(szHeader, "nm   Dark "); 								// ƒwƒbƒ_î•ñi3s–Új
+	strcpy(szHeader, "nm   Dark "); 								// ï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½i3ï¿½sï¿½Új
 	for ( int i = 0; i < MEASYS_GTR_LAST; i++ ) {
 		sprintf(szBuff, "    Ref%02d", i + 1);
 		strcat(szHeader, szBuff);
@@ -394,7 +394,7 @@ BOOL CSrRefFile::WriteGTrRefFile(SCANDATA* pScanData, LPCTSTR pszMainRecipeName)
 	fputs(szHeader, fp);
 
 // 2014.04.04 bagus wavelength step modified -->
-// 	for ( i = 0; i < SCANDATA_POINT_MAX; i++ ) {					// Œõ—Êi4s–ÚˆÈ~j
+// 	for ( i = 0; i < SCANDATA_POINT_MAX; i++ ) {					// ï¿½ï¿½ï¿½Êi4ï¿½sï¿½ÚˆÈ~ï¿½j
 // 		sprintf(szData, "%4d %lf", i+1, pCSDark->dScanData[i]);
 // 		pCSRef = &pScanData[MEASYS_GTR_1];
 // 		for ( int j = 0; j < MEASYS_GTR_LAST; j++ ) {
@@ -418,7 +418,8 @@ BOOL CSrRefFile::WriteGTrRefFile(SCANDATA* pScanData, LPCTSTR pszMainRecipeName)
 		}
 	}
 	else{
-		for ( i = 1; i <= SCANDATA_POINT_MAX; i++ ) {					// Œõ—Êi4s–ÚˆÈ~j
+		int i;
+		for ( i = 1; i <= SCANDATA_POINT_MAX; i++ ) {					// ï¿½ï¿½ï¿½Êi4ï¿½sï¿½ÚˆÈ~ï¿½j
 			sprintf(szData, "%4d %lf", i, pCSDark->GetScanData(i));
 			pCSRef = &pScanData[MEASYS_GTR_1];
 			for ( int j = 0; j < MEASYS_GTR_LAST; j++ ) {
@@ -440,7 +441,7 @@ BOOL CSrRefFile::WriteGTrRefFile(SCANDATA* pScanData, LPCTSTR pszMainRecipeName)
 //
 BOOL CSrRefFile::WriteRefFile2ndRefT1(SCANDATA* pScanData, LPCTSTR pszMainRecipeName)
 {
-	// ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^ƒtƒ@ƒCƒ‹‚É‘‚İ
+	// ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½fï¿½[ï¿½^ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Éï¿½ï¿½ï¿½ï¿½ï¿½
 	//
 	// (* sample *)
 	// Start=380
@@ -455,27 +456,27 @@ BOOL CSrRefFile::WriteRefFile2ndRefT1(SCANDATA* pScanData, LPCTSTR pszMainRecipe
 
 	sprintf(szPath, "%s%s%s%s", g_tszData_Ref_Dir, pszMainRecipeName, DATAFILENAME2NDREFT1, DAT_EXT);
 	FILE* fp;
-	if ( (fp = fopen(szPath, "w")) == NULL )				// ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^ƒtƒ@ƒCƒ‹ OPEN
+	if ( (fp = fopen(szPath, "w")) == NULL )				// ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½fï¿½[ï¿½^ï¿½tï¿½@ï¿½Cï¿½ï¿½ OPEN
 		return FALSE;
 
 	PSCANDATA pCSDark	= &pScanData[MEASYS_DARK_T1];
 	PSCANDATA pCS1stRef = &pScanData[MEASYS_STDR_T1];
 	PSCANDATA pCS2ndRef = &pScanData[MEASYS_EXTR_T1];
-	fprintf(fp, "Start=%3d\n", pCSDark->iScanStart);				// ƒwƒbƒ_î•ñi1s–Új
-	fprintf(fp, "End=%3d\n", pCSDark->iScanEnd);					// ƒwƒbƒ_î•ñi2s–Új
-	fputs("nm   Dark     1stReference 2ndReference\n", fp); 		// ƒwƒbƒ_î•ñi3s–Új
+	fprintf(fp, "Start=%3d\n", pCSDark->iScanStart);				// ï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½i1ï¿½sï¿½Új
+	fprintf(fp, "End=%3d\n", pCSDark->iScanEnd);					// ï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½i2ï¿½sï¿½Új
+	fputs("nm   Dark     1stReference 2ndReference\n", fp); 		// ï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½i3ï¿½sï¿½Új
 // 2014.04.04 bagus wavelength step modified -->
 // 	for ( int i = 0; i < SCANDATA_POINT_MAX; i++ )
-// 		fprintf(fp, "%4d %lf %lf %lf\n", i+1, pCSDark->dScanData[i], pCS1stRef->dScanData[i], pCS2ndRef->dScanData[i]); 		// Œõ—Êi4s–ÚˆÈ~j
+// 		fprintf(fp, "%4d %lf %lf %lf\n", i+1, pCSDark->dScanData[i], pCS1stRef->dScanData[i], pCS2ndRef->dScanData[i]); 		// ï¿½ï¿½ï¿½Êi4ï¿½sï¿½ÚˆÈ~ï¿½j
 
 	if(pCSDark->dWavelengthStep == 0.5){
 		for ( double d = 0.5; d <= SCANDATA_POINT_MAX; d += 0.5 ) {
-			fprintf(fp, "%4.1lf %lf %lf %lf\n", d, pCSDark->GetScanData(d), pCS1stRef->GetScanData(d), pCS2ndRef->GetScanData(d)); 	// Œõ—Êi4s–ÚˆÈ~j
+			fprintf(fp, "%4.1lf %lf %lf %lf\n", d, pCSDark->GetScanData(d), pCS1stRef->GetScanData(d), pCS2ndRef->GetScanData(d)); 	// ï¿½ï¿½ï¿½Êi4ï¿½sï¿½ÚˆÈ~ï¿½j
 		}
 	}
 	else{
 		for ( int i = 1; i <= SCANDATA_POINT_MAX; i++ ) {
-			fprintf(fp, "%4d %lf %lf %lf\n", i, pCSDark->GetScanData(i), pCS1stRef->GetScanData(i), pCS2ndRef->GetScanData(i)); 	// Œõ—Êi4s–ÚˆÈ~j
+			fprintf(fp, "%4d %lf %lf %lf\n", i, pCSDark->GetScanData(i), pCS1stRef->GetScanData(i), pCS2ndRef->GetScanData(i)); 	// ï¿½ï¿½ï¿½Êi4ï¿½sï¿½ÚˆÈ~ï¿½j
 		}
 	}
 // 2014.04.04 bagus wavelength step modified <--
@@ -487,7 +488,7 @@ BOOL CSrRefFile::WriteRefFile2ndRefT1(SCANDATA* pScanData, LPCTSTR pszMainRecipe
 //
 BOOL CSrRefFile::WriteRefFile2ndRefT2(SCANDATA* pScanData, LPCTSTR pszMainRecipeName)
 {
-	// ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^ƒtƒ@ƒCƒ‹‚É‘‚İ
+	// ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½fï¿½[ï¿½^ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Éï¿½ï¿½ï¿½ï¿½ï¿½
 	//
 	// (* sample *)
 	// Start=380
@@ -502,26 +503,26 @@ BOOL CSrRefFile::WriteRefFile2ndRefT2(SCANDATA* pScanData, LPCTSTR pszMainRecipe
 
 	sprintf(szPath, "%s%s%s%s", g_tszData_Ref_Dir, pszMainRecipeName, DATAFILENAME2NDREFT2, DAT_EXT);
 	FILE* fp;
-	if ( (fp = fopen(szPath, "w")) == NULL )				// ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^ƒtƒ@ƒCƒ‹ OPEN
+	if ( (fp = fopen(szPath, "w")) == NULL )				// ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½fï¿½[ï¿½^ï¿½tï¿½@ï¿½Cï¿½ï¿½ OPEN
 		return FALSE;
 
 	PSCANDATA pCSDark	= &pScanData[MEASYS_DARK_T2];
 	PSCANDATA pCS2ndRef = &pScanData[MEASYS_EXTR_T2];
-	fprintf(fp, "Start=%3d\n", pCSDark->iScanStart);				// ƒwƒbƒ_î•ñi1s–Új
-	fprintf(fp, "End=%3d\n", pCSDark->iScanEnd);					// ƒwƒbƒ_î•ñi2s–Új
-	fputs("nm   Dark     2ndReference\n", fp);						// ƒwƒbƒ_î•ñi3s–Új
+	fprintf(fp, "Start=%3d\n", pCSDark->iScanStart);				// ï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½i1ï¿½sï¿½Új
+	fprintf(fp, "End=%3d\n", pCSDark->iScanEnd);					// ï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½i2ï¿½sï¿½Új
+	fputs("nm   Dark     2ndReference\n", fp);						// ï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½i3ï¿½sï¿½Új
 // 2014.04.04 bagus wavelength step modified -->
 // 	for ( int i = 0; i < SCANDATA_POINT_MAX; i++ )
-// 		fprintf(fp, "%4d %lf %lf\n", i+1, pCSDark->dScanData[i],  pCS2ndRef->dScanData[i]); 		// Œõ—Êi4s–ÚˆÈ~j
+// 		fprintf(fp, "%4d %lf %lf\n", i+1, pCSDark->dScanData[i],  pCS2ndRef->dScanData[i]); 		// ï¿½ï¿½ï¿½Êi4ï¿½sï¿½ÚˆÈ~ï¿½j
 
 	if(pCSDark->dWavelengthStep == 0.5){
 		for ( double d = 0.5; d <= SCANDATA_POINT_MAX; d += 0.5 ) {
-			fprintf(fp, "%4.1lf %lf %lf\n", d, pCSDark->GetScanData(d),  pCS2ndRef->GetScanData(d)); 	// Œõ—Êi4s–ÚˆÈ~j
+			fprintf(fp, "%4.1lf %lf %lf\n", d, pCSDark->GetScanData(d),  pCS2ndRef->GetScanData(d)); 	// ï¿½ï¿½ï¿½Êi4ï¿½sï¿½ÚˆÈ~ï¿½j
 		}
 	}
 	else{
 		for ( int i = 1; i <= SCANDATA_POINT_MAX; i++ ) {
-			fprintf(fp, "%4d %lf %lf\n", i, pCSDark->GetScanData(i),  pCS2ndRef->GetScanData(i)); 		// Œõ—Êi4s–ÚˆÈ~j
+			fprintf(fp, "%4d %lf %lf\n", i, pCSDark->GetScanData(i),  pCS2ndRef->GetScanData(i)); 		// ï¿½ï¿½ï¿½Êi4ï¿½sï¿½ÚˆÈ~ï¿½j
 		}
 	}
 // 2014.04.04 bagus wavelength step modified <--
@@ -531,9 +532,9 @@ BOOL CSrRefFile::WriteRefFile2ndRefT2(SCANDATA* pScanData, LPCTSTR pszMainRecipe
 
 
 int CSrRefFile::CheckRefFileElapsedTimeOut(LPCTSTR pszMainRecipeName, double dLifeTime,struct tm &tmFileTime)
-// 0 : ³íiŠúŒÀ“à—LŒøj
-// 1 : ƒGƒ‰[iƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢j
-// 2 : ƒGƒ‰[iŠúŒÀØ‚êj
+// 0 : ï¿½ï¿½ï¿½ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½j
+// 1 : ï¿½Gï¿½ï¿½ï¿½[ï¿½iï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½ï¿½È‚ï¿½ï¿½j
+// 2 : ï¿½Gï¿½ï¿½ï¿½[ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½Ø‚ï¿½j
 {
 	const int AVAILABLE 	= 0;
 	const int ERR_NOEXIST	= 1;
@@ -543,37 +544,37 @@ int CSrRefFile::CheckRefFileElapsedTimeOut(LPCTSTR pszMainRecipeName, double dLi
 	//Saiki 20090603 Change ----->
 	CString strMsg, strTitle;
 	//Saiki 20090603 Change <-----
-	// ŠúŒÀØ‚êƒ`ƒFƒbƒN
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ø‚ï¿½`ï¿½Fï¿½bï¿½N
 	TCHAR szPath[MAX_PATH+1];
 	sprintf(szPath, "%s%s%s", g_tszData_Ref_Dir, pszMainRecipeName, DAT_EXT);
-	HANDLE hFile = CreateFile(szPath, GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);	// ƒtƒ@ƒCƒ‹ƒnƒ“ƒhƒ‹æ“¾
+	HANDLE hFile = CreateFile(szPath, GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);	// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½æ“¾
 	if ( hFile == INVALID_HANDLE_VALUE )
-		return ERR_NOEXIST;    										// ƒtƒ@ƒCƒ‹‚ª‚È‚¢ê‡AŠúŒÀØ‚ê‚Æ‚·‚é
+		return ERR_NOEXIST;    										// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ê‡ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½Ø‚ï¿½Æ‚ï¿½ï¿½ï¿½
 
 	FILETIME ftFileTime;
 	FILETIME ftLocalFileTime;
 	SYSTEMTIME stLocalFileTime;
-	SYSTEMTIME stLocalTime; 										// ƒ[ƒJƒ‹
+	SYSTEMTIME stLocalTime; 										// ï¿½ï¿½ï¿½[ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	GetFileTime(hFile, NULL, NULL, &ftFileTime);					// ƒtƒ@ƒCƒ‹ÅIXV“ú
+	GetFileTime(hFile, NULL, NULL, &ftFileTime);					// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ÅIï¿½Xï¿½Vï¿½ï¿½ï¿½ï¿½
 	CloseHandle(hFile);
-	FileTimeToLocalFileTime(&ftFileTime, &ftLocalFileTime); 		// ƒtƒ@ƒCƒ‹ÅIXV“úiƒ[ƒJƒ‹j
-	FileTimeToSystemTime(&ftLocalFileTime, &stLocalFileTime);		// ƒtƒ@ƒCƒ‹ÅIXV“úiƒ[ƒJƒ‹jSYSTEMTIMEŒ^
-	GetLocalTime(&stLocalTime); 									// Œ»İiƒ[ƒJƒ‹j
+	FileTimeToLocalFileTime(&ftFileTime, &ftLocalFileTime); 		// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ÅIï¿½Xï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½iï¿½ï¿½ï¿½[ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½j
+	FileTimeToSystemTime(&ftLocalFileTime, &stLocalFileTime);		// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ÅIï¿½Xï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½iï¿½ï¿½ï¿½[ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½jSYSTEMTIMEï¿½^
+	GetLocalTime(&stLocalTime); 									// ï¿½ï¿½ï¿½İï¿½ï¿½ï¿½ï¿½iï¿½ï¿½ï¿½[ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½j
 
 	struct tm tmCurrTime;
 	time_t timeFileTime;
 	time_t timeCurrTime;
 	ZeroMemory(&tmFileTime, sizeof(tmFileTime));
-	tmFileTime.tm_year = stLocalFileTime.wYear - 1900;				// 1900 ”N‚©‚ç‚Ì”N
-	tmFileTime.tm_mon  = stLocalFileTime.wMonth - 1;				// 1 Œ‚©‚ç‚ÌŒ” (0 ` 11)
+	tmFileTime.tm_year = stLocalFileTime.wYear - 1900;				// 1900 ï¿½Nï¿½ï¿½ï¿½ï¿½Ì”N
+	tmFileTime.tm_mon  = stLocalFileTime.wMonth - 1;				// 1 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÌŒï¿½ï¿½ï¿½ (0 ï¿½` 11)
 	tmFileTime.tm_mday = stLocalFileTime.wDay;
 	tmFileTime.tm_hour = stLocalFileTime.wHour;
 	tmFileTime.tm_min  = stLocalFileTime.wMinute;
 	tmFileTime.tm_sec  = stLocalFileTime.wSecond;
 	//Saiki 20090603 Change ----->
 	//if ( (timeFileTime = mktime(&tmFileTime)) == (time_t)-1 )
-	//	  MessageBox(NULL, "mktime(&tmFileTime) ‚ÌÀs‚É¸”s‚µ‚Ü‚µ‚½", "NanoSpec", MB_OK);
+	//	  MessageBox(NULL, "mktime(&tmFileTime) ï¿½Ìï¿½ï¿½sï¿½Éï¿½ï¿½sï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½", "NanoSpec", MB_OK);
 //	LoadStringML(IDS_TMFILETIMR_FAILED, strMsg, "Failed to execute the mktime(&tmFileTime)");
 //	LoadStringML(IDS_TITLE_NANOSPEC, strTitle, "NanoSpec");
 //	if ( (timeFileTime = mktime(&tmFileTime)) == (time_t)-1 ){
@@ -583,15 +584,15 @@ int CSrRefFile::CheckRefFileElapsedTimeOut(LPCTSTR pszMainRecipeName, double dLi
 	timeFileTime = mktime(&tmFileTime);
 
 	ZeroMemory(&tmCurrTime, sizeof(tmCurrTime));
-	tmCurrTime.tm_year = stLocalTime.wYear - 1900;					// 1900 ”N‚©‚ç‚Ì”N
-	tmCurrTime.tm_mon  = stLocalTime.wMonth - 1;					// 1 Œ‚©‚ç‚ÌŒ” (0 ` 11)
+	tmCurrTime.tm_year = stLocalTime.wYear - 1900;					// 1900 ï¿½Nï¿½ï¿½ï¿½ï¿½Ì”N
+	tmCurrTime.tm_mon  = stLocalTime.wMonth - 1;					// 1 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÌŒï¿½ï¿½ï¿½ (0 ï¿½` 11)
 	tmCurrTime.tm_mday = stLocalTime.wDay;
 	tmCurrTime.tm_hour = stLocalTime.wHour;
 	tmCurrTime.tm_min  = stLocalTime.wMinute;
 	tmCurrTime.tm_sec  = stLocalTime.wSecond;
 	//Saiki 20090603 Change ----->
 	//if ( (timeCurrTime = mktime(&tmCurrTime)) == (time_t)-1 )
-	//	  MessageBox(NULL, "mktime(&tmCurrTime) ‚ÌÀs‚É¸”s‚µ‚Ü‚µ‚½", "NanoSpec", MB_OK);
+	//	  MessageBox(NULL, "mktime(&tmCurrTime) ï¿½Ìï¿½ï¿½sï¿½Éï¿½ï¿½sï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½", "NanoSpec", MB_OK);
 //	LoadStringML(IDS_TMCURRTIME_FAILED, strMsg, "Failed to execute the mktime(&tmCurrTime)");
 //	LoadStringML(IDS_TITLE_NANOSPEC, strTitle, "NanoSpec");
 //	if ( (timeCurrTime = mktime(&tmCurrTime)) == (time_t)-1 ){
@@ -602,22 +603,22 @@ int CSrRefFile::CheckRefFileElapsedTimeOut(LPCTSTR pszMainRecipeName, double dLi
 
 	double dElapsedTime;
 	if ( timeFileTime == (time_t)-1 || timeCurrTime == (time_t)-1 )
-		dElapsedTime = DBL_MAX;		// –œ‚ªˆêAæ“¾‚ğ¸”s‚µ‚½ê‡‚ÍAŠúŒÀØ‚ê‚É‚·‚é
+		dElapsedTime = DBL_MAX;		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½ÍAï¿½ï¿½ï¿½ï¿½ï¿½Ø‚ï¿½É‚ï¿½ï¿½ï¿½
 	else
 		dElapsedTime = difftime(timeCurrTime, timeFileTime);
 
-	return ( ( dElapsedTime > dLifeTime * 60 ) ? ERR_EXPIRED : AVAILABLE ); // •b””äŠr
+	return ( ( dElapsedTime > dLifeTime * 60 ) ? ERR_EXPIRED : AVAILABLE ); // ï¿½bï¿½ï¿½ï¿½ï¿½r
 }
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // 2009.09.10 K.Matsuo -->
 //BOOL CSrRefFile::CheckRefFileElapsedTimeOut(LPCTSTR pszMainRecipeName, double dLifeTime)
-// TRUE : ŠúŒÀØ‚ê
+// TRUE : ï¿½ï¿½ï¿½ï¿½ï¿½Ø‚ï¿½
 int CSrRefFile::CheckRefFileElapsedTimeOut(LPCTSTR pszMainRecipeName, double dLifeTime)
-// 0 : ³íiŠúŒÀ“à—LŒøj
-// 1 : ƒGƒ‰[iƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢j
-// 2 : ƒGƒ‰[iŠúŒÀØ‚êj
+// 0 : ï¿½ï¿½ï¿½ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½j
+// 1 : ï¿½Gï¿½ï¿½ï¿½[ï¿½iï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½ï¿½È‚ï¿½ï¿½j
+// 2 : ï¿½Gï¿½ï¿½ï¿½[ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½Ø‚ï¿½j
 {
 	const int AVAILABLE 	= 0;
 	const int ERR_NOEXIST	= 1;
@@ -627,38 +628,38 @@ int CSrRefFile::CheckRefFileElapsedTimeOut(LPCTSTR pszMainRecipeName, double dLi
 	//Saiki 20090603 Change ----->
 	CString strMsg, strTitle;
 	//Saiki 20090603 Change <-----
-	// ŠúŒÀØ‚êƒ`ƒFƒbƒN
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ø‚ï¿½`ï¿½Fï¿½bï¿½N
 	TCHAR szPath[MAX_PATH+1];
 	sprintf(szPath, "%s%s%s", g_tszData_Ref_Dir, pszMainRecipeName, DAT_EXT);
-	HANDLE hFile = CreateFile(szPath, GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);	// ƒtƒ@ƒCƒ‹ƒnƒ“ƒhƒ‹æ“¾
+	HANDLE hFile = CreateFile(szPath, GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);	// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½æ“¾
 	if ( hFile == INVALID_HANDLE_VALUE )
-		return ERR_NOEXIST;    										// ƒtƒ@ƒCƒ‹‚ª‚È‚¢ê‡AŠúŒÀØ‚ê‚Æ‚·‚é
+		return ERR_NOEXIST;    										// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ê‡ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½Ø‚ï¿½Æ‚ï¿½ï¿½ï¿½
 
 	FILETIME ftFileTime;
 	FILETIME ftLocalFileTime;
 	SYSTEMTIME stLocalFileTime;
-	SYSTEMTIME stLocalTime; 										// ƒ[ƒJƒ‹
+	SYSTEMTIME stLocalTime; 										// ï¿½ï¿½ï¿½[ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	GetFileTime(hFile, NULL, NULL, &ftFileTime);					// ƒtƒ@ƒCƒ‹ÅIXV“ú
+	GetFileTime(hFile, NULL, NULL, &ftFileTime);					// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ÅIï¿½Xï¿½Vï¿½ï¿½ï¿½ï¿½
 	CloseHandle(hFile);
-	FileTimeToLocalFileTime(&ftFileTime, &ftLocalFileTime); 		// ƒtƒ@ƒCƒ‹ÅIXV“úiƒ[ƒJƒ‹j
-	FileTimeToSystemTime(&ftLocalFileTime, &stLocalFileTime);		// ƒtƒ@ƒCƒ‹ÅIXV“úiƒ[ƒJƒ‹jSYSTEMTIMEŒ^
-	GetLocalTime(&stLocalTime); 									// Œ»İiƒ[ƒJƒ‹j
+	FileTimeToLocalFileTime(&ftFileTime, &ftLocalFileTime); 		// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ÅIï¿½Xï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½iï¿½ï¿½ï¿½[ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½j
+	FileTimeToSystemTime(&ftLocalFileTime, &stLocalFileTime);		// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ÅIï¿½Xï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½iï¿½ï¿½ï¿½[ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½jSYSTEMTIMEï¿½^
+	GetLocalTime(&stLocalTime); 									// ï¿½ï¿½ï¿½İï¿½ï¿½ï¿½ï¿½iï¿½ï¿½ï¿½[ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½j
 
 	struct tm tmFileTime;
 	struct tm tmCurrTime;
 	time_t timeFileTime;
 	time_t timeCurrTime;
 	ZeroMemory(&tmFileTime, sizeof(tmFileTime));
-	tmFileTime.tm_year = stLocalFileTime.wYear - 1900;				// 1900 ”N‚©‚ç‚Ì”N
-	tmFileTime.tm_mon  = stLocalFileTime.wMonth - 1;				// 1 Œ‚©‚ç‚ÌŒ” (0 ` 11)
+	tmFileTime.tm_year = stLocalFileTime.wYear - 1900;				// 1900 ï¿½Nï¿½ï¿½ï¿½ï¿½Ì”N
+	tmFileTime.tm_mon  = stLocalFileTime.wMonth - 1;				// 1 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÌŒï¿½ï¿½ï¿½ (0 ï¿½` 11)
 	tmFileTime.tm_mday = stLocalFileTime.wDay;
 	tmFileTime.tm_hour = stLocalFileTime.wHour;
 	tmFileTime.tm_min  = stLocalFileTime.wMinute;
 	tmFileTime.tm_sec  = stLocalFileTime.wSecond;
 	//Saiki 20090603 Change ----->
 	//if ( (timeFileTime = mktime(&tmFileTime)) == (time_t)-1 )
-	//	  MessageBox(NULL, "mktime(&tmFileTime) ‚ÌÀs‚É¸”s‚µ‚Ü‚µ‚½", "NanoSpec", MB_OK);
+	//	  MessageBox(NULL, "mktime(&tmFileTime) ï¿½Ìï¿½ï¿½sï¿½Éï¿½ï¿½sï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½", "NanoSpec", MB_OK);
 //	LoadStringML(IDS_TMFILETIMR_FAILED, strMsg, "Failed to execute the mktime(&tmFileTime)");
 //	LoadStringML(IDS_TITLE_NANOSPEC, strTitle, "NanoSpec");
 //	if ( (timeFileTime = mktime(&tmFileTime)) == (time_t)-1 ){
@@ -668,15 +669,15 @@ int CSrRefFile::CheckRefFileElapsedTimeOut(LPCTSTR pszMainRecipeName, double dLi
 	timeFileTime = mktime(&tmFileTime);
 
 	ZeroMemory(&tmCurrTime, sizeof(tmCurrTime));
-	tmCurrTime.tm_year = stLocalTime.wYear - 1900;					// 1900 ”N‚©‚ç‚Ì”N
-	tmCurrTime.tm_mon  = stLocalTime.wMonth - 1;					// 1 Œ‚©‚ç‚ÌŒ” (0 ` 11)
+	tmCurrTime.tm_year = stLocalTime.wYear - 1900;					// 1900 ï¿½Nï¿½ï¿½ï¿½ï¿½Ì”N
+	tmCurrTime.tm_mon  = stLocalTime.wMonth - 1;					// 1 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÌŒï¿½ï¿½ï¿½ (0 ï¿½` 11)
 	tmCurrTime.tm_mday = stLocalTime.wDay;
 	tmCurrTime.tm_hour = stLocalTime.wHour;
 	tmCurrTime.tm_min  = stLocalTime.wMinute;
 	tmCurrTime.tm_sec  = stLocalTime.wSecond;
 	//Saiki 20090603 Change ----->
 	//if ( (timeCurrTime = mktime(&tmCurrTime)) == (time_t)-1 )
-	//	  MessageBox(NULL, "mktime(&tmCurrTime) ‚ÌÀs‚É¸”s‚µ‚Ü‚µ‚½", "NanoSpec", MB_OK);
+	//	  MessageBox(NULL, "mktime(&tmCurrTime) ï¿½Ìï¿½ï¿½sï¿½Éï¿½ï¿½sï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½", "NanoSpec", MB_OK);
 //	LoadStringML(IDS_TMCURRTIME_FAILED, strMsg, "Failed to execute the mktime(&tmCurrTime)");
 //	LoadStringML(IDS_TITLE_NANOSPEC, strTitle, "NanoSpec");
 //	if ( (timeCurrTime = mktime(&tmCurrTime)) == (time_t)-1 ){
@@ -687,11 +688,11 @@ int CSrRefFile::CheckRefFileElapsedTimeOut(LPCTSTR pszMainRecipeName, double dLi
 
 	double dElapsedTime;
 	if ( timeFileTime == (time_t)-1 || timeCurrTime == (time_t)-1 )
-		dElapsedTime = DBL_MAX;		// –œ‚ªˆêAæ“¾‚ğ¸”s‚µ‚½ê‡‚ÍAŠúŒÀØ‚ê‚É‚·‚é
+		dElapsedTime = DBL_MAX;		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½ÍAï¿½ï¿½ï¿½ï¿½ï¿½Ø‚ï¿½É‚ï¿½ï¿½ï¿½
 	else
 		dElapsedTime = difftime(timeCurrTime, timeFileTime);
 
-	return ( ( dElapsedTime > dLifeTime * 60 ) ? ERR_EXPIRED : AVAILABLE ); // •b””äŠr
+	return ( ( dElapsedTime > dLifeTime * 60 ) ? ERR_EXPIRED : AVAILABLE ); // ï¿½bï¿½ï¿½ï¿½ï¿½r
 }
 
 /////////////////////////////////////////////////////////////////////////////
