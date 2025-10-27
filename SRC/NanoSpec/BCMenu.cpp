@@ -2494,6 +2494,7 @@ BOOL BCMenu::RemoveMenu(UINT uiId,UINT nFlags)
 
 BOOL BCMenu::DeleteMenu(UINT uiId,UINT nFlags)
 {
+	int i;
 	if(MF_BYPOSITION&nFlags){
 		UINT uint = GetMenuState(uiId,MF_BYPOSITION);
 		if(uint&MF_SEPARATOR && !(uint&MF_POPUP)){

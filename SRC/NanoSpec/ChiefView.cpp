@@ -2075,6 +2075,7 @@ DWORD CChiefView::RecipesGet(
 		DWORD dwMode				// 0FXe[WvO܂߂C0F܂߂Ȃ
 	)
 {
+	int i;
 	int k;
 	// CVs
 	LPMAIN_RCP_INFO l_pMainRcpInfo = (LPMAIN_RCP_INFO) m_ChiefRecipes.pMainRcpInfo;
@@ -4719,6 +4720,7 @@ DWORD CChiefView::GetNextPointNo(
 		DWORD *pdwPointNo	// Jnԍ
 	)
 {
+	int i;
 	if (0 == *pdwPointNo) {
 		*pdwPointNo = SCAN_POINT_MAX + 1;
 		return *pdwPointNo;
@@ -4742,6 +4744,7 @@ DWORD CChiefView::GetNextLineNo(
 		DWORD *pdwLineNo	// Jnԍ
 	)
 {
+	int i;
 	if (0 == *pdwLineNo) {
 		*pdwLineNo = STRESS_LINES_MAX + 1;
 		return *pdwLineNo;

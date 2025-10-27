@@ -248,6 +248,7 @@ void COriginalPositionSettingDlg::OnOK()
 BOOL COriginalPositionSettingDlg::Init()
 {
 	int iHead;
+	int iHead;
 // Kojika 20090526 Add
 	CString strBuffer1, strBuffer2;
 // Kojika 20090526 Add End

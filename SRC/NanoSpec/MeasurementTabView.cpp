@@ -3862,6 +3862,7 @@ void CMeasurementTabView::MRCS_SettingStatusSet(long lIndex, WORD wStatus)
  */
 DWORD CMeasurementTabView::MRCS_SettingAllGet(long lIndex)
 {
+	int i;
 	return m_MRCS_dwSettings[lIndex];
 }
 /*

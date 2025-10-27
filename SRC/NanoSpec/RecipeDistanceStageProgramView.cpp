@@ -77,6 +77,7 @@ CRecipeDistanceStageProgramView::CRecipeDistanceStageProgramView()
 //
 CRecipeDistanceStageProgramView::~CRecipeDistanceStageProgramView()
 {
+	int i;
 }
 
 // ==========================================================================
@@ -935,6 +936,7 @@ void CRecipeDistanceStageProgramView::ClearMeasurementPoint()
 //
 BOOL CRecipeDistanceStageProgramView::LoadRecipeData()
 {
+	int i;
 	TCHAR szSampleTypeName[RECIPE_NAME_LEN + 1];
 	SAMPLEINFO SampleInfo;
 
