@@ -8414,8 +8414,9 @@ void CMainFrame::CalcStressStatistics(STATISTICS *pStat,RCP_DATA *pRcp)
 	dAve = dRange = 0.0;
 	STRESSRESULT tResult;
 	int nSect;
+	int nLine;
 
-	for(int nLine = 0;nLine < STRESS_LINES_MAX;nLine++){
+	for(nLine = 0;nLine < STRESS_LINES_MAX;nLine++){
 		if(m_pDoc->GetOneStressLineDataValid(nLine+1)){
 			m_pDoc->GetOneStressLineData(&tResult,nLine+1);
 			for(nSect = 0;nSect < STRESS_SECTIONS_MAX;nSect++){
