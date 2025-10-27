@@ -7981,6 +7981,7 @@ afx_msg LRESULT CMainFrame::OnStrsMeasEnd(WPARAM wparam,LPARAM lparam)
 	DWORD dwRefMeas;
 	DWORD dwNormalEnd;
 	HWND l_hChiefDlg;
+	int nLine;
 
 	//0: ���t�@�����X����, 0�ȊO:������
 	dwRefMeas = (DWORD)lparam;
@@ -8272,7 +8273,7 @@ BOOL CMainFrame::OutputStressLSRawData(LPCTSTR lpszOutputPath,LPCTSTR lpszRecipe
 	outFile.WriteString(strBuffer);
 	strBuffer.Format("ScanPosition[%s]\tHeight[%s]\n","um","um");
 	outFile.WriteString(strBuffer);
-	for(int n = 0;n < tRes.nDeflectionOccurence[0];n++){
+	for(n = 0;n < tRes.nDeflectionOccurence[0];n++){
 		strBuffer.Format("%.3lf\t%.3lf\n",tRes.DeflectionRaw[0][n].dPosum,tRes.DeflectionRaw[0][n].dDefl);
 		outFile.WriteString(strBuffer);
 	}
@@ -8357,11 +8358,12 @@ struct STATISTICS
 	double dMin,dMax,dAve,dRange;
 	double dSum = 0.0;
 	int nValidNum = 0;
+	int nSect;
 	dMin = DBL_MAX;
 	dMax = DBL_MIN;
 	dAve = dRange = 0.0;
 
-	for(int nSect = 0;nSect < STRESS_SECTIONS_MAX;nSect++){
+	for(nSect = 0;nSect < STRESS_SECTIONS_MAX;nSect++){
 		if(pScanValid[nSect]){
 			nValidNum++;
 			dSum += pResult->dStressSection[nSect];
