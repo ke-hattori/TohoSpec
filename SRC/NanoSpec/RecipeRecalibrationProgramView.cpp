@@ -1,4 +1,4 @@
-// RecipeRecalibrationProgramView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// RecipeRecalibrationProgramView.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -50,7 +50,7 @@ CRecipeRecalibrationProgramView::CRecipeRecalibrationProgramView()
 
 // Kojika 20090527 Change
 	//m_strCaption = "RECALIBRATION PROGRAM";
-	//m_strCaption = "ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“ ƒvƒƒOƒ‰ƒ€";
+	//m_strCaption = "ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½";
 	CString l_strBuffer;
 	LoadStringML(IDS_CAPTION_RECALIBRATION_PROG, l_strBuffer, "RECALIBRATION PROGRAM");
 	m_strCaption = l_strBuffer;
@@ -87,7 +87,7 @@ BEGIN_MESSAGE_MAP(CRecipeRecalibrationProgramView, CNanoRecipeUI)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CRecipeRecalibrationProgramView f’f
+// CRecipeRecalibrationProgramView ï¿½fï¿½f
 
 #ifdef _DEBUG
 // =========================================================================
@@ -106,7 +106,7 @@ void CRecipeRecalibrationProgramView::Dump(CDumpContext& dc) const
 #endif //_DEBUG
 
 // =========================================================================
-// CRecipeRecalibrationProgramView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CRecipeRecalibrationProgramView ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 
 // =========================================================================
 //
@@ -123,7 +123,7 @@ void CRecipeRecalibrationProgramView::OnInitialUpdate()
 		| CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
 		!m_wndToolBar.LoadToolBar(IDR_EDIT_RECIPE_BAR)){
 		TRACE0("Failed to create toolbar\n");
-		return; 	// ì¬‚É¸”s
+		return; 	// ï¿½ì¬ï¿½Éï¿½ï¿½s
 	}
 
 	GetClientRect(&rect);
@@ -148,7 +148,7 @@ void CRecipeRecalibrationProgramView::OnInitialUpdate()
 	ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 	// Kojika 20090528 Add End
 
-//2009.09.02 bagus se SE‹@”\’Ç‰Á --{--
+//2009.09.02 bagus se SEï¿½@ï¿½\ï¿½Ç‰ï¿½ --{--
 //2009.09.01 bagus stress --{--
 //	for ( int i = 0; i < RECALIBRATION_PROGRAM_UNIT_MAX; i++ ){
 //		// Kojika 20090528 Change
@@ -183,7 +183,7 @@ void CRecipeRecalibrationProgramView::OnInitialUpdate()
 
 	switch (m_RecalibProgInfo.wHeadType) {
 	case HEAD_TYPE_SR:
-// 2009.10.13 bagus Gantry C³ --{--
+// 2009.10.13 bagus Gantry ï¿½Cï¿½ï¿½ --{--
 #if 0
 		for ( i = 0; i < RECALIBRATION_PROGRAM_UNIT_MAX; i++ ){
 			if(l_SystemConfig.nLanguage == 0){
@@ -215,7 +215,7 @@ void CRecipeRecalibrationProgramView::OnInitialUpdate()
 			break;
 		}
 #endif
-// 2009.10.13 bagus Gantry C³ --}--
+// 2009.10.13 bagus Gantry ï¿½Cï¿½ï¿½ --}--
 		break;
 	case HEAD_TYPE_STRESS:
 		for ( i = 0; i < STRESS_RECALIBRATION_PROGRAM_UNIT_MAX; i++ ){
@@ -227,9 +227,9 @@ void CRecipeRecalibrationProgramView::OnInitialUpdate()
 		}
 		break;
 	case HEAD_TYPE_SE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 	case HEAD_TYPE_COMPEASE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
 		for ( i = 0; i < SE_RECALIBRATION_PROGRAM_UNIT_MAX; i++ ){
 			if(l_SystemConfig.nLanguage == 0){
 				pCombo->AddString(g_lpszSeRecalibrationProgramUnit_ENU[i]);
@@ -238,7 +238,7 @@ void CRecipeRecalibrationProgramView::OnInitialUpdate()
 			}
 		}
 		break;
-// 2009.10.08 bagus CTA ’Ç‰Á --{--
+// 2009.10.08 bagus CTA ï¿½Ç‰ï¿½ --{--
 	case HEAD_TYPE_CTA:
 		for ( i = 0; i < CTA_RECALIBRATION_PROGRAM_UNIT_MAX; i++ ){
 			if(l_SystemConfig.nLanguage == 0){
@@ -248,19 +248,19 @@ void CRecipeRecalibrationProgramView::OnInitialUpdate()
 			}
 		}
 		break;
-// 2009.10.08 bagus CTA ’Ç‰Á --}--
+// 2009.10.08 bagus CTA ï¿½Ç‰ï¿½ --}--
 	default:
 		break;
 	}
-//2009.09.02 bagus se SE‹@”\’Ç‰Á --}--
+//2009.09.02 bagus se SEï¿½@ï¿½\ï¿½Ç‰ï¿½ --}--
 
-// 2009.10.13 bagus Gantry C³ --{--
+// 2009.10.13 bagus Gantry ï¿½Cï¿½ï¿½ --{--
 #if 0
 // 2009.10.02 bagus Gantry --{--
 	switch (m_RecalibProgInfo.wScanType) {
 	case MEAS_PROG_TYPE_SR_TRANSMITTANCE:
 	case MEAS_PROG_TYPE_SR_TRANSMITTANCE_G:
-		pCombo->SetCurSel(3);		// %‚ğw’è
+		pCombo->SetCurSel(3);		// %ï¿½ï¿½ï¿½wï¿½ï¿½
 		pCombo->EnableWindow(FALSE);
 		break;
 	default:
@@ -268,30 +268,30 @@ void CRecipeRecalibrationProgramView::OnInitialUpdate()
 	}
 // 2009.10.02 bagus Gantry --}--
 #endif
-// 2009.10.13 bagus Gantry C³ --}--
+// 2009.10.13 bagus Gantry ï¿½Cï¿½ï¿½ --}--
 
-	/// ƒOƒ‰ƒt•`‰æ Button ///
+	/// ï¿½Oï¿½ï¿½ï¿½tï¿½`ï¿½ï¿½ Button ///
 	m_DrawGraphButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT,
 		BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_DrawGraphButton.DrawFlatFocus(TRUE);
 
 
-	// ƒRƒƒ“ƒg•¶š”§ŒÀ
+	// ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	((CEdit*)GetDlgItem(IDC_COMMENT))->SetLimitText(RECIPE_COMMENT_LEN);
 
 	///// SetData /////
 	SetData();
 
 	//2009.09.01 bagus stress  --{--
-	//2009.12.07 bagus C³ --{--
-	//V‹K‚Ì‚É‚Í‚È‚É‚à‚µ‚È‚¢
+	//2009.12.07 bagus ï¿½Cï¿½ï¿½ --{--
+	//ï¿½Vï¿½Kï¿½Ìï¿½ï¿½É‚Í‚È‚É‚ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 	if ( m_nOpenMode != modeNew ) {
 		OnDrawRecalibGraphButton();
 	}
-	//2009.12.07 bagus C³ --}--
+	//2009.12.07 bagus ï¿½Cï¿½ï¿½ --}--
 	//2009.09.01 bagus stress  --}--
 
-/* added 2015.04.05 hmenjo FWXGA ‘Î‰2 ---------- { ---------- */
+/* added 2015.04.05 hmenjo FWXGA ï¿½Î‰ï¿½2 ---------- { ---------- */
 	RECT l_rectThisView;	this->GetWindowRect(&l_rectThisView);
 	RECT l_rectComment;	this->GetDlgItem(IDC_COMMENT)->GetWindowRect(&l_rectComment);
 	RECT l_rectThisDlg = {0, 0, 605, 551};
@@ -303,19 +303,19 @@ void CRecipeRecalibrationProgramView::OnInitialUpdate()
 		l_ldeltaY = l_rectComment.top - l_ldeltaY;
 		this->SetScrollSizes(MM_TEXT, CSize(0, 0));
 		POINT l_ptStart = {0, 0};
-		/* ƒRƒƒ“ƒg•¶š	*/
+		/* ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½	*/
 		RECT l_rectCommentStatic;	this->GetDlgItem(IDC_COMMENT_STATIC)->GetWindowRect(&l_rectCommentStatic);
 		l_ptStart.x = l_rectCommentStatic.left;
 		l_ptStart.y = l_rectCommentStatic.top - l_ldeltaY;
 		this->ScreenToClient(&l_ptStart);
 		this->GetDlgItem(IDC_COMMENT_STATIC)->SetWindowPos(0, l_ptStart.x, l_ptStart.y, 0, 0, SWP_NOZORDER | SWP_NOSIZE);
-		/* ƒRƒƒ“ƒg—“	*/
+		/* ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½	*/
 		l_ptStart.x = l_rectComment.left;
 		l_ptStart.y = l_rectComment.top - l_ldeltaY;
 		this->ScreenToClient(&l_ptStart);
 		this->GetDlgItem(IDC_COMMENT)->SetWindowPos(0, l_ptStart.x, l_ptStart.y, 0, 0, SWP_NOZORDER | SWP_NOSIZE);
 	}
-/* added 2015.04.05 hmenjo FWXGA ‘Î‰2 ---------- } ---------- */
+/* added 2015.04.05 hmenjo FWXGA ï¿½Î‰ï¿½2 ---------- } ---------- */
 }
 
 // =========================================================================
@@ -342,13 +342,13 @@ BOOL CRecipeRecalibrationProgramView::RecalibrationGrid_Graph_Init()
 //		//"Actual",
 //		//"Measured",
 		//"No",
-//		"Šî€’l",
-//		"À‘ª’l",
+//		"ï¿½î€ï¿½l",
+//		"ï¿½ï¿½ï¿½ï¿½ï¿½l",
 //	};
 	char* ColItemJPN[]={
 		"No",
-		"Šî€’l",
-		"À‘ª’l",
+		"ï¿½î€ï¿½l",
+		"ï¿½ï¿½ï¿½ï¿½ï¿½l",
 	};
 	char* ColItemENU[]={
 		"No",
@@ -447,7 +447,7 @@ BOOL CRecipeRecalibrationProgramView::RecalibrationGrid_Graph_Init()
 		m_RecalibrationGrid.SetItem(&Item);
 	}
 
-	///// ƒOƒ‰ƒtƒf[ƒ^ƒNƒŠƒA /////
+	///// ï¿½Oï¿½ï¿½ï¿½tï¿½fï¿½[ï¿½^ï¿½Nï¿½ï¿½ï¿½A /////
 	m_RecalibGraph.ClearGraphData();
 
 	///// Actual /////
@@ -461,7 +461,7 @@ BOOL CRecipeRecalibrationProgramView::RecalibrationGrid_Graph_Init()
 		Item.nFormat = dwTextStyle;
 
 		//2009.09.01 bagus stress --{--
-		//ƒXƒgƒŒƒX‚Í0ˆÈ‰º‚à‹–—e‚·‚é
+		//ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½ï¿½0ï¿½È‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½ï¿½
 		BOOL bStop = FALSE;
 		if(m_RecalibProgInfo.wHeadType != HEAD_TYPE_STRESS){
 			//Actual Data
@@ -478,7 +478,7 @@ BOOL CRecipeRecalibrationProgramView::RecalibrationGrid_Graph_Init()
 				Item.strText.Format("%s", "");
 			}
 			//2009.12.07 bagus STRESS --}--
-			///// ƒOƒŠƒbƒhƒf[ƒ^ƒZƒbƒg /////
+			///// ï¿½Oï¿½ï¿½ï¿½bï¿½hï¿½fï¿½[ï¿½^ï¿½Zï¿½bï¿½g /////
 			m_RecalibrationGrid.SetItem(&Item);
 
 			//Measured Data
@@ -495,7 +495,7 @@ BOOL CRecipeRecalibrationProgramView::RecalibrationGrid_Graph_Init()
 			}else{
 				Item.strText.Format("%s", "");
 			}
-			///// ƒOƒŠƒbƒhƒf[ƒ^ƒZƒbƒg /////
+			///// ï¿½Oï¿½ï¿½ï¿½bï¿½hï¿½fï¿½[ï¿½^ï¿½Zï¿½bï¿½g /////
 			m_RecalibrationGrid.SetItem(&Item);
 		}else{
 			if(row > 1){
@@ -520,7 +520,7 @@ BOOL CRecipeRecalibrationProgramView::RecalibrationGrid_Graph_Init()
 		}
 		//2009.09.01 bagus stress --{--
 
-		///// ƒOƒ‰ƒtƒf[ƒ^ƒZƒbƒg /////
+		///// ï¿½Oï¿½ï¿½ï¿½tï¿½fï¿½[ï¿½^ï¿½Zï¿½bï¿½g /////
 		//2009.09.01 bagus stress --{--
 		//if(m_RecalibProgInfo.wHeadType != HEAD_TYPE_STRESS){
 		//if((m_RecalibProgInfo.RecalibEntry[row-1].dActual > 0) && (m_RecalibProgInfo.RecalibEntry[row-1].dMeasured > 0))
@@ -543,13 +543,13 @@ void CRecipeRecalibrationProgramView::LoadRecipeData()
 // Kojika 20090527 Add End
 
 	CMainFrame* pMainFrame = (CMainFrame *)AfxGetMainWnd();
-	// V‹Kì¬‚Ìê‡
+	// ï¿½Vï¿½Kï¿½ì¬ï¿½Ìê‡
 	if ( m_nOpenMode == modeNew ) {
 		m_RecalibProgInfo.wHeadType = (WORD)pMainFrame->GetSelectHeadType();
 		m_RecalibProgInfo.wScanType = (WORD)pMainFrame->GetSelectMeasurementType();
 	}
 	else {
-		// ƒ[ƒh¸”s‚É‚ÍV‹Kì¬‚Æ‚İ‚È‚·
+		// ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½sï¿½ï¿½ï¿½É‚ÍVï¿½Kï¿½ì¬ï¿½Æ‚İ‚È‚ï¿½
 		if ( !RecipeFile_LoadRecipe(&m_RecalibProgInfo, m_szRecipeName, RECIPE_FILE_RECALIBRATION_PROGRAM) ) {
 			m_nOpenMode = modeNew;
 			m_RecalibProgInfo.wHeadType = (WORD)pMainFrame->GetSelectHeadType();
@@ -561,7 +561,7 @@ void CRecipeRecalibrationProgramView::LoadRecipeData()
 	if ( m_nOpenMode == modeNew ) {
 // Kojika 20090527 Change
 		//strcpy(m_RecalibProgInfo.hdr.szName, "Untitled");
-		//strcpy(m_RecalibProgInfo.hdr.szName, "ƒ^ƒCƒgƒ‹‚È‚µ");
+		//strcpy(m_RecalibProgInfo.hdr.szName, "ï¿½^ï¿½Cï¿½gï¿½ï¿½ï¿½È‚ï¿½");
 		LoadStringML(IDS_UNTITLE, l_strBuffer, "Untitled");
 		strcpy(m_RecalibProgInfo.hdr.szName, l_strBuffer);
 // Kojika 20090527 Change End
@@ -586,7 +586,7 @@ void CRecipeRecalibrationProgramView::SetData()
 	if(m_RecalibProgInfo.wHeadType != HEAD_TYPE_STRESS){
 		pCombo->SetCurSel(m_RecalibProgInfo.wUnits);
 	}else{
-		//ƒXƒgƒŒƒXMPaŒÅ’è
+		//ï¿½Xï¿½gï¿½ï¿½ï¿½XMPaï¿½Å’ï¿½
 		pCombo->SetCurSel(0);
 	}
 	//2009.09.01 bagus stress --}--
@@ -596,10 +596,10 @@ void CRecipeRecalibrationProgramView::SetData()
 		switch (m_RecalibProgInfo.wScanType) {
 		case MEAS_PROG_TYPE_SR_TRANSMITTANCE:
 		case MEAS_PROG_TYPE_SR_TRANSMITTANCE_G:
-// 2009.10.13 bagus Gantry C³ --{--
+// 2009.10.13 bagus Gantry ï¿½Cï¿½ï¿½ --{--
 //			pCombo->SetCurSel(3);
 			pCombo->SetCurSel(0);
-// 2009.10.13 bagus Gantry C³ --}--
+// 2009.10.13 bagus Gantry ï¿½Cï¿½ï¿½ --}--
 			break;
 		default:
 			pCombo->SetCurSel(m_RecalibProgInfo.wUnits);
@@ -609,11 +609,11 @@ void CRecipeRecalibrationProgramView::SetData()
 	case HEAD_TYPE_STRESS:
 		pCombo->SetCurSel(0);
 		break;
-// 2009.10.08 bagus CTA ’Ç‰Á --{--
+// 2009.10.08 bagus CTA ï¿½Ç‰ï¿½ --{--
 	case HEAD_TYPE_CTA:
 		pCombo->SetCurSel(0);
 		break;
-// 2009.10.08 bagus CTA ’Ç‰Á --}--
+// 2009.10.08 bagus CTA ï¿½Ç‰ï¿½ --}--
 	default:
 		pCombo->SetCurSel(m_RecalibProgInfo.wUnits);
 		break;
@@ -650,7 +650,7 @@ void CRecipeRecalibrationProgramView::UpDate()
 	// Unit
 	CComboBox* pCombo = (CComboBox *)GetDlgItem(IDC_UNIT);
 	pCombo->GetLBText(pCombo->GetCurSel(), strBuffer);
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --{--
 #if 0
 	for ( int i = 0; i < RECALIBRATION_PROGRAM_UNIT_MAX; i++ ) {
 		// Kojika 20090528 Change
@@ -676,7 +676,7 @@ void CRecipeRecalibrationProgramView::UpDate()
 				}
 			}
 		}else{
-			//ƒXƒgƒŒƒX‚Í1ŒÅ’è
+			//ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½ï¿½1ï¿½Å’ï¿½
 			m_RecalibProgInfo.wUnits = (WORD)1;
 		}
 		//2009.09.01 bagus stress --}--
@@ -685,15 +685,15 @@ void CRecipeRecalibrationProgramView::UpDate()
 		case HEAD_TYPE_STRESS:
 			m_RecalibProgInfo.wUnits = (WORD)1;
 			break;
-// 2009.10.08 bagus CTA ’Ç‰Á --{--
+// 2009.10.08 bagus CTA ï¿½Ç‰ï¿½ --{--
 		case HEAD_TYPE_CTA:
 			m_RecalibProgInfo.wUnits = (WORD)1;
 			break;
-// 2009.10.08 bagus CTA ’Ç‰Á --}--
+// 2009.10.08 bagus CTA ï¿½Ç‰ï¿½ --}--
 		case HEAD_TYPE_SE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 		case HEAD_TYPE_COMPEASE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
 			if(l_SystemConfig.nLanguage == 0){
 				if ( strcmp(g_lpszSeRecalibrationProgramUnit_ENU[i], strBuffer) == 0 ) {
 					m_RecalibProgInfo.wUnits = (WORD)i;
@@ -706,7 +706,7 @@ void CRecipeRecalibrationProgramView::UpDate()
 				}
 			}
 			break;
-// 2009.10.13 bagus Gantry C³ --{--
+// 2009.10.13 bagus Gantry ï¿½Cï¿½ï¿½ --{--
 		case HEAD_TYPE_SR:
 			switch (m_RecalibProgInfo.wScanType) {
 			case MEAS_PROG_TYPE_SR_TRANSMITTANCE:
@@ -738,7 +738,7 @@ void CRecipeRecalibrationProgramView::UpDate()
 				break;
 			}
 			break;
-// 2009.10.13 bagus Gantry C³ --}--
+// 2009.10.13 bagus Gantry ï¿½Cï¿½ï¿½ --}--
 		default:
 			if(l_SystemConfig.nLanguage == 0){
 				if ( strcmp(g_lpszRecalibrationProgramUnit_ENU[i], strBuffer) == 0 ) {
@@ -792,9 +792,9 @@ void CRecipeRecalibrationProgramView::UpDate()
 		}
 		break;
 	case HEAD_TYPE_SE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 	case HEAD_TYPE_COMPEASE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
 		for ( i = 0; i < SE_RECALIBRATION_PROGRAM_UNIT_MAX; i++ ) {
 			if(l_SystemConfig.nLanguage == 0){
 				if ( strcmp(g_lpszSeRecalibrationProgramUnit_ENU[i], strBuffer) == 0 ) {
@@ -861,13 +861,13 @@ void CRecipeRecalibrationProgramView::UpDate()
 		break;
 	}
 #endif
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --}--
 
 //2009.09.01 bagus stress --{--
 	m_ValidNum = 0;
 //2009.09.01 bagus stress --}--
 
-	// ƒOƒŠƒbƒh‚Ì’l‚ğæ“¾
+	// ï¿½Oï¿½ï¿½ï¿½bï¿½hï¿½Ì’lï¿½ï¿½ï¿½æ“¾
 	for ( int iRow = 1; iRow < m_RecalibrationGrid.GetRowCount(); iRow++ ) {
 //2009.09.01 bagus stress --{--
 //		// Actual
@@ -894,9 +894,9 @@ void CRecipeRecalibrationProgramView::UpDate()
 //2009.09.01 bagus stress --}--
 	}
 
-// 2009.09.15 K.Matsuo “o˜^ŒÂ”ƒ`ƒFƒbƒN -->
+// 2009.09.15 K.Matsuo ï¿½oï¿½^ï¿½Âï¿½ï¿½`ï¿½Fï¿½bï¿½N -->
 	m_RecalibProgInfo.iEntryNum = m_ValidNum;
-// 2009.09.15 K.Matsuo “o˜^ŒÂ”ƒ`ƒFƒbƒN <--
+// 2009.09.15 K.Matsuo ï¿½oï¿½^ï¿½Âï¿½ï¿½`ï¿½Fï¿½bï¿½N <--
 
 	///// Comment /////
 	GetDlgItemText(IDC_COMMENT, m_RecalibProgInfo.hdr.szComment, RECIPE_COMMENT_LEN + 1);
@@ -915,7 +915,7 @@ BOOL CRecipeRecalibrationProgramView::IsDataChanged()
 //
 BOOL CRecipeRecalibrationProgramView::SaveRecipeData()
 {
-// 2009.10.13 bagus Gantry C³ --{--
+// 2009.10.13 bagus Gantry ï¿½Cï¿½ï¿½ --{--
 #if 0
 // 2009.10.02 bagus Gantry --{--
 	switch (m_RecalibProgInfo.wHeadType) {
@@ -934,9 +934,9 @@ BOOL CRecipeRecalibrationProgramView::SaveRecipeData()
 	}
 // 2009.10.02 bagus Gantry --}--
 #endif
-// 2009.10.13 bagus Gantry C³ --}--
+// 2009.10.13 bagus Gantry ï¿½Cï¿½ï¿½ --}--
 
-	// V‚µ‚¢ƒŒƒVƒs–¼‚ğİ’èiSave, SaveAsŒ“—pj
+	// ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½İ’ï¿½iSave, SaveAsï¿½ï¿½ï¿½pï¿½j
 	strcpy(m_RecalibProgInfo.hdr.szName, m_szRecipeName);
 	if ( !RecipeFile_SaveRecipe(&m_RecalibProgInfo, m_RecalibProgInfo.hdr.szName, RECIPE_FILE_RECALIBRATION_PROGRAM) )
 		return FALSE;
@@ -958,18 +958,19 @@ BOOL CRecipeRecalibrationProgramView::CheckData()
 	double dTemp;
 	CString strBuffer;
 	CString csCmpBuff;
+	int iRow;
 
 	UpDate();
 
-	// ƒOƒŠƒbƒh‚Ì’l‚ğæ“¾
+	// ï¿½Oï¿½ï¿½ï¿½bï¿½hï¿½Ì’lï¿½ï¿½ï¿½æ“¾
 	// Actual
 	BOOL IsVacantCell=FALSE;
-	for ( int iRow = 1; iRow < m_RecalibrationGrid.GetRowCount(); iRow++ ) {
+	for ( iRow = 1; iRow < m_RecalibrationGrid.GetRowCount(); iRow++ ) {
 		strBuffer = m_RecalibrationGrid.GetItemText(iRow, 1);
 		if ((IsVacantCell==TRUE) && (strBuffer != "")){
 // Kojika 20090527 Change
 			//MessageBox("There is the vacant cell during 1st actual value and last actual value.", m_strCaption, MB_OK | MB_ICONSTOP);
-			//MessageBox("‘æ‚PŠî€’l‚ÆÅIŠî€’l‚ÌŠÔ‚É“ü—Í‚³‚ê‚Ä‚¢‚È‚¢ƒZƒ‹‚ª‚ ‚è‚Ü‚·.", m_strCaption, MB_OK | MB_ICONSTOP);
+			//MessageBox("ï¿½ï¿½Pï¿½î€ï¿½lï¿½ÆÅIï¿½î€ï¿½lï¿½ÌŠÔ‚É“ï¿½ï¿½Í‚ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½.", m_strCaption, MB_OK | MB_ICONSTOP);
 			LoadStringML(IDS_VACANT_CELL_DURING_ACTUAL, l_strBuffer, "There is the vacant cell during 1st actual value and last actual value.");
 			MessageBox(l_strBuffer, m_strCaption, MB_OK | MB_ICONSTOP);
 // Kojika 20090527 Change End
@@ -981,28 +982,28 @@ BOOL CRecipeRecalibrationProgramView::CheckData()
 		//2009.09.01 bagus stress --}--
 // Kojika 20090527 Change
 			//MessageBox("1st actual value is inaccurate.", m_strCaption, MB_OK | MB_ICONSTOP);
-			//MessageBox("‘æˆêŠî€’l‚ª•s³‚Å‚·", m_strCaption, MB_OK | MB_ICONSTOP);
+			//MessageBox("ï¿½ï¿½ï¿½î€ï¿½lï¿½ï¿½ï¿½sï¿½ï¿½ï¿½Å‚ï¿½", m_strCaption, MB_OK | MB_ICONSTOP);
 			LoadStringML(IDS_FIRST_ACTUAL_INACCURATE, l_strBuffer, "1st actual value is inaccurate.");
 			MessageBox(l_strBuffer, m_strCaption, MB_OK | MB_ICONSTOP);
 // Kojika 20090527 Change End
 			return FALSE;
 		}
 		if ( iRow != 1 ) {
-/* modified 2015.12.06 hmenjo ƒŠƒJƒŠƒu‹t‘ŠŠÖ‘Î‰ ---------- { ---------- */
+/* modified 2015.12.06 hmenjo ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½uï¿½tï¿½ï¿½ï¿½Ö‘Î‰ï¿½ ---------- { ---------- */
 //			//2009.09.01 bagus stress --{--
 //			//if ( dTemp > atof(strBuffer) || atof(strBuffer) <= 0 ) {
 //			if ( dTemp > atof(strBuffer) || ((m_RecalibProgInfo.wHeadType != HEAD_TYPE_STRESS) && (atof(strBuffer) <= 0 )) ) {
 //			//2009.09.01 bagus stress --}--
-/* modified 2015.12.06 hmenjo ƒŠƒJƒŠƒu‹t‘ŠŠÖ‘Î‰ ----------              */
+/* modified 2015.12.06 hmenjo ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½uï¿½tï¿½ï¿½ï¿½Ö‘Î‰ï¿½ ----------              */
 			if (
 				((m_RecalibProgInfo.wHeadType == HEAD_TYPE_STRESS) && (dTemp > atof(strBuffer))) ||
 				((m_RecalibProgInfo.wHeadType != HEAD_TYPE_STRESS) && (atof(strBuffer) <= 0))
 				) {
-/* modified 2015.12.06 hmenjo ƒŠƒJƒŠƒu‹t‘ŠŠÖ‘Î‰ ---------- } ---------- */
+/* modified 2015.12.06 hmenjo ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½uï¿½tï¿½ï¿½ï¿½Ö‘Î‰ï¿½ ---------- } ---------- */
 				if ( strBuffer != "" ) {
 // Kojika 20090527 Change
 					//MessageBox("Entering value is not ascent.", m_strCaption, MB_OK | MB_ICONSTOP);
-					//MessageBox("ŒX‚«‚ªã¸•ûŒü‚É‚È‚é‚æ‚¤‚É“ü—Í‚µ‚Ä‚­‚¾‚³‚¢", m_strCaption, MB_OK | MB_ICONSTOP);
+					//MessageBox("ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ã¸ï¿½ï¿½ï¿½ï¿½ï¿½É‚È‚ï¿½æ‚¤ï¿½É“ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", m_strCaption, MB_OK | MB_ICONSTOP);
 					LoadStringML(IDS_ENTER_VALUE_NOT_ASCENT, l_strBuffer, "Entering value is not ascent.");
 					MessageBox(l_strBuffer, m_strCaption, MB_OK | MB_ICONSTOP);
 // Kojika 20090527 Change End
@@ -1016,7 +1017,7 @@ BOOL CRecipeRecalibrationProgramView::CheckData()
 			if ( strBuffer == _TEXT("") && csCmpBuff != "") {
 // Kojika 20090527 Change
 				//MessageBox("There is a vacant cell.", m_strCaption, MB_OK | MB_ICONSTOP);
-				//MessageBox("“ü—Í‚³‚ê‚Ä‚¢‚È‚¢ƒZƒ‹‚ª‚ ‚è‚Ü‚·", m_strCaption, MB_OK | MB_ICONSTOP);
+				//MessageBox("ï¿½ï¿½ï¿½Í‚ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½", m_strCaption, MB_OK | MB_ICONSTOP);
 				LoadStringML(IDS_VACANT_CELL, l_strBuffer, "There is a vacant cell.");
 				MessageBox(l_strBuffer, m_strCaption, MB_OK | MB_ICONSTOP);
 // Kojika 20090527 Change End
@@ -1034,7 +1035,7 @@ BOOL CRecipeRecalibrationProgramView::CheckData()
 		if ((IsVacantCell==TRUE) && (strBuffer != "")){
 // Kojika 20090527 Change
 			//MessageBox("There is a vacant cell during 1st measured value and last measured value.", m_strCaption, MB_OK | MB_ICONSTOP);
-			//MessageBox("‘æ‚PÀ‘ª’l‚ÆÅIÀ‘ª’l‚ÌŠÔ‚É“ü—Í‚³‚ê‚Ä‚¢‚È‚¢ƒZƒ‹‚ª‚ ‚è‚Ü‚·", m_strCaption, MB_OK | MB_ICONSTOP);
+			//MessageBox("ï¿½ï¿½Pï¿½ï¿½ï¿½ï¿½ï¿½lï¿½ÆÅIï¿½ï¿½ï¿½ï¿½ï¿½lï¿½ÌŠÔ‚É“ï¿½ï¿½Í‚ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½", m_strCaption, MB_OK | MB_ICONSTOP);
 			LoadStringML(IDS_VACANT_CELL_DURING_MEASURED, l_strBuffer, "There is a vacant cell during 1st measured value and last measured value.");
 			MessageBox(l_strBuffer, m_strCaption, MB_OK | MB_ICONSTOP);
 // Kojika 20090527 Change End
@@ -1047,7 +1048,7 @@ BOOL CRecipeRecalibrationProgramView::CheckData()
 		//2009.09.01 bagus stress --}--
 // Kojika 20090527 Change
 			//MessageBox("1st measured value is inaccurate.", m_strCaption, MB_OK | MB_ICONSTOP);
-			//MessageBox("‘æˆêÀ‘ª’l‚ª•s³‚Å‚·", m_strCaption, MB_OK | MB_ICONSTOP);
+			//MessageBox("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½lï¿½ï¿½ï¿½sï¿½ï¿½ï¿½Å‚ï¿½", m_strCaption, MB_OK | MB_ICONSTOP);
 			LoadStringML(IDS_FIRST_MEASURED_INACCURATE, l_strBuffer, "1st measured value is inaccurate.");
 			MessageBox(l_strBuffer, m_strCaption, MB_OK | MB_ICONSTOP);
 // Kojika 20090527 Change End
@@ -1061,7 +1062,7 @@ BOOL CRecipeRecalibrationProgramView::CheckData()
 				if ( strBuffer != "" ) {
 // Kojika 20090527 Change
 					//MessageBox("Entering value is not ascent.", m_strCaption, MB_OK | MB_ICONSTOP);
-					//MessageBox("ŒX‚«‚ªã¸•ûŒü‚É‚È‚é‚æ‚¤‚É“ü—Í‚µ‚Ä‚­‚¾‚³‚¢", m_strCaption, MB_OK | MB_ICONSTOP);
+					//MessageBox("ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ã¸ï¿½ï¿½ï¿½ï¿½ï¿½É‚È‚ï¿½æ‚¤ï¿½É“ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", m_strCaption, MB_OK | MB_ICONSTOP);
 					LoadStringML(IDS_ENTER_VALUE_NOT_ASCENT, l_strBuffer, "Entering value is not ascent.");
 					MessageBox(l_strBuffer, m_strCaption, MB_OK | MB_ICONSTOP);
 // Kojika 20090527 Change End
@@ -1075,7 +1076,7 @@ BOOL CRecipeRecalibrationProgramView::CheckData()
 			if ( strBuffer == "" && csCmpBuff != "" ) {
 // Kojika 20090527 Change
 				//MessageBox("There is a vacant cell.", m_strCaption, MB_OK | MB_ICONSTOP);
-				//MessageBox("“ü—Í‚³‚ê‚Ä‚¢‚È‚¢ƒZƒ‹‚ª‚ ‚è‚Ü‚·", m_strCaption, MB_OK | MB_ICONSTOP);
+				//MessageBox("ï¿½ï¿½ï¿½Í‚ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½", m_strCaption, MB_OK | MB_ICONSTOP);
 				LoadStringML(IDS_VACANT_CELL, l_strBuffer, "There is a vacant cell.");
 				MessageBox(l_strBuffer, m_strCaption, MB_OK | MB_ICONSTOP);
 // Kojika 20090527 Change End
@@ -1085,14 +1086,14 @@ BOOL CRecipeRecalibrationProgramView::CheckData()
 		dTemp = atof(strBuffer);
 	}
 
-// 2009.09.15 K.Matsuo “o˜^ŒÂ”ƒ`ƒFƒbƒN -->
+// 2009.09.15 K.Matsuo ï¿½oï¿½^ï¿½Âï¿½ï¿½`ï¿½Fï¿½bï¿½N -->
 	int iMinCount;
 	if (m_RecalibProgInfo.wHeadType == HEAD_TYPE_STRESS) {
-		// ƒ}ƒCƒiƒX’l“ü—Í‹–—e
+		// ï¿½}ï¿½Cï¿½iï¿½Xï¿½lï¿½ï¿½ï¿½Í‹ï¿½ï¿½e
 		iMinCount = 2;
 	}
 	else {
-		// ƒvƒ‰ƒX’l“ü—Í‚Ì‚İ
+		// ï¿½vï¿½ï¿½ï¿½Xï¿½lï¿½ï¿½ï¿½Í‚Ì‚ï¿½
 		iMinCount = 1;
 	}
 
@@ -1102,7 +1103,7 @@ BOOL CRecipeRecalibrationProgramView::CheckData()
 		MessageBox(l_strBuffer2, m_strCaption, MB_OK | MB_ICONSTOP);
 		return FALSE;
 	}
-// 2009.09.15 K.Matsuo “o˜^ŒÂ”ƒ`ƒFƒbƒN <--
+// 2009.09.15 K.Matsuo ï¿½oï¿½^ï¿½Âï¿½ï¿½`ï¿½Fï¿½bï¿½N <--
 
 	return TRUE;
 }
@@ -1138,7 +1139,7 @@ void CRecipeRecalibrationProgramView::OnDrawRecalibGraphButton()
 	m_RecalibGraph.ClearGraphData();
 
 	//// Get Data And Set Graph Data ////
-	// ƒOƒŠƒbƒh‚Ì’l‚ğæ“¾
+	// ï¿½Oï¿½ï¿½ï¿½bï¿½hï¿½Ì’lï¿½ï¿½ï¿½æ“¾
 	//2009.09.01 bagus stress --{--
 	//for ( int i = 0; i < 5; i++ ) {
 	for ( int i = 0; i < m_ValidNum; i++ ) {
@@ -1150,19 +1151,19 @@ void CRecipeRecalibrationProgramView::OnDrawRecalibGraphButton()
 			m_RecalibGraph.AddLineData(0, m_RecalibProgInfo.RecalibEntry[i].dActual, m_RecalibProgInfo.RecalibEntry[i].dMeasured);
 		} else {
 			if (i == 0) {
-/* modified 2015.12.06 hmenjo ƒŠƒJƒŠƒu‹t‘ŠŠÖ‘Î‰ ---------- { ---------- */
+/* modified 2015.12.06 hmenjo ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½uï¿½tï¿½ï¿½ï¿½Ö‘Î‰ï¿½ ---------- { ---------- */
 //				m_RecalibGraph.AddLineData(0, 0, 0);
-/* modified 2015.12.06 hmenjo ƒŠƒJƒŠƒu‹t‘ŠŠÖ‘Î‰ ----------              */
+/* modified 2015.12.06 hmenjo ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½uï¿½tï¿½ï¿½ï¿½Ö‘Î‰ï¿½ ----------              */
 				if (m_ValidNum < 2) {
 					m_RecalibGraph.AddLineData(0, 0, 0);
 				} else if (m_RecalibProgInfo.RecalibEntry[0].dActual > m_RecalibProgInfo.RecalibEntry[1].dActual) {
-/* modified 2015.12.06 hmenjo ƒOƒ‰ƒtƒoƒOC³ ---------- { ---------- */
-//					/* Šî€’l‚ÌƒIƒtƒZƒbƒg‚P¨‚Q‚Ì•Ï‰»‚ª‚O–¢–‚Ìê‡‚Í
-//						Šî€’l‚ÌƒIƒtƒZƒbƒg‚O‚ğƒIƒtƒZƒbƒg‚P‚Æ“¯‚¶’l‚É‚µ‚Ü‚·	*/
+/* modified 2015.12.06 hmenjo ï¿½Oï¿½ï¿½ï¿½tï¿½oï¿½Oï¿½Cï¿½ï¿½ ---------- { ---------- */
+//					/* ï¿½î€ï¿½lï¿½ÌƒIï¿½tï¿½Zï¿½bï¿½gï¿½Pï¿½ï¿½ï¿½Qï¿½Ì•Ï‰ï¿½ï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½Ìê‡ï¿½ï¿½
+//						ï¿½î€ï¿½lï¿½ÌƒIï¿½tï¿½Zï¿½bï¿½gï¿½Oï¿½ï¿½ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Pï¿½Æ“ï¿½ï¿½ï¿½ï¿½lï¿½É‚ï¿½ï¿½Ü‚ï¿½	*/
 //					m_RecalibGraph.AddLineData(0, m_RecalibProgInfo.RecalibEntry[0].dActual, 0);
-/* modified 2015.12.06 hmenjo ƒOƒ‰ƒtƒoƒOC³ ----------              */
-					/* Šî€’l‚ÌƒIƒtƒZƒbƒg‚P¨‚Q‚Ì•Ï‰»‚ª‚O–¢–‚Ìê‡‚Í
-						Šî€’l‚ÌƒIƒtƒZƒbƒg‚O‚ğƒIƒtƒZƒbƒg‚P¨‚Q‚ÌŒX‚«‚Å‹‚ß‚Ü‚·D	*/
+/* modified 2015.12.06 hmenjo ï¿½Oï¿½ï¿½ï¿½tï¿½oï¿½Oï¿½Cï¿½ï¿½ ----------              */
+					/* ï¿½î€ï¿½lï¿½ÌƒIï¿½tï¿½Zï¿½bï¿½gï¿½Pï¿½ï¿½ï¿½Qï¿½Ì•Ï‰ï¿½ï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½Ìê‡ï¿½ï¿½
+						ï¿½î€ï¿½lï¿½ÌƒIï¿½tï¿½Zï¿½bï¿½gï¿½Oï¿½ï¿½ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Pï¿½ï¿½ï¿½Qï¿½ÌŒXï¿½ï¿½ï¿½Å‹ï¿½ï¿½ß‚Ü‚ï¿½ï¿½D	*/
 					double l_dX1 = m_RecalibProgInfo.RecalibEntry[0].dMeasured;
 					double l_dX2 = m_RecalibProgInfo.RecalibEntry[1].dMeasured;
 					double l_dY1 = m_RecalibProgInfo.RecalibEntry[0].dActual;
@@ -1174,11 +1175,11 @@ void CRecipeRecalibrationProgramView::OnDrawRecalibGraphButton()
 						l_dYY = DBL_MAX;
 					}
 					m_RecalibGraph.AddLineData(0, l_dYY, 0);
-/* modified 2015.12.06 hmenjo ƒOƒ‰ƒtƒoƒOC³ ---------- } ---------- */
+/* modified 2015.12.06 hmenjo ï¿½Oï¿½ï¿½ï¿½tï¿½oï¿½Oï¿½Cï¿½ï¿½ ---------- } ---------- */
 				} else {
 					m_RecalibGraph.AddLineData(0, 0, 0);
 				}
-/* modified 2015.12.06 hmenjo ƒŠƒJƒŠƒu‹t‘ŠŠÖ‘Î‰ ---------- } ---------- */
+/* modified 2015.12.06 hmenjo ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½uï¿½tï¿½ï¿½ï¿½Ö‘Î‰ï¿½ ---------- } ---------- */
 			}
 			if((m_RecalibProgInfo.RecalibEntry[i].dActual> 0) && (m_RecalibProgInfo.RecalibEntry[i].dMeasured> 0))
 				m_RecalibGraph.AddLineData(0, m_RecalibProgInfo.RecalibEntry[i].dActual, m_RecalibProgInfo.RecalibEntry[i].dMeasured);
@@ -1232,19 +1233,19 @@ void CRecipeRecalibrationProgramView::Graph_Frame_Init( int dX_Min/*=0*/, int dX
 	tGraphConfig.UseLineSelect = TRUE;
 // Kojika 20090527 Change
 	//strcpy(tGraphConfig.UpperTitle,"RECALIBRATION GRAPH");
-	//strcpy(tGraphConfig.UpperTitle,"ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“ ƒOƒ‰ƒt");
+	//strcpy(tGraphConfig.UpperTitle,"ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½Oï¿½ï¿½ï¿½t");
 	LoadStringML(IDS_TITLE_RECALIB_GRAPH, l_strBuffer, "RECALIBRATION GRAPH");
 	strcpy(tGraphConfig.UpperTitle, l_strBuffer);
 // Kojika 20090527 Change End
 	strcpy(tGraphConfig.LowerTitle,"");
-	tGraphConfig.CanvasMargin = 7;	//ƒOƒ‰ƒt•`‰æ—]”’
+	tGraphConfig.CanvasMargin = 7;	//ï¿½Oï¿½ï¿½ï¿½tï¿½`ï¿½ï¿½]ï¿½ï¿½
 
-///// İ’è”ÍˆÍ‚Ìİ’è /////
+///// ï¿½İ’ï¿½ÍˆÍ‚Ìİ’ï¿½ /////
 // Kojika 20090527 Change
 	//strcpy(tGraphConfig.Y_AxisTitle,"Measured Data");
 	//strcpy(tGraphConfig.X_AxisTitle,"Actual Data");
-	//strcpy(tGraphConfig.Y_AxisTitle,"À‘ª’lƒf[ƒ^");
-	//strcpy(tGraphConfig.X_AxisTitle,"Šî€’lƒf[ƒ^");
+	//strcpy(tGraphConfig.Y_AxisTitle,"ï¿½ï¿½ï¿½ï¿½ï¿½lï¿½fï¿½[ï¿½^");
+	//strcpy(tGraphConfig.X_AxisTitle,"ï¿½î€ï¿½lï¿½fï¿½[ï¿½^");
 	LoadStringML(IDS_TITLE_MEASURED_DATA, l_strBuffer, "Measured Data");
 	strcpy(tGraphConfig.Y_AxisTitle, l_strBuffer);
 	LoadStringML(IDS_TITLE_ACTUAL_DATA, l_strBuffer, "Actual Data");
@@ -1282,11 +1283,11 @@ void CRecipeRecalibrationProgramView::Graph_Frame_Init( int dX_Min/*=0*/, int dX
 			tLineConfig.Visible = TRUE;
 			//tLineConfig.DataIndex = i;
 			tLineConfig.Color = RGB(255,0,0);
-			// =PS_SOLID:Àü
-			// PS_DASH:”jü
-			// PS_DOT:“_ü
-			// PS_DASHDOT:‚P“_½ü
-			// PS_DASHDOTDOT:‚Q“_½ü
+			// =PS_SOLID:ï¿½ï¿½ï¿½ï¿½
+			// PS_DASH:ï¿½jï¿½ï¿½
+			// PS_DOT:ï¿½_ï¿½ï¿½
+			// PS_DASHDOT:ï¿½Pï¿½_ï¿½ï¿½ï¿½ï¿½
+			// PS_DASHDOTDOT:ï¿½Qï¿½_ï¿½ï¿½ï¿½ï¿½
 			tLineConfig.PenStyle = PS_SOLID;
 			//wsprintf(tLineConfig.LineName,"Measured Data ");
 
@@ -1306,10 +1307,10 @@ void CRecipeRecalibrationProgramView::Graph_Frame_Init( int dX_Min/*=0*/, int dX
 //
 void CRecipeRecalibrationProgramView::Graph_Init()
 {
-	///// ƒOƒ‰ƒtƒf[ƒ^ƒNƒŠƒA /////
+	///// ï¿½Oï¿½ï¿½ï¿½tï¿½fï¿½[ï¿½^ï¿½Nï¿½ï¿½ï¿½A /////
 	m_RecalibGraph.ClearGraphData();
 
-	///// Å‘åEÅ¬’lƒZƒbƒg /////
+	///// ï¿½Å‘ï¿½Eï¿½Åï¿½ï¿½lï¿½Zï¿½bï¿½g /////
 	//2009.09.01 bagus stress --{--
 //	double dActDataMax=0;
 //	double dMeaDataMax=0;
@@ -1362,7 +1363,7 @@ void CRecipeRecalibrationProgramView::Graph_Init()
 				if ( dActDataMax < m_RecalibProgInfo.RecalibEntry[i].dActual )
 					dActDataMax = m_RecalibProgInfo.RecalibEntry[i].dActual;
 			}
-/* added 2015.12.06 hmenjo ƒŠƒJƒŠƒu‹t‘ŠŠÖ‘Î‰ ---------- { ---------- */
+/* added 2015.12.06 hmenjo ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½uï¿½tï¿½ï¿½ï¿½Ö‘Î‰ï¿½ ---------- { ---------- */
 			if (2 <= m_ValidNum) {
 				if (m_RecalibProgInfo.RecalibEntry[0].dActual > m_RecalibProgInfo.RecalibEntry[1].dActual) {
 					if (m_RecalibProgInfo.RecalibEntry[i].dActual <= dActDataMin) {
@@ -1370,7 +1371,7 @@ void CRecipeRecalibrationProgramView::Graph_Init()
 					}
 				}
 			}
-/* added 2015.12.06 hmenjo ƒŠƒJƒŠƒu‹t‘ŠŠÖ‘Î‰ ---------- } ---------- */
+/* added 2015.12.06 hmenjo ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½uï¿½tï¿½ï¿½ï¿½Ö‘Î‰ï¿½ ---------- } ---------- */
 			///// Measured /////
 			if(m_RecalibProgInfo.RecalibEntry[i].dMeasured > 0){
 				if ( dMeaDataMax < m_RecalibProgInfo.RecalibEntry[i].dMeasured )
@@ -1384,7 +1385,7 @@ void CRecipeRecalibrationProgramView::Graph_Init()
 	}
 	//2009.09.01 bagus stress --}--
 
-	//// ƒOƒ‰ƒtƒtƒŒ[ƒ€ğŒİ’è ////
+	//// ï¿½Oï¿½ï¿½ï¿½tï¿½tï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½ ////
 	//if ((dMeaDataMax != 0) && (dActDataMax != 0)){
 		int TmpdActDataMax;
 		int TmpdMeaDataMax;
@@ -1418,16 +1419,16 @@ void CRecipeRecalibrationProgramView::Graph_Init()
 		if (m_RecalibProgInfo.wHeadType == HEAD_TYPE_STRESS) {
 			Graph_Frame_Init(TmpdActDataMin, TmpdActDataMax, TmpdMeaDataMin, TmpdMeaDataMax, iPointNum);
 		} else {
-/* modified 2015.12.06 hmenjo ƒŠƒJƒŠƒu‹t‘ŠŠÖ‘Î‰ ---------- { ---------- */
+/* modified 2015.12.06 hmenjo ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½uï¿½tï¿½ï¿½ï¿½Ö‘Î‰ï¿½ ---------- { ---------- */
 //			Graph_Frame_Init(0, TmpdActDataMax, 0, TmpdMeaDataMax, iPointNum);
-/* modified 2015.12.06 hmenjo ƒŠƒJƒŠƒu‹t‘ŠŠÖ‘Î‰ ----------              */
+/* modified 2015.12.06 hmenjo ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½uï¿½tï¿½ï¿½ï¿½Ö‘Î‰ï¿½ ----------              */
 			if ((2 <= m_ValidNum) &&
 				(m_RecalibProgInfo.RecalibEntry[0].dActual > m_RecalibProgInfo.RecalibEntry[1].dActual)) {
 				Graph_Frame_Init(TmpdActDataMin,	TmpdActDataMax,	0,	TmpdMeaDataMax,	iPointNum);
 			} else {
 				Graph_Frame_Init(0,					TmpdActDataMax,	0,	TmpdMeaDataMax,	iPointNum);
 			}
-/* modified 2015.12.06 hmenjo ƒŠƒJƒŠƒu‹t‘ŠŠÖ‘Î‰ ---------- } ---------- */
+/* modified 2015.12.06 hmenjo ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½uï¿½tï¿½ï¿½ï¿½Ö‘Î‰ï¿½ ---------- } ---------- */
 		}
 		//2009.09.01 bagus stress --}--
 	/*}

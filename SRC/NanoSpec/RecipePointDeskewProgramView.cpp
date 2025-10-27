@@ -1,4 +1,4 @@
-// RecipePointDeskewProgramView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// RecipePointDeskewProgramView.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -34,8 +34,8 @@ CRecipePointDeskewProgramView::CRecipePointDeskewProgramView()
 // Kojika 20090527 Change
 //	m_strCaption = "POINT DESKEW PROGRAM";
 	//Saiki 20090410 Change ----->
-	//m_strCaption = "ƒ|ƒCƒ“ƒg ŒX‚«•â³ ƒvƒƒOƒ‰ƒ€";
-	//m_strCaption = "ƒ|ƒCƒ“ƒg ƒfƒXƒLƒ…[ ƒvƒƒOƒ‰ƒ€";
+	//m_strCaption = "ï¿½|ï¿½Cï¿½ï¿½ï¿½g ï¿½Xï¿½ï¿½ï¿½â³ ï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½";
+	//m_strCaption = "ï¿½|ï¿½Cï¿½ï¿½ï¿½g ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ ï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½";
 	//Saiki 20090410 Change <-----
 	CString l_strBuffer;
 	LoadStringML(IDS_CAPTION_POINT_DESKEW, l_strBuffer, "POINT DESKEW PROGRAM");
@@ -72,7 +72,7 @@ BEGIN_MESSAGE_MAP(CRecipePointDeskewProgramView, CNanoRecipeUI)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CRecipePointDeskewProgramView f’f
+// CRecipePointDeskewProgramView ï¿½fï¿½f
 
 #ifdef _DEBUG
 // =========================================================================
@@ -91,7 +91,7 @@ void CRecipePointDeskewProgramView::Dump(CDumpContext& dc) const
 #endif //_DEBUG
 
 // =========================================================================
-// CRecipePointDeskewProgramView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CRecipePointDeskewProgramView ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 
 // =========================================================================
 //
@@ -101,6 +101,7 @@ void CRecipePointDeskewProgramView::OnInitialUpdate()
 	SYSTEM_CONFIG l_SystemConfig;
 	ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 	// Kojika 20090528 Add End
+	int i;
 
 	///// Load File /////
 	LoadRecipeData();
@@ -113,7 +114,7 @@ void CRecipePointDeskewProgramView::OnInitialUpdate()
 		| CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
 		!m_wndToolBar.LoadToolBar(IDR_EDIT_RECIPE_BAR)){
 		TRACE0("Failed to create toolbar\n");
-		return; 	// ì¬‚É¸”s
+		return; 	// ï¿½ì¬ï¿½Éï¿½ï¿½s
 	}
 
 	GetClientRect(&rect);
@@ -129,7 +130,7 @@ void CRecipePointDeskewProgramView::OnInitialUpdate()
 	pCombo = (CComboBox *)GetDlgItem(IDC_DESKEW_EXECUTION_MODE);
 	pCombo->ResetContent();
 
-	for ( int i = 1; i < DESKEW_MODE_MAX; i++ ){	 //It excepts "No Deskew"
+	for ( i = 1; i < DESKEW_MODE_MAX; i++ ){	 //It excepts "No Deskew"
 		// Kojika 20090528 Change
 		//pCombo->AddString(g_lpszDeskewMode[i]);
 		if(l_SystemConfig.nLanguage == 0){
@@ -156,7 +157,7 @@ void CRecipePointDeskewProgramView::OnInitialUpdate()
 		// Kojika 20090528 Change End
 	}
 
-	// ƒRƒƒ“ƒg•¶š”§ŒÀ
+	// ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	((CEdit*)GetDlgItem(IDC_COMMENT))->SetLimitText(RECIPE_COMMENT_LEN);
 
 	///// Set Data /////
@@ -260,13 +261,13 @@ void CRecipePointDeskewProgramView::LoadRecipeData()
 // Kojika 20090529 Add End
 
 	CMainFrame* pMainFrame = (CMainFrame *)AfxGetMainWnd();
-	// V‹Kì¬‚Ìê‡
+	// ï¿½Vï¿½Kï¿½ì¬ï¿½Ìê‡
 	if ( m_nOpenMode == modeNew ) {
 		m_PointDeskewProgInfo.wHeadType = (WORD)pMainFrame->GetSelectHeadType();
 		m_PointDeskewProgInfo.nDeskewMode = DESKEW_MODE_MANUAL_DESKEW;
 	}
 	else {
-		// ƒ[ƒh¸”s‚É‚ÍV‹Kì¬‚Æ‚İ‚È‚·
+		// ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½sï¿½ï¿½ï¿½É‚ÍVï¿½Kï¿½ì¬ï¿½Æ‚İ‚È‚ï¿½
 		if ( !RecipeFile_LoadRecipe(&m_PointDeskewProgInfo, m_szRecipeName, RECIPE_FILE_POINT_DESKEW_PROGRAM) ) {
 			m_nOpenMode = modeNew;
 			m_PointDeskewProgInfo.wHeadType = (WORD)pMainFrame->GetSelectHeadType();
@@ -284,7 +285,7 @@ void CRecipePointDeskewProgramView::LoadRecipeData()
 	if ( m_nOpenMode == modeNew ) {
 // Kojika 20090529 Change
 //		strcpy(m_PointDeskewProgInfo.hdr.szName, "Untitled");
-//		strcpy(m_PointDeskewProgInfo.hdr.szName, "ƒ^ƒCƒgƒ‹‚È‚µ");
+//		strcpy(m_PointDeskewProgInfo.hdr.szName, "ï¿½^ï¿½Cï¿½gï¿½ï¿½ï¿½È‚ï¿½");
 		LoadStringML(IDS_UNTITLE, l_strBuffer, "Untitled");
 		strcpy(m_PointDeskewProgInfo.hdr.szName, l_strBuffer);
 // Kojika 20090529 Change End
@@ -363,7 +364,7 @@ BOOL CRecipePointDeskewProgramView::IsDataChanged()
 //
 BOOL CRecipePointDeskewProgramView::SaveRecipeData()
 {
-	// V‚µ‚¢ƒŒƒVƒs–¼‚ğİ’èiSave, SaveAsŒ“—pj
+	// ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½İ’ï¿½iSave, SaveAsï¿½ï¿½ï¿½pï¿½j
 	strcpy(m_PointDeskewProgInfo.hdr.szName, m_szRecipeName);
 	if ( !RecipeFile_SaveRecipe(&m_PointDeskewProgInfo, m_PointDeskewProgInfo.hdr.szName, RECIPE_FILE_POINT_DESKEW_PROGRAM) )
 		return FALSE;
@@ -386,13 +387,13 @@ BOOL CRecipePointDeskewProgramView::CheckData()
 
 	UpDate();
 
-	// ‚»‚ê‚¼‚ê‚Ìƒ‚[ƒh‚É‚¨‚¢‚ÄDeskew‚ªİ’è‚³‚ê‚Ä‚¢‚é‚©ƒ`ƒFƒbƒN
+	// ï¿½ï¿½ï¿½ê‚¼ï¿½ï¿½Ìƒï¿½ï¿½[ï¿½hï¿½É‚ï¿½ï¿½ï¿½ï¿½ï¿½Deskewï¿½ï¿½ï¿½İ’è‚³ï¿½ï¿½Ä‚ï¿½ï¿½é‚©ï¿½`ï¿½Fï¿½bï¿½N
 	if ( m_PointDeskewProgInfo.nDeskewMode == DESKEW_MODE_PATTERN_DESKEW && !m_bDeskewDefined ) {
 // Kojika 20090527 Change
 ////	MessageBox("Please Teach Auto Deskew", m_strCaption, MB_OK | MB_ICONSTOP);
 //		//Saiki 20090410 Change ----->
-//		//MessageBox("©“®ŒX‚«•â³‚ğƒeƒB[ƒ`ƒ“ƒO‚µ‚Ä‰º‚³‚¢", m_strCaption, MB_OK | MB_ICONSTOP);
-//		MessageBox("ƒI[ƒg ƒfƒXƒLƒ…[‚ğƒeƒB[ƒ`ƒ“ƒO‚µ‚Ä‰º‚³‚¢", m_strCaption, MB_OK | MB_ICONSTOP);
+//		//MessageBox("ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½â³ï¿½ï¿½ï¿½eï¿½Bï¿½[ï¿½`ï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½Ä‰ï¿½ï¿½ï¿½ï¿½ï¿½", m_strCaption, MB_OK | MB_ICONSTOP);
+//		MessageBox("ï¿½Iï¿½[ï¿½g ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½eï¿½Bï¿½[ï¿½`ï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½Ä‰ï¿½ï¿½ï¿½ï¿½ï¿½", m_strCaption, MB_OK | MB_ICONSTOP);
 //		//Saiki 20090410 Change <-----
 		LoadStringML(IDS_TEACH_AUTO_DESKEW, l_strBuffer, "Please Teach Auto Deskew");
 		MessageBox(l_strBuffer, m_strCaption, MB_OK | MB_ICONSTOP);
