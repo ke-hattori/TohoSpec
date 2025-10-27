@@ -7771,6 +7771,7 @@ LRESULT CMainFrame::OnNotifyMeasPause(WPARAM wparam, LPARAM lparam)
 /* added 2009.06.09 hmenjo �ُ펞����|�[�Y ���O�ǉ� ---------- } ---------- */
 	int l_iReason = (int) wparam;		/* �|�[�Y���R(�|�[�Y�������͖����ł�)	*/
 	BOOL l_bRelease = (BOOL) lparam;	/* TRUE�F�|�[�Y���� */
+	int nLine;
 
 	// �|�[�Y�ʒm���b�Z�[�W�{�b�N�X�̑��݂��m�F���܂��D
 	CString l_strPauseMsgTitle;
@@ -8008,7 +8009,7 @@ afx_msg LRESULT CMainFrame::OnStrsMeasEnd(WPARAM wparam,LPARAM lparam)
 		STATISTICS tStat;
 		STATISTICSDATESET pifIf[STRESS_LINES_MAX + 1];
 
-		for ( int nLine = 0; nLine < STRESS_LINES_MAX; nLine++ ) {
+		for ( nLine = 0; nLine < STRESS_LINES_MAX; nLine++ ) {
 			::ZeroMemory(&tStat, sizeof(tStat));
 			if ( m_pDoc->GetOneStressLineDataValid(nLine + 1) ) {
 				m_pDoc->GetStressLineStatisticsData(nLine + 1, &tStat);
@@ -8211,6 +8212,7 @@ BOOL CMainFrame::OutputStressLSRawData(LPCTSTR lpszOutputPath,LPCTSTR lpszRecipe
 	STAGE_PROG_STRESS& stressStage = rcp.StressStageProgInfo;
 	STRESSRESULT tRes;
 	STRESS_CONFIG l_StressConfig;
+	int n;
 
 	if(nLine < 1 || nLine > STRESS_LINES_MAX){
 		return FALSE;
