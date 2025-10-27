@@ -1,4 +1,4 @@
-// RecipeMeasurementSrReflectanceProgramView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// RecipeMeasurementSrReflectanceProgramView.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -82,7 +82,7 @@ BEGIN_MESSAGE_MAP(CRecipeMeasurementSrReflectanceProgramView, CNanoRecipeUI)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CRecipeMeasurementSrReflectanceProgramView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CRecipeMeasurementSrReflectanceProgramView ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 
 // =========================================================================
 //
@@ -105,7 +105,7 @@ void CRecipeMeasurementSrReflectanceProgramView::OnInitialUpdate ()
 		| CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
 		!m_wndToolBar.LoadToolBar(IDR_EDIT_RECIPE_BAR)){
 		TRACE0("Failed to create toolbar\n");
-		return; 	// ì¬‚É¸”s
+		return; 	// ï¿½ì¬ï¿½Éï¿½ï¿½s
 	}
 
 	GetClientRect(&rect);
@@ -126,7 +126,7 @@ void CRecipeMeasurementSrReflectanceProgramView::OnInitialUpdate ()
 		BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_TestButton.DrawFlatFocus(TRUE);
 
-	///// ‘ª’è”½Ë—¦”g’·İ’è /////
+	///// ï¿½ï¿½ï¿½è”½ï¿½Ë—ï¿½ï¿½gï¿½ï¿½ï¿½İ’ï¿½ /////
 	int IDC_MEAS_REFL_WAVE_LENG[] = {IDC_MEAS_REFL_WAVE_LENG1, IDC_MEAS_REFL_WAVE_LENG2, IDC_MEAS_REFL_WAVE_LENG3};
 	for ( int i = 0; i < SPECIFIED_WAVELENGTH_MAX; i++ ) {
 		if (m_ReflecMeas.ScanParams._SR.iSpecificWavelen[i] != 0)
@@ -141,7 +141,7 @@ void CRecipeMeasurementSrReflectanceProgramView::OnInitialUpdate ()
 	InitCombo_SrReflOpticalFilter();
 	InitCombo_Lens();
 	InitCombo_MeasReflReferenceMaterial();
-// 2015.03.16 Bagus Mod (TohoSpec‘Î‰) -->
+// 2015.03.16 Bagus Mod (TohoSpecï¿½Î‰ï¿½) -->
 //	OnCheckReferenceLifeTime();
 	if(g_lModelType == MODEL_T3100){
 		GetDlgItem(IDC_MEAS_REFL_CHK_WARN_LIFETIME)->ShowWindow(SW_HIDE);
@@ -149,9 +149,9 @@ void CRecipeMeasurementSrReflectanceProgramView::OnInitialUpdate ()
 	else{
 		OnCheckReferenceLifeTime();
 	}
-// 2015.03.16 Bagus Mod (TohoSpec‘Î‰) <--
+// 2015.03.16 Bagus Mod (TohoSpecï¿½Î‰ï¿½) <--
 
-	// ƒRƒƒ“ƒg•¶š”§ŒÀ
+	// ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	((CEdit*)GetDlgItem(IDC_REFLECTANCE_COMMENT))->SetLimitText(RECIPE_COMMENT_LEN);
 
 	///// Default Recipe Setup /////
@@ -165,7 +165,7 @@ void CRecipeMeasurementSrReflectanceProgramView::OnInitialUpdate ()
 		//Saiki 20090410 Add <-----
 
 	}
-/* added 2015.04.05 hmenjo FWXGA ‘Î‰2 ---------- { ---------- */
+/* added 2015.04.05 hmenjo FWXGA ï¿½Î‰ï¿½2 ---------- { ---------- */
 	RECT l_rectThisView;	this->GetWindowRect(&l_rectThisView);
 	RECT l_rectComment;	this->GetDlgItem(IDC_REFLECTANCE_COMMENT)->GetWindowRect(&l_rectComment);
 	RECT l_rectThisDlg = {0, 0, 605, 551};
@@ -177,23 +177,23 @@ void CRecipeMeasurementSrReflectanceProgramView::OnInitialUpdate ()
 		l_ldeltaY = l_rectComment.top - l_ldeltaY;
 		this->SetScrollSizes(MM_TEXT, CSize(0, 0));
 		POINT l_ptStart = {0, 0};
-		/* ƒRƒƒ“ƒg•¶š	*/
+		/* ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½	*/
 		RECT l_rectCommentStatic;	this->GetDlgItem(IDC_COMMENT_STATIC)->GetWindowRect(&l_rectCommentStatic);
 		l_ptStart.x = l_rectCommentStatic.left;
 		l_ptStart.y = l_rectCommentStatic.top - l_ldeltaY;
 		this->ScreenToClient(&l_ptStart);
 		this->GetDlgItem(IDC_COMMENT_STATIC)->SetWindowPos(0, l_ptStart.x, l_ptStart.y, 0, 0, SWP_NOZORDER | SWP_NOSIZE);
-		/* ƒRƒƒ“ƒg—“	*/
+		/* ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½	*/
 		l_ptStart.x = l_rectComment.left;
 		l_ptStart.y = l_rectComment.top - l_ldeltaY;
 		this->ScreenToClient(&l_ptStart);
 		this->GetDlgItem(IDC_REFLECTANCE_COMMENT)->SetWindowPos(0, l_ptStart.x, l_ptStart.y, 0, 0, SWP_NOZORDER | SWP_NOSIZE);
 	}
-/* added 2015.04.05 hmenjo FWXGA ‘Î‰2 ---------- } ---------- */
+/* added 2015.04.05 hmenjo FWXGA ï¿½Î‰ï¿½2 ---------- } ---------- */
 }
 
 // =========================================================================
-// ƒŠƒtƒ@ƒŒƒ“ƒXƒ^ƒCƒ€ ƒ`ƒFƒbƒN‘I‘ğ
+// ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½^ï¿½Cï¿½ï¿½ ï¿½`ï¿½Fï¿½bï¿½Nï¿½Iï¿½ï¿½ï¿½ï¿½
 //
 void CRecipeMeasurementSrReflectanceProgramView::OnCheckReferenceLifeTime()
 {
@@ -203,7 +203,7 @@ void CRecipeMeasurementSrReflectanceProgramView::OnCheckReferenceLifeTime()
 }
 
 // =========================================================================
-// ƒIƒvƒeƒBƒJƒ‹ƒtƒBƒ‹ƒ^[ ƒRƒ“ƒ{‘I‘ğ
+// ï¿½Iï¿½vï¿½eï¿½Bï¿½Jï¿½ï¿½ï¿½tï¿½Bï¿½ï¿½ï¿½^ï¿½[ ï¿½Rï¿½ï¿½ï¿½{ï¿½Iï¿½ï¿½ï¿½ï¿½
 //
 void CRecipeMeasurementSrReflectanceProgramView::OnSelchangeSrMeasReflOptFilter()
 {
@@ -222,15 +222,15 @@ void CRecipeMeasurementSrReflectanceProgramView::LoadRecipeData()
 
 	switch ( m_nOpenMode )
 	{
-	case modeNew:				// ƒŒƒVƒsV‹Kì¬
-	case modeDefaultSetting:	// ƒRƒ“ƒtƒBƒO‰æ–Ê‚©‚ç‘JˆÚ‚µ‚Ä‚«‚½ƒP[ƒX
+	case modeNew:				// ï¿½ï¿½ï¿½Vï¿½sï¿½Vï¿½Kï¿½ì¬
+	case modeDefaultSetting:	// ï¿½Rï¿½ï¿½ï¿½tï¿½Bï¿½Oï¿½ï¿½Ê‚ï¿½ï¿½ï¿½Jï¿½Ú‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½Pï¿½[ï¿½X
 		if ( !RecipeFile_LoadRecipe(&m_ReflecMeas, SR_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_SR_REFLECTANCE) ) {
 			m_ReflecMeas.ScanParams.hdr.wHeadType = HEAD_TYPE_SR;
 			m_ReflecMeas.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_SR_REFLECTANCE;
 		}
 		break;
-	default:					// ƒŒƒVƒsƒƒCƒ“ƒŠƒXƒg‰æ–Ê‚©‚ç‘JˆÚ‚µ‚Ä‚«‚½ƒP[ƒX
-		if ( !RecipeFile_LoadRecipe(&m_ReflecMeas, m_szRecipeName, RECIPE_FILE_MEASUREMENT_PROGRAM) ) { 		// RECIPE_FILE_MEASUREMENT_PROGRAM ‚Å³‚µ‚¢‚ç‚µ‚¢...
+	default:					// ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½Ê‚ï¿½ï¿½ï¿½Jï¿½Ú‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½Pï¿½[ï¿½X
+		if ( !RecipeFile_LoadRecipe(&m_ReflecMeas, m_szRecipeName, RECIPE_FILE_MEASUREMENT_PROGRAM) ) { 		// RECIPE_FILE_MEASUREMENT_PROGRAM ï¿½Åï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç‚µï¿½ï¿½...
 			m_nOpenMode = modeNew;
 			if ( !RecipeFile_LoadRecipe(&m_ReflecMeas, SR_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_SR_REFLECTANCE) ) {
 				m_ReflecMeas.ScanParams.hdr.wHeadType = HEAD_TYPE_SR;
@@ -292,13 +292,13 @@ void CRecipeMeasurementSrReflectanceProgramView::InitCombo_SrReflOpticalFilter()
 		}
 	}
 
-	//ƒI[ƒgƒtƒBƒ‹ƒ^‚ ‚è‚Å”½Ë—¦‘ª’èPGM‚Ìê‡
+	//ï¿½Iï¿½[ï¿½gï¿½tï¿½Bï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½ï¿½Å”ï¿½ï¿½Ë—ï¿½ï¿½ï¿½ï¿½ï¿½PGMï¿½Ìê‡
 	LoadStringML(IDS_CAPTION_SR_REFLECTANCE, l_strBuffer, "SR REFLECTANCE");
-// 2015.03.16 Bagus Mod (TohoSpec‘Î‰) -->
+// 2015.03.16 Bagus Mod (TohoSpecï¿½Î‰ï¿½) -->
 //	if (m_SrConfig.bAutoFilter && m_strCaption == l_strBuffer){
 	if ((g_lModelType == MODEL_T3100) ||
 	    (m_SrConfig.bAutoFilter && m_strCaption == l_strBuffer)){
-// 2015.03.16 Bagus Mod (TohoSpec‘Î‰) <--
+// 2015.03.16 Bagus Mod (TohoSpecï¿½Î‰ï¿½) <--
 		if ((m_ReflecMeas.ScanParams._SR.wOpticsFilterType < 0) || (m_ReflecMeas.ScanParams._SR.wOpticsFilterType >= OPT_FILTER_MAX)) {
 			nIndex = 0;
 		} else {
@@ -329,7 +329,7 @@ void CRecipeMeasurementSrReflectanceProgramView::InitCombo_SrReflOpticalFilter()
 			}
 		}
 	}
-	//ƒI[ƒgƒtƒBƒ‹ƒ^‚È‚µA‚Ü‚½‚Í“§‰ß—¦‘ª’èPGM‚Ìê‡
+	//ï¿½Iï¿½[ï¿½gï¿½tï¿½Bï¿½ï¿½ï¿½^ï¿½È‚ï¿½ï¿½Aï¿½Ü‚ï¿½ï¿½Í“ï¿½ï¿½ß—ï¿½ï¿½ï¿½ï¿½ï¿½PGMï¿½Ìê‡
 	else{
 		//Saiki 20091015 Add ----->
 		pCombo->SetCurSel(0);
@@ -352,7 +352,7 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::CheckData()
 	CString l_strBuffer, l_strTitle;
 
 	//2010.01.15 bagus --{--
-	//ƒ`ƒFƒbƒN‚Å‚Í‚¶‚¢‚½ê‡‚É‚ÍŸ‚Éi‚Ü‚È‚¢
+	//ï¿½`ï¿½Fï¿½bï¿½Nï¿½Å‚Í‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½É‚Íï¿½ï¿½Éiï¿½Ü‚È‚ï¿½
 	//UpdateData(TRUE);
 	if(!UpdateData(TRUE)){
 		return FALSE;
@@ -367,6 +367,8 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::CheckData()
 // 2009.05.15 k-matsuo <--
 	int iValue;
 	BOOL bValidWaveLen = FALSE;
+	int i;
+	int j;
 
 	switch ( m_nOpenMode )
 	{
@@ -393,7 +395,7 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::CheckData()
 	///// Optical Filter /////
 	
 	if ( m_SrConfig.nHeadType == SR_HEAD_TYPE_LAH512 ) {
-		// •W€ƒwƒbƒhw’è‚ÍANDFilter—˜—p‚·‚é‚ÆAŒõ—Ê‚ª—‚¿‚é‚½‚ßAg—p‚µ‚È‚¢‚æ‚¤Œx
+		// ï¿½Wï¿½ï¿½ï¿½wï¿½bï¿½hï¿½wï¿½èï¿½ÍANDFilterï¿½ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ÆAï¿½ï¿½ï¿½Ê‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é‚½ï¿½ßAï¿½gï¿½pï¿½ï¿½ï¿½È‚ï¿½ï¿½æ‚¤ï¿½xï¿½ï¿½
 		if ( m_ReflecMeas.ScanParams._SR.wOpticsFilterType == OPT_FILTER_POS2 ||
 			  m_ReflecMeas.ScanParams._SR.wOpticsFilterType == OPT_FILTER_POS3)
 		{
@@ -403,7 +405,7 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::CheckData()
 			return FALSE;
 		}
 	} else if ( m_SrConfig.nHeadType == SR_HEAD_TYPE_LAH1024_SS ) {
-		// ‚•ª‰ğ”\ƒwƒbƒh‚ÍƒŒƒ“ƒY”{—¦‚É‚æ‚èAg—pƒtƒBƒ‹ƒ^‚ğ§ŒÀ‚·‚é‚æ‚¤Œx
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½wï¿½bï¿½hï¿½Íƒï¿½ï¿½ï¿½ï¿½Yï¿½{ï¿½ï¿½ï¿½É‚ï¿½ï¿½Aï¿½gï¿½pï¿½tï¿½Bï¿½ï¿½ï¿½^ï¿½ğ§Œï¿½ï¿½ï¿½ï¿½ï¿½æ‚¤ï¿½xï¿½ï¿½
 		if ( m_strLens == "5 X" || m_strLens == "10 X" ) {
 			if ( m_ReflecMeas.ScanParams._SR.wOpticsFilterType != OPT_FILTER_POS2 &&
 				 m_ReflecMeas.ScanParams._SR.wOpticsFilterType != OPT_FILTER_POS3)
@@ -428,10 +430,10 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::CheckData()
 	///// Integration Time /////
 	if ( m_ReflecMeas.ScanParams._SR.dIntegTime < MIN_INTEGRATION_TIME || MAX_INTEGRATION_TIME < m_ReflecMeas.ScanParams._SR.dIntegTime )
 	{
-		//2010.01.13 bagus C³ --{--
+		//2010.01.13 bagus ï¿½Cï¿½ï¿½ --{--
 		//LoadStringML(IDS_INTEGTIME_OUT_RANGE, l_strBuffer, "Integration Time is out of range.\n(%.1f - %.1f)");
 		LoadStringML(IDS_INTEGTIME_OUT_RANGE, l_strBuffer, "Integration Time is out of range.\n(%.2f - %.2f)");
-		//2010.01.13 bagus C³ --}--
+		//2010.01.13 bagus ï¿½Cï¿½ï¿½ --}--
 		strBuffer.Format(l_strBuffer, MIN_INTEGRATION_TIME, MAX_INTEGRATION_TIME);
 		MessageBox(strBuffer, strCaption, MB_OK | MB_ICONSTOP);
 		GetDlgItem(IDC_MEAS_REFL_INTEGRATION_TIME)->SetFocus();
@@ -451,7 +453,7 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::CheckData()
 // 2009.05.15 k-matsuo <--
 
 
-	///// ‘ª’è”½Ë—¦”g’·İ’è /////
+	///// ï¿½ï¿½ï¿½è”½ï¿½Ë—ï¿½ï¿½gï¿½ï¿½ï¿½İ’ï¿½ /////
 	///// Reflectance Measurement /////
 	///// 1st Target WaveLength /////
 	///// 2nd Target WaveLength /////
@@ -460,17 +462,17 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::CheckData()
 	int IDS_WAVELENGTH[] = {IDS_FIRST_WAVE_OUT_RANGE, IDS_SECOND_WAVE_OUT_RANGE, IDS_THIRD_WAVE_OUT_RANGE};
 	LPCTSTR pszWaveLengthString[] = {"1st Target WaveLength is out of range.\n(%d - %d)", "2nd Target WaveLength is out of range.\n(%d - %d)", "3rd Target WaveLength is out of range.\n(%d - %d)"};
 
-	//‚R‚Â‚Ìİ’è’l‚ÌãˆÊ‚ª–¢İ’è‚Ìê‡‚ÍãˆÊ‚É‹l‚ß‚éB
+	//ï¿½Rï¿½Â‚Ìİ’ï¿½lï¿½Ìï¿½Ê‚ï¿½ï¿½ï¿½ï¿½İ’ï¿½Ìê‡ï¿½Íï¿½Ê‚É‹lï¿½ß‚ï¿½B
 	CStringArray strSpecificWavelen;
 	strSpecificWavelen.SetSize(SPECIFIED_WAVELENGTH_MAX);
-	for ( int i = 0; i < SPECIFIED_WAVELENGTH_MAX; i++ ) {
+	for ( i = 0; i < SPECIFIED_WAVELENGTH_MAX; i++ ) {
 		strSpecificWavelen[i] = m_strSpecificWavelen[i];
 		strSpecificWavelen[i].TrimLeft();
 		strSpecificWavelen[i].TrimRight();
 	}
 
-	// ãˆÊ‚É‹l‚ß‚é
-	int j = 0;
+	// ï¿½ï¿½Ê‚É‹lï¿½ß‚ï¿½
+	j = 0;
 	for ( i = 0; i < SPECIFIED_WAVELENGTH_MAX; i++ ) {
 		if ( !strSpecificWavelen[i].IsEmpty() )
 			m_strSpecificWavelen[j++] = strSpecificWavelen[i];
@@ -487,7 +489,7 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::CheckData()
 	for ( i = 0; i < SPECIFIED_WAVELENGTH_MAX; i++ ) {
 		if ( !m_strSpecificWavelen[i].IsEmpty() )	{
 			iValue = atoi(m_strSpecificWavelen[i]);
-			if ((!CheckTransData(iValue,m_strSpecificWavelen[i])) || (iValue < MinWaveLength) || (MaxWaveLength < iValue )) { /**®”‚ÅAƒ^[ƒQƒbƒg‚ª—LŒø”ÍˆÍ‚Éİ’è‚³‚ê‚Ä‚¢‚é‚©H*/
+			if ((!CheckTransData(iValue,m_strSpecificWavelen[i])) || (iValue < MinWaveLength) || (MaxWaveLength < iValue )) { /**ï¿½ï¿½ï¿½ï¿½ï¿½ÅAï¿½^ï¿½[ï¿½Qï¿½bï¿½gï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ÍˆÍ‚Éİ’è‚³ï¿½ï¿½Ä‚ï¿½ï¿½é‚©ï¿½H*/
 				if(CheckTransData(iValue,m_strSpecificWavelen[i])) {
 					LoadStringML(IDS_WAVELENGTH[i], l_strBuffer, pszWaveLengthString[i]);
 					strBuffer.Format(l_strBuffer, MinWaveLength, MaxWaveLength );
@@ -518,7 +520,7 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::CheckData()
 	}
 
 	///// Life Time /////
-// 2015.03.16 Bagus Add (TohoSpec‘Î‰) -->
+// 2015.03.16 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 	if(g_lModelType == MODEL_T3100){
 		if ( m_ReflecMeas.Ref.hdr.dLifeTime < MIN_LIFE_TIME || MAX_LIFE_TIME < m_ReflecMeas.Ref.hdr.dLifeTime ) 	{
 			LoadStringML(IDS_LIFETIME_OUT_RANGE, l_strBuffer, "Life Time is out of range.""\n(%.1f - %.1f)");
@@ -527,7 +529,7 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::CheckData()
 			GetDlgItem(IDC_MEAS_REFL_LIFETIME)->SetFocus();
 			return FALSE;
 		}
-		if((m_ReflecMeas.Ref.hdr.dLifeTime - (int)m_ReflecMeas.Ref.hdr.dLifeTime) != 0) //®”‚Å‚È‚¢
+		if((m_ReflecMeas.Ref.hdr.dLifeTime - (int)m_ReflecMeas.Ref.hdr.dLifeTime) != 0) //ï¿½ï¿½ï¿½ï¿½ï¿½Å‚È‚ï¿½
 		{
 			LoadStringML(IDS_SET_INTERVAL_MIN, l_strBuffer, "Please set it at intervals of 1 min.");
 			strBuffer.Format(l_strBuffer);
@@ -537,7 +539,7 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::CheckData()
 		}
 	}
 	else {
-// 2015.03.16 Bagus Add (TohoSpec‘Î‰) <--
+// 2015.03.16 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 	if ( m_ReflecMeas.Ref.hdr.bWarnFlag)	{
 		if ( m_ReflecMeas.Ref.hdr.dLifeTime < MIN_LIFE_TIME || MAX_LIFE_TIME < m_ReflecMeas.Ref.hdr.dLifeTime ) 	{
 			LoadStringML(IDS_LIFETIME_OUT_RANGE, l_strBuffer, "Life Time is out of range.""\n(%.1f - %.1f)");
@@ -546,7 +548,7 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::CheckData()
 			GetDlgItem(IDC_MEAS_REFL_LIFETIME)->SetFocus();
 			return FALSE;
 		}
-		if((m_ReflecMeas.Ref.hdr.dLifeTime - (int)m_ReflecMeas.Ref.hdr.dLifeTime) != 0) //®”‚Å‚È‚¢
+		if((m_ReflecMeas.Ref.hdr.dLifeTime - (int)m_ReflecMeas.Ref.hdr.dLifeTime) != 0) //ï¿½ï¿½ï¿½ï¿½ï¿½Å‚È‚ï¿½
 		{
 			LoadStringML(IDS_SET_INTERVAL_MIN, l_strBuffer, "Please set it at intervals of 1 min.");
 			strBuffer.Format(l_strBuffer);
@@ -555,9 +557,9 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::CheckData()
 			return FALSE;
 		}
 	}
-// 2015.03.16 Bagus Add (TohoSpec‘Î‰) -->
+// 2015.03.16 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 	}
-// 2015.03.16 Bagus Add (TohoSpec‘Î‰) <--
+// 2015.03.16 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 
 	///// Reference Strategy /////
 	if ( strlen(m_ReflecMeas.Ref.OptDesc.szRefMaterial) == 0)
@@ -596,11 +598,11 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::SaveRecipeData()
 // 2009.09.19 bagus SE --}--
 // 2009.10.09 K.Matsuo Delete <--
 
-// 2015.03.16 Bagus Add (TohoSpec‘Î‰) -->
+// 2015.03.16 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 	if(g_lModelType == MODEL_T3100){
 		m_ReflecMeas.Ref.hdr.bWarnFlag = FALSE;
 	}
-// 2015.03.16 Bagus Add (TohoSpec‘Î‰) <--
+// 2015.03.16 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 
 	switch ( m_nOpenMode )
 	{
@@ -609,11 +611,11 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::SaveRecipeData()
 			return FALSE;
 		break;
 	default:
-		// V‚µ‚¢ƒŒƒVƒs–¼‚ğİ’èiSave, SaveAsŒ“—pj
+		// ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½İ’ï¿½iSave, SaveAsï¿½ï¿½ï¿½pï¿½j
 		strcpy(m_ReflecMeas.hdr.szName, m_szRecipeName);
 		if ( !RecipeFile_SaveRecipe(&m_ReflecMeas, m_szRecipeName, RECIPE_FILE_SR_REFLECTANCE) )
 			return FALSE;
-/* added 2015.04.24 hmenjo Ref File íœ1 ---------- { ---------- */
+/* added 2015.04.24 hmenjo Ref File ï¿½íœ1 ---------- { ---------- */
 		if ((g_lModelType == MODEL_T3100) &&
 			(
 				(m_nOpenMode == modeNew) ||
@@ -623,8 +625,8 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::SaveRecipeData()
 						))
 			)
 		) {
-			/*	V‹K(modeNew)‚Å‚Í–³ğŒ‚Éíœ
-				’Êí(modeNormal)‚Å‚ÍCƒŒƒ“ƒY or ’~ÏŠÔ(˜IŒõŠÔ)‚ª•ÏX‚³‚ê‚Ä‚¢‚é	*/
+			/*	ï¿½Vï¿½K(modeNew)ï¿½Å‚Í–ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éíœ
+				ï¿½Êï¿½(modeNormal)ï¿½Å‚ÍCï¿½ï¿½ï¿½ï¿½ï¿½Y or ï¿½~ï¿½Ïï¿½ï¿½ï¿½(ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½ÏXï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½	*/
 			CNanoRecipeUI::DelRefFileByUseMeasPgm(m_ReflecMeas.hdr.szName);
 		}
 		break;
@@ -669,7 +671,7 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::CheckTransData(int iData , CStr
 }
 
 // =========================================================================
-// ƒŒƒ“ƒY ƒRƒ“ƒ{‘I‘ğ
+// ï¿½ï¿½ï¿½ï¿½ï¿½Y ï¿½Rï¿½ï¿½ï¿½{ï¿½Iï¿½ï¿½ï¿½ï¿½
 //
 void CRecipeMeasurementSrReflectanceProgramView::OnSelchangeMeasReflLens()
 {
@@ -686,7 +688,7 @@ void CRecipeMeasurementSrReflectanceProgramView::OnSelchangeMeasReflLens()
 
 
 // =========================================================================
-//ƒŒƒ“ƒY ƒRƒ“ƒ{ƒCƒjƒVƒƒƒ‹ˆ—
+//ï¿½ï¿½ï¿½ï¿½ï¿½Y ï¿½Rï¿½ï¿½ï¿½{ï¿½Cï¿½jï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //
 void CRecipeMeasurementSrReflectanceProgramView::InitCombo_Lens()
 {
@@ -697,10 +699,10 @@ void CRecipeMeasurementSrReflectanceProgramView::InitCombo_Lens()
 
 	int nIndex;
 	for ( int i = 0; i < SR_LENS_MAX; i++ ) {
-// 2009.11.24 bagus SR C³ --{--
+// 2009.11.24 bagus SR ï¿½Cï¿½ï¿½ --{--
 //		if ( m_SrTurret[i].bEnable ) {
 		if ( m_SrTurret[i].bEnable && m_SrTurret[i].bAnalysis ) {
-// 2009.11.24 bagus SR C³ --}--
+// 2009.11.24 bagus SR ï¿½Cï¿½ï¿½ --}--
 			nIndex = pCombo->AddString(m_SrTurret[i].szName);
 			pCombo->SetItemData(nIndex, i);
 		}
@@ -788,11 +790,11 @@ void CRecipeMeasurementSrReflectanceProgramView::InitCombo_MeasReflReferenceMate
 void CRecipeMeasurementSrReflectanceProgramView::OnTestButton()
 {
 
-	//‰¼ƒƒCƒ“ƒŒƒVƒsì¬
-	if(CheckData() == FALSE) //ƒŒƒVƒsƒf[ƒ^‚Ì®‡«‚ª‚Æ‚ê‚Ä‚¢‚È‚¢
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ì¬
+	if(CheckData() == FALSE) //ï¿½ï¿½ï¿½Vï¿½sï¿½fï¿½[ï¿½^ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½Ä‚ï¿½ï¿½È‚ï¿½
 	{
-		//ƒGƒ‰[ƒƒbƒZ[ƒW‚ÍCheckData()“à‚Åo‚·B
-		return; //ƒeƒXƒgƒ‚[ƒhŠJn‚¹‚¸
+		//ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½CheckData()ï¿½ï¿½ï¿½Åoï¿½ï¿½ï¿½B
+		return; //ï¿½eï¿½Xï¿½gï¿½ï¿½ï¿½[ï¿½hï¿½Jï¿½nï¿½ï¿½ï¿½ï¿½
 	}
 	char szRecipeNameMain[RECIPE_NAME_LEN + 1];
 	char szRecipeNameMeas[RECIPE_NAME_LEN + 1];
@@ -812,28 +814,28 @@ void CRecipeMeasurementSrReflectanceProgramView::OnTestButton()
 	//2010.01.11 bagus Gantry --}--
 
 	//2010.01.11 bagus Gantry --{--
-	//BOOL bMainRcpMakeFlg = MakeTempSrMainRecipe(szRecipeNameMain, szRecipeNameMeas); //‰¼ƒƒCƒ“ƒŒƒVƒsì¬
-	BOOL bMainRcpMakeFlg = MakeTempSrMainRecipe(szRecipeNameMain, szRecipeNameMeas, szRecipeNameStage); //‰¼ƒƒCƒ“ƒŒƒVƒsì¬
+	//BOOL bMainRcpMakeFlg = MakeTempSrMainRecipe(szRecipeNameMain, szRecipeNameMeas); //ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ì¬
+	BOOL bMainRcpMakeFlg = MakeTempSrMainRecipe(szRecipeNameMain, szRecipeNameMeas, szRecipeNameStage); //ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ì¬
 	//2010.01.11 bagus Gantry --}--
-	BOOL bMeasRcpMakeFlg = MakeTempSrMeasurementRecipe(szRecipeNameMeas); //‰¼ƒƒWƒƒ[ƒƒ“ƒgƒvƒƒOƒ‰ƒ€ì¬
+	BOOL bMeasRcpMakeFlg = MakeTempSrMeasurementRecipe(szRecipeNameMeas); //ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ì¬
 	//2010.01.11 bagus Gantry --{--
 	BOOL bStageRcpMakeFlg = TRUE;
 	if(m_iNewScanType == MEAS_PROG_TYPE_SR_TRANSMITTANCE_G){
-		bStageRcpMakeFlg = MakeTempSrGantryStageRecipe(szRecipeNameStage); //‰¼ƒƒWƒƒ[ƒƒ“ƒgƒvƒƒOƒ‰ƒ€ì¬
+		bStageRcpMakeFlg = MakeTempSrGantryStageRecipe(szRecipeNameStage); //ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ì¬
 	}
 	//2010.01.11 bagus Gantry --}--
 
-	//wƒƒCƒ“ƒŒƒVƒs–¼xwƒƒCƒ“ƒŒƒVƒsxwƒƒWƒƒ[ƒƒ“ƒgƒŒƒVƒsxw•\¦—pƒ‰ƒxƒ‹xw’PˆÊ–¼x‚Ì‚İŠi”[
-	//‚¨‚æ‚Ñ‰¼ƒƒWƒƒ[ƒƒ“ƒgƒvƒƒOƒ‰ƒ€‚ÌWave”ÍˆÍ
+	//ï¿½wï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½xï¿½wï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½xï¿½wï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Vï¿½sï¿½xï¿½wï¿½\ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½xï¿½ï¿½ï¿½xï¿½wï¿½Pï¿½Ê–ï¿½ï¿½xï¿½Ì‚İŠiï¿½[
+	//ï¿½ï¿½ï¿½ï¿½Ñ‰ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Waveï¿½Íˆï¿½
 	TempRecipeDocSet(szRecipeNameMain);
 
-	//ƒ{ƒ^ƒ“‰Ÿ‰ºƒƒO
+	//ï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½O
 	CMainFrame* pMainFrame = (CMainFrame*)AfxGetMainWnd();
 	CNanoSpecDoc* pDoc = (CNanoSpecDoc*)pMainFrame->GetActiveDocument();
 	pDoc->OperationLogging("Measurement Operation - TEST Button was pushed.");
 
 	pMainFrame->m_iNowPoint = 0;
-	pDoc->SetMeasMode(MEASMODE_TEST); //ƒeƒXƒgƒ‚[ƒh
+	pDoc->SetMeasMode(MEASMODE_TEST); //ï¿½eï¿½Xï¿½gï¿½ï¿½ï¿½[ï¿½h
 
 	CTestMeasurementDlg dlg;
 	CComboBox* pCombo;
@@ -885,7 +887,7 @@ void CRecipeMeasurementSrReflectanceProgramView::OnTestButton()
 	// Lens
 	pCombo = (CComboBox*)GetDlgItem(IDC_MEAS_REFL_LENS);
 	nIndex = pCombo->GetCurSel();
-//	  dlg.m_strLens = m_SrTurret[nIndex].szName; //©~
+//	  dlg.m_strLens = m_SrTurret[nIndex].szName; //ï¿½ï¿½ï¿½~
 	pCombo->GetLBText(nIndex, dlg.m_strLens);
 	// Integration Time
 	dlg.m_dIntegTime = m_ReflecMeas.ScanParams._SR.dIntegTime;
@@ -909,21 +911,21 @@ void CRecipeMeasurementSrReflectanceProgramView::OnTestButton()
 }
 
 // =========================================================================
-//ƒ_ƒ~[ƒƒWƒƒ[ƒƒ“ƒgƒvƒƒOƒ‰ƒ€‚ğì¬
+//ï¿½_ï¿½~ï¿½[ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì¬
 BOOL CRecipeMeasurementSrReflectanceProgramView::MakeTempSrMeasurementRecipe(LPCTSTR pszRecipeName)
 {
 	return RecipeFile_SaveRecipe(&m_ReflecMeas, pszRecipeName, RECIPE_FILE_SR_REFLECTANCE);
 }
 
 // =========================================================================
-//ƒ_ƒ~[ƒƒCƒ“ƒvƒƒOƒ‰ƒ€‚ğì¬
+//ï¿½_ï¿½~ï¿½[ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì¬
 BOOL CRecipeMeasurementSrReflectanceProgramView::MakeTempSrMainRecipe(LPCTSTR pszRecipeNameMain, LPCTSTR pszRecipeNameMeas, LPCTSTR pszRecipeNameStage)
 {
 	MAIN_RCP_INFO MainRcpInfo_Temp;
 	memset(&MainRcpInfo_Temp, 0, sizeof(MainRcpInfo_Temp));
 
 
-#if 0 //İ’è‚ª•K—v‚È‚ç’Ç‰Á‚·‚é‚±‚Æ
+#if 0 //ï¿½İ’è‚ªï¿½Kï¿½vï¿½È‚ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½é‚±ï¿½ï¿½
 	MainRcpInfo_Temp.hdr.szComment;
 	strcpy(MainRcpInfo_Temp.MainRcpParam.hdr.szStage, "---");
 	strcpy(MainRcpInfo_Temp.MainRcpParam.hdr.szPointDeskew, "---");
@@ -984,11 +986,11 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::MakeTempSrGantryStageRecipe(LPC
 //2010.01.11 bagus Gantry --}--
 
 // =========================================================================
-//‰¼ƒŒƒVƒs‚ğNanoSpecDoc‚ÖŠi”[
+//ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½NanoSpecDocï¿½ÖŠiï¿½[
 BOOL CRecipeMeasurementSrReflectanceProgramView::TempRecipeDocSet(LPCTSTR pszRecipeName)
 {
-//wƒƒCƒ“ƒŒƒVƒs–¼xwƒƒCƒ“ƒŒƒVƒsxwƒƒWƒƒ[ƒƒ“ƒgƒŒƒVƒsxw•\¦—pƒ‰ƒxƒ‹xw’PˆÊ–¼x‚Ì‚İŠi”[
-//‚¨‚æ‚Ñw‰¼ƒƒWƒƒ[ƒƒ“ƒgƒvƒƒOƒ‰ƒ€‚ÌWave”ÍˆÍxAw‘ª’èí•Êx
+//ï¿½wï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½xï¿½wï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½xï¿½wï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Vï¿½sï¿½xï¿½wï¿½\ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½xï¿½ï¿½ï¿½xï¿½wï¿½Pï¿½Ê–ï¿½ï¿½xï¿½Ì‚İŠiï¿½[
+//ï¿½ï¿½ï¿½ï¿½Ñwï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Waveï¿½ÍˆÍxï¿½Aï¿½wï¿½ï¿½ï¿½ï¿½ï¿½Êx
 
 	CMainFrame* pMainFrame = (CMainFrame*)AfxGetMainWnd();
 	CNanoSpecDoc* pDoc = (CNanoSpecDoc*)pMainFrame->GetActiveDocument();
@@ -996,15 +998,15 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::TempRecipeDocSet(LPCTSTR pszRec
 	RCP_DATA rcp_data;
 	memset(&rcp_data, 0, sizeof(rcp_data));
 
-	///// ƒƒ‚ƒŠ[‰Šú‰» /////
+	///// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ /////
 	pDoc->InitMeasData();
 
 
-	//‘ª’èí•Ê
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	rcp_data.MeasProgInfo.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_SR_REFLECTANCE;
 
 
-	//Wave”ÍˆÍƒZƒbƒg
+	//Waveï¿½ÍˆÍƒZï¿½bï¿½g
 	rcp_data.MeasProgInfo.ScanParams._SR.WavelenRange.wStart = MIN_TARGET_WAVELENGTH;
 // 2009.05.15 k-matsuo -->
 //	rcp_data.MeasProgInfo.ScanParams._SR.WavelenRange.wEnd = MAX_TARGET_WAVELENGTH;
@@ -1016,7 +1018,7 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::TempRecipeDocSet(LPCTSTR pszRec
 
 
 	strcpy(rcp_data.szRecipeName, pszRecipeName);
-	//ƒŒƒVƒsƒ[ƒh•NanoSpecDoc‚Ö‚ÌŠi”[
+	//ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½NanoSpecDocï¿½Ö‚ÌŠiï¿½[
 	//2010.01.11 bagus Gantry --{--
 	BOOL bMain = FALSE;
 	BOOL bMeas = FALSE;
@@ -1034,7 +1036,7 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::TempRecipeDocSet(LPCTSTR pszRec
 	pDoc->SetRcpData(&rcp_data);
 
 
-	///// ’PˆÊ–¼æ“¾ /////
+	///// ï¿½Pï¿½Ê–ï¿½ï¿½æ“¾ /////
 	SR_FIGURE_FORMAT SrFigureFormat;
 	char szUnit[MAX_PATH];
 	memset(szUnit, 0, sizeof(szUnit));
@@ -1052,14 +1054,14 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::TempRecipeDocSet(LPCTSTR pszRec
 	pDoc->SetUnitIndex(nUnit);
 
 
-	///// ‰æ–Ê•\¦(ƒf[ƒ^•Û‘¶)—pƒ^ƒCƒgƒ‹ /////
-	char szDispLabel[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1];		//‰æ–Ê•\¦(ƒf[ƒ^•Û‘¶)—pƒ^ƒCƒgƒ‹ ©X,Y,Z,AF‚ÍŠÜ‚Ü‚¸
+	///// ï¿½ï¿½Ê•\ï¿½ï¿½(ï¿½fï¿½[ï¿½^ï¿½Û‘ï¿½)ï¿½pï¿½^ï¿½Cï¿½gï¿½ï¿½ /////
+	char szDispLabel[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1];		//ï¿½ï¿½Ê•\ï¿½ï¿½(ï¿½fï¿½[ï¿½^ï¿½Û‘ï¿½)ï¿½pï¿½^ï¿½Cï¿½gï¿½ï¿½ ï¿½ï¿½X,Y,Z,AFï¿½ÍŠÜ‚Ü‚ï¿½
 	int iDispLabelCount;
 	memset(szDispLabel, 0, sizeof(szDispLabel)); //
 
 	//2010.01.11 bagus GTR --{--
 	if(m_iNewScanType == MEAS_PROG_TYPE_SR_TRANSMITTANCE_G){
-		//ƒKƒ“ƒgƒŠ“§‰ß—¦‚ÌƒeƒXƒgƒ‚[ƒh‚Í‘ª’è€–Ú‚ª‚È‚¢
+		//ï¿½Kï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ß—ï¿½ï¿½Ìƒeï¿½Xï¿½gï¿½ï¿½ï¿½[ï¿½hï¿½Í‘ï¿½ï¿½è€ï¿½Ú‚ï¿½ï¿½È‚ï¿½
 		iDispLabelCount = 0;
 	}else{
 		pMainFrame->GetStrategyhead(m_ReflecMeas.ScanParams._SR.XMPDesc.szStrategyEntry, szDispLabel, &iDispLabelCount);
@@ -1073,7 +1075,7 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::TempRecipeDocSet(LPCTSTR pszRec
 }
 
 // =========================================================================
-//ƒŒƒVƒs–¼ì¬
+//ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ì¬
 BOOL CRecipeMeasurementSrReflectanceProgramView::GetTestModeRecipeName(LPTSTR pszFileName, int iRcpType)
 {
 	CString l_strBuffer, l_strTitle;
@@ -1081,28 +1083,28 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::GetTestModeRecipeName(LPTSTR ps
 	char szRcpName[RECIPE_NAME_LEN + 1];
 	char szRcpNamePath[MAX_PATH + 1];
 
-	sprintf(szRcpName, "%c%s", SYSTEM_RECIPE_BEGINNING_CHAR, TESTMODE_TEMP_RECIPE_NAME); //ì¬ƒŒƒVƒs–¼
+	sprintf(szRcpName, "%c%s", SYSTEM_RECIPE_BEGINNING_CHAR, TESTMODE_TEMP_RECIPE_NAME); //ï¿½ì¬ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½
 
-	//ì¬‚·‚éƒŒƒVƒs–¼‚ªd•¡‚µ‚Ä‚¢‚È‚¢‚©’²‚×‚éˆ×‚ÌƒpƒX‚ğì¬
-	if ( iRcpType == SAVE_AS_MAIN_RECIPE ) { //ƒƒCƒ“ƒŒƒVƒs
-		sprintf(szRcpNamePath, "%s%s%s", g_szDb_Main_Recipe_Dir, szRcpName, MAINRECIPE_EXT); //d•¡ƒŒƒVƒs–¼ŒŸõ—p
+	//ï¿½ì¬ï¿½ï¿½ï¿½éƒŒï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½dï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×‚ï¿½×‚Ìƒpï¿½Xï¿½ï¿½ï¿½ì¬
+	if ( iRcpType == SAVE_AS_MAIN_RECIPE ) { //ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½s
+		sprintf(szRcpNamePath, "%s%s%s", g_szDb_Main_Recipe_Dir, szRcpName, MAINRECIPE_EXT); //ï¿½dï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½p
 	}
-	else if(iRcpType == SAVE_AS_MEASUREMENT_PROGRAM) { //ƒƒWƒƒ[ƒƒ“ƒgƒvƒƒOƒ‰ƒ€
-		sprintf(szRcpNamePath, "%s%s%s", g_szDb_Measurement_Program_Dir, szRcpName, MEASUREMENTPGM_EXT); //d•¡ƒŒƒVƒs–¼ŒŸõ—p
+	else if(iRcpType == SAVE_AS_MEASUREMENT_PROGRAM) { //ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½
+		sprintf(szRcpNamePath, "%s%s%s", g_szDb_Measurement_Program_Dir, szRcpName, MEASUREMENTPGM_EXT); //ï¿½dï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½p
 	}
 	//2010.01.10 bagus Gantry --{--
-	else if(iRcpType == SAVE_AS_STAGE_PROGRAM){	//ƒXƒe[ƒWƒvƒƒOƒ‰ƒ€
-		sprintf(szRcpNamePath, "%s%s%s", g_szDb_Stage_Program_Dir, szRcpName, STAGEPGM_EXT); //d•¡ƒŒƒVƒs–¼ŒŸõ—p
+	else if(iRcpType == SAVE_AS_STAGE_PROGRAM){	//ï¿½Xï¿½eï¿½[ï¿½Wï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½
+		sprintf(szRcpNamePath, "%s%s%s", g_szDb_Stage_Program_Dir, szRcpName, STAGEPGM_EXT); //ï¿½dï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½p
 	}
 	//2010.01.10 bagus Gantry --}--
 
-	//ì¬‚µ‚æ‚¤‚Æ‚·‚éƒŒƒVƒs‚Ìd•¡ƒ`ƒFƒbƒN
-	if ( FileOrDirExists(szRcpNamePath)==TRUE ) { //ì¬‚µ‚æ‚¤‚Æ‚µ‚Ä‚¢‚éƒtƒ@ƒCƒ‹–¼‚Éd•¡‚ ‚è
-		//ƒ\ƒtƒg‹N“®‚É‰¼ƒŒƒVƒs‚ğÁ‚·‚Ì‚ÅA‚±‚±‚É‚Í—ˆ‚È‚¢‚Í‚¸B
+	//ï¿½ì¬ï¿½ï¿½ï¿½æ‚¤ï¿½Æ‚ï¿½ï¿½éƒŒï¿½Vï¿½sï¿½Ìdï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N
+	if ( FileOrDirExists(szRcpNamePath)==TRUE ) { //ï¿½ì¬ï¿½ï¿½ï¿½æ‚¤ï¿½Æ‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Édï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		//ï¿½\ï¿½tï¿½gï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½É‰ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ÅAï¿½ï¿½ï¿½ï¿½ï¿½É‚Í—ï¿½ï¿½È‚ï¿½ï¿½Í‚ï¿½ï¿½B
 		LoadStringML(IDS_CAPTION_SR_TRANSMIT, l_strBuffer, "Temporary recipe for the test mode remains, \nthe test mode cannot be begun.");
 		LoadStringML(IDS_TITLE_NANOSPEC, l_strTitle, "NanoSpec");
 		MessageBox(l_strBuffer, l_strTitle, MB_OK);
-		return FALSE; //ƒtƒ@ƒCƒ‹–¼d•¡(ƒ\ƒtƒg‹N“®A‰¼ƒŒƒVƒsÁ‹ƒ~ƒX)
+		return FALSE; //ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½dï¿½ï¿½(ï¿½\ï¿½tï¿½gï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½X)
 	}
 
 	strcpy(pszFileName, szRcpName);
@@ -1110,7 +1112,7 @@ BOOL CRecipeMeasurementSrReflectanceProgramView::GetTestModeRecipeName(LPTSTR ps
 }
 
 // =========================================================================
-//ƒtƒ@ƒCƒ‹‘¶İƒ`ƒFƒbƒN(ƒtƒ@ƒCƒ‹‘¶İ‚ÍTRUE‚ğ•Ô‚·)
+//ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½İƒ`ï¿½Fï¿½bï¿½N(ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½İï¿½ï¿½ï¿½TRUEï¿½ï¿½Ô‚ï¿½)
 BOOL CRecipeMeasurementSrReflectanceProgramView::FileOrDirExists(LPCTSTR pszFileName)
 {
 	return (BOOL)( GetFileAttributes(pszFileName) != 0xffffffff );

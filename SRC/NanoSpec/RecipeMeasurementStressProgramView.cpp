@@ -1,5 +1,5 @@
 
-// RecipeMeasurementStressProgramView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// RecipeMeasurementStressProgramView.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -27,16 +27,16 @@ CRecipeMeasurementStressProgramView::CRecipeMeasurementStressProgramView()
 	: CNanoRecipeUI(CRecipeMeasurementStressProgramView::IDD)
 {
 	CString l_strBuffer;
-//2009.10.21 bagus Stress C³ --{--
+//2009.10.21 bagus Stress ï¿½Cï¿½ï¿½ --{--
 //	LoadStringML(IDS_CAPTION_SR_THICKNESS, l_strBuffer, "SR THICKNESS");
 	LoadStringML(IDS_CAPTION_STRESS, l_strBuffer, "STRESS");
-//2009.10.21 bagus Stress C³ --}--
+//2009.10.21 bagus Stress ï¿½Cï¿½ï¿½ --}--
 	m_strCaption = l_strBuffer;
 
 	m_strLens = _T("");
 
 	//{{AFX_DATA_INIT(CRecipeMeasurementStressProgramView)
-		// ƒƒ‚: ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒƒ“ƒo‚Ì‰Šú‰»ˆ—‚ğ’Ç‰Á‚µ‚Ü‚·
+		// ï¿½ï¿½ï¿½ï¿½: ClassWizard ï¿½Í‚ï¿½ï¿½ÌˆÊ’uï¿½Éƒï¿½ï¿½ï¿½ï¿½oï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½
 	//}}AFX_DATA_INIT
 }
 
@@ -85,7 +85,7 @@ BEGIN_MESSAGE_MAP(CRecipeMeasurementStressProgramView, CNanoRecipeUI)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CRecipeMeasurementStressProgramView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CRecipeMeasurementStressProgramView ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 // =========================================================================
 //
 void CRecipeMeasurementStressProgramView::OnInitialUpdate()
@@ -109,7 +109,7 @@ void CRecipeMeasurementStressProgramView::OnInitialUpdate()
 		| CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
 		!m_wndToolBar.LoadToolBar(IDR_EDIT_RECIPE_BAR)){
 		TRACE0("Failed to create toolbar\n");
-		return; 	// ì¬‚É¸”s
+		return; 	// ï¿½ì¬ï¿½Éï¿½ï¿½s
 	}
 
 	GetClientRect(&rect);
@@ -136,16 +136,16 @@ void CRecipeMeasurementStressProgramView::OnInitialUpdate()
 	m_TestButton.DrawFlatFocus(TRUE);
 	m_TestButton.ShowWindow(SW_HIDE);
 
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --{--
 #if 0
 	///// CalcDataInterval /////
 	CString	strBuffer;
 	strBuffer.Format("%ld", m_StressMeas.ScanParams._SR.dwCalcDataInterval);
 	SetDlgItemText(IDC_MEAS_STRESS_CALCULATION_DATA_INTERVAL, strBuffer);
 #endif
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --}--
 
-	///// ‘ª’è”½Ë—¦”g’·İ’è /////
+	///// ï¿½ï¿½ï¿½è”½ï¿½Ë—ï¿½ï¿½gï¿½ï¿½ï¿½İ’ï¿½ /////
 	int IDC_MEAS_REFL_WAVE_LENG[] = {IDC_MEAS_REFL_WAVE_LENG1, IDC_MEAS_REFL_WAVE_LENG2, IDC_MEAS_REFL_WAVE_LENG3};
 	for ( int i = 0; i < SPECIFIED_WAVELENGTH_MAX; i++ ) {
 		if (m_StressMeas.ScanParams._SR.iSpecificWavelen[i] != 0)
@@ -156,7 +156,7 @@ void CRecipeMeasurementStressProgramView::OnInitialUpdate()
 		SetDlgItemText(IDC_MEAS_REFL_WAVE_LENG[i], m_strSpecificWavelen[i]);
 	}
 
-	// ƒRƒƒ“ƒg•¶š”§ŒÀ
+	// ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	((CEdit*)GetDlgItem(IDC_COMMENT))->SetLimitText(RECIPE_COMMENT_LEN);
 
 	///// Default Recipe Setup /////
@@ -176,8 +176,8 @@ void CRecipeMeasurementStressProgramView::OnInitialUpdate()
 
 	if ((IsDataChanged() == TRUE) && (m_nOpenMode == modeNormal))
 	{
-		//ƒXƒgƒ‰ƒeƒWƒB‚ğ‘‚«Š·‚¦‚½ê‡A
-		//ƒŒƒVƒs‚ğ“Ç‚ñ‚¾’l‚Æ‰æ–Ê•\¦’l(ŒõŠwƒtƒBƒ‹ƒ^E”g’·)‚É·‚ª‚Å‚Ä‚µ‚Ü‚¤‚±‚Æ‚ª‚ ‚é‚Ì‚ÅAƒŒƒVƒs‚ğ‹­§“I‚É‘Š·‚¦‚éB
+		//ï¿½Xï¿½gï¿½ï¿½ï¿½eï¿½Wï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½A
+		//ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½Çï¿½ï¿½ñ‚¾’lï¿½Æ‰ï¿½Ê•\ï¿½ï¿½ï¿½l(ï¿½ï¿½ï¿½wï¿½tï¿½Bï¿½ï¿½ï¿½^ï¿½Eï¿½gï¿½ï¿½)ï¿½Éï¿½ï¿½ï¿½ï¿½Å‚Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ÅAï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½Éï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 		SaveRecipeData();
 		LoadStringML(IDS_SAVE_OPTICAL_FILTER_WAVELENG, l_strBuffer, "The optical filter and the wavelength were saved\n by the change in the strategy.");
 		LoadStringML(IDS_TITLE_NANOSPEC, l_strTitle, "NanoSpec");
@@ -186,7 +186,7 @@ void CRecipeMeasurementStressProgramView::OnInitialUpdate()
 }
 
 // =========================================================================
-// ƒŠƒtƒ@ƒŒƒ“ƒXƒ^ƒCƒ€ ƒ`ƒFƒbƒN‘I‘ğ
+// ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½^ï¿½Cï¿½ï¿½ ï¿½`ï¿½Fï¿½bï¿½Nï¿½Iï¿½ï¿½ï¿½ï¿½
 //
 void CRecipeMeasurementStressProgramView::OnCheckReferenceLifeTime()
 {
@@ -196,7 +196,7 @@ void CRecipeMeasurementStressProgramView::OnCheckReferenceLifeTime()
 }
 
 // =========================================================================
-// ƒIƒvƒeƒBƒJƒ‹ƒtƒBƒ‹ƒ^[ ƒRƒ“ƒ{‘I‘ğ
+// ï¿½Iï¿½vï¿½eï¿½Bï¿½Jï¿½ï¿½ï¿½tï¿½Bï¿½ï¿½ï¿½^ï¿½[ ï¿½Rï¿½ï¿½ï¿½{ï¿½Iï¿½ï¿½ï¿½ï¿½
 //
 void CRecipeMeasurementStressProgramView::OnSelchangeStressThickOptFilter()
 {
@@ -215,27 +215,27 @@ void CRecipeMeasurementStressProgramView::LoadRecipeData()
 
 	switch ( m_nOpenMode )
 	{
-	case modeNew:				// ƒŒƒVƒsV‹Kì¬
-	case modeDefaultSetting:	// ƒRƒ“ƒtƒBƒO‰æ–Ê‚©‚ç‘JˆÚ‚µ‚Ä‚«‚½ƒP[ƒX
+	case modeNew:				// ï¿½ï¿½ï¿½Vï¿½sï¿½Vï¿½Kï¿½ì¬
+	case modeDefaultSetting:	// ï¿½Rï¿½ï¿½ï¿½tï¿½Bï¿½Oï¿½ï¿½Ê‚ï¿½ï¿½ï¿½Jï¿½Ú‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½Pï¿½[ï¿½X
 		if ( !RecipeFile_LoadRecipe(&m_StressMeas, STRESS_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_STRESS) ) {
 			m_StressMeas.ScanParams.hdr.wHeadType = HEAD_TYPE_STRESS;
 			m_StressMeas.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_STRESS_MEAS;
 		}
 		//2009.12.23 bagus stress --{--
-		//•K‚¸ƒwƒbƒhƒ^ƒCƒv‚ÍƒXƒgƒŒƒX‚É‚È‚ç‚È‚¯‚ê‚Î‚¢‚¯‚È‚¢
+		//ï¿½Kï¿½ï¿½ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½ÍƒXï¿½gï¿½ï¿½ï¿½Xï¿½É‚È‚ï¿½È‚ï¿½ï¿½ï¿½Î‚ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 		m_StressMeas.ScanParams.hdr.wHeadType = HEAD_TYPE_STRESS;
 		m_StressMeas.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_STRESS_MEAS;
 		//2009.12.23 bagus stress --}--
 		break;
-	default:					// ƒŒƒVƒsƒƒCƒ“ƒŠƒXƒg‰æ–Ê‚©‚ç‘JˆÚ‚µ‚Ä‚«‚½ƒP[ƒX
-		if ( !RecipeFile_LoadRecipe(&m_StressMeas, m_szRecipeName, RECIPE_FILE_MEASUREMENT_PROGRAM) ) { 		 // RECIPE_FILE_MEASUREMENT_PROGRAM ‚Å³‚µ‚¢‚ç‚µ‚¢...
+	default:					// ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½Ê‚ï¿½ï¿½ï¿½Jï¿½Ú‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½Pï¿½[ï¿½X
+		if ( !RecipeFile_LoadRecipe(&m_StressMeas, m_szRecipeName, RECIPE_FILE_MEASUREMENT_PROGRAM) ) { 		 // RECIPE_FILE_MEASUREMENT_PROGRAM ï¿½Åï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç‚µï¿½ï¿½...
 			m_nOpenMode = modeNew;
 			if ( !RecipeFile_LoadRecipe(&m_StressMeas, STRESS_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_STRESS) ) {
 				m_StressMeas.ScanParams.hdr.wHeadType = HEAD_TYPE_STRESS;
 				m_StressMeas.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_STRESS_MEAS;
 			}
 			//2009.12.23 bagus stress --{--
-			//•K‚¸ƒwƒbƒhƒ^ƒCƒv‚ÍƒXƒgƒŒƒX‚É‚È‚ç‚È‚¯‚ê‚Î‚¢‚¯‚È‚¢
+			//ï¿½Kï¿½ï¿½ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½ÍƒXï¿½gï¿½ï¿½ï¿½Xï¿½É‚È‚ï¿½È‚ï¿½ï¿½ï¿½Î‚ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 			m_StressMeas.ScanParams.hdr.wHeadType = HEAD_TYPE_STRESS;
 			m_StressMeas.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_STRESS_MEAS;
 			//2009.12.23 bagus stress --}--
@@ -255,9 +255,9 @@ void CRecipeMeasurementStressProgramView::LoadRecipeData()
 void CRecipeMeasurementStressProgramView::InitCombo_StressThickStrategy()
 {
 	CString l_strBuffer;
-// 2009.09.18 K.Matsuo ƒXƒgƒ‰ƒeƒW[‚Ì‘ª’èƒ^ƒCƒv”»’è -->
+// 2009.09.18 K.Matsuo ï¿½Xï¿½gï¿½ï¿½ï¿½eï¿½Wï¿½[ï¿½Ì‘ï¿½ï¿½ï¿½^ï¿½Cï¿½vï¿½ï¿½ï¿½ï¿½ -->
 	BOOL bStress, bDummy, bDummy2;
-// 2009.09.18 K.Matsuo ƒXƒgƒ‰ƒeƒW[‚Ì‘ª’èƒ^ƒCƒv”»’è <--
+// 2009.09.18 K.Matsuo ï¿½Xï¿½gï¿½ï¿½ï¿½eï¿½Wï¿½[ï¿½Ì‘ï¿½ï¿½ï¿½^ï¿½Cï¿½vï¿½ï¿½ï¿½ï¿½ <--
 
 	CComboBox* pCombo = (CComboBox*)GetDlgItem(IDC_STRESS_THICK_STRATEGY);
 
@@ -270,13 +270,13 @@ void CRecipeMeasurementStressProgramView::InitCombo_StressThickStrategy()
 	TRY
 	{
 		CStdioFile stdioFile(SrXmp.szStrategyListPath, CFile::modeRead);
-// 2009.09.18 K.Matsuo ƒXƒgƒ‰ƒeƒW[‚Ì‘ª’èƒ^ƒCƒv”»’è -->
+// 2009.09.18 K.Matsuo ï¿½Xï¿½gï¿½ï¿½ï¿½eï¿½Wï¿½[ï¿½Ì‘ï¿½ï¿½ï¿½^ï¿½Cï¿½vï¿½ï¿½ï¿½ï¿½ -->
 		while ( stdioFile.ReadString(strBuffer) ) {
 			MEAS_GetStratetyType(bDummy, bDummy2, bStress, strBuffer);
 			if ( bStress )
 				pCombo->AddString(strBuffer);
 		}
-// 2009.09.18 K.Matsuo ƒXƒgƒ‰ƒeƒW[‚Ì‘ª’èƒ^ƒCƒv”»’è <--
+// 2009.09.18 K.Matsuo ï¿½Xï¿½gï¿½ï¿½ï¿½eï¿½Wï¿½[ï¿½Ì‘ï¿½ï¿½ï¿½^ï¿½Cï¿½vï¿½ï¿½ï¿½ï¿½ <--
 		stdioFile.Close();
 	}
 	CATCH(CFileException, e)
@@ -355,7 +355,7 @@ void CRecipeMeasurementStressProgramView::InitCombo_StressThickOpticalFilter()
 
 	CComboBox* pCombo = (CComboBox*)GetDlgItem(IDC_STRESS_THICK_OPT_FILTER);
 
-	//ƒI[ƒgƒtƒBƒ‹ƒ^‚ ‚è‚Ìê‡
+	//ï¿½Iï¿½[ï¿½gï¿½tï¿½Bï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½ï¿½Ìê‡
 	if (m_SrConfig.bAutoFilter){
 // 2009.12.08 K.Matsuo -->
 //		pCombo->EnableWindow(FALSE);
@@ -428,7 +428,7 @@ void CRecipeMeasurementStressProgramView::InitCombo_StressThickOpticalFilter()
 		}
 	}
 
-	//ƒI[ƒgƒtƒBƒ‹ƒ^‚È‚µ‚Ìê‡
+	//ï¿½Iï¿½[ï¿½gï¿½tï¿½Bï¿½ï¿½ï¿½^ï¿½È‚ï¿½ï¿½Ìê‡
 	else{
 		m_StressMeas.ScanParams._SR.wOpticsFilterType = 0;
 		GetDlgItem(IDC_STRESS_THICK_OPT_FILTER_LABEL)->ShowWindow(SW_HIDE);
@@ -437,7 +437,7 @@ void CRecipeMeasurementStressProgramView::InitCombo_StressThickOpticalFilter()
 }
 
 // =========================================================================
-//ƒŒƒ“ƒY ƒRƒ“ƒ{ƒCƒjƒVƒƒƒ‹ˆ—
+//ï¿½ï¿½ï¿½ï¿½ï¿½Y ï¿½Rï¿½ï¿½ï¿½{ï¿½Cï¿½jï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //
 void CRecipeMeasurementStressProgramView::InitCombo_Lens()
 {
@@ -448,10 +448,10 @@ void CRecipeMeasurementStressProgramView::InitCombo_Lens()
 
 	int nIndex;
 	for ( int i = 0; i < SR_LENS_MAX; i++ ) {
-// 2009.11.24 bagus SR C³ --{--
+// 2009.11.24 bagus SR ï¿½Cï¿½ï¿½ --{--
 //		if ( m_SrTurret[i].bEnable ) {
 		if ( m_SrTurret[i].bEnable && m_SrTurret[i].bAnalysis ) {
-// 2009.11.24 bagus SR C³ --}--
+// 2009.11.24 bagus SR ï¿½Cï¿½ï¿½ --}--
 			nIndex = pCombo->AddString(m_SrTurret[i].szName);
 			pCombo->SetItemData(nIndex, i);
 		}
@@ -500,7 +500,7 @@ void CRecipeMeasurementStressProgramView::InitItemList()
 
 	LPTSTR pszItem[LANGUAGE_MAX][ItemMax] = {
 		{"Index",	"Item",		},		// Enu
-		{"Index",	"ƒAƒCƒeƒ€",	},		// Jpn
+		{"Index",	"ï¿½Aï¿½Cï¿½eï¿½ï¿½",	},		// Jpn
 	};
 
 	int Fmt[] = { LVCFMT_CENTER, LVCFMT_CENTER, };
@@ -536,6 +536,8 @@ BOOL CRecipeMeasurementStressProgramView::CheckData()
 	BOOL bValidWaveLen = FALSE;
 	const WORD wStart = m_StressMeas.ScanParams._SR.WavelenRange.wStart;
 	const WORD wEnd = m_StressMeas.ScanParams._SR.WavelenRange.wEnd;
+	int i;
+	int j;
 
 	switch ( m_nOpenMode )
 	{
@@ -550,25 +552,25 @@ BOOL CRecipeMeasurementStressProgramView::CheckData()
 	}
 	strCaption += m_strCaption;
 
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --{--
 #if 0
 	///// CalcDataInterval /////
 	long	dwBuffer;
 	GetDlgItemText(IDC_MEAS_STRESS_CALCULATION_DATA_INTERVAL, strBuffer);
 	dwBuffer = strtol(strBuffer, NULL, 10);
 	if ((dwBuffer < 1) || (dwBuffer > 20)) {
-// 2009.09.09 bagus stress StringTableg—p --{--
-//		AfxMessageBox("Err:ƒf[ƒ^ŠÔŠu(1-20)");
+// 2009.09.09 bagus stress StringTableï¿½gï¿½p --{--
+//		AfxMessageBox("Err:ï¿½fï¿½[ï¿½^ï¿½ÔŠu(1-20)");
 		CString	strBuffer;
 		LoadStringML(IDS_STRESS_INPUT_CALCULATION_DATA_INTERVAL, strBuffer, "Please input data interval.");
 		AfxMessageBox(strBuffer);
-// 2009.09.09 bagus stress StringTableg—p --}--
+// 2009.09.09 bagus stress StringTableï¿½gï¿½p --}--
 		return ( FALSE );
 	} else {
 		m_StressMeas.ScanParams._SR.dwCalcDataInterval = dwBuffer;
 	}
 #endif
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ï¿½Cï¿½ï¿½ --}--
 
 	///// Strategy /////
 	if ( strlen(m_StressMeas.ScanParams._SR.XMPDesc.szStrategyEntry) == 0 )
@@ -599,7 +601,7 @@ BOOL CRecipeMeasurementStressProgramView::CheckData()
 
 // 2009.12.08 K.Matsuo PKI Special Logic -->
 	///// Optical Filter /////
-	// ƒXƒ‚[ƒ‹ƒXƒ|ƒbƒg‚ÍAƒŒƒ“ƒY5X‚ğ‘I‘ğ‚µ‚½‚Æ‚«AƒIƒvƒeƒBƒJƒ‹ƒtƒBƒ‹ƒ^[‚ÍAND-30‚Å‚ ‚é‚±‚ÆiƒTƒ`ƒ…ƒŒ[ƒVƒ‡ƒ“‚µ‚È‚¢‚½‚ß‚É‚Å‚·j
+	// ï¿½Xï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Xï¿½|ï¿½bï¿½gï¿½ÍAï¿½ï¿½ï¿½ï¿½ï¿½Y5Xï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½Aï¿½Iï¿½vï¿½eï¿½Bï¿½Jï¿½ï¿½ï¿½tï¿½Bï¿½ï¿½ï¿½^ï¿½[ï¿½ÍAND-30ï¿½Å‚ï¿½ï¿½é‚±ï¿½Æiï¿½Tï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ß‚É‚Å‚ï¿½ï¿½j
 	if ( m_SrConfig.nHeadType == SR_HEAD_TYPE_LAH1024_SS ) {
 		if ( m_strLens == "5 X" || m_strLens == "10 X" ) {
 			if ( m_StressMeas.ScanParams._SR.wOpticsFilterType != OPT_FILTER_POS3 ) {
@@ -652,7 +654,7 @@ BOOL CRecipeMeasurementStressProgramView::CheckData()
 		return FALSE;
 	}
 
-	///// ‘ª’è”½Ë—¦”g’·İ’è /////
+	///// ï¿½ï¿½ï¿½è”½ï¿½Ë—ï¿½ï¿½gï¿½ï¿½ï¿½İ’ï¿½ /////
 	///// Reflectance Measurement /////
 	///// 1st Target WaveLength /////
 	///// 2nd Target WaveLength /////
@@ -662,17 +664,17 @@ BOOL CRecipeMeasurementStressProgramView::CheckData()
 	LPCTSTR pszWaveLengthString[] = {"1st Target WaveLength is out of range.\n(%d - %d)", "2nd Target WaveLength is out of range.\n(%d - %d)", "3rd Target WaveLength is out of range.\n(%d - %d)"};
 
 	if (m_StressMeas.ScanParams._SR.XMPDesc.bAddReflectanceMeasureFlag) {
-		//‚R‚Â‚Ìİ’è’l‚ÌãˆÊ‚ª–¢İ’è‚Ìê‡‚ÍãˆÊ‚É‹l‚ß‚éB
+		//ï¿½Rï¿½Â‚Ìİ’ï¿½lï¿½Ìï¿½Ê‚ï¿½ï¿½ï¿½ï¿½İ’ï¿½Ìê‡ï¿½Íï¿½Ê‚É‹lï¿½ß‚ï¿½B
 		CStringArray strSpecificWavelen;
 		strSpecificWavelen.SetSize(SPECIFIED_WAVELENGTH_MAX);
-		for ( int i = 0; i < SPECIFIED_WAVELENGTH_MAX; i++ ) {
+		for ( i = 0; i < SPECIFIED_WAVELENGTH_MAX; i++ ) {
 			strSpecificWavelen[i] = m_strSpecificWavelen[i];
 			strSpecificWavelen[i].TrimLeft();
 			strSpecificWavelen[i].TrimRight();
 		}
 
-		// ãˆÊ‚É‹l‚ß‚é
-		int j = 0;
+		// ï¿½ï¿½Ê‚É‹lï¿½ß‚ï¿½
+		j = 0;
 		for ( i = 0; i < SPECIFIED_WAVELENGTH_MAX; i++ ) {
 			if ( !strSpecificWavelen[i].IsEmpty() )
 				m_strSpecificWavelen[j++] = strSpecificWavelen[i];
@@ -689,7 +691,7 @@ BOOL CRecipeMeasurementStressProgramView::CheckData()
 		for ( i = 0; i < SPECIFIED_WAVELENGTH_MAX; i++ ) {
 			if ( !m_strSpecificWavelen[i].IsEmpty() )	{
 				iValue = atoi(m_strSpecificWavelen[i]);
-				if ((!CheckTransData(iValue,m_strSpecificWavelen[i])) || (iValue < wStart) || (wEnd < iValue )) { /**®”‚ÅAƒ^[ƒQƒbƒg‚ª—LŒø”ÍˆÍ‚Éİ’è‚³‚ê‚Ä‚¢‚é‚©H*/
+				if ((!CheckTransData(iValue,m_strSpecificWavelen[i])) || (iValue < wStart) || (wEnd < iValue )) { /**ï¿½ï¿½ï¿½ï¿½ï¿½ÅAï¿½^ï¿½[ï¿½Qï¿½bï¿½gï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ÍˆÍ‚Éİ’è‚³ï¿½ï¿½Ä‚ï¿½ï¿½é‚©ï¿½H*/
 					if(CheckTransData(iValue,m_strSpecificWavelen[i])) {
 						LoadStringML(IDS_WAVELENGTH[i], l_strBuffer, pszWaveLengthString[i]);
 						strBuffer.Format(l_strBuffer, wStart, wEnd );
@@ -731,7 +733,7 @@ BOOL CRecipeMeasurementStressProgramView::CheckData()
 			GetDlgItem(IDC_STRESS_THICK_REF_LIFETIME)->SetFocus();
 			return FALSE;
 		}
-		if((m_StressMeas.Ref.hdr.dLifeTime - (int)m_StressMeas.Ref.hdr.dLifeTime) != 0) //®”‚Å‚È‚¢
+		if((m_StressMeas.Ref.hdr.dLifeTime - (int)m_StressMeas.Ref.hdr.dLifeTime) != 0) //ï¿½ï¿½ï¿½ï¿½ï¿½Å‚È‚ï¿½
 		{
 			LoadStringML(IDS_SET_INTERVAL_MIN, l_strBuffer, "Please set it at intervals of 1 min.");
 			strBuffer.Format(l_strBuffer);
@@ -793,7 +795,7 @@ BOOL CRecipeMeasurementStressProgramView::SaveRecipeData()
 			return FALSE;
 		break;
 	default:
-		// V‚µ‚¢ƒŒƒVƒs–¼‚ğİ’èiSave, SaveAsŒ“—pj
+		// ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½İ’ï¿½iSave, SaveAsï¿½ï¿½ï¿½pï¿½j
 		strcpy(m_StressMeas.hdr.szName, m_szRecipeName);
 		if ( !RecipeFile_SaveRecipe(&m_StressMeas, m_szRecipeName, RECIPE_FILE_STRESS) )
 			return FALSE;
@@ -834,7 +836,7 @@ void CRecipeMeasurementStressProgramView::OnAddReflectanceMeasurement()
 {
 	UpdateData(TRUE);
 
-	// ”½Ë—¦‘ª’è‚Ì’Ç‰Áİ’èƒGƒfƒBƒbƒgƒ{ƒbƒNƒX‚Ì—LŒø–³Œø‚ÌØ‚è‘Ö‚¦
+	// ï¿½ï¿½ï¿½Ë—ï¿½ï¿½ï¿½ï¿½ï¿½Ì’Ç‰ï¿½ï¿½İ’ï¿½Gï¿½fï¿½Bï¿½bï¿½gï¿½{ï¿½bï¿½Nï¿½Xï¿½Ì—Lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÌØ‚ï¿½Ö‚ï¿½
 	GetDlgItem(IDC_MEAS_REFL_WAVE_LENG1)->EnableWindow(IsDlgButtonChecked(IDC_ADD_REFLECTANCE_MEASUREMENT) == BST_CHECKED);
 	GetDlgItem(IDC_MEAS_REFL_WAVE_LENG2)->EnableWindow(IsDlgButtonChecked(IDC_ADD_REFLECTANCE_MEASUREMENT) == BST_CHECKED);
 	GetDlgItem(IDC_MEAS_REFL_WAVE_LENG3)->EnableWindow(IsDlgButtonChecked(IDC_ADD_REFLECTANCE_MEASUREMENT) == BST_CHECKED);
@@ -857,7 +859,7 @@ void CRecipeMeasurementStressProgramView::OnSelchangeStressThickStrategy()
 	m_XmpMeasurementItemListCtrl.DeleteAllItems();
 
 	if ( !MEAS_GetAdapScriptFileDescriptDdeTextItem(szDdeTextItem, iStartWaveLen, iEndWaveLen, iOpticalFilter, m_StressMeas.ScanParams._SR.XMPDesc.szStrategyEntry) ) {
-		// ƒfƒtƒHƒ‹ƒg’lİ’è
+		// ï¿½fï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½lï¿½İ’ï¿½
 		m_StressMeas.ScanParams._SR.WavelenRange.wStart = iStartWaveLen;
 		m_StressMeas.ScanParams._SR.WavelenRange.wEnd = iEndWaveLen;
 		UpdateData(FALSE);
@@ -882,7 +884,7 @@ void CRecipeMeasurementStressProgramView::OnSelchangeStressThickStrategy()
 
 		if(strcmp(token, "MSE") == 0)
 		{
-			//wMSE¨Fitx‚Ì’uŠ·
+			//ï¿½wMSEï¿½ï¿½Fitï¿½xï¿½Ì’uï¿½ï¿½
 			m_XmpMeasurementItemListCtrl.SetItem(iItem, 1, LVIF_TEXT, /*token*/"Fit", 0, 0, 0, NULL);
 		}
 		else
@@ -905,11 +907,11 @@ BOOL CRecipeMeasurementStressProgramView::CheckTransData(int iData , CString str
 }
 
 // =========================================================================
-// ƒŒƒ“ƒY ƒRƒ“ƒ{‘I‘ğ
+// ï¿½ï¿½ï¿½ï¿½ï¿½Y ï¿½Rï¿½ï¿½ï¿½{ï¿½Iï¿½ï¿½ï¿½ï¿½
 //
 void CRecipeMeasurementStressProgramView::OnSelchangeStressThickLens()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	CComboBox* pCombo = (CComboBox*)GetDlgItem(IDC_STRESS_THICK_LENS);
 	int nSelect = pCombo->GetCurSel();
@@ -924,14 +926,14 @@ void CRecipeMeasurementStressProgramView::OnSelchangeStressThickLens()
 //
 void CRecipeMeasurementStressProgramView::OnTestButton()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 
-	//‰¼ƒƒCƒ“ƒŒƒVƒsì¬
-	if(CheckData() == FALSE) //ƒŒƒVƒsƒf[ƒ^‚Ì®‡«‚ª‚Æ‚ê‚Ä‚¢‚È‚¢
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ì¬
+	if(CheckData() == FALSE) //ï¿½ï¿½ï¿½Vï¿½sï¿½fï¿½[ï¿½^ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½Ä‚ï¿½ï¿½È‚ï¿½
 	{
-		//ƒGƒ‰[ƒƒbƒZ[ƒW‚ÍCheckData()“à‚Åo‚·B
-		return; //ƒeƒXƒgƒ‚[ƒhŠJn‚¹‚¸
+		//ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½CheckData()ï¿½ï¿½ï¿½Åoï¿½ï¿½ï¿½B
+		return; //ï¿½eï¿½Xï¿½gï¿½ï¿½ï¿½[ï¿½hï¿½Jï¿½nï¿½ï¿½ï¿½ï¿½
 	}
 	char szRecipeNameMain[RECIPE_NAME_LEN + 1];
 	char szRecipeNameMeas[RECIPE_NAME_LEN + 1];
@@ -941,20 +943,20 @@ void CRecipeMeasurementStressProgramView::OnTestButton()
 	if ( !GetTestModeRecipeName(szRecipeNameMeas, SAVE_AS_MEASUREMENT_PROGRAM) )
 		return;
 
-	BOOL bMainRcpMakeFlg = MakeTempSrMainRecipe(szRecipeNameMain, szRecipeNameMeas); //‰¼ƒƒCƒ“ƒŒƒVƒsì¬
-	BOOL bMeasRcpMakeFlg = MakeTempSrMeasurementRecipe(szRecipeNameMeas); //‰¼ƒƒWƒƒ[ƒƒ“ƒgƒvƒƒOƒ‰ƒ€ì¬
+	BOOL bMainRcpMakeFlg = MakeTempSrMainRecipe(szRecipeNameMain, szRecipeNameMeas); //ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ì¬
+	BOOL bMeasRcpMakeFlg = MakeTempSrMeasurementRecipe(szRecipeNameMeas); //ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ì¬
 
-	//wƒƒCƒ“ƒŒƒVƒs–¼xwƒƒCƒ“ƒŒƒVƒsxwƒƒWƒƒ[ƒƒ“ƒgƒŒƒVƒsxw•\¦—pƒ‰ƒxƒ‹xw’PˆÊ–¼x‚Ì‚İŠi”[
-	//‚¨‚æ‚Ñ‰¼ƒƒWƒƒ[ƒƒ“ƒgƒvƒƒOƒ‰ƒ€‚ÌWave”ÍˆÍ
+	//ï¿½wï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½xï¿½wï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½xï¿½wï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Vï¿½sï¿½xï¿½wï¿½\ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½xï¿½ï¿½ï¿½xï¿½wï¿½Pï¿½Ê–ï¿½ï¿½xï¿½Ì‚İŠiï¿½[
+	//ï¿½ï¿½ï¿½ï¿½Ñ‰ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Waveï¿½Íˆï¿½
 	TempRecipeDocSet(szRecipeNameMain);
 
-	//ƒ{ƒ^ƒ“‰Ÿ‰ºƒƒO
+	//ï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½O
 	CMainFrame* pMainFrame = (CMainFrame*)AfxGetMainWnd();
 	CNanoSpecDoc* pDoc = (CNanoSpecDoc*)pMainFrame->GetActiveDocument();
 	pDoc->OperationLogging("Measurement Operation - TEST Button was pushed.");
 
 	pMainFrame->m_iNowPoint = 0;
-	pDoc->SetMeasMode(MEASMODE_TEST); //ƒeƒXƒgƒ‚[ƒh
+	pDoc->SetMeasMode(MEASMODE_TEST); //ï¿½eï¿½Xï¿½gï¿½ï¿½ï¿½[ï¿½h
 
 	CTestMeasurementDlg dlg;
 	CComboBox* pCombo;
@@ -975,7 +977,7 @@ void CRecipeMeasurementStressProgramView::OnTestButton()
 	// Lens
 	pCombo = (CComboBox*)GetDlgItem(IDC_STRESS_THICK_LENS);
 	nIndex = pCombo->GetCurSel();
-//	  dlg.m_strLens = m_SrTurret[nIndex].szName; //©~
+//	  dlg.m_strLens = m_SrTurret[nIndex].szName; //ï¿½ï¿½ï¿½~
 	pCombo->GetLBText(nIndex, dlg.m_strLens);
 	// Integration Time
 	dlg.m_dIntegTime = m_StressMeas.ScanParams._SR.dIntegTime;
@@ -996,21 +998,21 @@ void CRecipeMeasurementStressProgramView::OnTestButton()
 }
 
 // =========================================================================
-//ƒ_ƒ~[ƒƒWƒƒ[ƒƒ“ƒgƒvƒƒOƒ‰ƒ€‚ğì¬
+//ï¿½_ï¿½~ï¿½[ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì¬
 BOOL CRecipeMeasurementStressProgramView::MakeTempSrMeasurementRecipe(LPCTSTR pszRecipeName)
 {
 	return RecipeFile_SaveRecipe(&m_StressMeas, pszRecipeName, RECIPE_FILE_SR_THICKNESS);
 }
 
 // =========================================================================
-//ƒ_ƒ~[ƒƒCƒ“ƒvƒƒOƒ‰ƒ€‚ğì¬
+//ï¿½_ï¿½~ï¿½[ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì¬
 BOOL CRecipeMeasurementStressProgramView::MakeTempSrMainRecipe(LPCTSTR pszRecipeNameMain, LPCTSTR pszRecipeNameMeas)
 {
 	MAIN_RCP_INFO MainRcpInfo_Temp;
 	memset(&MainRcpInfo_Temp, 0, sizeof(MainRcpInfo_Temp));
 
 
-#if 0 //İ’è‚ª•K—v‚È‚ç’Ç‰Á‚·‚é‚±‚Æ
+#if 0 //ï¿½İ’è‚ªï¿½Kï¿½vï¿½È‚ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½é‚±ï¿½ï¿½
 	MainRcpInfo_Temp.hdr.szComment;
 	strcpy(MainRcpInfo_Temp.MainRcpParam.hdr.szStage, "---");
 	strcpy(MainRcpInfo_Temp.MainRcpParam.hdr.szPointDeskew, "---");
@@ -1039,11 +1041,11 @@ BOOL CRecipeMeasurementStressProgramView::MakeTempSrMainRecipe(LPCTSTR pszRecipe
 }
 
 // =========================================================================
-//‰¼ƒŒƒVƒs‚ğNanoSpecDoc‚ÖŠi”[
+//ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½NanoSpecDocï¿½ÖŠiï¿½[
 BOOL CRecipeMeasurementStressProgramView::TempRecipeDocSet(LPCTSTR pszRecipeName)
 {
-//wƒƒCƒ“ƒŒƒVƒs–¼xwƒƒCƒ“ƒŒƒVƒsxwƒƒWƒƒ[ƒƒ“ƒgƒŒƒVƒsxw•\¦—pƒ‰ƒxƒ‹xw’PˆÊ–¼x‚Ì‚İŠi”[
-//‚¨‚æ‚Ñw‰¼ƒƒWƒƒ[ƒƒ“ƒgƒvƒƒOƒ‰ƒ€‚ÌWave”ÍˆÍxAw‘ª’èí•Êx
+//ï¿½wï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½xï¿½wï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½xï¿½wï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Vï¿½sï¿½xï¿½wï¿½\ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½xï¿½ï¿½ï¿½xï¿½wï¿½Pï¿½Ê–ï¿½ï¿½xï¿½Ì‚İŠiï¿½[
+//ï¿½ï¿½ï¿½ï¿½Ñwï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Waveï¿½ÍˆÍxï¿½Aï¿½wï¿½ï¿½ï¿½ï¿½ï¿½Êx
 
 	CMainFrame* pMainFrame = (CMainFrame*)AfxGetMainWnd();
 	CNanoSpecDoc* pDoc = (CNanoSpecDoc*)pMainFrame->GetActiveDocument();
@@ -1051,19 +1053,19 @@ BOOL CRecipeMeasurementStressProgramView::TempRecipeDocSet(LPCTSTR pszRecipeName
 	RCP_DATA rcp_data;
 	memset(&rcp_data, 0, sizeof(rcp_data));
 
-	///// ƒƒ‚ƒŠ[‰Šú‰» /////
+	///// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ /////
 	pDoc->InitMeasData();
 
-	//‘ª’èí•Ê
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	rcp_data.MeasProgInfo.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_SR_THICKNESS;
 
-	//Wave”ÍˆÍƒZƒbƒg
+	//Waveï¿½ÍˆÍƒZï¿½bï¿½g
 	rcp_data.MeasProgInfo.ScanParams._SR.WavelenRange.wStart = (int)GetDlgItemInt(IDC_WAVELENGTH_START, NULL, FALSE);
 	rcp_data.MeasProgInfo.ScanParams._SR.WavelenRange.wEnd = (int)GetDlgItemInt(IDC_WAVELENGTH_END, NULL, FALSE);
 
 
 	strcpy(rcp_data.szRecipeName, pszRecipeName);
-	//ƒŒƒVƒsƒ[ƒh•NanoSpecDoc‚Ö‚ÌŠi”[
+	//ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½NanoSpecDocï¿½Ö‚ÌŠiï¿½[
 	BOOL bMain = FALSE;
 	BOOL bMeas = FALSE;
 	bMain = RecipeFile_LoadRecipe(&rcp_data.MainRcpInfo, rcp_data.szRecipeName, RECIPE_FILE_MAIN_RECIPE);
@@ -1075,7 +1077,7 @@ BOOL CRecipeMeasurementStressProgramView::TempRecipeDocSet(LPCTSTR pszRecipeName
 	pDoc->SetRcpData(&rcp_data);
 
 
-	///// ’PˆÊ–¼æ“¾ /////
+	///// ï¿½Pï¿½Ê–ï¿½ï¿½æ“¾ /////
 	SR_FIGURE_FORMAT SrFigureFormat;
 	char szUnit[MAX_PATH];
 	memset(szUnit, 0, sizeof(szUnit));
@@ -1093,8 +1095,8 @@ BOOL CRecipeMeasurementStressProgramView::TempRecipeDocSet(LPCTSTR pszRecipeName
 	pDoc->SetUnitIndex(nUnit);
 
 
-	///// ‰æ–Ê•\¦(ƒf[ƒ^•Û‘¶)—pƒ^ƒCƒgƒ‹ /////
-	char szDispLabel[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1];		//‰æ–Ê•\¦(ƒf[ƒ^•Û‘¶)—pƒ^ƒCƒgƒ‹ ©X,Y,Z,AF‚ÍŠÜ‚Ü‚¸
+	///// ï¿½ï¿½Ê•\ï¿½ï¿½(ï¿½fï¿½[ï¿½^ï¿½Û‘ï¿½)ï¿½pï¿½^ï¿½Cï¿½gï¿½ï¿½ /////
+	char szDispLabel[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1];		//ï¿½ï¿½Ê•\ï¿½ï¿½(ï¿½fï¿½[ï¿½^ï¿½Û‘ï¿½)ï¿½pï¿½^ï¿½Cï¿½gï¿½ï¿½ ï¿½ï¿½X,Y,Z,AFï¿½ÍŠÜ‚Ü‚ï¿½
 	int iDispLabelCount;
 	memset(szDispLabel, 0, sizeof(szDispLabel)); //
 
@@ -1107,7 +1109,7 @@ BOOL CRecipeMeasurementStressProgramView::TempRecipeDocSet(LPCTSTR pszRecipeName
 }
 
 // =========================================================================
-//ƒŒƒVƒs–¼ì¬
+//ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ì¬
 BOOL CRecipeMeasurementStressProgramView::GetTestModeRecipeName(LPTSTR pszFileName, int iRcpType)
 {
 	CString l_strBuffer, l_strTitle;
@@ -1115,23 +1117,23 @@ BOOL CRecipeMeasurementStressProgramView::GetTestModeRecipeName(LPTSTR pszFileNa
 	char szRcpName[RECIPE_NAME_LEN + 1];
 	char szRcpNamePath[MAX_PATH + 1];
 
-	sprintf(szRcpName, "%c%s", SYSTEM_RECIPE_BEGINNING_CHAR, TESTMODE_TEMP_RECIPE_NAME); //ì¬ƒŒƒVƒs–¼
+	sprintf(szRcpName, "%c%s", SYSTEM_RECIPE_BEGINNING_CHAR, TESTMODE_TEMP_RECIPE_NAME); //ï¿½ì¬ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½
 
-	//ì¬‚·‚éƒŒƒVƒs–¼‚ªd•¡‚µ‚Ä‚¢‚È‚¢‚©’²‚×‚éˆ×‚ÌƒpƒX‚ğì¬
-	if ( iRcpType == SAVE_AS_MAIN_RECIPE ) { //ƒƒCƒ“ƒŒƒVƒs
-		sprintf(szRcpNamePath, "%s%s%s", g_szDb_Main_Recipe_Dir, szRcpName, MAINRECIPE_EXT); //d•¡ƒŒƒVƒs–¼ŒŸõ—p
+	//ï¿½ì¬ï¿½ï¿½ï¿½éƒŒï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½dï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×‚ï¿½×‚Ìƒpï¿½Xï¿½ï¿½ï¿½ì¬
+	if ( iRcpType == SAVE_AS_MAIN_RECIPE ) { //ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½s
+		sprintf(szRcpNamePath, "%s%s%s", g_szDb_Main_Recipe_Dir, szRcpName, MAINRECIPE_EXT); //ï¿½dï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½p
 	}
-	else if(iRcpType == SAVE_AS_MEASUREMENT_PROGRAM) { //ƒƒWƒƒ[ƒƒ“ƒgƒvƒƒOƒ‰ƒ€
-		sprintf(szRcpNamePath, "%s%s%s", g_szDb_Measurement_Program_Dir, szRcpName, MEASUREMENTPGM_EXT); //d•¡ƒŒƒVƒs–¼ŒŸõ—p
+	else if(iRcpType == SAVE_AS_MEASUREMENT_PROGRAM) { //ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½
+		sprintf(szRcpNamePath, "%s%s%s", g_szDb_Measurement_Program_Dir, szRcpName, MEASUREMENTPGM_EXT); //ï¿½dï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½p
 	}
 
-	//ì¬‚µ‚æ‚¤‚Æ‚·‚éƒŒƒVƒs‚Ìd•¡ƒ`ƒFƒbƒN
-	if ( FileOrDirExists(szRcpNamePath)==TRUE ) { //ì¬‚µ‚æ‚¤‚Æ‚µ‚Ä‚¢‚éƒtƒ@ƒCƒ‹–¼‚Éd•¡‚ ‚è
-		//ƒ\ƒtƒg‹N“®‚É‰¼ƒŒƒVƒs‚ğÁ‚·‚Ì‚ÅA‚±‚±‚É‚Í—ˆ‚È‚¢‚Í‚¸B
+	//ï¿½ì¬ï¿½ï¿½ï¿½æ‚¤ï¿½Æ‚ï¿½ï¿½éƒŒï¿½Vï¿½sï¿½Ìdï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N
+	if ( FileOrDirExists(szRcpNamePath)==TRUE ) { //ï¿½ì¬ï¿½ï¿½ï¿½æ‚¤ï¿½Æ‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Édï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		//ï¿½\ï¿½tï¿½gï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½É‰ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ÅAï¿½ï¿½ï¿½ï¿½ï¿½É‚Í—ï¿½ï¿½È‚ï¿½ï¿½Í‚ï¿½ï¿½B
 		LoadStringML(IDS_CAPTION_SR_TRANSMIT, l_strBuffer, "Temporary recipe for the test mode remains, \nthe test mode cannot be begun.");
 		LoadStringML(IDS_TITLE_NANOSPEC, l_strTitle, "NanoSpec");
 		MessageBox(l_strBuffer, l_strTitle, MB_OK);
-		return FALSE; //ƒtƒ@ƒCƒ‹–¼d•¡(ƒ\ƒtƒg‹N“®A‰¼ƒŒƒVƒsÁ‹ƒ~ƒX)
+		return FALSE; //ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½dï¿½ï¿½(ï¿½\ï¿½tï¿½gï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½X)
 	}
 
 	strcpy(pszFileName, szRcpName);
@@ -1139,7 +1141,7 @@ BOOL CRecipeMeasurementStressProgramView::GetTestModeRecipeName(LPTSTR pszFileNa
 }
 
 // =========================================================================
-//ƒtƒ@ƒCƒ‹‘¶İƒ`ƒFƒbƒN(ƒtƒ@ƒCƒ‹‘¶İ‚ÍTRUE‚ğ•Ô‚·)
+//ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½İƒ`ï¿½Fï¿½bï¿½N(ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½İï¿½ï¿½ï¿½TRUEï¿½ï¿½Ô‚ï¿½)
 BOOL CRecipeMeasurementStressProgramView::FileOrDirExists(LPCTSTR pszFileName)
 {
 	return (BOOL)( GetFileAttributes(pszFileName) != 0xffffffff );
