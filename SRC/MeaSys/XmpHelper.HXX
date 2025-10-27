@@ -755,13 +755,14 @@ BOOL LoadNMD(int iStrategyNo)
 			}
 		}
 
-		stdioFile.ReadString(strBuffer); nDummy = atoi(strBuffer);
-		m_nmdParams.nReportPolyDensity = nDummy;
+	stdioFile.ReadString(strBuffer); nDummy = atoi(strBuffer);
+	m_nmdParams.nReportPolyDensity = nDummy;
 
-		for ( i = 0; i < 2; i++ ) {
-			stdioFile.ReadString(strBuffer);
-			m_nmdParams.dAbsoluteReflectanceWaveLength[i] = atof(strBuffer);
-		}
+	int i;
+	for ( i = 0; i < 2; i++ ) {
+		stdioFile.ReadString(strBuffer);
+		m_nmdParams.dAbsoluteReflectanceWaveLength[i] = atof(strBuffer);
+	}
 
 		stdioFile.Close();
 
