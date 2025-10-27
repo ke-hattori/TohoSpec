@@ -455,9 +455,9 @@ BOOL CNanoSpecApp::InitInstance()
 /* added 2014.12.24 hmenjo ���d�N���h�~�����ړ� ---------- } ---------- */
 
 #ifdef _AFXDLL
-	Enable3dControls(); 	// ���L DLL �̒��� MFC ���g�p����ꍇ�ɂ͂������Ăяo���Ă��������B
+	// Enable3dControls(); 	// No longer needed in modern MFC
 #else
-	Enable3dControlsStatic();	// MFC �ƐÓI�Ƀ����N���Ă���ꍇ�ɂ͂������Ăяo���Ă��������B
+	// Enable3dControlsStatic();	// No longer needed in modern MFC
 #endif
 
 	//First free the string allocated by MFC at CWinApp startup.

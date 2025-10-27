@@ -68,9 +68,9 @@ BOOL CNextraApp::InitInstance()
 	AfxSetResourceHandle((HINSTANCE) m_hModule);
 
 #ifdef _AFXDLL
-	Enable3dControls(); 		// Call this when using MFC in a shared DLL
+	// Enable3dControls(); 		// No longer needed in modern MFC
 #else
-	Enable3dControlsStatic();	// Call this when linking to MFC statically
+	// Enable3dControlsStatic();	// No longer needed in modern MFC
 #endif
 	ParseCommandLine(m_cmdInfo);
 
