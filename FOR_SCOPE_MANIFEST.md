@@ -26,6 +26,8 @@ Once the solution compiles cleanly, we need to:
 - **SRC/NanoSpec/RecipeStageProgramView.cpp:744** - Added 'i' declaration in OnAddButton() function (Policy A)
 - **SRC/NanoSpec/RecipeStageProgramView.cpp:931** - Added 'i' declaration in OnDeleteButton() function (Policy A)
 - **SRC/NanoSpec/RecipeStageProgramView.cpp:1274** - Added 'i' declaration in UpDate() function (Policy A)
+- **SRC/NanoSpec/RecipeRecalibrationProgramView.cpp:967** - Added 'iRow' declaration in CheckData() function (Policy A)
+- **SRC/NanoSpec/RecipePointDeskewProgramView.cpp:132** - Added 'i' declaration in OnInitialUpdate() function (Policy A)
 
 Previously fixed in earlier iterations:
 - SRC/NanoSpec/MotTsk/WIN.CPP (fixed - iteration 26)
@@ -79,7 +81,7 @@ use(i);  // OK
 
 ## Summary
 
-**Total for-scope fixes:** 8 locations (3 in MEASYS, 5 in NanoSpec)
+**Total for-scope fixes:** 10 locations (3 in MEASYS, 7 in NanoSpec)
 - All fixes applied Policy A (hoist loop variable to surrounding block)
 - No behavior changes
 - MotTsk had no for-scope errors after flag removal
