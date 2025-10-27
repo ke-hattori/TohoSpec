@@ -248,7 +248,6 @@ void COriginalPositionSettingDlg::OnOK()
 BOOL COriginalPositionSettingDlg::Init()
 {
 	int iHead;
-	int iHead;
 // Kojika 20090526 Add
 	CString strBuffer1, strBuffer2;
 // Kojika 20090526 Add End
@@ -431,6 +430,7 @@ void COriginalPositionSettingDlg::OnAllClear()
 void COriginalPositionSettingDlg::OnSelchangeBaseHeadType()
 {
 	CString strBuffer;
+	int iHead;
 
 	CComboBox* pCombo = (CComboBox *) GetDlgItem(IDC_BASE_HEAD_TYPE);
 	int nSelect = pCombo->GetCurSel();

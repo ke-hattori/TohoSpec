@@ -3862,7 +3862,6 @@ void CMeasurementTabView::MRCS_SettingStatusSet(long lIndex, WORD wStatus)
  */
 DWORD CMeasurementTabView::MRCS_SettingAllGet(long lIndex)
 {
-	int i;
 	return m_MRCS_dwSettings[lIndex];
 }
 /*
@@ -3870,8 +3869,9 @@ DWORD CMeasurementTabView::MRCS_SettingAllGet(long lIndex)
  */
 void CMeasurementTabView::MRCS_GridLineColorSet(long lIndex, COLORREF cr/* = CLR_DEFAULT*/)
 {
+	int i;
 	/* CMeasurementListDlg	*/
-	for (int i = 1; i < m_pMeasurementListDlg->m_MeasurementListGrid.GetColumnCount(); i++) {
+	for (i = 1; i < m_pMeasurementListDlg->m_MeasurementListGrid.GetColumnCount(); i++) {
 		m_pMeasurementListDlg->m_MeasurementListGrid.SetItemBkColour(lIndex, i, cr);
 	}
 	/* CMeasurementGraphDlg	*/

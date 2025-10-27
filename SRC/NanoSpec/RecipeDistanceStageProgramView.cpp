@@ -77,7 +77,6 @@ CRecipeDistanceStageProgramView::CRecipeDistanceStageProgramView()
 //
 CRecipeDistanceStageProgramView::~CRecipeDistanceStageProgramView()
 {
-	int i;
 }
 
 // ==========================================================================
@@ -797,6 +796,7 @@ void CRecipeDistanceStageProgramView::OnDeleteButton()
 
 	int	nIndex;
 	int	nChangeRow;
+	int i;
 
 	///// SelectPoint /////
 	iRow = m_CurrentCellID.row;
@@ -829,7 +829,7 @@ void CRecipeDistanceStageProgramView::OnDeleteButton()
 	::ZeroMemory(m_ScanPoint, sizeof(m_ScanPoint));
 	nIndex = 0;
 	nChangeRow = iRow - 1;
-	for ( int i = 0 ; i < SCAN_POINT_MAX ; i++ ) {
+	for ( i = 0 ; i < SCAN_POINT_MAX ; i++ ) {
 		Valid_X1 = Valid_Y1 = 0;
 		Valid_X2 = Valid_Y2 = 0;
 
