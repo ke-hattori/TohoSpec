@@ -3,9 +3,15 @@
 ## Summary
 
 **Initial Warnings:** 9,590  
-**Current Warnings:** 1,237  
-**Reduction:** 8,353 warnings (87% reduction)  
+**After Phase 1:** 1,237 (87% reduction)  
+**After Phase 2 (partial):** ~750 (estimated, 92% reduction)  
 **Unique Warning Codes:** 9
+
+**Latest Updates:**
+- ✅ C4477 format string fixes (143 warnings)
+- ✅ C4838 narrowing conversions (224 warnings)
+- ✅ /Zc:forScope- removed from all projects (3 MEASYS fixes)
+- ✅ C4996 itoa and Enable3dControls (7 warnings)
 
 ## Phase 1 Results (C4996 Suppression)
 
@@ -14,6 +20,37 @@ Added `_CRT_SECURE_NO_WARNINGS` to 37 projects:
 - 21 MFC application and resource DLL projects
 
 **Impact:** Eliminated ~8,300 C4996 deprecated CRT warnings
+
+## Phase 2 Results (Completed Fixes)
+
+### 1. C4477 Format String Mismatches (143 warnings) ✅
+**File:** `SRC/Stage/STAGE.H` (lines 948, 952)  
+**Fix:** Added `static_cast<double>(Val)` to template function SendCommand<T>  
+**Commit:** `1deda0b`
+
+### 2. C4838 Narrowing Conversions (224 warnings) ✅
+**Files:**
+- `SRC/NanoSpec/ChiefExports.h:135` - Cast -1 to WORD in array initializer
+- `SRC/MotSysNSPT/CtrlCmd.cpp:2427` - Cast -1 to DWORD in array initializer
+
+**Commit:** `6841395`
+
+### 3. For-Scope Modernization (/Zc:forScope- Removal) ✅
+**Projects:** MEASYS, NanoSpec, MotTsk  
+**Files Fixed (MEASYS only):**
+- `SRC/MeaSys/SrRefFile.cpp:421` - Hoisted variable 'i' (Policy A)
+- `SRC/MeaSys/XmpHelper.HXX:700` - Hoisted variable 'nLayer' (Policy A)
+- `SRC/MeaSys/XmpHelper.HXX:761` - Hoisted variable 'i' (Policy A)
+
+**Result:** NanoSpec and MotTsk had no for-scope errors after flag removal  
+**Commits:** `c20daf2`, `5a2158b`, `980af1a`, `5a5a090`
+
+### 4. C4996 Deprecated Functions (7 warnings) ✅
+**Fixes:**
+- `itoa` → `_itoa` (5 warnings in 8 NanoSpec files) - Commit: `068593b`
+- Commented out `Enable3dControls` calls (2 warnings) - Commit: `c93f55e`
+
+**Total Phase 2 Reduction:** 377 warnings eliminated
 
 ## Current Warning Breakdown by Code
 
