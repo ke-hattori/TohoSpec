@@ -1,4 +1,4 @@
-// MeasurementListDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// MeasurementListDlg.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -40,7 +40,7 @@ static char THIS_FILE[] = __FILE__;
 // 2013.01.09 bagus <--
 
 // Helper Fucntion
-// w”•\‹L‚Ö•ÏŠ·‚·‚éŠÖ”iprintf‘®‚Ì%E‘Š“–‚¾‚ªAw”•”‚ğ2Œ…•\¦‚É‚µ‚½‚¢‚½‚ß©ìŠÖ”‚ğ—pˆÓj
+// ï¿½wï¿½ï¿½ï¿½\ï¿½Lï¿½Ö•ÏŠï¿½ï¿½ï¿½ï¿½ï¿½Öï¿½ï¿½iprintfï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%Eï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ßï¿½ï¿½ï¿½Öï¿½ï¿½ï¿½pï¿½Ój
 static void ConvertToExpNumber(double dNumber, LPTSTR pszExpNumber)
 {
 	sprintf(pszExpNumber, "%.3E", dNumber);
@@ -53,7 +53,7 @@ static void ConvertToExpNumber(double dNumber, LPTSTR pszExpNumber)
 
 
 // #########################################################################
-// CMeasurementListDlg ƒ_ƒCƒAƒƒO
+// CMeasurementListDlg ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½O
 // #########################################################################
 
 // =========================================================================
@@ -120,7 +120,7 @@ BEGIN_MESSAGE_MAP(CMeasurementListDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CMeasurementListDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CMeasurementListDlg ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 
 // =========================================================================
 //
@@ -131,10 +131,10 @@ BOOL CMeasurementListDlg::OnInitDialog()
 	m_pMainFrame = (CMainFrame *)AfxGetMainWnd();
 	m_pDoc = (CNanoSpecDoc*)m_pMainFrame->GetActiveDocument();
 
-// 2014.01.17 Bagus Add (Stage None‘Î‰) -->
-	//ƒVƒXƒeƒ€ƒRƒ“ƒtƒBƒOİ’è“Ç‚İ‚İ
+// 2014.01.17 Bagus Add (Stage Noneï¿½Î‰ï¿½) -->
+	//ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½tï¿½Bï¿½Oï¿½İ’ï¿½Ç‚İï¿½ï¿½ï¿½
 	ConfigFile_GetNanoSpecIni(&m_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
-// 2014.01.17 Bagus Add (Stage None‘Î‰) <--
+// 2014.01.17 Bagus Add (Stage Noneï¿½Î‰ï¿½) <--
 
 	///// Get Selected Recipe Name /////
 //	((CMainFrame*)AfxGetMainWnd())->GetSelectListName(m_szName);
@@ -154,13 +154,13 @@ BOOL CMeasurementListDlg::OnInitDialog()
 	m_stcMeasurementItem.SetBkColor(WATER_COLOR);
 	m_stcMeasurementPoint.SubclassWindow(GetDlgItem(IDC_MEASUREMENT_POINT)->GetSafeHwnd());
 	m_stcMeasurementPoint.SetBkColor(WATER_COLOR);
-	//2009.07.30 bagus stress ƒXƒgƒŒƒX‹@”\’Ç‰Á --{--
-	WORD wHeadType = m_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType; // ƒwƒbƒhƒ^ƒCƒv
+	//2009.07.30 bagus stress ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½@ï¿½\ï¿½Ç‰ï¿½ --{--
+	WORD wHeadType = m_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType; // ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½v
 	m_stcMeasurementLS.SubclassWindow(GetDlgItem(IDC_MEASUREMENT_LS)->GetSafeHwnd());
 	m_stcMeasurementLS.SetBkColor(WATER_COLOR);
 	if(wHeadType != HEAD_TYPE_STRESS){
 		//2009.09.08 bagus stress --{--
-		//‰—Í‘ª’èˆÈŠO‚ÍLS‚Ì•\¦‚ª‚È‚¢‚Ì‚Åƒ|ƒCƒ“ƒg•\¦‚Ì‘å‚«‚³‚ğ‚à‚Ç‚·
+		//ï¿½ï¿½ï¿½Í‘ï¿½ï¿½ï¿½ÈŠOï¿½ï¿½LSï¿½Ì•\ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Ì‚Åƒ|ï¿½Cï¿½ï¿½ï¿½gï¿½\ï¿½ï¿½ï¿½Ì‘å‚«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç‚ï¿½
 		RECT tRect1,tRect2;
 		m_stcMeasurementPoint.GetWindowRect(&tRect1);
 		m_stcMeasurementLS.GetWindowRect(&tRect2);
@@ -177,7 +177,7 @@ BOOL CMeasurementListDlg::OnInitDialog()
 		LoadStringML(IDS_STRESS_MEAS_POINT_LABEL,strBuffer,"Meas Point&LS");
 		SetDlgItemText(IDC_MEASUREMENT_POINT_LABEL,strBuffer);
 	}
-	//2009.07.30 bagus stress ƒXƒgƒŒƒX‹@”\’Ç‰Á --}--
+	//2009.07.30 bagus stress ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½@ï¿½\ï¿½Ç‰ï¿½ --}--
 
 	///// Grid Control Initialize /////
 	MeasurementListGrid_InitGrid();
@@ -185,9 +185,9 @@ BOOL CMeasurementListDlg::OnInitDialog()
 	MeasurementListGrid_HeaderSet();
 	StatisticsListGrid_HeaderSet();
 
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 	ConfigFile_GetNanoSpecIni(&m_StageConfig, CONFIG_FILE_STAGE_CONFIG);
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 
 	///// Point Graph Initialize /////
 	PointGraph_DataSet();
@@ -195,34 +195,34 @@ BOOL CMeasurementListDlg::OnInitDialog()
 
 	SetTimer(SHOW_LIST_TIMER, 500, NULL);
 
-	m_bCellSelectedFlg = FALSE; //‘I‘ğs‚Ì—L–³ƒtƒ‰ƒO
+	m_bCellSelectedFlg = FALSE; //ï¿½Iï¿½ï¿½ï¿½sï¿½Ì—Lï¿½ï¿½ï¿½tï¿½ï¿½ï¿½O
 
-	if(m_pDoc->GetMeasMode() == MEASMODE_MANUALMEASURE) //ƒ}ƒjƒ…ƒAƒ‹‘ª’è
+	if(m_pDoc->GetMeasMode() == MEASMODE_MANUALMEASURE) //ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	{
 		GetDlgItem(IDC_SAMPLE_SIZE)->ShowWindow(SW_HIDE);
 	}
 
-/* added 2015.04.05 hmenjo FWXGA ‘Î‰2 ---------- { ---------- */
+/* added 2015.04.05 hmenjo FWXGA ï¿½Î‰ï¿½2 ---------- { ---------- */
 	CWnd* l_pcwndParent = this->GetParent();
 	RECT l_rectParentAR;	l_pcwndParent->GetWindowRect(&l_rectParentAR);
-	/* eƒEƒBƒ“ƒhƒE‚ğƒ^ƒu‚ÆŒˆ‚ß•t‚¯‚½ˆ—‚Å‚·D	*/
+	/* ï¿½eï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½^ï¿½uï¿½ÆŒï¿½ï¿½ß•tï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½D	*/
 	((CTabCtrl*) l_pcwndParent)->AdjustRect(FALSE, &l_rectParentAR);
 	RECT l_rectThisDlg;	this->GetWindowRect(&l_rectThisDlg);
 	if ((g_lModelType == MODEL_T3100) &&
 		((l_rectParentAR.bottom - l_rectParentAR.top) < (l_rectThisDlg.bottom - l_rectThisDlg.top))) {
-		/* ƒIƒtƒZƒbƒgŒvZ	*/
+		/* ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½vï¿½Z	*/
 		long l_lDeltaY = (l_rectThisDlg.bottom - l_rectThisDlg.top) - (l_rectParentAR.bottom - l_rectParentAR.top);
 		l_lDeltaY += 1;
 		this->ChgSizeCtrl(-l_lDeltaY);
 	}
-/* added 2015.04.05 hmenjo FWXGA ‘Î‰2 ---------- } ---------- */
+/* added 2015.04.05 hmenjo FWXGA ï¿½Î‰ï¿½2 ---------- } ---------- */
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Éƒtï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½İ’è‚µï¿½È‚ï¿½ï¿½Æ‚ï¿½ï¿½Aï¿½ß‚ï¿½lï¿½ï¿½ TRUE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
+					// ï¿½ï¿½O: OCX ï¿½vï¿½ï¿½ï¿½pï¿½eï¿½B ï¿½yï¿½[ï¿½Wï¿½Ì–ß‚ï¿½lï¿½ï¿½ FALSE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
 }
 
 // =========================================================================
-// OnGridClick MeasurementListGrid‘I‘ğs‚ÌƒXƒLƒƒƒ“ƒ|ƒCƒ“ƒg‚É‚Â‚¢‚ÄAƒ}ƒbƒv‚ÌƒXƒLƒƒƒ“ƒ|ƒCƒ“ƒg‚ğ‘I‘ğF‚Éİ’è‚·‚é
+// OnGridClick MeasurementListGridï¿½Iï¿½ï¿½ï¿½sï¿½ÌƒXï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½É‚Â‚ï¿½ï¿½ÄAï¿½}ï¿½bï¿½vï¿½ÌƒXï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½Iï¿½ï¿½Fï¿½Éİ’è‚·ï¿½ï¿½
 //void CMeasurementListDlg::OnGridClick(NMHDR *pNotifyStruct, LRESULT* /*pResult*/)
 /*{
 	///// Draw SelectPoint /////
@@ -230,13 +230,13 @@ BOOL CMeasurementListDlg::OnInitDialog()
 	CellID = m_MeasurementListGrid.GetFocusCell();
 	if ( !m_MeasurementListGrid.IsValid(CellID) )
 		return;
-	//PointGraph‘I‘ğƒ|ƒCƒ“ƒgF•ÏX
+	//PointGraphï¿½Iï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Fï¿½ÏX
 	m_PointGraph.Select(CellID.row-1);
 }
 */
 
 // =========================================================================
-// OnSelChangeing MeasurementListGrid‘I‘ğs‚ÌƒXƒLƒƒƒ“ƒ|ƒCƒ“ƒg‚É‚Â‚¢‚ÄAƒ}ƒbƒv‚ÌƒXƒLƒƒƒ“ƒ|ƒCƒ“ƒg‚ğ‘I‘ğF‚Éİ’è‚·‚é
+// OnSelChangeing MeasurementListGridï¿½Iï¿½ï¿½ï¿½sï¿½ÌƒXï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½É‚Â‚ï¿½ï¿½ÄAï¿½}ï¿½bï¿½vï¿½ÌƒXï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½Iï¿½ï¿½Fï¿½Éİ’è‚·ï¿½ï¿½
 void CMeasurementListDlg::OnSelChangeing(NMHDR *pNotifyStruct, LRESULT* /*pResult*/)
 {
 	///// Draw SelectPoint /////
@@ -246,16 +246,16 @@ void CMeasurementListDlg::OnSelChangeing(NMHDR *pNotifyStruct, LRESULT* /*pResul
 	CellID.col=pItem->iColumn;
 	if ( !m_MeasurementListGrid.IsValid(CellID) )
 		return;
-	//PointGraph‘I‘ğƒ|ƒCƒ“ƒgF•ÏX
+	//PointGraphï¿½Iï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Fï¿½ÏX
 	//2009.08.31 bagus stress --{--
 	if(m_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType == HEAD_TYPE_STRESS){
 		//2009.12.03 bagus stress --{--
-		//ˆê’U‘I‘ğ‚ğ‰ğœ‚·‚é
+		//ï¿½ï¿½Uï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		m_PointGraph.Select(-1);
 		m_PointGraph.SelectSection(-1);
 		//2009.12.03 bagus stress --}--
 		if(CellID.row -1 < m_pDoc->GetStoreCount()){
-			//–Œˆ³‘ª’è
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			m_PointGraph.Select(CellID.row-1);
 		}else{
 			m_PointGraph.SelectSection(CellID.row - 1 - m_pDoc->GetStoreCount());
@@ -268,11 +268,11 @@ void CMeasurementListDlg::OnSelChangeing(NMHDR *pNotifyStruct, LRESULT* /*pResul
 
 
 //// =========================================================================
-//// ƒXƒLƒƒƒ“ƒ|ƒCƒ“ƒg–ˆ‚Ì‘ª’è‚ªI—¹‚µ‚½‚Æ‚«‚É‘ª’èŒ‹‰Ê‚ğ•ÒW‚·‚é
+//// ï¿½Xï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Ì‘ï¿½ï¿½è‚ªï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½É‘ï¿½ï¿½èŒ‹ï¿½Ê‚ï¿½ÒWï¿½ï¿½ï¿½ï¿½
 //LRESULT CMeasurementListDlg::SetMeasurementData(WPARAM wparam, LPARAM lparam)
 //{
-//MessageBox("‚±‚±‚É‚Í—ˆ‚È‚¢‚Í‚¸ hibino", "WARNING!", MB_OK);
-////ˆ—‚ğSetMeasurementData2‚ÖˆÚ“® hibino
+//MessageBox("ï¿½ï¿½ï¿½ï¿½ï¿½É‚Í—ï¿½ï¿½È‚ï¿½ï¿½Í‚ï¿½ hibino", "WARNING!", MB_OK);
+////ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½SetMeasurementData2ï¿½ÖˆÚ“ï¿½ hibino
 //	return 0L;
 //}
 
@@ -280,34 +280,34 @@ void CMeasurementListDlg::OnSelChangeing(NMHDR *pNotifyStruct, LRESULT* /*pResul
 
 // =========================================================================
 //
-//[–ß‚è’l]
-//-1:ˆ—¸”s
-// 0:ˆ—¬Œ÷(•\¦ˆ—‚ ‚è)
-// 1:ˆ—¬Œ÷(•\¦ˆ—‚È‚µ)
-// 2:ˆ—¬Œ÷(•\¦ˆ—‚ ‚è(ÅV‘}“üŒÂŠ‚Ö‚ÌˆÚ“®‚È‚µ))
+//[ï¿½ß‚ï¿½l]
+//-1:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½s
+// 0:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+// 1:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½)
+// 2:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ÅVï¿½}ï¿½ï¿½ï¿½Âï¿½ï¿½Ö‚ÌˆÚ“ï¿½ï¿½È‚ï¿½))
 int CMeasurementListDlg::SetMeasurementData2()
 {
 
-	char szTitleXyz[3][ADAPRESULTSTRINGLENMAX + 1]; 	//ƒOƒŠƒbƒh‚Ìƒ^ƒCƒgƒ‹(X,Y,Z)
-	char szTitleAf[AF_HEADER_LEN + 1];					//ƒOƒŠƒbƒh‚Ìƒ^ƒCƒgƒ‹(AF)
-	char szLabel[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1];	//ƒOƒŠƒbƒh‚Ìƒ^ƒCƒgƒ‹(æ“ª‚ÍThick1?) ©X,Y,Z,AF‚ÍŠÜ‚Ü‚¸
-	int iLabelCount=0;									//ƒOƒŠƒbƒh‚Ìƒ^ƒCƒgƒ‹”(æ“ª‚ÍThick1?) ©X,Y,Z,AF‚ÍŠÜ‚Ü‚¸
-	int iCurrentSetPoint = 0; //ˆê”ÔÅŒã‚Éƒf[ƒ^‚ğŠi”[(‘Š·‚¦)‚µ‚½ƒ|ƒCƒ“ƒg”Ô†
+	char szTitleXyz[3][ADAPRESULTSTRINGLENMAX + 1]; 	//ï¿½Oï¿½ï¿½ï¿½bï¿½hï¿½Ìƒ^ï¿½Cï¿½gï¿½ï¿½(X,Y,Z)
+	char szTitleAf[AF_HEADER_LEN + 1];					//ï¿½Oï¿½ï¿½ï¿½bï¿½hï¿½Ìƒ^ï¿½Cï¿½gï¿½ï¿½(AF)
+	char szLabel[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1];	//ï¿½Oï¿½ï¿½ï¿½bï¿½hï¿½Ìƒ^ï¿½Cï¿½gï¿½ï¿½(ï¿½æ“ªï¿½ï¿½Thick1?) ï¿½ï¿½X,Y,Z,AFï¿½ÍŠÜ‚Ü‚ï¿½
+	int iLabelCount=0;									//ï¿½Oï¿½ï¿½ï¿½bï¿½hï¿½Ìƒ^ï¿½Cï¿½gï¿½ï¿½ï¿½ï¿½(ï¿½æ“ªï¿½ï¿½Thick1?) ï¿½ï¿½X,Y,Z,AFï¿½ÍŠÜ‚Ü‚ï¿½
+	int iCurrentSetPoint = 0; //ï¿½ï¿½ÔÅŒï¿½Éƒfï¿½[ï¿½^ï¿½ï¿½ï¿½iï¿½[(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Ôï¿½
 
 	int iDispLabelCount=0;
-	ONE_POINT_DATA OnePointData;						//1ƒ|ƒCƒ“ƒg•ª‚Ì‘ª’èƒf[ƒ^
-	STATISTICS Statistics[ADAPRESULT_COLS_MAX]; 		//“Œvƒf[ƒ^
-	int iMeasureNum=0;									//‘ª’èƒ|ƒCƒ“ƒg”
-	int iPoint=0;	// ‘ª’èƒ|ƒCƒ“ƒg‚²‚Æ‚Ì‰ñ”
-	int iShowCompletionPointList; //‰æ–Ê‚É•\¦Ï‚İ‚Ìƒ|ƒCƒ“ƒg”
+	ONE_POINT_DATA OnePointData;						//1ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Ì‘ï¿½ï¿½ï¿½fï¿½[ï¿½^
+	STATISTICS Statistics[ADAPRESULT_COLS_MAX]; 		//ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^
+	int iMeasureNum=0;									//ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½
+	int iPoint=0;	// ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Æ‚Ì‰ï¿½
+	int iShowCompletionPointList; //ï¿½ï¿½Ê‚É•\ï¿½ï¿½ï¿½Ï‚İ‚Ìƒ|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½
 	char szDispLabel[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1];
-	///// ScanType•ÊParamaeter /////
-	WORD wHeadType = m_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType; // ƒwƒbƒhƒ^ƒCƒv
+	///// ScanTypeï¿½ï¿½Paramaeter /////
+	WORD wHeadType = m_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType; // ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½v
 	WORD wScanType = m_rcp_data.MeasProgInfo.ScanParams.hdr.wScanType;
 	int nTotalSressLineNum = 0;
 	//2009.10.28 bagus 2point-distance --{--
 	BOOL bMeasDistance = wHeadType == HEAD_TYPE_SR && wScanType == MEAS_PROG_TYPE_SR_DISTANCE;
-	ONE_POINT_DATA DistanceOnePointData;					//2“_ŠÔ‹——£‚Ìn“_—pƒf[ƒ^
+	ONE_POINT_DATA DistanceOnePointData;					//2ï¿½_ï¿½Ô‹ï¿½ï¿½ï¿½ï¿½Ìnï¿½_ï¿½pï¿½fï¿½[ï¿½^
 	int nItemCount = 0;
 	//2009.10.28 bagus 2point-distance --}--
 	//2009.11.10 bagus RS --{--
@@ -317,15 +317,15 @@ int CMeasurementListDlg::SetMeasurementData2()
 	BOOL bResitValidData = FALSE;
 	//2009.11.17 bagus RS --}--
 
-/* added 2017.04.15 hmenjo ®”•\¦‰» ---------- { ---------- */
-	int l_iUnitIndexThickInt = -1;		/* -1 ‚Í®”•\¦‰»‚µ‚È‚¢	*/
+/* added 2017.04.15 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
+	int l_iUnitIndexThickInt = -1;		/* -1 ï¿½Íï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½	*/
 	SR_FIGURE_FORMAT l_SrFigureFormat;
 	ConfigFile_GetNanoSpecIni(&l_SrFigureFormat,
 					CONFIG_FILE_SR_FIGURE_FORMAT);
 	if (0 != l_SrFigureFormat.iThicknessIntOnly) {
-		l_iUnitIndexThickInt = 3;		/* -1 ˆÈŠO‚ÍƒCƒ“ƒfƒbƒNƒX’l	*/
+		l_iUnitIndexThickInt = 3;		/* -1 ï¿½ÈŠOï¿½ÍƒCï¿½ï¿½ï¿½fï¿½bï¿½Nï¿½Xï¿½l	*/
 	}
-/* added 2017.04.15 hmenjo ®”•\¦‰» ---------- } ---------- */
+/* added 2017.04.15 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
 
 	memset(szTitleXyz, 0, sizeof(szTitleXyz));
 	memset(szTitleAf, 0, sizeof(szTitleAf));
@@ -343,7 +343,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 
 	iShowCompletionPointList = m_pDoc->GetShowCompPointList();
 
-	if(m_pDoc->GetSeqMeasMode() == SEQ_ON_REMEASURE) //ƒŠƒƒWƒƒ[
+	if(m_pDoc->GetSeqMeasMode() == SEQ_ON_REMEASURE) //ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[
 	{
 		if(iShowCompletionPointList == 0)
 		{
@@ -361,7 +361,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 
 	m_pDoc->GetLabel(szTitleXyz, szTitleAf, szLabel,&iLabelCount);
 	iDispLabelCount = m_pDoc->GetDispLabelCount();
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 	if ( wHeadType == HEAD_TYPE_COMPEASE ) {
 		if ( m_MeasurementListGrid.GetColumnCount() < iDispLabelCount + 3 + 1 ) {
 			MeasurementListGrid_InitGrid();
@@ -370,7 +370,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 		MeasurementListGrid_HeaderSet();
 		StatisticsListGrid_HeaderSet();
 	}
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
 	iMeasureNum = m_pDoc->GetMeasurePointCount();
 	iPoint = iCurrentSetPoint = m_pDoc->GetCurrentSetPoint();
 
@@ -387,19 +387,19 @@ int CMeasurementListDlg::SetMeasurementData2()
 			m_bCellSelectedFlg = TRUE;
 		}
 		//Saiki 20090608 Add <----
-		if((iFocus != 0)&&(m_bCellSelectedFlg == FALSE)) //s‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚é(ˆê‰ñ‘I‘ğ‚ªŠm”F‚³‚ê‚é‚ÆˆÈ~‚ÍÅVs‚ğ•\¦‚µ‚È‚¢)
+		if((iFocus != 0)&&(m_bCellSelectedFlg == FALSE)) //ï¿½sï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½mï¿½Fï¿½ï¿½ï¿½ï¿½ï¿½ÆˆÈ~ï¿½ÍÅVï¿½sï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½)
 		{
 			m_bCellSelectedFlg = TRUE;
-/* modified 2014.10.28 hmenjo ‘ª’èŒ‹‰Ê Auto Scroll ---------- { ---------- */
+/* modified 2014.10.28 hmenjo ï¿½ï¿½ï¿½èŒ‹ï¿½ï¿½ Auto Scroll ---------- { ---------- */
 //			m_MeasurementListGrid.EnsureVisible((i+1), TRUE);
-/* modified 2014.10.28 hmenjo ‘ª’èŒ‹‰Ê Auto Scroll ----------              */
+/* modified 2014.10.28 hmenjo ï¿½ï¿½ï¿½èŒ‹ï¿½ï¿½ Auto Scroll ----------              */
 			if (
 				(m_pDoc->GetMeasMode() != MEASMODE_MANUALMEASURE) &&
 				(m_pDoc->GetMeasMode() != MEASMODE_TEST)
 				) {
 				m_MeasurementListGrid.EnsureVisible((i + 1), TRUE);
 			}
-/* modified 2014.10.28 hmenjo ‘ª’èŒ‹‰Ê Auto Scroll ---------- } ---------- */
+/* modified 2014.10.28 hmenjo ï¿½ï¿½ï¿½èŒ‹ï¿½ï¿½ Auto Scroll ---------- } ---------- */
 			break;
 		}
 	}
@@ -413,17 +413,17 @@ int CMeasurementListDlg::SetMeasurementData2()
 
 	if(iShowCompletionPointList < iCurrentSetPoint)
 	{
-		iPoint = iCurrentSetPoint;	//wƒ‹[ƒv‚ÌI—¹ƒ|ƒCƒ“ƒg”x‚ğwŠi”[Ï‚İƒ|ƒCƒ“ƒgx’l‚Éİ’èB
-		iCount = iShowCompletionPointList;	//ƒ‹[ƒvŠJn“_‚ğİ’èB
+		iPoint = iCurrentSetPoint;	//ï¿½wï¿½ï¿½ï¿½[ï¿½vï¿½ï¿½ï¿½ÌIï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½xï¿½ï¿½ï¿½wï¿½iï¿½[ï¿½Ï‚İƒ|ï¿½Cï¿½ï¿½ï¿½gï¿½xï¿½lï¿½Éİ’ï¿½B
+		iCount = iShowCompletionPointList;	//ï¿½ï¿½ï¿½[ï¿½vï¿½Jï¿½nï¿½_ï¿½ï¿½İ’ï¿½B
 	}
 	else
 	{
-		return 1;	//ˆ—¬Œ÷(•\¦ˆ—‚È‚µ)
+		return 1;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½)
 	}
 
-/* added 2016.05.05 hmenjo è“® Ä‘ª’è/w’è“Œv ---------- { ---------- */
+/* added 2016.05.05 hmenjo ï¿½è“® ï¿½Ä‘ï¿½ï¿½ï¿½/ï¿½wï¿½è“ï¿½v ---------- { ---------- */
 	WORD l_wIncludeColorSetNo = 0;
-/* added 2016.05.05 hmenjo è“® Ä‘ª’è/w’è“Œv ---------- } ---------- */
+/* added 2016.05.05 hmenjo ï¿½è“® ï¿½Ä‘ï¿½ï¿½ï¿½/ï¿½wï¿½è“ï¿½v ---------- } ---------- */
 
 	while ( ++iCount <= iPoint )
 	{
@@ -433,10 +433,10 @@ int CMeasurementListDlg::SetMeasurementData2()
 		if (m_MeasurementListGrid.IsValid(CellID) )
 			break;
 
-		m_pDoc->GetOnePointAndStatistics(&OnePointData, Statistics, iCount); //(1ƒ|ƒCƒ“ƒg–Ú1)
+		m_pDoc->GetOnePointAndStatistics(&OnePointData, Statistics, iCount); //(1ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Úï¿½1)
 
 		//2009.11.17 bagus RS --{--
-		//’ïR‘ª’è‚Ìê‡‚É‚ÍOnePointData.Valid=FALSE‚ª’†‚É“ü‚Á‚Ä‚¢—ˆ‚é
+		//ï¿½ï¿½Rï¿½ï¿½ï¿½ï¿½Ìê‡ï¿½É‚ï¿½OnePointData.Valid=FALSEï¿½ï¿½ï¿½ï¿½ï¿½É“ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½
 		if(wHeadType == HEAD_TYPE_4PP){
 			if(!m_pDoc->GetOneResistData(&ResistOnePointData,iCount)){
 				break;
@@ -458,17 +458,17 @@ int CMeasurementListDlg::SetMeasurementData2()
 		double dPositionZ;
 		int iCol;
 		char szDecimalPointBuff[255+1];
-/* added 2017.04.29 hmenjo ®”•\¦‰» SD œŠO ---------- { ---------- */
+/* added 2017.04.29 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ SD ï¿½ï¿½ï¿½O ---------- { ---------- */
 		char szDecimalPointBuffThickSD[255+1];
-/* added 2017.04.29 hmenjo ®”•\¦‰» SD œŠO ---------- } ---------- */
+/* added 2017.04.29 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ SD ï¿½ï¿½ï¿½O ---------- } ---------- */
 
-		//2009.07.27 bagus stress SRˆÈŠO‚Ìƒwƒbƒhƒ^ƒCƒv‚É‚à‘Î‰
+		//2009.07.27 bagus stress SRï¿½ÈŠOï¿½Ìƒwï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½É‚ï¿½ï¿½Î‰ï¿½
 		//if(wHeadType == HEAD_TYPE_SR)
 		switch(wHeadType){
 		case HEAD_TYPE_SR:
 
 			//2009.10.28 bagus 2point-Distance --{--
-			//2“_ŠÔ‹——£‚ÍSRƒwƒbƒh‚¾‚ª‘å‚«‚­•\¦€–Ú‚ªˆá‚¤
+			//2ï¿½_ï¿½Ô‹ï¿½ï¿½ï¿½ï¿½ï¿½SRï¿½wï¿½bï¿½hï¿½ï¿½ï¿½ï¿½ï¿½å‚«ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½Ú‚ï¿½ï¿½á‚¤
 			switch(wScanType){
 			default:
 				//char szXyzFormat[255+1];
@@ -492,7 +492,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 				AddMeasurementListGrid_Data(iCount, iIndex++, strBuffer);
 
 
-				//// ƒI[ƒgƒtƒH[ƒJƒX”»’è—“ ////
+				//// ï¿½Iï¿½[ï¿½gï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ï¿½è—“ ////
 				ConfigFile_GetNanoSpecIni(&m_SrConfig, CONFIG_FILE_SR_CONFIG);
 				if(m_SrConfig.bAutoFocus)
 				{
@@ -517,45 +517,45 @@ int CMeasurementListDlg::SetMeasurementData2()
 					memset(szDecimalPointBuff, 0, sizeof(szDecimalPointBuff));
 					if(strstr(szDispLabel[i], "Thick") != NULL) //Thick*
 					{
-/* modified 2017.04.15 hmenjo ®”•\¦‰» ---------- { ---------- */
-//						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //‘I‘ğUnit‚Å•Ï“®
-/* modified 2017.04.15 hmenjo ®”•\¦‰» ----------              */
+/* modified 2017.04.15 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
+//						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //ï¿½Iï¿½ï¿½Unitï¿½Å•Ï“ï¿½
+/* modified 2017.04.15 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ ----------              */
 						if (l_iUnitIndexThickInt < 0) {
-							sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //‘I‘ğUnit‚Å•Ï“®
+							sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //ï¿½Iï¿½ï¿½Unitï¿½Å•Ï“ï¿½
 						} else {
 							sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[l_iUnitIndexThickInt], "f");
 						}
-/* added 2017.04.29 hmenjo ®”•\¦‰» SD œŠO ---------- { ---------- */
-						sprintf(szDecimalPointBuffThickSD, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //‘I‘ğUnit‚Å•Ï“®
-/* added 2017.04.29 hmenjo ®”•\¦‰» SD œŠO ---------- } ---------- */
-/* modified 2017.04.15 hmenjo ®”•\¦‰» ---------- } ---------- */
+/* added 2017.04.29 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ SD ï¿½ï¿½ï¿½O ---------- { ---------- */
+						sprintf(szDecimalPointBuffThickSD, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //ï¿½Iï¿½ï¿½Unitï¿½Å•Ï“ï¿½
+/* added 2017.04.29 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ SD ï¿½ï¿½ï¿½O ---------- } ---------- */
+/* modified 2017.04.15 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
 					}
-					else if((szDispLabel[i][0]=='N')||(szDispLabel[i][0]=='K')) //N,K’lŒn
+					else if((szDispLabel[i][0]=='N')||(szDispLabel[i][0]=='K')) //N,Kï¿½lï¿½n
 					{
-						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]ŒÅ’è
+						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]ï¿½Å’ï¿½
 					}
-// 2009.11.12 K.Matsuo ADAP‚Ì•ñ€–Ú‚Ì§–ñ‘Î‰B2ŒÂ–Ú‚ÌN1[XXX],K1[XXX]‚ğ‚Ì‚Á‚Æ‚èA•Ê€–Ú‚Ì’l‚ğ•ñ -->
+// 2009.11.12 K.Matsuo ADAPï¿½Ì•ñï¿½ï¿½Ú‚Ìï¿½ï¿½ï¿½Î‰ï¿½ï¿½B2ï¿½Â–Ú‚ï¿½N1[XXX],K1[XXX]ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½Æ‚ï¿½Aï¿½Êï¿½ï¿½Ú‚Ì’lï¿½ï¿½ï¿½ -->
 					else if(strncmp(szDispLabel[i], "Const", strlen("Const")) == 0 ||
 							strncmp(szDispLabel[i], "Eg", strlen("Eg")) == 0 ||
 							strncmp(szDispLabel[i], "Fraction", strlen("Fraction")) == 0)
 					{
-						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]ŒÅ’è
+						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]ï¿½Å’ï¿½
 					}
-// 2009.11.12 K.Matsuo ADAP‚Ì•ñ€–Ú‚Ì§–ñ‘Î‰B2ŒÂ–Ú‚ÌN1[XXX],K1[XXX]‚ğ‚Ì‚Á‚Æ‚èA•Ê€–Ú‚Ì’l‚ğ•ñ <--
-					else if((strstr(szDispLabel[i], "%") != NULL)||(strstr(szDispLabel[i], "Fit") != NULL)) //%Œn, Fit
+// 2009.11.12 K.Matsuo ADAPï¿½Ì•ñï¿½ï¿½Ú‚Ìï¿½ï¿½ï¿½Î‰ï¿½ï¿½B2ï¿½Â–Ú‚ï¿½N1[XXX],K1[XXX]ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½Æ‚ï¿½Aï¿½Êï¿½ï¿½Ú‚Ì’lï¿½ï¿½ï¿½ <--
+					else if((strstr(szDispLabel[i], "%") != NULL)||(strstr(szDispLabel[i], "Fit") != NULL)) //%ï¿½n, Fit
 					{
 /* modified 2014.05.22 hmenjo scout fit .6f ---------- { ---------- */
-//						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]ŒÅ’è
+//						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]ï¿½Å’ï¿½
 /* modified 2014.05.22 hmenjo scout fit .6f ----------              */
 						if ((0 != strstr(szDispLabel[i], "Fit")) &&
 							(1 == g_lXmpType)) {
-/* modified 2014.11.22 hmenjo Fit w”•\¦(2) ---------- { ---------- */
-///* modified 2014.10.27 hmenjo Fit w”•\¦ %.3e ---------- { ---------- */
-////							sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[6], "f"); //[.##]ŒÅ’è
-///* modified 2014.10.27 hmenjo Fit w”•\¦ %.3e ----------              */
+/* modified 2014.11.22 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½(2) ---------- { ---------- */
+///* modified 2014.10.27 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½ %.3e ---------- { ---------- */
+////							sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[6], "f"); //[.##]ï¿½Å’ï¿½
+///* modified 2014.10.27 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½ %.3e ----------              */
 //							strcpy(szDecimalPointBuff, "%.3e");
-///* modified 2014.10.27 hmenjo Fit w”•\¦ %.3e ---------- } ---------- */
-/* modified 2014.11.22 hmenjo Fit w”•\¦(2) ----------              */
+///* modified 2014.10.27 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½ %.3e ---------- } ---------- */
+/* modified 2014.11.22 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½(2) ----------              */
 #if FIT_DISP_SCOUT == 3
 							strcpy(szDecimalPointBuff, "");
 #elif FIT_DISP_SCOUT == 2
@@ -565,24 +565,24 @@ int CMeasurementListDlg::SetMeasurementData2()
 #else
 							sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[6], "f");
 #endif
-/* modified 2014.11.22 hmenjo Fit w”•\¦(2) ---------- } ---------- */
+/* modified 2014.11.22 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½(2) ---------- } ---------- */
 						} else {
-							sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]ŒÅ’è
+							sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]ï¿½Å’ï¿½
 						}
 /* modified 2014.05.22 hmenjo scout fit .6f ---------- } ---------- */
 					}
-					else //‚»‚Ì‘¼
+					else //ï¿½ï¿½ï¿½Ì‘ï¿½
 					{
-						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //‘I‘ğUnit‚Å•Ï“®
+						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //ï¿½Iï¿½ï¿½Unitï¿½Å•Ï“ï¿½
 					}
 
-					if(strstr(szDispLabel[i], "Thick") != NULL) //ƒ‰ƒxƒ‹–¼‚ªThick*
+					if(strstr(szDispLabel[i], "Thick") != NULL) //ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Thick*
 					{
 
 						//MeasurementData
 						strBuffer.Format(szDecimalPointBuff, OnePointData.dData[i] * g_dUnitConvert[iUnitIndex]);  //
 						AddMeasurementListGrid_Data(iCount, iCol+iIndex, strBuffer );
-						//“Œvƒf[ƒ^
+						//ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^
 						strBuffer.Format(szDecimalPointBuff, Statistics[i].dMaximum * g_dUnitConvert[iUnitIndex]);	//MAX
 						AddStatisticsListGrid_Data(1, iCol+1, strBuffer );
 						strBuffer.Format(szDecimalPointBuff, Statistics[i].dMinimum * g_dUnitConvert[iUnitIndex]);	//MIN
@@ -591,20 +591,20 @@ int CMeasurementListDlg::SetMeasurementData2()
 						AddStatisticsListGrid_Data(3, iCol+1, strBuffer );
 						strBuffer.Format(szDecimalPointBuff, Statistics[i].dAverage * g_dUnitConvert[iUnitIndex]);	//MEAN
 						AddStatisticsListGrid_Data(4, iCol+1, strBuffer );
-/* modified 2017.04.29 hmenjo ®”•\¦‰» SD œŠO ---------- { ---------- */
+/* modified 2017.04.29 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ SD ï¿½ï¿½ï¿½O ---------- { ---------- */
 //						strBuffer.Format(szDecimalPointBuff, Statistics[i].dStandardDeviation * g_dUnitConvert[iUnitIndex]); //S.D.
-/* modified 2017.04.29 hmenjo ®”•\¦‰» SD œŠO ----------              */
+/* modified 2017.04.29 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ SD ï¿½ï¿½ï¿½O ----------              */
 						strBuffer.Format(szDecimalPointBuffThickSD, Statistics[i].dStandardDeviation * g_dUnitConvert[iUnitIndex]); //S.D.
-/* modified 2017.04.29 hmenjo ®”•\¦‰» SD œŠO ---------- } ---------- */
+/* modified 2017.04.29 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ SD ï¿½ï¿½ï¿½O ---------- } ---------- */
 						AddStatisticsListGrid_Data(5, iCol+1, strBuffer );
 						iCol++;
 					}
-					else if(strstr(szDispLabel[i], "%") != NULL) //ƒ‰ƒxƒ‹–¼‚ª%Œn
+					else if(strstr(szDispLabel[i], "%") != NULL) //ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%ï¿½n
 					{
 						//MeasurementData
 						strBuffer.Format(szDecimalPointBuff, OnePointData.dData[i] * 100);	//
 						AddMeasurementListGrid_Data(iCount, iCol+iIndex, strBuffer );
-						//“Œvƒf[ƒ^
+						//ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^
 						strBuffer.Format(szDecimalPointBuff, Statistics[i].dMaximum * 100);  //MAX
 						AddStatisticsListGrid_Data(1, iCol+1, strBuffer );
 						strBuffer.Format(szDecimalPointBuff, Statistics[i].dMinimum * 100);  //MIN
@@ -620,10 +620,10 @@ int CMeasurementListDlg::SetMeasurementData2()
 					else //
 					{
 						//MeasurementData
-/* modified 2014.11.22 hmenjo Fit w”•\¦(2) ---------- { ---------- */
+/* modified 2014.11.22 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½(2) ---------- { ---------- */
 //						strBuffer.Format(szDecimalPointBuff, OnePointData.dData[i]);  //
 //						AddMeasurementListGrid_Data(iCount, iCol+iIndex, strBuffer );
-//						//“Œvƒf[ƒ^
+//						//ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^
 //						strBuffer.Format(szDecimalPointBuff, Statistics[i].dMaximum);  //MAX
 //						AddStatisticsListGrid_Data(1, iCol+1, strBuffer );
 //						strBuffer.Format(szDecimalPointBuff, Statistics[i].dMinimum);  //MIN
@@ -634,12 +634,12 @@ int CMeasurementListDlg::SetMeasurementData2()
 //						AddStatisticsListGrid_Data(4, iCol+1, strBuffer );
 //						strBuffer.Format(szDecimalPointBuff, Statistics[i].dStandardDeviation); //S.D.
 //						AddStatisticsListGrid_Data(5, iCol+1, strBuffer );
-/* modified 2014.11.22 hmenjo Fit w”•\¦(2) ----------              */
+/* modified 2014.11.22 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½(2) ----------              */
 						if (0 == strlen(szDecimalPointBuff)) {
 							long l_lExp = m_pDoc->GetExpDouble(OnePointData.dData[i]);
 							strBuffer.Format("%.2fe%+03d", OnePointData.dData[i] / pow(10, l_lExp), l_lExp);
 							AddMeasurementListGrid_Data(iCount, iCol+iIndex, strBuffer );
-							/* “Œvƒf[ƒ^	*/
+							/* ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^	*/
 							l_lExp = m_pDoc->GetExpDouble(Statistics[i].dMaximum);
 							strBuffer.Format("%.2fe%+03d", Statistics[i].dMaximum / pow(10, l_lExp), l_lExp);
 							AddStatisticsListGrid_Data(1, iCol+1, strBuffer );				/* MAX	*/
@@ -658,7 +658,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 						} else {
 							strBuffer.Format(szDecimalPointBuff, OnePointData.dData[i]);
 							AddMeasurementListGrid_Data(iCount, iCol+iIndex, strBuffer );
-							/* “Œvƒf[ƒ^	*/
+							/* ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^	*/
 							strBuffer.Format(szDecimalPointBuff, Statistics[i].dMaximum);	/* MAX	*/
 							AddStatisticsListGrid_Data(1, iCol+1, strBuffer );
 							strBuffer.Format(szDecimalPointBuff, Statistics[i].dMinimum);	/* MIN	*/
@@ -670,7 +670,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 							strBuffer.Format(szDecimalPointBuff, Statistics[i].dStandardDeviation);	/* S.D.	*/
 							AddStatisticsListGrid_Data(5, iCol+1, strBuffer );
 						}
-/* modified 2014.11.22 hmenjo Fit w”•\¦(2) ---------- } ---------- */
+/* modified 2014.11.22 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½(2) ---------- } ---------- */
 						iCol++;
 					}
 				}
@@ -678,15 +678,15 @@ int CMeasurementListDlg::SetMeasurementData2()
 			case MEAS_PROG_TYPE_SR_DISTANCE:
 
 				//2009.10.28 bagus 2point-Distance --{--
-				//2“_ŠÔ‹——£‚Ìê‡‚É‚ÍŠï””Ô‚Ì‚Æ‚«‚Ì‚İXV
+				//2ï¿½_ï¿½Ô‹ï¿½ï¿½ï¿½ï¿½Ìê‡ï¿½É‚ÍŠï”ï¿½Ô‚Ì‚Æ‚ï¿½ï¿½Ì‚İXï¿½V
 				if(bMeasDistance && iCount % 2 == 1){
 					break;
 				}
 				//2009.10.28 bagus 2point-Distance --}--
 
 				nItemCount = iCount / 2;
-				m_pDoc->GetOnePointAndStatistics(&OnePointData, Statistics,iCount); //(1ƒ|ƒCƒ“ƒg–Ú1)
-				m_pDoc->GetOnePointAndStatistics(&DistanceOnePointData, Statistics, iCount-1); //(1ƒ|ƒCƒ“ƒg–Ú1)
+				m_pDoc->GetOnePointAndStatistics(&OnePointData, Statistics,iCount); //(1ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Úï¿½1)
+				m_pDoc->GetOnePointAndStatistics(&DistanceOnePointData, Statistics, iCount-1); //(1ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Úï¿½1)
 
 				//char szXyzFormat[255+1];
 				memset(szXyzFormat, 0, sizeof(szXyzFormat));
@@ -720,7 +720,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 				AddMeasurementListGrid_Data(nItemCount, iIndex++, strBuffer);
 
 				//2009.11.26 bagus 2point-Distance --{--
-				// dx,dy€–Ú‚Ì’Ç‰Á
+				// dx,dyï¿½ï¿½ï¿½Ú‚Ì’Ç‰ï¿½
 				//dx
 				dPositionX = DistanceOnePointData.xyz.lX - OnePointData.xyz.lX;
 				//2009.11.29 bagus 2point-distance --{--
@@ -743,7 +743,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 				///// StatisTics /////
 				iCol = 0;
 				for(iCol = 0;iCol < 3;iCol++){
-					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]ŒÅ’è
+					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]ï¿½Å’ï¿½
 					strBuffer.Format(szDecimalPointBuff, Statistics[iCol].dMaximum* g_dXyzUnitConvertCoefficient[0]);  //MAX
 					AddStatisticsListGrid_Data(1, iCol+1, strBuffer );
 					strBuffer.Format(szDecimalPointBuff, Statistics[iCol].dMinimum* g_dXyzUnitConvertCoefficient[0]);  //MIN
@@ -763,7 +763,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 			//2009.10.28 bagus 2point-Distance
 			break;
 		case HEAD_TYPE_STRESS:
-			//Stress ƒwƒbƒh‚Ìƒf[ƒ^‚ª—ˆ‚½ê‡‚Ìˆ—‚ğ‘‚­
+			//Stress ï¿½wï¿½bï¿½hï¿½Ìƒfï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			memset(szXyzFormat, 0, sizeof(szXyzFormat));
 			sprintf(szXyzFormat, "%s%s%s", "%", g_lpszXyzDecimalPoint[0], "lf");
 			///// X-Start/X-End/Stress
@@ -788,7 +788,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 			strBuffer.Format(szXyzFormat, dPositionZ);
 			AddMeasurementListGrid_Data(iCount, iIndex++, strBuffer);
 
-			//// ƒI[ƒgƒtƒH[ƒJƒX”»’è—“ ////
+			//// ï¿½Iï¿½[ï¿½gï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ï¿½è—“ ////
 			strBuffer.Format("%s", OnePointData.szShowAfValid);
 			AddMeasurementListGrid_Data(iCount, iIndex++, strBuffer);
 
@@ -820,45 +820,45 @@ int CMeasurementListDlg::SetMeasurementData2()
 				memset(szDecimalPointBuff, 0, sizeof(szDecimalPointBuff));
 				if(strstr(szDispLabel[i], "Thick") != NULL) //Thick*
 				{
-/* modified 2017.04.15 hmenjo ®”•\¦‰» ---------- { ---------- */
-//					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //‘I‘ğUnit‚Å•Ï“®
-/* modified 2017.04.15 hmenjo ®”•\¦‰» ----------              */
+/* modified 2017.04.15 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
+//					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //ï¿½Iï¿½ï¿½Unitï¿½Å•Ï“ï¿½
+/* modified 2017.04.15 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ ----------              */
 					if (l_iUnitIndexThickInt < 0) {
-						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //‘I‘ğUnit‚Å•Ï“®
+						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //ï¿½Iï¿½ï¿½Unitï¿½Å•Ï“ï¿½
 					} else {
 						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[l_iUnitIndexThickInt], "f");
 					}
-/* added 2017.04.29 hmenjo ®”•\¦‰» SD œŠO ---------- { ---------- */
-					sprintf(szDecimalPointBuffThickSD, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //‘I‘ğUnit‚Å•Ï“®
-/* added 2017.04.29 hmenjo ®”•\¦‰» SD œŠO ---------- } ---------- */
-/* modified 2017.04.15 hmenjo ®”•\¦‰» ---------- } ---------- */
+/* added 2017.04.29 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ SD ï¿½ï¿½ï¿½O ---------- { ---------- */
+					sprintf(szDecimalPointBuffThickSD, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //ï¿½Iï¿½ï¿½Unitï¿½Å•Ï“ï¿½
+/* added 2017.04.29 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ SD ï¿½ï¿½ï¿½O ---------- } ---------- */
+/* modified 2017.04.15 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
 				}
-				else if((szDispLabel[i][0]=='N')||(szDispLabel[i][0]=='K')) //N,K’lŒn
+				else if((szDispLabel[i][0]=='N')||(szDispLabel[i][0]=='K')) //N,Kï¿½lï¿½n
 				{
-					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]ŒÅ’è
+					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]ï¿½Å’ï¿½
 				}
-// 2009.11.12 K.Matsuo ADAP‚Ì•ñ€–Ú‚Ì§–ñ‘Î‰B2ŒÂ–Ú‚ÌN1[XXX],K1[XXX]‚ğ‚Ì‚Á‚Æ‚èA•Ê€–Ú‚Ì’l‚ğ•ñ -->
+// 2009.11.12 K.Matsuo ADAPï¿½Ì•ñï¿½ï¿½Ú‚Ìï¿½ï¿½ï¿½Î‰ï¿½ï¿½B2ï¿½Â–Ú‚ï¿½N1[XXX],K1[XXX]ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½Æ‚ï¿½Aï¿½Êï¿½ï¿½Ú‚Ì’lï¿½ï¿½ï¿½ -->
 				else if(strncmp(szDispLabel[i], "Const", strlen("Const")) == 0 ||
 						strncmp(szDispLabel[i], "Eg", strlen("Eg")) == 0 ||
 						strncmp(szDispLabel[i], "Fraction", strlen("Fraction")) == 0)
 				{
-					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]ŒÅ’è
+					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]ï¿½Å’ï¿½
 				}
-// 2009.11.12 K.Matsuo ADAP‚Ì•ñ€–Ú‚Ì§–ñ‘Î‰B2ŒÂ–Ú‚ÌN1[XXX],K1[XXX]‚ğ‚Ì‚Á‚Æ‚èA•Ê€–Ú‚Ì’l‚ğ•ñ <--
-				else if((strstr(szDispLabel[i], "%") != NULL)||(strstr(szDispLabel[i], "Fit") != NULL)) //%Œn, Fit
+// 2009.11.12 K.Matsuo ADAPï¿½Ì•ñï¿½ï¿½Ú‚Ìï¿½ï¿½ï¿½Î‰ï¿½ï¿½B2ï¿½Â–Ú‚ï¿½N1[XXX],K1[XXX]ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½Æ‚ï¿½Aï¿½Êï¿½ï¿½Ú‚Ì’lï¿½ï¿½ï¿½ <--
+				else if((strstr(szDispLabel[i], "%") != NULL)||(strstr(szDispLabel[i], "Fit") != NULL)) //%ï¿½n, Fit
 				{
 /* modified 2014.05.22 hmenjo scout fit .6f ---------- { ---------- */
-//					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]ŒÅ’è
+//					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]ï¿½Å’ï¿½
 /* modified 2014.05.22 hmenjo scout fit .6f ----------              */
 					if ((0 != strstr(szDispLabel[i], "Fit")) &&
 						(1 == g_lXmpType)) {
-/* modified 2014.11.22 hmenjo Fit w”•\¦(2) ---------- { ---------- */
-///* modified 2014.10.27 hmenjo Fit w”•\¦ %.3e ---------- { ---------- */
-////						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[6], "f"); //[.##]ŒÅ’è
-///* modified 2014.10.27 hmenjo Fit w”•\¦ %.3e ----------              */
+/* modified 2014.11.22 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½(2) ---------- { ---------- */
+///* modified 2014.10.27 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½ %.3e ---------- { ---------- */
+////						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[6], "f"); //[.##]ï¿½Å’ï¿½
+///* modified 2014.10.27 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½ %.3e ----------              */
 //						strcpy(szDecimalPointBuff, "%.3e");
-///* modified 2014.10.27 hmenjo Fit w”•\¦ %.3e ---------- } ---------- */
-/* modified 2014.11.22 hmenjo Fit w”•\¦(2) ----------              */
+///* modified 2014.10.27 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½ %.3e ---------- } ---------- */
+/* modified 2014.11.22 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½(2) ----------              */
 #if FIT_DISP_SCOUT == 3
 						strcpy(szDecimalPointBuff, "");
 #elif FIT_DISP_SCOUT == 2
@@ -868,25 +868,25 @@ int CMeasurementListDlg::SetMeasurementData2()
 #else
 						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[6], "f");
 #endif
-/* modified 2014.11.22 hmenjo Fit w”•\¦(2) ---------- } ---------- */
+/* modified 2014.11.22 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½(2) ---------- } ---------- */
 					} else {
-						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]ŒÅ’è
+						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]ï¿½Å’ï¿½
 					}
 /* modified 2014.05.22 hmenjo scout fit .6f ---------- } ---------- */
 				}
-				else //‚»‚Ì‘¼
+				else //ï¿½ï¿½ï¿½Ì‘ï¿½
 				{
-					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //‘I‘ğUnit‚Å•Ï“®
+					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //ï¿½Iï¿½ï¿½Unitï¿½Å•Ï“ï¿½
 				}
 
-				if(strstr(szDispLabel[i], "Thick") != NULL) //ƒ‰ƒxƒ‹–¼‚ªThick*
+				if(strstr(szDispLabel[i], "Thick") != NULL) //ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Thick*
 				{
 
 					//MeasurementData
 					strBuffer.Format(szDecimalPointBuff, OnePointData.dData[i] * g_dUnitConvert[iUnitIndex]);  //
 					//AddMeasurementListGrid_Data(iCount, iCol+nTotalSressLineNum  + 1, strBuffer );
 					AddMeasurementListGrid_Data(iCount, iIndex++, strBuffer );
-					//“Œvƒf[ƒ^
+					//ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^
 					strBuffer.Format(szDecimalPointBuff, Statistics[i].dMaximum * g_dUnitConvert[iUnitIndex]);	//MAX
 					AddStatisticsListGrid_Data(1, nTotalSressLineNum + iCol+2, strBuffer );
 					strBuffer.Format(szDecimalPointBuff, Statistics[i].dMinimum * g_dUnitConvert[iUnitIndex]);	//MIN
@@ -895,20 +895,20 @@ int CMeasurementListDlg::SetMeasurementData2()
 					AddStatisticsListGrid_Data(3, nTotalSressLineNum +iCol+2, strBuffer );
 					strBuffer.Format(szDecimalPointBuff, Statistics[i].dAverage * g_dUnitConvert[iUnitIndex]);	//MEAN
 					AddStatisticsListGrid_Data(4, nTotalSressLineNum +iCol+2, strBuffer );
-/* modified 2017.04.29 hmenjo ®”•\¦‰» SD œŠO ---------- { ---------- */
+/* modified 2017.04.29 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ SD ï¿½ï¿½ï¿½O ---------- { ---------- */
 //					strBuffer.Format(szDecimalPointBuff, Statistics[i].dStandardDeviation * g_dUnitConvert[iUnitIndex]); //S.D.
-/* modified 2017.04.29 hmenjo ®”•\¦‰» SD œŠO ----------              */
+/* modified 2017.04.29 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ SD ï¿½ï¿½ï¿½O ----------              */
 					strBuffer.Format(szDecimalPointBuffThickSD, Statistics[i].dStandardDeviation * g_dUnitConvert[iUnitIndex]); //S.D.
-/* modified 2017.04.29 hmenjo ®”•\¦‰» SD œŠO ---------- } ---------- */
+/* modified 2017.04.29 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ SD ï¿½ï¿½ï¿½O ---------- } ---------- */
 					AddStatisticsListGrid_Data(5, nTotalSressLineNum +iCol+2, strBuffer );
 					iCol++;
 				}
-				else if(strstr(szDispLabel[i], "%") != NULL) //ƒ‰ƒxƒ‹–¼‚ª%Œn
+				else if(strstr(szDispLabel[i], "%") != NULL) //ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%ï¿½n
 				{
 					//MeasurementData
 					strBuffer.Format(szDecimalPointBuff, OnePointData.dData[i] * 100);	//
 					AddMeasurementListGrid_Data(iCount, iIndex++, strBuffer );
-					//“Œvƒf[ƒ^
+					//ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^
 					strBuffer.Format(szDecimalPointBuff, Statistics[i].dMaximum * 100);  //MAX
 					AddStatisticsListGrid_Data(1, nTotalSressLineNum +iCol+2, strBuffer );
 					strBuffer.Format(szDecimalPointBuff, Statistics[i].dMinimum * 100);  //MIN
@@ -924,10 +924,10 @@ int CMeasurementListDlg::SetMeasurementData2()
 				else //
 				{
 					//MeasurementData
-/* modified 2014.11.22 hmenjo Fit w”•\¦(2) ---------- { ---------- */
+/* modified 2014.11.22 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½(2) ---------- { ---------- */
 //					strBuffer.Format(szDecimalPointBuff, OnePointData.dData[i]);  //
 //					AddMeasurementListGrid_Data(iCount, iIndex++, strBuffer );
-//					//“Œvƒf[ƒ^
+//					//ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^
 //					strBuffer.Format(szDecimalPointBuff, Statistics[i].dMaximum);  //MAX
 //					AddStatisticsListGrid_Data(1, nTotalSressLineNum + iCol+2, strBuffer );
 //					strBuffer.Format(szDecimalPointBuff, Statistics[i].dMinimum);  //MIN
@@ -938,12 +938,12 @@ int CMeasurementListDlg::SetMeasurementData2()
 //					AddStatisticsListGrid_Data(4, nTotalSressLineNum + iCol+2, strBuffer );
 //					strBuffer.Format(szDecimalPointBuff, Statistics[i].dStandardDeviation); //S.D.
 //					AddStatisticsListGrid_Data(5, nTotalSressLineNum + iCol+2, strBuffer );
-/* modified 2014.11.22 hmenjo Fit w”•\¦(2) ----------              */
+/* modified 2014.11.22 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½(2) ----------              */
 					if (0 == strlen(szDecimalPointBuff)) {
 						long l_lExp = m_pDoc->GetExpDouble(OnePointData.dData[i]);
 						strBuffer.Format("%.2fe%+03d", OnePointData.dData[i] / pow(10, l_lExp), l_lExp);
 						AddMeasurementListGrid_Data(iCount, iIndex++, strBuffer );
-						/* “Œvƒf[ƒ^	*/
+						/* ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^	*/
 						l_lExp = m_pDoc->GetExpDouble(Statistics[i].dMaximum);
 						strBuffer.Format("%.2fe%+03d", Statistics[i].dMaximum / pow(10, l_lExp), l_lExp);
 						AddStatisticsListGrid_Data(1, nTotalSressLineNum + iCol+2, strBuffer );	/* MAX	*/
@@ -962,7 +962,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 					} else {
 						strBuffer.Format(szDecimalPointBuff, OnePointData.dData[i]);
 						AddMeasurementListGrid_Data(iCount, iIndex++, strBuffer );
-						/* “Œvƒf[ƒ^	*/
+						/* ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^	*/
 						strBuffer.Format(szDecimalPointBuff, Statistics[i].dMaximum);	/* MAX	*/
 						AddStatisticsListGrid_Data(1, nTotalSressLineNum + iCol+2, strBuffer );
 						strBuffer.Format(szDecimalPointBuff, Statistics[i].dMinimum);	/* MIN	*/
@@ -974,17 +974,17 @@ int CMeasurementListDlg::SetMeasurementData2()
 						strBuffer.Format(szDecimalPointBuff, Statistics[i].dStandardDeviation);	/* S.D.	*/
 						AddStatisticsListGrid_Data(5, nTotalSressLineNum + iCol+2, strBuffer );
 					}
-/* modified 2014.11.22 hmenjo Fit w”•\¦(2) ---------- } ---------- */
+/* modified 2014.11.22 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½(2) ---------- } ---------- */
 					iCol++;
 				}
 			}
 			break;
 		//2009.09.15 bagus se --{--
-		//SR‚©‚çƒRƒs[
+		//SRï¿½ï¿½ï¿½ï¿½Rï¿½sï¿½[
 		case HEAD_TYPE_SE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 		case HEAD_TYPE_COMPEASE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
 			//char szXyzFormat[255+1];
 			memset(szXyzFormat, 0, sizeof(szXyzFormat));
 			sprintf(szXyzFormat, "%s%s%s", "%", g_lpszXyzDecimalPoint[0], "lf");
@@ -1006,7 +1006,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 			AddMeasurementListGrid_Data(iCount, iIndex++, strBuffer);
 
 
-			//// ƒI[ƒgƒtƒH[ƒJƒX”»’è—“ ////
+			//// ï¿½Iï¿½[ï¿½gï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ï¿½è—“ ////
 			ConfigFile_GetNanoSpecIni(&m_SrConfig, CONFIG_FILE_SR_CONFIG);
 			if(m_SrConfig.bAutoFocus)
 			{
@@ -1031,34 +1031,34 @@ int CMeasurementListDlg::SetMeasurementData2()
 				memset(szDecimalPointBuff, 0, sizeof(szDecimalPointBuff));
 				if(strstr(szDispLabel[i], "Thick") != NULL) //Thick*
 				{
-					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //‘I‘ğUnit‚Å•Ï“®
+					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //ï¿½Iï¿½ï¿½Unitï¿½Å•Ï“ï¿½
 				}
-				else if((szDispLabel[i][0]=='N')||(szDispLabel[i][0]=='K')) //N,K’lŒn
+				else if((szDispLabel[i][0]=='N')||(szDispLabel[i][0]=='K')) //N,Kï¿½lï¿½n
 				{
-					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]ŒÅ’è
+					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]ï¿½Å’ï¿½
 				}
-// 2009.11.12 K.Matsuo ADAP‚Ì•ñ€–Ú‚Ì§–ñ‘Î‰B2ŒÂ–Ú‚ÌN1[XXX],K1[XXX]‚ğ‚Ì‚Á‚Æ‚èA•Ê€–Ú‚Ì’l‚ğ•ñ -->
+// 2009.11.12 K.Matsuo ADAPï¿½Ì•ñï¿½ï¿½Ú‚Ìï¿½ï¿½ï¿½Î‰ï¿½ï¿½B2ï¿½Â–Ú‚ï¿½N1[XXX],K1[XXX]ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½Æ‚ï¿½Aï¿½Êï¿½ï¿½Ú‚Ì’lï¿½ï¿½ï¿½ -->
 				else if(strncmp(szDispLabel[i], "Const", strlen("Const")) == 0 ||
 						strncmp(szDispLabel[i], "Eg", strlen("Eg")) == 0 ||
 						strncmp(szDispLabel[i], "Fraction", strlen("Fraction")) == 0)
 				{
-					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]ŒÅ’è
+					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]ï¿½Å’ï¿½
 				}
-// 2009.11.12 K.Matsuo ADAP‚Ì•ñ€–Ú‚Ì§–ñ‘Î‰B2ŒÂ–Ú‚ÌN1[XXX],K1[XXX]‚ğ‚Ì‚Á‚Æ‚èA•Ê€–Ú‚Ì’l‚ğ•ñ <--
-				else if((strstr(szDispLabel[i], "%") != NULL)||(strstr(szDispLabel[i], "Fit") != NULL)) //%Œn, Fit
+// 2009.11.12 K.Matsuo ADAPï¿½Ì•ñï¿½ï¿½Ú‚Ìï¿½ï¿½ï¿½Î‰ï¿½ï¿½B2ï¿½Â–Ú‚ï¿½N1[XXX],K1[XXX]ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½Æ‚ï¿½Aï¿½Êï¿½ï¿½Ú‚Ì’lï¿½ï¿½ï¿½ <--
+				else if((strstr(szDispLabel[i], "%") != NULL)||(strstr(szDispLabel[i], "Fit") != NULL)) //%ï¿½n, Fit
 				{
 /* modified 2014.05.22 hmenjo scout fit .6f ---------- { ---------- */
-//					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]ŒÅ’è
+//					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]ï¿½Å’ï¿½
 /* modified 2014.05.22 hmenjo scout fit .6f ----------              */
 					if ((0 != strstr(szDispLabel[i], "Fit")) &&
 						(1 == g_lXmpType)) {
-/* modified 2014.11.22 hmenjo Fit w”•\¦(2) ---------- { ---------- */
-///* modified 2014.10.27 hmenjo Fit w”•\¦ %.3e ---------- { ---------- */
-////						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[6], "f"); //[.##]ŒÅ’è
-///* modified 2014.10.27 hmenjo Fit w”•\¦ %.3e ----------              */
+/* modified 2014.11.22 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½(2) ---------- { ---------- */
+///* modified 2014.10.27 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½ %.3e ---------- { ---------- */
+////						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[6], "f"); //[.##]ï¿½Å’ï¿½
+///* modified 2014.10.27 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½ %.3e ----------              */
 //						strcpy(szDecimalPointBuff, "%.3e");
-///* modified 2014.10.27 hmenjo Fit w”•\¦ %.3e ---------- } ---------- */
-/* modified 2014.11.22 hmenjo Fit w”•\¦(2) ----------              */
+///* modified 2014.10.27 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½ %.3e ---------- } ---------- */
+/* modified 2014.11.22 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½(2) ----------              */
 #if FIT_DISP_SCOUT == 3
 						strcpy(szDecimalPointBuff, "");
 #elif FIT_DISP_SCOUT == 2
@@ -1066,26 +1066,26 @@ int CMeasurementListDlg::SetMeasurementData2()
 #elif FIT_DISP_SCOUT == 1
 						strcpy(szDecimalPointBuff, "%.3e");
 #else
-						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[6], "f"); //[.##]ŒÅ’è
+						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[6], "f"); //[.##]ï¿½Å’ï¿½
 #endif
-/* modified 2014.11.22 hmenjo Fit w”•\¦(2) ---------- } ---------- */
+/* modified 2014.11.22 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½(2) ---------- } ---------- */
 					} else {
-						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]ŒÅ’è
+						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]ï¿½Å’ï¿½
 					}
 /* modified 2014.05.22 hmenjo scout fit .6f ---------- } ---------- */
 				}
-				else //‚»‚Ì‘¼
+				else //ï¿½ï¿½ï¿½Ì‘ï¿½
 				{
-					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //‘I‘ğUnit‚Å•Ï“®
+					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //ï¿½Iï¿½ï¿½Unitï¿½Å•Ï“ï¿½
 				}
 
-				if(strstr(szDispLabel[i], "Thick") != NULL) //ƒ‰ƒxƒ‹–¼‚ªThick*
+				if(strstr(szDispLabel[i], "Thick") != NULL) //ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Thick*
 				{
 
 					//MeasurementData
 					strBuffer.Format(szDecimalPointBuff, OnePointData.dData[i] * g_dUnitConvert[iUnitIndex]);  //
 					AddMeasurementListGrid_Data(iCount, iCol+iIndex, strBuffer );
-					//“Œvƒf[ƒ^
+					//ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^
 					strBuffer.Format(szDecimalPointBuff, Statistics[i].dMaximum * g_dUnitConvert[iUnitIndex]);	//MAX
 					AddStatisticsListGrid_Data(1, iCol+1, strBuffer );
 					strBuffer.Format(szDecimalPointBuff, Statistics[i].dMinimum * g_dUnitConvert[iUnitIndex]);	//MIN
@@ -1098,12 +1098,12 @@ int CMeasurementListDlg::SetMeasurementData2()
 					AddStatisticsListGrid_Data(5, iCol+1, strBuffer );
 					iCol++;
 				}
-				else if(strstr(szDispLabel[i], "%") != NULL) //ƒ‰ƒxƒ‹–¼‚ª%Œn
+				else if(strstr(szDispLabel[i], "%") != NULL) //ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%ï¿½n
 				{
 					//MeasurementData
 					strBuffer.Format(szDecimalPointBuff, OnePointData.dData[i] * 100);	//
 					AddMeasurementListGrid_Data(iCount, iCol+iIndex, strBuffer );
-					//“Œvƒf[ƒ^
+					//ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^
 					strBuffer.Format(szDecimalPointBuff, Statistics[i].dMaximum * 100);  //MAX
 					AddStatisticsListGrid_Data(1, iCol+1, strBuffer );
 					strBuffer.Format(szDecimalPointBuff, Statistics[i].dMinimum * 100);  //MIN
@@ -1119,10 +1119,10 @@ int CMeasurementListDlg::SetMeasurementData2()
 				else //
 				{
 					//MeasurementData
-/* modified 2014.11.22 hmenjo Fit w”•\¦(2) ---------- { ---------- */
+/* modified 2014.11.22 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½(2) ---------- { ---------- */
 //					strBuffer.Format(szDecimalPointBuff, OnePointData.dData[i]);  //
 //					AddMeasurementListGrid_Data(iCount, iCol+iIndex, strBuffer );
-//					//“Œvƒf[ƒ^
+//					//ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^
 //					strBuffer.Format(szDecimalPointBuff, Statistics[i].dMaximum);  //MAX
 //					AddStatisticsListGrid_Data(1, iCol+1, strBuffer );
 //					strBuffer.Format(szDecimalPointBuff, Statistics[i].dMinimum);  //MIN
@@ -1133,12 +1133,12 @@ int CMeasurementListDlg::SetMeasurementData2()
 //					AddStatisticsListGrid_Data(4, iCol+1, strBuffer );
 //					strBuffer.Format(szDecimalPointBuff, Statistics[i].dStandardDeviation); //S.D.
 //					AddStatisticsListGrid_Data(5, iCol+1, strBuffer );
-/* modified 2014.11.22 hmenjo Fit w”•\¦(2) ----------              */
+/* modified 2014.11.22 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½(2) ----------              */
 					if (0 == strlen(szDecimalPointBuff)) {
 						long l_lExp = m_pDoc->GetExpDouble(OnePointData.dData[i]);
 						strBuffer.Format("%.2fe%+03d", OnePointData.dData[i] / pow(10, l_lExp), l_lExp);
 						AddMeasurementListGrid_Data(iCount, iCol+iIndex, strBuffer );
-						/* “Œvƒf[ƒ^	*/
+						/* ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^	*/
 						l_lExp = m_pDoc->GetExpDouble(Statistics[i].dMaximum);
 						strBuffer.Format("%.2fe%+03d", Statistics[i].dMaximum / pow(10, l_lExp), l_lExp);
 						AddStatisticsListGrid_Data(1, iCol+1, strBuffer);				/* MAX	*/
@@ -1157,7 +1157,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 					} else {
 						strBuffer.Format(szDecimalPointBuff, OnePointData.dData[i]);
 						AddMeasurementListGrid_Data(iCount, iCol+iIndex, strBuffer );
-						/* “Œvƒf[ƒ^	*/
+						/* ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^	*/
 						strBuffer.Format(szDecimalPointBuff, Statistics[i].dMaximum);	/* MAX	*/
 						AddStatisticsListGrid_Data(1, iCol+1, strBuffer );
 						strBuffer.Format(szDecimalPointBuff, Statistics[i].dMinimum);	/* MIN	*/
@@ -1169,13 +1169,13 @@ int CMeasurementListDlg::SetMeasurementData2()
 						strBuffer.Format(szDecimalPointBuff, Statistics[i].dStandardDeviation);	/* S.D.	*/
 						AddStatisticsListGrid_Data(5, iCol+1, strBuffer );
 					}
-/* modified 2014.11.22 hmenjo Fit w”•\¦(2) ---------- } ---------- */
+/* modified 2014.11.22 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½(2) ---------- } ---------- */
 					iCol++;
 				}
 			}
 			break;
 		//2009.09.15 bagus --}--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --{--
 //		case HEAD_TYPE_IRSE:
 		case HEAD_TYPE_MS:
 			memset(szXyzFormat, 0, sizeof(szXyzFormat));
@@ -1192,8 +1192,8 @@ int CMeasurementListDlg::SetMeasurementData2()
 			strBuffer.Format(szXyzFormat, dPositionY);
 			AddMeasurementListGrid_Data(iCount, iIndex++, strBuffer);
 			break;
-// 2009.10.19 bagus MS ’Ç‰Á --}--
-// 2009.11.12 K.Matsuo Resist w”•\¦‚ÉC³ -->
+// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --}--
+// 2009.11.12 K.Matsuo Resist ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ÉCï¿½ï¿½ -->
 		case HEAD_TYPE_4PP:
 			memset(szXyzFormat, 0, sizeof(szXyzFormat));
 			sprintf(szXyzFormat, "%s%s%s", "%", g_lpszXyzDecimalPoint[0], "lf");
@@ -1217,7 +1217,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 
 // 2009.12.17 bagus RS --{--
 #if 0
-			//// ƒI[ƒgƒtƒH[ƒJƒX”»’è—“ ////
+			//// ï¿½Iï¿½[ï¿½gï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ï¿½è—“ ////
 			ConfigFile_GetNanoSpecIni(&m_SrConfig, CONFIG_FILE_SR_CONFIG);
 			if(m_SrConfig.bAutoFocus)
 			{
@@ -1230,12 +1230,12 @@ int CMeasurementListDlg::SetMeasurementData2()
 			iCol = 0;
 			char szBuff[255+1];
 			char szDecimalPointBuff[255+1];
-			sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]ŒÅ’è
+			sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]ï¿½Å’ï¿½
 
 			bResitValidData = FALSE;
 			//2009.11.17 RS --{--
-			// Over Range, Over Load,‚È‚Ç’Ç‰Á
-			// Over Range / Over load ‚Ìê‡‚É‚Íƒf[ƒ^‚Í•\¦‚µ‚È‚¢
+			// Over Range, Over Load,ï¿½È‚Ç’Ç‰ï¿½
+			// Over Range / Over load ï¿½Ìê‡ï¿½É‚Íƒfï¿½[ï¿½^ï¿½Í•\ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 			switch(ResistOnePointData.chDataValid){
 			case _T('N'):
 				bResitValidData = TRUE;
@@ -1266,7 +1266,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 				//2009.11.17 RS --}--
 				}
 				AddMeasurementListGrid_Data(iCount, iCol+iIndex, strBuffer );
-				//“Œvƒf[ƒ^
+				//ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^
 				ConvertToExpNumber(Statistics[i].dMaximum, szBuff);  //MAX
 				AddStatisticsListGrid_Data(1, iCol+1, szBuff);
 				ConvertToExpNumber(Statistics[i].dMinimum, szBuff);  //MIN
@@ -1281,10 +1281,10 @@ int CMeasurementListDlg::SetMeasurementData2()
 
 			}
 			break;
-// 2009.11.12 K.Matsuo Resist w”•\¦‚ÉC³ <--
+// 2009.11.12 K.Matsuo Resist ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ÉCï¿½ï¿½ <--
 		case HEAD_TYPE_CTA:
 		//2009.11.04 bagus CA --{--
-		//SE‚©‚çƒRƒs[
+		//SEï¿½ï¿½ï¿½ï¿½Rï¿½sï¿½[
 			//char szXyzFormat[255+1];
 			memset(szXyzFormat, 0, sizeof(szXyzFormat));
 			sprintf(szXyzFormat, "%s%s%s", "%", g_lpszXyzDecimalPoint[0], "lf");
@@ -1308,7 +1308,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 
 // 2009.12.17 bagus CA --{--
 #if 0
-			//// ƒI[ƒgƒtƒH[ƒJƒX”»’è—“ ////
+			//// ï¿½Iï¿½[ï¿½gï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ï¿½è—“ ////
 			ConfigFile_GetNanoSpecIni(&m_SrConfig, CONFIG_FILE_SR_CONFIG);
 			if(m_SrConfig.bAutoFocus)
 			{
@@ -1323,7 +1323,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 			{
 
 				//2009.11.11 CA --{--
-				//•\¦Œ…”‚Ì’²®
+				//ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì’ï¿½ï¿½ï¿½
 				char szDecimalPointBuff[255+1];
 				char szDecimalPointBuffStat[255+1];
 				memset(szDecimalPointBuff, 0, sizeof(szDecimalPointBuff));
@@ -1339,7 +1339,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 					//MeasurementData
 					strBuffer.Format(szDecimalPointBuff, OnePointData.dData[i]);  //
 					AddMeasurementListGrid_Data(iCount, iCol+iIndex, strBuffer );
-					//“Œvƒf[ƒ^
+					//ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^
 					strBuffer.Format(szDecimalPointBuffStat, Statistics[i].dMaximum);  //MAX
 					AddStatisticsListGrid_Data(1, iCol+1, strBuffer );
 					strBuffer.Format(szDecimalPointBuffStat, Statistics[i].dMinimum);  //MIN
@@ -1359,26 +1359,26 @@ int CMeasurementListDlg::SetMeasurementData2()
 		default:
 			break;
 		}
-		//2009.07.27 bagus stress SRˆÈŠO‚Ìƒwƒbƒh‚É‚à‘Î‰ --}--
+		//2009.07.27 bagus stress SRï¿½ÈŠOï¿½Ìƒwï¿½bï¿½hï¿½É‚ï¿½ï¿½Î‰ï¿½ --}--
 
 
 		//2010.01.01.15 bagus 2point-Distance --{--
-		//2“_ŠÔ‹——£‚Í”¼•ª
+		//2ï¿½_ï¿½Ô‹ï¿½ï¿½ï¿½ï¿½Í”ï¿½ï¿½ï¿½
 		int iDiv = 1;
 		if(m_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType == HEAD_TYPE_SR
 		&& m_rcp_data.MeasProgInfo.ScanParams.hdr.wScanType == MEAS_PROG_TYPE_SR_DISTANCE){
 			iDiv = 2;
 		}
 
-		if(m_pDoc->GetSeqMeasMode() == SEQ_ON_NORMALMEASURE) //’Êí‘ª’è’†
+		if(m_pDoc->GetSeqMeasMode() == SEQ_ON_NORMALMEASURE) //ï¿½Êí‘ªï¿½è’†
 		{
-			strBuffer.Format("%5d / %5d ", iPoint / iDiv, iMeasureNum / iDiv);	//œ‘ª’è”(•ª•ê)‚ª‘‚¦‚½ê‡‚É‚à‘Î‰‚·‚é‚±‚ÆI
+			strBuffer.Format("%5d / %5d ", iPoint / iDiv, iMeasureNum / iDiv);	//ï¿½ï¿½ï¿½ï¿½ï¿½è”(ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½É‚ï¿½ï¿½Î‰ï¿½ï¿½ï¿½ï¿½é‚±ï¿½ÆI
 		}
-		else if(m_pDoc->GetSeqMeasMode() == SEQ_ON_REMEASURE) //ƒŠƒƒWƒƒ[’†
+		else if(m_pDoc->GetSeqMeasMode() == SEQ_ON_REMEASURE) //ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½
 		{
 			strBuffer.Format("%5d / %5d ", m_pDoc->GetReMeasurePointCnt() / iDiv/*iPoint*/, m_pDoc->GetReMeasNumScans() / iDiv/*iMeasureNum*/);
 		}
-		else //‘ª’è’†‚Å‚È‚¢
+		else //ï¿½ï¿½ï¿½è’†ï¿½Å‚È‚ï¿½
 		{
 			strBuffer.Format("%5d / %5d ", m_pDoc->GetStoreCount() / iDiv/*iPoint*/, iMeasureNum / iDiv);
 		}
@@ -1386,41 +1386,41 @@ int CMeasurementListDlg::SetMeasurementData2()
 
 		SetDlgItemText(IDC_MEASUREMENT_POINT, strBuffer);
 
-/* added 2016.05.05 hmenjo è“® Ä‘ª’è/w’è“Œv ---------- { ---------- */
+/* added 2016.05.05 hmenjo ï¿½è“® ï¿½Ä‘ï¿½ï¿½ï¿½/ï¿½wï¿½è“ï¿½v ---------- { ---------- */
 		if (0 < m_pMainFrame->m_pMeaTabViewObj->MRCS_IncludeColorSetNoGet()) {
 			if (iCount == m_pMainFrame->m_pMeaTabViewObj->MRCS_IncludeColorSetNoGet()) {
 				l_wIncludeColorSetNo = iCount;
 			}
 		}
-/* added 2016.05.05 hmenjo è“® Ä‘ª’è/w’è“Œv ---------- } ---------- */
+/* added 2016.05.05 hmenjo ï¿½è“® ï¿½Ä‘ï¿½ï¿½ï¿½/ï¿½wï¿½è“ï¿½v ---------- } ---------- */
 	}
 
-	iShowCompletionPointList = iCurrentSetPoint; //‰æ–Ê•\¦Ï‚İ”‚ğXV
-/* modified 2016.05.05 hmenjo è“® Ä‘ª’è/w’è“Œv ---------- { ---------- */
+	iShowCompletionPointList = iCurrentSetPoint; //ï¿½ï¿½Ê•\ï¿½ï¿½ï¿½Ï‚İï¿½ï¿½ï¿½ï¿½Xï¿½V
+/* modified 2016.05.05 hmenjo ï¿½è“® ï¿½Ä‘ï¿½ï¿½ï¿½/ï¿½wï¿½è“ï¿½v ---------- { ---------- */
 //	m_pDoc->SetShowCompPointList(iShowCompletionPointList);
-/* modified 2016.05.05 hmenjo è“® Ä‘ª’è/w’è“Œv ----------              */
+/* modified 2016.05.05 hmenjo ï¿½è“® ï¿½Ä‘ï¿½ï¿½ï¿½/ï¿½wï¿½è“ï¿½v ----------              */
 	WORD l_wShowCompletionPointList = 0;
 	m_pMainFrame->m_pMeaTabViewObj->MRCS_ShowCompletionPointSnap(&l_wShowCompletionPointList, 0);
 	if (0 == l_wShowCompletionPointList) {
 		m_pDoc->SetShowCompPointList(iShowCompletionPointList);
 	} else {
-		/* •\¦Ï‚İƒ|ƒCƒ“ƒg‚Ì‹L‰¯İ‚è(‚Â‚Ü‚èÄ‘ª’è)	*/
+		/* ï¿½\ï¿½ï¿½ï¿½Ï‚İƒ|ï¿½Cï¿½ï¿½ï¿½gï¿½Ì‹Lï¿½ï¿½ï¿½İ‚ï¿½(ï¿½Â‚Ü‚ï¿½Ä‘ï¿½ï¿½ï¿½)	*/
 		m_pDoc->SetShowCompPointList(l_wShowCompletionPointList);
-		/* ‘ª’è”Ô†‚à–ß‚µ‚Ü‚·D	*/
+		/* ï¿½ï¿½ï¿½ï¿½Ôï¿½ï¿½ï¿½ï¿½ß‚ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 		if (l_wShowCompletionPointList == m_pDoc->GetShowCompPointGraph()) {
 			m_pDoc->SetCurrentSetPoint(l_wShowCompletionPointList);
 		}
 	}
 	if (0 < l_wIncludeColorSetNo) {
-		/* w’èsF”Ô†İ‚è	*/
+		/* ï¿½wï¿½ï¿½sï¿½Fï¿½Ôï¿½ï¿½İ‚ï¿½	*/
 		m_pMainFrame->m_pMeaTabViewObj->MRCS_IncludeColorSet(l_wIncludeColorSetNo, TRUE, FALSE);
 	}
-/* modified 2016.05.05 hmenjo è“® Ä‘ª’è/w’è“Œv ---------- } ---------- */
+/* modified 2016.05.05 hmenjo ï¿½è“® ï¿½Ä‘ï¿½ï¿½ï¿½/ï¿½wï¿½è“ï¿½v ---------- } ---------- */
 
 
-	if(m_bCellSelectedFlg == FALSE) //‘I‘ğs‚È‚µ
+	if(m_bCellSelectedFlg == FALSE) //ï¿½Iï¿½ï¿½ï¿½sï¿½È‚ï¿½
 	{
-		//•Ê‰æ–Ê‚ÍA’Ç‰Ás‚ÉˆÚ“®‚µ‚È‚¢‚æ‚¤‚·‚é(ƒ\ƒtƒg‚ª—‚¿‚Ä‚µ‚Ü‚¤ˆ×)
+		//ï¿½Ê‰ï¿½Êï¿½ï¿½ÍAï¿½Ç‰ï¿½ï¿½sï¿½ÉˆÚ“ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½æ‚¤ï¿½ï¿½ï¿½ï¿½(ï¿½\ï¿½tï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½)
 		CWnd* pFocusWnd = GetFocus();
 		if(pFocusWnd == NULL)
 		{
@@ -1428,16 +1428,16 @@ int CMeasurementListDlg::SetMeasurementData2()
 		}
 		//2009.09.14 bagus stress --{--
 		if(iShowCompletionPointList < m_MeasurementListGrid.GetRowCount()){
-/* modified 2014.10.28 hmenjo ‘ª’èŒ‹‰Ê Auto Scroll ---------- { ---------- */
+/* modified 2014.10.28 hmenjo ï¿½ï¿½ï¿½èŒ‹ï¿½ï¿½ Auto Scroll ---------- { ---------- */
 //			m_MeasurementListGrid.EnsureVisible(iShowCompletionPointList, TRUE);
-/* modified 2014.10.28 hmenjo ‘ª’èŒ‹‰Ê Auto Scroll ----------              */
+/* modified 2014.10.28 hmenjo ï¿½ï¿½ï¿½èŒ‹ï¿½ï¿½ Auto Scroll ----------              */
 			if (
 				(m_pDoc->GetMeasMode() != MEASMODE_MANUALMEASURE) &&
 				(m_pDoc->GetMeasMode() != MEASMODE_TEST)
 				) {
 				m_MeasurementListGrid.EnsureVisible(iShowCompletionPointList, TRUE);
 			}
-/* modified 2014.10.28 hmenjo ‘ª’èŒ‹‰Ê Auto Scroll ---------- } ---------- */
+/* modified 2014.10.28 hmenjo ï¿½ï¿½ï¿½èŒ‹ï¿½ï¿½ Auto Scroll ---------- } ---------- */
 		}
 		//2009.09.14 bagus stress --{--
 	}
@@ -1451,18 +1451,20 @@ int CMeasurementListDlg::SetMeasurementLSData_One(int nStressLine,int nRow,STRES
 {
 	STAGE_PROG_STRESS& stressStage = m_rcp_data.StressStageProgInfo;
 	CString strBuffer;
+	int nSection;
+	int nValidCount = 0;
 
 	if(nStressLine < 1 || nStressLine > STRESS_LINES_MAX){
 		return 0;
 	}
 
-	//ƒŒƒVƒs‚Æ‚µ‚Ä—LŒø‚Èƒ‰ƒCƒ“‚Å‚È‚¯‚ê‚Î•\¦‚µ‚È‚¢
+	//ï¿½ï¿½ï¿½Vï¿½sï¿½Æ‚ï¿½ï¿½Ä—Lï¿½ï¿½ï¿½Èƒï¿½ï¿½Cï¿½ï¿½ï¿½Å‚È‚ï¿½ï¿½ï¿½Î•\ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 	if(!stressStage.Line[nStressLine-1].bValidLine){
 		return 0;
 	}
 
-	for(int nSection = 0,nValidCount = 0;nSection < STRESS_SECTIONS_MAX;nSection++){
-		//—LŒø‚Å‚È‚¢ƒZƒNƒVƒ‡ƒ“‚Í‚È‚É‚à‚µ‚È‚¢
+	for(nSection = 0;nSection < STRESS_SECTIONS_MAX;nSection++){
+		//ï¿½Lï¿½ï¿½ï¿½Å‚È‚ï¿½ï¿½Zï¿½Nï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Í‚È‚É‚ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 		if(!stressStage.Line[nStressLine-1].bScanValid[nSection]){
 			continue;
 		}
@@ -1498,7 +1500,7 @@ int CMeasurementListDlg::SetMeasurementLSData_One(int nStressLine,int nRow,STRES
 }
 //2009.08.25 bagus stress --}--
 //2009.08.22 bagus stress --{--
-// LSƒf[ƒ^‚ğListƒOƒŠƒbƒh‚ÖƒZƒbƒg‚·‚éˆ×‚ÌŠÖ”
+// LSï¿½fï¿½[ï¿½^ï¿½ï¿½Listï¿½Oï¿½ï¿½ï¿½bï¿½hï¿½ÖƒZï¿½bï¿½gï¿½ï¿½ï¿½ï¿½×‚ÌŠÖï¿½
 int CMeasurementListDlg::SetMeasurementLSData(int nStartRow)
 {
 	int nShowStressData = 0;
@@ -1522,9 +1524,9 @@ int CMeasurementListDlg::SetMeasurementLSData(int nStartRow)
 
 	m_PointGraph.MeasureSectionByLSNo(m_pDoc->GetCurrentMeasureStressLine());
 	memset(&Statistics,NULL,sizeof(Statistics));
-	//‘S‘Ì“Œvî•ñ‚ÌƒOƒŠƒbƒh•\¦
+	//ï¿½Sï¿½Ì“ï¿½ï¿½vï¿½ï¿½ï¿½ÌƒOï¿½ï¿½ï¿½bï¿½hï¿½\ï¿½ï¿½
 	m_pDoc->GetStressStatisticsData(&Statistics);
-	//“Œvƒf[ƒ^
+	//ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^
 	char szDecimalPointBuff[1024+1];
 	strcpy(szDecimalPointBuff,"%.3lf");
 	strBuffer.Format(szDecimalPointBuff, Statistics.dMaximum);	//MAX
@@ -1545,7 +1547,7 @@ int CMeasurementListDlg::SetMeasurementLSData(int nStartRow)
 			m_pDoc->GetOneStressLineData(&tResult,nLine+1);
 			nShowRowNum += SetMeasurementLSData_One(nLine+1,nShowRowNum+nStartRow+1,&tResult);
 			m_pDoc->GetStressLineStatisticsData(nLine+1,&Statistics);
-			//“Œvƒf[ƒ^
+			//ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^
 			strBuffer.Format(szDecimalPointBuff, Statistics.dMaximum);	//MAX
 			AddStatisticsListGrid_Data(1, iCol+1, strBuffer );
 			strBuffer.Format(szDecimalPointBuff, Statistics.dMinimum);	//MIN
@@ -1589,28 +1591,28 @@ int CMeasurementListDlg::SetMeasurementLSData(int nStartRow)
 
 
 // =========================================================================
-// MeasurementListGrid_InitGrid ƒOƒŠƒbƒh‚ÌFEŒÂ”EƒTƒCƒYEƒXƒ^ƒCƒ‹ƒtƒH[ƒ}ƒbƒgEƒtƒHƒ“ƒg‚ğİ’è‚·‚é
+// MeasurementListGrid_InitGrid ï¿½Oï¿½ï¿½ï¿½bï¿½hï¿½ÌFï¿½Eï¿½Âï¿½ï¿½Eï¿½Tï¿½Cï¿½Yï¿½Eï¿½Xï¿½^ï¿½Cï¿½ï¿½ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½Eï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½ï¿½İ’è‚·ï¿½ï¿½
 void CMeasurementListDlg::MeasurementListGrid_InitGrid()
 {
 
-	int iDispCol = 0; //—LŒøCol”
-	WORD wHeadType = m_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType; // ƒwƒbƒhƒ^ƒCƒv
+	int iDispCol = 0; //ï¿½Lï¿½ï¿½Colï¿½ï¿½
+	WORD wHeadType = m_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType; // ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½v
 
 	//2009.08.21 bagus stress --{--
-	//«—ˆ“I‚È‚±‚Æ‚ğŒ©˜‚¦‚ÄSwitch‚Å•ªŠò
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½È‚ï¿½ï¿½Æ‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Switchï¿½Å•ï¿½ï¿½ï¿½
 	//iDispCol = m_pDoc->GetDispLabelCount() + 3 + 1; //3:XYZ, 1:AF
 	switch(wHeadType){
 	case HEAD_TYPE_SR:
 		//2009.10.28 bagus 2point-Distance --{--
 		if(m_rcp_data.MeasProgInfo.ScanParams.hdr.wScanType == MEAS_PROG_TYPE_SR_DISTANCE){
-			//2“_ŠÔ‹——£
+			//2ï¿½_ï¿½Ô‹ï¿½ï¿½ï¿½
 			//2009.11.26 bagus 2point-distance --{--
-			//dx,dy€–Ú‚Ì’Ç‰Á
+			//dx,dyï¿½ï¿½ï¿½Ú‚Ì’Ç‰ï¿½
 			//iDispCol = m_pDoc->GetDispLabelCount() + 4; //Start X/Y, End X/Y
 			iDispCol = m_pDoc->GetDispLabelCount() + 4 + 2; //Start X/Y, End X/Y
 			//2009.11.26 bagus 2point-distance --}--
 		}else{
-			//’Êí‘ª’è
+			//ï¿½Êí‘ªï¿½ï¿½
 		iDispCol = m_pDoc->GetDispLabelCount() + 3 + 1; //3:XYZ, 1:AF
 		}
 		//2009.10.28 bagus 2point-Distance --{--
@@ -1620,11 +1622,11 @@ void CMeasurementListDlg::MeasurementListGrid_InitGrid()
 		iDispCol = m_pDoc->GetDispLabelCount() + 3 + 1; //3:XYZ, 1:AF
 		break;
 	//2009.09.15 bagus se --}--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 	case HEAD_TYPE_COMPEASE:
 		iDispCol = m_pDoc->GetDispLabelCount() + 3 + 1; //3:XYZ, 1:AF
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
 	case HEAD_TYPE_STRESS:
 		iDispCol = m_pDoc->GetDispLabelCount() + 4 + 3 + 1; //4: LS+STRESS, 3:XYZ, 1:AF
 		//iDispCol = m_pDoc->GetDispLabelCount() + 3 + 1 + 1; //4: LS+STRESS, 3:XYZ, 1:AF
@@ -1643,7 +1645,7 @@ void CMeasurementListDlg::MeasurementListGrid_InitGrid()
 		break;
 	//2009.11.04 bagus RS --}--
 	//2009.11.07 bagus MS --{--
-		//Œ°”÷‹¾‘ª’è‚ÍX,Y‚Ì‚İ
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½X,Yï¿½Ì‚ï¿½
 		iDispCol = 2;
 		break;
 	//2009.11.07 bagus MS --{--
@@ -1668,9 +1670,9 @@ void CMeasurementListDlg::MeasurementListGrid_InitGrid()
 	m_MeasurementListGrid.EnableDragAndDrop(TRUE);
 	m_MeasurementListGrid.SetTextBkColor(WHITE_COLOR);
 	m_MeasurementListGrid.SetRowResize(0);
-// 2013.11.13 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.13 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 	m_MeasurementListGrid.SetColumnResize(0);
-// 2013.11.13 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.13 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 
 	m_MeasurementListGrid.EnableSelection(TRUE);
 	m_MeasurementListGrid.SetTrackFocusCell(FALSE);
@@ -1696,19 +1698,19 @@ void CMeasurementListDlg::MeasurementListGrid_InitGrid()
 	// Height
 	int iRow = 0;
 	m_MeasurementListGrid.SetRowHeight(iRow++, 36); 		// Row 0
-	while ( iRow < m_MeasurementListGrid.GetRowCount() )	// Row 1 `
+	while ( iRow < m_MeasurementListGrid.GetRowCount() )	// Row 1 ï¿½`
 		m_MeasurementListGrid.SetRowHeight(iRow++, 18);
 
 	// Width
 	int iCol = 0;
 	m_MeasurementListGrid.SetColumnWidth(iCol++, 40);		// Col 0
-	while ( iCol < m_MeasurementListGrid.GetColumnCount() ) // Col 1 `
+	while ( iCol < m_MeasurementListGrid.GetColumnCount() ) // Col 1 ï¿½`
 		m_MeasurementListGrid.SetColumnWidth(iCol++, 68);
-// 2013.11.13 Bagus Add (TohoSpec‘Î‰) -->
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) -->
+// 2013.11.13 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
+// 2014.01.17 Bagus Mod (Stage Noneï¿½Î‰ï¿½) -->
 //	if(g_lModelType == MODEL_T3100){
 	if(m_SystemConfig.nStageType == STAGE_TYPE_NONE){
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) <--
+// 2014.01.17 Bagus Mod (Stage Noneï¿½Î‰ï¿½) <--
 		if(m_SrConfig.bAutoFocus){
 			for (iCol = 1 ; iCol < 5; iCol++)	// XYZ, AF
 			{
@@ -1722,7 +1724,7 @@ void CMeasurementListDlg::MeasurementListGrid_InitGrid()
 			}
 		}
 	}
-// 2013.11.13 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.13 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 
 	///// Grid Format /////
 	///// Font Initialize /////
@@ -1747,18 +1749,18 @@ void CMeasurementListDlg::MeasurementListGrid_InitGrid()
 }
 
 // =========================================================================
-// MeasurementListGrid_HeaderSet s”Ô†A—ñ–¼iƒXƒLƒƒƒ“ƒ|ƒWƒVƒ‡ƒ“‚Æ‘ª’è–ˆ‚Ì€–Ú–¼j‚ğİ’è‚·‚é
+// MeasurementListGrid_HeaderSet ï¿½sï¿½Ôï¿½ï¿½Aï¿½ñ–¼iï¿½Xï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Æ‘ï¿½ï¿½è–ˆï¿½Ìï¿½ï¿½Ú–ï¿½ï¿½jï¿½ï¿½İ’è‚·ï¿½ï¿½
 void CMeasurementListDlg::MeasurementListGrid_HeaderSet()
 {
 	int i;
 	char szXyz[255+1];
 	memset(szXyz, 0, sizeof(szXyz));
 
-	WORD wHeadType = m_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType; // ƒwƒbƒhƒ^ƒCƒv
+	WORD wHeadType = m_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType; // ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½v
 	WORD wScanType = m_rcp_data.MeasProgInfo.ScanParams.hdr.wScanType;
 	char szDispLabel[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1];
 
-	//2009.07.25 bagus stress ƒXƒgƒŒƒX‹@”\’Ç‰Á --{--
+	//2009.07.25 bagus stress ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½@ï¿½\ï¿½Ç‰ï¿½ --{--
 	// if ( wHeadType == HEAD_TYPE_SR ) {
 	int iCol = 0;
 	int iRow = 0;
@@ -1772,20 +1774,20 @@ void CMeasurementListDlg::MeasurementListGrid_HeaderSet()
 		switch(wScanType){
 		default:
 			///// Title Column /////
-			for  (iCol = 0; iCol < MEAS_LIST_POSITION_MAX; iCol++ ) 			   // ƒXƒLƒƒƒ“ƒ|ƒWƒVƒ‡ƒ“
+			for  (iCol = 0; iCol < MEAS_LIST_POSITION_MAX; iCol++ ) 			   // ï¿½Xï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½
 			{
 				if(iCol == 0)
 				{
-					sprintf(szXyz, "%s", MEAS_LIST_POSITION_ITEM[iCol]); //g_lpszXyzUnit[0]‚Ímm
+					sprintf(szXyz, "%s", MEAS_LIST_POSITION_ITEM[iCol]); //g_lpszXyzUnit[0]ï¿½ï¿½mm
 				}
 				else
 				{
-					sprintf(szXyz, "%s%s", MEAS_LIST_POSITION_ITEM[iCol], g_lpszXyzUnit[0]); //g_lpszXyzUnit[0]‚Ímm
+					sprintf(szXyz, "%s%s", MEAS_LIST_POSITION_ITEM[iCol], g_lpszXyzUnit[0]); //g_lpszXyzUnit[0]ï¿½ï¿½mm
 				}
 				m_MeasurementListGrid.SetItemText(0, iCol, szXyz);
 		//		m_MeasurementListGrid.SetItemText(0, iCol, MEAS_LIST_POSITION_ITEM[iCol]);
 			}
-			//// ƒI[ƒgƒtƒH[ƒJƒX”»’è—“ ////
+			//// ï¿½Iï¿½[ï¿½gï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ï¿½è—“ ////
 			ConfigFile_GetNanoSpecIni(&m_SrConfig, CONFIG_FILE_SR_CONFIG);
 			if(m_SrConfig.bAutoFocus){
 				m_MeasurementListGrid.SetItemText(0, iCol++, MEAS_LIST_AF_CHECK_ITEM[0]);
@@ -1799,13 +1801,13 @@ void CMeasurementListDlg::MeasurementListGrid_HeaderSet()
 			break;
 		case MEAS_PROG_TYPE_SR_DISTANCE:
 			///// Title Column /////
-			sprintf(szXyz, "%s", MEAS_LIST_POSITION_ITEM[0]); //g_lpszXyzUnit[0]‚Ímm
+			sprintf(szXyz, "%s", MEAS_LIST_POSITION_ITEM[0]); //g_lpszXyzUnit[0]ï¿½ï¿½mm
 			m_MeasurementListGrid.SetItemText(0, 0, szXyz);
-			for  (iCol = 0; iCol < 4; iCol++ )				  // ƒXƒLƒƒƒ“ƒ|ƒWƒVƒ‡ƒ“
+			for  (iCol = 0; iCol < 4; iCol++ )				  // ï¿½Xï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½
 			{
 				//2009.11.26 bagus 2point-distance --{--
-				//sprintf(szXyz, "%s%s", MEAS_LIST_POSITION_ITEM[iCol % 2 + 1], g_lpszXyzUnit[0]); //g_lpszXyzUnit[0]‚Ímm
-				sprintf(szXyz, "%s%s", MEAS_LIST_DISTANCE_POSITION_ITEM[iCol], g_lpszXyzUnit[0]); //g_lpszXyzUnit[0]‚Ímm
+				//sprintf(szXyz, "%s%s", MEAS_LIST_POSITION_ITEM[iCol % 2 + 1], g_lpszXyzUnit[0]); //g_lpszXyzUnit[0]ï¿½ï¿½mm
+				sprintf(szXyz, "%s%s", MEAS_LIST_DISTANCE_POSITION_ITEM[iCol], g_lpszXyzUnit[0]); //g_lpszXyzUnit[0]ï¿½ï¿½mm
 				//2009.11.26 bagus 2point-distance --}--
 				m_MeasurementListGrid.SetItemText(0, iCol + 1, szXyz);
 		//		m_MeasurementListGrid.SetItemText(0, iCol, MEAS_LIST_POSITION_ITEM[iCol]);
@@ -1826,23 +1828,23 @@ void CMeasurementListDlg::MeasurementListGrid_HeaderSet()
 			m_MeasurementListGrid.SetItemTextFmt(iRow, 0, "%d", iRow);
 
 		///// Title Column /////
-		for  (iCol = 0; iCol < MEAS_LIST_STRESS_POSITION_MAX; iCol++ )				  // ƒXƒLƒƒƒ“ƒ|ƒWƒVƒ‡ƒ“
+		for  (iCol = 0; iCol < MEAS_LIST_STRESS_POSITION_MAX; iCol++ )				  // ï¿½Xï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½
 		{
 			if(iCol == 0)
 			{
-				sprintf(szXyz, "%s", MEAS_LIST_STRESS_POSITION_ITEM[iCol]); //g_lpszXyzUnit[0]‚Ímm
+				sprintf(szXyz, "%s", MEAS_LIST_STRESS_POSITION_ITEM[iCol]); //g_lpszXyzUnit[0]ï¿½ï¿½mm
 			}
 			else if(iCol > 4)
 			{
-				sprintf(szXyz, "%s%s", MEAS_LIST_STRESS_POSITION_ITEM[iCol], g_lpszXyzUnit[0]); //g_lpszXyzUnit[0]‚Ímm
+				sprintf(szXyz, "%s%s", MEAS_LIST_STRESS_POSITION_ITEM[iCol], g_lpszXyzUnit[0]); //g_lpszXyzUnit[0]ï¿½ï¿½mm
 			}
 			else {
-				sprintf(szXyz, "%s", MEAS_LIST_STRESS_POSITION_ITEM[iCol]); //g_lpszXyzUnit[0]‚Ímm
+				sprintf(szXyz, "%s", MEAS_LIST_STRESS_POSITION_ITEM[iCol]); //g_lpszXyzUnit[0]ï¿½ï¿½mm
 			}
 			m_MeasurementListGrid.SetItemText(0, iCol, szXyz);
 	//		m_MeasurementListGrid.SetItemText(0, iCol, MEAS_LIST_POSITION_ITEM[iCol]);
 		}
-		//// ƒI[ƒgƒtƒH[ƒJƒX”»’è—“ ////
+		//// ï¿½Iï¿½[ï¿½gï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ï¿½è—“ ////
 		m_MeasurementListGrid.SetItemText(0, iCol++, MEAS_LIST_AF_CHECK_ITEM[0]);
 
 
@@ -1855,30 +1857,30 @@ void CMeasurementListDlg::MeasurementListGrid_HeaderSet()
 		}
 		break;
 	//2009.09.15 bagus se --{--
-	//SR‚©‚çƒRƒs[
+	//SRï¿½ï¿½ï¿½ï¿½Rï¿½sï¿½[
 	case HEAD_TYPE_SE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 	case HEAD_TYPE_COMPEASE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
 		///// Title Row /////
 		for ( iRow = 1; iRow < m_MeasurementListGrid.GetRowCount(); iRow++ )
 			m_MeasurementListGrid.SetItemTextFmt(iRow, 0, "%d", iRow);
 
 		///// Title Column /////
-		for  (iCol = 0; iCol < MEAS_LIST_POSITION_MAX; iCol++ ) 			   // ƒXƒLƒƒƒ“ƒ|ƒWƒVƒ‡ƒ“
+		for  (iCol = 0; iCol < MEAS_LIST_POSITION_MAX; iCol++ ) 			   // ï¿½Xï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½
 		{
 			if(iCol == 0)
 			{
-				sprintf(szXyz, "%s", MEAS_LIST_POSITION_ITEM[iCol]); //g_lpszXyzUnit[0]‚Ímm
+				sprintf(szXyz, "%s", MEAS_LIST_POSITION_ITEM[iCol]); //g_lpszXyzUnit[0]ï¿½ï¿½mm
 			}
 			else
 			{
-				sprintf(szXyz, "%s%s", MEAS_LIST_POSITION_ITEM[iCol], g_lpszXyzUnit[0]); //g_lpszXyzUnit[0]‚Ímm
+				sprintf(szXyz, "%s%s", MEAS_LIST_POSITION_ITEM[iCol], g_lpszXyzUnit[0]); //g_lpszXyzUnit[0]ï¿½ï¿½mm
 			}
 			m_MeasurementListGrid.SetItemText(0, iCol, szXyz);
 	//		m_MeasurementListGrid.SetItemText(0, iCol, MEAS_LIST_POSITION_ITEM[iCol]);
 		}
-		//// ƒI[ƒgƒtƒH[ƒJƒX”»’è—“ ////
+		//// ï¿½Iï¿½[ï¿½gï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ï¿½è—“ ////
 		ConfigFile_GetNanoSpecIni(&m_SrConfig, CONFIG_FILE_SR_CONFIG);
 		if(m_SrConfig.bAutoFocus){
 			m_MeasurementListGrid.SetItemText(0, iCol++, MEAS_LIST_AF_CHECK_ITEM[0]);
@@ -1893,34 +1895,34 @@ void CMeasurementListDlg::MeasurementListGrid_HeaderSet()
 		}
 		break;
 	//2009.09.15 bagus se --}--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --{--
 //	case HEAD_TYPE_IRSE:
 //	case HEAD_TYPE_MS:
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --}--
 	//2009.11.04 bagus CA --{--
-	//SE‚©‚çƒRƒs[
+	//SEï¿½ï¿½ï¿½ï¿½Rï¿½sï¿½[
 	case HEAD_TYPE_CTA:
 		///// Title Row /////
 		for ( iRow = 1; iRow < m_MeasurementListGrid.GetRowCount(); iRow++ )
 			m_MeasurementListGrid.SetItemTextFmt(iRow, 0, "%d", iRow);
 
 		///// Title Column /////
-		for  (iCol = 0; iCol < MEAS_LIST_POSITION_MAX; iCol++ ) 			   // ƒXƒLƒƒƒ“ƒ|ƒWƒVƒ‡ƒ“
+		for  (iCol = 0; iCol < MEAS_LIST_POSITION_MAX; iCol++ ) 			   // ï¿½Xï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½
 		{
 			if(iCol == 0)
 			{
-				sprintf(szXyz, "%s", MEAS_LIST_POSITION_ITEM[iCol]); //g_lpszXyzUnit[0]‚Ímm
+				sprintf(szXyz, "%s", MEAS_LIST_POSITION_ITEM[iCol]); //g_lpszXyzUnit[0]ï¿½ï¿½mm
 			}
 			else
 			{
-				sprintf(szXyz, "%s%s", MEAS_LIST_POSITION_ITEM[iCol], g_lpszXyzUnit[0]); //g_lpszXyzUnit[0]‚Ímm
+				sprintf(szXyz, "%s%s", MEAS_LIST_POSITION_ITEM[iCol], g_lpszXyzUnit[0]); //g_lpszXyzUnit[0]ï¿½ï¿½mm
 			}
 			m_MeasurementListGrid.SetItemText(0, iCol, szXyz);
 	//		m_MeasurementListGrid.SetItemText(0, iCol, MEAS_LIST_POSITION_ITEM[iCol]);
 		}
 // 2009.12.17 bagus CA --{--
 #if 0
-		//// ƒI[ƒgƒtƒH[ƒJƒX”»’è—“ ////
+		//// ï¿½Iï¿½[ï¿½gï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ï¿½è—“ ////
 		ConfigFile_GetNanoSpecIni(&m_SrConfig, CONFIG_FILE_SR_CONFIG);
 		if(m_SrConfig.bAutoFocus){
 			m_MeasurementListGrid.SetItemText(0, iCol++, MEAS_LIST_AF_CHECK_ITEM[0]);
@@ -1937,29 +1939,29 @@ void CMeasurementListDlg::MeasurementListGrid_HeaderSet()
 		break;
 	//2009.11.04 bagus CA --}--
 	//2009.11.04 bagus RS --{--
-	//SE‚©‚çƒRƒs[
+	//SEï¿½ï¿½ï¿½ï¿½Rï¿½sï¿½[
 	case HEAD_TYPE_4PP:
 		///// Title Row /////
 		for ( iRow = 1; iRow < m_MeasurementListGrid.GetRowCount(); iRow++ )
 			m_MeasurementListGrid.SetItemTextFmt(iRow, 0, "%d", iRow);
 
 		///// Title Column /////
-		for  (iCol = 0; iCol < MEAS_LIST_POSITION_MAX; iCol++ ) 			   // ƒXƒLƒƒƒ“ƒ|ƒWƒVƒ‡ƒ“
+		for  (iCol = 0; iCol < MEAS_LIST_POSITION_MAX; iCol++ ) 			   // ï¿½Xï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½
 		{
 			if(iCol == 0)
 			{
-				sprintf(szXyz, "%s", MEAS_LIST_POSITION_ITEM[iCol]); //g_lpszXyzUnit[0]‚Ímm
+				sprintf(szXyz, "%s", MEAS_LIST_POSITION_ITEM[iCol]); //g_lpszXyzUnit[0]ï¿½ï¿½mm
 			}
 			else
 			{
-				sprintf(szXyz, "%s%s", MEAS_LIST_POSITION_ITEM[iCol], g_lpszXyzUnit[0]); //g_lpszXyzUnit[0]‚Ímm
+				sprintf(szXyz, "%s%s", MEAS_LIST_POSITION_ITEM[iCol], g_lpszXyzUnit[0]); //g_lpszXyzUnit[0]ï¿½ï¿½mm
 			}
 			m_MeasurementListGrid.SetItemText(0, iCol, szXyz);
 	//		m_MeasurementListGrid.SetItemText(0, iCol, MEAS_LIST_POSITION_ITEM[iCol]);
 		}
 // 2009.12.17 bagus RS --{--
 #if 0
-		//// ƒI[ƒgƒtƒH[ƒJƒX”»’è—“ ////
+		//// ï¿½Iï¿½[ï¿½gï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ï¿½è—“ ////
 		ConfigFile_GetNanoSpecIni(&m_SrConfig, CONFIG_FILE_SR_CONFIG);
 		if(m_SrConfig.bAutoFocus){
 			m_MeasurementListGrid.SetItemText(0, iCol++, MEAS_LIST_AF_CHECK_ITEM[0]);
@@ -1986,15 +1988,15 @@ void CMeasurementListDlg::MeasurementListGrid_HeaderSet()
 			m_MeasurementListGrid.SetItemTextFmt(iRow, 0, "%d", iRow);
 
 		///// Title Column /////
-		for  (iCol = 0; iCol < MEAS_LIST_POSITION_MAX - 1; iCol++ ) 			   // ƒXƒLƒƒƒ“ƒ|ƒWƒVƒ‡ƒ“
+		for  (iCol = 0; iCol < MEAS_LIST_POSITION_MAX - 1; iCol++ ) 			   // ï¿½Xï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½
 		{
 			if(iCol == 0)
 			{
-				sprintf(szXyz, "%s", MEAS_LIST_POSITION_ITEM[iCol]); //g_lpszXyzUnit[0]‚Ímm
+				sprintf(szXyz, "%s", MEAS_LIST_POSITION_ITEM[iCol]); //g_lpszXyzUnit[0]ï¿½ï¿½mm
 			}
 			else
 			{
-				sprintf(szXyz, "%s%s", MEAS_LIST_POSITION_ITEM[iCol], g_lpszXyzUnit[0]); //g_lpszXyzUnit[0]‚Ímm
+				sprintf(szXyz, "%s%s", MEAS_LIST_POSITION_ITEM[iCol], g_lpszXyzUnit[0]); //g_lpszXyzUnit[0]ï¿½ï¿½mm
 			}
 			m_MeasurementListGrid.SetItemText(0, iCol, szXyz);
 		}
@@ -2003,16 +2005,16 @@ void CMeasurementListDlg::MeasurementListGrid_HeaderSet()
 	default:
 		break;
 	}
-	//2009.07.25 bagus stress ƒXƒgƒŒƒX‹@”\’Ç‰Á --}--
+	//2009.07.25 bagus stress ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½@ï¿½\ï¿½Ç‰ï¿½ --}--
 }
 
 // =========================================================================
-// AddMeasurementListGrid_Data w’èˆÊ’uisE—ñj‚É•¶š—ñ‚ğİ’è‚·‚é
+// AddMeasurementListGrid_Data ï¿½wï¿½ï¿½Ê’uï¿½iï¿½sï¿½Eï¿½ï¿½jï¿½É•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ’è‚·ï¿½ï¿½
 void CMeasurementListDlg::AddMeasurementListGrid_Data(int iRow, int iCol, LPCTSTR psz)
 {
 	DWORD dwTextStyle;
 
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 // 	//2009.09.10 bagus stress --{--
 // 	if(iCol >= m_MeasurementListGrid.GetColumnCount()){
 // 		return;
@@ -2021,7 +2023,7 @@ void CMeasurementListDlg::AddMeasurementListGrid_Data(int iRow, int iCol, LPCTST
 	if(iCol >= m_MeasurementListGrid.GetColumnCount()){
 		m_MeasurementListGrid.SetColumnCount(iCol + 1);
 	}
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
 
 	if (iRow==0)
 		dwTextStyle = DT_CENTER | DT_VCENTER | DT_SINGLELINE | DT_END_ELLIPSIS;
@@ -2030,7 +2032,7 @@ void CMeasurementListDlg::AddMeasurementListGrid_Data(int iRow, int iCol, LPCTST
 		dwTextStyle = DT_CENTER | DT_VCENTER | DT_SINGLELINE | DT_END_ELLIPSIS;
 	}
 //2009.08.25 bagus stress --{--
-//2ˆÈã”ò‚Ñ‰z‚¦‚½ê‡‚ğl—¶
+//2ï¿½Èï¿½ï¿½Ñ‰zï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½ï¿½ï¿½lï¿½ï¿½
 //	if(iRow>m_MeasurementListGrid.GetRowCount()-1){
 //		DWORD dwTextStyleColIndex = DT_CENTER | DT_VCENTER | DT_SINGLELINE | DT_END_ELLIPSIS;
 //		CString strBuffer;
@@ -2050,11 +2052,11 @@ void CMeasurementListDlg::AddMeasurementListGrid_Data(int iRow, int iCol, LPCTST
 //2009.08.25 bagus stress --}--
 	m_MeasurementListGrid.SetItemText(iRow, iCol, psz);
 	m_MeasurementListGrid.SetItemFormat(iRow, iCol, dwTextStyle);
-	//PointGraph‘ª’èŠ®—¹ƒ|ƒCƒ“ƒgF•ÏX
+	//PointGraphï¿½ï¿½ï¿½èŠ®ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Fï¿½ÏX
 	m_PointGraph.Finish(iRow-1);
-	//PointGraph‘ª’è’†ƒ|ƒCƒ“ƒgF•ÏX
+	//PointGraphï¿½ï¿½ï¿½è’†ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Fï¿½ÏX
 
-	if(m_pDoc->GetSeqMeasMode() == SEQ_ON_REMEASURE) //ƒŠƒƒWƒƒ[
+	if(m_pDoc->GetSeqMeasMode() == SEQ_ON_REMEASURE) //ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[
 	{
 		for(int i=0; i < m_pDoc->GetLastMeasPoint(); i++)
 		{
@@ -2069,7 +2071,7 @@ void CMeasurementListDlg::AddMeasurementListGrid_Data(int iRow, int iCol, LPCTST
 	{
 		m_PointGraph.Measure(iRow);
 	}
-/* added 2014.10.28 hmenjo ‘ª’èŒ‹‰Ê Auto Scroll ---------- { ---------- */
+/* added 2014.10.28 hmenjo ï¿½ï¿½ï¿½èŒ‹ï¿½ï¿½ Auto Scroll ---------- { ---------- */
 	if (
 		(
 			(m_pDoc->GetMeasMode() == MEASMODE_MANUALMEASURE) ||
@@ -2080,9 +2082,9 @@ void CMeasurementListDlg::AddMeasurementListGrid_Data(int iRow, int iCol, LPCTST
 		this->SetFocus();
 		m_MeasurementListGrid.EnsureVisible(iRow, TRUE);
 	}
-/* added 2014.10.28 hmenjo ‘ª’èŒ‹‰Ê Auto Scroll ---------- } ---------- */
+/* added 2014.10.28 hmenjo ï¿½ï¿½ï¿½èŒ‹ï¿½ï¿½ Auto Scroll ---------- } ---------- */
 
-	//ƒtƒHƒ“ƒgƒTƒCƒY•ÏX
+	//ï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½Tï¿½Cï¿½Yï¿½ÏX
 	for ( iRow = 1; iRow < m_MeasurementListGrid.GetRowCount(); iRow++ ) {
 			m_logFont.lfHeight = 11;
 		for ( iCol = 0; iCol < m_MeasurementListGrid.GetColumnCount(); iCol++ ) {
@@ -2095,13 +2097,13 @@ void CMeasurementListDlg::AddMeasurementListGrid_Data(int iRow, int iCol, LPCTST
 }
 
 // =========================================================================
-// StatisticsListGrid_InitGrid ƒOƒŠƒbƒh‚ÌFEŒÂ”EƒTƒCƒYEƒXƒ^ƒCƒ‹ƒtƒH[ƒ}ƒbƒgEƒtƒHƒ“ƒg‚ğİ’è‚·‚é
+// StatisticsListGrid_InitGrid ï¿½Oï¿½ï¿½ï¿½bï¿½hï¿½ÌFï¿½Eï¿½Âï¿½ï¿½Eï¿½Tï¿½Cï¿½Yï¿½Eï¿½Xï¿½^ï¿½Cï¿½ï¿½ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½Eï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½ï¿½İ’è‚·ï¿½ï¿½
 void CMeasurementListDlg::StatisticsListGrid_InitGrid()
 {
 
-	int iDispCol = 0; //—LŒøCol”
+	int iDispCol = 0; //ï¿½Lï¿½ï¿½Colï¿½ï¿½
 	iDispCol = m_pDoc->GetDispLabelCount(); //
-	WORD wHeadType = m_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType; // ƒwƒbƒhƒ^ƒCƒv
+	WORD wHeadType = m_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType; // ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½v
 	WORD wScanType = m_rcp_data.MeasProgInfo.ScanParams.hdr.wScanType;
 
 	if(iDispCol < STATISTICSGRIDCOLMIN)
@@ -2115,9 +2117,9 @@ void CMeasurementListDlg::StatisticsListGrid_InitGrid()
 	m_StatisticsListGrid.EnableDragAndDrop(TRUE);
 	m_StatisticsListGrid.SetTextBkColor(WHITE_COLOR);
 	m_StatisticsListGrid.SetRowResize(0);
-// 2013.11.13 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.13 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 	m_StatisticsListGrid.SetColumnResize(0);
-// 2013.11.13 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.13 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 
 	m_StatisticsListGrid.EnableSelection(FALSE);
 	m_StatisticsListGrid.SetTrackFocusCell(FALSE);
@@ -2131,7 +2133,7 @@ void CMeasurementListDlg::StatisticsListGrid_InitGrid()
 		int Cols = m_pDoc->GetDispLabelCount() + 1;
 		//2009.08.30 bagus stress --{--
 		int nLine;
-		//ƒXƒgƒŒƒX—p‚ÌƒJƒ‰ƒ€‚ÌŒÂ”‚ğ’Ç‰Á‚·‚é
+		//ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½pï¿½ÌƒJï¿½ï¿½ï¿½ï¿½ï¿½ÌŒÂï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½
 		switch(wHeadType){
 		case HEAD_TYPE_STRESS:
 			Cols++;
@@ -2173,16 +2175,16 @@ void CMeasurementListDlg::StatisticsListGrid_InitGrid()
 	// Height
 	int iRow = 0;
 	m_StatisticsListGrid.SetRowHeight(iRow++, 36);			// Row 0
-	while ( iRow < m_StatisticsListGrid.GetRowCount() ) 	// Row 1 `
+	while ( iRow < m_StatisticsListGrid.GetRowCount() ) 	// Row 1 ï¿½`
 		m_StatisticsListGrid.SetRowHeight(iRow++, 18);
 
 
 	// Width
 	int iCol = 0;
 	m_StatisticsListGrid.SetColumnWidth(iCol++, 40);		// Col 0
-//	while ( iCol < m_StatisticsListGrid.GetColumnCount())	// Col 1 `
+//	while ( iCol < m_StatisticsListGrid.GetColumnCount())	// Col 1 ï¿½`
 //		m_StatisticsListGrid.SetColumnWidth(iCol++, 68);
-	while ( iCol < m_StatisticsListGrid.GetColumnCount())	// Col 1 `
+	while ( iCol < m_StatisticsListGrid.GetColumnCount())	// Col 1 ï¿½`
 		m_StatisticsListGrid.SetColumnWidth(iCol++, 80);
 
 	///// Grid Format /////
@@ -2209,7 +2211,7 @@ void CMeasurementListDlg::StatisticsListGrid_InitGrid()
 }
 
 // =========================================================================
-// StatisticsListGrid_HeaderSet s”Ô†A—ñ–¼iƒXƒLƒƒƒ“ƒ|ƒWƒVƒ‡ƒ“‚Æ‘ª’è–ˆ‚Ì€–Ú–¼j‚ğİ’è‚·‚é
+// StatisticsListGrid_HeaderSet ï¿½sï¿½Ôï¿½ï¿½Aï¿½ñ–¼iï¿½Xï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Æ‘ï¿½ï¿½è–ˆï¿½Ìï¿½ï¿½Ú–ï¿½ï¿½jï¿½ï¿½İ’è‚·ï¿½ï¿½
 void CMeasurementListDlg::StatisticsListGrid_HeaderSet()
 {
 	int i;
@@ -2233,20 +2235,20 @@ void CMeasurementListDlg::StatisticsListGrid_HeaderSet()
 	///// Title Column /////
 	int iCol = 1;
 
-	WORD wHeadType = m_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType; // ƒwƒbƒhƒ^ƒCƒv
+	WORD wHeadType = m_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType; // ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½v
 	WORD wScanType = m_rcp_data.MeasProgInfo.ScanParams.hdr.wScanType;
 
 	//2009.08.30 bagus stress --{--
 	char szDispLabel[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1];
-	//ƒXƒgƒŒƒX‚Ì“Œvî•ñ‚É‘Î‰
+	//ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½Ì“ï¿½ï¿½vï¿½ï¿½ï¿½É‘Î‰ï¿½
 	switch(wHeadType){
 	case HEAD_TYPE_SR:
 	//2009.09.15 bagus se --{--
 	case HEAD_TYPE_SE:
 	//2009.09.15 bagus se --}--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
 	case HEAD_TYPE_COMPEASE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
 	default:
 		m_pDoc->GetDispLabel(szDispLabel);
 		for(i = 0 ; szDispLabel[i][0] != '\0'; i++)
@@ -2256,8 +2258,8 @@ void CMeasurementListDlg::StatisticsListGrid_HeaderSet()
 		}
 		break;
 	case HEAD_TYPE_STRESS:
-		//Stress[MPa],Stree L1,....Stress Ln,ADAP(Šù‘¶j
-		//Valid‚É‚È‚Á‚Ä‚¢‚éƒXƒgƒŒƒX‚Ìƒ‰ƒCƒ“”‚ğæ“¾‚·‚é
+		//Stress[MPa],Stree L1,....Stress Ln,ADAP(ï¿½ï¿½ï¿½ï¿½ï¿½j
+		//Validï¿½É‚È‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½Ìƒï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½
 		m_StatisticsListGrid.SetItemText(0, iCol, "Stress[MPa]");
 		iCol++;
 		for(int nLine = 0;nLine < STRESS_LINES_MAX;nLine++){
@@ -2285,7 +2287,7 @@ void CMeasurementListDlg::StatisticsListGrid_HeaderSet()
 }
 
 // =========================================================================
-// AddStatisticsListGrid_Data w’èˆÊ’uisE—ñj‚É•¶š—ñ‚ğİ’è‚·‚é
+// AddStatisticsListGrid_Data ï¿½wï¿½ï¿½Ê’uï¿½iï¿½sï¿½Eï¿½ï¿½jï¿½É•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ’è‚·ï¿½ï¿½
 void CMeasurementListDlg::AddStatisticsListGrid_Data(int iRow, int iCol, LPCTSTR psz)
 {
 	DWORD dwTextStyle;
@@ -2315,7 +2317,7 @@ BOOL CMeasurementListDlg::PreTranslateMessage(MSG* pMsg)
 //	CMainFrame* pMainFrame = (CMainFrame *)AfxGetMainWnd();
 
 	switch(pMsg->message){
-/* added 2016.05.05 hmenjo è“® Ä‘ª’è/w’è“Œv ---------- { ---------- */
+/* added 2016.05.05 hmenjo ï¿½è“® ï¿½Ä‘ï¿½ï¿½ï¿½/ï¿½wï¿½è“ï¿½v ---------- { ---------- */
 	case WM_RBUTTONDBLCLK:
 		if (pMsg->hwnd == m_MeasurementListGrid.m_hWnd) {
 			POINT l_ptlParam;
@@ -2326,13 +2328,13 @@ BOOL CMeasurementListDlg::PreTranslateMessage(MSG* pMsg)
 			}
 		}
 		break;
-/* added 2016.05.05 hmenjo è“® Ä‘ª’è/w’è“Œv ---------- } ---------- */
+/* added 2016.05.05 hmenjo ï¿½è“® ï¿½Ä‘ï¿½ï¿½ï¿½/ï¿½wï¿½è“ï¿½v ---------- } ---------- */
 	case WM_KEYDOWN:
 		switch(pMsg->wParam){
 		case VK_ESCAPE:
-/* added 2015.04.12 hmenjo ‘ª’èŒ‹‰Ê‰æ–ÊƒNƒŠƒA‘Îô ---------- { ---------- */
+/* added 2015.04.12 hmenjo ï¿½ï¿½ï¿½èŒ‹ï¿½Ê‰ï¿½ÊƒNï¿½ï¿½ï¿½Aï¿½Îï¿½ ---------- { ---------- */
 		case VK_RETURN:
-/* added 2015.04.12 hmenjo ‘ª’èŒ‹‰Ê‰æ–ÊƒNƒŠƒA‘Îô ---------- } ---------- */
+/* added 2015.04.12 hmenjo ï¿½ï¿½ï¿½èŒ‹ï¿½Ê‰ï¿½ÊƒNï¿½ï¿½ï¿½Aï¿½Îï¿½ ---------- } ---------- */
 //			pMainFrame->ChangeOperationPanel(OP_DATA);
 //			pMainFrame->ChangeExeWnd(DATA_LIST_WND);
 //			break;
@@ -2364,9 +2366,9 @@ void CMeasurementListDlg::SetData()
 {
 	CString strBuffer;
 //	int iHeadType = m_MainRcpInfo.MainRcpParam.hdr.wHeadType;
-	WORD wHeadType = m_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType; // ƒwƒbƒhƒ^ƒCƒv
+	WORD wHeadType = m_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType; // ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½v
 	WORD wScanType = m_rcp_data.MeasProgInfo.ScanParams.hdr.wScanType;
-	int iMeasureNum=0;			 //‘ª’èƒ|ƒCƒ“ƒg”
+	int iMeasureNum=0;			 //ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½
 	iMeasureNum = m_pDoc->GetMeasurePointCount();
 
 	///// Set Recipe Name /////
@@ -2411,12 +2413,12 @@ void CMeasurementListDlg::SetData()
 
 
 // =========================================================================
-// OnPaint Ä•`‰æ‚·‚é
+// OnPaint ï¿½Ä•`ï¿½æ‚·ï¿½ï¿½
 void CMeasurementListDlg::OnPaint()
 {
-	CPaintDC dc(this); // •`‰æ—p‚ÌƒfƒoƒCƒX ƒRƒ“ƒeƒLƒXƒg
+	CPaintDC dc(this); // ï¿½`ï¿½ï¿½pï¿½Ìƒfï¿½oï¿½Cï¿½X ï¿½Rï¿½ï¿½ï¿½eï¿½Lï¿½Xï¿½g
 
-	// •`‰æ—pƒƒbƒZ[ƒW‚Æ‚µ‚Ä CDialog::OnPaint() ‚ğŒÄ‚Ño‚µ‚Ä‚Í‚¢‚¯‚Ü‚¹‚ñ
+	// ï¿½`ï¿½ï¿½pï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½Æ‚ï¿½ï¿½ï¿½ CDialog::OnPaint() ï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½Ä‚Í‚ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½
 
 }
 
@@ -2432,14 +2434,14 @@ void CMeasurementListDlg::MeasurementError(int Point)
 {
 }
 
-// ------>ƒeƒXƒg—pŠÖ”
+// ------>ï¿½eï¿½Xï¿½gï¿½pï¿½Öï¿½
 double CMeasurementListDlg::GetSampleData(int iPoint, int wave)
 {
-	//return MEAS_GetScanSampleData(iPoint, wave);	// ƒXƒLƒƒƒ“ƒTƒ“ƒvƒ‹ƒf[ƒ^
-//	  return MEAS_GetAnalysisData(iPoint, wave);		// ”½Ë—¦‘ª’èƒf[ƒ^
-return 0; //b’è
+	//return MEAS_GetScanSampleData(iPoint, wave);	// ï¿½Xï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½fï¿½[ï¿½^
+//	  return MEAS_GetAnalysisData(iPoint, wave);		// ï¿½ï¿½ï¿½Ë—ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^
+return 0; //ï¿½bï¿½ï¿½
 }
-// <------ƒeƒXƒg—pŠÖ”
+// <------ï¿½eï¿½Xï¿½gï¿½pï¿½Öï¿½
 
 // 2013.01.17 bagus rotate xy view -->
 // ==========================================================================
@@ -2523,7 +2525,7 @@ void CMeasurementListDlg::PointGraph_DataSet()
 	CString strBuffer;
 	CNanoPointGraph::GraphConfig tConfig;
 
-	int iMeasureNum=0;			 //‘ª’èƒ|ƒCƒ“ƒg”
+	int iMeasureNum=0;			 //ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½
 	iMeasureNum = m_pDoc->GetMeasurePointCount();
 
 
@@ -2564,10 +2566,10 @@ void CMeasurementListDlg::PointGraph_DataSet()
 	strBuffer.Format(szSprintfBuff, m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dx * g_dXyzUnitConvertCoefficient[0], m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dy * g_dXyzUnitConvertCoefficient[0]);
 	SetDlgItemText(IDC_SAMPLE_SIZE, strBuffer);
 
-	////DLGã‚ÌŠOŒ`ƒRƒ“ƒgƒ[ƒ‹ƒTƒCƒY(Sample Size)
+	////DLGï¿½ï¿½ÌŠOï¿½`ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Tï¿½Cï¿½Y(Sample Size)
 	WINDOWPLACEMENT placement;
 	m_PointGraph.GetWindowPlacement(&placement);
-	//ƒOƒ‰ƒtƒRƒ“ƒgƒ[ƒ‹ƒOƒ‰ƒt—ÌˆæƒTƒCƒY
+	//ï¿½Oï¿½ï¿½ï¿½tï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½tï¿½Ìˆï¿½Tï¿½Cï¿½Y
 	double dGraphSize_x = (placement.rcNormalPosition.right - placement.rcNormalPosition.left);
 	double dGraphSize_y = (placement.rcNormalPosition.bottom - placement.rcNormalPosition.top);
 
@@ -2602,64 +2604,64 @@ void CMeasurementListDlg::PointGraph_DataSet()
 // 2013.01.17 bagus rotate xy view <--
 
 // 	if ((dGraphSize_y / dGraphSize_x) < ((m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dy)/(m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dx))){
-// 		//XƒTƒCƒYİ’è
+// 		//Xï¿½Tï¿½Cï¿½Yï¿½İ’ï¿½
 // 		double dDeltaGraphSize_x = ((m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dy) * (m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dx)/(m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dy) * (dGraphSize_y / m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dy));
-// 		//ƒXƒy[ƒX‚ÌƒZƒ“ƒ^[‚ ‚í‚¹—pÀ•WŒvZ
+// 		//ï¿½Xï¿½yï¿½[ï¿½Xï¿½ÌƒZï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½í‚¹ï¿½pï¿½ï¿½ï¿½Wï¿½vï¿½Z
 // 		double dGraphCenterOffset_x = (dGraphSize_x - dDeltaGraphSize_x)/2;
 // 		placement.rcNormalPosition.left = placement.rcNormalPosition.left + dGraphCenterOffset_x;
 // 		placement.rcNormalPosition.right = placement.rcNormalPosition.left + dDeltaGraphSize_x;
 // 	}
 // 	else{
-// 		//YƒTƒCƒYİ’è
+// 		//Yï¿½Tï¿½Cï¿½Yï¿½İ’ï¿½
 // 		double dDeltaGraphSize_y = ((m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dx) * (m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dy)/(m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dx) * (dGraphSize_x / m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dx));
 // 		placement.rcNormalPosition.bottom = placement.rcNormalPosition.top + dDeltaGraphSize_y;
 // 	}
 	if ((dGraphSize_y / dGraphSize_x) < (dSampleSize_y/dSampleSize_x)){
-		//XƒTƒCƒYİ’è
+		//Xï¿½Tï¿½Cï¿½Yï¿½İ’ï¿½
 		double dDeltaGraphSize_x = dSampleSize_x * (dGraphSize_y / dSampleSize_y);
-		//ƒXƒy[ƒX‚ÌƒZƒ“ƒ^[‚ ‚í‚¹—pÀ•WŒvZ
+		//ï¿½Xï¿½yï¿½[ï¿½Xï¿½ÌƒZï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½í‚¹ï¿½pï¿½ï¿½ï¿½Wï¿½vï¿½Z
 		double dGraphCenterOffset_x = (dGraphSize_x - dDeltaGraphSize_x)/2;
 		placement.rcNormalPosition.left = placement.rcNormalPosition.left + dGraphCenterOffset_x;
 		placement.rcNormalPosition.right = placement.rcNormalPosition.left + dDeltaGraphSize_x;
 	}
 	else{
-		//YƒTƒCƒYİ’è
+		//Yï¿½Tï¿½Cï¿½Yï¿½İ’ï¿½
 		double dDeltaGraphSize_y = dSampleSize_y * (dGraphSize_x / dSampleSize_x);
 		placement.rcNormalPosition.bottom = placement.rcNormalPosition.top + dDeltaGraphSize_y;
 	}
 // 2013.01.09 bagus <--
-	//ˆÊ’uw’è
+	//ï¿½Ê’uï¿½wï¿½ï¿½
 	m_PointGraph.SetWindowPlacement(&placement);
 
-	////CNanoPointGraphƒNƒ‰ƒX“àƒTƒCƒY(Sample Size)
+	////CNanoPointGraphï¿½Nï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½Tï¿½Cï¿½Y(Sample Size)
 // 2013.01.09 bagus -->
 // 	tConfig.SampleSizeX = m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dx;
 // 	tConfig.SampleSizeY = m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dy;
 // 2013.01.17 bagus rotate xy view -->
 // 	if (((StageConfig.Dir.X == 2) || (StageConfig.Dir.X == 4)) && ((StageConfig.Dir.Y == 1) || (StageConfig.Dir.Y == 3))) {
-// 		// X<->Y“ü‚ê‘Ö‚¦
+// 		// X<->Yï¿½ï¿½ï¿½ï¿½Ö‚ï¿½
 // 		tConfig.SampleSizeY = m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dx;
 // 		tConfig.SampleSizeX = m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dy;
 // 	} else if (((StageConfig.Dir.X == 1) || (StageConfig.Dir.X == 3)) && ((StageConfig.Dir.Y == 2) || (StageConfig.Dir.Y == 4))) {
-// 		// X-Y‚»‚Ì‚Ü‚Ü
+// 		// X-Yï¿½ï¿½ï¿½Ì‚Ü‚ï¿½
 // 		tConfig.SampleSizeX = m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dx;
 // 		tConfig.SampleSizeY = m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dy;
 // 	} else {
-// 		// –îˆóİ’è‚ª‚¨‚©‚µ‚¢
+// 		// ï¿½ï¿½ï¿½İ’è‚ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // 	}
 	double dSampleSizeX;
 	double dSampleSizeY;
 
 	if (((m_StageConfig.Dir.X == 2) || (m_StageConfig.Dir.X == 4)) && ((m_StageConfig.Dir.Y == 1) || (m_StageConfig.Dir.Y == 3))) {
-		// X<->Y“ü‚ê‘Ö‚¦
+		// X<->Yï¿½ï¿½ï¿½ï¿½Ö‚ï¿½
 		dSampleSizeY = m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dx;
 		dSampleSizeX = m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dy;
 	} else if (((m_StageConfig.Dir.X == 1) || (m_StageConfig.Dir.X == 3)) && ((m_StageConfig.Dir.Y == 2) || (m_StageConfig.Dir.Y == 4))) {
-		// X-Y‚»‚Ì‚Ü‚Ü
+		// X-Yï¿½ï¿½ï¿½Ì‚Ü‚ï¿½
 		dSampleSizeX = m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dx;
 		dSampleSizeY = m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dy;
 	} else {
-		// –îˆóİ’è‚ª‚¨‚©‚µ‚¢
+		// ï¿½ï¿½ï¿½İ’è‚ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
 
 	switch ( m_StageConfig.RotateXyView ) {
@@ -2682,7 +2684,7 @@ void CMeasurementListDlg::PointGraph_DataSet()
 	m_PointGraph.SetConfig(&tConfig);
 
 	////Point Data
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //	double dOffSetValueX = (m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dx/2);
 //	double dOffSetValueY = (m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dy/2);
 	double dOffSetValueX;
@@ -2709,10 +2711,10 @@ void CMeasurementListDlg::PointGraph_DataSet()
 	case 2:
 // 2013.01.17 bagus rotate xy view -->
 // 		dOffSetValueX = 0;
-// // 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// // 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 // //		dOffSetValueY = m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dy;
 // 		dOffSetValueY = 0;
-// // 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// // 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		dOffSetValueX = 0;
 		dOffSetValueY = 0;
 		switch ( m_StageConfig.RotateXyView ) {
@@ -2735,10 +2737,10 @@ void CMeasurementListDlg::PointGraph_DataSet()
 	case 3:
 // 2013.01.17 bagus rotate xy view -->
 // 		dOffSetValueX = 0;
-// // 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// // 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 // //		dOffSetValueY = 0;
 // 		dOffSetValueY = m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dy;
-// // 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// // 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		dOffSetValueX = 0;
 		dOffSetValueY = 0;
 		switch ( m_StageConfig.RotateXyView ) {
@@ -2761,10 +2763,10 @@ void CMeasurementListDlg::PointGraph_DataSet()
 	case 4:
 // 2013.01.17 bagus rotate xy view -->
 // 		dOffSetValueX = m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dx;
-// // 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// // 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 // //		dOffSetValueY = 0;
 // 		dOffSetValueY = m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dy;
-// // 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// // 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		dOffSetValueX = 0;
 		dOffSetValueY = 0;
 		switch ( m_StageConfig.RotateXyView ) {
@@ -2788,10 +2790,10 @@ void CMeasurementListDlg::PointGraph_DataSet()
 	case 5:
 // 2013.01.17 bagus rotate xy view -->
 // 		dOffSetValueX = m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dx;
-// // 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// // 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 // //		dOffSetValueY = m_rcp_data.StageProgInfoHdr.SampleInfo.Size.dy;
 // 		dOffSetValueY = 0;
-// // 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// // 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		dOffSetValueX = 0;
 		dOffSetValueY = 0;
 		switch ( m_StageConfig.RotateXyView ) {
@@ -2812,7 +2814,7 @@ void CMeasurementListDlg::PointGraph_DataSet()
 // 2013.01.17 bagus rotate xy view <--
 		break;
 	}
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 
 // 2013.01.17 bagus rotate xy view <--
 // 2013.01.09 bagus -->
@@ -2866,45 +2868,45 @@ void CMeasurementListDlg::PointGraph_DataSet()
 	long lDirY = RotateXyAxisDir(m_StageConfig.Dir.Y);
 
 	for(int iPoint= 0; iPoint<iMeasureNum; iPoint++){
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //		Scan_PointIncOffsetX = m_rcp_data.ScanPoint[iPoint].lX + dOffSetValueX;
 //		Scan_PointIncOffsetY = -(m_rcp_data.ScanPoint[iPoint].lY - dOffSetValueY);
 		switch (lDirX) {
-		case 1: 	// X:¨
+		case 1: 	// X:ï¿½ï¿½
 		default:
 			Scan_PointIncOffsetX = dOffSetValueX + m_rcp_data.ScanPoint[iPoint].lX;
 			break;
-		case 2: 	// X:ª
+		case 2: 	// X:ï¿½ï¿½
 			Scan_PointIncOffsetY = dOffSetValueX - m_rcp_data.ScanPoint[iPoint].lX;
 			break;
-		case 3: 	// X:©
+		case 3: 	// X:ï¿½ï¿½
 			Scan_PointIncOffsetX = dOffSetValueX - m_rcp_data.ScanPoint[iPoint].lX;
 			break;
-		case 4: 	// X:«
+		case 4: 	// X:ï¿½ï¿½
 			Scan_PointIncOffsetY = dOffSetValueX + m_rcp_data.ScanPoint[iPoint].lX;
 			break;
 		}
 
 		switch (lDirY) {
-		case 1: 	// Y:¨
+		case 1: 	// Y:ï¿½ï¿½
 			Scan_PointIncOffsetX = dOffSetValueY + m_rcp_data.ScanPoint[iPoint].lY;
 			break;
-		case 2: 	// Y:ª
+		case 2: 	// Y:ï¿½ï¿½
 		default:
 			Scan_PointIncOffsetY = dOffSetValueY - m_rcp_data.ScanPoint[iPoint].lY;
 			break;
-		case 3: 	// Y:©
+		case 3: 	// Y:ï¿½ï¿½
 			Scan_PointIncOffsetX = dOffSetValueY - m_rcp_data.ScanPoint[iPoint].lY;
 			break;
-		case 4: 	// Y:«
+		case 4: 	// Y:ï¿½ï¿½
 			Scan_PointIncOffsetY = dOffSetValueY + m_rcp_data.ScanPoint[iPoint].lY;
 			break;
 		}
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		m_PointGraph.AddPoint(Scan_PointIncOffsetX, Scan_PointIncOffsetY);
 	}
 
-	WORD wHeadType = m_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType; // ƒwƒbƒhƒ^ƒCƒv
+	WORD wHeadType = m_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType; // ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½v
 	WORD wScanType = m_rcp_data.MeasProgInfo.ScanParams.hdr.wScanType;
 
 	if(wHeadType == HEAD_TYPE_STRESS){
@@ -2917,51 +2919,51 @@ void CMeasurementListDlg::PointGraph_DataSet()
 					if(LineInfo.bScanValid[nSect]){
 						tLineData.Status = CNanoPointGraph::SECTION_NOT_MEASURED;
 
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //						tLineData.StartX = LineInfo.SectPos[nSect].lScanStartPosX + dOffSetValueX;
 //						tLineData.StartY = -(LineInfo.SectPos[nSect].lScanPosY - dOffSetValueY);
 //						tLineData.EndX = LineInfo.SectPos[nSect].lScanEndPosX + dOffSetValueX;
 //						tLineData.EndY = -(LineInfo.SectPos[nSect].lScanPosY - dOffSetValueY);
 						switch (lDirX) {
-						case 1: 	// X:¨
+						case 1: 	// X:ï¿½ï¿½
 						default:
 							tLineData.StartX = dOffSetValueX + LineInfo.SectPos[nSect].lScanStartPosX;
 							tLineData.EndX = dOffSetValueX + LineInfo.SectPos[nSect].lScanEndPosX;
 							break;
-						case 2: 	// X:ª
+						case 2: 	// X:ï¿½ï¿½
 							tLineData.StartY = dOffSetValueX - LineInfo.SectPos[nSect].lScanStartPosX;
 							tLineData.EndY = dOffSetValueX - LineInfo.SectPos[nSect].lScanEndPosX;
 							break;
-						case 3: 	// X:©
+						case 3: 	// X:ï¿½ï¿½
 							tLineData.StartX = dOffSetValueX - LineInfo.SectPos[nSect].lScanStartPosX;
 							tLineData.EndX = dOffSetValueX - LineInfo.SectPos[nSect].lScanEndPosX;
 							break;
-						case 4: 	// X:«
+						case 4: 	// X:ï¿½ï¿½
 							tLineData.StartY = dOffSetValueX + LineInfo.SectPos[nSect].lScanStartPosX;
 							tLineData.EndY = dOffSetValueX + LineInfo.SectPos[nSect].lScanEndPosX;
 							break;
 						}
 
 						switch (lDirY) {
-						case 1: 	// Y:¨
+						case 1: 	// Y:ï¿½ï¿½
 							tLineData.StartX = dOffSetValueY + LineInfo.SectPos[nSect].lScanPosY;
 							tLineData.EndX = dOffSetValueY + LineInfo.SectPos[nSect].lScanPosY;
 							break;
-						case 2: 	// Y:ª
+						case 2: 	// Y:ï¿½ï¿½
 						default:
 							tLineData.StartY = dOffSetValueY - LineInfo.SectPos[nSect].lScanPosY;
 							tLineData.EndY = dOffSetValueY - LineInfo.SectPos[nSect].lScanPosY;
 							break;
-						case 3: 	// Y:©
+						case 3: 	// Y:ï¿½ï¿½
 							tLineData.StartX = dOffSetValueY - LineInfo.SectPos[nSect].lScanPosY;
 							tLineData.EndX = dOffSetValueY - LineInfo.SectPos[nSect].lScanPosY;
 							break;
-						case 4: 	// Y:«
+						case 4: 	// Y:ï¿½ï¿½
 							tLineData.StartY = dOffSetValueY + LineInfo.SectPos[nSect].lScanPosY;
 							tLineData.EndY = dOffSetValueY + LineInfo.SectPos[nSect].lScanPosY;
 							break;
 						}
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 
 						//2009.08.30 bagus stress --{--
 						tLineData.SourceLineNo = nLine+1;
@@ -2972,11 +2974,11 @@ void CMeasurementListDlg::PointGraph_DataSet()
 				}
 			}
 		}
-		//ƒXƒgƒŒƒX‘ª’è—p‚Ì•`‰æ‚ğ—LŒø‚É‚·‚é
+		//ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½pï¿½Ì•`ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½
 		m_PointGraph.SetLineStatusMode(TRUE);
 	}
 	//2009.10.28 bagus 2point-Distance --{--
-	//2“_ŠÔ‹——£‚Ì•\¦ƒ‚[ƒh‚ÉØ‚è‘Ö‚¦‚é
+	//2ï¿½_ï¿½Ô‹ï¿½ï¿½ï¿½ï¿½Ì•\ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ÉØ‚ï¿½Ö‚ï¿½ï¿½ï¿½
 	else if(wHeadType == HEAD_TYPE_SR && wScanType == MEAS_PROG_TYPE_SR_DISTANCE){
 		m_PointGraph.SetDistanceMode(TRUE);
 	}
@@ -2988,12 +2990,12 @@ void CMeasurementListDlg::PointGraph_DataSet()
 
 void CMeasurementListDlg::OnTimer(UINT nIDEvent)
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚·‚é‚©‚Ü‚½‚ÍƒfƒtƒHƒ‹ƒg‚Ìˆ—‚ğŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½Éƒï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½é‚©ï¿½Ü‚ï¿½ï¿½Íƒfï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	if( m_pDoc->GetLastMeasPoint() == m_pDoc->GetShowCompPointList() ) //© [’ˆÓ]’Ç‰Á‘ª’è‚ÌƒƒWƒbƒN’Ç‰Á‚ÍA’Ç‰Á•ª‚à•\¦‚Å‚«‚é‚æ‚¤‚ÉC³‚ª•K—vH hibino
+	if( m_pDoc->GetLastMeasPoint() == m_pDoc->GetShowCompPointList() ) //ï¿½ï¿½ [ï¿½ï¿½ï¿½ï¿½]ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒï¿½ï¿½Wï¿½bï¿½Nï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ÍAï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½æ‚¤ï¿½ÉCï¿½ï¿½ï¿½ï¿½ï¿½Kï¿½vï¿½H hibino
 	{
 		//2009.08.31 bagus stess --{--
-		//ƒvƒƒZƒbƒVƒ“ƒO’†‚Å‚ ‚ê‚Î‚Ü‚¾ƒ^ƒCƒ}‚ğ~‚ß‚È‚¢i‚±‚±‚Å~‚ß‚é‚ÆƒXƒgƒŒƒX‘ª’è‚ÌŒ‹‰Ê‚ª•\¦‚Å‚«‚È‚¢j
+		//ï¿½vï¿½ï¿½ï¿½Zï¿½bï¿½Vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½Î‚Ü‚ï¿½ï¿½^ï¿½Cï¿½}ï¿½ï¿½ï¿½~ï¿½ß‚È‚ï¿½ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½Å~ï¿½ß‚ï¿½ÆƒXï¿½gï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ÌŒï¿½ï¿½Ê‚ï¿½ï¿½\ï¿½ï¿½ï¿½Å‚ï¿½ï¿½È‚ï¿½ï¿½j
 		if(m_pDoc->GetProcessStatus() != PROCESS_PROC){
 			m_PointGraph.FinishSection(m_pDoc->GetMeasuredStressLSNum());
 			KillTimer(SHOW_LIST_TIMER);
@@ -3011,12 +3013,12 @@ void CMeasurementListDlg::OnTimer(UINT nIDEvent)
 	//2009.08.31 bagus stress --}--
 
 
-	if(m_pDoc->GetSeqMeasMode() == SEQ_NOT_MEASURE) //‘ª’è’†‚Å‚È‚¢
+	if(m_pDoc->GetSeqMeasMode() == SEQ_NOT_MEASURE) //ï¿½ï¿½ï¿½è’†ï¿½Å‚È‚ï¿½
 	{
 		m_PointGraph.Finish(m_pDoc->GetStoreCount());
 		//2009.09.10 bagus stress -- {--
 		//2009.09.10 bagus stress -- }--
-		//2009.12.03 bagus stress íœ --{--
+		//2009.12.03 bagus stress ï¿½íœ --{--
 		//m_PointGraph.FinishSection(m_pDoc->GetMeasuredStressLSNum());
 		//2009.12.03 bagus stress --}--
 	}
@@ -3027,7 +3029,7 @@ void CMeasurementListDlg::OnTimer(UINT nIDEvent)
 
 
 // =========================================================================
-// m_MeasurementListGrid‚Ì‘I‘ğ‚³‚ê‚Ä‚¢‚éƒZƒ‹‚ğ‘S‚Ä‰ğœ‚·‚é
+// m_MeasurementListGridï¿½Ì‘Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½Sï¿½Ä‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void CMeasurementListDlg::MeasurementListGrid_UnSelectAll()
 {
 	int iRowCount = m_MeasurementListGrid.GetRowCount();
@@ -3037,7 +3039,7 @@ void CMeasurementListDlg::MeasurementListGrid_UnSelectAll()
 	{
 		for(int iCol=1; iCol<iColumnCount; iCol++)
 		{
-			//‘I‘ğ‰ğœ
+			//ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			int iState = m_MeasurementListGrid.GetItemState(iRow, iCol);
 			iState = (iState & GVIS_SELECTED) ^ iState;
 			BOOL bRtnChk = m_MeasurementListGrid.SetItemState(iRow, iCol, iState);
@@ -3046,22 +3048,22 @@ void CMeasurementListDlg::MeasurementListGrid_UnSelectAll()
 	}
 }
 
-/* added 2015.04.05 hmenjo FWXGA ‘Î‰2 ---------- { ---------- */
+/* added 2015.04.05 hmenjo FWXGA ï¿½Î‰ï¿½2 ---------- { ---------- */
 void CMeasurementListDlg::ChgSizeCtrl(long ldY)
 {
-	/* ‘ª’èƒŠƒXƒg ƒOƒŠƒbƒh ’ê•ÓˆÚ“®	*/
+	/* ï¿½ï¿½ï¿½èƒŠï¿½Xï¿½g ï¿½Oï¿½ï¿½ï¿½bï¿½h ï¿½ï¿½ÓˆÚ“ï¿½	*/
 	RECT l_rectMeasGrid;	m_MeasurementListGrid.GetWindowRect(&l_rectMeasGrid);
 	m_MeasurementListGrid.SetWindowPos(	0,
 						0, 0,
 						l_rectMeasGrid.right - l_rectMeasGrid.left,
 						l_rectMeasGrid.bottom - l_rectMeasGrid.top + ldY,
 						SWP_NOZORDER | SWP_NOMOVE);
-	/* “ŒvƒŠƒXƒg ƒOƒŠƒbƒh ˆÚ“®	*/
+	/* ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Xï¿½g ï¿½Oï¿½ï¿½ï¿½bï¿½h ï¿½Ú“ï¿½	*/
 	RECT l_rectStatListGrid;	m_StatisticsListGrid.GetWindowRect(&l_rectStatListGrid);
 	POINT l_ptStatListGrid = {l_rectStatListGrid.left, l_rectStatListGrid.top + ldY};
 	this->ScreenToClient(&l_ptStatListGrid);
 	m_StatisticsListGrid.SetWindowPos(0, l_ptStatListGrid.x, l_ptStatListGrid.y, 0, 0, SWP_NOZORDER | SWP_NOSIZE);
-	/* –{‘Ìƒ_ƒCƒAƒƒO ’ê•ÓˆÚ“®	*/
+	/* ï¿½{ï¿½Ìƒ_ï¿½Cï¿½Aï¿½ï¿½ï¿½O ï¿½ï¿½ÓˆÚ“ï¿½	*/
 	RECT l_rectDlg;	this->GetWindowRect(&l_rectDlg);
 	this->SetWindowPos(	0,
 						0, 0,
@@ -3069,4 +3071,4 @@ void CMeasurementListDlg::ChgSizeCtrl(long ldY)
 						l_rectDlg.bottom - l_rectDlg.top + ldY,
 						SWP_NOZORDER | SWP_NOMOVE);
 }
-/* added 2015.04.05 hmenjo FWXGA ‘Î‰2 ---------- } ---------- */
+/* added 2015.04.05 hmenjo FWXGA ï¿½Î‰ï¿½2 ---------- } ---------- */
