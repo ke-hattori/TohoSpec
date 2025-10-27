@@ -434,6 +434,7 @@ BOOL CChiefTransiStress::MoveToLdPos()
  */
 void CChiefTransiStress::PreMove()
 {
+	int i;
 	if (0 != m_bPause) {
 		return;		/* |[Ywߎ͐sړ܂D	*/
 	}
@@ -874,6 +875,7 @@ void CChiefTransiStress::enter_ST_STRS_LMVSTAPOS(const cEventParams* const pEvPa
 
 	BOOL l_bCancelReq = FALSE;
 	DWORD l_dwErrCode = TR_STRS_OK;
+	int i;
 
 	m_bMeasStress = TRUE;	/* XgX蒆	*/
 
@@ -1025,6 +1027,7 @@ void CChiefTransiStress::enter_ST_STRS_LMVENDPOS(const cEventParams* const pEvPa
 
 	BOOL l_bCancelReq = FALSE;
 	DWORD l_dwErrCode = TR_STRS_OK;
+	int i;
 
 	static BOOL ls_bMeasEnd = FALSE;	/* PC芮(胂W[)	*/
 	static BOOL ls_AnaEndReply = FALSE;		/* PCf[^(f[^W[)	*/
