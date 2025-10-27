@@ -3893,6 +3893,8 @@ BOOL CGridCtrl::SetRowCount(int nRows)
 BOOL CGridCtrl::SetColumnCount(int nCols)
 {
 	BOOL bResult = TRUE;
+	int col;
+	int row;
 
 	ASSERT(nCols >= 0);
 
@@ -3914,8 +3916,8 @@ BOOL CGridCtrl::SetColumnCount(int nCols)
 	// within each column
 	if (addedCols < 0 && !GetVirtualMode())
 	{
-		for (int row = 0; row < m_nRows; row++)
-			for (int col = nCols; col < GetColumnCount(); col++)
+		for (row = 0; row < m_nRows; row++)
+			for (col = nCols; col < GetColumnCount(); col++)
 				DestroyCell(row, col);
 	}
 
@@ -3936,13 +3938,13 @@ BOOL CGridCtrl::SetColumnCount(int nCols)
 	{
 		// initialized column widths
 		int startCol = nCols - addedCols;
-		for (int col = startCol; col < nCols; col++)
+		for (col = startCol; col < nCols; col++)
 			m_arColWidths[col] = m_cellFixedColDef.GetWidth();
 
 		// initialise column data
 		if (!GetVirtualMode())
 		{
-			for (int row = 0; row < m_nRows; row++)
+			for (row = 0; row < m_nRows; row++)
 				for (col = startCol; col < nCols; col++)
 				{
 					GRID_ROW* pRow = m_RowData[row];
@@ -5221,6 +5223,7 @@ void CGridCtrl::AutoSize(UINT nAutoSizeStyle /*=GVS_DEFAULT*/)
 // columns will not be affected
 void CGridCtrl::ExpandColumnsToFit(BOOL bExpandFixed /*=TRUE*/)
 {
+	int col;
 	if (bExpandFixed)
 	{
 		if (GetColumnCount() <= 0) return;
@@ -5238,7 +5241,7 @@ void CGridCtrl::ExpandColumnsToFit(BOOL bExpandFixed /*=TRUE*/)
 	int nFirstColumn = (bExpandFixed) ? 0 : GetFixedColumnCount();
 
 	int nNumColumnsAffected = 0;
-	for (int col = nFirstColumn; col < GetColumnCount(); col++)
+	for (col = nFirstColumn; col < GetColumnCount(); col++)
 	{
 		if (m_arColWidths[col] > 0)
 			nNumColumnsAffected++;
@@ -5260,7 +5263,8 @@ void CGridCtrl::ExpandColumnsToFit(BOOL bExpandFixed /*=TRUE*/)
 	if (nDifference > 0)
 	{
 		int leftOver = nDifference % nNumColumnsAffected;
-		for (int nCount = 0, col = nFirstColumn;
+		int nCount;
+		for (nCount = 0, col = nFirstColumn;
 			(col < GetColumnCount()) && (nCount < leftOver); col++, nCount++)
 		{
 			if (m_arColWidths[col] > 0)
@@ -5270,7 +5274,8 @@ void CGridCtrl::ExpandColumnsToFit(BOOL bExpandFixed /*=TRUE*/)
 	else
 	{
 		int leftOver = (-nDifference) % nNumColumnsAffected;
-		for (int nCount = 0, col = nFirstColumn;
+		int nCount;
+		for (nCount = 0, col = nFirstColumn;
 			(col < GetColumnCount()) && (nCount < leftOver); col++, nCount++)
 		{
 			if (m_arColWidths[col] > 0)
@@ -5320,6 +5325,7 @@ void CGridCtrl::ExpandLastColumn()
 // rows will not be affected
 void CGridCtrl::ExpandRowsToFit(BOOL bExpandFixed /*=TRUE*/)
 {
+	int row;
 	if (bExpandFixed)
 	{
 		if (GetRowCount() <= 0) return;
@@ -5337,7 +5343,7 @@ void CGridCtrl::ExpandRowsToFit(BOOL bExpandFixed /*=TRUE*/)
 	int nFirstRow = (bExpandFixed) ? 0 : GetFixedRowCount();
 
 	int nNumRowsAffected = 0;
-	for (int row = nFirstRow; row < GetRowCount(); row++)
+	for (row = nFirstRow; row < GetRowCount(); row++)
 	{
 		if (m_arRowHeights[row] > 0)
 			nNumRowsAffected++;
@@ -5359,7 +5365,8 @@ void CGridCtrl::ExpandRowsToFit(BOOL bExpandFixed /*=TRUE*/)
 	if (nDifference > 0)
 	{
 		int leftOver = nDifference % nNumRowsAffected;
-		for (int nCount = 0, row = nFirstRow;
+		int nCount;
+		for (nCount = 0, row = nFirstRow;
 			(row < GetRowCount()) && (nCount < leftOver); row++, nCount++)
 		{
 			if (m_arRowHeights[row] > 0)
@@ -5369,7 +5376,8 @@ void CGridCtrl::ExpandRowsToFit(BOOL bExpandFixed /*=TRUE*/)
 	else
 	{
 		int leftOver = (-nDifference) % nNumRowsAffected;
-		for (int nCount = 0, row = nFirstRow;
+		int nCount;
+		for (nCount = 0, row = nFirstRow;
 			(row < GetRowCount()) && (nCount < leftOver); row++, nCount++)
 		{
 			if (m_arRowHeights[row] > 0)
