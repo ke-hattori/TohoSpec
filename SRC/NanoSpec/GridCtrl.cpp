@@ -316,7 +316,7 @@ CGridCtrl::~CGridCtrl()
 		m_TitleTip.DestroyWindow();
 #endif
 
-	// ƒfƒXƒgƒ‰ƒNƒg‚Ì’†‚ÅDestroyWindow‚ğŒÄ‚Ño‚³‚È‚¢
+	// ï¿½fï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½gï¿½Ì’ï¿½ï¿½ï¿½DestroyWindowï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½È‚ï¿½
 	//	DestroyWindow();
 
 #if !defined(GRIDCONTROL_NO_DRAGDROP) || !defined(GRIDCONTROL_NO_CLIPBOARD)
@@ -3216,7 +3216,8 @@ CCellRange CGridCtrl::GetVisibleNonFixedCellRange(LPRECT pRect /*=NULL*/,
 
 	// calc bottom
 	int bottom = GetFixedRowHeight();
-	for (int i = idTopLeft.row; i < GetRowCount(); i++)
+	int i;
+	for (i = idTopLeft.row; i < GetRowCount(); i++)
 	{
 		bottom += GetRowHeight(i);
 		if (bottom >= rect.bottom)
@@ -3259,7 +3260,8 @@ CCellRange CGridCtrl::GetUnobstructedNonFixedCellRange(BOOL bForceRecalculation 
 
 	// calc bottom
 	int bottom = GetFixedRowHeight();
-	for (int i = idTopLeft.row; i < GetRowCount(); i++)
+	int i;
+	for (i = idTopLeft.row; i < GetRowCount(); i++)
 	{
 		bottom += GetRowHeight(i);
 		if (bottom >= rect.bottom)
