@@ -509,7 +509,7 @@ int CMeasurementTabView::SaveMeasConAddRevi(LPCTSTR pszMainRcpName, int iSaveWay
 			//	sprintf(szCheckDir,"%s\\%s\\%s_%d%s",g_szResult_Dir,szSampleId,pszMainRcpName,nCheckNo,DAT_EXT);
 //2009.12.21 bagus �C�� --{--
 //			for(int nCheckNo = 0;nCheckNo < strlen(szCheckDir);nCheckNo++){
-			for(int nCheckNo = 0;nCheckNo < strlen(szCheckLetters);nCheckNo++){
+			for(int nCheckNo = 0;nCheckNo < static_cast<int>(strlen(szCheckLetters));nCheckNo++){
 //2009.12.21 bagus �C�� --}--
 				sprintf(szCheckDir,"%s\\%s\\%s_%c%s",g_szResult_Dir,szSampleId,pszMainRcpName,szCheckLetters[nCheckNo],DAT_EXT);
 			//2009.10.17 bagus stress --}--
