@@ -4878,12 +4878,12 @@ void CRecipeMainSrView::SamplePointGraph_DataSet()
 		return;
 	}
 
-	for (i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++) {
+	for (i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++) {
 		if(i >= STRESS_PINS_MAX){
 			break;
 		}
 
-		for (j=0; j<m_StressConfig.Line[i].dwSectionNum; j++) {
+		for (j=0; j<static_cast<int>(m_StressConfig.Line[i].dwSectionNum); j++) {
 			if (m_StageStressProg.Line[i].bValidLine) {
 				tLineData.Status = CNanoPointGraph::SECTION_NOT_MEASURED;
 			} else {
@@ -5306,7 +5306,7 @@ BOOL CRecipeMainSrView::CheckStressThicknessData(MAIN_RCP_INFO MainRcpInfo)
 			return FALSE;
 		}
 		else{//StageProgram�I���ς�
-			for(iCount=0; iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
+			for(iCount=0; iCount<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); iCount++){
 				for (jCount=0; jCount<PIN_INTERVAL; jCount++) {
 					strThick.Format("%f", m_StressParamInfo.Line[iCount].dPtThick[jCount]);
 					if (!m_StageStressProg.Line[iCount].bValidLine) {// ����Line�̏ꍇ
