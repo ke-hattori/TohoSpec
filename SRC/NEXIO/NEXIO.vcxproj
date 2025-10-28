@@ -152,6 +152,7 @@
       <OutputFile>../../dll/tnsnexio.dll</OutputFile>
       <ImportLibrary>../../lib/tnsnexio.lib</ImportLibrary>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

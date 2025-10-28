@@ -151,6 +151,7 @@
       <OutputFile>../../bin/MotSysNSPT.exe</OutputFile>
       <AdditionalLibraryDirectories>..\UPI_IRQDLL\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>apidio.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
