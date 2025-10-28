@@ -224,7 +224,7 @@ BOOL CRecipeStressStageProgramView::SaveRecipeData()
 			BOOL bCreateDir = TRUE;
 			_fullpath(fullPath,l_UserData.BackupData.BackupPath,sizeof(fullPath));
 			_tcscat(fullPath,"\\" DB_DIR_NAME "\\" DB_DESKEW_IMG_DIR_NAME "\\" );
-			for(int n = 0;n < strlen(fullPath);n++){
+			for(int n = 0;n < static_cast<int>(strlen(fullPath));n++){
 				if(n > 0 && fullPath[n] == '\\' && fullPath[n-1] != ':'){
 					fullPath[n] = '\0';
 					bCreateDir = CreateDirectory(fullPath,NULL);
@@ -982,7 +982,7 @@ void CRecipeStressStageProgramView::SetMeasurementLineSectionData()
 			continue;
 		}
 
-		for (j=0; j<m_StressConfig.Line[i].dwSectionNum; j++) {
+		for (j=0; j<static_cast<int>(m_StressConfig.Line[i].dwSectionNum); j++) {
 			dwTextStyle = DT_CENTER|DT_VCENTER|DT_SINGLELINE;
 			dwTextStyle |= DT_END_ELLIPSIS;
 			Item.mask = GVIF_TEXT|GVIF_FORMAT;
@@ -1075,7 +1075,7 @@ void CRecipeStressStageProgramView::SetMeasurementPointData()
 		//2009.09.19 bagus stress --}--
 
 		bUseLine[i] = FALSE;
-		for (j=0; j<m_StressConfig.Line[i].dwSectionNum; j++) {
+		for (j=0; j<static_cast<int>(m_StressConfig.Line[i].dwSectionNum); j++) {
 			//2009.09.19 bagus stress --{--
 			if (m_StageStressProg.Line[i].bScanValid[j]) {
 			//2009.09.19 bagus stress --}--
@@ -1458,7 +1458,7 @@ void CRecipeStressStageProgramView::UpDate()
 		//2009.09.19 bagus stress --}--
 			continue;
 		}
-		for (int j=0; j<m_StressConfig.Line[n].dwSectionNum; j++) {
+		for (int j=0; j<static_cast<int>(m_StressConfig.Line[n].dwSectionNum); j++) {
 			//if(m_LineCheckBox.CheckBox[ls_rows-1]->GetCheck()){
 			//2009.09.15 bagus stress --{--
 			//if(((CGridCellCheck *)m_MeasurementPointGrid.GetCell(ls_rows-1,4))->GetCheck()){
@@ -1818,14 +1818,14 @@ void CRecipeStressStageProgramView::SamplePointGraph_DataSet()
 // 2009.09.17 bagus stress Grid�C�� --}--
 
 	ls_rows = 1;
-	for (i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++) {
+	for (i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++) {
 		if(i >= STRESS_PINS_MAX){
 			break;
 		}
 
 //2009.09.10 bagus stress --{--
 // Pin Data
-		for(j = 0; j<m_StressConfig.Line[i].dwLiftPinNumberOfLn;j++){
+		for(j = 0; j<static_cast<int>(m_StressConfig.Line[i].dwLiftPinNumberOfLn);j++){
 			long lPinX,lPinY;
 			lPinX = lPinY = 0L;
 			switch (m_StageConfig.Dir.X) {
@@ -1862,7 +1862,7 @@ void CRecipeStressStageProgramView::SamplePointGraph_DataSet()
 			m_SamplePointGraph.AddPinData(lPinX,lPinY);
 		}
 //2009.09.10 bagus stress --}--
-		for (j=0; j<m_StressConfig.Line[i].dwSectionNum; j++) {
+		for (j=0; j<static_cast<int>(m_StressConfig.Line[i].dwSectionNum); j++) {
 // 2009.09.10 bagus stress �C�� --{--
 //			if (m_StageStressProg.Line[i].bValidLine) {
 //				tLineData.Status = CNanoPointGraph::SECTION_NOT_MEASURED;
@@ -2561,7 +2561,7 @@ BOOL CRecipeStressStageProgramView::CheckMeasurementLineSectionData()
 // 2009.09.10 bagus stress �C�� --{--
 		bUseLine = FALSE;
 // 2009.09.10 bagus stress �C�� --}--
-		for (j=0; j<m_StressConfig.Line[i].dwSectionNum; j++) {
+		for (j=0; j<static_cast<int>(m_StressConfig.Line[i].dwSectionNum); j++) {
 			Item.mask = GVIF_TEXT;
 			Item.row = ls_rows;
 			Item.col = 4;
@@ -2739,7 +2739,7 @@ void CRecipeStressStageProgramView::InitCombo_MaterialElasticModulus()
 	CComboBox* pCombo;
 	pCombo = (CComboBox*)GetDlgItem(IDC_MATERIAL_ELASTIC_MODULUS);
 	pCombo->ResetContent();
-	for (i=0; i<m_ElasticTable.uiTableNum; i++) {
+	for (i=0; i<static_cast<int>(m_ElasticTable.uiTableNum); i++) {
 		strItem.Format("%e %s", m_ElasticTable.ElasticModulus[i].dElasticModulusValue, m_ElasticTable.ElasticModulus[i].tszElasticModulusName);
 		pCombo->AddString(strItem);
 	}
