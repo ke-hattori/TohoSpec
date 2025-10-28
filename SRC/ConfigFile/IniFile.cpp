@@ -1051,7 +1051,7 @@ void LoadNanoSpecIni(int iIniFile)
 				/*	�ۑ��̊֐�����������ꍇ�́C�ő僉�C�����𒴂������C���̒�`�� ini �t�@�C����
 					���o���Ȃ��悤�ɂ��Ȃ���΂Ȃ�Ȃ����߁C�R�R�Ɠ��l�ȏ����ɂ͂��Ȃ����ƁD*/
 		TCHAR l_tszKey[256];
-		LPCTSTR l_ptszKeyOrg;
+		LPCTSTR l_ptszKeyOrg = nullptr;
 		if (0 == l_iLineCount) {
 			if ((SYSTEM_STRESS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, LINEnSECNUM))) {
 				l_ptszKeyOrg = (pIniDesc + index)->key;
@@ -1072,7 +1072,7 @@ void LoadNanoSpecIni(int iIniFile)
 	//2009.08.27 bagus stress --{--
 	//�f�[�^�������Ȃ邽�߂��̏����͂�߂�
 		TCHAR l_tszKey[256];
-		LPCTSTR l_ptszKeyOrg;
+		LPCTSTR l_ptszKeyOrg = nullptr;
 	//2009.08.27 bagus stress --}--
 #endif
 //2009.08.24 bagus stress --{--
@@ -1190,7 +1190,7 @@ void LoadNanoSpecIni(int iIniFile)
 	}
 	else{
 		TCHAR l_tszKey[256];
-		LPCTSTR l_ptszKeyOrg;
+		LPCTSTR l_ptszKeyOrg = nullptr;
 
 		for(index = 0; index < iIniDescCount; index++){
 			// get section name
@@ -1715,7 +1715,7 @@ void SaveNanoSpecIni(int iIniFile)
 		memset(buff, NULL, sizeof(buff));
 /* added 2009.07.22 hmenjo �X�g���X ���C���� ��` ---------- { ---------- */
 		TCHAR l_tszKey[256];
-		LPCTSTR l_ptszKeyOrg;
+		LPCTSTR l_ptszKeyOrg = nullptr;
 		if (0 == l_iLineCount) {
 			if ((SYSTEM_STRESS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, LINEnSECNUM))) {
 				l_ptszKeyOrg = (pIniDesc + index)->key;
@@ -1733,7 +1733,7 @@ void SaveNanoSpecIni(int iIniFile)
 		}
 #else
 		TCHAR l_tszKey[256];
-		LPCTSTR l_ptszKeyOrg;
+		LPCTSTR l_ptszKeyOrg = nullptr;
 #endif
 /* added 2009.07.22 hmenjo �X�g���X ���C���� ��` ---------- } ---------- */
 //2009.08.24 bagus stress --{--
@@ -1850,7 +1850,7 @@ void SaveNanoSpecIni(int iIniFile)
 	}
 	else{
 		TCHAR l_tszKey[256];
-		LPCTSTR l_ptszKeyOrg;
+		LPCTSTR l_ptszKeyOrg = nullptr;
 		for(index = 0; index < iIniDescCount; index++){
 			// get section name
 			if (strlen((pIniDesc + index)->section) > 0)
