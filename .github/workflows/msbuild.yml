@@ -80,17 +80,96 @@ jobs:
             /flp2:"logfile=$errLog;errorsonly=true" `
             /flp3:"logfile=$warnLog;warningsonly=true"
 
+      - name: Extract and analyze warnings
+        continue-on-error: true
+        run: |
+          $logDir = "_logs/${{ matrix.configuration }}_${{ matrix.platform }}"
+          $buildLog = Join-Path $logDir "build.log"
+          
+          if (Test-Path $buildLog) {
+            Write-Host "Extracting warnings from build log..."
+            & tools/extract-warnings.ps1 -LogFile $buildLog -OutputDir $logDir
+          } else {
+            Write-Warning "Build log not found: $buildLog"
+          }
+      
       - name: Summarize counts (non-blocking)
         continue-on-error: true
         run: |
           $logDir = "_logs/${{ matrix.configuration }}_${{ matrix.platform }}"
           $errLog = Join-Path $logDir "errors.log"
           $warnLog = Join-Path $logDir "warnings.log"
+          $warningsJson = Join-Path $logDir "warnings.json"
+          
           $errCount = (Test-Path $errLog)  ? (Select-String -Path $errLog -Pattern '.' | Measure-Object).Count : 0
-          $warnCount = (Test-Path $warnLog) ? (Select-String -Path $warnLog -Pattern '.' | Measure-Object).Count : 0
+          $warnCount = 0
+          $targetWarnCount = 0
+          
+          if (Test-Path $warningsJson) {
+            $warningData = Get-Content $warningsJson | ConvertFrom-Json
+            $warnCount = $warningData.total
+            $targetWarnCount = $warningData.targetWarnings
+          } elseif (Test-Path $warnLog) {
+            $warnCount = (Select-String -Path $warnLog -Pattern '.' | Measure-Object).Count
+          }
+          
           "Errors: $errCount"  | Tee-Object -FilePath (Join-Path $logDir "summary.txt")
-          "Warnings: $warnCount" | Tee-Object -FilePath (Join-Path $logDir "summary.txt") -Append
-          Write-Host "::notice title=Log Summary (${{ matrix.configuration }}|${{ matrix.platform }})::Errors=$errCount, Warnings=$warnCount"
+          "Warnings: $warnCount (excluding Unicode)" | Tee-Object -FilePath (Join-Path $logDir "summary.txt") -Append
+          "Target Warnings (Uninit/Bounds): $targetWarnCount" | Tee-Object -FilePath (Join-Path $logDir "summary.txt") -Append
+          
+          # Add to GitHub Job Summary
+          "## Build Summary: ${{ matrix.configuration }}|${{ matrix.platform }}" >> $env:GITHUB_STEP_SUMMARY
+          "" >> $env:GITHUB_STEP_SUMMARY
+          "- **Errors:** $errCount" >> $env:GITHUB_STEP_SUMMARY
+          "- **Warnings:** $warnCount (excluding Unicode-related)" >> $env:GITHUB_STEP_SUMMARY
+          "- **🎯 Target Warnings (Uninit/Bounds):** $targetWarnCount" >> $env:GITHUB_STEP_SUMMARY
+          "" >> $env:GITHUB_STEP_SUMMARY
+          
+          if (Test-Path $warningsJson) {
+            $warningData = Get-Content $warningsJson | ConvertFrom-Json
+            
+            # Show target warnings breakdown
+            if ($warningData.targetByCode -and $warningData.targetByCode.Count -gt 0) {
+              "### 🎯 Uninitialized/Bounds Warnings" >> $env:GITHUB_STEP_SUMMARY
+              "| Code | Count | Description |" >> $env:GITHUB_STEP_SUMMARY
+              "|------|-------|-------------|" >> $env:GITHUB_STEP_SUMMARY
+              $descriptions = @{
+                'C4700' = 'uninitialized local variable'
+                'C4701' = 'potentially uninitialized local'
+                'C4703' = 'potentially uninitialized pointer'
+                'C6001' = 'using uninitialized memory'
+                'C6201' = 'buffer overrun (stack)'
+                'C6385' = 'reading invalid data'
+                'C6386' = 'buffer overrun (write)'
+                'C6387' = 'invalid parameter value'
+              }
+              $warningData.targetByCode | ForEach-Object {
+                $desc = $descriptions[$_.code]
+                "| $($_.code) | $($_.count) | $desc |" >> $env:GITHUB_STEP_SUMMARY
+              }
+              "" >> $env:GITHUB_STEP_SUMMARY
+            }
+            
+            "### Top Warning Codes (All)" >> $env:GITHUB_STEP_SUMMARY
+            "| Code | Count |" >> $env:GITHUB_STEP_SUMMARY
+            "|------|-------|" >> $env:GITHUB_STEP_SUMMARY
+            $warningData.byCode | Select-Object -First 10 | ForEach-Object {
+              "| $($_.code) | $($_.count) |" >> $env:GITHUB_STEP_SUMMARY
+            }
+            "" >> $env:GITHUB_STEP_SUMMARY
+            
+            if ($warningData.targetByFile -and $warningData.targetByFile.Count -gt 0) {
+              "### Top Files with Target Warnings" >> $env:GITHUB_STEP_SUMMARY
+              "| File | Warnings |" >> $env:GITHUB_STEP_SUMMARY
+              "|------|----------|" >> $env:GITHUB_STEP_SUMMARY
+              $warningData.targetByFile | Select-Object -First 10 | ForEach-Object {
+                "| $($_.file) | $($_.count) |" >> $env:GITHUB_STEP_SUMMARY
+              }
+              "" >> $env:GITHUB_STEP_SUMMARY
+            }
+          }
+          
+          Write-Host "::notice title=Log Summary (${{ matrix.configuration }}|${{ matrix.platform }})::Errors=$errCount, Warnings=$warnCount, Target=$targetWarnCount"
 
       - name: Upload artifacts (logs & binlog)
         if: always()
@@ -100,5 +179,7 @@ jobs:
           path: |
             _logs/${{ matrix.configuration }}_${{ matrix.platform }}/*.log
             _logs/${{ matrix.configuration }}_${{ matrix.platform }}/*.binlog
-            _logs/${{ matrix.configuration }}_${{ matrix.platform }}/summary.txt
+            _logs/${{ matrix.configuration }}_${{ matrix.platform }}/*.txt
+            _logs/${{ matrix.configuration }}_${{ matrix.platform }}/*.csv
+            _logs/${{ matrix.configuration }}_${{ matrix.platform }}/*.json
           if-no-files-found: warn
