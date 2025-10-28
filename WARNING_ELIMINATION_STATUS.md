@@ -8,7 +8,7 @@
 ## Summary
 
 **Initial Baseline:** 862 warnings (excluding Unicode-related: C4819, C4566, RC codepage)  
-**Current Status:** 840 warnings (22 fixed)  
+**Current Status:** 798 warnings (64 fixed)  
 **Target:** 0 warnings (excluding Unicode-related)
 
 ## Completed Fixes
@@ -37,7 +37,19 @@
 
 **Rationale:** These variables were declared but never used. Removing them improves code clarity and eliminates warnings without any behavioral impact.
 
-## Remaining Warnings (840 total)
+### ✅ C4018 - Signed/Unsigned Mismatch (60 → 25 remaining)
+
+**Files Modified:**
+- `SRC/NanoSpec/StressLineSectionSettingDlg.cpp`: Fixed 33 signed/unsigned comparisons with static_cast<int>()
+- `SRC/NanoSpec/RecipeThicknessSettingView.cpp`: Fixed 12 signed/unsigned comparisons with static_cast<int>()
+- `SRC/NanoSpec/RecipeStressStageProgramView.cpp`: Fixed 9 signed/unsigned comparisons with static_cast<int>()
+- `SRC/NanoSpec/ChifTransiStress.cpp`: Fixed 6 signed/unsigned comparisons with static_cast<int>()
+
+**Rationale:** These warnings occur when comparing signed int loop variables with unsigned DWORD member variables (e.g., dwLiftPinNumberOfLine, dwSectionNum). Adding explicit static_cast<int>() conversions makes the intent clear and eliminates the warnings without changing behavior.
+
+**Remaining:** 25 warnings in other files (RecipeMainSrView.cpp, IniFile.cpp, StressElasticModulusListDlg.cpp, etc.)
+
+## Remaining Warnings (798 total)
 
 ### 🔴 C4244 - Type Conversion, Possible Data Loss (654 warnings)
 
