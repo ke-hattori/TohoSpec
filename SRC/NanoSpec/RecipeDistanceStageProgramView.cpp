@@ -1083,6 +1083,7 @@ void CRecipeDistanceStageProgramView::UpDate()
 	int Valid_X1, Valid_Y1, Valid_X2, Valid_Y2;
 	int	nIndex;
 	BOOL bShape = FALSE;
+	int i;
 
 // 2009.10.24 bagus 2�_�� �C�� --{--
 	long lTmp;
@@ -1103,7 +1104,7 @@ void CRecipeDistanceStageProgramView::UpDate()
 
 	///// Sample -Shape /////
 	GetDlgItemText(IDC_SAMPLE_SHAPE, strBuffer);
-	for ( int i = 0 ; i < SAMPLE_SHAPE_MAX ; i ++ ) {
+	for ( i = 0 ; i < SAMPLE_SHAPE_MAX ; i ++ ) {
 		if(l_SystemConfig.nLanguage == 0){
 			if ( strBuffer == g_lpszSampleShape_ENU[i] ) {
 				m_StageProgInfoHdr.SampleInfo.nShape = i;
