@@ -21,6 +21,14 @@ Once the solution compiles cleanly, we need to:
 - **SRC/MeaSys/XmpHelper.HXX:761** - Hoisted variable 'i' (Policy A)
 
 ### NanoSpec Project ✅ COMPLETE
+- **SRC/NanoSpec/GridCtrl.cpp** - Hoisted 'col' and 'row' in SetColumnCount, ExpandColumnsToFit, ExpandRowsToFit (Policy A)
+- **SRC/NanoSpec/MainFrm.cpp** - Hoisted 'i' in OnCreate (Policy A)
+- **SRC/NanoSpec/ChifTransiStress.cpp** - Hoisted 'i' in multiple functions (Policy A)
+- **SRC/NanoSpec/RecipeDistanceStageProgramView.cpp** - Hoisted 'i' in OnDeleteButton and UpDate (Policy A)
+- **SRC/NanoSpec/ChiefView.cpp** - Hoisted 'i' in multiple functions (Policy A)
+- **SRC/NanoSpec/OriginalPositionSettingDlg.cpp** - Added 'iHead' in OnSelchangeBaseHeadType (Policy A)
+- **SRC/NanoSpec/BCMenu.cpp** - Hoisted 'i' in multiple functions (Policy A)
+- **SRC/NanoSpec/MeasurementTabView.cpp** - Added 'i' in MRCS_GridLineColorSet (Policy A)
 - **SRC/NanoSpec/SitePtSeq.cpp:125** - Hoisted variable 'iSite' (Policy A) - used after loop on lines 202-205, 233
 - **SRC/NanoSpec/RecipeStressStageProgramView.cpp:1406** - Added 'i' declaration in UpDate() function (Policy A)
 - **SRC/NanoSpec/RecipeStageProgramView.cpp:744** - Added 'i' declaration in OnAddButton() function (Policy A)
@@ -81,7 +89,8 @@ use(i);  // OK
 
 ## Summary
 
-**Total for-scope fixes:** 10 locations (3 in MEASYS, 7 in NanoSpec)
+**Total for-scope fixes:** ~25 locations (3 in MEASYS, ~22 in NanoSpec)
 - All fixes applied Policy A (hoist loop variable to surrounding block)
 - No behavior changes
 - MotTsk had no for-scope errors after flag removal
+- **Final result: 0 for-scope diagnostics, /Zc:forScope- successfully removed**

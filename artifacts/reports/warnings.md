@@ -5,13 +5,15 @@
 **Initial Warnings:** 9,590  
 **After Phase 1:** 1,237 (87% reduction)  
 **After Phase 2 (partial):** ~750 (estimated, 92% reduction)  
-**Unique Warning Codes:** 9
+**Current (After For-Scope Fixes):** 867 (91% reduction)  
+**Unique Warning Codes:** 7
 
 **Latest Updates:**
 - ✅ C4477 format string fixes (143 warnings)
 - ✅ C4838 narrowing conversions (224 warnings)
-- ✅ /Zc:forScope- removed from all projects (3 MEASYS fixes)
+- ✅ /Zc:forScope- removed from all projects (~25 fixes in NanoSpec, 3 in MEASYS)
 - ✅ C4996 itoa and Enable3dControls (7 warnings)
+- ✅ **For-scope diagnostics: 25 → 0** (all fixed)
 
 ## Phase 1 Results (C4996 Suppression)
 
@@ -37,13 +39,19 @@ Added `_CRT_SECURE_NO_WARNINGS` to 37 projects:
 
 ### 3. For-Scope Modernization (/Zc:forScope- Removal) ✅
 **Projects:** MEASYS, NanoSpec, MotTsk  
-**Files Fixed (MEASYS only):**
-- `SRC/MeaSys/SrRefFile.cpp:421` - Hoisted variable 'i' (Policy A)
-- `SRC/MeaSys/XmpHelper.HXX:700` - Hoisted variable 'nLayer' (Policy A)
-- `SRC/MeaSys/XmpHelper.HXX:761` - Hoisted variable 'i' (Policy A)
+**Files Fixed:**
+- **MEASYS (3 locations):**
+  - `SRC/MeaSys/SrRefFile.cpp:421` - Hoisted variable 'i' (Policy A)
+  - `SRC/MeaSys/XmpHelper.HXX:700` - Hoisted variable 'nLayer' (Policy A)
+  - `SRC/MeaSys/XmpHelper.HXX:761` - Hoisted variable 'i' (Policy A)
+- **NanoSpec (~22 locations):**
+  - GridCtrl.cpp, MainFrm.cpp, ChifTransiStress.cpp, RecipeDistanceStageProgramView.cpp
+  - ChiefView.cpp, OriginalPositionSettingDlg.cpp, BCMenu.cpp, MeasurementTabView.cpp
+  - Plus 7 Recipe*View.cpp files (see FOR_SCOPE_MANIFEST.md for details)
 
-**Result:** NanoSpec and MotTsk had no for-scope errors after flag removal  
-**Commits:** `c20daf2`, `5a2158b`, `980af1a`, `5a5a090`
+**Result:** MotTsk had no for-scope errors after flag removal  
+**Final Status:** 0 for-scope diagnostics, /Zc:forScope- successfully removed  
+**Commits:** `c20daf2`, `5a2158b`, `980af1a`, `5a5a090`, `7d378f6`, `1ec7db6`
 
 ### 4. C4996 Deprecated Functions (7 warnings) ✅
 **Fixes:**
@@ -52,19 +60,19 @@ Added `_CRT_SECURE_NO_WARNINGS` to 37 projects:
 
 **Total Phase 2 Reduction:** 377 warnings eliminated
 
-## Current Warning Breakdown by Code
+## Current Warning Breakdown by Code (After For-Scope Fixes)
 
 | Warning Code | Count | Description |
 |--------------|-------|-------------|
 | C4244 | 654 | Type conversion, possible data loss (double→int, etc.) |
-| C4838 | 224 | Narrowing conversion in initializer list (int→DWORD) |
-| C4477 | 143 | Format string type mismatch (sprintf) |
-| C4996 | 119 | Remaining deprecated functions (unlink, GetVersionEx) |
+| C4477 | 101 | Format string type mismatch (sprintf) |
 | C4018 | 85 | Signed/unsigned comparison mismatch |
-| C4778 | 5 | Unterminated format string |
-| C4474 | 5 | Too many arguments for format string |
-| C4091 | 1 | Unused static keyword |
-| C4005 | 1 | Macro redefinition |
+| C4996 | 18 | Remaining deprecated functions (unlink, GetVersionEx) |
+| C4101 | 4 | Unreferenced local variable |
+| C4010 | 3 | Single-line comment contains line-continuation character |
+| C4700 | 2 | Uninitialized local variable used |
+
+**Total:** 867 warnings (91% reduction from initial 9,590)
 
 ## Top 10 Warning Codes (Detailed)
 
