@@ -99,7 +99,7 @@ BOOL CRecipeThicknessSettingView::OnInitDialog()
 	::CopyMemory(&m_OldStressParamInfo, &m_StressParamInfo, sizeof(STRESS_PARAM_INFO));
 
 	///// Load Stage Program /////
-	if( strlen(m_MainRcpInfo.MainRcpParam.hdr.szStage) != 0 ){//Stage Program –¢‘I‘ğ
+	if( strlen(m_MainRcpInfo.MainRcpParam.hdr.szStage) != 0 ){//Stage Program ï¿½ï¿½ï¿½Iï¿½ï¿½
         if ( !RecipeFile_LoadRecipe(&m_StageStressProg, m_MainRcpInfo.MainRcpParam.hdr.szStage, RECIPE_FILE_STAGE_PROGRAM_STRESS) ) {
             ::ZeroMemory(&m_StageStressProg, sizeof(m_StageStressProg));
         }
@@ -142,8 +142,8 @@ void CRecipeThicknessSettingView::MeasurementPointForStressListGrid_Init()
 {
 	GV_ITEM Item;
 
-	int iDispCol = 1; //—LŒøCol”
-	int iDispRow;//—LŒøRow”
+	int iDispCol = 1; //ï¿½Lï¿½ï¿½Colï¿½ï¿½
+	int iDispRow;//ï¿½Lï¿½ï¿½Rowï¿½ï¿½
 	int FixRows = FIXROWS;
 	int FixCols = FIXCOLS;
 	int Cols = iDispCol + FixCols;
@@ -164,7 +164,7 @@ void CRecipeThicknessSettingView::MeasurementPointForStressListGrid_Init()
 		"No.",
 		"X",
 		"Y",
-		"–ŒŒú",
+		"ï¿½ï¿½ï¿½ï¿½",
 	};
 
 	///// Get System Config /////
@@ -206,13 +206,13 @@ void CRecipeThicknessSettingView::MeasurementPointForStressListGrid_Init()
 	// Height
 	int iRow = 0;
 	m_MeasurementPointForStressListGrid.SetRowHeight(iRow++, 40);		// Row 0
-	while ( iRow < m_MeasurementPointForStressListGrid.GetRowCount() )	// Row 1 `
+	while ( iRow < m_MeasurementPointForStressListGrid.GetRowCount() )	// Row 1 ï¿½`
 		m_MeasurementPointForStressListGrid.SetRowHeight(iRow++, 20);
 
 	// Width
 	int iCol = 0;
 	m_MeasurementPointForStressListGrid.SetColumnWidth(iCol++, 60); 	// Col 0
-	while ( iCol < m_MeasurementPointForStressListGrid.GetColumnCount() ) // Col 1 `
+	while ( iCol < m_MeasurementPointForStressListGrid.GetColumnCount() ) // Col 1 ï¿½`
 		m_MeasurementPointForStressListGrid.SetColumnWidth(iCol++, 75);
 
 	///// Title Column /////
@@ -232,7 +232,7 @@ void CRecipeThicknessSettingView::MeasurementPointForStressListGrid_Init()
 	}
 
 	///// Number Row /////
-	for(iCount=0; iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
+	for(iCount=0; iCount<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); iCount++){
 		if (!m_StressConfig.Line[iCount].bValidLine) {
 			continue;
 		}
@@ -252,7 +252,7 @@ void CRecipeThicknessSettingView::MeasurementPointForStressListGrid_Init()
 			Item.row = Row;
 			Item.col = 1;
 			Item.nFormat = dwTextStyle;
-			Item.strText.Format("%.3f", (double)(m_StressConfig.Line[iCount].MeasPos[jCount].lX / MICROMETRE)); 	// ’PˆÊ•ÏŠ·(um->mm)
+			Item.strText.Format("%.3f", (double)(m_StressConfig.Line[iCount].MeasPos[jCount].lX / MICROMETRE)); 	// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 			m_MeasurementPointForStressListGrid.SetItem(&Item);
 
 			dwTextStyle = DT_RIGHT|DT_VCENTER|DT_SINGLELINE;
@@ -261,7 +261,7 @@ void CRecipeThicknessSettingView::MeasurementPointForStressListGrid_Init()
 			Item.row = Row;
 			Item.col = 2;
 			Item.nFormat = dwTextStyle;
-			Item.strText.Format("%.3f", (double)(m_StressConfig.Line[iCount].MeasPos[jCount].lY / MICROMETRE)); 	// ’PˆÊ•ÏŠ·(um->mm)
+			Item.strText.Format("%.3f", (double)(m_StressConfig.Line[iCount].MeasPos[jCount].lY / MICROMETRE)); 	// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 			m_MeasurementPointForStressListGrid.SetItem(&Item);
 
 			Row++;
@@ -296,7 +296,7 @@ void CRecipeThicknessSettingView::OnPaint()
   long StageRectTop = StageRect.top + STAGE_OFFSET;
   long StageRectBottom = StageRect.bottom - STAGE_OFFSET;
 
-//	///// ƒXƒe[ƒW—LŒø”ÍˆÍ /////
+//	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Lï¿½ï¿½ï¿½Íˆï¿½ /////
   double dStageSizeX = (m_StageConfig.StageMaxCoord.dRightX - m_StageConfig.StageMaxCoord.dLeftX) - (2 * m_StageConfig.Edge.dX);
   double dStageSizeY = (m_StageConfig.StageMaxCoord.dUpY - m_StageConfig.StageMaxCoord.dDownY) - (2 * m_StageConfig.Edge.dY);
 
@@ -329,7 +329,7 @@ void CRecipeThicknessSettingView::OnPaint()
 
 	SamplePointGraph_DataSet();
 
-	// •`‰æ—pƒƒbƒZ[ƒW‚Æ‚µ‚Ä CDialog::OnPaint() ‚ğŒÄ‚Ño‚µ‚Ä‚Í‚¢‚¯‚Ü‚¹‚ñ
+	// ï¿½`ï¿½ï¿½pï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½Æ‚ï¿½ï¿½ï¿½ CDialog::OnPaint() ï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½Ä‚Í‚ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½
 	ReleaseDC(pDC);
 }
 
@@ -343,7 +343,7 @@ void CRecipeThicknessSettingView::OnButtonThicknessCopy()
 
 	CRecipeThicknessCopyForm RcpThickCpyForm;
 	if(RcpThickCpyForm.DoModal() == IDOK){
-		for(iCount=0; iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
+		for(iCount=0; iCount<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); iCount++){
 			if (!m_StressConfig.Line[iCount].bValidLine) {
 				continue;
 			}
@@ -371,7 +371,7 @@ void CRecipeThicknessSettingView::OnButtonThicknessClear()
 	DWORD dwTextStyle;
 	GV_ITEM Item;
 
-	for(iCount=0; iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
+	for(iCount=0; iCount<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); iCount++){
 		if (!m_StressConfig.Line[iCount].bValidLine) {
 			continue;
 		}
@@ -404,7 +404,7 @@ void CRecipeThicknessSettingView::OnOK()
 
 void CRecipeThicknessSettingView::OnCancel()
 {
-//          MessageBox("‰—Í‘ª’è—p–ŒŒú‚ÍC³‚³‚ê‚Ä‚¢‚Ü‚·B\n•ÏX‚ğ”jŠü‚µ‚Ü‚·‚©H", m_strCaption, MB_OK | MB_ICONSTOP);
+//          MessageBox("ï¿½ï¿½ï¿½Í‘ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½ÍCï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½B\nï¿½ÏXï¿½ï¿½jï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½H", m_strCaption, MB_OK | MB_ICONSTOP);
 	CString strBuffer, strTitle;
 	STRESS_PARAM_INFO tempStressInfo;
 	::CopyMemory(&tempStressInfo, &m_OldStressParamInfo, sizeof(STRESS_PARAM_INFO));
@@ -435,7 +435,7 @@ BOOL CRecipeThicknessSettingView::CheckData()
 	switch(m_nOpenMode)
 	{
 		case modeDefaultSetting:
-			for(iCount=0; iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
+			for(iCount=0; iCount<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); iCount++){
 				for (jCount=0; jCount<PIN_INTERVAL; jCount++) {
 					Item.mask = GVIF_TEXT|GVIF_FORMAT;
 					Item.row = Row;
@@ -471,8 +471,8 @@ BOOL CRecipeThicknessSettingView::CheckData()
 		default:
 		LoadStringML(IDS_POINT_NAME_NONE, strBuffer, "None");
 
-		if( strlen(m_MainRcpInfo.MainRcpParam.hdr.szStage) == 0 || (strcmp(m_MainRcpInfo.MainRcpParam.hdr.szStage, strBuffer) == 0)){//Stage Program –¢‘I‘ğ
-			for(iCount=0; iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
+		if( strlen(m_MainRcpInfo.MainRcpParam.hdr.szStage) == 0 || (strcmp(m_MainRcpInfo.MainRcpParam.hdr.szStage, strBuffer) == 0)){//Stage Program ï¿½ï¿½ï¿½Iï¿½ï¿½
+			for(iCount=0; iCount<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); iCount++){
 				for (jCount=0; jCount<PIN_INTERVAL; jCount++) {
 					Item.mask = GVIF_TEXT|GVIF_FORMAT;
 					Item.row = Row;
@@ -505,15 +505,15 @@ BOOL CRecipeThicknessSettingView::CheckData()
 				}
 			}
 		}
-		else{//StageProgram‘I‘ğÏ‚İ
-			for(iCount=0; iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
+		else{//StageProgramï¿½Iï¿½ï¿½ï¿½Ï‚ï¿½
+			for(iCount=0; iCount<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); iCount++){
 				for (jCount=0; jCount<PIN_INTERVAL; jCount++) {
 					Item.mask = GVIF_TEXT|GVIF_FORMAT;
 					Item.row = Row;
 					Item.col = 3;
 					m_MeasurementPointForStressListGrid.GetItem(&Item);
 
-					if (!m_StageStressProg.Line[iCount].bValidLine) {// –³ŒøLine‚Ìê‡
+					if (!m_StageStressProg.Line[iCount].bValidLine) {// ï¿½ï¿½ï¿½ï¿½Lineï¿½Ìê‡
 						if(CheckInputValueDouble(Item.strText, &dtmpVal)){
 							tempSTParamInfo.Line[iCount].dPtThick[jCount] = dtmpVal;
 							Row++;
@@ -535,7 +535,7 @@ BOOL CRecipeThicknessSettingView::CheckData()
 						}
 					}
 					else{
-						if (CheckInputValueDouble(Item.strText, &dtmpVal)){// —LŒøLine‚Ìê‡
+						if (CheckInputValueDouble(Item.strText, &dtmpVal)){// ï¿½Lï¿½ï¿½Lineï¿½Ìê‡
 							if(dtmpVal > 0){
 								tempSTParamInfo.Line[iCount].dPtThick[jCount] = dtmpVal;
 								Row++;
@@ -566,7 +566,7 @@ void CRecipeThicknessSettingView::Update(STRESS_PARAM_INFO* tempStressInfo)
 	int Row = FIXROWS;
 	int iCount, jCount;
 
-	for(iCount=0; iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
+	for(iCount=0; iCount<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); iCount++){
 		for (jCount=0; jCount<PIN_INTERVAL; jCount++) {
 			Item.mask = GVIF_TEXT|GVIF_FORMAT;
 			Item.row = Row;
@@ -618,17 +618,17 @@ void CRecipeThicknessSettingView::SamplePointGraph_Init()
 	tConfig.OriginColor = GREEN_COLOR;
 	// 2013.01.09 bagus -->
 
-	////CNanoPointGraphƒNƒ‰ƒX“àƒTƒCƒY(Sample Size)
+	////CNanoPointGraphï¿½Nï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½Tï¿½Cï¿½Y(Sample Size)
 	if (((m_StageConfig.Dir.X == 2) || (m_StageConfig.Dir.X == 4)) && ((m_StageConfig.Dir.Y == 1) || (m_StageConfig.Dir.Y == 3))) {
-		// X<->Y“ü‚ê‘Ö‚¦
+		// X<->Yï¿½ï¿½ï¿½ï¿½Ö‚ï¿½
 		tConfig.SampleSizeY = m_StressConfig.Size.dx;//m_SampleInfo.Size.dx;
 		tConfig.SampleSizeX = m_StressConfig.Size.dy;//m_SampleInfo.Size.dy;
 	} else if (((m_StageConfig.Dir.X == 1) || (m_StageConfig.Dir.X == 3)) && ((m_StageConfig.Dir.Y == 2) || (m_StageConfig.Dir.Y == 4))) {
-		// X-Y‚»‚Ì‚Ü‚Ü
+		// X-Yï¿½ï¿½ï¿½Ì‚Ü‚ï¿½
 		tConfig.SampleSizeX = m_StressConfig.Size.dx;
 		tConfig.SampleSizeY = m_StressConfig.Size.dy;
 	} else {
-		// –îˆóİ’è‚ª‚¨‚©‚µ‚¢
+		// ï¿½ï¿½ï¿½İ’è‚ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
 	m_StageMapGraph.SetConfig(&tConfig);
 
@@ -681,7 +681,7 @@ void CRecipeThicknessSettingView::SamplePointGraph_DataSet()
 	}
 // 2013.01.09 bagus <--
 
-	for (i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++) {
+	for (i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++) {
 		if(i >= STRESS_PINS_MAX){
 			break;
 		}
@@ -691,41 +691,41 @@ void CRecipeThicknessSettingView::SamplePointGraph_DataSet()
 			long lPinX,lPinY;
 			lPinX = lPinY = 0L;
 			switch (m_StageConfig.Dir.X) {
-			case 1: 	// X:¨
+			case 1: 	// X:ï¿½ï¿½
 			default:
 				lPinX = dOffSetValueX + m_StressConfig.Line[i].PinPos[j].lX;
 				break;
-			case 2: 	// X:ª
+			case 2: 	// X:ï¿½ï¿½
 				lPinY = dOffSetValueX - m_StressConfig.Line[i].PinPos[j].lX;
 				break;
-			case 3: 	// X:©
+			case 3: 	// X:ï¿½ï¿½
 				lPinX = dOffSetValueX - m_StressConfig.Line[i].PinPos[j].lX;
 				break;
-			case 4: 	// X:«
+			case 4: 	// X:ï¿½ï¿½
 				lPinY = dOffSetValueX + m_StressConfig.Line[i].PinPos[j].lX;
 				break;
 			}
 
 			switch (m_StageConfig.Dir.Y) {
-			case 1: 	// Y:¨
+			case 1: 	// Y:ï¿½ï¿½
 				lPinX = dOffSetValueY + m_StressConfig.Line[i].PinPos[j].lY;
 				break;
-			case 2: 	// Y:ª
+			case 2: 	// Y:ï¿½ï¿½
 			default:
 				lPinY = dOffSetValueY - m_StressConfig.Line[i].PinPos[j].lY;
 				break;
-			case 3: 	// Y:©
+			case 3: 	// Y:ï¿½ï¿½
 				lPinX = dOffSetValueY - m_StressConfig.Line[i].PinPos[j].lY;
 				break;
-			case 4: 	// Y:«
+			case 4: 	// Y:ï¿½ï¿½
 				lPinY = dOffSetValueY + m_StressConfig.Line[i].PinPos[j].lY;
 				break;
 			}
 			m_StageMapGraph.AddPinData(lPinX,lPinY);
 		}*/
-		  for (j=0; j<m_StressConfig.Line[i].dwSectionNum; j++) {
+		  for (j=0; j<static_cast<int>(m_StressConfig.Line[i].dwSectionNum); j++) {
 
-			if(i >= m_StressConfig.dwLiftPinNumberOfLine){
+			if(i >= static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine)){
 				continue;
 			}
 			if(j >= STRESS_SECTIONS_MAX){
@@ -735,40 +735,40 @@ void CRecipeThicknessSettingView::SamplePointGraph_DataSet()
 			tLineData.Status = CNanoPointGraph::SECTION_NOT_MEASURED;
 
 			switch (m_StageConfig.Dir.X) {
-			case 1: 	// X:¨
+			case 1: 	// X:ï¿½ï¿½
 			default:
 				tLineData.StartX = dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanStartPosX;
 				tLineData.EndX = dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanEndPosX;
 				break;
-			case 2: 	// X:ª
+			case 2: 	// X:ï¿½ï¿½
 				tLineData.StartY = dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanStartPosX;
 				tLineData.EndY = dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanEndPosX;
 				break;
-			case 3: 	// X:©
+			case 3: 	// X:ï¿½ï¿½
 				tLineData.StartX = dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanStartPosX;
 				tLineData.EndX = dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanEndPosX;
 				break;
-			case 4: 	// X:«
+			case 4: 	// X:ï¿½ï¿½
 				tLineData.StartY = dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanStartPosX;
 				tLineData.EndY = dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanEndPosX;
 				break;
 			}
 
 			switch (m_StageConfig.Dir.Y) {
-			case 1: 	// Y:¨
+			case 1: 	// Y:ï¿½ï¿½
 				tLineData.StartX = dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				tLineData.EndX = dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				break;
-			case 2: 	// Y:ª
+			case 2: 	// Y:ï¿½ï¿½
 			default:
 				tLineData.StartY = dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				tLineData.EndY = dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				break;
-			case 3: 	// Y:©
+			case 3: 	// Y:ï¿½ï¿½
 				tLineData.StartX = dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				tLineData.EndX = dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				break;
-			case 4: 	// Y:«
+			case 4: 	// Y:ï¿½ï¿½
 				tLineData.StartY = dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				tLineData.EndY = dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				break;
@@ -779,40 +779,40 @@ void CRecipeThicknessSettingView::SamplePointGraph_DataSet()
 	}
 
 	double	dPointX, dPointY;
-	for (i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++) {
+	for (i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++) {
 		if (!m_StressConfig.Line[i].bValidLine) {
 			continue;
 		}
 
 		for(int iPoint= 0; iPoint<PIN_INTERVAL; iPoint++){
 			switch (m_StageConfig.Dir.X) {
-			case 1: 	// X:¨
+			case 1: 	// X:ï¿½ï¿½
 			default:
 				dPointX = dOffSetValueX + m_StressConfig.Line[i].MeasPos[iPoint].lX;
 				break;
-			case 2: 	// X:ª
+			case 2: 	// X:ï¿½ï¿½
 				dPointY = dOffSetValueX - m_StressConfig.Line[i].MeasPos[iPoint].lX;
 				break;
-			case 3: 	// X:©
+			case 3: 	// X:ï¿½ï¿½
 				dPointX = dOffSetValueX - m_StressConfig.Line[i].MeasPos[iPoint].lX;
 				break;
-			case 4: 	// X:«
+			case 4: 	// X:ï¿½ï¿½
 				dPointY = dOffSetValueX + m_StressConfig.Line[i].MeasPos[iPoint].lX;
 				break;
 			}
 
 			switch (m_StageConfig.Dir.Y) {
-			case 1: 	// Y:¨
+			case 1: 	// Y:ï¿½ï¿½
 				dPointX = dOffSetValueY + m_StressConfig.Line[i].MeasPos[iPoint].lY;
 				break;
-			case 2: 	// Y:ª
+			case 2: 	// Y:ï¿½ï¿½
 			default:
 				dPointY = dOffSetValueY - m_StressConfig.Line[i].MeasPos[iPoint].lY;
 				break;
-			case 3: 	// Y:©
+			case 3: 	// Y:ï¿½ï¿½
 				dPointX = dOffSetValueY - m_StressConfig.Line[i].MeasPos[iPoint].lY;
 				break;
-			case 4: 	// Y:«
+			case 4: 	// Y:ï¿½ï¿½
 				dPointY = dOffSetValueY + m_StressConfig.Line[i].MeasPos[iPoint].lY;
 				break;
 			}
@@ -828,7 +828,7 @@ void CRecipeThicknessSettingView::DrawSample(CDC* pDC, int iOrg, int DirX, int D
 	///// Region Map /////
 	GetDlgItem(IDC_STAGE_MAP)->GetWindowPlacement(&Stageplacement);
 
-	///// ƒXƒe[ƒW—LŒø”ÍˆÍ(•‚¢lŠp‚Í‚±‚ÌƒTƒCƒY‚Å•`‰æ‚³‚ê‚Ä‚¢‚é) /////
+	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Lï¿½ï¿½ï¿½Íˆï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½lï¿½pï¿½Í‚ï¿½ï¿½ÌƒTï¿½Cï¿½Yï¿½Å•`ï¿½æ‚³ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½) /////
 	double dStageSizeX = (m_StageConfig.StageMaxCoord.dRightX - m_StageConfig.StageMaxCoord.dLeftX) - (2 * m_StageConfig.Edge.dX);
 	double dStageSizeY = (m_StageConfig.StageMaxCoord.dUpY - m_StageConfig.StageMaxCoord.dDownY) - (2 * m_StageConfig.Edge.dY);
 
@@ -846,82 +846,82 @@ void CRecipeThicknessSettingView::DrawSample(CDC* pDC, int iOrg, int DirX, int D
 		dSampleSizeY = m_StressConfig.Size.dx;
 	}
 
-	///// @ƒTƒ“ƒvƒ‹ƒTƒCƒY‚ªƒXƒe[ƒW‚Ì‘å‚«‚³‚Æ‚è¬‚³‚¢‚©ƒ`ƒFƒbƒN /////
+	///// ï¿½@ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Tï¿½Cï¿½Yï¿½ï¿½ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ì‘å‚«ï¿½ï¿½ï¿½Æ‚è¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N /////
 // 	if ((m_StressConfig.Size.dx > dStageSizeX) || (m_StressConfig.Size.dy > dStageSizeY))
 // 		return;
 	if ((dSampleSizeX > dStageSizeX) || (dSampleSizeY > dStageSizeY))
 		return;
 // 2013.01.09 bagus <--
 
-	///// ƒTƒ“ƒvƒ‹•`‰æƒTƒCƒY‚ÌŒvZiƒXƒe[ƒW•`‰æƒTƒCƒY‘Î‚·‚éƒTƒ“ƒvƒ‹•`‰æƒTƒCƒY‚ğŒvZj /////
+	///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Tï¿½Cï¿½Yï¿½ÌŒvï¿½Zï¿½iï¿½Xï¿½eï¿½[ï¿½Wï¿½`ï¿½ï¿½Tï¿½Cï¿½Yï¿½Î‚ï¿½ï¿½ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Tï¿½Cï¿½Yï¿½ï¿½ï¿½vï¿½Zï¿½j /////
 	double dDrawSampleSizeX =(m_dDrawEndStagePosX - m_dDrawStartStagePosX) * m_StressConfig.Size.dx / dStageSizeX;
 	double dDrawSampleSizeY =(m_dDrawEndStagePosY - m_dDrawStartStagePosY) * m_StressConfig.Size.dy / dStageSizeY;
 
-	///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l /////
+	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½l /////
 	double dTotalOrgOffsetPosX, dTotalOrgOffsetPosY;
 
-	///// ƒTƒ“ƒvƒ‹‚Ì•`‰æˆÊ’u /////
+	///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Ì•`ï¿½ï¿½Ê’u /////
 	double dtop, dbottom, dright, dleft;
 
-	//Sample•`‰æˆÊ’uİ’è
-	//lŠpŒ`óƒTƒ“ƒvƒ‹‚Ì‚İ‘Î‰
+	//Sampleï¿½`ï¿½ï¿½Ê’uï¿½İ’ï¿½
+	//ï¿½lï¿½pï¿½`ï¿½ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Ì‚İ‘Î‰ï¿½
 	switch(m_StressConfig.dwShape){
 	case SAMPLE_SHAPE_RECTANGLE:		//Sample shaped RectAngle
 		switch(iOrg){
-		case 1: ///// ƒZƒ“ƒ^[Šî€	//X²F¨+@Y²Fª+‚Ì‚İ‘Î‰
+		case 1: ///// ï¿½Zï¿½ï¿½ï¿½^ï¿½[ï¿½î€	//Xï¿½ï¿½ï¿½Fï¿½ï¿½+ï¿½@Yï¿½ï¿½ï¿½Fï¿½ï¿½+ï¿½Ì‚İ‘Î‰ï¿½
 		default:
-			///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l‚ğŒvZ /////
+			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½lï¿½ï¿½ï¿½vï¿½Z /////
 			dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX - m_StageConfig.Edge.dX) + (m_StressConfig.Origin.lX)) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageSizeX;
 			dTotalOrgOffsetPosY = ((m_StageConfig.Origin.lY - m_StageConfig.Edge.dY) + (m_StressConfig.Origin.lY)) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageSizeY;
 
-			///// ƒTƒ“ƒvƒ‹•`‰æˆÊ’u‚ğŒvZ /////
-			//¶Šî€
+			///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Ê’uï¿½ï¿½ï¿½vï¿½Z /////
+			//ï¿½ï¿½ï¿½î€
 			dleft	= m_dDrawStartStagePosX + dTotalOrgOffsetPosX - (dDrawSampleSizeX / 2);
 			dright	= dleft + dDrawSampleSizeX;
-			//‰ºŠî€
+			//ï¿½ï¿½ï¿½î€
 			dbottom = m_dDrawEndStagePosY - dTotalOrgOffsetPosY + (dDrawSampleSizeY / 2);
 			dtop	= dbottom - dDrawSampleSizeY;
 			break;
 
 		case 2: /////LeftTop
-			///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l‚ğŒvZ /////
+			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½lï¿½ï¿½ï¿½vï¿½Z /////
 			dTotalOrgOffsetPosX = (m_StressConfig.Origin.lX) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageSizeX;
 			dTotalOrgOffsetPosY = (m_StressConfig.Origin.lY) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageSizeY;
 
-			///// ƒTƒ“ƒvƒ‹•`‰æˆÊ’u‚ğŒvZ /////
+			///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Ê’uï¿½ï¿½ï¿½vï¿½Z /////
 			dleft	= m_dDrawStartStagePosX + 1 + dTotalOrgOffsetPosX;
 			dright	= dleft + dDrawSampleSizeX;
 			dtop = m_dDrawStartStagePosY + 1 + dTotalOrgOffsetPosY;
 			dbottom = dtop + dDrawSampleSizeY;
 			break;
 		case 3: /////LeftBottom
-			///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l‚ğŒvZ /////
+			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½lï¿½ï¿½ï¿½vï¿½Z /////
 			dTotalOrgOffsetPosX = ((m_StressConfig.Origin.lX - (m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1)))) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageSizeX);
 			dTotalOrgOffsetPosY = ((m_StressConfig.Origin.lY - (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1)))) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageSizeY);
 
-			///// ƒTƒ“ƒvƒ‹•`‰æˆÊ’u‚ğŒvZ /////
+			///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Ê’uï¿½ï¿½ï¿½vï¿½Z /////
 			dleft	= m_dDrawStartStagePosX + 1 + dTotalOrgOffsetPosX;
 			dright	= dleft + dDrawSampleSizeX;
 			dbottom = m_dDrawEndStagePosY - 1 - dTotalOrgOffsetPosY;
 			dtop	= dbottom - dDrawSampleSizeY;
 			break;
 		case 4: /////RightBottom
-			///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l‚ğŒvZ /////
+			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½lï¿½ï¿½ï¿½vï¿½Z /////
 			dTotalOrgOffsetPosX = (m_StressConfig.Origin.lX) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageSizeX;
 			dTotalOrgOffsetPosY = (m_StressConfig.Origin.lY) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageSizeY;
 
-			///// ƒTƒ“ƒvƒ‹•`‰æˆÊ’u‚ğŒvZ /////
+			///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Ê’uï¿½ï¿½ï¿½vï¿½Z /////
 			dright	= m_dDrawEndStagePosX - 1 - dTotalOrgOffsetPosX;
 			dleft	= dright - dDrawSampleSizeX;
 			dbottom = m_dDrawEndStagePosY - 1 - dTotalOrgOffsetPosY;
 			dtop	= dbottom - dDrawSampleSizeY;
 			break;
 		case 5: /////RightTop
-			///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l‚ğŒvZ /////
+			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½lï¿½ï¿½ï¿½vï¿½Z /////
 			dTotalOrgOffsetPosX = (m_StressConfig.Origin.lX) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageSizeX;
 			dTotalOrgOffsetPosY = (m_StressConfig.Origin.lY) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageSizeY;
 
-			///// ƒTƒ“ƒvƒ‹•`‰æˆÊ’u‚ğŒvZ /////
+			///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Ê’uï¿½ï¿½ï¿½vï¿½Z /////
 			dright	= m_dDrawEndStagePosX - 1 - dTotalOrgOffsetPosX;
 			dleft	= dright - dDrawSampleSizeX;
 			dtop = m_dDrawStartStagePosY + 1 + dTotalOrgOffsetPosY;
@@ -934,7 +934,7 @@ void CRecipeThicknessSettingView::DrawSample(CDC* pDC, int iOrg, int DirX, int D
 		  Sampleplacement.rcNormalPosition.right  = Stageplacement.rcNormalPosition.left + dright;
 		  Sampleplacement.rcNormalPosition.top	  = Stageplacement.rcNormalPosition.top  + dtop;
 		  Sampleplacement.rcNormalPosition.bottom = Stageplacement.rcNormalPosition.top  + dbottom;
-		  //lŠpSample•`‰æ
+		  //ï¿½lï¿½pSampleï¿½`ï¿½ï¿½
 		  m_StageMapGraph.SetWindowPlacement(&Sampleplacement);
 		  m_StageMapGraph.ShowWindow(SW_SHOW);
 	  }
@@ -948,7 +948,7 @@ void CRecipeThicknessSettingView::DrawSample(CDC* pDC, int iOrg, int DirX, int D
 }
 
 // =========================================================================
-// OnSelChangeing IDC_MEASUREMENT_POINT_FOR_STRESS_GRID‘I‘ğs‚ÌƒXƒLƒƒƒ“ƒ|ƒCƒ“ƒg‚É‚Â‚¢‚ÄAƒ}ƒbƒv‚ÌƒXƒLƒƒƒ“ƒ|ƒCƒ“ƒg‚ğ‘I‘ğF‚Éİ’è‚·‚é
+// OnSelChangeing IDC_MEASUREMENT_POINT_FOR_STRESS_GRIDï¿½Iï¿½ï¿½ï¿½sï¿½ÌƒXï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½É‚Â‚ï¿½ï¿½ÄAï¿½}ï¿½bï¿½vï¿½ÌƒXï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½Iï¿½ï¿½Fï¿½Éİ’è‚·ï¿½ï¿½
 void CRecipeThicknessSettingView::OnSelChangeing(NMHDR *pNotifyStruct, LRESULT* /*pResult*/)
 {
 	///// Draw SelectPoint /////
@@ -960,10 +960,10 @@ void CRecipeThicknessSettingView::OnSelChangeing(NMHDR *pNotifyStruct, LRESULT* 
 	if ( !m_MeasurementPointForStressListGrid.IsValid(CellID) )
 		return;
 
-	//PointGraph‘I‘ğƒ|ƒCƒ“ƒgF•ÏX
+	//PointGraphï¿½Iï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Fï¿½ÏX
 	m_StageMapGraph.Select(CellID.row-1);
 
-	//Œ»İ‚Ì‘I‘ğ’†ƒZƒ‹
+	//ï¿½ï¿½ï¿½İ‚Ì‘Iï¿½ğ’†ƒZï¿½ï¿½
 	m_CurrentCellID = CellID;
 }
 
@@ -976,7 +976,7 @@ void CRecipeThicknessSettingView::LoadThicknessData()
 	DWORD dwTextStyle;
 
 //	if(m_nOpenMode == modeNew){
-	for(iCount=0; iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
+	for(iCount=0; iCount<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); iCount++){
 		if (!m_StressConfig.Line[iCount].bValidLine) {
 			Row = Row + PIN_INTERVAL;
 			continue;
@@ -1007,7 +1007,7 @@ void CRecipeThicknessSettingView::LoadThicknessData()
 	}
 //	}
 //	else{
-//		for(iCount=0; iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
+//		for(iCount=0; iCount<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); iCount++){
 //			if (!m_StressConfig.Line[iCount].bValidLine) {
 //				continue;
 //			}
