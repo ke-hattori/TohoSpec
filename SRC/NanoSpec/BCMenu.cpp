@@ -72,6 +72,8 @@ Win32Type IsShellType()
 	DWORD winVer;
 	OSVERSIONINFO *osvi;
 
+#pragma warning(push)
+#pragma warning(disable:4996)
 	winVer=GetVersion();
 	if(winVer<0x80000000){/*NT */
 		ShellType=WinNT3;
@@ -100,6 +102,7 @@ Win32Type IsShellType()
 			free(osvi);
 		}
 	}
+#pragma warning(pop)
 	return ShellType;
 }
 

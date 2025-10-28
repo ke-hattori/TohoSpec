@@ -161,8 +161,11 @@ UINT GetMouseScrollLines()
 	// Do things the hard way in win95
 	OSVERSIONINFO VersionInfo;
 	VersionInfo.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+#pragma warning(push)
+#pragma warning(disable:4996)
 	if (!GetVersionEx(&VersionInfo) ||
 		(VersionInfo.dwPlatformId == VER_PLATFORM_WIN32_WINDOWS && VersionInfo.dwMinorVersion == 0))
+#pragma warning(pop)
 	{
 		HKEY hKey;
 		if (RegOpenKeyEx(HKEY_CURRENT_USER, _T("Control Panel\\Desktop"),

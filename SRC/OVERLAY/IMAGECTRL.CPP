@@ -1,6 +1,7 @@
 #define WIN32_LEAN_AND_MEAN
 
 #pragma warning (disable:4786)
+#pragma warning (disable:4996)
 
 #include <windows.h>
 #include "..\\..\\INC\\globals.hxx"
@@ -37,7 +38,7 @@ extern HWND CreateDummyWindow(void);
 // =========================================================================
 // Class Name :  CImageCtrl
 //
-// DescriptionF ƒI[ƒoƒŒƒCƒ‰ƒbƒpƒNƒ‰ƒX
+// Descriptionï¿½F ï¿½Iï¿½[ï¿½oï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½bï¿½pï¿½Nï¿½ï¿½ï¿½X
 //
 // Author:		 T.Matsuhisa
 //
@@ -58,7 +59,7 @@ CImageCtrl::CImageCtrl()
 
 CImageCtrl::~CImageCtrl()
 {
-	// ƒ‰ƒCƒuƒ‰ƒŠ‚ğŠJ•ú‚·‚é
+	// ï¿½ï¿½ï¿½Cï¿½uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	DShowLib::ExitLibrary();
 
 	if ( ::IsWindow(m_hwndDummy) ) {
@@ -68,11 +69,11 @@ CImageCtrl::~CImageCtrl()
 }
 
 // =========================================================================
-// NameF	   Craete
-// PurposeF
+// Nameï¿½F	   Craete
+// Purposeï¿½F
 // Parameters: None
 //
-// Returns:    BOOL - TRUE = ¬Œ÷
+// Returns:    BOOL - TRUE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -91,22 +92,22 @@ void CImageCtrl::Attach(HWND hwndOverlay)
 	}
 
 	BOOL bRet = m_Grabber.openDev(pVidCapDevList->at(0));
-/* modified 2015.12.03 hmenjo ƒJƒƒ‰ƒrƒfƒIƒtƒH[ƒ}ƒbƒgİ’è‰» ---------- { ---------- */
+/* modified 2015.12.03 hmenjo ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½rï¿½fï¿½Iï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½İ’è‰» ---------- { ---------- */
 //	m_Grabber.setVideoFormat("UYVY (640x480)");
-/* modified 2015.12.03 hmenjo ƒJƒƒ‰ƒrƒfƒIƒtƒH[ƒ}ƒbƒgİ’è‰» ----------              */
+/* modified 2015.12.03 hmenjo ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½rï¿½fï¿½Iï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½İ’è‰» ----------              */
 	m_Grabber.setVideoFormat(g_szVideoFmtSize);
-/* modified 2015.12.03 hmenjo ƒJƒƒ‰ƒrƒfƒIƒtƒH[ƒ}ƒbƒgİ’è‰» ---------- } ---------- */
+/* modified 2015.12.03 hmenjo ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½rï¿½fï¿½Iï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½İ’è‰» ---------- } ---------- */
 	m_Grabber.setInputChannel(1);
 
 	COverlay::Attach(hwndOverlay);
 }
 
 // =========================================================================
-// NameF	   Destroy
-// PurposeF
+// Nameï¿½F	   Destroy
+// Purposeï¿½F
 // Parameters: None
 //
-// Returns:    BOOL - TRUE = ¬Œ÷
+// Returns:    BOOL - TRUE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -122,12 +123,12 @@ void CImageCtrl::Detach(void)
 }
 
 // =========================================================================
-// NameF	   Preview
-// PurposeF
+// Nameï¿½F	   Preview
+// Purposeï¿½F
 // Parameters: bEnable - Specify TRUE for this parameter to enable preview
 //						 mode of FALSE to disable it.
 //
-// Returns:    BOOL - TRUE = ¬Œ÷
+// Returns:    BOOL - TRUE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -137,12 +138,12 @@ BOOL CImageCtrl::Preview(bool bEnable)
 }
 
 // =========================================================================
-// NameF	   SelectChannel
-// PurposeF
+// Nameï¿½F	   SelectChannel
+// Purposeï¿½F
 // Parameters: bEnable - Specify TRUE for this parameter to enable preview
 //						 mode of FALSE to disable it.
 //
-// Returns:    BOOL - TRUE = ¬Œ÷
+// Returns:    BOOL - TRUE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -154,12 +155,12 @@ BOOL CImageCtrl::SelectChannel(DWORD dwSelect)
 }
 
 // =========================================================================
-// NameF	   ImageGrab
-// PurposeF
+// Nameï¿½F	   ImageGrab
+// Purposeï¿½F
 // Parameters: pszFilePath - Specify TRUE for this parameter to enable preview
 //						 mode of FALSE to disable it.
 //
-// Returns:    BOOL - TRUE = ¬Œ÷
+// Returns:    BOOL - TRUE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -205,12 +206,12 @@ void CImageCtrl::ImageGrab(LPVOID lpBuffer)
 }
 
 // =========================================================================
-// NameF	   SaveImage
-// PurposeF
+// Nameï¿½F	   SaveImage
+// Purposeï¿½F
 // Parameters: pszFilePath - Specify TRUE for this parameter to enable preview
 //						 mode of FALSE to disable it.
 //
-// Returns:    BOOL - TRUE = ¬Œ÷
+// Returns:    BOOL - TRUE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -229,12 +230,12 @@ void CImageCtrl::SaveImage(PCSTR pszFilePath)
 }
 
 // =========================================================================
-// NameF	   SetMultipleWindow
-// PurposeF
+// Nameï¿½F	   SetMultipleWindow
+// Purposeï¿½F
 // Parameters: pszFilePath - Specify TRUE for this parameter to enable preview
 //						 mode of FALSE to disable it.
 //
-// Returns:    BOOL - TRUE = ¬Œ÷
+// Returns:    BOOL - TRUE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -252,12 +253,12 @@ void CImageCtrl::SetMultipleWindow(CONST OVLYMULTIWND* lpOvlyMultiWnd)
 }
 
 // =========================================================================
-// NameF	   frameReady
-// PurposeF
+// Nameï¿½F	   frameReady
+// Purposeï¿½F
 // Parameters: bEnable - Specify TRUE for this parameter to enable preview
 //						 mode of FALSE to disable it.
 //
-// Returns:    BOOL - TRUE = ¬Œ÷
+// Returns:    BOOL - TRUE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -335,12 +336,12 @@ void CImageCtrl::frameReady(
 }
 
 // =========================================================================
-// NameF	   DrawCenter
-// PurposeF
+// Nameï¿½F	   DrawCenter
+// Purposeï¿½F
 // Parameters: bEnable - Specify TRUE for this parameter to enable preview
 //						 mode of FALSE to disable it.
 //
-// Returns:    BOOL - TRUE = ¬Œ÷
+// Returns:    BOOL - TRUE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -396,12 +397,12 @@ void CImageCtrl::DrawCenter(void)
 }
 
 // =========================================================================
-// NameF	   DrawMarkerOnDashLine
-// PurposeF
+// Nameï¿½F	   DrawMarkerOnDashLine
+// Purposeï¿½F
 // Parameters: bEnable - Specify TRUE for this parameter to enable preview
 //						 mode of FALSE to disable it.
 //
-// Returns:    BOOL - TRUE = ¬Œ÷
+// Returns:    BOOL - TRUE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -446,12 +447,12 @@ void CImageCtrl::DrawMarkerOnDashLine(
 }
 
 // =========================================================================
-// NameF	   DrawDashLine
-// PurposeF
+// Nameï¿½F	   DrawDashLine
+// Purposeï¿½F
 // Parameters: bEnable - Specify TRUE for this parameter to enable preview
 //						 mode of FALSE to disable it.
 //
-// Returns:    BOOL - TRUE = ¬Œ÷
+// Returns:    BOOL - TRUE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -484,12 +485,12 @@ void CImageCtrl::DrawDashLine(
 }
 
 // =========================================================================
-// NameF	   DrawOneLine
-// PurposeF
+// Nameï¿½F	   DrawOneLine
+// Purposeï¿½F
 // Parameters: bEnable - Specify TRUE for this parameter to enable preview
 //						 mode of FALSE to disable it.
 //
-// Returns:    BOOL - TRUE = ¬Œ÷
+// Returns:    BOOL - TRUE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -532,12 +533,12 @@ BOOL CImageCtrl::DrawLine(
 }
 
 // =========================================================================
-// NameF	   DrawRectangle
-// PurposeF
+// Nameï¿½F	   DrawRectangle
+// Purposeï¿½F
 // Parameters: bEnable - Specify TRUE for this parameter to enable preview
 //						 mode of FALSE to disable it.
 //
-// Returns:    BOOL - TRUE = ¬Œ÷
+// Returns:    BOOL - TRUE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -559,12 +560,12 @@ void CImageCtrl::DrawRectangle(CONST RECT* lpRect, BOOL bDrawColor)
 }
 
 // =========================================================================
-// NameF	   Fill
-// PurposeF
+// Nameï¿½F	   Fill
+// Purposeï¿½F
 // Parameters: bEnable - Specify TRUE for this parameter to enable preview
 //						 mode of FALSE to disable it.
 //
-// Returns:    BOOL - TRUE = ¬Œ÷
+// Returns:    BOOL - TRUE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -581,12 +582,12 @@ BOOL CImageCtrl::Fill(COLORREF crColor)
 }
 
 // =========================================================================
-// NameF	   SetBkColor
-// PurposeF
+// Nameï¿½F	   SetBkColor
+// Purposeï¿½F
 // Parameters: bEnable - Specify TRUE for this parameter to enable preview
 //						 mode of FALSE to disable it.
 //
-// Returns:    BOOL - TRUE = ¬Œ÷
+// Returns:    BOOL - TRUE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -603,12 +604,12 @@ BOOL CImageCtrl::SetBkColor(COLORREF crColor)
 }
 
 // =========================================================================
-// NameF	   GetBkColor
-// PurposeF
+// Nameï¿½F	   GetBkColor
+// Purposeï¿½F
 // Parameters: bEnable - Specify TRUE for this parameter to enable preview
 //						 mode of FALSE to disable it.
 //
-// Returns:    BOOL - TRUE = ¬Œ÷
+// Returns:    BOOL - TRUE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -625,12 +626,12 @@ COLORREF CImageCtrl::GetBkColor(void) const
 }
 
 // =========================================================================
-// NameF	   SetWindowPos
-// PurposeF
+// Nameï¿½F	   SetWindowPos
+// Purposeï¿½F
 // Parameters: bEnable - Specify TRUE for this parameter to enable preview
 //						 mode of FALSE to disable it.
 //
-// Returns:    BOOL - TRUE = ¬Œ÷
+// Returns:    BOOL - TRUE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //

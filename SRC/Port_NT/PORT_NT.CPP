@@ -38,9 +38,9 @@ union	{
 	USHORT	ShortData;
 	UCHAR	CharData;
 }	DataBuffer;
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- { ---------- */
 HANDLE g_hmutexPORT_NT = 0;
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- } ---------- */
 
 DWORD GetNTVersion()
 {
@@ -50,7 +50,10 @@ OSVERSIONINFO os;
 
 	os.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
 
+#pragma warning(push)
+#pragma warning(disable:4996)
 	GetVersionEx(&os);
+#pragma warning(pop)
 
 	if ( os.dwPlatformId == VER_PLATFORM_WIN32_NT )
 		return os.dwMajorVersion;
@@ -91,19 +94,19 @@ BOOL WINAPI DllMain( HANDLE hInst, ULONG ul_reason_for_call, LPVOID lpReserved )
 			PortErrorMsg( "Create File", "Port_nt.dll Open" );
 		}
 */
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- { ---------- */
 		g_hmutexPORT_NT = ::CreateMutex(0, FALSE, _T("PORT_NT"));
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- } ---------- */
 		break;
 
 	case DLL_PROCESS_DETACH:
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- { ---------- */
 		if (0 != g_hmutexPORT_NT) {
 			::ReleaseMutex(g_hmutexPORT_NT);
 			::CloseHandle(g_hmutexPORT_NT);
 			g_hmutexPORT_NT = 0;
 		}
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- } ---------- */
 		CloseHandle( hDriver );
 		break;
 	}
@@ -115,34 +118,34 @@ BOOL WINAPI DllMain( HANDLE hInst, ULONG ul_reason_for_call, LPVOID lpReserved )
 
 long Open_NtPta( char* drvname )
 {
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- { ---------- */
 	::WaitForSingleObject(g_hmutexPORT_NT, INFINITE);
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- } ---------- */
 	SetIOError = 0;
 	if ( osVer == 0 ) return -1;
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- { ---------- */
 	::ReleaseMutex(g_hmutexPORT_NT);
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- } ---------- */
 	return 0;
 }
 
 long Close_NtPta( ULONG DeviceNo )
 {
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- { ---------- */
 	::WaitForSingleObject(g_hmutexPORT_NT, INFINITE);
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- } ---------- */
 
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- { ---------- */
 	::ReleaseMutex(g_hmutexPORT_NT);
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- } ---------- */
 	return 0;
 }
 
 UCHAR InByte( ULONG DeviceNo, USHORT Address )
 {
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- { ---------- */
 	::WaitForSingleObject(g_hmutexPORT_NT, INFINITE);
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- } ---------- */
 ULONG add, dtlen, rclen;
 char msg[1024];
 BOOL rc;
@@ -179,33 +182,33 @@ BOOL rc;
 			sprintf( msg, "Invalid Retrun Value form the DeviceIoControl");
 			goto IO_Read_Error;
 		}
-/* modified 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+/* modified 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- { ---------- */
 //		else
 //			return DataBuffer.CharData;
-/* modified 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ----------              */
+/* modified 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ----------              */
 		else {
 			UCHAR l_ucData = DataBuffer.CharData;
 			::ReleaseMutex(g_hmutexPORT_NT);
 			return l_ucData;
 		}
-/* modified 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+/* modified 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- } ---------- */
 	}
 	else
 		sprintf( msg, "Ioctl Failed with code=%ld", GetLastError());
 
 IO_Read_Error:
 	PortErrorMsg( msg, "Port_nt.dll InByte Error" );
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- { ---------- */
 	::ReleaseMutex(g_hmutexPORT_NT);
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- } ---------- */
 	return 0;
 }
 
 USHORT InWord( ULONG DeviceNo, USHORT Address )
 {
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- { ---------- */
 	::WaitForSingleObject(g_hmutexPORT_NT, INFINITE);
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- } ---------- */
 ULONG add, dtlen, rclen;
 char msg[1024];
 BOOL rc;
@@ -233,33 +236,33 @@ BOOL rc;
 			sprintf( msg, "Invalid Retrun Value form the DeviceIoControl");
 			goto IO_Read_Error;
 		}
-/* modified 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+/* modified 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- { ---------- */
 //		else
 //			return DataBuffer.ShortData;
-/* modified 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ----------              */
+/* modified 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ----------              */
 		else {
 			USHORT l_uData = DataBuffer.ShortData;
 			::ReleaseMutex(g_hmutexPORT_NT);
 			return l_uData;
 		}
-/* modified 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+/* modified 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- } ---------- */
 	}
 	else
 		sprintf( msg, "Ioctl Failed with code=%ld", GetLastError());
 
 IO_Read_Error:
 	PortErrorMsg( msg, "Port_nt.dll InWord Error" );
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- { ---------- */
 	::ReleaseMutex(g_hmutexPORT_NT);
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- } ---------- */
 	return 0;
 }
 
 int OutByte( ULONG DeviceNo, USHORT Address, UCHAR Data )
 {
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- { ---------- */
 	::WaitForSingleObject(g_hmutexPORT_NT, INFINITE);
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- } ---------- */
 ULONG rclen, dtlen;
 PortBuffData buff;
 char msg[1024];
@@ -290,31 +293,31 @@ BOOL rc;
 							NULL
 							);
 
-/* modified 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+/* modified 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- { ---------- */
 //	if ( rc )
 //		return 0;
-/* modified 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ----------              */
+/* modified 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ----------              */
 	if ( rc ) {
 		::ReleaseMutex(g_hmutexPORT_NT);
 		return 0;
 	}
-/* modified 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+/* modified 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- } ---------- */
 	else{
 		sprintf( msg, "Ioctl Failed with code=%ld", GetLastError());
 		PortErrorMsg( msg, "Port_nt.dll OutByte Error" );
 	}
 
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- { ---------- */
 	::ReleaseMutex(g_hmutexPORT_NT);
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- } ---------- */
 	return -1;
 }
 
 int OutWord( ULONG DeviceNo, USHORT Address, USHORT Data )
 {
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- { ---------- */
 	::WaitForSingleObject(g_hmutexPORT_NT, INFINITE);
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- } ---------- */
 ULONG rclen, dtlen;
 PortBuffData buff;
 char msg[1024];
@@ -335,31 +338,31 @@ BOOL rc;
 							NULL
 							);
 
-/* modified 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+/* modified 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- { ---------- */
 //	if ( rc )
 //		return 0;
-/* modified 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ----------              */
+/* modified 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ----------              */
 	if ( rc ) {
 		::ReleaseMutex(g_hmutexPORT_NT);
 		return 0;
 	}
-/* modified 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+/* modified 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- } ---------- */
 	else{
 		sprintf( msg, "Ioctl Failed with code=%ld", GetLastError());
 		PortErrorMsg( msg, "Port_nt.dll OutWord Error" );
 	}
 
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- { ---------- */
 	::ReleaseMutex(g_hmutexPORT_NT);
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- } ---------- */
 	return -1;
 }
 
 long GetNtPtaError()
 {
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- { ---------- */
 	::WaitForSingleObject(g_hmutexPORT_NT, INFINITE);
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- } ---------- */
 long rc;
 
 	rc = ( long )GetLastError();
@@ -379,8 +382,8 @@ long rc;
 	}
 	SetIOError = 0;
 
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- { ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- { ---------- */
 	::ReleaseMutex(g_hmutexPORT_NT);
-/* added 2011.11.11 hmenjo [‚R]PORT_NT”r‘¼ ---------- } ---------- */
+/* added 2011.11.11 hmenjo [ï¿½R]PORT_NTï¿½rï¿½ï¿½ ---------- } ---------- */
 	return rc;
 }
