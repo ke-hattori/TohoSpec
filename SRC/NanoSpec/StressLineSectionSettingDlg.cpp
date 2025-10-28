@@ -1,4 +1,4 @@
-// StressLineSectionSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// StressLineSectionSettingDlg.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -28,12 +28,12 @@ static char THIS_FILE[] = __FILE__;
 //#define	PIN_INTERVAL		7
 //Saiki 20110207 Delete <-----
 
-// 2009.09.17 bagus stress GridC³ --{--
-//2009.09.24 bagus stress C³ --{--
-//#define	DEFAULT_GRID_ROWS			30			// ƒOƒŠƒbƒh‚ÌŠî–{s”
-#define	GRID_ROW_HEIGHT			18					// ƒOƒŠƒbƒh‚Ì‚Ps‚Ì‚‚³
-//2009.09.24 bagus stress C³ --}--
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
+//2009.09.24 bagus stress ï¿½Cï¿½ï¿½ --{--
+//#define	DEFAULT_GRID_ROWS			30			// ï¿½Oï¿½ï¿½ï¿½bï¿½hï¿½ÌŠï¿½{ï¿½sï¿½ï¿½
+#define	GRID_ROW_HEIGHT			18					// ï¿½Oï¿½ï¿½ï¿½bï¿½hï¿½Ì‚Pï¿½sï¿½Ìï¿½ï¿½ï¿½
+//2009.09.24 bagus stress ï¿½Cï¿½ï¿½ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 // 2013.01.09 bagus -->
 #define DIR_UNKNOWN    (0)
@@ -45,14 +45,14 @@ static char THIS_FILE[] = __FILE__;
 // 2013.01.09 bagus <--
 
 /////////////////////////////////////////////////////////////////////////////
-// CStressLineSectionSettingDlg ƒ_ƒCƒAƒƒO
+// CStressLineSectionSettingDlg ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½O
 
 
 CStressLineSectionSettingDlg::CStressLineSectionSettingDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CStressLineSectionSettingDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CStressLineSectionSettingDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ï¿½ï¿½ï¿½ï¿½ - ClassWizard ï¿½Í‚ï¿½ï¿½ÌˆÊ’uï¿½Éƒ}ï¿½bï¿½sï¿½ï¿½ï¿½Oï¿½pï¿½Ìƒ}ï¿½Nï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½Ü‚ï¿½ï¿½Ííœï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	//}}AFX_DATA_INIT
 
 	m_strSampleShape = _T("");
@@ -71,9 +71,9 @@ CStressLineSectionSettingDlg::CStressLineSectionSettingDlg(CWnd* pParent /*=NULL
 
 	memset(m_bOldLineValid,NULL,sizeof(m_bOldLineValid));
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 	m_nSysVScrollWidth = GetSystemMetrics(SM_CXVSCROLL);
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 }
 
 CStressLineSectionSettingDlg::~CStressLineSectionSettingDlg()
@@ -84,7 +84,7 @@ void CStressLineSectionSettingDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CStressLineSectionSettingDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ï¿½ï¿½ï¿½ï¿½ - ClassWizard ï¿½Í‚ï¿½ï¿½ÌˆÊ’uï¿½Éƒ}ï¿½bï¿½sï¿½ï¿½ï¿½Oï¿½pï¿½Ìƒ}ï¿½Nï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½Ü‚ï¿½ï¿½Ííœï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 		DDX_Control(pDX, IDC_LINE_LIST_GRID, m_LineListGrid);
 		DDX_Control(pDX, IDC_PIN_LIST_GRID, m_PinListGrid);
 		DDX_Control(pDX, IDC_SET_LINE_VALID_LIST_GRID, m_LineValidListGrid);
@@ -97,9 +97,9 @@ void CStressLineSectionSettingDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDCANCEL, m_CancelButton);
 	DDX_Control(pDX, IDC_GRIDSET_BUTTON, m_GridSetButton);
 	DDX_Control(pDX, IDC_SETLINESECTION_BUTTON, m_SetLineSectionButton);
-// 2009.09.04 bagus stress ƒ‰ƒCƒ“”İ’èƒ{ƒ^ƒ“’Ç‰Á --{--
+// 2009.09.04 bagus stress ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½{ï¿½^ï¿½ï¿½ï¿½Ç‰ï¿½ --{--
 	DDX_Control(pDX, IDC_LINESET_BUTTON, m_LineSetButton);
-// 2009.09.04 bagus stress ƒ‰ƒCƒ“”İ’èƒ{ƒ^ƒ“’Ç‰Á --}--
+// 2009.09.04 bagus stress ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½{ï¿½^ï¿½ï¿½ï¿½Ç‰ï¿½ --}--
 
 	DDX_Text(pDX, IDC_SAMPLE_SHAPE, m_strSampleShape);
 	DDX_Text(pDX, IDC_SAMPLE_SIZE_X, m_strSampleSizeX);
@@ -128,7 +128,7 @@ BEGIN_MESSAGE_MAP(CStressLineSectionSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CStressLineSectionSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CStressLineSectionSettingDlg ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 
 BOOL CStressLineSectionSettingDlg::OnInitDialog()
 {
@@ -139,7 +139,7 @@ BOOL CStressLineSectionSettingDlg::OnInitDialog()
 	m_pMainFrame = (CMainFrame *)AfxGetMainWnd();
 	m_pDoc = (CNanoSpecDoc*)m_pMainFrame->GetActiveDocument();
 
-	// TODO: ‚±‚ÌˆÊ’u‚É‰Šú‰»‚Ì•â‘«ˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½Éï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì•â‘«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	///// Load File /////
 	memset(&m_StageConfig,NULL,sizeof(m_StageConfig));
@@ -148,9 +148,9 @@ BOOL CStressLineSectionSettingDlg::OnInitDialog()
 	ConfigFile_GetNanoSpecIni(&m_StressConfig, CONFIG_FILE_STRESS_CONFIG);
 
 	RecipeFile_LoadRecipe(&m_SampleInfo, m_szName, RECIPE_FILE_SAMPLE);
-	//2009.12.23 bagus stress C³ --{--
+	//2009.12.23 bagus stress ï¿½Cï¿½ï¿½ --{--
 	_tcscpy(m_StressConfig.szSampleName,m_szName);
-	//2009.12.23 bagus stress C³ --}--
+	//2009.12.23 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	///// OK Button /////
 	m_OkButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
@@ -168,11 +168,11 @@ BOOL CStressLineSectionSettingDlg::OnInitDialog()
 	m_SetLineSectionButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_SetLineSectionButton.DrawFlatFocus(TRUE);
 
-	// 2009.09.04 bagus stress ƒ‰ƒCƒ“”İ’èƒ{ƒ^ƒ“’Ç‰Á --{--
+	// 2009.09.04 bagus stress ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½{ï¿½^ï¿½ï¿½ï¿½Ç‰ï¿½ --{--
 	///// Grid Set Button /////
 	m_LineSetButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_LineSetButton.DrawFlatFocus(TRUE);
-	// 2009.09.04 bagus stress ƒ‰ƒCƒ“”İ’èƒ{ƒ^ƒ“’Ç‰Á --}--
+	// 2009.09.04 bagus stress ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½{ï¿½^ï¿½ï¿½ï¿½Ç‰ï¿½ --}--
 
 	///// Selected Sample /////
 	m_StressConfig.Size.dx = m_SampleInfo.Size.dx;
@@ -189,16 +189,16 @@ BOOL CStressLineSectionSettingDlg::OnInitDialog()
 	}
 	m_stcSampleSizeX.SubclassWindow(GetDlgItem(IDC_SAMPLE_SIZE_X)->GetSafeHwnd());
 	m_stcSampleSizeX.SetBkColor(WATER_COLOR);
-	m_strSampleSizeX.Format("%.3f", (double)(m_StressConfig.Size.dx / MICROMETRE));							// ’PˆÊ•ÏŠ·(um->mm)
+	m_strSampleSizeX.Format("%.3f", (double)(m_StressConfig.Size.dx / MICROMETRE));							// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 	m_stcSampleSizeY.SubclassWindow(GetDlgItem(IDC_SAMPLE_SIZE_Y)->GetSafeHwnd());
 	m_stcSampleSizeY.SetBkColor(WATER_COLOR);
-	m_strSampleSizeY.Format("%.3f", (double)(m_StressConfig.Size.dy / MICROMETRE));							// ’PˆÊ•ÏŠ·(um->mm)
+	m_strSampleSizeY.Format("%.3f", (double)(m_StressConfig.Size.dy / MICROMETRE));							// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 	m_stcSampleOriginX.SubclassWindow(GetDlgItem(IDC_SAMPLE_ORIGIN_X)->GetSafeHwnd());
 	m_stcSampleOriginX.SetBkColor(WATER_COLOR);
-	m_strSampleOriginX.Format("%.3f", (double)(m_StressConfig.Origin.lX / MICROMETRE));						// ’PˆÊ•ÏŠ·(um->mm)
+	m_strSampleOriginX.Format("%.3f", (double)(m_StressConfig.Origin.lX / MICROMETRE));						// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 	m_stcSampleOriginY.SubclassWindow(GetDlgItem(IDC_SAMPLE_ORIGIN_Y)->GetSafeHwnd());
 	m_stcSampleOriginY.SetBkColor(WATER_COLOR);
-	m_strSampleOriginY.Format("%.3f", (double)(m_StressConfig.Origin.lY / MICROMETRE));						// ’PˆÊ•ÏŠ·(um->mm)
+	m_strSampleOriginY.Format("%.3f", (double)(m_StressConfig.Origin.lY / MICROMETRE));						// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 
 	///// Grid Control Initialize /////
 	PinListGrid_Init();
@@ -208,16 +208,16 @@ BOOL CStressLineSectionSettingDlg::OnInitDialog()
 	NecessaryThicknessMeasurementListGrid_Init();
 
 	///// Stress Valid Range /////
-//	m_strStressValidRange.Format("%f.3", (double)(m_StressConfig.lStressValidRange / MICROMETRE));			// ’PˆÊ•ÏŠ·(um->mm)
-	m_strStressValidRange.Format("%d", m_StressConfig.lStressValidRange / MICROMETRE);						// ’PˆÊ•ÏŠ·(um->mm)
+//	m_strStressValidRange.Format("%f.3", (double)(m_StressConfig.lStressValidRange / MICROMETRE));			// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
+	m_strStressValidRange.Format("%d", m_StressConfig.lStressValidRange / MICROMETRE);						// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 
 	///// Invalid Range /////
-//	m_strInvalidRangeEdge.Format("%f.3", (double)m_StressConfig.lInvalidRangeEdge / MICROMETRE));			// ’PˆÊ•ÏŠ·(um->mm)
-	m_strInvalidRangeEdge.Format("%d", m_StressConfig.lInvalidRangeEdge / MICROMETRE);					// ’PˆÊ•ÏŠ·(um->mm)
+//	m_strInvalidRangeEdge.Format("%f.3", (double)m_StressConfig.lInvalidRangeEdge / MICROMETRE));			// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
+	m_strInvalidRangeEdge.Format("%d", m_StressConfig.lInvalidRangeEdge / MICROMETRE);					// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 
 	///// Thick Measurement Point Offset /////
-	m_strMeasPointOffsetX.Format("%ld", m_StressConfig.MeasOffset.lX / MICROMETRE);				// ’PˆÊ•ÏŠ·(um->mm)
-	m_strMeasPointOffsetY.Format("%ld", m_StressConfig.MeasOffset.lY / MICROMETRE);				// ’PˆÊ•ÏŠ·(um->mm)
+	m_strMeasPointOffsetX.Format("%ld", m_StressConfig.MeasOffset.lX / MICROMETRE);				// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
+	m_strMeasPointOffsetY.Format("%ld", m_StressConfig.MeasOffset.lY / MICROMETRE);				// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 
 	///// Number of Line /////
 	if (CheckStressConfig_NumOfLineData()) {
@@ -247,26 +247,26 @@ BOOL CStressLineSectionSettingDlg::OnInitDialog()
 
 	SetTimer(1,100,NULL);
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Éƒtï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½İ’è‚µï¿½È‚ï¿½ï¿½Æ‚ï¿½ï¿½Aï¿½ß‚ï¿½lï¿½ï¿½ TRUE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
+					// ï¿½ï¿½O: OCX ï¿½vï¿½ï¿½ï¿½pï¿½eï¿½B ï¿½yï¿½[ï¿½Wï¿½Ì–ß‚ï¿½lï¿½ï¿½ FALSE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
 }
 
 void CStressLineSectionSettingDlg::LineListGrid_Init()
 {
 	GV_ITEM Item;
 
-	int iDispCol = 1; //—LŒøCol”
+	int iDispCol = 1; //ï¿½Lï¿½ï¿½Colï¿½ï¿½
 
 	int FixRows = 1;
 	int FixCols = 1;
 	int Cols = iDispCol + FixCols;
 //	int Rows = 100 + FixRows;
 	int Rows = FixRows;
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	int row,col;
 //	int ItemWidth = 51;
 	int	col;
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 	DWORD dwTextStyle;
 
 	char* ColItem_ENU[]={
@@ -275,7 +275,7 @@ void CStressLineSectionSettingDlg::LineListGrid_Init()
 	};
 	char* ColItem_JPN[]={
 		"No.",
-		"ƒsƒ“",
+		"ï¿½sï¿½ï¿½",
 	};
 
 	///// Grid Initialize /////
@@ -312,11 +312,11 @@ void CStressLineSectionSettingDlg::LineListGrid_Init()
 	}
 	END_CATCH
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 	CWnd* GridBox = GetDlgItem(IDC_LINE_LIST_GRID);
 	CDC* pDC = GridBox->GetDC();
 	CRect GridRect;
-//2009.09.24 bagus stress C³ --{--
+//2009.09.24 bagus stress ï¿½Cï¿½ï¿½ --{--
 #if 0
 	GridBox->GetClientRect(&GridRect);
 
@@ -325,7 +325,7 @@ void CStressLineSectionSettingDlg::LineListGrid_Init()
 	int	nCellsWidth = GridRect.Width() - m_nSysVScrollWidth;
 	int	nColWidth = nCellsWidth / Cols;
 	int	nFixColWidth = nCellsWidth - (nColWidth * iDispCol);
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 #else
 	GridBox->GetClientRect(&GridRect);
 
@@ -340,33 +340,33 @@ void CStressLineSectionSettingDlg::LineListGrid_Init()
 
 	ReleaseDC(pDC);
 #endif
-//2009.09.24 bagus stress C³ --}--
+//2009.09.24 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	// Row 0 Height
 	m_LineListGrid.SetRowHeight(0, GRID_ROW_HEIGHT);
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 #if 0
 	// Row 1 -> RowCount Height
 	for(row = 1 ; row < m_LineListGrid.GetRowCount() ; row++){
 		m_LineListGrid.SetRowHeight(row, GRID_ROW_HEIGHT);
 	}
 #endif
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	// Col 0 Width
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	m_LineListGrid.SetColumnWidth(0, 51);	// No.
 	m_LineListGrid.SetColumnWidth(0, nFixColWidth);	// No.
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	// Col 1 -> ColumnCount Width
 	for (col = 1 ; col < m_LineListGrid.GetColumnCount(); col++)
 	{
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //		m_LineListGrid.SetColumnWidth(col, ItemWidth);
 		m_LineListGrid.SetColumnWidth(col, nColWidth);
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 	}
 
 	///// Title Column /////
@@ -382,7 +382,7 @@ void CStressLineSectionSettingDlg::LineListGrid_Init()
 		m_LineListGrid.SetItem(&Item);
 	}
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 #if 0
 	///// Title Row /////
 	dwTextStyle = DT_CENTER|DT_VCENTER|DT_SINGLELINE;
@@ -397,7 +397,7 @@ void CStressLineSectionSettingDlg::LineListGrid_Init()
 		m_LineListGrid.SetItem(&Item);
 	}
 #endif
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	return;
 }
@@ -406,18 +406,18 @@ void CStressLineSectionSettingDlg::PinListGrid_Init()
 {
 	GV_ITEM Item;
 
-	int iDispCol = 2; //—LŒøCol”
+	int iDispCol = 2; //ï¿½Lï¿½ï¿½Colï¿½ï¿½
 
 	int FixRows = 1;
 	int FixCols = 1;
 	int Cols = iDispCol + FixCols;
 //	int Rows = 100 + FixRows;
 	int Rows = FixRows;
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	int row,col;
 //	int ItemWidth = 75;
 	int	col;
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 	DWORD dwTextStyle;
 
 	char* ColItem_ENU[]={
@@ -466,11 +466,11 @@ void CStressLineSectionSettingDlg::PinListGrid_Init()
 	}
 	END_CATCH
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 	CWnd* GridBox = GetDlgItem(IDC_PIN_LIST_GRID);
 	CDC* pDC = GridBox->GetDC();
 	CRect GridRect;
-//2009.09.24 bagus stress C³ --{--
+//2009.09.24 bagus stress ï¿½Cï¿½ï¿½ --{--
 #if 0
 	GridBox->GetClientRect(&GridRect);
 
@@ -479,7 +479,7 @@ void CStressLineSectionSettingDlg::PinListGrid_Init()
 	int	nCellsWidth = GridRect.Width() - m_nSysVScrollWidth;
 	int	nColWidth = nCellsWidth / Cols;
 	int	nFixColWidth = nCellsWidth - (nColWidth * iDispCol);
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 #else
 	GridBox->GetClientRect(&GridRect);
 
@@ -494,33 +494,33 @@ void CStressLineSectionSettingDlg::PinListGrid_Init()
 
 	ReleaseDC(pDC);
 #endif
-//2009.09.24 bagus stress C³ --}--
+//2009.09.24 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	// Row 0 Height
 	m_PinListGrid.SetRowHeight(0, GRID_ROW_HEIGHT);
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 #if 0
 	// Row 1 -> RowCount Height
 	for(row = 1 ; row < m_PinListGrid.GetRowCount() ; row++){
 		m_PinListGrid.SetRowHeight(row, GRID_ROW_HEIGHT);
 	}
 #endif
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	// Col 0 Width
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	m_PinListGrid.SetColumnWidth(0, 50);	// No.
 	m_PinListGrid.SetColumnWidth(0, nFixColWidth);	// No.
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	// Col 1 -> ColumnCount Width
 	for (col = 1 ; col < m_PinListGrid.GetColumnCount(); col++)
 	{
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //		m_PinListGrid.SetColumnWidth(col, ItemWidth);
 		m_PinListGrid.SetColumnWidth(col, nColWidth);
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 	}
 
 	///// Title Column /////
@@ -536,7 +536,7 @@ void CStressLineSectionSettingDlg::PinListGrid_Init()
 		m_PinListGrid.SetItem(&Item);
 	}
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 #if 0
 	///// Title Row /////
 	dwTextStyle = DT_CENTER|DT_VCENTER|DT_SINGLELINE;
@@ -551,7 +551,7 @@ void CStressLineSectionSettingDlg::PinListGrid_Init()
 		m_PinListGrid.SetItem(&Item);
 	}
 #endif
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	return;
 }
@@ -560,18 +560,18 @@ void CStressLineSectionSettingDlg::StressMeasurementLineSectionListGrid_Init()
 {
 	GV_ITEM Item;
 
-	int iDispCol = 3; //—LŒøCol”
+	int iDispCol = 3; //ï¿½Lï¿½ï¿½Colï¿½ï¿½
 
 	int FixRows = 1;
 	int FixCols = 1;
 	int Cols = iDispCol + FixCols;
 //	int Rows = 100 + FixRows;
 	int Rows = FixRows;
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	int row,col;
 //	int ItemWidth = 75;
 	int	col;
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 	DWORD dwTextStyle;
 
 	char* ColItem_ENU[]={
@@ -621,11 +621,11 @@ void CStressLineSectionSettingDlg::StressMeasurementLineSectionListGrid_Init()
 	}
 	END_CATCH
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 	CWnd* GridBox = GetDlgItem(IDC_STRESS_MEASUREMENT_LINE_SECTION_LIST_GRID);
 	CDC* pDC = GridBox->GetDC();
 	CRect GridRect;
-//2009.09.24 bagus stress C³ --{--
+//2009.09.24 bagus stress ï¿½Cï¿½ï¿½ --{--
 #if 0
 	GridBox->GetClientRect(&GridRect);
 
@@ -634,7 +634,7 @@ void CStressLineSectionSettingDlg::StressMeasurementLineSectionListGrid_Init()
 	int	nCellsWidth = GridRect.Width() - m_nSysVScrollWidth;
 	int	nColWidth = nCellsWidth / Cols;
 	int	nFixColWidth = nCellsWidth - (nColWidth * iDispCol);
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 #else
 	GridBox->GetClientRect(&GridRect);
 
@@ -649,33 +649,33 @@ void CStressLineSectionSettingDlg::StressMeasurementLineSectionListGrid_Init()
 
 	ReleaseDC(pDC);
 #endif
-//2009.09.24 bagus stress C³ --}--
+//2009.09.24 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	// Row 0 Height
 	m_StressMeasurementLineSectionListGrid.SetRowHeight(0, GRID_ROW_HEIGHT);
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 #if 0
 	// Row 1 -> RowCount Height
 	for(row = 1 ; row < m_StressMeasurementLineSectionListGrid.GetRowCount() ; row++){
 		m_StressMeasurementLineSectionListGrid.SetRowHeight(row, GRID_ROW_HEIGHT);
 	}
 #endif
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	// Col 0 Width
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	m_StressMeasurementLineSectionListGrid.SetColumnWidth(0, 52);	// No.
 	m_StressMeasurementLineSectionListGrid.SetColumnWidth(0, nFixColWidth);	// No.
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	// Col 1 -> ColumnCount Width
 	for (col = 1 ; col < m_StressMeasurementLineSectionListGrid.GetColumnCount(); col++)
 	{
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //		m_StressMeasurementLineSectionListGrid.SetColumnWidth(col, ItemWidth);
 		m_StressMeasurementLineSectionListGrid.SetColumnWidth(col, nColWidth);
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 	}
 
 	///// Title Column /////
@@ -691,7 +691,7 @@ void CStressLineSectionSettingDlg::StressMeasurementLineSectionListGrid_Init()
 		m_StressMeasurementLineSectionListGrid.SetItem(&Item);
 	}
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 #if 0
 	///// Title Row /////
 	dwTextStyle = DT_CENTER|DT_VCENTER|DT_SINGLELINE;
@@ -706,7 +706,7 @@ void CStressLineSectionSettingDlg::StressMeasurementLineSectionListGrid_Init()
 		m_StressMeasurementLineSectionListGrid.SetItem(&Item);
 	}
 #endif
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	return;
 }
@@ -715,18 +715,18 @@ void CStressLineSectionSettingDlg::NecessaryThicknessMeasurementListGrid_Init()
 {
 	GV_ITEM Item;
 
-	int iDispCol = 2; //—LŒøCol”
+	int iDispCol = 2; //ï¿½Lï¿½ï¿½Colï¿½ï¿½
 
 	int FixRows = 1;
 	int FixCols = 1;
 	int Cols = iDispCol + FixCols;
 //	int Rows = 100 + FixRows;
 	int Rows = FixRows;
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	int row,col;
 //	int ItemWidth = 85;
 	int	col;
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 	DWORD dwTextStyle;
 
 	char* ColItem_ENU[]={
@@ -774,11 +774,11 @@ void CStressLineSectionSettingDlg::NecessaryThicknessMeasurementListGrid_Init()
 	}
 	END_CATCH
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 	CWnd* GridBox = GetDlgItem(IDC_NECESSARY_THICKNESS_MEASUREMENT_LIST_GRID);
 	CDC* pDC = GridBox->GetDC();
 	CRect GridRect;
-//2009.09.24 bagus stress C³ --{--
+//2009.09.24 bagus stress ï¿½Cï¿½ï¿½ --{--
 #if 0
 	GridBox->GetClientRect(&GridRect);
 
@@ -787,7 +787,7 @@ void CStressLineSectionSettingDlg::NecessaryThicknessMeasurementListGrid_Init()
 	int	nCellsWidth = GridRect.Width() - m_nSysVScrollWidth;
 	int	nColWidth = nCellsWidth / Cols;
 	int	nFixColWidth = nCellsWidth - (nColWidth * iDispCol);
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 #else
 	GridBox->GetClientRect(&GridRect);
 
@@ -802,33 +802,33 @@ void CStressLineSectionSettingDlg::NecessaryThicknessMeasurementListGrid_Init()
 
 	ReleaseDC(pDC);
 #endif
-//2009.09.24 bagus stress C³ --}--
+//2009.09.24 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	// Row 0 Height
 	m_NecessaryThicknessMeasurementListGrid.SetRowHeight(0, GRID_ROW_HEIGHT);
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 #if 0
 	// Row 1 -> RowCount Height
 	for(row = 1 ; row < m_NecessaryThicknessMeasurementListGrid.GetRowCount() ; row++){
 		m_NecessaryThicknessMeasurementListGrid.SetRowHeight(row, GRID_ROW_HEIGHT);
 	}
 #endif
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	// Col 0 Width
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	m_NecessaryThicknessMeasurementListGrid.SetColumnWidth(0, 52);	// No.
 	m_NecessaryThicknessMeasurementListGrid.SetColumnWidth(0, nFixColWidth);	// No.
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	// Col 1 -> ColumnCount Width
 	for (col = 1 ; col < m_NecessaryThicknessMeasurementListGrid.GetColumnCount(); col++)
 	{
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //		m_NecessaryThicknessMeasurementListGrid.SetColumnWidth(col, ItemWidth);
 		m_NecessaryThicknessMeasurementListGrid.SetColumnWidth(col, nColWidth);
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 	}
 
 	///// Title Column /////
@@ -844,7 +844,7 @@ void CStressLineSectionSettingDlg::NecessaryThicknessMeasurementListGrid_Init()
 		m_NecessaryThicknessMeasurementListGrid.SetItem(&Item);
 	}
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 #if 0
 	///// Title Row /////
 	dwTextStyle = DT_CENTER|DT_VCENTER|DT_SINGLELINE;
@@ -859,7 +859,7 @@ void CStressLineSectionSettingDlg::NecessaryThicknessMeasurementListGrid_Init()
 		m_NecessaryThicknessMeasurementListGrid.SetItem(&Item);
 	}
 #endif
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	return;
 }
@@ -904,7 +904,7 @@ void CStressLineSectionSettingDlg::DrawAxisCoordinate(int iOrgPos, int DirX, int
 	//Saiki 20090528 Change ----->
 	//if( pDC->SelectObject( CFont::FromHandle((HFONT) GetStockObject(ANSI_FIXED_FONT) ) ) == NULL )
 	//	//MessageBox("Error in SelectObject");
-	//	MessageBox("‘I‘ğ‚µ‚½ƒIƒuƒWƒFƒNƒg‚ªƒGƒ‰[‚Å‚·");
+	//	MessageBox("ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[ï¿½Å‚ï¿½");
 	if( pDC->SelectObject( CFont::FromHandle((HFONT) GetStockObject(ANSI_FIXED_FONT) ) ) == NULL ){
 		//MessageBox("Error in SelectObject");
 		LoadStringML(IDS_ERROR_SELECT_OBJECT, strBuffer, "Error in SelectObject");
@@ -912,7 +912,7 @@ void CStressLineSectionSettingDlg::DrawAxisCoordinate(int iOrgPos, int DirX, int
 	}
 	//Saiki 20090528 Change <-----
 
-	///// ”wŒiF‚ğ“§–¾‚Éİ’è /////
+	///// ï¿½wï¿½iï¿½Fï¿½ğ“§–ï¿½ï¿½Éİ’ï¿½ /////
 	pDC->SetBkMode(TRANSPARENT);
 
 	///// Draw Center Position /////
@@ -922,14 +922,14 @@ void CStressLineSectionSettingDlg::DrawAxisCoordinate(int iOrgPos, int DirX, int
 	pDC->SelectObject(&BrushArrow);
 	pDC->SelectObject(&PenArrow);
 	///// Draw Arrows /////
-	if(iOrgPos == 1){ //\š‚ğ•`‚­
+	if(iOrgPos == 1){ //ï¿½\ï¿½ï¿½ï¿½ï¿½`ï¿½ï¿½
 		pDC->MoveTo(CenterPosX - ARROW_LENGTH, CenterPosY);
 		pDC->LineTo(CenterPosX + ARROW_LENGTH, CenterPosY);
 		pDC->MoveTo(CenterPosX, CenterPosY + ARROW_LENGTH);
 		pDC->LineTo(CenterPosX, CenterPosY - ARROW_LENGTH);
 	}
 
-	if(DirX == 1 || DirY == 1){ //‰E•ûŒü
+	if(DirX == 1 || DirY == 1){ //ï¿½Eï¿½ï¿½ï¿½ï¿½
 		pDC->MoveTo(CenterPosX, CenterPosY);
 		pDC->LineTo(CenterPosX + ARROW_LENGTH, CenterPosY);
 		PT[0].x = CenterPosX + ARROW_LENGTH;
@@ -947,7 +947,7 @@ void CStressLineSectionSettingDlg::DrawAxisCoordinate(int iOrgPos, int DirX, int
 		pDC->TextOut(PT[0].x + 5, PT[0].y - ARROW_SIDE, csBuff);
 	}
 
-	if(DirX == 2 || DirY == 2){ //ã•ûŒü
+	if(DirX == 2 || DirY == 2){ //ï¿½ï¿½ï¿½ï¿½ï¿½
 		pDC->MoveTo(CenterPosX, CenterPosY);
 		pDC->LineTo(CenterPosX, CenterPosY - ARROW_LENGTH);
 		PT[0].x = CenterPosX;
@@ -965,7 +965,7 @@ void CStressLineSectionSettingDlg::DrawAxisCoordinate(int iOrgPos, int DirX, int
 		pDC->TextOut(PT[0].x - ARROW_SIDE, PT[0].y - 15, csBuff);
 	}
 
-	if(DirX == 3 || DirY == 3){ //¶•ûŒü
+	if(DirX == 3 || DirY == 3){ //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		pDC->MoveTo(CenterPosX, CenterPosY);
 		pDC->LineTo(CenterPosX - ARROW_LENGTH, CenterPosY);
 		PT[0].x = CenterPosX - ARROW_LENGTH;
@@ -982,7 +982,7 @@ void CStressLineSectionSettingDlg::DrawAxisCoordinate(int iOrgPos, int DirX, int
 			csBuff.Format("%s", "+Y");
 		pDC->TextOut(PT[0].x - 20, PT[0].y - ARROW_SIDE, csBuff);
 	}
-	if(DirX == 4 || DirY == 4){ //‰º•ûŒü
+	if(DirX == 4 || DirY == 4){ //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		pDC->MoveTo(CenterPosX, CenterPosY);
 		pDC->LineTo(CenterPosX, CenterPosY + ARROW_LENGTH);
 		PT[0].x = CenterPosX;
@@ -1014,9 +1014,9 @@ void CStressLineSectionSettingDlg::DrawAxisCoordinate(int iOrgPos, int DirX, int
 
 void CStressLineSectionSettingDlg::OnPaint()
 {
-	CPaintDC dc(this); // •`‰æ—p‚ÌƒfƒoƒCƒX ƒRƒ“ƒeƒLƒXƒg
+	CPaintDC dc(this); // ï¿½`ï¿½ï¿½pï¿½Ìƒfï¿½oï¿½Cï¿½X ï¿½Rï¿½ï¿½ï¿½eï¿½Lï¿½Xï¿½g
 
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½Éƒï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	long lDrawStageSizeX, lDrawStageSizeY;
 	CRect StageRect;
@@ -1039,10 +1039,10 @@ void CStressLineSectionSettingDlg::OnPaint()
 	long StageRectTop = StageRect.top + STAGE_OFFSET;
 	long StageRectBottom = StageRect.bottom - STAGE_OFFSET;
 
-	///// ƒXƒe[ƒW—LŒø”ÍˆÍ /////
+	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Lï¿½ï¿½ï¿½Íˆï¿½ /////
 //	double dStageMaxSizeX = m_StageConfig.Size.dX - (2 * m_StageConfig.Edge.dX);
 //	double dStageMaxSizeY = m_StageConfig.Size.dY - (2 * m_StageConfig.Edge.dY);
-	///// ƒXƒe[ƒW—LŒø”ÍˆÍ /////
+	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Lï¿½ï¿½ï¿½Íˆï¿½ /////
 	double dStageSizeX = (m_StageConfig.StageMaxCoord.dRightX - m_StageConfig.StageMaxCoord.dLeftX) - (2 * m_StageConfig.Edge.dX);
 	double dStageSizeY = (m_StageConfig.StageMaxCoord.dUpY - m_StageConfig.StageMaxCoord.dDownY) - (2 * m_StageConfig.Edge.dY);
 
@@ -1082,17 +1082,17 @@ void CStressLineSectionSettingDlg::OnPaint()
 
 	SamplePointGraph_DataSet();
 
-	// •`‰æ—pƒƒbƒZ[ƒW‚Æ‚µ‚Ä CDialog::OnPaint() ‚ğŒÄ‚Ño‚µ‚Ä‚Í‚¢‚¯‚Ü‚¹‚ñ
+	// ï¿½`ï¿½ï¿½pï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½Æ‚ï¿½ï¿½ï¿½ CDialog::OnPaint() ï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½Ä‚Í‚ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½
 	ReleaseDC(pDC);
 }
 
 void CStressLineSectionSettingDlg::OnKillfocusNumberOfLine()
 {
-// 2009.09.04 bagus stress ƒ‰ƒCƒ“”İ’èƒ{ƒ^ƒ“’Ç‰Á --{--
+// 2009.09.04 bagus stress ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½{ï¿½^ï¿½ï¿½ï¿½Ç‰ï¿½ --{--
 	return;
-// 2009.09.04 bagus stress ƒ‰ƒCƒ“”İ’èƒ{ƒ^ƒ“’Ç‰Á --}--
+// 2009.09.04 bagus stress ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½{ï¿½^ï¿½ï¿½ï¿½Ç‰ï¿½ --}--
 
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	CString	sNumOfLine;
 	DWORD	NumOfLine;
 
@@ -1113,15 +1113,15 @@ void CStressLineSectionSettingDlg::OnKillfocusNumberOfLine()
 	}
 
 	m_StressConfig.dwLiftPinNumberOfLine = NumOfLine;
-// 2009.09.08 bagus stress C³ --{--
+// 2009.09.08 bagus stress ï¿½Cï¿½ï¿½ --{--
 	for (int i=0; i<STRESS_LINES_MAX; i++) {
-		if (i<NumOfLine) {
+		if (i<static_cast<int>(NumOfLine)) {
 //			m_StressConfig.Line[i].bValidLine = TRUE;
 		} else {
 			m_StressConfig.Line[i].bValidLine = FALSE;
 		}
 	}
-// 2009.09.08 bagus stress C³ --}--
+// 2009.09.08 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	SetLineData();
 	SetLineValidData();
@@ -1129,26 +1129,26 @@ void CStressLineSectionSettingDlg::OnKillfocusNumberOfLine()
 
 void CStressLineSectionSettingDlg::SetLineData()
 {
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 	LineListGrid_Init();
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	GV_ITEM Item;
 
 	int FixRows = 1;
 	int FixCols = 1;
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	int	Cols, Rows;
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 	int	row;
 	DWORD	dwTextStyle;
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	Cols = m_LineListGrid.GetColumnCount();
 //	Rows = m_LineListGrid.GetRowCount();
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
-//2009.09.24 bagus stress C³ --{--
+//2009.09.24 bagus stress ï¿½Cï¿½ï¿½ --{--
 	CWnd* GridBox = GetDlgItem(IDC_LINE_LIST_GRID);
 	CDC* pDC = GridBox->GetDC();
 	CRect GridRect;
@@ -1159,17 +1159,17 @@ void CStressLineSectionSettingDlg::SetLineData()
 	int	DEFAULT_GRID_ROWS;
 	DEFAULT_GRID_ROWS = (int)(GridRect.Height() / GRID_ROW_HEIGHT);
 	DEFAULT_GRID_ROWS += 1;
-//2009.09.24 bagus stress C³ --}--
+//2009.09.24 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	TRY{
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //		m_LineListGrid.SetRowCount(m_StressConfig.dwLiftPinNumberOfLine + FixRows);
-		if ((m_StressConfig.dwLiftPinNumberOfLine + FixRows) < DEFAULT_GRID_ROWS) {
+		if ((static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine) + FixRows) < DEFAULT_GRID_ROWS) {
 			m_LineListGrid.SetRowCount(DEFAULT_GRID_ROWS);
 		} else {
 			m_LineListGrid.SetRowCount(m_StressConfig.dwLiftPinNumberOfLine + FixRows);
 		}
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 	}
 	CATCH(CMemoryException, e){
 		e->ReportError();
@@ -1178,7 +1178,7 @@ void CStressLineSectionSettingDlg::SetLineData()
 	}
 	END_CATCH
 
-	for (row=FixRows; row<m_StressConfig.dwLiftPinNumberOfLine+FixRows; row++) {
+	for (row=FixRows; row<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine)+FixRows; row++) {
 		dwTextStyle = DT_CENTER|DT_VCENTER|DT_SINGLELINE;
 		dwTextStyle |= DT_END_ELLIPSIS;
 		Item.mask = GVIF_TEXT|GVIF_FORMAT;
@@ -1198,48 +1198,48 @@ void CStressLineSectionSettingDlg::SetLineData()
 		Item.strText.Format("%d", m_StressConfig.Line[row-FixRows].dwLiftPinNumberOfLn);
 		m_LineListGrid.SetItem(&Item);
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 		m_LineListGrid.SetItemState(row,1,m_LineListGrid.GetItemState(row,1) & ~GVIS_READONLY);
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 	}
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 	int	Rows = m_LineListGrid.GetRowCount();
 
 	for (row=(m_StressConfig.dwLiftPinNumberOfLine + FixRows); row<Rows; row++) {
 		m_LineListGrid.SetItemState(row,1,m_LineListGrid.GetItemState(row,1) | GVIS_READONLY);
 	}
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 }
 
 void CStressLineSectionSettingDlg::OnGridsetButton()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	if (!CheckLineData()) {
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 		Invalidate( FALSE );
-// 2009.09.17 bagus stress GridC³ --}--
-// 2009.09.09 bagus stress StringTableg—p --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
+// 2009.09.09 bagus stress StringTableï¿½gï¿½p --{--
 //		AfxMessageBox("Err:CheckLineData");
 		CString	strBuffer;
 		LoadStringML(IDS_STRESS_INPUT_PIN_NUM, strBuffer, "Please input pin number.");
 		AfxMessageBox(strBuffer);
-// 2009.09.09 bagus stress StringTableg—p --}--
+// 2009.09.09 bagus stress StringTableï¿½gï¿½p --}--
 		return;
 	}
 
 	SetDefaultPinData();
 	SetPinData();
 
-// 2009.09.08 bagus stress C³ --{--
+// 2009.09.08 bagus stress ï¿½Cï¿½ï¿½ --{--
 	StressMeasurementLineSectionListGrid_Init();
 	NecessaryThicknessMeasurementListGrid_Init();
-// 2009.09.08 bagus stress C³ --}--
+// 2009.09.08 bagus stress ï¿½Cï¿½ï¿½ --}--
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 	Invalidate( FALSE );
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 }
 
 void CStressLineSectionSettingDlg::SetPinData()
@@ -1254,10 +1254,10 @@ void CStressLineSectionSettingDlg::SetPinData()
 
 	int	NumOfAllPins = 0;
 
-// 2009.09.08 bagus stress C³ --{--
+// 2009.09.08 bagus stress ï¿½Cï¿½ï¿½ --{--
 //	for (i=0; i<STRESS_LINES_MAX; i++) {
-	for (i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++) {
-// 2009.09.08 bagus stress C³ --}--
+	for (i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++) {
+// 2009.09.08 bagus stress ï¿½Cï¿½ï¿½ --}--
 		NumOfAllPins += m_StressConfig.Line[i].dwLiftPinNumberOfLn;
 	}
 
@@ -1266,7 +1266,7 @@ void CStressLineSectionSettingDlg::SetPinData()
 	int	Rows;
 	DWORD	dwTextStyle;
 
-//2009.09.24 bagus stress C³ --{--
+//2009.09.24 bagus stress ï¿½Cï¿½ï¿½ --{--
 	CWnd* GridBox = GetDlgItem(IDC_PIN_LIST_GRID);
 	CDC* pDC = GridBox->GetDC();
 	CRect GridRect;
@@ -1277,17 +1277,17 @@ void CStressLineSectionSettingDlg::SetPinData()
 	int	DEFAULT_GRID_ROWS;
 	DEFAULT_GRID_ROWS = (int)(GridRect.Height() / GRID_ROW_HEIGHT);
 	DEFAULT_GRID_ROWS += 1;
-//2009.09.24 bagus stress C³ --}--
+//2009.09.24 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	TRY{
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //		m_PinListGrid.SetRowCount(NumOfAllPins + FixRows);
 		if ((NumOfAllPins + FixRows) < DEFAULT_GRID_ROWS) {
 			m_PinListGrid.SetRowCount(DEFAULT_GRID_ROWS);
 		} else {
 			m_PinListGrid.SetRowCount(NumOfAllPins + FixRows);
 		}
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 	}
 	CATCH(CMemoryException, e){
 		e->ReportError();
@@ -1297,10 +1297,10 @@ void CStressLineSectionSettingDlg::SetPinData()
 	END_CATCH
 
 	row = FixRows;
-	for(i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++){
+	for(i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++){
 		Rows = m_StressConfig.Line[i].dwLiftPinNumberOfLn;
 
-		for (j=0; j<Rows; j++) {
+		for (j=0; j<static_cast<int>(Rows); j++) {
 			dwTextStyle = DT_CENTER|DT_VCENTER|DT_SINGLELINE;
 			dwTextStyle |= DT_END_ELLIPSIS;
 			Item.mask = GVIF_TEXT|GVIF_FORMAT;
@@ -1316,11 +1316,11 @@ void CStressLineSectionSettingDlg::SetPinData()
 			Item.row = row;
 			Item.col = 1;
 			Item.nFormat = dwTextStyle;
-			Item.strText.Format("%.3f", (double)(m_StressConfig.Line[i].PinPos[j].lX / MICROMETRE));		// ’PˆÊ•ÏŠ·(um->mm)
+			Item.strText.Format("%.3f", (double)(m_StressConfig.Line[i].PinPos[j].lX / MICROMETRE));		// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 			m_PinListGrid.SetItem(&Item);
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 			m_PinListGrid.SetItemState(row,1,m_PinListGrid.GetItemState(row,1) & ~GVIS_READONLY);
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 			dwTextStyle = DT_RIGHT|DT_VCENTER|DT_SINGLELINE;
 			dwTextStyle |= DT_END_ELLIPSIS;
@@ -1328,35 +1328,35 @@ void CStressLineSectionSettingDlg::SetPinData()
 			Item.row = row;
 			Item.col = 2;
 			Item.nFormat = dwTextStyle;
-			Item.strText.Format("%.3f", (double)(m_StressConfig.Line[i].PinPos[j].lY / MICROMETRE));		// ’PˆÊ•ÏŠ·(um->mm)
+			Item.strText.Format("%.3f", (double)(m_StressConfig.Line[i].PinPos[j].lY / MICROMETRE));		// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 			m_PinListGrid.SetItem(&Item);
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 			m_PinListGrid.SetItemState(row,2,m_PinListGrid.GetItemState(row,2) & ~GVIS_READONLY);
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 			row++;
 		}
 	}
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 	Rows = m_PinListGrid.GetRowCount();
 
 	for (row=(NumOfAllPins + FixRows); row<Rows; row++) {
 		m_PinListGrid.SetItemState(row,1,m_PinListGrid.GetItemState(row,1) | GVIS_READONLY);
 		m_PinListGrid.SetItemState(row,2,m_PinListGrid.GetItemState(row,2) | GVIS_READONLY);
 	}
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 }
 
 BOOL CStressLineSectionSettingDlg::CheckLineData()
 {
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	int	LineCols, LineRows;
 	int	LineRows;
 
 //	LineCols = m_LineListGrid.GetColumnCount();
 	LineRows = m_LineListGrid.GetRowCount();
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	DWORD	NumOfPin[STRESS_LINES_MAX];
 	memset(&NumOfPin, 0, sizeof(NumOfPin));
@@ -1367,39 +1367,39 @@ BOOL CStressLineSectionSettingDlg::CheckLineData()
 	int LineFixCols = 1;
 	int	row;
 
-// 2009.09.15 bagus stress C³ --{--
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --{--
 	long	PinNum;
-// 2009.09.15 bagus stress C³ --}--
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	for (row=LineFixRows; row<LineRows; row++) {
 		Item.mask = GVIF_TEXT;
 		Item.row = row;
 		Item.col = 1;
 
-// 2009.09.17 bagus stress GridC³ --{--
-		if (row >= m_StressConfig.dwLiftPinNumberOfLine + LineFixRows)
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
+		if (row >= static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine) + LineFixRows)
 			continue;
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 		m_LineListGrid.GetItem(&Item);
 
-// 2009.09.15 bagus stress C³ --{--
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --{--
 //		NumOfPin[row - LineFixRows] = strtol(Item.strText, NULL, 10);
 		if (!CheckInputValueLong(Item.strText, &PinNum))
 			return ( FALSE );
 
 		NumOfPin[row - LineFixRows] = PinNum;
-// 2009.09.15 bagus stress C³ --}--
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 		if ((NumOfPin[row - LineFixRows] <= 1) || (NumOfPin[row - LineFixRows] > STRESS_PINS_MAX)) {
 			return ( FALSE );
 		}
 	}
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	for (row=LineFixRows; row<LineRows; row++) {
-	for (row=LineFixRows; row<m_StressConfig.dwLiftPinNumberOfLine + LineFixRows; row++) {
-// 2009.09.17 bagus stress GridC³ --}--
+	for (row=LineFixRows; row<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine) + LineFixRows; row++) {
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 		m_StressConfig.Line[row - LineFixRows].dwLiftPinNumberOfLn = NumOfPin[row - LineFixRows];
 		m_StressConfig.Line[row - LineFixRows].dwSectionNum = NumOfPin[row - LineFixRows] - 1;
 	}
@@ -1409,9 +1409,9 @@ BOOL CStressLineSectionSettingDlg::CheckLineData()
 
 void CStressLineSectionSettingDlg::SetLineValidData()
 {
-//2009.09.24 bagus stress C³ --{--
+//2009.09.24 bagus stress ï¿½Cï¿½ï¿½ --{--
 	LineValidListGrid_Init();
-//2009.09.24 bagus stress C³ --}--
+//2009.09.24 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	GV_ITEM Item;
 
@@ -1421,7 +1421,7 @@ void CStressLineSectionSettingDlg::SetLineValidData()
 	int	nLine;
 	DWORD	dwTextStyle;
 
-//2009.09.24 bagus stress C³ --{--
+//2009.09.24 bagus stress ï¿½Cï¿½ï¿½ --{--
 	CWnd* GridBox = GetDlgItem(IDC_SET_LINE_VALID_LIST_GRID);
 	CDC* pDC = GridBox->GetDC();
 	CRect GridRect;
@@ -1432,17 +1432,17 @@ void CStressLineSectionSettingDlg::SetLineValidData()
 	int	DEFAULT_GRID_ROWS;
 	DEFAULT_GRID_ROWS = (int)(GridRect.Height() / GRID_ROW_HEIGHT);
 	DEFAULT_GRID_ROWS += 1;
-//2009.09.24 bagus stress C³ --}--
+//2009.09.24 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	TRY{
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //		m_LineValidListGrid.SetRowCount(m_StressConfig.dwLiftPinNumberOfLine + FixRows);
-		if ((m_StressConfig.dwLiftPinNumberOfLine + FixRows) < DEFAULT_GRID_ROWS) {
+		if ((static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine) + FixRows) < DEFAULT_GRID_ROWS) {
 			m_LineValidListGrid.SetRowCount(DEFAULT_GRID_ROWS);
 		} else {
 			m_LineValidListGrid.SetRowCount(m_StressConfig.dwLiftPinNumberOfLine + FixRows);
 		}
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 	}
 	CATCH(CMemoryException, e){
 		e->ReportError();
@@ -1452,7 +1452,7 @@ void CStressLineSectionSettingDlg::SetLineValidData()
 	END_CATCH
 
 	nLine = 1;
-	for (row=FixRows; row<m_StressConfig.dwLiftPinNumberOfLine+FixRows; row++) {
+	for (row=FixRows; row<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine)+FixRows; row++) {
 		dwTextStyle = DT_CENTER|DT_VCENTER|DT_SINGLELINE;
 		dwTextStyle |= DT_END_ELLIPSIS;
 		Item.mask = GVIF_TEXT|GVIF_FORMAT;
@@ -1495,17 +1495,17 @@ void CStressLineSectionSettingDlg::LineValidListGrid_Init()
 {
 	GV_ITEM Item;
 
-	int iDispCol = 1; //—LŒøCol”
+	int iDispCol = 1; //ï¿½Lï¿½ï¿½Colï¿½ï¿½
 
 	int FixRows = 1;
 	int FixCols = 1;
 	int Cols = iDispCol + FixCols;
 	int Rows = FixRows;
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	int row,col;
 //	int ItemWidth = 51;
 	int	col;
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 	DWORD dwTextStyle;
 
 	char* ColItem_ENU[]={
@@ -1518,10 +1518,10 @@ void CStressLineSectionSettingDlg::LineValidListGrid_Init()
 	};
 
 	///// Grid Initialize /////
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	m_LineValidListGrid.SetEditable(TRUE);
 	m_LineValidListGrid.SetEditable(FALSE);
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 	m_LineValidListGrid.EnableDragAndDrop(FALSE);
 	m_LineValidListGrid.SetTextBkColor(WHITE_COLOR);
 	m_LineValidListGrid.SetRowResize(0);
@@ -1552,11 +1552,11 @@ void CStressLineSectionSettingDlg::LineValidListGrid_Init()
 	}
 	END_CATCH
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 	CWnd* GridBox = GetDlgItem(IDC_SET_LINE_VALID_LIST_GRID);
 	CDC* pDC = GridBox->GetDC();
 	CRect GridRect;
-//2009.09.24 bagus stress C³ --{--
+//2009.09.24 bagus stress ï¿½Cï¿½ï¿½ --{--
 #if 0
 	GridBox->GetClientRect(&GridRect);
 
@@ -1565,7 +1565,7 @@ void CStressLineSectionSettingDlg::LineValidListGrid_Init()
 	int	nCellsWidth = GridRect.Width() - m_nSysVScrollWidth;
 	int	nColWidth = nCellsWidth / Cols;
 	int	nFixColWidth = nCellsWidth - (nColWidth * iDispCol);
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 #else
 	GridBox->GetClientRect(&GridRect);
 
@@ -1580,33 +1580,33 @@ void CStressLineSectionSettingDlg::LineValidListGrid_Init()
 
 	ReleaseDC(pDC);
 #endif
-//2009.09.24 bagus stress C³ --}--
+//2009.09.24 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	// Row 0 Height
 	m_LineValidListGrid.SetRowHeight(0, GRID_ROW_HEIGHT);
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 #if 0
 	// Row 1 -> RowCount Height
 	for(row = 1 ; row < m_LineValidListGrid.GetRowCount() ; row++){
 		m_LineValidListGrid.SetRowHeight(row, GRID_ROW_HEIGHT);
 	}
 #endif
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	// Col 0 Width
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	m_LineValidListGrid.SetColumnWidth(0, 51);	// No.
 	m_LineValidListGrid.SetColumnWidth(0, nFixColWidth);	// No.
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	// Col 1 -> ColumnCount Width
 	for (col = 1 ; col < m_LineValidListGrid.GetColumnCount(); col++)
 	{
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //		m_LineValidListGrid.SetColumnWidth(col, ItemWidth);
 		m_LineValidListGrid.SetColumnWidth(col, nColWidth);
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 	}
 
 	///// Title Column /////
@@ -1622,7 +1622,7 @@ void CStressLineSectionSettingDlg::LineValidListGrid_Init()
 		m_LineValidListGrid.SetItem(&Item);
 	}
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 #if 0
 	///// Title Row /////
 	dwTextStyle = DT_CENTER|DT_VCENTER|DT_SINGLELINE;
@@ -1637,7 +1637,7 @@ void CStressLineSectionSettingDlg::LineValidListGrid_Init()
 		m_LineValidListGrid.SetItem(&Item);
 	}
 #endif
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	return;
 }
@@ -1649,24 +1649,24 @@ BOOL CStressLineSectionSettingDlg::IsValidLine(int nLine)
 
 void CStressLineSectionSettingDlg::OnSetLineSectionButton()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	if (!CheckPinData()) {
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 		Invalidate( FALSE );
-// 2009.09.17 bagus stress GridC³ --}--
-// 2009.09.09 bagus stress StringTableg—p --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
+// 2009.09.09 bagus stress StringTableï¿½gï¿½p --{--
 //		AfxMessageBox("Err:CheckPinData");
 		CString	strBuffer;
 		LoadStringML(IDS_STRESS_INPUT_PIN_POS, strBuffer, "Please input pin position.");
 		AfxMessageBox(strBuffer);
-// 2009.09.09 bagus stress StringTableg—p --}--
+// 2009.09.09 bagus stress StringTableï¿½gï¿½p --}--
 		return;
 	}
 
 	CheckLineValidData();
 
-// 2009.09.14 bagus stress C³ --{--
+// 2009.09.14 bagus stress ï¿½Cï¿½ï¿½ --{--
 	if (!CheckStressValidRangeData()) {
 		CString	strBuffer;
 		LoadStringML(IDS_STRESS_INPUT_INTERVAL_RANGE, strBuffer, "Please input stress interval range.");
@@ -1687,20 +1687,20 @@ void CStressLineSectionSettingDlg::OnSetLineSectionButton()
 		AfxMessageBox(strBuffer);
 		return;
 	}
-// 2009.09.14 bagus stress C³ --}--
+// 2009.09.14 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	SetDefaultStressMeasurementLineSectionData();
 	SetStressMeasurementLineSectionData();
 	SetDefaultNecessaryThicknessMeasurementData();
 	SetNecessaryThicknessMeasurementData();
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	Invalidate( FALSE );
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
-// 2009.09.08 bagus stress C³ --{--
+// 2009.09.08 bagus stress ï¿½Cï¿½ï¿½ --{--
 //	OnPaint();
-// 2009.09.08 bagus stress C³ --}--
+// 2009.09.08 bagus stress ï¿½Cï¿½ï¿½ --}--
 }
 
 void CStressLineSectionSettingDlg::SetStressMeasurementLineSectionData()
@@ -1713,10 +1713,10 @@ void CStressLineSectionSettingDlg::SetStressMeasurementLineSectionData()
 
 	int	NumOfSections = 0;
 
-// 2009.09.08 bagus stress C³ --{--
+// 2009.09.08 bagus stress ï¿½Cï¿½ï¿½ --{--
 //	for (i=0; i<STRESS_LINES_MAX; i++) {
-	for (i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++) {
-// 2009.09.08 bagus stress C³ --}--
+	for (i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++) {
+// 2009.09.08 bagus stress ï¿½Cï¿½ï¿½ --}--
 		if ((m_StressConfig.Line[i].dwLiftPinNumberOfLn > 0) && (IsValidLine(i))) {
 //			NumOfSections += (m_StressConfig.Line[i].dwLiftPinNumberOfLn - 1);
 			if (m_StressConfig.Line[i].bValidLine) {
@@ -1731,7 +1731,7 @@ void CStressLineSectionSettingDlg::SetStressMeasurementLineSectionData()
 	int	Rows;
 	DWORD	dwTextStyle;
 
-//2009.09.24 bagus stress C³ --{--
+//2009.09.24 bagus stress ï¿½Cï¿½ï¿½ --{--
 	CWnd* GridBox = GetDlgItem(IDC_STRESS_MEASUREMENT_LINE_SECTION_LIST_GRID);
 	CDC* pDC = GridBox->GetDC();
 	CRect GridRect;
@@ -1742,17 +1742,17 @@ void CStressLineSectionSettingDlg::SetStressMeasurementLineSectionData()
 	int	DEFAULT_GRID_ROWS;
 	DEFAULT_GRID_ROWS = (int)(GridRect.Height() / GRID_ROW_HEIGHT);
 	DEFAULT_GRID_ROWS += 1;
-//2009.09.24 bagus stress C³ --}--
+//2009.09.24 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	TRY{
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //		m_StressMeasurementLineSectionListGrid.SetRowCount(NumOfSections + FixRows);
 		if ((NumOfSections + FixRows) < DEFAULT_GRID_ROWS) {
 			m_StressMeasurementLineSectionListGrid.SetRowCount(DEFAULT_GRID_ROWS);
 		} else {
 			m_StressMeasurementLineSectionListGrid.SetRowCount(NumOfSections + FixRows);
 		}
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 	}
 	CATCH(CMemoryException, e){
 		e->ReportError();
@@ -1762,7 +1762,7 @@ void CStressLineSectionSettingDlg::SetStressMeasurementLineSectionData()
 	END_CATCH
 
 	row = FixRows;
-	for(i=FixRows; i<m_StressConfig.dwLiftPinNumberOfLine+FixRows; i++){
+	for(i=FixRows; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine)+FixRows; i++){
 		if (!m_StressConfig.Line[i - FixRows].bValidLine) {
 			continue;
 		}
@@ -1784,7 +1784,7 @@ void CStressLineSectionSettingDlg::SetStressMeasurementLineSectionData()
 			Item.row = j;
 			Item.col = 1;
 			Item.nFormat = dwTextStyle;
-			Item.strText.Format("%.3f", (double)(m_StressConfig.Line[i - FixRows].SectPos[j - row].lScanStartPosX / MICROMETRE));			// ’PˆÊ•ÏŠ·(um->mm)
+			Item.strText.Format("%.3f", (double)(m_StressConfig.Line[i - FixRows].SectPos[j - row].lScanStartPosX / MICROMETRE));			// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 			m_StressMeasurementLineSectionListGrid.SetItem(&Item);
 
 			dwTextStyle = DT_RIGHT|DT_VCENTER|DT_SINGLELINE;
@@ -1793,7 +1793,7 @@ void CStressLineSectionSettingDlg::SetStressMeasurementLineSectionData()
 			Item.row = j;
 			Item.col = 2;
 			Item.nFormat = dwTextStyle;
-			Item.strText.Format("%.3f", (double)(m_StressConfig.Line[i - FixRows].SectPos[j - row].lScanEndPosX / MICROMETRE));			// ’PˆÊ•ÏŠ·(um->mm)
+			Item.strText.Format("%.3f", (double)(m_StressConfig.Line[i - FixRows].SectPos[j - row].lScanEndPosX / MICROMETRE));			// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 			m_StressMeasurementLineSectionListGrid.SetItem(&Item);
 
 			dwTextStyle = DT_RIGHT|DT_VCENTER|DT_SINGLELINE;
@@ -1802,7 +1802,7 @@ void CStressLineSectionSettingDlg::SetStressMeasurementLineSectionData()
 			Item.row = j;
 			Item.col = 3;
 			Item.nFormat = dwTextStyle;
-			Item.strText.Format("%.3f", (double)(m_StressConfig.Line[i - FixRows].SectPos[j - row].lScanPosY / MICROMETRE));			// ’PˆÊ•ÏŠ·(um->mm)
+			Item.strText.Format("%.3f", (double)(m_StressConfig.Line[i - FixRows].SectPos[j - row].lScanPosY / MICROMETRE));			// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 			m_StressMeasurementLineSectionListGrid.SetItem(&Item);
 		}
 
@@ -1818,21 +1818,21 @@ void CStressLineSectionSettingDlg::SetNecessaryThicknessMeasurementData()
 
 	int	i ,j;
 
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 	int	NumOfLines = 0;
 
-	for (i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++) {
+	for (i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++) {
 		if (m_StressConfig.Line[i].bValidLine) {
 			NumOfLines++;
 		}
 	}
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	int FixRows = 1;
 	int FixCols = 1;
 	DWORD	dwTextStyle;
 
-//2009.09.24 bagus stress C³ --{--
+//2009.09.24 bagus stress ï¿½Cï¿½ï¿½ --{--
 	CWnd* GridBox = GetDlgItem(IDC_NECESSARY_THICKNESS_MEASUREMENT_LIST_GRID);
 	CDC* pDC = GridBox->GetDC();
 	CRect GridRect;
@@ -1843,20 +1843,20 @@ void CStressLineSectionSettingDlg::SetNecessaryThicknessMeasurementData()
 	int	DEFAULT_GRID_ROWS;
 	DEFAULT_GRID_ROWS = (int)(GridRect.Height() / GRID_ROW_HEIGHT);
 	DEFAULT_GRID_ROWS += 1;
-//2009.09.24 bagus stress C³ --}--
+//2009.09.24 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	TRY{
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //		m_NecessaryThicknessMeasurementListGrid.SetRowCount((m_StressConfig.dwLiftPinNumberOfLine * PIN_INTERVAL) + FixRows);
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //		m_NecessaryThicknessMeasurementListGrid.SetRowCount((NumOfLines * PIN_INTERVAL) + FixRows);
 		if (((NumOfLines * PIN_INTERVAL) + FixRows) < DEFAULT_GRID_ROWS) {
 			m_NecessaryThicknessMeasurementListGrid.SetRowCount(DEFAULT_GRID_ROWS);
 		} else {
 			m_NecessaryThicknessMeasurementListGrid.SetRowCount((NumOfLines * PIN_INTERVAL) + FixRows);
 		}
-// 2009.09.17 bagus stress GridC³ --}--
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 	}
 	CATCH(CMemoryException, e){
 		e->ReportError();
@@ -1865,23 +1865,23 @@ void CStressLineSectionSettingDlg::SetNecessaryThicknessMeasurementData()
 	}
 	END_CATCH
 
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 	int	Row = 0 + FixRows;
-// 2009.09.11 bagus stress C³ --}--
-	for(i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++){
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
+	for(i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++){
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 		if (!m_StressConfig.Line[i].bValidLine) {
 			continue;
 		}
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 		for (j=0; j<PIN_INTERVAL; j++) {
 			dwTextStyle = DT_CENTER|DT_VCENTER|DT_SINGLELINE;
 			dwTextStyle |= DT_END_ELLIPSIS;
 			Item.mask = GVIF_TEXT|GVIF_FORMAT;
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //			Item.row = j + (i * PIN_INTERVAL) + FixRows;
 			Item.row = Row;
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 			Item.col = 0;
 			Item.nFormat = dwTextStyle;
 			Item.strText.Format("L%dP%d", i+1, j+1);
@@ -1890,101 +1890,101 @@ void CStressLineSectionSettingDlg::SetNecessaryThicknessMeasurementData()
 			dwTextStyle = DT_RIGHT|DT_VCENTER|DT_SINGLELINE;
 			dwTextStyle |= DT_END_ELLIPSIS;
 			Item.mask = GVIF_TEXT|GVIF_FORMAT;
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //			Item.row = j + (i * PIN_INTERVAL) + FixRows;
 			Item.row = Row;
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 			Item.col = 1;
 			Item.nFormat = dwTextStyle;
-			Item.strText.Format("%.3f", (double)(m_StressConfig.Line[i].MeasPos[j].lX / MICROMETRE));		// ’PˆÊ•ÏŠ·(um->mm)
+			Item.strText.Format("%.3f", (double)(m_StressConfig.Line[i].MeasPos[j].lX / MICROMETRE));		// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 			m_NecessaryThicknessMeasurementListGrid.SetItem(&Item);
 
 			dwTextStyle = DT_RIGHT|DT_VCENTER|DT_SINGLELINE;
 			dwTextStyle |= DT_END_ELLIPSIS;
 			Item.mask = GVIF_TEXT|GVIF_FORMAT;
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //			Item.row = j + (i * PIN_INTERVAL) + FixRows;
 			Item.row = Row;
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 			Item.col = 2;
 			Item.nFormat = dwTextStyle;
-			Item.strText.Format("%.3f", (double)(m_StressConfig.Line[i].MeasPos[j].lY / MICROMETRE));		// ’PˆÊ•ÏŠ·(um->mm)
+			Item.strText.Format("%.3f", (double)(m_StressConfig.Line[i].MeasPos[j].lY / MICROMETRE));		// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 			m_NecessaryThicknessMeasurementListGrid.SetItem(&Item);
 
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 			Row++;
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 		}
 	}
 }
 
 void CStressLineSectionSettingDlg::OnKillfocusInvalidRangeEdge()
 {
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 	return;
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 
-// 2009.09.04 bagus stress ”’lƒ`ƒFƒbƒN’Ç‰Á --{--
+// 2009.09.04 bagus stress ï¿½ï¿½ï¿½lï¿½`ï¿½Fï¿½bï¿½Nï¿½Ç‰ï¿½ --{--
 	if (!CheckInvalidRangeEdgeData()) {
-// 2009.09.09 bagus stress StringTableg—p --{--
+// 2009.09.09 bagus stress StringTableï¿½gï¿½p --{--
 //		AfxMessageBox("Err:CheckInvalidRangeEdgeData");
 		CString	strBuffer;
 		LoadStringML(IDS_STRESS_INPUT_INTERVAL_RANGE_EDGE, strBuffer, "Please input interval range edge.");
 		AfxMessageBox(strBuffer);
-// 2009.09.09 bagus stress StringTableg—p --}--
+// 2009.09.09 bagus stress StringTableï¿½gï¿½p --}--
 		return;
 	}
-// 2009.09.04 bagus stress ”’lƒ`ƒFƒbƒN’Ç‰Á --}--
+// 2009.09.04 bagus stress ï¿½ï¿½ï¿½lï¿½`ï¿½Fï¿½bï¿½Nï¿½Ç‰ï¿½ --}--
 
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	CString	strBuffer;
 
 	GetDlgItemText(IDC_INVALID_RANGE_EDGE, strBuffer);
-	m_StressConfig.lInvalidRangeEdge = (long)(strtod(strBuffer.GetBuffer(0), NULL) * MICROMETRE);	// ’PˆÊ•ÏŠ·(mm->um)
+	m_StressConfig.lInvalidRangeEdge = (long)(strtod(strBuffer.GetBuffer(0), NULL) * MICROMETRE);	// ï¿½Pï¿½Ê•ÏŠï¿½(mm->um)
 
-// 2009.09.08 bagus stress C³ --{--
+// 2009.09.08 bagus stress ï¿½Cï¿½ï¿½ --{--
 	StressMeasurementLineSectionListGrid_Init();
 	NecessaryThicknessMeasurementListGrid_Init();
-// 2009.09.08 bagus stress C³ --}--
+// 2009.09.08 bagus stress ï¿½Cï¿½ï¿½ --}--
 }
 
 void CStressLineSectionSettingDlg::OnKillfocusThickMeasurementPointOffsetX()
 {
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 	return;
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 
-// 2009.09.04 bagus stress ”’lƒ`ƒFƒbƒN’Ç‰Á --{--
+// 2009.09.04 bagus stress ï¿½ï¿½ï¿½lï¿½`ï¿½Fï¿½bï¿½Nï¿½Ç‰ï¿½ --{--
 	if (!CheckThinkMeasurementPointOffsetXData()) {
-// 2009.09.09 bagus stress StringTableg—p --{--
+// 2009.09.09 bagus stress StringTableï¿½gï¿½p --{--
 //		AfxMessageBox("Err:CheckThinkMeasurementPointOffsetXData");
 		CString	strBuffer;
 		LoadStringML(IDS_STRESS_THICK_MEAS_POINT_OFFSET_X, strBuffer, "Please input offset(X).");
 		AfxMessageBox(strBuffer);
-// 2009.09.09 bagus stress StringTableg—p --}--
+// 2009.09.09 bagus stress StringTableï¿½gï¿½p --}--
 		return;
 	}
-// 2009.09.04 bagus stress ”’lƒ`ƒFƒbƒN’Ç‰Á --}--
+// 2009.09.04 bagus stress ï¿½ï¿½ï¿½lï¿½`ï¿½Fï¿½bï¿½Nï¿½Ç‰ï¿½ --}--
 
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	CString	strBuffer;
 
 	GetDlgItemText(IDC_THICK_MEASUREMENT_POINT_OFFSET_X, strBuffer);
-	m_StressConfig.MeasOffset.lX = (long)(strtod(strBuffer.GetBuffer(0), NULL) * MICROMETRE);	// ’PˆÊ•ÏŠ·(mm->um)
+	m_StressConfig.MeasOffset.lX = (long)(strtod(strBuffer.GetBuffer(0), NULL) * MICROMETRE);	// ï¿½Pï¿½Ê•ÏŠï¿½(mm->um)
 
-// 2009.09.08 bagus stress C³ --{--
+// 2009.09.08 bagus stress ï¿½Cï¿½ï¿½ --{--
 	StressMeasurementLineSectionListGrid_Init();
 	NecessaryThicknessMeasurementListGrid_Init();
-// 2009.09.08 bagus stress C³ --}--
+// 2009.09.08 bagus stress ï¿½Cï¿½ï¿½ --}--
 }
 
 void CStressLineSectionSettingDlg::OnOK()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚É‚»‚Ì‘¼‚ÌŒŸØ—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½É‚ï¿½ï¿½Ì‘ï¿½ï¿½ÌŒï¿½ï¿½Ø—pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-// 2009.09.16 bagus stress C³ --{--
+// 2009.09.16 bagus stress ï¿½Cï¿½ï¿½ --{--
 #if 1
 	if(!SetAllInputData()){
 		CString	strBuffer;
@@ -2000,43 +2000,43 @@ void CStressLineSectionSettingDlg::OnOK()
 		return;
 	}
 #endif
-// 2009.09.16 bagus stress C³ --}--
+// 2009.09.16 bagus stress ï¿½Cï¿½ï¿½ --}--
 
-// 2009.09.08 bagus stress ƒ`ƒFƒbƒNˆ—’Ç‰Á --{--
+// 2009.09.08 bagus stress ï¿½`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ --{--
 	if(!CheckLineNum()) {
-// 2009.09.09 bagus stress StringTableg—p --{--
+// 2009.09.09 bagus stress StringTableï¿½gï¿½p --{--
 //		AfxMessageBox("Err:CheckLineNum");
 		CString	strBuffer;
 		LoadStringML(IDS_STRESS_INPUT_LINE_NUM, strBuffer, "Please input line number.");
 		AfxMessageBox(strBuffer);
-// 2009.09.09 bagus stress StringTableg—p --}--
+// 2009.09.09 bagus stress StringTableï¿½gï¿½p --}--
 		return;
 	}
 
 	if(!CheckLineData()) {
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 		Invalidate( FALSE );
-// 2009.09.17 bagus stress GridC³ --}--
-// 2009.09.09 bagus stress StringTableg—p --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
+// 2009.09.09 bagus stress StringTableï¿½gï¿½p --{--
 //		AfxMessageBox("Err:CheckLineData");
 		CString	strBuffer;
 		LoadStringML(IDS_STRESS_INPUT_PIN_NUM, strBuffer, "Please input pin number.");
 		AfxMessageBox(strBuffer);
-// 2009.09.09 bagus stress StringTableg—p --}--
+// 2009.09.09 bagus stress StringTableï¿½gï¿½p --}--
 		return;
 	}
 
-// 2009.09.15 bagus stress C³ --{--
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --{--
 	if (!CheckPinData()) {
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 		Invalidate( FALSE );
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 		CString	strBuffer;
 		LoadStringML(IDS_STRESS_INPUT_PIN_POS, strBuffer, "Please input pin position.");
 		AfxMessageBox(strBuffer);
 		return;
 	}
-// 2009.09.15 bagus stress C³ --}--
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	if (!CheckStressValidRangeData()) {
 		CString	strBuffer;
@@ -2046,27 +2046,27 @@ void CStressLineSectionSettingDlg::OnOK()
 	}
 
 	if (!CheckInvalidRangeEdgeData()) {
-// 2009.09.09 bagus stress StringTableg—p --{--
+// 2009.09.09 bagus stress StringTableï¿½gï¿½p --{--
 //		AfxMessageBox("Err:CheckInvalidRangeEdgeData");
 		CString	strBuffer;
 		LoadStringML(IDS_STRESS_INPUT_INTERVAL_RANGE_EDGE, strBuffer, "Please input interval range edge.");
 		AfxMessageBox(strBuffer);
-// 2009.09.09 bagus stress StringTableg—p --}--
+// 2009.09.09 bagus stress StringTableï¿½gï¿½p --}--
 		return;
 	}
 
 	if (!CheckThinkMeasurementPointOffsetXData()) {
-// 2009.09.09 bagus stress StringTableg—p --{--
+// 2009.09.09 bagus stress StringTableï¿½gï¿½p --{--
 //		AfxMessageBox("Err:CheckThinkMeasurementPointOffsetXData");
 		CString	strBuffer;
 		LoadStringML(IDS_STRESS_THICK_MEAS_POINT_OFFSET_X, strBuffer, "Please input offset(X).");
 		AfxMessageBox(strBuffer);
-// 2009.09.09 bagus stress StringTableg—p --}--
+// 2009.09.09 bagus stress StringTableï¿½gï¿½p --}--
 		return;
 	}
-// 2009.09.08 bagus stress ƒ`ƒFƒbƒNˆ—’Ç‰Á --}--
+// 2009.09.08 bagus stress ï¿½`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ --}--
 
-// 2009.09.11 bagus stress ƒ`ƒFƒbƒN’Ç‰Á --{--
+// 2009.09.11 bagus stress ï¿½`ï¿½Fï¿½bï¿½Nï¿½Ç‰ï¿½ --{--
 	if (!CheckStressMeasurementLineSectionData()) {
 		CString	strBuffer;
 		LoadStringML(IDS_STRESS_INPUT_LINE_SECTION, strBuffer, "The distance of the line is too short.");
@@ -2080,9 +2080,9 @@ void CStressLineSectionSettingDlg::OnOK()
 		AfxMessageBox(strBuffer);
 		return;
 	}
-// 2009.09.11 bagus stress ƒ`ƒFƒbƒN’Ç‰Á --}--
+// 2009.09.11 bagus stress ï¿½`ï¿½Fï¿½bï¿½Nï¿½Ç‰ï¿½ --}--
 
-// 2009.09.16 bagus stress C³ --{--
+// 2009.09.16 bagus stress ï¿½Cï¿½ï¿½ --{--
 #if 0
 	if(!SetAllInputData()){
 		CString	strBuffer;
@@ -2092,7 +2092,7 @@ void CStressLineSectionSettingDlg::OnOK()
 			return;
 	}
 #endif
-// 2009.09.16 bagus stress C³ --}--
+// 2009.09.16 bagus stress ï¿½Cï¿½ï¿½ --}--
 	ConfigFile_SetNanoSpecIni(&m_StressConfig, CONFIG_FILE_STRESS_CONFIG);
 	ConfigFile_SaveNanoSpecIni(SYSTEM_STRESS_INI_FILE);
 
@@ -2115,7 +2115,7 @@ BOOL CStressLineSectionSettingDlg::CheckStressConfig_LineData()
 {
 	int	i;
 
-	for (i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++) {
+	for (i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++) {
 		if ((m_StressConfig.Line[i].dwLiftPinNumberOfLn <= 1) || (m_StressConfig.Line[i].dwLiftPinNumberOfLn > STRESS_PINS_MAX)) {
 			return ( FALSE );
 		}
@@ -2129,10 +2129,10 @@ BOOL CStressLineSectionSettingDlg::CheckStressConfig_PinData()
 	int	i, j;
 	DWORD	Rows;
 
-	for(i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++){
+	for(i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++){
 		Rows = m_StressConfig.Line[i].dwLiftPinNumberOfLn;
-		for (j=0; j<Rows; j++) {
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+		for (j=0; j<static_cast<int>(Rows); j++) {
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //			if ((m_StressConfig.Line[i].PinPos[j].lX < ((m_StressConfig.Size.dx / 2) * -1)) || (m_StressConfig.Line[i].PinPos[j].lX > (m_StressConfig.Size.dx / 2))) {
 //				return ( FALSE );
 //			}
@@ -2141,7 +2141,7 @@ BOOL CStressLineSectionSettingDlg::CheckStressConfig_PinData()
 //			}
 			if (!CheckPinPos(m_StressConfig.Line[i].PinPos[j].lX, m_StressConfig.Line[i].PinPos[j].lY))
 				return ( FALSE );
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		}
 	}
 
@@ -2157,13 +2157,13 @@ BOOL CStressLineSectionSettingDlg::CheckPinData()
 	memset(&PinX, 0, sizeof(PinX));
 	memset(&PinY, 0, sizeof(PinY));
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	int	PinCols, PinRows;
 	int	PinRows;
 
 //	PinCols = m_PinListGrid.GetColumnCount();
 	PinRows = m_PinListGrid.GetRowCount();
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	GV_ITEM Item;
 
@@ -2174,49 +2174,49 @@ BOOL CStressLineSectionSettingDlg::CheckPinData()
 	int	Rows;
 	int	Pin;
 
-// 2009.09.15 bagus stress C³ --{--
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --{--
 	double	tmpPin;
-// 2009.09.15 bagus stress C³ --}--
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --}--
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 	int	NumOfAllPins = 0;
 
-	for (i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++) {
+	for (i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++) {
 		NumOfAllPins += m_StressConfig.Line[i].dwLiftPinNumberOfLn;
 	}
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	Pin = 0;
 	for(i=FixRows; i<PinRows; i++){
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 		if (i >= NumOfAllPins + FixRows)
 			continue;
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 		Item.mask = GVIF_TEXT;
 		Item.row = i;
 		Item.col = 1;
 		m_PinListGrid.GetItem(&Item);
-// 2009.09.15 bagus stress C³ --{--
-//		tmpPinX = strtod(Item.strText, NULL) * MICROMETRE;		// ’PˆÊ•ÏŠ·(um->mm)
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --{--
+//		tmpPinX = strtod(Item.strText, NULL) * MICROMETRE;		// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 		if (!CheckInputValueDouble(Item.strText, &tmpPin))
 			return ( FALSE );
 
 		tmpPinX = tmpPin * MICROMETRE;
-// 2009.09.15 bagus stress C³ --}--
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 		Item.mask = GVIF_TEXT;
 		Item.row = i;
 		Item.col = 2;
 		m_PinListGrid.GetItem(&Item);
-// 2009.09.15 bagus stress C³ --{--
-//		tmpPinY = strtod(Item.strText, NULL) * MICROMETRE;		// ’PˆÊ•ÏŠ·(um->mm)
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --{--
+//		tmpPinY = strtod(Item.strText, NULL) * MICROMETRE;		// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 		if (!CheckInputValueDouble(Item.strText, &tmpPin))
 			return ( FALSE );
 
 		tmpPinY = tmpPin * MICROMETRE;
-// 2009.09.15 bagus stress C³ --}--
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --}--
 
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //		if ((tmpPinX >= ((m_StressConfig.Size.dx / 2) * -1)) && (tmpPinX <= (m_StressConfig.Size.dx / 2))) {
 //			PinX[i - FixRows] = tmpPinX;
 //		} else {
@@ -2231,16 +2231,16 @@ BOOL CStressLineSectionSettingDlg::CheckPinData()
 			return ( FALSE );
 		PinX[i - FixRows] = tmpPinX;
 		PinY[i - FixRows] = tmpPinY;
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 	}
 
-// 2009.09.14 bagus stress C³ --{--
+// 2009.09.14 bagus stress ï¿½Cï¿½ï¿½ --{--
 	long	SectionLength;
 
 	Pin = 0;
-	for(i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++){
+	for(i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++){
 		Rows = m_StressConfig.Line[i].dwLiftPinNumberOfLn;
-		for (j=0; j<Rows; j++) {
+		for (j=0; j<static_cast<int>(Rows); j++) {
 			if (j == 0) {
 				Pin++;
 				continue;
@@ -2253,12 +2253,12 @@ BOOL CStressLineSectionSettingDlg::CheckPinData()
 			Pin++;
 		}
 	}
-// 2009.09.14 bagus stress C³ --}--
+// 2009.09.14 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	Pin = 0;
-	for(i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++){
+	for(i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++){
 		Rows = m_StressConfig.Line[i].dwLiftPinNumberOfLn;
-		for (j=0; j<Rows; j++) {
+		for (j=0; j<static_cast<int>(Rows); j++) {
 			m_StressConfig.Line[i].PinPos[j].lX = PinX[Pin];
 			m_StressConfig.Line[i].PinPos[j].lY = PinY[Pin];
 
@@ -2275,24 +2275,24 @@ void CStressLineSectionSettingDlg::SetDefaultPinData()
 
 	double	LineInterval, PinInterval;
 	double	PinX, PinY;
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 	double	PinOrgX, PinOrgY;
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 
 	if (m_StressConfig.dwLiftPinNumberOfLine <= 1) {
 		LineInterval = 0;
 	} else {
-// 2009.09.16 bagus stress C³ --{--
+// 2009.09.16 bagus stress ï¿½Cï¿½ï¿½ --{--
 //		LineInterval = (((m_StressConfig.Size.dy - (m_StressConfig.lInvalidRangeEdge * 2)) / (m_StressConfig.dwLiftPinNumberOfLine - 1)) * 1000 + 500) / 1000;
 		LineInterval = (long)((((m_StressConfig.Size.dy - (m_StressConfig.lInvalidRangeEdge * 2)) / (m_StressConfig.dwLiftPinNumberOfLine - 1)) * 1000 + 500) / 1000);
-// 2009.09.16 bagus stress C³ --}--
+// 2009.09.16 bagus stress ï¿½Cï¿½ï¿½ --}--
 	}
 
 	int	i, j;
 
 	int	Rows;
 
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //	PinY = (long)((((m_StressConfig.Size.dy / 2) - m_StressConfig.lInvalidRangeEdge) * 1000 + 500) / 1000);
 //	PinY *= -1;
 	CheckPinMinPos(&PinOrgX, &PinOrgY);
@@ -2306,7 +2306,7 @@ void CStressLineSectionSettingDlg::SetDefaultPinData()
 		PinOrgY -= m_StressConfig.lInvalidRangeEdge;
 		PinY = (long)((PinOrgY * 1000 + 500) / 1000);
 	}
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //	if (PinOrgX == 0) {
 //		PinOrgX += m_StressConfig.lInvalidRangeEdge;
 //	} else if (PinOrgX < 0) {
@@ -2314,9 +2314,9 @@ void CStressLineSectionSettingDlg::SetDefaultPinData()
 //	} else {
 //		PinOrgX -= m_StressConfig.lInvalidRangeEdge;
 //	}
-// 2009.09.11 bagus stress C³ --}--
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
-	for(i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++){
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
+	for(i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++){
 		Rows = m_StressConfig.Line[i].dwLiftPinNumberOfLn;
 
 		if (Rows <= 1) {
@@ -2325,7 +2325,7 @@ void CStressLineSectionSettingDlg::SetDefaultPinData()
 			PinInterval = (long)((((m_StressConfig.Size.dx - (m_StressConfig.lInvalidRangeEdge * 2)) / (Rows - 1)) * 1000 + 500) / 1000);
 		}
 
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //		PinX = (long)((((m_StressConfig.Size.dx / 2) - m_StressConfig.lInvalidRangeEdge) * 1000 + 500) / 1000);
 //		PinX *= -1;
 		if (PinOrgX == 0) {
@@ -2335,9 +2335,9 @@ void CStressLineSectionSettingDlg::SetDefaultPinData()
 		} else {
 			PinX = (long)((PinOrgX * 1000 + 500) / 1000);
 		}
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
-		for (j=0; j<Rows; j++) {
-// 2009.09.08 bagus stress C³ --{--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
+		for (j=0; j<static_cast<int>(Rows); j++) {
+// 2009.09.08 bagus stress ï¿½Cï¿½ï¿½ --{--
 #if 0
 			m_StressConfig.Line[i].PinPos[j].lX = PinX;
 			m_StressConfig.Line[i].PinPos[j].lY = PinY;
@@ -2345,7 +2345,7 @@ void CStressLineSectionSettingDlg::SetDefaultPinData()
 			m_StressConfig.Line[i].PinPos[j].lX = 0;
 			m_StressConfig.Line[i].PinPos[j].lY = 0;
 #endif
-// 2009.09.08 bagus stress C³ --}--
+// 2009.09.08 bagus stress ï¿½Cï¿½ï¿½ --}--
 			PinX += PinInterval;
 		}
 
@@ -2360,19 +2360,19 @@ void CStressLineSectionSettingDlg::SetDefaultStressMeasurementLineSectionData()
 	int	i ,j;
 	int	Rows;
 
-	for(i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++){
+	for(i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++){
 		Rows = m_StressConfig.Line[i].dwSectionNum;
-		for (j=0; j<Rows; j++) {
+		for (j=0; j<static_cast<int>(Rows); j++) {
 			PinY = m_StressConfig.Line[i].PinPos[j].lY;
 			PinXS = m_StressConfig.Line[i].PinPos[j].lX;
 			PinXE = m_StressConfig.Line[i].PinPos[j + 1].lX;
 
-// 2009.10.19 K.Matsuo —LŒø‘ª’è”ÍˆÍ‚Ìİ’è‚É•ÏX -->
+// 2009.10.19 K.Matsuo ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÍˆÍ‚Ìİ’ï¿½É•ÏX -->
 //			m_StressConfig.Line[i].SectPos[j].lScanStartPosX = PinXS + m_StressConfig.lStressValidRange;
 //			m_StressConfig.Line[i].SectPos[j].lScanEndPosX = PinXE - m_StressConfig.lStressValidRange;
-			m_StressConfig.Line[i].SectPos[j].lScanStartPosX = ((PinXS + PinXE) / 1000 / 2 * 1000) - m_StressConfig.lStressValidRange;	// mm¬”“_ˆÈ‰º‚ÍAØ‚è—‚Æ‚µ
-			m_StressConfig.Line[i].SectPos[j].lScanEndPosX = ((PinXS + PinXE) / 1000 / 2 * 1000) + m_StressConfig.lStressValidRange;		// mm¬”“_ˆÈ‰º‚ÍAØ‚è—‚Æ‚µ
-// 2009.10.19 K.Matsuo —LŒø‘ª’è”ÍˆÍ‚Ìİ’è‚É•ÏX <--
+			m_StressConfig.Line[i].SectPos[j].lScanStartPosX = ((PinXS + PinXE) / 1000 / 2 * 1000) - m_StressConfig.lStressValidRange;	// mmï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½È‰ï¿½ï¿½ÍAï¿½Ø‚è—ï¿½Æ‚ï¿½
+			m_StressConfig.Line[i].SectPos[j].lScanEndPosX = ((PinXS + PinXE) / 1000 / 2 * 1000) + m_StressConfig.lStressValidRange;		// mmï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½È‰ï¿½ï¿½ÍAï¿½Ø‚è—ï¿½Æ‚ï¿½
+// 2009.10.19 K.Matsuo ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÍˆÍ‚Ìİ’ï¿½É•ÏX <--
 			m_StressConfig.Line[i].SectPos[j].lScanPosY = PinY;
 		}
 	}
@@ -2382,12 +2382,12 @@ void CStressLineSectionSettingDlg::SetDefaultNecessaryThicknessMeasurementData()
 {
 	long	LineInterval, PinInterval;
 	long	PinX, PinY;
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 	double	PinOrgX, PinOrgY;
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 	double	PinMaxX, PinMaxY;
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	if (m_StressConfig.dwLiftPinNumberOfLine <= 1) {
 		LineInterval = 0;
@@ -2395,20 +2395,20 @@ void CStressLineSectionSettingDlg::SetDefaultNecessaryThicknessMeasurementData()
 		LineInterval = (long)((((m_StressConfig.Size.dy - (m_StressConfig.lInvalidRangeEdge * 2)) / (m_StressConfig.dwLiftPinNumberOfLine - 1)) * 1000 + 500) / 1000);
 	}
 
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //	PinInterval = (long)((((m_StressConfig.Size.dx - (m_StressConfig.lInvalidRangeEdge * 2)) / PIN_INTERVAL) * 1000 + 500) / 1000);
 	PinInterval = (long)((((m_StressConfig.Size.dx - (m_StressConfig.lInvalidRangeEdge * 2)) / (PIN_INTERVAL - 1)) * 1000 + 500) / 1000);
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	int	i ,j;
 
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //	PinY = (long)((((m_StressConfig.Size.dy / 2) - m_StressConfig.lInvalidRangeEdge) * 1000 + 500) / 1000);
 //	PinY *= -1;
 	CheckPinMinPos(&PinOrgX, &PinOrgY);
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 	CheckPinMaxPos(&PinMaxX, &PinMaxY);
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 	if (PinOrgY == 0) {
 		PinOrgY += m_StressConfig.lInvalidRangeEdge;
 		PinY = PinOrgY;
@@ -2419,7 +2419,7 @@ void CStressLineSectionSettingDlg::SetDefaultNecessaryThicknessMeasurementData()
 		PinOrgY -= m_StressConfig.lInvalidRangeEdge;
 		PinY = (long)((PinOrgY * 1000 + 500) / 1000);
 	}
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //	if (PinOrgX == 0) {
 //		PinOrgX += m_StressConfig.lInvalidRangeEdge;
 //	} else if (PinOrgX < 0) {
@@ -2427,10 +2427,10 @@ void CStressLineSectionSettingDlg::SetDefaultNecessaryThicknessMeasurementData()
 //	} else {
 //		PinOrgX -= m_StressConfig.lInvalidRangeEdge;
 //	}
-// 2009.09.11 bagus stress C³ --}--
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
-	for(i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++){
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
+	for(i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++){
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //		PinX = (long)((((m_StressConfig.Size.dx / 2) - m_StressConfig.lInvalidRangeEdge) * 1000 + 500) / 1000);
 //		PinX *= -1;
 		if (PinOrgX == 0) {
@@ -2440,9 +2440,9 @@ void CStressLineSectionSettingDlg::SetDefaultNecessaryThicknessMeasurementData()
 		} else {
 			PinX = (long)((PinOrgX * 1000 + 500) / 1000);
 		}
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		for (j=0; j<PIN_INTERVAL; j++) {
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //			m_StressConfig.Line[i].MeasPos[j].lX = PinX;
 //			m_StressConfig.Line[i].MeasPos[j].lY = PinY;
 			if (j== PIN_INTERVAL-1) {
@@ -2455,12 +2455,12 @@ void CStressLineSectionSettingDlg::SetDefaultNecessaryThicknessMeasurementData()
 //			m_StressConfig.Line[i].MeasPos[j].lY = PinY;
 			m_StressConfig.Line[i].MeasPos[j].lY = m_StressConfig.Line[i].SectPos[0].lScanPosY;
 // 2009.09.17 bagus Stress --}--
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //			PinX += PinInterval;
 			PinX += PinInterval + m_StressConfig.MeasOffset.lX;
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 		}
 
 		PinY += LineInterval;
@@ -2469,12 +2469,12 @@ void CStressLineSectionSettingDlg::SetDefaultNecessaryThicknessMeasurementData()
 
 BOOL CStressLineSectionSettingDlg::CheckLineValidData()
 {
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	int	LineCols, LineRows;
 
 //	LineCols = m_LineValidListGrid.GetColumnCount();
 //	LineRows = m_LineValidListGrid.GetRowCount();
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	GV_ITEM Item;
 
@@ -2484,10 +2484,10 @@ BOOL CStressLineSectionSettingDlg::CheckLineValidData()
 //	DWORD	dwTextStyle;
 	long	lLineValid;
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	for (row=FixRows; row<LineRows; row++) {
-	for (row=FixRows; row<m_StressConfig.dwLiftPinNumberOfLine+FixRows; row++) {
-// 2009.09.17 bagus stress GridC³ --}--
+	for (row=FixRows; row<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine)+FixRows; row++) {
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 		Item.mask = GVIF_TEXT;
 		Item.row = row;
 		Item.col = 1;
@@ -2541,11 +2541,11 @@ void CStressLineSectionSettingDlg::SamplePointGraph_Init()
 	m_SamplePointGraph.ShowWindow(SW_HIDE);
 
 	////Point Graph Data Reset
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //	m_SamplePointGraph.Reset();
 //	m_SamplePointGraph.ResetSection();
 	m_SamplePointGraph.ResetAll();
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	////Back Color
 	tConfig.BackColor = WAFER_COLOR;
@@ -2571,22 +2571,22 @@ void CStressLineSectionSettingDlg::SamplePointGraph_Init()
 	tConfig.OriginColor = GREEN_COLOR;
 	// 2013.01.09 bagus -->
 
-	////CNanoPointGraphƒNƒ‰ƒX“àƒTƒCƒY(Sample Size)
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+	////CNanoPointGraphï¿½Nï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½Tï¿½Cï¿½Y(Sample Size)
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //	tConfig.SampleSizeX = m_SampleInfo.Size.dx;
 //	tConfig.SampleSizeY = m_SampleInfo.Size.dy;
 	if (((m_StageConfig.Dir.X == 2) || (m_StageConfig.Dir.X == 4)) && ((m_StageConfig.Dir.Y == 1) || (m_StageConfig.Dir.Y == 3))) {
-		// X<->Y“ü‚ê‘Ö‚¦
+		// X<->Yï¿½ï¿½ï¿½ï¿½Ö‚ï¿½
 		tConfig.SampleSizeY = m_SampleInfo.Size.dx;
 		tConfig.SampleSizeX = m_SampleInfo.Size.dy;
 	} else if (((m_StageConfig.Dir.X == 1) || (m_StageConfig.Dir.X == 3)) && ((m_StageConfig.Dir.Y == 2) || (m_StageConfig.Dir.Y == 4))) {
-		// X-Y‚»‚Ì‚Ü‚Ü
+		// X-Yï¿½ï¿½ï¿½Ì‚Ü‚ï¿½
 		tConfig.SampleSizeX = m_SampleInfo.Size.dx;
 		tConfig.SampleSizeY = m_SampleInfo.Size.dy;
 	} else {
-		// –îˆóİ’è‚ª‚¨‚©‚µ‚¢
+		// ï¿½ï¿½ï¿½İ’è‚ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 	m_SamplePointGraph.SetConfig(&tConfig);
 
 	SamplePointGraph_DataSet();
@@ -2595,19 +2595,19 @@ void CStressLineSectionSettingDlg::SamplePointGraph_Init()
 void CStressLineSectionSettingDlg::SamplePointGraph_DataSet()
 {
 	////Point Graph Data Reset
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //	m_SamplePointGraph.Reset();
 //	m_SamplePointGraph.ResetSection();
 	m_SamplePointGraph.ResetAll();
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	CNanoPointGraph::LSData tLineData;
 
 	int i, j;
 
 	////Point Data
-	//ƒZƒ“ƒ^[Œ´“_‚Ìê‡
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+	//ï¿½Zï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½_ï¿½Ìê‡
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //	double dOffSetValueX = (m_SampleInfo.Size.dx/2);
 //	double dOffSetValueY = (m_SampleInfo.Size.dy/2);
 	double dOffSetValueX;
@@ -2620,34 +2620,34 @@ void CStressLineSectionSettingDlg::SamplePointGraph_DataSet()
 		break;
 	case 2:
 		dOffSetValueX = 0;
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //		dOffSetValueY = m_SampleInfo.Size.dy;
 		dOffSetValueY = 0;
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		break;
 	case 3:
 		dOffSetValueX = 0;
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //		dOffSetValueY = 0;
 		dOffSetValueY = m_SampleInfo.Size.dy;
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		break;
 	case 4:
 		dOffSetValueX = m_SampleInfo.Size.dx;
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //		dOffSetValueY = 0;
 		dOffSetValueY = m_SampleInfo.Size.dy;
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		break;
 	case 5:
 		dOffSetValueX = m_SampleInfo.Size.dx;
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //		dOffSetValueY = m_SampleInfo.Size.dy;
 		dOffSetValueY = 0;
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		break;
 	}
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 
 // 2013.01.09 bagus -->
 	if ( m_StageConfig.Dir.X == DIR_RIGHT ||
@@ -2659,51 +2659,51 @@ void CStressLineSectionSettingDlg::SamplePointGraph_DataSet()
 	}
 // 2013.01.09 bagus <--
 
-	for (i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++) {
+	for (i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++) {
 		if(i >= STRESS_PINS_MAX){
 			break;
 		}
 
 //2009.09.10 bagus stress --{--
 // Pin Data
-		for(j = 0; j<m_StressConfig.Line[i].dwLiftPinNumberOfLn;j++){
+		for(j = 0; j<static_cast<int>(m_StressConfig.Line[i].dwLiftPinNumberOfLn);j++){
 			long lPinX,lPinY;
 			lPinX = lPinY = 0L;
 			switch (m_StageConfig.Dir.X) {
-			case 1:		// X:¨
+			case 1:		// X:ï¿½ï¿½
 			default:
 				lPinX = dOffSetValueX + m_StressConfig.Line[i].PinPos[j].lX;
 				break;
-			case 2:		// X:ª
+			case 2:		// X:ï¿½ï¿½
 				lPinY = dOffSetValueX - m_StressConfig.Line[i].PinPos[j].lX;
 				break;
-			case 3:		// X:©
+			case 3:		// X:ï¿½ï¿½
 				lPinX = dOffSetValueX - m_StressConfig.Line[i].PinPos[j].lX;
 				break;
-			case 4:		// X:«
+			case 4:		// X:ï¿½ï¿½
 				lPinY = dOffSetValueX + m_StressConfig.Line[i].PinPos[j].lX;
 				break;
 			}
 
 			switch (m_StageConfig.Dir.Y) {
-			case 1:		// Y:¨
+			case 1:		// Y:ï¿½ï¿½
 				lPinX = dOffSetValueY + m_StressConfig.Line[i].PinPos[j].lY;
 				break;
-			case 2:		// Y:ª
+			case 2:		// Y:ï¿½ï¿½
 			default:
 				lPinY = dOffSetValueY - m_StressConfig.Line[i].PinPos[j].lY;
 				break;
-			case 3:		// Y:©
+			case 3:		// Y:ï¿½ï¿½
 				lPinX = dOffSetValueY - m_StressConfig.Line[i].PinPos[j].lY;
 				break;
-			case 4:		// Y:«
+			case 4:		// Y:ï¿½ï¿½
 				lPinY = dOffSetValueY + m_StressConfig.Line[i].PinPos[j].lY;
 				break;
 			}
 			m_SamplePointGraph.AddPinData(lPinX,lPinY);
 		}
 //2009.09.10 bagus stress --}--
-		for (j=0; j<m_StressConfig.Line[i].dwSectionNum; j++) {
+		for (j=0; j<static_cast<int>(m_StressConfig.Line[i].dwSectionNum); j++) {
 			//2009.09.14 bagus stress --{--
 			if(i+1 >= m_LineListGrid.GetRowCount()){
 				continue;
@@ -2719,103 +2719,103 @@ void CStressLineSectionSettingDlg::SamplePointGraph_DataSet()
 				break;
 			}
 
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //			tLineData.StartX = m_StressConfig.Line[i].SectPos[j].lScanStartPosX + dOffSetValueX;
 //			tLineData.StartY = -(m_StressConfig.Line[i].SectPos[j].lScanPosY - dOffSetValueY);
 //			tLineData.EndX = m_StressConfig.Line[i].SectPos[j].lScanEndPosX + dOffSetValueX;
 //			tLineData.EndY = -(m_StressConfig.Line[i].SectPos[j].lScanPosY - dOffSetValueY);
 			switch (m_StageConfig.Dir.X) {
-			case 1:		// X:¨
+			case 1:		// X:ï¿½ï¿½
 			default:
 				tLineData.StartX = dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanStartPosX;
 				tLineData.EndX = dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanEndPosX;
 				break;
-			case 2:		// X:ª
+			case 2:		// X:ï¿½ï¿½
 				tLineData.StartY = dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanStartPosX;
 				tLineData.EndY = dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanEndPosX;
 				break;
-			case 3:		// X:©
+			case 3:		// X:ï¿½ï¿½
 				tLineData.StartX = dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanStartPosX;
 				tLineData.EndX = dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanEndPosX;
 				break;
-			case 4:		// X:«
+			case 4:		// X:ï¿½ï¿½
 				tLineData.StartY = dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanStartPosX;
 				tLineData.EndY = dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanEndPosX;
 				break;
 			}
 
 			switch (m_StageConfig.Dir.Y) {
-			case 1:		// Y:¨
+			case 1:		// Y:ï¿½ï¿½
 				tLineData.StartX = dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				tLineData.EndX = dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				break;
-			case 2:		// Y:ª
+			case 2:		// Y:ï¿½ï¿½
 			default:
 				tLineData.StartY = dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				tLineData.EndY = dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				break;
-			case 3:		// Y:©
+			case 3:		// Y:ï¿½ï¿½
 				tLineData.StartX = dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				tLineData.EndX = dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				break;
-			case 4:		// Y:«
+			case 4:		// Y:ï¿½ï¿½
 				tLineData.StartY = dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				tLineData.EndY = dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				break;
 			}
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 
 			m_SamplePointGraph.AddLineData(&tLineData);
 		}
 	}
 
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 	double	dPointX, dPointY;
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
-	for (i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++) {
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
+	for (i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++) {
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 		if (!m_StressConfig.Line[i].bValidLine) {
 			continue;
 		}
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 		for (j=0; j<PIN_INTERVAL; j++) {
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //			m_SamplePointGraph.AddPoint((m_StressConfig.Line[i].MeasPos[j].lX + dOffSetValueX), (-(m_StressConfig.Line[i].MeasPos[j].lY - dOffSetValueY)));
 			switch (m_StageConfig.Dir.X) {
-			case 1:		// X:¨
+			case 1:		// X:ï¿½ï¿½
 			default:
 				dPointX = dOffSetValueX + m_StressConfig.Line[i].MeasPos[j].lX;
 				break;
-			case 2:		// X:ª
+			case 2:		// X:ï¿½ï¿½
 				dPointY = dOffSetValueX - m_StressConfig.Line[i].MeasPos[j].lX;
 				break;
-			case 3:		// X:©
+			case 3:		// X:ï¿½ï¿½
 				dPointX = dOffSetValueX - m_StressConfig.Line[i].MeasPos[j].lX;
 				break;
-			case 4:		// X:«
+			case 4:		// X:ï¿½ï¿½
 				dPointY = dOffSetValueX + m_StressConfig.Line[i].MeasPos[j].lX;
 				break;
 			}
 
 			switch (m_StageConfig.Dir.Y) {
-			case 1:		// Y:¨
+			case 1:		// Y:ï¿½ï¿½
 				dPointX = dOffSetValueY + m_StressConfig.Line[i].MeasPos[j].lY;
 				break;
-			case 2:		// Y:ª
+			case 2:		// Y:ï¿½ï¿½
 			default:
 				dPointY = dOffSetValueY - m_StressConfig.Line[i].MeasPos[j].lY;
 				break;
-			case 3:		// Y:©
+			case 3:		// Y:ï¿½ï¿½
 				dPointX = dOffSetValueY - m_StressConfig.Line[i].MeasPos[j].lY;
 				break;
-			case 4:		// Y:«
+			case 4:		// Y:ï¿½ï¿½
 				dPointY = dOffSetValueY + m_StressConfig.Line[i].MeasPos[j].lY;
 				break;
 			}
 
 			m_SamplePointGraph.AddPoint(dPointX, dPointY);
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		}
 	}
 }
@@ -2827,7 +2827,7 @@ void CStressLineSectionSettingDlg::DrawSample(CDC* pDC, int iOrg, int DirX, int 
 	///// Region Map /////
 	GetDlgItem(IDC_MEASUREMENT_MAP)->GetWindowPlacement(&Stageplacement);
 
-	///// ƒXƒe[ƒW—LŒø”ÍˆÍ(•‚¢lŠp‚Í‚±‚ÌƒTƒCƒY‚Å•`‰æ‚³‚ê‚Ä‚¢‚é) /////
+	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Lï¿½ï¿½ï¿½Íˆï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½lï¿½pï¿½Í‚ï¿½ï¿½ÌƒTï¿½Cï¿½Yï¿½Å•`ï¿½æ‚³ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½) /////
 	//double dStageMaxSizeX = m_StageConfig.Size.dX - (2 * m_StageConfig.Edge.dX);
 	//double dStageMaxSizeY = m_StageConfig.Size.dY - (2 * m_StageConfig.Edge.dY);
 	double dStageSizeX = (m_StageConfig.StageMaxCoord.dRightX - m_StageConfig.StageMaxCoord.dLeftX) - (2 * m_StageConfig.Edge.dX);
@@ -2847,120 +2847,120 @@ void CStressLineSectionSettingDlg::DrawSample(CDC* pDC, int iOrg, int DirX, int 
 		dSampleSizeY = m_SampleInfo.Size.dx;
 	}
 
-	///// @ƒTƒ“ƒvƒ‹ƒTƒCƒY‚ªƒXƒe[ƒW‚Ì‘å‚«‚³‚Æ‚è¬‚³‚¢‚©ƒ`ƒFƒbƒN /////
+	///// ï¿½@ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Tï¿½Cï¿½Yï¿½ï¿½ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ì‘å‚«ï¿½ï¿½ï¿½Æ‚è¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N /////
 // 	if ((m_SampleInfo.Size.dx > dStageSizeX) || (m_SampleInfo.Size.dy > dStageSizeY))
 // 		return;
 	if ((dSampleSizeX > dStageSizeX) || (dSampleSizeY > dStageSizeY))
 		return;
 // 2013.01.09 bagus <--
 
-	///// ƒTƒ“ƒvƒ‹•`‰æƒTƒCƒY‚ÌŒvZiƒXƒe[ƒW•`‰æƒTƒCƒY‘Î‚·‚éƒTƒ“ƒvƒ‹•`‰æƒTƒCƒY‚ğŒvZj /////
+	///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Tï¿½Cï¿½Yï¿½ÌŒvï¿½Zï¿½iï¿½Xï¿½eï¿½[ï¿½Wï¿½`ï¿½ï¿½Tï¿½Cï¿½Yï¿½Î‚ï¿½ï¿½ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Tï¿½Cï¿½Yï¿½ï¿½ï¿½vï¿½Zï¿½j /////
 	double dDrawSampleSizeX =(m_dDrawEndStagePosX - m_dDrawStartStagePosX) * m_SampleInfo.Size.dx / dStageSizeX;
 	double dDrawSampleSizeY =(m_dDrawEndStagePosY - m_dDrawStartStagePosY) * m_SampleInfo.Size.dy / dStageSizeY;
 
-	///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l /////
+	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½l /////
 	double dTotalOrgOffsetPosX, dTotalOrgOffsetPosY;
 
-	///// ƒTƒ“ƒvƒ‹‚Ì•`‰æˆÊ’u /////
+	///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Ì•`ï¿½ï¿½Ê’u /////
 	double dtop, dbottom, dright, dleft;
 
-	//Sample•`‰æˆÊ’uİ’è
-	//lŠpŒ`óƒTƒ“ƒvƒ‹‚Ì‚İ‘Î‰
+	//Sampleï¿½`ï¿½ï¿½Ê’uï¿½İ’ï¿½
+	//ï¿½lï¿½pï¿½`ï¿½ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Ì‚İ‘Î‰ï¿½
 	switch(m_SampleInfo.nShape){
 	case SAMPLE_SHAPE_RECTANGLE:		//Sample shaped RectAngle
 		switch(iOrg){
-		case 1: ///// ƒZƒ“ƒ^[Šî€	//X²F¨+@Y²Fª+‚Ì‚İ‘Î‰
+		case 1: ///// ï¿½Zï¿½ï¿½ï¿½^ï¿½[ï¿½î€	//Xï¿½ï¿½ï¿½Fï¿½ï¿½+ï¿½@Yï¿½ï¿½ï¿½Fï¿½ï¿½+ï¿½Ì‚İ‘Î‰ï¿½
 		default:
-			///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l‚ğŒvZ /////
+			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½lï¿½ï¿½ï¿½vï¿½Z /////
 			//dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX - m_StageConfig.Edge.dX) + (m_SampleInfo.Origin.lX)) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 			//dTotalOrgOffsetPosY = ((m_StageConfig.Origin.lY - m_StageConfig.Edge.dY) + (m_SampleInfo.Origin.lY)) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 			dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX - m_StageConfig.Edge.dX) + (m_SampleInfo.Origin.lX)) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageSizeX;
 			dTotalOrgOffsetPosY = ((m_StageConfig.Origin.lY - m_StageConfig.Edge.dY) + (m_SampleInfo.Origin.lY)) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageSizeY;
 
-			///// ƒTƒ“ƒvƒ‹•`‰æˆÊ’u‚ğŒvZ /////
-			//¶Šî€
+			///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Ê’uï¿½ï¿½ï¿½vï¿½Z /////
+			//ï¿½ï¿½ï¿½î€
 			dleft	= m_dDrawStartStagePosX + dTotalOrgOffsetPosX - (dDrawSampleSizeX / 2);
 			dright	= dleft + dDrawSampleSizeX;
-			//‰ºŠî€
+			//ï¿½ï¿½ï¿½î€
 			dbottom = m_dDrawEndStagePosY - dTotalOrgOffsetPosY + (dDrawSampleSizeY / 2);
 			dtop	= dbottom - dDrawSampleSizeY;
 			break;
 
 		case 2: /////LeftTop
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
-			///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l‚ğŒvZ /////
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
+			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½lï¿½ï¿½ï¿½vï¿½Z /////
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //			dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX - m_StageConfig.Edge.dX) + (m_SampleInfo.Origin.lX)) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 //			dTotalOrgOffsetPosY = ((m_StageConfig.Origin.lY - m_StageConfig.Edge.dY) + (m_SampleInfo.Origin.lY)) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 //			dTotalOrgOffsetPosX = (m_SampleInfo.Origin.lX) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 //			dTotalOrgOffsetPosY = (m_SampleInfo.Origin.lY) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 			dTotalOrgOffsetPosX = (m_SampleInfo.Origin.lX) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageSizeX;
 			dTotalOrgOffsetPosY = (m_SampleInfo.Origin.lY) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageSizeY;
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 
-			///// ƒTƒ“ƒvƒ‹•`‰æˆÊ’u‚ğŒvZ /////
+			///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Ê’uï¿½ï¿½ï¿½vï¿½Z /////
 			dleft	= m_dDrawStartStagePosX + 1 + dTotalOrgOffsetPosX;
 			dright	= dleft + dDrawSampleSizeX;
 			dtop = m_dDrawStartStagePosY + 1 + dTotalOrgOffsetPosY;
 			dbottom	= dtop + dDrawSampleSizeY;
 			break;
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		case 3: /////LeftBottom
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
-			///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l‚ğŒvZ /////
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
+			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½lï¿½ï¿½ï¿½vï¿½Z /////
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //			dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX - m_StageConfig.Edge.dX) + (m_SampleInfo.Origin.lX)) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 //			dTotalOrgOffsetPosY = ((m_StageConfig.Origin.lY - m_StageConfig.Edge.dY) + (m_SampleInfo.Origin.lY)) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 //			dTotalOrgOffsetPosX = (m_SampleInfo.Origin.lX) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 //			dTotalOrgOffsetPosY = (m_SampleInfo.Origin.lY) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 			dTotalOrgOffsetPosX = ((m_SampleInfo.Origin.lX - (m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1)))) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageSizeX);
 			dTotalOrgOffsetPosY = ((m_SampleInfo.Origin.lY - (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1)))) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageSizeY);
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 
-			///// ƒTƒ“ƒvƒ‹•`‰æˆÊ’u‚ğŒvZ /////
+			///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Ê’uï¿½ï¿½ï¿½vï¿½Z /////
 			dleft	= m_dDrawStartStagePosX + 1 + dTotalOrgOffsetPosX;
 			dright	= dleft + dDrawSampleSizeX;
 			dbottom = m_dDrawEndStagePosY - 1 - dTotalOrgOffsetPosY;
 			dtop	= dbottom - dDrawSampleSizeY;
 			break;
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		case 4: /////RightBottom
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
-			///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l‚ğŒvZ /////
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
+			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½lï¿½ï¿½ï¿½vï¿½Z /////
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //			dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX - m_StageConfig.Edge.dX) + (m_SampleInfo.Origin.lX)) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 //			dTotalOrgOffsetPosY = ((m_StageConfig.Origin.lY - m_StageConfig.Edge.dY) + (m_SampleInfo.Origin.lY)) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 //			dTotalOrgOffsetPosX = (m_SampleInfo.Origin.lX) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 //			dTotalOrgOffsetPosY = (m_SampleInfo.Origin.lY) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 			dTotalOrgOffsetPosX = (m_SampleInfo.Origin.lX) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageSizeX;
 			dTotalOrgOffsetPosY = (m_SampleInfo.Origin.lY) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageSizeY;
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 
-			///// ƒTƒ“ƒvƒ‹•`‰æˆÊ’u‚ğŒvZ /////
+			///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Ê’uï¿½ï¿½ï¿½vï¿½Z /////
 			dright	= m_dDrawEndStagePosX - 1 - dTotalOrgOffsetPosX;
 			dleft	= dright - dDrawSampleSizeX;
 			dbottom = m_dDrawEndStagePosY - 1 - dTotalOrgOffsetPosY;
 			dtop	= dbottom - dDrawSampleSizeY;
 			break;
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		case 5: /////RightTop
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
-			///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l‚ğŒvZ /////
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
+			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½lï¿½ï¿½ï¿½vï¿½Z /////
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //			dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX - m_StageConfig.Edge.dX) + (m_SampleInfo.Origin.lX)) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 //			dTotalOrgOffsetPosY = ((m_StageConfig.Origin.lY - m_StageConfig.Edge.dY) + (m_SampleInfo.Origin.lY)) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 //			dTotalOrgOffsetPosX = (m_SampleInfo.Origin.lX) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 //			dTotalOrgOffsetPosY = (m_SampleInfo.Origin.lY) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 			dTotalOrgOffsetPosX = (m_SampleInfo.Origin.lX) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageSizeX;
 			dTotalOrgOffsetPosY = (m_SampleInfo.Origin.lY) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageSizeY;
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 
-			///// ƒTƒ“ƒvƒ‹•`‰æˆÊ’u‚ğŒvZ /////
+			///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Ê’uï¿½ï¿½ï¿½vï¿½Z /////
 			dright	= m_dDrawEndStagePosX - 1 - dTotalOrgOffsetPosX;
 			dleft	= dright - dDrawSampleSizeX;
 			dtop = m_dDrawStartStagePosY + 1 + dTotalOrgOffsetPosY;
 			dbottom	= dtop + dDrawSampleSizeY;
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 			break;
 		}
 
@@ -2969,7 +2969,7 @@ void CStressLineSectionSettingDlg::DrawSample(CDC* pDC, int iOrg, int DirX, int 
 			Sampleplacement.rcNormalPosition.right	= Stageplacement.rcNormalPosition.left + dright;
 			Sampleplacement.rcNormalPosition.top	= Stageplacement.rcNormalPosition.top  + dtop;
 			Sampleplacement.rcNormalPosition.bottom = Stageplacement.rcNormalPosition.top  + dbottom;
-			//lŠpSample•`‰æ
+			//ï¿½lï¿½pSampleï¿½`ï¿½ï¿½
 			m_SamplePointGraph.SetWindowPlacement(&Sampleplacement);
 			m_SamplePointGraph.ShowWindow(SW_SHOW);
 		}
@@ -2997,7 +2997,7 @@ void CStressLineSectionSettingDlg::DrawSample(CDC* pDC, int iOrg, int DirX, int 
 // 	pDC->SelectObject(&BrushRed);
 // 	pDC->SelectObject(&PenRed);
 //
-// 	///// ƒXƒe[ƒW—LŒø”ÍˆÍ /////
+// 	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Lï¿½ï¿½ï¿½Íˆï¿½ /////
 // 	double dStageMaxSizeX = m_StageConfig.Size.dX - (2 * m_StageConfig.Edge.dX);
 // 	double dStageMaxSizeY = m_StageConfig.Size.dY - (2 * m_StageConfig.Edge.dY);
 //
@@ -3026,11 +3026,11 @@ void CStressLineSectionSettingDlg::DrawSample(CDC* pDC, int iOrg, int DirX, int 
 // 2013.01.09 bagus <--
 
 
-// 2009.09.04 bagus stress ƒ‰ƒCƒ“”İ’èƒ{ƒ^ƒ“’Ç‰Á --{--
+// 2009.09.04 bagus stress ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½{ï¿½^ï¿½ï¿½ï¿½Ç‰ï¿½ --{--
 void CStressLineSectionSettingDlg::OnLinesetButton()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
-// 2009.09.08 bagus stress LineNum‚Ìƒ`ƒFƒbƒN --{--
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// 2009.09.08 bagus stress LineNumï¿½Ìƒ`ï¿½Fï¿½bï¿½N --{--
 #if 0
 	CString	sNumOfLine;
 	DWORD	NumOfLine;
@@ -3052,46 +3052,46 @@ void CStressLineSectionSettingDlg::OnLinesetButton()
 	}
 
 	m_StressConfig.dwLiftPinNumberOfLine = NumOfLine;
-// 2009.09.08 bagus stress C³ --{--
+// 2009.09.08 bagus stress ï¿½Cï¿½ï¿½ --{--
 	for (int i=0; i<STRESS_LINES_MAX; i++) {
-		if (i<NumOfLine) {
+		if (i<static_cast<int>(NumOfLine)) {
 //			m_StressConfig.Line[i].bValidLine = TRUE;
 		} else {
 			m_StressConfig.Line[i].bValidLine = FALSE;
 		}
 	}
-// 2009.09.08 bagus stress C³ --}--
+// 2009.09.08 bagus stress ï¿½Cï¿½ï¿½ --}--
 #else
 	if (!CheckLineNum()) {
-// 2009.09.09 bagus stress StringTableg—p --{--
+// 2009.09.09 bagus stress StringTableï¿½gï¿½p --{--
 //		AfxMessageBox("Err:CheckLineNum");
 		CString	strBuffer;
 		LoadStringML(IDS_STRESS_INPUT_LINE_NUM, strBuffer, "Please input line number.");
 		AfxMessageBox(strBuffer);
-// 2009.09.09 bagus stress StringTableg—p --}--
+// 2009.09.09 bagus stress StringTableï¿½gï¿½p --}--
 		return;
 	}
 #endif
-// 2009.09.08 bagus stress LineNum‚Ìƒ`ƒFƒbƒN --}--
+// 2009.09.08 bagus stress LineNumï¿½Ìƒ`ï¿½Fï¿½bï¿½N --}--
 
 	SetLineData();
 	SetLineValidData();
 
-// 2009.09.08 bagus stress C³ --{--
+// 2009.09.08 bagus stress ï¿½Cï¿½ï¿½ --{--
 	PinListGrid_Init();
 	StressMeasurementLineSectionListGrid_Init();
 	NecessaryThicknessMeasurementListGrid_Init();
-// 2009.09.08 bagus stress C³ --}--
+// 2009.09.08 bagus stress ï¿½Cï¿½ï¿½ --}--
 }
-// 2009.09.04 bagus stress ƒ‰ƒCƒ“”İ’èƒ{ƒ^ƒ“’Ç‰Á --}--
+// 2009.09.04 bagus stress ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½{ï¿½^ï¿½ï¿½ï¿½Ç‰ï¿½ --}--
 
-// 2009.09.04 bagus stress ”’lƒ`ƒFƒbƒN’Ç‰Á --{--
+// 2009.09.04 bagus stress ï¿½ï¿½ï¿½lï¿½`ï¿½Fï¿½bï¿½Nï¿½Ç‰ï¿½ --{--
 BOOL CStressLineSectionSettingDlg::CheckStressValidRangeData()
 {
 	CString	strBuffer;
 
 	GetDlgItemText(IDC_STRESS_VALID_RANGE, strBuffer);
-// 2009.09.15 bagus stress C³ --{--
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --{--
 #if 0
 	if(CheckMinMaxLong(strBuffer, 0, (m_StressConfig.Size.dx / MICROMETRE)) != CHECK_DATA_OK){
 		GetDlgItem(IDC_STRESS_VALID_RANGE)->SetFocus();
@@ -3106,8 +3106,8 @@ BOOL CStressLineSectionSettingDlg::CheckStressValidRangeData()
 	if ((tmpVal < 50) || ((m_StressConfig.Size.dx / MICROMETRE) < tmpVal))
 		return FALSE;
 #endif
-// 2009.09.15 bagus stress C³ --}--
-	m_StressConfig.lStressValidRange = (long)(strtod(strBuffer.GetBuffer(0), NULL) * MICROMETRE);	// ’PˆÊ•ÏŠ·(mm->um)
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --}--
+	m_StressConfig.lStressValidRange = (long)(strtod(strBuffer.GetBuffer(0), NULL) * MICROMETRE);	// ï¿½Pï¿½Ê•ÏŠï¿½(mm->um)
 
 	return ( TRUE );
 }
@@ -3117,7 +3117,7 @@ BOOL CStressLineSectionSettingDlg::CheckInvalidRangeEdgeData()
 	CString	strBuffer;
 
 	GetDlgItemText(IDC_INVALID_RANGE_EDGE, strBuffer);
-// 2009.09.15 bagus stress C³ --{--
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --{--
 #if 0
 	if(CheckMinMaxLong(strBuffer, 0, (m_StressConfig.Size.dx / MICROMETRE)) != CHECK_DATA_OK){
 		GetDlgItem(IDC_INVALID_RANGE_EDGE)->SetFocus();
@@ -3132,8 +3132,8 @@ BOOL CStressLineSectionSettingDlg::CheckInvalidRangeEdgeData()
 	if ((tmpVal < 0) || ((m_StressConfig.Size.dx / MICROMETRE) < tmpVal))
 		return FALSE;
 #endif
-// 2009.09.15 bagus stress C³ --}--
-	m_StressConfig.lInvalidRangeEdge = (long)(strtod(strBuffer.GetBuffer(0), NULL) * MICROMETRE);	// ’PˆÊ•ÏŠ·(mm->um)
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --}--
+	m_StressConfig.lInvalidRangeEdge = (long)(strtod(strBuffer.GetBuffer(0), NULL) * MICROMETRE);	// ï¿½Pï¿½Ê•ÏŠï¿½(mm->um)
 
 	return ( TRUE );
 }
@@ -3143,7 +3143,7 @@ BOOL CStressLineSectionSettingDlg::CheckThinkMeasurementPointOffsetXData()
 	CString	strBuffer;
 
 	GetDlgItemText(IDC_THICK_MEASUREMENT_POINT_OFFSET_X, strBuffer);
-// 2009.09.15 bagus stress C³ --{--
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --{--
 #if 0
 	if(CheckMinMaxLong(strBuffer, 0, (m_StressConfig.Size.dx / MICROMETRE)) != CHECK_DATA_OK){
 		GetDlgItem(IDC_THICK_MEASUREMENT_POINT_OFFSET_X)->SetFocus();
@@ -3155,76 +3155,76 @@ BOOL CStressLineSectionSettingDlg::CheckThinkMeasurementPointOffsetXData()
 	if (!CheckInputValueLong(strBuffer, &tmpVal))
 		return FALSE;
 
-// 2009.09.16 bagus stress C³ --{--
+// 2009.09.16 bagus stress ï¿½Cï¿½ï¿½ --{--
 //	if ((tmpVal < 0) || ((m_StressConfig.Size.dx / MICROMETRE) < tmpVal))
 	if ((tmpVal < (-(m_StressConfig.Size.dx / MICROMETRE))) || ((m_StressConfig.Size.dx / MICROMETRE) < tmpVal))
-// 2009.09.16 bagus stress C³ --}--
+// 2009.09.16 bagus stress ï¿½Cï¿½ï¿½ --}--
 		return FALSE;
 #endif
-// 2009.09.15 bagus stress C³ --}--
-	m_StressConfig.MeasOffset.lX = (long)(strtod(strBuffer.GetBuffer(0), NULL) * MICROMETRE);	// ’PˆÊ•ÏŠ·(mm->um)
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --}--
+	m_StressConfig.MeasOffset.lX = (long)(strtod(strBuffer.GetBuffer(0), NULL) * MICROMETRE);	// ï¿½Pï¿½Ê•ÏŠï¿½(mm->um)
 
 	return ( TRUE );
 }
-// 2009.09.04 bagus stress ”’lƒ`ƒFƒbƒN’Ç‰Á --}--
+// 2009.09.04 bagus stress ï¿½ï¿½ï¿½lï¿½`ï¿½Fï¿½bï¿½Nï¿½Ç‰ï¿½ --}--
 
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 BOOL CStressLineSectionSettingDlg::CheckPinPos(long lX, long lY)
 {
 	double	dXMax, dXMin;
 	double	dYMax, dYMin;
 //	double	dTmp;
 
-	// X:¨ , Y:ª Šî€‚ÅŒvZ
+	// X:ï¿½ï¿½ , Y:ï¿½ï¿½ ï¿½î€ï¿½ÅŒvï¿½Z
 	switch (m_StageConfig.OrgPos) {
 	case 1:
 	default:
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //		dXMax = m_StressConfig.Size.dx / 2;
 //		dXMin = -(m_StressConfig.Size.dx / 2);
 		dXMax = (m_StressConfig.Size.dx / 2) - m_StressConfig.lInvalidRangeEdge;
 		dXMin = -(m_StressConfig.Size.dx / 2) + m_StressConfig.lInvalidRangeEdge;
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 		dYMax = m_StressConfig.Size.dy / 2;
 		dYMin = -(m_StressConfig.Size.dy / 2);
 		break;
 	case 2:
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //		dXMax = m_StressConfig.Size.dx;
 //		dXMin = 0;
 		dXMax = m_StressConfig.Size.dx - m_StressConfig.lInvalidRangeEdge;
 		dXMin = 0 + m_StressConfig.lInvalidRangeEdge;
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 		dYMax = 0;
 		dYMin = -(m_StressConfig.Size.dy);
 		break;
 	case 3:
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //		dXMax = m_StressConfig.Size.dx;
 //		dXMin = 0;
 		dXMax = m_StressConfig.Size.dx - m_StressConfig.lInvalidRangeEdge;
 		dXMin = 0 + m_StressConfig.lInvalidRangeEdge;
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 		dYMax = m_StressConfig.Size.dy;
 		dYMin = 0;
 		break;
 	case 4:
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //		dXMax = 0;
 //		dXMin = -(m_StressConfig.Size.dx);
 		dXMax = 0 - m_StressConfig.lInvalidRangeEdge;
 		dXMin = -(m_StressConfig.Size.dx) + m_StressConfig.lInvalidRangeEdge;
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 		dYMax = m_StressConfig.Size.dy;
 		dYMin = 0;
 		break;
 	case 5:
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //		dXMax = 0;
 //		dXMin = -(m_StressConfig.Size.dx);
 		dXMax = 0 - m_StressConfig.lInvalidRangeEdge;
 		dXMin = -(m_StressConfig.Size.dx) + m_StressConfig.lInvalidRangeEdge;
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 		dYMax = 0;
 		dYMin = -(m_StressConfig.Size.dy);
 		break;
@@ -3232,11 +3232,11 @@ BOOL CStressLineSectionSettingDlg::CheckPinPos(long lX, long lY)
 
 /*
 	switch (m_StageConfig.Dir.X) {
-	case 1:		// X:¨
+	case 1:		// X:ï¿½ï¿½
 	default:
-		// Šî€‚Ì‚Ü‚Ü
+		// ï¿½î€ï¿½Ì‚Ü‚ï¿½
 		break;
-	case 2:		// X:ª
+	case 2:		// X:ï¿½ï¿½
 		dTmp = dXMax;
 		dXMax = dYMax;
 		dYMax = dTmp;
@@ -3244,11 +3244,11 @@ BOOL CStressLineSectionSettingDlg::CheckPinPos(long lX, long lY)
 		dXMin = dYMin;
 		dYMin = dTmp;
 		break;
-	case 3:		// X:©
+	case 3:		// X:ï¿½ï¿½
 		dXMax *= -1;
 		dXMin *= -1;
 		break;
-	case 4:		// X:«
+	case 4:		// X:ï¿½ï¿½
 		dTmp = dXMax;
 		dXMax = dYMax;
 		dYMax = dTmp;
@@ -3261,26 +3261,26 @@ BOOL CStressLineSectionSettingDlg::CheckPinPos(long lX, long lY)
 	}
 
 	switch (m_StageConfig.Dir.Y) {
-	case 1:		// Y:¨
-		// X‚ª2or4‚È‚Ì‚Å“ü‚ê‘Ö‚¦Ï‚İ
+	case 1:		// Y:ï¿½ï¿½
+		// Xï¿½ï¿½2or4ï¿½È‚Ì‚Å“ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½Ï‚ï¿½
 		break;
-	case 2:		// Y:ª
+	case 2:		// Y:ï¿½ï¿½
 	default:
-		// Šî€‚Ì‚Ü‚Ü
+		// ï¿½î€ï¿½Ì‚Ü‚ï¿½
 		break;
-	case 3:		// Y:©
-		// X‚ª2or4‚È‚Ì‚Å“ü‚ê‘Ö‚¦Ï‚İ
+	case 3:		// Y:ï¿½ï¿½
+		// Xï¿½ï¿½2or4ï¿½È‚Ì‚Å“ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½Ï‚ï¿½
 		dXMax *= -1;
 		dXMin *= -1;
 		break;
-	case 4:		// Y:«
+	case 4:		// Y:ï¿½ï¿½
 		dYMax *= -1;
 		dYMin *= -1;
 		break;
 	}
 */
 
-	// ”ÍˆÍƒ`ƒFƒbƒN
+	// ï¿½ÍˆÍƒ`ï¿½Fï¿½bï¿½N
 	if ((lX < dXMin) || (lX > dXMax)) {
 		return ( FALSE );
 	}
@@ -3297,56 +3297,56 @@ void CStressLineSectionSettingDlg::CheckPinMinPos(double *dX, double *dY)
 	double	dYMax, dYMin;
 //	double	dTmp;
 
-	// X:¨ , Y:ª Šî€‚ÅŒvZ
+	// X:ï¿½ï¿½ , Y:ï¿½ï¿½ ï¿½î€ï¿½ÅŒvï¿½Z
 	switch (m_StageConfig.OrgPos) {
 	case 1:
 	default:
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //		dXMax = m_StressConfig.Size.dx / 2;
 //		dXMin = -(m_StressConfig.Size.dx / 2);
 		dXMax = (m_StressConfig.Size.dx / 2) - m_StressConfig.lInvalidRangeEdge;
 		dXMin = -(m_StressConfig.Size.dx / 2) + m_StressConfig.lInvalidRangeEdge;
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 		dYMax = m_StressConfig.Size.dy / 2;
 		dYMin = -(m_StressConfig.Size.dy / 2);
 		break;
 	case 2:
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //		dXMax = m_StressConfig.Size.dx;
 //		dXMin = 0;
 		dXMax = m_StressConfig.Size.dx - m_StressConfig.lInvalidRangeEdge;
 		dXMin = 0 + m_StressConfig.lInvalidRangeEdge;
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 		dYMax = 0;
 		dYMin = -(m_StressConfig.Size.dy);
 		break;
 	case 3:
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //		dXMax = m_StressConfig.Size.dx;
 //		dXMin = 0;
 		dXMax = m_StressConfig.Size.dx - m_StressConfig.lInvalidRangeEdge;
 		dXMin = 0 + m_StressConfig.lInvalidRangeEdge;
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 		dYMax = m_StressConfig.Size.dy;
 		dYMin = 0;
 		break;
 	case 4:
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //		dXMax = 0;
 //		dXMin = -(m_StressConfig.Size.dx);
 		dXMax = 0 - m_StressConfig.lInvalidRangeEdge;
 		dXMin = -(m_StressConfig.Size.dx) + m_StressConfig.lInvalidRangeEdge;
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 		dYMax = m_StressConfig.Size.dy;
 		dYMin = 0;
 		break;
 	case 5:
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //		dXMax = 0;
 //		dXMin = -(m_StressConfig.Size.dx);
 		dXMax = 0 - m_StressConfig.lInvalidRangeEdge;
 		dXMin = -(m_StressConfig.Size.dx) + m_StressConfig.lInvalidRangeEdge;
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 		dYMax = 0;
 		dYMin = -(m_StressConfig.Size.dy);
 		break;
@@ -3354,11 +3354,11 @@ void CStressLineSectionSettingDlg::CheckPinMinPos(double *dX, double *dY)
 
 /*
 	switch (m_StageConfig.Dir.X) {
-	case 1:		// X:¨
+	case 1:		// X:ï¿½ï¿½
 	default:
-		// Šî€‚Ì‚Ü‚Ü
+		// ï¿½î€ï¿½Ì‚Ü‚ï¿½
 		break;
-	case 2:		// X:ª
+	case 2:		// X:ï¿½ï¿½
 		dTmp = dXMax;
 		dXMax = dYMax;
 		dYMax = dTmp;
@@ -3366,11 +3366,11 @@ void CStressLineSectionSettingDlg::CheckPinMinPos(double *dX, double *dY)
 		dXMin = dYMin;
 		dYMin = dTmp;
 		break;
-	case 3:		// X:©
+	case 3:		// X:ï¿½ï¿½
 		dXMax *= -1;
 		dXMin *= -1;
 		break;
-	case 4:		// X:«
+	case 4:		// X:ï¿½ï¿½
 		dTmp = dXMax;
 		dXMax = dYMax;
 		dYMax = dTmp;
@@ -3383,19 +3383,19 @@ void CStressLineSectionSettingDlg::CheckPinMinPos(double *dX, double *dY)
 	}
 
 	switch (m_StageConfig.Dir.Y) {
-	case 1:		// Y:¨
-		// X‚ª2or4‚È‚Ì‚Å“ü‚ê‘Ö‚¦Ï‚İ
+	case 1:		// Y:ï¿½ï¿½
+		// Xï¿½ï¿½2or4ï¿½È‚Ì‚Å“ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½Ï‚ï¿½
 		break;
-	case 2:		// Y:ª
+	case 2:		// Y:ï¿½ï¿½
 	default:
-		// Šî€‚Ì‚Ü‚Ü
+		// ï¿½î€ï¿½Ì‚Ü‚ï¿½
 		break;
-	case 3:		// Y:©
-		// X‚ª2or4‚È‚Ì‚Å“ü‚ê‘Ö‚¦Ï‚İ
+	case 3:		// Y:ï¿½ï¿½
+		// Xï¿½ï¿½2or4ï¿½È‚Ì‚Å“ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½Ï‚ï¿½
 		dXMax *= -1;
 		dXMin *= -1;
 		break;
-	case 4:		// Y:«
+	case 4:		// Y:ï¿½ï¿½
 		dYMax *= -1;
 		dYMin *= -1;
 		break;
@@ -3405,29 +3405,29 @@ void CStressLineSectionSettingDlg::CheckPinMinPos(double *dX, double *dY)
 	*dX = dXMin;
 	*dY = dYMin;
 }
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 
-// 2009.09.08 bagus stress LineNum‚Ìƒ`ƒFƒbƒN --{--
+// 2009.09.08 bagus stress LineNumï¿½Ìƒ`ï¿½Fï¿½bï¿½N --{--
 BOOL CStressLineSectionSettingDlg::CheckLineNum()
 {
 	CString	sNumOfLine;
-// 2009.09.15 bagus stress C³ --{--
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --{--
 //	DWORD	NumOfLine;
 	long	NumOfLine;
-// 2009.09.15 bagus stress C³ --}--
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	GetDlgItemText(IDC_NUMBER_OF_LINE, sNumOfLine);
-// 2009.09.15 bagus stress C³ --{--
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --{--
 //	NumOfLine = strtol(sNumOfLine, NULL, 10);
 
 	if (!CheckInputValueLong(sNumOfLine, &NumOfLine))
 		return ( FALSE );
-// 2009.09.15 bagus stress C³ --}--
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --}--
 
-// 2009.09.15 bagus stress C³ --{--
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --{--
 //	if (NumOfLine < 0) {
 	if (NumOfLine <= 0) {
-// 2009.09.15 bagus stress C³ --}--
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --}--
 		return ( FALSE );
 	}
 	if (NumOfLine > STRESS_LINES_MAX) {
@@ -3435,24 +3435,24 @@ BOOL CStressLineSectionSettingDlg::CheckLineNum()
 	}
 
 	m_StressConfig.dwLiftPinNumberOfLine = NumOfLine;
-// 2009.09.15 bagus stress C³ --{--
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --{--
 	sNumOfLine.Format("%ld", NumOfLine);
 	SetDlgItemText(IDC_NUMBER_OF_LINE, sNumOfLine);
-// 2009.09.15 bagus stress C³ --}--
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --}--
 
-// 2009.09.08 bagus stress C³ --{--
+// 2009.09.08 bagus stress ï¿½Cï¿½ï¿½ --{--
 	for (int i=0; i<STRESS_LINES_MAX; i++) {
-		if (i<NumOfLine) {
+		if (i<static_cast<int>(NumOfLine)) {
 //			m_StressConfig.Line[i].bValidLine = TRUE;
 		} else {
 			m_StressConfig.Line[i].bValidLine = FALSE;
 		}
 	}
-// 2009.09.08 bagus stress C³ --}--
+// 2009.09.08 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	return ( TRUE );
 }
-// 2009.09.08 bagus stress LineNum‚Ìƒ`ƒFƒbƒN --}--
+// 2009.09.08 bagus stress LineNumï¿½Ìƒ`ï¿½Fï¿½bï¿½N --}--
 
 BOOL CStressLineSectionSettingDlg::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 {
@@ -3465,13 +3465,13 @@ void CStressLineSectionSettingDlg::OnTimer(UINT nIDEvent)
 //	AdjustValidCheckBoxPos();
 //	CheckLineValidData();
 	//2009.09.14 bagus stress --{--
-	//ƒ`ƒFƒbƒNƒ{ƒbƒNƒX‚Ì’†g‚ª•Ï‚í‚Á‚½‚ç•\¦‚ğ•ÏX‚·‚é
+	//ï¿½`ï¿½Fï¿½bï¿½Nï¿½{ï¿½bï¿½Nï¿½Xï¿½Ì’ï¿½ï¿½gï¿½ï¿½ï¿½Ï‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ÏXï¿½ï¿½ï¿½ï¿½
 	BOOL bChanged = FALSE;
 	for(int nLine = 0;nLine < STRESS_LINES_MAX;nLine++){
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //		if(nLine + 1 < m_LineValidListGrid.GetRowCount()){
-		if(nLine + 1 < m_StressConfig.dwLiftPinNumberOfLine){
-// 2009.09.17 bagus stress GridC³ --}--
+		if(nLine + 1 < static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine)){
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 			if(m_bOldLineValid[nLine] != ((CGridCellCheck *)m_LineValidListGrid.GetCell(nLine+1,1))->GetCheck()){
 				m_bOldLineValid[nLine] = ((CGridCellCheck *)m_LineValidListGrid.GetCell(nLine+1,1))->GetCheck();
 				bChanged = TRUE;
@@ -3486,14 +3486,14 @@ void CStressLineSectionSettingDlg::OnTimer(UINT nIDEvent)
 	CDialog::OnTimer(nIDEvent);
 }
 
-// 2009.09.11 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.11 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 void CStressLineSectionSettingDlg::CheckPinMaxPos(double *dX, double *dY)
 {
 	double	dXMax, dXMin;
 	double	dYMax, dYMin;
 //	double	dTmp;
 
-	// X:¨ , Y:ª Šî€‚ÅŒvZ
+	// X:ï¿½ï¿½ , Y:ï¿½ï¿½ ï¿½î€ï¿½ÅŒvï¿½Z
 	switch (m_StageConfig.OrgPos) {
 	case 1:
 	default:
@@ -3530,11 +3530,11 @@ void CStressLineSectionSettingDlg::CheckPinMaxPos(double *dX, double *dY)
 
 /*
 	switch (m_StageConfig.Dir.X) {
-	case 1:		// X:¨
+	case 1:		// X:ï¿½ï¿½
 	default:
-		// Šî€‚Ì‚Ü‚Ü
+		// ï¿½î€ï¿½Ì‚Ü‚ï¿½
 		break;
-	case 2:		// X:ª
+	case 2:		// X:ï¿½ï¿½
 		dTmp = dXMax;
 		dXMax = dYMax;
 		dYMax = dTmp;
@@ -3542,11 +3542,11 @@ void CStressLineSectionSettingDlg::CheckPinMaxPos(double *dX, double *dY)
 		dXMin = dYMin;
 		dYMin = dTmp;
 		break;
-	case 3:		// X:©
+	case 3:		// X:ï¿½ï¿½
 		dXMax *= -1;
 		dXMin *= -1;
 		break;
-	case 4:		// X:«
+	case 4:		// X:ï¿½ï¿½
 		dTmp = dXMax;
 		dXMax = dYMax;
 		dYMax = dTmp;
@@ -3559,19 +3559,19 @@ void CStressLineSectionSettingDlg::CheckPinMaxPos(double *dX, double *dY)
 	}
 
 	switch (m_StageConfig.Dir.Y) {
-	case 1:		// Y:¨
-		// X‚ª2or4‚È‚Ì‚Å“ü‚ê‘Ö‚¦Ï‚İ
+	case 1:		// Y:ï¿½ï¿½
+		// Xï¿½ï¿½2or4ï¿½È‚Ì‚Å“ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½Ï‚ï¿½
 		break;
-	case 2:		// Y:ª
+	case 2:		// Y:ï¿½ï¿½
 	default:
-		// Šî€‚Ì‚Ü‚Ü
+		// ï¿½î€ï¿½Ì‚Ü‚ï¿½
 		break;
-	case 3:		// Y:©
-		// X‚ª2or4‚È‚Ì‚Å“ü‚ê‘Ö‚¦Ï‚İ
+	case 3:		// Y:ï¿½ï¿½
+		// Xï¿½ï¿½2or4ï¿½È‚Ì‚Å“ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½Ï‚ï¿½
 		dXMax *= -1;
 		dXMin *= -1;
 		break;
-	case 4:		// Y:«
+	case 4:		// Y:ï¿½ï¿½
 		dYMax *= -1;
 		dYMin *= -1;
 		break;
@@ -3581,9 +3581,9 @@ void CStressLineSectionSettingDlg::CheckPinMaxPos(double *dX, double *dY)
 	*dX = dXMax;
 	*dY = dYMax;
 }
-// 2009.09.11 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.11 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 
-// 2009.09.11 bagus stress ƒ`ƒFƒbƒN’Ç‰Á --{--
+// 2009.09.11 bagus stress ï¿½`ï¿½Fï¿½bï¿½Nï¿½Ç‰ï¿½ --{--
 BOOL CStressLineSectionSettingDlg::CheckStressMeasurementLineSectionData()
 {
 	int	i, j;
@@ -3591,12 +3591,12 @@ BOOL CStressLineSectionSettingDlg::CheckStressMeasurementLineSectionData()
 
 	long	SectionLength;
 
-	for(i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++){
+	for(i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++){
 		if (!m_StressConfig.Line[i].bValidLine) {
 			continue;
 		}
 		Rows = m_StressConfig.Line[i].dwSectionNum;
-		for (j=0; j<Rows; j++) {
+		for (j=0; j<static_cast<int>(Rows); j++) {
 			SectionLength = labs(m_StressConfig.Line[i].SectPos[j].lScanEndPosX - m_StressConfig.Line[i].SectPos[j].lScanStartPosX);
 			if (SectionLength < SECTION_MIN_RANGE)
 				return ( FALSE );
@@ -3610,41 +3610,41 @@ BOOL CStressLineSectionSettingDlg::CheckNecessaryThicknessMeasurementData()
 {
 	int	i;
 
-	for(i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++){
+	for(i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++){
 		if (!m_StressConfig.Line[i].bValidLine) {
 			continue;
 		}
 
 		if (m_StressConfig.Line[i].MeasPos[1].lX < m_StressConfig.Line[i].MeasPos[0].lX) {
-			// X:¨‚Å‚Ì‚İ“®ì
+			// X:ï¿½ï¿½ï¿½Å‚Ì‚İ“ï¿½ï¿½ï¿½
 			return ( FALSE );
 		}
 
 		if (m_StressConfig.Line[i].MeasPos[PIN_INTERVAL-2].lX > m_StressConfig.Line[i].MeasPos[PIN_INTERVAL-1].lX) {
-			// X:¨‚Å‚Ì‚İ“®ì
+			// X:ï¿½ï¿½ï¿½Å‚Ì‚İ“ï¿½ï¿½ï¿½
 			return ( FALSE );
 		}
 	}
 
 	return ( TRUE );
 }
-// 2009.09.11 bagus stress ƒ`ƒFƒbƒN’Ç‰Á --}--
+// 2009.09.11 bagus stress ï¿½`ï¿½Fï¿½bï¿½Nï¿½Ç‰ï¿½ --}--
 
-// 2009.09.14 bagus stress C³ --{--
+// 2009.09.14 bagus stress ï¿½Cï¿½ï¿½ --{--
 BOOL CStressLineSectionSettingDlg::SetAllInputData()
 {
 	STRESS_CONFIG	CheckStressConfig;
 	memset(&CheckStressConfig, NULL, sizeof(CheckStressConfig));
-	//‚±‚Ì‰æ–Ê‚ÉŠÖŒW‚È‚¢•”•ª‚ª‚ ‚é‚Ì‚Åˆê‰ñ‚·‚×‚Ä‚ğƒRƒs[‚·‚é
+	//ï¿½ï¿½ï¿½Ì‰ï¿½Ê‚ÉŠÖŒWï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Åˆï¿½ñ‚·‚×‚Ä‚ï¿½ï¿½Rï¿½sï¿½[ï¿½ï¿½ï¿½ï¿½
 	memcpy(&CheckStressConfig,&m_StressConfig,sizeof(CheckStressConfig));
 
 	CString	strBuffer;
 
 	DWORD	NumOfLine;
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	int	LineCols, LineRows;
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	DWORD	NumOfPin;
 
@@ -3657,9 +3657,9 @@ BOOL CStressLineSectionSettingDlg::SetAllInputData()
 	long	PinY[STRESS_LINES_MAX * STRESS_PINS_MAX];
 	long	tmpPinX, tmpPinY;
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	int	PinCols, PinRows;
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	int	i ,j;
 
@@ -3667,13 +3667,13 @@ BOOL CStressLineSectionSettingDlg::SetAllInputData()
 	int	Rows;
 	int	Pin;
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 	int	AllPinNum = 0;
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	int	LineValidCols, LineValidRows;
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	int		FixLineValidRows = 1;
 	long	lLineValid;
@@ -3701,24 +3701,24 @@ BOOL CStressLineSectionSettingDlg::SetAllInputData()
 	CheckStressConfig.dwLiftPinNumberOfLine = NumOfLine;
 
 	// Line
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	LineCols = m_LineListGrid.GetColumnCount();
 //	LineRows = m_LineListGrid.GetRowCount();
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	for (row=LineFixRows; row<LineRows; row++) {
-	for (row=LineFixRows; row<NumOfLine+LineFixRows; row++) {
-// 2009.09.17 bagus stress GridC³ --}--
+	for (row=LineFixRows; row<static_cast<int>(NumOfLine)+LineFixRows; row++) {
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 		Item.mask = GVIF_TEXT;
 		Item.row = row;
 		Item.col = 1;
 		m_LineListGrid.GetItem(&Item);
 		NumOfPin = strtol(Item.strText, NULL, 10);
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 		AllPinNum += NumOfPin;
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 		CheckStressConfig.Line[row - LineFixRows].dwLiftPinNumberOfLn = NumOfPin;
 		CheckStressConfig.Line[row - LineFixRows].dwSectionNum = NumOfPin - 1;
@@ -3728,36 +3728,36 @@ BOOL CStressLineSectionSettingDlg::SetAllInputData()
 	memset(&PinX, 0, sizeof(PinX));
 	memset(&PinY, 0, sizeof(PinY));
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	PinCols = m_PinListGrid.GetColumnCount();
 //	PinRows = m_PinListGrid.GetRowCount();
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	Pin = 0;
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	for(i=PinFixRows; i<PinRows; i++){
 	for(i=PinFixRows; i<AllPinNum+PinFixRows; i++){
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 		Item.mask = GVIF_TEXT;
 		Item.row = i;
 		Item.col = 1;
 		m_PinListGrid.GetItem(&Item);
-		tmpPinX = strtod(Item.strText, NULL) * MICROMETRE;		// ’PˆÊ•ÏŠ·(um->mm)
+		tmpPinX = strtod(Item.strText, NULL) * MICROMETRE;		// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 
 		Item.mask = GVIF_TEXT;
 		Item.row = i;
 		Item.col = 2;
 		m_PinListGrid.GetItem(&Item);
-		tmpPinY = strtod(Item.strText, NULL) * MICROMETRE;		// ’PˆÊ•ÏŠ·(um->mm)
+		tmpPinY = strtod(Item.strText, NULL) * MICROMETRE;		// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 
 		PinX[i - PinFixRows] = tmpPinX;
 		PinY[i - PinFixRows] = tmpPinY;
 	}
 
 	Pin = 0;
-	for(i=0; i<CheckStressConfig.dwLiftPinNumberOfLine; i++){
+	for(i=0; i<static_cast<int>(CheckStressConfig.dwLiftPinNumberOfLine); i++){
 		Rows = CheckStressConfig.Line[i].dwLiftPinNumberOfLn;
-		for (j=0; j<Rows; j++) {
+		for (j=0; j<static_cast<int>(Rows); j++) {
 			CheckStressConfig.Line[i].PinPos[j].lX = PinX[Pin];
 			CheckStressConfig.Line[i].PinPos[j].lY = PinY[Pin];
 
@@ -3766,15 +3766,15 @@ BOOL CStressLineSectionSettingDlg::SetAllInputData()
 	}
 
 	// Line Valid
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	LineValidCols = m_LineValidListGrid.GetColumnCount();
 //	LineValidRows = m_LineValidListGrid.GetRowCount();
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	for (row=FixLineValidRows; row<LineValidRows; row++) {
-	for (row=FixLineValidRows; row<CheckStressConfig.dwLiftPinNumberOfLine+FixLineValidRows; row++) {
-// 2009.09.17 bagus stress GridC³ --}--
+	for (row=FixLineValidRows; row<static_cast<int>(CheckStressConfig.dwLiftPinNumberOfLine)+FixLineValidRows; row++) {
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 		Item.mask = GVIF_TEXT;
 		Item.row = row;
 		Item.col = 1;
@@ -3795,22 +3795,22 @@ BOOL CStressLineSectionSettingDlg::SetAllInputData()
 
 	// Range Pin
 	GetDlgItemText(IDC_STRESS_VALID_RANGE, strBuffer);
-	CheckStressConfig.lStressValidRange = (long)(strtod(strBuffer.GetBuffer(0), NULL) * MICROMETRE);	// ’PˆÊ•ÏŠ·(mm->um)
+	CheckStressConfig.lStressValidRange = (long)(strtod(strBuffer.GetBuffer(0), NULL) * MICROMETRE);	// ï¿½Pï¿½Ê•ÏŠï¿½(mm->um)
 
 	// Range Edge
 	GetDlgItemText(IDC_INVALID_RANGE_EDGE, strBuffer);
-	CheckStressConfig.lInvalidRangeEdge = (long)(strtod(strBuffer.GetBuffer(0), NULL) * MICROMETRE);	// ’PˆÊ•ÏŠ·(mm->um)
+	CheckStressConfig.lInvalidRangeEdge = (long)(strtod(strBuffer.GetBuffer(0), NULL) * MICROMETRE);	// ï¿½Pï¿½Ê•ÏŠï¿½(mm->um)
 
 	// Offset X
 	GetDlgItemText(IDC_THICK_MEASUREMENT_POINT_OFFSET_X, strBuffer);
-	CheckStressConfig.MeasOffset.lX = (long)(strtod(strBuffer.GetBuffer(0), NULL) * MICROMETRE);	// ’PˆÊ•ÏŠ·(mm->um)
+	CheckStressConfig.MeasOffset.lX = (long)(strtod(strBuffer.GetBuffer(0), NULL) * MICROMETRE);	// ï¿½Pï¿½Ê•ÏŠï¿½(mm->um)
 
 // 2009.09.18 bagus SE --{--
 #if 0
 	// Section
-	for(i=0; i<CheckStressConfig.dwLiftPinNumberOfLine; i++){
+	for(i=0; i<static_cast<int>(CheckStressConfig.dwLiftPinNumberOfLine); i++){
 		Rows = CheckStressConfig.Line[i].dwSectionNum;
-		for (j=0; j<Rows; j++) {
+		for (j=0; j<static_cast<int>(Rows); j++) {
 			PinYS = CheckStressConfig.Line[i].PinPos[j].lY;
 			PinXS = CheckStressConfig.Line[i].PinPos[j].lX;
 			PinXE = CheckStressConfig.Line[i].PinPos[j + 1].lX;
@@ -3843,7 +3843,7 @@ BOOL CStressLineSectionSettingDlg::SetAllInputData()
 		PinYS = (long)((PinOrgY * 1000 + 500) / 1000);
 	}
 
-	for(i=0; i<CheckStressConfig.dwLiftPinNumberOfLine; i++){
+	for(i=0; i<static_cast<int>(CheckStressConfig.dwLiftPinNumberOfLine); i++){
 		if (PinOrgX == 0) {
 			PinXS = PinOrgX;
 		} else if (PinOrgX < 0) {
@@ -3867,26 +3867,26 @@ BOOL CStressLineSectionSettingDlg::SetAllInputData()
 	}
 //#else
 	// Section
-	for(i=0; i<CheckStressConfig.dwLiftPinNumberOfLine; i++){
+	for(i=0; i<static_cast<int>(CheckStressConfig.dwLiftPinNumberOfLine); i++){
 		Rows = CheckStressConfig.Line[i].dwSectionNum;
-		for (j=0; j<Rows; j++) {
+		for (j=0; j<static_cast<int>(Rows); j++) {
 			Item.mask = GVIF_TEXT;
 			Item.row = i;
 			Item.col = 1;
 			m_StressMeasurementLineSectionListGrid.GetItem(&Item);
-			PinXS = strtod(Item.strText, NULL) * MICROMETRE;		// ’PˆÊ•ÏŠ·(um->mm)
+			PinXS = strtod(Item.strText, NULL) * MICROMETRE;		// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 
 			Item.mask = GVIF_TEXT;
 			Item.row = i;
 			Item.col = 2;
 			m_StressMeasurementLineSectionListGrid.GetItem(&Item);
-			PinXE = strtod(Item.strText, NULL) * MICROMETRE;		// ’PˆÊ•ÏŠ·(um->mm)
+			PinXE = strtod(Item.strText, NULL) * MICROMETRE;		// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 
 			Item.mask = GVIF_TEXT;
 			Item.row = i;
 			Item.col = 3;
 			m_StressMeasurementLineSectionListGrid.GetItem(&Item);
-			PinYS = strtod(Item.strText, NULL) * MICROMETRE;		// ’PˆÊ•ÏŠ·(um->mm)
+			PinYS = strtod(Item.strText, NULL) * MICROMETRE;		// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 
 			CheckStressConfig.Line[i].SectPos[j].lScanStartPosX = PinXS;
 			CheckStressConfig.Line[i].SectPos[j].lScanEndPosX = PinXE;
@@ -3894,26 +3894,26 @@ BOOL CStressLineSectionSettingDlg::SetAllInputData()
 		}
 	}
 
-	for(i=0; i<CheckStressConfig.dwLiftPinNumberOfLine; i++){
+	for(i=0; i<static_cast<int>(CheckStressConfig.dwLiftPinNumberOfLine); i++){
 		for (j=0; j<PIN_INTERVAL; j++) {
 			Item.mask = GVIF_TEXT;
 			Item.row = i;
 			Item.col = 1;
 			m_NecessaryThicknessMeasurementListGrid.GetItem(&Item);
-			PinXS = strtod(Item.strText, NULL) * MICROMETRE;		// ’PˆÊ•ÏŠ·(um->mm)
+			PinXS = strtod(Item.strText, NULL) * MICROMETRE;		// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 
 			Item.mask = GVIF_TEXT;
 			Item.row = i;
 			Item.col = 2;
 			m_NecessaryThicknessMeasurementListGrid.GetItem(&Item);
-			PinYS = strtod(Item.strText, NULL) * MICROMETRE;		// ’PˆÊ•ÏŠ·(um->mm)
+			PinYS = strtod(Item.strText, NULL) * MICROMETRE;		// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 
 			CheckStressConfig.Line[i].MeasPos[j].lX = PinXS;
 			CheckStressConfig.Line[i].MeasPos[j].lY = PinYS;
 		}
 	}
 #else
-	// SET LINE/SECTION ‚ğ‰Ÿ‚µ‚½“_‚ÅŒˆ‚Ü‚é‚Ì‚ÅA•ÒWƒ`ƒFƒbƒN‚ÍƒXƒ‹[
+	// SET LINE/SECTION ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ÅŒï¿½ï¿½Ü‚ï¿½Ì‚ÅAï¿½ÒWï¿½`ï¿½Fï¿½bï¿½Nï¿½ÍƒXï¿½ï¿½ï¿½[
 	for(i=0; i<STRESS_LINES_MAX; i++){
 		for (j=0; j<STRESS_SECTIONS_MAX; j++) {
 			CheckStressConfig.Line[i].SectPos[j].lScanStartPosX = m_StressConfig.Line[i].SectPos[j].lScanStartPosX;
@@ -3934,9 +3934,9 @@ BOOL CStressLineSectionSettingDlg::SetAllInputData()
 	return memcmp(&CheckStressConfig, &m_StressConfig, sizeof(m_StressConfig)) == 0;
 
 }
-// 2009.09.14 bagus stress C³ --}--
+// 2009.09.14 bagus stress ï¿½Cï¿½ï¿½ --}--
 
-// 2009.09.15 bagus stress C³ --{--
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --{--
 BOOL CStressLineSectionSettingDlg::CheckInputValueLong(CString strVal, long *lValue)
 {
 	long	lChk;
@@ -3996,4 +3996,4 @@ BOOL CStressLineSectionSettingDlg::CheckInputValueDouble(CString strVal, double 
 
 	return ( TRUE );
 }
-// 2009.09.15 bagus stress C³ --}--
+// 2009.09.15 bagus stress ï¿½Cï¿½ï¿½ --}--
