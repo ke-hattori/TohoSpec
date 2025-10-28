@@ -427,9 +427,9 @@ void CChiefView::OnTimer(UINT nIDEvent)
 				PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_MSGBOX, CHRANFY_NOTIFY_ON), MAKEWORD(1, CHRAMSG_YESNO)), MAKELPARAM(2, 0));
 			}
 			break;
-		case 1:
-			GetParentFrame()->ShowWindow(SW_SHOWNORMAL);	// \
-			m_DlgShowSW.dwShowSWprc = 2;
+	case 1:
+		GetParentFrame()->ShowWindow(SW_SHOWNORMAL);
+		m_DlgShowSW.dwShowSWprc = 2;
 			if (ID_TIMER_HIDEDLG != SetTimer(ID_TIMER_HIDEDLG, m_DlgShowSW.dwDelay * 1000, 0)) {
 				// ^C}Ns
 				LogChief(CHIEF_REP_ALARM_MSGTEXT[2]);
@@ -3604,10 +3604,10 @@ LRESULT CChiefView::OnDlgShowSW(WPARAM wparam, LPARAM lparam)
 {
 	switch (wparam) {
 	case 0:
-		GetParentFrame()->ShowWindow(SW_HIDE);		// \
+		GetParentFrame()->ShowWindow(SW_HIDE);
 		break;
 	default:
-		GetParentFrame()->ShowWindow(SW_SHOWNORMAL);	// \
+		GetParentFrame()->ShowWindow(SW_SHOWNORMAL);
 		GetParentFrame()->SetWindowPos(&wndTopMost, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
 		break;
 	}
