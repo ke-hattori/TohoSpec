@@ -470,12 +470,12 @@ void CChiefTransiStress::PreMove()
 //																					/*	ZNVP Y Wg܂D	*/
 ///* modified 2009.08.18 hmenjo STRESS_LINESECTION 폜 ---------- } ---------- */
 /* modified 2009.08.21 hmenjo XgX@\ǉ(52) ----------			   */
-					for (i = 0; i < l_StressConfig.Line[l_dwLineNo - 1].dwSectionNum; i++) {
+					for (i = 0; i < static_cast<int>(l_StressConfig.Line[l_dwLineNo - 1].dwSectionNum); i++) {
 						if (0 != l_pStageProgStress->Line[l_dwLineNo - 1].bScanValid[i]) {
 							break;
 						}
 					}
-					if (l_StressConfig.Line[l_dwLineNo - 1].dwSectionNum <= i) {
+					if (static_cast<int>(l_StressConfig.Line[l_dwLineNo - 1].dwSectionNum) <= i) {
 						TCHAR l_tszLog[128];
 						_stprintf(l_tszLog, _T("No Sections in Line No.%d."), l_dwLineNo);
 						((CChiefView*) m_pcChiefView)->LogChief(l_tszLog);
@@ -939,12 +939,12 @@ void CChiefTransiStress::enter_ST_STRS_LMVSTAPOS(const cEventParams* const pEvPa
 //																			/*	ZNVP Y Wg܂D	*/
 ///* modified 2009.08.18 hmenjo STRESS_LINESECTION 폜 ---------- } ---------- */
 /* modified 2009.08.21 hmenjo XgX@\ǉ(51) ----------			   */
-			for (i = 0; i < l_StressConfig.Line[m_dwLineNo - 1].dwSectionNum; i++) {
+			for (i = 0; i < static_cast<int>(l_StressConfig.Line[m_dwLineNo - 1].dwSectionNum); i++) {
 				if (0 != l_pStageProgStress->Line[m_dwLineNo - 1].bScanValid[i]) {
 					break;
 				}
 			}
-			if (l_StressConfig.Line[m_dwLineNo - 1].dwSectionNum <= i) {
+			if (static_cast<int>(l_StressConfig.Line[m_dwLineNo - 1].dwSectionNum) <= i) {
 				TCHAR l_tszLog[128];
 				_stprintf(l_tszLog, _T("No Sections in Line No.%d."), m_dwLineNo);
 				((CChiefView*) m_pcChiefView)->LogChief(l_tszLog);
@@ -1128,12 +1128,12 @@ void CChiefTransiStress::enter_ST_STRS_LMVENDPOS(const cEventParams* const pEvPa
 //																					/*	ZNVP Y Wg܂D	*/
 ///* modified 2009.08.18 hmenjo STRESS_LINESECTION 폜 ---------- } ---------- */
 /* modified 2009.08.21 hmenjo XgX@\ǉ(51) ----------			   */
-					for (i = 0; i < l_StressConfig.Line[m_dwLineNo - 1].dwSectionNum; i++) {
+					for (i = 0; i < static_cast<int>(l_StressConfig.Line[m_dwLineNo - 1].dwSectionNum); i++) {
 						if (0 != l_pStageProgStress->Line[m_dwLineNo - 1].bScanValid[i]) {
 							break;
 						}
 					}
-					if (l_StressConfig.Line[m_dwLineNo - 1].dwSectionNum <= i) {
+					if (static_cast<int>(l_StressConfig.Line[m_dwLineNo - 1].dwSectionNum) <= i) {
 						TCHAR l_tszLog[128];
 						_stprintf(l_tszLog, _T("No Sections in Line No.%d."), m_dwLineNo);
 						((CChiefView*) m_pcChiefView)->LogChief(l_tszLog);
