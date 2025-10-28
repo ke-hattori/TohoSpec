@@ -416,7 +416,6 @@ bool CChiefTransiStress::IsPinAligningHWS()
  */
 BOOL CChiefTransiStress::MoveToLdPos()
 {
-	int i;
 	/* W擾܂D	*/
 	STAGE_COORD l_SetPosition;
 	ConfigFile_GetNanoSpecIni(&l_SetPosition, CONFIG_FILE_HANDLER_LOAD_POSITION);

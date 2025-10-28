@@ -7771,7 +7771,6 @@ LRESULT CMainFrame::OnNotifyMeasPause(WPARAM wparam, LPARAM lparam)
 /* added 2009.06.09 hmenjo �ُ펞����|�[�Y ���O�ǉ� ---------- } ---------- */
 	int l_iReason = (int) wparam;		/* �|�[�Y���R(�|�[�Y�������͖����ł�)	*/
 	BOOL l_bRelease = (BOOL) lparam;	/* TRUE�F�|�[�Y���� */
-	int nLine;
 
 	// �|�[�Y�ʒm���b�Z�[�W�{�b�N�X�̑��݂��m�F���܂��D
 	CString l_strPauseMsgTitle;
