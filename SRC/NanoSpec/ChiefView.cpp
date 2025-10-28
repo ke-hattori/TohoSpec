@@ -4726,7 +4726,7 @@ DWORD CChiefView::GetNextPointNo(
 		return *pdwPointNo;
 	}
 
-	for (int i = *pdwPointNo; i <= SCAN_POINT_MAX; i++) {
+	for (i = *pdwPointNo; i <= SCAN_POINT_MAX; i++) {
 		if (0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->m_bDoPointMeasFlag[i - 1]) {
 			break;
 		}
@@ -4757,7 +4757,7 @@ DWORD CChiefView::GetNextLineNo(
 		l_iMaxLine = STRESS_LINES_MAX;
 	}
 	LPSTAGE_PROG_STRESS l_pStageProgStress = (LPSTAGE_PROG_STRESS) m_ChiefRecipes.pStageProgStress;
-	for (int i = *pdwLineNo; i <= l_iMaxLine; i++) {
+	for (i = *pdwLineNo; i <= l_iMaxLine; i++) {
 /* modified 2009.08.18 hmenjo STRESS_LINESECTION 폜 ---------- { ---------- */
 //		if (0 != l_pStageProgStress->Line[i - 1].LineSec.bValidLine) {
 /* modified 2009.08.18 hmenjo STRESS_LINESECTION 폜 ----------			  */
