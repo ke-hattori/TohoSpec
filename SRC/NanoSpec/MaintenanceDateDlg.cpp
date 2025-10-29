@@ -1,4 +1,4 @@
-// MaintenanceDateDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// MaintenanceDateDlg.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -14,14 +14,14 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CMaintenanceDateDlg ƒ_ƒCƒAƒƒO
+// CMaintenanceDateDlg ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½O
 
 
 CMaintenanceDateDlg::CMaintenanceDateDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CMaintenanceDateDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CMaintenanceDateDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ð’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ï¿½ï¿½ï¿½ï¿½ - ClassWizard ï¿½Í‚ï¿½ï¿½ÌˆÊ’uï¿½Éƒ}ï¿½bï¿½sï¿½ï¿½ï¿½Oï¿½pï¿½Ìƒ}ï¿½Nï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½Ü‚ï¿½ï¿½Ííœï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	//}}AFX_DATA_INIT
 }
 
@@ -30,7 +30,7 @@ void CMaintenanceDateDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CMaintenanceDateDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ð’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ï¿½ï¿½ï¿½ï¿½ - ClassWizard ï¿½Í‚ï¿½ï¿½ÌˆÊ’uï¿½Éƒ}ï¿½bï¿½sï¿½ï¿½ï¿½Oï¿½pï¿½Ìƒ}ï¿½Nï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½Ü‚ï¿½ï¿½Ííœï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	DDX_Control(pDX, IDC_MAINTENANCE_DAYS_COMBO, m_DaysComboBox);
 	DDX_Control(pDX, IDC_ALARM_MAINTE_DATE_COMBO, m_AlarmMainteComboBox);
 	DDX_Control(pDX, IDC_MAINTENANCE_LIFETIME_COMBO, m_LifeTimeComboBox);
@@ -52,13 +52,13 @@ BEGIN_MESSAGE_MAP(CMaintenanceDateDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CMaintenanceDateDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CMaintenanceDateDlg ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 
 BOOL CMaintenanceDateDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// TODO: ‚±‚ÌˆÊ’u‚É‰Šú‰»‚Ì•â‘«ˆ—‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½Éï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì•â‘«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	int index;
 	// Kojika 20090528 Add
 	SYSTEM_CONFIG l_SystemConfig;
@@ -103,10 +103,10 @@ BOOL CMaintenanceDateDlg::OnInitDialog()
 	// Kojika 20090529 Change
 	//m_AlarmMainteComboBox.AddString("NO USE");
 	//m_AlarmMainteComboBox.AddString("USE");
-	//m_AlarmMainteComboBox.AddString("”­•ñ‚µ‚È‚¢");
+	//m_AlarmMainteComboBox.AddString("ï¿½ï¿½ï¿½ñ‚µ‚È‚ï¿½");
 	LoadStringML(IDS_ALARM_NO_USE, l_strBuffer, "NO USE");
 	m_AlarmMainteComboBox.AddString(l_strBuffer);
-	//m_AlarmMainteComboBox.AddString("”­•ñ‚·‚é");
+	//m_AlarmMainteComboBox.AddString("ï¿½ï¿½ï¿½ñ‚·‚ï¿½");
 	LoadStringML(IDS_ALARM_USE, l_strBuffer, "USE");
 	m_AlarmMainteComboBox.AddString(l_strBuffer);
 	// Kojika 20090529 Change End
@@ -149,10 +149,10 @@ BOOL CMaintenanceDateDlg::OnInitDialog()
 	// Kojika 20090529 Change
 	//m_AlarmLampComboBox.AddString("NO USE");
 	//m_AlarmLampComboBox.AddString("USE");
-	//m_AlarmLampComboBox.AddString("”­•ñ‚µ‚È‚¢");
+	//m_AlarmLampComboBox.AddString("ï¿½ï¿½ï¿½ñ‚µ‚È‚ï¿½");
 	LoadStringML(IDS_ALARM_NO_USE, l_strBuffer, "NO USE");
 	m_AlarmLampComboBox.AddString(l_strBuffer);
-	//m_AlarmLampComboBox.AddString("”­•ñ‚·‚é");
+	//m_AlarmLampComboBox.AddString("ï¿½ï¿½ï¿½ñ‚·‚ï¿½");
 	LoadStringML(IDS_ALARM_USE, l_strBuffer, "USE");
 	m_AlarmLampComboBox.AddString(l_strBuffer);
 	// Kojika 20090529 Change End
@@ -160,17 +160,17 @@ BOOL CMaintenanceDateDlg::OnInitDialog()
 	m_AlarmLampComboBox.SetCurSel(m_pMaintenanceLamp.nAlarmFlag);
 
 
-	/// Ý’è Button (ƒƒ“ƒeƒiƒ“ƒX) ///
+	/// ï¿½Ý’ï¿½ Button (ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½X) ///
 	m_MainteDataSetButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT,
 		BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_MainteDataSetButton.DrawFlatFocus(TRUE);
 
-	/// Ý’è Button (SR”½ŽË—pƒ‰ƒ“ƒv) ///
+	/// ï¿½Ý’ï¿½ Button (SRï¿½ï¿½ï¿½Ë—pï¿½ï¿½ï¿½ï¿½ï¿½v) ///
 	m_LampMainteDataSetButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT,
 		BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_LampMainteDataSetButton.DrawFlatFocus(TRUE);
 
-	/// •Â‚¶‚é Button ///
+	/// ï¿½Â‚ï¿½ï¿½ï¿½ Button ///
 	m_CloseButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT,
 		BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_CloseButton.DrawFlatFocus(TRUE);
@@ -178,8 +178,8 @@ BOOL CMaintenanceDateDlg::OnInitDialog()
 
 	SetTimer(REFRESH_TIMER_ID, REFRESH_TIMER_ELAPSE, NULL);
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ðÝ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-				  // —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Éƒtï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½Ý’è‚µï¿½È‚ï¿½ï¿½Æ‚ï¿½ï¿½Aï¿½ß‚ï¿½lï¿½ï¿½ TRUE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
+				  // ï¿½ï¿½O: OCX ï¿½vï¿½ï¿½ï¿½pï¿½eï¿½B ï¿½yï¿½[ï¿½Wï¿½Ì–ß‚ï¿½lï¿½ï¿½ FALSE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
 }
 
 // ==========================================================================
@@ -225,7 +225,7 @@ void CMaintenanceDateDlg::OnMaintenanceDataSetButton()
 	CString strBuffer, strTitle;
 // Kojika 20090529 Add End
 
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	CString csBuff;
 	COleDateTime mDate;
 	COleDateTime mNewDate;
@@ -233,7 +233,7 @@ void CMaintenanceDateDlg::OnMaintenanceDataSetButton()
 	GetDlgItemText(IDC_EDIT_MAINTE_DATE, csBuff);
 	if( mDate.ParseDateTime(csBuff, LOCALE_NOUSEROVERRIDE) == 0 ){
 // Kojika 20090529 Change
-//		MessageBox("³‚µ‚¢“ú•t‚ðÝ’è‚µ‚Ä‰º‚³‚¢.", "MAINTENANCE DATE", MB_OK|MB_ICONWARNING);
+//		MessageBox("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½Ý’è‚µï¿½Ä‰ï¿½ï¿½ï¿½ï¿½ï¿½.", "MAINTENANCE DATE", MB_OK|MB_ICONWARNING);
 		LoadStringML(IDS_SET_CORRECT_DATE, strBuffer, "Please set a correct date");
 		LoadStringML(IDS_TITLE_MAINTENANCE_DATE, strTitle, "MAINTENANCE DATE");
 		MessageBox(strBuffer, strTitle, MB_OK|MB_ICONWARNING);
@@ -267,11 +267,11 @@ void CMaintenanceDateDlg::OnMaintenanceDataSetButton()
 
 	SetDlgItemText(IDC_EDIT_MAINTE_DATE_NEXT ,mNewDate.Format("%Y/%m/%d %H:%M:%S"));
 
-	// ƒf[ƒ^‚ðŽæ‚èž‚Þ
+	// ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½èžï¿½ï¿½
 	GetDlgItemText(IDC_EDIT_MAINTE_DATE, csBuff);
-	sprintf(m_pMaintenanceDate.MaintenanceDate, "%s", csBuff);
+	sprintf(m_pMaintenanceDate.MaintenanceDate, "%s", (LPCSTR)csBuff);
 	GetDlgItemText(IDC_EDIT_MAINTE_DATE_NEXT, csBuff);
-	sprintf(m_pMaintenanceDate.NextMaintenanceDate, "%s", csBuff);
+	sprintf(m_pMaintenanceDate.NextMaintenanceDate, "%s", (LPCSTR)csBuff);
 	m_pMaintenanceDate.nDaysSpan = selDays;
 	m_pMaintenanceDate.nAlarmFlag = m_AlarmMainteComboBox.GetCurSel();
 
@@ -288,14 +288,14 @@ void CMaintenanceDateDlg::OnLampMaintenanceDataSetButton()
 	CString strBuffer, strTitle;
 // Kojika 20090529 Add End
 
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	CString csBuff;
 	COleDateTime mDate;
 
 	GetDlgItemText(IDC_EDIT_LAMP_MAINTE_DATE, csBuff);
 	if( mDate.ParseDateTime(csBuff, LOCALE_NOUSEROVERRIDE) == 0 ){
 // Kojika 20090529 Change
-//		MessageBox("³‚µ‚¢“ú•t‚ðÝ’è‚µ‚Ä‰º‚³‚¢.", "MAINTENANCE DATE", MB_OK|MB_ICONWARNING);
+//		MessageBox("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½Ý’è‚µï¿½Ä‰ï¿½ï¿½ï¿½ï¿½ï¿½.", "MAINTENANCE DATE", MB_OK|MB_ICONWARNING);
 		LoadStringML(IDS_SET_CORRECT_DATE, strBuffer, "Please set a correct date");
 		LoadStringML(IDS_TITLE_MAINTENANCE_DATE, strTitle, "MAINTENANCE DATE");
 		MessageBox(strBuffer, strTitle, MB_OK|MB_ICONWARNING);
@@ -307,11 +307,11 @@ void CMaintenanceDateDlg::OnLampMaintenanceDataSetButton()
 
 	SetDlgItemText(IDC_EDIT_LAMP_MAINTE_DATE ,mDate.Format("%Y/%m/%d %H:%M:%S"));
 
-	// ƒf[ƒ^‚ðŽæ‚èž‚Þ
+	// ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½èžï¿½ï¿½
 	GetDlgItemText(IDC_EDIT_LAMP_MAINTE_DATE, csBuff);
-	sprintf(m_pMaintenanceLamp.MaintenanceDate, "%s", csBuff);
+	sprintf(m_pMaintenanceLamp.MaintenanceDate, "%s", (LPCSTR)csBuff);
 	GetDlgItemText(IDC_EDIT_LAMP_MAINTE_DATE_NEXT, csBuff);
-	m_pPassageHour.m_span = 0;			// ƒJƒEƒ“ƒg‚ðƒNƒŠƒA‚·‚é
+	m_pPassageHour.m_span = 0;			// ï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½
 	m_pDoc->SetPassageHour(m_pPassageHour.m_span);
 	m_pMaintenanceLamp.MaintenanceHour = m_pPassageHour.m_span;
 	m_pMaintenanceLamp.nHourSpan = m_LifeTimeComboBox.GetCurSel();
@@ -338,7 +338,7 @@ void CMaintenanceDateDlg::SetOperationLog(LPCTSTR pszLog)
 {
 	char strmsg[1024];
 
-	// ‘€ìƒƒO‚ðŽæ“¾
+	// ï¿½ï¿½ï¿½ìƒï¿½Oï¿½ï¿½ï¿½æ“¾
 	memset( strmsg, 0, sizeof(strmsg));
 	strcpy( strmsg, "[");
 	::GetWindowText(this->m_hWnd, &strmsg[1], 1000);
