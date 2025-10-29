@@ -324,8 +324,8 @@ void CRecipeDistanceStageProgramView::OnDispositionButton()
 	CPointSetupDisposition2PointDlg dlg(m_iNumScans, m_StageProgInfoHdr.SampleInfo.Size.dx, m_StageProgInfoHdr.SampleInfo.Size.dy,m_StageConfig.OrgPos);
 
 	if(m_iNumScans >= SCAN_POINT_MAX){
-		LoadStringML(IDS_MAX_NUM_REGISTER, l_strBuffer, "The Maximum Number which can be Registered is %d.");
-		sprintf(szBuff, l_strBuffer, SCAN_POINT_MAX);
+	LoadStringML(IDS_MAX_NUM_REGISTER, l_strBuffer, "The Maximum Number which can be Registered is %d.");
+	sprintf(szBuff, (LPCSTR)l_strBuffer, SCAN_POINT_MAX);
 		MessageBox(szBuff, m_strCaption, MB_OK|MB_ICONSTOP);
 		return;
 	}
@@ -468,8 +468,8 @@ void CRecipeDistanceStageProgramView::OnTeachingButton()
 	char szBuff[256];
 
 	if(m_iNumScans >= SCAN_POINT_MAX){
-		LoadStringML(IDS_MAX_NUM_REGISTER, l_strBuffer, "The Maximum Number which can be Registered is %d.");
-		sprintf(szBuff, l_strBuffer, SCAN_POINT_MAX);
+	LoadStringML(IDS_MAX_NUM_REGISTER, l_strBuffer, "The Maximum Number which can be Registered is %d.");
+	sprintf(szBuff, (LPCSTR)l_strBuffer, SCAN_POINT_MAX);
 		MessageBox(szBuff, m_strCaption, MB_OK | MB_ICONSTOP);
 		return;
 	}
@@ -649,8 +649,8 @@ void CRecipeDistanceStageProgramView::OnAddButton()
 	int i;
 
 	if(m_iNumScans >= SCAN_POINT_MAX){
-		LoadStringML(IDS_MAX_NUM_REGISTER, l_strBuffer, "The Maximum Number which can be Registered is %d.");
-		sprintf(szBuff, l_strBuffer, SCAN_POINT_MAX);
+	LoadStringML(IDS_MAX_NUM_REGISTER, l_strBuffer, "The Maximum Number which can be Registered is %d.");
+	sprintf(szBuff, (LPCSTR)l_strBuffer, SCAN_POINT_MAX);
 		MessageBox(szBuff, m_strCaption, MB_OK | MB_ICONSTOP);
 		return;
 	}
@@ -808,7 +808,7 @@ void CRecipeDistanceStageProgramView::OnDeleteButton()
 	}
 	LoadStringML(IDS_POINT_DATA_NO, strBuffer1, "Is the Point Data of No. ");
 	LoadStringML(IDS_DELETE_POINT_DATA, strBuffer2, " deleted?");
-	sprintf(szBuff, "%s%d%s", strBuffer1, iRow, strBuffer2);
+	sprintf(szBuff, "%s%d%s", (LPCSTR)strBuffer1, iRow, (LPCSTR)strBuffer2);
 	if( MessageBox(szBuff, m_strCaption, MB_YESNO | MB_ICONQUESTION) !=IDYES ) {
 		return;
 	}
@@ -1401,32 +1401,32 @@ BOOL CRecipeDistanceStageProgramView::CheckData()
 	for ( int i = 0; i < m_iNumScans; i++ ) {
 		///// X1 /////
 		if ( !(m_ScanPoint[nIndex].lX >= min(coordLeftTop.lX, coordRightBottom.lX) && m_ScanPoint[nIndex].lX <= max(coordLeftTop.lX, coordRightBottom.lX)) ) {
-			LoadStringML(IDS_X_COORDINATE_OUT_LIMIT, strBuffer, "POINT = %d : X coordinate is out of limit.");
-			sprintf(szBuff, strBuffer, i + 1);
+		LoadStringML(IDS_X_COORDINATE_OUT_LIMIT, strBuffer, "POINT = %d : X coordinate is out of limit.");
+		sprintf(szBuff, (LPCSTR)strBuffer, i + 1);
 			MessageBox(szBuff, m_strCaption, MB_OK | MB_ICONSTOP);
 			return FALSE;
 		}
 
 		///// Y1 /////
 		if ( !(m_ScanPoint[nIndex].lY >= min(coordLeftTop.lY, coordRightBottom.lY) && m_ScanPoint[nIndex].lY <= max(coordLeftTop.lY, coordRightBottom.lY)) ) {
-			LoadStringML(IDS_Y_COORDINATE_OUT_LIMIT, strBuffer, "POINT = %d : Y coordinate is out of limit.");
-			sprintf(szBuff, strBuffer, i + 1);
+		LoadStringML(IDS_Y_COORDINATE_OUT_LIMIT, strBuffer, "POINT = %d : Y coordinate is out of limit.");
+		sprintf(szBuff, (LPCSTR)strBuffer, i + 1);
 			MessageBox(szBuff, m_strCaption, MB_OK | MB_ICONSTOP);
 			return FALSE;
 		}
 
 		///// X2 /////
 		if ( !(m_ScanPoint[nIndex+1].lX >= min(coordLeftTop.lX, coordRightBottom.lX) && m_ScanPoint[nIndex+1].lX <= max(coordLeftTop.lX, coordRightBottom.lX)) ) {
-			LoadStringML(IDS_X_COORDINATE_OUT_LIMIT, strBuffer, "POINT = %d : X coordinate is out of limit.");
-			sprintf(szBuff, strBuffer, i + 1);
+		LoadStringML(IDS_X_COORDINATE_OUT_LIMIT, strBuffer, "POINT = %d : X coordinate is out of limit.");
+		sprintf(szBuff, (LPCSTR)strBuffer, i + 1);
 			MessageBox(szBuff, m_strCaption, MB_OK | MB_ICONSTOP);
 			return FALSE;
 		}
 
 		///// Y2 /////
 		if ( !(m_ScanPoint[nIndex+1].lY >= min(coordLeftTop.lY, coordRightBottom.lY) && m_ScanPoint[nIndex+1].lY <= max(coordLeftTop.lY, coordRightBottom.lY)) ) {
-			LoadStringML(IDS_Y_COORDINATE_OUT_LIMIT, strBuffer, "POINT = %d : Y coordinate is out of limit.");
-			sprintf(szBuff, strBuffer, i + 1);
+		LoadStringML(IDS_Y_COORDINATE_OUT_LIMIT, strBuffer, "POINT = %d : Y coordinate is out of limit.");
+		sprintf(szBuff, (LPCSTR)strBuffer, i + 1);
 			MessageBox(szBuff, m_strCaption, MB_OK | MB_ICONSTOP);
 			return FALSE;
 		}
