@@ -217,10 +217,10 @@ BOOL NSSTAGEAPI NS_StageInitialize()
 		CString strFilename;
 
 		strFilename = NANOSPEC_INIFILENAME;
-		if(g_lAppNameType != APP_NAME_NANO){
-			strFilename.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
-		}
-		sprintf(szFilePath, "%s%s%s", g_tszProcDir, CFG_DIR, strFilename);
+	if(g_lAppNameType != APP_NAME_NANO){
+		strFilename.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
+	}
+	sprintf(szFilePath, "%s%s%s", g_tszProcDir, CFG_DIR, (LPCSTR)strFilename);
 // 2013.11.07 Bagus Mod (TohoSpec�Ή�) <--
 		::GetPrivateProfileString(_T("StageCoord"), _T("Xunit"), _T("+1.0"), l_tszTemp, sizeof(l_tszTemp), szFilePath);
 		l_dTemp = _tcstod(l_tszTemp, 0);
