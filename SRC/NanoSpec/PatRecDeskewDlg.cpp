@@ -1,4 +1,4 @@
-// PatRecDeskewDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// PatRecDeskewDlg.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -161,7 +161,7 @@ void CPatRecDeskewDlg::enter_ST_VERIFY_TEACH(const cEventParams* const /* params
 		LoadStringML(IDS_JOYSTICK_WORKING, strMsg, "JoyStick is Working");
 		LoadStringML(IDS_TITLE_WARNING, strTitle, "Warning");
 		MessageBox(strMsg, strTitle, MB_OK);
-		// •K‚¸JoyStick‚Ìó‘Ô‚ğ–ß‚·‚±‚Æ
+		// ï¿½Kï¿½ï¿½JoyStickï¿½Ìï¿½Ô‚ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½
 		m_pDoc->JoyStickStatusRestore();
 		Event(EV_NEXT);
 		return;
@@ -175,7 +175,7 @@ void CPatRecDeskewDlg::enter_ST_VERIFY_TEACH(const cEventParams* const /* params
 	CCursor::EndWaitCursor();
 
 // 2009.06.09 K.Matsuo -->
-	// •K‚¸JoyStick‚Ìó‘Ô‚ğ–ß‚·‚±‚Æ
+	// ï¿½Kï¿½ï¿½JoyStickï¿½Ìï¿½Ô‚ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½
 	m_pDoc->JoyStickStatusRestore();
 // 2009.06.09 K.Matsuo <--
 
@@ -286,7 +286,7 @@ void CPatRecDeskewDlg::enter_ST_DRAW_END(const cEventParams* const /* params */ 
 			((CNanoSpecDoc*) ((CMainFrame*) AfxGetMainWnd())->GetActiveDocument())->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);
 		}
 
-		// •K‚¸JoyStick‚Ìó‘Ô‚ğ–ß‚·‚±‚Æ
+		// ï¿½Kï¿½ï¿½JoyStickï¿½Ìï¿½Ô‚ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½
 		m_pDoc->JoyStickStatusRestore();
 // 2009.06.10 K.Matsuo <--
 
@@ -328,7 +328,7 @@ void CPatRecDeskewDlg::enter_ST_DO_PAT_REC(const cEventParams* const /* params *
 		LoadStringML(IDS_JOYSTICK_WORKING, strMsg, "JoyStick is Working");
 		LoadStringML(IDS_TITLE_WARNING, strTitle, "Warning");
 		MessageBox(strMsg, strTitle, MB_OK);
-		// •K‚¸JoyStick‚Ìó‘Ô‚ğ–ß‚·‚±‚Æ
+		// ï¿½Kï¿½ï¿½JoyStickï¿½Ìï¿½Ô‚ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½
 		m_pDoc->JoyStickStatusRestore();
 		Event(EV_NEXT);
 		return;
@@ -341,14 +341,14 @@ void CPatRecDeskewDlg::enter_ST_DO_PAT_REC(const cEventParams* const /* params *
 	if ( !TeachPatternRec() || ! PatRecFirstMatch() ) {
 		CCursor::EndWaitCursor();
 // 2009.06.09 K.Matsuo -->
-		// •K‚¸JoyStick‚Ìó‘Ô‚ğ–ß‚·‚±‚Æ
+		// ï¿½Kï¿½ï¿½JoyStickï¿½Ìï¿½Ô‚ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½
 		m_pDoc->JoyStickStatusRestore();
 		Event(EV_NEXT);
 		return;
 // 2009.06.09 K.Matsuo <--
 	}
 
-	// ƒIƒtƒZƒbƒg‚ğƒNƒŠƒA‚·‚é
+	// ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½
 	TCHAR szBuffer[256];
 	m_OffsetPos.lX = 0;
 	m_OffsetPos.lY = 0;
@@ -364,7 +364,7 @@ void CPatRecDeskewDlg::enter_ST_DO_PAT_REC(const cEventParams* const /* params *
 	if ( !PatRecSecondMatch() ) {
 		CCursor::EndWaitCursor();
 // 2009.06.09 K.Matsuo -->
-		// •K‚¸JoyStick‚Ìó‘Ô‚ğ–ß‚·‚±‚Æ
+		// ï¿½Kï¿½ï¿½JoyStickï¿½Ìï¿½Ô‚ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½
 		m_pDoc->JoyStickStatusRestore();
 		Event(EV_NEXT);
 		return;
@@ -387,7 +387,7 @@ void CPatRecDeskewDlg::enter_ST_DO_PAT_REC(const cEventParams* const /* params *
 	CCursor::EndWaitCursor();
 
 // 2009.06.09 K.Matsuo -->
-	// •K‚¸JoyStick‚Ìó‘Ô‚ğ–ß‚·‚±‚Æ
+	// ï¿½Kï¿½ï¿½JoyStickï¿½Ìï¿½Ô‚ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½
 	m_pDoc->JoyStickStatusRestore();
 // 2009.06.09 K.Matsuo <--
 
@@ -421,9 +421,9 @@ BEGIN_MESSAGE_MAP(CPatRecDeskewDlg, COverlayDialog)
 	ON_BN_CLICKED(IDC_DESKEW_VERIFY_BUTTON, OnVerify)
 	ON_BN_CLICKED(IDC_OFFSET_APPLY_BUTTON, OnOffsetApply)
 	//}}AFX_MSG_MAP
-// 2009.06.11 K.Matsuo ƒL[ƒtƒbƒN -->
+// 2009.06.11 K.Matsuo ï¿½Lï¿½[ï¿½tï¿½bï¿½N -->
 //	ON_MESSAGE(WM_STAGE_MOVE_DONE, OnStageMoveDone)
-// 2009.06.11 K.Matsuo ƒL[ƒtƒbƒN <--
+// 2009.06.11 K.Matsuo ï¿½Lï¿½[ï¿½tï¿½bï¿½N <--
 END_MESSAGE_MAP()
 
 //
@@ -632,7 +632,7 @@ BOOL CPatRecDeskewDlg::PatRecSecondMatch(void)
 	((CNanoSpecDoc*) ((CMainFrame*) AfxGetMainWnd())->GetActiveDocument())->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);
 
 	// 2009.07.21 K.Matsuo NSSTAGE -->
-	// ƒZƒ“ƒ^[À•W‚ğˆê‹L‰¯
+	// ï¿½Zï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½êï¿½Lï¿½ï¿½
 	m_CenterPos = CenterPos;
 	NS_ConvertToStageGetPosCoord(&m_CenterPos);
 	// 2009.07.21 K.Matsuo NSSTAGE <--
@@ -707,15 +707,15 @@ CString strTitle, strMsg, strGrp, strBuffer;
 	switch( m_iMode ){
 	case SITEPR_MODE:
 		//Saiki 20090530 Change ----->
-		//sprintf(m_szTitle, "%s",	"ƒTƒCƒgƒpƒ^[ƒ“İ’è");
-		//sprintf(m_szMessage, "%s",	"ƒpƒ^[ƒ“‚ğˆÍ‚Á‚Ä‚­‚¾‚³‚¢");
-		//sprintf(m_szGroup, "%s",	"ƒTƒCƒgƒpƒ^[ƒ“");
-		LoadStringML(IDS_SITE_PATTERN_SET, strTitle, "Site Pattern Setting");
-		LoadStringML(IDS_PATTERN_TEACH_RECT, strMsg, "Pattern Teaching Rect");
-		LoadStringML(IDS_SITE_PATTERN_GRP, strGrp, "Site Pattern");
-		sprintf(m_szTitle, "%s",	strTitle);
-		sprintf(m_szMessage, "%s",	strMsg);
-		sprintf(m_szGroup, "%s",	strGrp);
+		//sprintf(m_szTitle, "%s",	"ï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½İ’ï¿½");
+		//sprintf(m_szMessage, "%s",	"ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		//sprintf(m_szGroup, "%s",	"ï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½");
+	LoadStringML(IDS_SITE_PATTERN_SET, strTitle, "Site Pattern Setting");
+	LoadStringML(IDS_PATTERN_TEACH_RECT, strMsg, "Pattern Teaching Rect");
+	LoadStringML(IDS_SITE_PATTERN_GRP, strGrp, "Site Pattern");
+	sprintf(m_szTitle, "%s",	(LPCSTR)strTitle);
+	sprintf(m_szMessage, "%s",	(LPCSTR)strMsg);
+	sprintf(m_szGroup, "%s",	(LPCSTR)strGrp);
 		//Saiki 20090530 Change <-----
 
 		GetDlgItem(IDC_OFFSET_X_LABEL)->ShowWindow(SW_SHOW);
@@ -727,15 +727,15 @@ CString strTitle, strMsg, strGrp, strBuffer;
 	case DESKEW_MODE:
 	default:
 		//Saiki 20090530 Change ----->
-		//sprintf(m_szTitle, "%s",	"ƒfƒXƒLƒ…[İ’è");
-		//sprintf(m_szMessage, "%s",	"ƒpƒ^[ƒ“ƒ}[ƒN‚ğˆÍ‚Á‚Ä‚­‚¾‚³‚¢");
-		//sprintf(m_szGroup, "%s",	"ƒfƒXƒLƒ…[");
-		LoadStringML(IDS_DESKEW_SETTING, strTitle, "Deskew Setting");
-		LoadStringML(IDS_PATTERN_MARK_TEACH_RECT, strMsg, "Pattern Mark Teaching Rect");
-		LoadStringML(IDS_DESKEW_GRP, strGrp, "Deskew");
-		sprintf(m_szTitle, "%s",	strTitle);
-		sprintf(m_szMessage, "%s",	strMsg);
-		sprintf(m_szGroup, "%s",	strGrp);
+		//sprintf(m_szTitle, "%s",	"ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½İ’ï¿½");
+		//sprintf(m_szMessage, "%s",	"ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½}ï¿½[ï¿½Nï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		//sprintf(m_szGroup, "%s",	"ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[");
+	LoadStringML(IDS_DESKEW_SETTING, strTitle, "Deskew Setting");
+	LoadStringML(IDS_PATTERN_MARK_TEACH_RECT, strMsg, "Pattern Mark Teaching Rect");
+	LoadStringML(IDS_DESKEW_GRP, strGrp, "Deskew");
+	sprintf(m_szTitle, "%s",	(LPCSTR)strTitle);
+	sprintf(m_szMessage, "%s",	(LPCSTR)strMsg);
+	sprintf(m_szGroup, "%s",	(LPCSTR)strGrp);
 		//Saiki 20090530 Change <-----
 
 		GetDlgItem(IDC_OFFSET_X_LABEL)->ShowWindow(SW_HIDE);
@@ -767,19 +767,19 @@ CString strTitle, strMsg, strGrp, strBuffer;
 //	SetCaption("DESKEW SETUP");
 //	SetMessage("Enclose the pattern mark");
 	//Saiki 20090530 Change ----->
-//	CreateDialogItem("BUTTON", "Æ‡",			BS_PUSHBUTTON,	CRect(CPoint(499,487), CSize(94,24)),	IDC_DESKEW_VERIFY_BUTTON);
-////	CreateDialogItem("BUTTON", "ƒfƒXƒLƒ…[",	BS_GROUPBOX,	CRect(CPoint(295,362), CSize(320,155)), IDC_STATIC);
+//	CreateDialogItem("BUTTON", "ï¿½Æï¿½",			BS_PUSHBUTTON,	CRect(CPoint(499,487), CSize(94,24)),	IDC_DESKEW_VERIFY_BUTTON);
+////	CreateDialogItem("BUTTON", "ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[",	BS_GROUPBOX,	CRect(CPoint(295,362), CSize(320,155)), IDC_STATIC);
 //	CreateDialogItem("BUTTON", m_szGroup,		BS_GROUPBOX,	CRect(CPoint(295,362), CSize(320,155)), IDC_STATIC);
-//	CreateDialogItem("STATIC", "ƒ\[ƒX",		SS_CENTERIMAGE, CRect(CPoint(300,372), CSize(40,8)),	IDC_STATIC);
-//	CreateDialogItem("STATIC", "”F¯ƒXƒRƒA",	SS_CENTERIMAGE, CRect(CPoint(499,467), CSize(40,12)),	IDC_STATIC);
+//	CreateDialogItem("STATIC", "ï¿½\ï¿½[ï¿½X",		SS_CENTERIMAGE, CRect(CPoint(300,372), CSize(40,8)),	IDC_STATIC);
+//	CreateDialogItem("STATIC", "ï¿½Fï¿½ï¿½ï¿½Xï¿½Rï¿½A",	SS_CENTERIMAGE, CRect(CPoint(499,467), CSize(40,12)),	IDC_STATIC);
 //	CreateDialogItem("STATIC", "",				SS_SUNKEN,		CRect(CPoint(544,467), CSize(35,12)),	IDC_DESKEW_MATCH_SCORE);
 //	CreateDialogItem("STATIC", "%", 			SS_CENTERIMAGE, CRect(CPoint(584,467), CSize(8,12)),	IDC_STATIC);
 //	CreateDialogItem("STATIC", "",				SS_BLACKFRAME,	CRect(CPoint(300,382), CSize(110,130)), IDC_DESKEW_MODEL);
-//	CreateDialogItem("STATIC", "ƒŒƒ“ƒY",		SS_CENTERIMAGE, CRect(CPoint(499,450), CSize(40,12)),	IDC_STATIC);
+//	CreateDialogItem("STATIC", "ï¿½ï¿½ï¿½ï¿½ï¿½Y",		SS_CENTERIMAGE, CRect(CPoint(499,450), CSize(40,12)),	IDC_STATIC);
 //	CreateDialogItem("STATIC", "",				SS_SUNKEN,		CRect(CPoint(544,450), CSize(35,12)),	IDC_LENS);
 	LoadStringML(IDS_BUTTON_VERIFY, strBuffer, "VERIFY");
 	CreateDialogItem("BUTTON", strBuffer,		BS_PUSHBUTTON,	CRect(CPoint(499,487), CSize(94,24)),	IDC_DESKEW_VERIFY_BUTTON);
-//	CreateDialogItem("BUTTON", "ƒfƒXƒLƒ…[",	BS_GROUPBOX,	CRect(CPoint(295,362), CSize(320,155)), IDC_STATIC);
+//	CreateDialogItem("BUTTON", "ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[",	BS_GROUPBOX,	CRect(CPoint(295,362), CSize(320,155)), IDC_STATIC);
 	CreateDialogItem("BUTTON", m_szGroup,		BS_GROUPBOX,	CRect(CPoint(295,362), CSize(320,155)), IDC_STATIC);
 	LoadStringML(IDS_STATIC_SOURCE, strBuffer, "Source");
 	CreateDialogItem("STATIC", strBuffer,		SS_CENTERIMAGE, CRect(CPoint(300,372), CSize(40,8)),	IDC_STATIC);
@@ -793,8 +793,8 @@ CString strTitle, strMsg, strGrp, strBuffer;
 	CreateDialogItem("STATIC", "",				SS_SUNKEN,		CRect(CPoint(548,450), CSize(35,12)),	IDC_LENS);
 	//Saiki 20090530 Change <-----
 
-//	SetCaption("ƒfƒXƒLƒ…[ İ’è");
-//	SetMessage("ƒpƒ^[ƒ“ƒ}[ƒN‚ğˆÍ‚Á‚Ä‚­‚¾‚³‚¢");
+//	SetCaption("ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ ï¿½İ’ï¿½");
+//	SetMessage("ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½}ï¿½[ï¿½Nï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 	SetCaption(m_szTitle);
 	SetMessage(m_szMessage);
 
@@ -842,8 +842,8 @@ CString strTitle, strMsg, strGrp, strBuffer;
 	UpdateData(FALSE);
 	// 2009.07.17 K.Matsuo <--
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Éƒtï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½İ’è‚µï¿½È‚ï¿½ï¿½Æ‚ï¿½ï¿½Aï¿½ß‚ï¿½lï¿½ï¿½ TRUE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
+					// ï¿½ï¿½O: OCX ï¿½vï¿½ï¿½ï¿½pï¿½eï¿½B ï¿½yï¿½[ï¿½Wï¿½Ì–ß‚ï¿½lï¿½ï¿½ FALSE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
 }
 
 // =========================================================================
@@ -868,7 +868,7 @@ void CPatRecDeskewDlg::OnOK()
 	CString strBuffer;
 	//Kojika 20090525 Add End
 	if ( !m_stcModel.IsValid() ) {
-		//AfxMessageBox("–¢“o˜^‚Ì‚½‚ßAƒLƒƒƒ“ƒZƒ‹I—¹‚µ‚Ü‚·B");
+		//AfxMessageBox("ï¿½ï¿½ï¿½oï¿½^ï¿½Ì‚ï¿½ï¿½ßAï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B");
 		//Kojika 20090525 Change
 		LoadStringML(IDS_CANCELLATION_END_UNREGIST , strBuffer, "It makes it to the cancellation end for unregistration.");
 		AfxMessageBox(strBuffer);
@@ -884,10 +884,10 @@ void CPatRecDeskewDlg::OnOK()
 		CSaveAsDlg dlg(SAVE_AS_SITE_PATTERN_IMG);
 		dlg.m_iLens = m_iLens;
 		if ( dlg.DoModal() == IDOK ) {
-			// –¼‘O‚Ì•Û‘¶
+			// ï¿½ï¿½ï¿½Oï¿½Ì•Û‘ï¿½
 			memset(m_szPatternName, '\0', sizeof(m_szPatternName));
 			sprintf(m_szPatternName, "%s", dlg.m_strName);
-			// ƒtƒ@ƒCƒ‹‚Ì•Û‘¶
+			// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ì•Û‘ï¿½
 			::CopyFile(DESKEW_IMG_TEMP, dlg.m_szFilePath, FALSE);
 
 			COverlayDialog::OnOK();
