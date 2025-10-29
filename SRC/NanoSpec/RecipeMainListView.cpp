@@ -1,4 +1,4 @@
-// RecipeMainListView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// RecipeMainListView.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -46,19 +46,19 @@ END_MESSAGE_MAP()
 void CRecipeMainListView::List_HeaderSet()
 {
 
-/* deleted 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- { ---------- */
+/* deleted 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- { ---------- */
 //	  //Saiki 20090527 Add ----->
 //	  SYSTEM_CONFIG l_SystemConfig;
 //	  ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 //	  //Saiki 20090527 Add <-----
-/* deleted 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- } ---------- */
+/* deleted 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- } ---------- */
 	LV_COLUMN listcol;
 	DWORD dwStyle = 0;
 	int ItemMax;
 
 	int Fmt[] = { LVCFMT_LEFT, LVCFMT_LEFT, LVCFMT_CENTER, LVCFMT_CENTER, LVCFMT_CENTER, LVCFMT_LEFT };
 
-// 2009.11.17 bagus RS C³ --{--
+// 2009.11.17 bagus RS ï¿½Cï¿½ï¿½ --{--
 #if 0
 	int Width[] = {
 		0,		// (0) Index
@@ -82,9 +82,9 @@ void CRecipeMainListView::List_HeaderSet()
 		380,	// (5) Comment
 	};
 #endif
-// 2009.11.17 bagus RS C³ --}--
+// 2009.11.17 bagus RS ï¿½Cï¿½ï¿½ --}--
 
-/* deleted 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- { ---------- */
+/* deleted 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- { ---------- */
 /*
 ////Saiki 20090526 Change ----->
 ////	char* Item[] = {
@@ -95,19 +95,19 @@ void CRecipeMainListView::List_HeaderSet()
 //////		"Date",
 //////		"Comment",
 ////	  "",
-////		"–¼‘O",
-////		"ƒwƒbƒh",
-////		"‘ª’èí•Ê",
-////		"ƒf[ƒ^",
-////		"ƒRƒƒ“ƒg",
+////		"ï¿½ï¿½ï¿½O",
+////		"ï¿½wï¿½bï¿½h",
+////		"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",
+////		"ï¿½fï¿½[ï¿½^",
+////		"ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½g",
 ////	};
 //	  char* ItemJPN[] = {
 //		  "",
-//		  "–¼‘O",
-//		  "ƒwƒbƒh",
-//		  "‘ª’èí•Ê",
-//		  "ƒf[ƒ^",
-//		  "ƒRƒƒ“ƒg",
+//		  "ï¿½ï¿½ï¿½O",
+//		  "ï¿½wï¿½bï¿½h",
+//		  "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",
+//		  "ï¿½fï¿½[ï¿½^",
+//		  "ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½g",
 //	  };
 //	  char* ItemENU[] = {
 //		"",
@@ -120,10 +120,10 @@ void CRecipeMainListView::List_HeaderSet()
 //
 ////Saiki 20090526 Change <-----
 */
-/* deleted 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- } ---------- */
+/* deleted 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- } ---------- */
 
 	ItemMax = sizeof(Fmt) / sizeof(Fmt[0]);
-/* added 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- { ---------- */
+/* added 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- { ---------- */
 	CStringArray l_straHdr;
 	l_straHdr.SetSize(ItemMax);
 	l_straHdr.SetAt(0, _T(""));
@@ -132,7 +132,7 @@ void CRecipeMainListView::List_HeaderSet()
 	LoadStringML(IDS_LSTHDR_MEASITEM,	l_straHdr.ElementAt(3), _T("Meas Item"));
 	LoadStringML(IDS_LSTHDR_DATE,		l_straHdr.ElementAt(4), _T("Date"));
 	LoadStringML(IDS_LSTHDR_COMMENT,	l_straHdr.ElementAt(5), _T("Comment"));
-/* added 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- } ---------- */
+/* added 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- } ---------- */
 
 	///// List Setting /////
 	listcol.mask = LVCF_TEXT | LVCF_WIDTH | LVCF_FMT;
@@ -140,7 +140,7 @@ void CRecipeMainListView::List_HeaderSet()
 	for(int i = 0 ; i < ItemMax ; i++){
 		listcol.fmt = Fmt[i];
 		listcol.cx = Width[i];
-/* modified 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- { ---------- */
+/* modified 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- { ---------- */
 /*
 //		  //Saiki 20090527 Change ----->
 //		  //listcol.pszText = Item[i];
@@ -151,9 +151,9 @@ void CRecipeMainListView::List_HeaderSet()
 //			  listcol.pszText = ItemJPN[i];
 //		  }
 */
-/* modified 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ----------			   */
+/* modified 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ----------			   */
 		listcol.pszText = ((LPTSTR) (LPCTSTR) l_straHdr.GetAt(i));
-/* modified 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- } ---------- */
+/* modified 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- } ---------- */
 		CNanoListUI::rfListCtrl().InsertColumn(i,&listcol);
 	}
 
@@ -172,9 +172,9 @@ void CRecipeMainListView::List_DataSet()
 	CTime time;
 	MAIN_RCP_INFO MainRcpInfo;
 	MEAS_PROG_INFO MeasProgInfo;
-/* added 2016.08.11 hmenjo Å‘åƒŒƒVƒs”§ŒÀ ---------- { ---------- */
+/* added 2016.08.11 hmenjo ï¿½Å‘åƒŒï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
 	DWORD l_dwDataCount = 0;
-/* added 2016.08.11 hmenjo Å‘åƒŒƒVƒs”§ŒÀ ---------- } ---------- */
+/* added 2016.08.11 hmenjo ï¿½Å‘åƒŒï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
 
 	CNanoListUI::rfListCtrl().DeleteAllItems();
 	sprintf(szDirPath, "%s*%s", g_szDb_Main_Recipe_Dir, MAINRECIPE_EXT);
@@ -186,17 +186,17 @@ void CRecipeMainListView::List_DataSet()
 
 		memset(&MainRcpInfo, 0, sizeof(MainRcpInfo));
 		memset(&MeasProgInfo, 0, sizeof(MeasProgInfo));
-		// ƒtƒ@ƒCƒ‹–¼‚ğæ“¾
-		strBuffer = Finder.GetFileTitle();
-		if ( strBuffer[0] == SYSTEM_RECIPE_BEGINNING_CHAR )
-			continue;
-		sprintf(szName, "%s", strBuffer);
-		// ÅI•ÏX“ú‚ğæ“¾
-		Finder.GetLastWriteTime(time);
-		sprintf(szDate, "%s", time.Format("%Y.%m.%d %H:%M:%S"));
+		// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
+	strBuffer = Finder.GetFileTitle();
+	if ( strBuffer[0] == SYSTEM_RECIPE_BEGINNING_CHAR )
+		continue;
+	sprintf(szName, "%s", (LPCSTR)strBuffer);
+	// ï¿½ÅIï¿½ÏXï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
+	Finder.GetLastWriteTime(time);
+	sprintf(szDate, "%s", (LPCSTR)time.Format("%Y.%m.%d %H:%M:%S"));
 
 		if(RecipeFile_LoadRecipe(&MainRcpInfo, szName, RECIPE_FILE_MAIN_RECIPE)){
-			// MeasurementProgram‚ªLoad‚Å‚«‚È‚¢‚Æ‚«‚ÍMeasItem‚Í‹ó”’‚Æ‚·‚é
+			// MeasurementProgramï¿½ï¿½Loadï¿½Å‚ï¿½ï¿½È‚ï¿½ï¿½Æ‚ï¿½ï¿½ï¿½MeasItemï¿½Í‹ó”’‚Æ‚ï¿½ï¿½ï¿½
 			if(RecipeFile_LoadRecipe(&MeasProgInfo, MainRcpInfo.MainRcpParam.hdr.szMeas,
 				RECIPE_FILE_MEASUREMENT_PROGRAM)){
 				List_Add(szName, (int)MainRcpInfo.MainRcpParam.hdr.wHeadType,
@@ -207,12 +207,12 @@ void CRecipeMainListView::List_DataSet()
 					-1, szDate, MainRcpInfo.hdr.szComment);
 			}
 		}
-/* added 2016.08.11 hmenjo Å‘åƒŒƒVƒs”§ŒÀ ---------- { ---------- */
+/* added 2016.08.11 hmenjo ï¿½Å‘åƒŒï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
 		l_dwDataCount++;
 		if (RCP_PGM_NUM_MAX <= l_dwDataCount) {
 			break;
 		}
-/* added 2016.08.11 hmenjo Å‘åƒŒƒVƒs”§ŒÀ ---------- } ---------- */
+/* added 2016.08.11 hmenjo ï¿½Å‘åƒŒï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
 	}
 }
 
@@ -290,8 +290,8 @@ void CRecipeMainListView::RecipeEntry(BOOL bNew)
 		HEAD_TYPE_CONFIG HeadType;
 		ConfigFile_GetNanoSpecIni(&HeadType, CONFIG_FILE_HEAD_TYPE_CONFIG);
 
-		//İ’èƒwƒbƒh‚ª‚P‹@í‚Ì‚İ‚Ìê‡‚Íƒwƒbƒh‘I‘ğ‰æ–Ê‚Í•\¦‚µ‚È‚¢
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+		//ï¿½İ’ï¿½wï¿½bï¿½hï¿½ï¿½ï¿½Pï¿½@ï¿½ï¿½Ì‚İ‚Ìê‡ï¿½Íƒwï¿½bï¿½hï¿½Iï¿½ï¿½ï¿½ï¿½Ê‚Í•\ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
+// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --{--
 #if 0
 		if((HeadType.bSR && !HeadType.bSE && !HeadType.bIRSE && !HeadType.bResist && !HeadType.bCTA && !HeadType.bStress) ||
 			(!HeadType.bSR && HeadType.bSE && !HeadType.bIRSE && !HeadType.bResist && !HeadType.bCTA && !HeadType.bStress) ||
@@ -307,12 +307,12 @@ void CRecipeMainListView::RecipeEntry(BOOL bNew)
 			(!HeadType.bSR && !HeadType.bSE && !HeadType.bMS && !HeadType.bResist && HeadType.bCTA && !HeadType.bStress) ||
 			(!HeadType.bSR && !HeadType.bSE && !HeadType.bMS && !HeadType.bResist && !HeadType.bCTA && HeadType.bStress) ){
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --}--
 
-				// İ’è‚³‚ê‚Ä‚¢‚é—Bˆê‚Ìƒwƒbƒh‚ğİ’è
+				// ï¿½İ’è‚³ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Bï¿½ï¿½Ìƒwï¿½bï¿½hï¿½ï¿½İ’ï¿½
 				if(HeadType.bSR)
 					iHeadType=HEAD_TYPE_SR;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 // 				if(HeadType.bSE)
 // 					iHeadType=HEAD_TYPE_SE;
 				if(HeadType.bSE) {
@@ -323,8 +323,8 @@ void CRecipeMainListView::RecipeEntry(BOOL bNew)
 					iHeadType=HEAD_TYPE_SE;
 					}
 				}
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
+// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --{--
 #if 0
 				if(HeadType.bIRSE)
 					iHeadType=HEAD_TYPE_IRSE;
@@ -332,7 +332,7 @@ void CRecipeMainListView::RecipeEntry(BOOL bNew)
 				if(HeadType.bMS)
 					iHeadType=HEAD_TYPE_MS;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --}--
 				if(HeadType.bResist)
 					iHeadType=HEAD_TYPE_4PP;
 				if(HeadType.bCTA)
@@ -341,7 +341,7 @@ void CRecipeMainListView::RecipeEntry(BOOL bNew)
 					iHeadType=HEAD_TYPE_STRESS;
 		}
 		else{
-			//ƒwƒbƒh‘I‘ğ‰æ–Ê•\¦
+			//ï¿½wï¿½bï¿½hï¿½Iï¿½ï¿½ï¿½ï¿½Ê•\ï¿½ï¿½
 			if(dlg.DoModal() == IDOK){
 				iHeadType = dlg.m_iHeadType;
 			}
@@ -379,12 +379,12 @@ void CRecipeMainListView::RecipeEntry(BOOL bNew)
 		pMainFrame->ChangeExeWnd(RECIPE_MAIN_SE_WND);
 // 2009.09.19 bagus SE --}--
 		break;
-// 2009.10.19 bagus MS ’Ç‰Á --{--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --{--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 	case HEAD_TYPE_COMPEASE:
 		pMainFrame->ChangeExeWnd(RECIPE_MAIN_COMPEASE_WND);
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
 #if 0
 	case HEAD_TYPE_IRSE:
 		break;
@@ -393,20 +393,20 @@ void CRecipeMainListView::RecipeEntry(BOOL bNew)
 		pMainFrame->ChangeExeWnd(RECIPE_MAIN_MS_WND);
 		break;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --}--
 	case HEAD_TYPE_4PP:
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --{--
 		pMainFrame->ChangeExeWnd(RECIPE_MAIN_4PP_WND);
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS ï¿½Ç‰ï¿½ --}--
 		break;
 	case HEAD_TYPE_CTA:
-// 2009.10.08 bagus CTA ’Ç‰Á --{--
+// 2009.10.08 bagus CTA ï¿½Ç‰ï¿½ --{--
 		pMainFrame->ChangeExeWnd(RECIPE_MAIN_CTA_WND);
-// 2009.10.08 bagus CTA ’Ç‰Á --}--
+// 2009.10.08 bagus CTA ï¿½Ç‰ï¿½ --}--
 		break;
 	case HEAD_TYPE_STRESS:
 		//2009.08.16 bagus stress --{--
-		//‚»‚ÌŒã‚Å•ªŠò‚·‚é‚½‚ß‚É•Ê‚ÌID‚ğ“n‚·iÀ‘Ì‚ÍSR‚Æ“¯‚¶j
+		//ï¿½ï¿½ï¿½ÌŒï¿½Å•ï¿½ï¿½ò‚·‚é‚½ï¿½ß‚É•Ê‚ï¿½IDï¿½ï¿½nï¿½ï¿½ï¿½iï¿½ï¿½ï¿½Ì‚ï¿½SRï¿½Æ“ï¿½ï¿½ï¿½ï¿½j
 		pMainFrame->ChangeExeWnd(RECIPE_MAIN_STRESS_WND);
 		//2009.08.16 bagus stress --}--
 		break;
@@ -430,7 +430,7 @@ BOOL CRecipeMainListView::DeleteRecipeData(LPCTSTR pszRecipeName)
 	PifComm_ChangeRecipeDeleteReport(0, &recipeNameDataSet);
 
 
-	//ƒƒCƒ“ƒŒƒVƒsíœ‚Æ“¯‚ÉƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^‚àíœ‚·‚é
+	//ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½íœï¿½Æ“ï¿½ï¿½ï¿½ï¿½Éƒï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½íœï¿½ï¿½ï¿½ï¿½
 	char szFilePath[MAX_PATH];
 	memset(szFilePath, 0, sizeof(szFilePath));
 	sprintf(szFilePath, "%s%s%s", g_szData_Ref_Dir, pszRecipeName, DAT_EXT);
@@ -449,7 +449,7 @@ BOOL CRecipeMainListView::RecipeStart(LPTSTR pszRecipeName)
 
 	pMainFrame->SetSelectListName("");
 
-	// ƒŠƒXƒg‚Ì‘I‘ğsæ“¾
+	// ï¿½ï¿½ï¿½Xï¿½gï¿½Ì‘Iï¿½ï¿½ï¿½sï¿½æ“¾
 	int iIndex = ((CListCtrl*) GetDlgItem(IDC_MAIN_RECIPE_LIST))->GetSelectionMark();
 	if ( iIndex == -1 )
 		return FALSE;
@@ -474,7 +474,7 @@ BOOL CRecipeMainListView::RecipeHead(LPTSTR pszRecipeHead, LPTSTR pszRecipeScan)
 
 //	pMainFrame->SetSelectListName("");
 
-	// ƒŠƒXƒg‚Ì‘I‘ğsæ“¾
+	// ï¿½ï¿½ï¿½Xï¿½gï¿½Ì‘Iï¿½ï¿½ï¿½sï¿½æ“¾
 	int iIndex = ((CListCtrl*) GetDlgItem(IDC_MAIN_RECIPE_LIST))->GetSelectionMark();
 	if ( iIndex == -1 )
 		return FALSE;
