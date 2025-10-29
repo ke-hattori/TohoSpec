@@ -246,10 +246,10 @@ void CVideoCalibDlg::enter_ST_VIDEO_CALIB_DONE(const cEventParams* const evp )
 		double temp_y = Convert_RoundForDisplay( m_dYPixelToMicron, VIDEO_CALIB_FACTOR_DISP_DIGITS );
 		//Kojika 20090603 Change
 		//sprintf(szBuff, "%s%G%s%G%s", " 1 Pixel(X) = ", temp_x, "um\n 1 Pixel(Y) = ", temp_y, "um");
-		LoadStringML(IDS_1PIXELX_1PIXELY1, strBuffer, " 1 Pixel(X) = ");
-		LoadStringML(IDS_1PIXELX_1PIXELY2, strBuffer2, "um\n 1 Pixel(Y) = ");
-		LoadStringML(IDS_1PIXELX_1PIXELY3, strBuffer3, "um");
-		sprintf(szBuff, "%s%G%s%G%s", strBuffer, temp_x, strBuffer2, temp_y, strBuffer3);
+	LoadStringML(IDS_1PIXELX_1PIXELY1, strBuffer, " 1 Pixel(X) = ");
+	LoadStringML(IDS_1PIXELX_1PIXELY2, strBuffer2, "um\n 1 Pixel(Y) = ");
+	LoadStringML(IDS_1PIXELX_1PIXELY3, strBuffer3, "um");
+	sprintf(szBuff, "%s%G%s%G%s", (LPCSTR)strBuffer, temp_x, (LPCSTR)strBuffer2, temp_y, (LPCSTR)strBuffer3);
 		//Kojika 20090603 Change End
 	}
 	else
