@@ -8324,14 +8324,14 @@ BOOL CMainFrame::OutputStressLSRawData(LPCTSTR lpszOutputPath,LPCTSTR lpszRecipe
 	char szTo[MAX_PATH+1];
 	if(bRef){
 		sprintf(szTo,"%s\\%s",g_szData_Meas_Dat_Temp_Copy_Dir,STRESS_REFERENCE_NAME);
-		CreateDirectory(szTo,NULL);
-		strBuffer.Format("StressL%dS%dRawData",nLine+1,nSection+1);
-		sprintf(szTo,"%s\\%s\\%s%s",g_szData_Meas_Dat_Temp_Copy_Dir,STRESS_REFERENCE_NAME,strBuffer,DAT_EXT);
+	CreateDirectory(szTo,NULL);
+	strBuffer.Format("StressL%dS%dRawData",nLine+1,nSection+1);
+	sprintf(szTo,"%s\\%s\\%s%s",g_szData_Meas_Dat_Temp_Copy_Dir,STRESS_REFERENCE_NAME,(LPCSTR)strBuffer,DAT_EXT);
 		MoveFileEx(strOutputPath,szTo,MOVEFILE_REPLACE_EXISTING);
 	}else{
-		sprintf(szTo,"%s\\%s",g_szData_Meas_Dat_Temp_Copy_Dir,lpszRecipeName);
-		CreateDirectory(szTo,NULL);
-		sprintf(szTo,"%s\\%s\\%s%s",g_szData_Meas_Dat_Temp_Copy_Dir,lpszRecipeName,"StressRawData",strBuffer,DAT_EXT);
+	sprintf(szTo,"%s\\%s",g_szData_Meas_Dat_Temp_Copy_Dir,lpszRecipeName);
+	CreateDirectory(szTo,NULL);
+	sprintf(szTo,"%s\\%s\\%s%s",g_szData_Meas_Dat_Temp_Copy_Dir,lpszRecipeName,"StressRawData",(LPCSTR)strBuffer,DAT_EXT);
 		MoveFileEx(strOutputPath,szTo,MOVEFILE_REPLACE_EXISTING);
 	}
 	*/
