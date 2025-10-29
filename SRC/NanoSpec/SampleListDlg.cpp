@@ -1,4 +1,4 @@
-// SampleListDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// SampleListDlg.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -34,7 +34,7 @@ int CALLBACK CSampleListDlg::CompareFunc(LPARAM lParam1, LPARAM lParam2, LPARAM 
 
 
 // #########################################################################
-// CSampleListDlg ƒ_ƒCƒAƒƒO
+// CSampleListDlg ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½O
 // #########################################################################
 
 // =========================================================================
@@ -82,7 +82,7 @@ BEGIN_MESSAGE_MAP(CSampleListDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CSampleListDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSampleListDlg ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 
 // =========================================================================
 //
@@ -90,7 +90,7 @@ BOOL CSampleListDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// TODO: ‚±‚ÌˆÊ’u‚É‰Šú‰»‚Ì•â‘«ˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½Éï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì•â‘«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	// 2009.08.26 bagus stress --{--
 	ConfigFile_GetNanoSpecIni(&m_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
@@ -116,7 +116,7 @@ BOOL CSampleListDlg::OnInitDialog()
 	m_DeleteButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_DeleteButton.DrawFlatFocus(TRUE);
 
-	// ƒŠƒXƒgƒRƒ“ƒgƒ[ƒ‹‚Ì‰Šú‰»
+	// ï¿½ï¿½ï¿½Xï¿½gï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½
 	m_lstCtrl.SubclassWindow(GetDlgItem(IDC_SAMPLE_LIST)->GetSafeHwnd());
 	m_lstCtrl.SetViewStyle();
 
@@ -130,8 +130,8 @@ BOOL CSampleListDlg::OnInitDialog()
 		m_lstCtrl.SetItemState(0, LVIS_SELECTED | LVIS_FOCUSED, LVIS_SELECTED | LVIS_FOCUSED);
 	}
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Éƒtï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½İ’è‚µï¿½È‚ï¿½ï¿½Æ‚ï¿½ï¿½Aï¿½ß‚ï¿½lï¿½ï¿½ TRUE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
+					// ï¿½ï¿½O: OCX ï¿½vï¿½ï¿½ï¿½pï¿½eï¿½B ï¿½yï¿½[ï¿½Wï¿½Ì–ß‚ï¿½lï¿½ï¿½ FALSE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
 }
 
 // =========================================================================
@@ -178,16 +178,16 @@ void CSampleListDlg::SampleList_HeaderSet()
 	};
 	// 2009.08.26 bagus stress --}--
 
-/* deleted 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- { ---------- */
+/* deleted 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- { ---------- */
 /*
 //	// Kojika 20090529 Add
 //	  SYSTEM_CONFIG l_SystemConfig;
 //	  ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 //	// Kojika 20090529 Add End
 */
-/* deleted 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- } ---------- */
+/* deleted 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- } ---------- */
 
-/* deleted 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- { ---------- */
+/* deleted 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- { ---------- */
 /*
 //	// Kojika 20090529 Change
 //	  //char* Item[] = {
@@ -199,21 +199,21 @@ void CSampleListDlg::SampleList_HeaderSet()
 //	//	//"Thickness[um]",
 //	//	//"Date",
 //		//"",
-//	  //	"–¼‘O",
-//	  //	"Œ`ó",
-//	  //	"ƒTƒCƒY X[um]",
-//	  //	"ƒTƒCƒY Y[um]",
-//	  //	"–ŒŒú[um]",
-//	  //	"ƒf[ƒ^",
+//	  //	"ï¿½ï¿½ï¿½O",
+//	  //	"ï¿½`ï¿½ï¿½",
+//	  //	"ï¿½Tï¿½Cï¿½Y X[um]",
+//	  //	"ï¿½Tï¿½Cï¿½Y Y[um]",
+//	  //	"ï¿½ï¿½ï¿½ï¿½[um]",
+//	  //	"ï¿½fï¿½[ï¿½^",
 //	  //};
 //	  char* Item_JPN[] = {
 //		  "",
-//		  "–¼‘O",
-//		  "Œ`ó",
-//		  "ƒTƒCƒY X[um]",
-//		  "ƒTƒCƒY Y[um]",
-//		  "–ŒŒú[um]",
-//		  "ƒf[ƒ^",
+//		  "ï¿½ï¿½ï¿½O",
+//		  "ï¿½`ï¿½ï¿½",
+//		  "ï¿½Tï¿½Cï¿½Y X[um]",
+//		  "ï¿½Tï¿½Cï¿½Y Y[um]",
+//		  "ï¿½ï¿½ï¿½ï¿½[um]",
+//		  "ï¿½fï¿½[ï¿½^",
 //	  };
 //	  char* Item_ENU[] = {
 //		"",
@@ -226,7 +226,7 @@ void CSampleListDlg::SampleList_HeaderSet()
 //	  };
 //	// Kojika 20090529 Change End
 */
-/* deleted 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- } ---------- */
+/* deleted 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- } ---------- */
 
 	// 2009.08.26 bagus stress --{--
 	//ItemMax = sizeof(Fmt) / sizeof(Fmt[0]);
@@ -236,7 +236,7 @@ void CSampleListDlg::SampleList_HeaderSet()
 		ItemMax = sizeof(Fmt) / sizeof(Fmt[0]);
 	}
 	// 2009.08.26 bagus stress --}--
-/* added 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- { ---------- */
+/* added 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- { ---------- */
 	CStringArray l_straHdr;
 	l_straHdr.SetSize(ItemMax);
 	l_straHdr.SetAt(0, _T(""));
@@ -254,7 +254,7 @@ void CSampleListDlg::SampleList_HeaderSet()
 		LoadStringML(IDS_LSTHDR_DATE,		l_straHdr.ElementAt(6), _T("Date"));
 	}
 	// 2009.08.26 bagus stress --}--
-/* added 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- } ---------- */
+/* added 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- } ---------- */
 
 	///// List Setting /////
 	listcol.mask = LVCF_TEXT | LVCF_WIDTH | LVCF_FMT;
@@ -272,7 +272,7 @@ void CSampleListDlg::SampleList_HeaderSet()
 		}
 		// 2009.08.26 bagus stress --}--
 
-/* modified 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- { ---------- */
+/* modified 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- { ---------- */
 /*
 //		// Kojika 20090529 Change
 //		  //listcol.pszText = Item[i];
@@ -284,9 +284,9 @@ void CSampleListDlg::SampleList_HeaderSet()
 //		  }
 //		// Kojika 20090529 Change End
 */
-/* modified 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ----------			   */
+/* modified 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ----------			   */
 		listcol.pszText = ((LPTSTR) (LPCTSTR) l_straHdr.GetAt(i));
-/* modified 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- } ---------- */
+/* modified 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- } ---------- */
 		m_lstCtrl.InsertColumn(i,&listcol);
 	}
 }
@@ -311,11 +311,11 @@ void CSampleListDlg::SampleList_DataSet()
 		if(Finder.IsDots())
 			continue;
 
-		// ƒtƒ@ƒCƒ‹–¼‚ğæ“¾
-		sprintf(szName, "%s", Finder.GetFileTitle());
-		// ÅI•ÏX“ú‚ğæ“¾
-		Finder.GetLastWriteTime(time);
-		sprintf(szDate, "%s", time.Format("%Y.%m.%d %H:%M:%S"));
+	// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
+	sprintf(szName, "%s", (LPCSTR)Finder.GetFileTitle());
+	// ï¿½ÅIï¿½ÏXï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
+	Finder.GetLastWriteTime(time);
+	sprintf(szDate, "%s", (LPCSTR)time.Format("%Y.%m.%d %H:%M:%S"));
 
 		// 2009.08.26 bagus stress --{--
 		//if ( RecipeFile_LoadRecipe(&SampleInfo, szName, RECIPE_FILE_SAMPLE) )
@@ -459,16 +459,16 @@ void CSampleListDlg::OnDeleteButton()
 	CString l_strBuffer;
 	// Kojika 20090529 Add End
 
-	// ‘I‘ğ‚³‚ê‚Ä‚¢‚È‚¢ê‡‚Í‰½‚à‚µ‚È‚¢
+	// ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½ï¿½ê‡ï¿½Í‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 	if ( iSelIndex == -1 )
 		return;
 
 	m_lstCtrl.GetItemText(iSelIndex, 1, szName, sizeof(szName));
 	// Kojika 20090529 Change
 	//sprintf(szMessage, "Do you want to Delete \"%s\"?", szName);
-	//sprintf(szMessage, "\"%s\"‚ğíœ‚µ‚Ü‚·‚©?", szName);
+	//sprintf(szMessage, "\"%s\"ï¿½ï¿½ï¿½íœï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½?", szName);
 	LoadStringML(IDS_DELETE_SAMPLE_LIST, l_strBuffer, "Do you want to Delete ""%s""?");
-	sprintf(szMessage, l_strBuffer, szName);
+	sprintf(szMessage, (LPCSTR)l_strBuffer, szName);
 	//if ( MessageBox(szMessage, "SAMPLE LIST", MB_OKCANCEL | MB_ICONWARNING | MB_DEFBUTTON2) == IDCANCEL )
 	LoadStringML(IDS_TITLE_SAMPLE_LIST, l_strBuffer, "SAMPLE LIST");
 	if ( MessageBox(szMessage, l_strBuffer, MB_OKCANCEL | MB_ICONWARNING | MB_DEFBUTTON2) == IDCANCEL )
@@ -521,7 +521,7 @@ void CSampleListDlg::EditSample(BOOL bNew)
 	if(!bNew && iSelIndex == -1){
 		// Kojika 20090529 Change
 		//MessageBox("Please Select Sample", "SAMPLE LIST", MB_OK|MB_ICONSTOP);
-		//MessageBox("ƒTƒ“ƒvƒ‹‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢", "SAMPLE LIST", MB_OK|MB_ICONSTOP);
+		//MessageBox("ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "SAMPLE LIST", MB_OK|MB_ICONSTOP);
 		LoadStringML(IDS_SELECT_SAMPLE, l_strBuffer, "Please Select Sample");
 		LoadStringML(IDS_TITLE_SAMPLE_LIST, l_strBuffer, "SAMPLE LIST");
 		// Kojika 20090529 Change End
@@ -577,7 +577,7 @@ void CSampleListDlg::RenumberItem()
 		listitem.iItem = i;
 		listitem.iSubItem = 0;
 		listitem.mask = LVIF_PARAM;
-		listitem.lParam = i;			// ‚±‚±‚Å”Ô†‚ğƒAƒCƒeƒ€‚Éw’è‚·‚é
+		listitem.lParam = i;			// ï¿½ï¿½ï¿½ï¿½ï¿½Å”Ôï¿½ï¿½ï¿½ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½Éwï¿½è‚·ï¿½ï¿½
 		m_lstCtrl.SetItem(&listitem);
 	}
 }
