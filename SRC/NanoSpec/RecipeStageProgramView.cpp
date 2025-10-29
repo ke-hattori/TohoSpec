@@ -371,8 +371,8 @@ void CRecipeStageProgramView::OnDispositionButton()
 // Kojika 20090527 Change
 		//sprintf(szBuff, "The Maximum Number which can be Registered is %d.", SCAN_POINT_MAX);
 		//sprintf(szBuff, "���͂ł���ő吔�� %d �ł�", SCAN_POINT_MAX);
-		LoadStringML(IDS_MAX_NUM_REGISTER, l_strBuffer, "The Maximum Number which can be Registered is %d.");
-		sprintf(szBuff, l_strBuffer, SCAN_POINT_MAX);
+	LoadStringML(IDS_MAX_NUM_REGISTER, l_strBuffer, "The Maximum Number which can be Registered is %d.");
+	sprintf(szBuff, (LPCSTR)l_strBuffer, SCAN_POINT_MAX);
 // Kojika 20090527 Change End
 		MessageBox(szBuff, m_strCaption, MB_OK|MB_ICONSTOP);
 		return;
@@ -540,8 +540,8 @@ void CRecipeStageProgramView::OnTeachingButton()
 // Kojika 20090527 Change
 		//sprintf(szBuff, "The Maximum Number which can be Registered is %d.", SCAN_POINT_MAX);
 		//sprintf(szBuff, "���͂ł���ő吔�� %d �ł�", SCAN_POINT_MAX);
-		LoadStringML(IDS_MAX_NUM_REGISTER, l_strBuffer, "The Maximum Number which can be Registered is %d.");
-		sprintf(szBuff, l_strBuffer, SCAN_POINT_MAX);
+	LoadStringML(IDS_MAX_NUM_REGISTER, l_strBuffer, "The Maximum Number which can be Registered is %d.");
+	sprintf(szBuff, (LPCSTR)l_strBuffer, SCAN_POINT_MAX);
 // Kojika 20090527 Change End
 		MessageBox(szBuff, m_strCaption, MB_OK | MB_ICONSTOP);
 		return;
@@ -702,8 +702,8 @@ void CRecipeStageProgramView::OnAddButton()
 // Kojika 20090527 Change
 		//sprintf(szBuff, "The Maximum Number which can be Registered is %d.", SCAN_POINT_MAX);
 		//sprintf(szBuff, "���͂ł���ő吔�� %d �ł�", SCAN_POINT_MAX);
-		LoadStringML(IDS_MAX_NUM_REGISTER, l_strBuffer, "The Maximum Number which can be Registered is %d.");
-		sprintf(szBuff, l_strBuffer, SCAN_POINT_MAX);
+	LoadStringML(IDS_MAX_NUM_REGISTER, l_strBuffer, "The Maximum Number which can be Registered is %d.");
+	sprintf(szBuff, (LPCSTR)l_strBuffer, SCAN_POINT_MAX);
 // Kojika 20090527 Change End
 		MessageBox(szBuff, m_strCaption, MB_OK | MB_ICONSTOP);
 		return;
@@ -862,7 +862,7 @@ void CRecipeStageProgramView::OnDeleteButton()
 	//sprintf(szBuff, "%s%d%s", "No.", iRow, " �̃|�C���g�f�[�^���폜���܂���d?");
 	LoadStringML(IDS_POINT_DATA_NO, strBuffer1, "Is the Point Data of No. ");
 	LoadStringML(IDS_DELETE_POINT_DATA, strBuffer2, " deleted?");
-	sprintf(szBuff, "%s%d%s", strBuffer1, iRow, strBuffer2);
+	sprintf(szBuff, "%s%d%s", (LPCSTR)strBuffer1, iRow, (LPCSTR)strBuffer2);
 	//Saiki 20090528 Change <-----
 	if( MessageBox(szBuff, m_strCaption, MB_YESNO | MB_ICONQUESTION) !=IDYES ) {
 		return;
@@ -1535,8 +1535,8 @@ BOOL CRecipeStageProgramView::CheckData()
 			//sprintf(szBuff, "POINT = %d : X coordinate is out of limit.", i + 1);
 			//Saiki 20090528 Change ----->
 			//sprintf(szBuff, "�|�C���g = %d : X ���W���͈͊O�ł�", i + 1);
-			LoadStringML(IDS_X_COORDINATE_OUT_LIMIT, strBuffer, "POINT = %d : X coordinate is out of limit.");
-			sprintf(szBuff, strBuffer, i + 1);
+		LoadStringML(IDS_X_COORDINATE_OUT_LIMIT, strBuffer, "POINT = %d : X coordinate is out of limit.");
+		sprintf(szBuff, (LPCSTR)strBuffer, i + 1);
 			//Saiki 20090528 Change <-----
 			MessageBox(szBuff, m_strCaption, MB_OK | MB_ICONSTOP);
 			return FALSE;
@@ -1548,8 +1548,8 @@ BOOL CRecipeStageProgramView::CheckData()
 			//sprintf(szBuff, "POINT = %d : Y coordinate is out of limit.", i + 1);
 			//Saiki 20090528 Change ----->
 			//sprintf(szBuff, "�|�C���g = %d : Y ���W���͈͊O�ł�", i + 1);
-			LoadStringML(IDS_Y_COORDINATE_OUT_LIMIT, strBuffer, "POINT = %d : Y coordinate is out of limit.");
-			sprintf(szBuff, strBuffer, i + 1);
+		LoadStringML(IDS_Y_COORDINATE_OUT_LIMIT, strBuffer, "POINT = %d : Y coordinate is out of limit.");
+		sprintf(szBuff, (LPCSTR)strBuffer, i + 1);
 			//Saiki 20090528 Change <-----
 			MessageBox(szBuff, m_strCaption, MB_OK | MB_ICONSTOP);
 			return FALSE;
