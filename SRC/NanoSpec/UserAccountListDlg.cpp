@@ -1,4 +1,4 @@
-// UserAccountListDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// UserAccountListDlg.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -17,7 +17,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // #########################################################################
-// CUserAccountListDlg ƒ_ƒCƒAƒƒO
+// CUserAccountListDlg ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½O
 // #########################################################################
 
 // =========================================================================
@@ -66,7 +66,7 @@ BEGIN_MESSAGE_MAP(CUserAccountListDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CUserAccountListDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CUserAccountListDlg ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 
 // =========================================================================
 //
@@ -74,7 +74,7 @@ BOOL CUserAccountListDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// TODO: ‚±‚ÌˆÊ’u‚É‰Šú‰»‚Ì•â‘«ˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½Éï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì•â‘«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	///// OK Button /////
 	m_OkButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
@@ -108,18 +108,18 @@ BOOL CUserAccountListDlg::OnInitDialog()
 	m_stcUserName.SubclassWindow(GetDlgItem(IDC_AUTO_LOGON_NAME)->GetSafeHwnd());
 	m_stcUserName.SetBkColor(WATER_COLOR);
 
-	// ƒŠƒXƒgƒRƒ“ƒgƒ[ƒ‹‚Ì‰Šú‰»
+	// ï¿½ï¿½ï¿½Xï¿½gï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½
 	m_lstCtrl.SubclassWindow(GetDlgItem(IDC_USER_ACCOUNT_LIST)->GetSafeHwnd());
 	m_lstCtrl.SetViewStyle();
 
 	UserAccountList_HeaderSet();
 	UserAccountList_DataSet();
 
-	// Auto Logon‚Ì‰Šú‰»
+	// Auto Logonï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½
 	AutoLogon_Init();
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Éƒtï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½İ’è‚µï¿½È‚ï¿½ï¿½Æ‚ï¿½ï¿½Aï¿½ß‚ï¿½lï¿½ï¿½ TRUE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
+					// ï¿½ï¿½O: OCX ï¿½vï¿½ï¿½ï¿½pï¿½eï¿½B ï¿½yï¿½[ï¿½Wï¿½Ì–ß‚ï¿½lï¿½ï¿½ FALSE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
 }
 
 // =========================================================================
@@ -164,15 +164,15 @@ void CUserAccountListDlg::UserAccountList_HeaderSet()
 	//	//"Access Level",
 	//	//"Date",
 		//"",
-	//	  "–¼‘O",
-	//	  "ƒAƒJƒEƒ“ƒgƒŒƒxƒ‹",
-	//	  "“ú•t",
+	//	  "ï¿½ï¿½ï¿½O",
+	//	  "ï¿½Aï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½ï¿½ï¿½xï¿½ï¿½",
+	//	  "ï¿½ï¿½ï¿½t",
 	//};
 	LPTSTR pszItem_JPN[] = {
 		"",
-		"–¼‘O",
-		"ƒAƒJƒEƒ“ƒgƒŒƒxƒ‹",
-		"“ú•t",
+		"ï¿½ï¿½ï¿½O",
+		"ï¿½Aï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½ï¿½ï¿½xï¿½ï¿½",
+		"ï¿½ï¿½ï¿½t",
 	};
 	LPTSTR pszItem_ENU[] = {
 		"",
@@ -226,9 +226,9 @@ void CUserAccountListDlg::UserAccountList_DataSet()
 		::ZeroMemory(&UserAccount, sizeof(UserAccount));
 		::ZeroMemory(szName, sizeof(szName));
 
-		// ƒtƒ@ƒCƒ‹–¼‚ğæ“¾
+		// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
 		sprintf(szName, "%s", Finder.GetFileTitle());
-		// ÅI•ÏX“ú‚ğæ“¾
+		// ï¿½ÅIï¿½ÏXï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
 		Finder.GetLastWriteTime(time);
 		strcpy(szDate, time.Format("%Y.%m.%d %H:%M:%S"));
 
@@ -332,16 +332,16 @@ void CUserAccountListDlg::OnDeleteButton()
 
 	///// Get Select User Name /////
 	iSelect = m_lstCtrl.GetSelectionMark();
-	// ‘I‘ğ‚³‚ê‚Ä‚¢‚È‚¢ê‡‚Í‰½‚à‚µ‚È‚¢
+	// ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½ï¿½ê‡ï¿½Í‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 	if ( iSelect == -1 )
 		return;
 
 	m_lstCtrl.GetItemText(iSelect, 1, szName, sizeof(szName));
 	// Kojika 20090529 Change
 	//sprintf(szMessage, "Do you want to Delete \"%s\"", szName);
-	//sprintf(szMessage, "\"%s\"‚ğíœ‚µ‚Ü‚·‚©", szName);
+	//sprintf(szMessage, "\"%s\"ï¿½ï¿½ï¿½íœï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½", szName);
 	LoadStringML(IDS_DELETE_ACCOUNT_LIST, l_strBuffer, "Do you want to Delete ""%s""");
-	sprintf(szMessage, l_strBuffer, szName);
+	sprintf(szMessage, (LPCSTR)l_strBuffer, szName);
 	//if ( MessageBox(szMessage, "USER ACCOUNT LIST", MB_OKCANCEL | MB_ICONWARNING | MB_DEFBUTTON2) == IDCANCEL )
 	LoadStringML(IDS_TITLE_USER_ACCOUNT_LIST, l_strBuffer, "USER ACCOUNT LIST");
 	if ( MessageBox(szMessage, l_strBuffer, MB_OKCANCEL | MB_ICONWARNING | MB_DEFBUTTON2) == IDCANCEL )
@@ -371,7 +371,7 @@ void CUserAccountListDlg::OnSetButton()
 
 	iSelect = m_lstCtrl.GetSelectionMark();
 
-	// ‘I‘ğ‚³‚ê‚Ä‚¢‚È‚¢ê‡‚Í‰½‚à‚µ‚È‚¢
+	// ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½ï¿½ê‡ï¿½Í‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 	if ( iSelect == -1 )
 		return;
 
@@ -398,17 +398,17 @@ void CUserAccountListDlg::EditUserAccount(BOOL bNew)
 	CString l_strBuffer, l_strTitle;
 // Kojika 20090529 Add End
 
-	// €–Ú‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚È‚¢ê‡CƒƒbƒZ[ƒW‚ğ•\¦
+	// ï¿½ï¿½ï¿½Ú‚ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½ï¿½ê‡ï¿½Cï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½\ï¿½ï¿½
 	if ( !bNew && iSelect == -1 ) {
 		//MessageBox("Please Select User", "USER ACCOUNT LIST", MB_OK | MB_ICONSTOP);
-		//MessageBox("ƒ†[ƒU‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢", "USER ACCOUNT LIST", MB_OK | MB_ICONSTOP);
+		//MessageBox("ï¿½ï¿½ï¿½[ï¿½Uï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "USER ACCOUNT LIST", MB_OK | MB_ICONSTOP);
 		LoadStringML(IDS_SELECT_USER, l_strBuffer, "Please Select User");
 		LoadStringML(IDS_TITLE_USER_ACCOUNT_LIST, l_strTitle, "USER ACCOUNT LIST");
 		MessageBox(l_strBuffer, l_strTitle, MB_OK | MB_ICONSTOP);
 		return;
 	}
 
-	// –¼‘O‚ğ“Ç‚İ‚Ş
+	// ï¿½ï¿½ï¿½Oï¿½ï¿½Ç‚İï¿½ï¿½ï¿½
 	m_lstCtrl.GetItemText(iSelect, 1, szName, sizeof(szName));
 
 	CUserAccountSettingDlg dlg(bNew, szName);
