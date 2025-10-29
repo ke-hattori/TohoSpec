@@ -1,4 +1,4 @@
-// RecipeMeasurementProgramListView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// RecipeMeasurementProgramListView.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -47,18 +47,18 @@ void CRecipeMeasurementProgramListView::List_HeaderSet()
 	LV_COLUMN listcol;
 	DWORD dwStyle = 0;
 	int ItemMax;
-/* deleted 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- { ---------- */
+/* deleted 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- { ---------- */
 /*
 //	  //Saiki 20090527 Add ----->
 //	  SYSTEM_CONFIG l_SystemConfig;
 //	  ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 //	  //Saiki 20090527 Add <-----
 */
-/* deleted 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- } ---------- */
+/* deleted 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- } ---------- */
 
 	int Fmt[] = { LVCFMT_LEFT, LVCFMT_LEFT, LVCFMT_CENTER, LVCFMT_CENTER, LVCFMT_CENTER, LVCFMT_LEFT };
 
-// 2009.11.17 bagus RS C³ --{--
+// 2009.11.17 bagus RS ï¿½Cï¿½ï¿½ --{--
 #if 0
 	int Width[] = {
 		0,		// (0) Index
@@ -82,9 +82,9 @@ void CRecipeMeasurementProgramListView::List_HeaderSet()
 		400,	// (5) Comment
 	};
 #endif
-// 2009.11.17 bagus RS C³ --}--
+// 2009.11.17 bagus RS ï¿½Cï¿½ï¿½ --}--
 
-/* deleted 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- { ---------- */
+/* deleted 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- { ---------- */
 /*
 //	  //Saiki 20090527 Change ----->
 ////	char* Item[] = {
@@ -95,11 +95,11 @@ void CRecipeMeasurementProgramListView::List_HeaderSet()
 //////		"Date",
 //////		"Comment"
 ////	  "",
-////		"–¼‘O",
-////		"ƒwƒbƒh",
-////		"‘ª’èí•Ê",
-////		"ƒf[ƒ^",
-////		"ƒRƒƒ“ƒg"
+////		"ï¿½ï¿½ï¿½O",
+////		"ï¿½wï¿½bï¿½h",
+////		"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",
+////		"ï¿½fï¿½[ï¿½^",
+////		"ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½g"
 ////	};
 //	  char* Item_ENU[] = {
 //		"",
@@ -111,18 +111,18 @@ void CRecipeMeasurementProgramListView::List_HeaderSet()
 //	  };
 //	  char* Item_JPN[] = {
 //		  "",
-//		  "–¼‘O",
-//		  "ƒwƒbƒh",
-//		  "‘ª’èí•Ê",
-//		  "ƒf[ƒ^",
-//		  "ƒRƒƒ“ƒg"
+//		  "ï¿½ï¿½ï¿½O",
+//		  "ï¿½wï¿½bï¿½h",
+//		  "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",
+//		  "ï¿½fï¿½[ï¿½^",
+//		  "ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½g"
 //	  };
 //	  //Saiki 20090527 Change <-----
 */
-/* deleted 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- } ---------- */
+/* deleted 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- } ---------- */
 
 	ItemMax = sizeof(Fmt) / sizeof(Fmt[0]);
-/* added 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- { ---------- */
+/* added 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- { ---------- */
 	CStringArray l_straHdr;
 	l_straHdr.SetSize(ItemMax);
 	l_straHdr.SetAt(0, _T(""));
@@ -131,7 +131,7 @@ void CRecipeMeasurementProgramListView::List_HeaderSet()
 	LoadStringML(IDS_LSTHDR_MEASITEM,	l_straHdr.ElementAt(3), _T("Meas Item"));
 	LoadStringML(IDS_LSTHDR_DATE,		l_straHdr.ElementAt(4), _T("Date"));
 	LoadStringML(IDS_LSTHDR_COMMENT,	l_straHdr.ElementAt(5), _T("Comment"));
-/* added 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- } ---------- */
+/* added 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- } ---------- */
 
 	///// List Setting /////
 	listcol.mask = LVCF_TEXT | LVCF_WIDTH | LVCF_FMT;
@@ -139,7 +139,7 @@ void CRecipeMeasurementProgramListView::List_HeaderSet()
 	for(int i = 0 ; i < ItemMax ; i++){
 		listcol.fmt = Fmt[i];
 		listcol.cx = Width[i];
-/* modified 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- { ---------- */
+/* modified 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- { ---------- */
 /*
 //		  //Saiki 20090527 Change ----->
 //		  //listcol.pszText = Item[i];
@@ -151,9 +151,9 @@ void CRecipeMeasurementProgramListView::List_HeaderSet()
 //		  }
 //		  //Saiki 20090527 Change <-----
 */
-/* modified 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ----------			   */
+/* modified 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ----------			   */
 		listcol.pszText = ((LPTSTR) (LPCTSTR) l_straHdr.GetAt(i));
-/* modified 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- } ---------- */
+/* modified 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- } ---------- */
 		CNanoListUI::rfListCtrl().InsertColumn(i,&listcol);
 	}
 }
@@ -170,9 +170,9 @@ void CRecipeMeasurementProgramListView::List_DataSet()
 	BOOL bLoop;
 	CTime time;
 	MEAS_PROG_INFO MeasProgInfo;
-/* added 2016.08.11 hmenjo Å‘åƒŒƒVƒs”§ŒÀ ---------- { ---------- */
+/* added 2016.08.11 hmenjo ï¿½Å‘åƒŒï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
 	DWORD l_dwDataCount = 0;
-/* added 2016.08.11 hmenjo Å‘åƒŒƒVƒs”§ŒÀ ---------- } ---------- */
+/* added 2016.08.11 hmenjo ï¿½Å‘åƒŒï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
 
 	CNanoListUI::rfListCtrl().DeleteAllItems();
 	sprintf(szDirPath, "%s*%s", g_szDb_Measurement_Program_Dir, MEASUREMENTPGM_EXT);
@@ -183,25 +183,25 @@ void CRecipeMeasurementProgramListView::List_DataSet()
 			continue;
 
 		memset(&MeasProgInfo, 0, sizeof(MeasProgInfo));
-		// ƒtƒ@ƒCƒ‹–¼‚ğæ“¾
-		strBuffer = Finder.GetFileTitle();
-		if ( strBuffer[0] == SYSTEM_RECIPE_BEGINNING_CHAR )
-			continue;
-		sprintf(szName, "%s", strBuffer);
-		// ÅI•ÏX“ú‚ğæ“¾
-		Finder.GetLastWriteTime(time);
-		sprintf(szDate, "%s", time.Format("%Y.%m.%d %H:%M:%S"));
+		// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
+	strBuffer = Finder.GetFileTitle();
+	if ( strBuffer[0] == SYSTEM_RECIPE_BEGINNING_CHAR )
+		continue;
+	sprintf(szName, "%s", (LPCSTR)strBuffer);
+	// ï¿½ÅIï¿½ÏXï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
+	Finder.GetLastWriteTime(time);
+	sprintf(szDate, "%s", (LPCSTR)time.Format("%Y.%m.%d %H:%M:%S"));
 
 		if(RecipeFile_LoadRecipe(&MeasProgInfo, szName, RECIPE_FILE_MEASUREMENT_PROGRAM)){
 			List_Add(szName, (int)MeasProgInfo.ScanParams.hdr.wHeadType,
 				(int)MeasProgInfo.ScanParams.hdr.wScanType, szDate, MeasProgInfo.hdr.szComment);
 		}
-/* added 2016.08.11 hmenjo Å‘åƒŒƒVƒs”§ŒÀ ---------- { ---------- */
+/* added 2016.08.11 hmenjo ï¿½Å‘åƒŒï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
 		l_dwDataCount++;
 		if (RCP_PGM_NUM_MAX <= l_dwDataCount) {
 			break;
 		}
-/* added 2016.08.11 hmenjo Å‘åƒŒƒVƒs”§ŒÀ ---------- } ---------- */
+/* added 2016.08.11 hmenjo ï¿½Å‘åƒŒï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
 	}
 }
 
@@ -312,11 +312,11 @@ void CRecipeMeasurementProgramListView::RecipeEntry(BOOL bNew)
 			pMainFrame->ChangeExeWnd(RECIPE_MEAS_SR_REFLECTANCE_WND);
 			break;
 		case MEAS_PROG_TYPE_SR_TRANSMITTANCE:
-// 2009.10.27 bagus Gantry ’Ç‰ÁC³ --{--
+// 2009.10.27 bagus Gantry ï¿½Ç‰ï¿½ï¿½Cï¿½ï¿½ --{--
 // 2010.01.07 bagus Gantry --{--
 //		case MEAS_PROG_TYPE_SR_TRANSMITTANCE_G:
 // 2010.01.07 bagus Gantry --}--
-// 2009.10.27 bagus Gantry ’Ç‰ÁC³ --}--
+// 2009.10.27 bagus Gantry ï¿½Ç‰ï¿½ï¿½Cï¿½ï¿½ --}--
 			pMainFrame->ChangeExeWnd(RECIPE_MEAS_SR_TRANSMITTANCE_WND);
 			break;
 // 2010.01.07 bagus Gantry --{--
@@ -333,11 +333,11 @@ void CRecipeMeasurementProgramListView::RecipeEntry(BOOL bNew)
 		case MEAS_PROG_TYPE_SR_OPTICAL_DENSITY:
 			pMainFrame->ChangeExeWnd(RECIPE_MEAS_SR_OD_WND);
 			break;
-// 2009.10.13 bagus Distance ’Ç‰Á --{--
+// 2009.10.13 bagus Distance ï¿½Ç‰ï¿½ --{--
 		case MEAS_PROG_TYPE_SR_DISTANCE:
 			pMainFrame->ChangeExeWnd(RECIPE_MEAS_SR_DISTANCE_WND);
 			break;
-// 2009.10.13 bagus Distance ’Ç‰Á --}--
+// 2009.10.13 bagus Distance ï¿½Ç‰ï¿½ --}--
 		}
 		break;
 	case HEAD_TYPE_SE:
@@ -347,7 +347,7 @@ void CRecipeMeasurementProgramListView::RecipeEntry(BOOL bNew)
 			break;
 		}
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 	case HEAD_TYPE_COMPEASE:
 		switch(iMeasType){
 		case MEAS_PROG_TYPE_COMPEASE_THICKNESS:
@@ -355,9 +355,9 @@ void CRecipeMeasurementProgramListView::RecipeEntry(BOOL bNew)
 			break;
 		}
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
 
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --{--
 #if 0
 	case HEAD_TYPE_IRSE:
 		break;
@@ -370,7 +370,7 @@ void CRecipeMeasurementProgramListView::RecipeEntry(BOOL bNew)
 		}
 		break;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --}--
 	case HEAD_TYPE_4PP:
 		switch(iMeasType){
 		case MEAS_PROG_TYPE_4PP_MEAS:
@@ -379,13 +379,13 @@ void CRecipeMeasurementProgramListView::RecipeEntry(BOOL bNew)
 		}
 		break;
 	case HEAD_TYPE_CTA:
-// 2009.10.07 bagus CTA ’Ç‰Á --{--
+// 2009.10.07 bagus CTA ï¿½Ç‰ï¿½ --{--
 		switch(iMeasType){
 		case MEAS_PROG_TYPE_CTA_MEAS:
 			pMainFrame->ChangeExeWnd(RECIPE_MEAS_CTA_WND);
 			break;
 		}
-// 2009.10.07 bagus CTA ’Ç‰Á --}--
+// 2009.10.07 bagus CTA ï¿½Ç‰ï¿½ --}--
 		break;
 	case HEAD_TYPE_STRESS:
 		switch(iMeasType){
