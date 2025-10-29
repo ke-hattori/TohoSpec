@@ -412,10 +412,10 @@ void CRecipeMainSrView::OnInitialUpdate()
 		GetDlgItem(IDC_RECALIB_3_HEAD_STATIC)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_RECALIB_2_HEAD_TYPE)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_RECALIB_3_HEAD_TYPE)->ShowWindow(SW_HIDE);
-		m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_2] = 0;
-		m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_3] = 0;
-		sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_2], "%s", strBuf);
-		sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_3], "%s", strBuf);
+	m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_2] = 0;
+	m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_3] = 0;
+	sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_2], "%s", (LPCSTR)strBuf);
+	sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_3], "%s", (LPCSTR)strBuf);
 		GetDlgItem(IDC_SAMPLE_ID)->EnableWindow(FALSE);
 		GetDlgItem(IDC_MEASUREMENT_RESULT_SAVE_WITH_DATE)->EnableWindow(FALSE);
 		m_MainRcpInfo.MainRcpParam.hdr.bSampleID = TRUE;
@@ -448,8 +448,8 @@ void CRecipeMainSrView::OnInitialUpdate()
 		GetDlgItem(IDC_RECALIBRATION_3)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_RECALIB_3_HEAD_STATIC)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_RECALIB_3_HEAD_TYPE)->ShowWindow(SW_HIDE);
-		m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_3] = 0;
-		sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_3], "%s", strBuf);
+	m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_3] = 0;
+	sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_3], "%s", (LPCSTR)strBuf);
 // 2009.10.28 bagus CTA �ǉ��C�� --}--
 //2009.12.01 bagus CTA �C�� --{--
 // �T���v��ID���g�p�����K���`�F�b�N����B���ύX�s��
@@ -499,9 +499,9 @@ void CRecipeMainSrView::OnInitialUpdate()
 		m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_1] = 0;
 		m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_2] = 0;
 		m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_3] = 0;
-		sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_1], "%s", strBuf);
-		sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_2], "%s", strBuf);
-		sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_3], "%s", strBuf);
+	sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_1], "%s", (LPCSTR)strBuf);
+	sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_2], "%s", (LPCSTR)strBuf);
+	sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_3], "%s", (LPCSTR)strBuf);
 		m_MainRcpInfo.MainRcpParam._SR.nFocus = 0;
 		m_MainRcpInfo.MainRcpParam._SR.nAutoFocusFailOption = 0;
 		m_MainRcpInfo.MainRcpParam._SR.nFinalFocusFailDataValidOption = 0;
@@ -543,9 +543,9 @@ void CRecipeMainSrView::OnInitialUpdate()
 		m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_1] = 0;
 		m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_2] = 0;
 		m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_3] = 0;
-		sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_1], "%s", strBuf);
-		sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_2], "%s", strBuf);
-		sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_3], "%s", strBuf);
+	sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_1], "%s", (LPCSTR)strBuf);
+	sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_2], "%s", (LPCSTR)strBuf);
+	sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_3], "%s", (LPCSTR)strBuf);
 		m_MainRcpInfo.MainRcpParam._SR.nFocus = 0;
 		m_MainRcpInfo.MainRcpParam._SR.nAutoFocusFailOption = 0;
 		m_MainRcpInfo.MainRcpParam._SR.nFinalFocusFailDataValidOption = 0;
