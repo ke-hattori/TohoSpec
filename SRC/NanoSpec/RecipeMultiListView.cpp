@@ -1,4 +1,4 @@
-// RecipeMultiListView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// RecipeMultiListView.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -87,9 +87,9 @@ void CRecipeMultiListView::List_DataSet()
 	BOOL bLoop;
 	CTime time;
 	MULTI_RCP_INFO_HDR MultiRcpInfoHdr;
-/* added 2016.08.11 hmenjo Å‘åƒŒƒVƒs”§ŒÀ ---------- { ---------- */
+/* added 2016.08.11 hmenjo ï¿½Å‘åƒŒï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
 	DWORD l_dwDataCount = 0;
-/* added 2016.08.11 hmenjo Å‘åƒŒƒVƒs”§ŒÀ ---------- } ---------- */
+/* added 2016.08.11 hmenjo ï¿½Å‘åƒŒï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
 
 	CNanoListUI::rfListCtrl().DeleteAllItems();
 	sprintf(szDirPath, "%s*%s", g_szDb_Multi_Recipe_Dir, MULTIRECIPE_EXT);
@@ -100,24 +100,24 @@ void CRecipeMultiListView::List_DataSet()
 			continue;
 
 		memset(&MultiRcpInfoHdr, 0, sizeof(MultiRcpInfoHdr));
-		// ƒtƒ@ƒCƒ‹–¼‚ğæ“¾
-		strBuffer = Finder.GetFileTitle();
-		if ( strBuffer[0] == SYSTEM_RECIPE_BEGINNING_CHAR )
-			continue;
-		sprintf(szName, "%s", strBuffer);
-		// ÅI•ÏX“ú‚ğæ“¾
-		Finder.GetLastWriteTime(time);
-		sprintf(szDate, "%s", time.Format("%Y.%m.%d %H:%M:%S"));
+		// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
+	strBuffer = Finder.GetFileTitle();
+	if ( strBuffer[0] == SYSTEM_RECIPE_BEGINNING_CHAR )
+		continue;
+	sprintf(szName, "%s", (LPCSTR)strBuffer);
+	// ï¿½ÅIï¿½ÏXï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
+	Finder.GetLastWriteTime(time);
+	sprintf(szDate, "%s", (LPCSTR)time.Format("%Y.%m.%d %H:%M:%S"));
 
 		if(RecipeFile_LoadRecipe(&MultiRcpInfoHdr, szName, RECIPE_FILE_MULTI_RECIPE)){
 			List_Add(szName, szDate, MultiRcpInfoHdr.hdr.szComment);
 		}
-/* added 2016.08.11 hmenjo Å‘åƒŒƒVƒs”§ŒÀ ---------- { ---------- */
+/* added 2016.08.11 hmenjo ï¿½Å‘åƒŒï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
 		l_dwDataCount++;
 		if (RCP_PGM_NUM_MAX <= l_dwDataCount) {
 			break;
 		}
-/* added 2016.08.11 hmenjo Å‘åƒŒƒVƒs”§ŒÀ ---------- } ---------- */
+/* added 2016.08.11 hmenjo ï¿½Å‘åƒŒï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
 	}
 }
 
