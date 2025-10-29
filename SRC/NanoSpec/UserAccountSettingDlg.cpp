@@ -1,4 +1,4 @@
-// UserAccountSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// UserAccountSettingDlg.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -17,7 +17,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CUserAccountSettingDlg ƒ_ƒCƒAƒƒO                                       //
+// CUserAccountSettingDlg ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½O                                       //
 //                                                                         //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -63,22 +63,22 @@ BEGIN_MESSAGE_MAP(CUserAccountSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CUserAccountSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CUserAccountSettingDlg ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 
 /////////////////////////////////////////////////////////////////////////////
 //
 BOOL CUserAccountSettingDlg::OnInitDialog()
 {
 	//// Load Data /////
-	ConfigFile_GetNanoSpecIni(m_AccessLevel, CONFIG_FILE_ACCESS_LEVEL); 	// ƒAƒNƒZƒXƒŒƒxƒ‹‚ÍQÆî•ñ‚Æ‚µ‚Äg—p‚·‚éiXV‚È‚µj
+	ConfigFile_GetNanoSpecIni(m_AccessLevel, CONFIG_FILE_ACCESS_LEVEL); 	// ï¿½Aï¿½Nï¿½Zï¿½Xï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ÍQï¿½Æï¿½ï¿½Æ‚ï¿½ï¿½Ägï¿½pï¿½ï¿½ï¿½ï¿½iï¿½Xï¿½Vï¿½È‚ï¿½ï¿½j
 
 	///// Read User Acount /////
-	// V‹Kì¬
+	// ï¿½Vï¿½Kï¿½ì¬
 	if(m_bNew){
 		m_UserAccount.nAccountLevel = ACCOUNT_LEVEL_ADMINISTRATOR;
 	}
 
-	// •ÏX
+	// ï¿½ÏX
 	else{
 		if(!RecipeFile_LoadRecipe(&m_UserAccount, m_UserAccount.szName, RECIPE_FILE_USER_ACCOUNT)){
 			m_bNew = TRUE;
@@ -107,13 +107,13 @@ BOOL CUserAccountSettingDlg::OnInitDialog()
 	///// Control Initialize /////
 	InitCombo_AccountLevel();
 
-	// ƒRƒƒ“ƒg•¶š”§ŒÀ
+	// ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	((CEdit*)GetDlgItem(IDC_USER_NAME))->SetLimitText(/*RECIPE_NAME_LEN*/USER_NAME_LEN);
 	((CEdit*)GetDlgItem(IDC_PASSWORD))->SetLimitText(PASSWORD_LEN);
 	((CEdit*)GetDlgItem(IDC_CONFIRM_PASSWORD))->SetLimitText(PASSWORD_LEN);
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Éƒtï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½İ’è‚µï¿½È‚ï¿½ï¿½Æ‚ï¿½ï¿½Aï¿½ß‚ï¿½lï¿½ï¿½ TRUE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
+					// ï¿½ï¿½O: OCX ï¿½vï¿½ï¿½ï¿½pï¿½eï¿½B ï¿½yï¿½[ï¿½Wï¿½Ì–ß‚ï¿½lï¿½ï¿½ FALSE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -188,7 +188,7 @@ BOOL CUserAccountSettingDlg::CheckData()
 	if ( strcmp(m_UserAccount.szName, "TOHO") == 0 ) {
 		// Kojika 20090529 Change
 		//MessageBox("This name cannot be entered. Please enter a different name", "USER ACCOUNT SETTING", MB_OK|MB_ICONSTOP);
-		//MessageBox("‚±‚Ì–¼‘O‚Í“ü—Í‚Å‚«‚Ü‚¹‚ñ. ˆá‚¤–¼‘O‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢", "USER ACCOUNT SETTING", MB_OK|MB_ICONSTOP);
+		//MessageBox("ï¿½ï¿½ï¿½Ì–ï¿½ï¿½Oï¿½Í“ï¿½ï¿½Í‚Å‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½. ï¿½á‚¤ï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "USER ACCOUNT SETTING", MB_OK|MB_ICONSTOP);
 		LoadStringML(IDS_NAME_NOT_ENTER, l_strBuffer, "This name cannot be entered. Please enter a different name");
 		LoadStringML(IDS_TITLE_USER_ACCOUNT_SETTING, l_strTitle, "USER ACCOUNT SETTING");
 		MessageBox(l_strBuffer, l_strTitle, MB_OK|MB_ICONSTOP);
@@ -201,7 +201,7 @@ BOOL CUserAccountSettingDlg::CheckData()
 	if ( strlen(m_UserAccount.szName) == 0 ) {
 		// Kojika 20090529 Change
 		//MessageBox("Please enter a user name", "USER ACCOUNT SETTING", MB_OK|MB_ICONSTOP);
-		//MessageBox("ƒ†[ƒU–¼‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢", "USER ACCOUNT SETTING", MB_OK|MB_ICONSTOP);
+		//MessageBox("ï¿½ï¿½ï¿½[ï¿½Uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "USER ACCOUNT SETTING", MB_OK|MB_ICONSTOP);
 		LoadStringML(IDS_ENTER_USER_NAME, l_strBuffer, "Please enter a user name");
 		LoadStringML(IDS_TITLE_USER_ACCOUNT_SETTING, l_strTitle, "USER ACCOUNT SETTING");
 		MessageBox(l_strBuffer, l_strTitle, MB_OK|MB_ICONSTOP);
@@ -213,11 +213,11 @@ BOOL CUserAccountSettingDlg::CheckData()
 		char szMsg[256+1];
 		memset(szMsg, 0, sizeof(szMsg));
 		// Kojika 20090529 Change
-		//sprintf(szMsg, "%s%d%s%d%s", "ƒ†[ƒU–¼‚Í”¼Šp", USER_NAME_LEN, "•¶š(‘SŠp", USER_NAME_LEN/2, "•¶š)ˆÈ“à‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
-		LoadStringML(IDS_ENTER_USER_NAME_WITHIN, l_strBuffer1, "Please enter a user name within normal-width ");
-		LoadStringML(IDS_ENTER_USER_NAME_NORMAL, l_strBuffer2, " characters (em-size ");
-		LoadStringML(IDS_ENTER_USER_NAME_EMSIZE, l_strBuffer3, " characters)");
-		sprintf(szMsg, "%s%d%s%d%s", l_strBuffer1, USER_NAME_LEN, l_strBuffer2, USER_NAME_LEN/2, l_strBuffer3);
+		//sprintf(szMsg, "%s%d%s%d%s", "ï¿½ï¿½ï¿½[ï¿½Uï¿½ï¿½ï¿½Í”ï¿½ï¿½p", USER_NAME_LEN, "ï¿½ï¿½ï¿½ï¿½(ï¿½Sï¿½p", USER_NAME_LEN/2, "ï¿½ï¿½ï¿½ï¿½)ï¿½È“ï¿½ï¿½Å“ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+	LoadStringML(IDS_ENTER_USER_NAME_WITHIN, l_strBuffer1, "Please enter a user name within normal-width ");
+	LoadStringML(IDS_ENTER_USER_NAME_NORMAL, l_strBuffer2, " characters (em-size ");
+	LoadStringML(IDS_ENTER_USER_NAME_EMSIZE, l_strBuffer3, " characters)");
+	sprintf(szMsg, "%s%d%s%d%s", (LPCSTR)l_strBuffer1, USER_NAME_LEN, (LPCSTR)l_strBuffer2, USER_NAME_LEN/2, (LPCSTR)l_strBuffer3);
 		//MessageBox(szMsg, "USER ACCOUNT SETTING", MB_OK|MB_ICONSTOP);
 		LoadStringML(IDS_TITLE_USER_ACCOUNT_SETTING, l_strTitle, "USER ACCOUNT SETTING");
 		MessageBox(szMsg, l_strTitle, MB_OK|MB_ICONSTOP);
@@ -228,7 +228,7 @@ BOOL CUserAccountSettingDlg::CheckData()
 	if ( !CheckName(m_UserAccount.szName, USER_NAME_LEN) ) {
 		// Kojika 20090529 Change
 		//MessageBox("User Name can not contain spaces or punctuation characters", "USER ACCOUNT SETTING", MB_OK|MB_ICONSTOP);
-		//MessageBox("ƒ†[ƒU–¼‚ÉƒXƒy[ƒX‚â‹å“Ç“_‚ğŠÜ‚Ş‚±‚Æ‚Ío—ˆ‚Ü‚¹‚ñ", "USER ACCOUNT SETTING", MB_OK|MB_ICONSTOP);
+		//MessageBox("ï¿½ï¿½ï¿½[ï¿½Uï¿½ï¿½ï¿½ÉƒXï¿½yï¿½[ï¿½Xï¿½ï¿½ï¿½Ç“_ï¿½ï¿½ï¿½Ü‚Ş‚ï¿½ï¿½Æ‚Íoï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½", "USER ACCOUNT SETTING", MB_OK|MB_ICONSTOP);
 		LoadStringML(IDS_NOT_CONTAIN_SPACE, l_strBuffer, "User Name can not contain spaces or punctuation characters");
 		LoadStringML(IDS_TITLE_USER_ACCOUNT_SETTING, l_strTitle, "USER ACCOUNT SETTING");
 		MessageBox(l_strBuffer, l_strTitle, MB_OK|MB_ICONSTOP);
@@ -241,7 +241,7 @@ BOOL CUserAccountSettingDlg::CheckData()
 	if ( ((CComboBox*)GetDlgItem(IDC_ACCOUNT_LEVEL))->GetCurSel() == CB_ERR ) {
 		// Kojika 20090529 Change
 		//MessageBox("Please Select an Account Level", "USER ACCOUNT SETTING", MB_OK|MB_ICONSTOP);
-		//MessageBox("ƒAƒJƒEƒ“ƒgƒŒƒxƒ‹‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢", "USER ACCOUNT SETTING", MB_OK|MB_ICONSTOP);
+		//MessageBox("ï¿½Aï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "USER ACCOUNT SETTING", MB_OK|MB_ICONSTOP);
 		LoadStringML(IDS_SELECT_ACCOUNT_LEVEL, l_strBuffer, "Please Select an Account Level");
 		LoadStringML(IDS_TITLE_USER_ACCOUNT_SETTING, l_strTitle, "USER ACCOUNT SETTING");
 		MessageBox(l_strBuffer, l_strTitle, MB_OK|MB_ICONSTOP);
@@ -255,7 +255,7 @@ BOOL CUserAccountSettingDlg::CheckData()
 		if ( strlen(m_UserAccount.szPassword) == 0 ) {
 			// Kojika 20090529 Change
 			//MessageBox("Please enter a password", "USER ACCOUNT SETTING", MB_OK|MB_ICONSTOP);
-			//MessageBox("ƒpƒXƒ[ƒh‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢", "USER ACCOUNT SETTING", MB_OK|MB_ICONSTOP);
+			//MessageBox("ï¿½pï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "USER ACCOUNT SETTING", MB_OK|MB_ICONSTOP);
 			LoadStringML(IDS_ENTER_PASSWORD, l_strBuffer, "Please enter a password");
 			LoadStringML(IDS_TITLE_USER_ACCOUNT_SETTING, l_strTitle, "USER ACCOUNT SETTING");
 			MessageBox(l_strBuffer, l_strTitle, MB_OK|MB_ICONSTOP);
@@ -268,7 +268,7 @@ BOOL CUserAccountSettingDlg::CheckData()
 	if ( m_strConfirmPassword != m_UserAccount.szPassword ) {
 		// Kojika 20090529 Change
 		//MessageBox("Password is different", "USER ACCOUNT SETTING", MB_OK|MB_ICONSTOP);
-		//MessageBox("ƒpƒXƒ[ƒh‚ªˆá‚¢‚Ü‚·", "USER ACCOUNT SETTING", MB_OK|MB_ICONSTOP);
+		//MessageBox("ï¿½pï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½á‚¢ï¿½Ü‚ï¿½", "USER ACCOUNT SETTING", MB_OK|MB_ICONSTOP);
 		LoadStringML(IDS_PASSWORD_DIFFRENT, l_strBuffer, "Password is different");
 		LoadStringML(IDS_TITLE_USER_ACCOUNT_SETTING, l_strTitle, "USER ACCOUNT SETTING");
 		MessageBox(l_strBuffer, l_strTitle, MB_OK|MB_ICONSTOP);
