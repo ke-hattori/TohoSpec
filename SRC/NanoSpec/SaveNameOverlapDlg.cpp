@@ -1,4 +1,4 @@
-// SaveNameOverlapDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// SaveNameOverlapDlg.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -12,14 +12,14 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CSaveNameOverlapDlg ƒ_ƒCƒAƒƒO
+// CSaveNameOverlapDlg ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½O
 
 
 CSaveNameOverlapDlg::CSaveNameOverlapDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CSaveNameOverlapDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CSaveNameOverlapDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ð’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ï¿½ï¿½ï¿½ï¿½ - ClassWizard ï¿½Í‚ï¿½ï¿½ÌˆÊ’uï¿½Éƒ}ï¿½bï¿½sï¿½ï¿½ï¿½Oï¿½pï¿½Ìƒ}ï¿½Nï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½Ü‚ï¿½ï¿½Ííœï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	//}}AFX_DATA_INIT
 
 	memset(m_szSpecifiedFileName, 0, sizeof(m_szSpecifiedFileName));
@@ -31,7 +31,7 @@ void CSaveNameOverlapDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CSaveNameOverlapDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ð’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ï¿½ï¿½ï¿½ï¿½ - ClassWizard ï¿½Í‚ï¿½ï¿½ÌˆÊ’uï¿½Éƒ}ï¿½bï¿½sï¿½ï¿½ï¿½Oï¿½pï¿½Ìƒ}ï¿½Nï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½Ü‚ï¿½ï¿½Ííœï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	//}}AFX_DATA_MAP
 }
 
@@ -45,7 +45,7 @@ BEGIN_MESSAGE_MAP(CSaveNameOverlapDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CSaveNameOverlapDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSaveNameOverlapDlg ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 
 
 BOOL CSaveNameOverlapDlg::OnInitDialog()
@@ -56,7 +56,7 @@ BOOL CSaveNameOverlapDlg::OnInitDialog()
 
 	CDialog::OnInitDialog();
 
-	// TODO: ‚±‚ÌˆÊ’u‚É‰Šú‰»‚Ì•â‘«ˆ—‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½Éï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì•â‘«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	GetDlgItem(IDOK)->ShowWindow(SW_HIDE);
 	GetDlgItem(IDCANCEL)->ShowWindow(SW_HIDE);
@@ -65,33 +65,33 @@ BOOL CSaveNameOverlapDlg::OnInitDialog()
 	memset(l_szMessage, 0, sizeof(l_szMessage));
 	// Kojika 20090601 Change
 /*	sprintf(l_szMessage, "%s%s", m_szSpecifiedFileName, "\n already exists, Do you want to replace it?"); */
-/*	sprintf(l_szMessage, "%s%s", m_szSpecifiedFileName, "\n‚±‚Ìƒtƒ@ƒCƒ‹‚ÍŠù‚É‘¶Ý‚µ‚Ü‚·B ã‘‚«‚µ‚Ü‚·‚©H"); */
-//	sprintf(l_szMessage, "%s%s", m_szSpecifiedFileName, "\n‚±‚Ìƒtƒ@ƒCƒ‹‚ÍŠù‚É‘¶Ý‚µ‚Ü‚·B ã‘‚«‚µ‚Ü‚·‚©H\n(•Û‘¶‚É”\•b‚©‚©‚éê‡‚ª‚ ‚è‚Ü‚·B)");
+/*	sprintf(l_szMessage, "%s%s", m_szSpecifiedFileName, "\nï¿½ï¿½ï¿½Ìƒtï¿½@ï¿½Cï¿½ï¿½ï¿½ÍŠï¿½ï¿½É‘ï¿½ï¿½Ý‚ï¿½ï¿½Ü‚ï¿½ï¿½B ï¿½ã‘ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½H"); */
+//	sprintf(l_szMessage, "%s%s", m_szSpecifiedFileName, "\nï¿½ï¿½ï¿½Ìƒtï¿½@ï¿½Cï¿½ï¿½ï¿½ÍŠï¿½ï¿½É‘ï¿½ï¿½Ý‚ï¿½ï¿½Ü‚ï¿½ï¿½B ï¿½ã‘ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½H\n(ï¿½Û‘ï¿½ï¿½Éï¿½ï¿½\ï¿½bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B)");
 	LoadStringML(IDS_FILE_ALREADY_EXIST, l_strBuffer, "\n already exists, Do you want to replace it?");
-	sprintf(l_szMessage, "%s%s", m_szSpecifiedFileName, l_strBuffer);
+	sprintf(l_szMessage, "%s%s", m_szSpecifiedFileName, (LPCSTR)l_strBuffer);
 	// Kojika 20090601 Change End
 	GetDlgItem(IDC_SAVE_NAME_OVERLAP_TEXT)->SetWindowText(l_szMessage);
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ðÝ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-				  // —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Éƒtï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½Ý’è‚µï¿½È‚ï¿½ï¿½Æ‚ï¿½ï¿½Aï¿½ß‚ï¿½lï¿½ï¿½ TRUE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
+				  // ï¿½ï¿½O: OCX ï¿½vï¿½ï¿½ï¿½pï¿½eï¿½B ï¿½yï¿½[ï¿½Wï¿½Ì–ß‚ï¿½lï¿½ï¿½ FALSE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
 }
 
 
 
 void CSaveNameOverlapDlg::OnSave()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
-	EndDialog(SAVEOVERLAP_SAVE); //ã‘‚«•Û‘¶(SAVE)
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	EndDialog(SAVEOVERLAP_SAVE); //ï¿½ã‘ï¿½ï¿½ï¿½Û‘ï¿½(SAVE)
 }
 
 void CSaveNameOverlapDlg::OnCancel()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
-	EndDialog(SAVEOVERLAP_NOSAVE); //•Û‘¶‚µ‚È‚¢(CANCEL)
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	EndDialog(SAVEOVERLAP_NOSAVE); //ï¿½Û‘ï¿½ï¿½ï¿½ï¿½È‚ï¿½(CANCEL)
 }
 
 void CSaveNameOverlapDlg::OnSaveAs()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
-	EndDialog(SAVEOVERLAP_SAVEAS); //–¼‘O‚ð•t‚¯‚Ä•Û‘¶(SAVE AS)
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	EndDialog(SAVEOVERLAP_SAVEAS); //ï¿½ï¿½ï¿½Oï¿½ï¿½tï¿½ï¿½ï¿½Ä•Û‘ï¿½(SAVE AS)
 }
