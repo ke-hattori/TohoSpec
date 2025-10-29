@@ -909,41 +909,41 @@ public:
 			return STAGE_ERR_INVALID_PORT;
 		}
 
-		if ( _tcscmp(pszCmdID, szLimitSpeedEx) == 0 ) {
-			_stprintf(szBuffer, "%s%04d%c", pszCmdID, Val, CRCHAR);
-		}
-		else {
-			switch ( pszCmdID[0] ) {
-			case szMoveStageEx:
-			case szDoOffsetZ:
-				_stprintf(szBuffer, "%s%04d%c", pszCmdID, Val, CRCHAR);
-				break;
-			case szOutputPort:
-				// �����̔�r���Ӗ��s��
-				_stprintf(szBuffer, "%s%X%c", pszCmdID, Val, CRCHAR);
-				break;
-			case szJoystickStatusXy:
-			case szSelectLens:
-			case szAutoFocusStatus:
-			case szStageStatus:
-			case szVacuumCtrl:
-			case szJoystickStatusZ:
-			case szInputPort:
-			case szShutterCtrl:
-			case szHardwareStatus:
-			case szGetExtCounter:
-			case szMoveStageXy:
-			case szEEPromParam:
-				_stprintf(szBuffer, "%s%X" CR, pszCmdID, Val);
-				break;
-// 2013.02.15 bagus Substrate thickness setting -->
-			case szAFInvalidRegion:
-				_stprintf(szBuffer, "%s%04X" CR, pszCmdID, Val);
-				break;
-// 2013.02.15 bagus Substrate thickness setting <--
-		case szUpDownZ:
-			_stprintf(szBuffer, "%s%02X" CR, pszCmdID, Val);
+	if ( _tcscmp(pszCmdID, szLimitSpeedEx) == 0 ) {
+		_stprintf(szBuffer, "%s%04d%c", pszCmdID, static_cast<int>(Val), CRCHAR);
+	}
+	else {
+		switch ( pszCmdID[0] ) {
+		case szMoveStageEx:
+		case szDoOffsetZ:
+			_stprintf(szBuffer, "%s%04d%c", pszCmdID, static_cast<int>(Val), CRCHAR);
 			break;
+		case szOutputPort:
+			// �����̔�r���Ӗ��s��
+			_stprintf(szBuffer, "%s%X%c", pszCmdID, static_cast<unsigned int>(Val), CRCHAR);
+			break;
+		case szJoystickStatusXy:
+		case szSelectLens:
+		case szAutoFocusStatus:
+		case szStageStatus:
+		case szVacuumCtrl:
+		case szJoystickStatusZ:
+		case szInputPort:
+		case szShutterCtrl:
+		case szHardwareStatus:
+		case szGetExtCounter:
+		case szMoveStageXy:
+		case szEEPromParam:
+			_stprintf(szBuffer, "%s%X" CR, pszCmdID, static_cast<unsigned int>(Val));
+			break;
+// 2013.02.15 bagus Substrate thickness setting -->
+		case szAFInvalidRegion:
+			_stprintf(szBuffer, "%s%04X" CR, pszCmdID, static_cast<unsigned int>(Val));
+			break;
+// 2013.02.15 bagus Substrate thickness setting <--
+	case szUpDownZ:
+		_stprintf(szBuffer, "%s%02X" CR, pszCmdID, static_cast<unsigned int>(Val));
+		break;
 		case szSetPosZ:
 			_stprintf(szBuffer, "%s%+09.4f" CR, pszCmdID, static_cast<double>(Val));
 			break;
@@ -951,9 +951,9 @@ public:
 		case szSetPosY:
 			_stprintf(szBuffer, "%s%+010.4f" CR, pszCmdID, static_cast<double>(Val));
 			break;
-			case szSetExtCounter:
-				_stprintf(szBuffer, "%s%+010d" CR, pszCmdID, Val);
-				break;
+		case szSetExtCounter:
+			_stprintf(szBuffer, "%s%+010d" CR, pszCmdID, static_cast<int>(Val));
+			break;
 			case szDoAutoFocus:
 				_stprintf(szBuffer, "%s" CR, pszCmdID);
 				break;
