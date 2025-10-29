@@ -1,4 +1,4 @@
-// RecipeRecalibrationProgramListView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// RecipeRecalibrationProgramListView.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -49,18 +49,18 @@ void CRecipeRecalibrationProgramListView::List_HeaderSet()
 	LV_COLUMN listcol;
 	DWORD dwStyle = 0;
 	int ItemMax;
-/* deleted 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- { ---------- */
+/* deleted 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- { ---------- */
 /*
 //	  //Saiki 20090527 Add ----->
 //	  SYSTEM_CONFIG l_SystemConfig;
 //	  ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 //	  //Saiki 20090527 Add <-----
 */
-/* deleted 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- } ---------- */
+/* deleted 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- } ---------- */
 
 	int Fmt[] = { LVCFMT_LEFT, LVCFMT_LEFT, LVCFMT_CENTER, LVCFMT_CENTER, LVCFMT_CENTER, LVCFMT_LEFT };
 
-// 2009.11.17 bagus RS C³ --{--
+// 2009.11.17 bagus RS ï¿½Cï¿½ï¿½ --{--
 #if 0
 	int Width[] = {
 		0,		// (0) Index
@@ -84,9 +84,9 @@ void CRecipeRecalibrationProgramListView::List_HeaderSet()
 		400,	// (5) Comment
 	};
 #endif
-// 2009.11.17 bagus RS C³ --}--
+// 2009.11.17 bagus RS ï¿½Cï¿½ï¿½ --}--
 
-/* deleted 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- { ---------- */
+/* deleted 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- { ---------- */
 /*
 ////Saiki 20090527 Change ----->
 ////	char* Item[] = {
@@ -97,11 +97,11 @@ void CRecipeRecalibrationProgramListView::List_HeaderSet()
 //////		"Date",
 //////		"Comment"
 ////	  "",
-////		"–¼‘O",
-////		"ƒwƒbƒh",
-////		"‘ª’èí•Ê",
-////		"ƒf[ƒ^",
-////		"ƒRƒƒ“ƒg"
+////		"ï¿½ï¿½ï¿½O",
+////		"ï¿½wï¿½bï¿½h",
+////		"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",
+////		"ï¿½fï¿½[ï¿½^",
+////		"ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½g"
 ////	};
 //	  char* Item_ENU[] = {
 //		"",
@@ -113,19 +113,19 @@ void CRecipeRecalibrationProgramListView::List_HeaderSet()
 //	  };
 //	  char* Item_JPN[] = {
 //		  "",
-//		  "–¼‘O",
-//		  "ƒwƒbƒh",
-//		  "‘ª’èí•Ê",
-//		  "ƒf[ƒ^",
-//		  "ƒRƒƒ“ƒg"
+//		  "ï¿½ï¿½ï¿½O",
+//		  "ï¿½wï¿½bï¿½h",
+//		  "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",
+//		  "ï¿½fï¿½[ï¿½^",
+//		  "ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½g"
 //	  };
 //
 ////Saiki 20090527 Change <-----
 */
-/* deleted 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- } ---------- */
+/* deleted 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- } ---------- */
 
 	ItemMax = sizeof(Fmt) / sizeof(Fmt[0]);
-/* added 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- { ---------- */
+/* added 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- { ---------- */
 	CStringArray l_straHdr;
 	l_straHdr.SetSize(ItemMax);
 	l_straHdr.SetAt(0, _T(""));
@@ -134,7 +134,7 @@ void CRecipeRecalibrationProgramListView::List_HeaderSet()
 	LoadStringML(IDS_LSTHDR_MEASITEM,	l_straHdr.ElementAt(3), _T("Meas Item"));
 	LoadStringML(IDS_LSTHDR_DATE,		l_straHdr.ElementAt(4), _T("Date"));
 	LoadStringML(IDS_LSTHDR_COMMENT,	l_straHdr.ElementAt(5), _T("Comment"));
-/* added 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- } ---------- */
+/* added 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- } ---------- */
 
 	///// List Setting /////
 	listcol.mask = LVCF_TEXT | LVCF_WIDTH | LVCF_FMT;
@@ -142,7 +142,7 @@ void CRecipeRecalibrationProgramListView::List_HeaderSet()
 	for(int i = 0 ; i < ItemMax ; i++){
 		listcol.fmt = Fmt[i];
 		listcol.cx = Width[i];
-/* modified 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- { ---------- */
+/* modified 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- { ---------- */
 /*
 //		  //Saiki 20090527 Change ----->
 //		  //listcol.pszText = Item[i];
@@ -154,9 +154,9 @@ void CRecipeRecalibrationProgramListView::List_HeaderSet()
 //		  }
 //		  //Saiki 20090527 Change <-----
 */
-/* modified 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ----------			   */
+/* modified 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ----------			   */
 		listcol.pszText = ((LPTSTR) (LPCTSTR) l_straHdr.GetAt(i));
-/* modified 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- } ---------- */
+/* modified 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- } ---------- */
 		CNanoListUI::rfListCtrl().InsertColumn(i,&listcol);
 	}
 }
@@ -173,9 +173,9 @@ void CRecipeRecalibrationProgramListView::List_DataSet()
 	BOOL bLoop;
 	CTime time;
 	RECALIB_PROG_INFO RecalibProgInfo;
-/* added 2016.08.11 hmenjo Å‘åƒŒƒVƒs”§ŒÀ ---------- { ---------- */
+/* added 2016.08.11 hmenjo ï¿½Å‘åƒŒï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
 	DWORD l_dwDataCount = 0;
-/* added 2016.08.11 hmenjo Å‘åƒŒƒVƒs”§ŒÀ ---------- } ---------- */
+/* added 2016.08.11 hmenjo ï¿½Å‘åƒŒï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
 
 	CNanoListUI::rfListCtrl().DeleteAllItems();
 	sprintf(szDirPath, "%s*%s", g_szDb_Recalibration_Program_Dir, RECALIBPGM_EXT);
@@ -186,25 +186,25 @@ void CRecipeRecalibrationProgramListView::List_DataSet()
 			continue;
 
 		memset(&RecalibProgInfo, 0, sizeof(RecalibProgInfo));
-		// ƒtƒ@ƒCƒ‹–¼‚ğæ“¾
-		strBuffer = Finder.GetFileTitle();
-		if ( strBuffer[0] == SYSTEM_RECIPE_BEGINNING_CHAR )
-			continue;
-		sprintf(szName, "%s", strBuffer);
-		// ÅI•ÏX“ú‚ğæ“¾
-		Finder.GetLastWriteTime(time);
-		sprintf(szDate, "%s", time.Format("%Y.%m.%d %H:%M:%S"));
+		// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
+	strBuffer = Finder.GetFileTitle();
+	if ( strBuffer[0] == SYSTEM_RECIPE_BEGINNING_CHAR )
+		continue;
+	sprintf(szName, "%s", (LPCSTR)strBuffer);
+	// ï¿½ÅIï¿½ÏXï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
+	Finder.GetLastWriteTime(time);
+	sprintf(szDate, "%s", (LPCSTR)time.Format("%Y.%m.%d %H:%M:%S"));
 
 		if(RecipeFile_LoadRecipe(&RecalibProgInfo, szName, RECIPE_FILE_RECALIBRATION_PROGRAM)){
 			List_Add(szName, (int)RecalibProgInfo.wHeadType,
 				(int)RecalibProgInfo.wScanType, szDate, RecalibProgInfo.hdr.szComment);
 		}
-/* added 2016.08.11 hmenjo Å‘åƒŒƒVƒs”§ŒÀ ---------- { ---------- */
+/* added 2016.08.11 hmenjo ï¿½Å‘åƒŒï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
 		l_dwDataCount++;
 		if (RCP_PGM_NUM_MAX <= l_dwDataCount) {
 			break;
 		}
-/* added 2016.08.11 hmenjo Å‘åƒŒƒVƒs”§ŒÀ ---------- } ---------- */
+/* added 2016.08.11 hmenjo ï¿½Å‘åƒŒï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
 	}
 }
 
@@ -268,24 +268,24 @@ void CRecipeRecalibrationProgramListView::RecipeEntry(BOOL bNew)
 	pMainFrame->m_bNew = bNew;
 	pMainFrame->SetSelectListName("");
 
-// 2009.10.29 bagus 2“_ŠÔ C³ --{--
+// 2009.10.29 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
 	dlg.m_bRecalibration = TRUE;
-// 2009.10.29 bagus 2“_ŠÔ C³ --}--
+// 2009.10.29 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
 
 	if(bNew){
 		if(dlg.DoModal() == IDOK){
-			// 2009.10.20 bagus MS ’Ç‰Á --{--
+			// 2009.10.20 bagus MS ï¿½Ç‰ï¿½ --{--
 			if (dlg.m_iHeadType == HEAD_TYPE_MS) {
-				// MS‚ÉƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‚Í‚È‚¢
+				// MSï¿½Éƒï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Í‚È‚ï¿½
 				return;
 			}
-			// 2009.10.20 bagus MS ’Ç‰Á --}--
-			// 2009.10.24 bagus 2“_ŠÔ C³ --{--
+			// 2009.10.20 bagus MS ï¿½Ç‰ï¿½ --}--
+			// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
 			if ((dlg.m_iHeadType == HEAD_TYPE_SR) && (dlg.m_iMeasType == MEAS_PROG_TYPE_SR_DISTANCE)) {
-				// Distance‚ÉƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‚Í‚È‚¢
+				// Distanceï¿½Éƒï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Í‚È‚ï¿½
 				return;
 			}
-			// 2009.10.24 bagus 2“_ŠÔ C³ --}--
+			// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
 			pMainFrame->SetSelectHeadType(dlg.m_iHeadType);
 			pMainFrame->SetSelectMeasurementType(dlg.m_iMeasType);
 		}
