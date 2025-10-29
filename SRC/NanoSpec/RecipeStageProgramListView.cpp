@@ -1,4 +1,4 @@
-// RecipeStageProgramListView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// RecipeStageProgramListView.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -62,16 +62,16 @@ void CRecipeStageProgramListView::List_HeaderSet()
 		425,	// (8) Comment
 	};
 
-/* deleted 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- { ---------- */
+/* deleted 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- { ---------- */
 /*
 //// Kojika 20090527 Add
 //	  SYSTEM_CONFIG l_SystemConfig;
 //	  ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 //// Kojika 20090527 Add End
 */
-/* deleted 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- } ---------- */
+/* deleted 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- } ---------- */
 
-/* deleted 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- { ---------- */
+/* deleted 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- { ---------- */
 /*
 //// Kojika 20090527 Change
 ////  char* Item[] = {
@@ -82,19 +82,19 @@ void CRecipeStageProgramListView::List_HeaderSet()
 ////		//"Date",
 ////		//"Comment",
 //		//"",
-////	  "–¼‘O",
-////	  "ƒ|ƒCƒ“ƒg",
-////	  "ƒTƒ“ƒvƒ‹",
-////	  "ƒf[ƒ^",
-////	  "ƒRƒƒ“ƒg",
+////	  "ï¿½ï¿½ï¿½O",
+////	  "ï¿½|ï¿½Cï¿½ï¿½ï¿½g",
+////	  "ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½",
+////	  "ï¿½fï¿½[ï¿½^",
+////	  "ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½g",
 ////  };
 //	  char* ItemJPN[] = {
 //		  "",
-//		  "–¼‘O",
-//		  "ƒ|ƒCƒ“ƒg",
-//		  "ƒTƒ“ƒvƒ‹",
-//		  "ƒf[ƒ^",
-//		  "ƒRƒƒ“ƒg",
+//		  "ï¿½ï¿½ï¿½O",
+//		  "ï¿½|ï¿½Cï¿½ï¿½ï¿½g",
+//		  "ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½",
+//		  "ï¿½fï¿½[ï¿½^",
+//		  "ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½g",
 //	  };
 //	  char* ItemENU[] = {
 //		"",
@@ -106,10 +106,10 @@ void CRecipeStageProgramListView::List_HeaderSet()
 //	  };
 //// Kojika 20090527 Change End
 */
-/* deleted 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- } ---------- */
+/* deleted 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- } ---------- */
 
 	ItemMax = sizeof(Fmt) / sizeof(Fmt[0]);
-/* added 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- { ---------- */
+/* added 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- { ---------- */
 	CStringArray l_straHdr;
 	l_straHdr.SetSize(ItemMax);
 	l_straHdr.SetAt(0, _T(""));
@@ -118,7 +118,7 @@ void CRecipeStageProgramListView::List_HeaderSet()
 	LoadStringML(IDS_LSTHDR_SAMPLE,		l_straHdr.ElementAt(3), _T("Sample"));
 	LoadStringML(IDS_LSTHDR_DATE,		l_straHdr.ElementAt(4), _T("Date"));
 	LoadStringML(IDS_LSTHDR_COMMENT,	l_straHdr.ElementAt(5), _T("Comment"));
-/* added 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- } ---------- */
+/* added 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- } ---------- */
 
 	///// List Setting /////
 	listcol.mask = LVCF_TEXT | LVCF_WIDTH | LVCF_FMT;
@@ -126,7 +126,7 @@ void CRecipeStageProgramListView::List_HeaderSet()
 	for(int i = 0 ; i < ItemMax ; i++){
 		listcol.fmt = Fmt[i];
 		listcol.cx = Width[i];
-/* modified 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- { ---------- */
+/* modified 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- { ---------- */
 /*
 //// Kojika 20090527 Change
 //		  //listcol.pszText = Item[i];
@@ -138,9 +138,9 @@ void CRecipeStageProgramListView::List_HeaderSet()
 //		  }
 //// Kojika 20090527 Change End
 */
-/* modified 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ----------			   */
+/* modified 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ----------			   */
 		listcol.pszText = ((LPTSTR) (LPCTSTR) l_straHdr.GetAt(i));
-/* modified 2009.07.06 hmenjo ƒŠƒXƒgƒwƒbƒ_•¶šƒŠƒ\[ƒX“o˜^ ---------- } ---------- */
+/* modified 2009.07.06 hmenjo ï¿½ï¿½ï¿½Xï¿½gï¿½wï¿½bï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½oï¿½^ ---------- } ---------- */
 		CNanoListUI::rfListCtrl().InsertColumn(i,&listcol);
 	}
 }
@@ -157,9 +157,9 @@ void CRecipeStageProgramListView::List_DataSet()
 	BOOL bLoop;
 	CTime time;
 	STAGE_PROG_INFO_HDR StageProgInfoHdr;
-/* added 2016.08.11 hmenjo Å‘åƒŒƒVƒs”§ŒÀ ---------- { ---------- */
+/* added 2016.08.11 hmenjo ï¿½Å‘åƒŒï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
 	DWORD l_dwDataCount = 0;
-/* added 2016.08.11 hmenjo Å‘åƒŒƒVƒs”§ŒÀ ---------- } ---------- */
+/* added 2016.08.11 hmenjo ï¿½Å‘åƒŒï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
 
 	CNanoListUI::rfListCtrl().DeleteAllItems();
 	sprintf(szDirPath, "%s*%s", g_szDb_Stage_Program_Dir, STAGEPGM_EXT);
@@ -170,24 +170,24 @@ void CRecipeStageProgramListView::List_DataSet()
 			continue;
 
 		memset(&StageProgInfoHdr, 0, sizeof(StageProgInfoHdr));
-		// ƒtƒ@ƒCƒ‹–¼‚ğæ“¾
-		strBuffer = Finder.GetFileTitle();
-		if ( strBuffer[0] == SYSTEM_RECIPE_BEGINNING_CHAR )
-			continue;
-		sprintf(szName, "%s", strBuffer);
-		// ÅI•ÏX“ú‚ğæ“¾
-		Finder.GetLastWriteTime(time);
-		sprintf(szDate, "%s", time.Format("%Y.%m.%d %H:%M:%S"));
+		// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
+	strBuffer = Finder.GetFileTitle();
+	if ( strBuffer[0] == SYSTEM_RECIPE_BEGINNING_CHAR )
+		continue;
+	sprintf(szName, "%s", (LPCSTR)strBuffer);
+	// ï¿½ÅIï¿½ÏXï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
+	Finder.GetLastWriteTime(time);
+	sprintf(szDate, "%s", (LPCSTR)time.Format("%Y.%m.%d %H:%M:%S"));
 
 		if(RecipeFile_LoadRecipe(&StageProgInfoHdr, szName, RECIPE_FILE_STAGE_PROGRAM)){
 			List_Add(szName, (int)StageProgInfoHdr.wNumScans, StageProgInfoHdr.SampleInfo.szName, szDate, StageProgInfoHdr.hdr.szComment);
 		}
-/* added 2016.08.11 hmenjo Å‘åƒŒƒVƒs”§ŒÀ ---------- { ---------- */
+/* added 2016.08.11 hmenjo ï¿½Å‘åƒŒï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
 		l_dwDataCount++;
 		if (RCP_PGM_NUM_MAX <= l_dwDataCount) {
 			break;
 		}
-/* added 2016.08.11 hmenjo Å‘åƒŒƒVƒs”§ŒÀ ---------- } ---------- */
+/* added 2016.08.11 hmenjo ï¿½Å‘åƒŒï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
 	}
 }
 
@@ -242,7 +242,7 @@ void CRecipeStageProgramListView::List_Add(char* szName, int iPoint, char *szSam
 //
 void CRecipeStageProgramListView::RecipeEntry(BOOL bNew)
 {
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --{--
+// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --{--
 #if 0
 	CMainFrame* pMainFrame = (CMainFrame *)AfxGetMainWnd();
 	CListCtrl* pList = (CListCtrl *)GetDlgItem(IDC_STAGE_PROGRAM_LIST);
@@ -251,7 +251,7 @@ void CRecipeStageProgramListView::RecipeEntry(BOOL bNew)
 	char szSampleTypeName[RECIPE_NAME_LEN + 1];
 	int iIndex;
 	//2009.08.28 bagus stress --{--
-	// ƒwƒbƒhƒ^ƒCƒví•Ê
+	// ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½ï¿½ï¿½
 	int iHeadType;
 	//2009.08.28 bagus stress --}--
 	// 2009.10.02 bagus Gantry --{--
@@ -284,7 +284,7 @@ void CRecipeStageProgramListView::RecipeEntry(BOOL bNew)
 #endif
 // 2009.10.02 bagus Gantry --}--
 
-		//İ’è‚³‚ê‚Ä‚¢‚éƒTƒ“ƒvƒ‹‚ª1í—Ş‚Ì‚İ‚Ìê‡‚Í‘I‘ğ‰æ–Ê‚ğ•\¦‚µ‚È‚¢
+		//ï¿½İ’è‚³ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½Ş‚Ì‚İ‚Ìê‡ï¿½Í‘Iï¿½ï¿½ï¿½ï¿½Ê‚ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 		CFileFind Finder;
 		char szDirPath[_MAX_PATH];
 		CString csName;
@@ -305,7 +305,7 @@ void CRecipeStageProgramListView::RecipeEntry(BOOL bNew)
 			iItemCount++;
 		}
 		//2009.08.28 bagus stress --{--
-		//ƒXƒgƒŒƒX‚Ì‚É‚Íƒ`ƒFƒbƒN‚ª‚ ‚é‚Ì‚Å©“®‘I‘ğ‚³‚¹‚È‚¢
+		//ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½Ìï¿½ï¿½É‚Íƒ`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Åï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 		dlg.m_iHeadType = iHeadType;
 		//if (iItemCount==1){
 		if(iItemCount == 1 && iHeadType != HEAD_TYPE_STRESS){
@@ -314,7 +314,7 @@ void CRecipeStageProgramListView::RecipeEntry(BOOL bNew)
 
 			pMainFrame->SetSelectSampleTypeName(csName);
 		}
-		//‘I‘ğ‰æ–Ê‚ğ•\¦
+		//ï¿½Iï¿½ï¿½ï¿½ï¿½Ê‚ï¿½\ï¿½ï¿½
 		else{
 			if(dlg.DoModal() == IDCANCEL){
 				return;
@@ -335,7 +335,7 @@ void CRecipeStageProgramListView::RecipeEntry(BOOL bNew)
 			return;
 		}
 		//2009.08.28 bagus stress --{--
-		//ƒwƒbƒhƒ^ƒCƒv‚Ìæ“¾—p
+		//ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½Ìæ“¾ï¿½p
 		STAGE_PROG_INFO_HDR l_StageProgInfoHdr;
 		if ( !RecipeFile_LoadRecipe(&l_StageProgInfoHdr, szName, RECIPE_FILE_STAGE_PROGRAM) ) {
 			return;
@@ -395,7 +395,7 @@ void CRecipeStageProgramListView::RecipeEntry(BOOL bNew)
 		}
 		iStagePGMType = dlgStagePGMType.m_iHeadType;
 
-		//İ’è‚³‚ê‚Ä‚¢‚éƒTƒ“ƒvƒ‹‚ª1í—Ş‚Ì‚İ‚Ìê‡‚Í‘I‘ğ‰æ–Ê‚ğ•\¦‚µ‚È‚¢
+		//ï¿½İ’è‚³ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½Ş‚Ì‚İ‚Ìê‡ï¿½Í‘Iï¿½ï¿½ï¿½ï¿½Ê‚ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 		CFileFind Finder;
 		char szDirPath[_MAX_PATH];
 		CString csName;
@@ -415,24 +415,24 @@ void CRecipeStageProgramListView::RecipeEntry(BOOL bNew)
 			csName = Finder.GetFileTitle();
 			iItemCount++;
 		}
-		//ƒXƒgƒŒƒX‚Ì‚É‚Íƒ`ƒFƒbƒN‚ª‚ ‚é‚Ì‚Å©“®‘I‘ğ‚³‚¹‚È‚¢
+		//ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½Ìï¿½ï¿½É‚Íƒ`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Åï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 		dlg.m_iHeadType = iStagePGMType;
 		if(iItemCount == 1 && iStagePGMType != STAGE_PGM_TYPE_STRESS){
 			csName.Insert(RECIPE_NAME_LEN, '\0');
 
 			pMainFrame->SetSelectSampleTypeName(csName);
 		}
-		//‘I‘ğ‰æ–Ê‚ğ•\¦
+		//ï¿½Iï¿½ï¿½ï¿½ï¿½Ê‚ï¿½\ï¿½ï¿½
 		else{
-			//2009.12.24 bagus stress C³ --{--
+			//2009.12.24 bagus stress ï¿½Cï¿½ï¿½ --{--
 			if(iStagePGMType != STAGE_PGM_TYPE_STRESS){
 				if(dlg.DoModal() == IDCANCEL){
 					return;
 				}
 				pMainFrame->SetSelectSampleTypeName(dlg.m_szName);
 			}else{
-				//2009.12.24 bagus stress C³ --}--
-				//2009.12.23 bagus stress C³ --{--
+				//2009.12.24 bagus stress ï¿½Cï¿½ï¿½ --}--
+				//2009.12.23 bagus stress ï¿½Cï¿½ï¿½ --{--
 				//if(dlg.DoModal() == IDCANCEL){
 				//	return;
 				//}
@@ -442,7 +442,7 @@ void CRecipeStageProgramListView::RecipeEntry(BOOL bNew)
 				ConfigFile_GetNanoSpecIni(&l_StressConfig,CONFIG_FILE_STRESS_CONFIG);
 				//pMainFrame->SetSelectSampleTypeName(dlg.m_szName);
 				if(!RecipeFile_LoadRecipe(&l_SampleInfo,l_StressConfig.szSampleName,RECIPE_FILE_SAMPLE)){
-					//ƒXƒgƒŒƒXƒ‰ƒCƒ“ƒZƒNƒVƒ‡ƒ“İ’è‚Ì’†‚ÌƒTƒ“ƒvƒ‹–¼‚ªŒü‚±‚¤
+					//ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Zï¿½Nï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½Ì’ï¿½ï¿½ÌƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					CString l_strBuffer = "";
 					LoadStringML(IDS_SAMPLE_NAME_INVALID,l_strBuffer,"Sample Name is invalid.");
 					MessageBox(l_strBuffer,"STAGE PGM",MB_OK|MB_ICONWARNING);
@@ -450,8 +450,8 @@ void CRecipeStageProgramListView::RecipeEntry(BOOL bNew)
 				}
 				pMainFrame->SetSelectSampleTypeName(l_StressConfig.szSampleName);
 			}
-			//2009.12.23 bagus stress C³ --}--
-			//2009.12.24 bagus stress C³ --}--
+			//2009.12.23 bagus stress ï¿½Cï¿½ï¿½ --}--
+			//2009.12.24 bagus stress ï¿½Cï¿½ï¿½ --}--
 		}
 	}
 	else{
@@ -466,7 +466,7 @@ void CRecipeStageProgramListView::RecipeEntry(BOOL bNew)
 		if(szName[0] == '\0'){
 			return;
 		}
-		//ƒwƒbƒhƒ^ƒCƒv‚Ìæ“¾—p
+		//ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½Ìæ“¾ï¿½p
 		STAGE_PROG_INFO_HDR l_StageProgInfoHdr;
 		if ( !RecipeFile_LoadRecipe(&l_StageProgInfoHdr, szName, RECIPE_FILE_STAGE_PROGRAM) ) {
 			return;
@@ -509,7 +509,7 @@ void CRecipeStageProgramListView::RecipeEntry(BOOL bNew)
 		break;
 	}
 #endif
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --}--
+// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --}--
 }
 
 // =========================================================================
