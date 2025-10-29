@@ -479,7 +479,7 @@ BOOL CNanoSpecApp::InitInstance()
 	if (g_lAppNameType != APP_NAME_NANO) {
 		strBuffer.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
 	}
-	sprintf(szFilePath, "%s%s", g_szCfg_Dir, strFilename);
+	sprintf(szFilePath, "%s%s", g_szCfg_Dir, (LPCSTR)strFilename);
 	// 2013.11.07 Bagus Mod (TohoSpec�Ή�) <--
 	m_pszProfileName = _tcsdup(szFilePath);
 
