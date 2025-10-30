@@ -298,10 +298,10 @@ void CImageCtrl::frameReady(
 				double dYRatio = (double)(double(nDestHeight) / double(nSrcHeight));
 				if ( m_bDrawGoodDeskewSite ) {
 					RECT rc;
-					rc.left   = (nDestWidth  / 2) + (m_DeskewResult.XPos - 15.0) * dXRatio;
-					rc.top	  = (nDestHeight / 2) + (m_DeskewResult.YPos - 15.0) * dYRatio;
-					rc.right  = (nDestWidth  / 2) + (m_DeskewResult.XPos + 15.0) * dXRatio;
-					rc.bottom = (nDestHeight / 2) + (m_DeskewResult.YPos + 15.0) * dYRatio;
+					rc.left = static_cast<LONG>((nDestWidth  / 2) + (m_DeskewResult.XPos - 15.0) * dXRatio);
+					rc.top = static_cast<LONG>((nDestHeight / 2) + (m_DeskewResult.YPos - 15.0) * dYRatio);
+					rc.right = static_cast<LONG>((nDestWidth  / 2) + (m_DeskewResult.XPos + 15.0) * dXRatio);
+					rc.bottom = static_cast<LONG>((nDestHeight / 2) + (m_DeskewResult.YPos + 15.0) * dYRatio);
 					hNewPen = ::CreatePen(PS_SOLID, 0, RGB (0, 255, 0));
 					if ( hNewPen ) {
 						hOldPen = (HPEN) ::SelectObject(hDC, (HGDIOBJ) hNewPen);
@@ -321,10 +321,10 @@ void CImageCtrl::frameReady(
 					hNewPen = ::CreatePen(PS_SOLID, 3, RGB (255, 0, 0));
 					if ( hNewPen ) {
 						hOldPen = (HPEN) ::SelectObject(hDC, (HGDIOBJ) hNewPen);
-						::MoveToEx(hDC, (nDestWidth / 2) - 10 * dXRatio, (nDestHeight / 2) - 10 * dYRatio, NULL);
-						::LineTo(hDC, (nDestWidth / 2) + 10 * dXRatio, (nDestHeight / 2) + 10 * dYRatio);
-						::MoveToEx(hDC, (nDestWidth / 2) + 10 * dXRatio, (nDestHeight / 2) - 10 * dYRatio, NULL);
-						::LineTo(hDC, (nDestWidth / 2) - 10 * dXRatio, (nDestHeight / 2) + 10 * dYRatio);
+						::MoveToEx(hDC, static_cast<int>((nDestWidth / 2) - 10 * dXRatio), static_cast<int>((nDestHeight / 2) - 10 * dYRatio), NULL);
+						::LineTo(hDC, static_cast<int>((nDestWidth / 2) + 10 * dXRatio), static_cast<int>((nDestHeight / 2)) + 10 * dYRatio);
+						::MoveToEx(hDC, static_cast<int>((nDestWidth / 2) + 10 * dXRatio), static_cast<int>((nDestHeight / 2) - 10 * dYRatio), NULL);
+						::LineTo(hDC, static_cast<int>((nDestWidth / 2) - 10 * dXRatio), static_cast<int>((nDestHeight / 2)) + 10 * dYRatio);
 						::SelectObject(hDC, hOldPen);
 						::DeleteObject(hNewPen);
 					}
