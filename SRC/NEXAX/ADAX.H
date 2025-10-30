@@ -213,10 +213,10 @@ public:
 		}
 		inline message_packet& create (const unsigned short command) { return create(command, value); }
 		inline void analysis (void) { value = hatol(data, 8); }
-		inline void clear  (void) { value = 0; buffer[0] = NULLCHAR; }
-		inline bool empty  (void) const { return length() == 0; }
-		inline unsigned long parse_command (void) { return static_cast<short>(hatol(command, 2); }
-		inline unsigned long error (void) { return static_cast<short>(hatol(data, 2); }
+	inline void clear  (void) { value = 0; buffer[0] = NULLCHAR; }
+	inline bool empty  (void) const { return length() == 0; }
+	inline unsigned long parse_command (void) { return static_cast<short>(hatol(command, 2)); }
+	inline unsigned long error (void) { return static_cast<short>(hatol(data, 2)); }
 
 		// BCC�v�Z
 		inline unsigned short calc_bcc (void)
@@ -228,7 +228,7 @@ public:
 			return retval;
 		}
 
-		inline bool is_match_bcc (void) { return static_cast<short>(hatol(bcc, 2) == calc_bcc(); }
+		inline bool is_match_bcc (void) { return static_cast<short>(hatol(bcc, 2)) == calc_bcc(); }
 
 	protected:
 		inline string substr (const char* s, string::size_type pos, string::size_type n = string::npos) { return string(s).substr(pos, n); }
