@@ -1,4 +1,5 @@
-﻿// Microsoft Visual C++ で作成されたリソース スクリプト。
+﻿#pragma code_page(65001)
+// Microsoft Visual C++ で作成されたリソース スクリプト。
 //
 #include "resource.h"
 
