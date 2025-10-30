@@ -1,4 +1,3 @@
-#pragma code_page(65001)
 //Microsoft Developer Studio generated resource script.
 //
 #include "resource.h"
@@ -51,8 +50,8 @@ BEGIN
     "LANGUAGE 17, 1\r\n"
     "#pragma code_page(932)\r\n"
     "#endif //_WIN32\r\n"
-    "#include ""res\\NanoSpecTitle.rc2""  // Microsoft Visual C++ ä»¥å¤–ã®ãƒ„ãƒ¼ãƒ«ã§ç·¨é›†ã•ã‚ŒãŸãƒªã‚½ãƒ¼ã‚¹\r\n"
-    "#include ""l.jpn\\afxres.rc""          // æ¨™æº–ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ\r\n"
+    "#include ""res\\NanoSpecTitle.rc2""  // Microsoft Visual C++ ˆÈŠO‚Ìƒc[ƒ‹‚Å•ÒW‚³‚ê‚½ƒŠƒ\[ƒX\r\n"
+    "#include ""l.jpn\\afxres.rc""          // •W€‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg\r\n"
     "#endif\r\n"
     "\0"
 END
@@ -78,11 +77,11 @@ IDD_NANOSPECTITLE_DIALOG DIALOGEX 0, 0, 297, 110
 STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "NanoSpec"
-FONT 9, "ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯"
+FONT 9, "‚l‚r ‚oƒSƒVƒbƒN"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,110,85,80,15,0,WS_EX_CLIENTEDGE
-    PUSHBUTTON      "ï½·ï½¬ï¾ï½¾ï¾™",IDCANCEL,0,0,6,6,NOT WS_VISIBLE
-    CTEXT           "NanoSpec åˆæœŸåŒ–ä¸­.....",IDC_MESSAGE,5,20,285,45,
+    PUSHBUTTON      "·¬İ¾Ù",IDCANCEL,0,0,6,6,NOT WS_VISIBLE
+    CTEXT           "NanoSpec ‰Šú‰»’†.....",IDC_MESSAGE,5,20,285,45,
                     SS_CENTERIMAGE
     CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",WS_BORDER,7,
                     87,283,8
@@ -116,14 +115,14 @@ BEGIN
         BEGIN
             VALUE "Comments", "\0"
             VALUE "CompanyName", "\0"
-            VALUE "FileDescription", "TohoSpecTitle MFC ï½±ï¾Œï¾Ÿï¾˜ï½¹ï½°ï½¼ï½®ï¾\0"
+            VALUE "FileDescription", "TohoSpecTitle MFC ±ÌßØ¹°¼®İ\0"
             VALUE "FileVersion", "1, 0, 0, 1\0"
             VALUE "InternalName", "TohoSpecTitle\0"
             VALUE "LegalCopyright", "Copyright (C) 2008\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "TohoSpecTitle.EXE\0"
             VALUE "PrivateBuild", "\0"
-            VALUE "ProductName", "TohoSpecTitle ï½±ï¾Œï¾Ÿï¾˜ï½¹ï½°ï½¼ï½®ï¾\0"
+            VALUE "ProductName", "TohoSpecTitle ±ÌßØ¹°¼®İ\0"
             VALUE "ProductVersion", "1, 0, 0, 1\0"
             VALUE "SpecialBuild", "\0"
         END
@@ -190,8 +189,8 @@ END
 LANGUAGE 17, 1
 #pragma code_page(932)
 #endif //_WIN32
-#include "res\NanoSpecTitle.rc2"  // Microsoft Visual C++ ä»¥å¤–ã®ãƒ„ãƒ¼ãƒ«ã§ç·¨é›†ã•ã‚ŒãŸãƒªã‚½ãƒ¼ã‚¹
-#include "l.jpn\afxres.rc"          // æ¨™æº–ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
+#include "res\NanoSpecTitle.rc2"  // Microsoft Visual C++ ˆÈŠO‚Ìƒc[ƒ‹‚Å•ÒW‚³‚ê‚½ƒŠƒ\[ƒX
+#include "l.jpn\afxres.rc"          // •W€‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
 #endif
 
 /////////////////////////////////////////////////////////////////////////////

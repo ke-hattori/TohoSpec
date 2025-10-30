@@ -1,12 +1,11 @@
-#pragma code_page(65001)
-// Microsoft Visual C++ ã§ä½œæˆã•ã‚ŒãŸãƒªã‚½ãƒ¼ã‚¹ ã‚¹ã‚¯ãƒªãƒ—ãƒˆã€‚
+// Microsoft Visual C++ ‚Åì¬‚³‚ê‚½ƒŠƒ\[ƒX ƒXƒNƒŠƒvƒgB
 //
 #include "resource.h"
 
 #define APSTUDIO_READONLY_SYMBOLS
 /////////////////////////////////////////////////////////////////////////////
 //
-// TEXTINCLUDE 2 ãƒªã‚½ãƒ¼ã‚¹ã‹ã‚‰ä½œæˆ
+// TEXTINCLUDE 2 ƒŠƒ\[ƒX‚©‚çì¬
 //
 #include "afxres.h"
 
@@ -42,8 +41,8 @@ BEGIN
 	"LANGUAGE 17, 1\r\n"
 	"#pragma code_page(932)\r\n"
 	"#endif //_WIN32\r\n"
-	"#include ""res\\PatternFile.rc2""  // Microsoft Visual C++ ä»¥å¤–ã®ãƒ„ãƒ¼ãƒ«ã§ç·¨é›†ã•ã‚ŒãŸãƒªã‚½ãƒ¼ã‚¹\r\n"
-	"#include ""l.jpn\\afxres.rc""  	// æ¨™æº–ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ\r\n"
+	"#include ""res\\PatternFile.rc2""  // Microsoft Visual C++ ˆÈŠO‚Ìƒc[ƒ‹‚Å•ÒW‚³‚ê‚½ƒŠƒ\[ƒX\r\n"
+	"#include ""l.jpn\\afxres.rc""  	// •W€‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg\r\n"
 	"#endif\r\n"
     "\0"
 END
@@ -89,7 +88,7 @@ BEGIN
 			VALUE "LegalCopyright",  "Copyright (C) 2009\0"
 			VALUE "LegalTrademarks", "\0"
 			VALUE "OriginalFilename","PatternFile.DLL\0"
-			VALUE "ProductName",     "PatternFile ï¾€ï¾ï½²ï¾…ï¾ï½¯ï½¸ ï¾˜ï¾ï½¸ ï¾—ï½²ï¾Œï¾ï¾—ï¾˜\0"
+			VALUE "ProductName",     "PatternFile ÀŞ²ÅĞ¯¸ Øİ¸ ×²ÌŞ×Ø\0"
 			VALUE "ProductVersion",  "1, 0, 0, 1\0"
 		END
 	END
@@ -104,7 +103,7 @@ END
 #ifndef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
 //
-// TEXTINCLUDE 3 ãƒªã‚½ãƒ¼ã‚¹ã‹ã‚‰ä½œæˆ
+// TEXTINCLUDE 3 ƒŠƒ\[ƒX‚©‚çì¬
 //
 #define _AFX_NO_SPLITTER_RESOURCES
 #define _AFX_NO_OLE_RESOURCES
@@ -116,8 +115,8 @@ END
 LANGUAGE 17, 1
 #pragma code_page(932)
 #endif //_WIN32
-#include "res\\PatternFile.rc2"  // Microsoft Visual C++ ä»¥å¤–ã®ãƒ„ãƒ¼ãƒ«ã§ç·¨é›†ã•ã‚ŒãŸãƒªã‚½ãƒ¼ã‚¹
-#include "l.jpn\\afxres.rc"  	// æ¨™æº–ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
+#include "res\\PatternFile.rc2"  // Microsoft Visual C++ ˆÈŠO‚Ìƒc[ƒ‹‚Å•ÒW‚³‚ê‚½ƒŠƒ\[ƒX
+#include "l.jpn\\afxres.rc"  	// •W€‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
 #endif
 
 /////////////////////////////////////////////////////////////////////////////

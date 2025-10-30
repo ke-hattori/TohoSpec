@@ -1,4 +1,3 @@
-#pragma code_page(65001)
 //Microsoft Developer Studio generated resource script.
 //
 #include "resource.h"
@@ -14,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Ф≈╔Ф°╛Х╙· resources
+// ⌠З√{▄Й resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
 #ifdef _WIN32
@@ -51,8 +50,8 @@ BEGIN
     "LANGUAGE 17, 1\r\n"
     "#pragma code_page(932)\r\n"
     "#endif //_WIN32\r\n"
-    "#include ""res\\MotSys.rc2""  // Microsoft Visual C++ Д╩╔Е╓√Ц│╝Ц┐└Ц┐╪Ц┐╚Ц│╖Г╥╗И⌡├Ц│∙Ц┌▄Ц│÷Ц┐╙Ц┌╫Ц┐╪Ц┌╧\r\n"
-    "#include ""l.jpn\\afxres.rc""          // Ф╗≥Ф╨√Ц│╝Ц┌ЁЦ┐ЁЦ┐²Ц┐╪Ц┐█Ц┐ЁЦ┐┬\r\n"
+    "#include ""res\\MotSys.rc2""  // Microsoft Visual C++ ┬х┼O┌л┐c│[┐▀┌е∙р▐W┌Ё┌Й┌╫┐┼┐\│[┐X\r\n"
+    "#include ""l.jpn\\afxres.rc""          // ∙W▐─┌л┐R┐⌠┐|│[┐l┐⌠┐g\r\n"
     "#endif\r\n"
     "\0"
 END
@@ -125,12 +124,12 @@ BEGIN
     IDS_ABOUTBOX            "MotSys Version Information(&A)..."
 END
 
-#endif    // Ф≈╔Ф°╛Х╙· resources
+#endif    // ⌠З√{▄Й resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Х▀╠Х╙· (О╫╠О╬▓О╬≤О╫╤) resources
+// ┴p▄Й (╠рь╤) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -423,7 +422,7 @@ BEGIN
 END
 #endif    // APSTUDIO_INVOKED
 
-#endif    // Х▀╠Х╙· (О╫╠О╬▓О╬≤О╫╤) resources
+#endif    // ┴p▄Й (╠рь╤) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
@@ -443,8 +442,8 @@ END
 LANGUAGE 17, 1
 #pragma code_page(932)
 #endif //_WIN32
-#include "res\MotSys.rc2"  // Microsoft Visual C++ Д╩╔Е╓√Ц│╝Ц┐└Ц┐╪Ц┐╚Ц│╖Г╥╗И⌡├Ц│∙Ц┌▄Ц│÷Ц┐╙Ц┌╫Ц┐╪Ц┌╧
-#include "l.jpn\afxres.rc"          // Ф╗≥Ф╨√Ц│╝Ц┌ЁЦ┐ЁЦ┐²Ц┐╪Ц┐█Ц┐ЁЦ┐┬
+#include "res\MotSys.rc2"  // Microsoft Visual C++ ┬х┼O┌л┐c│[┐▀┌е∙р▐W┌Ё┌Й┌╫┐┼┐\│[┐X
+#include "l.jpn\afxres.rc"          // ∙W▐─┌л┐R┐⌠┐|│[┐l┐⌠┐g
 #endif
 
 /////////////////////////////////////////////////////////////////////////////

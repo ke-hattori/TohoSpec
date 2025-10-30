@@ -1,4 +1,3 @@
-#pragma code_page(65001)
 //Microsoft Developer Studio generated resource script.
 //
 #include "resource.h"
@@ -84,13 +83,13 @@ BEGIN
         BLOCK "041104B0"
         BEGIN
             VALUE "CompanyName", "\0"
-            VALUE "FileDescription", "TohoPifSock MFC ¬±√ÉÔ¨Ç√øœÄ‚àû¬∫√Ü‚Ä∫\0"
+            VALUE "FileDescription", "TohoPifSock MFC ±Ãﬂÿπ∞ºÆ›\0"
             VALUE "FileVersion", "1, 0, 0, 1\0"
             VALUE "InternalName", "TohoPifSock\0"
             VALUE "LegalCopyright", "Copyright (C) 2008\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "TohoPifSock.EXE\0"
-            VALUE "ProductName", "TohoPifSock ¬±√ÉÔ¨Ç√øœÄ‚àû¬∫√Ü‚Ä∫\0"
+            VALUE "ProductName", "TohoPifSock ±Ãﬂÿπ∞ºÆ›\0"
             VALUE "ProductVersion", "1, 0, 0, 1\0"
         END
     END
@@ -110,7 +109,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDP_SOCKETS_INIT_FAILED "Windows √∏œÄ√ò∆í√á√É√®√¢√§Àô√¢¬™√á‚Ä¶√©‚àè√Æs√á¬µ√á‚Äπ√á¬µ√áŒ©√ÖB"
+    IDP_SOCKETS_INIT_FAILED "Windows øπØƒÇÃèâä˙âªÇ…é∏îsÇµÇ‹ÇµÇΩÅB"
     IDS_MAILSLOT_SERVER     "\\\\.\\mailslot\\NanoPifSock"
     IDS_MAILSLOT_CLIENT     "\\\\.\\mailslot\\NanoSpec"
     IDS_SHAREDMEMORY_NAME   "EQMonitor"
