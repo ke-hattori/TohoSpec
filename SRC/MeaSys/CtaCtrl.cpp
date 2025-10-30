@@ -10,9 +10,9 @@
 #include "..\\..\\inc\\NEXIOBASE.HXX"
 #include "..\\..\\inc\\SharedMemory.h"
 #include "CtaCtrl.h"
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) -->
 #include "System.h"
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) <--
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -21,53 +21,53 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /*
- *	ƒ}ƒNƒ’è‹`
+ *	ï¿½}ï¿½Nï¿½ï¿½ï¿½ï¿½`
  */
-#define	SECTION_CTA	_T("CTA")	/* NanoSpec.ini “à‚ÌƒZƒNƒVƒ‡ƒ“	*/
-/*–¢g—p*///#define	INTVL_TIME	50			/* ’èüŠúƒ^ƒCƒ}[ms]	*/
-#define	SEQWAIT_TIMEOUT			(60 * 1000 * 10)	/* ƒV[ƒPƒ“ƒXŠ®—¹‘Ò‚¿ƒ^ƒCƒ€ƒAƒEƒg[ms](10min)	*/
-#define	CTA_TIMEOUT_RES			(5000)				/* ƒ^ƒCƒ€ƒAƒEƒg[ms] ƒŒƒXƒ|ƒ“ƒXóM‘Ò‚¿	*/
-#define	CTA_TIMEOUT_T9_NORM		(5000)				/* ƒ^ƒCƒ€ƒAƒEƒg[ms] ‰ï˜bƒ^ƒCƒ€ƒAƒEƒg(ƒCƒxƒ“ƒg‘Ò‚¿)	*/
-#define	CTA_TIMEOUT_T9_ORG		(10000)				/* ƒ^ƒCƒ€ƒAƒEƒg[ms] ‰ï˜bƒ^ƒCƒ€ƒAƒEƒg(Œ´“_•œ‹A‘Ò‚¿)	*/
-#define	CTA_TIMEOUT_T9_MEAS		(60000)				/* ƒ^ƒCƒ€ƒAƒEƒg[ms] ‰ï˜bƒ^ƒCƒ€ƒAƒEƒg(‘ª’è’†)	*/
-#define	CTA_TIMEOUT_T9_ALLEND	(60000)				/* ƒ^ƒCƒ€ƒAƒEƒg[ms] ‰ï˜bƒ^ƒCƒ€ƒAƒEƒg(‘Sƒ|ƒCƒ“ƒgI—¹óM‘Ò‚¿)	*/
-/* modified 2010.09.09 hmenjo CTA PO/PI ƒnƒ“ƒhƒVƒF[ƒN ---------- { ---------- */
-//#define	CTA_TIMEOUT_ILPI		(1000)				/* ƒ^ƒCƒ€ƒAƒEƒg[ms] PI ƒCƒ“ƒ^ƒƒbƒNM†ƒ^ƒCƒ€ƒAƒEƒg	*/
-//#define	CTA_TIMEOUT_ILPO		(3000)				/* ƒ^ƒCƒ€ƒAƒEƒg[ms] PO ƒCƒ“ƒ^ƒƒbƒNM†ƒ^ƒCƒ€ƒAƒEƒg(Sleep())	*/
-/* modified 2010.09.09 hmenjo CTA PO/PI ƒnƒ“ƒhƒVƒF[ƒN ----------              */
-#define	CTA_TIMEOUT_ILPI		(5000)				/* ƒ^ƒCƒ€ƒAƒEƒg[ms] PI ƒCƒ“ƒ^ƒƒbƒNM†ƒ^ƒCƒ€ƒAƒEƒg	*/
-#define	CTA_TIMEOUT_ILPO		(5000)				/* ƒ^ƒCƒ€ƒAƒEƒg[ms] PO ƒCƒ“ƒ^ƒƒbƒNM†ƒ^ƒCƒ€ƒAƒEƒg(Sleep())	*/
-/* modified 2010.09.09 hmenjo CTA PO/PI ƒnƒ“ƒhƒVƒF[ƒN ---------- } ---------- */
-#define	CTA_TIMEOUT_RETRY		(200)				/* ƒ^ƒCƒ€ƒAƒEƒg[ms] ƒŠƒgƒ‰ƒCƒ^ƒCƒ}(Sleep())	*/
-#define	CTA_TIMEOUT_MPE_WAIT	(2500)				/* ƒ^ƒCƒ€ƒAƒEƒg[ms] MPE ‘—M‘Ò‚¿ƒEƒFƒCƒg(Sleep())	*/
-/* added 2010.09.09 hmenjo CTA PO/PI ƒnƒ“ƒhƒVƒF[ƒN ---------- { ---------- */
-/* §ŒäƒvƒƒZƒX”Ô†’è‹`	*/
+#define	SECTION_CTA	_T("CTA")	/* NanoSpec.ini ï¿½ï¿½ï¿½ÌƒZï¿½Nï¿½Vï¿½ï¿½ï¿½ï¿½	*/
+/*ï¿½ï¿½ï¿½gï¿½p*///#define	INTVL_TIME	50			/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Cï¿½}[ms]	*/
+#define	SEQWAIT_TIMEOUT			(60 * 1000 * 10)	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g[ms](10min)	*/
+#define	CTA_TIMEOUT_RES			(5000)				/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g[ms] ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½Mï¿½Ò‚ï¿½	*/
+#define	CTA_TIMEOUT_T9_NORM		(5000)				/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g[ms] ï¿½ï¿½bï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g(ï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½Ò‚ï¿½)	*/
+#define	CTA_TIMEOUT_T9_ORG		(10000)				/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g[ms] ï¿½ï¿½bï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g(ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½Ò‚ï¿½)	*/
+#define	CTA_TIMEOUT_T9_MEAS		(60000)				/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g[ms] ï¿½ï¿½bï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g(ï¿½ï¿½ï¿½è’†)	*/
+#define	CTA_TIMEOUT_T9_ALLEND	(60000)				/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g[ms] ï¿½ï¿½bï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g(ï¿½Sï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Iï¿½ï¿½ï¿½ï¿½Mï¿½Ò‚ï¿½)	*/
+/* modified 2010.09.09 hmenjo CTA PO/PI ï¿½nï¿½ï¿½ï¿½hï¿½Vï¿½Fï¿½[ï¿½N ---------- { ---------- */
+//#define	CTA_TIMEOUT_ILPI		(1000)				/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g[ms] PI ï¿½Cï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½bï¿½Nï¿½Mï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
+//#define	CTA_TIMEOUT_ILPO		(3000)				/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g[ms] PO ï¿½Cï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½bï¿½Nï¿½Mï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g(Sleep())	*/
+/* modified 2010.09.09 hmenjo CTA PO/PI ï¿½nï¿½ï¿½ï¿½hï¿½Vï¿½Fï¿½[ï¿½N ----------              */
+#define	CTA_TIMEOUT_ILPI		(5000)				/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g[ms] PI ï¿½Cï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½bï¿½Nï¿½Mï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
+#define	CTA_TIMEOUT_ILPO		(5000)				/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g[ms] PO ï¿½Cï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½bï¿½Nï¿½Mï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g(Sleep())	*/
+/* modified 2010.09.09 hmenjo CTA PO/PI ï¿½nï¿½ï¿½ï¿½hï¿½Vï¿½Fï¿½[ï¿½N ---------- } ---------- */
+#define	CTA_TIMEOUT_RETRY		(200)				/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g[ms] ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½^ï¿½Cï¿½}(Sleep())	*/
+#define	CTA_TIMEOUT_MPE_WAIT	(2500)				/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g[ms] MPE ï¿½ï¿½ï¿½Mï¿½Ò‚ï¿½ï¿½Eï¿½Fï¿½Cï¿½g(Sleep())	*/
+/* added 2010.09.09 hmenjo CTA PO/PI ï¿½nï¿½ï¿½ï¿½hï¿½Vï¿½Fï¿½[ï¿½N ---------- { ---------- */
+/* ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Zï¿½Xï¿½Ôï¿½ï¿½ï¿½`	*/
 #define	PRC_INIT_IDLE	1000
 #define	PRC_MEAS_IDLE	3000
 #define	PRC_MEND_IDLE	4000
-/* added 2010.09.09 hmenjo CTA PO/PI ƒnƒ“ƒhƒVƒF[ƒN ---------- } ---------- */
-/* added 2011.02.03 hmenjo CTA PO ŒãƒfƒBƒŒƒC ---------- { ---------- */
-#define	CTA_ILPO_DELAY	(1500)						/* ƒ^ƒCƒ€ƒAƒEƒg[ms] PO CTA ”F¯ƒfƒBƒŒƒC(Sleep())	*/
-/* added 2011.02.03 hmenjo CTA PO ŒãƒfƒBƒŒƒC ---------- } ---------- */
+/* added 2010.09.09 hmenjo CTA PO/PI ï¿½nï¿½ï¿½ï¿½hï¿½Vï¿½Fï¿½[ï¿½N ---------- } ---------- */
+/* added 2011.02.03 hmenjo CTA PO ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½C ---------- { ---------- */
+#define	CTA_ILPO_DELAY	(1500)						/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g[ms] PO CTA ï¿½Fï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½C(Sleep())	*/
+/* added 2011.02.03 hmenjo CTA PO ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½C ---------- } ---------- */
 
 
 /*
- *	\‘¢‘Ì’è‹`
+ *	ï¿½\ï¿½ï¿½ï¿½Ì’ï¿½`
  */
 
 
 /*
- *	ƒ[ƒJƒ‹ƒOƒ[ƒoƒ‹’è‹`
+ *	ï¿½ï¿½ï¿½[ï¿½Jï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½[ï¿½oï¿½ï¿½ï¿½ï¿½`
  */
-static CCtaCtrl* lgs_pclsCCtaCtrl;	/* ©•ª‚ÌƒNƒ‰ƒXƒ|ƒCƒ“ƒ^	*/
-static UINT_PTR lgs_uiTimerID = 0;	/* ƒ^ƒCƒ} ID	*/
-/* ƒEƒBƒ“ƒhƒEƒƒbƒZ[ƒW	*/
-UINT WM_CTACTL_TIMER = ::RegisterWindowMessage("WM_CTACTL_TIMER");	/* ƒ^ƒCƒ}	*/
-UINT WM_CTACTL_SEQKICK = ::RegisterWindowMessage("WM_CTACTL_SEQKICK");	/* ƒV[ƒPƒ“ƒXƒLƒbƒN	*/
+static CCtaCtrl* lgs_pclsCCtaCtrl;	/* ï¿½ï¿½ï¿½ï¿½ï¿½ÌƒNï¿½ï¿½ï¿½Xï¿½|ï¿½Cï¿½ï¿½ï¿½^	*/
+static UINT_PTR lgs_uiTimerID = 0;	/* ï¿½^ï¿½Cï¿½} ID	*/
+/* ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W	*/
+UINT WM_CTACTL_TIMER = ::RegisterWindowMessage("WM_CTACTL_TIMER");	/* ï¿½^ï¿½Cï¿½}	*/
+UINT WM_CTACTL_SEQKICK = ::RegisterWindowMessage("WM_CTACTL_SEQKICK");	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Lï¿½bï¿½N	*/
 
 
 /*
- *	Extern ’è‹`
+ *	Extern ï¿½ï¿½`
  */
 extern CLogFile* pLogFile;	/* from MEASYS.cpp	*/
 extern TCHAR g_tszProcDir[_MAX_PATH];	/* from MEASYS.cpp	*/
@@ -75,10 +75,10 @@ extern HWND g_hNotifyWnd;	/* from MEASYS.cpp	*/
 extern CSharedMemory<CTARESULT> lg_smCtaResultDataBase;	/* from MEASYS.cpp	*/
 extern BOOL CtaRecalib(LPCTSTR szRecalib, double& dData);
 extern BOOL bHwSimulation;	/* from MEASYS.cpp	*/
-/* ƒEƒBƒ“ƒhƒEƒƒbƒZ[ƒW	*/
-extern UINT WM_CTASIO_RECVED;		/* ƒf[ƒ^óM				from CtaSio.cpp	*/
-extern UINT WM_CTASIO_RCVBUFFULL;	/* óMƒoƒbƒtƒ@ƒtƒ‹			from CtaSio.cpp	*/
-extern UINT WM_CTASIO_RCVFAIL;		/* óM¸”s(ƒXƒŒƒbƒhƒ‹[ƒv)	from CtaSio.cpp	*/
+/* ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W	*/
+extern UINT WM_CTASIO_RECVED;		/* ï¿½fï¿½[ï¿½^ï¿½ï¿½M				from CtaSio.cpp	*/
+extern UINT WM_CTASIO_RCVBUFFULL;	/* ï¿½ï¿½Mï¿½oï¿½bï¿½tï¿½@ï¿½tï¿½ï¿½			from CtaSio.cpp	*/
+extern UINT WM_CTASIO_RCVFAIL;		/* ï¿½ï¿½Mï¿½ï¿½ï¿½s(ï¿½Xï¿½ï¿½ï¿½bï¿½hï¿½ï¿½ï¿½[ï¿½v)	from CtaSio.cpp	*/
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -92,9 +92,9 @@ CCtaCtrl::CCtaCtrl(DWORD dwCreateFlags/* = 0*/)
 
 	this->Logging(_T("constructor."));
 
-	/* ‰Šúİ’è	*/
+	/* ï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½	*/
 	m_bInitedInstance = FALSE;
-	this->m_bAutoDelete = FALSE;	/* ƒIƒuƒWƒFƒNƒg‚Ì©“®”jŠü‚ğ‹Ö~	*/
+	this->m_bAutoDelete = FALSE;	/* ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½Ìï¿½ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½ï¿½ï¿½Ö~	*/
 	lgs_pclsCCtaCtrl = this;
 	m_bTimeOut = FALSE;
 	m_bRcvData = FALSE;
@@ -110,37 +110,37 @@ CCtaCtrl::CCtaCtrl(DWORD dwCreateFlags/* = 0*/)
 	m_uiTimeout_ILPO = CTA_TIMEOUT_ILPO;
 	m_uiTimeout_Retry = CTA_TIMEOUT_RETRY;
 	m_uiTimeout_MPE_Wait = CTA_TIMEOUT_MPE_WAIT;
-/* added 2010.07.15 hmenjo PO ƒIƒ“‚Å RST ƒRƒ}ƒ“ƒh‘Î‰ ---------- { ---------- */
+/* added 2010.07.15 hmenjo PO ï¿½Iï¿½ï¿½ï¿½ï¿½ RST ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½Î‰ï¿½ ---------- { ---------- */
 	m_bErrRep = FALSE;
-/* added 2010.07.15 hmenjo PO ƒIƒ“‚Å RST ƒRƒ}ƒ“ƒh‘Î‰ ---------- } ---------- */
-/* added 2010.09.09 hmenjo CTA PO/PI ƒnƒ“ƒhƒVƒF[ƒN ---------- { ---------- */
+/* added 2010.07.15 hmenjo PO ï¿½Iï¿½ï¿½ï¿½ï¿½ RST ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½Î‰ï¿½ ---------- } ---------- */
+/* added 2010.09.09 hmenjo CTA PO/PI ï¿½nï¿½ï¿½ï¿½hï¿½Vï¿½Fï¿½[ï¿½N ---------- { ---------- */
 	m_uiTimeout_ILPI = CTA_TIMEOUT_ILPI;
-/* added 2010.09.09 hmenjo CTA PO/PI ƒnƒ“ƒhƒVƒF[ƒN ---------- } ---------- */
-/* added 2011.02.03 hmenjo CTA PO ŒãƒfƒBƒŒƒC ---------- { ---------- */
+/* added 2010.09.09 hmenjo CTA PO/PI ï¿½nï¿½ï¿½ï¿½hï¿½Vï¿½Fï¿½[ï¿½N ---------- } ---------- */
+/* added 2011.02.03 hmenjo CTA PO ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½C ---------- { ---------- */
 	m_uiDelay_ILPO = CTA_ILPO_DELAY;
-/* added 2011.02.03 hmenjo CTA PO ŒãƒfƒBƒŒƒC ---------- } ---------- */
+/* added 2011.02.03 hmenjo CTA PO ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½C ---------- } ---------- */
 
-	/* ƒNƒŠƒeƒBƒJƒ‹ƒZƒNƒVƒ‡ƒ“‚ğ’è‹`	*/
+	/* ï¿½Nï¿½ï¿½ï¿½eï¿½Bï¿½Jï¿½ï¿½ï¿½Zï¿½Nï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`	*/
 	::InitializeCriticalSection(&m_csCtrlBusy);
 	::EnterCriticalSection(&m_csCtrlBusy);
 
-	/* SIO ƒXƒŒƒbƒh‚ğ‹N“®‚µ‚Ü‚·D	*/
+	/* SIO ï¿½Xï¿½ï¿½ï¿½bï¿½hï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 	this->Logging(_T("Starting CCtaSio..."));
 	m_pclsCCtaSio = 0;
 	m_pclsCCtaSio = new CCtaSio(CREATE_SUSPENDED);
 	if (0 == m_pclsCCtaSio) {
-		/* SIO ƒXƒŒƒbƒh\’z¸”s	*/
+		/* SIO ï¿½Xï¿½ï¿½ï¿½bï¿½hï¿½\ï¿½zï¿½ï¿½ï¿½s	*/
 		this->Logging(_T("Failed to create CCtaSio. (new)"));
 	} else
 	if (0 == m_pclsCCtaSio->m_hThread) {
-		/* SIO ƒXƒŒƒbƒh‹N“®¸”s	*/
+		/* SIO ï¿½Xï¿½ï¿½ï¿½bï¿½hï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½s	*/
 		this->Logging(_T("Failed to start CCtaSio thread. (thread)"));
 	} else {
-		/* SIO ƒXƒŒƒbƒh‹N“®¬Œ÷	*/
+		/* SIO ï¿½Xï¿½ï¿½ï¿½bï¿½hï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 		this->Logging(_T("Started CCtaSio."));
 		if (TRUE == this->InitializeSIO()) {
 
-			/* ƒXƒŒƒbƒh‚Ì‹N“®‘Ò‚¿	*/
+			/* ï¿½Xï¿½ï¿½ï¿½bï¿½hï¿½Ì‹Nï¿½ï¿½ï¿½Ò‚ï¿½	*/
 			m_dwCreateFlags = dwCreateFlags;
 			BOOL l_bThreadOK = this->CreateThread(m_dwCreateFlags);
 //			if (0 != this->m_hThread) {
@@ -166,7 +166,7 @@ CCtaCtrl::~CCtaCtrl()
 		lgs_uiTimerID = 0;
 	}
 
-	/* SIO ƒXƒŒƒbƒh‚ğI—¹	*/
+	/* SIO ï¿½Xï¿½ï¿½ï¿½bï¿½hï¿½ï¿½ï¿½Iï¿½ï¿½	*/
 	if (0 != m_pclsCCtaSio) {
 		this->Logging(_T("Deleting CCtaSio..."));
 		delete m_pclsCCtaSio;
@@ -174,7 +174,7 @@ CCtaCtrl::~CCtaCtrl()
 		this->Logging(_T("Deleted CCtaSio."));
 	}
 
-	/* ƒXƒŒƒbƒh‚ÌÁ–Å‘Ò‚¿	*/
+	/* ï¿½Xï¿½ï¿½ï¿½bï¿½hï¿½Ìï¿½ï¿½Å‘Ò‚ï¿½	*/
 	if (0 != this->m_hThread) {
 		if (0 == m_bAutoDelete) {
 			if (TRUE == m_bInitedInstance) {
@@ -189,9 +189,9 @@ CCtaCtrl::~CCtaCtrl()
 		}
 	}
 
-	/* ƒNƒŠƒeƒBƒJƒ‹ƒZƒNƒVƒ‡ƒ“‚ğŠJ•ú	*/
-	::EnterCriticalSection(&m_csCtrlBusy);	/* æ“¾‚³‚ê‚½‚Ü‚Ü‚©‚à’m‚ê‚È‚¢‚Ì‚Å‘Ò‚Â	*/
-	::LeaveCriticalSection(&m_csCtrlBusy);	/* ŠJ•ú‚·‚é								*/
+	/* ï¿½Nï¿½ï¿½ï¿½eï¿½Bï¿½Jï¿½ï¿½ï¿½Zï¿½Nï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½ï¿½	*/
+	::EnterCriticalSection(&m_csCtrlBusy);	/* ï¿½æ“¾ï¿½ï¿½ï¿½ê‚½ï¿½Ü‚Ü‚ï¿½ï¿½ï¿½ï¿½mï¿½ï¿½È‚ï¿½ï¿½Ì‚Å‘Ò‚ï¿½	*/
+	::LeaveCriticalSection(&m_csCtrlBusy);	/* ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½								*/
 	::DeleteCriticalSection(&m_csCtrlBusy);
 }
 
@@ -207,8 +207,8 @@ BOOL CCtaCtrl::InitInstance()
 
 	((CCtaSio*) m_pclsCCtaSio)->ResumeSIO(this->m_nThreadID);
 
-//	/* ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ì‘Ò‚¿‚ğ‰ğœ‚µ‚Ü‚·	*/
-//	/*		‚Â‚Ü‚èCƒXƒŒƒbƒh‚Ì¶¬‚ÆƒXƒŒƒbƒhƒNƒ‰ƒX‚Ì\’z‚Ì“¯Šú‚ğæ‚Á‚Ä‚¢‚Ü‚·D	*/
+//	/* ï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^ï¿½Ì‘Ò‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½	*/
+//	/*		ï¿½Â‚Ü‚ï¿½Cï¿½Xï¿½ï¿½ï¿½bï¿½hï¿½Ìï¿½ï¿½ï¿½ï¿½ÆƒXï¿½ï¿½ï¿½bï¿½hï¿½Nï¿½ï¿½ï¿½Xï¿½Ì\ï¿½zï¿½Ì“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 //	if (CREATE_SUSPENDED != m_dwCreateFlags) {
 //		m_cSyncEvent.SetEvent();
 //	}
@@ -248,8 +248,8 @@ int CCtaCtrl::Run()
 	static BOOL ls_bFirst = FALSE;
 	if (TRUE != ls_bFirst) {
 		ls_bFirst = TRUE;
-		/* ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ì‘Ò‚¿‚ğ‰ğœ‚µ‚Ü‚·	*/
-		/*		‚Â‚Ü‚èCƒXƒŒƒbƒh‚Ì¶¬‚ÆƒXƒŒƒbƒhƒNƒ‰ƒX‚Ì\’z‚Ì“¯Šú‚ğæ‚Á‚Ä‚¢‚Ü‚·D	*/
+		/* ï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^ï¿½Ì‘Ò‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½	*/
+		/*		ï¿½Â‚Ü‚ï¿½Cï¿½Xï¿½ï¿½ï¿½bï¿½hï¿½Ìï¿½ï¿½ï¿½ï¿½ÆƒXï¿½ï¿½ï¿½bï¿½hï¿½Nï¿½ï¿½ï¿½Xï¿½Ì\ï¿½zï¿½Ì“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 		if (CREATE_SUSPENDED != m_dwCreateFlags) {
 			m_cSyncEvent.SetEvent();
 		}
@@ -269,7 +269,7 @@ BOOL CCtaCtrl::OnIdle(LONG lCount)
 }
 
 /*
- *	§ŒäƒV[ƒPƒ“ƒX‹N“® ƒƒbƒZ[ƒWƒnƒ“ƒhƒ‰
+ *	ï¿½ï¿½ï¿½ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Nï¿½ï¿½ ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
  */
 void CCtaCtrl::OnCtaCtrlSeqKick(WPARAM wparam, LPARAM lparam)
 {
@@ -277,18 +277,18 @@ void CCtaCtrl::OnCtaCtrlSeqKick(WPARAM wparam, LPARAM lparam)
 }
 
 /*
- *	ƒ^ƒCƒ} ƒƒbƒZ[ƒWƒnƒ“ƒhƒ‰
+ *	ï¿½^ï¿½Cï¿½} ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
  */
 void CCtaCtrl::OnCtaCtrlTimer(WPARAM wparam, LPARAM lparam)
 {
-#if 1	/* ’èüŠúƒ^ƒCƒ}‚Ìê‡‚ÍƒƒO‚µ‚È‚¢‚Å‚­‚¾‚³‚¢D	*/
+#if 1	/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Cï¿½}ï¿½Ìê‡ï¿½Íƒï¿½ï¿½Oï¿½ï¿½ï¿½È‚ï¿½ï¿½Å‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 	this->Logging_WinMsg(_T("WM_CTACTL_TIMER"), wparam, lparam);
 #endif
 	m_bTimeOut = TRUE;
 }
 
 /*
- *	ƒf[ƒ^óM ƒƒbƒZ[ƒWƒnƒ“ƒhƒ‰
+ *	ï¿½fï¿½[ï¿½^ï¿½ï¿½M ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
  */
 void CCtaCtrl::OnCtaSioRecved(WPARAM wparam, LPARAM lparam)
 {
@@ -302,33 +302,33 @@ void CCtaCtrl::OnCtaSioRecved(WPARAM wparam, LPARAM lparam)
 }
 
 /*
- *	óMƒoƒbƒtƒ@ƒtƒ‹ ƒƒbƒZ[ƒWƒnƒ“ƒhƒ‰
+ *	ï¿½ï¿½Mï¿½oï¿½bï¿½tï¿½@ï¿½tï¿½ï¿½ ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
  */
 void CCtaCtrl::OnCtaSioRcvBufFull(WPARAM wparam, LPARAM lparam)
 {
 	this->Logging_WinMsg(_T("WM_CTASIO_RCVBUFFULL"), wparam, lparam);
 
-	/* ãˆÊ‚É’Ê’m	*/
+	/* ï¿½ï¿½Ê‚É’Ê’m	*/
 	this->NotifyAlarm(CTASIO_ERR_RCVBUFFULL);
 }
 
 /*
- *	óM¸”s(CCtaSio ƒXƒŒƒbƒhƒ‹[ƒv) ƒƒbƒZ[ƒWƒnƒ“ƒhƒ‰
+ *	ï¿½ï¿½Mï¿½ï¿½ï¿½s(CCtaSio ï¿½Xï¿½ï¿½ï¿½bï¿½hï¿½ï¿½ï¿½[ï¿½v) ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
  */
 void CCtaCtrl::OnCtaSioRcvFail(WPARAM wparam, LPARAM lparam)
 {
 	this->Logging_WinMsg(_T("WM_CTASIO_RCVFAIL"), wparam, lparam);
 
-	/* ãˆÊ‚É’Ê’m	*/
+	/* ï¿½ï¿½Ê‚É’Ê’m	*/
 	this->NotifyAlarm(CTASIO_ERR_RCVFAIL);
 }
 
 /****************************************************************************
-	§Œä—pŠÖ”
+	ï¿½ï¿½ï¿½ï¿½pï¿½Öï¿½
 ****************************************************************************/
 
 /*
- *	CTA ‰Šú‰»ˆ—
+ *	CTA ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 BOOL CCtaCtrl::Cta_Initialize()
 {
@@ -336,7 +336,7 @@ BOOL CCtaCtrl::Cta_Initialize()
 
 	BOOL l_bRet = TRUE;
 
-	/* ‚±‚ÌŠÖ”‚Ì‚İƒRƒR‚Ås‚¢‚Ü‚·D	*/
+	/* ï¿½ï¿½ï¿½ÌŠÖï¿½ï¿½Ì‚İƒRï¿½Rï¿½Åsï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 	::EnterCriticalSection(&m_csCtrlBusy);
 
 	if (TRUE != m_bInitedInstance) {
@@ -353,10 +353,10 @@ BOOL CCtaCtrl::Cta_Initialize()
 }
 
 /*
- *	CTA ‘ª’èƒ‚[ƒhİ’è
- *		MEAS_CTA_MODE_1	ƒ‚[ƒh‚PFŠî”Â’PˆÊEƒIƒyƒŒ[ƒ^ƒf[ƒ^Šm”F‚È‚µ
- *		MEAS_CTA_MODE_2	ƒ‚[ƒh‚QFŠî”Â’PˆÊEƒIƒyƒŒ[ƒ^ƒf[ƒ^Šm”F‚ ‚è
- *		MEAS_CTA_MODE_3	ƒ‚[ƒh‚RFƒJƒZƒbƒg’PˆÊEƒIƒyƒŒ[ƒ^ƒf[ƒ^Šm”F‚ ‚è
+ *	CTA ï¿½ï¿½ï¿½èƒ‚ï¿½[ï¿½hï¿½İ’ï¿½
+ *		MEAS_CTA_MODE_1	ï¿½ï¿½ï¿½[ï¿½hï¿½Pï¿½Fï¿½ï¿½Â’Pï¿½ÊEï¿½Iï¿½yï¿½ï¿½ï¿½[ï¿½^ï¿½fï¿½[ï¿½^ï¿½mï¿½Fï¿½È‚ï¿½
+ *		MEAS_CTA_MODE_2	ï¿½ï¿½ï¿½[ï¿½hï¿½Qï¿½Fï¿½ï¿½Â’Pï¿½ÊEï¿½Iï¿½yï¿½ï¿½ï¿½[ï¿½^ï¿½fï¿½[ï¿½^ï¿½mï¿½Fï¿½ï¿½ï¿½ï¿½
+ *		MEAS_CTA_MODE_3	ï¿½ï¿½ï¿½[ï¿½hï¿½Rï¿½Fï¿½Jï¿½Zï¿½bï¿½gï¿½Pï¿½ÊEï¿½Iï¿½yï¿½ï¿½ï¿½[ï¿½^ï¿½fï¿½[ï¿½^ï¿½mï¿½Fï¿½ï¿½ï¿½ï¿½
  */
 BOOL CCtaCtrl::Cta_ModeSet(int iCtaMode)
 {
@@ -388,12 +388,12 @@ BOOL CCtaCtrl::Cta_ModeSet(int iCtaMode)
 }
 
 /*
- *	CTA ƒJƒZƒbƒg IDCŠî”Â ID İ’è
+ *	CTA ï¿½Jï¿½Zï¿½bï¿½g IDï¿½Cï¿½ï¿½ï¿½ ID ï¿½İ’ï¿½
  */
 BOOL CCtaCtrl::Cta_SetCstSample(
-		LPCSTR pstrCstID,						/* ƒJƒZƒbƒg ID	FASCII 80 •¶š	*/
-		LPCSTR pstrSampleID,					/* Šî”Â ID		FASCII 66 •¶š	*/	// 2010.03.04 K.Matsuo 80•¶š - 14•¶š(yyyymmddhhmmss)‚Å‚·
-		const MAIN_RCP_INFO* pMainRcpInfo		/* ƒƒCƒ“ƒŒƒVƒs	*/
+		LPCSTR pstrCstID,						/* ï¿½Jï¿½Zï¿½bï¿½g ID	ï¿½FASCII 80 ï¿½ï¿½ï¿½ï¿½	*/
+		LPCSTR pstrSampleID,					/* ï¿½ï¿½ï¿½ ID		ï¿½FASCII 66 ï¿½ï¿½ï¿½ï¿½	*/	// 2010.03.04 K.Matsuo 80ï¿½ï¿½ï¿½ï¿½ - 14ï¿½ï¿½ï¿½ï¿½(yyyymmddhhmmss)ï¿½Å‚ï¿½
+		const MAIN_RCP_INFO* pMainRcpInfo		/* ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½s	*/
 	)
 {
 	this->Logging(_T("Started Cta_SetCstSample()"));
@@ -405,38 +405,38 @@ BOOL CCtaCtrl::Cta_SetCstSample(
 	char l_szSampleID[80 + 2];
 	memset(l_szSampleID, 0, sizeof(l_szSampleID));
 	strncpy(l_szSampleID, pstrSampleID, 80);
-// 2010.03.04 K.Matsuo FAMAS IDd•¡ƒGƒ‰[‘Îô -->
+// 2010.03.04 K.Matsuo FAMAS IDï¿½dï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[ï¿½Îï¿½ -->
 	char l_szSystemTime[255 + 1];
 	SYSTEMTIME l_systemTime;
-// 2010.03.04 K.Matsuo FAMAS IDd•¡ƒGƒ‰[‘Îô <--
+// 2010.03.04 K.Matsuo FAMAS IDï¿½dï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[ï¿½Îï¿½ <--
 
 	if (TRUE != m_bInitedInstance) {
 		l_bRet = FALSE;
 	} else if (-1 == m_CtaMeasInf.iCtaMode) {
-		l_bRet = FALSE;	/* ‘ª’èƒ‚[ƒh‚ª–¢İ’è‚Å‚·D	*/
+		l_bRet = FALSE;	/* ï¿½ï¿½ï¿½èƒ‚ï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½Å‚ï¿½ï¿½D	*/
 	} else if (0 == strlen(l_szCstID)) {
-		l_bRet = FALSE;	/* ƒJƒZƒbƒg ID ‚ª null ‚Å‚·D	*/
+		l_bRet = FALSE;	/* ï¿½Jï¿½Zï¿½bï¿½g ID ï¿½ï¿½ null ï¿½Å‚ï¿½ï¿½D	*/
 	} else if (-1 != this->IsStrAlNum(l_szCstID)) {
-		l_bRet = FALSE;	/* ƒJƒZƒbƒg ID ‚É–³Œø‚È•¶š‚ª‚ ‚è‚Ü‚·D	*/
+		l_bRet = FALSE;	/* ï¿½Jï¿½Zï¿½bï¿½g ID ï¿½É–ï¿½ï¿½ï¿½ï¿½È•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 	} else if (0 == strlen(l_szSampleID)) {
-		l_bRet = FALSE;	/* Šî”Â ID ‚ª null ‚Å‚·D	*/
+		l_bRet = FALSE;	/* ï¿½ï¿½ï¿½ ID ï¿½ï¿½ null ï¿½Å‚ï¿½ï¿½D	*/
 	} else if (-1 != this->IsStrAlNum(l_szSampleID)) {
-		l_bRet = FALSE;	/* Šî”Â ID ‚É–³Œø‚È•¶š‚ª‚ ‚è‚Ü‚·D	*/
+		l_bRet = FALSE;	/* ï¿½ï¿½ï¿½ ID ï¿½É–ï¿½ï¿½ï¿½ï¿½È•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 	} else if (0 == pMainRcpInfo) {
-		l_bRet = FALSE;	/* ƒƒCƒ“ƒŒƒVƒsw’è‚ª null‚Å‚·D	*/
+		l_bRet = FALSE;	/* ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½wï¿½è‚ª nullï¿½Å‚ï¿½ï¿½D	*/
 	} else if ((RECIPE_NAME_LEN < _tcslen(pMainRcpInfo->MainRcpParam._CA.szRecalib[0]))
 			|| (RECIPE_NAME_LEN < _tcslen(pMainRcpInfo->MainRcpParam._CA.szRecalib[1]))) {
-		l_bRet = FALSE;	/* ƒŠƒLƒƒƒŠƒu PGM –¼‚ª’·‚·‚¬‚Ü‚·D	*/
+		l_bRet = FALSE;	/* ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½u PGM ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 	} else {
 		::EnterCriticalSection(&m_csCtrlBusy);
 
-		/* ƒJƒZƒbƒg ID ‚Å 80 •¶š‚É‘«‚è‚È‚¢•”•ª‚ğ 0x20 ‚Å–„‚ß‚Ü‚·D	*/
+		/* ï¿½Jï¿½Zï¿½bï¿½g ID ï¿½ï¿½ 80 ï¿½ï¿½ï¿½ï¿½ï¿½É‘ï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0x20 ï¿½Å–ï¿½ï¿½ß‚Ü‚ï¿½ï¿½D	*/
 		memset(m_CtaMeasInf.szCstID, 0x20, sizeof(m_CtaMeasInf.szCstID));
 		m_CtaMeasInf.szCstID[80] = 0x00;
 		memcpy(m_CtaMeasInf.szCstID, l_szCstID, strlen(l_szCstID));
 
-// 2010.03.04 K.Matsuo FAMAS IDd•¡ƒGƒ‰[‘Îô -->
-// Šî”ÂID‚ÉA“ú‚ğ•t‰Á‚·‚é‚±‚Æ‚ÅAID‚ªd•¡‚µ‚È‚¢‚æ‚¤‚É‚·‚é
+// 2010.03.04 K.Matsuo FAMAS IDï¿½dï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[ï¿½Îï¿½ -->
+// ï¿½ï¿½ï¿½IDï¿½ÉAï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½ï¿½ï¿½é‚±ï¿½Æ‚ÅAIDï¿½ï¿½ï¿½dï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½æ‚¤ï¿½É‚ï¿½ï¿½ï¿½
 		GetLocalTime(&l_systemTime);
 		sprintf(l_szSystemTime, "%04d%02d%02d%02d%02d%02d",
 				l_systemTime.wYear,
@@ -446,13 +446,13 @@ BOOL CCtaCtrl::Cta_SetCstSample(
 				l_systemTime.wMinute,
 				l_systemTime.wSecond);
 		strcat(l_szSampleID, l_szSystemTime);
-// 2010.03.04 K.Matsuo FAMAS IDd•¡ƒGƒ‰[‘Îô <--
-		/* Šî”Â ID ‚Å 80 •¶š‚É‘«‚è‚È‚¢•”•ª‚ğ 0x20 ‚Å–„‚ß‚Ü‚·D	*/
+// 2010.03.04 K.Matsuo FAMAS IDï¿½dï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[ï¿½Îï¿½ <--
+		/* ï¿½ï¿½ï¿½ ID ï¿½ï¿½ 80 ï¿½ï¿½ï¿½ï¿½ï¿½É‘ï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0x20 ï¿½Å–ï¿½ï¿½ß‚Ü‚ï¿½ï¿½D	*/
 		memset(m_CtaMeasInf.szSampleID, 0x20, sizeof(m_CtaMeasInf.szSampleID));
 		m_CtaMeasInf.szSampleID[80] = 0x00;
 		memcpy(m_CtaMeasInf.szSampleID, l_szSampleID, strlen(l_szSampleID));
-/* modified 2009.11.16 hmenjo CTA ƒŠƒLƒƒƒŠƒu—LŒøƒ`ƒFƒbƒN ---------- { ---------- */
-//		/* ƒŠƒLƒƒƒŠƒu PGM –¼‚ğƒRƒs[‚µ‚Ä‚¨‚«‚Ü‚·D	*/
+/* modified 2009.11.16 hmenjo CTA ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½Lï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N ---------- { ---------- */
+//		/* ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½u PGM ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½sï¿½[ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 //		if (0 != pMainRcpInfo->MainRcpParam._CA.RecalibItem[0]) {
 //			_tcscpy(m_CtaMeasInf.tszRecalibCA, pMainRcpInfo->MainRcpParam._CA.szRecalib[0]);
 //		} else {
@@ -463,11 +463,11 @@ BOOL CCtaCtrl::Cta_SetCstSample(
 //		} else {
 //			_tcscpy(m_CtaMeasInf.tszRecalibRad, _T(""));
 //		}
-/* modified 2009.11.16 hmenjo CTA ƒŠƒLƒƒƒŠƒu—LŒøƒ`ƒFƒbƒN ---------- 			 */
-		/* ƒŠƒLƒƒƒŠƒu PGM –¼‚ğƒRƒs[‚µ‚Ä‚¨‚«‚Ü‚·D	*/
+/* modified 2009.11.16 hmenjo CTA ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½Lï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N ---------- 			 */
+		/* ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½u PGM ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½sï¿½[ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 		_tcscpy(m_CtaMeasInf.tszRecalibCA, pMainRcpInfo->MainRcpParam._CA.szRecalib[0]);
 		_tcscpy(m_CtaMeasInf.tszRecalibRad, pMainRcpInfo->MainRcpParam._CA.szRecalib[1]);
-/* modified 2009.11.16 hmenjo CTA ƒŠƒLƒƒƒŠƒu—LŒøƒ`ƒFƒbƒN ---------- } ---------- */
+/* modified 2009.11.16 hmenjo CTA ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½Lï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N ---------- } ---------- */
 
 		::LeaveCriticalSection(&m_csCtrlBusy);
 	}
@@ -478,10 +478,10 @@ BOOL CCtaCtrl::Cta_SetCstSample(
 }
 
 /*
- *	CTA Šî”ÂŒú‚İİ’è
+ *	CTA ï¿½ï¿½ÂŒï¿½ï¿½İİ’ï¿½
  */
 BOOL CCtaCtrl::Cta_SetThick(
-		DWORD dwThick			/* Šî”ÂŒú‚İî•ñ[0.1mm]C”ÍˆÍ(0.0`10.0mm)	*/
+		DWORD dwThick			/* ï¿½ï¿½ÂŒï¿½ï¿½İï¿½ï¿½[0.1mm]ï¿½Cï¿½Íˆï¿½(0.0ï¿½`10.0mm)	*/
 	)
 {
 	this->Logging(_T("Started Cta_SetThick()"));
@@ -491,13 +491,13 @@ BOOL CCtaCtrl::Cta_SetThick(
 	if (TRUE != m_bInitedInstance) {
 		l_bRet = FALSE;
 	} else if (-1 == m_CtaMeasInf.iCtaMode) {
-		l_bRet = FALSE;	/* ‘ª’èƒ‚[ƒh‚ª–¢İ’è‚Å‚·D	*/
+		l_bRet = FALSE;	/* ï¿½ï¿½ï¿½èƒ‚ï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½Å‚ï¿½ï¿½D	*/
 	} else if (100 < dwThick) {
-		l_bRet = FALSE;	/* Šî”ÂŒú‚İî•ñ‚ª”ÍˆÍŠO‚Å‚·D	*/
+		l_bRet = FALSE;	/* ï¿½ï¿½ÂŒï¿½ï¿½İï¿½ñ‚ª”ÍˆÍŠOï¿½Å‚ï¿½ï¿½D	*/
 	} else if (0 == strlen(m_CtaMeasInf.szCstID)) {
-		l_bRet = FALSE;	/* ƒJƒZƒbƒg ID ‚ª null ‚Å‚·D	*/
+		l_bRet = FALSE;	/* ï¿½Jï¿½Zï¿½bï¿½g ID ï¿½ï¿½ null ï¿½Å‚ï¿½ï¿½D	*/
 	} else if (0 == strlen(m_CtaMeasInf.szSampleID)) {
-		l_bRet = FALSE;	/* Šî”Â ID ‚ª null ‚Å‚·D	*/
+		l_bRet = FALSE;	/* ï¿½ï¿½ï¿½ ID ï¿½ï¿½ null ï¿½Å‚ï¿½ï¿½D	*/
 	} else {
 		::EnterCriticalSection(&m_csCtrlBusy);
 
@@ -514,11 +514,11 @@ BOOL CCtaCtrl::Cta_SetThick(
 }
 
 /*
- *	CTA ‘ª’èŠJn
+ *	CTA ï¿½ï¿½ï¿½ï¿½Jï¿½n
  */
 BOOL CCtaCtrl::Cta_Measure(
-		int iScanCnt,							/* ‘ª’è”Ô†	*/
-		const STAGE_COORD_XYZ* pStageCoordXyz	/* ‘ª’èˆÊ’uÀ•W	*/
+		int iScanCnt,							/* ï¿½ï¿½ï¿½ï¿½Ôï¿½	*/
+		const STAGE_COORD_XYZ* pStageCoordXyz	/* ï¿½ï¿½ï¿½ï¿½Ê’uï¿½ï¿½ï¿½W	*/
 	)
 {
 	this->Logging(_T("Started Cta_Measure()"));
@@ -541,9 +541,9 @@ BOOL CCtaCtrl::Cta_Measure(
 		l_bRet = this->WaitSeqEndStart(SEQPTN_MEASSTA);
 
 		if (0 != l_bRet) {
-			/* ‘ª’èI—¹‚ğ’Ê’m‚µ‚Ü‚·D	*/
+			/* ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½Ê’mï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 			::PostMessage(g_hNotifyWnd, WM_MEAS_RECVDATA, 0, 0);
-			/* ƒRƒR‚ÉƒŠƒLƒƒƒŠƒuˆ—‚ğ“ü‚ê‚Ä‚à‚æ‚¢‚Å‚·D	*/
+			/* ï¿½Rï¿½Rï¿½Éƒï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½æ‚¢ï¿½Å‚ï¿½ï¿½D	*/
 		}
 
 		::LeaveCriticalSection(&m_csCtrlBusy);
@@ -555,7 +555,7 @@ BOOL CCtaCtrl::Cta_Measure(
 }
 
 /*
- *	CTA ‘ª’èI—¹
+ *	CTA ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½
  */
 BOOL CCtaCtrl::Cta_MeasEnd()
 {
@@ -579,7 +579,7 @@ BOOL CCtaCtrl::Cta_MeasEnd()
 }
 
 /*
- *	CTA ‹­§I—¹
+ *	CTA ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½
  */
 BOOL CCtaCtrl::Cta_ForceEnd()
 {
@@ -607,7 +607,7 @@ BOOL CCtaCtrl::Cta_ForceEnd()
 }
 
 /*
- *	CTA ó‘Ôæ“¾
+ *	CTA ï¿½ï¿½Ôæ“¾
  */
 BOOL CCtaCtrl::Cta_GetStatus(long* plStatus)
 {
@@ -628,10 +628,10 @@ BOOL CCtaCtrl::Cta_GetStatus(long* plStatus)
 
 		l_bRet = this->WaitSeqEndStart(SEQPTN_GETSTAT);
 
-		*plStatus = m_lCtaStatus;	/*	LOBYTE(LOWORD(m_lCtaStatus));	ƒwƒbƒhFZ ²ˆÊ’u
-										HIBYTE(LOWORD(m_lCtaStatus));	ó‘Ô‚PF‘ª’èó‘Ô
-										LOBYTE(HIWORD(m_lCtaStatus));	ó‘Ô‚QF‘•’uó‘Ô
-										HIBYTE(HIWORD(m_lCtaStatus));	(–¢g—p)
+		*plStatus = m_lCtaStatus;	/*	LOBYTE(LOWORD(m_lCtaStatus));	ï¿½wï¿½bï¿½hï¿½FZ ï¿½ï¿½ï¿½Ê’u
+										HIBYTE(LOWORD(m_lCtaStatus));	ï¿½ï¿½Ô‚Pï¿½Fï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+										LOBYTE(HIWORD(m_lCtaStatus));	ï¿½ï¿½Ô‚Qï¿½Fï¿½ï¿½ï¿½uï¿½ï¿½ï¿½
+										HIBYTE(HIWORD(m_lCtaStatus));	(ï¿½ï¿½ï¿½gï¿½p)
 										*/
 
 		::LeaveCriticalSection(&m_csCtrlBusy);
@@ -643,99 +643,99 @@ BOOL CCtaCtrl::Cta_GetStatus(long* plStatus)
 }
 
 /****************************************************************************
-	‚»‚Ì‘¼ŠÖ”
+	ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½Öï¿½
 ****************************************************************************/
 
 /*
- *	SIO ‰Šú‰»ˆ—
+ *	SIO ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 BOOL CCtaCtrl::InitializeSIO()
 {
 	TCHAR l_tszNanoSpecIni[_MAX_PATH];
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) -->
 //	_stprintf(l_tszNanoSpecIni, _T("%s") _T(CFG_DIR) _T(NANOSPEC_INIFILENAME), g_tszProcDir);
 
 	CString strFilename;
 
 	strFilename = NANOSPEC_INIFILENAME;
 	if(g_lAppNameType != APP_NAME_NANO){
-		strFilename.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
-	}
-	_stprintf(l_tszNanoSpecIni, _T("%s%s%s"), _T(CFG_DIR), g_tszProcDir, strFilename);
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) <--
+	strFilename.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
+}
+_stprintf(l_tszNanoSpecIni, _T("%s%s%s"), _T(CFG_DIR), g_tszProcDir, (LPCTSTR)strFilename);
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) <--
 
 	TCHAR l_tszText[255];
-	/* ƒŠƒgƒ‰ƒCƒJƒEƒ“ƒg“Ço‚µ	*/
+	/* ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½Çoï¿½ï¿½	*/
 	::GetPrivateProfileString(SECTION_CTA, _T("RETRY"), _T("0"), l_tszText, sizeof(l_tszText), l_tszNanoSpecIni);
 	m_dwRetryCnt = _ttoi(l_tszText);
 	if (m_dwRetryCnt <= 0) {
 		m_dwRetryCnt = 0;
 	}
-	/* HWS “Ço‚µ	*/
+	/* HWS ï¿½Çoï¿½ï¿½	*/
 	::GetPrivateProfileString(SECTION_CTA, _T("HWS"), _T("1"), l_tszText, sizeof(l_tszText), l_tszNanoSpecIni);
 	int l_iHWS1 = _ttoi(l_tszText);
 	::GetPrivateProfileString(SECTION_CTA, _T("HWS"), _T("2"), l_tszText, sizeof(l_tszText), l_tszNanoSpecIni);
 	int l_iHWS2 = _ttoi(l_tszText);
 	if ((1 == l_iHWS1) && (2 == l_iHWS2)) {
-		/* ƒL[‚ª–³‚©‚Á‚½D	*/
+		/* ï¿½Lï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 		m_bHWS = (0 != bHwSimulation)? TRUE : FALSE;
 	} else {
 		m_bHWS = (0 != l_iHWS2)? TRUE : FALSE;
 	}
-	/* ‰ï˜bƒ^ƒCƒ€ƒAƒEƒg(‘ª’è’†)	*/
+	/* ï¿½ï¿½bï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g(ï¿½ï¿½ï¿½è’†)	*/
 	m_uiTimeout_T9_Meas = ::GetPrivateProfileInt(SECTION_CTA, _T("TIMEOUT_T9_MEAS"), -1, l_tszNanoSpecIni);
 	if ((m_uiTimeout_T9_Meas < 500) || (CTA_TIMEOUT_T9_MEAS < m_uiTimeout_T9_Meas)) {
 		m_uiTimeout_T9_Meas = CTA_TIMEOUT_T9_MEAS;
 	}
-	/* ‰ï˜bƒ^ƒCƒ€ƒAƒEƒg(‘Sƒ|ƒCƒ“ƒgI—¹óM‘Ò‚¿)	*/
+	/* ï¿½ï¿½bï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g(ï¿½Sï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Iï¿½ï¿½ï¿½ï¿½Mï¿½Ò‚ï¿½)	*/
 	m_uiTimeout_T9_AllEnd = ::GetPrivateProfileInt(SECTION_CTA, _T("TIMEOUT_T9_ALLEND"), -1, l_tszNanoSpecIni);
 	if ((m_uiTimeout_T9_AllEnd < 500) || (CTA_TIMEOUT_T9_ALLEND < m_uiTimeout_T9_AllEnd)) {
 		m_uiTimeout_T9_AllEnd = CTA_TIMEOUT_T9_ALLEND;
 	}
-	/* PO ƒCƒ“ƒ^ƒƒbƒNM†ƒ^ƒCƒ€ƒAƒEƒg	*/
+	/* PO ï¿½Cï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½bï¿½Nï¿½Mï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
 	m_uiTimeout_ILPO = ::GetPrivateProfileInt(SECTION_CTA, _T("TIMEOUT_ILPO"), -1, l_tszNanoSpecIni);
 	if ((m_uiTimeout_ILPO < 10) || (CTA_TIMEOUT_ILPO < m_uiTimeout_ILPO)) {
 		m_uiTimeout_ILPO = CTA_TIMEOUT_ILPO;
 	}
-/* added 2010.09.09 hmenjo CTA PO/PI ƒnƒ“ƒhƒVƒF[ƒN ---------- { ---------- */
-	/* PI ƒCƒ“ƒ^ƒƒbƒNM†ƒ^ƒCƒ€ƒAƒEƒg	*/
+/* added 2010.09.09 hmenjo CTA PO/PI ï¿½nï¿½ï¿½ï¿½hï¿½Vï¿½Fï¿½[ï¿½N ---------- { ---------- */
+	/* PI ï¿½Cï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½bï¿½Nï¿½Mï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
 	m_uiTimeout_ILPI = ::GetPrivateProfileInt(SECTION_CTA, _T("TIMEOUT_ILPI"), -1, l_tszNanoSpecIni);
 	if ((m_uiTimeout_ILPI < 10) || (CTA_TIMEOUT_ILPI < m_uiTimeout_ILPI)) {
 		m_uiTimeout_ILPI = CTA_TIMEOUT_ILPI;
 	}
-/* added 2010.09.09 hmenjo CTA PO/PI ƒnƒ“ƒhƒVƒF[ƒN ---------- } ---------- */
-	/* ƒŠƒgƒ‰ƒCƒ^ƒCƒ}	*/
+/* added 2010.09.09 hmenjo CTA PO/PI ï¿½nï¿½ï¿½ï¿½hï¿½Vï¿½Fï¿½[ï¿½N ---------- } ---------- */
+	/* ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½^ï¿½Cï¿½}	*/
 	m_uiTimeout_Retry = ::GetPrivateProfileInt(SECTION_CTA, _T("TIMEOUT_RETRY"), -1, l_tszNanoSpecIni);
 	if ((m_uiTimeout_Retry < 200) || (5000 < m_uiTimeout_Retry)) {
 		m_uiTimeout_Retry = CTA_TIMEOUT_RETRY;
 	}
-	/* MPE ‘—M‘Ò‚¿ƒEƒFƒCƒg	*/
+	/* MPE ï¿½ï¿½ï¿½Mï¿½Ò‚ï¿½ï¿½Eï¿½Fï¿½Cï¿½g	*/
 	m_uiTimeout_MPE_Wait = ::GetPrivateProfileInt(SECTION_CTA, _T("TIMEOUT_MPE_WAIT"), -1, l_tszNanoSpecIni);
 	if ((m_uiTimeout_MPE_Wait < 10) || (5000 < m_uiTimeout_MPE_Wait)) {
 		m_uiTimeout_MPE_Wait = CTA_TIMEOUT_MPE_WAIT;
 	}
-/* added 2011.02.03 hmenjo CTA PO ŒãƒfƒBƒŒƒC ---------- { ---------- */
-	/* PO CTA ”F¯ƒfƒBƒŒƒC	*/
+/* added 2011.02.03 hmenjo CTA PO ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½C ---------- { ---------- */
+	/* PO CTA ï¿½Fï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½C	*/
 	m_uiDelay_ILPO = ::GetPrivateProfileInt(SECTION_CTA, _T("ILPO_DELAY"), -1, l_tszNanoSpecIni);
 	if ((m_uiDelay_ILPO < 10) || (10000 < m_uiDelay_ILPO)) {
 		m_uiDelay_ILPO = CTA_ILPO_DELAY;
 	}
-/* added 2011.02.03 hmenjo CTA PO ŒãƒfƒBƒŒƒC ---------- } ---------- */
+/* added 2011.02.03 hmenjo CTA PO ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½C ---------- } ---------- */
 
 // 2009.11.18 K.Matsuo -->
-//	/* ƒ|[ƒg”Ô†“Ço‚µ	*/
+//	/* ï¿½|ï¿½[ï¿½gï¿½Ôï¿½ï¿½Çoï¿½ï¿½	*/
 //	::GetPrivateProfileString(SECTION_CTA, _T("COM"), _T("1"), l_tszText, sizeof(l_tszText), l_tszNanoSpecIni);
 //	int l_iComNo = _ttoi(l_tszText);
 //	if (l_iComNo <= 0) {
 //		l_iComNo = 1;
 //	}
-//	/* ƒ{[ƒŒ[ƒg“Ço‚µ	*/
+//	/* ï¿½{ï¿½[ï¿½ï¿½ï¿½[ï¿½gï¿½Çoï¿½ï¿½	*/
 //	::GetPrivateProfileString(SECTION_CTA, _T("BaudRate"), _T("9600"), l_tszText, sizeof(l_tszText), l_tszNanoSpecIni);
 //	int l_iBaudRate = _ttoi(l_tszText);
-//	/* ƒf[ƒ^’·“Ço‚µ	*/
+//	/* ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½Çoï¿½ï¿½	*/
 //	::GetPrivateProfileString(SECTION_CTA, _T("ByteSize"), _T("8"), l_tszText, sizeof(l_tszText), l_tszNanoSpecIni);
 //	int l_iByteSize = _ttoi(l_tszText);
-//	/* ƒpƒŠƒeƒB“Ço‚µ	*/
+//	/* ï¿½pï¿½ï¿½ï¿½eï¿½Bï¿½Çoï¿½ï¿½	*/
 //	::GetPrivateProfileString(SECTION_CTA, _T("Parity"), _T("0"), l_tszText, sizeof(l_tszText), l_tszNanoSpecIni);
 //	int l_iParity = _ttoi(l_tszText);
 //	switch (l_iParity) {
@@ -746,7 +746,7 @@ BOOL CCtaCtrl::InitializeSIO()
 //	case 0:
 //	default:	l_iParity = NOPARITY; break;
 //	}
-//	/* ƒXƒgƒbƒvƒrƒbƒg“Ço‚µ	*/
+//	/* ï¿½Xï¿½gï¿½bï¿½vï¿½rï¿½bï¿½gï¿½Çoï¿½ï¿½	*/
 //	::GetPrivateProfileString(SECTION_CTA, _T("StopBits"), _T("0"), l_tszText, sizeof(l_tszText), l_tszNanoSpecIni);
 //	int l_iStopBits = _ttoi(l_tszText);
 //	switch (l_iStopBits) {
@@ -772,7 +772,7 @@ BOOL CCtaCtrl::InitializeSIO()
 }
 
 /*
- *	ƒƒO
+ *	ï¿½ï¿½ï¿½O
  */
 void CCtaCtrl::Logging(LPCTSTR strLog)
 {
@@ -787,7 +787,7 @@ void CCtaCtrl::Logging(LPCTSTR strLog)
 }
 
 /*
- *	ƒƒO - ƒƒbƒZ[ƒWóM—p
+ *	ï¿½ï¿½ï¿½O - ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½Mï¿½p
  */
 void CCtaCtrl::Logging_WinMsg(LPCTSTR strLog, WPARAM wParam, LPARAM lParam)
 {
@@ -797,20 +797,20 @@ void CCtaCtrl::Logging_WinMsg(LPCTSTR strLog, WPARAM wParam, LPARAM lParam)
 }
 
 /*
- *	§ŒäƒV[ƒPƒ“ƒX
+ *	ï¿½ï¿½ï¿½ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½X
  */
 int CCtaCtrl::CtrlSeq()
 {
 	int l_iRet = 0;
 
-	/* CTA ƒ†ƒjƒbƒg‚©‚ç‚ÌóMŠm”F ------------------------------------------*/
+	/* CTA ï¿½ï¿½ï¿½jï¿½bï¿½gï¿½ï¿½ï¿½ï¿½Ìï¿½Mï¿½mï¿½F ------------------------------------------*/
 	PACKET_CODE l_enumPacketCode = PKT_MAX;
 	COMMAND_CODE l_enumCmdCode = EVT_MAX;
 	char l_szRcvData[PKT_DATA_LEN_MAX + 1];
 	CTARCVDATA l_CtaRcvData;
 	memset(&l_CtaRcvData, 0, sizeof(CTARCVDATA));
 	if (0 != m_bRcvData) {
-		/* óMƒf[ƒ^—L‚è	*/
+		/* ï¿½ï¿½Mï¿½fï¿½[ï¿½^ï¿½Lï¿½ï¿½	*/
 		m_bRcvData = FALSE;
 		int l_iRslt =	((CCtaSio*) m_pclsCCtaSio)->GetRcvData(
 								&l_enumPacketCode,
@@ -821,28 +821,28 @@ int CCtaCtrl::CtrlSeq()
 		l_CtaRcvData.pdwCmdCode = (LPDWORD) &l_enumCmdCode;
 		l_CtaRcvData.pszRcvData = l_szRcvData;
 		if (CTASIO_ERR_NORCVDATA == l_iRslt) {
-			/* óMƒf[ƒ^‚Í‚ ‚è‚Ü‚¹‚ñ‚Å‚µ‚½D	*/
+			/* ï¿½ï¿½Mï¿½fï¿½[ï¿½^ï¿½Í‚ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½ï¿½D	*/
 		} else if (0 != l_iRslt) {
-			/* óMƒf[ƒ^ƒGƒ‰[‚Å‚·D	*/
+			/* ï¿½ï¿½Mï¿½fï¿½[ï¿½^ï¿½Gï¿½ï¿½ï¿½[ï¿½Å‚ï¿½ï¿½D	*/
 			if (PKT_EVT == *l_CtaRcvData.pdwPktCode) {
-				this->SendErrRes(l_iRslt);	/* ƒŒƒXƒ|ƒ“ƒX‚ğ•Ô‚µ‚Ü‚·D	*/
+				this->SendErrRes(l_iRslt);	/* ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½Ô‚ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 			}
-			/* ãˆÊ‚É’Ê’m	*/
+			/* ï¿½ï¿½Ê‚É’Ê’m	*/
 			this->NotifyAlarm(l_iRslt);
 		} else {
-			/*	EƒCƒxƒ“ƒgƒpƒPƒbƒgóM
-				EƒŒƒXƒ|ƒ“ƒXƒpƒPƒbƒgóM
-				EƒGƒ‰[ƒŒƒXƒ|ƒ“ƒXƒpƒPƒbƒgóM	*/
-			/* ŠeƒV[ƒPƒ“ƒX‚ÉóM’Ê’m	*/
+			/*	ï¿½Eï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½pï¿½Pï¿½bï¿½gï¿½ï¿½M
+				ï¿½Eï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½pï¿½Pï¿½bï¿½gï¿½ï¿½M
+				ï¿½Eï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½pï¿½Pï¿½bï¿½gï¿½ï¿½M	*/
+			/* ï¿½eï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Éï¿½Mï¿½Ê’m	*/
 			l_CtaRcvData.bRecved = TRUE;
-			/* ƒCƒxƒ“ƒgƒpƒPƒbƒg‚Ìê‡‚ÍƒRƒR‚ÅƒŒƒXƒ|ƒ“ƒX‚ğ•Ô‚µ‚Ü‚·D*/
+			/* ï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½pï¿½Pï¿½bï¿½gï¿½Ìê‡ï¿½ÍƒRï¿½Rï¿½Åƒï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½Ô‚ï¿½ï¿½Ü‚ï¿½ï¿½D*/
 			if (PKT_EVT == l_enumPacketCode) {
 				this->SendEvtRes(&l_CtaRcvData);
-				/* ƒGƒ‰[”­¶ƒCƒxƒ“ƒg‚Ìê‡‚ÍCChief ‚Ö‚Ì’Ê’m‚ª•K—v‚Å‚·D
-					‚½‚¾‚µCƒŠƒZƒbƒgƒR[ƒh(000)‚Æ‰Šú‰»’†‚Ìê‡‚Í’Ê’m‚µ‚Ü‚¹‚ñD	*/
+				/* ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½Ìê‡ï¿½ÍCChief ï¿½Ö‚Ì’Ê’mï¿½ï¿½ï¿½Kï¿½vï¿½Å‚ï¿½ï¿½D
+					ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Zï¿½bï¿½gï¿½Rï¿½[ï¿½h(000)ï¿½Æï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìê‡ï¿½Í’Ê’mï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½D	*/
 				if (EVT_REP == l_enumCmdCode) {
 					if ((0 != l_CtaRcvData.dwErrCode) && (SEQPTN_INIT != m_dwSeqPattern)) {
-						/* ãˆÊ‚É’Ê’m	*/
+						/* ï¿½ï¿½Ê‚É’Ê’m	*/
 						this->NotifyAlarm(l_CtaRcvData.dwErrCode);
 					}
 				}
@@ -850,23 +850,23 @@ int CCtaCtrl::CtrlSeq()
 		}
 	}
 
-	/* ŠeƒV[ƒPƒ“ƒX --------------------------------------------------------*/
+	/* ï¿½eï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½X --------------------------------------------------------*/
 	switch (m_dwSeqPattern) {
-	case SEQPTN_NONE:		/* ƒV[ƒPƒ“ƒX–³‚µ	*/
+	case SEQPTN_NONE:		/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½	*/
 		break;
-	case SEQPTN_INIT:		/* ‰Šú‰»	*/
+	case SEQPTN_INIT:		/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 		l_iRet = this->SeqInitCTA(&l_CtaRcvData);
 		break;
-	case SEQPTN_SETINF:		/* î•ñİ’è	*/
+	case SEQPTN_SETINF:		/* ï¿½ï¿½ï¿½İ’ï¿½	*/
 		l_iRet = this->SeqSetInf(&l_CtaRcvData);
 		break;
-	case SEQPTN_MEASSTA:	/* ‘ª’èŠJn	*/
+	case SEQPTN_MEASSTA:	/* ï¿½ï¿½ï¿½ï¿½Jï¿½n	*/
 		l_iRet = this->SeqMeasStart(&l_CtaRcvData);
 		break;
-	case SEQPTN_MEASEND:	/* ‘ª’èI—¹	*/
+	case SEQPTN_MEASEND:	/* ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½	*/
 		l_iRet = this->SeqMeasEnd(&l_CtaRcvData);
 		break;
-	case SEQPTN_GETSTAT:	/* ó‘Ôæ“¾	*/
+	case SEQPTN_GETSTAT:	/* ï¿½ï¿½Ôæ“¾	*/
 		l_iRet = this->SeqGetStat(&l_CtaRcvData);
 		break;
 	default:
@@ -875,16 +875,16 @@ int CCtaCtrl::CtrlSeq()
 		break;
 	}
 
-	/* ‚»‚Ì‘¼ --------------------------------------------------------------*/
-	/* ƒRƒR‚Ü‚Å‚ÉóM’Ê’m‚ªˆ—‚³‚ê‚È‚©‚Á‚½ê‡‚ÍC
-		•s—v‚Æ”»’f‚µ‚ÄÌ‚Ä‚Ü‚·D	*/
+	/* ï¿½ï¿½ï¿½Ì‘ï¿½ --------------------------------------------------------------*/
+	/* ï¿½Rï¿½Rï¿½Ü‚Å‚Éï¿½Mï¿½Ê’mï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½ÍC
+		ï¿½sï¿½vï¿½Æ”ï¿½ï¿½fï¿½ï¿½ï¿½ÄÌ‚Ä‚Ü‚ï¿½ï¿½D	*/
 	if (TRUE == l_CtaRcvData.bRecved) {
 		l_CtaRcvData.bRecved = FALSE;
 	}
 
-	/* óMƒf[ƒ^‚ª‚Ü‚¾‚ ‚éê‡‚Í§ŒäƒV[ƒPƒ“ƒX‚ğƒLƒbƒN‚µ‚Ü‚·D	*/
+	/* ï¿½ï¿½Mï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½Íï¿½ï¿½ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½Lï¿½bï¿½Nï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 	if (0 == ((CCtaSio*) m_pclsCCtaSio)->IsExistRcvData()) {
-		/* óMƒf[ƒ^‚ª‚ ‚Á‚½D	*/
+		/* ï¿½ï¿½Mï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 		m_bRcvData = TRUE;
 		this->KickCtrlSeq(1);
 	}
@@ -893,7 +893,7 @@ int CCtaCtrl::CtrlSeq()
 }
 
 /*
- *	ƒV[ƒPƒ“ƒX‚Ì‹N“®w—ß‚ÆI—¹‘Ò‚¿
+ *	ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Ì‹Nï¿½ï¿½ï¿½wï¿½ß‚ÆIï¿½ï¿½ï¿½Ò‚ï¿½
  */
 BOOL CCtaCtrl::WaitSeqEndStart(SEQ_PATTERN enumSeqPattern)
 {
@@ -910,7 +910,7 @@ BOOL CCtaCtrl::WaitSeqEndStart(SEQ_PATTERN enumSeqPattern)
 		return FALSE;
 	}
 
-	/* §ŒäƒV[ƒPƒ“ƒX‚ğƒLƒbƒN	*/
+	/* ï¿½ï¿½ï¿½ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½Lï¿½bï¿½N	*/
 	m_dwSeqPattern = enumSeqPattern;
 	m_iSeqResult = 0;
 	if (0 == this->KickCtrlSeq(2)) {
@@ -920,7 +920,7 @@ BOOL CCtaCtrl::WaitSeqEndStart(SEQ_PATTERN enumSeqPattern)
 
 	if (TRUE == l_bRet) {
 		if (WAIT_OBJECT_0 != ::WaitForSingleObject(m_hEvWaitEndSeq, SEQWAIT_TIMEOUT)) {
-			/* ƒ^ƒCƒ€ƒAƒEƒg‚µ‚Ü‚µ‚½D	*/
+			/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D	*/
 			this->Logging(_T("Timeout WaitForSingleObject() in WaitSeqEndStart()."));
 			l_bRet = FALSE;
 		} else {
@@ -943,7 +943,7 @@ BOOL CCtaCtrl::WaitSeqEndStart(SEQ_PATTERN enumSeqPattern)
 }
 
 /*
- *	§ŒäƒV[ƒPƒ“ƒX‚ğƒLƒbƒN
+ *	ï¿½ï¿½ï¿½ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½Lï¿½bï¿½N
  */
 BOOL CCtaCtrl::KickCtrlSeq(int iKickNo/* = -1*/)
 {
@@ -962,13 +962,13 @@ BOOL CCtaCtrl::KickCtrlSeq(int iKickNo/* = -1*/)
 }
 
 /*
- *	ƒ^ƒCƒ} ƒR[ƒ‹ƒoƒbƒNŠÖ”
+ *	ï¿½^ï¿½Cï¿½} ï¿½Rï¿½[ï¿½ï¿½ï¿½oï¿½bï¿½Nï¿½Öï¿½
  */
 void CALLBACK TimerHandler(
-		HWND		hWnd,		/* ƒEƒBƒ“ƒhƒE‚Ìƒnƒ“ƒhƒ‹	*/
-		UINT		uiMsg,		/* WM_TIMER ƒƒbƒZ[ƒW	*/
-		UINT_PTR	idEvent,	/* ƒ^ƒCƒ}‚Ì¯•Êq		*/
-		DWORD		dwTime		/* Œ»İ‚ÌƒVƒXƒeƒ€	*/
+		HWND		hWnd,		/* ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½Ìƒnï¿½ï¿½ï¿½hï¿½ï¿½	*/
+		UINT		uiMsg,		/* WM_TIMER ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W	*/
+		UINT_PTR	idEvent,	/* ï¿½^ï¿½Cï¿½}ï¿½Ìï¿½ï¿½Êq		*/
+		DWORD		dwTime		/* ï¿½ï¿½ï¿½İ‚ÌƒVï¿½Xï¿½eï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 	)
 {
 	if (WM_TIMER == uiMsg) {
@@ -982,25 +982,25 @@ void CALLBACK TimerHandler(
 }
 
 /*
- *	ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ İ’è/‰ğœ
+ *	ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½İ’ï¿½/ï¿½ï¿½ï¿½ï¿½
  */
 BOOL CCtaCtrl::SetTimeOut(BOOL bMode, UINT uiElapse)
 {
 	BOOL l_bRet = TRUE;
 
 	if (0 == bMode) {
-		/* ‰ğœ	*/
+		/* ï¿½ï¿½ï¿½ï¿½	*/
 		if ((0 != lgs_uiTimerID) && (0 == m_bTimeOut)) {
 			BOOL l_bRstl = ::KillTimer(0, lgs_uiTimerID);
 			lgs_uiTimerID = 0;
 			m_bTimeOut = FALSE;
 			if (0 == l_bRstl) {
 				l_bRet = FALSE;
-//				ASSERT(0);	/* •s—v‚Å‚·D	*/
+//				ASSERT(0);	/* ï¿½sï¿½vï¿½Å‚ï¿½ï¿½D	*/
 			}
 		}
 	} else {
-		/* İ’è(ŠJn)	*/
+		/* ï¿½İ’ï¿½(ï¿½Jï¿½n)	*/
 		m_bTimeOut = FALSE;
 		if (0 == uiElapse) {
 			l_bRet = FALSE;
@@ -1017,48 +1017,48 @@ BOOL CCtaCtrl::SetTimeOut(BOOL bMode, UINT uiElapse)
 }
 
 /*
- *	óMƒf[ƒ^•”‰ğÍ
+ *	ï¿½ï¿½Mï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 int CCtaCtrl::AnaRcvData(LPCTARCVDATA pCtaRcvData, LPCTADATAINF pCtaDataInf)
 {
 	int l_iRet = 0;
 
 	if (0 == pCtaRcvData) {
-		l_iRet = CTACTL_ERR_PARAMERR;	/* ƒpƒ‰ƒƒ^ƒGƒ‰[	*/
+		l_iRet = CTACTL_ERR_PARAMERR;	/* ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Gï¿½ï¿½ï¿½[	*/
 	} else if (0 == pCtaRcvData->bRecved) {
-		l_iRet = CTACTL_ERR_DATANONE;	/* ƒf[ƒ^‚Í‚ ‚è‚Ü‚¹‚ñD	*/
+		l_iRet = CTACTL_ERR_DATANONE;	/* ï¿½fï¿½[ï¿½^ï¿½Í‚ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½D	*/
 	} else {
 		if (PKT_ERR == *pCtaRcvData->pdwPktCode) {
-			/* ƒGƒ‰[ƒŒƒXƒ|ƒ“ƒX --------------------------------------------*/
+			/* ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½X --------------------------------------------*/
 			if (3 != strlen(pCtaRcvData->pszRcvData)) {
-				l_iRet = CTACTL_ERR_DATAFORMAT;	/* ƒf[ƒ^(ƒtƒH[ƒ}ƒbƒg)ƒGƒ‰[	*/
+				l_iRet = CTACTL_ERR_DATAFORMAT;	/* ï¿½fï¿½[ï¿½^(ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½g)ï¿½Gï¿½ï¿½ï¿½[	*/
 			} else if (-1 != this->IsStrDecimal(pCtaRcvData->pszRcvData)) {
-				l_iRet = CTACTL_ERR_PARAMERR;	/* ƒpƒ‰ƒƒ^ƒGƒ‰[	*/
+				l_iRet = CTACTL_ERR_PARAMERR;	/* ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Gï¿½ï¿½ï¿½[	*/
 			} else {
 				if (0 != pCtaDataInf) {
 					pCtaDataInf->ResERR.dwErrRes = atol(pCtaRcvData->pszRcvData);
 				}
 			}
 		} else {
-			/* ƒŒƒXƒ|ƒ“ƒXC‚Ü‚½‚ÍCƒCƒxƒ“ƒg --------------------------------*/
+			/* ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½Cï¿½Ü‚ï¿½ï¿½ÍCï¿½Cï¿½xï¿½ï¿½ï¿½g --------------------------------*/
 			switch (*pCtaRcvData->pdwCmdCode) {
-			case CMD_STA:	/* STA ƒŒƒXƒ|ƒ“ƒX ------------------------------*/
+			case CMD_STA:	/* STA ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½X ------------------------------*/
 				if (3 != strlen(pCtaRcvData->pszRcvData)) {
-					l_iRet = CTACTL_ERR_DATAFORMAT;	/* ƒf[ƒ^(ƒtƒH[ƒ}ƒbƒg)ƒGƒ‰[	*/
+					l_iRet = CTACTL_ERR_DATAFORMAT;	/* ï¿½fï¿½[ï¿½^(ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½g)ï¿½Gï¿½ï¿½ï¿½[	*/
 				} else if (-1 != this->IsStrDecimal(pCtaRcvData->pszRcvData)) {
-					l_iRet = CTACTL_ERR_PARAMERR;	/* ƒpƒ‰ƒƒ^ƒGƒ‰[	*/
+					l_iRet = CTACTL_ERR_PARAMERR;	/* ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Gï¿½ï¿½ï¿½[	*/
 				} else {
 					DWORD l_dwZState = pCtaRcvData->pszRcvData[0] & 0x0f;
 					DWORD l_dwStatus1 = pCtaRcvData->pszRcvData[1] & 0x0f;
 					DWORD l_dwStatus2 = pCtaRcvData->pszRcvData[2] & 0x0f;
 					if ((l_dwZState < 1) || (3 < l_dwZState)) {
-						l_iRet = CTACTL_ERR_PARAMERR;	/* ƒpƒ‰ƒƒ^ƒGƒ‰[	*/
+						l_iRet = CTACTL_ERR_PARAMERR;	/* ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Gï¿½ï¿½ï¿½[	*/
 					} else if ((l_dwStatus1 < 1) || (3 < l_dwStatus1)) {
-						l_iRet = CTACTL_ERR_PARAMERR;	/* ƒpƒ‰ƒƒ^ƒGƒ‰[	*/
+						l_iRet = CTACTL_ERR_PARAMERR;	/* ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Gï¿½ï¿½ï¿½[	*/
 					} else if ((l_dwStatus2 < 1)
 							|| (4 < l_dwStatus2)
 							|| (2 == l_dwStatus2)) {
-						l_iRet = CTACTL_ERR_PARAMERR;	/* ƒpƒ‰ƒƒ^ƒGƒ‰[	*/
+						l_iRet = CTACTL_ERR_PARAMERR;	/* ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Gï¿½ï¿½ï¿½[	*/
 					} else {
 						if (0 != pCtaDataInf) {
 							pCtaDataInf->CmdSTA.dwZState = l_dwZState;
@@ -1068,42 +1068,42 @@ int CCtaCtrl::AnaRcvData(LPCTARCVDATA pCtaRcvData, LPCTADATAINF pCtaDataInf)
 					}
 				}
 				break;
-			case CMD_RST:	/* RST ƒŒƒXƒ|ƒ“ƒX ------------------------------*/
-			case CMD_ORG:	/* ORG ƒŒƒXƒ|ƒ“ƒX ------------------------------*/
-			case CMD_MOD:	/* MOD ƒŒƒXƒ|ƒ“ƒX ------------------------------*/
-			case CMD_CID:	/* CID ƒŒƒXƒ|ƒ“ƒX ------------------------------*/
-			case CMD_PID:	/* PID ƒŒƒXƒ|ƒ“ƒX ------------------------------*/
-			case CMD_SPT:	/* SPT ƒŒƒXƒ|ƒ“ƒX ------------------------------*/
-			case CMD_MST:	/* MST ƒŒƒXƒ|ƒ“ƒX ------------------------------*/
-			case CMD_MPE:	/* MPE ƒŒƒXƒ|ƒ“ƒX ------------------------------*/
-			case CMD_MCE:	/* MCE ƒŒƒXƒ|ƒ“ƒX ------------------------------*/
-			case EVT_CMO:	/* CMO ƒCƒxƒ“ƒg --------------------------------*/
-			case EVT_CST:	/* CST ƒCƒxƒ“ƒg --------------------------------*/
-			case EVT_CMA:	/* CMA ƒCƒxƒ“ƒg --------------------------------*/
+			case CMD_RST:	/* RST ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½X ------------------------------*/
+			case CMD_ORG:	/* ORG ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½X ------------------------------*/
+			case CMD_MOD:	/* MOD ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½X ------------------------------*/
+			case CMD_CID:	/* CID ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½X ------------------------------*/
+			case CMD_PID:	/* PID ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½X ------------------------------*/
+			case CMD_SPT:	/* SPT ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½X ------------------------------*/
+			case CMD_MST:	/* MST ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½X ------------------------------*/
+			case CMD_MPE:	/* MPE ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½X ------------------------------*/
+			case CMD_MCE:	/* MCE ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½X ------------------------------*/
+			case EVT_CMO:	/* CMO ï¿½Cï¿½xï¿½ï¿½ï¿½g --------------------------------*/
+			case EVT_CST:	/* CST ï¿½Cï¿½xï¿½ï¿½ï¿½g --------------------------------*/
+			case EVT_CMA:	/* CMA ï¿½Cï¿½xï¿½ï¿½ï¿½g --------------------------------*/
 				if (0 != strlen(pCtaRcvData->pszRcvData)) {
-					l_iRet = CTACTL_ERR_DATAFORMAT;	/* ƒf[ƒ^(ƒtƒH[ƒ}ƒbƒg)ƒGƒ‰[	*/
+					l_iRet = CTACTL_ERR_DATAFORMAT;	/* ï¿½fï¿½[ï¿½^(ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½g)ï¿½Gï¿½ï¿½ï¿½[	*/
 				}
 				break;
-			case EVT_REP:	/* REP ƒCƒxƒ“ƒg --------------------------------*/
+			case EVT_REP:	/* REP ï¿½Cï¿½xï¿½ï¿½ï¿½g --------------------------------*/
 				if (3 != strlen(pCtaRcvData->pszRcvData)) {
-					l_iRet = CTACTL_ERR_DATAFORMAT;	/* ƒf[ƒ^(ƒtƒH[ƒ}ƒbƒg)ƒGƒ‰[	*/
+					l_iRet = CTACTL_ERR_DATAFORMAT;	/* ï¿½fï¿½[ï¿½^(ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½g)ï¿½Gï¿½ï¿½ï¿½[	*/
 				} else if (-1 != this->IsStrDecimal(pCtaRcvData->pszRcvData)) {
-					l_iRet = CTACTL_ERR_PARAMERR;	/* ƒpƒ‰ƒƒ^ƒGƒ‰[	*/
+					l_iRet = CTACTL_ERR_PARAMERR;	/* ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Gï¿½ï¿½ï¿½[	*/
 				} else {
 					if (0 != pCtaDataInf) {
 						pCtaDataInf->EvtREP.dwErrCode = atol(pCtaRcvData->pszRcvData);
 					}
 				}
 				break;
-			case EVT_CMP:	/* CMP ƒCƒxƒ“ƒg --------------------------------*/
+			case EVT_CMP:	/* CMP ï¿½Cï¿½xï¿½ï¿½ï¿½g --------------------------------*/
 				if (17 != strlen(pCtaRcvData->pszRcvData)) {
-					l_iRet = CTACTL_ERR_DATAFORMAT;	/* ƒf[ƒ^(ƒtƒH[ƒ}ƒbƒg)ƒGƒ‰[	*/
+					l_iRet = CTACTL_ERR_DATAFORMAT;	/* ï¿½fï¿½[ï¿½^(ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½g)ï¿½Gï¿½ï¿½ï¿½[	*/
 				} else {
 					struct {
-						char l_szPointNo[8];	/* 4 ƒ|ƒCƒ“ƒg No.	*/
-						char l_szCAngle[8];		/* 4 ÚGŠp[0.1degree]	*/
-						char l_szRadius[8];		/* 5 ”¼Œa[0.1um]	*/
-						char l_szLiquid[8];		/* 4 ‰t—Ê[0.01uL]	*/
+						char l_szPointNo[8];	/* 4 ï¿½|ï¿½Cï¿½ï¿½ï¿½g No.	*/
+						char l_szCAngle[8];		/* 4 ï¿½ÚGï¿½p[0.1degree]	*/
+						char l_szRadius[8];		/* 5 ï¿½ï¿½ï¿½a[0.1um]	*/
+						char l_szLiquid[8];		/* 4 ï¿½tï¿½ï¿½[0.01uL]	*/
 					} l_DataTmp;
 					memset(&l_DataTmp, 0, sizeof(l_DataTmp));
 					memcpy(l_DataTmp.l_szPointNo, &(pCtaRcvData->pszRcvData[0]), 4);
@@ -1112,58 +1112,58 @@ int CCtaCtrl::AnaRcvData(LPCTARCVDATA pCtaRcvData, LPCTADATAINF pCtaDataInf)
 					memcpy(l_DataTmp.l_szLiquid, &(pCtaRcvData->pszRcvData[13]), 4);
 					char *pBlankPos;
 					int l_iPointNo;
-					if (0 == l_iRet) {	/* ƒ|ƒCƒ“ƒg No.	*/
+					if (0 == l_iRet) {	/* ï¿½|ï¿½Cï¿½ï¿½ï¿½g No.	*/
 						if (-1 != this->IsStrDecimalSign(l_DataTmp.l_szPointNo)) {
-							l_iRet = CTACTL_ERR_PARAMERR;	/* ƒpƒ‰ƒƒ^ƒGƒ‰[	*/
+							l_iRet = CTACTL_ERR_PARAMERR;	/* ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Gï¿½ï¿½ï¿½[	*/
 						} else {
 							pBlankPos = strchr(l_DataTmp.l_szPointNo, ' ');
 							if (0 != pBlankPos) {*pBlankPos = 0x00;}
 							l_iPointNo = atol(l_DataTmp.l_szPointNo);
 							if ((l_iPointNo <= 0) || (SCAN_POINT_CTA_MAX < l_iPointNo)) {
-								l_iRet = CTACTL_ERR_PARAMERR;	/* ƒpƒ‰ƒƒ^ƒGƒ‰[	*/
+								l_iRet = CTACTL_ERR_PARAMERR;	/* ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Gï¿½ï¿½ï¿½[	*/
 							}
 						}
 					}
 					int l_iCAngle;
-					if (0 == l_iRet) {	/* ÚGŠp	*/
+					if (0 == l_iRet) {	/* ï¿½ÚGï¿½p	*/
 						if (-1 != this->IsStrDecimalSign(l_DataTmp.l_szCAngle)) {
-							l_iRet = CTACTL_ERR_PARAMERR;	/* ƒpƒ‰ƒƒ^ƒGƒ‰[	*/
+							l_iRet = CTACTL_ERR_PARAMERR;	/* ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Gï¿½ï¿½ï¿½[	*/
 						} else {
 							pBlankPos = strchr(l_DataTmp.l_szCAngle, ' ');
 							if (0 != pBlankPos) {*pBlankPos = 0x00;}
 							l_iCAngle = atol(l_DataTmp.l_szCAngle);
 							if ((l_iCAngle < 0) || (9999 < l_iCAngle)) {
-								l_iRet = CTACTL_ERR_PARAMERR;	/* ƒpƒ‰ƒƒ^ƒGƒ‰[	*/
+								l_iRet = CTACTL_ERR_PARAMERR;	/* ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Gï¿½ï¿½ï¿½[	*/
 							}
 						}
 					}
 					int l_iRadius;
-					if (0 == l_iRet) {	/* ”¼Œa	*/
+					if (0 == l_iRet) {	/* ï¿½ï¿½ï¿½a	*/
 						if (-1 != this->IsStrDecimalSign(l_DataTmp.l_szRadius)) {
-							l_iRet = CTACTL_ERR_PARAMERR;	/* ƒpƒ‰ƒƒ^ƒGƒ‰[	*/
+							l_iRet = CTACTL_ERR_PARAMERR;	/* ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Gï¿½ï¿½ï¿½[	*/
 						} else {
 							pBlankPos = strchr(l_DataTmp.l_szRadius, ' ');
 							if (0 != pBlankPos) {*pBlankPos = 0x00;}
 							l_iRadius = atol(l_DataTmp.l_szRadius);
 							if ((l_iRadius < 0) || (99999 < l_iRadius)) {
-								l_iRet = CTACTL_ERR_PARAMERR;	/* ƒpƒ‰ƒƒ^ƒGƒ‰[	*/
+								l_iRet = CTACTL_ERR_PARAMERR;	/* ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Gï¿½ï¿½ï¿½[	*/
 							}
 						}
 					}
 					int l_iLiquid;
-					if (0 == l_iRet) {	/* ‰t—Ê	*/
+					if (0 == l_iRet) {	/* ï¿½tï¿½ï¿½	*/
 						if (-1 != this->IsStrDecimalSign(l_DataTmp.l_szLiquid)) {
-							l_iRet = CTACTL_ERR_PARAMERR;	/* ƒpƒ‰ƒƒ^ƒGƒ‰[	*/
+							l_iRet = CTACTL_ERR_PARAMERR;	/* ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Gï¿½ï¿½ï¿½[	*/
 						} else {
 							pBlankPos = strchr(l_DataTmp.l_szLiquid, ' ');
 							if (0 != pBlankPos) {*pBlankPos = 0x00;}
 							l_iLiquid = atol(l_DataTmp.l_szLiquid);
 							if ((l_iLiquid < 0) || (9999 < l_iLiquid)) {
-								l_iRet = CTACTL_ERR_PARAMERR;	/* ƒpƒ‰ƒƒ^ƒGƒ‰[	*/
+								l_iRet = CTACTL_ERR_PARAMERR;	/* ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Gï¿½ï¿½ï¿½[	*/
 							}
 						}
 					}
-					if (0 == l_iRet) {	/* ‚·‚×‚Ä³í‚È‚Ì‚ÅƒRƒs[	*/
+					if (0 == l_iRet) {	/* ï¿½ï¿½ï¿½×‚Äï¿½ï¿½ï¿½È‚Ì‚ÅƒRï¿½sï¿½[	*/
 						pCtaDataInf->EvtCMP.iPointNo = l_iPointNo;
 						pCtaDataInf->EvtCMP.iCAngle = l_iCAngle;
 						pCtaDataInf->EvtCMP.iRadius = l_iRadius;
@@ -1182,9 +1182,9 @@ int CCtaCtrl::AnaRcvData(LPCTARCVDATA pCtaRcvData, LPCTADATAINF pCtaDataInf)
 }
 
 /*
- *	•¶š—ñ‚Ì‚P‚Oi”ƒ`ƒFƒbƒN
- *		–ß‚è’lF	-1F‚·‚×‚Ä‚O(0x30)`‚X(0x39)‚Å‚µ‚½D
- *					ˆÈŠOF‚P‚Oi”ˆÈŠO‚Ì•¶šˆÊ’u(ƒIƒtƒZƒbƒg)
+ *	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Pï¿½Oï¿½iï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N
+ *		ï¿½ß‚ï¿½lï¿½F	-1ï¿½Fï¿½ï¿½ï¿½×‚Ä‚O(0x30)ï¿½`ï¿½X(0x39)ï¿½Å‚ï¿½ï¿½ï¿½ï¿½D
+ *					ï¿½ÈŠOï¿½Fï¿½Pï¿½Oï¿½iï¿½ï¿½ï¿½ÈŠOï¿½Ì•ï¿½ï¿½ï¿½ï¿½Ê’u(ï¿½Iï¿½tï¿½Zï¿½bï¿½g)
  */
 int CCtaCtrl::IsStrDecimal(LPCSTR pstrSrc)
 {
@@ -1203,10 +1203,10 @@ int CCtaCtrl::IsStrDecimal(LPCSTR pstrSrc)
 }
 
 /*
- *	•¶š—ñ‚Ì‚P‚Oi”ƒ`ƒFƒbƒN•„†•t‚«
- *		‚P‚Oi”‚©•„†(+/-Fæ“ª•¶š‚Ì‚İ)‚©ƒuƒ‰ƒ“ƒN(ÅŒã‚Ì•û‚Ì‚İ)‚ğƒ`ƒFƒbƒN‚µ‚Ü‚·D
- *		–ß‚è’lF	-1F‚·‚×‚Ä‚O(0x30)`‚X(0x39)‚Å‚µ‚½D
- *					ˆÈŠOF‚P‚Oi”ˆÈŠO‚Ì•¶šˆÊ’u(ƒIƒtƒZƒbƒg)
+ *	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Pï¿½Oï¿½iï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½
+ *		ï¿½Pï¿½Oï¿½iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(+/-ï¿½Fï¿½æ“ªï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ï¿½)ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½N(ï¿½ÅŒï¿½Ì•ï¿½ï¿½Ì‚ï¿½)ï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D
+ *		ï¿½ß‚ï¿½lï¿½F	-1ï¿½Fï¿½ï¿½ï¿½×‚Ä‚O(0x30)ï¿½`ï¿½X(0x39)ï¿½Å‚ï¿½ï¿½ï¿½ï¿½D
+ *					ï¿½ÈŠOï¿½Fï¿½Pï¿½Oï¿½iï¿½ï¿½ï¿½ÈŠOï¿½Ì•ï¿½ï¿½ï¿½ï¿½Ê’u(ï¿½Iï¿½tï¿½Zï¿½bï¿½g)
  */
 int CCtaCtrl::IsStrDecimalSign(LPCSTR pstrSrc)
 {
@@ -1217,45 +1217,45 @@ int CCtaCtrl::IsStrDecimalSign(LPCSTR pstrSrc)
 	int i = 0;
 	while ((0x00 != pstrSrc[i]) && (i < 1024)) {
 		if (0 == i) {
-			/* ‚PŒ…–Ú‚Í”š(0`9)‚©•„†(+/-)ˆÈŠO‚ÍƒGƒ‰[	*/
+			/* ï¿½Pï¿½ï¿½ï¿½Ú‚Íï¿½ï¿½ï¿½(0ï¿½`9)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(+/-)ï¿½ÈŠOï¿½ÍƒGï¿½ï¿½ï¿½[	*/
 			if (0 != isdigit(pstrSrc[i])) {
-				;	/* ”š‚¾‚Á‚½	*/
+				;	/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 			} else if (('+' != pstrSrc[i]) && ('-' != pstrSrc[i])) {
-				l_bSign = TRUE;	/* •„†‚¾‚Á‚½	*/
+				l_bSign = TRUE;	/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 			} else {
 				l_iRet = i;
 				break;
 			}
 		} else if (1 == i) {
-			/* ‚QŒ…–Ú	*/
+			/* ï¿½Qï¿½ï¿½ï¿½ï¿½	*/
 			if (0 != l_bSign) {
-				/* ‚PŒ…–Ú‚ª•„†‚¾‚Á‚½ê‡	*/
+				/* ï¿½Pï¿½ï¿½ï¿½Ú‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡	*/
 				if (0 == isdigit(pstrSrc[i])) {
-					/* ‚QŒ…–Ú‚Í”š‚Å‚È‚¯‚ê‚Î‚È‚ç‚È‚¢	*/
+					/* ï¿½Qï¿½ï¿½ï¿½Ú‚Íï¿½ï¿½ï¿½ï¿½Å‚È‚ï¿½ï¿½ï¿½Î‚È‚ï¿½È‚ï¿½	*/
 					l_iRet = i;
 					break;
 				}
 			} else if (0 != isdigit(pstrSrc[i])) {
-				;	/* ”š‚¾‚Á‚½	*/
+				;	/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 			} else if (' ' == pstrSrc[i]) {
-				l_bFoundBlank = TRUE;	/* ƒuƒ‰ƒ“ƒN(0x20)‚¾‚Á‚½	*/
+				l_bFoundBlank = TRUE;	/* ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½N(0x20)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 			} else {
 				l_iRet = i;
 				break;
 			}
 		} else {
-			/* ‚RŒ…–ÚˆÈ~	*/
+			/* ï¿½Rï¿½ï¿½ï¿½ÚˆÈ~	*/
 			if (0 != l_bFoundBlank) {
-				/* ˆÈ‘O‚Éƒuƒ‰ƒ“ƒN‚ª‚ ‚Á‚½ê‡	*/
+				/* ï¿½È‘Oï¿½Éƒuï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡	*/
 				if (' ' != pstrSrc[i]) {
-					/* ƒuƒ‰ƒ“ƒN‚Å‚ ‚è‘±‚¯‚È‚¯‚ê‚Î‚È‚ç‚È‚¢	*/
+					/* ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½Å‚ï¿½ï¿½è‘±ï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½Î‚È‚ï¿½È‚ï¿½	*/
 					l_iRet = i;
 					break;
 				}
 			} else if (0 != isdigit(pstrSrc[i])) {
-				;	/* ”š‚¾‚Á‚½	*/
+				;	/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 			} else if (' ' == pstrSrc[i]) {
-				l_bFoundBlank = TRUE;	/* ƒuƒ‰ƒ“ƒN(0x20)‚¾‚Á‚½	*/
+				l_bFoundBlank = TRUE;	/* ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½N(0x20)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 			} else {
 				l_iRet = i;
 				break;
@@ -1268,9 +1268,9 @@ int CCtaCtrl::IsStrDecimalSign(LPCSTR pstrSrc)
 }
 
 /*
- *	•¶š—ñ‚Ì‰p”ƒ`ƒFƒbƒN
- *		–ß‚è’lF	-1F‚·‚×‚Ä‚O(0x30)`‚X(0x39)CA(0x41)`Z(0x5a)Ca(0x61)`z(0x7a)‚Å‚µ‚½D
- *					ˆÈŠOF‰p”ˆÈŠO‚Ì•¶šˆÊ’u(ƒIƒtƒZƒbƒg)
+ *	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‰pï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N
+ *		ï¿½ß‚ï¿½lï¿½F	-1ï¿½Fï¿½ï¿½ï¿½×‚Ä‚O(0x30)ï¿½`ï¿½X(0x39)ï¿½CA(0x41)ï¿½`Z(0x5a)ï¿½Ca(0x61)ï¿½`z(0x7a)ï¿½Å‚ï¿½ï¿½ï¿½ï¿½D
+ *					ï¿½ÈŠOï¿½Fï¿½pï¿½ï¿½ï¿½ÈŠOï¿½Ì•ï¿½ï¿½ï¿½ï¿½Ê’u(ï¿½Iï¿½tï¿½Zï¿½bï¿½g)
  */
 int CCtaCtrl::IsStrAlNum(LPCSTR pstrSrc)
 {
@@ -1289,7 +1289,7 @@ int CCtaCtrl::IsStrAlNum(LPCSTR pstrSrc)
 }
 
 /*
- *	ƒGƒ‰[ƒŒƒXƒ|ƒ“ƒX‘—M
+ *	ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½M
  */
 int CCtaCtrl::SendErrRes(int iResult)
 {
@@ -1297,28 +1297,28 @@ int CCtaCtrl::SendErrRes(int iResult)
 
 	int l_iErrCode = 0;
 	switch (iResult) {
-	case CTASIO_ERR_INVALID_PKT:	/* ƒpƒPƒbƒgƒR[ƒh‚ª”ÍˆÍŠO‚Å‚·	*/
-		l_iErrCode = CTACTL_ERCD_HEAD;	/* ƒwƒbƒ_ƒGƒ‰[	*/
+	case CTASIO_ERR_INVALID_PKT:	/* ï¿½pï¿½Pï¿½bï¿½gï¿½Rï¿½[ï¿½hï¿½ï¿½ï¿½ÍˆÍŠOï¿½Å‚ï¿½	*/
+		l_iErrCode = CTACTL_ERCD_HEAD;	/* ï¿½wï¿½bï¿½_ï¿½Gï¿½ï¿½ï¿½[	*/
 		break;
-	case CTASIO_ERR_INVALID_CMD:	/* ƒRƒ}ƒ“ƒhƒR[ƒh‚ª”ÍˆÍŠO‚Å‚·	*/
-	case CTASIO_ERR_INVALID_EVT:	/* ƒCƒxƒ“ƒgƒR[ƒh‚ª”ÍˆÍŠO‚Å‚·	*/
-	case CTASIO_ERR_CTRLCODE:		/* §ŒäƒR[ƒh‚ª‚ ‚Á‚½	*/
-	case CTACTL_ERR_DATAFORMAT:		/* ƒf[ƒ^(ƒtƒH[ƒ}ƒbƒg)ƒGƒ‰[	*/
-	case CTACTL_ERR_PARAMERR:		/* ƒpƒ‰ƒƒ^ƒGƒ‰[	*/
-		l_iErrCode = CTACTL_ERCD_CMD;	/* ƒRƒ}ƒ“ƒhƒGƒ‰[	*/
+	case CTASIO_ERR_INVALID_CMD:	/* ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½Rï¿½[ï¿½hï¿½ï¿½ï¿½ÍˆÍŠOï¿½Å‚ï¿½	*/
+	case CTASIO_ERR_INVALID_EVT:	/* ï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½Rï¿½[ï¿½hï¿½ï¿½ï¿½ÍˆÍŠOï¿½Å‚ï¿½	*/
+	case CTASIO_ERR_CTRLCODE:		/* ï¿½ï¿½ï¿½ï¿½Rï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
+	case CTACTL_ERR_DATAFORMAT:		/* ï¿½fï¿½[ï¿½^(ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½g)ï¿½Gï¿½ï¿½ï¿½[	*/
+	case CTACTL_ERR_PARAMERR:		/* ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Gï¿½ï¿½ï¿½[	*/
+		l_iErrCode = CTACTL_ERCD_CMD;	/* ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½Gï¿½ï¿½ï¿½[	*/
 		break;
-	case CTASIO_ERR_SUM:			/* ƒ`ƒFƒbƒNƒTƒ€•sˆê’v	*/
-		l_iErrCode = CTACTL_ERCD_SUM;	/* ƒ`ƒFƒbƒNƒTƒ€ƒGƒ‰[	*/
+	case CTASIO_ERR_SUM:			/* ï¿½`ï¿½Fï¿½bï¿½Nï¿½Tï¿½ï¿½ï¿½sï¿½ï¿½v	*/
+		l_iErrCode = CTACTL_ERCD_SUM;	/* ï¿½`ï¿½Fï¿½bï¿½Nï¿½Tï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[	*/
 		break;
-	case CTASIO_ERR_TOOSHORT:		/* óMƒf[ƒ^’·‚ª’Z‚·‚¬‚Ü‚·	*/
-	case CTASIO_ERR_INVALIDLEN:		/* óMƒf[ƒ^’·ˆÙí	*/
-	case CTASIO_ERR_NOLF:			/* LF ‚ª‚ ‚è‚Ü‚¹‚ñ	*/
-	case CTASIO_ERR_NOCR:			/* CR ‚ª‚ ‚è‚Ü‚¹‚ñ	*/
-		l_iErrCode = CTACTL_ERCD_LEN;	/* óMƒf[ƒ^’·ƒGƒ‰[	*/
+	case CTASIO_ERR_TOOSHORT:		/* ï¿½ï¿½Mï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½	*/
+	case CTASIO_ERR_INVALIDLEN:		/* ï¿½ï¿½Mï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½Ùï¿½	*/
+	case CTASIO_ERR_NOLF:			/* LF ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½	*/
+	case CTASIO_ERR_NOCR:			/* CR ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½	*/
+		l_iErrCode = CTACTL_ERCD_LEN;	/* ï¿½ï¿½Mï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[	*/
 		break;
 		break;
 	default:
-		/* –¢’è‹`Œ‹‰Ê‚Í‰½‚à‚µ‚Ü‚¹‚ñD	*/
+		/* ï¿½ï¿½ï¿½ï¿½`ï¿½ï¿½ï¿½Ê‚Í‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½D	*/
 		break;
 	}
 
@@ -1333,7 +1333,7 @@ int CCtaCtrl::SendErrRes(int iResult)
 }
 
 /*
- *	ƒCƒxƒ“ƒg‚É‘Î‚·‚éƒŒƒXƒ|ƒ“ƒX‚ğ‘—M‚µ‚Ü‚·D
+ *	ï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½É‘Î‚ï¿½ï¿½éƒŒï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ğ‘—Mï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D
  */
 int CCtaCtrl::SendEvtRes(LPCTARCVDATA pCtaRcvData)
 {
@@ -1344,20 +1344,20 @@ int CCtaCtrl::SendEvtRes(LPCTARCVDATA pCtaRcvData)
 	pCtaRcvData->iRslt = l_iRslt;
 	pCtaRcvData->bAnaed = TRUE;
 	if (0 != l_iRslt) {
-		/* ƒGƒ‰[ƒŒƒXƒ|ƒ“ƒX‚Å‰“š	*/
+		/* ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½Å‰ï¿½ï¿½ï¿½	*/
 		l_iRet = this->SendErrRes(l_iRslt);
 	} else {
-		/* ³íƒŒƒXƒ|ƒ“ƒX‰“š	*/
+		/* ï¿½ï¿½ï¿½íƒŒï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½	*/
 		l_iRet = ((CCtaSio*) m_pclsCCtaSio)->CmdSend(PKT_RES, (COMMAND_CODE) *pCtaRcvData->pdwCmdCode, "");
 		if (EVT_REP == *pCtaRcvData->pdwCmdCode) {
 			pCtaRcvData->dwErrCode = l_CtaDataInf.EvtREP.dwErrCode;
-/* added 2010.07.15 hmenjo PO ƒIƒ“‚Å RST ƒRƒ}ƒ“ƒh‘Î‰ ---------- { ---------- */
+/* added 2010.07.15 hmenjo PO ï¿½Iï¿½ï¿½ï¿½ï¿½ RST ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½Î‰ï¿½ ---------- { ---------- */
 			if (CTACTL_ERCD_RST == pCtaRcvData->dwErrCode) {
 				m_bErrRep = FALSE;
 			} else {
 				m_bErrRep = TRUE;
 			}
-/* added 2010.07.15 hmenjo PO ƒIƒ“‚Å RST ƒRƒ}ƒ“ƒh‘Î‰ ---------- } ---------- */
+/* added 2010.07.15 hmenjo PO ï¿½Iï¿½ï¿½ï¿½ï¿½ RST ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½Î‰ï¿½ ---------- } ---------- */
 		}
 	}
 
@@ -1368,9 +1368,9 @@ int CCtaCtrl::SendEvtRes(LPCTARCVDATA pCtaRcvData)
 	return l_iRet;
 }
 
-/* added 2010.09.09 hmenjo CTA PO/PI ƒnƒ“ƒhƒVƒF[ƒN ---------- { ---------- */
+/* added 2010.09.09 hmenjo CTA PO/PI ï¿½nï¿½ï¿½ï¿½hï¿½Vï¿½Fï¿½[ï¿½N ---------- { ---------- */
 /*
- *	ƒV[ƒPƒ“ƒXF‰Šú‰»
+ *	ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Fï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 #define	PRC_INIT_CMD_RST0	(PRC_INIT_IDLE + 100)
 #define	PRC_INIT_CMD_STA	(PRC_INIT_IDLE + 200)
@@ -1382,11 +1382,11 @@ int CCtaCtrl::SeqInitCTA(LPCTARCVDATA pCtaRcvData)
 {
 	static int ls_iPrc = PRC_INIT_CMD_STA;
 //	static int ls_iPrc = PRC_INIT_CMD_RST0;
-///* modified 2010.07.15 hmenjo PO ƒIƒ“‚Å RST ƒRƒ}ƒ“ƒh‘Î‰ ---------- { ---------- */
+///* modified 2010.07.15 hmenjo PO ï¿½Iï¿½ï¿½ï¿½ï¿½ RST ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½Î‰ï¿½ ---------- { ---------- */
 ////	static BOOL ls_bRST2nd = FALSE;
-///* modified 2010.07.15 hmenjo PO ƒIƒ“‚Å RST ƒRƒ}ƒ“ƒh‘Î‰ ----------              */
+///* modified 2010.07.15 hmenjo PO ï¿½Iï¿½ï¿½ï¿½ï¿½ RST ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½Î‰ï¿½ ----------              */
 //	static BOOL ls_bRST2nd = TRUE;
-///* modified 2010.07.15 hmenjo PO ƒIƒ“‚Å RST ƒRƒ}ƒ“ƒh‘Î‰ ---------- } ---------- */
+///* modified 2010.07.15 hmenjo PO ï¿½Iï¿½ï¿½ï¿½ï¿½ RST ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½Î‰ï¿½ ---------- } ---------- */
 	static DWORD ls_dwRetryCnt = 0;
 	int l_iRslt = 0;
 	int l_iAnaRslt = 0;
@@ -1394,39 +1394,39 @@ int CCtaCtrl::SeqInitCTA(LPCTARCVDATA pCtaRcvData)
 	int l_iPrcRec = 0;
 
 	switch (l_iPrcRec = ls_iPrc) {
-	case PRC_INIT_CMD_RST0 + 00:	/* ƒgƒ‰ƒuƒ‹ƒŠƒZƒbƒg ------------------------------------------- */
+	case PRC_INIT_CMD_RST0 + 00:	/* ï¿½gï¿½ï¿½ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½bï¿½g ------------------------------------------- */
 		if (0 == ls_dwRetryCnt) {
 			this->Logging(_T("Started SeqInitCTA()"));
-			nexioCA_Interlock(TRUE);	/* CTAILPO ƒIƒ“	*/
+			nexioCA_Interlock(TRUE);	/* CTAILPO ï¿½Iï¿½ï¿½	*/
 			::Sleep(m_uiTimeout_ILPO);
-			ls_dwRetryCnt = m_dwRetryCnt + 1;	/* ƒŠƒgƒ‰ƒCƒJƒEƒ“ƒ^ƒZƒbƒg	*/
+			ls_dwRetryCnt = m_dwRetryCnt + 1;	/* ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Jï¿½Eï¿½ï¿½ï¿½^ï¿½Zï¿½bï¿½g	*/
 		}
-		this->SetTimeOut(TRUE, CTA_TIMEOUT_RES);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ŠJn	*/
+		this->SetTimeOut(TRUE, CTA_TIMEOUT_RES);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½Jï¿½n	*/
 		((CCtaSio*) this->m_pclsCCtaSio)->CmdSend(PKT_CMD, CMD_RST, "");
 		ls_iPrc = PRC_INIT_CMD_RST0 + 10;
 		break;
-	case PRC_INIT_CMD_RST0 + 10:	/* ƒgƒ‰ƒuƒ‹ƒŠƒZƒbƒg‚ÌƒŒƒXƒ|ƒ“ƒXóM‘Ò‚¿ ----------------------- */
+	case PRC_INIT_CMD_RST0 + 10:	/* ï¿½gï¿½ï¿½ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½bï¿½gï¿½Ìƒï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½Mï¿½Ò‚ï¿½ ----------------------- */
 		if (0 != pCtaRcvData->bRecved) {
-			/* óMƒf[ƒ^‚ ‚Á‚½D	*/
+			/* ï¿½ï¿½Mï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 			CTADATAINF l_CtaDataInf;
 			l_iAnaRslt = this->AnaRcvData(pCtaRcvData, &l_CtaDataInf);
 			if (PKT_ERR == *pCtaRcvData->pdwPktCode) {
-				/* ƒGƒ‰[ƒŒƒXƒ|ƒ“ƒX‚¾‚Á‚½D	*/
+				/* ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 				pCtaRcvData->bRecved = FALSE;
-				this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+				this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 				if (0 != l_iAnaRslt) {
-					l_iRslt = l_iAnaRslt;	/* ƒtƒH[ƒ}ƒbƒgŒnƒGƒ‰[‚¾‚Á‚½	*/
+					l_iRslt = l_iAnaRslt;	/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½nï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 				} else {
 					l_iRslt = l_CtaDataInf.ResERR.dwErrRes;
-					/* ƒGƒ‰[“à—e‚É‚æ‚è‹­§I—¹‚Ì•K—v«‚ğŒŸ“¢‚·‚é‚±‚ÆEEE	*/
+					/* ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½eï¿½É‚ï¿½è‹­ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½Ì•Kï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é‚±ï¿½ÆEï¿½Eï¿½E	*/
 				}
 			} else if (CMD_RST == *pCtaRcvData->pdwCmdCode) {
-				/* ‰“šƒŒƒXƒ|ƒ“ƒX‚¾‚Á‚½D	*/
+				/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 				pCtaRcvData->bRecved = FALSE;
-				this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+				this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 				if (0 != l_iAnaRslt) {
-					/* ƒtƒH[ƒ}ƒbƒgŒnƒGƒ‰[‚¾‚Á‚½	*/
-					l_iRslt = l_iAnaRslt;	/* ƒtƒH[ƒ}ƒbƒgŒnƒGƒ‰[‚¾‚Á‚½	*/
+					/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½nï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
+					l_iRslt = l_iAnaRslt;	/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½nï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 				} else {
 					ls_iPrc = PRC_INIT_CMD_STA;
 					this->KickCtrlSeq(l_iPrcRec + 1);
@@ -1434,305 +1434,305 @@ int CCtaCtrl::SeqInitCTA(LPCTARCVDATA pCtaRcvData)
 			}
 		}
 		if (TRUE == m_bTimeOut) {
-			/* ƒ^ƒCƒ€ƒAƒEƒg‚µ‚Ü‚µ‚½D	*/
+			/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D	*/
 			m_bTimeOut = FALSE;
-			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ƒ^ƒCƒ€ƒAƒEƒg	*/
+			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
 		}
 		if (0 != l_iRslt) {
 			ls_dwRetryCnt--;
 			if (0 != ls_dwRetryCnt) {
-				ls_iPrc = PRC_INIT_CMD_RST0;	/* ƒŠƒgƒ‰ƒC	*/
+				ls_iPrc = PRC_INIT_CMD_RST0;	/* ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½C	*/
 				::Sleep(m_uiTimeout_Retry);
 				this->KickCtrlSeq(l_iPrcRec + 2);
 			} else {
-				l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+				l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 			}
 		}
 		break;
-	case PRC_INIT_CMD_STA + 00:		/* ó‘Ô—v‹ --------------------------------------------------- */
+	case PRC_INIT_CMD_STA + 00:		/* ï¿½ï¿½Ô—vï¿½ï¿½ --------------------------------------------------- */
 		if (0 == ls_dwRetryCnt) {
 			this->Logging(_T("Started SeqInitCTA()"));
-			ls_dwRetryCnt = m_dwRetryCnt + 1;	/* ƒŠƒgƒ‰ƒCƒJƒEƒ“ƒ^ƒZƒbƒg	*/
+			ls_dwRetryCnt = m_dwRetryCnt + 1;	/* ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Jï¿½Eï¿½ï¿½ï¿½^ï¿½Zï¿½bï¿½g	*/
 		}
-		this->SetTimeOut(TRUE, CTA_TIMEOUT_RES);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ŠJn	*/
+		this->SetTimeOut(TRUE, CTA_TIMEOUT_RES);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½Jï¿½n	*/
 		((CCtaSio*) this->m_pclsCCtaSio)->CmdSend(PKT_CMD, CMD_STA, "");
 		ls_iPrc = PRC_INIT_CMD_STA + 10;
 		break;
-	case PRC_INIT_CMD_STA + 10:		/* ó‘Ô—v‹‚ÌƒŒƒXƒ|ƒ“ƒXóM‘Ò‚¿ ------------------------------- */
+	case PRC_INIT_CMD_STA + 10:		/* ï¿½ï¿½Ô—vï¿½ï¿½ï¿½Ìƒï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½Mï¿½Ò‚ï¿½ ------------------------------- */
 		if (0 != pCtaRcvData->bRecved) {
-			/* óMƒf[ƒ^‚ ‚Á‚½D	*/
+			/* ï¿½ï¿½Mï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 			CTADATAINF l_CtaDataInf;
 			l_iAnaRslt = this->AnaRcvData(pCtaRcvData, &l_CtaDataInf);
 			if (PKT_ERR == *pCtaRcvData->pdwPktCode) {
-				/* ƒGƒ‰[ƒŒƒXƒ|ƒ“ƒX‚¾‚Á‚½D	*/
+				/* ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 				pCtaRcvData->bRecved = FALSE;
-				this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+				this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 				if (0 != l_iAnaRslt) {
-					l_iRslt = l_iAnaRslt;	/* ƒtƒH[ƒ}ƒbƒgŒnƒGƒ‰[‚¾‚Á‚½	*/
+					l_iRslt = l_iAnaRslt;	/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½nï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 				} else {
 					l_iRslt = l_CtaDataInf.ResERR.dwErrRes;
-					/* ƒGƒ‰[“à—e‚É‚æ‚è‹­§I—¹‚Ì•K—v«‚ğŒŸ“¢‚·‚é‚±‚ÆEEE	*/
+					/* ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½eï¿½É‚ï¿½è‹­ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½Ì•Kï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é‚±ï¿½ÆEï¿½Eï¿½E	*/
 				}
 			} else if (CMD_STA == *pCtaRcvData->pdwCmdCode) {
-				/* ‰“šƒŒƒXƒ|ƒ“ƒX‚¾‚Á‚½D	*/
+				/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 				pCtaRcvData->bRecved = FALSE;
-				this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+				this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 				if (0 != l_iAnaRslt) {
-					l_iRslt = l_iAnaRslt;	/* ƒtƒH[ƒ}ƒbƒgŒnƒGƒ‰[‚¾‚Á‚½	*/
+					l_iRslt = l_iAnaRslt;	/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½nï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 				} else if ((1 != l_CtaDataInf.CmdSTA.dwStatus1) && (2 != l_CtaDataInf.CmdSTA.dwStatus1)) {
-					/* u‘ª’è’†F‚Pv‚©u‘Ò‹@’†F‚QvˆÈŠO‚Ìê‡	*/
+					/* ï¿½uï¿½ï¿½ï¿½è’†ï¿½Fï¿½Pï¿½vï¿½ï¿½ï¿½uï¿½Ò‹@ï¿½ï¿½ï¿½Fï¿½Qï¿½vï¿½ÈŠOï¿½Ìê‡	*/
 					l_iRslt = CTACTL_ERR_EQBUSY;
 				} else if ((1 != l_CtaDataInf.CmdSTA.dwStatus2) && (3 != l_CtaDataInf.CmdSTA.dwStatus2)) {
-					/* u‚PFƒGƒ‰[–³‚µv‚©uƒwƒbƒhƒGƒ‰[F‚RvˆÈŠO‚Ìê‡	*/
+					/* ï¿½uï¿½Pï¿½Fï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½uï¿½wï¿½bï¿½hï¿½Gï¿½ï¿½ï¿½[ï¿½Fï¿½Rï¿½vï¿½ÈŠOï¿½Ìê‡	*/
 					l_iRslt = CTACTL_ERR_EQERR;
 				} else {
 					ls_dwRetryCnt = 0;
-/* modified 2010.07.15 hmenjo PO ƒIƒ“‚Å RST ƒRƒ}ƒ“ƒh‘Î‰ ---------- { ---------- */
+/* modified 2010.07.15 hmenjo PO ï¿½Iï¿½ï¿½ï¿½ï¿½ RST ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½Î‰ï¿½ ---------- { ---------- */
 //					ls_iPrc = PRC_INIT_CMD_RST;
-/* modified 2010.07.15 hmenjo PO ƒIƒ“‚Å RST ƒRƒ}ƒ“ƒh‘Î‰ ----------              */
+/* modified 2010.07.15 hmenjo PO ï¿½Iï¿½ï¿½ï¿½ï¿½ RST ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½Î‰ï¿½ ----------              */
 					if (FALSE != m_bErrRep) {
 						ls_iPrc = PRC_INIT_CMD_RST;
 					} else {
 						ls_iPrc = PRC_INIT_CMD_ORG;
 					}
-/* modified 2010.07.15 hmenjo PO ƒIƒ“‚Å RST ƒRƒ}ƒ“ƒh‘Î‰ ---------- } ---------- */
+/* modified 2010.07.15 hmenjo PO ï¿½Iï¿½ï¿½ï¿½ï¿½ RST ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½Î‰ï¿½ ---------- } ---------- */
 					this->KickCtrlSeq(l_iPrcRec + 1);
 				}
 			}
 		}
 		if (TRUE == m_bTimeOut) {
-			/* ƒ^ƒCƒ€ƒAƒEƒg‚µ‚Ü‚µ‚½D	*/
+			/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D	*/
 			m_bTimeOut = FALSE;
-			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ƒ^ƒCƒ€ƒAƒEƒg	*/
+			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
 		}
 		if (0 != l_iRslt) {
 			ls_dwRetryCnt--;
 			if (0 != ls_dwRetryCnt) {
-				ls_iPrc = PRC_INIT_CMD_STA;	/* ƒŠƒgƒ‰ƒC	*/
+				ls_iPrc = PRC_INIT_CMD_STA;	/* ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½C	*/
 				::Sleep(m_uiTimeout_Retry);
 				this->KickCtrlSeq(l_iPrcRec + 2);
 			} else {
-				l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+				l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 			}
 		}
 		break;
-	case PRC_INIT_CMD_RST + 00:		/* ƒgƒ‰ƒuƒ‹ƒŠƒZƒbƒg‘O‚Ì ILPO ƒIƒ“ ----------------------------- */
+	case PRC_INIT_CMD_RST + 00:		/* ï¿½gï¿½ï¿½ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½bï¿½gï¿½Oï¿½ï¿½ ILPO ï¿½Iï¿½ï¿½ ----------------------------- */
 		ls_iPrc = PRC_INIT_CMD_RST + 10;
 		this->SetTimeOut(TRUE, m_uiTimeout_ILPI * 2);
-		nexioCA_Interlock(TRUE);		/* CTAILPO ƒIƒ“	*/
-/* added 2011.02.03 hmenjo CTA PO ŒãƒfƒBƒŒƒC ---------- { ---------- */
+		nexioCA_Interlock(TRUE);		/* CTAILPO ï¿½Iï¿½ï¿½	*/
+/* added 2011.02.03 hmenjo CTA PO ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½C ---------- { ---------- */
 		::Sleep(m_uiDelay_ILPO);
-/* added 2011.02.03 hmenjo CTA PO ŒãƒfƒBƒŒƒC ---------- } ---------- */
+/* added 2011.02.03 hmenjo CTA PO ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½C ---------- } ---------- */
 		this->KickCtrlSeq(l_iPrcRec + 1);
 		break;
-	case PRC_INIT_CMD_RST + 10:		/* ƒgƒ‰ƒuƒ‹ƒŠƒZƒbƒg‘O‚Ì ILPI ƒIƒ“ƒ`ƒFƒbƒN --------------------- */
+	case PRC_INIT_CMD_RST + 10:		/* ï¿½gï¿½ï¿½ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½bï¿½gï¿½Oï¿½ï¿½ ILPI ï¿½Iï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N --------------------- */
 		if (0 != nexioIsCA_Interlock()) {
-			this->SetTimeOut(FALSE,  0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+			this->SetTimeOut(FALSE,  0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 			ls_iPrc = PRC_INIT_CMD_RST + 20;
 			this->KickCtrlSeq(l_iPrcRec + 1);
 		} else if (TRUE == m_bTimeOut) {
 			m_bTimeOut = FALSE;
-			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ƒ^ƒCƒ€ƒAƒEƒg	*/
-			l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
+			l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 		} else {
 			::Sleep(m_uiTimeout_Retry / 2);
 			this->KickCtrlSeq(l_iPrcRec + 2);
 		}
 		break;
-	case PRC_INIT_CMD_RST + 20:		/* ƒgƒ‰ƒuƒ‹ƒŠƒZƒbƒg ------------------------------------------- */
+	case PRC_INIT_CMD_RST + 20:		/* ï¿½gï¿½ï¿½ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½bï¿½g ------------------------------------------- */
 		if (0 == ls_dwRetryCnt) {
-			ls_dwRetryCnt = m_dwRetryCnt + 1;	/* ƒŠƒgƒ‰ƒCƒJƒEƒ“ƒ^ƒZƒbƒg	*/
+			ls_dwRetryCnt = m_dwRetryCnt + 1;	/* ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Jï¿½Eï¿½ï¿½ï¿½^ï¿½Zï¿½bï¿½g	*/
 		}
-		this->SetTimeOut(TRUE, CTA_TIMEOUT_RES);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ŠJn	*/
+		this->SetTimeOut(TRUE, CTA_TIMEOUT_RES);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½Jï¿½n	*/
 		((CCtaSio*) this->m_pclsCCtaSio)->CmdSend(PKT_CMD, CMD_RST, "");
 		ls_iPrc = PRC_INIT_CMD_RST + 30;
 		break;
-	case PRC_INIT_CMD_RST + 30:		/* ƒgƒ‰ƒuƒ‹ƒŠƒZƒbƒg‚ÌƒŒƒXƒ|ƒ“ƒXóM‘Ò‚¿ ----------------------- */
+	case PRC_INIT_CMD_RST + 30:		/* ï¿½gï¿½ï¿½ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½bï¿½gï¿½Ìƒï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½Mï¿½Ò‚ï¿½ ----------------------- */
 		if (0 != pCtaRcvData->bRecved) {
-			/* óMƒf[ƒ^‚ ‚Á‚½D	*/
+			/* ï¿½ï¿½Mï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 			CTADATAINF l_CtaDataInf;
 			l_iAnaRslt = this->AnaRcvData(pCtaRcvData, &l_CtaDataInf);
 			if (PKT_ERR == *pCtaRcvData->pdwPktCode) {
-				/* ƒGƒ‰[ƒŒƒXƒ|ƒ“ƒX‚¾‚Á‚½D	*/
+				/* ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 				pCtaRcvData->bRecved = FALSE;
-				this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+				this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 				if (0 != l_iAnaRslt) {
-					l_iRslt = l_iAnaRslt;	/* ƒtƒH[ƒ}ƒbƒgŒnƒGƒ‰[‚¾‚Á‚½	*/
+					l_iRslt = l_iAnaRslt;	/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½nï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 				} else {
 					l_iRslt = l_CtaDataInf.ResERR.dwErrRes;
-					/* ƒGƒ‰[“à—e‚É‚æ‚è‹­§I—¹‚Ì•K—v«‚ğŒŸ“¢‚·‚é‚±‚ÆEEE	*/
+					/* ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½eï¿½É‚ï¿½è‹­ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½Ì•Kï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é‚±ï¿½ÆEï¿½Eï¿½E	*/
 				}
 			} else if (CMD_RST == *pCtaRcvData->pdwCmdCode) {
-				/* ‰“šƒŒƒXƒ|ƒ“ƒX‚¾‚Á‚½D	*/
+				/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 				pCtaRcvData->bRecved = FALSE;
-				this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+				this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 				if (0 != l_iAnaRslt) {
-					/* ƒtƒH[ƒ}ƒbƒgŒnƒGƒ‰[‚¾‚Á‚½	*/
-					l_iRslt = l_iAnaRslt;	/* ƒtƒH[ƒ}ƒbƒgŒnƒGƒ‰[‚¾‚Á‚½	*/
+					/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½nï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
+					l_iRslt = l_iAnaRslt;	/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½nï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 				} else {
-					this->SetTimeOut(TRUE, CTA_TIMEOUT_T9_NORM);	/* (‰ï˜b)ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ŠJn	*/
+					this->SetTimeOut(TRUE, CTA_TIMEOUT_T9_NORM);	/* (ï¿½ï¿½b)ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½Jï¿½n	*/
 					ls_iPrc = PRC_INIT_CMD_RST + 40;
 				}
 			}
 		}
 		if (TRUE == m_bTimeOut) {
-			/* ƒ^ƒCƒ€ƒAƒEƒg‚µ‚Ü‚µ‚½D	*/
+			/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D	*/
 			m_bTimeOut = FALSE;
-			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ƒ^ƒCƒ€ƒAƒEƒg	*/
+			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
 		}
 		if (0 != l_iRslt) {
 			ls_dwRetryCnt--;
 			if (0 != ls_dwRetryCnt) {
-				ls_iPrc = PRC_INIT_CMD_RST + 20;	/* ƒŠƒgƒ‰ƒC	*/
+				ls_iPrc = PRC_INIT_CMD_RST + 20;	/* ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½C	*/
 				::Sleep(m_uiTimeout_Retry);
 				this->KickCtrlSeq(l_iPrcRec + 1);
 			} else {
-				l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+				l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 			}
 		}
 		break;
-	case PRC_INIT_CMD_RST + 40:		/* ƒGƒ‰[”­¶ƒCƒxƒ“ƒgóM‘Ò‚¿ --------------------------------- */
+	case PRC_INIT_CMD_RST + 40:		/* ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½ï¿½Mï¿½Ò‚ï¿½ --------------------------------- */
 		if (0 != pCtaRcvData->bRecved) {
-			/* óMƒf[ƒ^‚ ‚Á‚½D	*/
+			/* ï¿½ï¿½Mï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 			CTADATAINF l_CtaDataInf;
 			l_iAnaRslt = this->AnaRcvData(pCtaRcvData, &l_CtaDataInf);
 			if (EVT_REP == *pCtaRcvData->pdwCmdCode) {
-				/* ƒGƒ‰[”­¶ƒCƒxƒ“ƒg‚¾‚Á‚½D	*/
+				/* ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 				pCtaRcvData->bRecved = FALSE;
-				this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+				this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 				if (0 != l_iAnaRslt) {
-					l_iRslt = l_iAnaRslt;	/* ƒtƒH[ƒ}ƒbƒgŒnƒGƒ‰[‚¾‚Á‚½	*/
-					l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+					l_iRslt = l_iAnaRslt;	/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½nï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
+					l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 				} else
 				if (CTACTL_ERCD_RST == l_CtaDataInf.EvtREP.dwErrCode) {
 					ls_iPrc = PRC_INIT_CMD_ORG;
 					ls_dwRetryCnt = 0;
 					this->KickCtrlSeq(l_iPrcRec + 1);
 				} else {
-					/* ƒCƒ“ƒ^ƒƒbƒNˆÙí‚Å‚·D	*/
+					/* ï¿½Cï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½bï¿½Nï¿½Ùï¿½Å‚ï¿½ï¿½D	*/
 					l_iRslt = CTACTL_ERR_ILPO;
-					l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+					l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 				}
 			}
 		}
 		if (TRUE == m_bTimeOut) {
-			/* ƒ^ƒCƒ€ƒAƒEƒg‚µ‚Ü‚µ‚½D	*/
+			/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D	*/
 			m_bTimeOut = FALSE;
-			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ƒ^ƒCƒ€ƒAƒEƒg	*/
-			l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
+			l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 		}
 		break;
-	case PRC_INIT_CMD_ORG + 00:		/* Œ´“_•œ‹A‘O‚Ì ILPO ƒIƒ“ ------------------------------------- */
+	case PRC_INIT_CMD_ORG + 00:		/* ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½Oï¿½ï¿½ ILPO ï¿½Iï¿½ï¿½ ------------------------------------- */
 		ls_iPrc = PRC_INIT_CMD_ORG + 10;
 		this->SetTimeOut(TRUE, m_uiTimeout_ILPI * 2);
-		nexioCA_Interlock(TRUE);		/* CTAILPO ƒIƒ“	*/
-/* added 2011.02.03 hmenjo CTA PO ŒãƒfƒBƒŒƒC ---------- { ---------- */
+		nexioCA_Interlock(TRUE);		/* CTAILPO ï¿½Iï¿½ï¿½	*/
+/* added 2011.02.03 hmenjo CTA PO ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½C ---------- { ---------- */
 		::Sleep(m_uiDelay_ILPO);
-/* added 2011.02.03 hmenjo CTA PO ŒãƒfƒBƒŒƒC ---------- } ---------- */
+/* added 2011.02.03 hmenjo CTA PO ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½C ---------- } ---------- */
 		this->KickCtrlSeq(l_iPrcRec + 1);
 		break;
-	case PRC_INIT_CMD_ORG + 10:		/* Œ´“_•œ‹A‘O‚Ì ILPI ƒIƒ“ƒ`ƒFƒbƒN ----------------------------- */
+	case PRC_INIT_CMD_ORG + 10:		/* ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½Oï¿½ï¿½ ILPI ï¿½Iï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N ----------------------------- */
 		if (0 != nexioIsCA_Interlock()) {
-			this->SetTimeOut(FALSE,  0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+			this->SetTimeOut(FALSE,  0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 			ls_iPrc = PRC_INIT_CMD_ORG + 20;
 			this->KickCtrlSeq(l_iPrcRec + 1);
 		} else if (TRUE == m_bTimeOut) {
 			m_bTimeOut = FALSE;
-			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ƒ^ƒCƒ€ƒAƒEƒg	*/
-			l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
+			l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 		} else {
 			::Sleep(m_uiTimeout_Retry / 2);
 			this->KickCtrlSeq(l_iPrcRec + 2);
 		}
 		break;
-	case PRC_INIT_CMD_ORG + 20:		/* Œ´“_•œ‹A --------------------------------------------------- */
+	case PRC_INIT_CMD_ORG + 20:		/* ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½A --------------------------------------------------- */
 		if (0 == ls_dwRetryCnt) {
-			ls_dwRetryCnt = m_dwRetryCnt + 1;	/* ƒŠƒgƒ‰ƒCƒJƒEƒ“ƒ^ƒZƒbƒg	*/
+			ls_dwRetryCnt = m_dwRetryCnt + 1;	/* ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Jï¿½Eï¿½ï¿½ï¿½^ï¿½Zï¿½bï¿½g	*/
 		}
-		this->SetTimeOut(TRUE, CTA_TIMEOUT_RES);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ŠJn	*/
+		this->SetTimeOut(TRUE, CTA_TIMEOUT_RES);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½Jï¿½n	*/
 		((CCtaSio*) this->m_pclsCCtaSio)->CmdSend(PKT_CMD, CMD_ORG, "");
 		ls_iPrc = PRC_INIT_CMD_ORG + 30;
 		break;
-	case PRC_INIT_CMD_ORG + 30:		/* Œ´“_•œ‹A‚ÌƒŒƒXƒ|ƒ“ƒXóM‘Ò‚¿ ------------------------------- */
+	case PRC_INIT_CMD_ORG + 30:		/* ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½Ìƒï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½Mï¿½Ò‚ï¿½ ------------------------------- */
 		if (0 != pCtaRcvData->bRecved) {
-			/* óMƒf[ƒ^‚ ‚Á‚½D	*/
+			/* ï¿½ï¿½Mï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 			CTADATAINF l_CtaDataInf;
 			l_iAnaRslt = this->AnaRcvData(pCtaRcvData, &l_CtaDataInf);
 			if (PKT_ERR == *pCtaRcvData->pdwPktCode) {
-				/* ƒGƒ‰[ƒŒƒXƒ|ƒ“ƒX‚¾‚Á‚½D	*/
+				/* ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 				pCtaRcvData->bRecved = FALSE;
-				this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+				this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 				if (0 != l_iAnaRslt) {
-					l_iRslt = l_iAnaRslt;	/* ƒtƒH[ƒ}ƒbƒgŒnƒGƒ‰[‚¾‚Á‚½	*/
+					l_iRslt = l_iAnaRslt;	/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½nï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 				} else {
 					l_iRslt = l_CtaDataInf.ResERR.dwErrRes;
-					/* ƒGƒ‰[“à—e‚É‚æ‚è‹­§I—¹‚Ì•K—v«‚ğŒŸ“¢‚·‚é‚±‚ÆEEE	*/
+					/* ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½eï¿½É‚ï¿½è‹­ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½Ì•Kï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é‚±ï¿½ÆEï¿½Eï¿½E	*/
 				}
 			} else if (CMD_ORG == *pCtaRcvData->pdwCmdCode) {
-				/* ‰“šƒŒƒXƒ|ƒ“ƒX‚¾‚Á‚½D	*/
+				/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 				pCtaRcvData->bRecved = FALSE;
-				this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+				this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 				if (0 != l_iAnaRslt) {
-					l_iRslt = l_iAnaRslt;	/* ƒtƒH[ƒ}ƒbƒgŒnƒGƒ‰[‚¾‚Á‚½	*/
+					l_iRslt = l_iAnaRslt;	/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½nï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 				} else {
-					this->SetTimeOut(TRUE, CTA_TIMEOUT_T9_ORG);	/* (‰ï˜b)ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ŠJn	*/
+					this->SetTimeOut(TRUE, CTA_TIMEOUT_T9_ORG);	/* (ï¿½ï¿½b)ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½Jï¿½n	*/
 					ls_iPrc = PRC_INIT_EVT_CMO;
 				}
 			}
 		}
 		if (TRUE == m_bTimeOut) {
-			/* ƒ^ƒCƒ€ƒAƒEƒg‚µ‚Ü‚µ‚½D	*/
+			/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D	*/
 			m_bTimeOut = FALSE;
-			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ƒ^ƒCƒ€ƒAƒEƒg	*/
+			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
 		}
 		if (0 != l_iRslt) {
 			ls_dwRetryCnt--;
 			if (0 != ls_dwRetryCnt) {
-				ls_iPrc = PRC_INIT_CMD_ORG + 20;	/* ƒŠƒgƒ‰ƒC	*/
+				ls_iPrc = PRC_INIT_CMD_ORG + 20;	/* ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½C	*/
 				::Sleep(m_uiTimeout_Retry);
 				this->KickCtrlSeq(l_iPrcRec + 1);
 			} else {
-				l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+				l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 			}
 		}
 		break;
-	case PRC_INIT_EVT_CMO + 00:		/* ˆÚ“®Š®—¹ƒCƒxƒ“ƒgóM‘Ò‚¿ ----------------------------------- */
+	case PRC_INIT_EVT_CMO + 00:		/* ï¿½Ú“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½ï¿½Mï¿½Ò‚ï¿½ ----------------------------------- */
 		if (0 != pCtaRcvData->bRecved) {
-			/* óMƒf[ƒ^‚ ‚Á‚½D	*/
+			/* ï¿½ï¿½Mï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 			CTADATAINF l_CtaDataInf;
 			l_iAnaRslt = this->AnaRcvData(pCtaRcvData, &l_CtaDataInf);
 			if (EVT_CMO == *pCtaRcvData->pdwCmdCode) {
-				/* ˆÚ“®Š®—¹ƒCƒxƒ“ƒg‚¾‚Á‚½D	*/
+				/* ï¿½Ú“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 				pCtaRcvData->bRecved = FALSE;
-				this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+				this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 				if (0 != l_iAnaRslt) {
-					l_iRslt = l_iAnaRslt;	/* ƒtƒH[ƒ}ƒbƒgŒnƒGƒ‰[‚¾‚Á‚½	*/
-					l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+					l_iRslt = l_iAnaRslt;	/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½nï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
+					l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 				} else {
-					this->SetTimeOut(TRUE, m_uiTimeout_ILPI * 2);	/* IL ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ŠJn	*/
+					this->SetTimeOut(TRUE, m_uiTimeout_ILPI * 2);	/* IL ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½Jï¿½n	*/
 					ls_iPrc = PRC_INIT_ILPI_ON;
 					this->KickCtrlSeq(l_iPrcRec + 1);
 				}
 			}
 		}
 		if (TRUE == m_bTimeOut) {
-			/* ƒ^ƒCƒ€ƒAƒEƒg‚µ‚Ü‚µ‚½D	*/
+			/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D	*/
 			m_bTimeOut = FALSE;
-			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ƒ^ƒCƒ€ƒAƒEƒg	*/
-			l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
+			l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 		}
 		break;
-	case PRC_INIT_ILPI_ON + 00:		/* CTAILPI ƒIƒ“‘Ò‚¿ ------------------------------------------- */
+	case PRC_INIT_ILPI_ON + 00:		/* CTAILPI ï¿½Iï¿½ï¿½ï¿½Ò‚ï¿½ ------------------------------------------- */
 		if (0 != nexioIsCA_Interlock()) {
-			nexioCA_Interlock(FALSE);	/* CTAILPO ƒIƒt	*/
-			this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+			nexioCA_Interlock(FALSE);	/* CTAILPO ï¿½Iï¿½t	*/
+			this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 			l_iRslt = 0;
-			l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+			l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 		} else if (TRUE == m_bTimeOut) {
-			/* ƒ^ƒCƒ€ƒAƒEƒg‚µ‚Ü‚µ‚½D	*/
+			/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D	*/
 			m_bTimeOut = FALSE;
-			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ƒ^ƒCƒ€ƒAƒEƒg	*/
-			l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
+			l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 		} else {
 			::Sleep(m_uiTimeout_Retry / 2);
 			this->KickCtrlSeq(l_iPrcRec + 1);
@@ -1743,7 +1743,7 @@ int CCtaCtrl::SeqInitCTA(LPCTARCVDATA pCtaRcvData)
 		break;
 	}
 
-	/* ‹­§I—¹	*/
+	/* ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½	*/
 	if (0 != m_bForceEnd) {
 		this->SetTimeOut(FALSE, 0);
 		m_bForceEnd = FALSE;
@@ -1752,8 +1752,8 @@ int CCtaCtrl::SeqInitCTA(LPCTARCVDATA pCtaRcvData)
 	}
 
 	if (TRUE == l_bSeqEnd) {
-		/* ƒV[ƒPƒ“ƒXI—¹	*/
-		nexioCA_Interlock(FALSE);	/* CTAILPO ƒIƒt	*/
+		/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
+		nexioCA_Interlock(FALSE);	/* CTAILPO ï¿½Iï¿½t	*/
 		m_iSeqResult = l_iRslt;
 		CString l_strLog;
 		l_strLog.Format(_T("Ended   SeqInitCTA() [m_iSeqResult = %d, ls_iPrc = %d]"), m_iSeqResult, ls_iPrc);
@@ -1767,10 +1767,10 @@ int CCtaCtrl::SeqInitCTA(LPCTARCVDATA pCtaRcvData)
 
 	return l_iRslt;
 }
-/* added 2010.09.09 hmenjo CTA PO/PI ƒnƒ“ƒhƒVƒF[ƒN ---------- } ---------- */
+/* added 2010.09.09 hmenjo CTA PO/PI ï¿½nï¿½ï¿½ï¿½hï¿½Vï¿½Fï¿½[ï¿½N ---------- } ---------- */
 
 /*
- *	ƒV[ƒPƒ“ƒXFî•ñİ’è
+ *	ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Fï¿½ï¿½ï¿½İ’ï¿½
  */
 int CCtaCtrl::SeqSetInf(LPCTARCVDATA pCtaRcvData)
 {
@@ -1783,9 +1783,9 @@ int CCtaCtrl::SeqSetInf(LPCTARCVDATA pCtaRcvData)
 	char l_szSendData[PKT_DATA_LEN_MAX + 1];
 
 	switch (ls_iPrc) {
-	case 0:		/* ƒRƒ}ƒ“ƒh‘—M	*/
+	case 0:		/* ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½ï¿½ï¿½M	*/
 		switch (ls_enumCmdCode) {
-		case CMD_MOD:		/* ‘ª’èƒ‚[ƒh	*/
+		case CMD_MOD:		/* ï¿½ï¿½ï¿½èƒ‚ï¿½[ï¿½h	*/
 		default:
 			switch (m_CtaMeasInf.iCtaMode) {
 			case MEAS_CTA_MODE_1:
@@ -1799,13 +1799,13 @@ int CCtaCtrl::SeqSetInf(LPCTARCVDATA pCtaRcvData)
 			l_szSendData[0] = (m_CtaMeasInf.iCtaMode & 0x0f) | 0x30;
 			l_szSendData[1] = 0x00;
 			break;
-		case CMD_CID:		/* ƒJƒZƒbƒgî•ñƒZƒbƒg	*/
+		case CMD_CID:		/* ï¿½Jï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½Zï¿½bï¿½g	*/
 			strcpy(l_szSendData, m_CtaMeasInf.szCstID);
 			break;
-		case CMD_PID:		/* Šî”Âî•ñƒZƒbƒg	*/
+		case CMD_PID:		/* ï¿½ï¿½Âï¿½ï¿½Zï¿½bï¿½g	*/
 			strcpy(l_szSendData, m_CtaMeasInf.szSampleID);
 			break;
-		case CMD_SPT:		/* Šî”ÂŒú‚İî•ñƒZƒbƒg	*/
+		case CMD_SPT:		/* ï¿½ï¿½ÂŒï¿½ï¿½İï¿½ï¿½Zï¿½bï¿½g	*/
 			sprintf(l_szSendData, "%d", m_CtaMeasInf.dwThick);
 			l_szSendData[3] = 0x00;
 			if (0x00 == l_szSendData[1]) {
@@ -1819,33 +1819,33 @@ int CCtaCtrl::SeqSetInf(LPCTARCVDATA pCtaRcvData)
 		}
 		if (0 == ls_dwRetryCnt) {
 			if (CMD_MOD == ls_enumCmdCode) {this->Logging(_T("Started SeqSetInf()"));}
-			ls_dwRetryCnt = m_dwRetryCnt + 1;	/* ƒŠƒgƒ‰ƒCƒJƒEƒ“ƒ^ƒZƒbƒg	*/
+			ls_dwRetryCnt = m_dwRetryCnt + 1;	/* ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Jï¿½Eï¿½ï¿½ï¿½^ï¿½Zï¿½bï¿½g	*/
 		}
-		this->SetTimeOut(TRUE, CTA_TIMEOUT_RES);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ŠJn	*/
+		this->SetTimeOut(TRUE, CTA_TIMEOUT_RES);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½Jï¿½n	*/
 		((CCtaSio*) this->m_pclsCCtaSio)->CmdSend(PKT_CMD, ls_enumCmdCode, l_szSendData);
 		ls_iPrc = 1;
 		break;
-	case 1:		/* ƒRƒ}ƒ“ƒh‚ÌƒŒƒXƒ|ƒ“ƒXóM‘Ò‚¿	*/
+	case 1:		/* ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½Ìƒï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½Mï¿½Ò‚ï¿½	*/
 		if (0 != pCtaRcvData->bRecved) {
-			/* óMƒf[ƒ^‚ ‚Á‚½D	*/
+			/* ï¿½ï¿½Mï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 			CTADATAINF l_CtaDataInf;
 			l_iAnaRslt = this->AnaRcvData(pCtaRcvData, &l_CtaDataInf);
 			if (PKT_ERR == *pCtaRcvData->pdwPktCode) {
-				/* ƒGƒ‰[ƒŒƒXƒ|ƒ“ƒX‚¾‚Á‚½D	*/
+				/* ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 				pCtaRcvData->bRecved = FALSE;
-				this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+				this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 				if (0 != l_iAnaRslt) {
-					l_iRslt = l_iAnaRslt;	/* ƒtƒH[ƒ}ƒbƒgŒnƒGƒ‰[‚¾‚Á‚½	*/
+					l_iRslt = l_iAnaRslt;	/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½nï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 				} else {
 					l_iRslt = l_CtaDataInf.ResERR.dwErrRes;
-					/* ƒGƒ‰[“à—e‚É‚æ‚è‹­§I—¹‚Ì•K—v‚ğŒŸ“¢‚·‚é‚±‚ÆEEE	*/
+					/* ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½eï¿½É‚ï¿½è‹­ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½Ì•Kï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é‚±ï¿½ÆEï¿½Eï¿½E	*/
 				}
 			} else if (ls_enumCmdCode == *pCtaRcvData->pdwCmdCode) {
-				/* ‰“šƒŒƒXƒ|ƒ“ƒX‚¾‚Á‚½D	*/
+				/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 				pCtaRcvData->bRecved = FALSE;
-				this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+				this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 				if (0 != l_iAnaRslt) {
-					l_iRslt = l_iAnaRslt;	/* ƒtƒH[ƒ}ƒbƒgŒnƒGƒ‰[‚¾‚Á‚½	*/
+					l_iRslt = l_iAnaRslt;	/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½nï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 				} else {
 					ls_dwRetryCnt = 0;
 					switch (ls_enumCmdCode) {
@@ -1856,7 +1856,7 @@ int CCtaCtrl::SeqSetInf(LPCTARCVDATA pCtaRcvData)
 					case CMD_SPT:	ls_enumCmdCode = CMD_MAX; ls_iPrc = 2;	break;
 					}
 					if (CMD_MAX == ls_enumCmdCode) {
-						this->SetTimeOut(TRUE, CTA_TIMEOUT_T9_NORM);	/* (‰ï˜b)ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ŠJn	*/
+						this->SetTimeOut(TRUE, CTA_TIMEOUT_T9_NORM);	/* (ï¿½ï¿½b)ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½Jï¿½n	*/
 					} else {
 						this->KickCtrlSeq(211);
 					}
@@ -1864,41 +1864,41 @@ int CCtaCtrl::SeqSetInf(LPCTARCVDATA pCtaRcvData)
 			}
 		}
 		if (TRUE == m_bTimeOut) {
-			/* ƒ^ƒCƒ€ƒAƒEƒg‚µ‚Ü‚µ‚½D	*/
+			/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D	*/
 			m_bTimeOut = FALSE;
-			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ƒ^ƒCƒ€ƒAƒEƒg	*/
+			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
 		}
 		if (0 != l_iRslt) {
 			ls_dwRetryCnt--;
 			if (0 != ls_dwRetryCnt) {
-				ls_iPrc = 0;	/* ƒŠƒgƒ‰ƒC	*/
+				ls_iPrc = 0;	/* ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½C	*/
 				::Sleep(m_uiTimeout_Retry);
 				this->KickCtrlSeq(212);
 			} else {
-				l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+				l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 			}
 		}
 		break;
-	case 2:		/* İ’èŠ®—¹ƒCƒxƒ“ƒgóM‘Ò‚¿	*/
+	case 2:		/* ï¿½İ’èŠ®ï¿½ï¿½ï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½ï¿½Mï¿½Ò‚ï¿½	*/
 		if (0 != pCtaRcvData->bRecved) {
-			/* óMƒf[ƒ^‚ ‚Á‚½D	*/
+			/* ï¿½ï¿½Mï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 			CTADATAINF l_CtaDataInf;
 			l_iAnaRslt = this->AnaRcvData(pCtaRcvData, &l_CtaDataInf);
 			if (EVT_CST == *pCtaRcvData->pdwCmdCode) {
-				/* ˆÚ“®Š®—¹ƒCƒxƒ“ƒg‚¾‚Á‚½D	*/
+				/* ï¿½Ú“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 				pCtaRcvData->bRecved = FALSE;
-				this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+				this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 				if (0 != l_iAnaRslt) {
-					l_iRslt = l_iAnaRslt;	/* ƒtƒH[ƒ}ƒbƒgŒnƒGƒ‰[‚¾‚Á‚½	*/
+					l_iRslt = l_iAnaRslt;	/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½nï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 				}
-				l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+				l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 			}
 		}
 		if (TRUE == m_bTimeOut) {
-			/* ƒ^ƒCƒ€ƒAƒEƒg‚µ‚Ü‚µ‚½D	*/
+			/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D	*/
 			m_bTimeOut = FALSE;
-			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ƒ^ƒCƒ€ƒAƒEƒg	*/
-			l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
+			l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 		}
 		break;
 	default:
@@ -1906,7 +1906,7 @@ int CCtaCtrl::SeqSetInf(LPCTARCVDATA pCtaRcvData)
 		break;
 	}
 
-	/* ‹­§I—¹	*/
+	/* ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½	*/
 	if (0 != m_bForceEnd) {
 		this->SetTimeOut(FALSE, 0);
 		m_bForceEnd = FALSE;
@@ -1915,7 +1915,7 @@ int CCtaCtrl::SeqSetInf(LPCTARCVDATA pCtaRcvData)
 	}
 
 	if (TRUE == l_bSeqEnd) {
-		/* ƒV[ƒPƒ“ƒXI—¹	*/
+		/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 		m_iSeqResult = l_iRslt;
 		CString l_strLog;
 		l_strLog.Format(_T("Ended   SeqSetInf() [m_iSeqResult = %d, ls_iPrc = %d, ls_enumCmdCode = %d]"), m_iSeqResult, ls_iPrc, ls_enumCmdCode);
@@ -1931,9 +1931,9 @@ int CCtaCtrl::SeqSetInf(LPCTARCVDATA pCtaRcvData)
 	return l_iRslt;
 }
 
-/* added 2010.09.09 hmenjo CTA PO/PI ƒnƒ“ƒhƒVƒF[ƒN ---------- { ---------- */
+/* added 2010.09.09 hmenjo CTA PO/PI ï¿½nï¿½ï¿½ï¿½hï¿½Vï¿½Fï¿½[ï¿½N ---------- { ---------- */
 /*
- *	ƒV[ƒPƒ“ƒXF‘ª’èŠJn
+ *	ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Fï¿½ï¿½ï¿½ï¿½Jï¿½n
  */
 #define	PRC_MEAS_CMD_MST	(PRC_MEAS_IDLE + 100)
 #define	PRC_MEAS_EVT_CMP	(PRC_MEAS_IDLE + 200)
@@ -1948,136 +1948,136 @@ int CCtaCtrl::SeqMeasStart(LPCTARCVDATA pCtaRcvData)
 	int l_iPrcRec = 0;
 
 	switch (l_iPrcRec = ls_iPrc) {
-	case PRC_MEAS_CMD_MST + 00:		/* ‘ª’èŠJn‘O‚Ì ILPO ƒIƒ“ ------------------------------------- */
+	case PRC_MEAS_CMD_MST + 00:		/* ï¿½ï¿½ï¿½ï¿½Jï¿½nï¿½Oï¿½ï¿½ ILPO ï¿½Iï¿½ï¿½ ------------------------------------- */
 		this->Logging(_T("Started SeqMeasStart()"));
 		ls_iPrc = PRC_MEAS_CMD_MST + 10;
 		this->SetTimeOut(TRUE, m_uiTimeout_ILPI);
-		nexioCA_Interlock(TRUE);		/* CTAILPO ƒIƒ“	*/
-/* added 2011.02.03 hmenjo CTA PO ŒãƒfƒBƒŒƒC ---------- { ---------- */
+		nexioCA_Interlock(TRUE);		/* CTAILPO ï¿½Iï¿½ï¿½	*/
+/* added 2011.02.03 hmenjo CTA PO ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½C ---------- { ---------- */
 		::Sleep(m_uiDelay_ILPO);
-/* added 2011.02.03 hmenjo CTA PO ŒãƒfƒBƒŒƒC ---------- } ---------- */
+/* added 2011.02.03 hmenjo CTA PO ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½C ---------- } ---------- */
 		this->KickCtrlSeq(l_iPrcRec + 1);
 		break;
-	case PRC_MEAS_CMD_MST + 10:		/* ‘ª’èŠJn‘O‚Ì ILPI ƒIƒ“ƒ`ƒFƒbƒN ----------------------------- */
+	case PRC_MEAS_CMD_MST + 10:		/* ï¿½ï¿½ï¿½ï¿½Jï¿½nï¿½Oï¿½ï¿½ ILPI ï¿½Iï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N ----------------------------- */
 		if (0 != nexioIsCA_Interlock()) {
-			this->SetTimeOut(FALSE,  0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+			this->SetTimeOut(FALSE,  0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 			ls_iPrc = PRC_MEAS_CMD_MST + 20;
 			this->KickCtrlSeq(l_iPrcRec + 1);
 		} else if (TRUE == m_bTimeOut) {
 			m_bTimeOut = FALSE;
-			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ƒ^ƒCƒ€ƒAƒEƒg	*/
-			l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
+			l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 		} else {
 			::Sleep(m_uiTimeout_Retry / 2);
 			this->KickCtrlSeq(l_iPrcRec + 2);
 		}
 		break;
-	case PRC_MEAS_CMD_MST + 20:		/* ‘ª’èŠJn --------------------------------------------------- */
+	case PRC_MEAS_CMD_MST + 20:		/* ï¿½ï¿½ï¿½ï¿½Jï¿½n --------------------------------------------------- */
 		if (0 == ls_dwRetryCnt) {
-			ls_dwRetryCnt = m_dwRetryCnt + 1;	/* ƒŠƒgƒ‰ƒCƒJƒEƒ“ƒ^ƒZƒbƒg	*/
+			ls_dwRetryCnt = m_dwRetryCnt + 1;	/* ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Jï¿½Eï¿½ï¿½ï¿½^ï¿½Zï¿½bï¿½g	*/
 			m_bRecvedCMA = FALSE;
 		}
-		this->SetTimeOut(TRUE, CTA_TIMEOUT_RES);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ŠJn	*/
+		this->SetTimeOut(TRUE, CTA_TIMEOUT_RES);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½Jï¿½n	*/
 		((CCtaSio*) this->m_pclsCCtaSio)->CmdSend(PKT_CMD, CMD_MST, "");
 		ls_iPrc = PRC_MEAS_CMD_MST + 30;
 		break;
-	case PRC_MEAS_CMD_MST + 30:		/* ‘ª’èŠJn‚ÌƒŒƒXƒ|ƒ“ƒXóM‘Ò‚¿ ------------------------------- */
+	case PRC_MEAS_CMD_MST + 30:		/* ï¿½ï¿½ï¿½ï¿½Jï¿½nï¿½Ìƒï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½Mï¿½Ò‚ï¿½ ------------------------------- */
 		if (0 != pCtaRcvData->bRecved) {
-			/* óMƒf[ƒ^‚ ‚Á‚½D	*/
+			/* ï¿½ï¿½Mï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 			CTADATAINF l_CtaDataInf;
 			l_iAnaRslt = this->AnaRcvData(pCtaRcvData, &l_CtaDataInf);
 			if (PKT_ERR == *pCtaRcvData->pdwPktCode) {
-				/* ƒGƒ‰[ƒŒƒXƒ|ƒ“ƒX‚¾‚Á‚½D	*/
+				/* ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 				pCtaRcvData->bRecved = FALSE;
-				this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+				this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 				if (0 != l_iAnaRslt) {
-					l_iRslt = l_iAnaRslt;	/* ƒtƒH[ƒ}ƒbƒgŒnƒGƒ‰[‚¾‚Á‚½	*/
+					l_iRslt = l_iAnaRslt;	/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½nï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 				} else {
 					l_iRslt = l_CtaDataInf.ResERR.dwErrRes;
-					/* ƒGƒ‰[“à—e‚É‚æ‚è‹­§I—¹‚Ì•K—v‚ğŒŸ“¢‚·‚é‚±‚ÆEEE	*/
+					/* ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½eï¿½É‚ï¿½è‹­ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½Ì•Kï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é‚±ï¿½ÆEï¿½Eï¿½E	*/
 				}
 			} else if (CMD_MST == *pCtaRcvData->pdwCmdCode) {
-				/* ‰“šƒŒƒXƒ|ƒ“ƒX‚¾‚Á‚½D	*/
+				/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 				pCtaRcvData->bRecved = FALSE;
-				this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+				this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 				if (0 != l_iAnaRslt) {
-					l_iRslt = l_iAnaRslt;	/* ƒtƒH[ƒ}ƒbƒgŒnƒGƒ‰[‚¾‚Á‚½	*/
+					l_iRslt = l_iAnaRslt;	/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½nï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 				} else {
-					this->SetTimeOut(TRUE, m_uiTimeout_T9_Meas);	/* (‰ï˜b)ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ŠJn	*/
+					this->SetTimeOut(TRUE, m_uiTimeout_T9_Meas);	/* (ï¿½ï¿½b)ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½Jï¿½n	*/
 					ls_iPrc = PRC_MEAS_EVT_CMP;
 				}
 			}
 		}
 		if (TRUE == m_bTimeOut) {
-			/* ƒ^ƒCƒ€ƒAƒEƒg‚µ‚Ü‚µ‚½D	*/
+			/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D	*/
 			m_bTimeOut = FALSE;
-			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ƒ^ƒCƒ€ƒAƒEƒg	*/
+			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
 		}
 		if (0 != l_iRslt) {
 			ls_dwRetryCnt--;
 			if (0 != ls_dwRetryCnt) {
-				ls_iPrc = PRC_MEAS_CMD_MST + 20;	/* ƒŠƒgƒ‰ƒC	*/
+				ls_iPrc = PRC_MEAS_CMD_MST + 20;	/* ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½C	*/
 				::Sleep(m_uiTimeout_Retry);
 				this->KickCtrlSeq(l_iPrcRec + 1);
 			} else {
-				l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+				l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 			}
 		}
 		break;
-	case PRC_MEAS_EVT_CMP + 00:		/* ‚Pƒ|ƒCƒ“ƒg‘ª’èŠ®—¹ƒCƒxƒ“ƒgóM‘Ò‚¿ ------------------------- */
+	case PRC_MEAS_EVT_CMP + 00:		/* ï¿½Pï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½èŠ®ï¿½ï¿½ï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½ï¿½Mï¿½Ò‚ï¿½ ------------------------- */
 		if (0 != pCtaRcvData->bRecved) {
-			/* óMƒf[ƒ^‚ ‚Á‚½D	*/
+			/* ï¿½ï¿½Mï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 			CTADATAINF l_CtaDataInf;
 			l_iAnaRslt = this->AnaRcvData(pCtaRcvData, &l_CtaDataInf);
 			if (EVT_CMP == *pCtaRcvData->pdwCmdCode) {
-				/* ‚Pƒ|ƒCƒ“ƒg‘ª’èŠ®—¹ƒCƒxƒ“ƒg‚¾‚Á‚½D	*/
+				/* ï¿½Pï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½èŠ®ï¿½ï¿½ï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 				pCtaRcvData->bRecved = FALSE;
-				this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+				this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 				if (0 != l_iAnaRslt) {
-					l_iRslt = l_iAnaRslt;	/* ƒtƒH[ƒ}ƒbƒgŒnƒGƒ‰[‚¾‚Á‚½	*/
-					l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+					l_iRslt = l_iAnaRslt;	/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½nï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
+					l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 				} else {
-					/* ƒf[ƒ^ƒZƒbƒg ----------------------------------------*/
+					/* ï¿½fï¿½[ï¿½^ï¿½Zï¿½bï¿½g ----------------------------------------*/
 					CTAPOINTDATA l_CtaPointData;
 					l_CtaPointData.iPointNo = l_CtaDataInf.EvtCMP.iPointNo;
 					l_CtaPointData.dCAngle = ((double) l_CtaDataInf.EvtCMP.iCAngle) / 10.0;
 					l_CtaPointData.dRadius = ((double) l_CtaDataInf.EvtCMP.iRadius) / 10.0;
 					l_CtaPointData.dLiquid = ((double) l_CtaDataInf.EvtCMP.iLiquid) / 100.0;
-					/* ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‚µ‚Ü‚·D	*/
-/* modified 2009.11.16 hmenjo CTA ƒŠƒLƒƒƒŠƒu—LŒøƒ`ƒFƒbƒN ---------- { ---------- */
+					/* ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
+/* modified 2009.11.16 hmenjo CTA ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½Lï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N ---------- { ---------- */
 //					if (0 < _tcslen(m_CtaMeasInf.tszRecalibCA)) {
-//						/* ÚGŠp‚ÌƒŠƒLƒƒƒŠƒuw’è—L‚è	*/
+//						/* ï¿½ÚGï¿½pï¿½Ìƒï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½wï¿½ï¿½Lï¿½ï¿½	*/
 //						if (0 == CtaRecalib(m_CtaMeasInf.tszRecalibCA, l_CtaPointData.dCAngle)) {
-//							l_iRslt = CTACTL_ERR_RECALIB;	/* ƒŠƒLƒƒƒŠƒuƒGƒ‰[*/
+//							l_iRslt = CTACTL_ERR_RECALIB;	/* ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½Gï¿½ï¿½ï¿½[*/
 //						}
 //					}
 //					if ((0 == l_iRslt)
 //					 && (0 < _tcslen(m_CtaMeasInf.tszRecalibRad))) {
-//						/* ”¼Œa‚ÌƒŠƒLƒƒƒŠƒuw’è—L‚è	*/
+//						/* ï¿½ï¿½ï¿½aï¿½Ìƒï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½wï¿½ï¿½Lï¿½ï¿½	*/
 //						if (0 == CtaRecalib(m_CtaMeasInf.tszRecalibRad, l_CtaPointData.dRadius)) {
-//							l_iRslt = CTACTL_ERR_RECALIB;	/* ƒŠƒLƒƒƒŠƒuƒGƒ‰[*/
+//							l_iRslt = CTACTL_ERR_RECALIB;	/* ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½Gï¿½ï¿½ï¿½[*/
 //						}
 //					}
-/* modified 2009.11.16 hmenjo CTA ƒŠƒLƒƒƒŠƒu—LŒøƒ`ƒFƒbƒN ---------- 			 */
-					/* ÚGŠp‚ÌƒŠƒLƒƒƒŠƒuw’è—L‚è	*/
+/* modified 2009.11.16 hmenjo CTA ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½Lï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N ---------- 			 */
+					/* ï¿½ÚGï¿½pï¿½Ìƒï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½wï¿½ï¿½Lï¿½ï¿½	*/
 					if (0 == CtaRecalib(m_CtaMeasInf.tszRecalibCA, l_CtaPointData.dCAngle)) {
-						l_iRslt = CTACTL_ERR_RECALIB;	/* ƒŠƒLƒƒƒŠƒuƒGƒ‰[*/
+						l_iRslt = CTACTL_ERR_RECALIB;	/* ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½Gï¿½ï¿½ï¿½[*/
 					} else
-					/* ”¼Œa‚ÌƒŠƒLƒƒƒŠƒuw’è—L‚è	*/
+					/* ï¿½ï¿½ï¿½aï¿½Ìƒï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½wï¿½ï¿½Lï¿½ï¿½	*/
 					if (0 == CtaRecalib(m_CtaMeasInf.tszRecalibRad, l_CtaPointData.dRadius)) {
-						l_iRslt = CTACTL_ERR_RECALIB;	/* ƒŠƒLƒƒƒŠƒuƒGƒ‰[*/
+						l_iRslt = CTACTL_ERR_RECALIB;	/* ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½Gï¿½ï¿½ï¿½[*/
 					}
-/* modified 2009.11.16 hmenjo CTA ƒŠƒLƒƒƒŠƒu—LŒøƒ`ƒFƒbƒN ---------- } ---------- */
+/* modified 2009.11.16 hmenjo CTA ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½Lï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N ---------- } ---------- */
 					if (0 != l_iRslt) {
-						l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+						l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 					} else {
-						/* ‘ª’èŒ‹‰Ê DB ‚ÉƒZƒbƒg	*/
+						/* ï¿½ï¿½ï¿½èŒ‹ï¿½ï¿½ DB ï¿½ÉƒZï¿½bï¿½g	*/
 						lg_smCtaResultDataBase.GetSharedMemoryPtr()->iPointNo = l_CtaPointData.iPointNo;
 						lg_smCtaResultDataBase.GetSharedMemoryPtr()->dCAngle = l_CtaPointData.dCAngle;
 						lg_smCtaResultDataBase.GetSharedMemoryPtr()->dRadius = l_CtaPointData.dRadius;
 						lg_smCtaResultDataBase.GetSharedMemoryPtr()->dLiquid = l_CtaPointData.dLiquid;
 
-						this->SetTimeOut(TRUE, m_uiTimeout_ILPI);	/* IL ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ŠJn	*/
+						this->SetTimeOut(TRUE, m_uiTimeout_ILPI);	/* IL ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½Jï¿½n	*/
 						ls_iPrc = PRC_MEAS_ILPI_ON;
 						this->KickCtrlSeq(l_iPrcRec + 1);
 					}
@@ -2085,23 +2085,23 @@ int CCtaCtrl::SeqMeasStart(LPCTARCVDATA pCtaRcvData)
 			}
 		}
 		if (TRUE == m_bTimeOut) {
-			/* ƒ^ƒCƒ€ƒAƒEƒg‚µ‚Ü‚µ‚½D	*/
+			/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D	*/
 			m_bTimeOut = FALSE;
-			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ƒ^ƒCƒ€ƒAƒEƒg	*/
-			l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
+			l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 		}
 		break;
-	case PRC_MEAS_ILPI_ON + 00:		/* CTAILPI ƒIƒ“‘Ò‚¿ ------------------------------------------- */
+	case PRC_MEAS_ILPI_ON + 00:		/* CTAILPI ï¿½Iï¿½ï¿½ï¿½Ò‚ï¿½ ------------------------------------------- */
 		if (0 != nexioIsCA_Interlock()) {
-			nexioCA_Interlock(FALSE);	/* CTAILPO ƒIƒt	*/
-			this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+			nexioCA_Interlock(FALSE);	/* CTAILPO ï¿½Iï¿½t	*/
+			this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 			l_iRslt = 0;
-			l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+			l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 		} else if (TRUE == m_bTimeOut) {
-			/* ƒ^ƒCƒ€ƒAƒEƒg‚µ‚Ü‚µ‚½D	*/
+			/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D	*/
 			m_bTimeOut = FALSE;
-			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ƒ^ƒCƒ€ƒAƒEƒg	*/
-			l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
+			l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 		} else {
 			::Sleep(m_uiTimeout_Retry / 2);
 			this->KickCtrlSeq(l_iPrcRec + 1);
@@ -2112,7 +2112,7 @@ int CCtaCtrl::SeqMeasStart(LPCTARCVDATA pCtaRcvData)
 		break;
 	}
 
-	/* ‹­§I—¹	*/
+	/* ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½	*/
 	if (0 != m_bForceEnd) {
 		this->SetTimeOut(FALSE, 0);
 		m_bForceEnd = FALSE;
@@ -2121,8 +2121,8 @@ int CCtaCtrl::SeqMeasStart(LPCTARCVDATA pCtaRcvData)
 	}
 
 	if (TRUE == l_bSeqEnd) {
-		/* ƒV[ƒPƒ“ƒXI—¹	*/
-		nexioCA_Interlock(FALSE);	/* CTAILPO ƒIƒt	*/
+		/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
+		nexioCA_Interlock(FALSE);	/* CTAILPO ï¿½Iï¿½t	*/
 		m_iSeqResult = l_iRslt;
 		CString l_strLog;
 		l_strLog.Format(_T("Ended   SeqMeasStart() [m_iSeqResult = %d, ls_iPrc = %d]"), m_iSeqResult, ls_iPrc);
@@ -2136,11 +2136,11 @@ int CCtaCtrl::SeqMeasStart(LPCTARCVDATA pCtaRcvData)
 
 	return l_iRslt;
 }
-/* added 2010.09.09 hmenjo CTA PO/PI ƒnƒ“ƒhƒVƒF[ƒN ---------- } ---------- */
+/* added 2010.09.09 hmenjo CTA PO/PI ï¿½nï¿½ï¿½ï¿½hï¿½Vï¿½Fï¿½[ï¿½N ---------- } ---------- */
 
-/* added 2010.09.09 hmenjo CTA PO/PI ƒnƒ“ƒhƒVƒF[ƒN ---------- { ---------- */
+/* added 2010.09.09 hmenjo CTA PO/PI ï¿½nï¿½ï¿½ï¿½hï¿½Vï¿½Fï¿½[ï¿½N ---------- { ---------- */
 /*
- *	ƒV[ƒPƒ“ƒXF‘ª’èI—¹
+ *	ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Fï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½
  */
 #define	PRC_MEND_CMD_MPE	(PRC_MEND_IDLE + 100)
 #define	PRC_MEND_EVT_CMO	(PRC_MEND_IDLE + 200)
@@ -2157,186 +2157,186 @@ int CCtaCtrl::SeqMeasEnd(LPCTARCVDATA pCtaRcvData)
 	int l_iPrcRec = 0;
 
 	switch (l_iPrcRec = ls_iPrc) {
-	case PRC_MEND_CMD_MPE + 00:		/* Šî”ÂI—¹’Ê’m‘O‚Ì ILPO ƒIƒ“ --------------------------------- */
+	case PRC_MEND_CMD_MPE + 00:		/* ï¿½ï¿½ÂIï¿½ï¿½ï¿½Ê’mï¿½Oï¿½ï¿½ ILPO ï¿½Iï¿½ï¿½ --------------------------------- */
 		this->Logging(_T("Started SeqMeasEnd()"));
 		::Sleep(m_uiTimeout_MPE_Wait);
 		ls_iPrc = PRC_MEND_CMD_MPE + 10;
 		this->SetTimeOut(TRUE, m_uiTimeout_ILPI);
-		nexioCA_Interlock(TRUE);		/* CTAILPO ƒIƒ“	*/
-/* added 2011.02.03 hmenjo CTA PO ŒãƒfƒBƒŒƒC ---------- { ---------- */
+		nexioCA_Interlock(TRUE);		/* CTAILPO ï¿½Iï¿½ï¿½	*/
+/* added 2011.02.03 hmenjo CTA PO ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½C ---------- { ---------- */
 		::Sleep(m_uiDelay_ILPO);
-/* added 2011.02.03 hmenjo CTA PO ŒãƒfƒBƒŒƒC ---------- } ---------- */
+/* added 2011.02.03 hmenjo CTA PO ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½C ---------- } ---------- */
 		this->KickCtrlSeq(l_iPrcRec + 1);
 		break;
-	case PRC_MEND_CMD_MPE + 10:		/* Šî”ÂI—¹’Ê’m‘O‚Ì ILPI ƒIƒ“ƒ`ƒFƒbƒN ------------------------- */
+	case PRC_MEND_CMD_MPE + 10:		/* ï¿½ï¿½ÂIï¿½ï¿½ï¿½Ê’mï¿½Oï¿½ï¿½ ILPI ï¿½Iï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N ------------------------- */
 		if (0 != nexioIsCA_Interlock()) {
-			this->SetTimeOut(FALSE,  0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+			this->SetTimeOut(FALSE,  0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 			ls_iPrc = PRC_MEND_CMD_MPE + 20;
 			this->KickCtrlSeq(l_iPrcRec + 1);
 		} else if (TRUE == m_bTimeOut) {
 			m_bTimeOut = FALSE;
-			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ƒ^ƒCƒ€ƒAƒEƒg	*/
-			l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
+			l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 		} else {
 			::Sleep(m_uiTimeout_Retry / 2);
 			this->KickCtrlSeq(l_iPrcRec + 2);
 		}
 		break;
-	case PRC_MEND_CMD_MPE + 20:		/* Šî”ÂI—¹’Ê’m ----------------------------------------------- */
+	case PRC_MEND_CMD_MPE + 20:		/* ï¿½ï¿½ÂIï¿½ï¿½ï¿½Ê’m ----------------------------------------------- */
 		if (0 == ls_dwRetryCnt) {
-			ls_dwRetryCnt = m_dwRetryCnt + 1;	/* ƒŠƒgƒ‰ƒCƒJƒEƒ“ƒ^ƒZƒbƒg	*/
+			ls_dwRetryCnt = m_dwRetryCnt + 1;	/* ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Jï¿½Eï¿½ï¿½ï¿½^ï¿½Zï¿½bï¿½g	*/
 			m_bRecvedCMA = FALSE;
 		}
-		this->SetTimeOut(TRUE, CTA_TIMEOUT_RES);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ŠJn	*/
+		this->SetTimeOut(TRUE, CTA_TIMEOUT_RES);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½Jï¿½n	*/
 		((CCtaSio*) this->m_pclsCCtaSio)->CmdSend(PKT_CMD, CMD_MPE, "");
 		ls_iPrc = PRC_MEND_CMD_MPE + 30;
 		break;
-	case PRC_MEND_CMD_MPE + 30:		/* Šî”ÂI—¹’Ê’m‚ÌƒŒƒXƒ|ƒ“ƒXóM‘Ò‚¿ --------------------------- */
+	case PRC_MEND_CMD_MPE + 30:		/* ï¿½ï¿½ÂIï¿½ï¿½ï¿½Ê’mï¿½Ìƒï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½Mï¿½Ò‚ï¿½ --------------------------- */
 		if (0 != pCtaRcvData->bRecved) {
-			/* óMƒf[ƒ^‚ ‚Á‚½D	*/
+			/* ï¿½ï¿½Mï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 			CTADATAINF l_CtaDataInf;
 			l_iAnaRslt = this->AnaRcvData(pCtaRcvData, &l_CtaDataInf);
 			if (PKT_ERR == *pCtaRcvData->pdwPktCode) {
-				/* ƒGƒ‰[ƒŒƒXƒ|ƒ“ƒX‚¾‚Á‚½D	*/
+				/* ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 				pCtaRcvData->bRecved = FALSE;
-				this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+				this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 				if (0 != l_iAnaRslt) {
-					l_iRslt = l_iAnaRslt;	/* ƒtƒH[ƒ}ƒbƒgŒnƒGƒ‰[‚¾‚Á‚½	*/
+					l_iRslt = l_iAnaRslt;	/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½nï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 				} else {
 					l_iRslt = l_CtaDataInf.ResERR.dwErrRes;
-					/* ƒGƒ‰[“à—e‚É‚æ‚è‹­§I—¹‚Ì•K—v‚ğŒŸ“¢‚·‚é‚±‚ÆEEE	*/
+					/* ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½eï¿½É‚ï¿½è‹­ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½Ì•Kï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é‚±ï¿½ÆEï¿½Eï¿½E	*/
 				}
 			} else if (CMD_MPE == *pCtaRcvData->pdwCmdCode) {
-				/* ‰“šƒŒƒXƒ|ƒ“ƒX‚¾‚Á‚½D	*/
+				/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 				pCtaRcvData->bRecved = FALSE;
-				this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+				this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 				if (0 != l_iAnaRslt) {
-					l_iRslt = l_iAnaRslt;	/* ƒtƒH[ƒ}ƒbƒgŒnƒGƒ‰[‚¾‚Á‚½	*/
+					l_iRslt = l_iAnaRslt;	/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½nï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 				} else {
-					this->SetTimeOut(TRUE, CTA_TIMEOUT_T9_ORG);	/* (‰ï˜b)ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ŠJn	*/
+					this->SetTimeOut(TRUE, CTA_TIMEOUT_T9_ORG);	/* (ï¿½ï¿½b)ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½Jï¿½n	*/
 					ls_iPrc = PRC_MEND_EVT_CMO;
 				}
 			}
 		}
 		if (TRUE == m_bTimeOut) {
-			/* ƒ^ƒCƒ€ƒAƒEƒg‚µ‚Ü‚µ‚½D	*/
+			/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D	*/
 			m_bTimeOut = FALSE;
-			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ƒ^ƒCƒ€ƒAƒEƒg	*/
+			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
 		}
 		if (0 != l_iRslt) {
 			ls_dwRetryCnt--;
 			if (0 != ls_dwRetryCnt) {
-				ls_iPrc = PRC_MEND_CMD_MPE + 20;	/* ƒŠƒgƒ‰ƒC	*/
+				ls_iPrc = PRC_MEND_CMD_MPE + 20;	/* ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½C	*/
 				::Sleep(m_uiTimeout_Retry);
 				this->KickCtrlSeq(l_iPrcRec + 1);
 			} else {
-				l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+				l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 			}
 		}
 		break;
-	case PRC_MEND_EVT_CMO + 00:		/* ˆÚ“®Š®—¹ƒCƒxƒ“ƒgóM‘Ò‚¿ ----------------------------------- */
+	case PRC_MEND_EVT_CMO + 00:		/* ï¿½Ú“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½ï¿½Mï¿½Ò‚ï¿½ ----------------------------------- */
 		if (0 != pCtaRcvData->bRecved) {
-			/* óMƒf[ƒ^‚ ‚Á‚½D	*/
+			/* ï¿½ï¿½Mï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 			CTADATAINF l_CtaDataInf;
 			l_iAnaRslt = this->AnaRcvData(pCtaRcvData, &l_CtaDataInf);
 			if (EVT_CMO == *pCtaRcvData->pdwCmdCode) {
-				/* ˆÚ“®Š®—¹ƒCƒxƒ“ƒg‚¾‚Á‚½D	*/
+				/* ï¿½Ú“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 				pCtaRcvData->bRecved = FALSE;
-				this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+				this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 				if (0 != l_iAnaRslt) {
-					l_iRslt = l_iAnaRslt;	/* ƒtƒH[ƒ}ƒbƒgŒnƒGƒ‰[‚¾‚Á‚½	*/
-					l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+					l_iRslt = l_iAnaRslt;	/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½nï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
+					l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 				} else {
-					this->SetTimeOut(TRUE, m_uiTimeout_T9_AllEnd);	/* (‰ï˜b)ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ŠJn	*/
+					this->SetTimeOut(TRUE, m_uiTimeout_T9_AllEnd);	/* (ï¿½ï¿½b)ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½Jï¿½n	*/
 					ls_iPrc = PRC_MEND_EVT_CMA;
 				}
 			}
 		}
 		if (TRUE == m_bTimeOut) {
-			/* ƒ^ƒCƒ€ƒAƒEƒg‚µ‚Ü‚µ‚½D	*/
+			/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D	*/
 			m_bTimeOut = FALSE;
-			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ƒ^ƒCƒ€ƒAƒEƒg	*/
-			l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
+			l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 		}
 		break;
-	case PRC_MEND_EVT_CMA + 00:		/* ‘Sƒ|ƒCƒ“ƒg‘ª’èŠ®—¹ƒCƒxƒ“ƒgóM•ƒŒƒXƒ|ƒ“ƒX‘—MŠ®—¹‘Ò‚¿ ----- */
+	case PRC_MEND_EVT_CMA + 00:		/* ï¿½Sï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½èŠ®ï¿½ï¿½ï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½ï¿½Mï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½Mï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½ ----- */
 		if (0 != m_bRecvedCMA) {
 			m_bRecvedCMA = FALSE;
-			this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+			this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 			ls_dwRetryCnt = 0;
 			ls_iPrc = PRC_MEND_CMD_MCE;
 			this->KickCtrlSeq(l_iPrcRec + 1);
 		}
 		if (TRUE == m_bTimeOut) {
-			/* ƒ^ƒCƒ€ƒAƒEƒg‚µ‚Ü‚µ‚½D	*/
+			/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D	*/
 			m_bTimeOut = FALSE;
-			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ƒ^ƒCƒ€ƒAƒEƒg	*/
-			l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
+			l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 		}
 		break;
-	case PRC_MEND_CMD_MCE + 00:		/* ƒJƒZƒbƒgI—¹’Ê’m ------------------------------------------- */
+	case PRC_MEND_CMD_MCE + 00:		/* ï¿½Jï¿½Zï¿½bï¿½gï¿½Iï¿½ï¿½ï¿½Ê’m ------------------------------------------- */
 		if (0 == ls_dwRetryCnt) {
-			ls_dwRetryCnt = m_dwRetryCnt + 1;	/* ƒŠƒgƒ‰ƒCƒJƒEƒ“ƒ^ƒZƒbƒg	*/
+			ls_dwRetryCnt = m_dwRetryCnt + 1;	/* ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Jï¿½Eï¿½ï¿½ï¿½^ï¿½Zï¿½bï¿½g	*/
 		}
-		this->SetTimeOut(TRUE, CTA_TIMEOUT_RES);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ŠJn	*/
+		this->SetTimeOut(TRUE, CTA_TIMEOUT_RES);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½Jï¿½n	*/
 		((CCtaSio*) this->m_pclsCCtaSio)->CmdSend(PKT_CMD, CMD_MCE, m_CtaMeasInf.szCstID);
 		ls_iPrc = PRC_MEND_CMD_MCE + 10;
 		break;
-	case PRC_MEND_CMD_MCE + 10:		/* ƒJƒZƒbƒgI—¹’Ê’m‚ÌƒŒƒXƒ|ƒ“ƒXóM‘Ò‚¿ ----------------------- */
+	case PRC_MEND_CMD_MCE + 10:		/* ï¿½Jï¿½Zï¿½bï¿½gï¿½Iï¿½ï¿½ï¿½Ê’mï¿½Ìƒï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½Mï¿½Ò‚ï¿½ ----------------------- */
 		if (0 != pCtaRcvData->bRecved) {
-			/* óMƒf[ƒ^‚ ‚Á‚½D	*/
+			/* ï¿½ï¿½Mï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 			CTADATAINF l_CtaDataInf;
 			l_iAnaRslt = this->AnaRcvData(pCtaRcvData, &l_CtaDataInf);
 			if (PKT_ERR == *pCtaRcvData->pdwPktCode) {
-				/* ƒGƒ‰[ƒŒƒXƒ|ƒ“ƒX‚¾‚Á‚½D	*/
+				/* ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 				pCtaRcvData->bRecved = FALSE;
-				this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+				this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 				if (0 != l_iAnaRslt) {
-					l_iRslt = l_iAnaRslt;	/* ƒtƒH[ƒ}ƒbƒgŒnƒGƒ‰[‚¾‚Á‚½	*/
+					l_iRslt = l_iAnaRslt;	/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½nï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 				} else {
 					l_iRslt = l_CtaDataInf.ResERR.dwErrRes;
-					/* ƒGƒ‰[“à—e‚É‚æ‚è‹­§I—¹‚Ì•K—v‚ğŒŸ“¢‚·‚é‚±‚ÆEEE	*/
+					/* ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½eï¿½É‚ï¿½è‹­ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½Ì•Kï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é‚±ï¿½ÆEï¿½Eï¿½E	*/
 				}
 			} else if (CMD_MCE == *pCtaRcvData->pdwCmdCode) {
-				/* ‰“šƒŒƒXƒ|ƒ“ƒX‚¾‚Á‚½D	*/
+				/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 				pCtaRcvData->bRecved = FALSE;
-				this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+				this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 				if (0 != l_iAnaRslt) {
-					l_iRslt = l_iAnaRslt;	/* ƒtƒH[ƒ}ƒbƒgŒnƒGƒ‰[‚¾‚Á‚½	*/
+					l_iRslt = l_iAnaRslt;	/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½nï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 				} else {
-					this->SetTimeOut(TRUE, m_uiTimeout_ILPI);	/* IL ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ŠJn	*/
+					this->SetTimeOut(TRUE, m_uiTimeout_ILPI);	/* IL ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½Jï¿½n	*/
 					ls_iPrc = PRC_MEND_ILPI_ON;
 					this->KickCtrlSeq(l_iPrcRec + 1);
 				}
 			}
 		}
 		if (TRUE == m_bTimeOut) {
-			/* ƒ^ƒCƒ€ƒAƒEƒg‚µ‚Ü‚µ‚½D	*/
+			/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D	*/
 			m_bTimeOut = FALSE;
-			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ƒ^ƒCƒ€ƒAƒEƒg	*/
+			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
 		}
 		if (0 != l_iRslt) {
 			ls_dwRetryCnt--;
 			if (0 != ls_dwRetryCnt) {
-				ls_iPrc = PRC_MEND_CMD_MCE;	/* ƒŠƒgƒ‰ƒC	*/
+				ls_iPrc = PRC_MEND_CMD_MCE;	/* ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½C	*/
 				::Sleep(m_uiTimeout_Retry);
 				this->KickCtrlSeq(l_iPrcRec + 2);
 			} else {
-				l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+				l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 			}
 		}
 		break;
-	case PRC_MEND_ILPI_ON + 00:		/* CTAILPI ƒIƒ“‘Ò‚¿ ------------------------------------------- */
+	case PRC_MEND_ILPI_ON + 00:		/* CTAILPI ï¿½Iï¿½ï¿½ï¿½Ò‚ï¿½ ------------------------------------------- */
 		if (0 != nexioIsCA_Interlock()) {
-			nexioCA_Interlock(FALSE);	/* CTAILPO ƒIƒt	*/
-			this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+			nexioCA_Interlock(FALSE);	/* CTAILPO ï¿½Iï¿½t	*/
+			this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 			l_iRslt = 0;
-			l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+			l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 		} else if (TRUE == m_bTimeOut) {
-			/* ƒ^ƒCƒ€ƒAƒEƒg‚µ‚Ü‚µ‚½D	*/
+			/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D	*/
 			m_bTimeOut = FALSE;
-			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ƒ^ƒCƒ€ƒAƒEƒg	*/
-			l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
+			l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 		} else {
 			::Sleep(m_uiTimeout_Retry / 2);
 			this->KickCtrlSeq(l_iPrcRec + 1);
@@ -2347,7 +2347,7 @@ int CCtaCtrl::SeqMeasEnd(LPCTARCVDATA pCtaRcvData)
 		break;
 	}
 
-	/* ‹­§I—¹	*/
+	/* ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½	*/
 	if (0 != m_bForceEnd) {
 		this->SetTimeOut(FALSE, 0);
 		m_bForceEnd = FALSE;
@@ -2356,8 +2356,8 @@ int CCtaCtrl::SeqMeasEnd(LPCTARCVDATA pCtaRcvData)
 	}
 
 	if (TRUE == l_bSeqEnd) {
-		/* ƒV[ƒPƒ“ƒXI—¹	*/
-		nexioCA_Interlock(FALSE);	/* CTAILPO ƒIƒt	*/
+		/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
+		nexioCA_Interlock(FALSE);	/* CTAILPO ï¿½Iï¿½t	*/
 		m_iSeqResult = l_iRslt;
 		CString l_strLog;
 		l_strLog.Format(_T("Ended   SeqMeasEnd() [m_iSeqResult = %d, ls_iPrc = %d]"), m_iSeqResult, ls_iPrc);
@@ -2371,9 +2371,9 @@ int CCtaCtrl::SeqMeasEnd(LPCTARCVDATA pCtaRcvData)
 
 	return l_iRslt;
 }
-/* added 2010.09.09 hmenjo CTA PO/PI ƒnƒ“ƒhƒVƒF[ƒN ---------- } ---------- */
+/* added 2010.09.09 hmenjo CTA PO/PI ï¿½nï¿½ï¿½ï¿½hï¿½Vï¿½Fï¿½[ï¿½N ---------- } ---------- */
 /*
- *	ƒV[ƒPƒ“ƒXFó‘Ôæ“¾
+ *	ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Fï¿½ï¿½Ôæ“¾
  */
 int CCtaCtrl::SeqGetStat(LPCTARCVDATA pCtaRcvData)
 {
@@ -2384,38 +2384,38 @@ int CCtaCtrl::SeqGetStat(LPCTARCVDATA pCtaRcvData)
 	BOOL l_bSeqEnd = FALSE;
 
 	switch (ls_iPrc) {
-	case 0:		/* ó‘Ô—v‹	*/
+	case 0:		/* ï¿½ï¿½Ô—vï¿½ï¿½	*/
 		if (0 == ls_dwRetryCnt) {
 			this->Logging(_T("Started SeqGetStat()"));
-			ls_dwRetryCnt = m_dwRetryCnt + 1;	/* ƒŠƒgƒ‰ƒCƒJƒEƒ“ƒ^ƒZƒbƒg	*/
+			ls_dwRetryCnt = m_dwRetryCnt + 1;	/* ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Jï¿½Eï¿½ï¿½ï¿½^ï¿½Zï¿½bï¿½g	*/
 		}
-		this->SetTimeOut(TRUE, CTA_TIMEOUT_RES);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ŠJn	*/
+		this->SetTimeOut(TRUE, CTA_TIMEOUT_RES);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½Jï¿½n	*/
 		((CCtaSio*) this->m_pclsCCtaSio)->CmdSend(PKT_CMD, CMD_STA, "");
 		ls_iPrc = 1;
 		break;
-	case 1:		/* ó‘Ô—v‹‚ÌƒŒƒXƒ|ƒ“ƒXóM‘Ò‚¿	*/
+	case 1:		/* ï¿½ï¿½Ô—vï¿½ï¿½ï¿½Ìƒï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½Mï¿½Ò‚ï¿½	*/
 		if (0 != pCtaRcvData->bRecved) {
-			/* óMƒf[ƒ^‚ ‚Á‚½D	*/
+			/* ï¿½ï¿½Mï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 			CTADATAINF l_CtaDataInf;
 			l_iAnaRslt = this->AnaRcvData(pCtaRcvData, &l_CtaDataInf);
 			if (PKT_ERR == *pCtaRcvData->pdwPktCode) {
-				/* ƒGƒ‰[ƒŒƒXƒ|ƒ“ƒX‚¾‚Á‚½D	*/
+				/* ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 				pCtaRcvData->bRecved = FALSE;
-				this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+				this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 				if (0 != l_iAnaRslt) {
-					l_iRslt = l_iAnaRslt;	/* ƒtƒH[ƒ}ƒbƒgŒnƒGƒ‰[‚¾‚Á‚½	*/
+					l_iRslt = l_iAnaRslt;	/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½nï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 				} else {
 					l_iRslt = l_CtaDataInf.ResERR.dwErrRes;
-					/* ƒGƒ‰[“à—e‚É‚æ‚è‹­§I—¹‚Ì•K—v«‚ğŒŸ“¢‚·‚é‚±‚ÆEEE	*/
+					/* ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½eï¿½É‚ï¿½è‹­ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½Ì•Kï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é‚±ï¿½ÆEï¿½Eï¿½E	*/
 				}
 			} else if (CMD_STA == *pCtaRcvData->pdwCmdCode) {
-				/* ‰“šƒŒƒXƒ|ƒ“ƒX‚¾‚Á‚½D	*/
+				/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 				pCtaRcvData->bRecved = FALSE;
-				this->SetTimeOut(FALSE, 0);	/* ƒ^ƒCƒ€ƒAƒEƒgŠÄ‹ ‰ğœ	*/
+				this->SetTimeOut(FALSE, 0);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Äï¿½ ï¿½ï¿½ï¿½ï¿½	*/
 				if (0 != l_iAnaRslt) {
-					l_iRslt = l_iAnaRslt;	/* ƒtƒH[ƒ}ƒbƒgŒnƒGƒ‰[‚¾‚Á‚½	*/
+					l_iRslt = l_iAnaRslt;	/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½nï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 				} else {
-					m_lCtaStatus =	MAKELONG(	/* ƒXƒe[ƒ^ƒX	*/
+					m_lCtaStatus =	MAKELONG(	/* ï¿½Xï¿½eï¿½[ï¿½^ï¿½X	*/
 											MAKEWORD(
 													l_CtaDataInf.CmdSTA.dwZState,	/* LL	*/
 													l_CtaDataInf.CmdSTA.dwStatus1	/* LH	*/
@@ -2426,23 +2426,23 @@ int CCtaCtrl::SeqGetStat(LPCTARCVDATA pCtaRcvData)
 												)
 										);
 					ls_dwRetryCnt = 0;
-					l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+					l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 				}
 			}
 		}
 		if (TRUE == m_bTimeOut) {
-			/* ƒ^ƒCƒ€ƒAƒEƒg‚µ‚Ü‚µ‚½D	*/
+			/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D	*/
 			m_bTimeOut = FALSE;
-			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ƒ^ƒCƒ€ƒAƒEƒg	*/
+			l_iRslt = CTACTL_ERR_TIMEOUT;	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
 		}
 		if (0 != l_iRslt) {
 			ls_dwRetryCnt--;
 			if (0 != ls_dwRetryCnt) {
-				ls_iPrc = 0;	/* ƒŠƒgƒ‰ƒC	*/
+				ls_iPrc = 0;	/* ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½C	*/
 				::Sleep(m_uiTimeout_Retry);
 				this->KickCtrlSeq(511);
 			} else {
-				l_bSeqEnd = TRUE;	/* ƒV[ƒPƒ“ƒXI—¹	*/
+				l_bSeqEnd = TRUE;	/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 			}
 		}
 		break;
@@ -2451,7 +2451,7 @@ int CCtaCtrl::SeqGetStat(LPCTARCVDATA pCtaRcvData)
 		break;
 	}
 
-	/* ‹­§I—¹	*/
+	/* ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½	*/
 	if (0 != m_bForceEnd) {
 		this->SetTimeOut(FALSE, 0);
 		m_bForceEnd = FALSE;
@@ -2460,7 +2460,7 @@ int CCtaCtrl::SeqGetStat(LPCTARCVDATA pCtaRcvData)
 	}
 
 	if (TRUE == l_bSeqEnd) {
-		/* ƒV[ƒPƒ“ƒXI—¹	*/
+		/* ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½Iï¿½ï¿½	*/
 		m_iSeqResult = l_iRslt;
 		CString l_strLog;
 		l_strLog.Format(_T("Ended   SeqGetStat() [m_iSeqResult = %d, ls_iPrc = %d]"), m_iSeqResult, ls_iPrc);
@@ -2476,22 +2476,22 @@ int CCtaCtrl::SeqGetStat(LPCTARCVDATA pCtaRcvData)
 }
 
 /*
- *	ãˆÊ‚Ö‚ÌƒAƒ‰[ƒ€’Ê’m
+ *	ï¿½ï¿½Ê‚Ö‚ÌƒAï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’m
  */
 BOOL CCtaCtrl::NotifyAlarm(int iAlarmCode)
 {
 	if (0 == iAlarmCode) {
-		return FALSE;	/* –¢’Ê’m	*/
+		return FALSE;	/* ï¿½ï¿½ï¿½Ê’m	*/
 	}
 
 	int l_iNotifyCode = 0;
-	int l_iLevel = 0;		/*	0:Œx
+	int l_iLevel = 0;		/*	0:ï¿½xï¿½ï¿½
 								1:
 								*/
 
 	switch (iAlarmCode) {
-	/* CTASIO ƒGƒ‰[’è‹`	*/
-	default:						l_iNotifyCode = 100; l_iLevel = 0;	break;	/* –¢’è‹`ƒGƒ‰[	*/
+	/* CTASIO ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½`	*/
+	default:						l_iNotifyCode = 100; l_iLevel = 0;	break;	/* ï¿½ï¿½ï¿½ï¿½`ï¿½Gï¿½ï¿½ï¿½[	*/
 	case CTASIO_ERR_UNINIT:			l_iNotifyCode = 101; l_iLevel = 0;	break;
 	case CTASIO_ERR_RCVBUFFULL:		l_iNotifyCode = 102; l_iLevel = 0;	break;
 	case CTASIO_ERR_SEND_FAIL:		l_iNotifyCode = 103; l_iLevel = 0;	break;
@@ -2507,7 +2507,7 @@ BOOL CCtaCtrl::NotifyAlarm(int iAlarmCode)
 	case CTASIO_ERR_CTRLCODE:		l_iNotifyCode = 113; l_iLevel = 0;	break;
 	case CTASIO_ERR_INVALIDLEN:		l_iNotifyCode = 114; l_iLevel = 0;	break;
 	case CTASIO_ERR_RCVFAIL:		l_iNotifyCode = 115; l_iLevel = 0;	break;
-	/* CTACTL ƒGƒ‰[’è‹`	*/
+	/* CTACTL ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½`	*/
 	case CTACTL_ERR_DATANONE:		l_iNotifyCode = 120; l_iLevel = 0;	break;
 	case CTACTL_ERR_DATAFORMAT:		l_iNotifyCode = 121; l_iLevel = 0;	break;
 	case CTACTL_ERR_PKTCMD:			l_iNotifyCode = 122; l_iLevel = 0;	break;
@@ -2519,8 +2519,8 @@ BOOL CCtaCtrl::NotifyAlarm(int iAlarmCode)
 	case CTACTL_ERR_ILPI:			l_iNotifyCode = 128; l_iLevel = 0;	break;
 	case CTACTL_ERR_FORCEEND:		l_iNotifyCode = 129; l_iLevel = 0;	break;
 	case CTACTL_ERR_RECALIB:		l_iNotifyCode = 130; l_iLevel = 0;	break;
-	/* CTA ƒ†ƒjƒbƒg ƒGƒ‰[ƒR[ƒh	*/
-/*	case CTACTL_ERCD_RST:			l_iNotifyCode = 140; l_iLevel = 0;	break;	–¢g—p	*/
+	/* CTA ï¿½ï¿½ï¿½jï¿½bï¿½g ï¿½Gï¿½ï¿½ï¿½[ï¿½Rï¿½[ï¿½h	*/
+/*	case CTACTL_ERCD_RST:			l_iNotifyCode = 140; l_iLevel = 0;	break;	ï¿½ï¿½ï¿½gï¿½p	*/
 	case CTACTL_ERCD_HEAD:			l_iNotifyCode = 141; l_iLevel = 0;	break;
 	case CTACTL_ERCD_CMD:			l_iNotifyCode = 142; l_iLevel = 0;	break;
 	case CTACTL_ERCD_SUM:			l_iNotifyCode = 143; l_iLevel = 0;	break;
