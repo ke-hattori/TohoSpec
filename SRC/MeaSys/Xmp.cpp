@@ -168,7 +168,7 @@ BOOL CXmp::RunXmp()
 					(_T('S') != l_tszFileTitle[1]) && (_T('s') != l_tszFileTitle[1])) {
 					continue;
 				}
-				for (i = 2; i < _tcslen(l_tszFileTitle); i++) {
+				for (i = 2; i < static_cast<int>(_tcslen(l_tszFileTitle)); i++) {
 					if ((l_tszFileTitle[i] < _T('0')) || (_T('9') < l_tszFileTitle[i])) {
 						continue;
 					}
