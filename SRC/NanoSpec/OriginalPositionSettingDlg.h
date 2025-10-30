@@ -1,25 +1,25 @@
-#if !defined(AFX_ORIGINALPOSITIONSETTINGDLG_H__43170470_6CB8_4688_8DB2_0D24EC1F2B66__INCLUDED_)
+ï»¿#if !defined(AFX_ORIGINALPOSITIONSETTINGDLG_H__43170470_6CB8_4688_8DB2_0D24EC1F2B66__INCLUDED_)
 #define AFX_ORIGINALPOSITIONSETTINGDLG_H__43170470_6CB8_4688_8DB2_0D24EC1F2B66__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// OriginalPositionSettingDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// OriginalPositionSettingDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "ColorStatic.h"
 
 // ##########################################################################
-// COriginalPositionSettingDlg ƒ_ƒCƒAƒƒO
+// COriginalPositionSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // ##########################################################################
 
 class COriginalPositionSettingDlg : public CDialog
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
-	COriginalPositionSettingDlg(CWnd* pParent = NULL);	// •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	COriginalPositionSettingDlg(CWnd* pParent = NULL);	// æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(COriginalPositionSettingDlg)
 	enum { IDD = IDD_ORIGINAL_POSITION_SETTING_DLG };
 	//}}AFX_DATA
@@ -35,10 +35,10 @@ public:
 	CColorStatic m_stc4PP_X, m_stc4PP_Y, m_stc4PP_Z;
 	CColorStatic m_stcCONTACT_ANGLE_X, m_stcCONTACT_ANGLE_Y, m_stcCONTACT_ANGLE_Z;
 	CColorStatic m_stcSTRESS_X, m_stcSTRESS_Y, m_stcSTRESS_Z;
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 //	CColorStatic m_stcIRSE_X, m_stcIRSE_Y, m_stcIRSE_Z;
 	CColorStatic m_stcMS_X, m_stcMS_Y, m_stcMS_Z;
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 
 	CShadeButtonST m_SrSetupButton;
 	CShadeButtonST m_SeSetupButton;
@@ -65,17 +65,17 @@ public:
 	void UpDate(BOOL);
 	void EnableSetButtons(BOOL);
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(COriginalPositionSettingDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(COriginalPositionSettingDlg)
 	virtual void OnOK();
 	virtual BOOL OnInitDialog();
@@ -103,6 +103,6 @@ private:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_ORIGINALPOSITIONSETTINGDLG_H__43170470_6CB8_4688_8DB2_0D24EC1F2B66__INCLUDED_)

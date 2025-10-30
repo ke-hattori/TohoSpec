@@ -1,4 +1,4 @@
-// MeasurementProcessView.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// MeasurementProcessView.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -10,10 +10,10 @@
 #include "MeasurementGraphDlg.h"
 #include "MeasurementTabView.h"
 #include "MeasurementProcessView.h"
-// 2009.10.30 bagus MS �ǉ� --{--
+// 2009.10.30 bagus MS ï¿½Ç‰ï¿½ --{--
 #include "OverlayDialog.h"
 #include "PointSetupTeachingMSDlg.h"
-// 2009.10.30 bagus MS �ǉ� --}--
+// 2009.10.30 bagus MS ï¿½Ç‰ï¿½ --}--
 #include "NanoSpecDoc.h"
 #include "NEXIOBASE.HXX"
 
@@ -48,13 +48,13 @@ CMeasurementProcessView::CMeasurementProcessView()
 	m_pMainFrame	= NULL;
 	m_pDoc			= NULL;
 
-// 2009.10.30 bagus MS �ǉ� --{--
+// 2009.10.30 bagus MS ï¿½Ç‰ï¿½ --{--
 	ConfigFile_GetNanoSpecIni(&m_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
-// 2009.10.30 bagus MS �ǉ� --}--
+// 2009.10.30 bagus MS ï¿½Ç‰ï¿½ --}--
 
-// 2009.11.09 bagus MS �C�� --{--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --{--
 	m_nSelLens = 0;
-// 2009.11.09 bagus MS �C�� --}--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --}--
 }
 
 // =========================================================================
@@ -79,7 +79,7 @@ void CMeasurementProcessView::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_SAVE_BUTTON, m_SaveButton);
 	DDX_Control(pDX, IDC_PRINT_BUTTON, m_PrintButton);
 	DDX_Control(pDX, IDC_EXIT_BUTTON, m_ExitButton);
-// 2009.10.30 bagus MS �ǉ� --{--
+// 2009.10.30 bagus MS ï¿½Ç‰ï¿½ --{--
 	DDX_Control(pDX, IDC_NEXT_POINT_BUTTON, m_NextPointButton);
 	DDX_Control(pDX, IDC_POINT_TEACHING_BUTTON, m_PointTeachingButton);
 	DDX_Control(pDX, IDC_STAGE_UP_BUTTON, m_XY_UpButton);
@@ -91,7 +91,7 @@ void CMeasurementProcessView::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_JOYSTICK2, *m_joyStick2);
 	DDX_Control(pDX, IDC_MEAS_POINT_X, m_stcMeasurementPointX);
 	DDX_Control(pDX, IDC_MEAS_POINT_Y, m_stcMeasurementPointY);
-// 2009.10.30 bagus MS �ǉ� --}--
+// 2009.10.30 bagus MS ï¿½Ç‰ï¿½ --}--
 }
 
 // =========================================================================
@@ -119,17 +119,17 @@ BEGIN_MESSAGE_MAP(CMeasurementProcessView, CNanoUI)
 	ON_MESSAGE(WM_DISPMENU_REMEASUREMENT, OnMeaProcFuncCall)
 	ON_MESSAGE(WM_DISPMENU_ADUJST_REMEASUREMENT, OnMeaProcFuncCall)
 	ON_MESSAGE(WM_DISPMENU_SEQMEAS_EXIT, OnMeaProcFuncCall)
-// 2009.10.30 bagus MS �ǉ� --{--
+// 2009.10.30 bagus MS ï¿½Ç‰ï¿½ --{--
 	ON_MESSAGE(WM_DISPMENU_POINT_TEACHING, OnMeaProcFuncCall)
 	ON_MESSAGE(WM_JOYSTICK, OnJoyStick)
-// 2009.10.30 bagus MS �ǉ� --}--
-// 2009.11.09 bagus MS �C�� --{--
+// 2009.10.30 bagus MS ï¿½Ç‰ï¿½ --}--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --{--
 	ON_MESSAGE(WM_NEX_RESPONSE, OnNexResponse)
-// 2009.11.09 bagus MS �C�� --}--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --}--
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CMeasurementProcessView �f�f
+// CMeasurementProcessView ï¿½fï¿½f
 
 #ifdef _DEBUG
 // =========================================================================
@@ -148,7 +148,7 @@ void CMeasurementProcessView::Dump(CDumpContext& dc) const
 #endif //_DEBUG
 
 // =========================================================================
-// CMeasurementProcessView ���b�Z�[�W �n���h��
+// CMeasurementProcessView ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 
 // =========================================================================
 //
@@ -157,7 +157,7 @@ int CMeasurementProcessView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	if (CNanoUI::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
-	// TODO: ���̈ʒu�ɌŗL�̍쐬�p�R�[�h��ǉ����Ă�������
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉŒÅ—Lï¿½Ì�ì�¬ï¿½pï¿½Rï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	return 0;
 }
@@ -166,34 +166,34 @@ int CMeasurementProcessView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 //
 void CMeasurementProcessView::OnInitialUpdate()
 {
-	//���Ή��@�\HIDE
+	//ï¿½ï¿½ï¿½Î‰ï¿½ï¿½@ï¿½\HIDE
 	GetDlgItem(IDC_VALUES_TO_DISPLAY_BUTTON)->ShowWindow(SW_HIDE);
 
-// 2009.10.30 bagus MS �ǉ� --{--
+// 2009.10.30 bagus MS ï¿½Ç‰ï¿½ --{--
 BOOL bJoyStk;
 
 	m_pMainFrame = (CMainFrame *)AfxGetMainWnd();
 
-	// ��ʂ��\������鎞�̓f�t�H���g�̓\�t�gJoy�Ƃ���
+	// ï¿½ï¿½Ê‚ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é��ï¿½Íƒfï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½Íƒ\ï¿½tï¿½gJoyï¿½Æ‚ï¿½ï¿½ï¿½
 	m_pMainFrame->SetJoyStickMode(JOY_SOFT_MODE);
 
-	// Radio�{�^���̐ݒ�
+	// Radioï¿½{ï¿½^ï¿½ï¿½ï¿½Ì�İ’ï¿½
 	m_joyStick1 = new CJoyStickRadioButton(JOY_SOFT_MODE);
 	m_joyStick2 = new CJoyStickRadioButton(JOY_HARD_MODE);
-// 2009.10.30 bagus MS �ǉ� --}--
+// 2009.10.30 bagus MS ï¿½Ç‰ï¿½ --}--
 
-// 2009.11.02 bagus MS �ǉ� --{--
+// 2009.11.02 bagus MS ï¿½Ç‰ï¿½ --{--
 	///// Load File /////
 	ConfigFile_GetNanoSpecIni(&m_MsConfig, CONFIG_FILE_MS_CONFIG);
-// 2009.11.02 bagus MS �ǉ� --}--
+// 2009.11.02 bagus MS ï¿½Ç‰ï¿½ --}--
 
 	CNanoUI::OnInitialUpdate();
 
-	// TODO: ���̈ʒu�ɌŗL�̏�����ǉ����邩�A�܂��͊�{�N���X���Ăяo���Ă�������
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉŒÅ—Lï¿½Ì�ï¿½ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½é‚©ï¿½Aï¿½Ü‚ï¿½ï¿½ÍŠï¿½{ï¿½Nï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½Ä‚Ñ�oï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-// 2009.10.30 bagus MS �ǉ� --{--
+// 2009.10.30 bagus MS ï¿½Ç‰ï¿½ --{--
 //	m_pMainFrame = (CMainFrame *)AfxGetMainWnd();
-// 2009.10.30 bagus MS �ǉ� --}--
+// 2009.10.30 bagus MS ï¿½Ç‰ï¿½ --}--
 	m_pDoc = (CNanoSpecDoc*)m_pMainFrame->GetActiveDocument();
 	///// Measurement Cancel Button /////
 	m_MeasurementCancelButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT,
@@ -235,7 +235,7 @@ BOOL bJoyStk;
 		BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_ExitButton.DrawFlatFocus(TRUE);
 
-// 2009.10.30 bagus MS �ǉ� --{--
+// 2009.10.30 bagus MS ï¿½Ç‰ï¿½ --{--
 	/// Point Teaching Button ///
 	m_PointTeachingButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT,
 		BUTTON_COLORING, BUTTON_NORMAL_COLOR);
@@ -245,19 +245,19 @@ BOOL bJoyStk;
 	m_NextPointButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT,
 		BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_NextPointButton.DrawFlatFocus(TRUE);
-// 2009.10.30 bagus MS �ǉ� --}--
+// 2009.10.30 bagus MS ï¿½Ç‰ï¿½ --}--
 
 	RCP_DATA l_rcp_data;
 	m_pDoc->GetRcpData(&l_rcp_data);
-// 2009.10.30 bagus MS �ǉ� --{--
+// 2009.10.30 bagus MS ï¿½Ç‰ï¿½ --{--
 	///// Lens Combo /////
 //	RecipeFile_LoadRecipe(&l_rcp_data.MainRcpInfo, l_rcp_data.szRecipeName, RECIPE_FILE_MAIN_RECIPE);
 
-// 2009.12.17 bagus MS �ǉ� --}--
+// 2009.12.17 bagus MS ï¿½Ç‰ï¿½ --}--
 	if (HEAD_TYPE_MS == l_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType) {
 		ChangeOperationEnable(TRUE);
 	}
-// 2009.12.17 bagus MS �ǉ� --}--
+// 2009.12.17 bagus MS ï¿½Ç‰ï¿½ --}--
 
 	if (l_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType == HEAD_TYPE_MS) {
 		Init_SR_XYStageMenu();
@@ -268,11 +268,11 @@ BOOL bJoyStk;
 		ScreenToClient(rect);
 		GetDlgItem(IDC_EXIT_BUTTON)->MoveWindow(rect);
 
-// 2009.11.02 bagus MS �ǉ� --{--
+// 2009.11.02 bagus MS ï¿½Ç‰ï¿½ --{--
 //		GetDlgItem(IDC_REMEASUREMENT_BUTTON)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_REMEASUREMENT_BUTTON)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_MEASUREMENT_PAUSE_BUTTON)->ShowWindow(SW_HIDE);
-// 2009.11.02 bagus MS �ǉ� --}--
+// 2009.11.02 bagus MS ï¿½Ç‰ï¿½ --}--
 		GetDlgItem(IDC_ADUJST_REMEASUREMENT_BUTTON)->ShowWindow(SW_HIDE);
 //		GetDlgItem(IDC_VALUES_TO_DISPLAY_BUTTON)->ShowWindow(SW_HIDE);
 //		GetDlgItem(IDC_PRINT_BUTTON)->ShowWindow(SW_HIDE);
@@ -308,12 +308,12 @@ BOOL bJoyStk;
 // 2009.12.09 bagus MS --}--
 		GetDlgItem(IDC_POINT_TEACHING_BUTTON)->ShowWindow(SW_SHOW);
 
-		//�N�����ɂ̓W���O���[�h�ɂ��Ă���
+		//ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½É‚ÍƒWï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½[ï¿½hï¿½É‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
 		nexifRC_SelectMode(this->m_hWnd, RCOPMODE_JOG);
 	} else {
-// 2009.11.02 bagus MS �ǉ� --{--
+// 2009.11.02 bagus MS ï¿½Ç‰ï¿½ --{--
 		GetDlgItem(IDC_MEASUREMENT_PAUSE_BUTTON)->ShowWindow(SW_SHOW);
-// 2009.11.02 bagus MS �ǉ� --}--
+// 2009.11.02 bagus MS ï¿½Ç‰ï¿½ --}--
 		GetDlgItem(IDC_REMEASUREMENT_BUTTON)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_ADUJST_REMEASUREMENT_BUTTON)->ShowWindow(SW_SHOW);
 //		GetDlgItem(IDC_VALUES_TO_DISPLAY_BUTTON)->ShowWindow(SW_SHOW);
@@ -343,63 +343,63 @@ BOOL bJoyStk;
 	}
 
 	//2009.09.13 bagus stress --{--
-	//�đ���A�ʒu����{�^���͔�\���ɂ���
+	//ï¿½Ä‘ï¿½ï¿½ï¿½Aï¿½Ê’uï¿½ï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½ï¿½Í”ï¿½\ï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½
 	if (HEAD_TYPE_STRESS == l_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType) {
 		GetDlgItem(IDC_REMEASUREMENT_BUTTON)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_ADUJST_REMEASUREMENT_BUTTON)->ShowWindow(SW_HIDE);
 	}
 	//2009.09.13 bagus stress --}--
 	//2009.10.28 bagus 2point-distance --{--
-	//�ʒu����{�^���͔�\���ɂ���
+	//ï¿½Ê’uï¿½ï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½ï¿½Í”ï¿½\ï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½
 	else if(HEAD_TYPE_SR == l_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType
 	&& MEAS_PROG_TYPE_SR_DISTANCE == l_rcp_data.MeasProgInfo.ScanParams.hdr.wScanType
 	){
 		GetDlgItem(IDC_ADUJST_REMEASUREMENT_BUTTON)->ShowWindow(SW_HIDE);
 	}
 	//2009.10.28 bagus 2point-distance --}--
-	//2009.12.07 bagus SR GTR �C�� --{--
-	//�ʒu����{�^���͔�\���ɂ���
+	//2009.12.07 bagus SR GTR ï¿½Cï¿½ï¿½ --{--
+	//ï¿½Ê’uï¿½ï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½ï¿½Í”ï¿½\ï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½
 	else if(HEAD_TYPE_SR == l_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType
 	&& MEAS_PROG_TYPE_SR_TRANSMITTANCE_G == l_rcp_data.MeasProgInfo.ScanParams.hdr.wScanType
 	){
 		GetDlgItem(IDC_ADUJST_REMEASUREMENT_BUTTON)->ShowWindow(SW_HIDE);
 	}
-	//2009.12.07 bagus SR GTR �C�� --}--
+	//2009.12.07 bagus SR GTR ï¿½Cï¿½ï¿½ --}--
 
 
-	// �W���C�X�e�B�b�N�L���^����
+	// ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½Lï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½ï¿½
 	if( m_pMainFrame->GetJoyStickMode() != 0 ){
-		// H/W�L���Ȃ�֎~����
+		// H/Wï¿½Lï¿½ï¿½ï¿½È‚ï¿½Ö�~ï¿½ï¿½ï¿½ï¿½
 		m_XY_UpButton.SetEnabled(FALSE);
 		m_XY_DownButton.SetEnabled(FALSE);
 		m_XY_RightButton.SetEnabled(FALSE);
 		m_XY_LeftButton.SetEnabled(FALSE);
-		// �W���C�X�e�B�b�N����
+		// ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½
 		bJoyStk = m_pDoc->ChangeJoyStick(TRUE);
 		if( bJoyStk == TRUE ){
 			m_pDoc->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);
 		}
 	}
 	else{
-		// H/W�����Ȃ狖����
+		// H/Wï¿½ï¿½ï¿½ï¿½ï¿½È‚ç‹–ï¿½Â‚ï¿½ï¿½ï¿½
 		m_XY_UpButton.SetEnabled(TRUE);
 		m_XY_DownButton.SetEnabled(TRUE);
 		m_XY_RightButton.SetEnabled(TRUE);
 		m_XY_LeftButton.SetEnabled(TRUE);
-		// �W���C�X�e�B�b�N�֎~
+		// ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½Ö�~
 		bJoyStk = m_pDoc->ChangeJoyStick(FALSE);
 		m_pDoc->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);
 	}
-// 2009.10.30 bagus MS �ǉ� --}--
+// 2009.10.30 bagus MS ï¿½Ç‰ï¿½ --}--
 
 	SetTimer(1, 50, NULL);
-// 2009.11.09 bagus MS �C�� --{--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --{--
 	SetTimer(JOG_WATCH_TIMER_ID, JOG_WATCH_TIMER_INTERVAL, NULL);
 	SetTimer(JOG_MODE_LAMP_TIMER_ID, JOG_MODE_LAMP_TIMER_INTERVAL, NULL);
-// 2009.11.09 bagus MS �C�� --}--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --}--
 }
 
-// 2009.10.30 bagus MS �ǉ� --{--
+// 2009.10.30 bagus MS ï¿½Ç‰ï¿½ --{--
 void CMeasurementProcessView::OnDestroy()
 {
 BOOL bJoyStk;
@@ -407,12 +407,12 @@ BOOL result;
 
 #if 0
 	if( m_pMainFrame->GetJoyStickMode()!=0 ){
-		// �n�[�h�W���C�X�e�B�b�N
+		// ï¿½nï¿½[ï¿½hï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½N
 		bJoyStk = m_pDoc->ChangeJoyStick(FALSE);
 		m_pDoc->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);
 	}
 #else
-	// �I������ꍇ�́A�����I�Ƀ\�t�gJoy�֐؂�ւ���
+	// ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê�‡ï¿½Í�Aï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½Éƒ\ï¿½tï¿½gJoyï¿½Ö�Ø‚ï¿½Ö‚ï¿½ï¿½ï¿½
 	m_pMainFrame->SetJoyStickMode(JOY_SOFT_MODE);
 	bJoyStk = m_pDoc->ChangeJoyStick(FALSE);
 	m_pDoc->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);
@@ -448,14 +448,14 @@ BOOL result;
 	nexioMS_ModeLamp(FALSE);
 	//2009.12.25 bagus MS --}--
 
-	//�}�j���A�����胂�[�h�ݒ�
-	m_pDoc->SetManuMeasMode(MANUMODE_NOT); //�}�j���A�����[�h�N������(���t�@�����X���蒆�܂�)(�������������Ă��Ȃ����)
+	//ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½èƒ‚ï¿½[ï¿½hï¿½İ’ï¿½
+	m_pDoc->SetManuMeasMode(MANUMODE_NOT); //ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½è’†ï¿½Ü‚ï¿½)(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½)
 
 //	ButtonEnableChange(MANU_MEAS_FORM_DELETE);
 
 	CNanoUI::OnDestroy();
 }
-// 2009.10.30 bagus MS �ǉ� --}--
+// 2009.10.30 bagus MS ï¿½Ç‰ï¿½ --}--
 
 // =========================================================================
 //
@@ -463,14 +463,14 @@ void CMeasurementProcessView::OnMeasurementCancelButton()
 {
 		AfxGetMainWnd()->PostMessage(WM_DO_CANCEL, 0, 0);
 
-// 2009.12.17 bagus MS �ǉ� --}--
+// 2009.12.17 bagus MS ï¿½Ç‰ï¿½ --}--
 	RCP_DATA l_rcp_data;
 	m_pDoc->GetRcpData(&l_rcp_data);
 
 	if (HEAD_TYPE_MS == l_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType) {
 		ChangeOperationEnable(FALSE);
 	}
-// 2009.12.17 bagus MS �ǉ� --}--
+// 2009.12.17 bagus MS ï¿½Ç‰ï¿½ --}--
 }
 
 // =========================================================================
@@ -481,60 +481,60 @@ void CMeasurementProcessView::OnMeasurementPauseButton()
 	GetDlgItemText(IDC_MEASUREMENT_PAUSE_BUTTON, strBuff);
 	// Kojika 20090601 Change
 //	if ( strBuff == "PAUSE" )
-	//if ( strBuff == "���蒆�f" )
+	//if ( strBuff == "ï¿½ï¿½ï¿½è’†ï¿½f" )
 	LoadStringML(IDS_MEASUREMENT_PAUSE, l_strBuffer, "PAUSE");
 	if ( strBuff == l_strBuffer )
 	{
 	// Kojika 20090601 Change End
 
-	// ���C���^�[���b�N������
-	//�����e�i���X���[�h�`�F�b�N(2���������쐧��)
-	if( nexioIsEngineerMaintenanceSwitch()==ON )// ���������e�i���X���[�h
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½`ï¿½Fï¿½bï¿½N(2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì�§ï¿½ï¿½)
+	if( nexioIsEngineerMaintenanceSwitch()==ON )// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½h
 	{
-		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //�����e�i���X���[�h�g�ݍ��킹�G���[
-		/*���������e���[�h�̎��́A�K�������e�i���X���[�h(L)�ƂȂ�
-			���̏ꍇ�A2����������\ */
+		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½gï¿½İ�ï¿½ï¿½í‚¹ï¿½Gï¿½ï¿½ï¿½[
+		/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½[ï¿½hï¿½Ì�ï¿½ï¿½Í�Aï¿½Kï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½h(L)ï¿½Æ‚È‚ï¿½
+			ï¿½ï¿½ï¿½Ì�ê�‡ï¿½A2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â”\ */
 	}
-	else //���������e�i���X���[�h�ȊO
+	else //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½ÈŠO
 	{
 	}
-	// ���C���^�[���b�N������
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 		AfxGetMainWnd()->PostMessage(WM_DO_PAUSE, 0, 0);
 		// Kojika 20090601 Change
 //		SetDlgItemText(IDC_MEASUREMENT_PAUSE_BUTTON, "RESUME");
-//		SetDlgItemText(IDC_MEASUREMENT_PAUSE_BUTTON, "����ĊJ");
+//		SetDlgItemText(IDC_MEASUREMENT_PAUSE_BUTTON, "ï¿½ï¿½ï¿½ï¿½ÄŠJ");
 		LoadStringML(IDS_MEASUREMENT_RESUME, l_strBuffer, "RESUME");
 		SetDlgItemText(IDC_MEASUREMENT_PAUSE_BUTTON, l_strBuffer);
 		// Kojika 20090601 Change End
 
-		m_pDoc->SetPauseFlg(TRUE); //�t���O���|�[�Y��Ԃɐݒ�
+		m_pDoc->SetPauseFlg(TRUE); //ï¿½tï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½|ï¿½[ï¿½Yï¿½ï¿½Ô‚É�İ’ï¿½
 	}
 	else
 	{
-	// ���C���^�[���b�N������
-	//�����e�i���X���[�h�`�F�b�N(2���������쐧��)
-	if( nexioIsEngineerMaintenanceSwitch()==ON )// ���������e�i���X���[�h
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½`ï¿½Fï¿½bï¿½N(2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì�§ï¿½ï¿½)
+	if( nexioIsEngineerMaintenanceSwitch()==ON )// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½h
 	{
-		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //�����e�i���X���[�h�g�ݍ��킹�G���[
-		/*���������e���[�h�̎��́A�K�������e�i���X���[�h(L)�ƂȂ�
-			���̏ꍇ�A2����������\ */
+		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½gï¿½İ�ï¿½ï¿½í‚¹ï¿½Gï¿½ï¿½ï¿½[
+		/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½[ï¿½hï¿½Ì�ï¿½ï¿½Í�Aï¿½Kï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½h(L)ï¿½Æ‚È‚ï¿½
+			ï¿½ï¿½ï¿½Ì�ê�‡ï¿½A2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â”\ */
 	}
-	else //���������e�i���X���[�h�ȊO
+	else //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½ÈŠO
 	{
-		if( nexioIsMaintenanceSwitch() != ON ) {AlarmIf_Set(ALID_MaintenanceSwitchOn); return;} //�����e�i���X�E�X�C�b�`�E�I��
+		if( nexioIsMaintenanceSwitch() != ON ) {AlarmIf_Set(ALID_MaintenanceSwitchOn); return;} //ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Eï¿½Xï¿½Cï¿½bï¿½`ï¿½Eï¿½Iï¿½ï¿½
 	}
 
-	// �eI/O�`�F�b�N
+	// ï¿½eI/Oï¿½`ï¿½Fï¿½bï¿½N
 	/*Saiki 20090520 Change ----->*/
 	if(m_pDoc->IsInterLock() == TRUE){return;}
-/* added hmenjo 2009.05.20 �G�A���͒ቺ���o�̃��b�p�֐� -------- { -------- */
-	if (m_pDoc->Rap_IsAirPressureLowON(1) != OFF) {AlarmIf_Set(ALID_AirPressureDown); return;}	/* �G�A���͒ቺ */
-/* added hmenjo 2009.05.20 �G�A���͒ቺ���o�̃��b�p�֐� -------- } -------- */
-	if( nexioIsMovo2Alarm() 		!= OFF) {AlarmIf_Set(ALID_StageError); return;} // �X�e�[�W�G���[
-/* modified 2009.08.21 hmenjo Pin Aling �ʒu�L���� ---------- { ---------- */
+/* added hmenjo 2009.05.20 ï¿½Gï¿½Aï¿½ï¿½ï¿½Í’á‰ºï¿½ï¿½ï¿½oï¿½Ìƒï¿½ï¿½bï¿½pï¿½Ö�ï¿½ -------- { -------- */
+	if (m_pDoc->Rap_IsAirPressureLowON(1) != OFF) {AlarmIf_Set(ALID_AirPressureDown); return;}	/* ï¿½Gï¿½Aï¿½ï¿½ï¿½Í’á‰º */
+/* added hmenjo 2009.05.20 ï¿½Gï¿½Aï¿½ï¿½ï¿½Í’á‰ºï¿½ï¿½ï¿½oï¿½Ìƒï¿½ï¿½bï¿½pï¿½Ö�ï¿½ -------- } -------- */
+	if( nexioIsMovo2Alarm() 		!= OFF) {AlarmIf_Set(ALID_StageError); return;} // ï¿½Xï¿½eï¿½[ï¿½Wï¿½Gï¿½ï¿½ï¿½[
+/* modified 2009.08.21 hmenjo Pin Aling ï¿½Ê’uï¿½Lï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
 //	  if(m_pDoc->CheckUnitStatus() == TRUE){return;}
-/* modified 2009.08.21 hmenjo Pin Aling �ʒu�L���� ----------			   */
+/* modified 2009.08.21 hmenjo Pin Aling ï¿½Ê’uï¿½Lï¿½ï¿½ï¿½ï¿½ ----------			   */
 	BOOL l_bEnablePinAlign = FALSE;
 	RCP_DATA l_rcp_data;
 	m_pDoc->GetRcpData(&l_rcp_data);
@@ -542,27 +542,27 @@ void CMeasurementProcessView::OnMeasurementPauseButton()
 		l_bEnablePinAlign = TRUE;
 	}
 	if (m_pDoc->CheckUnitStatus(l_bEnablePinAlign) == TRUE) {return;}
-/* modified 2009.08.21 hmenjo Pin Aling �ʒu�L���� ---------- } ---------- */
+/* modified 2009.08.21 hmenjo Pin Aling ï¿½Ê’uï¿½Lï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
 	/*//Saiki 20090520 Change <-----*/
 
-	//ActuateFlag�`�F�b�N
+	//ActuateFlagï¿½`ï¿½Fï¿½bï¿½N
 	//Saiki 20090531 Change ----->
 	if(m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) && m_pMainFrame->GetJoyStickMode()==0){
 		LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 		m_pDoc->MessageStringIf_Set(strMsg);
 		return;
-	} //�X�e�[�W�����쒆�ł�
+	} //ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ì’†ï¿½Å‚ï¿½
 	//Saiki 20090531 Change <-----
 	/*//Saiki 20090520 Change ----->*/
 	if(m_pDoc->CheckActiveFlag() == TRUE){return;}
 	/*//Saiki 20090520 Change <-----*/
-	// ���C���^�[���b�N������
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 
 		AfxGetMainWnd()->PostMessage(WM_DO_RESUME, 0, 0);
 		// Kojika 20090601 Change
 //		SetDlgItemText(IDC_MEASUREMENT_PAUSE_BUTTON, "PAUSE");
-//		SetDlgItemText(IDC_MEASUREMENT_PAUSE_BUTTON, "���蒆�f");
+//		SetDlgItemText(IDC_MEASUREMENT_PAUSE_BUTTON, "ï¿½ï¿½ï¿½è’†ï¿½f");
 		LoadStringML(IDS_MEASUREMENT_PAUSE, l_strBuffer, "PAUSE");
 		SetDlgItemText(IDC_MEASUREMENT_PAUSE_BUTTON, l_strBuffer);
 		// Kojika 20090601 Change End
@@ -578,46 +578,46 @@ void CMeasurementProcessView::OnExitButton()
 	CString strMsg;
 	//Saiki 20090530 Add <-----
 
-	// ���C���^�[���b�N������
-	//�����e�i���X���[�h�`�F�b�N(2���������쐧��)
-	if( nexioIsEngineerMaintenanceSwitch()==ON )// ���������e�i���X���[�h
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½`ï¿½Fï¿½bï¿½N(2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì�§ï¿½ï¿½)
+	if( nexioIsEngineerMaintenanceSwitch()==ON )// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½h
 	{
-		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //�����e�i���X���[�h�g�ݍ��킹�G���[
-		/*���������e���[�h�̎��́A�K�������e�i���X���[�h(L)�ƂȂ�
-			���̏ꍇ�A2����������\ */
+		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½gï¿½İ�ï¿½ï¿½í‚¹ï¿½Gï¿½ï¿½ï¿½[
+		/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½[ï¿½hï¿½Ì�ï¿½ï¿½Í�Aï¿½Kï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½h(L)ï¿½Æ‚È‚ï¿½
+			ï¿½ï¿½ï¿½Ì�ê�‡ï¿½A2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â”\ */
 	}
-	else //���������e�i���X���[�h�ȊO
+	else //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½ÈŠO
 	{
 	}
-	//ActuateFlag�`�F�b�N
+	//ActuateFlagï¿½`ï¿½Fï¿½bï¿½N
 	//Saiki 20090531 Change ----->
 	if(m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) && m_pMainFrame->GetJoyStickMode()==0){
 		LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 		m_pDoc->MessageStringIf_Set(strMsg);
 		return;
-	} //�X�e�[�W�����쒆�ł�
+	} //ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ì’†ï¿½Å‚ï¿½
 	//Saiki 20090531 Change <-----
 	/*//Saiki 20090520 Change ----->*/
 	if(m_pDoc->CheckActiveFlag() == TRUE){return;}
 	/*//Saiki 20090520 Change <-----*/
-	// ���C���^�[���b�N������
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 
 
-//������MeasEnd()�ֈړ�
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½MeasEnd()ï¿½ÖˆÚ“ï¿½
 
 	if ( ((CMainFrame*)AfxGetMainWnd())->MeasEnd() == IDCANCEL )
 		return;
 
 	//2009.11.11 bagus MS --{--
-	//�I�����Ɍ��ɖ߂�
+	//ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ÉŒï¿½ï¿½É–ß‚ï¿½
 	RCP_DATA l_rcp_data;
 	m_pDoc->GetRcpData(&l_rcp_data);
 	if (l_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType == HEAD_TYPE_MS) {
 		nexioMS_ModeLamp(FALSE);
 		nexifRC_SelectMode(this->m_hWnd, RCOPMODE_NORMAL);
 		MSG msg;
-		//��������������܂ő҂�
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚Å‘Ò‚ï¿½
 		while (1){
 			if(::PeekMessage(&msg, NULL, WM_NEX_RESPONSE, WM_NEX_RESPONSE, PM_REMOVE)){
 				::TranslateMessage(&msg);
@@ -628,7 +628,7 @@ void CMeasurementProcessView::OnExitButton()
 			}
 		}
 		nexifRC_MoveToTeachPos(this->m_hWnd,MICROSCOPE_UPPER_POSITION_NO);
-		//��������������܂ő҂�
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚Å‘Ò‚ï¿½
 		while (1){
 			if(::PeekMessage(&msg, NULL, WM_NEX_RESPONSE, WM_NEX_RESPONSE, PM_REMOVE)){
 				::TranslateMessage(&msg);
@@ -642,10 +642,10 @@ void CMeasurementProcessView::OnExitButton()
 	}
 	//2009.11.11 bagus MS --}--
 
-//������ 090326 hibino add //
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 090326 hibino add //
 	((CMainFrame*)AfxGetMainWnd())->ChangeOperationPanel(OP_MEASUREMENT);
 	((CMainFrame*)AfxGetMainWnd())->ChangeExeWnd(RECIPE_MAIN_LIST_WND);
-//������ 090326 hibino add
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 090326 hibino add
 
 }
 
@@ -655,46 +655,46 @@ void CMeasurementProcessView::OnRemeasurementButton()
 	CString strMsg;
 	//Saiki 20090530 Add <-----
 
-	// ���C���^�[���b�N������
-	//�����e�i���X���[�h�`�F�b�N(2���������쐧��)
-	if( nexioIsEngineerMaintenanceSwitch()==ON )// ���������e�i���X���[�h
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½`ï¿½Fï¿½bï¿½N(2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì�§ï¿½ï¿½)
+	if( nexioIsEngineerMaintenanceSwitch()==ON )// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½h
 	{
-		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //�����e�i���X���[�h�g�ݍ��킹�G���[
-		/*���������e���[�h�̎��́A�K�������e�i���X���[�h(L)�ƂȂ�
-			���̏ꍇ�A2����������\ */
+		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½gï¿½İ�ï¿½ï¿½í‚¹ï¿½Gï¿½ï¿½ï¿½[
+		/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½[ï¿½hï¿½Ì�ï¿½ï¿½Í�Aï¿½Kï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½h(L)ï¿½Æ‚È‚ï¿½
+			ï¿½ï¿½ï¿½Ì�ê�‡ï¿½A2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â”\ */
 	}
-	else //���������e�i���X���[�h�ȊO
+	else //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½ÈŠO
 	{
-		if( nexioIsMaintenanceSwitch() != ON ) {AlarmIf_Set(ALID_MaintenanceSwitchOn); return;} //�����e�i���X�E�X�C�b�`�E�I��
+		if( nexioIsMaintenanceSwitch() != ON ) {AlarmIf_Set(ALID_MaintenanceSwitchOn); return;} //ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Eï¿½Xï¿½Cï¿½bï¿½`ï¿½Eï¿½Iï¿½ï¿½
 	}
 
-	// �eI/O�`�F�b�N
+	// ï¿½eI/Oï¿½`ï¿½Fï¿½bï¿½N
 	/*Saiki 20090520 Change ----->*/
 	if(m_pDoc->IsInterLock() == TRUE){return;}
-/* added hmenjo 2009.05.20 �G�A���͒ቺ���o�̃��b�p�֐� -------- { -------- */
-	if (m_pDoc->Rap_IsAirPressureLowON(1) != OFF) {AlarmIf_Set(ALID_AirPressureDown); return;}	/* �G�A���͒ቺ */
-/* added hmenjo 2009.05.20 �G�A���͒ቺ���o�̃��b�p�֐� -------- } -------- */
-	if( nexioIsMovo2Alarm() 		!= OFF) {AlarmIf_Set(ALID_StageError); return;} // �X�e�[�W�G���[
+/* added hmenjo 2009.05.20 ï¿½Gï¿½Aï¿½ï¿½ï¿½Í’á‰ºï¿½ï¿½ï¿½oï¿½Ìƒï¿½ï¿½bï¿½pï¿½Ö�ï¿½ -------- { -------- */
+	if (m_pDoc->Rap_IsAirPressureLowON(1) != OFF) {AlarmIf_Set(ALID_AirPressureDown); return;}	/* ï¿½Gï¿½Aï¿½ï¿½ï¿½Í’á‰º */
+/* added hmenjo 2009.05.20 ï¿½Gï¿½Aï¿½ï¿½ï¿½Í’á‰ºï¿½ï¿½ï¿½oï¿½Ìƒï¿½ï¿½bï¿½pï¿½Ö�ï¿½ -------- } -------- */
+	if( nexioIsMovo2Alarm() 		!= OFF) {AlarmIf_Set(ALID_StageError); return;} // ï¿½Xï¿½eï¿½[ï¿½Wï¿½Gï¿½ï¿½ï¿½[
 	if(m_pDoc->CheckUnitStatus() == TRUE){return;}
 	/*//Saiki 20090520 Change <-----*/
 
-	//ActuateFlag�`�F�b�N
+	//ActuateFlagï¿½`ï¿½Fï¿½bï¿½N
 	//Saiki 20090531 Change ----->
 	if(m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) && m_pMainFrame->GetJoyStickMode()==0){
 		LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 		m_pDoc->MessageStringIf_Set(strMsg);
 		return;
-	} //�X�e�[�W�����쒆�ł�
+	} //ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ì’†ï¿½Å‚ï¿½
 	//Saiki 20090531 Change <-----
 
 	//2009.09.10 bagus stress --{--
-	//�X�g���X�̏ꍇ�ɂ͍đ�����s�킹�Ȃ�
+	//ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½Ì�ê�‡ï¿½É‚Í�Ä‘ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½í‚¹ï¿½È‚ï¿½
 	RCP_DATA l_rcp_data;
 	m_pDoc->GetRcpData(&l_rcp_data);
 	if (HEAD_TYPE_STRESS == l_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType) {
 
 		LoadStringML(IDS_REMEAS_STRESS_ERR, strMsg, "Re-Measurement is not supportted for STRESS Recipe.");
-		MessageBox(strMsg, "", MB_OK | MB_ICONWARNING); //�Z�[�u����
+		MessageBox(strMsg, "", MB_OK | MB_ICONWARNING); //ï¿½Zï¿½[ï¿½uï¿½ï¿½ï¿½ï¿½
 		return ;
 	}
 	//2009.09.10 bagus stress --}--
@@ -702,11 +702,11 @@ void CMeasurementProcessView::OnRemeasurementButton()
 	/*//Saiki 20090520 Change ----->*/
 	if(m_pDoc->CheckActiveFlag() == TRUE){return;}
 	/*//Saiki 20090520 Change <-----*/
-	// ���C���^�[���b�N������
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 
 
-	BOOL bRtnChk = StartRemeasurement(1);	//PMA����
+	BOOL bRtnChk = StartRemeasurement(1);	//PMAï¿½ï¿½ï¿½ï¿½
 
 	if(bRtnChk == TRUE)
 	{
@@ -718,59 +718,59 @@ void CMeasurementProcessView::OnRemeasurementButton()
 
 void CMeasurementProcessView::OnAdujstRemeasurementButton()
 {
-	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	//Saiki 20090530 Add ----->
 	CString strMsg;
 	//Saiki 20090530 Add <-----
 
-	// ���C���^�[���b�N������
-	//�����e�i���X���[�h�`�F�b�N(2���������쐧��)
-	if( nexioIsEngineerMaintenanceSwitch()==ON )// ���������e�i���X���[�h
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½`ï¿½Fï¿½bï¿½N(2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì�§ï¿½ï¿½)
+	if( nexioIsEngineerMaintenanceSwitch()==ON )// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½h
 	{
-		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //�����e�i���X���[�h�g�ݍ��킹�G���[
-		/*���������e���[�h�̎��́A�K�������e�i���X���[�h(L)�ƂȂ�
-			���̏ꍇ�A2����������\ */
+		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½gï¿½İ�ï¿½ï¿½í‚¹ï¿½Gï¿½ï¿½ï¿½[
+		/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½[ï¿½hï¿½Ì�ï¿½ï¿½Í�Aï¿½Kï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½h(L)ï¿½Æ‚È‚ï¿½
+			ï¿½ï¿½ï¿½Ì�ê�‡ï¿½A2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â”\ */
 	}
-	else //���������e�i���X���[�h�ȊO
+	else //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½ÈŠO
 	{
-		if( nexioIsMaintenanceSwitch() != ON ) {AlarmIf_Set(ALID_MaintenanceSwitchOn); return;} //�����e�i���X�E�X�C�b�`�E�I��
+		if( nexioIsMaintenanceSwitch() != ON ) {AlarmIf_Set(ALID_MaintenanceSwitchOn); return;} //ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Eï¿½Xï¿½Cï¿½bï¿½`ï¿½Eï¿½Iï¿½ï¿½
 	}
 
-	// �eI/O�`�F�b�N
+	// ï¿½eI/Oï¿½`ï¿½Fï¿½bï¿½N
 	/*Saiki 20090520 Change ----->*/
 	if(m_pDoc->IsInterLock() == TRUE){return;}
-/* added hmenjo 2009.05.20 �G�A���͒ቺ���o�̃��b�p�֐� -------- { -------- */
-	if (m_pDoc->Rap_IsAirPressureLowON(1) != OFF) {AlarmIf_Set(ALID_AirPressureDown); return;}	/* �G�A���͒ቺ */
-/* added hmenjo 2009.05.20 �G�A���͒ቺ���o�̃��b�p�֐� -------- } -------- */
-	if( nexioIsMovo2Alarm() 		!= OFF) {AlarmIf_Set(ALID_StageError); return;} // �X�e�[�W�G���[
+/* added hmenjo 2009.05.20 ï¿½Gï¿½Aï¿½ï¿½ï¿½Í’á‰ºï¿½ï¿½ï¿½oï¿½Ìƒï¿½ï¿½bï¿½pï¿½Ö�ï¿½ -------- { -------- */
+	if (m_pDoc->Rap_IsAirPressureLowON(1) != OFF) {AlarmIf_Set(ALID_AirPressureDown); return;}	/* ï¿½Gï¿½Aï¿½ï¿½ï¿½Í’á‰º */
+/* added hmenjo 2009.05.20 ï¿½Gï¿½Aï¿½ï¿½ï¿½Í’á‰ºï¿½ï¿½ï¿½oï¿½Ìƒï¿½ï¿½bï¿½pï¿½Ö�ï¿½ -------- } -------- */
+	if( nexioIsMovo2Alarm() 		!= OFF) {AlarmIf_Set(ALID_StageError); return;} // ï¿½Xï¿½eï¿½[ï¿½Wï¿½Gï¿½ï¿½ï¿½[
 	if(m_pDoc->CheckUnitStatus() == TRUE){return;}
 	/*//Saiki 20090520 Change <-----*/
 
-	//ActuateFlag�`�F�b�N
+	//ActuateFlagï¿½`ï¿½Fï¿½bï¿½N
 	//Saiki 20090531 Change ----->
 	if(m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) && m_pMainFrame->GetJoyStickMode()==0){
 		LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 		m_pDoc->MessageStringIf_Set(strMsg);
 		return;
-	} //�X�e�[�W�����쒆�ł�
+	} //ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ì’†ï¿½Å‚ï¿½
 	//Saiki 20090531 Change <-----
 	//2009.09.10 bagus stress --{--
-	//�X�g���X�̏ꍇ�ɂ͍đ�����s�킹�Ȃ�
+	//ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½Ì�ê�‡ï¿½É‚Í�Ä‘ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½í‚¹ï¿½È‚ï¿½
 	RCP_DATA l_rcp_data;
 	m_pDoc->GetRcpData(&l_rcp_data);
 	if (HEAD_TYPE_STRESS == l_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType) {
 		LoadStringML(IDS_REMEAS_STRESS_ERR, strMsg, "Re-Measurement is not supportted for STRESS Recipe.");
-		MessageBox(strMsg, "", MB_OK | MB_ICONWARNING); //�Z�[�u����
+		MessageBox(strMsg, "", MB_OK | MB_ICONWARNING); //ï¿½Zï¿½[ï¿½uï¿½ï¿½ï¿½ï¿½
 		return ;
 	}
 	//2009.09.10 bagus stress --}--
 	/*//Saiki 20090520 Change ----->*/
 	if(m_pDoc->CheckActiveFlag() == TRUE){return;}
 	/*//Saiki 20090520 Change <-----*/
-	// ���C���^�[���b�N������
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 
-	BOOL bRtnChk = StartRemeasurement(2);	//PMA�L��(�S�_)
+	BOOL bRtnChk = StartRemeasurement(2);	//PMAï¿½Lï¿½ï¿½(ï¿½Sï¿½_)
 
 	if(bRtnChk == TRUE)
 	{
@@ -782,13 +782,13 @@ void CMeasurementProcessView::OnAdujstRemeasurementButton()
 
 void CMeasurementProcessView::OnSaveButton()
 {
-	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 // Kojika 20090526 Add
 	CString strBuffer;
 // Kojika 20090526 Add End
 
-//�����̃Z�[�u�{�^���̓V���[�v�d�l�ł͖��g�p
+//ï¿½ï¿½ï¿½ï¿½ï¿½ÌƒZï¿½[ï¿½uï¿½{ï¿½^ï¿½ï¿½ï¿½ÍƒVï¿½ï¿½ï¿½[ï¿½vï¿½dï¿½lï¿½Å‚Í–ï¿½ï¿½gï¿½p
 
 	BOOL bCheck;
 	RCP_DATA rcp_data;
@@ -796,30 +796,30 @@ void CMeasurementProcessView::OnSaveButton()
 	m_pDoc->GetRcpData(&rcp_data);
 
 
-	bCheck = m_pMainFrame->m_pMeaTabViewObj->SaveMeasConAddRevi(rcp_data.szRecipeName, (int)MEASUREMENT_EXIT_SAVE/*�Ⴄ*/);
+	bCheck = m_pMainFrame->m_pMeaTabViewObj->SaveMeasConAddRevi(rcp_data.szRecipeName, (int)MEASUREMENT_EXIT_SAVE/*ï¿½á‚¤*/);
 	if(bCheck == TRUE)
 	{
 // Kojika 20090526 Change
-//		MessageBox("Save Completed.", "", MB_OK); //�Z�[�u����
-//		MessageBox("�ۑ�����", "", MB_OK); //�Z�[�u����
+//		MessageBox("Save Completed.", "", MB_OK); //ï¿½Zï¿½[ï¿½uï¿½ï¿½ï¿½ï¿½
+//		MessageBox("ï¿½Û‘ï¿½ï¿½ï¿½ï¿½ï¿½", "", MB_OK); //ï¿½Zï¿½[ï¿½uï¿½ï¿½ï¿½ï¿½
 		LoadStringML(IDS_SAVE_COMPLETED, strBuffer, "Save Completed.");
-		MessageBox(strBuffer, "", MB_OK); //�Z�[�u����
+		MessageBox(strBuffer, "", MB_OK); //ï¿½Zï¿½[ï¿½uï¿½ï¿½ï¿½ï¿½
 // Kojika 20090526 Change End
 	}
 	else
 	{
 // Kojika 20090526 Change
-//		MessageBox("Save failure.", "", MB_OK); //�Z�[�u���s
-//		MessageBox("�ۑ����s", "", MB_OK); //�Z�[�u���s
+//		MessageBox("Save failure.", "", MB_OK); //ï¿½Zï¿½[ï¿½uï¿½ï¿½ï¿½s
+//		MessageBox("ï¿½Û‘ï¿½ï¿½ï¿½ï¿½s", "", MB_OK); //ï¿½Zï¿½[ï¿½uï¿½ï¿½ï¿½s
 		LoadStringML(IDS_SAVE_FAILURE, strBuffer, "Save failure.");
-		MessageBox(strBuffer, "", MB_OK); //�Z�[�u���s
+		MessageBox(strBuffer, "", MB_OK); //ï¿½Zï¿½[ï¿½uï¿½ï¿½ï¿½s
 // Kojika 20090526 Change End
 	}
 
 }
 
 
-//���j���[�{�^������̊֐��R�[��
+//ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÌŠÖ�ï¿½ï¿½Rï¿½[ï¿½ï¿½
 LRESULT CMeasurementProcessView::OnMeaProcFuncCall(WPARAM wparam, LPARAM lparam)
 {
 	switch(wparam)
@@ -840,11 +840,11 @@ LRESULT CMeasurementProcessView::OnMeaProcFuncCall(WPARAM wparam, LPARAM lparam)
 		case WM_DISPMENU_SEQMEAS_EXIT:
 			OnExitButton();
 			break;
-// 2009.10.30 bagus MS �ǉ� --{--
+// 2009.10.30 bagus MS ï¿½Ç‰ï¿½ --{--
 		case WM_DISPMENU_POINT_TEACHING:
 			OnPointTeachingButton();
 			break;
-// 2009.10.30 bagus MS �ǉ� --}--
+// 2009.10.30 bagus MS ï¿½Ç‰ï¿½ --}--
 
 	}
 	return 0L;
@@ -855,12 +855,12 @@ HBRUSH CMeasurementProcessView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CNanoUI::OnCtlColor(pDC, pWnd, nCtlColor);
 
-	// TODO: ���̈ʒu�� DC �̃A�g���r���[�g��ύX���Ă�������
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ï¿½ DC ï¿½ÌƒAï¿½gï¿½ï¿½ï¿½rï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½Ï�Xï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	BOOL sbNexMntSw = nexioIsMaintenanceSwitch();
 	BOOL sbNexEngiMntSw = nexioIsEngineerMaintenanceSwitch();
 
-	if( pWnd == this ) // �������g��`�悷��Ƃ���
+	if( pWnd == this ) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½`ï¿½æ‚·ï¿½ï¿½Æ‚ï¿½ï¿½ï¿½
 	{
 		if((sbNexMntSw == OFF)||(sbNexEngiMntSw == ON))
 		{
@@ -868,13 +868,13 @@ HBRUSH CMeasurementProcessView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 		}
 	}
 
-	// TODO: �f�t�H���g�̃u���V���]�݂̂��̂łȂ��ꍇ�ɂ́A�Ⴄ�u���V��Ԃ��Ă�������
+	// TODO: ï¿½fï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½Ìƒuï¿½ï¿½ï¿½Vï¿½ï¿½ï¿½]ï¿½İ‚Ì‚ï¿½ï¿½Ì‚Å‚È‚ï¿½ï¿½ê�‡ï¿½É‚Í�Aï¿½á‚¤ï¿½uï¿½ï¿½ï¿½Vï¿½ï¿½Ô‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	return hbr;
 }
 
 void CMeasurementProcessView::OnTimer(UINT nIDEvent)
 {
-	// TODO: ���̈ʒu�Ƀ��b�Z�[�W �n���h���p�̃R�[�h��ǉ����邩�܂��̓f�t�H���g�̏������Ăяo���Ă�������
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½Éƒï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½é‚©ï¿½Ü‚ï¿½ï¿½Íƒfï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½Ì�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚Ñ�oï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	static BOOL sbNexMntSw = nexioIsMaintenanceSwitch();
 	static BOOL sbNexMntSwOld = TRUE;
 	static BOOL sbNexEngiMntSw = nexioIsEngineerMaintenanceSwitch();
@@ -885,30 +885,30 @@ void CMeasurementProcessView::OnTimer(UINT nIDEvent)
 
 	if((sbNexMntSw != sbNexMntSwOld)||(sbNexEngiMntSw != sbNexEngiMntSwOld))
 	{
-		Invalidate(TRUE); //OnCtlColor()�̏�����������ׂ�Call
+		Invalidate(TRUE); //OnCtlColor()ï¿½Ì�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×‚ï¿½Call
 	}
-	sbNexMntSwOld = sbNexMntSw; //�O��l������
-	sbNexEngiMntSwOld = sbNexEngiMntSw; //�O��l������
+	sbNexMntSwOld = sbNexMntSw; //ï¿½Oï¿½ï¿½lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	sbNexEngiMntSwOld = sbNexEngiMntSw; //ï¿½Oï¿½ï¿½lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-// 2009.11.09 bagus MS �C�� --{--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --{--
 	RCP_DATA rcp;
 	m_pDoc->GetRcpData(&rcp);
-	//���������L���łȂ��Ƃ��ɂ͂Ȃɂ������Ȃ�
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½Å‚È‚ï¿½ï¿½Æ‚ï¿½ï¿½É‚Í‚È‚É‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 	if(rcp.MainRcpInfo.MainRcpParam.hdr.wHeadType == HEAD_TYPE_MS){
 		switch ( nIDEvent ) {
 		//2009.11.16 bagus MS --{--
-		//case JOG_WATCH_TIMER_INTERVAL:		//Up/Down Switch ����
+		//case JOG_WATCH_TIMER_INTERVAL:		//Up/Down Switch ï¿½ï¿½ï¿½ï¿½
 		case JOG_WATCH_TIMER_ID:
 		//2009.11.16 bagus MS --}--
 //2009.12.15 bagus MS --{--
 //			if (m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) && m_pDoc->ActuateFlagsGet(ACTUATE_MICROSCOPE)) {
 			if (m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) || m_pDoc->ActuateFlagsGet(ACTUATE_MICROSCOPE)
-			//2009.12.25 bagus ���蒆�łȂ���Ύ~�߂� --{--
+			//2009.12.25 bagus ï¿½ï¿½ï¿½è’†ï¿½Å‚È‚ï¿½ï¿½ï¿½Î�~ï¿½ß‚ï¿½ --{--
 			|| m_pDoc->GetProcessStatus() != PROCESS_PROC
 			//2009.12.25 bagus --}--
 			) {
 //2009.12.15 bagus MS --}--
-				//���쒆�Ȃ̂œ��������Ȃ�
+				//ï¿½ï¿½ï¿½ì’†ï¿½È‚Ì‚Å“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 				//2009.12.15 bagus MS --{--
 				if ( nexioRC_GetJOGP() || nexioRC_GetJOGM() ) {
 					if(nexifRC_JogStop(this->m_hWnd)){
@@ -921,24 +921,24 @@ void CMeasurementProcessView::OnTimer(UINT nIDEvent)
 				case RCOPMODE_JOG:
 				case RCOPMODE_INCHING:
 					if(nexioIsMS_DownSwitch() && nexioIsMS_UpSwitch()){
-						//��������
+						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					}else if(nexioIsMS_UpSwitch() && nexioIsMS_UpperPos()){
 						if(nexifRC_JogMinus(this->m_hWnd)){
 							m_pDoc->ActuateFlagsSet(ACTUATE_MICROSCOPE,TRUE);
 						}
 					}else if(nexioIsMS_DownSwitch() ){
 						if(!nexioIsMS_LowerPos1() && !nexioIsMS_LensKind()){
-							//���~�[�P�Ń����Y��ʂ�1-50x
+							//ï¿½ï¿½ï¿½~ï¿½[ï¿½Pï¿½Åƒï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½Ê‚ï¿½1-50x
 						}else if(!nexioIsMS_LowerPos2()){
-							//��ԉ�
+							//ï¿½ï¿½Ô‰ï¿½
 						}else{
-							//�㏸
+							//ï¿½ã�¸
 							if(nexifRC_JogPlus(this->m_hWnd)){
 								m_pDoc->ActuateFlagsSet(ACTUATE_MICROSCOPE,TRUE);
 							}
 						}
 					}else{
-						//�{�^���������ꂽ�̂ŃW���O���~�߂�
+						//ï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½Ì‚ÅƒWï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½~ï¿½ß‚ï¿½
 						if ( nexioRC_GetJOGP() || nexioRC_GetJOGM() ) {
 							if(nexifRC_JogStop(this->m_hWnd)){
 								m_pDoc->ActuateFlagsSet(ACTUATE_MICROSCOPE,TRUE);
@@ -968,13 +968,13 @@ void CMeasurementProcessView::OnTimer(UINT nIDEvent)
 			}
 
 			break;
-		case JOG_MODE_LAMP_TIMER_ID:	//MODE CHANGE�����v�̓_��/�_��/����
+		case JOG_MODE_LAMP_TIMER_ID:	//MODE CHANGEï¿½ï¿½ï¿½ï¿½ï¿½vï¿½Ì“_ï¿½ï¿½/ï¿½_ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½
 			if(m_pDoc->ActuateFlagsGet(ACTUATE_MICROSCOPE) || m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE)
-			//2009.12.25 bagus ���蒆�łȂ���Ώ��� --{--
+			//2009.12.25 bagus ï¿½ï¿½ï¿½è’†ï¿½Å‚È‚ï¿½ï¿½ï¿½Î�ï¿½ï¿½ï¿½ --{--
 			|| m_pDoc->GetProcessStatus() != PROCESS_PROC
 			//2009.12.25 bagus --}--
 			){
-				//���쒆�͏���
+				//ï¿½ï¿½ï¿½ì’†ï¿½Í�ï¿½ï¿½ï¿½
 				nexioMS_ModeLamp(FALSE);
 			}else{
 				switch(nexioRC_GetCurrentMode()){
@@ -998,7 +998,7 @@ void CMeasurementProcessView::OnTimer(UINT nIDEvent)
 			break;
 		}
 	}
-// 2009.11.09 bagus MS �C�� --}--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --}--
 
 	CNanoUI::OnTimer(nIDEvent);
 }
@@ -1007,17 +1007,17 @@ void CMeasurementProcessView::OnTimer(UINT nIDEvent)
 BOOL CMeasurementProcessView::StartRemeasurement(int iPma)
 {
 	CMainFrame* pMainFrame = (CMainFrame *)AfxGetMainWnd();
-	//���ݑI������Ă��郁�C�����V�s�����[�h
+	//ï¿½ï¿½ï¿½İ‘Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½éƒ�ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½h
 	CView* pView;
 
 	pView = (CView*)((CMainFrame*) AfxGetApp()->m_pMainWnd)->m_wndSplitter2.GetPane(0,0);
 	int iIndex = m_pMainFrame->m_pMeaTabViewObj->m_MeasurementTab.GetCurSel();
 	CGridCtrl* pGrid;
-	if(iIndex == 0) //List���\������Ă�����
+	if(iIndex == 0) //Listï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½
 	{
 		pGrid = &(((CMeasurementTabView *)pView)->m_pMeasurementListDlg->m_MeasurementListGrid);
 	}
-	else if(iIndex == 1) //Graph���\������Ă�����
+	else if(iIndex == 1) //Graphï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½
 	{
 		pGrid = &(((CMeasurementTabView *)pView)->m_pMeasurementGraphDlg->m_MeasurementListGrid);
 	}
@@ -1033,14 +1033,14 @@ BOOL CMeasurementProcessView::StartRemeasurement(int iPma)
 	int ChiefRet = 0;
 	BOOL bResult = FALSE;
 //	char* pszCaption = "REMEASUREMENT START";
-//	  char* pszCaption = "�đ���J�n";
+//	  char* pszCaption = "ï¿½Ä‘ï¿½ï¿½ï¿½Jï¿½n";
 	RCP_DATA rcp_data;
 	int iLastMeasPoint=0;
-	int iReMeasNumScans = 0; //�����W���[���̑���|�C���g��(���|�C���g���肷�邩�̐�)
+	int iReMeasNumScans = 0; //ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½(ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½è‚·ï¿½é‚©ï¿½Ì�ï¿½)
 
 	m_pDoc->GetRcpData(&rcp_data);
 
-	///// �`�[�t�֑���J�n���b�Z�[�W�𑗐M /////
+	///// ï¿½`ï¿½[ï¿½tï¿½Ö‘ï¿½ï¿½ï¿½Jï¿½nï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ğ‘—�M /////
 	HWND l_hChiefDlg = ::FindWindow(0, CHIEF_DLG_CAPTION);
 	if(l_hChiefDlg == NULL){
 		AlarmIf_Set(ALID_MeasurementFailed_ReMeasurement);
@@ -1049,7 +1049,7 @@ BOOL CMeasurementProcessView::StartRemeasurement(int iPma)
 
 	memset(m_pDoc->m_bDoPointMeasFlag, FALSE, sizeof(m_pDoc->m_bDoPointMeasFlag));
 	//2009.11.11 bagus 2point-distance --{--
-	//2�_�ԋ�������̏ꍇ�́A�|�C���g�����Ⴄ
+	//2ï¿½_ï¿½Ô‹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì�ê�‡ï¿½Í�Aï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½á‚¤
 	if(rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType == HEAD_TYPE_SR
 	&& rcp_data.MeasProgInfo.ScanParams.hdr.wScanType == MEAS_PROG_TYPE_SR_DISTANCE){
 		for(int i=0; i</*rcp_data.StageProgInfoHdr.wNumScans*/m_pDoc->GetStoreCount(); i++)
@@ -1057,9 +1057,9 @@ BOOL CMeasurementProcessView::StartRemeasurement(int iPma)
 			int iFocus = (pGrid->GetItemState(i+1, 1) & /*GVIS_FOCUSED*//*GVIS_DROPHILITED*/GVIS_SELECTED);
 			if(iFocus != 0)
 			{
-				m_pDoc->m_bDoPointMeasFlag[i*2] = TRUE; 	//������s�t���O�𗧂Ă�
-				m_pDoc->m_bDoPointMeasFlag[i*2+1] = TRUE; 	//������s�t���O�𗧂Ă�
-				iLastMeasPoint = i*2 + 1; //�ŏI����|�C���g���X�V
+				m_pDoc->m_bDoPointMeasFlag[i*2] = TRUE; 	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½tï¿½ï¿½ï¿½Oï¿½ğ—§‚Ä‚ï¿½
+				m_pDoc->m_bDoPointMeasFlag[i*2+1] = TRUE; 	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½tï¿½ï¿½ï¿½Oï¿½ğ—§‚Ä‚ï¿½
+				iLastMeasPoint = i*2 + 1; //ï¿½Å�Iï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Xï¿½V
 				iReMeasNumScans++;
 				iReMeasNumScans++;
 			}
@@ -1071,8 +1071,8 @@ BOOL CMeasurementProcessView::StartRemeasurement(int iPma)
 			int iFocus = (pGrid->GetItemState(i+1, 1) & /*GVIS_FOCUSED*//*GVIS_DROPHILITED*/GVIS_SELECTED);
 			if(iFocus != 0)
 			{
-				m_pDoc->m_bDoPointMeasFlag[i] = TRUE; //������s�t���O�𗧂Ă�
-				iLastMeasPoint = i + 1; //�ŏI����|�C���g���X�V
+				m_pDoc->m_bDoPointMeasFlag[i] = TRUE; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½tï¿½ï¿½ï¿½Oï¿½ğ—§‚Ä‚ï¿½
+				iLastMeasPoint = i + 1; //ï¿½Å�Iï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Xï¿½V
 				iReMeasNumScans++;
 			}
 		}
@@ -1082,7 +1082,7 @@ BOOL CMeasurementProcessView::StartRemeasurement(int iPma)
 	//Saiki 20090406 Add ----->
 	if(iReMeasNumScans < 1){
 // Kojika 20090526 Change
-//		MessageBox("�đ���|�C���g���I������Ă��܂���", pszCaption, MB_OK);
+//		MessageBox("ï¿½Ä‘ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½", pszCaption, MB_OK);
 		LoadStringML(IDS_REMEASUREING_POINT_NOT_SELECT, strBuffer1, "The remeasuring point has not been selected");
 		LoadStringML(IDS_TITLE_REMESURE_START, strBuffer2, "REMEASUREMENT START");
 		MessageBox(strBuffer1, strBuffer2, MB_OK);
@@ -1090,8 +1090,8 @@ BOOL CMeasurementProcessView::StartRemeasurement(int iPma)
 		return FALSE;
 	}
 	//Saiki 20090406 Add <-----
-	m_pDoc->SetLastMeasPoint(iLastMeasPoint); //�ŏI����_�i�[
-	TRACE("%s%d", "�sCMeasurementProcessView::OnRemeasurementButton�t iLastMeasPoint:", iLastMeasPoint);
+	m_pDoc->SetLastMeasPoint(iLastMeasPoint); //ï¿½Å�Iï¿½ï¿½ï¿½ï¿½_ï¿½iï¿½[
+	TRACE("%s%d", "ï¿½sCMeasurementProcessView::OnRemeasurementButtonï¿½t iLastMeasPoint:", iLastMeasPoint);
 
 	m_pDoc->SetReMeasNumScans(iReMeasNumScans);
 	m_pDoc->SetShowCompPointList(0);
@@ -1102,10 +1102,10 @@ BOOL CMeasurementProcessView::StartRemeasurement(int iPma)
 	m_pMainFrame->m_pMeaTabViewObj->m_pMeasurementGraphDlg->SetTimer(SHOW_GRAPH_TIMER, 500, NULL);
 
 	LPARAM lparam = (LPARAM)MAKELONG(1, iPma);
-	ChiefRet = ::SendMessage(l_hChiefDlg, WM_DISP_START_SEQ, (WPARAM)rcp_data.szRecipeName, /*1*/lparam); //�����W���[���[�h
+	ChiefRet = ::SendMessage(l_hChiefDlg, WM_DISP_START_SEQ, (WPARAM)rcp_data.szRecipeName, /*1*/lparam); //ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½[ï¿½h
 
 
-	///// �`�[�t�̌��� /////
+	///// ï¿½`ï¿½[ï¿½tï¿½ÌŒï¿½ï¿½ï¿½ /////
 	//Saiki 20090527 Change ---->
 	//bResult = pMainFrame->JudgeChiefResult(ChiefRet, pszCaption);
 	LoadStringML(IDS_TITLE_REMESURE_START, strBuffer2, "REMEASUREMENT START");
@@ -1117,20 +1117,20 @@ BOOL CMeasurementProcessView::StartRemeasurement(int iPma)
 		return FALSE;
 	}
 
-	//�V�[�P���X���胂�[�h�t���O�ݒ�
-	m_pDoc->SetSeqMeasMode(SEQ_ON_REMEASURE); //�����W���[���ɐݒ�
+	//ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½èƒ‚ï¿½[ï¿½hï¿½tï¿½ï¿½ï¿½Oï¿½İ’ï¿½
+	m_pDoc->SetSeqMeasMode(SEQ_ON_REMEASURE); //ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½É�İ’ï¿½
 
 
-	//���胂�[�h�t���O�ݒ�
-	m_pDoc->SetMeasMode(MEASMODE_SEQ_OR_REMEASURE); //�ʏ푪�蒆or�����W���[��
+	//ï¿½ï¿½ï¿½èƒ‚ï¿½[ï¿½hï¿½tï¿½ï¿½ï¿½Oï¿½İ’ï¿½
+	m_pDoc->SetMeasMode(MEASMODE_SEQ_OR_REMEASURE); //ï¿½Ê�í‘ªï¿½è’†orï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½
 
 
 	return TRUE;
 }
 
-// 2009.10.30 bagus MS �ǉ� --{--
+// 2009.10.30 bagus MS ï¿½Ç‰ï¿½ --{--
 // =========================================================================
-//�����Y �R���{�C�j�V��������
+//ï¿½ï¿½ï¿½ï¿½ï¿½Y ï¿½Rï¿½ï¿½ï¿½{ï¿½Cï¿½jï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //
 void CMeasurementProcessView::InitCombo_Lens()
 {
@@ -1188,7 +1188,7 @@ void CMeasurementProcessView::Init_SR_XYStageMenu()
 	//JoyStick Show
 	GetDlgItem(IDC_JOG_MODE_STATIC)->ShowWindow(SW_SHOW);
 	GetDlgItem(IDC_STAGE_MOTION_MODE)->ShowWindow(SW_SHOW);
-// 2009.10.29 bagus Jog �ǉ��C�� --{--
+// 2009.10.29 bagus Jog ï¿½Ç‰ï¿½ï¿½Cï¿½ï¿½ --{--
 //	GetDlgItem(IDC_JOYSTICK1)->ShowWindow(SW_SHOW);
 //	GetDlgItem(IDC_JOYSTICK2)->ShowWindow(SW_SHOW);
 	if (m_SystemConfig.nJoystickType == 0) {
@@ -1198,12 +1198,12 @@ void CMeasurementProcessView::Init_SR_XYStageMenu()
 		GetDlgItem(IDC_JOYSTICK1)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_JOYSTICK2)->ShowWindow(SW_SHOW);
 	}
-// 2009.10.29 bagus Jog �ǉ��C�� --}--
+// 2009.10.29 bagus Jog ï¿½Ç‰ï¿½ï¿½Cï¿½ï¿½ --}--
 
-// 2009.10.26 K.Matsuo ���\�[�X�ɂȂ��̂ŁA�����Ă��܂����߁Adelete -->
+// 2009.10.26 K.Matsuo ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½É‚È‚ï¿½ï¿½Ì‚Å�Aï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½ß�Adelete -->
 //	//Lens Disable
 //	GetDlgItem(IDC_SR_LENS)->EnableWindow(TRUE);
-// 2009.10.26 K.Matsuo ���\�[�X�ɂȂ��̂ŁA�����Ă��܂����߁Adelete <--
+// 2009.10.26 K.Matsuo ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½É‚È‚ï¿½ï¿½Ì‚Å�Aï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½ß�Adelete <--
 
 	//Measurement Point Group Hide
 	GetDlgItem(IDC_MEAS_POINT_STATIC)->ShowWindow(SW_HIDE);
@@ -1229,56 +1229,56 @@ void CMeasurementProcessView::OnPointTeachingButton()
 	CString l_strCap, l_strMsg, strMsg;
 	// Kojika 20090529 Add End
 
-	//�����[�g���͉������Ȃ�
+	//ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½Í‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 	if(m_pDoc->GetHostMode() == HOST_REMOTE) return;
 
 
-	// ���C���^�[���b�N������
-	//�����e�i���X���[�h�`�F�b�N(2���������쐧��)
-	if( nexioIsEngineerMaintenanceSwitch()==ON )// ���������e�i���X���[�h
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½`ï¿½Fï¿½bï¿½N(2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì�§ï¿½ï¿½)
+	if( nexioIsEngineerMaintenanceSwitch()==ON )// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½h
 	{
-		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //�����e�i���X���[�h�g�ݍ��킹�G���[
-		/*���������e���[�h�̎��́A�K�������e�i���X���[�h(L)�ƂȂ�
-			���̏ꍇ�A2����������\ */
+		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½gï¿½İ�ï¿½ï¿½í‚¹ï¿½Gï¿½ï¿½ï¿½[
+		/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½[ï¿½hï¿½Ì�ï¿½ï¿½Í�Aï¿½Kï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½h(L)ï¿½Æ‚È‚ï¿½
+			ï¿½ï¿½ï¿½Ì�ê�‡ï¿½A2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â”\ */
 	}
-	else //���������e�i���X���[�h�ȊO
+	else //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½ÈŠO
 	{
-		if( nexioIsMaintenanceSwitch() != ON ) {AlarmIf_Set(ALID_MaintenanceSwitchOn); return;} //�����e�i���X�E�X�C�b�`�E�I��
+		if( nexioIsMaintenanceSwitch() != ON ) {AlarmIf_Set(ALID_MaintenanceSwitchOn); return;} //ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Eï¿½Xï¿½Cï¿½bï¿½`ï¿½Eï¿½Iï¿½ï¿½
 	}
 
-	// �eI/O�`�F�b�N
+	// ï¿½eI/Oï¿½`ï¿½Fï¿½bï¿½N
 	/*Saiki 20090520 Change ----->*/
 	if(m_pDoc->IsInterLock() == TRUE){return;}
-/* added hmenjo 2009.05.20 �G�A���͒ቺ���o�̃��b�p�֐� -------- { -------- */
-	if( m_pDoc->Rap_IsAirPressureLowON(1)!= OFF) {AlarmIf_Set(ALID_AirPressureDown); return;} /* �G�A���͒ቺ */
-/* added hmenjo 2009.05.20 �G�A���͒ቺ���o�̃��b�p�֐� -------- } -------- */
-	if( nexioIsMovo2Alarm() 		!= OFF) {AlarmIf_Set(ALID_StageError); return;} // �X�e�[�W�G���[
+/* added hmenjo 2009.05.20 ï¿½Gï¿½Aï¿½ï¿½ï¿½Í’á‰ºï¿½ï¿½ï¿½oï¿½Ìƒï¿½ï¿½bï¿½pï¿½Ö�ï¿½ -------- { -------- */
+	if( m_pDoc->Rap_IsAirPressureLowON(1)!= OFF) {AlarmIf_Set(ALID_AirPressureDown); return;} /* ï¿½Gï¿½Aï¿½ï¿½ï¿½Í’á‰º */
+/* added hmenjo 2009.05.20 ï¿½Gï¿½Aï¿½ï¿½ï¿½Í’á‰ºï¿½ï¿½ï¿½oï¿½Ìƒï¿½ï¿½bï¿½pï¿½Ö�ï¿½ -------- } -------- */
+	if( nexioIsMovo2Alarm() 		!= OFF) {AlarmIf_Set(ALID_StageError); return;} // ï¿½Xï¿½eï¿½[ï¿½Wï¿½Gï¿½ï¿½ï¿½[
 	if(m_pDoc->CheckUnitStatus() == TRUE){return;}
 	/*//Saiki 20090520 Change <-----*/
 
-	//ActuateFlag�`�F�b�N
+	//ActuateFlagï¿½`ï¿½Fï¿½bï¿½N
 	//Saiki 20090531 Change ----->
 	if(m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) && m_pMainFrame->GetJoyStickMode()==0){
 		LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 		m_pDoc->MessageStringIf_Set(strMsg);
 		return;
-	} //�X�e�[�W�����쒆�ł�
+	} //ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ì’†ï¿½Å‚ï¿½
 	//Saiki 20090531 Change <-----
 	/*//Saiki 20090520 Change ----->*/
 	if(m_pDoc->CheckActiveFlag() == TRUE){return;}
 	/*//Saiki 20090520 Change <-----*/
-	// ���C���^�[���b�N������
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	RCP_DATA rcp_data;
 	m_pDoc->GetRcpData(&rcp_data);
-	if(rcp_data.StageProgInfoHdr.wNumScans == m_pDoc->GetStoreCount()) //���萔���\�葪��ɓ��B���Ă���
+	if(rcp_data.StageProgInfoHdr.wNumScans == m_pDoc->GetStoreCount()) //ï¿½ï¿½ï¿½è�”ï¿½ï¿½ï¿½\ï¿½è‘ªï¿½ï¿½É“ï¿½ï¿½Bï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
 		return;
 
 	m_pMainFrame->PostMessage(WM_CHIF_MS_POPUP,0,0);
 #if 0
 	CPointSetupTeachingMSDlg dlg;
 
-	dlg.m_joyContinue = TRUE;					// JoyStick�̏�Ԃ��p��������
+	dlg.m_joyContinue = TRUE;					// JoyStickï¿½Ì�ï¿½Ô‚ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	// Kojika 20090529 Change
 	//dlg.SetCaption(MEASUREMENT_CAPTION);
@@ -1288,7 +1288,7 @@ void CMeasurementProcessView::OnPointTeachingButton()
 	dlg.SetCaption(l_strCap);
 	dlg.SetMessage(l_strMsg);
 	// Kojika 20090529 Change End
-// 2009.10.30 bagus Stage-Sample �C�� --{--
+// 2009.10.30 bagus Stage-Sample ï¿½Cï¿½ï¿½ --{--
 #if 0
 	RCP_DATA rcp_data;
 	m_pDoc->GetRcpData(&rcp_data);
@@ -1298,7 +1298,7 @@ void CMeasurementProcessView::OnPointTeachingButton()
 	bStage = RecipeFile_LoadRecipe(&rcp_data.StageProgInfoHdr, rcp_data.MainRcpInfo.MainRcpParam.hdr.szStage, RECIPE_FILE_STAGE_PROGRAM);
 
 	if((bMain == FALSE) || (bStage == FALSE)){
-		//���V�s���ǂ߂Ȃ������̂ŃT���v���\���͂Ȃ�
+		//ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½Ç‚ß‚È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ÅƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½Í‚È‚ï¿½
 		dlg.m_nSampleMode = 0;
 	}else{
 		dlg.m_nSampleMode = 1;
@@ -1306,7 +1306,7 @@ void CMeasurementProcessView::OnPointTeachingButton()
 
 	strcpy(dlg.m_szRecipeName, rcp_data.StageProgInfoHdr.SampleInfo.szName);
 #endif
-// 2009.10.30 bagus Stage-Sample �C�� --}--
+// 2009.10.30 bagus Stage-Sample ï¿½Cï¿½ï¿½ --}--
 	if(dlg.DoModal() == IDOK){
 
 
@@ -1314,7 +1314,7 @@ void CMeasurementProcessView::OnPointTeachingButton()
 
 #if 0
 	BOOL bJoyStk;
-	// H/W�L���Ȃ�
+	// H/Wï¿½Lï¿½ï¿½ï¿½È‚ï¿½
 	if( m_pMainFrame->GetJoyStickMode() != 0 ){
 		bJoyStk = m_pDoc->ChangeJoyStick(TRUE);
 		if( bJoyStk == TRUE ){
@@ -1327,17 +1327,17 @@ void CMeasurementProcessView::OnPointTeachingButton()
 
 // =========================================================================
 //
-/* modified 2009.06.15 hmenjo ���[�U��`���b�Z�[�W�n���h�� IF �C�� ---------- { ---------- */
+/* modified 2009.06.15 hmenjo ï¿½ï¿½ï¿½[ï¿½Uï¿½ï¿½`ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ IF ï¿½Cï¿½ï¿½ ---------- { ---------- */
 //void CManualMeasurementFormView::OnJoyStick()
-/* modified 2009.06.15 hmenjo ���[�U��`���b�Z�[�W�n���h�� IF �C�� ----------			   */
+/* modified 2009.06.15 hmenjo ï¿½ï¿½ï¿½[ï¿½Uï¿½ï¿½`ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ IF ï¿½Cï¿½ï¿½ ----------			   */
 LRESULT CMeasurementProcessView::OnJoyStick(WPARAM wparam, LPARAM lparam)
-/* modified 2009.06.15 hmenjo ���[�U��`���b�Z�[�W�n���h�� IF �C�� ---------- } ---------- */
+/* modified 2009.06.15 hmenjo ï¿½ï¿½ï¿½[ï¿½Uï¿½ï¿½`ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ IF ï¿½Cï¿½ï¿½ ---------- } ---------- */
 {
-	// �W���C�X�e�B�b�N�L���^����
+	// ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½Lï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½ï¿½
 	if( m_pMainFrame->GetJoyStickMode() != 0 ){
 		m_joyStick1->UnChecked();
 		m_joyStick2->Checked();
-		// �W���C�X�e�B�b�N����
+		// ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½
 		m_XY_UpButton.SetEnabled(FALSE);
 		m_XY_DownButton.SetEnabled(FALSE);
 		m_XY_RightButton.SetEnabled(FALSE);
@@ -1346,26 +1346,26 @@ LRESULT CMeasurementProcessView::OnJoyStick(WPARAM wparam, LPARAM lparam)
 	else{
 		m_joyStick1->Checked();
 		m_joyStick2->UnChecked();
-		// �W���C�X�e�B�b�N�֎~
+		// ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½Ö�~
 		m_XY_UpButton.SetEnabled(TRUE);
 		m_XY_DownButton.SetEnabled(TRUE);
 		m_XY_RightButton.SetEnabled(TRUE);
 		m_XY_LeftButton.SetEnabled(TRUE);
 	}
-/* added 2009.06.15 hmenjo ���[�U��`���b�Z�[�W�n���h�� IF �C�� ---------- { ---------- */
+/* added 2009.06.15 hmenjo ï¿½ï¿½ï¿½[ï¿½Uï¿½ï¿½`ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ IF ï¿½Cï¿½ï¿½ ---------- { ---------- */
 	return 0;
-/* added 2009.06.15 hmenjo ���[�U��`���b�Z�[�W�n���h�� IF �C�� ---------- } ---------- */
+/* added 2009.06.15 hmenjo ï¿½ï¿½ï¿½[ï¿½Uï¿½ï¿½`ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ IF ï¿½Cï¿½ï¿½ ---------- } ---------- */
 }
 
 // ==========================================================================
-// Name�F		OnNextPointButton
+// Nameï¿½F		OnNextPointButton
 void CMeasurementProcessView::OnNextPointButton()
 {
 	RCP_DATA rcp;
 
 	m_pDoc->GetRcpData(&rcp);
 	if(rcp.MainRcpInfo.MainRcpParam.hdr.wHeadType == HEAD_TYPE_MS){
-		//����������̏ꍇ�ɂ͂������̃{�^���͗L���łȂ��͂��B
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì�ê�‡ï¿½É‚Í‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒ{ï¿½^ï¿½ï¿½ï¿½Í—Lï¿½ï¿½ï¿½Å‚È‚ï¿½ï¿½Í‚ï¿½ï¿½B
 		HWND l_hChiefDlg = ::FindWindow(0, CHIEF_DLG_CAPTION);
 		if(l_hChiefDlg != NULL){
 			::PostMessage(l_hChiefDlg, WM_DISP_MS_POPUP_END, 1, 0);
@@ -1373,12 +1373,12 @@ void CMeasurementProcessView::OnNextPointButton()
 	}
 
 }
-// 2009.10.30 bagus MS �ǉ� --}--
+// 2009.10.30 bagus MS ï¿½Ç‰ï¿½ --}--
 
-// 2009.11.02 bagus MS �ǉ� --{--
+// 2009.11.02 bagus MS ï¿½Ç‰ï¿½ --{--
 void CMeasurementProcessView::OnSelendokMicroScopeFocusPosition()
 {
-	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	CComboBox* pCombo = (CComboBox*)GetDlgItem(IDC_MICRO_SCOPE_FOCUS_POSITION);
 	int	nIndex = pCombo->GetCurSel();
@@ -1398,51 +1398,51 @@ void CMeasurementProcessView::OnSelendokMicroScopeFocusPosition()
 	}
 // matsuhisa 2009.12.26 added <<<
 
-// 2009.11.09 bagus MS �C�� --{--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --{--
 	if ( CCursor::m_bWaitCursor ) {
 		pCombo->SetCurSel(m_nSelLens);
 		return;
 	}
-// 2009.11.09 bagus MS �C�� --}--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --}--
 
-	//�����[�g���͉������Ȃ�
+	//ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½Í‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 	if(m_pDoc->GetHostMode() == HOST_REMOTE) return;
-// 2009.11.09 bagus MS �C�� --{--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --{--
 //	if(m_pDoc->GetHostMode() == HOST_REMOTE) return;
 	if (m_pDoc->GetHostMode() == HOST_REMOTE) {
 		pCombo->SetCurSel(m_nSelLens);
 		return;
 	}
-// 2009.11.09 bagus MS �C�� --}--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --}--
 
 	CMainFrame* pMainFrame = (CMainFrame *)AfxGetMainWnd();
-	// ���C���^�[���b�N������
-	//�����e�i���X���[�h�`�F�b�N(2���������쐧��)
-	if( nexioIsEngineerMaintenanceSwitch()==ON )// ���������e�i���X���[�h
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½`ï¿½Fï¿½bï¿½N(2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì�§ï¿½ï¿½)
+	if( nexioIsEngineerMaintenanceSwitch()==ON )// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½h
 	{
-// 2009.11.09 bagus MS �C�� --{--
-//		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //�����e�i���X���[�h�g�ݍ��킹�G���[
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --{--
+//		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½gï¿½İ�ï¿½ï¿½í‚¹ï¿½Gï¿½ï¿½ï¿½[
 		if ( nexioIsMaintenanceSwitch() != OFF ) {
 			AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);
 			pCombo->SetCurSel(m_nSelLens);
 			return;
 		}
-// 2009.11.09 bagus MS �C�� --}--
-		/*���������e���[�h�̎��́A�K�������e�i���X���[�h(L)�ƂȂ�
-			���̏ꍇ�A2����������\ */
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --}--
+		/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½[ï¿½hï¿½Ì�ï¿½ï¿½Í�Aï¿½Kï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½h(L)ï¿½Æ‚È‚ï¿½
+			ï¿½ï¿½ï¿½Ì�ê�‡ï¿½A2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â”\ */
 	}
-	else //���������e�i���X���[�h�ȊO
+	else //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½ÈŠO
 	{
 	}
 
-	// �eI/O�`�F�b�N
-// 2009.11.09 bagus MS �C�� --{--
+	// ï¿½eI/Oï¿½`ï¿½Fï¿½bï¿½N
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --{--
 //	if(m_pDoc->IsInterLock() == TRUE){return;}
 //	if(m_pDoc->CheckUnitStatus() == TRUE){return;}
-	//2009.12.25 bagus MS �C�� --{--
+	//2009.12.25 bagus MS ï¿½Cï¿½ï¿½ --{--
 	//if (m_pDoc->IsInterLock() == TRUE) {
 	if (m_pDoc->IsInterLockForMScope() == TRUE) {
-	//2009.12.25 bagus MS �C�� --}--
+	//2009.12.25 bagus MS ï¿½Cï¿½ï¿½ --}--
 		pCombo->SetCurSel(m_nSelLens);
 		return;
 	}
@@ -1450,88 +1450,88 @@ void CMeasurementProcessView::OnSelendokMicroScopeFocusPosition()
 		pCombo->SetCurSel(m_nSelLens);
 		return;
 	}
-// 2009.11.09 bagus MS �C�� --}--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --}--
 
-	//ActuateFlag�`�F�b�N
+	//ActuateFlagï¿½`ï¿½Fï¿½bï¿½N
 	if(m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) && pMainFrame->GetJoyStickMode()==0){
 		LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 		m_pDoc->MessageStringIf_Set(strMsg);
-// 2009.11.09 bagus MS �C�� --{--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --{--
 //		return;
 		pCombo->SetCurSel(m_nSelLens);
 		return;
-// 2009.11.09 bagus MS �C�� --}--
-	} //�X�e�[�W�����쒆�ł�
-// 2009.11.09 bagus MS �C�� --{--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --}--
+	} //ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ì’†ï¿½Å‚ï¿½
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --{--
 //	if(m_pDoc->CheckActiveFlag() == TRUE){return;}
 	if (m_pDoc->CheckActiveFlag() == TRUE) {
 		pCombo->SetCurSel(m_nSelLens);
 		return;
 	}
-// 2009.11.09 bagus MS �C�� --}--
-	// ���C���^�[���b�N������
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --}--
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-// 2009.11.09 bagus MS �C�� --{--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --{--
 #if 0
-	// ActuateFlag���Z�b�g����
+	// ActuateFlagï¿½ï¿½ï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½ï¿½
 	m_pDoc->ActuateFlagsSet(ACTUATE_MICROSCOPE, TRUE);
 
-	// ���̈ړ����͂̎�t���֎~����
+	// ï¿½ï¿½ï¿½ÌˆÚ“ï¿½ï¿½ï¿½ï¿½Í‚Ì�ï¿½tï¿½ï¿½ï¿½Ö�~ï¿½ï¿½ï¿½ï¿½
 	if( !m_pDoc->JoyStickChangeDisable() ){
 		LoadStringML(IDS_JOYSTICK_WORKING, strMsg, "JoyStick is Working");
 		LoadStringML(IDS_TITLE_WARNING, strTitle, "Warning");
 		MessageBox(strMsg, strTitle, MB_OK);
-		// �K��JoyStick�̏�Ԃ�߂�����
+		// ï¿½Kï¿½ï¿½JoyStickï¿½Ì�ï¿½Ô‚ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½
 		m_pDoc->JoyStickStatusRestore();
-// 2009.11.09 bagus MS �C�� --{--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --{--
 //		return;
 		pCombo->SetCurSel(m_nSelLens);
 		return;
-// 2009.11.09 bagus MS �C�� --}--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --}--
 	}
 
-	// Z�����싖�����v OFF
+	// Zï¿½ï¿½ï¿½ï¿½ï¿½ì‹–ï¿½Âƒï¿½ï¿½ï¿½ï¿½v OFF
 	nexioMS_ModeLamp(FALSE);
 
-	// �ʒu����
+	// ï¿½Ê’uï¿½ï¿½ï¿½ï¿½
 	nexifRC_MoveToTeachPos(this->m_hWnd, nPosNo);
 
-	// Z�����싖�����v ON
+	// Zï¿½ï¿½ï¿½ï¿½ï¿½ì‹–ï¿½Âƒï¿½ï¿½ï¿½ï¿½v ON
 	nexioMS_ModeLamp(TRUE);
 
-	// ���̈ړ����͂̎�t��������
-	{	// �K��JoyStick�̏�Ԃ�߂�����
+	// ï¿½ï¿½ï¿½ÌˆÚ“ï¿½ï¿½ï¿½ï¿½Í‚Ì�ï¿½tï¿½ï¿½ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½
+	{	// ï¿½Kï¿½ï¿½JoyStickï¿½Ì�ï¿½Ô‚ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½
 		m_pDoc->JoyStickStatusRestore();
 	}
 
-	// ActuateFlag��߂�
+	// ActuateFlagï¿½ï¿½ß‚ï¿½
 	m_pDoc->ActuateFlagsSet(ACTUATE_MICROSCOPE, FALSE);
 #else
 	if (!m_pDoc->ActuateFlagsGet(ACTUATE_MICROSCOPE)) {
 // matsuhisa 2009.12.26 deleted >>>
 //		if (m_MsConfig.RoboCylinder[nItemData].bSensor == nexioIsMS_LensKind()) {
 // matsuhisa 2009.12.26 deleted <<<
-			// ���̈ړ����͂̎�t���֎~����
+			// ï¿½ï¿½ï¿½ÌˆÚ“ï¿½ï¿½ï¿½ï¿½Í‚Ì�ï¿½tï¿½ï¿½ï¿½Ö�~ï¿½ï¿½ï¿½ï¿½
 			if( !m_pDoc->JoyStickChangeDisable() ){
 				LoadStringML(IDS_JOYSTICK_WORKING, strMsg, "JoyStick is Working");
 				LoadStringML(IDS_TITLE_WARNING, strTitle, "Warning");
 				MessageBox(strMsg, strTitle, MB_OK);
-				// �K��JoyStick�̏�Ԃ�߂�����
+				// ï¿½Kï¿½ï¿½JoyStickï¿½Ì�ï¿½Ô‚ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½
 				m_pDoc->JoyStickStatusRestore();
 				pCombo->SetCurSel(m_nSelLens);
 				return;
 			}
 
-			// ActuateFlag���Z�b�g����
+			// ActuateFlagï¿½ï¿½ï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½ï¿½
 			m_pDoc->ActuateFlagsSet(ACTUATE_MICROSCOPE, TRUE);
 
-			// Mode�؂�ւ�
+			// Modeï¿½Ø‚ï¿½Ö‚ï¿½
 			unsigned char oldMode = nexioRC_GetCurrentMode();
 			if(oldMode != RCOPMODE_NORMAL){
 				nexifRC_SelectMode(this->m_hWnd, RCOPMODE_NORMAL);
 				MSG 	msg;
 
-				//��������������܂ő҂�
+				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚Å‘Ò‚ï¿½
 				while (1){
 					if(::PeekMessage(&msg, NULL, WM_NEX_RESPONSE, WM_NEX_RESPONSE, PM_REMOVE)){
 						::TranslateMessage(&msg);
@@ -1543,13 +1543,13 @@ void CMeasurementProcessView::OnSelendokMicroScopeFocusPosition()
 				}
 			}
 
-			// �ʒu����
+			// ï¿½Ê’uï¿½ï¿½ï¿½ï¿½
 			if(nexifRC_MoveToTeachPos(this->m_hWnd, nPosNo)){
-				// ActuateFlag���Z�b�g����
+				// ActuateFlagï¿½ï¿½ï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½ï¿½
 				m_pDoc->ActuateFlagsSet(ACTUATE_MICROSCOPE, TRUE);
 				MSG 	msg;
 
-				//��������������܂ő҂�
+				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚Å‘Ò‚ï¿½
 				while (1){
 					if(::PeekMessage(&msg, NULL, WM_NEX_RESPONSE, WM_NEX_RESPONSE, PM_REMOVE)){
 						::TranslateMessage(&msg);
@@ -1565,7 +1565,7 @@ void CMeasurementProcessView::OnSelendokMicroScopeFocusPosition()
 				nexifRC_SelectMode(this->m_hWnd, oldMode);
 				MSG 	msg;
 
-				//��������������܂ő҂�
+				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚Å‘Ò‚ï¿½
 				while (1){
 					if(::PeekMessage(&msg, NULL, WM_NEX_RESPONSE, WM_NEX_RESPONSE, PM_REMOVE)){
 						::TranslateMessage(&msg);
@@ -1579,7 +1579,7 @@ void CMeasurementProcessView::OnSelendokMicroScopeFocusPosition()
 			m_pDoc->ActuateFlagsSet(ACTUATE_MICROSCOPE,FALSE);
 // matsuhisa 2009.12.26 deleted >>>
 //		} else {
-//			// �������̃����Y�̐ݒ肪��v���Ȃ�
+//			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒï¿½ï¿½ï¿½ï¿½Yï¿½Ì�İ’è‚ªï¿½ï¿½vï¿½ï¿½ï¿½È‚ï¿½
 //			LoadStringML(IDS_MICROSOFT_LENS_MISMATCH, strMsg, "Microscope Lens kind is mismatch.");
 //			m_pDoc->MessageStringIf_Set(strMsg);
 //			pCombo->SetCurSel(m_nSelLens);
@@ -1589,11 +1589,11 @@ void CMeasurementProcessView::OnSelendokMicroScopeFocusPosition()
 #endif
 
 	m_nSelLens = nIndex;
-// 2009.11.09 bagus MS �C�� --}--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --}--
 }
-// 2009.11.02 bagus MS �ǉ� --}--
+// 2009.11.02 bagus MS ï¿½Ç‰ï¿½ --}--
 
-// 2009.11.09 bagus MS �C�� --{--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --{--
 LRESULT CMeasurementProcessView::OnNexResponse(WPARAM wparam, LPARAM lparam)
 {
 	switch ( wparam ) {
@@ -1606,7 +1606,7 @@ LRESULT CMeasurementProcessView::OnNexResponse(WPARAM wparam, LPARAM lparam)
 			m_pDoc->ActuateFlagsSet(ACTUATE_MICROSCOPE, FALSE);
 			//CCursor::EndWaitCursor();
 //		} else {
-			// �A���[��
+			// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½
 //		}
 		break;
 	default:
@@ -1614,13 +1614,13 @@ LRESULT CMeasurementProcessView::OnNexResponse(WPARAM wparam, LPARAM lparam)
 	}
 	return 0;
 }
-// 2009.11.09 bagus MS �C�� --}--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --}--
 
-// 2009.12.17 bagus MS �C�� --{--
+// 2009.12.17 bagus MS ï¿½Cï¿½ï¿½ --{--
 void CMeasurementProcessView::ChangeOperationEnable(BOOL bEnable)
 {
 	GetDlgItem(IDC_NEXT_POINT_BUTTON)->EnableWindow(bEnable);
-//2009.12.23 bagus MS �C�� --{--
+//2009.12.23 bagus MS ï¿½Cï¿½ï¿½ --{--
 	//GetDlgItem(IDC_STAGE_UP_BUTTON)->EnableWindow(bEnable);
 	//GetDlgItem(IDC_STAGE_LEFT_BUTTON)->EnableWindow(bEnable);
 	//GetDlgItem(IDC_STAGE_RIGHT_BUTTON)->EnableWindow(bEnable);
@@ -1631,11 +1631,11 @@ void CMeasurementProcessView::ChangeOperationEnable(BOOL bEnable)
 	m_XY_LeftButton.SetEnabled(bEnable);
 	GetDlgItem(IDC_MICRO_SCOPE_FOCUS_POSITION)->EnableWindow(bEnable);
 	GetDlgItem(IDC_POINT_TEACHING_BUTTON)->EnableWindow(bEnable);
-//2009.12.23 bagus MS �C�� --}--
+//2009.12.23 bagus MS ï¿½Cï¿½ï¿½ --}--
 	GetDlgItem(IDC_COMBO_MEAS_POINT)->EnableWindow(bEnable);
 	GetDlgItem(IDC_STAGE_MOTION_MODE)->EnableWindow(bEnable);
 	GetDlgItem(IDC_JOYSTICK1)->EnableWindow(bEnable);
 	GetDlgItem(IDC_JOYSTICK2)->EnableWindow(bEnable);
 
 }
-// 2009.12.17 bagus MS �C�� --}--
+// 2009.12.17 bagus MS ï¿½Cï¿½ï¿½ --}--

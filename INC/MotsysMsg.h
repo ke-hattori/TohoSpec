@@ -1,6 +1,6 @@
-
+ï»¿
 /*
- *	Motion System Driver —p ƒEƒBƒ“ƒhƒEƒƒbƒZ[ƒW
+ *	Motion System Driver ç”¨ ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
  */
 
 #ifdef __cplusplus
@@ -9,9 +9,9 @@ extern "C" {
 
 #ifdef MotMsgON
 
-		UINT MOTDRV_SHOWINDOW			= RegisterWindowMessage("MOTDRV_SHOWINDOW");	/*	ƒEƒBƒ“ƒhƒE‚ð•\Ž¦‚É‚·‚é */
-		UINT MOTDRV_HIDEINDOW			= RegisterWindowMessage("MOTDRV_HIDEINDOW");	/*	ƒEƒBƒ“ƒhƒE‚ð”ñ•\Ž¦‚É‚·‚é */
-// ‰º‹L‚ÌƒƒbƒZ[ƒW‚Í "motsys.h" ‚ðŽQÆ‚Ì‚±‚Æ
+		UINT MOTDRV_SHOWINDOW			= RegisterWindowMessage("MOTDRV_SHOWINDOW");	/*	ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’è¡¨ç¤ºã«ã™ã‚‹ */
+		UINT MOTDRV_HIDEINDOW			= RegisterWindowMessage("MOTDRV_HIDEINDOW");	/*	ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’éžè¡¨ç¤ºã«ã™ã‚‹ */
+// ä¸‹è¨˜ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã¯ "motsys.h" ã‚’å‚ç…§ã®ã“ã¨
 		UINT WM_MOTIONMESSAGE			= RegisterWindowMessage("WM_MOTIONMESSAGE");
 		UINT MOTDRV_SETWINDOW			= RegisterWindowMessage("MOTDRV_SETWINDOW");
 		UINT MOTDRV_SETSOFTHOME			= RegisterWindowMessage("MOTDRV_SETSOFTHOME");
@@ -31,9 +31,9 @@ extern "C" {
 		UINT MOTDRV_SETJOYSPEED			= RegisterWindowMessage("MOTDRV_SETJOYSPEED");
 #else
 
-extern	UINT MOTDRV_SHOWINDOW;				/*	ƒEƒBƒ“ƒhƒE‚ð•\Ž¦‚É‚·‚é */
-extern	UINT MOTDRV_HIDEINDOW;				/*	ƒEƒBƒ“ƒhƒE‚ð”ñ•\Ž¦‚É‚·‚é */
-// ‰º‹L‚ÌƒƒbƒZ[ƒW‚Í "motsys.h" ‚ðŽQÆ‚Ì‚±‚Æ
+extern	UINT MOTDRV_SHOWINDOW;				/*	ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’è¡¨ç¤ºã«ã™ã‚‹ */
+extern	UINT MOTDRV_HIDEINDOW;				/*	ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’éžè¡¨ç¤ºã«ã™ã‚‹ */
+// ä¸‹è¨˜ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã¯ "motsys.h" ã‚’å‚ç…§ã®ã“ã¨
 extern	UINT WM_MOTIONMESSAGE;
 extern	UINT MOTDRV_SETWINDOW;
 extern	UINT MOTDRV_SETSOFTHOME;
@@ -59,7 +59,7 @@ extern	UINT MOTDRV_SETJOYSPEED;
 #endif
 
 
-/* ‚WŽ²ˆÈã‚Í‚ ‚è‚Ü‚¹‚ñ */
+/* ï¼˜è»¸ä»¥ä¸Šã¯ã‚ã‚Šã¾ã›ã‚“ */
 #define	AXIS_BIG_X		0	// BigX
 #define	AXIS_BIG_Y		1	// BigY
 #define	AXIS_Z			2	// Z
@@ -67,35 +67,35 @@ extern	UINT MOTDRV_SETJOYSPEED;
 #define	AXIS_T			4	// Theta
 #define	AXIS_L			5	// Level
 #define	AXIS_FAST_X		6	// Fast X
-#define	AXIS_ALL		-1	// ‘SŽ²Žw’è
-#define	AXIS_NUM		8	// Ž²”
+#define	AXIS_ALL		-1	// å…¨è»¸æŒ‡å®š
+#define	AXIS_NUM		8	// è»¸æ•°
 
 
-/* wParam ‚ÍˆÈ‰º‚Ì‚P‚Â‚Å‚ ‚é */
-#define  MM_DONE		   20	// Ž²‚Ì³í’âŽ~
-#define  MM_STOPPED 	   21	// Ž²‚Ì‹­§’âŽ~(ƒGƒ‰[“™‚Å‚Í‚ ‚è‚Ü‚¹‚ñ)
-#define  MM_FAILURE 	   22	// Ž²‚ÌˆÙíI—¹
-/* added 2009.11.11 hmenjo MotSys Ž²ƒ^ƒCƒ€ƒAƒEƒg ---------- { ---------- */
-#define  MM_TIMEOUT 	   23	/* Ž²‚ÌˆÚ“®ƒ^ƒCƒ€ƒAƒEƒg	*/
-/* added 2009.11.11 hmenjo MotSys Ž²ƒ^ƒCƒ€ƒAƒEƒg ---------- } ---------- */
+/* wParam ã¯ä»¥ä¸‹ã®ï¼‘ã¤ã§ã‚ã‚‹ */
+#define  MM_DONE		   20	// è»¸ã®æ­£å¸¸åœæ­¢
+#define  MM_STOPPED 	   21	// è»¸ã®å¼·åˆ¶åœæ­¢(ã‚¨ãƒ©ãƒ¼ç­‰ã§ã¯ã‚ã‚Šã¾ã›ã‚“)
+#define  MM_FAILURE 	   22	// è»¸ã®ç•°å¸¸çµ‚äº†
+/* added 2009.11.11 hmenjo MotSys è»¸ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆ ---------- { ---------- */
+#define  MM_TIMEOUT 	   23	/* è»¸ã®ç§»å‹•ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆ	*/
+/* added 2009.11.11 hmenjo MotSys è»¸ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆ ---------- } ---------- */
 
 
 /*
- *	ƒŠƒ^[ƒ“ƒR[ƒh
+ *	ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰
  */
-#define MS_NO_ERROR				0			/* —v‹‚³‚ê‚½‚Æ‚¨‚è‚ÌŽÀs‚¾‚Á‚½ */
-#define MS_NO_FUNCTION			1			/* ƒVƒXƒeƒ€‚ÉŽÀ‘•‚³‚ê‚Ä‚¢‚È‚¢‹@”\ */
-#define MS_NO_HARDWARE			2			/* ‘z’è‚µ‚½ƒn[ƒhƒEƒFƒA‚ªŽÀ‘•‚³‚ê‚Ä‚¢‚È‚¢ */
-#define MS_PARAMETER_ERROR		5			/* ƒpƒ‰ƒƒ^”ÍˆÍ‚©’l‚ÌƒGƒ‰[ */
-#define MS_FUNCTION_BUSY		6			/* ‹–‰Â‚³‚ê‚È‚¢ŒÄo‚µ - ƒrƒW[ */
-#define MS_INSUFFICIENT_MEMORY	7			/* ŒÄo‚µ‚Å‚Ìƒƒ‚ƒŠŠm•Û‚ªŽ¸”s(–¢Žg—p) */
-#define MS_AXIS_NOT_HOME		8			/* Œ´“_•œ‹AÏ‚Å‚È‚¢‚ÆŒÄo‚µ‚ª–³Œø */
-#define MS_AXIS_UNINITIALIZED	11			/* ‰Šú‰»‚³‚ê‚Ä‚¢‚È‚¢ */
-#define MS_AXIS_LOCKED			14			/* ƒƒbƒN‚³‚ê‚Ä‚¢‚éC						(–¢Žg—p)
-											   Ž²‚ªƒƒbƒN‚³‚ê‚Ä‚¢‚é‚Ì‚É“®ì—v‹C
-											   •s“K“–‚Èƒ^ƒXƒN‚©‚çƒAƒ“ƒƒbƒN‚³‚ê‚½ */
-#define	MS_INITIALIZING			16			// Œ»Ý‰Šú‰»’†‚Å‚·
-#define	MS_JOYMODE				17			// JOYSTICK ƒ‚[ƒh’†‚Å‚·
-#define	MS_GETPOS_PARAMERROR	0x7fffffff	// ƒpƒ‰ƒƒ^ƒGƒ‰[(MOTDRV_GETPOSITION —p)
-#define	MS_GETPOS_AXIS_UNINIT	0x7ffffffe	// –¢‰Šú‰»(MOTDRV_GETPOSITION —p)
-#define	MS_GETPOS_AXIS_NOTHOME	0x7ffffffd	// –¢Œ´“_•œ‹A(MOTDRV_GETPOSITION —p)
+#define MS_NO_ERROR				0			/* è¦æ±‚ã•ã‚ŒãŸã¨ãŠã‚Šã®å®Ÿè¡Œã ã£ãŸ */
+#define MS_NO_FUNCTION			1			/* ã‚·ã‚¹ãƒ†ãƒ ã«å®Ÿè£…ã•ã‚Œã¦ã„ãªã„æ©Ÿèƒ½ */
+#define MS_NO_HARDWARE			2			/* æƒ³å®šã—ãŸãƒãƒ¼ãƒ‰ã‚¦ã‚§ã‚¢ãŒå®Ÿè£…ã•ã‚Œã¦ã„ãªã„ */
+#define MS_PARAMETER_ERROR		5			/* ãƒ‘ãƒ©ãƒ¡ã‚¿ç¯„å›²ã‹å€¤ã®ã‚¨ãƒ©ãƒ¼ */
+#define MS_FUNCTION_BUSY		6			/* è¨±å¯ã•ã‚Œãªã„å‘¼å‡ºã— - ãƒ“ã‚¸ãƒ¼ */
+#define MS_INSUFFICIENT_MEMORY	7			/* å‘¼å‡ºã—ã§ã®ãƒ¡ãƒ¢ãƒªç¢ºä¿ãŒå¤±æ•—(æœªä½¿ç”¨) */
+#define MS_AXIS_NOT_HOME		8			/* åŽŸç‚¹å¾©å¸°æ¸ˆã§ãªã„ã¨å‘¼å‡ºã—ãŒç„¡åŠ¹ */
+#define MS_AXIS_UNINITIALIZED	11			/* åˆæœŸåŒ–ã•ã‚Œã¦ã„ãªã„ */
+#define MS_AXIS_LOCKED			14			/* ãƒ­ãƒƒã‚¯ã•ã‚Œã¦ã„ã‚‹ï¼Œ						(æœªä½¿ç”¨)
+											   è»¸ãŒãƒ­ãƒƒã‚¯ã•ã‚Œã¦ã„ã‚‹ã®ã«å‹•ä½œè¦æ±‚ï¼Œ
+											   ä¸é©å½“ãªã‚¿ã‚¹ã‚¯ã‹ã‚‰ã‚¢ãƒ³ãƒ­ãƒƒã‚¯ã•ã‚ŒãŸ */
+#define	MS_INITIALIZING			16			// ç¾åœ¨åˆæœŸåŒ–ä¸­ã§ã™
+#define	MS_JOYMODE				17			// JOYSTICK ãƒ¢ãƒ¼ãƒ‰ä¸­ã§ã™
+#define	MS_GETPOS_PARAMERROR	0x7fffffff	// ãƒ‘ãƒ©ãƒ¡ã‚¿ã‚¨ãƒ©ãƒ¼(MOTDRV_GETPOSITION ç”¨)
+#define	MS_GETPOS_AXIS_UNINIT	0x7ffffffe	// æœªåˆæœŸåŒ–(MOTDRV_GETPOSITION ç”¨)
+#define	MS_GETPOS_AXIS_NOTHOME	0x7ffffffd	// æœªåŽŸç‚¹å¾©å¸°(MOTDRV_GETPOSITION ç”¨)

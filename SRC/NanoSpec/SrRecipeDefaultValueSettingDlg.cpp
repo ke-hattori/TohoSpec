@@ -1,4 +1,4 @@
-// SrRecipeDefaultValueSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SrRecipeDefaultValueSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -17,7 +17,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // #########################################################################
-// CSrRecipeDefaultValueSettingDlg ƒ_ƒCƒAƒƒO
+// CSrRecipeDefaultValueSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // #########################################################################
 
 // =========================================================================
@@ -56,7 +56,7 @@ BEGIN_MESSAGE_MAP(CSrRecipeDefaultValueSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CSrRecipeDefaultValueSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSrRecipeDefaultValueSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -86,7 +86,7 @@ BOOL CSrRecipeDefaultValueSettingDlg::OnInitDialog()
 	pMainFrame->SetSelectListName("");
 
 	//2010.01.19 bagus MS --{--
-	//MS‚ÍƒƒCƒ“ƒŒƒVƒs‚ÌƒfƒtƒHƒ‹ƒg’l‚ð•ÒW‚µ‚È‚¢
+	//MSã¯ãƒ¡ã‚¤ãƒ³ãƒ¬ã‚·ãƒ”ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã‚’ç·¨é›†ã—ãªã„
 	switch ( m_DefaultHeadType ) {
 	case HEAD_TYPE_MS:
 		GetDlgItem(IDC_RECIPE_DEFAULT_MAIN_GRP)->ShowWindow(SW_HIDE);
@@ -94,8 +94,8 @@ BOOL CSrRecipeDefaultValueSettingDlg::OnInitDialog()
 		break;
 	}
 	//2010.01.19 bagus MS --}--
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ðÝ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
@@ -104,7 +104,7 @@ void CSrRecipeDefaultValueSettingDlg::OnMainRecipeButton()
 {
 	CMainFrame* pMainFrame = (CMainFrame *)AfxGetMainWnd();
 	pMainFrame->m_bDefaultSetting = TRUE;
-// 2009.10.08 bagus CTA ’Ç‰Á --{--
+// 2009.10.08 bagus CTA è¿½åŠ  --{--
 //	pMainFrame->ChangeExeWnd(USERCONF_DEF_MAIN_RECIPE_WND);
 	switch ( m_DefaultHeadType ) {
 	case HEAD_TYPE_SR:
@@ -113,12 +113,12 @@ void CSrRecipeDefaultValueSettingDlg::OnMainRecipeButton()
 	case HEAD_TYPE_SE:
 		pMainFrame->ChangeExeWnd(USERCONF_DEF_SE_MAIN_RECIPE_WND);
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case HEAD_TYPE_COMPEASE:
 		pMainFrame->ChangeExeWnd(USERCONF_DEF_COMPEASE_MAIN_RECIPE_WND);
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 #if 0
 	case HEAD_TYPE_IRSE:
 		break;
@@ -127,25 +127,25 @@ void CSrRecipeDefaultValueSettingDlg::OnMainRecipeButton()
 		pMainFrame->ChangeExeWnd(USERCONF_DEF_MS_MAIN_RECIPE_WND);
 		break;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 	case HEAD_TYPE_4PP:
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.11.04 bagus RS è¿½åŠ  --{--
 		pMainFrame->ChangeExeWnd(USERCONF_DEF_4PP_MAIN_RECIPE_WND);
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS è¿½åŠ  --}--
 		break;
 	case HEAD_TYPE_CTA:
 		pMainFrame->ChangeExeWnd(USERCONF_DEF_CTA_MAIN_RECIPE_WND);
 		break;
 	case HEAD_TYPE_STRESS:
-		//2009.10.21 bagus Stress ’Ç‰Á --{--
+		//2009.10.21 bagus Stress è¿½åŠ  --{--
 		pMainFrame->ChangeExeWnd(USERCONF_DEF_STRESS_MAIN_RECIPE_WND);
 		break;
-		//2009.10.21 bagus Stress ’Ç‰Á --}--
+		//2009.10.21 bagus Stress è¿½åŠ  --}--
 		break;
 	default:
 		break;
 	}
-// 2009.10.08 bagus CTA ’Ç‰Á --}--
+// 2009.10.08 bagus CTA è¿½åŠ  --}--
 	pMainFrame->m_bDefaultSetting = FALSE;
 	EndDialog(IDOK);
 }
@@ -176,9 +176,9 @@ void CSrRecipeDefaultValueSettingDlg::OnMeasurementProgramButton()
 				pMainFrame->ChangeExeWnd(USERCONF_DEF_SR_REFLECTANCE_WND);
 				break;
 			case MEAS_PROG_TYPE_SR_TRANSMITTANCE:
-// 2009.10.27 bagus Gantry ’Ç‰ÁC³ --{--
+// 2009.10.27 bagus Gantry è¿½åŠ ä¿®æ­£ --{--
 			case MEAS_PROG_TYPE_SR_TRANSMITTANCE_G:
-// 2009.10.27 bagus Gantry ’Ç‰ÁC³ --}--
+// 2009.10.27 bagus Gantry è¿½åŠ ä¿®æ­£ --}--
 				pMainFrame->ChangeExeWnd(USERCONF_DEF_SR_TRANSMITTANCE_WND);
 				break;
 			case MEAS_PROG_TYPE_SR_REFLECTANCE_CIE:
@@ -190,11 +190,11 @@ void CSrRecipeDefaultValueSettingDlg::OnMeasurementProgramButton()
 			case MEAS_PROG_TYPE_SR_OPTICAL_DENSITY:
 				pMainFrame->ChangeExeWnd(USERCONF_DEF_SR_OD_WND);
 				break;
-			// 2009.10.13 bagus Distance ’Ç‰Á --{--
+			// 2009.10.13 bagus Distance è¿½åŠ  --{--
 			case MEAS_PROG_TYPE_SR_DISTANCE:
 				pMainFrame->ChangeExeWnd(USERCONF_DEF_SR_DISTANCE_WND);
 				break;
-			// 2009.10.13 bagus Distance ’Ç‰Á --}--
+			// 2009.10.13 bagus Distance è¿½åŠ  --}--
 		}
 		break;
 	case HEAD_TYPE_SE:
@@ -206,7 +206,7 @@ void CSrRecipeDefaultValueSettingDlg::OnMeasurementProgramButton()
 		}
 		//2009.09.07 bagus se --}--
 		break;
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case HEAD_TYPE_COMPEASE:
 		switch(dlg.m_iMeasType){
 		case MEAS_PROG_TYPE_COMPEASE_THICKNESS:
@@ -214,8 +214,8 @@ void CSrRecipeDefaultValueSettingDlg::OnMeasurementProgramButton()
 			break;
 		}
 		break;
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 #if 0
 	case HEAD_TYPE_IRSE:
 		break;
@@ -228,30 +228,30 @@ void CSrRecipeDefaultValueSettingDlg::OnMeasurementProgramButton()
 		}
 		break;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 	case HEAD_TYPE_4PP:
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.11.04 bagus RS è¿½åŠ  --{--
 //		pMainFrame->ChangeExeWnd(USERCONF_DEF_SR_4PP_WND);
 		pMainFrame->ChangeExeWnd(USERCONF_DEF_4PP_WND);
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS è¿½åŠ  --}--
 		break;
 	case HEAD_TYPE_CTA:
-		// 2009.10.08 bagus CTA ’Ç‰Á --{--
+		// 2009.10.08 bagus CTA è¿½åŠ  --{--
 		switch(dlg.m_iMeasType){
 		case MEAS_PROG_TYPE_CTA_MEAS:
 			pMainFrame->ChangeExeWnd(USERCONF_DEF_CTA_WND);
 			break;
 		}
-		// 2009.10.08 bagus CTA ’Ç‰Á --}--
+		// 2009.10.08 bagus CTA è¿½åŠ  --}--
 		break;
 	case HEAD_TYPE_STRESS:
-		//2009.10.21 bagus Stress ’Ç‰Á --{--
+		//2009.10.21 bagus Stress è¿½åŠ  --{--
 		switch(dlg.m_iMeasType){
 		case MEAS_PROG_TYPE_STRESS_MEAS:
 			pMainFrame->ChangeExeWnd(USERCONF_DEF_STRESS_WND);
 			break;
 		}
-		//2009.10.21 bagus Stress ’Ç‰Á --}--
+		//2009.10.21 bagus Stress è¿½åŠ  --}--
 		break;
 	}
 

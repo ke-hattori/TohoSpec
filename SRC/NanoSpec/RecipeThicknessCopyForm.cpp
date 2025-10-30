@@ -1,4 +1,4 @@
-// RecipeThicknessCopyForm.cpp : implementation file
+﻿// RecipeThicknessCopyForm.cpp : implementation file
 //
 
 #include "stdafx.h"

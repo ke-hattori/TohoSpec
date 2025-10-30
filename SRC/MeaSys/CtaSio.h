@@ -1,4 +1,4 @@
-#if !defined(AFX_CTASIO_H__BA3B6842_4531_49D8_9A28_0AAD6B8635FD__INCLUDED_)
+ï»¿#if !defined(AFX_CTASIO_H__BA3B6842_4531_49D8_9A28_0AAD6B8635FD__INCLUDED_)
 #define AFX_CTASIO_H__BA3B6842_4531_49D8_9A28_0AAD6B8635FD__INCLUDED_
 
 #if _MSC_VER > 1000
@@ -7,55 +7,55 @@
 // CtaSio.h : header file
 //
 
-#include <afxmt.h>	// CEvent ‚Æ CSingleLock ‚Å•K—v‚Å‚·
+#include <afxmt.h>	// CEvent ã¨ CSingleLock ã§å¿…è¦ã§ã™
 
 /*
- *	ƒ}ƒNƒ’è‹`
+ *	ãƒžã‚¯ãƒ­å®šç¾©
  */
-#define	PKT_DATA_LEN_MAX	(1024)					/* Å‘åƒf[ƒ^’·	*/
-/* ƒGƒ‰[’è‹`	*/
-#define	CTASIO_ERR_UNINIT		(-1)	/* 01:–¢‰Šú‰»‚Å‚·	*/
-#define	CTASIO_ERR_RCVBUFFULL	(-2)	/* 02:ŽóMƒoƒbƒtƒ@ƒtƒ‹	*/
-#define	CTASIO_ERR_SEND_FAIL	(-3)	/* 03:‘—MŽ¸”s	*/
-#define	CTASIO_ERR_PARAM		(-4)	/* 04:ƒpƒ‰ƒƒ^ƒGƒ‰[	*/
-#define	CTASIO_ERR_NORCVDATA	(-5)	/* 05:ŽóMƒf[ƒ^‚Í‚ ‚è‚Ü‚¹‚ñ	*/
-#define	CTASIO_ERR_INVALID_PKT	(-6)	/* 06:ƒpƒPƒbƒgƒR[ƒh‚ª”ÍˆÍŠO‚Å‚·	*/
-#define	CTASIO_ERR_INVALID_CMD	(-7)	/* 07:ƒRƒ}ƒ“ƒhƒR[ƒh‚ª”ÍˆÍŠO‚Å‚·	*/
-#define	CTASIO_ERR_INVALID_EVT	(-8)	/* 08:ƒCƒxƒ“ƒgƒR[ƒh‚ª”ÍˆÍŠO‚Å‚·	*/
-#define	CTASIO_ERR_NOLF			(-9)	/* 09:LF ‚ª‚ ‚è‚Ü‚¹‚ñ	*/
-#define	CTASIO_ERR_NOCR			(-10)	/* 10:CR ‚ª‚ ‚è‚Ü‚¹‚ñ	*/
-#define	CTASIO_ERR_SUM			(-11)	/* 11:ƒ`ƒFƒbƒNƒTƒ€•sˆê’v	*/
-#define	CTASIO_ERR_TOOSHORT		(-12)	/* 12:ŽóMƒf[ƒ^’·‚ª’Z‚·‚¬‚Ü‚·	*/
-#define	CTASIO_ERR_CTRLCODE		(-13)	/* 13:§ŒäƒR[ƒh‚ª‚ ‚Á‚½	*/
-#define	CTASIO_ERR_INVALIDLEN	(-14)	/* 14:ŽóMƒf[ƒ^’·ˆÙí	*/
-#define	CTASIO_ERR_RCVFAIL		(-15)	/* 15:ŽóMˆ—Ž¸”s	*/
-/* ƒpƒPƒbƒgƒR[ƒh	*/
+#define	PKT_DATA_LEN_MAX	(1024)					/* æœ€å¤§ãƒ‡ãƒ¼ã‚¿é•·	*/
+/* ã‚¨ãƒ©ãƒ¼å®šç¾©	*/
+#define	CTASIO_ERR_UNINIT		(-1)	/* 01:æœªåˆæœŸåŒ–ã§ã™	*/
+#define	CTASIO_ERR_RCVBUFFULL	(-2)	/* 02:å—ä¿¡ãƒãƒƒãƒ•ã‚¡ãƒ•ãƒ«	*/
+#define	CTASIO_ERR_SEND_FAIL	(-3)	/* 03:é€ä¿¡å¤±æ•—	*/
+#define	CTASIO_ERR_PARAM		(-4)	/* 04:ãƒ‘ãƒ©ãƒ¡ã‚¿ã‚¨ãƒ©ãƒ¼	*/
+#define	CTASIO_ERR_NORCVDATA	(-5)	/* 05:å—ä¿¡ãƒ‡ãƒ¼ã‚¿ã¯ã‚ã‚Šã¾ã›ã‚“	*/
+#define	CTASIO_ERR_INVALID_PKT	(-6)	/* 06:ãƒ‘ã‚±ãƒƒãƒˆã‚³ãƒ¼ãƒ‰ãŒç¯„å›²å¤–ã§ã™	*/
+#define	CTASIO_ERR_INVALID_CMD	(-7)	/* 07:ã‚³ãƒžãƒ³ãƒ‰ã‚³ãƒ¼ãƒ‰ãŒç¯„å›²å¤–ã§ã™	*/
+#define	CTASIO_ERR_INVALID_EVT	(-8)	/* 08:ã‚¤ãƒ™ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰ãŒç¯„å›²å¤–ã§ã™	*/
+#define	CTASIO_ERR_NOLF			(-9)	/* 09:LF ãŒã‚ã‚Šã¾ã›ã‚“	*/
+#define	CTASIO_ERR_NOCR			(-10)	/* 10:CR ãŒã‚ã‚Šã¾ã›ã‚“	*/
+#define	CTASIO_ERR_SUM			(-11)	/* 11:ãƒã‚§ãƒƒã‚¯ã‚µãƒ ä¸ä¸€è‡´	*/
+#define	CTASIO_ERR_TOOSHORT		(-12)	/* 12:å—ä¿¡ãƒ‡ãƒ¼ã‚¿é•·ãŒçŸ­ã™ãŽã¾ã™	*/
+#define	CTASIO_ERR_CTRLCODE		(-13)	/* 13:åˆ¶å¾¡ã‚³ãƒ¼ãƒ‰ãŒã‚ã£ãŸ	*/
+#define	CTASIO_ERR_INVALIDLEN	(-14)	/* 14:å—ä¿¡ãƒ‡ãƒ¼ã‚¿é•·ç•°å¸¸	*/
+#define	CTASIO_ERR_RCVFAIL		(-15)	/* 15:å—ä¿¡å‡¦ç†å¤±æ•—	*/
+/* ãƒ‘ã‚±ãƒƒãƒˆã‚³ãƒ¼ãƒ‰	*/
 enum PACKET_CODE {
-	PKT_CMD = 0,	/* ƒRƒ}ƒ“ƒh	*/
-	PKT_EVT,		/* ƒCƒxƒ“ƒgƒŒƒ|[ƒg	*/
-	PKT_RES,		/* ƒŒƒXƒ|ƒ“ƒX	*/
-	PKT_ERR,		/* ƒGƒ‰[ƒŒƒXƒ|ƒ“ƒX	*/
+	PKT_CMD = 0,	/* ã‚³ãƒžãƒ³ãƒ‰	*/
+	PKT_EVT,		/* ã‚¤ãƒ™ãƒ³ãƒˆãƒ¬ãƒãƒ¼ãƒˆ	*/
+	PKT_RES,		/* ãƒ¬ã‚¹ãƒãƒ³ã‚¹	*/
+	PKT_ERR,		/* ã‚¨ãƒ©ãƒ¼ãƒ¬ã‚¹ãƒãƒ³ã‚¹	*/
 	PKT_MAX,
 };
-/* ƒRƒ}ƒ“ƒhƒR[ƒh	*/
+/* ã‚³ãƒžãƒ³ãƒ‰ã‚³ãƒ¼ãƒ‰	*/
 enum COMMAND_CODE {
-	CMD_STA = 0,	/* ƒRƒ}ƒ“ƒhFó‘Ô—v‹			*/
-	CMD_ORG,		/* ƒRƒ}ƒ“ƒhFŒ´“_•œ‹A			*/
-	CMD_MOD,		/* ƒRƒ}ƒ“ƒhF‘ª’èƒ‚[ƒhƒZƒbƒg	*/
-	CMD_CID,		/* ƒRƒ}ƒ“ƒhFƒJƒZƒbƒgî•ñƒZƒbƒg	*/
-	CMD_PID,		/* ƒRƒ}ƒ“ƒhFŠî”Âî•ñƒZƒbƒg		*/
-	CMD_SPT,		/* ƒRƒ}ƒ“ƒhFŠî”ÂŒú‚Ýî•ñƒZƒbƒg	*/
-	CMD_MST,		/* ƒRƒ}ƒ“ƒhF‘ª’èŠJŽn			*/
-	CMD_MPE,		/* ƒRƒ}ƒ“ƒhFŠî”ÂI—¹’Ê’m		*/
-	CMD_MCE,		/* ƒRƒ}ƒ“ƒhFƒJƒZƒbƒgI—¹’Ê’m	*/
-	CMD_RST,		/* ƒRƒ}ƒ“ƒhFƒgƒ‰ƒuƒ‹ƒŠƒZƒbƒg	*/
-	CMD_END,		/* ƒRƒ}ƒ“ƒhFFAMAS I—¹			*/
+	CMD_STA = 0,	/* ã‚³ãƒžãƒ³ãƒ‰ï¼šçŠ¶æ…‹è¦æ±‚			*/
+	CMD_ORG,		/* ã‚³ãƒžãƒ³ãƒ‰ï¼šåŽŸç‚¹å¾©å¸°			*/
+	CMD_MOD,		/* ã‚³ãƒžãƒ³ãƒ‰ï¼šæ¸¬å®šãƒ¢ãƒ¼ãƒ‰ã‚»ãƒƒãƒˆ	*/
+	CMD_CID,		/* ã‚³ãƒžãƒ³ãƒ‰ï¼šã‚«ã‚»ãƒƒãƒˆæƒ…å ±ã‚»ãƒƒãƒˆ	*/
+	CMD_PID,		/* ã‚³ãƒžãƒ³ãƒ‰ï¼šåŸºæ¿æƒ…å ±ã‚»ãƒƒãƒˆ		*/
+	CMD_SPT,		/* ã‚³ãƒžãƒ³ãƒ‰ï¼šåŸºæ¿åŽšã¿æƒ…å ±ã‚»ãƒƒãƒˆ	*/
+	CMD_MST,		/* ã‚³ãƒžãƒ³ãƒ‰ï¼šæ¸¬å®šé–‹å§‹			*/
+	CMD_MPE,		/* ã‚³ãƒžãƒ³ãƒ‰ï¼šåŸºæ¿çµ‚äº†é€šçŸ¥		*/
+	CMD_MCE,		/* ã‚³ãƒžãƒ³ãƒ‰ï¼šã‚«ã‚»ãƒƒãƒˆçµ‚äº†é€šçŸ¥	*/
+	CMD_RST,		/* ã‚³ãƒžãƒ³ãƒ‰ï¼šãƒˆãƒ©ãƒ–ãƒ«ãƒªã‚»ãƒƒãƒˆ	*/
+	CMD_END,		/* ã‚³ãƒžãƒ³ãƒ‰ï¼šFAMAS çµ‚äº†			*/
 	CMD_MAX,
-	EVT_CMO,		/* ƒCƒxƒ“ƒgFˆÚ“®Š®—¹			*/
-	EVT_CST,		/* ƒCƒxƒ“ƒgFÝ’èŠ®—¹			*/
-	EVT_CMP,		/* ƒCƒxƒ“ƒgF‚Pƒ|ƒCƒ“ƒg‘ª’èŠ®—¹	*/
-	EVT_CMA,		/* ƒCƒxƒ“ƒgF‘Sƒ|ƒCƒ“ƒg‘ª’èŠ®—¹	*/
-	EVT_REP,		/* ƒCƒxƒ“ƒgFƒGƒ‰[”­¶			*/
+	EVT_CMO,		/* ã‚¤ãƒ™ãƒ³ãƒˆï¼šç§»å‹•å®Œäº†			*/
+	EVT_CST,		/* ã‚¤ãƒ™ãƒ³ãƒˆï¼šè¨­å®šå®Œäº†			*/
+	EVT_CMP,		/* ã‚¤ãƒ™ãƒ³ãƒˆï¼šï¼‘ãƒã‚¤ãƒ³ãƒˆæ¸¬å®šå®Œäº†	*/
+	EVT_CMA,		/* ã‚¤ãƒ™ãƒ³ãƒˆï¼šå…¨ãƒã‚¤ãƒ³ãƒˆæ¸¬å®šå®Œäº†	*/
+	EVT_REP,		/* ã‚¤ãƒ™ãƒ³ãƒˆï¼šã‚¨ãƒ©ãƒ¼ç™ºç”Ÿ			*/
 	EVT_MAX,
 };
 

@@ -1,4 +1,4 @@
-// GlassineDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+ï»¿// GlassineDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #if !defined(AFX_GLASSINEDLG_H__6F3ECD2A_1BB1_4180_8B4F_209815542A9A__INCLUDED_)
@@ -10,33 +10,33 @@
 
 typedef BOOL __stdcall SETLAYER( HWND hwnd, COLORREF crKey, BYTE bAlpha, DWORD dwFlags );
 /////////////////////////////////////////////////////////////////////////////
-// CGlassineDlg ƒ_ƒCƒAƒƒO
+// CGlassineDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 class CGlassineDlg : public CDialog
 {
-// \’z
+// æ§‹ç¯‰
 public:
-	CGlassineDlg(CWnd* pParent = NULL);	// •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CGlassineDlg(CWnd* pParent = NULL);	// æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CGlassineDlg)
 	enum { IDD = IDD_GLASSINE_DIALOG };
-		// ƒƒ‚: ‚±‚ÌˆÊ’u‚É ClassWizard ‚É‚æ‚Á‚Äƒf[ƒ^ ƒƒ“ƒo‚ª’Ç‰Á‚³‚ê‚Ü‚·B
+		// ãƒ¡ãƒ¢: ã“ã®ä½ç½®ã« ClassWizard ã«ã‚ˆã£ã¦ãƒ‡ãƒ¼ã‚¿ ãƒ¡ãƒ³ãƒãŒè¿½åŠ ã•ã‚Œã¾ã™ã€‚
 	//}}AFX_DATA
 
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CGlassineDlg)
 	public:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ‚ÌƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã®ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	HICON m_hIcon;
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CGlassineDlg)
 	virtual BOOL OnInitDialog();
 	afx_msg void OnPaint();
@@ -51,6 +51,6 @@ protected:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_GLASSINEDLG_H__6F3ECD2A_1BB1_4180_8B4F_209815542A9A__INCLUDED_)

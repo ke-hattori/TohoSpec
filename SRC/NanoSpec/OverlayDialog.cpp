@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "resource.h"
 #include "System.h"
 #include "NanoSpec.h"
@@ -118,14 +118,14 @@ COverlayDialog::COverlayDialog(UINT uResourceID /*= IDD_OVERLAY_DLG*/, CWnd* pPa
 // INS 2009.07.07 by kawamura
 	m_StagePositionSetting = FALSE;
 // INS 2009.07.07 by kawamura
-// 2009.11.16 K.Matsuo �w�b�h�I�t�Z�b�g�Ή� -->
+// 2009.11.16 K.Matsuo ï¿½wï¿½bï¿½hï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Î‰ï¿½ -->
 	m_bOriginalPositionSetting = FALSE;
-// 2009.11.16 K.Matsuo �w�b�h�I�t�Z�b�g�Ή� <--
+// 2009.11.16 K.Matsuo ï¿½wï¿½bï¿½hï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Î‰ï¿½ <--
 
-// 2009.05.27 K.Matsuo �_�u���o�b�t�@�����O -->
+// 2009.05.27 K.Matsuo ï¿½_ï¿½uï¿½ï¿½ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½O -->
 	m_bbDC = NULL;
 	m_bbBitmap = NULL;
-// 2009.05.27 K.Matsuo �_�u���o�b�t�@�����O <--
+// 2009.05.27 K.Matsuo ï¿½_ï¿½uï¿½ï¿½ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½O <--
 // 2009.05.28 K.Matsuo SPT -->
 	m_bIsMoveAtSpeed = FALSE;
 
@@ -134,9 +134,9 @@ COverlayDialog::COverlayDialog(UINT uResourceID /*= IDD_OVERLAY_DLG*/, CWnd* pPa
 // 2009.05.28 K.Matsuo SPT <--
 
 	m_joyContinue = FALSE;
-/* added 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ---------- { ---------- */
+/* added 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
 	m_bProgress1PMeas = FALSE;
-/* added 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ---------- } ---------- */
+/* added 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- } ---------- */
 // 2010.01.07 bagus Gantry --{--
 	m_bGantry = FALSE;
 // 2010.01.07 bagus Gantry --}--
@@ -237,10 +237,10 @@ CString strBuffer;
 	m_pMainFrame = (CMainFrame *)AfxGetMainWnd();
 
 	if( !m_joyContinue )
-		// ��ʂ��\������鎞�̓f�t�H���g�̓\�t�gJoy�Ƃ���
+		// ï¿½ï¿½Ê‚ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é��ï¿½Íƒfï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½Íƒ\ï¿½tï¿½gJoyï¿½Æ‚ï¿½ï¿½ï¿½
 		m_pMainFrame->SetJoyStickMode(JOY_SOFT_MODE);
 
-	// Radio�{�^���̐ݒ�
+	// Radioï¿½{ï¿½^ï¿½ï¿½ï¿½Ì�İ’ï¿½
 	m_joyStick1 = new CJoyStickRadioButton(JOY_SOFT_MODE);
 	m_joyStick2 = new CJoyStickRadioButton(JOY_HARD_MODE);
 
@@ -341,13 +341,13 @@ CString strBuffer;
 		SetDlgItemText(IDC_STAGE_REFERENCE_INTEGRATION_TIME,strIntegTime);
 		//2010.01.13 bagus GTR --}--
 		//2010.01.15 bagus GTR --{--
-		//���ߗ����g�p����ꍇ�ɗL���ɂ���
+		//ï¿½ï¿½ï¿½ß—ï¿½ï¿½ï¿½ï¿½gï¿½pï¿½ï¿½ï¿½ï¿½ê�‡ï¿½É—Lï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½
 		//if(m_bGantry){
 		if(l_SrConfig.bTransmittance){
 			GetDlgItem(IDC_STAGE_REFERENCE_TRANSMITTANCE_SHUTTER_LABEL)->ShowWindow(SW_SHOW);
 			GetDlgItem(IDC_STAGE_REFERENCE_TRANSMITTANCE_SHUTTER_1)->ShowWindow(SW_SHOW);
 			GetDlgItem(IDC_STAGE_REFERENCE_TRANSMITTANCE_SHUTTER_2)->ShowWindow(SW_SHOW);
-			//���݂̃V���b�^�[��Ԃɍ��킹�ă`�F�b�N�̃f�t�H���g��Ԃ�ύX����
+			//ï¿½ï¿½ï¿½İ‚ÌƒVï¿½ï¿½ï¿½bï¿½^ï¿½[ï¿½ï¿½Ô‚É�ï¿½ï¿½í‚¹ï¿½Äƒ`ï¿½Fï¿½bï¿½Nï¿½Ìƒfï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½ï¿½Ô‚ï¿½Ï�Xï¿½ï¿½ï¿½ï¿½
 			if(nexioIsTransmitLightSourcePower()
 			&&
 			(nexioIsTransmitLight1Condition()
@@ -462,7 +462,7 @@ CString strBuffer;
 // 2010.01.06 bagus Gantry --}--
 
 // INS 2009.07.06 by kawamura
-	// ���W���Z�b�g����Ă��鎞�̂ݗL��
+	// ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½é��ï¿½Ì‚İ—Lï¿½ï¿½
 	if( m_StagePositionSetting ){
 		m_btnStageMove.SetShade(BUTTON_RADIO_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 		m_btnStageMove.DrawFlatFocus(TRUE);
@@ -479,11 +479,11 @@ CString strBuffer;
 	}
 // INS 2009.07.06 by kawamura
 
-// 2009.11.16 K.Matsuo �w�b�h�I�t�Z�b�g�Ή� -->
+// 2009.11.16 K.Matsuo ï¿½wï¿½bï¿½hï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Î‰ï¿½ -->
 	m_cbHeadType.EnableWindow(m_bOriginalPositionSetting);
-// 2009.11.16 K.Matsuo �w�b�h�I�t�Z�b�g�Ή� <--
+// 2009.11.16 K.Matsuo ï¿½wï¿½bï¿½hï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Î‰ï¿½ <--
 
-	// �L���v�`���[��ʂ�\��
+	// ï¿½Lï¿½ï¿½ï¿½vï¿½`ï¿½ï¿½ï¿½[ï¿½ï¿½Ê‚ï¿½\ï¿½ï¿½
 //	OverlayAttach(m_hWnd);
 //	OverlayPreview(TRUE);
 //	OverlayDrawCenter();
@@ -509,10 +509,10 @@ CString strBuffer;
 	m_StageOriginCoord.lX  = m_StageConfig.Origin.lX;
 	m_StageOriginCoord.lY  = m_StageConfig.Origin.lY;
 
-	// �T���v���̎擾
+	// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Ì�æ“¾
 	GetSampleData();
 
-	// �X�e�[�W����{�^���̃}�E�X���� ���܂��͋֎~
+	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½ï¿½Ìƒ}ï¿½Eï¿½Xï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â‚Ü‚ï¿½ï¿½Í‹Ö�~
 	BOOL bStageOpeButtonEnable;
 	bStageOpeButtonEnable = (m_pMainFrame->GetJoyStickMode() == JOY_SOFT_MODE);
 	m_XY_UpButton.SetEnabled(bStageOpeButtonEnable);
@@ -520,21 +520,21 @@ CString strBuffer;
 	m_XY_RightButton.SetEnabled(bStageOpeButtonEnable);
 	m_XY_LeftButton.SetEnabled(bStageOpeButtonEnable);
 
-	// �W���C�X�e�B�b�N�L���^����
+	// ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½Lï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½ï¿½
 	if( m_pMainFrame->GetJoyStickMode() != JOY_SOFT_MODE ){
-		// �W���C�X�e�B�b�N����
+		// ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½
 		bJoyStk = m_pDoc->ChangeJoyStick(TRUE);
 		if( bJoyStk ){
 			m_pDoc->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);
 		}
 	}
 	else{
-		// �W���C�X�e�B�b�N�֎~
+		// ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½Ö�~
 		bJoyStk = m_pDoc->ChangeJoyStick(FALSE);
 		m_pDoc->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);
 	}
 
-// 2009.10.29 bagus Jog �ǉ��C�� --{--
+// 2009.10.29 bagus Jog ï¿½Ç‰ï¿½ï¿½Cï¿½ï¿½ --{--
 	if (m_SystemConfig.nJoystickType == 0) {
 		GetDlgItem(IDC_JOYSTICK1)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_JOYSTICK2)->ShowWindow(SW_HIDE);
@@ -542,7 +542,7 @@ CString strBuffer;
 		GetDlgItem(IDC_JOYSTICK1)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_JOYSTICK2)->ShowWindow(SW_SHOW);
 	}
-// 2009.10.29 bagus Jog �ǉ��C�� --}--
+// 2009.10.29 bagus Jog ï¿½Ç‰ï¿½ï¿½Cï¿½ï¿½ --}--
 
 	SetTimer(REFRESH_TIMER_ID, REFRESH_TIMER_ELAPSE, NULL);
 	SetTimer(OVERLAY_BUTTON_ENABLECHANGE_TIMER, 50, NULL);
@@ -560,21 +560,21 @@ CString strBuffer;
 	m_AutoFocusUseHistry = 0;		// AutoFocus Use ?
 	m_AutoFocusResult	 = 0;		// AutoFocus Result OK ? or NG ?
 
-// 2009.05.27 K.Matsuo �_�u���o�b�t�@�����O -->
+// 2009.05.27 K.Matsuo ï¿½_ï¿½uï¿½ï¿½ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½O -->
 	CreateStageMapBackBuffer();
-// 2009.05.27 K.Matsuo �_�u���o�b�t�@�����O <--
+// 2009.05.27 K.Matsuo ï¿½_ï¿½uï¿½ï¿½ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½O <--
 
 // 2009.05.28 K.Matsuo SPT -->
 	HookKeySet();
 // 2009.05.28 K.Matsuo SPT <--
 
 // 2009.04.10 K.Matsuo Add -->
-	//�����[�g���̓I�y���[�^�[�R�[��
+	//ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½ÍƒIï¿½yï¿½ï¿½ï¿½[ï¿½^ï¿½[ï¿½Rï¿½[ï¿½ï¿½
 	if(m_pDoc->GetHostMode() == HOST_REMOTE)
 		AlarmIf_Set(ALID_OperatorCall);
 // 2009.04.10 K.Matsuo Add <--
 
-/* added 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ---------- { ---------- */
+/* added 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
 #if 1
 	if (HEAD_TYPE_MS == NS_GetCurrentHeadType()) {
 		this->GetDlgItem(IDC_ELEV_UP_BUTTON)->EnableWindow(FALSE);
@@ -584,7 +584,7 @@ CString strBuffer;
 		this->GetDlgItem(IDC_LENS_MAGNIFICATION_COMBO)->EnableWindow(FALSE);
 	}
 #endif
-/* added 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ---------- } ---------- */
+/* added 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- } ---------- */
 
 // 2010.01.21 bagus Gantry --{--
 //	m_ScanDataGraphDlg.Create(CScanDataGraphDlg::IDD, this);
@@ -596,9 +596,9 @@ CString strBuffer;
 
 //Saiki 20130123 add --->
 	if (m_SystemConfig.nJoystickType != 0) {
-		if ( m_pDoc->Rap_IsDoorInterlock() == ON ) {		/* �h�A�C���^�[���b�N			��L */
+		if ( m_pDoc->Rap_IsDoorInterlock() == ON ) {		/* ï¿½hï¿½Aï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½N			ï¿½ï¿½L */
 			if ( m_joyStick1->GetCheck() ) {
-				// �����I�Ƀ\�t�gJoy�֐؂�ւ���
+				// ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½Éƒ\ï¿½tï¿½gJoyï¿½Ö�Ø‚ï¿½Ö‚ï¿½ï¿½ï¿½
 				m_pMainFrame->SetJoyStickMode(JOY_HARD_MODE);
 				bJoyStk = m_pDoc->ChangeJoyStick(TRUE);
 				if( bJoyStk == TRUE ){
@@ -631,13 +631,13 @@ CString strBuffer;
 }
 
 // ==========================================================================
-// ��ʉE���̗̈�ɃR���g���[���𓮓I�쐬���邽�߂̊֐�
+// ï¿½ï¿½Ê‰Eï¿½ï¿½ï¿½Ì—Ìˆï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ğ“®“Iï¿½ì�¬ï¿½ï¿½ï¿½é‚½ï¿½ß‚ÌŠÖ�ï¿½
 void COverlayDialog::CreateDialogItem(LPCTSTR lpClassName, LPCTSTR lpszCaption, DWORD dwStyle, RECT rect, UINT nID, DWORD dwStyleEx /* = 0 */)
 {
 	HWND hWnd;
 
 	::MapDialogRect(m_hWnd, &rect);
-	//2010.01.07 bagus �g���E�B���h�E�X�^�C�����Z�b�g�ł���悤�ɏC�� --{--
+	//2010.01.07 bagus ï¿½gï¿½ï¿½ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½Xï¿½^ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½bï¿½gï¿½Å‚ï¿½ï¿½ï¿½æ‚¤ï¿½É�Cï¿½ï¿½ --{--
 	//hWnd = ::CreateWindow(lpClassName, lpszCaption, WS_CHILD | WS_VISIBLE | dwStyle, rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top, m_hWnd, (HMENU)nID, NULL, NULL);
 	hWnd = ::CreateWindowEx(dwStyleEx,lpClassName, lpszCaption, WS_CHILD | WS_VISIBLE | dwStyle, rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top, m_hWnd, (HMENU)nID, NULL, NULL);
 	//2010.01.07 bagus --}--
@@ -661,12 +661,12 @@ void COverlayDialog::OnPaint()
 	DrawStageView();
 }
 
-// 2009.05.27 K.Matsuo �_�u���o�b�t�@�����O -->
+// 2009.05.27 K.Matsuo ï¿½_ï¿½uï¿½ï¿½ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½O -->
 // ==========================================================================
 //
 void COverlayDialog::CreateStageMapBackBuffer()
 {
-	// �X�e�[�W�}�b�v�̌Œ蕔���̍쐬�i�o�b�N�o�b�t�@�j
+	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½}ï¿½bï¿½vï¿½ÌŒÅ’è•”ï¿½ï¿½ï¿½Ì�ì�¬ï¿½iï¿½oï¿½bï¿½Nï¿½oï¿½bï¿½tï¿½@ï¿½j
 
 	///// Region Map /////
 	CRect StageRect;
@@ -683,33 +683,33 @@ void COverlayDialog::CreateStageMapBackBuffer()
 	pPictBox->ReleaseDC(pDC);
 
 	// Draw Stage View
-/* added 2009.12.02 hmenjo ���� Seq �͎w��w�b�h�œ���(���) ---------- { ---------- */
-	/* �w�b�h�I�t�Z�b�g�l��Ǐo���܂��D	*/
+/* added 2009.12.02 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½) ---------- { ---------- */
+	/* ï¿½wï¿½bï¿½hï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½lï¿½ï¿½Ç�oï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 	NS_GetHeadTypeCoordLoc(NS_GetCurrentHeadType(), &m_HeadOffset);
-/* added 2009.12.02 hmenjo ���� Seq �͎w��w�b�h�œ���(���) ---------- } ---------- */
+/* added 2009.12.02 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½) ---------- } ---------- */
 	SetupStageMap();
 	SetupSampleMap();
 	DrawGrid();
 }
-// 2009.05.27 K.Matsuo �_�u���o�b�t�@�����O <--
+// 2009.05.27 K.Matsuo ï¿½_ï¿½uï¿½ï¿½ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½O <--
 
-// 2009.05.27 K.Matsuo �_�u���o�b�t�@�����O -->
+// 2009.05.27 K.Matsuo ï¿½_ï¿½uï¿½ï¿½ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½O -->
 // ==========================================================================
 //
 void COverlayDialog::DrawStageView()
 {
-	// �X�e�[�W�}�b�v�̌Œ蕔���̃r�b�g�}�b�v���R�s�[
+	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½}ï¿½bï¿½vï¿½ÌŒÅ’è•”ï¿½ï¿½ï¿½Ìƒrï¿½bï¿½gï¿½}ï¿½bï¿½vï¿½ï¿½ï¿½Rï¿½sï¿½[
 	CWnd* pPictBox = GetDlgItem(IDC_STAGE_MAP);
 	CDC* pDC = pPictBox->GetDC();
 	CRect drawRect(m_lDrawStartStagePosX, m_lDrawStartStagePosY, m_lDrawEndStagePosX, m_lDrawEndStagePosY);
 	pDC->BitBlt(drawRect.left,drawRect.top,drawRect.Width(),drawRect.Height(),m_bbDC,drawRect.left,drawRect.top,SRCCOPY);
 	pPictBox->ReleaseDC(pDC);
 
-	// �X�e�[�W�}�b�v�Ƀ|�W�V�����}�[�J�[��`��
+	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½}ï¿½bï¿½vï¿½Éƒ|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½}ï¿½[ï¿½Jï¿½[ï¿½ï¿½`ï¿½ï¿½
 	// Reset the stage position marker
 	UpdateStagePosMarker();
 }
-// 2009.05.27 K.Matsuo �_�u���o�b�t�@�����O <--
+// 2009.05.27 K.Matsuo ï¿½_ï¿½uï¿½ï¿½ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½O <--
 
 // ==========================================================================
 //
@@ -790,12 +790,12 @@ void COverlayDialog::OnTimer(UINT nIDEvent)
 
 	switch ( nIDEvent ) {
 	case REFRESH_TIMER_ID:
-/* added 2009.12.02 hmenjo ���� Seq �͎w��w�b�h�œ���(���) ---------- { ---------- */
+/* added 2009.12.02 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½) ---------- { ---------- */
 		{
-			/* �w�b�h���ؑւ���ꂽ��T���v���̕\�����w�b�h�I�t�Z�b�g�ɍ��킹�ăV�t�g�����ĕ\�����邽��
-				�X�e�[�W�}�b�v���ĕ`�悵�܂��D	*/
+			/* ï¿½wï¿½bï¿½hï¿½ï¿½ï¿½Ø‘Ö‚ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Ì•\ï¿½ï¿½ï¿½ï¿½ï¿½wï¿½bï¿½hï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½É�ï¿½ï¿½í‚¹ï¿½ÄƒVï¿½tï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Ä•\ï¿½ï¿½ï¿½ï¿½ï¿½é‚½ï¿½ï¿½
+				ï¿½Xï¿½eï¿½[ï¿½Wï¿½}ï¿½bï¿½vï¿½ï¿½ï¿½Ä•`ï¿½æ‚µï¿½Ü‚ï¿½ï¿½D	*/
 			static WORD ls_wHeadPre = NS_GetCurrentHeadType();
-/* modified 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ---------- { ---------- */
+/* modified 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
 //			WORD l_wHead = NS_GetCurrentHeadType();
 //			if (ls_wHeadPre != l_wHead) {
 //				NS_GetHeadTypeCoordLoc(l_wHead, &m_HeadOffset);
@@ -805,7 +805,7 @@ void COverlayDialog::OnTimer(UINT nIDEvent)
 //				DrawGrid();
 //				this->OnPaint();
 //			}
-/* modified 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ----------				*/
+/* modified 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ----------				*/
 			if (TRUE == m_cbHeadType.m_bSelChanged) {
 				m_cbHeadType.m_bSelChanged = FALSE;
 				WORD l_wHead = NS_GetCurrentHeadType();
@@ -818,23 +818,23 @@ void COverlayDialog::OnTimer(UINT nIDEvent)
 					this->OnPaint();
 				}
 			}
-/* modified 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ---------- } ---------- */
+/* modified 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- } ---------- */
 		}
-/* added 2009.12.02 hmenjo ���� Seq �͎w��w�b�h�œ���(���) ---------- } ---------- */
+/* added 2009.12.02 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½) ---------- } ---------- */
 		Refresh();
 		break;
 
 	case OVERLAY_BUTTON_ENABLECHANGE_TIMER:
 		ButtonEnableCheck();
-// 2009.06.05 K.Matsuo �h�A�C���^�[���b�N���o����JoyStick������ -->
+// 2009.06.05 K.Matsuo ï¿½hï¿½Aï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½JoyStickï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -->
 		JoyStickEnableCheck();
-// 2009.06.05 K.Matsuo �h�A�C���^�[���b�N���o����JoyStick������ <--
+// 2009.06.05 K.Matsuo ï¿½hï¿½Aï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½JoyStickï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ <--
 // 2009.08.04 K.Matsuo PKI LBUTTONDOWN DoorOpen -->
-		if ( m_pDoc->Rap_IsDoorInterlock() != ON ) {		/* �h�A�C���^�[���b�N			���g */
+		if ( m_pDoc->Rap_IsDoorInterlock() != ON ) {		/* ï¿½hï¿½Aï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½N			ï¿½ï¿½ï¿½g */
 			if (0 != m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE)) {
-				/* XY �X�e�[�W���쒆�ł��D	*/
+				/* XY ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ì’†ï¿½Å‚ï¿½ï¿½D	*/
 				StageStop();
-				m_pDoc->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);	/* ���쒆�t���O(XY �X�e�[�W)���I�t	*/
+				m_pDoc->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);	/* ï¿½ï¿½ï¿½ì’†ï¿½tï¿½ï¿½ï¿½O(XY ï¿½Xï¿½eï¿½[ï¿½W)ï¿½ï¿½ï¿½Iï¿½t	*/
 			}
 		}
 // 2009.08.04 K.Matsuo PKI LBUTTONDOWN DoorOpen -->
@@ -877,20 +877,20 @@ void COverlayDialog::Refresh(void)
 	///// X Axis /////
 	if(m_CurrPos.lX != m_old_CurrPos.lX){
 		sprintf(szBuff, "%.3lf", (double)(m_CurrPos.lX)/MICROMETRE);
-/* modified 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ---------- { ---------- */
+/* modified 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
 //		SetDlgItemText(IDC_COORD_X, szBuff);
-/* modified 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ---------- { ---------- */
+/* modified 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
 		if (TRUE != this->m_bProgress1PMeas) {SetDlgItemText(IDC_COORD_X, szBuff);}
-/* modified 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ---------- { ---------- */
+/* modified 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
 	}
 	///// Y Axis /////
 	if(m_CurrPos.lY != m_old_CurrPos.lY){
 		sprintf(szBuff, "%.3lf", (double)(m_CurrPos.lY)/MICROMETRE);
-/* modified 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ---------- { ---------- */
+/* modified 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
 //		SetDlgItemText(IDC_COORD_Y, szBuff);
-/* modified 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ---------- { ---------- */
+/* modified 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
 		if (TRUE != this->m_bProgress1PMeas) {SetDlgItemText(IDC_COORD_Y, szBuff);}
-/* modified 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ---------- { ---------- */
+/* modified 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
 	}
 	///// Z Axis /////
 	if(m_CurrPos.lZ != m_old_CurrPos.lZ){
@@ -921,11 +921,11 @@ void COverlayDialog::Refresh(void)
 		//20091109 Change <-----
 		if(m_CurrSamplePos.lX != m_old_CurrSamplePos.lX){
 			sprintf(szBuff, "%.3lf", (double)(m_CurrSamplePos.lX)/MICROMETRE);
-/* modified 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ---------- { ---------- */
+/* modified 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
 //			SetDlgItemText(IDC_SAMPLE_X, szBuff);
-/* modified 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ---------- { ---------- */
+/* modified 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
 			if (TRUE != this->m_bProgress1PMeas) {SetDlgItemText(IDC_SAMPLE_X, szBuff);}
-/* modified 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ---------- { ---------- */
+/* modified 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
 		}
 		///// Y Axis /////
 		//20091109 Change ----->
@@ -934,11 +934,11 @@ void COverlayDialog::Refresh(void)
 		//20091109 Change <-----
 		if(m_CurrSamplePos.lY != m_old_CurrSamplePos.lY){
 			sprintf(szBuff, "%.3lf", (double)(m_CurrSamplePos.lY)/MICROMETRE);
-/* modified 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ---------- { ---------- */
+/* modified 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
 //			SetDlgItemText(IDC_SAMPLE_Y, szBuff);
-/* modified 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ---------- { ---------- */
+/* modified 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
 			if (TRUE != this->m_bProgress1PMeas) {SetDlgItemText(IDC_SAMPLE_Y, szBuff);}
-/* modified 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ---------- { ---------- */
+/* modified 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
 		}
 		///// Z Axis /////
 		m_CurrSamplePos.lZ = m_CurrPos.lZ;
@@ -962,10 +962,10 @@ void COverlayDialog::Refresh(void)
 //
 void COverlayDialog::OnMouseMove(UINT nFlags, CPoint point)
 {
-// 2009.11.24 bagus Overlay �C�� --{--
+// 2009.11.24 bagus Overlay ï¿½Cï¿½ï¿½ --{--
 //	if ( m_rcStage.PtInRect(point) )
 	if (( m_rcStage.PtInRect(point) ) || ( m_rcOverlay.PtInRect(point) ))
-// 2009.11.24 bagus Overlay �C�� --{--
+// 2009.11.24 bagus Overlay ï¿½Cï¿½ï¿½ --{--
 		SetCursor (AfxGetApp()->LoadCursor(IDC_CROSS_1));
 	else
 		SetCursor(LoadCursor(NULL, IDC_ARROW)); // assumes arrow is default
@@ -982,13 +982,13 @@ BOOL result;
 
 #if 0
 	if( m_pMainFrame->GetJoyStickMode()!=0 ){
-		// �n�[�h�W���C�X�e�B�b�N
+		// ï¿½nï¿½[ï¿½hï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½N
 		bJoyStk = m_pDoc->ChangeJoyStick(FALSE);
 		m_pDoc->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);
 	}
 #else
 	if( !m_joyContinue ){
-		// �I������ꍇ�́A�����I�Ƀ\�t�gJoy�֐؂�ւ���
+		// ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê�‡ï¿½Í�Aï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½Éƒ\ï¿½tï¿½gJoyï¿½Ö�Ø‚ï¿½Ö‚ï¿½ï¿½ï¿½
 		m_pMainFrame->SetJoyStickMode(JOY_SOFT_MODE);
 		bJoyStk = m_pDoc->ChangeJoyStick(FALSE);
 		m_pDoc->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);
@@ -1021,7 +1021,7 @@ BOOL result;
 		m_joyStick2 = NULL;
 	}
 
-// 2009.05.27 K.Matsuo �_�u���o�b�t�@�����O -->
+// 2009.05.27 K.Matsuo ï¿½_ï¿½uï¿½ï¿½ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½O -->
 	if ( m_bbDC ) {
 		m_bbDC->DeleteDC();
 		delete m_bbDC;
@@ -1032,7 +1032,7 @@ BOOL result;
 		delete m_bbBitmap;
 		m_bbBitmap = NULL;
 	}
-// 2009.05.27 K.Matsuo �_�u���o�b�t�@�����O <--
+// 2009.05.27 K.Matsuo ï¿½_ï¿½uï¿½ï¿½ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½O <--
 
 // 2009.05.28 K.Matsuo SPT -->
 	HookKeyUnhook();
@@ -1042,10 +1042,10 @@ BOOL result;
 }
 
 // ==========================================================================
-// Name�F		OnLButtonUp
+// Nameï¿½F		OnLButtonUp
 void COverlayDialog::OnLButtonUp(UINT nFlags, CPoint point)
 {
-	// TODO: ���̈ʒu�Ƀ��b�Z�[�W �n���h���p�̃R�[�h��ǉ����邩�܂��̓f�t�H���g�̏������Ăяo���Ă�������
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½Éƒï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½é‚©ï¿½Ü‚ï¿½ï¿½Íƒfï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½Ì�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚Ñ�oï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if(m_XY_UpButton.m_bPush		||
 		m_XY_DownButton.m_bPush 	||
 		m_XY_RightButton.m_bPush	||
@@ -1078,34 +1078,34 @@ BOOL result;
 	RCP_DATA rcp;
 	m_pDoc->GetRcpData(&rcp);
 //2009.12.15 bagus MS --{--
-	//���������L���łȂ��Ƃ��ɂ͂Ȃɂ������Ȃ�
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½Å‚È‚ï¿½ï¿½Æ‚ï¿½ï¿½É‚Í‚È‚É‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 	if(rcp.MainRcpInfo.MainRcpParam.hdr.wHeadType == HEAD_TYPE_MS){
-		//���쒆�͏���
+		//ï¿½ï¿½ï¿½ì’†ï¿½Í�ï¿½ï¿½ï¿½
 		nexioMS_ModeLamp(FALSE);
 	}
 //2009.12.15 bagus MS --}--
 //2009.12.15 bagus MS --}--
 
-/* added 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ---------- { ---------- */
+/* added 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
 	if (TRUE == this->m_bProgress1PMeas) {
 		return;
 	}
-/* added 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ---------- } ---------- */
+/* added 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- } ---------- */
 
-	if ( m_rcOverlay.PtInRect(point) ) {		// �摜�N���b�N�E�Z���^�[�ړ�
+	if ( m_rcOverlay.PtInRect(point) ) {		// ï¿½æ‘œï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½Eï¿½Zï¿½ï¿½ï¿½^ï¿½[ï¿½Ú“ï¿½
 
-		// ���C���^�[���b�N������
+		// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if( !OnLButtonDown_CheckIL() )			return;
-		// ���C���^�[���b�N������
+		// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 			if( !m_pDoc->JoyStickChangeDisable() ){
 				//Saiki 20090601 Change ----->
-				//MessageBox(	"���쒆�ł�",	"�x��", MB_OK);
+				//MessageBox(	"ï¿½ï¿½ï¿½ì’†ï¿½Å‚ï¿½",	"ï¿½xï¿½ï¿½", MB_OK);
 				LoadStringML(IDS_JOYSTICK_WORKING, strMsg, "JoyStick is Working");
 				LoadStringML(IDS_TITLE_WARNING, strTitle, "WARNING");
 				MessageBox(strMsg, strTitle, MB_OK);
 				//Saiki 20090601 Change <-----
-				// �K��JoyStick�̏�Ԃ�߂�����
+				// ï¿½Kï¿½ï¿½JoyStickï¿½Ì�ï¿½Ô‚ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½
 				m_pDoc->JoyStickStatusRestore();
 				return;
 			}
@@ -1126,41 +1126,41 @@ BOOL result;
 			m_pDoc->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);
 			CCursor::EndWaitCursor();
 		}
-		{	// �K��JoyStick�̏�Ԃ�߂�����
+		{	// ï¿½Kï¿½ï¿½JoyStickï¿½Ì�ï¿½Ô‚ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½
 			m_pDoc->JoyStickStatusRestore();
 		}
 	}
-	else if ( m_rcStage.PtInRect(point) ) { 	// �X�e�[�W�}�b�v�E�N���b�N�ړ�
+	else if ( m_rcStage.PtInRect(point) ) { 	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½}ï¿½bï¿½vï¿½Eï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½Ú“ï¿½
 
-		// ���C���^�[���b�N������
+		// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if( !OnLButtonDown_CheckIL() )			return;
-		// ���C���^�[���b�N������
+		// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 			if( !m_pDoc->JoyStickChangeDisable() ){
 				//Saiki 20090601 Change ----->
-				//MessageBox(	"���쒆�ł�",	"�x��", MB_OK);
+				//MessageBox(	"ï¿½ï¿½ï¿½ì’†ï¿½Å‚ï¿½",	"ï¿½xï¿½ï¿½", MB_OK);
 				LoadStringML(IDS_JOYSTICK_WORKING, strMsg, "JoyStick is Working");
 				LoadStringML(IDS_TITLE_WARNING, strTitle, "Warning");
 				MessageBox(strMsg, strTitle, MB_OK);
 				//Saiki 20090601 Change <-----
-				// �K��JoyStick�̏�Ԃ�߂�����
+				// ï¿½Kï¿½ï¿½JoyStickï¿½Ì�ï¿½Ô‚ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½
 				m_pDoc->JoyStickStatusRestore();
 				return;
 			}
 		{
 
 // 2013.01.17 bagus rotate xy view -->
-// 			///// �X�e�[�W�L���͈� /////
+// 			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Lï¿½ï¿½ï¿½Íˆï¿½ /////
 // 			double dStageSizeX = (m_StageConfig.StageMaxCoord.dRightX - m_StageConfig.StageMaxCoord.dLeftX) - (2 * m_StageConfig.Edge.dX);
 // 			double dStageSizeY = (m_StageConfig.StageMaxCoord.dUpY - m_StageConfig.StageMaxCoord.dDownY) - (2 * m_StageConfig.Edge.dY);
 //
 // 			long xfract = point.x - m_lAbsolutePos.x;
 // 			long yfract = point.y - m_lAbsolutePos.y;
-// 			//����
+// 			//ï¿½ï¿½ï¿½ï¿½
 // 			TeachPos.lX = (dStageSizeX * xfract / m_rcStage.Width()) + (m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1)));
 // 			TeachPos.lY = (dStageSizeY * -yfract / m_rcStage.Height()) + (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1)));
 
-			///// �X�e�[�W�L���͈� /////
+			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Lï¿½ï¿½ï¿½Íˆï¿½ /////
 			double dStageSizeX;
 			double dStageSizeY;
 
@@ -1187,25 +1187,25 @@ BOOL result;
 			switch ( m_StageConfig.RotateXyView ) {
 			case 0:
 			default:
-				//����
+				//ï¿½ï¿½ï¿½ï¿½
 				TeachPos.lX = static_cast<long>((dStageSizeX * xfract / m_rcStage.Width()) + (m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))));
 				TeachPos.lY = static_cast<long>((dStageSizeY * -yfract / m_rcStage.Height()) + (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))));
 				break;
 			case 90:
-				//�����ɂ́A0�x�̂Ƃ��̉E��
+				//ï¿½ï¿½ï¿½ï¿½ï¿½É‚Í�A0ï¿½xï¿½Ì‚Æ‚ï¿½ï¿½Ì‰Eï¿½ï¿½
 				TeachPos.lX = static_cast<long>((dStageSizeY * -yfract / m_rcStage.Height()) + (-m_StageConfig.StageMaxCoord.dRightX - (m_StageConfig.Origin.lX * (-1))));
 				TeachPos.lX = TeachPos.lX * -1;
 				TeachPos.lY = static_cast<long>((dStageSizeX * xfract / m_rcStage.Width()) + (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))));
 				break;
 			case 180:
-				//�����ɂ́A0�x�̂Ƃ��̉E��
+				//ï¿½ï¿½ï¿½ï¿½ï¿½É‚Í�A0ï¿½xï¿½Ì‚Æ‚ï¿½ï¿½Ì‰Eï¿½ï¿½
 				TeachPos.lX = static_cast<long>((dStageSizeX * xfract / m_rcStage.Width()) + (-m_StageConfig.StageMaxCoord.dRightX - (m_StageConfig.Origin.lX * (-1))));
 				TeachPos.lX = TeachPos.lX * -1;
 				TeachPos.lY = static_cast<long>((dStageSizeY * -yfract / m_rcStage.Height()) + (-m_StageConfig.StageMaxCoord.dUpY - (m_StageConfig.Origin.lY * (-1))));
 				TeachPos.lY = TeachPos.lY * -1;
 				break;
 			case 270:
-				//�����ɂ́A0�x�̂Ƃ��̍���
+				//ï¿½ï¿½ï¿½ï¿½ï¿½É‚Í�A0ï¿½xï¿½Ì‚Æ‚ï¿½ï¿½Ì�ï¿½ï¿½ï¿½
 				TeachPos.lX = static_cast<long>((dStageSizeY * -yfract / m_rcStage.Height()) + (m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))));
 				TeachPos.lY = static_cast<long>((dStageSizeX * xfract / m_rcStage.Width()) + (-m_StageConfig.StageMaxCoord.dUpY - (m_StageConfig.Origin.lY * (-1))));
 				TeachPos.lY = TeachPos.lY * -1;
@@ -1221,7 +1221,7 @@ BOOL result;
 			m_pDoc->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);
 			CCursor::EndWaitCursor();
 
-			// �n�[�h�V�~�����[�V�����Ȃ�
+			// ï¿½nï¿½[ï¿½hï¿½Vï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 			if( m_pMainFrame->HardwareSimulation() ){
 				m_CurrPos.lX=TeachPos.lX;
 				m_CurrPos.lY=TeachPos.lY;
@@ -1231,7 +1231,7 @@ BOOL result;
 				// 2013.01.09 bagus <--
 			}
 		}
-		{	// �K��JoyStick�̏�Ԃ�߂�����
+		{	// ï¿½Kï¿½ï¿½JoyStickï¿½Ì�ï¿½Ô‚ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½
 			m_pDoc->JoyStickStatusRestore();
 		}
 	}
@@ -1240,32 +1240,32 @@ BOOL result;
 }
 
 // ==========================================================================
-// ���{�^���������ꂽ���̃C���^�[���b�N�̊m�F
+// ï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½ÌƒCï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ÌŠmï¿½F
 BOOL COverlayDialog::OnLButtonDown_CheckIL()
 {
 	//Saiki 20090608 Add ----->
 	CString strMsg;
 	//Saiki 20090608 Add <-----
-	// ���C���^�[���b�N������
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){			// ���������e�i���X
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return FALSE;}	// �����e�i���X�ُ�
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½X
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return FALSE;}	// ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Ù�ï¿½
 	}
-	else{													// �ʏ퓮��
-		if( nexioIsMaintenanceSwitch() != ON ){ 	AlarmIf_Set(ALID_MaintenanceSwitchOn); 	return FALSE;}	// �����e�i���X�E�X�C�b�`�E�I��
+	else{													// ï¿½Ê�í“®ï¿½ï¿½
+		if( nexioIsMaintenanceSwitch() != ON ){ 	AlarmIf_Set(ALID_MaintenanceSwitchOn); 	return FALSE;}	// ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Eï¿½Xï¿½Cï¿½bï¿½`ï¿½Eï¿½Iï¿½ï¿½
 	}
-	// �eI/O�`�F�b�N
+	// ï¿½eI/Oï¿½`ï¿½Fï¿½bï¿½N
 	if(m_pDoc->IsInterLock()		== TRUE){							return FALSE;}
-	if( nexioIsMovo2Alarm() 		!= OFF ){	AlarmIf_Set(ALID_StageError);		return FALSE;}	// MOVO�A���[�� ���k
+	if( nexioIsMovo2Alarm() 		!= OFF ){	AlarmIf_Set(ALID_StageError);		return FALSE;}	// MOVOï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ ï¿½ï¿½ï¿½k
 	if(m_pDoc->CheckUnitStatus()	== TRUE){							return FALSE;}
 	//Saiki 20090608 Change ----->
-	if( m_pMainFrame->GetJoyStickMode()==JOY_SOFT_MODE && m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){	// �\�t�g�W���C
+	if( m_pMainFrame->GetJoyStickMode()==JOY_SOFT_MODE && m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){	// ï¿½\ï¿½tï¿½gï¿½Wï¿½ï¿½ï¿½C
 		LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 		m_pDoc->MessageStringIf_Set(strMsg);
 		return FALSE;
-	}  // �X�e�[�W���쒆
+	}  // ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ì’†
 	//Saiki 20090608 Change <-----
 	if(m_pDoc->CheckActiveFlag() == TRUE){								return FALSE;}
-	// ���C���^�[���b�N������
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	return TRUE;
 }
@@ -1296,16 +1296,16 @@ void COverlayDialog::DrawLocationMarker(CONST POINT* lpPoint, BOOL bDrawColor)
 // //
 // void COverlayDialog::SetupStageMap(void)
 // {
-// 	CPaintDC dc(this); // �`��p�̃f�o�C�X �R���e�L�X�g
+// 	CPaintDC dc(this); // ï¿½`ï¿½ï¿½pï¿½Ìƒfï¿½oï¿½Cï¿½X ï¿½Rï¿½ï¿½ï¿½eï¿½Lï¿½Xï¿½g
 // 	CRect StageRect;
 // 	double dStageSizeX, dStageSizeY;
 //
 // 	///// Region Map /////
 // 	CWnd* pPictBox = GetDlgItem(IDC_STAGE_MAP);
-// // 2009.05.27 K.Matsuo �_�u���o�b�t�@�����O -->
+// // 2009.05.27 K.Matsuo ï¿½_ï¿½uï¿½ï¿½ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½O -->
 // //	CDC* pDC = pPictBox->GetDC();
 // 	CDC* pDC = m_bbDC;
-// // 2009.05.27 K.Matsuo �_�u���o�b�t�@�����O <--
+// // 2009.05.27 K.Matsuo ï¿½_ï¿½uï¿½ï¿½ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½O <--
 // 	pPictBox->GetClientRect(&StageRect);
 //
 // //	TRACE("COverlayDialog::SetupStageMap StageRect Befor %ld, %ld, %ld, %ld \n", StageRect.left, StageRect.top, StageRect.right, StageRect.bottom);
@@ -1324,12 +1324,12 @@ void COverlayDialog::DrawLocationMarker(CONST POINT* lpPoint, BOOL bDrawColor)
 //
 // //	TRACE("COverlayDialog::SetupStageMap StageRect After %ld, %ld, %ld, %ld \n", StageRectLeft, StageRectTop, StageRectRight, StageRectBottom);
 //
-// 	///// �X�e�[�W�L���͈� /////
+// 	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Lï¿½ï¿½ï¿½Íˆï¿½ /////
 // 	dStageSizeX = (m_StageConfig.StageMaxCoord.dRightX - m_StageConfig.StageMaxCoord.dLeftX) - (2 * m_StageConfig.Edge.dX);
 // 	dStageSizeY = (m_StageConfig.StageMaxCoord.dUpY - m_StageConfig.StageMaxCoord.dDownY) - (2 * m_StageConfig.Edge.dY);
 //
 //
-// 	///// �X�e�[�W�S�͈� /////
+// 	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Sï¿½Íˆï¿½ /////
 // //	if((m_dStageMaxSizeX / m_dStageMaxSizeY) > (m_iMaxSizeX / m_iMaxSizeY)) {
 // //		m_iMaxSizeY = m_iMaxSizeX * m_dStageMaxSizeY / m_dStageMaxSizeX;
 // //	}
@@ -1357,7 +1357,7 @@ void COverlayDialog::DrawLocationMarker(CONST POINT* lpPoint, BOOL bDrawColor)
 // 	m_oldPen = pDC->SelectObject(&PenStage1);
 // 	pDC->Rectangle(m_lDrawStartStagePosX, m_lDrawStartStagePosY, m_lDrawEndStagePosX+1, m_lDrawEndStagePosY+1);
 //
-// //	///// �X�e�[�W�L���͈� /////
+// //	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Lï¿½ï¿½ï¿½Íˆï¿½ /////
 // //	dStageSizeX = m_StageConfig.Size.dX - (2 * m_StageConfig.Edge.dX);
 // //	dStageSizeY = m_StageConfig.Size.dY - (2 * m_StageConfig.Edge.dY);
 //
@@ -1382,7 +1382,7 @@ void COverlayDialog::DrawLocationMarker(CONST POINT* lpPoint, BOOL bDrawColor)
 // 	pDC->SelectObject(m_oldPen);
 // 	pDC->SelectObject(m_oldBrush);
 //
-// 	// �����̃��W�b�N�ɍ��킹���ނ��߂ɍ��W��^����
+// 	// ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒï¿½ï¿½Wï¿½bï¿½Nï¿½É�ï¿½ï¿½í‚¹ï¿½ï¿½ï¿½Ş‚ï¿½ï¿½ß‚É�ï¿½ï¿½Wï¿½ï¿½^ï¿½ï¿½ï¿½ï¿½
 // 	pPictBox->GetWindowRect(&m_rcStage);
 // 	ScreenToClient(&m_rcStage);
 //
@@ -1396,32 +1396,32 @@ void COverlayDialog::DrawLocationMarker(CONST POINT* lpPoint, BOOL bDrawColor)
 // 	y_pixs_um = m_iMaxSizeY * 2 / dStageSizeY;
 //
 // // 2009.05.25 K.Matsuo StageConfigSetting SPT -->
-// 	// �I�t�Z�b�g���ꂽ���S���W�i�΃X�e�[�W�j
-// 	// StageConfigSetting��m_StageConfig.Origin�̎戵���ɂ��Đ������Ă���
-// 	//	 �C���O�FMachineOrgSensorLoc �i���W�I�{�^���ō����Ȃǂ��w��j�̊�ʒu����̃I�t�Z�b�g�l�B��ʒu�ɂ��A�I�t�Z�b�g�l�̉��Z�E���Z���s��
-// 	//	 �C����FMachineOrgSensorLoc�́A�p�~�B������i�Œ�j�Ƃ��A�}�V�[���X�e�[�W���_���P�[�V�����̍��W�ʒu�Ƃ��ė��p����
+// 	// ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½Sï¿½ï¿½ï¿½Wï¿½iï¿½ÎƒXï¿½eï¿½[ï¿½Wï¿½j
+// 	// StageConfigSettingï¿½ï¿½m_StageConfig.Originï¿½Ì�æˆµï¿½ï¿½ï¿½É‚Â‚ï¿½ï¿½Ä�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
+// 	//	 ï¿½Cï¿½ï¿½ï¿½Oï¿½FMachineOrgSensorLoc ï¿½iï¿½ï¿½ï¿½Wï¿½Iï¿½{ï¿½^ï¿½ï¿½ï¿½Å�ï¿½ï¿½ï¿½ï¿½È‚Ç‚ï¿½ï¿½wï¿½ï¿½jï¿½ÌŠî�€ï¿½Ê’uï¿½ï¿½ï¿½ï¿½ÌƒIï¿½tï¿½Zï¿½bï¿½gï¿½lï¿½Bï¿½î�€ï¿½Ê’uï¿½É‚ï¿½ï¿½Aï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½lï¿½Ì‰ï¿½ï¿½Zï¿½Eï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½sï¿½ï¿½
+// 	//	 ï¿½Cï¿½ï¿½ï¿½ï¿½FMachineOrgSensorLocï¿½Í�Aï¿½pï¿½~ï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½î�€ï¿½iï¿½Å’ï¿½jï¿½Æ‚ï¿½ï¿½Aï¿½}ï¿½Vï¿½[ï¿½ï¿½ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Pï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ì�ï¿½ï¿½Wï¿½Ê’uï¿½Æ‚ï¿½ï¿½Ä—ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½
 // 	m_lCenterPos.x = iPos.x + (long)(m_iMaxSizeX * (m_StageOriginCoord.lX - dStageSizeX/2)/(dStageSizeX/2));
 // 	m_lCenterPos.y = iPos.y - (long)(m_iMaxSizeY * (m_StageOriginCoord.lY - dStageSizeY/2)/(dStageSizeY/2));
 //
 // //	TRACE("COverlayDialog::SetupStageMap m_lCenterPos %ld, %ld \n", m_lCenterPos.x, m_lCenterPos.y);
 //
-// 	// �I�t�Z�b�g���ꂽ���S���W�i�΃E�B���h�j
+// 	// ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½Sï¿½ï¿½ï¿½Wï¿½iï¿½ÎƒEï¿½Bï¿½ï¿½ï¿½hï¿½j
 // 	m_lAbsolutePos.x = m_rcStage.CenterPoint().x + (long)(m_iMaxSizeX * (m_StageOriginCoord.lX - dStageSizeX/2)/(dStageSizeX/2));
 // 	m_lAbsolutePos.y = m_rcStage.CenterPoint().y - (long)(m_iMaxSizeY * (m_StageOriginCoord.lY - dStageSizeY/2)/(dStageSizeY/2));
 //
 // //	TRACE("COverlayDialog::SetupStageMap m_lAbsolutePos %ld, %ld \n", m_lAbsolutePos.x, m_lAbsolutePos.y);
 // // 2009.05.25 K.Matsuo StageConfigSetting SPT <--
 //
-// // 2009.05.27 K.Matsuo �_�u���o�b�t�@�����O -->
+// // 2009.05.27 K.Matsuo ï¿½_ï¿½uï¿½ï¿½ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½O -->
 // //	pPictBox->ReleaseDC(pDC);
-// // 2009.05.27 K.Matsuo �_�u���o�b�t�@�����O <--
+// // 2009.05.27 K.Matsuo ï¿½_ï¿½uï¿½ï¿½ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½O <--
 // }
 
 // ==========================================================================
 //
 void COverlayDialog::SetupStageMap(void)
 {
-	CPaintDC dc(this); // �`��p�̃f�o�C�X �R���e�L�X�g
+	CPaintDC dc(this); // ï¿½`ï¿½ï¿½pï¿½Ìƒfï¿½oï¿½Cï¿½X ï¿½Rï¿½ï¿½ï¿½eï¿½Lï¿½Xï¿½g
 	CRect StageRect;
 	double dStageSizeX, dStageSizeY;
 
@@ -1437,7 +1437,7 @@ void COverlayDialog::SetupStageMap(void)
 	m_iMaxSizeX = iPos.x - STAGE_MAP_OFFSET_X;
 	m_iMaxSizeY = iPos.y - STAGE_MAP_OFFSET_Y;
 
-	///// �X�e�[�W�L���͈� /////
+	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Lï¿½ï¿½ï¿½Íˆï¿½ /////
 // 2013.01.17 bagus rotate xy view -->
 // 	dStageSizeX = (m_StageConfig.StageMaxCoord.dRightX - m_StageConfig.StageMaxCoord.dLeftX) - (2 * m_StageConfig.Edge.dX);
 // 	dStageSizeY = (m_StageConfig.StageMaxCoord.dUpY - m_StageConfig.StageMaxCoord.dDownY) - (2 * m_StageConfig.Edge.dY);
@@ -1456,7 +1456,7 @@ void COverlayDialog::SetupStageMap(void)
 	}
 // 2013.01.17 bagus rotate xy view <--
 
-	///// �X�e�[�W�S�͈� /////
+	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Sï¿½Íˆï¿½ /////
 	if((dStageSizeX / dStageSizeY) > ((double)m_iMaxSizeX / (double)m_iMaxSizeY)) {
 		m_iMaxSizeY = static_cast<long>(m_iMaxSizeX * dStageSizeY / dStageSizeX);
 	}
@@ -1477,7 +1477,7 @@ void COverlayDialog::SetupStageMap(void)
 	m_oldPen = pDC->SelectObject(&PenStage1);
 	pDC->Rectangle(m_lDrawStartStagePosX, m_lDrawStartStagePosY, m_lDrawEndStagePosX+1, m_lDrawEndStagePosY+1);
 
-	///// �X�e�[�W�L���͈� /////
+	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Lï¿½ï¿½ï¿½Íˆï¿½ /////
 	m_iStageSizeX = m_iMaxSizeX;// * dStageSizeX / m_dStageMaxSizeX;
 	m_iStageSizeY = m_iMaxSizeY;// * dStageSizeY / m_dStageMaxSizeY;
 
@@ -1498,7 +1498,7 @@ void COverlayDialog::SetupStageMap(void)
 	pDC->SelectObject(m_oldPen);
 	pDC->SelectObject(m_oldBrush);
 
-	// �����̃��W�b�N�ɍ��킹���ނ��߂ɍ��W��^����
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒï¿½ï¿½Wï¿½bï¿½Nï¿½É�ï¿½ï¿½í‚¹ï¿½ï¿½ï¿½Ş‚ï¿½ï¿½ß‚É�ï¿½ï¿½Wï¿½ï¿½^ï¿½ï¿½ï¿½ï¿½
 	pPictBox->GetWindowRect(&m_rcStage);
 	ScreenToClient(&m_rcStage);
 
@@ -1511,15 +1511,15 @@ void COverlayDialog::SetupStageMap(void)
 	y_pixs_um = m_iMaxSizeY * 2 / dStageSizeY;
 
 // 2013.01.17 bagus rotate xy view -->
-//	// �I�t�Z�b�g���ꂽ���S���W�i�΃X�e�[�W�j
+//	// ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½Sï¿½ï¿½ï¿½Wï¿½iï¿½ÎƒXï¿½eï¿½[ï¿½Wï¿½j
 //	m_lCenterPos.x = iPos.x + (long)(m_iMaxSizeX * (m_StageOriginCoord.lX - dStageSizeX/2)/(dStageSizeX/2));
 //	m_lCenterPos.y = iPos.y - (long)(m_iMaxSizeY * (m_StageOriginCoord.lY - dStageSizeY/2)/(dStageSizeY/2));
 //
-//	// �I�t�Z�b�g���ꂽ���S���W�i�΃E�B���h�j
+//	// ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½Sï¿½ï¿½ï¿½Wï¿½iï¿½ÎƒEï¿½Bï¿½ï¿½ï¿½hï¿½j
 //	m_lAbsolutePos.x = m_rcStage.CenterPoint().x + (long)(m_iMaxSizeX * (m_StageOriginCoord.lX - dStageSizeX/2)/(dStageSizeX/2));
 //	m_lAbsolutePos.y = m_rcStage.CenterPoint().y - (long)(m_iMaxSizeY * (m_StageOriginCoord.lY - dStageSizeY/2)/(dStageSizeY/2));
 
-	// �I�t�Z�b�g���ꂽ���S���W�i�΃X�e�[�W�j
+	// ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½Sï¿½ï¿½ï¿½Wï¿½iï¿½ÎƒXï¿½eï¿½[ï¿½Wï¿½j
 	switch ( m_StageConfig.RotateXyView ) {
 	case 0:
 	default:
@@ -1540,7 +1540,7 @@ void COverlayDialog::SetupStageMap(void)
 		break;
 	}
 
-	// �I�t�Z�b�g���ꂽ���S���W�i�΃E�B���h�j
+	// ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½Sï¿½ï¿½ï¿½Wï¿½iï¿½ÎƒEï¿½Bï¿½ï¿½ï¿½hï¿½j
 	switch ( m_StageConfig.RotateXyView ) {
 	case 0:
 	default:
@@ -1568,17 +1568,17 @@ void COverlayDialog::SetupStageMap(void)
 void COverlayDialog::DrawGrid(void)
 {
 	///// Region Map /////
-// 2009.05.27 K.Matsuo �_�u���o�b�t�@�����O -->
+// 2009.05.27 K.Matsuo ï¿½_ï¿½uï¿½ï¿½ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½O -->
 //	CWnd* pPictBox = GetDlgItem(IDC_STAGE_MAP);
 //	CDC* pDC = pPictBox->GetDC();
 	CDC* pDC = m_bbDC;
-// 2009.05.27 K.Matsuo �_�u���o�b�t�@�����O <--
+// 2009.05.27 K.Matsuo ï¿½_ï¿½uï¿½ï¿½ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½O <--
 
 	DrawCenterMarker(&m_dStageMap, pDC);
 
-// 2009.05.27 K.Matsuo �_�u���o�b�t�@�����O -->
+// 2009.05.27 K.Matsuo ï¿½_ï¿½uï¿½ï¿½ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½O -->
 //	pPictBox->ReleaseDC(pDC);
-// 2009.05.27 K.Matsuo �_�u���o�b�t�@�����O <--
+// 2009.05.27 K.Matsuo ï¿½_ï¿½uï¿½ï¿½ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½O <--
 }
 
 // ==========================================================================
@@ -1614,14 +1614,14 @@ void COverlayDialog::DrawCenterMarker(LPCRECT lpRect, CDC* pDC)
 	pen.CreatePen(PS_SOLID, 0, RGB (0, 255, 0));
 	CPen *pOldPen = pDC->SelectObject(&pen);
 
-// ���S�j��
+// ï¿½ï¿½ï¿½Sï¿½jï¿½ï¿½
 //	  long StageCenterX = m_lCenterPos.x - ((m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))) * x_pixs_um);
 //	  long StageCenterY = m_lCenterPos.y + ((m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))) * y_pixs_um);
-// �X�e�[�W���_�j��
-/* modified 2009.12.02 hmenjo ���� Seq �͎w��w�b�h�œ���(���) ---------- { ---------- */
+// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½_ï¿½jï¿½ï¿½
+/* modified 2009.12.02 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½) ---------- { ---------- */
 //	  long StageCenterX = m_lCenterPos.x + ((m_StageConfig.Origin.lX * (-1)) * x_pixs_um)- ((m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))) * x_pixs_um);
 //	  long StageCenterY = m_lCenterPos.y - ((m_StageConfig.Origin.lY * (-1)) * y_pixs_um)+ ((m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))) * y_pixs_um);
-/* modified 2009.12.02 hmenjo ���� Seq �͎w��w�b�h�œ���(���) ----------				*/
+/* modified 2009.12.02 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½) ----------				*/
 	STAGE_COORD l_StgCfgOrg;
 	l_StgCfgOrg.lX = m_StageConfig.Origin.lX - m_HeadOffset.lX;
 	l_StgCfgOrg.lY = m_StageConfig.Origin.lY - m_HeadOffset.lY;
@@ -1635,28 +1635,28 @@ void COverlayDialog::DrawCenterMarker(LPCRECT lpRect, CDC* pDC)
 	switch ( m_StageConfig.RotateXyView ) {
 	case 0:
 	default:
-		//����
+		//ï¿½ï¿½ï¿½ï¿½
 		StageCenterX = static_cast<long>(m_lCenterPos.x + ((m_StageConfig.Origin.lX * (-1)) * x_pixs_um) - ((m_StageConfig.StageMaxCoord.dLeftX - (l_StgCfgOrg.lX * (-1))) * x_pixs_um));
 		StageCenterY = static_cast<long>(m_lCenterPos.y - ((m_StageConfig.Origin.lY * (-1)) * y_pixs_um) + ((m_StageConfig.StageMaxCoord.dDownY - (l_StgCfgOrg.lY * (-1))) * y_pixs_um));
 		break;
 	case 90:
-		//�����ɂ́A0�x�̂Ƃ��̉E��
+		//ï¿½ï¿½ï¿½ï¿½ï¿½É‚Í�A0ï¿½xï¿½Ì‚Æ‚ï¿½ï¿½Ì‰Eï¿½ï¿½
 		StageCenterX = static_cast<long>(m_lCenterPos.x + ((m_StageConfig.Origin.lY * (-1)) * x_pixs_um) - ((m_StageConfig.StageMaxCoord.dDownY - (l_StgCfgOrg.lY * (-1))) * x_pixs_um));
 		StageCenterY = static_cast<long>(m_lCenterPos.y + ((m_StageConfig.Origin.lX * (-1)) * y_pixs_um) + ((-m_StageConfig.StageMaxCoord.dRightX - (l_StgCfgOrg.lX * (-1))) * y_pixs_um));
 		break;
 	case 180:
-		//�����ɂ́A0�x�̂Ƃ��̉E��
+		//ï¿½ï¿½ï¿½ï¿½ï¿½É‚Í�A0ï¿½xï¿½Ì‚Æ‚ï¿½ï¿½Ì‰Eï¿½ï¿½
 		StageCenterX = static_cast<long>(m_lCenterPos.x - ((m_StageConfig.Origin.lX * (-1)) * x_pixs_um) - ((-m_StageConfig.StageMaxCoord.dRightX - (l_StgCfgOrg.lX * (-1))) * x_pixs_um));
 		StageCenterY = static_cast<long>(m_lCenterPos.y + ((m_StageConfig.Origin.lY * (-1)) * y_pixs_um) + ((-m_StageConfig.StageMaxCoord.dUpY - (l_StgCfgOrg.lY * (-1))) * y_pixs_um));
 		break;
 	case 270:
-		//�����ɂ́A0�x�̂Ƃ��̍���
+		//ï¿½ï¿½ï¿½ï¿½ï¿½É‚Í�A0ï¿½xï¿½Ì‚Æ‚ï¿½ï¿½Ì�ï¿½ï¿½ï¿½
 		StageCenterX = static_cast<long>(m_lCenterPos.x - ((m_StageConfig.Origin.lY * (-1)) * x_pixs_um) - ((-m_StageConfig.StageMaxCoord.dUpY - (l_StgCfgOrg.lY * (-1))) * x_pixs_um));
 		StageCenterY = static_cast<long>(m_lCenterPos.y - ((m_StageConfig.Origin.lX * (-1)) * y_pixs_um) + ((m_StageConfig.StageMaxCoord.dLeftX - (l_StgCfgOrg.lX * (-1))) * y_pixs_um));
 		break;
 	}
 // 2013.01.17 bagus rotate xy view -->
-/* modified 2009.12.02 hmenjo ���� Seq �͎w��w�b�h�œ���(���) ---------- } ---------- */
+/* modified 2009.12.02 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½) ---------- } ---------- */
 
 	// Draw two cross dashed lines on wafer
 	short length = 8;
@@ -1687,7 +1687,7 @@ void COverlayDialog::DrawGridLine(WORD wAxis, int iInc, int iInterval, LPCRECT l
 	CPen *pOldPen = pDC->SelectObject(&pen);
 
 	if ( wAxis == X ) { 							// draw the line along x axis
-		//�X�e�[�W���S��Grid��`��
+		//ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½Sï¿½ï¿½Gridï¿½ï¿½`ï¿½ï¿½
 		DrawDashLine(Y, lpRect->top, 1, 1, lpRect->bottom, lpRect->left, 1, pDC);
 		iBound = iInc > 0 ? lpRect->left + iInterval : lpRect->right - iInterval;
 		while ( iInc > 0 ? iBound <= lpRect->right :iBound >= lpRect->left ) {
@@ -1697,7 +1697,7 @@ void COverlayDialog::DrawGridLine(WORD wAxis, int iInc, int iInterval, LPCRECT l
 		}
 	}
 	else {
-		//�X�e�[�W���S��Grid��`��
+		//ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½Sï¿½ï¿½Gridï¿½ï¿½`ï¿½ï¿½
 		DrawDashLine(X, lpRect->left, 1, 1, lpRect->right, lpRect->bottom, 1, pDC);
 		iBound = iInc > 0 ? lpRect->bottom - iInterval : lpRect->top + iInterval;
 		while ( iInc > 0 ? iBound >= lpRect->top : iBound <= lpRect->bottom ) {
@@ -1755,10 +1755,10 @@ void COverlayDialog::UpdateStagePosMarker ()
 		return; 									// error cannot be handled
 
 	int x, y;
-	///// �X�e�[�W�L���͈� /////
+	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Lï¿½ï¿½ï¿½Íˆï¿½ /////
 
 // 2013.01.09 bagus -->
-//	// �����X�e�[�W��̌��݈ʒu�ŕ\�����邽�߂ɁA�ϊ�����
+//	// ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ÌŒï¿½ï¿½İˆÊ’uï¿½Å•\ï¿½ï¿½ï¿½ï¿½ï¿½é‚½ï¿½ß‚É�Aï¿½ÏŠï¿½ï¿½ï¿½ï¿½ï¿½
 	STAGE_COORD_XYZ coordTemp;
 	coordTemp = m_CurrPos;
 	NS_ConvertToStageMoveCoord(&coordTemp);
@@ -1766,7 +1766,7 @@ void COverlayDialog::UpdateStagePosMarker ()
 
 //	x = m_lCenterPos.x + (int)(m_CurrPos.lX * x_pixs_um + (double)0.5);
 //	y = m_lCenterPos.y - (int)(m_CurrPos.lY * y_pixs_um + (double)0.5);
-	//����
+	//ï¿½ï¿½ï¿½ï¿½
 
 // 2013.01.17 bagus rotate xy view -->
 // 	x = m_lCenterPos.x + (int)(coordTemp.lX * x_pixs_um) - ((m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))) * x_pixs_um);
@@ -1778,22 +1778,22 @@ void COverlayDialog::UpdateStagePosMarker ()
 	switch ( m_StageConfig.RotateXyView ) {
 	case 0:
 	default:
-		//����
+		//ï¿½ï¿½ï¿½ï¿½
 		x = static_cast<long>(x + (int)(coordTemp.lX * x_pixs_um) - ((m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))) * x_pixs_um));
 		y = static_cast<long>(y - (int)(coordTemp.lY * y_pixs_um) + ((m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))) * y_pixs_um));
 		break;
 	case 90:
-		//�����ɂ́A0�x�̂Ƃ��̉E��
+		//ï¿½ï¿½ï¿½ï¿½ï¿½É‚Í�A0ï¿½xï¿½Ì‚Æ‚ï¿½ï¿½Ì‰Eï¿½ï¿½
 		x = static_cast<long>(x + (int)(coordTemp.lY * x_pixs_um) - ((m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))) * x_pixs_um));
 		y = static_cast<long>(y + (int)(coordTemp.lX * y_pixs_um) + ((-m_StageConfig.StageMaxCoord.dRightX - (m_StageConfig.Origin.lX * (-1))) * y_pixs_um));
 		break;
 	case 180:
-		//�����ɂ́A0�x�̂Ƃ��̉E��
+		//ï¿½ï¿½ï¿½ï¿½ï¿½É‚Í�A0ï¿½xï¿½Ì‚Æ‚ï¿½ï¿½Ì‰Eï¿½ï¿½
 		x = static_cast<long>(x - (int)(coordTemp.lX * x_pixs_um) - ((-m_StageConfig.StageMaxCoord.dRightX - (m_StageConfig.Origin.lX * (-1))) * x_pixs_um));
 		y = static_cast<long>(y + (int)(coordTemp.lY * y_pixs_um) + ((-m_StageConfig.StageMaxCoord.dUpY - (m_StageConfig.Origin.lY * (-1))) * y_pixs_um));
 		break;
 	case 270:
-		//�����ɂ́A0�x�̂Ƃ��̍���
+		//ï¿½ï¿½ï¿½ï¿½ï¿½É‚Í�A0ï¿½xï¿½Ì‚Æ‚ï¿½ï¿½Ì�ï¿½ï¿½ï¿½
 		x = static_cast<long>(x - (int)(coordTemp.lY * x_pixs_um) - ((-m_StageConfig.StageMaxCoord.dUpY - (m_StageConfig.Origin.lY * (-1))) * x_pixs_um));
 		y = static_cast<long>(y - (int)(coordTemp.lX * y_pixs_um) + ((m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))) * y_pixs_um));
 		break;
@@ -1804,11 +1804,11 @@ void COverlayDialog::UpdateStagePosMarker ()
 
 //	TRACE("COverlayDialog::UpdateStagePosMarker %d, %d \n", m_ptStageMarker.x, m_ptStageMarker.y);
 
-/* added 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ---------- { ---------- */
+/* added 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
 	if (TRUE == this->m_bProgress1PMeas) {
 		m_ptStageMarker = m_ptOldStageMarker;
 	}
-/* added 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ---------- } ---------- */
+/* added 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- } ---------- */
 	DrawMarker();									// draw new
 
 	m_ptOldStageMarker = m_ptStageMarker;
@@ -1968,8 +1968,8 @@ long COverlayDialog::RotateXyAxisDir(long lDir)
 // 2013.01.17 bagus rotate xy view <--
 
 // 2013.01.09 bagus -->
-// �N���C�A���g�X�e�[�W���W�iUI��ʗp�j�ɕϊ�
-// �J�����́AStageConfig�Őݒ肳�ꂽView�����Őݒu����Ă���
+// ï¿½Nï¿½ï¿½ï¿½Cï¿½Aï¿½ï¿½ï¿½gï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½Wï¿½iUIï¿½ï¿½Ê—pï¿½jï¿½É•ÏŠï¿½
+// ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½Í�AStageConfigï¿½Å�İ’è‚³ï¿½ê‚½Viewï¿½ï¿½ï¿½ï¿½ï¿½Å�İ’uï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
 void COverlayDialog::ToClientXyStageCoord(STAGE_COORD* lpPoint)
 {
 // 2013.01.17 bagus rotate xy view -->
@@ -2043,7 +2043,7 @@ void COverlayDialog::ToClientXyStageCoord(STAGE_COORD* lpPoint)
 	}
 }
 
-// �����W�iSTAGEAPI�p�j�ɕϊ�
+// ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½iSTAGEAPIï¿½pï¿½jï¿½É•ÏŠï¿½
 void COverlayDialog::ToXyAxisCoord(STAGE_COORD* lpPoint)
 {
 	// X: RIGHT
@@ -2301,29 +2301,29 @@ void COverlayDialog::OnOK()
 	CString strMsg;
 	//Saiki 20090530 Add <-----
 // 2009.05.16 k-matsuo
-// �����[�g����m_lX, m_lY�̒l���ݒ肳�ꂸ��EndDialog�����o�O�Ή�
-// �z�X�g���[�h�Ɋ֌W�Ȃ��C���^�[���b�N�������݂�悤�ɂ���
+// ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½ï¿½m_lX, m_lYï¿½Ì’lï¿½ï¿½ï¿½İ’è‚³ï¿½ê‚¸ï¿½ï¿½EndDialogï¿½ï¿½ï¿½ï¿½ï¿½oï¿½Oï¿½Î‰ï¿½
+// ï¿½zï¿½Xï¿½gï¿½ï¿½ï¿½[ï¿½hï¿½ÉŠÖŒWï¿½È‚ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½æ‚¤ï¿½É‚ï¿½ï¿½ï¿½
 //
-//	//�����[�g���͉������Ȃ�
+//	//ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½Í‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 //	if(m_pDoc->GetHostMode() == HOST_REMOTE) return;
 
-	// ���C���^�[���b�N������
-/* modified 2009.06.18 hmenjo �I�[�o���C DLG OK �{�^���ُ� MSG ---------- } ---------- */
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+/* modified 2009.06.18 hmenjo ï¿½Iï¿½[ï¿½oï¿½ï¿½ï¿½C DLG OK ï¿½{ï¿½^ï¿½ï¿½ï¿½Ù�ï¿½ MSG ---------- } ---------- */
 	/*//Saiki 20090520 Change <-----*/
-	// �ǂꂩ�������Ă����瓮��֎~
+	// ï¿½Ç‚ê‚©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ç“®ï¿½ï¿½Ö�~
 	if( m_pMainFrame->GetJoyStickMode()==0 ){
 		//Saiki 20090601 Change ----->
 		if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 			LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 			m_pDoc->MessageStringIf_Set(strMsg);
 			return;
-		}	 // �X�e�[�W���쒆
+		}	 // ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ì’†
 		//Saiki 20090601 Change <-----
 	}
 	/*//Saiki 20090520 Change ----->*/
 	if(m_pDoc->CheckActiveFlag() == TRUE){return;}
 	/*//Saiki 20090520 Change <-----*/
-	// ���C���^�[���b�N������
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	m_lX = m_CurrPos.lX;
 	m_lY = m_CurrPos.lY;
@@ -2344,19 +2344,19 @@ void COverlayDialog::OnCancel()
 {
 	SetOperationLog("CANCEL Button was push.");
 
-	// ���C���^�[���b�N������
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ���������e�i���X
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;}	// �����e�i���X�ُ�
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½X
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;}	// ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Ù�ï¿½
 	}
-	else{												// �ʏ퓮��
+	else{												// ï¿½Ê�í“®ï¿½ï¿½
 	}
-	// ���C���^�[���b�N������
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	CDialog::OnCancel();
 }
 
 // ==========================================================================
-// �\�t�g�W���C�X�e�B�b�N�ɂ��蓮����i�w�x���j
+// ï¿½\ï¿½tï¿½gï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½É‚ï¿½ï¿½è“®ï¿½ï¿½ï¿½ï¿½iï¿½wï¿½xï¿½ï¿½ï¿½j
 // ==========================================================================
 LRESULT COverlayDialog::OnDoStageMove(WPARAM wParam, LPARAM lParam)
 {
@@ -2370,40 +2370,40 @@ BOOL result;
 // 2009.05.28 K.Matsuo SPT <--
 
 // 2009.05.16 k-matsuo
-// �����[�g���ɑ���ł��Ȃ��o�O�Ή�
-// �z�X�g���[�h�Ɋ֌W�Ȃ��C���^�[���b�N�������݂�悤�ɂ���
+// ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½É‘ï¿½ï¿½ï¿½Å‚ï¿½ï¿½È‚ï¿½ï¿½oï¿½Oï¿½Î‰ï¿½
+// ï¿½zï¿½Xï¿½gï¿½ï¿½ï¿½[ï¿½hï¿½ÉŠÖŒWï¿½È‚ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½æ‚¤ï¿½É‚ï¿½ï¿½ï¿½
 //
-//	//�����[�g���͉������Ȃ�
+//	//ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½Í‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 //	if(m_pDoc->GetHostMode() == HOST_REMOTE) return 0L;
 
-	// ���C���^�[���b�N������
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ���������e�i���X
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return 0L;} // �����e�i���X�ُ�
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½X
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return 0L;} // ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Ù�ï¿½
 	}
-	else{												// �ʏ퓮��
+	else{												// ï¿½Ê�í“®ï¿½ï¿½
 	}
-	// �eI/O�`�F�b�N
+	// ï¿½eI/Oï¿½`ï¿½Fï¿½bï¿½N
 	/*//Saiki 20090520 Change ----->*/
 	if(m_pDoc->IsInterLock() == TRUE){return 0L;}
-	if( nexioIsMovo2Alarm() 	!= OFF){	AlarmIf_Set(ALID_StageError);	return 0L;} // MOVO�A���[�� 				���k
+	if( nexioIsMovo2Alarm() 	!= OFF){	AlarmIf_Set(ALID_StageError);	return 0L;} // MOVOï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ 				ï¿½ï¿½ï¿½k
 	if(m_pDoc->CheckUnitStatus() == TRUE){return 0L;}
 	/*//Saiki 20090520 Change <-----*/
 
-	// �V���b�^�[�ȊO�������Ă����瓮��֎~
+	// ï¿½Vï¿½ï¿½ï¿½bï¿½^ï¿½[ï¿½ÈŠOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ç“®ï¿½ï¿½Ö�~
 	if( m_pMainFrame->GetJoyStickMode()==0 ){
 		//Saiki 20090601 Change ----->
 		if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 			LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 			m_pDoc->MessageStringIf_Set(strMsg);
 			return 0L;
-		}	// �X�e�[�W���쒆
+		}	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ì’†
 		//Saiki 20090601 Change <-----
 	}
 	/*//Saiki 20090520 Change ----->*/
 	if(m_pDoc->CheckActiveFlag() == TRUE){return 0L;}
 	/*//Saiki 20090520 Change <-----*/
 
-	// ���C���^�[���b�N������
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	short sign = 1;
 	WORD wAxis;
@@ -2472,17 +2472,17 @@ BOOL result;
 			switch ( m_SystemConfig.nStageType ) {
 			case STAGE_TYPE_SPT:
 				if(nMode < STAGE_MOTION_JOG_LOW){
-					// �ᑬ�E�����E����
+					// ï¿½á‘¬ï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½Eï¿½ï¿½ï¿½ï¿½
 					if ( StageIsIdle() ) {
 						StageMoveAtSpeedEx(wAxis, (double)(MotionJog * sign)/MICROMETRE, FALSE);
 						m_bIsMoveAtSpeed = TRUE;
 						if ( lParam == 1 ) {
-							// �L�[�{�[�h����́AWM_STAGE_MOVE_DONE�̎�M�Œ�~����
+							// ï¿½Lï¿½[ï¿½{ï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½Í�AWM_STAGE_MOVE_DONEï¿½Ì�ï¿½Mï¿½Å’ï¿½~ï¿½ï¿½ï¿½ï¿½
 							return 0L;
 						}
 					}
 				}else{
-					// �W���O�i��j�E�W���O�i���j�E�W���O�i���j
+					// ï¿½Wï¿½ï¿½ï¿½Oï¿½iï¿½ï¿½jï¿½Eï¿½Wï¿½ï¿½ï¿½Oï¿½iï¿½ï¿½ï¿½jï¿½Eï¿½Wï¿½ï¿½ï¿½Oï¿½iï¿½ï¿½ï¿½j
 					Pos.lX = Pos.lY = 0;
 					switch ( wAxis ) {
 					case X:
@@ -2520,7 +2520,7 @@ BOOL result;
 
 		if ( m_SystemConfig.nStageType == STAGE_TYPE_SPT ) {
 			if ( m_bIsMoveAtSpeed ) {
-				// �}�E�X����́A�����Œ�~������
+				// ï¿½}ï¿½Eï¿½Xï¿½ï¿½ï¿½ï¿½Í�Aï¿½ï¿½ï¿½ï¿½ï¿½Å’ï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				StageStop();
 				m_bIsMoveAtSpeed = FALSE;
 			}
@@ -2578,7 +2578,7 @@ LRESULT COverlayDialog::OnStageMoveDone(WPARAM wParam, LPARAM lParam)
 }
 
 // ==========================================================================
-// �\�t�g�W���C�X�e�B�b�N�ɂ��蓮����i�y���j
+// ï¿½\ï¿½tï¿½gï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½É‚ï¿½ï¿½è“®ï¿½ï¿½ï¿½ï¿½iï¿½yï¿½ï¿½ï¿½j
 // ==========================================================================
 LRESULT COverlayDialog::OnDoElevatorMove(WPARAM wParam, LPARAM lParam)
 {
@@ -2588,24 +2588,24 @@ short sign = 1;
 	CString strMsg;
 	//Saiki 20090530 Add <-----
 // 2009.05.16 k-matsuo
-// �����[�g���ɑ���ł��Ȃ��o�O�Ή�
-// �z�X�g���[�h�Ɋ֌W�Ȃ��C���^�[���b�N�������݂�悤�ɂ���
+// ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½É‘ï¿½ï¿½ï¿½Å‚ï¿½ï¿½È‚ï¿½ï¿½oï¿½Oï¿½Î‰ï¿½
+// ï¿½zï¿½Xï¿½gï¿½ï¿½ï¿½[ï¿½hï¿½ÉŠÖŒWï¿½È‚ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½æ‚¤ï¿½É‚ï¿½ï¿½ï¿½
 //
-//	//�����[�g���͉������Ȃ�
+//	//ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½Í‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 //	if(m_pDoc->GetHostMode() == HOST_REMOTE) return 0L;
 
-	// ���C���^�[���b�N������
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ���������e�i���X
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return 0L;} // �����e�i���X�ُ�
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½X
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return 0L;} // ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Ù�ï¿½
 	}
-	else{												// �ʏ퓮��
+	else{												// ï¿½Ê�í“®ï¿½ï¿½
 	}
-	// �eI/O�`�F�b�N
+	// ï¿½eI/Oï¿½`ï¿½Fï¿½bï¿½N
 	/*//Saiki 20090520 Change ----->*/
 	if(m_pDoc->IsInterLock() == TRUE){return 0L;}
 	if(m_pDoc->CheckUnitStatus() == TRUE){return 0L;}
 	/*//Saiki 20090520 Change <-----*/
-	// �V���b�^�[�ȊO�������Ă����瓮��֎~
+	// ï¿½Vï¿½ï¿½ï¿½bï¿½^ï¿½[ï¿½ÈŠOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ç“®ï¿½ï¿½Ö�~
 
 	if( m_pMainFrame->GetJoyStickMode()==0 ){
 		//Saiki 20090601 Change ----->
@@ -2613,13 +2613,13 @@ short sign = 1;
 			LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 			m_pDoc->MessageStringIf_Set(strMsg);
 			return 0L;
-		}	// �X�e�[�W���쒆
+		}	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ì’†
 		//Saiki 20090601 Change <-----
 	}
 	/*//Saiki 20090520 Change ----->*/
 	if(m_pDoc->CheckActiveFlag() == TRUE){return 0L;}
 	/*//Saiki 20090520 Change <-----*/
-	// ���C���^�[���b�N������
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	switch ( wParam ) {
 	case VK_DOWN:
@@ -2682,7 +2682,7 @@ BOOL COverlayDialog::PreTranslateMessage(MSG* pMsg)
 		case VK_UP:
 		case VK_LEFT:
 		case VK_RIGHT:
-			// H/W�����Ȃ�
+			// H/Wï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 			if( m_pMainFrame->GetJoyStickMode() == 0 ){
 //				if ( m_SystemConfig.nStageType == STAGE_TYPE_SPT ) {
 //					if ( !CCursor::m_bWaitCursor ) {
@@ -2705,7 +2705,7 @@ BOOL COverlayDialog::PreTranslateMessage(MSG* pMsg)
 //		  case VK_UP:
 //		  case VK_LEFT:
 //		  case VK_RIGHT:
-//			  // H/W�����Ȃ�
+//			  // H/Wï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 //			  if( m_pMainFrame->GetJoyStickMode() == 0 ){
 //				  PostMessage(WM_STAGE_MOVE_DONE, pMsg->wParam, 0L);
 //				TRACE("COverlayDialog::PreTranslateMessage WM_KEYUP\n");
@@ -2738,44 +2738,44 @@ BOOL result;
 
 
 
-	// ���C���^�[���b�N������
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){	// ���������e�i���X
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;}	// �����e�i���X�ُ�
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½X
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;}	// ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Ù�ï¿½
 	}
-	else{											// �ʏ퓮��
-		if( nexioIsMaintenanceSwitch() != ON ){ 	AlarmIf_Set(ALID_MaintenanceSwitchOn); 	return;}	// �����e�i���X�E�X�C�b�`�E�I��
+	else{											// ï¿½Ê�í“®ï¿½ï¿½
+		if( nexioIsMaintenanceSwitch() != ON ){ 	AlarmIf_Set(ALID_MaintenanceSwitchOn); 	return;}	// ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Eï¿½Xï¿½Cï¿½bï¿½`ï¿½Eï¿½Iï¿½ï¿½
 	}
-	// �eI/O�`�F�b�N
+	// ï¿½eI/Oï¿½`ï¿½Fï¿½bï¿½N
 	if(m_pDoc->IsInterLock()		== TRUE){							return;}
-	if( nexioIsMovo2Alarm() 		!= OFF ){		AlarmIf_Set(ALID_StageError);	return;}	// MOVO�A���[�� ���k
+	if( nexioIsMovo2Alarm() 		!= OFF ){		AlarmIf_Set(ALID_StageError);	return;}	// MOVOï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ ï¿½ï¿½ï¿½k
 	if(m_pDoc->CheckUnitStatus()	== TRUE){							return;}
-	// �V���b�^�[�ȊO�������Ă����瓮��֎~
+	// ï¿½Vï¿½ï¿½ï¿½bï¿½^ï¿½[ï¿½ÈŠOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ç“®ï¿½ï¿½Ö�~
 	if( m_pMainFrame->GetJoyStickMode()==0 ){
 		//Saiki 20090601 Change ----->
 		if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 			LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 			m_pDoc->MessageStringIf_Set(strMsg);
 			return;
-		}  // �X�e�[�W���쒆
+		}  // ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ì’†
 		//Saiki 20090601 Change <-----
 	}
 	if(m_pDoc->CheckActiveFlag() == TRUE){								return;}
-	// ���C���^�[���b�N������
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	if( !m_pDoc->JoyStickChangeDisable() ){
 		//Saiki 20090603 Change ----->
-		//MessageBox( "���쒆�ł�", "�x��", MB_OK);
+		//MessageBox( "ï¿½ï¿½ï¿½ì’†ï¿½Å‚ï¿½", "ï¿½xï¿½ï¿½", MB_OK);
 		LoadStringML(IDS_JOYSTICK_WORKING, strMsg, "JoyStick is Working");
 		LoadStringML(IDS_TITLE_WARNING, strTitle, "Warning");
 		MessageBox(strMsg, strTitle, MB_OK);
 		//Saiki 20090603 Change <-----
-		// �K��JoyStick�̏�Ԃ�߂�����
+		// ï¿½Kï¿½ï¿½JoyStickï¿½Ì�ï¿½Ô‚ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½
 		m_pDoc->JoyStickStatusRestore();
 		return;
 	}
 
 	SetOperationLog("COORDINATE Button was push.");
-	TRACE("COverlayDialog::OnSpecifyCoord()�֐��� m_nSampleMode:%d\n", m_nSampleMode);
+	TRACE("COverlayDialog::OnSpecifyCoord()ï¿½Ö�ï¿½ï¿½ï¿½ m_nSampleMode:%d\n", m_nSampleMode);
 	dlg.m_nSampleMode = m_nSampleMode;
 //OkabeAdd20090612--->
 	if ( m_nSampleMode != 0 ){
@@ -2820,7 +2820,7 @@ BOOL result;
 			break;
 		}
 	}
-	{	// �K��JoyStick�̏�Ԃ�߂�����
+	{	// ï¿½Kï¿½ï¿½JoyStickï¿½Ì�ï¿½Ô‚ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½
 		m_pDoc->JoyStickStatusRestore();
 	}
 
@@ -2834,11 +2834,11 @@ void COverlayDialog::OnJogSetting()
 	CString strMsg;
 	//Saiki 20090530 Add <-----
 
-	// ���C���^�[���b�N������
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ���������e�i���X
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;}	// �����e�i���X�ُ�
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½X
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;}	// ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Ù�ï¿½
 	}
-	else{												// �ʏ퓮��
+	else{												// ï¿½Ê�í“®ï¿½ï¿½
 	}
 	if( m_pMainFrame->GetJoyStickMode()==0 ){
 		//Saiki 20090601 Change ----->
@@ -2846,7 +2846,7 @@ void COverlayDialog::OnJogSetting()
 			LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 			m_pDoc->MessageStringIf_Set(strMsg);
 			return;
-		}  // �X�e�[�W���쒆
+		}  // ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ì’†
 		//Saiki 20090601 Change <-----
 	}
 	//Saiki 20090601 Change ----->
@@ -2854,9 +2854,9 @@ void COverlayDialog::OnJogSetting()
 		LoadStringML(IDS_Z_AXIS_WORKING, strMsg, "Z Axis is moving.");
 		m_pDoc->MessageStringIf_Set(strMsg);
 		return;
-	}  // �y�����쒆
+	}  // ï¿½yï¿½ï¿½ï¿½ï¿½ï¿½ì’†
 	//Saiki 20090601 Change <-----
-	// ���C���^�[���b�N������
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	SetOperationLog("JOG SETTING Button was push.");
 
@@ -2906,33 +2906,33 @@ void COverlayDialog::OnJogSetting()
 void COverlayDialog::OnAutoFocus()
 {
 // 2009.05.16 k-matsuo
-// �����[�g���ɑ���ł��Ȃ��o�O�Ή�
-// �z�X�g���[�h�Ɋ֌W�Ȃ��C���^�[���b�N�������݂�悤�ɂ���
+// ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½É‘ï¿½ï¿½ï¿½Å‚ï¿½ï¿½È‚ï¿½ï¿½oï¿½Oï¿½Î‰ï¿½
+// ï¿½zï¿½Xï¿½gï¿½ï¿½ï¿½[ï¿½hï¿½ÉŠÖŒWï¿½È‚ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½æ‚¤ï¿½É‚ï¿½ï¿½ï¿½
 //
-//	//�����[�g���͉������Ȃ�
+//	//ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½Í‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 //	if(m_pDoc->GetHostMode() == HOST_REMOTE) return;
 	//Saiki 20090530 Add ----->
 	CString strMsg, strTitle;
 	//Saiki 20090530 Add <-----
-	// ���C���^�[���b�N������
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ���������e�i���X
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;}	// �����e�i���X�ُ�
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½X
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;}	// ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Ù�ï¿½
 	}
-	else{												// �ʏ퓮��
+	else{												// ï¿½Ê�í“®ï¿½ï¿½
 	}
-	// �eI/O�`�F�b�N
+	// ï¿½eI/Oï¿½`ï¿½Fï¿½bï¿½N
 	/*//Saiki 20090520 Change ----->*/
 	if(m_pDoc->IsInterLock() == TRUE){return;}
 	if(m_pDoc->CheckUnitStatus() == TRUE){return;}
 	/*//Saiki 20090520 Change <-----*/
-	// �ǂꂩ�������Ă����瓮��֎~
+	// ï¿½Ç‚ê‚©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ç“®ï¿½ï¿½Ö�~
 	if( m_pMainFrame->GetJoyStickMode()==0 ){
 		//Saiki 20090601 Change ----->
 		if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 			LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 			m_pDoc->MessageStringIf_Set(strMsg);
 			return;
-		}  // �X�e�[�W���쒆
+		}  // ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ì’†
 		//Saiki 20090601 Change <-----
 	}
 	/*//Saiki 20090520 Change ----->*/
@@ -2943,9 +2943,9 @@ void COverlayDialog::OnAutoFocus()
 		LoadStringML(IDS_LOAD_SHUTTER_WORKING, strMsg, "Sample Loading Shutter is moving.");
 		m_pDoc->MessageStringIf_Set(strMsg);
 		return;
-	}  // �V���b�^�[���쒆
+	}  // ï¿½Vï¿½ï¿½ï¿½bï¿½^ï¿½[ï¿½ï¿½ï¿½ì’†
 	//Saiki 20090601 Change <-----
-	// ���C���^�[���b�N������
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 //	if ( !CCursor::m_bWaitCursor ) {
 
@@ -2955,15 +2955,15 @@ void COverlayDialog::OnAutoFocus()
 		CCursor::BeginWaitCursor();
 		m_pDoc->ActuateFlagsSet(ACTUATE_ZAXIS, TRUE);
 		if(!m_pMainFrame->HardwareSimulation()){
-/* modified 2009.09.08 hmenjo AF ���������Y�ؑ֒u�� ---------- { ---------- */
+/* modified 2009.09.08 hmenjo AF ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½Ø‘Ö’uï¿½ï¿½ ---------- { ---------- */
 //			if( StageDoAutoFocus()==FALSE ){
-/* modified 2009.09.08 hmenjo AF ���������Y�ؑ֒u�� ----------				*/
+/* modified 2009.09.08 hmenjo AF ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½Ø‘Ö’uï¿½ï¿½ ----------				*/
 			if (FALSE == NS_StageDoAutoFocus()) {
-/* modified 2009.09.08 hmenjo AF ���������Y�ؑ֒u�� ---------- } ---------- */
+/* modified 2009.09.08 hmenjo AF ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½Ø‘Ö’uï¿½ï¿½ ---------- } ---------- */
 				m_AutoFocusResult	 = 1;	// AutoFocus Result NG
 				//Saiki 20090603 Change ----->
 //				MessageBox("Auto Focus Fail !!!.", "AUTO FOCUS", MB_OK|MB_ICONWARNING);
-				//MessageBox("�I�[�g�t�H�[�J�X���s !!!.", "AUTO FOCUS", MB_OK|MB_ICONWARNING);
+				//MessageBox("ï¿½Iï¿½[ï¿½gï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ï¿½s !!!.", "AUTO FOCUS", MB_OK|MB_ICONWARNING);
 				LoadStringML(IDS_AUTOFOCUS_FAILED, strMsg, "Auto Focus Fail !!!.");
 				LoadStringML(IDS_TITLE_AUTO_FOCUS, strTitle, "AUTO FOCUS");
 				MessageBox(strMsg, strTitle, MB_OK|MB_ICONWARNING);
@@ -2996,11 +2996,11 @@ void COverlayDialog::OnCapture()
 	CString strMsg;
 	//Saiki 20090601 Add <-----
 
-	// ���C���^�[���b�N������
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ���������e�i���X
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;}	// �����e�i���X�ُ�
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½X
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;}	// ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Ù�ï¿½
 	}
-	else{												// �ʏ퓮��
+	else{												// ï¿½Ê�í“®ï¿½ï¿½
 	}
 	if( m_pMainFrame->GetJoyStickMode()==0 ){
 		//Saiki 20090601 Change ----->
@@ -3008,7 +3008,7 @@ void COverlayDialog::OnCapture()
 			LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 			m_pDoc->MessageStringIf_Set(strMsg);
 			return;
-		}  // �X�e�[�W���쒆
+		}  // ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ì’†
 		//Saiki 20090601 Change <-----
 	}
 	//Saiki 20090601 Change ----->
@@ -3016,19 +3016,19 @@ void COverlayDialog::OnCapture()
 		LoadStringML(IDS_Z_AXIS_WORKING, strMsg, "Z Axis is moving.");
 		m_pDoc->MessageStringIf_Set(strMsg);
 		return;
-	}  // �y�����쒆
+	}  // ï¿½yï¿½ï¿½ï¿½ï¿½ï¿½ì’†
 	//Saiki 20090601 Change <-----
-	// ���C���^�[���b�N������
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 //	CCursor::BeginWaitCursor();
 
 	SetOperationLog("CAPTURE Button was push.");
 
-	OverlayPreview(FALSE);		// ��U��ʂ�����
+	OverlayPreview(FALSE);		// ï¿½ï¿½Uï¿½ï¿½Ê‚ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	OverlayPreview(TRUE);		// ��ʂ��ĕ`�悷��
+	OverlayPreview(TRUE);		// ï¿½ï¿½Ê‚ï¿½ï¿½Ä•`ï¿½æ‚·ï¿½ï¿½
 
-	//�t�@�C�������擾����
+	//ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½
 	CString m_csFileName;
 
 #if 1
@@ -3047,9 +3047,9 @@ void COverlayDialog::OnCapture()
 		hfile = CreateFile(m_csFileName, GENERIC_WRITE, FILE_SHARE_WRITE, NULL,
 									CREATE_ALWAYS, 0, NULL);
 
-		Sleep(1000);			 // �����҂�
+		Sleep(1000);			 // ï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½
 
-		//�r�b�g�}�b�v�C���t�H���쐬����B
+		//ï¿½rï¿½bï¿½gï¿½}ï¿½bï¿½vï¿½Cï¿½ï¿½ï¿½tï¿½Hï¿½ï¿½ï¿½ì�¬ï¿½ï¿½ï¿½ï¿½B
 		HWND hWnd = GetDlgItem(IDC_OVERLAY)->m_hWnd;
 		hDC = ::GetDC(hWnd);
 		GetDlgItem(IDC_OVERLAY)->GetWindowRect(&rc);
@@ -3064,22 +3064,22 @@ void COverlayDialog::OnCapture()
 		pbmi->bmiHeader.biPlanes = 1;
 		pbmi->bmiHeader.biSizeImage =
 				(((pbmi->bmiHeader.biWidth
-					* pbmi->bmiHeader.biBitCount+31)>>3)	//�r�b�g���o�C�g�B
-						& 0xfffffffc)						//�S�o�C�g���E�B
+					* pbmi->bmiHeader.biBitCount+31)>>3)	//ï¿½rï¿½bï¿½gï¿½ï¿½ï¿½oï¿½Cï¿½gï¿½B
+						& 0xfffffffc)						//ï¿½Sï¿½oï¿½Cï¿½gï¿½ï¿½ï¿½Eï¿½B
 							* pbmi->bmiHeader.biHeight;
-		//DDB ���쐬���ăE�C���h�E����r�b�g�}�b�v���R�s�[�B
+		//DDB ï¿½ï¿½ï¿½ì�¬ï¿½ï¿½ï¿½ÄƒEï¿½Cï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½ï¿½rï¿½bï¿½gï¿½}ï¿½bï¿½vï¿½ï¿½ï¿½Rï¿½sï¿½[ï¿½B
 		hBitmap = CreateCompatibleBitmap(hDC, rc.right-rc.left, rc.bottom-rc.top);
 		hDCCompat = CreateCompatibleDC(hDC);
 		hBitmapPrev = (HBITMAP)SelectObject(hDCCompat, hBitmap);
 		BitBlt(hDCCompat, 0, 0, pbmi->bmiHeader.biWidth, pbmi->bmiHeader.biHeight,
 					hDC, rc.left-OVERLAY_VIEW_OFFSET_X-1, rc.top-OVERLAY_VIEW_OFFSET_Y-1, SRCCOPY);
 		SelectObject(hDCCompat, hBitmapPrev);
-		//�����������蓖�Ăăr�b�g�}�b�v����f�[�^���擾�B
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è“–ï¿½Ä‚Äƒrï¿½bï¿½gï¿½}ï¿½bï¿½vï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½æ“¾ï¿½B
 		pbits = new BYTE[pbmi->bmiHeader.biSizeImage];
 		GetDIBits(hDC, hBitmap, 0, pbmi->bmiHeader.biHeight, pbits, pbmi, DIB_RGB_COLORS);
 		::ReleaseDC(hWnd, hDC);
 
-		//�r�b�g�}�b�v�t�@�C���w�b�_�[���쐬�B
+		//ï¿½rï¿½bï¿½gï¿½}ï¿½bï¿½vï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½wï¿½bï¿½_ï¿½[ï¿½ï¿½ï¿½ì�¬ï¿½B
 		bmfh.bfType = 'B'+('M'<<8);
 		bmfh.bfOffBits = sizeof(BITMAPFILEHEADER)+sizeof(BITMAPINFOHEADER);
 		if (pbmi->bmiHeader.biBitCount <= 8) {
@@ -3087,7 +3087,7 @@ void COverlayDialog::OnCapture()
 		}
 		bmfh.bfSize = bmfh.bfOffBits+pbmi->bmiHeader.biSizeImage;
 
-		//�f�[�^���t�@�C���փZ�[�u�B
+		//ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ÖƒZï¿½[ï¿½uï¿½B
 		WriteFile(hfile, &bmfh, sizeof(bmfh), &tmp, NULL);
 		WriteFile(hfile, &pbmi->bmiHeader, sizeof(pbmi->bmiHeader), &tmp, NULL);
 		if (pbmi->bmiHeader.biBitCount <= 8) {
@@ -3100,14 +3100,14 @@ void COverlayDialog::OnCapture()
 		WriteFile(hfile, pbits, pbmi->bmiHeader.biSizeImage, &tmp, NULL);
 		CloseHandle(hfile);
 
-		//�Еt��
+		//ï¿½Ğ•tï¿½ï¿½
 		delete[] (BYTE*)pbmi;
 		delete[] (BYTE*)pbits;
 
 		CCursor::EndWaitCursor();
 	}
 
-	OverlayDrawCenter();		// �O���b�h���ĕ`�悷��
+	OverlayDrawCenter();		// ï¿½Oï¿½ï¿½ï¿½bï¿½hï¿½ï¿½ï¿½Ä•`ï¿½æ‚·ï¿½ï¿½
 
 //	CCursor::EndWaitCursor();
 }
@@ -3150,7 +3150,7 @@ void COverlayDialog::GetSampleData()
 			if(Finder.IsDots())
 				continue;
 
-		// �t�@�C�������擾
+		// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
 		sprintf(m_sSampleName[m_iSampleMax++], "%s", (LPCSTR)Finder.GetFileTitle());
 
 		}
@@ -3169,7 +3169,7 @@ void COverlayDialog::SetupSampleMap(void)
 		if ( !RecipeFile_LoadRecipe(&SampleInfo, m_sFileName, RECIPE_FILE_SAMPLE) ) {
 		}
 		else {
-			// �T���v���̕`��
+			// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Ì•`ï¿½ï¿½
 			// 2013.01.09 bagus -->
 			// m_dSampleSizeX	 = SampleInfo.Size.dx;
 			// m_dSampleSizeY	 = SampleInfo.Size.dy;
@@ -3208,7 +3208,7 @@ void COverlayDialog::SetupSampleMap(void)
 			if ( !RecipeFile_LoadRecipe(&SampleInfo, m_sSampleName[i], RECIPE_FILE_SAMPLE) ) {
 			}
 			else {
-				// �T���v���̕`��
+				// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Ì•`ï¿½ï¿½
 				// 2013.01.09 bagus -->
 //				m_dSampleSizeX	 = SampleInfo.Size.dx;
 //				m_dSampleSizeY	 = SampleInfo.Size.dy;
@@ -3248,29 +3248,29 @@ void COverlayDialog::SetupSampleMap(void)
 // void COverlayDialog::DrawSampleMap(long lMapDrawSampleOriginCoordX, long lMapDrawSampleOriginCoordY)
 // // 2013.01.09 bagus <--
 // {
-// 	///// �X�e�[�W�L���͈� /////
+// 	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Lï¿½ï¿½ï¿½Íˆï¿½ /////
 // 	double dStageSizeX = (m_StageConfig.StageMaxCoord.dRightX - m_StageConfig.StageMaxCoord.dLeftX) - (2 * m_StageConfig.Edge.dX);
 // 	double dStageSizeY = (m_StageConfig.StageMaxCoord.dUpY - m_StageConfig.StageMaxCoord.dDownY) - (2 * m_StageConfig.Edge.dY);
 //
-// 	// �T���v���̃T�C�Y
+// 	// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌƒTï¿½Cï¿½Y
 // 	long lDrawSampleSizeX = m_iMaxSizeX * m_dSampleSizeX / dStageSizeX;
 // 	long lDrawSampleSizeY = m_iMaxSizeY * m_dSampleSizeY / dStageSizeY;
 // //	TRACE("COverlayDialog::DrawSampleMap SampleSize = %ld, %ld \n", lDrawSampleSizeX, lDrawSampleSizeY);
 //
-// 	// �X�e�[�W���_����̈ړ���
-// /* modified 2009.12.02 hmenjo ���� Seq �͎w��w�b�h�œ���(���) ---------- { ---------- */
+// 	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ÌˆÚ“ï¿½ï¿½ï¿½
+// /* modified 2009.12.02 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½) ---------- { ---------- */
 // //	  long lX_Offset = m_iMaxSizeX * 2 * m_SampleOriginCoord.lX / dStageSizeX;
 // //	  long lY_Offset = m_iMaxSizeY * 2 * m_SampleOriginCoord.lY / dStageSizeY;
-// /* modified 2009.12.02 hmenjo ���� Seq �͎w��w�b�h�œ���(���) ----------				*/
+// /* modified 2009.12.02 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½) ----------				*/
 // // 2013.01.09 bagus -->
 // // 	long lX_Offset = m_iMaxSizeX * 2 * (m_SampleOriginCoord.lX + m_HeadOffset.lX) / dStageSizeX;
 // // 	long lY_Offset = m_iMaxSizeY * 2 * (m_SampleOriginCoord.lY + m_HeadOffset.lY) / dStageSizeY;
 // 	long lX_Offset = m_iMaxSizeX * 2 * (lMapDrawSampleOriginCoordX + m_HeadOffset.lX) / dStageSizeX;
 // 	long lY_Offset = m_iMaxSizeY * 2 * (lMapDrawSampleOriginCoordY + m_HeadOffset.lY) / dStageSizeY;
 // // 2013.01.09 bagus <--
-// /* modified 2009.12.02 hmenjo ���� Seq �͎w��w�b�h�œ���(���) ---------- } ---------- */
+// /* modified 2009.12.02 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½) ---------- } ---------- */
 //
-// 	// �����X�e�[�W�̎������i�E�����F+X�A������F+Y�j�ƍ��킹��
+// 	// ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ì�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½iï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½F+Xï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½F+Yï¿½jï¿½Æ�ï¿½ï¿½í‚¹ï¿½ï¿½
 // // 2013.01.09 bagus -->
 // //	NS_ConvertToStageMoveXyAxis(&lX_Offset, &lY_Offset);
 // // 2013.01.09 bagus <--
@@ -3282,32 +3282,32 @@ void COverlayDialog::SetupSampleMap(void)
 //
 // // 2013.01.09 bagus -->
 // // 	switch ( m_StageConfig.OrgPos ) {
-// // 	case 1: // ���S
-// // 		// �T���v���̎l�_
+// // 	case 1: // ï¿½ï¿½ï¿½S
+// // 		// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Ì�lï¿½_
 // // 		SampleRectLeft	 = m_lCenterPos.x - lDrawSampleSizeX + lX_Offset;
 // // 		SampleRectTop	 = m_lCenterPos.y - lDrawSampleSizeY - lY_Offset;
 // // 		SampleRectRight  = m_lCenterPos.x + lDrawSampleSizeX + lX_Offset;
 // // 		SampleRectBottom = m_lCenterPos.y + lDrawSampleSizeY - lY_Offset;
 // // 		break;
-// // 	case 2: // ����
+// // 	case 2: // ï¿½ï¿½ï¿½ï¿½
 // // 		SampleRectLeft	 = m_lDrawStartStagePosX + 1 + lX_Offset;
 // // 		SampleRectTop	 = m_lDrawStartStagePosY + 1 - lY_Offset;
 // // 		SampleRectRight  = SampleRectLeft 	+ lDrawSampleSizeX * 2;
 // // 		SampleRectBottom = SampleRectTop 	+ lDrawSampleSizeY * 2;
 // // 		break;
-// // 	case 3: // ����
+// // 	case 3: // ï¿½ï¿½ï¿½ï¿½
 // // 		SampleRectLeft 	 = m_lDrawStartStagePosX + 1 + lX_Offset;
 // // 		SampleRectBottom = m_lDrawEndStagePosY	 - 1 - lY_Offset;
 // // 		SampleRectRight  = SampleRectLeft 	+ lDrawSampleSizeX * 2;
 // // 		SampleRectTop	 = SampleRectBottom	- lDrawSampleSizeY * 2;
 // // 		break;
-// // 	case 4: // �E��
+// // 	case 4: // ï¿½Eï¿½ï¿½
 // // 		SampleRectRight  = m_lDrawEndStagePosX	 - 1 + lX_Offset;
 // // 		SampleRectBottom = m_lDrawEndStagePosY	 - 1 - lY_Offset;
 // // 		SampleRectLeft 	 = SampleRectRight	- lDrawSampleSizeX * 2;
 // // 		SampleRectTop	 = SampleRectBottom	- lDrawSampleSizeY * 2;
 // // 		break;
-// // 	case 5: // �E��
+// // 	case 5: // ï¿½Eï¿½ï¿½
 // // 		SampleRectRight  = m_lDrawEndStagePosX	 - 1 + lX_Offset;
 // // 		SampleRectTop	 = m_lDrawStartStagePosY + 1 - lY_Offset;
 // // 		SampleRectLeft 	 = SampleRectRight - lDrawSampleSizeX * 2;
@@ -3315,32 +3315,32 @@ void COverlayDialog::SetupSampleMap(void)
 // // 		break;
 // // 	}
 // 	switch ( m_StageConfig.OrgPos ) {
-// 	case 1: // ���S
-// 		// �T���v���̎l�_
+// 	case 1: // ï¿½ï¿½ï¿½S
+// 		// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Ì�lï¿½_
 // 		SampleRectLeft	 = m_lCenterPos.x - lDrawSampleSizeX + lX_Offset;
 // 		SampleRectTop	 = m_lCenterPos.y - lDrawSampleSizeY - lY_Offset;
 // 		SampleRectRight  = m_lCenterPos.x + lDrawSampleSizeX + lX_Offset;
 // 		SampleRectBottom = m_lCenterPos.y + lDrawSampleSizeY - lY_Offset;
 // 		break;
-// 	case 2: // ����
+// 	case 2: // ï¿½ï¿½ï¿½ï¿½
 // 		SampleRectLeft 	 = m_lDrawStartStagePosX + 1 + lX_Offset;
 // 		SampleRectBottom = m_lDrawEndStagePosY	 - 1 - lY_Offset + (lDrawSampleSizeY * 2) - 1;
 // 		SampleRectRight  = SampleRectLeft 	+ (lDrawSampleSizeX * 2);
 // 		SampleRectTop	 = SampleRectBottom	- (lDrawSampleSizeY * 2);
 // 		break;
-// 	case 3: // ����
+// 	case 3: // ï¿½ï¿½ï¿½ï¿½
 // 		SampleRectLeft 	 = m_lDrawStartStagePosX + 1 + lX_Offset;
 // 		SampleRectBottom = m_lDrawEndStagePosY	 - 1 - lY_Offset;
 // 		SampleRectRight  = SampleRectLeft 	+ (lDrawSampleSizeX * 2);
 // 		SampleRectTop	 = SampleRectBottom	- (lDrawSampleSizeY * 2);
 // 		break;
-// 	case 4: // �E��
+// 	case 4: // ï¿½Eï¿½ï¿½
 // 		SampleRectLeft 	 = m_lDrawStartStagePosX + 1 + lX_Offset - (lDrawSampleSizeX * 2) + 1;
 // 		SampleRectBottom = m_lDrawEndStagePosY	 - 1 - lY_Offset;
 // 		SampleRectRight  = SampleRectLeft 	+ (lDrawSampleSizeX * 2);
 // 		SampleRectTop	 = SampleRectBottom	- (lDrawSampleSizeY * 2);
 // 		break;
-// 	case 5: // �E��
+// 	case 5: // ï¿½Eï¿½ï¿½
 // 		SampleRectLeft 	 = m_lDrawStartStagePosX + 1 + lX_Offset - (lDrawSampleSizeX * 2) + 1;
 // 		SampleRectBottom = m_lDrawEndStagePosY	 - 1 - lY_Offset + (lDrawSampleSizeY * 2) - 1;
 // 		SampleRectRight  = SampleRectLeft 	+ (lDrawSampleSizeX * 2);
@@ -3350,20 +3350,20 @@ void COverlayDialog::SetupSampleMap(void)
 // // 2013.01.09 bagus <--
 //
 //
-// 	// �X�e�[�W���͂ݏo���ꍇ�͕`�悵�Ȃ�
+// 	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½Í‚İ�oï¿½ï¿½ï¿½ê�‡ï¿½Í•`ï¿½æ‚µï¿½È‚ï¿½
 // 	if( SampleRectLeft		< m_lDrawStartStagePosX ||
 // 		SampleRectTop		< m_lDrawStartStagePosY ||
 // 		SampleRectRight 	> m_lDrawEndStagePosX	||
 // 		SampleRectBottom	> m_lDrawEndStagePosY	)	return;
 //
 // 	///// Region Map /////
-// // 2009.05.27 K.Matsuo �_�u���o�b�t�@�����O -->
+// // 2009.05.27 K.Matsuo ï¿½_ï¿½uï¿½ï¿½ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½O -->
 // //	CWnd* pPictBox = GetDlgItem(IDC_STAGE_MAP);
 // //	CDC* pDC = pPictBox->GetDC();
 // 	CDC* pDC = m_bbDC;
-// // 2009.05.27 K.Matsuo �_�u���o�b�t�@�����O <--
+// // 2009.05.27 K.Matsuo ï¿½_ï¿½uï¿½ï¿½ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½O <--
 //
-// 	// �T���v���̕`��
+// 	// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Ì•`ï¿½ï¿½
 // 	CRect SampleRect;
 // 	SampleRect = CRect(SampleRectLeft, SampleRectTop, SampleRectRight, SampleRectBottom);
 // //	TRACE("COverlayDialog::DrawSampleMap Befor %ld, %ld, %ld, %ld \n", SampleRectLeft, SampleRectTop, SampleRectRight, SampleRectBottom);
@@ -3374,7 +3374,7 @@ void COverlayDialog::SetupSampleMap(void)
 // 	CPen PenStage(PS_SOLID, 1, WATER_COLOR);
 // 	m_oldPen = pDC->SelectObject(&PenStage);
 // 	switch ( m_StageConfig.OrgPos ) {
-// 	case 1: // ���S
+// 	case 1: // ï¿½ï¿½ï¿½S
 // 		pDC->Rectangle(SampleRectLeft, SampleRectTop, SampleRectRight+1, SampleRectBottom+1);
 // 		break;
 // 	default:
@@ -3385,20 +3385,20 @@ void COverlayDialog::SetupSampleMap(void)
 // 	pDC->SelectObject(m_oldPen);
 // 	pDC->SelectObject(m_oldBrush);
 //
-// // 2009.05.27 K.Matsuo �_�u���o�b�t�@�����O -->
+// // 2009.05.27 K.Matsuo ï¿½_ï¿½uï¿½ï¿½ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½O -->
 // //	pPictBox->ReleaseDC(pDC);
-// // 2009.05.27 K.Matsuo �_�u���o�b�t�@�����O <--
+// // 2009.05.27 K.Matsuo ï¿½_ï¿½uï¿½ï¿½ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½O <--
 // }
 
 // ==========================================================================
 //
 void COverlayDialog::DrawSampleMap(long lMapDrawSampleOriginCoordX, long lMapDrawSampleOriginCoordY)
 {
-	///// �X�e�[�W�L���͈� /////
+	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Lï¿½ï¿½ï¿½Íˆï¿½ /////
 	double dStageSizeX = (m_StageConfig.StageMaxCoord.dRightX - m_StageConfig.StageMaxCoord.dLeftX) - (2 * m_StageConfig.Edge.dX);
 	double dStageSizeY = (m_StageConfig.StageMaxCoord.dUpY - m_StageConfig.StageMaxCoord.dDownY) - (2 * m_StageConfig.Edge.dY);
 
-	// �T���v���̃T�C�Y
+	// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌƒTï¿½Cï¿½Y
 // 2013.01.17 bagus rotate xy view -->
 // 	long lDrawSampleSizeX = m_iMaxSizeX * m_dSampleSizeX / dStageSizeX;
 // 	long lDrawSampleSizeY = m_iMaxSizeY * m_dSampleSizeY / dStageSizeY;
@@ -3416,7 +3416,7 @@ void COverlayDialog::DrawSampleMap(long lMapDrawSampleOriginCoordX, long lMapDra
 		lDrawSampleSizeY = static_cast<long>(m_iMaxSizeY * m_dSampleSizeX / dStageSizeX);
 	}
 
-	// �X�e�[�W���_����̈ړ���
+	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ÌˆÚ“ï¿½ï¿½ï¿½
 // 	long lX_Offset = m_iMaxSizeX * 2 * (lMapDrawSampleOriginCoordX + m_HeadOffset.lX) / dStageSizeX;
 // 	long lY_Offset = m_iMaxSizeY * 2 * (lMapDrawSampleOriginCoordY + m_HeadOffset.lY) / dStageSizeY;
 
@@ -3454,8 +3454,8 @@ void COverlayDialog::DrawSampleMap(long lMapDrawSampleOriginCoordX, long lMapDra
 	long SampleRectBottom;
 
 	switch ( m_StageConfig.OrgPos ) {
-	case 1: // ���S
-		// �T���v���̎l�_
+	case 1: // ï¿½ï¿½ï¿½S
+		// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Ì�lï¿½_
 		SampleRectLeft	 = m_lCenterPos.x - lDrawSampleSizeX + lX_Offset;
 		SampleRectTop	 = m_lCenterPos.y - lDrawSampleSizeY - lY_Offset;
 		SampleRectRight  = m_lCenterPos.x + lDrawSampleSizeX + lX_Offset;
@@ -3474,7 +3474,7 @@ void COverlayDialog::DrawSampleMap(long lMapDrawSampleOriginCoordX, long lMapDra
 		}
 		break;
 // 2013.01.17 bagus rotate xy view <--
-	case 2: // ����
+	case 2: // ï¿½ï¿½ï¿½ï¿½
 // 2013.01.17 bagus rotate xy view -->
 		SampleRectLeft 	 = m_lCenterPos.x + lX_Offset;
 		SampleRectTop	 = m_lCenterPos.y - lY_Offset;
@@ -3505,7 +3505,7 @@ void COverlayDialog::DrawSampleMap(long lMapDrawSampleOriginCoordX, long lMapDra
 		}
 // 2013.01.17 bagus rotate xy view <--
 		break;
-	case 3: // ����
+	case 3: // ï¿½ï¿½ï¿½ï¿½
 		SampleRectLeft 	 = m_lCenterPos.x + lX_Offset;
 		SampleRectBottom = m_lCenterPos.y - lY_Offset;
 		SampleRectRight  = SampleRectLeft 	+ (lDrawSampleSizeX * 2);
@@ -3536,7 +3536,7 @@ void COverlayDialog::DrawSampleMap(long lMapDrawSampleOriginCoordX, long lMapDra
 		}
 // 2013.01.17 bagus rotate xy view <--
 		break;
-	case 4: // �E��
+	case 4: // ï¿½Eï¿½ï¿½
 		SampleRectLeft 	 = m_lCenterPos.x + lX_Offset - (lDrawSampleSizeX * 2);
 		SampleRectBottom = m_lCenterPos.y - lY_Offset;
 		SampleRectRight  = SampleRectLeft 	+ (lDrawSampleSizeX * 2);
@@ -3567,7 +3567,7 @@ void COverlayDialog::DrawSampleMap(long lMapDrawSampleOriginCoordX, long lMapDra
 		}
 // 2013.01.17 bagus rotate xy view <--
 		break;
-	case 5: // �E��
+	case 5: // ï¿½Eï¿½ï¿½
 		SampleRectLeft 	 = m_lCenterPos.x + lX_Offset - (lDrawSampleSizeX * 2);
 		SampleRectBottom = m_lCenterPos.y - lY_Offset + (lDrawSampleSizeY * 2);
 		SampleRectRight  = SampleRectLeft 	+ (lDrawSampleSizeX * 2);
@@ -3600,7 +3600,7 @@ void COverlayDialog::DrawSampleMap(long lMapDrawSampleOriginCoordX, long lMapDra
 		break;
 	}
 
-	// �X�e�[�W���͂ݏo���ꍇ�͕`�悵�Ȃ�
+	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½Í‚İ�oï¿½ï¿½ï¿½ê�‡ï¿½Í•`ï¿½æ‚µï¿½È‚ï¿½
 	if( SampleRectLeft		< m_lDrawStartStagePosX - 2 ||
 		SampleRectTop		< m_lDrawStartStagePosY - 2 ||
 		SampleRectRight 	> m_lDrawEndStagePosX + 2	||
@@ -3609,7 +3609,7 @@ void COverlayDialog::DrawSampleMap(long lMapDrawSampleOriginCoordX, long lMapDra
 	///// Region Map /////
 	CDC* pDC = m_bbDC;
 
-	// �T���v���̕`��
+	// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Ì•`ï¿½ï¿½
 	CRect SampleRect;
 	SampleRect = CRect(SampleRectLeft, SampleRectTop, SampleRectRight, SampleRectBottom);
 
@@ -3619,7 +3619,7 @@ void COverlayDialog::DrawSampleMap(long lMapDrawSampleOriginCoordX, long lMapDra
 	CPen PenStage(PS_SOLID, 1, WATER_COLOR);
 	m_oldPen = pDC->SelectObject(&PenStage);
 	switch ( m_StageConfig.OrgPos ) {
-	case 1: // ���S
+	case 1: // ï¿½ï¿½ï¿½S
 		pDC->Rectangle(SampleRectLeft, SampleRectTop, SampleRectRight+1, SampleRectBottom+1);
 		break;
 	default:
@@ -3637,7 +3637,7 @@ void COverlayDialog::SetOperationLog(LPCTSTR pszLog)
 {
 	char strmsg[1024];
 
-	// ���샍�O���擾
+	// ï¿½ï¿½ï¿½ìƒ�ï¿½Oï¿½ï¿½ï¿½æ“¾
 	memset( strmsg, 0, sizeof(strmsg));
 	strcpy( strmsg, "[");
 	::GetWindowText(this->m_hWnd, &strmsg[1], 1000);
@@ -3649,17 +3649,17 @@ void COverlayDialog::SetOperationLog(LPCTSTR pszLog)
 
 // =========================================================================
 //
-/* modified 2009.06.15 hmenjo ���[�U��`���b�Z�[�W�n���h�� IF �C�� ---------- { ---------- */
+/* modified 2009.06.15 hmenjo ï¿½ï¿½ï¿½[ï¿½Uï¿½ï¿½`ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ IF ï¿½Cï¿½ï¿½ ---------- { ---------- */
 //void COverlayDialog::OnJoyStick()
-/* modified 2009.06.15 hmenjo ���[�U��`���b�Z�[�W�n���h�� IF �C�� ----------			   */
+/* modified 2009.06.15 hmenjo ï¿½ï¿½ï¿½[ï¿½Uï¿½ï¿½`ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ IF ï¿½Cï¿½ï¿½ ----------			   */
 LRESULT COverlayDialog::OnJoyStick(WPARAM wparam, LPARAM lparam)
-/* modified 2009.06.15 hmenjo ���[�U��`���b�Z�[�W�n���h�� IF �C�� ---------- } ---------- */
+/* modified 2009.06.15 hmenjo ï¿½ï¿½ï¿½[ï¿½Uï¿½ï¿½`ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ IF ï¿½Cï¿½ï¿½ ---------- } ---------- */
 {
-	// �W���C�X�e�B�b�N�L���^����
+	// ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½Lï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½ï¿½
 	if( m_pMainFrame->GetJoyStickMode() != 0 ){
 		m_joyStick1->UnChecked();
 		m_joyStick2->Checked();
-		// �W���C�X�e�B�b�N����
+		// ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½
 		m_XY_UpButton.SetEnabled(FALSE);
 		m_XY_DownButton.SetEnabled(FALSE);
 		m_XY_RightButton.SetEnabled(FALSE);
@@ -3668,55 +3668,55 @@ LRESULT COverlayDialog::OnJoyStick(WPARAM wparam, LPARAM lparam)
 	else{
 		m_joyStick1->Checked();
 		m_joyStick2->UnChecked();
-		// �W���C�X�e�B�b�N�֎~
+		// ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½Ö�~
 		m_XY_UpButton.SetEnabled(TRUE);
 		m_XY_DownButton.SetEnabled(TRUE);
 		m_XY_RightButton.SetEnabled(TRUE);
 		m_XY_LeftButton.SetEnabled(TRUE);
 	}
-/* added 2009.06.15 hmenjo ���[�U��`���b�Z�[�W�n���h�� IF �C�� ---------- { ---------- */
+/* added 2009.06.15 hmenjo ï¿½ï¿½ï¿½[ï¿½Uï¿½ï¿½`ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ IF ï¿½Cï¿½ï¿½ ---------- { ---------- */
 	return 0;
-/* added 2009.06.15 hmenjo ���[�U��`���b�Z�[�W�n���h�� IF �C�� ---------- } ---------- */
+/* added 2009.06.15 hmenjo ï¿½ï¿½ï¿½[ï¿½Uï¿½ï¿½`ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ IF ï¿½Cï¿½ï¿½ ---------- } ---------- */
 }
 
 // =========================================================================
 //
 void COverlayDialog::ButtonEnableCheck()
 {
-#if 1	/* modified 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ---------- { ---------- */
-	/* �ǂ��ɂ��邩����Ȃ����l�ȏ����̃R���t���N�g�ňُ퓮��ɂȂ邽�ߕύX���܂���D	*/
-	// XY���{�^��
+#if 1	/* modified 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
+	/* ï¿½Ç‚ï¿½ï¿½É‚ï¿½ï¿½é‚©ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½lï¿½È�ï¿½ï¿½ï¿½ï¿½ÌƒRï¿½ï¿½ï¿½tï¿½ï¿½ï¿½Nï¿½gï¿½ÅˆÙ�í“®ï¿½ï¿½É‚È‚é‚½ï¿½ß•Ï�Xï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½D	*/
+	// XYï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½
 	BOOL bXyButtonEnable = ( m_pMainFrame->GetJoyStickMode() == JOY_SOFT_MODE && !m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) );
 	m_XY_UpButton.SetEnabled(bXyButtonEnable);
 	m_XY_DownButton.SetEnabled(bXyButtonEnable);
 	m_XY_RightButton.SetEnabled(bXyButtonEnable);
 	m_XY_LeftButton.SetEnabled(bXyButtonEnable);
 
-	// Z���{�^��
+	// Zï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½
 	BOOL bZButtonEnable = ( !m_pDoc->ActuateFlagsGet(ACTUATE_ZAXIS) );
 	m_Z_UpButton.SetEnabled(bZButtonEnable);
 	m_Z_DownButton.SetEnabled(bZButtonEnable);
 	m_Z_HomePosButton.SetEnabled(bZButtonEnable);
 
-	// AutoFocus�{�^��
+	// AutoFocusï¿½{ï¿½^ï¿½ï¿½
 	BOOL bAFButtonEnable = ( !m_pDoc->ActuateFlagsGet(ACTUATE_ZAXIS) );
 	GetDlgItem(IDC_AUTO_FOCUS_BUTTON)->EnableWindow(bAFButtonEnable);
 
-	// ���W���̓{�^��
+	// ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½Íƒ{ï¿½^ï¿½ï¿½
 	BOOL bCoordButtonEnable = ( m_pMainFrame->GetJoyStickMode() == JOY_SOFT_MODE && !m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ||
 								m_pMainFrame->GetJoyStickMode() != JOY_SOFT_MODE );
 	GetDlgItem(IDC_SPECIFY_COORD_BUTTON)->EnableWindow(bCoordButtonEnable);
-#else	/* modified 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ----------				*/
-	/* XY���{�^�� ------------------------------------------------ */
+#else	/* modified 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ----------				*/
+	/* XYï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½ ------------------------------------------------ */
 	BOOL bXyButtonEnable =	(m_pMainFrame->GetJoyStickMode() == JOY_SOFT_MODE
 						 && !m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE));
-	static BOOL ls_bXyButtonEnablePre = bXyButtonEnable;			/* �O��l	*/
-	static BOOL ls_bXYUBtnEnaBack = m_XY_UpButton.GetEnabled();		/* �O��l	*/
-	static BOOL ls_bXYDBtnEnaBack = m_XY_DownButton.GetEnabled();	/* �O��l	*/
-	static BOOL ls_bXYRBtnEnaBack = m_XY_RightButton.GetEnabled();	/* �O��l	*/
-	static BOOL ls_bXYLBtnEnaBack = m_XY_LeftButton.GetEnabled();	/* �O��l	*/
+	static BOOL ls_bXyButtonEnablePre = bXyButtonEnable;			/* ï¿½Oï¿½ï¿½l	*/
+	static BOOL ls_bXYUBtnEnaBack = m_XY_UpButton.GetEnabled();		/* ï¿½Oï¿½ï¿½l	*/
+	static BOOL ls_bXYDBtnEnaBack = m_XY_DownButton.GetEnabled();	/* ï¿½Oï¿½ï¿½l	*/
+	static BOOL ls_bXYRBtnEnaBack = m_XY_RightButton.GetEnabled();	/* ï¿½Oï¿½ï¿½l	*/
+	static BOOL ls_bXYLBtnEnaBack = m_XY_LeftButton.GetEnabled();	/* ï¿½Oï¿½ï¿½l	*/
 	if (ls_bXyButtonEnablePre != bXyButtonEnable) {
-		/* �ω��L��	*/
+		/* ï¿½Ï‰ï¿½ï¿½Lï¿½ï¿½	*/
 		if (TRUE == bXyButtonEnable) {
 			m_XY_UpButton.SetEnabled(ls_bXYUBtnEnaBack);
 			m_XY_DownButton.SetEnabled(ls_bXYDBtnEnaBack);
@@ -3734,14 +3734,14 @@ void COverlayDialog::ButtonEnableCheck()
 		}
 	}
 
-	/* Z���{�^�� ------------------------------------------------- */
+	/* Zï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½ ------------------------------------------------- */
 	BOOL bZButtonEnable = (!m_pDoc->ActuateFlagsGet(ACTUATE_ZAXIS));
-	static BOOL ls_bZButtonEnablePre = bZButtonEnable;	/* �O��l	*/
-	static BOOL ls_bZUBtnEnaBack = this->GetDlgItem(IDC_ELEV_UP_BUTTON)->IsWindowEnabled();			/* �O��l	*/
-	static BOOL ls_bZHBtnEnaBack = this->GetDlgItem(IDC_HOME_POSITION_BUTTON)->IsWindowEnabled();	/* �O��l	*/
-	static BOOL ls_bZDBtnEnaBack = this->GetDlgItem(IDC_ELEV_DOWN_BUTTON)->IsWindowEnabled();		/* �O��l	*/
+	static BOOL ls_bZButtonEnablePre = bZButtonEnable;	/* ï¿½Oï¿½ï¿½l	*/
+	static BOOL ls_bZUBtnEnaBack = this->GetDlgItem(IDC_ELEV_UP_BUTTON)->IsWindowEnabled();			/* ï¿½Oï¿½ï¿½l	*/
+	static BOOL ls_bZHBtnEnaBack = this->GetDlgItem(IDC_HOME_POSITION_BUTTON)->IsWindowEnabled();	/* ï¿½Oï¿½ï¿½l	*/
+	static BOOL ls_bZDBtnEnaBack = this->GetDlgItem(IDC_ELEV_DOWN_BUTTON)->IsWindowEnabled();		/* ï¿½Oï¿½ï¿½l	*/
 	if (ls_bZButtonEnablePre != bZButtonEnable) {
-		/* �ω��L��	*/
+		/* ï¿½Ï‰ï¿½ï¿½Lï¿½ï¿½	*/
 		if (TRUE == bZButtonEnable) {
 			this->GetDlgItem(IDC_ELEV_UP_BUTTON)->EnableWindow(ls_bZUBtnEnaBack);
 			this->GetDlgItem(IDC_HOME_POSITION_BUTTON)->EnableWindow(ls_bZHBtnEnaBack);
@@ -3756,12 +3756,12 @@ void COverlayDialog::ButtonEnableCheck()
 		}
 	}
 
-	/* AutoFocus�{�^�� ------------------------------------------- */
+	/* AutoFocusï¿½{ï¿½^ï¿½ï¿½ ------------------------------------------- */
 	BOOL bAFButtonEnable = (!m_pDoc->ActuateFlagsGet(ACTUATE_ZAXIS));
-	static BOOL ls_bAFButtonEnablePre = bAFButtonEnable;	/* �O��l	*/
-	static BOOL ls_bAfBtnEnaBack = this->GetDlgItem(IDC_AUTO_FOCUS_BUTTON)->IsWindowEnabled();	/* �O��l	*/
+	static BOOL ls_bAFButtonEnablePre = bAFButtonEnable;	/* ï¿½Oï¿½ï¿½l	*/
+	static BOOL ls_bAfBtnEnaBack = this->GetDlgItem(IDC_AUTO_FOCUS_BUTTON)->IsWindowEnabled();	/* ï¿½Oï¿½ï¿½l	*/
 	if (ls_bAFButtonEnablePre != bAFButtonEnable) {
-		/* �ω��L��	*/
+		/* ï¿½Ï‰ï¿½ï¿½Lï¿½ï¿½	*/
 		if (TRUE == bAFButtonEnable) {
 			this->GetDlgItem(IDC_AUTO_FOCUS_BUTTON)->EnableWindow(ls_bAfBtnEnaBack);
 		} else {
@@ -3770,16 +3770,16 @@ void COverlayDialog::ButtonEnableCheck()
 		}
 	}
 
-	/* ���W���̓{�^�� -------------------------------------------- */
+	/* ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½Íƒ{ï¿½^ï¿½ï¿½ -------------------------------------------- */
 	BOOL bCoordButtonEnable =	(
 								m_pMainFrame->GetJoyStickMode() == JOY_SOFT_MODE
 							 && !m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE)
 							 || m_pMainFrame->GetJoyStickMode() != JOY_SOFT_MODE
 									);
-	static BOOL ls_bCoordButtonEnablePre = bCoordButtonEnable;	/* �O��l	*/
-	static BOOL ls_bCordBtnEnaBack = this->GetDlgItem(IDC_SPECIFY_COORD_BUTTON)->IsWindowEnabled();	/* �O��l	*/
+	static BOOL ls_bCoordButtonEnablePre = bCoordButtonEnable;	/* ï¿½Oï¿½ï¿½l	*/
+	static BOOL ls_bCordBtnEnaBack = this->GetDlgItem(IDC_SPECIFY_COORD_BUTTON)->IsWindowEnabled();	/* ï¿½Oï¿½ï¿½l	*/
 	if (ls_bCoordButtonEnablePre != bCoordButtonEnable) {
-		/* �ω��L��	*/
+		/* ï¿½Ï‰ï¿½ï¿½Lï¿½ï¿½	*/
 		if (TRUE == bCoordButtonEnable) {
 			this->GetDlgItem(IDC_SPECIFY_COORD_BUTTON)->EnableWindow(ls_bCordBtnEnaBack);
 		} else {
@@ -3787,18 +3787,18 @@ void COverlayDialog::ButtonEnableCheck()
 			this->GetDlgItem(IDC_SPECIFY_COORD_BUTTON)->EnableWindow(FALSE);
 		}
 	}
-#endif	/* modified 2009.12.09 hmenjo ���� Seq �͎w��w�b�h�œ���(�ǉ�����) ---------- } ---------- */
+#endif	/* modified 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Í�wï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- } ---------- */
 
 }
 
-// 2009.06.05 K.Matsuo �h�A�C���^�[���b�N���o����JoyStick������ -->
+// 2009.06.05 K.Matsuo ï¿½hï¿½Aï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½JoyStickï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -->
 // =========================================================================
 //
 void COverlayDialog::JoyStickEnableCheck()
 {
-	if ( m_pDoc->Rap_IsDoorInterlock() != ON ) {		/* �h�A�C���^�[���b�N			���g */
+	if ( m_pDoc->Rap_IsDoorInterlock() != ON ) {		/* ï¿½hï¿½Aï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½N			ï¿½ï¿½ï¿½g */
 		if ( m_joyStick2->GetCheck() ) {
-			// �����I�Ƀ\�t�gJoy�֐؂�ւ���
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½Éƒ\ï¿½tï¿½gJoyï¿½Ö�Ø‚ï¿½Ö‚ï¿½ï¿½ï¿½
 			m_pMainFrame->SetJoyStickMode(JOY_SOFT_MODE);
 			m_pDoc->ChangeJoyStick(FALSE);
 			m_pDoc->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);
@@ -3808,7 +3808,7 @@ void COverlayDialog::JoyStickEnableCheck()
 		}
 	}
 }
-// 2009.06.05 K.Matsuo �h�A�C���^�[���b�N���o����JoyStick������ <--
+// 2009.06.05 K.Matsuo ï¿½hï¿½Aï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½JoyStickï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ <--
 
 // =========================================================================
 //
@@ -3818,33 +3818,33 @@ STAGE_COORD		Position;
 CString strMsg, strTitle;
 
 
-	// ���C���^�[���b�N������
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){	// ���������e�i���X
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;}	// �����e�i���X�ُ�
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½X
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;}	// ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Ù�ï¿½
 	}
-	else{											// �ʏ퓮��
-		if( nexioIsMaintenanceSwitch() != ON ){ 	AlarmIf_Set(ALID_MaintenanceSwitchOn); 	return;}	// �����e�i���X�E�X�C�b�`�E�I��
+	else{											// ï¿½Ê�í“®ï¿½ï¿½
+		if( nexioIsMaintenanceSwitch() != ON ){ 	AlarmIf_Set(ALID_MaintenanceSwitchOn); 	return;}	// ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Eï¿½Xï¿½Cï¿½bï¿½`ï¿½Eï¿½Iï¿½ï¿½
 	}
-	// �eI/O�`�F�b�N
+	// ï¿½eI/Oï¿½`ï¿½Fï¿½bï¿½N
 	if(m_pDoc->IsInterLock()		== TRUE){							return;}
-	if( nexioIsMovo2Alarm() 		!= OFF ){		AlarmIf_Set(ALID_StageError);	return;}	// MOVO�A���[�� ���k
+	if( nexioIsMovo2Alarm() 		!= OFF ){		AlarmIf_Set(ALID_StageError);	return;}	// MOVOï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ ï¿½ï¿½ï¿½k
 	if(m_pDoc->CheckUnitStatus()	== TRUE){							return;}
-	// �V���b�^�[�ȊO�������Ă����瓮��֎~
+	// ï¿½Vï¿½ï¿½ï¿½bï¿½^ï¿½[ï¿½ÈŠOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ç“®ï¿½ï¿½Ö�~
 	if( m_pMainFrame->GetJoyStickMode()==0 ){
 		if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 			LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 			m_pDoc->MessageStringIf_Set(strMsg);
 			return;
-		}  // �X�e�[�W���쒆
+		}  // ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ì’†
 	}
 	if(m_pDoc->CheckActiveFlag() == TRUE){								return;}
-	// ���C���^�[���b�N������
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	if( !m_pDoc->JoyStickChangeDisable() ){
 		LoadStringML(IDS_JOYSTICK_WORKING, strMsg, "JoyStick is Working");
 		LoadStringML(IDS_TITLE_WARNING, strTitle, "Warning");
 		MessageBox(strMsg, strTitle, MB_OK);
-		// �K��JoyStick�̏�Ԃ�߂�����
+		// ï¿½Kï¿½ï¿½JoyStickï¿½Ì�ï¿½Ô‚ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½
 		m_pDoc->JoyStickStatusRestore();
 		return;
 	}
@@ -3857,7 +3857,7 @@ CString strMsg, strTitle;
 		Position.lY = m_lY;
 
 		if( CheckStageMoveEnable(&Position) ){
-			// �L���͈͂Ȃ�ړ�������
+			// ï¿½Lï¿½ï¿½ï¿½ÍˆÍ‚È‚ï¿½Ú“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			NS_StageMoveAbsolute(&Position);
 		}
 	}
@@ -3866,7 +3866,7 @@ CString strMsg, strTitle;
 		Position.lY = m_lY;
 
 		if( CheckStageMoveEnable(&Position) ){
-			// �L���͈͂Ȃ�ړ�������
+			// ï¿½Lï¿½ï¿½ï¿½ÍˆÍ‚È‚ï¿½Ú“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			m_CurrPos.lX = Position.lX;
 			m_CurrPos.lY = Position.lY;
 		}
@@ -3876,7 +3876,7 @@ CString strMsg, strTitle;
 	m_pDoc->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);
 // 2009.07.10 K.Matsuo BugFix <--
 
-	{	// �K��JoyStick�̏�Ԃ�߂�����
+	{	// ï¿½Kï¿½ï¿½JoyStickï¿½Ì�ï¿½Ô‚ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½
 		m_pDoc->JoyStickStatusRestore();
 	}
 }
@@ -3908,10 +3908,10 @@ void COverlayDialog::OnCheckScan()
 	//2010.01.13 bagus GTR --}--
 		CString l_strBuffer;
 		CString strBuffer;
-		//2010.01.13 bagus �C�� --{--
+		//2010.01.13 bagus ï¿½Cï¿½ï¿½ --{--
 		//LoadStringML(IDS_INTEGTIME_OUT_RANGE, l_strBuffer, "Integration Time is out of range.\n(%.1f - %.1f)");
 		LoadStringML(IDS_INTEGTIME_OUT_RANGE, l_strBuffer, "Integration Time is out of range.\n(%.2f - %.2f)");
-		//2010.01.13 bagus �C�� --}--
+		//2010.01.13 bagus ï¿½Cï¿½ï¿½ --}--
 		strBuffer.Format(l_strBuffer, MIN_INTEGRATION_TIME, MAX_INTEGRATION_TIME);
 		MessageBox(strBuffer, "CHECK SCAN", MB_OK | MB_ICONSTOP);
 		return;
@@ -3991,78 +3991,78 @@ CString strMsg;
 //
 void COverlayDialog::OnHomePositionButton()
 {
-	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
-// 2010.02.03 K.Matsuo PIN UPPER �C���^�[���b�N�`�F�b�N�R��Ή� -->
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// 2010.02.03 K.Matsuo PIN UPPER ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½`ï¿½Fï¿½bï¿½Nï¿½Rï¿½ï¿½Î‰ï¿½ -->
 	CString strMsg;
 
-	// ���C���^�[���b�N������
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ���������e�i���X
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;} // �����e�i���X�ُ�
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½X
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;} // ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Ù�ï¿½
 	}
-	else{												// �ʏ퓮��
+	else{												// ï¿½Ê�í“®ï¿½ï¿½
 	}
-	// �eI/O�`�F�b�N
+	// ï¿½eI/Oï¿½`ï¿½Fï¿½bï¿½N
 	if(m_pDoc->IsInterLock() == TRUE){return;}
-	if( nexioIsMovo2Alarm() 	!= OFF){	AlarmIf_Set(ALID_StageError);	return;} // MOVO�A���[�� 				���k
+	if( nexioIsMovo2Alarm() 	!= OFF){	AlarmIf_Set(ALID_StageError);	return;} // MOVOï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ 				ï¿½ï¿½ï¿½k
 	if(m_pDoc->CheckUnitStatus() == TRUE){return;}
 
-	// �V���b�^�[�ȊO�������Ă����瓮��֎~
+	// ï¿½Vï¿½ï¿½ï¿½bï¿½^ï¿½[ï¿½ÈŠOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ç“®ï¿½ï¿½Ö�~
 	if( m_pMainFrame->GetJoyStickMode()==0 ){
 		if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 			LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 			m_pDoc->MessageStringIf_Set(strMsg);
 			return;
-		}	// �X�e�[�W���쒆
+		}	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ì’†
 	}
 	if(m_pDoc->CheckActiveFlag() == TRUE){return;}
 
-	// ���C���^�[���b�N������
-// 2010.02.03 K.Matsuo PIN UPPER �C���^�[���b�N�`�F�b�N�R��Ή� <--
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// 2010.02.03 K.Matsuo PIN UPPER ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½`ï¿½Fï¿½bï¿½Nï¿½Rï¿½ï¿½Î‰ï¿½ <--
 
 	BOOL l_bAF = TRUE;
 	EEPROMDATA l_E2pRomParams;
 	StageGetEEPromData(&l_E2pRomParams);
-	long l_lZPos = l_E2pRomParams.AutoFocus.InitPos;	// Z ���̏�������~�ʒu
-	long l_lZPosPpU = l_E2pRomParams.AutoFocus.ppu; // Z ���̏�������~�ʒu�t�@�N�^
+	long l_lZPos = l_E2pRomParams.AutoFocus.InitPos;	// Z ï¿½ï¿½ï¿½Ì�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½Ê’u
+	long l_lZPosPpU = l_E2pRomParams.AutoFocus.ppu; // Z ï¿½ï¿½ï¿½Ì�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½Ê’uï¿½tï¿½@ï¿½Nï¿½^
 
-	// �n�[�h�V�~�����[�g���[�h���� -------------------------------------------
+	// ï¿½nï¿½[ï¿½hï¿½Vï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½ -------------------------------------------
 	if (0 != m_pMainFrame->HardwareSimulation()) {
-		// �n�[�h�V�~�����[�g���[�h�������̂ŁC���芮���҂� ��
+		// ï¿½nï¿½[ï¿½hï¿½Vï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Å�Cï¿½ï¿½ï¿½èŠ®ï¿½ï¿½ï¿½Ò‚ï¿½ ï¿½ï¿½
 	}
 	else {
-		// ���@�̏ꍇ ---------------------------------------------------------
-		// AF �v/�s�v����
-		// �s�v
-			// (�S�_ AF �����̏ꍇ)Z ���ړ����K�v���`�F�b�N
-		// �K�v(�d�l��K�v�Ȃ�)
-		// �y���ړ�
+		// ï¿½ï¿½ï¿½@ï¿½Ì�ê�‡ ---------------------------------------------------------
+		// AF ï¿½v/ï¿½sï¿½vï¿½ï¿½ï¿½ï¿½
+		// ï¿½sï¿½v
+			// (ï¿½Sï¿½_ AF ï¿½ï¿½ï¿½ï¿½ï¿½Ì�ê�‡)Z ï¿½ï¿½ï¿½Ú“ï¿½ï¿½ï¿½ï¿½Kï¿½vï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N
+		// ï¿½Kï¿½v(ï¿½dï¿½lï¿½ï¿½Kï¿½vï¿½È‚ï¿½)
+		// ï¿½yï¿½ï¿½ï¿½Ú“ï¿½
 		//TCHAR l_szMainRcpName[256];
 		//((CChiefView*) m_pcChiefView)->GetCurrentMainRecipeName(l_szMainRcpName);
-		// ��������~�ʒu[pulse]��[0.1um]�ɕϊ����܂�
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½Ê’u[pulse]ï¿½ï¿½[0.1um]ï¿½É•ÏŠï¿½ï¿½ï¿½ï¿½Ü‚ï¿½
 		LONG64 l_l64_Z = ((LONG64) l_lZPos) * ((LONG64) 1000000);
-		l_l64_Z = l_l64_Z / ((LONG64) l_lZPosPpU);	// ��������~�ʒu[pulse]���t�@�N�^[pulse/mm]
-		l_l64_Z = l_l64_Z * ((LONG64) 10000);	// [0.1um]�ɕϊ�����
+		l_l64_Z = l_l64_Z / ((LONG64) l_lZPosPpU);	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½Ê’u[pulse]ï¿½ï¿½ï¿½tï¿½@ï¿½Nï¿½^[pulse/mm]
+		l_l64_Z = l_l64_Z * ((LONG64) 10000);	// [0.1um]ï¿½É•ÏŠï¿½ï¿½ï¿½ï¿½ï¿½
 		long l_lZ = (long) (l_l64_Z / ((LONG64) 1000000));
 
-		NS_ConvertToStageMoveCoord(&l_lZ);		// �␳
+		NS_ConvertToStageMoveCoord(&l_lZ);		// ï¿½â�³
 
-		m_pDoc->ActuateFlagsSet(ACTUATE_ZAXIS, TRUE);		// ���쒆�t���O(Z ��)���I��
+		m_pDoc->ActuateFlagsSet(ACTUATE_ZAXIS, TRUE);		// ï¿½ï¿½ï¿½ì’†ï¿½tï¿½ï¿½ï¿½O(Z ï¿½ï¿½)ï¿½ï¿½ï¿½Iï¿½ï¿½
 #if 0	//----- Kawashima 2008.12.01 ----->
 //				TransiEvent(EV_SR1P_ZMOVE_DONE);
 #else	//----- Kawashima 2008.12.01 -----
 		m_pMainFrame->SetMessageText(IDS_CHIF_SR1P_Z_MOVING);  // Status Bar
 		if (0 == StageElevatorMove(l_lZ)) {
-			// �ړ��J�n���s
+			// ï¿½Ú“ï¿½ï¿½Jï¿½nï¿½ï¿½ï¿½s
 		} else {
-			// �ړ�����
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo �������b�Z�[�W�\�����Ȃ� ---------- { ---------- */
+			// ï¿½Ú“ï¿½ï¿½ï¿½ï¿½ï¿½
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ ---------- { ---------- */
 			m_pMainFrame->SetMessageText(IDS_CHIF_SR1P_Z_MOVED);   // Status Bar
-#else						/* modified 2009.08.05 hmenjo �������b�Z�[�W�\�����Ȃ� ----------			   */
+#else						/* modified 2009.08.05 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ ----------			   */
 			m_pMainFrame->SetMessageText(_T(" ")); // Status Bar
-#endif						/* modified 2009.08.05 hmenjo �������b�Z�[�W�\�����Ȃ� ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ ---------- } ---------- */
 		}
 #endif	//----- Kawashima 2008.12.01 <-----
-		m_pDoc->ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);		// ���쒆�t���O(Z ��)���I�t
+		m_pDoc->ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);		// ï¿½ï¿½ï¿½ì’†ï¿½tï¿½ï¿½ï¿½O(Z ï¿½ï¿½)ï¿½ï¿½ï¿½Iï¿½t
 	}
 }
 // 2010.01.07 bagus Gantry Transmittance --{--
@@ -4134,7 +4134,7 @@ void COverlayDialog::OnCheckTransmittanceShutter()
 	pButton = (CButton *)GetDlgItem(IDC_STAGE_REFERENCE_TRANSMITTANCE_SHUTTER_1);
 	if(!pButton)
 		return;
-	//���ߗ������V���b�^�[�̊J��
+	//ï¿½ï¿½ï¿½ß—ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½ï¿½ï¿½bï¿½^ï¿½[ï¿½ÌŠJï¿½ï¿½
 	if(pButton->GetCheck()){
 		bRet = m_pDoc->SetTransmittanceLamp(FILTER_OPEN);
 	}else{

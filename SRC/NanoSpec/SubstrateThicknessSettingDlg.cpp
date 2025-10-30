@@ -1,4 +1,4 @@
-// SubstrateThicknessSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SubstrateThicknessSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -19,7 +19,7 @@ static char THIS_FILE[] = __FILE__;
 #define INVALID_REGION_MAX		(10000)			// unit:micro meter
 
 /////////////////////////////////////////////////////////////////////////////
-// CSubstrateThicknessSettingDlg ƒ_ƒCƒAƒƒO
+// CSubstrateThicknessSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 
 CSubstrateThicknessSettingDlg::CSubstrateThicknessSettingDlg(BOOL bNew, CWnd* pParent /*=NULL*/)
@@ -51,7 +51,7 @@ BEGIN_MESSAGE_MAP(CSubstrateThicknessSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CSubstrateThicknessSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSubstrateThicknessSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 BOOL CSubstrateThicknessSettingDlg::OnInitDialog()
 {
@@ -70,15 +70,15 @@ BOOL CSubstrateThicknessSettingDlg::OnInitDialog()
 	m_CancelButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_CancelButton.DrawFlatFocus(TRUE);
 
-	// “ü—Í•¶š”§ŒÀ
+	// å…¥åŠ›æ–‡å­—æ•°åˆ¶é™
 	const int iLimitLength = 10;
 	((CEdit*)GetDlgItem(IDC_SUBSTRATE_THICKNESS_EDIT))->SetLimitText(iLimitLength);
 	((CEdit*)GetDlgItem(IDC_INVALID_REGION_EDIT))->SetLimitText(iLimitLength);
 
-	// “ü—Í§ŒÀiNoj
+	// å…¥åŠ›åˆ¶é™ï¼ˆNoï¼‰
 	m_wndNoEdit.EnableWindow(FALSE);
 
-	// ƒf[ƒ^‚Ìİ’è
+	// ãƒ‡ãƒ¼ã‚¿ã®è¨­å®š
 	CString strText;
 	if(m_iNo == 0){
 		strText = _T("Reference");
@@ -95,8 +95,8 @@ BOOL CSubstrateThicknessSettingDlg::OnInitDialog()
 	m_wndInvalidRegionEdit.SetWindowText(strText);
 
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-	              // —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+	              // ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================

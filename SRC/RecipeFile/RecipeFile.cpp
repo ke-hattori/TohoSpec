@@ -1,4 +1,4 @@
-// RecipeFile.cpp : Defines the initialization routines for the DLL.
+ï»¿// RecipeFile.cpp : Defines the initialization routines for the DLL.
 //
 
 #include "stdafx.h"
@@ -15,16 +15,16 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- { ---------- */
-TCHAR g_tszProcDir[_MAX_PATH] = _T("");		/* ŒÄo‚µƒvƒƒZƒX‚ÌƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
-TCHAR g_tszBaseDir[_MAX_PATH] = _T("");		/* Šî€ƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- { ---------- */
+TCHAR g_tszProcDir[_MAX_PATH] = _T("");		/* å‘¼å‡ºã—ãƒ—ãƒ­ã‚»ã‚¹ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª('\'ä»˜ã)*/
+TCHAR g_tszBaseDir[_MAX_PATH] = _T("");		/* åŸºæº–ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª('\'ä»˜ã)*/
 void GetProcBaseDir(
 		LPTSTR ptszProcDir,
 		LPTSTR ptszBaseDir
 	)
 {
 	if (0 == _tcscmp(ptszProcDir, _T(""))) {
-		TCHAR l_tszProcessFName[_MAX_PATH];	/* ŒÄo‚µƒvƒƒZƒX‚Ìƒtƒ‹ƒpƒX*/
+		TCHAR l_tszProcessFName[_MAX_PATH];	/* å‘¼å‡ºã—ãƒ—ãƒ­ã‚»ã‚¹ã®ãƒ•ãƒ«ãƒ‘ã‚¹*/
 		::GetModuleFileName(0, l_tszProcessFName, sizeof(l_tszProcessFName));
 		TCHAR l_tszDrive[_MAX_DRIVE];
 		TCHAR l_tszDir[_MAX_DIR];
@@ -46,7 +46,7 @@ void GetProcBaseDir(
 		}
 	}
 }
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- } ---------- */
 
 static CRITICAL_SECTION criticalSection;
 
@@ -54,9 +54,9 @@ static AFX_EXTENSION_MODULE RecipeFileDLL = { NULL, NULL };
 
 // --------------------------------------------------------------------
 // DllMain
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- { ---------- */
+/* added 2014.12.22 hmenjo DLL å¤šé‡èµ·å‹•é˜²æ­¢ ---------- { ---------- */
 #include <DllMutex.hxx>
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- } ---------- */
+/* added 2014.12.22 hmenjo DLL å¤šé‡èµ·å‹•é˜²æ­¢ ---------- } ---------- */
 extern "C" int APIENTRY
 DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 {
@@ -64,19 +64,19 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 
 	if (dwReason == DLL_PROCESS_ATTACH)
 	{
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- { ---------- */
+/* added 2014.12.22 hmenjo DLL å¤šé‡èµ·å‹•é˜²æ­¢ ---------- { ---------- */
 		if (FALSE == DllMutexCreate(_T("RecipeFile"))) {
 			return TRUE;
 		}
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- } ---------- */
+/* added 2014.12.22 hmenjo DLL å¤šé‡èµ·å‹•é˜²æ­¢ ---------- } ---------- */
 		TRACE0("RECIPEFILE.DLL Initializing!\n");
 
 		if (!AfxInitExtensionModule(RecipeFileDLL, hInstance))
 			return 0;
 
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- { ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- { ---------- */
 		GetProcBaseDir(g_tszProcDir, g_tszBaseDir);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- } ---------- */
 		new CDynLinkLibrary(RecipeFileDLL);
 //2009.12.10 bagus Recipe Backup --{--
 		SetBackupPath("",FALSE);
@@ -91,16 +91,16 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 
 		::EnterCriticalSection(&criticalSection);
 		::DeleteCriticalSection(&criticalSection);
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- { ---------- */
+/* added 2014.12.22 hmenjo DLL å¤šé‡èµ·å‹•é˜²æ­¢ ---------- { ---------- */
 		DllMutexRelease();
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- } ---------- */
+/* added 2014.12.22 hmenjo DLL å¤šé‡èµ·å‹•é˜²æ­¢ ---------- } ---------- */
 	}
 	return 1;
 }
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : RecipeFile_Lock
-// Purpose	  : Recipe‚Ì”r‘¼§ŒäiƒƒbƒNj
+// Purpose	  : Recipeã®æ’ä»–åˆ¶å¾¡ï¼ˆãƒ­ãƒƒã‚¯ï¼‰
 void RECIPEFILEAPI RecipeFile_Lock()
 {
 	::EnterCriticalSection(&criticalSection);
@@ -108,7 +108,7 @@ void RECIPEFILEAPI RecipeFile_Lock()
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : RecipeFile_Unlock
-// Purpose	  : Recipe‚Ì”r‘¼§ŒäiƒAƒ“ƒƒbƒNj
+// Purpose	  : Recipeã®æ’ä»–åˆ¶å¾¡ï¼ˆã‚¢ãƒ³ãƒ­ãƒƒã‚¯ï¼‰
 void RECIPEFILEAPI RecipeFile_Unlock()
 {
 	::LeaveCriticalSection(&criticalSection);
@@ -116,13 +116,13 @@ void RECIPEFILEAPI RecipeFile_Unlock()
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : RecipeFile_LoadRecipe
-// Purpose	  : RecipeCProgramCUserAccountCSample‚Ì“Ç‚İ‚İ
-// Parameters : pVoid	 ---> ƒf[ƒ^‚ğ•Û‘¶‚·‚é\‘¢‘Ì‚Ìƒ|ƒCƒ“ƒ^
-//				lpszName ---> ƒtƒ@ƒCƒ‹–¼
-//				iType	 ---> ‚Ç‚Ìƒtƒ@ƒCƒ‹(MainRecipe“™)‚È‚Ì‚©‚ğŒˆ‚ß‚é•Ï”
+// Purpose	  : Recipeï¼ŒProgramï¼ŒUserAccountï¼ŒSampleã®èª­ã¿è¾¼ã¿
+// Parameters : pVoid	 ---> ãƒ‡ãƒ¼ã‚¿ã‚’ä¿å­˜ã™ã‚‹æ§‹é€ ä½“ã®ãƒã‚¤ãƒ³ã‚¿
+//				lpszName ---> ãƒ•ã‚¡ã‚¤ãƒ«å
+//				iType	 ---> ã©ã®ãƒ•ã‚¡ã‚¤ãƒ«(MainRecipeç­‰)ãªã®ã‹ã‚’æ±ºã‚ã‚‹å¤‰æ•°
 //
-// Returns	  : TRUE  ---> “Ç‚İ‚İ¬Œ÷
-//				FALSE ---> “Ç‚İ‚İ¸”s
+// Returns	  : TRUE  ---> èª­ã¿è¾¼ã¿æˆåŠŸ
+//				FALSE ---> èª­ã¿è¾¼ã¿å¤±æ•—
 BOOL RECIPEFILEAPI RecipeFile_LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 {
 	BOOL bRet;
@@ -134,13 +134,13 @@ BOOL RECIPEFILEAPI RecipeFile_LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iTyp
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : RecipeFile_SaveRecipe
-// Purpose	  : RecipeCProgramCUserAccountCSample‚Ì•Û‘¶
-// Parameters : pVoid	 ---> ƒf[ƒ^‚ğ•Û‘¶‚·‚é\‘¢‘Ì‚Ìƒ|ƒCƒ“ƒ^
-//				lpszName ---> ƒtƒ@ƒCƒ‹–¼
-//				iType	 ---> ‚Ç‚Ìƒtƒ@ƒCƒ‹(MainRecipe“™)‚È‚Ì‚©‚ğŒˆ‚ß‚é•Ï”
+// Purpose	  : Recipeï¼ŒProgramï¼ŒUserAccountï¼ŒSampleã®ä¿å­˜
+// Parameters : pVoid	 ---> ãƒ‡ãƒ¼ã‚¿ã‚’ä¿å­˜ã™ã‚‹æ§‹é€ ä½“ã®ãƒã‚¤ãƒ³ã‚¿
+//				lpszName ---> ãƒ•ã‚¡ã‚¤ãƒ«å
+//				iType	 ---> ã©ã®ãƒ•ã‚¡ã‚¤ãƒ«(MainRecipeç­‰)ãªã®ã‹ã‚’æ±ºã‚ã‚‹å¤‰æ•°
 //
-// Returns	  : TRUE  ---> •Û‘¶¬Œ÷
-//				FALSE ---> •Û‘¶¸”s
+// Returns	  : TRUE  ---> ä¿å­˜æˆåŠŸ
+//				FALSE ---> ä¿å­˜å¤±æ•—
 BOOL RECIPEFILEAPI RecipeFile_SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 {
 	BOOL bRet;
@@ -152,13 +152,13 @@ BOOL RECIPEFILEAPI RecipeFile_SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iTy
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : RecipeFile_LoadMainRecipeList
-// Purpose	  : MultiRecipe‚ÌMainRecipeList‚Ì“Ç‚İ‚İ
-// Parameters : pMainRcpList   ---> MainRecipeList‚Ì”z—ñ
-//				wNumMainRecipe ---> “Ç‚İ‚ŞMainRecipe”
-//				lpszName	   ---> ƒtƒ@ƒCƒ‹–¼
+// Purpose	  : MultiRecipeã®MainRecipeListã®èª­ã¿è¾¼ã¿
+// Parameters : pMainRcpList   ---> MainRecipeListã®é…åˆ—
+//				wNumMainRecipe ---> èª­ã¿è¾¼ã‚€MainRecipeæ•°
+//				lpszName	   ---> ãƒ•ã‚¡ã‚¤ãƒ«å
 //
-// Returns	  : TRUE  ---> “Ç‚İ‚İ¬Œ÷
-//				FALSE ---> “Ç‚İ‚İ¸”s
+// Returns	  : TRUE  ---> èª­ã¿è¾¼ã¿æˆåŠŸ
+//				FALSE ---> èª­ã¿è¾¼ã¿å¤±æ•—
 BOOL RECIPEFILEAPI RecipeFile_LoadMainRecipeList(MULTI_RCP_MAIN_RCP_LIST* pMainRcpList,
 	WORD wNumMainRecipe, LPCSTR lpszName)
 {
@@ -171,13 +171,13 @@ BOOL RECIPEFILEAPI RecipeFile_LoadMainRecipeList(MULTI_RCP_MAIN_RCP_LIST* pMainR
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : RecipeFile_SaveMainRecipeList
-// Purpose	  : MultiRecipe‚ÌMainRecipeList‚Ì•Û‘¶
-// Parameters : pMainRcpList   ---> MainRecipeList‚Ì”z—ñ
-//				wNumMainRecipe ---> •Û‘¶‚·‚éMainRecipe”
-//				lpszName	   ---> ƒtƒ@ƒCƒ‹–¼
+// Purpose	  : MultiRecipeã®MainRecipeListã®ä¿å­˜
+// Parameters : pMainRcpList   ---> MainRecipeListã®é…åˆ—
+//				wNumMainRecipe ---> ä¿å­˜ã™ã‚‹MainRecipeæ•°
+//				lpszName	   ---> ãƒ•ã‚¡ã‚¤ãƒ«å
 //
-// Returns	  : TRUE  ---> •Û‘¶¬Œ÷
-//				FALSE ---> •Û‘¶¸”s
+// Returns	  : TRUE  ---> ä¿å­˜æˆåŠŸ
+//				FALSE ---> ä¿å­˜å¤±æ•—
 BOOL RECIPEFILEAPI RecipeFile_SaveMainRecipeList(const MULTI_RCP_MAIN_RCP_LIST* pMainRcpList,
 	WORD wNumMainRecipe, LPCSTR lpszName)
 {
@@ -190,13 +190,13 @@ BOOL RECIPEFILEAPI RecipeFile_SaveMainRecipeList(const MULTI_RCP_MAIN_RCP_LIST* 
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : RecipeFile_LoadPointList
-// Purpose	  : StageProgram‚Ì‘ª’èƒ|ƒCƒ“ƒgƒŠƒXƒg‚Ì“Ç‚İ‚İ
-// Parameters : pPoint		---> STAGE_COORD‚Ì”z—ñ
-//				wNumScans	---> “Ç‚İ‚Ş‘ª’èƒ|ƒCƒ“ƒg”
-//				pszFileName ---> ƒtƒ@ƒCƒ‹–¼
+// Purpose	  : StageProgramã®æ¸¬å®šãƒã‚¤ãƒ³ãƒˆãƒªã‚¹ãƒˆã®èª­ã¿è¾¼ã¿
+// Parameters : pPoint		---> STAGE_COORDã®é…åˆ—
+//				wNumScans	---> èª­ã¿è¾¼ã‚€æ¸¬å®šãƒã‚¤ãƒ³ãƒˆæ•°
+//				pszFileName ---> ãƒ•ã‚¡ã‚¤ãƒ«å
 //
-// Returns	  : TRUE  ---> “Ç‚İ‚İ¬Œ÷
-//				FALSE ---> “Ç‚İ‚İ¸”s
+// Returns	  : TRUE  ---> èª­ã¿è¾¼ã¿æˆåŠŸ
+//				FALSE ---> èª­ã¿è¾¼ã¿å¤±æ•—
 BOOL RECIPEFILEAPI RecipeFile_LoadPointList(STAGE_COORD* pPoint, WORD wNumScans,
 	LPCSTR pszFileName)
 {
@@ -209,13 +209,13 @@ BOOL RECIPEFILEAPI RecipeFile_LoadPointList(STAGE_COORD* pPoint, WORD wNumScans,
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : RecipeFile_SavePointList
-// Purpose	  : StageProgram‚Ì‘ª’èƒ|ƒCƒ“ƒgƒŠƒXƒg‚Ì•Û‘¶
-// Parameters : pPoint		---> STAGE_COORD‚Ì”z—ñ
-//				wNumScans	---> •Û‘¶‚·‚é‘ª’èƒ|ƒCƒ“ƒg”
-//				pszFilePath ---> ƒtƒ@ƒCƒ‹–¼
+// Purpose	  : StageProgramã®æ¸¬å®šãƒã‚¤ãƒ³ãƒˆãƒªã‚¹ãƒˆã®ä¿å­˜
+// Parameters : pPoint		---> STAGE_COORDã®é…åˆ—
+//				wNumScans	---> ä¿å­˜ã™ã‚‹æ¸¬å®šãƒã‚¤ãƒ³ãƒˆæ•°
+//				pszFilePath ---> ãƒ•ã‚¡ã‚¤ãƒ«å
 //
-// Returns	  : TRUE  ---> •Û‘¶¬Œ÷
-//				FALSE ---> •Û‘¶¸”s
+// Returns	  : TRUE  ---> ä¿å­˜æˆåŠŸ
+//				FALSE ---> ä¿å­˜å¤±æ•—
 BOOL RECIPEFILEAPI RecipeFile_SavePointList(const STAGE_COORD* pPoint, WORD wNumScans,
 	LPCSTR pszFilePath)
 {
@@ -226,7 +226,7 @@ BOOL RECIPEFILEAPI RecipeFile_SavePointList(const STAGE_COORD* pPoint, WORD wNum
 	return bRet;
 }
 
-// 2009.10.15 bagus Distance ’Ç‰Á --{--
+// 2009.10.15 bagus Distance è¿½åŠ  --{--
 BOOL RECIPEFILEAPI RecipeFile_Load2PointList(STAGE_COORD* pPoint, WORD wNumScans,
 	LPCSTR pszFileName)
 {
@@ -246,16 +246,16 @@ BOOL RECIPEFILEAPI RecipeFile_Save2PointList(const STAGE_COORD* pPoint, WORD wNu
 	RecipeFile_Unlock();
 	return bRet;
 }
-// 2009.10.15 bagus Distance ’Ç‰Á --}--
+// 2009.10.15 bagus Distance è¿½åŠ  --}--
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : RecipeFile_SaveCurrRecipeInfo
-// Purpose	  : Œ»İ‚ÌRecipeƒf[ƒ^‚Ì•Û‘¶
-// Parameters : pszMainRcpName ---> ƒƒCƒ“ƒŒƒVƒs–¼
-//			  : iMeasType(ƒfƒtƒHƒ‹ƒgˆø”) ---> ‘ª’èƒ^ƒCƒv(ƒ}ƒjƒ…ƒAƒ‹‘ª’è‚©‚»‚¤‚Å‚È‚¢‚©‚ğ¯•Ê‚·‚é‚½‚ß‚Ì‚à‚Ì) (ƒfƒtƒHƒ‹ƒg’l‚Í0)
+// Purpose	  : ç¾åœ¨ã®Recipeãƒ‡ãƒ¼ã‚¿ã®ä¿å­˜
+// Parameters : pszMainRcpName ---> ãƒ¡ã‚¤ãƒ³ãƒ¬ã‚·ãƒ”å
+//			  : iMeasType(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå¼•æ•°) ---> æ¸¬å®šã‚¿ã‚¤ãƒ—(ãƒãƒ‹ãƒ¥ã‚¢ãƒ«æ¸¬å®šã‹ãã†ã§ãªã„ã‹ã‚’è­˜åˆ¥ã™ã‚‹ãŸã‚ã®ã‚‚ã®) (ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã¯0)
 //
-// Returns	  : TRUE  ---> •Û‘¶¬Œ÷
-//				FALSE ---> •Û‘¶¸”s
+// Returns	  : TRUE  ---> ä¿å­˜æˆåŠŸ
+//				FALSE ---> ä¿å­˜å¤±æ•—
 BOOL RECIPEFILEAPI RecipeFile_SaveCurrRecipeInfo(LPCSTR pszMainRcpName, int iMeasType)
 {
 	BOOL bRet;
@@ -267,12 +267,12 @@ BOOL RECIPEFILEAPI RecipeFile_SaveCurrRecipeInfo(LPCSTR pszMainRcpName, int iMea
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : RecipeFile_DeleteRecipe
-// Purpose	  : RecipeCProgramCUserAccountCSample‚Ìíœ
-// Parameters : lpszName ---> ƒtƒ@ƒCƒ‹–¼
-//				iType	 ---> ‚Ç‚Ìƒtƒ@ƒCƒ‹(MainReicpe“™)‚È‚Ì‚©‚ğŒˆ‚ß‚é•Ï”
+// Purpose	  : Recipeï¼ŒProgramï¼ŒUserAccountï¼ŒSampleã®å‰Šé™¤
+// Parameters : lpszName ---> ãƒ•ã‚¡ã‚¤ãƒ«å
+//				iType	 ---> ã©ã®ãƒ•ã‚¡ã‚¤ãƒ«(MainReicpeç­‰)ãªã®ã‹ã‚’æ±ºã‚ã‚‹å¤‰æ•°
 //
-// Returns	  : TRUE  ---> íœ¬Œ÷
-//				FALSE ---> íœ¸”s
+// Returns	  : TRUE  ---> å‰Šé™¤æˆåŠŸ
+//				FALSE ---> å‰Šé™¤å¤±æ•—
 BOOL RECIPEFILEAPI RecipeFile_DeleteRecipe(LPCSTR pszFileName, int iType)
 {
 	BOOL bRet;
@@ -284,13 +284,13 @@ BOOL RECIPEFILEAPI RecipeFile_DeleteRecipe(LPCSTR pszFileName, int iType)
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : RecipeFile_ExistRecipe
-// Purpose	  : RecipeCProgramCUserAccountCSample‚ª‘¶İ‚·‚é‚©‚ğŠm”F
-// Parameters : lpszName ---> ƒtƒ@ƒCƒ‹–¼
-//				lpLastWriteSystemTime ---> ƒtƒ@ƒCƒ‹‚ÌÅIXV“ú
-//				iType	 ---> ‚Ç‚Ìƒtƒ@ƒCƒ‹(MainRecipe“™)‚È‚Ì‚©‚ğŒˆ‚ß‚é•Ï”
+// Purpose	  : Recipeï¼ŒProgramï¼ŒUserAccountï¼ŒSampleãŒå­˜åœ¨ã™ã‚‹ã‹ã‚’ç¢ºèª
+// Parameters : lpszName ---> ãƒ•ã‚¡ã‚¤ãƒ«å
+//				lpLastWriteSystemTime ---> ãƒ•ã‚¡ã‚¤ãƒ«ã®æœ€çµ‚æ›´æ–°æ—¥æ™‚
+//				iType	 ---> ã©ã®ãƒ•ã‚¡ã‚¤ãƒ«(MainRecipeç­‰)ãªã®ã‹ã‚’æ±ºã‚ã‚‹å¤‰æ•°
 //
-// Returns	  : TRUE  ---> ‘¶İ‚·‚é
-//				FALSE ---> ‘¶İ‚µ‚È‚¢
+// Returns	  : TRUE  ---> å­˜åœ¨ã™ã‚‹
+//				FALSE ---> å­˜åœ¨ã—ãªã„
 BOOL RECIPEFILEAPI RecipeFile_ExistRecipe(LPCSTR pszFileName, SYSTEMTIME* lpLastWriteSystemTime, int iType)
 {
 	return ExistRecipe(pszFileName, lpLastWriteSystemTime, iType);
@@ -299,12 +299,12 @@ BOOL RECIPEFILEAPI RecipeFile_ExistRecipe(LPCSTR pszFileName, SYSTEMTIME* lpLast
 //2009.12.10 bagus Recipe Backup --{--
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : RecipeFile_SetBackupPath
-// Purpose	  : ƒI[ƒgBackup‚·‚é‚½‚ß‚Ìİ’è‚ğƒZƒbƒg‚·‚é
-// Parameters : lpszBackupPath ---> ƒoƒbƒNƒAƒbƒv—pƒpƒX
-//				bUse 		   ---> —LŒø/–³Œø
+// Purpose	  : ã‚ªãƒ¼ãƒˆBackupã™ã‚‹ãŸã‚ã®è¨­å®šã‚’ã‚»ãƒƒãƒˆã™ã‚‹
+// Parameters : lpszBackupPath ---> ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ç”¨ãƒ‘ã‚¹
+//				bUse 		   ---> æœ‰åŠ¹/ç„¡åŠ¹
 //
-// Returns	  : TRUE  ---> “Ç‚İ‚İ¬Œ÷
-//				FALSE ---> “Ç‚İ‚İ¸”s
+// Returns	  : TRUE  ---> èª­ã¿è¾¼ã¿æˆåŠŸ
+//				FALSE ---> èª­ã¿è¾¼ã¿å¤±æ•—
 BOOL RECIPEFILEAPI RecipeFile_SetBackupPath(LPCSTR lpszBackupPath,BOOL bUse)
 {
 	BOOL bRet;
@@ -334,13 +334,13 @@ BOOL RECIPEFILEAPI RecipeFile_RestoreAllRecipe()
 //Saiki 20110208 Add ----->
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : RecipeFile_SetStressParam
-// Purpose	  : ‰—Í‘ª’è—p‚Ìİ’è‚ğƒZƒbƒg‚·‚é
-// Parameters : pVoid	 ---> ƒf[ƒ^‚ğ•Û‘¶‚·‚é\‘¢‘Ì‚Ìƒ|ƒCƒ“ƒ^
-//				lpszName ---> ƒtƒ@ƒCƒ‹–¼
-//				iType	 ---> ‚Ç‚Ìƒtƒ@ƒCƒ‹(MainRecipe“™)‚È‚Ì‚©‚ğŒˆ‚ß‚é•Ï”
+// Purpose	  : å¿œåŠ›æ¸¬å®šç”¨ã®è¨­å®šã‚’ã‚»ãƒƒãƒˆã™ã‚‹
+// Parameters : pVoid	 ---> ãƒ‡ãƒ¼ã‚¿ã‚’ä¿å­˜ã™ã‚‹æ§‹é€ ä½“ã®ãƒã‚¤ãƒ³ã‚¿
+//				lpszName ---> ãƒ•ã‚¡ã‚¤ãƒ«å
+//				iType	 ---> ã©ã®ãƒ•ã‚¡ã‚¤ãƒ«(MainRecipeç­‰)ãªã®ã‹ã‚’æ±ºã‚ã‚‹å¤‰æ•°
 //
-// Returns	  : TRUE  ---> •Û‘¶¬Œ÷
-//				FALSE ---> •Û‘¶¸”s
+// Returns	  : TRUE  ---> ä¿å­˜æˆåŠŸ
+//				FALSE ---> ä¿å­˜å¤±æ•—
 BOOL RECIPEFILEAPI RecipeFile_SetStressParam(LPVOID pVoid, LPCSTR lpszName, int iType)
 {
 	BOOL bRet;
@@ -352,12 +352,12 @@ BOOL RECIPEFILEAPI RecipeFile_SetStressParam(LPVOID pVoid, LPCSTR lpszName, int 
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : RecipeFile_LoadStressParam
-// Purpose	  : ‰—Í‘ª’è—p‚Ìİ’è‚ğƒZƒbƒg‚·‚é
-// Parameters : pVoid	 ---> ƒf[ƒ^‚ğ•Û‘¶‚·‚é\‘¢‘Ì‚Ìƒ|ƒCƒ“ƒ^
-//				lpszName ---> ƒtƒ@ƒCƒ‹–¼
+// Purpose	  : å¿œåŠ›æ¸¬å®šç”¨ã®è¨­å®šã‚’ã‚»ãƒƒãƒˆã™ã‚‹
+// Parameters : pVoid	 ---> ãƒ‡ãƒ¼ã‚¿ã‚’ä¿å­˜ã™ã‚‹æ§‹é€ ä½“ã®ãƒã‚¤ãƒ³ã‚¿
+//				lpszName ---> ãƒ•ã‚¡ã‚¤ãƒ«å
 //
-// Returns	  : TRUE  ---> “Ç‚İ‚İ¬Œ÷
-//				FALSE ---> “Ç‚İ‚İ¸”s
+// Returns	  : TRUE  ---> èª­ã¿è¾¼ã¿æˆåŠŸ
+//				FALSE ---> èª­ã¿è¾¼ã¿å¤±æ•—
 BOOL RECIPEFILEAPI RecipeFile_LoadStressParam(LPVOID pVoid, LPCSTR lpszName, int iType)
 {
 	BOOL bRet;

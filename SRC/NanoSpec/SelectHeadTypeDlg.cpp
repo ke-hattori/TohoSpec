@@ -1,4 +1,4 @@
-// SelectHeadTypeDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SelectHeadTypeDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -13,7 +13,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // #########################################################################
-// CSelectHeadTypeDlg ƒ_ƒCƒAƒƒO
+// CSelectHeadTypeDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // #########################################################################
 
 // =========================================================================
@@ -47,7 +47,7 @@ BEGIN_MESSAGE_MAP(CSelectHeadTypeDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CSelectHeadTypeDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSelectHeadTypeDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -59,7 +59,7 @@ BOOL CSelectHeadTypeDlg::OnInitDialog()
 
 	CDialog::OnInitDialog();
 
-	// TODO: ‚±‚ÌˆÊ’u‚É‰Šú‰»‚Ì•â‘«ˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«åˆæœŸåŒ–ã®è£œè¶³å‡¦ç†ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	///// OK Button /////
 	m_OkButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
@@ -81,7 +81,7 @@ BOOL CSelectHeadTypeDlg::OnInitDialog()
 	pList = (CListBox *)GetDlgItem(IDC_HEAD_TYPE_LIST);
 	pList->ResetContent();
 
-	// ‘I‘ğ‚³‚ê‚Ä‚¢‚éƒwƒbƒh‚Ì‚İ•\¦
+	// é¸æŠã•ã‚Œã¦ã„ã‚‹ãƒ˜ãƒƒãƒ‰ã®ã¿è¡¨ç¤º
 	if(HeadType.bSR){
 		pList->AddString(HEAD_TYPE_ITEM[HEAD_TYPE_SR]);
 		if(m_iHeadType == HEAD_TYPE_SR){
@@ -89,19 +89,19 @@ BOOL CSelectHeadTypeDlg::OnInitDialog()
 		}
 	}
 	if(HeadType.bSE){
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 		if(HeadType.bCompEASE){
 			pList->AddString(HEAD_TYPE_ITEM[HEAD_TYPE_COMPEASE]);
 		}
 		else{
 		pList->AddString(HEAD_TYPE_ITEM[HEAD_TYPE_SE]);
 		}
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 		if(m_iHeadType == HEAD_TYPE_SE){
 			iSelect = pList->GetCount() - 1;
 		}
 	}
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 #if 0
 	if(HeadType.bIRSE){
 		pList->AddString(HEAD_TYPE_ITEM[HEAD_TYPE_IRSE]);
@@ -110,7 +110,7 @@ BOOL CSelectHeadTypeDlg::OnInitDialog()
 		}
 	}
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 	if(HeadType.bResist){
 		pList->AddString(HEAD_TYPE_ITEM[HEAD_TYPE_4PP]);
 		if(m_iHeadType == HEAD_TYPE_4PP){
@@ -129,19 +129,19 @@ BOOL CSelectHeadTypeDlg::OnInitDialog()
 			iSelect = pList->GetCount() - 1;
 		}
 	}
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 	if(HeadType.bMS){
 		pList->AddString(HEAD_TYPE_ITEM[HEAD_TYPE_MS]);
 		if(m_iHeadType == HEAD_TYPE_MS){
 			iSelect = pList->GetCount() - 1;
 		}
 	}
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 
 	if(pList->GetCount() <= 0){
 		// Kojika 20090601 Change
 		//MessageBox("Head Setting has not been set up.", "SELECT HEAD TYPE", MB_OK);
-		//MessageBox("ƒwƒbƒhƒ^ƒCƒv‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ", "SELECT HEAD TYPE", MB_OK);
+		//MessageBox("ãƒ˜ãƒƒãƒ‰ã‚¿ã‚¤ãƒ—ãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“", "SELECT HEAD TYPE", MB_OK);
 		LoadStringML(IDS_HEAD_SETTING_NOT_SETUP, l_strBuffer, "Head Setting has not been set up.");
 		LoadStringML(IDS_TITLE_SELECT_HEAD_TYPE, l_strTitle, "SELECT HEAD TYPE");
 		MessageBox(l_strBuffer, l_strTitle, MB_OK);
@@ -152,15 +152,15 @@ BOOL CSelectHeadTypeDlg::OnInitDialog()
 
 	pList->SetCurSel(iSelect);
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
 //
 void CSelectHeadTypeDlg::OnOK()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚É‚»‚Ì‘¼‚ÌŒŸØ—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãã®ä»–ã®æ¤œè¨¼ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	int iSelect, i;
 	CListBox* pList;
@@ -170,7 +170,7 @@ void CSelectHeadTypeDlg::OnOK()
 	iSelect =pList->GetCurSel();
 	memset(szHeadType, 0, sizeof(szHeadType));
 
-	// ‘I‘ğ‚³‚ê‚Ä‚¢‚È‚¢
+	// é¸æŠã•ã‚Œã¦ã„ãªã„
 	if(iSelect == LB_ERR){
 		return;
 	}

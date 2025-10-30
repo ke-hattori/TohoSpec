@@ -1,4 +1,4 @@
-// SrTurretSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SrTurretSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -17,7 +17,7 @@ static char THIS_FILE[] = __FILE__;
 
 
 // #########################################################################
-// CSrTurretSettingDlg ƒ_ƒCƒAƒƒO
+// CSrTurretSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // #########################################################################
 
 // =========================================================================
@@ -37,7 +37,7 @@ void CSrTurretSettingDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CSrTurretSettingDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_MAP
 
 	DDX_Control(pDX, IDOK, m_OkButton);
@@ -56,7 +56,7 @@ BEGIN_MESSAGE_MAP(CSrTurretSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CSrTurretSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSrTurretSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -86,17 +86,17 @@ BOOL CSrTurretSettingDlg::OnInitDialog()
 	pCombo->SetCurSel(0);
 	m_iCurrNo = 0;
 
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	if(g_lModelType == MODEL_T3100){
 		GetDlgItem(IDC_STATIC_TURRET_NO)->ShowWindow(SW_HIDE);
 	}
 	else{
 		GetDlgItem(IDC_STATIC_TURRET_NO)->ShowWindow(SW_SHOW);
 	}
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 
 // 2009.09.18 bagus SE --{--
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //	pCombo = (CComboBox *)GetDlgItem(IDC_AUTOFOCUS_TURRET_NO);
 //	pCombo->ResetContent();
 //	for(i = 0; i < SR_LENS_MAX; i++){
@@ -116,7 +116,7 @@ BOOL CSrTurretSettingDlg::OnInitDialog()
 		}
 		pCombo->SetCurSel(0);
 	}
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 // 2009.09.18 bagus SE --}--
 
 	ConfigFile_GetNanoSpecIni(m_SrTurret, CONFIG_FILE_SR_TURRET);
@@ -124,8 +124,8 @@ BOOL CSrTurretSettingDlg::OnInitDialog()
 	UpdateXmpAngle();
 	OnCheckEnable();
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 // =========================================================================
 //
@@ -161,7 +161,7 @@ void CSrTurretSettingDlg::OnOK()
 	}
 // 2009.09.19 bagus SE --}--
 
-	///// Lens Center Offset Setting‚ÅReference‚Æ‚µ‚Äg—p‚µ‚Ä‚¢‚éLens‚ğ–³Œø‚É‚µ‚½‚Æ‚« /////
+	///// Lens Center Offset Settingã§Referenceã¨ã—ã¦ä½¿ç”¨ã—ã¦ã„ã‚‹Lensã‚’ç„¡åŠ¹ã«ã—ãŸã¨ã /////
 	ConfigFile_GetNanoSpecIni(&LensOffset, CONFIG_FILE_SR_LENS_CENTER_OFFSET);
 	if ( !m_SrTurret[LensOffset.iBaseLens].bEnable ) {
 		int iLens = LensOffset.iBaseLens + 1;
@@ -188,9 +188,9 @@ void CSrTurretSettingDlg::OnOK()
 	if (nIndex < 0) {
 		// OPEN
 	} else if (nIndex >= SR_LENS_MAX) {
-		// ‚»‚à‚»‚àƒ^[ƒŒƒbƒg”‚ªˆÙí
+		// ãã‚‚ãã‚‚ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆæ•°ãŒç•°å¸¸
 	} else {
-		// –¢g—pƒ^[ƒŒƒbƒg‚ğ‘I‘ğ‚µ‚Ä‚¢‚é‚È‚çİ’è•ÏX
+		// æœªä½¿ç”¨ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆã‚’é¸æŠã—ã¦ã„ã‚‹ãªã‚‰è¨­å®šå¤‰æ›´
 		if (!m_SrTurret[nIndex].bEnable || !m_SrTurret[nIndex].bAnalysis) {
 			for (i=0; i<SR_LENS_MAX; i++) {
 				if (m_SrTurret[i].bEnable && m_SrTurret[i].bAnalysis) {
@@ -215,14 +215,14 @@ void CSrTurretSettingDlg::OnSelchangeNo()
 {
 	CComboBox* pCombo;
 	pCombo = (CComboBox *)GetDlgItem(IDC_NUM);
-	// Œ»İ‚Ìİ’è‚ğ•Û‘¶
+	// ç¾åœ¨ã®è¨­å®šã‚’ä¿å­˜
 	UpDate(TRUE);
 	if(!CheckData()){
 		pCombo->SetCurSel(m_iCurrNo);
 		return;
 	}
 
-	// V‚µ‚¢”Ô†‚Ìƒ^[ƒŒƒbƒg‚Ìİ’è‚ğ•\¦
+	// æ–°ã—ã„ç•ªå·ã®ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆã®è¨­å®šã‚’è¡¨ç¤º
 	m_iCurrNo = pCombo->GetCurSel();
 	UpDate(FALSE);
 	UpdateXmpAngle();
@@ -240,12 +240,12 @@ void CSrTurretSettingDlg::OnCheckEnable()
 
 // 2009.09.18 bagus SE --{--
 	GetDlgItem(IDC_CHECK_VALID_AS_A_MEASUREMENT_LENS)->EnableWindow(bEnable);
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //	GetDlgItem(IDC_AUTOFOCUS_TURRET_NO)->EnableWindow(bEnable);
 	if(g_lModelType != MODEL_T3100){
 		GetDlgItem(IDC_AUTOFOCUS_TURRET_NO)->EnableWindow(bEnable);
 	}
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 // 2009.09.18 bagus SE --}--
 }
 
@@ -314,7 +314,7 @@ void CSrTurretSettingDlg::UpDate(BOOL bValid)
 		m_SrTurret[m_iCurrNo].bAnalysis = IsDlgButtonChecked(IDC_CHECK_VALID_AS_A_MEASUREMENT_LENS) == BST_CHECKED;
 
 		///// Auto Focus Turret No. /////
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //		if (m_SrTurret[m_iCurrNo].bEnable) {
 //			m_SrTurret[m_iCurrNo].iAFLens = pCombo->GetCurSel();
 //		} else {
@@ -330,7 +330,7 @@ void CSrTurretSettingDlg::UpDate(BOOL bValid)
 				m_SrTurret[m_iCurrNo].iAFLens = m_iCurrNo;
 			}
 		}
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 #endif
 // 2009.09.29 bagus SE --}--
 // 2009.09.18 bagus SE --}--
@@ -364,7 +364,7 @@ void CSrTurretSettingDlg::UpDate(BOOL bValid)
 		}
 #else
 		///// Auto Focus Turret No. /////
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //		if ((m_SrTurret[m_iCurrNo].iAFLens < 0) || (m_SrTurret[m_iCurrNo].iAFLens >= SR_LENS_MAX)) {
 //			//NG
 //			pCombo->SetCurSel(m_iCurrNo);
@@ -379,7 +379,7 @@ void CSrTurretSettingDlg::UpDate(BOOL bValid)
 				pCombo->SetCurSel(m_SrTurret[m_iCurrNo].iAFLens);
 			}
 		}
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 #endif
 // 2009.09.29 bagus SE --}--
 // 2009.09.18 bagus SE --}--
@@ -425,7 +425,7 @@ BOOL CSrTurretSettingDlg::CheckData()
 
 // 2009.09.18 bagus SE --{--
 	// Auto Focus Turret No.
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //	if (pCombo->GetCurSel() < 0) {
 //		pCombo->SetFocus();
 //		LoadStringML(IDS_SELECT_AUTO_FOCUS_TURRET_NO, strBuffer, "Please select auto focus turret no.");
@@ -440,7 +440,7 @@ BOOL CSrTurretSettingDlg::CheckData()
 			return FALSE;
 		}
 	}
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 // 2009.09.18 bagus SE --}--
 
 	return TRUE;

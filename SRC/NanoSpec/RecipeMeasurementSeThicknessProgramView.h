@@ -1,14 +1,14 @@
-#if !defined(AFX_RecipeMeasurementSeThicknessProgramView_H__2EABB3D5_0FEE_415C_BF19_4FF5C6B4B6FC__INCLUDED_)
+ï»¿#if !defined(AFX_RecipeMeasurementSeThicknessProgramView_H__2EABB3D5_0FEE_415C_BF19_4FF5C6B4B6FC__INCLUDED_)
 #define AFX_RecipeMeasurementSeThicknessProgramView_H__2EABB3D5_0FEE_415C_BF19_4FF5C6B4B6FC__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// RecipeMeasurementSeThicknessProgramView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// RecipeMeasurementSeThicknessProgramView.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 // ##########################################################################
-// CRecipeMeasurementSeThicknessProgramView ƒtƒH[ƒ€ ƒrƒ…[
+// CRecipeMeasurementSeThicknessProgramView ãƒ•ã‚©ãƒ¼ãƒ  ãƒ“ãƒ¥ãƒ¼
 // ##########################################################################
 
 #ifndef __AFXEXT_H__
@@ -22,11 +22,11 @@
 class CRecipeMeasurementSeThicknessProgramView : public CNanoRecipeUI
 {
 protected:
-	CRecipeMeasurementSeThicknessProgramView();			// “®“I¶¬‚Ég—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CRecipeMeasurementSeThicknessProgramView();			// å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	virtual ~CRecipeMeasurementSeThicknessProgramView();
 	DECLARE_DYNCREATE(CRecipeMeasurementSeThicknessProgramView)
 
-// ƒtƒH[ƒ€ ƒf[ƒ^
+// ãƒ•ã‚©ãƒ¼ãƒ  ãƒ‡ãƒ¼ã‚¿
 protected:
 	//{{AFX_DATA(CRecipeMeasurementSeThicknessProgramView)
 	enum { IDD = IDD_RECIPE_MEASUREMENT_SE_THICKNESS_PROGRAM_FORM };
@@ -35,16 +35,16 @@ protected:
 	CToolBar m_wndToolBar;
 	CColorStatic m_stcProgName;
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CRecipeMeasurementSeThicknessProgramView)
 	public:
 	virtual void OnInitialUpdate();
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	virtual void LoadRecipeData();
 	virtual BOOL CheckData();
@@ -54,7 +54,7 @@ protected:
 	virtual int SaveAsDlgInfo();
 	virtual BOOL CheckTransData(int iData , CString strData);
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CRecipeMeasurementSeThicknessProgramView)
 	afx_msg void OnSelchangeSeThickStrategy();
 	//}}AFX_MSG
@@ -75,6 +75,6 @@ private:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_RecipeMeasurementSeThicknessProgramView_H__2EABB3D5_0FEE_415C_BF19_4FF5C6B4B6FC__INCLUDED_)

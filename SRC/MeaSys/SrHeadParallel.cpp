@@ -1,4 +1,4 @@
-// SrHeadParallel.cpp : Defines the SrHeadParallel routines.
+﻿// SrHeadParallel.cpp : Defines the SrHeadParallel routines.
 //
 
 #include "stdafx.h"

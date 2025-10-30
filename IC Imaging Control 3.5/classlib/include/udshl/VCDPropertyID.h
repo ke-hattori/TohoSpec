@@ -1,4 +1,4 @@
-
+﻿
 #ifndef VCDPROPERTYID_H_INC_
 #define VCDPROPERTYID_H_INC_
 

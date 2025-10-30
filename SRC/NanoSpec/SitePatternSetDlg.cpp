@@ -1,4 +1,4 @@
-// SitePatternSetDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SitePatternSetDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -23,14 +23,14 @@ static char THIS_FILE[] = __FILE__;
 #define PATTERN_MODIFY		(2)
 
 /////////////////////////////////////////////////////////////////////////////
-// CSitePatternSetDlg ƒ_ƒCƒAƒƒO
+// CSitePatternSetDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 
 CSitePatternSetDlg::CSitePatternSetDlg(STAGE_PROG_INFO_HDR* pStageProgInfoHdr, CWnd* pParent /*=NULL*/)
 	:	m_pStageProgInfoHdr(pStageProgInfoHdr) , CDialog(CSitePatternSetDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CSitePatternDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_INIT
 }
 
@@ -86,7 +86,7 @@ BEGIN_MESSAGE_MAP(CSitePatternSetDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CSitePatternSetDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSitePatternSetDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 BOOL CSitePatternSetDlg::OnInitDialog()
 {
@@ -190,8 +190,8 @@ BOOL CSitePatternSetDlg::OnInitDialog()
 	bFlg = m_pStageProgInfoHdr->nSitePatternMode;
 	OperationEnable(bFlg);
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-				  // —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+				  // ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // ==========================================================================
@@ -230,12 +230,12 @@ BOOL CSitePatternSetDlg::MeasurementPointGrid_Init(int iRows)
 		"Enable",
 	};
 	char* ColItem_JPN[]={
-		"ƒ|ƒCƒ“ƒg",
+		"ãƒã‚¤ãƒ³ãƒˆ",
 		"X (mm)",
 		"Y (mm)",
-		"ƒpƒ^[ƒ“1",
-		"ƒpƒ^[ƒ“2",
-		"—LŒø",
+		"ãƒ‘ã‚¿ãƒ¼ãƒ³1",
+		"ãƒ‘ã‚¿ãƒ¼ãƒ³2",
+		"æœ‰åŠ¹",
 	};
 	//Saiki 20090601 Change <-----
 
@@ -340,7 +340,7 @@ BOOL CSitePatternSetDlg::MeasurementPointGrid_Init(int iRows)
 			m_MeasurementPointGrid.SetItem(&Item);
 		}
 	}
-	// ÅŒã‚ÍCheckBox
+	// æœ€å¾Œã¯CheckBox
 	dwTextStyle = DT_CENTER|DT_VCENTER|DT_SINGLELINE;
 	dwTextStyle |= DT_END_ELLIPSIS;
 	col = m_MeasurementPointGrid.GetColumnCount()-1;
@@ -355,7 +355,7 @@ BOOL CSitePatternSetDlg::MeasurementPointGrid_Init(int iRows)
 //		m_MeasurementPointGrid.SetItem(&Item);
 	}
 
-	// Cell‚Ì‰ŠúˆÊ’u
+	// Cellã®åˆæœŸä½ç½®
 	CCellID CellID;
 	if( iRows > 0 ){
 		CellID.col = 3;
@@ -415,7 +415,7 @@ void CSitePatternSetDlg::SetData()
 	TCHAR szBuff[256];
 
 	///// Point Coord /////
-	// SAMPLEŒ´“_‚©‚ç‚Ì‘Š‘ÎÀ•W‚Æ‚·‚é
+	// SAMPLEåŸç‚¹ã‹ã‚‰ã®ç›¸å¯¾åº§æ¨™ã¨ã™ã‚‹
 	for ( int i = 0 ; i < m_iNumScans ; i++ ) {
 		// X
 		sprintf(szBuff, "%.3lf", ((double)m_ScanPoint[i].lX) / MICROMETRE );
@@ -478,7 +478,7 @@ void CSitePatternSetDlg::DispPattern()
 	SR_TURRET srTurret[SR_LENS_MAX];
 	ConfigFile_GetNanoSpecIni(srTurret, CONFIG_FILE_SR_TURRET);
 
-	// Pattern•\¦
+	// Patternè¡¨ç¤º
 	if( m_CurrentCellID.row > 0  && m_CurrentCellID.row <= m_iNumScans ){
 		// Pattern1
 		if( m_SitePoint[m_CurrentCellID.row-1].PatternInfo[0].bDefined ){
@@ -487,9 +487,9 @@ void CSitePatternSetDlg::DispPattern()
 			sprintf(szFilePath, "%s%s%s", g_szDb_Pattern_Img_Dir, szFileName, PATTERN_IMAGE_EXT);
 			bRet = PatternFile_ExistPatternFilePath(szFilePath, &lastWriteSystemTime);
 			if( bRet ){
-				// ƒCƒ[ƒW‚ğæ“¾
+				// ã‚¤ãƒ¡ãƒ¼ã‚¸ã‚’å–å¾—
 				::CopyFile(szFilePath, PATTERN_IMG_1, FALSE);
-				// ƒIƒtƒZƒbƒgî•ñ‚ğæ“¾
+				// ã‚ªãƒ•ã‚»ãƒƒãƒˆæƒ…å ±ã‚’å–å¾—
 				bRet = PatternFile_GetSubInfo(szFileName, &m_pPatSubInfo);
 				if( bRet ){
 					m_szOffsetX1.Format("%.3lf", (double)(m_pPatSubInfo.ptOffset.x)/MICROMETRE);
@@ -505,9 +505,9 @@ void CSitePatternSetDlg::DispPattern()
 			sprintf(szFilePath, "%s%s%s", g_szDb_Pattern_Img_Dir, szFileName, PATTERN_IMAGE_EXT);
 			bRet = PatternFile_ExistPatternFilePath(szFilePath, &lastWriteSystemTime);
 			if( bRet ){
-				// ƒCƒ[ƒW‚ğæ“¾
+				// ã‚¤ãƒ¡ãƒ¼ã‚¸ã‚’å–å¾—
 				::CopyFile(szFilePath, PATTERN_IMG_2, FALSE);
-				// ƒIƒtƒZƒbƒgî•ñ‚ğæ“¾
+				// ã‚ªãƒ•ã‚»ãƒƒãƒˆæƒ…å ±ã‚’å–å¾—
 				bRet = PatternFile_GetSubInfo(szFileName, &m_pPatSubInfo);
 				if( bRet ){
 					m_szOffsetX2.Format("%.3lf", (double)(m_pPatSubInfo.ptOffset.x)/MICROMETRE);
@@ -521,14 +521,14 @@ void CSitePatternSetDlg::DispPattern()
 	m_stcSitePrImg[0].SetBitmap(PATTERN_IMG_1);
 	m_stcSitePrImg[1].SetBitmap(PATTERN_IMG_2);
 
-	// Cursor•\¦
+	// Cursorè¡¨ç¤º
 	SetCursor(m_CurrentCellID);
 
 	UpdateData(FALSE);
 }
 
 // =========================================================================
-// GRID‘I‘ğs‚ğæ“¾‚·‚é
+// GRIDé¸æŠè¡Œã‚’å–å¾—ã™ã‚‹
 void CSitePatternSetDlg::OnSelChangeing(NMHDR *pNotifyStruct, LRESULT* /*pResult*/)
 {
 	///// Draw SelectPoint /////
@@ -541,14 +541,14 @@ void CSitePatternSetDlg::OnSelChangeing(NMHDR *pNotifyStruct, LRESULT* /*pResult
 		return;
 
 	if( CellID.col == 5 ){
-		// Enable‚Ìó‘Ô‚ğ”½“]‚³‚¹‚é
+		// Enableã®çŠ¶æ…‹ã‚’åè»¢ã•ã›ã‚‹
 		m_SitePoint[CellID.row-1].bEnable ? m_SitePoint[CellID.row-1].bEnable = 0 : m_SitePoint[CellID.row-1].bEnable = 1;
 	}
 
-	// Œ»İ‚Ì‘I‘ğ’†ƒZƒ‹
+	// ç¾åœ¨ã®é¸æŠä¸­ã‚»ãƒ«
 	m_CurrentCellID = CellID;
 
-	// Pattern•\¦
+	// Patternè¡¨ç¤º
 	DispPattern();
 }
 
@@ -605,7 +605,7 @@ void CSitePatternSetDlg::OnSelchangeSitePrFailOption()
 }
 
 // ==========================================================================
-// İ’è‚P
+// è¨­å®šï¼‘
 void CSitePatternSetDlg::OnPattern1SetupButton()
 {
 	m_pDoc->OperationLogging("CSitePatternSetDlg::Setup1 Button was push.");
@@ -614,7 +614,7 @@ void CSitePatternSetDlg::OnPattern1SetupButton()
 }
 
 // ==========================================================================
-// İ’è‚Q
+// è¨­å®šï¼’
 void CSitePatternSetDlg::OnPattern2SetupButton()
 {
 	m_pDoc->OperationLogging("CSitePatternSetDlg::Setup2 Button was push.");
@@ -623,7 +623,7 @@ void CSitePatternSetDlg::OnPattern2SetupButton()
 }
 
 // ==========================================================================
-// ƒpƒ^[ƒ“İ’è
+// ãƒ‘ã‚¿ãƒ¼ãƒ³è¨­å®š
 void CSitePatternSetDlg::PatternSetUp(int nSite)
 {
 	TCHAR	szFilePath[MAX_PATH];
@@ -657,7 +657,7 @@ void CSitePatternSetDlg::PatternSetUp(int nSite)
 		sprintf(szFilePath, "%s%s%s", g_szDb_Pattern_Img_Dir, m_SitePoint[m_CurrentCellID.row-1].PatternInfo[nSite].szSitePatternName, PATTERN_IMAGE_EXT);
 
 		if( PatternFile_ExistPatternFilePath(szFilePath, &lastWriteSystemTime) ){
-			// Pattern—L‚è
+			// Patternæœ‰ã‚Š
 			::CopyFile(szFilePath, DESKEW_IMG_TEMP, FALSE);
 		}
 	}
@@ -676,7 +676,7 @@ void CSitePatternSetDlg::PatternSetUp(int nSite)
 	}
 
 	CPatRecDeskewDlg dlg(SITEPR_MODE, iLens, &selectPoint);
-	//SampleƒZƒbƒg
+	//Sampleã‚»ãƒƒãƒˆ
 	dlg.SetFileName(m_pStageProgInfoHdr->SampleInfo.szName);
 	dlg.SetSampleMode(1);
 
@@ -697,19 +697,19 @@ void CSitePatternSetDlg::PatternSetUp(int nSite)
 
 		SPR_SUB_INFO m_pPatSubInfo;
 
-		// ƒŒƒ“ƒY”{—¦‚ğˆø‚«“n‚·
+		// ãƒ¬ãƒ³ã‚ºå€ç‡ã‚’å¼•ãæ¸¡ã™
 		SaveDlg.m_iLens = dlg.m_iLens;
 		m_pPatSubInfo.iLens = dlg.m_iLens;
 
-		// ƒIƒtƒZƒbƒg‚ğˆø‚«“n‚·
+		// ã‚ªãƒ•ã‚»ãƒƒãƒˆã‚’å¼•ãæ¸¡ã™
 		m_pPatSubInfo.ptOffset.x = dlg.m_OffsetPos.lX;
 		m_pPatSubInfo.ptOffset.y = dlg.m_OffsetPos.lY;
 
 		if ( SaveDlg.DoModal() == IDOK ) {
-			// ƒtƒ@ƒCƒ‹‚Ì•Û‘¶
+			// ãƒ•ã‚¡ã‚¤ãƒ«ã®ä¿å­˜
 			::CopyFile(DESKEW_IMG_TEMP, SaveDlg.m_szFilePath, FALSE);
 
-			// ƒIƒtƒZƒbƒg‚Ì•Û‘¶
+			// ã‚ªãƒ•ã‚»ãƒƒãƒˆã®ä¿å­˜
 			PatternFile_SetSubInfo(SaveDlg.m_strName, &m_pPatSubInfo);
 
 			m_SitePoint[m_CurrentCellID.row-1].PatternInfo[nSite].bDefined = TRUE;
@@ -723,7 +723,7 @@ void CSitePatternSetDlg::PatternSetUp(int nSite)
 }
 
 // ==========================================================================
-// ƒpƒ^[ƒ“•ÏX
+// ãƒ‘ã‚¿ãƒ¼ãƒ³å¤‰æ›´
 void CSitePatternSetDlg::OnPatternChgButton()
 {
 	int m_bSeachFlg;
@@ -738,8 +738,8 @@ void CSitePatternSetDlg::OnPatternChgButton()
 
 	if( m_bSeachFlg==PATTERN_NO_SELECT ){
 		//Saiki 20090601 Change ----->
-		//MessageBox(	"•ÏX‚·‚éƒpƒ^[ƒ“‚ğ‘I‘ğ‚µ‚Ä‰º‚³‚¢",
-		//			"ƒpƒ^[ƒ“•ÏX",
+		//MessageBox(	"å¤‰æ›´ã™ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’é¸æŠã—ã¦ä¸‹ã•ã„",
+		//			"ãƒ‘ã‚¿ãƒ¼ãƒ³å¤‰æ›´",
 		//			MB_OK);
 		LoadStringML(IDS_SELECT_PATTERN_CHANGE, strBuffer, "Please Select the Pattern to Set");
 		MessageBox( strBuffer, strTitle, MB_OK);
@@ -752,19 +752,19 @@ void CSitePatternSetDlg::OnPatternChgButton()
 	dlg.m_iMode = SITEPATTERN_MODE_EDIT;
 	if( dlg.DoModal() == IDOK ){
 		if( m_bSeachFlg==PATTERN_MODIFY ){
-/* modified 2009.07.01 hmenjo ƒpƒ^[ƒ“•ÏXƒ{ƒ^ƒ“‚ÌƒoƒOC³ ---------- { ---------- */
+/* modified 2009.07.01 hmenjo ãƒ‘ã‚¿ãƒ¼ãƒ³å¤‰æ›´ãƒœã‚¿ãƒ³ã®ãƒã‚°ä¿®æ­£ ---------- { ---------- */
 /*				//Saiki 20090601 Change ----->
-//				//if(IDOK == MessageBox(	"‘I‘ğ‚³‚ê‚Ä‚¢‚éƒpƒ^[ƒ“‚ğ•ÏX‚µ‚Ä‚à‚æ‚ë‚µ‚¢‚Å‚·‚©H",
-//				//						"ƒpƒ^[ƒ“•ÏX",
+//				//if(IDOK == MessageBox(	"é¸æŠã•ã‚Œã¦ã„ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’å¤‰æ›´ã—ã¦ã‚‚ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ",
+//				//						"ãƒ‘ã‚¿ãƒ¼ãƒ³å¤‰æ›´",
 //				//						MB_ICONQUESTION | MB_OKCANCEL)){
 //				LoadStringML(IDS_CHANGE_SELECTED_PAT, strBuffer, "Would you Set the Selected Pattern ?");
 //				if(IDOK == MessageBox(strBuffer, strTitle, MB_ICONQUESTION | MB_OKCANCEL)){
 //				//Saiki 20090601 Change <-----
 */
-/* modified 2009.07.01 hmenjo ƒpƒ^[ƒ“•ÏXƒ{ƒ^ƒ“‚ÌƒoƒOC³ ----------			   */
+/* modified 2009.07.01 hmenjo ãƒ‘ã‚¿ãƒ¼ãƒ³å¤‰æ›´ãƒœã‚¿ãƒ³ã®ãƒã‚°ä¿®æ­£ ----------			   */
 			LoadStringML(IDS_CHANGE_SELECTED_PAT, strBuffer, "Would you Set the Selected Pattern ?");
 			if (IDOK != MessageBox(strBuffer, strTitle, MB_ICONQUESTION | MB_OKCANCEL)) {
-/* modified 2009.07.01 hmenjo ƒpƒ^[ƒ“•ÏXƒ{ƒ^ƒ“‚ÌƒoƒOC³ ---------- } ---------- */
+/* modified 2009.07.01 hmenjo ãƒ‘ã‚¿ãƒ¼ãƒ³å¤‰æ›´ãƒœã‚¿ãƒ³ã®ãƒã‚°ä¿®æ­£ ---------- } ---------- */
 				return;
 			}
 		}
@@ -790,7 +790,7 @@ void CSitePatternSetDlg::OnPatternChgButton()
 }
 
 // ==========================================================================
-// ƒpƒ^[ƒ“ˆêŠ‡•ÏX
+// ãƒ‘ã‚¿ãƒ¼ãƒ³ä¸€æ‹¬å¤‰æ›´
 void CSitePatternSetDlg::OnPatternAllChgButton()
 {
 	int i;
@@ -808,8 +808,8 @@ void CSitePatternSetDlg::OnPatternAllChgButton()
 	if ( m_CurrentCellID.row <= 0 || (m_CurrentCellID.col!=3 && m_CurrentCellID.col!=4)){
 	//Saiki 20090609 Change <-----
 		//Saiki 20090601 Change ----->
-		//MessageBox(	"ˆêŠ‡•ÏX‚·‚é•ÏXŒ³ƒpƒ^[ƒ“‚ğ‘I‘ğ‚µ‚Ä‰º‚³‚¢",
-		//			"ƒpƒ^[ƒ“ˆêŠ‡•ÏX",
+		//MessageBox(	"ä¸€æ‹¬å¤‰æ›´ã™ã‚‹å¤‰æ›´å…ƒãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’é¸æŠã—ã¦ä¸‹ã•ã„",
+		//			"ãƒ‘ã‚¿ãƒ¼ãƒ³ä¸€æ‹¬å¤‰æ›´",
 		//			MB_OK);
 		LoadStringML(IDS_SELECT_PATTERN_CHANGE_COLLECTIVE, strBuffer, "Please Select the Pattern to Set Collectively");
 		MessageBox(strBuffer, strTitle, MB_OK);
@@ -825,8 +825,8 @@ void CSitePatternSetDlg::OnPatternAllChgButton()
 		switch(m_CurrentCellID.col){
 		case 3:
 		//Saiki 20090601 Change ----->
-		//if(IDOK == MessageBox(	"‘I‘ğ‚³‚ê‚Ä‚¢‚éƒpƒ^[ƒ“‚Å\nƒpƒ^[ƒ“‚P‚ğˆêŠ‡•ÏX‚µ‚Ä‚à‚æ‚ë‚µ‚¢‚Å‚·‚©H",
-		//						"ƒpƒ^[ƒ“ˆêŠ‡•ÏX",
+		//if(IDOK == MessageBox(	"é¸æŠã•ã‚Œã¦ã„ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³ã§\nãƒ‘ã‚¿ãƒ¼ãƒ³ï¼‘ã‚’ä¸€æ‹¬å¤‰æ›´ã—ã¦ã‚‚ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ",
+		//						"ãƒ‘ã‚¿ãƒ¼ãƒ³ä¸€æ‹¬å¤‰æ›´",
 		//						MB_ICONQUESTION | MB_OKCANCEL)){
 		LoadStringML(IDS_CHANGE_PAT_COLLECTIVE_SELECT_PAT1, strBuffer, "Would you Set the Pattern1 in a Pattern that is Selected ?");
 		if(IDOK == MessageBox(strBuffer, strTitle, MB_ICONQUESTION | MB_OKCANCEL)){
@@ -844,8 +844,8 @@ void CSitePatternSetDlg::OnPatternAllChgButton()
 			break;
 		case 4:
 		//Saiki 20090601 Change ----->
-		//if(IDOK == MessageBox(	"‘I‘ğ‚³‚ê‚Ä‚¢‚éƒpƒ^[ƒ“‚Å\nƒpƒ^[ƒ“‚Q‚ğˆêŠ‡•ÏX‚µ‚Ä‚à‚æ‚ë‚µ‚¢‚Å‚·‚©H",
-		//						"ƒpƒ^[ƒ“ˆêŠ‡•ÏX",
+		//if(IDOK == MessageBox(	"é¸æŠã•ã‚Œã¦ã„ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³ã§\nãƒ‘ã‚¿ãƒ¼ãƒ³ï¼’ã‚’ä¸€æ‹¬å¤‰æ›´ã—ã¦ã‚‚ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ",
+		//						"ãƒ‘ã‚¿ãƒ¼ãƒ³ä¸€æ‹¬å¤‰æ›´",
 		//						MB_ICONQUESTION | MB_OKCANCEL)){
 		LoadStringML(IDS_CHANGE_PAT_COLLECTIVE_SELECT_PAT2, strBuffer, "Would you Set the Pattern2 in a Pattern that is Selected ?");
 		if(IDOK == MessageBox(strBuffer, strTitle, MB_ICONQUESTION | MB_OKCANCEL)){
@@ -866,7 +866,7 @@ void CSitePatternSetDlg::OnPatternAllChgButton()
 }
 
 // ==========================================================================
-// ƒpƒ^[ƒ“íœ
+// ãƒ‘ã‚¿ãƒ¼ãƒ³å‰Šé™¤
 void CSitePatternSetDlg::OnPatternDelButton()
 {
 	//Saiki 20090601 Add ----->
@@ -879,8 +879,8 @@ void CSitePatternSetDlg::OnPatternDelButton()
 
 	if( m_CurrentCellID.row <= 0 || (m_CurrentCellID.col!=3 && m_CurrentCellID.col!=4) ){
 		//Saiki 20090601 Change ----->
-		//MessageBox(	"íœ‚·‚éƒpƒ^[ƒ“‚ğ‘I‘ğ‚µ‚Ä‰º‚³‚¢",
-		//			"ƒpƒ^[ƒ“íœ",
+		//MessageBox(	"å‰Šé™¤ã™ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’é¸æŠã—ã¦ä¸‹ã•ã„",
+		//			"ãƒ‘ã‚¿ãƒ¼ãƒ³å‰Šé™¤",
 		//			MB_OK);
 		LoadStringML(IDS_SELECT_PATTERN_DELETE, strBuffer, "Please Select the Pattern to Clear");
 		MessageBox( strBuffer, strTitle, MB_OK);
@@ -889,8 +889,8 @@ void CSitePatternSetDlg::OnPatternDelButton()
 	}
 
 	//Saiki 20090601 Change ----->
-	//if(IDOK == MessageBox(	"‘I‘ğ‚³‚ê‚Ä‚¢‚éƒpƒ^[ƒ“‚ğíœ‚µ‚Ä‚à‚æ‚ë‚µ‚¢‚Å‚·‚©H",
-	//						"ƒpƒ^[ƒ“íœ",
+	//if(IDOK == MessageBox(	"é¸æŠã•ã‚Œã¦ã„ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’å‰Šé™¤ã—ã¦ã‚‚ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ",
+	//						"ãƒ‘ã‚¿ãƒ¼ãƒ³å‰Šé™¤",
 	//						MB_ICONQUESTION | MB_OKCANCEL)){
 	LoadStringML(IDS_DELETE_SELECTED_PAT, strBuffer, "Would you Clear the Selected Pattern ?");
 	if(IDOK == MessageBox(strBuffer, strTitle, MB_ICONQUESTION | MB_OKCANCEL)){
@@ -912,7 +912,7 @@ void CSitePatternSetDlg::OnPatternDelButton()
 }
 
 // ==========================================================================
-// ƒpƒ^[ƒ“ˆêŠ‡íœ
+// ãƒ‘ã‚¿ãƒ¼ãƒ³ä¸€æ‹¬å‰Šé™¤
 void CSitePatternSetDlg::OnPatternAllDelButton()
 {
 	int i;
@@ -926,8 +926,8 @@ void CSitePatternSetDlg::OnPatternAllDelButton()
 
 	if( m_CurrentCellID.row <= 0 || (m_CurrentCellID.col!=3 && m_CurrentCellID.col!=4) ){
 		//Saiki 20090601 Change ----->
-		//MessageBox(	"íœ‚·‚éƒpƒ^[ƒ“‚Ì—ñ‚ğ‘I‘ğ‚µ‚Ä‰º‚³‚¢",
-		//			"ƒpƒ^[ƒ“ˆêŠ‡íœ",
+		//MessageBox(	"å‰Šé™¤ã™ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³ã®åˆ—ã‚’é¸æŠã—ã¦ä¸‹ã•ã„",
+		//			"ãƒ‘ã‚¿ãƒ¼ãƒ³ä¸€æ‹¬å‰Šé™¤",
 		//			MB_OK);
 		LoadStringML(IDS_SELECT_PATTERN_DELETE_COLLECTIVE, strBuffer, "Please Select the Pattern to Clear Column");
 		MessageBox(strBuffer, strTitle, MB_OK);
@@ -938,8 +938,8 @@ void CSitePatternSetDlg::OnPatternAllDelButton()
 	switch(m_CurrentCellID.col){
 	case 3:
 		//Saiki 20090601 Change ----->
-		//if(IDOK == MessageBox(	"ƒpƒ^[ƒ“‚P‚ğˆêŠ‡íœ‚µ‚Ä‚à‚æ‚ë‚µ‚¢‚Å‚·‚©H",
-		//						"ƒpƒ^[ƒ“ˆêŠ‡íœ",
+		//if(IDOK == MessageBox(	"ãƒ‘ã‚¿ãƒ¼ãƒ³ï¼‘ã‚’ä¸€æ‹¬å‰Šé™¤ã—ã¦ã‚‚ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ",
+		//						"ãƒ‘ã‚¿ãƒ¼ãƒ³ä¸€æ‹¬å‰Šé™¤",
 		//						MB_ICONQUESTION | MB_OKCANCEL)){
 		LoadStringML(IDS_DELETE_PAT_COLLECTIVE_SELECT_PAT1, strBuffer, "Would you Clear the Pattern1 in a Pattern that is Selected ?");
 		if(IDOK == MessageBox(strBuffer, strTitle, MB_ICONQUESTION | MB_OKCANCEL)){
@@ -954,8 +954,8 @@ void CSitePatternSetDlg::OnPatternAllDelButton()
 		break;
 	case 4:
 		//Saiki 20090601 Change ----->
-		//if(IDOK == MessageBox(	"ƒpƒ^[ƒ“‚Q‚ğˆêŠ‡íœ‚µ‚Ä‚à‚æ‚ë‚µ‚¢‚Å‚·‚©H",
-		//						"ƒpƒ^[ƒ“ˆêŠ‡íœ",
+		//if(IDOK == MessageBox(	"ãƒ‘ã‚¿ãƒ¼ãƒ³ï¼’ã‚’ä¸€æ‹¬å‰Šé™¤ã—ã¦ã‚‚ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ",
+		//						"ãƒ‘ã‚¿ãƒ¼ãƒ³ä¸€æ‹¬å‰Šé™¤",
 		//						MB_ICONQUESTION | MB_OKCANCEL)){
 		LoadStringML(IDS_DELETE_PAT_COLLECTIVE_SELECT_PAT2, strBuffer, "Would you Clear the Pattern2 in a Pattern that is Selected ?");
 		if(IDOK == MessageBox(strBuffer, strTitle, MB_ICONQUESTION | MB_OKCANCEL)){
@@ -972,7 +972,7 @@ void CSitePatternSetDlg::OnPatternAllDelButton()
 }
 
 // ==========================================================================
-// —LŒøˆêŠ‡ON
+// æœ‰åŠ¹ä¸€æ‹¬ON
 void CSitePatternSetDlg::OnAllEnableButton()
 {
 	//Saiki 20090601 Add ----->
@@ -982,8 +982,8 @@ void CSitePatternSetDlg::OnAllEnableButton()
 	m_pDoc->OperationLogging("CSitePatternSetDlg::All Enable Button was push.");
 
 	//Saiki 20090601 Change ----->
-	//if(IDOK == MessageBox(	"—LŒøƒtƒ‰ƒO‚ğˆêŠ‡‚ÅON‚µ‚Ä‚à‚æ‚ë‚µ‚¢‚Å‚·‚©H",
-	//						"—LŒøˆêŠ‡ON",
+	//if(IDOK == MessageBox(	"æœ‰åŠ¹ãƒ•ãƒ©ã‚°ã‚’ä¸€æ‹¬ã§ONã—ã¦ã‚‚ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ",
+	//						"æœ‰åŠ¹ä¸€æ‹¬ON",
 	//						MB_ICONQUESTION | MB_OKCANCEL)){
 	LoadStringML(IDS_BATCH_FLAG_ON, strBuffer, "Would you do Once All the Active Flag ON?");
 	LoadStringML(IDS_EFFECTIVE_BATCH_ON, strTitle, "Effective Batch ON");
@@ -1000,7 +1000,7 @@ void CSitePatternSetDlg::OnAllEnableButton()
 }
 
 // ==========================================================================
-// —LŒøˆêŠ‡OFF
+// æœ‰åŠ¹ä¸€æ‹¬OFF
 void CSitePatternSetDlg::OnAllDisableButton()
 {
 	//Saiki 20090601 Add ----->
@@ -1010,8 +1010,8 @@ void CSitePatternSetDlg::OnAllDisableButton()
 	m_pDoc->OperationLogging("CSitePatternSetDlg::All Disable Button was push.");
 
 	//Saiki 20090601 Change ----->
-	//if(IDOK == MessageBox(	"—LŒøƒtƒ‰ƒO‚ğˆêŠ‡‚ÅOFF‚µ‚Ä‚à‚æ‚ë‚µ‚¢‚Å‚·‚©H",
-	//						"—LŒøˆêŠ‡OFF",
+	//if(IDOK == MessageBox(	"æœ‰åŠ¹ãƒ•ãƒ©ã‚°ã‚’ä¸€æ‹¬ã§OFFã—ã¦ã‚‚ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ",
+	//						"æœ‰åŠ¹ä¸€æ‹¬OFF",
 	//						MB_ICONQUESTION | MB_OKCANCEL)){
 	LoadStringML(IDS_BATCH_FLAG_OFF, strBuffer, "Would you do Once All the Active Flag OFF?");
 	LoadStringML(IDS_EFFECTIVE_BATCH_OFF, strTitle, "Effective Batch OFF");
@@ -1033,34 +1033,34 @@ void CSitePatternSetDlg::OperationEnable(BOOL bFlg)
 {
 	CButton* pBtn;
 
-	// İ’è‚P
+	// è¨­å®šï¼‘
 	pBtn = (CButton*)GetDlgItem(IDC_PATTERN1_SETUP_BUTTON);
 	pBtn->EnableWindow(bFlg);
-	// İ’è‚Q
+	// è¨­å®šï¼’
 	pBtn = (CButton*)GetDlgItem(IDC_PATTERN2_SETUP_BUTTON);
 	pBtn->EnableWindow(bFlg);
-	// ƒpƒ^[ƒ“•ÏX
+	// ãƒ‘ã‚¿ãƒ¼ãƒ³å¤‰æ›´
 	pBtn = (CButton*)GetDlgItem(IDC_PATTERN_CHG_BUTTON);
 	pBtn->EnableWindow(bFlg);
-	// ƒpƒ^[ƒ“ˆêŠ‡•ÏX
+	// ãƒ‘ã‚¿ãƒ¼ãƒ³ä¸€æ‹¬å¤‰æ›´
 	pBtn = (CButton*)GetDlgItem(IDC_PATTERN_ALL_CHG_BUTTON);
 	pBtn->EnableWindow(bFlg);
-	// ƒpƒ^[ƒ“íœ
+	// ãƒ‘ã‚¿ãƒ¼ãƒ³å‰Šé™¤
 	pBtn = (CButton*)GetDlgItem(IDC_PATTERN_DEL_BUTTON);
 	pBtn->EnableWindow(bFlg);
-	// ƒpƒ^[ƒ“ˆêŠ‡íœ
+	// ãƒ‘ã‚¿ãƒ¼ãƒ³ä¸€æ‹¬å‰Šé™¤
 	pBtn = (CButton*)GetDlgItem(IDC_PATTERN_ALL_DEL_BUTTON);
 	pBtn->EnableWindow(bFlg);
-	// —LŒøˆêŠ‡ON
+	// æœ‰åŠ¹ä¸€æ‹¬ON
 	pBtn = (CButton*)GetDlgItem(IDC_ALL_ENABLE_BUTTON);
 	pBtn->EnableWindow(bFlg);
-	// —LŒøˆêŠ‡OFF
+	// æœ‰åŠ¹ä¸€æ‹¬OFF
 	pBtn = (CButton*)GetDlgItem(IDC_ALL_DISABLE_BUTTON);
 	pBtn->EnableWindow(bFlg);
-	// ¸”s
+	// å¤±æ•—æ™‚
 	pBtn = (CButton*)GetDlgItem(IDC_SITE_PR_FAIL_OPTION);
 	pBtn->EnableWindow(bFlg);
-	// ƒOƒŠƒbƒh
+	// ã‚°ãƒªãƒƒãƒ‰
 	m_MeasurementPointGrid.EnableWindow(bFlg);
 }
 
@@ -1074,7 +1074,7 @@ void CSitePatternSetDlg::SetCursor(CCellID cell)
 }
 
 // ==========================================================================
-// ‘I‘ğ‚³‚ê‚Ä‚¢‚éƒZƒ‹‚ª‚ ‚é‚©Šm”F‚·‚é
+// é¸æŠã•ã‚Œã¦ã„ã‚‹ã‚»ãƒ«ãŒã‚ã‚‹ã‹ç¢ºèªã™ã‚‹
 int CSitePatternSetDlg::CheckSelectItem()
 {
 	BOOL m_bSeachFlg = FALSE;

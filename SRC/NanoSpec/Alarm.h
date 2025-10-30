@@ -1,10 +1,10 @@
-#if !defined(AFX_ALARM_H__45E45540_93B7_4239_8DE7_397850E363AF__INCLUDED_)
+ï»¿#if !defined(AFX_ALARM_H__45E45540_93B7_4239_8DE7_397850E363AF__INCLUDED_)
 #define AFX_ALARM_H__45E45540_93B7_4239_8DE7_397850E363AF__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// Alarm.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// Alarm.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 /////////////////////////////////////////////////////////////////////////////
@@ -26,10 +26,10 @@
 #define	ALARM_TIME_LEN			14				// 20080805154030
 
 #define ALARM_FILE_NAME			"AlarmList.ini"
-// K.Matsuo 2009.08.03 Œ¾Œê•ÊƒAƒ‰[ƒ€ƒŠƒXƒg“Ç‚İ -->
+// K.Matsuo 2009.08.03 è¨€èªåˆ¥ã‚¢ãƒ©ãƒ¼ãƒ ãƒªã‚¹ãƒˆèª­è¾¼ã¿ -->
 #define ALARM_FILE_E_NAME		"AlarmList_E.ini"
 #define ALARM_FILE_J_NAME		"AlarmList_J.ini"
-// K.Matsuo 2009.08.03 Œ¾Œê•ÊƒAƒ‰[ƒ€ƒŠƒXƒg“Ç‚İ <--
+// K.Matsuo 2009.08.03 è¨€èªåˆ¥ã‚¢ãƒ©ãƒ¼ãƒ ãƒªã‚¹ãƒˆèª­è¾¼ã¿ <--
 
 #define ALARM_BUFF_LEN			20
 #define ALARM_BUFF_MAX			100
@@ -69,7 +69,7 @@ class CNanoSpecDoc;
 class CStatusView;
 
 /////////////////////////////////////////////////////////////////////////////
-// CAlarm ƒXƒŒƒbƒh                                                         //
+// CAlarm ã‚¹ãƒ¬ãƒƒãƒ‰                                                         //
 //                                                                         //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -79,12 +79,12 @@ class CAlarm : public CWinThread
 {
 	DECLARE_DYNCREATE(CAlarm)
 protected:
-	CAlarm();			// “®“I¶¬‚Ég—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CAlarm();			// å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
-// ƒAƒgƒŠƒrƒ…[ƒg
+// ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 public:
 
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 	///// Variable //////////////////////////////////////////////////////////
 	BOOL m_Run;
@@ -119,8 +119,8 @@ public:
 	void SetNanoSpecDoc(CNanoSpecDoc* pDoc){m_pDoc = pDoc;};
 	void SetStatusView(CStatusView* pStatusView){m_pStatusView = pStatusView;};
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CAlarm)
 	public:
 	virtual BOOL InitInstance();
@@ -128,12 +128,12 @@ public:
 	virtual int Run();
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CAlarm)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒƒ“ƒoŠÖ”‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_MSG
 
 	DECLARE_MESSAGE_MAP()
@@ -142,6 +142,6 @@ protected:
 /////////////////////////////////////////////////////////////////////////////
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_ALARM_H__45E45540_93B7_4239_8DE7_397850E363AF__INCLUDED_)

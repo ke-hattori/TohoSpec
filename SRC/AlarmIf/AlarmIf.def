@@ -1,7 +1,7 @@
-; AlarmIf.def : DLL �p�̃��W���[�� �p�����[�^�錾
+﻿; AlarmIf.def : DLL 用のモジュール パラメータ宣言
 
 LIBRARY      "AlarmIf"
 DESCRIPTION  'AlarmIf Windows Dynamic Link Library'
 
 EXPORTS
-    ; �����I�ȃG�N�X�|�[�g�͂����֋L�q�ł��܂�
+    ; 明示的なエクスポートはここへ記述できます

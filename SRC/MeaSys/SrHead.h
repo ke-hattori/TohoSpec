@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "../../INC/Common.hxx"
 #include "IoBase.hxx"

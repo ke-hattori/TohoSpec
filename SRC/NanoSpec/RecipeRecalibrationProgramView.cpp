@@ -1,4 +1,4 @@
-// RecipeRecalibrationProgramView.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// RecipeRecalibrationProgramView.cpp : �C���v�������e�[�V���� �t�@�C��
 //
 
 #include "stdafx.h"

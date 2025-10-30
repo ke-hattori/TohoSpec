@@ -1,4 +1,4 @@
-// NanoSpecIni.cpp: implementation of the CNanoSpecIni class.
+ï»¿// NanoSpecIni.cpp: implementation of the CNanoSpecIni class.
 //
 
 #include "stdafx.h"
@@ -55,32 +55,32 @@ const INIFILE_T IniDesc[] =
 	{"",					INIKEY_HWS_STAGEEDGESIZEY,			'I',		"20",		&g_lHWEdgeSizeY					},
 	{"",					INIKEY_HWS_STAGEORIGINOFFSETX,		'I',		"0",		&g_lHWOriginOffsetX				},
 	{"",					INIKEY_HWS_STAGEORIGINOFFSETY,		'I',		"0",		&g_lHWOriginOffsetY				},
-// added hmenjo 2009.05.12 ˆÙíƒTƒCƒNƒ‹ƒXƒgƒbƒv‹–‰Âƒtƒ‰ƒO’Ç‰Á ---------- { ----------
+// added hmenjo 2009.05.12 ç•°å¸¸æ™‚ã‚µã‚¤ã‚¯ãƒ«ã‚¹ãƒˆãƒƒãƒ—è¨±å¯ãƒ•ãƒ©ã‚°è¿½åŠ  ---------- { ----------
 	{INISECTION_EQMAINTE,	INIKEY_EQM_CYCLESTOP,				'b',		"TRUE",		&g_bIL_CycleStop				},
-// added hmenjo 2009.05.12 ˆÙíƒTƒCƒNƒ‹ƒXƒgƒbƒv‹–‰Âƒtƒ‰ƒO’Ç‰Á ---------- } ----------
-// added hmenjo 2009.05.12 ƒhƒAŠJŒŸo‹–‰Âƒtƒ‰ƒO’Ç‰Á ---------- { ----------
+// added hmenjo 2009.05.12 ç•°å¸¸æ™‚ã‚µã‚¤ã‚¯ãƒ«ã‚¹ãƒˆãƒƒãƒ—è¨±å¯ãƒ•ãƒ©ã‚°è¿½åŠ  ---------- } ----------
+// added hmenjo 2009.05.12 ãƒ‰ã‚¢é–‹æ¤œå‡ºè¨±å¯ãƒ•ãƒ©ã‚°è¿½åŠ  ---------- { ----------
 	{INISECTION_EQMAINTE,	INIKEY_EQM_DOOROPEN,				'b',		"TRUE",		&g_bIL_DoorOpen					},
-// added hmenjo 2009.05.12 ƒhƒAŠJŒŸo‹–‰Âƒtƒ‰ƒO’Ç‰Á ---------- } ----------
-// added hmenjo 2009.05.12 ‘¬“x•ÏX‹–‰Âƒtƒ‰ƒO’Ç‰Á ---------- { ----------
+// added hmenjo 2009.05.12 ãƒ‰ã‚¢é–‹æ¤œå‡ºè¨±å¯ãƒ•ãƒ©ã‚°è¿½åŠ  ---------- } ----------
+// added hmenjo 2009.05.12 é€Ÿåº¦å¤‰æ›´è¨±å¯ãƒ•ãƒ©ã‚°è¿½åŠ  ---------- { ----------
 	{INISECTION_EQMAINTE,	INIKEY_EQM_SPEEDDOWN,				'b',		"TRUE",		&g_bIL_SpeedDown				},
-// added hmenjo 2009.05.12 ‘¬“x•ÏX‹–‰Âƒtƒ‰ƒO’Ç‰Á ---------- } ----------
-/* added 2009.05.26 hmenjo ‘•’u“dŒ¹ƒIƒto—Í‚Ì—LŒø/–³ŒøƒXƒCƒbƒ`’Ç‰Á ---------- { ---------- */
+// added hmenjo 2009.05.12 é€Ÿåº¦å¤‰æ›´è¨±å¯ãƒ•ãƒ©ã‚°è¿½åŠ  ---------- } ----------
+/* added 2009.05.26 hmenjo è£…ç½®é›»æºã‚ªãƒ•å‡ºåŠ›ã®æœ‰åŠ¹/ç„¡åŠ¹ã‚¹ã‚¤ãƒƒãƒè¿½åŠ  ---------- { ---------- */
 	{INISECTION_EQMAINTE,	INIKEY_EQM_EQPOWEROFF,				'b',		"TRUE",		&g_bIL_EQPowerOff				},
-/* added 2009.05.26 hmenjo ‘•’u“dŒ¹ƒIƒto—Í‚Ì—LŒø/–³ŒøƒXƒCƒbƒ`’Ç‰Á ---------- } ---------- */
-/* added 2009.06.02 hmenjo ƒhƒAŠJ‚Å‘ª’èƒ|[ƒY ---------- { ---------- */
+/* added 2009.05.26 hmenjo è£…ç½®é›»æºã‚ªãƒ•å‡ºåŠ›ã®æœ‰åŠ¹/ç„¡åŠ¹ã‚¹ã‚¤ãƒƒãƒè¿½åŠ  ---------- } ---------- */
+/* added 2009.06.02 hmenjo ãƒ‰ã‚¢é–‹ã§æ¸¬å®šãƒãƒ¼ã‚º ---------- { ---------- */
 	{INISECTION_EQMAINTE,	INIKEY_EQM_DOOROPENPAUSE,			'b',		"FALSE",	&g_bIL_DoorOpenPause			},
-/* added 2009.06.02 hmenjo ƒhƒAŠJ‚Å‘ª’èƒ|[ƒY ---------- } ---------- */
+/* added 2009.06.02 hmenjo ãƒ‰ã‚¢é–‹ã§æ¸¬å®šãƒãƒ¼ã‚º ---------- } ---------- */
 /* added 2013.06.04 hmenjo SubCon PwrOFF ---------- { ---------- */
 	{INISECTION_SUBCONPWR,	INIKEY_SBCPWR_OFFTIME,				'I',		"0",		&g_lSBCPwr_OffTime				},
 	{"",					INIKEY_SBCPWR_WAITAFTERON,			'I',		"2",		&g_lSBCPwr_WaitAfterOn			},
 /* added 2013.06.04 hmenjo SubCon PwrOFF ---------- } ---------- */
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	{INISECTION_MODELTYPE,	INIKEY_MODELTYPE_TYPE,				'I',		"6500",		&g_lModelType					},
 	{INISECTION_OVIDEO,	INIKEY_OVIDEO_ENABLE,				'I',		"0",		&g_lOVideoEnable					},
-/* added 2015.12.03 hmenjo ƒJƒƒ‰ƒrƒfƒIƒtƒH[ƒ}ƒbƒgİ’è‰» ---------- { ---------- */
+/* added 2015.12.03 hmenjo ã‚«ãƒ¡ãƒ©ãƒ“ãƒ‡ã‚ªãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆè¨­å®šåŒ– ---------- { ---------- */
 	{"",					INIKEY_OVIDEO_FORMATSIZE,			'C',	"UYVY (640x480)",	&g_szVideoFmtSize			},
-/* added 2015.12.03 hmenjo ƒJƒƒ‰ƒrƒfƒIƒtƒH[ƒ}ƒbƒgİ’è‰» ---------- } ---------- */
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰) <--
+/* added 2015.12.03 hmenjo ã‚«ãƒ¡ãƒ©ãƒ“ãƒ‡ã‚ªãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆè¨­å®šåŒ– ---------- } ---------- */
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 
 };
 
@@ -92,14 +92,14 @@ const INIFILE_T IniDesc[] =
 CNanoSpecIni::CNanoSpecIni()
 {
 	CFileFind Finder;
-// 2013.11.07 Bagus Delete (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Delete (TohoSpecå¯¾å¿œ) -->
 //	char path[MAX_PATH];
-// 2013.11.07 Bagus Delete (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Delete (TohoSpecå¯¾å¿œ) <--
 	int retv;
 
 	m_IniCount = sizeof(IniDesc) / sizeof(IniDesc[0]);
 
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	CString strFilename;
 
 	strFilename = NANOSPEC_INIFILENAME;
@@ -107,15 +107,15 @@ CNanoSpecIni::CNanoSpecIni()
 		strFilename.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
 	}
 	m_strIniFilePath.Format("%s%s", g_szCfg_Dir, strFilename);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 
 	Get();
 
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //	sprintf(path, "%s%s", g_szCfg_Dir, NANOSPEC_INIFILENAME);
 //	if((retv = Finder.FindFile(path)) == 0){
 	if((retv = Finder.FindFile(m_strIniFilePath)) == 0){
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 		Set();
 	}
 
@@ -145,10 +145,10 @@ void CNanoSpecIni::Get()
 
 		// get ini file data
 		memset(buff, NULL, sizeof(buff));
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //		sprintf(szFilePath, "%s%s", g_szCfg_Dir, NANOSPEC_INIFILENAME);
 		strcpy(szFilePath, m_strIniFilePath);
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 		GetPrivateProfileString(section,
 								IniDesc[index].key,
 								IniDesc[index].def,
@@ -231,10 +231,10 @@ void CNanoSpecIni::Set()
 		}
 
 		// write procon ini file
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //		sprintf(szFilePath, "%s%s", g_szCfg_Dir, NANOSPEC_INIFILENAME);
 		strcpy(szFilePath, m_strIniFilePath);
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 		WritePrivateProfileString(section,
 								  IniDesc[index].key,
 								  strtrim(buff),

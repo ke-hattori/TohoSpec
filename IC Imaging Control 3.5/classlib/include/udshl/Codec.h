@@ -1,4 +1,4 @@
-
+﻿
 #ifndef CODEC_H_INC_
 #define CODEC_H_INC_
 

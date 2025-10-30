@@ -1,14 +1,14 @@
-#if !defined(AFX_RECIPERECALIBRATIONPROGRAMLISTVIEW_H__BDAF693C_2B40_4967_81E6_FD5035AFD32B__INCLUDED_)
+ï»¿#if !defined(AFX_RECIPERECALIBRATIONPROGRAMLISTVIEW_H__BDAF693C_2B40_4967_81E6_FD5035AFD32B__INCLUDED_)
 #define AFX_RECIPERECALIBRATIONPROGRAMLISTVIEW_H__BDAF693C_2B40_4967_81E6_FD5035AFD32B__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// RecipeRecalibrationProgramListView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// RecipeRecalibrationProgramListView.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 /////////////////////////////////////////////////////////////////////////////
-// CRecipeRecalibrationProgramListView ƒtƒH[ƒ€ ƒrƒ…[
+// CRecipeRecalibrationProgramListView ãƒ•ã‚©ãƒ¼ãƒ  ãƒ“ãƒ¥ãƒ¼
 
 #ifndef __AFXEXT_H__
 #include <afxext.h>
@@ -19,7 +19,7 @@
 class CRecipeRecalibrationProgramListView : public CNanoRecipeListUI
 {
 protected:
-	CRecipeRecalibrationProgramListView();			 // “®“I¶¬‚Ég—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CRecipeRecalibrationProgramListView();			 // å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	virtual ~CRecipeRecalibrationProgramListView();
 	DECLARE_DYNCREATE(CRecipeRecalibrationProgramListView)
 
@@ -42,6 +42,6 @@ private:
 /////////////////////////////////////////////////////////////////////////////
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_RECIPERECALIBRATIONPROGRAMLISTVIEW_H__BDAF693C_2B40_4967_81E6_FD5035AFD32B__INCLUDED_)

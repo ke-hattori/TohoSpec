@@ -1,28 +1,28 @@
-#if !defined(AFX_MEASUREMENTLISTDLG_H__726555BC_56F3_4468_B4C7_2E1ACC833AAC__INCLUDED_)
+ï»¿#if !defined(AFX_MEASUREMENTLISTDLG_H__726555BC_56F3_4468_B4C7_2E1ACC833AAC__INCLUDED_)
 #define AFX_MEASUREMENTLISTDLG_H__726555BC_56F3_4468_B4C7_2E1ACC833AAC__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// MeasurementListDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// MeasurementListDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "ColorStatic.h"
 #include "GridCtrl.h"
-#include "NanoGraphLib.h"	//Ü‚êüEƒ}ƒbƒsƒ“ƒOƒOƒ‰ƒt—p
+#include "NanoGraphLib.h"	//æŠ˜ã‚Œç·šãƒ»ãƒžãƒƒãƒ”ãƒ³ã‚°ã‚°ãƒ©ãƒ•ç”¨
 
 // ##########################################################################
-// CMeasurementListDlg ƒ_ƒCƒAƒƒO
+// CMeasurementListDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // ##########################################################################
 
 class CMeasurementListDlg : public CDialog
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
-	CMeasurementListDlg(CWnd* pParent = NULL);	// •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CMeasurementListDlg(CWnd* pParent = NULL);	// æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	~CMeasurementListDlg();
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 public:
 	//{{AFX_DATA(CMeasurementListDlg)
 	enum { IDD = IDD_MEASUREMENT_LIST_DLG };
@@ -43,9 +43,9 @@ protected:
 public:
 	CMainFrame* m_pMainFrame;
 	CNanoSpecDoc* m_pDoc;
-// 2014.01.17 Bagus Add (Stage None‘Î‰ž) -->
+// 2014.01.17 Bagus Add (Stage Noneå¯¾å¿œ) -->
 	SYSTEM_CONFIG m_SystemConfig;
-// 2014.01.17 Bagus Add (Stage None‘Î‰ž) <--
+// 2014.01.17 Bagus Add (Stage Noneå¯¾å¿œ) <--
 private:
 	RCP_DATA m_rcp_data;
 	BOOL m_bCellSelectedFlg;
@@ -54,7 +54,7 @@ private:
 public:
 
 	char m_szName[RECIPE_NAME_LEN + 1];
-	double m_dBuff[MEAS_LIST_CIE_MAX][SCAN_POINT_MAX];//Å‘å‚ÌƒAƒCƒeƒ€”‚ðŽ‚Â‘ª’è‚Ì’l‚ðŽg—p
+	double m_dBuff[MEAS_LIST_CIE_MAX][SCAN_POINT_MAX];//æœ€å¤§ã®ã‚¢ã‚¤ãƒ†ãƒ æ•°ã‚’æŒã¤æ¸¬å®šã®å€¤ã‚’ä½¿ç”¨
 	double m_dStandard;
 	int m_iPointStates[SCAN_POINT_MAX];
 	void AddMeasurementListGrid_Data(int iRow, int iCol, LPCTSTR psz);
@@ -69,31 +69,31 @@ public:
 	int SetMeasurementLSData_One(int nStressLine,int nRow,STRESSRESULT *pOneData);
 	//2009.08.22 bagus stress --}--
 	void MeasurementListGrid_UnSelectAll();
-/* added 2015.04.05 hmenjo FWXGA ‘Î‰ž2 ---------- { ---------- */
+/* added 2015.04.05 hmenjo FWXGA å¯¾å¿œ2 ---------- { ---------- */
 	void ChgSizeCtrl(long ldY);
-/* added 2015.04.05 hmenjo FWXGA ‘Î‰ž2 ---------- } ---------- */
+/* added 2015.04.05 hmenjo FWXGA å¯¾å¿œ2 ---------- } ---------- */
 
-// ------>ƒeƒXƒg—pŠÖ”
+// ------>ãƒ†ã‚¹ãƒˆç”¨é–¢æ•°
 	double GetSampleData(int iPoint, int wave);
-// <------ƒeƒXƒg—pŠÖ”
+// <------ãƒ†ã‚¹ãƒˆç”¨é–¢æ•°
 
 // 2013.01.17 bagus rotate xy view -->
 	long RotateXyAxisDir(long lDir);
 // 2013.01.17 bagus rotate xy view <--
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ð¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CMeasurementListDlg)
 	public:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒžãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CMeasurementListDlg)
 	virtual BOOL OnInitDialog();
 	afx_msg void OnPaint();
@@ -127,6 +127,6 @@ private:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ð‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_MEASUREMENTLISTDLG_H__726555BC_56F3_4468_B4C7_2E1ACC833AAC__INCLUDED_)

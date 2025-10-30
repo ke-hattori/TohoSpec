@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "System.h"
 #include "RecipeStageProgramMeasurementPointGrid.h"
 
@@ -20,7 +20,7 @@ BOOL CRecipeStageProgramMeasurementPointGrid::GridInit(int iRows)
 	GV_ITEM Item;
 	int Cols = 3;
 	int Rows = iRows >= 1001 ? iRows+1+1 : 1000+1 ;//NumScanPoint + Header + AddCell;
-	//int Rows = iRows >= 31 ? iRows+1+1 : 38+1+1 ;//NumScanPoint + Header + AddCell//ƒWƒƒƒXƒgƒOƒŠƒbƒg‚‚³”;
+	//int Rows = iRows >= 31 ? iRows+1+1 : 38+1+1 ;//NumScanPoint + Header + AddCell//ã‚¸ãƒ£ã‚¹ãƒˆã‚°ãƒªãƒƒãƒˆé«˜ã•æ•°;
 	//int Rows = SCAN_POINT_MAX + 1;
 	int FixRows = 1;
 	int FixCols = 1;
@@ -39,7 +39,7 @@ BOOL CRecipeStageProgramMeasurementPointGrid::GridInit(int iRows)
 //		"Y (mm)",
 //	};
 	char* ColItemJPN[]={
-		"ƒ|ƒCƒ“ƒg",
+		"ãƒã‚¤ãƒ³ãƒˆ",
 		"X (mm)",
 		"Y (mm)",
 	};

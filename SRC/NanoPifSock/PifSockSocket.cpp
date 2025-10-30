@@ -1,4 +1,4 @@
-// PifSockSocket.cpp : implementation file
+ï»¿// PifSockSocket.cpp : implementation file
 //
 
 #include "stdafx.h"
@@ -36,12 +36,12 @@ UINT CPifSockSocket::ThreadProc()
 {
 //	TRACE(_T("CPifSockSocket::ThreadProc()\n"));
 
-	// óMƒƒbƒZ[ƒW‰ğÍ‚ÌƒXƒe[ƒ^ƒX
+	// å—ä¿¡ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è§£æã®ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
 	enum { STATE_INIT, STATE_ENQ, STATE_MSGLEN, STATE_TERM };
-	// ‘—MƒƒbƒZ[ƒW‚Ì”ñ“¯Šú‘—MƒXƒe[ƒ^ƒX
+	// é€ä¿¡ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®éåŒæœŸé€ä¿¡ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
 	enum { STATE_NORMAL, STATE_ASYNCSENDRESP, STATE_ASYNCSENDREQU, STATE_ASYNCSENDREQURETRY };
 
-	// óMƒƒbƒZ[ƒW‚ÌƒŒƒ“ƒOƒXî•ñ
+	// å—ä¿¡ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ãƒ¬ãƒ³ã‚°ã‚¹æƒ…å ±
 	const int nEnqLen		  	= CPifMessage::ENQLEN;
 	const int nMessageLenLen  	= CPifMessage::MESSAGELENLEN;
 	const int nCommandLen 		= CPifMessage::COMMANDLEN;
@@ -77,7 +77,7 @@ UINT CPifSockSocket::ThreadProc()
 
 	while ( m_bRun )
 	{
-		// óMˆ—
+		// å—ä¿¡å‡¦ç†
 		nRead = Receive(pszRecvBuff, nRecvMaxLen);
 		switch (nRead)
 		{
@@ -101,25 +101,25 @@ UINT CPifSockSocket::ThreadProc()
 
 			AddRecvLogList(pszRecvBuff, nRead);
 
-			// ‘O‰ñ‚ÌóMƒf[ƒ^‚Æ¡‰ñ•ª‚ğƒf[ƒ^˜AŒ‹
+			// å‰å›ã®å—ä¿¡ãƒ‡ãƒ¼ã‚¿ã¨ä»Šå›åˆ†ã‚’ãƒ‡ãƒ¼ã‚¿é€£çµ
 			_tcscat(pszRecvedBuffer, pszRecvBuff);
 
-			// óMƒf[ƒ^‚Ì‰ğÍ
+			// å—ä¿¡ãƒ‡ãƒ¼ã‚¿ã®è§£æ
 			while ( *psz ) {
 				switch ( iState ) {
-				case  STATE_INIT:	// ‰Šú‰»ˆ—
+				case  STATE_INIT:	// åˆæœŸåŒ–å‡¦ç†
 					::ZeroMemory(szBuff, sizeof(szBuff));
 					iCntStateMsglen = iCntStateTerm = iMessageLen = 0;
 					iState = STATE_ENQ;
 					break;
-				case STATE_ENQ:		// ENQ•¶š‚ğ’T‚·
+				case STATE_ENQ:		// ENQæ–‡å­—ã‚’æ¢ã™
 					if ( CPifMessage::ENQ == *psz ) {
 						pszEnq = psz;
 						iState = STATE_MSGLEN;
 					}
 					psz++;
 					break;
-				case STATE_MSGLEN:	// ƒƒbƒZ[ƒW’·‚Ìæ“¾
+				case STATE_MSGLEN:	// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸é•·ã®å–å¾—
 					iCntStateMsglen++;
 					if ( iCntStateMsglen < nMessageLenLen ) {
 						;
@@ -132,16 +132,16 @@ UINT CPifSockSocket::ThreadProc()
 					}
 					psz++;
 					break;
-				case STATE_TERM:	// I’[•¶š‚ğ’T‚·
+				case STATE_TERM:	// çµ‚ç«¯æ–‡å­—ã‚’æ¢ã™
 					iCntStateTerm++;
 					if ( CPifMessage::CR != *psz ) {
 						if ( iCntStateTerm - nCrLen < iMessageLen ) {
-							// I’[•¶š‚È‚µAƒƒbƒZ[ƒW’·‚É–¢“’BiŒp‘±æ“¾‚·‚éj
+							// çµ‚ç«¯æ–‡å­—ãªã—ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸é•·ã«æœªåˆ°é”ï¼ˆç¶™ç¶šå–å¾—ã™ã‚‹ï¼‰
 							psz++;
 							break;
 						}
 						else {
-							// I’[•¶š‚È‚µAƒƒbƒZ[ƒW’·‚É“’B
+							// çµ‚ç«¯æ–‡å­—ãªã—ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸é•·ã«åˆ°é”
 							TRACE(_T("CPifSockSocket::ThreadProc() Communication Error : CR not found\n"));
 							_tcsncpy(pszMessage, pszEnq, nHeaderLen + iCntStateTerm);
 							pszMessage[nHeaderLen + iCntStateTerm] = _TCHAR('\0');
@@ -154,14 +154,14 @@ UINT CPifSockSocket::ThreadProc()
 					}
 					else {
 						if ( iCntStateTerm - nCrLen < iMessageLen ) {
-//							// I’[•¶š‚ ‚èAƒƒbƒZ[ƒW’·‚Æ‚ ‚í‚È‚¢
+//							// çµ‚ç«¯æ–‡å­—ã‚ã‚Šã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸é•·ã¨ã‚ã‚ãªã„
 //							TRACE(_T("CPifSockSocket::ThreadProc() Communication Error : Message Data less than MessageLen\n"));
 //							CPifMessage902 pifMsg902;
 //							pifMsg902.SetItemRecvCommandId(_T("    "));
 //							pifMsg902.Send();
 						}
 						else {
-							// I’[•¶š‚ ‚èAƒƒbƒZ[ƒW’·‚Æˆê’vi³íƒƒbƒZ[ƒWóMj
+							// çµ‚ç«¯æ–‡å­—ã‚ã‚Šã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸é•·ã¨ä¸€è‡´ï¼ˆæ­£å¸¸ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å—ä¿¡ï¼‰
 							_tcsncpy(pszMessage, pszEnq, nHeaderLen + iCntStateTerm);
 							pszMessage[nHeaderLen + iCntStateTerm] = _TCHAR('\0');
 							if ( pszMessage[nMessagePos] == _TCHAR('P') ) { 				// Pxxx
@@ -199,7 +199,7 @@ UINT CPifSockSocket::ThreadProc()
 
 		switch ( iAsyncSendState ) {
 		case STATE_NORMAL:
-			// ‘—Mˆ—i•ÔMj
+			// é€ä¿¡å‡¦ç†ï¼ˆè¿”ä¿¡ï¼‰
 			if ( PopRespMessageList(m_sendBuffer) ) {
 				m_nBytesSent = 0;
 				m_nBytesBufferSize = m_sendBuffer.GetLength();
@@ -209,7 +209,7 @@ UINT CPifSockSocket::ThreadProc()
 					break;
 				}
 			}
-			// ‘—Mˆ—iƒŠƒNƒGƒXƒgj
+			// é€ä¿¡å‡¦ç†ï¼ˆãƒªã‚¯ã‚¨ã‚¹ãƒˆï¼‰
 			if ( !m_bRequProcess ) {
 				if ( PopRequMessageList(m_sendBuffer) ) {
 					m_sendRetryBuffer = m_sendBuffer;
@@ -240,7 +240,7 @@ UINT CPifSockSocket::ThreadProc()
 				}
 				else {
 					if ( iRetry < SENDRETRYMAXTIMES ) {
-						// ƒŠƒgƒ‰ƒC
+						// ãƒªãƒˆãƒ©ã‚¤
 						m_sendBuffer = m_sendRetryBuffer;
 						m_nBytesSent = 0;
 						m_nBytesBufferSize = m_sendBuffer.GetLength();
@@ -254,7 +254,7 @@ UINT CPifSockSocket::ThreadProc()
 						iRetry++;
 					}
 					else {
-						// T3ƒ^ƒCƒ€ƒAƒEƒgiƒŠƒgƒ‰ƒC‰ñ”ƒI[ƒo[j
+						// T3ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆï¼ˆãƒªãƒˆãƒ©ã‚¤å›æ•°ã‚ªãƒ¼ãƒãƒ¼ï¼‰
 						TRACE(_T("CPifSockSocket::ThreadProc() Communication Error : T3 Timeout\n"));
 						CPifMessage903 pifMsg903;
 						pifMsg903.SetItemSendCommandId(m_sendRetryBuffer.Mid(nMessagePos, nCommandLen));
@@ -305,8 +305,8 @@ UINT CPifSockSocket::ThreadProc()
 
 //---------------------------------------------------------------------------
 // StringHexToint
-//	 -1 : •ÏŠ·•s”\i•s³•¶š‚ªw’è‚³‚ê‚½j
-//	 xx : intŒ^”’l
+//	 -1 : å¤‰æ›ä¸èƒ½ï¼ˆä¸æ­£æ–‡å­—ãŒæŒ‡å®šã•ã‚ŒãŸï¼‰
+//	 xx : intå‹æ•°å€¤
 int CPifSockSocket::StringHexToint(LPCTSTR psz, size_t count)
 {
 //	TRACE(_T("CPifSockSocket::StringHexToint(LPCTSTR psz, size_t count)\n"));
@@ -425,7 +425,7 @@ void CPifSockSocket::AddRecvLogList(LPCTSTR psz, LPCTSTR szDir/*=_T("Recv")*/)
 
 //---------------------------------------------------------------------------
 // DoAsyncSendBuff
-//	 ”ñ“¯Šú‘—M
+//	 éåŒæœŸé€ä¿¡
 void CPifSockSocket::DoAsyncSendBuff()
 {
 	TRACE("CPifSockSocket::DoAsyncSendBuff()\n");

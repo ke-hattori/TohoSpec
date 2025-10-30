@@ -1,4 +1,4 @@
-// VideoFormatItem.h: interface for the VideoFormatItem class.
+﻿// VideoFormatItem.h: interface for the VideoFormatItem class.
 //
 //////////////////////////////////////////////////////////////////////
 

@@ -1,4 +1,4 @@
-// NanoSpecView.h : CNanoSpecView ƒNƒ‰ƒX‚ÌéŒ¾‚¨‚æ‚ÑƒCƒ“ƒ^[ƒtƒFƒCƒX‚Ì’è‹`‚ğ‚µ‚Ü‚·B
+ï»¿// NanoSpecView.h : CNanoSpecView ã‚¯ãƒ©ã‚¹ã®å®£è¨€ãŠã‚ˆã³ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã®å®šç¾©ã‚’ã—ã¾ã™ã€‚
 //
 // ##########################################################################
 
@@ -14,7 +14,7 @@
 
 class CNanoSpecView : public CNanoUI
 {
-protected: // ƒVƒŠƒAƒ‰ƒCƒY‹@”\‚Ì‚İ‚©‚çì¬‚µ‚Ü‚·B
+protected: // ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºæ©Ÿèƒ½ã®ã¿ã‹ã‚‰ä½œæˆã—ã¾ã™ã€‚
 	CNanoSpecView();
 	DECLARE_DYNCREATE(CNanoSpecView)
 
@@ -23,28 +23,28 @@ public:
 	enum{ IDD = IDD_NANOSPEC_FORM };
 	//}}AFX_DATA
 
-// ƒAƒgƒŠƒrƒ…[ƒg
+// ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 public:
 	CNanoSpecDoc* GetDocument();
 
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CNanoSpecView)
 	public:
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ‚ÌƒTƒ|[ƒg
-	virtual void OnInitialUpdate(); // \’zŒã‚ÌÅ‰‚Ì‚P“x‚¾‚¯ŒÄ‚Ño‚³‚ê‚Ü‚·B
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã®ã‚µãƒãƒ¼ãƒˆ
+	virtual void OnInitialUpdate(); // æ§‹ç¯‰å¾Œã®æœ€åˆã®ï¼‘åº¦ã ã‘å‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
 	virtual BOOL OnPreparePrinting(CPrintInfo* pInfo);
 	virtual void OnBeginPrinting(CDC* pDC, CPrintInfo* pInfo);
 	virtual void OnEndPrinting(CDC* pDC, CPrintInfo* pInfo);
 	virtual void OnPrint(CDC* pDC, CPrintInfo* pInfo);
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 	virtual ~CNanoSpecView();
 #ifdef _DEBUG
@@ -54,19 +54,19 @@ public:
 
 protected:
 
-// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 protected:
 	//{{AFX_MSG(CNanoSpecView)
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
 
-#ifndef _DEBUG	// NanoSpecView.cpp ƒtƒ@ƒCƒ‹‚ªƒfƒoƒbƒOŠÂ‹«‚Ìg—p‚³‚ê‚Ü‚·B
+#ifndef _DEBUG	// NanoSpecView.cpp ãƒ•ã‚¡ã‚¤ãƒ«ãŒãƒ‡ãƒãƒƒã‚°ç’°å¢ƒã®æ™‚ä½¿ç”¨ã•ã‚Œã¾ã™ã€‚
 inline CNanoSpecDoc* CNanoSpecView::GetDocument()
 	{ return (CNanoSpecDoc*)m_pDocument; }
 #endif
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_NANOSPECVIEW_H__B2ED7EBA_A79C_4BCC_8E82_0E7144987B1D__INCLUDED_)

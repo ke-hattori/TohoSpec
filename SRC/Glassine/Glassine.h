@@ -1,4 +1,4 @@
-// Glassine.h : GLASSINE �A�v���P�[�V�����̃��C�� �w�b�_�[ �t�@�C���ł��B
+﻿// Glassine.h : GLASSINE アプリケーションのメイン ヘッダー ファイルです。
 //
 
 #if !defined(AFX_GLASSINE_H__E37E9E3B_9526_42B1_855B_FEC9461B94B9__INCLUDED_)
@@ -12,11 +12,11 @@
 	#error include 'stdafx.h' before including this file for PCH
 #endif
 
-#include "resource.h"		// ���C�� �V���{��
+#include "resource.h"		// メイン シンボル
 
 /////////////////////////////////////////////////////////////////////////////
 // CGlassineApp:
-// ���̃N���X�̓���̒�`�Ɋւ��Ă� Glassine.cpp �t�@�C�����Q�Ƃ��Ă��������B
+// このクラスの動作の定義に関しては Glassine.cpp ファイルを参照してください。
 //
 
 class CGlassineApp : public CWinApp
@@ -24,18 +24,18 @@ class CGlassineApp : public CWinApp
 public:
 	CGlassineApp();
 	HANDLE m_GlassMutex;
-// �I�[�o�[���C�h
-	// ClassWizard �͉��z�֐��̃I�[�o�[���C�h�𐶐����܂��B
+// オーバーライド
+	// ClassWizard は仮想関数のオーバーライドを生成します。
 	//{{AFX_VIRTUAL(CGlassineApp)
 	public:
 	virtual BOOL InitInstance();
 	//}}AFX_VIRTUAL
 
-// �C���v�������e�[�V����
+// インプリメンテーション
 
 	//{{AFX_MSG(CGlassineApp)
-		// ���� - ClassWizard �͂��̈ʒu�Ƀ����o�֐���ǉ��܂��͍폜���܂��B
-		//		  ���̈ʒu�ɐ��������R�[�h��ҏW���Ȃ��ł��������B
+		// メモ - ClassWizard はこの位置にメンバ関数を追加または削除します。
+		//		  この位置に生成されるコードを編集しないでください。
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
@@ -44,6 +44,6 @@ public:
 /////////////////////////////////////////////////////////////////////////////
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ �͑O�s�̒��O�ɒǉ��̐錾��}�����܂��B
+// Microsoft Visual C++ は前行の直前に追加の宣言を挿入します。
 
 #endif // !defined(AFX_GLASSINE_H__E37E9E3B_9526_42B1_855B_FEC9461B94B9__INCLUDED_)

@@ -1,4 +1,4 @@
-// SitePtSeq.cpp : implementation file
+﻿// SitePtSeq.cpp : implementation file
 //
 
 #include "stdafx.h"

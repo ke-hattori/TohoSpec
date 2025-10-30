@@ -1,4 +1,4 @@
-// RecipeMainSrView.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// RecipeMainSrView.cpp : �C���v�������e�[�V���� �t�@�C��
 //
 
 #include "stdafx.h"

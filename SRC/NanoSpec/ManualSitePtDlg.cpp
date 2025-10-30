@@ -1,4 +1,4 @@
-// ManualSitePtDlg.cpp : ÉCÉìÉvÉäÉÅÉìÉeÅ[ÉVÉáÉì ÉtÉ@ÉCÉã
+Ôªø// ManualSitePtDlg.cpp : „Ç§„É≥„Éó„É™„É°„É≥„ÉÜ„Éº„Ç∑„Éß„É≥ „Éï„Ç°„Ç§„É´
 //
 
 #include "stdafx.h"
@@ -252,9 +252,9 @@ BEGIN_MESSAGE_MAP(CManualSitePtDlg, COverlayDialog)
 	ON_WM_PAINT()
 	ON_WM_LBUTTONDOWN()
 	//}}AFX_MSG_MAP
-// 2009.06.11 K.Matsuo ÉLÅ[ÉtÉbÉN -->
+// 2009.06.11 K.Matsuo „Ç≠„Éº„Éï„ÉÉ„ÇØ -->
 //	ON_MESSAGE(WM_STAGE_MOVE_DONE, OnStageMoveDone)
-// 2009.06.11 K.Matsuo ÉLÅ[ÉtÉbÉN <--
+// 2009.06.11 K.Matsuo „Ç≠„Éº„Éï„ÉÉ„ÇØ <--
 END_MESSAGE_MAP()
 
 //
@@ -324,9 +324,9 @@ BOOL CManualSitePtDlg::OnInitDialog()
 	// Kojika 20090529 Change
 //	SetCaption("MANUAL SITE PATTERN SETUP");
 //	SetCaption("CLICK CORRECT POSITION");
-	//SetCaption("éËìÆ ÉTÉCÉgÉpÉ^Å[Éìê›íË");
-	//SetCaption("É}ÉjÉÖÉAÉã ÉTÉCÉgÉpÉ^Å[Éìê›íË");
-	//SetMessage("ÉNÉäÉbÉNÇµÇƒà íuÇÇ†ÇÌÇπÇƒÇ≠ÇæÇ≥Ç¢");
+	//SetCaption("ÊâãÂãï „Çµ„Ç§„Éà„Éë„Çø„Éº„É≥Ë®≠ÂÆö");
+	//SetCaption("„Éû„Éã„É•„Ç¢„É´ „Çµ„Ç§„Éà„Éë„Çø„Éº„É≥Ë®≠ÂÆö");
+	//SetMessage("„ÇØ„É™„ÉÉ„ÇØ„Åó„Å¶‰ΩçÁΩÆ„Çí„ÅÇ„Çè„Åõ„Å¶„Åè„Å†„Åï„ÅÑ");
 	LoadStringML(IDS_MANUAL_SITE_PATTRN_SETUP, l_strCap, "MANUAL SITE PATTERN SETUP");
 	LoadStringML(IDS_CLICK_CORRECT_POSITION, l_strMsg, "CLICK CORRECT POSITION");
 	SetCaption(l_strCap);
@@ -337,8 +337,8 @@ BOOL CManualSitePtDlg::OnInitDialog()
 
 	Event(EV_START);
 
-	return TRUE;	// ÉRÉìÉgÉçÅ[ÉãÇ…ÉtÉHÅ[ÉJÉXÇê›íËÇµÇ»Ç¢Ç∆Ç´ÅAñﬂÇËílÇÕ TRUE Ç∆Ç»ÇËÇ‹Ç∑
-					// ó·äO: OCX ÉvÉçÉpÉeÉB ÉyÅ[ÉWÇÃñﬂÇËílÇÕ FALSE Ç∆Ç»ÇËÇ‹Ç∑
+	return TRUE;	// „Ç≥„É≥„Éà„É≠„Éº„É´„Å´„Éï„Ç©„Éº„Ç´„Çπ„ÇíË®≠ÂÆö„Åó„Å™„ÅÑ„Å®„Åç„ÄÅÊàª„ÇäÂÄ§„ÅØ TRUE „Å®„Å™„Çä„Åæ„Åô
+					// ‰æãÂ§ñ: OCX „Éó„É≠„Éë„ÉÜ„Ç£ „Éö„Éº„Ç∏„ÅÆÊàª„ÇäÂÄ§„ÅØ FALSE „Å®„Å™„Çä„Åæ„Åô
 }
 
 // =========================================================================
@@ -352,7 +352,7 @@ void CManualSitePtDlg::OnOK()
 	if (0 != l_hChiefDlg) {
 		::PostMessage(l_hChiefDlg, WM_MANUALSITE_POPUP_END, 1, MAKELPARAM(MAKEWORD(m_XY_ButtonUseHistry,m_Z_ButtonUseHistry),MAKEWORD(m_AutoFocusUseHistry,m_AutoFocusResult)));
 	} else {
-		//ÉGÉâÅ[èàóùãLèqÇ∑ÇÈÇ±Ç∆ÅI
+		//„Ç®„É©„ÉºÂá¶ÁêÜË®òËø∞„Åô„Çã„Åì„Å®ÔºÅ
 	}
 	//Saiki 20090728 Add <-----
 	COverlayDialog::OnOK();
@@ -367,7 +367,7 @@ void CManualSitePtDlg::OnCancel()
 	if (0 != l_hChiefDlg) {
 		::PostMessage(l_hChiefDlg, WM_MANUALSITE_POPUP_END, 2, MAKELPARAM(MAKEWORD(m_XY_ButtonUseHistry,m_Z_ButtonUseHistry),MAKEWORD(m_AutoFocusUseHistry,m_AutoFocusResult)));
 	} else {
-		//ÉGÉâÅ[èàóùãLèqÇ∑ÇÈÇ±Ç∆ÅI
+		//„Ç®„É©„ÉºÂá¶ÁêÜË®òËø∞„Åô„Çã„Åì„Å®ÔºÅ
 	}
 	//Saiki 20090728 Add <-----
 	COverlayDialog::OnCancel();

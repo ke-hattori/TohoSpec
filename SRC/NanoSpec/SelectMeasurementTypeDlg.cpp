@@ -1,4 +1,4 @@
-// SelectMeasurementTypeDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SelectMeasurementTypeDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -18,7 +18,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // #########################################################################
-// CSelectMeasurementTypeDlg ƒ_ƒCƒAƒƒO
+// CSelectMeasurementTypeDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // #########################################################################
 
 // =========================================================================
@@ -34,9 +34,9 @@ CSelectMeasurementTypeDlg::CSelectMeasurementTypeDlg(BOOL bRecipeDefaultValueSet
 	m_bRecipeDefaultValueSetting = bRecipeDefaultValueSetting;
 	m_iDefaultValueSettingHeadType = iDefaultValueSettingHeadType;
 
-// 2009.10.29 bagus 2“_ŠÔ C³ --{--
+// 2009.10.29 bagus 2ç‚¹é–“ ä¿®æ­£ --{--
 	m_bRecalibration = FALSE;
-// 2009.10.29 bagus 2“_ŠÔ C³ --}--
+// 2009.10.29 bagus 2ç‚¹é–“ ä¿®æ­£ --}--
 }
 
 // =========================================================================
@@ -63,7 +63,7 @@ BEGIN_MESSAGE_MAP(CSelectMeasurementTypeDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CSelectMeasurementTypeDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSelectMeasurementTypeDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -86,23 +86,23 @@ BOOL CSelectMeasurementTypeDlg::OnInitDialog()
 
 	m_cbHeadType.ResetContent();
 
-// 2009.10.29 bagus 2“_ŠÔ C³ --{--
+// 2009.10.29 bagus 2ç‚¹é–“ ä¿®æ­£ --{--
 	int	iMinHeadType = HEAD_TYPE_SR;
-// 2009.10.29 bagus 2“_ŠÔ C³ --}--
+// 2009.10.29 bagus 2ç‚¹é–“ ä¿®æ­£ --}--
 
-	// Config‚Åİ’è‚³‚ê‚Ä‚¢‚éƒwƒbƒh‚Ì‚İ•\¦
+	// Configã§è¨­å®šã•ã‚Œã¦ã„ã‚‹ãƒ˜ãƒƒãƒ‰ã®ã¿è¡¨ç¤º
 	int nIndex;
 	if ( m_HeadType.bSR ) {
 		nIndex = m_cbHeadType.AddString(HEAD_TYPE_ITEM[HEAD_TYPE_SR]);
 		m_cbHeadType.SetItemData(nIndex, HEAD_TYPE_SR);
 	}
-// 2009.10.29 bagus 2“_ŠÔ C³ --{--
+// 2009.10.29 bagus 2ç‚¹é–“ ä¿®æ­£ --{--
 	else {
 		iMinHeadType = HEAD_TYPE_SE;
 	}
-// 2009.10.29 bagus 2“_ŠÔ C³ --}--
+// 2009.10.29 bagus 2ç‚¹é–“ ä¿®æ­£ --}--
 	if ( m_HeadType.bSE ) {
-		// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+		// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 		if ( m_HeadType.bCompEASE ) {
 			nIndex = m_cbHeadType.AddString(HEAD_TYPE_ITEM[HEAD_TYPE_COMPEASE]);
 			m_cbHeadType.SetItemData(nIndex, HEAD_TYPE_COMPEASE);
@@ -111,74 +111,74 @@ BOOL CSelectMeasurementTypeDlg::OnInitDialog()
 		nIndex = m_cbHeadType.AddString(HEAD_TYPE_ITEM[HEAD_TYPE_SE]);
 		m_cbHeadType.SetItemData(nIndex, HEAD_TYPE_SE);
 	}
-		// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+		// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 	}
-// 2009.10.29 bagus 2“_ŠÔ C³ --{--
+// 2009.10.29 bagus 2ç‚¹é–“ ä¿®æ­£ --{--
 	else {
 		if (iMinHeadType == HEAD_TYPE_SE)
 			iMinHeadType = HEAD_TYPE_4PP;
 	}
-// 2009.10.29 bagus 2“_ŠÔ C³ --}--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.29 bagus 2ç‚¹é–“ ä¿®æ­£ --}--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 #if 0
 	if ( m_HeadType.bIRSE ) {
 		nIndex = m_cbHeadType.AddString(HEAD_TYPE_ITEM[HEAD_TYPE_IRSE]);
 		m_cbHeadType.SetItemData(nIndex, HEAD_TYPE_IRSE);
 	}
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
+// 2009.11.04 bagus RS è¿½åŠ  --{--
 //	if ( m_HeadType.bResist ) {
 	if (( m_HeadType.bResist ) && (!m_bRecalibration)) {
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS è¿½åŠ  --}--
 		nIndex = m_cbHeadType.AddString(HEAD_TYPE_ITEM[HEAD_TYPE_4PP]);
 		m_cbHeadType.SetItemData(nIndex, HEAD_TYPE_4PP);
 	}
-// 2009.10.29 bagus 2“_ŠÔ C³ --{--
+// 2009.10.29 bagus 2ç‚¹é–“ ä¿®æ­£ --{--
 	else {
 		if (iMinHeadType == HEAD_TYPE_4PP)
 			iMinHeadType = HEAD_TYPE_CTA;
 	}
-// 2009.10.29 bagus 2“_ŠÔ C³ --}--
+// 2009.10.29 bagus 2ç‚¹é–“ ä¿®æ­£ --}--
 	if ( m_HeadType.bCTA ) {
 		nIndex = m_cbHeadType.AddString(HEAD_TYPE_ITEM[HEAD_TYPE_CTA]);
 		m_cbHeadType.SetItemData(nIndex, HEAD_TYPE_CTA);
 	}
-// 2009.10.29 bagus 2“_ŠÔ C³ --{--
+// 2009.10.29 bagus 2ç‚¹é–“ ä¿®æ­£ --{--
 	else {
 		if (iMinHeadType == HEAD_TYPE_CTA)
 			iMinHeadType = HEAD_TYPE_STRESS;
 	}
-// 2009.10.29 bagus 2“_ŠÔ C³ --}--
+// 2009.10.29 bagus 2ç‚¹é–“ ä¿®æ­£ --}--
 	if ( m_HeadType.bStress ) {
 		nIndex = m_cbHeadType.AddString(HEAD_TYPE_ITEM[HEAD_TYPE_STRESS]);
 		m_cbHeadType.SetItemData(nIndex, HEAD_TYPE_STRESS);
 	}
-// 2009.10.19 bagus MS ’Ç‰Á --{--
-// 2009.10.29 bagus 2“_ŠÔ C³ --{--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
+// 2009.10.29 bagus 2ç‚¹é–“ ä¿®æ­£ --{--
 	else {
 		if (iMinHeadType == HEAD_TYPE_STRESS)
 			iMinHeadType = HEAD_TYPE_MS;
 	}
-// 2009.10.29 bagus 2“_ŠÔ C³ --}--
+// 2009.10.29 bagus 2ç‚¹é–“ ä¿®æ­£ --}--
 //	if ( m_HeadType.bMS ) {
 	if (( m_HeadType.bMS ) && (!m_bRecalibration)) {
 		nIndex = m_cbHeadType.AddString(HEAD_TYPE_ITEM[HEAD_TYPE_MS]);
 		m_cbHeadType.SetItemData(nIndex, HEAD_TYPE_MS);
 	}
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 
 	// Kojika 20090601 Add
 	CString l_strBuffer, l_strTitle;
 	// Kojika 20090601 Add End
 
-// 2009.10.24 bagus 2“_ŠÔ C³ --{--
+// 2009.10.24 bagus 2ç‚¹é–“ ä¿®æ­£ --{--
 //	if(m_cbHeadType.GetCount() <= 0){
 	if ((m_cbHeadType.GetCount() <= 0) || (iMinHeadType < 0)) {
-// 2009.10.24 bagus 2“_ŠÔ C³ --}--
+// 2009.10.24 bagus 2ç‚¹é–“ ä¿®æ­£ --}--
 		// Kojika 20090601 Change
 		//MessageBox("Head Setting has not been set up.", "SELECT MEASUREMENT TYPE", MB_OK);
-		//MessageBox("ƒwƒbƒhƒ^ƒCƒv‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ", "SELECT MEASUREMENT TYPE", MB_OK);
+		//MessageBox("ãƒ˜ãƒƒãƒ‰ã‚¿ã‚¤ãƒ—ãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“", "SELECT MEASUREMENT TYPE", MB_OK);
 		LoadStringML(IDS_HEAD_SETTING_NOT_SETUP, l_strBuffer, "Head Setting has not been set up.");
 		LoadStringML(IDS_TITLE_SELECT_MEASUREMENT_TYPE, l_strTitle, "SELECT MEASUREMENT TYPE");
 		MessageBox(l_strBuffer, l_strTitle, MB_OK);
@@ -188,7 +188,7 @@ BOOL CSelectMeasurementTypeDlg::OnInitDialog()
 	}
 
 	int iDefaultHeadType = m_bRecipeDefaultValueSetting ? m_iDefaultValueSettingHeadType : m_iHeadType;
-// 2009.10.24 bagus 2“_ŠÔ C³ --{--
+// 2009.10.24 bagus 2ç‚¹é–“ ä¿®æ­£ --{--
 	switch ( iDefaultHeadType ) {
 	case HEAD_TYPE_SR:
 		if (!m_HeadType.bSR) {
@@ -198,17 +198,17 @@ BOOL CSelectMeasurementTypeDlg::OnInitDialog()
 		}
 		break;
 	case HEAD_TYPE_SE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 //		if (!m_HeadType.bSE) {
 		if (!m_HeadType.bSE ||
 			m_HeadType.bSE && m_HeadType.bCompEASE) {
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 			iDefaultHeadType = iMinHeadType;
 			m_iHeadType = iMinHeadType;
 			m_iMeasType = 0;
 		}
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case HEAD_TYPE_COMPEASE:
 		if (!m_HeadType.bCompEASE) {
 			iDefaultHeadType = iMinHeadType;
@@ -216,12 +216,12 @@ BOOL CSelectMeasurementTypeDlg::OnInitDialog()
 			m_iMeasType = 0;
 		}
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 	case HEAD_TYPE_4PP:
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.11.04 bagus RS è¿½åŠ  --{--
 //		if (!m_HeadType.bResist) {
 		if ((!m_HeadType.bResist) || (m_bRecalibration)) {
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS è¿½åŠ  --}--
 			iDefaultHeadType = iMinHeadType;
 			m_iHeadType = iMinHeadType;
 			m_iMeasType = 0;
@@ -253,12 +253,12 @@ BOOL CSelectMeasurementTypeDlg::OnInitDialog()
 		return FALSE;
 		break;
 	}
-// 2009.10.24 bagus 2“_ŠÔ C³ --}--
+// 2009.10.24 bagus 2ç‚¹é–“ ä¿®æ­£ --}--
 	m_cbHeadType.SetCurSel(m_cbHeadType.FindStringExact(0, HEAD_TYPE_ITEM[iDefaultHeadType]));
 
 	OnSelchangeHeadType();
 
-	// ƒfƒtƒHƒ‹ƒg’l‚Ìİ’è‚Ìê‡‚Íw’è‚³‚ê‚½ƒwƒbƒhƒ^ƒCƒv‚ÅŒÅ’è
+	// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã®è¨­å®šã®å ´åˆã¯æŒ‡å®šã•ã‚ŒãŸãƒ˜ãƒƒãƒ‰ã‚¿ã‚¤ãƒ—ã§å›ºå®š
 	m_cbHeadType.EnableWindow(!m_bRecipeDefaultValueSetting);
 
 
@@ -268,7 +268,7 @@ BOOL CSelectMeasurementTypeDlg::OnInitDialog()
 		m_lbMeasTypeList.SetCurSel(m_lbMeasTypeList.FindStringExact(0, mlScanTypeItem[m_iMeasType]));
 	}
 
-	// ƒ^ƒCƒgƒ‹‚Ì•ÏX
+	// ã‚¿ã‚¤ãƒˆãƒ«ã®å¤‰æ›´
 	switch( ((CMainFrame*)AfxGetMainWnd())->GetCurrExeWnd() ) {
 	case USERCONF_WND:
 		if ( m_bRecipeDefaultValueSetting ) {
@@ -281,8 +281,8 @@ BOOL CSelectMeasurementTypeDlg::OnInitDialog()
 		break;
 	}
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
@@ -316,8 +316,8 @@ void CSelectMeasurementTypeDlg::OnDblclkMeasurementTypeList()
 //
 void CSelectMeasurementTypeDlg::OnSelchangeHeadType()
 {
-	// ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚Å‘I‘ğ‚³‚ê‚½ŠY“–‚Ìƒwƒbƒhƒ^ƒCƒv‚É‚Â‚¢‚Ä
-	// ƒXƒLƒƒƒ“ƒ^ƒCƒv‚ğƒŠƒXƒg•\¦‚·‚é
+	// ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã§é¸æŠã•ã‚ŒãŸè©²å½“ã®ãƒ˜ãƒƒãƒ‰ã‚¿ã‚¤ãƒ—ã«ã¤ã„ã¦
+	// ã‚¹ã‚­ãƒ£ãƒ³ã‚¿ã‚¤ãƒ—ã‚’ãƒªã‚¹ãƒˆè¡¨ç¤ºã™ã‚‹
 
 	m_iHeadType = m_cbHeadType.GetItemData(m_cbHeadType.GetCurSel());
 
@@ -333,35 +333,35 @@ void CSelectMeasurementTypeDlg::OnSelchangeHeadType()
 	switch(m_iHeadType){
 	case HEAD_TYPE_SR:
 		for ( i = 0; i < mlScanTypeItem.GetItemCount(); i++ ) {
-			// İ’è‚³‚ê‚Ä‚¢‚È‚¢€–Ú‚Í•\¦‚µ‚È‚¢
+			// è¨­å®šã•ã‚Œã¦ã„ãªã„é …ç›®ã¯è¡¨ç¤ºã—ãªã„
 			switch(i){
-// 2009.10.27 bagus Gantry ’Ç‰ÁC³ --{--
+// 2009.10.27 bagus Gantry è¿½åŠ ä¿®æ­£ --{--
 #if 0
 			case MEAS_PROG_TYPE_SR_TRANSMITTANCE:
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ä¿®æ­£ --{--
 //			case MEAS_PROG_TYPE_SR_TRANSMITTANCE_G:
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ä¿®æ­£ --}--
 #else
 			case MEAS_PROG_TYPE_SR_TRANSMITTANCE_G:
 #endif
-// 2009.10.27 bagus Gantry ’Ç‰ÁC³ --}--
+// 2009.10.27 bagus Gantry è¿½åŠ ä¿®æ­£ --}--
 				if(!SrConfig.bTransmittance){
 					continue;
 				}
 				break;
-// 2009.10.29 bagus 2“_ŠÔ C³ --{--
+// 2009.10.29 bagus 2ç‚¹é–“ ä¿®æ­£ --{--
 			case MEAS_PROG_TYPE_SR_DISTANCE:
 				//2009.11.16 bagus 2point-distance --{--
 				//if (m_bRecalibration) {
-				// 2009.11.17 bagus 2“_ŠÔ C³ --{--
+				// 2009.11.17 bagus 2ç‚¹é–“ ä¿®æ­£ --{--
 				//if (!SrConfig.bDistance){
 				if (!SrConfig.bDistance || m_bRecalibration) {
-				// 2009.11.17 bagus 2“_ŠÔ C³ --}--
+				// 2009.11.17 bagus 2ç‚¹é–“ ä¿®æ­£ --}--
 				//2009.11.16 bagus 2point-distance --}--
 					continue;
 				}
 				break;
-// 2009.10.29 bagus 2“_ŠÔ C³ --}--
+// 2009.10.29 bagus 2ç‚¹é–“ ä¿®æ­£ --}--
 			case MEAS_PROG_TYPE_SR_REFLECTANCE_CIE:
 				if(!SrConfig.bCieMeasurement){
 					continue;
@@ -377,14 +377,14 @@ void CSelectMeasurementTypeDlg::OnSelchangeHeadType()
 					continue;
 				}
 				break;
-// 2009.10.22 bagus Stress C³ --{--
-// 2009.10.27 bagus Gantry ’Ç‰ÁC³ --{--
+// 2009.10.22 bagus Stress ä¿®æ­£ --{--
+// 2009.10.27 bagus Gantry è¿½åŠ ä¿®æ­£ --{--
 //			case MEAS_PROG_TYPE_SR_TRANSMITTANCE_G:
 			case MEAS_PROG_TYPE_SR_TRANSMITTANCE:
-// 2009.10.27 bagus Gantry ’Ç‰ÁC³ --}--
+// 2009.10.27 bagus Gantry è¿½åŠ ä¿®æ­£ --}--
 				continue;
 				break;
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ä¿®æ­£ --}--
 			default:
 				break;
 			}
@@ -394,13 +394,13 @@ void CSelectMeasurementTypeDlg::OnSelchangeHeadType()
 		}
 		break;
 	case HEAD_TYPE_SE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case HEAD_TYPE_COMPEASE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 //	case HEAD_TYPE_IRSE:
 	case HEAD_TYPE_MS:
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 	case HEAD_TYPE_CTA:
 	case HEAD_TYPE_4PP:
 	case HEAD_TYPE_STRESS:

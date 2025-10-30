@@ -1,4 +1,4 @@
-
+﻿
 #ifndef _VIDEOFORMATDESC_H_
 #define _VIDEOFORMATDESC_H_
 

@@ -1,51 +1,51 @@
-#if !defined(AFX_CHIFTRANSIMASTER_H__44228793_B4D9_4104_BE5A_A9C693AC1349__INCLUDED_)
+ï»¿#if !defined(AFX_CHIFTRANSIMASTER_H__44228793_B4D9_4104_BE5A_A9C693AC1349__INCLUDED_)
 #define AFX_CHIFTRANSIMASTER_H__44228793_B4D9_4104_BE5A_A9C693AC1349__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// ChifTransiMaster.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// ChifTransiMaster.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
-#include <afxmt.h>	// CEvent ‚Æ CSingleLock ‚Å•K—v‚Å‚·
+#include <afxmt.h>	// CEvent ã¨ CSingleLock ã§å¿…è¦ã§ã™
 
 //--------------------------------------------------------------------------//
-//	ó‘Ô’è‹`
+//	çŠ¶æ…‹å®šç¾©
 //--------------------------------------------------------------------------//
 #define	_ST_MAS_DISP(x)	_T(#x)
 #define	ST_MAS_DISP(x)	_ST_MAS_DISP(x)
 #define	ST_MAS_(x)		ST_MAS_##x
-// ó‘Ô‚Ì–¼Ì‚ğ’è‹`¨
-//		‚±‚±‚ğ’Ç‰Áíœ‚µ‚½ê‡‚Í ST_xxx_n ‚Ì”Ô†‚É‘Î‰‚µ‚½
-//		‰º‹L‚Ì ST_xxx_n ‚Æ ST_xxx_DISP_n ‚à‡‚í‚¹‚Ä‚­‚¾‚³‚¢D
-#define	ST_MAS_0		ST_MAS_(INIT)			// ‰Šúó‘Ô
-#define	ST_MAS_1		ST_MAS_(IDLE)			// ƒAƒCƒhƒ‹
-#define	ST_MAS_2		ST_MAS_(UISEQ)			// ‰æ–Ê SEQ ‘ª’è						(WAIT ó‘Ô–³‚µ‚Ìê‡—L‚è)
-#define	ST_MAS_3		ST_MAS_(UISEQ_DONE)		// ‰æ–Ê SEQ ‘ª’èŠ®—¹					(WAIT ó‘Ô–³‚µ)
-#define	ST_MAS_4		ST_MAS_(UI1POINT)		// ‰æ–Ê‚Pƒ|ƒCƒ“ƒg‘ª’è					(WAIT ó‘Ô–³‚µ‚Ìê‡—L‚è)
-#define	ST_MAS_5		ST_MAS_(UI1POINT_DONE)	// ‰æ–Ê‚Pƒ|ƒCƒ“ƒg‘ª’èŠ®—¹				(WAIT ó‘Ô–³‚µ)
-#define	ST_MAS_6		ST_MAS_(UIAAF)			// ‰æ–Ê AF								(WAIT ó‘Ô–³‚µ‚Ìê‡—L‚è)
-#define	ST_MAS_7		ST_MAS_(UIAAF_DONE)		// ‰æ–Ê AF Š®—¹							(WAIT ó‘Ô–³‚µ)
-#define	ST_MAS_8		ST_MAS_(PIFSEQ)			// Pif SEQ ‘ª’è
-#define	ST_MAS_9		ST_MAS_(PIFSEQ_DONE)	// Pif SEQ ‘ª’èŠ®—¹						(WAIT ó‘Ô–³‚µ)
-#define	ST_MAS_10		ST_MAS_(UISREF)			// ‰æ–ÊƒŠƒtƒ@ƒŒƒ“ƒX‘ª’è					(WAIT ó‘Ô–³‚µ‚Ìê‡—L‚è)
-#define	ST_MAS_11		ST_MAS_(UISREF_DONE)	// ‰æ–ÊƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èŠ®—¹				(WAIT ó‘Ô–³‚µ)
-#define	ST_MAS_12		ST_MAS_(END)			// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“I—¹
-// bagus add 2014.01.10 (Stage None‘Î‰) -->
-#define	ST_MAS_13		ST_MAS_(STDREF)			// ƒXƒ^ƒ“ƒ_[ƒhƒŠƒtƒ@ƒŒƒ“ƒX‘ª’è
-#define	ST_MAS_14		ST_MAS_(STDREF_DONE)	// ƒXƒ^ƒ“ƒ_[ƒhƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èŠ®—¹
-#define	ST_MAS_15		ST_MAS_(DRKREF)			// ƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒX‘ª’è
-#define	ST_MAS_16		ST_MAS_(DRKREF_DONE)	// ƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èŠ®—¹
-// bagus add 2014.01.10 (Stage None‘Î‰) <--
-// ó‘Ô‚Ì–¼Ì‚ğ’è‹`©
+// çŠ¶æ…‹ã®åç§°ã‚’å®šç¾©â†’
+//		ã“ã“ã‚’è¿½åŠ å‰Šé™¤ã—ãŸå ´åˆã¯ ST_xxx_n ã®ç•ªå·ã«å¯¾å¿œã—ãŸ
+//		ä¸‹è¨˜ã® ST_xxx_n ã¨ ST_xxx_DISP_n ã‚‚åˆã‚ã›ã¦ãã ã•ã„ï¼
+#define	ST_MAS_0		ST_MAS_(INIT)			// åˆæœŸçŠ¶æ…‹
+#define	ST_MAS_1		ST_MAS_(IDLE)			// ã‚¢ã‚¤ãƒ‰ãƒ«
+#define	ST_MAS_2		ST_MAS_(UISEQ)			// ç”»é¢ SEQ æ¸¬å®š						(WAIT çŠ¶æ…‹ç„¡ã—ã®å ´åˆæœ‰ã‚Š)
+#define	ST_MAS_3		ST_MAS_(UISEQ_DONE)		// ç”»é¢ SEQ æ¸¬å®šå®Œäº†					(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_MAS_4		ST_MAS_(UI1POINT)		// ç”»é¢ï¼‘ãƒã‚¤ãƒ³ãƒˆæ¸¬å®š					(WAIT çŠ¶æ…‹ç„¡ã—ã®å ´åˆæœ‰ã‚Š)
+#define	ST_MAS_5		ST_MAS_(UI1POINT_DONE)	// ç”»é¢ï¼‘ãƒã‚¤ãƒ³ãƒˆæ¸¬å®šå®Œäº†				(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_MAS_6		ST_MAS_(UIAAF)			// ç”»é¢ AF								(WAIT çŠ¶æ…‹ç„¡ã—ã®å ´åˆæœ‰ã‚Š)
+#define	ST_MAS_7		ST_MAS_(UIAAF_DONE)		// ç”»é¢ AF å®Œäº†							(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_MAS_8		ST_MAS_(PIFSEQ)			// Pif SEQ æ¸¬å®š
+#define	ST_MAS_9		ST_MAS_(PIFSEQ_DONE)	// Pif SEQ æ¸¬å®šå®Œäº†						(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_MAS_10		ST_MAS_(UISREF)			// ç”»é¢ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®š					(WAIT çŠ¶æ…‹ç„¡ã—ã®å ´åˆæœ‰ã‚Š)
+#define	ST_MAS_11		ST_MAS_(UISREF_DONE)	// ç”»é¢ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šå®Œäº†				(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_MAS_12		ST_MAS_(END)			// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³çµ‚äº†
+// bagus add 2014.01.10 (Stage Noneå¯¾å¿œ) -->
+#define	ST_MAS_13		ST_MAS_(STDREF)			// ã‚¹ã‚¿ãƒ³ãƒ€ãƒ¼ãƒ‰ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®š
+#define	ST_MAS_14		ST_MAS_(STDREF_DONE)	// ã‚¹ã‚¿ãƒ³ãƒ€ãƒ¼ãƒ‰ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šå®Œäº†
+#define	ST_MAS_15		ST_MAS_(DRKREF)			// ãƒ€ãƒ¼ã‚¯ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®š
+#define	ST_MAS_16		ST_MAS_(DRKREF_DONE)	// ãƒ€ãƒ¼ã‚¯ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šå®Œäº†
+// bagus add 2014.01.10 (Stage Noneå¯¾å¿œ) <--
+// çŠ¶æ…‹ã®åç§°ã‚’å®šç¾©â†
 enum STATES_MASTER
 {
-	// \’z‚Í‚O‚É‚È‚Á‚Ä‚¢‚Ü‚·D
-	// ‚Ì‚ÅCÅ‰‚Í‚O‚Æ‚µ‚Ä’è‹`‚³‚ê‚½ó‘Ô‚Å‚·D
-	// ‚µ‚©‚µC‚O‚Ìó‘Ô‚É‘Î‰‚·‚éŠÖ”‚Í©“®“I‚ÉÀs‚³‚ê‚Ü‚¹‚ñ‚Ì‚ÅC
-	// •K—v‚ª‚ ‚ê‚Î InitInstance() ‚È‚Ç‚©‚çÀs‚·‚é•K—v‚ª‚ ‚è‚Ü‚·D
+	// æ§‹ç¯‰æ™‚ã¯ï¼ã«ãªã£ã¦ã„ã¾ã™ï¼
+	// ã®ã§ï¼Œæœ€åˆã¯ï¼ã¨ã—ã¦å®šç¾©ã•ã‚ŒãŸçŠ¶æ…‹ã§ã™ï¼
+	// ã—ã‹ã—ï¼Œï¼ã®çŠ¶æ…‹ã«å¯¾å¿œã™ã‚‹é–¢æ•°ã¯è‡ªå‹•çš„ã«å®Ÿè¡Œã•ã‚Œã¾ã›ã‚“ã®ã§ï¼Œ
+	// å¿…è¦ãŒã‚ã‚Œã° InitInstance() ãªã©ã‹ã‚‰å®Ÿè¡Œã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼
 
-	// ‚±‚±‚ğ•ÏX‚µ‚½ê‡‚Í’¼Œã‚É‚ ‚éƒXƒe[ƒ^ƒX•¶š—ñ‚Ì’è‹`‚à‡‚í‚¹‚Ä‚­‚¾‚³‚¢D
+	// ã“ã“ã‚’å¤‰æ›´ã—ãŸå ´åˆã¯ç›´å¾Œã«ã‚ã‚‹ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹æ–‡å­—åˆ—ã®å®šç¾©ã‚‚åˆã‚ã›ã¦ãã ã•ã„ï¼
 
 	ST_MAS_0 = 0,
 	ST_MAS_1,
@@ -60,12 +60,12 @@ enum STATES_MASTER
 	ST_MAS_10,
 	ST_MAS_11,
 	ST_MAS_12,
-// bagus add 2014.01.10 (Stage None‘Î‰) -->
+// bagus add 2014.01.10 (Stage Noneå¯¾å¿œ) -->
 	ST_MAS_13,
 	ST_MAS_14,
 	ST_MAS_15,
 	ST_MAS_16,
-// bagus add 2014.01.10 (Stage None‘Î‰) <--
+// bagus add 2014.01.10 (Stage Noneå¯¾å¿œ) <--
 };
 const LPSTR STATES_MASTER_DISP[] = {
 	ST_MAS_DISP(ST_MAS_0),
@@ -81,68 +81,68 @@ const LPSTR STATES_MASTER_DISP[] = {
 	ST_MAS_DISP(ST_MAS_10),
 	ST_MAS_DISP(ST_MAS_11),
 	ST_MAS_DISP(ST_MAS_12),
-// bagus add 2014.01.10 (Stage None‘Î‰) -->
+// bagus add 2014.01.10 (Stage Noneå¯¾å¿œ) -->
 	ST_MAS_DISP(ST_MAS_13),
 	ST_MAS_DISP(ST_MAS_14),
 	ST_MAS_DISP(ST_MAS_15),
 	ST_MAS_DISP(ST_MAS_16),
-// bagus add 2014.01.10 (Stage None‘Î‰) <--
+// bagus add 2014.01.10 (Stage Noneå¯¾å¿œ) <--
 };
 
 //--------------------------------------------------------------------------//
-//	ƒCƒxƒ“ƒg’è‹`
+//	ã‚¤ãƒ™ãƒ³ãƒˆå®šç¾©
 //--------------------------------------------------------------------------//
 enum EVENTS_MASTER
 {
 
-	EV_MAS_DO_INIT = 0,		// ‰Šú‰»ŠJn
-	EV_MAS_INIT_DONE,		// ‰Šú‰»I—¹
-	EV_MAS_IDLE,			// ƒAƒCƒhƒ‹‚Ö
-	EV_MAS_END,				// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“I—¹
-	EV_MAS_DO_UISEQ,		// ‰æ–Ê SEQ ‘ª’èŠJn
-	EV_MAS_SEQ_DONE,		// SEQ ‘ª’èI—¹
-	EV_MAS_DO_UI1POINT,		// ‰æ–Ê‚Pƒ|ƒCƒ“ƒg‘ª’èŠJn
-	EV_MAS_UI1POINT_DONE,	// ‰æ–Ê‚Pƒ|ƒCƒ“ƒg‘ª’èI—¹
-	EV_MAS_DO_UIAAF,		// ‰æ–Ê AF ŠJn
-	EV_MAS_UIAAF_DONE,		// ‰æ–Ê AF I—¹
-	EV_MAS_DO_PIFSEQ,		// Pif SEQ ‘ª’èŠJn
-	EV_MAS_DO_UISREF,		// ‰æ–ÊƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èŠJn
-	EV_MAS_UISREF_DONE,		// ‰æ–ÊƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èI—¹
-// bagus add 2014.01.10 (Stage None‘Î‰) -->
-	EV_MAS_DO_STDREF,		// ƒXƒ^ƒ“ƒ_[ƒhƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èŠJn
-	EV_MAS_STDREF_DONE,		// ƒXƒ^ƒ“ƒ_[ƒhƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èI—¹
-	EV_MAS_DO_DRKREF,		// ƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èŠJn
-	EV_MAS_DRKREF_DONE,		// ƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èI—¹
-// bagus add 2014.01.10 (Stage None‘Î‰) <--
+	EV_MAS_DO_INIT = 0,		// åˆæœŸåŒ–é–‹å§‹
+	EV_MAS_INIT_DONE,		// åˆæœŸåŒ–çµ‚äº†
+	EV_MAS_IDLE,			// ã‚¢ã‚¤ãƒ‰ãƒ«ã¸
+	EV_MAS_END,				// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³çµ‚äº†
+	EV_MAS_DO_UISEQ,		// ç”»é¢ SEQ æ¸¬å®šé–‹å§‹
+	EV_MAS_SEQ_DONE,		// SEQ æ¸¬å®šçµ‚äº†
+	EV_MAS_DO_UI1POINT,		// ç”»é¢ï¼‘ãƒã‚¤ãƒ³ãƒˆæ¸¬å®šé–‹å§‹
+	EV_MAS_UI1POINT_DONE,	// ç”»é¢ï¼‘ãƒã‚¤ãƒ³ãƒˆæ¸¬å®šçµ‚äº†
+	EV_MAS_DO_UIAAF,		// ç”»é¢ AF é–‹å§‹
+	EV_MAS_UIAAF_DONE,		// ç”»é¢ AF çµ‚äº†
+	EV_MAS_DO_PIFSEQ,		// Pif SEQ æ¸¬å®šé–‹å§‹
+	EV_MAS_DO_UISREF,		// ç”»é¢ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šé–‹å§‹
+	EV_MAS_UISREF_DONE,		// ç”»é¢ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šçµ‚äº†
+// bagus add 2014.01.10 (Stage Noneå¯¾å¿œ) -->
+	EV_MAS_DO_STDREF,		// ã‚¹ã‚¿ãƒ³ãƒ€ãƒ¼ãƒ‰ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šé–‹å§‹
+	EV_MAS_STDREF_DONE,		// ã‚¹ã‚¿ãƒ³ãƒ€ãƒ¼ãƒ‰ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šçµ‚äº†
+	EV_MAS_DO_DRKREF,		// ãƒ€ãƒ¼ã‚¯ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šé–‹å§‹
+	EV_MAS_DRKREF_DONE,		// ãƒ€ãƒ¼ã‚¯ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šçµ‚äº†
+// bagus add 2014.01.10 (Stage Noneå¯¾å¿œ) <--
 };
 
 /*
- *	ƒ}ƒNƒ’è‹`
+ *	ãƒã‚¯ãƒ­å®šç¾©
  */
-// ƒ}ƒXƒ^I—¹ƒXƒe[ƒ^ƒX
-#define	TR_MAS_TRSEQ_BUSY		0xffff0102	// ƒV[ƒPƒ“ƒX‘ª’è ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ªƒrƒW[‚Å‚µ‚½
-#define	TR_MAS_TRSREF_BUSY		0xffff0103	// ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’è ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ªƒrƒW[‚Å‚µ‚½
-#define	TR_MAS_TRAAF_BUSY		0xffff0105	// AF ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ªƒrƒW[‚Å‚µ‚½
-#define	TR_MAS_TRSR1P_BUSY		0xffff0106	// ‚Pƒ|ƒCƒ“ƒg‘ª’è ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ªƒrƒW[‚Å‚µ‚½
-/* added 2009.07.31 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(10) ---------- { ---------- */
-#define	TR_MAS_TRSTRS_BUSY		0xffff0107	// ƒV[ƒPƒ“ƒX‘ª’è ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ªƒrƒW[‚Å‚µ‚½
-#define	TR_MAS_INVALID_HEAD		0xffff0111	/* –³Œø‚Èƒwƒbƒhƒ^ƒCƒv‚Å‚·D	*/
-/* added 2009.07.31 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(10) ---------- } ---------- */
+// ãƒã‚¹ã‚¿çµ‚äº†ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
+#define	TR_MAS_TRSEQ_BUSY		0xffff0102	// ã‚·ãƒ¼ã‚±ãƒ³ã‚¹æ¸¬å®š ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãŒãƒ“ã‚¸ãƒ¼ã§ã—ãŸ
+#define	TR_MAS_TRSREF_BUSY		0xffff0103	// ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®š ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãŒãƒ“ã‚¸ãƒ¼ã§ã—ãŸ
+#define	TR_MAS_TRAAF_BUSY		0xffff0105	// AF ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãŒãƒ“ã‚¸ãƒ¼ã§ã—ãŸ
+#define	TR_MAS_TRSR1P_BUSY		0xffff0106	// ï¼‘ãƒã‚¤ãƒ³ãƒˆæ¸¬å®š ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãŒãƒ“ã‚¸ãƒ¼ã§ã—ãŸ
+/* added 2009.07.31 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (10) ---------- { ---------- */
+#define	TR_MAS_TRSTRS_BUSY		0xffff0107	// ã‚·ãƒ¼ã‚±ãƒ³ã‚¹æ¸¬å®š ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãŒãƒ“ã‚¸ãƒ¼ã§ã—ãŸ
+#define	TR_MAS_INVALID_HEAD		0xffff0111	/* ç„¡åŠ¹ãªãƒ˜ãƒƒãƒ‰ã‚¿ã‚¤ãƒ—ã§ã™ï¼	*/
+/* added 2009.07.31 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (10) ---------- } ---------- */
 
 /////////////////////////////////////////////////////////////////////////////
-// CChiefTransiMaster ƒXƒŒƒbƒh
+// CChiefTransiMaster ã‚¹ãƒ¬ãƒƒãƒ‰
 
 class CChiefTransiMaster : public CWinThread, public cActive
 {
 	DECLARE_DYNCREATE(CChiefTransiMaster)
 public:
-	CChiefTransiMaster(CWnd* pParent = NULL);	// “®“I¶¬‚Ég—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CChiefTransiMaster(CWnd* pParent = NULL);	// å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 protected:
 
-// ƒAƒgƒŠƒrƒ…[ƒg
+// ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 public:
 
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 	DWORD m_dwHeartBeat;
 	void HeartBeatPulse(void);
@@ -150,19 +150,19 @@ public:
 	int GetCurrentState(void);
 	bool IsIdle();
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CChiefTransiMaster)
 	public:
 	virtual BOOL InitInstance();
 	virtual int ExitInstance();
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	virtual ~CChiefTransiMaster();
 
-	// ó‘Ô•Ê‚Ìˆ—ŠÖ”
+	// çŠ¶æ…‹åˆ¥ã®å‡¦ç†é–¢æ•°
 	void enter_ST_MAS_INIT(const cEventParams* const pEvParams = 0);
 	void enter_ST_MAS_IDLE(const cEventParams* const pEvParams = 0);
 	void enter_ST_MAS_UISEQ(const cEventParams* const pEvParams = 0);
@@ -176,18 +176,18 @@ protected:
 	void enter_ST_MAS_UISREF(const cEventParams* const pEvParams = 0);
 	void enter_ST_MAS_UISREF_DONE(const cEventParams* const pEvParams = 0);
 	void enter_ST_MAS_END(const cEventParams* const pEvParams = 0);
-// bagus add 2014.01.10 (Stage None‘Î‰) -->
+// bagus add 2014.01.10 (Stage Noneå¯¾å¿œ) -->
 	void enter_ST_MAS_STDREF(const cEventParams* const pEvParams = 0);
 	void enter_ST_MAS_STDREF_DONE(const cEventParams* const pEvParams = 0);
 	void enter_ST_MAS_DRKREF(const cEventParams* const pEvParams = 0);
 	void enter_ST_MAS_DRKREF_DONE(const cEventParams* const pEvParams = 0);
-// bagus add 2014.01.10 (Stage None‘Î‰) <--
+// bagus add 2014.01.10 (Stage Noneå¯¾å¿œ) <--
 
 	DECLARE_STATEPROC_MAP(CChiefTransiMaster);
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CChiefTransiMaster)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒƒ“ƒoŠÖ”‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_MSG
 
 	afx_msg void OnTransiEvent(WPARAM wparam, LPARAM lparam);
@@ -195,12 +195,12 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 private:
-/* added 2009.11.27 hmenjo GTR ‚Pƒ|ƒCƒ“ƒgƒŠƒtƒ@ƒŒƒ“ƒX ---------- { ---------- */
+/* added 2009.11.27 hmenjo GTR ï¼‘ãƒã‚¤ãƒ³ãƒˆãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ ---------- { ---------- */
 	BOOL m_bGTR1PRefer;
-/* added 2009.11.27 hmenjo GTR ‚Pƒ|ƒCƒ“ƒgƒŠƒtƒ@ƒŒƒ“ƒX ---------- } ---------- */
-/* added 2009.09.11 hmenjo ‰æ–Ê‚ÖƒKƒ“ƒgƒŠ“§‰ß—¦ Refer Œ‹‰Ê’Ê’m ---------- { ---------- */
+/* added 2009.11.27 hmenjo GTR ï¼‘ãƒã‚¤ãƒ³ãƒˆãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ ---------- } ---------- */
+/* added 2009.09.11 hmenjo ç”»é¢ã¸ã‚¬ãƒ³ãƒˆãƒªé€éç‡ Refer çµæœé€šçŸ¥ ---------- { ---------- */
 	BOOL m_bReferMode;
-/* added 2009.09.11 hmenjo ‰æ–Ê‚ÖƒKƒ“ƒgƒŠ“§‰ß—¦ Refer Œ‹‰Ê’Ê’m ---------- } ---------- */
+/* added 2009.09.11 hmenjo ç”»é¢ã¸ã‚¬ãƒ³ãƒˆãƒªé€éç‡ Refer çµæœé€šçŸ¥ ---------- } ---------- */
 	CView* m_pcChiefView;
 	CEvent m_cSyncEvent;
 };
@@ -208,6 +208,6 @@ private:
 /////////////////////////////////////////////////////////////////////////////
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_CHIFTRANSIMASTER_H__44228793_B4D9_4104_BE5A_A9C693AC1349__INCLUDED_)

@@ -1,4 +1,4 @@
-// GridCellNumeric.cpp: implementation of the CGridCellNumeric class.
+﻿// GridCellNumeric.cpp: implementation of the CGridCellNumeric class.
 //
 // Written by Andrew Truckle [ajtruckle@wsatkins.co.uk]
 //

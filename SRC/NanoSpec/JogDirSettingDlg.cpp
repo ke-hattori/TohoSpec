@@ -1,4 +1,4 @@
-// JogDirSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// JogDirSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -21,10 +21,10 @@ static char THIS_FILE[] = __FILE__;
 #define DIR_MAX        (5)
 
 static UINT StageCoordDir_ID[] = {
-	IDC_DIR_1,		// ‰E
-	IDC_DIR_2,		// ã
-	IDC_DIR_3,		// ¶
-	IDC_DIR_4,		// ‰º
+	IDC_DIR_1,		// å³
+	IDC_DIR_2,		// ä¸Š
+	IDC_DIR_3,		// å·¦
+	IDC_DIR_4,		// ä¸‹
 };
 
 static LPCTSTR StageCoordDir_Item[] = {
@@ -37,7 +37,7 @@ static int STAGE_COORD_DIR_COMBO_MAX = sizeof(StageCoordDir_ID) / sizeof(StageCo
 static int STAGE_COORD_DIR_ITEM_MAX = sizeof(StageCoordDir_Item) / sizeof(StageCoordDir_Item[0]);
 
 /////////////////////////////////////////////////////////////////////////////
-// CJogDirSettingDlg ƒ_ƒCƒAƒƒO
+// CJogDirSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 
 CJogDirSettingDlg::CJogDirSettingDlg(CWnd* pParent /*=NULL*/)
@@ -68,7 +68,7 @@ BEGIN_MESSAGE_MAP(CJogDirSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CJogDirSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CJogDirSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 BOOL CJogDirSettingDlg::OnInitDialog() 
 {
@@ -94,8 +94,8 @@ BOOL CJogDirSettingDlg::OnInitDialog()
 
 	InitCombo_StageCoord();
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-	              // —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+	              // ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -137,7 +137,7 @@ BOOL CJogDirSettingDlg::CheckData()
 	///// StageCoordinate Direction /////
 	for ( int i = 0; i < STAGE_COORD_DIR_COMBO_MAX; i++ ) {
 		GetDlgItemText(StageCoordDir_ID[i], strBuffer);
-		///// +X‚ª‚Q‚ÂˆÈã‚È‚¢‚©Šm”F /////
+		///// +XãŒï¼’ã¤ä»¥ä¸Šãªã„ã‹ç¢ºèª /////
 		if ( strBuffer == StageCoordDir_Item[1] ) {
 			if ( !bDirectX ) {
 				bDirectX = TRUE;
@@ -153,7 +153,7 @@ BOOL CJogDirSettingDlg::CheckData()
 			}
 		}
 
-		///// +Y‚ª‚Q‚ÂˆÈã‚È‚¢‚©Šm”F /////
+		///// +YãŒï¼’ã¤ä»¥ä¸Šãªã„ã‹ç¢ºèª /////
 		if ( strBuffer == StageCoordDir_Item[2] ) {
 			if ( !bDirectY ) {
 				bDirectY = TRUE;
@@ -170,7 +170,7 @@ BOOL CJogDirSettingDlg::CheckData()
 		}
 	}
 
-	///// +X +Y ‚ª‘¶İ‚µ‚È‚¢ /////
+	///// +X +Y ãŒå­˜åœ¨ã—ãªã„ /////
 	if ( !bDirectX && !bDirectY ) {
 		// Kojika 20090603 Change
 		//MessageBox("Please Setup +X and +Y", "STAGE CONFIG", MB_OK | MB_ICONSTOP);
@@ -181,7 +181,7 @@ BOOL CJogDirSettingDlg::CheckData()
 		return FALSE;
 	}
 
-	///// +X +Y ‚ª‘Î‚Å‚È‚¢ /////
+	///// +X +Y ãŒå¯¾ã§ãªã„ /////
 	if ( !bDirectX ) {
 		// Kojika 20090603 Change
 		//MessageBox("Please Setup +X.", "STAGE CONFIG", MB_OK | MB_ICONSTOP);
@@ -201,7 +201,7 @@ BOOL CJogDirSettingDlg::CheckData()
 		return FALSE;
 	}
 
-	///// X,Y‚Ì•ûŒü‚ªˆê’¼ü‚Å‚È‚¢‚±‚Æ /////
+	///// X,Yã®æ–¹å‘ãŒä¸€ç›´ç·šã§ãªã„ã“ã¨ /////
 	if ( (m_SelDirX + m_SelDirY) % 2 == 0 ) {
 		// Kojika 20090603 Change
 		//MessageBox("Please Correct.", "STAGE CONFIG", MB_OK | MB_ICONSTOP);
@@ -230,7 +230,7 @@ void CJogDirSettingDlg::SetOperationLog(LPCTSTR pszLog)
 {
 	char strmsg[1024];
 
-	// ‘€ìƒƒO‚ğæ“¾
+	// æ“ä½œãƒ­ã‚°ã‚’å–å¾—
 	memset( strmsg, 0, sizeof(strmsg));
 	strcpy( strmsg, "[");
 	::GetWindowText(this->m_hWnd, &strmsg[1], 1000);
@@ -369,7 +369,7 @@ void CJogDirSettingDlg::MakeSaveData()
 }
 
 // =========================================================================
-// OnStageCoordDirComboBox ƒXƒe[ƒWÀ•W‚Ì•ûŒüİ’è
+// OnStageCoordDirComboBox ã‚¹ãƒ†ãƒ¼ã‚¸åº§æ¨™ã®æ–¹å‘è¨­å®š
 void CJogDirSettingDlg::OnStageCoordDirComboBox(UINT nID)
 {
 	CString strBuffer;

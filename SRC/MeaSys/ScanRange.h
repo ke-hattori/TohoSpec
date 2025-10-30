@@ -1,4 +1,4 @@
-#pragma once
+Ôªø#pragma once
 
 #include "../../INC/Globals.hxx"
 
@@ -12,7 +12,7 @@ public:
 		   MIN_VS_SCANL = 380,
 		   MAX_CS_SCAN	= 800,
 		   MAX_SS_SCAN	= 850,
-		   CIE_MINWAVE	= 380,	// CIE/ODílç≈è¨îgí∑
+		   CIE_MINWAVE	= 380,	// CIE/OD√≠l√ß‚âà√®¬®√Æg√≠‚àë
 		   CIE_MAXWAVE	= 780 };
 
 	int GetScanStartRange() const {return m_iScanStart;}

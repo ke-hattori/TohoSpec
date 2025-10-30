@@ -1,4 +1,4 @@
-// NanoSpecDoc.cpp : CNanoSpecDoc �N���X�̓���̒�`���s���܂��B
+﻿// NanoSpecDoc.cpp : CNanoSpecDoc �N���X�̓���̒�`���s���܂��B
 //
 
 #include "stdafx.h"

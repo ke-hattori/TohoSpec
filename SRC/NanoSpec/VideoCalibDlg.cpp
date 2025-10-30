@@ -1,4 +1,4 @@
-// VideoCalibDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// VideoCalibDlg.cpp : �C���v�������e�[�V���� �t�@�C��
 //
 
 #include "stdafx.h"

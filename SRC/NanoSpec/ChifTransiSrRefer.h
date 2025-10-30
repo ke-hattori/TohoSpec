@@ -1,39 +1,39 @@
-#if !defined(AFX_CHIFTRANSISRREFER_H__44228793_B4D9_4104_BE5A_A9C693AC1349__INCLUDED_)
+ï»¿#if !defined(AFX_CHIFTRANSISRREFER_H__44228793_B4D9_4104_BE5A_A9C693AC1349__INCLUDED_)
 #define AFX_CHIFTRANSISRREFER_H__44228793_B4D9_4104_BE5A_A9C693AC1349__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// ChifTransiSrRefer.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// ChifTransiSrRefer.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
-#include <afxmt.h>	// CEvent ‚Æ CSingleLock ‚Å•K—v‚Å‚·
+#include <afxmt.h>	// CEvent ã¨ CSingleLock ã§å¿…è¦ã§ã™
 
 //--------------------------------------------------------------------------//
-//	ó‘Ô’è‹`
+//	çŠ¶æ…‹å®šç¾©
 //--------------------------------------------------------------------------//
 #define	_ST_SREF_DISP(x)	_T(#x)
 #define	ST_SREF_DISP(x)	_ST_SREF_DISP(x)
 #define	ST_SREF_(x)		ST_SREF_##x
-// ó‘Ô‚Ì–¼Ì‚ğ’è‹`¨
-//		‚±‚±‚ğ’Ç‰Áíœ‚µ‚½ê‡‚Í ST_xxx_n ‚Ì”Ô†‚É‘Î‰‚µ‚½
-//		‰º‹L‚Ì ST_xxx_n ‚Æ ST_xxx_DISP_n ‚à‡‚í‚¹‚Ä‚­‚¾‚³‚¢D
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// çŠ¶æ…‹ã®åç§°ã‚’å®šç¾©â†’
+//		ã“ã“ã‚’è¿½åŠ å‰Šé™¤ã—ãŸå ´åˆã¯ ST_xxx_n ã®ç•ªå·ã«å¯¾å¿œã—ãŸ
+//		ä¸‹è¨˜ã® ST_xxx_n ã¨ ST_xxx_DISP_n ã‚‚åˆã‚ã›ã¦ãã ã•ã„ï¼
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 #if 0
-// #define	ST_SREF_0		ST_SREF_(INIT)			// ‰Šúó‘Ô
-// #define	ST_SREF_1		ST_SREF_(IDLE)			// ƒAƒCƒhƒ‹
-// #define	ST_SREF_2		ST_SREF_(N_MOVE)		// SR ƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’u‚ÖˆÚ“®Š®—¹‘Ò‚¿	(WAIT ó‘Ô–³‚µ‚Ìê‡—L‚è)
-// #define	ST_SREF_3		ST_SREF_(N_ZMOVE)		// SR ƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’u‚y‚ÖˆÚ“®Š®—¹‘Ò‚¿	(WAIT ó‘Ô–³‚µ)
-// #define	ST_SREF_4		ST_SREF_(N_ZMOVE_DONE)	// SR ƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’u‚y‚ÖˆÚ“®Š®—¹		(WAIT ó‘Ô–³‚µ)
-// #define	ST_SREF_5		ST_SREF_(AF)			// AF Š®—¹‘Ò‚¿							(WAIT ó‘Ô–³‚µ‚Ìê‡—L‚è)
-// #define	ST_SREF_6		ST_SREF_(AF_DONE)		// AF Š®—¹								(WAIT ó‘Ô–³‚µ)
-// #define	ST_SREF_7		ST_SREF_(N_MEAS)		// SR ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èŠ®—¹‘Ò‚¿			(WAIT ó‘Ô–³‚µ)
-// #define	ST_SREF_8		ST_SREF_(D_MOVE)		// SR ƒ_[ƒNˆÊ’u‚ÖˆÚ“®Š®—¹‘Ò‚¿			(WAIT ó‘Ô–³‚µ‚Ìê‡—L‚è)
-// #define	ST_SREF_9		ST_SREF_(D_ZMOVE)		// SR ƒ_[ƒNˆÊ’u‚y‚ÖˆÚ“®Š®—¹‘Ò‚¿		(WAIT ó‘Ô–³‚µ)
-// #define	ST_SREF_10		ST_SREF_(D_MEAS)		// SR ƒ_[ƒN‘ª’èŠ®—¹‘Ò‚¿				(WAIT ó‘Ô–³‚µ)
+// #define	ST_SREF_0		ST_SREF_(INIT)			// åˆæœŸçŠ¶æ…‹
+// #define	ST_SREF_1		ST_SREF_(IDLE)			// ã‚¢ã‚¤ãƒ‰ãƒ«
+// #define	ST_SREF_2		ST_SREF_(N_MOVE)		// SR ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®ã¸ç§»å‹•å®Œäº†å¾…ã¡	(WAIT çŠ¶æ…‹ç„¡ã—ã®å ´åˆæœ‰ã‚Š)
+// #define	ST_SREF_3		ST_SREF_(N_ZMOVE)		// SR ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®ï¼ºã¸ç§»å‹•å®Œäº†å¾…ã¡	(WAIT çŠ¶æ…‹ç„¡ã—)
+// #define	ST_SREF_4		ST_SREF_(N_ZMOVE_DONE)	// SR ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®ï¼ºã¸ç§»å‹•å®Œäº†		(WAIT çŠ¶æ…‹ç„¡ã—)
+// #define	ST_SREF_5		ST_SREF_(AF)			// AF å®Œäº†å¾…ã¡							(WAIT çŠ¶æ…‹ç„¡ã—ã®å ´åˆæœ‰ã‚Š)
+// #define	ST_SREF_6		ST_SREF_(AF_DONE)		// AF å®Œäº†								(WAIT çŠ¶æ…‹ç„¡ã—)
+// #define	ST_SREF_7		ST_SREF_(N_MEAS)		// SR ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šå®Œäº†å¾…ã¡			(WAIT çŠ¶æ…‹ç„¡ã—)
+// #define	ST_SREF_8		ST_SREF_(D_MOVE)		// SR ãƒ€ãƒ¼ã‚¯ä½ç½®ã¸ç§»å‹•å®Œäº†å¾…ã¡			(WAIT çŠ¶æ…‹ç„¡ã—ã®å ´åˆæœ‰ã‚Š)
+// #define	ST_SREF_9		ST_SREF_(D_ZMOVE)		// SR ãƒ€ãƒ¼ã‚¯ä½ç½®ï¼ºã¸ç§»å‹•å®Œäº†å¾…ã¡		(WAIT çŠ¶æ…‹ç„¡ã—)
+// #define	ST_SREF_10		ST_SREF_(D_MEAS)		// SR ãƒ€ãƒ¼ã‚¯æ¸¬å®šå®Œäº†å¾…ã¡				(WAIT çŠ¶æ…‹ç„¡ã—)
 #else
-#define	ST_SREF_0		ST_SREF_(INIT)					// ‰Šúó‘Ô
-#define	ST_SREF_1		ST_SREF_(IDLE)					// ƒAƒCƒhƒ‹
+#define	ST_SREF_0		ST_SREF_(INIT)					// åˆæœŸçŠ¶æ…‹
+#define	ST_SREF_1		ST_SREF_(IDLE)					// ã‚¢ã‚¤ãƒ‰ãƒ«
 #define	ST_SREF_2		ST_SREF_(N_PRECHECK_MOVE)		//
 #define	ST_SREF_3		ST_SREF_(NO_REF)				//
 #define	ST_SREF_4		ST_SREF_(NO_REF_DONE)			//
@@ -45,39 +45,39 @@
 #define	ST_SREF_10		ST_SREF_(N_CONFIRM_MOVE)		//
 #define	ST_SREF_11		ST_SREF_(N_MOVE_OK)				//
 #define	ST_SREF_12		ST_SREF_(N_MOVE_CANCEL)			//
-#define	ST_SREF_13		ST_SREF_(N_MOVE)				// SR ƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’u‚ÖˆÚ“®Š®—¹‘Ò‚¿	(WAIT ó‘Ô–³‚µ‚Ìê‡—L‚è)
-#define	ST_SREF_14		ST_SREF_(N_ZMOVE)				// SR ƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’u‚y‚ÖˆÚ“®Š®—¹‘Ò‚¿	(WAIT ó‘Ô–³‚µ)
-#define	ST_SREF_15		ST_SREF_(N_ZMOVE_DONE)			// SR ƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’u‚y‚ÖˆÚ“®Š®—¹		(WAIT ó‘Ô–³‚µ)
-#define	ST_SREF_16		ST_SREF_(AF)					// AF Š®—¹‘Ò‚¿							(WAIT ó‘Ô–³‚µ‚Ìê‡—L‚è)
-#define	ST_SREF_17		ST_SREF_(AF_DONE)				// AF Š®—¹								(WAIT ó‘Ô–³‚µ)
-#define	ST_SREF_18		ST_SREF_(N_MEAS)				// SR ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èŠ®—¹‘Ò‚¿			(WAIT ó‘Ô–³‚µ)
+#define	ST_SREF_13		ST_SREF_(N_MOVE)				// SR ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®ã¸ç§»å‹•å®Œäº†å¾…ã¡	(WAIT çŠ¶æ…‹ç„¡ã—ã®å ´åˆæœ‰ã‚Š)
+#define	ST_SREF_14		ST_SREF_(N_ZMOVE)				// SR ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®ï¼ºã¸ç§»å‹•å®Œäº†å¾…ã¡	(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_SREF_15		ST_SREF_(N_ZMOVE_DONE)			// SR ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®ï¼ºã¸ç§»å‹•å®Œäº†		(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_SREF_16		ST_SREF_(AF)					// AF å®Œäº†å¾…ã¡							(WAIT çŠ¶æ…‹ç„¡ã—ã®å ´åˆæœ‰ã‚Š)
+#define	ST_SREF_17		ST_SREF_(AF_DONE)				// AF å®Œäº†								(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_SREF_18		ST_SREF_(N_MEAS)				// SR ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šå®Œäº†å¾…ã¡			(WAIT çŠ¶æ…‹ç„¡ã—)
 #define	ST_SREF_19		ST_SREF_(D_PRECHECK_MOVE)		//
 #define	ST_SREF_20		ST_SREF_(D_CONFIRM_MOVE)		//
 #define	ST_SREF_21		ST_SREF_(D_MOVE_OK)				//
 #define	ST_SREF_22		ST_SREF_(D_MOVE_CANCEL)			//
-#define	ST_SREF_23		ST_SREF_(D_MOVE)				// SR ƒ_[ƒNˆÊ’u‚ÖˆÚ“®Š®—¹‘Ò‚¿			(WAIT ó‘Ô–³‚µ‚Ìê‡—L‚è)
-#define	ST_SREF_24		ST_SREF_(D_ZMOVE)				// SR ƒ_[ƒNˆÊ’u‚y‚ÖˆÚ“®Š®—¹‘Ò‚¿		(WAIT ó‘Ô–³‚µ)
-#define	ST_SREF_25		ST_SREF_(D_MEAS)				// SR ƒ_[ƒN‘ª’èŠ®—¹‘Ò‚¿				(WAIT ó‘Ô–³‚µ)
-// bagus add 2014.01.10 (Stage None‘Î‰) -->
-#define	ST_SREF_26		ST_SREF_(STD_ZMOVE)				// SR ƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’u‚y‚ÖˆÚ“®Š®—¹‘Ò‚¿	(WAIT ó‘Ô–³‚µ)
-#define	ST_SREF_27		ST_SREF_(STD_ZMOVE_DONE)		// SR ƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’u‚y‚ÖˆÚ“®Š®—¹		(WAIT ó‘Ô–³‚µ)
-#define	ST_SREF_28		ST_SREF_(STD_AF)				// AF Š®—¹‘Ò‚¿							(WAIT ó‘Ô–³‚µ‚Ìê‡—L‚è)
-#define	ST_SREF_29		ST_SREF_(STD_AF_DONE)			// AF Š®—¹								(WAIT ó‘Ô–³‚µ)
-#define	ST_SREF_30		ST_SREF_(STD_MEAS)				// SR ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èŠ®—¹‘Ò‚¿			(WAIT ó‘Ô–³‚µ)
-#define	ST_SREF_31		ST_SREF_(DRK_ZMOVE)				// SR ƒ_[ƒNˆÊ’u‚y‚ÖˆÚ“®Š®—¹‘Ò‚¿		(WAIT ó‘Ô–³‚µ)
-#define	ST_SREF_32		ST_SREF_(DRK_MEAS)				// SR ƒ_[ƒN‘ª’èŠ®—¹‘Ò‚¿				(WAIT ó‘Ô–³‚µ)
-// bagus add 2014.01.10 (Stage None‘Î‰) <--
+#define	ST_SREF_23		ST_SREF_(D_MOVE)				// SR ãƒ€ãƒ¼ã‚¯ä½ç½®ã¸ç§»å‹•å®Œäº†å¾…ã¡			(WAIT çŠ¶æ…‹ç„¡ã—ã®å ´åˆæœ‰ã‚Š)
+#define	ST_SREF_24		ST_SREF_(D_ZMOVE)				// SR ãƒ€ãƒ¼ã‚¯ä½ç½®ï¼ºã¸ç§»å‹•å®Œäº†å¾…ã¡		(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_SREF_25		ST_SREF_(D_MEAS)				// SR ãƒ€ãƒ¼ã‚¯æ¸¬å®šå®Œäº†å¾…ã¡				(WAIT çŠ¶æ…‹ç„¡ã—)
+// bagus add 2014.01.10 (Stage Noneå¯¾å¿œ) -->
+#define	ST_SREF_26		ST_SREF_(STD_ZMOVE)				// SR ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®ï¼ºã¸ç§»å‹•å®Œäº†å¾…ã¡	(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_SREF_27		ST_SREF_(STD_ZMOVE_DONE)		// SR ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®ï¼ºã¸ç§»å‹•å®Œäº†		(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_SREF_28		ST_SREF_(STD_AF)				// AF å®Œäº†å¾…ã¡							(WAIT çŠ¶æ…‹ç„¡ã—ã®å ´åˆæœ‰ã‚Š)
+#define	ST_SREF_29		ST_SREF_(STD_AF_DONE)			// AF å®Œäº†								(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_SREF_30		ST_SREF_(STD_MEAS)				// SR ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šå®Œäº†å¾…ã¡			(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_SREF_31		ST_SREF_(DRK_ZMOVE)				// SR ãƒ€ãƒ¼ã‚¯ä½ç½®ï¼ºã¸ç§»å‹•å®Œäº†å¾…ã¡		(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_SREF_32		ST_SREF_(DRK_MEAS)				// SR ãƒ€ãƒ¼ã‚¯æ¸¬å®šå®Œäº†å¾…ã¡				(WAIT çŠ¶æ…‹ç„¡ã—)
+// bagus add 2014.01.10 (Stage Noneå¯¾å¿œ) <--
 #endif
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
-// ó‘Ô‚Ì–¼Ì‚ğ’è‹`©
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
+// çŠ¶æ…‹ã®åç§°ã‚’å®šç¾©â†
 enum STATES_SR_REFER
 {
-	// \’z‚Í‚O‚É‚È‚Á‚Ä‚¢‚Ü‚·D
-	// ‚Ì‚ÅCÅ‰‚Í‚O‚Æ‚µ‚Ä’è‹`‚³‚ê‚½ó‘Ô‚Å‚·D
-	// ‚µ‚©‚µC‚O‚Ìó‘Ô‚É‘Î‰‚·‚éŠÖ”‚Í©“®“I‚ÉÀs‚³‚ê‚Ü‚¹‚ñ‚Ì‚ÅC
-	// •K—v‚ª‚ ‚ê‚Î InitInstance() ‚È‚Ç‚©‚çÀs‚·‚é•K—v‚ª‚ ‚è‚Ü‚·D
+	// æ§‹ç¯‰æ™‚ã¯ï¼ã«ãªã£ã¦ã„ã¾ã™ï¼
+	// ã®ã§ï¼Œæœ€åˆã¯ï¼ã¨ã—ã¦å®šç¾©ã•ã‚ŒãŸçŠ¶æ…‹ã§ã™ï¼
+	// ã—ã‹ã—ï¼Œï¼ã®çŠ¶æ…‹ã«å¯¾å¿œã™ã‚‹é–¢æ•°ã¯è‡ªå‹•çš„ã«å®Ÿè¡Œã•ã‚Œã¾ã›ã‚“ã®ã§ï¼Œ
+	// å¿…è¦ãŒã‚ã‚Œã° InitInstance() ãªã©ã‹ã‚‰å®Ÿè¡Œã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼
 
-	// ‚±‚±‚ğ•ÏX‚µ‚½ê‡‚Í’¼Œã‚É‚ ‚éƒXƒe[ƒ^ƒX•¶š—ñ‚Ì’è‹`‚à‡‚í‚¹‚Ä‚­‚¾‚³‚¢D
+	// ã“ã“ã‚’å¤‰æ›´ã—ãŸå ´åˆã¯ç›´å¾Œã«ã‚ã‚‹ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹æ–‡å­—åˆ—ã®å®šç¾©ã‚‚åˆã‚ã›ã¦ãã ã•ã„ï¼
 
 	ST_SREF_0 = 0,
 	ST_SREF_1,
@@ -90,7 +90,7 @@ enum STATES_SR_REFER
 	ST_SREF_8,
 	ST_SREF_9,
 	ST_SREF_10,
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	ST_SREF_11,
 	ST_SREF_12,
 	ST_SREF_13,
@@ -106,8 +106,8 @@ enum STATES_SR_REFER
 	ST_SREF_23,
 	ST_SREF_24,
 	ST_SREF_25,
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
-// bagus add 2014.01.10 (Stage None‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
+// bagus add 2014.01.10 (Stage Noneå¯¾å¿œ) -->
 	ST_SREF_26,
 	ST_SREF_27,
 	ST_SREF_28,
@@ -115,7 +115,7 @@ enum STATES_SR_REFER
 	ST_SREF_30,
 	ST_SREF_31,
 	ST_SREF_32,
-// bagus add 2014.01.10 (Stage None‘Î‰) <--
+// bagus add 2014.01.10 (Stage Noneå¯¾å¿œ) <--
 };
 const LPSTR STATES_SR_REFER_DISP[] = {
 	ST_SREF_DISP(ST_SREF_0),
@@ -129,7 +129,7 @@ const LPSTR STATES_SR_REFER_DISP[] = {
 	ST_SREF_DISP(ST_SREF_8),
 	ST_SREF_DISP(ST_SREF_9),
 	ST_SREF_DISP(ST_SREF_10),
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	ST_SREF_DISP(ST_SREF_11),
 	ST_SREF_DISP(ST_SREF_12),
 	ST_SREF_DISP(ST_SREF_13),
@@ -145,8 +145,8 @@ const LPSTR STATES_SR_REFER_DISP[] = {
 	ST_SREF_DISP(ST_SREF_23),
 	ST_SREF_DISP(ST_SREF_24),
 	ST_SREF_DISP(ST_SREF_25),
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
-// bagus add 2014.01.10 (Stage None‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
+// bagus add 2014.01.10 (Stage Noneå¯¾å¿œ) -->
 	ST_SREF_DISP(ST_SREF_26),
 	ST_SREF_DISP(ST_SREF_27),
 	ST_SREF_DISP(ST_SREF_28),
@@ -154,23 +154,23 @@ const LPSTR STATES_SR_REFER_DISP[] = {
 	ST_SREF_DISP(ST_SREF_30),
 	ST_SREF_DISP(ST_SREF_31),
 	ST_SREF_DISP(ST_SREF_32),
-// bagus add 2014.01.10 (Stage None‘Î‰) <--
+// bagus add 2014.01.10 (Stage Noneå¯¾å¿œ) <--
 } ;
 
 //--------------------------------------------------------------------------//
-//	ƒCƒxƒ“ƒg’è‹`
+//	ã‚¤ãƒ™ãƒ³ãƒˆå®šç¾©
 //--------------------------------------------------------------------------//
 enum EVENTS_SR_REFER
 {
-	EV_SREF_DO_INIT = 0,		// ‰Šú‰»ŠJn
-	EV_SREF_INIT_DONE,			// ‰Šú‰»I—¹
-	EV_SREF_IDLE,				// ƒAƒCƒhƒ‹‚Ö
-	EV_SREF_START,				// ŠJnw—ß
-// bagus add 2014.01.10 (Stage None‘Î‰) -->
-	EV_SREF_STD_START,			// ŠJnw—ßiƒXƒ^ƒ“ƒ_[ƒhj
-	EV_SREF_DRK_START,			// ŠJnw—ßiƒ_[ƒNj
-// bagus add 2014.01.10 (Stage None‘Î‰) <--
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+	EV_SREF_DO_INIT = 0,		// åˆæœŸåŒ–é–‹å§‹
+	EV_SREF_INIT_DONE,			// åˆæœŸåŒ–çµ‚äº†
+	EV_SREF_IDLE,				// ã‚¢ã‚¤ãƒ‰ãƒ«ã¸
+	EV_SREF_START,				// é–‹å§‹æŒ‡ä»¤
+// bagus add 2014.01.10 (Stage Noneå¯¾å¿œ) -->
+	EV_SREF_STD_START,			// é–‹å§‹æŒ‡ä»¤ï¼ˆã‚¹ã‚¿ãƒ³ãƒ€ãƒ¼ãƒ‰ï¼‰
+	EV_SREF_DRK_START,			// é–‹å§‹æŒ‡ä»¤ï¼ˆãƒ€ãƒ¼ã‚¯ï¼‰
+// bagus add 2014.01.10 (Stage Noneå¯¾å¿œ) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	EV_SREF_N_PRECHECK_MOVE_NO_CONFIRM,
 	EV_SREF_N_SIMULATION,
 	EV_SREF_N_PRECHECK_NO_REF,
@@ -182,72 +182,72 @@ enum EVENTS_SR_REFER
 	EV_SREF_N_CONFIRM_NEXT,
 	EV_SREF_N_CONFIRM_MOVE_OK,
 	EV_SREF_N_CONFIRM_MOVE_CANCEL,
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
-	EV_SREF_N_MOVE_DONE,		// ƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’uˆÚ“®Š®—¹
-	EV_SREF_N_MOVE_FAIL,		// ƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’uˆÚ“®ŠJn¸”s
-	EV_SREF_N_ZMOVE_DONE,		// ƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’u‚yˆÚ“®Š®—¹
-	EV_SREF_N_ZMOVE_FAIL,		// ƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’u‚yˆÚ“®ŠJn¸”s
-	EV_SREF_AF,					// AF —L‚è
-	EV_SREF_NOAF,				// AF –³‚µ
-	EV_SREF_AF_DONE,			// AF Š®—¹
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
+	EV_SREF_N_MOVE_DONE,		// ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®ç§»å‹•å®Œäº†
+	EV_SREF_N_MOVE_FAIL,		// ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®ç§»å‹•é–‹å§‹å¤±æ•—
+	EV_SREF_N_ZMOVE_DONE,		// ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®ï¼ºç§»å‹•å®Œäº†
+	EV_SREF_N_ZMOVE_FAIL,		// ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®ï¼ºç§»å‹•é–‹å§‹å¤±æ•—
+	EV_SREF_AF,					// AF æœ‰ã‚Š
+	EV_SREF_NOAF,				// AF ç„¡ã—
+	EV_SREF_AF_DONE,			// AF å®Œäº†
 	EV_SREF_AF_OK,				// AF OK
 	EV_SREF_AF_NG,				// AF NG
-	EV_SREF_N_MEAS_DONE,		// ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èŠ®—¹
-	EV_SREF_N_MEAS_ERR,			// ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èˆÙíI—¹
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+	EV_SREF_N_MEAS_DONE,		// ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šå®Œäº†
+	EV_SREF_N_MEAS_ERR,			// ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šç•°å¸¸çµ‚äº†
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	EV_SREF_D_PRECHECK_MOVE_NO_CONFIRM,
 	EV_SREF_D_SIMULATION,
 	EV_SREF_D_PRECHECK_MOVE_CONFIRM_NEED,
 	EV_SREF_D_CONFIRM_NEXT,
 	EV_SREF_D_CONFIRM_MOVE_OK,
 	EV_SREF_D_CONFIRM_MOVE_CANCEL,
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
-	EV_SREF_D_MOVE_DONE,		// ƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’uˆÚ“®Š®—¹
-	EV_SREF_D_MOVE_FAIL,		// ƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’uˆÚ“®Š®—¹
-	EV_SREF_D_ZMOVE_DONE,		// ƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’u‚yˆÚ“®Š®—¹
-	EV_SREF_D_ZMOVE_FAIL,		// ƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’u‚yˆÚ“®Š®—¹
-	EV_SREF_D_MEAS_DONE,		// ƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èŠ®—¹
-	EV_SREF_D_MEAS_ERR,			// ƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èˆÙíI—¹
-// bagus add 2014.01.10 (Stage None‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
+	EV_SREF_D_MOVE_DONE,		// ãƒ€ãƒ¼ã‚¯ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®ç§»å‹•å®Œäº†
+	EV_SREF_D_MOVE_FAIL,		// ãƒ€ãƒ¼ã‚¯ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®ç§»å‹•å®Œäº†
+	EV_SREF_D_ZMOVE_DONE,		// ãƒ€ãƒ¼ã‚¯ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®ï¼ºç§»å‹•å®Œäº†
+	EV_SREF_D_ZMOVE_FAIL,		// ãƒ€ãƒ¼ã‚¯ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®ï¼ºç§»å‹•å®Œäº†
+	EV_SREF_D_MEAS_DONE,		// ãƒ€ãƒ¼ã‚¯ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šå®Œäº†
+	EV_SREF_D_MEAS_ERR,			// ãƒ€ãƒ¼ã‚¯ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šç•°å¸¸çµ‚äº†
+// bagus add 2014.01.10 (Stage Noneå¯¾å¿œ) -->
 	EV_SREF_STD_SIMULATION,		// 
-	EV_SREF_STD_ZMOVE_DONE,		// ƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’u‚yˆÚ“®Š®—¹
-	EV_SREF_STD_ZMOVE_FAIL,		// ƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’u‚yˆÚ“®ŠJn¸”s
-	EV_SREF_STD_AF,				// AF —L‚è
-	EV_SREF_STD_NOAF,			// AF –³‚µ
-	EV_SREF_STD_AF_DONE,		// AF Š®—¹
+	EV_SREF_STD_ZMOVE_DONE,		// ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®ï¼ºç§»å‹•å®Œäº†
+	EV_SREF_STD_ZMOVE_FAIL,		// ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®ï¼ºç§»å‹•é–‹å§‹å¤±æ•—
+	EV_SREF_STD_AF,				// AF æœ‰ã‚Š
+	EV_SREF_STD_NOAF,			// AF ç„¡ã—
+	EV_SREF_STD_AF_DONE,		// AF å®Œäº†
 	EV_SREF_STD_AF_OK,			// AF OK
 	EV_SREF_STD_AF_NG,			// AF NG
-	EV_SREF_STD_MEAS_DONE,		// ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èŠ®—¹
-	EV_SREF_STD_MEAS_ERR,		// ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èˆÙíI—¹
+	EV_SREF_STD_MEAS_DONE,		// ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šå®Œäº†
+	EV_SREF_STD_MEAS_ERR,		// ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šç•°å¸¸çµ‚äº†
 	EV_SREF_DRK_SIMULATION,		// 
-	EV_SREF_DRK_ZMOVE_DONE,		// ƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’u‚yˆÚ“®Š®—¹
-	EV_SREF_DRK_ZMOVE_FAIL,		// ƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’u‚yˆÚ“®Š®—¹
-	EV_SREF_DRK_MEAS_DONE,		// ƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èŠ®—¹
-	EV_SREF_DRK_MEAS_ERR,		// ƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èˆÙíI—¹
-// bagus add 2014.01.10 (Stage None‘Î‰) <--
+	EV_SREF_DRK_ZMOVE_DONE,		// ãƒ€ãƒ¼ã‚¯ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®ï¼ºç§»å‹•å®Œäº†
+	EV_SREF_DRK_ZMOVE_FAIL,		// ãƒ€ãƒ¼ã‚¯ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®ï¼ºç§»å‹•å®Œäº†
+	EV_SREF_DRK_MEAS_DONE,		// ãƒ€ãƒ¼ã‚¯ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šå®Œäº†
+	EV_SREF_DRK_MEAS_ERR,		// ãƒ€ãƒ¼ã‚¯ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šç•°å¸¸çµ‚äº†
+// bagus add 2014.01.10 (Stage Noneå¯¾å¿œ) <--
 };
 
 /*
- *	ƒ}ƒNƒ’è‹`
+ *	ãƒã‚¯ãƒ­å®šç¾©
  */
-// SR ƒŠƒtƒ@ƒŒƒ“ƒXI—¹ƒXƒe[ƒ^ƒX
+// SR ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹çµ‚äº†ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
 #define	TR_SREF_OK					0			// OK
-#define	TR_SREF_TRAAF_BUSY			0xffff0305	// AF ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ªƒrƒW[‚Å‚µ‚½
-#define	TR_SREF_N_MOVESTART_FAIL	0xffff0311	// ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èˆÊ’u‚ÖˆÚ“®ŠJn¸”s
-#define	TR_SREF_N_ZMOVESTART_FAIL	0xffff0312	// ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èˆÊ’u‚y‚ÖˆÚ“®ŠJn¸”s
-#define	TR_SREF_N_1STMEAS_FAIL		0xffff0321	// ƒtƒ@[ƒXƒg ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’è ¸”s
-#define	TR_SREF_N_2NDMEAS_T1_FAIL	0xffff0322	// ƒZƒJƒ“ƒh ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’è T1 ¸”s
-#define	TR_SREF_N_2NDMEAS_T2_FAIL	0xffff0323	// ƒZƒJƒ“ƒh ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’è T2 ¸”s
-#define	TR_SREF_D_MOVESTART_FAIL	0xffff0331	// ƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èˆÊ’u‚ÖˆÚ“®ŠJn¸”s
-#define	TR_SREF_D_ZMOVESTART_FAIL	0xffff0332	// ƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èˆÊ’u‚ÖˆÚ“®ŠJn¸”s
-#define	TR_SREF_D_MEAS_T1_FAIL		0xffff0341	// ƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒX‘ª’è T1 ¸”s
-#define	TR_SREF_D_MEAS_T2_FAIL		0xffff0342	// ƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒX‘ª’è T2 ¸”s
-#define	TR_SREF_REFDATA_WR_ERR		0xffff0351	// ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^‘‚İ¸”s
-#define	TR_SREF_REFDATAT1_WR_ERR	0xffff0352	// ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^ T1 ‘‚İ¸”s
-#define	TR_SREF_REFDATAT2_WR_ERR	0xffff0353	// ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^ T2 ‘‚İ¸”s
+#define	TR_SREF_TRAAF_BUSY			0xffff0305	// AF ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãŒãƒ“ã‚¸ãƒ¼ã§ã—ãŸ
+#define	TR_SREF_N_MOVESTART_FAIL	0xffff0311	// ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šä½ç½®ã¸ç§»å‹•é–‹å§‹å¤±æ•—
+#define	TR_SREF_N_ZMOVESTART_FAIL	0xffff0312	// ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šä½ç½®ï¼ºã¸ç§»å‹•é–‹å§‹å¤±æ•—
+#define	TR_SREF_N_1STMEAS_FAIL		0xffff0321	// ãƒ•ã‚¡ãƒ¼ã‚¹ãƒˆ ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®š å¤±æ•—
+#define	TR_SREF_N_2NDMEAS_T1_FAIL	0xffff0322	// ã‚»ã‚«ãƒ³ãƒ‰ ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®š T1 å¤±æ•—
+#define	TR_SREF_N_2NDMEAS_T2_FAIL	0xffff0323	// ã‚»ã‚«ãƒ³ãƒ‰ ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®š T2 å¤±æ•—
+#define	TR_SREF_D_MOVESTART_FAIL	0xffff0331	// ãƒ€ãƒ¼ã‚¯ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šä½ç½®ã¸ç§»å‹•é–‹å§‹å¤±æ•—
+#define	TR_SREF_D_ZMOVESTART_FAIL	0xffff0332	// ãƒ€ãƒ¼ã‚¯ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šä½ç½®ã¸ç§»å‹•é–‹å§‹å¤±æ•—
+#define	TR_SREF_D_MEAS_T1_FAIL		0xffff0341	// ãƒ€ãƒ¼ã‚¯ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®š T1 å¤±æ•—
+#define	TR_SREF_D_MEAS_T2_FAIL		0xffff0342	// ãƒ€ãƒ¼ã‚¯ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®š T2 å¤±æ•—
+#define	TR_SREF_REFDATA_WR_ERR		0xffff0351	// ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿æ›¸è¾¼ã¿å¤±æ•—
+#define	TR_SREF_REFDATAT1_WR_ERR	0xffff0352	// ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ T1 æ›¸è¾¼ã¿å¤±æ•—
+#define	TR_SREF_REFDATAT2_WR_ERR	0xffff0353	// ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ T2 æ›¸è¾¼ã¿å¤±æ•—
 #define	TR_SREF_AF_NG				0xffff0361	// AF NG
-#define	TR_SREF_CANCEL				0xffff0371	// ƒLƒƒƒ“ƒZƒ‹
-// ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èˆÊ’u
+#define	TR_SREF_CANCEL				0xffff0371	// ã‚­ãƒ£ãƒ³ã‚»ãƒ«
+// ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šä½ç½®
 typedef struct {
 	long	lX;
 	long	lY;
@@ -255,19 +255,19 @@ typedef struct {
 } REFPOS;
 
 /////////////////////////////////////////////////////////////////////////////
-// CChiefTransiSrRefer ƒXƒŒƒbƒh
+// CChiefTransiSrRefer ã‚¹ãƒ¬ãƒƒãƒ‰
 
 class CChiefTransiSrRefer : public CWinThread, public cActive
 {
 	DECLARE_DYNCREATE(CChiefTransiSrRefer)
 public:
-	CChiefTransiSrRefer(CWnd* pParent = NULL);	// “®“I¶¬‚Ég—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CChiefTransiSrRefer(CWnd* pParent = NULL);	// å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 protected:
 
-// ƒAƒgƒŠƒrƒ…[ƒg
+// ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 public:
 
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 	DWORD m_dwHeartBeat;
 	void HeartBeatPulse(void);
@@ -276,22 +276,22 @@ public:
 	int GetCurrentState(void);
 	bool IsIdle();
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CChiefTransiSrRefer)
 	public:
 	virtual BOOL InitInstance();
 	virtual int ExitInstance();
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	virtual ~CChiefTransiSrRefer();
 
-	// ó‘Ô•Ê‚Ìˆ—ŠÖ”
+	// çŠ¶æ…‹åˆ¥ã®å‡¦ç†é–¢æ•°
 	void enter_ST_SREF_INIT(const cEventParams* const pEvParams = 0);
 	void enter_ST_SREF_IDLE(const cEventParams* const pEvParams = 0);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	void enter_ST_SREF_N_PRECHECK_MOVE(const cEventParams* const pEvParams = 0);
 	void enter_ST_SREF_NO_REF(const cEventParams* const pEvParams = 0);
 	void enter_ST_SREF_NO_REF_DONE(const cEventParams* const pEvParams = 0);
@@ -303,23 +303,23 @@ protected:
 	void enter_ST_SREF_N_CONFIRM_MOVE(const cEventParams* const pEvParams = 0);
 	void enter_ST_SREF_N_MOVE_OK(const cEventParams* const pEvParams = 0);
 	void enter_ST_SREF_N_MOVE_CANCEL(const cEventParams* const pEvParams = 0);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 	void enter_ST_SREF_N_MOVE(const cEventParams* const pEvParams = 0);
 	void enter_ST_SREF_N_ZMOVE(const cEventParams* const pEvParams = 0);
 	void enter_ST_SREF_N_ZMOVE_DONE(const cEventParams* const pEvParams = 0);
 	void enter_ST_SREF_AF(const cEventParams* const pEvParams = 0);
 	void enter_ST_SREF_AF_DONE(const cEventParams* const pEvParams = 0);
 	void enter_ST_SREF_N_MEAS(const cEventParams* const pEvParams = 0);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	void enter_ST_SREF_D_PRECHECK_MOVE(const cEventParams* const pEvParams = 0);
 	void enter_ST_SREF_D_CONFIRM_MOVE(const cEventParams* const pEvParams = 0);
 	void enter_ST_SREF_D_MOVE_OK(const cEventParams* const pEvParams = 0);
 	void enter_ST_SREF_D_MOVE_CANCEL(const cEventParams* const pEvParams = 0);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 	void enter_ST_SREF_D_MOVE(const cEventParams* const pEvParams = 0);
 	void enter_ST_SREF_D_ZMOVE(const cEventParams* const pEvParams = 0);
 	void enter_ST_SREF_D_MEAS(const cEventParams* const pEvParams = 0);
-// bagus add 2014.01.10 (Stage None‘Î‰) -->
+// bagus add 2014.01.10 (Stage Noneå¯¾å¿œ) -->
 	void enter_ST_SREF_STD_ZMOVE(const cEventParams* const pEvParams = 0);
 	void enter_ST_SREF_STD_ZMOVE_DONE(const cEventParams* const pEvParams = 0);
 	void enter_ST_SREF_STD_AF(const cEventParams* const pEvParams = 0);
@@ -327,13 +327,13 @@ protected:
 	void enter_ST_SREF_STD_MEAS(const cEventParams* const pEvParams = 0);
 	void enter_ST_SREF_DRK_ZMOVE(const cEventParams* const pEvParams = 0);
 	void enter_ST_SREF_DRK_MEAS(const cEventParams* const pEvParams = 0);
-// bagus add 2014.01.10 (Stage None‘Î‰) <--
+// bagus add 2014.01.10 (Stage Noneå¯¾å¿œ) <--
 
 	DECLARE_STATEPROC_MAP(CChiefTransiSrRefer);
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CChiefTransiSrRefer)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒƒ“ƒoŠÖ”‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_MSG
 
 	afx_msg void OnTransiEvent(WPARAM wparam, LPARAM lparam);
@@ -341,9 +341,9 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 private:
-/* added 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- { ---------- */
+/* added 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- { ---------- */
 	WORD m_wHeadPre;
-/* added 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- } ---------- */
+/* added 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- } ---------- */
 	BOOL m_bCancelReq;
 	DWORD m_dwAFValid;
 	void NotifyComplete(const cEventParams *const pEvParams);
@@ -358,14 +358,14 @@ private:
 	DWORD m_dwParentTransi;
 	CView* m_pcChiefView;
 	CEvent m_cSyncEvent;
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 	BOOL m_bDoRefMeas;
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 };
 
 /////////////////////////////////////////////////////////////////////////////
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_CHIFTRANSISRREFER_H__44228793_B4D9_4104_BE5A_A9C693AC1349__INCLUDED_)

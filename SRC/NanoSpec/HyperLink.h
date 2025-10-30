@@ -1,4 +1,4 @@
-// HyperLink.h : header file
+﻿// HyperLink.h : header file
 //
 //
 // HyperLink static control. Will open the default browser with the given URL

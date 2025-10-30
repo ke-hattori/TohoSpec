@@ -1,4 +1,4 @@
-
+﻿
 #ifndef FRAMEQUEUEBUFFER_H_INC_
 #define FRAMEQUEUEBUFFER_H_INC_
 

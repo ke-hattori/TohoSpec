@@ -1,14 +1,14 @@
-#if !defined(AFX_TESTMEASUREMENTOPERATIONVIEW_H__454291BE_54DB_4317_B8CD_A39615CDF249__INCLUDED_)
+ï»¿#if !defined(AFX_TESTMEASUREMENTOPERATIONVIEW_H__454291BE_54DB_4317_B8CD_A39615CDF249__INCLUDED_)
 #define AFX_TESTMEASUREMENTOPERATIONVIEW_H__454291BE_54DB_4317_B8CD_A39615CDF249__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// TestMeasurementOperationView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// TestMeasurementOperationView.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 // ##########################################################################
-// CTestMeasurementOperationView ƒtƒH[ƒ€ ƒrƒ…[
+// CTestMeasurementOperationView ãƒ•ã‚©ãƒ¼ãƒ  ãƒ“ãƒ¥ãƒ¼
 // ##########################################################################
 
 #ifndef __AFXEXT_H__
@@ -20,19 +20,19 @@
 class CTestMeasurementOperationView : public CNanoUI
 {
 protected:
-	CTestMeasurementOperationView();			// “®“I¶¬‚Ég—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CTestMeasurementOperationView();			// å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	DECLARE_DYNCREATE(CTestMeasurementOperationView)
 
-// ƒtƒH[ƒ€ ƒf[ƒ^
+// ãƒ•ã‚©ãƒ¼ãƒ  ãƒ‡ãƒ¼ã‚¿
 public:
 	//{{AFX_DATA(CTestMeasurementOperationView)
 	enum { IDD = IDD_TEST_MEASUREMENT_OPERATION_FORM };
 	//}}AFX_DATA
 
-// ƒAƒgƒŠƒrƒ…[ƒg
+// ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 public:
 
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 	CShadeButtonST m_MeasurementButton;
 	CShadeButtonST m_RemeasurementButton;
@@ -48,16 +48,16 @@ public:
 	///// Functions /////
 
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CTestMeasurementOperationView)
 	public:
 	virtual void OnInitialUpdate();
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	virtual ~CTestMeasurementOperationView();
 #ifdef _DEBUG
@@ -65,7 +65,7 @@ protected:
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CTestMeasurementOperationView)
 	afx_msg void OnExitButton();
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
@@ -75,6 +75,6 @@ protected:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_TESTMEASUREMENTOPERATIONVIEW_H__454291BE_54DB_4317_B8CD_A39615CDF249__INCLUDED_)

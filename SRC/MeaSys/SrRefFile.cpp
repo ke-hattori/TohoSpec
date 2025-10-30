@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include <time.h>
 #include <FLOAT.H>
 #include "..\\..\\INC\\Globals.hxx"

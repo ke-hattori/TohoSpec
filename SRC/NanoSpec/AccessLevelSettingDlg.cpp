@@ -1,4 +1,4 @@
-// AccessLevelSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// AccessLevelSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -17,7 +17,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // #########################################################################
-// CAccessLevelSettingDlg ƒ_ƒCƒAƒƒO
+// CAccessLevelSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // #########################################################################
 
 // =========================================================================
@@ -56,7 +56,7 @@ BEGIN_MESSAGE_MAP(CAccessLevelSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CAccessLevelSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CAccessLevelSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -89,8 +89,8 @@ BOOL CAccessLevelSettingDlg::OnInitDialog()
 
 	UpdateCheckAccessLevel(m_iAccountLevel);
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ðÝ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
@@ -125,10 +125,10 @@ void CAccessLevelSettingDlg::UpdateCheckAccessLevel(int iAccountLevel)
 	BOOL bEnable;
 	bEnable = ( iAccountLevel != ACCOUNT_LEVEL_ADMINISTRATOR );
 
-	// ‘ª’è‚ÍAŒÅ’è‚Æ‚·‚é
+	// æ¸¬å®šã¯ã€å›ºå®šã¨ã™ã‚‹
 	GetDlgItem(IDC_CHECK_MEASUREMENT)->EnableWindow(FALSE);
 
-	// Administrator‚¾‚¯‚Í•ÏX‚Å‚«‚È‚¢‚æ‚¤‚É‚·‚é
+	// Administratorã ã‘ã¯å¤‰æ›´ã§ããªã„ã‚ˆã†ã«ã™ã‚‹
 	GetDlgItem(IDC_CHECK_RECIPE)->EnableWindow(bEnable);
 	GetDlgItem(IDC_CHECK_PROGRAM)->EnableWindow(bEnable);
 	GetDlgItem(IDC_CHECK_DATA)->EnableWindow(bEnable);

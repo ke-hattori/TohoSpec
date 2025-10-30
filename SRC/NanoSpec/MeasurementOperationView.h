@@ -1,14 +1,14 @@
-#if !defined(AFX_MEASUREMENTOPERATIONVIEW_H__4652614C_9749_4E16_9843_96D5CD9F9F72__INCLUDED_)
+ï»¿#if !defined(AFX_MEASUREMENTOPERATIONVIEW_H__4652614C_9749_4E16_9843_96D5CD9F9F72__INCLUDED_)
 #define AFX_MEASUREMENTOPERATIONVIEW_H__4652614C_9749_4E16_9843_96D5CD9F9F72__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// MeasurementOperationView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// MeasurementOperationView.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 // ##########################################################################
-// CMeasurementOperationView ƒtƒH[ƒ€ ƒrƒ…[
+// CMeasurementOperationView ãƒ•ã‚©ãƒ¼ãƒ  ãƒ“ãƒ¥ãƒ¼
 // ##########################################################################
 
 #ifndef __AFXEXT_H__
@@ -21,20 +21,20 @@
 class CMeasurementOperationView : public CNanoUI
 {
 public:
-	CMeasurementOperationView();			// “®“I¶¬‚Ég—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CMeasurementOperationView();			// å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	DECLARE_DYNCREATE(CMeasurementOperationView)
 
-// ƒtƒH[ƒ€ ƒf[ƒ^
+// ãƒ•ã‚©ãƒ¼ãƒ  ãƒ‡ãƒ¼ã‚¿
 public:
 	//{{AFX_DATA(CMeasurementOperationView)
 	enum { IDD = IDD_MEASUREMENT_OPERATION_FORM };
-		// ƒƒ‚: ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒf[ƒ^ƒƒ“ƒo‚ğ’Ç‰Á‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢: ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒ‡ãƒ¼ã‚¿ãƒ¡ãƒ³ãƒã‚’è¿½åŠ ã—ã¾ã™ã€‚
 	//}}AFX_DATA
 
-// ƒAƒgƒŠƒrƒ…[ƒg
+// ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 public:
 
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 	///// Variable //////////////////////////////////////////////////////////
 	int m_CurrRecipe;
@@ -77,16 +77,16 @@ public:
 	};
 
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CMeasurementOperationView)
 	public:
 	virtual void OnInitialUpdate();
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	virtual ~CMeasurementOperationView();
 #ifdef _DEBUG
@@ -94,7 +94,7 @@ protected:
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CMeasurementOperationView)
 	afx_msg void OnShowWindow(BOOL bShow, UINT nStatus);
 	afx_msg void OnStartButton();
@@ -125,6 +125,6 @@ protected:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_MEASUREMENTOPERATIONVIEW_H__4652614C_9749_4E16_9843_96D5CD9F9F72__INCLUDED_)

@@ -1,4 +1,4 @@
-// LogFile.cpp (LogFile.h)
+ï»¿// LogFile.cpp (LogFile.h)
 //
 
 #include "stdAfx.h"
@@ -86,9 +86,9 @@ void CLogFile::CheckLogFiles(void)
 	}
 }
 
-// •¶Žš—ñ’†‚Ì ''-'z' ˆÈŠO‚Ìƒf[ƒ^‚ðƒoƒCƒiƒŠ•\‹L‚É•ÏŠ·‚·‚é
+// æ–‡å­—åˆ—ä¸­ã® ''-'z' ä»¥å¤–ã®ãƒ‡ãƒ¼ã‚¿ã‚’ãƒã‚¤ãƒŠãƒªè¡¨è¨˜ã«å¤‰æ›ã™ã‚‹
 //		0x19 ---> [19]
-//		•¶Žš—ñ Src ‚Ì’·‚³‚ª 511 ƒoƒCƒgˆÈã‚Ìê‡‚Í FALSE ƒŠƒ^[ƒ“
+//		æ–‡å­—åˆ— Src ã®é•·ã•ãŒ 511 ãƒã‚¤ãƒˆä»¥ä¸Šã®å ´åˆã¯ FALSE ãƒªã‚¿ãƒ¼ãƒ³
 BOOL CLogFile::ConvBinToHex(TCHAR *ptszSrc, TCHAR *ptszDst, DWORD dwLength)
 {
 	int		l_iSrcIndex;
@@ -135,70 +135,70 @@ BOOL CLogFile::ConvBinToHex(TCHAR *ptszSrc, TCHAR *ptszDst, DWORD dwLength)
 	return TRUE;
 }
 
-// Œ»ÝŽžC“ú•t‚ð’Ç‰Á‚·‚é
-//		•¶Žš—ñ cData ‚Ì’·‚³‚ª 511 ƒoƒCƒgˆÈã‚Ìê‡‚Í FALSE ƒŠƒ^[ƒ“
+// ç¾åœ¨æ™‚åˆ»ï¼Œæ—¥ä»˜ã‚’è¿½åŠ ã™ã‚‹
+//		æ–‡å­—åˆ— cData ã®é•·ã•ãŒ 511 ãƒã‚¤ãƒˆä»¥ä¸Šã®å ´åˆã¯ FALSE ãƒªã‚¿ãƒ¼ãƒ³
 BOOL CLogFile::AddTime(TCHAR *ptszData, short mode)
 {
-/* deleted 2009.12.14 hmenjo MotSys DIO ƒƒO’Ç‰Á ---------- { ---------- */
+/* deleted 2009.12.14 hmenjo MotSys DIO ãƒ­ã‚°è¿½åŠ  ---------- { ---------- */
 //	TCHAR l_tszBuff[32];
-/* deleted 2009.12.14 hmenjo MotSys DIO ƒƒO’Ç‰Á ---------- } ---------- */
+/* deleted 2009.12.14 hmenjo MotSys DIO ãƒ­ã‚°è¿½åŠ  ---------- } ---------- */
 
 	int l_Len = _tcslen(ptszData);
 	if (511 <= l_Len) {
 		return FALSE;
 	}
 
-/* modified 2009.12.14 hmenjo MotSys DIO ƒƒO’Ç‰Á ---------- { ---------- */
+/* modified 2009.12.14 hmenjo MotSys DIO ãƒ­ã‚°è¿½åŠ  ---------- { ---------- */
 //	CTime l_time = CTime::GetCurrentTime();
 //	switch (mode) {
-//	case 0:		// Žž‚Ì‚Ý
+//	case 0:		// æ™‚åˆ»ã®ã¿
 //		_tcscat(ptszData, l_time.Format("%H:%M:%S"));
 //		break;
-//	case 1:		// “ú•t‚Ì‚Ý
+//	case 1:		// æ—¥ä»˜ã®ã¿
 //		_stprintf(l_tszBuff, _T("%04d.%02d.%02d"), l_time.GetYear(), l_time.GetMonth(), l_time.GetDay());
 //		_tcscat(ptszData, l_tszBuff);
 //		break;
-//	case 2:		// “ú•t‚ÆŽž
+//	case 2:		// æ—¥ä»˜ã¨æ™‚åˆ»
 //		_stprintf(l_tszBuff, _T("%04d.%02d.%02d %s"), l_time.GetYear(), l_time.GetMonth(), l_time.GetDay(), l_time.Format("%H:%M:%S"));
 //		_tcscat(ptszData, l_tszBuff);
 //		break;
-//	default:	// ƒpƒ‰ƒƒ^ƒGƒ‰[
+//	default:	// ãƒ‘ãƒ©ãƒ¡ã‚¿ã‚¨ãƒ©ãƒ¼
 //		return FALSE;
 //		break;
 //	}
-/* modified 2009.12.14 hmenjo MotSys DIO ƒƒO’Ç‰Á ----------			  */
+/* modified 2009.12.14 hmenjo MotSys DIO ãƒ­ã‚°è¿½åŠ  ----------			  */
 	SYSTEMTIME l_SystemTime;
 	::GetLocalTime(&l_SystemTime);
 	switch (mode) {
-	case 0:		/* Žž‚Ì‚Ý	*/
+	case 0:		/* æ™‚åˆ»ã®ã¿	*/
 		_stprintf(ptszData, _T("%02d:%02d:%02d"), l_SystemTime.wHour, l_SystemTime.wMinute, l_SystemTime.wSecond);
 		break;
-	case 1:		/* “ú•t‚Ì‚Ý	*/
+	case 1:		/* æ—¥ä»˜ã®ã¿	*/
 		_stprintf(ptszData, _T("%04d:%02d:%02d"), l_SystemTime.wYear, l_SystemTime.wMonth, l_SystemTime.wDay);
 		break;
-	case 2:		/* “ú•t‚ÆŽž	*/
+	case 2:		/* æ—¥ä»˜ã¨æ™‚åˆ»	*/
 		_stprintf(ptszData, _T("%04d:%02d:%02d %02d:%02d:%02d"),
 						l_SystemTime.wYear, l_SystemTime.wMonth, l_SystemTime.wDay,
 						l_SystemTime.wHour, l_SystemTime.wMinute, l_SystemTime.wSecond);
 		break;
-	case 3:		/* Žž(ms)‚Ì‚Ý	*/
+	case 3:		/* æ™‚åˆ»(ms)ã®ã¿	*/
 		_stprintf(ptszData, _T("%02d:%02d:%02d.%03d"), l_SystemTime.wHour, l_SystemTime.wMinute, l_SystemTime.wSecond, l_SystemTime.wMilliseconds);
 		break;
-	case 4:		/* “ú•t‚ÆŽž(ms)	*/
+	case 4:		/* æ—¥ä»˜ã¨æ™‚åˆ»(ms)	*/
 		_stprintf(ptszData, _T("%04d:%02d:%02d %02d:%02d:%02d.%03d"),
 						l_SystemTime.wYear, l_SystemTime.wMonth, l_SystemTime.wDay,
 						l_SystemTime.wHour, l_SystemTime.wMinute, l_SystemTime.wSecond, l_SystemTime.wMilliseconds);
 		break;
-	default:	// ƒpƒ‰ƒƒ^ƒGƒ‰[
+	default:	// ãƒ‘ãƒ©ãƒ¡ã‚¿ã‚¨ãƒ©ãƒ¼
 		return FALSE;
 		break;
 	}
-/* modified 2009.12.14 hmenjo MotSys DIO ƒƒO’Ç‰Á ---------- } ---------- */
+/* modified 2009.12.14 hmenjo MotSys DIO ãƒ­ã‚°è¿½åŠ  ---------- } ---------- */
 
 	return TRUE;
 }
 
-// ƒƒO‚ðƒNƒŠƒA
+// ãƒ­ã‚°ã‚’ã‚¯ãƒªã‚¢
 void CLogFile::ClearLog()
 {
 	TCHAR l_tszFileName[_MAX_PATH];

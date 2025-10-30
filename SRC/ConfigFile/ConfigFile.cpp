@@ -1,35 +1,35 @@
-// ConfigFile.cpp : DLL ƒAƒvƒŠƒP[ƒVƒ‡ƒ“—p‚ÌƒGƒ“ƒgƒŠ ƒ|ƒCƒ“ƒg‚ğ’è‹`‚µ‚Ü‚·B
+ï»¿// ConfigFile.cpp : DLL ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ç”¨ã®ã‚¨ãƒ³ãƒˆãƒª ãƒã‚¤ãƒ³ãƒˆã‚’å®šç¾©ã—ã¾ã™ã€‚
 //
 #include "stdafx.h"
 #include <windows.h>
 #include <globals.hxx>
 #include <configfile.hxx>
 #include "inifile.h"
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ ConfigFile.dll ---------- { ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ConfigFile.dll ---------- { ---------- */
 #include <stdlib.h>
 #include <tchar.h>
 #include <stdio.h>
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ ConfigFile.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ConfigFile.dll ---------- } ---------- */
 
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 #define _MASTER_
 #include "System.h"
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ ConfigFile.dll ---------- { ---------- */
-TCHAR g_tszProcDir[_MAX_PATH] = _T("");		/* ŒÄo‚µƒvƒƒZƒX‚ÌƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
-TCHAR g_tszBaseDir[_MAX_PATH] = _T("");		/* Šî€ƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ConfigFile.dll ---------- { ---------- */
+TCHAR g_tszProcDir[_MAX_PATH] = _T("");		/* å‘¼å‡ºã—ãƒ—ãƒ­ã‚»ã‚¹ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª('\'ä»˜ã)*/
+TCHAR g_tszBaseDir[_MAX_PATH] = _T("");		/* åŸºæº–ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª('\'ä»˜ã)*/
 void GetProcBaseDir(
 		LPTSTR ptszProcDir,
 		LPTSTR ptszBaseDir
 	)
 {
 	if (0 == _tcscmp(ptszProcDir, _T(""))) {
-		TCHAR l_tszProcessFName[_MAX_PATH];	/* ŒÄo‚µƒvƒƒZƒX‚Ìƒtƒ‹ƒpƒX*/
+		TCHAR l_tszProcessFName[_MAX_PATH];	/* å‘¼å‡ºã—ãƒ—ãƒ­ã‚»ã‚¹ã®ãƒ•ãƒ«ãƒ‘ã‚¹*/
 		::GetModuleFileName(0, l_tszProcessFName, sizeof(l_tszProcessFName));
 		TCHAR l_tszDrive[_MAX_DRIVE];
 		TCHAR l_tszDir[_MAX_DIR];
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 		TCHAR l_tszFilename[_MAX_FNAME];
 		_tsplitpath(l_tszProcessFName, l_tszDrive, l_tszDir, l_tszFilename, 0);
 
@@ -40,7 +40,7 @@ void GetProcBaseDir(
 				break;
 			}
 		}
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 		_stprintf(ptszProcDir, _T("%s%s"), l_tszDrive, l_tszDir);
 		if (0 != _tcslen(ptszProcDir)) {
 			if (_T('\\') != ptszProcDir[_tcslen(ptszProcDir) - 1]) {
@@ -58,34 +58,34 @@ void GetProcBaseDir(
 		}
 	}
 }
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ ConfigFile.dll ---------- } ---------- */
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- { ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ConfigFile.dll ---------- } ---------- */
+/* added 2014.12.22 hmenjo DLL å¤šé‡èµ·å‹•é˜²æ­¢ ---------- { ---------- */
 #include <DllMutex.hxx>
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- } ---------- */
+/* added 2014.12.22 hmenjo DLL å¤šé‡èµ·å‹•é˜²æ­¢ ---------- } ---------- */
 BOOL APIENTRY DllMain( HANDLE hModule,
 					   DWORD  ul_reason_for_call,
 					   LPVOID lpReserved
 					 )
 {
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 	TCHAR l_tszIniPath[_MAX_PATH];
 	char szFilename[_MAX_PATH];
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 
 	switch ( ul_reason_for_call ) {
 	case DLL_PROCESS_ATTACH:
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- { ---------- */
+/* added 2014.12.22 hmenjo DLL å¤šé‡èµ·å‹•é˜²æ­¢ ---------- { ---------- */
 		if (FALSE == DllMutexCreate(_T("ConfigFile"))) {
 			return TRUE;
 		}
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- } ---------- */
+/* added 2014.12.22 hmenjo DLL å¤šé‡èµ·å‹•é˜²æ­¢ ---------- } ---------- */
 		// Matsuhisa 2009.05.30 ----->
 		ConfigFile_LoadAllNanoSpecIni();
 		// Matsuhisa 2009.05.30 <-----
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ ConfigFile.dll ---------- { ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ConfigFile.dll ---------- { ---------- */
 		GetProcBaseDir(g_tszProcDir, g_tszBaseDir);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ ConfigFile.dll ---------- } ---------- */
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) -->
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ConfigFile.dll ---------- } ---------- */
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 		strcpy(szFilename, NANOSPEC_INIFILENAME);
 		if(g_lAppNameType != APP_NAME_NANO){
 			char* p;
@@ -101,16 +101,16 @@ BOOL APIENTRY DllMain( HANDLE hModule,
 		}
 		_stprintf(l_tszIniPath, _T("%s%s%s"), g_tszProcDir, CFG_DIR, szFilename);
 		g_lModelType = ::GetPrivateProfileInt(INISECTION_MODELTYPE, INIKEY_MODELTYPE_TYPE, MODEL_M6500, l_tszIniPath);
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 		break;
 	case DLL_THREAD_ATTACH:
 		break;
 	case DLL_THREAD_DETACH:
 		break;
 	case DLL_PROCESS_DETACH:
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- { ---------- */
+/* added 2014.12.22 hmenjo DLL å¤šé‡èµ·å‹•é˜²æ­¢ ---------- { ---------- */
 		DllMutexRelease();
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- } ---------- */
+/* added 2014.12.22 hmenjo DLL å¤šé‡èµ·å‹•é˜²æ­¢ ---------- } ---------- */
 		break;
 	}
 	return TRUE;
@@ -118,10 +118,10 @@ BOOL APIENTRY DllMain( HANDLE hModule,
 
 /////////////////////////////////////////////////////////////////////////////
 // Name       : ConfigFile_LoadNanoSpecIni
-// Purpose    : Iniƒtƒ@ƒCƒ‹‚Ì“à—e‚Ì“Ç‚İ‚İ
-// Parameters : iIniFile ---> ‚Ç‚ÌIniƒtƒ@ƒCƒ‹‚È‚Ì‚©‚ğŒˆ‚ß‚é•Ï”
+// Purpose    : Iniãƒ•ã‚¡ã‚¤ãƒ«ã®å†…å®¹ã®èª­ã¿è¾¼ã¿
+// Parameters : iIniFile ---> ã©ã®Iniãƒ•ã‚¡ã‚¤ãƒ«ãªã®ã‹ã‚’æ±ºã‚ã‚‹å¤‰æ•°
 //
-// Returns    : ‚È‚µ
+// Returns    : ãªã—
 void CONFAPI ConfigFile_LoadNanoSpecIni(int iIniFile)
 {
 	LoadNanoSpecIni(iIniFile);
@@ -129,10 +129,10 @@ void CONFAPI ConfigFile_LoadNanoSpecIni(int iIniFile)
 
 /////////////////////////////////////////////////////////////////////////////
 // Name       : ConfigFile_SaveNanoSpecIni
-// Purpose    : Iniƒtƒ@ƒCƒ‹‚Ì•Û‘¶
-// Parameters : iIniFile ---> ‚Ç‚ÌIniƒtƒ@ƒCƒ‹‚È‚Ì‚©‚ğŒˆ‚ß‚é•Ï”
+// Purpose    : Iniãƒ•ã‚¡ã‚¤ãƒ«ã®ä¿å­˜
+// Parameters : iIniFile ---> ã©ã®Iniãƒ•ã‚¡ã‚¤ãƒ«ãªã®ã‹ã‚’æ±ºã‚ã‚‹å¤‰æ•°
 //
-// Returns    : ‚È‚µ
+// Returns    : ãªã—
 void CONFAPI ConfigFile_SaveNanoSpecIni(int iIniFile)
 {
 	SaveNanoSpecIni(iIniFile);
@@ -140,10 +140,10 @@ void CONFAPI ConfigFile_SaveNanoSpecIni(int iIniFile)
 
 /////////////////////////////////////////////////////////////////////////////
 // Name       : ConfigFile_LoadAllNanoSpecIni
-// Purpose    : ‘S‚Ä‚ÌIniƒtƒ@ƒCƒ‹‚Ì“à—e‚Ì“Ç‚İ‚İ
-// Parameters : ‚È‚µ
+// Purpose    : å…¨ã¦ã®Iniãƒ•ã‚¡ã‚¤ãƒ«ã®å†…å®¹ã®èª­ã¿è¾¼ã¿
+// Parameters : ãªã—
 //
-// Returns    : ‚È‚µ
+// Returns    : ãªã—
 void CONFAPI ConfigFile_LoadAllNanoSpecIni()
 {
 	LoadAllNanoSpecIni();
@@ -151,10 +151,10 @@ void CONFAPI ConfigFile_LoadAllNanoSpecIni()
 
 /////////////////////////////////////////////////////////////////////////////
 // Name       : ConfigFile_SaveAllNanoSpecIni
-// Purpose    : ‘S‚Ä‚ÌIniƒtƒ@ƒCƒ‹‚Ì•Û‘¶
-// Parameters : ‚È‚µ
+// Purpose    : å…¨ã¦ã®Iniãƒ•ã‚¡ã‚¤ãƒ«ã®ä¿å­˜
+// Parameters : ãªã—
 //
-// Returns    : ‚È‚µ
+// Returns    : ãªã—
 void CONFAPI ConfigFile_SaveAllNanoSpecIni()
 {
 	SaveAllNanoSpecIni();
@@ -162,11 +162,11 @@ void CONFAPI ConfigFile_SaveAllNanoSpecIni()
 
 /////////////////////////////////////////////////////////////////////////////
 // Name       : ConfigFile_GetNanoSpecIni
-// Purpose    : Iniƒtƒ@ƒCƒ‹‚Ìİ’è‚Ì“Ç‚İ‚İ(ƒƒ‚ƒŠ)
-// Parameters : pVoid ---> ƒf[ƒ^‚ğ“Ç‚İ‚Ş\‘¢‘Ì“™‚Ìƒ|ƒCƒ“ƒ^
-//              iType ---> ‚Ç‚Ìƒf[ƒ^‚ğ“Ç‚İ‚Ş‚©‚ğŒˆ‚ß‚é•Ï”
+// Purpose    : Iniãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®šã®èª­ã¿è¾¼ã¿(ãƒ¡ãƒ¢ãƒª)
+// Parameters : pVoid ---> ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã‚€æ§‹é€ ä½“ç­‰ã®ãƒã‚¤ãƒ³ã‚¿
+//              iType ---> ã©ã®ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã‚€ã‹ã‚’æ±ºã‚ã‚‹å¤‰æ•°
 //
-// Returns    : ‚È‚µ
+// Returns    : ãªã—
 void CONFAPI ConfigFile_GetNanoSpecIni(void* pVoid, int iType)
 {
 	GetNanoSpecIni(pVoid, iType);
@@ -174,11 +174,11 @@ void CONFAPI ConfigFile_GetNanoSpecIni(void* pVoid, int iType)
 
 /////////////////////////////////////////////////////////////////////////////
 // Name       : ConfigFile_SetNanoSpecIni
-// Purpose    : Iniƒtƒ@ƒCƒ‹‚Ìİ’è‚Ì•Û‘¶(ƒƒ‚ƒŠ)
-// Parameters : pVoid ---> •Û‘¶‚·‚éƒf[ƒ^‚Ì\‘¢‘Ì“™‚Ìƒ|ƒCƒ“ƒ^
-//              iType ---> ‚Ç‚Ìƒf[ƒ^‚ğ•Û‘¶‚·‚é‚©‚ğŒˆ‚ß‚é•Ï”
+// Purpose    : Iniãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®šã®ä¿å­˜(ãƒ¡ãƒ¢ãƒª)
+// Parameters : pVoid ---> ä¿å­˜ã™ã‚‹ãƒ‡ãƒ¼ã‚¿ã®æ§‹é€ ä½“ç­‰ã®ãƒã‚¤ãƒ³ã‚¿
+//              iType ---> ã©ã®ãƒ‡ãƒ¼ã‚¿ã‚’ä¿å­˜ã™ã‚‹ã‹ã‚’æ±ºã‚ã‚‹å¤‰æ•°
 //
-// Returns    : ‚È‚µ
+// Returns    : ãªã—
 void CONFAPI ConfigFile_SetNanoSpecIni(void* pVoid, int iType)
 {
 	SetNanoSpecIni(pVoid, iType);

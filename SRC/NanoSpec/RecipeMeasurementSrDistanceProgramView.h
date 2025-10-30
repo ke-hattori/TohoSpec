@@ -1,14 +1,14 @@
-#if !defined(AFX_RECIPEMEASUREMENTSRDISTANCEPROGRAMVIEW_H__5874361D_DD50_49F9_A67B_4C959005C754__INCLUDED_)
+ï»¿#if !defined(AFX_RECIPEMEASUREMENTSRDISTANCEPROGRAMVIEW_H__5874361D_DD50_49F9_A67B_4C959005C754__INCLUDED_)
 #define AFX_RECIPEMEASUREMENTSRDISTANCEPROGRAMVIEW_H__5874361D_DD50_49F9_A67B_4C959005C754__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// RecipeMeasurementSrDistanceProgramView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// RecipeMeasurementSrDistanceProgramView.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 /////////////////////////////////////////////////////////////////////////////
-// CRecipeMeasurementSrDistanceProgramView ƒtƒH[ƒ€ ƒrƒ…[
+// CRecipeMeasurementSrDistanceProgramView ãƒ•ã‚©ãƒ¼ãƒ  ãƒ“ãƒ¥ãƒ¼
 
 #ifndef __AFXEXT_H__
 #include <afxext.h>
@@ -20,35 +20,35 @@
 class CRecipeMeasurementSrDistanceProgramView : public CNanoRecipeUI
 {
 protected:
-	CRecipeMeasurementSrDistanceProgramView();			 // “®“I¶¬‚Ég—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CRecipeMeasurementSrDistanceProgramView();			 // å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	virtual ~CRecipeMeasurementSrDistanceProgramView();
 	DECLARE_DYNCREATE(CRecipeMeasurementSrDistanceProgramView)
 
-// ƒtƒH[ƒ€ ƒf[ƒ^
+// ãƒ•ã‚©ãƒ¼ãƒ  ãƒ‡ãƒ¼ã‚¿
 public:
 	//{{AFX_DATA(CRecipeMeasurementSrDistanceProgramView)
 	enum { IDD = IDD_RECIPE_MEASUREMENT_SR_DISTANCE_PROGRAM_FORM };
-		// ƒƒ‚: ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒf[ƒ^ƒƒ“ƒo‚ğ’Ç‰Á‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢: ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒ‡ãƒ¼ã‚¿ãƒ¡ãƒ³ãƒã‚’è¿½åŠ ã—ã¾ã™ã€‚
 	//}}AFX_DATA
 	CToolBar m_wndToolBar;
 	CColorStatic m_stcProgName;
 
-// ƒAƒgƒŠƒrƒ…[ƒg
+// ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 public:
 
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CRecipeMeasurementSrDistanceProgramView)
 	public:
 	virtual void OnInitialUpdate();
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	virtual void LoadRecipeData();
 	virtual BOOL CheckData();
@@ -63,7 +63,7 @@ protected:
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CRecipeMeasurementSrDistanceProgramView)
 	afx_msg void OnSelchangeSrThickLens();
 	afx_msg void OnSelchangeOptFilter();
@@ -92,6 +92,6 @@ private:
 /////////////////////////////////////////////////////////////////////////////
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_RECIPEMEASUREMENTSRDISTANCEPROGRAMVIEW_H__5874361D_DD50_49F9_A67B_4C959005C754__INCLUDED_)

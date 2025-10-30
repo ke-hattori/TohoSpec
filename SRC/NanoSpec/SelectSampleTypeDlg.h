@@ -1,23 +1,23 @@
-#if !defined(AFX_SELECTSAMPLETYPEDLG_H__6AD7F704_0A4C_43F2_B39C_CECF5FFCD6CB__INCLUDED_)
+ï»¿#if !defined(AFX_SELECTSAMPLETYPEDLG_H__6AD7F704_0A4C_43F2_B39C_CECF5FFCD6CB__INCLUDED_)
 #define AFX_SELECTSAMPLETYPEDLG_H__6AD7F704_0A4C_43F2_B39C_CECF5FFCD6CB__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// SelectSampleTypeDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// SelectSampleTypeDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 // ##########################################################################
-// CSelectSampleTypeDlg ƒ_ƒCƒAƒƒO
+// CSelectSampleTypeDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // ##########################################################################
 
 class CSelectSampleTypeDlg : public CDialog
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
-	CSelectSampleTypeDlg(CWnd* pParent = NULL);	// •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CSelectSampleTypeDlg(CWnd* pParent = NULL);	// æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CSelectSampleTypeDlg)
 	enum { IDD = IDD_SELECT_SAMPLE_TYPE_DLG };
 	//}}AFX_DATA
@@ -27,24 +27,24 @@ public:
 	CShadeButtonST m_OkButton, m_CancelButton;
 	char m_szName[RECIPE_NAME_LEN + 1];
 	//2009.08.28 bagus stress --{--
-	//ƒTƒ“ƒvƒ‹Œ`ó‚Ìi‚è‚İ‚æ‚¤‚É—v‹‚·‚éƒwƒbƒhƒ^ƒCƒv‚ğ“n‚µ‚Ä‚¨‚­
+	//ã‚µãƒ³ãƒ—ãƒ«å½¢çŠ¶ã®çµã‚Šè¾¼ã¿ã‚ˆã†ã«è¦æ±‚ã™ã‚‹ãƒ˜ãƒƒãƒ‰ã‚¿ã‚¤ãƒ—ã‚’æ¸¡ã—ã¦ãŠã
 	int m_iHeadType;
 	//2009.08.28 bagus stress --}--
 
 	BOOL InitCombo_Sample();
 
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CSelectSampleTypeDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CSelectSampleTypeDlg)
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
@@ -53,6 +53,6 @@ protected:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_SELECTSAMPLETYPEDLG_H__6AD7F704_0A4C_43F2_B39C_CECF5FFCD6CB__INCLUDED_)

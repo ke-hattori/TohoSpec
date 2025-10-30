@@ -1,4 +1,4 @@
-// MaintenanceOperationView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// MaintenanceOperationView.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -73,7 +73,7 @@ BEGIN_MESSAGE_MAP(CMaintenanceOperationView, CNanoUI)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CMaintenanceOperationView f’f
+// CMaintenanceOperationView è¨ºæ–­
 
 #ifdef _DEBUG
 
@@ -93,7 +93,7 @@ void CMaintenanceOperationView::Dump(CDumpContext& dc) const
 #endif //_DEBUG
 
 /////////////////////////////////////////////////////////////////////////////
-// CMaintenanceOperationView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CMaintenanceOperationView ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -101,21 +101,21 @@ void CMaintenanceOperationView::OnInitialUpdate()
 {
 	CNanoUI::OnInitialUpdate();
 
-// 2014.01.17 Bagus Add (Stage None‘Î‰) -->
-	//ƒVƒXƒeƒ€ƒRƒ“ƒtƒBƒOİ’è“Ç‚İ‚İ
+// 2014.01.17 Bagus Add (Stage Noneå¯¾å¿œ) -->
+	//ã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ³ãƒ•ã‚£ã‚°è¨­å®šèª­ã¿è¾¼ã¿
 	ConfigFile_GetNanoSpecIni(&m_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
-// 2014.01.17 Bagus Add (Stage None‘Î‰) <--
+// 2014.01.17 Bagus Add (Stage Noneå¯¾å¿œ) <--
 
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰) -->
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
+// 2014.01.17 Bagus Mod (Stage Noneå¯¾å¿œ) -->
 //	if(g_lModelType == MODEL_T3100){
 	if(m_SystemConfig.nStageType == STAGE_TYPE_NONE){
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) <--
+// 2014.01.17 Bagus Mod (Stage Noneå¯¾å¿œ) <--
 		m_MotionButton.ShowWindow(SW_HIDE);
 		m_DioMonitorButton.ShowWindow(SW_HIDE);
 	}
 	else{
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 		///// Motion Button /////
 		m_MotionButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 		m_MotionButton.DrawFlatFocus(TRUE);
@@ -123,29 +123,29 @@ void CMaintenanceOperationView::OnInitialUpdate()
 		///// DIO Monitor Button /////
 		m_DioMonitorButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 		m_DioMonitorButton.DrawFlatFocus(TRUE);
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 
 	///// Transition Monitor Button /////
 	m_TransitionMonitorButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_TransitionMonitorButton.DrawFlatFocus(TRUE);
 
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰) -->
-// 2014.01.17 Bagus Add (Stage None‘Î‰) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
+// 2014.01.17 Bagus Add (Stage Noneå¯¾å¿œ) -->
 //	if(g_lModelType == MODEL_T3100){
 	if(m_SystemConfig.nStageType == STAGE_TYPE_NONE){
-// 2014.01.17 Bagus Add (Stage None‘Î‰) <--
+// 2014.01.17 Bagus Add (Stage Noneå¯¾å¿œ) <--
 		m_MaintenanceDateButton.ShowWindow(SW_HIDE);
 	}
 	else{
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 		///// Maintenance Data Button /////
 		m_MaintenanceDateButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 		m_MaintenanceDateButton.DrawFlatFocus(TRUE);
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 
 	SetTimer(1, 50, NULL);
 }
@@ -213,7 +213,7 @@ void CMaintenanceOperationView::OnTransitionMonitorButton()
 //
 void CMaintenanceOperationView::OnMaintenanceDateButton()
 {
-#if 0 //UserSettingOperationCommonSettingDlg‚ÖˆÚ“®
+#if 0 //UserSettingOperationCommonSettingDlgã¸ç§»å‹•
 	CMaintenanceDateDlg dlg;
 
 	dlg.DoModal();
@@ -224,12 +224,12 @@ HBRUSH CMaintenanceOperationView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColo
 {
 	HBRUSH hbr = CNanoUI::OnCtlColor(pDC, pWnd, nCtlColor);
 
-	// TODO: ‚±‚ÌˆÊ’u‚Å DC ‚ÌƒAƒgƒŠƒrƒ…[ƒg‚ğ•ÏX‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã§ DC ã®ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã‚’å¤‰æ›´ã—ã¦ãã ã•ã„
 
 	BOOL sbNexMntSw = nexioIsMaintenanceSwitch();
 	BOOL sbNexEngiMntSw = nexioIsEngineerMaintenanceSwitch();
 
-	if( pWnd == this ) // ©•ª©g‚ğ•`‰æ‚·‚é‚Æ‚«‚Í
+	if( pWnd == this ) // è‡ªåˆ†è‡ªèº«ã‚’æç”»ã™ã‚‹ã¨ãã¯
 	{
 		if((sbNexMntSw == OFF)||(sbNexEngiMntSw == ON))
 		{
@@ -237,13 +237,13 @@ HBRUSH CMaintenanceOperationView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColo
 		}
 	}
 
-	// TODO: ƒfƒtƒHƒ‹ƒg‚Ìƒuƒ‰ƒV‚ª–]‚İ‚Ì‚à‚Ì‚Å‚È‚¢ê‡‚É‚ÍAˆá‚¤ƒuƒ‰ƒV‚ğ•Ô‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ–ãƒ©ã‚·ãŒæœ›ã¿ã®ã‚‚ã®ã§ãªã„å ´åˆã«ã¯ã€é•ã†ãƒ–ãƒ©ã‚·ã‚’è¿”ã—ã¦ãã ã•ã„
 	return hbr;
 }
 
 void CMaintenanceOperationView::OnTimer(UINT nIDEvent)
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚·‚é‚©‚Ü‚½‚ÍƒfƒtƒHƒ‹ƒg‚Ìˆ—‚ğŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã™ã‚‹ã‹ã¾ãŸã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å‡¦ç†ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
 
 	static BOOL sbNexMntSw = nexioIsMaintenanceSwitch();
 	static BOOL sbNexMntSwOld = TRUE;
@@ -255,10 +255,10 @@ void CMaintenanceOperationView::OnTimer(UINT nIDEvent)
 
 	if((sbNexMntSw != sbNexMntSwOld)||(sbNexEngiMntSw != sbNexEngiMntSwOld))
 	{
-		Invalidate(TRUE); //OnCtlColor()‚Ìˆ—‚ğ‚³‚¹‚éˆ×‚ÉCall
+		Invalidate(TRUE); //OnCtlColor()ã®å‡¦ç†ã‚’ã•ã›ã‚‹ç‚ºã«Call
 	}
-	sbNexMntSwOld = sbNexMntSw; //‘O‰ñ’l‘Š·‚¦
-	sbNexEngiMntSwOld = sbNexEngiMntSw; //‘O‰ñ’l‘Š·‚¦
+	sbNexMntSwOld = sbNexMntSw; //å‰å›å€¤æ›¸æ›ãˆ
+	sbNexEngiMntSwOld = sbNexEngiMntSw; //å‰å›å€¤æ›¸æ›ãˆ
 
 	CNanoUI::OnTimer(nIDEvent);
 }

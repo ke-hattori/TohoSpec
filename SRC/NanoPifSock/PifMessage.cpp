@@ -1,4 +1,4 @@
-// PifMessage.cpp : implementation file
+﻿// PifMessage.cpp : implementation file
 //
 
 #include "stdafx.h"

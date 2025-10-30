@@ -1,5 +1,5 @@
-/////////////////////////////////////////////////////////////////////////////
-// MainFrm.h : CMainFrame ƒNƒ‰ƒX‚ÌéŒ¾‚¨‚æ‚ÑƒCƒ“ƒ^[ƒtƒFƒCƒX‚Ì’è‹`‚ð‚µ‚Ü‚· //
+ï»¿/////////////////////////////////////////////////////////////////////////////
+// MainFrm.h : CMainFrame ã‚¯ãƒ©ã‚¹ã®å®£è¨€ãŠã‚ˆã³ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã®å®šç¾©ã‚’ã—ã¾ã™ //
 //																		   //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -45,14 +45,14 @@ class CMaintenanceNoticeDlg; //#include "MaintenanceNoticeDlg.h"
 class CMainFrame : public CFrameWnd , public cActive
 {
 
-protected: // ƒVƒŠƒAƒ‰ƒCƒY‹@”\‚Ì‚Ý‚©‚çì¬‚µ‚Ü‚·B
+protected: // ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºæ©Ÿèƒ½ã®ã¿ã‹ã‚‰ä½œæˆã—ã¾ã™ã€‚
 	CMainFrame();
 	virtual ~CMainFrame();
 	DECLARE_DYNCREATE(CMainFrame)
 
-// ƒAƒgƒŠƒrƒ…[ƒg
+// ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 public:
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 	///// Variable //////////////////////////////////////////////////////////
 	SYSTEM_CONFIG m_SystemConfig;
@@ -63,7 +63,7 @@ public:
 	CNanoSpecApp* m_pApp;
 	CNanoSpecDoc* m_pDoc;
 
-	CWinThread* m_pcChiefThread;	// Chief ƒXƒŒƒbƒhƒNƒ‰ƒXƒ|ƒCƒ“ƒ^
+	CWinThread* m_pcChiefThread;	// Chief ã‚¹ãƒ¬ãƒƒãƒ‰ã‚¯ãƒ©ã‚¹ãƒã‚¤ãƒ³ã‚¿
 
 	int m_View2ID;
 	int m_View1ID;
@@ -110,25 +110,25 @@ public:
 
 	BOOL m_bInitRetry;
 
-	CMeasurementTabView* m_pMeaTabViewObj; //CMeasurementTabView‚ÌƒIƒuƒWƒFƒNƒg‚Ìƒ|ƒCƒ“ƒ^Ši”[—p
-	CMeasurementOperationView* m_pMeaOpeViewObj; //CMeasurementOperationView‚ÌƒIƒuƒWƒFƒNƒg‚Ìƒ|ƒCƒ“ƒ^Ši”[—p
-	CManualMeasurementFormView* m_pManuMeaFormViewObj; //CManualMeasurementFormView‚ÌƒIƒuƒWƒFƒNƒg‚Ìƒ|ƒCƒ“ƒ^Ši”[—p
-	CTestMeasurementDlg* m_pTestMeasDlgObj; //CTestMeasurementDlg‚ÌƒIƒuƒWƒFƒNƒg‚Ìƒ|ƒCƒ“ƒ^Ši”[—p
+	CMeasurementTabView* m_pMeaTabViewObj; //CMeasurementTabViewã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒã‚¤ãƒ³ã‚¿æ ¼ç´ç”¨
+	CMeasurementOperationView* m_pMeaOpeViewObj; //CMeasurementOperationViewã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒã‚¤ãƒ³ã‚¿æ ¼ç´ç”¨
+	CManualMeasurementFormView* m_pManuMeaFormViewObj; //CManualMeasurementFormViewã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒã‚¤ãƒ³ã‚¿æ ¼ç´ç”¨
+	CTestMeasurementDlg* m_pTestMeasDlgObj; //CTestMeasurementDlgã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒã‚¤ãƒ³ã‚¿æ ¼ç´ç”¨
 // 2010.01.06 bagus Gantry --{--
-	CTestMeasurementGantryDlg* m_pTestMeasGantryDlgObj; //CTestMeasurementGantryDlg‚ÌƒIƒuƒWƒFƒNƒg‚Ìƒ|ƒCƒ“ƒ^Ši”[—p
+	CTestMeasurementGantryDlg* m_pTestMeasGantryDlgObj; //CTestMeasurementGantryDlgã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒã‚¤ãƒ³ã‚¿æ ¼ç´ç”¨
 // 2010.01.06 bagus Gantry --}--
-	BOOL m_MeasMenuEnableFlg; //Žå‚ÉA‘ª’è’†‚É§ŒÀ‚ª•K—v‚È‚à‚Ì—p
-	BOOL m_MeasMenuEnableFlg2; //Žå‚ÉA‘ª’è‰æ–Ê‚É‘ØÝ’†‚É§ŒÀ‚ª•K—v‚È‚à‚Ì—p(‘ª’è, ƒŒƒVƒsÝ’è, ƒ†[ƒUÝ’è, ƒƒ“ƒeƒiƒ“ƒX—p)
+	BOOL m_MeasMenuEnableFlg; //ä¸»ã«ã€æ¸¬å®šä¸­ã«åˆ¶é™ãŒå¿…è¦ãªã‚‚ã®ç”¨
+	BOOL m_MeasMenuEnableFlg2; //ä¸»ã«ã€æ¸¬å®šç”»é¢ã«æ»žåœ¨ä¸­ã«åˆ¶é™ãŒå¿…è¦ãªã‚‚ã®ç”¨(æ¸¬å®š, ãƒ¬ã‚·ãƒ”è¨­å®š, ãƒ¦ãƒ¼ã‚¶è¨­å®š, ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ç”¨)
 	BOOL m_ManualMeasMenuEnableFlg;
 	HANDLE m_hEvTabView;
 
 	CMaintenanceNoticeDlg* m_pMntNoticeDlg;
 	BOOL m_bOrgSystemColorChangeExecFlg;
 
-	int	m_nMotionStage;			// XY‚ÌÝ’è’l
-	int m_nMotionElev;			// Z‚ÌÝ’è’l
-	int m_nCameraSelect;		// ƒJƒƒ‰‘I‘ð
-	int m_nJoyStickMode;		// ƒWƒ‡ƒCƒXƒeƒBƒbƒN‘I‘ð
+	int	m_nMotionStage;			// XYã®è¨­å®šå€¤
+	int m_nMotionElev;			// Zã®è¨­å®šå€¤
+	int m_nCameraSelect;		// ã‚«ãƒ¡ãƒ©é¸æŠž
+	int m_nJoyStickMode;		// ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯é¸æŠž
 
 	///// Function //////////////////////////////////////////////////////////
 	void ProcessQuit();
@@ -160,12 +160,12 @@ public:
 	void RefreshDlg(BOOL bInit = FALSE);
 	void GlassDataStatistics(STATISTICS* Statistics, int iLabelCount, UINT nFinalFocusFailDataValidOption/*, AF_VALID afValid*/);
 	//2009.11.04 bagus CA,RS --{--
-	//ADAPŠÖ˜A‚Æ‚»‚¤‚Å‚È‚¢‚à‚Ì‚ð‹¤’Ê‚µ‚ÄŽæ‚ê‚é‚æ‚¤‚É‚·‚éB
+	//ADAPé–¢é€£ã¨ãã†ã§ãªã„ã‚‚ã®ã‚’å…±é€šã—ã¦å–ã‚Œã‚‹ã‚ˆã†ã«ã™ã‚‹ã€‚
 	int ScanDataLabelGet(WORD wHeadType,char szLabel[][ADAPRESULTSTRINGLENMAX + 1], char szLabelOri[][ADAPRESULTSTRINGLENMAX + 1], double dData[ADAPRESULT_COLS_MAX], int iNowPoint, AF_VALID afValid);
 	int ScanDataLabelGet_ADAP(char szLabel[][ADAPRESULTSTRINGLENMAX + 1], char szLabelOri[][ADAPRESULTSTRINGLENMAX + 1], double dData[ADAPRESULT_COLS_MAX], int iNowPoint, AF_VALID afValid);
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	int ScanDataLabelGet_COMPEASE(char szLabel[][ADAPRESULTSTRINGLENMAX + 1], char szLabelOri[][ADAPRESULTSTRINGLENMAX + 1], double dData[ADAPRESULT_COLS_MAX], int iNowPoint, AF_VALID afValid);
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 	int ScanDataLabelGet_CA(char szLabel[][ADAPRESULTSTRINGLENMAX + 1], char szLabelOri[][ADAPRESULTSTRINGLENMAX + 1], double dData[ADAPRESULT_COLS_MAX], int iNowPoint, AF_VALID afValid);
 	int ScanDataLabelGet_RS(char szLabel[][ADAPRESULTSTRINGLENMAX + 1], char szLabelOri[][ADAPRESULTSTRINGLENMAX + 1], double dData[ADAPRESULT_COLS_MAX], int iNowPoint, AF_VALID afValid);
 	//2009.11.04 bagus CA,RS --}--
@@ -204,12 +204,12 @@ public:
 	void MessageShow(CString strBuffer);
 	//Saiki 20090411 Add <-----
 	void DoEvents(void);
-/* added 2014.11.22 hmenjo TohoRecall ‚Ö•ÏX ---------- { ---------- */
+/* added 2014.11.22 hmenjo TohoRecall ã¸å¤‰æ›´ ---------- { ---------- */
 	void OnMenuDataFromExt();
-/* added 2014.11.22 hmenjo TohoRecall ‚Ö•ÏX ---------- } ---------- */
+/* added 2014.11.22 hmenjo TohoRecall ã¸å¤‰æ›´ ---------- } ---------- */
 
 	//2009.09.15 baugs se --{--
-	//SE¶ƒf[ƒ^ƒtƒ@ƒCƒ‹‚ÌŽæ“¾
+	//SEç”Ÿãƒ‡ãƒ¼ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã®å–å¾—
 	void SplitString(CString *pStrData,CStringArray *pStrArray,TCHAR chSplitter,BOOL bTrim = FALSE);
 	BOOL LoadSERawData(LPCTSTR lpszFilePath,CSERawDataList *pList,BOOL bRawData);
 	BOOL LoadSERawDataByPointNo(int nPointNo,CSERawDataList *pList);
@@ -249,16 +249,16 @@ public:
 		}
 	}
 
-	// XYƒXƒe[ƒW‘¬“x‘I‘ð
+	// XYã‚¹ãƒ†ãƒ¼ã‚¸é€Ÿåº¦é¸æŠž
 	inline int GetMotionStage() { return m_nMotionStage; }
 	inline void SetMotionStage(int nSelect){ m_nMotionStage = nSelect; }
-	// ZŽ²‘¬“x‘I‘ð
+	// Zè»¸é€Ÿåº¦é¸æŠž
 	inline int GetMotionElev() { return m_nMotionElev; }
 	inline void SetMotionElev(int nSelect){ m_nMotionElev = nSelect; }
-	// ƒJƒƒ‰‘I‘ð
+	// ã‚«ãƒ¡ãƒ©é¸æŠž
 	inline int GetCameraSelect() { return m_nCameraSelect; }
 	inline void SetCameraSelect(int nSelect){ m_nCameraSelect = nSelect; }
-	// ƒWƒ‡ƒCƒXƒeƒBƒbƒN‘I‘ð
+	// ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯é¸æŠž
 	inline int GetJoyStickMode() { return m_nJoyStickMode; }
 	inline void SetJoyStickMode(int nMode){ m_nJoyStickMode = nMode; }
 
@@ -267,8 +267,8 @@ public:
 	void EndSrFocus(BOOL bResult);
 // Test <---
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ð¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CMainFrame)
 	public:
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
@@ -277,7 +277,7 @@ public:
 	virtual BOOL OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext);
 	//}}AFX_VIRTUAL
 
-// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒžãƒƒãƒ—é–¢æ•°
 protected:
 
 	//{{AFX_MSG(CMainFrame)
@@ -344,21 +344,21 @@ protected:
 	afx_msg void OnAdujstRemeasurement();
 	afx_msg void OnUpdateAdujstRemeasurement(CCmdUI* pCmdUI);
 	afx_msg void OnUpdateDebug(CCmdUI* pCmdUI);
-/* added 2016.05.14 hmenjo Žè“® menu ƒoƒO ---------- { ---------- */
+/* added 2016.05.14 hmenjo æ‰‹å‹• menu ãƒã‚° ---------- { ---------- */
 	afx_msg void OnSaveAs();
 	afx_msg void OnUpdateSaveAs(CCmdUI* pCmdUI);
-/* added 2016.05.14 hmenjo Žè“® menu ƒoƒO ---------- } ---------- */
-/* added 2016.08.05 hmenjo ƒŒƒVƒs•ÒW menu ƒoƒO ---------- { ---------- */
+/* added 2016.05.14 hmenjo æ‰‹å‹• menu ãƒã‚° ---------- } ---------- */
+/* added 2016.08.05 hmenjo ãƒ¬ã‚·ãƒ”ç·¨é›† menu ãƒã‚° ---------- { ---------- */
 	afx_msg void OnNew();
 	afx_msg void OnUpdateNew(CCmdUI* pCmdUI);
 	afx_msg void OnDelete();
 	afx_msg void OnUpdateDelete(CCmdUI* pCmdUI);
-/* added 2016.08.05 hmenjo ƒŒƒVƒs•ÒW menu ƒoƒO ---------- } ---------- */
-/* added 2016.08.12 hmenjo ƒŒƒVƒs•ÒW menu ƒoƒO2 ---------- { ---------- */
+/* added 2016.08.05 hmenjo ãƒ¬ã‚·ãƒ”ç·¨é›† menu ãƒã‚° ---------- } ---------- */
+/* added 2016.08.12 hmenjo ãƒ¬ã‚·ãƒ”ç·¨é›† menu ãƒã‚°2 ---------- { ---------- */
 	afx_msg void OnRecipeSave();
 	afx_msg void OnRecipeSaveAs();
 	afx_msg void OnUpdateRecipeSaveAs(CCmdUI* pCmdUI);
-/* added 2016.08.12 hmenjo ƒŒƒVƒs•ÒW menu ƒoƒO2 ---------- } ---------- */
+/* added 2016.08.12 hmenjo ãƒ¬ã‚·ãƒ”ç·¨é›† menu ãƒã‚°2 ---------- } ---------- */
 	//}}AFX_MSG
 
 	afx_msg LRESULT OnExeWndExit(WPARAM wparam, LPARAM lparam);
@@ -381,9 +381,9 @@ protected:
 // 2009.05.16 myanagida -->
 	afx_msg LRESULT OnManualSitePtDlgPopup(WPARAM wparam, LPARAM lparam);
 // 2009.05.16 myanagida <--
-/* added 2009.06.02 hmenjo ƒhƒAŠJ‚Å‘ª’èƒ|[ƒY ---------- { ---------- */
+/* added 2009.06.02 hmenjo ãƒ‰ã‚¢é–‹ã§æ¸¬å®šãƒãƒ¼ã‚º ---------- { ---------- */
 	afx_msg LRESULT OnNotifyMeasPause(WPARAM wparam, LPARAM lparam);
-/* added 2009.06.02 hmenjo ƒhƒAŠJ‚Å‘ª’èƒ|[ƒY ---------- } ---------- */
+/* added 2009.06.02 hmenjo ãƒ‰ã‚¢é–‹ã§æ¸¬å®šãƒãƒ¼ã‚º ---------- } ---------- */
 
 	afx_msg LRESULT OnProcessInit(WPARAM wparam, LPARAM lparam);
 	afx_msg LRESULT OnUnitInitRetry(WPARAM wparam, LPARAM lparam);
@@ -393,24 +393,24 @@ protected:
 
 	afx_msg LRESULT OnDebMessageRecieve(WPARAM wparam, LPARAM lparam);
 
-	//2009.07.27 bagus stress ƒXƒgƒŒƒX‘Î‰ž --{--
+	//2009.07.27 bagus stress ã‚¹ãƒˆãƒ¬ã‚¹å¯¾å¿œ --{--
 	afx_msg LRESULT OnLineEnd(WPARAM wparam,LPARAM lparam);
 	afx_msg LRESULT OnLineStart(WPARAM wparam,LPARAM lparam);
 	afx_msg LRESULT OnStrsMeasEnd(WPARAM wparam,LPARAM lparam);
-	//2009.07.27 bagus stress ƒXƒgƒŒƒX‘Î‰ž --}--
+	//2009.07.27 bagus stress ã‚¹ãƒˆãƒ¬ã‚¹å¯¾å¿œ --}--
 	//2009.10.28 bagus 2point-distance --{--
 	afx_msg LRESULT OnDistancePopup(WPARAM wparam, LPARAM lparam);
 	//2009.10.28 bagus 2point-distance --}--
 	//2009.11.03 bagus MS --{--
 	afx_msg LRESULT OnMSPopup(WPARAM wparam, LPARAM lparam);
 	//2009.11.03 bagus MS --}--
-	// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) -->
+	// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	afx_msg LRESULT OnConfirmPopup(WPARAM wparam, LPARAM lparam);
-	// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) <--
-	// bagus 2014.01.10 Add(Stage None‘Î‰ž) -->
+	// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
+	// bagus 2014.01.10 Add(Stage Noneå¯¾å¿œ) -->
 	afx_msg LRESULT OnCompleteSiReferenceDoneReport(WPARAM wparam, LPARAM lparam);
 	afx_msg LRESULT OnCompleteDarkReferenceDoneReport(WPARAM wparam, LPARAM lparam);
-	// bagus 2014.01.10 Add(Stage None‘Î‰ž) <--
+	// bagus 2014.01.10 Add(Stage Noneå¯¾å¿œ) <--
 
 	DECLARE_MESSAGE_MAP()
 
@@ -424,9 +424,9 @@ protected:
 	DECLARE_STATEPROC_MAP(CMainFrame);
 
 private:
-/* added 2009.06.02 hmenjo ƒhƒAŠJ‚Å‘ª’èƒ|[ƒY ---------- { ---------- */
+/* added 2009.06.02 hmenjo ãƒ‰ã‚¢é–‹ã§æ¸¬å®šãƒãƒ¼ã‚º ---------- { ---------- */
 	BOOL m_bClosedPauseMsgBox;
-/* added 2009.06.02 hmenjo ƒhƒAŠJ‚Å‘ª’èƒ|[ƒY ---------- } ---------- */
+/* added 2009.06.02 hmenjo ãƒ‰ã‚¢é–‹ã§æ¸¬å®šãƒãƒ¼ã‚º ---------- } ---------- */
 	void ChangeMenu();
 	void SetWindowTitle();
 	int SelectListNameIndex();
@@ -445,8 +445,8 @@ private:
 	void MaintenanceCheck();
 	MAINTENANCE_DATE m_pMaintenanceDate;
 	MAINTENANCE_LAMP m_pMaintenanceLamp;
-	COleDateTime mNextDate;					// ŽŸ‰ñƒƒ“ƒeƒiƒ“ƒX“úŽž
-	COleDateTimeSpan m_pPassageHour;		// Œo‰ßŽžŠÔ
+	COleDateTime mNextDate;					// æ¬¡å›žãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹æ—¥æ™‚
+	COleDateTimeSpan m_pPassageHour;		// çµŒéŽæ™‚é–“
 	COleDateTimeSpan m_100ms;
 
 // 2009.05.15 k-matsuo -->
@@ -457,13 +457,13 @@ private:
 	BOOL m_bGTRref;
 	int m_iGTRrefNowPointNo;
 // 2009.11.25 K.Matsuo GTr Reference <--
-/* deleted 2010.10.19 hmenjo DioLog.exe ‹N“®‚µ‚È‚­‚·‚é ---------- { ---------- */
+/* deleted 2010.10.19 hmenjo DioLog.exe èµ·å‹•ã—ãªãã™ã‚‹ ---------- { ---------- */
 //    PROCESS_INFORMATION m_prInfo;
-/* deleted 2010.10.19 hmenjo DioLog.exe ‹N“®‚µ‚È‚­‚·‚é ---------- } ---------- */
+/* deleted 2010.10.19 hmenjo DioLog.exe èµ·å‹•ã—ãªãã™ã‚‹ ---------- } ---------- */
 };
 
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ð‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_MAINFRM_H__59E4B529_2C83_4278_BA0F_4B0C5A99BCE2__INCLUDED_)

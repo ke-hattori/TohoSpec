@@ -1,4 +1,4 @@
-// DeleteDataPeriodSettingDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// DeleteDataPeriodSettingDlg.cpp : インプリメンテーション ファイル
 //
 
 #include "stdafx.h"
@@ -16,7 +16,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // #########################################################################
-// CDeleteDataPeriodSettingDlg �_�C�A���O
+// CDeleteDataPeriodSettingDlg ダイアログ
 // #########################################################################
 
 // =========================================================================
@@ -54,7 +54,7 @@ BEGIN_MESSAGE_MAP(CDeleteDataPeriodSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CDeleteDataPeriodSettingDlg ���b�Z�[�W �n���h��
+// CDeleteDataPeriodSettingDlg メッセージ ハンドラ
 
 // =========================================================================
 //
@@ -80,7 +80,7 @@ BOOL CDeleteDataPeriodSettingDlg::OnInitDialog()
 	m_CancelButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_CancelButton.DrawFlatFocus(TRUE);
 
-	///// �蓮�폜 Button /////
+	///// 手動削除 Button /////
 	m_DataDelButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_DataDelButton.DrawFlatFocus(TRUE);
 
@@ -90,8 +90,8 @@ BOOL CDeleteDataPeriodSettingDlg::OnInitDialog()
 
 	OnSelchangeDeleteDataPeriod();
 
-	return TRUE;	// �R���g���[���Ƀt�H�[�J�X��ݒ肵�Ȃ��Ƃ��A�߂�l�� TRUE �ƂȂ�܂�
-					// ��O: OCX �v���p�e�B �y�[�W�̖߂�l�� FALSE �ƂȂ�܂�
+	return TRUE;	// コントロールにフォーカスを設定しないとき、戻り値は TRUE となります
+					// 例外: OCX プロパティ ページの戻り値は FALSE となります
 }
 
 // =========================================================================
@@ -111,7 +111,7 @@ void CDeleteDataPeriodSettingDlg::OnSelchangeDeleteDataPeriod()
 {
 	UpdateData(TRUE);
 
-	// �I����e����N���擾
+	// 選択内容から年月取得
 	typedef struct _PERIODSEARCH {
 		int nSelect;
 		int iYear;
@@ -151,7 +151,7 @@ void CDeleteDataPeriodSettingDlg::OnSelchangeDeleteDataPeriod()
 		}
 	}
 
-	// ���ݓ��t����̍폜�N��
+	// 現在日付からの削除年月
 	int iDeleteYear;
 	int iDeleteMonth;
 
@@ -170,33 +170,33 @@ void CDeleteDataPeriodSettingDlg::OnSelchangeDeleteDataPeriod()
 
 	int iDeleteDay;
 	iDeleteDay = systemTime.wDay;
-	//2,4,6,9,11���̓��t����
+	//2,4,6,9,11月の日付調整
 	if((iDeleteMonth == 4)||(iDeleteMonth == 6)||(iDeleteMonth == 9)||(iDeleteMonth == 11))
-	//4,6,9,11��
+	//4,6,9,11月
 	{
 		if(iDeleteDay == 31)
 		{
 			iDeleteDay = 30;
 		}
 	}
-	else if(iDeleteMonth == 2) //2��
+	else if(iDeleteMonth == 2) //2月
 	{
 		if(iDeleteDay > 28)
 		{
-			if((((iDeleteYear%4)==0)&&((iDeleteYear%100)!=0)) //���邤�N
+			if((((iDeleteYear%4)==0)&&((iDeleteYear%100)!=0)) //うるう年
 			||((iDeleteYear%400)==0))
 			{
 				iDeleteDay = 29;
 			}
-			else //�񂤂邤�N
+			else //非うるう年
 			{
 				iDeleteDay = 28;
 			}
 		}
 	}
-	else //1,3,5,7,8,10,12��
+	else //1,3,5,7,8,10,12月
 	{
-		//�����Ȃ�
+		//処理なし
 	}
 
 	m_strDeleteDataDate.Format("%04d/%02d/%2d", iDeleteYear, iDeleteMonth, iDeleteDay);
@@ -239,14 +239,14 @@ void CDeleteDataPeriodSettingDlg::OnDataDelete()
 // Kojika 20090526 Add
 	CString strBuffer, strTitle;
 // Kojika 20090526 Add End
-	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
+	// TODO: この位置にコントロール通知ハンドラ用のコードを追加してください
 
 	CComboBox* pCombo = (CComboBox*)GetDlgItem(IDC_DELETE_DATA_PERIOD);
 	int iCurSel = pCombo->GetCurSel();
 	if((iCurSel == 0)||(iCurSel == CB_ERR))
 	{
 // Kojika 20090526 Change
-//		MessageBox("�L���N�����̎w�肪����܂���B", "NanoSpec", MB_OK);
+//		MessageBox("有効年月日の指定がありません。", "NanoSpec", MB_OK);
 		LoadStringML(IDS_NO_SPECIFI_EFFECTIVE_DATE, strBuffer, "There is no specification at an effective date.");
 		LoadStringML(IDS_TITLE_NANOSPEC, strTitle,"NanoSpec");
 		MessageBox(strBuffer, strTitle, MB_OK);
@@ -254,7 +254,7 @@ void CDeleteDataPeriodSettingDlg::OnDataDelete()
 		return;
 	}
 // Kojika 20090526 Change
-//	int iRtn = MessageBox("����f�[�^���폜���܂����H\n(�폜��A�����ł��܂���)", "NanoSpec", MB_OKCANCEL);
+//	int iRtn = MessageBox("測定データを削除しますか？\n(削除後、復旧できません)", "NanoSpec", MB_OKCANCEL);
 	LoadStringML(IDS_MEASURE_DATA_DELETE, strBuffer, "Is the measured data deleted?\n(After deletion, it isn't possible to be restored it)");
 	LoadStringML(IDS_TITLE_NANOSPEC, strTitle,"NanoSpec");
 	int iRtn = MessageBox(strBuffer, strTitle, MB_OKCANCEL);
@@ -265,7 +265,7 @@ void CDeleteDataPeriodSettingDlg::OnDataDelete()
 		ConfigFile_SetNanoSpecIni(&m_iDeleteDataPeriod, CONFIG_FILE_DELETE_DATA_PERIOD);
 		ConfigFile_SaveNanoSpecIni(USER_SETTING_COMMON_INI_FILE);
 
-		m_pMainFrame->OldMeasDataDelete(); //�Â�����f�[�^�t�@�C�����폜
+		m_pMainFrame->OldMeasDataDelete(); //古い測定データファイルを削除
 	}
 
 }

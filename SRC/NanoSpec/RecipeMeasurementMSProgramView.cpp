@@ -1,4 +1,4 @@
-// RecipeMeasurementMSProgramView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// RecipeMeasurementMSProgramView.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -22,7 +22,7 @@ CRecipeMeasurementMSProgramView::CRecipeMeasurementMSProgramView()
 	: CNanoRecipeUI(CRecipeMeasurementMSProgramView::IDD)
 {
 	//{{AFX_DATA_INIT(CRecipeMeasurementMSProgramView)
-		// ƒƒ‚: ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒƒ“ƒo‚Ì‰Šú‰»ˆ—‚ğ’Ç‰Á‚µ‚Ü‚·
+		// ãƒ¡ãƒ¢: ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒ¡ãƒ³ãƒã®åˆæœŸåŒ–å‡¦ç†ã‚’è¿½åŠ ã—ã¾ã™
 	//}}AFX_DATA_INIT
 
 	CString l_strBuffer;
@@ -40,12 +40,12 @@ void CRecipeMeasurementMSProgramView::DoDataExchange(CDataExchange* pDX)
 {
 	CNanoRecipeUI::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CRecipeMeasurementMSProgramView)
-		// ƒƒ‚: ClassWizard ‚Í‚±‚ÌˆÊ’u‚É DDX ‚¨‚æ‚Ñ DDV ‚ÌŒÄ‚Ño‚µ‚ğ’Ç‰Á‚µ‚Ü‚·
+		// ãƒ¡ãƒ¢: ClassWizard ã¯ã“ã®ä½ç½®ã« DDX ãŠã‚ˆã³ DDV ã®å‘¼ã³å‡ºã—ã‚’è¿½åŠ ã—ã¾ã™
 	//}}AFX_DATA_MAP
 	DDX_Text(pDX, IDC_MS_PROG_NAME, m_MsMeas.hdr.szName, RECIPE_NAME_LEN + 1);
-	//2009.12.25 bagus C³ --{--
+	//2009.12.25 bagus ä¿®æ­£ --{--
 	DDX_Text(pDX, IDC_COMMENT, m_MsMeas.hdr.szComment, RECIPE_COMMENT_LEN + 1);
-	//2009.12.25 bagus C³ --}--
+	//2009.12.25 bagus ä¿®æ­£ --}--
 	DDX_CBStringExact(pDX, IDC_MS_LENS, m_strLens);
 }
 
@@ -57,7 +57,7 @@ BEGIN_MESSAGE_MAP(CRecipeMeasurementMSProgramView, CNanoRecipeUI)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CRecipeMeasurementMSProgramView f’f
+// CRecipeMeasurementMSProgramView è¨ºæ–­
 
 #ifdef _DEBUG
 void CRecipeMeasurementMSProgramView::AssertValid() const
@@ -72,7 +72,7 @@ void CRecipeMeasurementMSProgramView::Dump(CDumpContext& dc) const
 #endif //_DEBUG
 
 /////////////////////////////////////////////////////////////////////////////
-// CRecipeMeasurementMSProgramView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CRecipeMeasurementMSProgramView ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 void CRecipeMeasurementMSProgramView::OnInitialUpdate()
 {
@@ -92,7 +92,7 @@ void CRecipeMeasurementMSProgramView::OnInitialUpdate()
 		| CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
 		!m_wndToolBar.LoadToolBar(IDR_EDIT_RECIPE_BAR)){
 		TRACE0("Failed to create toolbar\n");
-		return; 	// ì¬‚É¸”s
+		return; 	// ä½œæˆã«å¤±æ•—
 	}
 
 	GetClientRect(&rect);
@@ -105,7 +105,7 @@ void CRecipeMeasurementMSProgramView::OnInitialUpdate()
 	///// Control Initialize /////
 	InitCombo_Lens();
 
-	// ƒRƒƒ“ƒg•¶š”§ŒÀ
+	// ã‚³ãƒ¡ãƒ³ãƒˆæ–‡å­—æ•°åˆ¶é™
 	((CEdit*)GetDlgItem(IDC_COMMENT))->SetLimitText(RECIPE_COMMENT_LEN);
 
 	///// Default Recipe Setup /////
@@ -118,8 +118,8 @@ void CRecipeMeasurementMSProgramView::OnInitialUpdate()
 
 	if ((IsDataChanged() == TRUE) && (m_nOpenMode == modeNormal))
 	{
-		//ƒXƒgƒ‰ƒeƒWƒB‚ğ‘‚«Š·‚¦‚½ê‡A
-		//ƒŒƒVƒs‚ğ“Ç‚ñ‚¾’l‚Æ‰æ–Ê•\¦’l(ŒõŠwƒtƒBƒ‹ƒ^E”g’·)‚É·‚ª‚Å‚Ä‚µ‚Ü‚¤‚±‚Æ‚ª‚ ‚é‚Ì‚ÅAƒŒƒVƒs‚ğ‹­§“I‚É‘Š·‚¦‚éB
+		//ã‚¹ãƒˆãƒ©ãƒ†ã‚¸ã‚£ã‚’æ›¸ãæ›ãˆãŸå ´åˆã€
+		//ãƒ¬ã‚·ãƒ”ã‚’èª­è¾¼ã‚“ã å€¤ã¨ç”»é¢è¡¨ç¤ºå€¤(å…‰å­¦ãƒ•ã‚£ãƒ«ã‚¿ãƒ»æ³¢é•·)ã«å·®ãŒã§ã¦ã—ã¾ã†ã“ã¨ãŒã‚ã‚‹ã®ã§ã€ãƒ¬ã‚·ãƒ”ã‚’å¼·åˆ¶çš„ã«æ›¸æ›ãˆã‚‹ã€‚
 		SaveRecipeData();
 		LoadStringML(IDS_SAVE_OPTICAL_FILTER_WAVELENG, l_strBuffer, "The optical filter and the wavelength were saved\n by the change in the strategy.");
 		LoadStringML(IDS_TITLE_NANOSPEC, l_strTitle, "NanoSpec");
@@ -135,15 +135,15 @@ void CRecipeMeasurementMSProgramView::LoadRecipeData()
 
 	switch ( m_nOpenMode )
 	{
-	case modeNew:				// ƒŒƒVƒsV‹Kì¬
-	case modeDefaultSetting:	// ƒRƒ“ƒtƒBƒO‰æ–Ê‚©‚ç‘JˆÚ‚µ‚Ä‚«‚½ƒP[ƒX
+	case modeNew:				// ãƒ¬ã‚·ãƒ”æ–°è¦ä½œæˆ
+	case modeDefaultSetting:	// ã‚³ãƒ³ãƒ•ã‚£ã‚°ç”»é¢ã‹ã‚‰é·ç§»ã—ã¦ããŸã‚±ãƒ¼ã‚¹
 		if ( !RecipeFile_LoadRecipe(&m_MsMeas, MS_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_MS) ) {
 			m_MsMeas.ScanParams.hdr.wHeadType = HEAD_TYPE_MS;
 			m_MsMeas.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_MS_MEAS;
 		}
 		break;
-	default:					// ƒŒƒVƒsƒƒCƒ“ƒŠƒXƒg‰æ–Ê‚©‚ç‘JˆÚ‚µ‚Ä‚«‚½ƒP[ƒX
-		if ( !RecipeFile_LoadRecipe(&m_MsMeas, m_szRecipeName, RECIPE_FILE_MEASUREMENT_PROGRAM) ) { 		 // RECIPE_FILE_MEASUREMENT_PROGRAM ‚Å³‚µ‚¢‚ç‚µ‚¢...
+	default:					// ãƒ¬ã‚·ãƒ”ãƒ¡ã‚¤ãƒ³ãƒªã‚¹ãƒˆç”»é¢ã‹ã‚‰é·ç§»ã—ã¦ããŸã‚±ãƒ¼ã‚¹
+		if ( !RecipeFile_LoadRecipe(&m_MsMeas, m_szRecipeName, RECIPE_FILE_MEASUREMENT_PROGRAM) ) { 		 // RECIPE_FILE_MEASUREMENT_PROGRAM ã§æ­£ã—ã„ã‚‰ã—ã„...
 			m_nOpenMode = modeNew;
 			if ( !RecipeFile_LoadRecipe(&m_MsMeas, MS_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_MS) ) {
 				m_MsMeas.ScanParams.hdr.wHeadType = HEAD_TYPE_MS;
@@ -216,7 +216,7 @@ BOOL CRecipeMeasurementMSProgramView::SaveRecipeData()
 			return FALSE;
 		break;
 	default:
-		// V‚µ‚¢ƒŒƒVƒs–¼‚ğİ’èiSave, SaveAsŒ“—pj
+		// æ–°ã—ã„ãƒ¬ã‚·ãƒ”åã‚’è¨­å®šï¼ˆSave, SaveAså…¼ç”¨ï¼‰
 		strcpy(m_MsMeas.hdr.szName, m_szRecipeName);
 		if ( !RecipeFile_SaveRecipe(&m_MsMeas, m_szRecipeName, RECIPE_FILE_MS) )
 			return FALSE;
@@ -262,7 +262,7 @@ BOOL CRecipeMeasurementMSProgramView::CheckTransData(int iData , CString strData
 }
 
 // =========================================================================
-// ƒŒƒ“ƒY ƒRƒ“ƒ{‘I‘ğ
+// ãƒ¬ãƒ³ã‚º ã‚³ãƒ³ãƒœé¸æŠæ™‚
 //
 void CRecipeMeasurementMSProgramView::OnSelchangeMsLens()
 {
@@ -278,7 +278,7 @@ void CRecipeMeasurementMSProgramView::OnSelchangeMsLens()
 }
 
 // =========================================================================
-//ƒŒƒ“ƒY ƒRƒ“ƒ{ƒCƒjƒVƒƒƒ‹ˆ—
+//ãƒ¬ãƒ³ã‚º ã‚³ãƒ³ãƒœã‚¤ãƒ‹ã‚·ãƒ£ãƒ«å‡¦ç†
 //
 void CRecipeMeasurementMSProgramView::InitCombo_Lens()
 {
@@ -321,7 +321,7 @@ void CRecipeMeasurementMSProgramView::InitCombo_Lens()
 	}
 }
 
-//ƒtƒ@ƒCƒ‹‘¶İƒ`ƒFƒbƒN(ƒtƒ@ƒCƒ‹‘¶İ‚ÍTRUE‚ğ•Ô‚·)
+//ãƒ•ã‚¡ã‚¤ãƒ«å­˜åœ¨ãƒã‚§ãƒƒã‚¯(ãƒ•ã‚¡ã‚¤ãƒ«å­˜åœ¨æ™‚ã¯TRUEã‚’è¿”ã™)
 BOOL CRecipeMeasurementMSProgramView::FileOrDirExists(LPCTSTR pszFileName)
 {
 	return (BOOL)( GetFileAttributes(pszFileName) != 0xffffffff );

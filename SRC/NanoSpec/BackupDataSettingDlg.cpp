@@ -1,4 +1,4 @@
-// BackupDataSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// BackupDataSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -17,14 +17,14 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CBackupDataSettingDlg ƒ_ƒCƒAƒƒO
+// CBackupDataSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 
 CBackupDataSettingDlg::CBackupDataSettingDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CBackupDataSettingDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CBackupDataSettingDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_INIT
 }
 
@@ -33,7 +33,7 @@ void CBackupDataSettingDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CBackupDataSettingDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_MAP
 	DDX_Check(pDX,IDC_AUTO_BACKUP_CHECK,m_BackupSetting.bAutoBackup);
 	DDX_Control(pDX, IDOK, m_OkButton);
@@ -56,7 +56,7 @@ BEGIN_MESSAGE_MAP(CBackupDataSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CBackupDataSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CBackupDataSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 void CBackupDataSettingDlg::OnBackupNowButton()
 {
@@ -68,17 +68,17 @@ void CBackupDataSettingDlg::OnBackupNowButton()
 	LoadStringML(IDS_TITLE_BACKUP_SETTING, l_strTitle, "BACKUP SETTING");
 	GetDlgItemText(IDC_BACKUP_PATH,strPath);
 
-	//ƒoƒbƒNƒAƒbƒvæ‚ª–¢w’è‚È‚Ì‚Å‚È‚É‚à‚µ‚È‚¢
+	//ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—å…ˆãŒæœªæŒ‡å®šãªã®ã§ãªã«ã‚‚ã—ãªã„
 	if(strPath.GetLength() == 0){
-	//2009.12.22 bagus C³ --{--
+	//2009.12.22 bagus ä¿®æ­£ --{--
 		LoadStringML(IDS_BACKUP_NO_BACKUP_PATH,l_strBuffer,"Please input backup path.");
 		MessageBox(l_strBuffer, l_strTitle, MB_OK| MB_ICONINFORMATION);
-	//2009.12.22 bagus C³ --}--
+	//2009.12.22 bagus ä¿®æ­£ --}--
 		return;
 	}
 
 	//2009.12.21 bagus Recipe Backup --{--
-	//•Û‘¶æƒhƒ‰ƒCƒuƒ`ƒFƒbƒN
+	//ä¿å­˜å…ˆãƒ‰ãƒ©ã‚¤ãƒ–ãƒã‚§ãƒƒã‚¯
 	_splitpath(strPath.GetBuffer(0),szDir,NULL,NULL,NULL);
 	strncat(szDir,"\\",sizeof(szDir)-1);
 	DWORD dwRet;
@@ -121,7 +121,7 @@ void CBackupDataSettingDlg::OnRestoreButton()
 	GetDlgItemText(IDC_BACKUP_PATH,strPath);
 	dwRet = GetFileAttributes(strPath.GetBuffer(0));
 	if(dwRet == (DWORD)-1 || !(dwRet & FILE_ATTRIBUTE_DIRECTORY)){
-		//ƒoƒbƒNƒAƒbƒvƒfƒBƒŒƒNƒgƒŠ‚ª‘¶İ‚µ‚È‚¢
+		//ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒå­˜åœ¨ã—ãªã„
 		LoadStringML(IDS_RESTORE_NO_BACKUP_PATH, l_strBuffer, "No Backup path.");
 		LoadStringML(IDS_TITLE_BACKUP_SETTING, l_strTitle, "BACKUP SETTING");
 		MessageBox(l_strBuffer, l_strTitle, MB_OK| MB_ICONWARNING);
@@ -183,17 +183,17 @@ void CBackupDataSettingDlg::OnOK()
 
 	GetDlgItemText(IDC_BACKUP_PATH,strBackupPath);
 
-	//ƒoƒbƒNƒAƒbƒvæ‚ª–¢w’è‚È‚Ì‚Å‚È‚É‚à‚µ‚È‚¢
+	//ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—å…ˆãŒæœªæŒ‡å®šãªã®ã§ãªã«ã‚‚ã—ãªã„
 	//2009.12.25 bagus Recipe backup --{--
 	strBackupPath.TrimLeft();
 	strBackupPath.TrimRight();
 	//2009.12.25 bagus Recipe backup --}--
 	if(strBackupPath.GetLength() == 0 && m_BackupSetting.bAutoBackup){
-	//2009.12.22 bagus C³ --{--
+	//2009.12.22 bagus ä¿®æ­£ --{--
 		LoadStringML(IDS_TITLE_BACKUP_SETTING, l_strTitle, "BACKUP SETTING");
 		LoadStringML(IDS_BACKUP_NO_BACKUP_PATH,l_strBuffer,"Please input backup path.");
 		MessageBox(l_strBuffer, l_strTitle, MB_OK| MB_ICONINFORMATION);
-	//2009.12.22 bagus C³ --}--
+	//2009.12.22 bagus ä¿®æ­£ --}--
 		return;
 	}
 
@@ -222,14 +222,14 @@ BOOL CBackupDataSettingDlg::OnInitDialog()
 
 	CDialog::OnInitDialog();
 
-/* added 2014.12.24 hmenjo Nano –¼ÌC³c‚è ---------- { ---------- */
+/* added 2014.12.24 hmenjo Nano åç§°ä¿®æ­£æ®‹ã‚Š ---------- { ---------- */
 	if (g_lAppNameType != APP_NAME_NANO) {
 		CString l_strCaption;
 		this->GetDlgItemText(IDC_STATIC_NANODATA, l_strCaption);
 		l_strCaption.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
 		this->SetDlgItemText(IDC_STATIC_NANODATA, l_strCaption);
 	}
-/* added 2014.12.24 hmenjo Nano –¼ÌC³c‚è ---------- } ---------- */
+/* added 2014.12.24 hmenjo Nano åç§°ä¿®æ­£æ®‹ã‚Š ---------- } ---------- */
 
 	ConfigFile_GetNanoSpecIni(&l_UserData,CONFIG_FILE_USER_SETTING);
 	m_BackupSetting = l_UserData.BackupData;
@@ -263,8 +263,8 @@ BOOL CBackupDataSettingDlg::OnInitDialog()
 
 	UpdateData(FALSE);
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-				  // —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+				  // ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 void CBackupDataSettingDlg::OnXmpBackupButton()
@@ -287,12 +287,12 @@ void CBackupDataSettingDlg::OnXmpBackupButton()
 	GetDlgItemText(IDC_BACKUP_PATH,strTo);
 	LoadStringML(IDS_TITLE_BACKUP_SETTING, l_strTitle, "BACKUP SETTING");
 
-	//ƒoƒbƒNƒAƒbƒvæ‚ª–¢w’è‚È‚Ì‚Å‚È‚É‚à‚µ‚È‚¢
+	//ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—å…ˆãŒæœªæŒ‡å®šãªã®ã§ãªã«ã‚‚ã—ãªã„
 	if(strTo.GetLength() == 0){
-	//2009.12.22 bagus C³ --{--
+	//2009.12.22 bagus ä¿®æ­£ --{--
 		LoadStringML(IDS_BACKUP_NO_BACKUP_PATH,l_strBuffer,"Please input backup path.");
 		MessageBox(l_strBuffer, l_strTitle, MB_OK| MB_ICONINFORMATION);
-	//2009.12.22 bagus C³ --}--
+	//2009.12.22 bagus ä¿®æ­£ --}--
 		return;
 	}
 
@@ -301,11 +301,11 @@ void CBackupDataSettingDlg::OnXmpBackupButton()
 		return;
 	}
 
-	//ƒtƒHƒ‹ƒ_ƒRƒs[
+	//ãƒ•ã‚©ãƒ«ãƒ€ã‚³ãƒ”ãƒ¼
 	strFrom.Format("%s%s%s\\*",szDrive,szDir,"analysis");
 	strTo += "\\analysis";
 
-	//ƒRƒs[æ‚ÌƒfƒBƒŒƒNƒgƒŠ‚ğì¬‚·‚é
+	//ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ä½œæˆã™ã‚‹
 	if(!MakeDirectory(strTo.GetBuffer(0))){
 		LoadStringML(IDS_XMP_BACKUP_ERROR, l_strBuffer, "Can't backup XMP Data");
 		LoadStringML(IDS_TITLE_BACKUP_SETTING, l_strTitle, "BACKUP SETTING");
@@ -315,18 +315,18 @@ void CBackupDataSettingDlg::OnXmpBackupButton()
 
 	tSHFile.hwnd = this->GetSafeHwnd();
 	tSHFile.wFunc = FO_COPY;
-	//2009.12.17 bagus C³ --{--
+	//2009.12.17 bagus ä¿®æ­£ --{--
 	//tSHFile.fFlags = FOF_SILENT | FOF_NOCONFIRMMKDIR | FOF_NOERRORUI | FOF_SIMPLEPROGRESS ;
 	//tSHFile.fFlags = FOF_NOCONFIRMMKDIR | FOF_NOERRORUI ;
 	tSHFile.fFlags = FOF_NOCONFIRMMKDIR | FOF_NOERRORUI | FOF_NOCONFIRMATION | FOF_SIMPLEPROGRESS;
-	//2009.12.17 bagus C³ --}--
+	//2009.12.17 bagus ä¿®æ­£ --}--
 
 	tSHFile.fAnyOperationsAborted = TRUE;
 	tSHFile.hNameMappings = NULL;
-	//2009.12.17 bagus C³ --{--
+	//2009.12.17 bagus ä¿®æ­£ --{--
 	//tSHFile.lpszProgressTitle = NULL;
 	tSHFile.lpszProgressTitle = "XMP Backup";
-	//2009.12.17 bagus C³ --}--
+	//2009.12.17 bagus ä¿®æ­£ --}--
 
 	strFrom += "0";
 	strTo += "0";
@@ -356,7 +356,7 @@ int CBackupDataSettingDlg::MakeDirectory(char* lpszDir)
 	if((iRet = CreateDirectory(lpszDir, &sa)) == TRUE)
 		return 1;
 	else{
-		//Šù‚É‘¶İ‚µ‚Ä‚¢‚éê‡‚É‚Í‚»‚±‚ÅOK‚Æ‚·‚é
+		//æ—¢ã«å­˜åœ¨ã—ã¦ã„ã‚‹å ´åˆã«ã¯ãã“ã§OKã¨ã™ã‚‹
 		if(GetLastError() == ERROR_ALREADY_EXISTS){
 			return 1;
 		}
@@ -379,7 +379,7 @@ int CBackupDataSettingDlg::MakeDirectory(char* lpszDir)
 		if(iRet){
 			return 1;
 		}else{
-			//Šù‚É‘¶İ‚µ‚Ä‚¢‚éê‡‚É‚Í‚»‚±‚ÅOK‚Æ‚·‚é
+			//æ—¢ã«å­˜åœ¨ã—ã¦ã„ã‚‹å ´åˆã«ã¯ãã“ã§OKã¨ã™ã‚‹
 			if(GetLastError() == ERROR_ALREADY_EXISTS){
 				return 1;
 			}

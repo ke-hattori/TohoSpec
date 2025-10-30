@@ -1,4 +1,4 @@
-// CMainFrmMailRecvThread.cpp : implementation file
+ï»¿// CMainFrmMailRecvThread.cpp : implementation file
 //
 
 #include "stdafx.h"
@@ -72,12 +72,12 @@ int CMainFrmMailRecvThread::Run()
 	while ( !m_bShutDown )
 	{
 		if ( m_mailslot.Recieve(szRecvBuff, &nNumberOfBytesRead) ) {
-// 2009.06.02 K.Matsuo ‘•’u‰æ–Ê‘€ìƒCƒ“ƒ^[ƒƒbƒN‹@”\’Ç‰Á -->
+// 2009.06.02 K.Matsuo è£…ç½®ç”»é¢æ“ä½œã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ©Ÿèƒ½è¿½åŠ  -->
 			if ( _tcscmp(szRecvBuff, PIFCOMM_P105) == 0 )
 				EventProcessP105();
 			else if ( _tcscmp(szRecvBuff, PIFCOMM_P106) == 0 )
 				EventProcessP106();
-// 2009.06.02 K.Matsuo ‘•’u‰æ–Ê‘€ìƒCƒ“ƒ^[ƒƒbƒN‹@”\’Ç‰Á <--
+// 2009.06.02 K.Matsuo è£…ç½®ç”»é¢æ“ä½œã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ©Ÿèƒ½è¿½åŠ  <--
 // 2009.12.21 K.Matsuo -->
 			else if ( _tcscmp(szRecvBuff, PIFCOMM_P302) == 0 )
 				EventProcessP302();
@@ -88,10 +88,10 @@ int CMainFrmMailRecvThread::Run()
 				EventProcessP306();
 			else if ( _tcscmp(szRecvBuff, PIFCOMM_P308) == 0 )
 				EventProcessP308();
-// 2009.09.10 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^Šm”F‹@”\’Ç‰Á -->
+// 2009.09.10 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ç¢ºèªæ©Ÿèƒ½è¿½åŠ  -->
 			else if ( _tcscmp(szRecvBuff, PIFCOMM_P310) == 0 )
 				EventProcessP310();
-// 2009.09.10 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^Šm”F‹@”\’Ç‰Á <--
+// 2009.09.10 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ç¢ºèªæ©Ÿèƒ½è¿½åŠ  <--
 			else
 				ASSERT( FALSE );
 		}
@@ -111,7 +111,7 @@ void CMainFrmMailRecvThread::ShutDown()
 	m_bShutDown = TRUE;
 }
 
-// 2009.06.02 K.Matsuo ‘•’u‰æ–Ê‘€ìƒCƒ“ƒ^[ƒƒbƒN‹@”\’Ç‰Á -->
+// 2009.06.02 K.Matsuo è£…ç½®ç”»é¢æ“ä½œã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ©Ÿèƒ½è¿½åŠ  -->
 //---------------------------------------------------------------------------
 // EventProcessP105
 void CMainFrmMailRecvThread::EventProcessP105()
@@ -140,7 +140,7 @@ void CMainFrmMailRecvThread::EventProcessP106()
 	}
 	m_pInterlockDlg->ShowWindow(SW_HIDE);
 }
-// 2009.06.02 K.Matsuo ‘•’u‰æ–Ê‘€ìƒCƒ“ƒ^[ƒƒbƒN‹@”\’Ç‰Á <--
+// 2009.06.02 K.Matsuo è£…ç½®ç”»é¢æ“ä½œã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ©Ÿèƒ½è¿½åŠ  <--
 
 //---------------------------------------------------------------------------
 // EventProcessP301
@@ -184,7 +184,7 @@ void CMainFrmMailRecvThread::EventProcessP303()
 	iKindOfRecipe =	PifComm_RequestKindOfRecipe();
 	PifComm_DoStateDone(0);
 
-	// ƒŒƒVƒs•ñˆê——ì¬
+	// ãƒ¬ã‚·ãƒ”å ±å‘Šä¸€è¦§ä½œæˆ
 	RecipeFile_Lock();
 
 	CString strBuffer;
@@ -192,11 +192,11 @@ void CMainFrmMailRecvThread::EventProcessP303()
 	TCHAR szDirPath[_MAX_PATH];
 	BOOL bLoop;
 	CTime time;
-/* modified 2016.08.11 hmenjo Å‘åƒŒƒVƒs”§ŒÀ ---------- { ---------- */
+/* modified 2016.08.11 hmenjo æœ€å¤§ãƒ¬ã‚·ãƒ”æ•°åˆ¶é™ ---------- { ---------- */
 //	RECIPENAMEDATESET recipeDataSet[10000];
-/* modified 2016.08.11 hmenjo Å‘åƒŒƒVƒs”§ŒÀ ----------              */
+/* modified 2016.08.11 hmenjo æœ€å¤§ãƒ¬ã‚·ãƒ”æ•°åˆ¶é™ ----------              */
 	RECIPENAMEDATESET recipeDataSet[RCP_PGM_NUM_MAX];
-/* modified 2016.08.11 hmenjo Å‘åƒŒƒVƒs”§ŒÀ ---------- } ---------- */
+/* modified 2016.08.11 hmenjo æœ€å¤§ãƒ¬ã‚·ãƒ”æ•°åˆ¶é™ ---------- } ---------- */
 	UINT nOccurence = 0;
 
 	_stprintf(szDirPath, _T("%s*%s"), g_szDb_Main_Recipe_Dir, MAINRECIPE_EXT);
@@ -205,20 +205,20 @@ void CMainFrmMailRecvThread::EventProcessP303()
 		bLoop = Finder.FindNextFile();
 		if ( Finder.IsDots() )
 			continue;
-		// ƒtƒ@ƒCƒ‹–¼‚ğæ“¾
+		// ãƒ•ã‚¡ã‚¤ãƒ«åã‚’å–å¾—
 		strBuffer = Finder.GetFileName();
 		if ( strBuffer[0] == SYSTEM_RECIPE_BEGINNING_CHAR )
 			continue;
 		_tcscpy(recipeDataSet[nOccurence].szRecipeNameExt, strBuffer);
-		// ÅI•ÏX“ú‚ğæ“¾
+		// æœ€çµ‚å¤‰æ›´æ—¥æ™‚ã‚’å–å¾—
 		Finder.GetLastWriteTime(time);
 		time.GetAsSystemTime(recipeDataSet[nOccurence].recipeDateTime);
 		nOccurence++;
-/* added 2016.08.11 hmenjo Å‘åƒŒƒVƒs”§ŒÀ ---------- { ---------- */
+/* added 2016.08.11 hmenjo æœ€å¤§ãƒ¬ã‚·ãƒ”æ•°åˆ¶é™ ---------- { ---------- */
 		if (RCP_PGM_NUM_MAX <= nOccurence) {
 			break;
 		}
-/* added 2016.08.11 hmenjo Å‘åƒŒƒVƒs”§ŒÀ ---------- } ---------- */
+/* added 2016.08.11 hmenjo æœ€å¤§ãƒ¬ã‚·ãƒ”æ•°åˆ¶é™ ---------- } ---------- */
 	}
 	PifComm_RecipeListReport(iKindOfRecipe, recipeDataSet, nOccurence);
 
@@ -231,7 +231,7 @@ void CMainFrmMailRecvThread::EventProcessP306()
 {
 	PifComm_DoStateDone(0);
 
-	// ƒgƒŒ[ƒXƒf[ƒ^•ñ
+	// ãƒˆãƒ¬ãƒ¼ã‚¹ãƒ‡ãƒ¼ã‚¿å ±å‘Š
 	TRACEDATASET traceData;
 	MAINTENANCE_LAMP maintenanceLamp;
 	COleDateTime dateTime;
@@ -275,7 +275,7 @@ void CMainFrmMailRecvThread::EventProcessP308()
 	PifComm_SampleSizeDataReport(stageProgInfoHdr.SampleInfo.Size.dx, stageProgInfoHdr.SampleInfo.Size.dy);
 }
 
-// 2009.09.10 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^Šm”F‹@”\’Ç‰Á -->
+// 2009.09.10 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ç¢ºèªæ©Ÿèƒ½è¿½åŠ  -->
 //---------------------------------------------------------------------------
 // EventProcessP310
 void CMainFrmMailRecvThread::EventProcessP310()
@@ -288,31 +288,31 @@ void CMainFrmMailRecvThread::EventProcessP310()
 
 	PifComm_GetReferenceDataCheckRecipeName(szRecipeName);
 	if ( !RecipeFile_LoadRecipe(&mainRcpInfo, szRecipeName, RECIPE_FILE_MAIN_RECIPE) ) {
-		// ƒƒCƒ“ƒŒƒVƒs‚ª‘¶İ‚µ‚È‚¢ê‡‚Å‚àAƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^‚ğŠm”F‚·‚é
+		// ãƒ¡ã‚¤ãƒ³ãƒ¬ã‚·ãƒ”ãŒå­˜åœ¨ã—ãªã„å ´åˆã§ã‚‚ã€ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ã‚’ç¢ºèªã™ã‚‹
 		dLifeTime = 0.0;
 		if ( 1 == MEAS_CheckRefFileElapsedTimeOut(szRecipeName, dLifeTime) )
-			PifComm_DoStateDone(1);		// ƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢
+			PifComm_DoStateDone(1);		// ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„
 		else
-			PifComm_DoStateDone(2);		// ŠúŒÀØ‚ê
+			PifComm_DoStateDone(2);		// æœŸé™åˆ‡ã‚Œ
 		return;
 	}
 
 	if ( !RecipeFile_LoadRecipe(&measProgInfo, mainRcpInfo.MainRcpParam.hdr.szMeas, RECIPE_FILE_MEASUREMENT_PROGRAM) ) {
-		// ‘ª’èPGM‚ª‘¶İ‚µ‚È‚¢ê‡‚Å‚àAƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^‚ğŠm”F‚·‚é
+		// æ¸¬å®šPGMãŒå­˜åœ¨ã—ãªã„å ´åˆã§ã‚‚ã€ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ã‚’ç¢ºèªã™ã‚‹
 		dLifeTime = 0.0;
 		if ( 1 == MEAS_CheckRefFileElapsedTimeOut(szRecipeName, dLifeTime) )
-			PifComm_DoStateDone(1);		// ƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢
+			PifComm_DoStateDone(1);		// ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„
 		else
-			PifComm_DoStateDone(2);		// ŠúŒÀØ‚ê
+			PifComm_DoStateDone(2);		// æœŸé™åˆ‡ã‚Œ
 		return;
 	}
 
 	iRet = MEAS_CheckRefFileElapsedTimeOut(szRecipeName, measProgInfo.Ref.hdr.dLifeTime);
 	PifComm_DoStateDone(iRet);
 }
-// 2009.09.10 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^Šm”F‹@”\’Ç‰Á <--
+// 2009.09.10 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ç¢ºèªæ©Ÿèƒ½è¿½åŠ  <--
 
-// 2009.06.02 K.Matsuo ‘•’u‰æ–Ê‘€ìƒCƒ“ƒ^[ƒƒbƒN‹@”\’Ç‰Á -->
+// 2009.06.02 K.Matsuo è£…ç½®ç”»é¢æ“ä½œã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ©Ÿèƒ½è¿½åŠ  -->
 //---------------------------------------------------------------------------
 // CallLock
 BOOL CMainFrmMailRecvThread::CallLock(BOOL order)
@@ -339,4 +339,4 @@ BOOL CMainFrmMailRecvThread::CallLock(BOOL order)
 
 	return TRUE;
 }
-// 2009.06.02 K.Matsuo ‘•’u‰æ–Ê‘€ìƒCƒ“ƒ^[ƒƒbƒN‹@”\’Ç‰Á <--
+// 2009.06.02 K.Matsuo è£…ç½®ç”»é¢æ“ä½œã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ©Ÿèƒ½è¿½åŠ  <--

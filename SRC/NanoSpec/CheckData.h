@@ -1,4 +1,4 @@
-#ifndef _CHECK_DATA_H_
+﻿#ifndef _CHECK_DATA_H_
 #define _CHECK_DATA_H_
 
 enum CHECK_DATA

@@ -1,4 +1,4 @@
-// ExecutionDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// ExecutionDlg.cpp : インプリメンテーション ファイル
 //
 
 #include "stdafx.h"
@@ -16,7 +16,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CExecutionDlg �_�C�A���O
+// CExecutionDlg ダイアログ
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -24,7 +24,7 @@ CExecutionDlg::CExecutionDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CExecutionDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CExecutionDlg)
-		// ���� - ClassWizard �͂��̈ʒu�Ƀ}�b�s���O�p�̃}�N����ǉ��܂��͍폜���܂��B
+		// メモ - ClassWizard はこの位置にマッピング用のマクロを追加または削除します。
 	//}}AFX_DATA_INIT
 
 	FontCreation();
@@ -45,7 +45,7 @@ void CExecutionDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CExecutionDlg)
-		// ���� - ClassWizard �͂��̈ʒu�Ƀ}�b�s���O�p�̃}�N����ǉ��܂��͍폜���܂��B
+		// メモ - ClassWizard はこの位置にマッピング用のマクロを追加または削除します。
 	//}}AFX_DATA_MAP
 
 	DDX_Control(pDX, IDOK, m_OkButton);
@@ -63,7 +63,7 @@ BEGIN_MESSAGE_MAP(CExecutionDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CExecutionDlg ���b�Z�[�W �n���h��
+// CExecutionDlg メッセージ ハンドラ
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -99,8 +99,8 @@ BOOL CExecutionDlg::OnInitDialog()
 	}
 	// Kojika 20090528 Change End
 
-	return TRUE;  // �R���g���[���Ƀt�H�[�J�X��ݒ肵�Ȃ��Ƃ��A�߂�l�� TRUE �ƂȂ�܂�
-				  // ��O: OCX �v���p�e�B �y�[�W�̖߂�l�� FALSE �ƂȂ�܂�
+	return TRUE;  // コントロールにフォーカスを設定しないとき、戻り値は TRUE となります
+				  // 例外: OCX プロパティ ページの戻り値は FALSE となります
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -251,8 +251,8 @@ void CExecutionDlg::FontCreation()
 										//	"MS Sans Serif"
 										//	"Arial"
 										//	"batangche" (Hangul)
-										//	"MS �S�V�b�N"
-										//	"MS P�S�V�b�N"
+										//	"MS ゴシック"
+										//	"MS Pゴシック"
 										//	"MS UI Gothic"
 										//	"Times New Roman"
 	);

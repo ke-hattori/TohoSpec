@@ -1,11 +1,11 @@
-// StressSampleElasticModulusSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// StressSampleElasticModulusSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
 #include "System.h"
-// 2009.09.04 bagus stress e+11•ÏX --{--
+// 2009.09.04 bagus stress e+11å¤‰æ›´ --{--
 #include <math.h>
-// 2009.09.04 bagus stress e+11•ÏX --}--
+// 2009.09.04 bagus stress e+11å¤‰æ›´ --}--
 #include "NanoSpec.h"
 #include "NanoSpecDoc.h"
 #include "MySplitterWnd.h"
@@ -19,14 +19,14 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CStressSampleElasticModulusSettingDlg ƒ_ƒCƒAƒƒO
+// CStressSampleElasticModulusSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 
 CStressSampleElasticModulusSettingDlg::CStressSampleElasticModulusSettingDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CStressSampleElasticModulusSettingDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CStressSampleElasticModulusSettingDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_INIT
 
 	m_bNewItem = FALSE;
@@ -37,7 +37,7 @@ void CStressSampleElasticModulusSettingDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CStressSampleElasticModulusSettingDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_MAP
 
 	DDX_Control(pDX, IDOK, m_OkButton);
@@ -51,11 +51,11 @@ BEGIN_MESSAGE_MAP(CStressSampleElasticModulusSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CStressSampleElasticModulusSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CStressSampleElasticModulusSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 void CStressSampleElasticModulusSettingDlg::OnOK()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚É‚»‚Ì‘¼‚ÌŒŸØ—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãã®ä»–ã®æ¤œè¨¼ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 	if (!CheckData())
 		return;
 
@@ -65,21 +65,21 @@ void CStressSampleElasticModulusSettingDlg::OnOK()
 	sText.TrimLeft();
 	sText.TrimRight();
 	if (sText.GetLength() < 1) {
-// 2009.09.09 bagus stress StringTableg—p --{--
-//		AfxMessageBox("Err:–¼Ì‚ª‹ó");
+// 2009.09.09 bagus stress StringTableä½¿ç”¨ --{--
+//		AfxMessageBox("Err:åç§°ãŒç©º");
 		CString	strBuffer;
 		LoadStringML(IDS_STRESS_INPUT_MATERIAL_NAME, strBuffer, "Please input material name.");
 		AfxMessageBox(strBuffer);
-// 2009.09.09 bagus stress StringTableg—p --}--
+// 2009.09.09 bagus stress StringTableä½¿ç”¨ --}--
 		return;
 	}
 	strcpy(m_StressModulus.tszElasticModulusName, sText.GetBuffer(0));
 
 	GetDlgItemText(IDC_MATERIAL_ELASTIC_MODULUS, sText);
-	// 2009.09.04 bagus stress e+11•ÏX --{--
+	// 2009.09.04 bagus stress e+11å¤‰æ›´ --{--
 	//m_StressModulus.dElasticModulusValue = strtod(sText.GetBuffer(0), NULL);
 	m_StressModulus.dElasticModulusValue = (strtod(sText.GetBuffer(0), NULL) * pow(10,11));
-	// 2009.09.04 bagus stress e+11•ÏX --}--
+	// 2009.09.04 bagus stress e+11å¤‰æ›´ --}--
 
 	CDialog::OnOK();
 }
@@ -88,7 +88,7 @@ BOOL CStressSampleElasticModulusSettingDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// TODO: ‚±‚ÌˆÊ’u‚É‰Šú‰»‚Ì•â‘«ˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«åˆæœŸåŒ–ã®è£œè¶³å‡¦ç†ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	///// OK Button /////
 	m_OkButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
@@ -111,15 +111,15 @@ BOOL CStressSampleElasticModulusSettingDlg::OnInitDialog()
 	} else {
 		strBuffer.Format("%s", m_StressModulus.tszElasticModulusName);
 		SetDlgItemText(IDC_MATERIAL_NAME, strBuffer);
-		// 2009.09.04 bagus stress e+11•ÏX --{--
+		// 2009.09.04 bagus stress e+11å¤‰æ›´ --{--
 		//strBuffer.Format("%e", m_StressModulus.dElasticModulusValue);
 		strBuffer.Format("%f", m_StressModulus.dElasticModulusValue / pow(10,11));
-		// 2009.09.04 bagus stress e+11•ÏX --}--
+		// 2009.09.04 bagus stress e+11å¤‰æ›´ --}--
 		SetDlgItemText(IDC_MATERIAL_ELASTIC_MODULUS, strBuffer);
 	}
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-				  // —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+				  // ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 BOOL CStressSampleElasticModulusSettingDlg::CheckData()
@@ -130,12 +130,12 @@ BOOL CStressSampleElasticModulusSettingDlg::CheckData()
 	sText.TrimLeft();
 	sText.TrimRight();
 	if (sText.GetLength() < 1) {
-// 2009.09.09 bagus stress StringTableg—p --{--
-//		AfxMessageBox("Err:–¼Ì‚ª‹ó");
+// 2009.09.09 bagus stress StringTableä½¿ç”¨ --{--
+//		AfxMessageBox("Err:åç§°ãŒç©º");
 		CString	strBuffer;
 		LoadStringML(IDS_STRESS_INPUT_MATERIAL_NAME, strBuffer, "Please input material name.");
 		AfxMessageBox(strBuffer);
-// 2009.09.09 bagus stress StringTableg—p --}--
+// 2009.09.09 bagus stress StringTableä½¿ç”¨ --}--
 		return FALSE;
 	}
 	strcpy(m_StressModulus.tszElasticModulusName, sText.GetBuffer(0));
@@ -145,10 +145,10 @@ BOOL CStressSampleElasticModulusSettingDlg::CheckData()
 		GetDlgItem(IDC_MATERIAL_ELASTIC_MODULUS)->SetFocus();
 		return FALSE;
 	}
-	// 2009.09.04 bagus stress e+11•ÏX --{--
+	// 2009.09.04 bagus stress e+11å¤‰æ›´ --{--
 	//m_StressModulus.dElasticModulusValue = strtod(sText.GetBuffer(0), NULL);
 	m_StressModulus.dElasticModulusValue = (strtod(sText.GetBuffer(0), NULL) * pow(10,11));
-	// 2009.09.04 bagus stress e+11•ÏX --}--
+	// 2009.09.04 bagus stress e+11å¤‰æ›´ --}--
 
 	return TRUE;
 }

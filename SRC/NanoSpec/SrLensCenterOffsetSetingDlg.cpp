@@ -1,4 +1,4 @@
-// SrLensCenterOffsetSetingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SrLensCenterOffsetSetingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -18,7 +18,7 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-// Lens‚ÌX‚ÌƒIƒtƒZƒbƒg’l‚ð“ü—Í‚·‚éƒeƒLƒXƒgƒ{ƒbƒNƒX‚ÌID
+// Lensã®Xã®ã‚ªãƒ•ã‚»ãƒƒãƒˆå€¤ã‚’å…¥åŠ›ã™ã‚‹ãƒ†ã‚­ã‚¹ãƒˆãƒœãƒƒã‚¯ã‚¹ã®ID
 int LensOffsetX_IDs[] = {
 	IDC_LENS1_X,
 	IDC_LENS2_X,
@@ -26,7 +26,7 @@ int LensOffsetX_IDs[] = {
 	IDC_LENS4_X,
 };
 
-// Lens‚ÌY‚ÌƒIƒtƒZƒbƒg’l‚ð“ü—Í‚·‚éƒeƒLƒXƒgƒ{ƒbƒNƒX‚ÌID
+// Lensã®Yã®ã‚ªãƒ•ã‚»ãƒƒãƒˆå€¤ã‚’å…¥åŠ›ã™ã‚‹ãƒ†ã‚­ã‚¹ãƒˆãƒœãƒƒã‚¯ã‚¹ã®ID
 int LensOffsetY_IDs[] = {
 	IDC_LENS1_Y,
 	IDC_LENS2_Y,
@@ -34,7 +34,7 @@ int LensOffsetY_IDs[] = {
 	IDC_LENS4_Y,
 };
 
-// Lens‚ÌZ‚ÌƒIƒtƒZƒbƒg’l‚ð“ü—Í‚·‚éƒeƒLƒXƒgƒ{ƒbƒNƒX‚ÌID
+// Lensã®Zã®ã‚ªãƒ•ã‚»ãƒƒãƒˆå€¤ã‚’å…¥åŠ›ã™ã‚‹ãƒ†ã‚­ã‚¹ãƒˆãƒœãƒƒã‚¯ã‚¹ã®ID
 int LensOffsetZ_IDs[] = {
 	IDC_LENS1_Z,
 	IDC_LENS2_Z,
@@ -42,7 +42,7 @@ int LensOffsetZ_IDs[] = {
 	IDC_LENS4_Z,
 };
 
-// Lens‚Ì–¼‘O‚ð“ü—Í‚·‚éƒeƒLƒXƒgƒ{ƒbƒNƒX‚ÌID
+// Lensã®åå‰ã‚’å…¥åŠ›ã™ã‚‹ãƒ†ã‚­ã‚¹ãƒˆãƒœãƒƒã‚¯ã‚¹ã®ID
 int LensName_IDs[] = {
 	IDC_LENS1_NAME,
 	IDC_LENS2_NAME,
@@ -50,7 +50,7 @@ int LensName_IDs[] = {
 	IDC_LENS4_NAME,
 };
 
-// Lens‚ÌSetupƒ{ƒ^ƒ“‚ÌID
+// Lensã®Setupãƒœã‚¿ãƒ³ã®ID
 int LensSetupButton_IDs[] = {
 	IDC_LENS1_SETUP_BUTTON,
 	IDC_LENS2_SETUP_BUTTON,
@@ -66,7 +66,7 @@ int LensSetupButton_IDs[] = {
 //#define LENS_CENTER_OFFSET_SETTING_MESSAGE			"LENS CENTER OFFSET SETTING"
 
 // #########################################################################
-// CSrLensCenterOffsetSetingDlg ƒ_ƒCƒAƒƒO
+// CSrLensCenterOffsetSetingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // #########################################################################
 
 // =========================================================================
@@ -128,7 +128,7 @@ BEGIN_MESSAGE_MAP(CSrLensCenterOffsetSetingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CSrLensCenterOffsetSetingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSrLensCenterOffsetSetingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -139,7 +139,7 @@ BOOL CSrLensCenterOffsetSetingDlg::OnInitDialog()
 
 	m_LensOffsetBackUp = m_LensOffset;
 
-	// Œ»Ý‚ÌƒŒƒ“ƒYOffsetî•ñÁ‹Ž
+	// ç¾åœ¨ã®ãƒ¬ãƒ³ã‚ºOffsetæƒ…å ±æ¶ˆåŽ»
 	SR_LENS_CENTER_OFFSET lensOffset;
 	::ZeroMemory(&lensOffset, sizeof(lensOffset));
 	ConfigFile_SetNanoSpecIni(&lensOffset, CONFIG_FILE_SR_LENS_CENTER_OFFSET);
@@ -199,7 +199,7 @@ BOOL CSrLensCenterOffsetSetingDlg::OnInitDialog()
 
 	///// Get Base Lens Number /////
 	m_iBaseLens = m_LensOffset.iBaseLens;
-	///// Base Lens‚ªUnused‚ÌŽž /////
+	///// Base LensãŒUnusedã®æ™‚ /////
 	if(!m_SrTurret[m_iBaseLens].bEnable){
 		// Kojika 20090529 Change
 		//MessageBox("A Base Lens cannot be Used.\nPlease Make a Base Lens Usable or Newly Specify a Base Lens.", "Lens Center Offset Setting", MB_OK | MB_ICONSTOP);
@@ -212,7 +212,7 @@ BOOL CSrLensCenterOffsetSetingDlg::OnInitDialog()
 		// Kojika 20090529 Change End
 	}
 
-	// ƒIƒtƒZƒbƒg’l‚Ì“ü—Í
+	// ã‚ªãƒ•ã‚»ãƒƒãƒˆå€¤ã®å…¥åŠ›
 	long BaseOffsetX = m_LensOffset.Lens[m_iBaseLens].lX;
 	long BaseOffsetY = m_LensOffset.Lens[m_iBaseLens].lY;
 	long BaseOffsetZ = m_LensOffset.Lens[m_iBaseLens].lZ;
@@ -225,7 +225,7 @@ BOOL CSrLensCenterOffsetSetingDlg::OnInitDialog()
 			pCombo->AddString(szBuff);
 		}
 
-		// –¼‘O‚Ì“ü—Í
+		// åå‰ã®å…¥åŠ›
 		// Kojika 20090529 Change
 		//SetDlgItemText(LensName_IDs[i], m_SrTurret[i].bEnable ? szBuff : "Unused");
 		LoadStringML(IDS_UNUSED, l_strBuffer, "Unused");
@@ -242,7 +242,7 @@ BOOL CSrLensCenterOffsetSetingDlg::OnInitDialog()
 		sprintf(szBuff, "%ld", m_LensOffset.Lens[i].lZ - BaseOffsetZ);
 		SetDlgItemText(LensOffsetZ_IDs[i], szBuff);
 
-		// Setupƒ{ƒ^ƒ“‚Ì—LŒø–³Œø
+		// Setupãƒœã‚¿ãƒ³ã®æœ‰åŠ¹ç„¡åŠ¹
 		GetDlgItem(LensSetupButton_IDs[i])->EnableWindow(m_SrTurret[i].bEnable);
 
 	}
@@ -274,8 +274,8 @@ BOOL CSrLensCenterOffsetSetingDlg::OnInitDialog()
 	GetDlgItem(IDC_BASE_LENS)->EnableWindow(FALSE);
 // 2009.12.26 K.Matsuo ReEdit <--
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ðÝ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
@@ -348,7 +348,7 @@ void CSrLensCenterOffsetSetingDlg::OnAllClear()
 		SetOperationLog("ALLCLEAR Button was push.");
 
 		memset(szBuff, 0, sizeof(szBuff));
-		//ƒƒ‚ƒŠ‚Ì0ƒNƒŠƒA‚Æ•\Ž¦‚Ì•ÏX
+		//ãƒ¡ãƒ¢ãƒªã®0ã‚¯ãƒªã‚¢ã¨è¡¨ç¤ºã®å¤‰æ›´
 		memset(&m_LensOffset, 0, sizeof(SR_LENS_CENTER_OFFSET));
 
 		memset(szBuff, 0, sizeof(szBuff));
@@ -410,7 +410,7 @@ void CSrLensCenterOffsetSetingDlg::OnCheck()
 	int		i;
 	CString csBuff;
 
-	// ‰æ–Ê‚ÌÝ’è’l‚ð‘‚«ž‚Þ
+	// ç”»é¢ã®è¨­å®šå€¤ã‚’æ›¸ãè¾¼ã‚€
 	lensOffset.iBaseLens = m_iBaseLens;
 	for(i = 0; i < SR_LENS_MAX; i++){
 		GetDlgItemText(LensOffsetX_IDs[i], csBuff);
@@ -426,7 +426,7 @@ void CSrLensCenterOffsetSetingDlg::OnCheck()
 
 	dlg.DoModal();
 
-	// ƒJƒŒƒ“ƒg‚ÌƒŒƒ“ƒYOffsetÁ‹Ž
+	// ã‚«ãƒ¬ãƒ³ãƒˆã®ãƒ¬ãƒ³ã‚ºOffsetæ¶ˆåŽ»
 	::ZeroMemory(&lensOffset, sizeof(lensOffset));
 	ConfigFile_SetNanoSpecIni(&lensOffset, CONFIG_FILE_SR_LENS_CENTER_OFFSET);
 //	ConfigFile_SaveNanoSpecIni(SYSTEM_SR_INI_FILE);
@@ -534,7 +534,7 @@ void CSrLensCenterOffsetSetingDlg::OnLens1SetupButton()
 
 	SetOperationLog("Lens1 SETUP Button was push.");
 
-	// ‚P‚Â–Ú‚ÌƒŒƒ“ƒY‚ð‘I‘ð
+	// ï¼‘ã¤ç›®ã®ãƒ¬ãƒ³ã‚ºã‚’é¸æŠž
 	m_pDoc->ActuateFlagsSet(ACTUATE_TURRET, TRUE);
 	StageSelectLensNotify(0);
 	m_pDoc->ActuateFlagsSet(ACTUATE_TURRET, FALSE);
@@ -614,7 +614,7 @@ void CSrLensCenterOffsetSetingDlg::OnLens2SetupButton()
 
 	SetOperationLog("Lens2 SETUP Button was push.");
 
-	// ‚Q‚Â–Ú‚ÌƒŒƒ“ƒY‚ð‘I‘ð
+	// ï¼’ã¤ç›®ã®ãƒ¬ãƒ³ã‚ºã‚’é¸æŠž
 	m_pDoc->ActuateFlagsSet(ACTUATE_TURRET, TRUE);
 	StageSelectLensNotify(1);
 	m_pDoc->ActuateFlagsSet(ACTUATE_TURRET, FALSE);
@@ -694,7 +694,7 @@ void CSrLensCenterOffsetSetingDlg::OnLens3SetupButton()
 
 	SetOperationLog("Lens3 SETUP Button was push.");
 
-	// ‚R‚Â–Ú‚ÌƒŒƒ“ƒY‚ð‘I‘ð
+	// ï¼“ã¤ç›®ã®ãƒ¬ãƒ³ã‚ºã‚’é¸æŠž
 	m_pDoc->ActuateFlagsSet(ACTUATE_TURRET, TRUE);
 	StageSelectLensNotify(2);
 	m_pDoc->ActuateFlagsSet(ACTUATE_TURRET, FALSE);
@@ -774,7 +774,7 @@ void CSrLensCenterOffsetSetingDlg::OnLens4SetupButton()
 
 	SetOperationLog("Lens4 SETUP Button was push.");
 
-	// ‚S‚Â–Ú‚ÌƒŒƒ“ƒY‚ð‘I‘ð
+	// ï¼”ã¤ç›®ã®ãƒ¬ãƒ³ã‚ºã‚’é¸æŠž
 	m_pDoc->ActuateFlagsSet(ACTUATE_TURRET, TRUE);
 	StageSelectLensNotify(3);
 	m_pDoc->ActuateFlagsSet(ACTUATE_TURRET, FALSE);
@@ -881,7 +881,7 @@ void CSrLensCenterOffsetSetingDlg::SetOperationLog(LPCTSTR pszLog)
 {
 	char strmsg[1024];
 
-	// ‘€ìƒƒO‚ðŽæ“¾
+	// æ“ä½œãƒ­ã‚°ã‚’å–å¾—
 	memset( strmsg, 0, sizeof(strmsg));
 	strcpy( strmsg, "[");
 	::GetWindowText(this->m_hWnd, &strmsg[1], 1000);

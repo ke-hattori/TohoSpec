@@ -1,4 +1,4 @@
-// SeFigureFormatSettingDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// SeFigureFormatSettingDlg.cpp : インプリメンテーション ファイル
 //
 
 #include "stdafx.h"
@@ -16,7 +16,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // #########################################################################
-// SeFigureFormatSettingDlg �_�C�A���O
+// SeFigureFormatSettingDlg ダイアログ
 // #########################################################################
 
 // =========================================================================
@@ -49,13 +49,13 @@ BEGIN_MESSAGE_MAP(SeFigureFormatSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// SeFigureFormatSettingDlg ���b�Z�[�W �n���h��
+// SeFigureFormatSettingDlg メッセージ ハンドラ
 
 // =========================================================================
 //
 BOOL SeFigureFormatSettingDlg::OnInitDialog()
 {
-	//���Ή��@�\disable
+	//未対応機能disable
 	GetDlgItem(IDC_THICKNESS_FORMAT)->ShowWindow(SW_HIDE);
 	GetDlgItem(IDC_REFLECTANCE_FORMAT)->ShowWindow(SW_HIDE);
 	GetDlgItem(IDC_TRANSMITTANCE_FORMAT)->ShowWindow(SW_HIDE);
@@ -69,7 +69,7 @@ BOOL SeFigureFormatSettingDlg::OnInitDialog()
 	GetDlgItem(IDC_CHROMATICITY_LABEL)->ShowWindow(SW_HIDE);
 	GetDlgItem(IDC_OPTICALDENSITY_LABEL)->ShowWindow(SW_HIDE);
 
-	///// ���I�T�C�Y�E�z�u�ύX /////
+	///// 動的サイズ・配置変更 /////
 	GetDlgItem(IDC_UNIT_LABEL)->SetWindowPos(&wndTop,150,10,0,0,SWP_NOSIZE);
 	GetDlgItem(IDC_THICKNESS_UNIT)->SetWindowPos(&wndTop,150,30,0,0,SWP_NOSIZE);
 	GetDlgItem(IDOK)->SetWindowPos(&wndTop,15,65,0,0,SWP_NOSIZE);
@@ -78,7 +78,7 @@ BOOL SeFigureFormatSettingDlg::OnInitDialog()
 
 	CDialog::OnInitDialog();
 
-	// TODO: ���̈ʒu�ɏ������̕⑫������ǉ����Ă�������
+	// TODO: この位置に初期化の補足処理を追加してください
 
 	///// OK Button /////
 	m_OkButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
@@ -111,8 +111,8 @@ BOOL SeFigureFormatSettingDlg::OnInitDialog()
 	this->SetWindowText(m_strCaption);
 // 2009.09.19 bagus SE --}--
 	UpDate(FALSE);
-	return TRUE;	// �R���g���[���Ƀt�H�[�J�X��ݒ肵�Ȃ��Ƃ��A�߂�l�� TRUE �ƂȂ�܂�
-					// ��O: OCX �v���p�e�B �y�[�W�̖߂�l�� FALSE �ƂȂ�܂�
+	return TRUE;	// コントロールにフォーカスを設定しないとき、戻り値は TRUE となります
+					// 例外: OCX プロパティ ページの戻り値は FALSE となります
 }
 
 // =========================================================================

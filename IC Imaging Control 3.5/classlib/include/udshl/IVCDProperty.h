@@ -1,4 +1,4 @@
-// VCDPropertyBase.h: interface for the CVCDPropertyBase class.
+﻿// VCDPropertyBase.h: interface for the CVCDPropertyBase class.
 // 
 //////////////////////////////////////////////////////////////////////
 

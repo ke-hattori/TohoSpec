@@ -1,4 +1,4 @@
-// MainMenuView.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// MainMenuView.cpp : �C���v�������e�[�V���� �t�@�C��
 //
 
 #include "stdafx.h"

@@ -1,4 +1,4 @@
-#ifndef SMARTPTR_H_INC_
+﻿#ifndef SMARTPTR_H_INC_
 #define SMARTPTR_H_INC_
 
 #include <windows.h>

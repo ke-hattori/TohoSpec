@@ -1,4 +1,4 @@
-// StartUpLogo.cpp : ƒAƒvƒŠƒP[ƒVƒ‡ƒ“—p‚ÌƒGƒ“ƒgƒŠ ƒ|ƒCƒ“ƒg‚Ì’è‹`
+ï»¿// StartUpLogo.cpp : ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ç”¨ã®ã‚¨ãƒ³ãƒˆãƒª ãƒã‚¤ãƒ³ãƒˆã®å®šç¾©
 //
 
 #include "stdafx.h"
@@ -6,7 +6,7 @@
 #include <stdio.h>
 
 /*
- *	ƒ}ƒNƒ
+ *	ãƒã‚¯ãƒ­
  */
 #define	DISPTIME_DEFAULT	(2000)
 #define	BMP_NG_WIDTH	(200)
@@ -17,7 +17,7 @@
 #define	TMR_INTVL_TIME2	(500)
 
 /*
- *	ŠÖ”ƒvƒƒgƒ^ƒCƒv
+ *	é–¢æ•°ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—
  */
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 ATOM SetWindowClass(HINSTANCE);
@@ -42,15 +42,15 @@ extern "C" BOOL WINAPI AnimateWindow(HWND hWnd, DWORD dwTime, DWORD dwFlags);
 #define AW_BLEND			0x00080000
 
 /*
- *	\‘¢‘Ì
+ *	æ§‹é€ ä½“
  */
-typedef struct {			/* ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“ƒpƒ‰ƒƒ^	*/
-	long	lWzo;				/* ƒEƒBƒ“ƒhƒE Z ƒI[ƒ_	*/
-	RECT	rectPos;			/* •\¦ˆÊ’u•ƒTƒCƒY	*/
-	long	lAnimate;			/* ƒAƒjƒ	*/
-	DWORD	dwDispTime;			/* •\¦ŠÔ	*/
+typedef struct {			/* ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ãƒ‘ãƒ©ãƒ¡ã‚¿	*/
+	long	lWzo;				/* ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ Z ã‚ªãƒ¼ãƒ€	*/
+	RECT	rectPos;			/* è¡¨ç¤ºä½ç½®ï¼†ã‚µã‚¤ã‚º	*/
+	long	lAnimate;			/* ã‚¢ãƒ‹ãƒ¡	*/
+	DWORD	dwDispTime;			/* è¡¨ç¤ºæ™‚é–“	*/
 } CMDLINE, *LPCMDLINE;
-typedef struct {			/* İ’è(ini)ƒtƒ@ƒCƒ‹ƒpƒ‰ƒƒ^	*/
+typedef struct {			/* è¨­å®š(ini)ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ãƒ©ãƒ¡ã‚¿	*/
 	struct {					/* [WINDOW]	*/
 		long	lZorder;			/* ZORDER	*/
 		HWND	hWnd;				/* HWMD	*/
@@ -58,38 +58,38 @@ typedef struct {			/* İ’è(ini)ƒtƒ@ƒCƒ‹ƒpƒ‰ƒƒ^	*/
 		DWORD	dwDispTime;			/* DISPTIME	*/
 	} Window;
 	struct {						/* [RESOURCE]	*/
-		TCHAR	tszPathIco[MAX_PATH];	/* ICON ƒAƒCƒRƒ“‚ÌƒpƒX(‘Š‘ÎƒpƒXw’è‰Â”\)	*/
-		TCHAR	tszPathBmp[MAX_PATH];	/* BMP ƒrƒbƒgƒ}ƒbƒv‚ÌƒpƒX(‘Š‘ÎƒpƒXw’è‰Â”\) */
+		TCHAR	tszPathIco[MAX_PATH];	/* ICON ã‚¢ã‚¤ã‚³ãƒ³ã®ãƒ‘ã‚¹(ç›¸å¯¾ãƒ‘ã‚¹æŒ‡å®šå¯èƒ½)	*/
+		TCHAR	tszPathBmp[MAX_PATH];	/* BMP ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ã®ãƒ‘ã‚¹(ç›¸å¯¾ãƒ‘ã‚¹æŒ‡å®šå¯èƒ½) */
 	} Resource;
 	struct {					/* [ANIMATE]	*/
-		long	lNum;				/* NUM ˆ—”(Å‘å99)	*/
+		long	lNum;				/* NUM å‡¦ç†æ•°(æœ€å¤§99)	*/
 		struct {
-			long	lMode;			/* MODEnn ƒAƒjƒí—Ş	*/
-			DWORD	dwTime;			/* TIMEnn ŠÔ[ms]C‚ ‚é‚¢‚ÍCƒtƒŒ[ƒ€”	*/
+			long	lMode;			/* MODEnn ã‚¢ãƒ‹ãƒ¡ç¨®é¡	*/
+			DWORD	dwTime;			/* TIMEnn æ™‚é–“[ms]ï¼Œã‚ã‚‹ã„ã¯ï¼Œãƒ•ãƒ¬ãƒ¼ãƒ æ•°	*/
 		} MdTm[100];
 	} Animate;
 } INIPARAMS, *LPINIPARAMS;
 
 
 /*
- *	•Ï”
+ *	å¤‰æ•°
  */
 HINSTANCE g_hInstance;
-TCHAR g_tszClassName[] = _T("StartUpLogo");		/* ƒEƒBƒ“ƒhƒEƒNƒ‰ƒXCƒLƒƒƒvƒVƒ‡ƒ“	*/
-HANDLE g_hMutex_Run;	/* ‘½d‹N“®–h~—p	*/
-TCHAR g_tszPathExe[MAX_PATH];		/* exe ‚Ìƒtƒ‹ƒpƒX	*/
-TCHAR g_tszPathBase[MAX_PATH];		/* exe ‚Ìƒtƒ‹ƒpƒX‚ÌŠg’£q–³‚µ	*/
-TCHAR g_tszDirExe[MAX_PATH];		/* exe ‚ÌƒfƒBƒŒƒNƒgƒŠ	*/
-TCHAR g_tszPathIni[MAX_PATH];		/* ini ƒtƒ‹ƒpƒX	*/
-TCHAR g_tszPathIco[MAX_PATH];		/* ƒAƒCƒRƒ“ƒtƒ@ƒCƒ‹‚Ìƒtƒ‹ƒpƒX	*/
-TCHAR g_tszPathBmp[MAX_PATH];		/* ƒrƒbƒgƒ}ƒbƒvƒtƒ@ƒCƒ‹‚Ìƒtƒ‹ƒpƒX	*/
+TCHAR g_tszClassName[] = _T("StartUpLogo");		/* ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚¯ãƒ©ã‚¹ï¼Œã‚­ãƒ£ãƒ—ã‚·ãƒ§ãƒ³	*/
+HANDLE g_hMutex_Run;	/* å¤šé‡èµ·å‹•é˜²æ­¢ç”¨	*/
+TCHAR g_tszPathExe[MAX_PATH];		/* exe ã®ãƒ•ãƒ«ãƒ‘ã‚¹	*/
+TCHAR g_tszPathBase[MAX_PATH];		/* exe ã®ãƒ•ãƒ«ãƒ‘ã‚¹ã®æ‹¡å¼µå­ç„¡ã—	*/
+TCHAR g_tszDirExe[MAX_PATH];		/* exe ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª	*/
+TCHAR g_tszPathIni[MAX_PATH];		/* ini ãƒ•ãƒ«ãƒ‘ã‚¹	*/
+TCHAR g_tszPathIco[MAX_PATH];		/* ã‚¢ã‚¤ã‚³ãƒ³ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ•ãƒ«ãƒ‘ã‚¹	*/
+TCHAR g_tszPathBmp[MAX_PATH];		/* ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ•ãƒ«ãƒ‘ã‚¹	*/
 HBITMAP g_hBmp;
 HICON g_hIcon32;
 HICON g_hIcon16;
 HCURSOR g_hCursor;
 BITMAP g_BmpInfo;
-CMDLINE g_CmdLine;			/* ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“ƒpƒ‰ƒƒ^	*/
-INIPARAMS g_IniParams;		/* ini ƒtƒ@ƒCƒ‹ƒpƒ‰ƒƒ^	*/
+CMDLINE g_CmdLine;			/* ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ãƒ‘ãƒ©ãƒ¡ã‚¿	*/
+INIPARAMS g_IniParams;		/* ini ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ãƒ©ãƒ¡ã‚¿	*/
 long g_lAnimeCnt;
 int g_iPrc;
 BOOL g_bWM_CLOSE_No1st;
@@ -101,7 +101,7 @@ int APIENTRY _tWinMain(
 						LPTSTR		lpCmdLine,
 						int			nCmdShow)
 {
- 	// TODO: ‚±‚ÌˆÊ’u‚ÉƒR[ƒh‚ğ‹Lq‚µ‚Ä‚­‚¾‚³‚¢B
+ 	// TODO: ã“ã®ä½ç½®ã«ã‚³ãƒ¼ãƒ‰ã‚’è¨˜è¿°ã—ã¦ãã ã•ã„ã€‚
 
 	BOOL l_bRet = FALSE;
 	BOOL l_bInitERR = FALSE;
@@ -110,14 +110,14 @@ int APIENTRY _tWinMain(
 
 	g_hInstance = hInstance;
 
-	/* ‰Šú‰»	*/
+	/* åˆæœŸåŒ–	*/
 	if (FALSE != InitInstance(lpCmdLine)) {
-		/* ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX‚Ì“o˜^	*/
+		/* ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚¯ãƒ©ã‚¹ã®ç™»éŒ²	*/
 		if (0 != SetWindowClass(g_hInstance)) {
-			/* ƒEƒBƒ“ƒhƒE‚Ì¶¬	*/
+			/* ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ç”Ÿæˆ	*/
 			if (FALSE != CreateWin(g_hInstance, nCmdShow)) {
 				l_bInitERR = FALSE;
-				/* ƒƒbƒZ[ƒWƒ‹[ƒv	*/
+				/* ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ«ãƒ¼ãƒ—	*/
 				while (0 != (l_bRet = ::GetMessage(&l_msg, NULL, 0, 0))) {
 					if (l_bRet == -1) {
 						break;
@@ -136,7 +136,7 @@ int APIENTRY _tWinMain(
 		l_bInitERR = TRUE;
 	}
 
-	/* I—¹ˆ—	*/
+	/* çµ‚äº†å‡¦ç†	*/
 	ExitInstance();
 
 	if (FALSE == l_bInitERR) {
@@ -149,53 +149,53 @@ int APIENTRY _tWinMain(
 }
 
 /*
- *	ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX‚Ì“o˜^
+ *	ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚¯ãƒ©ã‚¹ã®ç™»éŒ²
  */
 ATOM SetWindowClass(HINSTANCE hInstance)
 {
 	WNDCLASSEX l_wc;
 	l_wc.cbSize = sizeof(WNDCLASSEX);
 	l_wc.style = CS_HREDRAW | CS_VREDRAW;
-	l_wc.lpfnWndProc = WndProc;						/* ƒvƒƒV[ƒWƒƒ–¼	*/
+	l_wc.lpfnWndProc = WndProc;						/* ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£å	*/
 	l_wc.cbClsExtra = 0;
 	l_wc.cbWndExtra = 0;
-	l_wc.hInstance = hInstance;						/* ƒCƒ“ƒXƒ^ƒ“ƒX	*/
-	l_wc.hIcon = (0 != g_hIcon32)? g_hIcon32 : 0;	/* ƒAƒCƒRƒ“•W€	*/
-	l_wc.hCursor = (0 != g_hCursor)? g_hCursor : 0;	/* ƒJ[ƒ\ƒ‹	*/
+	l_wc.hInstance = hInstance;						/* ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹	*/
+	l_wc.hIcon = (0 != g_hIcon32)? g_hIcon32 : 0;	/* ã‚¢ã‚¤ã‚³ãƒ³æ¨™æº–	*/
+	l_wc.hCursor = (0 != g_hCursor)? g_hCursor : 0;	/* ã‚«ãƒ¼ã‚½ãƒ«	*/
 	l_wc.hbrBackground = (HBRUSH) ::GetStockObject(WHITE_BRUSH);
-	l_wc.lpszMenuName = 0;							/* ƒƒjƒ…[–¼	*/
-	l_wc.lpszClassName = (LPCTSTR) g_tszClassName;	/* ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX–¼	*/
-	l_wc.hIconSm = (0 != g_hIcon16)? g_hIcon16 : 0;	/* ƒAƒCƒRƒ“¬	*/
+	l_wc.lpszMenuName = 0;							/* ãƒ¡ãƒ‹ãƒ¥ãƒ¼å	*/
+	l_wc.lpszClassName = (LPCTSTR) g_tszClassName;	/* ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚¯ãƒ©ã‚¹å	*/
+	l_wc.hIconSm = (0 != g_hIcon16)? g_hIcon16 : 0;	/* ã‚¢ã‚¤ã‚³ãƒ³å°	*/
 
     return (::RegisterClassEx(&l_wc));
 }
 
 /*
- *	ƒEƒBƒ“ƒhƒE‚Ì¶¬
+ *	ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ç”Ÿæˆ
  */
 BOOL CreateWin(HINSTANCE hInstance, int nCmdShow)
 {
 	HWND l_hWnd;
 
 	l_hWnd = ::CreateWindow(
-					g_tszClassName,			/* “o˜^‚³‚ê‚Ä‚¢‚éƒEƒBƒ“ƒhƒEƒNƒ‰ƒX–¼	*/
-					g_tszClassName,			/* ƒLƒƒƒvƒVƒ‡ƒ“	*/
-//					WS_OVERLAPPEDWINDOW,	/* ƒEƒBƒ“ƒhƒE‚Ìí—Ş	*/
-					WS_POPUP,				/* ƒEƒBƒ“ƒhƒE‚Ìí—Ş	*/
-					g_IniParams.Window.rectPos.left,		/* X À•W	*/
-					g_IniParams.Window.rectPos.top,			/* Y À•W	*/
-					g_IniParams.Window.rectPos.right - g_IniParams.Window.rectPos.left + 1,	/* •	*/
-					g_IniParams.Window.rectPos.bottom - g_IniParams.Window.rectPos.top + 1,	/* ‚‚³	*/
-					NULL,					/* eƒEƒBƒ“ƒhƒE‚Ìƒnƒ“ƒhƒ‹De‚ğì‚é‚Æ‚«‚Í NULL	*/
-					NULL,					/* ƒƒjƒ…[ƒnƒ“ƒhƒ‹DƒNƒ‰ƒXƒƒjƒ…[‚ğg‚¤‚Æ‚«‚Í NULL	*/
-					hInstance,				/* ƒCƒ“ƒXƒ^ƒ“ƒXƒnƒ“ƒhƒ‹	*/
-					NULL					/* ƒEƒBƒ“ƒhƒEì¬ƒf[ƒ^	*/
+					g_tszClassName,			/* ç™»éŒ²ã•ã‚Œã¦ã„ã‚‹ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚¯ãƒ©ã‚¹å	*/
+					g_tszClassName,			/* ã‚­ãƒ£ãƒ—ã‚·ãƒ§ãƒ³	*/
+//					WS_OVERLAPPEDWINDOW,	/* ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ç¨®é¡	*/
+					WS_POPUP,				/* ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ç¨®é¡	*/
+					g_IniParams.Window.rectPos.left,		/* X åº§æ¨™	*/
+					g_IniParams.Window.rectPos.top,			/* Y åº§æ¨™	*/
+					g_IniParams.Window.rectPos.right - g_IniParams.Window.rectPos.left + 1,	/* å¹…	*/
+					g_IniParams.Window.rectPos.bottom - g_IniParams.Window.rectPos.top + 1,	/* é«˜ã•	*/
+					NULL,					/* è¦ªã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ãƒãƒ³ãƒ‰ãƒ«ï¼è¦ªã‚’ä½œã‚‹ã¨ãã¯ NULL	*/
+					NULL,					/* ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãƒãƒ³ãƒ‰ãƒ«ï¼ã‚¯ãƒ©ã‚¹ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’ä½¿ã†ã¨ãã¯ NULL	*/
+					hInstance,				/* ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãƒãƒ³ãƒ‰ãƒ«	*/
+					NULL					/* ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ä½œæˆãƒ‡ãƒ¼ã‚¿	*/
 				);
 	if (0 == l_hWnd) {
         return FALSE;
 	}
 //	::ShowWindow(l_hWnd, nCmdShow);
-	::ShowWindow(l_hWnd, SW_SHOWNORMAL);	/* ’Êí•\¦ŒÅ’è	*/
+	::ShowWindow(l_hWnd, SW_SHOWNORMAL);	/* é€šå¸¸è¡¨ç¤ºå›ºå®š	*/
 	::UpdateWindow(l_hWnd);
 
 	return TRUE;
@@ -203,7 +203,7 @@ BOOL CreateWin(HINSTANCE hInstance, int nCmdShow)
 
 BOOL InitInstance(LPTSTR lpCmdLine)
 {
-	/* “ñd‹N“®‚ğ–h~	*/
+	/* äºŒé‡èµ·å‹•ã‚’é˜²æ­¢	*/
 	g_hMutex_Run = 0;
 	g_hMutex_Run = ::CreateMutex(NULL, TRUE, g_tszClassName);
 	if ((g_hMutex_Run == NULL) || (::GetLastError() == ERROR_ALREADY_EXISTS)) {
@@ -211,7 +211,7 @@ BOOL InitInstance(LPTSTR lpCmdLine)
 		return	FALSE;
 	}
 
-	/* Šeíƒtƒ@ƒCƒ‹ƒpƒX‚Ì\’z	*/
+	/* å„ç¨®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã®æ§‹ç¯‰	*/
 	if (0 == ::GetModuleFileName(0, g_tszPathExe, sizeof(g_tszPathExe) / sizeof(TCHAR) - 1)) {
 		return FALSE;
 	}
@@ -224,15 +224,15 @@ BOOL InitInstance(LPTSTR lpCmdLine)
 	_stprintf(g_tszPathIco, _T("%s.ico"), g_tszPathBase);
 	_stprintf(g_tszPathBmp, _T("%s.bmp"), g_tszPathBase);
 
-	/* ƒRƒ}ƒ“ƒhƒpƒ‰ƒƒ^‚Ì”»’è	*/
+	/* ã‚³ãƒãƒ³ãƒ‰ãƒ‘ãƒ©ãƒ¡ã‚¿ã®åˆ¤å®š	*/
 	if (0 != lpCmdLine) {
 		TCHAR* l_ptszTmp = 0;
 		TCHAR l_tszTmp[256];
 		int i;
-		/* ƒEƒBƒ“ƒhƒE Z ƒI[ƒ_	WZO<param>	*/
+		/* ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ Z ã‚ªãƒ¼ãƒ€	WZO<param>	*/
 		l_ptszTmp = _tcsstr(lpCmdLine, _T("WZO"));
 		if (0 == l_ptszTmp) {
-			/* WZO w’è–³‚µ	*/
+			/* WZO æŒ‡å®šç„¡ã—	*/
 			g_CmdLine.lWzo = 0;
 		} else {
 			l_ptszTmp += _tcslen(_T("WZO"));
@@ -244,34 +244,34 @@ BOOL InitInstance(LPTSTR lpCmdLine)
 				l_tszTmp[i] = *l_ptszTmp++;
 			}
 			if			(0 == _tcscmp(l_tszTmp, _T("TOPMOST"))) {
-				/* Å‘O–Ê	*/
+				/* æœ€å‰é¢	*/
 				g_CmdLine.lWzo = 1;
 			} else if	(0 == _tcscmp(l_tszTmp, _T("TOPMOST2"))) {
-				/* Å‘O–Ê‚Q	*/
+				/* æœ€å‰é¢ï¼’	*/
 				g_CmdLine.lWzo = 2;
 			} else if	(0 == _tcscmp(l_tszTmp, _T("NOZO"))) {
-				/* •ÏX–³‚µ	*/
+				/* å¤‰æ›´ç„¡ã—	*/
 				g_CmdLine.lWzo = 0;
 			} else {
-				/* ƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹	*/
+				/* ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«	*/
 				for (i = 0; i < ((int) _tcslen(l_tszTmp)); i++) {
 					if (0 == _istxdigit(l_tszTmp[i])) {
 						break;
 					}
 				}
 				if (((int) _tcslen(l_tszTmp)) <= i) {
-					/* ³í	*/
+					/* æ­£å¸¸	*/
 					g_CmdLine.lWzo = _tcstoul(l_tszTmp, 0, 16);
 				} else {
-					/* ˆÙí(•ÏX–³‚µ)	*/
+					/* ç•°å¸¸(å¤‰æ›´ç„¡ã—)	*/
 					g_CmdLine.lWzo = 0;
 				}
 			}
 		}
-		/* ƒAƒjƒ				ANIMATE<param>	*/
+		/* ã‚¢ãƒ‹ãƒ¡				ANIMATE<param>	*/
 		l_ptszTmp = _tcsstr(lpCmdLine, _T("ANIMATE"));
 		if (0 == l_ptszTmp) {
-			/* ANIMATE w’è–³‚µ	*/
+			/* ANIMATE æŒ‡å®šç„¡ã—	*/
 			g_CmdLine.lAnimate = 0;
 		} else {
 			l_ptszTmp += _tcslen(_T("ANIMATE"));
@@ -283,17 +283,17 @@ BOOL InitInstance(LPTSTR lpCmdLine)
 				l_tszTmp[i] = *l_ptszTmp++;
 			}
 			if (0 == _tcscmp(l_tszTmp, _T("1"))) {
-				/* ƒfƒtƒHƒ‹ƒgƒAƒjƒ	*/
+				/* ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚¢ãƒ‹ãƒ¡	*/
 				g_CmdLine.lAnimate = 1;
 			} else {
-				/* ƒAƒjƒ–³‚µ	*/
+				/* ã‚¢ãƒ‹ãƒ¡ç„¡ã—	*/
 				g_CmdLine.lAnimate = 0;
 			}
 		}
-		/* •\¦ŠÔ				DISPTIME<param>	*/
+		/* è¡¨ç¤ºæ™‚é–“				DISPTIME<param>	*/
 		l_ptszTmp = _tcsstr(lpCmdLine, _T("DISPTIME"));
 		if (0 == l_ptszTmp) {
-			/* DISPTIME w’è–³‚µ	*/
+			/* DISPTIME æŒ‡å®šç„¡ã—	*/
 			g_CmdLine.dwDispTime = DISPTIME_DEFAULT;
 		} else {
 			l_ptszTmp += _tcslen(_T("DISPTIME"));
@@ -310,17 +310,17 @@ BOOL InitInstance(LPTSTR lpCmdLine)
 				}
 			}
 			if (((int) _tcslen(l_tszTmp)) <= i) {
-				/* ³í	*/
+				/* æ­£å¸¸	*/
 				g_CmdLine.dwDispTime = _tcstoul(l_tszTmp, 0, 10);
 			} else {
-				/* ˆÙí(•ÏX–³‚µ)	*/
+				/* ç•°å¸¸(å¤‰æ›´ç„¡ã—)	*/
 				g_CmdLine.dwDispTime = DISPTIME_DEFAULT;
 			}
 		}
-		/* •\¦ˆÊ’u•ƒTƒCƒY		RECT<left>,<top>,<right>,<bottom>	*/
+		/* è¡¨ç¤ºä½ç½®ï¼†ã‚µã‚¤ã‚º		RECT<left>,<top>,<right>,<bottom>	*/
 		l_ptszTmp = _tcsstr(lpCmdLine, _T("RECT"));
 		if (0 == l_ptszTmp) {
-			/* RECT w’è–³‚µ	*/
+			/* RECT æŒ‡å®šç„¡ã—	*/
 			g_CmdLine.rectPos.left = -1;
 			g_CmdLine.rectPos.top = -1;
 			g_CmdLine.rectPos.right = -1;
@@ -344,13 +344,13 @@ BOOL InitInstance(LPTSTR lpCmdLine)
 				}
 			}
 			if ((i < ((int) _tcslen(l_tszTmp))) || (3 != l_iCommaCnt)) {
-				/* ˆÙí	*/
+				/* ç•°å¸¸	*/
 				g_CmdLine.rectPos.left = -1;
 				g_CmdLine.rectPos.top = -1;
 				g_CmdLine.rectPos.right = -1;
 				g_CmdLine.rectPos.bottom = -1;
 			} else {
-				/* ³í	*/
+				/* æ­£å¸¸	*/
 				TCHAR *l_ptszTmpS = &(l_tszTmp[0]);
 				TCHAR *l_ptszTmpN;
 
@@ -395,40 +395,40 @@ BOOL InitInstance(LPTSTR lpCmdLine)
 		}
 	}
 
-	/* ƒfƒXƒNƒgƒbƒv‚ÌƒTƒCƒY	*/
+	/* ãƒ‡ã‚¹ã‚¯ãƒˆãƒƒãƒ—ã®ã‚µã‚¤ã‚º	*/
 	POINT l_ptDeskTop;
 	l_ptDeskTop.x = ::GetSystemMetrics(SM_CXSCREEN);
 	l_ptDeskTop.y = ::GetSystemMetrics(SM_CYSCREEN);
 
-	/* İ’è(ini)ƒtƒ@ƒCƒ‹‚Ì“Ç‚İ	*/
+	/* è¨­å®š(ini)ãƒ•ã‚¡ã‚¤ãƒ«ã®èª­è¾¼ã¿	*/
 	memset(&g_IniParams, 0, sizeof(g_IniParams));
 	DWORD l_dwRc = ::GetFileAttributes(g_tszPathIni);
 	switch (l_dwRc) {
 	case -1:
 	case FILE_ATTRIBUTE_DIRECTORY:
-		/* ini ƒtƒ@ƒCƒ‹–³‚µ	*/
-		/* ƒEƒBƒ“ƒhƒE Z ƒI[ƒ_	*/
+		/* ini ãƒ•ã‚¡ã‚¤ãƒ«ç„¡ã—	*/
+		/* ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ Z ã‚ªãƒ¼ãƒ€	*/
 		switch (g_CmdLine.lWzo) {
-		case 0:		/* •ÏX–³‚µ	*/
+		case 0:		/* å¤‰æ›´ç„¡ã—	*/
 			g_IniParams.Window.lZorder = 0;
 			g_IniParams.Window.hWnd = (HWND) -1;
 			break;
-		case 1:		/* Å‘O–Ê	*/
+		case 1:		/* æœ€å‰é¢	*/
 			g_IniParams.Window.lZorder = 1;
 			g_IniParams.Window.hWnd = (HWND) -1;
 			break;
-		case 2:		/* Å‘O–Ê‚Q	*/
+		case 2:		/* æœ€å‰é¢ï¼’	*/
 			g_IniParams.Window.lZorder = 2;
 			g_IniParams.Window.hWnd = (HWND) -1;
 			break;
-		default:	/* ƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹	*/
+		default:	/* ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«	*/
 			g_IniParams.Window.lZorder = 3;
 			g_IniParams.Window.hWnd = (HWND) g_CmdLine.lWzo;
 			break;
 		}
-		/* ƒrƒbƒgƒ}ƒbƒv‚Ìƒ[ƒh	*/
+		/* ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ã®ãƒ­ãƒ¼ãƒ‰	*/
 		LoadBmp(g_tszPathBmp);
-		/* •\¦ˆÊ’u•ƒTƒCƒY	*/
+		/* è¡¨ç¤ºä½ç½®ï¼†ã‚µã‚¤ã‚º	*/
 		if (g_CmdLine.rectPos.left < 0) {
 			g_IniParams.Window.rectPos.left = (l_ptDeskTop.x - g_BmpInfo.bmWidth) / 2;
 		} else {
@@ -449,42 +449,42 @@ BOOL InitInstance(LPTSTR lpCmdLine)
 		} else {
 			g_IniParams.Window.rectPos.bottom = g_CmdLine.rectPos.bottom;
 		}
-		/* ƒAƒjƒ	*/
+		/* ã‚¢ãƒ‹ãƒ¡	*/
 		if (1 == g_CmdLine.lAnimate) {
-			/* ƒfƒtƒHƒ‹ƒgƒAƒjƒ	*/
+			/* ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚¢ãƒ‹ãƒ¡	*/
 			g_IniParams.Animate.lNum = 0;
 		} else {
-			/* ƒAƒjƒ–³‚µ(ƒfƒtƒHƒ‹ƒg)	*/
+			/* ã‚¢ãƒ‹ãƒ¡ç„¡ã—(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ)	*/
 			g_IniParams.Animate.lNum = -1;
 		}
-		/* •\¦ŠÔ	*/
+		/* è¡¨ç¤ºæ™‚é–“	*/
 		g_IniParams.Window.dwDispTime = g_CmdLine.dwDispTime;
-		/* ƒAƒCƒRƒ“ƒtƒ@ƒCƒ‹	*/
+		/* ã‚¢ã‚¤ã‚³ãƒ³ãƒ•ã‚¡ã‚¤ãƒ«	*/
 		_tcscpy(g_IniParams.Resource.tszPathIco, g_tszPathIco);
-		/* ƒrƒbƒgƒ}ƒbƒvƒtƒ@ƒCƒ‹	*/
+		/* ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«	*/
 		_tcscpy(g_IniParams.Resource.tszPathBmp, g_tszPathBmp);
 		break;
 	default:
-		/* ini ƒtƒ@ƒCƒ‹—L‚è	*/
+		/* ini ãƒ•ã‚¡ã‚¤ãƒ«æœ‰ã‚Š	*/
 		TCHAR l_tszSec[32];
 		TCHAR l_tszTmp[MAX_PATH];
 		long l_lTmp;
-		_tcscpy(l_tszSec, _T("RESOURCE"));	/* ƒŠƒ\[ƒX	*/
-		/* ƒAƒCƒRƒ“‚ÌƒpƒX	*/
+		_tcscpy(l_tszSec, _T("RESOURCE"));	/* ãƒªã‚½ãƒ¼ã‚¹	*/
+		/* ã‚¢ã‚¤ã‚³ãƒ³ã®ãƒ‘ã‚¹	*/
 		::GetPrivateProfileString(l_tszSec, _T("ICON"), _T(""), l_tszTmp, MAX_PATH - 1, g_tszPathIni);
 		if (l_tszTmp[1] == _T(':')) {
 			_tcscpy(g_IniParams.Resource.tszPathIco, l_tszTmp);
 		} else {
 			_stprintf(g_IniParams.Resource.tszPathIco, _T("%s%s"), g_tszDirExe, l_tszTmp);
 		}
-		/* ƒrƒbƒgƒ}ƒbƒv‚ÌƒpƒX	*/
+		/* ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ã®ãƒ‘ã‚¹	*/
 		::GetPrivateProfileString(l_tszSec, _T("BMP"), _T(""), l_tszTmp, MAX_PATH - 1, g_tszPathIni);
 		if (l_tszTmp[1] == _T(':')) {
 			_tcscpy(g_IniParams.Resource.tszPathBmp, l_tszTmp);
 		} else {
 			_stprintf(g_IniParams.Resource.tszPathBmp, _T("%s%s"), g_tszDirExe, l_tszTmp);
 		}
-		_tcscpy(l_tszSec, _T("WINDOW"));	/* ƒEƒBƒ“ƒhƒE	*/
+		_tcscpy(l_tszSec, _T("WINDOW"));	/* ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦	*/
 		/* ZORDER	*/
 		l_lTmp = ::GetPrivateProfileInt(l_tszSec, _T("ZORDER"), 0, g_tszPathIni);
 		if ((l_lTmp < 0) || (4 <= l_lTmp)) {
@@ -492,7 +492,7 @@ BOOL InitInstance(LPTSTR lpCmdLine)
 		} else {
 			g_IniParams.Window.lZorder = l_lTmp;
 		}
-		/* ƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹	*/
+		/* ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«	*/
 		l_lTmp = ::GetPrivateProfileInt(l_tszSec, _T("HWMD"), -1, g_tszPathIni);
 		if (l_lTmp < 3) {
 			l_lTmp = -1;
@@ -500,9 +500,9 @@ BOOL InitInstance(LPTSTR lpCmdLine)
 		if ((3 == g_IniParams.Window.lZorder) && (-1 == l_lTmp)) {
 			g_IniParams.Window.lZorder = 0;
 		}
-		/* ƒrƒbƒgƒ}ƒbƒv‚Ìƒ[ƒh	*/
+		/* ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ã®ãƒ­ãƒ¼ãƒ‰	*/
 		LoadBmp(g_IniParams.Resource.tszPathBmp);
-		/* •\¦ˆÊ’u•ƒTƒCƒY	*/
+		/* è¡¨ç¤ºä½ç½®ï¼†ã‚µã‚¤ã‚º	*/
 		l_lTmp = ::GetPrivateProfileInt(l_tszSec, _T("LEFT"), -1, g_tszPathIni);
 		g_IniParams.Window.rectPos.left = l_lTmp;
 		l_lTmp = ::GetPrivateProfileInt(l_tszSec, _T("TOP"), -1, g_tszPathIni);
@@ -529,11 +529,11 @@ BOOL InitInstance(LPTSTR lpCmdLine)
 		if (g_IniParams.Window.rectPos.bottom < 0) {
 			g_IniParams.Window.rectPos.bottom = g_IniParams.Window.rectPos.top + g_BmpInfo.bmHeight - 1;
 		}
-		/* •\¦ŠÔ	*/
+		/* è¡¨ç¤ºæ™‚é–“	*/
 		l_lTmp = ::GetPrivateProfileInt(l_tszSec, _T("DISPTIME"), 2000, g_tszPathIni);
 		g_IniParams.Window.dwDispTime = l_lTmp;
-		_tcscpy(l_tszSec, _T("ANIMATE"));	/* ƒAƒjƒ	*/
-		/* ˆ—”CƒAƒjƒí—ŞCŠÔ	*/
+		_tcscpy(l_tszSec, _T("ANIMATE"));	/* ã‚¢ãƒ‹ãƒ¡	*/
+		/* å‡¦ç†æ•°ï¼Œã‚¢ãƒ‹ãƒ¡ç¨®é¡ï¼Œæ™‚é–“	*/
 		l_lTmp = ::GetPrivateProfileInt(l_tszSec, _T("NUM"), -1, g_tszPathIni);
 		if (99 < l_lTmp) {
 			g_IniParams.Animate.lNum = 99;
@@ -565,7 +565,7 @@ BOOL InitInstance(LPTSTR lpCmdLine)
 		break;
 	}
 	if (0 == g_IniParams.Animate.lNum) {
-		/* ƒfƒtƒHƒ‹ƒgƒAƒjƒ	*/
+		/* ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚¢ãƒ‹ãƒ¡	*/
 		g_IniParams.Animate.lNum = 4;
 //		g_IniParams.Animate.MdTm[0].lMode = AW_CENTER | AW_HIDE;
 		g_IniParams.Animate.MdTm[0].lMode = AW_BLEND | AW_HIDE;
@@ -580,7 +580,7 @@ BOOL InitInstance(LPTSTR lpCmdLine)
 		g_IniParams.Animate.MdTm[4].dwTime = 3000;
 	}
 
-	/* ƒAƒCƒRƒ“‚Ìƒ[ƒh	*/
+	/* ã‚¢ã‚¤ã‚³ãƒ³ã®ãƒ­ãƒ¼ãƒ‰	*/
 	g_hIcon32 = 0;
 	g_hIcon32 = (HICON) ::LoadImage(
 							NULL,
@@ -597,7 +597,7 @@ BOOL InitInstance(LPTSTR lpCmdLine)
 							16, 16,
 							LR_LOADFROMFILE
 						);
-	/* ƒJ[ƒ\ƒ‹‚Ìİ’è	*/
+	/* ã‚«ãƒ¼ã‚½ãƒ«ã®è¨­å®š	*/
 	g_hCursor = 0;
 	g_hCursor = (HCURSOR) LoadImage(
 								NULL,
@@ -631,7 +631,7 @@ void ExitInstance()
 }
 
 /*
- *	ƒEƒBƒ“ƒhƒEƒvƒƒV[ƒWƒƒ
+ *	ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£
  */
 LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
@@ -643,34 +643,34 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	switch (msg) {
 	case WM_CREATE:
 		{
-			/* ƒc[ƒ‹ƒEƒBƒ“ƒhƒE‚É‚·‚é‚±‚Æ‚Åƒ^ƒXƒNƒo[‚É•\¦‚µ‚È‚¢	*/
+			/* ãƒ„ãƒ¼ãƒ«ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã«ã™ã‚‹ã“ã¨ã§ã‚¿ã‚¹ã‚¯ãƒãƒ¼ã«è¡¨ç¤ºã—ãªã„	*/
 			long l_lExStyle = ::GetWindowLong(hWnd, GWL_EXSTYLE);
 			l_lExStyle |= WS_EX_TOOLWINDOW;
 			::SetWindowLong(hWnd, GWL_EXSTYLE, l_lExStyle);
-			/* ƒ^ƒCƒgƒ‹ƒo[(ƒLƒƒƒvƒVƒ‡ƒ“)‚ğÁ‚·
-			   ˜g‚ğÁ‚·	*/
+			/* ã‚¿ã‚¤ãƒˆãƒ«ãƒãƒ¼(ã‚­ãƒ£ãƒ—ã‚·ãƒ§ãƒ³)ã‚’æ¶ˆã™
+			   æ ã‚’æ¶ˆã™	*/
 			long l_lStyle = ::GetWindowLong(hWnd, GWL_STYLE);
 			l_lStyle &= ~WS_CAPTION;
 			l_lStyle &= ~WS_THICKFRAME;
 			::SetWindowLong(hWnd, GWL_STYLE, l_lStyle);
-			/* Z ƒI[ƒ_	*/
+			/* Z ã‚ªãƒ¼ãƒ€	*/
 			HWND l_hWnd = (HWND) -1;
 			HWND l_hWndInsertAfter = 0;
 			switch (g_IniParams.Window.lZorder) {
-			case 1:		/* Å‘O–Ê	*/
+			case 1:		/* æœ€å‰é¢	*/
 				l_hWnd = hWnd;
 				l_hWndInsertAfter = HWND_TOPMOST;
 				break;
-			case 2:		/* Å‘O–Ê‚Q	*/
+			case 2:		/* æœ€å‰é¢ï¼’	*/
 				l_hWnd = hWnd;
 				l_hWndInsertAfter = HWND_TOPMOST;
 				break;
-			case 3:		/* ƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹	*/
+			case 3:		/* ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«	*/
 				l_hWnd = g_IniParams.Window.hWnd;
 				l_hWndInsertAfter = hWnd;
 				break;
-			case 0:		/* •ÏX–³‚µ	*/
-			default:	/* ƒfƒtƒHƒ‹ƒg	*/
+			case 0:		/* å¤‰æ›´ç„¡ã—	*/
+			default:	/* ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ	*/
 				break;
 			}
 			if (((HWND) -1) != l_hWnd) {
@@ -683,18 +683,18 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 								);
 			}
 		}
-		/* ‹N“®‚ÌƒAƒjƒ	*/
+		/* èµ·å‹•æ™‚ã®ã‚¢ãƒ‹ãƒ¡	*/
 		g_lAnimeCnt = 0;
 		if (g_IniParams.Animate.lNum <= 0) {
-			/* ‰½‚à‚µ‚È‚¢	*/
+			/* ä½•ã‚‚ã—ãªã„	*/
 		} else {
-			g_lAnimeCnt = 1;	/* ‰‰ñƒAƒjƒ	*/
+			g_lAnimeCnt = 1;	/* åˆå›ã‚¢ãƒ‹ãƒ¡	*/
 			AnimateWindow(	hWnd,
 							g_IniParams.Animate.MdTm[g_lAnimeCnt].dwTime,
 							g_IniParams.Animate.MdTm[g_lAnimeCnt].lMode);
 		}
 		::SetForegroundWindow(hWnd);
-		/* ƒ^ƒCƒ}ŠJn	*/
+		/* ã‚¿ã‚¤ãƒé–‹å§‹	*/
 		g_iPrc = 0;
 		g_bWM_CLOSE_No1st = FALSE;
 		::SetTimer(hWnd, TMR_INTVL_ID, TMR_INTVL_TIME, 0);
@@ -704,7 +704,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 		switch (wParam) {
 		case TMR_INTVL_ID2:
 			::KillTimer(hWnd, TMR_INTVL_ID2);
-			/* Å‘O–Ê‚Q	*/
+			/* æœ€å‰é¢ï¼’	*/
 			if (2 == g_IniParams.Window.lZorder) {
 				BOOL l_bRc = ::SetWindowPos(
 									hWnd,
@@ -718,75 +718,75 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 			break;
 		case TMR_INTVL_ID:
 			::KillTimer(hWnd, TMR_INTVL_ID);
-			/* ƒAƒjƒ”»’è	*/
+			/* ã‚¢ãƒ‹ãƒ¡åˆ¤å®š	*/
 			if (0 < g_IniParams.Animate.lNum) {
-				/* ƒAƒjƒ—L‚è	*/
+				/* ã‚¢ãƒ‹ãƒ¡æœ‰ã‚Š	*/
 				switch (g_iPrc) {
-				case 0:		/* ŸƒRƒ}ƒ“ƒhˆ—	*/
-					g_lAnimeCnt++;	/* ƒRƒ}ƒ“ƒhƒ|ƒCƒ“ƒ^XV	*/
+				case 0:		/* æ¬¡ã‚³ãƒãƒ³ãƒ‰å‡¦ç†	*/
+					g_lAnimeCnt++;	/* ã‚³ãƒãƒ³ãƒ‰ãƒã‚¤ãƒ³ã‚¿æ›´æ–°	*/
 					if (g_lAnimeCnt <= g_IniParams.Animate.lNum) {
-						/* ƒRƒ}ƒ“ƒhƒ|ƒCƒ“ƒ^‚ªİ’è”ˆÈ“à	*/
+						/* ã‚³ãƒãƒ³ãƒ‰ãƒã‚¤ãƒ³ã‚¿ãŒè¨­å®šæ•°ä»¥å†…	*/
 						if (g_IniParams.Animate.MdTm[g_lAnimeCnt].lMode < 0) {
-							/* Šg’£ƒRƒ}ƒ“ƒh	*/
+							/* æ‹¡å¼µã‚³ãƒãƒ³ãƒ‰	*/
 							ls_lCmd = g_IniParams.Animate.MdTm[g_lAnimeCnt].lMode * -1;
 							if ((0 <= ls_lCmd) && (ls_lCmd <= 99)) {
-								/* ƒRƒ}ƒ“ƒh”Ô†‚ÉƒWƒƒƒ“ƒv	*/
+								/* ã‚³ãƒãƒ³ãƒ‰ç•ªå·ã«ã‚¸ãƒ£ãƒ³ãƒ—	*/
 								if (g_IniParams.Animate.lNum < ls_lCmd) {
 									ls_lCmd = g_IniParams.Animate.lNum;
 								}
-								g_lAnimeCnt = ls_lCmd - 1;	/* w’èƒRƒ}ƒ“ƒh”Ô†|‚P ‚ğƒZƒbƒg	*/
+								g_lAnimeCnt = ls_lCmd - 1;	/* æŒ‡å®šã‚³ãƒãƒ³ãƒ‰ç•ªå·âˆ’ï¼‘ ã‚’ã‚»ãƒƒãƒˆ	*/
 							} else {
 								ls_dwCnt = 0;
-								g_iPrc = 2;	/* ƒEƒFƒCƒg‚Ö	*/
+								g_iPrc = 2;	/* ã‚¦ã‚§ã‚¤ãƒˆã¸	*/
 							}
 						} else {
-							/* •W€ƒRƒ}ƒ“ƒh(ƒAƒjƒƒRƒ}ƒ“ƒh)	*/
+							/* æ¨™æº–ã‚³ãƒãƒ³ãƒ‰(ã‚¢ãƒ‹ãƒ¡ã‚³ãƒãƒ³ãƒ‰)	*/
 							AnimateWindow(	hWnd,
 											g_IniParams.Animate.MdTm[g_lAnimeCnt].dwTime,
 											g_IniParams.Animate.MdTm[g_lAnimeCnt].lMode);
 						}
 					} else {
-						/* ƒRƒ}ƒ“ƒh”•ªˆ—I—¹	*/
-						g_iPrc = 1;	/* •\¦ŠÔ‘Ò‚¿‚Ö	*/
+						/* ã‚³ãƒãƒ³ãƒ‰æ•°åˆ†å‡¦ç†çµ‚äº†	*/
+						g_iPrc = 1;	/* è¡¨ç¤ºæ™‚é–“å¾…ã¡ã¸	*/
 						ls_dwCnt = 0;
 					}
 					::SetTimer(hWnd, TMR_INTVL_ID, TMR_INTVL_TIME, 0);
 					break;
-				case 1:		/* •\¦ŠÔ‘Ò‚¿‚Ö	*/
+				case 1:		/* è¡¨ç¤ºæ™‚é–“å¾…ã¡ã¸	*/
 					if (0 < g_IniParams.Window.dwDispTime) {
 						ls_dwCnt++;
 						if (g_IniParams.Window.dwDispTime < ((DWORD) (ls_dwCnt * TMR_INTVL_TIME))) {
-							g_iPrc = 98;	/* I—¹—pƒAƒjƒÀs‚Ö	*/
+							g_iPrc = 98;	/* çµ‚äº†ç”¨ã‚¢ãƒ‹ãƒ¡å®Ÿè¡Œã¸	*/
 						}
 					} else {
 						if (FALSE != g_bWM_CLOSE_No1st) {
-							g_iPrc = 98;	/* I—¹—pƒAƒjƒÀs‚Ö	*/
+							g_iPrc = 98;	/* çµ‚äº†ç”¨ã‚¢ãƒ‹ãƒ¡å®Ÿè¡Œã¸	*/
 						}
 					}
 					::SetTimer(hWnd, TMR_INTVL_ID, TMR_INTVL_TIME, 0);
 					break;
-				case 2:		/* ƒEƒFƒCƒg	*/
+				case 2:		/* ã‚¦ã‚§ã‚¤ãƒˆ	*/
 					ls_dwCnt++;
 					if (g_IniParams.Animate.MdTm[g_lAnimeCnt].dwTime < ((DWORD) (ls_dwCnt * TMR_INTVL_TIME))) {
-						g_iPrc = 0;	/* Ÿ‚ÌƒRƒ}ƒ“ƒh‚Ö	*/
+						g_iPrc = 0;	/* æ¬¡ã®ã‚³ãƒãƒ³ãƒ‰ã¸	*/
 					}
 					::SetTimer(hWnd, TMR_INTVL_ID, TMR_INTVL_TIME, 0);
 					break;
-				case 98:	/* I—¹—pƒAƒjƒÀs	*/
+				case 98:	/* çµ‚äº†ç”¨ã‚¢ãƒ‹ãƒ¡å®Ÿè¡Œ	*/
 					AnimateWindow(	hWnd,
 									g_IniParams.Animate.MdTm[0].dwTime,
 									g_IniParams.Animate.MdTm[0].lMode);
-					g_iPrc = 99;	/* WM_CLOSE ‘—M‚Ö	*/
+					g_iPrc = 99;	/* WM_CLOSE é€ä¿¡ã¸	*/
 					::SetTimer(hWnd, TMR_INTVL_ID, TMR_INTVL_TIME, 0);
 					break;
-				case 99:	/* WM_CLOSE ‘—M	*/
+				case 99:	/* WM_CLOSE é€ä¿¡	*/
 					::PostMessage(hWnd, WM_CLOSE, 0, 0);
 					break;
 				}
 			} else {
-				/* ƒAƒjƒ–³‚µ	*/
+				/* ã‚¢ãƒ‹ãƒ¡ç„¡ã—	*/
 				if (0 < g_IniParams.Window.dwDispTime) {
-					/* •\¦ŠÔ	*/
+					/* è¡¨ç¤ºæ™‚é–“	*/
 					ls_dwCnt++;
 					if (g_IniParams.Window.dwDispTime < ((DWORD) (ls_dwCnt * TMR_INTVL_TIME))) {
 						::PostMessage(hWnd, WM_CLOSE, 0, 0);
@@ -823,10 +823,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 		{
 			BOOL l_bClose = FALSE;
 			if (g_IniParams.Animate.lNum < 0) {
-				/* ƒAƒjƒ–³‚µ	*/
+				/* ã‚¢ãƒ‹ãƒ¡ç„¡ã—	*/
 				l_bClose = TRUE;
 			} else {
-				/* ƒAƒjƒ—L‚è	*/
+				/* ã‚¢ãƒ‹ãƒ¡æœ‰ã‚Š	*/
 				if (99 <= g_iPrc) {
 					l_bClose = TRUE;
 				} else {
@@ -855,7 +855,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 }
 
 /*
- *	ƒrƒbƒgƒ}ƒbƒv•`‰æ
+ *	ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—æç”»
  */
 void DrawBitmap(HDC hDc, HBITMAP hBmp, LPBITMAP pBmpInfo)
 {
@@ -868,7 +868,7 @@ void DrawBitmap(HDC hDc, HBITMAP hBmp, LPBITMAP pBmpInfo)
 }
 
 /*
- *	ƒrƒbƒgƒ}ƒbƒvƒ[ƒh
+ *	ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰
  */
 void LoadBmp(LPCTSTR ptszBitmapFile)
 {

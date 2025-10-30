@@ -1,4 +1,4 @@
-// ReferenceMenuDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// ReferenceMenuDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -20,7 +20,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // ##########################################################################
-// CReferenceMenuDlg ƒ_ƒCƒAƒƒO
+// CReferenceMenuDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // ##########################################################################
 
 // ==========================================================================
@@ -57,7 +57,7 @@ BEGIN_MESSAGE_MAP(CReferenceMenuDlg, CDialog)
 END_MESSAGE_MAP()
 
 // ==========================================================================
-// CReferenceMenuDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CReferenceMenuDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 
 
@@ -80,13 +80,13 @@ BOOL CReferenceMenuDlg::OnInitDialog()
 	m_CancelButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_CancelButton.DrawFlatFocus(TRUE);
 
-	///// ‘I‘ğ’†‚ÌƒƒCƒ“ƒŒƒVƒs–¼‚ğ•\¦ /////
+	///// é¸æŠä¸­ã®ãƒ¡ã‚¤ãƒ³ãƒ¬ã‚·ãƒ”åã‚’è¡¨ç¤º /////
 	char szRecipeName[RECIPE_NAME_LEN + 1];
 	memset(szRecipeName, 0, sizeof(szRecipeName));
 	((CRecipeMainListView *)/*pMainFrame*/((CMainFrame*)AfxGetMainWnd())->m_wndSplitter2.GetPane(0,0))->RecipeStart(szRecipeName);
 	SetDlgItemText(IDC_RECIPE_NAME, szRecipeName);
 
-	///// ‘I‘ğ’†‚ÌHead•MeasItem‚ğ•\¦ /////
+	///// é¸æŠä¸­ã®Headï¼†MeasItemã‚’è¡¨ç¤º /////
 	char szHead[255+1];
 	char szScan[255+1];
 	memset(szHead, 0, sizeof(szHead));
@@ -96,8 +96,8 @@ BOOL CReferenceMenuDlg::OnInitDialog()
 	SetDlgItemText(IDC_HEAD_TYPE, szHead);
 	SetDlgItemText(IDC_MEAS_ITEM, szScan);
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // ==========================================================================
@@ -109,24 +109,24 @@ void CReferenceMenuDlg::OnClearReferenceButton()
 	// Kojika 20090529 Add End
 
 	// Kojika 20090529 Add
-	//if(MessageBox("ƒŠƒtƒ@ƒŒƒ“ƒX‚ğƒNƒŠƒA‚µ‚Ü‚·‚©H", "REFERENCE", MB_OKCANCEL|MB_ICONQUESTION) != IDOK) return;
+	//if(MessageBox("ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã‚’ã‚¯ãƒªã‚¢ã—ã¾ã™ã‹ï¼Ÿ", "REFERENCE", MB_OKCANCEL|MB_ICONQUESTION) != IDOK) return;
 	LoadStringML(IDS_CLEAR_REFERENCE, l_strBuffer, "Do you want to clear Reference ?");
 	LoadStringML(IDS_TITLE_REFERENCE, l_strTitle, "REFERENCE");
 	if(MessageBox(l_strBuffer, l_strTitle, MB_OKCANCEL|MB_ICONQUESTION) != IDOK) return;
 	// Kojika 20090529 Add End
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	//ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒhƒ`ƒFƒbƒN(2²“¯“®ì§ŒÀ)
-	if( nexioIsEngineerMaintenanceSwitch()==ON )// “Œ•üƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	//ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ãƒã‚§ãƒƒã‚¯(2è»¸åŒæ™‚å‹•ä½œåˆ¶é™)
+	if( nexioIsEngineerMaintenanceSwitch()==ON )// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰
 	{
-		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh‘g‚İ‡‚í‚¹ƒGƒ‰[
-		/*“Œ•üƒƒ“ƒeƒ‚[ƒh‚Ì‚ÍA•K‚¸ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh(L)‚Æ‚È‚é
-		  ‚±‚Ìê‡A2²“¯“®ì‰Â”\ */
+		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰çµ„ã¿åˆã‚ã›ã‚¨ãƒ©ãƒ¼
+		/*æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒ¢ãƒ¼ãƒ‰ã®æ™‚ã¯ã€å¿…ãšãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(L)ã¨ãªã‚‹
+		  ã“ã®å ´åˆã€2è»¸åŒæ™‚å‹•ä½œå¯èƒ½ */
 	}
-	else //“Œ•üƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒhˆÈŠO
+	else //æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ä»¥å¤–
 	{
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 
 	ClearReference();
@@ -164,53 +164,53 @@ void CReferenceMenuDlg::OnGetReferenceButton()
 	int ChiefRet = 0;
 	BOOL bResult = FALSE;
 	//char* pszCaption = "REFERENCE";
-	//char* pszCaption = "ƒŠƒtƒ@ƒŒƒ“ƒX";
+	//char* pszCaption = "ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹";
 	static char szRecipeName[MAX_PATH];
 	//Saiki 20090528 Add ----->
 	CString strBuffer, strTitle;
 	//Saiki 20090528 Add <-----
 
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	//ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒhƒ`ƒFƒbƒN(2²“¯“®ì§ŒÀ)
-	if( nexioIsEngineerMaintenanceSwitch()==ON )// “Œ•üƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	//ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ãƒã‚§ãƒƒã‚¯(2è»¸åŒæ™‚å‹•ä½œåˆ¶é™)
+	if( nexioIsEngineerMaintenanceSwitch()==ON )// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰
 	{
-		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh‘g‚İ‡‚í‚¹ƒGƒ‰[
-		/*“Œ•üƒƒ“ƒeƒ‚[ƒh‚Ì‚ÍA•K‚¸ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh(L)‚Æ‚È‚é
-		  ‚±‚Ìê‡A2²“¯“®ì‰Â”\ */
+		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰çµ„ã¿åˆã‚ã›ã‚¨ãƒ©ãƒ¼
+		/*æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒ¢ãƒ¼ãƒ‰ã®æ™‚ã¯ã€å¿…ãšãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(L)ã¨ãªã‚‹
+		  ã“ã®å ´åˆã€2è»¸åŒæ™‚å‹•ä½œå¯èƒ½ */
 	}
-	else //“Œ•üƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒhˆÈŠO
+	else //æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ä»¥å¤–
 	{
-		if( nexioIsMaintenanceSwitch() != ON ) {AlarmIf_Set(ALID_MaintenanceSwitchOn); return;} //ƒƒ“ƒeƒiƒ“ƒXEƒXƒCƒbƒ`EƒIƒ“
+		if( nexioIsMaintenanceSwitch() != ON ) {AlarmIf_Set(ALID_MaintenanceSwitchOn); return;} //ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ»ã‚¹ã‚¤ãƒƒãƒãƒ»ã‚ªãƒ³
 	}
 
-	// ŠeI/Oƒ`ƒFƒbƒN
+	// å„I/Oãƒã‚§ãƒƒã‚¯
 	/*Saiki 20090520 Change ----->*/
 	if(pDoc->IsInterLock() == TRUE){return;}
-/* added hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- { -------- */
-	if( ((CNanoSpecDoc*) ((CMainFrame*) AfxGetMainWnd())->m_pDoc)->Rap_IsAirPressureLowON(1)!= OFF) {AlarmIf_Set(ALID_AirPressureDown); return;}	// ƒGƒAˆ³—Í’á‰º
-/* added hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- } -------- */
-	if( nexioIsMovo2Alarm() 		!= OFF) {AlarmIf_Set(ALID_StageError); return;} // ƒXƒe[ƒWƒGƒ‰[
+/* added hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- { -------- */
+	if( ((CNanoSpecDoc*) ((CMainFrame*) AfxGetMainWnd())->m_pDoc)->Rap_IsAirPressureLowON(1)!= OFF) {AlarmIf_Set(ALID_AirPressureDown); return;}	// ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹
+/* added hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- } -------- */
+	if( nexioIsMovo2Alarm() 		!= OFF) {AlarmIf_Set(ALID_StageError); return;} // ã‚¹ãƒ†ãƒ¼ã‚¸ã‚¨ãƒ©ãƒ¼
 	if(pDoc->CheckUnitStatus() == TRUE){return;}
 	/*//Saiki 20090520 Change <-----*/
 
-	//ActuateFlagƒ`ƒFƒbƒN
+	//ActuateFlagãƒã‚§ãƒƒã‚¯
 	//Saiki 20090531 Change ----->
 	if(pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) && pMainFrame->GetJoyStickMode()==0){
 		LoadStringML(IDS_STAGE_WORKING, strBuffer, "Stage is moving.");
 		pDoc->MessageStringIf_Set(strBuffer);
 		return;
-	} //ƒXƒe[ƒW‚ª“®ì’†‚Å‚·
+	} //ã‚¹ãƒ†ãƒ¼ã‚¸ãŒå‹•ä½œä¸­ã§ã™
 	//Saiki 20090531 Change <-----
 	/*//Saiki 20090520 Change ----->*/
 	if(pDoc->CheckActiveFlag() == TRUE){return;}
 	/*//Saiki 20090520 Change <-----*/
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 
 	//if(MessageBox("Do you want to get Reference ?", "REFERENCE", MB_OKCANCEL|MB_ICONQUESTION) != IDOK) return;
 	//Saiki 20090528 Change ----->
-	//if(MessageBox("ƒŠƒtƒ@ƒŒƒ“ƒX‚ğæ“¾‚µ‚Ü‚·‚©H", "REFERENCE", MB_OKCANCEL|MB_ICONQUESTION) != IDOK) return;
+	//if(MessageBox("ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã‚’å–å¾—ã—ã¾ã™ã‹ï¼Ÿ", "REFERENCE", MB_OKCANCEL|MB_ICONQUESTION) != IDOK) return;
 	LoadStringML(IDS_GET_REFERENCE, strBuffer, "Do you want to get Reference ?");
 	LoadStringML(IDS_TITLE_REFERENCE, strTitle, "REFERENCE");
 	if(MessageBox(strBuffer, strTitle, MB_OKCANCEL|MB_ICONQUESTION) != IDOK) return;
@@ -226,7 +226,7 @@ void CReferenceMenuDlg::OnGetReferenceButton()
 
 	if(sRecipeName == ""){
 		//Saiki 20090528 Change ----->
-		//MessageBox("ƒƒCƒ“ƒŒƒVƒs‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ", pszCaption, MB_OK | MB_ICONSTOP);
+		//MessageBox("ãƒ¡ã‚¤ãƒ³ãƒ¬ã‚·ãƒ”ãŒé¸æŠã•ã‚Œã¦ã„ã¾ã›ã‚“", pszCaption, MB_OK | MB_ICONSTOP);
 		LoadStringML(IDS_NOT_SELECT_MAIN_RECIPE, strBuffer, "Have not Selected a Recipe");
 		MessageBox(strBuffer, strTitle, MB_OK | MB_ICONSTOP);
 		//Saiki 20090528 Change <-----
@@ -244,7 +244,7 @@ void CReferenceMenuDlg::OnGetReferenceButton()
 	}
 
 
-	//ƒŒƒ“ƒYİ’è
+	//ãƒ¬ãƒ³ã‚ºè¨­å®š
 	MAIN_RCP_INFO l_MainRcpInfo;
 	MEAS_PROG_INFO l_Meas;
 	memset(&l_MainRcpInfo, 0, sizeof(l_MainRcpInfo));
@@ -260,7 +260,7 @@ void CReferenceMenuDlg::OnGetReferenceButton()
 
 	ChiefRet = ::SendMessage(l_hChiefDlg, WM_DISP_START_SRREF, (WPARAM)szRecipeName, 0);
 
-	///// ƒ`[ƒt‚ÌŒ‹‰Ê /////
+	///// ãƒãƒ¼ãƒ•ã®çµæœ /////
 	//Saiki 20090528 Change ----->
 	//bResult = pMainFrame->JudgeChiefResult(ChiefRet, pszCaption);
 	bResult = pMainFrame->JudgeChiefResult(ChiefRet, strTitle);
@@ -275,7 +275,7 @@ void CReferenceMenuDlg::OnGetReferenceButton()
 
 	pDoc->SetProcessStatus(PROCESS_PROC);
 //Saiki 20130123 add --->
-	pDoc->SetMeasMode(MEASMODE_REFERENCE); //ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èƒ‚[ƒh
+	pDoc->SetMeasMode(MEASMODE_REFERENCE); //ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šãƒ¢ãƒ¼ãƒ‰
 //Saiki 20130123 add <---
 	CExecutionDlg dlg;
 	//Saiki 20090128 Change ----->
@@ -285,10 +285,10 @@ void CReferenceMenuDlg::OnGetReferenceButton()
 	//Saiki 20090128 Change <-----
 	//dlg.SetMessage("Reference Executing...");
 	//Saiki 20090528 Change ----->
-	//dlg.SetMessage("ƒŠƒtƒ@ƒŒƒ“ƒX ‘ª’è’†...");
+	//dlg.SetMessage("ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ æ¸¬å®šä¸­...");
 	LoadStringML(IDS_MESUREMENT_REF, strBuffer, "Reference Executing...");
 	dlg.SetMessage(strBuffer);
 	//Saiki 20090528 Change <-----
-	dlg.DoModal(); //CMainFrame::OnSrrefEnd()‚©‚çÁ‹‚·‚éB
+	dlg.DoModal(); //CMainFrame::OnSrrefEnd()ã‹ã‚‰æ¶ˆå»ã™ã‚‹ã€‚
 }
 

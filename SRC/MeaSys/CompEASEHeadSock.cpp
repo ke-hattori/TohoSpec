@@ -1,4 +1,4 @@
-// CompEASEHeadSock.cpp : Defines the CompEASEHeadSock routines.
+ï»¿// CompEASEHeadSock.cpp : Defines the CompEASEHeadSock routines.
 //
 
 #include "stdafx.h"
@@ -121,7 +121,7 @@ void CCompEASEHeadSock::ExitInstance()
 	TRACE(_T("CCompEASEHeadSock::ExitInstance()\n"));
 
 	if ( m_bConnect ) {
-		CloseShutter();						// –ß‚è’l‚ÍAŒ©‚È‚¢
+		CloseShutter();						// æˆ»ã‚Šå€¤ã¯ã€è¦‹ãªã„
 	}
 
 	CloseSocket();
@@ -497,7 +497,7 @@ BOOL CCompEASEHeadSock::RecvData(LPTSTR pszData, int iTimeoutSec)
 	FD_ZERO( &readfds );
 	FD_SET(m_sock, &readfds);
 
-	// timeout0•bB‚Â‚Ü‚èselect‚Í‚·‚®‚É§Œä‚ğ•Ô‚µ‚Ä‚­‚é
+	// timeout0ç§’ã€‚ã¤ã¾ã‚Šselectã¯ã™ãã«åˆ¶å¾¡ã‚’è¿”ã—ã¦ãã‚‹
 	timeout.tv_sec = 0;
 	timeout.tv_usec = 0;
 
@@ -508,8 +508,8 @@ BOOL CCompEASEHeadSock::RecvData(LPTSTR pszData, int iTimeoutSec)
 	timer.Restart(iTimeoutSec);
 
 	while ( 1 ) {
-		// “Ç‚İ‚İ—pfd_set‚Ì‰Šú‰»
-		// select‚ª–ˆ‰ñ“à—e‚ğã‘‚«‚µ‚Ä‚µ‚Ü‚¤‚Ì‚ÅA–ˆ‰ñ‰Šú‰»‚µ‚Ü‚·
+		// èª­ã¿è¾¼ã¿ç”¨fd_setã®åˆæœŸåŒ–
+		// selectãŒæ¯å›å†…å®¹ã‚’ä¸Šæ›¸ãã—ã¦ã—ã¾ã†ã®ã§ã€æ¯å›åˆæœŸåŒ–ã—ã¾ã™
 		memcpy(&fdset, &readfds, sizeof(fd_set));
 
 		select( m_sock + 1 , &fdset , NULL , NULL , &timeout );

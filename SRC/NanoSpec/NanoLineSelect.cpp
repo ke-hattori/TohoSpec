@@ -1,4 +1,4 @@
-// NanoLineSelect.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// NanoLineSelect.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -33,7 +33,7 @@ BEGIN_MESSAGE_MAP(CNanoLineSelect, CButton)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CNanoLineSelect ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CNanoLineSelect ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 void CNanoLineSelect::OnClicked()
 {
@@ -74,7 +74,7 @@ void CNanoLineSelect::DrawItem(LPDRAWITEMSTRUCT lpDIS)
 }
 
 //--------------------------------------------------
-//		ƒ`ƒFƒbƒNƒ{ƒbƒNƒX•`‰æƒGƒŠƒA ‰Šú‰»
+//		ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹æç”»ã‚¨ãƒªã‚¢ åˆæœŸåŒ–
 //--------------------------------------------------
 void CNanoLineSelect::ClearArea(CDC *pDC,RECT *pScreenSize)
 {
@@ -88,7 +88,7 @@ void CNanoLineSelect::ClearArea(CDC *pDC,RECT *pScreenSize)
 }
 
 //--------------------------------------------------
-//		ƒ`ƒFƒbƒNƒ{ƒbƒNƒX•`‰æ
+//		ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹æç”»
 //--------------------------------------------------
 //   +------------------------------------------------+
 //   |                      U1                  |     |
@@ -123,7 +123,7 @@ void CNanoLineSelect::DrawCheckBoxState(CDC *pDC,RECT *pScreenSize)
 
 	nCheckState = this->GetCheck();
 
-	//•`‰æƒGƒŠƒA‚Ì‚’¼’†SÀ•W‚ğZo
+	//æç”»ã‚¨ãƒªã‚¢ã®å‚ç›´ä¸­å¿ƒåº§æ¨™ã‚’ç®—å‡º
 	nScreenHeight = pScreenSize->bottom - pScreenSize->top;
 	nScreenVCenter = (int)(((nScreenHeight) / 2) + pScreenSize->top);
 
@@ -133,14 +133,14 @@ void CNanoLineSelect::DrawCheckBoxState(CDC *pDC,RECT *pScreenSize)
 	pCheckBox.right = pScreenSize->left + CHECK_BOX_OFFSET + CHECK_BOX_WIDTH;
 
 
-	CPen cBoxPenU1(PS_SOLID,1,RGB(0x80,0x80,0x80));		//ŠOüFã•ÓE¶•Ó
-	CPen cBoxPenU2(PS_SOLID,1,RGB(0x00,0x00,0x00));		//“àüFã•ÓE¶•Ó
-	CPen cBoxPenL1(PS_SOLID,1,RGB(0xFF,0xFF,0xFF));		//ŠOüF‰º•ÓE‰E•Ó
-	CPen cBoxPenL2(PS_SOLID,1,RGB(0xC0,0xC0,0xC0));		//“àüF‰º•ÓE‰E•Ó
-	CBrush cBackArea(RGB(0xFF,0xFF,0xFF));				//”wŒi
-	CPen cCheckPen(PS_SOLID,2,RGB(0x00,0x00,0x00));		//ƒ`ƒFƒbƒN
+	CPen cBoxPenU1(PS_SOLID,1,RGB(0x80,0x80,0x80));		//å¤–å‘¨ï¼šä¸Šè¾ºãƒ»å·¦è¾º
+	CPen cBoxPenU2(PS_SOLID,1,RGB(0x00,0x00,0x00));		//å†…å‘¨ï¼šä¸Šè¾ºãƒ»å·¦è¾º
+	CPen cBoxPenL1(PS_SOLID,1,RGB(0xFF,0xFF,0xFF));		//å¤–å‘¨ï¼šä¸‹è¾ºãƒ»å³è¾º
+	CPen cBoxPenL2(PS_SOLID,1,RGB(0xC0,0xC0,0xC0));		//å†…å‘¨ï¼šä¸‹è¾ºãƒ»å³è¾º
+	CBrush cBackArea(RGB(0xFF,0xFF,0xFF));				//èƒŒæ™¯
+	CPen cCheckPen(PS_SOLID,2,RGB(0x00,0x00,0x00));		//ãƒã‚§ãƒƒã‚¯
 
-	//ŠOüFã¶
+	//å¤–å‘¨ï¼šä¸Šå·¦
 	pOldPen = pDC->SelectObject(&cBoxPenU1);
 	pDC->MoveTo(pCheckBox.left,pCheckBox.top);
 	pDC->LineTo(pCheckBox.right-1,pCheckBox.top);
@@ -148,7 +148,7 @@ void CNanoLineSelect::DrawCheckBoxState(CDC *pDC,RECT *pScreenSize)
 	pDC->LineTo(pCheckBox.left,pCheckBox.bottom-1);
 	pDC->SelectObject(pOldPen);
 
-	//“àüFã¶
+	//å†…å‘¨ï¼šä¸Šå·¦
 	pOldPen = pDC->SelectObject(&cBoxPenU2);
 	pDC->MoveTo(pCheckBox.left+1,pCheckBox.top+1);
 	pDC->LineTo(pCheckBox.right-2,pCheckBox.top+1);
@@ -156,7 +156,7 @@ void CNanoLineSelect::DrawCheckBoxState(CDC *pDC,RECT *pScreenSize)
 	pDC->LineTo(pCheckBox.left+1,pCheckBox.bottom-2);
 	pDC->SelectObject(pOldPen);
 
-	//ŠOüF‰º‰E
+	//å¤–å‘¨ï¼šä¸‹å³
 	pOldPen = pDC->SelectObject(&cBoxPenL1);
 	pDC->MoveTo(pCheckBox.left,pCheckBox.bottom-1);
 	pDC->LineTo(pCheckBox.right,pCheckBox.bottom-1);
@@ -164,7 +164,7 @@ void CNanoLineSelect::DrawCheckBoxState(CDC *pDC,RECT *pScreenSize)
 	pDC->LineTo(pCheckBox.right-1,pCheckBox.bottom);
 	pDC->SelectObject(pOldPen);
 
-	//“àüF‰º‰E
+	//å†…å‘¨ï¼šä¸‹å³
 	pOldPen = pDC->SelectObject(&cBoxPenL2);
 	pDC->MoveTo(pCheckBox.left+1,pCheckBox.bottom-2);
 	pDC->LineTo(pCheckBox.right-2,pCheckBox.bottom-2);
@@ -172,7 +172,7 @@ void CNanoLineSelect::DrawCheckBoxState(CDC *pDC,RECT *pScreenSize)
 	pDC->LineTo(pCheckBox.right-2,pCheckBox.bottom-1);
 	pDC->SelectObject(pOldPen);
 
-	//”wŒi
+	//èƒŒæ™¯
 	pBackArea.top = pCheckBox.top + 2;
 	pBackArea.bottom = pCheckBox.bottom - 2;
 	pBackArea.left = pCheckBox.left + 2;
@@ -182,7 +182,7 @@ void CNanoLineSelect::DrawCheckBoxState(CDC *pDC,RECT *pScreenSize)
 	pDC->FillRect(&pBackArea,&cBackArea);
 	pDC->SelectObject(pOldBrush);
 
-	//ƒ`ƒFƒbƒN
+	//ãƒã‚§ãƒƒã‚¯
 	if (nCheckState) {
 		pOldPen = pDC->SelectObject(&cCheckPen);
 		pDC->MoveTo(pCheckBox.left+2,pCheckBox.top+5);
@@ -193,7 +193,7 @@ void CNanoLineSelect::DrawCheckBoxState(CDC *pDC,RECT *pScreenSize)
 }
 
 //--------------------------------------------------
-//		ƒyƒ“ƒKƒCƒh•`‰æ
+//		ãƒšãƒ³ã‚¬ã‚¤ãƒ‰æç”»
 //--------------------------------------------------
 void CNanoLineSelect::DrawPenGuidence(CDC *pDC,RECT *pScreenSize)
 {
@@ -219,7 +219,7 @@ void CNanoLineSelect::DrawPenGuidence(CDC *pDC,RECT *pScreenSize)
 }
 
 //--------------------------------------------------
-//		ƒeƒLƒXƒg•`‰æ
+//		ãƒ†ã‚­ã‚¹ãƒˆæç”»
 //--------------------------------------------------
 void CNanoLineSelect::DrawLineText(CDC *pDC,RECT *pScreenSize)
 {

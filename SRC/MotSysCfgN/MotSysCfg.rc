@@ -1,4 +1,4 @@
-//Microsoft Developer Studio generated resource script.
+ï»¿//Microsoft Developer Studio generated resource script.
 //
 #include "resource.h"
 
@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// “ú–{Œê resources
+// æ—¥æœ¬èª resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
 #ifdef _WIN32
@@ -50,8 +50,8 @@ BEGIN
     "LANGUAGE 9, 1\r\n"
     "#pragma code_page(1252)\r\n"
     "#endif //_WIN32\r\n"
-    "#include ""res\\MotSysCfg.rc2""  // Microsoft Visual C++ ˆÈŠO‚Ìƒc[ƒ‹‚Å•ÒW‚³‚ê‚½ƒŠƒ\[ƒX\r\n"
-    "#include ""afxres.rc""         // •W€‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg\r\n"
+    "#include ""res\\MotSysCfg.rc2""  // Microsoft Visual C++ ä»¥å¤–ã®ãƒ„ãƒ¼ãƒ«ã§ç·¨é›†ã•ã‚ŒãŸãƒªã‚½ãƒ¼ã‚¹\r\n"
+    "#include ""afxres.rc""         // æ¨™æº–ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ\r\n"
     "#endif\r\n"
     "\0"
 END
@@ -67,12 +67,12 @@ END
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDR_MAINFRAME           ICON    DISCARDABLE     "res\\MotSysCfg.ico"
-#endif    // “ú–{Œê resources
+#endif    // æ—¥æœ¬èª resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// ‰pŒê (±ÒØ¶) resources
+// è‹±èª (ï½±ï¾’ï¾˜ï½¶) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -687,7 +687,7 @@ BEGIN
     IDS_ABOUTBOX            "&About MotSysCfg..."
 END
 
-#endif    // ‰pŒê (±ÒØ¶) resources
+#endif    // è‹±èª (ï½±ï¾’ï¾˜ï½¶) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
@@ -707,8 +707,8 @@ END
 LANGUAGE 9, 1
 #pragma code_page(1252)
 #endif //_WIN32
-#include "res\MotSysCfg.rc2"  // Microsoft Visual C++ ˆÈŠO‚Ìƒc[ƒ‹‚Å•ÒW‚³‚ê‚½ƒŠƒ\[ƒX
-#include "afxres.rc"         // •W€‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg
+#include "res\MotSysCfg.rc2"  // Microsoft Visual C++ ä»¥å¤–ã®ãƒ„ãƒ¼ãƒ«ã§ç·¨é›†ã•ã‚ŒãŸãƒªã‚½ãƒ¼ã‚¹
+#include "afxres.rc"         // æ¨™æº–ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 #endif
 
 /////////////////////////////////////////////////////////////////////////////

@@ -1,4 +1,4 @@
-// LogFile.h (LogFile.cpp)
+﻿// LogFile.h (LogFile.cpp)
 // CLogFile Class
 
 #ifndef _LOGFILE_H_

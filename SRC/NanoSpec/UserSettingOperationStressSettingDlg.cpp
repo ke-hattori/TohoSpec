@@ -1,4 +1,4 @@
-// UserSettingOperationStressSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// UserSettingOperationStressSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -10,9 +10,9 @@
 #include "UserSettingOperationStressSettingDlg.h"
 #include "SrRecipeDefaultValueSettingDlg.h"
 //#include "StressRecipeDefaultValueSettingDlg.h"
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --{--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --{--
 #include "StressElasticModulusListDlg.h"
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --}--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --}--
 #include "NEXIOBASE.HXX"
 
 #ifdef _DEBUG
@@ -22,14 +22,14 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CUserSettingOperationStressSettingDlg ƒ_ƒCƒAƒƒO
+// CUserSettingOperationStressSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 
 CUserSettingOperationStressSettingDlg::CUserSettingOperationStressSettingDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CUserSettingOperationStressSettingDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CUserSettingOperationStressSettingDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_INIT
 }
 
@@ -38,12 +38,12 @@ void CUserSettingOperationStressSettingDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CUserSettingOperationStressSettingDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_MAP
 	DDX_Control(pDX, IDC_RECIPE_DEFAULT_VALUE_SETTING_BUTTON, m_RecipeDefaultValueSettingButton);
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --{--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --{--
 	DDX_Control(pDX, IDC_SAMPLE_ELASTICMODULUS_SETTING_BUTTON, m_SampleElasticModulusSettingButton);
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --}--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --}--
 }
 
 
@@ -57,7 +57,7 @@ BEGIN_MESSAGE_MAP(CUserSettingOperationStressSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CUserSettingOperationStressSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CUserSettingOperationStressSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 BOOL CUserSettingOperationStressSettingDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
@@ -67,11 +67,11 @@ BOOL CUserSettingOperationStressSettingDlg::OnInitDialog()
 		BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_RecipeDefaultValueSettingButton.DrawFlatFocus(TRUE);
 
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --{--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --{--
 	///// Sample Elastic Modulus Setting Button /////
 	m_SampleElasticModulusSettingButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_SampleElasticModulusSettingButton.DrawFlatFocus(TRUE);
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --}--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --}--
 
 	SetTimer(1, 50, NULL);
 
@@ -107,7 +107,7 @@ BOOL CUserSettingOperationStressSettingDlg::ShowSettingDlg(CDialog* pDlg)
 		return FALSE;
 	}
 
-	// ‰E‚ÌƒEƒBƒ“ƒhƒE‚ğUser Setting‰æ–Ê‚É–ß‚·
+	// å³ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’User Settingç”»é¢ã«æˆ»ã™
 	pMainFrame->ChangeExeWnd(USERCONF_WND);
 
 	return ( pDlg->DoModal() == IDOK );
@@ -117,12 +117,12 @@ HBRUSH CUserSettingOperationStressSettingDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, U
 {
 	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
 
-	// TODO: ‚±‚ÌˆÊ’u‚Å DC ‚ÌƒAƒgƒŠƒrƒ…[ƒg‚ğ•ÏX‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã§ DC ã®ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã‚’å¤‰æ›´ã—ã¦ãã ã•ã„
 
 	BOOL sbNexMntSw = nexioIsMaintenanceSwitch();
 	BOOL sbNexEngiMntSw = nexioIsEngineerMaintenanceSwitch();
 
-	if( pWnd == this ) // ©•ª©g‚ğ•`‰æ‚·‚é‚Æ‚«‚Í
+	if( pWnd == this ) // è‡ªåˆ†è‡ªèº«ã‚’æç”»ã™ã‚‹ã¨ãã¯
 	{
 		if((sbNexMntSw == OFF)||(sbNexEngiMntSw == ON))
 		{
@@ -130,13 +130,13 @@ HBRUSH CUserSettingOperationStressSettingDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, U
 		}
 	}
 
-	// TODO: ƒfƒtƒHƒ‹ƒg‚Ìƒuƒ‰ƒV‚ª–]‚İ‚Ì‚à‚Ì‚Å‚È‚¢ê‡‚É‚ÍAˆá‚¤ƒuƒ‰ƒV‚ğ•Ô‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ–ãƒ©ã‚·ãŒæœ›ã¿ã®ã‚‚ã®ã§ãªã„å ´åˆã«ã¯ã€é•ã†ãƒ–ãƒ©ã‚·ã‚’è¿”ã—ã¦ãã ã•ã„
 	return hbr;
 }
 
 void CUserSettingOperationStressSettingDlg::OnTimer(UINT nIDEvent)
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚·‚é‚©‚Ü‚½‚ÍƒfƒtƒHƒ‹ƒg‚Ìˆ—‚ğŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã™ã‚‹ã‹ã¾ãŸã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å‡¦ç†ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
 
 	static BOOL sbNexMntSw = nexioIsMaintenanceSwitch();
 	static BOOL sbNexMntSwOld = TRUE;
@@ -148,19 +148,19 @@ void CUserSettingOperationStressSettingDlg::OnTimer(UINT nIDEvent)
 
 	if((sbNexMntSw != sbNexMntSwOld)||(sbNexEngiMntSw != sbNexEngiMntSwOld))
 	{
-		Invalidate(TRUE); //OnCtlColor()‚Ìˆ—‚ğ‚³‚¹‚éˆ×‚ÉCall
+		Invalidate(TRUE); //OnCtlColor()ã®å‡¦ç†ã‚’ã•ã›ã‚‹ç‚ºã«Call
 	}
-	sbNexMntSwOld = sbNexMntSw; //‘O‰ñ’l‘Š·‚¦
-	sbNexEngiMntSwOld = sbNexEngiMntSw; //‘O‰ñ’l‘Š·‚¦
+	sbNexMntSwOld = sbNexMntSw; //å‰å›å€¤æ›¸æ›ãˆ
+	sbNexEngiMntSwOld = sbNexEngiMntSw; //å‰å›å€¤æ›¸æ›ãˆ
 
 	CDialog::OnTimer(nIDEvent);
 }
 
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --{--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --{--
 void CUserSettingOperationStressSettingDlg::OnSampleElasticmodulusSettingButton()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«é€šçŸ¥ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 	CStressElasticModulusListDlg dlg;
 	ShowSettingDlg(&dlg);
 }
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --}--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --}--

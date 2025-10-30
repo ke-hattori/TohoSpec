@@ -1,4 +1,4 @@
-
+﻿
 #include	"stdafx.h"
 #include	<windows.h>
 #include	"..\\..\\inc\\MotsysMsg.h"
@@ -19,40 +19,40 @@
 
 extern CSio *g_pCSio;
 
-extern UINT MOTDRV_SHOWALARM;		// �A���[���\���p
-extern UINT MOTDRV_SRVINITCOMP;		// �T�[�{�������������b�Z�[�W��`
+extern UINT MOTDRV_SHOWALARM;		// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½p
+extern UINT MOTDRV_SRVINITCOMP;		// ï¿½Tï¿½[ï¿½{ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½`
 
 static CMotSysDlg* g_pCMotSysDlg;
 
 /*
- * DIO �֌W
+ * DIO ï¿½ÖŒW
  */
-HANDLE	g_CC_hDrv = 0;			// DIO �̃f�o�C�X�n���h��
-WORD	g_CC_DrvNo = 0;			// DIO �̃h���C�o�ԍ�
-WORD	g_CC_GrpNo = 0;			// DIO �̃O���[�v�ԍ�
+HANDLE	g_CC_hDrv = 0;			// DIO ï¿½Ìƒfï¿½oï¿½Cï¿½Xï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
+WORD	g_CC_DrvNo = 0;			// DIO ï¿½Ìƒhï¿½ï¿½ï¿½Cï¿½oï¿½Ô�ï¿½
+WORD	g_CC_GrpNo = 0;			// DIO ï¿½ÌƒOï¿½ï¿½ï¿½[ï¿½vï¿½Ô�ï¿½
 
 
-// �R���g���[��������(�N���֐�)
+// ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½Nï¿½ï¿½ï¿½Ö�ï¿½)
 BOOL CC_InitServo(LPVOID pParam)
 {
 	g_pCMotSysDlg = (CMotSysDlg*) pParam;
 
 	g_pCMotSysDlg->SetDlgItemText(IDC_STATIC_STATUS, _T("Initializing Controller..."));
 
-	// Drv No. ��\��
+	// Drv No. ï¿½ï¿½\ï¿½ï¿½
 	TCHAR l_tszText[32];
 	_stprintf(l_tszText, _T("%02u"), g_CC_DrvNo);
 	g_pCMotSysDlg->SetDlgItemText(IDC_STATIC_DRVNO, l_tszText);
-	// Grp No. ��\��
+	// Grp No. ï¿½ï¿½\ï¿½ï¿½
 	_stprintf(l_tszText, _T("%02u"), g_CC_GrpNo);
 	g_pCMotSysDlg->SetDlgItemText(IDC_STATIC_GRPNO, l_tszText);
 
 	int l_ret;
 	if (0 != (l_ret = CC_Initialize_Controller())) {
-		// ���������s
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½s
 		g_pCMotSysDlg->SetDlgItemText(IDC_STATIC_STATUS, _T("Failed to initialize"));
 		if (l_ret == -1) {
-			// �����������t���O���O�ɂȂ�Ȃ�����
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½Oï¿½É‚È‚ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½
 			g_pCMotSysDlg->ShowAlarm(4, 0, 0, 0);
 		} else {
 			CC_MsgReboot();
@@ -63,7 +63,7 @@ BOOL CC_InitServo(LPVOID pParam)
 		return TRUE;
 	}
 }
-// �R���g���[��������
+// ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 DWORD CC_Initialize_Controller(void)
 {
 	char	l_Senddata[256];
@@ -72,81 +72,81 @@ DWORD CC_Initialize_Controller(void)
 	int		*l_Data;
 	int		i;
 
-	// ���[�^�R���g���[���̏�Ԃ��m�F
+	// ï¿½ï¿½ï¿½[ï¿½^ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ì�ï¿½Ô‚ï¿½ï¿½mï¿½F
 	strcpy(l_Senddata, "P100");
 	if ((l_result = CC_ReadCommand(l_Senddata, l_Recvdata)) < 0) {
-		return -2;	// �V�X�e���G���[(��ԓǏo���G���[)
+		return -2;	// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[(ï¿½ï¿½Ô“Ç�oï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[)
 	} else {
-		// �������f�[�^���t�@�C������Ǎ���
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç�ï¿½ï¿½ï¿½
 		if (CC_LoadInitData() != TRUE) {
-			return -3;	// �ǂݍ��ݎ��s
+			return -3;	// ï¿½Ç‚İ�ï¿½ï¿½İ�ï¿½ï¿½s
 		} else {
-			// ���ʃf�[�^
+			// ï¿½ï¿½ï¿½Êƒfï¿½[ï¿½^
 			l_Data = (int*) &CC_InitDataCommon;
 			for (i = 0; i < (sizeof(CC_InitDataCommon) / sizeof(int)); i++) {
 				sprintf(l_Senddata, "P%03u=%d", i + 501, *l_Data++);
 				if ((l_result = CC_WriteCommand(l_Senddata, l_Recvdata)) < 0) {
-					return -4;	// �V�X�e���G���[(���ʃf�[�^�����ݎ��s)
+					return -4;	// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[(ï¿½ï¿½ï¿½Êƒfï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½İ�ï¿½ï¿½s)
 				}
 			}
-			// X �f�[�^
+			// X ï¿½fï¿½[ï¿½^
 			l_Data = (int*) &CC_Initdata_X;
 			for (i = 0; i < (sizeof(CC_Initdata_X) / sizeof(int)); i++) {
 				sprintf(l_Senddata, "P%03u=%d", i + 600, *l_Data++);
 				if ((l_result = CC_WriteCommand(l_Senddata, l_Recvdata)) < 0) {
-					return -5;	// �V�X�e���G���[(X �f�[�^�����ݎ��s)
+					return -5;	// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[(X ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½İ�ï¿½ï¿½s)
 				}
 			}
-			// Y1 �f�[�^
+			// Y1 ï¿½fï¿½[ï¿½^
 			l_Data = (int*) &CC_Initdata_Y1;
 			for (i = 0; i < (sizeof(CC_Initdata_Y1) / sizeof(int)); i++) {
 				sprintf(l_Senddata, "P%03u=%d", i + 625, *l_Data++);
 				if ((l_result = CC_WriteCommand(l_Senddata, l_Recvdata)) < 0) {
-					return -6;	// �V�X�e���G���[(Y1 �f�[�^�����ݎ��s)
+					return -6;	// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[(Y1 ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½İ�ï¿½ï¿½s)
 				}
 			}
-			// Y2 �f�[�^
+			// Y2 ï¿½fï¿½[ï¿½^
 			l_Data = (int*) &CC_Initdata_Y2;
 			for (i = 0; i < (sizeof(CC_Initdata_Y2) / sizeof(int)); i++) {
 				sprintf(l_Senddata, "P%03u=%d", i + 650, *l_Data++);
 				if ((l_result = CC_WriteCommand(l_Senddata, l_Recvdata)) < 0) {
-					return -7;	// �V�X�e���G���[(Y2 �f�[�^�����ݎ��s)
+					return -7;	// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[(Y2 ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½İ�ï¿½ï¿½s)
 				}
 			}
-			// Z �f�[�^
+			// Z ï¿½fï¿½[ï¿½^
 			l_Data = (int*) &CC_Initdata_Z;
 			for (i = 0; i < (sizeof(CC_Initdata_Z) / sizeof(int)); i++) {
 				sprintf(l_Senddata, "P%03u=%d", i + 675, *l_Data++);
 				if ((l_result = CC_WriteCommand(l_Senddata, l_Recvdata)) < 0) {
-					return -8;	// �V�X�e���G���[(Z �f�[�^�����ݎ��s)
+					return -8;	// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[(Z ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½İ�ï¿½ï¿½s)
 				}
 			}
-			// T �f�[�^
+			// T ï¿½fï¿½[ï¿½^
 			l_Data = (int*) &CC_Initdata_T;
 			for (i = 0; i < (sizeof(CC_Initdata_T) / sizeof(int)); i++) {
 				sprintf(l_Senddata, "P%03u=%d", i + 700, *l_Data++);
 				if ((l_result = CC_WriteCommand(l_Senddata, l_Recvdata)) < 0) {
-					return -9;	// �V�X�e���G���[(T �f�[�^�����ݎ��s)
+					return -9;	// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[(T ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½İ�ï¿½ï¿½s)
 				}
 			}
-			// �����ݒ�l�̕ύX�J�n
+			// ï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½lï¿½Ì•Ï�Xï¿½Jï¿½n
 			strcpy(l_Senddata, "P500=1");
 			if ((l_result = CC_WriteCommand(l_Senddata, l_Recvdata)) < 0) {
-				return -10;	// �V�X�e���G���[(�����ݒ�l�̕ύX�J�n���s)
+				return -10;	// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[(ï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½lï¿½Ì•Ï�Xï¿½Jï¿½nï¿½ï¿½ï¿½s)
 			}
-			// �ύX�������Ď�(P500 �� 0 �ɂȂ�̂��܂�)
+			// ï¿½Ï�Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä�ï¿½(P500 ï¿½ï¿½ 0 ï¿½É‚È‚ï¿½Ì‚ï¿½ï¿½Ü‚ï¿½)
 			int l_Loop = FALSE;
 			DWORD l_StartTime = GetTickCount();
 			DWORD l_CurrentTime, l_DelayTime;
 			strcpy(l_Senddata, "P500");
 			while (l_Loop == FALSE) {
 				if ((l_result = CC_ReadCommand(l_Senddata, l_Recvdata)) < 0) {
-					return -11;	// �V�X�e���G���[(�ύX�����Ǎ��ݎ��s)
+					return -11;	// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[(ï¿½Ï�Xï¿½ï¿½ï¿½ï¿½ï¿½Ç�ï¿½ï¿½İ�ï¿½ï¿½s)
 				}
 				if (strcmp(l_Recvdata, "0") == 0) {
-					l_Loop = TRUE;	// 0 �ɂȂ���
+					l_Loop = TRUE;	// 0 ï¿½É‚È‚ï¿½ï¿½ï¿½
 				} else {
-					// ��莞�Ԉȓ��� 0 �ɂȂ�Ȃ��Ȃ�ُ�
+					// ï¿½ï¿½è��ï¿½ÔˆÈ“ï¿½ï¿½ï¿½ 0 ï¿½É‚È‚ï¿½È‚ï¿½ï¿½È‚ï¿½Ù�ï¿½
 					l_CurrentTime = GetTickCount();
 					if (l_StartTime <= l_CurrentTime) {
 						l_DelayTime = l_CurrentTime - l_StartTime;
@@ -154,32 +154,32 @@ DWORD CC_Initialize_Controller(void)
 						l_DelayTime = (((DWORD) 0xffffffff) - l_StartTime) + l_CurrentTime;
 					}
 					if (CC_INIT_TIMEOUT < l_DelayTime) {
-						return -1;	// �V�X�e���G���[(�ύX�����^�C���A�E�g)
+						return -1;	// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[(ï¿½Ï�Xï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g)
 					}
 				}
 			}
 		}
 	}
 
-	// �T�[�{�p�����^�Ǐo��
+	// ï¿½Tï¿½[ï¿½{ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Ç�oï¿½ï¿½
 	if (CC_LoadServoParam() != TRUE) {
-		return FALSE;	// �V�X�e���G���[
+		return FALSE;	// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[
 	}
 
-	// �N���O�̏�ԓǏo��(1��̂�)
+	// ï¿½Nï¿½ï¿½ï¿½Oï¿½Ì�ï¿½Ô“Ç�oï¿½ï¿½(1ï¿½ï¿½Ì‚ï¿½)
 	while (1) {
 		if (CC_PollingStatus() == 0) {
 			break;
 		}
 	}
 
-	// ����������
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	g_CC_bInitialize = TRUE;
 
 	return 0;
 }
 
-// �������f�[�^���t�@�C������Ǎ���
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç�ï¿½ï¿½ï¿½
 BOOL CC_LoadInitData(void)
 {
 	BOOL	l_rc = FALSE;
@@ -196,22 +196,22 @@ BOOL CC_LoadInitData(void)
 	if ((fp = _tfopen(l_tszFile, "r")) != NULL) {
 		ii = 0;
 		while (fgets(l_cBuff, 255, fp) != NULL) {
-			// ����R�[�h���������� NULL �ɂ���
+			// ï¿½ï¿½ï¿½ï¿½Rï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½ï¿½ï¿½ NULL ï¿½É‚ï¿½ï¿½ï¿½
 			for (i = 0; i < strlen(l_cBuff); i++) {
 				if (iscntrl(l_cBuff[i]) != 0) {
 					l_cBuff[i] = 0x00;
 					break;
 				}
 			}
-			// �f�[�^��؏o��
+			// ï¿½fï¿½[ï¿½^ï¿½ï¿½Ø�oï¿½ï¿½
 			strcpy(l_cBuff2, &(l_cBuff[5]));
-			// ���������`�F�b�N
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N
 			if (10 < strlen(l_cBuff2)) {
 				break;
 			}
-			// �������ǂ����`�F�b�N
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N
 			for (i = 0; i < strlen(l_cBuff2); i++) {
-// '-'��OK				if (isdigit(l_cBuff2[i]) == 0) {
+// '-'ï¿½ï¿½OK				if (isdigit(l_cBuff2[i]) == 0) {
 				if ((isdigit(l_cBuff2[i]) == 0) && (l_cBuff2[i] != '-')) {
 					l_chkOK = FALSE;
 					break;
@@ -233,7 +233,7 @@ BOOL CC_LoadInitData(void)
 		}
 	}
 	if (l_rc == FALSE) {
-		// �t�@�C�����������������̂Ő��^���쐬
+		// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Å�ï¿½ï¿½^ï¿½ï¿½ï¿½ì�¬
 		if ((fp = _tfopen(l_tszFile, "w")) != NULL) {
 			memset(CC_InitALL, 0, sizeof(CC_InitALL));
 			for (i = 0; i < (sizeof(CC_InitALL) / sizeof(int)); i++) {
@@ -246,7 +246,7 @@ BOOL CC_LoadInitData(void)
 				::MessageBox(NULL, l_tszText, MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
 			}
 		} else {
-			// ���^�����Ȃ�����
+			// ï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½
 			_stprintf(l_tszText, _T("Could not create init data template file[%s]."), CC_INITDATA_FILE);
 			if (0 == g_pCMotSysDlg->m_bOnClosing) {
 				::MessageBox(NULL, l_tszText, MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
@@ -263,7 +263,7 @@ BOOL CC_LoadInitData(void)
 
 	return l_rc;
 }
-// �T�[�{�p�����^���t�@�C������Ǐo��
+// ï¿½Tï¿½[ï¿½{ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç�oï¿½ï¿½
 BOOL CC_LoadServoParam(void)
 {
 	BOOL	l_rc = FALSE;
@@ -279,7 +279,7 @@ BOOL CC_LoadServoParam(void)
 		fclose(fp);
 		l_rc = TRUE;
 	} else {
-		// �t�@�C������������
+		// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		l_rc = FALSE;
 		_stprintf(l_tszText, _T("Could not open Servo Parameter file[%s]."), l_tszPathName);
 		if (0 == g_pCMotSysDlg->m_bOnClosing) {
@@ -287,22 +287,22 @@ BOOL CC_LoadServoParam(void)
 		}
 	}
 
-	// X ���̍ő呬�x����
+	// X ï¿½ï¿½ï¿½Ì�Å‘å‘¬ï¿½xï¿½ï¿½ï¿½ï¿½
 	::GetPrivateProfileString(_T("MaxSpeed"), _T("BigXMaxSpeed"), _T("2000"), l_tszText, sizeof(l_tszText), SERVO_INI);
 	g_CC_MaxSpeed[CC_AXIS_X] = _ttol(l_tszText);
 	if (CC_InitDataCommon.P534 < g_CC_MaxSpeed[CC_AXIS_X]) {g_CC_MaxSpeed[CC_AXIS_X] = CC_InitDataCommon.P534;}
 	if (g_CC_MaxSpeed[CC_AXIS_X] < 10) {g_CC_MaxSpeed[CC_AXIS_X] = 10;}
 
-	// Y ���̍ő呬�x����
+	// Y ï¿½ï¿½ï¿½Ì�Å‘å‘¬ï¿½xï¿½ï¿½ï¿½ï¿½
 	::GetPrivateProfileString(_T("MaxSpeed"), _T("BigYMaxSpeed"), _T("2000"), l_tszText, sizeof(l_tszText), SERVO_INI);
 	g_CC_MaxSpeed[CC_AXIS_Y] = _ttol(l_tszText);
 	if (CC_InitDataCommon.P535 < g_CC_MaxSpeed[CC_AXIS_Y]) {g_CC_MaxSpeed[CC_AXIS_Y] = CC_InitDataCommon.P535;}
 	if (g_CC_MaxSpeed[CC_AXIS_Y] < 10) {g_CC_MaxSpeed[CC_AXIS_Y] = 10;}
 
-	// Z ���̍ő呬�x����
+	// Z ï¿½ï¿½ï¿½Ì�Å‘å‘¬ï¿½xï¿½ï¿½ï¿½ï¿½
 	g_CC_MaxSpeed[CC_AXIS_Z] = CC_InitDataCommon.P536;
 
-	// T ���̍ő呬�x����
+	// T ï¿½ï¿½ï¿½Ì�Å‘å‘¬ï¿½xï¿½ï¿½ï¿½ï¿½
 	::GetPrivateProfileString(_T("MaxSpeed"), _T("ThetaMaxSpeed"), _T("10"), l_tszText, sizeof(l_tszText), SERVO_INI);
 	g_CC_MaxSpeed[CC_AXIS_T] = _ttol(l_tszText);
 	if (10 < g_CC_MaxSpeed[CC_AXIS_T]) {g_CC_MaxSpeed[CC_AXIS_T] = 10;}
@@ -311,7 +311,7 @@ BOOL CC_LoadServoParam(void)
 	return l_rc;
 }
 
-// ���[�h�R�}���h
+// ï¿½ï¿½ï¿½[ï¿½hï¿½Rï¿½}ï¿½ï¿½ï¿½h
 int CC_ReadCommand(char *SendData, char *RecvData)
 {
 	int				l_retry = 0;
@@ -320,11 +320,11 @@ int CC_ReadCommand(char *SendData, char *RecvData)
 	int				i;
 	unsigned char	l_Sum;
 	DWORD			l_RecvLength;
-	static BOOL		ls_OnceError = TRUE;	// �ŏ��̒ʐM����������܂Ŗ������g���C�ɂ���t���O
-												/*	��L�� FP �V���[�Y�̏ꍇ�D
-													Nano �ł͉��L�� #if �ɂāC����̃��g���C�̂�
-													�w�胊�g���C�񐔂̂P�O�{�̃��g���C��
-													�s�Ȃ��悤�ɕύX���܂����D
+	static BOOL		ls_OnceError = TRUE;	// ï¿½Å�ï¿½ï¿½Ì’Ê�Mï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚Å–ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½É‚ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½O
+												/*	ï¿½ï¿½Lï¿½ï¿½ FP ï¿½Vï¿½ï¿½ï¿½[ï¿½Yï¿½Ì�ê�‡ï¿½D
+													Nano ï¿½Å‚Í‰ï¿½ï¿½Lï¿½ï¿½ #if ï¿½É‚Ä�Cï¿½ï¿½ï¿½ï¿½Ìƒï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Ì‚ï¿½
+													ï¿½wï¿½èƒŠï¿½gï¿½ï¿½ï¿½Cï¿½ñ�”‚Ì‚Pï¿½Oï¿½{ï¿½Ìƒï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½ï¿½
+													ï¿½sï¿½È‚ï¿½ï¿½æ‚¤ï¿½É•Ï�Xï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D
 												*/
 	int				l_iRetryTimes;
 
@@ -333,8 +333,8 @@ int CC_ReadCommand(char *SendData, char *RecvData)
 if ((0 == g_CC_ThreadLoop) || (0 != g_CC_CommAbort)) {l_retry = 0; return 0x80000000;}
 		l_result = g_pCSio->CommCommand(SendData, RecvData, &l_RecvLength);
 		if ((l_result & 0x10000000) != 0) {RETRY_TIMES;
-			// �V�X�e���G���[����
-			send_motion_message(-1, 111);	// �ʐM(Read)�V�X�e���G���[����
+			// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½
+			send_motion_message(-1, 111);	// ï¿½Ê�M(Read)ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½
 			_stprintf(l_tszText, _T("Communication Functions is not work(ReadCommand:0=0x%08x)."), l_result);
 			if (0 == g_pCMotSysDlg->m_bOnClosing) {
 				::MessageBox(NULL, l_tszText, MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
@@ -342,15 +342,15 @@ if ((0 == g_CC_ThreadLoop) || (0 != g_CC_CommAbort)) {l_retry = 0; return 0x8000
 			break;;
 		} else {
 			if (l_result != MSC_COMM_OK) {
-				// ���g���C
+				// ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½C
 #if 0
 				if ((ls_OnceError != TRUE) && (RETRY_TIMES <= l_retry++)) {
 #else
 				l_iRetryTimes = (0 != ls_OnceError)? RETRY_TIMES * 10: RETRY_TIMES;
 				if ((l_iRetryTimes <= l_retry++)) {
 #endif
-					// ���g���C�A�E�g�̓V�X�e���G���[
-					send_motion_message(-1, 112);	// �ʐM(Read)���g���C�A�E�g�P����
+					// ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Aï¿½Eï¿½gï¿½ÍƒVï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[
+					send_motion_message(-1, 112);	// ï¿½Ê�M(Read)ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Aï¿½Eï¿½gï¿½Pï¿½ï¿½ï¿½ï¿½
 					l_result = -1;
 					_stprintf(l_tszText, _T("Communication retry out(ReadCommand:1=0x%08x). Retry times : %d."), l_result, l_iRetryTimes);
 					if (0 == g_pCMotSysDlg->m_bOnClosing) {
@@ -359,20 +359,20 @@ if ((0 == g_CC_ThreadLoop) || (0 != g_CC_CommAbort)) {l_retry = 0; return 0x8000
 					break;
 				}
 			} else {
-				// ���퉞��
+				// ï¿½ï¿½ï¿½í‰�ï¿½ï¿½
 				ls_OnceError = FALSE; l_retry = 0;
-				// ���[�h�f�[�^���o
+				// ï¿½ï¿½ï¿½[ï¿½hï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½o
 				for (i = 0; i < 255; i++) {
 					if (RecvData[i] == COM_CR) {
 						l_Sum = RecvData[i + 1];
 						RecvData[i + 1] = 0x00;
-						// �T���̃`�F�b�N
+						// ï¿½Tï¿½ï¿½ï¿½Ìƒ`ï¿½Fï¿½bï¿½N
 						if (l_Sum != g_pCSio->CalcCheckSum(RecvData, 1)) {
-							// �T���������
+							// ï¿½Tï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 							l_result = -3;
 						}
 						if (12 < strlen(RecvData)) {
-							// �f�[�^����������(10�����𒴂��Ă���)
+							// ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(10ï¿½ï¿½ï¿½ï¿½ï¿½ğ’´‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½)
 							l_result = -2;
 						}
 						RecvData[i] = 0x00;
@@ -380,10 +380,10 @@ if ((0 == g_CC_ThreadLoop) || (0 != g_CC_CommAbort)) {l_retry = 0; return 0x8000
 					}
 				}
 				if ((255 <= i) || (l_result != MSC_COMM_OK)) {
-					// ���g���C
+					// ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½C
 					if ((ls_OnceError != TRUE) && (RETRY_TIMES <= l_retry++)) {
-						// ���g���C�A�E�g�̓V�X�e���G���[
-						send_motion_message(-1, 113);	// �ʐM(Read)���g���C�A�E�g�Q����
+						// ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Aï¿½Eï¿½gï¿½ÍƒVï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[
+						send_motion_message(-1, 113);	// ï¿½Ê�M(Read)ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Aï¿½Eï¿½gï¿½Qï¿½ï¿½ï¿½ï¿½
 						l_result = (l_result & 0x8000ffff) | 0xa0000000;
 						_stprintf(l_tszText, _T("Communication retry out(ReadCommand:2=0x%08x). Retry times : %d."), l_result, RETRY_TIMES);
 						if (0 == g_pCMotSysDlg->m_bOnClosing) {
@@ -400,12 +400,12 @@ if ((0 == g_CC_ThreadLoop) || (0 != g_CC_CommAbort)) {l_retry = 0; return 0x8000
 
 	return l_result;
 }
-// ���[�h�R�}���h�Q
+// ï¿½ï¿½ï¿½[ï¿½hï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½Q
 int CC_ReadCommand2(
-					char *SendData,		// ���M�f�[�^
-					char *RecvData,		// ��M�f�[�^
-					short DataNum,		// �f�[�^��
-					void *ReadData		// ���[�h�f�[�^
+					char *SendData,		// ï¿½ï¿½ï¿½Mï¿½fï¿½[ï¿½^
+					char *RecvData,		// ï¿½ï¿½Mï¿½fï¿½[ï¿½^
+					short DataNum,		// ï¿½fï¿½[ï¿½^ï¿½ï¿½
+					void *ReadData		// ï¿½ï¿½ï¿½[ï¿½hï¿½fï¿½[ï¿½^
 				)
 {
 	int				l_retry = 0;
@@ -425,8 +425,8 @@ int CC_ReadCommand2(
 if ((0 == g_CC_ThreadLoop) || (0 != g_CC_CommAbort)) {l_retry = 0; return 0x80000000;}
 		l_result = g_pCSio->CommCommand(SendData, RecvData, &l_RecvLength);
 		if ((l_result & 0x10000000) != 0) {
-			// �V�X�e���G���[����
-			send_motion_message(-1, 121);	// �ʐM(Read2)�V�X�e���G���[����
+			// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½
+			send_motion_message(-1, 121);	// ï¿½Ê�M(Read2)ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½
 			_stprintf(l_tszText, _T("Communication Functions is not work(ReadCommand2:0=0x%08x)."), l_result);
 			if (0 == g_pCMotSysDlg->m_bOnClosing) {
 				::MessageBox(NULL, l_tszText, MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
@@ -434,10 +434,10 @@ if ((0 == g_CC_ThreadLoop) || (0 != g_CC_CommAbort)) {l_retry = 0; return 0x8000
 			break;;
 		} else {
 			if (l_result != MSC_COMM_OK) {
-				// ���g���C
+				// ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½C
 				if (RETRY_TIMES <= l_retry++) {
-					// ���g���C�A�E�g�̓V�X�e���G���[
-					send_motion_message(-1, 122);	// �ʐM(Read2)���g���C�A�E�g�P����
+					// ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Aï¿½Eï¿½gï¿½ÍƒVï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[
+					send_motion_message(-1, 122);	// ï¿½Ê�M(Read2)ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Aï¿½Eï¿½gï¿½Pï¿½ï¿½ï¿½ï¿½
 					l_result = -1;
 					_stprintf(l_tszText, _T("Communication retry out(ReadCommand2:1=0x%08x). Retry times : %d."), l_result, RETRY_TIMES);
 					if (0 == g_pCMotSysDlg->m_bOnClosing) {
@@ -446,9 +446,9 @@ if ((0 == g_CC_ThreadLoop) || (0 != g_CC_CommAbort)) {l_retry = 0; return 0x8000
 					break;
 				}
 			} else {
-				// ���퉞��
+				// ï¿½ï¿½ï¿½í‰�ï¿½ï¿½
 				memcpy(l_pRecvData, RecvData, l_RecvLength);
-				// ���[�h�f�[�^���o
+				// ï¿½ï¿½ï¿½[ï¿½hï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½o
 				j = 0; ii = 0;
 				for (i = 0; i < 256; i++) {
 					if (l_pRecvData[i] == COM_CR) {
@@ -457,16 +457,16 @@ if ((0 == g_CC_ThreadLoop) || (0 != g_CC_CommAbort)) {l_retry = 0; return 0x8000
 						strcpy(&((*l_pReadData)[j][0]), &(l_pRecvData[ii]));
 						ii = i + 2;
 						i = i + 1;
-						// �T���̃`�F�b�N
+						// ï¿½Tï¿½ï¿½ï¿½Ìƒ`ï¿½Fï¿½bï¿½N
 						if (l_Sum != g_pCSio->CalcCheckSum(&((*l_pReadData)[j][0]), 1)) {
-							// �T���������
+							// ï¿½Tï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 							l_result = -3; break;
 						}
 						if (12 < strlen(&((*l_pReadData)[j][0]))) {
-							// �f�[�^����������(10�����𒴂��Ă���)
+							// ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(10ï¿½ï¿½ï¿½ï¿½ï¿½ğ’´‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½)
 							l_result = -2; break;
 						}
-						// CR �� NULL �ɂ���(�I�[��ǉ�)
+						// CR ï¿½ï¿½ NULL ï¿½É‚ï¿½ï¿½ï¿½(ï¿½Iï¿½[ï¿½ï¿½Ç‰ï¿½)
 						for (k = 0; k < strlen(&((*l_pReadData)[j][0])); k++) {
 							if ((*l_pReadData)[j][k] == COM_CR) {
 								(*l_pReadData)[j][k] = 0x00; break;
@@ -475,7 +475,7 @@ if ((0 == g_CC_ThreadLoop) || (0 != g_CC_CommAbort)) {l_retry = 0; return 0x8000
 						j++;
 						if (DataNum <= j) {
 							if (l_pRecvData[ii] != COM_ACK) {
-								// �f�[�^����������
+								// ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 								l_result = -4; break;
 							} else {
 								break;
@@ -484,10 +484,10 @@ if ((0 == g_CC_ThreadLoop) || (0 != g_CC_CommAbort)) {l_retry = 0; return 0x8000
 					}
 				}
 				if ((255 <= i) || (l_result != MSC_COMM_OK)) {
-					// ���g���C
+					// ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½C
 					if (RETRY_TIMES <= l_retry++) {
-						// ���g���C�A�E�g�̓V�X�e���G���[
-						send_motion_message(-1, 123);	// �ʐM(Read2)���g���C�A�E�g�Q����
+						// ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Aï¿½Eï¿½gï¿½ÍƒVï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[
+						send_motion_message(-1, 123);	// ï¿½Ê�M(Read2)ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Aï¿½Eï¿½gï¿½Qï¿½ï¿½ï¿½ï¿½
 						l_result = (l_result & 0x8000ffff) | 0xa0000000;
 						_stprintf(l_tszText, _T("Communication retry out(ReadCommand2:2=0x%08x). Retry times : %d."), l_result, RETRY_TIMES);
 						if (0 == g_pCMotSysDlg->m_bOnClosing) {
@@ -505,7 +505,7 @@ if ((0 == g_CC_ThreadLoop) || (0 != g_CC_CommAbort)) {l_retry = 0; return 0x8000
 	return l_result;
 }
 
-// ���C�g�R�}���h
+// ï¿½ï¿½ï¿½Cï¿½gï¿½Rï¿½}ï¿½ï¿½ï¿½h
 int CC_WriteCommand(char *SendData, char *RecvData)
 {
 	int		l_retry = 0;
@@ -518,8 +518,8 @@ int CC_WriteCommand(char *SendData, char *RecvData)
 if ((0 == g_CC_ThreadLoop) || (0 != g_CC_CommAbort)) {l_retry = 0; return 0x80000000;}
 		l_result = g_pCSio->CommCommand(SendData, RecvData, &l_RecvLength);
 		if ((l_result & 0x10000000) != 0) {
-			// �V�X�e���G���[����
-			send_motion_message(-1, 131);	// �ʐM(Write)�V�X�e���G���[����
+			// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½
+			send_motion_message(-1, 131);	// ï¿½Ê�M(Write)ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½
 			_stprintf(l_tszText, _T("Communication Functions is not work. (0x%08x)"), l_result);
 			if (0 == g_pCMotSysDlg->m_bOnClosing) {
 				::MessageBox(NULL, l_tszText, MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
@@ -527,10 +527,10 @@ if ((0 == g_CC_ThreadLoop) || (0 != g_CC_CommAbort)) {l_retry = 0; return 0x8000
 			break;;
 		} else {
 			if (l_result != MSC_COMM_OK) {
-				// ���g���C
+				// ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½C
 				if (RETRY_TIMES <= l_retry++) {
-					// ���g���C�A�E�g�̓V�X�e���G���[
-					send_motion_message(-1, 132);	// �ʐM(Write)���g���C�A�E�g����
+					// ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Aï¿½Eï¿½gï¿½ÍƒVï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[
+					send_motion_message(-1, 132);	// ï¿½Ê�M(Write)ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½ï¿½
 					l_result = -1;
 					_stprintf(l_tszText, _T("Communication retry out(WriteCommand:1). Retry times : %d."), RETRY_TIMES);
 					if (0 == g_pCMotSysDlg->m_bOnClosing) {
@@ -539,7 +539,7 @@ if ((0 == g_CC_ThreadLoop) || (0 != g_CC_CommAbort)) {l_retry = 0; return 0x8000
 					break;
 				}
 			} else {
-				// ���퉞��
+				// ï¿½ï¿½ï¿½í‰�ï¿½ï¿½
 				break;;
 			}
 		}
@@ -548,7 +548,7 @@ if ((0 == g_CC_ThreadLoop) || (0 != g_CC_CommAbort)) {l_retry = 0; return 0x8000
 	return l_result;
 }
 
-// DIO �I�[�v��
+// DIO ï¿½Iï¿½[ï¿½vï¿½ï¿½
 DWORD CC_DioOpen(void)
 {
 	DWORD	dwRet;
@@ -560,13 +560,13 @@ DWORD CC_DioOpen(void)
 
 	return dwRet;
 }
-// DIO �N���[�Y
+// DIO ï¿½Nï¿½ï¿½ï¿½[ï¿½Y
 DWORD CC_DioClose(void)
 {
 	DWORD	dwRet;
 
 	if (g_CC_hDrv == NULL) {
-		// �I�[�v������Ă��Ȃ�
+		// ï¿½Iï¿½[ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½
 		return -1;
 	}
 
@@ -575,14 +575,14 @@ DWORD CC_DioClose(void)
 
 	return dwRet;
 }
-// DIO �|�[�g���[�h
+// DIO ï¿½|ï¿½[ï¿½gï¿½ï¿½ï¿½[ï¿½h
 DWORD CC_DioInpDWord(DWORD *pdwRData)
 {
 	DWORD	l_dwRet = 0;
 	BYTE	l_ucInPort0, l_ucInPort1, l_ucInPort2, l_ucInPort3;
 
 	if (g_CC_hDrv == NULL) {
-		// �I�[�v������Ă��Ȃ�
+		// ï¿½Iï¿½[ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½
 		return -1;
 	}
 
@@ -604,24 +604,24 @@ DWORD CC_DioInpDWord(DWORD *pdwRData)
 	} else {
 		*pdwRData = g_CC_InPort;
 	}
-/* added 2009.12.14 hmenjo MotSys DIO ���O�ǉ� ---------- { ---------- */
+/* added 2009.12.14 hmenjo MotSys DIO ï¿½ï¿½ï¿½Oï¿½Ç‰ï¿½ ---------- { ---------- */
 	CC_DioLog(g_CC_InPort, g_CC_OutPort);
-/* added 2009.12.14 hmenjo MotSys DIO ���O�ǉ� ---------- } ---------- */
+/* added 2009.12.14 hmenjo MotSys DIO ï¿½ï¿½ï¿½Oï¿½Ç‰ï¿½ ---------- } ---------- */
 
 	return l_dwRet;
 }
-// DIO �r�b�g���[�h
+// DIO ï¿½rï¿½bï¿½gï¿½ï¿½ï¿½[ï¿½h
 DWORD CC_DioInpBit(WORD wRBitNo, BYTE *pucRBitData)
 {
 	DWORD	l_dwRet = 0;
 	BYTE	l_ucBitData;
 
 	if (g_CC_hDrv == NULL) {
-		// �I�[�v������Ă��Ȃ�
+		// ï¿½Iï¿½[ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½
 		return -1;
 	}
 	if (31 < wRBitNo) {
-		// �r�b�g�ԍ����s��
+		// ï¿½rï¿½bï¿½gï¿½Ô�ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½
 		return -1;
 	}
 
@@ -641,23 +641,23 @@ DWORD CC_DioInpBit(WORD wRBitNo, BYTE *pucRBitData)
 			*pucRBitData = 0;
 		}
 	}
-/* added 2009.12.14 hmenjo MotSys DIO ���O�ǉ� ---------- { ---------- */
+/* added 2009.12.14 hmenjo MotSys DIO ï¿½ï¿½ï¿½Oï¿½Ç‰ï¿½ ---------- { ---------- */
 	CC_DioLog(g_CC_InPort, g_CC_OutPort);
-/* added 2009.12.14 hmenjo MotSys DIO ���O�ǉ� ---------- } ---------- */
+/* added 2009.12.14 hmenjo MotSys DIO ï¿½ï¿½ï¿½Oï¿½Ç‰ï¿½ ---------- } ---------- */
 
 	return l_dwRet;
 }
-// DIO �r�b�g���C�g
+// DIO ï¿½rï¿½bï¿½gï¿½ï¿½ï¿½Cï¿½g
 DWORD CC_DioOutBit(WORD wWBitNo, BYTE ucWBitData)
 {
 	DWORD	l_dwRet = 0;
 
 	if (g_CC_hDrv == NULL) {
-		// �I�[�v������Ă��Ȃ�
+		// ï¿½Iï¿½[ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½
 		return -1;
 	}
 	if (31 < wWBitNo) {
-		// �r�b�g�ԍ����s��
+		// ï¿½rï¿½bï¿½gï¿½Ô�ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½
 		return -1;
 	}
 
@@ -670,13 +670,13 @@ DWORD CC_DioOutBit(WORD wWBitNo, BYTE ucWBitData)
 			g_CC_OutPort &= ~(((DWORD) 0x00000001) << wWBitNo);
 		}
 	}
-/* added 2009.12.14 hmenjo MotSys DIO ���O�ǉ� ---------- { ---------- */
+/* added 2009.12.14 hmenjo MotSys DIO ï¿½ï¿½ï¿½Oï¿½Ç‰ï¿½ ---------- { ---------- */
 	CC_DioLog(g_CC_InPort, g_CC_OutPort);
-/* added 2009.12.14 hmenjo MotSys DIO ���O�ǉ� ---------- } ---------- */
+/* added 2009.12.14 hmenjo MotSys DIO ï¿½ï¿½ï¿½Oï¿½Ç‰ï¿½ ---------- } ---------- */
 
 	return l_dwRet;
 }
-// DIO �G���[
+// DIO ï¿½Gï¿½ï¿½ï¿½[
 void CC_DioError(void)
 {
 	static BOOL	ls_Error = FALSE;
@@ -688,8 +688,8 @@ void CC_DioError(void)
 		g_pCMotSysDlg->ShowAlarm(5, 0, 0, 0);
 	}
 }
-/* added 2009.12.14 hmenjo MotSys DIO ���O�ǉ� ---------- { ---------- */
-/* DIO ���O	*/
+/* added 2009.12.14 hmenjo MotSys DIO ï¿½ï¿½ï¿½Oï¿½Ç‰ï¿½ ---------- { ---------- */
+/* DIO ï¿½ï¿½ï¿½O	*/
 void CC_DioLog(DWORD dwDi, DWORD dwDo)
 {
 	static DWORD ls_dwDiPre = 0;
@@ -697,16 +697,16 @@ void CC_DioLog(DWORD dwDi, DWORD dwDo)
 
 	if (0 != g_pCMotSysDlg) {
 		if ((ls_dwDiPre != dwDi) || (ls_dwDoPre != dwDo)) {
-			/* �ω��L��	*/
+			/* ï¿½Ï‰ï¿½ï¿½Lï¿½ï¿½	*/
 			ls_dwDiPre = dwDi;
 			ls_dwDoPre = dwDo;
 			g_pCMotSysDlg->DioLogging(dwDi, dwDo);
 		}
 	}
 }
-/* added 2009.12.14 hmenjo MotSys DIO ���O�ǉ� ---------- } ---------- */
+/* added 2009.12.14 hmenjo MotSys DIO ï¿½ï¿½ï¿½Oï¿½Ç‰ï¿½ ---------- } ---------- */
 
-// WD �Ď�
+// WD ï¿½Ä�ï¿½
 BOOL	lg_bWD_once = FALSE;
 BOOL CC_checkWD(void)
 {
@@ -714,12 +714,12 @@ BOOL CC_checkWD(void)
 	BYTE	l_BitData = 0;
 
 	if (g_CC_bInitialize != TRUE) {
-		// ���������Ȃ�Ď����Ȃ��D���탊�^�[���Ƃ���
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½Ä�ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Dï¿½ï¿½ï¿½íƒŠï¿½^ï¿½[ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½ï¿½
 	} else {
-		// ��x�ł��I���������H
+		// ï¿½ï¿½xï¿½Å‚ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½H
 		if (lg_bWD_once != TRUE) {
-			// ���Ă��Ȃ�
-			// �I����҂�
+			// ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½
+			// ï¿½Iï¿½ï¿½ï¿½ï¿½Ò‚ï¿½
 			if (CC_DioInpBit(0, &l_BitData) != 0) {
 				CC_DioError(); l_BitData = 0;
 			}
@@ -727,12 +727,12 @@ BOOL CC_checkWD(void)
 				lg_bWD_once = TRUE;
 			}
 		} else {
-			// ����
+			// ï¿½ï¿½ï¿½ï¿½
 			if (CC_DioInpBit(0, &l_BitData) != 0) {
 				CC_DioError(); l_BitData = 0;
 			}
 			if (l_BitData == 0) {
-				// �I�t������G���[
+				// ï¿½Iï¿½tï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[
 				l_rc = FALSE;
 				lg_bWD_once = FALSE;
 			}
@@ -742,38 +742,38 @@ BOOL CC_checkWD(void)
 	return l_rc;
 }
 
-// �T�[�{ ON/OFF
+// ï¿½Tï¿½[ï¿½{ ON/OFF
 BOOL CC_ServoONOFF(int on_off)
 {
 	BYTE	l_ucServo;
 
 	if (on_off == -1) {
-		// ��Ԃ�Ԃ�����
+		// ï¿½ï¿½Ô‚ï¿½Ô‚ï¿½ï¿½ï¿½ï¿½ï¿½
 	} else if (on_off == TRUE) {
-		// �T�[�{ ON
+		// ï¿½Tï¿½[ï¿½{ ON
 		if (CC_DioOutBit(CC_OUTBIT_SERVO, 1) != 0) {
-			CC_DioError();	return FALSE;	// ���s
+			CC_DioError();	return FALSE;	// ï¿½ï¿½ï¿½s
 		}
 		g_CC_ServoONReq = TRUE;
 		g_CC_ServoOFFReq = FALSE;
 	} else {
-		// �T�[�{ OFF
+		// ï¿½Tï¿½[ï¿½{ OFF
 		if (CC_DioOutBit(CC_OUTBIT_SERVO, 0) != 0) {
-			CC_DioError();	return FALSE;	// ���s
+			CC_DioError();	return FALSE;	// ï¿½ï¿½ï¿½s
 		}
 		g_CC_ServoONReq = FALSE;
 		g_CC_ServoOFFReq = TRUE;
 	}
 
-	// ��Ԃ�Ǐo��
+	// ï¿½ï¿½Ô‚ï¿½Ç�oï¿½ï¿½
 	if (CC_DioInpBit(CC_INBIT_SERVO, &l_ucServo) != 0) {
-		CC_DioError();	return FALSE;	// ���s
+		CC_DioError();	return FALSE;	// ï¿½ï¿½ï¿½s
 	}
 
 	return (l_ucServo != 0)? TRUE : FALSE;
 }
 
-// ���u�[�g���Ȃ����̃��b�Z�[�W
+// ï¿½ï¿½ï¿½uï¿½[ï¿½gï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½Ìƒï¿½ï¿½bï¿½Zï¿½[ï¿½W
 void CC_MsgReboot(void)
 {
 	g_CC_ComError = TRUE;
@@ -782,17 +782,17 @@ void CC_MsgReboot(void)
 	g_pCMotSysDlg->ShowAlarm(2, 0, 0, 0);
 }
 
-// ���������
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 UINT CC_Main_Loop(LPVOID pParam)
 {
-	// �ϐ����̏�����
+	// ï¿½Ï�ï¿½ï¿½ï¿½ï¿½Ì�ï¿½ï¿½ï¿½ï¿½ï¿½
 	CC_Initial();
 
-	// DO ���N���A
+	// DO ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½A
 	for (int i = 0; i < 32; i++) {
 		CC_DioOutBit(i, 0);
 	}
-	// �T�[�{���j�b�g������
+	// ï¿½Tï¿½[ï¿½{ï¿½ï¿½ï¿½jï¿½bï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	g_CC_ThreadLoop = TRUE;
 	g_CC_CommAbort = FALSE;
 	BOOL l_bInitRc = CC_InitServo(pParam);
@@ -801,39 +801,39 @@ UINT CC_Main_Loop(LPVOID pParam)
 		g_pCMotSysDlg->PostMessage(MOTDRV_SRVINITCOMP, (WPARAM) FALSE, 0);
 	} else {
 		g_CC_ThreadLoop = TRUE;
-		CC_ChangeGain(CC_AXIS_X, 1);	// �Q�C����؊���
-		CC_ChangeGain(CC_AXIS_Y, 1);	// �Q�C����؊���
-		CC_ChangeGain(CC_AXIS_Z, 1);	// �Q�C����؊���
-		CC_ChangeGain(CC_AXIS_Y, 1);	// �Q�C����؊���
+		CC_ChangeGain(CC_AXIS_X, 1);	// ï¿½Qï¿½Cï¿½ï¿½ï¿½ï¿½ØŠï¿½ï¿½ï¿½
+		CC_ChangeGain(CC_AXIS_Y, 1);	// ï¿½Qï¿½Cï¿½ï¿½ï¿½ï¿½ØŠï¿½ï¿½ï¿½
+		CC_ChangeGain(CC_AXIS_Z, 1);	// ï¿½Qï¿½Cï¿½ï¿½ï¿½ï¿½ØŠï¿½ï¿½ï¿½
+		CC_ChangeGain(CC_AXIS_Y, 1);	// ï¿½Qï¿½Cï¿½ï¿½ï¿½ï¿½ØŠï¿½ï¿½ï¿½
 		g_pCMotSysDlg->PostMessage(MOTDRV_SRVINITCOMP, (WPARAM) TRUE, 0);
 	}
 
 	while (g_CC_ThreadLoop == TRUE) {
-/* modified 2009.10.15 hmenjo �^�N�g�Z�k�p�X���[�v���ԏk�� ---------- { ---------- */
-////		::Sleep(200);	// FP �V���[�Y�ł͂�����������
+/* modified 2009.10.15 hmenjo ï¿½^ï¿½Nï¿½gï¿½Zï¿½kï¿½pï¿½Xï¿½ï¿½ï¿½[ï¿½vï¿½ï¿½ï¿½Ô�kï¿½ï¿½ ---------- { ---------- */
+////		::Sleep(200);	// FP ï¿½Vï¿½ï¿½ï¿½[ï¿½Yï¿½Å‚Í‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //		::Sleep(100);
-/* modified 2009.10.15 hmenjo �^�N�g�Z�k�p�X���[�v���ԏk�� ----------			   */
+/* modified 2009.10.15 hmenjo ï¿½^ï¿½Nï¿½gï¿½Zï¿½kï¿½pï¿½Xï¿½ï¿½ï¿½[ï¿½vï¿½ï¿½ï¿½Ô�kï¿½ï¿½ ----------			   */
 		::Sleep(50);
-/* modified 2009.10.15 hmenjo �^�N�g�Z�k�p�X���[�v���ԏk�� ---------- } ---------- */
+/* modified 2009.10.15 hmenjo ï¿½^ï¿½Nï¿½gï¿½Zï¿½kï¿½pï¿½Xï¿½ï¿½ï¿½[ï¿½vï¿½ï¿½ï¿½Ô�kï¿½ï¿½ ---------- } ---------- */
 
 		if (g_CC_ComError != TRUE) {
-			// �R���g���[���� WD �`�F�b�N
+			// ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ WD ï¿½`ï¿½Fï¿½bï¿½N
 			if (CC_checkWD() != TRUE) {
 				CC_ServoFailure();
 				CC_ServoONOFF(0);
 				g_pCMotSysDlg->ShowAlarm(1, 0, 0, 0);
 			}
-			// �A���[���Ď�
+			// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ä�ï¿½
 			CC_PollingAlarm();
-			// ��Ԏ擾
+			// ï¿½ï¿½Ô�æ“¾
 			CC_PollingStatus();
-			// ������Ǘ�
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç—ï¿½
 
-#define	BEFORE_INP_WAIT	200	// INP �҂�����
-			CC_X_Manager();		// X ��
-			CC_Y_Manager();		// Y ��
-			CC_Z_Manager();		// Z ��
-			CC_T_Manager();		// T ��
+#define	BEFORE_INP_WAIT	200	// INP ï¿½Ò‚ï¿½ï¿½ï¿½ï¿½ï¿½
+			CC_X_Manager();		// X ï¿½ï¿½
+			CC_Y_Manager();		// Y ï¿½ï¿½
+			CC_Z_Manager();		// Z ï¿½ï¿½
+			CC_T_Manager();		// T ï¿½ï¿½
 
 #if CC_DEB_BUTTON==0
 			mmtestORGXdone();	//debdeb for test
@@ -842,20 +842,20 @@ UINT CC_Main_Loop(LPVOID pParam)
 			mmtestORGTdone();	//debdeb for test
 #endif
 		}
-		// �T�[�{�I������
+		// ï¿½Tï¿½[ï¿½{ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		CC_ServoON_Ctrl();
 	}
 
-	// DO ���N���A
+	// DO ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½A
 	for (int i = 0; i < 32; i++) {
 		CC_DioOutBit(i, 0);
 	}
 
-//	AfxEndThread(0);	// ����łȂ��āC
-	return (UINT) 0;	// �������ł悢
+//	AfxEndThread(0);	// ï¿½ï¿½ï¿½ï¿½Å‚È‚ï¿½ï¿½Ä�C
+	return (UINT) 0;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å‚æ‚¢
 }
 
-// �T�[�{�I������
+// ï¿½Tï¿½[ï¿½{ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void CC_ServoON_Ctrl(void)
 {
 	static WORD		l_prc = 0;
@@ -867,9 +867,9 @@ void CC_ServoON_Ctrl(void)
 	switch (l_prc) {
 	case 0:
 		if (g_CC_ServoONReq == TRUE) {
-			// �T�[�{ ON �v������
+			// ï¿½Tï¿½[ï¿½{ ON ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if (CC_DioInpDWord(&l_InpAlarm) != 0) {
-				CC_DioError();	// ���s
+				CC_DioError();	// ï¿½ï¿½ï¿½s
 			} else {
 				DWORD l_dwAlarmBit = 0;
 				l_dwAlarmBit |= (0 != motion_data[CC_CnvAxisFromSPT(CC_AXIS_X)].bEnable)? 0x00000001 << CC_INBIT_ALARM_X : 0;
@@ -883,45 +883,45 @@ void CC_ServoON_Ctrl(void)
 //									| (0x00000001 << CC_INBIT_ALARM_T))) == 0
 //					) {
 				if (((~l_InpAlarm) & l_dwAlarmBit) == 0	) {
-					// �A���[��������
+					// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					l_prc = 1;
 				}
 			}
 		} else if (g_CC_ServoOFFReq == TRUE) {
-			l_prc = 3;	// �T�[�{ OFF �v������
+			l_prc = 3;	// ï¿½Tï¿½[ï¿½{ OFF ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		} else if (((g_CC_OutPort & (0x0001 << CC_OUTBIT_SERVO)) != 0)
 				&& (CC_ServoONOFF(-1) == FALSE)) {
-			// �T�[�{ ON �w�� ON �Ȃ̂� OFF ���Ă���(EMG ��������)
-			CC_ServoOFF_RunOFF();	// �T�[�{ OFF�C�S����~
+			// ï¿½Tï¿½[ï¿½{ ON ï¿½wï¿½ï¿½ ON ï¿½È‚Ì‚ï¿½ OFF ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½(EMG ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+			CC_ServoOFF_RunOFF();	// ï¿½Tï¿½[ï¿½{ OFFï¿½Cï¿½Sï¿½ï¿½ï¿½ï¿½~
 			CC_ServoFailure();
-			// ����~�\��
+			// ï¿½ï¿½ï¿½ï¿½~ï¿½\ï¿½ï¿½
 			g_pCMotSysDlg->ShowAlarm(7, 0, 0, 0);
 		}
 		break;
-	case 1:		// �T�[�{ ON ����
+	case 1:		// ï¿½Tï¿½[ï¿½{ ON ï¿½ï¿½ï¿½ï¿½
 		if (CC_ServoONOFF(-1) == TRUE) {
-			// �T�[�{ ON ���Ă���
+			// ï¿½Tï¿½[ï¿½{ ON ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
 			g_CC_ServoONReq = FALSE;
 			l_prc = 0;
 		} else {
-			// �T�[�{ ON ���Ă��Ȃ�
+			// ï¿½Tï¿½[ï¿½{ ON ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½
 			if ((g_CC_OutPort & (0x0001 << CC_OUTBIT_SERVO)) != 0) {
-				// �T�[�{ ON �o�͂��Ă���
+				// ï¿½Tï¿½[ï¿½{ ON ï¿½oï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
 			} else {
-				// �T�[�{ ON �o�͂��Ă��Ȃ�
-				CC_ServoONOFF(1);	// �T�[�{ ON
+				// ï¿½Tï¿½[ï¿½{ ON ï¿½oï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½
+				CC_ServoONOFF(1);	// ï¿½Tï¿½[ï¿½{ ON
 			}
 			ls_StartTime = GetTickCount();
 			l_prc = 2;
 		}
 		break;
-	case 2:		// �T�[�{ ON �m��҂�
+	case 2:		// ï¿½Tï¿½[ï¿½{ ON ï¿½mï¿½ï¿½Ò‚ï¿½
 		if (CC_ServoONOFF(-1) == TRUE) {
-			// �T�[�{ ON �m��
+			// ï¿½Tï¿½[ï¿½{ ON ï¿½mï¿½ï¿½
 			g_CC_ServoONReq = FALSE;
 			l_prc = 0;
 		} else {
-			// ��莞�Ԉȓ��� ON ���Ȃ��Ȃ�ُ�
+			// ï¿½ï¿½è��ï¿½ÔˆÈ“ï¿½ï¿½ï¿½ ON ï¿½ï¿½ï¿½È‚ï¿½ï¿½È‚ï¿½Ù�ï¿½
 			l_CurrentTime = GetTickCount();
 			if (ls_StartTime <= l_CurrentTime) {
 				l_DelayTime = l_CurrentTime - ls_StartTime;
@@ -929,38 +929,38 @@ void CC_ServoON_Ctrl(void)
 				l_DelayTime = (((DWORD) 0xffffffff) - ls_StartTime) + l_CurrentTime;
 			}
 			if (CC_SERVO_ONOFF_TIMEOUT < l_DelayTime) {
-				CC_ServoOFF_RunOFF();	// �T�[�{ OFF�C�S����~
+				CC_ServoOFF_RunOFF();	// ï¿½Tï¿½[ï¿½{ OFFï¿½Cï¿½Sï¿½ï¿½ï¿½ï¿½~
 				CC_ServoFailure();
 				g_CC_ServoONOFFerr = TRUE;
 				l_prc = 5;
-				g_pCMotSysDlg->ShowAlarm(6, 0, 1, 0);	// �V�X�e���G���[
+				g_pCMotSysDlg->ShowAlarm(6, 0, 1, 0);	// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[
 			}
 		}
 		break;
-	case 3:		// �T�[�{ OFF ����
+	case 3:		// ï¿½Tï¿½[ï¿½{ OFF ï¿½ï¿½ï¿½ï¿½
 		if (CC_ServoONOFF(-1) == FALSE) {
-			// �T�[�{ OFF ���Ă���
+			// ï¿½Tï¿½[ï¿½{ OFF ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
 			g_CC_ServoOFFReq = FALSE;
 			l_prc = 0;
 		} else {
-			// �T�[�{ OFF ���Ă��Ȃ�
+			// ï¿½Tï¿½[ï¿½{ OFF ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½
 			if ((g_CC_OutPort & (0x0001 << CC_OUTBIT_SERVO)) == 0) {
-				// �T�[�{ OFF �o�͂��Ă���
+				// ï¿½Tï¿½[ï¿½{ OFF ï¿½oï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
 			} else {
-				// �T�[�{ OFF �o�͂��Ă��Ȃ�
+				// ï¿½Tï¿½[ï¿½{ OFF ï¿½oï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½
 				CC_ServoOFF_RunOFF();
 			}
 			ls_StartTime = GetTickCount();
 			l_prc = 4;
 		}
 		break;
-	case 4:		// �T�[�{ OFF �m��҂�
+	case 4:		// ï¿½Tï¿½[ï¿½{ OFF ï¿½mï¿½ï¿½Ò‚ï¿½
 		if (CC_ServoONOFF(-1) == FALSE) {
-			// �T�[�{ OFF �m��
+			// ï¿½Tï¿½[ï¿½{ OFF ï¿½mï¿½ï¿½
 			g_CC_ServoOFFReq = FALSE;
 			l_prc = 0;
 		} else {
-			// ��莞�Ԉȓ��� OFF ���Ȃ��Ȃ�ُ�
+			// ï¿½ï¿½è��ï¿½ÔˆÈ“ï¿½ï¿½ï¿½ OFF ï¿½ï¿½ï¿½È‚ï¿½ï¿½È‚ï¿½Ù�ï¿½
 			l_CurrentTime = GetTickCount();
 			if (ls_StartTime <= l_CurrentTime) {
 				l_DelayTime = l_CurrentTime - ls_StartTime;
@@ -968,15 +968,15 @@ void CC_ServoON_Ctrl(void)
 				l_DelayTime = (((DWORD) 0xffffffff) - ls_StartTime) + l_CurrentTime;
 			}
 			if (CC_SERVO_ONOFF_TIMEOUT < l_DelayTime) {
-				CC_ServoOFF_RunOFF();	// �T�[�{ OFF�C�S����~
+				CC_ServoOFF_RunOFF();	// ï¿½Tï¿½[ï¿½{ OFFï¿½Cï¿½Sï¿½ï¿½ï¿½ï¿½~
 				CC_ServoFailure();
 				g_CC_ServoONOFFerr = TRUE;
 				l_prc = 5;
-				g_pCMotSysDlg->ShowAlarm(6, 0, 0, 0);	// �V�X�e���G���[
+				g_pCMotSysDlg->ShowAlarm(6, 0, 0, 0);	// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[
 			}
 		}
 		break;
-	case 5:		// �T�[�{ ON �^�C���A�E�g�G���[�����҂�
+	case 5:		// ï¿½Tï¿½[ï¿½{ ON ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½
 		if (g_CC_ServoONOFFerr == FALSE) {
 			l_prc = 0;
 		}
@@ -984,46 +984,46 @@ void CC_ServoON_Ctrl(void)
 	}
 }
 
-// ��Ԏ擾
+// ï¿½ï¿½Ô�æ“¾
 WORD CC_PollingStatus(void)
 {
 	char	l_Recvdata[256];
 	TCHAR	l_tszText1[32];
 	char	l_szText1[32];
 	int		l_result;
-	WORD	l_AxisNo;			// ���ԍ�
-	static WORD	ls_AxisLoop = 1;	// ���ԍ�
-	char	l_ReadData[16][12];		// ���[�h�f�[�^
-									/* �Y��	X ��		YM ��		Z ��		T ��		YS ��
-										0	���샂�[�h	���샂�[�h	���샂�[�h	���샂�[�h	�ʒu
-										1	�ʒu		�ʒu		�ʒu		�ʒu		���x
-										2	���x		���x		���x		���x		�d���l
-										3	�d���l		�d���l		�w�߈ʒu	�w�߈ʒu	�w�߈ʒu
-										4	�w�߈ʒu	�w�߈ʒu	�w�ߑ��x	�w�ߑ��x	�w�ߑ��x
-										5	�w�ߑ��x	�w�ߑ��x	���		���		�w�ߓd���l
-										6	�w�ߓd���l	�w�ߓd���l	�A���[��	�A���[��	���
-										7	���		���		�ʒu�΍�	�ʒu�΍�	�A���[��
-										8	�A���[��	�A���[��							�ʒu�΍�
-										9	�ʒu�΍�	�ʒu�΍�
+	WORD	l_AxisNo;			// ï¿½ï¿½ï¿½Ô�ï¿½
+	static WORD	ls_AxisLoop = 1;	// ï¿½ï¿½ï¿½Ô�ï¿½
+	char	l_ReadData[16][12];		// ï¿½ï¿½ï¿½[ï¿½hï¿½fï¿½[ï¿½^
+									/* ï¿½Yï¿½ï¿½	X ï¿½ï¿½		YM ï¿½ï¿½		Z ï¿½ï¿½		T ï¿½ï¿½		YS ï¿½ï¿½
+										0	ï¿½ï¿½ï¿½ìƒ‚ï¿½[ï¿½h	ï¿½ï¿½ï¿½ìƒ‚ï¿½[ï¿½h	ï¿½ï¿½ï¿½ìƒ‚ï¿½[ï¿½h	ï¿½ï¿½ï¿½ìƒ‚ï¿½[ï¿½h	ï¿½Ê’u
+										1	ï¿½Ê’u		ï¿½Ê’u		ï¿½Ê’u		ï¿½Ê’u		ï¿½ï¿½ï¿½x
+										2	ï¿½ï¿½ï¿½x		ï¿½ï¿½ï¿½x		ï¿½ï¿½ï¿½x		ï¿½ï¿½ï¿½x		ï¿½dï¿½ï¿½ï¿½l
+										3	ï¿½dï¿½ï¿½ï¿½l		ï¿½dï¿½ï¿½ï¿½l		ï¿½wï¿½ßˆÊ’u	ï¿½wï¿½ßˆÊ’u	ï¿½wï¿½ßˆÊ’u
+										4	ï¿½wï¿½ßˆÊ’u	ï¿½wï¿½ßˆÊ’u	ï¿½wï¿½ß‘ï¿½ï¿½x	ï¿½wï¿½ß‘ï¿½ï¿½x	ï¿½wï¿½ß‘ï¿½ï¿½x
+										5	ï¿½wï¿½ß‘ï¿½ï¿½x	ï¿½wï¿½ß‘ï¿½ï¿½x	ï¿½ï¿½ï¿½		ï¿½ï¿½ï¿½		ï¿½wï¿½ß“dï¿½ï¿½ï¿½l
+										6	ï¿½wï¿½ß“dï¿½ï¿½ï¿½l	ï¿½wï¿½ß“dï¿½ï¿½ï¿½l	ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½	ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½	ï¿½ï¿½ï¿½
+										7	ï¿½ï¿½ï¿½		ï¿½ï¿½ï¿½		ï¿½Ê’uï¿½Î�ï¿½	ï¿½Ê’uï¿½Î�ï¿½	ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½
+										8	ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½	ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½							ï¿½Ê’uï¿½Î�ï¿½
+										9	ï¿½Ê’uï¿½Î�ï¿½	ï¿½Ê’uï¿½Î�ï¿½
 									 */
 	{
 		switch (l_AxisNo = ls_AxisLoop++) {
-		case CC_AXIS_X:	// X ��
-		case CC_AXIS_Y:	// YM ��
+		case CC_AXIS_X:	// X ï¿½ï¿½
+		case CC_AXIS_Y:	// YM ï¿½ï¿½
 			if (0 != motion_data[CC_CnvAxisFromSPT(l_AxisNo)].bEnable) {
 				sprintf(l_szText1, "P%1u50..%1u59", l_AxisNo + 1, l_AxisNo + 1);
 				if ((l_result = CC_ReadCommand2(l_szText1, l_Recvdata, 10, l_ReadData)) < 0) {
-					CC_MsgReboot();	return ls_AxisLoop;	// �V�X�e���G���[
+					CC_MsgReboot();	return ls_AxisLoop;	// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[
 				}
-				g_CC_AxisInfo[l_AxisNo].Mode = atoi(l_ReadData[0]);				// ���샂�[�h
-				g_CC_AxisInfo[l_AxisNo].Position = atol(l_ReadData[1]);			// �ʒu
-				g_CC_AxisInfo[l_AxisNo].Velocity = atol(l_ReadData[2]);			// ���x
-				g_CC_AxisInfo[l_AxisNo].Current = atol(l_ReadData[3]);			// �d���l
-				g_CC_AxisInfo[l_AxisNo].Order_Position = atol(l_ReadData[4]);	// �w�߈ʒu
-				g_CC_AxisInfo[l_AxisNo].Order_Velocity = atol(l_ReadData[5]);	// �w�ߑ��x
-				g_CC_AxisInfo[l_AxisNo].Order_Current = atol(l_ReadData[6]);	// �w�ߓd���l
-				g_CC_AxisInfo[l_AxisNo].Status = atoi(l_ReadData[7]);			// ���
-				g_CC_AxisInfo[l_AxisNo].d_Position = atoi(l_ReadData[9]);		// �ʒu�΍�
+				g_CC_AxisInfo[l_AxisNo].Mode = atoi(l_ReadData[0]);				// ï¿½ï¿½ï¿½ìƒ‚ï¿½[ï¿½h
+				g_CC_AxisInfo[l_AxisNo].Position = atol(l_ReadData[1]);			// ï¿½Ê’u
+				g_CC_AxisInfo[l_AxisNo].Velocity = atol(l_ReadData[2]);			// ï¿½ï¿½ï¿½x
+				g_CC_AxisInfo[l_AxisNo].Current = atol(l_ReadData[3]);			// ï¿½dï¿½ï¿½ï¿½l
+				g_CC_AxisInfo[l_AxisNo].Order_Position = atol(l_ReadData[4]);	// ï¿½wï¿½ßˆÊ’u
+				g_CC_AxisInfo[l_AxisNo].Order_Velocity = atol(l_ReadData[5]);	// ï¿½wï¿½ß‘ï¿½ï¿½x
+				g_CC_AxisInfo[l_AxisNo].Order_Current = atol(l_ReadData[6]);	// ï¿½wï¿½ß“dï¿½ï¿½ï¿½l
+				g_CC_AxisInfo[l_AxisNo].Status = atoi(l_ReadData[7]);			// ï¿½ï¿½ï¿½
+				g_CC_AxisInfo[l_AxisNo].d_Position = atoi(l_ReadData[9]);		// ï¿½Ê’uï¿½Î�ï¿½
 				g_pCMotSysDlg->DispdPos(CC_CnvAxisFromSPT(l_AxisNo), g_CC_AxisInfo[l_AxisNo].d_Position);
 				g_pCMotSysDlg->CnvWordToBin(g_CC_AxisInfo[l_AxisNo].Status, l_tszText1, 2);
 				g_pCMotSysDlg->SetDlgItemText(g_iDlgCtrlID[1][CC_CnvAxisFromSPT(l_AxisNo)], l_tszText1);
@@ -1031,20 +1031,20 @@ WORD CC_PollingStatus(void)
 				g_pCMotSysDlg->SetDlgItemText(g_iDlgCtrlID[3][CC_CnvAxisFromSPT(l_AxisNo)], l_ReadData[1]);
 			}
 			break;
-		case CC_AXIS_Z:	// Z ��
-		case CC_AXIS_T:	// T ��
+		case CC_AXIS_Z:	// Z ï¿½ï¿½
+		case CC_AXIS_T:	// T ï¿½ï¿½
 			if (0 != motion_data[CC_CnvAxisFromSPT(l_AxisNo)].bEnable) {
 				sprintf(l_szText1, "P%1u50..%1u57", l_AxisNo + 1, l_AxisNo + 1);
 				if ((l_result = CC_ReadCommand2(l_szText1, l_Recvdata, 8, l_ReadData)) < 0) {
-					CC_MsgReboot();	return ls_AxisLoop;	// �V�X�e���G���[
+					CC_MsgReboot();	return ls_AxisLoop;	// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[
 				}
-				g_CC_AxisInfo[l_AxisNo].Mode = atoi(l_ReadData[0]);				// ���샂�[�h
-				g_CC_AxisInfo[l_AxisNo].Position = atol(l_ReadData[1]);			// �ʒu
-				g_CC_AxisInfo[l_AxisNo].Velocity = atol(l_ReadData[2]);			// ���x
-				g_CC_AxisInfo[l_AxisNo].Order_Position = atol(l_ReadData[3]);	// �w�߈ʒu
-				g_CC_AxisInfo[l_AxisNo].Order_Velocity = atol(l_ReadData[4]);	// �w�ߑ��x
-				g_CC_AxisInfo[l_AxisNo].Status = atoi(l_ReadData[5]);			// ���
-				g_CC_AxisInfo[l_AxisNo].d_Position = atoi(l_ReadData[7]);		// �ʒu�΍�
+				g_CC_AxisInfo[l_AxisNo].Mode = atoi(l_ReadData[0]);				// ï¿½ï¿½ï¿½ìƒ‚ï¿½[ï¿½h
+				g_CC_AxisInfo[l_AxisNo].Position = atol(l_ReadData[1]);			// ï¿½Ê’u
+				g_CC_AxisInfo[l_AxisNo].Velocity = atol(l_ReadData[2]);			// ï¿½ï¿½ï¿½x
+				g_CC_AxisInfo[l_AxisNo].Order_Position = atol(l_ReadData[3]);	// ï¿½wï¿½ßˆÊ’u
+				g_CC_AxisInfo[l_AxisNo].Order_Velocity = atol(l_ReadData[4]);	// ï¿½wï¿½ß‘ï¿½ï¿½x
+				g_CC_AxisInfo[l_AxisNo].Status = atoi(l_ReadData[5]);			// ï¿½ï¿½ï¿½
+				g_CC_AxisInfo[l_AxisNo].d_Position = atoi(l_ReadData[7]);		// ï¿½Ê’uï¿½Î�ï¿½
 				g_pCMotSysDlg->DispdPos(CC_CnvAxisFromSPT(l_AxisNo), g_CC_AxisInfo[l_AxisNo].d_Position);
 				g_pCMotSysDlg->CnvWordToBin(g_CC_AxisInfo[l_AxisNo].Status, l_tszText1, 2);
 				g_pCMotSysDlg->SetDlgItemText(g_iDlgCtrlID[1][CC_CnvAxisFromSPT(l_AxisNo)], l_tszText1);
@@ -1052,19 +1052,19 @@ WORD CC_PollingStatus(void)
 				g_pCMotSysDlg->SetDlgItemText(g_iDlgCtrlID[3][CC_CnvAxisFromSPT(l_AxisNo)], l_ReadData[1]);
 			}
 			break;
-		default:	// YS ��
+		default:	// YS ï¿½ï¿½
 			if (0 != motion_data[CC_CnvAxisFromSPT(CC_AXIS_Y)].bEnable) {
 				if ((l_result = CC_ReadCommand2("P261..269", l_Recvdata, 9, l_ReadData)) < 0) {
-					CC_MsgReboot();	return ls_AxisLoop;	// �V�X�e���G���[
+					CC_MsgReboot();	return ls_AxisLoop;	// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[
 				}
-				g_CC_AxisInfo[l_AxisNo].Position = atol(l_ReadData[0]);			// �ʒu
-				g_CC_AxisInfo[l_AxisNo].Velocity = atol(l_ReadData[1]);			// ���x
-				g_CC_AxisInfo[l_AxisNo].Current = atol(l_ReadData[2]);			// �d���l
-				g_CC_AxisInfo[l_AxisNo].Order_Position = atol(l_ReadData[3]);	// �w�߈ʒu
-				g_CC_AxisInfo[l_AxisNo].Order_Velocity = atol(l_ReadData[4]);	// �w�ߑ��x
-				g_CC_AxisInfo[l_AxisNo].Order_Current = atol(l_ReadData[5]);	// �w�ߓd���l
-				g_CC_AxisInfo[l_AxisNo].Status = atoi(l_ReadData[6]);			// ���
-				g_CC_AxisInfo[l_AxisNo].d_Position = atoi(l_ReadData[8]);		// �ʒu�΍�
+				g_CC_AxisInfo[l_AxisNo].Position = atol(l_ReadData[0]);			// ï¿½Ê’u
+				g_CC_AxisInfo[l_AxisNo].Velocity = atol(l_ReadData[1]);			// ï¿½ï¿½ï¿½x
+				g_CC_AxisInfo[l_AxisNo].Current = atol(l_ReadData[2]);			// ï¿½dï¿½ï¿½ï¿½l
+				g_CC_AxisInfo[l_AxisNo].Order_Position = atol(l_ReadData[3]);	// ï¿½wï¿½ßˆÊ’u
+				g_CC_AxisInfo[l_AxisNo].Order_Velocity = atol(l_ReadData[4]);	// ï¿½wï¿½ß‘ï¿½ï¿½x
+				g_CC_AxisInfo[l_AxisNo].Order_Current = atol(l_ReadData[5]);	// ï¿½wï¿½ß“dï¿½ï¿½ï¿½l
+				g_CC_AxisInfo[l_AxisNo].Status = atoi(l_ReadData[6]);			// ï¿½ï¿½ï¿½
+				g_CC_AxisInfo[l_AxisNo].d_Position = atoi(l_ReadData[8]);		// ï¿½Ê’uï¿½Î�ï¿½
 				g_pCMotSysDlg->DispdPos(CC_CnvAxisFromSPT(l_AxisNo), g_CC_AxisInfo[l_AxisNo].d_Position);
 				g_pCMotSysDlg->CnvWordToBin(g_CC_AxisInfo[l_AxisNo].Status, l_tszText1, 2);
 				g_pCMotSysDlg->SetDlgItemText(g_iDlgCtrlID[1][CC_CnvAxisFromSPT(l_AxisNo)], l_tszText1);
@@ -1079,7 +1079,7 @@ WORD CC_PollingStatus(void)
 }
 
 
-// �A���[���Ď�
+// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ä�ï¿½
 void CC_PollingAlarm(void)
 {
 	DWORD	l_InpAlarm;
@@ -1088,19 +1088,19 @@ void CC_PollingAlarm(void)
 	WORD	l_Code1;
 	WORD	l_Code2;
 	int		i;
-	WORD	l_AxisNo;			// ���ԍ�
-	BOOL	*l_pSetAlarm;		// �Z�b�g�t���O
-	BOOL	*l_pClearAlarm;		// �N���A�t���O
-	WORD	l_SetBit;			// �����r�b�g
-	WORD	l_ClearBit;			// �N���A�r�b�g
-	char	l_DetailAddr[8];	// �ڍ׃R�[�h�̃A�h���X
-	char	l_DetailAddr2[8];	// �ڍ׃R�[�h�̃A�h���X
-	static DWORD	ls_ClearAlarmTimer[CC_AXIS_NUM];	// �A���[���N���A�^�C�}
+	WORD	l_AxisNo;			// ï¿½ï¿½ï¿½Ô�ï¿½
+	BOOL	*l_pSetAlarm;		// ï¿½Zï¿½bï¿½gï¿½tï¿½ï¿½ï¿½O
+	BOOL	*l_pClearAlarm;		// ï¿½Nï¿½ï¿½ï¿½Aï¿½tï¿½ï¿½ï¿½O
+	WORD	l_SetBit;			// ï¿½ï¿½ï¿½ï¿½ï¿½rï¿½bï¿½g
+	WORD	l_ClearBit;			// ï¿½Nï¿½ï¿½ï¿½Aï¿½rï¿½bï¿½g
+	char	l_DetailAddr[8];	// ï¿½Ú�×ƒRï¿½[ï¿½hï¿½ÌƒAï¿½hï¿½ï¿½ï¿½X
+	char	l_DetailAddr2[8];	// ï¿½Ú�×ƒRï¿½[ï¿½hï¿½ÌƒAï¿½hï¿½ï¿½ï¿½X
+	static DWORD	ls_ClearAlarmTimer[CC_AXIS_NUM];	// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Aï¿½^ï¿½Cï¿½}
 	DWORD	*l_pClrAlmTimer;
 	DWORD	l_CurrentTime, l_DelayTime;
 
 	if (CC_DioInpDWord(&l_InpAlarm) != 0) {
-		CC_DioError();	return;	// ���s
+		CC_DioError();	return;	// ï¿½ï¿½ï¿½s
 	} else {
 		for (i = 0; i < CC_AXIS_NUM; i++) {
 			l_pClrAlmTimer = &(ls_ClearAlarmTimer[i]);
@@ -1136,54 +1136,54 @@ void CC_PollingAlarm(void)
 				l_AxisNo = -1;
 				break;
 			}
-//			if (l_AxisNo != -1) {	�o�O������[2009.04.01]
+//			if (l_AxisNo != -1) {	ï¿½oï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[2009.04.01]
 			if (l_AxisNo < CC_AXIS_NUM) {
 				if		  ((*l_pSetAlarm != TRUE) && (*l_pClearAlarm != TRUE)) {
-					// �A���[�������҂�
+					// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½
 					if ((~l_InpAlarm) & l_SetBit) {
-						// �A���[������
-						*l_pClearAlarm = FALSE;	// �A���[���N���A OFF
-						// �ڍ׃R�[�h��Ǐo��
+						// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+						*l_pClearAlarm = FALSE;	// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½A OFF
+						// ï¿½Ú�×ƒRï¿½[ï¿½hï¿½ï¿½Ç�oï¿½ï¿½
 						if ((l_result = CC_ReadCommand(l_DetailAddr, l_Recvdata)) < 0) {
-							CC_MsgReboot();	return;		// �V�X�e���G���[
+							CC_MsgReboot();	return;		// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[
 						}
 						l_Code1 = atoi(l_Recvdata);
 						if ((l_AxisNo == CC_AXIS_Y) && (0 != motion_data[l_AxisNo].bEnable)) {
 							if ((l_result = CC_ReadCommand(l_DetailAddr2, l_Recvdata)) < 0) {
-								CC_MsgReboot(); return;	// �V�X�e���G���[
+								CC_MsgReboot(); return;	// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[
 							}
 							l_Code2 = atoi(l_Recvdata);
 						} else {
 							l_Code2 = 0;
 						}
-						*l_pSetAlarm = TRUE;	// �A���[���Z�b�g ON
-						CC_ServoOFF_RunOFF();	// �T�[�{ OFF�C�S����~
+						*l_pSetAlarm = TRUE;	// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Zï¿½bï¿½g ON
+						CC_ServoOFF_RunOFF();	// ï¿½Tï¿½[ï¿½{ OFFï¿½Cï¿½Sï¿½ï¿½ï¿½ï¿½~
 						CC_ServoFailure();
-						// �A���[���\��
+						// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½\ï¿½ï¿½
 						g_pCMotSysDlg->ShowAlarm(3, CC_CnvAxisFromSPT(l_AxisNo), l_Code1, l_Code2);
 					}
 				} else if (*l_pSetAlarm == TRUE) {
-					// �A���[���N���A�҂�
+					// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Aï¿½Ò‚ï¿½
 					if (*l_pClearAlarm == TRUE) {
-						// �A���[���N���A ON
+						// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½A ON
  						if (CC_DioOutBit(l_ClearBit, 1) != 0) {
-							CC_DioError();	return;	// ���s
+							CC_DioError();	return;	// ï¿½ï¿½ï¿½s
 						}
-						*l_pSetAlarm = FALSE;	// �A���[���Z�b�g OFF
-						// �A���[���N���A�^�C�}�J�n
+						*l_pSetAlarm = FALSE;	// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Zï¿½bï¿½g OFF
+						// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Aï¿½^ï¿½Cï¿½}ï¿½Jï¿½n
 						*l_pClrAlmTimer = GetTickCount();
 					}
 				} else if ((*l_pSetAlarm != TRUE) && (*l_pClearAlarm == TRUE)) {
-					// �A���[���r�b�g OFF �҂�
+					// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½rï¿½bï¿½g OFF ï¿½Ò‚ï¿½
 					if (((~l_InpAlarm) & l_SetBit) == 0) {
-						// �A���[���N���A�r�b�g OFF
+						// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Aï¿½rï¿½bï¿½g OFF
 						if (CC_DioOutBit(l_ClearBit, 0) != 0) {
-							CC_DioError();	return;	// ���s
+							CC_DioError();	return;	// ï¿½ï¿½ï¿½s
 						}
-						*l_pClearAlarm = FALSE;	// �A���[���N���A OFF
-						CC_ServoONOFF(1);	// �T�[�{ ON
+						*l_pClearAlarm = FALSE;	// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½A OFF
+						CC_ServoONOFF(1);	// ï¿½Tï¿½[ï¿½{ ON
 					} else {
-						// �A���[���N���A�^�C�}�Ď�
+						// ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Aï¿½^ï¿½Cï¿½}ï¿½Ä�ï¿½
 						l_CurrentTime = GetTickCount();
 						if (*l_pClrAlmTimer <= l_CurrentTime) {
 							l_DelayTime = l_CurrentTime - *l_pClrAlmTimer;
@@ -1191,7 +1191,7 @@ void CC_PollingAlarm(void)
 							l_DelayTime = (((DWORD) 0xffffffff) - *l_pClrAlmTimer) + l_CurrentTime;
 						}
 						if (CC_CLEAR_ALARM_TIMEOUT < l_DelayTime) {
-							//return;	// �V�X�e���G���[
+							//return;	// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[
 							*l_pClearAlarm = TRUE;
 						}
 					}
@@ -1201,14 +1201,14 @@ void CC_PollingAlarm(void)
 	}
 }
 
-// �ϐ����̏�����
+// ï¿½Ï�ï¿½ï¿½ï¿½ï¿½Ì�ï¿½ï¿½ï¿½ï¿½ï¿½
 void CC_Initial(void)
 {
 	memset(&g_CC_bSetAlarm, 0, sizeof(g_CC_bSetAlarm));
 	memset(&g_CC_bClearAlarm, 0, sizeof(g_CC_bClearAlarm));
-	g_CC_ServoONReq = TRUE;		// �T�[�{ ON �v��
-	g_CC_ServoOFFReq = FALSE;	// �T�[�{ OFF �v��
-	g_CC_ServoONOFFerr = FALSE;	// �T�[�{�^�C���A�E�g�G���[
+	g_CC_ServoONReq = TRUE;		// ï¿½Tï¿½[ï¿½{ ON ï¿½vï¿½ï¿½
+	g_CC_ServoOFFReq = FALSE;	// ï¿½Tï¿½[ï¿½{ OFF ï¿½vï¿½ï¿½
+	g_CC_ServoONOFFerr = FALSE;	// ï¿½Tï¿½[ï¿½{ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Gï¿½ï¿½ï¿½[
 	g_CC_ComError = FALSE;
 	memset(g_CC_Count, 0, sizeof(g_CC_Count));
 	memset(g_CC_HP_Pos, 0, sizeof(g_CC_HP_Pos));
@@ -1220,40 +1220,40 @@ void CC_Initial(void)
 	memset(g_CC_MaxSpeed, 0, sizeof(g_CC_MaxSpeed));	// hmenjo10 20031009
 }
 
-// �T�[�{ OFF�C���J�n�M���� OFF
+// ï¿½Tï¿½[ï¿½{ OFFï¿½Cï¿½ï¿½ï¿½Jï¿½nï¿½Mï¿½ï¿½ï¿½ï¿½ OFF
 void CC_ServoOFF_RunOFF(void)
 {
-	// �T�[�{ OFF
+	// ï¿½Tï¿½[ï¿½{ OFF
 	CC_ServoONOFF(0);
-	// �S����~
+	// ï¿½Sï¿½ï¿½ï¿½ï¿½~
 	if (0 != motion_data[CC_CnvAxisFromSPT(CC_AXIS_X)].bEnable) {CC_DioOutBit(CC_OUTBIT_RUN_X, 0);}
 	if (0 != motion_data[CC_CnvAxisFromSPT(CC_AXIS_Y)].bEnable) {CC_DioOutBit(CC_OUTBIT_RUN_Y, 0);}
 	if (0 != motion_data[CC_CnvAxisFromSPT(CC_AXIS_Z)].bEnable) {CC_DioOutBit(CC_OUTBIT_RUN_Z, 0);}
 	if (0 != motion_data[CC_CnvAxisFromSPT(CC_AXIS_T)].bEnable) {CC_DioOutBit(CC_OUTBIT_RUN_T, 0);}
 }
 
-// �T�[�{ �n�ُ̈��~
+// ï¿½Tï¿½[ï¿½{ ï¿½nï¿½ÌˆÙ�ï¿½ï¿½~
 void CC_ServoFailure(void)
 {
 	short	axis;
 
-	// �T�[�{ OFF�C���J�n�M�� OFF �� CC_ServoOFF_RunOFF(void) �ōs��
+	// ï¿½Tï¿½[ï¿½{ OFFï¿½Cï¿½ï¿½ï¿½Jï¿½nï¿½Mï¿½ï¿½ OFF ï¿½ï¿½ CC_ServoOFF_RunOFF(void) ï¿½Å�sï¿½ï¿½
 
 	for (axis = 0; axis < CC_AXIS_NUM; axis++) {
 		if ((g_CC_Axis_prc[axis] != 0) || (g_CC_Axis_mode[axis] != 0)) {
-			// ���쒆��������
+			// ï¿½ï¿½ï¿½ì’†ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if (0 != g_CC_Axis_prc[axis]) {
-				// �ُ�I����ʒm���܂��D
+				// ï¿½Ù�ï¿½Iï¿½ï¿½ï¿½ï¿½Ê’mï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D
 				send_motion_message(CC_CnvAxisFromSPT(axis), MM_FAILURE);
 			}
-			g_CC_Axis_prc[axis] = 0;	// ������Ԃ��N���A
-			g_CC_Axis_mode[axis] = 0;	// �������[�h���N���A
+			g_CC_Axis_prc[axis] = 0;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô‚ï¿½ï¿½Nï¿½ï¿½ï¿½A
+			g_CC_Axis_mode[axis] = 0;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½A
 		}
 	}
 }
 
-// ������Ǘ�
-void CC_X_Manager(void)		// X ��
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç—ï¿½
+void CC_X_Manager(void)		// X ï¿½ï¿½
 {
 	char	l_Recvdata[256];
 	int		l_result;
@@ -1262,46 +1262,46 @@ void CC_X_Manager(void)		// X ��
 	char	l_szCmd[16];
 
 	if (0 == motion_data[l_axis].bEnable) {
-		return;		// ���������Ȃ̂ŏI��
+		return;		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚Ì‚Å�Iï¿½ï¿½
 	}
 
 	switch (g_CC_Axis_prc[l_axis]) {
-	case 0:		// �N���҂�
+	case 0:		// ï¿½Nï¿½ï¿½ï¿½Ò‚ï¿½
 		break;
-	case 1:		// INP �Ď��O�̑҂�����
+	case 1:		// INP ï¿½Ä�ï¿½ï¿½Oï¿½Ì‘Ò‚ï¿½ï¿½ï¿½ï¿½ï¿½
 		::Sleep(BEFORE_INP_WAIT);
 		g_CC_Axis_prc[l_axis] = 2;
 		break;
-	case 2:		// INP �҂�
+	case 2:		// INP ï¿½Ò‚ï¿½
 		if (CC_DioInpBit(CC_INBIT_INP_X, &l_ucBitData) != 0) {CC_DioError(); l_ucBitData = 0;}
 		if (l_ucBitData != 0) {
 			g_CC_Axis_prc[l_axis] = 3;
 		}
 		break;
-	case 3:		// ���샂�[�h�̒ʏ�ւ̕ω��҂�
+	case 3:		// ï¿½ï¿½ï¿½ìƒ‚ï¿½[ï¿½hï¿½Ì’Ê�ï¿½Ö‚Ì•Ï‰ï¿½ï¿½Ò‚ï¿½
 		sprintf(l_szCmd, "P%1u50", l_axis + 1);
 		if ((l_result = CC_ReadCommand(l_szCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		if (strcmp(l_Recvdata, "0") == 0) {
-			// �J�n�� OFF
+			// ï¿½Jï¿½nï¿½ï¿½ OFF
 			if (CC_DioOutBit(CC_OUTBIT_RUN_X, 0) != 0) {
-				CC_DioError();	return;	// ���s
+				CC_DioError();	return;	// ï¿½ï¿½ï¿½s
 			}
-			// ���샂�[�h��ʏ�փZ�b�g
+			// ï¿½ï¿½ï¿½ìƒ‚ï¿½[ï¿½hï¿½ï¿½Ê�ï¿½ÖƒZï¿½bï¿½g
 			sprintf(l_szCmd, "P%1u00=0", l_axis + 1);
 			if ((l_result = CC_WriteCommand(l_szCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 			g_CC_Axis_prc[l_axis] = 0;
 			send_motion_message(CC_CnvAxisFromSPT(l_axis), MM_DONE);
 			g_CC_Axis_mode[l_axis] = 0;
 			g_CC_Axis_pattern[l_axis] = 0;
-			CC_ChangeGain(l_axis, 1);	// �Q�C����؊��� hmenjo4 20030801
+			CC_ChangeGain(l_axis, 1);	// ï¿½Qï¿½Cï¿½ï¿½ï¿½ï¿½ØŠï¿½ï¿½ï¿½ hmenjo4 20030801
 		}
 		break;
 	}
-/* added 2009.11.11 hmenjo MotSys ���^�C���A�E�g ---------- { ---------- */
+/* added 2009.11.11 hmenjo MotSys ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g ---------- { ---------- */
 	CC_MotTimeoutCheck(l_axis, &(g_CC_Axis_prc[l_axis]));
-/* added 2009.11.11 hmenjo MotSys ���^�C���A�E�g ---------- } ---------- */
+/* added 2009.11.11 hmenjo MotSys ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g ---------- } ---------- */
 }
-void CC_Y_Manager(void)		// Y ��
+void CC_Y_Manager(void)		// Y ï¿½ï¿½
 {
 	char	l_Recvdata[256];
 	int		l_result;
@@ -1310,46 +1310,46 @@ void CC_Y_Manager(void)		// Y ��
 	char	l_szCmd[16];
 
 	if (0 == motion_data[l_axis].bEnable) {
-		return;		// ���������Ȃ̂ŏI��
+		return;		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚Ì‚Å�Iï¿½ï¿½
 	}
 
 	switch (g_CC_Axis_prc[l_axis]) {
-	case 0:		// �N���҂�
+	case 0:		// ï¿½Nï¿½ï¿½ï¿½Ò‚ï¿½
 		break;
-	case 1:		// INP �Ď��O�̑҂�����
+	case 1:		// INP ï¿½Ä�ï¿½ï¿½Oï¿½Ì‘Ò‚ï¿½ï¿½ï¿½ï¿½ï¿½
 		::Sleep(BEFORE_INP_WAIT);
 		g_CC_Axis_prc[l_axis] = 2;
 		break;
-	case 2:		// INP �҂�
+	case 2:		// INP ï¿½Ò‚ï¿½
 		if (CC_DioInpBit(CC_INBIT_INP_Y, &l_ucBitData) != 0) {CC_DioError(); l_ucBitData = 0;}
 		if (l_ucBitData != 0) {
 			g_CC_Axis_prc[l_axis] = 3;
 		}
 		break;
-	case 3:		// ���샂�[�h�̒ʏ�ւ̕ω��҂�
+	case 3:		// ï¿½ï¿½ï¿½ìƒ‚ï¿½[ï¿½hï¿½Ì’Ê�ï¿½Ö‚Ì•Ï‰ï¿½ï¿½Ò‚ï¿½
 		sprintf(l_szCmd, "P%1u50", l_axis + 1);
 		if ((l_result = CC_ReadCommand(l_szCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		if (strcmp(l_Recvdata, "0") == 0) {
-			// �J�n�� OFF
+			// ï¿½Jï¿½nï¿½ï¿½ OFF
 			if (CC_DioOutBit(CC_OUTBIT_RUN_Y, 0) != 0) {
-				CC_DioError();	return;	// ���s
+				CC_DioError();	return;	// ï¿½ï¿½ï¿½s
 			}
-			// ���샂�[�h��ʏ�փZ�b�g
+			// ï¿½ï¿½ï¿½ìƒ‚ï¿½[ï¿½hï¿½ï¿½Ê�ï¿½ÖƒZï¿½bï¿½g
 			sprintf(l_szCmd, "P%1u00=0", l_axis + 1);
 			if ((l_result = CC_WriteCommand(l_szCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 			g_CC_Axis_prc[l_axis] = 0;
 			send_motion_message(CC_CnvAxisFromSPT(l_axis), MM_DONE);
 			g_CC_Axis_mode[l_axis] = 0;
 			g_CC_Axis_pattern[l_axis] = 0;
-			CC_ChangeGain(l_axis, 1);	// �Q�C����؊��� hmenjo4 20030801
+			CC_ChangeGain(l_axis, 1);	// ï¿½Qï¿½Cï¿½ï¿½ï¿½ï¿½ØŠï¿½ï¿½ï¿½ hmenjo4 20030801
 		}
 		break;
 	}
-/* added 2009.11.11 hmenjo MotSys ���^�C���A�E�g ---------- { ---------- */
+/* added 2009.11.11 hmenjo MotSys ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g ---------- { ---------- */
 	CC_MotTimeoutCheck(l_axis, &(g_CC_Axis_prc[l_axis]));
-/* added 2009.11.11 hmenjo MotSys ���^�C���A�E�g ---------- } ---------- */
+/* added 2009.11.11 hmenjo MotSys ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g ---------- } ---------- */
 }
-void CC_Z_Manager(void)		// Z ��
+void CC_Z_Manager(void)		// Z ï¿½ï¿½
 {
 	char	l_Recvdata[256];
 	int		l_result;
@@ -1358,46 +1358,46 @@ void CC_Z_Manager(void)		// Z ��
 	char	l_szCmd[16];
 
 	if (0 == motion_data[l_axis].bEnable) {
-		return;		// ���������Ȃ̂ŏI��
+		return;		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚Ì‚Å�Iï¿½ï¿½
 	}
 
 	switch (g_CC_Axis_prc[l_axis]) {
-	case 0:		// �N���҂�
+	case 0:		// ï¿½Nï¿½ï¿½ï¿½Ò‚ï¿½
 		break;
-	case 1:		// INP �Ď��O�̑҂�����
+	case 1:		// INP ï¿½Ä�ï¿½ï¿½Oï¿½Ì‘Ò‚ï¿½ï¿½ï¿½ï¿½ï¿½
 		::Sleep(BEFORE_INP_WAIT);
 		g_CC_Axis_prc[l_axis] = 2;
 		break;
-	case 2:		// INP �҂�
+	case 2:		// INP ï¿½Ò‚ï¿½
 		if (CC_DioInpBit(CC_INBIT_INP_Z, &l_ucBitData) != 0) {CC_DioError(); l_ucBitData = 0;}
 		if (l_ucBitData != 0) {
 			g_CC_Axis_prc[l_axis] = 3;
 		}
 		break;
-	case 3:		// ���샂�[�h�̒ʏ�ւ̕ω��҂�
+	case 3:		// ï¿½ï¿½ï¿½ìƒ‚ï¿½[ï¿½hï¿½Ì’Ê�ï¿½Ö‚Ì•Ï‰ï¿½ï¿½Ò‚ï¿½
 		sprintf(l_szCmd, "P%1u50", l_axis + 1);
 		if ((l_result = CC_ReadCommand(l_szCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		if (strcmp(l_Recvdata, "0") == 0) {
-			// �J�n�� OFF
+			// ï¿½Jï¿½nï¿½ï¿½ OFF
 			if (CC_DioOutBit(CC_OUTBIT_RUN_Z, 0) != 0) {
-				CC_DioError();	return;	// ���s
+				CC_DioError();	return;	// ï¿½ï¿½ï¿½s
 			}
-			// ���샂�[�h��ʏ�փZ�b�g
+			// ï¿½ï¿½ï¿½ìƒ‚ï¿½[ï¿½hï¿½ï¿½Ê�ï¿½ÖƒZï¿½bï¿½g
 			sprintf(l_szCmd, "P%1u00=0", l_axis + 1);
 			if ((l_result = CC_WriteCommand(l_szCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 			g_CC_Axis_prc[l_axis] = 0;
 			send_motion_message(CC_CnvAxisFromSPT(l_axis), MM_DONE);
 			g_CC_Axis_mode[l_axis] = 0;
 			g_CC_Axis_pattern[l_axis] = 0;
-			CC_ChangeGain(l_axis, 1);	// �Q�C����؊��� hmenjo4 20030801
+			CC_ChangeGain(l_axis, 1);	// ï¿½Qï¿½Cï¿½ï¿½ï¿½ï¿½ØŠï¿½ï¿½ï¿½ hmenjo4 20030801
 		}
 		break;
 	}
-/* added 2009.11.11 hmenjo MotSys ���^�C���A�E�g ---------- { ---------- */
+/* added 2009.11.11 hmenjo MotSys ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g ---------- { ---------- */
 	CC_MotTimeoutCheck(l_axis, &(g_CC_Axis_prc[l_axis]));
-/* added 2009.11.11 hmenjo MotSys ���^�C���A�E�g ---------- } ---------- */
+/* added 2009.11.11 hmenjo MotSys ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g ---------- } ---------- */
 }
-void CC_T_Manager(void)		// T ��
+void CC_T_Manager(void)		// T ï¿½ï¿½
 {
 	char	l_Recvdata[256];
 	int		l_result;
@@ -1406,59 +1406,59 @@ void CC_T_Manager(void)		// T ��
 	char	l_szCmd[16];
 
 	if (0 == motion_data[l_axis].bEnable) {
-		return;		// ���������Ȃ̂ŏI��
+		return;		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚Ì‚Å�Iï¿½ï¿½
 	}
 
 	switch (g_CC_Axis_prc[l_axis]) {
-	case 0:		// �N���҂�
+	case 0:		// ï¿½Nï¿½ï¿½ï¿½Ò‚ï¿½
 		break;
-	case 1:		// INP �Ď��O�̑҂�����
+	case 1:		// INP ï¿½Ä�ï¿½ï¿½Oï¿½Ì‘Ò‚ï¿½ï¿½ï¿½ï¿½ï¿½
 		::Sleep(BEFORE_INP_WAIT);
 		g_CC_Axis_prc[l_axis] = 2;
 		break;
-	case 2:		// INP �҂�
+	case 2:		// INP ï¿½Ò‚ï¿½
 		if (CC_DioInpBit(CC_INBIT_INP_T, &l_ucBitData) != 0) {CC_DioError(); l_ucBitData = 0;}
 		if (l_ucBitData != 0) {
 			g_CC_Axis_prc[l_axis] = 3;
 		}
 		break;
-	case 3:		// ���샂�[�h�̒ʏ�ւ̕ω��҂�
+	case 3:		// ï¿½ï¿½ï¿½ìƒ‚ï¿½[ï¿½hï¿½Ì’Ê�ï¿½Ö‚Ì•Ï‰ï¿½ï¿½Ò‚ï¿½
 		sprintf(l_szCmd, "P%1u50", l_axis + 1);
 		if ((l_result = CC_ReadCommand(l_szCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		if (strcmp(l_Recvdata, "0") == 0) {
-			// �J�n�� OFF
+			// ï¿½Jï¿½nï¿½ï¿½ OFF
 			if (CC_DioOutBit(CC_OUTBIT_RUN_T, 0) != 0) {
-				CC_DioError();	return;	// ���s
+				CC_DioError();	return;	// ï¿½ï¿½ï¿½s
 			}
-			// ���샂�[�h��ʏ�փZ�b�g
+			// ï¿½ï¿½ï¿½ìƒ‚ï¿½[ï¿½hï¿½ï¿½Ê�ï¿½ÖƒZï¿½bï¿½g
 			sprintf(l_szCmd, "P%1u00=0", l_axis + 1);
 			if ((l_result = CC_WriteCommand(l_szCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 			g_CC_Axis_prc[l_axis] = 0;
-// �ȉ��� if �u���b�N�͗��R�s���ł��Dhmenjo 2009.03.27
+// ï¿½È‰ï¿½ï¿½ï¿½ if ï¿½uï¿½ï¿½ï¿½bï¿½Nï¿½Í—ï¿½ï¿½Rï¿½sï¿½ï¿½ï¿½Å‚ï¿½ï¿½Dhmenjo 2009.03.27
 			if ((g_CC_Axis_ORG_Req[l_axis] == TRUE) && (g_CC_Axis_mode[l_axis] == 4)) {
-				// ���_���A�O�� INC �ړ��������̂Ō��_���A���s��
+				// ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½Oï¿½ï¿½ INC ï¿½Ú“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ÅŒï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½sï¿½ï¿½
 				CC_motion_go_home(l_axis);
 			} else {
 				send_motion_message(CC_CnvAxisFromSPT(l_axis), MM_DONE);
 				g_CC_Axis_mode[l_axis] = 0;
 				g_CC_Axis_pattern[l_axis] = 0;
 			}
-			CC_ChangeGain(l_axis, 1);	// �Q�C����؊��� hmenjo4 20030801
+			CC_ChangeGain(l_axis, 1);	// ï¿½Qï¿½Cï¿½ï¿½ï¿½ï¿½ØŠï¿½ï¿½ï¿½ hmenjo4 20030801
 		}
 		break;
 	}
-/* added 2009.11.11 hmenjo MotSys ���^�C���A�E�g ---------- { ---------- */
+/* added 2009.11.11 hmenjo MotSys ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g ---------- { ---------- */
 	CC_MotTimeoutCheck(l_axis, &(g_CC_Axis_prc[l_axis]));
-/* added 2009.11.11 hmenjo MotSys ���^�C���A�E�g ---------- } ---------- */
+/* added 2009.11.11 hmenjo MotSys ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g ---------- } ---------- */
 }
 
 /*
- *	motion.c ���̏����̑�֊֐��Q
+ *	motion.c ï¿½ï¿½ï¿½Ì�ï¿½ï¿½ï¿½ï¿½Ì‘ï¿½ÖŠÖ�ï¿½ï¿½Q
  */
-// �e���̃R���g���[������J�E���^��Ǐo��
+// ï¿½eï¿½ï¿½ï¿½ÌƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½^ï¿½ï¿½Ç�oï¿½ï¿½
 long CC_get_true_position(short axis)
 {
-	char	l_CountAddr[6];	// �J�E���^�̃A�h���X
+	char	l_CountAddr[6];	// ï¿½Jï¿½Eï¿½ï¿½ï¿½^ï¿½ÌƒAï¿½hï¿½ï¿½ï¿½X
 	char	l_Recvdata[256];
 	int		l_result;
 
@@ -1475,7 +1475,7 @@ long CC_get_true_position(short axis)
 	}
 
 	if ((l_result = CC_ReadCommand(l_CountAddr, l_Recvdata)) < 0) {
-		CC_MsgReboot();		// �V�X�e���G���[
+		CC_MsgReboot();		// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[
 		g_CC_Count[axis] = 0;
 	} else {
 		g_CC_Count[axis] = atol(l_Recvdata);
@@ -1484,11 +1484,11 @@ long CC_get_true_position(short axis)
 	return g_CC_Count[axis];
 }
 
-// �ً}��~����
+// ï¿½Ù‹}ï¿½ï¿½~ï¿½ï¿½ï¿½ï¿½
 void CC_local_emergency_stop(short axis)
 {
-	WORD	l_RunBit;			// �J�n/��~ �r�b�g
-	char	l_cMode[32];		// ���[�h�A�h���X
+	WORD	l_RunBit;			// ï¿½Jï¿½n/ï¿½ï¿½~ ï¿½rï¿½bï¿½g
+	char	l_cMode[32];		// ï¿½ï¿½ï¿½[ï¿½hï¿½Aï¿½hï¿½ï¿½ï¿½X
 	int		l_result;
 	char	l_Recvdata[256];
 
@@ -1500,23 +1500,23 @@ void CC_local_emergency_stop(short axis)
 	default:	break;
 	}
 	if (0 != g_CC_Axis_prc[axis]) {
-		// ���쒆�������̂ŏI����ʒm���܂��D
+		// ï¿½ï¿½ï¿½ì’†ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Å�Iï¿½ï¿½ï¿½ï¿½Ê’mï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D
 		send_motion_message(CC_CnvAxisFromSPT(axis), MM_STOPPED);
 	}
-	g_CC_Axis_prc[axis] = 0;	// ������Ԃ��N���A
-	g_CC_Axis_mode[axis] = 0;	// �������[�h���N���A
-	// ��~
+	g_CC_Axis_prc[axis] = 0;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô‚ï¿½ï¿½Nï¿½ï¿½ï¿½A
+	g_CC_Axis_mode[axis] = 0;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½A
+	// ï¿½ï¿½~
 	if (CC_DioOutBit(l_RunBit, 0) != 0) {
-		CC_DioError();	return;	// ���s
+		CC_DioError();	return;	// ï¿½ï¿½ï¿½s
 	}
-	// ���[�h���N���A
+	// ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½A
 	sprintf(l_cMode, "P%1u00=0", axis + 1);
 	if ((l_result = CC_WriteCommand(l_cMode, l_Recvdata)) < 0) {CC_MsgReboot(); return ;}
-	// �Q�C����؊���
+	// ï¿½Qï¿½Cï¿½ï¿½ï¿½ï¿½ØŠï¿½ï¿½ï¿½
 	CC_ChangeGain(axis, 1);
 }
 
-// HP �ʒu��ݒ�
+// HP ï¿½Ê’uï¿½ï¿½İ’ï¿½
 int CC_motion_set_soft_home(short axis, long soft_home)
 {
 	long	l_PLimit;
@@ -1544,7 +1544,7 @@ int CC_motion_set_soft_home(short axis, long soft_home)
 	return MS_NO_ERROR;
 }
 
-// �w�肵�������w�肵�����x�Ń��~�b�g�܂ňړ�����
+// ï¿½wï¿½è‚µï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½wï¿½è‚µï¿½ï¿½ï¿½ï¿½ï¿½xï¿½Åƒï¿½ï¿½~ï¿½bï¿½gï¿½Ü‚ÅˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½
 int CC_motion_move_at_speed(short axis, short velocity)
 {
 	long	l_PLimit;
@@ -1554,10 +1554,10 @@ int CC_motion_move_at_speed(short axis, short velocity)
 	char	l_cCmd[9][32];
 	char	l_Recvdata[256];
 	int		l_result;
-	WORD	l_RunBit;		// �J�n�r�b�g
-	char	l_cMode[32];	// ���[�h�A�h���X
+	WORD	l_RunBit;		// ï¿½Jï¿½nï¿½rï¿½bï¿½g
+	char	l_cMode[32];	// ï¿½ï¿½ï¿½[ï¿½hï¿½Aï¿½hï¿½ï¿½ï¿½X
 
-	// Z ���̏ꍇ�͑��x�𔽓]
+	// Z ï¿½ï¿½ï¿½Ì�ê�‡ï¿½Í‘ï¿½ï¿½xï¿½ğ”½“]
 	if (axis == CC_AXIS_Z) {
 		velocity = -velocity;
 	}
@@ -1566,15 +1566,15 @@ int CC_motion_move_at_speed(short axis, short velocity)
 //	CC_DispFuncParam(axis, velocity, 0);
 
 	if (g_CC_Axis_prc[axis] != 0) {
-		// �܂��C�ړ���
+		// ï¿½Ü‚ï¿½ï¿½Cï¿½Ú“ï¿½ï¿½ï¿½
 		return MS_FUNCTION_BUSY;
 	}
 	if (CC_ServoONOFF(-1) != TRUE) {
-		// �T�[�{ ON ���Ă��Ȃ�
+		// ï¿½Tï¿½[ï¿½{ ON ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½
 		return MS_NO_HARDWARE;
 	}
 
-	// �ڕW�ʒu(���~�b�g�̎�O��ݒ�)
+	// ï¿½Ú•Wï¿½Ê’u(ï¿½ï¿½ï¿½~ï¿½bï¿½gï¿½Ì�ï¿½Oï¿½ï¿½İ’ï¿½)
 	switch (axis) {
 	case CC_AXIS_X:	l_PLimit = CC_InitDataCommon.P509; l_MLimit = CC_InitDataCommon.P510; break;
 	case CC_AXIS_Y:	l_PLimit = CC_InitDataCommon.P511; l_MLimit = CC_InitDataCommon.P512; break;
@@ -1593,12 +1593,12 @@ int CC_motion_move_at_speed(short axis, short velocity)
 		return MS_PARAMETER_ERROR; break;
 	}
 
-	// �ڕW
+	// ï¿½Ú•W
 	l_Destination_Pos = (velocity < 0)? (l_MLimit + 4) : (l_PLimit - 4);
 
 	CC_DispFuncParam(axis, velocity, l_Destination_Pos);
 
-	// ���x
+	// ï¿½ï¿½ï¿½x
 	if (axis == CC_AXIS_Z) {
 		l_Velocity = (velocity < 0)? -velocity : velocity;
 		l_Velocity = CC_ConvSpeed_Z(l_Velocity);
@@ -1611,7 +1611,7 @@ int CC_motion_move_at_speed(short axis, short velocity)
 #endif
 	}
 
-	// �R���g���[�����N��(ABS �ړ�)
+	// ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½(ABS ï¿½Ú“ï¿½)
 	g_CC_Axis_mode[axis] = 3;
 	sprintf(l_cCmd[0], "P%1u18=%d", axis + 1, ServoParam[axis].ABS_AccelTimeT);
 	sprintf(l_cCmd[1], "P%1u19=%d", axis + 1, ServoParam[axis].ABS_AccelTimeS);
@@ -1621,19 +1621,19 @@ int CC_motion_move_at_speed(short axis, short velocity)
 	if ((l_result = CC_WriteCommand(l_cCmd[1], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 	if ((l_result = CC_WriteCommand(l_cCmd[2], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 	if ((l_result = CC_WriteCommand(l_cCmd[3], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
-	// �Q�C����߂�
+	// ï¿½Qï¿½Cï¿½ï¿½ï¿½ï¿½ß‚ï¿½
 	CC_ChangeGain(axis, 0);
-	// ABS �ړ����[�h���Z�b�g
+	// ABS ï¿½Ú“ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Zï¿½bï¿½g
 	sprintf(l_cMode, "P%1u00=3", axis + 1);
 	if ((l_result = CC_WriteCommand(l_cMode, l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
-	// �J�n�� ON
-	if (CC_DioOutBit(l_RunBit, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;	/* ���s */}
-	CC_MotionTimeout(0, axis);	/* added 2009.11.11 hmenjo MotSys ���^�C���A�E�g	*/
+	// ï¿½Jï¿½nï¿½ï¿½ ON
+	if (CC_DioOutBit(l_RunBit, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;	/* ï¿½ï¿½ï¿½s */}
+	CC_MotionTimeout(0, axis);	/* added 2009.11.11 hmenjo MotSys ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
 	g_CC_Axis_prc[axis] = 1;
 
 	return MS_NO_ERROR;
 }
-// �w�肵�������w�肵�����x�Ŏw�肵���ʒu�Ɉړ�����
+// ï¿½wï¿½è‚µï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½wï¿½è‚µï¿½ï¿½ï¿½ï¿½ï¿½xï¿½Å�wï¿½è‚µï¿½ï¿½ï¿½Ê’uï¿½ÉˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½
 int CC_motion_move_to_position(short axis, long position, short velocity)
 {
 	long	l_PLimit;
@@ -1643,22 +1643,22 @@ int CC_motion_move_to_position(short axis, long position, short velocity)
 	char	l_cCmd[9][32];
 	char	l_Recvdata[256];
 	int		l_result;
-	WORD	l_RunBit;		// �J�n�r�b�g
-	char	l_cMode[32];	// ���[�h�A�h���X
+	WORD	l_RunBit;		// ï¿½Jï¿½nï¿½rï¿½bï¿½g
+	char	l_cMode[32];	// ï¿½ï¿½ï¿½[ï¿½hï¿½Aï¿½hï¿½ï¿½ï¿½X
 	long	l_AccelTimeT, l_AccelTimeS;
 
 	g_CC_Axis_pattern[axis] = 2;
 
 	if (g_CC_Axis_prc[axis] != 0) {
-		// �܂��C�ړ���
+		// ï¿½Ü‚ï¿½ï¿½Cï¿½Ú“ï¿½ï¿½ï¿½
 		return MS_FUNCTION_BUSY;
 	}
 	if (CC_ServoONOFF(-1) != TRUE) {
-		// �T�[�{ ON ���Ă��Ȃ�
+		// ï¿½Tï¿½[ï¿½{ ON ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½
 		return MS_NO_HARDWARE;
 	}
 
-	// �����̃��~�b�g���擾
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒï¿½ï¿½~ï¿½bï¿½gï¿½ï¿½ï¿½æ“¾
 	switch (axis) {
 	case CC_AXIS_X:	l_PLimit = CC_InitDataCommon.P509; l_MLimit = CC_InitDataCommon.P510; break;
 	case CC_AXIS_Y:	l_PLimit = CC_InitDataCommon.P511; l_MLimit = CC_InitDataCommon.P512; break;
@@ -1679,7 +1679,7 @@ int CC_motion_move_to_position(short axis, long position, short velocity)
 
 	CC_DispFuncParam(axis, velocity, position);
 
-	// �ڕW
+	// ï¿½Ú•W
 	l_Destination_Pos = position;
 	switch (axis) {
 	case CC_AXIS_Z:
@@ -1694,7 +1694,7 @@ int CC_motion_move_to_position(short axis, long position, short velocity)
 		if (l_PLimit <= l_Destination_Pos) {l_Destination_Pos = l_PLimit - 1;}
 		break;
 	}
-	// Y ���̉������Ԃ𒲐�
+	// Y ï¿½ï¿½ï¿½Ì‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô‚ğ’²�ï¿½
 	l_AccelTimeT = ServoParam[axis].ABS_AccelTimeT;
 	l_AccelTimeS = ServoParam[axis].ABS_AccelTimeS;
 	if (axis == 1) {
@@ -1713,8 +1713,8 @@ int CC_motion_move_to_position(short axis, long position, short velocity)
 #endif	// hmenjo10 20031009 <--
 	}
 
-	// ���[�h���X�V
-	// �R���g���[�����N��(ABS �ړ�)
+	// ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Xï¿½V
+	// ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½(ABS ï¿½Ú“ï¿½)
 	g_CC_Axis_mode[axis] = 3;
 	sprintf(l_cCmd[0], "P%1u18=%d", axis + 1, l_AccelTimeT);
 	sprintf(l_cCmd[1], "P%1u19=%d", axis + 1, l_AccelTimeS);
@@ -1724,18 +1724,18 @@ int CC_motion_move_to_position(short axis, long position, short velocity)
 	if ((l_result = CC_WriteCommand(l_cCmd[1], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 	if ((l_result = CC_WriteCommand(l_cCmd[2], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 	if ((l_result = CC_WriteCommand(l_cCmd[3], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
-	// �Q�C����߂�
+	// ï¿½Qï¿½Cï¿½ï¿½ï¿½ï¿½ß‚ï¿½
 	CC_ChangeGain(axis, 0);
 	sprintf(l_cMode, "P%1u00=3", axis + 1);
 	if ((l_result = CC_WriteCommand(l_cMode, l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
-	// �J�n�� ON
-	if (CC_DioOutBit(l_RunBit, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;	/* ���s */}
-	CC_MotionTimeout(0, axis);	/* added 2009.11.11 hmenjo MotSys ���^�C���A�E�g	*/
+	// ï¿½Jï¿½nï¿½ï¿½ ON
+	if (CC_DioOutBit(l_RunBit, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;	/* ï¿½ï¿½ï¿½s */}
+	CC_MotionTimeout(0, axis);	/* added 2009.11.11 hmenjo MotSys ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
 	g_CC_Axis_prc[axis] = 1;
 
 	return MS_NO_ERROR;
 }
-// �w�肵�������w�肵�����x�Ŏw�肵���ʒu�Ɉړ�����(������͎g��Ȃ����Ƃɂ��܂�)
+// ï¿½wï¿½è‚µï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½wï¿½è‚µï¿½ï¿½ï¿½ï¿½ï¿½xï¿½Å�wï¿½è‚µï¿½ï¿½ï¿½Ê’uï¿½ÉˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í�gï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½Æ‚É‚ï¿½ï¿½Ü‚ï¿½)
 int CC_motion_move_at_speed_to_dest(short axis, long destination, short velocity)
 {
 	long	l_PLimit;
@@ -1745,22 +1745,22 @@ int CC_motion_move_at_speed_to_dest(short axis, long destination, short velocity
 	char	l_cCmd[9][32];
 	char	l_Recvdata[256];
 	int		l_result;
-	WORD	l_RunBit;		// �J�n�r�b�g
-	char	l_cMode[32];	// ���[�h�A�h���X
+	WORD	l_RunBit;		// ï¿½Jï¿½nï¿½rï¿½bï¿½g
+	char	l_cMode[32];	// ï¿½ï¿½ï¿½[ï¿½hï¿½Aï¿½hï¿½ï¿½ï¿½X
 	long	l_AccelTimeT, l_AccelTimeS;
 
 	g_CC_Axis_pattern[axis] = 3;
 
 	if (g_CC_Axis_prc[axis] != 0) {
-		// �܂��C�ړ���
+		// ï¿½Ü‚ï¿½ï¿½Cï¿½Ú“ï¿½ï¿½ï¿½
 		return MS_FUNCTION_BUSY;
 	}
 	if (CC_ServoONOFF(-1) != TRUE) {
-		// �T�[�{ ON ���Ă��Ȃ�
+		// ï¿½Tï¿½[ï¿½{ ON ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½
 		return MS_NO_HARDWARE;
 	}
 
-	// �����̃��~�b�g���擾
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒï¿½ï¿½~ï¿½bï¿½gï¿½ï¿½ï¿½æ“¾
 	switch (axis) {
 	case CC_AXIS_X:	l_PLimit = CC_InitDataCommon.P509; l_MLimit = CC_InitDataCommon.P510; break;
 	case CC_AXIS_Y:	l_PLimit = CC_InitDataCommon.P511; l_MLimit = CC_InitDataCommon.P512; break;
@@ -1781,7 +1781,7 @@ int CC_motion_move_at_speed_to_dest(short axis, long destination, short velocity
 
 	CC_DispFuncParam(axis, velocity, destination);
 
-	// �ڕW
+	// ï¿½Ú•W
 	l_Destination_Pos = destination;
 	switch (axis) {
 	case CC_AXIS_T:
@@ -1793,7 +1793,7 @@ int CC_motion_move_at_speed_to_dest(short axis, long destination, short velocity
 		break;
 	}
 
-	// Y ���̉������Ԃ𒲐�
+	// Y ï¿½ï¿½ï¿½Ì‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô‚ğ’²�ï¿½
 	l_AccelTimeT = ServoParam[axis].ABS_AccelTimeT;
 	l_AccelTimeS = ServoParam[axis].ABS_AccelTimeS;
 	if (axis == CC_AXIS_Y) {
@@ -1812,8 +1812,8 @@ int CC_motion_move_at_speed_to_dest(short axis, long destination, short velocity
 #endif
 	}
 
-	// ���[�h���X�V
-	// �R���g���[�����N��(ABS �ړ�)
+	// ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Xï¿½V
+	// ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½(ABS ï¿½Ú“ï¿½)
 	g_CC_Axis_mode[axis] = 3;
 	sprintf(l_cCmd[0], "P%1u18=%d", axis + 1, l_AccelTimeT);
 	sprintf(l_cCmd[1], "P%1u19=%d", axis + 1, l_AccelTimeS);
@@ -1823,39 +1823,39 @@ int CC_motion_move_at_speed_to_dest(short axis, long destination, short velocity
 	if ((l_result = CC_WriteCommand(l_cCmd[1], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 	if ((l_result = CC_WriteCommand(l_cCmd[2], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 	if ((l_result = CC_WriteCommand(l_cCmd[3], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
-	// �Q�C����߂�
+	// ï¿½Qï¿½Cï¿½ï¿½ï¿½ï¿½ß‚ï¿½
 	CC_ChangeGain(axis, 0);
-	// ABS �ړ����[�h���Z�b�g
+	// ABS ï¿½Ú“ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Zï¿½bï¿½g
 	sprintf(l_cMode, "P%1u00=3", axis + 1);
 	if ((l_result = CC_WriteCommand(l_cMode, l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
-	// �J�n�� ON
-	if (CC_DioOutBit(l_RunBit, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;	/* ���s */}
-	CC_MotionTimeout(0, axis);	/* added 2009.11.11 hmenjo MotSys ���^�C���A�E�g	*/
+	// ï¿½Jï¿½nï¿½ï¿½ ON
+	if (CC_DioOutBit(l_RunBit, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;	/* ï¿½ï¿½ï¿½s */}
+	CC_MotionTimeout(0, axis);	/* added 2009.11.11 hmenjo MotSys ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
 	g_CC_Axis_prc[axis] = 1;
 
 	return MS_NO_ERROR;
 }
 
-// �w�肵������ HP �Ɉړ�����
+// ï¿½wï¿½è‚µï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ HP ï¿½ÉˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½
 int CC_motion_go_home(short axis)
 {
 	char	l_cCmd[9][32];
 	char	l_Recvdata[256];
 	int		l_result;
-	WORD	l_RunBit;		// �J�n�r�b�g
-	char	l_cMode[32];	// ���[�h�A�h���X
-	long	l_Position;		// �ڕW�ʒu
+	WORD	l_RunBit;		// ï¿½Jï¿½nï¿½rï¿½bï¿½g
+	char	l_cMode[32];	// ï¿½ï¿½ï¿½[ï¿½hï¿½Aï¿½hï¿½ï¿½ï¿½X
+	long	l_Position;		// ï¿½Ú•Wï¿½Ê’u
 	TCHAR	l_tszText[32];
 	long	l_Theta;
 
 	g_CC_Axis_pattern[axis] = 4;
 
 	if (g_CC_Axis_prc[axis] != 0) {
-		// �܂��C�ړ���
+		// ï¿½Ü‚ï¿½ï¿½Cï¿½Ú“ï¿½ï¿½ï¿½
 		return MS_FUNCTION_BUSY;
 	}
 	if (CC_ServoONOFF(-1) != TRUE) {
-		// �T�[�{ ON ���Ă��Ȃ�
+		// ï¿½Tï¿½[ï¿½{ ON ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½
 		return MS_NO_HARDWARE;
 	}
 
@@ -1870,10 +1870,10 @@ int CC_motion_go_home(short axis)
 
 	CC_DispFuncParam(axis, 0, 0);
 
-	// ���_���A�ς��H
+	// ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½Ï‚ï¿½ï¿½H
 	if (g_CC_AxisInfo[axis].Status & 0x0008) {
-		// ���A�� : HP �ړ����s��
-		// �R���g���[�����N��(HP �ړ�)
+		// ï¿½ï¿½ï¿½Aï¿½ï¿½ : HP ï¿½Ú“ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½
+		// ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½(HP ï¿½Ú“ï¿½)
 		g_CC_Axis_mode[axis] = 2;
 		sprintf(l_cCmd[0], "P%1u13=%d", axis + 1, l_Position);
 		sprintf(l_cCmd[1], "P%1u14=%d", axis + 1, ServoParam[axis].HP_AccelTimeT);
@@ -1887,25 +1887,25 @@ int CC_motion_go_home(short axis)
 		if ((l_result = CC_WriteCommand(l_cCmd[2], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 		if ((l_result = CC_WriteCommand(l_cCmd[3], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 		if ((l_result = CC_WriteCommand(l_cCmd[4], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
-		// �Q�C����߂�
+		// ï¿½Qï¿½Cï¿½ï¿½ï¿½ï¿½ß‚ï¿½
 		CC_ChangeGain(axis, 0);
-		// HP �ړ����[�h���Z�b�g
+		// HP ï¿½Ú“ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Zï¿½bï¿½g
 		sprintf(l_cMode, "P%1u00=2", axis + 1);
 		if ((l_result = CC_WriteCommand(l_cMode, l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
-		// �J�n�� ON
-		if (CC_DioOutBit(l_RunBit, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;	/* ���s */}
-		CC_MotionTimeout(0, axis);	/* added 2009.11.11 hmenjo MotSys ���^�C���A�E�g	*/
+		// ï¿½Jï¿½nï¿½ï¿½ ON
+		if (CC_DioOutBit(l_RunBit, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;	/* ï¿½ï¿½ï¿½s */}
+		CC_MotionTimeout(0, axis);	/* added 2009.11.11 hmenjo MotSys ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
 		g_CC_Axis_prc[axis] = 1;
 	} else {
-		// �����A : ���_���A���s��(���A��CHP �ړ�)
+		// ï¿½ï¿½ï¿½ï¿½ï¿½A : ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½sï¿½ï¿½(ï¿½ï¿½ï¿½Aï¿½ï¿½CHP ï¿½Ú“ï¿½)
 		if (axis == CC_AXIS_T) {
-			/* Theta �̏ꍇ�͋L���ʒu���}175���𒴂��Ă���Ƃ��́C�܂� INC �Ō��_�����Ɂ}30���ړ��C
-			   ���̌�C���_���A�Ƃ���*/
+			/* Theta ï¿½Ì�ê�‡ï¿½Í‹Lï¿½ï¿½ï¿½Ê’uï¿½ï¿½ï¿½}175ï¿½ï¿½ï¿½ğ’´‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½Í�Cï¿½Ü‚ï¿½ INC ï¿½ÅŒï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½É�}30ï¿½ï¿½ï¿½Ú“ï¿½ï¿½C
+			   ï¿½ï¿½ï¿½ÌŒï¿½Cï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½Æ‚ï¿½ï¿½ï¿½*/
 			::GetPrivateProfileString(_T("CurrentPosition"), _T("Theta"), _T("0"), l_tszText, sizeof(l_tszText), SERVO_INI);
-//��L�ݒ�������ޏ��������������Ȃ��ł����H�H�H[2009.03.25]
+//ï¿½ï¿½Lï¿½İ’ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ş�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Å‚ï¿½ï¿½ï¿½ï¿½Hï¿½Hï¿½H[2009.03.25]
 			l_Theta = _ttol(l_tszText);
 			if ((g_CC_Axis_ORG_Req[axis] == FALSE) && ((l_Theta < -486111) || (486111 < l_Theta))) {
-				// INC �ړ�(30��)���ŏ��ɍs��
+				// INC ï¿½Ú“ï¿½(30ï¿½ï¿½)ï¿½ï¿½ï¿½Å�ï¿½ï¿½É�sï¿½ï¿½
 				g_CC_Axis_mode[axis] = 4;
 				sprintf(l_cCmd[0], "P%1u22=%d", axis + 1, ServoParam[axis].INC_AccelTimeT);
 				sprintf(l_cCmd[1], "P%1u23=%d", axis + 1, ServoParam[axis].INC_AccelTimeS);
@@ -1921,14 +1921,14 @@ int CC_motion_go_home(short axis)
 				if ((l_result = CC_WriteCommand(l_cCmd[1], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 				if ((l_result = CC_WriteCommand(l_cCmd[2], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 				if ((l_result = CC_WriteCommand(l_cCmd[3], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
-				// �Q�C����߂�
+				// ï¿½Qï¿½Cï¿½ï¿½ï¿½ï¿½ß‚ï¿½
 				CC_ChangeGain(axis, 0);
-				// INC �ړ����[�h���Z�b�g
+				// INC ï¿½Ú“ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Zï¿½bï¿½g
 				sprintf(l_cCmd[0], "P%1u00=4", axis + 1);
 				if ((l_result = CC_WriteCommand(l_cCmd[0], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
-				// �J�n�� ON
-				if (CC_DioOutBit(l_RunBit, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;	/* ���s */}
-				CC_MotionTimeout(0, axis);	/* added 2009.11.11 hmenjo MotSys ���^�C���A�E�g	*/
+				// ï¿½Jï¿½nï¿½ï¿½ ON
+				if (CC_DioOutBit(l_RunBit, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;	/* ï¿½ï¿½ï¿½s */}
+				CC_MotionTimeout(0, axis);	/* added 2009.11.11 hmenjo MotSys ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
 				g_CC_Axis_prc[axis] = 1;
 				g_CC_Axis_ORG_Req[axis] = TRUE;
 				return MS_NO_ERROR;
@@ -1936,9 +1936,9 @@ int CC_motion_go_home(short axis)
 				g_CC_Axis_ORG_Req[axis] = FALSE;
 			}
 		}
-		// �R���g���[�����N��(���_���A)
+		// ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½(ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½A)
 		g_CC_Axis_mode[axis] = 1;
-//		g_CC_Axis_HP_Req[axis] = TRUE;	// ���_���A��CHP �ړ��v��
+//		g_CC_Axis_HP_Req[axis] = TRUE;	// ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½ï¿½CHP ï¿½Ú“ï¿½ï¿½vï¿½ï¿½
 		sprintf(l_cCmd[0], "P%1u01=%d", axis + 1, ServoParam[axis].ORG1_AccelTimeT);
 		sprintf(l_cCmd[1], "P%1u02=%d", axis + 1, ServoParam[axis].ORG1_AccelTimeS);
 //		sprintf(l_cCmd[2], "P%1u03=%d", axis + 1, ServoParam[axis].ORG1_Speed);
@@ -1964,32 +1964,32 @@ int CC_motion_go_home(short axis)
 		if ((l_result = CC_WriteCommand(l_cCmd[7], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 		if ((l_result = CC_WriteCommand(l_cCmd[8], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 
-		// �Q�C����߂�
+		// ï¿½Qï¿½Cï¿½ï¿½ï¿½ï¿½ß‚ï¿½
 		CC_ChangeGain(axis, 0);
-		// ���_���A���[�h���Z�b�g
+		// ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Zï¿½bï¿½g
 		sprintf(l_cMode, "P%1u00=1", axis + 1);
 		if ((l_result = CC_WriteCommand(l_cMode, l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
-		// �J�n�� ON
-		if (CC_DioOutBit(l_RunBit, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;	/* ���s */}
-		CC_MotionTimeout(0, axis);	/* added 2009.11.11 hmenjo MotSys ���^�C���A�E�g	*/
+		// ï¿½Jï¿½nï¿½ï¿½ ON
+		if (CC_DioOutBit(l_RunBit, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;	/* ï¿½ï¿½ï¿½s */}
+		CC_MotionTimeout(0, axis);	/* added 2009.11.11 hmenjo MotSys ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
 		g_CC_Axis_prc[axis] = 1;
 	}
 
 	return MS_NO_ERROR;
 }
 
-// Theta �p�̐���
+// Theta ï¿½pï¿½Ì�ï¿½ï¿½ï¿½
 void CC_ThetaAdjust(long *position, long pluslimit, long minuslimit)
 {
 	long	l_Position = *position;
 
-	// 360 ���ȉ��ɕϊ�
+	// 360 ï¿½ï¿½ï¿½È‰ï¿½ï¿½É•ÏŠï¿½
 	l_Position = l_Position % 1000000;
-	// �|�����~�b�g
+	// ï¿½|ï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½bï¿½g
 	if (l_Position < minuslimit) {
 		l_Position = minuslimit + 4;
 	}
-	// �{�����~�b�g
+	// ï¿½{ï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½bï¿½g
 	if (pluslimit < l_Position) {
 		l_Position = pluslimit - 4;
 	}
@@ -1997,7 +1997,7 @@ void CC_ThetaAdjust(long *position, long pluslimit, long minuslimit)
 	*position = l_Position;
 }
 
-// Z �����x�ϊ�
+// Z ï¿½ï¿½ï¿½ï¿½ï¿½xï¿½ÏŠï¿½
 long CC_ConvSpeed_Z(long org_speed)
 {
 	long	l_rc;
@@ -2017,7 +2017,7 @@ long CC_ConvSpeed_Z(long org_speed)
 	return l_rc;
 }
 
-// Y ���ňړ����������ݒ�l�����Ȃ� X �̉����p�����^���g��
+// Y ï¿½ï¿½ï¿½ÅˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½lï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ X ï¿½Ì‰ï¿½ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½gï¿½ï¿½
 void CC_AdjustAccel_Y(long Dest, long *AccelTimeT, long *AccelTimeS)
 {
 	long l_dPos;
@@ -2031,13 +2031,13 @@ void CC_AdjustAccel_Y(long Dest, long *AccelTimeT, long *AccelTimeS)
 		l_dPos *= -1;
 	}
 	if (l_dPos < l_lRange) {
-		// �ړ����������ݒ�l�����Ȃ� X ���̉����p�����^���g��
+		// ï¿½Ú“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½lï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ X ï¿½ï¿½ï¿½Ì‰ï¿½ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½gï¿½ï¿½
 		*AccelTimeT = ServoParam[CC_AXIS_X].ABS_AccelTimeT;
 		*AccelTimeS = ServoParam[CC_AXIS_X].ABS_AccelTimeS;
 	}
 }
 
-// �Q�C���؊��� ALL	(���ݖ��g�p)
+// ï¿½Qï¿½Cï¿½ï¿½ï¿½ØŠï¿½ï¿½ï¿½ ALL	(ï¿½ï¿½ï¿½İ–ï¿½ï¿½gï¿½p)
 void CC_ChangeGainAll(BOOL onoff)
 {
 	DWORD	l_dwGainSel;
@@ -2052,7 +2052,7 @@ void CC_ChangeGainAll(BOOL onoff)
 	if (0 != motion_data[CC_CnvAxisFromSPT(CC_AXIS_Z)].bEnable) {CC_ChangeGain(CC_AXIS_Z, l_dwGainSel);}
 	if (0 != motion_data[CC_CnvAxisFromSPT(CC_AXIS_T)].bEnable) {CC_ChangeGain(CC_AXIS_T, l_dwGainSel);}
 }
-// �Q�C���؊��� X/Y/Z/T ��
+// ï¿½Qï¿½Cï¿½ï¿½ï¿½ØŠï¿½ï¿½ï¿½ X/Y/Z/T ï¿½ï¿½
 void CC_ChangeGain(short sAxis, DWORD dwGainSel)
 {
 	int		l_iGainBit;
@@ -2068,13 +2068,13 @@ void CC_ChangeGain(short sAxis, DWORD dwGainSel)
 
 	BYTE	l_ucGainSel = 0;
 	if (0 != dwGainSel) {l_ucGainSel = 1;}
-	if (CC_DioOutBit(l_iGainBit, l_ucGainSel) != 0) {CC_DioError(); return;/* ���s */}
+	if (CC_DioOutBit(l_iGainBit, l_ucGainSel) != 0) {CC_DioError(); return;/* ï¿½ï¿½ï¿½s */}
 }
 
-// �ő呬�x����
+// ï¿½Å‘å‘¬ï¿½xï¿½ï¿½ï¿½ï¿½
 long CC_ConvSpeed_XYT(short Axis, long org_speed)
 {
-#if 0	// FP �V���[�Y�p ----------------------------------------------
+#if 0	// FP ï¿½Vï¿½ï¿½ï¿½[ï¿½Yï¿½p ----------------------------------------------
 	long	l_org_speed;
 	long	l_Speed;
 
@@ -2083,7 +2083,7 @@ long CC_ConvSpeed_XYT(short Axis, long org_speed)
 	if (g_CC_MaxSpeed[Axis] < l_org_speed) {l_org_speed = g_CC_MaxSpeed[Axis];}
 
 	l_Speed = (ServoParam[Axis].ABS_Speed * l_org_speed) / g_CC_MaxSpeed[Axis];
-#else	// Nano �V���[�Y�p --------------------------------------------
+#else	// Nano ï¿½Vï¿½ï¿½ï¿½[ï¿½Yï¿½p --------------------------------------------
 	long	l_Speed;
 
 	l_Speed = (org_speed < 0)? -org_speed : org_speed;
@@ -2104,7 +2104,7 @@ long CC_ConvSpeed_XYT(short Axis, long org_speed)
 	return l_Speed;
 }
 
-// Sodick ���֕ϊ�
+// Sodick ï¿½ï¿½ï¿½Ö•ÏŠï¿½
 short CC_CnvAxisToSPT(short Axis)
 {
 	short	l_Axis;
@@ -2132,7 +2132,7 @@ short CC_CnvAxisToSPT(short Axis)
 
 	return l_Axis;
 }
-// Sodick ������ϊ�
+// Sodick ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÏŠï¿½
 short CC_CnvAxisFromSPT(short Axis)
 {
 	short	l_Axis;
@@ -2161,7 +2161,7 @@ short CC_CnvAxisFromSPT(short Axis)
 	return l_Axis;
 }
 
-// JOYSTICK ���[�h�m�F
+// JOYSTICK ï¿½ï¿½ï¿½[ï¿½hï¿½mï¿½F
 BOOL CC_IsJoyMode(void)
 {
 	if (0 != (g_CC_InPort & (0x00000001 << CC_INBIT_JOY_STATUS))) {
@@ -2171,7 +2171,7 @@ BOOL CC_IsJoyMode(void)
 	}
 }
 
-// JOYSTICK ���[�h�ݒ�
+// JOYSTICK ï¿½ï¿½ï¿½[ï¿½hï¿½İ’ï¿½
 int CC_SetJoyMode(int iMode, int iSpeedSel)
 {
 	if (0 == g_CC_bInitialize) {
@@ -2207,32 +2207,32 @@ int CC_SetJoyMode(int iMode, int iSpeedSel)
 
 	switch (iMode) {
 	case 0:
-		// ����
-		if (CC_DioOutBit(CC_OUTBIT_JOY_SPEED1, 0) != 0) {CC_DioError(); return MS_NO_HARDWARE;/* ���s */}
-		if (CC_DioOutBit(CC_OUTBIT_JOY_SPEED2, 0) != 0) {CC_DioError(); return MS_NO_HARDWARE;/* ���s */}
-		if (CC_DioOutBit(CC_OUTBIT_JOY_SPEED3, 0) != 0) {CC_DioError(); return MS_NO_HARDWARE;/* ���s */}
-		if (CC_DioOutBit(CC_OUTBIT_JOY_MODE, 0) != 0) {CC_DioError(); return MS_NO_HARDWARE;/* ���s */}
+		// ï¿½ï¿½ï¿½ï¿½
+		if (CC_DioOutBit(CC_OUTBIT_JOY_SPEED1, 0) != 0) {CC_DioError(); return MS_NO_HARDWARE;/* ï¿½ï¿½ï¿½s */}
+		if (CC_DioOutBit(CC_OUTBIT_JOY_SPEED2, 0) != 0) {CC_DioError(); return MS_NO_HARDWARE;/* ï¿½ï¿½ï¿½s */}
+		if (CC_DioOutBit(CC_OUTBIT_JOY_SPEED3, 0) != 0) {CC_DioError(); return MS_NO_HARDWARE;/* ï¿½ï¿½ï¿½s */}
+		if (CC_DioOutBit(CC_OUTBIT_JOY_MODE, 0) != 0) {CC_DioError(); return MS_NO_HARDWARE;/* ï¿½ï¿½ï¿½s */}
 		break;
 	case 1:
-		// �ݒ�
-		if (CC_DioOutBit(CC_OUTBIT_JOY_SPEED1, 0) != 0) {CC_DioError(); return MS_NO_HARDWARE;/* ���s */}
-		if (CC_DioOutBit(CC_OUTBIT_JOY_SPEED2, 0) != 0) {CC_DioError(); return MS_NO_HARDWARE;/* ���s */}
-		if (CC_DioOutBit(CC_OUTBIT_JOY_SPEED3, 0) != 0) {CC_DioError(); return MS_NO_HARDWARE;/* ���s */}
+		// ï¿½İ’ï¿½
+		if (CC_DioOutBit(CC_OUTBIT_JOY_SPEED1, 0) != 0) {CC_DioError(); return MS_NO_HARDWARE;/* ï¿½ï¿½ï¿½s */}
+		if (CC_DioOutBit(CC_OUTBIT_JOY_SPEED2, 0) != 0) {CC_DioError(); return MS_NO_HARDWARE;/* ï¿½ï¿½ï¿½s */}
+		if (CC_DioOutBit(CC_OUTBIT_JOY_SPEED3, 0) != 0) {CC_DioError(); return MS_NO_HARDWARE;/* ï¿½ï¿½ï¿½s */}
 		switch (iSpeedSel) {
 		case 1:
-			if (CC_DioOutBit(CC_OUTBIT_JOY_SPEED1, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;/* ���s */}
+			if (CC_DioOutBit(CC_OUTBIT_JOY_SPEED1, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;/* ï¿½ï¿½ï¿½s */}
 			break;
 		case 2:
-			if (CC_DioOutBit(CC_OUTBIT_JOY_SPEED2, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;/* ���s */}
+			if (CC_DioOutBit(CC_OUTBIT_JOY_SPEED2, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;/* ï¿½ï¿½ï¿½s */}
 			break;
 		case 3:
-			if (CC_DioOutBit(CC_OUTBIT_JOY_SPEED3, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;/* ���s */}
+			if (CC_DioOutBit(CC_OUTBIT_JOY_SPEED3, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;/* ï¿½ï¿½ï¿½s */}
 			break;
 		default:
 			return MS_PARAMETER_ERROR;
 			break;
 		}
-		if (CC_DioOutBit(CC_OUTBIT_JOY_MODE, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;/* ���s */}
+		if (CC_DioOutBit(CC_OUTBIT_JOY_MODE, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;/* ï¿½ï¿½ï¿½s */}
 		break;
 	default:
 		return MS_PARAMETER_ERROR;
@@ -2242,8 +2242,8 @@ int CC_SetJoyMode(int iMode, int iSpeedSel)
 	return MS_NO_ERROR;
 }
 
-// �ō����x���擾
-//		�����l�ł͂Ȃ����ۂɎw�߂���ō����x�̂��Ƃł��D
+// ï¿½Å�ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½æ“¾
+//		ï¿½ï¿½ï¿½ï¿½ï¿½lï¿½Å‚Í‚È‚ï¿½ï¿½ï¿½ï¿½Û‚É�wï¿½ß‚ï¿½ï¿½ï¿½Å�ï¿½ï¿½ï¿½ï¿½xï¿½Ì‚ï¿½ï¿½Æ‚Å‚ï¿½ï¿½D
 int CC_GetMaxSpeed(short Axis)
 {
 	long l_lRetSpeed;
@@ -2258,21 +2258,21 @@ int CC_GetMaxSpeed(short Axis)
 	}
 
 	if (l_lInitMaxSpeed < ServoParam[Axis].ABS_Speed) {
-		// �������f�[�^�̑��x�̕���������
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½Ì‘ï¿½ï¿½xï¿½Ì•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if (g_CC_MaxSpeed[Axis] < l_lInitMaxSpeed) {
-			// ini �t�@�C���̑��x�����̕���������
+			// ini ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ì‘ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½Ì•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			l_lRetSpeed= g_CC_MaxSpeed[Axis];
 		} else {
-			// �������f�[�^�̑��x�̕���������
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½Ì‘ï¿½ï¿½xï¿½Ì•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			l_lRetSpeed= l_lInitMaxSpeed;
 		}
 	} else {
-		// ServoParam.dat �̑��x�̕���������
+		// ServoParam.dat ï¿½Ì‘ï¿½ï¿½xï¿½Ì•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if (g_CC_MaxSpeed[Axis] < ServoParam[Axis].ABS_Speed) {
-			// ini �t�@�C���̑��x�����̕���������
+			// ini ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ì‘ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½Ì•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			l_lRetSpeed= g_CC_MaxSpeed[Axis];
 		} else {
-			// ServoParam.dat �̑��x�̕���������
+			// ServoParam.dat ï¿½Ì‘ï¿½ï¿½xï¿½Ì•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			l_lRetSpeed= ServoParam[Axis].ABS_Speed;
 		}
 	}
@@ -2280,8 +2280,8 @@ int CC_GetMaxSpeed(short Axis)
 	return l_lRetSpeed;
 }
 
-// ���̉ғ��͈�(����)���擾
-//		�������f�[�^�̃\�t�g���~�b�g����v�Z���܂��D
+// ï¿½ï¿½ï¿½Ì‰Ò“ï¿½ï¿½Íˆï¿½(ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½æ“¾
+//		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½Ìƒ\ï¿½tï¿½gï¿½ï¿½ï¿½~ï¿½bï¿½gï¿½ï¿½ï¿½ï¿½vï¿½Zï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D
 int CC_GetMotionSize(short Axis)
 {
 	long l_lRetSize;
@@ -2320,12 +2320,12 @@ int CC_GetMotionSize(short Axis)
 	return l_lRetSize;
 }
 
-// ���̓d�q�M�A���擾
-//		�������f�[�^����擾���܂��D
+// ï¿½ï¿½ï¿½Ì“dï¿½qï¿½Mï¿½Aï¿½ï¿½ï¿½æ“¾
+//		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D
 int CC_GetElectronicGear(short Axis)
 {
-	WORD l_wElectronicGearA;	// ���q
-	WORD l_wElectronicGearB;	// ����
+	WORD l_wElectronicGearA;	// ï¿½ï¿½ï¿½q
+	WORD l_wElectronicGearB;	// ï¿½ï¿½ï¿½ï¿½
 
 	switch (Axis) {
 	case CC_AXIS_X:
@@ -2344,8 +2344,8 @@ int CC_GetElectronicGear(short Axis)
 	return MAKELONG(l_wElectronicGearB, l_wElectronicGearA);
 }
 
-// ���̃\�t�g���~�b�g�{�����擾
-//		�������f�[�^�̃\�t�g���~�b�g��Ǐo���܂��D
+// ï¿½ï¿½ï¿½Ìƒ\ï¿½tï¿½gï¿½ï¿½ï¿½~ï¿½bï¿½gï¿½{ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
+//		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½Ìƒ\ï¿½tï¿½gï¿½ï¿½ï¿½~ï¿½bï¿½gï¿½ï¿½Ç�oï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D
 int CC_GetSoftLimit(short Axis, short signflag)
 {
 	long l_lSoftLimit;
@@ -2371,7 +2371,7 @@ int CC_GetSoftLimit(short Axis, short signflag)
 	return l_lSoftLimit;
 }
 
-// �W���C�X�e�B�b�N�̑��x��ݒ肵�܂��D
+// ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½Ì‘ï¿½ï¿½xï¿½ï¿½İ’è‚µï¿½Ü‚ï¿½ï¿½D
 int CC_SetJoySpeed(short axis, int iSpeedSel, short velocity)
 {
 	int l_Rc = MS_NO_ERROR;
@@ -2396,13 +2396,13 @@ int CC_SetJoySpeed(short axis, int iSpeedSel, short velocity)
 		return MS_PARAMETER_ERROR;
 		break;
 	}
-	// ���x�̕��������ƍő呬�x����
+	// ï¿½ï¿½ï¿½xï¿½Ì•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ�Å‘å‘¬ï¿½xï¿½ï¿½ï¿½ï¿½
 	long	l_Velocity;
 	l_Velocity = (velocity < 0)? -velocity : velocity;
 	l_Velocity = CC_ConvSpeed_XYT(axis, l_Velocity);
-	// �R�}���h���M(���x�p�����^������)
-	/*		X ��	1�FP582�C2�FP583�C3�FP584
-			Y ��	1�FP587�C2�FP588�C3�FP589*/
+	// ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½ï¿½ï¿½M(ï¿½ï¿½ï¿½xï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+	/*		X ï¿½ï¿½	1ï¿½FP582ï¿½C2ï¿½FP583ï¿½C3ï¿½FP584
+			Y ï¿½ï¿½	1ï¿½FP587ï¿½C2ï¿½FP588ï¿½C3ï¿½FP589*/
 	char l_szCmd[32];
 	int l_iAxisBase = (CC_AXIS_X == axis)? 2 : 7;
 	sprintf(l_szCmd, "P58%1u=%d", l_iAxisBase + (iSpeedSel - 1), l_Velocity);
@@ -2413,15 +2413,15 @@ int CC_SetJoySpeed(short axis, int iSpeedSel, short velocity)
 	return l_Rc;
 }
 
-/* added 2009.11.11 hmenjo MotSys ���^�C���A�E�g ---------- { ---------- */
-/* ���ړ��^�C���A�E�g���`�F�b�N���܂��D	*/
-#define	CC_MOTION_TIMEOUT	(10 * 60 * 1000)	/* ���ړ��^�C���A�E�g[ms]	*/
+/* added 2009.11.11 hmenjo MotSys ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g ---------- { ---------- */
+/* ï¿½ï¿½ï¿½Ú“ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
+#define	CC_MOTION_TIMEOUT	(10 * 60 * 1000)	/* ï¿½ï¿½ï¿½Ú“ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g[ms]	*/
 int CC_MotionTimeout(
-		int iMode,		/* ���[�h
-							0�F�J�n
-							1�F�I��
-							2�F�`�F�b�N	*/
-		short wAxis		/*	��	*/
+		int iMode,		/* ï¿½ï¿½ï¿½[ï¿½h
+							0ï¿½Fï¿½Jï¿½n
+							1ï¿½Fï¿½Iï¿½ï¿½
+							2ï¿½Fï¿½`ï¿½Fï¿½bï¿½N	*/
+		short wAxis		/*	ï¿½ï¿½	*/
 	)
 {
 	static DWORD ls_dwCounter[CC_AXIS_NUM] = {static_cast<DWORD>(-1), static_cast<DWORD>(-1), static_cast<DWORD>(-1), static_cast<DWORD>(-1)};
@@ -2435,21 +2435,21 @@ int CC_MotionTimeout(
 	memcpy(l_bCountFlag, ls_bCountFlag, sizeof(l_bCountFlag));
 
 	if ((wAxis < 0) || (CC_AXIS_NUM <= wAxis)) {
-		l_iRet = -1;		/* �w�肳�ꂽ���ԍ����s���ł��D	*/
+		l_iRet = -1;		/* ï¿½wï¿½è‚³ï¿½ê‚½ï¿½ï¿½ï¿½Ô�ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½Å‚ï¿½ï¿½D	*/
 	} else {
 		if (0 == iMode) {
-			/* �J�n -----------------------------------*/
+			/* ï¿½Jï¿½n -----------------------------------*/
 			l_dwCounter[wAxis] = ::GetTickCount();
 			l_bCountFlag[wAxis] = TRUE;
 			l_iRet = 0;
 		} else if (1 == iMode) {
-			/* �I�� -----------------------------------*/
+			/* ï¿½Iï¿½ï¿½ -----------------------------------*/
 			l_bCountFlag[wAxis] = FALSE;
 			l_iRet = 0;
 		} else {
-			/* �`�F�b�N -------------------------------*/
+			/* ï¿½`ï¿½Fï¿½bï¿½N -------------------------------*/
 			if (TRUE != l_bCountFlag[wAxis]) {
-				l_iRet = -3;		/* �J�n����Ă��܂���D	*/
+				l_iRet = -3;		/* ï¿½Jï¿½nï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½D	*/
 			} else {
 				DWORD l_dwCheck =  ::GetTickCount();
 				DWORD l_dwElaps;
@@ -2459,7 +2459,7 @@ int CC_MotionTimeout(
 					l_dwElaps = l_dwCheck - l_dwCounter[wAxis];
 				}
 				if (CC_MOTION_TIMEOUT < l_dwElaps) {
-					/* �^�C���A�E�g���܂����D	*/
+					/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D	*/
 					l_bCountFlag[wAxis] = FALSE;
 					l_iRet = 1;
 				} else {
@@ -2475,7 +2475,7 @@ int CC_MotionTimeout(
 
 	return l_iRet;
 }
-/* ���ړ��^�C���A�E�g�̏ꍇ�͂��̎����~���܂��D	*/
+/* ï¿½ï¿½ï¿½Ú“ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Ì�ê�‡ï¿½Í‚ï¿½ï¿½Ì�ï¿½ï¿½ï¿½ï¿½~ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 void CC_MotTimeoutCheck(short wAxis, short *wPrc)
 {
 	static short ls_wPrcPre[CC_AXIS_NUM] = {0, 0, 0, 0};
@@ -2485,13 +2485,13 @@ void CC_MotTimeoutCheck(short wAxis, short *wPrc)
 	memcpy(l_wPrcPre, ls_wPrcPre, sizeof(l_wPrcPre));
 
 	if ((0 != l_wPrcPre[wAxis]) && (0 == *wPrc)) {
-		/* ������Ԃ���~���ɂȂ���	*/
-		CC_MotionTimeout(1, wAxis);	/* �^�C���A�E�g�Ď� �I��	*/
+		/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô‚ï¿½ï¿½ï¿½~ï¿½ï¿½ï¿½É‚È‚ï¿½ï¿½ï¿½	*/
+		CC_MotionTimeout(1, wAxis);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Ä�ï¿½ ï¿½Iï¿½ï¿½	*/
 	} else if (0 != *wPrc) {
-		/* ������Ԃ����쒆	*/
-		int l_iRet = CC_MotionTimeout(2, wAxis);	/* �^�C���A�E�g�Ď� �`�F�b�N	*/
+		/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô‚ï¿½ï¿½ï¿½ï¿½ì’†	*/
+		int l_iRet = CC_MotionTimeout(2, wAxis);	/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Ä�ï¿½ ï¿½`ï¿½Fï¿½bï¿½N	*/
 		if (1 == l_iRet) {
-			/* �^�C���A�E�g���܂����D	*/
+			/* ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D	*/
 			*wPrc = 0;
 			CC_local_emergency_stop(wAxis);
 			send_motion_message(CC_CnvAxisFromSPT(wAxis), MM_TIMEOUT);
@@ -2502,7 +2502,7 @@ void CC_MotTimeoutCheck(short wAxis, short *wPrc)
 	/* push -------------------------------------------*/
 	memcpy(ls_wPrcPre, l_wPrcPre, sizeof(ls_wPrcPre));
 }
-/* added 2009.11.11 hmenjo MotSys ���^�C���A�E�g ---------- } ---------- */
+/* added 2009.11.11 hmenjo MotSys ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g ---------- } ---------- */
 
 void CC_DispOthers(void)
 {
@@ -2530,13 +2530,13 @@ void CC_DispOthers(void)
 		}
 	}
 
-	// DI ��\��
+	// DI ï¿½ï¿½\ï¿½ï¿½
 	TCHAR l_tszTempL[32], l_tszTempH[32];
 	g_pCMotSysDlg->CnvWordToBin((WORD) (g_CC_InPort & 0x0000ffff), l_tszTempL, 2);
 	g_pCMotSysDlg->CnvWordToBin((WORD) (g_CC_InPort >> 16), 	   l_tszTempH, 2);
 	_stprintf(l_tszText, _T("%s  %s"), l_tszTempH, l_tszTempL);
 	g_pCMotSysDlg->SetDlgItemText(IDC_STATIC_DI, l_tszText);
-	// DO ��\��
+	// DO ï¿½ï¿½\ï¿½ï¿½
 	g_pCMotSysDlg->CnvWordToBin((WORD) (g_CC_OutPort & 0x0000ffff), l_tszTempL, 2);
 	g_pCMotSysDlg->CnvWordToBin((WORD) (g_CC_OutPort >> 16),		l_tszTempH, 2);
 	_stprintf(l_tszText, _T("%s  %s"), l_tszTempH, l_tszTempL);
@@ -2567,7 +2567,7 @@ void CC_DispFuncParam(short axis, short Speed, long position)
 
 
 
-// �ȉ��̃R�[�h�̓f�o�b�O�p
+// ï¿½È‰ï¿½ï¿½ÌƒRï¿½[ï¿½hï¿½Íƒfï¿½oï¿½bï¿½Oï¿½p
 void mmtest(void)
 {
 #define DEB_JOB 3
@@ -2582,18 +2582,18 @@ void mmtest(void)
 #elif DEB_JOB == 2
 	g_pCMotSysDlg->ShowAlarm(3, 2, 3, 4);
 #elif DEB_JOB == 3
-	// �T�[�{ OFF �v��
+	// ï¿½Tï¿½[ï¿½{ OFF ï¿½vï¿½ï¿½
 	g_CC_ServoOFFReq = TRUE;
 #endif
 }
 
 void mmtest2(void)
 {
-	// �T�[�{ ON �v��
+	// ï¿½Tï¿½[ï¿½{ ON ï¿½vï¿½ï¿½
 	g_CC_ServoONReq = TRUE;
 }
 
-// ���_���A �N��(�e�X�g��)
+// ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½A ï¿½Nï¿½ï¿½(ï¿½eï¿½Xï¿½gï¿½ï¿½)
 static short	lg_Xorg = 0;
 void mmtestORGX(int mode)
 {
@@ -2601,7 +2601,7 @@ void mmtestORGX(int mode)
 	int		l_result;
 	char	l_cCmd[32];
 
-	// �p�����^���Z�b�g
+	// ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½Zï¿½bï¿½g
 	switch (mode) {
 	case 0:
 		sprintf(l_cCmd, "P101=%d", ServoParam[0].ORG1_AccelTimeT);
@@ -2622,7 +2622,7 @@ void mmtestORGX(int mode)
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		sprintf(l_cCmd, "P109=%d", ServoParam[0].ORG3_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		// ���_���A���[�h���Z�b�g
+		// ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Zï¿½bï¿½g
 		if ((l_result = CC_WriteCommand("P100=1", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		break;
 	case 1:
@@ -2635,7 +2635,7 @@ void mmtestORGX(int mode)
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		sprintf(l_cCmd, "P117=%d", ServoParam[0].HP_BaseBand);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		// HP �ړ����[�h���Z�b�g
+		// HP ï¿½Ú“ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Zï¿½bï¿½g
 		if ((l_result = CC_WriteCommand("P100=2", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		break;
 	case 2:
@@ -2651,7 +2651,7 @@ void mmtestORGX(int mode)
 		} else {
 			if ((l_result = CC_WriteCommand("P121=-28000000", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		}
-		// ABS �ړ����[�h���Z�b�g
+		// ABS ï¿½Ú“ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Zï¿½bï¿½g
 		if ((l_result = CC_WriteCommand("P100=3", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		break;
 	case 3:
@@ -2667,19 +2667,19 @@ void mmtestORGX(int mode)
 		} else {
 			if ((l_result = CC_WriteCommand("P125=-2000000", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		}
-		// INC �ړ����[�h���Z�b�g
+		// INC ï¿½Ú“ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Zï¿½bï¿½g
 		if ((l_result = CC_WriteCommand("P100=4", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		break;
 	default:
 		return; break;
 	}
-	// �J�n�� ON
+	// ï¿½Jï¿½nï¿½ï¿½ ON
 	if (CC_DioOutBit(CC_OUTBIT_RUN_X, 1) != 0) {
-		CC_DioError();	return;	// ���s
+		CC_DioError();	return;	// ï¿½ï¿½ï¿½s
 	}
 	lg_Xorg = 1;
 }
-// ���_���A ����(�e�X�g��)
+// ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½A ï¿½ï¿½ï¿½ï¿½(ï¿½eï¿½Xï¿½gï¿½ï¿½)
 void mmtestORGXdone(void)
 {
 	char	l_Recvdata[256];
@@ -2687,25 +2687,25 @@ void mmtestORGXdone(void)
 	BYTE	l_ucBitData;
 
 	switch (lg_Xorg) {
-	case 0:		// �N���҂�
+	case 0:		// ï¿½Nï¿½ï¿½ï¿½Ò‚ï¿½
 		break;
-	case 1:		// INP �Ď��҂�
+	case 1:		// INP ï¿½Ä�ï¿½ï¿½Ò‚ï¿½
 		lg_Xorg = 2;
 		break;
-	case 2:		// INP �҂�
+	case 2:		// INP ï¿½Ò‚ï¿½
 		if (CC_DioInpBit(CC_INBIT_INP_X, &l_ucBitData) != 0) {CC_DioError(); l_ucBitData = 0;}
 		if (l_ucBitData != 0) {
 			lg_Xorg = 3;
 		}
 		break;
-	case 3:		// ���샂�[�h�̒ʏ�ւ̕ω��҂�
+	case 3:		// ï¿½ï¿½ï¿½ìƒ‚ï¿½[ï¿½hï¿½Ì’Ê�ï¿½Ö‚Ì•Ï‰ï¿½ï¿½Ò‚ï¿½
 		if ((l_result = CC_ReadCommand("P150", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		if (strcmp(l_Recvdata, "0") == 0) {
-			// �J�n�� OFF
+			// ï¿½Jï¿½nï¿½ï¿½ OFF
 			if (CC_DioOutBit(CC_OUTBIT_RUN_X, 0) != 0) {
-				CC_DioError();	return;	// ���s
+				CC_DioError();	return;	// ï¿½ï¿½ï¿½s
 			}
-			// ���샂�[�h��ʏ�փZ�b�g
+			// ï¿½ï¿½ï¿½ìƒ‚ï¿½[ï¿½hï¿½ï¿½Ê�ï¿½ÖƒZï¿½bï¿½g
 			if ((l_result = CC_WriteCommand("P100=0", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 			lg_Xorg = 0;
 		}
@@ -2720,7 +2720,7 @@ void mmtestORGY(int mode)
 	int		l_result;
 	char	l_cCmd[32];
 
-	// �p�����^���Z�b�g
+	// ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½Zï¿½bï¿½g
 	switch (mode) {
 	case 0:
 		sprintf(l_cCmd, "P201=%d", ServoParam[1].ORG1_AccelTimeT);
@@ -2741,7 +2741,7 @@ void mmtestORGY(int mode)
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		sprintf(l_cCmd, "P209=%d", ServoParam[1].ORG3_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		// ���_���A���[�h���Z�b�g
+		// ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Zï¿½bï¿½g
 		if ((l_result = CC_WriteCommand("P200=1", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		break;
 	case 1:
@@ -2754,7 +2754,7 @@ void mmtestORGY(int mode)
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		sprintf(l_cCmd, "P217=%d", ServoParam[1].HP_BaseBand);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		// HP �ړ����[�h���Z�b�g
+		// HP ï¿½Ú“ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Zï¿½bï¿½g
 		if ((l_result = CC_WriteCommand("P200=2", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		break;
 	case 2:
@@ -2770,7 +2770,7 @@ void mmtestORGY(int mode)
 		} else {
 			if ((l_result = CC_WriteCommand("P221=-4000000", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		}
-		// ABS �ړ����[�h���Z�b�g
+		// ABS ï¿½Ú“ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Zï¿½bï¿½g
 		if ((l_result = CC_WriteCommand("P200=3", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		break;
 		sprintf(l_cCmd, "P222=%d", ServoParam[1].INC_AccelTimeT);
@@ -2784,19 +2784,19 @@ void mmtestORGY(int mode)
 		} else {
 			if ((l_result = CC_WriteCommand("P225=-8000000", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		}
-		// INC �ړ����[�h���Z�b�g
+		// INC ï¿½Ú“ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Zï¿½bï¿½g
 		if ((l_result = CC_WriteCommand("P200=4", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		break;
 	default:
 		return; break;
 	}
-	// �J�n�� ON
+	// ï¿½Jï¿½nï¿½ï¿½ ON
 	if (CC_DioOutBit(CC_OUTBIT_RUN_Y, 1) != 0) {
-		CC_DioError();	return;	// ���s
+		CC_DioError();	return;	// ï¿½ï¿½ï¿½s
 	}
 	lg_Yorg = 1;
 }
-// ���_���A ����(�e�X�g��)
+// ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½A ï¿½ï¿½ï¿½ï¿½(ï¿½eï¿½Xï¿½gï¿½ï¿½)
 void mmtestORGYdone(void)
 {
 	char	l_Recvdata[256];
@@ -2804,25 +2804,25 @@ void mmtestORGYdone(void)
 	BYTE	l_ucBitData;
 
 	switch (lg_Yorg) {
-	case 0:		// �N���҂�
+	case 0:		// ï¿½Nï¿½ï¿½ï¿½Ò‚ï¿½
 		break;
-	case 1:		// INP �Ď��҂�
+	case 1:		// INP ï¿½Ä�ï¿½ï¿½Ò‚ï¿½
 		lg_Yorg = 2;
 		break;
-	case 2:		// INP �҂�
+	case 2:		// INP ï¿½Ò‚ï¿½
 		if (CC_DioInpBit(CC_INBIT_INP_Y, &l_ucBitData) != 0) {CC_DioError(); l_ucBitData = 0;}
 		if (l_ucBitData != 0) {
 			lg_Yorg = 3;
 		}
 		break;
-	case 3:		// ���샂�[�h�̒ʏ�ւ̕ω��҂�
+	case 3:		// ï¿½ï¿½ï¿½ìƒ‚ï¿½[ï¿½hï¿½Ì’Ê�ï¿½Ö‚Ì•Ï‰ï¿½ï¿½Ò‚ï¿½
 		if ((l_result = CC_ReadCommand("P250", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		if (strcmp(l_Recvdata, "0") == 0) {
-			// �J�n�� OFF
+			// ï¿½Jï¿½nï¿½ï¿½ OFF
 			if (CC_DioOutBit(CC_OUTBIT_RUN_Y, 0) != 0) {
-				CC_DioError();	return;	// ���s
+				CC_DioError();	return;	// ï¿½ï¿½ï¿½s
 			}
-			// ���샂�[�h��ʏ�փZ�b�g
+			// ï¿½ï¿½ï¿½ìƒ‚ï¿½[ï¿½hï¿½ï¿½Ê�ï¿½ÖƒZï¿½bï¿½g
 			if ((l_result = CC_WriteCommand("P200=0", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 			lg_Yorg = 0;
 		}
@@ -2837,7 +2837,7 @@ void mmtestORGZ(int mode)
 	int		l_result;
 	char	l_cCmd[32];
 
-	// �p�����^���Z�b�g
+	// ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½Zï¿½bï¿½g
 	switch (mode) {
 	case 0:
 		sprintf(l_cCmd, "P301=%d", ServoParam[2].ORG1_AccelTimeT);
@@ -2858,7 +2858,7 @@ void mmtestORGZ(int mode)
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		sprintf(l_cCmd, "P309=%d", ServoParam[2].ORG3_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		// ���_���A���[�h���Z�b�g
+		// ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Zï¿½bï¿½g
 		if ((l_result = CC_WriteCommand("P300=1", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		break;
 	case 1:
@@ -2871,7 +2871,7 @@ void mmtestORGZ(int mode)
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		sprintf(l_cCmd, "P317=%d", ServoParam[2].HP_BaseBand);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		// HP �ړ����[�h���Z�b�g
+		// HP ï¿½Ú“ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Zï¿½bï¿½g
 		if ((l_result = CC_WriteCommand("P300=2", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		break;
 	case 2:
@@ -2887,7 +2887,7 @@ void mmtestORGZ(int mode)
 		} else {
 			if ((l_result = CC_WriteCommand("P321=-30000", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		}
-		// ABS �ړ����[�h���Z�b�g
+		// ABS ï¿½Ú“ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Zï¿½bï¿½g
 		if ((l_result = CC_WriteCommand("P300=3", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		break;
 	case 3:
@@ -2903,19 +2903,19 @@ void mmtestORGZ(int mode)
 		} else {
 			if ((l_result = CC_WriteCommand("P325=-10000", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		}
-		// INC �ړ����[�h���Z�b�g
+		// INC ï¿½Ú“ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Zï¿½bï¿½g
 		if ((l_result = CC_WriteCommand("P300=4", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		break;
 	default:
 		return; break;
 	}
-	// �J�n�� ON
+	// ï¿½Jï¿½nï¿½ï¿½ ON
 	if (CC_DioOutBit(CC_OUTBIT_RUN_Z, 1) != 0) {
-		CC_DioError();	return;	// ���s
+		CC_DioError();	return;	// ï¿½ï¿½ï¿½s
 	}
 	lg_Zorg = 1;
 }
-// ���_���A ����(�e�X�g��)
+// ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½A ï¿½ï¿½ï¿½ï¿½(ï¿½eï¿½Xï¿½gï¿½ï¿½)
 void mmtestORGZdone(void)
 {
 	char	l_Recvdata[256];
@@ -2923,25 +2923,25 @@ void mmtestORGZdone(void)
 	BYTE	l_ucBitData;
 
 	switch (lg_Zorg) {
-	case 0:		// �N���҂�
+	case 0:		// ï¿½Nï¿½ï¿½ï¿½Ò‚ï¿½
 		break;
-	case 1:		// INP �Ď��҂�
+	case 1:		// INP ï¿½Ä�ï¿½ï¿½Ò‚ï¿½
 		lg_Zorg = 2;
 		break;
-	case 2:		// INP �҂�
+	case 2:		// INP ï¿½Ò‚ï¿½
 		if (CC_DioInpBit(CC_INBIT_INP_Z, &l_ucBitData) != 0) {CC_DioError(); l_ucBitData = 0;}
 		if (l_ucBitData != 0) {
 			lg_Zorg = 3;
 		}
 		break;
-	case 3:		// ���샂�[�h�̒ʏ�ւ̕ω��҂�
+	case 3:		// ï¿½ï¿½ï¿½ìƒ‚ï¿½[ï¿½hï¿½Ì’Ê�ï¿½Ö‚Ì•Ï‰ï¿½ï¿½Ò‚ï¿½
 		if ((l_result = CC_ReadCommand("P350", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		if (strcmp(l_Recvdata, "0") == 0) {
-			// �J�n�� OFF
+			// ï¿½Jï¿½nï¿½ï¿½ OFF
 			if (CC_DioOutBit(CC_OUTBIT_RUN_Z, 0) != 0) {
-				CC_DioError();	return;	// ���s
+				CC_DioError();	return;	// ï¿½ï¿½ï¿½s
 			}
-			// ���샂�[�h��ʏ�փZ�b�g
+			// ï¿½ï¿½ï¿½ìƒ‚ï¿½[ï¿½hï¿½ï¿½Ê�ï¿½ÖƒZï¿½bï¿½g
 			if ((l_result = CC_WriteCommand("P300=0", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 			lg_Zorg = 0;
 		}
@@ -2956,7 +2956,7 @@ void mmtestORGT(int mode)
 	int		l_result;
 	char	l_cCmd[32];
 
-	// �p�����^���Z�b�g
+	// ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½Zï¿½bï¿½g
 	switch (mode) {
 	case 0:
 		sprintf(l_cCmd, "P401=%d", ServoParam[4].ORG1_AccelTimeT);
@@ -2977,7 +2977,7 @@ void mmtestORGT(int mode)
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		sprintf(l_cCmd, "P409=%d", ServoParam[4].ORG3_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		// ���_���A���[�h���Z�b�g
+		// ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Zï¿½bï¿½g
 		if ((l_result = CC_WriteCommand("P400=1", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		break;
 	case 1:
@@ -2990,7 +2990,7 @@ void mmtestORGT(int mode)
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		sprintf(l_cCmd, "P417=%d", ServoParam[4].HP_BaseBand);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		// HP �ړ����[�h���Z�b�g
+		// HP ï¿½Ú“ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Zï¿½bï¿½g
 		if ((l_result = CC_WriteCommand("P400=2", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		break;
 	case 2:
@@ -3006,7 +3006,7 @@ void mmtestORGT(int mode)
 		} else {
 			if ((l_result = CC_WriteCommand("P421=-125000", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		}
-		// ABS �ړ����[�h���Z�b�g
+		// ABS ï¿½Ú“ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Zï¿½bï¿½g
 		if ((l_result = CC_WriteCommand("P400=3", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		break;
 	case 3:
@@ -3022,19 +3022,19 @@ void mmtestORGT(int mode)
 		} else {
 			if ((l_result = CC_WriteCommand("P425=-27777", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		}
-		// INC �ړ����[�h���Z�b�g
+		// INC ï¿½Ú“ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Zï¿½bï¿½g
 		if ((l_result = CC_WriteCommand("P400=4", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		break;
 	default:
 		return; break;
 	}
-	// �J�n�� ON
+	// ï¿½Jï¿½nï¿½ï¿½ ON
 	if (CC_DioOutBit(CC_OUTBIT_RUN_T, 1) != 0) {
-		CC_DioError();	return;	// ���s
+		CC_DioError();	return;	// ï¿½ï¿½ï¿½s
 	}
 	lg_Torg = 1;
 }
-// ���_���A ����(�e�X�g��)
+// ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½A ï¿½ï¿½ï¿½ï¿½(ï¿½eï¿½Xï¿½gï¿½ï¿½)
 void mmtestORGTdone(void)
 {
 	char	l_Recvdata[256];
@@ -3042,25 +3042,25 @@ void mmtestORGTdone(void)
 	BYTE	l_ucBitData;
 
 	switch (lg_Torg) {
-	case 0:		// �N���҂�
+	case 0:		// ï¿½Nï¿½ï¿½ï¿½Ò‚ï¿½
 		break;
-	case 1:		// INP �Ď��҂�
+	case 1:		// INP ï¿½Ä�ï¿½ï¿½Ò‚ï¿½
 		lg_Torg = 2;
 		break;
-	case 2:		// INP �҂�
+	case 2:		// INP ï¿½Ò‚ï¿½
 		if (CC_DioInpBit(CC_INBIT_INP_T, &l_ucBitData) != 0) {CC_DioError(); l_ucBitData = 0;}
 		if (l_ucBitData != 0) {
 			lg_Torg = 3;
 		}
 		break;
-	case 3:		// ���샂�[�h�̒ʏ�ւ̕ω��҂�
+	case 3:		// ï¿½ï¿½ï¿½ìƒ‚ï¿½[ï¿½hï¿½Ì’Ê�ï¿½Ö‚Ì•Ï‰ï¿½ï¿½Ò‚ï¿½
 		if ((l_result = CC_ReadCommand("P450", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		if (strcmp(l_Recvdata, "0") == 0) {
-			// �J�n�� OFF
+			// ï¿½Jï¿½nï¿½ï¿½ OFF
 			if (CC_DioOutBit(CC_OUTBIT_RUN_T, 0) != 0) {
-				CC_DioError();	return;	// ���s
+				CC_DioError();	return;	// ï¿½ï¿½ï¿½s
 			}
-			// ���샂�[�h��ʏ�փZ�b�g
+			// ï¿½ï¿½ï¿½ìƒ‚ï¿½[ï¿½hï¿½ï¿½Ê�ï¿½ÖƒZï¿½bï¿½g
 			if ((l_result = CC_WriteCommand("P400=0", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 			lg_Torg = 0;
 		}

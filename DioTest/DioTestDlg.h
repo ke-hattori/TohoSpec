@@ -1,4 +1,4 @@
-// DioTestDlg.h : header file
+﻿// DioTestDlg.h : header file
 //
 
 #if !defined(AFX_DIOTESTDLG_H__54BCD9D9_9EDF_4232_B861_7261D3B10873__INCLUDED_)

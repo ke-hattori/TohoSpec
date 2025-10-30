@@ -1,4 +1,4 @@
-// SelectSampleTypeDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SelectSampleTypeDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -13,7 +13,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // #########################################################################
-// CSelectSampleTypeDlg ƒ_ƒCƒAƒƒO
+// CSelectSampleTypeDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // #########################################################################
 
 // =========================================================================
@@ -24,10 +24,10 @@ CSelectSampleTypeDlg::CSelectSampleTypeDlg(CWnd* pParent /*=NULL*/)
 	//{{AFX_DATA_INIT(CSelectSampleTypeDlg)
 	//}}AFX_DATA_INIT
 	//2009.08.28 bagus stress --{--
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --{--
+// 2009.10.09 bagus StagePGM å…±é€šåŒ– --{--
 //	m_iHeadType = HEAD_TYPE_SR;
 	m_iHeadType = STAGE_PGM_TYPE_STANDARD;
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --}--
+// 2009.10.09 bagus StagePGM å…±é€šåŒ– --}--
 	//2009.08.28 bagus stress --}--
 }
 
@@ -51,7 +51,7 @@ BEGIN_MESSAGE_MAP(CSelectSampleTypeDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CSelectSampleTypeDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSelectSampleTypeDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -74,15 +74,15 @@ BOOL CSelectSampleTypeDlg::OnInitDialog()
 		return FALSE;
 	}
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
 //
 void CSelectSampleTypeDlg::OnOK()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚É‚»‚Ì‘¼‚ÌŒŸØ—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãã®ä»–ã®æ¤œè¨¼ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	CComboBox* pCombo = (CComboBox *)GetDlgItem(IDC_SAMPLE);
 	int iSelect = pCombo->GetCurSel();
@@ -115,13 +115,13 @@ BOOL CSelectSampleTypeDlg::InitCombo_Sample()
 	sprintf(szDirPath, "%s*%s", g_szCfg_System_Sample_Dir, DAT_EXT);
 	bLoop = Finder.FindFile(szDirPath);
 	//2009.08.28 bagus stress --{--
-	//ƒf[ƒ^‚Ìi‚İ—p‚Ì‚½‚ß‚ÉƒXƒgƒŒƒXƒRƒ“ƒtƒBƒO‚ğ“Ç‚İ‚Ş
+	//ãƒ‡ãƒ¼ã‚¿ã®çµè¾¼ã¿ç”¨ã®ãŸã‚ã«ã‚¹ãƒˆãƒ¬ã‚¹ã‚³ãƒ³ãƒ•ã‚£ã‚°ã‚’èª­ã¿è¾¼ã‚€
 	STRESS_CONFIG l_StressConfig;
 	memset(&l_StressConfig,NULL,sizeof(l_StressConfig));
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --{--
+// 2009.10.09 bagus StagePGM å…±é€šåŒ– --{--
 //	if(m_iHeadType == HEAD_TYPE_STRESS){
 	if(m_iHeadType == STAGE_PGM_TYPE_STRESS){
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --}--
+// 2009.10.09 bagus StagePGM å…±é€šåŒ– --}--
 		ConfigFile_GetNanoSpecIni(&l_StressConfig, CONFIG_FILE_STRESS_CONFIG);
 	}
 	//2009.08.28 bagus stress --}--
@@ -136,8 +136,8 @@ BOOL CSelectSampleTypeDlg::InitCombo_Sample()
 		csName = Finder.GetFileTitle();
 		csName.Insert(RECIPE_NAME_LEN, '\0');
 		//2009.08.28 bagus stress --{--
-		//ƒXƒgƒŒƒX‚Ìê‡‚É‚ÍStress Line/Section Setting‚Åw’è‚³‚ê‚½ƒTƒ“ƒvƒ‹‚Ì‘å‚«‚³AŒ´“_À•W‚Æ“¯‚¶‚à‚Ì‚µ‚©•\¦‚µ‚È‚¢
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --{--
+		//ã‚¹ãƒˆãƒ¬ã‚¹ã®å ´åˆã«ã¯Stress Line/Section Settingã§æŒ‡å®šã•ã‚ŒãŸã‚µãƒ³ãƒ—ãƒ«ã®å¤§ãã•ã€åŸç‚¹åº§æ¨™ã¨åŒã˜ã‚‚ã®ã—ã‹è¡¨ç¤ºã—ãªã„
+// 2009.10.09 bagus StagePGM å…±é€šåŒ– --{--
 #if 0
 		switch(m_iHeadType){
 		case HEAD_TYPE_SR:
@@ -152,14 +152,14 @@ BOOL CSelectSampleTypeDlg::InitCombo_Sample()
 					&& l_SampleInfo.Size.dy == l_StressConfig.Size.dy
 					&& l_SampleInfo.Origin.lX == l_StressConfig.Origin.lX
 					&& l_SampleInfo.Origin.lY == l_StressConfig.Origin.lY){
-						//ˆê’v
+						//ä¸€è‡´
 					}else{
-						//•sˆê’v‚È‚Ì‚ÅƒŠƒXƒg‚É’Ç‰Á‚µ‚È‚¢
+						//ä¸ä¸€è‡´ãªã®ã§ãƒªã‚¹ãƒˆã«è¿½åŠ ã—ãªã„
 						continue;
 					}
 
 				}else{
-					//ƒTƒ“ƒvƒ‹‚Ìî•ñ‚ª“Ç‚İ‚ß‚È‚¢‚Ì‚Å‰½‚à‚µ‚È‚¢
+					//ã‚µãƒ³ãƒ—ãƒ«ã®æƒ…å ±ãŒèª­ã¿è¾¼ã‚ãªã„ã®ã§ä½•ã‚‚ã—ãªã„
 					continue;
 				}
 
@@ -173,7 +173,7 @@ BOOL CSelectSampleTypeDlg::InitCombo_Sample()
 				SAMPLEINFO l_SampleInfo;
 				memset(&l_SampleInfo,NULL,sizeof(l_SampleInfo));
 				if ( RecipeFile_LoadRecipe(&l_SampleInfo, csName.GetBuffer(0), RECIPE_FILE_SAMPLE) ){
-// 2009.12.14 bagus C³ --{--
+// 2009.12.14 bagus ä¿®æ­£ --{--
 #if 0
 					if(l_SampleInfo.Size.dx == l_StressConfig.Size.dx
 					&& l_SampleInfo.Size.dy == l_StressConfig.Size.dy
@@ -182,15 +182,15 @@ BOOL CSelectSampleTypeDlg::InitCombo_Sample()
 #else
 					if (strcmp(l_SampleInfo.szName, csName.GetBuffer(0)) == 0) {
 #endif
-// 2009.12.14 bagus C³ --}--
-						//ˆê’v
+// 2009.12.14 bagus ä¿®æ­£ --}--
+						//ä¸€è‡´
 					}else{
-						//•sˆê’v‚È‚Ì‚ÅƒŠƒXƒg‚É’Ç‰Á‚µ‚È‚¢
+						//ä¸ä¸€è‡´ãªã®ã§ãƒªã‚¹ãƒˆã«è¿½åŠ ã—ãªã„
 						continue;
 					}
 
 				}else{
-					//ƒTƒ“ƒvƒ‹‚Ìî•ñ‚ª“Ç‚İ‚ß‚È‚¢‚Ì‚Å‰½‚à‚µ‚È‚¢
+					//ã‚µãƒ³ãƒ—ãƒ«ã®æƒ…å ±ãŒèª­ã¿è¾¼ã‚ãªã„ã®ã§ä½•ã‚‚ã—ãªã„
 					continue;
 				}
 
@@ -200,7 +200,7 @@ BOOL CSelectSampleTypeDlg::InitCombo_Sample()
 			break;
 		}
 #endif
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --}--
+// 2009.10.09 bagus StagePGM å…±é€šåŒ– --}--
 		//2009.08.28 bagus stress --}--
 
 		pCombo->AddString(csName);
@@ -209,7 +209,7 @@ BOOL CSelectSampleTypeDlg::InitCombo_Sample()
 	if(pCombo->GetCount() <= 0){
 		//MessageBox("Please Sample Setting", "SELECT SAMPLE TYPE", MB_OK | MB_ICONSTOP);
 		//Saiki 20090601 Change ----->
-		//MessageBox("ƒTƒ“ƒvƒ‹İ’è‚ğs‚Á‚Ä‚­‚¾‚³‚¢", "SELECT SAMPLE TYPE", MB_OK | MB_ICONSTOP);
+		//MessageBox("ã‚µãƒ³ãƒ—ãƒ«è¨­å®šã‚’è¡Œã£ã¦ãã ã•ã„", "SELECT SAMPLE TYPE", MB_OK | MB_ICONSTOP);
 		LoadStringML(IDS_SAMPLE_SETTING, strBuffer, "Please Sample Setting");
 		LoadStringML(IDS_SELECT_SAMPLE_TYPE, strTitle, "SELECT SAMPLE TYPE");
 		MessageBox(strBuffer, strTitle, MB_OK | MB_ICONSTOP);

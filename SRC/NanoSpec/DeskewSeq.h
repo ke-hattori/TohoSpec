@@ -1,4 +1,4 @@
-// DeskewSeq.h : header file
+ï»¿// DeskewSeq.h : header file
 //
 
 #pragma once
@@ -20,7 +20,7 @@ protected:
 // Operations
 public:
 	virtual ~CDeskewSeq() {}
-	virtual void ShutDown() {};	// implement‚µ‚È‚¢‚ÆƒRƒ“ƒpƒCƒ‹’Ê‚ç‚È‚¢
+	virtual void ShutDown() {};	// implementã—ãªã„ã¨ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«é€šã‚‰ãªã„
 
 // Overrides
 	//{{AFX_VIRTUAL(CDeskewSeq)
@@ -35,15 +35,15 @@ protected:
 
 	///// Variable /////
 public:
-	CChiefView* m_pChiefView;							// •Ö—˜‚»‚¤‚È‚Ì‚ÅA‚à‚ç‚Á‚Ä‚¨‚­
-	CChiefTransiDeskew* m_pChiefTransiDeskew;			// Event”­s—p‚ÉA‚à‚ç‚Á‚Ä‚¨‚­
+	CChiefView* m_pChiefView;							// ä¾¿åˆ©ãã†ãªã®ã§ã€ã‚‚ã‚‰ã£ã¦ãŠã
+	CChiefTransiDeskew* m_pChiefTransiDeskew;			// Eventç™ºè¡Œç”¨ã«ã€ã‚‚ã‚‰ã£ã¦ãŠã
 	LPSTAGE_PROG_INFO_HDR m_pStageProgInfoHdr;
 	int m_iEvent;
 	STAGE_COORD MatchLoc[2];
 
 // 2009.06.12 K.Matsuo -->
-	// CDeskewManualSeqWnd‚©‚çAQÆ‚µ‚½‚¢‚Ì‚Åpublic‚É•ÏX
-	// ShutDown()‚Åİ’è‚·‚é‚±‚ÆI
+	// CDeskewManualSeqWndã‹ã‚‰ã€å‚ç…§ã—ãŸã„ã®ã§publicã«å¤‰æ›´
+	// ShutDown()ã§è¨­å®šã™ã‚‹ã“ã¨ï¼
 //protected:
 public:
 	BOOL m_bShutDown;

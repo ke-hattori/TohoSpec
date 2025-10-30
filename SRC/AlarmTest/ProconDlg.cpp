@@ -1,4 +1,4 @@
-// ProconDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// ProconDlg.cpp : インプリメンテーション ファイル
 //
 
 #include "stdafx.h"
@@ -16,7 +16,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// �A�v���P�[�V�����̃o�[�W�������Ŏg���Ă��� CAboutDlg �_�C�A���O
+// アプリケーションのバージョン情報で使われている CAboutDlg ダイアログ
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -25,18 +25,18 @@ class CAboutDlg : public CDialog
 public:
 	CAboutDlg();
 
-// �_�C�A���O �f�[�^
+// ダイアログ データ
 	//{{AFX_DATA(CAboutDlg)
 	enum { IDD = IDD_ABOUTBOX };
 	//}}AFX_DATA
 
-	// ClassWizard �͉��z�֐��̃I�[�o�[���C�h�𐶐����܂�
+	// ClassWizard は仮想関数のオーバーライドを生成します
 	//{{AFX_VIRTUAL(CAboutDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV �̃T�|�[�g
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV のサポート
 	//}}AFX_VIRTUAL
 
-// �C���v�������e�[�V����
+// インプリメンテーション
 protected:
 	//{{AFX_MSG(CAboutDlg)
 	//}}AFX_MSG
@@ -64,18 +64,18 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 //
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
 	//{{AFX_MSG_MAP(CAboutDlg)
-		// ���b�Z�[�W �n���h��������܂���B
+		// メッセージ ハンドラがありません。
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CProconDlg �_�C�A���O
+// CProconDlg ダイアログ
 
 CProconDlg::CProconDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CProconDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CProconDlg)
-		// ����: ���̈ʒu�� ClassWizard �ɂ���ă����o�̏��������ǉ�����܂��B
+		// メモ: この位置に ClassWizard によってメンバの初期化が追加されます。
 	//}}AFX_DATA_INIT
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -86,7 +86,7 @@ void CProconDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CProconDlg)
-		// ����: ���̏ꏊ�ɂ� ClassWizard �ɂ���� DDX �� DDV �̌Ăяo�����ǉ�����܂��B
+		// メモ: この場所には ClassWizard によって DDX と DDV の呼び出しが追加されます。
 	//}}AFX_DATA_MAP
 }
 
@@ -103,7 +103,7 @@ BEGIN_MESSAGE_MAP(CProconDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CProconDlg ���b�Z�[�W �n���h��
+// CProconDlg メッセージ ハンドラ
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -111,9 +111,9 @@ BOOL CProconDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// "�o�[�W�������..." ���j���[���ڂ��V�X�e�� ���j���[�֒ǉ����܂��B
+	// "バージョン情報..." メニュー項目をシステム メニューへ追加します。
 
-	// IDM_ABOUTBOX �̓R�}���h ���j���[�͈̔͂łȂ���΂Ȃ�܂���B
+	// IDM_ABOUTBOX はコマンド メニューの範囲でなければなりません。
 	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
 	ASSERT(IDM_ABOUTBOX < 0xF000);
 
@@ -129,12 +129,10 @@ BOOL CProconDlg::OnInitDialog()
 		}
 	}
 
-	SetIcon(m_hIcon, TRUE);			// �傫���A�C�R����ݒ�
-	SetIcon(m_hIcon, FALSE);		// �������A�C�R����ݒ�
+	SetIcon(m_hIcon, TRUE);			// 大きいアイコンを設定
+	SetIcon(m_hIcon, FALSE);		// 小さいアイコンを設定
 
-	// TODO: ���ʂȏ��������s�����͂��̏ꏊ�ɒǉ����Ă��������B
-
-
+	// TODO: 特別な初期化を行う時はこの場所に追加してください。
 
 
 
@@ -144,7 +142,9 @@ BOOL CProconDlg::OnInitDialog()
 
 
 
-	return TRUE;  // TRUE ��Ԃ��ƃR���g���[���ɐݒ肵���t�H�[�J�X�͎����܂���B
+
+
+	return TRUE;  // TRUE を返すとコントロールに設定したフォーカスは失われません。
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -162,9 +162,9 @@ void CProconDlg::OnSysCommand(UINT nID, LPARAM lParam)
 	}
 }
 
-// �����_�C�A���O�{�b�N�X�ɍŏ����{�^����ǉ�����Ȃ�΁A�A�C�R����`�悷��
-// �R�[�h���ȉ��ɋL�q����K�v������܂��BMFC �A�v���P�[�V������ document/view
-// ���f�����g���Ă���̂ŁA���̏����̓t���[�����[�N�ɂ�莩���I�ɏ�������܂��B
+// もしダイアログボックスに最小化ボタンを追加するならば、アイコンを描画する
+// コードを以下に記述する必要があります。MFC アプリケーションは document/view
+// モデルを使っているので、この処理はフレームワークにより自動的に処理されます。
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -172,11 +172,11 @@ void CProconDlg::OnPaint()
 {
 	if (IsIconic())
 	{
-		CPaintDC dc(this); // �`��p�̃f�o�C�X �R���e�L�X�g
+		CPaintDC dc(this); // 描画用のデバイス コンテキスト
 
 		SendMessage(WM_ICONERASEBKGND, (WPARAM) dc.GetSafeHdc(), 0);
 
-		// �N���C�A���g�̋�`�̈���̒���
+		// クライアントの矩形領域内の中央
 		int cxIcon = GetSystemMetrics(SM_CXICON);
 		int cyIcon = GetSystemMetrics(SM_CYICON);
 		CRect rect;
@@ -184,7 +184,7 @@ void CProconDlg::OnPaint()
 		int x = (rect.Width() - cxIcon + 1) / 2;
 		int y = (rect.Height() - cyIcon + 1) / 2;
 
-		// �A�C�R����`�悵�܂��B
+		// アイコンを描画します。
 		dc.DrawIcon(x, y, m_hIcon);
 	}
 	else

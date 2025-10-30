@@ -1,4 +1,4 @@
-// RecipeOperationView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// RecipeOperationView.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -80,7 +80,7 @@ BEGIN_MESSAGE_MAP(CRecipeOperationView, CNanoUI)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CRecipeOperationView f’f
+// CRecipeOperationView è¨ºæ–­
 
 #ifdef _DEBUG
 // =========================================================================
@@ -99,7 +99,7 @@ void CRecipeOperationView::Dump(CDumpContext& dc) const
 #endif //_DEBUG
 
 // =========================================================================
-// CRecipeOperationView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CRecipeOperationView ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -108,7 +108,7 @@ int CRecipeOperationView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	if (CNanoUI::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
-	// TODO: ‚±‚ÌˆÊ’u‚ÉŒÅ—L‚Ìì¬—pƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«å›ºæœ‰ã®ä½œæˆç”¨ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	return 0;
 }
@@ -119,11 +119,11 @@ void CRecipeOperationView::OnInitialUpdate()
 {
 	CNanoUI::OnInitialUpdate();
 
-	// TODO: ‚±‚ÌˆÊ’u‚ÉŒÅ—L‚Ìˆ—‚ð’Ç‰Á‚·‚é‚©A‚Ü‚½‚ÍŠî–{ƒNƒ‰ƒX‚ðŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
-	//ƒVƒXƒeƒ€ƒRƒ“ƒtƒBƒOÝ’è“Ç‚Ýž‚Ý
+	// TODO: ã“ã®ä½ç½®ã«å›ºæœ‰ã®å‡¦ç†ã‚’è¿½åŠ ã™ã‚‹ã‹ã€ã¾ãŸã¯åŸºæœ¬ã‚¯ãƒ©ã‚¹ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
+	//ã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ³ãƒ•ã‚£ã‚°è¨­å®šèª­ã¿è¾¼ã¿
 	ConfigFile_GetNanoSpecIni(&m_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 
-	///// Multi Recipe‚ªÝ’è‚³‚ê‚Ä‚¢‚È‚¢ê‡‚ÍAƒ{ƒ^ƒ“—Þ‚Ì“®“IƒŒƒCƒAƒEƒg•ÏX /////
+	///// Multi RecipeãŒè¨­å®šã•ã‚Œã¦ã„ãªã„å ´åˆã¯ã€ãƒœã‚¿ãƒ³é¡žã®å‹•çš„ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆå¤‰æ›´ /////
 	if(!m_SystemConfig.bMultiRecipe){
 		int iShift,iSubShift;
 		CWnd* pWnd;
@@ -143,29 +143,29 @@ void CRecipeOperationView::OnInitialUpdate()
 		placement.rcNormalPosition.bottom  = placement.rcNormalPosition.bottom - iShift;
 		m_MeasurementProgramButton.SetWindowPlacement(&placement);
 
-// 2014.01.17 Bagus Mod (Stage None‘Î‰ž) -->
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2014.01.17 Bagus Mod (Stage Noneå¯¾å¿œ) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 //		if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 		if(m_SystemConfig.nStageType != STAGE_TYPE_NONE){
-// 2014.01.17 Bagus Mod (Stage None‘Î‰ž) <--
+// 2014.01.17 Bagus Mod (Stage Noneå¯¾å¿œ) <--
 			m_StageProgramButton.GetWindowPlacement(&placement);
 			placement.rcNormalPosition.top	= placement.rcNormalPosition.top - iShift;
 			placement.rcNormalPosition.bottom  = placement.rcNormalPosition.bottom - iShift;
 			m_StageProgramButton.SetWindowPlacement(&placement);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 		}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 
 		m_RecalibrationProgramButton.GetWindowPlacement(&placement);
 		placement.rcNormalPosition.top	= placement.rcNormalPosition.top - iShift;
 		placement.rcNormalPosition.bottom  = placement.rcNormalPosition.bottom - iShift;
 		m_RecalibrationProgramButton.SetWindowPlacement(&placement);
 
-		//// Point Deskew‚ª‘I‘ð‚³‚ê‚Ä‚¢‚È‚¢ê‡‚Íƒ{ƒ^ƒ“—Þ‚Ì“®“IƒŒƒCƒAƒEƒg•ÏX ////
+		//// Point DeskewãŒé¸æŠžã•ã‚Œã¦ã„ãªã„å ´åˆã¯ãƒœã‚¿ãƒ³é¡žã®å‹•çš„ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆå¤‰æ›´ ////
 		iSubShift = 0;
 		m_PointDeskewProgramButton.GetWindowPlacement(&placement);
-//šŽb’è‘Î‰ž@–Y‚ê‚é‚ÈI
+//â˜…æš«å®šå¯¾å¿œã€€å¿˜ã‚Œã‚‹ãªï¼
 #if 0
 		if ( m_SystemConfig.nPRMethod >0 && m_SystemConfig.bSitePatternRec){
 			placement.rcNormalPosition.top	= placement.rcNormalPosition.top - iShift;
@@ -319,20 +319,20 @@ void CRecipeOperationView::SelectMenuButton(int iSelect)
 		BUTTON_COLORING, BUTTON_RADIO_OFF_COLOR);
 	m_MeasurementProgramButton.SetShade(BUTTON_RADIO_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT,
 		BUTTON_COLORING, BUTTON_RADIO_OFF_COLOR);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) -->
-// 2014.01.17 Bagus Add (Stage None‘Î‰ž) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
+// 2014.01.17 Bagus Add (Stage Noneå¯¾å¿œ) -->
 //	if(g_lModelType == MODEL_T3100){
 	if(m_SystemConfig.nStageType == STAGE_TYPE_NONE){
-// 2014.01.17 Bagus Add (Stage None‘Î‰ž) <--
+// 2014.01.17 Bagus Add (Stage Noneå¯¾å¿œ) <--
 		m_StageProgramButton.ShowWindow(SW_HIDE);
 	}
 	else{
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 		m_StageProgramButton.SetShade(BUTTON_RADIO_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT,
 			BUTTON_COLORING, BUTTON_RADIO_OFF_COLOR);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 	m_RecalibrationProgramButton.SetShade(BUTTON_RADIO_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT,
 		BUTTON_COLORING, BUTTON_RADIO_OFF_COLOR);
 	m_PointDeskewProgramButton.SetShade(BUTTON_RADIO_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT,
@@ -352,20 +352,20 @@ void CRecipeOperationView::SelectMenuButton(int iSelect)
 		pButton = &m_MeasurementProgramButton;
 		break;
 	case RECIPE_SETTING_STAGE_PROGRAM:
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) -->
-// 2014.01.17 Bagus Add (Stage None‘Î‰ž) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
+// 2014.01.17 Bagus Add (Stage Noneå¯¾å¿œ) -->
 //		if(g_lModelType == MODEL_T3100){
 		if(m_SystemConfig.nStageType == STAGE_TYPE_NONE){
-// 2014.01.17 Bagus Add (Stage None‘Î‰ž) <--
+// 2014.01.17 Bagus Add (Stage Noneå¯¾å¿œ) <--
 			pButton = NULL;
 		}
 		else{
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 			m_iCurrEditMode = RECIPE_SETTING_STAGE_PROGRAM;
 			pButton = &m_StageProgramButton;
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 		}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 		break;
 	case RECIPE_SETTING_RECALIBRATION_PROGRAM:
 		m_iCurrEditMode = RECIPE_SETTING_RECALIBRATION_PROGRAM;
@@ -377,23 +377,23 @@ void CRecipeOperationView::SelectMenuButton(int iSelect)
 		break;
 	}
 
-// 2013.11.11 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.11 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	if(pButton != NULL){
-// 2013.11.11 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.11 Bagus Add (TohoSpecå¯¾å¿œ) <--
 		pButton->SetShade(BUTTON_RADIO_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT,
 			BUTTON_COLORING, BUTTON_RADIO_ON_COLOR);
 
 		InvalidateRect(NULL, TRUE);
-// 2013.11.11 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.11 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.11 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.11 Bagus Add (TohoSpecå¯¾å¿œ) <--
 }
 
 HBRUSH CRecipeOperationView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CNanoUI::OnCtlColor(pDC, pWnd, nCtlColor);
 
-	// TODO: ‚±‚ÌˆÊ’u‚Å DC ‚ÌƒAƒgƒŠƒrƒ…[ƒg‚ð•ÏX‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã§ DC ã®ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã‚’å¤‰æ›´ã—ã¦ãã ã•ã„
 
 	BOOL bNexMntSw = nexioIsMaintenanceSwitch();
 	BOOL bNexEngiMntSw = nexioIsEngineerMaintenanceSwitch();
@@ -410,13 +410,13 @@ HBRUSH CRecipeOperationView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 		}
 	}
 
-	// TODO: ƒfƒtƒHƒ‹ƒg‚Ìƒuƒ‰ƒV‚ª–]‚Ý‚Ì‚à‚Ì‚Å‚È‚¢ê‡‚É‚ÍAˆá‚¤ƒuƒ‰ƒV‚ð•Ô‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ–ãƒ©ã‚·ãŒæœ›ã¿ã®ã‚‚ã®ã§ãªã„å ´åˆã«ã¯ã€é•ã†ãƒ–ãƒ©ã‚·ã‚’è¿”ã—ã¦ãã ã•ã„
 	return hbr;
 }
 
 void CRecipeOperationView::OnTimer(UINT nIDEvent)
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚·‚é‚©‚Ü‚½‚ÍƒfƒtƒHƒ‹ƒg‚Ìˆ—‚ðŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã™ã‚‹ã‹ã¾ãŸã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å‡¦ç†ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
 
 	static BOOL sbNexMntSw = nexioIsMaintenanceSwitch();
 	static BOOL sbNexMntSwOld = TRUE;
@@ -428,10 +428,10 @@ void CRecipeOperationView::OnTimer(UINT nIDEvent)
 
 	if((sbNexMntSw != sbNexMntSwOld)||(sbNexEngiMntSw != sbNexEngiMntSwOld))
 	{
-		Invalidate(TRUE); //OnCtlColor()‚Ìˆ—‚ð‚³‚¹‚éˆ×‚ÉCall
+		Invalidate(TRUE); //OnCtlColor()ã®å‡¦ç†ã‚’ã•ã›ã‚‹ç‚ºã«Call
 	}
-	sbNexMntSwOld = sbNexMntSw; //‘O‰ñ’l‘Š·‚¦
-	sbNexEngiMntSwOld = sbNexEngiMntSw; //‘O‰ñ’l‘Š·‚¦
+	sbNexMntSwOld = sbNexMntSw; //å‰å›žå€¤æ›¸æ›ãˆ
+	sbNexEngiMntSwOld = sbNexEngiMntSw; //å‰å›žå€¤æ›¸æ›ãˆ
 
 	CNanoUI::OnTimer(nIDEvent);
 }

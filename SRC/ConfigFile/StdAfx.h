@@ -1,6 +1,6 @@
-// stdafx.h : �W���̃V�X�e�� �C���N���[�h �t�@�C���A
-//            �܂��͎Q�Ɖ񐔂������A�����܂�ύX����Ȃ�
-//            �v���W�F�N�g��p�̃C���N���[�h �t�@�C�����L�q���܂��B
+﻿// stdafx.h : 標準のシステム インクルード ファイル、
+//            または参照回数が多く、かつあまり変更されない
+//            プロジェクト専用のインクルード ファイルを記述します。
 //
 
 #if !defined(AFX_STDAFX_H__B1D8BFA7_8EBE_4F9C_B6A4_AD1F5B937DF6__INCLUDED_)
@@ -11,14 +11,14 @@
 #endif // _MSC_VER > 1000
 
 
-// ���̈ʒu�Ƀw�b�_�[��}�����Ă�������
-#define WIN32_LEAN_AND_MEAN		// Windows �w�b�_�[����w�ǎg�p����Ȃ��X�^�b�t�����O���܂�
+// この位置にヘッダーを挿入してください
+#define WIN32_LEAN_AND_MEAN		// Windows ヘッダーから殆ど使用されないスタッフを除外します
 
 #include <windows.h>
 
-// TODO: �v���O�����ŕK�v�ȃw�b�_�[�Q�Ƃ�ǉ����Ă��������B
+// TODO: プログラムで必要なヘッダー参照を追加してください。
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ �͑O�s�̒��O�ɒǉ��̐錾��}�����܂��B
+// Microsoft Visual C++ は前行の直前に追加の宣言を挿入します。
 
 #endif // !defined(AFX_STDAFX_H__B1D8BFA7_8EBE_4F9C_B6A4_AD1F5B937DF6__INCLUDED_)

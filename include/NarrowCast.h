@@ -1,4 +1,4 @@
-#ifndef NARROWCAST_H
+﻿#ifndef NARROWCAST_H
 #define NARROWCAST_H
 
 // Helper functions for safe narrowing conversions

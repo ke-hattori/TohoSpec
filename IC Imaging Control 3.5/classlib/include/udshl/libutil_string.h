@@ -1,4 +1,4 @@
-#ifndef LIBUTIL_STRING_H_INC_
+﻿#ifndef LIBUTIL_STRING_H_INC_
 #define LIBUTIL_STRING_H_INC_
 
 #pragma once

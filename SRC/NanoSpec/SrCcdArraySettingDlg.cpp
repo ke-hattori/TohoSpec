@@ -1,4 +1,4 @@
-// SrCcdArraySettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SrCcdArraySettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -13,19 +13,19 @@
 //Saiki 20090526 Add ----->
 #include "resource.h"
 //Saiki 20090526 Add <-----
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 #include "ConfirmDlg.h"
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
 static char THIS_FILE[] = __FILE__;
 #endif
 
-#define DEF_LITENSITY_GRID_ROWLINE_COUNT	(31+1)	//IntensityGrid‚É‚¿‚å‚¤‚ÇƒXƒNƒ[ƒ‹ƒo[‚ª•\¦‚³‚ê‚és”
+#define DEF_LITENSITY_GRID_ROWLINE_COUNT	(31+1)	//IntensityGridã«ã¡ã‚‡ã†ã©ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ãŒè¡¨ç¤ºã•ã‚Œã‚‹è¡Œæ•°
 
 // #########################################################################
-// CSrCcdArraySettingDlg ƒ_ƒCƒAƒƒO
+// CSrCcdArraySettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // #########################################################################
 
 // =========================================================================
@@ -38,9 +38,9 @@ CSrCcdArraySettingDlg::CSrCcdArraySettingDlg(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 
 	m_strLens = _T("");
-// 2009.09.30 K.Matsuo ƒXƒ^ƒbƒNƒI[ƒo[ƒtƒ[‘Îô -->
+// 2009.09.30 K.Matsuo ã‚¹ã‚¿ãƒƒã‚¯ã‚ªãƒ¼ãƒãƒ¼ãƒ•ãƒ­ãƒ¼å¯¾ç­– -->
 	m_pCCDCalibGraph = new CNanoMeasureGraph();
-// 2009.09.30 K.Matsuo ƒXƒ^ƒbƒNƒI[ƒo[ƒtƒ[‘Îô <--
+// 2009.09.30 K.Matsuo ã‚¹ã‚¿ãƒƒã‚¯ã‚ªãƒ¼ãƒãƒ¼ãƒ•ãƒ­ãƒ¼å¯¾ç­– <--
 //	FontCreation();
 }
 
@@ -49,12 +49,12 @@ CSrCcdArraySettingDlg::CSrCcdArraySettingDlg(CWnd* pParent /*=NULL*/)
 CSrCcdArraySettingDlg::~CSrCcdArraySettingDlg()
 {
 //	m_Font.DeleteObject();
-// 2009.09.30 K.Matsuo ƒXƒ^ƒbƒNƒI[ƒo[ƒtƒ[‘Îô -->
+// 2009.09.30 K.Matsuo ã‚¹ã‚¿ãƒƒã‚¯ã‚ªãƒ¼ãƒãƒ¼ãƒ•ãƒ­ãƒ¼å¯¾ç­– -->
 	if ( m_pCCDCalibGraph ) {
 		delete m_pCCDCalibGraph;
 		m_pCCDCalibGraph = NULL;
 	}
-// 2009.09.30 K.Matsuo ƒXƒ^ƒbƒNƒI[ƒo[ƒtƒ[‘Îô <--
+// 2009.09.30 K.Matsuo ã‚¹ã‚¿ãƒƒã‚¯ã‚ªãƒ¼ãƒãƒ¼ãƒ•ãƒ­ãƒ¼å¯¾ç­– <--
 }
 
 // =========================================================================
@@ -89,13 +89,13 @@ BEGIN_MESSAGE_MAP(CSrCcdArraySettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CSrCcdArraySettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSrCcdArraySettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
 BOOL CSrCcdArraySettingDlg::OnInitDialog()
 {
-	//–¢‘Î‰‹@”\HIDE
+	//æœªå¯¾å¿œæ©Ÿèƒ½HIDE
 	GetDlgItem(IDC_CHECK_AUTO_SCALE)->ShowWindow(SW_HIDE);
 	//GetDlgItem(IDC_CHECK_CONTINOUS_SCAN)->ShowWindow(SW_HIDE);
 
@@ -116,12 +116,12 @@ BOOL CSrCcdArraySettingDlg::OnInitDialog()
 	///// Option Continious Scan /////
 	CheckDlgButton(IDC_CHECK_CONTINOUS_SCAN, 0);
 
-	//SRƒwƒbƒh‚Ìí—Ş‚ğ‘I‘ğ‚·‚é
+	//SRãƒ˜ãƒƒãƒ‰ã®ç¨®é¡ã‚’é¸æŠã™ã‚‹
 	m_iStartWaveLength = 1;
 	if (m_SrConfig.nHeadType <=3)
-		m_iEndWaveLength = 512;		//•W€ƒwƒbƒhA‚t‚uƒwƒbƒhAŒú–Œƒwƒbƒh
+		m_iEndWaveLength = 512;		//æ¨™æº–ãƒ˜ãƒƒãƒ‰ã€ï¼µï¼¶ãƒ˜ãƒƒãƒ‰ã€åšè†œãƒ˜ãƒƒãƒ‰
 	else
-		m_iEndWaveLength = 1024;	//Œú–ŒƒwƒbƒhA‚r‚rƒwƒbƒh
+		m_iEndWaveLength = 1024;	//åšè†œãƒ˜ãƒƒãƒ‰ã€ï¼³ï¼³ãƒ˜ãƒƒãƒ‰
 
 	InitCombo_Lens();
 
@@ -150,8 +150,8 @@ BOOL CSrCcdArraySettingDlg::OnInitDialog()
 	m_ClearCalibrationButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_ClearCalibrationButton.DrawFlatFocus(TRUE);
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
@@ -173,9 +173,9 @@ void CSrCcdArraySettingDlg::DrawLightIntensityGraph_Init()
 	strcpy(tGraphConfig.UpperTitle, l_strBuffer);
 	// Kojika 20090529 Change End
 	strcpy(tGraphConfig.LowerTitle,"");
-	tGraphConfig.CanvasMargin = 7;	//ƒOƒ‰ƒt•`‰æ—]”’
+	tGraphConfig.CanvasMargin = 7;	//ã‚°ãƒ©ãƒ•æç”»ä½™ç™½
 
-///// ”g’·”ÍˆÍ‚Ìİ’è /////
+///// æ³¢é•·ç¯„å›²ã®è¨­å®š /////
 	// Kojika 20090529 Change
 	//strcpy(tGraphConfig.Y_AxisTitle,"Light Intensity");
 	LoadStringML(IDS_LIGHT_INTENSITY_TITLE, l_strBuffer, "Light Intensity");
@@ -262,11 +262,11 @@ void CSrCcdArraySettingDlg::DrawLightIntensityGraph_Init()
 		tLineConfig.DataIndex = i;
 		if (i==0) {
 			tLineConfig.Color = BLUE_COLOR;
-			// =PS_SOLID:Àü
-			// PS_DASH:”jü
-			// PS_DOT:“_ü
-			// PS_DASHDOT:‚P“_½ü
-			// PS_DASHDOTDOT:‚Q“_½ü
+			// =PS_SOLID:å®Ÿç·š
+			// PS_DASH:ç ´ç·š
+			// PS_DOT:ç‚¹ç·š
+			// PS_DASHDOT:ï¼‘ç‚¹é–ç·š
+			// PS_DASHDOTDOT:ï¼’ç‚¹é–ç·š
 			tLineConfig.PenStyle = PS_SOLID;
 		}
 		else {
@@ -307,7 +307,7 @@ void CSrCcdArraySettingDlg::AddLightIntensityListAndGraph(int iPointIndex)
 }
 
 // =========================================================================
-//Œõ‹­“x•\¦ƒOƒŠƒbƒh
+//å…‰å¼·åº¦è¡¨ç¤ºã‚°ãƒªãƒƒãƒ‰
 void CSrCcdArraySettingDlg::LightIntensityListGrid_Init()
 {
 	int Cols = 1 + 1;
@@ -366,8 +366,8 @@ void CSrCcdArraySettingDlg::LightIntensityListGrid_Init()
 
 	///// Font Initialize /////
 	LOGFONT LogFont;
-	GetFont()->GetLogFont(&LogFont);//ƒ_ƒCƒAƒƒO‚ÌƒtƒHƒ“ƒgæ“¾
-	//m_Font.GetLogFont(&LogFont);//ƒrƒ…[‚ÌƒtƒHƒ“ƒgæ“¾
+	GetFont()->GetLogFont(&LogFont);//ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ãƒ•ã‚©ãƒ³ãƒˆå–å¾—
+	//m_Font.GetLogFont(&LogFont);//ãƒ“ãƒ¥ãƒ¼ã®ãƒ•ã‚©ãƒ³ãƒˆå–å¾—
 
 	for ( row = 0; row < m_CCDIntensityListGrid.GetRowCount(); row++ )
 		for ( col = 0; col < m_CCDIntensityListGrid.GetColumnCount(); col++ )
@@ -424,7 +424,7 @@ LRESULT CSrCcdArraySettingDlg::SetMeasurementData(WPARAM wparam, LPARAM lparam)
 	CString strBuffer;
 	DWORD dwTextStyle = DT_RIGHT | DT_VCENTER | DT_SINGLELINE | DT_END_ELLIPSIS;
 
-	int iPoint = wparam;	// ‘ª’èƒ|ƒCƒ“ƒg‚²‚Æ‚Ì‰ñ”
+	int iPoint = wparam;	// æ¸¬å®šãƒã‚¤ãƒ³ãƒˆã”ã¨ã®å›æ•°
 
 	for(int iPixel = 0; iPixel < m_iEndWaveLength; iPixel++){
 		//CCD Intensity Data
@@ -442,7 +442,7 @@ LRESULT CSrCcdArraySettingDlg::SetMeasurementData(WPARAM wparam, LPARAM lparam)
 }
 
 // =========================================================================
-//CCDƒXƒLƒƒƒ“
+//CCDã‚¹ã‚­ãƒ£ãƒ³
 //
 void CSrCcdArraySettingDlg::OnScanButton()
 {
@@ -457,14 +457,14 @@ void CSrCcdArraySettingDlg::OnScanButton()
 	pCombo = (CComboBox *)GetDlgItem(IDC_CCD_CALIB_LENS);
 	int iLens = pCombo->GetCurSel();
 
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
+// 2014.01.17 Bagus Mod (Stage Noneå¯¾å¿œ) -->
 	SYSTEM_CONFIG l_SystemConfig;
 
 	ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 //	if(g_lModelType == MODEL_T3100){
 	if(l_SystemConfig.nStageType == STAGE_TYPE_NONE){
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) <--
+// 2014.01.17 Bagus Mod (Stage Noneå¯¾å¿œ) <--
 		CConfirmDlg dlg;
 		CString l_strCaption;
 		CString l_strMessageText;
@@ -488,31 +488,31 @@ void CSrCcdArraySettingDlg::OnScanButton()
 		dlg.SetMessageText(l_strMessageText, l_strCaption, MB_ICONINFORMATION);
 		dlg.DoModal();
 	}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 
-	//ŒJ•Ô‚µ‘ª’è”»’èiŒJ•Ô‚µFƒ`ƒFƒbƒNj
+	//ç¹°è¿”ã—æ¸¬å®šåˆ¤å®šï¼ˆç¹°è¿”ã—ï¼šãƒã‚§ãƒƒã‚¯æ™‚ï¼‰
 	m_bScan_StopFlg =0;
 
-	//ŒJ•Ô‚µ‘ª’è”»’èiŒJ•Ô‚µFƒ`ƒFƒbƒNj
+	//ç¹°è¿”ã—æ¸¬å®šåˆ¤å®šï¼ˆç¹°è¿”ã—ï¼šãƒã‚§ãƒƒã‚¯æ™‚ï¼‰
 	GetDlgItemText(IDC_CCD_CALIB_SCAN_TIMES, strBuffer);
 	iScanTimes = static_cast<long>(atof((PCSTR) strBuffer));
 	iScanCount =0;
 	do
 	{
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) -->
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2014.01.17 Bagus Mod (Stage Noneå¯¾å¿œ) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 //		if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 		if(l_SystemConfig.nStageType != STAGE_TYPE_NONE){
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) <--
+// 2014.01.17 Bagus Mod (Stage Noneå¯¾å¿œ) <--
 			CNanoSpecDoc* l_pDoc = (CNanoSpecDoc*) ((CMainFrame*) AfxGetMainWnd())->GetActiveDocument();
 			l_pDoc->ActuateFlagsSet(ACTUATE_TURRET, TRUE);
 			StageSelectLensNotify(iLens);
 			l_pDoc->ActuateFlagsSet(ACTUATE_TURRET, FALSE);
 			MEAS_SrHead_ChangeCcdShutter(OPT_FILTER_OPEN);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 		}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 
 		MEAS_SrHead_CcdScan((double)m_CCDCalibIntegrationTime);
 
@@ -528,7 +528,7 @@ void CSrCcdArraySettingDlg::OnScanButton()
 }
 
 // =========================================================================
-//ƒŒƒ“ƒY ƒRƒ“ƒ{ƒCƒjƒVƒƒƒ‹ˆ—
+//ãƒ¬ãƒ³ã‚º ã‚³ãƒ³ãƒœã‚¤ãƒ‹ã‚·ãƒ£ãƒ«å‡¦ç†
 //
 void CSrCcdArraySettingDlg::InitCombo_Lens()
 {
@@ -543,22 +543,22 @@ void CSrCcdArraySettingDlg::InitCombo_Lens()
 		}
 	}
 
-	//ƒJƒŒƒ“ƒg‚ÌƒŒƒ“ƒY‚ğİ’è‚µ‚½‚¢
+	//ã‚«ãƒ¬ãƒ³ãƒˆã®ãƒ¬ãƒ³ã‚ºã‚’è¨­å®šã—ãŸã„
 	//nIndex = pCombo->FindStringExact(-1, m_strLens);
 	//pCombo->SetCurSel(nIndex);
 	pCombo->SetCurSel(0);
 }
 
 // =========================================================================
-//ƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“ƒsƒNƒZƒ‹•\¦ƒOƒŠƒbƒh
+//ã‚­ãƒ£ãƒªãƒ–ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ãƒ”ã‚¯ã‚»ãƒ«è¡¨ç¤ºã‚°ãƒªãƒƒãƒ‰
 void CSrCcdArraySettingDlg::CalibPixelListGrid_Init()
 {
 	int Cols = 2 + 1;
-/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- { ---------- */
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 è¿½åŠ  ---------- { ---------- */
 //	int Rows = 7 + 1;
-/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ----------              */
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 è¿½åŠ  ----------              */
 	int Rows = SR_CCD_ARRAY_ITEM_MAX + 1;
-/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- } ---------- */
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 è¿½åŠ  ---------- } ---------- */
 	int FixRows = 1;
 	int FixCols = 2;
 	int row, col;
@@ -615,8 +615,8 @@ void CSrCcdArraySettingDlg::CalibPixelListGrid_Init()
 
 	///// Font Initialize /////
 	LOGFONT LogFont;
-	GetFont()->GetLogFont(&LogFont);//ƒ_ƒCƒAƒƒO‚ÌƒtƒHƒ“ƒgæ“¾
-	//m_Font.GetLogFont(&LogFont);//ƒrƒ…[‚ÌƒtƒHƒ“ƒgæ“¾
+	GetFont()->GetLogFont(&LogFont);//ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ãƒ•ã‚©ãƒ³ãƒˆå–å¾—
+	//m_Font.GetLogFont(&LogFont);//ãƒ“ãƒ¥ãƒ¼ã®ãƒ•ã‚©ãƒ³ãƒˆå–å¾—
 
 	for ( row = 0; row < m_CCDCalibListGrid.GetRowCount(); row++ )
 		for ( col = 0; col < m_CCDCalibListGrid.GetColumnCount(); col++ )
@@ -661,7 +661,7 @@ LRESULT CSrCcdArraySettingDlg::CalibrationSet(WPARAM wparam, LPARAM lparam)
 	CString strBuffer;
 	DWORD dwTextStyle = DT_RIGHT | DT_VCENTER | DT_SINGLELINE | DT_END_ELLIPSIS;
 
-	int iPoint = wparam;	// ‘ª’èƒ|ƒCƒ“ƒg‚²‚Æ‚Ì‰ñ”
+	int iPoint = wparam;	// æ¸¬å®šãƒã‚¤ãƒ³ãƒˆã”ã¨ã®å›æ•°
 	CCellID cell;
 
 	CNanoMeasureGraph::CalibrationData tCalibData;
@@ -669,33 +669,33 @@ LRESULT CSrCcdArraySettingDlg::CalibrationSet(WPARAM wparam, LPARAM lparam)
 	int i,j;
 	BOOL bCheckSelectCell = FALSE;
 
-/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- { ---------- */
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 è¿½åŠ  ---------- { ---------- */
 //	for(i=1; i<=7; i++){
-/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ----------              */
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 è¿½åŠ  ----------              */
 	for (i = 1; i <= SR_CCD_ARRAY_ITEM_MAX; i++) {
-/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- } ---------- */
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 è¿½åŠ  ---------- } ---------- */
 		for(j=1; j<=2; j++){
 			if(m_CCDCalibListGrid.IsCellSelected(i,j) == TRUE)
 				bCheckSelectCell=TRUE;
 		}
 	}
 	if(bCheckSelectCell==FALSE){
-/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- { ---------- */
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 è¿½åŠ  ---------- { ---------- */
 //		for(i=1; i<=7; i++){
-/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ----------              */
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 è¿½åŠ  ----------              */
 		for (i = 1; i <= SR_CCD_ARRAY_ITEM_MAX; i++) {
-/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- } ---------- */
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 è¿½åŠ  ---------- } ---------- */
 			if(m_CCDCalibListGrid.GetItemText(i,2) == ""){
 				m_CCDCalibListGrid.SetSelectedRange(i, 0, i, 2 ,TRUE, TRUE);
 				m_CCDCalibListGrid.SetFocusCell(i,2);
 				break;
 			}
 			//if((i==7) && (m_CCDCalibListGrid.GetItemText(i,2) == "")){
-/* modified 2024.01.22 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- { ---------- */
+/* modified 2024.01.22 hmenjo CCD ARRAY 2 è¿½åŠ  ---------- { ---------- */
 //			if(i==7){
-/* modified 2024.01.22 hmenjo CCD ARRAY 2 ’Ç‰Á ----------              */
+/* modified 2024.01.22 hmenjo CCD ARRAY 2 è¿½åŠ  ----------              */
 			if (i == SR_CCD_ARRAY_ITEM_MAX) {
-/* modified 2024.01.22 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- } ---------- */
+/* modified 2024.01.22 hmenjo CCD ARRAY 2 è¿½åŠ  ---------- } ---------- */
 				//AfxMessageBox("Already Set Calibration Value");
 				//Kojika 20090525 Change
 				LoadStringML(IDS_ALREADY_SET_CALIB_VALUE , strbuf, "Already Set Calibration Value");
@@ -712,17 +712,17 @@ LRESULT CSrCcdArraySettingDlg::CalibrationSet(WPARAM wparam, LPARAM lparam)
 	strBuffer.Format("%d",tCalibData.PointIndex[iPoint-1]);
 	cell = m_CCDCalibListGrid.GetFocusCell();
 	int iCount=0;
-/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- { ---------- */
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 è¿½åŠ  ---------- { ---------- */
 //	while(iCount <=7){
-/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ----------              */
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 è¿½åŠ  ----------              */
 	while (iCount <= SR_CCD_ARRAY_ITEM_MAX) {
-/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- } ---------- */
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 è¿½åŠ  ---------- } ---------- */
 		if(m_CCDCalibListGrid.GetItemText(cell.row,2) != ""){
-/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- { ---------- */
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 è¿½åŠ  ---------- { ---------- */
 //			if (cell.row<7)
-/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ----------              */
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 è¿½åŠ  ----------              */
 			if (cell.row < SR_CCD_ARRAY_ITEM_MAX)
-/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- } ---------- */
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 è¿½åŠ  ---------- } ---------- */
 				cell.row++;
 			else
 				cell.row =1;
@@ -732,11 +732,11 @@ LRESULT CSrCcdArraySettingDlg::CalibrationSet(WPARAM wparam, LPARAM lparam)
 			m_CCDCalibListGrid.SetFocusCell(cell.row,2);
 			break;
 		}
-/* modified 2024.01.22 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- { ---------- */
+/* modified 2024.01.22 hmenjo CCD ARRAY 2 è¿½åŠ  ---------- { ---------- */
 //		if(iCount==7) {
-/* modified 2024.01.22 hmenjo CCD ARRAY 2 ’Ç‰Á ----------              */
+/* modified 2024.01.22 hmenjo CCD ARRAY 2 è¿½åŠ  ----------              */
 		if (iCount == SR_CCD_ARRAY_ITEM_MAX) {
-/* modified 2024.01.22 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- } ---------- */
+/* modified 2024.01.22 hmenjo CCD ARRAY 2 è¿½åŠ  ---------- } ---------- */
 			//AfxMessageBox("Already Set Calibration Value");
 			//Kojika 20090525 Change
 			LoadStringML(IDS_ALREADY_SET_CALIB_VALUE , strbuf, "Already Set Calibration Value");
@@ -818,11 +818,11 @@ BOOL CSrCcdArraySettingDlg::CheckData()
 	CString strBuffer;
 //Kojika 20090525 Add End
 
-/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- { ---------- */
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 è¿½åŠ  ---------- { ---------- */
 //	for(int i=1; i<=7; i++){
-/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ----------              */
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 è¿½åŠ  ----------              */
 	for (int i = 1; i <= SR_CCD_ARRAY_ITEM_MAX; i++) {
-/* modified 2024.01.08 hmenjo CCD ARRAY 2 ’Ç‰Á ---------- } ---------- */
+/* modified 2024.01.08 hmenjo CCD ARRAY 2 è¿½åŠ  ---------- } ---------- */
 		if(m_CCDCalibListGrid.GetItemText(i,2) == ""){
 //			int iRet=AfxMessageBox("There are wave value not set.\n\rWould you save them?", MB_OKCANCEL);
 //Kojika 20090525 Change

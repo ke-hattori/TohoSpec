@@ -1,4 +1,4 @@
-// RecipeMeasurementCTAProgramView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// RecipeMeasurementCTAProgramView.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -17,7 +17,7 @@ static char THIS_FILE[] = __FILE__;
 IMPLEMENT_DYNCREATE(CRecipeMeasurementCTAProgramView, CNanoRecipeUI)
 
 /////////////////////////////////////////////////////////////////////////////
-// CRecipeMeasurementCTAProgramView ƒ_ƒCƒAƒƒO
+// CRecipeMeasurementCTAProgramView ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 // =========================================================================
 //
@@ -29,7 +29,7 @@ CRecipeMeasurementCTAProgramView::CRecipeMeasurementCTAProgramView()
 	m_strCaption = l_strBuffer;
 
 	//{{AFX_DATA_INIT(CRecipeMeasurementCTAProgramView)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_INIT
 }
 
@@ -45,7 +45,7 @@ void CRecipeMeasurementCTAProgramView::DoDataExchange(CDataExchange* pDX)
 {
 	CNanoRecipeUI::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CRecipeMeasurementCTAProgramView)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_MAP
 	DDX_Check(pDX, IDC_CONTACT_ANGLE, m_CTAMeas.ScanParams._CA.bContactAngle);
 	DDX_Check(pDX, IDC_RADIUS, m_CTAMeas.ScanParams._CA.bRadius);
@@ -57,12 +57,12 @@ void CRecipeMeasurementCTAProgramView::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CRecipeMeasurementCTAProgramView, CNanoRecipeUI)
 	//{{AFX_MSG_MAP(CRecipeMeasurementCTAProgramView)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CRecipeMeasurementCTAProgramView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CRecipeMeasurementCTAProgramView ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -81,7 +81,7 @@ void CRecipeMeasurementCTAProgramView::OnInitialUpdate()
 		| CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
 		!m_wndToolBar.LoadToolBar(IDR_EDIT_RECIPE_BAR)){
 		TRACE0("Failed to create toolbar\n");
-		return; 	// ì¬‚É¸”s
+		return; 	// ä½œæˆã«å¤±æ•—
 	}
 
 	GetClientRect(&rect);
@@ -91,13 +91,13 @@ void CRecipeMeasurementCTAProgramView::OnInitialUpdate()
 	m_stcProgName.SubclassWindow(GetDlgItem(IDC_THICKNESS_PROG_NAME)->GetSafeHwnd());
 	m_stcProgName.SetBkColor(WATER_COLOR);
 
-	// ƒRƒƒ“ƒg•¶š”§ŒÀ
+	// ã‚³ãƒ¡ãƒ³ãƒˆæ–‡å­—æ•°åˆ¶é™
 	((CEdit*)GetDlgItem(IDC_COMMENT))->SetLimitText(RECIPE_COMMENT_LEN);
 
 	if ((IsDataChanged() == TRUE) && (m_nOpenMode == modeNormal))
 	{
-		//ƒXƒgƒ‰ƒeƒWƒB‚ğ‘‚«Š·‚¦‚½ê‡A
-		//ƒŒƒVƒs‚ğ“Ç‚ñ‚¾’l‚Æ‰æ–Ê•\¦’l(ŒõŠwƒtƒBƒ‹ƒ^E”g’·)‚É·‚ª‚Å‚Ä‚µ‚Ü‚¤‚±‚Æ‚ª‚ ‚é‚Ì‚ÅAƒŒƒVƒs‚ğ‹­§“I‚É‘Š·‚¦‚éB
+		//ã‚¹ãƒˆãƒ©ãƒ†ã‚¸ã‚£ã‚’æ›¸ãæ›ãˆãŸå ´åˆã€
+		//ãƒ¬ã‚·ãƒ”ã‚’èª­è¾¼ã‚“ã å€¤ã¨ç”»é¢è¡¨ç¤ºå€¤(å…‰å­¦ãƒ•ã‚£ãƒ«ã‚¿ãƒ»æ³¢é•·)ã«å·®ãŒã§ã¦ã—ã¾ã†ã“ã¨ãŒã‚ã‚‹ã®ã§ã€ãƒ¬ã‚·ãƒ”ã‚’å¼·åˆ¶çš„ã«æ›¸æ›ãˆã‚‹ã€‚
 		SaveRecipeData();
 		LoadStringML(IDS_SAVE_OPTICAL_FILTER_WAVELENG, l_strBuffer, "The optical filter and the wavelength were saved\n by the change in the strategy.");
 		LoadStringML(IDS_TITLE_NANOSPEC, l_strTitle, "NanoSpec");
@@ -129,15 +129,15 @@ void CRecipeMeasurementCTAProgramView::LoadRecipeData()
 
 	switch ( m_nOpenMode )
 	{
-	case modeNew:				// ƒŒƒVƒsV‹Kì¬
-	case modeDefaultSetting:	// ƒRƒ“ƒtƒBƒO‰æ–Ê‚©‚ç‘JˆÚ‚µ‚Ä‚«‚½ƒP[ƒX
+	case modeNew:				// ãƒ¬ã‚·ãƒ”æ–°è¦ä½œæˆ
+	case modeDefaultSetting:	// ã‚³ãƒ³ãƒ•ã‚£ã‚°ç”»é¢ã‹ã‚‰é·ç§»ã—ã¦ããŸã‚±ãƒ¼ã‚¹
 		if ( !RecipeFile_LoadRecipe(&m_CTAMeas, CTA_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_CTA) ) {
 			m_CTAMeas.ScanParams.hdr.wHeadType = HEAD_TYPE_CTA;
 			m_CTAMeas.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_CTA_MEAS;
 		}
 		break;
-	default:					// ƒŒƒVƒsƒƒCƒ“ƒŠƒXƒg‰æ–Ê‚©‚ç‘JˆÚ‚µ‚Ä‚«‚½ƒP[ƒX
-		if ( !RecipeFile_LoadRecipe(&m_CTAMeas, m_szRecipeName, RECIPE_FILE_MEASUREMENT_PROGRAM) ) {		  // RECIPE_FILE_MEASUREMENT_PROGRAM ‚Å³‚µ‚¢‚ç‚µ‚¢...
+	default:					// ãƒ¬ã‚·ãƒ”ãƒ¡ã‚¤ãƒ³ãƒªã‚¹ãƒˆç”»é¢ã‹ã‚‰é·ç§»ã—ã¦ããŸã‚±ãƒ¼ã‚¹
+		if ( !RecipeFile_LoadRecipe(&m_CTAMeas, m_szRecipeName, RECIPE_FILE_MEASUREMENT_PROGRAM) ) {		  // RECIPE_FILE_MEASUREMENT_PROGRAM ã§æ­£ã—ã„ã‚‰ã—ã„...
 			m_nOpenMode = modeNew;
 			if ( !RecipeFile_LoadRecipe(&m_CTAMeas, CTA_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_CTA) ) {
 				m_CTAMeas.ScanParams.hdr.wHeadType = HEAD_TYPE_CTA;
@@ -202,7 +202,7 @@ BOOL CRecipeMeasurementCTAProgramView::SaveRecipeData()
 			return FALSE;
 		break;
 	default:
-		// V‚µ‚¢ƒŒƒVƒs–¼‚ğİ’èiSave, SaveAsŒ“—pj
+		// æ–°ã—ã„ãƒ¬ã‚·ãƒ”åã‚’è¨­å®šï¼ˆSave, SaveAså…¼ç”¨ï¼‰
 		strcpy(m_CTAMeas.hdr.szName, m_szRecipeName);
 		if ( !RecipeFile_SaveRecipe(&m_CTAMeas, m_szRecipeName, RECIPE_FILE_CTA) )
 			return FALSE;
@@ -248,14 +248,14 @@ BOOL CRecipeMeasurementCTAProgramView::CheckTransData(int iData , CString strDat
 }
 
 // =========================================================================
-//ƒ_ƒ~[ƒƒWƒƒ[ƒƒ“ƒgƒvƒƒOƒ‰ƒ€‚ğì¬
+//ãƒ€ãƒŸãƒ¼ãƒ¡ã‚¸ãƒ£ãƒ¼ãƒ¡ãƒ³ãƒˆãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’ä½œæˆ
 BOOL CRecipeMeasurementCTAProgramView::MakeTempCTAMeasurementRecipe(LPCTSTR pszRecipeName)
 {
 	return RecipeFile_SaveRecipe(&m_CTAMeas, pszRecipeName, RECIPE_FILE_CTA);
 }
 
 // =========================================================================
-//ƒ_ƒ~[ƒƒCƒ“ƒvƒƒOƒ‰ƒ€‚ğì¬
+//ãƒ€ãƒŸãƒ¼ãƒ¡ã‚¤ãƒ³ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’ä½œæˆ
 BOOL CRecipeMeasurementCTAProgramView::MakeTempCTAMainRecipe(LPCTSTR pszRecipeNameMain, LPCTSTR pszRecipeNameMeas)
 {
 	MAIN_RCP_INFO MainRcpInfo_Temp;
@@ -270,11 +270,11 @@ BOOL CRecipeMeasurementCTAProgramView::MakeTempCTAMainRecipe(LPCTSTR pszRecipeNa
 }
 
 // =========================================================================
-//‰¼ƒŒƒVƒs‚ğNanoSpecDoc‚ÖŠi”[
+//ä»®ãƒ¬ã‚·ãƒ”ã‚’NanoSpecDocã¸æ ¼ç´
 BOOL CRecipeMeasurementCTAProgramView::TempRecipeDocSet(LPCTSTR pszRecipeName)
 {
-//wƒƒCƒ“ƒŒƒVƒs–¼xwƒƒCƒ“ƒŒƒVƒsxwƒƒWƒƒ[ƒƒ“ƒgƒŒƒVƒsxw•\¦—pƒ‰ƒxƒ‹xw’PˆÊ–¼x‚Ì‚İŠi”[
-//‚¨‚æ‚Ñw‰¼ƒƒWƒƒ[ƒƒ“ƒgƒvƒƒOƒ‰ƒ€‚ÌWave”ÍˆÍxAw‘ª’èí•Êx
+//ã€ãƒ¡ã‚¤ãƒ³ãƒ¬ã‚·ãƒ”åã€ã€ãƒ¡ã‚¤ãƒ³ãƒ¬ã‚·ãƒ”ã€ã€ãƒ¡ã‚¸ãƒ£ãƒ¼ãƒ¡ãƒ³ãƒˆãƒ¬ã‚·ãƒ”ã€ã€è¡¨ç¤ºç”¨ãƒ©ãƒ™ãƒ«ã€ã€å˜ä½åã€ã®ã¿æ ¼ç´
+//ãŠã‚ˆã³ã€ä»®ãƒ¡ã‚¸ãƒ£ãƒ¼ãƒ¡ãƒ³ãƒˆãƒ—ãƒ­ã‚°ãƒ©ãƒ ã®Waveç¯„å›²ã€ã€ã€æ¸¬å®šç¨®åˆ¥ã€
 
 	CMainFrame* pMainFrame = (CMainFrame*)AfxGetMainWnd();
 	CNanoSpecDoc* pDoc = (CNanoSpecDoc*)pMainFrame->GetActiveDocument();
@@ -282,14 +282,14 @@ BOOL CRecipeMeasurementCTAProgramView::TempRecipeDocSet(LPCTSTR pszRecipeName)
 	RCP_DATA rcp_data;
 	memset(&rcp_data, 0, sizeof(rcp_data));
 
-	///// ƒƒ‚ƒŠ[‰Šú‰» /////
+	///// ãƒ¡ãƒ¢ãƒªãƒ¼åˆæœŸåŒ– /////
 	pDoc->InitMeasData();
 
-	//‘ª’èí•Ê
+	//æ¸¬å®šç¨®åˆ¥
 	rcp_data.MeasProgInfo.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_CTA_MEAS;
 
 	strcpy(rcp_data.szRecipeName, pszRecipeName);
-	//ƒŒƒVƒsƒ[ƒh•NanoSpecDoc‚Ö‚ÌŠi”[
+	//ãƒ¬ã‚·ãƒ”ãƒ­ãƒ¼ãƒ‰ï¼†NanoSpecDocã¸ã®æ ¼ç´
 	BOOL bMain = FALSE;
 	BOOL bMeas = FALSE;
 	bMain = RecipeFile_LoadRecipe(&rcp_data.MainRcpInfo, rcp_data.szRecipeName, RECIPE_FILE_MAIN_RECIPE);
@@ -301,8 +301,8 @@ BOOL CRecipeMeasurementCTAProgramView::TempRecipeDocSet(LPCTSTR pszRecipeName)
 	pDoc->SetRcpData(&rcp_data);
 
 #if 0
-	///// ‰æ–Ê•\¦(ƒf[ƒ^•Û‘¶)—pƒ^ƒCƒgƒ‹ /////
-	char szDispLabel[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1];		//‰æ–Ê•\¦(ƒf[ƒ^•Û‘¶)—pƒ^ƒCƒgƒ‹ ©X,Y,Z,AF‚ÍŠÜ‚Ü‚¸
+	///// ç”»é¢è¡¨ç¤º(ãƒ‡ãƒ¼ã‚¿ä¿å­˜)ç”¨ã‚¿ã‚¤ãƒˆãƒ« /////
+	char szDispLabel[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1];		//ç”»é¢è¡¨ç¤º(ãƒ‡ãƒ¼ã‚¿ä¿å­˜)ç”¨ã‚¿ã‚¤ãƒˆãƒ« â†X,Y,Z,AFã¯å«ã¾ãš
 	int iDispLabelCount;
 	memset(szDispLabel, 0, sizeof(szDispLabel)); //
 
@@ -315,33 +315,33 @@ BOOL CRecipeMeasurementCTAProgramView::TempRecipeDocSet(LPCTSTR pszRecipeName)
 }
 
 // =========================================================================
-//ƒŒƒVƒs–¼ì¬
+//ãƒ¬ã‚·ãƒ”åä½œæˆ
 BOOL CRecipeMeasurementCTAProgramView::GetTestModeRecipeName(LPTSTR pszFileName, int iRcpType)
 {
 	CString l_strBuffer, l_strTitle;
 
-	//ŒÅ’è–¼‚ÅƒŒƒVƒs–¼‚ğì‚é
+	//å›ºå®šåã§ãƒ¬ã‚·ãƒ”åã‚’ä½œã‚‹
 	char szRcpName[RECIPE_NAME_LEN + 1];
 	char szRcpNamePath[MAX_PATH + 1];
 
-	sprintf(szRcpName, "%c%s", SYSTEM_RECIPE_BEGINNING_CHAR, TESTMODE_TEMP_RECIPE_NAME); //ì¬ƒŒƒVƒs–¼
+	sprintf(szRcpName, "%c%s", SYSTEM_RECIPE_BEGINNING_CHAR, TESTMODE_TEMP_RECIPE_NAME); //ä½œæˆãƒ¬ã‚·ãƒ”å
 
-	//ì¬‚·‚éƒŒƒVƒs–¼‚ªd•¡‚µ‚Ä‚¢‚È‚¢‚©’²‚×‚éˆ×‚ÌƒpƒX‚ğì¬
-	if(iRcpType == SAVE_AS_MAIN_RECIPE) { //ƒƒCƒ“ƒŒƒVƒs
-		sprintf(szRcpNamePath, "%s%s%s", g_szDb_Main_Recipe_Dir, szRcpName, MAINRECIPE_EXT); //d•¡ƒŒƒVƒs–¼ŒŸõ—p
+	//ä½œæˆã™ã‚‹ãƒ¬ã‚·ãƒ”åãŒé‡è¤‡ã—ã¦ã„ãªã„ã‹èª¿ã¹ã‚‹ç‚ºã®ãƒ‘ã‚¹ã‚’ä½œæˆ
+	if(iRcpType == SAVE_AS_MAIN_RECIPE) { //ãƒ¡ã‚¤ãƒ³ãƒ¬ã‚·ãƒ”
+		sprintf(szRcpNamePath, "%s%s%s", g_szDb_Main_Recipe_Dir, szRcpName, MAINRECIPE_EXT); //é‡è¤‡ãƒ¬ã‚·ãƒ”åæ¤œç´¢ç”¨
 	}
-	else if(iRcpType == SAVE_AS_MEASUREMENT_PROGRAM) { //ƒƒWƒƒ[ƒƒ“ƒgƒvƒƒOƒ‰ƒ€
-		sprintf(szRcpNamePath, "%s%s%s", g_szDb_Measurement_Program_Dir, szRcpName, MEASUREMENTPGM_EXT); //d•¡ƒŒƒVƒs–¼ŒŸõ—p
+	else if(iRcpType == SAVE_AS_MEASUREMENT_PROGRAM) { //ãƒ¡ã‚¸ãƒ£ãƒ¼ãƒ¡ãƒ³ãƒˆãƒ—ãƒ­ã‚°ãƒ©ãƒ 
+		sprintf(szRcpNamePath, "%s%s%s", g_szDb_Measurement_Program_Dir, szRcpName, MEASUREMENTPGM_EXT); //é‡è¤‡ãƒ¬ã‚·ãƒ”åæ¤œç´¢ç”¨
 	}
 
-	//ì¬‚µ‚æ‚¤‚Æ‚·‚éƒŒƒVƒs‚Ìd•¡ƒ`ƒFƒbƒN
-	if(FileOrDirExists(szRcpNamePath)==TRUE) //ì¬‚µ‚æ‚¤‚Æ‚µ‚Ä‚¢‚éƒtƒ@ƒCƒ‹–¼‚Éd•¡‚ ‚è
+	//ä½œæˆã—ã‚ˆã†ã¨ã™ã‚‹ãƒ¬ã‚·ãƒ”ã®é‡è¤‡ãƒã‚§ãƒƒã‚¯
+	if(FileOrDirExists(szRcpNamePath)==TRUE) //ä½œæˆã—ã‚ˆã†ã¨ã—ã¦ã„ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«åã«é‡è¤‡ã‚ã‚Š
 	{
-		//ƒ\ƒtƒg‹N“®‚É‰¼ƒŒƒVƒs‚ğÁ‚·‚Ì‚ÅA‚±‚±‚É‚Í—ˆ‚È‚¢‚Í‚¸B
+		//ã‚½ãƒ•ãƒˆèµ·å‹•æ™‚ã«ä»®ãƒ¬ã‚·ãƒ”ã‚’æ¶ˆã™ã®ã§ã€ã“ã“ã«ã¯æ¥ãªã„ã¯ãšã€‚
 		LoadStringML(IDS_CAPTION_SR_TRANSMIT, l_strBuffer, "Temporary recipe for the test mode remains, \nthe test mode cannot be begun.");
 		LoadStringML(IDS_TITLE_NANOSPEC, l_strTitle, "NanoSpec");
 		MessageBox(l_strBuffer, l_strTitle, MB_OK);
-		return FALSE; //ƒtƒ@ƒCƒ‹–¼d•¡(ƒ\ƒtƒg‹N“®A‰¼ƒŒƒVƒsÁ‹ƒ~ƒX)
+		return FALSE; //ãƒ•ã‚¡ã‚¤ãƒ«åé‡è¤‡(ã‚½ãƒ•ãƒˆèµ·å‹•æ™‚ã€ä»®ãƒ¬ã‚·ãƒ”æ¶ˆå»ãƒŸã‚¹)
 	}
 
 	strcpy(pszFileName, szRcpName);
@@ -350,7 +350,7 @@ BOOL CRecipeMeasurementCTAProgramView::GetTestModeRecipeName(LPTSTR pszFileName,
 }
 
 // =========================================================================
-//ƒtƒ@ƒCƒ‹‘¶İƒ`ƒFƒbƒN(ƒtƒ@ƒCƒ‹‘¶İ‚ÍTRUE‚ğ•Ô‚·)
+//ãƒ•ã‚¡ã‚¤ãƒ«å­˜åœ¨ãƒã‚§ãƒƒã‚¯(ãƒ•ã‚¡ã‚¤ãƒ«å­˜åœ¨æ™‚ã¯TRUEã‚’è¿”ã™)
 BOOL CRecipeMeasurementCTAProgramView::FileOrDirExists(LPCTSTR pszFileName)
 {
 	return (BOOL)( GetFileAttributes(pszFileName) != 0xffffffff );

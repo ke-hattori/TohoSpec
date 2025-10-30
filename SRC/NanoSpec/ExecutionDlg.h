@@ -1,26 +1,26 @@
-#if !defined(AFX_EXECUTIONDLG_H__F159916F_2468_48F8_BE21_F1ADAC0061FE__INCLUDED_)
+﻿#if !defined(AFX_EXECUTIONDLG_H__F159916F_2468_48F8_BE21_F1ADAC0061FE__INCLUDED_)
 #define AFX_EXECUTIONDLG_H__F159916F_2468_48F8_BE21_F1ADAC0061FE__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// ExecutionDlg.h : �w�b�_�[ �t�@�C��
+// ExecutionDlg.h : ヘッダー ファイル
 //
 
 /////////////////////////////////////////////////////////////////////////////
-// CExecutionDlg �_�C�A���O
+// CExecutionDlg ダイアログ
 
 class CExecutionDlg : public CDialog
 {
-// �R���X�g���N�V����
+// コンストラクション
 public:
-	CExecutionDlg(CWnd* pParent = NULL);   // �W���̃R���X�g���N�^
+	CExecutionDlg(CWnd* pParent = NULL);   // 標準のコンストラクタ
 	virtual ~CExecutionDlg();
 
-// �_�C�A���O �f�[�^
+// ダイアログ データ
 	//{{AFX_DATA(CExecutionDlg)
 	enum { IDD = IDD_EXECUTION_DLG };
-		// ����: ClassWizard �͂��̈ʒu�Ƀf�[�^ �����o��ǉ����܂��B
+		// メモ: ClassWizard はこの位置にデータ メンバを追加します。
 	//}}AFX_DATA
 
 // Operation
@@ -42,17 +42,17 @@ public:
 	void SetCaption(LPCTSTR lpszCaption);
 	void SetMessage(LPCTSTR lpszMessage);
 
-// �I�[�o�[���C�h
-	// ClassWizard �͉��z�֐��̃I�[�o�[���C�h�𐶐����܂��B
+// オーバーライド
+	// ClassWizard は仮想関数のオーバーライドを生成します。
 	//{{AFX_VIRTUAL(CExecutionDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV �T�|�[�g
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV サポート
 	//}}AFX_VIRTUAL
 
-// �C���v�������e�[�V����
+// インプリメンテーション
 protected:
 
-	// �������ꂽ���b�Z�[�W �}�b�v�֐�
+	// 生成されたメッセージ マップ関数
 	//{{AFX_MSG(CExecutionDlg)
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
@@ -65,6 +65,6 @@ protected:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ �͑O�s�̒��O�ɒǉ��̐錾��}�����܂��B
+// Microsoft Visual C++ は前行の直前に追加の宣言を挿入します。
 
 #endif // !defined(AFX_EXECUTIONDLG_H__F159916F_2468_48F8_BE21_F1ADAC0061FE__INCLUDED_)

@@ -1,4 +1,4 @@
-// SystemOperationTabView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SystemOperationTabView.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -9,21 +9,21 @@
 //2009.08.16 bagus stress --{--
 #include "SystemOperationStressSettingDlg.h"
 //2009.08.16 bagus stress --}--
-//2009.09.02 bagus se SE‹@”\’Ç‰Á --{--
+//2009.09.02 bagus se SEæ©Ÿèƒ½è¿½åŠ  --{--
 #include "SystemOperationSeSettingDlg.h"
-//2009.09.02 bagus se SE‹@”\’Ç‰Á --}--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+//2009.09.02 bagus se SEæ©Ÿèƒ½è¿½åŠ  --}--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 #include "SystemOperationCompEASESettingDlg.h"
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.07 bagus CTA ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.07 bagus CTA è¿½åŠ  --{--
 #include "SystemOperationCTASettingDlg.h"
-// 2009.10.07 bagus CTA ’Ç‰Á --}--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.07 bagus CTA è¿½åŠ  --}--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 #include "SystemOperationMsSettingDlg.h"
-// 2009.10.19 bagus MS ’Ç‰Á --}--
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
+// 2009.11.04 bagus RS è¿½åŠ  --{--
 #include "SystemOperationRSSettingDlg.h"
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS è¿½åŠ  --}--
 #include "SystemOperationTabView.h"
 
 #ifdef _DEBUG
@@ -53,21 +53,21 @@ CSystemOperationTabView::CSystemOperationTabView()
 	//2009.08.16 bagus stress --{--
 	m_pSystemOperationStressSettingDlg = NULL;
 	//2009.08.16 bagus stress --}--
-	//2009.09.02 bagus se SE‹@”\’Ç‰Á --{--
+	//2009.09.02 bagus se SEæ©Ÿèƒ½è¿½åŠ  --{--
 	m_pSystemOperationSeSettingDlg = NULL;
-	//2009.09.02 bagus se SE‹@”\’Ç‰Á --}--
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+	//2009.09.02 bagus se SEæ©Ÿèƒ½è¿½åŠ  --}--
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	m_pSystemOperationCompEASESettingDlg = NULL;
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-	// 2009.10.07 bagus CTA ’Ç‰Á --{--
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+	// 2009.10.07 bagus CTA è¿½åŠ  --{--
 	m_pSystemOperationCTASettingDlg = NULL;
-	// 2009.10.07 bagus CTA ’Ç‰Á --}--
-	// 2009.10.19 bagus MS ’Ç‰Á --{--
+	// 2009.10.07 bagus CTA è¿½åŠ  --}--
+	// 2009.10.19 bagus MS è¿½åŠ  --{--
 	m_pSystemOperationMsSettingDlg = NULL;
-	// 2009.10.19 bagus MS ’Ç‰Á --}--
-	// 2009.11.04 bagus RS ’Ç‰Á --{--
+	// 2009.10.19 bagus MS è¿½åŠ  --}--
+	// 2009.11.04 bagus RS è¿½åŠ  --{--
 	m_pSystemOperationRSSettingDlg = NULL;
-	// 2009.11.04 bagus RS ’Ç‰Á --}--
+	// 2009.11.04 bagus RS è¿½åŠ  --}--
 }
 
 // =========================================================================
@@ -75,66 +75,66 @@ CSystemOperationTabView::CSystemOperationTabView()
 CSystemOperationTabView::~CSystemOperationTabView()
 {
 	if(m_pSystemOperationCommonSettingDlg){
-// ƒfƒXƒgƒ‰ƒNƒg‚Ì’†‚ÅDestroyWindow‚ðŒÄ‚Ño‚³‚È‚¢
+// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ãƒˆã®ä¸­ã§DestroyWindowã‚’å‘¼ã³å‡ºã•ãªã„
 //		m_pSystemOperationCommonSettingDlg->DestroyWindow();
 		delete m_pSystemOperationCommonSettingDlg;
 		m_pSystemOperationCommonSettingDlg = NULL;
 	}
 
 	if(m_pSystemOperationSrSettingDlg){
-// ƒfƒXƒgƒ‰ƒNƒg‚Ì’†‚ÅDestroyWindow‚ðŒÄ‚Ño‚³‚È‚¢
+// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ãƒˆã®ä¸­ã§DestroyWindowã‚’å‘¼ã³å‡ºã•ãªã„
 //		m_pSystemOperationSrSettingDlg->DestroyWindow();
 		delete m_pSystemOperationSrSettingDlg;
 		m_pSystemOperationSrSettingDlg = NULL;
 	}
 	//2009.08.16 bagus stress --{--
 	if(m_pSystemOperationStressSettingDlg){
-// ƒfƒXƒgƒ‰ƒNƒg‚Ì’†‚ÅDestroyWindow‚ðŒÄ‚Ño‚³‚È‚¢
+// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ãƒˆã®ä¸­ã§DestroyWindowã‚’å‘¼ã³å‡ºã•ãªã„
 //		m_pSystemOperationStressSettingDlg->DestroyWindow();
 		delete m_pSystemOperationStressSettingDlg;
 		m_pSystemOperationStressSettingDlg = NULL;
 	}
 	//2009.08.16 bagus stress --}--
-	//2009.09.02 bagus se SE‹@”\’Ç‰Á --{--
+	//2009.09.02 bagus se SEæ©Ÿèƒ½è¿½åŠ  --{--
 	if(m_pSystemOperationSeSettingDlg){
-// ƒfƒXƒgƒ‰ƒNƒg‚Ì’†‚ÅDestroyWindow‚ðŒÄ‚Ño‚³‚È‚¢
+// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ãƒˆã®ä¸­ã§DestroyWindowã‚’å‘¼ã³å‡ºã•ãªã„
 //		m_pSystemOperationSteSettingDlg->DestroyWindow();
 		delete m_pSystemOperationSeSettingDlg;
 		m_pSystemOperationSeSettingDlg = NULL;
 	}
-	//2009.09.02 bagus se SE‹@”\’Ç‰Á --}--
+	//2009.09.02 bagus se SEæ©Ÿèƒ½è¿½åŠ  --}--
 
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	if(m_pSystemOperationCompEASESettingDlg){
 		delete m_pSystemOperationCompEASESettingDlg;
 		m_pSystemOperationCompEASESettingDlg = NULL;
 	}
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 	if(m_pSystemOperationCTASettingDlg){
-// ƒfƒXƒgƒ‰ƒNƒg‚Ì’†‚ÅDestroyWindow‚ðŒÄ‚Ño‚³‚È‚¢
+// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ãƒˆã®ä¸­ã§DestroyWindowã‚’å‘¼ã³å‡ºã•ãªã„
 //		m_pSystemOperationCTASettingDlg->DestroyWindow();
 		delete m_pSystemOperationCTASettingDlg;
 		m_pSystemOperationCTASettingDlg = NULL;
 	}
-	// 2009.10.07 bagus CTA ’Ç‰Á --}--
+	// 2009.10.07 bagus CTA è¿½åŠ  --}--
 
-	// 2009.10.19 bagus MS ’Ç‰Á --{--
+	// 2009.10.19 bagus MS è¿½åŠ  --{--
 	if(m_pSystemOperationMsSettingDlg){
-// ƒfƒXƒgƒ‰ƒNƒg‚Ì’†‚ÅDestroyWindow‚ðŒÄ‚Ño‚³‚È‚¢
+// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ãƒˆã®ä¸­ã§DestroyWindowã‚’å‘¼ã³å‡ºã•ãªã„
 //		m_pSystemOperationSteSettingDlg->DestroyWindow();
 		delete m_pSystemOperationMsSettingDlg;
 		m_pSystemOperationMsSettingDlg = NULL;
 	}
-	// 2009.10.19 bagus MS ’Ç‰Á --}--
+	// 2009.10.19 bagus MS è¿½åŠ  --}--
 
-	// 2009.11.04 bagus RS ’Ç‰Á --{--
+	// 2009.11.04 bagus RS è¿½åŠ  --{--
 	if(m_pSystemOperationRSSettingDlg){
-// ƒfƒXƒgƒ‰ƒNƒg‚Ì’†‚ÅDestroyWindow‚ðŒÄ‚Ño‚³‚È‚¢
+// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ãƒˆã®ä¸­ã§DestroyWindowã‚’å‘¼ã³å‡ºã•ãªã„
 //		m_pSystemOperationRSSettingDlg->DestroyWindow();
 		delete m_pSystemOperationRSSettingDlg;
 		m_pSystemOperationRSSettingDlg = NULL;
 	}
-	// 2009.11.04 bagus RS ’Ç‰Á --}--
+	// 2009.11.04 bagus RS è¿½åŠ  --}--
 }
 
 // =========================================================================
@@ -156,7 +156,7 @@ BEGIN_MESSAGE_MAP(CSystemOperationTabView, CNanoUI)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CSystemOperationTabView f’f
+// CSystemOperationTabView è¨ºæ–­
 
 #ifdef _DEBUG
 // =========================================================================
@@ -175,7 +175,7 @@ void CSystemOperationTabView::Dump(CDumpContext& dc) const
 #endif //_DEBUG
 
 // =========================================================================
-// CSystemOperationTabView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSystemOperationTabView ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -183,8 +183,8 @@ void CSystemOperationTabView::OnInitialUpdate()
 {
 	CNanoUI::OnInitialUpdate();
 
-	// TODO: ‚±‚ÌˆÊ’u‚ÉŒÅ—L‚Ìˆ—‚ð’Ç‰Á‚·‚é‚©A‚Ü‚½‚ÍŠî–{ƒNƒ‰ƒX‚ðŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
-	// ƒ^ƒu‚Ì‰Šú‰»
+	// TODO: ã“ã®ä½ç½®ã«å›ºæœ‰ã®å‡¦ç†ã‚’è¿½åŠ ã™ã‚‹ã‹ã€ã¾ãŸã¯åŸºæœ¬ã‚¯ãƒ©ã‚¹ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
+	// ã‚¿ãƒ–ã®åˆæœŸåŒ–
 	Tab_Init();
 }
 
@@ -220,12 +220,12 @@ void CSystemOperationTabView::Tab_Init()
 		m_iHeadType[iTabItemCount] = HEAD_TYPE_SR;
 		iTabItemCount++;
 	}
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	if(g_lModelType != MODEL_T3100){
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 		// SE
 		if(HeadType.bSE){
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 			if(HeadType.bCompEASE){
 				LoadStringML(IDS_COMPEASE_TAB, l_strBuffer, "EASE");
 				m_SystemOperationTab.InsertItem(iTabItemCount, l_strBuffer);
@@ -237,10 +237,10 @@ void CSystemOperationTabView::Tab_Init()
 			m_SystemOperationTab.InsertItem(iTabItemCount, l_strBuffer);
 			m_iHeadType[iTabItemCount] = HEAD_TYPE_SE;
 			}
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 			iTabItemCount++;
 		}
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 #if 0
 		// IRSE
 		if(HeadType.bIRSE){
@@ -251,14 +251,14 @@ void CSystemOperationTabView::Tab_Init()
 			iTabItemCount++;
 		}
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 		// 4PP
 		if(HeadType.bResist){
 			//m_SystemOperationTab.InsertItem(iTabItemCount, "4PP");
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.11.04 bagus RS è¿½åŠ  --{--
 //			LoadStringML(IDS_4PP_TAB, l_strBuffer, "4PP");
 			LoadStringML(IDS_4PP_TAB, l_strBuffer, "RS");
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS è¿½åŠ  --}--
 			m_SystemOperationTab.InsertItem(iTabItemCount, l_strBuffer);
 			m_iHeadType[iTabItemCount] = HEAD_TYPE_4PP;
 			iTabItemCount++;
@@ -280,7 +280,7 @@ void CSystemOperationTabView::Tab_Init()
 			iTabItemCount++;
 		}
 		// Kojika 20090603 Change End
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 		// MS
 		if(HeadType.bMS){
 			LoadStringML(IDS_MS_TAB, l_strBuffer, "MS");
@@ -288,13 +288,13 @@ void CSystemOperationTabView::Tab_Init()
 			m_iHeadType[iTabItemCount] = HEAD_TYPE_MS;
 			iTabItemCount++;
 		}
-// 2009.10.19 bagus MS ’Ç‰Á --}--
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2009.10.19 bagus MS è¿½åŠ  --}--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.08 Bagus Del (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Del (TohoSpecå¯¾å¿œ) <--
 
 	iTabRowCount = m_SystemOperationTab.GetRowCount();
-	// ƒ^ƒu‚Ìs”‚É‰ž‚¶‚Äƒ_ƒCƒAƒƒO‚Ì•\Ž¦ˆÊ’u‚ð•ÏX‚·‚é•K—v‚ª‚ ‚é
+	// ã‚¿ãƒ–ã®è¡Œæ•°ã«å¿œã˜ã¦ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®è¡¨ç¤ºä½ç½®ã‚’å¤‰æ›´ã™ã‚‹å¿…è¦ãŒã‚ã‚‹
 	switch(iTabRowCount){
 	case 2:
 		dy = 39;
@@ -308,7 +308,7 @@ void CSystemOperationTabView::Tab_Init()
 		break;
 	}
 
-	// Tab ƒŒƒNƒgƒTƒCƒY‚ÌÝ’è
+	// Tab ãƒ¬ã‚¯ãƒˆã‚µã‚¤ã‚ºã®è¨­å®š
 	CRect rc;
 	GetClientRect(rc);
 	m_SystemOperationTab.SetWindowPos(&wndTop, 0, 0, rc.Width(), rc.Height(), SWP_NOMOVE | SWP_NOZORDER | SWP_SHOWWINDOW);
@@ -327,9 +327,9 @@ void CSystemOperationTabView::Tab_Init()
 	}
 	m_pSystemOperationSrSettingDlg->SetWindowPos(&wndTop, dx, dy, 0, 0, SWP_NOSIZE | SWP_SHOWWINDOW);
 
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	if(g_lModelType != MODEL_T3100){
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 		//2009.08.16 bagus stress --{--
 		///// Stress /////
 		if(m_pSystemOperationStressSettingDlg == NULL){
@@ -339,50 +339,50 @@ void CSystemOperationTabView::Tab_Init()
 		m_pSystemOperationStressSettingDlg->SetWindowPos(&wndTop, dx, dy, 0, 0, SWP_NOSIZE | SWP_SHOWWINDOW);
 		//2009.08.16 bagus stress --}--
 
-		//2009.09.02 bagus se SE‹@”\’Ç‰Á --{--
+		//2009.09.02 bagus se SEæ©Ÿèƒ½è¿½åŠ  --{--
 		///// SE /////
 		if(m_pSystemOperationSeSettingDlg == NULL){
 			m_pSystemOperationSeSettingDlg = new CSystemOperationSeSettingDlg();
 			m_pSystemOperationSeSettingDlg->Create(CSystemOperationSeSettingDlg::IDD, &m_SystemOperationTab);
 		}
 		m_pSystemOperationSeSettingDlg->SetWindowPos(&wndTop, dx, dy, 0, 0, SWP_NOSIZE | SWP_SHOWWINDOW);
-		//2009.09.02 bagus se SE‹@”\’Ç‰Á --}--
+		//2009.09.02 bagus se SEæ©Ÿèƒ½è¿½åŠ  --}--
 
-		// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+		// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 		if(m_pSystemOperationCompEASESettingDlg == NULL){
 			m_pSystemOperationCompEASESettingDlg = new CSystemOperationCompEASESettingDlg();
 			m_pSystemOperationCompEASESettingDlg->Create(CSystemOperationCompEASESettingDlg::IDD, &m_SystemOperationTab);
 		}
 		m_pSystemOperationCompEASESettingDlg->SetWindowPos(&wndTop, dx, dy, 0, 0, SWP_NOSIZE | SWP_SHOWWINDOW);
-		// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+		// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 
-		// 2009.10.07 bagus CTA ’Ç‰Á --{--
+		// 2009.10.07 bagus CTA è¿½åŠ  --{--
 		///// CTA /////
 		if(m_pSystemOperationCTASettingDlg == NULL){
 			m_pSystemOperationCTASettingDlg = new CSystemOperationCTASettingDlg();
 			m_pSystemOperationCTASettingDlg->Create(CSystemOperationCTASettingDlg::IDD, &m_SystemOperationTab);
 		}
 		m_pSystemOperationCTASettingDlg->SetWindowPos(&wndTop, dx, dy, 0, 0, SWP_NOSIZE | SWP_SHOWWINDOW);
-		// 2009.10.07 bagus CTA ’Ç‰Á --}--
+		// 2009.10.07 bagus CTA è¿½åŠ  --}--
 
-		// 2009.10.19 bagus MS ’Ç‰Á --{--
+		// 2009.10.19 bagus MS è¿½åŠ  --{--
 		if(m_pSystemOperationMsSettingDlg == NULL){
 			m_pSystemOperationMsSettingDlg = new CSystemOperationMsSettingDlg();
 			m_pSystemOperationMsSettingDlg->Create(CSystemOperationMsSettingDlg::IDD, &m_SystemOperationTab);
 		}
 		m_pSystemOperationMsSettingDlg->SetWindowPos(&wndTop, dx, dy, 0, 0, SWP_NOSIZE | SWP_SHOWWINDOW);
-		// 2009.10.19 bagus MS ’Ç‰Á --}--
+		// 2009.10.19 bagus MS è¿½åŠ  --}--
 
-		// 2009.11.04 bagus RS ’Ç‰Á --{--
+		// 2009.11.04 bagus RS è¿½åŠ  --{--
 		if(m_pSystemOperationRSSettingDlg == NULL){
 			m_pSystemOperationRSSettingDlg = new CSystemOperationRSSettingDlg();
 			m_pSystemOperationRSSettingDlg->Create(CSystemOperationRSSettingDlg::IDD, &m_SystemOperationTab);
 		}
 		m_pSystemOperationRSSettingDlg->SetWindowPos(&wndTop, dx, dy, 0, 0, SWP_NOSIZE | SWP_SHOWWINDOW);
-		// 2009.11.04 bagus RS ’Ç‰Á --}--
-// 2013.11.08 Bagus Del (TohoSpec‘Î‰ž) -->
+		// 2009.11.04 bagus RS è¿½åŠ  --}--
+// 2013.11.08 Bagus Del (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.08 Bagus Del (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Del (TohoSpecå¯¾å¿œ) <--
 
 	///// Set Current Selection Item /////
 	Index = m_SystemOperationTab.SetCurSel(0);
@@ -416,28 +416,28 @@ void CSystemOperationTabView::TabChange(int Index)
 	///// Hide All Dialog /////
 	m_pSystemOperationCommonSettingDlg->ShowWindow(SW_HIDE);
 	m_pSystemOperationSrSettingDlg->ShowWindow(SW_HIDE);
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	if(g_lModelType != MODEL_T3100){
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 		m_pSystemOperationStressSettingDlg->ShowWindow(SW_HIDE);
-		//2009.09.02 bagus se SE‹@”\’Ç‰Á --{--
+		//2009.09.02 bagus se SEæ©Ÿèƒ½è¿½åŠ  --{--
 		m_pSystemOperationSeSettingDlg->ShowWindow(SW_HIDE);
-		//2009.09.02 bagus se SE‹@”\’Ç‰Á --}--
-		// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+		//2009.09.02 bagus se SEæ©Ÿèƒ½è¿½åŠ  --}--
+		// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 		m_pSystemOperationCompEASESettingDlg->ShowWindow(SW_HIDE);
-		// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-		// 2009.10.07 bagus CTA ’Ç‰Á --{--
+		// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+		// 2009.10.07 bagus CTA è¿½åŠ  --{--
 		m_pSystemOperationCTASettingDlg->ShowWindow(SW_HIDE);
-		// 2009.10.07 bagus CTA ’Ç‰Á --}--
-		// 2009.10.19 bagus MS ’Ç‰Á --{--
+		// 2009.10.07 bagus CTA è¿½åŠ  --}--
+		// 2009.10.19 bagus MS è¿½åŠ  --{--
 		m_pSystemOperationMsSettingDlg->ShowWindow(SW_HIDE);
-		// 2009.10.19 bagus MS ’Ç‰Á --}--
-		// 2009.11.04 bagus RS ’Ç‰Á --{--
+		// 2009.10.19 bagus MS è¿½åŠ  --}--
+		// 2009.11.04 bagus RS è¿½åŠ  --{--
 		m_pSystemOperationRSSettingDlg->ShowWindow(SW_HIDE);
-		// 2009.11.04 bagus RS ’Ç‰Á --}--
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+		// 2009.11.04 bagus RS è¿½åŠ  --}--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 
 	///// Show Dialog /////
 	switch(Index){
@@ -459,63 +459,63 @@ void CSystemOperationTabView::ShowDialog(int iIndex)
 		m_pSystemOperationSrSettingDlg->ShowWindow(SW_SHOW);
 		break;
 	case HEAD_TYPE_STRESS:
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //		m_pSystemOperationStressSettingDlg->ShowWindow(SW_SHOW);
 		if(g_lModelType != MODEL_T3100){
 			m_pSystemOperationStressSettingDlg->ShowWindow(SW_SHOW);
 		}
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 		break;
-//2009.09.02 bagus se SE‹@”\’Ç‰Á --{--
+//2009.09.02 bagus se SEæ©Ÿèƒ½è¿½åŠ  --{--
 	case HEAD_TYPE_SE:
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //		m_pSystemOperationSeSettingDlg->ShowWindow(SW_SHOW);
 		if(g_lModelType != MODEL_T3100){
 			m_pSystemOperationSeSettingDlg->ShowWindow(SW_SHOW);
 		}
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 		break;
-//2009.09.02 bagus se SE‹@”\’Ç‰Á --}--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+//2009.09.02 bagus se SEæ©Ÿèƒ½è¿½åŠ  --}--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case HEAD_TYPE_COMPEASE:
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //		m_pSystemOperationCompEASESettingDlg->ShowWindow(SW_SHOW);
 		if(g_lModelType != MODEL_T3100){
 			m_pSystemOperationCompEASESettingDlg->ShowWindow(SW_SHOW);
 		}
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.07 bagus CTA ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.07 bagus CTA è¿½åŠ  --{--
 	case HEAD_TYPE_CTA:
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //		m_pSystemOperationCTASettingDlg->ShowWindow(SW_SHOW);
 		if(g_lModelType != MODEL_T3100){
 			m_pSystemOperationCTASettingDlg->ShowWindow(SW_SHOW);
 		}
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 		break;
-// 2009.10.07 bagus CTA ’Ç‰Á --}--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.07 bagus CTA è¿½åŠ  --}--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 	case HEAD_TYPE_MS:
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //		m_pSystemOperationMsSettingDlg->ShowWindow(SW_SHOW);
 		if(g_lModelType != MODEL_T3100){
 			m_pSystemOperationMsSettingDlg->ShowWindow(SW_SHOW);
 		}
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 		break;
-// 2009.10.19 bagus MS ’Ç‰Á --}--
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
+// 2009.11.04 bagus RS è¿½åŠ  --{--
 	case HEAD_TYPE_4PP:
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //		m_pSystemOperationRSSettingDlg->ShowWindow(SW_SHOW);
 		if(g_lModelType != MODEL_T3100){
 			m_pSystemOperationRSSettingDlg->ShowWindow(SW_SHOW);
 		}
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 		break;
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS è¿½åŠ  --}--
 	default:
 		break;
 	}

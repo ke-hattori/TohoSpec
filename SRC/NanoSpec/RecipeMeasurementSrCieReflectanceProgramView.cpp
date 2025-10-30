@@ -1,4 +1,4 @@
-// CRecipeMeasurementSrCieReflectanceProgramView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// CRecipeMeasurementSrCieReflectanceProgramView.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -70,7 +70,7 @@ BEGIN_MESSAGE_MAP(CRecipeMeasurementSrCieReflectanceProgramView, CNanoRecipeUI)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CRecipeMeasurementSrCieReflectanceProgramView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CRecipeMeasurementSrCieReflectanceProgramView ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -92,7 +92,7 @@ void CRecipeMeasurementSrCieReflectanceProgramView::OnInitialUpdate()
 		| CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
 		!m_wndToolBar.LoadToolBar(IDR_EDIT_RECIPE_BAR)){
 		TRACE0("Failed to create toolbar\n");
-		return; 	// ì¬‚É¸”s
+		return; 	// ä½œæˆã«å¤±æ•—
 	}
 
 	GetClientRect(&rect);
@@ -108,7 +108,7 @@ void CRecipeMeasurementSrCieReflectanceProgramView::OnInitialUpdate()
 	InitCombo_ReferenceMaterial();
 	InitCombo_Lens();
 
-	// ƒRƒƒ“ƒg•¶š”§ŒÀ
+	// ã‚³ãƒ¡ãƒ³ãƒˆæ–‡å­—æ•°åˆ¶é™
 	((CEdit*)GetDlgItem(IDC_CIE_COMMENT))->SetLimitText(RECIPE_COMMENT_LEN);
 
 	///// Default Recipe Setup /////
@@ -130,15 +130,15 @@ void CRecipeMeasurementSrCieReflectanceProgramView::LoadRecipeData()
 
 	switch ( m_nOpenMode )
 	{
-	case modeNew:				// ƒŒƒVƒsV‹Kì¬
-	case modeDefaultSetting:	// ƒRƒ“ƒtƒBƒO‰æ–Ê‚©‚ç‘JˆÚ‚µ‚Ä‚«‚½ƒP[ƒX
+	case modeNew:				// ãƒ¬ã‚·ãƒ”æ–°è¦ä½œæˆ
+	case modeDefaultSetting:	// ã‚³ãƒ³ãƒ•ã‚£ã‚°ç”»é¢ã‹ã‚‰é·ç§»ã—ã¦ããŸã‚±ãƒ¼ã‚¹
 		if ( !RecipeFile_LoadRecipe(&m_ChroMeas, SR_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_SR_REFLECTANCE_CIE) ) {
 			m_ChroMeas.ScanParams.hdr.wHeadType = HEAD_TYPE_SR;
 			m_ChroMeas.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_SR_REFLECTANCE_CIE;
 		}
 		break;
-	default:					// ƒŒƒVƒsƒƒCƒ“ƒŠƒXƒg‰æ–Ê‚©‚ç‘JˆÚ‚µ‚Ä‚«‚½ƒP[ƒX
-		if ( !RecipeFile_LoadRecipe(&m_ChroMeas, m_szRecipeName, RECIPE_FILE_MEASUREMENT_PROGRAM) ) {	// RECIPE_FILE_MEASUREMENT_PROGRAM ‚Å³‚µ‚¢‚ç‚µ‚¢...
+	default:					// ãƒ¬ã‚·ãƒ”ãƒ¡ã‚¤ãƒ³ãƒªã‚¹ãƒˆç”»é¢ã‹ã‚‰é·ç§»ã—ã¦ããŸã‚±ãƒ¼ã‚¹
+		if ( !RecipeFile_LoadRecipe(&m_ChroMeas, m_szRecipeName, RECIPE_FILE_MEASUREMENT_PROGRAM) ) {	// RECIPE_FILE_MEASUREMENT_PROGRAM ã§æ­£ã—ã„ã‚‰ã—ã„...
 			m_nOpenMode = modeNew;
 			if ( !RecipeFile_LoadRecipe(&m_ChroMeas, SR_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_SR_REFLECTANCE_CIE) ) {
 				m_ChroMeas.ScanParams.hdr.wHeadType = HEAD_TYPE_SR;
@@ -342,7 +342,7 @@ BOOL CRecipeMeasurementSrCieReflectanceProgramView::SaveRecipeData()
 			return FALSE;
 		break;
 	default:
-		// V‚µ‚¢ƒŒƒVƒs–¼‚ğİ’èiSave, SaveAsŒ“—pj
+		// æ–°ã—ã„ãƒ¬ã‚·ãƒ”åã‚’è¨­å®šï¼ˆSave, SaveAså…¼ç”¨ï¼‰
 		strcpy(m_ChroMeas.hdr.szName, m_szRecipeName);
 		if ( !RecipeFile_SaveRecipe(&m_ChroMeas, m_szRecipeName, RECIPE_FILE_SR_REFLECTANCE_CIE) )
 			return FALSE;
@@ -378,7 +378,7 @@ int CRecipeMeasurementSrCieReflectanceProgramView::SaveAsDlgInfo()
 }
 
 // =========================================================================
-// ƒŒƒ“ƒY ƒRƒ“ƒ{‘I‘ğ
+// ãƒ¬ãƒ³ã‚º ã‚³ãƒ³ãƒœé¸æŠæ™‚
 //
 void CRecipeMeasurementSrCieReflectanceProgramView::OnSelchangeCieLens()
 {
@@ -394,7 +394,7 @@ void CRecipeMeasurementSrCieReflectanceProgramView::OnSelchangeCieLens()
 }
 
 // =========================================================================
-//ƒŒƒ“ƒY ƒRƒ“ƒ{ƒCƒjƒVƒƒƒ‹ˆ—
+//ãƒ¬ãƒ³ã‚º ã‚³ãƒ³ãƒœã‚¤ãƒ‹ã‚·ãƒ£ãƒ«å‡¦ç†
 //
 void CRecipeMeasurementSrCieReflectanceProgramView::InitCombo_Lens()
 {
@@ -403,10 +403,10 @@ void CRecipeMeasurementSrCieReflectanceProgramView::InitCombo_Lens()
 
 	int nIndex;
 	for ( int i = 0; i < SR_LENS_MAX; i++ ) {
-// 2009.11.24 bagus SR C³ --{--
+// 2009.11.24 bagus SR ä¿®æ­£ --{--
 //		  if ( m_SrTurret[i].bEnable ) {
 		if ( m_SrTurret[i].bEnable && m_SrTurret[i].bAnalysis ) {
-// 2009.11.24 bagus SR C³ --}--
+// 2009.11.24 bagus SR ä¿®æ­£ --}--
 			nIndex = pCombo->AddString(m_SrTurret[i].szName);
 			pCombo->SetItemData(nIndex, i);
 		}

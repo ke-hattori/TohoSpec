@@ -1,4 +1,4 @@
-// ChiefView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+ï»¿// ChiefView.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #pragma once
@@ -7,48 +7,48 @@
 #define CHIEF_STAGE_ON
 
 /*
- *	\‘¢‘Ì’è‹`
+ *	æ§‹é€ ä½“å®šç¾©
  */
-// Chief ƒ_ƒCƒAƒƒO‚Ì•\¦•û–@(İ’èƒtƒ@ƒCƒ‹‚©‚ç“Ç‚İ)
+// Chief ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®è¡¨ç¤ºæ–¹æ³•(è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰èª­è¾¼ã¿)
 typedef struct {
-	DWORD	dwType; 	// ƒ_ƒCƒAƒƒO•\¦•û–@
-	DWORD	dwDelay;	// ƒ_ƒCƒAƒƒO•\¦ƒfƒBƒŒƒC [s]
+	DWORD	dwType; 	// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°è¡¨ç¤ºæ–¹æ³•
+	DWORD	dwDelay;	// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°è¡¨ç¤ºãƒ‡ã‚£ãƒ¬ã‚¤ [s]
 	DWORD	dwShowSWprc;
 } CHIEF_DLGSHOWSW;
-// DI Š„•t
+// DI å‰²ä»˜
 typedef struct {
-	BOOL	bEMOStop;			// ”ñí’â~
-/* added 2009.08.17 hmenjo ƒZ[ƒtƒeƒBƒvƒ‰ƒOˆ—’Ç‰Á ---------- { ---------- */
-	BOOL	bSafetyPlug;		/* ƒhƒA ƒZ[ƒtƒeƒBƒvƒ‰ƒO	*/
-/* added 2009.08.17 hmenjo ƒZ[ƒtƒeƒBƒvƒ‰ƒOˆ—’Ç‰Á ---------- } ---------- */
-	BOOL	bDoorInterlock; 	// ƒhƒA ƒCƒ“ƒ^ƒƒbƒN
-	BOOL	bEQPower;			// ‘•’uƒpƒ[ƒIƒ“
-//	BOOL	bAlignmentPowerOn;	// ƒAƒ‰ƒCƒƒ“ƒgƒpƒ[ƒIƒ“	‚±‚ê‚Ííœ‚³‚ê‚Ü‚µ‚½(2008.10.27)D
-	BOOL	bMaintenanceSW; 	// ƒƒ“ƒeƒiƒ“ƒX SW ƒIƒ“
-	BOOL	bTHMaintenanceSW;	// “Œ•üƒƒ“ƒeƒiƒ“ƒX SW ƒIƒ“
-	BOOL	bAirPressureLow;	// ƒGƒAˆ³—Í’á‰º
-	BOOL	bGlassExist;		// Šî”Âİ‰×
-	BOOL	bLoadPos;			// ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“
-	BOOL	bShutterOpen;		// ƒVƒƒƒbƒ^ ŠJ
-	BOOL	bShutterClose;		// ƒVƒƒƒbƒ^ •Â
-	BOOL	bRobotArm;			// ƒƒ{ƒbƒgƒA[ƒ€ŒŸo
-	BOOL	bVacuumPressure1;	// ƒoƒLƒ…[ƒ€ƒZƒ“ƒT1
-//	BOOL	bVacuumPressure2;	// ƒoƒLƒ…[ƒ€ƒZƒ“ƒT2	‚±‚ê‚Ííœ‚³‚ê‚Ü‚µ‚½(2008.10.27)D
-	BOOL	bPinUp; 			// ƒsƒ“ ƒAƒbƒv
-	BOOL	bPinDown;			// ƒsƒ“ ƒ_ƒEƒ“
-/* added 2009.08.20 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(46) ---------- { ---------- */
-	BOOL	bPinAlign;			// ƒsƒ“ ƒAƒ‰ƒCƒƒ“ƒg
-/* added 2009.08.20 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(46) ---------- } ---------- */
-	BOOL	bWorkGuideOpen; 	// ƒ[ƒNƒKƒCƒh ŠJ
-	BOOL	bWorkGuideClose;	// ƒ[ƒNƒKƒCƒh •Â
+	BOOL	bEMOStop;			// éå¸¸åœæ­¢
+/* added 2009.08.17 hmenjo ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°å‡¦ç†è¿½åŠ  ---------- { ---------- */
+	BOOL	bSafetyPlug;		/* ãƒ‰ã‚¢ ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°	*/
+/* added 2009.08.17 hmenjo ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°å‡¦ç†è¿½åŠ  ---------- } ---------- */
+	BOOL	bDoorInterlock; 	// ãƒ‰ã‚¢ ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯
+	BOOL	bEQPower;			// è£…ç½®ãƒ‘ãƒ¯ãƒ¼ã‚ªãƒ³
+//	BOOL	bAlignmentPowerOn;	// ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆãƒ‘ãƒ¯ãƒ¼ã‚ªãƒ³	ã“ã‚Œã¯å‰Šé™¤ã•ã‚Œã¾ã—ãŸ(2008.10.27)ï¼
+	BOOL	bMaintenanceSW; 	// ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ SW ã‚ªãƒ³
+	BOOL	bTHMaintenanceSW;	// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ SW ã‚ªãƒ³
+	BOOL	bAirPressureLow;	// ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹
+	BOOL	bGlassExist;		// åŸºæ¿åœ¨è·
+	BOOL	bLoadPos;			// ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³
+	BOOL	bShutterOpen;		// ã‚·ãƒ£ãƒƒã‚¿ é–‹
+	BOOL	bShutterClose;		// ã‚·ãƒ£ãƒƒã‚¿ é–‰
+	BOOL	bRobotArm;			// ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ æ¤œå‡º
+	BOOL	bVacuumPressure1;	// ãƒã‚­ãƒ¥ãƒ¼ãƒ ã‚»ãƒ³ã‚µ1
+//	BOOL	bVacuumPressure2;	// ãƒã‚­ãƒ¥ãƒ¼ãƒ ã‚»ãƒ³ã‚µ2	ã“ã‚Œã¯å‰Šé™¤ã•ã‚Œã¾ã—ãŸ(2008.10.27)ï¼
+	BOOL	bPinUp; 			// ãƒ”ãƒ³ ã‚¢ãƒƒãƒ—
+	BOOL	bPinDown;			// ãƒ”ãƒ³ ãƒ€ã‚¦ãƒ³
+/* added 2009.08.20 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (46) ---------- { ---------- */
+	BOOL	bPinAlign;			// ãƒ”ãƒ³ ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ
+/* added 2009.08.20 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (46) ---------- } ---------- */
+	BOOL	bWorkGuideOpen; 	// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰ é–‹
+	BOOL	bWorkGuideClose;	// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰ é–‰
 // 2013.01.10 bagus stage driver alarm io -->
-	BOOL	bStageAlarm;		// ƒXƒe[ƒWƒAƒ‰[ƒ€
-	BOOL	bX1AxisAlarm[3];	// Stage Driver X1²ƒAƒ‰[ƒ€
-	BOOL	bX2AxisAlarm[3];	// Stage Driver X2²ƒAƒ‰[ƒ€
-	BOOL	bYAxisAlarm[3];		// Stage Driver Y²ƒAƒ‰[ƒ€
+	BOOL	bStageAlarm;		// ã‚¹ãƒ†ãƒ¼ã‚¸ã‚¢ãƒ©ãƒ¼ãƒ 
+	BOOL	bX1AxisAlarm[3];	// Stage Driver X1è»¸ã‚¢ãƒ©ãƒ¼ãƒ 
+	BOOL	bX2AxisAlarm[3];	// Stage Driver X2è»¸ã‚¢ãƒ©ãƒ¼ãƒ 
+	BOOL	bYAxisAlarm[3];		// Stage Driver Yè»¸ã‚¢ãƒ©ãƒ¼ãƒ 
 // 2013.01.10 bagus stage driver alarm io <--
 } CHIEF_DI_INFO;
-// ƒŒƒVƒsî•ñ
+// ãƒ¬ã‚·ãƒ”æƒ…å ±
 typedef struct {
 	LPVOID	pMainRcpInfo;
 	LPVOID	pMeasProgInfo;
@@ -57,28 +57,28 @@ typedef struct {
 // 2009.05.17 myanagida -->
 	LPVOID	pSitePattern;
 // 2009.05.17 myanagida <--
-/* added 2009.08.03 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(13) ---------- { ---------- */
+/* added 2009.08.03 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (13) ---------- { ---------- */
 	LPVOID	pStageProgStress;
-/* added 2009.08.03 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(13) ---------- } ---------- */
+/* added 2009.08.03 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (13) ---------- } ---------- */
 //Saiki 20110308 Add ----->
 	LPVOID	pStressParamInfo;
 //Saiki 20110308 Add <-----
 } CHIEF_RECIPES;
-// “ü—Í–³ŒøƒXƒCƒbƒ`
+// å…¥åŠ›ç„¡åŠ¹ã‚¹ã‚¤ãƒƒãƒ
 typedef struct {
 	BOOL	bRobotArm;
 	BOOL	bPinDown;
 	BOOL	bAirPressureLow;
-/* added 2009.11.27 hmenjo Pif ƒsƒ“&ƒVƒƒƒbƒ^ “¯“®ì ---------- { ---------- */
+/* added 2009.11.27 hmenjo Pif ãƒ”ãƒ³&ã‚·ãƒ£ãƒƒã‚¿ åŒæ™‚å‹•ä½œ ---------- { ---------- */
 	BOOL	bPinShutterILInvalid;
-/* added 2009.11.27 hmenjo Pif ƒsƒ“&ƒVƒƒƒbƒ^ “¯“®ì ---------- } ---------- */
+/* added 2009.11.27 hmenjo Pif ãƒ”ãƒ³&ã‚·ãƒ£ãƒƒã‚¿ åŒæ™‚å‹•ä½œ ---------- } ---------- */
 } DIO_IGNORE_SW;
-// ƒAƒ‰[ƒ€‹L‰¯ƒtƒ‰ƒO
+// ã‚¢ãƒ©ãƒ¼ãƒ è¨˜æ†¶ãƒ•ãƒ©ã‚°
 typedef struct {
 	BOOL	bEMOStopOn;
-/* added 2009.08.17 hmenjo ƒZ[ƒtƒeƒBƒvƒ‰ƒOˆ—’Ç‰Á ---------- { ---------- */
+/* added 2009.08.17 hmenjo ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°å‡¦ç†è¿½åŠ  ---------- { ---------- */
 	BOOL	bSafetyPlugOn;
-/* added 2009.08.17 hmenjo ƒZ[ƒtƒeƒBƒvƒ‰ƒOˆ—’Ç‰Á ---------- } ---------- */
+/* added 2009.08.17 hmenjo ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°å‡¦ç†è¿½åŠ  ---------- } ---------- */
 	BOOL	bDoorInterlockOn;
 	BOOL	bEQPowerOn;
 	BOOL	bShutterCloseOff;
@@ -88,86 +88,86 @@ typedef struct {
 	BOOL	bVacuumPressure1Off;
 	BOOL	bPinDownOff;
 	BOOL	bWorkGuideOpenOff;
-/* added 2009.08.17 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(37) ---------- { ---------- */
+/* added 2009.08.17 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (37) ---------- { ---------- */
 	BOOL	bRetractZPosOff;
-/* added 2009.08.17 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(37) ---------- } ---------- */
+/* added 2009.08.17 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (37) ---------- } ---------- */
 // 2013.01.10 bagus stage driver alarm io -->
 	BOOL	bStageAlarmOn;
 	BOOL	bStageOverTravelOn;
 	BOOL	bStageUnknownOn;
 // 2013.01.10 bagus stage driver alarm io <--
 } ALARM_FLAGS;
-// ‘ª’èŠJn‘Oƒwƒbƒh—h‚êû‘©ŠÔ‘Ò‚¿
-typedef struct {		// ‚Í ::GetTickCount() ‚Ì’l‚Å‚·D
-	DWORD	dwWaitTimeSetting;		// İ’è’l(ini ƒtƒ@ƒCƒ‹‚©‚çæ“¾)[ms]
-	DWORD	dwStartTime;		// ƒXƒe[ƒW’â~[ms]
-	DWORD	dwEndTime;			// ‘ª’è/AF ŠJnƒ^ƒCƒ~ƒ“ƒO[ms]
+// æ¸¬å®šé–‹å§‹å‰ãƒ˜ãƒƒãƒ‰æºã‚ŒåæŸæ™‚é–“å¾…ã¡
+typedef struct {		// æ™‚åˆ»ã¯ ::GetTickCount() ã®å€¤ã§ã™ï¼
+	DWORD	dwWaitTimeSetting;		// è¨­å®šå€¤(ini ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰å–å¾—)[ms]
+	DWORD	dwStartTime;		// ã‚¹ãƒ†ãƒ¼ã‚¸åœæ­¢æ™‚åˆ»[ms]
+	DWORD	dwEndTime;			// æ¸¬å®š/AF é–‹å§‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°æ™‚åˆ»[ms]
 } WAIT_MEAS_TIME;
 
 /////////////////////////////////////////////////////////////////////////////
-// CChiefView ƒ_ƒCƒAƒƒO
+// CChiefView ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 class CChiefView : public CFormView
 {
 protected:
-	CChiefView();			// “®“I¶¬‚Ég—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CChiefView();			// å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	DECLARE_DYNCREATE(CChiefView)
 
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
 /* added 2013.02.01 hmenjo PreAF ---------- { ---------- */
 	long m_lPreAFafterPreMove;
 /* added 2013.02.01 hmenjo PreAF ---------- } ---------- */
-/* added 2012.01.23 hmenjo [‚V]ŸèƒAƒ{[ƒg‘Îô ---------- { ---------- */
+/* added 2012.01.23 hmenjo [ï¼—]å‹æ‰‹ã‚¢ãƒœãƒ¼ãƒˆå¯¾ç­– ---------- { ---------- */
 	void PostTransiEvent(CWinThread* pcThread, UINT uiMsg, TCHAR* ptszMsg, BYTE byTransiKind, WPARAM wParam, LPARAM lParam);
 	BOOL IsBusyTransi(BYTE byTransiKindDst, BYTE byTransiKindSrc);
-/* added 2012.01.23 hmenjo [‚V]ŸèƒAƒ{[ƒg‘Îô ---------- } ---------- */
-/* added 2009.11.27 hmenjo Pif ƒsƒ“&ƒVƒƒƒbƒ^ “¯“®ì ---------- { ---------- */
+/* added 2012.01.23 hmenjo [ï¼—]å‹æ‰‹ã‚¢ãƒœãƒ¼ãƒˆå¯¾ç­– ---------- } ---------- */
+/* added 2009.11.27 hmenjo Pif ãƒ”ãƒ³&ã‚·ãƒ£ãƒƒã‚¿ åŒæ™‚å‹•ä½œ ---------- { ---------- */
 	DIO_IGNORE_SW m_DioIgnoreSW;
-/* added 2009.11.27 hmenjo Pif ƒsƒ“&ƒVƒƒƒbƒ^ “¯“®ì ---------- } ---------- */
-/* added 2009.10.30 hmenjo CTA CTAILPI íƒ`ƒFƒbƒN ---------- { ---------- */
+/* added 2009.11.27 hmenjo Pif ãƒ”ãƒ³&ã‚·ãƒ£ãƒƒã‚¿ åŒæ™‚å‹•ä½œ ---------- } ---------- */
+/* added 2009.10.30 hmenjo CTA CTAILPI å¸¸æ™‚ãƒã‚§ãƒƒã‚¯ ---------- { ---------- */
 	HEAD_TYPE_CONFIG	m_EnableHead;
-/* added 2009.10.30 hmenjo CTA CTAILPI íƒ`ƒFƒbƒN ---------- } ---------- */
-/* added 2009.10.29 hmenjo CTA Seq CTAILPI ƒ`ƒFƒbƒN ---------- { ---------- */
+/* added 2009.10.30 hmenjo CTA CTAILPI å¸¸æ™‚ãƒã‚§ãƒƒã‚¯ ---------- } ---------- */
+/* added 2009.10.29 hmenjo CTA Seq CTAILPI ãƒã‚§ãƒƒã‚¯ ---------- { ---------- */
 	BOOL IsCtaILPI(void);
-/* added 2009.10.29 hmenjo CTA Seq CTAILPI ƒ`ƒFƒbƒN ---------- } ---------- */
-/* added 2009.11.06 K.Matsuo Resist Seq ƒ`ƒFƒbƒN ---------- { ---------- */
+/* added 2009.10.29 hmenjo CTA Seq CTAILPI ãƒã‚§ãƒƒã‚¯ ---------- } ---------- */
+/* added 2009.11.06 K.Matsuo Resist Seq ãƒã‚§ãƒƒã‚¯ ---------- { ---------- */
 	int CheckResistIL(void);
-/* added 2009.11.06 K.Matsuo Resist Seq ƒ`ƒFƒbƒN ---------- } ---------- */
+/* added 2009.11.06 K.Matsuo Resist Seq ãƒã‚§ãƒƒã‚¯ ---------- } ---------- */
 // 2009.11.12 bagus MS --{--
 	BOOL IsMSILPI(void);
 // 2009.11.12 bagus MS --}--
-/* added 2009.09.29 hmenjo Head –ˆ Main Rcp Inf “Ço‚µ ---------- { ---------- */
+/* added 2009.09.29 hmenjo Head æ¯ Main Rcp Inf èª­å‡ºã— ---------- { ---------- */
 	BOOL GetMainRcpInfHead(LPMAIN_RCP_INFO pMainRcpInfo, WORD wHeadType, LPHEAD_MAIN_RCP_INFO pHeadMainRcpInf);
-/* added 2009.09.29 hmenjo Head –ˆ Main Rcp Inf “Ço‚µ ---------- } ---------- */
-/* added 2009.09.10 hmenjo ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^ƒ`ƒFƒbƒNŠÖ”’Ç‰Á ---------- { ---------- */
+/* added 2009.09.29 hmenjo Head æ¯ Main Rcp Inf èª­å‡ºã— ---------- } ---------- */
+/* added 2009.09.10 hmenjo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ãƒã‚§ãƒƒã‚¯é–¢æ•°è¿½åŠ  ---------- { ---------- */
 	int CheckReferenceData(TCHAR* ptszMainRcpName, double dLifeTime, BOOL bRef2ndMeasure = FALSE);
-/* added 2009.09.10 hmenjo ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^ƒ`ƒFƒbƒNŠÖ”’Ç‰Á ---------- } ---------- */
-/* added 2009.09.07 hmenjo ‘ª’è PGM ƒŒƒ“ƒY“Ço‚µ ---------- { ---------- */
+/* added 2009.09.10 hmenjo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ãƒã‚§ãƒƒã‚¯é–¢æ•°è¿½åŠ  ---------- } ---------- */
+/* added 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ¬ãƒ³ã‚ºèª­å‡ºã— ---------- { ---------- */
 	int GetMeasLens(WORD wHeadType = HEAD_TYPE_SR);
-/* added 2009.09.07 hmenjo ‘ª’è PGM ƒŒƒ“ƒY“Ço‚µ ---------- } ---------- */
-/* added 2009.09.07 hmenjo ‘ª’è PGM ƒtƒBƒ‹ƒ^“Ço‚µ ---------- { ---------- */
+/* added 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ¬ãƒ³ã‚ºèª­å‡ºã— ---------- } ---------- */
+/* added 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ•ã‚£ãƒ«ã‚¿èª­å‡ºã— ---------- { ---------- */
 	WORD GetMeasFilter(WORD wHeadType = HEAD_TYPE_SR);
-/* added 2009.09.07 hmenjo ‘ª’è PGM ƒtƒBƒ‹ƒ^“Ço‚µ ---------- } ---------- */
-/* added 2009.08.25 hmenjo SE ƒ‰ƒ“ƒvƒtƒBƒ‹ƒ^§ŒäŠÖ” ---------- { ---------- */
+/* added 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ•ã‚£ãƒ«ã‚¿èª­å‡ºã— ---------- } ---------- */
+/* added 2009.08.25 hmenjo SE ãƒ©ãƒ³ãƒ—ãƒ•ã‚£ãƒ«ã‚¿åˆ¶å¾¡é–¢æ•° ---------- { ---------- */
 	BOOL LampFilterR(WORD wFilter = 0, WORD wMode = 0);
-/* added 2009.08.25 hmenjo SE ƒ‰ƒ“ƒvƒtƒBƒ‹ƒ^§ŒäŠÖ” ---------- } ---------- */
-/* added 2009.08.06 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(31) ---------- { ---------- */
+/* added 2009.08.25 hmenjo SE ãƒ©ãƒ³ãƒ—ãƒ•ã‚£ãƒ«ã‚¿åˆ¶å¾¡é–¢æ•° ---------- } ---------- */
+/* added 2009.08.06 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (31) ---------- { ---------- */
 	BOOL IsHWS();
-/* added 2009.08.06 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(31) ---------- } ---------- */
-/* added 2009.08.03 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(18) ---------- { ---------- */
+/* added 2009.08.06 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (31) ---------- } ---------- */
+/* added 2009.08.03 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (18) ---------- { ---------- */
 	DWORD GetNextLineNo(DWORD* pdwLineNo);
-/* added 2009.08.03 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(18) ---------- } ---------- */
-/* added 2009.08.03 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(17) ---------- { ---------- */
+/* added 2009.08.03 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (18) ---------- } ---------- */
+/* added 2009.08.03 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (17) ---------- { ---------- */
 	DWORD m_dwPinMoveState;
-/* added 2009.08.03 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(17) ---------- } ---------- */
-/* added 2009.07.30 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(3) ---------- { ---------- */
+/* added 2009.08.03 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (17) ---------- } ---------- */
+/* added 2009.07.30 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (3) ---------- { ---------- */
 	BOOL HepaOnOff(BOOL bOn, char* pcHepaAlarmLevel = 0);
-/* added 2009.07.30 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(3) ---------- } ---------- */
-/* added 2009.06.02 hmenjo ƒhƒAŠJ‚Å‘ª’èƒ|[ƒY ---------- { ---------- */
+/* added 2009.07.30 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (3) ---------- } ---------- */
+/* added 2009.06.02 hmenjo ãƒ‰ã‚¢é–‹ã§æ¸¬å®šãƒãƒ¼ã‚º ---------- { ---------- */
 	void SentMeasPauseCheck(int iReason);
 	void SentMeasPause(int iReason, BOOL bRelease = FALSE);
-/* added 2009.06.02 hmenjo ƒhƒAŠJ‚Å‘ª’èƒ|[ƒY ---------- } ---------- */
+/* added 2009.06.02 hmenjo ãƒ‰ã‚¢é–‹ã§æ¸¬å®šãƒãƒ¼ã‚º ---------- } ---------- */
 	void LogChief_Transi(TCHAR* ptszTransiState, DWORD dwParam);
 	void LogChief_WinMsg(TCHAR* ptszMsgName, WPARAM wparam, LPARAM lparam);
 	void LogChief(TCHAR* pszLogText);
@@ -202,9 +202,9 @@ public:
 	BOOL m_bReqCancelComplete;
 	BOOL m_bGotRecipeFromPif;
 	BOOL SelectLens(UINT uiLens);
-/* added 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- { ---------- */
+/* added 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- { ---------- */
 	BOOL SelectHead(WORD wHeadType, BOOL bStageMove);
-/* added 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- } ---------- */
+/* added 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- } ---------- */
 // 2013.02.22 bagus Substrate thickness setting -->
 	BOOL SelectSubstrateThickIndex(int iIndex);
 	BOOL SelectSubstrateThick(double dVal);
@@ -224,41 +224,41 @@ public:
 	CWinThread* m_pcChiefTransiSeq;
 	CWinThread* m_pcChiefTransiSr1Point;
 	CWinThread* m_pcChiefTransiSrRefer;
-/* added 2009.07.30 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(2) ---------- { ---------- */
+/* added 2009.07.30 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (2) ---------- { ---------- */
 	CWinThread* m_pcChiefTransiStress;
-/* added 2009.07.30 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(2) ---------- } ---------- */
+/* added 2009.07.30 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (2) ---------- } ---------- */
 	DWORD m_dwModuleState_Stage;
 	DWORD m_dwModuleState_SR_Meas;
 	HANDLE m_hEvTrMaster;
 	CDocument* m_pcNanoSpecDoc;
 	CFrameWnd* m_pcMainFrame;
-//	CChiefView(CWnd* pParent = NULL);	// •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+//	CChiefView(CWnd* pParent = NULL);	// æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CChiefView)
 	enum { IDD = IDD_CHIEF_DLG };
-		// ƒƒ‚: ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒf[ƒ^ ƒƒ“ƒo‚ğ’Ç‰Á‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢: ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒ‡ãƒ¼ã‚¿ ãƒ¡ãƒ³ãƒã‚’è¿½åŠ ã—ã¾ã™ã€‚
 	//}}AFX_DATA
 
-	// ƒ}ƒ‹ƒ`ƒƒfƒBƒAƒ^ƒCƒ} ƒR[ƒ‹ƒoƒbƒN’è‹`
+	// ãƒãƒ«ãƒãƒ¡ãƒ‡ã‚£ã‚¢ã‚¿ã‚¤ãƒ ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯å®šç¾©
 	static void CALLBACK MMTimerProc(UINT uTimerID, UINT uMsg, DWORD dwUser, DWORD dw1, DWORD dw2);
 	static UINT m_uiMMTimerID[16];
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CChiefView)
 	public:
 	virtual void OnInitialUpdate();
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	virtual void PostNcDestroy();
 	virtual void OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint);
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CChiefView)
 	afx_msg void OnTimer(UINT nIDEvent);
 	virtual void OnCancel();
@@ -300,33 +300,33 @@ protected:
 	afx_msg LRESULT OnStartSrRefer(WPARAM wparam, LPARAM lparam);
 	afx_msg LRESULT OnDlgShowSW(WPARAM wparam, LPARAM lparam);
 	afx_msg LRESULT OnResetAlarm(WPARAM wparam, LPARAM lparam);
-/* added 2009.08.05 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(25) ---------- { ---------- */
+/* added 2009.08.05 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (25) ---------- { ---------- */
 	afx_msg LRESULT OnMeasLineEnd(WPARAM wparam, LPARAM lparam);
 	afx_msg LRESULT OnDataLineEnd(WPARAM wparam, LPARAM lparam);
 	afx_msg LRESULT OnDataStressMeasEnd(WPARAM wparam, LPARAM lparam);
-/* added 2009.08.05 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(25) ---------- } ---------- */
+/* added 2009.08.05 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (25) ---------- } ---------- */
 //2009.10.28 bagus 2point-distance --{--
 	afx_msg LRESULT OnDistancePopupEnd(WPARAM wparam, LPARAM lparam);
 //2009.10.28 bagus 2point-distance --}--
-/* added 2009.10.30 hmenjo CTA ƒAƒ‰[ƒ€ƒnƒ“ƒhƒ‰ ---------- { ---------- */
+/* added 2009.10.30 hmenjo CTA ã‚¢ãƒ©ãƒ¼ãƒ ãƒãƒ³ãƒ‰ãƒ© ---------- { ---------- */
 	afx_msg LRESULT OnMeasAlarmCTA(WPARAM wparam, LPARAM lparam);
-/* added 2009.10.30 hmenjo CTA ƒAƒ‰[ƒ€ƒnƒ“ƒhƒ‰ ---------- } ---------- */
+/* added 2009.10.30 hmenjo CTA ã‚¢ãƒ©ãƒ¼ãƒ ãƒãƒ³ãƒ‰ãƒ© ---------- } ---------- */
 //2009.11.03 bagus MS --{--
 	afx_msg LRESULT OnMSPopupEnd(WPARAM wparam,LPARAM lparam);
 //2009.11.03 bagus MS --}--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	afx_msg LRESULT OnMeasCompEASEStatus(WPARAM wparam, LPARAM lparam);
 	afx_msg LRESULT OnMeasCompEASEError(WPARAM wparam, LPARAM lparam);
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	afx_msg LRESULT OnConfirmPopupEnd(WPARAM wparam, LPARAM lparam);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 
 	DECLARE_MESSAGE_MAP()
 private:
-/* added 2009.11.06 hmenjo CTA ƒAƒ‰[ƒ€ƒŠƒZƒbƒgˆÙíƒŠƒZƒbƒg ---------- { ---------- */
+/* added 2009.11.06 hmenjo CTA ã‚¢ãƒ©ãƒ¼ãƒ ãƒªã‚»ãƒƒãƒˆæ™‚ç•°å¸¸ãƒªã‚»ãƒƒãƒˆ ---------- { ---------- */
 	int CtaReset(DWORD dwMode = 0);
-/* added 2009.11.06 hmenjo CTA ƒAƒ‰[ƒ€ƒŠƒZƒbƒgˆÙíƒŠƒZƒbƒg ---------- } ---------- */
+/* added 2009.11.06 hmenjo CTA ã‚¢ãƒ©ãƒ¼ãƒ ãƒªã‚»ãƒƒãƒˆæ™‚ç•°å¸¸ãƒªã‚»ãƒƒãƒˆ ---------- } ---------- */
 	DWORD m_bCheckEqPowerOFF;
 	void EqPowerOffPulse(void);
 	WAIT_MEAS_TIME m_WaitMeasTime;
@@ -338,9 +338,9 @@ private:
 	ALARM_FLAGS m_AlarmFlags;
 	void CancelSeqForAlarm(void);
 	void StopAxisAllEMO(void);
-/* deleted 2009.11.27 hmenjo Pif ƒsƒ“&ƒVƒƒƒbƒ^ “¯“®ì ---------- { ---------- */
+/* deleted 2009.11.27 hmenjo Pif ãƒ”ãƒ³&ã‚·ãƒ£ãƒƒã‚¿ åŒæ™‚å‹•ä½œ ---------- { ---------- */
 //	DIO_IGNORE_SW m_DioIgnoreSW;
-/* deleted 2009.11.27 hmenjo Pif ƒsƒ“&ƒVƒƒƒbƒ^ “¯“®ì ---------- } ---------- */
+/* deleted 2009.11.27 hmenjo Pif ãƒ”ãƒ³&ã‚·ãƒ£ãƒƒã‚¿ åŒæ™‚å‹•ä½œ ---------- } ---------- */
 	DWORD RecipesGetCheck(TCHAR *pszMainRecipeName, DWORD dwMode);
 	void RecipesMalloc(BOOL bAlloc);
 	DWORD m_dwModuleState_Pif;
@@ -361,7 +361,7 @@ private:
 	CWinThread* m_pcChiefRcvMailThread;
 	CHIEF_DLGSHOWSW m_DlgShowSW;
 	DWORD m_dwHeartBeatCnt;
-/* added 2009.05.27 hmenjo SPT ƒAƒ‰[ƒ€‚ÌŒŸo ---------- { ---------- */
+/* added 2009.05.27 hmenjo SPT ã‚¢ãƒ©ãƒ¼ãƒ ã®æ¤œå‡º ---------- { ---------- */
 	void SPTAlarmDetector(void);
-/* added 2009.05.27 hmenjo SPT ƒAƒ‰[ƒ€‚ÌŒŸo ---------- } ---------- */
+/* added 2009.05.27 hmenjo SPT ã‚¢ãƒ©ãƒ¼ãƒ ã®æ¤œå‡º ---------- } ---------- */
 };

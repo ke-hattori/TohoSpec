@@ -1,4 +1,4 @@
-// NanoSpec.h : NANOSPEC ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌƒƒCƒ“ ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+ï»¿// NanoSpec.h : NANOSPEC ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ãƒ¡ã‚¤ãƒ³ ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #if !defined(AFX_NANOSPEC_H__3ED5792D_CD32_4FF1_8BE2_910C169BFB06__INCLUDED_)
@@ -12,13 +12,13 @@
     #error include 'stdafx.h' before including this file for PCH
 #endif
 
-#include "resource.h"		// ƒƒCƒ“ ƒVƒ“ƒ{ƒ‹
+#include "resource.h"		// ãƒ¡ã‚¤ãƒ³ ã‚·ãƒ³ãƒœãƒ«
 #include "System.h"
 
-// 2009.11.24 K.Matsuo ƒwƒbƒhƒIƒtƒZƒbƒg‘Î‰•ƒ}ƒNƒ‚©‚çŠÖ”‰» -->
+// 2009.11.24 K.Matsuo ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆå¯¾å¿œï¼†ãƒã‚¯ãƒ­ã‹ã‚‰é–¢æ•°åŒ– -->
 BOOL StageSelectLensNotify(UINT nLens);
 BOOL SelectHeadTypeNotify(WORD wHeadType, BOOL bStageMove);
-// 2009.11.24 K.Matsuo ƒwƒbƒhƒIƒtƒZƒbƒg‘Î‰•ƒ}ƒNƒ‚©‚çŠÖ”‰» <--
+// 2009.11.24 K.Matsuo ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆå¯¾å¿œï¼†ãƒã‚¯ãƒ­ã‹ã‚‰é–¢æ•°åŒ– <--
 // 2013.02.22 bagus Substrate thickness setting -->
 BOOL SelectSubThickNotifyIndex(int iIndex);
 BOOL SelectSubThickNotify(double dThickness);
@@ -46,25 +46,25 @@ public:
 	CDebugDlg* m_pDebugDlg;
 
 private:
-/* added 2014.12.24 hmenjo ‘½d‹N“®–h~ˆ—ˆÚ“® ---------- { ---------- */
+/* added 2014.12.24 hmenjo å¤šé‡èµ·å‹•é˜²æ­¢å‡¦ç†ç§»å‹• ---------- { ---------- */
 	HANDLE m_hMutex_Run;
-/* added 2014.12.24 hmenjo ‘½d‹N“®–h~ˆ—ˆÚ“® ---------- } ---------- */
-/* added 2014.11.22 hmenjo StartUpLogo ‹N“®/’â~ ---------- { ---------- */
+/* added 2014.12.24 hmenjo å¤šé‡èµ·å‹•é˜²æ­¢å‡¦ç†ç§»å‹• ---------- } ---------- */
+/* added 2014.11.22 hmenjo StartUpLogo èµ·å‹•/åœæ­¢ ---------- { ---------- */
 	long StartUpLogo(long lCmd = 0);
-/* added 2014.11.22 hmenjo StartUpLogo ‹N“®/’â~ ---------- } ---------- */
-/* added 2010.11.16 hmenjo ‹N“®‘S WVASE I—¹ ---------- { ---------- */
+/* added 2014.11.22 hmenjo StartUpLogo èµ·å‹•/åœæ­¢ ---------- } ---------- */
+/* added 2010.11.16 hmenjo èµ·å‹•æ™‚å…¨ WVASE çµ‚äº† ---------- { ---------- */
 	void ExitNanoProcesses(TCHAR (*ptszProcList)[][_MAX_FNAME]);
-/* added 2010.11.16 hmenjo ‹N“®‘S WVASE I—¹ ---------- } ---------- */
-/* added 2009.07.13 hmenjo ÀsƒpƒXİ’è ---------- { ---------- */
+/* added 2010.11.16 hmenjo èµ·å‹•æ™‚å…¨ WVASE çµ‚äº† ---------- } ---------- */
+/* added 2009.07.13 hmenjo å®Ÿè¡Œãƒ‘ã‚¹è¨­å®š ---------- { ---------- */
 	int SetEnvNanoPath();
-/* added 2009.07.13 hmenjo ÀsƒpƒXİ’è ---------- } ---------- */
-/* added 2009.06.05 hmenjo NanoSpecTitle Á‚¦‚È‚¢‘Îô ---------- { ---------- */
+/* added 2009.07.13 hmenjo å®Ÿè¡Œãƒ‘ã‚¹è¨­å®š ---------- } ---------- */
+/* added 2009.06.05 hmenjo NanoSpecTitle æ¶ˆãˆãªã„å¯¾ç­– ---------- { ---------- */
 	DWORD m_dwProcIdNanoTitle;
-/* added 2009.06.05 hmenjo NanoSpecTitle Á‚¦‚È‚¢‘Îô ---------- } ---------- */
+/* added 2009.06.05 hmenjo NanoSpecTitle æ¶ˆãˆãªã„å¯¾ç­– ---------- } ---------- */
 	void MakePath();
 //	CView* m_pViews[MODE_NUM_MAX];
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CNanoSpecApp)
 	public:
 	virtual BOOL InitInstance();
@@ -72,7 +72,7 @@ private:
 	virtual int ExitInstance();
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 	//{{AFX_MSG(CNanoSpecApp)
 	afx_msg void OnAppAbout();
 	afx_msg void OnDebug();
@@ -81,6 +81,6 @@ private:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_NANOSPEC_H__3ED5792D_CD32_4FF1_8BE2_910C169BFB06__INCLUDED_)

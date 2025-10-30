@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "PifMessageBehavior.h"
 
@@ -239,7 +239,7 @@ public:
 	}
 };
 
-// 2009.06.02 K.Matsuo ‘•’u‰æ–Ê‘€ìƒCƒ“ƒ^[ƒƒbƒN‹@”\’Ç‰Á -->
+// 2009.06.02 K.Matsuo è£…ç½®ç”»é¢æ“ä½œã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ©Ÿèƒ½è¿½åŠ  -->
 //---------------------------------------------------------------------------
 // CPifMessage105
 class CPifMessage105 : public CPifMessage
@@ -261,10 +261,10 @@ public:
 		CPifMessage::SendRequ(_T("P106"));
 	}
 };
-// 2009.06.02 K.Matsuo ‘•’u‰æ–Ê‘€ìƒCƒ“ƒ^[ƒƒbƒN‹@”\’Ç‰Á <--
+// 2009.06.02 K.Matsuo è£…ç½®ç”»é¢æ“ä½œã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ©Ÿèƒ½è¿½åŠ  <--
 
 //---------------------------------------------------------------------------
-// CPifMessage201 ‡‚í‚¹—v‹
+// CPifMessage201 æ™‚åˆ»åˆã‚ã›è¦æ±‚
 class CPifMessage201 : public CPifMessage
 {
 public:
@@ -320,7 +320,7 @@ private:
 };
 
 //---------------------------------------------------------------------------
-// CPifMessage301 ‘•’uƒ‚ƒjƒ^[î•ñ•ñ
+// CPifMessage301 è£…ç½®ãƒ¢ãƒ‹ã‚¿ãƒ¼æƒ…å ±å ±å‘Š
 class CPifMessage301 : public CPifMessage
 {
 public:
@@ -457,7 +457,7 @@ private:
 };
 
 //---------------------------------------------------------------------------
-// CPifMessage302 ‘•’uƒ‚ƒjƒ^[î•ñæ“¾—v‹
+// CPifMessage302 è£…ç½®ãƒ¢ãƒ‹ã‚¿ãƒ¼æƒ…å ±å–å¾—è¦æ±‚
 class CPifMessage302 : public CPifMessage
 {
 public:
@@ -468,7 +468,7 @@ public:
 };
 
 //---------------------------------------------------------------------------
-// CPifMessage303 ƒŒƒVƒsˆê——æ“¾—v‹
+// CPifMessage303 ãƒ¬ã‚·ãƒ”ä¸€è¦§å–å¾—è¦æ±‚
 class CPifMessage303 : public CPifMessage
 {
 public:
@@ -497,7 +497,7 @@ private:
 };
 
 //---------------------------------------------------------------------------
-// CPifMessage304 ƒŒƒVƒsˆê——•ñ
+// CPifMessage304 ãƒ¬ã‚·ãƒ”ä¸€è¦§å ±å‘Š
 class CPifMessage304 : public CPifMessage
 {
 public:
@@ -553,7 +553,7 @@ public:
 		return _ttoi(szBuff);
 	}
 
-	LPCTSTR GetItemRecipeListPtr() const	// recipename + datetime ‚ğˆê‘g‚Æ‚µ‚Ä”z—ñ{I’[•¶šCR‚Ì•¶š—ñ‚Ìæ“ªƒ|ƒCƒ“ƒ^‚ğ•Ô‚· ex. "recipe...datetime...recipe...datetime...[CR]"
+	LPCTSTR GetItemRecipeListPtr() const	// recipename + datetime ã‚’ä¸€çµ„ã¨ã—ã¦é…åˆ—ï¼‹çµ‚ç«¯æ–‡å­—CRã®æ–‡å­—åˆ—ã®å…ˆé ­ãƒã‚¤ãƒ³ã‚¿ã‚’è¿”ã™ ex. "recipe...datetime...recipe...datetime...[CR]"
 	{
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN + KINDOFRECIPELEN;
 		return &m_pszRequMessage[nPos];
@@ -566,7 +566,7 @@ private:
 };
 
 //---------------------------------------------------------------------------
-// CPifMessage305 ƒŒƒVƒs•ÏX•ñ
+// CPifMessage305 ãƒ¬ã‚·ãƒ”å¤‰æ›´å ±å‘Š
 class CPifMessage305 : public CPifMessage
 {
 public:
@@ -627,7 +627,7 @@ private:
 };
 
 //---------------------------------------------------------------------------
-// CPifMessage306 ƒgƒŒ[ƒXƒf[ƒ^æ“¾—v‹
+// CPifMessage306 ãƒˆãƒ¬ãƒ¼ã‚¹ãƒ‡ãƒ¼ã‚¿å–å¾—è¦æ±‚
 class CPifMessage306 : public CPifMessage
 {
 public:
@@ -638,12 +638,12 @@ public:
 };
 
 //---------------------------------------------------------------------------
-// CPifMessage307 ƒgƒŒ[ƒXƒf[ƒ^•ñ
+// CPifMessage307 ãƒˆãƒ¬ãƒ¼ã‚¹ãƒ‡ãƒ¼ã‚¿å ±å‘Š
 class CPifMessage307 : public CPifMessage
 {
 public:
 	enum { DATETIMELEN		= 14,
-		   DATETIMESPANLEN	= 14, };	// ƒŒƒ“ƒOƒX”‚ÍADATETIMELEN == DATETIMESPANLEN‚É‚µ‚Ä‚¨‚­iƒIƒtƒZƒbƒgˆÊ’uZo‚ª–Ê“|‚È‚Ì‚ÅBj
+		   DATETIMESPANLEN	= 14, };	// ãƒ¬ãƒ³ã‚°ã‚¹æ•°ã¯ã€DATETIMELEN == DATETIMESPANLENã«ã—ã¦ãŠãï¼ˆã‚ªãƒ•ã‚»ãƒƒãƒˆä½ç½®ç®—å‡ºãŒé¢å€’ãªã®ã§ã€‚ï¼‰
 
 	void SetItemSrVisReflectLampLastExchange(const SYSTEMTIME* pSystemTime)
 	{
@@ -896,7 +896,7 @@ private:
 };
 
 //---------------------------------------------------------------------------
-// CPifMessage308 ƒTƒ“ƒvƒ‹ƒTƒCƒYƒf[ƒ^æ“¾—v‹
+// CPifMessage308 ã‚µãƒ³ãƒ—ãƒ«ã‚µã‚¤ã‚ºãƒ‡ãƒ¼ã‚¿å–å¾—è¦æ±‚
 class CPifMessage308 : public CPifMessage
 {
 public:
@@ -931,7 +931,7 @@ private:
 };
 
 //---------------------------------------------------------------------------
-// CPifMessage309 ƒTƒ“ƒvƒ‹ƒTƒCƒYƒf[ƒ^•ñ
+// CPifMessage309 ã‚µãƒ³ãƒ—ãƒ«ã‚µã‚¤ã‚ºãƒ‡ãƒ¼ã‚¿å ±å‘Š
 class CPifMessage309 : public CPifMessage
 {
 public:
@@ -982,9 +982,9 @@ private:
 	TCHAR m_szSampleSizeY[SAMPLESIZEYLEN + 1];
 };
 
-// 2009.09.10 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^Šm”F‹@”\’Ç‰Á -->
+// 2009.09.10 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ç¢ºèªæ©Ÿèƒ½è¿½åŠ  -->
 //---------------------------------------------------------------------------
-// CPifMessage310 ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^Šm”F—v‹
+// CPifMessage310 ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ç¢ºèªè¦æ±‚
 class CPifMessage310 : public CPifMessage
 {
 public:
@@ -1017,10 +1017,10 @@ public:
 private:
 	TCHAR m_szRecipeName[RECIPENAMELEN + 1];
 };
-// 2009.09.10 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^Šm”F‹@”\’Ç‰Á <--
+// 2009.09.10 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ç¢ºèªæ©Ÿèƒ½è¿½åŠ  <--
 
 //---------------------------------------------------------------------------
-// CPifMessage401 ’…HƒŒƒVƒsw¦—v‹
+// CPifMessage401 ç€å·¥ãƒ¬ã‚·ãƒ”æŒ‡ç¤ºè¦æ±‚
 class CPifMessage401 : public CPifMessage
 {
 public:
@@ -1053,9 +1053,9 @@ private:
 	TCHAR m_szRecipeName[RECIPENAMELEN + 1];
 };
 
-// 2009.10.29 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾‹@”\’Ç‰Á -->
+// 2009.10.29 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—æ©Ÿèƒ½è¿½åŠ  -->
 //---------------------------------------------------------------------------
-// CPifMessage411 ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾ƒŒƒVƒsw¦—v‹
+// CPifMessage411 ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—ãƒ¬ã‚·ãƒ”æŒ‡ç¤ºè¦æ±‚
 class CPifMessage411 : public CPifMessage
 {
 public:
@@ -1087,10 +1087,10 @@ public:
 private:
 	TCHAR m_szRecipeName[RECIPENAMELEN + 1];
 };
-// 2009.09.10 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾‹@”\’Ç‰Á <--
+// 2009.09.10 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—æ©Ÿèƒ½è¿½åŠ  <--
 
 //---------------------------------------------------------------------------
-// CPifMessage501 ‘ª’èŠJnw¦—v‹
+// CPifMessage501 æ¸¬å®šé–‹å§‹æŒ‡ç¤ºè¦æ±‚
 class CPifMessage501 : public CPifMessage
 {
 public:
@@ -1186,15 +1186,15 @@ public:
 	{
 		_stprintf(m_szFormatId, _T("%03d"), iFormatId);
 
-		// ‰Šú’l•ÒW
+		// åˆæœŸå€¤ç·¨é›†
 		switch ( iFormatId ) {
-		case 1:	// SR–ŒŒú
-		case 2:	// SR”½Ë—¦
-		case 3:	// SR“§‰ß—¦
+		case 1:	// SRè†œåš
+		case 2:	// SRåå°„ç‡
+		case 3:	// SRé€éç‡
 		case 4:	// SE
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 		case 7:	// EASE
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 			SetItemAF_ST("");
 			SetItemXCOORD(0.0);
 			SetItemYCOORD(0.0);
@@ -1263,7 +1263,7 @@ public:
 			SetItemFRACTION8(0.0);
 			break;
 		case 5:	// RS(Resist)
-			SetItemAF_ST("");		// Filler€–ÚiAF–¢g—pj
+			SetItemAF_ST("");		// Filleré …ç›®ï¼ˆAFæœªä½¿ç”¨ï¼‰
 			SetItemXCOORD(0.0);
 			SetItemYCOORD(0.0);
 			SetItemZCOORD(0.0);
@@ -1274,7 +1274,7 @@ public:
 			SetItemRSCONDUCTIVITY("0.000E+00");
 			break;
 		case 6:	// CA(ContactAngle)
-			SetItemAF_ST("");		// Filler€–ÚiAF–¢g—pj
+			SetItemAF_ST("");		// Filleré …ç›®ï¼ˆAFæœªä½¿ç”¨ï¼‰
 			SetItemXCOORD(0.0);
 			SetItemYCOORD(0.0);
 			SetItemZCOORD(0.0);
@@ -1283,9 +1283,9 @@ public:
 			SetItemCALIQUID(0.0);
 			break;
 		case 101:
-// 2009.09.17 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXE‰—Í‘ª’èƒ‚[ƒh -->
+// 2009.09.17 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ»å¿œåŠ›æ¸¬å®šãƒ¢ãƒ¼ãƒ‰ -->
 			SetItemSTRMEASMODE(0);
-// 2009.09.17 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXE‰—Í‘ª’èƒ‚[ƒh <--
+// 2009.09.17 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ»å¿œåŠ›æ¸¬å®šãƒ¢ãƒ¼ãƒ‰ <--
 			SetItemSTRLx_Valid(0);
 			SetItemSTRLxS1_Valid(0);
 			SetItemSTRLxS1_StartX(0.0);
@@ -1490,10 +1490,10 @@ public:
 	GETSETITEMDOUBLE(65, FRACTION8)
 
 	// FormatId 005
-//	GETSETITEMASCII(0, AF_ST)			// Filler€–ÚiAF–¢g—pj
-//	GETSETITEMDOUBLE(1, XCOORD)			// Šù‚É’è‹`Ï‚İ
-//	GETSETITEMDOUBLE(2, YCOORD)			// Šù‚É’è‹`Ï‚İ
-//	GETSETITEMDOUBLE(3, ZCOORD)			// Šù‚É’è‹`Ï‚İ
+//	GETSETITEMASCII(0, AF_ST)			// Filleré …ç›®ï¼ˆAFæœªä½¿ç”¨ï¼‰
+//	GETSETITEMDOUBLE(1, XCOORD)			// æ—¢ã«å®šç¾©æ¸ˆã¿
+//	GETSETITEMDOUBLE(2, YCOORD)			// æ—¢ã«å®šç¾©æ¸ˆã¿
+//	GETSETITEMDOUBLE(3, ZCOORD)			// æ—¢ã«å®šç¾©æ¸ˆã¿
 	GETSETITEMASCII(4, RSDATAVALID)
 	GETSETITEMASCII(5, RSRESIST)
 	GETSETITEMASCII(6, RSSURFACERESIST)
@@ -1501,18 +1501,18 @@ public:
 	GETSETITEMASCII(8, RSCONDUCTIVITY)
 
 	// FormatId 006
-//	GETSETITEMASCII(0, AF_ST)			// Filler€–ÚiAF–¢g—pj
-//	GETSETITEMDOUBLE(1, XCOORD)			// Šù‚É’è‹`Ï‚İ
-//	GETSETITEMDOUBLE(2, YCOORD)			// Šù‚É’è‹`Ï‚İ
-//	GETSETITEMDOUBLE(3, ZCOORD)			// Šù‚É’è‹`Ï‚İ
+//	GETSETITEMASCII(0, AF_ST)			// Filleré …ç›®ï¼ˆAFæœªä½¿ç”¨ï¼‰
+//	GETSETITEMDOUBLE(1, XCOORD)			// æ—¢ã«å®šç¾©æ¸ˆã¿
+//	GETSETITEMDOUBLE(2, YCOORD)			// æ—¢ã«å®šç¾©æ¸ˆã¿
+//	GETSETITEMDOUBLE(3, ZCOORD)			// æ—¢ã«å®šç¾©æ¸ˆã¿
 	GETSETITEMDOUBLE(4, CACONTACTANGLE)
 	GETSETITEMDOUBLE(5, CARADIUS)
 	GETSETITEMDOUBLE(6, CALIQUID)
 
 	// FormatId 101
-// 2009.09.17 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXE‰—Í‘ª’èƒ‚[ƒh -->
+// 2009.09.17 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ»å¿œåŠ›æ¸¬å®šãƒ¢ãƒ¼ãƒ‰ -->
 	GETSETITEMINT(0, STRMEASMODE)
-// 2009.09.17 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXE‰—Í‘ª’èƒ‚[ƒh <--
+// 2009.09.17 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ»å¿œåŠ›æ¸¬å®šãƒ¢ãƒ¼ãƒ‰ <--
 	GETSETITEMINT(1, STRLx_Valid)
 	GETSETITEMINT(2, STRLxS1_Valid)
 	GETSETITEMDOUBLE(3, STRLxS1_StartX)
@@ -1668,9 +1668,9 @@ public:
 			 _tcscmp(m_szFormatId, _T("002")) == 0 ||
 			 _tcscmp(m_szFormatId, _T("003")) == 0 ||
 			 _tcscmp(m_szFormatId, _T("004")) == 0 ||
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 			 _tcscmp(m_szFormatId, _T("007")) == 0 ) {
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 			strMsg = m_szFormatId;
 			strMsg += m_szPointNo;
 			for ( int i = 0; i < PROCESSDATAOCCURENCEMAX66; i++ )
@@ -1747,15 +1747,15 @@ public:
 	{
 		_stprintf(m_szFormatId, _T("%03d"), iFormatId);
 
-		// ‰Šú’l•ÒW
+		// åˆæœŸå€¤ç·¨é›†
 		switch ( iFormatId ) {
-		case 1:	// SR–ŒŒú
-		case 2:	// SR”½Ë—¦
-		case 3:	// SR“§‰ß—¦
+		case 1:	// SRè†œåš
+		case 2:	// SRåå°„ç‡
+		case 3:	// SRé€éç‡
 		case 4:	// SE
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 		case 7:	// EASE
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 			SetItemLAYERFLG(_T("00000000"));
 			SetItemTHICK1_MIN(0.0);
 			SetItemTHICK2_MIN(0.0);
@@ -2074,9 +2074,9 @@ public:
 			SetItemCALIQUID_UNIF(0.0);
 			break;
 		case 101:
-// 2009.09.17 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXE‰—Í‘ª’èƒ‚[ƒh -->
+// 2009.09.17 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ»å¿œåŠ›æ¸¬å®šãƒ¢ãƒ¼ãƒ‰ -->
 			SetItemSTRMEASMODE(0);
-// 2009.09.17 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXE‰—Í‘ª’èƒ‚[ƒh <--
+// 2009.09.17 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ»å¿œåŠ›æ¸¬å®šãƒ¢ãƒ¼ãƒ‰ <--
 			SetItemSTRLxValidFLG0(_T("0000000000000000"));
 			SetItemSTRLxValidFLG1(_T("0000"));
 			SetItemSTRL1_MIN(0.0);
@@ -2517,9 +2517,9 @@ public:
 	GETSETITEMDOUBLE(14, CALIQUID_UNIF)
 
 	// FormatId 101
-// 2009.09.17 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXE‰—Í‘ª’èƒ‚[ƒh -->
+// 2009.09.17 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ»å¿œåŠ›æ¸¬å®šãƒ¢ãƒ¼ãƒ‰ -->
 	GETSETITEMINT(0, STRMEASMODE)
-// 2009.09.17 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXE‰—Í‘ª’èƒ‚[ƒh <--
+// 2009.09.17 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ»å¿œåŠ›æ¸¬å®šãƒ¢ãƒ¼ãƒ‰ <--
 	GETSETITEMASCII(1, STRLxValidFLG0)
 	GETSETITEMASCII(2, STRLxValidFLG1)
 	GETSETITEMDOUBLE(3, STRL1_MIN)
@@ -2661,9 +2661,9 @@ public:
 			 _tcscmp(m_szFormatId, _T("002")) == 0 ||
 			 _tcscmp(m_szFormatId, _T("003")) == 0 ||
 			 _tcscmp(m_szFormatId, _T("004")) == 0 ||
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 			 _tcscmp(m_szFormatId, _T("007")) == 0 ) {
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 			strMsg = m_szFormatId;
 			strMsg += m_szPointNo;
 			for ( int i = 0; i < PROCESSDATAOCCURENCEMAX277; i++ )
@@ -2710,9 +2710,9 @@ private:
 	PROCESSDATASET stProcessDataSet[PROCESSDATAOCCURENCEMAX277];
 };
 
-// 2009.10.29 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾‹@”\’Ç‰Á -->
+// 2009.10.29 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—æ©Ÿèƒ½è¿½åŠ  -->
 //---------------------------------------------------------------------------
-// CPifMessage511 ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾ŠJnw¦—v‹
+// CPifMessage511 ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—é–‹å§‹æŒ‡ç¤ºè¦æ±‚
 class CPifMessage511 : public CPifMessage
 {
 public:
@@ -2788,7 +2788,7 @@ public:
 
 	CPifMessage512()
 	{
-		// 001:”Ä—pƒR[ƒh
+		// 001:æ±ç”¨ã‚³ãƒ¼ãƒ‰
 		SetItemFormatId(1);
 	}
 
@@ -2855,7 +2855,7 @@ public:
 
 	CPifMessage513()
 	{
-		// 001:”Ä—pƒR[ƒh
+		// 001:æ±ç”¨ã‚³ãƒ¼ãƒ‰
 		SetItemFormatId(1);
 	}
 
@@ -2909,7 +2909,7 @@ private:
 	TCHAR m_szFormatId[FORMATIDLEN + 1];
 	TCHAR m_szPointNo[POINTNOLEN + 1];
 };
-// 2009.10.29 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾‹@”\’Ç‰Á <--
+// 2009.10.29 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—æ©Ÿèƒ½è¿½åŠ  <--
 
 //---------------------------------------------------------------------------
 // CPifMessage504
@@ -2922,7 +2922,7 @@ public:
 	}
 };
 
-// 2014.01.07 bagus Add(Stage None‘Î‰) -->
+// 2014.01.07 bagus Add(Stage Noneå¯¾å¿œ) -->
 //---------------------------------------------------------------------------
 // CPifMessage514
 class CPifMessage514 : public CPifMessage
@@ -3004,7 +3004,7 @@ public:
 private:
 	TCHAR m_szReferenceResult[REFERENCERESULTLEN + 1];
 };
-// 2014.01.07 bagus Add(Stage None‘Î‰) <--
+// 2014.01.07 bagus Add(Stage Noneå¯¾å¿œ) <--
 
 //---------------------------------------------------------------------------
 // CPifMessage601
@@ -3604,7 +3604,7 @@ private:
 };
 
 //---------------------------------------------------------------------------
-// CPifMessage901 –¢“o˜^ƒRƒ}ƒ“ƒh
+// CPifMessage901 æœªç™»éŒ²ã‚³ãƒãƒ³ãƒ‰
 class CPifMessage901 : public CPifMessage
 {
 public:
@@ -3625,7 +3625,7 @@ private:
 };
 
 //---------------------------------------------------------------------------
-// CPifMessage902 ƒf[ƒ^ƒŒƒ“ƒOƒXƒGƒ‰[
+// CPifMessage902 ãƒ‡ãƒ¼ã‚¿ãƒ¬ãƒ³ã‚°ã‚¹ã‚¨ãƒ©ãƒ¼
 class CPifMessage902 : public CPifMessage
 {
 public:
@@ -3645,7 +3645,7 @@ private:
 };
 
 //---------------------------------------------------------------------------
-// CPifMessage903 ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ƒ^ƒCƒ}ƒ^ƒCƒ€ƒAƒEƒg
+// CPifMessage903 ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚¿ã‚¤ãƒã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆ
 class CPifMessage903 : public CPifMessage
 {
 public:
@@ -3665,7 +3665,7 @@ private:
 };
 
 //---------------------------------------------------------------------------
-// CPifMessage904 ‰ï˜bƒ^ƒCƒ}ƒ^ƒCƒ€ƒAƒEƒg
+// CPifMessage904 ä¼šè©±ã‚¿ã‚¤ãƒã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆ
 class CPifMessage904 : public CPifMessage
 {
 public:
@@ -3685,7 +3685,7 @@ private:
 };
 
 //---------------------------------------------------------------------------
-// CPifMessage905 ƒV[ƒPƒ“ƒXƒGƒ‰[
+// CPifMessage905 ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚¨ãƒ©ãƒ¼
 class CPifMessage905 : public CPifMessage
 {
 public:
@@ -3705,7 +3705,7 @@ private:
 };
 
 //---------------------------------------------------------------------------
-// CPifMessage997 ƒf[ƒ^ƒŒƒ“ƒOƒX•s³iƒfƒoƒbƒOŠm”F—pj
+// CPifMessage997 ãƒ‡ãƒ¼ã‚¿ãƒ¬ãƒ³ã‚°ã‚¹ä¸æ­£ï¼ˆãƒ‡ãƒãƒƒã‚°ç¢ºèªç”¨ï¼‰
 class CPifMessage996 : public CPifMessage
 {
 public:
@@ -3722,7 +3722,7 @@ public:
 };
 
 //---------------------------------------------------------------------------
-// CPifMessage997 ƒf[ƒ^ƒŒƒ“ƒOƒX•s³iƒfƒoƒbƒOŠm”F—pj
+// CPifMessage997 ãƒ‡ãƒ¼ã‚¿ãƒ¬ãƒ³ã‚°ã‚¹ä¸æ­£ï¼ˆãƒ‡ãƒãƒƒã‚°ç¢ºèªç”¨ï¼‰
 class CPifMessage997 : public CPifMessage
 {
 public:
@@ -3739,7 +3739,7 @@ public:
 };
 
 //---------------------------------------------------------------------------
-// CPifMessage998 ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ƒ^ƒCƒ}ƒ^ƒCƒ€ƒAƒEƒgƒRƒ}ƒ“ƒhiƒfƒoƒbƒOŠm”F—pj
+// CPifMessage998 ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚¿ã‚¤ãƒã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã‚³ãƒãƒ³ãƒ‰ï¼ˆãƒ‡ãƒãƒƒã‚°ç¢ºèªç”¨ï¼‰
 class CPifMessage998 : public CPifMessage
 {
 public:
@@ -3750,7 +3750,7 @@ public:
 };
 
 //---------------------------------------------------------------------------
-// CPifMessage999 •s³ƒRƒ}ƒ“ƒhiƒfƒoƒbƒOŠm”F—pj
+// CPifMessage999 ä¸æ­£ã‚³ãƒãƒ³ãƒ‰ï¼ˆãƒ‡ãƒãƒƒã‚°ç¢ºèªç”¨ï¼‰
 class CPifMessage999 : public CPifMessage
 {
 public:

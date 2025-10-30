@@ -1,4 +1,4 @@
-// DeskewDlg.cpp : Cve[V t@C
+﻿// DeskewDlg.cpp : Cve[V t@C
 //
 
 #include "stdafx.h"

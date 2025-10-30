@@ -1,4 +1,4 @@
-// NanoUI.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+ï»¿// NanoUI.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #pragma once

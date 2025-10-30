@@ -1,4 +1,4 @@
-// HandlerLoadPositionSettingDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// HandlerLoadPositionSettingDlg.cpp : インプリメンテーション ファイル
 //
 
 #include "stdafx.h"
@@ -21,10 +21,10 @@ static char THIS_FILE[] = __FILE__;
 //																		   //
 // ==========================================================================
 //#define HANDERLOADPOSITIONSETTING_CAPTION 	"HANDLER LOAD POSITION SETTING"
-//#define HANDERLOADPOSITIONSETTING_CAPTION 	  "�n���h���[�E���[�h�|�W�V���� �Z�b�e�B���O"
+//#define HANDERLOADPOSITIONSETTING_CAPTION 	  "ハンドラー・ロードポジション セッティング"
 
 // ##########################################################################
-// CHandlerLoadPositionSettingDlg �_�C�A���O
+// CHandlerLoadPositionSettingDlg ダイアログ
 // ##########################################################################
 
 // ==========================================================================
@@ -59,7 +59,7 @@ BEGIN_MESSAGE_MAP(CHandlerLoadPositionSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // ==========================================================================
-// CHandlerLoadPositionSettingDlg ���b�Z�[�W �n���h��
+// CHandlerLoadPositionSettingDlg メッセージ ハンドラ
 
 // ==========================================================================
 //
@@ -88,8 +88,8 @@ BOOL CHandlerLoadPositionSettingDlg::OnInitDialog()
 	m_stcHandlerLoadPosY.SubclassWindow(GetDlgItem(IDC_HANDLER_LOAD_POSITION_Y)->GetSafeHwnd());
 	m_stcHandlerLoadPosY.SetBkColor(REFERENCE_COLOR);
 
-	return TRUE;	// �R���g���[���Ƀt�H�[�J�X��ݒ肵�Ȃ��Ƃ��A�߂�l�� TRUE �ƂȂ�܂�
-					// ��O: OCX �v���p�e�B �y�[�W�̖߂�l�� FALSE �ƂȂ�܂�
+	return TRUE;	// コントロールにフォーカスを設定しないとき、戻り値は TRUE となります
+					// 例外: OCX プロパティ ページの戻り値は FALSE となります
 }
 
 // ==========================================================================

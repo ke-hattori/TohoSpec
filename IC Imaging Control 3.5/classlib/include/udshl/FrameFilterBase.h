@@ -1,4 +1,4 @@
-
+﻿
 #ifndef FRAMEFILTERBASE_H_INC_
 #define FRAMEFILTERBASE_H_INC_
 

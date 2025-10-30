@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "../../INC/Globals.hxx"
 #include "../../INC/ConfigFile.hxx"
@@ -37,7 +37,7 @@ public:
 	BOOL AutoZeroOff(int iChannel);
 	BOOL PanelLockOn();
 	BOOL PanelLockOff();
-	BOOL Send(LPCTSTR pszCmd);			// ¦”Ä—pƒRƒ}ƒ“ƒh
+	BOOL Send(LPCTSTR pszCmd);			// â€»æ±ç”¨ã‚³ãƒãƒ³ãƒ‰
 
 private:
 	CStressHead* m_pStressHead;

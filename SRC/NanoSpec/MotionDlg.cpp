@@ -1,4 +1,4 @@
-// MotionDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// MotionDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -27,7 +27,7 @@ static char THIS_FILE[] = __FILE__;
 #define JOG_MODE_LAMP_TIMER_INTERVAL	(1000)
 
 // ##########################################################################
-// CMotionDlg ƒ_ƒCƒAƒƒO
+// CMotionDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // ##########################################################################
 
 // =========================================================================
@@ -37,10 +37,10 @@ CMotionDlg::CMotionDlg(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(CMotionDlg)
 	//}}AFX_DATA_INIT
-// 2009.11.09 bagus MS C³ --{--
+// 2009.11.09 bagus MS ä¿®æ­£ --{--
 	m_nSelLens = 0;
 	m_bMSModeLampFilcker = FALSE;
-// 2009.11.09 bagus MS C³ --}--
+// 2009.11.09 bagus MS ä¿®æ­£ --}--
 }
 
 // =========================================================================
@@ -80,11 +80,11 @@ void CMotionDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_CLAMP_SEQUENCE_CANCEL_BUTTON, m_ClampSequenceCancelButton);
 	DDX_Control(pDX, IDC_WARNING_MESSAGE, m_ctlWarningMessage);
 	DDX_Control(pDX, IDC_CLOSE, m_CloseButton);
-// 2009.10.29 bagus MS ’Ç‰ÁC³ --{--
+// 2009.10.29 bagus MS è¿½åŠ ä¿®æ­£ --{--
 	DDX_Control(pDX, IDC_MICRO_SCOPE_MOVE, m_MSMoveToPosButton);
 	DDX_Control(pDX, IDC_MICRO_SCOPE_STD_MODE, m_MSSTDModeButton);
 	DDX_Control(pDX, IDC_MICRO_SCOPE_JOG_INCING, m_MSJogInchingButton);
-// 2009.10.29 bagus MS ’Ç‰ÁC³ --}--
+// 2009.10.29 bagus MS è¿½åŠ ä¿®æ­£ --}--
 }
 
 // =========================================================================
@@ -132,7 +132,7 @@ BEGIN_MESSAGE_MAP(CMotionDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CMotionDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CMotionDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -140,27 +140,27 @@ BOOL CMotionDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// TODO: ‚±‚ÌˆÊ’u‚É‰Šú‰»‚Ì•â‘«ˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«åˆæœŸåŒ–ã®è£œè¶³å‡¦ç†ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	m_pMainFrame = (CMainFrame *)AfxGetMainWnd();
 	m_pDoc = (CNanoSpecDoc*)m_pMainFrame->GetActiveDocument();
 
-/* added 2009.06.16 hmenjo Loading Shutter g—p—L–³’Ç‰Á ---------- { ---------- */
+/* added 2009.06.16 hmenjo Loading Shutter ä½¿ç”¨æœ‰ç„¡è¿½åŠ  ---------- { ---------- */
 	///// Load System Config File /////
-	/* ƒVƒXƒeƒ€ƒRƒ“ƒtƒBƒOİ’è‚ğ“Ço‚µ */
+	/* ã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ³ãƒ•ã‚£ã‚°è¨­å®šã‚’èª­å‡ºã— */
 	//2009.11.10 bagus MS --{--
-	//ƒƒ“ƒo•Ï”‰»
+	//ãƒ¡ãƒ³ãƒå¤‰æ•°åŒ–
 	//SYSTEM_CONFIG l_SystemConfig;
 	//ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 	ConfigFile_GetNanoSpecIni(&m_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 	//2009.11.10 bagus MS --}--
 
-/* added 2009.06.16 hmenjo Loading Shutter g—p—L–³’Ç‰Á ---------- } ---------- */
+/* added 2009.06.16 hmenjo Loading Shutter ä½¿ç”¨æœ‰ç„¡è¿½åŠ  ---------- } ---------- */
 	////// Load File /////
 	ConfigFile_GetNanoSpecIni(m_TempMaintenancePosition, CONFIG_FILE_MAINTENANCE_POSITION);
-// 2009.11.09 bagus MS C³ --{--
+// 2009.11.09 bagus MS ä¿®æ­£ --{--
 	ConfigFile_GetNanoSpecIni(&m_MsConfig, CONFIG_FILE_MS_CONFIG);
-// 2009.11.09 bagus MS C³ --}--
+// 2009.11.09 bagus MS ä¿®æ­£ --}--
 
 	///// Initialize Stage Button /////
 	m_InitStageButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
@@ -202,7 +202,7 @@ BOOL CMotionDlg::OnInitDialog()
 	m_VacuumOffButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_VacuumOffButton.DrawFlatFocus(TRUE);
 
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	///// CompleteEASE Shutter Open Button /////
 	m_CompEASEShutterOpenButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_CompEASEShutterOpenButton.DrawFlatFocus(TRUE);
@@ -210,7 +210,7 @@ BOOL CMotionDlg::OnInitDialog()
 	///// CompleteEASE Shutter Close Button /////
 	m_CompEASEShutterCloseButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_CompEASEShutterCloseButton.DrawFlatFocus(TRUE);
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 
 	///// Maintenance Position1 Button /////
 	if( strlen(m_TempMaintenancePosition[0].szComment) > 0 ){
@@ -279,10 +279,10 @@ BOOL CMotionDlg::OnInitDialog()
 	///// Sample Loading Shutter Close Button /////
 	m_SampleLoadingShutterCloseButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_SampleLoadingShutterCloseButton.DrawFlatFocus(TRUE);
-/* added 2009.06.16 hmenjo Loading Shutter g—p—L–³’Ç‰Á ---------- { ---------- */
-	/* ƒVƒƒƒbƒ^Œn‚Ì•\¦‚·‚é/‚µ‚È‚¢*/
+/* added 2009.06.16 hmenjo Loading Shutter ä½¿ç”¨æœ‰ç„¡è¿½åŠ  ---------- { ---------- */
+	/* ã‚·ãƒ£ãƒƒã‚¿ç³»ã®è¡¨ç¤ºã™ã‚‹/ã—ãªã„*/
 	//2009.11.10 bagus MS --{--
-	//ƒVƒXƒeƒ€ƒRƒ“ƒtƒBƒO‚Íƒƒ“ƒo•Ï”‰»‚³‚ê‚½
+	//ã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ³ãƒ•ã‚£ã‚°ã¯ãƒ¡ãƒ³ãƒå¤‰æ•°åŒ–ã•ã‚ŒãŸ
 	//if (0 == l_SystemConfig.bUseLoadingShutter) {
 	if (0 == m_SystemConfig.bUseLoadingShutter) {
 	//2009.11.10 bagus MS --}--
@@ -290,7 +290,7 @@ BOOL CMotionDlg::OnInitDialog()
 		this->GetDlgItem(IDC_SAMPLE_LOADING_SHUTTER_OPEN_BUTTON)->ShowWindow(SW_HIDE);
 		this->GetDlgItem(IDC_SAMPLE_LOADING_SHUTTER_CLOSE_BUTTON)->ShowWindow(SW_HIDE);
 	}
-/* added 2009.06.16 hmenjo Loading Shutter g—p—L–³’Ç‰Á ---------- } ---------- */
+/* added 2009.06.16 hmenjo Loading Shutter ä½¿ç”¨æœ‰ç„¡è¿½åŠ  ---------- } ---------- */
 
 	///// Sample Lifter Up Button /////
 	m_SampleLifterUpButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
@@ -338,7 +338,7 @@ BOOL CMotionDlg::OnInitDialog()
 	m_bSampleLoadingShutterOpen = FALSE;
 	m_bSampleLoadingShutterClose = FALSE;
 
-// 2009.10.29 bagus MS ’Ç‰ÁC³ --{--
+// 2009.10.29 bagus MS è¿½åŠ ä¿®æ­£ --{--
 	///// Move To Pos Button /////
 	m_MSMoveToPosButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_MSMoveToPosButton.DrawFlatFocus(TRUE);
@@ -351,7 +351,7 @@ BOOL CMotionDlg::OnInitDialog()
 	m_MSJogInchingButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_MSJogInchingButton.DrawFlatFocus(TRUE);
 
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	if (m_SystemConfig.HeadType.bSE && m_SystemConfig.HeadType.bCompEASE) {
 		GetDlgItem(IDC_STATIC_COMPEASE_SHUTTER)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_COMPEASE_SHUTTER_OPEN_BUTTON)->ShowWindow(SW_SHOW);
@@ -362,7 +362,7 @@ BOOL CMotionDlg::OnInitDialog()
 		GetDlgItem(IDC_COMPEASE_SHUTTER_OPEN_BUTTON)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_COMPEASE_SHUTTER_CLOSE_BUTTON)->ShowWindow(SW_HIDE);
 	}
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 
 	if (m_SystemConfig.HeadType.bMS) {
 		GetDlgItem(IDC_MICRO_SCOPE_Z_AXIS_GROUP)->ShowWindow(SW_SHOW);
@@ -372,8 +372,8 @@ BOOL CMotionDlg::OnInitDialog()
 		GetDlgItem(IDC_MICRO_SCOPE_JOG_INCING)->ShowWindow(SW_SHOW);
 		InitCombo_Lens();
 		//2009.11.10 bagus MS --{--
-		//Jogƒ{ƒ^ƒ“ŠÄ‹ƒ^ƒCƒ}
-		//‹N“®‚Í’Êíƒ‚[ƒh‚É•ÏX‚µ‚Ä‚¨‚­
+		//Jogãƒœã‚¿ãƒ³ç›£è¦–ã‚¿ã‚¤ãƒ
+		//èµ·å‹•æ™‚ã¯é€šå¸¸ãƒ¢ãƒ¼ãƒ‰ã«å¤‰æ›´ã—ã¦ãŠã
 		nexifRC_SelectMode(this->m_hWnd,RCOPMODE_NORMAL);
 		SetTimer(JOG_MODE_LAMP_TIMER_ID,JOG_MODE_LAMP_TIMER_INTERVAL,NULL);
 		SetTimer(JOG_WATCH_TIMER_ID,JOG_WATCH_TIMER_INTERVAL,NULL);
@@ -385,22 +385,22 @@ BOOL CMotionDlg::OnInitDialog()
 		GetDlgItem(IDC_MICRO_SCOPE_STD_MODE)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_MICRO_SCOPE_JOG_INCING)->ShowWindow(SW_HIDE);
 	}
-// 2009.10.29 bagus MS ’Ç‰ÁC³ --}--
+// 2009.10.29 bagus MS è¿½åŠ ä¿®æ­£ --}--
 
 
 	// Kawa 2009.05.30 ----->
 	SetWindowPos(&wndTopMost, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
 	// Kawa 2009.05.30 <-----
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
 //
 void CMotionDlg::OnCancel()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚É“Á•Ê‚ÈŒãˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ã“ã®ä½ç½®ã«ç‰¹åˆ¥ãªå¾Œå‡¦ç†ã‚’è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 
 //	CDialog::OnCancel();
 }
@@ -421,57 +421,57 @@ BOOL result;
 
 	if( m_SampleLoadingShutterOpenButton.m_bPush ){
 
-		// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-		if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+		// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+		if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 			if( nexioIsMaintenanceSwitch() != OFF ){
 				// Kojika 20090602 Change
-				//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+				//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 				SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 				return;
 			}
 		}
-		else{												// ’Êí“®ì
+		else{												// é€šå¸¸å‹•ä½œ
 		}
-		// ŠeI/Oƒ`ƒFƒbƒN
-		if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+		// å„I/Oãƒã‚§ãƒƒã‚¯
+		if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("EMOƒXƒCƒbƒ`‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("EMOã‚¹ã‚¤ãƒƒãƒã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_EMO_SW );
 			return;
 		}
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
-//		if( (result=nexioIsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ --------			 */
-		if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- { -------- */
+//		if( (result=nexioIsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ --------			 */
+		if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- } -------- */
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒhƒAƒCƒ“ƒ^[ƒƒbƒN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_DOOR_INTERLOCK );
 			return;
 		}
-		if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+		if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("‘•’u“dŒ¹‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("è£…ç½®é›»æºã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 			return;
 		}
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- { -------- */
-//		if( (result=nexioIsAirPressureLevelLow())!=OFF ){	/* ‹Ÿ‹‹CDAˆ³—Í’á‰ºƒAƒ‰[ƒ€		‚k */
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- 		   */
-		if ((result = m_pDoc->Rap_IsAirPressureLowON(1)) != OFF) {	/* ‹Ÿ‹‹CDAˆ³—Í’á‰ºƒAƒ‰[ƒ€		‚k */
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- } -------- */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- { -------- */
+//		if( (result=nexioIsAirPressureLevelLow())!=OFF ){	/* ä¾›çµ¦CDAåœ§åŠ›ä½ä¸‹ã‚¢ãƒ©ãƒ¼ãƒ 		ï¼ï¼¬ */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- 		   */
+		if ((result = m_pDoc->Rap_IsAirPressureLowON(1)) != OFF) {	/* ä¾›çµ¦CDAåœ§åŠ›ä½ä¸‹ã‚¢ãƒ©ãƒ¼ãƒ 		ï¼ï¼¬ */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- } -------- */
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒGƒAˆ³—Í‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ã‚¨ã‚¢åœ§åŠ›ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_AIR_PRESSURE );
 			return;
 		}
 		if(	m_pDoc->ActuateFlagsGet(ACTUATE_SHUTTER) ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("“®ìğŒ‚ª•s‘«‚µ‚Ä‚¢‚Ü‚·");
+			//m_ctlWarningMessage.SetWindowText("å‹•ä½œæ¡ä»¶ãŒä¸è¶³ã—ã¦ã„ã¾ã™");
 			SetWarningMessageText( IDS_WORKING_CONDITION_INSUFFICIENT );
 			return;
 		}
-		// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+		// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 		m_pDoc->ActuateFlagsSet(ACTUATE_SHUTTER, TRUE);
 
@@ -487,69 +487,69 @@ BOOL result;
 	}
 	if( m_SampleLoadingShutterCloseButton.m_bPush ){
 
-		// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-		if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+		// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+		if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 			if( nexioIsMaintenanceSwitch() != OFF ){
 				// Kojika 20090602 Change
-				//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+				//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 				SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 				return;
 			}
 		}
-		else{												// ’Êí“®ì
+		else{												// é€šå¸¸å‹•ä½œ
 		}
-		// ŠeI/Oƒ`ƒFƒbƒN
-		if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+		// å„I/Oãƒã‚§ãƒƒã‚¯
+		if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("EMOƒXƒCƒbƒ`‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("EMOã‚¹ã‚¤ãƒƒãƒã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_EMO_SW );
 			return;
 		}
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
-//		if( (result=nexioIsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ --------			 */
-		if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- { -------- */
+//		if( (result=nexioIsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ --------			 */
+		if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- } -------- */
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒhƒAƒCƒ“ƒ^[ƒƒbƒN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_DOOR_INTERLOCK );
 			return;
 		}
-		if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+		if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("‘•’u“dŒ¹‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("è£…ç½®é›»æºã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 			return;
 		}
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- { -------- */
-//		if( (result=nexioIsAirPressureLevelLow())!=OFF ){	/* ‹Ÿ‹‹CDAˆ³—Í’á‰ºƒAƒ‰[ƒ€		‚k */
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- 		   */
-		if ((result = m_pDoc->Rap_IsAirPressureLowON(1)) != OFF) {	/* ‹Ÿ‹‹CDAˆ³—Í’á‰ºƒAƒ‰[ƒ€		‚k */
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- } -------- */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- { -------- */
+//		if( (result=nexioIsAirPressureLevelLow())!=OFF ){	/* ä¾›çµ¦CDAåœ§åŠ›ä½ä¸‹ã‚¢ãƒ©ãƒ¼ãƒ 		ï¼ï¼¬ */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- 		   */
+		if ((result = m_pDoc->Rap_IsAirPressureLowON(1)) != OFF) {	/* ä¾›çµ¦CDAåœ§åŠ›ä½ä¸‹ã‚¢ãƒ©ãƒ¼ãƒ 		ï¼ï¼¬ */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- } -------- */
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒGƒAˆ³—Í‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ã‚¨ã‚¢åœ§åŠ›ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_AIR_PRESSURE );
 			return;
 		}
-		if( (result=nexioIsRobotArmDetect())!= ON ){		// ƒƒ{ƒbƒgƒA[ƒ€Š±ÂŠO			‚g
+		if( (result=nexioIsRobotArmDetect())!= ON ){		// ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ å¹²æ¸‰å¤–			ï¼ï¼¨
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ{ƒbƒgƒA[ƒ€‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_ROBOT_ARM );
 			return;
 		}
 		if(	m_pDoc->ActuateFlagsGet(ACTUATE_SHUTTER) ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒVƒƒƒbƒ^[‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+			//m_ctlWarningMessage.SetWindowText("ã‚·ãƒ£ãƒƒã‚¿ãƒ¼ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 			SetWarningMessageText( IDS_SHUTTER_WORKING );
 			return;
 		}
-// 2009.11.09 bagus MS C³ --{--
+// 2009.11.09 bagus MS ä¿®æ­£ --{--
 		if( m_pDoc->ActuateFlagsGet(ACTUATE_MICROSCOPE) ){
 			SetWarningMessageText( IDS_MICROSCOPE_WORKING );
 			return;
 		}
-// 2009.11.09 bagus MS C³ --}--
-		// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+// 2009.11.09 bagus MS ä¿®æ­£ --}--
+		// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 		m_pDoc->ActuateFlagsSet(ACTUATE_SHUTTER, TRUE);
 
@@ -589,22 +589,22 @@ void CMotionDlg::OnInitStageButton()
 {
 	BOOL bRet;
 
-	// ƒXƒe[ƒW‰Šú‰»
+	// ã‚¹ãƒ†ãƒ¼ã‚¸åˆæœŸåŒ–
 	if (0 != nexioIsMaintenanceSwitch()) {
-		// ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh‚Å‚È‚©‚Á‚½
-		// ‘¬“x§ŒÀ‚µ‚È‚¢
+		// ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ã§ãªã‹ã£ãŸ
+		// é€Ÿåº¦åˆ¶é™ã—ãªã„
 		StageDisableSpeedLimit();
 	} else {
-		// ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh‚¾‚Á‚½
-// modified hmenjo 2009.05.12 ‘¬“x•ÏX‹–‰Âƒtƒ‰ƒO’Ç‰Á ---------- { ----------
-//		// ‘¬“x§ŒÀ‚·‚é
+		// ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ã ã£ãŸ
+// modified hmenjo 2009.05.12 é€Ÿåº¦å¤‰æ›´è¨±å¯ãƒ•ãƒ©ã‚°è¿½åŠ  ---------- { ----------
+//		// é€Ÿåº¦åˆ¶é™ã™ã‚‹
 //		StageEnableSpeedLimit();
-// modified hmenjo 2009.05.12 ‘¬“x•ÏX‹–‰Âƒtƒ‰ƒO’Ç‰Á ----------
+// modified hmenjo 2009.05.12 é€Ÿåº¦å¤‰æ›´è¨±å¯ãƒ•ãƒ©ã‚°è¿½åŠ  ----------
 		if (TRUE == g_bIL_SpeedDown) {
-			// ‘¬“x§ŒÀ‚·‚é
+			// é€Ÿåº¦åˆ¶é™ã™ã‚‹
 			StageEnableSpeedLimit();
 		}
-// modified hmenjo 2009.05.12 ‘¬“x•ÏX‹–‰Âƒtƒ‰ƒO’Ç‰Á ---------- } ----------
+// modified hmenjo 2009.05.12 é€Ÿåº¦å¤‰æ›´è¨±å¯ãƒ•ãƒ©ã‚°è¿½åŠ  ---------- } ----------
 	}
 
 	m_pDoc->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);
@@ -615,7 +615,7 @@ void CMotionDlg::OnInitStageButton()
 	}
 	else{
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒXƒe[ƒW‚ÌƒCƒjƒVƒƒƒ‰ƒCƒY‚ª¸”s‚µ‚Ü‚µ‚½");
+		//m_ctlWarningMessage.SetWindowText("ã‚¹ãƒ†ãƒ¼ã‚¸ã®ã‚¤ãƒ‹ã‚·ãƒ£ãƒ©ã‚¤ã‚ºãŒå¤±æ•—ã—ã¾ã—ãŸ");
 		SetWarningMessageText( IDS_FAILED_INITIAL_STAGE );
 	}
 
@@ -628,14 +628,14 @@ void CMotionDlg::OnInitAutoFocusButton()
 {
 	m_pDoc->ActuateFlagsSet(ACTUATE_ZAXIS, TRUE);
 
-	// ƒI[ƒgƒtƒH[ƒJƒX‰Šú‰»
+	// ã‚ªãƒ¼ãƒˆãƒ•ã‚©ãƒ¼ã‚«ã‚¹åˆæœŸåŒ–
 	if( StageInitializeAutoFocus()==TRUE ){
 		SetOperationLog("AUTO FOCUS Button was pushed.");
 		m_ctlWarningMessage.SetWindowText("");
 	}
 	else{
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("Z²‚ÌƒCƒjƒVƒƒƒ‰ƒCƒY‚ª¸”s‚µ‚Ü‚µ‚½");
+		//m_ctlWarningMessage.SetWindowText("Zè»¸ã®ã‚¤ãƒ‹ã‚·ãƒ£ãƒ©ã‚¤ã‚ºãŒå¤±æ•—ã—ã¾ã—ãŸ");
 		SetWarningMessageText( IDS_FAILED_INITIAL_Z_AXIS );
 	}
 
@@ -648,14 +648,14 @@ void CMotionDlg::OnInitAutoTurretButton()
 {
 	m_pDoc->ActuateFlagsSet(ACTUATE_TURRET, TRUE);
 
-	// ƒ^[ƒŒƒbƒg‰Šú‰»
+	// ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆåˆæœŸåŒ–
 	if( StageInitializeTurret()==TRUE ){
 		SetOperationLog("AUTO TURRET Button was pushed.");
 		m_ctlWarningMessage.SetWindowText("");
 	}
 	else{
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ^[ƒŒƒbƒg‚ÌƒCƒjƒVƒƒƒ‰ƒCƒY‚ª¸”s‚µ‚Ü‚µ‚½");
+		//m_ctlWarningMessage.SetWindowText("ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆã®ã‚¤ãƒ‹ã‚·ãƒ£ãƒ©ã‚¤ã‚ºãŒå¤±æ•—ã—ã¾ã—ãŸ");
 		SetWarningMessageText( IDS_FAILED_INITIAL_TURRET );
 	}
 
@@ -668,41 +668,41 @@ void CMotionDlg::OnFilterOpenButton()
 {
 BOOL result;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 		if( nexioIsMaintenanceSwitch() != OFF ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
-	if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+	// å„I/Oãƒã‚§ãƒƒã‚¯
+	if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("EMOƒXƒCƒbƒ`‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("EMOã‚¹ã‚¤ãƒƒãƒã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EMO_SW );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
-//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ --------			 */
-	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- { -------- */
+//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ --------			 */
+	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒhƒAƒCƒ“ƒ^[ƒƒbƒN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_DOOR_INTERLOCK );
 		return;
 	}
-	if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+	if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‘•’u“dŒ¹‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("è£…ç½®é›»æºã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 		return;
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	// Optical Filter OPEN
 	if( MEAS_SrHead_ChangeCcdShutter(OPT_FILTER_OPEN)==TRUE ){
@@ -711,7 +711,7 @@ BOOL result;
 	}
 	else{
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ŒõŠwƒtƒBƒ‹ƒ^‚Ì“®ì‚É¸”s‚µ‚Ü‚µ‚½");
+		//m_ctlWarningMessage.SetWindowText("å…‰å­¦ãƒ•ã‚£ãƒ«ã‚¿ã®å‹•ä½œã«å¤±æ•—ã—ã¾ã—ãŸ");
 		SetWarningMessageText( IDS_FAILED_OPTICAL_FILTER );
 	}
 }
@@ -722,41 +722,41 @@ void CMotionDlg::OnFilterCloseButton()
 {
 BOOL result;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 		if( nexioIsMaintenanceSwitch() != OFF ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
-	if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+	// å„I/Oãƒã‚§ãƒƒã‚¯
+	if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("EMOƒXƒCƒbƒ`‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("EMOã‚¹ã‚¤ãƒƒãƒã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EMO_SW );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
-//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ --------			 */
-	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- { -------- */
+//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ --------			 */
+	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒhƒAƒCƒ“ƒ^[ƒƒbƒN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_DOOR_INTERLOCK );
 		return;
 	}
-	if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+	if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‘•’u“dŒ¹‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("è£…ç½®é›»æºã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 		return;
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	// Optical Filter CLOSE
 	if( MEAS_SrHead_ChangeCcdShutter(OPT_FILTER_DARK)==TRUE ){
@@ -765,7 +765,7 @@ BOOL result;
 	}
 	else{
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ŒõŠwƒtƒBƒ‹ƒ^‚Ì“®ì‚É¸”s‚µ‚Ü‚µ‚½");
+		//m_ctlWarningMessage.SetWindowText("å…‰å­¦ãƒ•ã‚£ãƒ«ã‚¿ã®å‹•ä½œã«å¤±æ•—ã—ã¾ã—ãŸ");
 		SetWarningMessageText( IDS_FAILED_OPTICAL_FILTER );
 	}
 }
@@ -776,41 +776,41 @@ void CMotionDlg::OnFilter1Button()
 {
 BOOL result;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 		if( nexioIsMaintenanceSwitch() != OFF ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
-	if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+	// å„I/Oãƒã‚§ãƒƒã‚¯
+	if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("EMOƒXƒCƒbƒ`‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("EMOã‚¹ã‚¤ãƒƒãƒã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EMO_SW );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
-//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ --------			 */
-	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- { -------- */
+//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ --------			 */
+	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒhƒAƒCƒ“ƒ^[ƒƒbƒN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_DOOR_INTERLOCK );
 		return;
 	}
-	if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+	if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‘•’u“dŒ¹‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("è£…ç½®é›»æºã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 		return;
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	// Optical Filter FILTER 1
 	if( MEAS_SrHead_ChangeCcdShutter(OPT_FILTER_POS1)==TRUE ){
@@ -819,7 +819,7 @@ BOOL result;
 	}
 	else{
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ŒõŠwƒtƒBƒ‹ƒ^‚Ì“®ì‚É¸”s‚µ‚Ü‚µ‚½");
+		//m_ctlWarningMessage.SetWindowText("å…‰å­¦ãƒ•ã‚£ãƒ«ã‚¿ã®å‹•ä½œã«å¤±æ•—ã—ã¾ã—ãŸ");
 		SetWarningMessageText( IDS_FAILED_OPTICAL_FILTER );
 	}
 }
@@ -830,41 +830,41 @@ void CMotionDlg::OnFilter2Button()
 {
 BOOL result;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 		if( nexioIsMaintenanceSwitch() != OFF ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
-	if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+	// å„I/Oãƒã‚§ãƒƒã‚¯
+	if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("EMOƒXƒCƒbƒ`‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("EMOã‚¹ã‚¤ãƒƒãƒã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EMO_SW );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
-//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ --------			 */
-	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- { -------- */
+//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ --------			 */
+	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒhƒAƒCƒ“ƒ^[ƒƒbƒN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_DOOR_INTERLOCK );
 		return;
 	}
-	if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+	if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‘•’u“dŒ¹‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("è£…ç½®é›»æºã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 		return;
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	// Optical Filter FILTER 2
 	if( MEAS_SrHead_ChangeCcdShutter(OPT_FILTER_POS2)==TRUE ){
@@ -873,7 +873,7 @@ BOOL result;
 	}
 	else{
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ŒõŠwƒtƒBƒ‹ƒ^‚Ì“®ì‚É¸”s‚µ‚Ü‚µ‚½");
+		//m_ctlWarningMessage.SetWindowText("å…‰å­¦ãƒ•ã‚£ãƒ«ã‚¿ã®å‹•ä½œã«å¤±æ•—ã—ã¾ã—ãŸ");
 		SetWarningMessageText( IDS_FAILED_OPTICAL_FILTER );
 	}
 }
@@ -884,41 +884,41 @@ void CMotionDlg::OnFilter3Button()
 {
 BOOL result;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 		if( nexioIsMaintenanceSwitch() != OFF ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
-	if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+	// å„I/Oãƒã‚§ãƒƒã‚¯
+	if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("EMOƒXƒCƒbƒ`‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("EMOã‚¹ã‚¤ãƒƒãƒã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EMO_SW );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
-//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ --------			 */
-	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- { -------- */
+//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ --------			 */
+	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒhƒAƒCƒ“ƒ^[ƒƒbƒN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_DOOR_INTERLOCK );
 		return;
 	}
-	if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+	if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‘•’u“dŒ¹‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("è£…ç½®é›»æºã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 		return;
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	// Optical Filter FILTER 3
 	if( MEAS_SrHead_ChangeCcdShutter(OPT_FILTER_POS3)==TRUE ){
@@ -927,7 +927,7 @@ BOOL result;
 	}
 	else{
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ŒõŠwƒtƒBƒ‹ƒ^‚Ì“®ì‚É¸”s‚µ‚Ü‚µ‚½");
+		//m_ctlWarningMessage.SetWindowText("å…‰å­¦ãƒ•ã‚£ãƒ«ã‚¿ã®å‹•ä½œã«å¤±æ•—ã—ã¾ã—ãŸ");
 		SetWarningMessageText( IDS_FAILED_OPTICAL_FILTER );
 	}
 }
@@ -938,83 +938,83 @@ void CMotionDlg::OnVacuumOnButton()
 {
 BOOL result;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 		if( nexioIsMaintenanceSwitch() != OFF ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
-	if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+	// å„I/Oãƒã‚§ãƒƒã‚¯
+	if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("EMOƒXƒCƒbƒ`‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("EMOã‚¹ã‚¤ãƒƒãƒã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EMO_SW );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
-//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ --------			 */
-	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- { -------- */
+//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ --------			 */
+	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒhƒAƒCƒ“ƒ^[ƒƒbƒN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_DOOR_INTERLOCK );
 		return;
 	}
-	if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+	if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‘•’u“dŒ¹‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("è£…ç½®é›»æºã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 		return;
 	}
-	if( (result=nexioIsPinDownPos())	!= ON ){		// ƒsƒ“‰º’[						‚g
+	if( (result=nexioIsPinDownPos())	!= ON ){		// ãƒ”ãƒ³ä¸‹ç«¯						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‰º’[‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ä¸‹ç«¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LIFTER_LOWER );
 		return;
 	}
-	if( (result=nexioIsWorkGuideClose())!= OFF){		// ƒ[ƒNƒKƒCƒhCLOSEˆÊ’u(FWD)	‚k
+	if( (result=nexioIsWorkGuideClose())!= OFF){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEä½ç½®(FWD)	ï¼ï¼¬
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhCLOSE‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_CLOSE );
 		return;
 	}
-	if( (result=nexioIsWorkGuideOpen())	!= ON ){		// ƒ[ƒNƒKƒCƒhOPENˆÊ’u(REV)	‚g
+	if( (result=nexioIsWorkGuideOpen())	!= ON ){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENä½ç½®(REV)	ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhOPEN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_OPEN );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒXƒe[ƒW‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¹ãƒ†ãƒ¼ã‚¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_STAGE_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_ZAXIS) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‚y²‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ï¼ºè»¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_Z_AXIS_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_PIN) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_LIFTER_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_WORKGUIDE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒh‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_CLAMP_WORKING );
 		return;
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	// Vacuum ON
 	if( nexifVacuumOn(this->m_hWnd)==TRUE ){
@@ -1023,7 +1023,7 @@ BOOL result;
 	}
 	else{
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒoƒLƒ…[ƒ€ON‚É¸”s‚µ‚Ü‚µ‚½");
+		//m_ctlWarningMessage.SetWindowText("ãƒã‚­ãƒ¥ãƒ¼ãƒ ONã«å¤±æ•—ã—ã¾ã—ãŸ");
 		SetWarningMessageText( IDS_FAILED_VACCUM_ON );
 	}
 }
@@ -1034,77 +1034,77 @@ void CMotionDlg::OnVacuumOffButton()
 {
 BOOL result;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 		if( nexioIsMaintenanceSwitch() != OFF ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
-	if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+	// å„I/Oãƒã‚§ãƒƒã‚¯
+	if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("EMOƒXƒCƒbƒ`‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("EMOã‚¹ã‚¤ãƒƒãƒã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EMO_SW );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
-//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ --------			 */
-	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- { -------- */
+//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ --------			 */
+	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒhƒAƒCƒ“ƒ^[ƒƒbƒN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_DOOR_INTERLOCK );
 		return;
 	}
-	if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+	if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‘•’u“dŒ¹‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("è£…ç½®é›»æºã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 		return;
 	}
-	if( (result=nexioIsWorkGuideClose())!= OFF){		// ƒ[ƒNƒKƒCƒhCLOSEˆÊ’u(FWD)	‚k
+	if( (result=nexioIsWorkGuideClose())!= OFF){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEä½ç½®(FWD)	ï¼ï¼¬
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhCLOSE‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_CLOSE );
 		return;
 	}
-	if( (result=nexioIsWorkGuideOpen())	!= ON ){		// ƒ[ƒNƒKƒCƒhOPENˆÊ’u(REV)	‚g
+	if( (result=nexioIsWorkGuideOpen())	!= ON ){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENä½ç½®(REV)	ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhOPEN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_OPEN );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒXƒe[ƒW‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¹ãƒ†ãƒ¼ã‚¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_STAGE_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_ZAXIS) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‚y²‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ï¼ºè»¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_Z_AXIS_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_PIN) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_LIFTER_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_WORKGUIDE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒh‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_CLAMP_WORKING );
 		return;
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	// Vacuum OFF
 	if( nexifVacuumOff(this->m_hWnd)==TRUE ){
@@ -1113,37 +1113,37 @@ BOOL result;
 	}
 	else{
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒoƒLƒ…[ƒ€OFF‚É¸”s‚µ‚Ü‚µ‚½");
+		//m_ctlWarningMessage.SetWindowText("ãƒã‚­ãƒ¥ãƒ¼ãƒ OFFã«å¤±æ•—ã—ã¾ã—ãŸ");
 		SetWarningMessageText( IDS_FAILED_VACCUM_OFF );
 	}
 }
 
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 // =========================================================================
 //
 void CMotionDlg::OnCompEASEShutterOpenButton()
 {
 	BOOL result;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 		if( nexioIsMaintenanceSwitch() != OFF ){
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
-	if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+	// å„I/Oãƒã‚§ãƒƒã‚¯
+	if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 		SetWarningMessageText( IDS_CHECK_EMO_SW );
 		return;
 	}
-	if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+	if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 		SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 		return;
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	// CompleteEASE Shutter Open
 	if( MEAS_CompEASEHead_OpenLampShutter() == TRUE ){
@@ -1151,7 +1151,7 @@ void CMotionDlg::OnCompEASEShutterOpenButton()
 		m_ctlWarningMessage.SetWindowText("");
 	}
 	else{
-		//m_ctlWarningMessage.SetWindowText("EASEŒõŒ¹ƒVƒƒƒbƒ^[ŠJ‚Ì“®ì‚É¸”s‚µ‚Ü‚µ‚½");
+		//m_ctlWarningMessage.SetWindowText("EASEå…‰æºã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‹ã®å‹•ä½œã«å¤±æ•—ã—ã¾ã—ãŸ");
 		SetWarningMessageText( IDS_FAILED_COMPEASE_SHUTTER_OPEN );
 	}
 }
@@ -1162,25 +1162,25 @@ void CMotionDlg::OnCompEASEShutterCloseButton()
 {
 	BOOL result;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 		if( nexioIsMaintenanceSwitch() != OFF ){
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
-	if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+	// å„I/Oãƒã‚§ãƒƒã‚¯
+	if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 		SetWarningMessageText( IDS_CHECK_EMO_SW );
 		return;
 	}
-	if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+	if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 		SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 		return;
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	// CompleteEASE Shutter Close
 	if( MEAS_CompEASEHead_CloseLampShutter() == TRUE ){
@@ -1188,11 +1188,11 @@ void CMotionDlg::OnCompEASEShutterCloseButton()
 		m_ctlWarningMessage.SetWindowText("");
 	}
 	else{
-		//m_ctlWarningMessage.SetWindowText("EASEŒõŒ¹ƒVƒƒƒbƒ^[•Â‚Ì“®ì‚É¸”s‚µ‚Ü‚µ‚½");
+		//m_ctlWarningMessage.SetWindowText("EASEå…‰æºã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰ã®å‹•ä½œã«å¤±æ•—ã—ã¾ã—ãŸ");
 		SetWarningMessageText( IDS_FAILED_COMPEASE_SHUTTER_CLOSE );
 	}
 }
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 
 // =========================================================================
 //
@@ -1200,113 +1200,113 @@ void CMotionDlg::OnMaintenancePosition1Button()
 {
 BOOL result;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 		if( nexioIsMaintenanceSwitch() != OFF ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 		if( nexioIsMaintenanceSwitch() != ON ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
-	if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+	// å„I/Oãƒã‚§ãƒƒã‚¯
+	if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("EMOƒXƒCƒbƒ`‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("EMOã‚¹ã‚¤ãƒƒãƒã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EMO_SW );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
-//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ --------			 */
-	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- { -------- */
+//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ --------			 */
+	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒhƒAƒCƒ“ƒ^[ƒƒbƒN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_DOOR_INTERLOCK );
 		return;
 	}
-	if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+	if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‘•’u“dŒ¹‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("è£…ç½®é›»æºã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 		return;
 	}
-	if( (result=nexioIsMovo2Alarm())	!= OFF){		// MOVOƒAƒ‰[ƒ€					‚g
+	if( (result=nexioIsMovo2Alarm())	!= OFF){		// MOVOã‚¢ãƒ©ãƒ¼ãƒ 					ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("MOVOƒAƒ‰[ƒ€‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("MOVOã‚¢ãƒ©ãƒ¼ãƒ ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_MOVO_ALARM );
 		return;
 	}
-	if( (result=nexioIsShutterClose())	!= ON ){		// ƒVƒƒƒbƒ^[•Â					‚g
+	if( (result=nexioIsShutterClose())	!= ON ){		// ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰					ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒfƒBƒ“ƒOƒVƒƒƒbƒ^[•Â‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LOADING_SHUTTER );
 		return;
 	}
-	if( (result=nexioIsRobotArmDetect())!= ON ){		// ƒƒ{ƒbƒgƒA[ƒ€Š±ÂŠO			‚g
+	if( (result=nexioIsRobotArmDetect())!= ON ){		// ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ å¹²æ¸‰å¤–			ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒƒ{ƒbƒgƒA[ƒ€‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_ROBOT_ARM );
 		return;
 	}
-	if( (result=nexioIsPinDownPos())	!= ON ){		// ƒsƒ“‰º’[						‚g
+	if( (result=nexioIsPinDownPos())	!= ON ){		// ãƒ”ãƒ³ä¸‹ç«¯						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‰º’[‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ä¸‹ç«¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LIFTER_LOWER );
 		return;
 	}
-	if( (result=nexioIsWorkGuideClose())!= OFF){		// ƒ[ƒNƒKƒCƒhCLOSEˆÊ’u(FWD)	‚k
+	if( (result=nexioIsWorkGuideClose())!= OFF){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEä½ç½®(FWD)	ï¼ï¼¬
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhCLOSE‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_CLOSE );
 		return;
 	}
-	if( (result=nexioIsWorkGuideOpen())	!= ON ){		// ƒ[ƒNƒKƒCƒhOPENˆÊ’u(REV)	‚g
+	if( (result=nexioIsWorkGuideOpen())	!= ON ){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENä½ç½®(REV)	ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhOPEN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_OPEN );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒXƒe[ƒW‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¹ãƒ†ãƒ¼ã‚¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_STAGE_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_ZAXIS) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‚y²‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ï¼ºè»¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_Z_AXIS_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_PIN) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_LIFTER_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_WORKGUIDE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒh‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_CLAMP_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_TURRET) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ^[ƒŒƒbƒg‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_TURRET_WORKING );
 		return;
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	STAGE_COORD Position;							// current stage position
 
@@ -1321,7 +1321,7 @@ BOOL result;
 	}
 	else{
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ|ƒWƒVƒ‡ƒ“‚P‚ÌˆÊ’uˆÚ“®‚É¸”s‚µ‚Ü‚µ‚½");
+		//m_ctlWarningMessage.SetWindowText("ãƒã‚¸ã‚·ãƒ§ãƒ³ï¼‘ã®ä½ç½®ç§»å‹•ã«å¤±æ•—ã—ã¾ã—ãŸ");
 		SetWarningMessageText( IDS_FAILED_POSITION_MOVEMENT1 );
 	}
 
@@ -1334,113 +1334,113 @@ void CMotionDlg::OnMaintenancePosition2Button()
 {
 BOOL result;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 		if( nexioIsMaintenanceSwitch() != OFF ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 		if( nexioIsMaintenanceSwitch() != ON ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
-	if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+	// å„I/Oãƒã‚§ãƒƒã‚¯
+	if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("EMOƒXƒCƒbƒ`‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("EMOã‚¹ã‚¤ãƒƒãƒã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EMO_SW );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
-//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ --------			 */
-	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- { -------- */
+//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ --------			 */
+	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒhƒAƒCƒ“ƒ^[ƒƒbƒN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_DOOR_INTERLOCK );
 		return;
 	}
-	if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+	if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‘•’u“dŒ¹‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("è£…ç½®é›»æºã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 		return;
 	}
-	if( (result=nexioIsMovo2Alarm())	!= OFF){		// MOVOƒAƒ‰[ƒ€					‚g
+	if( (result=nexioIsMovo2Alarm())	!= OFF){		// MOVOã‚¢ãƒ©ãƒ¼ãƒ 					ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("MOVOƒAƒ‰[ƒ€‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("MOVOã‚¢ãƒ©ãƒ¼ãƒ ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_MOVO_ALARM );
 		return;
 	}
-	if( (result=nexioIsShutterClose())	!= ON ){		// ƒVƒƒƒbƒ^[•Â					‚g
+	if( (result=nexioIsShutterClose())	!= ON ){		// ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰					ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒfƒBƒ“ƒOƒVƒƒƒbƒ^[•Â‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LOADING_SHUTTER );
 		return;
 	}
-	if( (result=nexioIsRobotArmDetect())!= ON ){		// ƒƒ{ƒbƒgƒA[ƒ€Š±ÂŠO			‚g
+	if( (result=nexioIsRobotArmDetect())!= ON ){		// ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ å¹²æ¸‰å¤–			ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒƒ{ƒbƒgƒA[ƒ€‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_ROBOT_ARM );
 		return;
 	}
-	if( (result=nexioIsPinDownPos())	!= ON ){		// ƒsƒ“‰º’[						‚g
+	if( (result=nexioIsPinDownPos())	!= ON ){		// ãƒ”ãƒ³ä¸‹ç«¯						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‰º’[‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ä¸‹ç«¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LIFTER_LOWER );
 		return;
 	}
-	if( (result=nexioIsWorkGuideClose())!= OFF){		// ƒ[ƒNƒKƒCƒhCLOSEˆÊ’u(FWD)	‚k
+	if( (result=nexioIsWorkGuideClose())!= OFF){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEä½ç½®(FWD)	ï¼ï¼¬
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhCLOSE‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_CLOSE );
 		return;
 	}
-	if( (result=nexioIsWorkGuideOpen())	!= ON ){		// ƒ[ƒNƒKƒCƒhOPENˆÊ’u(REV)	‚g
+	if( (result=nexioIsWorkGuideOpen())	!= ON ){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENä½ç½®(REV)	ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhOPEN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_OPEN );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒXƒe[ƒW‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¹ãƒ†ãƒ¼ã‚¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_STAGE_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_ZAXIS) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‚y²‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ï¼ºè»¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_Z_AXIS_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_PIN) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_LIFTER_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_WORKGUIDE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒh‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_CLAMP_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_TURRET) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ^[ƒŒƒbƒg‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_TURRET_WORKING );
 		return;
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	STAGE_COORD Position;							// current stage position
 
@@ -1455,7 +1455,7 @@ BOOL result;
 	}
 	else{
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ|ƒWƒVƒ‡ƒ“‚Q‚ÌˆÊ’uˆÚ“®‚É¸”s‚µ‚Ü‚µ‚½");
+		//m_ctlWarningMessage.SetWindowText("ãƒã‚¸ã‚·ãƒ§ãƒ³ï¼’ã®ä½ç½®ç§»å‹•ã«å¤±æ•—ã—ã¾ã—ãŸ");
 		SetWarningMessageText( IDS_FAILED_POSITION_MOVEMENT2 );
 	}
 
@@ -1468,113 +1468,113 @@ void CMotionDlg::OnMaintenancePosition3Button()
 {
 BOOL result;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 		if( nexioIsMaintenanceSwitch() != OFF ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 		if( nexioIsMaintenanceSwitch() != ON ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
-	if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+	// å„I/Oãƒã‚§ãƒƒã‚¯
+	if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("EMOƒXƒCƒbƒ`‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("EMOã‚¹ã‚¤ãƒƒãƒã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EMO_SW );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
-//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ --------			 */
-	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- { -------- */
+//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ --------			 */
+	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒhƒAƒCƒ“ƒ^[ƒƒbƒN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_DOOR_INTERLOCK );
 		return;
 	}
-	if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+	if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‘•’u“dŒ¹‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("è£…ç½®é›»æºã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 		return;
 	}
-	if( (result=nexioIsMovo2Alarm())	!= OFF){		// MOVOƒAƒ‰[ƒ€					‚g
+	if( (result=nexioIsMovo2Alarm())	!= OFF){		// MOVOã‚¢ãƒ©ãƒ¼ãƒ 					ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("MOVOƒAƒ‰[ƒ€‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("MOVOã‚¢ãƒ©ãƒ¼ãƒ ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_MOVO_ALARM );
 		return;
 	}
-	if( (result=nexioIsShutterClose())	!= ON ){		// ƒVƒƒƒbƒ^[•Â					‚g
+	if( (result=nexioIsShutterClose())	!= ON ){		// ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰					ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒfƒBƒ“ƒOƒVƒƒƒbƒ^[•Â‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LOADING_SHUTTER );
 		return;
 	}
-	if( (result=nexioIsRobotArmDetect())!= ON ){		// ƒƒ{ƒbƒgƒA[ƒ€Š±ÂŠO			‚g
+	if( (result=nexioIsRobotArmDetect())!= ON ){		// ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ å¹²æ¸‰å¤–			ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒƒ{ƒbƒgƒA[ƒ€‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_ROBOT_ARM );
 		return;
 	}
-	if( (result=nexioIsPinDownPos())	!= ON ){		// ƒsƒ“‰º’[						‚g
+	if( (result=nexioIsPinDownPos())	!= ON ){		// ãƒ”ãƒ³ä¸‹ç«¯						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‰º’[‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ä¸‹ç«¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LIFTER_LOWER );
 		return;
 	}
-	if( (result=nexioIsWorkGuideClose())!= OFF){		// ƒ[ƒNƒKƒCƒhCLOSEˆÊ’u(FWD)	‚k
+	if( (result=nexioIsWorkGuideClose())!= OFF){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEä½ç½®(FWD)	ï¼ï¼¬
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhCLOSE‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_CLOSE );
 		return;
 	}
-	if( (result=nexioIsWorkGuideOpen())	!= ON ){		// ƒ[ƒNƒKƒCƒhOPENˆÊ’u(REV)	‚g
+	if( (result=nexioIsWorkGuideOpen())	!= ON ){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENä½ç½®(REV)	ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhOPEN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_OPEN );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒXƒe[ƒW‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¹ãƒ†ãƒ¼ã‚¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_STAGE_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_ZAXIS) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‚y²‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ï¼ºè»¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_Z_AXIS_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_PIN) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_LIFTER_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_WORKGUIDE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒh‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_CLAMP_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_TURRET) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ^[ƒŒƒbƒg‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_TURRET_WORKING );
 		return;
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	STAGE_COORD Position;							// current stage position
 
@@ -1589,7 +1589,7 @@ BOOL result;
 	}
 	else{
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ|ƒWƒVƒ‡ƒ“‚R‚ÌˆÊ’uˆÚ“®‚É¸”s‚µ‚Ü‚µ‚½");
+		//m_ctlWarningMessage.SetWindowText("ãƒã‚¸ã‚·ãƒ§ãƒ³ï¼“ã®ä½ç½®ç§»å‹•ã«å¤±æ•—ã—ã¾ã—ãŸ");
 		SetWarningMessageText( IDS_FAILED_POSITION_MOVEMENT3 );
 	}
 
@@ -1602,113 +1602,113 @@ void CMotionDlg::OnMaintenancePosition4Button()
 {
 BOOL result;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 		if( nexioIsMaintenanceSwitch() != OFF ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 		if( nexioIsMaintenanceSwitch() != ON ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
-	if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+	// å„I/Oãƒã‚§ãƒƒã‚¯
+	if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("EMOƒXƒCƒbƒ`‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("EMOã‚¹ã‚¤ãƒƒãƒã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EMO_SW );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
-//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ --------			 */
-	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- { -------- */
+//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ --------			 */
+	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒhƒAƒCƒ“ƒ^[ƒƒbƒN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_DOOR_INTERLOCK );
 		return;
 	}
-	if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+	if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‘•’u“dŒ¹‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("è£…ç½®é›»æºã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 		return;
 	}
-	if( (result=nexioIsMovo2Alarm())	!= OFF){		// MOVOƒAƒ‰[ƒ€					‚g
+	if( (result=nexioIsMovo2Alarm())	!= OFF){		// MOVOã‚¢ãƒ©ãƒ¼ãƒ 					ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("MOVOƒAƒ‰[ƒ€‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("MOVOã‚¢ãƒ©ãƒ¼ãƒ ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_MOVO_ALARM );
 		return;
 	}
-	if( (result=nexioIsShutterClose())	!= ON ){		// ƒVƒƒƒbƒ^[•Â					‚g
+	if( (result=nexioIsShutterClose())	!= ON ){		// ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰					ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒfƒBƒ“ƒOƒVƒƒƒbƒ^[•Â‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LOADING_SHUTTER );
 		return;
 	}
-	if( (result=nexioIsRobotArmDetect())!= ON ){		// ƒƒ{ƒbƒgƒA[ƒ€Š±ÂŠO			‚g
+	if( (result=nexioIsRobotArmDetect())!= ON ){		// ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ å¹²æ¸‰å¤–			ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒƒ{ƒbƒgƒA[ƒ€‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_ROBOT_ARM );
 		return;
 	}
-	if( (result=nexioIsPinDownPos())	!= ON ){		// ƒsƒ“‰º’[						‚g
+	if( (result=nexioIsPinDownPos())	!= ON ){		// ãƒ”ãƒ³ä¸‹ç«¯						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‰º’[‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ä¸‹ç«¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LIFTER_LOWER );
 		return;
 	}
-	if( (result=nexioIsWorkGuideClose())!= OFF){		// ƒ[ƒNƒKƒCƒhCLOSEˆÊ’u(FWD)	‚k
+	if( (result=nexioIsWorkGuideClose())!= OFF){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEä½ç½®(FWD)	ï¼ï¼¬
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhCLOSE‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_CLOSE );
 		return;
 	}
-	if( (result=nexioIsWorkGuideOpen())	!= ON ){		// ƒ[ƒNƒKƒCƒhOPENˆÊ’u(REV)	‚g
+	if( (result=nexioIsWorkGuideOpen())	!= ON ){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENä½ç½®(REV)	ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhOPEN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_OPEN );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒXƒe[ƒW‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¹ãƒ†ãƒ¼ã‚¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_STAGE_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_ZAXIS) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‚y²‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ï¼ºè»¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_Z_AXIS_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_PIN) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_LIFTER_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_WORKGUIDE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒh‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_CLAMP_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_TURRET) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ^[ƒŒƒbƒg‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_TURRET_WORKING );
 		return;
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	STAGE_COORD Position;							// current stage position
 
@@ -1723,7 +1723,7 @@ BOOL result;
 	}
 	else{
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ|ƒWƒVƒ‡ƒ“‚S‚ÌˆÊ’uˆÚ“®‚É¸”s‚µ‚Ü‚µ‚½");
+		//m_ctlWarningMessage.SetWindowText("ãƒã‚¸ã‚·ãƒ§ãƒ³ï¼”ã®ä½ç½®ç§»å‹•ã«å¤±æ•—ã—ã¾ã—ãŸ");
 		SetWarningMessageText( IDS_FAILED_POSITION_MOVEMENT4 );
 	}
 
@@ -1736,73 +1736,73 @@ void CMotionDlg::OnSampleLoadingShutterOpenButton()
 {
 BOOL result;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 		if( nexioIsMaintenanceSwitch() != OFF ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
-	if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+	// å„I/Oãƒã‚§ãƒƒã‚¯
+	if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("EMOƒXƒCƒbƒ`‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("EMOã‚¹ã‚¤ãƒƒãƒã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EMO_SW );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
-//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ --------			 */
-	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- { -------- */
+//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ --------			 */
+	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒhƒAƒCƒ“ƒ^[ƒƒbƒN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_DOOR_INTERLOCK );
 		return;
 	}
-	if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+	if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‘•’u“dŒ¹‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("è£…ç½®é›»æºã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- { -------- */
-//	if( (result=nexioIsAirPressureLevelLow())!=OFF ){	/* ‹Ÿ‹‹CDAˆ³—Í’á‰ºƒAƒ‰[ƒ€		‚k */
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- 		   */
-	if ((result = m_pDoc->Rap_IsAirPressureLowON(1)) != OFF) {	/* ‹Ÿ‹‹CDAˆ³—Í’á‰ºƒAƒ‰[ƒ€		‚k */
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- } -------- */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- { -------- */
+//	if( (result=nexioIsAirPressureLevelLow())!=OFF ){	/* ä¾›çµ¦CDAåœ§åŠ›ä½ä¸‹ã‚¢ãƒ©ãƒ¼ãƒ 		ï¼ï¼¬ */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- 		   */
+	if ((result = m_pDoc->Rap_IsAirPressureLowON(1)) != OFF) {	/* ä¾›çµ¦CDAåœ§åŠ›ä½ä¸‹ã‚¢ãƒ©ãƒ¼ãƒ 		ï¼ï¼¬ */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒGƒAˆ³—Í‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ã‚¨ã‚¢åœ§åŠ›ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_AIR_PRESSURE );
 		return;
 	}
 	if(	m_pDoc->ActuateFlagsGet(ACTUATE_SHUTTER) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒVƒƒƒbƒ^[‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚·ãƒ£ãƒƒã‚¿ãƒ¼ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_SHUTTER_WORKING );
 		return;
 	}
-// 2009.11.09 bagus MS C³ --{--
+// 2009.11.09 bagus MS ä¿®æ­£ --{--
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_MICROSCOPE) ){
 		SetWarningMessageText( IDS_MICROSCOPE_WORKING );
 		return;
 	}
-// 2009.11.09 bagus MS C³ --}--
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+// 2009.11.09 bagus MS ä¿®æ­£ --}--
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	m_pDoc->ActuateFlagsSet(ACTUATE_SHUTTER, TRUE);
 
 	// Sample Loading Shutter OPEN
 	if( nexifOpenShutter(this->m_hWnd)==TRUE ){
 
-		// ‘€ìƒƒO‚Ìæ“¾
+		// æ“ä½œãƒ­ã‚°ã®å–å¾—
 		m_pDoc->OperationLogging("MOTION - Sample Loading Shutter OPEN Button was pushed.");
 	}
-// ActuateFlag‚Í‰“š‚ğ‘Ò‚Á‚Ä—‚Æ‚·
+// ActuateFlagã¯å¿œç­”ã‚’å¾…ã£ã¦è½ã¨ã™
 //	m_pDoc->ActuateFlagsSet(ACTUATE_SHUTTER, FALSE);
 }
 
@@ -1812,79 +1812,79 @@ void CMotionDlg::OnSampleLoadingShutterCloseButton()
 {
 BOOL result;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 		if( nexioIsMaintenanceSwitch() != OFF ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
-	if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+	// å„I/Oãƒã‚§ãƒƒã‚¯
+	if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("EMOƒXƒCƒbƒ`‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("EMOã‚¹ã‚¤ãƒƒãƒã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EMO_SW );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
-// 	if( (result=nexioIsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ --------			 */
-	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- { -------- */
+// 	if( (result=nexioIsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ --------			 */
+	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒhƒAƒCƒ“ƒ^[ƒƒbƒN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_DOOR_INTERLOCK );
 		return;
 	}
-	if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+	if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‘•’u“dŒ¹‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("è£…ç½®é›»æºã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- { -------- */
-//	if( (result=nexioIsAirPressureLevelLow())!=OFF ){	/* ‹Ÿ‹‹CDAˆ³—Í’á‰ºƒAƒ‰[ƒ€		‚k */
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- 		   */
-	if ((result = m_pDoc->Rap_IsAirPressureLowON(1)) != OFF) {	/* ‹Ÿ‹‹CDAˆ³—Í’á‰ºƒAƒ‰[ƒ€		‚k */
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- } -------- */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- { -------- */
+//	if( (result=nexioIsAirPressureLevelLow())!=OFF ){	/* ä¾›çµ¦CDAåœ§åŠ›ä½ä¸‹ã‚¢ãƒ©ãƒ¼ãƒ 		ï¼ï¼¬ */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- 		   */
+	if ((result = m_pDoc->Rap_IsAirPressureLowON(1)) != OFF) {	/* ä¾›çµ¦CDAåœ§åŠ›ä½ä¸‹ã‚¢ãƒ©ãƒ¼ãƒ 		ï¼ï¼¬ */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒGƒAˆ³—Í‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ã‚¨ã‚¢åœ§åŠ›ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_AIR_PRESSURE );
 		return;
 	}
-	if( (result=nexioIsRobotArmDetect())!= ON ){		// ƒƒ{ƒbƒgƒA[ƒ€Š±ÂŠO			‚g
+	if( (result=nexioIsRobotArmDetect())!= ON ){		// ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ å¹²æ¸‰å¤–			ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒƒ{ƒbƒgƒA[ƒ€‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_ROBOT_ARM );
 		return;
 	}
 	if(	m_pDoc->ActuateFlagsGet(ACTUATE_SHUTTER) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒVƒƒƒbƒ^[‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚·ãƒ£ãƒƒã‚¿ãƒ¼ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_SHUTTER_WORKING );
 		return;
 	}
-// 2009.11.09 bagus MS C³ --{--
+// 2009.11.09 bagus MS ä¿®æ­£ --{--
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_MICROSCOPE) ){
 		SetWarningMessageText( IDS_MICROSCOPE_WORKING );
 		return;
 	}
-// 2009.11.09 bagus MS C³ --}--
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+// 2009.11.09 bagus MS ä¿®æ­£ --}--
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	m_pDoc->ActuateFlagsSet(ACTUATE_SHUTTER, TRUE);
 
 	// Sample Loading Shutter CLOSE
 	if( nexifCloseShutter(this->m_hWnd)==TRUE ){
 
-		// ‘€ìƒƒO‚Ìæ“¾
+		// æ“ä½œãƒ­ã‚°ã®å–å¾—
 		m_pDoc->OperationLogging("MOTION - Sample Loading Shutter CLOSE Button was pushed.");
 	}
-// ActuateFlag‚Í‰“š‚ğ‘Ò‚Á‚Ä—‚Æ‚·
+// ActuateFlagã¯å¿œç­”ã‚’å¾…ã£ã¦è½ã¨ã™
 //	m_pDoc->ActuateFlagsSet(ACTUATE_SHUTTER, FALSE);
 }
 
@@ -1894,126 +1894,126 @@ void CMotionDlg::OnSampleLifterUpButton()
 {
 BOOL result;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 		if( nexioIsMaintenanceSwitch() != OFF ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
-	if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+	// å„I/Oãƒã‚§ãƒƒã‚¯
+	if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("EMOƒXƒCƒbƒ`‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("EMOã‚¹ã‚¤ãƒƒãƒã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EMO_SW );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
-//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ --------			 */
-	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- { -------- */
+//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ --------			 */
+	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒhƒAƒCƒ“ƒ^[ƒƒbƒN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_DOOR_INTERLOCK );
 		return;
 	}
-	if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+	if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‘•’u“dŒ¹‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("è£…ç½®é›»æºã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 		return;
 	}
-	if( (result=nexioIsShutterClose())	!= ON ){		// ƒVƒƒƒbƒ^[•Â					‚g
+	if( (result=nexioIsShutterClose())	!= ON ){		// ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰					ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒfƒBƒ“ƒOƒVƒƒƒbƒ^[•Â‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LOADING_SHUTTER );
 		return;
 	}
-	if( (result=nexioIsRobotArmDetect())!= ON ){		// ƒƒ{ƒbƒgƒA[ƒ€Š±ÂŠO			‚g
+	if( (result=nexioIsRobotArmDetect())!= ON ){		// ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ å¹²æ¸‰å¤–			ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒƒ{ƒbƒgƒA[ƒ€‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_ROBOT_ARM );
 		return;
 	}
-	if( (result=nexioIsStageLoadPos())	!= ON ){		// ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“				‚g
+	if( (result=nexioIsStageLoadPos())	!= ON ){		// ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³				ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LOAD_POSITION );
 		return;
 	}
-	if( (result=nexioIsWorkGuideClose())!= OFF){		// ƒ[ƒNƒKƒCƒhCLOSEˆÊ’u(FWD)	‚k
+	if( (result=nexioIsWorkGuideClose())!= OFF){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEä½ç½®(FWD)	ï¼ï¼¬
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhCLOSE‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_CLOSE );
 		return;
 	}
-	if( (result=nexioIsWorkGuideOpen())	!= ON ){		// ƒ[ƒNƒKƒCƒhOPENˆÊ’u(REV)	‚g
+	if( (result=nexioIsWorkGuideOpen())	!= ON ){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENä½ç½®(REV)	ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhOPEN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_OPEN );
 		return;
 	}
-	if( (result=nexioIsGlassExist())	== ON ){		// ƒKƒ‰ƒXİ‰×—L‚è				‚g
+	if( (result=nexioIsGlassExist())	== ON ){		// ã‚¬ãƒ©ã‚¹åœ¨è·æœ‰ã‚Š				ï¼ï¼¨
 // matsuhisa 20090522 fix >>>
-//		if( (result=nexioIsVacuumStatus())	!= ON ){	// ƒoƒLƒ…[ƒ€					‚g
-		if( (result=nexioIsVacuumOff())	!= ON ){	// ƒoƒLƒ…[ƒ€					‚g
+//		if( (result=nexioIsVacuumStatus())	!= ON ){	// ãƒã‚­ãƒ¥ãƒ¼ãƒ 					ï¼ï¼¨
+		if( (result=nexioIsVacuumOff())	!= ON ){	// ãƒã‚­ãƒ¥ãƒ¼ãƒ 					ï¼ï¼¨
 // matsuhisa 20090522 fix <<<
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒoƒLƒ…[ƒ€‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒã‚­ãƒ¥ãƒ¼ãƒ ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_VACCUM );
 			return;
 		}
-		if( (result=nexioIsPinDownPos())	!= OFF){	// ƒsƒ“‰º’[						‚k
+		if( (result=nexioIsPinDownPos())	!= OFF){	// ãƒ”ãƒ³ä¸‹ç«¯						ï¼ï¼¬
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‰º’[‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ä¸‹ç«¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_LIFTER_LOWER );
 			return;
 		}
 	}
 // matsuhisa 20090522 fix >>>
-//	else{												// ƒKƒ‰ƒXİ‰×–³‚µ				‚k
-//		if( (result=nexioIsPinDownPos())	!= ON ){	// ƒsƒ“‰º’[						‚g
-//			m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‰º’[‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+//	else{												// ã‚¬ãƒ©ã‚¹åœ¨è·ç„¡ã—				ï¼ï¼¬
+//		if( (result=nexioIsPinDownPos())	!= ON ){	// ãƒ”ãƒ³ä¸‹ç«¯						ï¼ï¼¨
+//			m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ä¸‹ç«¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 //			return;
 //		}
 //	}
 // matsuhisa 20090522 fix <<<
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒXƒe[ƒW‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¹ãƒ†ãƒ¼ã‚¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_STAGE_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_ZAXIS) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‚y²‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ï¼ºè»¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_Z_AXIS_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_PIN) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_LIFTER_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_WORKGUIDE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒh‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_CLAMP_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_TURRET) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ^[ƒŒƒbƒg‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_TURRET_WORKING );
 		return;
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	m_pDoc->ActuateFlagsSet(ACTUATE_PIN, TRUE);
 
@@ -2024,10 +2024,10 @@ BOOL result;
 	}
 	else{
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒTƒ“ƒvƒ‹ƒŠƒtƒ^[‚Ìã’[‚É¸”s‚µ‚Ü‚µ‚½");
+		//m_ctlWarningMessage.SetWindowText("ã‚µãƒ³ãƒ—ãƒ«ãƒªãƒ•ã‚¿ãƒ¼ã®ä¸Šç«¯ã«å¤±æ•—ã—ã¾ã—ãŸ");
 		SetWarningMessageText( IDS_FAILED_RISE_SAMPLE_LIFTER );
 	}
-// ActuateFlag‚Í‰“š‚ğ‘Ò‚Á‚Ä—‚Æ‚·
+// ActuateFlagã¯å¿œç­”ã‚’å¾…ã£ã¦è½ã¨ã™
 //	m_pDoc->ActuateFlagsSet(ACTUATE_PIN, FALSE);
 }
 
@@ -2037,116 +2037,116 @@ void CMotionDlg::OnSampleLifterAlignmentButton()
 {
 BOOL result;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 		if( nexioIsMaintenanceSwitch() != OFF ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
-	if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+	// å„I/Oãƒã‚§ãƒƒã‚¯
+	if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("EMOƒXƒCƒbƒ`‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("EMOã‚¹ã‚¤ãƒƒãƒã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EMO_SW );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
-//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ --------			 */
-	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- { -------- */
+//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ --------			 */
+	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒhƒAƒCƒ“ƒ^[ƒƒbƒN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_DOOR_INTERLOCK );
 		return;
 	}
-	if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+	if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‘•’u“dŒ¹‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("è£…ç½®é›»æºã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 		return;
 	}
-	if( (result=nexioIsShutterClose())	!= ON ){		// ƒVƒƒƒbƒ^[•Â					‚g
+	if( (result=nexioIsShutterClose())	!= ON ){		// ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰					ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒfƒBƒ“ƒOƒVƒƒƒbƒ^[•Â‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LOADING_SHUTTER );
 		return;
 	}
-	if( (result=nexioIsRobotArmDetect())!= ON ){		// ƒƒ{ƒbƒgƒA[ƒ€Š±ÂŠO			‚g
+	if( (result=nexioIsRobotArmDetect())!= ON ){		// ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ å¹²æ¸‰å¤–			ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒƒ{ƒbƒgƒA[ƒ€‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_ROBOT_ARM );
 		return;
 	}
 // matsuhisa 20090522 fix >>>
-//	if( (result=nexioIsVacuumStatus())	!= ON ){		// ƒoƒLƒ…[ƒ€					‚g
-	if( (result=nexioIsVacuumOff())	!= ON ){		// ƒoƒLƒ…[ƒ€					‚g
+//	if( (result=nexioIsVacuumStatus())	!= ON ){		// ãƒã‚­ãƒ¥ãƒ¼ãƒ 					ï¼ï¼¨
+	if( (result=nexioIsVacuumOff())	!= ON ){		// ãƒã‚­ãƒ¥ãƒ¼ãƒ 					ï¼ï¼¨
 // matsuhisa 20090522 fix <<<
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒoƒLƒ…[ƒ€‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒã‚­ãƒ¥ãƒ¼ãƒ ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_VACCUM );
 		return;
 	}
-	if( (result=nexioIsStageLoadPos())	!= ON ){		// ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“				‚g
+	if( (result=nexioIsStageLoadPos())	!= ON ){		// ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³				ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LOAD_POSITION );
 		return;
 	}
 // matsuhisa 20090522 fix >>>
-//	if( (result=nexioIsPinDownPos())	!= OFF){		// ƒsƒ“‰º’[						‚k
-//		m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‰º’[‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+//	if( (result=nexioIsPinDownPos())	!= OFF){		// ãƒ”ãƒ³ä¸‹ç«¯						ï¼ï¼¬
+//		m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ä¸‹ç«¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 //		return;
 //	}
 // matsuhisa 20090522 fix <<<
-	if( (result=nexioIsWorkGuideClose())!= OFF){		// ƒ[ƒNƒKƒCƒhCLOSEˆÊ’u(FWD)	‚k
+	if( (result=nexioIsWorkGuideClose())!= OFF){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEä½ç½®(FWD)	ï¼ï¼¬
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhCLOSE‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_CLOSE );
 		return;
 	}
-	if( (result=nexioIsWorkGuideOpen())	!= ON ){		// ƒ[ƒNƒKƒCƒhOPENˆÊ’u(REV)	‚g
+	if( (result=nexioIsWorkGuideOpen())	!= ON ){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENä½ç½®(REV)	ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhOPEN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_OPEN );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒXƒe[ƒW‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¹ãƒ†ãƒ¼ã‚¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_STAGE_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_ZAXIS) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‚y²‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ï¼ºè»¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_Z_AXIS_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_PIN) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_LIFTER_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_WORKGUIDE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒh‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_CLAMP_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_TURRET) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ^[ƒŒƒbƒg‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_TURRET_WORKING );
 		return;
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	m_pDoc->ActuateFlagsSet(ACTUATE_PIN, TRUE);
 
@@ -2157,10 +2157,10 @@ BOOL result;
 	}
 	else{
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒAƒ‰ƒCƒƒ“ƒgˆÊ’uˆÚ“®‚É¸”s‚µ‚Ü‚µ‚½");
+		//m_ctlWarningMessage.SetWindowText("ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆä½ç½®ç§»å‹•ã«å¤±æ•—ã—ã¾ã—ãŸ");
 		SetWarningMessageText( IDS_FAILED_ALIGNMENT_POSITION_MOVE );
 	}
-// ActuateFlag‚Í‰“š‚ğ‘Ò‚Á‚Ä—‚Æ‚·
+// ActuateFlagã¯å¿œç­”ã‚’å¾…ã£ã¦è½ã¨ã™
 //	m_pDoc->ActuateFlagsSet(ACTUATE_PIN, FALSE);
 }
 
@@ -2170,111 +2170,111 @@ void CMotionDlg::OnSampleLifterDownButton()
 {
 BOOL result;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 		if( nexioIsMaintenanceSwitch() != OFF ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
-	if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+	// å„I/Oãƒã‚§ãƒƒã‚¯
+	if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("EMOƒXƒCƒbƒ`‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("EMOã‚¹ã‚¤ãƒƒãƒã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EMO_SW );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
-//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ --------			 */
-	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- { -------- */
+//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ --------			 */
+	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒhƒAƒCƒ“ƒ^[ƒƒbƒN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_DOOR_INTERLOCK );
 		return;
 	}
-	if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+	if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‘•’u“dŒ¹‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("è£…ç½®é›»æºã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 		return;
 	}
-	if( (result=nexioIsShutterClose())	!= ON ){		// ƒVƒƒƒbƒ^[•Â					‚g
+	if( (result=nexioIsShutterClose())	!= ON ){		// ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰					ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒfƒBƒ“ƒOƒVƒƒƒbƒ^[•Â‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LOADING_SHUTTER );
 		return;
 	}
-	if( (result=nexioIsRobotArmDetect())!= ON ){		// ƒƒ{ƒbƒgƒA[ƒ€Š±ÂŠO			‚g
+	if( (result=nexioIsRobotArmDetect())!= ON ){		// ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ å¹²æ¸‰å¤–			ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒƒ{ƒbƒgƒA[ƒ€‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_ROBOT_ARM );
 		return;
 	}
 // 2009.08.24 K.Matsuo delete -->
-// ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“‚ÖˆÚ“®‚µ‚æ‚¤‚Æ‚·‚é‚ÆAPIN‰º’[‚Å‚È‚¢‚ÆŒ¾‚í‚ê‚½
-// PIN‚ğ‰º‚°‚æ‚¤‚Æ‚·‚é‚Æƒ[ƒhƒ|ƒWƒVƒ‡ƒ“‚Å‚È‚¢‚ÆŒ¾‚í‚ê‚ÄAƒfƒbƒgƒƒbƒNó‘Ô‚É‚È‚Á‚½‚½‚ßAíœ
-//	if( (result=nexioIsStageLoadPos())	!= ON ){		// ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“				‚g
+// ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³ã¸ç§»å‹•ã—ã‚ˆã†ã¨ã™ã‚‹ã¨ã€PINä¸‹ç«¯ã§ãªã„ã¨è¨€ã‚ã‚ŒãŸ
+// PINã‚’ä¸‹ã’ã‚ˆã†ã¨ã™ã‚‹ã¨ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³ã§ãªã„ã¨è¨€ã‚ã‚Œã¦ã€ãƒ‡ãƒƒãƒˆãƒ­ãƒƒã‚¯çŠ¶æ…‹ã«ãªã£ãŸãŸã‚ã€å‰Šé™¤
+//	if( (result=nexioIsStageLoadPos())	!= ON ){		// ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³				ï¼ï¼¨
 //		// Kojika 20090602 Change
-//		//m_ctlWarningMessage.SetWindowText("ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+//		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 //		SetWarningMessageText( IDS_CHECK_LOAD_POSITION );
 //		return;
 //	}
 // 2009.08.24 K.Matsuo delete <--
-	if( (result=nexioIsPinDownPos())	!= OFF){		// ƒsƒ“‰º’[						‚k
+	if( (result=nexioIsPinDownPos())	!= OFF){		// ãƒ”ãƒ³ä¸‹ç«¯						ï¼ï¼¬
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‰º’[‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ä¸‹ç«¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LIFTER_LOWER );
 		return;
 	}
-	if( (result=nexioIsWorkGuideClose())!= OFF){		// ƒ[ƒNƒKƒCƒhCLOSEˆÊ’u(FWD)	‚k
+	if( (result=nexioIsWorkGuideClose())!= OFF){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEä½ç½®(FWD)	ï¼ï¼¬
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhCLOSE‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_CLOSE );
 		return;
 	}
-	if( (result=nexioIsWorkGuideOpen())	!= ON ){		// ƒ[ƒNƒKƒCƒhOPENˆÊ’u(REV)	‚g
+	if( (result=nexioIsWorkGuideOpen())	!= ON ){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENä½ç½®(REV)	ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhOPEN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_OPEN );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒXƒe[ƒW‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¹ãƒ†ãƒ¼ã‚¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_STAGE_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_ZAXIS) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‚y²‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ï¼ºè»¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_Z_AXIS_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_PIN) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_LIFTER_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_WORKGUIDE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒh‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_CLAMP_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_TURRET) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ^[ƒŒƒbƒg‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_TURRET_WORKING );
 		return;
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	m_pDoc->ActuateFlagsSet(ACTUATE_PIN, TRUE);
 
@@ -2285,10 +2285,10 @@ BOOL result;
 	}
 	else{
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒTƒ“ƒvƒ‹ƒŠƒtƒ^[‚Ì‰º~‚É¸”s‚µ‚Ü‚µ‚½");
+		//m_ctlWarningMessage.SetWindowText("ã‚µãƒ³ãƒ—ãƒ«ãƒªãƒ•ã‚¿ãƒ¼ã®ä¸‹é™ã«å¤±æ•—ã—ã¾ã—ãŸ");
 		SetWarningMessageText( IDS_FAILED_DESCENT_SAMPLE_LIFTER );
 	}
-// ActuateFlag‚Í‰“š‚ğ‘Ò‚Á‚Ä—‚Æ‚·
+// ActuateFlagã¯å¿œç­”ã‚’å¾…ã£ã¦è½ã¨ã™
 //	m_pDoc->ActuateFlagsSet(ACTUATE_PIN, FALSE);
 }
 
@@ -2298,123 +2298,123 @@ void CMotionDlg::OnSampleLoadSequenceLoadButton()
 {
 BOOL result;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 		if( nexioIsMaintenanceSwitch() != OFF ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
-	if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+	// å„I/Oãƒã‚§ãƒƒã‚¯
+	if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("EMOƒXƒCƒbƒ`‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("EMOã‚¹ã‚¤ãƒƒãƒã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EMO_SW );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
-//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ --------			 */
-	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- { -------- */
+//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ --------			 */
+	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒhƒAƒCƒ“ƒ^[ƒƒbƒN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_DOOR_INTERLOCK );
 		return;
 	}
-	if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+	if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‘•’u“dŒ¹‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("è£…ç½®é›»æºã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- { -------- */
-//	if( (result=nexioIsAirPressureLevelLow())!=OFF ){	/* ‹Ÿ‹‹CDAˆ³—Í’á‰ºƒAƒ‰[ƒ€		‚k */
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- 		   */
-	if ((result = m_pDoc->Rap_IsAirPressureLowON(1)) != OFF) {	/* ‹Ÿ‹‹CDAˆ³—Í’á‰ºƒAƒ‰[ƒ€		‚k */
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- } -------- */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- { -------- */
+//	if( (result=nexioIsAirPressureLevelLow())!=OFF ){	/* ä¾›çµ¦CDAåœ§åŠ›ä½ä¸‹ã‚¢ãƒ©ãƒ¼ãƒ 		ï¼ï¼¬ */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- 		   */
+	if ((result = m_pDoc->Rap_IsAirPressureLowON(1)) != OFF) {	/* ä¾›çµ¦CDAåœ§åŠ›ä½ä¸‹ã‚¢ãƒ©ãƒ¼ãƒ 		ï¼ï¼¬ */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒGƒAˆ³—Í‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ã‚¨ã‚¢åœ§åŠ›ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_AIR_PRESSURE );
 		return;
 	}
-	if( (result=nexioIsShutterClose())	!= ON ){		// ƒVƒƒƒbƒ^[•Â					‚g
+	if( (result=nexioIsShutterClose())	!= ON ){		// ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰					ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒfƒBƒ“ƒOƒVƒƒƒbƒ^[•Â‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LOADING_SHUTTER );
 		return;
 	}
-	if( (result=nexioIsRobotArmDetect())!= ON ){		// ƒƒ{ƒbƒgƒA[ƒ€Š±ÂŠO			‚g
+	if( (result=nexioIsRobotArmDetect())!= ON ){		// ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ å¹²æ¸‰å¤–			ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒƒ{ƒbƒgƒA[ƒ€‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_ROBOT_ARM );
 		return;
 	}
-	if( (result=nexioIsStageLoadPos())	!= ON ){		// ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“				‚g
+	if( (result=nexioIsStageLoadPos())	!= ON ){		// ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³				ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LOAD_POSITION );
 		return;
 	}
-	if( (result=nexioIsPinDownPos())	!= OFF){		// ƒsƒ“‰º’[						‚k
+	if( (result=nexioIsPinDownPos())	!= OFF){		// ãƒ”ãƒ³ä¸‹ç«¯						ï¼ï¼¬
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‰º’[‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ä¸‹ç«¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LIFTER_LOWER );
 		return;
 	}
-	if( (result=nexioIsWorkGuideClose())!= OFF){		// ƒ[ƒNƒKƒCƒhCLOSEˆÊ’u(FWD)	‚k
+	if( (result=nexioIsWorkGuideClose())!= OFF){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEä½ç½®(FWD)	ï¼ï¼¬
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhCLOSE‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_CLOSE );
 		return;
 	}
-	if( (result=nexioIsWorkGuideOpen())	!= ON ){		// ƒ[ƒNƒKƒCƒhOPENˆÊ’u(REV)	‚g
+	if( (result=nexioIsWorkGuideOpen())	!= ON ){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENä½ç½®(REV)	ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhOPEN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_OPEN );
 		return;
 	}
-	if( (result=nexioIsPinUpperPos())!=ON ){			// ƒsƒ“ã’[						‚g
+	if( (result=nexioIsPinUpperPos())!=ON ){			// ãƒ”ãƒ³ä¸Šç«¯						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[ã’[‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ä¸Šç«¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LIFTER_UPPER );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒXƒe[ƒW‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¹ãƒ†ãƒ¼ã‚¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_STAGE_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_ZAXIS) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‚y²‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ï¼ºè»¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_Z_AXIS_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_PIN) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_LIFTER_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_WORKGUIDE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒh‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_CLAMP_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_TURRET) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ^[ƒŒƒbƒg‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_TURRET_WORKING );
 		return;
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	m_pDoc->ActuateFlagsSet(ACTUATE_PIN, TRUE);
 	m_pDoc->ActuateFlagsSet(ACTUATE_WORKGUIDE, TRUE);
@@ -2425,10 +2425,10 @@ BOOL result;
 	}
 	else{
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒV[ƒPƒ“ƒX‚Ìƒ[ƒh‚É¸”s‚µ‚Ü‚µ‚½");
+		//m_ctlWarningMessage.SetWindowText("ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã®ãƒ­ãƒ¼ãƒ‰ã«å¤±æ•—ã—ã¾ã—ãŸ");
 		SetWarningMessageText( IDS_FAILED_LOAD_SEQUENCE );
 	}
-// ActuateFlag‚Í‰“š‚ğ‘Ò‚Á‚Ä—‚Æ‚·
+// ActuateFlagã¯å¿œç­”ã‚’å¾…ã£ã¦è½ã¨ã™
 //	m_pDoc->ActuateFlagsSet(ACTUATE_PIN, FALSE);
 //	m_pDoc->ActuateFlagsSet(ACTUATE_WORKGUIDE, FALSE);
 }
@@ -2439,117 +2439,117 @@ void CMotionDlg::OnSampleLoadSequenceUnloadButton()
 {
 BOOL result;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 		if( nexioIsMaintenanceSwitch() != OFF ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
-	if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+	// å„I/Oãƒã‚§ãƒƒã‚¯
+	if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("EMOƒXƒCƒbƒ`‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("EMOã‚¹ã‚¤ãƒƒãƒã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EMO_SW );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
-//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ --------			 */
-	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- { -------- */
+//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ --------			 */
+	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒhƒAƒCƒ“ƒ^[ƒƒbƒN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_DOOR_INTERLOCK );
 		return;
 	}
-	if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+	if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‘•’u“dŒ¹‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("è£…ç½®é›»æºã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- { -------- */
-//	if( (result=nexioIsAirPressureLevelLow())!=OFF ){	/* ‹Ÿ‹‹CDAˆ³—Í’á‰ºƒAƒ‰[ƒ€		‚k */
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- 		   */
-	if ((result = m_pDoc->Rap_IsAirPressureLowON(1)) != OFF) {	/* ‹Ÿ‹‹CDAˆ³—Í’á‰ºƒAƒ‰[ƒ€		‚k */
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- } -------- */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- { -------- */
+//	if( (result=nexioIsAirPressureLevelLow())!=OFF ){	/* ä¾›çµ¦CDAåœ§åŠ›ä½ä¸‹ã‚¢ãƒ©ãƒ¼ãƒ 		ï¼ï¼¬ */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- 		   */
+	if ((result = m_pDoc->Rap_IsAirPressureLowON(1)) != OFF) {	/* ä¾›çµ¦CDAåœ§åŠ›ä½ä¸‹ã‚¢ãƒ©ãƒ¼ãƒ 		ï¼ï¼¬ */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒGƒAˆ³—Í‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ã‚¨ã‚¢åœ§åŠ›ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_AIR_PRESSURE );
 		return;
 	}
-	if( (result=nexioIsShutterClose())	!= ON ){		// ƒVƒƒƒbƒ^[•Â					‚g
+	if( (result=nexioIsShutterClose())	!= ON ){		// ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰					ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒfƒBƒ“ƒOƒVƒƒƒbƒ^[•Â‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LOADING_SHUTTER );
 		return;
 	}
-	if( (result=nexioIsRobotArmDetect())!= ON ){		// ƒƒ{ƒbƒgƒA[ƒ€Š±ÂŠO			‚g
+	if( (result=nexioIsRobotArmDetect())!= ON ){		// ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ å¹²æ¸‰å¤–			ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒƒ{ƒbƒgƒA[ƒ€‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_ROBOT_ARM );
 		return;
 	}
-	if( (result=nexioIsStageLoadPos())	!= ON ){		// ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“				‚g
+	if( (result=nexioIsStageLoadPos())	!= ON ){		// ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³				ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LOAD_POSITION );
 		return;
 	}
-	if( (result=nexioIsPinDownPos())	!= ON ){		// ƒsƒ“‰º’[						‚g
+	if( (result=nexioIsPinDownPos())	!= ON ){		// ãƒ”ãƒ³ä¸‹ç«¯						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‰º’[‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ä¸‹ç«¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LIFTER_LOWER );
 		return;
 	}
-	if( (result=nexioIsWorkGuideClose())!= OFF){		// ƒ[ƒNƒKƒCƒhCLOSEˆÊ’u(FWD)	‚k
+	if( (result=nexioIsWorkGuideClose())!= OFF){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEä½ç½®(FWD)	ï¼ï¼¬
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhCLOSE‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_CLOSE );
 		return;
 	}
-	if( (result=nexioIsWorkGuideOpen())	!= ON ){		// ƒ[ƒNƒKƒCƒhOPENˆÊ’u(REV)	‚g
+	if( (result=nexioIsWorkGuideOpen())	!= ON ){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENä½ç½®(REV)	ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhOPEN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_OPEN );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒXƒe[ƒW‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¹ãƒ†ãƒ¼ã‚¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_STAGE_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_ZAXIS) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‚y²‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ï¼ºè»¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_Z_AXIS_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_PIN) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_LIFTER_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_WORKGUIDE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒh‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_CLAMP_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_TURRET) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ^[ƒŒƒbƒg‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_TURRET_WORKING );
 		return;
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	m_pDoc->ActuateFlagsSet(ACTUATE_PIN, TRUE);
 	m_pDoc->ActuateFlagsSet(ACTUATE_WORKGUIDE, TRUE);
@@ -2560,10 +2560,10 @@ BOOL result;
 	}
 	else{
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒV[ƒPƒ“ƒX‚ÌƒAƒ“ƒ[ƒh‚É¸”s‚µ‚Ü‚µ‚½");
+		//m_ctlWarningMessage.SetWindowText("ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã®ã‚¢ãƒ³ãƒ­ãƒ¼ãƒ‰ã«å¤±æ•—ã—ã¾ã—ãŸ");
 		SetWarningMessageText( IDS_FAILED_UNLOAD_SEQUENCE );
 	}
-// ActuateFlag‚Í‰“š‚ğ‘Ò‚Á‚Ä—‚Æ‚·
+// ActuateFlagã¯å¿œç­”ã‚’å¾…ã£ã¦è½ã¨ã™
 //	m_pDoc->ActuateFlagsSet(ACTUATE_PIN, FALSE);
 //	m_pDoc->ActuateFlagsSet(ACTUATE_WORKGUIDE, FALSE);
 }
@@ -2574,99 +2574,99 @@ void CMotionDlg::OnLoadSequenceCancelButton()
 {
 BOOL result;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 		if( nexioIsMaintenanceSwitch() != OFF ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
-	if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+	// å„I/Oãƒã‚§ãƒƒã‚¯
+	if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("EMOƒXƒCƒbƒ`‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("EMOã‚¹ã‚¤ãƒƒãƒã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EMO_SW );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
-//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ --------			 */
-	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- { -------- */
+//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ --------			 */
+	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒhƒAƒCƒ“ƒ^[ƒƒbƒN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_DOOR_INTERLOCK );
 		return;
 	}
-	if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+	if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‘•’u“dŒ¹‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("è£…ç½®é›»æºã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- { -------- */
-//	if( (result=nexioIsAirPressureLevelLow())!=OFF ){	/* ‹Ÿ‹‹CDAˆ³—Í’á‰ºƒAƒ‰[ƒ€		‚k */
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- 		   */
-	if ((result = m_pDoc->Rap_IsAirPressureLowON(1)) != OFF) {	/* ‹Ÿ‹‹CDAˆ³—Í’á‰ºƒAƒ‰[ƒ€		‚k */
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- } -------- */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- { -------- */
+//	if( (result=nexioIsAirPressureLevelLow())!=OFF ){	/* ä¾›çµ¦CDAåœ§åŠ›ä½ä¸‹ã‚¢ãƒ©ãƒ¼ãƒ 		ï¼ï¼¬ */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- 		   */
+	if ((result = m_pDoc->Rap_IsAirPressureLowON(1)) != OFF) {	/* ä¾›çµ¦CDAåœ§åŠ›ä½ä¸‹ã‚¢ãƒ©ãƒ¼ãƒ 		ï¼ï¼¬ */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒGƒAˆ³—Í‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ã‚¨ã‚¢åœ§åŠ›ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_AIR_PRESSURE );
 		return;
 	}
-	if( (result=nexioIsShutterClose())	!= ON ){		// ƒVƒƒƒbƒ^[•Â					‚g
+	if( (result=nexioIsShutterClose())	!= ON ){		// ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰					ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒfƒBƒ“ƒOƒVƒƒƒbƒ^[•Â‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LOADING_SHUTTER );
 		return;
 	}
-	if( (result=nexioIsRobotArmDetect())!= ON ){		// ƒƒ{ƒbƒgƒA[ƒ€Š±ÂŠO			‚g
+	if( (result=nexioIsRobotArmDetect())!= ON ){		// ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ å¹²æ¸‰å¤–			ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒƒ{ƒbƒgƒA[ƒ€‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_ROBOT_ARM );
 		return;
 	}
-	if( (result=nexioIsStageLoadPos())	!= ON ){		// ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“				‚g
+	if( (result=nexioIsStageLoadPos())	!= ON ){		// ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³				ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LOAD_POSITION );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒXƒe[ƒW‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¹ãƒ†ãƒ¼ã‚¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_STAGE_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_ZAXIS) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‚y²‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ï¼ºè»¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_Z_AXIS_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_PIN) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_LIFTER_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_WORKGUIDE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒh‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_CLAMP_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_TURRET) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ^[ƒŒƒbƒg‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_TURRET_WORKING );
 		return;
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	if( nexifCancel(this->m_hWnd)==TRUE ){
 		SetOperationLog("Sequence - Load/Unload - CANCE Button was pushed.");
@@ -2674,7 +2674,7 @@ BOOL result;
 	}
 	else{
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒV[ƒPƒ“ƒX‚ÌƒLƒƒƒ“ƒZƒ‹‚É¸”s‚µ‚Ü‚µ‚½");
+		//m_ctlWarningMessage.SetWindowText("ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã®ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã«å¤±æ•—ã—ã¾ã—ãŸ");
 		SetWarningMessageText( IDS_FAILED_CANCEL_SEQUENCE );
 	}
 }
@@ -2685,123 +2685,123 @@ void CMotionDlg::OnSampleClampSequenceOpenButton()
 {
 BOOL result;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 		if( nexioIsMaintenanceSwitch() != OFF ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
-	if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+	// å„I/Oãƒã‚§ãƒƒã‚¯
+	if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("EMOƒXƒCƒbƒ`‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("EMOã‚¹ã‚¤ãƒƒãƒã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EMO_SW );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
-//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ --------			 */
-	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- { -------- */
+//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ --------			 */
+	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒhƒAƒCƒ“ƒ^[ƒƒbƒN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_DOOR_INTERLOCK );
 		return;
 	}
-	if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+	if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‘•’u“dŒ¹‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("è£…ç½®é›»æºã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- { -------- */
-//	if( (result=nexioIsAirPressureLevelLow())!=OFF ){	/* ‹Ÿ‹‹CDAˆ³—Í’á‰ºƒAƒ‰[ƒ€		‚k */
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- 		   */
-	if ((result = m_pDoc->Rap_IsAirPressureLowON(1)) != OFF) {	/* ‹Ÿ‹‹CDAˆ³—Í’á‰ºƒAƒ‰[ƒ€		‚k */
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- } -------- */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- { -------- */
+//	if( (result=nexioIsAirPressureLevelLow())!=OFF ){	/* ä¾›çµ¦CDAåœ§åŠ›ä½ä¸‹ã‚¢ãƒ©ãƒ¼ãƒ 		ï¼ï¼¬ */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- 		   */
+	if ((result = m_pDoc->Rap_IsAirPressureLowON(1)) != OFF) {	/* ä¾›çµ¦CDAåœ§åŠ›ä½ä¸‹ã‚¢ãƒ©ãƒ¼ãƒ 		ï¼ï¼¬ */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒGƒAˆ³—Í‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ã‚¨ã‚¢åœ§åŠ›ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_AIR_PRESSURE );
 		return;
 	}
-	if( (result=nexioIsShutterClose())	!= ON ){		// ƒVƒƒƒbƒ^[•Â					‚g
+	if( (result=nexioIsShutterClose())	!= ON ){		// ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰					ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒfƒBƒ“ƒOƒVƒƒƒbƒ^[•Â‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LOADING_SHUTTER );
 		return;
 	}
-	if( (result=nexioIsRobotArmDetect())!= ON ){		// ƒƒ{ƒbƒgƒA[ƒ€Š±ÂŠO			‚g
+	if( (result=nexioIsRobotArmDetect())!= ON ){		// ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ å¹²æ¸‰å¤–			ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒƒ{ƒbƒgƒA[ƒ€‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_ROBOT_ARM );
 		return;
 	}
-	if( (result=nexioIsStageLoadPos())	!= ON ){		// ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“				‚g
+	if( (result=nexioIsStageLoadPos())	!= ON ){		// ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³				ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LOAD_POSITION );
 		return;
 	}
-	if( (result=nexioIsPinDownPos())	!= OFF){		// ƒsƒ“‰º’[						‚k
+	if( (result=nexioIsPinDownPos())	!= OFF){		// ãƒ”ãƒ³ä¸‹ç«¯						ï¼ï¼¬
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‰º’[‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ä¸‹ç«¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LIFTER_LOWER );
 		return;
 	}
-	if( (result=nexioIsWorkGuideClose())!= ON ){		// ƒ[ƒNƒKƒCƒhCLOSEˆÊ’u(FWD)	‚g
+	if( (result=nexioIsWorkGuideClose())!= ON ){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEä½ç½®(FWD)	ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhCLOSE‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_CLOSE );
 		return;
 	}
-	if( (result=nexioIsWorkGuideOpen())	!= OFF){		// ƒ[ƒNƒKƒCƒhOPENˆÊ’u(REV)	‚k
+	if( (result=nexioIsWorkGuideOpen())	!= OFF){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENä½ç½®(REV)	ï¼ï¼¬
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhOPEN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_OPEN );
 		return;
 	}
-	if( (result=nexioIsPinAlignmentPos())!=ON ){		// ƒsƒ“’†ŠÔ						‚g
+	if( (result=nexioIsPinAlignmentPos())!=ON ){		// ãƒ”ãƒ³ä¸­é–“						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[’†ŠÔ‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ä¸­é–“ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LIFTER_MIDDLE );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒXƒe[ƒW‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¹ãƒ†ãƒ¼ã‚¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_STAGE_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_ZAXIS) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‚y²‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ï¼ºè»¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_Z_AXIS_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_PIN) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_LIFTER_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_WORKGUIDE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒh‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_CLAMP_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_TURRET) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ^[ƒŒƒbƒg‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_TURRET_WORKING );
 		return;
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	m_pDoc->ActuateFlagsSet(ACTUATE_WORKGUIDE, TRUE);
 
@@ -2811,10 +2811,10 @@ BOOL result;
 	}
 	else{
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒh‚ÌƒI[ƒvƒ“‚É¸”s‚µ‚Ü‚µ‚½");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰ã®ã‚ªãƒ¼ãƒ—ãƒ³ã«å¤±æ•—ã—ã¾ã—ãŸ");
 		SetWarningMessageText( IDS_FAILED_OPEN_WORKGUIDE );
 	}
-// ActuateFlag‚Í‰“š‚ğ‘Ò‚Á‚Ä—‚Æ‚·
+// ActuateFlagã¯å¿œç­”ã‚’å¾…ã£ã¦è½ã¨ã™
 //	m_pDoc->ActuateFlagsSet(ACTUATE_WORKGUIDE, FALSE);
 }
 
@@ -2824,123 +2824,123 @@ void CMotionDlg::OnSampleClampSequenceCloseButton()
 {
 BOOL result;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 		if( nexioIsMaintenanceSwitch() != OFF ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
-	if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+	// å„I/Oãƒã‚§ãƒƒã‚¯
+	if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("EMOƒXƒCƒbƒ`‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("EMOã‚¹ã‚¤ãƒƒãƒã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EMO_SW );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
-//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ --------			 */
-	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- { -------- */
+//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ --------			 */
+	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒhƒAƒCƒ“ƒ^[ƒƒbƒN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_DOOR_INTERLOCK );
 		return;
 	}
-	if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+	if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‘•’u“dŒ¹‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("è£…ç½®é›»æºã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- { -------- */
-//	if( (result=nexioIsAirPressureLevelLow())!=OFF ){	/* ‹Ÿ‹‹CDAˆ³—Í’á‰ºƒAƒ‰[ƒ€		‚k */
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- 		   */
-	if ((result = m_pDoc->Rap_IsAirPressureLowON(1)) != OFF) {	/* ‹Ÿ‹‹CDAˆ³—Í’á‰ºƒAƒ‰[ƒ€		‚k */
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- } -------- */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- { -------- */
+//	if( (result=nexioIsAirPressureLevelLow())!=OFF ){	/* ä¾›çµ¦CDAåœ§åŠ›ä½ä¸‹ã‚¢ãƒ©ãƒ¼ãƒ 		ï¼ï¼¬ */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- 		   */
+	if ((result = m_pDoc->Rap_IsAirPressureLowON(1)) != OFF) {	/* ä¾›çµ¦CDAåœ§åŠ›ä½ä¸‹ã‚¢ãƒ©ãƒ¼ãƒ 		ï¼ï¼¬ */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒGƒAˆ³—Í‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ã‚¨ã‚¢åœ§åŠ›ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_AIR_PRESSURE );
 		return;
 	}
-	if( (result=nexioIsShutterClose())	!= ON ){		// ƒVƒƒƒbƒ^[•Â					‚g
+	if( (result=nexioIsShutterClose())	!= ON ){		// ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰					ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒfƒBƒ“ƒOƒVƒƒƒbƒ^[•Â‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LOADING_SHUTTER );
 		return;
 	}
-	if( (result=nexioIsRobotArmDetect())!= ON ){		// ƒƒ{ƒbƒgƒA[ƒ€Š±ÂŠO			‚g
+	if( (result=nexioIsRobotArmDetect())!= ON ){		// ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ å¹²æ¸‰å¤–			ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒƒ{ƒbƒgƒA[ƒ€‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_ROBOT_ARM );
 		return;
 	}
-	if( (result=nexioIsStageLoadPos())	!= ON ){		// ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“				‚g
+	if( (result=nexioIsStageLoadPos())	!= ON ){		// ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³				ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LOAD_POSITION );
 		return;
 	}
-	if( (result=nexioIsPinDownPos())	!= OFF){		// ƒsƒ“‰º’[						‚k
+	if( (result=nexioIsPinDownPos())	!= OFF){		// ãƒ”ãƒ³ä¸‹ç«¯						ï¼ï¼¬
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‰º’[‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ä¸‹ç«¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LIFTER_LOWER );
 		return;
 	}
-	if( (result=nexioIsWorkGuideClose())!= OFF){		// ƒ[ƒNƒKƒCƒhCLOSEˆÊ’u(FWD)	‚k
+	if( (result=nexioIsWorkGuideClose())!= OFF){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEä½ç½®(FWD)	ï¼ï¼¬
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhCLOSE‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰CLOSEã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_CLOSE );
 		return;
 	}
-	if( (result=nexioIsWorkGuideOpen())	!= ON ){		// ƒ[ƒNƒKƒCƒhOPENˆÊ’u(REV)	‚g
+	if( (result=nexioIsWorkGuideOpen())	!= ON ){		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENä½ç½®(REV)	ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒhOPEN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰OPENã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_WORKGUIDE_OPEN );
 		return;
 	}
-	if( (result=nexioIsPinAlignmentPos())!=ON ){		// ƒsƒ“’†ŠÔ						‚g
+	if( (result=nexioIsPinAlignmentPos())!=ON ){		// ãƒ”ãƒ³ä¸­é–“						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[’†ŠÔ‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ä¸­é–“ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LIFTER_MIDDLE );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒXƒe[ƒW‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¹ãƒ†ãƒ¼ã‚¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_STAGE_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_ZAXIS) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‚y²‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ï¼ºè»¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_Z_AXIS_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_PIN) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_LIFTER_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_WORKGUIDE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒh‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_CLAMP_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_TURRET) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ^[ƒŒƒbƒg‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_TURRET_WORKING );
 		return;
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	m_pDoc->ActuateFlagsSet(ACTUATE_WORKGUIDE, TRUE);
 
@@ -2950,10 +2950,10 @@ BOOL result;
 	}
 	else{
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒh‚ÌƒNƒ[ƒY‚É¸”s‚µ‚Ü‚µ‚½");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰ã®ã‚¯ãƒ­ãƒ¼ã‚ºã«å¤±æ•—ã—ã¾ã—ãŸ");
 		SetWarningMessageText( IDS_FAILED_CLOSE_WORKGUIDE );
 	}
-// ActuateFlag‚Í‰“š‚ğ‘Ò‚Á‚Ä—‚Æ‚·
+// ActuateFlagã¯å¿œç­”ã‚’å¾…ã£ã¦è½ã¨ã™
 //	m_pDoc->ActuateFlagsSet(ACTUATE_WORKGUIDE, FALSE);
 }
 
@@ -2963,111 +2963,111 @@ void CMotionDlg::OnClampSequenceCancelButton()
 {
 BOOL result;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 		if( nexioIsMaintenanceSwitch() != OFF ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
-	if( (result=nexioIsEmergencyStop()) != ON ){		// ‹Ù‹}’â~						‚g
+	// å„I/Oãƒã‚§ãƒƒã‚¯
+	if( (result=nexioIsEmergencyStop()) != ON ){		// ç·Šæ€¥åœæ­¢						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("EMOƒXƒCƒbƒ`‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("EMOã‚¹ã‚¤ãƒƒãƒã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EMO_SW );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
-//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ --------			 */
-	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ƒhƒAƒCƒ“ƒ^[ƒƒbƒN			‚g */
-/* modified hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- { -------- */
+//	if( (result=nexioIsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ --------			 */
+	if( (result = m_pDoc->Rap_IsDoorInterlock()) != ON ){		/* ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯			ï¼ï¼¨ */
+/* modified hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒhƒAƒCƒ“ƒ^[ƒƒbƒN‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_DOOR_INTERLOCK );
 		return;
 	}
-	if( (result=nexioIsEquipmentPower())!= ON ){		// ‘•’u“dŒ¹						‚g
+	if( (result=nexioIsEquipmentPower())!= ON ){		// è£…ç½®é›»æº						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‘•’u“dŒ¹‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("è£…ç½®é›»æºã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_EQUIPMENT_POWER );
 		return;
 	}
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- { -------- */
-//	if( (result=nexioIsAirPressureLevelLow())!=OFF ){	/* ‹Ÿ‹‹CDAˆ³—Í’á‰ºƒAƒ‰[ƒ€		‚k */
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- 		   */
-	if ((result = m_pDoc->Rap_IsAirPressureLowON(1)) != OFF) {	/* ‹Ÿ‹‹CDAˆ³—Í’á‰ºƒAƒ‰[ƒ€		‚k */
-/* modified hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- } -------- */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- { -------- */
+//	if( (result=nexioIsAirPressureLevelLow())!=OFF ){	/* ä¾›çµ¦CDAåœ§åŠ›ä½ä¸‹ã‚¢ãƒ©ãƒ¼ãƒ 		ï¼ï¼¬ */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- 		   */
+	if ((result = m_pDoc->Rap_IsAirPressureLowON(1)) != OFF) {	/* ä¾›çµ¦CDAåœ§åŠ›ä½ä¸‹ã‚¢ãƒ©ãƒ¼ãƒ 		ï¼ï¼¬ */
+/* modified hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- } -------- */
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒGƒAˆ³—Í‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ã‚¨ã‚¢åœ§åŠ›ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_AIR_PRESSURE );
 		return;
 	}
-	if( (result=nexioIsShutterClose())	!= ON ){		// ƒVƒƒƒbƒ^[•Â					‚g
+	if( (result=nexioIsShutterClose())	!= ON ){		// ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰					ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒfƒBƒ“ƒOƒVƒƒƒbƒ^[•Â‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã‚·ãƒ£ãƒƒã‚¿ãƒ¼é–‰ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LOADING_SHUTTER );
 		return;
 	}
-	if( (result=nexioIsRobotArmDetect())!= ON ){		// ƒƒ{ƒbƒgƒA[ƒ€Š±ÂŠO			‚g
+	if( (result=nexioIsRobotArmDetect())!= ON ){		// ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ å¹²æ¸‰å¤–			ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒƒ{ƒbƒgƒA[ƒ€‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_ROBOT_ARM );
 		return;
 	}
-	if( (result=nexioIsStageLoadPos())	!= ON ){		// ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“				‚g
+	if( (result=nexioIsStageLoadPos())	!= ON ){		// ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³				ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LOAD_POSITION );
 		return;
 	}
-	if( (result=nexioIsPinDownPos())	!= OFF){		// ƒsƒ“‰º’[						‚k
+	if( (result=nexioIsPinDownPos())	!= OFF){		// ãƒ”ãƒ³ä¸‹ç«¯						ï¼ï¼¬
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‰º’[‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ä¸‹ç«¯ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LIFTER_LOWER );
 		return;
 	}
-	if( (result=nexioIsPinAlignmentPos())!=ON ){		// ƒsƒ“’†ŠÔ						‚g
+	if( (result=nexioIsPinAlignmentPos())!=ON ){		// ãƒ”ãƒ³ä¸­é–“						ï¼ï¼¨
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[’†ŠÔ‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ä¸­é–“ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 		SetWarningMessageText( IDS_CHECK_LIFTER_MIDDLE );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒXƒe[ƒW‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¹ãƒ†ãƒ¼ã‚¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_STAGE_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_ZAXIS) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‚y²‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ï¼ºè»¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_Z_AXIS_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_PIN) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_LIFTER_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_WORKGUIDE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒh‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_CLAMP_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_TURRET) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ^[ƒŒƒbƒg‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_TURRET_WORKING );
 		return;
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	if( nexifCancel(this->m_hWnd)==TRUE ){
 		SetOperationLog("Sequence - Clamp - CANCE Button was pushed.");
@@ -3075,7 +3075,7 @@ BOOL result;
 	}
 	else{
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒh‚ÌƒLƒƒƒ“ƒZƒ‹‚É¸”s‚µ‚Ü‚µ‚½");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰ã®ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã«å¤±æ•—ã—ã¾ã—ãŸ");
 		SetWarningMessageText( IDS_FAILED_CANCEL_WORKGUIDE );
 	}
 }
@@ -3084,54 +3084,54 @@ BOOL result;
 //
 void CMotionDlg::OnCloseButton()
 {
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 		if( nexioIsMaintenanceSwitch() != OFF ){
 			// Kojika 20090602 Change
-			//m_ctlWarningMessage.SetWindowText("ƒƒ“ƒeƒiƒ“ƒX‚r‚v‚ğŠm”F‚µ‚Ä‰º‚³‚¢");
+			//m_ctlWarningMessage.SetWindowText("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼³ï¼·ã‚’ç¢ºèªã—ã¦ä¸‹ã•ã„");
 			SetWarningMessageText( IDS_CHECK_MAINTENANCE_SW );
 			return;
 		}
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒXƒe[ƒW‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¹ãƒ†ãƒ¼ã‚¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_STAGE_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_ZAXIS) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("‚y²‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ï¼ºè»¸ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_Z_AXIS_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_PIN) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒŠƒtƒ^[‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒªãƒ•ã‚¿ãƒ¼ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_LIFTER_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_WORKGUIDE) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ[ƒNƒKƒCƒh‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_CLAMP_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_TURRET) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒ^[ƒŒƒbƒg‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_TURRET_WORKING );
 		return;
 	}
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_SHUTTER) ){
 		// Kojika 20090602 Change
-		//m_ctlWarningMessage.SetWindowText("ƒVƒƒƒbƒ^[‚ª“®ì‚µ‚Ä‚¢‚Ü‚·");
+		//m_ctlWarningMessage.SetWindowText("ã‚·ãƒ£ãƒƒã‚¿ãƒ¼ãŒå‹•ä½œã—ã¦ã„ã¾ã™");
 		SetWarningMessageText( IDS_SHUTTER_WORKING );
 		return;
 	}
-// 2009.11.09 bagus MS C³ --{--
+// 2009.11.09 bagus MS ä¿®æ­£ --{--
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_MICROSCOPE) ){
 		SetWarningMessageText( IDS_MICROSCOPE_WORKING );
 		return;
@@ -3140,7 +3140,7 @@ void CMotionDlg::OnCloseButton()
 		if(nexifRC_JogStop(this->m_hWnd)){
 			MSG 	msg;
 
-			//‰“š‚ğˆ—‚·‚é‚Ü‚Å‘Ò‚Â
+			//å¿œç­”ã‚’å‡¦ç†ã™ã‚‹ã¾ã§å¾…ã¤
 			while (1){
 				if(::PeekMessage(&msg, NULL, WM_NEX_RESPONSE, WM_NEX_RESPONSE, PM_REMOVE)){
 					::TranslateMessage(&msg);
@@ -3154,8 +3154,8 @@ void CMotionDlg::OnCloseButton()
 	}
 	nexioMS_ModeLamp(FALSE);
 	nexifRC_SelectMode(this->m_hWnd, RCOPMODE_NORMAL);
-// 2009.11.09 bagus MS C³ --}--
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+// 2009.11.09 bagus MS ä¿®æ­£ --}--
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	SetOperationLog("CLOSE Button was pushed.");
 	EndDialog(IDOK);
@@ -3167,7 +3167,7 @@ void CMotionDlg::SetOperationLog(LPCTSTR msg)
 {
 	char strmsg[1024];
 
-	// ‘€ìƒƒO‚ğæ“¾
+	// æ“ä½œãƒ­ã‚°ã‚’å–å¾—
 	memset( strmsg, 0, sizeof(strmsg));
 	strcpy( strmsg, "[");
 	::GetWindowText(this->m_hWnd, &strmsg[1], 1000);
@@ -3177,7 +3177,7 @@ void CMotionDlg::SetOperationLog(LPCTSTR msg)
 	m_pDoc->OperationLogging(strmsg);
 }
 /*
-	*	Nextra ‚©‚ç‚Ì‰“š(Š®—¹)ƒƒbƒZ[ƒWƒWƒnƒ“ƒhƒ‰
+	*	Nextra ã‹ã‚‰ã®å¿œç­”(å®Œäº†)ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚¸ãƒãƒ³ãƒ‰ãƒ©
 	*/
 LRESULT CMotionDlg::OnNextraResponse(WPARAM wparam, LPARAM lparam)
 {
@@ -3186,27 +3186,27 @@ LRESULT CMotionDlg::OnNextraResponse(WPARAM wparam, LPARAM lparam)
 
 	if ((nexMoveToUpper == l_dwDeviceCode) || (nexMoveToLower == l_dwDeviceCode) ||
 		(nexMoveToAlignment == l_dwDeviceCode)) {
-		m_pDoc->ActuateFlagsSet(ACTUATE_PIN, FALSE);			// “®ì’†ƒtƒ‰ƒO(ƒsƒ“)‚ğƒIƒt
+		m_pDoc->ActuateFlagsSet(ACTUATE_PIN, FALSE);			// å‹•ä½œä¸­ãƒ•ãƒ©ã‚°(ãƒ”ãƒ³)ã‚’ã‚ªãƒ•
 	}
 	if ((nexOpenShutter == l_dwDeviceCode) || (nexCloseShutter == l_dwDeviceCode)) {
-		m_pDoc->ActuateFlagsSet(ACTUATE_SHUTTER, FALSE);		// “®ì’†ƒtƒ‰ƒO(ƒVƒƒƒbƒ^)‚ğƒIƒt
+		m_pDoc->ActuateFlagsSet(ACTUATE_SHUTTER, FALSE);		// å‹•ä½œä¸­ãƒ•ãƒ©ã‚°(ã‚·ãƒ£ãƒƒã‚¿)ã‚’ã‚ªãƒ•
 	}
 	if ((nexLoad == l_dwDeviceCode) || (nexUnload == l_dwDeviceCode)) {
-		m_pDoc->ActuateFlagsSet(ACTUATE_PIN, FALSE);			// “®ì’†ƒtƒ‰ƒO(ƒsƒ“)‚ğƒIƒt
-		m_pDoc->ActuateFlagsSet(ACTUATE_WORKGUIDE, FALSE);	// “®ì’†ƒtƒ‰ƒO(ƒ[ƒNƒKƒCƒh)‚ğƒIƒt
+		m_pDoc->ActuateFlagsSet(ACTUATE_PIN, FALSE);			// å‹•ä½œä¸­ãƒ•ãƒ©ã‚°(ãƒ”ãƒ³)ã‚’ã‚ªãƒ•
+		m_pDoc->ActuateFlagsSet(ACTUATE_WORKGUIDE, FALSE);	// å‹•ä½œä¸­ãƒ•ãƒ©ã‚°(ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰)ã‚’ã‚ªãƒ•
 	}
 	if ((nexOpenWorkGuide == l_dwDeviceCode) || (nexCloseWorkGuide == l_dwDeviceCode)) {
-		m_pDoc->ActuateFlagsSet(ACTUATE_WORKGUIDE, FALSE);	// “®ì’†ƒtƒ‰ƒO(ƒ[ƒNƒKƒCƒh)‚ğƒIƒt
+		m_pDoc->ActuateFlagsSet(ACTUATE_WORKGUIDE, FALSE);	// å‹•ä½œä¸­ãƒ•ãƒ©ã‚°(ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰)ã‚’ã‚ªãƒ•
 	}
-// 2009.11.09 bagus MS C³ --{--
+// 2009.11.09 bagus MS ä¿®æ­£ --{--
 	if ((nexRC_MoveToTeachPos == l_dwDeviceCode)
 	 || (nexRC_JogPlus == l_dwDeviceCode)
 	 || (nexRC_JogMinus == l_dwDeviceCode)
 	 || (nexRC_JogStop == l_dwDeviceCode)
 	 || (nexRC_SelectMode == l_dwDeviceCode)) {
-		m_pDoc->ActuateFlagsSet(ACTUATE_MICROSCOPE, FALSE);	// “®ì’†ƒtƒ‰ƒO(Œ°”÷‹¾)‚ğƒIƒt
+		m_pDoc->ActuateFlagsSet(ACTUATE_MICROSCOPE, FALSE);	// å‹•ä½œä¸­ãƒ•ãƒ©ã‚°(é¡•å¾®é¡)ã‚’ã‚ªãƒ•
 	}
-// 2009.11.09 bagus MS C³ --}--
+// 2009.11.09 bagus MS ä¿®æ­£ --}--
 
 	return 0L;
 }
@@ -3285,11 +3285,11 @@ void CMotionDlg::SetWarningMessageText(int idsno)
 	case IDS_SHUTTER_WORKING:
 		LoadStringML(IDS_SHUTTER_WORKING, l_strBuffer, "Shutter is Working");
 		break;
-// 2009.11.09 bagus MS C³ --{--
+// 2009.11.09 bagus MS ä¿®æ­£ --{--
 	case IDS_MICROSCOPE_WORKING:
 		LoadStringML(IDS_MICROSCOPE_WORKING, l_strBuffer, "Micro Scope is Working");
 		break;
-// 2009.11.09 bagus MS C³ --}--
+// 2009.11.09 bagus MS ä¿®æ­£ --}--
 	case IDS_FAILED_INITIAL_STAGE:
 		LoadStringML(IDS_FAILED_INITIAL_STAGE, l_strBuffer, "The initialization of the stage failed.");
 		break;
@@ -3353,30 +3353,30 @@ void CMotionDlg::SetWarningMessageText(int idsno)
 	m_ctlWarningMessage.SetWindowText(l_strBuffer);
 }
 
-// 2009.10.29 bagus MS ’Ç‰ÁC³ --{--
+// 2009.10.29 bagus MS è¿½åŠ ä¿®æ­£ --{--
 // =========================================================================
-//ƒŒƒ“ƒY ƒRƒ“ƒ{ƒCƒjƒVƒƒƒ‹ˆ—
+//ãƒ¬ãƒ³ã‚º ã‚³ãƒ³ãƒœã‚¤ãƒ‹ã‚·ãƒ£ãƒ«å‡¦ç†
 //
 void CMotionDlg::InitCombo_Lens()
 {
 	CString l_strBuffer, l_strTitle;
-// 2009.11.09 bagus MS C³ --{--
+// 2009.11.09 bagus MS ä¿®æ­£ --{--
 //	MS_CONFIG MsConfig;
 
 //	ConfigFile_GetNanoSpecIni(&MsConfig, CONFIG_FILE_MS_CONFIG);
-// 2009.11.09 bagus MS C³ --}--
+// 2009.11.09 bagus MS ä¿®æ­£ --}--
 
 	CComboBox* pCombo = (CComboBox*)GetDlgItem(IDC_MICRO_SCOPE_LENS);
 	pCombo->ResetContent();
 
 	int nIndex;
 	for ( int i = 0; i < MAX_MS_ROBO_CYLINDER_NUM; i++ ) {
-// 2009.11.09 bagus MS C³ --{--
+// 2009.11.09 bagus MS ä¿®æ­£ --{--
 //		if (MsConfig.RoboCylinder[i].bEnable ) {
 //			nIndex = pCombo->AddString(MsConfig.RoboCylinder[i].szName);
 		if (m_MsConfig.RoboCylinder[i].bEnable ) {
 			nIndex = pCombo->AddString(m_MsConfig.RoboCylinder[i].szName);
-// 2009.11.09 bagus MS C³ --}--
+// 2009.11.09 bagus MS ä¿®æ­£ --}--
 			pCombo->SetItemData(nIndex, i);
 // matsuhisa 2009.12.26 added >>>
 			if (m_MsConfig.RoboCylinder[i].bSensor) {
@@ -3390,9 +3390,9 @@ void CMotionDlg::InitCombo_Lens()
 
 void CMotionDlg::OnMicroScopeMove()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«é€šçŸ¥ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
-// 2009.11.09 bagus MS C³ --{--
+// 2009.11.09 bagus MS ä¿®æ­£ --{--
 	CComboBox* pCombo = (CComboBox*)GetDlgItem(IDC_MICRO_SCOPE_LENS);
 	int	nIndex = pCombo->GetCurSel();
 	int	nItemData = pCombo->GetItemData(nIndex);
@@ -3416,7 +3416,7 @@ void CMotionDlg::OnMicroScopeMove()
 //		return;
 //	}
 
-	//ƒŠƒ‚[ƒg‚Í‰½‚à‚µ‚È‚¢
+	//ãƒªãƒ¢ãƒ¼ãƒˆæ™‚ã¯ä½•ã‚‚ã—ãªã„
 	if(m_pDoc->GetHostMode() == HOST_REMOTE) return;
 	if (m_pDoc->GetHostMode() == HOST_REMOTE) {
 		pCombo->SetCurSel(m_nSelLens);
@@ -3424,23 +3424,23 @@ void CMotionDlg::OnMicroScopeMove()
 	}
 
 	CMainFrame* pMainFrame = (CMainFrame *)AfxGetMainWnd();
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	//ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒhƒ`ƒFƒbƒN(2²“¯“®ì§ŒÀ)
-	if( nexioIsEngineerMaintenanceSwitch()==ON )// “Œ•üƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	//ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ãƒã‚§ãƒƒã‚¯(2è»¸åŒæ™‚å‹•ä½œåˆ¶é™)
+	if( nexioIsEngineerMaintenanceSwitch()==ON )// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰
 	{
 		if ( nexioIsMaintenanceSwitch() != OFF ) {
 			AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);
 			pCombo->SetCurSel(m_nSelLens);
 			return;
 		}
-		/*“Œ•üƒƒ“ƒeƒ‚[ƒh‚Ì‚ÍA•K‚¸ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh(L)‚Æ‚È‚é
-			‚±‚Ìê‡A2²“¯“®ì‰Â”\ */
+		/*æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒ¢ãƒ¼ãƒ‰ã®æ™‚ã¯ã€å¿…ãšãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(L)ã¨ãªã‚‹
+			ã“ã®å ´åˆã€2è»¸åŒæ™‚å‹•ä½œå¯èƒ½ */
 	}
-	else //“Œ•üƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒhˆÈŠO
+	else //æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ä»¥å¤–
 	{
 	}
 
-	// ŠeI/Oƒ`ƒFƒbƒN
+	// å„I/Oãƒã‚§ãƒƒã‚¯
 	if (m_pDoc->IsInterLock() == TRUE) {
 		pCombo->SetCurSel(m_nSelLens);
 		return;
@@ -3450,44 +3450,44 @@ void CMotionDlg::OnMicroScopeMove()
 		return;
 	}
 
-	//ActuateFlagƒ`ƒFƒbƒN
+	//ActuateFlagãƒã‚§ãƒƒã‚¯
 	if(m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) && pMainFrame->GetJoyStickMode()==0){
 		LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 		m_pDoc->MessageStringIf_Set(strMsg);
 		pCombo->SetCurSel(m_nSelLens);
 		return;
-	} //ƒXƒe[ƒW‚ª“®ì’†‚Å‚·
+	} //ã‚¹ãƒ†ãƒ¼ã‚¸ãŒå‹•ä½œä¸­ã§ã™
 	if (m_pDoc->CheckActiveFlag() == TRUE) {
 		pCombo->SetCurSel(m_nSelLens);
 		return;
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	if (!m_pDoc->ActuateFlagsGet(ACTUATE_MICROSCOPE)) {
 // matsuhisa 2009.12.26 deleted >>>
 //		if (m_MsConfig.RoboCylinder[nItemData].bSensor == nexioIsMS_LensKind()) {
 // matsuhisa 2009.12.26 deleted <<<
-			// ‘¼‚ÌˆÚ“®“ü—Í‚Ìó•t‚ğ‹Ö~‚·‚é
+			// ä»–ã®ç§»å‹•å…¥åŠ›ã®å—ä»˜ã‚’ç¦æ­¢ã™ã‚‹
 			if( !m_pDoc->JoyStickChangeDisable() ){
 				LoadStringML(IDS_JOYSTICK_WORKING, strMsg, "JoyStick is Working");
 				LoadStringML(IDS_TITLE_WARNING, l_strTitle, "Warning");
 				MessageBox(strMsg, l_strTitle, MB_OK);
-				// •K‚¸JoyStick‚Ìó‘Ô‚ğ–ß‚·‚±‚Æ
+				// å¿…ãšJoyStickã®çŠ¶æ…‹ã‚’æˆ»ã™ã“ã¨
 				m_pDoc->JoyStickStatusRestore();
 				pCombo->SetCurSel(m_nSelLens);
 				return;
 			}
 
-			// ActuateFlag‚ğƒZƒbƒg‚·‚é
+			// ActuateFlagã‚’ã‚»ãƒƒãƒˆã™ã‚‹
 			m_pDoc->ActuateFlagsSet(ACTUATE_MICROSCOPE, TRUE);
 
-			// ModeØ‚è‘Ö‚¦
+			// Modeåˆ‡ã‚Šæ›¿ãˆ
 			unsigned char oldMode = nexioRC_GetCurrentMode();
 			if(oldMode != RCOPMODE_NORMAL){
 				nexifRC_SelectMode(this->m_hWnd, RCOPMODE_NORMAL);
 				MSG 	msg;
 
-				//‰“š‚ğˆ—‚·‚é‚Ü‚Å‘Ò‚Â
+				//å¿œç­”ã‚’å‡¦ç†ã™ã‚‹ã¾ã§å¾…ã¤
 				while (1){
 					if(::PeekMessage(&msg, NULL, WM_NEX_RESPONSE, WM_NEX_RESPONSE, PM_REMOVE)){
 						::TranslateMessage(&msg);
@@ -3499,13 +3499,13 @@ void CMotionDlg::OnMicroScopeMove()
 				}
 			}
 
-			// ˆÊ’uŒˆ‚ß
+			// ä½ç½®æ±ºã‚
 			if(nexifRC_MoveToTeachPos(this->m_hWnd, nPosNo)){
-				// ActuateFlag‚ğƒZƒbƒg‚·‚é
+				// ActuateFlagã‚’ã‚»ãƒƒãƒˆã™ã‚‹
 				m_pDoc->ActuateFlagsSet(ACTUATE_MICROSCOPE, TRUE);
 				MSG 	msg;
 
-				//‰“š‚ğˆ—‚·‚é‚Ü‚Å‘Ò‚Â
+				//å¿œç­”ã‚’å‡¦ç†ã™ã‚‹ã¾ã§å¾…ã¤
 				while (1){
 					if(::PeekMessage(&msg, NULL, WM_NEX_RESPONSE, WM_NEX_RESPONSE, PM_REMOVE)){
 						::TranslateMessage(&msg);
@@ -3521,7 +3521,7 @@ void CMotionDlg::OnMicroScopeMove()
 				nexifRC_SelectMode(this->m_hWnd, oldMode);
 				MSG 	msg;
 
-				//‰“š‚ğˆ—‚·‚é‚Ü‚Å‘Ò‚Â
+				//å¿œç­”ã‚’å‡¦ç†ã™ã‚‹ã¾ã§å¾…ã¤
 				while (1){
 					if(::PeekMessage(&msg, NULL, WM_NEX_RESPONSE, WM_NEX_RESPONSE, PM_REMOVE)){
 						::TranslateMessage(&msg);
@@ -3535,7 +3535,7 @@ void CMotionDlg::OnMicroScopeMove()
 			m_pDoc->ActuateFlagsSet(ACTUATE_MICROSCOPE, FALSE);
 // matsuhisa 2009.12.26 deleted >>>
 //		} else {
-//			// Œ°”÷‹¾‚ÌƒŒƒ“ƒY‚Ìİ’è‚ªˆê’v‚µ‚È‚¢
+//			// é¡•å¾®é¡ã®ãƒ¬ãƒ³ã‚ºã®è¨­å®šãŒä¸€è‡´ã—ãªã„
 //			LoadStringML(IDS_MICROSOFT_LENS_MISMATCH, strMsg, "Microscope Lens kind is mismatch.");
 //			m_pDoc->MessageStringIf_Set(strMsg);
 //			pCombo->SetCurSel(m_nSelLens);
@@ -3544,43 +3544,43 @@ void CMotionDlg::OnMicroScopeMove()
 	}
 
 	m_nSelLens = nIndex;
-// 2009.11.09 bagus MS C³ --}--
+// 2009.11.09 bagus MS ä¿®æ­£ --}--
 }
 
 void CMotionDlg::OnMicroScopeStdMode()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«é€šçŸ¥ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
-// 2009.11.09 bagus MS C³ --{--
+// 2009.11.09 bagus MS ä¿®æ­£ --{--
 	CString l_strBuffer, l_strTitle, strMsg;
 
 //	if ( CCursor::m_bWaitCursor ) {
 //		return;
 //	}
 
-	//ƒŠƒ‚[ƒg‚Í‰½‚à‚µ‚È‚¢
+	//ãƒªãƒ¢ãƒ¼ãƒˆæ™‚ã¯ä½•ã‚‚ã—ãªã„
 	if(m_pDoc->GetHostMode() == HOST_REMOTE) return;
 	if (m_pDoc->GetHostMode() == HOST_REMOTE) {
 		return;
 	}
 
 	CMainFrame* pMainFrame = (CMainFrame *)AfxGetMainWnd();
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	//ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒhƒ`ƒFƒbƒN(2²“¯“®ì§ŒÀ)
-	if( nexioIsEngineerMaintenanceSwitch()==ON )// “Œ•üƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	//ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ãƒã‚§ãƒƒã‚¯(2è»¸åŒæ™‚å‹•ä½œåˆ¶é™)
+	if( nexioIsEngineerMaintenanceSwitch()==ON )// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰
 	{
 		if ( nexioIsMaintenanceSwitch() != OFF ) {
 			AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);
 			return;
 		}
-		/*“Œ•üƒƒ“ƒeƒ‚[ƒh‚Ì‚ÍA•K‚¸ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh(L)‚Æ‚È‚é
-			‚±‚Ìê‡A2²“¯“®ì‰Â”\ */
+		/*æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒ¢ãƒ¼ãƒ‰ã®æ™‚ã¯ã€å¿…ãšãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(L)ã¨ãªã‚‹
+			ã“ã®å ´åˆã€2è»¸åŒæ™‚å‹•ä½œå¯èƒ½ */
 	}
-	else //“Œ•üƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒhˆÈŠO
+	else //æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ä»¥å¤–
 	{
 	}
 
-	// ŠeI/Oƒ`ƒFƒbƒN
+	// å„I/Oãƒã‚§ãƒƒã‚¯
 	if (m_pDoc->IsInterLock() == TRUE) {
 		return;
 	}
@@ -3588,71 +3588,71 @@ void CMotionDlg::OnMicroScopeStdMode()
 		return;
 	}
 
-	//ActuateFlagƒ`ƒFƒbƒN
+	//ActuateFlagãƒã‚§ãƒƒã‚¯
 	if(m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) && pMainFrame->GetJoyStickMode()==0){
 		LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 		m_pDoc->MessageStringIf_Set(strMsg);
 		return;
-	} //ƒXƒe[ƒW‚ª“®ì’†‚Å‚·
+	} //ã‚¹ãƒ†ãƒ¼ã‚¸ãŒå‹•ä½œä¸­ã§ã™
 	if (m_pDoc->CheckActiveFlag() == TRUE) {
 		return;
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	if (!m_pDoc->ActuateFlagsGet(ACTUATE_MICROSCOPE)) {
-		// ‘¼‚ÌˆÚ“®“ü—Í‚Ìó•t‚ğ‹Ö~‚·‚é
+		// ä»–ã®ç§»å‹•å…¥åŠ›ã®å—ä»˜ã‚’ç¦æ­¢ã™ã‚‹
 		if( !m_pDoc->JoyStickChangeDisable() ){
 			LoadStringML(IDS_JOYSTICK_WORKING, strMsg, "JoyStick is Working");
 			LoadStringML(IDS_TITLE_WARNING, l_strTitle, "Warning");
 			MessageBox(strMsg, l_strTitle, MB_OK);
-			// •K‚¸JoyStick‚Ìó‘Ô‚ğ–ß‚·‚±‚Æ
+			// å¿…ãšJoyStickã®çŠ¶æ…‹ã‚’æˆ»ã™ã“ã¨
 			m_pDoc->JoyStickStatusRestore();
 			return;
 		}
 
-		// ActuateFlag‚ğƒZƒbƒg‚·‚é
+		// ActuateFlagã‚’ã‚»ãƒƒãƒˆã™ã‚‹
 		m_pDoc->ActuateFlagsSet(ACTUATE_MICROSCOPE, TRUE);
-		// ModeØ‚è‘Ö‚¦
+		// Modeåˆ‡ã‚Šæ›¿ãˆ
 		nexifRC_SelectMode(this->m_hWnd, RCOPMODE_NORMAL);
 
 	}
-// 2009.11.09 bagus MS C³ --}--
+// 2009.11.09 bagus MS ä¿®æ­£ --}--
 }
 
 void CMotionDlg::OnMicroScopeJogIncing()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«é€šçŸ¥ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
-// 2009.11.09 bagus MS C³ --{--
+// 2009.11.09 bagus MS ä¿®æ­£ --{--
 	CString l_strBuffer, l_strTitle, strMsg;
 
 //	if ( CCursor::m_bWaitCursor ) {
 //		return;
 //	}
 
-	//ƒŠƒ‚[ƒg‚Í‰½‚à‚µ‚È‚¢
+	//ãƒªãƒ¢ãƒ¼ãƒˆæ™‚ã¯ä½•ã‚‚ã—ãªã„
 	if(m_pDoc->GetHostMode() == HOST_REMOTE) return;
 	if (m_pDoc->GetHostMode() == HOST_REMOTE) {
 		return;
 	}
 
 	CMainFrame* pMainFrame = (CMainFrame *)AfxGetMainWnd();
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	//ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒhƒ`ƒFƒbƒN(2²“¯“®ì§ŒÀ)
-	if( nexioIsEngineerMaintenanceSwitch()==ON )// “Œ•üƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	//ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ãƒã‚§ãƒƒã‚¯(2è»¸åŒæ™‚å‹•ä½œåˆ¶é™)
+	if( nexioIsEngineerMaintenanceSwitch()==ON )// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰
 	{
 		if ( nexioIsMaintenanceSwitch() != OFF ) {
 			AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);
 			return;
 		}
-		/*“Œ•üƒƒ“ƒeƒ‚[ƒh‚Ì‚ÍA•K‚¸ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh(L)‚Æ‚È‚é
-			‚±‚Ìê‡A2²“¯“®ì‰Â”\ */
+		/*æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒ¢ãƒ¼ãƒ‰ã®æ™‚ã¯ã€å¿…ãšãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(L)ã¨ãªã‚‹
+			ã“ã®å ´åˆã€2è»¸åŒæ™‚å‹•ä½œå¯èƒ½ */
 	}
-	else //“Œ•üƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒhˆÈŠO
+	else //æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ä»¥å¤–
 	{
 	}
 
-	// ŠeI/Oƒ`ƒFƒbƒN
+	// å„I/Oãƒã‚§ãƒƒã‚¯
 	if (m_pDoc->IsInterLock() == TRUE) {
 		return;
 	}
@@ -3660,32 +3660,32 @@ void CMotionDlg::OnMicroScopeJogIncing()
 		return;
 	}
 
-	//ActuateFlagƒ`ƒFƒbƒN
+	//ActuateFlagãƒã‚§ãƒƒã‚¯
 	if(m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) && pMainFrame->GetJoyStickMode()==0){
 		LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 		m_pDoc->MessageStringIf_Set(strMsg);
 		return;
-	} //ƒXƒe[ƒW‚ª“®ì’†‚Å‚·
+	} //ã‚¹ãƒ†ãƒ¼ã‚¸ãŒå‹•ä½œä¸­ã§ã™
 	if (m_pDoc->CheckActiveFlag() == TRUE) {
 		return;
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	if (!m_pDoc->ActuateFlagsGet(ACTUATE_MICROSCOPE)) {
-		// ‘¼‚ÌˆÚ“®“ü—Í‚Ìó•t‚ğ‹Ö~‚·‚é
+		// ä»–ã®ç§»å‹•å…¥åŠ›ã®å—ä»˜ã‚’ç¦æ­¢ã™ã‚‹
 		if( !m_pDoc->JoyStickChangeDisable() ){
 			LoadStringML(IDS_JOYSTICK_WORKING, strMsg, "JoyStick is Working");
 			LoadStringML(IDS_TITLE_WARNING, l_strTitle, "Warning");
 			MessageBox(strMsg, l_strTitle, MB_OK);
-			// •K‚¸JoyStick‚Ìó‘Ô‚ğ–ß‚·‚±‚Æ
+			// å¿…ãšJoyStickã®çŠ¶æ…‹ã‚’æˆ»ã™ã“ã¨
 			m_pDoc->JoyStickStatusRestore();
 			return;
 		}
 
-		// ActuateFlag‚ğƒZƒbƒg‚·‚é
+		// ActuateFlagã‚’ã‚»ãƒƒãƒˆã™ã‚‹
 		m_pDoc->ActuateFlagsSet(ACTUATE_MICROSCOPE, TRUE);
 
-		// ModeØ‚è‘Ö‚¦
+		// Modeåˆ‡ã‚Šæ›¿ãˆ
 		int	nMode = nexioRC_GetCurrentMode();
 
 		if (nMode == RCOPMODE_JOG) {
@@ -3696,9 +3696,9 @@ void CMotionDlg::OnMicroScopeJogIncing()
 			nexifRC_SelectMode(this->m_hWnd, RCOPMODE_JOG);
 		}
 	}
-// 2009.11.09 bagus MS C³ --}--
+// 2009.11.09 bagus MS ä¿®æ­£ --}--
 }
-// 2009.10.29 bagus MS ’Ç‰ÁC³ --}--
+// 2009.10.29 bagus MS è¿½åŠ ä¿®æ­£ --}--
 
 void CMotionDlg::OnTimer(UINT nIDEvent)
 {
@@ -3706,13 +3706,13 @@ void CMotionDlg::OnTimer(UINT nIDEvent)
 		switch(nIDEvent){
 		case JOG_WATCH_TIMER_ID:
 			if(m_pDoc->ActuateFlagsGet(ACTUATE_MICROSCOPE)){
-				//‚·‚Å‚ÉŒ°”÷‹¾—pƒVƒŠƒ“ƒ_‚ª“®ì‚µ‚Ä‚¢‚é‚Ì‚ÅƒXƒCƒbƒ`‚ğ‚İ‚È‚¢
+				//ã™ã§ã«é¡•å¾®é¡ç”¨ã‚·ãƒªãƒ³ãƒ€ãŒå‹•ä½œã—ã¦ã„ã‚‹ã®ã§ã‚¹ã‚¤ãƒƒãƒã‚’ã¿ãªã„
 			}else{
 				switch(nexioRC_GetCurrentMode()){
 				case RCOPMODE_JOG:
 				case RCOPMODE_INCHING:
 					if(nexioIsMS_DownSwitch() && nexioIsMS_UpSwitch()){
-						//“¯‰Ÿ‚µ
+						//åŒæ™‚æŠ¼ã—
 					//2009.12.25 bagus MS --{--
 					//}else if(nexioIsMS_UpSwitch() && nexioIsMS_UpperPos()){
 					}else if(nexioIsMS_UpSwitch() && !nexioIsMS_UpperPos()){
@@ -3722,17 +3722,17 @@ void CMotionDlg::OnTimer(UINT nIDEvent)
 						}
 					}else if(nexioIsMS_DownSwitch() ){
 						if(!nexioIsMS_LowerPos1() && !nexioIsMS_LensKind()){
-							//‰º~’[‚P‚ÅƒŒƒ“ƒYí•Ê‚ª1-50x
+							//ä¸‹é™ç«¯ï¼‘ã§ãƒ¬ãƒ³ã‚ºç¨®åˆ¥ãŒ1-50x
 						}else if(!nexioIsMS_LowerPos2()){
-							//ˆê”Ô‰º
+							//ä¸€ç•ªä¸‹
 						}else{
-							//ã¸
+							//ä¸Šæ˜‡
 							if(nexifRC_JogPlus(this->m_hWnd)){
 								m_pDoc->ActuateFlagsSet(ACTUATE_MICROSCOPE,TRUE);
 							}
 						}
 					}else{
-						//ƒ{ƒ^ƒ“‚ª—£‚³‚ê‚½‚Ì‚ÅƒWƒ‡ƒO‚ğ~‚ß‚é
+						//ãƒœã‚¿ãƒ³ãŒé›¢ã•ã‚ŒãŸã®ã§ã‚¸ãƒ§ã‚°ã‚’æ­¢ã‚ã‚‹
 						if ( nexioRC_GetJOGP() || nexioRC_GetJOGM() ) {
 							if(nexifRC_JogStop(this->m_hWnd)){
 								m_pDoc->ActuateFlagsSet(ACTUATE_MICROSCOPE,TRUE);

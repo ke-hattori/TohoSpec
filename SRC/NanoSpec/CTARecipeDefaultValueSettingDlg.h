@@ -1,19 +1,19 @@
-// CTARecipeDefaultValueSettingDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+ï»¿// CTARecipeDefaultValueSettingDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #pragma once
 
 // ##########################################################################
-// CCTARecipeDefaultValueSettingDlg ƒ_ƒCƒAƒƒO
+// CCTARecipeDefaultValueSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // ##########################################################################
 
 class CCTARecipeDefaultValueSettingDlg : public CDialog
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
-	CCTARecipeDefaultValueSettingDlg(CWnd* pParent = NULL);  // •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CCTARecipeDefaultValueSettingDlg(CWnd* pParent = NULL);  // æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CCTARecipeDefaultValueSettingDlg)
 	enum { IDD = IDD_SR_RECIPE_DEFAULT_VALUE_SETTING_DLG };
 	//}}AFX_DATA
@@ -26,17 +26,17 @@ public:
 	CShadeButtonST m_MeasurementProgramButton;
 
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CCTARecipeDefaultValueSettingDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CCTARecipeDefaultValueSettingDlg)
 	virtual BOOL OnInitDialog();
 	afx_msg void OnMainRecipeButton();

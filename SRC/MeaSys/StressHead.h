@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 // ===========================================================================
 // CStressHead class
@@ -12,21 +12,21 @@ public:
 	virtual BOOL InitInstance()=0;
 	virtual void ExitInstance()=0;
 
-	virtual BOOL ChangeCommMode()=0;				// ƒ‚[ƒh•ÏXƒRƒ}ƒ“ƒh - ’ÊMƒ‚[ƒh‚Ö‚ÌˆÚs
-	virtual BOOL ChangeNormalMode()=0;				// ƒ‚[ƒh•ÏXƒRƒ}ƒ“ƒh - ’Êíƒ‚[ƒh‚Ö‚ÌˆÚs
+	virtual BOOL ChangeCommMode()=0;				// ãƒ¢ãƒ¼ãƒ‰å¤‰æ›´ã‚³ãƒãƒ³ãƒ‰ - é€šä¿¡ãƒ¢ãƒ¼ãƒ‰ã¸ã®ç§»è¡Œ
+	virtual BOOL ChangeNormalMode()=0;				// ãƒ¢ãƒ¼ãƒ‰å¤‰æ›´ã‚³ãƒãƒ³ãƒ‰ - é€šå¸¸ãƒ¢ãƒ¼ãƒ‰ã¸ã®ç§»è¡Œ
 
-	virtual BOOL ChangeProgramNo(int iNo)=0;		// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒvƒƒOƒ‰ƒ€ØŠ·
-	virtual BOOL ConfirmProgramNo(int& iNo)=0;		// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒvƒƒOƒ‰ƒ€Šm”F
-	virtual BOOL InitDataStrage()=0;				// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒf[ƒ^ƒXƒgƒŒ[ƒW‰Šú‰»
-	virtual BOOL StartDataStrage()=0;				// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒf[ƒ^ƒXƒgƒŒ[ƒWŠJn
-	virtual BOOL StopDataStrage()=0;				// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒf[ƒ^ƒXƒgƒŒ[ƒW’â~
-	virtual BOOL StatusInfoDataStrage(int& iState, int& iData)=0;							// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒf[ƒ^ƒXƒgƒŒ[ƒWE’~Ïó‘Ôo—Í	// OUT01ŒÅ’è
-	virtual BOOL OutputDataStrage(int iChannel, double dDataList[], int nOccurence)=0;	// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒf[ƒ^ƒXƒgƒŒ[ƒWEƒf[ƒ^o—Í
-	virtual BOOL OutputDataStrage(int iChannel, CStringArray& rStringList)=0;				// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒf[ƒ^ƒXƒgƒŒ[ƒWEƒf[ƒ^o—Í
-	virtual BOOL AutoZeroOn(int iChannel)=0;		// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒI[ƒgƒ[ƒONi’Pˆêj
-	virtual BOOL AutoZeroOff(int iChannel)=0;		// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒI[ƒgƒ[ƒOFFi’Pˆêj
-	virtual BOOL PanelLockOn()=0;					// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒpƒlƒ‹ƒƒbƒNƒIƒ“
-	virtual BOOL PanelLockOff()=0;					// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒpƒlƒ‹ƒƒbƒNƒIƒt
+	virtual BOOL ChangeProgramNo(int iNo)=0;		// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ—ãƒ­ã‚°ãƒ©ãƒ åˆ‡æ›
+	virtual BOOL ConfirmProgramNo(int& iNo)=0;		// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ—ãƒ­ã‚°ãƒ©ãƒ ç¢ºèª
+	virtual BOOL InitDataStrage()=0;				// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ‡ãƒ¼ã‚¿ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸åˆæœŸåŒ–
+	virtual BOOL StartDataStrage()=0;				// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ‡ãƒ¼ã‚¿ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸é–‹å§‹
+	virtual BOOL StopDataStrage()=0;				// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ‡ãƒ¼ã‚¿ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸åœæ­¢
+	virtual BOOL StatusInfoDataStrage(int& iState, int& iData)=0;							// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ‡ãƒ¼ã‚¿ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸ãƒ»è“„ç©çŠ¶æ…‹å‡ºåŠ›	// OUT01å›ºå®š
+	virtual BOOL OutputDataStrage(int iChannel, double dDataList[], int nOccurence)=0;	// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ‡ãƒ¼ã‚¿ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸ãƒ»ãƒ‡ãƒ¼ã‚¿å‡ºåŠ›
+	virtual BOOL OutputDataStrage(int iChannel, CStringArray& rStringList)=0;				// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ‡ãƒ¼ã‚¿ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸ãƒ»ãƒ‡ãƒ¼ã‚¿å‡ºåŠ›
+	virtual BOOL AutoZeroOn(int iChannel)=0;		// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ã‚ªãƒ¼ãƒˆã‚¼ãƒ­ONï¼ˆå˜ä¸€ï¼‰
+	virtual BOOL AutoZeroOff(int iChannel)=0;		// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ã‚ªãƒ¼ãƒˆã‚¼ãƒ­OFFï¼ˆå˜ä¸€ï¼‰
+	virtual BOOL PanelLockOn()=0;					// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ‘ãƒãƒ«ãƒ­ãƒƒã‚¯ã‚ªãƒ³
+	virtual BOOL PanelLockOff()=0;					// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ‘ãƒãƒ«ãƒ­ãƒƒã‚¯ã‚ªãƒ•
 	virtual BOOL Send(LPCTSTR pszCmd)=0;
 	virtual void MyMessageBox(HWND hWnd, LPCTSTR lpText, LPCTSTR lpCaption, UINT uType)
 	{
@@ -51,15 +51,15 @@ public:
 	BOOL InitInstance() {return TRUE;}
 	void ExitInstance() {}
 
-	BOOL ChangeCommMode() {return TRUE;}				// ƒ‚[ƒh•ÏXƒRƒ}ƒ“ƒh - ’ÊMƒ‚[ƒh‚Ö‚ÌˆÚs
-	BOOL ChangeNormalMode() {return TRUE;}				// ƒ‚[ƒh•ÏXƒRƒ}ƒ“ƒh - ’Êíƒ‚[ƒh‚Ö‚ÌˆÚs
+	BOOL ChangeCommMode() {return TRUE;}				// ãƒ¢ãƒ¼ãƒ‰å¤‰æ›´ã‚³ãƒãƒ³ãƒ‰ - é€šä¿¡ãƒ¢ãƒ¼ãƒ‰ã¸ã®ç§»è¡Œ
+	BOOL ChangeNormalMode() {return TRUE;}				// ãƒ¢ãƒ¼ãƒ‰å¤‰æ›´ã‚³ãƒãƒ³ãƒ‰ - é€šå¸¸ãƒ¢ãƒ¼ãƒ‰ã¸ã®ç§»è¡Œ
 
-	BOOL ChangeProgramNo(int iNo) {return TRUE;}		// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒvƒƒOƒ‰ƒ€ØŠ·
-	BOOL ConfirmProgramNo(int& iNo) {return TRUE;}		// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒvƒƒOƒ‰ƒ€Šm”F
-	BOOL InitDataStrage() {return TRUE;}				// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒf[ƒ^ƒXƒgƒŒ[ƒW‰Šú‰»
-	BOOL StartDataStrage() {return TRUE;}				// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒf[ƒ^ƒXƒgƒŒ[ƒWŠJn
-	BOOL StopDataStrage() {return TRUE;}				// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒf[ƒ^ƒXƒgƒŒ[ƒW’â~
-	BOOL StatusInfoDataStrage(int& iState, int& iData)	// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒf[ƒ^ƒXƒgƒŒ[ƒWE’~Ïó‘Ôo—Í	// OUT01ŒÅ’è
+	BOOL ChangeProgramNo(int iNo) {return TRUE;}		// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ—ãƒ­ã‚°ãƒ©ãƒ åˆ‡æ›
+	BOOL ConfirmProgramNo(int& iNo) {return TRUE;}		// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ—ãƒ­ã‚°ãƒ©ãƒ ç¢ºèª
+	BOOL InitDataStrage() {return TRUE;}				// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ‡ãƒ¼ã‚¿ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸åˆæœŸåŒ–
+	BOOL StartDataStrage() {return TRUE;}				// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ‡ãƒ¼ã‚¿ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸é–‹å§‹
+	BOOL StopDataStrage() {return TRUE;}				// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ‡ãƒ¼ã‚¿ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸åœæ­¢
+	BOOL StatusInfoDataStrage(int& iState, int& iData)	// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ‡ãƒ¼ã‚¿ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸ãƒ»è“„ç©çŠ¶æ…‹å‡ºåŠ›	// OUT01å›ºå®š
 	{
 		iState = 0;
 //		iData = 2500;
@@ -68,7 +68,7 @@ public:
 		return TRUE;
 	}
 
-	BOOL OutputDataStrage(int iChannel, double dDataList[], int nOccurence)	// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒf[ƒ^ƒXƒgƒŒ[ƒWEƒf[ƒ^o—Í
+	BOOL OutputDataStrage(int iChannel, double dDataList[], int nOccurence)	// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ‡ãƒ¼ã‚¿ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸ãƒ»ãƒ‡ãƒ¼ã‚¿å‡ºåŠ›
 	{
 //		for ( int i = 0; i < nOccurence; i++ ) {
 //			dDataList[i] = (double)i;
@@ -2558,11 +2558,11 @@ public:
 		return TRUE;
 	}
 
-	BOOL OutputDataStrage(int iChannel, CStringArray& rStringList) {return TRUE;}				// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒf[ƒ^ƒXƒgƒŒ[ƒWEƒf[ƒ^o—Í
-	BOOL AutoZeroOn(int iChannel) {return TRUE;}		// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒI[ƒgƒ[ƒONi’Pˆêj
-	BOOL AutoZeroOff(int iChannel) {return TRUE;}		// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒI[ƒgƒ[ƒOFFi’Pˆêj
-	BOOL PanelLockOn() {return TRUE;}					// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒpƒlƒ‹ƒƒbƒNƒIƒ“
-	BOOL PanelLockOff() {return TRUE;}					// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒpƒlƒ‹ƒƒbƒNƒIƒt
+	BOOL OutputDataStrage(int iChannel, CStringArray& rStringList) {return TRUE;}				// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ‡ãƒ¼ã‚¿ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸ãƒ»ãƒ‡ãƒ¼ã‚¿å‡ºåŠ›
+	BOOL AutoZeroOn(int iChannel) {return TRUE;}		// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ã‚ªãƒ¼ãƒˆã‚¼ãƒ­ONï¼ˆå˜ä¸€ï¼‰
+	BOOL AutoZeroOff(int iChannel) {return TRUE;}		// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ã‚ªãƒ¼ãƒˆã‚¼ãƒ­OFFï¼ˆå˜ä¸€ï¼‰
+	BOOL PanelLockOn() {return TRUE;}					// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ‘ãƒãƒ«ãƒ­ãƒƒã‚¯ã‚ªãƒ³
+	BOOL PanelLockOff() {return TRUE;}					// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ‘ãƒãƒ«ãƒ­ãƒƒã‚¯ã‚ªãƒ•
 	BOOL Send(LPCTSTR pszCmd) {return TRUE;}
 };
 
@@ -2578,21 +2578,21 @@ public:
 	BOOL InitInstance();
 	void ExitInstance();
 
-	BOOL ChangeCommMode();				// ƒ‚[ƒh•ÏXƒRƒ}ƒ“ƒh - ’ÊMƒ‚[ƒh‚Ö‚ÌˆÚs
-	BOOL ChangeNormalMode();			// ƒ‚[ƒh•ÏXƒRƒ}ƒ“ƒh - ’Êíƒ‚[ƒh‚Ö‚ÌˆÚs
+	BOOL ChangeCommMode();				// ãƒ¢ãƒ¼ãƒ‰å¤‰æ›´ã‚³ãƒãƒ³ãƒ‰ - é€šä¿¡ãƒ¢ãƒ¼ãƒ‰ã¸ã®ç§»è¡Œ
+	BOOL ChangeNormalMode();			// ãƒ¢ãƒ¼ãƒ‰å¤‰æ›´ã‚³ãƒãƒ³ãƒ‰ - é€šå¸¸ãƒ¢ãƒ¼ãƒ‰ã¸ã®ç§»è¡Œ
 
-	BOOL ChangeProgramNo(int iNo);		// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒvƒƒOƒ‰ƒ€ØŠ·
-	BOOL ConfirmProgramNo(int& iNo);	// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒvƒƒOƒ‰ƒ€Šm”F
-	BOOL InitDataStrage();				// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒf[ƒ^ƒXƒgƒŒ[ƒW‰Šú‰»
-	BOOL StartDataStrage();				// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒf[ƒ^ƒXƒgƒŒ[ƒWŠJn
-	BOOL StopDataStrage();				// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒf[ƒ^ƒXƒgƒŒ[ƒW’â~
-	BOOL StatusInfoDataStrage(int& iState, int& iData);							// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒf[ƒ^ƒXƒgƒŒ[ƒWE’~Ïó‘Ôo—Í	// OUT01ŒÅ’è
-	BOOL OutputDataStrage(int iChannel, double dDataList[], int nOccurence);	// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒf[ƒ^ƒXƒgƒŒ[ƒWEƒf[ƒ^o—Í
-	BOOL OutputDataStrage(int iChannel, CStringArray& rStringList);				// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒf[ƒ^ƒXƒgƒŒ[ƒWEƒf[ƒ^o—Í
-	BOOL AutoZeroOn(int iChannel);		// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒI[ƒgƒ[ƒONi’Pˆêj
-	BOOL AutoZeroOff(int iChannel);		// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒI[ƒgƒ[ƒOFFi’Pˆêj
-	BOOL PanelLockOn();					// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒpƒlƒ‹ƒƒbƒNƒIƒ“
-	BOOL PanelLockOff();				// ‘ª’è§ŒäƒRƒ}ƒ“ƒh - ƒpƒlƒ‹ƒƒbƒNƒIƒt
+	BOOL ChangeProgramNo(int iNo);		// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ—ãƒ­ã‚°ãƒ©ãƒ åˆ‡æ›
+	BOOL ConfirmProgramNo(int& iNo);	// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ—ãƒ­ã‚°ãƒ©ãƒ ç¢ºèª
+	BOOL InitDataStrage();				// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ‡ãƒ¼ã‚¿ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸åˆæœŸåŒ–
+	BOOL StartDataStrage();				// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ‡ãƒ¼ã‚¿ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸é–‹å§‹
+	BOOL StopDataStrage();				// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ‡ãƒ¼ã‚¿ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸åœæ­¢
+	BOOL StatusInfoDataStrage(int& iState, int& iData);							// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ‡ãƒ¼ã‚¿ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸ãƒ»è“„ç©çŠ¶æ…‹å‡ºåŠ›	// OUT01å›ºå®š
+	BOOL OutputDataStrage(int iChannel, double dDataList[], int nOccurence);	// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ‡ãƒ¼ã‚¿ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸ãƒ»ãƒ‡ãƒ¼ã‚¿å‡ºåŠ›
+	BOOL OutputDataStrage(int iChannel, CStringArray& rStringList);				// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ‡ãƒ¼ã‚¿ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸ãƒ»ãƒ‡ãƒ¼ã‚¿å‡ºåŠ›
+	BOOL AutoZeroOn(int iChannel);		// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ã‚ªãƒ¼ãƒˆã‚¼ãƒ­ONï¼ˆå˜ä¸€ï¼‰
+	BOOL AutoZeroOff(int iChannel);		// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ã‚ªãƒ¼ãƒˆã‚¼ãƒ­OFFï¼ˆå˜ä¸€ï¼‰
+	BOOL PanelLockOn();					// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ‘ãƒãƒ«ãƒ­ãƒƒã‚¯ã‚ªãƒ³
+	BOOL PanelLockOff();				// æ¸¬å®šåˆ¶å¾¡ã‚³ãƒãƒ³ãƒ‰ - ãƒ‘ãƒãƒ«ãƒ­ãƒƒã‚¯ã‚ªãƒ•
 	BOOL Send(LPCTSTR pszCmd);
 
 private:

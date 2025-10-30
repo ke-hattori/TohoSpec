@@ -1,4 +1,4 @@
-/** INCLUDE *****************************************************
+ï»¿/** INCLUDE *****************************************************
  *                    Copyright (C) 1993 by Tencor Instruments
  *  ................. Source Code Control System (PVCS) keywords
  *
@@ -18,11 +18,11 @@
  *  .....$Log: /ORCA3.2.2J/src/motsys/PROTOS.H $
 //
 //  2     01/03/05 14:26 Hmenjo
-//  $NoKeywords$‚ğ’Ç‰ÁD
-//  ƒR[ƒh“à‚Ìƒo[ƒWƒ‡ƒ“î•ñ‚ğŒ³‚É–ß‚·D
+//  $NoKeywords$ã‚’è¿½åŠ ï¼
+//  ã‚³ãƒ¼ãƒ‰å†…ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ã‚’å…ƒã«æˆ»ã™ï¼
 //
 //  1     00/11/01 9:22a Hmenjo
-//  orca3.2.2‚Ì³íƒRƒ“ƒpƒCƒ‹‚Ì‚½‚ßD
+//  orca3.2.2ã®æ­£å¸¸ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã®ãŸã‚ï¼
 //
 //  $NoKeywords: $
 //
@@ -118,8 +118,8 @@ typedef struct MOT_DEF_PARAMStag {
 	BYTE	byUnused;			// needed for alignment
 	LONG	lMinusLimit;
 	LONG	lPlusLimit;			// from Home
-// BOOL ‚Í int ‚Å’è‹`‚³‚ê‚Ä‚¢‚é
-// Win32 ‚Å‚Í int ‚Í 32 ƒrƒbƒg‚È‚Ì‚Å 16 ƒrƒbƒg‚É•ÏX‚·‚é
+// BOOL ã¯ int ã§å®šç¾©ã•ã‚Œã¦ã„ã‚‹
+// Win32 ã§ã¯ int ã¯ 32 ãƒ“ãƒƒãƒˆãªã®ã§ 16 ãƒ“ãƒƒãƒˆã«å¤‰æ›´ã™ã‚‹
 	short	bInvertedSense;		// true -> motions & positions inverted
 	short	bForwardForHome;	// true -> go forward to home if home sensor is
 //	BOOL	bInvertedSense;		// true -> motions & positions inverted
@@ -137,14 +137,14 @@ typedef MOT_DEF_PARAMS *LPMOT_DEF_PARAMS;
 
 
 typedef struct MOT_AXIS_DATAtag {
-	WORD	wHctlPort;		// HCTL ƒAƒhƒŒƒX
-	WORD	wHomePort;		// Œ´“_ƒZƒ“ƒTƒAƒhƒŒƒX
-	WORD	wHomeIntPort;	// Œ´“_ƒZƒ“ƒTŠ„ƒAƒhƒŒƒX
-	WORD	wXstopPort;		// ’â~w—ßƒAƒhƒŒƒX
-	BYTE	byHomeMask;		// Œ´“_ƒZƒ“ƒTƒrƒbƒgˆÊ’u
-	BYTE	byHomeIntMask;	// Œ´“_ƒZƒ“ƒTŠ„ƒrƒbƒg
-	BYTE	byXstopMask;	// ’â~w—ßƒrƒbƒg
-	BYTE	byUnused;		// –¢g—p
+	WORD	wHctlPort;		// HCTL ã‚¢ãƒ‰ãƒ¬ã‚¹
+	WORD	wHomePort;		// åŸç‚¹ã‚»ãƒ³ã‚µã‚¢ãƒ‰ãƒ¬ã‚¹
+	WORD	wHomeIntPort;	// åŸç‚¹ã‚»ãƒ³ã‚µå‰²è¾¼ã‚¢ãƒ‰ãƒ¬ã‚¹
+	WORD	wXstopPort;		// åœæ­¢æŒ‡ä»¤ã‚¢ãƒ‰ãƒ¬ã‚¹
+	BYTE	byHomeMask;		// åŸç‚¹ã‚»ãƒ³ã‚µãƒ“ãƒƒãƒˆä½ç½®
+	BYTE	byHomeIntMask;	// åŸç‚¹ã‚»ãƒ³ã‚µå‰²è¾¼ãƒ“ãƒƒãƒˆ
+	BYTE	byXstopMask;	// åœæ­¢æŒ‡ä»¤ãƒ“ãƒƒãƒˆ
+	BYTE	byUnused;		// æœªä½¿ç”¨
 } MOT_AXIS_DATA;
 //typedef MOT_AXIS_DATA __far* LPMOT_AXIS_DATA;
 typedef MOT_AXIS_DATA *LPMOT_AXIS_DATA;

@@ -1,4 +1,4 @@
-// ChiefFrame.cpp : CChiefFrame ƒNƒ‰ƒX‚Ì“®ì‚Ì’è‹`‚ğs‚¢‚Ü‚·B
+ï»¿// ChiefFrame.cpp : CChiefFrame ã‚¯ãƒ©ã‚¹ã®å‹•ä½œã®å®šç¾©ã‚’è¡Œã„ã¾ã™ã€‚
 //
 
 #include "stdafx.h"
@@ -13,7 +13,7 @@
 #include "ChiefView.h"
 #include <NEXIF.HXX>
 #include <PIFCOMM.HXX>
-//#include <NEXIO.HXX>		hmenjo g—p‹Ö~
+//#include <NEXIO.HXX>		hmenjo ä½¿ç”¨ç¦æ­¢
 #include <NEXIOBASE.HXX>
 #include "ChifTransiAF.h"
 #include "ChifTransiDeskew.h"
@@ -32,7 +32,7 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-extern CChiefView*	g_pcChiefView;	// static —pƒNƒ‰ƒXƒ|ƒCƒ“ƒ^
+extern CChiefView*	g_pcChiefView;	// static ç”¨ã‚¯ãƒ©ã‚¹ãƒã‚¤ãƒ³ã‚¿
 
 /////////////////////////////////////////////////////////////////////////////
 // CChiefFrame
@@ -74,32 +74,32 @@ BEGIN_MESSAGE_MAP(CChiefFrame, CFrameWnd)
 	ON_MESSAGE(WM_DISP_START_SRREF, OnStartSrRefer)
 	ON_MESSAGE(WM_CHIF_SHOWSW, OnDlgShowSW)
 	ON_MESSAGE(WM_CHIF_RESET_ALARM, OnResetAlarm)
-/* added 2009.08.05 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(25) ---------- { ---------- */
+/* added 2009.08.05 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (25) ---------- { ---------- */
 	ON_MESSAGE(WM_MEAS_LINE_END, OnMeasLineEnd)
 	ON_MESSAGE(WM_DATA_LINE_END, OnDataLineEnd)
 	ON_MESSAGE(WM_DATA_STRS_MEAS_END, OnDataStressMeasEnd)
-/* added 2009.08.05 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(25) ---------- } ---------- */
+/* added 2009.08.05 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (25) ---------- } ---------- */
 //2009.10.28 bagus 2point-distance --{--
 	ON_MESSAGE(WM_DISP_DISTANCE_POPUP_END, OnDistancePopupEnd)
 //2009.10.28 bagus 2point-distance --}--
-/* added 2009.10.30 hmenjo CTA ƒAƒ‰[ƒ€ƒnƒ“ƒhƒ‰ ---------- { ---------- */
+/* added 2009.10.30 hmenjo CTA ã‚¢ãƒ©ãƒ¼ãƒ ãƒãƒ³ãƒ‰ãƒ© ---------- { ---------- */
 	ON_MESSAGE(WM_MEAS_CTA_ALARM, OnMeasAlarmCTA)
-/* added 2009.10.30 hmenjo CTA ƒAƒ‰[ƒ€ƒnƒ“ƒhƒ‰ ---------- } ---------- */
+/* added 2009.10.30 hmenjo CTA ã‚¢ãƒ©ãƒ¼ãƒ ãƒãƒ³ãƒ‰ãƒ© ---------- } ---------- */
 //2009.11.03 bagus 2point-distance --{--
 	ON_MESSAGE(WM_DISP_MS_POPUP_END, OnMSPopupEnd)
 //2009.11.03 bagus 2point-distance --}--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	ON_MESSAGE(WM_MEAS_COMPEASE_STATUS, OnMeasCompEASEStatus)
 	ON_MESSAGE(WM_MEAS_COMPEASE_ERROR, OnMeasCompEASEError)
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	ON_MESSAGE(WM_DISP_CONFIRM_POPUP_END, OnConfirmPopupEnd)
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
 {
-	ID_SEPARATOR,			// ƒXƒe[ƒ^ƒX ƒ‰ƒCƒ“ ƒCƒ“ƒWƒP[ƒ^
+	ID_SEPARATOR,			// ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ ãƒ©ã‚¤ãƒ³ ã‚¤ãƒ³ã‚¸ã‚±ãƒ¼ã‚¿
 	ID_INDICATOR_KANA,
 	ID_INDICATOR_CAPS,
 	ID_INDICATOR_NUM,
@@ -107,11 +107,11 @@ static UINT indicators[] =
 };
 
 /////////////////////////////////////////////////////////////////////////////
-// CChiefFrame ƒNƒ‰ƒX‚Ì\’z/Á–Å
+// CChiefFrame ã‚¯ãƒ©ã‚¹ã®æ§‹ç¯‰/æ¶ˆæ»…
 
 CChiefFrame::CChiefFrame()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚Éƒƒ“ƒo‚Ì‰Šú‰»ˆ—ƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ã“ã®ä½ç½®ã«ãƒ¡ãƒ³ãƒã®åˆæœŸåŒ–å‡¦ç†ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 
 }
 
@@ -135,8 +135,8 @@ BOOL CChiefFrame::PreCreateWindow(CREATESTRUCT& cs)
 {
 	if( !CFrameWnd::PreCreateWindow(cs) )
 		return FALSE;
-	// TODO: ‚±‚ÌˆÊ’u‚Å CREATESTRUCT cs ‚ğC³‚µ‚ÄAWindow ƒNƒ‰ƒX‚âƒXƒ^ƒCƒ‹‚ğ
-	//		 C³‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ã“ã®ä½ç½®ã§ CREATESTRUCT cs ã‚’ä¿®æ­£ã—ã¦ã€Window ã‚¯ãƒ©ã‚¹ã‚„ã‚¹ã‚¿ã‚¤ãƒ«ã‚’
+	//		 ä¿®æ­£ã—ã¦ãã ã•ã„ã€‚
 	cs.style &= ~WS_MAXIMIZEBOX;
 	cs.style &= ~WS_SYSMENU;
 
@@ -144,7 +144,7 @@ BOOL CChiefFrame::PreCreateWindow(CREATESTRUCT& cs)
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// CChiefFrame ƒNƒ‰ƒX‚Ìf’f
+// CChiefFrame ã‚¯ãƒ©ã‚¹ã®è¨ºæ–­
 
 #ifdef _DEBUG
 void CChiefFrame::AssertValid() const
@@ -160,7 +160,7 @@ void CChiefFrame::Dump(CDumpContext& dc) const
 #endif //_DEBUG
 
 /////////////////////////////////////////////////////////////////////////////
-// CChiefFrame ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CChiefFrame ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 LRESULT CChiefFrame::OnHeartBeat(WPARAM wparam, LPARAM lparam)
 {
@@ -298,10 +298,10 @@ void CChiefFrame::OnDestroy()
 {
 	CFrameWnd::OnDestroy();
 
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 	g_pcChiefView->PrepareToDestroy();
 }
-/* added 2009.08.05 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(25) ---------- { ---------- */
+/* added 2009.08.05 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (25) ---------- { ---------- */
 LRESULT CChiefFrame::OnMeasLineEnd(WPARAM wparam, LPARAM lparam)
 {
 	return g_pcChiefView->SendMessage(WM_MEAS_LINE_END, wparam, lparam);
@@ -314,7 +314,7 @@ LRESULT CChiefFrame::OnDataStressMeasEnd(WPARAM wparam, LPARAM lparam)
 {
 	return g_pcChiefView->SendMessage(WM_DATA_STRS_MEAS_END, wparam, lparam);
 }
-/* added 2009.08.05 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(25) ---------- } ---------- */
+/* added 2009.08.05 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (25) ---------- } ---------- */
 //2009.10.28 bagus 2point-distance --{--
 LRESULT CChiefFrame::OnDistancePopupEnd(WPARAM wparam, LPARAM lparam)
 {
@@ -322,19 +322,19 @@ LRESULT CChiefFrame::OnDistancePopupEnd(WPARAM wparam, LPARAM lparam)
 }
 //2009.10.28 bagus 2point-distance --}--
 
-/* added 2009.10.30 hmenjo CTA ƒAƒ‰[ƒ€ƒnƒ“ƒhƒ‰ ---------- { ---------- */
+/* added 2009.10.30 hmenjo CTA ã‚¢ãƒ©ãƒ¼ãƒ ãƒãƒ³ãƒ‰ãƒ© ---------- { ---------- */
 LRESULT CChiefFrame::OnMeasAlarmCTA(WPARAM wparam, LPARAM lparam)
 {
 	return g_pcChiefView->SendMessage(WM_MEAS_CTA_ALARM, wparam, lparam);
 }
-/* added 2009.10.30 hmenjo CTA ƒAƒ‰[ƒ€ƒnƒ“ƒhƒ‰ ---------- } ---------- */
+/* added 2009.10.30 hmenjo CTA ã‚¢ãƒ©ãƒ¼ãƒ ãƒãƒ³ãƒ‰ãƒ© ---------- } ---------- */
 //2009.11.03 bagus MS --{--
 LRESULT CChiefFrame::OnMSPopupEnd(WPARAM wparam, LPARAM lparam)
 {
 	return g_pcChiefView->SendMessage(WM_DISP_MS_POPUP_END,wparam,lparam);
 }
 //2009.11.03 bagus MS --}--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 LRESULT CChiefFrame::OnMeasCompEASEStatus(WPARAM wparam, LPARAM lparam)
 {
 	return g_pcChiefView->SendMessage(WM_MEAS_COMPEASE_STATUS, wparam, lparam);
@@ -344,30 +344,30 @@ LRESULT CChiefFrame::OnMeasCompEASEError(WPARAM wparam, LPARAM lparam)
 {
 	return g_pcChiefView->SendMessage(WM_MEAS_COMPEASE_ERROR, wparam, lparam);
 }
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 LRESULT CChiefFrame::OnConfirmPopupEnd(WPARAM wparam, LPARAM lparam)
 {
 	return g_pcChiefView->SendMessage(WM_DISP_CONFIRM_POPUP_END,wparam,lparam);
 }
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 
-/* added 2014.11.21 hmenjo 3100 ƒAƒCƒRƒ“(MAIN) ---------- { ---------- */
+/* added 2014.11.21 hmenjo 3100 ã‚¢ã‚¤ã‚³ãƒ³(MAIN) ---------- { ---------- */
 BOOL CChiefFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉŒÅ—L‚Ìˆ—‚ğ’Ç‰Á‚·‚é‚©A‚Ü‚½‚ÍŠî–{ƒNƒ‰ƒX‚ğŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«å›ºæœ‰ã®å‡¦ç†ã‚’è¿½åŠ ã™ã‚‹ã‹ã€ã¾ãŸã¯åŸºæœ¬ã‚¯ãƒ©ã‚¹ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
 
 	if (g_lModelType == MODEL_T3100) {
 #if 0
-		/* ƒŠƒ\[ƒX‚Ö‚ÌƒAƒCƒRƒ“‚Ì“o˜^‚ª•K—v‚Å‚·D	*/
+		/* ãƒªã‚½ãƒ¼ã‚¹ã¸ã®ã‚¢ã‚¤ã‚³ãƒ³ã®ç™»éŒ²ãŒå¿…è¦ã§ã™ï¼	*/
 		HICON l_hIcon = 0;
 		l_hIcon = ::LoadIcon(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDI_3100));
 		if (0 != l_hIcon) {
-			this->SetIcon(l_hIcon, TRUE);			/* ‘å‚«‚¢ƒAƒCƒRƒ“‚ğİ’è	*/
-			/* ¬‚³‚¢ƒAƒCƒRƒ“‚ÍCƒVƒXƒeƒ€‚ª©“®‚Å’T‚µ‚Ä‚­‚ê‚Ü‚·D	*/
+			this->SetIcon(l_hIcon, TRUE);			/* å¤§ãã„ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¨­å®š	*/
+			/* å°ã•ã„ã‚¢ã‚¤ã‚³ãƒ³ã¯ï¼Œã‚·ã‚¹ãƒ†ãƒ ãŒè‡ªå‹•ã§æ¢ã—ã¦ãã‚Œã¾ã™ï¼	*/
 		}
 #else
-		/* ƒAƒCƒRƒ“‚ğƒtƒ@ƒCƒ‹‚©‚ç“Ç‚İ‚Ü‚·D	*/
+		/* ã‚¢ã‚¤ã‚³ãƒ³ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰èª­è¾¼ã¿ã¾ã™ï¼	*/
 		CString l_strPathIcon = g_szBin_Dir;
 		l_strPathIcon += _T("3100.ico");
 		HICON l_hIcon32 = 0;
@@ -387,12 +387,12 @@ BOOL CChiefFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 								LR_LOADFROMFILE
 							);
 		if ((0 != l_hIcon32) && (0 != l_hIcon16)) {
-			this->SetIcon(l_hIcon32, TRUE);			/* ‘å‚«‚¢ƒAƒCƒRƒ“‚ğİ’è	*/
-			this->SetIcon(l_hIcon16, FALSE);		/* ¬‚³‚¢ƒAƒCƒRƒ“‚ğİ’è	*/
+			this->SetIcon(l_hIcon32, TRUE);			/* å¤§ãã„ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¨­å®š	*/
+			this->SetIcon(l_hIcon16, FALSE);		/* å°ã•ã„ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¨­å®š	*/
 		}
 #endif
 	}
 
 	return CFrameWnd::OnCreateClient(lpcs, pContext);
 }
-/* added 2014.11.21 hmenjo 3100 ƒAƒCƒRƒ“(MAIN) ---------- } ---------- */
+/* added 2014.11.21 hmenjo 3100 ã‚¢ã‚¤ã‚³ãƒ³(MAIN) ---------- } ---------- */

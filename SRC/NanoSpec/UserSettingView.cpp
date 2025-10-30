@@ -1,4 +1,4 @@
-// UserSettingView.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// UserSettingView.cpp : インプリメンテーション ファイル
 //
 
 #include "stdafx.h"
@@ -53,7 +53,7 @@ BEGIN_MESSAGE_MAP(CUserSettingView, CNanoUI)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CUserSettingView �f�f
+// CUserSettingView 診断
 
 #ifdef _DEBUG
 // =========================================================================
@@ -72,7 +72,7 @@ void CUserSettingView::Dump(CDumpContext& dc) const
 #endif //_DEBUG
 
 // =========================================================================
-// CUserSettingView ���b�Z�[�W �n���h��
+// CUserSettingView メッセージ ハンドラ
 
 // =========================================================================
 //
@@ -80,14 +80,14 @@ void CUserSettingView::OnInitialUpdate()
 {
 	CNanoUI::OnInitialUpdate();
 
-	// TODO: ���̈ʒu�ɌŗL�̏�����ǉ����邩�A�܂��͊�{�N���X���Ăяo���Ă�������
-/* added 2015.04.05 hmenjo FWXGA �Ή�2 ---------- { ---------- */
+	// TODO: この位置に固有の処理を追加するか、または基本クラスを呼び出してください
+/* added 2015.04.05 hmenjo FWXGA 対応2 ---------- { ---------- */
 	RECT l_rectDesktop;
 	this->GetDesktopWindow()->GetClientRect(&l_rectDesktop);
 	if ((g_lModelType == MODEL_T3100) && (l_rectDesktop.bottom < 1024)) {
 		this->SetScrollSizes(MM_TEXT, CSize(0, 0));
 	}
-/* added 2015.04.05 hmenjo FWXGA �Ή�2 ---------- } ---------- */
+/* added 2015.04.05 hmenjo FWXGA 対応2 ---------- } ---------- */
 }
 
 // =========================================================================
@@ -96,13 +96,13 @@ HBRUSH CUserSettingView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CNanoUI::OnCtlColor(pDC, pWnd, nCtlColor);
 
-	// TODO: ���̈ʒu�� DC �̃A�g���r���[�g��ύX���Ă�������
+	// TODO: この位置で DC のアトリビュートを変更してください
 
-	// TODO: �f�t�H���g�̃u���V���]�݂̂��̂łȂ��ꍇ�ɂ́A�Ⴄ�u���V��Ԃ��Ă�������
+	// TODO: デフォルトのブラシが望みのものでない場合には、違うブラシを返してください
 
 	switch(nCtlColor){
 	case CTLCOLOR_DLG:
-		///// �w�i�F /////
+		///// 背景色 /////
 		//ControlColor(pDC, &m_Brush_BackColor, BLACK_COLOR);
 		return m_Brush_BackColor;
 	case CTLCOLOR_STATIC:

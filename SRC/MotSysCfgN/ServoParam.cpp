@@ -1,4 +1,4 @@
-// ServoParam.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// ServoParam.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -6,12 +6,12 @@
 #include "ServoParam.h"
 #include "MotSysCfgDlg.h"
 
-// Ž²’è‹`(•K‚¸˜A”Ô‚É‚µ‚Ä‚­‚¾‚³‚¢DŒ‡”Ô‹ÖŽ~D‡˜‚Í•s–â)
-#define	CC_AXIS_X	0	// X Ž² (1)
-#define	CC_AXIS_Y	1	// Y Ž² (2)
-#define	CC_AXIS_Z	2	// Z Ž² (3)		(Nano ‚Å‚Í–¢Žg—p)
-#define	CC_AXIS_T	3	// T Ž² (4)		(Nano ‚Å‚Í–¢Žg—p)
-#define	CC_AXIS_NUM	4	// Å‘åŽ²”
+// è»¸å®šç¾©(å¿…ãšé€£ç•ªã«ã—ã¦ãã ã•ã„ï¼Žæ¬ ç•ªç¦æ­¢ï¼Žé †åºã¯ä¸å•)
+#define	CC_AXIS_X	0	// X è»¸ (1)
+#define	CC_AXIS_Y	1	// Y è»¸ (2)
+#define	CC_AXIS_Z	2	// Z è»¸ (3)		(Nano ã§ã¯æœªä½¿ç”¨)
+#define	CC_AXIS_T	3	// T è»¸ (4)		(Nano ã§ã¯æœªä½¿ç”¨)
+#define	CC_AXIS_NUM	4	// æœ€å¤§è»¸æ•°
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -21,7 +21,7 @@ static char THIS_FILE[] = __FILE__;
 
 
 /////////////////////////////////////////////////////////////////////////////
-// CServoParam ƒ_ƒCƒAƒƒO
+// CServoParam ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 
 CServoParam::CServoParam(CWnd* pParent /*=NULL*/)
@@ -278,7 +278,7 @@ BEGIN_MESSAGE_MAP(CServoParam, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CServoParam ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CServoParam ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 BOOL CServoParam::Create(CWnd *pWnd)
 {
@@ -297,9 +297,9 @@ int CServoParam::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	if (CDialog::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
-	// TODO: ‚±‚ÌˆÊ’u‚ÉŒÅ—L‚Ìì¬—pƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«å›ºæœ‰ã®ä½œæˆç”¨ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
-	// ƒƒCƒ“ƒEƒBƒ“ƒhƒE‚ÌƒAƒCƒRƒ“‚ðÝ’è
+	// ãƒ¡ã‚¤ãƒ³ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¨­å®š
 	SetIcon(((CMotSysCfgDlg*) m_pParent)->m_hMainIcon, TRUE);
 	SetIcon(((CMotSysCfgDlg*) m_pParent)->m_hMainIcon, FALSE);
 
@@ -308,7 +308,7 @@ int CServoParam::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 void CServoParam::PostNcDestroy()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉŒÅ—L‚Ìˆ—‚ð’Ç‰Á‚·‚é‚©A‚Ü‚½‚ÍŠî–{ƒNƒ‰ƒX‚ðŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«å›ºæœ‰ã®å‡¦ç†ã‚’è¿½åŠ ã™ã‚‹ã‹ã€ã¾ãŸã¯åŸºæœ¬ã‚¯ãƒ©ã‚¹ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
 
 	((CMotSysCfgDlg*) m_pParent)->m_chkServo = FALSE;
 	((CButton*) (((CMotSysCfgDlg*) m_pParent)->GetDlgItem(IDC_CHK_SERVO)))->SetCheck(0);
@@ -332,7 +332,7 @@ void CServoParam::OnCancel()
 
 void CServoParam::OnClose()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚·‚é‚©‚Ü‚½‚ÍƒfƒtƒHƒ‹ƒg‚Ìˆ—‚ðŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã™ã‚‹ã‹ã¾ãŸã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å‡¦ç†ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
 	if (m_pParent != NULL) {
 		DestroyWindow();
 	} else {
@@ -341,25 +341,25 @@ void CServoParam::OnClose()
 }
 
 typedef struct {
-	long	ORG1_AccelTimeT;	// Œ´“_•œ‹A ‘æ‚P‰ÁŒ¸‘¬ŽžŠÔ
-	long	ORG1_AccelTimeS;	//				‚rŽš‰ÁŒ¸‘¬ŽžŠÔ
-	long	ORG1_Speed;			//				ˆÚ“®‘¬“x
-	long	ORG2_AccelTimeT;	//			‘æ‚Q‰ÁŒ¸‘¬ŽžŠÔ
-	long	ORG2_AccelTimeS;	//				‚rŽš‰ÁŒ¸‘¬ŽžŠÔ
-	long	ORG2_Speed;			//				ˆÚ“®‘¬“x
-	long	ORG3_AccelTimeT;	//			‘æ‚R‰ÁŒ¸‘¬ŽžŠÔ
-	long	ORG3_AccelTimeS;	//				‚rŽš‰ÁŒ¸‘¬ŽžŠÔ
-	long	ORG3_Speed;			//				ˆÚ“®‘¬“x
-	long	HP_AccelTimeT;		// HP ˆÚ“®	‰ÁŒ¸‘¬ŽžŠÔ
-	long	HP_AccelTimeS;		//			‚rŽš‰ÁŒ¸‘¬ŽžŠÔ
-	long	HP_BaseBand;		//			ˆÚ“®Ï”»’fŠî€
-	long	HP_Speed;			//			‘¬“x
-	long	ABS_AccelTimeT;		// ABS ˆÚ“®	‰ÁŒ¸‘¬ŽžŠÔ
-	long	ABS_AccelTimeS;		//			‚rŽš‰ÁŒ¸‘¬ŽžŠÔ
-	long	ABS_Speed;			//			‘¬“x
-	long	INC_AccelTimeT;		// INC ˆÚ“®	‰ÁŒ¸‘¬ŽžŠÔ
-	long	INC_AccelTimeS;		//			‚rŽš‰ÁŒ¸‘¬ŽžŠÔ
-	long	INC_Speed;			//			‘¬“x
+	long	ORG1_AccelTimeT;	// åŽŸç‚¹å¾©å¸° ç¬¬ï¼‘åŠ æ¸›é€Ÿæ™‚é–“
+	long	ORG1_AccelTimeS;	//				ï¼³å­—åŠ æ¸›é€Ÿæ™‚é–“
+	long	ORG1_Speed;			//				ç§»å‹•é€Ÿåº¦
+	long	ORG2_AccelTimeT;	//			ç¬¬ï¼’åŠ æ¸›é€Ÿæ™‚é–“
+	long	ORG2_AccelTimeS;	//				ï¼³å­—åŠ æ¸›é€Ÿæ™‚é–“
+	long	ORG2_Speed;			//				ç§»å‹•é€Ÿåº¦
+	long	ORG3_AccelTimeT;	//			ç¬¬ï¼“åŠ æ¸›é€Ÿæ™‚é–“
+	long	ORG3_AccelTimeS;	//				ï¼³å­—åŠ æ¸›é€Ÿæ™‚é–“
+	long	ORG3_Speed;			//				ç§»å‹•é€Ÿåº¦
+	long	HP_AccelTimeT;		// HP ç§»å‹•	åŠ æ¸›é€Ÿæ™‚é–“
+	long	HP_AccelTimeS;		//			ï¼³å­—åŠ æ¸›é€Ÿæ™‚é–“
+	long	HP_BaseBand;		//			ç§»å‹•æ¸ˆåˆ¤æ–­åŸºæº–
+	long	HP_Speed;			//			é€Ÿåº¦
+	long	ABS_AccelTimeT;		// ABS ç§»å‹•	åŠ æ¸›é€Ÿæ™‚é–“
+	long	ABS_AccelTimeS;		//			ï¼³å­—åŠ æ¸›é€Ÿæ™‚é–“
+	long	ABS_Speed;			//			é€Ÿåº¦
+	long	INC_AccelTimeT;		// INC ç§»å‹•	åŠ æ¸›é€Ÿæ™‚é–“
+	long	INC_AccelTimeS;		//			ï¼³å­—åŠ æ¸›é€Ÿæ™‚é–“
+	long	INC_Speed;			//			é€Ÿåº¦
 } SERVO_PARAM;
 
 SERVO_PARAM	ServoParam[9];
@@ -378,7 +378,7 @@ void CServoParam::OnBtnLoad()
 		fclose(fp);
 		DispData();
 	} else {
-		// ƒtƒ@ƒCƒ‹‚ª–³‚©‚Á‚½‚Ì‚Åì¬‚·‚é
+		// ãƒ•ã‚¡ã‚¤ãƒ«ãŒç„¡ã‹ã£ãŸã®ã§ä½œæˆã™ã‚‹
 		_stprintf(l_tszText, _T("Create default data file[%s]."), tszPathName);
 		::MessageBox(NULL, l_tszText, _T("Motion System Configure"), MB_OK | MB_SYSTEMMODAL);
 		SetDefaultData();
@@ -387,7 +387,7 @@ void CServoParam::OnBtnLoad()
 			fwrite(ServoParam, sizeof(ServoParam), 1, fp);
 			fclose(fp);
 		} else {
-			// ƒfƒtƒHƒ‹ƒg‚àì¬‚Å‚«‚È‚©‚Á‚½
+			// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚‚ä½œæˆã§ããªã‹ã£ãŸ
 			_stprintf(l_tszText, _T("Could not create default data file[%s]."), tszPathName);
 			::MessageBox(NULL, l_tszText, _T("Motion System Configure"), MB_OK | MB_SYSTEMMODAL);
 		}
@@ -397,7 +397,7 @@ void CServoParam::OnBtnLoad()
 void CServoParam::SetDefaultData()
 {
 	memset(ServoParam, 0, sizeof(ServoParam));
-	// X Ž²
+	// X è»¸
 	ServoParam[CC_AXIS_X].ORG1_AccelTimeT = 500;
 	ServoParam[CC_AXIS_X].ORG1_AccelTimeS = 250;
 	ServoParam[CC_AXIS_X].ORG1_Speed	  = 800;
@@ -417,7 +417,7 @@ void CServoParam::SetDefaultData()
 	ServoParam[CC_AXIS_X].INC_AccelTimeT  = 2000;
 	ServoParam[CC_AXIS_X].INC_AccelTimeS  = 1000;
 	ServoParam[CC_AXIS_X].INC_Speed 	  = 2000;
-	// Y Ž²
+	// Y è»¸
 	ServoParam[CC_AXIS_Y].ORG1_AccelTimeT = 500;
 	ServoParam[CC_AXIS_Y].ORG1_AccelTimeS = 250;
 	ServoParam[CC_AXIS_Y].ORG1_Speed	  = 600;
@@ -437,7 +437,7 @@ void CServoParam::SetDefaultData()
 	ServoParam[CC_AXIS_Y].INC_AccelTimeT  = 500;
 	ServoParam[CC_AXIS_Y].INC_AccelTimeS  = 250;
 	ServoParam[CC_AXIS_Y].INC_Speed 	  = 2000;
-	// Z Ž²
+	// Z è»¸
 	ServoParam[CC_AXIS_Z].ORG1_AccelTimeT = 250;
 	ServoParam[CC_AXIS_Z].ORG1_AccelTimeS = 125;
 	ServoParam[CC_AXIS_Z].ORG1_Speed	  = 4;
@@ -457,7 +457,7 @@ void CServoParam::SetDefaultData()
 	ServoParam[CC_AXIS_Z].INC_AccelTimeT  = 500;
 	ServoParam[CC_AXIS_Z].INC_AccelTimeS  = 250;
 	ServoParam[CC_AXIS_Z].INC_Speed 	  = 8;
-	// T Ž²
+	// T è»¸
 	ServoParam[CC_AXIS_T].ORG1_AccelTimeT = 250;
 	ServoParam[CC_AXIS_T].ORG1_AccelTimeS = 125;
 	ServoParam[CC_AXIS_T].ORG1_Speed	  = 8;
@@ -493,7 +493,7 @@ void CServoParam::OnBtnSave()
 		fclose(fp);
 		DispData();
 	} else {
-		// ƒtƒ@ƒCƒ‹‚ª–³‚©‚Á‚½
+		// ãƒ•ã‚¡ã‚¤ãƒ«ãŒç„¡ã‹ã£ãŸ
 		_stprintf(l_tszText, _T("Could not open data file[%s]."), tszPathName);
 		::MessageBox(NULL, l_tszText, _T("Motion System Configure"), MB_OK | MB_SYSTEMMODAL);
 	}
@@ -501,7 +501,7 @@ void CServoParam::OnBtnSave()
 
 void CServoParam::DispData()
 {
-	// X Ž²
+	// X è»¸
 	m_ORG1_AccelTimeT_X = ServoParam[CC_AXIS_X].ORG1_AccelTimeT;
 	m_ORG1_AccelTimeS_X = ServoParam[CC_AXIS_X].ORG1_AccelTimeS;
 	m_ORG1_Speed_X		= ServoParam[CC_AXIS_X].ORG1_Speed	   ;
@@ -521,7 +521,7 @@ void CServoParam::DispData()
 	m_INC_AccelTimeT_X	= ServoParam[CC_AXIS_X].INC_AccelTimeT ;
 	m_INC_AccelTimeS_X	= ServoParam[CC_AXIS_X].INC_AccelTimeS ;
 	m_INC_Speed_X		= ServoParam[CC_AXIS_X].INC_Speed	   ;
-	// Y Ž²
+	// Y è»¸
 	m_ORG1_AccelTimeT_Y = ServoParam[CC_AXIS_Y].ORG1_AccelTimeT;
 	m_ORG1_AccelTimeS_Y = ServoParam[CC_AXIS_Y].ORG1_AccelTimeS;
 	m_ORG1_Speed_Y		= ServoParam[CC_AXIS_Y].ORG1_Speed	   ;
@@ -541,7 +541,7 @@ void CServoParam::DispData()
 	m_INC_AccelTimeT_Y	= ServoParam[CC_AXIS_Y].INC_AccelTimeT ;
 	m_INC_AccelTimeS_Y	= ServoParam[CC_AXIS_Y].INC_AccelTimeS ;
 	m_INC_Speed_Y		= ServoParam[CC_AXIS_Y].INC_Speed	   ;
-	// Z Ž²
+	// Z è»¸
 	m_ORG1_AccelTimeT_Z = ServoParam[CC_AXIS_Z].ORG1_AccelTimeT;
 	m_ORG1_AccelTimeS_Z = ServoParam[CC_AXIS_Z].ORG1_AccelTimeS;
 	m_ORG1_Speed_Z		= ServoParam[CC_AXIS_Z].ORG1_Speed	   ;
@@ -561,7 +561,7 @@ void CServoParam::DispData()
 	m_INC_AccelTimeT_Z	= ServoParam[CC_AXIS_Z].INC_AccelTimeT ;
 	m_INC_AccelTimeS_Z	= ServoParam[CC_AXIS_Z].INC_AccelTimeS ;
 	m_INC_Speed_Z		= ServoParam[CC_AXIS_Z].INC_Speed	   ;
-	// T Ž²
+	// T è»¸
 	m_ORG1_AccelTimeT_T = ServoParam[CC_AXIS_T].ORG1_AccelTimeT;
 	m_ORG1_AccelTimeS_T = ServoParam[CC_AXIS_T].ORG1_AccelTimeS;
 	m_ORG1_Speed_T		= ServoParam[CC_AXIS_T].ORG1_Speed	   ;
@@ -589,7 +589,7 @@ void CServoParam::GetData()
 {
 	UpdateData(TRUE);
 
-	// X Ž²
+	// X è»¸
 	ServoParam[CC_AXIS_X].ORG1_AccelTimeT = m_ORG1_AccelTimeT_X;
 	ServoParam[CC_AXIS_X].ORG1_AccelTimeS = m_ORG1_AccelTimeS_X;
 	ServoParam[CC_AXIS_X].ORG1_Speed	  = m_ORG1_Speed_X;
@@ -609,7 +609,7 @@ void CServoParam::GetData()
 	ServoParam[CC_AXIS_X].INC_AccelTimeT  = m_INC_AccelTimeT_X;
 	ServoParam[CC_AXIS_X].INC_AccelTimeS  = m_INC_AccelTimeS_X;
 	ServoParam[CC_AXIS_X].INC_Speed 	  = m_INC_Speed_X;
-	// Y Ž²
+	// Y è»¸
 	ServoParam[CC_AXIS_Y].ORG1_AccelTimeT = m_ORG1_AccelTimeT_Y;
 	ServoParam[CC_AXIS_Y].ORG1_AccelTimeS = m_ORG1_AccelTimeS_Y;
 	ServoParam[CC_AXIS_Y].ORG1_Speed	  = m_ORG1_Speed_Y;
@@ -629,7 +629,7 @@ void CServoParam::GetData()
 	ServoParam[CC_AXIS_Y].INC_AccelTimeT  = m_INC_AccelTimeT_Y;
 	ServoParam[CC_AXIS_Y].INC_AccelTimeS  = m_INC_AccelTimeS_Y;
 	ServoParam[CC_AXIS_Y].INC_Speed 	  = m_INC_Speed_Y;
-	// Z Ž²
+	// Z è»¸
 	ServoParam[CC_AXIS_Z].ORG1_AccelTimeT = m_ORG1_AccelTimeT_Z;
 	ServoParam[CC_AXIS_Z].ORG1_AccelTimeS = m_ORG1_AccelTimeS_Z;
 	ServoParam[CC_AXIS_Z].ORG1_Speed	  = m_ORG1_Speed_Z;
@@ -649,7 +649,7 @@ void CServoParam::GetData()
 	ServoParam[CC_AXIS_Z].INC_AccelTimeT  = m_INC_AccelTimeT_Z;
 	ServoParam[CC_AXIS_Z].INC_AccelTimeS  = m_INC_AccelTimeS_Z;
 	ServoParam[CC_AXIS_Z].INC_Speed 	  = m_INC_Speed_Z;
-	// T Ž²
+	// T è»¸
 	ServoParam[CC_AXIS_T].ORG1_AccelTimeT = m_ORG1_AccelTimeT_T;
 	ServoParam[CC_AXIS_T].ORG1_AccelTimeS = m_ORG1_AccelTimeS_T;
 	ServoParam[CC_AXIS_T].ORG1_Speed	  = m_ORG1_Speed_T;
@@ -676,9 +676,9 @@ BOOL CServoParam::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// TODO: ‚±‚ÌˆÊ’u‚É‰Šú‰»‚Ì•â‘«ˆ—‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«åˆæœŸåŒ–ã®è£œè¶³å‡¦ç†ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
-	// Servo.ini ‚É‚æ‚éŽg—p/–¢Žg—p‚Ì•\Ž¦
+	// Servo.ini ã«ã‚ˆã‚‹ä½¿ç”¨/æœªä½¿ç”¨ã®è¡¨ç¤º
 	TCHAR l_tszText[256];
 	GetPrivateProfileString(_T("Axis"), _T("EnableAxisZ"), _T("0"), l_tszText, sizeof(l_tszText), SERVO_INI);
 	if (0 != _tcscmp(l_tszText, _T("1"))) {
@@ -727,9 +727,9 @@ BOOL CServoParam::OnInitDialog()
 		GetDlgItem(IDC_EDIT_INC_SPD_T)->EnableWindow(FALSE);
 	}
 
-	// Å‰‚Éƒ[ƒh‚µ‚Ä‚¨‚­
+	// æœ€åˆã«ãƒ­ãƒ¼ãƒ‰ã—ã¦ãŠã
 	OnBtnLoad();
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ðÝ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-				  // —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+				  // ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }

@@ -1,15 +1,15 @@
-// ChifTransiSr1Point.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// ChifTransiSr1Point.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
 #include <Active.hxx>
-/* modified 2009.09.10 hmenjo “§‰ß—¦ Seq ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh(17) ---------- { ---------- */
+/* modified 2009.09.10 hmenjo é€éŽçŽ‡ Seq ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(17) ---------- { ---------- */
 //#include "ChifTransiSr1Point.h"
 //#include "ChiefExports.h"
-/* modified 2009.09.10 hmenjo “§‰ß—¦ Seq ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh(17) ----------				*/
+/* modified 2009.09.10 hmenjo é€éŽçŽ‡ Seq ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(17) ----------				*/
 #include "ChiefExports.h"
 #include "ChifTransiSr1Point.h"
-/* modified 2009.09.10 hmenjo “§‰ß—¦ Seq ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh(17) ---------- } ---------- */
+/* modified 2009.09.10 hmenjo é€éŽçŽ‡ Seq ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(17) ---------- } ---------- */
 #include "nanospec.h"
 #include "NanoSpecDoc.h"
 #include "MainFrm.h"
@@ -19,11 +19,11 @@
 #include "ChifTransiAF.h"
 #include "SitePtSeq.h"
 #include "..\\..\\INC\\NSStage.hxx"
-/* added 2009.10.29 hmenjo CTA AF –³‚µCZ Ž²‘Þ”ðˆÊ’u ---------- { ---------- */
+/* added 2009.10.29 hmenjo CTA AF ç„¡ã—ï¼ŒZ è»¸é€€é¿ä½ç½® ---------- { ---------- */
 #include "..\\..\\INC\\NEXIOBASE.HXX"
-/* added 2009.10.29 hmenjo CTA AF –³‚µCZ Ž²‘Þ”ðˆÊ’u ---------- } ---------- */
+/* added 2009.10.29 hmenjo CTA AF ç„¡ã—ï¼ŒZ è»¸é€€é¿ä½ç½® ---------- } ---------- */
 
-// XMP—p
+// XMPç”¨
 #define DDE_SERVICE 			 		_T("jaw_adap")
 #define DDE_TOPIC				 		_T("dde")
 
@@ -34,49 +34,49 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /*
- *	ƒ}ƒNƒ’è‹`
+ *	ãƒžã‚¯ãƒ­å®šç¾©
  */
 
 
 /*
- *	\‘¢‘Ì’è‹`
+ *	æ§‹é€ ä½“å®šç¾©
  */
 
 
 /*
- *	ƒ[ƒJƒ‹ƒOƒ[ƒoƒ‹’è‹`
+ *	ãƒ­ãƒ¼ã‚«ãƒ«ã‚°ãƒ­ãƒ¼ãƒãƒ«å®šç¾©
  */
-UINT WM_CHIF_TR1P_SETEVENT = RegisterWindowMessage("WM_CHIF_TR1P_SETEVENT");	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“ƒCƒxƒ“ƒg”­s—pƒEƒBƒ“ƒhƒEƒƒbƒZ[ƒW
-UINT WM_CHIF_TR1P_HEARTBEAT = RegisterWindowMessage("WM_CHIF_TR1P_HEARTBEAT");	// HeartBeat ƒEƒBƒ“ƒhƒEƒƒbƒZ[ƒW
+UINT WM_CHIF_TR1P_SETEVENT = RegisterWindowMessage("WM_CHIF_TR1P_SETEVENT");	// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚¤ãƒ™ãƒ³ãƒˆç™ºè¡Œç”¨ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+UINT WM_CHIF_TR1P_HEARTBEAT = RegisterWindowMessage("WM_CHIF_TR1P_HEARTBEAT");	// HeartBeat ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 
 
 // ##########################################################################
-// class CChiefTransiSr1Point : ‚Pƒ|ƒCƒ“ƒg‘ª’è ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“
+// class CChiefTransiSr1Point : ï¼‘ãƒã‚¤ãƒ³ãƒˆæ¸¬å®š ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³
 // ##########################################################################
 
 // =========================================================================//
-//	ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“ƒe[ƒuƒ‹
+//	ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãƒ†ãƒ¼ãƒ–ãƒ«
 // =========================================================================//
 const Transition TransTable_Sr1Point[] =
 {
 	//	OldState,					EventId,					NewState
 
-	{	ST_SR1P_INIT,				EV_SR1P_DO_INIT,			ST_SR1P_INIT			},	// ‰Šú‰»ˆ—‚ðŽÀs(‚·‚® EV_SR1P_INIT_DONE ‚Å)
-	{	ST_SR1P_INIT,				EV_SR1P_INIT_DONE,			ST_SR1P_IDLE			},	// ‰Šú‰»Š®—¹‚µ‚ÄƒAƒCƒhƒ‹‚Ö
+	{	ST_SR1P_INIT,				EV_SR1P_DO_INIT,			ST_SR1P_INIT			},	// åˆæœŸåŒ–å‡¦ç†ã‚’å®Ÿè¡Œ(ã™ã EV_SR1P_INIT_DONE ã§)
+	{	ST_SR1P_INIT,				EV_SR1P_INIT_DONE,			ST_SR1P_IDLE			},	// åˆæœŸåŒ–å®Œäº†ã—ã¦ã‚¢ã‚¤ãƒ‰ãƒ«ã¸
 
 // 2009.05.11 K.Matsuo SitePR -->
-//	{	ST_SR1P_IDLE, 				EV_SR1P_START,				ST_SR1P_ZMOVE				},	// ‘ª’èƒ|ƒCƒ“ƒg‚yˆÚ“®Š®—¹‘Ò‚¿ ‚Ö
+//	{	ST_SR1P_IDLE, 				EV_SR1P_START,				ST_SR1P_ZMOVE				},	// æ¸¬å®šãƒã‚¤ãƒ³ãƒˆï¼ºç§»å‹•å®Œäº†å¾…ã¡ ã¸
 	{	ST_SR1P_IDLE, 				EV_SR1P_START,				ST_SR1P_SITEPR_START		},
-	{	ST_SR1P_SITEPR_START, 		EV_SR1P_SITEPR_NONE,		ST_SR1P_ZMOVE				},	// ‘ª’èƒ|ƒCƒ“ƒg‚yˆÚ“®Š®—¹‘Ò‚¿ ‚Ö
+	{	ST_SR1P_SITEPR_START, 		EV_SR1P_SITEPR_NONE,		ST_SR1P_ZMOVE				},	// æ¸¬å®šãƒã‚¤ãƒ³ãƒˆï¼ºç§»å‹•å®Œäº†å¾…ã¡ ã¸
 	{	ST_SR1P_SITEPR_START, 		EV_SR1P_SITEPR_AUTO,		ST_SR1P_SITEPR_AUTO			},	//
 
 	{	ST_SR1P_SITEPR_AUTO, 		EV_SR1P_SITEPR_AUTO_OK,		ST_SR1P_SITEPR_AUTO_OK		},	//
 	{	ST_SR1P_SITEPR_AUTO_OK, 	EV_SR1P_SITEPR_PREP_MEAS,	ST_SR1P_SITEPR_PREP_MEAS	},	//
-	{	ST_SR1P_SITEPR_AUTO_OK, 	EV_SR1P_AF_START,			ST_SR1P_AF					},	// ƒŒƒVƒsƒŒƒ“ƒY‚É–ß‚µ‚ÄAFiAF‹@”\‚ÉƒŒƒVƒsƒtƒBƒ‹ƒ^–ß‚µ•t‚«j
-	{	ST_SR1P_SITEPR_AUTO, 		EV_SR1P_SITEPR_AUTO_PROCEED,ST_SR1P_SITEPR_AUTO_PROCEED	},	// ‹­§‘ª’èiAF‚µ‚½ŒãAƒXƒe[ƒWˆÚ“®‚È‚µj
+	{	ST_SR1P_SITEPR_AUTO_OK, 	EV_SR1P_AF_START,			ST_SR1P_AF					},	// ãƒ¬ã‚·ãƒ”ãƒ¬ãƒ³ã‚ºã«æˆ»ã—ã¦AFï¼ˆAFæ©Ÿèƒ½ã«ãƒ¬ã‚·ãƒ”ãƒ•ã‚£ãƒ«ã‚¿æˆ»ã—ä»˜ãï¼‰
+	{	ST_SR1P_SITEPR_AUTO, 		EV_SR1P_SITEPR_AUTO_PROCEED,ST_SR1P_SITEPR_AUTO_PROCEED	},	// å¼·åˆ¶æ¸¬å®šï¼ˆAFã—ãŸå¾Œã€ã‚¹ãƒ†ãƒ¼ã‚¸ç§»å‹•ãªã—ï¼‰
 	{	ST_SR1P_SITEPR_AUTO_PROCEED,EV_SR1P_SITEPR_PREP_MEAS,	ST_SR1P_SITEPR_PREP_MEAS	},	//
 	{	ST_SR1P_SITEPR_AUTO_PROCEED,EV_SR1P_AF_START,			ST_SR1P_AF					},	//
-	{	ST_SR1P_SITEPR_AUTO, 		EV_SR1P_SITEPR_AUTO_PROCEED_PRESTEP,						// ‹­§‘ª’èiAF‚µ‚½ŒãAƒXƒe[ƒWˆÚ“®‚ ‚èj
+	{	ST_SR1P_SITEPR_AUTO, 		EV_SR1P_SITEPR_AUTO_PROCEED_PRESTEP,						// å¼·åˆ¶æ¸¬å®šï¼ˆAFã—ãŸå¾Œã€ã‚¹ãƒ†ãƒ¼ã‚¸ç§»å‹•ã‚ã‚Šï¼‰
 																ST_SR1P_SITEPR_AUTO_PROCEED_PRESTEP	},	//
 	{	ST_SR1P_SITEPR_AUTO_PROCEED_PRESTEP,
 									EV_SR1P_AF_START,			ST_SR1P_AF					},	//
@@ -90,30 +90,30 @@ const Transition TransTable_Sr1Point[] =
 	{	ST_SR1P_SITEPR_MANU, 		EV_SR1P_SITEPR_MANU_CANCEL,	ST_SR1P_SITEPR_MANU_CANCEL	},	//
 	{	ST_SR1P_SITEPR_MANU_CANCEL,	EV_SR1P_IDLE,				ST_SR1P_IDLE				},	//
 
-	{	ST_SR1P_SITEPR_PREP_MEAS, 	EV_SR1P_MEAS_START,			ST_SR1P_MEAS			},	// SitePRI—¹ ¨ ‘ª’è‘O‚Ì€”õˆ—iƒŒƒVƒsƒJƒ‰[ƒtƒBƒ‹ƒ^‚É–ß‚·‚È‚Çj
+	{	ST_SR1P_SITEPR_PREP_MEAS, 	EV_SR1P_MEAS_START,			ST_SR1P_MEAS			},	// SitePRçµ‚äº† â†’ æ¸¬å®šå‰ã®æº–å‚™å‡¦ç†ï¼ˆãƒ¬ã‚·ãƒ”ã‚«ãƒ©ãƒ¼ãƒ•ã‚£ãƒ«ã‚¿ã«æˆ»ã™ãªã©ï¼‰
 // 2009.05.11 K.Matsuo SitePR <--
 
-	{	ST_SR1P_ZMOVE, 				EV_SR1P_MEAS_START,			ST_SR1P_MEAS			},	// ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒg‚Ì‚½‚ß ‘ª’èŠ®—¹‘Ò‚¿ ‚Ö
-	{	ST_SR1P_ZMOVE, 				EV_SR1P_ZMOVE_FAIL,			ST_SR1P_IDLE			},	// ‘ª’èƒ|ƒCƒ“ƒg‚yŽ²‚Ö‚ÌˆÚ“®ŠJŽnŽ¸”s
-	{	ST_SR1P_ZMOVE, 				EV_SR1P_ZMOVE_DONE,			ST_SR1P_MEAS			},	// ‘ª’èƒ|ƒCƒ“ƒg‚yŽ²ˆÚ“®Š®—¹
-	{	ST_SR1P_ZMOVE, 				EV_SR1P_AF_START,			ST_SR1P_AF				},	// AF —L‚è‚Ì‚½‚ß AF Š®—¹‘Ò‚¿ ‚Ö
+	{	ST_SR1P_ZMOVE, 				EV_SR1P_MEAS_START,			ST_SR1P_MEAS			},	// ãƒãƒ¼ãƒ‰ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ãƒˆã®ãŸã‚ æ¸¬å®šå®Œäº†å¾…ã¡ ã¸
+	{	ST_SR1P_ZMOVE, 				EV_SR1P_ZMOVE_FAIL,			ST_SR1P_IDLE			},	// æ¸¬å®šãƒã‚¤ãƒ³ãƒˆï¼ºè»¸ã¸ã®ç§»å‹•é–‹å§‹å¤±æ•—
+	{	ST_SR1P_ZMOVE, 				EV_SR1P_ZMOVE_DONE,			ST_SR1P_MEAS			},	// æ¸¬å®šãƒã‚¤ãƒ³ãƒˆï¼ºè»¸ç§»å‹•å®Œäº†
+	{	ST_SR1P_ZMOVE, 				EV_SR1P_AF_START,			ST_SR1P_AF				},	// AF æœ‰ã‚Šã®ãŸã‚ AF å®Œäº†å¾…ã¡ ã¸
 
-	{	ST_SR1P_AF, 				EV_SR1P_AF_DONE,			ST_SR1P_AF_DONE			},	// AF Š®—¹
-	{	ST_SR1P_AF, 				EV_SR1P_IDLE,				ST_SR1P_IDLE			},	// AF ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ªƒrƒW[‚Ì‚½‚ßˆÙíI—¹
+	{	ST_SR1P_AF, 				EV_SR1P_AF_DONE,			ST_SR1P_AF_DONE			},	// AF å®Œäº†
+	{	ST_SR1P_AF, 				EV_SR1P_IDLE,				ST_SR1P_IDLE			},	// AF ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãŒãƒ“ã‚¸ãƒ¼ã®ãŸã‚ç•°å¸¸çµ‚äº†
 
-	{	ST_SR1P_AF_DONE,			EV_SR1P_AF_OK,				ST_SR1P_MEAS			},	// OK ‚È‚çC‘ª’èŠ®—¹‘Ò‚¿ ‚Ö
-	{	ST_SR1P_AF_DONE,			EV_SR1P_AF_NG,				ST_SR1P_IDLE			},	// NG ‚È‚çCƒAƒCƒhƒ‹‚Ö
+	{	ST_SR1P_AF_DONE,			EV_SR1P_AF_OK,				ST_SR1P_MEAS			},	// OK ãªã‚‰ï¼Œæ¸¬å®šå®Œäº†å¾…ã¡ ã¸
+	{	ST_SR1P_AF_DONE,			EV_SR1P_AF_NG,				ST_SR1P_IDLE			},	// NG ãªã‚‰ï¼Œã‚¢ã‚¤ãƒ‰ãƒ«ã¸
 
-	{	ST_SR1P_MEAS, 				EV_SR1P_MEAS_ERR,			ST_SR1P_IDLE			},	// ‘ª’èƒf[ƒ^ˆ—Š®—¹‚ÅC‘ª’èƒGƒ‰[”­¶
-	{	ST_SR1P_MEAS, 				EV_SR1P_ANA_ERR,			ST_SR1P_IDLE			},	// ‘ª’èƒf[ƒ^ˆ—Š®—¹‚ÅC‰ðÍƒGƒ‰[”­¶
-	{	ST_SR1P_MEAS, 				EV_SR1P_MEAS_DONE,			ST_SR1P_ANA				},	// ‘ª’èƒf[ƒ^ˆ—Š®—¹‘Ò‚¿ ‚Ö
+	{	ST_SR1P_MEAS, 				EV_SR1P_MEAS_ERR,			ST_SR1P_IDLE			},	// æ¸¬å®šãƒ‡ãƒ¼ã‚¿å‡¦ç†å®Œäº†ã§ï¼Œæ¸¬å®šã‚¨ãƒ©ãƒ¼ç™ºç”Ÿ
+	{	ST_SR1P_MEAS, 				EV_SR1P_ANA_ERR,			ST_SR1P_IDLE			},	// æ¸¬å®šãƒ‡ãƒ¼ã‚¿å‡¦ç†å®Œäº†ã§ï¼Œè§£æžã‚¨ãƒ©ãƒ¼ç™ºç”Ÿ
+	{	ST_SR1P_MEAS, 				EV_SR1P_MEAS_DONE,			ST_SR1P_ANA				},	// æ¸¬å®šãƒ‡ãƒ¼ã‚¿å‡¦ç†å®Œäº†å¾…ã¡ ã¸
 
 //2009.10.28 bagus 2point-distance --{--
-// 2“_ŠÔ‹——£‘ª’èŠÖ˜Aƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“
-	{	ST_SR1P_MEAS,				EV_SR1P_DISTANCE,			ST_SR1P_DISTANCE		},	// 2“_ŠÔ‹——£‘ª’èiƒ|ƒbƒvƒAƒbƒv—v‹j
-	{	ST_SR1P_DISTANCE,			EV_SR1P_MEAS_DONE,			ST_SR1P_ANA				},	// 2“_ŠÔ‹——£‘ª’èŠ®—¹i‰æ–ÊOK‰Ÿ‰ºj
-	{	ST_SR1P_DISTANCE,			EV_SR1P_MEAS_ERR,			ST_SR1P_DISTANCE_CANCEL	},	// 2“_ŠÔ‹——£‘ª’èƒLƒƒƒ“ƒZƒ‹i‰æ–ÊCANCEL‰Ÿ‰ºj
-	{	ST_SR1P_DISTANCE,			EV_SR1P_IDLE,				ST_SR1P_ANA_DONE		},	//	ƒ}ƒjƒ…ƒAƒ‹Žž‚Ì1“_ˆ—
+// 2ç‚¹é–“è·é›¢æ¸¬å®šé–¢é€£ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³
+	{	ST_SR1P_MEAS,				EV_SR1P_DISTANCE,			ST_SR1P_DISTANCE		},	// 2ç‚¹é–“è·é›¢æ¸¬å®šï¼ˆãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—è¦æ±‚ï¼‰
+	{	ST_SR1P_DISTANCE,			EV_SR1P_MEAS_DONE,			ST_SR1P_ANA				},	// 2ç‚¹é–“è·é›¢æ¸¬å®šå®Œäº†ï¼ˆç”»é¢OKæŠ¼ä¸‹ï¼‰
+	{	ST_SR1P_DISTANCE,			EV_SR1P_MEAS_ERR,			ST_SR1P_DISTANCE_CANCEL	},	// 2ç‚¹é–“è·é›¢æ¸¬å®šã‚­ãƒ£ãƒ³ã‚»ãƒ«ï¼ˆç”»é¢CANCELæŠ¼ä¸‹ï¼‰
+	{	ST_SR1P_DISTANCE,			EV_SR1P_IDLE,				ST_SR1P_ANA_DONE		},	//	ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«æ™‚ã®1ç‚¹å‡¦ç†
 	{	ST_SR1P_DISTANCE_CANCEL,	EV_SR1P_IDLE,				ST_SR1P_IDLE			},	//
 //2009.10.28 bagus 2point-distance --}--
 //2009.11.03 bagus MS --{--
@@ -121,51 +121,51 @@ const Transition TransTable_Sr1Point[] =
 	{	ST_SR1P_MS,					EV_SR1P_MEAS_DONE,			ST_SR1P_MS_DONE			},	//
 	{	ST_SR1P_MS,					EV_SR1P_MEAS_ERR,			ST_SR1P_MS_CANCEL		},	//
 	{	ST_SR1P_MS_DONE,			EV_SR1P_IDLE,				ST_SR1P_ANA				},	//
-	{	ST_SR1P_MS_DONE,			EV_SR1P_MS_NO_ANA,			ST_SR1P_ANA_DONE		},	//ƒ}ƒjƒ…ƒAƒ‹‘ª’èŽž
+	{	ST_SR1P_MS_DONE,			EV_SR1P_MS_NO_ANA,			ST_SR1P_ANA_DONE		},	//ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«æ¸¬å®šæ™‚
 	{	ST_SR1P_MS_CANCEL,			EV_SR1P_IDLE,				ST_SR1P_IDLE			},	//
 
 	//2009.11.03 bagus MS --}--
 
-	{	ST_SR1P_ANA, 				EV_SR1P_ANA_DONE,			ST_SR1P_ANA_DONE		},	// ‘ª’èƒf[ƒ^ˆ—Š®—¹
+	{	ST_SR1P_ANA, 				EV_SR1P_ANA_DONE,			ST_SR1P_ANA_DONE		},	// æ¸¬å®šãƒ‡ãƒ¼ã‚¿å‡¦ç†å®Œäº†
 
-	{	ST_SR1P_ANA_DONE, 			EV_SR1P_IDLE,				ST_SR1P_IDLE			},	// ƒAƒCƒhƒ‹‚Ö
+	{	ST_SR1P_ANA_DONE, 			EV_SR1P_IDLE,				ST_SR1P_IDLE			},	// ã‚¢ã‚¤ãƒ‰ãƒ«ã¸
 
 	// terminate the transition table
 	END_OF_TRANSITION_TABLE
 };
 
 // =========================================================================//
-//	ó‘Ô•Êˆ—ŠÖ”ƒe[ƒuƒ‹
+//	çŠ¶æ…‹åˆ¥å‡¦ç†é–¢æ•°ãƒ†ãƒ¼ãƒ–ãƒ«
 // =========================================================================//
 BEGIN_STATEPROC_MAP(CChiefTransiSr1Point)
 	/*	0 */	ENTER_STATE(ST_SR1P_INIT,			enter_ST_SR1P_INIT),
 	/*	1 */	ENTER_STATE(ST_SR1P_IDLE,			enter_ST_SR1P_IDLE),
 // 2009.05.11 K.Matsuo SitePR -->
-	/*	2 */	ENTER_STATE(ST_SR1P_SITEPR_START,					enter_ST_SR1P_SITEPR_START),					// (WAIT ó‘Ô–³‚µ)
+	/*	2 */	ENTER_STATE(ST_SR1P_SITEPR_START,					enter_ST_SR1P_SITEPR_START),					// (WAIT çŠ¶æ…‹ç„¡ã—)
 	/*	3 */	ENTER_STATE(ST_SR1P_SITEPR_AUTO,					enter_ST_SR1P_SITEPR_AUTO),
-	/*	4 */	ENTER_STATE(ST_SR1P_SITEPR_AUTO_OK,					enter_ST_SR1P_SITEPR_AUTO_OK),					// (WAIT ó‘Ô–³‚µ)
-	/*	5 */	ENTER_STATE(ST_SR1P_SITEPR_AUTO_PROCEED,			enter_ST_SR1P_SITEPR_AUTO_PROCEED),				// (WAIT ó‘Ô–³‚µ)
-	/*	6 */	ENTER_STATE(ST_SR1P_SITEPR_AUTO_PROCEED_PRESTEP,	enter_ST_SR1P_SITEPR_AUTO_PROCEED_PRESTEP),		// (WAIT ó‘Ô–³‚µ)
-	/*	7 */	ENTER_STATE(ST_SR1P_SITEPR_AUTO_CANCEL,				enter_ST_SR1P_SITEPR_AUTO_CANCEL),				// (WAIT ó‘Ô–³‚µ)
+	/*	4 */	ENTER_STATE(ST_SR1P_SITEPR_AUTO_OK,					enter_ST_SR1P_SITEPR_AUTO_OK),					// (WAIT çŠ¶æ…‹ç„¡ã—)
+	/*	5 */	ENTER_STATE(ST_SR1P_SITEPR_AUTO_PROCEED,			enter_ST_SR1P_SITEPR_AUTO_PROCEED),				// (WAIT çŠ¶æ…‹ç„¡ã—)
+	/*	6 */	ENTER_STATE(ST_SR1P_SITEPR_AUTO_PROCEED_PRESTEP,	enter_ST_SR1P_SITEPR_AUTO_PROCEED_PRESTEP),		// (WAIT çŠ¶æ…‹ç„¡ã—)
+	/*	7 */	ENTER_STATE(ST_SR1P_SITEPR_AUTO_CANCEL,				enter_ST_SR1P_SITEPR_AUTO_CANCEL),				// (WAIT çŠ¶æ…‹ç„¡ã—)
 	/*	8 */	ENTER_STATE(ST_SR1P_SITEPR_MANU,					enter_ST_SR1P_SITEPR_MANU),
-	/*	9 */	ENTER_STATE(ST_SR1P_SITEPR_MANU_OK,					enter_ST_SR1P_SITEPR_MANU_OK),					// (WAIT ó‘Ô–³‚µ)
-	/*	10 */	ENTER_STATE(ST_SR1P_SITEPR_MANU_CANCEL,				enter_ST_SR1P_SITEPR_MANU_CANCEL),				// (WAIT ó‘Ô–³‚µ)
-	/*	11 */	ENTER_STATE(ST_SR1P_SITEPR_PREP_MEAS,				enter_ST_SR1P_SITEPR_PREP_MEAS),				// (WAIT ó‘Ô–³‚µ)
+	/*	9 */	ENTER_STATE(ST_SR1P_SITEPR_MANU_OK,					enter_ST_SR1P_SITEPR_MANU_OK),					// (WAIT çŠ¶æ…‹ç„¡ã—)
+	/*	10 */	ENTER_STATE(ST_SR1P_SITEPR_MANU_CANCEL,				enter_ST_SR1P_SITEPR_MANU_CANCEL),				// (WAIT çŠ¶æ…‹ç„¡ã—)
+	/*	11 */	ENTER_STATE(ST_SR1P_SITEPR_PREP_MEAS,				enter_ST_SR1P_SITEPR_PREP_MEAS),				// (WAIT çŠ¶æ…‹ç„¡ã—)
 // 2009.05.11 K.Matsuo SitePR <--
-	/*	12 */	ENTER_STATE(ST_SR1P_ZMOVE,			enter_ST_SR1P_ZMOVE),		// (WAIT ó‘Ô–³‚µ)
-	/*	13 */	ENTER_STATE(ST_SR1P_AF,				enter_ST_SR1P_AF),			// (WAIT ó‘Ô–³‚µ‚Ìê‡—L‚è)
-	/*	14 */	ENTER_STATE(ST_SR1P_AF_DONE,		enter_ST_SR1P_AF_DONE),		// (WAIT ó‘Ô–³‚µ)
-	/*	15 */	ENTER_STATE(ST_SR1P_MEAS,			enter_ST_SR1P_MEAS),		// (WAIT ó‘Ô–³‚µ)
+	/*	12 */	ENTER_STATE(ST_SR1P_ZMOVE,			enter_ST_SR1P_ZMOVE),		// (WAIT çŠ¶æ…‹ç„¡ã—)
+	/*	13 */	ENTER_STATE(ST_SR1P_AF,				enter_ST_SR1P_AF),			// (WAIT çŠ¶æ…‹ç„¡ã—ã®å ´åˆæœ‰ã‚Š)
+	/*	14 */	ENTER_STATE(ST_SR1P_AF_DONE,		enter_ST_SR1P_AF_DONE),		// (WAIT çŠ¶æ…‹ç„¡ã—)
+	/*	15 */	ENTER_STATE(ST_SR1P_MEAS,			enter_ST_SR1P_MEAS),		// (WAIT çŠ¶æ…‹ç„¡ã—)
 	/*	16 */	ENTER_STATE(ST_SR1P_ANA,			enter_ST_SR1P_ANA),
-	/*	17 */	ENTER_STATE(ST_SR1P_ANA_DONE,		enter_ST_SR1P_ANA_DONE),	// (WAIT ó‘Ô–³‚µ)
+	/*	17 */	ENTER_STATE(ST_SR1P_ANA_DONE,		enter_ST_SR1P_ANA_DONE),	// (WAIT çŠ¶æ…‹ç„¡ã—)
 //2009.10.28 bagus 2point-distance --{--
-	/*	18 */	ENTER_STATE(ST_SR1P_DISTANCE,		enter_ST_SR1P_DISTANCE),		// (WAIT ó‘Ô‚ ‚è)
-	/*	19 */	ENTER_STATE(ST_SR1P_DISTANCE_CANCEL,enter_ST_SR1P_DISTANCE_CANCEL),	// (WAIT ó‘Ô‚ ‚è)
+	/*	18 */	ENTER_STATE(ST_SR1P_DISTANCE,		enter_ST_SR1P_DISTANCE),		// (WAIT çŠ¶æ…‹ã‚ã‚Š)
+	/*	19 */	ENTER_STATE(ST_SR1P_DISTANCE_CANCEL,enter_ST_SR1P_DISTANCE_CANCEL),	// (WAIT çŠ¶æ…‹ã‚ã‚Š)
 //2009.10.28 bagus 2point-distance --}--
 //2009.11.03 bagus MS --{--
-	/*	20 */	ENTER_STATE(ST_SR1P_MS,				enter_ST_SR1P_MS),				// (WAIT ó‘Ô‚ ‚è)
-	/*	21 */	ENTER_STATE(ST_SR1P_MS_CANCEL,		enter_ST_SR1P_MS_CANCEL),		// (WAIT ó‘Ô‚ ‚è)
-	/*	22 */	ENTER_STATE(ST_SR1P_MS_DONE,		enter_ST_SR1P_MS_DONE),			// (WAIT ó‘Ô‚ ‚è)
+	/*	20 */	ENTER_STATE(ST_SR1P_MS,				enter_ST_SR1P_MS),				// (WAIT çŠ¶æ…‹ã‚ã‚Š)
+	/*	21 */	ENTER_STATE(ST_SR1P_MS_CANCEL,		enter_ST_SR1P_MS_CANCEL),		// (WAIT çŠ¶æ…‹ã‚ã‚Š)
+	/*	22 */	ENTER_STATE(ST_SR1P_MS_DONE,		enter_ST_SR1P_MS_DONE),			// (WAIT çŠ¶æ…‹ã‚ã‚Š)
 //2009.11.03 bagus MS --}--
 
 END_STATEPROC_MAP(CChiefTransiSr1Point)
@@ -182,14 +182,14 @@ CChiefTransiSr1Point::CChiefTransiSr1Point(CWnd* pParent /*=NULL*/) : cActive(Tr
 
 	m_pcChiefView = (CView*) pParent;
 
-	//	ƒXƒŒƒbƒh‚Ì‹N“®‘Ò‚¿
+	//	ã‚¹ãƒ¬ãƒƒãƒ‰ã®èµ·å‹•å¾…ã¡
 	BOOL l_bThreadOK = CreateThread();
 	if (0 != this->m_hThread) {
 		CSingleLock	l_SingleLock(&m_cSyncEvent,TRUE);
 	}
 	((CChiefView*) m_pcChiefView)->LogChief(_T("Started  CChiefTransiSr1Point."));
 
-	//	ƒIƒuƒWƒFƒNƒg‚ÌŽ©“®”jŠü‚ð‹ÖŽ~
+	//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®è‡ªå‹•ç ´æ£„ã‚’ç¦æ­¢
 	m_bAutoDelete = FALSE;
 
 }
@@ -198,7 +198,7 @@ CChiefTransiSr1Point::~CChiefTransiSr1Point()
 {
 	TRACE(_T("CChiefTransiSr1Point::~CChiefTransiSr1Point() \n"));
 
-	//	ƒXƒŒƒbƒh‚ÌÁ–Å‘Ò‚¿
+	//	ã‚¹ãƒ¬ãƒƒãƒ‰ã®æ¶ˆæ»…å¾…ã¡
 	if (0 != this->m_hThread) {
 		if (0 == m_bAutoDelete) {
 			PostThreadMessage(WM_QUIT, 0, 0);
@@ -210,22 +210,22 @@ CChiefTransiSr1Point::~CChiefTransiSr1Point()
 
 BOOL CChiefTransiSr1Point::InitInstance()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒXƒŒƒbƒh’PˆÊ‚Ì‰Šú‰»ƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ã“ã®ä½ç½®ã«ã‚¹ãƒ¬ãƒƒãƒ‰å˜ä½ã®åˆæœŸåŒ–ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 
 	TRACE(_T("CChiefTransiSr1Point::InitInstance() \n"));
 
-	// ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ì‘Ò‚¿‚ð‰ðœ‚µ‚Ü‚·
-	//		‚Â‚Ü‚èCƒXƒŒƒbƒh‚Ì¶¬‚ÆƒXƒŒƒbƒhƒNƒ‰ƒX‚Ì\’z‚Ì“¯Šú‚ðŽæ‚Á‚Ä‚¢‚Ü‚·D
+	// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å¾…ã¡ã‚’è§£é™¤ã—ã¾ã™
+	//		ã¤ã¾ã‚Šï¼Œã‚¹ãƒ¬ãƒƒãƒ‰ã®ç”Ÿæˆã¨ã‚¹ãƒ¬ãƒƒãƒ‰ã‚¯ãƒ©ã‚¹ã®æ§‹ç¯‰ã®åŒæœŸã‚’å–ã£ã¦ã„ã¾ã™ï¼Ž
 	m_cSyncEvent.SetEvent();
 
-	// ADAP, WVASE ‚Ì‰Šú‰»
+	// ADAP, WVASE ã®åˆæœŸåŒ–
 	m_xmpDde.Init();
 	m_xmpDde.Connect(DDE_SERVICE, DDE_TOPIC);
 
-	// ‰Šúó‘Ôˆ——pƒCƒxƒ“ƒg”­s
+	// åˆæœŸçŠ¶æ…‹å‡¦ç†ç”¨ã‚¤ãƒ™ãƒ³ãƒˆç™ºè¡Œ
 	TransiEvent(0, 0);
 
-	// •Ï”‰Šú‰»
+	// å¤‰æ•°åˆæœŸåŒ–
 	m_dwHeartBeat = 0;
 
 	return TRUE;
@@ -233,11 +233,11 @@ BOOL CChiefTransiSr1Point::InitInstance()
 
 int CChiefTransiSr1Point::ExitInstance()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒXƒŒƒbƒh’PˆÊ‚Ì‰Šú‰»ƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ã“ã®ä½ç½®ã«ã‚¹ãƒ¬ãƒƒãƒ‰å˜ä½ã®åˆæœŸåŒ–ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 
 	TRACE(_T("CChiefTransiSr1Point::ExitInstance() \n"));
 
-	// ADAP, WVASE ‚ÌI—¹
+	// ADAP, WVASE ã®çµ‚äº†
 	m_xmpDde.Disconnect();
 	m_xmpDde.Uninit();
 
@@ -246,28 +246,28 @@ int CChiefTransiSr1Point::ExitInstance()
 
 BEGIN_MESSAGE_MAP(CChiefTransiSr1Point, CWinThread)
 	//{{AFX_MSG_MAP(CChiefTransiSr1Point)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ð’Ç‰Á‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒžãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒžã‚¯ãƒ­ã‚’è¿½åŠ ã—ã¾ã™ã€‚
 	//}}AFX_MSG_MAP
 	ON_REGISTERED_THREAD_MESSAGE(WM_CHIF_TR1P_SETEVENT, OnTransiEvent)
 	ON_REGISTERED_THREAD_MESSAGE(WM_CHIF_TR1P_HEARTBEAT, OnHeartBeat)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CChiefTransiSr1Point ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CChiefTransiSr1Point ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 /*
- *	ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“ƒCƒxƒ“ƒg”­s ƒƒbƒZ[ƒWƒnƒ“ƒhƒ‰
+ *	ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚¤ãƒ™ãƒ³ãƒˆç™ºè¡Œ ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒãƒ³ãƒ‰ãƒ©
  */
 void CChiefTransiSr1Point::OnTransiEvent(WPARAM wparam, LPARAM lparam)
 {
-	::Sleep(TRANSI_TIME);	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“ŠÔƒ^ƒCƒ~ƒ“ƒO’²®(‚Æ‚è‚ ‚¦‚¸‚¾‚¯‚ÇP‹v‚©‚àEE)
+	::Sleep(TRANSI_TIME);	// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³é–“ã‚¿ã‚¤ãƒŸãƒ³ã‚°èª¿æ•´(ã¨ã‚Šã‚ãˆãšã ã‘ã©æ’ä¹…ã‹ã‚‚ãƒ»ãƒ»)
 
 	Event((int) wparam, (cEventParams*) lparam);
 
 }
 
 /*
- *	HeartBeat ƒƒbƒZ[ƒWƒnƒ“ƒhƒ‰
+ *	HeartBeat ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒãƒ³ãƒ‰ãƒ©
  */
 void CChiefTransiSr1Point::OnHeartBeat(WPARAM wparam, LPARAM lparam)
 {
@@ -276,23 +276,23 @@ void CChiefTransiSr1Point::OnHeartBeat(WPARAM wparam, LPARAM lparam)
 
 
 /****************************************************************************
-	‚»‚Ì‘¼ŠÖ”
+	ãã®ä»–é–¢æ•°
 ****************************************************************************/
 
 /*
- *	ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“ƒCƒxƒ“ƒg”­s—pŠÖ”
+ *	ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚¤ãƒ™ãƒ³ãƒˆç™ºè¡Œç”¨é–¢æ•°
  */
 void CChiefTransiSr1Point::TransiEvent(const int iEventNo, const cEventParams *const pEvParams)
 {
-/* modified 2012.01.23 hmenjo [‚V]ŸŽèƒAƒ{[ƒg‘Îô ---------- { ---------- */
+/* modified 2012.01.23 hmenjo [ï¼—]å‹æ‰‹ã‚¢ãƒœãƒ¼ãƒˆå¯¾ç­– ---------- { ---------- */
 //	PostThreadMessage(WM_CHIF_TR1P_SETEVENT, (WPARAM) iEventNo, (LPARAM) pEvParams);
-/* modified 2012.01.23 hmenjo [‚V]ŸŽèƒAƒ{[ƒg‘Îô ----------              */
+/* modified 2012.01.23 hmenjo [ï¼—]å‹æ‰‹ã‚¢ãƒœãƒ¼ãƒˆå¯¾ç­– ----------              */
 	((CChiefView*) m_pcChiefView)->PostTransiEvent(this, WM_CHIF_TR1P_SETEVENT, _T("WM_CHIF_TR1P_SETEVENT"), 7, (WPARAM) iEventNo, (LPARAM) pEvParams);
-/* modified 2012.01.23 hmenjo [‚V]ŸŽèƒAƒ{[ƒg‘Îô ---------- } ---------- */
+/* modified 2012.01.23 hmenjo [ï¼—]å‹æ‰‹ã‚¢ãƒœãƒ¼ãƒˆå¯¾ç­– ---------- } ---------- */
 }
 
 /*
- *	HeartBeat ”­s—pŠÖ”
+ *	HeartBeat ç™ºè¡Œç”¨é–¢æ•°
  */
 void CChiefTransiSr1Point::HeartBeatPulse(void)
 {
@@ -300,9 +300,9 @@ void CChiefTransiSr1Point::HeartBeatPulse(void)
 }
 
 /*
- *	Œ»Ý‚Ìó‘Ô‚ªuƒAƒCƒhƒ‹v‚©‚Ç‚¤‚©‚ðƒ`ƒFƒbƒN
- *		–ß‚è’lF	true	ƒAƒCƒhƒ‹‚Å‚ ‚é
- *					false	ƒAƒCƒhƒ‹‚Å‚È‚¢
+ *	ç¾åœ¨ã®çŠ¶æ…‹ãŒã€Œã‚¢ã‚¤ãƒ‰ãƒ«ã€ã‹ã©ã†ã‹ã‚’ãƒã‚§ãƒƒã‚¯
+ *		æˆ»ã‚Šå€¤ï¼š	true	ã‚¢ã‚¤ãƒ‰ãƒ«ã§ã‚ã‚‹
+ *					false	ã‚¢ã‚¤ãƒ‰ãƒ«ã§ãªã„
  */
 bool CChiefTransiSr1Point::IsIdle()
 {
@@ -318,8 +318,8 @@ bool CChiefTransiSr1Point::IsIdle()
 }
 
 /*
- *	Œ»Ý‚Ìó‘Ô‚ðŽæ“¾
- *		–ß‚è’lF	Œ»Ý‚Ìó‘Ô
+ *	ç¾åœ¨ã®çŠ¶æ…‹ã‚’å–å¾—
+ *		æˆ»ã‚Šå€¤ï¼š	ç¾åœ¨ã®çŠ¶æ…‹
  */
 int CChiefTransiSr1Point::GetCurrentState()
 {
@@ -327,7 +327,7 @@ int CChiefTransiSr1Point::GetCurrentState()
 }
 
 /*
- *	ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ð’Ê’m
+ *	å‘¼å‡ºå…ƒãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥
  */
 void CChiefTransiSr1Point::NotifyComplete(const cEventParams *const pEvParams)
 {
@@ -337,7 +337,7 @@ void CChiefTransiSr1Point::NotifyComplete(const cEventParams *const pEvParams)
 	case TRANSI_DESKEW:
 	case TRANSI_SR_1POINT:
 	default:
-		// ‰½‚à‚µ‚Ü‚¹‚ñD
+		// ä½•ã‚‚ã—ã¾ã›ã‚“ï¼Ž
 		break;
 	case TRANSI_MASTER:
 		((CChiefTransiMaster*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiMaster)->TransiEvent(EV_MAS_UI1POINT_DONE, pEvParams);
@@ -349,7 +349,7 @@ void CChiefTransiSr1Point::NotifyComplete(const cEventParams *const pEvParams)
 }
 
 /*
- *	ƒ|ƒCƒ“ƒgƒ}ƒjƒ…ƒAƒ‹ƒAƒWƒƒƒXƒg —L–³ ”»’è
+ *	ãƒã‚¤ãƒ³ãƒˆãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ã‚¢ã‚¸ãƒ£ã‚¹ãƒˆ æœ‰ç„¡ åˆ¤å®š
  */
 BOOL CChiefTransiSr1Point::IsPointManualAdjust(DWORD dwPointNo)
 {
@@ -358,76 +358,76 @@ BOOL CChiefTransiSr1Point::IsPointManualAdjust(DWORD dwPointNo)
 	LPMAIN_RCP_INFO l_pMainRcpInfo = (LPMAIN_RCP_INFO) (((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pMainRcpInfo);
 	DWORD l_dwPMA_Mode = l_pMainRcpInfo->MainRcpParam.hdr.nPointManualAdjustment;
 
-#if 0	// ƒ‰ƒxƒ‹‚ðŽg‚¤‚æ‚¤‚É‚µ‚Ü‚µ‚½
+#if 0	// ãƒ©ãƒ™ãƒ«ã‚’ä½¿ã†ã‚ˆã†ã«ã—ã¾ã—ãŸ
 	switch (l_dwPMA_Mode) {
-	case 0:		// ‚µ‚È‚¢
+	case 0:		// ã—ãªã„
 		l_bRc = FALSE;
 		break;
-	case 1:		// ‚Pƒ|ƒCƒ“ƒg–Ú‚¾‚¯ŽÀŽ{
+	case 1:		// ï¼‘ãƒã‚¤ãƒ³ãƒˆç›®ã ã‘å®Ÿæ–½
 		if (1 == dwPointNo) {
 			l_bRc = TRUE;
 		} else {
 			l_bRc = FALSE;
 		}
 		break;
-	case 2:		// ‘Sƒ|ƒCƒ“ƒg‚ÅŽÀŽ{
+	case 2:		// å…¨ãƒã‚¤ãƒ³ãƒˆã§å®Ÿæ–½
 	default:
 		l_bRc = TRUE;
 		break;
 	}
-#else	// ƒ‰ƒxƒ‹‚ðŽg‚¤‚æ‚¤‚É‚µ‚Ü‚µ‚½
+#else	// ãƒ©ãƒ™ãƒ«ã‚’ä½¿ã†ã‚ˆã†ã«ã—ã¾ã—ãŸ
 	switch (l_dwPMA_Mode) {
-	case POINT_MANUAL_ADJUSTMENT_NONE:							// ‚µ‚È‚¢
+	case POINT_MANUAL_ADJUSTMENT_NONE:							// ã—ãªã„
 		l_bRc = FALSE;
 		break;
-//	case POINT_MANUAL_ADJUSTMENT_ONLY_FIRST_POINT:				// ‚Pƒ|ƒCƒ“ƒg–Ú‚¾‚¯ŽÀŽ{
+//	case POINT_MANUAL_ADJUSTMENT_ONLY_FIRST_POINT:				// ï¼‘ãƒã‚¤ãƒ³ãƒˆç›®ã ã‘å®Ÿæ–½
 //		if (1 == dwPointNo) {
 //			l_bRc = TRUE;
 //		} else {
 //			l_bRc = FALSE;
 //		}
 //		break;
-	case POINT_MANUAL_ADJUSTMENT_ALL_POINT_EVERY_ADJUSTMENT:	// ‘Sƒ|ƒCƒ“ƒg‚ÅŽÀŽ{
+	case POINT_MANUAL_ADJUSTMENT_ALL_POINT_EVERY_ADJUSTMENT:	// å…¨ãƒã‚¤ãƒ³ãƒˆã§å®Ÿæ–½
 	default:
 		l_bRc = TRUE;
 		break;
 	}
-#endif	// ƒ‰ƒxƒ‹‚ðŽg‚¤‚æ‚¤‚É‚µ‚Ü‚µ‚½
+#endif	// ãƒ©ãƒ™ãƒ«ã‚’ä½¿ã†ã‚ˆã†ã«ã—ã¾ã—ãŸ
 
 	return l_bRc;
 }
 
 /*
- *	XCYCZ À•W‚ðŽæ“¾
+ *	Xï¼ŒYï¼ŒZ åº§æ¨™ã‚’å–å¾—
  */
 void CChiefTransiSr1Point::GetMeasPosXYZ(MEASPOS *pMeasPosXYZ)
 {
-	// XYZ Ž²À•W‚ðŽæ“¾
+	// XYZ è»¸åº§æ¨™ã‚’å–å¾—
 	STAGE_COORD_XYZ l_MeasPosXYZ;
 	NS_StageGetPos(&l_MeasPosXYZ);
 
-/* modified 2009.09.30 hmenjo ’P“Æ‹N“®ŽžCŽÀˆÊ’u(X/Y)Žæ“¾ ---------- { ---------- */
-//#if 0	// ŽÀˆÊ’u‚Ìê‡‚Í‚±‚ÌŽæ“¾‚ª•K—v‚Å‚·
+/* modified 2009.09.30 hmenjo å˜ç‹¬èµ·å‹•æ™‚ï¼Œå®Ÿä½ç½®(X/Y)å–å¾— ---------- { ---------- */
+//#if 0	// å®Ÿä½ç½®ã®å ´åˆã¯ã“ã®å–å¾—ãŒå¿…è¦ã§ã™
 //	pMeasPosXYZ->lX = l_MeasPosXYZ.lX;
 //	if (0xcdcdcdcd == pMeasPosXYZ->lX) {pMeasPosXYZ->lX = 0;}
 //	pMeasPosXYZ->lY = l_MeasPosXYZ.lY;
 //	if (0xcdcdcdcd == pMeasPosXYZ->lY) {pMeasPosXYZ->lY = 0;}
 //#endif
-/* modified 2009.09.30 hmenjo ’P“Æ‹N“®ŽžCŽÀˆÊ’u(X/Y)Žæ“¾ ----------			  */
+/* modified 2009.09.30 hmenjo å˜ç‹¬èµ·å‹•æ™‚ï¼Œå®Ÿä½ç½®(X/Y)å–å¾— ----------			  */
 	if (TRANSI_MASTER == m_dwParentTransi) {
-		/* ’P“Æ‹N“®Žž‚Í X/Y ‚ÌŽÀˆÊ’u‚à‘ã“ü‚µ‚Ü‚·D	*/
+		/* å˜ç‹¬èµ·å‹•æ™‚ã¯ X/Y ã®å®Ÿä½ç½®ã‚‚ä»£å…¥ã—ã¾ã™ï¼Ž	*/
 		pMeasPosXYZ->lX = l_MeasPosXYZ.lX;
 		if (0xcdcdcdcd == pMeasPosXYZ->lX) {pMeasPosXYZ->lX = 0;}
 		pMeasPosXYZ->lY = l_MeasPosXYZ.lY;
 		if (0xcdcdcdcd == pMeasPosXYZ->lY) {pMeasPosXYZ->lY = 0;}
 	}
-/* modified 2009.09.30 hmenjo ’P“Æ‹N“®ŽžCŽÀˆÊ’u(X/Y)Žæ“¾ ---------- } ---------- */
+/* modified 2009.09.30 hmenjo å˜ç‹¬èµ·å‹•æ™‚ï¼Œå®Ÿä½ç½®(X/Y)å–å¾— ---------- } ---------- */
 	pMeasPosXYZ->lZ = l_MeasPosXYZ.lZ;
 	if (0xcdcdcdcd == pMeasPosXYZ->lZ) {pMeasPosXYZ->lZ = 0;}
 }
 
 /*
- *	SR ‚Pƒ|ƒCƒ“ƒg‘ª’è ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ðƒLƒƒƒ“ƒZƒ‹I—¹‚³‚¹‚Ü‚·D
+ *	SR ï¼‘ãƒã‚¤ãƒ³ãƒˆæ¸¬å®š ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’ã‚­ãƒ£ãƒ³ã‚»ãƒ«çµ‚äº†ã•ã›ã¾ã™ï¼Ž
  */
 void CChiefTransiSr1Point::CancelSr1Point()
 {
@@ -436,32 +436,32 @@ void CChiefTransiSr1Point::CancelSr1Point()
 // 2009.05.28 myanagida -->
 	switch (CurrState) {
 	case ST_SR1P_SITEPR_AUTO:
-		// ƒTƒCƒgƒpƒ^[ƒ“‚ðƒLƒƒƒ“ƒZƒ‹‚µ‚Ü‚·
+		// ã‚µã‚¤ãƒˆãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã—ã¾ã™
 		/*
-		 *	ƒRƒR‚ÉƒTƒCƒgƒpƒ^[ƒ“‚ÌƒLƒƒƒ“ƒZƒ‹ˆ—‚ð“ü‚ê‚Ä‚­‚¾‚³‚¢D
+		 *	ã‚³ã‚³ã«ã‚µã‚¤ãƒˆãƒ‘ã‚¿ãƒ¼ãƒ³ã®ã‚­ãƒ£ãƒ³ã‚»ãƒ«å‡¦ç†ã‚’å…¥ã‚Œã¦ãã ã•ã„ï¼Ž
 		 */
 		m_pSitePtSeq->ShutDown();
 		break;
 	case ST_SR1P_SITEPR_MANU:
-		// ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[‚ðƒLƒƒƒ“ƒZƒ‹‚µ‚Ü‚·
+		// ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ã‚’ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã—ã¾ã™
 		/*
-		 *	ƒRƒR‚Éƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[‚ÌƒLƒƒƒ“ƒZƒ‹ˆ—‚ð“ü‚ê‚Ä‚­‚¾‚³‚¢D
+		 *	ã‚³ã‚³ã«ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ã®ã‚­ãƒ£ãƒ³ã‚»ãƒ«å‡¦ç†ã‚’å…¥ã‚Œã¦ãã ã•ã„ï¼Ž
 		 */
 		m_pSitePtSeq->ShutDown();
 		break;
 	//2009.11.07 bagus MS --{--
 	case ST_SR1P_MS:
-		//Œ°”÷‹¾‘ª’è‚Ìê‡‚É‚Í‰½‚à‚·‚é‚±‚Æ‚ª‚È‚¢‚Ì‚Å‹­§“I‚ÉIDLE‚É‚·‚é
+		//é¡•å¾®é¡æ¸¬å®šã®å ´åˆã«ã¯ä½•ã‚‚ã™ã‚‹ã“ã¨ãŒãªã„ã®ã§å¼·åˆ¶çš„ã«IDLEã«ã™ã‚‹
 		CurrState = ST_SR1P_IDLE;
 		break;
 	//2009.11.07 bagus MS --}--
 	default:
-		// ‰½‚à‚µ‚Ü‚¹‚ñ
+		// ä½•ã‚‚ã—ã¾ã›ã‚“
 		break;
 	}
 // 2009.05.28 myanagida <--
 
-	// AF ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ðƒLƒƒƒ“ƒZƒ‹I—¹‚³‚¹‚Ü‚·D
+	// AF ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’ã‚­ãƒ£ãƒ³ã‚»ãƒ«çµ‚äº†ã•ã›ã¾ã™ï¼Ž
 	if (false == ((CChiefTransiAF*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiAF)->IsIdle()) {
 		((CChiefTransiAF*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiAF)->CancelAF();
 	}
@@ -469,7 +469,7 @@ void CChiefTransiSr1Point::CancelSr1Point()
 
 // 2009.05.11 K.Matsuo SitePR -->
 /*
- *	ƒJƒŒƒ“ƒgƒŒƒ“ƒY‚ÆƒŒƒVƒsƒŒƒ“ƒY‚ðƒ`ƒFƒbƒN
+ *	ã‚«ãƒ¬ãƒ³ãƒˆãƒ¬ãƒ³ã‚ºã¨ãƒ¬ã‚·ãƒ”ãƒ¬ãƒ³ã‚ºã‚’ãƒã‚§ãƒƒã‚¯
  */
 BOOL CChiefTransiSr1Point::IsCurrLensEqualsRecipeLens()
 {
@@ -484,24 +484,24 @@ BOOL CChiefTransiSr1Point::IsCurrLensEqualsRecipeLens()
 // 2009.05.11 K.Matsuo SitePR <--
 
 //--------------------------------------------------------------------------//
-//	ó‘Ô•Êˆ—ŠÖ”ŒQ
+//	çŠ¶æ…‹åˆ¥å‡¦ç†é–¢æ•°ç¾¤
 //--------------------------------------------------------------------------//
 /*
- *	‰Šúó‘Ô
+ *	åˆæœŸçŠ¶æ…‹
  */
 void CChiefTransiSr1Point::enter_ST_SR1P_INIT(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_SR_1POINT_DISP[0], (DWORD) pEvParams);
 
-/* added 2009.11.30 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh(‰ü)‚Å“®ì ---------- { ---------- */
+/* added 2009.11.30 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰(æ”¹)ã§å‹•ä½œ ---------- { ---------- */
 	m_lZ_AF = 0x80000000;
-/* added 2009.11.30 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh(‰ü)‚Å“®ì ---------- } ---------- */
+/* added 2009.11.30 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰(æ”¹)ã§å‹•ä½œ ---------- } ---------- */
 
-	// ‰Šú‰»ˆ—‚Í‚ ‚è‚Ü‚¹‚ñD
+	// åˆæœŸåŒ–å‡¦ç†ã¯ã‚ã‚Šã¾ã›ã‚“ï¼Ž
 }
 
 /*
- *	ƒAƒCƒhƒ‹
+ *	ã‚¢ã‚¤ãƒ‰ãƒ«
  */
 void CChiefTransiSr1Point::enter_ST_SR1P_IDLE(const cEventParams* const pEvParams)
 {
@@ -509,100 +509,100 @@ void CChiefTransiSr1Point::enter_ST_SR1P_IDLE(const cEventParams* const pEvParam
 
 	m_dwAFValid = 0;
 	m_bCancelReq = FALSE;
-	// WAIT ó‘Ô‚É‚·‚é‚½‚ßˆ—‚Í‚ ‚è‚Ü‚¹‚ñD
+	// WAIT çŠ¶æ…‹ã«ã™ã‚‹ãŸã‚å‡¦ç†ã¯ã‚ã‚Šã¾ã›ã‚“ï¼Ž
 }
 
 // 2009.05.11 K.Matsuo SitePR -->
 /*
- *	SitePR ŠJŽnˆ—‘O(WAIT ó‘Ô–³‚µ)
+ *	SitePR é–‹å§‹å‡¦ç†å‰(WAIT çŠ¶æ…‹ç„¡ã—)
  */
 void CChiefTransiSr1Point::enter_ST_SR1P_SITEPR_START(const cEventParams* const pEvParams)
-/* added 2009.09.09 hmenjo ˆø”ƒRƒƒ“ƒg’Ç‰Á ---------- { ---------- */
-/*				LOBYTE(LOWORD(pEvParams))FŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“
-/*				HIBYTE(LOWORD(pEvParams))F‘ª’èƒ‚[ƒh added 2009.09.10 hmenjo “§‰ß—¦ Seq ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh(17)
-/*				HIWORD(pEvParams)F‘ª’èƒ|ƒCƒ“ƒg”Ô†
-/* added 2009.09.09 hmenjo ˆø”ƒRƒƒ“ƒg’Ç‰Á ---------- } ---------- */
+/* added 2009.09.09 hmenjo å¼•æ•°ã‚³ãƒ¡ãƒ³ãƒˆè¿½åŠ  ---------- { ---------- */
+/*				LOBYTE(LOWORD(pEvParams))ï¼šå‘¼å‡ºå…ƒãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³
+/*				HIBYTE(LOWORD(pEvParams))ï¼šæ¸¬å®šãƒ¢ãƒ¼ãƒ‰ added 2009.09.10 hmenjo é€éŽçŽ‡ Seq ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(17)
+/*				HIWORD(pEvParams)ï¼šæ¸¬å®šãƒã‚¤ãƒ³ãƒˆç•ªå·
+/* added 2009.09.09 hmenjo å¼•æ•°ã‚³ãƒ¡ãƒ³ãƒˆè¿½åŠ  ---------- } ---------- */
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_SR_1POINT_DISP[2], (DWORD) pEvParams);
 
 // 2009.05.21 K.Matsuo -->
-	// ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ð•Û‘¶
-/* modified 2009.09.09 hmenjo ˆø”•ÏX ---------- { ---------- */
+	// å‘¼å‡ºå…ƒãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’ä¿å­˜
+/* modified 2009.09.09 hmenjo å¼•æ•°å¤‰æ›´ ---------- { ---------- */
 //	m_dwParentTransi = LOWORD((DWORD) pEvParams);
-/* modified 2009.09.09 hmenjo ˆø”•ÏX ----------			   */
+/* modified 2009.09.09 hmenjo å¼•æ•°å¤‰æ›´ ----------			   */
 	m_dwParentTransi = LOBYTE(LOWORD(pEvParams));
-/* modified 2009.09.09 hmenjo ˆø”•ÏX ---------- } ---------- */
-	// ‘ª’èƒ|ƒCƒ“ƒg”Ô†‚ð•Û‘¶
+/* modified 2009.09.09 hmenjo å¼•æ•°å¤‰æ›´ ---------- } ---------- */
+	// æ¸¬å®šãƒã‚¤ãƒ³ãƒˆç•ªå·ã‚’ä¿å­˜
 	m_dwPointNo = HIWORD((DWORD) pEvParams);
 // 2009.05.21 K.Matsuo <--
-/* added 2009.09.10 hmenjo “§‰ß—¦ Seq ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh(17) ---------- { ---------- */
+/* added 2009.09.10 hmenjo é€éŽçŽ‡ Seq ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(17) ---------- { ---------- */
 	m_enMeasMode = (MEASMODE_ID) HIBYTE(LOWORD(pEvParams));
-/* added 2009.09.10 hmenjo “§‰ß—¦ Seq ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh(17) ---------- } ---------- */
+/* added 2009.09.10 hmenjo é€éŽçŽ‡ Seq ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(17) ---------- } ---------- */
 
-/* added 2009.06.08 hmenjo SitePR XY À•W’l•\Ž¦•s‹ï‡ ---------- { ---------- */
-	// XY À•WˆÊ’u‹L‰¯
+/* added 2009.06.08 hmenjo SitePR XY åº§æ¨™å€¤è¡¨ç¤ºä¸å…·åˆ ---------- { ---------- */
+	// XY åº§æ¨™ä½ç½®è¨˜æ†¶
 	m_MeasPosXYZ.lX = m_MeasPosbufXYZ.lX;
 	m_MeasPosXYZ.lY = m_MeasPosbufXYZ.lY;
-/* added 2009.06.08 hmenjo SitePR XY À•W’l•\Ž¦•s‹ï‡ ---------- } ---------- */
+/* added 2009.06.08 hmenjo SitePR XY åº§æ¨™å€¤è¡¨ç¤ºä¸å…·åˆ ---------- } ---------- */
 
 // 2009.05.16 myanagida -->
 
-	// ƒTƒCƒgƒpƒ^[ƒ“ ini ƒtƒ@ƒCƒ‹ƒ`ƒFƒbƒN
+	// ã‚µã‚¤ãƒˆãƒ‘ã‚¿ãƒ¼ãƒ³ ini ãƒ•ã‚¡ã‚¤ãƒ«ãƒã‚§ãƒƒã‚¯
 	SYSTEM_CONFIG *l_SystemConfig = &(((CMainFrame*) ((CChiefView*) m_pcChiefView)->m_pcMainFrame)->m_SystemConfig);
 	ConfigFile_GetNanoSpecIni(l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
-/* modified 2009.06.05 hmenjo ‚Pƒ|ƒCƒ“ƒg‘ª’è’P‘Ì“®ìŽž‚Í SitePR ‹ÖŽ~ ---------- { ---------- */
+/* modified 2009.06.05 hmenjo ï¼‘ãƒã‚¤ãƒ³ãƒˆæ¸¬å®šå˜ä½“å‹•ä½œæ™‚ã¯ SitePR ç¦æ­¢ ---------- { ---------- */
 //	if (l_SystemConfig->bSitePatternRec != TRUE) {
-/* modified 2009.06.05 hmenjo ‚Pƒ|ƒCƒ“ƒg‘ª’è’P‘Ì“®ìŽž‚Í SitePR ‹ÖŽ~ ---------- 			 */
+/* modified 2009.06.05 hmenjo ï¼‘ãƒã‚¤ãƒ³ãƒˆæ¸¬å®šå˜ä½“å‹•ä½œæ™‚ã¯ SitePR ç¦æ­¢ ---------- 			 */
 //	if ((l_SystemConfig->bSitePatternRec != TRUE) || (TRANSI_MASTER == m_dwParentTransi)) {
-/* modified 2009.06.05 hmenjo ‚Pƒ|ƒCƒ“ƒg‘ª’è’P‘Ì“®ìŽž‚Í SitePR ‹ÖŽ~ ---------- } ---------- */
+/* modified 2009.06.05 hmenjo ï¼‘ãƒã‚¤ãƒ³ãƒˆæ¸¬å®šå˜ä½“å‹•ä½œæ™‚ã¯ SitePR ç¦æ­¢ ---------- } ---------- */
 // 2009.06.10 K.Matsuo -->
 	if ((l_SystemConfig->nPRMethod <=0 || l_SystemConfig->bSitePatternRec != TRUE) || (TRANSI_MASTER == m_dwParentTransi)) {
 // 2009.06.10 K.Matsuo <--
-		// ƒTƒCƒgƒpƒ^[ƒ“ˆ—ŽÀŽ{‚µ‚È‚¢
+		// ã‚µã‚¤ãƒˆãƒ‘ã‚¿ãƒ¼ãƒ³å‡¦ç†å®Ÿæ–½ã—ãªã„
 		TransiEvent(EV_SR1P_SITEPR_NONE, pEvParams);
 
 		return;
 	}
 
-	// ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh”»’è -------------------------------------------
+	// ãƒãƒ¼ãƒ‰ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ãƒˆãƒ¢ãƒ¼ãƒ‰åˆ¤å®š -------------------------------------------
 	if (0 != ((CMainFrame*) (((CChiefView*) m_pcChiefView)->m_pcMainFrame))->HardwareSimulation()) {
-		// ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh‚¾‚Á‚½‚Ì‚ÅCƒTƒCƒgƒpƒ^[ƒ“ƒpƒX
-		// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV
+		// ãƒãƒ¼ãƒ‰ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ãƒˆãƒ¢ãƒ¼ãƒ‰ã ã£ãŸã®ã§ï¼Œã‚µã‚¤ãƒˆãƒ‘ã‚¿ãƒ¼ãƒ³ãƒ‘ã‚¹
+		// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–°
 		TransiEvent(EV_SR1P_SITEPR_NONE, pEvParams);
 
 		return;
 	}
 
-	// ƒƒCƒ“ƒŒƒVƒs‚ðŽæ“¾
+	// ãƒ¡ã‚¤ãƒ³ãƒ¬ã‚·ãƒ”ã‚’å–å¾—
 	LPMAIN_RCP_INFO l_pMainRcpInfo = (LPMAIN_RCP_INFO) (((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pMainRcpInfo);
 
-	// ƒXƒe[ƒWƒvƒƒOƒ‰ƒ€
+	// ã‚¹ãƒ†ãƒ¼ã‚¸ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
 	LPSTAGE_PROG_INFO_HDR l_pStageProgInfoHdr = (LPSTAGE_PROG_INFO_HDR) (((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pStageProgInfoHdr);
 
-	// ƒTƒCƒgƒpƒ^[ƒ“ ƒe[ƒuƒ‹
+	// ã‚µã‚¤ãƒˆãƒ‘ã‚¿ãƒ¼ãƒ³ ãƒ†ãƒ¼ãƒ–ãƒ«
 	LPSITE_PATTERN l_pSitePattern = (LPSITE_PATTERN) (((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pSitePattern);
 
-	// ‰æ–Ê‚©‚ç‚Ì“®ì—L–³Žw’èƒ`ƒFƒbƒN
-	//	 ƒTƒCƒgƒpƒ^[ƒ“ŽÀŽ{‚·‚é‚©H î•ñ‚ðƒXƒe[ƒW‚o‚f‚l‚©‚çŽæ“¾‚·‚é
+	// ç”»é¢ã‹ã‚‰ã®å‹•ä½œæœ‰ç„¡æŒ‡å®šãƒã‚§ãƒƒã‚¯
+	//	 ã‚µã‚¤ãƒˆãƒ‘ã‚¿ãƒ¼ãƒ³å®Ÿæ–½ã™ã‚‹ã‹ï¼Ÿ æƒ…å ±ã‚’ã‚¹ãƒ†ãƒ¼ã‚¸ï¼°ï¼§ï¼­ã‹ã‚‰å–å¾—ã™ã‚‹
 	switch(l_pStageProgInfoHdr->nSitePatternMode) {
 	case SITE_PR_MODE_USE_PR:					// correct with use pattern recognition
 
-		// ‘ª’èƒ|ƒCƒ“ƒg‚Æ‚µ‚Ä‚Ì‘ª’è—L–³ƒ`ƒFƒbƒN(‚·‚é/‚µ‚È‚¢ ‚©‚Â ‘ª’èƒpƒ^[ƒ“‚Ì“o˜^—L–³)
+		// æ¸¬å®šãƒã‚¤ãƒ³ãƒˆã¨ã—ã¦ã®æ¸¬å®šæœ‰ç„¡ãƒã‚§ãƒƒã‚¯(ã™ã‚‹/ã—ãªã„ ã‹ã¤ æ¸¬å®šãƒ‘ã‚¿ãƒ¼ãƒ³ã®ç™»éŒ²æœ‰ç„¡)
 		if((l_pSitePattern[m_dwPointNo-1].bEnable == TRUE)
 		&& ((strlen(l_pSitePattern[m_dwPointNo-1].PatternInfo[0].szSitePatternName) != 0)
 		 || (strlen(l_pSitePattern[m_dwPointNo-1].PatternInfo[1].szSitePatternName) != 0))){
-			// ƒTƒCƒgƒpƒ^[ƒ“ˆ—ŽÀŽ{‚·‚é
+			// ã‚µã‚¤ãƒˆãƒ‘ã‚¿ãƒ¼ãƒ³å‡¦ç†å®Ÿæ–½ã™ã‚‹
 			TransiEvent(EV_SR1P_SITEPR_AUTO, pEvParams);
 		}
 		else {
-			// ƒTƒCƒgƒpƒ^[ƒ“ˆ—ŽÀŽ{‚µ‚È‚¢
+			// ã‚µã‚¤ãƒˆãƒ‘ã‚¿ãƒ¼ãƒ³å‡¦ç†å®Ÿæ–½ã—ãªã„
 			TransiEvent(EV_SR1P_SITEPR_NONE, pEvParams);
 		}
 		break;
 
 	case SITE_PR_MODE_NO_PR:					// correct with no pattern recognition
 	default:
-		// ƒTƒCƒgƒpƒ^[ƒ“ˆ—ŽÀŽ{‚µ‚È‚¢
+		// ã‚µã‚¤ãƒˆãƒ‘ã‚¿ãƒ¼ãƒ³å‡¦ç†å®Ÿæ–½ã—ãªã„
 		TransiEvent(EV_SR1P_SITEPR_NONE);
 
 		break;
@@ -611,7 +611,7 @@ void CChiefTransiSr1Point::enter_ST_SR1P_SITEPR_START(const cEventParams* const 
 }
 
 /*
- *	SitePR ƒI[ƒgŠ®—¹‘Ò‚¿
+ *	SitePR ã‚ªãƒ¼ãƒˆå®Œäº†å¾…ã¡
  */
 void CChiefTransiSr1Point::enter_ST_SR1P_SITEPR_AUTO(const cEventParams* const pEvParams)
 {
@@ -620,10 +620,10 @@ void CChiefTransiSr1Point::enter_ST_SR1P_SITEPR_AUTO(const cEventParams* const p
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_SITEPR_AUTO_ING);	// Status Bar
 
 	/*
-	 *	ƒRƒR‚ÉSitePRƒI[ƒg‚Ì‹N“®ˆ—‚ð“ü‚ê‚Ä‚­‚¾‚³‚¢D
+	 *	ã‚³ã‚³ã«SitePRã‚ªãƒ¼ãƒˆã®èµ·å‹•å‡¦ç†ã‚’å…¥ã‚Œã¦ãã ã•ã„ï¼Ž
 	 */
 // 2009.05.16 myanagida -->
-	// ƒTƒCƒgƒpƒ^[ƒ“ ƒe[ƒuƒ‹
+	// ã‚µã‚¤ãƒˆãƒ‘ã‚¿ãƒ¼ãƒ³ ãƒ†ãƒ¼ãƒ–ãƒ«
 	LPSITE_PATTERN l_pSitePattern = (LPSITE_PATTERN) (((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pSitePattern);
 
 	m_pSitePtSeq = (CSitePtSeq*)AfxBeginThread(RUNTIME_CLASS(CSitePtAutoSeq), THREAD_PRIORITY_NORMAL, 0, CREATE_SUSPENDED, NULL);
@@ -634,41 +634,41 @@ void CChiefTransiSr1Point::enter_ST_SR1P_SITEPR_AUTO(const cEventParams* const p
 	m_pSitePtSeq->ResumeThread();
 // 2009.05.16 myanagida <--
 
-	// WAIT ó‘Ô‚É‚·‚é‚½‚ßˆ—‚Í‚ ‚è‚Ü‚¹‚ñD
+	// WAIT çŠ¶æ…‹ã«ã™ã‚‹ãŸã‚å‡¦ç†ã¯ã‚ã‚Šã¾ã›ã‚“ï¼Ž
 }
 
 /*
- *	SitePR ƒI[ƒg OK Š®—¹(WAIT ó‘Ô–³‚µ)
+ *	SitePR ã‚ªãƒ¼ãƒˆ OK å®Œäº†(WAIT çŠ¶æ…‹ç„¡ã—)
  */
 void CChiefTransiSr1Point::enter_ST_SR1P_SITEPR_AUTO_OK(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_SR_1POINT_DISP[4], (DWORD) pEvParams);
 
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- { ---------- */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_SITEPR_AUTO_COMPLETE);	// Status Bar
-#else						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ----------			   */
+#else						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ----------			   */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(_T(" "));	// Status Bar
-#endif						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- } ---------- */
 
-	// ƒ^[ƒŒƒbƒg§Œä(ƒTƒCƒgƒpƒ^[ƒ“—pFƒƒCƒ“ƒŒƒVƒs‚Ì LensC‚ ‚é‚¢‚ÍCƒXƒe[ƒWƒvƒƒOƒ‰ƒ€‚Ì Lens)
-	//		‚±‚±‚Å‚ÍƒƒCƒ“ƒŒƒVƒs‚Ì Lens ‚ðŽg‚¢‚Ü‚·
-	//		‘O‰ñ‚ÌAF¬Œ÷^Ž¸”sŒ‹‰Ê‚ð—Dæ‚µA‚È‚é‚×‚­AF‚µ‚È‚¢‚æ‚¤‚É‚·‚éB
-	//		‚æ‚Á‚ÄAŽ–‘O‚ÉƒJƒŒƒ“ƒgƒŒƒ“ƒY‚Æ‚Ìƒ`ƒFƒbƒN‚ð‚µ‚Ä‚¨‚­
-	//		EEE‚Â‚Ü‚èA‘O‰ñAF¬Œ÷‚µ‚Ä‚¢‚ê‚ÎAÄAF‚µ‚ÄŽ¸”s‚É‚È‚é‚Ì‚ð–h‚¬‚½‚¢
-	//					  ‘O‰ñAFŽ¸”s‚µ‚Ä‚¢‚ê‚ÎAÄAF‚µ‚Ä‚àŽ¸”s‚É‚È‚é‰Â”\«‘å‚È‚Ì‚ÅA–³‘Ê‚É‚È‚éAFˆ—‚ð‚µ‚½‚­‚È‚¢‚½‚ß
+	// ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆåˆ¶å¾¡(ã‚µã‚¤ãƒˆãƒ‘ã‚¿ãƒ¼ãƒ³ç”¨ï¼šãƒ¡ã‚¤ãƒ³ãƒ¬ã‚·ãƒ”ã® Lensï¼Œã‚ã‚‹ã„ã¯ï¼Œã‚¹ãƒ†ãƒ¼ã‚¸ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã® Lens)
+	//		ã“ã“ã§ã¯ãƒ¡ã‚¤ãƒ³ãƒ¬ã‚·ãƒ”ã® Lens ã‚’ä½¿ã„ã¾ã™
+	//		å‰å›žã®AFæˆåŠŸï¼å¤±æ•—çµæžœã‚’å„ªå…ˆã—ã€ãªã‚‹ã¹ãAFã—ãªã„ã‚ˆã†ã«ã™ã‚‹ã€‚
+	//		ã‚ˆã£ã¦ã€äº‹å‰ã«ã‚«ãƒ¬ãƒ³ãƒˆãƒ¬ãƒ³ã‚ºã¨ã®ãƒã‚§ãƒƒã‚¯ã‚’ã—ã¦ãŠã
+	//		ãƒ»ãƒ»ãƒ»ã¤ã¾ã‚Šã€å‰å›žAFæˆåŠŸã—ã¦ã„ã‚Œã°ã€å†AFã—ã¦å¤±æ•—ã«ãªã‚‹ã®ã‚’é˜²ãŽãŸã„
+	//					  å‰å›žAFå¤±æ•—ã—ã¦ã„ã‚Œã°ã€å†AFã—ã¦ã‚‚å¤±æ•—ã«ãªã‚‹å¯èƒ½æ€§å¤§ãªã®ã§ã€ç„¡é§„ã«ãªã‚‹AFå‡¦ç†ã‚’ã—ãŸããªã„ãŸã‚
 	if ( IsCurrLensEqualsRecipeLens() ) {
-		// ƒJƒŒƒ“ƒgƒŒƒ“ƒY‚ÆƒŒƒVƒsƒŒƒ“ƒY‚ªˆê’v
+		// ã‚«ãƒ¬ãƒ³ãƒˆãƒ¬ãƒ³ã‚ºã¨ãƒ¬ã‚·ãƒ”ãƒ¬ãƒ³ã‚ºãŒä¸€è‡´
 		TransiEvent(EV_SR1P_SITEPR_PREP_MEAS);
 	}
 	else {
 // 2009.05.26 K.Matsuo SitePR -->
-		// ƒ^[ƒŒƒbƒg§Œä(‘ª’è—pF‘ª’èƒvƒƒOƒ‰ƒ€‚Ì Lens)
+		// ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆåˆ¶å¾¡(æ¸¬å®šç”¨ï¼šæ¸¬å®šãƒ—ãƒ­ã‚°ãƒ©ãƒ ã® Lens)
 		LPMEAS_PROG_INFO	l_pMeasProgInfo = (LPMEAS_PROG_INFO) (((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pMeasProgInfo);
-/* modified 2009.09.07 hmenjo ‘ª’è PGM ƒŒƒ“ƒY“Ço‚µ ---------- { ---------- */
+/* modified 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ¬ãƒ³ã‚ºèª­å‡ºã— ---------- { ---------- */
 //		((CChiefView*) m_pcChiefView)->SelectLens(l_pMeasProgInfo->ScanParams._SR.iLens);
-/* modified 2009.09.07 hmenjo ‘ª’è PGM ƒŒƒ“ƒY“Ço‚µ ----------				*/
+/* modified 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ¬ãƒ³ã‚ºèª­å‡ºã— ----------				*/
 		((CChiefView*) m_pcChiefView)->SelectLens(((CChiefView*) m_pcChiefView)->GetMeasLens(l_pMeasProgInfo->ScanParams.hdr.wHeadType));
-/* modified 2009.09.07 hmenjo ‘ª’è PGM ƒŒƒ“ƒY“Ço‚µ ---------- } ---------- */
+/* modified 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ¬ãƒ³ã‚ºèª­å‡ºã— ---------- } ---------- */
 // 2009.05.26 K.Matsuo SitePR <--
 
 		TransiEvent(EV_SR1P_AF_START, (cEventParams*) 0);
@@ -676,37 +676,37 @@ void CChiefTransiSr1Point::enter_ST_SR1P_SITEPR_AUTO_OK(const cEventParams* cons
 }
 
 /*
- *	SitePR ƒI[ƒgŽ¸”s‚Ì‚Ü‚Ü‘±s(WAIT ó‘Ô–³‚µ)
+ *	SitePR ã‚ªãƒ¼ãƒˆå¤±æ•—ã®ã¾ã¾ç¶šè¡Œ(WAIT çŠ¶æ…‹ç„¡ã—)
  */
 void CChiefTransiSr1Point::enter_ST_SR1P_SITEPR_AUTO_PROCEED(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_SR_1POINT_DISP[5], (DWORD) pEvParams);
 
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- { ---------- */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_SITEPR_AUTO_FAILED);	// Status Bar
-#else						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ----------			   */
+#else						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ----------			   */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(_T(" "));	// Status Bar
-#endif						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- } ---------- */
 
-	// ƒ^[ƒŒƒbƒg§Œä(ƒTƒCƒgƒpƒ^[ƒ“—pFƒƒCƒ“ƒŒƒVƒs‚Ì LensC‚ ‚é‚¢‚ÍCƒXƒe[ƒWƒvƒƒOƒ‰ƒ€‚Ì Lens)
-	//		‚±‚±‚Å‚ÍƒƒCƒ“ƒŒƒVƒs‚Ì Lens ‚ðŽg‚¢‚Ü‚·
-	//		‘O‰ñ‚ÌAF¬Œ÷^Ž¸”sŒ‹‰Ê‚ð—Dæ‚µA‚È‚é‚×‚­AF‚µ‚È‚¢‚æ‚¤‚É‚·‚éB
-	//		‚æ‚Á‚ÄAŽ–‘O‚ÉƒJƒŒƒ“ƒgƒŒƒ“ƒY‚Æ‚Ìƒ`ƒFƒbƒN‚ð‚µ‚Ä‚¨‚­
-	//		EEE‚Â‚Ü‚èA‘O‰ñAF¬Œ÷‚µ‚Ä‚¢‚ê‚ÎAÄAF‚µ‚ÄŽ¸”s‚É‚È‚é‚Ì‚ð–h‚¬‚½‚¢
-	//					  ‘O‰ñAFŽ¸”s‚µ‚Ä‚¢‚ê‚ÎAÄAF‚µ‚Ä‚àŽ¸”s‚É‚È‚é‰Â”\«‘å‚È‚Ì‚ÅA–³‘Ê‚É‚È‚éAFˆ—‚ð‚µ‚½‚­‚È‚¢‚½‚ß
+	// ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆåˆ¶å¾¡(ã‚µã‚¤ãƒˆãƒ‘ã‚¿ãƒ¼ãƒ³ç”¨ï¼šãƒ¡ã‚¤ãƒ³ãƒ¬ã‚·ãƒ”ã® Lensï¼Œã‚ã‚‹ã„ã¯ï¼Œã‚¹ãƒ†ãƒ¼ã‚¸ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã® Lens)
+	//		ã“ã“ã§ã¯ãƒ¡ã‚¤ãƒ³ãƒ¬ã‚·ãƒ”ã® Lens ã‚’ä½¿ã„ã¾ã™
+	//		å‰å›žã®AFæˆåŠŸï¼å¤±æ•—çµæžœã‚’å„ªå…ˆã—ã€ãªã‚‹ã¹ãAFã—ãªã„ã‚ˆã†ã«ã™ã‚‹ã€‚
+	//		ã‚ˆã£ã¦ã€äº‹å‰ã«ã‚«ãƒ¬ãƒ³ãƒˆãƒ¬ãƒ³ã‚ºã¨ã®ãƒã‚§ãƒƒã‚¯ã‚’ã—ã¦ãŠã
+	//		ãƒ»ãƒ»ãƒ»ã¤ã¾ã‚Šã€å‰å›žAFæˆåŠŸã—ã¦ã„ã‚Œã°ã€å†AFã—ã¦å¤±æ•—ã«ãªã‚‹ã®ã‚’é˜²ãŽãŸã„
+	//					  å‰å›žAFå¤±æ•—ã—ã¦ã„ã‚Œã°ã€å†AFã—ã¦ã‚‚å¤±æ•—ã«ãªã‚‹å¯èƒ½æ€§å¤§ãªã®ã§ã€ç„¡é§„ã«ãªã‚‹AFå‡¦ç†ã‚’ã—ãŸããªã„ãŸã‚
 	if ( IsCurrLensEqualsRecipeLens() ) {
-		// ƒJƒŒƒ“ƒgƒŒƒ“ƒY‚ÆƒŒƒVƒsƒŒƒ“ƒY‚ªˆê’v
+		// ã‚«ãƒ¬ãƒ³ãƒˆãƒ¬ãƒ³ã‚ºã¨ãƒ¬ã‚·ãƒ”ãƒ¬ãƒ³ã‚ºãŒä¸€è‡´
 		TransiEvent(EV_SR1P_SITEPR_PREP_MEAS);
 	}
 	else {
 // 2009.05.26 K.Matsuo SitePR -->
-		// ƒ^[ƒŒƒbƒg§Œä(‘ª’è—pF‘ª’èƒvƒƒOƒ‰ƒ€‚Ì Lens)
+		// ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆåˆ¶å¾¡(æ¸¬å®šç”¨ï¼šæ¸¬å®šãƒ—ãƒ­ã‚°ãƒ©ãƒ ã® Lens)
 		LPMEAS_PROG_INFO	l_pMeasProgInfo = (LPMEAS_PROG_INFO) (((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pMeasProgInfo);
-/* modified 2009.09.07 hmenjo ‘ª’è PGM ƒŒƒ“ƒY“Ço‚µ ---------- { ---------- */
+/* modified 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ¬ãƒ³ã‚ºèª­å‡ºã— ---------- { ---------- */
 //		((CChiefView*) m_pcChiefView)->SelectLens(l_pMeasProgInfo->ScanParams._SR.iLens);
-/* modified 2009.09.07 hmenjo ‘ª’è PGM ƒŒƒ“ƒY“Ço‚µ ----------				*/
+/* modified 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ¬ãƒ³ã‚ºèª­å‡ºã— ----------				*/
 		((CChiefView*) m_pcChiefView)->SelectLens(((CChiefView*) m_pcChiefView)->GetMeasLens(l_pMeasProgInfo->ScanParams.hdr.wHeadType));
-/* modified 2009.09.07 hmenjo ‘ª’è PGM ƒŒƒ“ƒY“Ço‚µ ---------- } ---------- */
+/* modified 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ¬ãƒ³ã‚ºèª­å‡ºã— ---------- } ---------- */
 // 2009.05.26 K.Matsuo SitePR <--
 
 		TransiEvent(EV_SR1P_AF_START, (cEventParams*) 0);
@@ -714,37 +714,37 @@ void CChiefTransiSr1Point::enter_ST_SR1P_SITEPR_AUTO_PROCEED(const cEventParams*
 }
 
 /*
- *	SitePR ƒI[ƒgŽ¸”s‚Ì‚Ü‚Ü‘±si‘OƒXƒeƒbƒvˆÊ’uj(WAIT ó‘Ô–³‚µ)
+ *	SitePR ã‚ªãƒ¼ãƒˆå¤±æ•—ã®ã¾ã¾ç¶šè¡Œï¼ˆå‰ã‚¹ãƒ†ãƒƒãƒ—ä½ç½®ï¼‰(WAIT çŠ¶æ…‹ç„¡ã—)
  */
 void CChiefTransiSr1Point::enter_ST_SR1P_SITEPR_AUTO_PROCEED_PRESTEP(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_SR_1POINT_DISP[6], (DWORD) pEvParams);
 
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- { ---------- */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_SITEPR_AUTO_FAILED);	// Status Bar
-#else						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ----------			   */
+#else						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ----------			   */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(_T(" "));	// Status Bar
-#endif						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- } ---------- */
 
 // 2009.06.30 K.Matsuo SitePR Delete -->
-//	// AutoFocusŒãAƒXƒe[ƒWˆÚ“®‚µ‚Ä‚¢‚é‚Ì‚ÅAÄAF‚ª•K—v‚Èˆµ‚¢‚Æ‚·‚éB
-//	// ‚È‚Ì‚ÅA–³ðŒiƒJƒŒƒ“ƒgƒŒƒ“ƒY‚ÆƒŒƒVƒsƒŒƒ“ƒY‚Ìƒ`ƒFƒbƒN‚Í‚µ‚È‚¢j‚ÅAAFˆ—‚ðŽÀŽ{‚·‚éB
+//	// AutoFocuså¾Œã€ã‚¹ãƒ†ãƒ¼ã‚¸ç§»å‹•ã—ã¦ã„ã‚‹ã®ã§ã€å†AFãŒå¿…è¦ãªæ‰±ã„ã¨ã™ã‚‹ã€‚
+//	// ãªã®ã§ã€ç„¡æ¡ä»¶ï¼ˆã‚«ãƒ¬ãƒ³ãƒˆãƒ¬ãƒ³ã‚ºã¨ãƒ¬ã‚·ãƒ”ãƒ¬ãƒ³ã‚ºã®ãƒã‚§ãƒƒã‚¯ã¯ã—ãªã„ï¼‰ã§ã€AFå‡¦ç†ã‚’å®Ÿæ–½ã™ã‚‹ã€‚
 // 2009.06.30 K.Matsuo SitePR Delete <--
 
 // 2009.06.30 K.Matsuo SitePR Add -->
-// ƒŒƒVƒsƒŒƒ“ƒY‚É•ÏX‚µ‚½ã‚ÅA•K‚¸AFˆ—‚ðŽÀŽ{‚·‚éB
+// ãƒ¬ã‚·ãƒ”ãƒ¬ãƒ³ã‚ºã«å¤‰æ›´ã—ãŸä¸Šã§ã€å¿…ãšAFå‡¦ç†ã‚’å®Ÿæ–½ã™ã‚‹ã€‚
 	if ( IsCurrLensEqualsRecipeLens() ) {
-		// ƒJƒŒƒ“ƒgƒŒƒ“ƒY‚ÆƒŒƒVƒsƒŒƒ“ƒY‚ªˆê’v
+		// ã‚«ãƒ¬ãƒ³ãƒˆãƒ¬ãƒ³ã‚ºã¨ãƒ¬ã‚·ãƒ”ãƒ¬ãƒ³ã‚ºãŒä¸€è‡´
 		;
 	}
 	else {
-		// ƒ^[ƒŒƒbƒg§Œä(‘ª’è—pF‘ª’èƒvƒƒOƒ‰ƒ€‚Ì Lens)
+		// ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆåˆ¶å¾¡(æ¸¬å®šç”¨ï¼šæ¸¬å®šãƒ—ãƒ­ã‚°ãƒ©ãƒ ã® Lens)
 		LPMEAS_PROG_INFO	l_pMeasProgInfo = (LPMEAS_PROG_INFO) (((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pMeasProgInfo);
-/* modified 2009.09.07 hmenjo ‘ª’è PGM ƒŒƒ“ƒY“Ço‚µ ---------- { ---------- */
+/* modified 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ¬ãƒ³ã‚ºèª­å‡ºã— ---------- { ---------- */
 //		((CChiefView*) m_pcChiefView)->SelectLens(l_pMeasProgInfo->ScanParams._SR.iLens);
-/* modified 2009.09.07 hmenjo ‘ª’è PGM ƒŒƒ“ƒY“Ço‚µ ----------				*/
+/* modified 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ¬ãƒ³ã‚ºèª­å‡ºã— ----------				*/
 		((CChiefView*) m_pcChiefView)->SelectLens(((CChiefView*) m_pcChiefView)->GetMeasLens(l_pMeasProgInfo->ScanParams.hdr.wHeadType));
-/* modified 2009.09.07 hmenjo ‘ª’è PGM ƒŒƒ“ƒY“Ço‚µ ---------- } ---------- */
+/* modified 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ¬ãƒ³ã‚ºèª­å‡ºã— ---------- } ---------- */
 	}
 // 2009.06.30 K.Matsuo SitePR Add <--
 
@@ -753,28 +753,28 @@ void CChiefTransiSr1Point::enter_ST_SR1P_SITEPR_AUTO_PROCEED_PRESTEP(const cEven
 }
 
 /*
- *	SitePR ƒI[ƒgƒŒƒVƒsI—¹(WAIT ó‘Ô–³‚µ)
+ *	SitePR ã‚ªãƒ¼ãƒˆãƒ¬ã‚·ãƒ”çµ‚äº†(WAIT çŠ¶æ…‹ç„¡ã—)
  */
 void CChiefTransiSr1Point::enter_ST_SR1P_SITEPR_AUTO_CANCEL(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_SR_1POINT_DISP[7], (DWORD) pEvParams);
 
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- { ---------- */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_SITEPR_AUTO_CANCEL);	// Status Bar
-#else						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ----------			   */
+#else						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ----------			   */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(_T(" "));	// Status Bar
-#endif						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- } ---------- */
 
 	TransiEvent(EV_SR1P_IDLE);
 
 // 2009.05.25 K.Matsuo SitePR -->
-	// ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ð’Ê’m
+	// å‘¼å‡ºå…ƒãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥
 	NotifyComplete((cEventParams*) TR_SR1P_MEAS_ERR);
 // 2009.05.25 K.Matsuo SitePR <--
 }
 
 /*
- *	SitePR ƒ}ƒjƒ…ƒAƒ‹Š®—¹‘Ò‚¿
+ *	SitePR ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«å®Œäº†å¾…ã¡
  */
 void CChiefTransiSr1Point::enter_ST_SR1P_SITEPR_MANU(const cEventParams* const pEvParams)
 {
@@ -783,26 +783,26 @@ void CChiefTransiSr1Point::enter_ST_SR1P_SITEPR_MANU(const cEventParams* const p
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_SITEPR_MANU_ING);	// Status Bar
 
 	/*
-	 *	ƒRƒR‚ÉSitePRƒ}ƒjƒ…ƒAƒ‹‚Ì‹N“®ˆ—‚ð“ü‚ê‚Ä‚­‚¾‚³‚¢D
+	 *	ã‚³ã‚³ã«SitePRãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ã®èµ·å‹•å‡¦ç†ã‚’å…¥ã‚Œã¦ãã ã•ã„ï¼Ž
 	 */
 // 2009.06.30 K.Matsuo SitePR Add -->
-// ƒŒƒVƒsƒŒƒ“ƒY‚É•ÏX‚µ‚½ã‚ÅA•K‚¸AFˆ—‚ðŽÀŽ{‚·‚éB
+// ãƒ¬ã‚·ãƒ”ãƒ¬ãƒ³ã‚ºã«å¤‰æ›´ã—ãŸä¸Šã§ã€å¿…ãšAFå‡¦ç†ã‚’å®Ÿæ–½ã™ã‚‹ã€‚
 	if ( IsCurrLensEqualsRecipeLens() ) {
-		// ƒJƒŒƒ“ƒgƒŒƒ“ƒY‚ÆƒŒƒVƒsƒŒƒ“ƒY‚ªˆê’v
+		// ã‚«ãƒ¬ãƒ³ãƒˆãƒ¬ãƒ³ã‚ºã¨ãƒ¬ã‚·ãƒ”ãƒ¬ãƒ³ã‚ºãŒä¸€è‡´
 		;
 	}
 	else {
-		// ƒ^[ƒŒƒbƒg§Œä(‘ª’è—pF‘ª’èƒvƒƒOƒ‰ƒ€‚Ì Lens)
+		// ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆåˆ¶å¾¡(æ¸¬å®šç”¨ï¼šæ¸¬å®šãƒ—ãƒ­ã‚°ãƒ©ãƒ ã® Lens)
 		LPMEAS_PROG_INFO	l_pMeasProgInfo = (LPMEAS_PROG_INFO) (((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pMeasProgInfo);
-/* modified 2009.09.07 hmenjo ‘ª’è PGM ƒŒƒ“ƒY“Ço‚µ ---------- { ---------- */
+/* modified 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ¬ãƒ³ã‚ºèª­å‡ºã— ---------- { ---------- */
 //		((CChiefView*) m_pcChiefView)->SelectLens(l_pMeasProgInfo->ScanParams._SR.iLens);
-/* modified 2009.09.07 hmenjo ‘ª’è PGM ƒŒƒ“ƒY“Ço‚µ ----------				*/
+/* modified 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ¬ãƒ³ã‚ºèª­å‡ºã— ----------				*/
 		((CChiefView*) m_pcChiefView)->SelectLens(((CChiefView*) m_pcChiefView)->GetMeasLens(l_pMeasProgInfo->ScanParams.hdr.wHeadType));
-/* modified 2009.09.07 hmenjo ‘ª’è PGM ƒŒƒ“ƒY“Ço‚µ ---------- } ---------- */
+/* modified 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ¬ãƒ³ã‚ºèª­å‡ºã— ---------- } ---------- */
 	}
 // 2009.06.30 K.Matsuo SitePR Add <--
 // 2009.05.16 myanagida -->
-	// ƒTƒCƒgƒpƒ^[ƒ“ ƒe[ƒuƒ‹
+	// ã‚µã‚¤ãƒˆãƒ‘ã‚¿ãƒ¼ãƒ³ ãƒ†ãƒ¼ãƒ–ãƒ«
 	LPSITE_PATTERN l_pSitePattern = (LPSITE_PATTERN) (((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pSitePattern);
 
 	m_pSitePtSeq = (CSitePtSeq*)AfxBeginThread(RUNTIME_CLASS(CSitePtManualSeq), THREAD_PRIORITY_NORMAL, 0, CREATE_SUSPENDED, NULL);
@@ -812,48 +812,48 @@ void CChiefTransiSr1Point::enter_ST_SR1P_SITEPR_MANU(const cEventParams* const p
 	m_pSitePtSeq->m_pSitePattern 		= &l_pSitePattern[m_dwPointNo-1];
 	m_pSitePtSeq->ResumeThread();
 
-	// ƒ|ƒbƒvƒAƒbƒv‚ðƒAƒ‰[ƒ€‚Å’Ê’m‚µ‚Ü‚·D
+	// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã‚’ã‚¢ãƒ©ãƒ¼ãƒ ã§é€šçŸ¥ã—ã¾ã™ï¼Ž
 	if (HOST_LOCAL != ((CNanoSpecDoc*) (((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc))->GetHostMode()) {
 		((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_OFF), MAKEWORD(1, CHRAMSG_OK)), MAKELPARAM(0, ALID_ManualSitePatternRequired));
 	}
 
 // 2009.05.16 myanagida <--
 
-	// WAIT ó‘Ô‚É‚·‚é‚½‚ßˆ—‚Í‚ ‚è‚Ü‚¹‚ñD
+	// WAIT çŠ¶æ…‹ã«ã™ã‚‹ãŸã‚å‡¦ç†ã¯ã‚ã‚Šã¾ã›ã‚“ï¼Ž
 }
 
 /*
- *	SitePR ƒ}ƒjƒ…ƒAƒ‹ OK Š®—¹(WAIT ó‘Ô–³‚µ)
+ *	SitePR ãƒžãƒ‹ãƒ¥ã‚¢ãƒ« OK å®Œäº†(WAIT çŠ¶æ…‹ç„¡ã—)
  */
 void CChiefTransiSr1Point::enter_ST_SR1P_SITEPR_MANU_OK(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_SR_1POINT_DISP[9], (DWORD) pEvParams);
 
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- { ---------- */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_SITEPR_MANU_COMPLETE);	// Status Bar
-#else						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ----------			   */
+#else						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ----------			   */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(_T(" "));	// Status Bar
-#endif						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- } ---------- */
 
-	// ƒ^[ƒŒƒbƒg§Œä(ƒTƒCƒgƒpƒ^[ƒ“—pFƒƒCƒ“ƒŒƒVƒs‚Ì LensC‚ ‚é‚¢‚ÍCƒXƒe[ƒWƒvƒƒOƒ‰ƒ€‚Ì Lens)
-	//		‚±‚±‚Å‚ÍƒƒCƒ“ƒŒƒVƒs‚Ì Lens ‚ðŽg‚¢‚Ü‚·
-	//		‘O‰ñ‚ÌAF¬Œ÷^Ž¸”sŒ‹‰Ê‚ð—Dæ‚µA‚È‚é‚×‚­AF‚µ‚È‚¢‚æ‚¤‚É‚·‚éB
-	//		‚æ‚Á‚ÄAŽ–‘O‚ÉƒJƒŒƒ“ƒgƒŒƒ“ƒY‚Æ‚Ìƒ`ƒFƒbƒN‚ð‚µ‚Ä‚¨‚­
-	//		EEE‚Â‚Ü‚èA‘O‰ñAF¬Œ÷‚µ‚Ä‚¢‚ê‚ÎAÄAF‚µ‚ÄŽ¸”s‚É‚È‚é‚Ì‚ð–h‚¬‚½‚¢
-	//					  ‘O‰ñAFŽ¸”s‚µ‚Ä‚¢‚ê‚ÎAÄAF‚µ‚Ä‚àŽ¸”s‚É‚È‚é‰Â”\«‘å‚È‚Ì‚ÅA–³‘Ê‚É‚È‚éAFˆ—‚ð‚µ‚½‚­‚È‚¢‚½‚ß
+	// ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆåˆ¶å¾¡(ã‚µã‚¤ãƒˆãƒ‘ã‚¿ãƒ¼ãƒ³ç”¨ï¼šãƒ¡ã‚¤ãƒ³ãƒ¬ã‚·ãƒ”ã® Lensï¼Œã‚ã‚‹ã„ã¯ï¼Œã‚¹ãƒ†ãƒ¼ã‚¸ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã® Lens)
+	//		ã“ã“ã§ã¯ãƒ¡ã‚¤ãƒ³ãƒ¬ã‚·ãƒ”ã® Lens ã‚’ä½¿ã„ã¾ã™
+	//		å‰å›žã®AFæˆåŠŸï¼å¤±æ•—çµæžœã‚’å„ªå…ˆã—ã€ãªã‚‹ã¹ãAFã—ãªã„ã‚ˆã†ã«ã™ã‚‹ã€‚
+	//		ã‚ˆã£ã¦ã€äº‹å‰ã«ã‚«ãƒ¬ãƒ³ãƒˆãƒ¬ãƒ³ã‚ºã¨ã®ãƒã‚§ãƒƒã‚¯ã‚’ã—ã¦ãŠã
+	//		ãƒ»ãƒ»ãƒ»ã¤ã¾ã‚Šã€å‰å›žAFæˆåŠŸã—ã¦ã„ã‚Œã°ã€å†AFã—ã¦å¤±æ•—ã«ãªã‚‹ã®ã‚’é˜²ãŽãŸã„
+	//					  å‰å›žAFå¤±æ•—ã—ã¦ã„ã‚Œã°ã€å†AFã—ã¦ã‚‚å¤±æ•—ã«ãªã‚‹å¯èƒ½æ€§å¤§ãªã®ã§ã€ç„¡é§„ã«ãªã‚‹AFå‡¦ç†ã‚’ã—ãŸããªã„ãŸã‚
 	if ( IsCurrLensEqualsRecipeLens() ) {
-		// ƒJƒŒƒ“ƒgƒŒƒ“ƒY‚ÆƒŒƒVƒsƒŒƒ“ƒY‚ªˆê’v
+		// ã‚«ãƒ¬ãƒ³ãƒˆãƒ¬ãƒ³ã‚ºã¨ãƒ¬ã‚·ãƒ”ãƒ¬ãƒ³ã‚ºãŒä¸€è‡´
 		TransiEvent(EV_SR1P_SITEPR_PREP_MEAS);
 	}
 	else {
 // 2009.05.26 K.Matsuo SitePR -->
-		// ƒ^[ƒŒƒbƒg§Œä(‘ª’è—pF‘ª’èƒvƒƒOƒ‰ƒ€‚Ì Lens)
+		// ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆåˆ¶å¾¡(æ¸¬å®šç”¨ï¼šæ¸¬å®šãƒ—ãƒ­ã‚°ãƒ©ãƒ ã® Lens)
 		LPMEAS_PROG_INFO	l_pMeasProgInfo = (LPMEAS_PROG_INFO) (((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pMeasProgInfo);
-/* modified 2009.09.07 hmenjo ‘ª’è PGM ƒŒƒ“ƒY“Ço‚µ ---------- { ---------- */
+/* modified 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ¬ãƒ³ã‚ºèª­å‡ºã— ---------- { ---------- */
 //		((CChiefView*) m_pcChiefView)->SelectLens(l_pMeasProgInfo->ScanParams._SR.iLens);
-/* modified 2009.09.07 hmenjo ‘ª’è PGM ƒŒƒ“ƒY“Ço‚µ ----------				*/
+/* modified 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ¬ãƒ³ã‚ºèª­å‡ºã— ----------				*/
 		((CChiefView*) m_pcChiefView)->SelectLens(((CChiefView*) m_pcChiefView)->GetMeasLens(l_pMeasProgInfo->ScanParams.hdr.wHeadType));
-/* modified 2009.09.07 hmenjo ‘ª’è PGM ƒŒƒ“ƒY“Ço‚µ ---------- } ---------- */
+/* modified 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ¬ãƒ³ã‚ºèª­å‡ºã— ---------- } ---------- */
 // 2009.05.26 K.Matsuo SitePR <--
 
 		TransiEvent(EV_SR1P_AF_START, (cEventParams*) 0);
@@ -861,41 +861,41 @@ void CChiefTransiSr1Point::enter_ST_SR1P_SITEPR_MANU_OK(const cEventParams* cons
 }
 
 /*
- *	SitePR ƒ}ƒjƒ…ƒAƒ‹ƒŒƒVƒsI—¹(WAIT ó‘Ô–³‚µ)
+ *	SitePR ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ¬ã‚·ãƒ”çµ‚äº†(WAIT çŠ¶æ…‹ç„¡ã—)
  */
 void CChiefTransiSr1Point::enter_ST_SR1P_SITEPR_MANU_CANCEL(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_SR_1POINT_DISP[10], (DWORD) pEvParams);
 
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- { ---------- */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_SITEPR_MANU_CANCEL);	// Status Bar
-#else						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ----------			   */
+#else						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ----------			   */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(_T(" "));	// Status Bar
-#endif						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- } ---------- */
 
 	TransiEvent(EV_SR1P_IDLE);
 
 // 2009.05.25 K.Matsuo SitePR -->
-	// ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ð’Ê’m
+	// å‘¼å‡ºå…ƒãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥
 	NotifyComplete((cEventParams*) TR_SR1P_MEAS_ERR);
 // 2009.05.25 K.Matsuo SitePR <--
 }
 
 /*
- *	SitePR I—¹ ¨ ‘ª’è‘O‚Ì€”õˆ—(WAIT ó‘Ô–³‚µ)
+ *	SitePR çµ‚äº† â†’ æ¸¬å®šå‰ã®æº–å‚™å‡¦ç†(WAIT çŠ¶æ…‹ç„¡ã—)
  */
 void CChiefTransiSr1Point::enter_ST_SR1P_SITEPR_PREP_MEAS(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_SR_1POINT_DISP[11], (DWORD) pEvParams);
 
-	// ƒJƒ‰[ƒtƒBƒ‹ƒ^§Œä(‘ª’è—pF‘ª’èƒvƒƒOƒ‰ƒ€‚Ì OpticalFilter)
+	// ã‚«ãƒ©ãƒ¼ãƒ•ã‚£ãƒ«ã‚¿åˆ¶å¾¡(æ¸¬å®šç”¨ï¼šæ¸¬å®šãƒ—ãƒ­ã‚°ãƒ©ãƒ ã® OpticalFilter)
 	LPMEAS_PROG_INFO	l_pMeasProgInfo = (LPMEAS_PROG_INFO) (((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pMeasProgInfo);
-/* modified 2009.09.07 hmenjo ‘ª’è PGM ƒtƒBƒ‹ƒ^“Ço‚µ ---------- { ---------- */
+/* modified 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ•ã‚£ãƒ«ã‚¿èª­å‡ºã— ---------- { ---------- */
 //	if (0 == MEAS_SrHead_ChangeCcdShutter(l_pMeasProgInfo->ScanParams._SR.wOpticsFilterType)) {
-/* modified 2009.09.07 hmenjo ‘ª’è PGM ƒtƒBƒ‹ƒ^“Ço‚µ ----------			  */
+/* modified 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ•ã‚£ãƒ«ã‚¿èª­å‡ºã— ----------			  */
 	if (0 == MEAS_SrHead_ChangeCcdShutter(((CChiefView*) m_pcChiefView)->GetMeasFilter(l_pMeasProgInfo->ScanParams.hdr.wHeadType))) {
-/* modified 2009.09.07 hmenjo ‘ª’è PGM ƒtƒBƒ‹ƒ^“Ço‚µ ---------- } ---------- */
-		// ˆÙíŽž‚Å‚à–³Ž‹‚µ‚Ü‚·D
+/* modified 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ•ã‚£ãƒ«ã‚¿èª­å‡ºã— ---------- } ---------- */
+		// ç•°å¸¸æ™‚ã§ã‚‚ç„¡è¦–ã—ã¾ã™ï¼Ž
 		((CChiefView*) m_pcChiefView)->LogChief(_T("Failed to MEAS_SrHead_ChangeCcdShutter() in CChiefTransiSr1Point::enter_ST_SR1P_AF_DONE()."));
 	}
 
@@ -905,84 +905,84 @@ void CChiefTransiSr1Point::enter_ST_SR1P_SITEPR_PREP_MEAS(const cEventParams* co
 // 2009.05.11 K.Matsuo SitePR <--
 
 /*
- *	‘ª’èƒ|ƒCƒ“ƒg‚yŽ²ˆÚ“®Š®—¹‘Ò‚¿(WAIT ó‘Ô–³‚µ)
+ *	æ¸¬å®šãƒã‚¤ãƒ³ãƒˆï¼ºè»¸ç§»å‹•å®Œäº†å¾…ã¡(WAIT çŠ¶æ…‹ç„¡ã—)
  */
 void CChiefTransiSr1Point::enter_ST_SR1P_ZMOVE(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_SR_1POINT_DISP[12], (DWORD) pEvParams);
 
-#if 0 // 2009.05.21 K.Matsuo ˆÚ“®‚µ‚Ü‚µ‚½i enter_ST_SR1P_SITEPR_START j
-	// ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ð•Û‘¶
+#if 0 // 2009.05.21 K.Matsuo ç§»å‹•ã—ã¾ã—ãŸï¼ˆ enter_ST_SR1P_SITEPR_START ï¼‰
+	// å‘¼å‡ºå…ƒãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’ä¿å­˜
 	m_dwParentTransi = LOWORD((DWORD) pEvParams);
-	// ‘ª’èƒ|ƒCƒ“ƒg”Ô†‚ð•Û‘¶
+	// æ¸¬å®šãƒã‚¤ãƒ³ãƒˆç•ªå·ã‚’ä¿å­˜
 	m_dwPointNo = HIWORD((DWORD) pEvParams);
 #endif // 0
 
-	// ‚±‚ÌƒuƒƒbƒN‚Í‰¼•Ï”‚Ì’è‹`‚Å‚·¨ -----------------------------------------------------------------------------------------------
-		BOOL	l_bAF = TRUE;	// Z Ž²ˆÚ“®‚·‚é(AF ‚µ‚È‚¢Ý’è‚Ìê‡)
-	//	long	l_lZPos = 10;		// Z Ž²ˆÊ’u
-	// ‚±‚ÌƒuƒƒbƒN‚Í‰¼•Ï”‚Ì’è‹`‚Å‚·© -----------------------------------------------------------------------------------------------
+	// ã“ã®ãƒ–ãƒ­ãƒƒã‚¯ã¯ä»®å¤‰æ•°ã®å®šç¾©ã§ã™â†’ -----------------------------------------------------------------------------------------------
+		BOOL	l_bAF = TRUE;	// Z è»¸ç§»å‹•ã™ã‚‹(AF ã—ãªã„è¨­å®šã®å ´åˆ)
+	//	long	l_lZPos = 10;		// Z è»¸ä½ç½®
+	// ã“ã®ãƒ–ãƒ­ãƒƒã‚¯ã¯ä»®å¤‰æ•°ã®å®šç¾©ã§ã™â† -----------------------------------------------------------------------------------------------
 	EEPROMDATA	l_E2pRomParams;
 	StageGetEEPromData(&l_E2pRomParams);
-	long l_lZPos = l_E2pRomParams.AutoFocus.InitPos;	// Z Ž²‚Ì‰Šú‰»’âŽ~ˆÊ’u
-	long l_lZPosPpU = l_E2pRomParams.AutoFocus.ppu;	// Z Ž²‚Ì‰Šú‰»’âŽ~ˆÊ’uƒtƒ@ƒNƒ^
+	long l_lZPos = l_E2pRomParams.AutoFocus.InitPos;	// Z è»¸ã®åˆæœŸåŒ–åœæ­¢ä½ç½®
+	long l_lZPosPpU = l_E2pRomParams.AutoFocus.ppu;	// Z è»¸ã®åˆæœŸåŒ–åœæ­¢ä½ç½®ãƒ•ã‚¡ã‚¯ã‚¿
 
-	// XY À•WˆÊ’u‹L‰¯
+	// XY åº§æ¨™ä½ç½®è¨˜æ†¶
 	m_MeasPosXYZ.lX = m_MeasPosbufXYZ.lX;
 	m_MeasPosXYZ.lY = m_MeasPosbufXYZ.lY;
 
-	// ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh”»’è -------------------------------------------
+	// ãƒãƒ¼ãƒ‰ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ãƒˆãƒ¢ãƒ¼ãƒ‰åˆ¤å®š -------------------------------------------
 	if (0 != ((CMainFrame*) (((CChiefView*) m_pcChiefView)->m_pcMainFrame))->HardwareSimulation()) {
-		// ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh‚¾‚Á‚½‚Ì‚ÅC‘ª’èŠ®—¹‘Ò‚¿ ‚Ö
+		// ãƒãƒ¼ãƒ‰ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ãƒˆãƒ¢ãƒ¼ãƒ‰ã ã£ãŸã®ã§ï¼Œæ¸¬å®šå®Œäº†å¾…ã¡ ã¸
 		m_MeasPosXYZ.lZ = 0;
-		// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV
+		// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–°
 		TransiEvent(EV_SR1P_MEAS_START);
 	} else {
-		// ŽÀ‹@‚Ìê‡ ---------------------------------------------------------
-		// AF —v/•s—v”»’è
+		// å®Ÿæ©Ÿã®å ´åˆ ---------------------------------------------------------
+		// AF è¦/ä¸è¦åˆ¤å®š
 		LPMAIN_RCP_INFO l_pMainRcpInfo = (LPMAIN_RCP_INFO) (((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pMainRcpInfo);
-/* modified 2009.10.29 hmenjo CTA AF –³‚µCZ Ž²‘Þ”ðˆÊ’u ---------- { ---------- */
-///* modified 2009.09.29 hmenjo Head –ˆ Main Rcp Inf “Ço‚µ ---------- { ---------- */
+/* modified 2009.10.29 hmenjo CTA AF ç„¡ã—ï¼ŒZ è»¸é€€é¿ä½ç½® ---------- { ---------- */
+///* modified 2009.09.29 hmenjo Head æ¯Ž Main Rcp Inf èª­å‡ºã— ---------- { ---------- */
 ////		if ((0 == l_pMainRcpInfo->MainRcpParam._SR.nFocus) || ((1 == l_pMainRcpInfo->MainRcpParam._SR.nFocus) && (1 != m_dwPointNo))) {
-////			// •s—v
-////			m_dwAFValid = 0;	// AF –³‚µ
-////			// (‘S“_ AF –³‚µ‚Ìê‡)Z Ž²ˆÚ“®‚ª•K—v‚©ƒ`ƒFƒbƒN
+////			// ä¸è¦
+////			m_dwAFValid = 0;	// AF ç„¡ã—
+////			// (å…¨ç‚¹ AF ç„¡ã—ã®å ´åˆ)Z è»¸ç§»å‹•ãŒå¿…è¦ã‹ãƒã‚§ãƒƒã‚¯
 //////			if ((0 != l_pMainRcpInfo->MainRcpParam._SR.nFocus) || (0 == l_bAF)) {
 ////			if ((0 != l_pMainRcpInfo->MainRcpParam._SR.nFocus) || (0 == l_bAF) || (TRANSI_MASTER == m_dwParentTransi)) {
-///* modified 2009.09.29 hmenjo Head –ˆ Main Rcp Inf “Ço‚µ ----------				*/
+///* modified 2009.09.29 hmenjo Head æ¯Ž Main Rcp Inf èª­å‡ºã— ----------				*/
 //		HEAD_MAIN_RCP_INFO l_HeadMainRcpInf;
 //		((CChiefView*) m_pcChiefView)->GetMainRcpInfHead(l_pMainRcpInfo, l_pMainRcpInfo->MainRcpParam.hdr.wHeadType, &l_HeadMainRcpInf);
 //		if ((0 == l_HeadMainRcpInf.nFocus) || ((1 == l_HeadMainRcpInf.nFocus) && (1 != m_dwPointNo))) {
-//			// •s—v
-//			m_dwAFValid = 0;	// AF –³‚µ
-//			// (‘S“_ AF –³‚µ‚Ìê‡)Z Ž²ˆÚ“®‚ª•K—v‚©ƒ`ƒFƒbƒN
+//			// ä¸è¦
+//			m_dwAFValid = 0;	// AF ç„¡ã—
+//			// (å…¨ç‚¹ AF ç„¡ã—ã®å ´åˆ)Z è»¸ç§»å‹•ãŒå¿…è¦ã‹ãƒã‚§ãƒƒã‚¯
 //			if ((0 != l_HeadMainRcpInf.nFocus) || (0 == l_bAF) || (TRANSI_MASTER == m_dwParentTransi)) {
-///* modified 2009.09.29 hmenjo Head –ˆ Main Rcp Inf “Ço‚µ ---------- } ---------- */
-/* modified 2009.10.29 hmenjo CTA AF –³‚µCZ Ž²‘Þ”ðˆÊ’u ----------				*/
+///* modified 2009.09.29 hmenjo Head æ¯Ž Main Rcp Inf èª­å‡ºã— ---------- } ---------- */
+/* modified 2009.10.29 hmenjo CTA AF ç„¡ã—ï¼ŒZ è»¸é€€é¿ä½ç½® ----------				*/
 		HEAD_MAIN_RCP_INFO l_HeadMainRcpInf;
 		((CChiefView*) m_pcChiefView)->GetMainRcpInfHead(l_pMainRcpInfo, l_pMainRcpInfo->MainRcpParam.hdr.wHeadType, &l_HeadMainRcpInf);
 		if ((0 == l_HeadMainRcpInf.nFocus)
 		 || ((1 == l_HeadMainRcpInf.nFocus) && (1 != m_dwPointNo))
-/* deleted 2009.11.26 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì ---------- { ---------- */
+/* deleted 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- { ---------- */
 //		 || (HEAD_TYPE_CTA == l_pMainRcpInfo->MainRcpParam.hdr.wHeadType)
 //		 || (HEAD_TYPE_4PP == l_pMainRcpInfo->MainRcpParam.hdr.wHeadType)
-/* deleted 2009.11.26 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì ---------- } ---------- */
-		 //2009.11.10 bagus MS --{-- ZŽ²‘Þ”ð
+/* deleted 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- } ---------- */
+		 //2009.11.10 bagus MS --{-- Zè»¸é€€é¿
 		 || (HEAD_TYPE_MS == l_pMainRcpInfo->MainRcpParam.hdr.wHeadType)
-		 //2009.11.10 bagus MS --}-- ZŽ²‘Þ”ð
+		 //2009.11.10 bagus MS --}-- Zè»¸é€€é¿
 		 ) {
-			// •s—v
-			m_dwAFValid = 0;	// AF –³‚µ
-			// (‘S“_ AF –³‚µ‚Ìê‡)Z Ž²ˆÚ“®‚ª•K—v‚©ƒ`ƒFƒbƒN
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì ---------- { ---------- */
+			// ä¸è¦
+			m_dwAFValid = 0;	// AF ç„¡ã—
+			// (å…¨ç‚¹ AF ç„¡ã—ã®å ´åˆ)Z è»¸ç§»å‹•ãŒå¿…è¦ã‹ãƒã‚§ãƒƒã‚¯
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- { ---------- */
 //			if ((HEAD_TYPE_CTA != l_pMainRcpInfo->MainRcpParam.hdr.wHeadType)
 //			 && (HEAD_TYPE_4PP != l_pMainRcpInfo->MainRcpParam.hdr.wHeadType)
-//			//2009.11.10 bagus MS --{-- ZŽ²‘Þ”ð
+//			//2009.11.10 bagus MS --{-- Zè»¸é€€é¿
 //			&& (HEAD_TYPE_MS != l_pMainRcpInfo->MainRcpParam.hdr.wHeadType)
-//			//2009.11.10 bagus MS --}-- ZŽ²‘Þ”ð
+//			//2009.11.10 bagus MS --}-- Zè»¸é€€é¿
 //			 && ((0 != l_HeadMainRcpInf.nFocus) || (0 == l_bAF) || (TRANSI_MASTER == m_dwParentTransi))) {
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì ----------			  */
-/* added 2009.11.30 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh(‰ü)‚Å“®ì ---------- { ---------- */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ----------			  */
+/* added 2009.11.30 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰(æ”¹)ã§å‹•ä½œ ---------- { ---------- */
 			LPMEAS_PROG_INFO l_pMeasProgInfo = (LPMEAS_PROG_INFO) (((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pMeasProgInfo);
 			if (
 				(HEAD_TYPE_4PP == l_pMainRcpInfo->MainRcpParam.hdr.wHeadType)
@@ -993,66 +993,66 @@ void CChiefTransiSr1Point::enter_ST_SR1P_ZMOVE(const cEventParams* const pEvPara
 				) {
 				l_bAF = FALSE;
 			}
-/* added 2009.11.30 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh(‰ü)‚Å“®ì ---------- } ---------- */
+/* added 2009.11.30 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰(æ”¹)ã§å‹•ä½œ ---------- } ---------- */
 			if (
 				((0 != l_HeadMainRcpInf.nFocus) || (0 == l_bAF) || (TRANSI_MASTER == m_dwParentTransi))
 			 && (HEAD_TYPE_MS != l_pMainRcpInfo->MainRcpParam.hdr.wHeadType)
 				) {
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì ---------- } ---------- */
-/* modified 2009.10.29 hmenjo CTA AF –³‚µCZ Ž²‘Þ”ðˆÊ’u ---------- } ---------- */
-				// •s—v
-				// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- } ---------- */
+/* modified 2009.10.29 hmenjo CTA AF ç„¡ã—ï¼ŒZ è»¸é€€é¿ä½ç½® ---------- } ---------- */
+				// ä¸è¦
+				// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–°
 				if (0 != IsPointManualAdjust(m_dwPointNo)) {
-					// PMA ‚Ì‚Ý‚ª•K—v
+					// PMA ã®ã¿ãŒå¿…è¦
 					TransiEvent(EV_SR1P_AF_START, (cEventParams*) 1);
 				} else {
 					TransiEvent(EV_SR1P_MEAS_START);
 				}
 			} else {
-				// •K—v(Žd—lã•K—v‚È‚ç)
-				// ‚yŽ²ˆÚ“®
-/* deleted 2009.10.29 hmenjo CTA AF –³‚µCZ Ž²‘Þ”ðˆÊ’u ---------- { ---------- */
+				// å¿…è¦(ä»•æ§˜ä¸Šå¿…è¦ãªã‚‰)
+				// ï¼ºè»¸ç§»å‹•
+/* deleted 2009.10.29 hmenjo CTA AF ç„¡ã—ï¼ŒZ è»¸é€€é¿ä½ç½® ---------- { ---------- */
 //				TCHAR	l_szMainRcpName[256];
 //				((CChiefView*) m_pcChiefView)->GetCurrentMainRecipeName(l_szMainRcpName);
-/* deleted 2009.10.29 hmenjo CTA AF –³‚µCZ Ž²‘Þ”ðˆÊ’u ---------- } ---------- */
-				// ‰Šú‰»’âŽ~ˆÊ’u[pulse]‚ð[0.1um]‚É•ÏŠ·‚µ‚Ü‚·
+/* deleted 2009.10.29 hmenjo CTA AF ç„¡ã—ï¼ŒZ è»¸é€€é¿ä½ç½® ---------- } ---------- */
+				// åˆæœŸåŒ–åœæ­¢ä½ç½®[pulse]ã‚’[0.1um]ã«å¤‰æ›ã—ã¾ã™
 				LONG64 l_l64_Z = ((LONG64) l_lZPos) * ((LONG64) 1000000);
-				l_l64_Z = l_l64_Z / ((LONG64) l_lZPosPpU);	// ‰Šú‰»’âŽ~ˆÊ’u[pulse]€ƒtƒ@ƒNƒ^[pulse/mm]
-				l_l64_Z = l_l64_Z * ((LONG64) 10000);	// [0.1um]‚É•ÏŠ·‚·‚é
+				l_l64_Z = l_l64_Z / ((LONG64) l_lZPosPpU);	// åˆæœŸåŒ–åœæ­¢ä½ç½®[pulse]Ã·ãƒ•ã‚¡ã‚¯ã‚¿[pulse/mm]
+				l_l64_Z = l_l64_Z * ((LONG64) 10000);	// [0.1um]ã«å¤‰æ›ã™ã‚‹
 				long l_lZ = (long) (l_l64_Z / ((LONG64) 1000000));
 
-				NS_ConvertToStageMoveCoord(&l_lZ);		// •â³
+				NS_ConvertToStageMoveCoord(&l_lZ);		// è£œæ­£
 
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì ---------- { ---------- */
-///* added 2009.10.29 hmenjo CTA AF –³‚µCZ Ž²‘Þ”ðˆÊ’u ---------- { ---------- */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- { ---------- */
+///* added 2009.10.29 hmenjo CTA AF ç„¡ã—ï¼ŒZ è»¸é€€é¿ä½ç½® ---------- { ---------- */
 //				if (HEAD_TYPE_CTA == l_pMainRcpInfo->MainRcpParam.hdr.wHeadType
-//				//2009.11.10 bagus MS --{-- ZŽ²‘Þ”ð
+//				//2009.11.10 bagus MS --{-- Zè»¸é€€é¿
 //				|| HEAD_TYPE_MS == l_pMainRcpInfo->MainRcpParam.hdr.wHeadType
-//				//2009.11.10 bagus MS --}-- ZŽ²‘Þ”ð
+//				//2009.11.10 bagus MS --}-- Zè»¸é€€é¿
 //				) {
 //// 2009.11.19 K.Matsuo Delete -->
-////					/* ‚·‚Å‚É Z Ž²‘Þ”ðˆÊ’u(ƒZƒ“ƒT ƒIƒ“)‚È‚çCZ Ž²ˆÚ“®‚µ‚Ü‚¹‚ñD	*/
+////					/* ã™ã§ã« Z è»¸é€€é¿ä½ç½®(ã‚»ãƒ³ã‚µ ã‚ªãƒ³)ãªã‚‰ï¼ŒZ è»¸ç§»å‹•ã—ã¾ã›ã‚“ï¼Ž	*/
 ////					if (0 != nexioIsRetractPosZ()) {
 ////						TransiEvent(EV_SR1P_ZMOVE_DONE);
 ////						return;
 ////					}
 //// 2009.11.19 K.Matsuo Delete <--
-//					/* CTA —p‚Ì Z Ž²‘Þ”ðˆÊ’u‚ðŽæ“¾‚µ‚Ü‚·D	*/
-///* modified 2009.10.30 hmenjo CTA Z Ž²‘Þ”ðˆÊ’u ---------- { ---------- */
+//					/* CTA ç”¨ã® Z è»¸é€€é¿ä½ç½®ã‚’å–å¾—ã—ã¾ã™ï¼Ž	*/
+///* modified 2009.10.30 hmenjo CTA Z è»¸é€€é¿ä½ç½® ---------- { ---------- */
 ////					STRESS_CONFIG l_StressConfig;
 ////					ConfigFile_GetNanoSpecIni(&l_StressConfig, CONFIG_FILE_STRESS_CONFIG);
 ////					l_lZ = l_StressConfig.lScanZAxisPosition;
-////l_lZ = 420000L;	/* [0.1um]‰¼‚Å‚·*/
-////2009.11.10 bagus MS --{-- ZŽ²‘Þ”ð
+////l_lZ = 420000L;	/* [0.1um]ä»®ã§ã™*/
+////2009.11.10 bagus MS --{-- Zè»¸é€€é¿
 //					switch(l_pMainRcpInfo->MainRcpParam.hdr.wHeadType){
 //					case HEAD_TYPE_CTA:
 //						{
-////2009.11.10 bagus MS --}-- ZŽ²‘Þ”ð
-///* modified 2009.10.30 hmenjo CTA Z Ž²‘Þ”ðˆÊ’u ---------- 			 */
+////2009.11.10 bagus MS --}-- Zè»¸é€€é¿
+///* modified 2009.10.30 hmenjo CTA Z è»¸é€€é¿ä½ç½® ---------- 			 */
 //					CA_CONFIG l_CaConfig;
 //					ConfigFile_GetNanoSpecIni(&l_CaConfig, CONFIG_FILE_CA_CONFIG);
 //					l_lZ = l_CaConfig.lCaStdZAxisRetractPos;
-///* modified 2009.10.30 hmenjo CTA Z Ž²‘Þ”ðˆÊ’u ---------- } ---------- */
+///* modified 2009.10.30 hmenjo CTA Z è»¸é€€é¿ä½ç½® ---------- } ---------- */
 //						}
 //					break;
 //					case HEAD_TYPE_MS:
@@ -1063,26 +1063,26 @@ void CChiefTransiSr1Point::enter_ST_SR1P_ZMOVE(const cEventParams* const pEvPara
 //						}
 //						break;
 //					}
-////2009.11.10 bagus MS --}-- ZŽ²‘Þ”ð
+////2009.11.10 bagus MS --}-- Zè»¸é€€é¿
 //				}
-///* added 2009.10.29 hmenjo CTA AF –³‚µCZ Ž²‘Þ”ðˆÊ’u ---------- } ---------- */
-///* added 2009.11.06 K.Matsuo Resist AF –³‚µCZ Ž²‘Þ”ðˆÊ’u ---------- { ---------- */
+///* added 2009.10.29 hmenjo CTA AF ç„¡ã—ï¼ŒZ è»¸é€€é¿ä½ç½® ---------- } ---------- */
+///* added 2009.11.06 K.Matsuo Resist AF ç„¡ã—ï¼ŒZ è»¸é€€é¿ä½ç½® ---------- { ---------- */
 //				if (HEAD_TYPE_4PP == l_pMainRcpInfo->MainRcpParam.hdr.wHeadType) {
 //// 2009.11.18 K.Matsuo Delete -->
-////					/* ‚·‚Å‚É Z Ž²‘Þ”ðˆÊ’u(ƒZƒ“ƒT ƒIƒ“)‚È‚çCZ Ž²ˆÚ“®‚µ‚Ü‚¹‚ñD	*/
+////					/* ã™ã§ã« Z è»¸é€€é¿ä½ç½®(ã‚»ãƒ³ã‚µ ã‚ªãƒ³)ãªã‚‰ï¼ŒZ è»¸ç§»å‹•ã—ã¾ã›ã‚“ï¼Ž	*/
 ////					if (0 != nexioIsRetractPosZ()) {
 ////						TransiEvent(EV_SR1P_ZMOVE_DONE);
 ////						return;
 ////					}
 //// 2009.11.18 K.Matsuo Delete <--
-//					/* Resist —p‚Ì Z Ž²‘Þ”ðˆÊ’u‚ðŽæ“¾‚µ‚Ü‚·D	*/
+//					/* Resist ç”¨ã® Z è»¸é€€é¿ä½ç½®ã‚’å–å¾—ã—ã¾ã™ï¼Ž	*/
 //					RS_CONFIG l_RsConfig;
 //					ConfigFile_GetNanoSpecIni(&l_RsConfig, CONFIG_FILE_RS_CONFIG);
 //					l_lZ = l_RsConfig.lRsStdZAxisRetractPos;
 //				}
-///* added 2009.11.06 K.Matsuo Resist AF –³‚µCZ Ž²‘Þ”ðˆÊ’u ---------- } ---------- */
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì ----------			  */
-				/* ƒwƒbƒh‚É‚æ‚Á‚Ä‚ÍŽw’è‚Ì Z Ž²ˆÊ’u‚ª‚ ‚éê‡	*/
+///* added 2009.11.06 K.Matsuo Resist AF ç„¡ã—ï¼ŒZ è»¸é€€é¿ä½ç½® ---------- } ---------- */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ----------			  */
+				/* ãƒ˜ãƒƒãƒ‰ã«ã‚ˆã£ã¦ã¯æŒ‡å®šã® Z è»¸ä½ç½®ãŒã‚ã‚‹å ´åˆ	*/
 				switch (l_pMainRcpInfo->MainRcpParam.hdr.wHeadType) {
 				case HEAD_TYPE_MS:
 					{
@@ -1092,86 +1092,86 @@ void CChiefTransiSr1Point::enter_ST_SR1P_ZMOVE(const cEventParams* const pEvPara
 					}
 					break;
 				}
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì ---------- } ---------- */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- } ---------- */
 
-				((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_ZAXIS, TRUE);		// “®ì’†ƒtƒ‰ƒO(Z Ž²)‚ðƒIƒ“
+				((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_ZAXIS, TRUE);		// å‹•ä½œä¸­ãƒ•ãƒ©ã‚°(Z è»¸)ã‚’ã‚ªãƒ³
 #if 0	//----- Kawashima 2008.12.01 ----->
 				TransiEvent(EV_SR1P_ZMOVE_DONE);
 #else	//----- Kawashima 2008.12.01 -----
 				((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_SR1P_Z_MOVING);	// Status Bar
 				if (0 == StageElevatorMove(l_lZ)) {
-					// ˆÚ“®ŠJŽnŽ¸”s
+					// ç§»å‹•é–‹å§‹å¤±æ•—
 					((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(7, CHRAMSG_OK)), MAKELPARAM(0, ALID_Z_AxisMoveFailed));
-					// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV
+					// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–°
 					TransiEvent(EV_SR1P_ZMOVE_FAIL);
-					// ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ð’Ê’m
+					// å‘¼å‡ºå…ƒãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥
 					NotifyComplete((cEventParams*) TR_SR1P_ZMOVE_FAIL);
 				} else {
-					// ˆÚ“®Š®—¹
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ---------- { ---------- */
+					// ç§»å‹•å®Œäº†
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- { ---------- */
 					((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_SR1P_Z_MOVED);	// Status Bar
-#else						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ----------			   */
+#else						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ----------			   */
 					((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(_T(" "));	// Status Bar
-#endif						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- } ---------- */
 					((CChiefView*) m_pcChiefView)->LogChief(_T("Z axis was moved to 0 position."));
-					// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV
-/* modified 2009.11.09 hmenjo CTA Z Ž²‘Þ”ðƒZƒ“ƒT”»’èC³ ---------- { ---------- */
-///* added 2009.10.29 hmenjo CTA AF –³‚µCZ Ž²‘Þ”ðˆÊ’u ---------- { ---------- */
-//					/* CTA, RS ‚Å Z Ž²ˆÚ“®ŒãCZ Ž²‘Þ”ðˆÊ’u(ƒZƒ“ƒT ƒIƒ“)‚È‚ç³í	*/
+					// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–°
+/* modified 2009.11.09 hmenjo CTA Z è»¸é€€é¿ã‚»ãƒ³ã‚µåˆ¤å®šä¿®æ­£ ---------- { ---------- */
+///* added 2009.10.29 hmenjo CTA AF ç„¡ã—ï¼ŒZ è»¸é€€é¿ä½ç½® ---------- { ---------- */
+//					/* CTA, RS ã§ Z è»¸ç§»å‹•å¾Œï¼ŒZ è»¸é€€é¿ä½ç½®(ã‚»ãƒ³ã‚µ ã‚ªãƒ³)ãªã‚‰æ­£å¸¸	*/
 //					if ((HEAD_TYPE_CTA == l_pMainRcpInfo->MainRcpParam.hdr.wHeadType) || (HEAD_TYPE_4PP == l_pMainRcpInfo->MainRcpParam.hdr.wHeadType)
 //					 && (0 == nexioIsRetractPosZ())) {
-///* added 2009.11.06 hmenjo CTA Z Ž²‘Þ”ðƒGƒ‰[’Ê’m ---------- { ---------- */
+///* added 2009.11.06 hmenjo CTA Z è»¸é€€é¿ã‚¨ãƒ©ãƒ¼é€šçŸ¥ ---------- { ---------- */
 //					((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(7, CHRAMSG_OK)), MAKELPARAM(0, ALID_Z_AxisMoveFailed));
-///* added 2009.11.06 hmenjo CTA Z Ž²‘Þ”ðƒGƒ‰[’Ê’m ---------- } ---------- */
-//						/* ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV	*/
+///* added 2009.11.06 hmenjo CTA Z è»¸é€€é¿ã‚¨ãƒ©ãƒ¼é€šçŸ¥ ---------- } ---------- */
+//						/* ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–°	*/
 //						TransiEvent(EV_SR1P_ZMOVE_FAIL);
-//						/* ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ð’Ê’m	*/
+//						/* å‘¼å‡ºå…ƒãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥	*/
 //						NotifyComplete((cEventParams*) TR_SR1P_ZMOVE_FAIL);
 //					} else
-///* added 2009.10.29 hmenjo CTA AF –³‚µCZ Ž²‘Þ”ðˆÊ’u ---------- } ---------- */
-/* modified 2009.11.09 hmenjo CTA Z Ž²‘Þ”ðƒZƒ“ƒT”»’èC³ ---------- 			 */
-					/* CTA, RS ‚Å Z Ž²ˆÚ“®ŒãCZ Ž²‘Þ”ðˆÊ’u(ƒZƒ“ƒT ƒIƒ“)‚È‚ç³í	*/
+///* added 2009.10.29 hmenjo CTA AF ç„¡ã—ï¼ŒZ è»¸é€€é¿ä½ç½® ---------- } ---------- */
+/* modified 2009.11.09 hmenjo CTA Z è»¸é€€é¿ã‚»ãƒ³ã‚µåˆ¤å®šä¿®æ­£ ---------- 			 */
+					/* CTA, RS ã§ Z è»¸ç§»å‹•å¾Œï¼ŒZ è»¸é€€é¿ä½ç½®(ã‚»ãƒ³ã‚µ ã‚ªãƒ³)ãªã‚‰æ­£å¸¸	*/
 					BOOL l_bZRetract = TRUE;
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì ---------- { ---------- */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- { ---------- */
 //					if ((HEAD_TYPE_CTA == l_pMainRcpInfo->MainRcpParam.hdr.wHeadType)
 //					 || (HEAD_TYPE_4PP == l_pMainRcpInfo->MainRcpParam.hdr.wHeadType)
 //					 || (HEAD_TYPE_MS  == l_pMainRcpInfo->MainRcpParam.hdr.wHeadType)
 //					) {
-//						::Sleep(100);	/* ƒZƒ“ƒT“ü—Í’x‚ê‘Ò‚¿	*/
+//						::Sleep(100);	/* ã‚»ãƒ³ã‚µå…¥åŠ›é…ã‚Œå¾…ã¡	*/
 //						l_bZRetract = nexioIsRetractPosZ();
 //					}
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì ----------			  */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ----------			  */
 					switch (l_pMainRcpInfo->MainRcpParam.hdr.wHeadType) {
 					case HEAD_TYPE_MS:
-						::Sleep(100);	/* ƒZƒ“ƒT“ü—Í’x‚ê‘Ò‚¿	*/
+						::Sleep(100);	/* ã‚»ãƒ³ã‚µå…¥åŠ›é…ã‚Œå¾…ã¡	*/
 						l_bZRetract = nexioIsRetractPosZ();
 						break;
 					}
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì ---------- } ---------- */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- } ---------- */
 					if (0 == l_bZRetract) {
 						((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(7, CHRAMSG_OK)), MAKELPARAM(0, ALID_Z_AxisMoveFailed));
-						/* ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV	*/
+						/* ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–°	*/
 						TransiEvent(EV_SR1P_ZMOVE_FAIL);
-						/* ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ð’Ê’m	*/
+						/* å‘¼å‡ºå…ƒãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥	*/
 						NotifyComplete((cEventParams*) TR_SR1P_ZMOVE_FAIL);
 					} else
-/* modified 2009.11.09 hmenjo CTA Z Ž²‘Þ”ðƒZƒ“ƒT”»’èC³ ---------- } ---------- */
+/* modified 2009.11.09 hmenjo CTA Z è»¸é€€é¿ã‚»ãƒ³ã‚µåˆ¤å®šä¿®æ­£ ---------- } ---------- */
 					if (0 != IsPointManualAdjust(m_dwPointNo)) {
-						// PMA ‚Ì‚Ý‚ª•K—v
+						// PMA ã®ã¿ãŒå¿…è¦
 						TransiEvent(EV_SR1P_AF_START, (cEventParams*) 1);
 					} else {
 						TransiEvent(EV_SR1P_ZMOVE_DONE);
 					}
 				}
 #endif	//----- Kawashima 2008.12.01 <-----
-				((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);		// “®ì’†ƒtƒ‰ƒO(Z Ž²)‚ðƒIƒt
+				((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);		// å‹•ä½œä¸­ãƒ•ãƒ©ã‚°(Z è»¸)ã‚’ã‚ªãƒ•
 			}
 		} else {
-			// •K—v
-			// ŽŸ‚Ìƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚Å AF Žw—ß‚ð”­s‚µ‚Ä‚¢‚Ü‚·D
-			// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV
+			// å¿…è¦
+			// æ¬¡ã®ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã§ AF æŒ‡ä»¤ã‚’ç™ºè¡Œã—ã¦ã„ã¾ã™ï¼Ž
+			// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–°
 			if (0 != IsPointManualAdjust(m_dwPointNo)) {
-				// AF ‚Æ PMA ‚ª•K—v
+				// AF ã¨ PMA ãŒå¿…è¦
 				TransiEvent(EV_SR1P_AF_START, (cEventParams*) 2);
 			} else {
 				TransiEvent(EV_SR1P_AF_START, (cEventParams*) 0);
@@ -1181,29 +1181,29 @@ void CChiefTransiSr1Point::enter_ST_SR1P_ZMOVE(const cEventParams* const pEvPara
 }
 
 /*
- *	AF Š®—¹‘Ò‚¿(WAIT ó‘Ô–³‚µ‚Ìê‡—L‚è)
+ *	AF å®Œäº†å¾…ã¡(WAIT çŠ¶æ…‹ç„¡ã—ã®å ´åˆæœ‰ã‚Š)
  */
 void CChiefTransiSr1Point::enter_ST_SR1P_AF(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_SR_1POINT_DISP[13], (DWORD) pEvParams);
 
-/* modified 2012.01.23 hmenjo [‚V]ŸŽèƒAƒ{[ƒg‘Îô ---------- { ---------- */
+/* modified 2012.01.23 hmenjo [ï¼—]å‹æ‰‹ã‚¢ãƒœãƒ¼ãƒˆå¯¾ç­– ---------- { ---------- */
 //	if (false == ((CChiefTransiAF*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiAF)->IsIdle()) {
-/* modified 2012.01.23 hmenjo [‚V]ŸŽèƒAƒ{[ƒg‘Îô ----------              */
+/* modified 2012.01.23 hmenjo [ï¼—]å‹æ‰‹ã‚¢ãƒœãƒ¼ãƒˆå¯¾ç­– ----------              */
 	if (FALSE != ((CChiefView*) m_pcChiefView)->IsBusyTransi(3, 7)) {
 		((CChiefView*) m_pcChiefView)->LogChief(_T("CChiefTransiSr1Point::enter_ST_SR1P_AF() - AF Seq is busy."));
-/* modified 2012.01.23 hmenjo [‚V]ŸŽèƒAƒ{[ƒg‘Îô ---------- } ---------- */
-		// AF ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ªƒrƒW[‚Å‚µ‚½D
-		// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV
+/* modified 2012.01.23 hmenjo [ï¼—]å‹æ‰‹ã‚¢ãƒœãƒ¼ãƒˆå¯¾ç­– ---------- } ---------- */
+		// AF ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãŒãƒ“ã‚¸ãƒ¼ã§ã—ãŸï¼Ž
+		// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–°
 		TransiEvent(EV_SR1P_IDLE);
-		// ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ð’Ê’m
+		// å‘¼å‡ºå…ƒãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥
 		NotifyComplete((cEventParams*) TR_SR1P_TRAAF_BUSY);
 	} else {
-		// ƒJƒ‰[ƒtƒBƒ‹ƒ^§Œä(ƒfƒXƒLƒ…[—pFOPEN ‚É‚µ‚Ü‚·)
-/* modified 2009.07.03 hmenjo Seq ‘ª’èŽžƒtƒBƒ‹ƒ^ŒÅ’è‹@”\ ’ù³ ---------- { ---------- */
-///* modified 2009.07.02 hmenjo Seq ‘ª’èŽžƒtƒBƒ‹ƒ^ŒÅ’è‹@”\ ---------- { ---------- */
+		// ã‚«ãƒ©ãƒ¼ãƒ•ã‚£ãƒ«ã‚¿åˆ¶å¾¡(ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ç”¨ï¼šOPEN ã«ã—ã¾ã™)
+/* modified 2009.07.03 hmenjo Seq æ¸¬å®šæ™‚ãƒ•ã‚£ãƒ«ã‚¿å›ºå®šæ©Ÿèƒ½ è¨‚æ­£ ---------- { ---------- */
+///* modified 2009.07.02 hmenjo Seq æ¸¬å®šæ™‚ãƒ•ã‚£ãƒ«ã‚¿å›ºå®šæ©Ÿèƒ½ ---------- { ---------- */
 ////		if (0 == MEAS_SrHead_ChangeCcdShutter(FILTER_OPEN)) {
-///* modified 2009.07.02 hmenjo Seq ‘ª’èŽžƒtƒBƒ‹ƒ^ŒÅ’è‹@”\ ----------			   */
+///* modified 2009.07.02 hmenjo Seq æ¸¬å®šæ™‚ãƒ•ã‚£ãƒ«ã‚¿å›ºå®šæ©Ÿèƒ½ ----------			   */
 //		WORD l_wFilter;
 //		if (0 == ((CMainFrame*) ((CChiefView*) m_pcChiefView)->m_pcMainFrame)->m_SystemConfig.bUseOptFilterMeasPgmAF) {
 //			l_wFilter = FILTER_OPEN;
@@ -1212,91 +1212,91 @@ void CChiefTransiSr1Point::enter_ST_SR1P_AF(const cEventParams* const pEvParams)
 //			l_wFilter = l_pMeasProgInfo->ScanParams._SR.wOpticsFilterType;
 //		}
 //		if (0 == MEAS_SrHead_ChangeCcdShutter(l_wFilter)) {
-///* modified 2009.07.02 hmenjo Seq ‘ª’èŽžƒtƒBƒ‹ƒ^ŒÅ’è‹@”\ ---------- } ---------- */
-/* modified 2009.07.03 hmenjo Seq ‘ª’èŽžƒtƒBƒ‹ƒ^ŒÅ’è‹@”\ ’ù³ ----------			  */
+///* modified 2009.07.02 hmenjo Seq æ¸¬å®šæ™‚ãƒ•ã‚£ãƒ«ã‚¿å›ºå®šæ©Ÿèƒ½ ---------- } ---------- */
+/* modified 2009.07.03 hmenjo Seq æ¸¬å®šæ™‚ãƒ•ã‚£ãƒ«ã‚¿å›ºå®šæ©Ÿèƒ½ è¨‚æ­£ ----------			  */
 		WORD l_wFilter;
-/* modified 2009.08.25 hmenjo SE ƒ‰ƒ“ƒv§Œä ---------- { ---------- */
+/* modified 2009.08.25 hmenjo SE ãƒ©ãƒ³ãƒ—åˆ¶å¾¡ ---------- { ---------- */
 //		if (0 == ((CMainFrame*) ((CChiefView*) m_pcChiefView)->m_pcMainFrame)->m_srConfig.bUseOptFilterMeasPgmAF) {
 //			l_wFilter = FILTER_OPEN;
 //		} else {
 //			LPMEAS_PROG_INFO l_pMeasProgInfo = (LPMEAS_PROG_INFO) (((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pMeasProgInfo);
 //			l_wFilter = l_pMeasProgInfo->ScanParams._SR.wOpticsFilterType;
 //		}
-/* modified 2009.08.25 hmenjo SE ƒ‰ƒ“ƒv§Œä ----------				*/
+/* modified 2009.08.25 hmenjo SE ãƒ©ãƒ³ãƒ—åˆ¶å¾¡ ----------				*/
 		LPMEAS_PROG_INFO l_pMeasProgInfo = (LPMEAS_PROG_INFO) (((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pMeasProgInfo);
-/* modified 2009.11.30 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh(‰ü)‚Å“®ì ---------- { ---------- */
+/* modified 2009.11.30 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰(æ”¹)ã§å‹•ä½œ ---------- { ---------- */
 //		if (HEAD_TYPE_SE == l_pMeasProgInfo->ScanParams.hdr.wHeadType) {
-/* modified 2009.11.30 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh(‰ü)‚Å“®ì ----------			  */
+/* modified 2009.11.30 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰(æ”¹)ã§å‹•ä½œ ----------			  */
 		if (
 			(HEAD_TYPE_SE == l_pMeasProgInfo->ScanParams.hdr.wHeadType)
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 		 || (HEAD_TYPE_COMPEASE == l_pMeasProgInfo->ScanParams.hdr.wHeadType)
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 		 || (HEAD_TYPE_CTA == l_pMeasProgInfo->ScanParams.hdr.wHeadType)
 		 || (HEAD_TYPE_4PP == l_pMeasProgInfo->ScanParams.hdr.wHeadType)
 		 || ((HEAD_TYPE_SR == l_pMeasProgInfo->ScanParams.hdr.wHeadType)
 		  && ((MEAS_PROG_TYPE_SR_TRANSMITTANCE_G == l_pMeasProgInfo->ScanParams.hdr.wScanType)
 		   || (MEAS_PROG_TYPE_SR_TRANSMITTANCE == l_pMeasProgInfo->ScanParams.hdr.wScanType)))
 		 	) {
-/* modified 2009.11.30 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh(‰ü)‚Å“®ì ---------- } ---------- */
+/* modified 2009.11.30 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰(æ”¹)ã§å‹•ä½œ ---------- } ---------- */
 			l_wFilter = FILTER_OPEN;
 		} else
 		if (0 == ((CMainFrame*) ((CChiefView*) m_pcChiefView)->m_pcMainFrame)->m_srConfig.bUseOptFilterMeasPgmAF) {
 			l_wFilter = FILTER_OPEN;
 		} else {
-/* modified 2009.09.07 hmenjo ‘ª’è PGM ƒtƒBƒ‹ƒ^“Ço‚µ ---------- { ---------- */
+/* modified 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ•ã‚£ãƒ«ã‚¿èª­å‡ºã— ---------- { ---------- */
 //			l_wFilter = l_pMeasProgInfo->ScanParams._SR.wOpticsFilterType;
-/* modified 2009.09.07 hmenjo ‘ª’è PGM ƒtƒBƒ‹ƒ^“Ço‚µ ----------			  */
+/* modified 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ•ã‚£ãƒ«ã‚¿èª­å‡ºã— ----------			  */
 			l_wFilter = ((CChiefView*) m_pcChiefView)->GetMeasFilter(l_pMeasProgInfo->ScanParams.hdr.wHeadType);
-/* modified 2009.09.07 hmenjo ‘ª’è PGM ƒtƒBƒ‹ƒ^“Ço‚µ ---------- } ---------- */
+/* modified 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ•ã‚£ãƒ«ã‚¿èª­å‡ºã— ---------- } ---------- */
 		}
-/* modified 2009.08.25 hmenjo SE ƒ‰ƒ“ƒv§Œä ---------- } ---------- */
+/* modified 2009.08.25 hmenjo SE ãƒ©ãƒ³ãƒ—åˆ¶å¾¡ ---------- } ---------- */
 		if (0 == MEAS_SrHead_ChangeCcdShutter(l_wFilter)) {
-/* modified 2009.07.03 hmenjo Seq ‘ª’èŽžƒtƒBƒ‹ƒ^ŒÅ’è‹@”\ ’ù³ ---------- } ---------- */
-			// ˆÙíŽž‚Å‚à–³Ž‹‚µ‚Ü‚·D
+/* modified 2009.07.03 hmenjo Seq æ¸¬å®šæ™‚ãƒ•ã‚£ãƒ«ã‚¿å›ºå®šæ©Ÿèƒ½ è¨‚æ­£ ---------- } ---------- */
+			// ç•°å¸¸æ™‚ã§ã‚‚ç„¡è¦–ã—ã¾ã™ï¼Ž
 			((CChiefView*) m_pcChiefView)->LogChief(_T("Failed to MEAS_SrHead_ChangeCcdShutter() in CChiefTransiSr1Point::enter_ST_SR1P_AF()."));
 		}
-		// AF ”­s
+		// AF ç™ºè¡Œ
 		((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_SR1P_FOCUSING);	// Status Bar
-/* modified 2009.11.30 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh(‰ü)‚Å“®ì ---------- { ---------- */
-///* modified 2009.09.09 hmenjo ˆø”•ÏX ---------- { ---------- */
+/* modified 2009.11.30 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰(æ”¹)ã§å‹•ä½œ ---------- { ---------- */
+///* modified 2009.09.09 hmenjo å¼•æ•°å¤‰æ›´ ---------- { ---------- */
 //////		((CChiefTransiAF*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiAF)->TransiEvent(EV_AAF_START, (cEventParams*) TRANSI_SR_1POINT);
 ////		((CChiefTransiAF*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiAF)->TransiEvent(EV_AAF_START, (cEventParams*) MAKELONG(TRANSI_SR_1POINT, pEvParams));
-///* modified 2009.09.09 hmenjo ˆø”•ÏX ---------- 			 */
+///* modified 2009.09.09 hmenjo å¼•æ•°å¤‰æ›´ ---------- 			 */
 //		((CChiefTransiAF*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiAF)->TransiEvent(EV_AAF_START, (cEventParams*) MAKELONG(MAKEWORD(TRANSI_SR_1POINT, 0), pEvParams));
-///* modified 2009.09.09 hmenjo ˆø”•ÏX ---------- } ---------- */
-/* modified 2009.11.30 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh(‰ü)‚Å“®ì ----------			  */
+///* modified 2009.09.09 hmenjo å¼•æ•°å¤‰æ›´ ---------- } ---------- */
+/* modified 2009.11.30 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰(æ”¹)ã§å‹•ä½œ ----------			  */
 		if (((1 == (DWORD) pEvParams) || (2 == (DWORD) pEvParams)) && (HEAD_TYPE_MS != l_pMeasProgInfo->ScanParams.hdr.wHeadType) && (TRANSI_MASTER != m_dwParentTransi)) {
-			/* PMA —L‚èC’P“Æ‹N“®‚Å‚È‚­CMS ƒwƒbƒhˆÈŠO‚Ìê‡‚Ì‚Ý	*/
+			/* PMA æœ‰ã‚Šï¼Œå˜ç‹¬èµ·å‹•ã§ãªãï¼ŒMS ãƒ˜ãƒƒãƒ‰ä»¥å¤–ã®å ´åˆã®ã¿	*/
 			if (0x80000000 != m_lZ_AF) {
-				/* Z Ž²‹L‰¯ˆÊ’u‚ª—LŒø‚È‚Ì‚Å‹L‰¯ˆÊ’u‚ÉˆÚ“®‚µ‚Ü‚·D	*/
-				((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_ZAXIS, TRUE);		// “®ì’†ƒtƒ‰ƒO(Z Ž²)‚ðƒIƒ“
+				/* Z è»¸è¨˜æ†¶ä½ç½®ãŒæœ‰åŠ¹ãªã®ã§è¨˜æ†¶ä½ç½®ã«ç§»å‹•ã—ã¾ã™ï¼Ž	*/
+				((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_ZAXIS, TRUE);		// å‹•ä½œä¸­ãƒ•ãƒ©ã‚°(Z è»¸)ã‚’ã‚ªãƒ³
 				if (0 == StageElevatorMove(m_lZ_AF)) {
-					/* ˆÚ“®ŠJŽnŽ¸”s	*/
+					/* ç§»å‹•é–‹å§‹å¤±æ•—	*/
 					((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(7, CHRAMSG_OK)), MAKELPARAM(0, ALID_Z_AxisMoveFailed));
-					/* ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV	*/
+					/* ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–°	*/
 					TransiEvent(EV_SR1P_IDLE);
-					/* ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ð’Ê’m	*/
+					/* å‘¼å‡ºå…ƒãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥	*/
 					NotifyComplete((cEventParams*) TR_SR1P_ZMOVE_FAIL);
 					return;
 				}
-				((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);		// “®ì’†ƒtƒ‰ƒO(Z Ž²)‚ðƒIƒt
-/* added 2009.12.09 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- { ---------- */
+				((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);		// å‹•ä½œä¸­ãƒ•ãƒ©ã‚°(Z è»¸)ã‚’ã‚ªãƒ•
+/* added 2009.12.09 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ(è¿½åŠ æ”¹é€ ) ---------- { ---------- */
 			} else {
-				/* Z Ž²‹L‰¯ˆÊ’u‚ª–³Œø‚È‚Ì‚Å AF ‚³‚¹‚Ü‚·D	*/
+				/* Z è»¸è¨˜æ†¶ä½ç½®ãŒç„¡åŠ¹ãªã®ã§ AF ã•ã›ã¾ã™ï¼Ž	*/
 				*((LPLONG) &pEvParams) = 2;
-/* added 2009.12.09 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- } ---------- */
+/* added 2009.12.09 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ(è¿½åŠ æ”¹é€ ) ---------- } ---------- */
 			}
 		}
 		((CChiefTransiAF*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiAF)->TransiEvent(EV_AAF_START, (cEventParams*) MAKELONG(MAKEWORD(TRANSI_SR_1POINT, 0), pEvParams));
-/* modified 2009.11.30 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh(‰ü)‚Å“®ì ---------- } ---------- */
+/* modified 2009.11.30 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰(æ”¹)ã§å‹•ä½œ ---------- } ---------- */
 
-		// WAIT ó‘Ô‚É‚·‚é‚½‚ßƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ðXV‚µ‚Ü‚¹‚ñD
+		// WAIT çŠ¶æ…‹ã«ã™ã‚‹ãŸã‚ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’æ›´æ–°ã—ã¾ã›ã‚“ï¼Ž
 	}
 }
 
 /*
- *	AF Š®—¹(WAIT ó‘Ô–³‚µ)
+ *	AF å®Œäº†(WAIT çŠ¶æ…‹ç„¡ã—)
  */
 void CChiefTransiSr1Point::enter_ST_SR1P_AF_DONE(const cEventParams* const pEvParams)
 {
@@ -1304,80 +1304,80 @@ void CChiefTransiSr1Point::enter_ST_SR1P_AF_DONE(const cEventParams* const pEvPa
 
 	AF_VALID	l_AFValid;
 
-	// AF Œ‹‰Ê”»’è
+	// AF çµæžœåˆ¤å®š
 	int l_iEventNext;
 	l_AFValid.dwValid = (DWORD) pEvParams;
-#if 0	// AF Œ‹‰Ê”»’è‚ð•ÏX -------- { --------
+#if 0	// AF çµæžœåˆ¤å®šã‚’å¤‰æ›´ -------- { --------
 	switch (l_AFValid.ucResultAF) {
-	case 0:		// AF –³‚µ
-	case 1:		// AF ³í
-	case 2:		// Ž©“®‹­§‘ª’è
+	case 0:		// AF ç„¡ã—
+	case 1:		// AF æ­£å¸¸
+	case 2:		// è‡ªå‹•å¼·åˆ¶æ¸¬å®š
 		l_iEventNext = EV_SR1P_AF_OK;
 		break;
-	case 4:		// AF Ž¸”s(Œ³ƒ|ƒbƒvƒAƒbƒv)
+	case 4:		// AF å¤±æ•—(å…ƒãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—)
 		switch (l_AFValid.ucResultPopup) {
-		case 2:		// •Â‚¶‚é(OK)(Œ³ AF –³Ž‹)ƒ{ƒ^ƒ“
+		case 2:		// é–‰ã˜ã‚‹(OK)(å…ƒ AF ç„¡è¦–)ãƒœã‚¿ãƒ³
 			l_iEventNext = EV_SR1P_AF_OK;
 			break;
-		case 0:		// ƒ|ƒbƒvƒAƒbƒv–³‚µ(‚±‚Ìó‘Ô‚Í‘¶Ý‚µ‚È‚¢‚Í‚¸)
-		case 1:		// ƒŠƒgƒ‰ƒCƒ{ƒ^ƒ“(‚±‚Ìó‘Ô‚Í‘¶Ý‚µ‚È‚¢‚Í‚¸)
-		case 3:		// ƒXƒLƒbƒvƒ{ƒ^ƒ“
-		case 4:		// ƒLƒƒƒ“ƒZƒ‹ƒ{ƒ^ƒ“
+		case 0:		// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ç„¡ã—(ã“ã®çŠ¶æ…‹ã¯å­˜åœ¨ã—ãªã„ã¯ãš)
+		case 1:		// ãƒªãƒˆãƒ©ã‚¤ãƒœã‚¿ãƒ³(ã“ã®çŠ¶æ…‹ã¯å­˜åœ¨ã—ãªã„ã¯ãš)
+		case 3:		// ã‚¹ã‚­ãƒƒãƒ—ãƒœã‚¿ãƒ³
+		case 4:		// ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒœã‚¿ãƒ³
 		default:
 			l_iEventNext = EV_SR1P_AF_NG;
 			break;
 		}
 		break;
-	case 3:		// Ž©“®ƒXƒLƒbƒv
+	case 3:		// è‡ªå‹•ã‚¹ã‚­ãƒƒãƒ—
 		l_iEventNext = EV_SR1P_AF_NG;
 		break;
-	case 5:		// ƒŒƒVƒsI—¹(ã‹LuŽ©“®ƒXƒLƒbƒvv‚Æ‚Í‚í‚´‚Æ•Ê‚É‚µ‚Ä‚ ‚è‚Ü‚·)
+	case 5:		// ãƒ¬ã‚·ãƒ”çµ‚äº†(ä¸Šè¨˜ã€Œè‡ªå‹•ã‚¹ã‚­ãƒƒãƒ—ã€ã¨ã¯ã‚ã–ã¨åˆ¥ã«ã—ã¦ã‚ã‚Šã¾ã™)
 	default:
 		l_iEventNext = EV_SR1P_AF_NG;
 		break;
 	}
-#else	// AF Œ‹‰Ê”»’è‚ð•ÏX --------
+#else	// AF çµæžœåˆ¤å®šã‚’å¤‰æ›´ --------
 	switch (l_AFValid.ucResultPopup) {
-	case 0:		// ƒ|ƒbƒvƒAƒbƒv–³‚µ
-	case 1:		// ƒŠƒgƒ‰ƒCƒ{ƒ^ƒ“
+	case 0:		// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ç„¡ã—
+	case 1:		// ãƒªãƒˆãƒ©ã‚¤ãƒœã‚¿ãƒ³
 		switch (l_AFValid.ucResultAF) {
-		case 0:		// AF –³‚µ
-		case 1:		// AF ³í
-		case 2:		// Ž©“®‹­§‘ª’è
+		case 0:		// AF ç„¡ã—
+		case 1:		// AF æ­£å¸¸
+		case 2:		// è‡ªå‹•å¼·åˆ¶æ¸¬å®š
 			l_iEventNext = EV_SR1P_AF_OK;
 			break;
-		case 3:		// Ž©“®ƒXƒLƒbƒv
+		case 3:		// è‡ªå‹•ã‚¹ã‚­ãƒƒãƒ—
 			l_iEventNext = EV_SR1P_AF_NG;
 			break;
-		case 4:		// AF Ž¸”s(ƒRƒR‚Å‚±‚Ìó‘Ô‚Í‘¶Ý‚µ‚È‚¢‚Í‚¸)
-		case 5:		// ƒŒƒVƒsI—¹(ã‹LuŽ©“®ƒXƒLƒbƒvv‚Æ‚Í‚í‚´‚Æ•Ê‚É‚µ‚Ä‚ ‚è‚Ü‚·)
+		case 4:		// AF å¤±æ•—(ã‚³ã‚³ã§ã“ã®çŠ¶æ…‹ã¯å­˜åœ¨ã—ãªã„ã¯ãš)
+		case 5:		// ãƒ¬ã‚·ãƒ”çµ‚äº†(ä¸Šè¨˜ã€Œè‡ªå‹•ã‚¹ã‚­ãƒƒãƒ—ã€ã¨ã¯ã‚ã–ã¨åˆ¥ã«ã—ã¦ã‚ã‚Šã¾ã™)
 		default:
 			l_iEventNext = EV_SR1P_AF_NG;
 			break;
 		}
 		break;
-	case 2:		// •Â‚¶‚é(OK)(Œ³ AF –³Ž‹)ƒ{ƒ^ƒ“
+	case 2:		// é–‰ã˜ã‚‹(OK)(å…ƒ AF ç„¡è¦–)ãƒœã‚¿ãƒ³
 		l_iEventNext = EV_SR1P_AF_OK;
 		break;
-	case 3:		// ƒXƒLƒbƒvƒ{ƒ^ƒ“
-	case 4:		// ƒLƒƒƒ“ƒZƒ‹ƒ{ƒ^ƒ“
+	case 3:		// ã‚¹ã‚­ãƒƒãƒ—ãƒœã‚¿ãƒ³
+	case 4:		// ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒœã‚¿ãƒ³
 	default:
 		l_iEventNext = EV_SR1P_AF_NG;
 		break;
 	}
-#endif	// AF Œ‹‰Ê”»’è‚ð•ÏX -------- } --------
+#endif	// AF çµæžœåˆ¤å®šã‚’å¤‰æ›´ -------- } --------
 
-	// Ž²À•W‚ðŽæ“¾(Z Ž²‚¾‚¯)
+	// è»¸åº§æ¨™ã‚’å–å¾—(Z è»¸ã ã‘)
 	GetMeasPosXYZ(&m_MeasPosXYZ);
 
 	if (EV_SR1P_AF_NG != l_iEventNext) {
 		m_dwAFValid = l_AFValid.dwValid;
-		// ƒJƒ‰[ƒtƒBƒ‹ƒ^§Œä(‘ª’è—pF‘ª’èƒvƒƒOƒ‰ƒ€‚Ì OpticalFilter)
+		// ã‚«ãƒ©ãƒ¼ãƒ•ã‚£ãƒ«ã‚¿åˆ¶å¾¡(æ¸¬å®šç”¨ï¼šæ¸¬å®šãƒ—ãƒ­ã‚°ãƒ©ãƒ ã® OpticalFilter)
 		LPMEAS_PROG_INFO	l_pMeasProgInfo = (LPMEAS_PROG_INFO) (((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pMeasProgInfo);
-/* modified 2009.09.07 hmenjo ‘ª’è PGM ƒtƒBƒ‹ƒ^“Ço‚µ ---------- { ---------- */
-///* modified 2009.08.25 hmenjo SE ƒ‰ƒ“ƒv§Œä ---------- { ---------- */
+/* modified 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ•ã‚£ãƒ«ã‚¿èª­å‡ºã— ---------- { ---------- */
+///* modified 2009.08.25 hmenjo SE ãƒ©ãƒ³ãƒ—åˆ¶å¾¡ ---------- { ---------- */
 ////		if (0 == MEAS_SrHead_ChangeCcdShutter(l_pMeasProgInfo->ScanParams._SR.wOpticsFilterType)) {
-///* modified 2009.08.25 hmenjo SE ƒ‰ƒ“ƒv§Œä ----------			  */
+///* modified 2009.08.25 hmenjo SE ãƒ©ãƒ³ãƒ—åˆ¶å¾¡ ----------			  */
 //		WORD l_Filter;
 //		if (HEAD_TYPE_SE == l_pMeasProgInfo->ScanParams.hdr.wHeadType) {
 //			l_Filter = FILTER_OPEN;
@@ -1385,8 +1385,8 @@ void CChiefTransiSr1Point::enter_ST_SR1P_AF_DONE(const cEventParams* const pEvPa
 //			l_Filter = l_pMeasProgInfo->ScanParams._SR.wOpticsFilterType;
 //		}
 //		if (0 == MEAS_SrHead_ChangeCcdShutter(l_Filter)) {
-///* modified 2009.08.25 hmenjo SE ƒ‰ƒ“ƒv§Œä ---------- } ---------- */
-/* modified 2009.09.07 hmenjo ‘ª’è PGM ƒtƒBƒ‹ƒ^“Ço‚µ ----------			  */
+///* modified 2009.08.25 hmenjo SE ãƒ©ãƒ³ãƒ—åˆ¶å¾¡ ---------- } ---------- */
+/* modified 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ•ã‚£ãƒ«ã‚¿èª­å‡ºã— ----------			  */
 		WORD l_wFilter;
 		if (HEAD_TYPE_SE == l_pMeasProgInfo->ScanParams.hdr.wHeadType) {
 			l_wFilter = FILTER_OPEN;
@@ -1394,17 +1394,17 @@ void CChiefTransiSr1Point::enter_ST_SR1P_AF_DONE(const cEventParams* const pEvPa
 			l_wFilter = ((CChiefView*) m_pcChiefView)->GetMeasFilter(l_pMeasProgInfo->ScanParams.hdr.wHeadType);
 		}
 		if (0 == MEAS_SrHead_ChangeCcdShutter(l_wFilter)) {
-/* modified 2009.09.07 hmenjo ‘ª’è PGM ƒtƒBƒ‹ƒ^“Ço‚µ ---------- } ---------- */
-			// ˆÙíŽž‚Å‚à–³Ž‹‚µ‚Ü‚·D
+/* modified 2009.09.07 hmenjo æ¸¬å®š PGM ãƒ•ã‚£ãƒ«ã‚¿èª­å‡ºã— ---------- } ---------- */
+			// ç•°å¸¸æ™‚ã§ã‚‚ç„¡è¦–ã—ã¾ã™ï¼Ž
 			((CChiefView*) m_pcChiefView)->LogChief(_T("Failed to MEAS_SrHead_ChangeCcdShutter() in CChiefTransiSr1Point::enter_ST_SR1P_AF_DONE()."));
 		}
 	}
 
-	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV -----------------------------------------------------
+	// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–° -----------------------------------------------------
 	TransiEvent(l_iEventNext);
 
 	if (EV_SR1P_AF_NG == l_iEventNext) {
-		// ‘ª’èƒ|ƒCƒ“ƒg”Ô†‚Æ VALID ƒf[ƒ^‚ðƒf[ƒ^ˆ—‚Ö’Ê’m
+		// æ¸¬å®šãƒã‚¤ãƒ³ãƒˆç•ªå·ã¨ VALID ãƒ‡ãƒ¼ã‚¿ã‚’ãƒ‡ãƒ¼ã‚¿å‡¦ç†ã¸é€šçŸ¥
 		MEAS_1POINT_RESULT l_Meas1PointResult;
 		l_Meas1PointResult.dwPointNo = m_dwPointNo;
 		l_Meas1PointResult.dwAFValid = l_AFValid.dwValid;
@@ -1417,73 +1417,73 @@ void CChiefTransiSr1Point::enter_ST_SR1P_AF_DONE(const cEventParams* const pEvPa
 		l_CopyData.lpData = &l_Meas1PointResult;
 		((CMainFrame*) (((CChiefView*) m_pcChiefView)->m_pcMainFrame))->SendMessage(WM_COPYDATA, 0, (LPARAM) &l_CopyData);
 		TCHAR l_tszLogText[256];
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- { ---------- */
 		((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_SR1P_FOCUS_ABORTED);	// Status Bar
-#else						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ----------			   */
+#else						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ----------			   */
 		((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(_T(" "));	// Status Bar
-#endif						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- } ---------- */
 		_stprintf(l_tszLogText, _T("Notify WMCD_CHIF_1POINT_END with AF NG. (Point No.= %5d, AF Valid = 0x%08x)."), m_dwPointNo, l_AFValid.dwValid);
 		((CChiefView*) m_pcChiefView)->LogChief(l_tszLogText);
-		// ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ð’Ê’m
+		// å‘¼å‡ºå…ƒãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥
 		NotifyComplete((cEventParams*) l_AFValid.dwValid);
 	}
 }
 
 /*
- *	‘ª’èŠ®—¹‘Ò‚¿(WAIT ó‘Ô–³‚µ)
+ *	æ¸¬å®šå®Œäº†å¾…ã¡(WAIT çŠ¶æ…‹ç„¡ã—)
  */
 void CChiefTransiSr1Point::enter_ST_SR1P_MEAS(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_SR_1POINT_DISP[15], (DWORD) pEvParams);
 
-/* added 2009.10.29 hmenjo CTA Z Ž²‘Þ”ðˆÊ’uƒ`ƒFƒbƒN ---------- { ---------- */
+/* added 2009.10.29 hmenjo CTA Z è»¸é€€é¿ä½ç½®ãƒã‚§ãƒƒã‚¯ ---------- { ---------- */
 	((CChiefTransiSeq*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq)->m_bMeasSeq = TRUE;
-/* added 2009.10.29 hmenjo CTA Z Ž²‘Þ”ðˆÊ’uƒ`ƒFƒbƒN ---------- } ---------- */
+/* added 2009.10.29 hmenjo CTA Z è»¸é€€é¿ä½ç½®ãƒã‚§ãƒƒã‚¯ ---------- } ---------- */
 
-	// Ž²À•W‚ðŽæ“¾(Z Ž²‚¾‚¯)
+	// è»¸åº§æ¨™ã‚’å–å¾—(Z è»¸ã ã‘)
 	GetMeasPosXYZ(&m_MeasPosXYZ);
 
-	// ƒƒCƒ“ƒŒƒVƒs‚ðŽæ“¾
+	// ãƒ¡ã‚¤ãƒ³ãƒ¬ã‚·ãƒ”ã‚’å–å¾—
 	LPMAIN_RCP_INFO l_pMainRcpInfo = (LPMAIN_RCP_INFO) (((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pMainRcpInfo);
-	// ‘ª’èƒvƒƒOƒ‰ƒ€‚ðŽæ“¾
+	// æ¸¬å®šãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’å–å¾—
 	LPMEAS_PROG_INFO l_pMeasProgInfo = (LPMEAS_PROG_INFO) (((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pMeasProgInfo);
-/* added 2009.12.15 hmenjo PMA ŒãC‘ª’è’¼‘O‚É‘ª’èPGMƒŒƒ“ƒYØ‘Ö ---------- { ---------- */
-	/*	PMA ‚È‚Ç‚ÅƒŒƒ“ƒY‚ª•ÏX‚³‚ê‚Ä‚¢‚é‚©‚à‚µ‚ê‚È‚¢‚Ì‚ÅC
-		‘ª’è PGM ‚ÌƒŒƒ“ƒY‚ÉØ‘Ö‚¦‚Ü‚·D	*/
+/* added 2009.12.15 hmenjo PMA å¾Œï¼Œæ¸¬å®šç›´å‰ã«æ¸¬å®šPGMãƒ¬ãƒ³ã‚ºåˆ‡æ›¿ ---------- { ---------- */
+	/*	PMA ãªã©ã§ãƒ¬ãƒ³ã‚ºãŒå¤‰æ›´ã•ã‚Œã¦ã„ã‚‹ã‹ã‚‚ã—ã‚Œãªã„ã®ã§ï¼Œ
+		æ¸¬å®š PGM ã®ãƒ¬ãƒ³ã‚ºã«åˆ‡æ›¿ãˆã¾ã™ï¼Ž	*/
 	((CChiefView*) m_pcChiefView)->SelectLens(((CChiefView*) m_pcChiefView)->GetMeasLens(l_pMeasProgInfo->ScanParams.hdr.wHeadType));
-/* added 2009.12.15 hmenjo PMA ŒãC‘ª’è’¼‘O‚É‘ª’èPGMƒŒƒ“ƒYØ‘Ö ---------- } ---------- */
+/* added 2009.12.15 hmenjo PMA å¾Œï¼Œæ¸¬å®šç›´å‰ã«æ¸¬å®šPGMãƒ¬ãƒ³ã‚ºåˆ‡æ›¿ ---------- } ---------- */
 
 	//2009.10.28 bagus 2point-distance --{--
 	//if(m_enMeasMode == MEASMODE_DISTANCE){
 	if(l_pMainRcpInfo->MainRcpParam.hdr.wHeadType == HEAD_TYPE_SR
 	&& l_pMeasProgInfo->ScanParams.hdr.wScanType == MEAS_PROG_TYPE_SR_DISTANCE){
-		//2“_ŠÔ‹——£‚Í•ÊŠÖ”‚Åˆ—‚·‚é
+		//2ç‚¹é–“è·é›¢ã¯åˆ¥é–¢æ•°ã§å‡¦ç†ã™ã‚‹
 		TransiEvent(EV_SR1P_DISTANCE);
 		return;
 	}
 	//2009.10.28 bagus 2point-distance --}--
 	if(l_pMainRcpInfo->MainRcpParam.hdr.wHeadType == HEAD_TYPE_MS){
-		//Œ°”÷‹¾‚Í•ÊŠÖ”‚Åˆ—‚·‚éB
+		//é¡•å¾®é¡ã¯åˆ¥é–¢æ•°ã§å‡¦ç†ã™ã‚‹ã€‚
 		TransiEvent(EV_SR1P_MS);
 		return;
 	}
-	// ƒ|ƒCƒ“ƒg‘ª’è
+	// ãƒã‚¤ãƒ³ãƒˆæ¸¬å®š
 	BOOL l_bMeasErr = FALSE;
 	TCHAR l_tszLogText[256];
 	if (0 != ((CMainFrame*) (((CChiefView*) m_pcChiefView)->m_pcMainFrame))->HardwareSimulation()) {
-		// ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh‚¾‚Á‚½‚Ì‚ÅC‚»‚Ì‚Ü‚Ü‰ðÍˆ— ‚Ö
-/* added 2009.08.25 hmenjo SE ƒ‰ƒ“ƒv§Œä ---------- { ---------- */
-		((CChiefView*) m_pcChiefView)->LampFilterR(FILTER_OPEN, 1);	/* SE ƒ‰ƒ“ƒvƒtƒBƒ‹ƒ^ OPEN	*/
-/* added 2009.08.25 hmenjo SE ƒ‰ƒ“ƒv§Œä ---------- } ---------- */
+		// ãƒãƒ¼ãƒ‰ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ãƒˆãƒ¢ãƒ¼ãƒ‰ã ã£ãŸã®ã§ï¼Œãã®ã¾ã¾è§£æžå‡¦ç† ã¸
+/* added 2009.08.25 hmenjo SE ãƒ©ãƒ³ãƒ—åˆ¶å¾¡ ---------- { ---------- */
+		((CChiefView*) m_pcChiefView)->LampFilterR(FILTER_OPEN, 1);	/* SE ãƒ©ãƒ³ãƒ—ãƒ•ã‚£ãƒ«ã‚¿ OPEN	*/
+/* added 2009.08.25 hmenjo SE ãƒ©ãƒ³ãƒ—åˆ¶å¾¡ ---------- } ---------- */
 		// 2008.12.30 matsuo add ----->
 		((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_SR1P_HWS_MEASING);	// Status Bar
 		_stprintf(l_tszLogText, _T("Measuring Point No. %5d."), m_dwPointNo);
 		((CChiefView*) m_pcChiefView)->LogChief(l_tszLogText);
-		// 2009.08.18 K.Matsuo ƒXƒgƒŒƒX‘Î‰ž -->
-/* modified 2009.09.10 hmenjo “§‰ß—¦ Seq ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh(17) ---------- { ---------- */
+		// 2009.08.18 K.Matsuo ã‚¹ãƒˆãƒ¬ã‚¹å¯¾å¿œ -->
+/* modified 2009.09.10 hmenjo é€éŽçŽ‡ Seq ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(17) ---------- { ---------- */
 ////		MEAS_Measure(l_pMeasProgInfo, m_dwPointNo);
 //		MEAS_Measure(l_pMeasProgInfo, m_dwPointNo, &m_MeasPosXYZ);
-/* modified 2009.09.10 hmenjo “§‰ß—¦ Seq ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh(17) ----------				*/
+/* modified 2009.09.10 hmenjo é€éŽçŽ‡ Seq ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(17) ----------				*/
 // 2009.09.29 K.Matsuo GTr -->
 		switch (m_enMeasMode) {
 		case MEASMODE_GTRREF:
@@ -1494,41 +1494,41 @@ void CChiefTransiSr1Point::enter_ST_SR1P_MEAS(const cEventParams* const pEvParam
 			break;
 		}
 // 2009.09.29 K.Matsuo GTr <--
-/* modified 2009.09.10 hmenjo “§‰ß—¦ Seq ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh(17) ---------- } ---------- */
-/* added 2009.08.25 hmenjo SE ƒ‰ƒ“ƒv§Œä ---------- { ---------- */
-		((CChiefView*) m_pcChiefView)->LampFilterR(FILTER_DARK, 2);	/* SE ƒ‰ƒ“ƒvƒtƒBƒ‹ƒ^ CLOSE(’Êí‚Ì‚Ý)	*/
-/* added 2009.08.25 hmenjo SE ƒ‰ƒ“ƒv§Œä ---------- } ---------- */
-		// 2009.08.18 K.Matsuo ƒXƒgƒŒƒX‘Î‰ž <--
+/* modified 2009.09.10 hmenjo é€éŽçŽ‡ Seq ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(17) ---------- } ---------- */
+/* added 2009.08.25 hmenjo SE ãƒ©ãƒ³ãƒ—åˆ¶å¾¡ ---------- { ---------- */
+		((CChiefView*) m_pcChiefView)->LampFilterR(FILTER_DARK, 2);	/* SE ãƒ©ãƒ³ãƒ—ãƒ•ã‚£ãƒ«ã‚¿ CLOSE(é€šå¸¸ã®ã¿)	*/
+/* added 2009.08.25 hmenjo SE ãƒ©ãƒ³ãƒ—åˆ¶å¾¡ ---------- } ---------- */
+		// 2009.08.18 K.Matsuo ã‚¹ãƒˆãƒ¬ã‚¹å¯¾å¿œ <--
 		// 2008.12.30 matsuo add <-----
 		m_MeasPosXYZ.lZ = 0;
 #ifdef CHIEF_USE_SLEEP
 		::Sleep(2000);
-/* added 2009.08.20 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(48) ---------- { ---------- */
+/* added 2009.08.20 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (48) ---------- { ---------- */
 #else
 		::Sleep(200);
-/* added 2009.08.20 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(48) ---------- } ---------- */
+/* added 2009.08.20 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (48) ---------- } ---------- */
 #endif
-		//		‚±‚±‚É‚Íˆ—‚Í‚ ‚è‚Ü‚¹‚ñD
+		//		ã“ã“ã«ã¯å‡¦ç†ã¯ã‚ã‚Šã¾ã›ã‚“ï¼Ž
 	} else {
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì ---------- { ---------- */
-///* added 2009.08.25 hmenjo SE ƒ‰ƒ“ƒv§Œä ---------- { ---------- */
-///* added 2009.08.31 hmenjo SE ƒwƒbƒhƒIƒtƒZƒbƒg‘Î‰ž ---------- { ---------- */
-//		/* ƒwƒbƒhƒIƒtƒZƒbƒgˆÚ“®	*/
-///* added 2009.09.30 hmenjo SE ƒwƒbƒhƒIƒtƒZƒbƒgŽè“®‘ª’è‘Î‰ž ---------- { ---------- */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- { ---------- */
+///* added 2009.08.25 hmenjo SE ãƒ©ãƒ³ãƒ—åˆ¶å¾¡ ---------- { ---------- */
+///* added 2009.08.31 hmenjo SE ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆå¯¾å¿œ ---------- { ---------- */
+//		/* ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆç§»å‹•	*/
+///* added 2009.09.30 hmenjo SE ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆæ‰‹å‹•æ¸¬å®šå¯¾å¿œ ---------- { ---------- */
 //		BOOL l_bRestoreSRHead = FALSE;
-///* added 2009.09.30 hmenjo SE ƒwƒbƒhƒIƒtƒZƒbƒgŽè“®‘ª’è‘Î‰ž ---------- } ---------- */
+///* added 2009.09.30 hmenjo SE ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆæ‰‹å‹•æ¸¬å®šå¯¾å¿œ ---------- } ---------- */
 //		if (HEAD_TYPE_SE == l_pMeasProgInfo->ScanParams.hdr.wHeadType) {
-///* modified 2009.08.31 hmenjo SE ƒwƒbƒhƒIƒtƒZƒbƒg‘Î‰ž(11) ---------- { ---------- */
-////			((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		// “®ì’†ƒtƒ‰ƒO(XY ƒXƒe[ƒW)‚ðƒIƒ“
+///* modified 2009.08.31 hmenjo SE ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆå¯¾å¿œ(11) ---------- { ---------- */
+////			((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		// å‹•ä½œä¸­ãƒ•ãƒ©ã‚°(XY ã‚¹ãƒ†ãƒ¼ã‚¸)ã‚’ã‚ªãƒ³
 ////			BOOL l_bRet =	NS_SampleCoordStageMoveAbsolute(
 ////									(STAGE_COORD*) &m_MeasPosXYZ,
 ////									l_pMainRcpInfo->hdr.szName,
 ////									HEAD_TYPE_SE
 ////								);
-////			((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		// “®ì’†ƒtƒ‰ƒO(XY ƒXƒe[ƒW)‚ðƒIƒt
-///* modified 2009.08.31 hmenjo SE ƒwƒbƒhƒIƒtƒZƒbƒg‘Î‰ž(11) ----------				*/
-//			/* SE ƒwƒbƒh	*/
-///* modified 2009.09.01 hmenjo SE \‘¢‘Ì’Ç‰Á(12) ---------- { ---------- */
+////			((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		// å‹•ä½œä¸­ãƒ•ãƒ©ã‚°(XY ã‚¹ãƒ†ãƒ¼ã‚¸)ã‚’ã‚ªãƒ•
+///* modified 2009.08.31 hmenjo SE ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆå¯¾å¿œ(11) ----------				*/
+//			/* SE ãƒ˜ãƒƒãƒ‰	*/
+///* modified 2009.09.01 hmenjo SE æ§‹é€ ä½“è¿½åŠ (12) ---------- { ---------- */
 ////			SE_CONFIG l_SeConfig;
 ////			ConfigFile_GetNanoSpecIni(&l_SeConfig, CONFIG_FILE_SE_CONFIG);
 ////			if (
@@ -1538,10 +1538,10 @@ void CChiefTransiSr1Point::enter_ST_SR1P_MEAS(const cEventParams* const pEvParam
 ////							 && (0 == this->IsPointManualAdjust(m_dwPointNo))
 ////							)
 ////				) {
-///* modified 2009.09.01 hmenjo SE \‘¢‘Ì’Ç‰Á(12) ----------			  */
+///* modified 2009.09.01 hmenjo SE æ§‹é€ ä½“è¿½åŠ (12) ----------			  */
 //			SE_SETTING l_SeSetting;
 //			ConfigFile_GetNanoSpecIni(&l_SeSetting, CONFIG_FILE_SE_SETTING);
-///* modified 2009.09.29 hmenjo Head –ˆ Main Rcp Inf “Ço‚µ ---------- { ---------- */
+///* modified 2009.09.29 hmenjo Head æ¯Ž Main Rcp Inf èª­å‡ºã— ---------- { ---------- */
 ////			if (
 ////				FALSE ==	(
 ////								(TRUE == l_SeSetting.bDoNotMoveShutter)
@@ -1549,7 +1549,7 @@ void CChiefTransiSr1Point::enter_ST_SR1P_MEAS(const cEventParams* const pEvParam
 ////							 && (0 == this->IsPointManualAdjust(m_dwPointNo))
 ////							)
 ////				) {
-///* modified 2009.09.29 hmenjo Head –ˆ Main Rcp Inf “Ço‚µ ----------				*/
+///* modified 2009.09.29 hmenjo Head æ¯Ž Main Rcp Inf èª­å‡ºã— ----------				*/
 //			HEAD_MAIN_RCP_INFO l_HeadMainRcpInf;
 //			((CChiefView*) m_pcChiefView)->GetMainRcpInfHead(l_pMainRcpInfo, l_pMeasProgInfo->ScanParams.hdr.wHeadType, &l_HeadMainRcpInf);
 //			if (
@@ -1559,22 +1559,22 @@ void CChiefTransiSr1Point::enter_ST_SR1P_MEAS(const cEventParams* const pEvParam
 //							 && (0 == this->IsPointManualAdjust(m_dwPointNo))
 //							)
 //				) {
-///* modified 2009.09.29 hmenjo Head –ˆ Main Rcp Inf “Ço‚µ ---------- } ---------- */
-///* modified 2009.09.01 hmenjo SE \‘¢‘Ì’Ç‰Á(12) ---------- } ---------- */
-//				/*	‰^—pƒ‚[ƒh‚ÅC‚©‚ÂC(AF –³‚µC‚ ‚é‚¢‚ÍC‚Pƒ|ƒCƒ“ƒg–Ú‚Ì‚Ý AF —L‚è‚Å‚Qƒ|ƒCƒ“ƒg–ÚˆÈ~)C
-//				 *	‚©‚ÂCPMA –³‚µC‚Ìê‡‚ÍƒwƒbƒhƒIƒtƒZƒbƒg‚µ‚Ü‚¹‚ñD
-//				 *	ˆÈ‰º‚Íã‹LðŒ‚ª¬—§‚µ‚È‚©‚Á‚½ê‡‚ÉŽÀs‚³‚ê‚Ü‚·D	*/
+///* modified 2009.09.29 hmenjo Head æ¯Ž Main Rcp Inf èª­å‡ºã— ---------- } ---------- */
+///* modified 2009.09.01 hmenjo SE æ§‹é€ ä½“è¿½åŠ (12) ---------- } ---------- */
+//				/*	é‹ç”¨ãƒ¢ãƒ¼ãƒ‰ã§ï¼Œã‹ã¤ï¼Œ(AF ç„¡ã—ï¼Œã‚ã‚‹ã„ã¯ï¼Œï¼‘ãƒã‚¤ãƒ³ãƒˆç›®ã®ã¿ AF æœ‰ã‚Šã§ï¼’ãƒã‚¤ãƒ³ãƒˆç›®ä»¥é™)ï¼Œ
+//				 *	ã‹ã¤ï¼ŒPMA ç„¡ã—ï¼Œã®å ´åˆã¯ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆã—ã¾ã›ã‚“ï¼Ž
+//				 *	ä»¥ä¸‹ã¯ä¸Šè¨˜æ¡ä»¶ãŒæˆç«‹ã—ãªã‹ã£ãŸå ´åˆã«å®Ÿè¡Œã•ã‚Œã¾ã™ï¼Ž	*/
 //				((CChiefView*) m_pcChiefView)->LogChief(_T("Moving Head-offset for SE."));
-//				((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		/* “®ì’†ƒtƒ‰ƒO(XY ƒXƒe[ƒW)‚ðƒIƒ“	*/
-//				/* ƒEƒFƒCƒg–³‚µ‚ÌˆÚ“®ŠÖ”‚Ì‚½‚ßCˆÚ“®Š®—¹‚Ü‚Å‚±‚ÌƒXƒŒƒbƒh‚Í‘Ò‹@‚³‚¹‚ç‚ê‚Ü‚·D	*/
-///* modified 2009.10.30 hmenjo CTA Head Offset •s—v•”íœ ---------- { ---------- */
-/////* modified 2009.09.30 hmenjo SE ƒwƒbƒhƒIƒtƒZƒbƒgŽè“®‘ª’è‘Î‰ž ---------- { ---------- */
+//				((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		/* å‹•ä½œä¸­ãƒ•ãƒ©ã‚°(XY ã‚¹ãƒ†ãƒ¼ã‚¸)ã‚’ã‚ªãƒ³	*/
+//				/* ã‚¦ã‚§ã‚¤ãƒˆç„¡ã—ã®ç§»å‹•é–¢æ•°ã®ãŸã‚ï¼Œç§»å‹•å®Œäº†ã¾ã§ã“ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã¯å¾…æ©Ÿã•ã›ã‚‰ã‚Œã¾ã™ï¼Ž	*/
+///* modified 2009.10.30 hmenjo CTA Head Offset ä¸è¦éƒ¨å‰Šé™¤ ---------- { ---------- */
+/////* modified 2009.09.30 hmenjo SE ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆæ‰‹å‹•æ¸¬å®šå¯¾å¿œ ---------- { ---------- */
 //////				BOOL l_bRet =	NS_SampleCoordStageMoveAbsolute(
 //////										(STAGE_COORD*) &m_MeasPosXYZ,
 //////										l_pMainRcpInfo->hdr.szName,
 //////										HEAD_TYPE_SE
 //////									);
-/////* modified 2009.09.30 hmenjo SE ƒwƒbƒhƒIƒtƒZƒbƒgŽè“®‘ª’è‘Î‰ž ----------			  */
+/////* modified 2009.09.30 hmenjo SE ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆæ‰‹å‹•æ¸¬å®šå¯¾å¿œ ----------			  */
 ////				BOOL l_bRet;
 ////				if (0) {
 ////					l_bRet =	NS_SampleCoordStageMoveAbsolute(
@@ -1586,63 +1586,63 @@ void CChiefTransiSr1Point::enter_ST_SR1P_MEAS(const cEventParams* const pEvParam
 ////					l_bRestoreSRHead = TRUE;
 ////					l_bRet = 	SelectHeadTypeNotify(HEAD_TYPE_SE, TRUE);
 ////				}
-/////* modified 2009.09.30 hmenjo SE ƒwƒbƒhƒIƒtƒZƒbƒgŽè“®‘ª’è‘Î‰ž ---------- } ---------- */
-///* modified 2009.10.30 hmenjo CTA Head Offset •s—v•”íœ ----------			   */
+/////* modified 2009.09.30 hmenjo SE ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆæ‰‹å‹•æ¸¬å®šå¯¾å¿œ ---------- } ---------- */
+///* modified 2009.10.30 hmenjo CTA Head Offset ä¸è¦éƒ¨å‰Šé™¤ ----------			   */
 //				l_bRestoreSRHead = TRUE;
 //				BOOL l_bRet = SelectHeadTypeNotify(HEAD_TYPE_SE, TRUE);
-///* modified 2009.10.30 hmenjo CTA Head Offset •s—v•”íœ ---------- } ---------- */
-//				((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		/* “®ì’†ƒtƒ‰ƒO(XY ƒXƒe[ƒW)‚ðƒIƒt	*/
-///* modified 2009.09.01 hmenjo SE ƒwƒbƒhƒIƒtƒZƒbƒg‘Î‰ž(10) ---------- { ---------- */
+///* modified 2009.10.30 hmenjo CTA Head Offset ä¸è¦éƒ¨å‰Šé™¤ ---------- } ---------- */
+//				((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		/* å‹•ä½œä¸­ãƒ•ãƒ©ã‚°(XY ã‚¹ãƒ†ãƒ¼ã‚¸)ã‚’ã‚ªãƒ•	*/
+///* modified 2009.09.01 hmenjo SE ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆå¯¾å¿œ(10) ---------- { ---------- */
 ////				((CChiefView*) m_pcChiefView)->LogChief(_T("Moved Head-offset for SE."));
-///* modified 2009.09.01 hmenjo SE ƒwƒbƒhƒIƒtƒZƒbƒg‘Î‰ž(10) ----------				*/
+///* modified 2009.09.01 hmenjo SE ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆå¯¾å¿œ(10) ----------				*/
 //				if (0 == l_bRet) {
-//					/* ˆÚ“®ŠJŽnŽ¸”s	*/
+//					/* ç§»å‹•é–‹å§‹å¤±æ•—	*/
 //					((CChiefView*) m_pcChiefView)->LogChief(_T("Failed to move Head-offset for SE."));
 //					((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(7, CHRAMSG_OK)), MAKELPARAM(0, ALID_MeasurementPointMoveFailed));
-//					// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV
+//					// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–°
 //					TransiEvent(EV_SR1P_MEAS_ERR);
-//					// ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ð’Ê’m
+//					// å‘¼å‡ºå…ƒãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥
 //					NotifyComplete((cEventParams*) TR_SR1P_XYMOVE_FAIL);
 //					return;
 //				} else {
 //					((CChiefView*) m_pcChiefView)->LogChief(_T("Moved Head-offset for SE."));
 //				}
-///* modified 2009.09.01 hmenjo SE ƒwƒbƒhƒIƒtƒZƒbƒg‘Î‰ž(10) ---------- } ---------- */
+///* modified 2009.09.01 hmenjo SE ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆå¯¾å¿œ(10) ---------- } ---------- */
 //			}
-///* modified 2009.08.31 hmenjo SE ƒwƒbƒhƒIƒtƒZƒbƒg‘Î‰ž(11) ---------- } ---------- */
+///* modified 2009.08.31 hmenjo SE ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆå¯¾å¿œ(11) ---------- } ---------- */
 //		}
-///* added 2009.08.31 hmenjo SE ƒwƒbƒhƒIƒtƒZƒbƒg‘Î‰ž ---------- } ---------- */
-///* modified 2009.11.19 hmenjo CTA 1ƒ|ƒCƒ“ƒg’P‘Ì‹N“®Žž Head Offset’Ç‰Á ---------- { ---------- */
-/////* added 2009.11.06 K.Matsuo Resist ƒwƒbƒhƒIƒtƒZƒbƒg‘Î‰ž ---------- { ---------- */
+///* added 2009.08.31 hmenjo SE ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆå¯¾å¿œ ---------- } ---------- */
+///* modified 2009.11.19 hmenjo CTA 1ãƒã‚¤ãƒ³ãƒˆå˜ä½“èµ·å‹•æ™‚ Head Offsetè¿½åŠ  ---------- { ---------- */
+/////* added 2009.11.06 K.Matsuo Resist ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆå¯¾å¿œ ---------- { ---------- */
 ////		if (HEAD_TYPE_4PP == l_pMeasProgInfo->ScanParams.hdr.wHeadType) {
-////			/* RS ƒwƒbƒh	*/
+////			/* RS ãƒ˜ãƒƒãƒ‰	*/
 ////			HEAD_MAIN_RCP_INFO l_HeadMainRcpInf;
 ////			((CChiefView*) m_pcChiefView)->GetMainRcpInfHead(l_pMainRcpInfo, l_pMeasProgInfo->ScanParams.hdr.wHeadType, &l_HeadMainRcpInf);
 ////
 ////			((CChiefView*) m_pcChiefView)->LogChief(_T("Moving Head-offset for RS."));
-////			((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		/* “®ì’†ƒtƒ‰ƒO(XY ƒXƒe[ƒW)‚ðƒIƒ“	*/
-////			/* ƒEƒFƒCƒg–³‚µ‚ÌˆÚ“®ŠÖ”‚Ì‚½‚ßCˆÚ“®Š®—¹‚Ü‚Å‚±‚ÌƒXƒŒƒbƒh‚Í‘Ò‹@‚³‚¹‚ç‚ê‚Ü‚·D	*/
+////			((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		/* å‹•ä½œä¸­ãƒ•ãƒ©ã‚°(XY ã‚¹ãƒ†ãƒ¼ã‚¸)ã‚’ã‚ªãƒ³	*/
+////			/* ã‚¦ã‚§ã‚¤ãƒˆç„¡ã—ã®ç§»å‹•é–¢æ•°ã®ãŸã‚ï¼Œç§»å‹•å®Œäº†ã¾ã§ã“ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã¯å¾…æ©Ÿã•ã›ã‚‰ã‚Œã¾ã™ï¼Ž	*/
 ////			l_bRestoreSRHead = TRUE;
 ////			BOOL l_bRet = SelectHeadTypeNotify(HEAD_TYPE_4PP, TRUE);
-////			((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		/* “®ì’†ƒtƒ‰ƒO(XY ƒXƒe[ƒW)‚ðƒIƒt	*/
+////			((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		/* å‹•ä½œä¸­ãƒ•ãƒ©ã‚°(XY ã‚¹ãƒ†ãƒ¼ã‚¸)ã‚’ã‚ªãƒ•	*/
 ////			if (0 == l_bRet) {
-////				/* ˆÚ“®ŠJŽnŽ¸”s	*/
+////				/* ç§»å‹•é–‹å§‹å¤±æ•—	*/
 ////				((CChiefView*) m_pcChiefView)->LogChief(_T("Failed to move Head-offset for RS."));
 ////				((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(7, CHRAMSG_OK)), MAKELPARAM(0, ALID_MeasurementPointMoveFailed));
-////				// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV
+////				// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–°
 ////				TransiEvent(EV_SR1P_MEAS_ERR);
-////				// ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ð’Ê’m
+////				// å‘¼å‡ºå…ƒãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥
 ////				NotifyComplete((cEventParams*) TR_SR1P_XYMOVE_FAIL);
 ////				return;
 ////			} else {
 ////				((CChiefView*) m_pcChiefView)->LogChief(_T("Moved Head-offset for RS."));
 ////			}
 ////		}
-/////* added 2009.11.06 K.Matsuo Resist ƒwƒbƒhƒIƒtƒZƒbƒg‘Î‰ž ---------- } ---------- */
-///* modified 2009.11.19 hmenjo CTA 1ƒ|ƒCƒ“ƒg’P‘Ì‹N“®Žž Head Offset’Ç‰Á ----------				*/
+/////* added 2009.11.06 K.Matsuo Resist ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆå¯¾å¿œ ---------- } ---------- */
+///* modified 2009.11.19 hmenjo CTA 1ãƒã‚¤ãƒ³ãƒˆå˜ä½“èµ·å‹•æ™‚ Head Offsetè¿½åŠ  ----------				*/
 //		if ((HEAD_TYPE_4PP == l_pMeasProgInfo->ScanParams.hdr.wHeadType)
 //		 || ((HEAD_TYPE_CTA == l_pMeasProgInfo->ScanParams.hdr.wHeadType) && (TRANSI_MASTER == m_dwParentTransi))) {
-//			/* RS / CTA ƒwƒbƒh	*/
+//			/* RS / CTA ãƒ˜ãƒƒãƒ‰	*/
 //			HEAD_MAIN_RCP_INFO l_HeadMainRcpInf;
 //			((CChiefView*) m_pcChiefView)->GetMainRcpInfHead(l_pMainRcpInfo, l_pMeasProgInfo->ScanParams.hdr.wHeadType, &l_HeadMainRcpInf);
 //			TCHAR l_tszLog[128];
@@ -1656,19 +1656,19 @@ void CChiefTransiSr1Point::enter_ST_SR1P_MEAS(const cEventParams* const pEvParam
 //			}
 //			_stprintf(l_tszLog, _T("Moving Head-offset for %s."), l_tszHeadName);
 //			((CChiefView*) m_pcChiefView)->LogChief(l_tszLog);
-//			((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		/* “®ì’†ƒtƒ‰ƒO(XY ƒXƒe[ƒW)‚ðƒIƒ“	*/
-//			/* ƒEƒFƒCƒg–³‚µ‚ÌˆÚ“®ŠÖ”‚Ì‚½‚ßCˆÚ“®Š®—¹‚Ü‚Å‚±‚ÌƒXƒŒƒbƒh‚Í‘Ò‹@‚³‚¹‚ç‚ê‚Ü‚·D	*/
+//			((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		/* å‹•ä½œä¸­ãƒ•ãƒ©ã‚°(XY ã‚¹ãƒ†ãƒ¼ã‚¸)ã‚’ã‚ªãƒ³	*/
+//			/* ã‚¦ã‚§ã‚¤ãƒˆç„¡ã—ã®ç§»å‹•é–¢æ•°ã®ãŸã‚ï¼Œç§»å‹•å®Œäº†ã¾ã§ã“ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã¯å¾…æ©Ÿã•ã›ã‚‰ã‚Œã¾ã™ï¼Ž	*/
 //			l_bRestoreSRHead = TRUE;
 //			  BOOL l_bRet = SelectHeadTypeNotify(l_pMeasProgInfo->ScanParams.hdr.wHeadType, TRUE);
-//			((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		/* “®ì’†ƒtƒ‰ƒO(XY ƒXƒe[ƒW)‚ðƒIƒt	*/
+//			((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		/* å‹•ä½œä¸­ãƒ•ãƒ©ã‚°(XY ã‚¹ãƒ†ãƒ¼ã‚¸)ã‚’ã‚ªãƒ•	*/
 //			if (0 == l_bRet) {
-//				/* ˆÚ“®ŠJŽnŽ¸”s	*/
+//				/* ç§»å‹•é–‹å§‹å¤±æ•—	*/
 //				_stprintf(l_tszLog, _T("Failed to move Head-offset for %s."), l_tszHeadName);
 //				((CChiefView*) m_pcChiefView)->LogChief(l_tszLog);
 //				((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(7, CHRAMSG_OK)), MAKELPARAM(0, ALID_MeasurementPointMoveFailed));
-//				// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV
+//				// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–°
 //				TransiEvent(EV_SR1P_MEAS_ERR);
-//				// ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ð’Ê’m
+//				// å‘¼å‡ºå…ƒãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥
 //				NotifyComplete((cEventParams*) TR_SR1P_XYMOVE_FAIL);
 //				return;
 //			} else {
@@ -1676,36 +1676,36 @@ void CChiefTransiSr1Point::enter_ST_SR1P_MEAS(const cEventParams* const pEvParam
 //				((CChiefView*) m_pcChiefView)->LogChief(l_tszLog);
 //			}
 //		}
-///* modified 2009.11.19 hmenjo CTA 1ƒ|ƒCƒ“ƒg’P‘Ì‹N“®Žž Head Offset’Ç‰Á ---------- } ---------- */
-//		((CChiefView*) m_pcChiefView)->LampFilterR(FILTER_OPEN, 1);	/* SE ƒ‰ƒ“ƒvƒtƒBƒ‹ƒ^ OPEN	*/
-///* added 2009.08.25 hmenjo SE ƒ‰ƒ“ƒv§Œä ---------- } ---------- */
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì ----------			  */
-/* added 2009.11.30 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh(‰ü)‚Å“®ì ---------- { ---------- */
-		/* ƒwƒbƒhƒIƒtƒZƒbƒg‘O‚Ì Z Ž²ˆÊ’u‚ð‹L‰¯	*/
+///* modified 2009.11.19 hmenjo CTA 1ãƒã‚¤ãƒ³ãƒˆå˜ä½“èµ·å‹•æ™‚ Head Offsetè¿½åŠ  ---------- } ---------- */
+//		((CChiefView*) m_pcChiefView)->LampFilterR(FILTER_OPEN, 1);	/* SE ãƒ©ãƒ³ãƒ—ãƒ•ã‚£ãƒ«ã‚¿ OPEN	*/
+///* added 2009.08.25 hmenjo SE ãƒ©ãƒ³ãƒ—åˆ¶å¾¡ ---------- } ---------- */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ----------			  */
+/* added 2009.11.30 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰(æ”¹)ã§å‹•ä½œ ---------- { ---------- */
+		/* ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆå‰ã® Z è»¸ä½ç½®ã‚’è¨˜æ†¶	*/
 		{
 			STAGE_COORD_XYZ l_MeasPosXYZ;
 			NS_StageGetPos(&l_MeasPosXYZ);
 			m_lZ_AF = l_MeasPosXYZ.lZ;
 		}
-/* added 2009.11.30 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh(‰ü)‚Å“®ì ---------- } ---------- */
+/* added 2009.11.30 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰(æ”¹)ã§å‹•ä½œ ---------- } ---------- */
 		WORD l_wRcpHead = l_pMeasProgInfo->ScanParams.hdr.wHeadType;
-		/* ƒXƒgƒŒƒX‘ª’è“à‚Ì–ŒŒú‘ª’è ”»’è	*/
+		/* ã‚¹ãƒˆãƒ¬ã‚¹æ¸¬å®šå†…ã®è†œåŽšæ¸¬å®š åˆ¤å®š	*/
 		if (l_wRcpHead == HEAD_TYPE_STRESS) {
 			l_wRcpHead = HEAD_TYPE_SR;
 		}
 		SE_SETTING l_SeSetting;
 		ConfigFile_GetNanoSpecIni(&l_SeSetting, CONFIG_FILE_SE_SETTING);
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 		COMPEASE_SETTING l_EASESetting;
 		ConfigFile_GetNanoSpecIni(&l_EASESetting, CONFIG_FILE_COMPEASE_SETTING);
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-		/* AF —L–³ Šm”F	*/
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+		/* AF æœ‰ç„¡ ç¢ºèª	*/
 		HEAD_MAIN_RCP_INFO l_HeadMainRcpInf;
 		((CChiefView*) m_pcChiefView)->GetMainRcpInfHead(l_pMainRcpInfo, l_wRcpHead, &l_HeadMainRcpInf);
 		BOOL l_bAF = ((1 == l_HeadMainRcpInf.nFocus) && (1 == m_dwPointNo)) || (2 == l_HeadMainRcpInf.nFocus);
-		/* PMA —L–³ Šm”F	*/
+		/* PMA æœ‰ç„¡ ç¢ºèª	*/
 		BOOL l_bPMA = this->IsPointManualAdjust(m_dwPointNo);
-		/* SitePR —L–³ Šm”F	*/
+		/* SitePR æœ‰ç„¡ ç¢ºèª	*/
 		BOOL l_bSitePR = FALSE;
 		SYSTEM_CONFIG l_SystemConfig;
 		ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
@@ -1720,45 +1720,45 @@ void CChiefTransiSr1Point::enter_ST_SR1P_MEAS(const cEventParams* const pEvParam
 				}
 			}
 		}
-		/* ƒwƒbƒhƒ^ƒCƒv”»’è‚ÆƒwƒbƒhƒIƒtƒZƒbƒgˆÚ“®	*/
+		/* ãƒ˜ãƒƒãƒ‰ã‚¿ã‚¤ãƒ—åˆ¤å®šã¨ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆç§»å‹•	*/
 		WORD l_wOffsetHead = 0xffff;
 		if ((HEAD_TYPE_MS != l_wRcpHead) && ((0 != l_bAF) || (0 != l_bPMA))) {
-			l_wOffsetHead = l_wRcpHead;		/* MS ˆÈŠO‚Å AF —L‚èC‚Ü‚½‚ÍCPMA —L‚èC‚ÍƒŒƒVƒsƒwƒbƒh	*/
+			l_wOffsetHead = l_wRcpHead;		/* MS ä»¥å¤–ã§ AF æœ‰ã‚Šï¼Œã¾ãŸã¯ï¼ŒPMA æœ‰ã‚Šï¼Œã¯ãƒ¬ã‚·ãƒ”ãƒ˜ãƒƒãƒ‰	*/
 		}
 		if ((HEAD_TYPE_MS == l_wRcpHead) && (0 != l_bAF) && (0 == l_bPMA)) {
-			l_wOffsetHead = l_wRcpHead;		/* MS ‚Å AF —L‚èC‚©‚ÂCPMA –³‚µC‚ÍƒŒƒVƒsƒwƒbƒh	*/
+			l_wOffsetHead = l_wRcpHead;		/* MS ã§ AF æœ‰ã‚Šï¼Œã‹ã¤ï¼ŒPMA ç„¡ã—ï¼Œã¯ãƒ¬ã‚·ãƒ”ãƒ˜ãƒƒãƒ‰	*/
 		}
 		if ((HEAD_TYPE_SE == l_wRcpHead) && (TRUE != l_SeSetting.bDoNotMoveShutter)) {
-			l_wOffsetHead = l_wRcpHead;		/* SE ‚Å DoNotMoveShutter == FALSE ‚ÍCSE(ƒŒƒVƒsƒwƒbƒh)	*/
+			l_wOffsetHead = l_wRcpHead;		/* SE ã§ DoNotMoveShutter == FALSE ã¯ï¼ŒSE(ãƒ¬ã‚·ãƒ”ãƒ˜ãƒƒãƒ‰)	*/
 		}
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 		if ((HEAD_TYPE_COMPEASE == l_wRcpHead) && (TRUE != l_EASESetting.bDoNotMoveShutter)) {
-			l_wOffsetHead = l_wRcpHead;		/* EASE ‚Å DoNotMoveShutter == FALSE ‚ÍCEASE(ƒŒƒVƒsƒwƒbƒh)	*/
+			l_wOffsetHead = l_wRcpHead;		/* EASE ã§ DoNotMoveShutter == FALSE ã¯ï¼ŒEASE(ãƒ¬ã‚·ãƒ”ãƒ˜ãƒƒãƒ‰)	*/
 		}
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 		if (0 != l_bSitePR) {
-			l_wOffsetHead = l_wRcpHead;		/* SitePR —L‚è‚ÍCƒŒƒVƒsƒwƒbƒh	*/
+			l_wOffsetHead = l_wRcpHead;		/* SitePR æœ‰ã‚Šã¯ï¼Œãƒ¬ã‚·ãƒ”ãƒ˜ãƒƒãƒ‰	*/
 		}
 		if ((TRANSI_MASTER == m_dwParentTransi) && (HEAD_TYPE_MS != l_wRcpHead)) {
-			l_wOffsetHead = l_wRcpHead;		/* ’P“Æ‹N“®‚Å MS ˆÈŠO‚ÍCƒŒƒVƒsƒwƒbƒh	*/
+			l_wOffsetHead = l_wRcpHead;		/* å˜ç‹¬èµ·å‹•ã§ MS ä»¥å¤–ã¯ï¼Œãƒ¬ã‚·ãƒ”ãƒ˜ãƒƒãƒ‰	*/
 		}
 		if (0xffff != l_wOffsetHead) {
-			/* ƒwƒbƒhƒIƒtƒZƒbƒgˆÚ“®	*/
+			/* ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆç§»å‹•	*/
 			((CChiefView*) m_pcChiefView)->SelectHead(l_wOffsetHead, TRUE);
 		}
 
-		/* Z Ž²‘Þ”ðˆÊ’u‚ÖˆÚ“®	*/
-/* added 2009.11.30 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh(‰ü)‚Å“®ì ---------- { ---------- */
+		/* Z è»¸é€€é¿ä½ç½®ã¸ç§»å‹•	*/
+/* added 2009.11.30 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰(æ”¹)ã§å‹•ä½œ ---------- { ---------- */
 		BOOL l_bTRmode =	(HEAD_TYPE_SR == l_wRcpHead)
 						 && ((MEAS_PROG_TYPE_SR_TRANSMITTANCE_G == l_pMeasProgInfo->ScanParams.hdr.wScanType)
 						  || (MEAS_PROG_TYPE_SR_TRANSMITTANCE == l_pMeasProgInfo->ScanParams.hdr.wScanType));
-/* added 2009.11.30 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh(‰ü)‚Å“®ì ---------- } ---------- */
+/* added 2009.11.30 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰(æ”¹)ã§å‹•ä½œ ---------- } ---------- */
 		if (
-			(HEAD_TYPE_4PP == l_wRcpHead)		/* 4PP ‚Ìê‡	*/
-		 || (HEAD_TYPE_CTA == l_wRcpHead)		/* CTA ‚Ìê‡	*/
-/* added 2009.11.30 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh(‰ü)‚Å“®ì ---------- { ---------- */
-		 || (0 != l_bTRmode)					/* “§‰ß—¦‚Ìê‡	*/
-/* added 2009.11.30 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh(‰ü)‚Å“®ì ---------- } ---------- */
+			(HEAD_TYPE_4PP == l_wRcpHead)		/* 4PP ã®å ´åˆ	*/
+		 || (HEAD_TYPE_CTA == l_wRcpHead)		/* CTA ã®å ´åˆ	*/
+/* added 2009.11.30 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰(æ”¹)ã§å‹•ä½œ ---------- { ---------- */
+		 || (0 != l_bTRmode)					/* é€éŽçŽ‡ã®å ´åˆ	*/
+/* added 2009.11.30 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰(æ”¹)ã§å‹•ä½œ ---------- } ---------- */
 			) {
 			long l_lZRetractPos;
 			switch (l_wRcpHead) {
@@ -1774,76 +1774,76 @@ void CChiefTransiSr1Point::enter_ST_SR1P_MEAS(const cEventParams* const pEvParam
 					ConfigFile_GetNanoSpecIni(&l_CaConfig, CONFIG_FILE_CA_CONFIG);
 					l_lZRetractPos = l_CaConfig.lCaStdZAxisRetractPos;
 				}	break;
-/* added 2009.11.30 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh(‰ü)‚Å“®ì ---------- { ---------- */
+/* added 2009.11.30 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰(æ”¹)ã§å‹•ä½œ ---------- { ---------- */
 			case HEAD_TYPE_SR:
 				if (0 != l_bTRmode) {
-					/* “§‰ß—¦‚Ìê‡‚Í‰Šú‰»’âŽ~ˆÊ’u	*/
+					/* é€éŽçŽ‡ã®å ´åˆã¯åˆæœŸåŒ–åœæ­¢ä½ç½®	*/
 					EEPROMDATA	l_E2pRomParams;
 					StageGetEEPromData(&l_E2pRomParams);
-					long l_lZPos = l_E2pRomParams.AutoFocus.InitPos;	/* Z Ž²‚Ì‰Šú‰»’âŽ~ˆÊ’u	*/
-					long l_lZPosPpU = l_E2pRomParams.AutoFocus.ppu;	/* Z Ž²‚Ì‰Šú‰»’âŽ~ˆÊ’uƒtƒ@ƒNƒ^	*/
-					/* ‰Šú‰»’âŽ~ˆÊ’u[pulse]‚ð[0.1um]‚É•ÏŠ·‚µ‚Ü‚·	*/
+					long l_lZPos = l_E2pRomParams.AutoFocus.InitPos;	/* Z è»¸ã®åˆæœŸåŒ–åœæ­¢ä½ç½®	*/
+					long l_lZPosPpU = l_E2pRomParams.AutoFocus.ppu;	/* Z è»¸ã®åˆæœŸåŒ–åœæ­¢ä½ç½®ãƒ•ã‚¡ã‚¯ã‚¿	*/
+					/* åˆæœŸåŒ–åœæ­¢ä½ç½®[pulse]ã‚’[0.1um]ã«å¤‰æ›ã—ã¾ã™	*/
 					LONG64 l_l64_Z = ((LONG64) l_lZPos) * ((LONG64) 1000000);
-					l_l64_Z = l_l64_Z / ((LONG64) l_lZPosPpU);	/* ‰Šú‰»’âŽ~ˆÊ’u[pulse]€ƒtƒ@ƒNƒ^[pulse/mm]	*/
-					l_l64_Z = l_l64_Z * ((LONG64) 10000);	/* [0.1um]‚É•ÏŠ·‚·‚é	*/
+					l_l64_Z = l_l64_Z / ((LONG64) l_lZPosPpU);	/* åˆæœŸåŒ–åœæ­¢ä½ç½®[pulse]Ã·ãƒ•ã‚¡ã‚¯ã‚¿[pulse/mm]	*/
+					l_l64_Z = l_l64_Z * ((LONG64) 10000);	/* [0.1um]ã«å¤‰æ›ã™ã‚‹	*/
 					l_lZRetractPos = (long) (l_l64_Z / ((LONG64) 1000000));
-					NS_ConvertToStageMoveCoord(&l_lZRetractPos);		/* •â³	*/
+					NS_ConvertToStageMoveCoord(&l_lZRetractPos);		/* è£œæ­£	*/
 				}
 				break;
-/* added 2009.11.30 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh(‰ü)‚Å“®ì ---------- } ---------- */
+/* added 2009.11.30 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰(æ”¹)ã§å‹•ä½œ ---------- } ---------- */
 			}
-			((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_ZAXIS, TRUE);		/* “®ì’†ƒtƒ‰ƒO(Z Ž²)‚ðƒIƒ“	*/
+			((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_ZAXIS, TRUE);		/* å‹•ä½œä¸­ãƒ•ãƒ©ã‚°(Z è»¸)ã‚’ã‚ªãƒ³	*/
 			((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_SR1P_Z_MOVING);	/* Status Bar	*/
 			if (0 == StageElevatorMove(l_lZRetractPos)) {
-				/* ˆÚ“®ŠJŽnŽ¸”s	*/
+				/* ç§»å‹•é–‹å§‹å¤±æ•—	*/
 				((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(7, CHRAMSG_OK)), MAKELPARAM(0, ALID_Z_AxisMoveFailed));
-				/* ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV	*/
+				/* ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–°	*/
 				TransiEvent(EV_SR1P_MEAS_ERR);
-				/* ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ð’Ê’m	*/
+				/* å‘¼å‡ºå…ƒãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥	*/
 				NotifyComplete((cEventParams*) TR_SR1P_ZMOVE_FAIL);
 			} else {
-				/* ˆÚ“®Š®—¹	*/
+				/* ç§»å‹•å®Œäº†	*/
 				((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(_T(" "));	/* Status Bar	*/
 				((CChiefView*) m_pcChiefView)->LogChief(_T("Z axis was moved to Retract position."));
-				/* Z Ž²‘Þ”ðˆÊ’uƒ`ƒFƒbƒN	*/
+				/* Z è»¸é€€é¿ä½ç½®ãƒã‚§ãƒƒã‚¯	*/
 				BOOL l_bZRetract = TRUE;
 				switch (l_wRcpHead) {
 				case HEAD_TYPE_4PP:
 				case HEAD_TYPE_CTA:
-					::Sleep(100);	/* ƒZƒ“ƒT“ü—Í’x‚ê‘Ò‚¿	*/
+					::Sleep(100);	/* ã‚»ãƒ³ã‚µå…¥åŠ›é…ã‚Œå¾…ã¡	*/
 					l_bZRetract = nexioIsRetractPosZ();
 					break;
 				}
 				if (0 == l_bZRetract) {
 					((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(7, CHRAMSG_OK)), MAKELPARAM(0, ALID_Z_AxisMoveFailed));
-					/* ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV	*/
+					/* ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–°	*/
 					TransiEvent(EV_SR1P_MEAS_ERR);
-					/* ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ð’Ê’m	*/
+					/* å‘¼å‡ºå…ƒãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥	*/
 					NotifyComplete((cEventParams*) TR_SR1P_ZMOVE_FAIL);
 				}
 			}
-			((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);		/* “®ì’†ƒtƒ‰ƒO(Z Ž²)‚ðƒIƒt	*/
+			((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);		/* å‹•ä½œä¸­ãƒ•ãƒ©ã‚°(Z è»¸)ã‚’ã‚ªãƒ•	*/
 		}
 
-		((CChiefView*) m_pcChiefView)->LampFilterR(FILTER_OPEN, 1);	/* ƒ‰ƒ“ƒvƒtƒBƒ‹ƒ^ OPEN	*/
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì ---------- } ---------- */
+		((CChiefView*) m_pcChiefView)->LampFilterR(FILTER_OPEN, 1);	/* ãƒ©ãƒ³ãƒ—ãƒ•ã‚£ãƒ«ã‚¿ OPEN	*/
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- } ---------- */
 		((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_SR1P_MEASING);	// Status Bar
 		_stprintf(l_tszLogText, _T("Measuring Point No. %5d."), m_dwPointNo);
 		((CChiefView*) m_pcChiefView)->LogChief(l_tszLogText);
-/* added 2009.11.30 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh(‰ü)‚Å“®ì ---------- { ---------- */
-		/* ‘ª’è’¼‘O‚Ì Z Ž²ˆÊ’u‚ð‰æ–Ê/ƒf[ƒ^ƒ‚ƒWƒ…[ƒ‹’Ê’m—p‚ÉŽæ“¾	*/
+/* added 2009.11.30 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰(æ”¹)ã§å‹•ä½œ ---------- { ---------- */
+		/* æ¸¬å®šç›´å‰ã® Z è»¸ä½ç½®ã‚’ç”»é¢/ãƒ‡ãƒ¼ã‚¿ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«é€šçŸ¥ç”¨ã«å–å¾—	*/
 		{
 			STAGE_COORD_XYZ l_MeasPosXYZ;
 			NS_StageGetPos(&l_MeasPosXYZ);
 			m_MeasPosXYZ.lZ = l_MeasPosXYZ.lZ;
 		}
-/* added 2009.11.30 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh(‰ü)‚Å“®ì ---------- } ---------- */
-/* modified 2009.09.10 hmenjo “§‰ß—¦ Seq ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh(17) ---------- { ---------- */
-//		// 2009.08.18 K.Matsuo ƒXƒgƒŒƒX‘Î‰ž -->
+/* added 2009.11.30 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰(æ”¹)ã§å‹•ä½œ ---------- } ---------- */
+/* modified 2009.09.10 hmenjo é€éŽçŽ‡ Seq ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(17) ---------- { ---------- */
+//		// 2009.08.18 K.Matsuo ã‚¹ãƒˆãƒ¬ã‚¹å¯¾å¿œ -->
 ////		if (0 == MEAS_Measure(l_pMeasProgInfo, m_dwPointNo)) {
 //		if (0 == MEAS_Measure(l_pMeasProgInfo, m_dwPointNo, &m_MeasPosXYZ)) {
-//		// 2009.08.18 K.Matsuo ƒXƒgƒŒƒX‘Î‰ž <--
-/* modified 2009.09.10 hmenjo “§‰ß—¦ Seq ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh(17) ----------				*/
+//		// 2009.08.18 K.Matsuo ã‚¹ãƒˆãƒ¬ã‚¹å¯¾å¿œ <--
+/* modified 2009.09.10 hmenjo é€éŽçŽ‡ Seq ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(17) ----------				*/
 		BOOL l_bRetMeas;
 // 2009.09.29 K.Matsuo GTr -->
 		switch (m_enMeasMode) {
@@ -1855,120 +1855,120 @@ void CChiefTransiSr1Point::enter_ST_SR1P_MEAS(const cEventParams* const pEvParam
 			break;
 		}
 // 2009.09.29 K.Matsuo GTr <--
-/* modified 2009.11.30 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh(‰ü)‚Å“®ì ---------- { ---------- */
-///* modified 2009.11.26 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì ---------- { ---------- */
-/////* added 2009.09.30 hmenjo SE ƒwƒbƒhƒIƒtƒZƒbƒgŽè“®‘ª’è‘Î‰ž ---------- { ---------- */
+/* modified 2009.11.30 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰(æ”¹)ã§å‹•ä½œ ---------- { ---------- */
+///* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- { ---------- */
+/////* added 2009.09.30 hmenjo SE ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆæ‰‹å‹•æ¸¬å®šå¯¾å¿œ ---------- { ---------- */
 ////		if (TRUE == l_bRestoreSRHead) {
 ////			SelectHeadTypeNotify(HEAD_TYPE_SR, FALSE);
 ////		}
-/////* added 2009.09.30 hmenjo SE ƒwƒbƒhƒIƒtƒZƒbƒgŽè“®‘ª’è‘Î‰ž ---------- } ---------- */
-///* modified 2009.11.26 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì ----------				*/
+/////* added 2009.09.30 hmenjo SE ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆæ‰‹å‹•æ¸¬å®šå¯¾å¿œ ---------- } ---------- */
+///* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ----------				*/
 //		((CChiefView*) m_pcChiefView)->SelectHead(HEAD_TYPE_SR, FALSE);
-///* modified 2009.11.26 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì ---------- } ---------- */
-/* modified 2009.11.30 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh(‰ü)‚Å“®ì ----------			  */
+///* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- } ---------- */
+/* modified 2009.11.30 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰(æ”¹)ã§å‹•ä½œ ----------			  */
 		if ((TRANSI_MASTER == m_dwParentTransi) && (0xffff != l_wOffsetHead)) {
-			/* ’P“Æ‹N“®‚ÅƒwƒbƒhƒIƒtƒZƒbƒgˆÚ“®‚³‚ê‚Ä‚¢‚½ê‡‚Í SR ƒIƒtƒZƒbƒg‚É–ß‚µ‚Ü‚·D	*/
-				/*	Ž©“®ƒV[ƒPƒ“ƒX‚Ìê‡‚ÍCæsˆÚ“®‚ª‚ ‚é‚Ì‚Åuâ‘Îv‚É‚±‚±‚ªŽÀs‚³‚ê‚È‚¢‚æ‚¤‚É‚·‚é‚±‚ÆIIII	*/
+			/* å˜ç‹¬èµ·å‹•ã§ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆç§»å‹•ã•ã‚Œã¦ã„ãŸå ´åˆã¯ SR ã‚ªãƒ•ã‚»ãƒƒãƒˆã«æˆ»ã—ã¾ã™ï¼Ž	*/
+				/*	è‡ªå‹•ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã®å ´åˆã¯ï¼Œå…ˆè¡Œç§»å‹•ãŒã‚ã‚‹ã®ã§ã€Œçµ¶å¯¾ã€ã«ã“ã“ãŒå®Ÿè¡Œã•ã‚Œãªã„ã‚ˆã†ã«ã™ã‚‹ã“ã¨ï¼ï¼ï¼ï¼	*/
 			((CChiefView*) m_pcChiefView)->SelectHead(HEAD_TYPE_SR, TRUE);
 		} else {
 			((CChiefView*) m_pcChiefView)->SelectHead(HEAD_TYPE_SR, FALSE);
 		}
-/* modified 2009.11.30 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh(‰ü)‚Å“®ì ---------- } ---------- */
+/* modified 2009.11.30 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰(æ”¹)ã§å‹•ä½œ ---------- } ---------- */
 		if (0 == l_bRetMeas) {
-/* modified 2009.09.10 hmenjo “§‰ß—¦ Seq ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh(17) ---------- } ---------- */
-/* added 2009.08.25 hmenjo SE ƒ‰ƒ“ƒv§Œä ---------- { ---------- */
-			((CChiefView*) m_pcChiefView)->LampFilterR(FILTER_DARK, 1);	/* SE ƒ‰ƒ“ƒvƒtƒBƒ‹ƒ^ CLOSE	*/
-/* added 2009.08.25 hmenjo SE ƒ‰ƒ“ƒv§Œä ---------- } ---------- */
-			// ‘ª’èƒGƒ‰[
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ---------- { ---------- */
+/* modified 2009.09.10 hmenjo é€éŽçŽ‡ Seq ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(17) ---------- } ---------- */
+/* added 2009.08.25 hmenjo SE ãƒ©ãƒ³ãƒ—åˆ¶å¾¡ ---------- { ---------- */
+			((CChiefView*) m_pcChiefView)->LampFilterR(FILTER_DARK, 1);	/* SE ãƒ©ãƒ³ãƒ—ãƒ•ã‚£ãƒ«ã‚¿ CLOSE	*/
+/* added 2009.08.25 hmenjo SE ãƒ©ãƒ³ãƒ—åˆ¶å¾¡ ---------- } ---------- */
+			// æ¸¬å®šã‚¨ãƒ©ãƒ¼
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- { ---------- */
 			((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_SR1P_MEAS_FAILED);	// Status Bar
-#else						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ----------			   */
+#else						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ----------			   */
 			((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(_T(" "));	// Status Bar
-#endif						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- } ---------- */
 			l_bMeasErr = TRUE;
 			((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(7, CHRAMSG_OK)), MAKELPARAM(0, ALID_MeasurementError));
-			// ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ð’Ê’m
+			// å‘¼å‡ºå…ƒãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥
 			NotifyComplete((cEventParams*) TR_SR1P_MEAS_ERR);
 			TransiEvent(EV_SR1P_MEAS_ERR);
 		} else {
-			// ‘ª’è³í
-/* added 2009.08.25 hmenjo SE ƒ‰ƒ“ƒv§Œä ---------- { ---------- */
-			((CChiefView*) m_pcChiefView)->LampFilterR(FILTER_DARK, 2);	/* SE ƒ‰ƒ“ƒvƒtƒBƒ‹ƒ^ CLOSE(’Êí‚Ì‚Ý)	*/
-/* added 2009.08.25 hmenjo SE ƒ‰ƒ“ƒv§Œä ---------- } ---------- */
-			//		‚±‚±‚É‚Íˆ—‚Í‚ ‚è‚Ü‚¹‚ñD
+			// æ¸¬å®šæ­£å¸¸
+/* added 2009.08.25 hmenjo SE ãƒ©ãƒ³ãƒ—åˆ¶å¾¡ ---------- { ---------- */
+			((CChiefView*) m_pcChiefView)->LampFilterR(FILTER_DARK, 2);	/* SE ãƒ©ãƒ³ãƒ—ãƒ•ã‚£ãƒ«ã‚¿ CLOSE(é€šå¸¸ã®ã¿)	*/
+/* added 2009.08.25 hmenjo SE ãƒ©ãƒ³ãƒ—åˆ¶å¾¡ ---------- } ---------- */
+			//		ã“ã“ã«ã¯å‡¦ç†ã¯ã‚ã‚Šã¾ã›ã‚“ï¼Ž
 		}
 	}
 
 	if (0 == l_bMeasErr) {
-		// ‘ª’è³í‚Ìê‡
+		// æ¸¬å®šæ­£å¸¸ã®å ´åˆ
 		((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_SR1P_ANALYZING);	// Status Bar
 		_stprintf(l_tszLogText, _T("Analyzing Point No. %5d."), m_dwPointNo);
 		((CChiefView*) m_pcChiefView)->LogChief(l_tszLogText);
-/* modified 2009.09.10 hmenjo “§‰ß—¦ Seq ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh(17) ---------- { ---------- */
+/* modified 2009.09.10 hmenjo é€éŽçŽ‡ Seq ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(17) ---------- { ---------- */
 //		if (0 == MEAS_Analysis(l_pMainRcpInfo, l_pMeasProgInfo, m_dwPointNo, &m_xmpDde)) {
-/* modified 2009.09.10 hmenjo “§‰ß—¦ Seq ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh(17) ----------				*/
+/* modified 2009.09.10 hmenjo é€éŽçŽ‡ Seq ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(17) ----------				*/
 		BOOL l_bRetAna;
 // 2009.09.29 K.Matsuo GTr -->
 		switch (m_enMeasMode) {
 		case MEASMODE_GTRREF:
-/* added 2009.10.29 hmenjo CTA Seq API ’Ç‰Á ---------- { ---------- */
-		case MEASMODE_CTA:			/* CTA ‘ª’è‚Í‰ðÍ•s—v	*/
-/* added 2009.10.29 hmenjo CTA Seq API ’Ç‰Á ---------- } ---------- */
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+/* added 2009.10.29 hmenjo CTA Seq API è¿½åŠ  ---------- { ---------- */
+		case MEASMODE_CTA:			/* CTA æ¸¬å®šã¯è§£æžä¸è¦	*/
+/* added 2009.10.29 hmenjo CTA Seq API è¿½åŠ  ---------- } ---------- */
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 		case MEASMODE_COMPEASE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-			l_bRetAna = TRUE;			// GTrƒŠƒtƒ@ƒŒƒ“ƒX‘ª’è‚È‚Ì‚ÅA‰ðÍ•s—v
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+			l_bRetAna = TRUE;			// GTrãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šãªã®ã§ã€è§£æžä¸è¦
 			break;
 		default:
 {//hdebdeb
 TCHAR l_tszIniPath[_MAX_PATH];
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //_stprintf(l_tszIniPath, "%s%s", g_szCfg_Dir, NANOSPEC_INIFILENAME);
 _tcscpy(l_tszIniPath, AfxGetApp()->m_pszProfileName);
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 DWORD l_dwDT = ::GetPrivateProfileInt(_T("PreMove"), _T("tstdelay"), 0, l_tszIniPath);//hdebdeb
 ::Sleep(l_dwDT);//hdebdeb
 }//hdebdeb
-/* added 2019.02.01 hmenjo ƒƒO’Ç‰Á Ph1 ---------- { ---------- */
+/* added 2019.02.01 hmenjo ãƒ­ã‚°è¿½åŠ  Ph1 ---------- { ---------- */
 			((CChiefView*) m_pcChiefView)->LogChief(_T("MEAS_Analysis() before call."));
-/* added 2019.02.01 hmenjo ƒƒO’Ç‰Á Ph1 ---------- } ---------- */
+/* added 2019.02.01 hmenjo ãƒ­ã‚°è¿½åŠ  Ph1 ---------- } ---------- */
 			l_bRetAna = MEAS_Analysis(m_dwPointNo, &m_xmpDde);
-/* added 2019.02.01 hmenjo ƒƒO’Ç‰Á Ph1 ---------- { ---------- */
+/* added 2019.02.01 hmenjo ãƒ­ã‚°è¿½åŠ  Ph1 ---------- { ---------- */
 			((CChiefView*) m_pcChiefView)->LogChief(_T("MEAS_Analysis() after call."));
-/* added 2019.02.01 hmenjo ƒƒO’Ç‰Á Ph1 ---------- } ---------- */
+/* added 2019.02.01 hmenjo ãƒ­ã‚°è¿½åŠ  Ph1 ---------- } ---------- */
 			break;
 		}
 // 2009.09.29 K.Matsuo GTr <--
 		if (0 == l_bRetAna) {
-/* modified 2009.09.10 hmenjo “§‰ß—¦ Seq ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh(17) ---------- } ---------- */
-			// ‰ðÍƒGƒ‰[
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ---------- { ---------- */
+/* modified 2009.09.10 hmenjo é€éŽçŽ‡ Seq ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(17) ---------- } ---------- */
+			// è§£æžã‚¨ãƒ©ãƒ¼
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- { ---------- */
 			((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_SR1P_ANALYZE_FAILED);	// Status Bar
-#else						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ----------			   */
+#else						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ----------			   */
 			((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(_T(" "));	// Status Bar
-#endif						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- } ---------- */
 			((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_ON), MAKEWORD(7, CHRAMSG_OK)), MAKELPARAM(0, ALID_AnalysisError));
-			// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV
+			// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–°
 			TransiEvent(EV_SR1P_ANA_ERR);
-			// ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ð’Ê’m
+			// å‘¼å‡ºå…ƒãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥
 			NotifyComplete((cEventParams*) TR_SR1P_ANA_ERR);
 		} else {
-			// ‘ª’èI—¹
+			// æ¸¬å®šçµ‚äº†
 			TransiEvent(EV_SR1P_MEAS_DONE);
 		}
 	}
 }
 
 /*
- *	‘ª’èƒf[ƒ^ˆ—Š®—¹‘Ò‚¿
+ *	æ¸¬å®šãƒ‡ãƒ¼ã‚¿å‡¦ç†å®Œäº†å¾…ã¡
  */
 void CChiefTransiSr1Point::enter_ST_SR1P_ANA(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_SR_1POINT_DISP[16], (DWORD) pEvParams);
 
-	// ‘ª’èƒf[ƒ^ˆ—”­s
+	// æ¸¬å®šãƒ‡ãƒ¼ã‚¿å‡¦ç†ç™ºè¡Œ
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_SR1P_DATA_PROCING);	// Status Bar
-	// ‘ª’èƒ|ƒCƒ“ƒg”Ô†‚Æ VALID ƒf[ƒ^‚ðƒf[ƒ^ˆ—‚Ö’Ê’m
+	// æ¸¬å®šãƒã‚¤ãƒ³ãƒˆç•ªå·ã¨ VALID ãƒ‡ãƒ¼ã‚¿ã‚’ãƒ‡ãƒ¼ã‚¿å‡¦ç†ã¸é€šçŸ¥
 	MEAS_1POINT_RESULT l_Meas1PointResult;
 	l_Meas1PointResult.dwPointNo = m_dwPointNo;
 	l_Meas1PointResult.dwAFValid = m_dwAFValid;
@@ -1984,55 +1984,55 @@ void CChiefTransiSr1Point::enter_ST_SR1P_ANA(const cEventParams* const pEvParams
 	_stprintf(l_tszLogText, _T("Notify WMCD_CHIF_1POINT_END with OK. (Point No.= %5d, AF Valid = 0x%08x)."), m_dwPointNo, m_dwAFValid);
 	((CChiefView*) m_pcChiefView)->LogChief(l_tszLogText);
 
-	// WAIT ó‘Ô‚É‚·‚é‚½‚ßƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ðXV‚µ‚Ü‚¹‚ñD
+	// WAIT çŠ¶æ…‹ã«ã™ã‚‹ãŸã‚ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’æ›´æ–°ã—ã¾ã›ã‚“ï¼Ž
 }
 
 /*
- *	‘ª’èƒf[ƒ^ˆ—Š®—¹(WAIT ó‘Ô–³‚µ)
+ *	æ¸¬å®šãƒ‡ãƒ¼ã‚¿å‡¦ç†å®Œäº†(WAIT çŠ¶æ…‹ç„¡ã—)
  */
 void CChiefTransiSr1Point::enter_ST_SR1P_ANA_DONE(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_SR_1POINT_DISP[17], (DWORD) pEvParams);
 
-	// ‘ª’èƒf[ƒ^ˆ—Š®—¹‚Ìˆ—
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ---------- { ---------- */
+	// æ¸¬å®šãƒ‡ãƒ¼ã‚¿å‡¦ç†å®Œäº†ã®å‡¦ç†
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- { ---------- */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_SR1P_DATA_PROC_COMPLETE);	// Status Bar
-#else						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ----------			   */
+#else						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ----------			   */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(_T(" "));	// Status Bar
-#endif						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\Ž¦‚µ‚È‚¢ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- } ---------- */
 
-	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV
+	// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–°
 	TransiEvent(EV_SR1P_IDLE);
 
-	// ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ð’Ê’m
+	// å‘¼å‡ºå…ƒãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥
 	NotifyComplete((cEventParams*) m_dwAFValid);
 
 }
 
 //2009.10.28 bagus 2point-distance --{--
-// 2“_ŠÔ‹——£‘ª’è
+// 2ç‚¹é–“è·é›¢æ¸¬å®š
 void CChiefTransiSr1Point::enter_ST_SR1P_DISTANCE(const cEventParams* const pEvParams /*= 0*/)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_SR_1POINT_DISP[18], (DWORD) pEvParams);
 
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_DISTANCE);	// Status Bar
 
-	//‰æ–Ê‚ÉPoint Teaching‚Ì‰æ–Ê‚ðo‚·‚æ‚¤‚ÉŽwŽ¦‚ð‚¾‚·B
+	//ç”»é¢ã«Point Teachingã®ç”»é¢ã‚’å‡ºã™ã‚ˆã†ã«æŒ‡ç¤ºã‚’ã ã™ã€‚
 	((CMainFrame*) (((CChiefView*) m_pcChiefView)->m_pcMainFrame))->PostMessage(WM_CHIF_DISTANCE_POPUP, (WPARAM) pEvParams, m_dwPointNo);
 
-	//WAITó‘Ô‚É‚·‚é‚½‚ß‚É‚±‚±‚Å‚Íƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ð•ÏX‚µ‚È‚¢
+	//WAITçŠ¶æ…‹ã«ã™ã‚‹ãŸã‚ã«ã“ã“ã§ã¯ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’å¤‰æ›´ã—ãªã„
 }
-// ƒLƒƒƒ“ƒZƒ‹ˆ—
+// ã‚­ãƒ£ãƒ³ã‚»ãƒ«å‡¦ç†
 void CChiefTransiSr1Point::enter_ST_SR1P_DISTANCE_CANCEL(const cEventParams* const pEvParams /*= 0*/)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_SR_1POINT_DISP[19], (DWORD) pEvParams);
 
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_DISTANCE_CANCEL);	// Status Bar
 
-	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV
+	// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–°
 	TransiEvent(EV_SR1P_IDLE);
 
-	// ‘ª’èƒLƒƒƒ“ƒZƒ‹‚ðãˆÊ‚É’Ê’m
+	// æ¸¬å®šã‚­ãƒ£ãƒ³ã‚»ãƒ«ã‚’ä¸Šä½ã«é€šçŸ¥
 	NotifyComplete((cEventParams*) TR_SR1P_MEAS_ERR);
 }
 //2009.10.28 bagus 2point-distance --}--
@@ -2045,21 +2045,21 @@ void CChiefTransiSr1Point::enter_ST_SR1P_MS(const cEventParams* const pEvParams 
 	//
 	if (0 == ((CMainFrame*) (((CChiefView*) m_pcChiefView)->m_pcMainFrame))->HardwareSimulation()) {
 		SelectHeadTypeNotify(HEAD_TYPE_MS, FALSE);
-/* modified 2009.12.09 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- { ---------- */
+/* modified 2009.12.09 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ(è¿½åŠ æ”¹é€ ) ---------- { ---------- */
 //		((CChiefView*) m_pcChiefView)->LampFilterR(FILTER_DARK,1);
-/* modified 2009.12.09 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ----------				*/
-		/* MS ‚Ìê‡‚Í•K‚¸ SR ƒtƒBƒ‹ƒ^‚ð CLOSE	*/
+/* modified 2009.12.09 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ(è¿½åŠ æ”¹é€ ) ----------				*/
+		/* MS ã®å ´åˆã¯å¿…ãš SR ãƒ•ã‚£ãƒ«ã‚¿ã‚’ CLOSE	*/
 		if (0 == MEAS_SrHead_ChangeCcdShutter(FILTER_DARK)) {
-			/* ˆÙíŽž‚Å‚à–³Ž‹‚µ‚Ü‚·D	*/
+			/* ç•°å¸¸æ™‚ã§ã‚‚ç„¡è¦–ã—ã¾ã™ï¼Ž	*/
 			((CChiefView*) m_pcChiefView)->LogChief(_T("Failed to MEAS_SrHead_ChangeCcdShutter() in CChiefTransiSr1Point::enter_ST_SR1P_MS()."));
 		}
-/* modified 2009.12.09 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- { ---------- */
+/* modified 2009.12.09 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ(è¿½åŠ æ”¹é€ ) ---------- { ---------- */
 	}
 
-	//‰æ–Ê‚ÉPoint Teaching‚Ì‰æ–Ê‚ðo‚·‚æ‚¤‚ÉŽwŽ¦‚ð‚¾‚·B
+	//ç”»é¢ã«Point Teachingã®ç”»é¢ã‚’å‡ºã™ã‚ˆã†ã«æŒ‡ç¤ºã‚’ã ã™ã€‚
 	((CMainFrame*) (((CChiefView*) m_pcChiefView)->m_pcMainFrame))->PostMessage(WM_CHIF_MS_POPUP, (WPARAM) pEvParams, m_dwPointNo);
 
-	//WAITó‘Ô‚É‚·‚é‚½‚ß‚É‚±‚±‚Å‚Íƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ð•ÏX‚µ‚È‚¢
+	//WAITçŠ¶æ…‹ã«ã™ã‚‹ãŸã‚ã«ã“ã“ã§ã¯ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’å¤‰æ›´ã—ãªã„
 }
 void CChiefTransiSr1Point::enter_ST_SR1P_MS_CANCEL(const cEventParams* const pEvParams /* = 0*/)
 {
@@ -2069,27 +2069,27 @@ void CChiefTransiSr1Point::enter_ST_SR1P_MS_CANCEL(const cEventParams* const pEv
 
 	if (0 == ((CMainFrame*) (((CChiefView*) m_pcChiefView)->m_pcMainFrame))->HardwareSimulation()) {
 		SelectHeadTypeNotify(HEAD_TYPE_SR, FALSE);
-/* deleted 2009.12.09 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- { ---------- */
+/* deleted 2009.12.09 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ(è¿½åŠ æ”¹é€ ) ---------- { ---------- */
 //		((CChiefView*) m_pcChiefView)->LampFilterR(FILTER_OPEN,1);
-/* deleted 2009.12.09 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- } ---------- */
+/* deleted 2009.12.09 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ(è¿½åŠ æ”¹é€ ) ---------- } ---------- */
 	}
 
-	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV
+	// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–°
 	TransiEvent(EV_SR1P_IDLE);
 
-	// ‘ª’èƒLƒƒƒ“ƒZƒ‹‚ðãˆÊ‚É’Ê’m
+	// æ¸¬å®šã‚­ãƒ£ãƒ³ã‚»ãƒ«ã‚’ä¸Šä½ã«é€šçŸ¥
 	NotifyComplete((cEventParams*) TR_SR1P_MEAS_ERR);
 }
 void CChiefTransiSr1Point::enter_ST_SR1P_MS_DONE(const cEventParams* const pEvParams /*= 0*/)
 {
 	if (0 == ((CMainFrame*) (((CChiefView*) m_pcChiefView)->m_pcMainFrame))->HardwareSimulation()) {
 		SelectHeadTypeNotify(HEAD_TYPE_SR, FALSE);
-/* deleted 2009.12.09 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- { ---------- */
+/* deleted 2009.12.09 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ(è¿½åŠ æ”¹é€ ) ---------- { ---------- */
 //		((CChiefView*) m_pcChiefView)->LampFilterR(FILTER_OPEN,1);
-/* deleted 2009.12.09 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- } ---------- */
+/* deleted 2009.12.09 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ(è¿½åŠ æ”¹é€ ) ---------- } ---------- */
 	}
 	//2009.11.12 bagus MS --{--
-	//ƒ}ƒjƒ…ƒAƒ‹‘ª’èŽž‚É‚Íƒf[ƒ^‚ð‘—‚ç‚È‚¢
+	//ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«æ¸¬å®šæ™‚ã«ã¯ãƒ‡ãƒ¼ã‚¿ã‚’é€ã‚‰ãªã„
 	if(((CNanoSpecDoc*) (((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc))->GetMeasMode() == MEASMODE_MANUALMEASURE){
 		TransiEvent(EV_SR1P_MS_NO_ANA);
 	}else{

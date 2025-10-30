@@ -1,4 +1,4 @@
-// DioTestDlg.cpp : implementation file
+﻿// DioTestDlg.cpp : implementation file
 //
 
 #include "stdafx.h"

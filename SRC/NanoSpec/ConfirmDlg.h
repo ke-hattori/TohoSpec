@@ -1,4 +1,4 @@
-// ConfirmDlg.h : header file
+﻿// ConfirmDlg.h : header file
 //
 
 #pragma once

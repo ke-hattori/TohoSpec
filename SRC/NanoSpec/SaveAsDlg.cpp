@@ -1,4 +1,4 @@
-// SaveAsDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SaveAsDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -15,7 +15,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CSaveAsDlg ƒ_ƒCƒAƒƒO												   //
+// CSaveAsDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°												   //
 //																		   //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -52,7 +52,7 @@ void CSaveAsDlg::DoDataExchange(CDataExchange* pDX)
 //
 void CSaveAsDlg::DDV_CustomRecipeNameEmptyCheck(CDataExchange* pDX, const CString& value)
 {
-	/* –¼‘O‚Ì“ü—Í‚È‚µ */
+	/* åå‰ã®å…¥åŠ›ãªã— */
 
 	CString strBuffer;
 
@@ -69,7 +69,7 @@ void CSaveAsDlg::DDV_CustomRecipeNameEmptyCheck(CDataExchange* pDX, const CStrin
 //
 void CSaveAsDlg::DDV_CustomCheckNameCheck(CDataExchange* pDX, const CString& value)
 {
-	/* ƒtƒ@ƒCƒ‹–¼‚ÉŠÜ‚Ş‚±‚Æ‚ğ‚Å‚«‚È‚¢•¶š‚ğ•t‚¯‚Ä•Û‘¶‚·‚é‚±‚Æ‚ğ‹Ö~‚·‚é */
+	/* ãƒ•ã‚¡ã‚¤ãƒ«åã«å«ã‚€ã“ã¨ã‚’ã§ããªã„æ–‡å­—ã‚’ä»˜ã‘ã¦ä¿å­˜ã™ã‚‹ã“ã¨ã‚’ç¦æ­¢ã™ã‚‹ */
 
 	CString strBuffer;
 
@@ -86,7 +86,7 @@ void CSaveAsDlg::DDV_CustomCheckNameCheck(CDataExchange* pDX, const CString& val
 //
 void CSaveAsDlg::DDV_CustomSystemRecipeBeginningCharCheck(CDataExchange* pDX, const CString& value)
 {
-	/* ƒAƒ“ƒ_[ƒo[‚Ån‚Ü‚é–¼‘O‚ğ•t‚¯‚Ä•Û‘¶‚·‚é‚±‚Æ‚ğ‹Ö~‚·‚é */
+	/* ã‚¢ãƒ³ãƒ€ãƒ¼ãƒãƒ¼ã§å§‹ã¾ã‚‹åå‰ã‚’ä»˜ã‘ã¦ä¿å­˜ã™ã‚‹ã“ã¨ã‚’ç¦æ­¢ã™ã‚‹ */
 
 	CString strBuffer;
 
@@ -104,7 +104,7 @@ void CSaveAsDlg::DDV_CustomSystemRecipeBeginningCharCheck(CDataExchange* pDX, co
 //
 void CSaveAsDlg::DDV_CustomUntitledNameCheck(CDataExchange* pDX, const CString& value)
 {
-	/* V‹Kì¬i"Untitled"A"ƒ^ƒCƒgƒ‹‚È‚µ"‚È‚Çj‚Æ“¯‚¶–¼‘O‚ğ•t‚¯‚Ä•Û‘¶‚·‚é‚±‚Æ‚ğ‹Ö~‚·‚é */
+	/* æ–°è¦ä½œæˆï¼ˆ"Untitled"ã€"ã‚¿ã‚¤ãƒˆãƒ«ãªã—"ãªã©ï¼‰æ™‚ã¨åŒã˜åå‰ã‚’ä»˜ã‘ã¦ä¿å­˜ã™ã‚‹ã“ã¨ã‚’ç¦æ­¢ã™ã‚‹ */
 
 	CString strBuffer;
 	CString strUntitled;
@@ -128,7 +128,7 @@ BEGIN_MESSAGE_MAP(CSaveAsDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CSaveAsDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSaveAsDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -144,8 +144,8 @@ BOOL CSaveAsDlg::OnInitDialog()
 	m_CancelButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_CancelButton.DrawFlatFocus(TRUE);
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -164,7 +164,7 @@ void CSaveAsDlg::OnOK()
 	memset(m_szFilePath, 0, sizeof(m_szFilePath));
 	strncpy(szName, m_strName, RECIPE_NAME_LEN);
 	szName[RECIPE_NAME_LEN] = '\0';
-	// ‚»‚ê‚¼‚ê‚Ìƒ‚[ƒh‚Å“¯‚¶–¼‘O‚Ìƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚é‚©‚ğ’²‚×‚é
+	// ãã‚Œãã‚Œã®ãƒ¢ãƒ¼ãƒ‰ã§åŒã˜åå‰ã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã‹ã‚’èª¿ã¹ã‚‹
 	switch(m_iMode){
 	case SAVE_AS_MAIN_RECIPE:
 		bExist = RecipeFile_ExistRecipe(szName, &lastWriteSystemTime, RECIPE_FILE_MAIN_RECIPE);
@@ -201,7 +201,7 @@ void CSaveAsDlg::OnOK()
 		return;
 	}
 
-	// ƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚Ä‚¢‚éê‡‚ÍOverwrite‚·‚é‚©‚ğŠm”F‚·‚é
+	// ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ã¦ã„ã‚‹å ´åˆã¯Overwriteã™ã‚‹ã‹ã‚’ç¢ºèªã™ã‚‹
 	if ( bExist) {
 		LoadStringML(IDS_NAME_ALREADY_EXIST, strBuffer, "Name ""%s"" already exists, overwrite?");
 		sprintf(szMessage, strBuffer, m_strName);
@@ -221,7 +221,7 @@ void CSaveAsDlg::OnOK()
 //
 BOOL CSaveAsDlg::CheckFileExists(LPCTSTR pszFileName, SYSTEMTIME* lpLastWriteSystemTime)
 {
-	/* ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚é‚©‚ğŠm”F‚·‚éŠÖ”i‘¶İ‚·‚éê‡A‚ ‚í‚¹‚ÄÅIXV“ú‚ğİ’è‚·‚éj */
+	/* ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã‹ã‚’ç¢ºèªã™ã‚‹é–¢æ•°ï¼ˆå­˜åœ¨ã™ã‚‹å ´åˆã€ã‚ã‚ã›ã¦æœ€çµ‚æ›´æ–°æ—¥æ™‚ã‚’è¨­å®šã™ã‚‹ï¼‰ */
 
 	WIN32_FILE_ATTRIBUTE_DATA win32Data;
 	FILETIME localFileTime;

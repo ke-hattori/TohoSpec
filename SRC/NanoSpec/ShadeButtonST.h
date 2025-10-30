@@ -1,4 +1,4 @@
-//
+﻿//
 //	Class:		CShadeButtonST
 //
 //	Compiler:	Visual C++

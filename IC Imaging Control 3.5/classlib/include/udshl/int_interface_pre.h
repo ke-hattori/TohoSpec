@@ -1,4 +1,4 @@
-
+﻿
 #ifndef INT_INTERFACE_PRE_H_INC_
 #define INT_INTERFACE_PRE_H_INC_
 

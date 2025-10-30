@@ -1,4 +1,4 @@
-#pragma once
+Ôªø#pragma once
 
 #include "DdeClient.hxx"
 
@@ -10,14 +10,14 @@ public:
 	BOOL InitInstance();
 	void ExitInstance();
 	BOOL DoXmp(LPTSTR pszXmpDdeText, LPCTSTR pszCmd, CDdeClient* pXmpDde);
-/* added 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ---------- { ---------- */
+/* added 2014.11.25 hmenjo XMP Ë°®Á§∫/ÈùûË°®Á§∫ ---------- { ---------- */
 	BOOL ShowXmp(int iShow);
-/* added 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ---------- } ---------- */
+/* added 2014.11.25 hmenjo XMP Ë°®Á§∫/ÈùûË°®Á§∫ ---------- } ---------- */
 
-/* added 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ---------- { ---------- */
+/* added 2014.11.25 hmenjo XMP Ë°®Á§∫/ÈùûË°®Á§∫ ---------- { ---------- */
 private:
 	BOOL m_bSC_Adap;
-/* added 2014.11.25 hmenjo XMP ï\é¶/îÒï\é¶ ---------- } ---------- */
+/* added 2014.11.25 hmenjo XMP Ë°®Á§∫/ÈùûË°®Á§∫ ---------- } ---------- */
 
 private:
 	BOOL RunXmp();

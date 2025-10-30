@@ -1,14 +1,14 @@
-#if !defined(AFX_ALARMHISTORYOPERATIONVIEW_H__04900304_423B_45EB_9032_FC6127ED0BCA__INCLUDED_)
+ï»¿#if !defined(AFX_ALARMHISTORYOPERATIONVIEW_H__04900304_423B_45EB_9032_FC6127ED0BCA__INCLUDED_)
 #define AFX_ALARMHISTORYOPERATIONVIEW_H__04900304_423B_45EB_9032_FC6127ED0BCA__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// AlarmHistoryOperationView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// AlarmHistoryOperationView.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 /////////////////////////////////////////////////////////////////////////////
-// CAlarmHistoryOperationView ƒtƒH[ƒ€ ƒrƒ…[								//
+// CAlarmHistoryOperationView ãƒ•ã‚©ãƒ¼ãƒ  ãƒ“ãƒ¥ãƒ¼								//
 //																			//
 /////////////////////////////////////////////////////////////////////////////
 
@@ -39,6 +39,6 @@ public:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_ALARMHISTORYOPERATIONVIEW_H__04900304_423B_45EB_9032_FC6127ED0BCA__INCLUDED_)

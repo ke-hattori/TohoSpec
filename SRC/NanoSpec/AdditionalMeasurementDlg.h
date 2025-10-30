@@ -1,30 +1,30 @@
-#if !defined(AFX_ADDITIONALMEASUREMENTDLG_H__EEF4D301_D1D8_4F5B_9B19_DADA4C15581E__INCLUDED_)
+ï»¿#if !defined(AFX_ADDITIONALMEASUREMENTDLG_H__EEF4D301_D1D8_4F5B_9B19_DADA4C15581E__INCLUDED_)
 #define AFX_ADDITIONALMEASUREMENTDLG_H__EEF4D301_D1D8_4F5B_9B19_DADA4C15581E__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// AdditionalMeasurementDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// AdditionalMeasurementDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 /////////////////////////////////////////////////////////////////////////////
-// CAdditionalMeasurementDlg ƒ_ƒCƒAƒƒO
+// CAdditionalMeasurementDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 class CAdditionalMeasurementDlg : public COverlayDialog
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
-	CAdditionalMeasurementDlg(CWnd* pParent = NULL);   // •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CAdditionalMeasurementDlg(CWnd* pParent = NULL);   // æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
-// 2009.10.30 bagus Stage-Sample C³ --{--
+// 2009.10.30 bagus Stage-Sample ä¿®æ­£ --{--
 	char m_szRecipeName[RECIPE_NAME_LEN + 1];
 	int m_nSampleMode;
-// 2009.10.30 bagus Stage-Sample C³ --}--
+// 2009.10.30 bagus Stage-Sample ä¿®æ­£ --}--
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CAdditionalMeasurementDlg)
 	enum { IDD = IDD_OVERLAY_DLG };
-		// ƒƒ‚: ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒf[ƒ^ ƒƒ“ƒo‚ğ’Ç‰Á‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢: ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒ‡ãƒ¼ã‚¿ ãƒ¡ãƒ³ãƒã‚’è¿½åŠ ã—ã¾ã™ã€‚
 	//}}AFX_DATA
 
 public:
@@ -54,24 +54,24 @@ public:
 
 protected:
 	void SoftJoyStickXyzEnable(BOOL bEnable);
-/* added 2009.12.09 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- { ---------- */
+/* added 2009.12.09 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ(è¿½åŠ æ”¹é€ ) ---------- { ---------- */
 	void ButtonEnableCheck(void);
-/* added 2009.12.09 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- } ---------- */
+/* added 2009.12.09 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ(è¿½åŠ æ”¹é€ ) ---------- } ---------- */
 
 public:
 
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CAdditionalMeasurementDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CAdditionalMeasurementDlg)
 	afx_msg BOOL OnInitDialog();
 	afx_msg void OnOK();
@@ -87,6 +87,6 @@ protected:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_ADDITIONALMEASUREMENTDLG_H__EEF4D301_D1D8_4F5B_9B19_DADA4C15581E__INCLUDED_)

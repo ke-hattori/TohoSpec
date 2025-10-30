@@ -1,4 +1,4 @@
-// RecipeMainStressView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// RecipeMainStressView.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -23,7 +23,7 @@ CRecipeMainStressView::CRecipeMainStressView()
 	: CNanoRecipeUI(CRecipeMainStressView::IDD)
 {
 	//{{AFX_DATA_INIT(CRecipeMainStressView)
-		// ƒƒ‚: ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒƒ“ƒo‚Ì‰Šú‰»ˆ—‚ğ’Ç‰Á‚µ‚Ü‚·
+		// ãƒ¡ãƒ¢: ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒ¡ãƒ³ãƒã®åˆæœŸåŒ–å‡¦ç†ã‚’è¿½åŠ ã—ã¾ã™
 	//}}AFX_DATA_INIT
 }
 
@@ -35,22 +35,22 @@ void CRecipeMainStressView::DoDataExchange(CDataExchange* pDX)
 {
 	CNanoRecipeUI::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CRecipeMainStressView)
-		// ƒƒ‚: ClassWizard ‚Í‚±‚ÌˆÊ’u‚É DDX ‚¨‚æ‚Ñ DDV ‚ÌŒÄ‚Ño‚µ‚ğ’Ç‰Á‚µ‚Ü‚·
+		// ãƒ¡ãƒ¢: ClassWizard ã¯ã“ã®ä½ç½®ã« DDX ãŠã‚ˆã³ DDV ã®å‘¼ã³å‡ºã—ã‚’è¿½åŠ ã—ã¾ã™
 	//}}AFX_DATA_MAP
 }
 
 
 BEGIN_MESSAGE_MAP(CRecipeMainStressView, CNanoRecipeUI)
 	//{{AFX_MSG_MAP(CRecipeMainStressView)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CRecipeMainStressView f’f
+// CRecipeMainStressView è¨ºæ–­
 
 /////////////////////////////////////////////////////////////////////////////
-// CRecipeMainStressView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CRecipeMainStressView ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 
 void CRecipeMainStressView::LoadRecipeData()

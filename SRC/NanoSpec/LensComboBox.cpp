@@ -1,4 +1,4 @@
-// LensComboBox.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// LensComboBox.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -96,18 +96,18 @@ BOOL CLensComboBox::PreTranslateMessage(MSG* pMsg)
 			if( !CheckIL() )	  return TRUE;
 			if( !pDoc->JoyStickChangeDisable() ){
 				//Saiki 20090603 Change ----->
-				//MessageBox(	"“®ì’†‚Å‚·",	"Œx", MB_OK);
+				//MessageBox(	"å‹•ä½œä¸­ã§ã™",	"è­¦å‘Š", MB_OK);
 				LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 				LoadStringML(IDS_TITLE_WARNING, strTitle, "WARNING");
 				MessageBox(strMsg, strTitle, MB_OK);
 				//Saiki 20090603 Change <-----
-				// •K‚¸JoyStick‚Ìó‘Ô‚ğ–ß‚·‚±‚Æ
+				// å¿…ãšJoyStickã®çŠ¶æ…‹ã‚’æˆ»ã™ã“ã¨
 				pDoc->JoyStickStatusRestore();
 				return TRUE;
 			}
 		}
 		else if( pMsg->message == WM_LBUTTONDBLCLK ){
-			// ƒ_ƒuƒ‹ƒNƒŠƒbƒN‚ÉŒë“®ì‚·‚é–‚ª‚ ‚é‚Ì‚Å”rœ‚·‚é
+			// ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯æ™‚ã«èª¤å‹•ä½œã™ã‚‹äº‹ãŒã‚ã‚‹ã®ã§æ’é™¤ã™ã‚‹
 			return TRUE;
 		}
 	}
@@ -122,34 +122,34 @@ BOOL CLensComboBox::CheckIL()
 	CString strMsg;
 	//Saiki 20090530 Add <-----
 
-	//ƒŠƒ‚[ƒg‚Í‰½‚à‚µ‚È‚¢
+	//ãƒªãƒ¢ãƒ¼ãƒˆæ™‚ã¯ä½•ã‚‚ã—ãªã„
 	if(pDoc->GetHostMode() == HOST_REMOTE) return FALSE;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return FALSE;}	// ƒƒ“ƒeƒiƒ“ƒXˆÙí
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return FALSE;}	// ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ç•°å¸¸
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
+	// å„I/Oãƒã‚§ãƒƒã‚¯
 	/*//Saiki 20090520 Change ----->*/
 	if(pDoc->IsInterLock() == TRUE){return FALSE;}
 	if(pDoc->CheckUnitStatus() == TRUE){return FALSE;}
 	/*//Saiki 20090520 Change <-----*/
-	// ƒVƒƒƒbƒ^[ˆÈŠO‚ª“®‚¢‚Ä‚¢‚½‚ç“®ì‹Ö~
+	// ã‚·ãƒ£ãƒƒã‚¿ãƒ¼ä»¥å¤–ãŒå‹•ã„ã¦ã„ãŸã‚‰å‹•ä½œç¦æ­¢
 	if( pMainFrame->GetJoyStickMode()==0 ){
 		//Saiki 20090530 Change ----->
 		if( pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 			LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 			pDoc->MessageStringIf_Set(strMsg);
 			return FALSE;
-		}	// ƒXƒe[ƒW“®ì’†
+		}	// ã‚¹ãƒ†ãƒ¼ã‚¸å‹•ä½œä¸­
 		//Saiki 20090530 Change <-----
 	}
 	/*//Saiki 20090520 Change ----->*/
 	if(pDoc->CheckActiveFlag() == TRUE){return FALSE;}
 	/*//Saiki 20090520 Change <-----*/
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	return TRUE;
 }
@@ -159,12 +159,12 @@ void CLensComboBox::OnSelchange()
 	CMainFrame* pMainFrame = (CMainFrame*)AfxGetMainWnd();
 	CNanoSpecDoc* pDoc = (CNanoSpecDoc*)pMainFrame->GetActiveDocument();
 
-	// ‘I‘ğƒJ[ƒ\ƒ‹‚Ì“¯Šú
+	// é¸æŠã‚«ãƒ¼ã‚½ãƒ«ã®åŒæœŸ
 	int nSelect = GetCurSel();
 	for ( std::list<HWND>::iterator i = m_hWndList.begin(); i != m_hWndList.end(); i++ )
 //		::PostMessage(*i, WM_SELLENSCHANGE, 0L, 0L);
 		ComboBox_SetCurSel(*i, nSelect);
-	// ƒŒƒ“ƒY•ÏX
+	// ãƒ¬ãƒ³ã‚ºå¤‰æ›´
 	int nItemData = GetItemData(nSelect);
 	CCursor::BeginWaitCursor();
 	pDoc->ActuateFlagsSet(ACTUATE_TURRET, TRUE);
@@ -178,7 +178,7 @@ void CLensComboBox::OnSelchange()
 	pDoc->ActuateFlagsSet(ACTUATE_TURRET, FALSE);
 	CCursor::EndWaitCursor();
 
-	// •K‚¸JoyStick‚Ìó‘Ô‚ğ–ß‚·‚±‚Æ
+	// å¿…ãšJoyStickã®çŠ¶æ…‹ã‚’æˆ»ã™ã“ã¨
 	pDoc->JoyStickStatusRestore();
 }
 
@@ -187,7 +187,7 @@ void CLensComboBox::OnSelendcancel()
 	CMainFrame* pMainFrame = (CMainFrame*)AfxGetMainWnd();
 	CNanoSpecDoc* pDoc = (CNanoSpecDoc*)pMainFrame->GetActiveDocument();
 
-	// •K‚¸JoyStick‚Ìó‘Ô‚ğ–ß‚·‚±‚Æ
+	// å¿…ãšJoyStickã®çŠ¶æ…‹ã‚’æˆ»ã™ã“ã¨
 	pDoc->JoyStickStatusRestore();
 }
 
@@ -226,7 +226,7 @@ void CCameraComboBox::PreSubclassWindow()
 
 	ResetContent();
 
-	///// ƒVƒXƒeƒ€ƒRƒ“ƒtƒBƒO‚Åİ’è‚³‚ê‚Ä‚¢‚éƒwƒbƒh‚Ì‚İ’Ç‰Á /////
+	///// ã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ³ãƒ•ã‚£ã‚°ã§è¨­å®šã•ã‚Œã¦ã„ã‚‹ãƒ˜ãƒƒãƒ‰ã®ã¿è¿½åŠ  /////
 	int nIndex;
 	int iChannelNo = 1;
 	if(SystemConfig.nLanguage == LANGUAGE_ENGLISH){
@@ -285,7 +285,7 @@ BOOL CCameraComboBox::PreTranslateMessage(MSG* pMsg)
 			if( !CheckIL() )	return TRUE;
 		}
 		else if( pMsg->message == WM_LBUTTONDBLCLK ){
-			// ƒ_ƒuƒ‹ƒNƒŠƒbƒN‚ÉŒë“®ì‚·‚é–‚ª‚ ‚é‚Ì‚Å”rœ‚·‚é
+			// ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯æ™‚ã«èª¤å‹•ä½œã™ã‚‹äº‹ãŒã‚ã‚‹ã®ã§æ’é™¤ã™ã‚‹
 			return TRUE;
 		}
 	}
@@ -297,16 +297,16 @@ BOOL CCameraComboBox::CheckIL()
 	CMainFrame* pMainFrame = (CMainFrame*)AfxGetMainWnd();
 	CNanoSpecDoc* pDoc = (CNanoSpecDoc*)pMainFrame->GetActiveDocument();
 
-	//ƒŠƒ‚[ƒg‚Í‰½‚à‚µ‚È‚¢
+	//ãƒªãƒ¢ãƒ¼ãƒˆæ™‚ã¯ä½•ã‚‚ã—ãªã„
 	if(pDoc->GetHostMode() == HOST_REMOTE) return FALSE;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return FALSE;}	// ƒƒ“ƒeƒiƒ“ƒXˆÙí
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return FALSE;}	// ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ç•°å¸¸
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 	}
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 	return TRUE;
 }
@@ -315,11 +315,11 @@ void CCameraComboBox::OnSelchange()
 {
 	int nSelect = GetCurSel();
 
-	// ‘I‘ğƒJ[ƒ\ƒ‹‚Ì“¯Šú
+	// é¸æŠã‚«ãƒ¼ã‚½ãƒ«ã®åŒæœŸ
 	for ( std::list<HWND>::iterator i = m_hWndList.begin(); i != m_hWndList.end(); i++ )
 		ComboBox_SetCurSel(*i, nSelect);
 
-	//ƒOƒ‰ƒo[ƒ{[ƒh“ü—Íƒ`ƒƒƒ“ƒlƒ‹•ÏXiCh1,Ch2j
+	//ã‚°ãƒ©ãƒãƒ¼ãƒœãƒ¼ãƒ‰å…¥åŠ›ãƒãƒ£ãƒ³ãƒãƒ«å¤‰æ›´ï¼ˆCh1,Ch2ï¼‰
 	int iChannelNo = GetItemData(nSelect);
 	OverlaySelectChannel(iChannelNo);
 

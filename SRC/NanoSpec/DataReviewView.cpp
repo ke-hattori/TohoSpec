@@ -1,4 +1,4 @@
-// DataReviewView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// DataReviewView.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -40,14 +40,14 @@ CDataReviewView::CDataReviewView()
 CDataReviewView::~CDataReviewView()
 {
 	if(m_pMeasurementListDlg){
-// ƒfƒXƒgƒ‰ƒNƒg‚Ì’†‚ÅDestroyWindow‚ðŒÄ‚Ño‚³‚È‚¢
+// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ãƒˆã®ä¸­ã§DestroyWindowã‚’å‘¼ã³å‡ºã•ãªã„
 //		m_pMeasurementListDlg->DestroyWindow();
 		delete m_pMeasurementListDlg;
 		m_pMeasurementListDlg = NULL;
 	}
 
 	if(m_pMeasurementGraphDlg){
-// ƒfƒXƒgƒ‰ƒNƒg‚Ì’†‚ÅDestroyWindow‚ðŒÄ‚Ño‚³‚È‚¢
+// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ãƒˆã®ä¸­ã§DestroyWindowã‚’å‘¼ã³å‡ºã•ãªã„
 //		m_pMeasurementGraphDlg->DestroyWindow();
 		delete m_pMeasurementGraphDlg;
 		m_pMeasurementGraphDlg = NULL;
@@ -60,7 +60,7 @@ void CDataReviewView::DoDataExchange(CDataExchange* pDX)
 {
 	CNanoUI::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDataReviewView)
-		// ƒƒ‚: ClassWizard ‚Í‚±‚ÌˆÊ’u‚É DDX ‚¨‚æ‚Ñ DDV ‚ÌŒÄ‚Ño‚µ‚ð’Ç‰Á‚µ‚Ü‚·
+		// ãƒ¡ãƒ¢: ClassWizard ã¯ã“ã®ä½ç½®ã« DDX ãŠã‚ˆã³ DDV ã®å‘¼ã³å‡ºã—ã‚’è¿½åŠ ã—ã¾ã™
 	DDX_Control(pDX, IDC_DATA_REVIEW_TAB, m_DataReviewTab);
 	//}}AFX_DATA_MAP
 }
@@ -69,7 +69,7 @@ void CDataReviewView::DoDataExchange(CDataExchange* pDX)
 //
 BEGIN_MESSAGE_MAP(CDataReviewView, CNanoUI)
 	//{{AFX_MSG_MAP(CDataReviewView)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ð’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒžãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒžã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_MSG_MAP
 
 	ON_NOTIFY(TCN_SELCHANGE, IDC_DATA_REVIEW_TAB, OnSelchangeDataReviewTab)
@@ -77,7 +77,7 @@ BEGIN_MESSAGE_MAP(CDataReviewView, CNanoUI)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CDataReviewView f’f
+// CDataReviewView è¨ºæ–­
 
 #ifdef _DEBUG
 // =========================================================================
@@ -96,7 +96,7 @@ void CDataReviewView::Dump(CDumpContext& dc) const
 #endif //_DEBUG
 
 // =========================================================================
-// CDataReviewView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CDataReviewView ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -104,7 +104,7 @@ void CDataReviewView::OnInitialUpdate()
 {
 	CNanoUI::OnInitialUpdate();
 
-	// TODO: ‚±‚ÌˆÊ’u‚ÉŒÅ—L‚Ìˆ—‚ð’Ç‰Á‚·‚é‚©A‚Ü‚½‚ÍŠî–{ƒNƒ‰ƒX‚ðŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«å›ºæœ‰ã®å‡¦ç†ã‚’è¿½åŠ ã™ã‚‹ã‹ã€ã¾ãŸã¯åŸºæœ¬ã‚¯ãƒ©ã‚¹ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
 	// Tab Initialize
 	Tab_Init();
 
@@ -113,7 +113,7 @@ void CDataReviewView::OnInitialUpdate()
 		| CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
 		!m_wndDataReviewBar.LoadToolBar(IDR_DATA_REVIEW_BAR)){
 		TRACE0("Failed to create toolbar\n");
-		return;		// ì¬‚ÉŽ¸”s
+		return;		// ä½œæˆã«å¤±æ•—
 	}
 
 	RECT rect;
@@ -145,7 +145,7 @@ void CDataReviewView::Tab_Init()
 	m_pMeasurementListDlg->SetWindowPos(&wndTop, dx, dy, 0, 0, SWP_NOSIZE | SWP_SHOWWINDOW);
 	///// Graph /////
 //	m_pMeasurementGraphDlg = new CMeasurementGraphDlg();
-	// š“ú”ä–ì‚³‚ñF‚±‚ê‚Í’Êí‘ª’è—pH
+	// â˜…æ—¥æ¯”é‡Žã•ã‚“ï¼šã“ã‚Œã¯é€šå¸¸æ¸¬å®šç”¨ï¼Ÿ
 	m_pMeasurementGraphDlg = new CMeasurementGraphDlg(GRAPHDLG_MODE_SEQ);
 	m_pMeasurementGraphDlg->Create(CMeasurementGraphDlg::IDD, &m_DataReviewTab);
 	m_pMeasurementGraphDlg->SetWindowPos(&wndTop, dx, dy, 0, 0, SWP_NOSIZE | SWP_SHOWWINDOW);

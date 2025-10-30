@@ -1,23 +1,23 @@
-#if !defined(AFX_SYSTEMOPERATIONCOMMONSETTINGDLG_H__FCEC633C_38D7_4A91_B53D_394E2B23C6DA__INCLUDED_)
+ï»¿#if !defined(AFX_SYSTEMOPERATIONCOMMONSETTINGDLG_H__FCEC633C_38D7_4A91_B53D_394E2B23C6DA__INCLUDED_)
 #define AFX_SYSTEMOPERATIONCOMMONSETTINGDLG_H__FCEC633C_38D7_4A91_B53D_394E2B23C6DA__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// SystemOperationCommonSettingDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// SystemOperationCommonSettingDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 // ##########################################################################
-// CSystemOperationCommonSettingDlg ƒ_ƒCƒAƒƒO
+// CSystemOperationCommonSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // ##########################################################################
 
 class CSystemOperationCommonSettingDlg : public CDialog
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
-	CSystemOperationCommonSettingDlg(CWnd* pParent = NULL);	// •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CSystemOperationCommonSettingDlg(CWnd* pParent = NULL);	// æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CSystemOperationCommonSettingDlg)
 	enum { IDD = IDD_SYSTEM_OPERATION_COMMON_DLG };
 	//}}AFX_DATA
@@ -40,19 +40,19 @@ protected:
 
 	SYSTEM_CONFIG m_SystemConfig;
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CSystemOperationCommonSettingDlg)
 	public:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CSystemOperationCommonSettingDlg)
 	virtual BOOL OnInitDialog();
 	afx_msg void OnOriginalPositionSettingButton();
@@ -78,6 +78,6 @@ protected:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_SYSTEMOPERATIONCOMMONSETTINGDLG_H__FCEC633C_38D7_4A91_B53D_394E2B23C6DA__INCLUDED_)

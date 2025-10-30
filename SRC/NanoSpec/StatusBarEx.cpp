@@ -1,5 +1,5 @@
-/////////////////////////////////////////////////////////////////////////////
-// StatusBarEx.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿/////////////////////////////////////////////////////////////////////////////
+// StatusBarEx.cpp : インプリメンテーション ファイル
 //
 
 #include "stdafx.h"
@@ -16,7 +16,7 @@ static char THIS_FILE[] = __FILE__;
 
 /////////////////////////////////////////////////////////////////////////////
 // MODULE  : CStatusBarEx
-// ABSTRACT: �R���X�g���N�^.
+// ABSTRACT: コンストラクタ.
 // FUNCTION:
 // RETURN  :
 CStatusBarEx::CStatusBarEx()
@@ -25,7 +25,7 @@ CStatusBarEx::CStatusBarEx()
 
 /////////////////////////////////////////////////////////////////////////////
 // MODULE  : ~CStatusBarEx
-// ABSTRACT: �f�X�g���N�^.
+// ABSTRACT: デストラクタ.
 // FUNCTION:
 // RETURN  :
 CStatusBarEx::~CStatusBarEx()
@@ -47,9 +47,9 @@ END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // MODULE  : lFindBufferByIndex
-// ABSTRACT: �w�肳�ꂽ�y�C���ԍ������o�b�t�@�̈ʒu���y�C���̃C���f�b�N�X���猟��.
+// ABSTRACT: 指定されたペイン番号を持つバッファの位置をペインのインデックスから検索.
 // FUNCTION:
-// RETURN  : -1 = �G���[
+// RETURN  : -1 = エラー
 int CStatusBarEx::lFindBufferByIndex( int index)
 {
 	for(int i = 0 ; i < m_Panes.GetSize() ; i++){
@@ -61,9 +61,9 @@ int CStatusBarEx::lFindBufferByIndex( int index)
 
 /////////////////////////////////////////////////////////////////////////////
 // MODULE  : lFindBufferByIndex
-// ABSTRACT: �w�肳�ꂽ�y�C���ԍ������o�b�t�@�̈ʒu�𕶎���ID���猟��.
+// ABSTRACT: 指定されたペイン番号を持つバッファの位置を文字列IDから検索.
 // FUNCTION:
-// RETURN  : -1 = �G���[
+// RETURN  : -1 = エラー
 int CStatusBarEx::lFindBufferByStrId( UINT strId)
 {
 	for(int i = 0 ; i < m_Panes.GetSize() ; i++){
@@ -75,19 +75,19 @@ int CStatusBarEx::lFindBufferByStrId( UINT strId)
 
 /////////////////////////////////////////////////////////////////////////////
 // MODULE  : DrawItem
-// ABSTRACT: �I�[�i�[�`�揈��.
+// ABSTRACT: オーナー描画処理.
 // FUNCTION:
 // RETURN  :
 void CStatusBarEx::DrawItem( LPDRAWITEMSTRUCT lpDIS)
 {
-	//	�F�f�[�^�̌���;
+	//	色データの検索;
 	int n = lFindBufferByIndex( lpDIS->itemID);
 
 	if(n < 0) return;
 
 	CDC dc;
 	dc.Attach( lpDIS->hDC);
-	dc.SetBkMode( TRANSPARENT);		// �����̔w�i�F�𓧖��ɂ���.
+	dc.SetBkMode( TRANSPARENT);		// 文字の背景色を透明にする.
 
 	CRect rect( &lpDIS->rcItem);
 
@@ -100,7 +100,7 @@ void CStatusBarEx::DrawItem( LPDRAWITEMSTRUCT lpDIS)
 
 /////////////////////////////////////////////////////////////////////////////
 // MODULE  : lInitPane
-// ABSTRACT: �y�C���̏��������ʓ�������.
+// ABSTRACT: ペインの初期化共通内部処理.
 // FUNCTION:
 // RETURN  :
 int CStatusBarEx::lInitPane( UINT strId, COLORREF TextColor, COLORREF BackColor)
@@ -126,9 +126,9 @@ int CStatusBarEx::lInitPane( UINT strId, COLORREF TextColor, COLORREF BackColor)
 
 /////////////////////////////////////////////////////////////////////////////
 // MODULE  : Initialize
-// ABSTRACT: �y�C���̏�����.
-// FUNCTION: �F�̎w����s��
-//		strId = �y�C���̕������ID
+// ABSTRACT: ペインの初期化.
+// FUNCTION: 色の指定も行う
+//		strId = ペインの文字列のID
 // RETURN  :
 int CStatusBarEx::Initialize( UINT strId, COLORREF TextColor, COLORREF BackColor)
 {
@@ -137,18 +137,18 @@ int CStatusBarEx::Initialize( UINT strId, COLORREF TextColor, COLORREF BackColor
 
 /////////////////////////////////////////////////////////////////////////////
 // MODULE  : Initialize
-// ABSTRACT: �y�C���̏�����.
-// FUNCTION: �F�̎w��͍s��Ȃ��B �F�͒ʏ�̃V�X�e���F�ɂȂ�B
-//		strId = �y�C���̕������ID
-//		bDisable = TRUE�̏ꍇ�A�e�L�X�g�F���֎~��Ԃ̐F�ɂȂ�B(�f�t�H���g��FALSE)
+// ABSTRACT: ペインの初期化.
+// FUNCTION: 色の指定は行わない。 色は通常のシステム色になる。
+//		strId = ペインの文字列のID
+//		bDisable = TRUEの場合、テキスト色が禁止状態の色になる。(デフォルトはFALSE)
 // RETURN  :
 int CStatusBarEx::Initialize( UINT strId, int bDisable/*=FALSE*/)
 {
 	COLORREF TextColor, BackColor;
 
-	if(!bDisable)							// �W���e�L�X�g�F.
+	if(!bDisable)							// 標準テキスト色.
 		TextColor = ::GetSysColor( COLOR_WINDOWTEXT);
-	else									// �֎~��Ԃ̃e�L�X�g�F.
+	else									// 禁止状態のテキスト色.
 		TextColor = ::GetSysColor( COLOR_GRAYTEXT);
 
 	BackColor = ::GetSysColor( COLOR_3DFACE);
@@ -158,7 +158,7 @@ int CStatusBarEx::Initialize( UINT strId, int bDisable/*=FALSE*/)
 
 /////////////////////////////////////////////////////////////////////////////
 // MODULE  : ChangeColors
-// ABSTRACT: �\���F�̕ύX.
+// ABSTRACT: 表示色の変更.
 // FUNCTION:
 // RETURN  :
 void CStatusBarEx::ChangeColor( UINT strId, COLORREF TextColor, COLORREF BackColor, int bUpdate/*=TRUE*/)
@@ -175,7 +175,7 @@ void CStatusBarEx::ChangeColor( UINT strId, COLORREF TextColor, COLORREF BackCol
 
 /////////////////////////////////////////////////////////////////////////////
 // MODULE  : ChangeTextColor
-// ABSTRACT: �e�L�X�g�F�̕ύX.
+// ABSTRACT: テキスト色の変更.
 // FUNCTION:
 // RETURN  :
 void CStatusBarEx::ChangeTextColor( UINT strId, COLORREF TextColor, int bUpdate/*=TRUE*/)
@@ -191,7 +191,7 @@ void CStatusBarEx::ChangeTextColor( UINT strId, COLORREF TextColor, int bUpdate/
 
 /////////////////////////////////////////////////////////////////////////////
 // MODULE  : ChangeBackColor
-// ABSTRACT: �w�i�F�̕ύX.
+// ABSTRACT: 背景色の変更.
 // FUNCTION:
 // RETURN  :
 void CStatusBarEx::ChangeBackColor( UINT strId, COLORREF BackColor, int bUpdate/*=TRUE*/)
@@ -207,9 +207,9 @@ void CStatusBarEx::ChangeBackColor( UINT strId, COLORREF BackColor, int bUpdate/
 
 /////////////////////////////////////////////////////////////////////////////
 // MODULE  : ChangeText
-// ABSTRACT: �\��������̕ύX
-// FUNCTION: �@�\��CStatusBar��SetPaneText�Ɠ��������A������ID�ɂ��w�肷��.
-//		����!! CStatusBar��SetPaneText���g����OWNERDRAW����������Ă��܂�.
+// ABSTRACT: 表示文字列の変更
+// FUNCTION: 機能はCStatusBarのSetPaneTextと同じだが、文字列IDにより指定する.
+//		注意!! CStatusBarのSetPaneTextを使うとOWNERDRAWが解除されてしまう.
 // RETURN  :
 void CStatusBarEx::ChangeText( UINT strId, LPCTSTR pszNewText, int bUpdate/*=TRUE*/)
 {

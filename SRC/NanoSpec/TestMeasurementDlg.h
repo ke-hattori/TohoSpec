@@ -1,10 +1,10 @@
-#if !defined(AFX_TESTMEASUREMENTDLG_H__80166F9D_ACA2_4BC6_8E44_1D5D1896CC2B__INCLUDED_)
+ï»¿#if !defined(AFX_TESTMEASUREMENTDLG_H__80166F9D_ACA2_4BC6_8E44_1D5D1896CC2B__INCLUDED_)
 #define AFX_TESTMEASUREMENTDLG_H__80166F9D_ACA2_4BC6_8E44_1D5D1896CC2B__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// TestMeasurementDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// TestMeasurementDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 #include "GridCtrl.h"
 #include "BtnST.h"
@@ -15,15 +15,15 @@
 class CMeasurementGraphDlg2;
 
 /////////////////////////////////////////////////////////////////////////////
-// CTestMeasurementDlg ƒ_ƒCƒAƒƒO
+// CTestMeasurementDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 class CTestMeasurementDlg : public CDialog
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
-	CTestMeasurementDlg(CWnd* pParent = NULL);	 // •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CTestMeasurementDlg(CWnd* pParent = NULL);	 // æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CTestMeasurementDlg)
 	enum { IDD = IDD_TEST_MEASUREMENT_DLG };
 	CShadeButtonST	m_AutoFocusButton;
@@ -55,21 +55,21 @@ public:
 
 	CShadeButtonST m_OkButton;
 	CShadeButtonST m_CancelButton;
-/* added 2015.03.10 hmenjo ƒeƒXƒg‘ª’è•Û‘¶ ---------- { ---------- */
+/* added 2015.03.10 hmenjo ãƒ†ã‚¹ãƒˆæ¸¬å®šä¿å­˜ ---------- { ---------- */
 	CShadeButtonST m_BtnSave;
-/* added 2015.03.10 hmenjo ƒeƒXƒg‘ª’è•Û‘¶ ---------- } ---------- */
+/* added 2015.03.10 hmenjo ãƒ†ã‚¹ãƒˆæ¸¬å®šä¿å­˜ ---------- } ---------- */
 
 	int m_iConditionFlg;
-	int m_iConditionFlgOld;	//‘O‰ñ’l
+	int m_iConditionFlgOld;	//å‰å›å€¤
 	int m_iProcessStatus;
-	int m_iProcessStatusOld; //‘O‰ñ’l
+	int m_iProcessStatusOld; //å‰å›å€¤
 	BOOL m_AfExecuteFlg;
-	BOOL m_AfExecuteFlgOld; //‘O‰ñ’l
+	BOOL m_AfExecuteFlgOld; //å‰å›å€¤
 	int m_iAlarmStatus;
-	int m_iAlarmStatusOld; //‘O‰ñ’l
+	int m_iAlarmStatusOld; //å‰å›å€¤
 
 
-	// ŠO•”‚Æ‚Ìˆø“n‚µ•Ï”
+	// å¤–éƒ¨ã¨ã®å¼•æ¸¡ã—å¤‰æ•°
 	CString m_strLens;
 	CString m_strOpticalFilter;
 	double	m_dIntegTime;
@@ -77,22 +77,22 @@ public:
 	WORD	m_wEnd;
 
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CTestMeasurementDlg)
 	public:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
 	virtual void OnCancel();
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CTestMeasurementDlg)
 	afx_msg void OnDestroy();
 	afx_msg void OnSelchangeMeasurementTab(NMHDR* pNMHDR, LRESULT* pResult);
@@ -114,23 +114,23 @@ protected:
 	afx_msg void OnSetfocusWavelengthStart();
 	afx_msg void OnSetfocusWavelengthEnd();
 	afx_msg void OnKillfocusSrLens();
-/* deleted 2009.06.15 hmenjo ƒ†[ƒU’è‹`ƒƒbƒZ[ƒWƒnƒ“ƒhƒ‰ IF C³ ---------- { ---------- */
+/* deleted 2009.06.15 hmenjo ãƒ¦ãƒ¼ã‚¶å®šç¾©ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒãƒ³ãƒ‰ãƒ© IF ä¿®æ­£ ---------- { ---------- */
 //	afx_msg void OnJoyStick();
-/* deleted 2009.06.15 hmenjo ƒ†[ƒU’è‹`ƒƒbƒZ[ƒWƒnƒ“ƒhƒ‰ IF C³ ---------- } ---------- */
+/* deleted 2009.06.15 hmenjo ãƒ¦ãƒ¼ã‚¶å®šç¾©ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒãƒ³ãƒ‰ãƒ© IF ä¿®æ­£ ---------- } ---------- */
 	afx_msg void OnSelchangeComboMeasPoint();
 	afx_msg void OnHomePositonButton();
-/* added 2015.03.10 hmenjo ƒeƒXƒg‘ª’è•Û‘¶ ---------- { ---------- */
+/* added 2015.03.10 hmenjo ãƒ†ã‚¹ãƒˆæ¸¬å®šä¿å­˜ ---------- { ---------- */
 	afx_msg void OnBtnSave();
-/* added 2015.03.10 hmenjo ƒeƒXƒg‘ª’è•Û‘¶ ---------- } ---------- */
+/* added 2015.03.10 hmenjo ãƒ†ã‚¹ãƒˆæ¸¬å®šä¿å­˜ ---------- } ---------- */
 	//}}AFX_MSG
 	LRESULT OnDoStageMove(WPARAM, LPARAM);
 	LRESULT OnStageMoveDone(WPARAM, LPARAM);
 	LRESULT OnDoElevatorMove(WPARAM, LPARAM);
 	afx_msg LRESULT OnTestModeOnePointEnd(WPARAM wParam, LPARAM lParam);
 	afx_msg LRESULT OnTestModeRefEnd(WPARAM wParam, LPARAM lParam);
-/* added 2009.06.15 hmenjo ƒ†[ƒU’è‹`ƒƒbƒZ[ƒWƒnƒ“ƒhƒ‰ IF C³ ---------- { ---------- */
+/* added 2009.06.15 hmenjo ãƒ¦ãƒ¼ã‚¶å®šç¾©ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒãƒ³ãƒ‰ãƒ© IF ä¿®æ­£ ---------- { ---------- */
 	LRESULT OnJoyStick(WPARAM, LPARAM);
-/* added 2009.06.15 hmenjo ƒ†[ƒU’è‹`ƒƒbƒZ[ƒWƒnƒ“ƒhƒ‰ IF C³ ---------- } ---------- */
+/* added 2009.06.15 hmenjo ãƒ¦ãƒ¼ã‚¶å®šç¾©ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒãƒ³ãƒ‰ãƒ© IF ä¿®æ­£ ---------- } ---------- */
 	DECLARE_MESSAGE_MAP()
 
 //	virtual void ButtonEnableCheck(void);
@@ -147,9 +147,9 @@ private:
 	void StartTestModeMeas();
 	BOOL CheckData();
 	void SoftJoyStickXyzEnable(BOOL bEnable);
-// 2009.06.05 K.Matsuo ƒhƒAƒCƒ“ƒ^[ƒƒbƒNŒŸo‚ÌJoyStick–³Œø‰» -->
+// 2009.06.05 K.Matsuo ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¤œå‡ºæ™‚ã®JoyStickç„¡åŠ¹åŒ– -->
 	void JoyStickEnableCheck(void);
-// 2009.06.05 K.Matsuo ƒhƒAƒCƒ“ƒ^[ƒƒbƒNŒŸo‚ÌJoyStick–³Œø‰» <--
+// 2009.06.05 K.Matsuo ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¤œå‡ºæ™‚ã®JoyStickç„¡åŠ¹åŒ– <--
 //Saiki 20090908 Add ----->
 	void Init_SR_XYStageMenu();
 	void Init_SR_Transmittance_StageMenu();
@@ -199,6 +199,6 @@ private:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_TESTMEASUREMENTDLG_H__80166F9D_ACA2_4BC6_8E44_1D5D1896CC2B__INCLUDED_)

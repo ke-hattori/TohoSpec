@@ -1,4 +1,4 @@
-// SystemOperationStressSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SystemOperationStressSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -9,9 +9,9 @@
 #include "SystemOperationStressSettingDlg.h"
 #include "StressCofigurationSettingDlg.h"
 #include "StressSampleElasticModulusSettingDlg.h"
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --{--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --{--
 #include "StressElasticModulusListDlg.h"
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --}--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --}--
 #include "StressSelectSampleTypeDlg.h"
 #include "StressLineSectionSettingDlg.h"
 
@@ -22,14 +22,14 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CSystemOperationStressSettingDlg ƒ_ƒCƒAƒƒO
+// CSystemOperationStressSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 
 CSystemOperationStressSettingDlg::CSystemOperationStressSettingDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CSystemOperationStressSettingDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CSystemOperationStressSettingDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_INIT
 }
 
@@ -38,12 +38,12 @@ void CSystemOperationStressSettingDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CSystemOperationStressSettingDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_MAP
 	DDX_Control(pDX, IDC_STRESS_CONFIGURATION_SETTING_BUTTON, m_StressConfigButton);
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --{--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --{--
 //	DDX_Control(pDX, IDC_SAMPLE_ELASTICMODULUS_SETTING_BUTTON, m_SampleElasticModulusSettingButton);
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --}--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --}--
 	DDX_Control(pDX, IDC_LINE_SECTION_SETTING_BUTTON, m_LineSectionSettingButton);
 }
 
@@ -56,7 +56,7 @@ BEGIN_MESSAGE_MAP(CSystemOperationStressSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CSystemOperationStressSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSystemOperationStressSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 void CSystemOperationStressSettingDlg::OnStressConfigurationSettingButton()
 {
@@ -86,7 +86,7 @@ void CSystemOperationStressSettingDlg::OnLineSectionSettingButton()
 
 BOOL CSystemOperationStressSettingDlg::PreTranslateMessage(MSG* pMsg)
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉŒÅ—L‚Ìˆ—‚ğ’Ç‰Á‚·‚é‚©A‚Ü‚½‚ÍŠî–{ƒNƒ‰ƒX‚ğŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«å›ºæœ‰ã®å‡¦ç†ã‚’è¿½åŠ ã™ã‚‹ã‹ã€ã¾ãŸã¯åŸºæœ¬ã‚¯ãƒ©ã‚¹ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
 	switch(pMsg->message){
 	case WM_KEYDOWN:
 		if(pMsg->wParam == VK_ESCAPE)
@@ -127,22 +127,22 @@ BOOL CSystemOperationStressSettingDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// TODO: ‚±‚ÌˆÊ’u‚É‰Šú‰»‚Ì•â‘«ˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«åˆæœŸåŒ–ã®è£œè¶³å‡¦ç†ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	///// Stress Config Button /////
 	m_StressConfigButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_StressConfigButton.DrawFlatFocus(TRUE);
 
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --{--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --{--
 	///// Sample Elastic Modulus Setting Button /////
 //	m_SampleElasticModulusSettingButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 //	m_SampleElasticModulusSettingButton.DrawFlatFocus(TRUE);
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --}--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --}--
 
 	///// Line Section Setting Button /////
 	m_LineSectionSettingButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_LineSectionSettingButton.DrawFlatFocus(TRUE);
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }

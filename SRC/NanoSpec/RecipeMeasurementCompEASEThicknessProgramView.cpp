@@ -1,4 +1,4 @@
-// RecipeMeasurementCompEASEThicknessProgramView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// RecipeMeasurementCompEASEThicknessProgramView.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -79,7 +79,7 @@ BEGIN_MESSAGE_MAP(CRecipeMeasurementCompEASEThicknessProgramView, CNanoRecipeUI)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CRecipeMeasurementCompEASEThicknessProgramView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CRecipeMeasurementCompEASEThicknessProgramView ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -98,7 +98,7 @@ void CRecipeMeasurementCompEASEThicknessProgramView::OnInitialUpdate()
 		| CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
 		!m_wndToolBar.LoadToolBar(IDR_EDIT_RECIPE_BAR)){
 		TRACE0("Failed to create toolbar\n");
-		return; 	// ì¬‚É¸”s
+		return; 	// ä½œæˆã«å¤±æ•—
 	}
 
 	GetClientRect(&rect);
@@ -111,7 +111,7 @@ void CRecipeMeasurementCompEASEThicknessProgramView::OnInitialUpdate()
 	///// Control Initialize /////
 	InitCombo_CompEASERecipe();
 
-	// ƒRƒƒ“ƒg•¶š”§ŒÀ
+	// ã‚³ãƒ¡ãƒ³ãƒˆæ–‡å­—æ•°åˆ¶é™
 	((CEdit*)GetDlgItem(IDC_COMMENT))->SetLimitText(RECIPE_COMMENT_LEN);
 
 	///// Default Recipe Setup /////
@@ -131,15 +131,15 @@ void CRecipeMeasurementCompEASEThicknessProgramView::LoadRecipeData()
 
 	switch ( m_nOpenMode )
 	{
-	case modeNew:				// ƒŒƒVƒsV‹Kì¬
-	case modeDefaultSetting:	// ƒRƒ“ƒtƒBƒO‰æ–Ê‚©‚ç‘JˆÚ‚µ‚Ä‚«‚½ƒP[ƒX
+	case modeNew:				// ãƒ¬ã‚·ãƒ”æ–°è¦ä½œæˆ
+	case modeDefaultSetting:	// ã‚³ãƒ³ãƒ•ã‚£ã‚°ç”»é¢ã‹ã‚‰é·ç§»ã—ã¦ããŸã‚±ãƒ¼ã‚¹
 		if ( !RecipeFile_LoadRecipe(&m_ThickMeas, COMPEASE_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_COMPEASE_THICKNESS) ) {
 			m_ThickMeas.ScanParams.hdr.wHeadType = HEAD_TYPE_COMPEASE;
 			m_ThickMeas.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_COMPEASE_THICKNESS;
 		}
 		break;
-	default:					// ƒŒƒVƒsƒƒCƒ“ƒŠƒXƒg‰æ–Ê‚©‚ç‘JˆÚ‚µ‚Ä‚«‚½ƒP[ƒX
-		if ( !RecipeFile_LoadRecipe(&m_ThickMeas, m_szRecipeName, RECIPE_FILE_MEASUREMENT_PROGRAM) ) {			// RECIPE_FILE_MEASUREMENT_PROGRAM ‚Å³‚µ‚¢‚ç‚µ‚¢...
+	default:					// ãƒ¬ã‚·ãƒ”ãƒ¡ã‚¤ãƒ³ãƒªã‚¹ãƒˆç”»é¢ã‹ã‚‰é·ç§»ã—ã¦ããŸã‚±ãƒ¼ã‚¹
+		if ( !RecipeFile_LoadRecipe(&m_ThickMeas, m_szRecipeName, RECIPE_FILE_MEASUREMENT_PROGRAM) ) {			// RECIPE_FILE_MEASUREMENT_PROGRAM ã§æ­£ã—ã„ã‚‰ã—ã„...
 			m_nOpenMode = modeNew;
 			if ( !RecipeFile_LoadRecipe(&m_ThickMeas, COMPEASE_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_COMPEASE_THICKNESS) ) {
 				m_ThickMeas.ScanParams.hdr.wHeadType = HEAD_TYPE_COMPEASE;
@@ -161,7 +161,7 @@ void CRecipeMeasurementCompEASEThicknessProgramView::LoadRecipeData()
 void CRecipeMeasurementCompEASEThicknessProgramView::InitCombo_CompEASERecipe()
 {
 	BOOL bRet;
-	CStringArray* pListRecipes = NULL; // ƒf[ƒ^‚ğAdd‚·‚é‘¤idll‘¤j‚Å—Ìˆæ‚ğŠm•Û‚µ‚È‚¢‚ÆƒfƒXƒgƒ‰ƒNƒ^‚Å—áŠO”­¶‚µ‚Ü‚·
+	CStringArray* pListRecipes = NULL; // ãƒ‡ãƒ¼ã‚¿ã‚’Addã™ã‚‹å´ï¼ˆdllå´ï¼‰ã§é ˜åŸŸã‚’ç¢ºä¿ã—ãªã„ã¨ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ä¾‹å¤–ç™ºç”Ÿã—ã¾ã™
 	CString strBuffer;
 
 	CComboBox* pCombo = (CComboBox*)GetDlgItem(IDC_COMPEASE_RECIPE);
@@ -244,7 +244,7 @@ BOOL CRecipeMeasurementCompEASEThicknessProgramView::SaveRecipeData()
 			return FALSE;
 		break;
 	default:
-		// V‚µ‚¢ƒŒƒVƒs–¼‚ğİ’èiSave, SaveAsŒ“—pj
+		// æ–°ã—ã„ãƒ¬ã‚·ãƒ”åã‚’è¨­å®šï¼ˆSave, SaveAså…¼ç”¨ï¼‰
 		strcpy(m_ThickMeas.hdr.szName, m_szRecipeName);
 		if ( !RecipeFile_SaveRecipe(&m_ThickMeas, m_szRecipeName, RECIPE_FILE_COMPEASE_THICKNESS) )
 			return FALSE;

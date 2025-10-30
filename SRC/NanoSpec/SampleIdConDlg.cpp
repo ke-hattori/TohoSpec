@@ -1,4 +1,4 @@
-// SampleIdConDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// SampleIdConDlg.cpp : インプリメンテーション ファイル
 //
 
 #include "stdafx.h"
@@ -12,14 +12,14 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CSampleIdConDlg �_�C�A���O
+// CSampleIdConDlg ダイアログ
 
 
 CSampleIdConDlg::CSampleIdConDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CSampleIdConDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CSampleIdConDlg)
-		// ���� - ClassWizard �͂��̈ʒu�Ƀ}�b�s���O�p�̃}�N����ǉ��܂��͍폜���܂��B
+		// メモ - ClassWizard はこの位置にマッピング用のマクロを追加または削除します。
 	//}}AFX_DATA_INIT
 }
 
@@ -28,7 +28,7 @@ void CSampleIdConDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CSampleIdConDlg)
-		// ���� - ClassWizard �͂��̈ʒu�Ƀ}�b�s���O�p�̃}�N����ǉ��܂��͍폜���܂��B
+		// メモ - ClassWizard はこの位置にマッピング用のマクロを追加または削除します。
 	//}}AFX_DATA_MAP
 }
 
@@ -39,11 +39,11 @@ BEGIN_MESSAGE_MAP(CSampleIdConDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CSampleIdConDlg ���b�Z�[�W �n���h��
+// CSampleIdConDlg メッセージ ハンドラ
 
 void CSampleIdConDlg::OnOK()
 {
-	// TODO: ���̈ʒu�ɂ��̑��̌��ؗp�̃R�[�h��ǉ����Ă�������
+	// TODO: この位置にその他の検証用のコードを追加してください
 
 
 

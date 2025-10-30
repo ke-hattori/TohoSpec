@@ -1,14 +1,14 @@
-#if !defined(AFX_RECIPEMULTIVIEW_H__D250083C_B6CE_4267_A2D9_571295D6B983__INCLUDED_)
+ï»¿#if !defined(AFX_RECIPEMULTIVIEW_H__D250083C_B6CE_4267_A2D9_571295D6B983__INCLUDED_)
 #define AFX_RECIPEMULTIVIEW_H__D250083C_B6CE_4267_A2D9_571295D6B983__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// RecipeMultiView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// RecipeMultiView.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 // ##########################################################################
-// CRecipeMultiView ƒtƒH[ƒ€ ƒrƒ…[
+// CRecipeMultiView ãƒ•ã‚©ãƒ¼ãƒ  ãƒ“ãƒ¥ãƒ¼
 // ##########################################################################
 
 #ifndef __AFXEXT_H__
@@ -22,10 +22,10 @@
 class CRecipeMultiView : public CNanoRecipeUI
 {
 protected:
-	CRecipeMultiView();			// “®“I¶¬‚Ég—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CRecipeMultiView();			// å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	DECLARE_DYNCREATE(CRecipeMultiView)
 
-// ƒtƒH[ƒ€ ƒf[ƒ^
+// ãƒ•ã‚©ãƒ¼ãƒ  ãƒ‡ãƒ¼ã‚¿
 protected:
 	//{{AFX_DATA(CRecipeMultiView)
 	enum { IDD = IDD_RECIPE_MULTI_FORM };
@@ -34,10 +34,10 @@ protected:
 	//}}AFX_DATA
 	CColorStatic m_stcMultiRecipeName;
 
-// ƒAƒgƒŠƒrƒ…[ƒg
+// ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 protected:
 
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	CToolBar m_wndToolBar;
 	CButtonST m_MultiRecipeAddButton;
@@ -53,16 +53,16 @@ protected:
 	void SetData();
 	void UpDate();
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CRecipeMultiView)
 	public:
 	virtual void OnInitialUpdate();
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	virtual ~CRecipeMultiView();
 	virtual BOOL IsDataChanged();
@@ -75,7 +75,7 @@ protected:
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CRecipeMultiView)
 	afx_msg void OnMultiRecipeAddButton();
 	afx_msg void OnMultiRecipeDeleteButton();
@@ -93,6 +93,6 @@ protected:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_RECIPEMULTIVIEW_H__D250083C_B6CE_4267_A2D9_571295D6B983__INCLUDED_)

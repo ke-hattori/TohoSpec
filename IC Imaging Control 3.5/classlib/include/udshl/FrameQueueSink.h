@@ -1,4 +1,4 @@
-
+﻿
 #ifndef FRAMEQUEUESINK_H_INC_
 #define FRAMEQUEUESINK_H_INC_
 

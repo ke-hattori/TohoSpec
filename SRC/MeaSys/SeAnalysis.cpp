@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "../../INC/Globals.hxx"
 #include "../../INC/ConfigFile.hxx"
 #include "../../INC/DdeClient.hxx"
@@ -56,7 +56,7 @@ BOOL CSeAnalysis::DoXmp(LPTSTR pszXmpDdeText, const MEAS_PROG_INFO* pMeasProgInf
 	ConfigFile_GetNanoSpecIni(&seXmp, CONFIG_FILE_SE_XMP);
 	_splitpath(seXmp.szDataPath, szDrive, szDir, szFilename, szExt);
 
-	// FITDATAƒRƒ}ƒ“ƒh‘—M
+	// FITDATAã‚³ãƒžãƒ³ãƒ‰é€ä¿¡
 	_stprintf(szBuff, _T("FitData(StratNum=%02d,DataPath=%s%s,SEDataFile=%s%s)"),
 			atoi(pMeasProgInfo->ScanParams._SE.szStrategyEntry), szDrive, szDir, szFilename, szExt);
 

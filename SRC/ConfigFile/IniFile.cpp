@@ -1,19 +1,19 @@
-#include "stdafx.h"
-// 2013.11.07 Bagus Mod (TohoSpec�Ή�) -->
+﻿#include "stdafx.h"
+// 2013.11.07 Bagus Mod (TohoSpecÔøΩŒâÔøΩ) -->
 #include "System.h"
-// 2013.11.07 Bagus Mod (TohoSpec�Ή�) <--
+// 2013.11.07 Bagus Mod (TohoSpecÔøΩŒâÔøΩ) <--
 #include <windows.h>
 #include <string>
 #include "..\\..\\INC\\Globals.hxx"
 #include "..\\..\\INC\\StageInt.hxx"
 #include "..\\..\\INC\\ConfigFile.hxx"
 #include "IniFile.h"
-/* added 2009.07.07 hmenjo dll ���΃p�X�Ή� ConfigFile.dll ---------- { ---------- */
+/* added 2009.07.07 hmenjo dll ÔøΩÔøΩÔøΩŒÉpÔøΩXÔøΩŒâÔøΩ ConfigFile.dll ---------- { ---------- */
 #include <tchar.h>
-extern TCHAR g_tszProcDir[_MAX_PATH];		/* �ďo���v���Z�X�̃f�B���N�g��('\'�t��)*/
-extern TCHAR g_tszBaseDir[_MAX_PATH];		/* ��f�B���N�g��('\'�t��)*/
+extern TCHAR g_tszProcDir[_MAX_PATH];		/* ÔøΩƒèoÔøΩÔøΩÔøΩvÔøΩÔøΩÔøΩZÔøΩXÔøΩÃÉfÔøΩBÔøΩÔøΩÔøΩNÔøΩgÔøΩÔøΩ('\'ÔøΩtÔøΩÔøΩ)*/
+extern TCHAR g_tszBaseDir[_MAX_PATH];		/* ÔøΩÓèÄÔøΩfÔøΩBÔøΩÔøΩÔøΩNÔøΩgÔøΩÔøΩ('\'ÔøΩtÔøΩÔøΩ)*/
 extern void GetProcBaseDir(LPTSTR ptszProcDir, LPTSTR ptszBaseDir);
-/* added 2009.07.07 hmenjo dll ���΃p�X�Ή� ConfigFile.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ÔøΩÔøΩÔøΩŒÉpÔøΩXÔøΩŒâÔøΩ ConfigFile.dll ---------- } ---------- */
 
 USER_DATA			UserData;
 NANOSPEC_SYSTEM_DATA NanoSysData;
@@ -42,37 +42,37 @@ static double lg_TrShutterMoveWaitTime;
 // 'F' = float
 // 'D' = double
 // 'W' = WORD
-// 2009.09.04 bagus stress e+11�ύX --{--
+// 2009.09.04 bagus stress e+11ÔøΩœçX --{--
 // 'E' = XXXe+YYY
-// 2009.09.04 bagus stress e+11�ύX --}--
-// 'C' = character (�ő��256)
+// 2009.09.04 bagus stress e+11ÔøΩœçX --}--
+// 'C' = character (ÔøΩ≈ëÔøΩÔøΩ256)
 
 // 2009.05.14 k-matsuo -->
-// '#' = double		// data type 'D'�̐��x�g��	double ���x10���ŕۑ�
+// '#' = double		// data type 'D'ÔøΩÃêÔøΩÔøΩxÔøΩgÔøΩÔøΩ	double ÔøΩÔøΩÔøΩx10ÔøΩÔøΩÔøΩ≈ï€ëÔøΩ
 // 2009.05.14 k-matsuo <--
 
-// SystemCommon.ini�̃Z�N�V�����C�L�[�C�f�t�H���g�C�ϐ��̐ݒ�
+// SystemCommon.iniÔøΩÃÉZÔøΩNÔøΩVÔøΩÔøΩÔøΩÔøΩÔøΩCÔøΩLÔøΩ[ÔøΩCÔøΩfÔøΩtÔøΩHÔøΩÔøΩÔøΩgÔøΩCÔøΩœêÔøΩÔøΩÃê›íÔøΩ
 const INIFILE SystemCommonIniDesc[] =
 {
 //	Section Name					Key Name						Type	Default					Variable Pointer
 // System Config
 	{"SYSTEM CONFIG",				"SR",							'b',	"FALSE",				&NanoSysData.SystemConfig.HeadType.bSR										},
 	{"",							"SE",							'b',	"FALSE",				&NanoSysData.SystemConfig.HeadType.bSE										},
-// 2013.02.01 bagus CompleteEASE�w�b�h�ǉ� -->
+// 2013.02.01 bagus CompleteEASEÔøΩwÔøΩbÔøΩhÔøΩ«âÔøΩ -->
 	{"",							"COMPEASE",						'b',	"FALSE",				&NanoSysData.SystemConfig.HeadType.bCompEASE								},
-// 2013.02.01 bagus CompleteEASE�w�b�h�ǉ� <--
-// 2009.10.19 bagus MS �ǉ� --{--
+// 2013.02.01 bagus CompleteEASEÔøΩwÔøΩbÔøΩhÔøΩ«âÔøΩ <--
+// 2009.10.19 bagus MS ÔøΩ«âÔøΩ --{--
 //	{"",							"IRSE",							'b',	"FALSE",				&NanoSysData.SystemConfig.HeadType.bIRSE									},
-// 2009.10.19 bagus MS �ǉ� --}--
-// 2009.11.04 bagus RS �ǉ� --{--
+// 2009.10.19 bagus MS ÔøΩ«âÔøΩ --}--
+// 2009.11.04 bagus RS ÔøΩ«âÔøΩ --{--
 //	{"",							"4PP",							'b',	"FALSE",				&NanoSysData.SystemConfig.HeadType.bResist									},
 	{"",							"Resistance",					'b',	"FALSE",				&NanoSysData.SystemConfig.HeadType.bResist									},
-// 2009.11.04 bagus RS �ǉ� --}--
+// 2009.11.04 bagus RS ÔøΩ«âÔøΩ --}--
 	{"",							"ContactAngle",					'b',	"FALSE",				&NanoSysData.SystemConfig.HeadType.bCTA										},
 	{"",							"Stress",						'b',	"FALSE",				&NanoSysData.SystemConfig.HeadType.bStress									},
-// 2009.10.19 bagus MS �ǉ� --{--
+// 2009.10.19 bagus MS ÔøΩ«âÔøΩ --{--
 	{"",							"MS",							'b',	"FALSE",				&NanoSysData.SystemConfig.HeadType.bMS										},
-// 2009.10.19 bagus MS �ǉ� --}--
+// 2009.10.19 bagus MS ÔøΩ«âÔøΩ --}--
 	{"",							"StageType",					'I',	"0",					&NanoSysData.SystemConfig.nStageType										},
 	{"",							"VibrationControlUnit",			'I',	"0",					&NanoSysData.SystemConfig.nVibrationControlUnit								},
 	{"",							"VibrationDownSensor",			'b',	"FALSE",				&NanoSysData.SystemConfig.bVibrationDownSensor								},
@@ -91,17 +91,17 @@ const INIFILE SystemCommonIniDesc[] =
 	{"",							"Language",						'I',	"0",					&NanoSysData.SystemConfig.nLanguage											},
 	{"",							"Multi Recipe",					'b',	"FALSE",				&NanoSysData.SystemConfig.bMultiRecipe										},
 	{"",							"Extra View Camera",			'b',	"FALSE",				&NanoSysData.SystemConfig.bExtraViewCamera									},
-/* added 2009.06.16 hmenjo Loading Shutter �g�p�L���ǉ� ---------- { ---------- */
+/* added 2009.06.16 hmenjo Loading Shutter ÔøΩgÔøΩpÔøΩLÔøΩÔøΩÔøΩ«âÔøΩ ---------- { ---------- */
 	{"",							"UseLoadingShutter",			'b',	"FALSE",				&NanoSysData.SystemConfig.bUseLoadingShutter								},
-/* added 2009.06.16 hmenjo Loading Shutter �g�p�L���ǉ� ---------- } ---------- */
-/* deleted 2009.07.03 hmenjo Seq ���莞�t�B���^�Œ�@�\ ���� ---------- { ---------- */
-///* added 2009.07.02 hmenjo Seq ���莞�t�B���^�Œ�@�\ ---------- { ---------- */
+/* added 2009.06.16 hmenjo Loading Shutter ÔøΩgÔøΩpÔøΩLÔøΩÔøΩÔøΩ«âÔøΩ ---------- } ---------- */
+/* deleted 2009.07.03 hmenjo Seq ÔøΩÔøΩÔøΩËéûÔøΩtÔøΩBÔøΩÔøΩÔøΩ^ÔøΩ≈íÔøΩ@ÔøΩ\ ÔøΩÔøΩÔøΩÔøΩ ---------- { ---------- */
+///* added 2009.07.02 hmenjo Seq ÔøΩÔøΩÔøΩËéûÔøΩtÔøΩBÔøΩÔøΩÔøΩ^ÔøΩ≈íÔøΩ@ÔøΩ\ ---------- { ---------- */
 //	{"",							"UseOptFilterMeasPgmAF",		'b',	"FALSE",				&NanoSysData.SystemConfig.bUseOptFilterMeasPgmAF							},
-///* added 2009.07.02 hmenjo Seq ���莞�t�B���^�Œ�@�\ ---------- } ---------- */
-/* deleted 2009.07.03 hmenjo Seq ���莞�t�B���^�Œ�@�\ ���� ---------- } ---------- */
-// 2009.10.29 bagus Jog �ǉ��C�� --{--
+///* added 2009.07.02 hmenjo Seq ÔøΩÔøΩÔøΩËéûÔøΩtÔøΩBÔøΩÔøΩÔøΩ^ÔøΩ≈íÔøΩ@ÔøΩ\ ---------- } ---------- */
+/* deleted 2009.07.03 hmenjo Seq ÔøΩÔøΩÔøΩËéûÔøΩtÔøΩBÔøΩÔøΩÔøΩ^ÔøΩ≈íÔøΩ@ÔøΩ\ ÔøΩÔøΩÔøΩÔøΩ ---------- } ---------- */
+// 2009.10.29 bagus Jog ÔøΩ«âÔøΩÔøΩCÔøΩÔøΩ --{--
 	{"",							"JoystickType",					'I',	"1",					&NanoSysData.SystemConfig.nJoystickType										},
-// 2009.10.29 bagus Jog �ǉ��C�� --}--
+// 2009.10.29 bagus Jog ÔøΩ«âÔøΩÔøΩCÔøΩÔøΩ --}--
 // 2009.12.10 bagus Recipe Backup --{--
 	{"",							"Backup",						'b',	"FALSE",				&NanoSysData.SystemConfig.bBackup											},
 // 2009.12.10 bagus Recipe Backup --}--
@@ -116,7 +116,7 @@ const INIFILE SystemCommonIniDesc[] =
 	{"",							"SE_X",							'L',	"0",					&NanoSysData.OriginalPosition.LocSe.lX										},
 	{"",							"SE_Y",							'L',	"0",					&NanoSysData.OriginalPosition.LocSe.lY										},
 	{"",							"SE_Z",							'L',	"0",					&NanoSysData.OriginalPosition.LocSe.lZ										},
-// 2009.10.19 bagus MS �ǉ� --{--
+// 2009.10.19 bagus MS ÔøΩ«âÔøΩ --{--
 #if 0
 	{"",							"IRSE_X",						'L',	"0",					&NanoSysData.OriginalPosition.LocIrse.lX									},
 	{"",							"IRSE_Y",						'L',	"0",					&NanoSysData.OriginalPosition.LocIrse.lY									},
@@ -126,16 +126,16 @@ const INIFILE SystemCommonIniDesc[] =
 	{"",							"MS_Y",						'L',	"0",					&NanoSysData.OriginalPosition.LocMs.lY											},
 	{"",							"MS_Z",						'L',	"0",					&NanoSysData.OriginalPosition.LocMs.lZ											},
 #endif
-// 2009.10.19 bagus MS �ǉ� --}--
-// 2009.11.04 bagus RS �ǉ� --{--
+// 2009.10.19 bagus MS ÔøΩ«âÔøΩ --}--
+// 2009.11.04 bagus RS ÔøΩ«âÔøΩ --{--
 //	{"",							"4PP_X",						'L',	"0",					&NanoSysData.OriginalPosition.Loc4PP.lX										},
 //	{"",							"4PP_Y",						'L',	"0",					&NanoSysData.OriginalPosition.Loc4PP.lY										},
 //	{"",							"4PP_Z",						'L',	"0",					&NanoSysData.OriginalPosition.Loc4PP.lZ										},
 	{"",							"RS_X",							'L',	"0",					&NanoSysData.OriginalPosition.Loc4PP.lX										},
 	{"",							"RS_Y",							'L',	"0",					&NanoSysData.OriginalPosition.Loc4PP.lY										},
 	{"",							"RS_Z",							'L',	"0",					&NanoSysData.OriginalPosition.Loc4PP.lZ										},
-// 2009.11.04 bagus RS �ǉ� --}--
-// 2009.10.07 bagus CTA �L�[���̕ύX --{--
+// 2009.11.04 bagus RS ÔøΩ«âÔøΩ --}--
+// 2009.10.07 bagus CTA ÔøΩLÔøΩ[ÔøΩÔøΩÔøΩÃïœçX --{--
 //	{"",							"ContactAngle_X",				'L',	"0",					&NanoSysData.OriginalPosition.LocContactAngle.lX							},
 //	{"",							"ContactAngle_Y",				'L',	"0",					&NanoSysData.OriginalPosition.LocContactAngle.lY							},
 //	{"",							"ContactAngle_Z",				'L',	"0",					&NanoSysData.OriginalPosition.LocContactAngle.lZ							},
@@ -275,7 +275,7 @@ const INIFILE SystemCommonIniDesc[] =
 };
 
 
-// SystemSR.ini�̃Z�N�V�����C�L�[�C�f�t�H���g�C�ϐ��̐ݒ�
+// SystemSR.iniÔøΩÃÉZÔøΩNÔøΩVÔøΩÔøΩÔøΩÔøΩÔøΩCÔøΩLÔøΩ[ÔøΩCÔøΩfÔøΩtÔøΩHÔøΩÔøΩÔøΩgÔøΩCÔøΩœêÔøΩÔøΩÃê›íÔøΩ
 const INIFILE SystemSrIniDesc[] =
 {
 //	Section Name					Key Name						Type	Default 				Variable Pointer
@@ -290,9 +290,9 @@ const INIFILE SystemSrIniDesc[] =
 	{"",							"AutoFocus",					'b',	"FALSE",				&NanoSysData.SrConfig.bAutoFocus										   },
 	{"",							"ChooseAfFuncInReference",		'b',	"FALSE",				&NanoSysData.SrConfig.bChooseAfFuncInReference							   },
 	{"",							"AutoFilter",					'b',	"FALSE",				&NanoSysData.SrConfig.bAutoFilter										   },
-/* added 2009.07.03 hmenjo Seq ���莞�t�B���^�Œ�@�\ ���� ---------- { ---------- */
+/* added 2009.07.03 hmenjo Seq ÔøΩÔøΩÔøΩËéûÔøΩtÔøΩBÔøΩÔøΩÔøΩ^ÔøΩ≈íÔøΩ@ÔøΩ\ ÔøΩÔøΩÔøΩÔøΩ ---------- { ---------- */
 	{"",							"UseOptFilterMeasPgmAF",		'b',	"FALSE",				&NanoSysData.SrConfig.bUseOptFilterMeasPgmAF							   },
-/* added 2009.07.03 hmenjo Seq ���莞�t�B���^�Œ�@�\ ���� ---------- } ---------- */
+/* added 2009.07.03 hmenjo Seq ÔøΩÔøΩÔøΩËéûÔøΩtÔøΩBÔøΩÔøΩÔøΩ^ÔøΩ≈íÔøΩ@ÔøΩ\ ÔøΩÔøΩÔøΩÔøΩ ---------- } ---------- */
 	{"",							"Transmittance",				'b',	"FALSE",				&NanoSysData.SrConfig.bTransmittance									   },
 	{"",							"Built-inReference",			'b',	"FALSE",				&NanoSysData.SrConfig.bBuiltInReference 								   },
 	{"",							"CIEMeasurement",				'b',	"FALSE",				&NanoSysData.SrConfig.bCieMeasurement									   },
@@ -300,7 +300,7 @@ const INIFILE SystemSrIniDesc[] =
 	{"",							"UV",							'b',	"FALSE",				&NanoSysData.SrConfig.bUv												   },
 	{"",							"UVGain",						'D',	"1",					&NanoSysData.SrConfig.dUvGain											   },
 	{"",							"UVAutoShutter",				'b',	"FALSE",				&NanoSysData.SrConfig.bUvAutoShutter									   },
-/* added 2009.09.07 hmenjo ���ߗ� �\���̒ǉ�(�P) ---------- { ---------- */
+/* added 2009.09.07 hmenjo ÔøΩÔøΩÔøΩﬂóÔøΩ ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(ÔøΩP) ---------- { ---------- */
 	{"",							"TrUseTurretNo",				'W',	"0",					&NanoSysData.SrConfig.iTrUseLensNo											},
 // 2009.09.29 bagus SE --{--
 //	{"",							"TrShutterMoveWaitTime",		'W',	"0",					&NanoSysData.SrConfig.wTrShutterMoveWaitTime								},
@@ -308,14 +308,14 @@ const INIFILE SystemSrIniDesc[] =
 // 2009.09.29 bagus SE --}--
 	{"",							"GantryType",					'b',	"FALSE",				&NanoSysData.SrConfig.bGantryType											},
 	{"",							"GantryNumberOfMeasurePoint",	'W',	"0",					&NanoSysData.SrConfig.wGantryNumOfMeasPoint									},
-/* added 2009.09.07 hmenjo ���ߗ� �\���̒ǉ�(�P) ---------- } ---------- */
-/* added 2009.09.08 hmenjo ���ߗ� �\���̒ǉ�(�S) ---------- { ---------- */
+/* added 2009.09.07 hmenjo ÔøΩÔøΩÔøΩﬂóÔøΩ ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(ÔøΩP) ---------- } ---------- */
+/* added 2009.09.08 hmenjo ÔøΩÔøΩÔøΩﬂóÔøΩ ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(ÔøΩS) ---------- { ---------- */
 	{"",							"DefaultMeasureTurretNo",		'W',	"0",					&NanoSysData.SrConfig.iDefaultMeasLensNo									},
 	{"",							"DefaultMeasureFilter",			'W',	"0",					&NanoSysData.SrConfig.wDefaultMeasFilter									},
-// 2009.10.13 bagus Distance �ǉ� --{--
+// 2009.10.13 bagus Distance ÔøΩ«âÔøΩ --{--
 	{"",							"Distance",						'b',	"FALSE",				&NanoSysData.SrConfig.bDistance												},
-// 2009.10.13 bagus Distance �ǉ� --}--
-/* added 2009.09.08 hmenjo ���ߗ� �\���̒ǉ�(�S) ---------- } ---------- */
+// 2009.10.13 bagus Distance ÔøΩ«âÔøΩ --}--
+/* added 2009.09.08 hmenjo ÔøΩÔøΩÔøΩﬂóÔøΩ ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(ÔøΩS) ---------- } ---------- */
 	{"FILTER",						"Filter1_Enable",				'b',	"FALSE",				&NanoSysData.SrFilter[0].bEnable										   },
 	{"",							"Filter1_Name", 				'C',	"", 					NanoSysData.SrFilter[0].szName											   },
 	{"",							"Filter1_WavelengthStart",		'W',	"380",					&NanoSysData.SrFilter[0].Wavelength.wStart								   },
@@ -331,51 +331,51 @@ const INIFILE SystemSrIniDesc[] =
 	{"TURRET",						"Turret1_Enable",				'b',	"FALSE",				&NanoSysData.SrTurret[0].bEnable										   },
 	{"",							"Turret1_Name", 				'C',	"", 					NanoSysData.SrTurret[0].szName											   },
 	{"",							"Turret1_XMPAngle", 			'D',	"0",					&NanoSysData.SrTurret[0].dXmpAngle										   },
-/* added 2009.09.08 hmenjo ���ߗ� �\���̒ǉ�(�T) ---------- { ---------- */
-/* modified 2009.09.29 hmenjo Auto Focus Turret �f�t�H���g ---------- { ---------- */
+/* added 2009.09.08 hmenjo ÔøΩÔøΩÔøΩﬂóÔøΩ ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(ÔøΩT) ---------- { ---------- */
+/* modified 2009.09.29 hmenjo Auto Focus Turret ÔøΩfÔøΩtÔøΩHÔøΩÔøΩÔøΩg ---------- { ---------- */
 //	{"",							"Turret1_Analysis",				'b',	"FALSE",				&NanoSysData.SrTurret[0].bAnalysis											},
 //	{"",							"Turret1_AFTurret",				'W',	"FALSE",				&NanoSysData.SrTurret[0].iAFLens											},
-/* modified 2009.09.29 hmenjo Auto Focus Turret �f�t�H���g ----------			   */
+/* modified 2009.09.29 hmenjo Auto Focus Turret ÔøΩfÔøΩtÔøΩHÔøΩÔøΩÔøΩg ----------			   */
 	{"",							"Turret1_Analysis",				'b',	"TRUE",					&NanoSysData.SrTurret[0].bAnalysis											},
 	{"",							"Turret1_AFTurret",				'W',	"9999",					&NanoSysData.SrTurret[0].iAFLens											},
-/* modified 2009.09.29 hmenjo Auto Focus Turret �f�t�H���g ---------- } ---------- */
-/* added 2009.09.08 hmenjo ���ߗ� �\���̒ǉ�(�T) ---------- } ---------- */
+/* modified 2009.09.29 hmenjo Auto Focus Turret ÔøΩfÔøΩtÔøΩHÔøΩÔøΩÔøΩg ---------- } ---------- */
+/* added 2009.09.08 hmenjo ÔøΩÔøΩÔøΩﬂóÔøΩ ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(ÔøΩT) ---------- } ---------- */
 	{"",							"Turret2_Enable",				'b',	"FALSE",				&NanoSysData.SrTurret[1].bEnable										   },
 	{"",							"Turret2_Name", 				'C',	"", 					NanoSysData.SrTurret[1].szName											   },
 	{"",							"Turret2_XMPAngle", 			'D',	"0",					&NanoSysData.SrTurret[1].dXmpAngle										   },
-/* added 2009.09.08 hmenjo ���ߗ� �\���̒ǉ�(�T) ---------- { ---------- */
-/* modified 2009.09.29 hmenjo Auto Focus Turret �f�t�H���g ---------- { ---------- */
+/* added 2009.09.08 hmenjo ÔøΩÔøΩÔøΩﬂóÔøΩ ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(ÔøΩT) ---------- { ---------- */
+/* modified 2009.09.29 hmenjo Auto Focus Turret ÔøΩfÔøΩtÔøΩHÔøΩÔøΩÔøΩg ---------- { ---------- */
 //	{"",							"Turret2_Analysis",				'b',	"FALSE",				&NanoSysData.SrTurret[1].bAnalysis											},
 //	{"",							"Turret2_AFTurret",				'W',	"FALSE",				&NanoSysData.SrTurret[1].iAFLens											},
-/* modified 2009.09.29 hmenjo Auto Focus Turret �f�t�H���g ----------			   */
+/* modified 2009.09.29 hmenjo Auto Focus Turret ÔøΩfÔøΩtÔøΩHÔøΩÔøΩÔøΩg ----------			   */
 	{"",							"Turret2_Analysis",				'b',	"TRUE",					&NanoSysData.SrTurret[1].bAnalysis											},
 	{"",							"Turret2_AFTurret",				'W',	"9999",					&NanoSysData.SrTurret[1].iAFLens											},
-/* modified 2009.09.29 hmenjo Auto Focus Turret �f�t�H���g ---------- } ---------- */
-/* added 2009.09.08 hmenjo ���ߗ� �\���̒ǉ�(�T) ---------- } ---------- */
+/* modified 2009.09.29 hmenjo Auto Focus Turret ÔøΩfÔøΩtÔøΩHÔøΩÔøΩÔøΩg ---------- } ---------- */
+/* added 2009.09.08 hmenjo ÔøΩÔøΩÔøΩﬂóÔøΩ ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(ÔøΩT) ---------- } ---------- */
 	{"",							"Turret3_Enable",				'b',	"FALSE",				&NanoSysData.SrTurret[2].bEnable										   },
 	{"",							"Turret3_Name", 				'C',	"", 					NanoSysData.SrTurret[2].szName											   },
 	{"",							"Turret3_XMPAngle", 			'D',	"0",					&NanoSysData.SrTurret[2].dXmpAngle										   },
-/* added 2009.09.08 hmenjo ���ߗ� �\���̒ǉ�(�T) ---------- { ---------- */
-/* modified 2009.09.29 hmenjo Auto Focus Turret �f�t�H���g ---------- { ---------- */
+/* added 2009.09.08 hmenjo ÔøΩÔøΩÔøΩﬂóÔøΩ ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(ÔøΩT) ---------- { ---------- */
+/* modified 2009.09.29 hmenjo Auto Focus Turret ÔøΩfÔøΩtÔøΩHÔøΩÔøΩÔøΩg ---------- { ---------- */
 //	{"",							"Turret3_Analysis",				'b',	"FALSE",				&NanoSysData.SrTurret[2].bAnalysis											},
 //	{"",							"Turret3_AFTurret",				'W',	"FALSE",				&NanoSysData.SrTurret[2].iAFLens											},
-/* modified 2009.09.29 hmenjo Auto Focus Turret �f�t�H���g ----------			   */
+/* modified 2009.09.29 hmenjo Auto Focus Turret ÔøΩfÔøΩtÔøΩHÔøΩÔøΩÔøΩg ----------			   */
 	{"",							"Turret3_Analysis",				'b',	"TRUE",					&NanoSysData.SrTurret[2].bAnalysis											},
 	{"",							"Turret3_AFTurret",				'W',	"9999",					&NanoSysData.SrTurret[2].iAFLens											},
-/* modified 2009.09.29 hmenjo Auto Focus Turret �f�t�H���g ---------- } ---------- */
-/* added 2009.09.08 hmenjo ���ߗ� �\���̒ǉ�(�T) ---------- } ---------- */
+/* modified 2009.09.29 hmenjo Auto Focus Turret ÔøΩfÔøΩtÔøΩHÔøΩÔøΩÔøΩg ---------- } ---------- */
+/* added 2009.09.08 hmenjo ÔøΩÔøΩÔøΩﬂóÔøΩ ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(ÔøΩT) ---------- } ---------- */
 	{"",							"Turret4_Enable",				'b',	"FALSE",				&NanoSysData.SrTurret[3].bEnable										   },
 	{"",							"Turret4_Name", 				'C',	"", 					NanoSysData.SrTurret[3].szName											   },
 	{"",							"Turret4_XMPAngle", 			'D',	"0",					&NanoSysData.SrTurret[3].dXmpAngle										   },
-/* added 2009.09.08 hmenjo ���ߗ� �\���̒ǉ�(�T) ---------- { ---------- */
-/* modified 2009.09.29 hmenjo Auto Focus Turret �f�t�H���g ---------- { ---------- */
+/* added 2009.09.08 hmenjo ÔøΩÔøΩÔøΩﬂóÔøΩ ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(ÔøΩT) ---------- { ---------- */
+/* modified 2009.09.29 hmenjo Auto Focus Turret ÔøΩfÔøΩtÔøΩHÔøΩÔøΩÔøΩg ---------- { ---------- */
 //	{"",							"Turret4_Analysis",				'b',	"FALSE",				&NanoSysData.SrTurret[3].bAnalysis											},
 //	{"",							"Turret4_AFTurret",				'W',	"FALSE",				&NanoSysData.SrTurret[3].iAFLens											},
-/* modified 2009.09.29 hmenjo Auto Focus Turret �f�t�H���g ----------			   */
+/* modified 2009.09.29 hmenjo Auto Focus Turret ÔøΩfÔøΩtÔøΩHÔøΩÔøΩÔøΩg ----------			   */
 	{"",							"Turret4_Analysis",				'b',	"TRUE",					&NanoSysData.SrTurret[3].bAnalysis											},
 	{"",							"Turret4_AFTurret",				'W',	"9999",					&NanoSysData.SrTurret[3].iAFLens											},
-/* modified 2009.09.29 hmenjo Auto Focus Turret �f�t�H���g ---------- } ---------- */
-/* added 2009.09.08 hmenjo ���ߗ� �\���̒ǉ�(�T) ---------- } ---------- */
+/* modified 2009.09.29 hmenjo Auto Focus Turret ÔøΩfÔøΩtÔøΩHÔøΩÔøΩÔøΩg ---------- } ---------- */
+/* added 2009.09.08 hmenjo ÔøΩÔøΩÔøΩﬂóÔøΩ ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(ÔøΩT) ---------- } ---------- */
 	{"LENS CENTER OFFSET",			"BaseLens", 					'I',	"0",					&NanoSysData.SrLensCenterOffset.iBaseLens								   },
 	{"",							"Lens1_CenterOffset_X", 		'L',	"0",					&NanoSysData.SrLensCenterOffset.Lens[0].lX								   },
 	{"",							"Lens1_CenterOffset_Y", 		'L',	"0",					&NanoSysData.SrLensCenterOffset.Lens[0].lY								   },
@@ -446,14 +446,14 @@ const INIFILE SystemSrIniDesc[] =
 	{"",							"CCDArray7_Item",				'C',	g_lpszSrCcdArrayItem[6],NanoSysData.SrCcdArray[6].szItem										   },
 	{"",							"CCDArray7_Data",				'#',	"0",					&NanoSysData.SrCcdArray[6].dData										   },
 // 2009.05.14 k-matsuo <--
-/* added 2024.01.08 hmenjo CCD ARRAY �ǉ� ---------- { ---------- */
+/* added 2024.01.08 hmenjo CCD ARRAY ÔøΩ«âÔøΩ ---------- { ---------- */
 	{"",							"CCDArray8_Item",				'C',	g_lpszSrCcdArrayItem[7],NanoSysData.SrCcdArray[7].szItem										   },
 	{"",							"CCDArray8_Data",				'#',	"0",					&NanoSysData.SrCcdArray[7].dData										   },
-/* added 2024.01.08 hmenjo CCD ARRAY �ǉ� ---------- } ---------- */
+/* added 2024.01.08 hmenjo CCD ARRAY ÔøΩ«âÔøΩ ---------- } ---------- */
 };
 
-// 2013.02.04 bagus CompleteEASE�w�b�h�ǉ� -->
-// SystemCompEase.ini�̃Z�N�V�����C�L�[�C�f�t�H���g�C�ϐ��̐ݒ�
+// 2013.02.04 bagus CompleteEASEÔøΩwÔøΩbÔøΩhÔøΩ«âÔøΩ -->
+// SystemCompEase.iniÔøΩÃÉZÔøΩNÔøΩVÔøΩÔøΩÔøΩÔøΩÔøΩCÔøΩLÔøΩ[ÔøΩCÔøΩfÔøΩtÔøΩHÔøΩÔøΩÔøΩgÔøΩCÔøΩœêÔøΩÔøΩÃê›íÔøΩ
 const INIFILE SystemCompEaseIniDesc[] =
 {
 //	Section Name					Key Name						Type	Default 				Variable Pointer
@@ -462,10 +462,10 @@ const INIFILE SystemCompEaseIniDesc[] =
 	{"",							"Port", 						'I',	"4444",					&NanoSysData.CompEASEConfig.nPort 										   },
 	{"",							"AsyncPort", 					'I',	"4445",					&NanoSysData.CompEASEConfig.nAsyncPort 									   },
 };
-// 2013.02.04 bagus CompleteEASE�w�b�h�ǉ� <--
+// 2013.02.04 bagus CompleteEASEÔøΩwÔøΩbÔøΩhÔøΩ«âÔøΩ <--
 
-/* added 2009.07.22 hmenjo �X�g���X ���C���� ��`�Q/SystemStress.ini �ǉ��Q ---------- { ---------- */
-/* SystemStress.ini�̃Z�N�V�����C�L�[�C�f�t�H���g�C�ϐ��̐ݒ� */
+/* added 2009.07.22 hmenjo ÔøΩXÔøΩgÔøΩÔøΩÔøΩX ÔøΩÔøΩÔøΩCÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ`ÔøΩQ/SystemStress.ini ÔøΩ«âÔøΩÔøΩQ ---------- { ---------- */
+/* SystemStress.iniÔøΩÃÉZÔøΩNÔøΩVÔøΩÔøΩÔøΩÔøΩÔøΩCÔøΩLÔøΩ[ÔøΩCÔøΩfÔøΩtÔøΩHÔøΩÔøΩÔøΩgÔøΩCÔøΩœêÔøΩÔøΩÃê›íÔøΩ */
 DWORD lg_dwDummy;
 #define	LINEnSECNUM	_T("L%dSecNum")
 const INIFILE SystemStressIniDesc[] =
@@ -481,9 +481,9 @@ const INIFILE SystemStressIniDesc[] =
 // K.Matsuo 2009.09.07 <--
 	{"",							"LineMoveStartPosition",		'L',	"5000",					&NanoSysData.StressConfig.lLineStartPosX				},
 	{"",							"LineMoveEndPosition",			'L',	"2495000",				&NanoSysData.StressConfig.lLineEndPosX					},
-/* added 2009.09.29 hmenjo Stress Z ���X�L�����ʒu ---------- { ---------- */
+/* added 2009.09.29 hmenjo Stress Z ÔøΩÔøΩÔøΩXÔøΩLÔøΩÔøΩÔøΩÔøΩÔøΩ íu ---------- { ---------- */
 	{"",							"ScanZAxisPosition",			'L',	"420000",				&NanoSysData.StressConfig.lScanZAxisPosition			},
-/* added 2009.09.29 hmenjo Stress Z ���X�L�����ʒu ---------- } ---------- */
+/* added 2009.09.29 hmenjo Stress Z ÔøΩÔøΩÔøΩXÔøΩLÔøΩÔøΩÔøΩÔøΩÔøΩ íu ---------- } ---------- */
 	{"LINE SECTION",				"LiftPinNumberOfLine",			'L',	"1",					&NanoSysData.StressConfig.dwLiftPinNumberOfLine			},
 	{"",							"Shape",						'L',	"0",					&NanoSysData.StressConfig.dwShape						},
 	{"",							"Size_X",						'D',	"2500000",				&NanoSysData.StressConfig.Size.dx						},
@@ -503,22 +503,22 @@ const INIFILE SystemStressIniDesc[] =
 //2009.12.21 bagus stress --}--
 
 };
-/* added 2009.07.22 hmenjo �X�g���X ���C���� ��`�Q/SystemStress.ini �ǉ��Q ---------- } ---------- */
+/* added 2009.07.22 hmenjo ÔøΩXÔøΩgÔøΩÔøΩÔøΩX ÔøΩÔøΩÔøΩCÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ`ÔøΩQ/SystemStress.ini ÔøΩ«âÔøΩÔøΩQ ---------- } ---------- */
 //2009.08.24 bagus stress --{--
 #define	TABLENAME_N		_T("TableName%d")
 #define	TABLEVALUE_N	_T("TableValue%d")
-// 2009.11.09 bagus Stress �ǉ��ύX --{--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --{--
 //const INIFILE SystemStressModulusIniDesc[] =
 const INIFILE UserStressModulusIniDesc[] =
-// 2009.11.09 bagus Stress �ǉ��ύX --}--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --}--
 {
 	/*Section Name					Key Name						Type	Default					Variable Pointer */
 	{"ElasticModulus",				"TableNumber",					'L',	"0",					&NanoSysData.StressElasticTable.uiTableNum										},
 	{"",							TABLENAME_N,					'C',	"0",					&NanoSysData.StressElasticTable.ElasticModulus[0].tszElasticModulusName			},
-// 2009.09.04 bagus stress e+11�ύX --{--
+// 2009.09.04 bagus stress e+11ÔøΩœçX --{--
 //	{"",							TABLEVALUE_N,					'D',	"0",					&NanoSysData.StressElasticTable.ElasticModulus[0].dElasticModulusValue			},
 	{"",							TABLEVALUE_N,					'E',	"0",					&NanoSysData.StressElasticTable.ElasticModulus[0].dElasticModulusValue			},
-// 2009.09.04 bagus stress e+11�ύX --}--
+// 2009.09.04 bagus stress e+11ÔøΩœçX --}--
 // 2009.12.21 bagus stres --{--
 //	{"",							"dmy",							'L',	"0",					&lg_dwDummy																		},
 // 2009.12.21 bagus stres --}--
@@ -526,9 +526,9 @@ const INIFILE UserStressModulusIniDesc[] =
 //2009.08.24 bagus stress --}--
 
 //2009.09.07 bagus se --{--
-// SE�pXMP�̂��߂ɒ�`����
-/* deleted 2009.09.01 hmenjo SE �\���̒ǉ�(12) ---------- { ---------- */
-///* added 2009.08.25 hmenjo SE �\���̒ǉ�(�P) ---------- { ---------- */
+// SEÔøΩpXMPÔøΩÃÇÔøΩÔøΩﬂÇ…íÔøΩ`ÔøΩÔøΩÔøΩÔøΩ
+/* deleted 2009.09.01 hmenjo SE ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(12) ---------- { ---------- */
+///* added 2009.08.25 hmenjo SE ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(ÔøΩP) ---------- { ---------- */
 const INIFILE SystemSeIniDesc[] =
 {
 	/*Section Name					Key Name						Type	Default											Variable Pointer */
@@ -539,36 +539,36 @@ const INIFILE SystemSeIniDesc[] =
 	{"",							"ADAPExePath",					'C',	"c:\\wvase32\\adap\\jaw_adap.exe",				NanoSysData.SeXmp.szAdapExePath				},
 	{"",							"WVASEWindowTitle",				'C',	"V.A.S.E. for Windows, Port #6520",				NanoSysData.SeXmp.szWvaseWindowTitle		},
 };
-///* added 2009.08.25 hmenjo SE �\���̒ǉ�(�P) ---------- } ---------- */
-/* deleted 2009.09.01 hmenjo SE �\���̒ǉ�(12) ---------- } ---------- */
+///* added 2009.08.25 hmenjo SE ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(ÔøΩP) ---------- } ---------- */
+/* deleted 2009.09.01 hmenjo SE ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(12) ---------- } ---------- */
 //2009.09.07 bagus se --}--
 
-// 2009.10.19 bagus MS �ǉ� --{--
+// 2009.10.19 bagus MS ÔøΩ«âÔøΩ --{--
 const INIFILE SystemMsIniDesc[] =
 {
 	/*Section Name					Key Name						Type	Default						Variable Pointer */
 	{"CONFIG",						"MsStdZAxisRetractPos",			'L',	"100000",					&NanoSysData.MsConfig.lStdZAxisRetractPos		},
 };
-// 2009.10.19 bagus MS �ǉ� --}--
+// 2009.10.19 bagus MS ÔøΩ«âÔøΩ --}--
 
-// 2009.10.30 bagus CA �ǉ� --{--
+// 2009.10.30 bagus CA ÔøΩ«âÔøΩ --{--
 const INIFILE SystemCaIniDesc[] =
 {
 	/*Section Name					Key Name						Type	Default						Variable Pointer */
 	{"CONFIG",						"CaZAxisPosition",				'L',	"100000",					&NanoSysData.CaConfig.lCaStdZAxisRetractPos			},
 };
-// 2009.10.30 bagus CA �ǉ� --}--
+// 2009.10.30 bagus CA ÔøΩ«âÔøΩ --}--
 
-// 2009.11.04 bagus RS �ǉ� --{--
+// 2009.11.04 bagus RS ÔøΩ«âÔøΩ --{--
 const INIFILE SystemRsIniDesc[] =
 {
 	/*Section Name					Key Name						Type	Default						Variable Pointer */
 	{"CONFIG",						"RsZAxisPosition",				'L',	"100000",					&NanoSysData.RsConfig.lRsStdZAxisRetractPos			},
 	{"",							"RsProbeType",					'I',	"5",						&NanoSysData.RsConfig.nRsProbeType					},
 };
-// 2009.11.04 bagus RS �ǉ� --}--
+// 2009.11.04 bagus RS ÔøΩ«âÔøΩ --}--
 
-// UserSettingCommon.ini�̃Z�N�V�����C�L�[�C�f�t�H���g�C�ϐ��̐ݒ�
+// UserSettingCommon.iniÔøΩÃÉZÔøΩNÔøΩVÔøΩÔøΩÔøΩÔøΩÔøΩCÔøΩLÔøΩ[ÔøΩCÔøΩfÔøΩtÔøΩHÔøΩÔøΩÔøΩgÔøΩCÔøΩœêÔøΩÔøΩÃê›íÔøΩ
 const INIFILE UserSettingCommonIniDesc[] =
 {
 //	Section Name					Key Name						Type	Default 				Variable Pointer
@@ -645,7 +645,7 @@ const INIFILE UserSettingCommonIniDesc[] =
 	{"",							"BackupPath",					'C',	"",						UserData.BackupData.BackupPath										},
 };
 
-//// UserSettingCommon.ini�̃Z�N�V�����C�L�[�C�f�t�H���g�C�ϐ��̐ݒ�
+//// UserSettingCommon.iniÔøΩÃÉZÔøΩNÔøΩVÔøΩÔøΩÔøΩÔøΩÔøΩCÔøΩLÔøΩ[ÔøΩCÔøΩfÔøΩtÔøΩHÔøΩÔøΩÔøΩgÔøΩCÔøΩœêÔøΩÔøΩÃê›íÔøΩ
 const INIFILE UserSettingSrIniDesc[] =
 {
 //	Section Name					Key Name						Type	Default 				Variable Pointer
@@ -679,40 +679,40 @@ const INIFILE UserSettingSrIniDesc[] =
 //	  {"",							  "TransmittanceFormat",		  'I',	  "4",					  &UserData.SrFigureFormat.nTransmittanceFormat 					 },
 //	  {"",							  "ChromaticityFormat", 		  'I',	  "4",					  &UserData.SrFigureFormat.nChromaticityFormat						 },
 //	  {"",							  "OpticalDensityFormat",		  'I',	  "4",					  &UserData.SrFigureFormat.nOpticalDensityFormat					 },
-/* added 2017.04.15 hmenjo �����\���� ---------- { ---------- */
+/* added 2017.04.15 hmenjo ÔøΩÔøΩÔøΩÔøΩÔøΩ\ÔøΩÔøΩÔøΩÔøΩ ---------- { ---------- */
 	  {"",							  "ThicknessIntOnly",			  'I',	  "0",					&UserData.SrFigureFormat.iThicknessIntOnly							},
-/* added 2017.04.15 hmenjo �����\���� ---------- } ---------- */
+/* added 2017.04.15 hmenjo ÔøΩÔøΩÔøΩÔøΩÔøΩ\ÔøΩÔøΩÔøΩÔøΩ ---------- } ---------- */
 	{"AUTOFOCUS RETRY", 			"AutoFocusRetryTimes",			'I',	"1",					&UserData.SrAutoFocusRetry.nTimes		  						   },
-/* added 2009.09.07 hmenjo ���ߗ� �\���̒ǉ�(�Q) ---------- { ---------- */
+/* added 2009.09.07 hmenjo ÔøΩÔøΩÔøΩﬂóÔøΩ ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(ÔøΩQ) ---------- { ---------- */
 	{"TRANSMITTANCE SETTING",		"DoNotCheckMeasPoint",			'b',	"FALSE",				&UserData.SrTransmittance.bDoNotCheckMeasPoint						},
-/* added 2009.09.07 hmenjo ���ߗ� �\���̒ǉ�(�Q) ---------- } ---------- */
+/* added 2009.09.07 hmenjo ÔøΩÔøΩÔøΩﬂóÔøΩ ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(ÔøΩQ) ---------- } ---------- */
 
 };
 
-/* added 2009.09.01 hmenjo SE �\���̒ǉ�(12) ---------- { ---------- */
-/* UserSettingSe.ini �̃Z�N�V�����C�L�[�C�f�t�H���g�C�ϐ��̐ݒ�	*/
+/* added 2009.09.01 hmenjo SE ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(12) ---------- { ---------- */
+/* UserSettingSe.ini ÔøΩÃÉZÔøΩNÔøΩVÔøΩÔøΩÔøΩÔøΩÔøΩCÔøΩLÔøΩ[ÔøΩCÔøΩfÔøΩtÔøΩHÔøΩÔøΩÔøΩgÔøΩCÔøΩœêÔøΩÔøΩÃê›íÔøΩ	*/
 const INIFILE UserSettingSeIniDesc[] =
 {
 	/*Section Name					Key Name						Type	Default					Variable Pointer */
-/* modified 2009.09.14 hmenjo SE ���� SR �����v OPEN �ł悢 ---------- { ---------- */
+/* modified 2009.09.14 hmenjo SE ÔøΩÔøΩÔøΩÔøΩ SR ÔøΩÔøΩÔøΩÔøΩÔøΩv OPEN ÔøΩ≈ÇÊÇ¢ ---------- { ---------- */
 //	{"SE SETTING",					"DoNotMoveShutter",				'b',	"FALSE",				&UserData.SeSetting.bDoNotMoveShutter					},
-/* modified 2009.09.14 hmenjo SE ���� SR �����v OPEN �ł悢 ----------				*/
+/* modified 2009.09.14 hmenjo SE ÔøΩÔøΩÔøΩÔøΩ SR ÔøΩÔøΩÔøΩÔøΩÔøΩv OPEN ÔøΩ≈ÇÊÇ¢ ----------				*/
 	{"SE SETTING",					"DoNotMoveShutter",				'b',	"TRUE",					&UserData.SeSetting.bDoNotMoveShutter					},
-/* modified 2009.09.14 hmenjo SE ���� SR �����v OPEN �ł悢 ---------- } ---------- */
+/* modified 2009.09.14 hmenjo SE ÔøΩÔøΩÔøΩÔøΩ SR ÔøΩÔøΩÔøΩÔøΩÔøΩv OPEN ÔøΩ≈ÇÊÇ¢ ---------- } ---------- */
 // 2009.09.19 bagus SE --{--
 	{"FIGURE FORMAT",				"SeUnit",						'I',	"0",					&UserData.SeFigureFormat.nThicknessUnit					},
 // 2009.09.19 bagus SE --}--
 };
-/* added 2009.09.01 hmenjo SE �\���̒ǉ�(12) ---------- } ---------- */
+/* added 2009.09.01 hmenjo SE ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(12) ---------- } ---------- */
 
-// 2013.02.04 bagus CompleteEASE�w�b�h�ǉ� -->
-/* UserSettingEase.ini �̃Z�N�V�����C�L�[�C�f�t�H���g�C�ϐ��̐ݒ�	*/
+// 2013.02.04 bagus CompleteEASEÔøΩwÔøΩbÔøΩhÔøΩ«âÔøΩ -->
+/* UserSettingEase.ini ÔøΩÃÉZÔøΩNÔøΩVÔøΩÔøΩÔøΩÔøΩÔøΩCÔøΩLÔøΩ[ÔøΩCÔøΩfÔøΩtÔøΩHÔøΩÔøΩÔøΩgÔøΩCÔøΩœêÔøΩÔøΩÃê›íÔøΩ	*/
 const INIFILE UserSettingCompEASEIniDesc[] =
 {
 	/*Section Name					Key Name						Type	Default					Variable Pointer */
 	{"FIGURE FORMAT",				"EaseUnit",						'I',	"0",					&UserData.CompEASEFigureFormat.nThicknessUnit			},
 };
-// 2013.02.04 bagus CompleteEASE�w�b�h�ǉ� <--
+// 2013.02.04 bagus CompleteEASEÔøΩwÔøΩbÔøΩhÔøΩ«âÔøΩ <--
 
 // 2013.02.22 bagus Substrate Thickness --{--
 #define	SUBSTRATE_THICKNESS_N	_T("SubstrateThickness%d")
@@ -729,10 +729,10 @@ const INIFILE SubstrateThicknessIniDesc[] =
 
 /////////////////////////////////////////////////////////////////////////////
 // Name       : LoadNanoSpecIni
-// Purpose    : Ini�t�@�C���̓��e�̓ǂݍ���
-// Parameters : iIniFile ---> �ǂ�Ini�t�@�C���Ȃ̂������߂�ϐ�
+// Purpose    : IniÔøΩtÔøΩ@ÔøΩCÔøΩÔøΩÔøΩÃìÔøΩÔøΩeÔøΩÃì«Ç›çÔøΩÔøΩÔøΩ
+// Parameters : iIniFile ---> ÔøΩ«ÇÔøΩIniÔøΩtÔøΩ@ÔøΩCÔøΩÔøΩÔøΩ»ÇÃÇÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩﬂÇÔøΩœêÔøΩ
 //
-// Returns    : �Ȃ�
+// Returns    : ÔøΩ»ÇÔøΩ
 void LoadNanoSpecIni(int iIniFile)
 {
 	int index, iIniDescCount;
@@ -755,42 +755,42 @@ void LoadNanoSpecIni(int iIniFile)
 		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 //2009.09.08 bagus se --{--
-//SR�pXMP�̂��߂ɒ�`����
-/* deleted 2009.09.01 hmenjo SE �\���̒ǉ�(12) ---------- { ---------- */
-///* added 2009.08.25 hmenjo SE �\���̒ǉ�(�P) ---------- { ---------- */
+//SRÔøΩpXMPÔøΩÃÇÔøΩÔøΩﬂÇ…íÔøΩ`ÔøΩÔøΩÔøΩÔøΩ
+/* deleted 2009.09.01 hmenjo SE ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(12) ---------- { ---------- */
+///* added 2009.08.25 hmenjo SE ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(ÔøΩP) ---------- { ---------- */
 	case SYSTEM_SE_INI_FILE:
 		iIniDescCount = sizeof(SystemSeIniDesc) / sizeof(SystemSeIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SystemSeIniDesc, sizeof(SystemSeIniDesc));
 		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
-///* added 2009.08.25 hmenjo SE �\���̒ǉ�(�P) ---------- } ---------- */
-/* deleted 2009.09.01 hmenjo SE �\���̒ǉ�(12) ---------- } ---------- */
+///* added 2009.08.25 hmenjo SE ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(ÔøΩP) ---------- } ---------- */
+/* deleted 2009.09.01 hmenjo SE ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(12) ---------- } ---------- */
 //2009.09.08 bagus se --}--
-// 2009.10.19 bagus MS �ǉ� --{--
+// 2009.10.19 bagus MS ÔøΩ«âÔøΩ --{--
 	case SYSTEM_MS_INI_FILE:
 		iIniDescCount = sizeof(SystemMsIniDesc) / sizeof(SystemMsIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SystemMsIniDesc, sizeof(SystemMsIniDesc));
 		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
-// 2009.10.19 bagus MS �ǉ� --}--
-// 2009.10.30 bagus CA �ǉ� --{--
+// 2009.10.19 bagus MS ÔøΩ«âÔøΩ --}--
+// 2009.10.30 bagus CA ÔøΩ«âÔøΩ --{--
 	case SYSTEM_CA_INI_FILE:
 		iIniDescCount = sizeof(SystemCaIniDesc) / sizeof(SystemCaIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SystemCaIniDesc, sizeof(SystemCaIniDesc));
 		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
-// 2009.10.30 bagus CA �ǉ� --}--
-// 2009.11.04 bagus RS �ǉ� --{--
+// 2009.10.30 bagus CA ÔøΩ«âÔøΩ --}--
+// 2009.11.04 bagus RS ÔøΩ«âÔøΩ --{--
 	case SYSTEM_RS_INI_FILE:
 		iIniDescCount = sizeof(SystemRsIniDesc) / sizeof(SystemRsIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SystemRsIniDesc, sizeof(SystemRsIniDesc));
 		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
-// 2009.11.04 bagus RS �ǉ� --}--
+// 2009.11.04 bagus RS ÔøΩ«âÔøΩ --}--
 	case USER_SETTING_COMMON_INI_FILE:
 		iIniDescCount = sizeof(UserSettingCommonIniDesc) / sizeof(UserSettingCommonIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
@@ -803,58 +803,58 @@ void LoadNanoSpecIni(int iIniFile)
 		memcpy(pIniDesc, UserSettingSrIniDesc, sizeof(UserSettingSrIniDesc));
 		sprintf(szIniFilePath, "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
-/* added 2009.09.01 hmenjo SE �\���̒ǉ�(12) ---------- { ---------- */
+/* added 2009.09.01 hmenjo SE ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(12) ---------- { ---------- */
 	case USER_SETTING_SE_INI_FILE:
 		iIniDescCount = sizeof(UserSettingSeIniDesc) / sizeof(UserSettingSeIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, UserSettingSeIniDesc, sizeof(UserSettingSeIniDesc));
 		sprintf(szIniFilePath, "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
-/* added 2009.09.01 hmenjo SE �\���̒ǉ�(12) ---------- } ---------- */
-// 2013.02.04 bagus CompleteEASE�w�b�h�ǉ� -->
+/* added 2009.09.01 hmenjo SE ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(12) ---------- } ---------- */
+// 2013.02.04 bagus CompleteEASEÔøΩwÔøΩbÔøΩhÔøΩ«âÔøΩ -->
 	case USER_SETTING_COMPEASE_INI_FILE:
 		iIniDescCount = sizeof(UserSettingCompEASEIniDesc) / sizeof(UserSettingCompEASEIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, UserSettingCompEASEIniDesc, sizeof(UserSettingCompEASEIniDesc));
 		sprintf(szIniFilePath, "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
-// 2013.02.04 bagus CompleteEASE�w�b�h�ǉ� <--
-/* added 2009.07.22 hmenjo �X�g���X ���C���� ��` ---------- { ---------- */
+// 2013.02.04 bagus CompleteEASEÔøΩwÔøΩbÔøΩhÔøΩ«âÔøΩ <--
+/* added 2009.07.22 hmenjo ÔøΩXÔøΩgÔøΩÔøΩÔøΩX ÔøΩÔøΩÔøΩCÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ` ---------- { ---------- */
 	case SYSTEM_STRESS_INI_FILE:
 		iIniDescCount = sizeof(SystemStressIniDesc) / sizeof(SystemStressIniDesc[0]);
 		pIniDesc = new INIFILE[iIniDescCount];
 		memcpy(pIniDesc, SystemStressIniDesc, sizeof(SystemStressIniDesc));
 		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
-/* added 2009.07.22 hmenjo �X�g���X ���C���� ��` ---------- } ---------- */
+/* added 2009.07.22 hmenjo ÔøΩXÔøΩgÔøΩÔøΩÔøΩX ÔøΩÔøΩÔøΩCÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ` ---------- } ---------- */
 //2009.08.24 bagus stress --{--
-// 2009.11.09 bagus Stress �ǉ��ύX --{--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --{--
 //	case SYSTEM_STRESS_MODULUS_INI_FILE:
 	case USER_STRESS_MODULUS_INI_FILE:
-// 2009.11.09 bagus Stress �ǉ��ύX --}--
-// 2009.11.09 bagus Stress �ǉ��ύX --{--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --}--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --{--
 //		iIniDescCount = sizeof(SystemStressModulusIniDesc) / sizeof(SystemStressModulusIniDesc[0]);
 		iIniDescCount = sizeof(UserStressModulusIniDesc) / sizeof(UserStressModulusIniDesc[0]);
-// 2009.11.09 bagus Stress �ǉ��ύX --}--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --}--
 		pIniDesc = new INIFILE[iIniDescCount];
-// 2009.11.09 bagus Stress �ǉ��ύX --{--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --{--
 //		memcpy(pIniDesc, SystemStressModulusIniDesc, sizeof(SystemStressModulusIniDesc));
 		memcpy(pIniDesc, UserStressModulusIniDesc, sizeof(UserStressModulusIniDesc));
-// 2009.11.09 bagus Stress �ǉ��ύX --}--
-		// 2009.11.09 bagus Stress �ǉ��ύX --{--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --}--
+		// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --{--
 		//sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		sprintf(szIniFilePath, "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
-		// 2009.11.09 bagus Stress �ǉ��ύX --}--
+		// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --}--
 		break;
 //2009.08.24 bagus stress --}--
-// 2013.02.04 bagus CompleteEASE�w�b�h�ǉ� -->
+// 2013.02.04 bagus CompleteEASEÔøΩwÔøΩbÔøΩhÔøΩ«âÔøΩ -->
 	case SYSTEM_COMPEASE_INI_FILE:
 		iIniDescCount = sizeof(SystemCompEaseIniDesc) / sizeof(SystemCompEaseIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SystemCompEaseIniDesc, sizeof(SystemCompEaseIniDesc));
 		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
-// 2013.02.04 bagus CompleteEASE�w�b�h�ǉ� <--
+// 2013.02.04 bagus CompleteEASEÔøΩwÔøΩbÔøΩhÔøΩ«âÔøΩ <--
 // 2013.02.22 bagus Substrate thickness setting -->
 	case SUBSTRATE_THICKNESS_INI_FILE:
 		iIniDescCount = sizeof(SubstrateThicknessIniDesc) / sizeof(SubstrateThicknessIniDesc[0]);
@@ -867,12 +867,12 @@ void LoadNanoSpecIni(int iIniFile)
 		return;
 		break;
 	}
-/* added 2009.07.07 hmenjo dll ���΃p�X�Ή� ConfigFile.dll ---------- { ---------- */
+/* added 2009.07.07 hmenjo dll ÔøΩÔøΩÔøΩŒÉpÔøΩXÔøΩŒâÔøΩ ConfigFile.dll ---------- { ---------- */
 	TCHAR l_tszTempFName[_MAX_PATH];
 	GetProcBaseDir(g_tszProcDir, g_tszBaseDir);
 	_tcscpy(l_tszTempFName, szIniFilePath);
 	_stprintf(szIniFilePath, _T("%s%s"), g_tszProcDir, l_tszTempFName);
-/* added 2009.07.07 hmenjo dll ���΃p�X�Ή� ConfigFile.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ÔøΩÔøΩÔøΩŒÉpÔøΩXÔøΩŒâÔøΩ ConfigFile.dll ---------- } ---------- */
 
 //2009.08.27 bagus stress --{--
 	if(iIniFile == SYSTEM_STRESS_INI_FILE){
@@ -976,7 +976,7 @@ void LoadNanoSpecIni(int iIniFile)
 	}
 //2009.08.27 --}--
 
-// 2009.10.19 bagus MS �ǉ� --{--
+// 2009.10.19 bagus MS ÔøΩ«âÔøΩ --{--
 	if(iIniFile == SYSTEM_MS_INI_FILE){
 		int	nIndex;
 		char szMsKey[1024+1];
@@ -1013,15 +1013,15 @@ void LoadNanoSpecIni(int iIniFile)
 			NanoSysData.MsConfig.RoboCylinder[nIndex].bSensor = (strcmp(buff, "TRUE") == 0)? TRUE: FALSE;
 		}
 	}
-// 2009.10.19 bagus MS �ǉ� --}--
+// 2009.10.19 bagus MS ÔøΩ«âÔøΩ --}--
 
-/* added 2009.07.22 hmenjo �X�g���X ���C���� ��` ---------- { ---------- */
+/* added 2009.07.22 hmenjo ÔøΩXÔøΩgÔøΩÔøΩÔøΩX ÔøΩÔøΩÔøΩCÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ` ---------- { ---------- */
 	int l_iLineCount = 0;
 	TCHAR l_szKeyOrg[256] = {0};  // Fixed buffer for key storage
 	LPCTSTR l_ptszKeyOrg = nullptr;
-/* added 2009.07.22 hmenjo �X�g���X ���C���� ��` ---------- } ---------- */
+/* added 2009.07.22 hmenjo ÔøΩXÔøΩgÔøΩÔøΩÔøΩX ÔøΩÔøΩÔøΩCÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ` ---------- } ---------- */
 //2009.08.24 bagus stress --{--
-// Stress ElasticModulus �Ή�
+// Stress ElasticModulus ÔøΩŒâÔøΩ
 	int l_iTableNameCount = 0;
 	int l_iTableValueCount = 0;
 	TCHAR l_szTableKeyOrg[256] = {0};  // Fixed buffer for table key storage
@@ -1039,23 +1039,23 @@ void LoadNanoSpecIni(int iIniFile)
 	if(SUBSTRATE_THICKNESS_INI_FILE != iIniFile){
 // 2013.02.22 bagus Substrate thickness setting -->
 	for(index = 0; index < iIniDescCount; index++){
-/* added 2009.07.22 hmenjo �X�g���X ���C���� ��` ---------- { ---------- */
+/* added 2009.07.22 hmenjo ÔøΩXÔøΩgÔøΩÔøΩÔøΩX ÔøΩÔøΩÔøΩCÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ` ---------- { ---------- */
 		if (0 != l_iLineCount) {
 			if (0 != index) {
 				index--;
 			}
 		}
 #if 1
-/* added 2009.07.22 hmenjo �X�g���X ���C���� ��` ---------- } ---------- */
+/* added 2009.07.22 hmenjo ÔøΩXÔøΩgÔøΩÔøΩÔøΩX ÔøΩÔøΩÔøΩCÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ` ---------- } ---------- */
 		// get section name
 		if(strlen((pIniDesc + index)->section) > 0)
 			section = (pIniDesc + index)->section;
 
 		// get ini file data
 		memset(buff, NULL, sizeof(buff));
-/* added 2009.07.22 hmenjo �X�g���X ���C���� ��` ---------- { ---------- */
-				/*	�ۑ��̊֐�����������ꍇ�́C�ő僉�C�����𒴂������C���̒�`�� ini �t�@�C����
-					���o���Ȃ��悤�ɂ��Ȃ���΂Ȃ�Ȃ����߁C�R�R�Ɠ��l�ȏ����ɂ͂��Ȃ����ƁD*/
+/* added 2009.07.22 hmenjo ÔøΩXÔøΩgÔøΩÔøΩÔøΩX ÔøΩÔøΩÔøΩCÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ` ---------- { ---------- */
+				/*	ÔøΩ€ëÔøΩÔøΩÃä÷êÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÍçáÔøΩÕÅCÔøΩ≈ëÂÉâÔøΩCÔøΩÔøΩÔøΩÔøΩÔøΩí¥ÇÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩCÔøΩÔøΩÔøΩÃíÔøΩ`ÔøΩÔøΩ ini ÔøΩtÔøΩ@ÔøΩCÔøΩÔøΩÔøΩÔøΩ
+					ÔøΩÔøΩÔøΩoÔøΩÔøΩÔøΩ»ÇÔøΩÔøΩÊÇ§ÔøΩ…ÇÔøΩÔøΩ»ÇÔøΩÔøΩÔøΩŒÇ»ÇÔøΩ»ÇÔøΩÔøΩÔøΩÔøΩﬂÅCÔøΩRÔøΩRÔøΩ∆ìÔøΩÔøΩlÔøΩ»èÔøΩÔøΩÔøΩÔøΩ…ÇÕÇÔøΩÔøΩ»ÇÔøΩÔøΩÔøΩÔøΩ∆ÅD*/
 		TCHAR l_tszKey[256];
 		if (0 == l_iLineCount) {
 			if ((SYSTEM_STRESS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, LINEnSECNUM))) {
@@ -1075,15 +1075,15 @@ void LoadNanoSpecIni(int iIniFile)
 				l_iLineCount--;
 			}
 		}
-/* added 2009.07.22 hmenjo �X�g���X ���C���� ��` ---------- } ---------- */
+/* added 2009.07.22 hmenjo ÔøΩXÔøΩgÔøΩÔøΩÔøΩX ÔøΩÔøΩÔøΩCÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ` ---------- } ---------- */
 #else
 	//2009.08.27 bagus stress --{--
-	//�f�[�^�������Ȃ邽�߂��̏����͂�߂�
+	//ÔøΩfÔøΩ[ÔøΩ^ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ»ÇÈÇΩÔøΩﬂÇÔøΩÔøΩÃèÔøΩÔøΩÔøΩÔøΩÕÇÔøΩﬂÇÔøΩ
 		TCHAR l_tszKey[256];
 	//2009.08.27 bagus stress --}--
 #endif
 //2009.08.24 bagus stress --{--
-// Stress ElasticModulus �Ή�
+// Stress ElasticModulus ÔøΩŒâÔøΩ
 		if (0 != l_iTableNameCount) {
 			if (0 != index) {
 				index--;
@@ -1093,10 +1093,10 @@ void LoadNanoSpecIni(int iIniFile)
 		// get ini file data
 		memset(buff, NULL, sizeof(buff));
 		if (0 == l_iTableNameCount) {
-// 2009.11.09 bagus Stress �ǉ��ύX --{--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --{--
 //			if ((SYSTEM_STRESS_MODULUS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, TABLENAME_N))) {
 			if ((USER_STRESS_MODULUS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, TABLENAME_N))) {
-// 2009.11.09 bagus Stress �ǉ��ύX --}--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --}--
 				_tcscpy_s(l_szTableKeyOrg, _countof(l_szTableKeyOrg), (pIniDesc + index)->key);
 				l_ptszTableKeyOrg = l_szTableKeyOrg;
 				l_iTableNameCount = STRESS_MODULUS_MAX;
@@ -1106,10 +1106,10 @@ void LoadNanoSpecIni(int iIniFile)
 			if (l_ptszTableKeyOrg && *l_ptszTableKeyOrg) {
 				(pIniDesc + index)->key = l_ptszTableKeyOrg;
 			}
-// 2009.11.09 bagus Stress �ǉ��ύX --{--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --{--
 //			if ((SYSTEM_STRESS_MODULUS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, TABLENAME_N))) {
 			if ((USER_STRESS_MODULUS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, TABLENAME_N))) {
-// 2009.11.09 bagus Stress �ǉ��ύX --}--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --}--
 				_stprintf(l_tszKey, TABLENAME_N, STRESS_MODULUS_MAX - l_iTableNameCount + 1);
 				(pIniDesc + index)->key = l_tszKey;
 				(pIniDesc + index)->data = &NanoSysData.StressElasticTable.ElasticModulus[STRESS_MODULUS_MAX - l_iTableNameCount].tszElasticModulusName;
@@ -1122,10 +1122,10 @@ void LoadNanoSpecIni(int iIniFile)
 			}
 		}
 		if (0 == l_iTableValueCount) {
-// 2009.11.09 bagus Stress �ǉ��ύX --{--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --{--
 //			if ((SYSTEM_STRESS_MODULUS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, TABLEVALUE_N))) {
 			if ((USER_STRESS_MODULUS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, TABLEVALUE_N))) {
-// 2009.11.09 bagus Stress �ǉ��ύX --}--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --}--
 				_tcscpy_s(l_szTableKeyOrg, _countof(l_szTableKeyOrg), (pIniDesc + index)->key);
 				l_ptszTableKeyOrg = l_szTableKeyOrg;
 				l_iTableValueCount = STRESS_MODULUS_MAX;
@@ -1135,10 +1135,10 @@ void LoadNanoSpecIni(int iIniFile)
 			if (l_ptszTableKeyOrg && *l_ptszTableKeyOrg) {
 				(pIniDesc + index)->key = l_ptszTableKeyOrg;
 			}
-// 2009.11.09 bagus Stress �ǉ��ύX --{--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --{--
 //			if ((SYSTEM_STRESS_MODULUS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, TABLEVALUE_N))) {
 			if ((USER_STRESS_MODULUS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, TABLEVALUE_N))) {
-// 2009.11.09 bagus Stress �ǉ��ύX --}--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --}--
 				_stprintf(l_tszKey, TABLEVALUE_N, STRESS_MODULUS_MAX - l_iTableValueCount + 1);
 				(pIniDesc + index)->key = l_tszKey;
 				(pIniDesc + index)->data = &NanoSysData.StressElasticTable.ElasticModulus[STRESS_MODULUS_MAX - l_iTableValueCount].dElasticModulusValue;
@@ -1183,11 +1183,11 @@ void LoadNanoSpecIni(int iIniFile)
 			*(double*)(pIniDesc + index)->data = (double)atof(buff);
 			break;
 // 2009.05.14 k-matsuo <--
-// 2009.09.04 bagus stress e+11�ύX --{--
+// 2009.09.04 bagus stress e+11ÔøΩœçX --{--
 		case 'E':
 			*(double*)(pIniDesc + index)->data = strtod(buff, NULL);
 			break;
-// 2009.09.04 bagus stress e+11�ύX --}--
+// 2009.09.04 bagus stress e+11ÔøΩœçX --}--
 		case 'W':
 			*(WORD*)(pIniDesc + index)->data = (WORD)atoi(buff);
 			break;
@@ -1303,11 +1303,11 @@ void LoadNanoSpecIni(int iIniFile)
 					*(double*)(pIniDesc + index)->data = (double)atof(buff);
 					break;
 // 2009.05.14 k-matsuo <--
-// 2009.09.04 bagus stress e+11�ύX --{--
+// 2009.09.04 bagus stress e+11ÔøΩœçX --{--
 				case 'E':
 					*(double*)(pIniDesc + index)->data = strtod(buff, NULL);
 					break;
-// 2009.09.04 bagus stress e+11�ύX --}--
+// 2009.09.04 bagus stress e+11ÔøΩœçX --}--
 				case 'W':
 					*(WORD*)(pIniDesc + index)->data = (WORD)atoi(buff);
 					break;
@@ -1349,19 +1349,19 @@ void LoadNanoSpecIni(int iIniFile)
 		delete [] pIniDesc;
 		pIniDesc = NULL;
 	}
-/* added 2009.09.29 hmenjo Auto Focus Turret �f�t�H���g ---------- { ---------- */
+/* added 2009.09.29 hmenjo Auto Focus Turret ÔøΩfÔøΩtÔøΩHÔøΩÔøΩÔøΩg ---------- { ---------- */
 	if (SYSTEM_SR_INI_FILE == iIniFile) {
 //		for (int iLenss = 1; iLenss <= SR_LENS_MAX; iLenss++) {
-		/*	SR_LENS_MAX �́u5�v�����ǁC�Ǎ��݂��S(0�`3)�܂ł����Ή����Ă��Ȃ��̂�
-			�u5�v�ɂ��Ă����܂��D	*/
+		/*	SR_LENS_MAX ÔøΩÕÅu5ÔøΩvÔøΩÔøΩÔøΩÔøΩÔøΩ«ÅCÔøΩ«çÔøΩÔøΩ›ÇÔøΩÔøΩS(0ÔøΩ`3)ÔøΩ‹Ç≈ÇÔøΩÔøΩÔøΩÔøΩŒâÔøΩÔøΩÔøΩÔøΩƒÇÔøΩÔøΩ»ÇÔøΩÔøΩÃÇÔøΩ
+			ÔøΩu5ÔøΩvÔøΩ…ÇÔøΩÔøΩƒÇÔøΩÔøΩÔøΩÔøΩ‹ÇÔøΩÔøΩD	*/
 		for (int iLenss = 1; iLenss <= 4; iLenss++) {
 			if (SR_LENS_MAX < NanoSysData.SrTurret[iLenss - 1].iAFLens) {
 				NanoSysData.SrTurret[iLenss - 1].iAFLens = iLenss - 1;
 			}
 		}
 	}
-/* added 2009.09.29 hmenjo Auto Focus Turret �f�t�H���g ---------- } ---------- */
-// 2013.11.14 Bagus Add (TohoSpec�Ή�) -->
+/* added 2009.09.29 hmenjo Auto Focus Turret ÔøΩfÔøΩtÔøΩHÔøΩÔøΩÔøΩg ---------- } ---------- */
+// 2013.11.14 Bagus Add (TohoSpecÔøΩŒâÔøΩ) -->
 	if(g_lModelType == MODEL_T3100){
 		if (iIniFile == SYSTEM_COMMON_INI_FILE){
 			// System Config
@@ -1417,15 +1417,15 @@ void LoadNanoSpecIni(int iIniFile)
 			NanoSysData.SrTurret[3].iAFLens					= 0;	// Turret No:1
 		}
 	}
-// 2013.11.14 Bagus Add (TohoSpec�Ή�) <--
+// 2013.11.14 Bagus Add (TohoSpecÔøΩŒâÔøΩ) <--
 }
 
 /////////////////////////////////////////////////////////////////////////////
 // Name       : SaveNanoSpecIni
-// Purpose    : Ini�t�@�C���̕ۑ�
-// Parameters : iIniFile ---> �ǂ�Ini�t�@�C���Ȃ̂������߂�ϐ�
+// Purpose    : IniÔøΩtÔøΩ@ÔøΩCÔøΩÔøΩÔøΩÃï€ëÔøΩ
+// Parameters : iIniFile ---> ÔøΩ«ÇÔøΩIniÔøΩtÔøΩ@ÔøΩCÔøΩÔøΩÔøΩ»ÇÃÇÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩﬂÇÔøΩœêÔøΩ
 //
-// Returns    : �Ȃ�
+// Returns    : ÔøΩ»ÇÔøΩ
 void SaveNanoSpecIni(int iIniFile)
 {
 	int index, iIniDescCount;
@@ -1462,30 +1462,30 @@ void SaveNanoSpecIni(int iIniFile)
 		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 	//2009.09.07 bagus se --}--
-// 2009.10.19 bagus MS �ǉ� --{--
+// 2009.10.19 bagus MS ÔøΩ«âÔøΩ --{--
 	case SYSTEM_MS_INI_FILE:
 		iIniDescCount = sizeof(SystemMsIniDesc) / sizeof(SystemMsIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SystemMsIniDesc, sizeof(SystemMsIniDesc));
 		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
-// 2009.10.19 bagus MS �ǉ� --}--
-// 2009.10.30 bagus CA �ǉ� --{--
+// 2009.10.19 bagus MS ÔøΩ«âÔøΩ --}--
+// 2009.10.30 bagus CA ÔøΩ«âÔøΩ --{--
 	case SYSTEM_CA_INI_FILE:
 		iIniDescCount = sizeof(SystemCaIniDesc) / sizeof(SystemCaIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SystemCaIniDesc, sizeof(SystemCaIniDesc));
 		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
-// 2009.10.30 bagus CA �ǉ� --}--
-// 2009.11.04 bagus RS �ǉ� --{--
+// 2009.10.30 bagus CA ÔøΩ«âÔøΩ --}--
+// 2009.11.04 bagus RS ÔøΩ«âÔøΩ --{--
 	case SYSTEM_RS_INI_FILE:
 		iIniDescCount = sizeof(SystemRsIniDesc) / sizeof(SystemRsIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SystemRsIniDesc, sizeof(SystemRsIniDesc));
 		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
-// 2009.11.04 bagus RS �ǉ� --}--
+// 2009.11.04 bagus RS ÔøΩ«âÔøΩ --}--
 	case USER_SETTING_COMMON_INI_FILE:
 		iIniDescCount = sizeof(UserSettingCommonIniDesc) / sizeof(UserSettingCommonIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
@@ -1506,53 +1506,53 @@ void SaveNanoSpecIni(int iIniFile)
 		sprintf(szIniFilePath, "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 // 2009.09.19 bagus SE --}--
-// 2013.02.04 bagus CompleteEASE�w�b�h�ǉ� -->
+// 2013.02.04 bagus CompleteEASEÔøΩwÔøΩbÔøΩhÔøΩ«âÔøΩ -->
 	case USER_SETTING_COMPEASE_INI_FILE:
 		iIniDescCount = sizeof(UserSettingCompEASEIniDesc) / sizeof(UserSettingCompEASEIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, UserSettingCompEASEIniDesc, sizeof(UserSettingCompEASEIniDesc));
 		sprintf(szIniFilePath, "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
-// 2013.02.04 bagus CompleteEASE�w�b�h�ǉ� -->
+// 2013.02.04 bagus CompleteEASEÔøΩwÔøΩbÔøΩhÔøΩ«âÔøΩ -->
 	//2009.08.24 bagus --{--
 	case SYSTEM_STRESS_INI_FILE:
 		iIniDescCount = sizeof(SystemStressIniDesc) / sizeof(SystemStressIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SystemStressIniDesc, sizeof(SystemStressIniDesc));
 		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
-		//2009.12.23 bagus stress �C�� --{--
-		//��U��������������B
-		//�����LS�̐ݒ�̐̂̒l���c��Ȃ��悤�ɂ��邽�߂ł��B
+		//2009.12.23 bagus stress ÔøΩCÔøΩÔøΩ --{--
+		//ÔøΩÔøΩUÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩB
+		//ÔøΩÔøΩÔøΩÔøΩÔøΩLSÔøΩÃê›íÔøΩÃêÃÇÃílÔøΩÔøΩÔøΩcÔøΩÔøΩ»ÇÔøΩÔøΩÊÇ§ÔøΩ…ÇÔøΩÔøΩÈÇΩÔøΩﬂÇ≈ÇÔøΩÔøΩB
 		DeleteFile(szIniFilePath);
-		//2009.12.23 bagus stress �C�� --}--
+		//2009.12.23 bagus stress ÔøΩCÔøΩÔøΩ --}--
 		break;
-// 2009.11.09 bagus Stress �ǉ��ύX --{--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --{--
 //	case SYSTEM_STRESS_MODULUS_INI_FILE:
 	case USER_STRESS_MODULUS_INI_FILE:
-// 2009.11.09 bagus Stress �ǉ��ύX --}--
-// 2009.11.09 bagus Stress �ǉ��ύX --{--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --}--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --{--
 //		iIniDescCount = sizeof(SystemStressModulusIniDesc) / sizeof(SystemStressModulusIniDesc[0]);
 		iIniDescCount = sizeof(UserStressModulusIniDesc) / sizeof(UserStressModulusIniDesc[0]);
-// 2009.11.09 bagus Stress �ǉ��ύX --}--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --}--
 		pIniDesc = new INIFILE [iIniDescCount];
-// 2009.11.09 bagus Stress �ǉ��ύX --{--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --{--
 //		memcpy(pIniDesc, SystemStressModulusIniDesc, sizeof(SystemStressModulusIniDesc));
 		memcpy(pIniDesc, UserStressModulusIniDesc, sizeof(UserStressModulusIniDesc));
-// 2009.11.09 bagus Stress �ǉ��ύX --}--
-		// 2009.11.09 bagus Stress �ǉ��ύX --{--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --}--
+		// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --{--
 		//sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		sprintf(szIniFilePath, "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
-		// 2009.11.09 bagus Stress �ǉ��ύX --}--
+		// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --}--
 		break;
 	//2009.08.24 bagus --}--
-// 2013.02.04 bagus CompleteEASE�w�b�h�ǉ� -->
+// 2013.02.04 bagus CompleteEASEÔøΩwÔøΩbÔøΩhÔøΩ«âÔøΩ -->
 	case SYSTEM_COMPEASE_INI_FILE:
 		iIniDescCount = sizeof(SystemCompEaseIniDesc) / sizeof(SystemCompEaseIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SystemCompEaseIniDesc, sizeof(SystemCompEaseIniDesc));
 		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
-// 2013.02.04 bagus CompleteEASE�w�b�h�ǉ� <--
+// 2013.02.04 bagus CompleteEASEÔøΩwÔøΩbÔøΩhÔøΩ«âÔøΩ <--
 // 2013.02.22 bagus Substrate thickness setting -->
 	case SUBSTRATE_THICKNESS_INI_FILE:
 		iIniDescCount = sizeof(SubstrateThicknessIniDesc) / sizeof(SubstrateThicknessIniDesc[0]);
@@ -1565,12 +1565,12 @@ void SaveNanoSpecIni(int iIniFile)
 		return;
 		break;
 	}
-/* added 2009.07.07 hmenjo dll ���΃p�X�Ή� ConfigFile.dll ---------- { ---------- */
+/* added 2009.07.07 hmenjo dll ÔøΩÔøΩÔøΩŒÉpÔøΩXÔøΩŒâÔøΩ ConfigFile.dll ---------- { ---------- */
 	TCHAR l_tszTempFName[_MAX_PATH];
 	GetProcBaseDir(g_tszProcDir, g_tszBaseDir);
 	_tcscpy(l_tszTempFName, szIniFilePath);
 	_stprintf(szIniFilePath, _T("%s%s"), g_tszProcDir, l_tszTempFName);
-/* added 2009.07.07 hmenjo dll ���΃p�X�Ή� ConfigFile.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ÔøΩÔøΩÔøΩŒÉpÔøΩXÔøΩŒâÔøΩ ConfigFile.dll ---------- } ---------- */
 
 
 //2009.08.27 bagus stress --{--
@@ -1663,7 +1663,7 @@ void SaveNanoSpecIni(int iIniFile)
 	}
 //2009.08.27 --}--
 
-// 2009.10.19 bagus MS �ǉ� --{--
+// 2009.10.19 bagus MS ÔøΩ«âÔøΩ --{--
 	if(iIniFile == SYSTEM_MS_INI_FILE){
 		int	nIndex;
 		char szMsKey[1024+1];
@@ -1697,15 +1697,15 @@ void SaveNanoSpecIni(int iIniFile)
 			}
 		}
 	}
-// 2009.10.19 bagus MS �ǉ� --}--
+// 2009.10.19 bagus MS ÔøΩ«âÔøΩ --}--
 
-/* added 2009.07.22 hmenjo �X�g���X ���C���� ��` ---------- { ---------- */
+/* added 2009.07.22 hmenjo ÔøΩXÔøΩgÔøΩÔøΩÔøΩX ÔøΩÔøΩÔøΩCÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ` ---------- { ---------- */
 	int l_iLineCount = 0;
 	TCHAR l_szKeyOrg[256] = {0};
 	LPCTSTR l_ptszKeyOrg = nullptr;
-/* added 2009.07.22 hmenjo �X�g���X ���C���� ��` ---------- } ---------- */
+/* added 2009.07.22 hmenjo ÔøΩXÔøΩgÔøΩÔøΩÔøΩX ÔøΩÔøΩÔøΩCÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ` ---------- } ---------- */
 //2009.08.24 bagus stress --{--
-// Stress ElasticModulus �Ή�
+// Stress ElasticModulus ÔøΩŒâÔøΩ
 	int l_iTableNameCount = 0;
 	int l_iTableValueCount = 0;
 	TCHAR l_szTableKeyOrg[256] = {0};
@@ -1727,20 +1727,20 @@ void SaveNanoSpecIni(int iIniFile)
 		if (strlen((pIniDesc + index)->section) > 0)
 			section = (pIniDesc + index)->section;
 #if 1
-/* added 2009.07.22 hmenjo �X�g���X ���C���� ��` ---------- { ---------- */
+/* added 2009.07.22 hmenjo ÔøΩXÔøΩgÔøΩÔøΩÔøΩX ÔøΩÔøΩÔøΩCÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ` ---------- { ---------- */
 		if (0 != l_iLineCount) {
 			if (0 != index) {
 				index--;
 			}
 		}
-/* added 2009.07.22 hmenjo �X�g���X ���C���� ��` ---------- } ---------- */
+/* added 2009.07.22 hmenjo ÔøΩXÔøΩgÔøΩÔøΩÔøΩX ÔøΩÔøΩÔøΩCÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ` ---------- } ---------- */
 		// get section name
 		if(strlen((pIniDesc + index)->section) > 0)
 			section = (pIniDesc + index)->section;
 
 	// get ini file data
 	memset(buff, NULL, sizeof(buff));
-/* added 2009.07.22 hmenjo �X�g���X ���C���� ��` ---------- { ---------- */
+/* added 2009.07.22 hmenjo ÔøΩXÔøΩgÔøΩÔøΩÔøΩX ÔøΩÔøΩÔøΩCÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ` ---------- { ---------- */
 	TCHAR l_tszKey[256];
 	if (0 == l_iLineCount) {
 		if ((SYSTEM_STRESS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, LINEnSECNUM))) {
@@ -1763,9 +1763,9 @@ void SaveNanoSpecIni(int iIniFile)
 #else
 	TCHAR l_tszKey[256];
 #endif
-/* added 2009.07.22 hmenjo �X�g���X ���C���� ��` ---------- } ---------- */
+/* added 2009.07.22 hmenjo ÔøΩXÔøΩgÔøΩÔøΩÔøΩX ÔøΩÔøΩÔøΩCÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ` ---------- } ---------- */
 //2009.08.24 bagus stress --{--
-// Stress ElasticModulus �Ή�
+// Stress ElasticModulus ÔøΩŒâÔøΩ
 		if (0 != l_iTableNameCount) {
 			if (0 != index) {
 				index--;
@@ -1775,10 +1775,10 @@ void SaveNanoSpecIni(int iIniFile)
 	// get ini file data
 	memset(buff, NULL, sizeof(buff));
 	if (0 == l_iTableNameCount) {
-// 2009.11.09 bagus Stress �ǉ��ύX --{--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --{--
 //			if ((SYSTEM_STRESS_MODULUS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, TABLENAME_N))) {
 		if ((USER_STRESS_MODULUS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, TABLENAME_N))) {
-// 2009.11.09 bagus Stress �ǉ��ύX --}--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --}--
 			_tcscpy_s(l_szTableKeyOrg, _countof(l_szTableKeyOrg), (pIniDesc + index)->key);
 			l_ptszTableKeyOrg = l_szTableKeyOrg;
 			l_iTableNameCount = NanoSysData.StressElasticTable.uiTableNum;
@@ -1788,10 +1788,10 @@ void SaveNanoSpecIni(int iIniFile)
 		if (l_ptszTableKeyOrg && *l_ptszTableKeyOrg) {
 			(pIniDesc + index)->key = l_ptszTableKeyOrg;
 		}
-// 2009.11.09 bagus Stress �ǉ��ύX --{--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --{--
 //			if ((SYSTEM_STRESS_MODULUS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, TABLENAME_N))) {
 		if ((USER_STRESS_MODULUS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, TABLENAME_N))) {
-// 2009.11.09 bagus Stress �ǉ��ύX --}--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --}--
 			_stprintf(l_tszKey, TABLENAME_N,  NanoSysData.StressElasticTable.uiTableNum - l_iTableNameCount + 1);
 			(pIniDesc + index)->key = l_tszKey;
 			(pIniDesc + index)->data = &NanoSysData.StressElasticTable.ElasticModulus[NanoSysData.StressElasticTable.uiTableNum - l_iTableNameCount].tszElasticModulusName;
@@ -1804,10 +1804,10 @@ void SaveNanoSpecIni(int iIniFile)
 			}
 		}
 	if (0 == l_iTableValueCount) {
-// 2009.11.09 bagus Stress �ǉ��ύX --{--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --{--
 //			if ((SYSTEM_STRESS_MODULUS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, TABLEVALUE_N))) {
 		if ((USER_STRESS_MODULUS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, TABLEVALUE_N))) {
-// 2009.11.09 bagus Stress �ǉ��ύX --}--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --}--
 			_tcscpy_s(l_szTableKeyOrg, _countof(l_szTableKeyOrg), (pIniDesc + index)->key);
 			l_ptszTableKeyOrg = l_szTableKeyOrg;
 			l_iTableValueCount = NanoSysData.StressElasticTable.uiTableNum;
@@ -1817,10 +1817,10 @@ void SaveNanoSpecIni(int iIniFile)
 		if (l_ptszTableKeyOrg && *l_ptszTableKeyOrg) {
 			(pIniDesc + index)->key = l_ptszTableKeyOrg;
 		}
-// 2009.11.09 bagus Stress �ǉ��ύX --{--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --{--
 //			if ((SYSTEM_STRESS_MODULUS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, TABLEVALUE_N))) {
 		if ((USER_STRESS_MODULUS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, TABLEVALUE_N))) {
-// 2009.11.09 bagus Stress �ǉ��ύX --}--
+// 2009.11.09 bagus Stress ÔøΩ«âÔøΩÔøΩœçX --}--
 			_stprintf(l_tszKey, TABLEVALUE_N,  NanoSysData.StressElasticTable.uiTableNum - l_iTableValueCount + 1);
 			(pIniDesc + index)->key = l_tszKey;
 			(pIniDesc + index)->data = &NanoSysData.StressElasticTable.ElasticModulus[NanoSysData.StressElasticTable.uiTableNum - l_iTableValueCount].dElasticModulusValue;
@@ -1859,11 +1859,11 @@ void SaveNanoSpecIni(int iIniFile)
 			sprintf(buff, "%.10lf", *(double*)(pIniDesc + index)->data);
 			break;
 // 2009.05.14 k-matsuo <--
-// 2009.09.04 bagus stress e+11�ύX --{--
+// 2009.09.04 bagus stress e+11ÔøΩœçX --{--
 		case 'E':
 			sprintf(buff, "%e", *(double*)(pIniDesc + index)->data);
 			break;
-// 2009.09.04 bagus stress e+11�ύX --}--
+// 2009.09.04 bagus stress e+11ÔøΩœçX --}--
 		case 'W':
 			sprintf(buff, "%d", *(WORD*)(pIniDesc + index)->data);
 			break;
@@ -1976,11 +1976,11 @@ void SaveNanoSpecIni(int iIniFile)
 					sprintf(buff, "%.10lf", *(double*)(pIniDesc + index)->data);
 					break;
 // 2009.05.14 k-matsuo <--
-// 2009.09.04 bagus stress e+11�ύX --{--
+// 2009.09.04 bagus stress e+11ÔøΩœçX --{--
 				case 'E':
 					sprintf(buff, "%e", *(double*)(pIniDesc + index)->data);
 					break;
-// 2009.09.04 bagus stress e+11�ύX --}--
+// 2009.09.04 bagus stress e+11ÔøΩœçX --}--
 				case 'W':
 					sprintf(buff, "%d", *(WORD*)(pIniDesc + index)->data);
 					break;
@@ -2044,10 +2044,10 @@ void SaveNanoSpecIni(int iIniFile)
 
 /////////////////////////////////////////////////////////////////////////////
 // Name       : LoadAllNanoSpecIni
-// Purpose    : �S�Ă�Ini�t�@�C���̓��e�̓ǂݍ���
-// Parameters : �Ȃ�
+// Purpose    : ÔøΩSÔøΩƒÇÔøΩIniÔøΩtÔøΩ@ÔøΩCÔøΩÔøΩÔøΩÃìÔøΩÔøΩeÔøΩÃì«Ç›çÔøΩÔøΩÔøΩ
+// Parameters : ÔøΩ»ÇÔøΩ
 //
-// Returns    : �Ȃ�
+// Returns    : ÔøΩ»ÇÔøΩ
 void LoadAllNanoSpecIni()
 {
 	int i;
@@ -2058,10 +2058,10 @@ void LoadAllNanoSpecIni()
 
 /////////////////////////////////////////////////////////////////////////////
 // Name       : SaveAllNanoSpecIni
-// Purpose    : �S�Ă�Ini�t�@�C���̕ۑ�
-// Parameters : �Ȃ�
+// Purpose    : ÔøΩSÔøΩƒÇÔøΩIniÔøΩtÔøΩ@ÔøΩCÔøΩÔøΩÔøΩÃï€ëÔøΩ
+// Parameters : ÔøΩ»ÇÔøΩ
 //
-// Returns    : �Ȃ�
+// Returns    : ÔøΩ»ÇÔøΩ
 void SaveAllNanoSpecIni()
 {
 	int i;
@@ -2072,11 +2072,11 @@ void SaveAllNanoSpecIni()
 
 /////////////////////////////////////////////////////////////////////////////
 // Name       : ConfigFile_GetNanoSpecIni
-// Purpose    : Ini�t�@�C���̐ݒ�̓ǂݍ���(������)
-// Parameters : pVoid ---> �f�[�^��ǂݍ��ލ\���̓��̃|�C���^
-//              iType ---> �ǂ̃f�[�^��ǂݍ��ނ������߂�ϐ�
+// Purpose    : IniÔøΩtÔøΩ@ÔøΩCÔøΩÔøΩÔøΩÃê›íÔøΩÃì«Ç›çÔøΩÔøΩÔøΩ(ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ)
+// Parameters : pVoid ---> ÔøΩfÔøΩ[ÔøΩ^ÔøΩÔøΩ«Ç›çÔøΩÔøΩﬁç\ÔøΩÔøΩÔøΩÃìÔøΩÔøΩÃÉ|ÔøΩCÔøΩÔøΩÔøΩ^
+//              iType ---> ÔøΩ«ÇÃÉfÔøΩ[ÔøΩ^ÔøΩÔøΩ«Ç›çÔøΩÔøΩﬁÇÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩﬂÇÔøΩœêÔøΩ
 //
-// Returns    : �Ȃ�
+// Returns    : ÔøΩ»ÇÔøΩ
 void GetNanoSpecIni(void* pVoid, int iType)
 {
 	switch(iType){
@@ -2131,31 +2131,31 @@ void GetNanoSpecIni(void* pVoid, int iType)
 	case CONFIG_FILE_SR_AUTOFOCUS_RETRY:
 		memcpy(pVoid, &UserData.SrAutoFocusRetry, sizeof(SR_AUTOFOCUS_RETRY));
 		break;
-/* added 2009.09.07 hmenjo ���ߗ� �\���̒ǉ�(�Q) ---------- { ---------- */
+/* added 2009.09.07 hmenjo ÔøΩÔøΩÔøΩﬂóÔøΩ ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(ÔøΩQ) ---------- { ---------- */
 	case CONFIG_FILE_SR_TRANSMIT:
 		memcpy(pVoid, &UserData.SrTransmittance, sizeof(SR_TRANSMIT));
 		break;
-/* added 2009.09.07 hmenjo ���ߗ� �\���̒ǉ�(�Q) ---------- } ---------- */
+/* added 2009.09.07 hmenjo ÔøΩÔøΩÔøΩﬂóÔøΩ ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(ÔøΩQ) ---------- } ---------- */
 
-/* added 2009.09.01 hmenjo SE �\���̒ǉ�(12) ---------- { ---------- */
+/* added 2009.09.01 hmenjo SE ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(12) ---------- { ---------- */
 	/* User Setting - SE	*/
 	case CONFIG_FILE_SE_SETTING:
 		memcpy(pVoid, &UserData.SeSetting, sizeof(SE_SETTING));
 		break;
-/* added 2009.09.01 hmenjo SE �\���̒ǉ�(12) ---------- } ---------- */
+/* added 2009.09.01 hmenjo SE ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(12) ---------- } ---------- */
 	//2009.09.07 bagus se --{--
 	case CONFIG_FILE_SE_FIGURE_FORMAT:
 		memcpy(pVoid, &UserData.SeFigureFormat, sizeof(SE_FIGURE_FORMAT));
 		break;
 	//2009.09.07 bagus se --}--
-// 2013.02.01 bagus CompleteEASE�w�b�h�ǉ� -->
+// 2013.02.01 bagus CompleteEASEÔøΩwÔøΩbÔøΩhÔøΩ«âÔøΩ -->
 	case CONFIG_FILE_COMPEASE_SETTING:
 		memcpy(pVoid, &UserData.CompEASESetting, sizeof(COMPEASE_SETTING));
 		break;
 	case CONFIG_FILE_COMPEASE_FIGURE_FORMAT:
 		memcpy(pVoid, &UserData.CompEASEFigureFormat, sizeof(COMPEASE_FIGURE_FORMAT));
 		break;
-// 2013.02.01 bagus CompleteEASE�w�b�h�ǉ� <--
+// 2013.02.01 bagus CompleteEASEÔøΩwÔøΩbÔøΩhÔøΩ«âÔøΩ <--
 
 	// System - All
 	case CONFIG_FILE_SYSTEM:
@@ -2226,49 +2226,49 @@ void GetNanoSpecIni(void* pVoid, int iType)
 	case CONFIG_FILE_SR_CCD_ARRAY:
 		memcpy(pVoid, NanoSysData.SrCcdArray, sizeof(SR_CCD_ARRAY) * SR_CCD_ARRAY_ITEM_MAX);
 		break;
-/* added 2009.07.22 hmenjo �X�g���X ���C���� ��` ---------- { ---------- */
+/* added 2009.07.22 hmenjo ÔøΩXÔøΩgÔøΩÔøΩÔøΩX ÔøΩÔøΩÔøΩCÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ` ---------- { ---------- */
 	case CONFIG_FILE_STRESS_CONFIG:
 		memcpy(pVoid, &NanoSysData.StressConfig, sizeof(STRESS_CONFIG));
 		break;
-/* added 2009.07.22 hmenjo �X�g���X ���C���� ��` ---------- } ---------- */
+/* added 2009.07.22 hmenjo ÔøΩXÔøΩgÔøΩÔøΩÔøΩX ÔøΩÔøΩÔøΩCÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ` ---------- } ---------- */
 	case CONFIG_FILE_STRESS_MODULUS_CONFIG:
 		memcpy(pVoid, &NanoSysData.StressElasticTable, sizeof(STRESS_ELASTIC_TABLE));
 		break;
-/* deleted 2009.09.01 hmenjo SE �\���̒ǉ�(12) ---------- { ---------- */
-///* added 2009.08.25 hmenjo SE �\���̒ǉ�(�P) ---------- { ---------- */
+/* deleted 2009.09.01 hmenjo SE ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(12) ---------- { ---------- */
+///* added 2009.08.25 hmenjo SE ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(ÔøΩP) ---------- { ---------- */
 //	/* System - SE	*/
 //	case CONFIG_FILE_SE_CONFIG:
 //		memcpy(pVoid, &NanoSysData.SeConfig, sizeof(SE_CONFIG));
 //		break;
-///* added 2009.08.25 hmenjo SE �\���̒ǉ�(�P) ---------- } ---------- */
-/* deleted 2009.09.01 hmenjo SE �\���̒ǉ�(12) ---------- } ---------- */
+///* added 2009.08.25 hmenjo SE ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(ÔøΩP) ---------- } ---------- */
+/* deleted 2009.09.01 hmenjo SE ÔøΩ\ÔøΩÔøΩÔøΩÃí«âÔøΩ(12) ---------- } ---------- */
 	//2009.09.07 bagus se --{--
 	case CONFIG_FILE_SE_XMP:
 		memcpy(pVoid, &NanoSysData.SeXmp, sizeof(SE_XMP));
 		break;
 	//2009.09.07 bagus se --}--
 
-// 2009.10.19 bagus MS �ǉ� --{--
+// 2009.10.19 bagus MS ÔøΩ«âÔøΩ --{--
 	case CONFIG_FILE_MS_CONFIG:
 		memcpy(pVoid, &NanoSysData.MsConfig, sizeof(MS_CONFIG));
 		break;
-// 2009.10.19 bagus MS �ǉ� --}--
+// 2009.10.19 bagus MS ÔøΩ«âÔøΩ --}--
 
-// 2009.10.30 bagus CA �ǉ� --{--
+// 2009.10.30 bagus CA ÔøΩ«âÔøΩ --{--
 	case CONFIG_FILE_CA_CONFIG:
 		memcpy(pVoid, &NanoSysData.CaConfig, sizeof(CA_CONFIG));
 		break;
-// 2009.10.30 bagus CA �ǉ� --}--
-// 2009.11.04 bagus RS �ǉ� --{--
+// 2009.10.30 bagus CA ÔøΩ«âÔøΩ --}--
+// 2009.11.04 bagus RS ÔøΩ«âÔøΩ --{--
 	case CONFIG_FILE_RS_CONFIG:
 		memcpy(pVoid, &NanoSysData.RsConfig, sizeof(RS_CONFIG));
 		break;
-// 2009.11.04 bagus RS �ǉ� --}--
-// 2013.02.04 bagus CompleteEASE�w�b�h�ǉ� -->
+// 2009.11.04 bagus RS ÔøΩ«âÔøΩ --}--
+// 2013.02.04 bagus CompleteEASEÔøΩwÔøΩbÔøΩhÔøΩ«âÔøΩ -->
 	case CONFIG_FILE_COMPEASE_CONFIG:
 		memcpy(pVoid, &NanoSysData.CompEASEConfig, sizeof(COMPEASE_CONFIG));
 		break;
-// 2013.02.04 bagus CompleteEASE�w�b�h�ǉ� <--
+// 2013.02.04 bagus CompleteEASEÔøΩwÔøΩbÔøΩhÔøΩ«âÔøΩ <--
 // 2013.02.22 bagus Substrate thickness setting -->
 	case CONFIG_FILE_SUBSTRATE_THICKNESS_CONFIG:
 		memcpy(pVoid, &NanoSysData.SubstrateThicknessTable, sizeof(SUBSTRATE_THICKNESS_TABLE));
@@ -2286,11 +2286,11 @@ void GetNanoSpecIni(void* pVoid, int iType)
 
 /////////////////////////////////////////////////////////////////////////////
 // Name       : ConfigFile_SetNanoSpecIni
-// Purpose    : Ini�t�@�C���̐ݒ�̕ۑ�(������)
-// Parameters : pVoid ---> �ۑ�����f�[�^�̍\���̓��̃|�C���^
-//              iType ---> �ǂ̃f�[�^��ۑ����邩�����߂�ϐ�
+// Purpose    : IniÔøΩtÔøΩ@ÔøΩCÔøΩÔøΩÔøΩÃê›íÔøΩÃï€ëÔøΩ(ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ)
+// Parameters : pVoid ---> ÔøΩ€ëÔøΩÔøΩÔøΩÔøΩÔøΩfÔøΩ[ÔøΩ^ÔøΩÃç\ÔøΩÔøΩÔøΩÃìÔøΩÔøΩÃÉ|ÔøΩCÔøΩÔøΩÔøΩ^
+//              iType ---> ÔøΩ«ÇÃÉfÔøΩ[ÔøΩ^ÔøΩÔøΩ€ëÔøΩÔøΩÔøΩÔøΩÈÇ©ÔøΩÔøΩÔøΩÔøΩÔøΩﬂÇÔøΩœêÔøΩ
 //
-// Returns    : �Ȃ�
+// Returns    : ÔøΩ»ÇÔøΩ
 void SetNanoSpecIni(void* pVoid, int iType)
 {
 	switch(iType){
@@ -2363,14 +2363,14 @@ void SetNanoSpecIni(void* pVoid, int iType)
 	// bug fix 2013.02.01 <--
 		break;
 	//2009.09.07 bagus se --}--
-	// 2013.02.01 bagus CompleteEASE�w�b�h�ǉ� -->
+	// 2013.02.01 bagus CompleteEASEÔøΩwÔøΩbÔøΩhÔøΩ«âÔøΩ -->
 	case CONFIG_FILE_COMPEASE_SETTING:
 		memcpy(&UserData.CompEASESetting, pVoid, sizeof(COMPEASE_SETTING));
 		break;
 	case CONFIG_FILE_COMPEASE_FIGURE_FORMAT:
 		memcpy(&UserData.CompEASEFigureFormat, pVoid, sizeof(COMPEASE_FIGURE_FORMAT));
 		break;
-	// 2013.02.01 bagus CompleteEASE�w�b�h�ǉ� <--
+	// 2013.02.01 bagus CompleteEASEÔøΩwÔøΩbÔøΩhÔøΩ«âÔøΩ <--
 
 	// System - All
 	case CONFIG_FILE_SYSTEM:
@@ -2454,26 +2454,26 @@ void SetNanoSpecIni(void* pVoid, int iType)
 		memcpy(&NanoSysData.SeXmp, pVoid, sizeof(SE_XMP));
 		break;
 	//2009.09.07 bagus se --}--
-// 2009.10.19 bagus MS �ǉ� --{--
+// 2009.10.19 bagus MS ÔøΩ«âÔøΩ --{--
 	case CONFIG_FILE_MS_CONFIG:
 		memcpy(&NanoSysData.MsConfig, pVoid, sizeof(MS_CONFIG));
 		break;
-// 2009.10.19 bagus MS �ǉ� --}--
-// 2009.10.30 bagus CA �ǉ� --{--
+// 2009.10.19 bagus MS ÔøΩ«âÔøΩ --}--
+// 2009.10.30 bagus CA ÔøΩ«âÔøΩ --{--
 	case CONFIG_FILE_CA_CONFIG:
 		memcpy(&NanoSysData.CaConfig, pVoid, sizeof(CA_CONFIG));
 		break;
-// 2009.10.30 bagus CA �ǉ� --}--
-// 2009.11.04 bagus RS �ǉ� --{--
+// 2009.10.30 bagus CA ÔøΩ«âÔøΩ --}--
+// 2009.11.04 bagus RS ÔøΩ«âÔøΩ --{--
 	case CONFIG_FILE_RS_CONFIG:
 		memcpy(&NanoSysData.RsConfig, pVoid, sizeof(RS_CONFIG));
 		break;
-// 2009.11.04 bagus RS �ǉ� --}--
-// 2013.02.04 bagus CompleteEASE�w�b�h�ǉ� -->
+// 2009.11.04 bagus RS ÔøΩ«âÔøΩ --}--
+// 2013.02.04 bagus CompleteEASEÔøΩwÔøΩbÔøΩhÔøΩ«âÔøΩ -->
 	case CONFIG_FILE_COMPEASE_CONFIG:
 		memcpy(&NanoSysData.CompEASEConfig, pVoid, sizeof(COMPEASE_CONFIG));
 		break;
-// 2013.02.04 bagus CompleteEASE�w�b�h�ǉ� <--
+// 2013.02.04 bagus CompleteEASEÔøΩwÔøΩbÔøΩhÔøΩ«âÔøΩ <--
 // 2013.02.22 bagus Substrate thickness setting -->
 	case CONFIG_FILE_SUBSTRATE_THICKNESS_CONFIG:
 		memcpy(&NanoSysData.SubstrateThicknessTable, pVoid, sizeof(SUBSTRATE_THICKNESS_TABLE));

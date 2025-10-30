@@ -1,4 +1,4 @@
-// EdgeAlignerSettingDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// EdgeAlignerSettingDlg.cpp : インプリメンテーション ファイル
 //
 
 #include "stdafx.h"
@@ -17,7 +17,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // #########################################################################
-// CEdgeAlignerSettingDlg �_�C�A���O
+// CEdgeAlignerSettingDlg ダイアログ
 // #########################################################################
 
 // =========================================================================
@@ -65,7 +65,7 @@ BEGIN_MESSAGE_MAP(CEdgeAlignerSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CEdgeAlignerSettingDlg ���b�Z�[�W �n���h��
+// CEdgeAlignerSettingDlg メッセージ ハンドラ
 
 // =========================================================================
 //
@@ -106,8 +106,8 @@ BOOL CEdgeAlignerSettingDlg::OnInitDialog()
 	m_stcEndY.SubclassWindow(GetDlgItem(IDC_END_Y)->GetSafeHwnd());
 	m_stcEndY.SetBkColor(REFERENCE_COLOR);
 
-	return TRUE;	// �R���g���[���Ƀt�H�[�J�X��ݒ肵�Ȃ��Ƃ��A�߂�l�� TRUE �ƂȂ�܂�
-					// ��O: OCX �v���p�e�B �y�[�W�̖߂�l�� FALSE �ƂȂ�܂�
+	return TRUE;	// コントロールにフォーカスを設定しないとき、戻り値は TRUE となります
+					// 例外: OCX プロパティ ページの戻り値は FALSE となります
 }
 
 // =========================================================================

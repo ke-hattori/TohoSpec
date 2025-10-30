@@ -1,4 +1,4 @@
-// StressHeadLKG5000.cpp : Defines the StressHeadLKG5000 routines.
+﻿// StressHeadLKG5000.cpp : Defines the StressHeadLKG5000 routines.
 //
 
 #include "stdafx.h"

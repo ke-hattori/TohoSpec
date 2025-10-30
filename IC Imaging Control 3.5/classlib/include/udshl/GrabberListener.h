@@ -1,4 +1,4 @@
-
+﻿
 #ifndef GRABBERLISTENER_H_INC
 #define GRABBERLISTENER_H_INC
 

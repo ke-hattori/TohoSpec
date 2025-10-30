@@ -1,4 +1,4 @@
-// PifSockSocket.h : header file
+ï»¿// PifSockSocket.h : header file
 //
 
 #pragma once
@@ -7,14 +7,14 @@
 #include "WinSockSocket.h"
 #include "LogFile.h"
 
-// ƒf[ƒ^‘—ŽóM—pƒ\ƒPƒbƒg
+// ãƒ‡ãƒ¼ã‚¿é€å—ä¿¡ç”¨ã‚½ã‚±ãƒƒãƒˆ
 class CPifSockSocket : public CWinSockSocket
 {
 public:
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //	CPifSockSocket(CWnd* parent) : CWinSockSocket(parent), m_bRequProcess(FALSE), m_pifSockLogFile("NanoPifSock")
 	CPifSockSocket(CWnd* parent, LPCTSTR pszLogFilename) : CWinSockSocket(parent), m_bRequProcess(FALSE), m_pifSockLogFile(pszLogFilename)
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 	{
 		TRACE(_T("CPifSockSocket::CPifSockSocket(CWnd* parent) constructor\n"));
 

@@ -1,14 +1,14 @@
-#if !defined(AFX_NANOMEASUREGRAPH_H__75636F0B_F7E0_4CF3_A378_FA6AC8D9C5C8__INCLUDED_)
+ï»¿#if !defined(AFX_NANOMEASUREGRAPH_H__75636F0B_F7E0_4CF3_A378_FA6AC8D9C5C8__INCLUDED_)
 #define AFX_NANOMEASUREGRAPH_H__75636F0B_F7E0_4CF3_A378_FA6AC8D9C5C8__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// NanoMeasureGraph.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// NanoMeasureGraph.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
-#include <afxwin.h> 		// MFC ‚ÌƒRƒA‚¨‚æ‚Ñ•W€ƒRƒ“ƒ|[ƒlƒ“ƒg
-#include <afxext.h> 		// MFC ‚ÌŠg’£•”•ª
-#include <afxdisp.h>		// MFC ‚ÌƒI[ƒgƒ[ƒVƒ‡ƒ“ ƒNƒ‰ƒX
+#include <afxwin.h> 		// MFC ã®ã‚³ã‚¢ãŠã‚ˆã³æ¨™æº–ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
+#include <afxext.h> 		// MFC ã®æ‹¡å¼µéƒ¨åˆ†
+#include <afxdisp.h>		// MFC ã®ã‚ªãƒ¼ãƒˆãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ ã‚¯ãƒ©ã‚¹
 #include <afxtempl.h>
 
 //debug
@@ -21,81 +21,81 @@
 #define NANO_MAX_LINENAME_LEN		(50)
 //2009.09.10 bagus stress --{--
 //#define NANO_MEASURE_MAX_POINT_DATA	(1024)//(5000)
-//ƒXƒgƒŒƒX‚Ìƒf[ƒ^‚Ì1ƒ‰ƒCƒ“•ª‚Í1000‚ğ’´‚¦‚Ä‚µ‚Ü‚¤‚Ì‚ÅŠg’£‚·‚é
+//ã‚¹ãƒˆãƒ¬ã‚¹ã®ãƒ‡ãƒ¼ã‚¿ã®1ãƒ©ã‚¤ãƒ³åˆ†ã¯1000ã‚’è¶…ãˆã¦ã—ã¾ã†ã®ã§æ‹¡å¼µã™ã‚‹
 #define NANO_MEASURE_MAX_POINT_DATA	(5000)
 //2009.09.10 bagus stress --}--
 #define NANO_CALIBRATION_LINE_MAX	(10)
 
 /////////////////////////////////////////////////////////////////////////////
-// CNanoMeasureGraph ƒEƒBƒ“ƒhƒE
+// CNanoMeasureGraph ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
 
 class CNanoMeasureGraph : public CButton
 {
 public:
 
 	typedef struct {
-		long X_Origin;		//X²ŠJn’l
-		long Y_Origin;		//Y²ŠJn’u
-		long X_Step;		//X²ƒf[ƒ^ŠÔŠu
-		long Y_Step;		//Y²ƒf[ƒ^ŠÔŠui“_ü‚ÌY•ûŒü•\¦ŠÔŠuj
-		long X_Max;			//g‚í‚È‚¢
-		long Y_Max;			//Y²Å‘å’l
-		int  PointNum;		//‘ª’è“_”
+		long X_Origin;		//Xè»¸é–‹å§‹å€¤
+		long Y_Origin;		//Yè»¸é–‹å§‹ç½®
+		long X_Step;		//Xè»¸ãƒ‡ãƒ¼ã‚¿é–“éš”
+		long Y_Step;		//Yè»¸ãƒ‡ãƒ¼ã‚¿é–“éš”ï¼ˆç‚¹ç·šã®Yæ–¹å‘è¡¨ç¤ºé–“éš”ï¼‰
+		long X_Max;			//ä½¿ã‚ãªã„
+		long Y_Max;			//Yè»¸æœ€å¤§å€¤
+		int  PointNum;		//æ¸¬å®šç‚¹æ•°
 		char UpperTitle[NANO_MAX_TITLE_LEN+1];
 		char LowerTitle[NANO_MAX_TITLE_LEN+1];
 		char X_AxisTitle[NANO_MAX_TITLE_LEN+1];
 		char Y_AxisTitle[NANO_MAX_TITLE_LEN+1];
-		//‰æ–Êã•”‚Ìü‚Ì•\¦/”ñ•\¦‚ğØ‚è‘Ö‚¦‚éƒ`ƒFƒbƒNƒ{ƒbƒNƒX‚ğg—p‚·‚é‚©‚Ç‚¤‚©
+		//ç”»é¢ä¸Šéƒ¨ã®ç·šã®è¡¨ç¤º/éè¡¨ç¤ºã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ã‚’ä½¿ç”¨ã™ã‚‹ã‹ã©ã†ã‹
 		BOOL UseLineSelect;
-		//ƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“ŠÖŒW
-		BOOL UseCalibration;		//ƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‹@”\‚ğg—p‚·‚é‚©‚Ç‚¤‚©
-		int  CalibrationLineNum;	//ƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‚Ìü”Å‘å’l
-		//Fİ’è
-		COLORREF CanvasBackColor;	//•`‰æƒGƒŠƒA‘S‘Ì‚Ì”wŒiF
-		COLORREF GraphBackColor;	//ƒOƒ‰ƒt‚Ì•”•ª‚Ì”wŒiF
-		COLORREF GraphBorderColor;	//ƒOƒ‰ƒt‚Ì˜gü‚ÌF
-		COLORREF GraphStepLineColor;//ƒOƒ‰ƒt“à‚Ì“_ü‚ÌF
-		COLORREF TitleTextColor;	//ƒ^ƒCƒgƒ‹‚ÌF
-		COLORREF UnitTextColor;		//²‚ÌƒeƒLƒXƒgF
+		//ã‚­ãƒ£ãƒªãƒ–ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³é–¢ä¿‚
+		BOOL UseCalibration;		//ã‚­ãƒ£ãƒªãƒ–ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³æ©Ÿèƒ½ã‚’ä½¿ç”¨ã™ã‚‹ã‹ã©ã†ã‹
+		int  CalibrationLineNum;	//ã‚­ãƒ£ãƒªãƒ–ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®ç·šæ•°æœ€å¤§å€¤
+		//è‰²è¨­å®š
+		COLORREF CanvasBackColor;	//æç”»ã‚¨ãƒªã‚¢å…¨ä½“ã®èƒŒæ™¯è‰²
+		COLORREF GraphBackColor;	//ã‚°ãƒ©ãƒ•ã®éƒ¨åˆ†ã®èƒŒæ™¯è‰²
+		COLORREF GraphBorderColor;	//ã‚°ãƒ©ãƒ•ã®æ ç·šã®è‰²
+		COLORREF GraphStepLineColor;//ã‚°ãƒ©ãƒ•å†…ã®ç‚¹ç·šã®è‰²
+		COLORREF TitleTextColor;	//ã‚¿ã‚¤ãƒˆãƒ«ã®è‰²
+		COLORREF UnitTextColor;		//è»¸ã®ãƒ†ã‚­ã‚¹ãƒˆè‰²
 //		COLORREF EdgeColor;
-		COLORREF SelectingCalibrationColor;		//ƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“F Šm’è‘O
-		COLORREF SelectedCalibrationColor;		//ƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“F Šm’èŒã
+		COLORREF SelectingCalibrationColor;		//ã‚­ãƒ£ãƒªãƒ–ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³è‰² ç¢ºå®šå‰
+		COLORREF SelectedCalibrationColor;		//ã‚­ãƒ£ãƒªãƒ–ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³è‰² ç¢ºå®šå¾Œ
 		//
-		int		 CanvasMargin;					//—]”’(pixel)
+		int		 CanvasMargin;					//ä½™ç™½(pixel)
 	} GraphConfig;
 
-	//Šeƒf[ƒ^‚Ìü‚Ìİ’è
+	//å„ãƒ‡ãƒ¼ã‚¿ã®ç·šã®è¨­å®š
 	typedef struct {
-		COLORREF Color;										//ü‚ÌF
-		int		PenStyle;									//üí
-		BOOL	UseFlag;									//TRUE:g—p‚·‚é,FALSE:g—p‚µ‚È‚¢
-		BOOL	Visible;									//“à•”—p“riŒ»İ•\¦‚³‚ê‚Ä‚¢‚é‚©”Û‚©j
-		int		DataIndex;									//‰½”Ô–Ú‚Ìƒf[ƒ^‚ğg‚¤‚©
-		char	LineName[NANO_MAX_LINENAME_LEN+1];			//ü‚Ì–¼‘O
+		COLORREF Color;										//ç·šã®è‰²
+		int		PenStyle;									//ç·šç¨®
+		BOOL	UseFlag;									//TRUE:ä½¿ç”¨ã™ã‚‹,FALSE:ä½¿ç”¨ã—ãªã„
+		BOOL	Visible;									//å†…éƒ¨ç”¨é€”ï¼ˆç¾åœ¨è¡¨ç¤ºã•ã‚Œã¦ã„ã‚‹ã‹å¦ã‹ï¼‰
+		int		DataIndex;									//ä½•ç•ªç›®ã®ãƒ‡ãƒ¼ã‚¿ã‚’ä½¿ã†ã‹
+		char	LineName[NANO_MAX_LINENAME_LEN+1];			//ç·šã®åå‰
 	} LineConfig;
 
-	//ƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“ƒf[ƒ^
+	//ã‚­ãƒ£ãƒªãƒ–ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ãƒ‡ãƒ¼ã‚¿
 	typedef struct {
-		int		DataNum;									//Šm’è‚µ‚½ƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“”
-		int		PointIndex[NANO_CALIBRATION_LINE_MAX];		//À•Wƒf[ƒ^‚ÌXŒÂ–Ú (X²•ûŒü)
+		int		DataNum;									//ç¢ºå®šã—ãŸã‚­ãƒ£ãƒªãƒ–ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³æ•°
+		int		PointIndex[NANO_CALIBRATION_LINE_MAX];		//åº§æ¨™ãƒ‡ãƒ¼ã‚¿ã®Xå€‹ç›® (Xè»¸æ–¹å‘)
 	} CalibrationData;
 
 
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
 	CNanoMeasureGraph();
 
-// ƒAƒgƒŠƒrƒ…[ƒg
+// ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 public:
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CNanoMeasureGraph)
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 	CalibrationData GetCalibrationData();
 	void MoveCalibrationLine(int nStep);
@@ -115,12 +115,12 @@ public:
 
 	void ResetCalibrationData();
 
-	//2009.09.03 bagus se ƒI[ƒgƒXƒP[ƒ‹ --{--
+	//2009.09.03 bagus se ã‚ªãƒ¼ãƒˆã‚¹ã‚±ãƒ¼ãƒ« --{--
 	void SetAutoScaleMode(BOOL bMode);
 	BOOL GetAutoScaleMode();
-	//2009.09.03 bagus se ƒI[ƒgƒXƒP[ƒ‹ --}--
+	//2009.09.03 bagus se ã‚ªãƒ¼ãƒˆã‚¹ã‚±ãƒ¼ãƒ« --}--
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 protected:
 	//{{AFX_MSG(CNanoMeasureGraph)
 	afx_msg void OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags);
@@ -136,7 +136,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 private:
 	BOOL IsValidLineNo(int nLineNo);
-	//“à•”—p“r
+	//å†…éƒ¨ç”¨é€”
 	typedef struct {
 		RECT GraphArea;
 		double RateX;
@@ -144,7 +144,7 @@ private:
 		double DivX;
 	} DrawGraphInfo;
 
-	//2008-10-10OkabeAdd XAY²doublu’lƒOƒ‰ƒt—p“r
+	//2008-10-10OkabeAdd Xã€Yè»¸doubluå€¤ã‚°ãƒ©ãƒ•ç”¨é€”
 	typedef struct {
 		double dXValue;
 		double dYValue;
@@ -174,15 +174,15 @@ private:
 	//Graph Config
 	GraphConfig		m_Config;
 	//CArray<MeasureValue_t,MeasureValue_t&> m_LineData[NANO_MEASURE_MAX_GRAPH_LINE];
-	double m_LineData[NANO_MEASURE_MAX_GRAPH_LINE][NANO_MEASURE_MAX_POINT_DATA];		//À‘ª’l
+	double m_LineData[NANO_MEASURE_MAX_GRAPH_LINE][NANO_MEASURE_MAX_POINT_DATA];		//å®Ÿæ¸¬å€¤
 	//2009.09.20 bagus stress --{--
 //	GraphXYDataValue m_LineXYData[1][NANO_MEASURE_MAX_POINT_DATA];		//2008-10-10OkabeAdd
 	GraphXYDataValue m_LineXYData[NANO_MEASURE_MAX_GRAPH_LINE][NANO_MEASURE_MAX_POINT_DATA];		//2008-10-10OkabeAdd
 	//2009.09.20 bagus stress --}--
 	int	m_LinePointNum[NANO_MEASURE_MAX_GRAPH_LINE];
 
-	//2008-10-10OkabeAdd g—pƒOƒ‰ƒtØ‘Öƒtƒ‰ƒO
-	//i0:m_LineDataƒOƒ‰ƒt	1:m_LineXYDataƒOƒ‰ƒtj
+	//2008-10-10OkabeAdd ä½¿ç”¨ã‚°ãƒ©ãƒ•åˆ‡æ›¿ãƒ•ãƒ©ã‚°
+	//ï¼ˆ0:m_LineDataã‚°ãƒ©ãƒ•	1:m_LineXYDataã‚°ãƒ©ãƒ•ï¼‰
 	int m_iGrapgSelectFlg;
 
 	//
@@ -198,16 +198,16 @@ private:
 	BOOL				m_bbOK;
 	BOOL				m_bReDrawGraph;
 
-	//2009.09.03 bagus se ƒI[ƒgƒXƒP[ƒ‹ --{--
+	//2009.09.03 bagus se ã‚ªãƒ¼ãƒˆã‚¹ã‚±ãƒ¼ãƒ« --{--
 	BOOL	m_bAutoScaleMode;
 	double	m_dYMin;
 	double	m_dYMax;
-	//2009.09.03 bagus se ƒI[ƒgƒXƒP[ƒ‹ --}--
+	//2009.09.03 bagus se ã‚ªãƒ¼ãƒˆã‚¹ã‚±ãƒ¼ãƒ« --}--
 };
 
 /////////////////////////////////////////////////////////////////////////////
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_NANOMEASUREGRAPH_H__75636F0B_F7E0_4CF3_A378_FA6AC8D9C5C8__INCLUDED_)

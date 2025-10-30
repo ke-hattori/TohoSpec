@@ -1,29 +1,29 @@
-#if !defined(AFX_POINTSETUPMEASUREMENT2POINTDLG_H__2A356BEC_3875_44D6_910D_33BE589CA4F8__INCLUDED_)
+ï»¿#if !defined(AFX_POINTSETUPMEASUREMENT2POINTDLG_H__2A356BEC_3875_44D6_910D_33BE589CA4F8__INCLUDED_)
 #define AFX_POINTSETUPMEASUREMENT2POINTDLG_H__2A356BEC_3875_44D6_910D_33BE589CA4F8__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// PointSetupMeasurement2PointDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// PointSetupMeasurement2PointDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 /////////////////////////////////////////////////////////////////////////////
-// CPointSetupMeasurement2PointDlg ƒ_ƒCƒAƒƒO
+// CPointSetupMeasurement2PointDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 class CPointSetupMeasurement2PointDlg : public COverlayDialog
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
-	CPointSetupMeasurement2PointDlg(CWnd* pParent = NULL);	 // •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CPointSetupMeasurement2PointDlg(CWnd* pParent = NULL);	 // æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
-	int	m_iTeachingMode;			// ©“®/è“®ƒ‚[ƒh
+	int	m_iTeachingMode;			// è‡ªå‹•/æ‰‹å‹•ãƒ¢ãƒ¼ãƒ‰
 
-	long	m_l1stX, m_l1stY;		// İ’è‚µ‚½1st
-	long	m_l2ndX, m_l2ndY;		// İ’è‚µ‚½2nd
+	long	m_l1stX, m_l1stY;		// è¨­å®šã—ãŸ1st
+	long	m_l2ndX, m_l2ndY;		// è¨­å®šã—ãŸ2nd
 
-	BOOL	m_b2nd;					// 2ndİ’èƒtƒ‰ƒO
+	BOOL	m_b2nd;					// 2ndè¨­å®šãƒ•ãƒ©ã‚°
 
-	BOOL	m_bComp;				// Compƒ{ƒ^ƒ“‰Ÿ‰ºƒtƒ‰ƒO
+	BOOL	m_bComp;				// Compãƒœã‚¿ãƒ³æŠ¼ä¸‹ãƒ•ãƒ©ã‚°
 
 public:
 	typedef enum _TEACHING_MODE
@@ -34,10 +34,10 @@ public:
 	} TEACHING_MODE;
 
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CPointSetupMeasurement2PointDlg)
 	enum { IDD = IDD_POINT_SETUP_MEASUREMENT_2POINT_DLG };
-		// ƒƒ‚: ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒf[ƒ^ ƒƒ“ƒo‚ğ’Ç‰Á‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢: ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒ‡ãƒ¼ã‚¿ ãƒ¡ãƒ³ãƒã‚’è¿½åŠ ã—ã¾ã™ã€‚
 	//}}AFX_DATA
 
 public:
@@ -58,23 +58,23 @@ public:
 	CShadeButtonST m_Meas2ndButton;
 	CShadeButtonST m_MeasCompButton;
 
-	STAGE_PROG_INFO_HDR m_StageProgInfoHdr;			// STAGE_PROG_INFO_HDR\‘¢‘Ì
-	int	m_iCurrPoint;								// Œ»İİ’è‚µ‚æ‚¤‚Æ‚µ‚Ä‚¢‚éƒ|ƒCƒ“ƒg
-	STAGE_COORD m_ScanPoint[SCAN_POINT_MAX * 2];	// Teachingƒ|ƒCƒ“ƒg
+	STAGE_PROG_INFO_HDR m_StageProgInfoHdr;			// STAGE_PROG_INFO_HDRæ§‹é€ ä½“
+	int	m_iCurrPoint;								// ç¾åœ¨è¨­å®šã—ã‚ˆã†ã¨ã—ã¦ã„ã‚‹ãƒã‚¤ãƒ³ãƒˆ
+	STAGE_COORD m_ScanPoint[SCAN_POINT_MAX * 2];	// Teachingãƒã‚¤ãƒ³ãƒˆ
 
 	int m_iProcessStatusOld;
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CPointSetupMeasurement2PointDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CPointSetupMeasurement2PointDlg)
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
@@ -100,7 +100,7 @@ private:
 	void AdjustCrossPointPos();
 	//2009.11.29 bagus 2point-distance --}--
 
-	BOOL	m_bDrawCross;			// CrossMark‚ğ•t‚¯‚½ƒtƒ‰ƒO
+	BOOL	m_bDrawCross;			// CrossMarkã‚’ä»˜ã‘ãŸãƒ•ãƒ©ã‚°
 	int		m_iCrossX, m_iCrossY;
 
 	void	CalcPointData(long lX, long lY);
@@ -109,6 +109,6 @@ private:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_POINTSETUPMEASUREMENT2POINTDLG_H__2A356BEC_3875_44D6_910D_33BE589CA4F8__INCLUDED_)

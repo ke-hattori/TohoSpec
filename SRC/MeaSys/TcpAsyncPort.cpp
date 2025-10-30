@@ -1,4 +1,4 @@
-// TcpAsyncPort.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// TcpAsyncPort.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -38,24 +38,24 @@ CTcpAsyncPort::~CTcpAsyncPort()
 
 BOOL CTcpAsyncPort::InitInstance()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒXƒŒƒbƒh’PˆÊ‚Ì‰Šú‰»ƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ã“ã®ä½ç½®ã«ã‚¹ãƒ¬ãƒƒãƒ‰å˜ä½ã®åˆæœŸåŒ–ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 	return TRUE;
 }
 
 int CTcpAsyncPort::ExitInstance()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒXƒŒƒbƒh’PˆÊ‚Ì‰Šú‰»ƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ã“ã®ä½ç½®ã«ã‚¹ãƒ¬ãƒƒãƒ‰å˜ä½ã®åˆæœŸåŒ–ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 	return CWinThread::ExitInstance();
 }
 
 BEGIN_MESSAGE_MAP(CTcpAsyncPort, CWinThread)
 	//{{AFX_MSG_MAP(CTcpAsyncPort)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ð’Ç‰Á‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒžãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒžã‚¯ãƒ­ã‚’è¿½åŠ ã—ã¾ã™ã€‚
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CTcpAsyncPort ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CTcpAsyncPort ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 int CTcpAsyncPort::Run()
 {
 	pLogFile->Logging("CTcpAsyncPort : Run()");

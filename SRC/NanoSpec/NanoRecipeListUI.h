@@ -1,10 +1,10 @@
-// NanoListUI.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+ï»¿// NanoListUI.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #pragma once
 
 // ##########################################################################
-// CNanoRecipeListUI ƒtƒH[ƒ€ ƒrƒ…[
+// CNanoRecipeListUI ãƒ•ã‚©ãƒ¼ãƒ  ãƒ“ãƒ¥ãƒ¼
 // ##########################################################################
 
 #ifndef __AFXEXT_H__
@@ -23,18 +23,18 @@ protected:
 	virtual ~CNanoRecipeListUI();
 	DECLARE_DYNCREATE(CNanoRecipeListUI)
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CRecipeMainListView)
 	public:
 	virtual void OnInitialUpdate();
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 
 protected:
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CNanoRecipeListUI)
 	afx_msg void OnNew();
 	afx_msg void OnDelete();
@@ -51,17 +51,17 @@ public:
 	void LayoutToolBar();
 	virtual void RecipeEntry(BOOL bNew);
 	BOOL CheckSelectRecipe();
-/* added 2016.08.15 hmenjo ƒŒƒVƒs•ÒW menu ƒoƒO3 ---------- { ---------- */
+/* added 2016.08.15 hmenjo ãƒ¬ã‚·ãƒ”ç·¨é›† menu ãƒã‚°3 ---------- { ---------- */
 	virtual BOOL IsAccessPrivilege();
-/* added 2016.08.15 hmenjo ƒŒƒVƒs•ÒW menu ƒoƒO3 ---------- } ---------- */
+/* added 2016.08.15 hmenjo ãƒ¬ã‚·ãƒ”ç·¨é›† menu ãƒã‚°3 ---------- } ---------- */
 
 protected:
 	virtual void List_HeaderSet();
 	virtual void List_DataSet();
 	virtual BOOL DeleteRecipeData(LPCTSTR pszRecipeName);
-/* deleted 2016.08.15 hmenjo ƒŒƒVƒs•ÒW menu ƒoƒO3 ---------- { ---------- */
+/* deleted 2016.08.15 hmenjo ãƒ¬ã‚·ãƒ”ç·¨é›† menu ãƒã‚°3 ---------- { ---------- */
 //	virtual BOOL IsAccessPrivilege();
-/* deleted 2016.08.15 hmenjo ƒŒƒVƒs•ÒW menu ƒoƒO3 ---------- } ---------- */
+/* deleted 2016.08.15 hmenjo ãƒ¬ã‚·ãƒ”ç·¨é›† menu ãƒã‚°3 ---------- } ---------- */
 	int SetCursorPosition(int iCol, LPCTSTR psz);
 
 	CToolBar m_wndToolBar;

@@ -1,4 +1,4 @@
-// CompEASEHeadDesktop.cpp : Defines the CompEASEHeadDesktop routines.
+﻿// CompEASEHeadDesktop.cpp : Defines the CompEASEHeadDesktop routines.
 //
 
 #include "stdafx.h"

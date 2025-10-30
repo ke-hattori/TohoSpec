@@ -1,4 +1,4 @@
-// ChifTransiDeskew.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// ChifTransiDeskew.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -13,9 +13,9 @@
 #include "ChiefView.h"
 #include "ChifTransiSeq.h"
 #include "ChifTransiAF.h"
-/* added 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- { ---------- */
+/* added 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- { ---------- */
 #include "..\\..\\INC\\NSStage.hxx"
-/* added 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- } ---------- */
+/* added 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- } ---------- */
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -24,92 +24,92 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /*
- *	ƒ}ƒNƒ’è‹`
+ *	ãƒã‚¯ãƒ­å®šç¾©
  */
 
 
 /*
- *	\‘¢‘Ì’è‹`
+ *	æ§‹é€ ä½“å®šç¾©
  */
 
 
 /*
- *	ƒ[ƒJƒ‹ƒOƒ[ƒoƒ‹’è‹`
+ *	ãƒ­ãƒ¼ã‚«ãƒ«ã‚°ãƒ­ãƒ¼ãƒãƒ«å®šç¾©
  */
-UINT WM_CHIF_TRDSK_SETEVENT = RegisterWindowMessage("WM_CHIF_TRDSK_SETEVENT");	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“ƒCƒxƒ“ƒg”­s—pƒEƒBƒ“ƒhƒEƒƒbƒZ[ƒW
-UINT WM_CHIF_TRDSK_HEARTBEAT = RegisterWindowMessage("WM_CHIF_TRDSK_HEARTBEAT");	// HeartBeat ƒEƒBƒ“ƒhƒEƒƒbƒZ[ƒW
+UINT WM_CHIF_TRDSK_SETEVENT = RegisterWindowMessage("WM_CHIF_TRDSK_SETEVENT");	// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚¤ãƒ™ãƒ³ãƒˆç™ºè¡Œç”¨ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+UINT WM_CHIF_TRDSK_HEARTBEAT = RegisterWindowMessage("WM_CHIF_TRDSK_HEARTBEAT");	// HeartBeat ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 
 
 // ##########################################################################
-// class CChiefTransiDeskew : ƒfƒXƒLƒ…[ ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“
+// class CChiefTransiDeskew : ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³
 // ##########################################################################
 
 // =========================================================================//
-//	ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“ƒe[ƒuƒ‹
+//	ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãƒ†ãƒ¼ãƒ–ãƒ«
 // =========================================================================//
 const Transition TransTable_Deskew[] =
 {
 	//	OldState,				EventId,				NewState
 
-	{	ST_DSKW_INIT,			EV_DSKW_DO_INIT,		ST_DSKW_INIT			},	// ‰Šú‰»ˆ—‚ğÀs(‚·‚® EV_DSKW_INIT_DONE ‚Å)
-	{	ST_DSKW_INIT, 			EV_DSKW_INIT_DONE,		ST_DSKW_IDLE			},	// ‰Šú‰»Š®—¹‚µ‚ÄƒAƒCƒhƒ‹‚Ö
+	{	ST_DSKW_INIT,			EV_DSKW_DO_INIT,		ST_DSKW_INIT			},	// åˆæœŸåŒ–å‡¦ç†ã‚’å®Ÿè¡Œ(ã™ã EV_DSKW_INIT_DONE ã§)
+	{	ST_DSKW_INIT, 			EV_DSKW_INIT_DONE,		ST_DSKW_IDLE			},	// åˆæœŸåŒ–å®Œäº†ã—ã¦ã‚¢ã‚¤ãƒ‰ãƒ«ã¸
 
-	{	ST_DSKW_IDLE, 			EV_DSKW_START,			ST_DSKW_START			},	// ŠJn‘Oˆ—‚Ö
+	{	ST_DSKW_IDLE, 			EV_DSKW_START,			ST_DSKW_START			},	// é–‹å§‹å‰å‡¦ç†ã¸
 
-	{	ST_DSKW_START, 			EV_DSKW_IDLE,			ST_DSKW_IDLE			},	// ƒfƒXƒLƒ…[–³‚µİ’è‚È‚Ì‚ÅŠ®—¹ˆ—Œã(‚·‚® EV_DSKW_IDLE ‚Å)ƒAƒCƒhƒ‹‚Ö
-	{	ST_DSKW_START, 			EV_DSKW_MANU,			ST_DSKW_MANU			},	// ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[Š®—¹‘Ò‚¿‚Ö
+	{	ST_DSKW_START, 			EV_DSKW_IDLE,			ST_DSKW_IDLE			},	// ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ç„¡ã—è¨­å®šãªã®ã§å®Œäº†å‡¦ç†å¾Œ(ã™ã EV_DSKW_IDLE ã§)ã‚¢ã‚¤ãƒ‰ãƒ«ã¸
+	{	ST_DSKW_START, 			EV_DSKW_MANU,			ST_DSKW_MANU			},	// ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼å®Œäº†å¾…ã¡ã¸
 // 2009.03.11 K.Matsuo change -->
-//	{	ST_DSKW_START, 			EV_DSKW_AF,				ST_DSKW_AF				},	// AF Š®—¹‘Ò‚¿‚Ö
+//	{	ST_DSKW_START, 			EV_DSKW_AF,				ST_DSKW_AF				},	// AF å®Œäº†å¾…ã¡ã¸
 
-//	{	ST_DSKW_AF,				EV_DSKW_AF_DONE,		ST_DSKW_AF_DONE			},	// AF Š®—¹
-//	{	ST_DSKW_AF_DONE,		EV_DSKW_AF_OK,			ST_DSKW_AUTO			},	// AF OK ‚È‚Ì‚Å ƒI[ƒgƒfƒXƒLƒ…[Š®—¹‘Ò‚¿ ‚Ö
-//	{	ST_DSKW_AF_DONE,		EV_DSKW_AF_NG,			ST_DSKW_MANU			},	// AF NG ‚È‚Ì‚Å ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[Š®—¹‘Ò‚¿ ‚Ö
-//	{	ST_DSKW_AF_DONE,		EV_DSKW_AF_CANCEL,		ST_DSKW_IDLE			},	// AF ƒ|ƒbƒvƒAƒbƒv‚ÅƒLƒƒƒ“ƒZƒ‹‚È‚Ì‚Å ƒAƒCƒhƒ‹‚Ö
-	{	ST_DSKW_START, 			EV_DSKW_AUTO,			ST_DSKW_AUTO			},	// ƒI[ƒgƒfƒXƒLƒ…[Š®—¹‘Ò‚¿‚Ö
+//	{	ST_DSKW_AF,				EV_DSKW_AF_DONE,		ST_DSKW_AF_DONE			},	// AF å®Œäº†
+//	{	ST_DSKW_AF_DONE,		EV_DSKW_AF_OK,			ST_DSKW_AUTO			},	// AF OK ãªã®ã§ ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼å®Œäº†å¾…ã¡ ã¸
+//	{	ST_DSKW_AF_DONE,		EV_DSKW_AF_NG,			ST_DSKW_MANU			},	// AF NG ãªã®ã§ ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼å®Œäº†å¾…ã¡ ã¸
+//	{	ST_DSKW_AF_DONE,		EV_DSKW_AF_CANCEL,		ST_DSKW_IDLE			},	// AF ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã§ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãªã®ã§ ã‚¢ã‚¤ãƒ‰ãƒ«ã¸
+	{	ST_DSKW_START, 			EV_DSKW_AUTO,			ST_DSKW_AUTO			},	// ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼å®Œäº†å¾…ã¡ã¸
 // 2009.03.11 K.Matsuo change <--
 
-	{	ST_DSKW_AUTO,			EV_DSKW_AUTO_OK,		ST_DSKW_AUTO_OK			},	// ƒI[ƒgƒfƒXƒLƒ…[ OK Š®—¹(‚·‚® EV_DSKW_IDLE ‚Å)
-	{	ST_DSKW_AUTO_OK, 		EV_DSKW_IDLE,			ST_DSKW_IDLE			},	// Š®—¹ˆ—Às‚µ‚ÄƒAƒCƒhƒ‹‚Ö
-	{	ST_DSKW_AUTO,			EV_DSKW_AUTO_PROCEED,	ST_DSKW_AUTO_PROCEED	},	// ƒI[ƒgƒfƒXƒLƒ…[ NG(‘±s) Š®—¹(‚·‚® EV_DSKW_IDLE ‚Å)
-	{	ST_DSKW_AUTO_PROCEED, 	EV_DSKW_IDLE,			ST_DSKW_IDLE			},	// Š®—¹ˆ—Às‚µ‚ÄƒAƒCƒhƒ‹‚Ö
-	{	ST_DSKW_AUTO,			EV_DSKW_AUTO_CANCEL,	ST_DSKW_AUTO_CANCEL		},	// ƒI[ƒgƒfƒXƒLƒ…[ NG(ƒŒƒVƒsI—¹) Š®—¹(‚·‚® EV_DSKW_IDLE ‚Å)
-	{	ST_DSKW_AUTO_CANCEL,	EV_DSKW_IDLE,			ST_DSKW_IDLE			},	// Š®—¹ˆ—Às‚µ‚ÄƒAƒCƒhƒ‹‚Ö
-	{	ST_DSKW_AUTO,			EV_DSKW_AUTO_MANU,		ST_DSKW_MANU			},	// ƒI[ƒgƒfƒXƒLƒ…[ NG(ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[) Š®—¹Cƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[Š®—¹‘Ò‚¿‚Ö
+	{	ST_DSKW_AUTO,			EV_DSKW_AUTO_OK,		ST_DSKW_AUTO_OK			},	// ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ OK å®Œäº†(ã™ã EV_DSKW_IDLE ã§)
+	{	ST_DSKW_AUTO_OK, 		EV_DSKW_IDLE,			ST_DSKW_IDLE			},	// å®Œäº†å‡¦ç†å®Ÿè¡Œã—ã¦ã‚¢ã‚¤ãƒ‰ãƒ«ã¸
+	{	ST_DSKW_AUTO,			EV_DSKW_AUTO_PROCEED,	ST_DSKW_AUTO_PROCEED	},	// ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ NG(ç¶šè¡Œ) å®Œäº†(ã™ã EV_DSKW_IDLE ã§)
+	{	ST_DSKW_AUTO_PROCEED, 	EV_DSKW_IDLE,			ST_DSKW_IDLE			},	// å®Œäº†å‡¦ç†å®Ÿè¡Œã—ã¦ã‚¢ã‚¤ãƒ‰ãƒ«ã¸
+	{	ST_DSKW_AUTO,			EV_DSKW_AUTO_CANCEL,	ST_DSKW_AUTO_CANCEL		},	// ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ NG(ãƒ¬ã‚·ãƒ”çµ‚äº†) å®Œäº†(ã™ã EV_DSKW_IDLE ã§)
+	{	ST_DSKW_AUTO_CANCEL,	EV_DSKW_IDLE,			ST_DSKW_IDLE			},	// å®Œäº†å‡¦ç†å®Ÿè¡Œã—ã¦ã‚¢ã‚¤ãƒ‰ãƒ«ã¸
+	{	ST_DSKW_AUTO,			EV_DSKW_AUTO_MANU,		ST_DSKW_MANU			},	// ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ NG(ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼) å®Œäº†ï¼Œãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼å®Œäº†å¾…ã¡ã¸
 // 2009.04.10 K.Matsuo Add -->
-	{	ST_DSKW_AUTO,			EV_DSKW_AUTO_PROCEED_PMA, ST_DSKW_AUTO_PROCEED_PMA},// ƒI[ƒgƒfƒXƒLƒ…[ NG(‘±sEˆÊ’u•â³•t‚«‘ª’è) Š®—¹(‚·‚® EV_DSKW_IDLE ‚Å)
-	{	ST_DSKW_AUTO_PROCEED_PMA,EV_DSKW_IDLE,			ST_DSKW_IDLE			},	// Š®—¹ˆ—Às‚µ‚ÄƒAƒCƒhƒ‹‚Ö
+	{	ST_DSKW_AUTO,			EV_DSKW_AUTO_PROCEED_PMA, ST_DSKW_AUTO_PROCEED_PMA},// ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ NG(ç¶šè¡Œãƒ»ä½ç½®è£œæ­£ä»˜ãæ¸¬å®š) å®Œäº†(ã™ã EV_DSKW_IDLE ã§)
+	{	ST_DSKW_AUTO_PROCEED_PMA,EV_DSKW_IDLE,			ST_DSKW_IDLE			},	// å®Œäº†å‡¦ç†å®Ÿè¡Œã—ã¦ã‚¢ã‚¤ãƒ‰ãƒ«ã¸
 // 2009.04.10 K.Matsuo Add <--
 
-	{	ST_DSKW_MANU, 			EV_DSKW_MANU_OK,		ST_DSKW_MANU_OK			},	// ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[ OK Š®—¹(‚·‚® EV_DSKW_IDLE ‚Å)
-	{	ST_DSKW_MANU_OK, 		EV_DSKW_IDLE,			ST_DSKW_IDLE			},	// Š®—¹ˆ—Às‚µ‚ÄƒAƒCƒhƒ‹‚Ö
-	{	ST_DSKW_MANU, 			EV_DSKW_MANU_CANCEL,	ST_DSKW_MANU_CANCEL		},	// ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[ NG(ƒŒƒVƒsI—¹) Š®—¹(‚·‚® EV_DSKW_IDLE ‚Å)
-	{	ST_DSKW_MANU_CANCEL, 	EV_DSKW_IDLE,			ST_DSKW_IDLE			},	// Š®—¹ˆ—Às‚µ‚ÄƒAƒCƒhƒ‹‚Ö
-	{	ST_DSKW_MANU, 			EV_DSKW_MANU_NONE,		ST_DSKW_MANU_NONE		},	// ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[ NG(‚µ‚È‚¢) Š®—¹(‚·‚® EV_DSKW_IDLE ‚Å)
-	{	ST_DSKW_MANU_NONE, 		EV_DSKW_IDLE,			ST_DSKW_IDLE			},	// Š®—¹ˆ—Às‚µ‚ÄƒAƒCƒhƒ‹‚Ö
+	{	ST_DSKW_MANU, 			EV_DSKW_MANU_OK,		ST_DSKW_MANU_OK			},	// ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ OK å®Œäº†(ã™ã EV_DSKW_IDLE ã§)
+	{	ST_DSKW_MANU_OK, 		EV_DSKW_IDLE,			ST_DSKW_IDLE			},	// å®Œäº†å‡¦ç†å®Ÿè¡Œã—ã¦ã‚¢ã‚¤ãƒ‰ãƒ«ã¸
+	{	ST_DSKW_MANU, 			EV_DSKW_MANU_CANCEL,	ST_DSKW_MANU_CANCEL		},	// ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ NG(ãƒ¬ã‚·ãƒ”çµ‚äº†) å®Œäº†(ã™ã EV_DSKW_IDLE ã§)
+	{	ST_DSKW_MANU_CANCEL, 	EV_DSKW_IDLE,			ST_DSKW_IDLE			},	// å®Œäº†å‡¦ç†å®Ÿè¡Œã—ã¦ã‚¢ã‚¤ãƒ‰ãƒ«ã¸
+	{	ST_DSKW_MANU, 			EV_DSKW_MANU_NONE,		ST_DSKW_MANU_NONE		},	// ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ NG(ã—ãªã„) å®Œäº†(ã™ã EV_DSKW_IDLE ã§)
+	{	ST_DSKW_MANU_NONE, 		EV_DSKW_IDLE,			ST_DSKW_IDLE			},	// å®Œäº†å‡¦ç†å®Ÿè¡Œã—ã¦ã‚¢ã‚¤ãƒ‰ãƒ«ã¸
 
 	// terminate the transition table
 	END_OF_TRANSITION_TABLE
 };
 
 // =========================================================================//
-//	ó‘Ô•Êˆ—ŠÖ”ƒe[ƒuƒ‹
+//	çŠ¶æ…‹åˆ¥å‡¦ç†é–¢æ•°ãƒ†ãƒ¼ãƒ–ãƒ«
 // =========================================================================//
 BEGIN_STATEPROC_MAP(CChiefTransiDeskew)
 	/*	0 */	ENTER_STATE(ST_DSKW_INIT,			enter_ST_DSKW_INIT),
 	/*	1 */	ENTER_STATE(ST_DSKW_IDLE,			enter_ST_DSKW_IDLE),
-	/*	2 */	ENTER_STATE(ST_DSKW_START,			enter_ST_DSKW_START),				// (WAIT ó‘Ô–³‚µ)
+	/*	2 */	ENTER_STATE(ST_DSKW_START,			enter_ST_DSKW_START),				// (WAIT çŠ¶æ…‹ç„¡ã—)
 	/*	3 */	ENTER_STATE(ST_DSKW_AF,				enter_ST_DSKW_AF),
-	/*	4 */	ENTER_STATE(ST_DSKW_AF_DONE,		enter_ST_DSKW_AF_DONE),				// (WAIT ó‘Ô–³‚µ)
+	/*	4 */	ENTER_STATE(ST_DSKW_AF_DONE,		enter_ST_DSKW_AF_DONE),				// (WAIT çŠ¶æ…‹ç„¡ã—)
 	/*	5 */	ENTER_STATE(ST_DSKW_AUTO,			enter_ST_DSKW_AUTO),
-	/*	6 */	ENTER_STATE(ST_DSKW_AUTO_OK,		enter_ST_DSKW_AUTO_OK),				// (WAIT ó‘Ô–³‚µ)
-	/*	7 */	ENTER_STATE(ST_DSKW_AUTO_PROCEED,	enter_ST_DSKW_AUTO_PROCEED),		// (WAIT ó‘Ô–³‚µ)
-	/*	8 */	ENTER_STATE(ST_DSKW_AUTO_CANCEL,	enter_ST_DSKW_AUTO_CANCEL),			// (WAIT ó‘Ô–³‚µ)
+	/*	6 */	ENTER_STATE(ST_DSKW_AUTO_OK,		enter_ST_DSKW_AUTO_OK),				// (WAIT çŠ¶æ…‹ç„¡ã—)
+	/*	7 */	ENTER_STATE(ST_DSKW_AUTO_PROCEED,	enter_ST_DSKW_AUTO_PROCEED),		// (WAIT çŠ¶æ…‹ç„¡ã—)
+	/*	8 */	ENTER_STATE(ST_DSKW_AUTO_CANCEL,	enter_ST_DSKW_AUTO_CANCEL),			// (WAIT çŠ¶æ…‹ç„¡ã—)
 // 2009.04.10 K.Matsuo Change -->
-	/*	9 */	ENTER_STATE(ST_DSKW_AUTO_PROCEED_PMA,	enter_ST_DSKW_AUTO_PROCEED_PMA),	// (WAIT ó‘Ô–³‚µ)
+	/*	9 */	ENTER_STATE(ST_DSKW_AUTO_PROCEED_PMA,	enter_ST_DSKW_AUTO_PROCEED_PMA),	// (WAIT çŠ¶æ…‹ç„¡ã—)
 	/* 10 */	ENTER_STATE(ST_DSKW_MANU,			enter_ST_DSKW_MANU),
-	/* 11 */	ENTER_STATE(ST_DSKW_MANU_OK,		enter_ST_DSKW_MANU_OK),				// (WAIT ó‘Ô–³‚µ)
-	/* 12 */	ENTER_STATE(ST_DSKW_MANU_CANCEL,	enter_ST_DSKW_MANU_CANCEL),			// (WAIT ó‘Ô–³‚µ)
-	/* 13 */	ENTER_STATE(ST_DSKW_MANU_NONE,		enter_ST_DSKW_MANU_NONE),			// (WAIT ó‘Ô–³‚µ)
+	/* 11 */	ENTER_STATE(ST_DSKW_MANU_OK,		enter_ST_DSKW_MANU_OK),				// (WAIT çŠ¶æ…‹ç„¡ã—)
+	/* 12 */	ENTER_STATE(ST_DSKW_MANU_CANCEL,	enter_ST_DSKW_MANU_CANCEL),			// (WAIT çŠ¶æ…‹ç„¡ã—)
+	/* 13 */	ENTER_STATE(ST_DSKW_MANU_NONE,		enter_ST_DSKW_MANU_NONE),			// (WAIT çŠ¶æ…‹ç„¡ã—)
 // 2009.04.10 K.Matsuo Change <--
 
 END_STATEPROC_MAP(CChiefTransiDeskew)
@@ -126,14 +126,14 @@ CChiefTransiDeskew::CChiefTransiDeskew(CWnd* pParent /*=NULL*/) : cActive(TransT
 
 	m_pcChiefView = (CView*) pParent;
 
-	//	ƒXƒŒƒbƒh‚Ì‹N“®‘Ò‚¿
+	//	ã‚¹ãƒ¬ãƒƒãƒ‰ã®èµ·å‹•å¾…ã¡
 	BOOL l_bThreadOK = CreateThread();
 	if (0 != this->m_hThread) {
 		CSingleLock	l_SingleLock(&m_cSyncEvent,TRUE);
 	}
 	((CChiefView*) m_pcChiefView)->LogChief(_T("Started  CChiefTransiDeskew."));
 
-	//	ƒIƒuƒWƒFƒNƒg‚Ì©“®”jŠü‚ğ‹Ö~
+	//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®è‡ªå‹•ç ´æ£„ã‚’ç¦æ­¢
 	m_bAutoDelete = FALSE;
 
 // 2009.03.18 K.Matsuo Add -->
@@ -146,7 +146,7 @@ CChiefTransiDeskew::~CChiefTransiDeskew()
 {
 	TRACE(_T("CChiefTransiDeskew::~CChiefTransiDeskew() \n"));
 
-	//	ƒXƒŒƒbƒh‚ÌÁ–Å‘Ò‚¿
+	//	ã‚¹ãƒ¬ãƒƒãƒ‰ã®æ¶ˆæ»…å¾…ã¡
 	if (0 != this->m_hThread) {
 		if (0 == m_bAutoDelete) {
 			PostThreadMessage(WM_QUIT, 0, 0);
@@ -158,18 +158,18 @@ CChiefTransiDeskew::~CChiefTransiDeskew()
 
 BOOL CChiefTransiDeskew::InitInstance()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒXƒŒƒbƒh’PˆÊ‚Ì‰Šú‰»ƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ã“ã®ä½ç½®ã«ã‚¹ãƒ¬ãƒƒãƒ‰å˜ä½ã®åˆæœŸåŒ–ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 
 	TRACE(_T("CChiefTransiDeskew::InitInstance() \n"));
 
-	// ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ì‘Ò‚¿‚ğ‰ğœ‚µ‚Ü‚·
-	//		‚Â‚Ü‚èCƒXƒŒƒbƒh‚Ì¶¬‚ÆƒXƒŒƒbƒhƒNƒ‰ƒX‚Ì\’z‚Ì“¯Šú‚ğæ‚Á‚Ä‚¢‚Ü‚·D
+	// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å¾…ã¡ã‚’è§£é™¤ã—ã¾ã™
+	//		ã¤ã¾ã‚Šï¼Œã‚¹ãƒ¬ãƒƒãƒ‰ã®ç”Ÿæˆã¨ã‚¹ãƒ¬ãƒƒãƒ‰ã‚¯ãƒ©ã‚¹ã®æ§‹ç¯‰ã®åŒæœŸã‚’å–ã£ã¦ã„ã¾ã™ï¼
 	m_cSyncEvent.SetEvent();
 
-	// ‰Šúó‘Ôˆ——pƒCƒxƒ“ƒg”­s
+	// åˆæœŸçŠ¶æ…‹å‡¦ç†ç”¨ã‚¤ãƒ™ãƒ³ãƒˆç™ºè¡Œ
 	TransiEvent(0, 0);
 
-	// •Ï”‰Šú‰»
+	// å¤‰æ•°åˆæœŸåŒ–
 	m_dwHeartBeat = 0;
 
 	return TRUE;
@@ -177,7 +177,7 @@ BOOL CChiefTransiDeskew::InitInstance()
 
 int CChiefTransiDeskew::ExitInstance()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒXƒŒƒbƒh’PˆÊ‚Ì‰Šú‰»ƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ã“ã®ä½ç½®ã«ã‚¹ãƒ¬ãƒƒãƒ‰å˜ä½ã®åˆæœŸåŒ–ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 
 	TRACE(_T("CChiefTransiDeskew::ExitInstance() \n"));
 
@@ -186,28 +186,28 @@ int CChiefTransiDeskew::ExitInstance()
 
 BEGIN_MESSAGE_MAP(CChiefTransiDeskew, CWinThread)
 	//{{AFX_MSG_MAP(CChiefTransiDeskew)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã—ã¾ã™ã€‚
 	//}}AFX_MSG_MAP
 	ON_REGISTERED_THREAD_MESSAGE(WM_CHIF_TRDSK_SETEVENT, OnTransiEvent)
 	ON_REGISTERED_THREAD_MESSAGE(WM_CHIF_TRDSK_HEARTBEAT, OnHeartBeat)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CChiefTransiDeskew ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CChiefTransiDeskew ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 /*
- *	ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“ƒCƒxƒ“ƒg”­s ƒƒbƒZ[ƒWƒnƒ“ƒhƒ‰
+ *	ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚¤ãƒ™ãƒ³ãƒˆç™ºè¡Œ ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒãƒ³ãƒ‰ãƒ©
  */
 void CChiefTransiDeskew::OnTransiEvent(WPARAM wparam, LPARAM lparam)
 {
-	::Sleep(TRANSI_TIME);	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“ŠÔƒ^ƒCƒ~ƒ“ƒO’²®(‚Æ‚è‚ ‚¦‚¸‚¾‚¯‚ÇP‹v‚©‚àEE)
+	::Sleep(TRANSI_TIME);	// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³é–“ã‚¿ã‚¤ãƒŸãƒ³ã‚°èª¿æ•´(ã¨ã‚Šã‚ãˆãšã ã‘ã©æ’ä¹…ã‹ã‚‚ãƒ»ãƒ»)
 
 	Event((int) wparam, (cEventParams*) lparam);
 
 }
 
 /*
- *	HeartBeat ƒƒbƒZ[ƒWƒnƒ“ƒhƒ‰
+ *	HeartBeat ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒãƒ³ãƒ‰ãƒ©
  */
 void CChiefTransiDeskew::OnHeartBeat(WPARAM wparam, LPARAM lparam)
 {
@@ -216,23 +216,23 @@ void CChiefTransiDeskew::OnHeartBeat(WPARAM wparam, LPARAM lparam)
 
 
 /****************************************************************************
-	‚»‚Ì‘¼ŠÖ”
+	ãã®ä»–é–¢æ•°
 ****************************************************************************/
 
 /*
- *	ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“ƒCƒxƒ“ƒg”­s—pŠÖ”
+ *	ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚¤ãƒ™ãƒ³ãƒˆç™ºè¡Œç”¨é–¢æ•°
  */
 void CChiefTransiDeskew::TransiEvent(const int iEventNo, const cEventParams *const pEvParams)
 {
-/* modified 2012.01.23 hmenjo [‚V]ŸèƒAƒ{[ƒg‘Îô ---------- { ---------- */
+/* modified 2012.01.23 hmenjo [ï¼—]å‹æ‰‹ã‚¢ãƒœãƒ¼ãƒˆå¯¾ç­– ---------- { ---------- */
 //	PostThreadMessage(WM_CHIF_TRDSK_SETEVENT, (WPARAM) iEventNo, (LPARAM) pEvParams);
-/* modified 2012.01.23 hmenjo [‚V]ŸèƒAƒ{[ƒg‘Îô ----------              */
+/* modified 2012.01.23 hmenjo [ï¼—]å‹æ‰‹ã‚¢ãƒœãƒ¼ãƒˆå¯¾ç­– ----------              */
 	((CChiefView*) m_pcChiefView)->PostTransiEvent(this, WM_CHIF_TRDSK_SETEVENT, _T("WM_CHIF_TRDSK_SETEVENT"), 4, (WPARAM) iEventNo, (LPARAM) pEvParams);
-/* modified 2012.01.23 hmenjo [‚V]ŸèƒAƒ{[ƒg‘Îô ---------- } ---------- */
+/* modified 2012.01.23 hmenjo [ï¼—]å‹æ‰‹ã‚¢ãƒœãƒ¼ãƒˆå¯¾ç­– ---------- } ---------- */
 }
 
 /*
- *	HeartBeat ”­s—pŠÖ”
+ *	HeartBeat ç™ºè¡Œç”¨é–¢æ•°
  */
 void CChiefTransiDeskew::HeartBeatPulse(void)
 {
@@ -240,9 +240,9 @@ void CChiefTransiDeskew::HeartBeatPulse(void)
 }
 
 /*
- *	Œ»İ‚Ìó‘Ô‚ªuƒAƒCƒhƒ‹v‚©‚Ç‚¤‚©‚ğƒ`ƒFƒbƒN
- *		–ß‚è’lF	true	ƒAƒCƒhƒ‹‚Å‚ ‚é
- *					false	ƒAƒCƒhƒ‹‚Å‚È‚¢
+ *	ç¾åœ¨ã®çŠ¶æ…‹ãŒã€Œã‚¢ã‚¤ãƒ‰ãƒ«ã€ã‹ã©ã†ã‹ã‚’ãƒã‚§ãƒƒã‚¯
+ *		æˆ»ã‚Šå€¤ï¼š	true	ã‚¢ã‚¤ãƒ‰ãƒ«ã§ã‚ã‚‹
+ *					false	ã‚¢ã‚¤ãƒ‰ãƒ«ã§ãªã„
  */
 bool CChiefTransiDeskew::IsIdle()
 {
@@ -258,8 +258,8 @@ bool CChiefTransiDeskew::IsIdle()
 }
 
 /*
- *	Œ»İ‚Ìó‘Ô‚ğæ“¾
- *		–ß‚è’lF	Œ»İ‚Ìó‘Ô
+ *	ç¾åœ¨ã®çŠ¶æ…‹ã‚’å–å¾—
+ *		æˆ»ã‚Šå€¤ï¼š	ç¾åœ¨ã®çŠ¶æ…‹
  */
 int CChiefTransiDeskew::GetCurrentState()
 {
@@ -267,66 +267,66 @@ int CChiefTransiDeskew::GetCurrentState()
 }
 
 /*
- *	ŠeƒfƒXƒLƒ…[ƒ‚ƒWƒ…[ƒ‹‚ğƒLƒƒƒ“ƒZƒ‹I—¹‚³‚¹‚Ü‚·D
+ *	å„ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã‚’ã‚­ãƒ£ãƒ³ã‚»ãƒ«çµ‚äº†ã•ã›ã¾ã™ï¼
  */
 void CChiefTransiDeskew::CancelDeskew()
 {
 	switch (CurrState) {
 	case ST_DSKW_AUTO:
-		// ƒI[ƒgƒfƒXƒLƒ…[‚ğƒLƒƒƒ“ƒZƒ‹‚µ‚Ü‚·
+		// ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ã‚’ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã—ã¾ã™
 		/*
-		 *	ƒRƒR‚ÉƒI[ƒgƒfƒXƒLƒ…[‚ÌƒLƒƒƒ“ƒZƒ‹ˆ—‚ğ“ü‚ê‚Ä‚­‚¾‚³‚¢D
+		 *	ã‚³ã‚³ã«ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ã®ã‚­ãƒ£ãƒ³ã‚»ãƒ«å‡¦ç†ã‚’å…¥ã‚Œã¦ãã ã•ã„ï¼
 		 */
 		m_pDeskewSeq->ShutDown();
 		break;
 	case ST_DSKW_MANU:
-		// ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[‚ğƒLƒƒƒ“ƒZƒ‹‚µ‚Ü‚·
+		// ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ã‚’ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã—ã¾ã™
 		/*
-		 *	ƒRƒR‚Éƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[‚ÌƒLƒƒƒ“ƒZƒ‹ˆ—‚ğ“ü‚ê‚Ä‚­‚¾‚³‚¢D
+		 *	ã‚³ã‚³ã«ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ã®ã‚­ãƒ£ãƒ³ã‚»ãƒ«å‡¦ç†ã‚’å…¥ã‚Œã¦ãã ã•ã„ï¼
 		 */
 		m_pDeskewSeq->ShutDown();
 		break;
 	default:
-		// ‰½‚à‚µ‚Ü‚¹‚ñ
+		// ä½•ã‚‚ã—ã¾ã›ã‚“
 		break;
 	}
 }
 
-/* added 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- { ---------- */
+/* added 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- { ---------- */
 void CChiefTransiDeskew::NotifyComplete(const cEventParams *const pEvParams)
 {
-	/* ˆÈ‘O‚Ìƒwƒbƒh‚É–ß‚µ‚Ü‚·D	*/
+	/* ä»¥å‰ã®ãƒ˜ãƒƒãƒ‰ã«æˆ»ã—ã¾ã™ï¼	*/
 	((CChiefView*) m_pcChiefView)->SelectHead(m_wHeadPre, FALSE);
 
 	((CChiefTransiSeq*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq)->TransiEvent(EV_SEQ_DESKEW_DONE, pEvParams);
 }
-/* added 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- } ---------- */
+/* added 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- } ---------- */
 
 //--------------------------------------------------------------------------//
-//	ó‘Ô•Êˆ—ŠÖ”ŒQ
+//	çŠ¶æ…‹åˆ¥å‡¦ç†é–¢æ•°ç¾¤
 //--------------------------------------------------------------------------//
 /*
- *	‰Šúó‘Ô
+ *	åˆæœŸçŠ¶æ…‹
  */
 void CChiefTransiDeskew::enter_ST_DSKW_INIT(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_DESKEW_DISP[0], (DWORD) pEvParams);
 
-	// ‰Šú‰»ˆ—‚Í‚ ‚è‚Ü‚¹‚ñD
+	// åˆæœŸåŒ–å‡¦ç†ã¯ã‚ã‚Šã¾ã›ã‚“ï¼
 }
 
 /*
- *	ƒAƒCƒhƒ‹
+ *	ã‚¢ã‚¤ãƒ‰ãƒ«
  */
 void CChiefTransiDeskew::enter_ST_DSKW_IDLE(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_DESKEW_DISP[1], (DWORD) pEvParams);
 
-	// WAIT ó‘Ô‚É‚·‚é‚½‚ßˆ—‚Í‚ ‚è‚Ü‚¹‚ñD
+	// WAIT çŠ¶æ…‹ã«ã™ã‚‹ãŸã‚å‡¦ç†ã¯ã‚ã‚Šã¾ã›ã‚“ï¼
 }
 
 /*
- *	ŠJn‘Oˆ—(WAIT ó‘Ô–³‚µ)
+ *	é–‹å§‹å‰å‡¦ç†(WAIT çŠ¶æ…‹ç„¡ã—)
  */
 void CChiefTransiDeskew::enter_ST_DSKW_START(const cEventParams* const pEvParams)
 {
@@ -334,10 +334,10 @@ void CChiefTransiDeskew::enter_ST_DSKW_START(const cEventParams* const pEvParams
 
 	DWORD	l_dwErrCode = TR_DSKW_OK;
 
-/* added 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- { ---------- */
+/* added 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- { ---------- */
 	m_wHeadPre = NS_GetCurrentHeadType();
-	((CChiefView*) m_pcChiefView)->SelectHead(HEAD_TYPE_SR, FALSE);		/* SR ƒwƒbƒh‚É‚µ‚Ü‚·D	*/
-/* added 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- } ---------- */
+	((CChiefView*) m_pcChiefView)->SelectHead(HEAD_TYPE_SR, FALSE);		/* SR ãƒ˜ãƒƒãƒ‰ã«ã—ã¾ã™ï¼	*/
+/* added 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- } ---------- */
 // 2013.02.22 bagus Substrate thickness setting -->
 	LPSTAGE_PROG_INFO_HDR	pStageProgInfoHdr = (LPSTAGE_PROG_INFO_HDR) (((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pStageProgInfoHdr);
 	if (((CChiefView*) m_pcChiefView)->SelectSubstrateThick(pStageProgInfoHdr->SampleInfo.dThickness)) {
@@ -345,37 +345,37 @@ void CChiefTransiDeskew::enter_ST_DSKW_START(const cEventParams* const pEvParams
 	}
 // 2013.02.22 bagus Substrate thickness setting <--
 
-	// ƒfƒXƒLƒ…[ƒ‚[ƒh‚ğ”»’è -------------------------------------------------
+	// ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ãƒ¢ãƒ¼ãƒ‰ã‚’åˆ¤å®š -------------------------------------------------
 	int l_iEventNext;
-	// ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh”»’è
+	// ãƒãƒ¼ãƒ‰ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ãƒˆãƒ¢ãƒ¼ãƒ‰åˆ¤å®š
 	if (0 == ((CMainFrame*) (((CChiefView*) m_pcChiefView)->m_pcMainFrame))->HardwareSimulation()) {
-		// À‹@‚Ìê‡ -----------------------------------------------------
+		// å®Ÿæ©Ÿã®å ´åˆ -----------------------------------------------------
 		LPSTAGE_PROG_INFO_HDR	l_pStageProgInfoHdr = (LPSTAGE_PROG_INFO_HDR) (((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pStageProgInfoHdr);
 		switch (l_pStageProgInfoHdr->nDeskewMode) {
-		case DESKEW_MODE_MANUAL_DESKEW:		// ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[
+		case DESKEW_MODE_MANUAL_DESKEW:		// ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼
 			l_iEventNext = EV_DSKW_MANU;
-			// Ÿ‚Ìƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚Åƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[‚ğ”­s‚µ‚Ä‚¢‚Ü‚·D
+			// æ¬¡ã®ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã§ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ã‚’ç™ºè¡Œã—ã¦ã„ã¾ã™ï¼
 			break;
-		case DESKEW_MODE_PATTERN_DESKEW:	// ƒI[ƒgƒfƒXƒLƒ…[
-			// AF ”­s
-/* modified 2012.01.23 hmenjo [‚V]ŸèƒAƒ{[ƒg‘Îô ---------- { ---------- */
+		case DESKEW_MODE_PATTERN_DESKEW:	// ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼
+			// AF ç™ºè¡Œ
+/* modified 2012.01.23 hmenjo [ï¼—]å‹æ‰‹ã‚¢ãƒœãƒ¼ãƒˆå¯¾ç­– ---------- { ---------- */
 //			if (false == ((CChiefTransiAF*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiAF)->IsIdle()) {
-/* modified 2012.01.23 hmenjo [‚V]ŸèƒAƒ{[ƒg‘Îô ----------              */
+/* modified 2012.01.23 hmenjo [ï¼—]å‹æ‰‹ã‚¢ãƒœãƒ¼ãƒˆå¯¾ç­– ----------              */
 			if (FALSE != ((CChiefView*) m_pcChiefView)->IsBusyTransi(3, 4)) {
 				((CChiefView*) m_pcChiefView)->LogChief(_T("CChiefTransiDeskew::enter_ST_DSKW_START() - AF Seq is busy."));
-/* modified 2012.01.23 hmenjo [‚V]ŸèƒAƒ{[ƒg‘Îô ---------- } ---------- */
-				// AF ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ªƒrƒW[‚Å‚µ‚½D
+/* modified 2012.01.23 hmenjo [ï¼—]å‹æ‰‹ã‚¢ãƒœãƒ¼ãƒˆå¯¾ç­– ---------- } ---------- */
+				// AF ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãŒãƒ“ã‚¸ãƒ¼ã§ã—ãŸï¼
 				l_iEventNext = EV_DSKW_IDLE;
 				l_dwErrCode = TR_DSKW_TRAF_BUSY;
 			} else {
 // 2009.03.11 K.Matsuo change -->
-//				// Ÿ‚Ìƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚Å AF w—ß‚ğ”­s‚µ‚Ä‚¢‚Ü‚·D
+//				// æ¬¡ã®ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã§ AF æŒ‡ä»¤ã‚’ç™ºè¡Œã—ã¦ã„ã¾ã™ï¼
 //				l_iEventNext = EV_DSKW_AF;
 				l_iEventNext = EV_DSKW_AUTO;
 // 2009.03.11 K.Matsuo change <--
 			}
 			break;
-		case DESKEW_MODE_NO_DESKEW:			// ƒfƒXƒLƒ…[–³‚µ
+		case DESKEW_MODE_NO_DESKEW:			// ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ç„¡ã—
 		default:
 			// Deskew Clear
 			DeskewClear();
@@ -383,67 +383,67 @@ void CChiefTransiDeskew::enter_ST_DSKW_START(const cEventParams* const pEvParams
 			break;
 		}
 	} else {
-		// ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh‚Ìê‡‚ÍƒfƒXƒLƒ…[–³‚µ‚É‚·‚é -----------
+		// ãƒãƒ¼ãƒ‰ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ãƒˆãƒ¢ãƒ¼ãƒ‰ã®å ´åˆã¯ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ç„¡ã—ã«ã™ã‚‹ -----------
 		((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_DSKW_HWS_DESKEWING);	// Status Bar
 #ifdef CHIEF_USE_SLEEP
 		::Sleep(2000);
 #endif
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- { ---------- */
 		((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_DSKW_HWS_DESKEWED);	// Status Bar
-#else						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ----------			   */
+#else						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ----------			   */
 		((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(_T(" "));	// Status Bar
-#endif						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- } ---------- */
 		l_iEventNext = EV_DSKW_IDLE;
 	}
 
 	if (EV_DSKW_IDLE != l_iEventNext) {
-		// ƒ^[ƒŒƒbƒg§Œä(ƒfƒXƒLƒ…[—pFƒƒCƒ“ƒŒƒVƒs‚Ì LensC‚ ‚é‚¢‚ÍCƒXƒe[ƒWƒvƒƒOƒ‰ƒ€‚Ì Lens)
-		//		‚±‚±‚Å‚ÍƒXƒe[ƒWƒvƒƒOƒ‰ƒ€‚Ì Lens ‚ğg‚¢‚Ü‚·
+		// ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆåˆ¶å¾¡(ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ç”¨ï¼šãƒ¡ã‚¤ãƒ³ãƒ¬ã‚·ãƒ”ã® Lensï¼Œã‚ã‚‹ã„ã¯ï¼Œã‚¹ãƒ†ãƒ¼ã‚¸ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã® Lens)
+		//		ã“ã“ã§ã¯ã‚¹ãƒ†ãƒ¼ã‚¸ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã® Lens ã‚’ä½¿ã„ã¾ã™
 		// 2009.01.30 k.matsuo delete ----->
-		// ‚±‚±‚Å‚Íƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’u‚Ì‰Â”\«‘å‚È‚Ì‚ÅAƒI[ƒgƒtƒH[ƒJƒXƒGƒ‰[‚·‚éBƒfƒXƒLƒ…[ƒ|ƒWƒVƒ‡ƒ“‚Ås‚È‚¤‚É‚·‚éB
+		// ã“ã“ã§ã¯ãƒ€ãƒ¼ã‚¯ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®ã®å¯èƒ½æ€§å¤§ãªã®ã§ã€ã‚ªãƒ¼ãƒˆãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚¨ãƒ©ãƒ¼ã™ã‚‹ã€‚ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ãƒã‚¸ã‚·ãƒ§ãƒ³ã§è¡Œãªã†ã«ã™ã‚‹ã€‚
 //		LPSTAGE_PROG_INFO_HDR l_pStageProgInfoHdr = (LPSTAGE_PROG_INFO_HDR) (((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pStageProgInfoHdr);
 //		((CChiefView*) m_pcChiefView)->SelectLens(l_pStageProgInfoHdr->iLens);
 		// 2009.01.30 k.matsuo delete <-----
-		// ƒJƒ‰[ƒtƒBƒ‹ƒ^§Œä(ƒfƒXƒLƒ…[—pFOPEN ‚É‚µ‚Ü‚·)
+		// ã‚«ãƒ©ãƒ¼ãƒ•ã‚£ãƒ«ã‚¿åˆ¶å¾¡(ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ç”¨ï¼šOPEN ã«ã—ã¾ã™)
 		if (0 == MEAS_SrHead_ChangeCcdShutter(FILTER_OPEN)) {
-			// ˆÙí‚Å‚à–³‹‚µ‚Ü‚·D
+			// ç•°å¸¸æ™‚ã§ã‚‚ç„¡è¦–ã—ã¾ã™ï¼
 			((CChiefView*) m_pcChiefView)->LogChief(_T("Failed to MEAS_SrHead_ChangeCcdShutter() in CChiefTransiDeskew::enter_ST_DSKW_START()."));
 		}
 	}
 
-	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV -----------------------------------------------------
+	// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–° -----------------------------------------------------
 	TransiEvent(l_iEventNext);
 
-	// ŒÄoŒ³(SEQ ‚Ì‚İ‚Ì‚Í‚¸)ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ğ’Ê’m
+	// å‘¼å‡ºå…ƒ(SEQ ã®ã¿ã®ã¯ãš)ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥
 	if (EV_DSKW_IDLE == l_iEventNext) {
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- { ---------- */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- { ---------- */
 //		((CChiefTransiSeq*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq)->TransiEvent(EV_SEQ_DESKEW_DONE, (cEventParams*) l_dwErrCode);
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ----------			  */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ----------			  */
 		this->NotifyComplete((cEventParams*) l_dwErrCode);
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- } ---------- */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- } ---------- */
 	}
 }
 
 /*
- *	AF Š®—¹‘Ò‚¿
+ *	AF å®Œäº†å¾…ã¡
  */
 void CChiefTransiDeskew::enter_ST_DSKW_AF(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_DESKEW_DISP[3], (DWORD) pEvParams);
 
-	// AF ”­s
+	// AF ç™ºè¡Œ
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_DSKW_FOCUSING);	// Status Bar
-/* modified 2009.09.09 hmenjo ˆø”•ÏX ---------- { ---------- */
+/* modified 2009.09.09 hmenjo å¼•æ•°å¤‰æ›´ ---------- { ---------- */
 //	((CChiefTransiAF*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiAF)->TransiEvent(EV_AAF_START, (cEventParams*) MAKELONG(TRANSI_DESKEW, 0));
-/* modified 2009.09.09 hmenjo ˆø”•ÏX ----------			   */
+/* modified 2009.09.09 hmenjo å¼•æ•°å¤‰æ›´ ----------			   */
 	((CChiefTransiAF*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiAF)->TransiEvent(EV_AAF_START, (cEventParams*) MAKELONG(MAKEWORD(TRANSI_DESKEW, 0), 0));
-/* modified 2009.09.09 hmenjo ˆø”•ÏX ---------- } ---------- */
+/* modified 2009.09.09 hmenjo å¼•æ•°å¤‰æ›´ ---------- } ---------- */
 
-	// WAIT ó‘Ô‚É‚·‚é‚½‚ßƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ğXV‚µ‚Ü‚¹‚ñD
+	// WAIT çŠ¶æ…‹ã«ã™ã‚‹ãŸã‚ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’æ›´æ–°ã—ã¾ã›ã‚“ï¼
 }
 
 /*
- *	AF Š®—¹(WAIT ó‘Ô–³‚µ)
+ *	AF å®Œäº†(WAIT çŠ¶æ…‹ç„¡ã—)
  */
 void CChiefTransiDeskew::enter_ST_DSKW_AF_DONE(const cEventParams* const pEvParams)
 {
@@ -451,104 +451,104 @@ void CChiefTransiDeskew::enter_ST_DSKW_AF_DONE(const cEventParams* const pEvPara
 
 	AF_VALID	l_AFValid;
 
-	// AF Œ‹‰Ê”»’è
+	// AF çµæœåˆ¤å®š
 	int l_iEventNext;
 	l_AFValid.dwValid = (DWORD) pEvParams;
-#if 0	// AF Œ‹‰Ê”»’è‚ğ•ÏX -------- { --------
+#if 0	// AF çµæœåˆ¤å®šã‚’å¤‰æ›´ -------- { --------
 	switch (l_AFValid.ucResultAF) {
-	case 0:		// AF –³‚µ
-	case 1:		// AF ³í
-	case 2:		// ©“®‹­§‘ª’è
+	case 0:		// AF ç„¡ã—
+	case 1:		// AF æ­£å¸¸
+	case 2:		// è‡ªå‹•å¼·åˆ¶æ¸¬å®š
 		l_iEventNext = EV_DSKW_AF_OK;
 		break;
-	case 4:		// AF ¸”s(Œ³ƒ|ƒbƒvƒAƒbƒv)
+	case 4:		// AF å¤±æ•—(å…ƒãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—)
 		switch (l_AFValid.ucResultPopup) {
-		case 2:		// •Â‚¶‚é(OK)(Œ³ AF –³‹)ƒ{ƒ^ƒ“
+		case 2:		// é–‰ã˜ã‚‹(OK)(å…ƒ AF ç„¡è¦–)ãƒœã‚¿ãƒ³
 			l_iEventNext = EV_DSKW_AF_OK;
 			break;
-		case 4:		// ƒLƒƒƒ“ƒZƒ‹ƒ{ƒ^ƒ“
+		case 4:		// ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒœã‚¿ãƒ³
 			l_iEventNext = EV_DSKW_AF_CANCEL;
 			break;
-		case 0:		// ƒ|ƒbƒvƒAƒbƒv–³‚µ
-		case 1:		// ƒŠƒgƒ‰ƒCƒ{ƒ^ƒ“
-		case 3:		// ƒXƒLƒbƒvƒ{ƒ^ƒ“
+		case 0:		// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ç„¡ã—
+		case 1:		// ãƒªãƒˆãƒ©ã‚¤ãƒœã‚¿ãƒ³
+		case 3:		// ã‚¹ã‚­ãƒƒãƒ—ãƒœã‚¿ãƒ³
 		default:
 			l_iEventNext = EV_DSKW_AF_NG;
 			break;
 		}
 		break;
-	case 5:		// ƒŒƒVƒsI—¹
+	case 5:		// ãƒ¬ã‚·ãƒ”çµ‚äº†
 		l_iEventNext = EV_DSKW_AF_CANCEL;
 		break;
-	case 3:		// ©“®ƒXƒLƒbƒv
+	case 3:		// è‡ªå‹•ã‚¹ã‚­ãƒƒãƒ—
 	default:
 		l_iEventNext = EV_DSKW_AF_NG;
 		break;
 	}
-#else	// AF Œ‹‰Ê”»’è‚ğ•ÏX --------
+#else	// AF çµæœåˆ¤å®šã‚’å¤‰æ›´ --------
 	switch (l_AFValid.ucResultPopup) {
-	case 0:		// ƒ|ƒbƒvƒAƒbƒv–³‚µ
-	case 1:		// ƒŠƒgƒ‰ƒCƒ{ƒ^ƒ“
+	case 0:		// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ç„¡ã—
+	case 1:		// ãƒªãƒˆãƒ©ã‚¤ãƒœã‚¿ãƒ³
 		switch (l_AFValid.ucResultAF) {
-		case 0:		// AF –³‚µ
-		case 1:		// AF ³í
-		case 2:		// ©“®‹­§‘ª’è
+		case 0:		// AF ç„¡ã—
+		case 1:		// AF æ­£å¸¸
+		case 2:		// è‡ªå‹•å¼·åˆ¶æ¸¬å®š
 			l_iEventNext = EV_DSKW_AF_OK;
 			break;
-		case 3:		// ©“®ƒXƒLƒbƒv
-		case 4:		// AF ¸”s(ƒRƒR‚Å‚±‚Ìó‘Ô‚Í‘¶İ‚µ‚È‚¢‚Í‚¸)
-		case 5:		// ƒŒƒVƒsI—¹(ƒfƒXƒLƒ…[‚Å‚ÍƒLƒƒƒ“ƒZƒ‹‚³‚¹‚¸ NG ‚Æ‚µCƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[‚ÉˆÚs‚³‚¹‚Ü‚·)
+		case 3:		// è‡ªå‹•ã‚¹ã‚­ãƒƒãƒ—
+		case 4:		// AF å¤±æ•—(ã‚³ã‚³ã§ã“ã®çŠ¶æ…‹ã¯å­˜åœ¨ã—ãªã„ã¯ãš)
+		case 5:		// ãƒ¬ã‚·ãƒ”çµ‚äº†(ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ã§ã¯ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã›ãš NG ã¨ã—ï¼Œãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ã«ç§»è¡Œã•ã›ã¾ã™)
 		default:
 			l_iEventNext = EV_DSKW_AF_NG;
 			break;
 		}
 		break;
-	case 2:		// •Â‚¶‚é(OK)(Œ³ AF –³‹)ƒ{ƒ^ƒ“
+	case 2:		// é–‰ã˜ã‚‹(OK)(å…ƒ AF ç„¡è¦–)ãƒœã‚¿ãƒ³
 		l_iEventNext = EV_DSKW_AF_OK;
 		break;
-	case 4:		// ƒLƒƒƒ“ƒZƒ‹ƒ{ƒ^ƒ“
+	case 4:		// ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒœã‚¿ãƒ³
 		l_iEventNext = EV_DSKW_AF_CANCEL;
 		break;
-	case 3:		// ƒXƒLƒbƒvƒ{ƒ^ƒ“
+	case 3:		// ã‚¹ã‚­ãƒƒãƒ—ãƒœã‚¿ãƒ³
 	default:
 		l_iEventNext = EV_DSKW_AF_NG;
 		break;
 	}
-#endif	// AF Œ‹‰Ê”»’è‚ğ•ÏX -------- } --------
+#endif	// AF çµæœåˆ¤å®šã‚’å¤‰æ›´ -------- } --------
 
-	// Ÿ‚Ìƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÅƒI[ƒg/ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[‚ğ”­s‚µ‚Ä‚¢‚Ü‚·D
+	// æ¬¡ã®ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã§ã‚ªãƒ¼ãƒˆ/ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ã‚’ç™ºè¡Œã—ã¦ã„ã¾ã™ï¼
 
-	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV -----------------------------------------------------
+	// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–° -----------------------------------------------------
 	TransiEvent(l_iEventNext);
 
 	if (EV_DSKW_AF_CANCEL == l_iEventNext) {
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- { ---------- */
 		((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_DSKW_FOCUS_CANCEL);	// Status Bar
-#else						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ----------			   */
+#else						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ----------			   */
 		((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(_T(" "));	// Status Bar
-#endif						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ---------- } ---------- */
-		// ŒÄoŒ³(SEQ ‚Ì‚İ‚Ì‚Í‚¸)ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ğ’Ê’m
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- { ---------- */
+#endif						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- } ---------- */
+		// å‘¼å‡ºå…ƒ(SEQ ã®ã¿ã®ã¯ãš)ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- { ---------- */
 //		((CChiefTransiSeq*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq)->TransiEvent(EV_SEQ_DESKEW_DONE, (cEventParams*) TR_DSKW_AF_CANCEL);
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ----------			  */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ----------			  */
 		this->NotifyComplete((cEventParams*) TR_DSKW_AF_CANCEL);
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- } ---------- */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- } ---------- */
 	}
 }
 
 /*
- *	ƒI[ƒgƒfƒXƒLƒ…[Š®—¹‘Ò‚¿
+ *	ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼å®Œäº†å¾…ã¡
  */
 void CChiefTransiDeskew::enter_ST_DSKW_AUTO(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_DESKEW_DISP[5], (DWORD) pEvParams);
 
-	// ƒI[ƒgƒfƒXƒLƒ…[”­s
+	// ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ç™ºè¡Œ
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_DSKW_AUTO_ING);	// Status Bar
-	// ƒpƒ^[ƒ“”F¯ƒtƒ‰ƒO‚ğƒZƒbƒg
+	// ãƒ‘ã‚¿ãƒ¼ãƒ³èªè­˜ãƒ•ãƒ©ã‚°ã‚’ã‚»ãƒƒãƒˆ
 	((CNanoSpecDoc*) ((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc)->SetPatRecFlag(TRUE);
 	/*
-	 *	ƒRƒR‚ÉƒI[ƒgƒfƒXƒLƒ…[‚Ì‹N“®ˆ—‚ğ“ü‚ê‚Ä‚­‚¾‚³‚¢D
+	 *	ã‚³ã‚³ã«ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ã®èµ·å‹•å‡¦ç†ã‚’å…¥ã‚Œã¦ãã ã•ã„ï¼
 	 */
 	m_pDeskewSeq = (CDeskewSeq*)AfxBeginThread(RUNTIME_CLASS(CDeskewAutoSeq), THREAD_PRIORITY_NORMAL, 0, CREATE_SUSPENDED, NULL);
 	m_pDeskewSeq->m_pChiefView			= (CChiefView*)m_pcChiefView;
@@ -557,11 +557,11 @@ void CChiefTransiDeskew::enter_ST_DSKW_AUTO(const cEventParams* const pEvParams)
 	m_pDeskewSeq->ResumeThread();
 
 
-	// WAIT ó‘Ô‚É‚·‚é‚½‚ßƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ğXV‚µ‚Ü‚¹‚ñD
+	// WAIT çŠ¶æ…‹ã«ã™ã‚‹ãŸã‚ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’æ›´æ–°ã—ã¾ã›ã‚“ï¼
 }
 
 /*
- *	ƒI[ƒgƒfƒXƒLƒ…[ OK Š®—¹(WAIT ó‘Ô–³‚µ)
+ *	ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ OK å®Œäº†(WAIT çŠ¶æ…‹ç„¡ã—)
  */
 void CChiefTransiDeskew::enter_ST_DSKW_AUTO_OK(const cEventParams* const pEvParams)
 {
@@ -571,28 +571,28 @@ void CChiefTransiDeskew::enter_ST_DSKW_AUTO_OK(const cEventParams* const pEvPara
 	m_pDeskewSeq = NULL;
 // 2009.03.18 K.Matsuo Add <--
 
-	// ƒpƒ^[ƒ“”F¯ƒtƒ‰ƒO‚ğƒŠƒZƒbƒg
+	// ãƒ‘ã‚¿ãƒ¼ãƒ³èªè­˜ãƒ•ãƒ©ã‚°ã‚’ãƒªã‚»ãƒƒãƒˆ
 	((CNanoSpecDoc*) ((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc)->SetPatRecFlag(FALSE);
 
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- { ---------- */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_DSKW_AUTO_COMPLETE);	// Status Bar
-#else						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ----------			   */
+#else						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ----------			   */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(_T(" "));	// Status Bar
-#endif						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- } ---------- */
 
-	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV -----------------------------------------------------
+	// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–° -----------------------------------------------------
 	TransiEvent(EV_DSKW_IDLE);
 
-	// ŒÄoŒ³(SEQ ‚Ì‚İ‚Ì‚Í‚¸)ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ğ’Ê’m
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- { ---------- */
+	// å‘¼å‡ºå…ƒ(SEQ ã®ã¿ã®ã¯ãš)ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- { ---------- */
 //	((CChiefTransiSeq*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq)->TransiEvent(EV_SEQ_DESKEW_DONE, (cEventParams*) TR_DSKW_OK);
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ----------			  */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ----------			  */
 	this->NotifyComplete((cEventParams*) TR_DSKW_OK);
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- } ---------- */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- } ---------- */
 }
 
 /*
- *	ƒI[ƒgƒfƒXƒLƒ…[¸”s‚Ì‚Ü‚Ü‘±s(WAIT ó‘Ô–³‚µ)
+ *	ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼å¤±æ•—ã®ã¾ã¾ç¶šè¡Œ(WAIT çŠ¶æ…‹ç„¡ã—)
  */
 void CChiefTransiDeskew::enter_ST_DSKW_AUTO_PROCEED(const cEventParams* const pEvParams)
 {
@@ -602,28 +602,28 @@ void CChiefTransiDeskew::enter_ST_DSKW_AUTO_PROCEED(const cEventParams* const pE
 	m_pDeskewSeq = NULL;
 // 2009.03.18 K.Matsuo Add <--
 
-	// ƒpƒ^[ƒ“”F¯ƒtƒ‰ƒO‚ğƒŠƒZƒbƒg
+	// ãƒ‘ã‚¿ãƒ¼ãƒ³èªè­˜ãƒ•ãƒ©ã‚°ã‚’ãƒªã‚»ãƒƒãƒˆ
 	((CNanoSpecDoc*) ((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc)->SetPatRecFlag(FALSE);
 
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- { ---------- */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_DSKW_AUTO_FAILED);	// Status Bar
-#else						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ----------			   */
+#else						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ----------			   */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(_T(" "));	// Status Bar
-#endif						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- } ---------- */
 
-	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV -----------------------------------------------------
+	// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–° -----------------------------------------------------
 	TransiEvent(EV_DSKW_IDLE);
 
-	// ŒÄoŒ³(SEQ ‚Ì‚İ‚Ì‚Í‚¸)ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ğ’Ê’m
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- { ---------- */
+	// å‘¼å‡ºå…ƒ(SEQ ã®ã¿ã®ã¯ãš)ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- { ---------- */
 //	((CChiefTransiSeq*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq)->TransiEvent(EV_SEQ_DESKEW_DONE, (cEventParams*) TR_DSKW_AUTO_PROCEED);
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ----------			  */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ----------			  */
 	this->NotifyComplete((cEventParams*) TR_DSKW_AUTO_PROCEED);
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- } ---------- */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- } ---------- */
 }
 
 /*
- *	ƒI[ƒgƒfƒXƒLƒ…[ƒŒƒVƒsI—¹(WAIT ó‘Ô–³‚µ)
+ *	ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ãƒ¬ã‚·ãƒ”çµ‚äº†(WAIT çŠ¶æ…‹ç„¡ã—)
  */
 void CChiefTransiDeskew::enter_ST_DSKW_AUTO_CANCEL(const cEventParams* const pEvParams)
 {
@@ -633,29 +633,29 @@ void CChiefTransiDeskew::enter_ST_DSKW_AUTO_CANCEL(const cEventParams* const pEv
 	m_pDeskewSeq = NULL;
 // 2009.03.18 K.Matsuo Add <--
 
-	// ƒpƒ^[ƒ“”F¯ƒtƒ‰ƒO‚ğƒŠƒZƒbƒg
+	// ãƒ‘ã‚¿ãƒ¼ãƒ³èªè­˜ãƒ•ãƒ©ã‚°ã‚’ãƒªã‚»ãƒƒãƒˆ
 	((CNanoSpecDoc*) ((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc)->SetPatRecFlag(FALSE);
 
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- { ---------- */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_DSKW_AUTO_CANCEL);	// Status Bar
-#else						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ----------			   */
+#else						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ----------			   */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(_T(" "));	// Status Bar
-#endif						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- } ---------- */
 
-	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV -----------------------------------------------------
+	// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–° -----------------------------------------------------
 	TransiEvent(EV_DSKW_IDLE);
 
-	// ŒÄoŒ³(SEQ ‚Ì‚İ‚Ì‚Í‚¸)ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ğ’Ê’m
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- { ---------- */
+	// å‘¼å‡ºå…ƒ(SEQ ã®ã¿ã®ã¯ãš)ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- { ---------- */
 //	((CChiefTransiSeq*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq)->TransiEvent(EV_SEQ_DESKEW_DONE, (cEventParams*) TR_DSKW_AUTO_CANCEL);
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ----------			  */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ----------			  */
 		this->NotifyComplete((cEventParams*) TR_DSKW_AUTO_CANCEL);
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- } ---------- */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- } ---------- */
 }
 
 // 2009.04.10 K.Matsuo Add -->
 /*
- *	ƒI[ƒgƒfƒXƒLƒ…[¸”s‚Ì‚Ü‚Ü‘±sEˆÊ’u•â³•t‚«‘ª’è(WAIT ó‘Ô–³‚µ)
+ *	ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼å¤±æ•—ã®ã¾ã¾ç¶šè¡Œãƒ»ä½ç½®è£œæ­£ä»˜ãæ¸¬å®š(WAIT çŠ¶æ…‹ç„¡ã—)
  */
 void CChiefTransiDeskew::enter_ST_DSKW_AUTO_PROCEED_PMA(const cEventParams* const pEvParams)
 {
@@ -663,33 +663,33 @@ void CChiefTransiDeskew::enter_ST_DSKW_AUTO_PROCEED_PMA(const cEventParams* cons
 
 	m_pDeskewSeq = NULL;
 
-	// ƒpƒ^[ƒ“”F¯ƒtƒ‰ƒO‚ğƒŠƒZƒbƒg
+	// ãƒ‘ã‚¿ãƒ¼ãƒ³èªè­˜ãƒ•ãƒ©ã‚°ã‚’ãƒªã‚»ãƒƒãƒˆ
 	((CNanoSpecDoc*) ((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc)->SetPatRecFlag(FALSE);
 
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- { ---------- */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_DSKW_AUTO_FAILED);	// Status Bar
-#else						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ----------			   */
+#else						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ----------			   */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(_T(" "));	// Status Bar
-#endif						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- } ---------- */
 
-	// ‘ª’èŠJn‚É“Ç‚İ‚ñ‚¾ƒŒƒVƒs“à—eiƒoƒbƒtƒ@j‚ÉuPMA‚ğg—p‚·‚év‚ğ‹­§İ’è‚·‚é
+	// æ¸¬å®šé–‹å§‹æ™‚ã«èª­ã¿è¾¼ã‚“ã ãƒ¬ã‚·ãƒ”å†…å®¹ï¼ˆãƒãƒƒãƒ•ã‚¡ï¼‰ã«ã€ŒPMAã‚’ä½¿ç”¨ã™ã‚‹ã€ã‚’å¼·åˆ¶è¨­å®šã™ã‚‹
 	LPMAIN_RCP_INFO l_pMainRcpInfo = (LPMAIN_RCP_INFO) (((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pMainRcpInfo);
 	l_pMainRcpInfo->MainRcpParam.hdr.nPointManualAdjustment = POINT_MANUAL_ADJUSTMENT_ALL_POINT_EVERY_ADJUSTMENT;
 
-	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV -----------------------------------------------------
+	// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–° -----------------------------------------------------
 	TransiEvent(EV_DSKW_IDLE);
 
-	// ŒÄoŒ³(SEQ ‚Ì‚İ‚Ì‚Í‚¸)ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ğ’Ê’m
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- { ---------- */
+	// å‘¼å‡ºå…ƒ(SEQ ã®ã¿ã®ã¯ãš)ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- { ---------- */
 //	((CChiefTransiSeq*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq)->TransiEvent(EV_SEQ_DESKEW_DONE, (cEventParams*) TR_DSKW_AUTO_PROCEED);
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ----------			  */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ----------			  */
 	this->NotifyComplete((cEventParams*) TR_DSKW_AUTO_PROCEED);
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- } ---------- */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- } ---------- */
 }
 // 2009.04.10 K.Matsuo Add <--
 
 /*
- *	ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[Š®—¹‘Ò‚¿
+ *	ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼å®Œäº†å¾…ã¡
  */
 void CChiefTransiDeskew::enter_ST_DSKW_MANU(const cEventParams* const pEvParams)
 {
@@ -699,13 +699,13 @@ void CChiefTransiDeskew::enter_ST_DSKW_MANU(const cEventParams* const pEvParams)
 	m_pDeskewSeq = NULL;
 // 2009.03.18 K.Matsuo Add <--
 
-	// ƒpƒ^[ƒ“”F¯ƒtƒ‰ƒO‚ğƒŠƒZƒbƒg
+	// ãƒ‘ã‚¿ãƒ¼ãƒ³èªè­˜ãƒ•ãƒ©ã‚°ã‚’ãƒªã‚»ãƒƒãƒˆ
 	((CNanoSpecDoc*) ((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc)->SetPatRecFlag(FALSE);
 
-	// ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[”­s
+	// ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ç™ºè¡Œ
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_DSKW_MANU_ING);	// Status Bar
 	/*
-	 *	ƒRƒR‚Éƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[‚Ì‹N“®ˆ—‚ğ“ü‚ê‚Ä‚­‚¾‚³‚¢D
+	 *	ã‚³ã‚³ã«ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ã®èµ·å‹•å‡¦ç†ã‚’å…¥ã‚Œã¦ãã ã•ã„ï¼
 	 */
 	m_pDeskewSeq = (CDeskewSeq*)AfxBeginThread(RUNTIME_CLASS(CDeskewManualSeq), THREAD_PRIORITY_NORMAL, 0, CREATE_SUSPENDED, NULL);
 	m_pDeskewSeq->m_pChiefView			= (CChiefView*)m_pcChiefView;
@@ -714,17 +714,17 @@ void CChiefTransiDeskew::enter_ST_DSKW_MANU(const cEventParams* const pEvParams)
 	m_pDeskewSeq->ResumeThread();
 
 // 2009.04.10 K.Matsuo Add -->
-	// ƒ|ƒbƒvƒAƒbƒv‚ğƒAƒ‰[ƒ€‚Å’Ê’m‚µ‚Ü‚·D
+	// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã‚’ã‚¢ãƒ©ãƒ¼ãƒ ã§é€šçŸ¥ã—ã¾ã™ï¼
 	if (HOST_LOCAL != ((CNanoSpecDoc*) (((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc))->GetHostMode()) {
 		((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_OFF), MAKEWORD(1, CHRAMSG_OK)), MAKELPARAM(0, ALID_ManualDeskewRequired));
 	}
 // 2009.04.10 K.Matsuo Add <--
 
-	// WAIT ó‘Ô‚É‚·‚é‚½‚ßƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ğXV‚µ‚Ü‚¹‚ñD
+	// WAIT çŠ¶æ…‹ã«ã™ã‚‹ãŸã‚ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’æ›´æ–°ã—ã¾ã›ã‚“ï¼
 }
 
 /*
- *	ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[ OK Š®—¹(WAIT ó‘Ô–³‚µ)
+ *	ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ OK å®Œäº†(WAIT çŠ¶æ…‹ç„¡ã—)
  */
 void CChiefTransiDeskew::enter_ST_DSKW_MANU_OK(const cEventParams* const pEvParams)
 {
@@ -734,25 +734,25 @@ void CChiefTransiDeskew::enter_ST_DSKW_MANU_OK(const cEventParams* const pEvPara
 	m_pDeskewSeq = NULL;
 // 2009.03.18 K.Matsuo Add <--
 
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- { ---------- */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_DSKW_MANU_COMPLETE);	// Status Bar
-#else						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ----------			   */
+#else						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ----------			   */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(_T(" "));	// Status Bar
-#endif						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- } ---------- */
 
-	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV -----------------------------------------------------
+	// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–° -----------------------------------------------------
 	TransiEvent(EV_DSKW_IDLE);
 
-	// ŒÄoŒ³(SEQ ‚Ì‚İ‚Ì‚Í‚¸)ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ğ’Ê’m
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- { ---------- */
+	// å‘¼å‡ºå…ƒ(SEQ ã®ã¿ã®ã¯ãš)ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- { ---------- */
 //	((CChiefTransiSeq*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq)->TransiEvent(EV_SEQ_DESKEW_DONE, (cEventParams*) TR_DSKW_OK);
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ----------			  */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ----------			  */
 	this->NotifyComplete((cEventParams*) TR_DSKW_OK);
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- } ---------- */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- } ---------- */
 }
 
 /*
- *	ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[ƒŒƒVƒsI—¹(WAIT ó‘Ô–³‚µ)
+ *	ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ãƒ¬ã‚·ãƒ”çµ‚äº†(WAIT çŠ¶æ…‹ç„¡ã—)
  */
 void CChiefTransiDeskew::enter_ST_DSKW_MANU_CANCEL(const cEventParams* const pEvParams)
 {
@@ -762,25 +762,25 @@ void CChiefTransiDeskew::enter_ST_DSKW_MANU_CANCEL(const cEventParams* const pEv
 	m_pDeskewSeq = NULL;
 // 2009.03.18 K.Matsuo Add <--
 
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- { ---------- */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_DSKW_MANU_CANCEL);	// Status Bar
-#else						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ----------			   */
+#else						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ----------			   */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(_T(" "));	// Status Bar
-#endif						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- } ---------- */
 
-	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV -----------------------------------------------------
+	// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–° -----------------------------------------------------
 	TransiEvent(EV_DSKW_IDLE);
 
-	// ŒÄoŒ³(SEQ ‚Ì‚İ‚Ì‚Í‚¸)ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ğ’Ê’m
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- { ---------- */
+	// å‘¼å‡ºå…ƒ(SEQ ã®ã¿ã®ã¯ãš)ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- { ---------- */
 //	((CChiefTransiSeq*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq)->TransiEvent(EV_SEQ_DESKEW_DONE, (cEventParams*) TR_DSKW_MANU_CANCEL);
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ----------			  */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ----------			  */
 	this->NotifyComplete((cEventParams*) TR_DSKW_MANU_CANCEL);
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- } ---------- */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- } ---------- */
 }
 
 /*
- *	ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[‚È‚µ‚Å‘±s(WAIT ó‘Ô–³‚µ)
+ *	ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ãªã—ã§ç¶šè¡Œ(WAIT çŠ¶æ…‹ç„¡ã—)
  */
 void CChiefTransiDeskew::enter_ST_DSKW_MANU_NONE(const cEventParams* const pEvParams)
 {
@@ -790,19 +790,19 @@ void CChiefTransiDeskew::enter_ST_DSKW_MANU_NONE(const cEventParams* const pEvPa
 	m_pDeskewSeq = NULL;
 // 2009.03.18 K.Matsuo Add <--
 
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- { ---------- */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(IDS_CHIF_DSKW_MANU_IGNORE);	// Status Bar
-#else						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ----------			   */
+#else						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ----------			   */
 	((CChiefView*) m_pcChiefView)->m_pcMainFrame->SetMessageText(_T(" "));	// Status Bar
-#endif						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- } ---------- */
 
-	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV -----------------------------------------------------
+	// ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³æ›´æ–° -----------------------------------------------------
 	TransiEvent(EV_DSKW_IDLE);
 
-	// ŒÄoŒ³(SEQ ‚Ì‚İ‚Ì‚Í‚¸)ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ğ’Ê’m
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- { ---------- */
+	// å‘¼å‡ºå…ƒ(SEQ ã®ã¿ã®ã¯ãš)ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã«å®Œäº†ã‚’é€šçŸ¥
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- { ---------- */
 //	((CChiefTransiSeq*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq)->TransiEvent(EV_SEQ_DESKEW_DONE, (cEventParams*) TR_DSKW_MANU_PROCEED);
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ----------			  */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ----------			  */
 	this->NotifyComplete((cEventParams*) TR_DSKW_MANU_PROCEED);
-/* modified 2009.11.26 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì ---------- } ---------- */
+/* modified 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- } ---------- */
 }

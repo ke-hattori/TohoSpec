@@ -1,4 +1,4 @@
-// MeasurementListDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// MeasurementListDlg.cpp : �C���v�������e�[�V���� �t�@�C��
 //
 
 #include "stdafx.h"

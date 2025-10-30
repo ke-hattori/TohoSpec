@@ -1,4 +1,4 @@
-// NanoPifSockWnd.h : header file
+﻿// NanoPifSockWnd.h : header file
 //
 
 #pragma once

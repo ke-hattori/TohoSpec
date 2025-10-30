@@ -1,4 +1,4 @@
-// GlassineDLL.cpp : DLL ƒAƒvƒŠƒP[ƒVƒ‡ƒ“—p‚ÌƒGƒ“ƒgƒŠ ƒ|ƒCƒ“ƒg‚ð’è‹`‚µ‚Ü‚·B
+ï»¿// GlassineDLL.cpp : DLL ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ç”¨ã®ã‚¨ãƒ³ãƒˆãƒª ãƒã‚¤ãƒ³ãƒˆã‚’å®šç¾©ã—ã¾ã™ã€‚
 //
 
 typedef struct tagKBDLLHOOKSTRUCT {
@@ -9,7 +9,7 @@ typedef struct tagKBDLLHOOKSTRUCT {
 	DWORD dwExtraInfo;
 }KBDLLHOOKSTRUCT, FAR *LPKBDLLHOOK ;
 
-class __declspec(dllexport) KeyLock	// KeyHookƒNƒ‰ƒX‚ðéŒ¾‚µƒGƒNƒXƒ|[ƒg
+class __declspec(dllexport) KeyLock	// KeyHookã‚¯ãƒ©ã‚¹ã‚’å®£è¨€ã—ã‚¨ã‚¯ã‚¹ãƒãƒ¼ãƒˆ
 {
 
 public:

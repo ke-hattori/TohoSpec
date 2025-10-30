@@ -1,14 +1,14 @@
-#if !defined(AFX_RECIPEMEASUREMENTPROGRAMLISTVIEW_H__61C53245_C247_415B_BDA8_A8A0CFFEE82F__INCLUDED_)
+ï»¿#if !defined(AFX_RECIPEMEASUREMENTPROGRAMLISTVIEW_H__61C53245_C247_415B_BDA8_A8A0CFFEE82F__INCLUDED_)
 #define AFX_RECIPEMEASUREMENTPROGRAMLISTVIEW_H__61C53245_C247_415B_BDA8_A8A0CFFEE82F__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// RecipeMeasurementProgramListView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// RecipeMeasurementProgramListView.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 // ##########################################################################
-// CRecipeMeasurementProgramListView ƒtƒH[ƒ€ ƒrƒ…[
+// CRecipeMeasurementProgramListView ãƒ•ã‚©ãƒ¼ãƒ  ãƒ“ãƒ¥ãƒ¼
 // ##########################################################################
 
 #ifndef __AFXEXT_H__
@@ -20,7 +20,7 @@
 class CRecipeMeasurementProgramListView : public CNanoRecipeListUI
 {
 protected:
-	CRecipeMeasurementProgramListView();			// “®“I¶¬‚Ég—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CRecipeMeasurementProgramListView();			// å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	virtual ~CRecipeMeasurementProgramListView();
 	DECLARE_DYNCREATE(CRecipeMeasurementProgramListView)
 
@@ -41,6 +41,6 @@ private:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_RECIPEMEASUREMENTPROGRAMLISTVIEW_H__61C53245_C247_415B_BDA8_A8A0CFFEE82F__INCLUDED_)

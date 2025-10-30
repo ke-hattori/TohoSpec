@@ -1,4 +1,4 @@
-// SitePtSeqWnd.h : header file
+﻿// SitePtSeqWnd.h : header file
 //
 
 #pragma once

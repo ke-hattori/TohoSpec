@@ -1,4 +1,4 @@
-// SeXmpSettingDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// SeXmpSettingDlg.cpp : インプリメンテーション ファイル
 //
 
 #include "stdafx.h"
@@ -16,7 +16,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // #########################################################################
-// CSeXmpSettingDlg �_�C�A���O
+// CSeXmpSettingDlg ダイアログ
 // #########################################################################
 
 // =========================================================================
@@ -60,7 +60,7 @@ BEGIN_MESSAGE_MAP(CSeXmpSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CSeXmpSettingDlg ���b�Z�[�W �n���h��
+// CSeXmpSettingDlg メッセージ ハンドラ
 
 // =========================================================================
 //
@@ -95,21 +95,21 @@ BOOL CSeXmpSettingDlg::OnInitDialog()
 	m_WvaseExePathButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_WvaseExePathButton.DrawFlatFocus(TRUE);
 
-	// �R�����g����������
+	// コメント文字数制限
 	((CEdit*)GetDlgItem(IDC_STRATEGY_LIST_PATH))->SetLimitText(255);
 	((CEdit*)GetDlgItem(IDC_DATA_PATH))->SetLimitText(255);
 	((CEdit*)GetDlgItem(IDC_FITTING_DATA_PATH))->SetLimitText(255);
 	((CEdit*)GetDlgItem(IDC_WVASE_EXE_PATH))->SetLimitText(255);
 	((CEdit*)GetDlgItem(IDC_WVASE_WINDOW_TITLE))->SetLimitText(255);
 
-	// ADAP�g�p���@�FADAP�o�R��WVASE32�𗘗p����P�[�X�iADAP�{WVASE32�j�̑Ώ�
-	// Word�����wNanoSpec�{�̂�XMP SETTING��ʂɂ��āi20071130�j.doc�x�Q��
+	// ADAP使用時　：ADAP経由でWVASE32を利用するケース（ADAP＋WVASE32）の対処
+	// Word資料『NanoSpec本体のXMP SETTING画面について（20071130）.doc』参照
 	GetDlgItem(IDC_WVASE_EXE_PATH)->EnableWindow(FALSE);
 	GetDlgItem(IDC_WVASE_EXE_PATH_BUTTON)->EnableWindow(FALSE);
 	GetDlgItem(IDC_WVASE_WINDOW_TITLE)->EnableWindow(FALSE);
 
-	return TRUE;	// �R���g���[���Ƀt�H�[�J�X��ݒ肵�Ȃ��Ƃ��A�߂�l�� TRUE �ƂȂ�܂�
-					// ��O: OCX �v���p�e�B �y�[�W�̖߂�l�� FALSE �ƂȂ�܂�
+	return TRUE;	// コントロールにフォーカスを設定しないとき、戻り値は TRUE となります
+					// 例外: OCX プロパティ ページの戻り値は FALSE となります
 }
 
 // =========================================================================

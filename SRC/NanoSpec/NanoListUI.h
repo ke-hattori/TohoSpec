@@ -1,10 +1,10 @@
-// NanoListUI.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+ï»¿// NanoListUI.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #pragma once
 
 // ##########################################################################
-// CNanoListUI ƒtƒH[ƒ€ ƒrƒ…[
+// CNanoListUI ãƒ•ã‚©ãƒ¼ãƒ  ãƒ“ãƒ¥ãƒ¼
 // ##########################################################################
 
 #ifndef __AFXEXT_H__
@@ -20,28 +20,28 @@
 class CNanoListUI : public CNanoUI
 {
 protected:
-	CNanoListUI();			// “®“I¶¬‚Ég—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CNanoListUI();			// å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	virtual ~CNanoListUI();
 	DECLARE_DYNAMIC(CNanoListUI)
 
-// ƒtƒH[ƒ€ ƒf[ƒ^
+// ãƒ•ã‚©ãƒ¼ãƒ  ãƒ‡ãƒ¼ã‚¿
 public:
 	//{{AFX_DATA(CNanoListUI)
 	enum { IDD = IDD_RECIPE_MAIN_LIST_FORM };
 	//}}AFX_DATA
 	CNanoListCtrl m_lstCtrl;
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CRecipeMainListView)
 	public:
 	virtual void OnInitialUpdate();
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
 protected:
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CNanoRecipeListUI)
 	afx_msg void OnColumnclickRecipeMainList(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnUpdateNew(CCmdUI* pCmdUI);
@@ -49,10 +49,10 @@ protected:
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
-	virtual void List_HeaderSet()=0;	// ”h¶ƒNƒ‰ƒX‚Å’è‹`
-	virtual void List_DataSet()=0;		// ”h¶ƒNƒ‰ƒX‚Å’è‹`
+	virtual void List_HeaderSet()=0;	// æ´¾ç”Ÿã‚¯ãƒ©ã‚¹ã§å®šç¾©
+	virtual void List_DataSet()=0;		// æ´¾ç”Ÿã‚¯ãƒ©ã‚¹ã§å®šç¾©
 	void SortColumn(int iCol);
 
 	CListCtrl& rfListCtrl() {return m_lstCtrl;}

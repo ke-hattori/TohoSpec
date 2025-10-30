@@ -1,6 +1,6 @@
-
+ï»¿
 /*-------------------------------------------------------------------
- *	Chief ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“ŠÖ”ƒ|ƒCƒ“ƒ^ ’è‹`ƒtƒ@ƒCƒ‹
+ *	Chief ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³é–¢æ•°ãƒã‚¤ãƒ³ã‚¿ å®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«
  *-----------------------------------------------------------------*/
 
 #ifdef CHIEF_PFUNCS_MAS
@@ -32,7 +32,7 @@ static bool PFC_IsPauseSeqStress(CChiefView* pcChiefView)
 	{return ((CChiefTransiStress*) pcChiefView->m_pcChiefTransiStress)->IsPauseSeq();}
 #endif
 
-/* ƒAƒNƒZƒX—p\‘¢‘Ì	*/
+/* ã‚¢ã‚¯ã‚»ã‚¹ç”¨æ§‹é€ ä½“	*/
 typedef struct {
 	bool	(*IsIdle)(CChiefView*);
 	void	(*TransiEvent)(CChiefView*, const int, const cEventParams *const);
@@ -50,8 +50,8 @@ typedef struct {
 } CHIEF_PFUNCS, *LPCHIEF_PFUNCS;
 
 /*
- *	İ’èŠÖ”
- *		ŠÖ”ƒ|ƒCƒ“ƒ^‚Æƒpƒ‰ƒƒ^‚ğİ’è‚µ‚Ü‚·D
+ *	è¨­å®šé–¢æ•°
+ *		é–¢æ•°ãƒã‚¤ãƒ³ã‚¿ã¨ãƒ‘ãƒ©ãƒ¡ã‚¿ã‚’è¨­å®šã—ã¾ã™ï¼
  */
 CHIFPF_EXT BOOL PFC_FuncSet(CChiefView* pcChiefView, LPCHIEF_PFUNCS pChiefPFuncs, LPWORD pwHeadType)
 #ifndef CHIEF_PFUNCS_MAS
@@ -61,24 +61,24 @@ CHIFPF_EXT BOOL PFC_FuncSet(CChiefView* pcChiefView, LPCHIEF_PFUNCS pChiefPFuncs
 	LPMAIN_RCP_INFO l_pMainRcpInfo = (LPMAIN_RCP_INFO) pcChiefView->m_ChiefRecipes.pMainRcpInfo;
 	if (0 == l_pMainRcpInfo) {
 		if (0 != pwHeadType) {*pwHeadType = -1;}
-		return FALSE;	/* ƒƒCƒ“ƒŒƒVƒs–¢“Ç‚İ	*/
+		return FALSE;	/* ãƒ¡ã‚¤ãƒ³ãƒ¬ã‚·ãƒ”æœªèª­è¾¼ã¿	*/
 	}
 	if (0 != pwHeadType) {*pwHeadType = l_pMainRcpInfo->MainRcpParam.hdr.wHeadType;}
 	switch (l_pMainRcpInfo->MainRcpParam.hdr.wHeadType) {
 	case HEAD_TYPE_SR:
-/* added 2009.08.26 hmenjo SE Seq ‹N“®ğŒ’Ç‰Á ---------- { ---------- */
+/* added 2009.08.26 hmenjo SE Seq èµ·å‹•æ¡ä»¶è¿½åŠ  ---------- { ---------- */
 	case HEAD_TYPE_SE:
-/* added 2009.08.26 hmenjo SE Seq ‹N“®ğŒ’Ç‰Á ---------- } ---------- */
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+/* added 2009.08.26 hmenjo SE Seq èµ·å‹•æ¡ä»¶è¿½åŠ  ---------- } ---------- */
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case HEAD_TYPE_COMPEASE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-/* added 2009.10.29 hmenjo CTA Seq CTAILPI ƒ`ƒFƒbƒN ---------- { ---------- */
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+/* added 2009.10.29 hmenjo CTA Seq CTAILPI ãƒã‚§ãƒƒã‚¯ ---------- { ---------- */
 	case HEAD_TYPE_CTA:
-/* added 2009.10.29 hmenjo CTA Seq CTAILPI ƒ`ƒFƒbƒN ---------- } ---------- */
-/* added 2009.11.06 K.Matsuo RS Seq CTAILPI ƒ`ƒFƒbƒN ---------- { ---------- */
+/* added 2009.10.29 hmenjo CTA Seq CTAILPI ãƒã‚§ãƒƒã‚¯ ---------- } ---------- */
+/* added 2009.11.06 K.Matsuo RS Seq CTAILPI ãƒã‚§ãƒƒã‚¯ ---------- { ---------- */
 	case HEAD_TYPE_4PP:
-/* added 2009.11.06 K.Matsuo RS Seq CTAILPI ƒ`ƒFƒbƒN ---------- } ---------- */
-// 2009.11.03 bagus MS Œ°”÷‹¾‚àSR‚Ì—¬‚ê‚Å‚¨‚±‚È‚¤ --{--
+/* added 2009.11.06 K.Matsuo RS Seq CTAILPI ãƒã‚§ãƒƒã‚¯ ---------- } ---------- */
+// 2009.11.03 bagus MS é¡•å¾®é¡ã‚‚SRã®æµã‚Œã§ãŠã“ãªã† --{--
 	case HEAD_TYPE_MS:
 // 2009.11.03 bagus MS	--}--
 		pChiefPFuncs->IsIdle = PFC_IsIdleSeq;
@@ -102,22 +102,22 @@ CHIFPF_EXT BOOL PFC_FuncSet(CChiefView* pcChiefView, LPCHIEF_PFUNCS pChiefPFuncs
 		pChiefPFuncs->Event.iSTART = EV_STRS_START;
 		pChiefPFuncs->State.iPAUSE = ST_STRS_PAUSE;
 		break;
-/* deleted 2009.08.26 hmenjo SE Seq ‹N“®ğŒ’Ç‰Á ---------- { ---------- */
+/* deleted 2009.08.26 hmenjo SE Seq èµ·å‹•æ¡ä»¶è¿½åŠ  ---------- { ---------- */
 //	case HEAD_TYPE_SE:
-/* deleted 2009.08.26 hmenjo SE Seq ‹N“®ğŒ’Ç‰Á ---------- } ---------- */
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+/* deleted 2009.08.26 hmenjo SE Seq èµ·å‹•æ¡ä»¶è¿½åŠ  ---------- } ---------- */
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 //	case HEAD_TYPE_IRSE:
-// 2009.10.19 bagus MS ’Ç‰Á --}--
-/* deleted 2009.10.29 hmenjo CTA Seq CTAILPI ƒ`ƒFƒbƒN ---------- { ---------- */
+// 2009.10.19 bagus MS è¿½åŠ  --}--
+/* deleted 2009.10.29 hmenjo CTA Seq CTAILPI ãƒã‚§ãƒƒã‚¯ ---------- { ---------- */
 //	case HEAD_TYPE_CTA:
-/* deleted 2009.10.29 hmenjo CTA Seq CTAILPI ƒ`ƒFƒbƒN ---------- } ---------- */
-// 2009.10.19 bagus MS ’Ç‰Á --{--
-// 2009.11.03 bagus MS íœ --{--
+/* deleted 2009.10.29 hmenjo CTA Seq CTAILPI ãƒã‚§ãƒƒã‚¯ ---------- } ---------- */
+// 2009.10.19 bagus MS è¿½åŠ  --{--
+// 2009.11.03 bagus MS å‰Šé™¤ --{--
 //	case HEAD_TYPE_MS:
-// 2009.11.03 bagus MS íœ --}--
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.11.03 bagus MS å‰Šé™¤ --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 	default:
-		return FALSE;	/* ƒwƒbƒhƒ^ƒCƒvˆÙí	*/
+		return FALSE;	/* ãƒ˜ãƒƒãƒ‰ã‚¿ã‚¤ãƒ—ç•°å¸¸	*/
 		break;
 	}
 
@@ -126,7 +126,7 @@ CHIFPF_EXT BOOL PFC_FuncSet(CChiefView* pcChiefView, LPCHIEF_PFUNCS pChiefPFuncs
 #endif
 
 /*
- *	ƒAƒCƒhƒ‹ó‘Ô‚ğƒ`ƒFƒbƒN‚µ‚Ü‚·D
+ *	ã‚¢ã‚¤ãƒ‰ãƒ«çŠ¶æ…‹ã‚’ãƒã‚§ãƒƒã‚¯ã—ã¾ã™ï¼
  */
 CHIFPF_EXT bool PFC_IsIdleAll(CChiefView* pcChiefView)
 #ifndef CHIEF_PFUNCS_MAS

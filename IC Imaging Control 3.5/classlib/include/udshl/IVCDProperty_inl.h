@@ -1,4 +1,4 @@
-
+﻿
 #ifndef IVCDPROPERTY_INL_H_INC_
 #define IVCDPROPERTY_INL_H_INC_
 

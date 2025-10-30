@@ -1,4 +1,4 @@
-
+﻿
 /** This file checks the compiler version and binds to the udshl library and other libraries needed.
  * To use the link feature you must define the UDSHL_LIB_BASEDIR macro.
  * UDSHL_LIB_BASEDIR must contain the relative path to the lib base directory of imaging control.

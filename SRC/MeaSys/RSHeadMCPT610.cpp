@@ -1,4 +1,4 @@
-// RSHeadMCPT610.cpp : Defines the RSHeadMCPT610 routines.
+﻿// RSHeadMCPT610.cpp : Defines the RSHeadMCPT610 routines.
 //
 
 #include "stdafx.h"
@@ -17,17 +17,17 @@
 
 //	R}h
 #define RESET		 		_T("RST")		// 
-#define AD_OFFSET	   		_T("ZRD")		// A/DRo[^̃ItZbgsi10bԁj
-#define RANGE		 		_T("RNG")		// 背WݒiRNGnn, nn=-3`+7j
-#define PROBE	  			_T("PRB")		// v[uݒiPRBnj
-#define LIMITV 			   	_T("LMT")		// ~b^dݒiLMTn, n=0:10V,1:90Vj
+#define AD_OFFSET	   		_T("ZRD")		// A/DRo[^ÃÉItZbgsi10b‘Åj
+#define RANGE		 		_T("RNG")		// ËÉåW›íiRNGnn, nn=-3`+7j
+#define PROBE	  			_T("PRB")		// v[u›íiPRBnj
+#define LIMITV 			   	_T("LMT")		// ~b^d›íiLMTn, n=0:10V,1:90Vj
 #define MEAS_START	   		_T("MES")		// Jn
 #define MEAS_END			_T("HLD")		// I
 #define STATUSREQ	 		_T("SRQ")		// Xe[^Xv
 #define PARAMREQ			_T("PRQ")		// p[^v
 #define MEAS_DATAREQ		_T("DRQ")		// f[^v
-#define RCF					_T("RCF")		// R␳WiRCFXXXXX, XXXXX=0.001`9999iő5jj
-#define THICKDATA			_T("THK")		// ݃f[^iTHKXXXXX##, XXXXX=0.001`9999iő5j, ##=MM,UM,NM,AMj
+#define RCF					_T("RCF")		// R‚ê≥WiRCFXXXXX, XXXXX=0.001`9999i≈ë5jj
+#define THICKDATA			_T("THK")		// ›Éf[^iTHKXXXXX##, XXXXX=0.001`9999i≈ë5j, ##=MM,UM,NM,AMj
 
 extern CLogFile* pLogFile;
 extern CMojiretsu* pMojiretsu;
@@ -90,7 +90,7 @@ BOOL CRsHeadMCPT610::InitInstance()
 	::PurgeComm(m_hComm, PURGE_TXABORT | PURGE_TXCLEAR);
 	::PurgeComm(m_hComm, PURGE_RXABORT | PURGE_RXCLEAR);
 
-	// X^̃TvR[hR}h2񑗐MĂ̂ŁA}l
+	// X^ÃÉTvR[hR}h2ÒëóêMƒÇÃÇ≈ÅA}l
 	int i;
 
 	for ( i = 0; i < 2; i++ ) {
@@ -98,7 +98,7 @@ BOOL CRsHeadMCPT610::InitInstance()
 			return FALSE;
 	}
 
-	// ݂̐ݒp[^擾B܂AʐMł邩̃`FbN˂āAԂR}h𑗐MĂ
+	// ›ÇÃê›íp[^ÊìæB‹ÇA êM≈ÇÈÇ©ÃÉ`FbNÀÇƒÅA‘ÇR}hëóêMƒÇ
 	RSMEASPARAM rsMeasParam;
 	if ( !GetMeasParam(&rsMeasParam) ) {
 		MyMessageBox(NULL, pMojiretsu->LoadString(IDS_STRING04), g_szMsgBoxCaption, MB_OK | MB_ICONSTOP);
@@ -361,7 +361,7 @@ BOOL CRsHeadMCPT610::SendCommand(LPCTSTR pszCmd)
 			continue;		// Error -> Retry
 
 		bySend = (BYTE)_TCHAR('\n');
-		if ( !::WriteFile(m_hComm, &bySend, 1, &dwNumberOfBytesWritten, NULL) ) // I[LF̐ݒ
+		if ( !::WriteFile(m_hComm, &bySend, 1, &dwNumberOfBytesWritten, NULL) ) // I[LFÃê›í
 			continue;		// Error -> Retry
 
 		pLogFile->Logging(m_pszSendBuff);
@@ -407,11 +407,11 @@ BOOL CRsHeadMCPT610::RecvData()
 		if ( !::ReadFile(m_hComm, &m_pszRecvBuff[i], 1, &dwNumberOfBytesRead, NULL) )
 			return FALSE;
 		if ( m_pszRecvBuff[i] == _TCHAR('\n') ) {
-			m_pszRecvBuff[i] = NULL;								// I[LFNULLɒu
+			m_pszRecvBuff[i] = NULL;								// I[LFNULL…íu
 			break;
 		}
 	}
-	if ( i == RS232C_RECV_CHAR ) {									// I[LFȂ
+	if ( i == RS232C_RECV_CHAR ) {									// I[LF¬Ç»Ç
 		return FALSE;
 	}
 

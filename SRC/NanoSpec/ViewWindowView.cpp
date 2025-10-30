@@ -1,4 +1,4 @@
-// ViewWindowView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// ViewWindowView.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -12,11 +12,11 @@
 #include "ManualStageDlg.h"
 #include "NEXIOBASE.HXX"
 #include "..\\..\\INC\\NSStage.hxx"
-/* added 2009.12.09 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- { ---------- */
+/* added 2009.12.09 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ(è¿½åŠ æ”¹é€ ) ---------- { ---------- */
 #include "ChiefView.h"
 #include "ChifTransiMaster.h"
-extern CChiefView*	g_pcChiefView;	/* static —pƒNƒ‰ƒXƒ|ƒCƒ“ƒ^	*/
-/* added 2009.12.09 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- } ---------- */
+extern CChiefView*	g_pcChiefView;	/* static ç”¨ã‚¯ãƒ©ã‚¹ãƒã‚¤ãƒ³ã‚¿	*/
+/* added 2009.12.09 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ(è¿½åŠ æ”¹é€ ) ---------- } ---------- */
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -51,7 +51,7 @@ CViewWindowView::~CViewWindowView()
 	m_Font.DeleteObject();
 
 	if ( m_pdlgViewScreen != NULL ) {
-// ƒfƒXƒgƒ‰ƒNƒg‚Ì’†‚ÅDestroyWindow‚ğŒÄ‚Ño‚³‚È‚¢
+// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ãƒˆã®ä¸­ã§DestroyWindowã‚’å‘¼ã³å‡ºã•ãªã„
 //		m_pdlgViewScreen->DestroyWindow();
 		delete m_pdlgViewScreen;
 		m_pdlgViewScreen = NULL;
@@ -88,7 +88,7 @@ BEGIN_MESSAGE_MAP(CViewWindowView, CNanoUI)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CViewWindowView f’f
+// CViewWindowView è¨ºæ–­
 
 #ifdef _DEBUG
 // =========================================================================
@@ -107,7 +107,7 @@ void CViewWindowView::Dump(CDumpContext& dc) const
 #endif //_DEBUG
 
 // =========================================================================
-// CViewWindowView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CViewWindowView ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -118,46 +118,46 @@ void CViewWindowView::OnInitialUpdate()
 
 	CNanoUI::OnInitialUpdate();
 
-// 2014.01.17 Bagus Add (Stage None‘Î‰) -->
-	//ƒVƒXƒeƒ€ƒRƒ“ƒtƒBƒOİ’è“Ç‚İ‚İ
+// 2014.01.17 Bagus Add (Stage Noneå¯¾å¿œ) -->
+	//ã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ³ãƒ•ã‚£ã‚°è¨­å®šèª­ã¿è¾¼ã¿
 	ConfigFile_GetNanoSpecIni(&m_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
-// 2014.01.17 Bagus Add (Stage None‘Î‰) <--
+// 2014.01.17 Bagus Add (Stage Noneå¯¾å¿œ) <--
 
 	OVLYMULTIWND ovlymw = { m_hWnd };
 	GetDlgItem(IDC_CAMERA)->GetClientRect(&ovlymw.rc);
-	//	ƒNƒ‰ƒCƒAƒ“ƒgƒGƒbƒW‹«ŠEüg—p‚ÌƒƒWƒbƒN
+	//	ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆã‚¨ãƒƒã‚¸å¢ƒç•Œç·šä½¿ç”¨æ™‚ã®ãƒ­ã‚¸ãƒƒã‚¯
 	OffsetRect(&ovlymw.rc, GetSystemMetrics(SM_CXEDGE), GetSystemMetrics(SM_CYEDGE));
 
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
+// 2014.01.17 Bagus Mod (Stage Noneå¯¾å¿œ) -->
 //	if(g_lModelType == MODEL_T3100){
 	if(m_SystemConfig.nStageType == STAGE_TYPE_NONE){
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) <--
+// 2014.01.17 Bagus Mod (Stage Noneå¯¾å¿œ) <--
 		if(g_lOVideoEnable == 1){
 			OverlaySetMultipleWindow(&ovlymw);
 		}
 	}
 	else{
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 		OverlaySetMultipleWindow(&ovlymw);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 
 	m_rcCamera = ovlymw.rc;
 
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
+// 2014.01.17 Bagus Mod (Stage Noneå¯¾å¿œ) -->
 //	if(g_lModelType == MODEL_T3100){
 	if(m_SystemConfig.nStageType == STAGE_TYPE_NONE){
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) <--
+// 2014.01.17 Bagus Mod (Stage Noneå¯¾å¿œ) <--
 		m_cbLens.ShowWindow(SW_HIDE);
 		m_cbCamera.ShowWindow(SW_HIDE);
 		m_AutoFocusButton.ShowWindow(SW_HIDE);
 		m_HomePositionButton.ShowWindow(SW_HIDE);
 	}
 	else{
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 		///// Auto Focus Button /////
 		m_AutoFocusButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 		m_AutoFocusButton.DrawFlatFocus(TRUE);
@@ -169,9 +169,9 @@ void CViewWindowView::OnInitialUpdate()
 		m_HomePositionButton.DrawFlatFocus(TRUE);
 		m_HomePositionButton.SetFont(&m_Font);
 		//Saiki 20090908 Add <-----
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 
 	m_pdlgViewScreen = new CViewScreenDlg(this);
 	m_pdlgViewScreen->Create(CViewScreenDlg::IDD);
@@ -195,7 +195,7 @@ void CViewWindowView::OnInitialUpdate()
 //
 void CViewWindowView::OnPaint()
 {
-	CPaintDC dc(this); // •`‰æ—p‚ÌƒfƒoƒCƒX ƒRƒ“ƒeƒLƒXƒg
+	CPaintDC dc(this); // æç”»ç”¨ã®ãƒ‡ãƒã‚¤ã‚¹ ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
 }
 
 // =========================================================================
@@ -204,60 +204,60 @@ void CViewWindowView::OnAutoFocusButton()
 {
 	CString l_strBuffer, l_strTitle, strMsg;
 
-	//ƒŠƒ‚[ƒg‚Í‰½‚à‚µ‚È‚¢
+	//ãƒªãƒ¢ãƒ¼ãƒˆæ™‚ã¯ä½•ã‚‚ã—ãªã„
 	if(m_pDoc->GetHostMode() == HOST_REMOTE) return;
 
 
 	CMainFrame* pMainFrame = (CMainFrame *)AfxGetMainWnd();
 //	  CNanoSpecDoc* pDoc = (CNanoSpecDoc*)pMainFrame->GetActiveDocument();
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	//ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒhƒ`ƒFƒbƒN(2²“¯“®ì§ŒÀ)
-	if( nexioIsEngineerMaintenanceSwitch()==ON )// “Œ•üƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	//ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ãƒã‚§ãƒƒã‚¯(2è»¸åŒæ™‚å‹•ä½œåˆ¶é™)
+	if( nexioIsEngineerMaintenanceSwitch()==ON )// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰
 	{
-		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh‘g‚İ‡‚í‚¹ƒGƒ‰[
-		/*“Œ•üƒƒ“ƒeƒ‚[ƒh‚Ì‚ÍA•K‚¸ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh(L)‚Æ‚È‚é
-			‚±‚Ìê‡A2²“¯“®ì‰Â”\ */
+		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰çµ„ã¿åˆã‚ã›ã‚¨ãƒ©ãƒ¼
+		/*æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒ¢ãƒ¼ãƒ‰ã®æ™‚ã¯ã€å¿…ãšãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(L)ã¨ãªã‚‹
+			ã“ã®å ´åˆã€2è»¸åŒæ™‚å‹•ä½œå¯èƒ½ */
 	}
-	else //“Œ•üƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒhˆÈŠO
+	else //æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ä»¥å¤–
 	{
 	}
 
-	// ŠeI/Oƒ`ƒFƒbƒN
+	// å„I/Oãƒã‚§ãƒƒã‚¯
 	/*//Saiki 20090520 Change ----->*/
 	if(m_pDoc->IsInterLock() == TRUE){return;}
 	if(m_pDoc->CheckUnitStatus() == TRUE){return;}
 	/*//Saiki 20090520 Change <-----*/
 
-	//ActuateFlagƒ`ƒFƒbƒN
+	//ActuateFlagãƒã‚§ãƒƒã‚¯
 	//Saiki 20090531 Change ----->
 	if(m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) && pMainFrame->GetJoyStickMode()==0){
 		LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 		m_pDoc->MessageStringIf_Set(strMsg);
 		return;
-	} //ƒXƒe[ƒW‚ª“®ì’†‚Å‚·
+	} //ã‚¹ãƒ†ãƒ¼ã‚¸ãŒå‹•ä½œä¸­ã§ã™
 	//Saiki 20090531 Change <-----
 	/*//Saiki 20090520 Change ----->*/
 	if(m_pDoc->CheckActiveFlag() == TRUE){return;}
 	/*//Saiki 20090520 Change <-----*/
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 
 	CCursor::BeginWaitCursor();
 	m_pDoc->ActuateFlagsSet(ACTUATE_ZAXIS, TRUE);
-/* modified 2009.09.08 hmenjo AF ©“®ƒŒƒ“ƒYØ‘Ö’uŠ· ---------- { ---------- */
+/* modified 2009.09.08 hmenjo AF è‡ªå‹•ãƒ¬ãƒ³ã‚ºåˆ‡æ›¿ç½®æ› ---------- { ---------- */
 //	  if( StageDoAutoFocus()==FALSE ){
-/* modified 2009.09.08 hmenjo AF ©“®ƒŒƒ“ƒYØ‘Ö’uŠ· ----------				*/
+/* modified 2009.09.08 hmenjo AF è‡ªå‹•ãƒ¬ãƒ³ã‚ºåˆ‡æ›¿ç½®æ› ----------				*/
 	if (FALSE == NS_StageDoAutoFocus()) {
-/* modified 2009.09.08 hmenjo AF ©“®ƒŒƒ“ƒYØ‘Ö’uŠ· ---------- } ---------- */
+/* modified 2009.09.08 hmenjo AF è‡ªå‹•ãƒ¬ãƒ³ã‚ºåˆ‡æ›¿ç½®æ› ---------- } ---------- */
 		m_pDoc->ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);
 		if( m_pDoc->GetDispStatus() == MAIN_MENU_MANUAL_MEASUREMENT ){
-			// MessageBox‚ğ•\¦‚·‚é
+			// MessageBoxã‚’è¡¨ç¤ºã™ã‚‹
 			LoadStringML(IDS_AUTO_FOCUS_FAIL, l_strBuffer, "Auto Focus Fail !!!.");
 			LoadStringML(IDS_TITLE_AUTO_FOCUS, l_strTitle, "AUTO FOCUS");
 			MessageBox(l_strBuffer, l_strTitle, MB_OK|MB_ICONWARNING);
 		}
 		else{
-			// AutoFocus‰æ–Ê‚ğ•\¦‚·‚é
+			// AutoFocusç”»é¢ã‚’è¡¨ç¤ºã™ã‚‹
 			CManualStageDlg dlg;
 			LoadStringML(IDS_AUTOFOCUS_CAPTION, l_strBuffer, "AUTO FOCUS");
 			dlg.SetCaption(l_strBuffer);
@@ -274,11 +274,11 @@ void CViewWindowView::OnAutoFocusButton()
 //
 void CViewWindowView::OnLButtonDblClk(UINT nFlags, CPoint point)
 {
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
+// 2014.01.17 Bagus Mod (Stage Noneå¯¾å¿œ) -->
 //	if(g_lModelType == MODEL_T3100){
 	if(m_SystemConfig.nStageType == STAGE_TYPE_NONE){
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) <--
+// 2014.01.17 Bagus Mod (Stage Noneå¯¾å¿œ) <--
 		if(g_lOVideoEnable == 1){
 			if ( m_rcCamera.PtInRect(point) ) {
 				m_pdlgViewScreen->ShowWindow(SW_HIDE);
@@ -287,14 +287,14 @@ void CViewWindowView::OnLButtonDblClk(UINT nFlags, CPoint point)
 		}
 	}
 	else{
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 		if ( m_rcCamera.PtInRect(point) ) {
 			m_pdlgViewScreen->ShowWindow(SW_HIDE);
 			m_pdlgViewScreen->ShowWindow(SW_SHOWNORMAL);
 		}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 	CNanoUI::OnLButtonDblClk(nFlags, point);
 }
 
@@ -304,14 +304,14 @@ HBRUSH CViewWindowView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CNanoUI::OnCtlColor(pDC, pWnd, nCtlColor);
 
-	// TODO: ‚±‚ÌˆÊ’u‚Å DC ‚ÌƒAƒgƒŠƒrƒ…[ƒg‚ğ•ÏX‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã§ DC ã®ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã‚’å¤‰æ›´ã—ã¦ãã ã•ã„
 
 	if(m_pDoc->GetProcessStatus() == PROCESS_INIT) return hbr;
 
 	BOOL sbNexMntSw = nexioIsMaintenanceSwitch();
 	BOOL sbNexEngiMntSw = nexioIsEngineerMaintenanceSwitch();
 
-	if( pWnd == this ) // ©•ª©g‚ğ•`‰æ‚·‚é‚Æ‚«‚Í
+	if( pWnd == this ) // è‡ªåˆ†è‡ªèº«ã‚’æç”»ã™ã‚‹ã¨ãã¯
 	{
 		if((sbNexMntSw == OFF)||(sbNexEngiMntSw == ON))
 		{
@@ -319,7 +319,7 @@ HBRUSH CViewWindowView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 		}
 	}
 
-	// TODO: ƒfƒtƒHƒ‹ƒg‚Ìƒuƒ‰ƒV‚ª–]‚İ‚Ì‚à‚Ì‚Å‚È‚¢ê‡‚É‚ÍAˆá‚¤ƒuƒ‰ƒV‚ğ•Ô‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ–ãƒ©ã‚·ãŒæœ›ã¿ã®ã‚‚ã®ã§ãªã„å ´åˆã«ã¯ã€é•ã†ãƒ–ãƒ©ã‚·ã‚’è¿”ã—ã¦ãã ã•ã„
 	return hbr;
 }
 
@@ -327,7 +327,7 @@ HBRUSH CViewWindowView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 //
 void CViewWindowView::OnTimer(UINT nIDEvent)
 {
-/* modified 2009.12.09 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- { ---------- */
+/* modified 2009.12.09 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ(è¿½åŠ æ”¹é€ ) ---------- { ---------- */
 //// 2009.12.04 K.Matsuo Change -->
 //	BOOL bEnable = ( m_pDoc->GetProcessStatus() == PROCESS_WAIT );
 //	m_cbLens.EnableWindow(bEnable);
@@ -335,7 +335,7 @@ void CViewWindowView::OnTimer(UINT nIDEvent)
 //	m_AutoFocusButton.EnableWindow(bEnable);
 //	m_HomePositionButton.EnableWindow(bEnable);
 //// 2009.12.04 K.Matsuo Change <--
-/* modified 2009.12.09 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ----------				*/
+/* modified 2009.12.09 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ(è¿½åŠ æ”¹é€ ) ----------				*/
 	BOOL bEnable = (m_pDoc->GetProcessStatus() == PROCESS_WAIT) && (m_pDoc->GetHostMode() == HOST_LOCAL);
 	BOOL l_bNoActuate =	TRUE;
 	DWORD l_dwAllAct = m_pDoc->ActuateFlagsGetAll();
@@ -368,32 +368,32 @@ void CViewWindowView::OnTimer(UINT nIDEvent)
 		l_bCtrlEna = FALSE;
 	}
 #if 0
-	/* ƒRƒbƒ`‚Å‚Í‚Ç‚±‚É‚ ‚é‚©”»‚ç‚È‚¢“¯—l‚Èˆ—‚ÌƒRƒ“ƒtƒŠƒNƒg‚ÅˆÙí“®ì‚É‚È‚é‚½‚ßÌ—p‚µ‚Ü‚¹‚ñD	*/
-	static BOOL ls_bCtrlEnaPre = l_bCtrlEna;	/* ‘O‰ñ’l	*/
+	/* ã‚³ãƒƒãƒã§ã¯ã©ã“ã«ã‚ã‚‹ã‹åˆ¤ã‚‰ãªã„åŒæ§˜ãªå‡¦ç†ã®ã‚³ãƒ³ãƒ•ãƒªã‚¯ãƒˆã§ç•°å¸¸å‹•ä½œã«ãªã‚‹ãŸã‚æ¡ç”¨ã—ã¾ã›ã‚“ï¼	*/
+	static BOOL ls_bCtrlEnaPre = l_bCtrlEna;	/* å‰å›å€¤	*/
 	if (ls_bCtrlEnaPre != l_bCtrlEna) {
 		ls_bCtrlEnaPre = l_bCtrlEna;
-		/* •Ï‰»—L‚è	*/
+		/* å¤‰åŒ–æœ‰ã‚Š	*/
 		m_cbLens.EnableWindow(l_bCtrlEna);
 		m_cbCamera.EnableWindow(l_bCtrlEna);
 		m_AutoFocusButton.EnableWindow(l_bCtrlEna);
 		m_HomePositionButton.EnableWindow(l_bCtrlEna);
 	}
 #else
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) -->
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2014.01.17 Bagus Mod (Stage Noneå¯¾å¿œ) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 //	if(g_lModelType != MODEL_T3100){
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 	if(m_SystemConfig.nStageType != STAGE_TYPE_NONE){
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) <--
+// 2014.01.17 Bagus Mod (Stage Noneå¯¾å¿œ) <--
 		m_cbLens.EnableWindow(l_bCtrlEna);
 		m_cbCamera.EnableWindow(l_bCtrlEna);
 		m_AutoFocusButton.EnableWindow(l_bCtrlEna);
 		m_HomePositionButton.EnableWindow(l_bCtrlEna);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 #endif
-/* modified 2009.12.09 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- } ---------- */
+/* modified 2009.12.09 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ(è¿½åŠ æ”¹é€ ) ---------- } ---------- */
 
 	if ( m_pDoc->GetProcessStatus() == PROCESS_INIT )
 		return;
@@ -408,10 +408,10 @@ void CViewWindowView::OnTimer(UINT nIDEvent)
 
 	if((sbNexMntSw != sbNexMntSwOld)||(sbNexEngiMntSw != sbNexEngiMntSwOld))
 	{
-		Invalidate(TRUE); //OnCtlColor()‚Ìˆ—‚ğ‚³‚¹‚éˆ×‚ÉCall
+		Invalidate(TRUE); //OnCtlColor()ã®å‡¦ç†ã‚’ã•ã›ã‚‹ç‚ºã«Call
 	}
-	sbNexMntSwOld = sbNexMntSw; //‘O‰ñ’l‘Š·‚¦
-	sbNexEngiMntSwOld = sbNexEngiMntSw; //‘O‰ñ’l‘Š·‚¦
+	sbNexMntSwOld = sbNexMntSw; //å‰å›å€¤æ›¸æ›ãˆ
+	sbNexEngiMntSwOld = sbNexEngiMntSw; //å‰å›å€¤æ›¸æ›ãˆ
 
 	CNanoUI::OnTimer(nIDEvent);
 }
@@ -420,84 +420,84 @@ void CViewWindowView::OnTimer(UINT nIDEvent)
 //
 void CViewWindowView::OnHomePositionButton()
 {
-// 2010.02.03 K.Matsuo PIN UPPER ƒCƒ“ƒ^[ƒƒbƒNƒ`ƒFƒbƒN˜R‚ê‘Î‰ -->
-	//ƒŠƒ‚[ƒg‚Í‰½‚à‚µ‚È‚¢
+// 2010.02.03 K.Matsuo PIN UPPER ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ãƒã‚§ãƒƒã‚¯æ¼ã‚Œå¯¾å¿œ -->
+	//ãƒªãƒ¢ãƒ¼ãƒˆæ™‚ã¯ä½•ã‚‚ã—ãªã„
 	if(m_pDoc->GetHostMode() == HOST_REMOTE) return;
 
 	CString strMsg;
 
 	CMainFrame* pMainFrame = (CMainFrame *)AfxGetMainWnd();
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	//ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒhƒ`ƒFƒbƒN(2²“¯“®ì§ŒÀ)
-	if( nexioIsEngineerMaintenanceSwitch()==ON )// “Œ•üƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	//ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ãƒã‚§ãƒƒã‚¯(2è»¸åŒæ™‚å‹•ä½œåˆ¶é™)
+	if( nexioIsEngineerMaintenanceSwitch()==ON )// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰
 	{
-		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh‘g‚İ‡‚í‚¹ƒGƒ‰[
-		/*“Œ•üƒƒ“ƒeƒ‚[ƒh‚Ì‚ÍA•K‚¸ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh(L)‚Æ‚È‚é
-			‚±‚Ìê‡A2²“¯“®ì‰Â”\ */
+		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰çµ„ã¿åˆã‚ã›ã‚¨ãƒ©ãƒ¼
+		/*æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒ¢ãƒ¼ãƒ‰ã®æ™‚ã¯ã€å¿…ãšãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(L)ã¨ãªã‚‹
+			ã“ã®å ´åˆã€2è»¸åŒæ™‚å‹•ä½œå¯èƒ½ */
 	}
-	else //“Œ•üƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒhˆÈŠO
+	else //æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ä»¥å¤–
 	{
 	}
 
-	// ŠeI/Oƒ`ƒFƒbƒN
+	// å„I/Oãƒã‚§ãƒƒã‚¯
 	if(m_pDoc->IsInterLock() == TRUE){return;}
 	if(m_pDoc->CheckUnitStatus() == TRUE){return;}
 
-	//ActuateFlagƒ`ƒFƒbƒN
+	//ActuateFlagãƒã‚§ãƒƒã‚¯
 	if(m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) && pMainFrame->GetJoyStickMode()==0){
 		LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 		m_pDoc->MessageStringIf_Set(strMsg);
 		return;
-	} //ƒXƒe[ƒW‚ª“®ì’†‚Å‚·
+	} //ã‚¹ãƒ†ãƒ¼ã‚¸ãŒå‹•ä½œä¸­ã§ã™
 	if(m_pDoc->CheckActiveFlag() == TRUE){return;}
 
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
-// 2010.02.03 K.Matsuo PIN UPPER ƒCƒ“ƒ^[ƒƒbƒNƒ`ƒFƒbƒN˜R‚ê‘Î‰ <--
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
+// 2010.02.03 K.Matsuo PIN UPPER ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ãƒã‚§ãƒƒã‚¯æ¼ã‚Œå¯¾å¿œ <--
 
 	BOOL l_bAF = TRUE;
 	EEPROMDATA l_E2pRomParams;
 	StageGetEEPromData(&l_E2pRomParams);
-	long l_lZPos = l_E2pRomParams.AutoFocus.InitPos;	// Z ²‚Ì‰Šú‰»’â~ˆÊ’u
-	long l_lZPosPpU = l_E2pRomParams.AutoFocus.ppu; // Z ²‚Ì‰Šú‰»’â~ˆÊ’uƒtƒ@ƒNƒ^
+	long l_lZPos = l_E2pRomParams.AutoFocus.InitPos;	// Z è»¸ã®åˆæœŸåŒ–åœæ­¢ä½ç½®
+	long l_lZPosPpU = l_E2pRomParams.AutoFocus.ppu; // Z è»¸ã®åˆæœŸåŒ–åœæ­¢ä½ç½®ãƒ•ã‚¡ã‚¯ã‚¿
 
-	// ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh”»’è -------------------------------------------
+	// ãƒãƒ¼ãƒ‰ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ãƒˆãƒ¢ãƒ¼ãƒ‰åˆ¤å®š -------------------------------------------
 	if (0 != pMainFrame->HardwareSimulation()) {
-		// ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh‚¾‚Á‚½‚Ì‚ÅC‘ª’èŠ®—¹‘Ò‚¿ ‚Ö
+		// ãƒãƒ¼ãƒ‰ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ãƒˆãƒ¢ãƒ¼ãƒ‰ã ã£ãŸã®ã§ï¼Œæ¸¬å®šå®Œäº†å¾…ã¡ ã¸
 	}
 	else {
-		// À‹@‚Ìê‡ ---------------------------------------------------------
-		// AF —v/•s—v”»’è
-		// •s—v
-			// (‘S“_ AF –³‚µ‚Ìê‡)Z ²ˆÚ“®‚ª•K—v‚©ƒ`ƒFƒbƒN
-		// •K—v(d—lã•K—v‚È‚ç)
-		// ‚y²ˆÚ“®
+		// å®Ÿæ©Ÿã®å ´åˆ ---------------------------------------------------------
+		// AF è¦/ä¸è¦åˆ¤å®š
+		// ä¸è¦
+			// (å…¨ç‚¹ AF ç„¡ã—ã®å ´åˆ)Z è»¸ç§»å‹•ãŒå¿…è¦ã‹ãƒã‚§ãƒƒã‚¯
+		// å¿…è¦(ä»•æ§˜ä¸Šå¿…è¦ãªã‚‰)
+		// ï¼ºè»¸ç§»å‹•
 		//TCHAR l_szMainRcpName[256];
 		//((CChiefView*) m_pcChiefView)->GetCurrentMainRecipeName(l_szMainRcpName);
-		// ‰Šú‰»’â~ˆÊ’u[pulse]‚ğ[0.1um]‚É•ÏŠ·‚µ‚Ü‚·
+		// åˆæœŸåŒ–åœæ­¢ä½ç½®[pulse]ã‚’[0.1um]ã«å¤‰æ›ã—ã¾ã™
 		LONG64 l_l64_Z = ((LONG64) l_lZPos) * ((LONG64) 1000000);
-		l_l64_Z = l_l64_Z / ((LONG64) l_lZPosPpU);	// ‰Šú‰»’â~ˆÊ’u[pulse]€ƒtƒ@ƒNƒ^[pulse/mm]
-		l_l64_Z = l_l64_Z * ((LONG64) 10000);	// [0.1um]‚É•ÏŠ·‚·‚é
+		l_l64_Z = l_l64_Z / ((LONG64) l_lZPosPpU);	// åˆæœŸåŒ–åœæ­¢ä½ç½®[pulse]Ã·ãƒ•ã‚¡ã‚¯ã‚¿[pulse/mm]
+		l_l64_Z = l_l64_Z * ((LONG64) 10000);	// [0.1um]ã«å¤‰æ›ã™ã‚‹
 		long l_lZ = (long) (l_l64_Z / ((LONG64) 1000000));
 
-		NS_ConvertToStageMoveCoord(&l_lZ);		// •â³
+		NS_ConvertToStageMoveCoord(&l_lZ);		// è£œæ­£
 
-		m_pDoc->ActuateFlagsSet(ACTUATE_ZAXIS, TRUE);		// “®ì’†ƒtƒ‰ƒO(Z ²)‚ğƒIƒ“
+		m_pDoc->ActuateFlagsSet(ACTUATE_ZAXIS, TRUE);		// å‹•ä½œä¸­ãƒ•ãƒ©ã‚°(Z è»¸)ã‚’ã‚ªãƒ³
 #if 0	//----- Kawashima 2008.12.01 ----->
 //				TransiEvent(EV_SR1P_ZMOVE_DONE);
 #else	//----- Kawashima 2008.12.01 -----
 		pMainFrame->SetMessageText(IDS_CHIF_SR1P_Z_MOVING);  // Status Bar
 		if (0 == StageElevatorMove(l_lZ)) {
-			// ˆÚ“®ŠJn¸”s
+			// ç§»å‹•é–‹å§‹å¤±æ•—
 		} else {
-			// ˆÚ“®Š®—¹
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ---------- { ---------- */
+			// ç§»å‹•å®Œäº†
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- { ---------- */
 			pMainFrame->SetMessageText(IDS_CHIF_SR1P_Z_MOVED);	 // Status Bar
-#else						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ----------			   */
+#else						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ----------			   */
 			pMainFrame->SetMessageText(_T(" ")); // Status Bar
-#endif						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- } ---------- */
 		}
 #endif	//----- Kawashima 2008.12.01 <-----
-		m_pDoc->ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);		// “®ì’†ƒtƒ‰ƒO(Z ²)‚ğƒIƒt
+		m_pDoc->ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);		// å‹•ä½œä¸­ãƒ•ãƒ©ã‚°(Z è»¸)ã‚’ã‚ªãƒ•
 	}
 }

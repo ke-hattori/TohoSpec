@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "BkDialogST.h"
 
 #ifdef _DEBUG

@@ -1,4 +1,4 @@
-// SpecifyCoordinate2PointDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SpecifyCoordinate2PointDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -16,7 +16,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CSpecifyCoordinate2PointDlg ƒ_ƒCƒAƒƒO
+// CSpecifyCoordinate2PointDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 
 CSpecifyCoordinate2PointDlg::CSpecifyCoordinate2PointDlg(int iTypeDlg, double dSampleSizeX, double dSampleSizeY, CWnd* pParent /*=NULL*/)
@@ -50,7 +50,7 @@ BEGIN_MESSAGE_MAP(CSpecifyCoordinate2PointDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CSpecifyCoordinate2PointDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSpecifyCoordinate2PointDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 BOOL CSpecifyCoordinate2PointDlg::OnInitDialog()
 {
@@ -110,8 +110,8 @@ BOOL CSpecifyCoordinate2PointDlg::OnInitDialog()
 		break;
 	}
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
@@ -146,7 +146,7 @@ void CSpecifyCoordinate2PointDlg::OnOK()
 //
 void CSpecifyCoordinate2PointDlg::OnCancel()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚É“Á•Ê‚ÈŒãˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ã“ã®ä½ç½®ã«ç‰¹åˆ¥ãªå¾Œå‡¦ç†ã‚’è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 	SetOperationLog("CANCEL Button was push.");
 
 	CDialog::OnCancel();
@@ -162,36 +162,36 @@ BOOL CSpecifyCoordinate2PointDlg::CheckData()
 	STAGE_COORD coordRightBottom;
 
 	switch(m_iType){
-	///// w’èÀ•W‚ªAƒTƒ“ƒvƒ‹”ÍˆÍ‚Å‚ ‚é‚©
+	///// æŒ‡å®šåº§æ¨™ãŒã€ã‚µãƒ³ãƒ—ãƒ«ç¯„å›²ã§ã‚ã‚‹ã‹
 	case SPECIFY_COORDINATE_SAMPLE:
 	case RECIPE_STAGE_WND:
 
 		switch ( m_StageConfig.OrgPos ) {
-		case 1: // ’†S
+		case 1: // ä¸­å¿ƒ
 			coordLeftTop.lX = static_cast<long>(m_dSampleSizeX / 2 * -1);
 			coordLeftTop.lY = static_cast<long>(m_dSampleSizeY / 2);
 			coordRightBottom.lX = static_cast<long>(m_dSampleSizeX / 2);
 			coordRightBottom.lY = static_cast<long>(m_dSampleSizeY / 2 * -1);
 			break;
-		case 2: // ¶ã
+		case 2: // å·¦ä¸Š
 			coordLeftTop.lX = static_cast<long>(0);
 			coordLeftTop.lY = static_cast<long>(0);
 			coordRightBottom.lX = static_cast<long>(m_dSampleSizeX);
 			coordRightBottom.lY = static_cast<long>(m_dSampleSizeY * -1);
 			break;
-		case 3: // ¶‰º
+		case 3: // å·¦ä¸‹
 			coordLeftTop.lX = static_cast<long>(0);
 			coordLeftTop.lY = static_cast<long>(m_dSampleSizeY);
 			coordRightBottom.lX = static_cast<long>(m_dSampleSizeX);
 			coordRightBottom.lY = 0;
 			break;
-		case 4: // ‰E‰º
+		case 4: // å³ä¸‹
 			coordLeftTop.lX = static_cast<long>(m_dSampleSizeX * -1);
 			coordLeftTop.lY = static_cast<long>(m_dSampleSizeY);
 			coordRightBottom.lX = 0;
 			coordRightBottom.lY = 0;
 			break;
-		case 5: // ‰Eã
+		case 5: // å³ä¸Š
 			coordLeftTop.lX = static_cast<long>(m_dSampleSizeX * -1);
 			coordLeftTop.lY = static_cast<long>(0);
 			coordRightBottom.lX = 0;
@@ -199,12 +199,12 @@ BOOL CSpecifyCoordinate2PointDlg::CheckData()
 			break;
 		}
 
-		// ƒXƒe[ƒWƒRƒ“ƒtƒBƒO‚Ì²İ’è‚Æ‡‚í‚¹‚é
+		// ã‚¹ãƒ†ãƒ¼ã‚¸ã‚³ãƒ³ãƒ•ã‚£ã‚°ã®è»¸è¨­å®šã¨åˆã‚ã›ã‚‹
 		NS_ConvertToStageConfigXyAxis(&coordLeftTop);
 		NS_ConvertToStageConfigXyAxis(&coordRightBottom);
 
 		break;
-	///// w’èÀ•W‚ªAƒXƒe[ƒW‰Ò“®”ÍˆÍ‚Å‚ ‚é‚©
+	///// æŒ‡å®šåº§æ¨™ãŒã€ã‚¹ãƒ†ãƒ¼ã‚¸ç¨¼å‹•ç¯„å›²ã§ã‚ã‚‹ã‹
 	case SPECIFY_COORDINATE_STAGE:
 	default:
 		coordLeftTop.lX = static_cast<long>(m_StageConfig.StageMaxCoord.dLeftX);
@@ -220,7 +220,7 @@ BOOL CSpecifyCoordinate2PointDlg::CheckData()
 
 	///// X /////
 	GetDlgItemText(IDC_COORDINATE_X1, csBuff);
-	//ƒZƒ“ƒ^[Œ´“_
+	//ã‚»ãƒ³ã‚¿ãƒ¼åŸç‚¹
 	if(CheckMinMaxDouble(csBuff, min(coordLeftTop.lX, coordRightBottom.lX) / MICROMETRE, max(coordLeftTop.lX, coordRightBottom.lX) / MICROMETRE) != CHECK_DATA_OK){
 		return FALSE;
 	}
@@ -235,7 +235,7 @@ BOOL CSpecifyCoordinate2PointDlg::CheckData()
 
 	///// X /////
 	GetDlgItemText(IDC_COORDINATE_X2, csBuff);
-	//ƒZƒ“ƒ^[Œ´“_
+	//ã‚»ãƒ³ã‚¿ãƒ¼åŸç‚¹
 	if(CheckMinMaxDouble(csBuff, min(coordLeftTop.lX, coordRightBottom.lX) / MICROMETRE, max(coordLeftTop.lX, coordRightBottom.lX) / MICROMETRE) != CHECK_DATA_OK){
 		return FALSE;
 	}
@@ -264,7 +264,7 @@ void CSpecifyCoordinate2PointDlg::SetOperationLog(LPCTSTR pszLog)
 {
 	char strmsg[1024];
 
-	// ‘€ìƒƒO‚ğæ“¾
+	// æ“ä½œãƒ­ã‚°ã‚’å–å¾—
 	memset( strmsg, 0, sizeof(strmsg));
 	strcpy( strmsg, "[");
 	::GetWindowText(this->m_hWnd, &strmsg[1], 1000);

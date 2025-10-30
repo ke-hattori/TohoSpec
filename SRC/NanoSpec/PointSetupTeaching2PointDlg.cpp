@@ -1,4 +1,4 @@
-// PointSetupTeaching2PointDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// PointSetupTeaching2PointDlg.cpp : �C���v�������e�[�V���� �t�@�C��
 //
 
 #include "stdafx.h"

@@ -1,4 +1,4 @@
-// RecipeMeasurementProgramListView.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// RecipeMeasurementProgramListView.cpp : �C���v�������e�[�V���� �t�@�C��
 //
 
 #include "stdafx.h"

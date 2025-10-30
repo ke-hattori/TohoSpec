@@ -1,4 +1,4 @@
-// SeRecipeDefaultValueSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SeRecipeDefaultValueSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -17,7 +17,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // #########################################################################
-// CSeRecipeDefaultValueSettingDlg ƒ_ƒCƒAƒƒO
+// CSeRecipeDefaultValueSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // #########################################################################
 
 // =========================================================================
@@ -56,7 +56,7 @@ BEGIN_MESSAGE_MAP(CSeRecipeDefaultValueSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CSeRecipeDefaultValueSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSeRecipeDefaultValueSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -85,8 +85,8 @@ BOOL CSeRecipeDefaultValueSettingDlg::OnInitDialog()
 	pMainFrame->m_bNew = FALSE;
 	pMainFrame->SetSelectListName("");
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ðÝ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
@@ -134,9 +134,9 @@ void CSeRecipeDefaultValueSettingDlg::OnMeasurementProgramButton()
 				pMainFrame->ChangeExeWnd(USERCONF_DEF_SR_REFLECTANCE_WND);
 				break;
 			case MEAS_PROG_TYPE_SR_TRANSMITTANCE:
-// 2009.10.27 bagus Gantry ’Ç‰ÁC³ --{--
+// 2009.10.27 bagus Gantry è¿½åŠ ä¿®æ­£ --{--
 			case MEAS_PROG_TYPE_SR_TRANSMITTANCE_G:
-// 2009.10.27 bagus Gantry ’Ç‰ÁC³ --}--
+// 2009.10.27 bagus Gantry è¿½åŠ ä¿®æ­£ --}--
 				pMainFrame->ChangeExeWnd(USERCONF_DEF_SR_TRANSMITTANCE_WND);
 				break;
 			case MEAS_PROG_TYPE_SR_REFLECTANCE_CIE:
@@ -148,11 +148,11 @@ void CSeRecipeDefaultValueSettingDlg::OnMeasurementProgramButton()
 			case MEAS_PROG_TYPE_SR_OPTICAL_DENSITY:
 				pMainFrame->ChangeExeWnd(USERCONF_DEF_SR_OD_WND);
 				break;
-			// 2009.10.13 bagus Distance ’Ç‰Á --{--
+			// 2009.10.13 bagus Distance è¿½åŠ  --{--
 			case MEAS_PROG_TYPE_SR_DISTANCE:
 				pMainFrame->ChangeExeWnd(USERCONF_DEF_SR_DISTANCE_WND);
 				break;
-			// 2009.10.13 bagus Distance ’Ç‰Á --}--
+			// 2009.10.13 bagus Distance è¿½åŠ  --}--
 		}
 		break;
 	case HEAD_TYPE_SE:
@@ -164,7 +164,7 @@ void CSeRecipeDefaultValueSettingDlg::OnMeasurementProgramButton()
 		}
 		//2009.09.07 bagus se --}--
 		break;
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case HEAD_TYPE_COMPEASE:
 		switch(dlg.m_iMeasType){
 		case MEAS_PROG_TYPE_COMPEASE_THICKNESS:
@@ -172,8 +172,8 @@ void CSeRecipeDefaultValueSettingDlg::OnMeasurementProgramButton()
 			break;
 		}
 		break;
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 #if 0
 	case HEAD_TYPE_IRSE:
 		break;
@@ -186,27 +186,27 @@ void CSeRecipeDefaultValueSettingDlg::OnMeasurementProgramButton()
 		}
 		break;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 	case HEAD_TYPE_4PP:
 		pMainFrame->ChangeExeWnd(USERCONF_DEF_SR_4PP_WND);
 		break;
 	case HEAD_TYPE_CTA:
-		// 2009.10.08 bagus CTA ’Ç‰Á --{--
+		// 2009.10.08 bagus CTA è¿½åŠ  --{--
 		switch(dlg.m_iMeasType){
 		case MEAS_PROG_TYPE_CTA_MEAS:
 			pMainFrame->ChangeExeWnd(USERCONF_DEF_CTA_WND);
 			break;
 		}
-		// 2009.10.08 bagus CTA ’Ç‰Á --}--
+		// 2009.10.08 bagus CTA è¿½åŠ  --}--
 		break;
 	case HEAD_TYPE_STRESS:
-		//2009.10.21 bagus Stress ’Ç‰Á --{--
+		//2009.10.21 bagus Stress è¿½åŠ  --{--
 		switch(dlg.m_iMeasType){
 		case MEAS_PROG_TYPE_STRESS_MEAS:
 			pMainFrame->ChangeExeWnd(USERCONF_DEF_STRESS_WND);
 			break;
 		}
-		//2009.10.21 bagus Stress ’Ç‰Á --}--
+		//2009.10.21 bagus Stress è¿½åŠ  --}--
 		break;
 	}
 

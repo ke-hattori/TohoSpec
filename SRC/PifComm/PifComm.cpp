@@ -1,4 +1,4 @@
-// PifComm.cpp : Defines the initialization routines for the DLL.
+ï»¿// PifComm.cpp : Defines the initialization routines for the DLL.
 //
 
 #include "stdafx.h"
@@ -41,7 +41,7 @@ static CSharedMemory<EQMONITORSET>* pSharedMemory;
 
 
 // Helper Fucntion
-// w”•\‹L‚Ö•ÏŠ·‚·‚éŠÖ”iprintf‘®‚Ì%E‘Š“–‚¾‚ªAw”•”‚ğ2Œ…•\¦‚É‚µ‚½‚¢‚½‚ß©ìŠÖ”‚ğ—pˆÓj
+// æŒ‡æ•°è¡¨è¨˜ã¸å¤‰æ›ã™ã‚‹é–¢æ•°ï¼ˆprintfæ›¸å¼ã®%Eç›¸å½“ã ãŒã€æŒ‡æ•°éƒ¨ã‚’2æ¡è¡¨ç¤ºã«ã—ãŸã„ãŸã‚è‡ªä½œé–¢æ•°ã‚’ç”¨æ„ï¼‰
 static void ConvertToExpNumber(double dNumber, LPTSTR pszExpNumber)
 {
 	sprintf(pszExpNumber, "%.3E", dNumber);
@@ -54,9 +54,9 @@ static void ConvertToExpNumber(double dNumber, LPTSTR pszExpNumber)
 
 
 // DllMain
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- { ---------- */
+/* added 2014.12.22 hmenjo DLL å¤šé‡èµ·å‹•é˜²æ­¢ ---------- { ---------- */
 #include <DllMutex.hxx>
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- } ---------- */
+/* added 2014.12.22 hmenjo DLL å¤šé‡èµ·å‹•é˜²æ­¢ ---------- } ---------- */
 extern "C" int APIENTRY
 DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 {
@@ -64,11 +64,11 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 
 	if (dwReason == DLL_PROCESS_ATTACH)
 	{
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- { ---------- */
+/* added 2014.12.22 hmenjo DLL å¤šé‡èµ·å‹•é˜²æ­¢ ---------- { ---------- */
 		if (FALSE == DllMutexCreate(_T("PifComm"))) {
 			return TRUE;
 		}
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- } ---------- */
+/* added 2014.12.22 hmenjo DLL å¤šé‡èµ·å‹•é˜²æ­¢ ---------- } ---------- */
 		TRACE0("PIFCOMM.DLL Initializing!\n");
 
 		if (!AfxInitExtensionModule(PifCommDLL, hInstance))
@@ -93,9 +93,9 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 			delete pSharedMemory;
 			pSharedMemory = NULL;
 		}
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- { ---------- */
+/* added 2014.12.22 hmenjo DLL å¤šé‡èµ·å‹•é˜²æ­¢ ---------- { ---------- */
 		DllMutexRelease();
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- } ---------- */
+/* added 2014.12.22 hmenjo DLL å¤šé‡èµ·å‹•é˜²æ­¢ ---------- } ---------- */
 	}
 	return 1;
 }
@@ -129,14 +129,14 @@ void PIFCOMMAPI PifComm_DoStateDone(int iAckCode)
 	pMailThread->DoStateDone(iAckCode);
 }
 
-// P201 ‡‚í‚¹—v‹
+// P201 æ™‚åˆ»åˆã‚ã›è¦æ±‚
 extern "C"
 void PifComm_GetSetTime(SYSTEMTIME* pSystemTime)
 {
 	::CopyMemory(pSystemTime, &g_setTime, sizeof(SYSTEMTIME));
 }
 
-// P301 ‘•’uƒ‚ƒjƒ^[î•ñ
+// P301 è£…ç½®ãƒ¢ãƒ‹ã‚¿ãƒ¼æƒ…å ±
 extern "C"
 EQMONITORSET* PifComm_GetEqMonitorPtr()
 {
@@ -164,13 +164,13 @@ void PIFCOMMAPI PifComm_EqMonitortReport()
 }
 // 2009.12.21 K.Matsuo <--
 
-// P303 ƒŒƒVƒsˆê——æ“¾—v‹
+// P303 ãƒ¬ã‚·ãƒ”ä¸€è¦§å–å¾—è¦æ±‚
 extern "C" int PifComm_RequestKindOfRecipe()
 {
 	return g_iKindOfRecipe;
 }
 
-// P304 ƒŒƒVƒsˆê——•ñ
+// P304 ãƒ¬ã‚·ãƒ”ä¸€è¦§å ±å‘Š
 extern "C"
 void PIFCOMMAPI PifComm_RecipeListReport(int iKindOfRecipe, const RECIPENAMEDATESET* pstRecipeNameDate, UINT nOccurence)
 {
@@ -182,7 +182,7 @@ void PIFCOMMAPI PifComm_RecipeListReport(int iKindOfRecipe, const RECIPENAMEDATE
 	pifMsg304.SendRequ();
 }
 
-// P305 ƒŒƒVƒs•ÏX•ñ
+// P305 ãƒ¬ã‚·ãƒ”å¤‰æ›´å ±å‘Š
 extern "C"
 void PIFCOMMAPI PifComm_ChangeRecipeDeleteReport(int iKindOfRecipe, const RECIPENAMEDATESET* pstRecipeNameDate)
 {
@@ -210,7 +210,7 @@ void PIFCOMMAPI PifComm_ChangeRecipeReplaceReport(int iKindOfRecipe, const RECIP
 	pifMsg305.SendRequ();
 }
 
-// P307 ƒgƒŒ[ƒXƒf[ƒ^•ñ
+// P307 ãƒˆãƒ¬ãƒ¼ã‚¹ãƒ‡ãƒ¼ã‚¿å ±å‘Š
 extern "C"
 void PIFCOMMAPI PifComm_TraceDataReport(const TRACEDATASET* pstTraceData)
 {
@@ -233,14 +233,14 @@ void PIFCOMMAPI PifComm_TraceDataReport(const TRACEDATASET* pstTraceData)
 	pifMsg307.SendRequ();
 }
 
-// P308 ƒTƒ“ƒvƒ‹ƒTƒCƒYƒf[ƒ^æ“¾—v‹
+// P308 ã‚µãƒ³ãƒ—ãƒ«ã‚µã‚¤ã‚ºãƒ‡ãƒ¼ã‚¿å–å¾—è¦æ±‚
 extern "C"
 void PIFCOMMAPI PifComm_GetSampleSizeRecipeName(LPTSTR pszRecipeName)
 {
 	_tcscpy(pszRecipeName, g_szSampleSizeRecipeName);
 }
 
-// P309 ƒTƒ“ƒvƒ‹ƒTƒCƒYƒf[ƒ^•ñ
+// P309 ã‚µãƒ³ãƒ—ãƒ«ã‚µã‚¤ã‚ºãƒ‡ãƒ¼ã‚¿å ±å‘Š
 extern "C"
 void PIFCOMMAPI PifComm_SampleSizeDataReport(double dX, double dY)
 {
@@ -250,38 +250,38 @@ void PIFCOMMAPI PifComm_SampleSizeDataReport(double dX, double dY)
 	pifMsg309.SendRequ();
 }
 
-// P310 ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^Šm”F—v‹
+// P310 ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ç¢ºèªè¦æ±‚
 extern "C"
 void PIFCOMMAPI PifComm_GetReferenceDataCheckRecipeName(LPTSTR pszRecipeName)
 {
 	_tcscpy(pszRecipeName, g_szReferenceDataCheckRecipeName);
 }
 
-// P401 ’…HƒŒƒVƒsw¦—v‹
-// P411 ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾ƒŒƒVƒsw¦—v‹
+// P401 ç€å·¥ãƒ¬ã‚·ãƒ”æŒ‡ç¤ºè¦æ±‚
+// P411 ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—ãƒ¬ã‚·ãƒ”æŒ‡ç¤ºè¦æ±‚
 extern "C"
 void PIFCOMMAPI PifComm_GetRecipeName(LPTSTR pszRecipeName)
 {
 	_tcscpy(pszRecipeName, g_szRecipeName);
 }
 
-// P501 ‘ª’èŠJnw¦—v‹
-// P511 ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾ŠJnw¦—v‹
+// P501 æ¸¬å®šé–‹å§‹æŒ‡ç¤ºè¦æ±‚
+// P511 ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—é–‹å§‹æŒ‡ç¤ºè¦æ±‚
 extern "C"
 void PIFCOMMAPI PifComm_GetSampleId(LPTSTR pszSampleId)
 {
 	_tcscpy(pszSampleId, g_szSampleId);
 }
 
-// P501 ‘ª’èŠJnw¦—v‹
-// P511 ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾ŠJnw¦—v‹
+// P501 æ¸¬å®šé–‹å§‹æŒ‡ç¤ºè¦æ±‚
+// P511 ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—é–‹å§‹æŒ‡ç¤ºè¦æ±‚
 extern "C"
 void PIFCOMMAPI PifComm_GetLotId(LPTSTR pszLotId)
 {
 	_tcscpy(pszLotId, g_szLotId);
 }
 
-// P502 ‘ª’èƒ|ƒCƒ“ƒgŠ®—¹•ñ
+// P502 æ¸¬å®šãƒã‚¤ãƒ³ãƒˆå®Œäº†å ±å‘Š
 extern "C"
 void PIFCOMMAPI PifComm_CompleteMeasurePointReport(int iFormatId, int iPointNo, LPCTSTR pszAF_ST, const STAGE_COORD_XYZ* pCoordXyz, const char pszLabelOri[][ADAPRESULTSTRINGLENMAX + 1], const double* dData, const int* iSpecificWavelen)
 {
@@ -290,7 +290,7 @@ void PIFCOMMAPI PifComm_CompleteMeasurePointReport(int iFormatId, int iPointNo, 
 	char szLayer[16 + 1];
 	CPifMessage502 pifMsg502;
 
-	// •ÒWˆ—‚Ì€”õ F ŠÖ”ƒ|ƒCƒ“ƒ^‚Ì”z—ñ‚ğì¬
+	// ç·¨é›†å‡¦ç†ã®æº–å‚™ ï¼š é–¢æ•°ãƒã‚¤ãƒ³ã‚¿ã®é…åˆ—ã‚’ä½œæˆ
 	i = 0;
 	void (CPifMessage502::*pfnSetItemThick[8])(double);
 	pfnSetItemThick[i++] = &CPifMessage502::SetItemTHICK1;
@@ -381,14 +381,14 @@ void PIFCOMMAPI PifComm_CompleteMeasurePointReport(int iFormatId, int iPointNo, 
 	pfnSetItemFRACTION[i++] = &CPifMessage502::SetItemFRACTION7;
 	pfnSetItemFRACTION[i++] = &CPifMessage502::SetItemFRACTION8;
 
-	// ƒf[ƒ^‚ğƒZƒbƒg‚·‚é
+	// ãƒ‡ãƒ¼ã‚¿ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
 	pifMsg502.SetItemFormatId(iFormatId);
 	pifMsg502.SetItemPointNo(iPointNo);
-	// 001 SR–ŒŒú, 004 SE, 007 EASE
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+	// 001 SRè†œåš, 004 SE, 007 EASE
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 //	if ( iFormatId == 1 || iFormatId == 4 ) {
 	if ( iFormatId == 1 || iFormatId == 4 || iFormatId == 7 ) {
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 		pifMsg502.SetItemAF_ST(pszAF_ST);
 		pifMsg502.SetItemXCOORD(pCoordXyz->lX);
 		pifMsg502.SetItemYCOORD(pCoordXyz->lY);
@@ -396,7 +396,7 @@ void PIFCOMMAPI PifComm_CompleteMeasurePointReport(int iFormatId, int iPointNo, 
 		strcpy(szLayer, "00000000");
 
 		int inc = 0;
-//		while ( strcmp(pszLabelOri[inc], "") != 0 )		// ‚±‚ê‚¾‚ÆA‚¤‚Ü‚­“®ì‚µ‚È‚¢B
+//		while ( strcmp(pszLabelOri[inc], "") != 0 )		// ã“ã‚Œã ã¨ã€ã†ã¾ãå‹•ä½œã—ãªã„ã€‚
 		while ( pszLabelOri[inc][0] != '\0' )
 		{
 			for ( int i = 0; i < 8; i++ ) {
@@ -455,7 +455,7 @@ void PIFCOMMAPI PifComm_CompleteMeasurePointReport(int iFormatId, int iPointNo, 
 		}
 		pifMsg502.SetItemLAYERFLG(szLayer);
 	}
-	// 002 SR ”½Ë—¦
+	// 002 SR åå°„ç‡
 	else if ( iFormatId == 2 ) {
 		pifMsg502.SetItemAF_ST(pszAF_ST);
 		pifMsg502.SetItemXCOORD(pCoordXyz->lX);
@@ -475,7 +475,7 @@ void PIFCOMMAPI PifComm_CompleteMeasurePointReport(int iFormatId, int iPointNo, 
 			inc++;
 		}
 	}
-	// 003 SR “§‰ß—¦
+	// 003 SR é€éç‡
 	else if ( iFormatId == 3 ) {
 		pifMsg502.SetItemAF_ST(pszAF_ST);
 		pifMsg502.SetItemXCOORD(pCoordXyz->lX);
@@ -554,7 +554,7 @@ void PIFCOMMAPI PifComm_CompleteMeasureStressLineReport(int iMeasMode, int iLine
 	CPifMessage502 pifMsg502;
 	const int iFormatId = 101;
 
-	// •ÒWˆ—‚Ì€”õ F ŠÖ”ƒ|ƒCƒ“ƒ^‚Ì”z—ñ‚ğì¬
+	// ç·¨é›†å‡¦ç†ã®æº–å‚™ ï¼š é–¢æ•°ãƒã‚¤ãƒ³ã‚¿ã®é…åˆ—ã‚’ä½œæˆ
 	i = 0;
 	void (CPifMessage502::*pfnSetItemSTRLxSx_Valid[20])(int);
 	pfnSetItemSTRLxSx_Valid[i++] = &CPifMessage502::SetItemSTRLxS1_Valid;
@@ -693,7 +693,7 @@ void PIFCOMMAPI PifComm_CompleteMeasureStressLineReport(int iMeasMode, int iLine
 	pfnSetItemSTRLxSx_Stress[i++] = &CPifMessage502::SetItemSTRLxS19_Stress;
 	pfnSetItemSTRLxSx_Stress[i++] = &CPifMessage502::SetItemSTRLxS20_Stress;
 
-	// ƒf[ƒ^‚ğƒZƒbƒg‚·‚é
+	// ãƒ‡ãƒ¼ã‚¿ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
 	pifMsg502.SetItemFormatId(iFormatId);
 	pifMsg502.SetItemLineNo(iLineNo);
 
@@ -711,7 +711,7 @@ void PIFCOMMAPI PifComm_CompleteMeasureStressLineReport(int iMeasMode, int iLine
 	pifMsg502.SendRequ();
 }
 
-// P503 ‘ª’èŠ®—¹•ñ
+// P503 æ¸¬å®šå®Œäº†å ±å‘Š
 extern "C"
 void PIFCOMMAPI PifComm_CompleteMeasureAllPointsReport(int iFormatId, int iTotalPointCnt, const char pszLabelOri[][ADAPRESULTSTRINGLENMAX + 1], const STATISTICSDATESET* pStatistics, const int* iSpecificWavelen)
 {
@@ -720,7 +720,7 @@ void PIFCOMMAPI PifComm_CompleteMeasureAllPointsReport(int iFormatId, int iTotal
 	char szLayer[16 + 1];
 	CPifMessage503 pifMsg503;
 
-	// •ÒWˆ—‚Ì€”õ F ŠÖ”ƒ|ƒCƒ“ƒ^‚Ì”z—ñ‚ğì¬
+	// ç·¨é›†å‡¦ç†ã®æº–å‚™ ï¼š é–¢æ•°ãƒã‚¤ãƒ³ã‚¿ã®é…åˆ—ã‚’ä½œæˆ
 	i = 0;
 	void (CPifMessage503::*pfnSetItemThick_Min[8])(double);
 	pfnSetItemThick_Min[i++] = &CPifMessage503::SetItemTHICK1_MIN;
@@ -1122,18 +1122,18 @@ void PIFCOMMAPI PifComm_CompleteMeasureAllPointsReport(int iFormatId, int iTotal
 	pfnSetItemFRACTION_Unif[i++] = &CPifMessage503::SetItemFRACTION7_UNIF;
 	pfnSetItemFRACTION_Unif[i++] = &CPifMessage503::SetItemFRACTION8_UNIF;
 
-	// ƒf[ƒ^‚ğƒZƒbƒg‚·‚é
+	// ãƒ‡ãƒ¼ã‚¿ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
 	pifMsg503.SetItemFormatId(iFormatId);
 	pifMsg503.SetItemPointNo(iTotalPointCnt);
-	// 001 SR–ŒŒú, 004 SE, 007 EASE
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+	// 001 SRè†œåš, 004 SE, 007 EASE
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 //	if ( iFormatId == 1 || iFormatId == 4 ) {
 	if ( iFormatId == 1 || iFormatId == 4 || iFormatId == 7 ) {
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 		strcpy(szLayer, "00000000");
 
 		int inc = 0;
-//		while ( strcmp(pszLabelOri[inc], "") != 0 )		// ‚±‚ê‚¾‚ÆA‚¤‚Ü‚­“®ì‚µ‚È‚¢B
+//		while ( strcmp(pszLabelOri[inc], "") != 0 )		// ã“ã‚Œã ã¨ã€ã†ã¾ãå‹•ä½œã—ãªã„ã€‚
 		while ( pszLabelOri[inc][0] != '\0' )
 		{
 			for ( i = 0; i < 8; i++ ) {
@@ -1222,7 +1222,7 @@ void PIFCOMMAPI PifComm_CompleteMeasureAllPointsReport(int iFormatId, int iTotal
 		}
 		pifMsg503.SetItemLAYERFLG(szLayer);
 	}
-	// 002 SR ”½Ë—¦
+	// 002 SR åå°„ç‡
 	else if ( iFormatId == 2 ) {
 		int inc = 0;
 		while ( pszLabelOri[inc][0] != '\0' )
@@ -1241,7 +1241,7 @@ void PIFCOMMAPI PifComm_CompleteMeasureAllPointsReport(int iFormatId, int iTotal
 			inc++;
 		}
 	}
-	// 003 SR “§‰ß—¦
+	// 003 SR é€éç‡
 	else if ( iFormatId == 3 ) {
 		int inc = 0;
 		while ( pszLabelOri[inc][0] != '\0' )
@@ -1348,7 +1348,7 @@ void PIFCOMMAPI PifComm_CompleteMeasureStressAllLinesReport(int iMeasMode, const
 	CPifMessage503 pifMsg503;
 	const int iFormatId = 101;
 
-	// •ÒWˆ—‚Ì€”õ F ŠÖ”ƒ|ƒCƒ“ƒ^‚Ì”z—ñ‚ğì¬
+	// ç·¨é›†å‡¦ç†ã®æº–å‚™ ï¼š é–¢æ•°ãƒã‚¤ãƒ³ã‚¿ã®é…åˆ—ã‚’ä½œæˆ
 	i = 0;
 	void (CPifMessage503::*pfnSetItemSTRLx_Min[21])(double);
 	pfnSetItemSTRLx_Min[i++] = &CPifMessage503::SetItemSTRL1_MIN;
@@ -1470,7 +1470,7 @@ void PIFCOMMAPI PifComm_CompleteMeasureStressAllLinesReport(int iMeasMode, const
 	pfnSetItemSTRLx_Unif[i++] = &CPifMessage503::SetItemSTRWA_UNIF;
 
 
-	// ƒf[ƒ^‚ğƒZƒbƒg‚·‚é
+	// ãƒ‡ãƒ¼ã‚¿ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
 	pifMsg503.SetItemFormatId(iFormatId);
 	pifMsg503.SetItemSTRMEASMODE(iMeasMode);
 
@@ -1499,7 +1499,7 @@ void PIFCOMMAPI PifComm_CompleteMeasureStressAllLinesReport(int iMeasMode, const
 	pifMsg503.SetItemSTRLxValidFLG1(szBuff);
 	pifMsg503.SetItemLineNo(iValidLineNum);
 
-	for ( i = 0; i < 21; i++ ) {			// WA‚àŠÜ‚Ş‚Ì‚ÅA21
+	for ( i = 0; i < 21; i++ ) {			// WAã‚‚å«ã‚€ã®ã§ã€21
 		(pifMsg503.*pfnSetItemSTRLx_Min[i])(pStatistics[i].dMin);
 		(pifMsg503.*pfnSetItemSTRLx_Max[i])(pStatistics[i].dMax);
 		(pifMsg503.*pfnSetItemSTRLx_Ave[i])(pStatistics[i].dAve);
@@ -1511,7 +1511,7 @@ void PIFCOMMAPI PifComm_CompleteMeasureStressAllLinesReport(int iMeasMode, const
 }
 
 
-// P504 ‘ª’èƒLƒƒƒ“ƒZƒ‹ƒ{ƒ^ƒ“‰Ÿ‰º•ñ
+// P504 æ¸¬å®šã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒœã‚¿ãƒ³æŠ¼ä¸‹å ±å‘Š
 extern "C"
 void PIFCOMMAPI PifComm_PressMeasureCancelButtonReport()
 {
@@ -1519,8 +1519,8 @@ void PIFCOMMAPI PifComm_PressMeasureCancelButtonReport()
 	pifMsg504.SendRequ();
 }
 
-// 2009.10.29 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾‹@”\’Ç‰Á -->
-// P512 ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾ƒ|ƒCƒ“ƒgŠ®—¹•ñ
+// 2009.10.29 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—æ©Ÿèƒ½è¿½åŠ  -->
+// P512 ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—ãƒã‚¤ãƒ³ãƒˆå®Œäº†å ±å‘Š
 extern "C"
 PIFCOMMAPI void PifComm_CompleteReferencePointReport(int iPointNo)
 {
@@ -1529,7 +1529,7 @@ PIFCOMMAPI void PifComm_CompleteReferencePointReport(int iPointNo)
 	pifMsg512.SendRequ();
 }
 
-// P513 ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾Š®—¹•ñ
+// P513 ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—å®Œäº†å ±å‘Š
 extern "C"
 PIFCOMMAPI void PifComm_CompleteReferenceAllPointsReport(int iTotalPointCnt)
 {
@@ -1537,10 +1537,10 @@ PIFCOMMAPI void PifComm_CompleteReferenceAllPointsReport(int iTotalPointCnt)
 	pifMsg513.SetItemPointNo(iTotalPointCnt);
 	pifMsg513.SendRequ();
 }
-// 2009.10.29 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾‹@”\’Ç‰Á <--
+// 2009.10.29 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—æ©Ÿèƒ½è¿½åŠ  <--
 
-// 2014.01.07 bagus Add(Stage None‘Î‰) -->
-// P515 SiƒŠƒtƒ@ƒŒƒ“ƒXæ“¾Š®—¹•ñ
+// 2014.01.07 bagus Add(Stage Noneå¯¾å¿œ) -->
+// P515 Siãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—å®Œäº†å ±å‘Š
 extern "C"
 void PIFCOMMAPI PifComm_CompleteSiReferenceDoneReport(int iReferenceResult)
 {
@@ -1549,7 +1549,7 @@ void PIFCOMMAPI PifComm_CompleteSiReferenceDoneReport(int iReferenceResult)
 	pifMsg515.SendRequ();
 }
 
-// P517 DarkƒŠƒtƒ@ƒŒƒ“ƒXæ“¾Š®—¹•ñ
+// P517 Darkãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—å®Œäº†å ±å‘Š
 extern "C"
 void PIFCOMMAPI PifComm_CompleteDarkReferenceDoneReport(int iReferenceResult)
 {
@@ -1558,9 +1558,9 @@ void PIFCOMMAPI PifComm_CompleteDarkReferenceDoneReport(int iReferenceResult)
 	pifMsg517.SendRequ();
 }
 
-// 2014.01.07 bagus Add(Stage None‘Î‰) <--
+// 2014.01.07 bagus Add(Stage Noneå¯¾å¿œ) <--
 
-// P601 ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“ˆÚsw¦—v‹
+// P601 ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³ç§»è¡ŒæŒ‡ç¤ºè¦æ±‚
 extern "C"
 void PIFCOMMAPI PifComm_GetSampleSize(double* dX, double* dY)
 {
@@ -1568,14 +1568,14 @@ void PIFCOMMAPI PifComm_GetSampleSize(double* dX, double* dY)
 	*dY = g_dSampleSizeY;
 }
 
-// P602 ”Ä—pƒ|ƒWƒVƒ‡ƒ“ˆÚsw¦—v‹
+// P602 æ±ç”¨ãƒã‚¸ã‚·ãƒ§ãƒ³ç§»è¡ŒæŒ‡ç¤ºè¦æ±‚
 extern "C"
 int PIFCOMMAPI PifComm_GetMovePosId()
 {
 	return g_iMovePosId;
 }
 
-// P701 ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“ˆÚsŒ‹‰Ê•ñ
+// P701 ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³ç§»è¡Œçµæœå ±å‘Š
 extern "C"
 void PIFCOMMAPI PifComm_LoadPositionMovementResultReport(int iMovementResult)
 {
@@ -1584,7 +1584,7 @@ void PIFCOMMAPI PifComm_LoadPositionMovementResultReport(int iMovementResult)
 	pifMsg701.SendRequ();
 }
 
-// P702 ”Ä—pƒ|ƒWƒVƒ‡ƒ“ˆÚsŒ‹‰Ê•ñ
+// P702 æ±ç”¨ãƒã‚¸ã‚·ãƒ§ãƒ³ç§»è¡Œçµæœå ±å‘Š
 extern "C"
 void PIFCOMMAPI PifComm_GeneralPurposePositionMovementResultReport(int iMovementResult)
 {
@@ -1593,7 +1593,7 @@ void PIFCOMMAPI PifComm_GeneralPurposePositionMovementResultReport(int iMovement
 	pifMsg702.SendRequ();
 }
 
-// P703 ƒoƒLƒ…[ƒ€ONw¦Œ‹‰Ê•ñ
+// P703 ãƒã‚­ãƒ¥ãƒ¼ãƒ ONæŒ‡ç¤ºçµæœå ±å‘Š
 extern "C"
 void PIFCOMMAPI PifComm_VaccumOnResultReport(int iMovementResult)
 {
@@ -1602,7 +1602,7 @@ void PIFCOMMAPI PifComm_VaccumOnResultReport(int iMovementResult)
 	pifMsg703.SendRequ();
 }
 
-// P704 ƒoƒLƒ…[ƒ€OFFw¦Œ‹‰Ê•ñ
+// P704 ãƒã‚­ãƒ¥ãƒ¼ãƒ OFFæŒ‡ç¤ºçµæœå ±å‘Š
 extern "C"
 void PIFCOMMAPI PifComm_VaccumOffResultReport(int iMovementResult)
 {
@@ -1611,7 +1611,7 @@ void PIFCOMMAPI PifComm_VaccumOffResultReport(int iMovementResult)
 	pifMsg704.SendRequ();
 }
 
-// P705 ƒAƒ‰ƒCƒƒ“ƒgLOADw¦Œ‹‰Ê•ñ
+// P705 ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆLOADæŒ‡ç¤ºçµæœå ±å‘Š
 extern "C"
 void PIFCOMMAPI PifComm_AlignmentLoadResultReport(int iMovementResult)
 {
@@ -1620,7 +1620,7 @@ void PIFCOMMAPI PifComm_AlignmentLoadResultReport(int iMovementResult)
 	pifMsg705.SendRequ();
 }
 
-// P706 ƒAƒ‰ƒCƒƒ“ƒgUNLOADw¦Œ‹‰Ê•ñ
+// P706 ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆUNLOADæŒ‡ç¤ºçµæœå ±å‘Š
 extern "C"
 void PIFCOMMAPI PifComm_AlignmentUnloadResultReport(int iMovementResult)
 {
@@ -1629,7 +1629,7 @@ void PIFCOMMAPI PifComm_AlignmentUnloadResultReport(int iMovementResult)
 	pifMsg706.SendRequ();
 }
 
-// P707 PINUPw¦Œ‹‰Ê•ñ
+// P707 PINUPæŒ‡ç¤ºçµæœå ±å‘Š
 extern "C"
 void PIFCOMMAPI PifComm_PinUpResultReport(int iMovementResult)
 {
@@ -1638,7 +1638,7 @@ void PIFCOMMAPI PifComm_PinUpResultReport(int iMovementResult)
 	pifMsg707.SendRequ();
 }
 
-// P708 PINDOWNw¦Œ‹‰Ê•ñ
+// P708 PINDOWNæŒ‡ç¤ºçµæœå ±å‘Š
 extern "C"
 void PIFCOMMAPI PifComm_PinDownResultReport(int iMovementResult)
 {
@@ -1647,7 +1647,7 @@ void PIFCOMMAPI PifComm_PinDownResultReport(int iMovementResult)
 	pifMsg708.SendRequ();
 }
 
-// P709 ƒVƒƒƒbƒ^[OPENw¦Œ‹‰Ê•ñ
+// P709 ã‚·ãƒ£ãƒƒã‚¿ãƒ¼OPENæŒ‡ç¤ºçµæœå ±å‘Š
 extern "C"
 void PIFCOMMAPI PifComm_ShutterOpenResultReport(int iMovementResult)
 {
@@ -1656,7 +1656,7 @@ void PIFCOMMAPI PifComm_ShutterOpenResultReport(int iMovementResult)
 	pifMsg709.SendRequ();
 }
 
-// P710 ƒVƒƒƒbƒ^[CLOSEw¦Œ‹‰Ê•ñ
+// P710 ã‚·ãƒ£ãƒƒã‚¿ãƒ¼CLOSEæŒ‡ç¤ºçµæœå ±å‘Š
 extern "C"
 void PIFCOMMAPI PifComm_ShutterCloseResultReport(int iMovementResult)
 {
@@ -1665,7 +1665,7 @@ void PIFCOMMAPI PifComm_ShutterCloseResultReport(int iMovementResult)
 	pifMsg710.SendRequ();
 }
 
-// P711 ‘ª’èƒLƒƒƒ“ƒZƒ‹Œ‹‰Ê•ñ
+// P711 æ¸¬å®šã‚­ãƒ£ãƒ³ã‚»ãƒ«çµæœå ±å‘Š
 extern "C"
 void PIFCOMMAPI PifComm_MeasureCancelResultReport(int iMovementResult)
 {
@@ -1674,7 +1674,7 @@ void PIFCOMMAPI PifComm_MeasureCancelResultReport(int iMovementResult)
 	pifMsg711.SendRequ();
 }
 
-// P801 ƒAƒ‰[ƒ€”­¶E‰ğœ•ñ
+// P801 ã‚¢ãƒ©ãƒ¼ãƒ ç™ºç”Ÿãƒ»è§£é™¤å ±å‘Š
 extern "C"
 void PIFCOMMAPI PifComm_AlarmReport(const ALARMDATASET* pstAlarmData)
 {

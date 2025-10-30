@@ -1,4 +1,4 @@
-// CompEASETcpAsyncPort.cpp
+ï»¿// CompEASETcpAsyncPort.cpp
 //
 
 #include "stdafx.h"
@@ -160,12 +160,12 @@ void CCompEASETcpAsyncPort::CloseSocket(BOOL bReset/*=FALSE*/)
 	FD_ZERO( &readfds );
 	FD_SET(m_sock, &readfds);
 
-	// timeout0•bB‚Â‚Ü‚èselect‚Í‚·‚®‚É§Œä‚ğ•Ô‚µ‚Ä‚­‚é
+	// timeout0ç§’ã€‚ã¤ã¾ã‚Šselectã¯ã™ãã«åˆ¶å¾¡ã‚’è¿”ã—ã¦ãã‚‹
 	timeout.tv_sec = 0;
 	timeout.tv_usec = 0;
 
-	// “Ç‚İ‚İ—pfd_set‚Ì‰Šú‰»
-	// select‚ª–ˆ‰ñ“à—e‚ğã‘‚«‚µ‚Ä‚µ‚Ü‚¤‚Ì‚ÅA–ˆ‰ñ‰Šú‰»‚µ‚Ü‚·
+	// èª­ã¿è¾¼ã¿ç”¨fd_setã®åˆæœŸåŒ–
+	// selectãŒæ¯å›å†…å®¹ã‚’ä¸Šæ›¸ãã—ã¦ã—ã¾ã†ã®ã§ã€æ¯å›åˆæœŸåŒ–ã—ã¾ã™
 	memcpy(&fdset, &readfds, sizeof(fd_set));
 
 	select( m_sock + 1 , &fdset , NULL , NULL , &timeout );
@@ -209,14 +209,14 @@ BOOL CCompEASETcpAsyncPort::RecvAsyncData(LPTSTR pszData)
 	FD_SET(m_sock, &readfds);
 	FD_SET(m_sock, &errfds);
 
-	// timeout0•bB‚Â‚Ü‚èselect‚Í‚·‚®‚É§Œä‚ğ•Ô‚µ‚Ä‚­‚é
+	// timeout0ç§’ã€‚ã¤ã¾ã‚Šselectã¯ã™ãã«åˆ¶å¾¡ã‚’è¿”ã—ã¦ãã‚‹
 	timeout.tv_sec = 0;
 	timeout.tv_usec = 0;
 
    iRecv = 0;
 	while ( 1 ) {
-		// “Ç‚İ‚İ—pfd_set‚Ì‰Šú‰»
-		// select‚ª–ˆ‰ñ“à—e‚ğã‘‚«‚µ‚Ä‚µ‚Ü‚¤‚Ì‚ÅA–ˆ‰ñ‰Šú‰»‚µ‚Ü‚·
+		// èª­ã¿è¾¼ã¿ç”¨fd_setã®åˆæœŸåŒ–
+		// selectãŒæ¯å›å†…å®¹ã‚’ä¸Šæ›¸ãã—ã¦ã—ã¾ã†ã®ã§ã€æ¯å›åˆæœŸåŒ–ã—ã¾ã™
 		memcpy(&fdset, &readfds, sizeof(fd_set));
 	
 		memcpy(&fdset2, &errfds, sizeof(fd_set));

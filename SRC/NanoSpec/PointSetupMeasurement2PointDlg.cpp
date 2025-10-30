@@ -1,4 +1,4 @@
-// PointSetupMeasurement2PointDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// PointSetupMeasurement2PointDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -15,7 +15,7 @@
 #include "..\\..\\INC\\NexIOBASE.hxx"
 #include "..\\..\\INC\\NSStage.hxx"
 
-#undef SubclassWindow	// ƒoƒO: C4003: SubclassWindow ƒ}ƒNƒ‚Ìƒpƒ‰ƒ[ƒ^[‚Ì•s‘« http://support.microsoft.com/kb/150076/ja
+#undef SubclassWindow	// ãƒã‚°: C4003: SubclassWindow ãƒã‚¯ãƒ­ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãƒ¼ã®ä¸è¶³ http://support.microsoft.com/kb/150076/ja
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -27,13 +27,13 @@ static char THIS_FILE[] = __FILE__;
 
 
 /////////////////////////////////////////////////////////////////////////////
-// CPointSetupMeasurement2PointDlg ƒ_ƒCƒAƒƒO
+// CPointSetupMeasurement2PointDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 CPointSetupMeasurement2PointDlg::CPointSetupMeasurement2PointDlg(CWnd* pParent /*=NULL*/)
 	: COverlayDialog(CPointSetupMeasurement2PointDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CPointSetupMeasurement2PointDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_INIT
 
 
@@ -77,14 +77,14 @@ BEGIN_MESSAGE_MAP(CPointSetupMeasurement2PointDlg, COverlayDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CPointSetupMeasurement2PointDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CPointSetupMeasurement2PointDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 /////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////
 //
 BOOL CPointSetupMeasurement2PointDlg::OnInitDialog()
 {
-	//SampleƒZƒbƒg
+	//Sampleã‚»ãƒƒãƒˆ
 	SetFileName(m_StageProgInfoHdr.SampleInfo.szName);
 	SetSampleMode(1);
 
@@ -113,7 +113,7 @@ BOOL CPointSetupMeasurement2PointDlg::OnInitDialog()
 		GetDlgItem(IDC_MEAS_2ND_BUTTON)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_MEAS_COMP_BUTTON)->ShowWindow(SW_HIDE);
 		//2009.11.29 bagus 2point-distance --{--
-		//Å‰‚ÌˆÊ’u‚Éƒ}[ƒN‚ğ’u‚¢‚Ä‚¨‚­
+		//æœ€åˆã®ä½ç½®ã«ãƒãƒ¼ã‚¯ã‚’ç½®ã„ã¦ãŠã
 		m_iCrossX = (m_rcOverlay.right - m_rcOverlay.left) / 2;
 		m_iCrossY = (m_rcOverlay.bottom - m_rcOverlay.left) / 2;
 		if(m_b2nd)
@@ -130,7 +130,7 @@ BOOL CPointSetupMeasurement2PointDlg::OnInitDialog()
 		GetDlgItem(IDC_MEAS_2ND_BUTTON)->EnableWindow(FALSE);
 		GetDlgItem(IDC_MEAS_COMP_BUTTON)->EnableWindow(TRUE);
 		//2009.11.29 bagus 2point-distance --{--
-		//Å‰‚ÌˆÊ’u‚Éƒ}[ƒN‚ğ’u‚¢‚Ä‚¨‚­
+		//æœ€åˆã®ä½ç½®ã«ãƒãƒ¼ã‚¯ã‚’ç½®ã„ã¦ãŠã
 		m_iCrossX = (m_rcOverlay.right - m_rcOverlay.left) / 2;
 		m_iCrossY = (m_rcOverlay.bottom - m_rcOverlay.left) / 2;
 		if(m_b2nd)
@@ -164,8 +164,8 @@ BOOL CPointSetupMeasurement2PointDlg::OnInitDialog()
 	}
 	SetTimer(1, 50, NULL);
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -183,7 +183,7 @@ void CPointSetupMeasurement2PointDlg::OnOK()
 
 	COverlayDialog::OnOK();
 
-	// TODO: ‚±‚ÌˆÊ’u‚É‚»‚Ì‘¼‚ÌŒŸØ—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãã®ä»–ã®æ¤œè¨¼ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -192,7 +192,7 @@ void CPointSetupMeasurement2PointDlg::OnCancel()
 {
 	COverlayDialog::OnCancel();
 
-	// TODO: ‚±‚ÌˆÊ’u‚É“Á•Ê‚ÈŒãˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ã“ã®ä½ç½®ã«ç‰¹åˆ¥ãªå¾Œå‡¦ç†ã‚’è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -299,21 +299,21 @@ HBRUSH CPointSetupMeasurement2PointDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nC
 //
 void CPointSetupMeasurement2PointDlg::OnTimer(UINT nIDEvent)
 {
-//‰Í‘º‚³‚ñ‚Ö
-//ƒ{ƒ^ƒ“‚Ì—LŒø/–³Œø‚ÌØ‘Ö‚¦‚ğActuateFlags‚ğğŒ‚É‚µ‚Äì¬‚ğ‚¨Šè‚¢‚µ‚Ü‚·B
-#if 0 //ProcessStatus‚ğg‚Á‚Ä‚¢‚é‚Ì‚ÅŠÔˆá‚¢
+//æ²³æ‘ã•ã‚“ã¸
+//ãƒœã‚¿ãƒ³ã®æœ‰åŠ¹/ç„¡åŠ¹ã®åˆ‡æ›¿ãˆã‚’ActuateFlagsã‚’æ¡ä»¶ã«ã—ã¦ä½œæˆã‚’ãŠé¡˜ã„ã—ã¾ã™ã€‚
+#if 0 //ProcessStatusã‚’ä½¿ã£ã¦ã„ã‚‹ã®ã§é–“é•ã„
 	int iProcessStatus = m_pDoc->GetProcessStatus();
 
-	//ƒ\ƒtƒgƒWƒ‡ƒCƒXƒeƒBƒbƒN§ŒÀ
+	//ã‚½ãƒ•ãƒˆã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯åˆ¶é™
 	if(iProcessStatus != m_iProcessStatusOld)
 	{
 		if( iProcessStatus != PROCESS_WAIT )
 		{
-			SoftJoyStickXyzEnable(FALSE); //‘€ì‹Ö~
+			SoftJoyStickXyzEnable(FALSE); //æ“ä½œç¦æ­¢
 		}
 		else
 		{
-			SoftJoyStickXyzEnable(TRUE); //‘€ì‹–‰Â
+			SoftJoyStickXyzEnable(TRUE); //æ“ä½œè¨±å¯
 		}
 	}
 	m_iProcessStatusOld = iProcessStatus;
@@ -321,7 +321,7 @@ void CPointSetupMeasurement2PointDlg::OnTimer(UINT nIDEvent)
 
 	COverlayDialog::OnTimer(nIDEvent);
 	//2009.11.29 bagus 2point-Distance --{--
-	//À•W‚ªˆÚ“®‚µ‚½Û‚Éƒ}[ƒN•\¦À•W‚ğÄŒvZ‚³‚¹‚é
+	//åº§æ¨™ãŒç§»å‹•ã—ãŸéš›ã«ãƒãƒ¼ã‚¯è¡¨ç¤ºåº§æ¨™ã‚’å†è¨ˆç®—ã•ã›ã‚‹
 	if(m_bDrawCross){
 		AdjustCrossPointPos();
 	}
@@ -329,7 +329,7 @@ void CPointSetupMeasurement2PointDlg::OnTimer(UINT nIDEvent)
 }
 
 // ==========================================================================
-// NameF		SetPointData
+// Nameï¼š		SetPointData
 void CPointSetupMeasurement2PointDlg::SetPointData()
 {
 	CString csPointNo, csX1, csY1, csX2, csY2, csDistance;
@@ -399,84 +399,84 @@ void CPointSetupMeasurement2PointDlg::SoftJoyStickXyzEnable(BOOL bEnable)
 
 void CPointSetupMeasurement2PointDlg::OnHomePositionButton()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
-// 2010.02.03 K.Matsuo PIN UPPER ƒCƒ“ƒ^[ƒƒbƒNƒ`ƒFƒbƒN˜R‚ê‘Î‰ -->
+	// TODO: ã“ã®ä½ç½®ã«ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«é€šçŸ¥ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
+// 2010.02.03 K.Matsuo PIN UPPER ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ãƒã‚§ãƒƒã‚¯æ¼ã‚Œå¯¾å¿œ -->
 	CString strMsg;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;} // ƒƒ“ƒeƒiƒ“ƒXˆÙí
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;} // ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ç•°å¸¸
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
+	// å„I/Oãƒã‚§ãƒƒã‚¯
 	if(m_pDoc->IsInterLock() == TRUE){return;}
-	if( nexioIsMovo2Alarm() 	!= OFF){	AlarmIf_Set(ALID_StageError);	return;} // MOVOƒAƒ‰[ƒ€ 				‚k
+	if( nexioIsMovo2Alarm() 	!= OFF){	AlarmIf_Set(ALID_StageError);	return;} // MOVOã‚¢ãƒ©ãƒ¼ãƒ  				ï¼ï¼¬
 	if(m_pDoc->CheckUnitStatus() == TRUE){return;}
 
-	// ƒVƒƒƒbƒ^[ˆÈŠO‚ª“®‚¢‚Ä‚¢‚½‚ç“®ì‹Ö~
+	// ã‚·ãƒ£ãƒƒã‚¿ãƒ¼ä»¥å¤–ãŒå‹•ã„ã¦ã„ãŸã‚‰å‹•ä½œç¦æ­¢
 	if( m_pMainFrame->GetJoyStickMode()==0 ){
 		if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 			LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 			m_pDoc->MessageStringIf_Set(strMsg);
 			return;
-		}	// ƒXƒe[ƒW“®ì’†
+		}	// ã‚¹ãƒ†ãƒ¼ã‚¸å‹•ä½œä¸­
 	}
 	if(m_pDoc->CheckActiveFlag() == TRUE){return;}
 
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
-// 2010.02.03 K.Matsuo PIN UPPER ƒCƒ“ƒ^[ƒƒbƒNƒ`ƒFƒbƒN˜R‚ê‘Î‰ <--
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
+// 2010.02.03 K.Matsuo PIN UPPER ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ãƒã‚§ãƒƒã‚¯æ¼ã‚Œå¯¾å¿œ <--
 
 	BOOL l_bAF = TRUE;
 	EEPROMDATA l_E2pRomParams;
 	StageGetEEPromData(&l_E2pRomParams);
-	long l_lZPos = l_E2pRomParams.AutoFocus.InitPos;	// Z ²‚Ì‰Šú‰»’â~ˆÊ’u
-	long l_lZPosPpU = l_E2pRomParams.AutoFocus.ppu; // Z ²‚Ì‰Šú‰»’â~ˆÊ’uƒtƒ@ƒNƒ^
+	long l_lZPos = l_E2pRomParams.AutoFocus.InitPos;	// Z è»¸ã®åˆæœŸåŒ–åœæ­¢ä½ç½®
+	long l_lZPosPpU = l_E2pRomParams.AutoFocus.ppu; // Z è»¸ã®åˆæœŸåŒ–åœæ­¢ä½ç½®ãƒ•ã‚¡ã‚¯ã‚¿
 
-	// ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh”»’è -------------------------------------------
+	// ãƒãƒ¼ãƒ‰ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ãƒˆãƒ¢ãƒ¼ãƒ‰åˆ¤å®š -------------------------------------------
 	if (0 != m_pMainFrame->HardwareSimulation()) {
-		// ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh‚¾‚Á‚½‚Ì‚ÅC‘ª’èŠ®—¹‘Ò‚¿ ‚Ö
+		// ãƒãƒ¼ãƒ‰ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ãƒˆãƒ¢ãƒ¼ãƒ‰ã ã£ãŸã®ã§ï¼Œæ¸¬å®šå®Œäº†å¾…ã¡ ã¸
 	}
 	else {
-		// À‹@‚Ìê‡ ---------------------------------------------------------
-		// AF —v/•s—v”»’è
-		// •s—v
-			// (‘S“_ AF –³‚µ‚Ìê‡)Z ²ˆÚ“®‚ª•K—v‚©ƒ`ƒFƒbƒN
-		// •K—v(d—lã•K—v‚È‚ç)
-		// ‚y²ˆÚ“®
+		// å®Ÿæ©Ÿã®å ´åˆ ---------------------------------------------------------
+		// AF è¦/ä¸è¦åˆ¤å®š
+		// ä¸è¦
+			// (å…¨ç‚¹ AF ç„¡ã—ã®å ´åˆ)Z è»¸ç§»å‹•ãŒå¿…è¦ã‹ãƒã‚§ãƒƒã‚¯
+		// å¿…è¦(ä»•æ§˜ä¸Šå¿…è¦ãªã‚‰)
+		// ï¼ºè»¸ç§»å‹•
 		//TCHAR l_szMainRcpName[256];
 		//((CChiefView*) m_pcChiefView)->GetCurrentMainRecipeName(l_szMainRcpName);
-		// ‰Šú‰»’â~ˆÊ’u[pulse]‚ğ[0.1um]‚É•ÏŠ·‚µ‚Ü‚·
+		// åˆæœŸåŒ–åœæ­¢ä½ç½®[pulse]ã‚’[0.1um]ã«å¤‰æ›ã—ã¾ã™
 		LONG64 l_l64_Z = ((LONG64) l_lZPos) * ((LONG64) 1000000);
-		l_l64_Z = l_l64_Z / ((LONG64) l_lZPosPpU);	// ‰Šú‰»’â~ˆÊ’u[pulse]€ƒtƒ@ƒNƒ^[pulse/mm]
-		l_l64_Z = l_l64_Z * ((LONG64) 10000);	// [0.1um]‚É•ÏŠ·‚·‚é
+		l_l64_Z = l_l64_Z / ((LONG64) l_lZPosPpU);	// åˆæœŸåŒ–åœæ­¢ä½ç½®[pulse]Ã·ãƒ•ã‚¡ã‚¯ã‚¿[pulse/mm]
+		l_l64_Z = l_l64_Z * ((LONG64) 10000);	// [0.1um]ã«å¤‰æ›ã™ã‚‹
 		long l_lZ = (long) (l_l64_Z / ((LONG64) 1000000));
 
-		NS_ConvertToStageMoveCoord(&l_lZ);		// •â³
+		NS_ConvertToStageMoveCoord(&l_lZ);		// è£œæ­£
 
-		m_pDoc->ActuateFlagsSet(ACTUATE_ZAXIS, TRUE);		// “®ì’†ƒtƒ‰ƒO(Z ²)‚ğƒIƒ“
+		m_pDoc->ActuateFlagsSet(ACTUATE_ZAXIS, TRUE);		// å‹•ä½œä¸­ãƒ•ãƒ©ã‚°(Z è»¸)ã‚’ã‚ªãƒ³
 #if 0	//----- Kawashima 2008.12.01 ----->
 //				TransiEvent(EV_SR1P_ZMOVE_DONE);
 #else	//----- Kawashima 2008.12.01 -----
 		m_pMainFrame->SetMessageText(IDS_CHIF_SR1P_Z_MOVING);  // Status Bar
 		if (0 == StageElevatorMove(l_lZ)) {
-			// ˆÚ“®ŠJn¸”s
+			// ç§»å‹•é–‹å§‹å¤±æ•—
 		} else {
-			// ˆÚ“®Š®—¹
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ---------- { ---------- */
+			// ç§»å‹•å®Œäº†
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- { ---------- */
 			m_pMainFrame->SetMessageText(IDS_CHIF_SR1P_Z_MOVED);   // Status Bar
-#else						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ----------			   */
+#else						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ----------			   */
 			m_pMainFrame->SetMessageText(_T(" ")); // Status Bar
-#endif						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºã—ãªã„ ---------- } ---------- */
 		}
 #endif	//----- Kawashima 2008.12.01 <-----
-		m_pDoc->ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);		// “®ì’†ƒtƒ‰ƒO(Z ²)‚ğƒIƒt
+		m_pDoc->ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);		// å‹•ä½œä¸­ãƒ•ãƒ©ã‚°(Z è»¸)ã‚’ã‚ªãƒ•
 	}
 }
 
 void CPointSetupMeasurement2PointDlg::OnLButtonDown(UINT nFlags, CPoint point)
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚·‚é‚©‚Ü‚½‚ÍƒfƒtƒHƒ‹ƒg‚Ìˆ—‚ğŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã™ã‚‹ã‹ã¾ãŸã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å‡¦ç†ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
 
 	STAGE_COORD TeachPos;
 
@@ -489,7 +489,7 @@ void CPointSetupMeasurement2PointDlg::OnLButtonDown(UINT nFlags, CPoint point)
 		NS_ConvertToStageGetPosCoord(&TeachPos);
 
 		//2009.11.10 bagus 2point-distance --{--
-		//•¨—À•W‚©‚ç˜_—À•W‚Ö•ÏŠ·‚·‚é
+		//ç‰©ç†åº§æ¨™ã‹ã‚‰è«–ç†åº§æ¨™ã¸å¤‰æ›ã™ã‚‹
 		//StageLogicalToPhysical(&TeachPos,&MarkPos);
 		//2009.11.10 bagus 2point-distance --}--
 
@@ -520,9 +520,9 @@ void CPointSetupMeasurement2PointDlg::OnPaint()
 {
 	COverlayDialog::OnPaint();
 	return;
-	CPaintDC dc(this); // •`‰æ—p‚ÌƒfƒoƒCƒX ƒRƒ“ƒeƒLƒXƒg
+	CPaintDC dc(this); // æç”»ç”¨ã®ãƒ‡ãƒã‚¤ã‚¹ ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
 
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	COverlayDialog::OnPaint();
 
@@ -558,12 +558,12 @@ void CPointSetupMeasurement2PointDlg::OnPaint()
 
 	ReleaseDC(pDC);
 
-	// •`‰æ—pƒƒbƒZ[ƒW‚Æ‚µ‚Ä COverlayDialog::OnPaint() ‚ğŒÄ‚Ño‚µ‚Ä‚Í‚¢‚¯‚Ü‚¹‚ñ
+	// æç”»ç”¨ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã¨ã—ã¦ COverlayDialog::OnPaint() ã‚’å‘¼ã³å‡ºã—ã¦ã¯ã„ã‘ã¾ã›ã‚“
 }
 
 void CPointSetupMeasurement2PointDlg::CalcPointData(long lX, long lY)
 {
-//debug ƒXƒe[ƒWÀ•W‚ğŒvZ‚·‚é
+//debug ã‚¹ãƒ†ãƒ¼ã‚¸åº§æ¨™ã‚’è¨ˆç®—ã™ã‚‹
 
 	if (m_b2nd) {
 		m_l2ndX = lX;
@@ -576,7 +576,7 @@ void CPointSetupMeasurement2PointDlg::CalcPointData(long lX, long lY)
 
 void CPointSetupMeasurement2PointDlg::OnMeas1stButton()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«é€šçŸ¥ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 	if (!m_bDrawCross)
 		return;
 
@@ -592,7 +592,7 @@ void CPointSetupMeasurement2PointDlg::OnMeas1stButton()
 
 void CPointSetupMeasurement2PointDlg::OnMeas2ndButton()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«é€šçŸ¥ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 	if (!m_bDrawCross)
 		return;
 
@@ -605,7 +605,7 @@ void CPointSetupMeasurement2PointDlg::OnMeas2ndButton()
 	m_iCurrPoint++;
 	m_b2nd = FALSE;
 	if(m_iTeachingMode == MODE_MANUAL_MEAS){
-		// ‘ª’èƒ|ƒCƒ“ƒg”Ô†‚Æ VALID ƒf[ƒ^‚ğƒf[ƒ^ˆ—‚Ö’Ê’m
+		// æ¸¬å®šãƒã‚¤ãƒ³ãƒˆç•ªå·ã¨ VALID ãƒ‡ãƒ¼ã‚¿ã‚’ãƒ‡ãƒ¼ã‚¿å‡¦ç†ã¸é€šçŸ¥
 		MEAS_1POINT_RESULT l_Meas1PointResult;
 		STAGE_COORD tCoord;
 		l_Meas1PointResult.dwPointNo = 0;
@@ -636,7 +636,7 @@ void CPointSetupMeasurement2PointDlg::OnMeas2ndButton()
 		m_pMainFrame->SendMessage(WM_COPYDATA, 0, (LPARAM) &l_CopyData);
 	}
 	//2009.11.17 bagus 2point-distance --{--
-	//2nd ‚Ìƒ{ƒ^ƒ“‚ÌŒã‚ÍƒNƒŠƒA‚·‚é
+	//2nd ã®ãƒœã‚¿ãƒ³ã®å¾Œã¯ã‚¯ãƒªã‚¢ã™ã‚‹
 	// Point No.
 	CString csPointNo;
 	csPointNo.Format("%d", m_iCurrPoint);
@@ -657,7 +657,7 @@ void CPointSetupMeasurement2PointDlg::OnMeas2ndButton()
 
 void CPointSetupMeasurement2PointDlg::OnMeasCompButton()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«é€šçŸ¥ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	m_bComp = TRUE;
 
@@ -671,7 +671,7 @@ void CPointSetupMeasurement2PointDlg::Refresh()
 		return;
 
 	//2009.11.30 bagus 2point-distance --{--
-	//ƒ}[ƒN‚ğ”ÍˆÍŠO‚ÌˆÊ’u‚É•`‰æ‚µ‚È‚¢‚æ‚¤‚É‚·‚éB
+	//ãƒãƒ¼ã‚¯ã‚’ç¯„å›²å¤–ã®ä½ç½®ã«æç”»ã—ãªã„ã‚ˆã†ã«ã™ã‚‹ã€‚
 	//2009.11.30 bagus 2point-distance --}--
 
 	CWnd* VideoScreen = GetDlgItem(IDC_OVERLAY);
@@ -709,8 +709,8 @@ void CPointSetupMeasurement2PointDlg::Refresh()
 
 }
 //2009.11.29 bagus 2point-distance --{--
-//ƒ}[ƒN•\¦ˆÊ’u’²®—pŠÖ”
-// Œ»İ‚Ìƒ}[ƒNÀ•W‚ğŒ³‚ÉÄŒvZ‚·‚éB
+//ãƒãƒ¼ã‚¯è¡¨ç¤ºä½ç½®èª¿æ•´ç”¨é–¢æ•°
+// ç¾åœ¨ã®ãƒãƒ¼ã‚¯åº§æ¨™ã‚’å…ƒã«å†è¨ˆç®—ã™ã‚‹ã€‚
 void CPointSetupMeasurement2PointDlg::AdjustCrossPointPos()
 {
 	STAGE_COORD pos;

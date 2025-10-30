@@ -1,4 +1,4 @@
-// SampleIdDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SampleIdDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -6,9 +6,9 @@
 #include "SampleIdDlg.h"
 #include "NanoSpecDoc.h"
 #include "MainFrm.h"
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ä¿®æ­£ --{--
 #include "StressReferenceListDlg.h"
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ä¿®æ­£ --}--
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -17,7 +17,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CSampleIdDlg ƒ_ƒCƒAƒƒO
+// CSampleIdDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -25,22 +25,22 @@ CSampleIdDlg::CSampleIdDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CSampleIdDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CSampleIdDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_INIT
 
 	m_pMainFrame	= NULL;
 	m_pDoc			= NULL;
-/* added 2009.06.16 hmenjo g—p‹Ö~•¶šƒ`ƒFƒbƒN ---------- { ---------- */
+/* added 2009.06.16 hmenjo ä½¿ç”¨ç¦æ­¢æ–‡å­—ãƒã‚§ãƒƒã‚¯ ---------- { ---------- */
 	_tcscpy(m_tszSampleID, _T(""));
-/* added 2009.06.16 hmenjo g—p‹Ö~•¶šƒ`ƒFƒbƒN ---------- } ---------- */
+/* added 2009.06.16 hmenjo ä½¿ç”¨ç¦æ­¢æ–‡å­—ãƒã‚§ãƒƒã‚¯ ---------- } ---------- */
 
-// 2009.10.08 bagus CTA ’Ç‰Á --{--
+// 2009.10.08 bagus CTA è¿½åŠ  --{--
 	m_bUseLotID = FALSE;
-// 2009.10.08 bagus CTA ’Ç‰Á --}--
+// 2009.10.08 bagus CTA è¿½åŠ  --}--
 
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ä¿®æ­£ --{--
 	m_bUseReferenceList = FALSE;
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ä¿®æ­£ --}--
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -49,14 +49,14 @@ void CSampleIdDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CSampleIdDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_MAP
 
 	DDX_Control(pDX, IDOK, m_OkButton);
 	DDX_Control(pDX, IDCANCEL, m_CancelButton);
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ä¿®æ­£ --{--
 	DDX_Control(pDX, IDC_LIST, m_ListButton);
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ä¿®æ­£ --}--
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -86,7 +86,7 @@ BOOL CSampleIdDlg::OnInitDialog()
 	m_CancelButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_CancelButton.DrawFlatFocus(TRUE);
 
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ä¿®æ­£ --{--
 	///// List Button /////
 	m_ListButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_ListButton.DrawFlatFocus(TRUE);
@@ -96,9 +96,9 @@ BOOL CSampleIdDlg::OnInitDialog()
 	} else {
 		GetDlgItem(IDC_LIST)->ShowWindow(SW_HIDE);
 	}
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ä¿®æ­£ --}--
 
-/* added 2014.05.22 hmenjo è“® lot ID •s—v ---------- { ---------- */
+/* added 2014.05.22 hmenjo æ‰‹å‹•æ™‚ lot ID ä¸è¦ ---------- { ---------- */
 	CString l_strMsg;
 	switch (g_lModelType) {
 	case MODEL_T3100:
@@ -108,20 +108,20 @@ BOOL CSampleIdDlg::OnInitDialog()
 		this->SetWindowText(l_strMsg);
 		break;
 	}
-/* added 2014.05.22 hmenjo è“® lot ID •s—v ---------- } ---------- */
+/* added 2014.05.22 hmenjo æ‰‹å‹•æ™‚ lot ID ä¸è¦ ---------- } ---------- */
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// CSampleIdDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSampleIdDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 /////////////////////////////////////////////////////////////////////////////
 //
 void CSampleIdDlg::OnOK()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚É‚»‚Ì‘¼‚ÌŒŸØ—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãã®ä»–ã®æ¤œè¨¼ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	char szSampleId[SAMPLE_ID_LEN + 1];
 	memset(szSampleId, 0, sizeof(szSampleId));
@@ -138,19 +138,19 @@ void CSampleIdDlg::OnOK()
 
 	if((sSampId == "")||(sSampId.GetLength() > SAMPLE_ID_LEN))
 	{
-		//MessageBox("The input value is either blank or number of characters is over the limited.", "Confirmation", MB_OK); //“ü—Í’l‚ª‹ó—“‚©•¶š”ƒI[ƒo[‚Å‚·B
+		//MessageBox("The input value is either blank or number of characters is over the limited.", "Confirmation", MB_OK); //å…¥åŠ›å€¤ãŒç©ºæ¬„ã‹æ–‡å­—æ•°ã‚ªãƒ¼ãƒãƒ¼ã§ã™ã€‚
 		//Saiki 20090601 Change ----->
-		//MessageBox("“ü—Í’l‚ª‹ó—“ ‚à‚µ‚­‚Í “ü—Í•¶š”ƒI[ƒo[‚Å‚·", "Confirmation", MB_OK); //“ü—Í’l‚ª‹ó—“‚©•¶š”ƒI[ƒo[‚Å‚·B
+		//MessageBox("å…¥åŠ›å€¤ãŒç©ºæ¬„ ã‚‚ã—ãã¯ å…¥åŠ›æ–‡å­—æ•°ã‚ªãƒ¼ãƒãƒ¼ã§ã™", "Confirmation", MB_OK); //å…¥åŠ›å€¤ãŒç©ºæ¬„ã‹æ–‡å­—æ•°ã‚ªãƒ¼ãƒãƒ¼ã§ã™ã€‚
 		LoadStringML(IDS_INPUT_VALUE_CHARA_OVER, strBuffer, "The input value is either blank or number of characters is over the limited.");
 		LoadStringML(IDS_TITLE_CONFIRMATION, strTitle, "Confirmation");
-		MessageBox(strBuffer, strTitle, MB_OK); //“ü—Í’l‚ª‹ó—“‚©•¶š”ƒI[ƒo[‚Å‚·B
+		MessageBox(strBuffer, strTitle, MB_OK); //å…¥åŠ›å€¤ãŒç©ºæ¬„ã‹æ–‡å­—æ•°ã‚ªãƒ¼ãƒãƒ¼ã§ã™ã€‚
 		//Saiki 20090601 Change <-----
 		GetDlgItem(IDC_SAMPLE_ID_EDIT)->SetFocus();
 		return;
 	}
 	strcpy( szSampleId, sSampId );
 
-// 2009.10.08 bagus CTA ’Ç‰Á --{--
+// 2009.10.08 bagus CTA è¿½åŠ  --{--
 	char szLotId[LOT_ID_LEN + 1];
 	memset(szLotId, 0, sizeof(szLotId));
 
@@ -165,20 +165,20 @@ void CSampleIdDlg::OnOK()
 	{
 		LoadStringML(IDS_INPUT_VALUE_CHARA_OVER, strBuffer, "The input value is either blank or number of characters is over the limited.");
 		LoadStringML(IDS_TITLE_CONFIRMATION, strTitle, "Confirmation");
-		MessageBox(strBuffer, strTitle, MB_OK); //“ü—Í’l‚ª‹ó—“‚©•¶š”ƒI[ƒo[‚Å‚·B
+		MessageBox(strBuffer, strTitle, MB_OK); //å…¥åŠ›å€¤ãŒç©ºæ¬„ã‹æ–‡å­—æ•°ã‚ªãƒ¼ãƒãƒ¼ã§ã™ã€‚
 		GetDlgItem(IDC_LOT_ID_EDIT)->SetFocus();
 		return;
 	}
 	strcpy( szLotId, sLotId );
-// 2009.10.08 bagus CTA ’Ç‰Á --}--
+// 2009.10.08 bagus CTA è¿½åŠ  --}--
 
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	m_pDoc->SetSampleIdFromUI(TRUE);
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 	m_pDoc->SetSampleId(szSampleId);
-// 2009.10.08 bagus CTA ’Ç‰Á --{--
+// 2009.10.08 bagus CTA è¿½åŠ  --{--
 	m_pDoc->SetLotId(szLotId);
-// 2009.10.08 bagus CTA ’Ç‰Á --}--
+// 2009.10.08 bagus CTA è¿½åŠ  --}--
 
 	CDialog::OnOK();
 }
@@ -191,7 +191,7 @@ void CSampleIdDlg::OnCancel()
 	CDialog::OnCancel();
 }
 
-/* added 2009.06.16 hmenjo g—p‹Ö~•¶šƒ`ƒFƒbƒN ---------- { ---------- */
+/* added 2009.06.16 hmenjo ä½¿ç”¨ç¦æ­¢æ–‡å­—ãƒã‚§ãƒƒã‚¯ ---------- { ---------- */
 void CSampleIdDlg::OnUpdateSampleIdEdit()
 {
 	// TODO: If this is a RICHEDIT control, the control will not
@@ -206,10 +206,10 @@ void CSampleIdDlg::OnUpdateSampleIdEdit()
 	TCHAR l_tszSampleID[SAMPLE_ID_LEN + 1];
 	this->GetDlgItemText(IDC_SAMPLE_ID_EDIT, l_tszSampleID, sizeof(l_tszSampleID));
 	if ((0 == _tcscmp(l_tszSampleID, _T(""))) || (0 != CheckName(l_tszSampleID, _tcslen(l_tszSampleID)))) {
-		/* ‹Ö~•¶š‚Í–³‚©‚Á‚½D*/
+		/* ç¦æ­¢æ–‡å­—ã¯ç„¡ã‹ã£ãŸï¼*/
 		_tcscpy(m_tszSampleID, l_tszSampleID);
 	} else {
-		/* ‹Ö~•¶š‚ª—L‚Á‚½D*/
+		/* ç¦æ­¢æ–‡å­—ãŒæœ‰ã£ãŸï¼*/
 		this->SetDlgItemText(IDC_SAMPLE_ID_EDIT, m_tszSampleID);
 		int l_idLen = _tcslen(l_tszSampleID) - _tcslen(m_tszSampleID);
 		if (l_idLen < 0) {l_idLen *= -1;}
@@ -232,29 +232,29 @@ void CSampleIdDlg::OnUpdateSampleIdEdit()
 		((CEdit*) this->GetDlgItem(IDC_SAMPLE_ID_EDIT))->SetSel(l_iSelStart, l_SelEnd, FALSE);
 	}
 }
-/* added 2009.06.16 hmenjo g—p‹Ö~•¶šƒ`ƒFƒbƒN ---------- } ---------- */
+/* added 2009.06.16 hmenjo ä½¿ç”¨ç¦æ­¢æ–‡å­—ãƒã‚§ãƒƒã‚¯ ---------- } ---------- */
 
-// 2009.10.08 bagus CTA ’Ç‰Á --{--
+// 2009.10.08 bagus CTA è¿½åŠ  --{--
 void CSampleIdDlg::OnUpdateLotIdEdit()
 {
-	// TODO: ‚±‚ê‚ª RICHEDIT ƒRƒ“ƒgƒ[ƒ‹‚Ìê‡AƒRƒ“ƒgƒ[ƒ‹‚ÍA lParam ƒ}ƒXƒN
-	// “à‚Å‚Ì˜_—˜a‚Ì ENM_UPDATE ƒtƒ‰ƒO•t‚«‚Å EM_SETEVENTMASK
-	// ƒƒbƒZ[ƒW‚ğƒRƒ“ƒgƒ[ƒ‹‚Ö‘—‚é‚½‚ß‚É CDialog::OnInitDialog() ŠÖ”‚ğƒI[ƒo[
-	// ƒ‰ƒCƒh‚µ‚È‚¢ŒÀ‚è‚±‚Ì’Ê’m‚ğ‘—‚è‚Ü‚¹‚ñB
+	// TODO: ã“ã‚ŒãŒ RICHEDIT ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®å ´åˆã€ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¯ã€ lParam ãƒã‚¹ã‚¯
+	// å†…ã§ã®è«–ç†å’Œã® ENM_UPDATE ãƒ•ãƒ©ã‚°ä»˜ãã§ EM_SETEVENTMASK
+	// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¸é€ã‚‹ãŸã‚ã« CDialog::OnInitDialog() é–¢æ•°ã‚’ã‚ªãƒ¼ãƒãƒ¼
+	// ãƒ©ã‚¤ãƒ‰ã—ãªã„é™ã‚Šã“ã®é€šçŸ¥ã‚’é€ã‚Šã¾ã›ã‚“ã€‚
 
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«é€šçŸ¥ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	int l_iSelStart, l_SelEnd;
 	((CEdit*) this->GetDlgItem(IDC_LOT_ID_EDIT))->GetSel(l_iSelStart, l_SelEnd);
 	TCHAR l_tszLotID[LOT_ID_LEN + 1];
 	this->GetDlgItemText(IDC_LOT_ID_EDIT, l_tszLotID, sizeof(l_tszLotID));
 	if ((m_bUseLotID) && (0 == _tcscmp(l_tszLotID, _T("")))) {
-		/* LotID‚ğg—p‚·‚é‚½‚ßA‹ó•¶š‹Ö~ */
+		/* LotIDã‚’ä½¿ç”¨ã™ã‚‹ãŸã‚ã€ç©ºæ–‡å­—ç¦æ­¢ */
 	} else if ((0 == _tcscmp(l_tszLotID, _T(""))) || (0 != CheckName(l_tszLotID, _tcslen(l_tszLotID)))) {
-		/* ‹Ö~•¶š‚Í–³‚©‚Á‚½D*/
+		/* ç¦æ­¢æ–‡å­—ã¯ç„¡ã‹ã£ãŸï¼*/
 		_tcscpy(m_tszLotID, l_tszLotID);
 	} else {
-		/* ‹Ö~•¶š‚ª—L‚Á‚½D*/
+		/* ç¦æ­¢æ–‡å­—ãŒæœ‰ã£ãŸï¼*/
 		this->SetDlgItemText(IDC_LOT_ID_EDIT, m_tszLotID);
 		int l_idLen = _tcslen(l_tszLotID) - _tcslen(m_tszLotID);
 		if (l_idLen < 0) {l_idLen *= -1;}
@@ -277,12 +277,12 @@ void CSampleIdDlg::OnUpdateLotIdEdit()
 		((CEdit*) this->GetDlgItem(IDC_LOT_ID_EDIT))->SetSel(l_iSelStart, l_SelEnd, FALSE);
 	}
 }
-// 2009.10.08 bagus CTA ’Ç‰Á --}--
+// 2009.10.08 bagus CTA è¿½åŠ  --}--
 
-// 2009.10.22 bagus Stress ’Ç‰Á --{--
+// 2009.10.22 bagus Stress è¿½åŠ  --{--
 void CSampleIdDlg::OnList()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«é€šçŸ¥ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 	CStressReferenceListDlg	dlg;
 
 	dlg.m_bListMode = TRUE;
@@ -290,4 +290,4 @@ void CSampleIdDlg::OnList()
 		SetDlgItemText(IDC_SAMPLE_ID_EDIT, dlg.m_strSampleID);
 	}
 }
-// 2009.10.22 bagus Stress ’Ç‰Á --}--
+// 2009.10.22 bagus Stress è¿½åŠ  --}--

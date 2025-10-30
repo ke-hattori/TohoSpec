@@ -1,4 +1,4 @@
-// SelectStageProgramTypeDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SelectStageProgramTypeDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -11,29 +11,29 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --{--
+// 2009.10.09 bagus StagePGM å…±é€šåŒ– --{--
 #define	STAGE_PROGRAM_HEAD_TYPE_STANDARD	(0)
 #define	STAGE_PROGRAM_HEAD_TYPE_STRESS		(1)
 #define	STAGE_PROGRAM_HEAD_TYPE_GANTRY		(2)
 #define	STAGE_PROGRAM_HEAD_TYPE_DISTANCE	(3)
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --}--
+// 2009.10.09 bagus StagePGM å…±é€šåŒ– --}--
 
 /////////////////////////////////////////////////////////////////////////////
-// CSelectStageProgramTypeDlg ƒ_ƒCƒAƒƒO
+// CSelectStageProgramTypeDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 
 CSelectStageProgramTypeDlg::CSelectStageProgramTypeDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CSelectStageProgramTypeDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CSelectStageProgramTypeDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_INIT
 
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --{--
+// 2009.10.09 bagus StagePGM å…±é€šåŒ– --{--
 //	m_iHeadType = HEAD_TYPE_SR;
 	m_iHeadType = STAGE_PGM_TYPE_STANDARD;
 	m_iScanType = SCAN_TYPE_STANDARD;
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --}--
+// 2009.10.09 bagus StagePGM å…±é€šåŒ– --}--
 }
 
 
@@ -41,7 +41,7 @@ void CSelectStageProgramTypeDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CSelectStageProgramTypeDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_MAP
 
 	DDX_Control(pDX, IDOK, m_OkButton);
@@ -55,13 +55,13 @@ BEGIN_MESSAGE_MAP(CSelectStageProgramTypeDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CSelectStageProgramTypeDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSelectStageProgramTypeDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 BOOL CSelectStageProgramTypeDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// TODO: ‚±‚ÌˆÊ’u‚É‰Šú‰»‚Ì•â‘«ˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«åˆæœŸåŒ–ã®è£œè¶³å‡¦ç†ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 	SR_CONFIG SrConfig;
 	memset(&SrConfig, 0, sizeof(SrConfig));
 	ConfigFile_GetNanoSpecIni(&SrConfig, CONFIG_FILE_SR_CONFIG);
@@ -92,8 +92,8 @@ BOOL CSelectStageProgramTypeDlg::OnInitDialog()
 	int iSelect = 0;
 	CString strBuffer, strTitle;
 
-	// ‘I‘ğ‚³‚ê‚Ä‚¢‚éƒwƒbƒh‚Ì‚İ•\¦
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --{--
+	// é¸æŠã•ã‚Œã¦ã„ã‚‹ãƒ˜ãƒƒãƒ‰ã®ã¿è¡¨ç¤º
+// 2009.10.09 bagus StagePGM å…±é€šåŒ– --{--
 #if 0
 	if(HeadType.bSR){
 		pCombo->AddString(HEAD_TYPE_ITEM[HEAD_TYPE_SR]);
@@ -147,10 +147,10 @@ BOOL CSelectStageProgramTypeDlg::OnInitDialog()
 	}else{
 		STAGE_PGM_TYPE_ITEM = STAGE_PGM_TYPE_ITEM_JPN;
 	}
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 //	if ((HeadType.bSR) || (HeadType.bSE) || (HeadType.bCTA) || (HeadType.bIRSE) || (HeadType.bResist)) {
 	if ((HeadType.bSR) || (HeadType.bSE) || (HeadType.bCTA) || (HeadType.bMS) || (HeadType.bResist)) {
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 		pCombo->AddString(STAGE_PGM_TYPE_ITEM[STAGE_PROGRAM_HEAD_TYPE_STANDARD]);
 	}
 	if(HeadType.bStress){
@@ -161,15 +161,15 @@ BOOL CSelectStageProgramTypeDlg::OnInitDialog()
 			pCombo->AddString(STAGE_PGM_TYPE_ITEM[STAGE_PROGRAM_HEAD_TYPE_GANTRY]);
 		}
 	}
-// 2009.10.13 bagus Distance ’Ç‰Á --{--
+// 2009.10.13 bagus Distance è¿½åŠ  --{--
 	if(HeadType.bSR){
 		if(SrConfig.bDistance){
 			pCombo->AddString(STAGE_PGM_TYPE_ITEM[STAGE_PROGRAM_HEAD_TYPE_DISTANCE]);
 		}
 	}
-// 2009.10.13 bagus Distance ’Ç‰Á --}--
+// 2009.10.13 bagus Distance è¿½åŠ  --}--
 #endif
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --}--
+// 2009.10.09 bagus StagePGM å…±é€šåŒ– --}--
 
 	if(pCombo->GetCount() <= 0){
 		LoadStringML(IDS_SAMPLE_SETTING, strBuffer, "Please Sample Setting");
@@ -181,13 +181,13 @@ BOOL CSelectStageProgramTypeDlg::OnInitDialog()
 
 	pCombo->SetCurSel(0);
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 void CSelectStageProgramTypeDlg::OnOK()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚É‚»‚Ì‘¼‚ÌŒŸØ—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãã®ä»–ã®æ¤œè¨¼ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	CComboBox* pCombo = (CComboBox *)GetDlgItem(IDC_HEAD_TYPE);
 	CString	strBuffer;
@@ -199,7 +199,7 @@ void CSelectStageProgramTypeDlg::OnOK()
 
 	GetDlgItemText(IDC_HEAD_TYPE, strBuffer);
 
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --{--
+// 2009.10.09 bagus StagePGM å…±é€šåŒ– --{--
 #if 0
 	m_iHeadType = HEAD_TYPE_MAX;
 
@@ -215,7 +215,7 @@ void CSelectStageProgramTypeDlg::OnOK()
 	iStagePGM = STAGE_PGM_TYPE_STANDARD;
 
 
-	//2009.12.07 bagus C³ --{--
+	//2009.12.07 bagus ä¿®æ­£ --{--
 	SYSTEM_CONFIG SystemConfig;
 	memset(&SystemConfig, 0, sizeof(SystemConfig));
 	ConfigFile_GetNanoSpecIni(&SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
@@ -226,7 +226,7 @@ void CSelectStageProgramTypeDlg::OnOK()
 	}else{
 		STAGE_PGM_TYPE_ITEM = STAGE_PGM_TYPE_ITEM_JPN;
 	}
-	//2009.12.07 bagus C³ --}--
+	//2009.12.07 bagus ä¿®æ­£ --}--
 
 	for(i = 0; i < STAGE_PGM_TYPE_MAX; i++){
 		if(strcmp(strBuffer.GetBuffer(0), STAGE_PGM_TYPE_ITEM[i]) == 0){
@@ -258,14 +258,14 @@ void CSelectStageProgramTypeDlg::OnOK()
 		break;
 	}
 #endif
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --}--
+// 2009.10.09 bagus StagePGM å…±é€šåŒ– --}--
 
 	CDialog::OnOK();
 }
 
 void CSelectStageProgramTypeDlg::OnCancel()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚É“Á•Ê‚ÈŒãˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ã“ã®ä½ç½®ã«ç‰¹åˆ¥ãªå¾Œå‡¦ç†ã‚’è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 
 	CDialog::OnCancel();
 }

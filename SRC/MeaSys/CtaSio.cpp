@@ -1,4 +1,4 @@
-// CtaSio.cpp : implementation file
+ï»¿// CtaSio.cpp : implementation file
 //
 
 #include "stdafx.h"
@@ -13,62 +13,62 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /*
- *	ƒ}ƒNƒ’è‹`
+ *	ãƒã‚¯ãƒ­å®šç¾©
  */
-#define	PKT_LEN_MAX			(PKT_DATA_LEN_MAX + 4)	/* Å‘åƒpƒPƒbƒg’·	*/
-#define	RCV_BUF_NUM			(8)						/* óMƒoƒbƒtƒ@”	*/
-#define	PKT_LEN_MIN			(8)						/* Å¬ƒpƒPƒbƒg’·	*/
-#define	TLRCV_LEN_MAX		16384					/* ƒXƒŒƒbƒhƒ‹[ƒv—p Å‘åóMƒf[ƒ^’·	*/
-#define	TLRCV_TIME			50						/* ƒXƒŒƒbƒhƒ‹[ƒv—p óM‘Ò‚¿ŠÔ[ms]	*/
+#define	PKT_LEN_MAX			(PKT_DATA_LEN_MAX + 4)	/* æœ€å¤§ãƒ‘ã‚±ãƒƒãƒˆé•·	*/
+#define	RCV_BUF_NUM			(8)						/* å—ä¿¡ãƒãƒƒãƒ•ã‚¡æ•°	*/
+#define	PKT_LEN_MIN			(8)						/* æœ€å°ãƒ‘ã‚±ãƒƒãƒˆé•·	*/
+#define	TLRCV_LEN_MAX		16384					/* ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ«ãƒ¼ãƒ—ç”¨ æœ€å¤§å—ä¿¡ãƒ‡ãƒ¼ã‚¿é•·	*/
+#define	TLRCV_TIME			50						/* ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ«ãƒ¼ãƒ—ç”¨ å—ä¿¡å¾…ã¡æ™‚é–“[ms]	*/
 
 
 /*
- *	\‘¢‘Ì’è‹`
+ *	æ§‹é€ ä½“å®šç¾©
  */
 
 
 /*
- *	ƒ[ƒJƒ‹ƒOƒ[ƒoƒ‹’è‹`
+ *	ãƒ­ãƒ¼ã‚«ãƒ«ã‚°ãƒ­ãƒ¼ãƒãƒ«å®šç¾©
  */
 static char lgs_cCR = 0x0d;
 static char lgs_cLF = 0x0a;
-/* ƒpƒPƒbƒgƒR[ƒh	*/
+/* ãƒ‘ã‚±ãƒƒãƒˆã‚³ãƒ¼ãƒ‰	*/
 const char lg_cPktCode[] = {
-	'!',	/* ƒRƒ}ƒ“ƒh	*/
-	'!',	/* ƒCƒxƒ“ƒgƒŒƒ|[ƒg	*/
-	'#',	/* ƒŒƒXƒ|ƒ“ƒX	*/
-	'%',	/* ƒGƒ‰[ƒŒƒXƒ|ƒ“ƒX	*/
-	'-',	/* (Å‘å’l)	*/
+	'!',	/* ã‚³ãƒãƒ³ãƒ‰	*/
+	'!',	/* ã‚¤ãƒ™ãƒ³ãƒˆãƒ¬ãƒãƒ¼ãƒˆ	*/
+	'#',	/* ãƒ¬ã‚¹ãƒãƒ³ã‚¹	*/
+	'%',	/* ã‚¨ãƒ©ãƒ¼ãƒ¬ã‚¹ãƒãƒ³ã‚¹	*/
+	'-',	/* (æœ€å¤§å€¤)	*/
 };
-/* ƒRƒ}ƒ“ƒhƒR[ƒh	*/
+/* ã‚³ãƒãƒ³ãƒ‰ã‚³ãƒ¼ãƒ‰	*/
 const char* lg_pszCmdCode[] = {
-	"STA",	/* CMD_STA	ƒRƒ}ƒ“ƒhFó‘Ô—v‹				*/
-	"ORG",	/* CMD_ORG	ƒRƒ}ƒ“ƒhFŒ´“_•œ‹A				*/
-	"MOD",	/* CMD_MOD	ƒRƒ}ƒ“ƒhF‘ª’èƒ‚[ƒhƒZƒbƒg		*/
-	"CID",	/* CMD_CID	ƒRƒ}ƒ“ƒhFƒJƒZƒbƒgî•ñƒZƒbƒg	*/
-	"PID",	/* CMD_PID	ƒRƒ}ƒ“ƒhFŠî”Âî•ñƒZƒbƒg		*/
-	"SPT",	/* CMD_SPT	ƒRƒ}ƒ“ƒhFŠî”ÂŒú‚İî•ñƒZƒbƒg	*/
-	"MST",	/* CMD_MST	ƒRƒ}ƒ“ƒhF‘ª’èŠJn				*/
-	"MPE",	/* CMD_MPE	ƒRƒ}ƒ“ƒhFŠî”ÂI—¹’Ê’m			*/
-	"MCE",	/* CMD_MCE	ƒRƒ}ƒ“ƒhFƒJƒZƒbƒgI—¹’Ê’m		*/
-	"RST",	/* CMD_RST	ƒRƒ}ƒ“ƒhFƒgƒ‰ƒuƒ‹ƒŠƒZƒbƒg		*/
-	"END",	/* CMD_END	ƒRƒ}ƒ“ƒhFFAMAS I—¹			*/
-	"---",	/* CMD_MAX	ƒRƒ}ƒ“ƒhF(Å‘å’l)				*/
-	"CMO",	/* EVT_CMO	ƒCƒxƒ“ƒgFˆÚ“®Š®—¹				*/
-	"CST",	/* EVT_CST	ƒCƒxƒ“ƒgFİ’èŠ®—¹				*/
-	"CMP",	/* EVT_CMP	ƒCƒxƒ“ƒgF‚Pƒ|ƒCƒ“ƒg‘ª’èŠ®—¹	*/
-	"CMA",	/* EVT_CMA	ƒCƒxƒ“ƒgF‘Sƒ|ƒCƒ“ƒg‘ª’èŠ®—¹	*/
-	"REP",	/* EVT_REP	ƒCƒxƒ“ƒgFƒGƒ‰[”­¶			*/
-	"---",	/* EVT_MAX	ƒCƒxƒ“ƒgF(Å‘å’l)				*/
+	"STA",	/* CMD_STA	ã‚³ãƒãƒ³ãƒ‰ï¼šçŠ¶æ…‹è¦æ±‚				*/
+	"ORG",	/* CMD_ORG	ã‚³ãƒãƒ³ãƒ‰ï¼šåŸç‚¹å¾©å¸°				*/
+	"MOD",	/* CMD_MOD	ã‚³ãƒãƒ³ãƒ‰ï¼šæ¸¬å®šãƒ¢ãƒ¼ãƒ‰ã‚»ãƒƒãƒˆ		*/
+	"CID",	/* CMD_CID	ã‚³ãƒãƒ³ãƒ‰ï¼šã‚«ã‚»ãƒƒãƒˆæƒ…å ±ã‚»ãƒƒãƒˆ	*/
+	"PID",	/* CMD_PID	ã‚³ãƒãƒ³ãƒ‰ï¼šåŸºæ¿æƒ…å ±ã‚»ãƒƒãƒˆ		*/
+	"SPT",	/* CMD_SPT	ã‚³ãƒãƒ³ãƒ‰ï¼šåŸºæ¿åšã¿æƒ…å ±ã‚»ãƒƒãƒˆ	*/
+	"MST",	/* CMD_MST	ã‚³ãƒãƒ³ãƒ‰ï¼šæ¸¬å®šé–‹å§‹				*/
+	"MPE",	/* CMD_MPE	ã‚³ãƒãƒ³ãƒ‰ï¼šåŸºæ¿çµ‚äº†é€šçŸ¥			*/
+	"MCE",	/* CMD_MCE	ã‚³ãƒãƒ³ãƒ‰ï¼šã‚«ã‚»ãƒƒãƒˆçµ‚äº†é€šçŸ¥		*/
+	"RST",	/* CMD_RST	ã‚³ãƒãƒ³ãƒ‰ï¼šãƒˆãƒ©ãƒ–ãƒ«ãƒªã‚»ãƒƒãƒˆ		*/
+	"END",	/* CMD_END	ã‚³ãƒãƒ³ãƒ‰ï¼šFAMAS çµ‚äº†			*/
+	"---",	/* CMD_MAX	ã‚³ãƒãƒ³ãƒ‰ï¼š(æœ€å¤§å€¤)				*/
+	"CMO",	/* EVT_CMO	ã‚¤ãƒ™ãƒ³ãƒˆï¼šç§»å‹•å®Œäº†				*/
+	"CST",	/* EVT_CST	ã‚¤ãƒ™ãƒ³ãƒˆï¼šè¨­å®šå®Œäº†				*/
+	"CMP",	/* EVT_CMP	ã‚¤ãƒ™ãƒ³ãƒˆï¼šï¼‘ãƒã‚¤ãƒ³ãƒˆæ¸¬å®šå®Œäº†	*/
+	"CMA",	/* EVT_CMA	ã‚¤ãƒ™ãƒ³ãƒˆï¼šå…¨ãƒã‚¤ãƒ³ãƒˆæ¸¬å®šå®Œäº†	*/
+	"REP",	/* EVT_REP	ã‚¤ãƒ™ãƒ³ãƒˆï¼šã‚¨ãƒ©ãƒ¼ç™ºç”Ÿ			*/
+	"---",	/* EVT_MAX	ã‚¤ãƒ™ãƒ³ãƒˆï¼š(æœ€å¤§å€¤)				*/
 };
-/* ƒEƒBƒ“ƒhƒEƒƒbƒZ[ƒW	*/
-UINT WM_CTASIO_RECVED = ::RegisterWindowMessage("WM_CTASIO_RECVED");	/* ƒf[ƒ^óM	*/
-UINT WM_CTASIO_RCVBUFFULL = ::RegisterWindowMessage("WM_CTASIO_RCVBUFFULL");	/* óMƒoƒbƒtƒ@ƒtƒ‹	*/
-UINT WM_CTASIO_RCVFAIL = ::RegisterWindowMessage("WM_CTASIO_RCVFAIL");	/* óM¸”s(ƒXƒŒƒbƒhƒ‹[ƒv)	*/
+/* ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸	*/
+UINT WM_CTASIO_RECVED = ::RegisterWindowMessage("WM_CTASIO_RECVED");	/* ãƒ‡ãƒ¼ã‚¿å—ä¿¡	*/
+UINT WM_CTASIO_RCVBUFFULL = ::RegisterWindowMessage("WM_CTASIO_RCVBUFFULL");	/* å—ä¿¡ãƒãƒƒãƒ•ã‚¡ãƒ•ãƒ«	*/
+UINT WM_CTASIO_RCVFAIL = ::RegisterWindowMessage("WM_CTASIO_RCVFAIL");	/* å—ä¿¡å¤±æ•—(ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ«ãƒ¼ãƒ—)	*/
 
 
 /*
- *	Extern ’è‹`
+ *	Extern å®šç¾©
  */
 extern CLogFile* pLogFile;	/* from MEASYS.cpp	*/
 
@@ -84,14 +84,14 @@ CCtaSio::CCtaSio(DWORD dwCreateFlags/* = 0*/)
 
 	this->Logging(_T("constructor."));
 
-	/* ‰Šú‰»	*/
+	/* åˆæœŸåŒ–	*/
 	m_bInited = FALSE;
 	m_bInitedInstance = FALSE;
-	this->m_bAutoDelete = FALSE;	/* ƒIƒuƒWƒFƒNƒg‚Ì©“®”jŠü‚ğ‹Ö~	*/
+	this->m_bAutoDelete = FALSE;	/* ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®è‡ªå‹•ç ´æ£„ã‚’ç¦æ­¢	*/
 	m_bHWS = FALSE;
 	m_pszCmdBufHWS = 0x00;
 
-	/* ƒNƒŠƒeƒBƒJƒ‹ƒZƒNƒVƒ‡ƒ“‚ğ’è‹`	*/
+	/* ã‚¯ãƒªãƒ†ã‚£ã‚«ãƒ«ã‚»ã‚¯ã‚·ãƒ§ãƒ³ã‚’å®šç¾©	*/
 	::InitializeCriticalSection(&m_csComDev);
 	::InitializeCriticalSection(&m_csSend);
 	::InitializeCriticalSection(&m_csRcvBuf);
@@ -101,7 +101,7 @@ CCtaSio::CCtaSio(DWORD dwCreateFlags/* = 0*/)
 
 	m_pvRcvBufs = malloc((PKT_LEN_MAX + 5) * RCV_BUF_NUM);
 	if (0 != m_pvRcvBufs) {
-		/* ƒXƒŒƒbƒh‚Ì‹N“®‘Ò‚¿	*/
+		/* ã‚¹ãƒ¬ãƒƒãƒ‰ã®èµ·å‹•å¾…ã¡	*/
 		m_dwCreateFlags = dwCreateFlags;
 		BOOL l_bThreadOK = this->CreateThread(m_dwCreateFlags);
 		if (0 != this->m_hThread) {
@@ -124,7 +124,7 @@ CCtaSio::~CCtaSio()
 
 	m_bInited = FALSE;
 
-	/* ƒXƒŒƒbƒh‚ÌÁ–Å‘Ò‚¿	*/
+	/* ã‚¹ãƒ¬ãƒƒãƒ‰ã®æ¶ˆæ»…å¾…ã¡	*/
 	if (0 != this->m_hThread) {
 		if (0 == m_bAutoDelete) {
 			if (TRUE == m_bInitedInstance) {
@@ -139,15 +139,15 @@ CCtaSio::~CCtaSio()
 		}
 	}
 
-	/* ƒNƒŠƒeƒBƒJƒ‹ƒZƒNƒVƒ‡ƒ“‚ğŠJ•ú	*/
-	::EnterCriticalSection(&m_csRcvBuf);	/* æ“¾‚³‚ê‚½‚Ü‚Ü‚©‚à’m‚ê‚È‚¢‚Ì‚Å‘Ò‚Â	*/
-	::LeaveCriticalSection(&m_csRcvBuf);	/* ŠJ•ú‚·‚é								*/
+	/* ã‚¯ãƒªãƒ†ã‚£ã‚«ãƒ«ã‚»ã‚¯ã‚·ãƒ§ãƒ³ã‚’é–‹æ”¾	*/
+	::EnterCriticalSection(&m_csRcvBuf);	/* å–å¾—ã•ã‚ŒãŸã¾ã¾ã‹ã‚‚çŸ¥ã‚Œãªã„ã®ã§å¾…ã¤	*/
+	::LeaveCriticalSection(&m_csRcvBuf);	/* é–‹æ”¾ã™ã‚‹								*/
 	::DeleteCriticalSection(&m_csRcvBuf);
-	::EnterCriticalSection(&m_csSend);		/* æ“¾‚³‚ê‚½‚Ü‚Ü‚©‚à’m‚ê‚È‚¢‚Ì‚Å‘Ò‚Â	*/
-	::LeaveCriticalSection(&m_csSend);		/* ŠJ•ú‚·‚é								*/
+	::EnterCriticalSection(&m_csSend);		/* å–å¾—ã•ã‚ŒãŸã¾ã¾ã‹ã‚‚çŸ¥ã‚Œãªã„ã®ã§å¾…ã¤	*/
+	::LeaveCriticalSection(&m_csSend);		/* é–‹æ”¾ã™ã‚‹								*/
 	::DeleteCriticalSection(&m_csSend);
-	::EnterCriticalSection(&m_csComDev);	/* æ“¾‚³‚ê‚½‚Ü‚Ü‚©‚à’m‚ê‚È‚¢‚Ì‚Å‘Ò‚Â	*/
-	::LeaveCriticalSection(&m_csComDev);	/* ŠJ•ú‚·‚é								*/
+	::EnterCriticalSection(&m_csComDev);	/* å–å¾—ã•ã‚ŒãŸã¾ã¾ã‹ã‚‚çŸ¥ã‚Œãªã„ã®ã§å¾…ã¤	*/
+	::LeaveCriticalSection(&m_csComDev);	/* é–‹æ”¾ã™ã‚‹								*/
 	::DeleteCriticalSection(&m_csComDev);
 
 	if (0 != m_hCom) {
@@ -169,8 +169,8 @@ BOOL CCtaSio::InitInstance()
 
 //	m_bInitedInstance = TRUE;
 
-//	/* ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ì‘Ò‚¿‚ğ‰ğœ‚µ‚Ü‚·	*/
-//	/*		‚Â‚Ü‚èCƒXƒŒƒbƒh‚Ì¶¬‚ÆƒXƒŒƒbƒhƒNƒ‰ƒX‚Ì\’z‚Ì“¯Šú‚ğæ‚Á‚Ä‚¢‚Ü‚·D	*/
+//	/* ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å¾…ã¡ã‚’è§£é™¤ã—ã¾ã™	*/
+//	/*		ã¤ã¾ã‚Šï¼Œã‚¹ãƒ¬ãƒƒãƒ‰ã®ç”Ÿæˆã¨ã‚¹ãƒ¬ãƒƒãƒ‰ã‚¯ãƒ©ã‚¹ã®æ§‹ç¯‰ã®åŒæœŸã‚’å–ã£ã¦ã„ã¾ã™ï¼	*/
 //	if (CREATE_SUSPENDED != m_dwCreateFlags) {
 //		m_cSyncEvent.SetEvent();
 //	}
@@ -205,8 +205,8 @@ int CCtaSio::Run()
 	static BOOL ls_bFirst = FALSE;
 	if (TRUE != ls_bFirst) {
 		ls_bFirst = TRUE;
-		/* ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ì‘Ò‚¿‚ğ‰ğœ‚µ‚Ü‚·	*/
-		/*		‚Â‚Ü‚èCƒXƒŒƒbƒh‚Ì¶¬‚ÆƒXƒŒƒbƒhƒNƒ‰ƒX‚Ì\’z‚Ì“¯Šú‚ğæ‚Á‚Ä‚¢‚Ü‚·D	*/
+		/* ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å¾…ã¡ã‚’è§£é™¤ã—ã¾ã™	*/
+		/*		ã¤ã¾ã‚Šï¼Œã‚¹ãƒ¬ãƒƒãƒ‰ã®ç”Ÿæˆã¨ã‚¹ãƒ¬ãƒƒãƒ‰ã‚¯ãƒ©ã‚¹ã®æ§‹ç¯‰ã®åŒæœŸã‚’å–ã£ã¦ã„ã¾ã™ï¼	*/
 		if (CREATE_SUSPENDED != m_dwCreateFlags) {
 			m_cSyncEvent.SetEvent();
 		}
@@ -220,22 +220,22 @@ BOOL CCtaSio::OnIdle(LONG lCount)
 {
 	// TODO: Add your specialized code here and/or call the base class
 
-//	RecvLoop();	/* óMƒ‹[ƒv	*/
+//	RecvLoop();	/* å—ä¿¡ãƒ«ãƒ¼ãƒ—	*/
 	if (0 != m_bHWS) {
-		this->HWS_RecvLoop();	/* óMƒ‹[ƒv - HWS ƒ‚[ƒh	*/
+		this->HWS_RecvLoop();	/* å—ä¿¡ãƒ«ãƒ¼ãƒ— - HWS ãƒ¢ãƒ¼ãƒ‰	*/
 	} else {
-		this->RecvLoop();	/* óMƒ‹[ƒv	*/
+		this->RecvLoop();	/* å—ä¿¡ãƒ«ãƒ¼ãƒ—	*/
 	}
 
 	return CWinThread::OnIdle(lCount);
 }
 
 /****************************************************************************
-	§Œä—pŠÖ”
+	åˆ¶å¾¡ç”¨é–¢æ•°
 ****************************************************************************/
 
 /*
- *	SIO ‰Šú‰»ˆ—
+ *	SIO åˆæœŸåŒ–å‡¦ç†
  */
 // 2009.11.18 K.Matsuo -->
 //BOOL CCtaSio::Initialize(
@@ -271,61 +271,61 @@ BOOL CCtaSio::Initialize(
 
 	BOOL l_bRet = TRUE;
 
-	/* COM ”Ô†‚ğ’è‹`	*/
+	/* COM ç•ªå·ã‚’å®šç¾©	*/
 	TCHAR l_tszCommNo[_MAX_PATH];
 // 2009.11.18 K.Matsuo -->
 //	_stprintf(l_tszCommNo, _T("\\\\.\\COM%d"), iComNo);
 	_stprintf(l_tszCommNo, _T("\\\\.\\%s"), pszCommNo);
 // 2009.11.18 K.Matsuo <--
 
-	/* ƒnƒ“ƒhƒ‹‚ğ–³Œø‚É‚µ‚Ä‚¨‚­	*/
+	/* ãƒãƒ³ãƒ‰ãƒ«ã‚’ç„¡åŠ¹ã«ã—ã¦ãŠã	*/
 	m_hCom = 0;
-	/* óM”‚ğƒNƒŠƒA	*/
+	/* å—ä¿¡æ•°ã‚’ã‚¯ãƒªã‚¢	*/
 	m_iIdxWr = -1;
 	m_iIdxRd = -1;
 
 	if (0 == m_bHWS) {
-		/* COM ƒ|[ƒg‚ğƒI[ƒvƒ“	*/
+		/* COM ãƒãƒ¼ãƒˆã‚’ã‚ªãƒ¼ãƒ—ãƒ³	*/
 		m_hCom =	::CreateFile(
 							l_tszCommNo,
-							GENERIC_READ | GENERIC_WRITE,	/* ƒAƒNƒZƒXƒ‚[ƒhFReadWrite	*/
-							0,	/* ‹¤—Lƒ‚[ƒhF‹¤—L‚È‚µ	*/
+							GENERIC_READ | GENERIC_WRITE,	/* ã‚¢ã‚¯ã‚»ã‚¹ãƒ¢ãƒ¼ãƒ‰ï¼šReadWrite	*/
+							0,	/* å…±æœ‰ãƒ¢ãƒ¼ãƒ‰ï¼šå…±æœ‰ãªã—	*/
 							NULL,
 							OPEN_EXISTING,
 							FILE_ATTRIBUTE_NORMAL,
 							NULL
 						);
 		if ((INVALID_HANDLE_VALUE == m_hCom) || (0 == m_hCom)) {
-			// ƒI[ƒvƒ“¸”s
+			// ã‚ªãƒ¼ãƒ—ãƒ³å¤±æ•—
 			m_hCom = NULL;
 			l_bRet = FALSE;
 		} else {
-			/* ƒfƒoƒCƒX§ŒäƒuƒƒbƒN‚ğİ’è	*/
+			/* ãƒ‡ãƒã‚¤ã‚¹åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ã‚’è¨­å®š	*/
 			BOOL l_bRslt;
 			DCB l_dcb;
 // 2009.11.18 K.Matsuo -->
 			char szBuff[256];
 // 2009.11.18 K.Matsuo <--
-			l_dcb.DCBlength = sizeof(DCB);	/* ƒfƒoƒCƒX§ŒäƒuƒƒbƒN‚ÌƒoƒCƒg”	*/
-			GetCommState(m_hCom, &l_dcb);	/* Œ»İ‚Ìİ’è‚ğæ“¾	*/
+			l_dcb.DCBlength = sizeof(DCB);	/* ãƒ‡ãƒã‚¤ã‚¹åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ã®ãƒã‚¤ãƒˆæ•°	*/
+			GetCommState(m_hCom, &l_dcb);	/* ç¾åœ¨ã®è¨­å®šã‚’å–å¾—	*/
 
 // 2009.11.18 K.Matsuo -->
-//			l_dcb.BaudRate = iBaudRate;	/* ƒ{[ƒŒ[ƒg	*/
+//			l_dcb.BaudRate = iBaudRate;	/* ãƒœãƒ¼ãƒ¬ãƒ¼ãƒˆ	*/
 //			l_dcb.ByteSize = iByteSize;	/* 8bit or 7bit	*/
-//			l_dcb.Parity   = iParity;	/* ƒpƒŠƒeƒB	*/
-//			l_dcb.StopBits = iStopBits;	/* ƒXƒgƒbƒvƒrƒbƒg	*/
+//			l_dcb.Parity   = iParity;	/* ãƒ‘ãƒªãƒ†ã‚£	*/
+//			l_dcb.StopBits = iStopBits;	/* ã‚¹ãƒˆãƒƒãƒ—ãƒ“ãƒƒãƒˆ	*/
 //			l_dcb.fOutxDsrFlow = 0;
-//			l_dcb.fDtrControl = DTR_CONTROL_ENABLE;	/* DTR ‚Íí‚É ON	*/
+//			l_dcb.fDtrControl = DTR_CONTROL_ENABLE;	/* DTR ã¯å¸¸ã« ON	*/
 //			l_dcb.fOutxCtsFlow = 0;
-//			l_dcb.fRtsControl = RTS_CONTROL_ENABLE;	/* RTS ‚Íí‚É ON	*/
+//			l_dcb.fRtsControl = RTS_CONTROL_ENABLE;	/* RTS ã¯å¸¸ã« ON	*/
 //			l_dcb.fInX = 0;
 //			l_dcb.fOutX = 0;
 			_stprintf(szBuff, _T("baud=%s parity=%s data=%s stop=%s"), pszBaudRate, pszParity, pszByteSize, pszStopBits);
 			::BuildCommDCB(szBuff, &l_dcb);
 // 2009.11.18 K.Matsuo <--
-			l_bRslt = ::SetCommState(m_hCom, &l_dcb);	// ‘Š·‚¦
+			l_bRslt = ::SetCommState(m_hCom, &l_dcb);	// æ›¸æ›ãˆ
 			if (0 != l_bRslt) {
-				/* ƒ^ƒCƒ€ƒAƒEƒg‚ğİ’è(ƒRƒR‚Å‚Íƒ^ƒCƒ€ƒAƒEƒg‚Íİ’è‚µ‚È‚¢)	*/
+				/* ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã‚’è¨­å®š(ã‚³ã‚³ã§ã¯ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã¯è¨­å®šã—ãªã„)	*/
 				m_CommTimeOuts.ReadIntervalTimeout = 0;
 				m_CommTimeOuts.ReadTotalTimeoutMultiplier = 0;
 				m_CommTimeOuts.ReadTotalTimeoutConstant = 0;
@@ -342,7 +342,7 @@ BOOL CCtaSio::Initialize(
 	}
 
 	if (TRUE == l_bRet) {
-		m_bInited = TRUE;	/* ‰Šú‰»Š®—¹	*/
+		m_bInited = TRUE;	/* åˆæœŸåŒ–å®Œäº†	*/
 	}
 
 	::LeaveCriticalSection(&m_csRcvBuf);
@@ -353,7 +353,7 @@ BOOL CCtaSio::Initialize(
 }
 
 /*
- *	ƒpƒPƒbƒg‘—M
+ *	ãƒ‘ã‚±ãƒƒãƒˆé€ä¿¡
  */
 int CCtaSio::PacketSend(const char* pszSendPkt)
 {
@@ -370,25 +370,25 @@ int CCtaSio::PacketSend(const char* pszSendPkt)
 	l_szSendBuf[strlen(l_szSendBuf)] = lgs_cCR;
 	l_szSendBuf[strlen(l_szSendBuf)] = lgs_cLF;
 
-	/* ‘—M‚·‚é	*/
+	/* é€ä¿¡ã™ã‚‹	*/
 	DWORD l_dwLen = strlen(l_szSendBuf);
 	DWORD l_dwWriteSize = 0;
 	this->LoggingSIO(TRUE, l_szSendBuf, l_dwLen);
 	if (0 == m_bHWS) {
-		/* À‹@ƒ‚[ƒh	*/
+		/* å®Ÿæ©Ÿãƒ¢ãƒ¼ãƒ‰	*/
 		if (0 == ::WriteFile(m_hCom, l_szSendBuf, l_dwLen, &l_dwWriteSize, NULL)) {
-			/* ‘—M¸”s	*/
-			l_dwWriteSize = CTASIO_ERR_SEND_FAIL;	/* ‘—M¸”s	*/
+			/* é€ä¿¡å¤±æ•—	*/
+			l_dwWriteSize = CTASIO_ERR_SEND_FAIL;	/* é€ä¿¡å¤±æ•—	*/
 		}
 	} else {
-		/* HWS ƒ‚[ƒh	*/
+		/* HWS ãƒ¢ãƒ¼ãƒ‰	*/
 		m_pszCmdBufHWS = l_szSendBuf;
 		while (0 != m_pszCmdBufHWS) {
 			::Sleep(100);
 		}
 //		if (0 == HWS_WriteFile(l_szSendBuf)) {
-//			/* ‘—M¸”s	*/
-//			l_dwWriteSize = CTASIO_ERR_SEND_FAIL;	/* ‘—M¸”s	*/
+//			/* é€ä¿¡å¤±æ•—	*/
+//			l_dwWriteSize = CTASIO_ERR_SEND_FAIL;	/* é€ä¿¡å¤±æ•—	*/
 //		}
 	}
 
@@ -398,17 +398,17 @@ int CCtaSio::PacketSend(const char* pszSendPkt)
 }
 
 /*
- *	ƒRƒ}ƒ“ƒh‘—M
+ *	ã‚³ãƒãƒ³ãƒ‰é€ä¿¡
  */
 int CCtaSio::CmdSend(const PACKET_CODE enumPacketCode, const COMMAND_CODE enumdwCmdCode, const char* pszData)
 {
 	if ((enumPacketCode < 0) || (PKT_MAX <= enumPacketCode)) {
 
-		return CTASIO_ERR_INVALID_PKT;	/* ƒpƒPƒbƒgƒR[ƒh‚ª”ÍˆÍŠO‚Å‚·D	*/
+		return CTASIO_ERR_INVALID_PKT;	/* ãƒ‘ã‚±ãƒƒãƒˆã‚³ãƒ¼ãƒ‰ãŒç¯„å›²å¤–ã§ã™ï¼	*/
 	}
 	if ((enumdwCmdCode < 0) || (CMD_MAX == enumdwCmdCode) || (EVT_MAX <= enumdwCmdCode)) {
 
-		return CTASIO_ERR_INVALID_CMD;	/* ƒRƒ}ƒ“ƒhƒR[ƒh‚ª”ÍˆÍŠO‚Å‚·D	*/
+		return CTASIO_ERR_INVALID_CMD;	/* ã‚³ãƒãƒ³ãƒ‰ã‚³ãƒ¼ãƒ‰ãŒç¯„å›²å¤–ã§ã™ï¼	*/
 	}
 
 	::EnterCriticalSection(&m_csSend);
@@ -417,19 +417,19 @@ int CCtaSio::CmdSend(const PACKET_CODE enumPacketCode, const COMMAND_CODE enumdw
 	memset(l_szData, 0, sizeof(l_szData));
 	strncpy(l_szData, pszData, PKT_DATA_LEN_MAX);
 
-	/* ƒpƒPƒbƒgƒR[ƒh	*/
+	/* ãƒ‘ã‚±ãƒƒãƒˆã‚³ãƒ¼ãƒ‰	*/
 	char l_szSendCmd[PKT_LEN_MAX + 1];
 	l_szSendCmd[0] = lg_cPktCode[enumPacketCode];
 	l_szSendCmd[1] = 0x00;
 	if (PKT_ERR == enumPacketCode) {
-		/* ƒGƒ‰[ƒR[ƒh	*/
+		/* ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰	*/
 		strcat(l_szSendCmd, l_szData);
 		strcpy(l_szData, "");
 	} else {
-		/* ƒRƒ}ƒ“ƒhƒR[ƒh	*/
+		/* ã‚³ãƒãƒ³ãƒ‰ã‚³ãƒ¼ãƒ‰	*/
 		strcat(l_szSendCmd, lg_pszCmdCode[enumdwCmdCode]);
 	}
-	/* ƒf[ƒ^	*/
+	/* ãƒ‡ãƒ¼ã‚¿	*/
 	strcat(l_szSendCmd, l_szData);
 
 	int l_iRet = this->PacketSend(l_szSendCmd);
@@ -440,29 +440,29 @@ int CCtaSio::CmdSend(const PACKET_CODE enumPacketCode, const COMMAND_CODE enumdw
 }
 
 /*
- *	óMƒf[ƒ^‚Ì‘¶İ‚ğƒ`ƒFƒbƒN
+ *	å—ä¿¡ãƒ‡ãƒ¼ã‚¿ã®å­˜åœ¨ã‚’ãƒã‚§ãƒƒã‚¯
  */
 int CCtaSio::IsExistRcvData()
 {
 	if (0 == m_bInited) {
-		return CTASIO_ERR_UNINIT;	/* –¢‰Šú‰»‚Å‚·D	*/
+		return CTASIO_ERR_UNINIT;	/* æœªåˆæœŸåŒ–ã§ã™ï¼	*/
 	} else if (-1 == m_iIdxRd) {
-		return CTASIO_ERR_NORCVDATA;	/* óMƒf[ƒ^‚Í‚ ‚è‚Ü‚¹‚ñD	*/
+		return CTASIO_ERR_NORCVDATA;	/* å—ä¿¡ãƒ‡ãƒ¼ã‚¿ã¯ã‚ã‚Šã¾ã›ã‚“ï¼	*/
 	}
 
 	return 0;
 }
 
 /*
- *	óMƒf[ƒ^‚ğóMƒoƒbƒtƒ@‚©‚çæ“¾(ãˆÊ—p)
+ *	å—ä¿¡ãƒ‡ãƒ¼ã‚¿ã‚’å—ä¿¡ãƒãƒƒãƒ•ã‚¡ã‹ã‚‰å–å¾—(ä¸Šä½ç”¨)
  */
 int CCtaSio::GetRcvData(PACKET_CODE* penumPacketCode, COMMAND_CODE* penumCmdCode, char* pszRcvData)
 {
 	if ((0 == penumPacketCode) || (0 == penumCmdCode) || (0 == pszRcvData)) {
-		return CTASIO_ERR_PARAM;	/* ƒpƒ‰ƒƒ^ƒGƒ‰[	*/
+		return CTASIO_ERR_PARAM;	/* ãƒ‘ãƒ©ãƒ¡ã‚¿ã‚¨ãƒ©ãƒ¼	*/
 	}
 
-	/* óMƒf[ƒ^æ“¾	*/
+	/* å—ä¿¡ãƒ‡ãƒ¼ã‚¿å–å¾—	*/
 	char l_szRcvData[PKT_LEN_MAX + 5];
 	int l_iRet = this->RcvBufGet(l_szRcvData);
 	if (0 != l_iRet) {
@@ -470,8 +470,8 @@ int CCtaSio::GetRcvData(PACKET_CODE* penumPacketCode, COMMAND_CODE* penumCmdCode
 		return l_iRet;
 	}
 
-	/* ƒtƒH[ƒ}ƒbƒgƒ`ƒFƒbƒN ------------------------------------------------*/
-	/* ƒpƒPƒbƒgƒR[ƒh	*/
+	/* ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆãƒã‚§ãƒƒã‚¯ ------------------------------------------------*/
+	/* ãƒ‘ã‚±ãƒƒãƒˆã‚³ãƒ¼ãƒ‰	*/
 	DWORD dwi = 0;
 	PACKET_CODE l_enumPktCode;
 	for (dwi = 0; dwi < PKT_MAX; dwi++) {
@@ -485,22 +485,22 @@ int CCtaSio::GetRcvData(PACKET_CODE* penumPacketCode, COMMAND_CODE* penumCmdCode
 	}
 	if (PKT_MAX <= dwi) {
 		*penumPacketCode = PKT_ERR;
-		return CTASIO_ERR_INVALID_PKT;	/* ƒpƒPƒbƒgƒR[ƒh‚ª”ÍˆÍŠO‚Å‚·D	*/
+		return CTASIO_ERR_INVALID_PKT;	/* ãƒ‘ã‚±ãƒƒãƒˆã‚³ãƒ¼ãƒ‰ãŒç¯„å›²å¤–ã§ã™ï¼	*/
 	}
 	*penumPacketCode = l_enumPktCode;
-	/* ƒf[ƒ^’·	*/
+	/* ãƒ‡ãƒ¼ã‚¿é•·	*/
 	if (strlen(l_szRcvData) < PKT_LEN_MIN) {
-		return CTASIO_ERR_TOOSHORT;	/* óMƒf[ƒ^’·‚ª’Z‚·‚¬‚Ü‚·D	*/
+		return CTASIO_ERR_TOOSHORT;	/* å—ä¿¡ãƒ‡ãƒ¼ã‚¿é•·ãŒçŸ­ã™ãã¾ã™ï¼	*/
 	}
-	/* LF Šm”F	*/
+	/* LF ç¢ºèª	*/
 	if (lgs_cLF != l_szRcvData[strlen(l_szRcvData) - 1]) {
-		return CTASIO_ERR_NOLF;	/* LF ‚ª‚ ‚è‚Ü‚¹‚ñD	*/
+		return CTASIO_ERR_NOLF;	/* LF ãŒã‚ã‚Šã¾ã›ã‚“ï¼	*/
 	}
-	/* CR Šm”F	*/
+	/* CR ç¢ºèª	*/
 	if (lgs_cCR != l_szRcvData[strlen(l_szRcvData) - 2]) {
-		return CTASIO_ERR_NOCR;	/* CR ‚ª‚ ‚è‚Ü‚¹‚ñD	*/
+		return CTASIO_ERR_NOCR;	/* CR ãŒã‚ã‚Šã¾ã›ã‚“ï¼	*/
 	}
-	/* ƒ`ƒFƒbƒNƒTƒ€Æ‡ ----------------------------------------------------*/
+	/* ãƒã‚§ãƒƒã‚¯ã‚µãƒ ç…§åˆ ----------------------------------------------------*/
 	char l_szSumRcv[4];
 	l_szSumRcv[0] = l_szRcvData[strlen(l_szRcvData) - 4];
 	l_szSumRcv[1] = l_szRcvData[strlen(l_szRcvData) - 3];
@@ -509,16 +509,16 @@ int CCtaSio::GetRcvData(PACKET_CODE* penumPacketCode, COMMAND_CODE* penumCmdCode
 	char l_szSumCalc[4];
 	this->CalcCheckSum(l_szRcvData, l_szSumCalc);
 	if (0 != strcmp(l_szSumRcv, l_szSumCalc)) {
-		return CTASIO_ERR_SUM;	/* ƒ`ƒFƒbƒNƒTƒ€•sˆê’v	*/
+		return CTASIO_ERR_SUM;	/* ãƒã‚§ãƒƒã‚¯ã‚µãƒ ä¸ä¸€è‡´	*/
 	}
-	/* ƒtƒH[ƒ}ƒbƒgƒ`ƒFƒbƒN ------------------------------------------------*/
-	/* ƒf[ƒ^(ASCII)ƒ`ƒFƒbƒN	*/
+	/* ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆãƒã‚§ãƒƒã‚¯ ------------------------------------------------*/
+	/* ãƒ‡ãƒ¼ã‚¿(ASCII)ãƒã‚§ãƒƒã‚¯	*/
 	for (dwi = 0; dwi < strlen(l_szRcvData); dwi++) {
 		if (0 != iscntrl(l_szRcvData[dwi])) {
-			return CTASIO_ERR_CTRLCODE;	/* §ŒäƒR[ƒh‚ª‚ ‚Á‚½D	*/
+			return CTASIO_ERR_CTRLCODE;	/* åˆ¶å¾¡ã‚³ãƒ¼ãƒ‰ãŒã‚ã£ãŸï¼	*/
 		}
 	}
-	/* ƒRƒ}ƒ“ƒhƒR[ƒh	*/
+	/* ã‚³ãƒãƒ³ãƒ‰ã‚³ãƒ¼ãƒ‰	*/
 	COMMAND_CODE l_enumCmdCode;
 	char l_szCmdCode[4];
 	l_szCmdCode[0] = l_szRcvData[1];
@@ -528,10 +528,10 @@ int CCtaSio::GetRcvData(PACKET_CODE* penumPacketCode, COMMAND_CODE* penumCmdCode
 	switch (l_enumPktCode) {
 	case PKT_CMD:
 	case PKT_EVT:
-		{	/* ƒRƒ}ƒ“ƒh‚ğóM‚·‚é‚±‚Æ‚Í‚ ‚è‚¦‚Ü‚¹‚ñ‚Ì‚Å
-				ƒCƒxƒ“ƒgƒR[ƒh‚Ì‚İ‚Ìƒ`ƒFƒbƒN‚Å‚·D	*/
+		{	/* ã‚³ãƒãƒ³ãƒ‰ã‚’å—ä¿¡ã™ã‚‹ã“ã¨ã¯ã‚ã‚Šãˆã¾ã›ã‚“ã®ã§
+				ã‚¤ãƒ™ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰ã®ã¿ã®ãƒã‚§ãƒƒã‚¯ã§ã™ï¼	*/
 			if (strlen(l_szRcvData) < 4) {
-				return CTASIO_ERR_TOOSHORT;	/* óMƒf[ƒ^’·‚ª’Z‚·‚¬‚Ü‚·	*/
+				return CTASIO_ERR_TOOSHORT;	/* å—ä¿¡ãƒ‡ãƒ¼ã‚¿é•·ãŒçŸ­ã™ãã¾ã™	*/
 			}
 			for (dwi = CMD_MAX + 1; dwi < EVT_MAX; dwi++) {
 				if (0 == strcmp(lg_pszCmdCode[dwi], l_szCmdCode)) {
@@ -540,7 +540,7 @@ int CCtaSio::GetRcvData(PACKET_CODE* penumPacketCode, COMMAND_CODE* penumCmdCode
 				}
 			}
 			if (EVT_MAX <= dwi) {
-				return CTASIO_ERR_INVALID_EVT;	/* ƒCƒxƒ“ƒgƒR[ƒh‚ª”ÍˆÍŠO‚Å‚·D	*/
+				return CTASIO_ERR_INVALID_EVT;	/* ã‚¤ãƒ™ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰ãŒç¯„å›²å¤–ã§ã™ï¼	*/
 			}
 			*penumCmdCode = l_enumCmdCode;
 			strcpy(pszRcvData, &(l_szRcvData[4]));
@@ -549,7 +549,7 @@ int CCtaSio::GetRcvData(PACKET_CODE* penumPacketCode, COMMAND_CODE* penumCmdCode
 	case PKT_RES:
 		{
 			if (strlen(l_szRcvData) < 4) {
-				return CTASIO_ERR_TOOSHORT;	/* óMƒf[ƒ^’·‚ª’Z‚·‚¬‚Ü‚·	*/
+				return CTASIO_ERR_TOOSHORT;	/* å—ä¿¡ãƒ‡ãƒ¼ã‚¿é•·ãŒçŸ­ã™ãã¾ã™	*/
 			}
 			for (dwi = 0; dwi < CMD_MAX; dwi++) {
 				if (0 == strcmp(lg_pszCmdCode[dwi], l_szCmdCode)) {
@@ -558,7 +558,7 @@ int CCtaSio::GetRcvData(PACKET_CODE* penumPacketCode, COMMAND_CODE* penumCmdCode
 				}
 			}
 			if (CMD_MAX <= dwi) {
-				return CTASIO_ERR_INVALID_CMD;	/* ƒRƒ}ƒ“ƒhƒR[ƒh‚ª”ÍˆÍŠO‚Å‚·D	*/
+				return CTASIO_ERR_INVALID_CMD;	/* ã‚³ãƒãƒ³ãƒ‰ã‚³ãƒ¼ãƒ‰ãŒç¯„å›²å¤–ã§ã™ï¼	*/
 			}
 			*penumCmdCode = l_enumCmdCode;
 			strcpy(pszRcvData, &(l_szRcvData[4]));
@@ -567,14 +567,14 @@ int CCtaSio::GetRcvData(PACKET_CODE* penumPacketCode, COMMAND_CODE* penumCmdCode
 	case PKT_ERR:
 		{
 			if (4 != strlen(l_szRcvData)) {
-				return CTASIO_ERR_INVALIDLEN;	/* óMƒf[ƒ^’·ˆÙí	*/
+				return CTASIO_ERR_INVALIDLEN;	/* å—ä¿¡ãƒ‡ãƒ¼ã‚¿é•·ç•°å¸¸	*/
 			}
 			*penumCmdCode = CMD_MAX;
 			strcpy(pszRcvData, l_szCmdCode);
 		}
 		break;
 	default:
-		return CTASIO_ERR_INVALID_PKT;	/* ƒpƒPƒbƒgƒR[ƒh‚ª”ÍˆÍŠO‚Å‚·D	*/
+		return CTASIO_ERR_INVALID_PKT;	/* ãƒ‘ã‚±ãƒƒãƒˆã‚³ãƒ¼ãƒ‰ãŒç¯„å›²å¤–ã§ã™ï¼	*/
 		break;
 	}
 
@@ -582,7 +582,7 @@ int CCtaSio::GetRcvData(PACKET_CODE* penumPacketCode, COMMAND_CODE* penumCmdCode
 }
 
 /*
- *	ƒXƒŒƒbƒh‚ÌƒTƒXƒyƒ“ƒhƒJƒEƒ“ƒg‚ğƒfƒNƒŠƒƒ“ƒg‚µ‚Ü‚·D
+ *	ã‚¹ãƒ¬ãƒƒãƒ‰ã®ã‚µã‚¹ãƒšãƒ³ãƒ‰ã‚«ã‚¦ãƒ³ãƒˆã‚’ãƒ‡ã‚¯ãƒªãƒ¡ãƒ³ãƒˆã—ã¾ã™ï¼
  */
 DWORD CCtaSio::ResumeSIO(DWORD dwParentThreadID)
 {
@@ -592,12 +592,12 @@ DWORD CCtaSio::ResumeSIO(DWORD dwParentThreadID)
 }
 
 /****************************************************************************
-	‚»‚Ì‘¼ŠÖ”
+	ãã®ä»–é–¢æ•°
 ****************************************************************************/
 
 /*
- *	ƒ`ƒFƒbƒNƒTƒ€ŒvZ
- *		8 ƒrƒbƒg add ƒ‚[ƒh‚Å‚·D
+ *	ãƒã‚§ãƒƒã‚¯ã‚µãƒ è¨ˆç®—
+ *		8 ãƒ“ãƒƒãƒˆ add ãƒ¢ãƒ¼ãƒ‰ã§ã™ï¼
  */
 int CCtaSio::CalcCheckSum(const char* pszData, char* pszChkSum)
 {
@@ -630,12 +630,12 @@ int CCtaSio::CalcCheckSum(const char* pszData, char* pszChkSum)
 }
 
 /*
- *	óMƒf[ƒ^‚ğóMƒoƒbƒtƒ@‚ÉƒZƒbƒg
+ *	å—ä¿¡ãƒ‡ãƒ¼ã‚¿ã‚’å—ä¿¡ãƒãƒƒãƒ•ã‚¡ã«ã‚»ãƒƒãƒˆ
  */
 int CCtaSio::RcvBufSet(char* pszRcvData)
 {
 	if (0 == m_bInited) {
-		return CTASIO_ERR_UNINIT;	/* –¢‰Šú‰»‚Å‚·D	*/
+		return CTASIO_ERR_UNINIT;	/* æœªåˆæœŸåŒ–ã§ã™ï¼	*/
 	}
 
 	::EnterCriticalSection(&m_csRcvBuf);
@@ -649,24 +649,24 @@ int CCtaSio::RcvBufSet(char* pszRcvData)
 		m_iIdxWr = 0;
 		memset((*l_pszRcvBufs)[m_iIdxWr], 0, PKT_LEN_MAX + 5);
 		strncpy((*l_pszRcvBufs)[m_iIdxWr], pszRcvData, PKT_LEN_MAX + 4);
-		/* ƒ‰ƒCƒgƒCƒ“ƒfƒbƒNƒXXV	*/
+		/* ãƒ©ã‚¤ãƒˆã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹æ›´æ–°	*/
 		m_iIdxRd = m_iIdxWr;
 		m_iIdxWr++; if (RCV_BUF_NUM <= m_iIdxWr) {m_iIdxWr = 0;}
-		this->NotifyParent(WM_CTASIO_RECVED, 0, 0);	/* eƒXƒŒƒbƒh‚É’Ê’m	*/
+		this->NotifyParent(WM_CTASIO_RECVED, 0, 0);	/* è¦ªã‚¹ãƒ¬ãƒƒãƒ‰ã«é€šçŸ¥	*/
 	} else {
 		if (m_iIdxRd == m_iIdxWr) {
-			/* ƒŠ[ƒhƒCƒ“ƒfƒbƒNƒX‚É“’B‚µ‚Ä‚µ‚Ü‚Á‚Ä‚¢‚½D	*/
-			/* ‘‚İ‚Í‚µ‚Ü‚¹‚ñD*/
-			/* ƒoƒbƒtƒ@ƒtƒ‹ƒGƒ‰[‚Å‚·D	*/
-			l_iRet = CTASIO_ERR_RCVBUFFULL;	/* óMƒoƒbƒtƒ@ƒtƒ‹	*/
-			this->NotifyParent(WM_CTASIO_RCVBUFFULL, 0, 0);	/* eƒXƒŒƒbƒh‚É’Ê’m	*/
+			/* ãƒªãƒ¼ãƒ‰ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã«åˆ°é”ã—ã¦ã—ã¾ã£ã¦ã„ãŸï¼	*/
+			/* æ›¸è¾¼ã¿ã¯ã—ã¾ã›ã‚“ï¼*/
+			/* ãƒãƒƒãƒ•ã‚¡ãƒ•ãƒ«ã‚¨ãƒ©ãƒ¼ã§ã™ï¼	*/
+			l_iRet = CTASIO_ERR_RCVBUFFULL;	/* å—ä¿¡ãƒãƒƒãƒ•ã‚¡ãƒ•ãƒ«	*/
+			this->NotifyParent(WM_CTASIO_RCVBUFFULL, 0, 0);	/* è¦ªã‚¹ãƒ¬ãƒƒãƒ‰ã«é€šçŸ¥	*/
 		} else {
 			memset((*l_pszRcvBufs)[m_iIdxWr], 0, PKT_LEN_MAX + 5);
 			strncpy((*l_pszRcvBufs)[m_iIdxWr], pszRcvData, PKT_LEN_MAX + 4);
-			/* ƒ‰ƒCƒgƒCƒ“ƒfƒbƒNƒXXV	*/
+			/* ãƒ©ã‚¤ãƒˆã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹æ›´æ–°	*/
 			if (-1 == m_iIdxRd) {m_iIdxRd = m_iIdxWr;}
 			m_iIdxWr++; if (RCV_BUF_NUM <= m_iIdxWr) {m_iIdxWr = 0;}
-			this->NotifyParent(WM_CTASIO_RECVED, 0, 0);	/* eƒXƒŒƒbƒh‚É’Ê’m	*/
+			this->NotifyParent(WM_CTASIO_RECVED, 0, 0);	/* è¦ªã‚¹ãƒ¬ãƒƒãƒ‰ã«é€šçŸ¥	*/
 		}
 	}
 
@@ -676,15 +676,15 @@ int CCtaSio::RcvBufSet(char* pszRcvData)
 }
 
 /*
- *	óMƒf[ƒ^‚ğóMƒoƒbƒtƒ@‚©‚çæ“¾
+ *	å—ä¿¡ãƒ‡ãƒ¼ã‚¿ã‚’å—ä¿¡ãƒãƒƒãƒ•ã‚¡ã‹ã‚‰å–å¾—
  */
 int CCtaSio::RcvBufGet(char* pszRcvData)
 {
 	if (0 == m_bInited) {
-		return CTASIO_ERR_UNINIT;	/* –¢‰Šú‰»‚Å‚·D	*/
+		return CTASIO_ERR_UNINIT;	/* æœªåˆæœŸåŒ–ã§ã™ï¼	*/
 	}
 	if (0 == pszRcvData) {
-		return CTASIO_ERR_PARAM;	/* Ši”[—pƒoƒbƒtƒ@‚ÌƒAƒhƒŒƒX‚ªˆÙí‚Å‚·D	*/
+		return CTASIO_ERR_PARAM;	/* æ ¼ç´ç”¨ãƒãƒƒãƒ•ã‚¡ã®ã‚¢ãƒ‰ãƒ¬ã‚¹ãŒç•°å¸¸ã§ã™ï¼	*/
 	}
 
 	::EnterCriticalSection(&m_csRcvBuf);
@@ -692,17 +692,17 @@ int CCtaSio::RcvBufGet(char* pszRcvData)
 	int l_iRet = 0;
 
 	if (-1 == m_iIdxRd) {
-		l_iRet = CTASIO_ERR_NORCVDATA;	/* óMƒf[ƒ^‚Í‚ ‚è‚Ü‚¹‚ñD	*/
+		l_iRet = CTASIO_ERR_NORCVDATA;	/* å—ä¿¡ãƒ‡ãƒ¼ã‚¿ã¯ã‚ã‚Šã¾ã›ã‚“ï¼	*/
 	} else {
 		char (*l_pszRcvBufs)[][PKT_LEN_MAX + 5];
 		l_pszRcvBufs = (char(*)[][PKT_LEN_MAX + 5]) m_pvRcvBufs;
 
 		memset(pszRcvData, 0, PKT_LEN_MAX + 5);
 		strncpy(pszRcvData, (*l_pszRcvBufs)[m_iIdxRd], PKT_LEN_MAX + 4);
-		/* ƒŠ[ƒhƒCƒ“ƒfƒbƒNƒXXV	*/
+		/* ãƒªãƒ¼ãƒ‰ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹æ›´æ–°	*/
 		m_iIdxRd++; if (RCV_BUF_NUM <= m_iIdxRd) {m_iIdxRd = 0;}
 		if (m_iIdxWr == m_iIdxRd) {
-			/* ƒ‰ƒCƒgƒCƒ“ƒfƒbƒNƒX‚É“’B‚µ‚Ä‚µ‚Ü‚Á‚½D	*/
+			/* ãƒ©ã‚¤ãƒˆã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã«åˆ°é”ã—ã¦ã—ã¾ã£ãŸï¼	*/
 			m_iIdxRd = -1;
 		}
 	}
@@ -713,7 +713,7 @@ int CCtaSio::RcvBufGet(char* pszRcvData)
 }
 
 /*
- *	ƒƒO
+ *	ãƒ­ã‚°
  */
 void CCtaSio::Logging(LPCTSTR strLog)
 {
@@ -728,7 +728,7 @@ void CCtaSio::Logging(LPCTSTR strLog)
 }
 
 /*
- *	‘—óMƒf[ƒ^ƒƒO
+ *	é€å—ä¿¡ãƒ‡ãƒ¼ã‚¿ãƒ­ã‚°
  */
 void CCtaSio::LoggingSIO(BOOL bMode, LPCSTR pszLogData, DWORD dwLen)
 {
@@ -766,7 +766,7 @@ void CCtaSio::LoggingSIO(BOOL bMode, LPCSTR pszLogData, DWORD dwLen)
 }
 
 /*
- *	eƒXƒŒƒbƒh‚É(ƒEƒBƒ“ƒhƒEƒƒbƒZ[ƒW‚ğ)’Ê’m
+ *	è¦ªã‚¹ãƒ¬ãƒƒãƒ‰ã«(ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’)é€šçŸ¥
  */
 BOOL CCtaSio::NotifyParent(UINT uiMsg, WPARAM wParam, LPARAM lParam)
 {
@@ -790,96 +790,96 @@ BOOL CCtaSio::NotifyParent(UINT uiMsg, WPARAM wParam, LPARAM lParam)
 }
 
 /*
- *	óMƒ‹[ƒv
+ *	å—ä¿¡ãƒ«ãƒ¼ãƒ—
  */
 void CCtaSio::RecvLoop()
 {
 	static BOOL ls_bLoop = TRUE;
 	static BOOL ls_bRunOnce = FALSE;
 
-	char	l_szRecvBuf[TLRCV_LEN_MAX + 1];	/* óMƒoƒbƒtƒ@	*/
-	char	l_szRecvDat[TLRCV_LEN_MAX + 1];	/* óMƒf[ƒ^	*/
-	COMSTAT	l_ComStat;						/* ƒfƒoƒCƒX‚Ìó‘Ô	*/
-	DWORD	l_dwReadCount;					/* “Ço‚µ‚½ƒoƒCƒg”	*/
-	DWORD	l_dwErrors;						/* ƒGƒ‰[î•ñ	*/
-	DWORD	l_dwRecvLen;					/* óMƒoƒCƒg”	*/
+	char	l_szRecvBuf[TLRCV_LEN_MAX + 1];	/* å—ä¿¡ãƒãƒƒãƒ•ã‚¡	*/
+	char	l_szRecvDat[TLRCV_LEN_MAX + 1];	/* å—ä¿¡ãƒ‡ãƒ¼ã‚¿	*/
+	COMSTAT	l_ComStat;						/* ãƒ‡ãƒã‚¤ã‚¹ã®çŠ¶æ…‹	*/
+	DWORD	l_dwReadCount;					/* èª­å‡ºã—ãŸãƒã‚¤ãƒˆæ•°	*/
+	DWORD	l_dwErrors;						/* ã‚¨ãƒ©ãƒ¼æƒ…å ±	*/
+	DWORD	l_dwRecvLen;					/* å—ä¿¡ãƒã‚¤ãƒˆæ•°	*/
 	int 	i = 0;
 
 	while (0 != ls_bLoop) {
 		::EnterCriticalSection(&m_csComDev);
 
 		if (TRUE != m_bInited) {
-			/* –¢‰Šú‰»‚È‚Ì‚ÅC‰½‚à‚µ‚Ü‚¹‚ñD	*/
+			/* æœªåˆæœŸåŒ–ãªã®ã§ï¼Œä½•ã‚‚ã—ã¾ã›ã‚“ï¼	*/
 		} else
 		if (TRUE != ls_bRunOnce) {
 			ls_bRunOnce = TRUE;
-			/* ‰‰ñ‚Ì‚İÀs ------------------------------------------------*/
+			/* åˆå›ã®ã¿å®Ÿè¡Œ ------------------------------------------------*/
 			l_dwReadCount = 0;
 			l_dwErrors = 0;
 			l_dwRecvLen = 0;
 			i = 0;
 			memset(l_szRecvBuf, 0, sizeof(l_szRecvBuf));
 			memset(l_szRecvDat, 0, sizeof(l_szRecvDat));
-			/* Šù‚ÉóM‚µ‚Ä‚¢‚½ƒf[ƒ^‚ª‚ ‚ê‚Î“Ç‚İÌ‚Ä‚é	*/
+			/* æ—¢ã«å—ä¿¡ã—ã¦ã„ãŸãƒ‡ãƒ¼ã‚¿ãŒã‚ã‚Œã°èª­ã¿æ¨ã¦ã‚‹	*/
 			m_CommTimeOuts.ReadTotalTimeoutConstant = 0;
 			if (0 == ::SetCommTimeouts(m_hCom, &m_CommTimeOuts)) {
-				/* ŠÖ”¸”s	*/
+				/* é–¢æ•°å¤±æ•—	*/
 				this->NotifyParent(WM_CTASIO_RCVFAIL, 0, 0);
 				this->Logging(_T("RcvLoop Failed to SetCommTimeouts() - 1"));
-				ls_bLoop = FALSE;	/* ƒXƒŒƒbƒhƒ‹[ƒvI—¹	*/
+				ls_bLoop = FALSE;	/* ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ«ãƒ¼ãƒ—çµ‚äº†	*/
 				return;
 			} else
 			if (0 == ::ClearCommError(m_hCom, &l_dwErrors, &l_ComStat)) {
-				/* ŠÖ”¸”s	*/
+				/* é–¢æ•°å¤±æ•—	*/
 				this->NotifyParent(WM_CTASIO_RCVFAIL, 0, 0);
 				this->Logging(_T("RcvLoop Failed to ClearCommError() - 1"));
-				ls_bLoop = FALSE;	/* ƒXƒŒƒbƒhƒ‹[ƒvI—¹	*/
+				ls_bLoop = FALSE;	/* ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ«ãƒ¼ãƒ—çµ‚äº†	*/
 				return;
 			} else {
 				if (l_ComStat.cbInQue != 0) {
-					/* óMƒf[ƒ^‚ª‚ ‚ê‚Î“Ç‚İÌ‚Ä	*/
+					/* å—ä¿¡ãƒ‡ãƒ¼ã‚¿ãŒã‚ã‚Œã°èª­ã¿æ¨ã¦	*/
 					if (0 == ::ReadFile(m_hCom, &l_szRecvBuf, l_ComStat.cbInQue, &l_dwReadCount, NULL)) {
-						/* ŠÖ”¸”s	*/
+						/* é–¢æ•°å¤±æ•—	*/
 						this->NotifyParent(WM_CTASIO_RCVFAIL, 0, 0);
 						this->Logging(_T("RcvLoop Failed to ReadFile() - 1"));
-						ls_bLoop = FALSE;	/* ƒXƒŒƒbƒhƒ‹[ƒvI—¹	*/
+						ls_bLoop = FALSE;	/* ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ«ãƒ¼ãƒ—çµ‚äº†	*/
 						return;
 					}
 				}
 			}
 			m_CommTimeOuts.ReadTotalTimeoutConstant = TLRCV_TIME;
 			if (0 == ::SetCommTimeouts(m_hCom, &m_CommTimeOuts)) {
-				/* ŠÖ”¸”s	*/
+				/* é–¢æ•°å¤±æ•—	*/
 				this->NotifyParent(WM_CTASIO_RCVFAIL, 0, 0);
 				this->Logging(_T("RcvLoop Failed to SetCommTimeouts() - 2"));
-				ls_bLoop = FALSE;	/* ƒXƒŒƒbƒhƒ‹[ƒvI—¹	*/
+				ls_bLoop = FALSE;	/* ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ«ãƒ¼ãƒ—çµ‚äº†	*/
 				return;
 			}
 			l_dwRecvLen = 0;
 			this->Logging(_T("RcvLoop started."));
 		} else {
-			/* ƒƒCƒ“ƒ‹[ƒv ------------------------------------------------*/
+			/* ãƒ¡ã‚¤ãƒ³ãƒ«ãƒ¼ãƒ— ------------------------------------------------*/
 			if (0 == ::ReadFile(m_hCom, &l_szRecvBuf, 1, &l_dwReadCount, NULL)) {
-				/* ŠÖ”¸”s	*/
+				/* é–¢æ•°å¤±æ•—	*/
 				this->NotifyParent(WM_CTASIO_RCVFAIL, 0, 0);
 				this->Logging(_T("RcvLoop Failed to ReadFile() - 2"));
-				ls_bLoop = FALSE;	/* ƒXƒŒƒbƒhƒ‹[ƒvI—¹	*/
+				ls_bLoop = FALSE;	/* ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ«ãƒ¼ãƒ—çµ‚äº†	*/
 				this->Logging(_T("RcvLoop ended."));
 				return;
 			} else if (0 == l_dwReadCount) {
-				/* óM‚µ‚Ä‚¢‚È‚¢ê‡‚Í‰½‚à‚µ‚Ü‚¹‚ñD	*/
+				/* å—ä¿¡ã—ã¦ã„ãªã„å ´åˆã¯ä½•ã‚‚ã—ã¾ã›ã‚“ï¼	*/
 			} else {
 				static int ls_iPrc = 0;
 				switch (ls_iPrc) {
-				case 0:		/* ƒpƒPƒbƒgƒR[ƒhóM‘Ò‚¿	*/
+				case 0:		/* ãƒ‘ã‚±ãƒƒãƒˆã‚³ãƒ¼ãƒ‰å—ä¿¡å¾…ã¡	*/
 					for (i = 0; i < PKT_MAX; i++) {
 						if (lg_cPktCode[i] == l_szRecvBuf[0]) {
 							break;
 						}
 					}
 					if (PKT_MAX <= i) {
-						/* –³Œøƒf[ƒ^óM	*/
-						/* ‚ÍCƒƒO‚Ì‚İ‚Å–³‹‚µ‚Ü‚·D	*/
+						/* ç„¡åŠ¹ãƒ‡ãƒ¼ã‚¿å—ä¿¡	*/
+						/* ã¯ï¼Œãƒ­ã‚°ã®ã¿ã§ç„¡è¦–ã—ã¾ã™ï¼	*/
 						l_szRecvBuf[1] = 0x00;
 						this->LoggingSIO(FALSE, l_szRecvBuf, 1);
 					} else {
@@ -888,9 +888,9 @@ void CCtaSio::RecvLoop()
 						ls_iPrc = 1;
 					}
 					break;
-				case 1:		/* LF óM‘Ò‚¿	*/
+				case 1:		/* LF å—ä¿¡å¾…ã¡	*/
 					if (lgs_cLF == l_szRecvBuf[0]) {
-						/* LF ‚¾‚Á‚½	*/
+						/* LF ã ã£ãŸ	*/
 						l_szRecvDat[l_dwRecvLen++] = l_szRecvBuf[0];
 						l_szRecvDat[l_dwRecvLen] = 0x00;
 						char l_szRcvCmd[4];
@@ -899,24 +899,24 @@ void CCtaSio::RecvLoop()
 						l_szRcvCmd[2] = l_szRecvDat[3];
 						l_szRcvCmd[3] = 0x00;
 						if ((PKT_LEN_MAX + 4) < l_dwRecvLen) {
-							/*	ÀÛ‚É‚Í‚ ‚è‚¦‚È‚¢‚­‚ç‚¢‘å‚«‚¢ƒpƒPƒbƒg‚Í–³‹‚µ‚Ü‚·D	*/
+							/*	å®Ÿéš›ã«ã¯ã‚ã‚Šãˆãªã„ãã‚‰ã„å¤§ãã„ãƒ‘ã‚±ãƒƒãƒˆã¯ç„¡è¦–ã—ã¾ã™ï¼	*/
 							this->LoggingSIO(FALSE, l_szRecvDat, l_dwRecvLen);
-							/* CMA ‚Ìê‡‚ÍƒRƒR‚ÅƒŒƒXƒ|ƒ“ƒX‚ğ•Ô‚µ‚Ü‚·D
-								ˆÈŠO‚Í–³‰“š‚Å‚·D	*/
+							/* CMA ã®å ´åˆã¯ã‚³ã‚³ã§ãƒ¬ã‚¹ãƒãƒ³ã‚¹ã‚’è¿”ã—ã¾ã™ï¼
+								ä»¥å¤–ã¯ç„¡å¿œç­”ã§ã™ï¼	*/
 							if (0 == strcmp(l_szRcvCmd, lg_pszCmdCode[EVT_CMA])) {
 								this->CmdSend(PKT_RES, EVT_CMA, "");
-								this->NotifyParent(WM_CTASIO_RECVED, (WPARAM) TRUE, 0);	/* eƒXƒŒƒbƒh‚É’Ê’m	*/
+								this->NotifyParent(WM_CTASIO_RECVED, (WPARAM) TRUE, 0);	/* è¦ªã‚¹ãƒ¬ãƒƒãƒ‰ã«é€šçŸ¥	*/
 							}
 						} else if (0 == strcmp(l_szRcvCmd, lg_pszCmdCode[EVT_CMA])) {
-							/* CMA ‚Í•s—v‚È‚Ì‚ÅƒƒO‚Ì‚İD
-								‚È‚Ì‚ÅCóMƒoƒbƒtƒ@‚É“ü‚ê‚È‚¢D*/
-							/* CMA ‚Ìê‡‚ÍƒRƒR‚ÅƒŒƒXƒ|ƒ“ƒX‚ğ•Ô‚µ‚Ü‚·D	*/
+							/* CMA ã¯ä¸è¦ãªã®ã§ãƒ­ã‚°ã®ã¿ï¼
+								ãªã®ã§ï¼Œå—ä¿¡ãƒãƒƒãƒ•ã‚¡ã«å…¥ã‚Œãªã„ï¼*/
+							/* CMA ã®å ´åˆã¯ã‚³ã‚³ã§ãƒ¬ã‚¹ãƒãƒ³ã‚¹ã‚’è¿”ã—ã¾ã™ï¼	*/
 							this->LoggingSIO(FALSE, l_szRecvDat, l_dwRecvLen);
 							this->CmdSend(PKT_RES, EVT_CMA, "");
-							this->NotifyParent(WM_CTASIO_RECVED, (WPARAM) TRUE, 0);	/* eƒXƒŒƒbƒh‚É’Ê’m	*/
+							this->NotifyParent(WM_CTASIO_RECVED, (WPARAM) TRUE, 0);	/* è¦ªã‚¹ãƒ¬ãƒƒãƒ‰ã«é€šçŸ¥	*/
 						} else {
 							this->LoggingSIO(FALSE, l_szRecvDat, l_dwRecvLen);
-							/* óMƒoƒbƒtƒ@‚ÉŠi”[	*/
+							/* å—ä¿¡ãƒãƒƒãƒ•ã‚¡ã«æ ¼ç´	*/
 							this->RcvBufSet(l_szRecvDat);
 						}
 						ls_iPrc = 0;
@@ -925,7 +925,7 @@ void CCtaSio::RecvLoop()
 						l_szRecvDat[l_dwRecvLen++] = l_szRecvBuf[0];
 						l_szRecvDat[l_dwRecvLen] = 0x00;
 						if (TLRCV_LEN_MAX < l_dwRecvLen) {
-							/* ƒoƒbƒtƒ@ƒI[ƒoƒtƒ[	*/
+							/* ãƒãƒƒãƒ•ã‚¡ã‚ªãƒ¼ãƒãƒ•ãƒ­ãƒ¼	*/
 							this->Logging(_T("RcvLoop receive buffer overflow."));
 							this->LoggingSIO(FALSE, l_szRecvDat, l_dwRecvLen);
 							ls_iPrc = 0;
@@ -936,14 +936,14 @@ void CCtaSio::RecvLoop()
 				}
 			}
 
-			/* ƒXƒŒƒbƒhƒ‹[ƒvI—¹ƒ`ƒFƒbƒN ----------------------------------*/
+			/* ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ«ãƒ¼ãƒ—çµ‚äº†ãƒã‚§ãƒƒã‚¯ ----------------------------------*/
 			if (TRUE != m_bInited) {
-				/* ƒoƒbƒtƒ@‚É‘¶İ‚·‚éóMƒf[ƒ^‚ğƒƒO‚µ‚Ü‚·D	*/
+				/* ãƒãƒƒãƒ•ã‚¡ã«å­˜åœ¨ã™ã‚‹å—ä¿¡ãƒ‡ãƒ¼ã‚¿ã‚’ãƒ­ã‚°ã—ã¾ã™ï¼	*/
 				if (0 != l_dwRecvLen) {
 					this->LoggingSIO(FALSE, l_szRecvDat, l_dwRecvLen);
 					l_dwRecvLen = 0;
 				}
-				ls_bLoop = FALSE;	/* ƒXƒŒƒbƒhƒ‹[ƒvI—¹	*/
+				ls_bLoop = FALSE;	/* ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ«ãƒ¼ãƒ—çµ‚äº†	*/
 				this->Logging(_T("RcvLoop ended."));
 			}
 		}
@@ -953,7 +953,7 @@ void CCtaSio::RecvLoop()
 }
 
 /*
- *	óMƒ‹[ƒv - HWS ƒ‚[ƒh
+ *	å—ä¿¡ãƒ«ãƒ¼ãƒ— - HWS ãƒ¢ãƒ¼ãƒ‰
  */
 void CCtaSio::HWS_RecvLoop()
 {
@@ -967,7 +967,7 @@ void CCtaSio::HWS_RecvLoop()
 
 	while (0 != ls_bLoop) {
 		if (TRUE != m_bInited) {
-			/* –¢‰Šú‰»‚È‚Ì‚ÅC‰½‚à‚µ‚Ü‚¹‚ñD	*/
+			/* æœªåˆæœŸåŒ–ãªã®ã§ï¼Œä½•ã‚‚ã—ã¾ã›ã‚“ï¼	*/
 		} else
 		if (TRUE != ls_bRunOnce) {
 			ls_bRunOnce = TRUE;
@@ -980,7 +980,7 @@ void CCtaSio::HWS_RecvLoop()
 				char l_szCmdBuf[PKT_LEN_MAX + 5];
 				strcpy(l_szCmdBuf, m_pszCmdBufHWS);
 				DWORD dwi = 0;
-				/* ƒpƒPƒbƒgƒR[ƒh’Šo	*/
+				/* ãƒ‘ã‚±ãƒƒãƒˆã‚³ãƒ¼ãƒ‰æŠ½å‡º	*/
 				for (dwi = PKT_CMD; dwi < PKT_MAX; dwi++) {
 					if (lg_cPktCode[dwi] == m_pszCmdBufHWS[0]) {
 						l_enumPktCode = (PACKET_CODE) dwi;
@@ -988,7 +988,7 @@ void CCtaSio::HWS_RecvLoop()
 					}
 				}
 				if (PKT_MAX <= dwi) {l_enumPktCode = PKT_MAX;}
-				/* ƒRƒ}ƒ“ƒhƒR[ƒh’Šo	*/
+				/* ã‚³ãƒãƒ³ãƒ‰ã‚³ãƒ¼ãƒ‰æŠ½å‡º	*/
 				m_pszCmdBufHWS[4] = 0x00;
 				for (dwi = CMD_STA; dwi < EVT_MAX; dwi++) {
 					if (0 == strcmp(lg_pszCmdCode[dwi], &(m_pszCmdBufHWS[1]))) {
@@ -997,7 +997,7 @@ void CCtaSio::HWS_RecvLoop()
 					}
 				}
 				if (EVT_MAX <= dwi) {l_enumCmdCode = EVT_MAX;}
-				/* ƒpƒPƒbƒg‚ÆƒRƒ}ƒ“ƒhƒR[ƒh‚Ì®‡«‚ğƒ`ƒFƒbƒN	*/
+				/* ãƒ‘ã‚±ãƒƒãƒˆã¨ã‚³ãƒãƒ³ãƒ‰ã‚³ãƒ¼ãƒ‰ã®æ•´åˆæ€§ã‚’ãƒã‚§ãƒƒã‚¯	*/
 				switch (l_enumPktCode) {
 				case PKT_CMD:
 				case PKT_RES:
@@ -1011,20 +1011,20 @@ void CCtaSio::HWS_RecvLoop()
 					this->HWS_RcvBufSet(PKT_ERR, CMD_STA, "100");
 					break;
 				}
-				/* óMŠ®—¹	*/
+				/* å—ä¿¡å®Œäº†	*/
 				m_pszCmdBufHWS = 0;
 			}
 
 //hdebdeb			::EnterCriticalSection(&m_csComDev);
 
 			switch (ls_iPrc) {
-			case -1:	/* V‹KƒV[ƒPƒ“ƒX‘Ò‚¿	*/
+			case -1:	/* æ–°è¦ã‚·ãƒ¼ã‚±ãƒ³ã‚¹å¾…ã¡	*/
 				if ((PKT_CMD == l_enumPktCode) && (CMD_MAX != l_enumCmdCode)) {
-/* modified 2010.07.15 hmenjo PO ƒIƒ“‚Å RST ƒRƒ}ƒ“ƒh‘Î‰ ---------- { ---------- */
+/* modified 2010.07.15 hmenjo PO ã‚ªãƒ³ã§ RST ã‚³ãƒãƒ³ãƒ‰å¯¾å¿œ ---------- { ---------- */
 //					if (CMD_STA == l_enumCmdCode) {ls_iRcvSTA = 1;}
-/* modified 2010.07.15 hmenjo PO ƒIƒ“‚Å RST ƒRƒ}ƒ“ƒh‘Î‰ ----------              */
+/* modified 2010.07.15 hmenjo PO ã‚ªãƒ³ã§ RST ã‚³ãƒãƒ³ãƒ‰å¯¾å¿œ ----------              */
 					if (CMD_STA == l_enumCmdCode) {ls_iRcvSTA = 2;}
-/* modified 2010.07.15 hmenjo PO ƒIƒ“‚Å RST ƒRƒ}ƒ“ƒh‘Î‰ ---------- } ---------- */
+/* modified 2010.07.15 hmenjo PO ã‚ªãƒ³ã§ RST ã‚³ãƒãƒ³ãƒ‰å¯¾å¿œ ---------- } ---------- */
 					switch (l_enumCmdCode) {
 					case CMD_STA:	this->HWS_RcvBufSet(PKT_RES, CMD_STA, "121");	break;
 					case CMD_ORG:	this->HWS_RcvBufSet(PKT_RES, CMD_ORG, "");	ls_iPrc = CMD_ORG;	break;
@@ -1105,7 +1105,7 @@ void CCtaSio::HWS_RecvLoop()
 					ls_iPrcSub = 1;	break;
 				case 1:
 					if ((PKT_RES == l_enumPktCode) && (EVT_CMO == l_enumCmdCode)) {
-						this->NotifyParent(WM_CTASIO_RECVED, (WPARAM) TRUE, 0);	/* eƒXƒŒƒbƒh‚É’Ê’m	*/
+						this->NotifyParent(WM_CTASIO_RECVED, (WPARAM) TRUE, 0);	/* è¦ªã‚¹ãƒ¬ãƒƒãƒ‰ã«é€šçŸ¥	*/
 						ls_iPrcSub = -1; ls_iPrc = -1;
 					}
 					break;
@@ -1129,9 +1129,9 @@ void CCtaSio::HWS_RecvLoop()
 			default:	ASSERT(0);	break;
 			}
 
-			/* ƒXƒŒƒbƒhƒ‹[ƒvI—¹ƒ`ƒFƒbƒN ----------------------------------*/
+			/* ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ«ãƒ¼ãƒ—çµ‚äº†ãƒã‚§ãƒƒã‚¯ ----------------------------------*/
 			if (TRUE != m_bInited) {
-				ls_bLoop = FALSE;	/* ƒXƒŒƒbƒhƒ‹[ƒvI—¹	*/
+				ls_bLoop = FALSE;	/* ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ«ãƒ¼ãƒ—çµ‚äº†	*/
 				this->Logging(_T("RcvLoop(HWS) ended."));
 			}
 
@@ -1141,7 +1141,7 @@ void CCtaSio::HWS_RecvLoop()
 }
 
 /*
- *	ƒpƒPƒbƒg‘—M(ƒTƒuŠÖ”) - HWS ƒ‚[ƒh
+ *	ãƒ‘ã‚±ãƒƒãƒˆé€ä¿¡(ã‚µãƒ–é–¢æ•°) - HWS ãƒ¢ãƒ¼ãƒ‰
  */
 BOOL CCtaSio::HWS_RcvBufSet(const PACKET_CODE enumPacketCode, const COMMAND_CODE enumdwCmdCode, const char* pszData)
 {

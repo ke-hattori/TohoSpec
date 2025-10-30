@@ -1,4 +1,4 @@
-// PatRecDeskewDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// PatRecDeskewDlg.cpp : �C���v�������e�[�V���� �t�@�C��
 //
 
 #include "stdafx.h"

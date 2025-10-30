@@ -1,4 +1,4 @@
-// MultiLangHelper.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+ï»¿// MultiLangHelper.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #pragma once

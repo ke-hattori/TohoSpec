@@ -1,4 +1,4 @@
-// NanoPifSock.h : main header file for the NANOPIFSOCK application
+﻿// NanoPifSock.h : main header file for the NANOPIFSOCK application
 //
 
 #if !defined(AFX_NANOPIFSOCK_H__AC8FD394_AF18_455A_BCFE_803C78C594EE__INCLUDED_)

@@ -1,4 +1,4 @@
-// MsRoboCylinderSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// MsRoboCylinderSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -23,14 +23,14 @@ static const LPSTR LENS_TYPE_SENSOR[] = {
 
 
 /////////////////////////////////////////////////////////////////////////////
-// CMsRoboCylinderSettingDlg ƒ_ƒCƒAƒƒO
+// CMsRoboCylinderSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 
 CMsRoboCylinderSettingDlg::CMsRoboCylinderSettingDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CMsRoboCylinderSettingDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CMsRoboCylinderSettingDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ð’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒžãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒžã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_INIT
 	m_iCurrNo = 0;
 	m_strName = "";
@@ -41,7 +41,7 @@ void CMsRoboCylinderSettingDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CMsRoboCylinderSettingDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ð’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒžãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒžã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_MAP
 	DDX_Control(pDX, IDOK, m_OkButton);
 	DDX_Control(pDX, IDCANCEL, m_CancelButton);
@@ -58,7 +58,7 @@ BEGIN_MESSAGE_MAP(CMsRoboCylinderSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CMsRoboCylinderSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CMsRoboCylinderSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 BOOL CMsRoboCylinderSettingDlg::OnInitDialog()
 {
@@ -109,8 +109,8 @@ BOOL CMsRoboCylinderSettingDlg::OnInitDialog()
 	UpDate(FALSE);
 	OnCheckEnable();
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ðÝ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
@@ -134,14 +134,14 @@ void CMsRoboCylinderSettingDlg::OnSelchangeIndex()
 {
 	CComboBox* pCombo;
 	pCombo = (CComboBox *)GetDlgItem(IDC_INDEX);
-	// Œ»Ý‚ÌÝ’è‚ð•Û‘¶
+	// ç¾åœ¨ã®è¨­å®šã‚’ä¿å­˜
 	UpDate(TRUE);
 	if(!CheckData()){
 		pCombo->SetCurSel(m_iCurrNo);
 		return;
 	}
 
-	// V‚µ‚¢”Ô†‚Ìƒ^[ƒŒƒbƒg‚ÌÝ’è‚ð•\Ž¦
+	// æ–°ã—ã„ç•ªå·ã®ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆã®è¨­å®šã‚’è¡¨ç¤º
 	m_iCurrNo = pCombo->GetCurSel();
 	UpDate(FALSE);
 	OnCheckEnable();

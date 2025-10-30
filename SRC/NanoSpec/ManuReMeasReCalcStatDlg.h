@@ -1,40 +1,40 @@
-#if !defined(AFX_MANUREMEASRECALCSTATDLG_H__A6DE4A76_3048_45D7_A0D0_741314E642FA__INCLUDED_)
+ï»¿#if !defined(AFX_MANUREMEASRECALCSTATDLG_H__A6DE4A76_3048_45D7_A0D0_741314E642FA__INCLUDED_)
 #define AFX_MANUREMEASRECALCSTATDLG_H__A6DE4A76_3048_45D7_A0D0_741314E642FA__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// ManuReMeasReCalcStatDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// ManuReMeasReCalcStatDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 /////////////////////////////////////////////////////////////////////////////
-// CManuReMeasReCalcStatDlg ƒ_ƒCƒAƒƒO
+// CManuReMeasReCalcStatDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 class CManuReMeasReCalcStatDlg : public CDialog
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
 	BOOL ParamGet(LPARAM* plParam = 0);
 	BOOL ParamSet(LPARAM lParam = 0);
-	CManuReMeasReCalcStatDlg(CWnd* pParent = NULL);   // •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CManuReMeasReCalcStatDlg(CWnd* pParent = NULL);   // æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CManuReMeasReCalcStatDlg)
 	enum { IDD = IDD_MANUREMEASRECALCSTAT_DLG };
 	//}}AFX_DATA
 
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CManuReMeasReCalcStatDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CManuReMeasReCalcStatDlg)
 	virtual void OnOK();
 	virtual void OnCancel();
@@ -59,6 +59,6 @@ private:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_MANUREMEASRECALCSTATDLG_H__A6DE4A76_3048_45D7_A0D0_741314E642FA__INCLUDED_)

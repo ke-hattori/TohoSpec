@@ -1,4 +1,4 @@
-// MaintenanceDateDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// MaintenanceDateDlg.cpp : �C���v�������e�[�V���� �t�@�C��
 //
 
 #include "stdafx.h"

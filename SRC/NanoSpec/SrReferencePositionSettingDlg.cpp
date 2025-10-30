@@ -1,4 +1,4 @@
-// SrReferencePositionSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SrReferencePositionSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -30,19 +30,19 @@ static char THIS_FILE[] = __FILE__;
 //#define TRANSMIT_1ST_REFERENCE_POSITION_MESSAGE			"TRANSMIT 1ST REFERENCE POSITION SETTING"
 //#define TRANSMIT_2ND_REFERENCE_POSITION_CAPTION			"TRANSMIT 2ND REFERENCE POSITION SETTING"
 //#define TRANSMIT_2ND_REFERENCE_POSITION_MESSAGE			"TRANSMIT 2ND REFERENCE POSITION SETTING"
-//#define DARK_REFERENCE_POSITION_SETTING_CAPTION		  "ƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’uİ’è"
-//#define DARK_REFERENCE_POSITION_SETTING_MESSAGE		  "ƒ_[ƒNƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’uİ’è"
-//#define REFLECT_ABSOLUTE_REFERENCE_POSITION_CAPTION	  "”½Ëâ‘ÎƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’uİ’è"
-//#define REFLECT_ABSOLUTE_REFERENCE_POSITION_MESSAGE	  "”½Ëâ‘ÎƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’uİ’è"
-//#define TRANSMIT_ABSOLUTE_REFERENCE_POSITION_CAPTION	  "“§‰ßâ‘ÎƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’uİ’è"
-//#define TRANSMIT_ABSOLUTE_REFERENCE_POSITION_MESSAGE	  "“§‰ßâ‘ÎƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’uİ’è"
-//#define TRANSMIT_1ST_REFERENCE_POSITION_CAPTION		  "‘æ‚P“§‰ßƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’uİ’è"
-//#define TRANSMIT_1ST_REFERENCE_POSITION_MESSAGE		  "‘æ‚P“§‰ßƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’uİ’è"
-//#define TRANSMIT_2ND_REFERENCE_POSITION_CAPTION		  "‘æ‚Q“§‰ßƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’uİ’è"
-//#define TRANSMIT_2ND_REFERENCE_POSITION_MESSAGE		  "‘æ‚Q“§‰ßƒŠƒtƒ@ƒŒƒ“ƒXˆÊ’uİ’è"
+//#define DARK_REFERENCE_POSITION_SETTING_CAPTION		  "ãƒ€ãƒ¼ã‚¯ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®è¨­å®š"
+//#define DARK_REFERENCE_POSITION_SETTING_MESSAGE		  "ãƒ€ãƒ¼ã‚¯ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®è¨­å®š"
+//#define REFLECT_ABSOLUTE_REFERENCE_POSITION_CAPTION	  "åå°„çµ¶å¯¾ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®è¨­å®š"
+//#define REFLECT_ABSOLUTE_REFERENCE_POSITION_MESSAGE	  "åå°„çµ¶å¯¾ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®è¨­å®š"
+//#define TRANSMIT_ABSOLUTE_REFERENCE_POSITION_CAPTION	  "é€éçµ¶å¯¾ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®è¨­å®š"
+//#define TRANSMIT_ABSOLUTE_REFERENCE_POSITION_MESSAGE	  "é€éçµ¶å¯¾ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®è¨­å®š"
+//#define TRANSMIT_1ST_REFERENCE_POSITION_CAPTION		  "ç¬¬ï¼‘é€éãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®è¨­å®š"
+//#define TRANSMIT_1ST_REFERENCE_POSITION_MESSAGE		  "ç¬¬ï¼‘é€éãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®è¨­å®š"
+//#define TRANSMIT_2ND_REFERENCE_POSITION_CAPTION		  "ç¬¬ï¼’é€éãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®è¨­å®š"
+//#define TRANSMIT_2ND_REFERENCE_POSITION_MESSAGE		  "ç¬¬ï¼’é€éãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ä½ç½®è¨­å®š"
 
 // #########################################################################
-// CSrReferencePositionSettingDlg ƒ_ƒCƒAƒƒO
+// CSrReferencePositionSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // #########################################################################
 
 // =========================================================================
@@ -107,13 +107,13 @@ BEGIN_MESSAGE_MAP(CSrReferencePositionSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CSrReferencePositionSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSrReferencePositionSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
 BOOL CSrReferencePositionSettingDlg::OnInitDialog()
 {
-	//–¢‘Î‰‹@”\HIDE
+	//æœªå¯¾å¿œæ©Ÿèƒ½HIDE
 	GetDlgItem(IDC_TRANSMIT_ABSOLUTE_REFERENCE_POSITION_GRPBOX)->ShowWindow(SW_HIDE);
 	GetDlgItem(IDC_TRANSMIT_ABSOLUTE_REFERENCE_POSITION_X_LABEL)->ShowWindow(SW_HIDE);
 	GetDlgItem(IDC_TRANSMIT_ABSOLUTE_REFERENCE_POSITION_Y_LABEL)->ShowWindow(SW_HIDE);
@@ -145,9 +145,9 @@ BOOL CSrReferencePositionSettingDlg::OnInitDialog()
 
 	CDialog::OnInitDialog();
 
-	// TODO: ‚±‚ÌˆÊ’u‚É‰Šú‰»‚Ì•â‘«ˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«åˆæœŸåŒ–ã®è£œè¶³å‡¦ç†ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
-	///// “®“IƒTƒCƒYE”z’u•ÏX /////
+	///// å‹•çš„ã‚µã‚¤ã‚ºãƒ»é…ç½®å¤‰æ›´ /////
 //2009.09.28 bagus gantry --{--
 #if 0
 	GetDlgItem(IDOK)->SetWindowPos(&wndTop,260,170,0,0,SWP_NOSIZE);
@@ -341,8 +341,8 @@ BOOL CSrReferencePositionSettingDlg::OnInitDialog()
 #endif
 //2009.09.28 bagus gantry --}--
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
@@ -812,7 +812,7 @@ void CSrReferencePositionSettingDlg::OnTransmitSecondReferenceSetupButton()
 //2009.09.28 bagus gantry --{--
 void CSrReferencePositionSettingDlg::OnSelchangePositionNo()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«é€šçŸ¥ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	CComboBox* pCombo = (CComboBox *)GetDlgItem(IDC_POSITION_NO);
 	int	nIndex = pCombo->GetCurSel();
@@ -822,7 +822,7 @@ void CSrReferencePositionSettingDlg::OnSelchangePositionNo()
 
 void CSrReferencePositionSettingDlg::OnGantryTransmitReferenceSetupButton()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«é€šçŸ¥ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	COverlayDialog dlgOverlay;
 	CString strCap, strMsg;

@@ -1,4 +1,4 @@
-// MotSysCfgDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// MotSysCfgDlg.cpp : インプリメンテーション ファイル
 //
 
 #include "stdafx.h"
@@ -15,25 +15,25 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// �A�v���P�[�V�����̃o�[�W�������Ŏg���Ă��� CAboutDlg �_�C�A���O
+// アプリケーションのバージョン情報で使われている CAboutDlg ダイアログ
 
 class CAboutDlg : public CDialog
 {
 public:
 	CAboutDlg();
 
-// �_�C�A���O �f�[�^
+// ダイアログ データ
 	//{{AFX_DATA(CAboutDlg)
 	enum { IDD = IDD_ABOUTBOX };
 	//}}AFX_DATA
 
-	// ClassWizard �͉��z�֐��̃I�[�o�[���C�h�𐶐����܂�
+	// ClassWizard は仮想関数のオーバーライドを生成します
 	//{{AFX_VIRTUAL(CAboutDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV �̃T�|�[�g
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV のサポート
 	//}}AFX_VIRTUAL
 
-// �C���v�������e�[�V����
+// インプリメンテーション
 protected:
 	//{{AFX_MSG(CAboutDlg)
 	//}}AFX_MSG
@@ -55,12 +55,12 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
 	//{{AFX_MSG_MAP(CAboutDlg)
-		// ���b�Z�[�W �n���h��������܂���B
+		// メッセージ ハンドラがありません。
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CMotSysCfgDlg �_�C�A���O
+// CMotSysCfgDlg ダイアログ
 
 CMotSysCfgDlg::CMotSysCfgDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CMotSysCfgDlg::IDD, pParent)
@@ -77,7 +77,7 @@ CMotSysCfgDlg::CMotSysCfgDlg(CWnd* pParent /*=NULL*/)
 	m_chkZ = FALSE;
 	m_chkServo = FALSE;
 	//}}AFX_DATA_INIT
-	// ����: LoadIcon �� Win32 �� DestroyIcon �̃T�u�V�[�P���X��v�����܂���B
+	// メモ: LoadIcon は Win32 の DestroyIcon のサブシーケンスを要求しません。
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
@@ -119,15 +119,15 @@ BEGIN_MESSAGE_MAP(CMotSysCfgDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CMotSysCfgDlg ���b�Z�[�W �n���h��
+// CMotSysCfgDlg メッセージ ハンドラ
 
 BOOL CMotSysCfgDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// "�o�[�W�������..." ���j���[���ڂ��V�X�e�� ���j���[�֒ǉ����܂��B
+	// "バージョン情報..." メニュー項目をシステム メニューへ追加します。
 
-	// IDM_ABOUTBOX �̓R�}���h ���j���[�͈̔͂łȂ���΂Ȃ�܂���B
+	// IDM_ABOUTBOX はコマンド メニューの範囲でなければなりません。
 	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
 	ASSERT(IDM_ABOUTBOX < 0xF000);
 
@@ -143,17 +143,17 @@ BOOL CMotSysCfgDlg::OnInitDialog()
 		}
 	}
 
-	// ���̃_�C�A���O�p�̃A�C�R����ݒ肵�܂��B�t���[�����[�N�̓A�v���P�[�V�����̃��C��
-	// �E�B���h�E���_�C�A���O�łȂ����͎����I�ɐݒ肵�܂���B
-	SetIcon(m_hIcon, TRUE);			// �傫���A�C�R����ݒ�
-	SetIcon(m_hIcon, FALSE);		// �������A�C�R����ݒ�
+	// このダイアログ用のアイコンを設定します。フレームワークはアプリケーションのメイン
+	// ウィンドウがダイアログでない時は自動的に設定しません。
+	SetIcon(m_hIcon, TRUE);			// 大きいアイコンを設定
+	SetIcon(m_hIcon, FALSE);		// 小さいアイコンを設定
 
-	// TODO: ���ʂȏ��������s�����͂��̏ꏊ�ɒǉ����Ă��������B
+	// TODO: 特別な初期化を行う時はこの場所に追加してください。
 
-	// �E�B���h�E�̃v���p�e�B���X�g�Ɏ��ʏ���ǉ�
+	// ウィンドウのプロパティリストに識別情報を追加
 	::SetProp(m_hWnd, IDENT_CODE, (HANDLE) 1);
 
-	// �ϐ��̏�����
+	// 変数の初期化
 	m_OnClose = FALSE;
 	m_hMainIcon = m_hIcon;
 	m_pCMotCfg = NULL;
@@ -167,10 +167,10 @@ BOOL CMotSysCfgDlg::OnInitDialog()
 	m_pCAxisDlgXfast = NULL;
 	m_pCAxisDlgY = NULL;
 
-	// �{�^���� ICON ��ݒ�
+	// ボタンに ICON を設定
 	((CButton*) GetDlgItem(IDC_BTN_ABOUT))->SetIcon(m_hIcon);
 
-	return TRUE;  // TRUE ��Ԃ��ƃR���g���[���ɐݒ肵���t�H�[�J�X�͎����܂���B
+	return TRUE;  // TRUE を返すとコントロールに設定したフォーカスは失われません。
 }
 
 void CMotSysCfgDlg::OnSysCommand(UINT nID, LPARAM lParam)
@@ -186,19 +186,19 @@ void CMotSysCfgDlg::OnSysCommand(UINT nID, LPARAM lParam)
 	}
 }
 
-// �����_�C�A���O�{�b�N�X�ɍŏ����{�^����ǉ�����Ȃ�΁A�A�C�R����`�悷��
-// �R�[�h���ȉ��ɋL�q����K�v������܂��BMFC �A�v���P�[�V������ document/view
-// ���f�����g���Ă���̂ŁA���̏����̓t���[�����[�N�ɂ�莩���I�ɏ�������܂��B
+// もしダイアログボックスに最小化ボタンを追加するならば、アイコンを描画する
+// コードを以下に記述する必要があります。MFC アプリケーションは document/view
+// モデルを使っているので、この処理はフレームワークにより自動的に処理されます。
 
 void CMotSysCfgDlg::OnPaint()
 {
 	if (IsIconic())
 	{
-		CPaintDC dc(this); // �`��p�̃f�o�C�X �R���e�L�X�g
+		CPaintDC dc(this); // 描画用のデバイス コンテキスト
 
 		SendMessage(WM_ICONERASEBKGND, (WPARAM) dc.GetSafeHdc(), 0);
 
-		// �N���C�A���g�̋�`�̈���̒���
+		// クライアントの矩形領域内の中央
 		int cxIcon = GetSystemMetrics(SM_CXICON);
 		int cyIcon = GetSystemMetrics(SM_CYICON);
 		CRect rect;
@@ -206,7 +206,7 @@ void CMotSysCfgDlg::OnPaint()
 		int x = (rect.Width() - cxIcon + 1) / 2;
 		int y = (rect.Height() - cyIcon + 1) / 2;
 
-		// �A�C�R����`�悵�܂��B
+		// アイコンを描画します。
 		dc.DrawIcon(x, y, m_hIcon);
 	}
 	else
@@ -215,8 +215,8 @@ void CMotSysCfgDlg::OnPaint()
 	}
 }
 
-// �V�X�e���́A���[�U�[���ŏ����E�B���h�E���h���b�O���Ă���ԁA
-// �J�[�\����\�����邽�߂ɂ������Ăяo���܂��B
+// システムは、ユーザーが最小化ウィンドウをドラッグしている間、
+// カーソルを表示するためにここを呼び出します。
 HCURSOR CMotSysCfgDlg::OnQueryDragIcon()
 {
 	return (HCURSOR) m_hIcon;
@@ -224,15 +224,15 @@ HCURSOR CMotSysCfgDlg::OnQueryDragIcon()
 
 void CMotSysCfgDlg::OnOK()
 {
-	// TODO: ���̈ʒu�ɂ��̑��̌��ؗp�̃R�[�h��ǉ����Ă�������
+	// TODO: この位置にその他の検証用のコードを追加してください
 
-	// "���^�[��"�L�[�ŏI������̂�������邽�ߍ폜
+	// "リターン"キーで終了するのを回避するため削除
 //	CDialog::OnOK();
 }
 
 void CMotSysCfgDlg::OnCancel()
 {
-	// TODO: ���̈ʒu�ɓ��ʂȌ㏈����ǉ����Ă��������B
+	// TODO: この位置に特別な後処理を追加してください。
 
 	if (m_OnClose == TRUE) {
 		CDialog::OnCancel();
@@ -241,7 +241,7 @@ void CMotSysCfgDlg::OnCancel()
 
 void CMotSysCfgDlg::OnClose()
 {
-	// TODO: ���̈ʒu�Ƀ��b�Z�[�W �n���h���p�̃R�[�h��ǉ����邩�܂��̓f�t�H���g�̏������Ăяo���Ă�������
+	// TODO: この位置にメッセージ ハンドラ用のコードを追加するかまたはデフォルトの処理を呼び出してください
 
 	m_OnClose = TRUE;
 
@@ -250,16 +250,16 @@ void CMotSysCfgDlg::OnClose()
 
 void CMotSysCfgDlg::OnBtnAbout()
 {
-	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
+	// TODO: この位置にコントロール通知ハンドラ用のコードを追加してください
 
-	// �A�o�E�g��\��
+	// アバウトを表示
 	CAboutDlg dlgAbout;
 	dlgAbout.DoModal();
 }
 
 void CMotSysCfgDlg::OnChkMotcfg()
 {
-	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
+	// TODO: この位置にコントロール通知ハンドラ用のコードを追加してください
 
 	if (m_chkMotCfg == FALSE) {
 		m_chkMotCfg = TRUE;
@@ -284,7 +284,7 @@ void CMotSysCfgDlg::EndMotCfgDlg()
 
 void CMotSysCfgDlg::OnChkBigx()
 {
-	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
+	// TODO: この位置にコントロール通知ハンドラ用のコードを追加してください
 
 	if (m_chkBigX == FALSE) {
 		m_chkBigX = TRUE;
@@ -305,7 +305,7 @@ void CMotSysCfgDlg::OnChkBigx()
 
 void CMotSysCfgDlg::OnChkBigy()
 {
-	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
+	// TODO: この位置にコントロール通知ハンドラ用のコードを追加してください
 
 	if (m_chkBigY == FALSE) {
 		m_chkBigY = TRUE;
@@ -326,7 +326,7 @@ void CMotSysCfgDlg::OnChkBigy()
 
 void CMotSysCfgDlg::OnChkZ()
 {
-	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
+	// TODO: この位置にコントロール通知ハンドラ用のコードを追加してください
 
 	if (m_chkZ == FALSE) {
 		m_chkZ = TRUE;
@@ -347,7 +347,7 @@ void CMotSysCfgDlg::OnChkZ()
 
 void CMotSysCfgDlg::OnChkXslow()
 {
-	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
+	// TODO: この位置にコントロール通知ハンドラ用のコードを追加してください
 
 	if (m_chkXSlow == FALSE) {
 		m_chkXSlow = TRUE;
@@ -368,7 +368,7 @@ void CMotSysCfgDlg::OnChkXslow()
 
 void CMotSysCfgDlg::OnChkTheta()
 {
-	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
+	// TODO: この位置にコントロール通知ハンドラ用のコードを追加してください
 
 	if (m_chkTheta == FALSE) {
 		m_chkTheta = TRUE;
@@ -389,7 +389,7 @@ void CMotSysCfgDlg::OnChkTheta()
 
 void CMotSysCfgDlg::OnChkLevel()
 {
-	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
+	// TODO: この位置にコントロール通知ハンドラ用のコードを追加してください
 
 	if (m_chkLevel == FALSE) {
 		m_chkLevel = TRUE;
@@ -410,7 +410,7 @@ void CMotSysCfgDlg::OnChkLevel()
 
 void CMotSysCfgDlg::OnChkXfast()
 {
-	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
+	// TODO: この位置にコントロール通知ハンドラ用のコードを追加してください
 
 	if (m_chkXFast == FALSE) {
 		m_chkXFast = TRUE;
@@ -431,7 +431,7 @@ void CMotSysCfgDlg::OnChkXfast()
 
 void CMotSysCfgDlg::OnChkY()
 {
-	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
+	// TODO: この位置にコントロール通知ハンドラ用のコードを追加してください
 
 	if (m_chkY == FALSE) {
 		m_chkY = TRUE;
@@ -460,15 +460,15 @@ void CMotSysCfgDlg::EndAxisDlg(int AxisNo)
 	case 4:	m_pCAxisDlgT = NULL; break;	// Theta
 	case 5:	m_pCAxisDlgL = NULL; break;	// Level
 	case 6:	m_pCAxisDlgXfast = NULL; break;	// X fast
-	case 7:	m_pCAxisDlgY = NULL; break;	// Y(�Ȃ�)
-	default:	// �Ȃ�
+	case 7:	m_pCAxisDlgY = NULL; break;	// Y(なし)
+	default:	// なし
 		break;
 	}
 }
 
 void CMotSysCfgDlg::OnChkServo()
 {
-	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
+	// TODO: この位置にコントロール通知ハンドラ用のコードを追加してください
 
 	if (m_chkServo == FALSE) {
 		m_chkServo = TRUE;
@@ -494,9 +494,9 @@ void CMotSysCfgDlg::EndServoParam()
 
 BOOL CMotSysCfgDlg::DestroyWindow()
 {
-	// TODO: ���̈ʒu�ɌŗL�̏�����ǉ����邩�A�܂��͊�{�N���X���Ăяo���Ă�������
+	// TODO: この位置に固有の処理を追加するか、または基本クラスを呼び出してください
 
-	// �E�B���h�E�̃v���p�e�B���X�g���环�ʏ����폜
+	// ウィンドウのプロパティリストから識別情報を削除
 	::RemoveProp(m_hWnd, IDENT_CODE);
 
 	return CDialog::DestroyWindow();

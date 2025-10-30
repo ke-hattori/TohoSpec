@@ -1,4 +1,4 @@
-#if !defined(AFX_EDGEALIGNERSETTINGDLG_H__55C222FB_FD80_48DE_BB81_A82BD8D632C9__INCLUDED_)
+ï»¿#if !defined(AFX_EDGEALIGNERSETTINGDLG_H__55C222FB_FD80_48DE_BB81_A82BD8D632C9__INCLUDED_)
 #define AFX_EDGEALIGNERSETTINGDLG_H__55C222FB_FD80_48DE_BB81_A82BD8D632C9__INCLUDED_
 
 #if _MSC_VER > 1000
@@ -7,20 +7,20 @@
 
 #include "ColorStatic.h"
 
-// EdgeAlignerSettingDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// EdgeAlignerSettingDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 // ##########################################################################
-// CEdgeAlignerSettingDlg ƒ_ƒCƒAƒƒO
+// CEdgeAlignerSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // ##########################################################################
 
 class CEdgeAlignerSettingDlg : public CDialog
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
-	CEdgeAlignerSettingDlg(CWnd* pParent = NULL);	// •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CEdgeAlignerSettingDlg(CWnd* pParent = NULL);	// æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 protected:
 	//{{AFX_DATA(CEdgeAlignerSettingDlg)
 	enum { IDD = IDD_EDGE_ALIGNER_SETTING_DLG };
@@ -35,14 +35,14 @@ protected:
 	CColorStatic m_stcEndX;
 	CColorStatic m_stcEndY;
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CEdgeAlignerSettingDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 
 	//{{AFX_MSG(CEdgeAlignerSettingDlg)
@@ -59,6 +59,6 @@ private:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_EDGEALIGNERSETTINGDLG_H__55C222FB_FD80_48DE_BB81_A82BD8D632C9__INCLUDED_)

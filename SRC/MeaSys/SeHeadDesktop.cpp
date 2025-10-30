@@ -1,4 +1,4 @@
-// SeHeadDesktop.cpp : Defines the SeHeadDesktop routines.
+﻿// SeHeadDesktop.cpp : Defines the SeHeadDesktop routines.
 //
 
 #include "stdafx.h"

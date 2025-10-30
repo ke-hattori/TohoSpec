@@ -1,4 +1,4 @@
-// DeskewSeq.cpp : implementation file
+ï»¿// DeskewSeq.cpp : implementation file
 //
 
 #include "stdafx.h"
@@ -35,8 +35,8 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-// ƒŒƒ“ƒYƒIƒtƒZƒbƒg‘Î‰
-//#define STAGEMOVE_ORIGINAL		// Stage.dll‚ÌƒIƒŠƒWƒiƒ‹À•W‚ÅˆÚ“®
+// ãƒ¬ãƒ³ã‚ºã‚ªãƒ•ã‚»ãƒƒãƒˆå¯¾å¿œ
+//#define STAGEMOVE_ORIGINAL		// Stage.dllã®ã‚ªãƒªã‚¸ãƒŠãƒ«åº§æ¨™ã§ç§»å‹•
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -63,7 +63,7 @@ IMPLEMENT_DYNCREATE(CDeskewAutoSeq, CDeskewSeq)
 //
 BOOL CDeskewAutoSeq::InitInstance()
 {
-	// delete this ‚µ‚Ü‚·
+	// delete this ã—ã¾ã™
 	m_bAutoDelete = TRUE;
 
 	m_bShutDown = FALSE;
@@ -72,9 +72,9 @@ BOOL CDeskewAutoSeq::InitInstance()
 
 	if ( !m_pStageProgInfoHdr->DeskewSite[0].bDefined ||
 		 !m_pStageProgInfoHdr->DeskewSite[1].bDefined ) {
-		// ƒŒƒVƒsî•ñæ“¾¸”s
-//		::MessageBox(NULL, "ƒŒƒVƒsî•ñDeskewƒTƒCƒg–¢’è‹`\n‘ª’è‚ğ’†~‚µ‚Ü‚·", "CDeskewAutoSeq", MB_ICONEXCLAMATION);
-		// ƒfƒXƒLƒ…[ˆ—¸”s|‘ª’èƒLƒƒƒ“ƒZƒ‹
+		// ãƒ¬ã‚·ãƒ”æƒ…å ±å–å¾—å¤±æ•—
+//		::MessageBox(NULL, "ãƒ¬ã‚·ãƒ”æƒ…å ±Deskewã‚µã‚¤ãƒˆæœªå®šç¾©\næ¸¬å®šã‚’ä¸­æ­¢ã—ã¾ã™", "CDeskewAutoSeq", MB_ICONEXCLAMATION);
+		// ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼å‡¦ç†å¤±æ•—âˆ’æ¸¬å®šã‚­ãƒ£ãƒ³ã‚»ãƒ«
 		m_iEvent = EV_DSKW_AUTO_CANCEL;
 		return FALSE;
 	}
@@ -124,7 +124,7 @@ int CDeskewAutoSeq::Run()
 
 	// get the current deskew site and go there
 
-// 2009.06.11 K.Matsuo ƒ|[ƒY‘Î‰ -->
+// 2009.06.11 K.Matsuo ãƒãƒ¼ã‚ºå¯¾å¿œ -->
 //	for ( int iSite = 0; iSite < 2; iSite++ ) {
 	int iSite = 0;
 	while ( iSite < 2 ) {
@@ -134,7 +134,7 @@ int CDeskewAutoSeq::Run()
 			::Sleep(1000);
 			continue;
 		}
-// 2009.06.11 K.Matsuo ƒ|[ƒY‘Î‰ <--
+// 2009.06.11 K.Matsuo ãƒãƒ¼ã‚ºå¯¾å¿œ <--
 
 		STAGE_COORD coord =	m_pStageProgInfoHdr->DeskewSite[iSite].Loc;
 		((CNanoSpecDoc*) ((m_pChiefView)->m_pcNanoSpecDoc))->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);
@@ -155,25 +155,25 @@ int CDeskewAutoSeq::Run()
 		DoPatRecMatchWithVerify(iSite, &DeskewResult[iSite], &MatchLoc[iSite]);
 		if ( DeskewResult[iSite].Score < m_patternRec.dLowestMatchScore ) // pat rec is NG
 			break;
-// 2009.06.11 K.Matsuo ƒ|[ƒY‘Î‰ -->
+// 2009.06.11 K.Matsuo ãƒãƒ¼ã‚ºå¯¾å¿œ -->
 		iSite++;
-// 2009.06.11 K.Matsuo ƒ|[ƒY‘Î‰ <--
+// 2009.06.11 K.Matsuo ãƒãƒ¼ã‚ºå¯¾å¿œ <--
 	}
 
 
-	// ƒfƒXƒLƒ…[ˆ—I—¹
+	// ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼å‡¦ç†çµ‚äº†
 	if ( m_bShutDown ) {
-		// ƒLƒƒƒ“ƒZƒ‹I—¹
+		// ã‚­ãƒ£ãƒ³ã‚»ãƒ«çµ‚äº†
 		m_iEvent = EV_DSKW_AUTO_CANCEL;
 	}
 	else {
 		if ( DeskewResult[0].Score >= m_patternRec.dLowestMatchScore &&
 			 DeskewResult[1].Score >= m_patternRec.dLowestMatchScore ) // pat rec is OK
 		{
-			// ƒfƒXƒLƒ…[ˆ—³í
+			// ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼å‡¦ç†æ­£å¸¸
 			m_iEvent = EV_DSKW_AUTO_OK;
 
-			// DeskewŒvZ‚ÍAƒ}ƒVƒ“À•W‚Ås‚¤
+			// Deskewè¨ˆç®—ã¯ã€ãƒã‚·ãƒ³åº§æ¨™ã§è¡Œã†
 			STAGE_COORD DeskewSiteLoc1, DeskewSiteLoc2, MatchLoc1, MatchLoc2;
 			DeskewSiteLoc1 = m_pStageProgInfoHdr->DeskewSite[0].Loc;
 			DeskewSiteLoc2 = m_pStageProgInfoHdr->DeskewSite[1].Loc;
@@ -194,17 +194,17 @@ int CDeskewAutoSeq::Run()
 		{
 			switch ( m_pStageProgInfoHdr->nDeskewFailOption )
 			{
-			case DESKEW_FAIL_OPTION_PROCEED_MEAS:								// ‹­§‘ª’èi‚»‚Ì‚Ü‚Ü‘ª’èŠJnj
+			case DESKEW_FAIL_OPTION_PROCEED_MEAS:								// å¼·åˆ¶æ¸¬å®šï¼ˆãã®ã¾ã¾æ¸¬å®šé–‹å§‹ï¼‰
 				m_iEvent = EV_DSKW_AUTO_PROCEED;
 				break;
-			case DESKEW_FAIL_OPTION_CANCEL_RECIPE:								// ‘ª’è‚Ís‚í‚¸CƒŒƒVƒsI—¹
+			case DESKEW_FAIL_OPTION_CANCEL_RECIPE:								// æ¸¬å®šã¯è¡Œã‚ãšï¼Œãƒ¬ã‚·ãƒ”çµ‚äº†
 				m_iEvent = EV_DSKW_AUTO_CANCEL;
 				break;
-			case DESKEW_FAIL_OPTION_MANUAL_DESKEW:								// Manual Deskew‚ÉˆÚs‚·‚é
+			case DESKEW_FAIL_OPTION_MANUAL_DESKEW:								// Manual Deskewã«ç§»è¡Œã™ã‚‹
 				m_iEvent = EV_DSKW_AUTO_MANU;
 				break;
 // 2009.04.10 K.Matsuo Add -->
-			case DESKEW_FAIL_OPTION_PROCEED_MEAS_PMA:							// ‹­§‘ª’èi‚»‚Ì‚Ü‚ÜˆÊ’u•â³•t‚«‘ª’èiPMAg—pjj
+			case DESKEW_FAIL_OPTION_PROCEED_MEAS_PMA:							// å¼·åˆ¶æ¸¬å®šï¼ˆãã®ã¾ã¾ä½ç½®è£œæ­£ä»˜ãæ¸¬å®šï¼ˆPMAä½¿ç”¨ï¼‰ï¼‰
 				m_iEvent = EV_DSKW_AUTO_PROCEED_PMA;
 				break;
 // 2009.04.10 K.Matsuo Add <--
@@ -451,8 +451,8 @@ long CDeskewAutoSeq::RotateXyAxisDir(long lDir)
 // 2013.01.17 bagus rotate xy view <--
 
 // 2013.01.09 bagus -->
-// ƒNƒ‰ƒCƒAƒ“ƒgƒXƒe[ƒWÀ•WiUI‰æ–Ê—pj‚É•ÏŠ·
-// ƒJƒƒ‰‚ÍAStageConfig‚Åİ’è‚³‚ê‚½View•ûŒü‚Åİ’u‚³‚ê‚Ä‚¢‚é
+// ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆã‚¹ãƒ†ãƒ¼ã‚¸åº§æ¨™ï¼ˆUIç”»é¢ç”¨ï¼‰ã«å¤‰æ›
+// ã‚«ãƒ¡ãƒ©ã¯ã€StageConfigã§è¨­å®šã•ã‚ŒãŸViewæ–¹å‘ã§è¨­ç½®ã•ã‚Œã¦ã„ã‚‹
 void CDeskewAutoSeq::ToClientXyStageCoord(STAGE_COORD* lpPoint)
 {
 // 2013.01.17 bagus rotate xy view -->
@@ -584,7 +584,7 @@ IMPLEMENT_DYNCREATE(CDeskewManualSeq, CDeskewSeq)
 //
 BOOL CDeskewManualSeq::InitInstance()
 {
-	// delete this ‚µ‚Ü‚·
+	// delete this ã—ã¾ã™
 	m_bAutoDelete = TRUE;
 
 	m_bShutDown = FALSE;
@@ -593,9 +593,9 @@ BOOL CDeskewManualSeq::InitInstance()
 
 	if ( !m_pStageProgInfoHdr->DeskewSiteManual[0].bDefined ||
 		 !m_pStageProgInfoHdr->DeskewSiteManual[1].bDefined ) {
-		// ƒŒƒVƒsî•ñæ“¾¸”s
-//		::MessageBox(NULL, "ƒŒƒVƒsî•ñDeskewƒTƒCƒg–¢’è‹`\n‘ª’è‚ğ’†~‚µ‚Ü‚·", "DeskewManualSeq", MB_ICONEXCLAMATION);
-		// ƒfƒXƒLƒ…[ˆ—¸”s|‘ª’èƒLƒƒƒ“ƒZƒ‹
+		// ãƒ¬ã‚·ãƒ”æƒ…å ±å–å¾—å¤±æ•—
+//		::MessageBox(NULL, "ãƒ¬ã‚·ãƒ”æƒ…å ±Deskewã‚µã‚¤ãƒˆæœªå®šç¾©\næ¸¬å®šã‚’ä¸­æ­¢ã—ã¾ã™", "DeskewManualSeq", MB_ICONEXCLAMATION);
+		// ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼å‡¦ç†å¤±æ•—âˆ’æ¸¬å®šã‚­ãƒ£ãƒ³ã‚»ãƒ«
 		m_iEvent = EV_DSKW_MANU_CANCEL;
 		return FALSE;
 	}

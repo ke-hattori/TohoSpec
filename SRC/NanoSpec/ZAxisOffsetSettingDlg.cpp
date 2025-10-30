@@ -1,4 +1,4 @@
-// ZAxisOffsetSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// ZAxisOffsetSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -16,7 +16,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // #########################################################################
-// CZAxisOffsetSettingDlg ƒ_ƒCƒAƒƒO
+// CZAxisOffsetSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // #########################################################################
 
 // =========================================================================
@@ -54,7 +54,7 @@ BEGIN_MESSAGE_MAP(CZAxisOffsetSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CZAxisOffsetSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CZAxisOffsetSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -82,11 +82,11 @@ BOOL CZAxisOffsetSettingDlg::OnInitDialog()
 	InitCombo_Lens();
 	InitCombo_DefaultDisplay();
 
-	// ƒRƒƒ“ƒg•¶š”§ŒÀ
+	// ã‚³ãƒ¡ãƒ³ãƒˆæ–‡å­—æ•°åˆ¶é™
 	((CEdit*)GetDlgItem(IDC_COMMENT))->SetLimitText(RECIPE_COMMENT_LEN);
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
@@ -103,7 +103,7 @@ void CZAxisOffsetSettingDlg::OnStartButton()
 }
 
 // =========================================================================
-// ƒŒƒ“ƒY ƒRƒ“ƒ{‘I‘ğ
+// ãƒ¬ãƒ³ã‚º ã‚³ãƒ³ãƒœé¸æŠæ™‚
 //
 void CZAxisOffsetSettingDlg::OnSelchangeLens()
 {
@@ -120,7 +120,7 @@ void CZAxisOffsetSettingDlg::OnSelchangeLens()
 }
 
 // =========================================================================
-// ƒfƒtƒHƒ‹ƒgƒfƒBƒXƒvƒŒƒC ƒRƒ“ƒ{‘I‘ğ
+// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ ã‚³ãƒ³ãƒœé¸æŠæ™‚
 //
 void CZAxisOffsetSettingDlg::OnSelchangeDefaultDisplay()
 {
@@ -169,7 +169,7 @@ void CZAxisOffsetSettingDlg::InitCombo_StageProgram()
 		if(Finder.IsDots())
 			continue;
 
-		// ƒtƒ@ƒCƒ‹–¼‚ğæ“¾
+		// ãƒ•ã‚¡ã‚¤ãƒ«åã‚’å–å¾—
 		strBuffer = Finder.GetFileTitle();
 		if ( strBuffer[0] == SYSTEM_RECIPE_BEGINNING_CHAR )
 			continue;

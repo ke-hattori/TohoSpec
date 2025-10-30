@@ -1,4 +1,4 @@
-//==============================================================================
+﻿//==============================================================================
 // Filename:  MILDYN.H
 // Owner   :  Matrox Imaging dept.
 // Content :  This file was dynamically created by the Mil installation program.

@@ -1,4 +1,4 @@
-#ifndef _INIFILE_H_
+﻿#ifndef _INIFILE_H_
 #define _INIFILE_H_
 
 void LoadNanoSpecIni(int iIniFile);

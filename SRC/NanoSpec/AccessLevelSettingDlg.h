@@ -1,23 +1,23 @@
-#if !defined(AFX_ACCESSLEVELSETTINGDLG_H__263669BD_8F7F_4EAD_A4EA_74A92A2D1D13__INCLUDED_)
+ï»¿#if !defined(AFX_ACCESSLEVELSETTINGDLG_H__263669BD_8F7F_4EAD_A4EA_74A92A2D1D13__INCLUDED_)
 #define AFX_ACCESSLEVELSETTINGDLG_H__263669BD_8F7F_4EAD_A4EA_74A92A2D1D13__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// AccessLevelSettingDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// AccessLevelSettingDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 // ##########################################################################
-// CAccessLevelSettingDlg ƒ_ƒCƒAƒƒO
+// CAccessLevelSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // ##########################################################################
 
 class CAccessLevelSettingDlg : public CDialog
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
-	CAccessLevelSettingDlg(CWnd* pParent = NULL);	// •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CAccessLevelSettingDlg(CWnd* pParent = NULL);	// æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CAccessLevelSettingDlg)
 	enum { IDD = IDD_ACCESS_LEVEL_SETTING_DLG };
 	//}}AFX_DATA
@@ -25,13 +25,13 @@ protected:
 	CShadeButtonST m_OkButton;
 	CShadeButtonST m_CancelButton;
 
-// ƒI[ƒo[ƒ‰ƒCƒh
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
 	//{{AFX_VIRTUAL(CAccessLevelSettingDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	//{{AFX_MSG(CAccessLevelSettingDlg)
 	afx_msg BOOL OnInitDialog();
@@ -50,6 +50,6 @@ private:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_ACCESSLEVELSETTINGDLG_H__263669BD_8F7F_4EAD_A4EA_74A92A2D1D13__INCLUDED_)

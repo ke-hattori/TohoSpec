@@ -1,14 +1,14 @@
-#if !defined(AFX_RECIPEPOINTDESKEWPROGRAMLISTVIEW_H__0FC2940D_0C71_41EE_A4F5_317923846158__INCLUDED_)
+ï»¿#if !defined(AFX_RECIPEPOINTDESKEWPROGRAMLISTVIEW_H__0FC2940D_0C71_41EE_A4F5_317923846158__INCLUDED_)
 #define AFX_RECIPEPOINTDESKEWPROGRAMLISTVIEW_H__0FC2940D_0C71_41EE_A4F5_317923846158__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// RecipePointDeskewProgramListView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// RecipePointDeskewProgramListView.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 /////////////////////////////////////////////////////////////////////////////
-// CRecipePointDeskewProgramListView ƒtƒH[ƒ€ ƒrƒ…[
+// CRecipePointDeskewProgramListView ãƒ•ã‚©ãƒ¼ãƒ  ãƒ“ãƒ¥ãƒ¼
 
 #ifndef __AFXEXT_H__
 #include <afxext.h>
@@ -19,7 +19,7 @@
 class CRecipePointDeskewProgramListView : public CNanoRecipeListUI
 {
 protected:
-	CRecipePointDeskewProgramListView();			// “®“I¶¬‚Ég—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CRecipePointDeskewProgramListView();			// å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	virtual ~CRecipePointDeskewProgramListView();
 	DECLARE_DYNCREATE(CRecipePointDeskewProgramListView)
 
@@ -42,6 +42,6 @@ private:
 /////////////////////////////////////////////////////////////////////////////
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_RECIPEPOINTDESKEWPROGRAMLISTVIEW_H__0FC2940D_0C71_41EE_A4F5_317923846158__INCLUDED_)

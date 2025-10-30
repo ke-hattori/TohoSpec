@@ -1,4 +1,4 @@
-// DataListView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// DataListView.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -72,7 +72,7 @@ BEGIN_MESSAGE_MAP(CDataListView, CNanoListUI)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CDataListView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CDataListView ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -85,7 +85,7 @@ void CDataListView::OnInitialUpdate()
 		| CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
 		!m_wndDataBar.LoadToolBar(IDR_DATA_BAR)){
 		TRACE0("Failed to create toolbar\n");
-		return;		// ì¬‚É¸”s
+		return;		// ä½œæˆã«å¤±æ•—
 	}
 
 	RECT rect;

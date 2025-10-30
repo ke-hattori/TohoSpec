@@ -1,4 +1,4 @@
-// OriginalPositionSettingDlg.cpp : Cve[V t@C
+﻿// OriginalPositionSettingDlg.cpp : Cve[V t@C
 //
 
 #include "stdafx.h"

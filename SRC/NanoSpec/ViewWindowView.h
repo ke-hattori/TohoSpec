@@ -1,15 +1,15 @@
-#if !defined(AFX_VIEWWINDOWVIEW_H__6B834F51_6519_46C5_BEF9_C2CEE04ABEAB__INCLUDED_)
+ï»¿#if !defined(AFX_VIEWWINDOWVIEW_H__6B834F51_6519_46C5_BEF9_C2CEE04ABEAB__INCLUDED_)
 #define AFX_VIEWWINDOWVIEW_H__6B834F51_6519_46C5_BEF9_C2CEE04ABEAB__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// ViewWindowView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// ViewWindowView.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 class CViewScreenDlg;
 
 // ##########################################################################
-// CViewWindowView ƒtƒH[ƒ€ ƒrƒ…[
+// CViewWindowView ãƒ•ã‚©ãƒ¼ãƒ  ãƒ“ãƒ¥ãƒ¼
 // ##########################################################################
 
 #ifndef __AFXEXT_H__
@@ -23,10 +23,10 @@ class CViewScreenDlg;
 class CViewWindowView : public CNanoUI
 {
 protected:
-	CViewWindowView();			// “®“I¶¬‚ÉŽg—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CViewWindowView();			// å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	DECLARE_DYNCREATE(CViewWindowView)
 
-// ƒtƒH[ƒ€ ƒf[ƒ^
+// ãƒ•ã‚©ãƒ¼ãƒ  ãƒ‡ãƒ¼ã‚¿
 protected:
 	//{{AFX_DATA(CViewWindowView)
 	enum { IDD = IDD_VIEW_WINDOW_FORM };
@@ -40,16 +40,16 @@ protected:
 	CLensComboBox m_cbLens;
 	CCameraComboBox m_cbCamera;
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ð¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CViewWindowView)
 	public:
 	virtual void OnInitialUpdate();
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	virtual ~CViewWindowView();
 #ifdef _DEBUG
@@ -57,7 +57,7 @@ protected:
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒžãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CViewWindowView)
 	afx_msg void OnPaint();
 	afx_msg void OnAutoFocusButton();
@@ -69,15 +69,15 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 private:
-// 2014.01.17 Bagus Add (Stage None‘Î‰ž) -->
+// 2014.01.17 Bagus Add (Stage Noneå¯¾å¿œ) -->
 	SYSTEM_CONFIG m_SystemConfig;
-// 2014.01.17 Bagus Add (Stage None‘Î‰ž) <--
+// 2014.01.17 Bagus Add (Stage Noneå¯¾å¿œ) <--
 	CNanoSpecDoc* m_pDoc;
 	CViewScreenDlg* m_pdlgViewScreen;
 	CRect m_rcCamera;
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ð‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_VIEWWINDOWVIEW_H__6B834F51_6519_46C5_BEF9_C2CEE04ABEAB__INCLUDED_)

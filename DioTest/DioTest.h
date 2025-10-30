@@ -1,4 +1,4 @@
-// DioTest.h : main header file for the DIOTEST application
+﻿// DioTest.h : main header file for the DIOTEST application
 //
 
 #if !defined(AFX_DIOTEST_H__F5F3FE24_3B1E_4C53_87AE_C1CF1679F60B__INCLUDED_)

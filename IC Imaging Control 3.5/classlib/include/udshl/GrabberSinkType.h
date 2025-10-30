@@ -1,4 +1,4 @@
-// GrabberSinkType.h: interface for the GrabberSinkType class.
+﻿// GrabberSinkType.h: interface for the GrabberSinkType class.
 //
 //////////////////////////////////////////////////////////////////////
 

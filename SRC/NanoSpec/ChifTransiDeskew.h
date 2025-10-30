@@ -1,52 +1,52 @@
-#if !defined(AFX_CHIFTRANSIDESKEW_H__44228793_B4D9_4104_BE5A_A9C693AC1349__INCLUDED_)
+ï»¿#if !defined(AFX_CHIFTRANSIDESKEW_H__44228793_B4D9_4104_BE5A_A9C693AC1349__INCLUDED_)
 #define AFX_CHIFTRANSIDESKEW_H__44228793_B4D9_4104_BE5A_A9C693AC1349__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// ChifTransiDeskew.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// ChifTransiDeskew.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
-#include <afxmt.h>	// CEvent ‚Æ CSingleLock ‚Å•K—v‚Å‚·
+#include <afxmt.h>	// CEvent ã¨ CSingleLock ã§å¿…è¦ã§ã™
 
 // 2009.03.18 K.Matsuo Add -->
 class CDeskewSeq;
 // 2009.03.18 K.Matsuo Add <--
 
 //--------------------------------------------------------------------------//
-//	ó‘Ô’è‹`
+//	çŠ¶æ…‹å®šç¾©
 //--------------------------------------------------------------------------//
 #define	_ST_DSKW_DISP(x)	_T(#x)
 #define	ST_DSKW_DISP(x)	_ST_DSKW_DISP(x)
 #define	ST_DSKW_(x)		ST_DSKW_##x
-// ó‘Ô‚Ì–¼Ì‚ð’è‹`¨
-//		‚±‚±‚ð’Ç‰Áíœ‚µ‚½ê‡‚Í ST_xxx_n ‚Ì”Ô†‚É‘Î‰ž‚µ‚½
-//		‰º‹L‚Ì ST_xxx_n ‚Æ ST_xxx_DISP_n ‚à‡‚í‚¹‚Ä‚­‚¾‚³‚¢D
-#define	ST_DSKW_0		ST_DSKW_(INIT)			// ‰Šúó‘Ô
-#define	ST_DSKW_1		ST_DSKW_(IDLE)			// ƒAƒCƒhƒ‹
-#define	ST_DSKW_2		ST_DSKW_(START)			// ŠJŽn‘Oˆ—							(WAIT ó‘Ô–³‚µ)
-#define	ST_DSKW_3		ST_DSKW_(AF)			// AF Š®—¹‘Ò‚¿
-#define	ST_DSKW_4		ST_DSKW_(AF_DONE)		// AF Š®—¹								(WAIT ó‘Ô–³‚µ)
-#define	ST_DSKW_5		ST_DSKW_(AUTO)			// ƒI[ƒgƒfƒXƒLƒ…[Š®—¹‘Ò‚¿
-#define	ST_DSKW_6		ST_DSKW_(AUTO_OK)		// ƒI[ƒgƒfƒXƒLƒ…[ OK Š®—¹				(WAIT ó‘Ô–³‚µ)
-#define	ST_DSKW_7		ST_DSKW_(AUTO_PROCEED)	// ƒI[ƒgƒfƒXƒLƒ…[Ž¸”s‚Ì‚Ü‚Ü‘±s		(WAIT ó‘Ô–³‚µ)
-#define	ST_DSKW_8		ST_DSKW_(AUTO_CANCEL)	// ƒI[ƒgƒfƒXƒLƒ…[ƒŒƒVƒsI—¹			(WAIT ó‘Ô–³‚µ)
+// çŠ¶æ…‹ã®åç§°ã‚’å®šç¾©â†’
+//		ã“ã“ã‚’è¿½åŠ å‰Šé™¤ã—ãŸå ´åˆã¯ ST_xxx_n ã®ç•ªå·ã«å¯¾å¿œã—ãŸ
+//		ä¸‹è¨˜ã® ST_xxx_n ã¨ ST_xxx_DISP_n ã‚‚åˆã‚ã›ã¦ãã ã•ã„ï¼Ž
+#define	ST_DSKW_0		ST_DSKW_(INIT)			// åˆæœŸçŠ¶æ…‹
+#define	ST_DSKW_1		ST_DSKW_(IDLE)			// ã‚¢ã‚¤ãƒ‰ãƒ«
+#define	ST_DSKW_2		ST_DSKW_(START)			// é–‹å§‹å‰å‡¦ç†							(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_DSKW_3		ST_DSKW_(AF)			// AF å®Œäº†å¾…ã¡
+#define	ST_DSKW_4		ST_DSKW_(AF_DONE)		// AF å®Œäº†								(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_DSKW_5		ST_DSKW_(AUTO)			// ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼å®Œäº†å¾…ã¡
+#define	ST_DSKW_6		ST_DSKW_(AUTO_OK)		// ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ OK å®Œäº†				(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_DSKW_7		ST_DSKW_(AUTO_PROCEED)	// ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼å¤±æ•—ã®ã¾ã¾ç¶šè¡Œ		(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_DSKW_8		ST_DSKW_(AUTO_CANCEL)	// ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ãƒ¬ã‚·ãƒ”çµ‚äº†			(WAIT çŠ¶æ…‹ç„¡ã—)
 // 2009.04.10 K.Matsuo Change -->
-#define	ST_DSKW_9		ST_DSKW_(AUTO_PROCEED_PMA)	// ƒI[ƒgƒfƒXƒLƒ…[Ž¸”s‚Ì‚Ü‚Ü‘±sEˆÊ’u•â³•t‚«‘ª’è		(WAIT ó‘Ô–³‚µ)
-#define	ST_DSKW_10		ST_DSKW_(MANU)			// ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[Š®—¹‘Ò‚¿
-#define	ST_DSKW_11		ST_DSKW_(MANU_OK)		// ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[ OK Š®—¹			(WAIT ó‘Ô–³‚µ)
-#define	ST_DSKW_12		ST_DSKW_(MANU_CANCEL)	// ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[ƒŒƒVƒsI—¹		(WAIT ó‘Ô–³‚µ)
-#define	ST_DSKW_13		ST_DSKW_(MANU_NONE)		// ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[‚È‚µ‚Å‘±s		(WAIT ó‘Ô–³‚µ)
+#define	ST_DSKW_9		ST_DSKW_(AUTO_PROCEED_PMA)	// ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼å¤±æ•—ã®ã¾ã¾ç¶šè¡Œãƒ»ä½ç½®è£œæ­£ä»˜ãæ¸¬å®š		(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_DSKW_10		ST_DSKW_(MANU)			// ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼å®Œäº†å¾…ã¡
+#define	ST_DSKW_11		ST_DSKW_(MANU_OK)		// ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ OK å®Œäº†			(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_DSKW_12		ST_DSKW_(MANU_CANCEL)	// ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ãƒ¬ã‚·ãƒ”çµ‚äº†		(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_DSKW_13		ST_DSKW_(MANU_NONE)		// ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ãªã—ã§ç¶šè¡Œ		(WAIT çŠ¶æ…‹ç„¡ã—)
 // 2009.04.10 K.Matsuo Change <--
-// ó‘Ô‚Ì–¼Ì‚ð’è‹`©
+// çŠ¶æ…‹ã®åç§°ã‚’å®šç¾©â†
 enum STATES_DESKEW
 {
-	// \’zŽž‚Í‚O‚É‚È‚Á‚Ä‚¢‚Ü‚·D
-	// ‚Ì‚ÅCÅ‰‚Í‚O‚Æ‚µ‚Ä’è‹`‚³‚ê‚½ó‘Ô‚Å‚·D
-	// ‚µ‚©‚µC‚O‚Ìó‘Ô‚É‘Î‰ž‚·‚éŠÖ”‚ÍŽ©“®“I‚ÉŽÀs‚³‚ê‚Ü‚¹‚ñ‚Ì‚ÅC
-	// •K—v‚ª‚ ‚ê‚Î InitInstance() ‚È‚Ç‚©‚çŽÀs‚·‚é•K—v‚ª‚ ‚è‚Ü‚·D
+	// æ§‹ç¯‰æ™‚ã¯ï¼ã«ãªã£ã¦ã„ã¾ã™ï¼Ž
+	// ã®ã§ï¼Œæœ€åˆã¯ï¼ã¨ã—ã¦å®šç¾©ã•ã‚ŒãŸçŠ¶æ…‹ã§ã™ï¼Ž
+	// ã—ã‹ã—ï¼Œï¼ã®çŠ¶æ…‹ã«å¯¾å¿œã™ã‚‹é–¢æ•°ã¯è‡ªå‹•çš„ã«å®Ÿè¡Œã•ã‚Œã¾ã›ã‚“ã®ã§ï¼Œ
+	// å¿…è¦ãŒã‚ã‚Œã° InitInstance() ãªã©ã‹ã‚‰å®Ÿè¡Œã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼Ž
 
-	// ‚±‚±‚ð•ÏX‚µ‚½ê‡‚Í’¼Œã‚É‚ ‚éƒXƒe[ƒ^ƒX•¶Žš—ñ‚Ì’è‹`‚à‡‚í‚¹‚Ä‚­‚¾‚³‚¢D
+	// ã“ã“ã‚’å¤‰æ›´ã—ãŸå ´åˆã¯ç›´å¾Œã«ã‚ã‚‹ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹æ–‡å­—åˆ—ã®å®šç¾©ã‚‚åˆã‚ã›ã¦ãã ã•ã„ï¼Ž
 
 	ST_DSKW_0 = 0,
 	ST_DSKW_1,
@@ -85,61 +85,61 @@ const LPSTR STATES_DESKEW_DISP[] = {
 } ;
 
 //--------------------------------------------------------------------------//
-//	ƒCƒxƒ“ƒg’è‹`
+//	ã‚¤ãƒ™ãƒ³ãƒˆå®šç¾©
 //--------------------------------------------------------------------------//
 enum EVENTS_DESKEW
 {
-	EV_DSKW_DO_INIT = 0,		// ‰Šú‰»ŠJŽn
-	EV_DSKW_INIT_DONE,			// ‰Šú‰»I—¹
-	EV_DSKW_IDLE,				// ƒAƒCƒhƒ‹‚Ö
-	EV_DSKW_START,				// ƒfƒXƒLƒ…[ŠJŽn
-	EV_DSKW_MANU,				// ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[ŠJŽn
-	EV_DSKW_AF,					// AF ŠJŽn
-	EV_DSKW_AF_DONE,			// AF Š®—¹
+	EV_DSKW_DO_INIT = 0,		// åˆæœŸåŒ–é–‹å§‹
+	EV_DSKW_INIT_DONE,			// åˆæœŸåŒ–çµ‚äº†
+	EV_DSKW_IDLE,				// ã‚¢ã‚¤ãƒ‰ãƒ«ã¸
+	EV_DSKW_START,				// ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼é–‹å§‹
+	EV_DSKW_MANU,				// ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼é–‹å§‹
+	EV_DSKW_AF,					// AF é–‹å§‹
+	EV_DSKW_AF_DONE,			// AF å®Œäº†
 	EV_DSKW_AF_OK,				// AF OK
 	EV_DSKW_AF_NG,				// AF NG
-	EV_DSKW_AF_CANCEL,			// AF ƒ|ƒbƒvƒAƒbƒv ƒLƒƒƒ“ƒZƒ‹ƒ{ƒ^ƒ“
+	EV_DSKW_AF_CANCEL,			// AF ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ— ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒœã‚¿ãƒ³
 // 2009.03.11 K.Matsuo Add -->
-	EV_DSKW_AUTO,				// ƒI[ƒgƒfƒXƒLƒ…[ŠJŽn
+	EV_DSKW_AUTO,				// ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼é–‹å§‹
 // 2009.03.11 K.Matsuo Add <--
-	EV_DSKW_AUTO_OK,			// ƒI[ƒgƒfƒXƒLƒ…[ OK Š®—¹
-	EV_DSKW_AUTO_PROCEED,		// ƒI[ƒgƒfƒXƒLƒ…[ NG(‘±s)
-	EV_DSKW_AUTO_CANCEL,		// ƒI[ƒgƒfƒXƒLƒ…[ NG(ƒŒƒVƒsI—¹)
-	EV_DSKW_AUTO_MANU,			// ƒI[ƒgƒfƒXƒLƒ…[ NG(ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[)
+	EV_DSKW_AUTO_OK,			// ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ OK å®Œäº†
+	EV_DSKW_AUTO_PROCEED,		// ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ NG(ç¶šè¡Œ)
+	EV_DSKW_AUTO_CANCEL,		// ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ NG(ãƒ¬ã‚·ãƒ”çµ‚äº†)
+	EV_DSKW_AUTO_MANU,			// ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ NG(ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼)
 // 2009.04.10 K.Matsuo Add -->
-	EV_DSKW_AUTO_PROCEED_PMA,	// ƒI[ƒgƒfƒXƒLƒ…[ NG(‘±sEˆÊ’u•â³•t‚«‘ª’è)
+	EV_DSKW_AUTO_PROCEED_PMA,	// ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ NG(ç¶šè¡Œãƒ»ä½ç½®è£œæ­£ä»˜ãæ¸¬å®š)
 // 2009.04.10 K.Matsuo Add -->
-	EV_DSKW_MANU_OK,			// ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[ OK Š®—¹
-	EV_DSKW_MANU_CANCEL,		// ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[ƒLƒƒƒ“ƒZƒ‹
-	EV_DSKW_MANU_NONE,			// ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[‚µ‚È‚¢
+	EV_DSKW_MANU_OK,			// ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ OK å®Œäº†
+	EV_DSKW_MANU_CANCEL,		// ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ã‚­ãƒ£ãƒ³ã‚»ãƒ«
+	EV_DSKW_MANU_NONE,			// ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ã—ãªã„
 };
 
 /*
- *	ƒ}ƒNƒ’è‹`
+ *	ãƒžã‚¯ãƒ­å®šç¾©
  */
-// ƒfƒXƒLƒ…[I—¹ƒXƒe[ƒ^ƒX
-#define	TR_DSKW_OK				0			// ƒfƒXƒLƒ…[ OK
-#define	TR_DSKW_TRAF_BUSY		0xffff0401	// AF ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ªƒrƒW[‚Å‚µ‚½
-#define	TR_DSKW_AF_CANCEL		0xffff0402	// AF ƒ|ƒbƒvƒAƒbƒv‚ÅƒLƒƒƒ“ƒZƒ‹‚³‚ê‚½
-#define	TR_DSKW_AUTO_PROCEED	0xffff0411	// ƒI[ƒgƒfƒXƒLƒ…[ ƒfƒXƒLƒ…[Ž¸”s‚Ì‚Ü‚Ü‘±s
-#define	TR_DSKW_AUTO_CANCEL		0xffff0412	// ƒI[ƒgƒfƒXƒLƒ…[ ƒŒƒVƒsI—¹(ƒLƒƒƒ“ƒZƒ‹)
-#define	TR_DSKW_MANU_PROCEED	0xffff0421	// ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[ ƒfƒXƒLƒ…[–³‚µ‚Å‘±s
-#define	TR_DSKW_MANU_CANCEL		0xffff0422	// ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[ ƒŒƒVƒsI—¹(ƒLƒƒƒ“ƒZƒ‹)
+// ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼çµ‚äº†ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
+#define	TR_DSKW_OK				0			// ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ OK
+#define	TR_DSKW_TRAF_BUSY		0xffff0401	// AF ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãŒãƒ“ã‚¸ãƒ¼ã§ã—ãŸ
+#define	TR_DSKW_AF_CANCEL		0xffff0402	// AF ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã§ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚ŒãŸ
+#define	TR_DSKW_AUTO_PROCEED	0xffff0411	// ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼å¤±æ•—ã®ã¾ã¾ç¶šè¡Œ
+#define	TR_DSKW_AUTO_CANCEL		0xffff0412	// ã‚ªãƒ¼ãƒˆãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ ãƒ¬ã‚·ãƒ”çµ‚äº†(ã‚­ãƒ£ãƒ³ã‚»ãƒ«)
+#define	TR_DSKW_MANU_PROCEED	0xffff0421	// ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ç„¡ã—ã§ç¶šè¡Œ
+#define	TR_DSKW_MANU_CANCEL		0xffff0422	// ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ ãƒ¬ã‚·ãƒ”çµ‚äº†(ã‚­ãƒ£ãƒ³ã‚»ãƒ«)
 
 /////////////////////////////////////////////////////////////////////////////
-// CChiefTransiDeskew ƒXƒŒƒbƒh
+// CChiefTransiDeskew ã‚¹ãƒ¬ãƒƒãƒ‰
 
 class CChiefTransiDeskew : public CWinThread, public cActive
 {
 	DECLARE_DYNCREATE(CChiefTransiDeskew)
 public:
-	CChiefTransiDeskew(CWnd* pParent = NULL);	// “®“I¶¬‚ÉŽg—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CChiefTransiDeskew(CWnd* pParent = NULL);	// å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 protected:
 
-// ƒAƒgƒŠƒrƒ…[ƒg
+// ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 public:
 
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 	DWORD m_dwHeartBeat;
 	void HeartBeatPulse(void);
@@ -148,19 +148,19 @@ public:
 	int GetCurrentState(void);
 	bool IsIdle();
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ð¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CChiefTransiDeskew)
 	public:
 	virtual BOOL InitInstance();
 	virtual int ExitInstance();
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	virtual ~CChiefTransiDeskew();
 
-	// ó‘Ô•Ê‚Ìˆ—ŠÖ”
+	// çŠ¶æ…‹åˆ¥ã®å‡¦ç†é–¢æ•°
 	void enter_ST_DSKW_INIT(const cEventParams* const pEvParams = 0);
 	void enter_ST_DSKW_IDLE(const cEventParams* const pEvParams = 0);
 	void enter_ST_DSKW_START(const cEventParams* const pEvParams = 0);
@@ -180,9 +180,9 @@ protected:
 
 	DECLARE_STATEPROC_MAP(CChiefTransiDeskew);
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒžãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CChiefTransiDeskew)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒƒ“ƒoŠÖ”‚ð’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_MSG
 
 	afx_msg void OnTransiEvent(WPARAM wparam, LPARAM lparam);
@@ -190,10 +190,10 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 private:
-/* added 2009.11.26 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì ---------- { ---------- */
+/* added 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- { ---------- */
 	void NotifyComplete(const cEventParams *const pEvParams);
 	WORD m_wHeadPre;
-/* added 2009.11.26 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì ---------- } ---------- */
+/* added 2009.11.26 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ ---------- } ---------- */
 	CView* m_pcChiefView;
 	CEvent m_cSyncEvent;
 // 2009.03.18 K.Matsuo Add -->
@@ -204,6 +204,6 @@ private:
 /////////////////////////////////////////////////////////////////////////////
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ð‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_CHIFTRANSIDESKEW_H__44228793_B4D9_4104_BE5A_A9C693AC1349__INCLUDED_)

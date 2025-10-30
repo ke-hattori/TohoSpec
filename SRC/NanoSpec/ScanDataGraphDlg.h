@@ -1,26 +1,26 @@
-#if !defined(AFX_SCANDATAGRAPHDLG_H__8EBE37D4_8D32_4DF8_92DE_16B07A8ECF3C__INCLUDED_)
+ï»¿#if !defined(AFX_SCANDATAGRAPHDLG_H__8EBE37D4_8D32_4DF8_92DE_16B07A8ECF3C__INCLUDED_)
 #define AFX_SCANDATAGRAPHDLG_H__8EBE37D4_8D32_4DF8_92DE_16B07A8ECF3C__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// ScanDataGraphDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// ScanDataGraphDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "SharedMemory.h"
-#include "NanoGraphLib.h"	//Ü‚êüEƒ}ƒbƒsƒ“ƒOƒOƒ‰ƒt—p
+#include "NanoGraphLib.h"	//æŠ˜ã‚Œç·šãƒ»ãƒãƒƒãƒ”ãƒ³ã‚°ã‚°ãƒ©ãƒ•ç”¨
 
 /////////////////////////////////////////////////////////////////////////////
-// CScanDataGraphDlg ƒ_ƒCƒAƒƒO
+// CScanDataGraphDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 class CScanDataGraphDlg : public CDialog
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
-	CScanDataGraphDlg(CWnd* pParent = NULL);   // •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CScanDataGraphDlg(CWnd* pParent = NULL);   // æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	~CScanDataGraphDlg();
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CScanDataGraphDlg)
 	enum { IDD = IDD_SCAN_DATA_GRAPH_DLG };
 	CNanoMeasureGraph*	m_pScanDataGraph;
@@ -48,17 +48,17 @@ public:
 	void InitDialogData();
 // 2010.01.21 bagus Gantry --}--
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CScanDataGraphDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CScanDataGraphDlg)
 	virtual BOOL OnInitDialog();
 	afx_msg void OnKillFocus(CWnd* pNewWnd);
@@ -79,6 +79,6 @@ private:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_SCANDATAGRAPHDLG_H__8EBE37D4_8D32_4DF8_92DE_16B07A8ECF3C__INCLUDED_)

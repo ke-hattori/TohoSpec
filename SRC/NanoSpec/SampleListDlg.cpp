@@ -1,4 +1,4 @@
-// SampleListDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// SampleListDlg.cpp : �C���v�������e�[�V���� �t�@�C��
 //
 
 #include "stdafx.h"

@@ -1,4 +1,4 @@
-// RecipeMeasurementSeThicknessProgramView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// RecipeMeasurementSeThicknessProgramView.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -64,7 +64,7 @@ BEGIN_MESSAGE_MAP(CRecipeMeasurementSeThicknessProgramView, CNanoRecipeUI)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CRecipeMeasurementSeThicknessProgramView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CRecipeMeasurementSeThicknessProgramView ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -83,7 +83,7 @@ void CRecipeMeasurementSeThicknessProgramView::OnInitialUpdate()
 		| CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
 		!m_wndToolBar.LoadToolBar(IDR_EDIT_RECIPE_BAR)){
 		TRACE0("Failed to create toolbar\n");
-		return; 	// ì¬‚É¸”s
+		return; 	// ä½œæˆã«å¤±æ•—
 	}
 
 	GetClientRect(&rect);
@@ -96,7 +96,7 @@ void CRecipeMeasurementSeThicknessProgramView::OnInitialUpdate()
 	///// Control Initialize /////
 	InitCombo_SeThickStrategy();
 
-	// ƒRƒƒ“ƒg•¶š”§ŒÀ
+	// ã‚³ãƒ¡ãƒ³ãƒˆæ–‡å­—æ•°åˆ¶é™
 	((CEdit*)GetDlgItem(IDC_COMMENT))->SetLimitText(RECIPE_COMMENT_LEN);
 
 	///// Default Recipe Setup /////
@@ -116,8 +116,8 @@ void CRecipeMeasurementSeThicknessProgramView::OnInitialUpdate()
 
 	if ((IsDataChanged() == TRUE) && (m_nOpenMode == modeNormal))
 	{
-		//ƒXƒgƒ‰ƒeƒWƒB‚ğ‘‚«Š·‚¦‚½ê‡A
-		//ƒŒƒVƒs‚ğ“Ç‚ñ‚¾’l‚Æ‰æ–Ê•\¦’l(ŒõŠwƒtƒBƒ‹ƒ^E”g’·)‚É·‚ª‚Å‚Ä‚µ‚Ü‚¤‚±‚Æ‚ª‚ ‚é‚Ì‚ÅAƒŒƒVƒs‚ğ‹­§“I‚É‘Š·‚¦‚éB
+		//ã‚¹ãƒˆãƒ©ãƒ†ã‚¸ã‚£ã‚’æ›¸ãæ›ãˆãŸå ´åˆã€
+		//ãƒ¬ã‚·ãƒ”ã‚’èª­è¾¼ã‚“ã å€¤ã¨ç”»é¢è¡¨ç¤ºå€¤(å…‰å­¦ãƒ•ã‚£ãƒ«ã‚¿ãƒ»æ³¢é•·)ã«å·®ãŒã§ã¦ã—ã¾ã†ã“ã¨ãŒã‚ã‚‹ã®ã§ã€ãƒ¬ã‚·ãƒ”ã‚’å¼·åˆ¶çš„ã«æ›¸æ›ãˆã‚‹ã€‚
 		SaveRecipeData();
 		LoadStringML(IDS_SAVE_OPTICAL_FILTER_WAVELENG, l_strBuffer, "The optical filter and the wavelength were saved\n by the change in the strategy.");
 		LoadStringML(IDS_TITLE_NANOSPEC, l_strTitle, "NanoSpec");
@@ -133,15 +133,15 @@ void CRecipeMeasurementSeThicknessProgramView::LoadRecipeData()
 
 	switch ( m_nOpenMode )
 	{
-	case modeNew:				// ƒŒƒVƒsV‹Kì¬
-	case modeDefaultSetting:	// ƒRƒ“ƒtƒBƒO‰æ–Ê‚©‚ç‘JˆÚ‚µ‚Ä‚«‚½ƒP[ƒX
+	case modeNew:				// ãƒ¬ã‚·ãƒ”æ–°è¦ä½œæˆ
+	case modeDefaultSetting:	// ã‚³ãƒ³ãƒ•ã‚£ã‚°ç”»é¢ã‹ã‚‰é·ç§»ã—ã¦ããŸã‚±ãƒ¼ã‚¹
 		if ( !RecipeFile_LoadRecipe(&m_ThickMeas, SE_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_SE_THICKNESS) ) {
 			m_ThickMeas.ScanParams.hdr.wHeadType = HEAD_TYPE_SE;
 			m_ThickMeas.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_SE_THICKNESS;
 		}
 		break;
-	default:					// ƒŒƒVƒsƒƒCƒ“ƒŠƒXƒg‰æ–Ê‚©‚ç‘JˆÚ‚µ‚Ä‚«‚½ƒP[ƒX
-		if ( !RecipeFile_LoadRecipe(&m_ThickMeas, m_szRecipeName, RECIPE_FILE_MEASUREMENT_PROGRAM) ) {			// RECIPE_FILE_MEASUREMENT_PROGRAM ‚Å³‚µ‚¢‚ç‚µ‚¢...
+	default:					// ãƒ¬ã‚·ãƒ”ãƒ¡ã‚¤ãƒ³ãƒªã‚¹ãƒˆç”»é¢ã‹ã‚‰é·ç§»ã—ã¦ããŸã‚±ãƒ¼ã‚¹
+		if ( !RecipeFile_LoadRecipe(&m_ThickMeas, m_szRecipeName, RECIPE_FILE_MEASUREMENT_PROGRAM) ) {			// RECIPE_FILE_MEASUREMENT_PROGRAM ã§æ­£ã—ã„ã‚‰ã—ã„...
 			m_nOpenMode = modeNew;
 			if ( !RecipeFile_LoadRecipe(&m_ThickMeas, SE_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_SE_THICKNESS) ) {
 				m_ThickMeas.ScanParams.hdr.wHeadType = HEAD_TYPE_SE;
@@ -162,9 +162,9 @@ void CRecipeMeasurementSeThicknessProgramView::LoadRecipeData()
 void CRecipeMeasurementSeThicknessProgramView::InitCombo_SeThickStrategy()
 {
 	CString l_strBuffer;
-// 2009.09.18 K.Matsuo ƒXƒgƒ‰ƒeƒW[‚Ì‘ª’èƒ^ƒCƒv”»’è -->
+// 2009.09.18 K.Matsuo ã‚¹ãƒˆãƒ©ãƒ†ã‚¸ãƒ¼ã®æ¸¬å®šã‚¿ã‚¤ãƒ—åˆ¤å®š -->
 	BOOL bSe, bDummy, bDummy2;
-// 2009.09.18 K.Matsuo ƒXƒgƒ‰ƒeƒW[‚Ì‘ª’èƒ^ƒCƒv”»’è <--
+// 2009.09.18 K.Matsuo ã‚¹ãƒˆãƒ©ãƒ†ã‚¸ãƒ¼ã®æ¸¬å®šã‚¿ã‚¤ãƒ—åˆ¤å®š <--
 
 	CComboBox* pCombo = (CComboBox*)GetDlgItem(IDC_SE_THICK_STRATEGY);
 
@@ -177,13 +177,13 @@ void CRecipeMeasurementSeThicknessProgramView::InitCombo_SeThickStrategy()
 	TRY
 	{
 		CStdioFile stdioFile(SeXmp.szStrategyListPath, CFile::modeRead);
-// 2009.09.18 K.Matsuo ƒXƒgƒ‰ƒeƒW[‚Ì‘ª’èƒ^ƒCƒv”»’è -->
+// 2009.09.18 K.Matsuo ã‚¹ãƒˆãƒ©ãƒ†ã‚¸ãƒ¼ã®æ¸¬å®šã‚¿ã‚¤ãƒ—åˆ¤å®š -->
 		while ( stdioFile.ReadString(strBuffer) ) {
 			MEAS_GetStratetyType(bDummy, bSe, bDummy2, strBuffer);
 			if ( bSe )
 				pCombo->AddString(strBuffer);
 		}
-// 2009.09.18 K.Matsuo ƒXƒgƒ‰ƒeƒW[‚Ì‘ª’èƒ^ƒCƒv”»’è <--
+// 2009.09.18 K.Matsuo ã‚¹ãƒˆãƒ©ãƒ†ã‚¸ãƒ¼ã®æ¸¬å®šã‚¿ã‚¤ãƒ—åˆ¤å®š <--
 		stdioFile.Close();
 	}
 	CATCH(CFileException, e)
@@ -329,7 +329,7 @@ BOOL CRecipeMeasurementSeThicknessProgramView::SaveRecipeData()
 			return FALSE;
 		break;
 	default:
-		// V‚µ‚¢ƒŒƒVƒs–¼‚ğİ’èiSave, SaveAsŒ“—pj
+		// æ–°ã—ã„ãƒ¬ã‚·ãƒ”åã‚’è¨­å®šï¼ˆSave, SaveAså…¼ç”¨ï¼‰
 		strcpy(m_ThickMeas.hdr.szName, m_szRecipeName);
 		if ( !RecipeFile_SaveRecipe(&m_ThickMeas, m_szRecipeName, RECIPE_FILE_SE_THICKNESS) )
 			return FALSE;
@@ -380,7 +380,7 @@ void CRecipeMeasurementSeThicknessProgramView::InitItemList()
 	ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 	LPTSTR pszItemJPN[] = {
 		"Index",
-		"ƒAƒCƒeƒ€",
+		"ã‚¢ã‚¤ãƒ†ãƒ ",
 	};
 	LPTSTR pszItemENU[] = {
 		"Index",
@@ -430,7 +430,7 @@ void CRecipeMeasurementSeThicknessProgramView::OnSelchangeSeThickStrategy()
 	m_XmpMeasurementItemListCtrl.DeleteAllItems();
 
 	if ( !MEAS_GetAdapScriptFileDescriptDdeTextItem(szDdeTextItem, iStartWaveLen, iEndWaveLen, iOpticalFilter, m_ThickMeas.ScanParams._SE.szStrategyEntry) ) {
-		// ƒfƒtƒHƒ‹ƒg’lİ’è
+		// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®š
 		m_ThickMeas.ScanParams._SE.WavelenRange.wStart = iStartWaveLen;
 		m_ThickMeas.ScanParams._SE.WavelenRange.wEnd = iEndWaveLen;
 		UpdateData(FALSE);
@@ -450,7 +450,7 @@ void CRecipeMeasurementSeThicknessProgramView::OnSelchangeSeThickStrategy()
 
 		if(strcmp(token, "MSE") == 0)
 		{
-			//wMSE¨Fitx‚Ì’uŠ·
+			//ã€MSEâ†’Fitã€ã®ç½®æ›
 			m_XmpMeasurementItemListCtrl.SetItem(iItem, 1, LVIF_TEXT, /*token*/"Fit", 0, 0, 0, NULL);
 		}
 		else
@@ -473,14 +473,14 @@ BOOL CRecipeMeasurementSeThicknessProgramView::CheckTransData(int iData , CStrin
 }
 
 // =========================================================================
-//ƒ_ƒ~[ƒƒWƒƒ[ƒƒ“ƒgƒvƒƒOƒ‰ƒ€‚ğì¬
+//ãƒ€ãƒŸãƒ¼ãƒ¡ã‚¸ãƒ£ãƒ¼ãƒ¡ãƒ³ãƒˆãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’ä½œæˆ
 BOOL CRecipeMeasurementSeThicknessProgramView::MakeTempSrMeasurementRecipe(LPCTSTR pszRecipeName)
 {
 	return RecipeFile_SaveRecipe(&m_ThickMeas, pszRecipeName, RECIPE_FILE_SE_THICKNESS);
 }
 
 // =========================================================================
-//ƒ_ƒ~[ƒƒCƒ“ƒvƒƒOƒ‰ƒ€‚ğì¬
+//ãƒ€ãƒŸãƒ¼ãƒ¡ã‚¤ãƒ³ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’ä½œæˆ
 BOOL CRecipeMeasurementSeThicknessProgramView::MakeTempSrMainRecipe(LPCTSTR pszRecipeNameMain, LPCTSTR pszRecipeNameMeas)
 {
 	MAIN_RCP_INFO MainRcpInfo_Temp;
@@ -495,11 +495,11 @@ BOOL CRecipeMeasurementSeThicknessProgramView::MakeTempSrMainRecipe(LPCTSTR pszR
 }
 
 // =========================================================================
-//‰¼ƒŒƒVƒs‚ğNanoSpecDoc‚ÖŠi”[
+//ä»®ãƒ¬ã‚·ãƒ”ã‚’NanoSpecDocã¸æ ¼ç´
 BOOL CRecipeMeasurementSeThicknessProgramView::TempRecipeDocSet(LPCTSTR pszRecipeName)
 {
-//wƒƒCƒ“ƒŒƒVƒs–¼xwƒƒCƒ“ƒŒƒVƒsxwƒƒWƒƒ[ƒƒ“ƒgƒŒƒVƒsxw•\¦—pƒ‰ƒxƒ‹xw’PˆÊ–¼x‚Ì‚İŠi”[
-//‚¨‚æ‚Ñw‰¼ƒƒWƒƒ[ƒƒ“ƒgƒvƒƒOƒ‰ƒ€‚ÌWave”ÍˆÍxAw‘ª’èí•Êx
+//ã€ãƒ¡ã‚¤ãƒ³ãƒ¬ã‚·ãƒ”åã€ã€ãƒ¡ã‚¤ãƒ³ãƒ¬ã‚·ãƒ”ã€ã€ãƒ¡ã‚¸ãƒ£ãƒ¼ãƒ¡ãƒ³ãƒˆãƒ¬ã‚·ãƒ”ã€ã€è¡¨ç¤ºç”¨ãƒ©ãƒ™ãƒ«ã€ã€å˜ä½åã€ã®ã¿æ ¼ç´
+//ãŠã‚ˆã³ã€ä»®ãƒ¡ã‚¸ãƒ£ãƒ¼ãƒ¡ãƒ³ãƒˆãƒ—ãƒ­ã‚°ãƒ©ãƒ ã®Waveç¯„å›²ã€ã€ã€æ¸¬å®šç¨®åˆ¥ã€
 
 	CMainFrame* pMainFrame = (CMainFrame*)AfxGetMainWnd();
 	CNanoSpecDoc* pDoc = (CNanoSpecDoc*)pMainFrame->GetActiveDocument();
@@ -507,21 +507,21 @@ BOOL CRecipeMeasurementSeThicknessProgramView::TempRecipeDocSet(LPCTSTR pszRecip
 	RCP_DATA rcp_data;
 	memset(&rcp_data, 0, sizeof(rcp_data));
 
-	///// ƒƒ‚ƒŠ[‰Šú‰» /////
+	///// ãƒ¡ãƒ¢ãƒªãƒ¼åˆæœŸåŒ– /////
 	pDoc->InitMeasData();
 
-	//‘ª’èí•Ê
+	//æ¸¬å®šç¨®åˆ¥
 	rcp_data.MeasProgInfo.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_SE_THICKNESS;
 
 // 2009.09.19 bagus SE --{--
-	//Wave”ÍˆÍƒZƒbƒg
+	//Waveç¯„å›²ã‚»ãƒƒãƒˆ
 	rcp_data.MeasProgInfo.ScanParams._SE.WavelenRange.wStart = (int)GetDlgItemInt(IDC_WAVELENGTH_START, NULL, FALSE);
 	rcp_data.MeasProgInfo.ScanParams._SE.WavelenRange.wEnd = (int)GetDlgItemInt(IDC_WAVELENGTH_END, NULL, FALSE);
 // 2009.09.19 bagus SE --}--
 
 
 	strcpy(rcp_data.szRecipeName, pszRecipeName);
-	//ƒŒƒVƒsƒ[ƒh•NanoSpecDoc‚Ö‚ÌŠi”[
+	//ãƒ¬ã‚·ãƒ”ãƒ­ãƒ¼ãƒ‰ï¼†NanoSpecDocã¸ã®æ ¼ç´
 	BOOL bMain = FALSE;
 	BOOL bMeas = FALSE;
 	bMain = RecipeFile_LoadRecipe(&rcp_data.MainRcpInfo, rcp_data.szRecipeName, RECIPE_FILE_MAIN_RECIPE);
@@ -533,7 +533,7 @@ BOOL CRecipeMeasurementSeThicknessProgramView::TempRecipeDocSet(LPCTSTR pszRecip
 	pDoc->SetRcpData(&rcp_data);
 
 
-	///// ’PˆÊ–¼æ“¾ /////
+	///// å˜ä½åå–å¾— /////
 	SE_FIGURE_FORMAT SeFigureFormat;
 	char szUnit[MAX_PATH];
 	memset(szUnit, 0, sizeof(szUnit));
@@ -551,8 +551,8 @@ BOOL CRecipeMeasurementSeThicknessProgramView::TempRecipeDocSet(LPCTSTR pszRecip
 	pDoc->SetUnitIndex(nUnit);
 
 
-	///// ‰æ–Ê•\¦(ƒf[ƒ^•Û‘¶)—pƒ^ƒCƒgƒ‹ /////
-	char szDispLabel[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1];		//‰æ–Ê•\¦(ƒf[ƒ^•Û‘¶)—pƒ^ƒCƒgƒ‹ ©X,Y,Z,AF‚ÍŠÜ‚Ü‚¸
+	///// ç”»é¢è¡¨ç¤º(ãƒ‡ãƒ¼ã‚¿ä¿å­˜)ç”¨ã‚¿ã‚¤ãƒˆãƒ« /////
+	char szDispLabel[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1];		//ç”»é¢è¡¨ç¤º(ãƒ‡ãƒ¼ã‚¿ä¿å­˜)ç”¨ã‚¿ã‚¤ãƒˆãƒ« â†X,Y,Z,AFã¯å«ã¾ãš
 	int iDispLabelCount;
 	memset(szDispLabel, 0, sizeof(szDispLabel)); //
 
@@ -565,33 +565,33 @@ BOOL CRecipeMeasurementSeThicknessProgramView::TempRecipeDocSet(LPCTSTR pszRecip
 }
 
 // =========================================================================
-//ƒŒƒVƒs–¼ì¬
+//ãƒ¬ã‚·ãƒ”åä½œæˆ
 BOOL CRecipeMeasurementSeThicknessProgramView::GetTestModeRecipeName(LPTSTR pszFileName, int iRcpType)
 {
 	CString l_strBuffer, l_strTitle;
 
-	//ŒÅ’è–¼‚ÅƒŒƒVƒs–¼‚ğì‚é
+	//å›ºå®šåã§ãƒ¬ã‚·ãƒ”åã‚’ä½œã‚‹
 	char szRcpName[RECIPE_NAME_LEN + 1];
 	char szRcpNamePath[MAX_PATH + 1];
 
-	sprintf(szRcpName, "%c%s", SYSTEM_RECIPE_BEGINNING_CHAR, TESTMODE_TEMP_RECIPE_NAME); //ì¬ƒŒƒVƒs–¼
+	sprintf(szRcpName, "%c%s", SYSTEM_RECIPE_BEGINNING_CHAR, TESTMODE_TEMP_RECIPE_NAME); //ä½œæˆãƒ¬ã‚·ãƒ”å
 
-	//ì¬‚·‚éƒŒƒVƒs–¼‚ªd•¡‚µ‚Ä‚¢‚È‚¢‚©’²‚×‚éˆ×‚ÌƒpƒX‚ğì¬
-	if(iRcpType == SAVE_AS_MAIN_RECIPE) { //ƒƒCƒ“ƒŒƒVƒs
-		sprintf(szRcpNamePath, "%s%s%s", g_szDb_Main_Recipe_Dir, szRcpName, MAINRECIPE_EXT); //d•¡ƒŒƒVƒs–¼ŒŸõ—p
+	//ä½œæˆã™ã‚‹ãƒ¬ã‚·ãƒ”åãŒé‡è¤‡ã—ã¦ã„ãªã„ã‹èª¿ã¹ã‚‹ç‚ºã®ãƒ‘ã‚¹ã‚’ä½œæˆ
+	if(iRcpType == SAVE_AS_MAIN_RECIPE) { //ãƒ¡ã‚¤ãƒ³ãƒ¬ã‚·ãƒ”
+		sprintf(szRcpNamePath, "%s%s%s", g_szDb_Main_Recipe_Dir, szRcpName, MAINRECIPE_EXT); //é‡è¤‡ãƒ¬ã‚·ãƒ”åæ¤œç´¢ç”¨
 	}
-	else if(iRcpType == SAVE_AS_MEASUREMENT_PROGRAM) { //ƒƒWƒƒ[ƒƒ“ƒgƒvƒƒOƒ‰ƒ€
-		sprintf(szRcpNamePath, "%s%s%s", g_szDb_Measurement_Program_Dir, szRcpName, MEASUREMENTPGM_EXT); //d•¡ƒŒƒVƒs–¼ŒŸõ—p
+	else if(iRcpType == SAVE_AS_MEASUREMENT_PROGRAM) { //ãƒ¡ã‚¸ãƒ£ãƒ¼ãƒ¡ãƒ³ãƒˆãƒ—ãƒ­ã‚°ãƒ©ãƒ 
+		sprintf(szRcpNamePath, "%s%s%s", g_szDb_Measurement_Program_Dir, szRcpName, MEASUREMENTPGM_EXT); //é‡è¤‡ãƒ¬ã‚·ãƒ”åæ¤œç´¢ç”¨
 	}
 
-	//ì¬‚µ‚æ‚¤‚Æ‚·‚éƒŒƒVƒs‚Ìd•¡ƒ`ƒFƒbƒN
-	if(FileOrDirExists(szRcpNamePath)==TRUE) //ì¬‚µ‚æ‚¤‚Æ‚µ‚Ä‚¢‚éƒtƒ@ƒCƒ‹–¼‚Éd•¡‚ ‚è
+	//ä½œæˆã—ã‚ˆã†ã¨ã™ã‚‹ãƒ¬ã‚·ãƒ”ã®é‡è¤‡ãƒã‚§ãƒƒã‚¯
+	if(FileOrDirExists(szRcpNamePath)==TRUE) //ä½œæˆã—ã‚ˆã†ã¨ã—ã¦ã„ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«åã«é‡è¤‡ã‚ã‚Š
 	{
-		//ƒ\ƒtƒg‹N“®‚É‰¼ƒŒƒVƒs‚ğÁ‚·‚Ì‚ÅA‚±‚±‚É‚Í—ˆ‚È‚¢‚Í‚¸B
+		//ã‚½ãƒ•ãƒˆèµ·å‹•æ™‚ã«ä»®ãƒ¬ã‚·ãƒ”ã‚’æ¶ˆã™ã®ã§ã€ã“ã“ã«ã¯æ¥ãªã„ã¯ãšã€‚
 		LoadStringML(IDS_CAPTION_SR_TRANSMIT, l_strBuffer, "Temporary recipe for the test mode remains, \nthe test mode cannot be begun.");
 		LoadStringML(IDS_TITLE_NANOSPEC, l_strTitle, "NanoSpec");
 		MessageBox(l_strBuffer, l_strTitle, MB_OK);
-		return FALSE; //ƒtƒ@ƒCƒ‹–¼d•¡(ƒ\ƒtƒg‹N“®A‰¼ƒŒƒVƒsÁ‹ƒ~ƒX)
+		return FALSE; //ãƒ•ã‚¡ã‚¤ãƒ«åé‡è¤‡(ã‚½ãƒ•ãƒˆèµ·å‹•æ™‚ã€ä»®ãƒ¬ã‚·ãƒ”æ¶ˆå»ãƒŸã‚¹)
 	}
 
 	strcpy(pszFileName, szRcpName);
@@ -599,7 +599,7 @@ BOOL CRecipeMeasurementSeThicknessProgramView::GetTestModeRecipeName(LPTSTR pszF
 }
 
 // =========================================================================
-//ƒtƒ@ƒCƒ‹‘¶İƒ`ƒFƒbƒN(ƒtƒ@ƒCƒ‹‘¶İ‚ÍTRUE‚ğ•Ô‚·)
+//ãƒ•ã‚¡ã‚¤ãƒ«å­˜åœ¨ãƒã‚§ãƒƒã‚¯(ãƒ•ã‚¡ã‚¤ãƒ«å­˜åœ¨æ™‚ã¯TRUEã‚’è¿”ã™)
 BOOL CRecipeMeasurementSeThicknessProgramView::FileOrDirExists(LPCTSTR pszFileName)
 {
 	return (BOOL)( GetFileAttributes(pszFileName) != 0xffffffff );

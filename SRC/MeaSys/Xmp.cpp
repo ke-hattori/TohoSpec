@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "../../INC/Globals.hxx"
 #include "../../INC/Common.hxx"
 #include "../../INC/ConfigFile.hxx"

@@ -1,4 +1,4 @@
-// MailThread.cpp : implementation file
+ï»¿// MailThread.cpp : implementation file
 //
 
 #include "stdafx.h"
@@ -99,7 +99,7 @@ int CMailThread::Run()
 
 	while ( !m_bShutDown )
 	{
-		// CIM/PC‚©‚ç‚ÌóMƒRƒ}ƒ“ƒh
+		// CIM/PCã‹ã‚‰ã®å—ä¿¡ã‚³ãƒãƒ³ãƒ‰
 		switch ( m_iState ) {
 		case STATE_RECV:
 			if ( m_mailslot.Recieve(szRecvBuff, &nNumberOfBytesRead) ) {
@@ -115,7 +115,7 @@ int CMailThread::Run()
 			break;
 		case STATE_PROC:
 			m_iAckCode = 0;
-			m_iState = STATE_WAIT;		// ƒoƒOC³FCMailslot::Send()‚æ‚è‘O‚É‚µ‚È‚¢‚ÆA‹H‚ÉDoStateDone()‚ªæ‚ÉŒÄo‚³‚ê‚ÄAASSERT”­¶‚·‚é‚±‚Æ‚ª‚ ‚Á‚½
+			m_iState = STATE_WAIT;		// ãƒã‚°ä¿®æ­£ï¼šCMailslot::Send()ã‚ˆã‚Šå‰ã«ã—ãªã„ã¨ã€ç¨€ã«DoStateDone()ãŒå…ˆã«å‘¼å‡ºã•ã‚Œã¦ã€ASSERTç™ºç”Ÿã™ã‚‹ã“ã¨ãŒã‚ã£ãŸ
 			CMailslot::Send(m_strMailslotSendName, m_strSendCommandId, m_strSendCommandId.GetLength());
 //			m_iState = STATE_WAIT;
 			break;
@@ -131,7 +131,7 @@ int CMailThread::Run()
 //			break;
 		}
 
-		// NanoSpec/AFT‚©‚ç‚Ì•ÔME‘—MƒRƒ}ƒ“ƒh
+		// NanoSpec/AFTã‹ã‚‰ã®è¿”ä¿¡ãƒ»é€ä¿¡ã‚³ãƒãƒ³ãƒ‰
 		if ( PopSendMessageList(strBuffer) ) {
 			if ( CMailslot::Send(MAILSLOT_CLIENT, strBuffer, strBuffer.GetLength()) ) {
 				if ( g_hNotifyWnd )
@@ -180,12 +180,12 @@ void CMailThread::EventProcess(LPCTSTR pszRecvCommandId)
 {
 	TRACE(_T("CMailThread::EventProcess()\n"));
 
-// 2009.06.02 K.Matsuo ‘•’u‰æ–Ê‘€ìƒCƒ“ƒ^[ƒƒbƒN‹@”\’Ç‰Á -->
+// 2009.06.02 K.Matsuo è£…ç½®ç”»é¢æ“ä½œã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ©Ÿèƒ½è¿½åŠ  -->
 	if ( _tcscmp(pszRecvCommandId, _T("P105")) == 0 )
 		EventProcessP105();
 	else if ( _tcscmp(pszRecvCommandId, _T("P106")) == 0 )
 		EventProcessP106();
-// 2009.06.02 K.Matsuo ‘•’u‰æ–Ê‘€ìƒCƒ“ƒ^[ƒƒbƒN‹@”\’Ç‰Á <--
+// 2009.06.02 K.Matsuo è£…ç½®ç”»é¢æ“ä½œã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ©Ÿèƒ½è¿½åŠ  <--
 	else if ( _tcscmp(pszRecvCommandId, _T("P201")) == 0 )
 		EventProcessP201();
 	else if ( _tcscmp(pszRecvCommandId, _T("P302")) == 0 )
@@ -196,28 +196,28 @@ void CMailThread::EventProcess(LPCTSTR pszRecvCommandId)
 		EventProcessP306();
 	else if ( _tcscmp(pszRecvCommandId, _T("P308")) == 0 )
 		EventProcessP308();
-// 2009.09.10 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^Šm”F‹@”\’Ç‰Á -->
+// 2009.09.10 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ç¢ºèªæ©Ÿèƒ½è¿½åŠ  -->
 	else if ( _tcscmp(pszRecvCommandId, _T("P310")) == 0 )
 		EventProcessP310();
-// 2009.09.10 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^Šm”F‹@”\’Ç‰Á <--
+// 2009.09.10 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ç¢ºèªæ©Ÿèƒ½è¿½åŠ  <--
 	else if ( _tcscmp(pszRecvCommandId, _T("P401")) == 0 )
 		EventProcessP401();
-// 2009.10.29 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾‹@”\’Ç‰Á -->
+// 2009.10.29 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—æ©Ÿèƒ½è¿½åŠ  -->
 	else if ( _tcscmp(pszRecvCommandId, _T("P411")) == 0 )
 		EventProcessP411();
-// 2009.10.29 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾‹@”\’Ç‰Á <--
+// 2009.10.29 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—æ©Ÿèƒ½è¿½åŠ  <--
 	else if ( _tcscmp(pszRecvCommandId, _T("P501")) == 0 )
 		EventProcessP501();
-// 2009.10.29 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾‹@”\’Ç‰Á -->
+// 2009.10.29 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—æ©Ÿèƒ½è¿½åŠ  -->
 	else if ( _tcscmp(pszRecvCommandId, _T("P511")) == 0 )
 		EventProcessP511();
-// 2009.10.29 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾‹@”\’Ç‰Á <--
-// 2014.01.07 bagus Add(Stage None‘Î‰) -->
+// 2009.10.29 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—æ©Ÿèƒ½è¿½åŠ  <--
+// 2014.01.07 bagus Add(Stage Noneå¯¾å¿œ) -->
 	else if ( _tcscmp(pszRecvCommandId, _T("P514")) == 0 )
 		EventProcessP514();
 	else if ( _tcscmp(pszRecvCommandId, _T("P516")) == 0 )
 		EventProcessP516();
-// 2014.01.07 bagus Add(Stage None‘Î‰) <--
+// 2014.01.07 bagus Add(Stage Noneå¯¾å¿œ) <--
 	else if ( _tcscmp(pszRecvCommandId, _T("P601")) == 0 )
 		EventProcessP601();
 	else if ( _tcscmp(pszRecvCommandId, _T("P602")) == 0 )
@@ -244,7 +244,7 @@ void CMailThread::EventProcess(LPCTSTR pszRecvCommandId)
 		ASSERT( FALSE );
 }
 
-// 2009.06.02 K.Matsuo ‘•’u‰æ–Ê‘€ìƒCƒ“ƒ^[ƒƒbƒN‹@”\’Ç‰Á -->
+// 2009.06.02 K.Matsuo è£…ç½®ç”»é¢æ“ä½œã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ©Ÿèƒ½è¿½åŠ  -->
 //---------------------------------------------------------------------------
 // EventProcessP105
 void CMailThread::EventProcessP105()
@@ -264,7 +264,7 @@ void CMailThread::EventProcessP106()
 	m_strMailslotSendName = MAILSLOT_MAINFRM;
 	m_strSendCommandId = PIFCOMM_P106;
 }
-// 2009.06.02 K.Matsuo ‘•’u‰æ–Ê‘€ìƒCƒ“ƒ^[ƒƒbƒN‹@”\’Ç‰Á <--
+// 2009.06.02 K.Matsuo è£…ç½®ç”»é¢æ“ä½œã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ©Ÿèƒ½è¿½åŠ  <--
 
 //---------------------------------------------------------------------------
 // EventProcessP201
@@ -319,7 +319,7 @@ void CMailThread::EventProcessP308()
 	m_strSendCommandId = PIFCOMM_P308;
 }
 
-// 2009.09.10 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^Šm”F‹@”\’Ç‰Á -->
+// 2009.09.10 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ç¢ºèªæ©Ÿèƒ½è¿½åŠ  -->
 //---------------------------------------------------------------------------
 // EventProcessP310
 void CMailThread::EventProcessP310()
@@ -330,7 +330,7 @@ void CMailThread::EventProcessP310()
 	m_strMailslotSendName = MAILSLOT_MAINFRM;
 	m_strSendCommandId = PIFCOMM_P310;
 }
-// 2009.09.10 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^Šm”F‹@”\’Ç‰Á <--
+// 2009.09.10 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ç¢ºèªæ©Ÿèƒ½è¿½åŠ  <--
 
 //---------------------------------------------------------------------------
 // EventProcessP401
@@ -343,7 +343,7 @@ void CMailThread::EventProcessP401()
 	m_strSendCommandId = PIFCOMM_P401;
 }
 
-// 2009.10.29 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾‹@”\’Ç‰Á -->
+// 2009.10.29 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—æ©Ÿèƒ½è¿½åŠ  -->
 //---------------------------------------------------------------------------
 // EventProcessP411
 void CMailThread::EventProcessP411()
@@ -354,7 +354,7 @@ void CMailThread::EventProcessP411()
 	m_strMailslotSendName = MAILSLOT_CHIEF;
 	m_strSendCommandId = PIFCOMM_P411;
 }
-// 2009.10.29 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾‹@”\’Ç‰Á <--
+// 2009.10.29 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—æ©Ÿèƒ½è¿½åŠ  <--
 
 //---------------------------------------------------------------------------
 // EventProcessP501
@@ -368,7 +368,7 @@ void CMailThread::EventProcessP501()
 	m_strSendCommandId = PIFCOMM_P501;
 }
 
-// 2009.10.29 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾‹@”\’Ç‰Á -->
+// 2009.10.29 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—æ©Ÿèƒ½è¿½åŠ  -->
 //---------------------------------------------------------------------------
 // EventProcessP511
 void CMailThread::EventProcessP511()
@@ -380,9 +380,9 @@ void CMailThread::EventProcessP511()
 	m_strMailslotSendName = MAILSLOT_CHIEF;
 	m_strSendCommandId = PIFCOMM_P511;
 }
-// 2009.10.29 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾‹@”\’Ç‰Á <--
+// 2009.10.29 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—æ©Ÿèƒ½è¿½åŠ  <--
 
-// 2014.01.07 bagus Add(Stage None‘Î‰) -->
+// 2014.01.07 bagus Add(Stage Noneå¯¾å¿œ) -->
 //---------------------------------------------------------------------------
 // EventProcessP514
 void CMailThread::EventProcessP514()
@@ -402,7 +402,7 @@ void CMailThread::EventProcessP516()
 	m_strMailslotSendName = MAILSLOT_CHIEF;
 	m_strSendCommandId = PIFCOMM_P516;
 }
-// 2014.01.07 bagus Add(Stage None‘Î‰) <--
+// 2014.01.07 bagus Add(Stage Noneå¯¾å¿œ) <--
 
 //---------------------------------------------------------------------------
 // EventProcessP601

@@ -1,4 +1,4 @@
-#if !defined( _PATRECDESKEW_H_ )
+ï»¿#if !defined( _PATRECDESKEW_H_ )
 #define _PATRECDESKEW_H_
 
 #pragma once
@@ -18,12 +18,12 @@
 
 class CPatRecDeskewDlg : public COverlayDialog, cActive
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
-	CPatRecDeskewDlg(CWnd* pParent = NULL);	// •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
-	CPatRecDeskewDlg(int iMode, int iLens, DESKEW_SITE* pDeskewSite, CWnd* pParent = NULL);	// •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CPatRecDeskewDlg(CWnd* pParent = NULL);	// æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+	CPatRecDeskewDlg(int iMode, int iLens, DESKEW_SITE* pDeskewSite, CWnd* pParent = NULL);	// æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CPatRecDeskewDlg)
 	enum { IDD = IDD_OVERLAY_DLG };
 	//}}AFX_DATA
@@ -40,16 +40,16 @@ public:
 	int m_iMode;
 	int m_iLens;
 	DESKEW_SITE* m_pDeskewSite;
-	STAGE_COORD m_OffsetPos;		// ƒIƒtƒZƒbƒgÀ•W
+	STAGE_COORD m_OffsetPos;		// ã‚ªãƒ•ã‚»ãƒƒãƒˆåº§æ¨™
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CPatRecDeskewDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 
 	//{{AFX_MSG(CPatRecDeskewDlg)
@@ -95,6 +95,6 @@ private:
 
 	SR_TURRET srTurret[SR_LENS_MAX];
 	CString	m_szLens;
-	STAGE_COORD m_CenterPos;		// ƒ^[ƒQƒbƒgŒŸo‚ÌƒZƒ“ƒ^[À•W
+	STAGE_COORD m_CenterPos;		// ã‚¿ãƒ¼ã‚²ãƒƒãƒˆæ¤œå‡ºæ™‚ã®ã‚»ãƒ³ã‚¿ãƒ¼åº§æ¨™
 };
 #endif // !defined(_PATRECDESKEW_H_)

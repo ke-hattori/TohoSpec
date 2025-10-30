@@ -1,14 +1,14 @@
-#if !defined(AFX_MAINTENANCEOPERATIONVIEW_H__8E4BA0E2_71F5_4342_9494_86227ADA30D1__INCLUDED_)
+ï»¿#if !defined(AFX_MAINTENANCEOPERATIONVIEW_H__8E4BA0E2_71F5_4342_9494_86227ADA30D1__INCLUDED_)
 #define AFX_MAINTENANCEOPERATIONVIEW_H__8E4BA0E2_71F5_4342_9494_86227ADA30D1__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// MaintenanceOperationView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// MaintenanceOperationView.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 /////////////////////////////////////////////////////////////////////////////
-// CMaintenanceOperationView ƒtƒH[ƒ€ ƒrƒ…[                               //
+// CMaintenanceOperationView ãƒ•ã‚©ãƒ¼ãƒ  ãƒ“ãƒ¥ãƒ¼                               //
 //                                                                         //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -23,35 +23,35 @@
 class CMaintenanceOperationView : public CNanoUI
 {
 protected:
-	CMaintenanceOperationView();			// “®“I¶¬‚ÉŽg—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CMaintenanceOperationView();			// å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	DECLARE_DYNCREATE(CMaintenanceOperationView)
 
-// ƒtƒH[ƒ€ ƒf[ƒ^
+// ãƒ•ã‚©ãƒ¼ãƒ  ãƒ‡ãƒ¼ã‚¿
 public:
 	//{{AFX_DATA(CMaintenanceOperationView)
 	enum { IDD = IDD_MAINTENANCE_OPERATION_FORM };
 	//}}AFX_DATA
 
-// ƒAƒgƒŠƒrƒ…[ƒg
+// ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 public:
 
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 	CShadeButtonST m_MotionButton;
 	CShadeButtonST m_DioMonitorButton;
 	CShadeButtonST m_TransitionMonitorButton;
 	CShadeButtonST m_MaintenanceDateButton;
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ð¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CMaintenanceOperationView)
 	public:
 	virtual void OnInitialUpdate();
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	virtual ~CMaintenanceOperationView();
 #ifdef _DEBUG
@@ -59,7 +59,7 @@ protected:
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒžãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CMaintenanceOperationView)
 	afx_msg void OnMotionButton();
 	afx_msg void OnDioMonitorButton();
@@ -72,13 +72,13 @@ protected:
 
 	BOOL CheckUserAccessPrivilege();
 
-// 2014.01.17 Bagus Add (Stage None‘Î‰ž) -->
+// 2014.01.17 Bagus Add (Stage Noneå¯¾å¿œ) -->
 	SYSTEM_CONFIG m_SystemConfig;
-// 2014.01.17 Bagus Add (Stage None‘Î‰ž) <--
+// 2014.01.17 Bagus Add (Stage Noneå¯¾å¿œ) <--
 };
 
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ð‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_MAINTENANCEOPERATIONVIEW_H__8E4BA0E2_71F5_4342_9494_86227ADA30D1__INCLUDED_)

@@ -1,6 +1,6 @@
-#pragma once
+ï»¿#pragma once
 
-// 2009.09.29 K.Matsuo ../NanoSpec/SubTransition.cpp‚©‚çˆø‰z‚µ•ƒŠƒl[ƒ€ -->
+// 2009.09.29 K.Matsuo ../NanoSpec/SubTransition.cppã‹ã‚‰å¼•è¶Šã—ï¼†ãƒªãƒãƒ¼ãƒ  -->
 
 class CSrRefFile
 {
@@ -19,4 +19,4 @@ public:
 	static BOOL Is2ndRefT2FileExist(LPCTSTR pszMainRecipeName);
 };
 
-// 2009.09.29 K.Matsuo ../NanoSpec/SubTransition.cpp‚©‚çˆø‰z‚µ•ƒŠƒl[ƒ€ <--
+// 2009.09.29 K.Matsuo ../NanoSpec/SubTransition.cppã‹ã‚‰å¼•è¶Šã—ï¼†ãƒªãƒãƒ¼ãƒ  <--

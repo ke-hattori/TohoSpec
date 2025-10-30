@@ -1,4 +1,4 @@
-// MaintenancePositionSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// MaintenancePositionSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -22,12 +22,12 @@ static char THIS_FILE[] = __FILE__;
 // ==========================================================================
 //#define MAINTENANCEPOSITIONSETTING_CAPTION		"MAINTENANCE POSITION SETTING"
 //#define MAINTENANCEPOSITIONSETTING_MESSAGE		"MAINTENANCE POSITION SETTING"
-// Kojika 20090529 Change IDS‚É•ÏX
-//#define MAINTENANCEPOSITIONSETTING_CAPTION	  "ƒƒ“ƒeƒiƒ“ƒXƒ|ƒWƒVƒ‡ƒ“Ý’è"
-//#define MAINTENANCEPOSITIONSETTING_MESSAGE	  "ƒƒ“ƒeƒiƒ“ƒXƒ|ƒWƒVƒ‡ƒ“Ý’è"
+// Kojika 20090529 Change IDSã«å¤‰æ›´
+//#define MAINTENANCEPOSITIONSETTING_CAPTION	  "ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒã‚¸ã‚·ãƒ§ãƒ³è¨­å®š"
+//#define MAINTENANCEPOSITIONSETTING_MESSAGE	  "ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒã‚¸ã‚·ãƒ§ãƒ³è¨­å®š"
 // Kojika 20090529 Change End
 // #########################################################################
-// CMaintenancePositionSettingDlg ƒ_ƒCƒAƒƒO
+// CMaintenancePositionSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // #########################################################################
 
 // =========================================================================
@@ -68,7 +68,7 @@ BEGIN_MESSAGE_MAP(CMaintenancePositionSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CMaintenancePositionSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CMaintenancePositionSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -119,13 +119,13 @@ BOOL CMaintenancePositionSettingDlg::OnInitDialog()
 	///// Control Initialize /////
 	InitCombo_MaintenancePosNo();
 
-	// ƒRƒƒ“ƒg•¶Žš”§ŒÀ
+	// ã‚³ãƒ¡ãƒ³ãƒˆæ–‡å­—æ•°åˆ¶é™
 	((CEdit*)GetDlgItem(IDC_MAINTENANCE_POSITION_COMMENT))->SetLimitText(MAINTENANCE_POSITION_COMMENT_LEN);
 
 	UpdateData(FALSE);
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ðÝ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
@@ -148,7 +148,7 @@ void CMaintenancePositionSettingDlg::OnOK()
 //
 void CMaintenancePositionSettingDlg::OnCancel()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚É“Á•Ê‚ÈŒãˆ—‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ã“ã®ä½ç½®ã«ç‰¹åˆ¥ãªå¾Œå‡¦ç†ã‚’è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 	SetOperationLog("OK Button was push.");
 
 	CDialog::OnCancel();
@@ -158,7 +158,7 @@ void CMaintenancePositionSettingDlg::OnCancel()
 //
 void CMaintenancePositionSettingDlg::OnSelchangeMaintenancePositionNo()
 {
-	UpdateData();			// NoØ‚è‘Ö‚¦‘O‚Ìî•ñ‚ðŽæ“¾‚·‚é
+	UpdateData();			// Noåˆ‡ã‚Šæ›¿ãˆå‰ã®æƒ…å ±ã‚’å–å¾—ã™ã‚‹
 
 	char szTemp[256];
 	// X
@@ -170,7 +170,7 @@ void CMaintenancePositionSettingDlg::OnSelchangeMaintenancePositionNo()
 	sprintf(szTemp, "%.3lf", (double)(m_TempMaintenancePosition[m_iCurrNo].Loc.lY)/MICROMETRE);
 	SetDlgItemText(IDC_MAINTENANCE_POSITION_Y, szTemp);
 
-	UpdateData(FALSE);		// NoØ‚è‘Ö‚¦Œã‚Ìî•ñ‚É‚Ä‰æ–ÊXV‚·‚é
+	UpdateData(FALSE);		// Noåˆ‡ã‚Šæ›¿ãˆå¾Œã®æƒ…å ±ã«ã¦ç”»é¢æ›´æ–°ã™ã‚‹
 }
 
 // =========================================================================
@@ -242,7 +242,7 @@ void CMaintenancePositionSettingDlg::SetOperationLog(LPCTSTR pszLog)
 {
 	char strmsg[1024];
 
-	// ‘€ìƒƒO‚ðŽæ“¾
+	// æ“ä½œãƒ­ã‚°ã‚’å–å¾—
 	memset( strmsg, 0, sizeof(strmsg));
 	strcpy( strmsg, "[");
 	::GetWindowText(this->m_hWnd, &strmsg[1], 1000);

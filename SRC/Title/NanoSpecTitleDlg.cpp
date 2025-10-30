@@ -1,4 +1,4 @@
-// NanoSpecTitleDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// NanoSpecTitleDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -13,7 +13,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CNanoSpecTitleDlg ƒ_ƒCƒAƒƒO                                            //
+// CNanoSpecTitleDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°                                            //
 //                                                                         //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -23,9 +23,9 @@ CNanoSpecTitleDlg::CNanoSpecTitleDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CNanoSpecTitleDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CNanoSpecTitleDlg)
-		// ƒƒ‚: ‚±‚ÌˆÊ’u‚É ClassWizard ‚É‚æ‚Á‚Äƒƒ“ƒo‚Ì‰Šú‰»‚ª’Ç‰Á‚³‚ê‚Ü‚·B
+		// ãƒ¡ãƒ¢: ã“ã®ä½ç½®ã« ClassWizard ã«ã‚ˆã£ã¦ãƒ¡ãƒ³ãƒã®åˆæœŸåŒ–ãŒè¿½åŠ ã•ã‚Œã¾ã™ã€‚
 	//}}AFX_DATA_INIT
-	// ƒƒ‚: LoadIcon ‚Í Win32 ‚Ì DestroyIcon ‚ÌƒTƒuƒV[ƒPƒ“ƒX‚ğ—v‹‚µ‚Ü‚¹‚ñB
+	// ãƒ¡ãƒ¢: LoadIcon ã¯ Win32 ã® DestroyIcon ã®ã‚µãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚’è¦æ±‚ã—ã¾ã›ã‚“ã€‚
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 
 	FontCreation();
@@ -58,7 +58,7 @@ BEGIN_MESSAGE_MAP(CNanoSpecTitleDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CNanoSpecTitleDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰                                   //
+// CNanoSpecTitleDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©                                   //
 //                                                                         //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -68,9 +68,9 @@ BOOL CNanoSpecTitleDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// ‚±‚Ìƒ_ƒCƒAƒƒO—p‚ÌƒAƒCƒRƒ“‚ğİ’è‚µ‚Ü‚·BƒtƒŒ[ƒ€ƒ[ƒN‚ÍƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌƒƒCƒ“
-	// ƒEƒBƒ“ƒhƒE‚ªƒ_ƒCƒAƒƒO‚Å‚È‚¢‚Í©“®“I‚Éİ’è‚µ‚Ü‚¹‚ñB
-/* added 2014.11.21 hmenjo 3100 ƒAƒCƒRƒ“(TITLE) ---------- { ---------- */
+	// ã“ã®ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ç”¨ã®ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¨­å®šã—ã¾ã™ã€‚ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã¯ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ãƒ¡ã‚¤ãƒ³
+	// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãŒãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã§ãªã„æ™‚ã¯è‡ªå‹•çš„ã«è¨­å®šã—ã¾ã›ã‚“ã€‚
+/* added 2014.11.21 hmenjo 3100 ã‚¢ã‚¤ã‚³ãƒ³(TITLE) ---------- { ---------- */
 	CString l_strTmp = AfxGetApp()->m_pszHelpFilePath;
 	CString l_strDirProc = l_strTmp.Left(l_strTmp.ReverseFind(_T('\\')) + 1);
 	CString l_strPathNanoIni;
@@ -80,24 +80,24 @@ BOOL CNanoSpecTitleDlg::OnInitDialog()
 		l_strPathNanoIni.Format(_T("%s%s%sSpec.ini"), l_strDirProc, CFG_DIR, g_lpszAppPrefix4[APP_NAME_NANO]);
 	}
 	long l_lModelType = ::GetPrivateProfileInt(INISECTION_MODELTYPE, INIKEY_MODELTYPE_TYPE, MODEL_M6500, l_strPathNanoIni);
-/* added 2014.11.21 hmenjo 3100 ƒAƒCƒRƒ“(TITLE) ---------- } ---------- */
-/* modified 2014.11.21 hmenjo 3100 ƒAƒCƒRƒ“(TITLE) ---------- { ---------- */
-//	SetIcon(m_hIcon, TRUE);			// ‘å‚«‚¢ƒAƒCƒRƒ“‚ğİ’è
-//	SetIcon(m_hIcon, FALSE);		// ¬‚³‚¢ƒAƒCƒRƒ“‚ğİ’è
-/* modified 2014.11.21 hmenjo 3100 ƒAƒCƒRƒ“(TITLE) ----------              */
+/* added 2014.11.21 hmenjo 3100 ã‚¢ã‚¤ã‚³ãƒ³(TITLE) ---------- } ---------- */
+/* modified 2014.11.21 hmenjo 3100 ã‚¢ã‚¤ã‚³ãƒ³(TITLE) ---------- { ---------- */
+//	SetIcon(m_hIcon, TRUE);			// å¤§ãã„ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¨­å®š
+//	SetIcon(m_hIcon, FALSE);		// å°ã•ã„ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¨­å®š
+/* modified 2014.11.21 hmenjo 3100 ã‚¢ã‚¤ã‚³ãƒ³(TITLE) ----------              */
 	BOOL l_bIconNormal = TRUE;
 	if (l_lModelType == MODEL_T3100) {
 #if 0
-		/* ƒŠƒ\[ƒX‚Ö‚ÌƒAƒCƒRƒ“‚Ì“o˜^‚ª•K—v‚Å‚·D	*/
+		/* ãƒªã‚½ãƒ¼ã‚¹ã¸ã®ã‚¢ã‚¤ã‚³ãƒ³ã®ç™»éŒ²ãŒå¿…è¦ã§ã™ï¼	*/
 		HICON l_hIcon = 0;
 		l_hIcon = ::LoadIcon(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDI_3100));
 		if (0 != l_hIcon) {
 			l_bIconNormal = FALSE;
-			this->SetIcon(l_hIcon, TRUE);			/* ‘å‚«‚¢ƒAƒCƒRƒ“‚ğİ’è	*/
-			/* ¬‚³‚¢ƒAƒCƒRƒ“‚ÍCƒVƒXƒeƒ€‚ª©“®‚Å’T‚µ‚Ä‚­‚ê‚Ü‚·D	*/
+			this->SetIcon(l_hIcon, TRUE);			/* å¤§ãã„ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¨­å®š	*/
+			/* å°ã•ã„ã‚¢ã‚¤ã‚³ãƒ³ã¯ï¼Œã‚·ã‚¹ãƒ†ãƒ ãŒè‡ªå‹•ã§æ¢ã—ã¦ãã‚Œã¾ã™ï¼	*/
 		}
 #else
-		/* ƒAƒCƒRƒ“‚ğƒtƒ@ƒCƒ‹‚©‚ç“Ç‚İ‚Ü‚·D	*/
+		/* ã‚¢ã‚¤ã‚³ãƒ³ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰èª­è¾¼ã¿ã¾ã™ï¼	*/
 		CString l_strPathIcon = l_strDirProc + _T("3100.ico");
 		HICON l_hIcon32 = 0;
 		HICON l_hIcon16 = 0;
@@ -117,22 +117,22 @@ BOOL CNanoSpecTitleDlg::OnInitDialog()
 							);
 		if ((0 != l_hIcon32) && (0 != l_hIcon16)) {
 			l_bIconNormal = FALSE;
-			this->SetIcon(l_hIcon32, TRUE);			/* ‘å‚«‚¢ƒAƒCƒRƒ“‚ğİ’è	*/
-			this->SetIcon(l_hIcon16, FALSE);		/* ¬‚³‚¢ƒAƒCƒRƒ“‚ğİ’è	*/
+			this->SetIcon(l_hIcon32, TRUE);			/* å¤§ãã„ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¨­å®š	*/
+			this->SetIcon(l_hIcon16, FALSE);		/* å°ã•ã„ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¨­å®š	*/
 		}
 #endif
 	}
 	if (FALSE != l_bIconNormal) {
-		this->SetIcon(m_hIcon, TRUE);		/* ‘å‚«‚¢ƒAƒCƒRƒ“‚ğİ’è	*/
-		this->SetIcon(m_hIcon, FALSE);		/* ¬‚³‚¢ƒAƒCƒRƒ“‚ğİ’è	*/
+		this->SetIcon(m_hIcon, TRUE);		/* å¤§ãã„ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¨­å®š	*/
+		this->SetIcon(m_hIcon, FALSE);		/* å°ã•ã„ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¨­å®š	*/
 	}
-/* modified 2014.11.21 hmenjo 3100 ƒAƒCƒRƒ“(TITLE) ---------- } ---------- */
+/* modified 2014.11.21 hmenjo 3100 ã‚¢ã‚¤ã‚³ãƒ³(TITLE) ---------- } ---------- */
 
 	///// Caption /////
 	SetWindowText(NANOSPEC_TITLE_WINDOW_NAME);
-/* modified 2009.06.05 hmenjo NanoSpecTitle Á‚¦‚È‚¢‘Îô ---------- { ---------- */
+/* modified 2009.06.05 hmenjo NanoSpecTitle æ¶ˆãˆãªã„å¯¾ç­– ---------- { ---------- */
 //	SetWindowPos(&wndTopMost, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE);
-/* modified 2009.06.05 hmenjo NanoSpecTitle Á‚¦‚È‚¢‘Îô ---------- 			 */
+/* modified 2009.06.05 hmenjo NanoSpecTitle æ¶ˆãˆãªã„å¯¾ç­– ---------- 			 */
 	int l_iDesktopSizeX = GetSystemMetrics(SM_CXFULLSCREEN);
 	int l_iDesktopSizeY = GetSystemMetrics(SM_CYFULLSCREEN);
 	RECT l_rectSize; GetWindowRect(&l_rectSize);
@@ -148,16 +148,16 @@ BOOL CNanoSpecTitleDlg::OnInitDialog()
 		l_lPosY = (l_iDesktopSizeY / 2) - 100 - (l_rectSize.bottom - l_rectSize.top);
 	}
 	SetWindowPos(&wndTopMost, l_lPosX, l_lPosY, 0, 0, SWP_NOSIZE);
-/* modified 2009.06.05 hmenjo NanoSpecTitle Á‚¦‚È‚¢‘Îô ---------- } ---------- */
+/* modified 2009.06.05 hmenjo NanoSpecTitle æ¶ˆãˆãªã„å¯¾ç­– ---------- } ---------- */
 
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 	CString strBuffer;
 	if(g_lAppNameType != APP_NAME_NANO){
 		GetDlgItemText(IDC_MESSAGE, strBuffer);
 		strBuffer.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
 		SetDlgItemText(IDC_MESSAGE, strBuffer);
 	}
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 
 	///// Font /////
 	CStatic* pStatic = (CStatic*)GetDlgItem(IDC_MESSAGE);
@@ -165,16 +165,16 @@ BOOL CNanoSpecTitleDlg::OnInitDialog()
 
 	GetDlgItem(IDOK)->ShowWindow(FALSE);
 
-/* added 2009.07.01 hmenjo ƒ^ƒCƒgƒ‹ƒEƒBƒ“ƒhƒE‚È‚É‚ª‚È‚ñ‚Å‚àÅ‘O–Ê ---------- { ---------- */
+/* added 2009.07.01 hmenjo ã‚¿ã‚¤ãƒˆãƒ«ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãªã«ãŒãªã‚“ã§ã‚‚æœ€å‰é¢ ---------- { ---------- */
 	this->SetTimer(110, 300, 0);
-/* added 2009.07.01 hmenjo ƒ^ƒCƒgƒ‹ƒEƒBƒ“ƒhƒE‚È‚É‚ª‚È‚ñ‚Å‚àÅ‘O–Ê ---------- } ---------- */
+/* added 2009.07.01 hmenjo ã‚¿ã‚¤ãƒˆãƒ«ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãªã«ãŒãªã‚“ã§ã‚‚æœ€å‰é¢ ---------- } ---------- */
 
-	return TRUE;  // TRUE ‚ğ•Ô‚·‚ÆƒRƒ“ƒgƒ[ƒ‹‚Éİ’è‚µ‚½ƒtƒH[ƒJƒX‚Í¸‚í‚ê‚Ü‚¹‚ñB
+	return TRUE;  // TRUE ã‚’è¿”ã™ã¨ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«è¨­å®šã—ãŸãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã¯å¤±ã‚ã‚Œã¾ã›ã‚“ã€‚
 }
 
-// ‚à‚µƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚ÉÅ¬‰»ƒ{ƒ^ƒ“‚ğ’Ç‰Á‚·‚é‚È‚ç‚ÎAƒAƒCƒRƒ“‚ğ•`‰æ‚·‚é
-// ƒR[ƒh‚ğˆÈ‰º‚É‹Lq‚·‚é•K—v‚ª‚ ‚è‚Ü‚·BMFC ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Í document/view
-// ƒ‚ƒfƒ‹‚ğg‚Á‚Ä‚¢‚é‚Ì‚ÅA‚±‚Ìˆ—‚ÍƒtƒŒ[ƒ€ƒ[ƒN‚É‚æ‚è©“®“I‚Éˆ—‚³‚ê‚Ü‚·B
+// ã‚‚ã—ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒœãƒƒã‚¯ã‚¹ã«æœ€å°åŒ–ãƒœã‚¿ãƒ³ã‚’è¿½åŠ ã™ã‚‹ãªã‚‰ã°ã€ã‚¢ã‚¤ã‚³ãƒ³ã‚’æç”»ã™ã‚‹
+// ã‚³ãƒ¼ãƒ‰ã‚’ä»¥ä¸‹ã«è¨˜è¿°ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚MFC ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã¯ document/view
+// ãƒ¢ãƒ‡ãƒ«ã‚’ä½¿ã£ã¦ã„ã‚‹ã®ã§ã€ã“ã®å‡¦ç†ã¯ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã«ã‚ˆã‚Šè‡ªå‹•çš„ã«å‡¦ç†ã•ã‚Œã¾ã™ã€‚
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -182,11 +182,11 @@ void CNanoSpecTitleDlg::OnPaint()
 {
 	if (IsIconic())
 	{
-		CPaintDC dc(this); // •`‰æ—p‚ÌƒfƒoƒCƒX ƒRƒ“ƒeƒLƒXƒg
+		CPaintDC dc(this); // æç”»ç”¨ã®ãƒ‡ãƒã‚¤ã‚¹ ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
 
 		SendMessage(WM_ICONERASEBKGND, (WPARAM) dc.GetSafeHdc(), 0);
 
-		// ƒNƒ‰ƒCƒAƒ“ƒg‚Ì‹éŒ`—Ìˆæ“à‚Ì’†‰›
+		// ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆã®çŸ©å½¢é ˜åŸŸå†…ã®ä¸­å¤®
 		int cxIcon = GetSystemMetrics(SM_CXICON);
 		int cyIcon = GetSystemMetrics(SM_CYICON);
 		CRect rect;
@@ -194,7 +194,7 @@ void CNanoSpecTitleDlg::OnPaint()
 		int x = (rect.Width() - cxIcon + 1) / 2;
 		int y = (rect.Height() - cyIcon + 1) / 2;
 
-		// ƒAƒCƒRƒ“‚ğ•`‰æ‚µ‚Ü‚·B
+		// ã‚¢ã‚¤ã‚³ãƒ³ã‚’æç”»ã—ã¾ã™ã€‚
 		dc.DrawIcon(x, y, m_hIcon);
 	}
 	else
@@ -203,8 +203,8 @@ void CNanoSpecTitleDlg::OnPaint()
 	}
 }
 
-// ƒVƒXƒeƒ€‚ÍAƒ†[ƒU[‚ªÅ¬‰»ƒEƒBƒ“ƒhƒE‚ğƒhƒ‰ƒbƒO‚µ‚Ä‚¢‚éŠÔA
-// ƒJ[ƒ\ƒ‹‚ğ•\¦‚·‚é‚½‚ß‚É‚±‚±‚ğŒÄ‚Ño‚µ‚Ü‚·B
+// ã‚·ã‚¹ãƒ†ãƒ ã¯ã€ãƒ¦ãƒ¼ã‚¶ãƒ¼ãŒæœ€å°åŒ–ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’ãƒ‰ãƒ©ãƒƒã‚°ã—ã¦ã„ã‚‹é–“ã€
+// ã‚«ãƒ¼ã‚½ãƒ«ã‚’è¡¨ç¤ºã™ã‚‹ãŸã‚ã«ã“ã“ã‚’å‘¼ã³å‡ºã—ã¾ã™ã€‚
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -218,20 +218,20 @@ HCURSOR CNanoSpecTitleDlg::OnQueryDragIcon()
 void CNanoSpecTitleDlg::OnShowWindow(BOOL bShow, UINT nStatus)
 {
 	CDialog::OnShowWindow(bShow, nStatus);
-/* deleted 2009.06.05 hmenjo NanoSpecTitle Á‚¦‚È‚¢‘Îô ---------- { ---------- */
+/* deleted 2009.06.05 hmenjo NanoSpecTitle æ¶ˆãˆãªã„å¯¾ç­– ---------- { ---------- */
 //	CRect rect;
 //	AfxGetApp()->m_pMainWnd->GetWindowRect(&rect);
 //	rect.top -= 200;
 //	rect.bottom -= 200;
 //	MoveWindow(&rect);
-/* deleted 2009.06.05 hmenjo NanoSpecTitle Á‚¦‚È‚¢‘Îô ---------- } ---------- */
+/* deleted 2009.06.05 hmenjo NanoSpecTitle æ¶ˆãˆãªã„å¯¾ç­– ---------- } ---------- */
 }
 
 /////////////////////////////////////////////////////////////////////////////
 //
 void CNanoSpecTitleDlg::OnOK()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚É‚»‚Ì‘¼‚ÌŒŸØ—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãã®ä»–ã®æ¤œè¨¼ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	CDialog::OnOK();
 }
@@ -240,7 +240,7 @@ void CNanoSpecTitleDlg::OnOK()
 //
 void CNanoSpecTitleDlg::OnCancel()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚É“Á•Ê‚ÈŒãˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ã“ã®ä½ç½®ã«ç‰¹åˆ¥ãªå¾Œå‡¦ç†ã‚’è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 
 	CDialog::OnCancel();
 }
@@ -249,7 +249,7 @@ void CNanoSpecTitleDlg::OnCancel()
 //
 void CNanoSpecTitleDlg::OnClose()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚·‚é‚©‚Ü‚½‚ÍƒfƒtƒHƒ‹ƒg‚Ìˆ—‚ğŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã™ã‚‹ã‹ã¾ãŸã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å‡¦ç†ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
 
 	CDialog::OnClose();
 }
@@ -330,8 +330,8 @@ void CNanoSpecTitleDlg::FontCreation()
 										//	"MS Sans Serif"
 										//	"Arial"
 										//	"batangche" (Hangul)
-										//	"MS ƒSƒVƒbƒN"
-										//	"MS PƒSƒVƒbƒN"
+										//	"MS ã‚´ã‚·ãƒƒã‚¯"
+										//	"MS Pã‚´ã‚·ãƒƒã‚¯"
 										//	"MS UI Gothic"
 										//	"Times New Roman"
 	);
@@ -370,20 +370,20 @@ void CNanoSpecTitleDlg::ControlColor(CDC* pDC, CBrush* pBrush, COLORREF Color)
 //
 void CNanoSpecTitleDlg::OnTimer(UINT nIDEvent)
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚·‚é‚©‚Ü‚½‚ÍƒfƒtƒHƒ‹ƒg‚Ìˆ—‚ğŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã™ã‚‹ã‹ã¾ãŸã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å‡¦ç†ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
 
-/* added 2009.07.01 hmenjo ƒ^ƒCƒgƒ‹ƒEƒBƒ“ƒhƒE‚È‚É‚ª‚È‚ñ‚Å‚àÅ‘O–Ê ---------- { ---------- */
+/* added 2009.07.01 hmenjo ã‚¿ã‚¤ãƒˆãƒ«ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãªã«ãŒãªã‚“ã§ã‚‚æœ€å‰é¢ ---------- { ---------- */
 	switch (nIDEvent) {
 	case 110:
 		{
-/* deleted 2016.08.26 hmenjo ‹N“®ƒ_ƒ“ƒ}ƒŠ‘Îô ---------- { ---------- */
+/* deleted 2016.08.26 hmenjo èµ·å‹•æ™‚ãƒ€ãƒ³ãƒãƒªå¯¾ç­– ---------- { ---------- */
 //			static int l_iPrc = 0;
-/* deleted 2016.08.26 hmenjo ‹N“®ƒ_ƒ“ƒ}ƒŠ‘Îô ---------- } ---------- */
+/* deleted 2016.08.26 hmenjo èµ·å‹•æ™‚ãƒ€ãƒ³ãƒãƒªå¯¾ç­– ---------- } ---------- */
 			HWND l_hCurrWnd;
-/* deleted 2016.08.26 hmenjo ‹N“®ƒ_ƒ“ƒ}ƒŠ‘Îô ---------- { ---------- */
+/* deleted 2016.08.26 hmenjo èµ·å‹•æ™‚ãƒ€ãƒ³ãƒãƒªå¯¾ç­– ---------- { ---------- */
 //			switch (l_iPrc) {
 //			case 0:
-/* deleted 2016.08.26 hmenjo ‹N“®ƒ_ƒ“ƒ}ƒŠ‘Îô ---------- } ---------- */
+/* deleted 2016.08.26 hmenjo èµ·å‹•æ™‚ãƒ€ãƒ³ãƒãƒªå¯¾ç­– ---------- } ---------- */
 				l_hCurrWnd = ::GetForegroundWindow();
 				if ((0 != l_hCurrWnd) && (l_hCurrWnd != this->m_hWnd)) {
 					DWORD l_dwForeProcID = ::GetWindowThreadProcessId(l_hCurrWnd, 0);
@@ -391,26 +391,26 @@ void CNanoSpecTitleDlg::OnTimer(UINT nIDEvent)
 						if (0 != ::AttachThreadInput(::GetCurrentThreadId(), l_dwForeProcID, TRUE)) {
 							if (0 != ::SetForegroundWindow(this->m_hWnd)) {
 								this->SetWindowPos(&wndTopMost, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE);
-/* deleted 2016.08.26 hmenjo ‹N“®ƒ_ƒ“ƒ}ƒŠ‘Îô ---------- { ---------- */
+/* deleted 2016.08.26 hmenjo èµ·å‹•æ™‚ãƒ€ãƒ³ãƒãƒªå¯¾ç­– ---------- { ---------- */
 //								l_iPrc = 1;
-/* deleted 2016.08.26 hmenjo ‹N“®ƒ_ƒ“ƒ}ƒŠ‘Îô ---------- } ---------- */
+/* deleted 2016.08.26 hmenjo èµ·å‹•æ™‚ãƒ€ãƒ³ãƒãƒªå¯¾ç­– ---------- } ---------- */
 							}
 							::AttachThreadInput(::GetCurrentThreadId(), l_dwForeProcID, FALSE);
 						}
 					}
 				}
-/* deleted 2016.08.26 hmenjo ‹N“®ƒ_ƒ“ƒ}ƒŠ‘Îô ---------- { ---------- */
+/* deleted 2016.08.26 hmenjo èµ·å‹•æ™‚ãƒ€ãƒ³ãƒãƒªå¯¾ç­– ---------- { ---------- */
 //				break;
 //			case 1:
 //				break;
 //			}
-/* deleted 2016.08.26 hmenjo ‹N“®ƒ_ƒ“ƒ}ƒŠ‘Îô ---------- } ---------- */
+/* deleted 2016.08.26 hmenjo èµ·å‹•æ™‚ãƒ€ãƒ³ãƒãƒªå¯¾ç­– ---------- } ---------- */
 		}
 		break;
 	default:
 		break;
 	}
-/* added 2009.07.01 hmenjo ƒ^ƒCƒgƒ‹ƒEƒBƒ“ƒhƒE‚È‚É‚ª‚È‚ñ‚Å‚àÅ‘O–Ê ---------- } ---------- */
+/* added 2009.07.01 hmenjo ã‚¿ã‚¤ãƒˆãƒ«ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãªã«ãŒãªã‚“ã§ã‚‚æœ€å‰é¢ ---------- } ---------- */
 
 	CDialog::OnTimer(nIDEvent);
 }

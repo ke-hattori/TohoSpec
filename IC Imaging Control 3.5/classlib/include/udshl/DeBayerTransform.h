@@ -1,4 +1,4 @@
-
+﻿
 #ifndef DEBAYERTRANSFORM_H_INC_
 #define DEBAYERTRANSFORM_H_INC_
 

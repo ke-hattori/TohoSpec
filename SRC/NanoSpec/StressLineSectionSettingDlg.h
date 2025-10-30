@@ -1,34 +1,34 @@
-#if !defined(AFX_STRESSLINESECTIONSETTINGDLG_H__A4AA5361_A3A8_45E7_A5F4_B731887F7855__INCLUDED_)
+ï»¿#if !defined(AFX_STRESSLINESECTIONSETTINGDLG_H__A4AA5361_A3A8_45E7_A5F4_B731887F7855__INCLUDED_)
 #define AFX_STRESSLINESECTIONSETTINGDLG_H__A4AA5361_A3A8_45E7_A5F4_B731887F7855__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// StressLineSectionSettingDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// StressLineSectionSettingDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "ColorStatic.h"
 #include "GridCtrl.h"
 #include "NanoPointGraph.h"
-#include "NanoGraphLib.h"	//Ü‚êüEƒ}ƒbƒsƒ“ƒOƒOƒ‰ƒt—p
+#include "NanoGraphLib.h"	//æŠ˜ã‚Œç·šãƒ»ãƒãƒƒãƒ”ãƒ³ã‚°ã‚°ãƒ©ãƒ•ç”¨
 
 /////////////////////////////////////////////////////////////////////////////
-// CStressLineSectionSettingDlg ƒ_ƒCƒAƒƒO
+// CStressLineSectionSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 class CStressLineSectionSettingDlg : public CDialog
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
-	CStressLineSectionSettingDlg(CWnd* pParent = NULL);   // •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CStressLineSectionSettingDlg(CWnd* pParent = NULL);   // æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	~CStressLineSectionSettingDlg();
 
 	CShadeButtonST m_OkButton;
 	CShadeButtonST m_CancelButton;
 	CShadeButtonST m_GridSetButton;
 	CShadeButtonST m_SetLineSectionButton;
-	// 2009.09.04 bagus stress ƒ‰ƒCƒ“”İ’èƒ{ƒ^ƒ“’Ç‰Á --{--
+	// 2009.09.04 bagus stress ãƒ©ã‚¤ãƒ³æ•°è¨­å®šãƒœã‚¿ãƒ³è¿½åŠ  --{--
 	CShadeButtonST m_LineSetButton;
-	// 2009.09.04 bagus stress ƒ‰ƒCƒ“”İ’èƒ{ƒ^ƒ“’Ç‰Á --}--
+	// 2009.09.04 bagus stress ãƒ©ã‚¤ãƒ³æ•°è¨­å®šãƒœã‚¿ãƒ³è¿½åŠ  --}--
 
 	CString m_strSampleShape;
 	CString m_strSampleSizeX;
@@ -51,10 +51,10 @@ public:
 
 	char m_szName[RECIPE_NAME_LEN + 1];
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CStressLineSectionSettingDlg)
 	enum { IDD = IDD_STRESS_LINE_SECTION_SETTING_DLG };
-		// ƒƒ‚: ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒf[ƒ^ ƒƒ“ƒo‚ğ’Ç‰Á‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢: ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒ‡ãƒ¼ã‚¿ ãƒ¡ãƒ³ãƒã‚’è¿½åŠ ã—ã¾ã™ã€‚
 	//}}AFX_DATA
 
 public:
@@ -76,17 +76,17 @@ protected:
 // 2013.01.09 bagus <--
 	void DrawAxisCoordinate(int iOrgPos, int DirX, int DirY);
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CStressLineSectionSettingDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	virtual BOOL OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult);
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CStressLineSectionSettingDlg)
 	virtual BOOL OnInitDialog();
 	afx_msg void OnPaint();
@@ -107,20 +107,20 @@ protected:
 	SAMPLEINFO		m_SampleInfo;
 
 private:
-// 2009.09.11 bagus stress ƒ`ƒFƒbƒN’Ç‰Á --{--
+// 2009.09.11 bagus stress ãƒã‚§ãƒƒã‚¯è¿½åŠ  --{--
 	BOOL CheckStressMeasurementLineSectionData();
 	BOOL CheckNecessaryThicknessMeasurementData();
-// 2009.09.11 bagus stress ƒ`ƒFƒbƒN’Ç‰Á --}--
-// 2009.09.11 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.11 bagus stress ãƒã‚§ãƒƒã‚¯è¿½åŠ  --}--
+// 2009.09.11 bagus stress åŸç‚¹ä½ç½®å¯¾å¿œ --{--
 	void CheckPinMaxPos(double *dX, double *dY);
-// 2009.09.11 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
-// 2009.09.08 bagus stress LineNum‚Ìƒ`ƒFƒbƒN --{--
+// 2009.09.11 bagus stress åŸç‚¹ä½ç½®å¯¾å¿œ --}--
+// 2009.09.08 bagus stress LineNumã®ãƒã‚§ãƒƒã‚¯ --{--
 	BOOL CheckLineNum();
-// 2009.09.08 bagus stress LineNum‚Ìƒ`ƒFƒbƒN --}--
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.08 bagus stress LineNumã®ãƒã‚§ãƒƒã‚¯ --}--
+// 2009.09.08 bagus stress åŸç‚¹ä½ç½®å¯¾å¿œ --{--
 	void CheckPinMinPos(double *dX, double *dY);
 	BOOL CheckPinPos(long lX, long lY);
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.08 bagus stress åŸç‚¹ä½ç½®å¯¾å¿œ --}--
 	BOOL CheckStressConfig_NumOfLineData();
 
 	BOOL CheckStressConfig_LineData();
@@ -132,11 +132,11 @@ private:
 	void SetPinData();
 	void SetDefaultPinData();
 
-	// 2009.09.04 bagus stress ”’lƒ`ƒFƒbƒN’Ç‰Á --{--
+	// 2009.09.04 bagus stress æ•°å€¤ãƒã‚§ãƒƒã‚¯è¿½åŠ  --{--
 	BOOL CheckStressValidRangeData();
 	BOOL CheckInvalidRangeEdgeData();
 	BOOL CheckThinkMeasurementPointOffsetXData();
-	// 2009.09.04 bagus stress ”’lƒ`ƒFƒbƒN’Ç‰Á --}--
+	// 2009.09.04 bagus stress æ•°å€¤ãƒã‚§ãƒƒã‚¯è¿½åŠ  --}--
 
 	BOOL CheckLineValidData();
 	void SetLineValidData();
@@ -169,18 +169,18 @@ private:
 	BOOL m_bOldLineValid[STRESS_LINES_MAX];
 	//2009.09.14 bagus stress --}--
 
-// 2009.09.15 bagus stress C³ --{--
+// 2009.09.15 bagus stress ä¿®æ­£ --{--
 	BOOL CheckInputValueLong(CString strVal, long *lValue);
 	BOOL CheckInputValueDouble(CString strVal, double *dValue);
-// 2009.09.15 bagus stress C³ --}--
+// 2009.09.15 bagus stress ä¿®æ­£ --}--
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridä¿®æ­£ --{--
 	int	m_nSysVScrollWidth;
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridä¿®æ­£ --}--
 
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_STRESSLINESECTIONSETTINGDLG_H__A4AA5361_A3A8_45E7_A5F4_B731887F7855__INCLUDED_)

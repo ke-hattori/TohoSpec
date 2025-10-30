@@ -1,4 +1,4 @@
-#if !defined(AFX_SITEPATTERNSETDLG_H__96349D3B_FBFF_4D54_A674_3F0FE9EED193__INCLUDED_)
+ï»¿#if !defined(AFX_SITEPATTERNSETDLG_H__96349D3B_FBFF_4D54_A674_3F0FE9EED193__INCLUDED_)
 #define AFX_SITEPATTERNSETDLG_H__96349D3B_FBFF_4D54_A674_3F0FE9EED193__INCLUDED_
 
 #if _MSC_VER > 1000
@@ -9,26 +9,26 @@
 #include "GridCellCheck.h"
 
 /////////////////////////////////////////////////////////////////////////////
-// CSitePatternSetDlg ƒ_ƒCƒAƒƒO
+// CSitePatternSetDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 class CSitePatternSetDlg : public CDialog
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
-	CSitePatternSetDlg(STAGE_PROG_INFO_HDR* pStageProgInfoHdr, CWnd* pParent = NULL); // •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CSitePatternSetDlg(STAGE_PROG_INFO_HDR* pStageProgInfoHdr, CWnd* pParent = NULL); // æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	~CSitePatternSetDlg();
 
-	// StageProgram‚Æ‚Ìƒf[ƒ^‚Ìˆø“n‚µ
+	// StageProgramã¨ã®ãƒ‡ãƒ¼ã‚¿ã®å¼•æ¸¡ã—
 	STAGE_PROG_INFO_HDR* m_pStageProgInfoHdr;
 	STAGE_PROG_INFO_HDR m_OldStageProgInfoHdr;
 	STAGE_COORD		m_ScanPoint[SCAN_POINT_MAX];
 	SITE_PATTERN	m_SitePoint[SCAN_POINT_MAX];
 	int				m_iNumScans;
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CSitePatternSetDlg)
 	enum { IDD = IDD_SITE_PATTERN_SET_DLG };
-		// ƒƒ‚: ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒf[ƒ^ ƒƒ“ƒo‚ğ’Ç‰Á‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢: ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒ‡ãƒ¼ã‚¿ ãƒ¡ãƒ³ãƒã‚’è¿½åŠ ã—ã¾ã™ã€‚
 	//}}AFX_DATA
 
 	CColorStatic m_stcStageProgramName;
@@ -51,17 +51,17 @@ public:
 
 	CGridCtrl m_MeasurementPointGrid;
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CSitePatternSetDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CSitePatternSetDlg)
 	virtual BOOL OnInitDialog();
 	afx_msg void OnPattern1SetupButton();
@@ -107,6 +107,6 @@ protected:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_SITEPATTERNSETDLG_H__96349D3B_FBFF_4D54_A674_3F0FE9EED193__INCLUDED_)

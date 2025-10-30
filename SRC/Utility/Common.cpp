@@ -1,4 +1,4 @@
-#define WIN32_LEAN_AND_MEAN
+Ôªø#define WIN32_LEAN_AND_MEAN
 
 //===========================================================================
 // Common.cpp (Common.hxx)
@@ -6,7 +6,7 @@
 #include <common.hxx>
 
 // =========================================================================
-// NameÅF DoEvents
+// Name√ÖF DoEvents
 void DoEvents(void)
 {
 	MSG msg;
@@ -18,7 +18,7 @@ void DoEvents(void)
 	}
 }
 // =========================================================================
-// NameÅF Delay
+// Name√ÖF Delay
 void Delay(DWORD dwDuration)
 {
 	DWORD dwStart, dwNow, dwElapsed;
@@ -38,7 +38,7 @@ void Delay(DWORD dwDuration)
 	}
 }
 // =========================================================================
-// NameÅF WaitWithMessageLoop
+// Name√ÖF WaitWithMessageLoop
 BOOL WaitWithMessageLoop(HANDLE hEvent, DWORD dwTimeout)
 {
 	DWORD dwRet;

@@ -1,4 +1,4 @@
-// LogOnDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// LogOnDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -13,7 +13,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // #########################################################################
-// CLogOnDlg ƒ_ƒCƒAƒƒO
+// CLogOnDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // #########################################################################
 
 // =========================================================================
@@ -48,7 +48,7 @@ BEGIN_MESSAGE_MAP(CLogOnDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CLogOnDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CLogOnDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -64,12 +64,12 @@ BOOL CLogOnDlg::OnInitDialog()
 	m_CancelButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_CancelButton.DrawFlatFocus(TRUE);
 
-	// ƒRƒƒ“ƒg•¶š”§ŒÀ
+	// ã‚³ãƒ¡ãƒ³ãƒˆæ–‡å­—æ•°åˆ¶é™
 	((CEdit*)GetDlgItem(IDC_USER_NAME))->SetLimitText(RECIPE_NAME_LEN);
 	((CEdit*)GetDlgItem(IDC_USER_PASSWORD))->SetLimitText(PASSWORD_LEN);
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
@@ -82,11 +82,11 @@ void CLogOnDlg::OnOK()
 
 	UpdateData();
 
-	// ƒ†[ƒUƒAƒJƒEƒ“ƒg“ü—Í‚È‚µ
+	// ãƒ¦ãƒ¼ã‚¶ã‚¢ã‚«ã‚¦ãƒ³ãƒˆå…¥åŠ›ãªã—
 	if ( m_strUserName.IsEmpty() ) {
 // Kojika 20090526 Change
 //		MessageBox("User Account is empty", "NanoSpec", MB_OK | MB_ICONSTOP);
-//		MessageBox("ƒ†[ƒUƒAƒJƒEƒ“ƒg‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ", "NanoSpec", MB_OK | MB_ICONSTOP);
+//		MessageBox("ãƒ¦ãƒ¼ã‚¶ã‚¢ã‚«ã‚¦ãƒ³ãƒˆãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“", "NanoSpec", MB_OK | MB_ICONSTOP);
 		LoadStringML(IDS_USER_ACCOUNT_EMPTY, strBuffer, "User Account is empty");
 		LoadStringML(IDS_TITLE_NANOSPEC, strTitle, "NanoSpec");
 		MessageBox(strBuffer, strTitle, MB_OK | MB_ICONSTOP);
@@ -103,11 +103,11 @@ void CLogOnDlg::OnOK()
 		strcpy(m_UserAccount.szPassword, USER_ACCOUNT_TOHO_PASSWORD);
 	}
 	else {
-		// ƒ†[ƒUƒAƒJƒEƒ“ƒgŠY“–‚È‚µ
+		// ãƒ¦ãƒ¼ã‚¶ã‚¢ã‚«ã‚¦ãƒ³ãƒˆè©²å½“ãªã—
 		if ( !RecipeFile_LoadRecipe(&m_UserAccount, m_strUserName, RECIPE_FILE_USER_ACCOUNT) ) {
 // Kojika 20090526 Change
 //			MessageBox("User Account or Password is diffrent", "NanoSpec", MB_OK | MB_ICONSTOP);
-//			MessageBox("ƒ†[ƒUƒAƒJƒEƒ“ƒg‚©ƒpƒXƒ[ƒh‚ªˆá‚¢‚Ü‚·", "NanoSpec", MB_OK | MB_ICONSTOP);
+//			MessageBox("ãƒ¦ãƒ¼ã‚¶ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã‹ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒé•ã„ã¾ã™", "NanoSpec", MB_OK | MB_ICONSTOP);
 			LoadStringML(IDS_ACCOUNT_PASS_DIFF, strBuffer, "User Account or Password is diffrent");
 			LoadStringML(IDS_TITLE_NANOSPEC, strTitle, "NanoSpec");
 			MessageBox(strBuffer, strTitle, MB_OK | MB_ICONSTOP);
@@ -118,12 +118,12 @@ void CLogOnDlg::OnOK()
 		}
 	}
 
-	// ƒpƒXƒ[ƒhƒ`ƒFƒbƒN
+	// ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãƒã‚§ãƒƒã‚¯
 	if ( m_UserAccount.bEnablePassword ) {
 		if ( m_strUserPassword != m_UserAccount.szPassword ) {
 // Kojika 20090526 Change
 //			MessageBox("User Name or Password is diffrent", "NanoSpec", MB_OK | MB_ICONSTOP);
-//			MessageBox("ƒ†[ƒU–¼‚©ƒpƒXƒ[ƒh‚ªˆá‚¢‚Ü‚·", "NanoSpec", MB_OK | MB_ICONSTOP);
+//			MessageBox("ãƒ¦ãƒ¼ã‚¶åã‹ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒé•ã„ã¾ã™", "NanoSpec", MB_OK | MB_ICONSTOP);
 			LoadStringML(IDS_NAME_PASS_DIFF, strBuffer, "User Name or Password is diffrent");
 			LoadStringML(IDS_TITLE_NANOSPEC, strTitle, "NanoSpec");
 			MessageBox(strBuffer, strTitle, MB_OK | MB_ICONSTOP);
@@ -133,7 +133,7 @@ void CLogOnDlg::OnOK()
 		}
 	}
 
-	// ƒ†[ƒU[ƒŒƒxƒ‹ ƒ`ƒFƒbƒN
+	// ãƒ¦ãƒ¼ã‚¶ãƒ¼ãƒ¬ãƒ™ãƒ« ãƒã‚§ãƒƒã‚¯
 	if ( m_UserAccount.nAccountLevel < ACCOUNT_LEVEL_ADMINISTRATOR || m_UserAccount.nAccountLevel >= ACCOUNT_LEVEL_MAX ) {
 		m_UserAccount.nAccountLevel = ACCOUNT_LEVEL_OPERATOR;
 	}

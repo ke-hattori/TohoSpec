@@ -1,51 +1,51 @@
-#if !defined(AFX_MEASUREMENTPROCESSVIEW_H__CC07C5A1_5F1F_4C88_AD4C_F5A450948A84__INCLUDED_)
+ï»¿#if !defined(AFX_MEASUREMENTPROCESSVIEW_H__CC07C5A1_5F1F_4C88_AD4C_F5A450948A84__INCLUDED_)
 #define AFX_MEASUREMENTPROCESSVIEW_H__CC07C5A1_5F1F_4C88_AD4C_F5A450948A84__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// MeasurementProcessView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// MeasurementProcessView.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 // ##########################################################################
-// CMeasurementProcessView ƒtƒH[ƒ€ ƒrƒ…[
+// CMeasurementProcessView ãƒ•ã‚©ãƒ¼ãƒ  ãƒ“ãƒ¥ãƒ¼
 // ##########################################################################
 
 #ifndef __AFXEXT_H__
 #include <afxext.h>
 #endif
 
-// 2009.10.30 bagus MS ’Ç‰Á --{--
+// 2009.10.30 bagus MS è¿½åŠ  --{--
 #include "..\\..\\INC\\Globals.hxx"
-// 2009.10.30 bagus MS ’Ç‰Á --}--
+// 2009.10.30 bagus MS è¿½åŠ  --}--
 #include "NanoUI.h"
-// 2009.10.30 bagus MS ’Ç‰Á --{--
+// 2009.10.30 bagus MS è¿½åŠ  --{--
 #include "BtnST.h"
 #include "Misc.h"
 #include "MotionComboBox.h"
 #include "ColorStatic.h"
-// 2009.10.30 bagus MS ’Ç‰Á --}--
+// 2009.10.30 bagus MS è¿½åŠ  --}--
 
-// 2009.11.09 bagus MS C³ --{--
+// 2009.11.09 bagus MS ä¿®æ­£ --{--
 #define CHECK_CYLINDER_TIMER		(10)
-// 2009.11.09 bagus MS C³ --}--
+// 2009.11.09 bagus MS ä¿®æ­£ --}--
 
 class CMeasurementProcessView : public CNanoUI
 {
 protected:
-	CMeasurementProcessView();			// “®“I¶¬‚Ég—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CMeasurementProcessView();			// å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	DECLARE_DYNCREATE(CMeasurementProcessView)
 
-// ƒtƒH[ƒ€ ƒf[ƒ^
+// ãƒ•ã‚©ãƒ¼ãƒ  ãƒ‡ãƒ¼ã‚¿
 public:
 	//{{AFX_DATA(CMeasurementProcessView)
 	enum { IDD = IDD_MEASUREMENT_PROCESS_FORM };
 	//}}AFX_DATA
 
-// ƒAƒgƒŠƒrƒ…[ƒg
+// ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 public:
 
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 	CShadeButtonST m_MeasurementCancelButton;
 	CShadeButtonST m_MeasurementPauseButton;
@@ -55,7 +55,7 @@ public:
 	CShadeButtonST m_SaveButton;
 	CShadeButtonST m_PrintButton;
 	CShadeButtonST m_ExitButton;
-// 2009.10.30 bagus MS ’Ç‰Á --{--
+// 2009.10.30 bagus MS è¿½åŠ  --{--
 	CShadeButtonST m_NextPointButton;
 
 	CShadeButtonST	m_PointTeachingButton;
@@ -68,30 +68,30 @@ public:
 	CJoyStickRadioButton*	m_joyStick2;
 	CColorStatic m_stcMeasurementPointX;
 	CColorStatic m_stcMeasurementPointY;
-// 2009.10.30 bagus MS ’Ç‰Á --}--
+// 2009.10.30 bagus MS è¿½åŠ  --}--
 	CMainFrame* m_pMainFrame;
 	CNanoSpecDoc* m_pDoc;
 
 	BOOL StartRemeasurement(int iPma);
 
-// 2009.10.30 bagus MS ’Ç‰Á --{--
+// 2009.10.30 bagus MS è¿½åŠ  --{--
 	void Init_SR_XYStageMenu();
-// 2009.10.30 bagus MS ’Ç‰Á --}--
+// 2009.10.30 bagus MS è¿½åŠ  --}--
 
-// 2009.12.17 bagus MS C³ --{--
+// 2009.12.17 bagus MS ä¿®æ­£ --{--
 	void ChangeOperationEnable(BOOL bEnable);
-// 2009.12.17 bagus MS C³ --}--
+// 2009.12.17 bagus MS ä¿®æ­£ --}--
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CMeasurementProcessView)
 	public:
 	virtual void OnInitialUpdate();
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	virtual ~CMeasurementProcessView();
 #ifdef _DEBUG
@@ -99,7 +99,7 @@ protected:
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CMeasurementProcessView)
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void OnMeasurementCancelButton();
@@ -118,36 +118,36 @@ protected:
 
 	afx_msg LRESULT OnMeaProcFuncCall(WPARAM wparam, LPARAM lparam);
 
-// 2009.10.30 bagus MS ’Ç‰Á --{--
+// 2009.10.30 bagus MS è¿½åŠ  --{--
 	LRESULT OnJoyStick(WPARAM, LPARAM);
-// 2009.10.30 bagus MS ’Ç‰Á --}--
+// 2009.10.30 bagus MS è¿½åŠ  --}--
 
-// 2009.11.09 bagus MS C³ --{--
+// 2009.11.09 bagus MS ä¿®æ­£ --{--
 	afx_msg LRESULT OnNexResponse(WPARAM wparam, LPARAM lparam);
-// 2009.11.09 bagus MS C³ --}--
+// 2009.11.09 bagus MS ä¿®æ­£ --}--
 	DECLARE_MESSAGE_MAP()
 
-// 2009.10.30 bagus MS ’Ç‰Á --{--
+// 2009.10.30 bagus MS è¿½åŠ  --{--
 private:
 	SYSTEM_CONFIG m_SystemConfig;
 
 	void InitCombo_Lens();
-// 2009.10.30 bagus MS ’Ç‰Á --}--
+// 2009.10.30 bagus MS è¿½åŠ  --}--
 
-// 2009.11.02 bagus MS ’Ç‰Á --{--
+// 2009.11.02 bagus MS è¿½åŠ  --{--
 	MS_CONFIG m_MsConfig;
-// 2009.11.02 bagus MS ’Ç‰Á --}--
+// 2009.11.02 bagus MS è¿½åŠ  --}--
 
-// 2009.11.09 bagus MS C³ --{--
+// 2009.11.09 bagus MS ä¿®æ­£ --{--
 	int		m_nSelLens;
 	BOOL	m_bMSModeLampFilcker;
-// 2009.11.09 bagus MS C³ --}--
+// 2009.11.09 bagus MS ä¿®æ­£ --}--
 // matsuhisa 2009.12.26 added >>>
 	int		m_nLensSensorItem;
 // matsuhisa 2009.12.26 added <<<
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_MEASUREMENTPROCESSVIEW_H__CC07C5A1_5F1F_4C88_AD4C_F5A450948A84__INCLUDED_)

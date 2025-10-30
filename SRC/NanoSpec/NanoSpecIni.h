@@ -1,4 +1,4 @@
-// NanoSpecIni.h: interface for the CNanoSpecIni class.
+﻿// NanoSpecIni.h: interface for the CNanoSpecIni class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -18,9 +18,9 @@ public:
 private:
 	int		m_IniCount;
 
-// 2013.11.07 Bagus Add (TohoSpec�Ή�) -->
+// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) -->
 	CString m_strIniFilePath;
-// 2013.11.07 Bagus Add (TohoSpec�Ή�) <--
+// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) <--
 
 public:
 	void	Get();

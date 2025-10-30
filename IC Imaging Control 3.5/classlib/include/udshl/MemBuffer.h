@@ -1,4 +1,4 @@
-// MemBuffer.h: interface for the MemBuffer class.
+﻿// MemBuffer.h: interface for the MemBuffer class.
 //
 //////////////////////////////////////////////////////////////////////
 

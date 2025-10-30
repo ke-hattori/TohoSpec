@@ -1,4 +1,4 @@
-// StressSelectSampleTypeDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// StressSelectSampleTypeDlg.cpp : インプリメンテーション ファイル
 //
 
 #include "stdafx.h"
@@ -12,14 +12,14 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CStressSelectSampleTypeDlg �_�C�A���O
+// CStressSelectSampleTypeDlg ダイアログ
 
 
 CStressSelectSampleTypeDlg::CStressSelectSampleTypeDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CStressSelectSampleTypeDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CStressSelectSampleTypeDlg)
-		// ���� - ClassWizard �͂��̈ʒu�Ƀ}�b�s���O�p�̃}�N����ǉ��܂��͍폜���܂��B
+		// メモ - ClassWizard はこの位置にマッピング用のマクロを追加または削除します。
 	//}}AFX_DATA_INIT
 }
 
@@ -28,7 +28,7 @@ void CStressSelectSampleTypeDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CStressSelectSampleTypeDlg)
-		// ���� - ClassWizard �͂��̈ʒu�Ƀ}�b�s���O�p�̃}�N����ǉ��܂��͍폜���܂��B
+		// メモ - ClassWizard はこの位置にマッピング用のマクロを追加または削除します。
 	//}}AFX_DATA_MAP
 
 	DDX_Control(pDX, IDOK, m_OkButton);
@@ -42,11 +42,11 @@ BEGIN_MESSAGE_MAP(CStressSelectSampleTypeDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CStressSelectSampleTypeDlg ���b�Z�[�W �n���h��
+// CStressSelectSampleTypeDlg メッセージ ハンドラ
 
 void CStressSelectSampleTypeDlg::OnOK()
 {
-	// TODO: ���̈ʒu�ɂ��̑��̌��ؗp�̃R�[�h��ǉ����Ă�������
+	// TODO: この位置にその他の検証用のコードを追加してください
 
 	CComboBox* pCombo = (CComboBox *)GetDlgItem(IDC_STRESS_SELECT_SAMPLE_TYPE);
 	int iSelect = pCombo->GetCurSel();
@@ -65,7 +65,7 @@ BOOL CStressSelectSampleTypeDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// TODO: ���̈ʒu�ɏ������̕⑫������ǉ����Ă�������
+	// TODO: この位置に初期化の補足処理を追加してください
 
 	///// OK Button /////
 	m_OkButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
@@ -81,8 +81,8 @@ BOOL CStressSelectSampleTypeDlg::OnInitDialog()
 		return FALSE;
 	}
 
-	return TRUE;  // �R���g���[���Ƀt�H�[�J�X��ݒ肵�Ȃ��Ƃ��A�߂�l�� TRUE �ƂȂ�܂�
-					// ��O: OCX �v���p�e�B �y�[�W�̖߂�l�� FALSE �ƂȂ�܂�
+	return TRUE;  // コントロールにフォーカスを設定しないとき、戻り値は TRUE となります
+					// 例外: OCX プロパティ ページの戻り値は FALSE となります
 }
 
 BOOL CStressSelectSampleTypeDlg::SampleTypeCombo_Init()

@@ -1,4 +1,4 @@
-// WinSockSocket.cpp : implementation file
+ï»¿// WinSockSocket.cpp : implementation file
 //
 
 #include "stdafx.h"
@@ -48,7 +48,7 @@ UINT CWinSockSocket::ThreadProc()
 
 	while ( m_bRun )
 	{
-		// óMˆ—
+		// Ã©Ã›ÃªMÃ¨Ã Ã³Ã¹
 		nRead = Receive(buff, 4096);
 		switch (nRead)
 		{
@@ -71,7 +71,7 @@ UINT CWinSockSocket::ThreadProc()
 			break;
 		}
 
-		// ‘—Mˆ—
+		// Ã«Ã³ÃªMÃ¨Ã Ã³Ã¹
 //		if ( m_nBytesSent == m_nBytesBufferSize ) {
 //			m_sendBuffer = _T("Hoge");
 //			m_nBytesSent = 0;
@@ -90,7 +90,7 @@ UINT CWinSockSocket::ThreadProc()
 
 //---------------------------------------------------------------------------
 // DoAsyncSendBuff
-//	 ”ñ“¯Šú‘—M
+//	 Ã®Ã’Ã¬Ã˜Ã¤Ë™Ã«Ã³ÃªM
 void CWinSockSocket::DoAsyncSendBuff()
 {
 	TRACE("CWinSockSocket::DoAsyncSendBuff()\n");

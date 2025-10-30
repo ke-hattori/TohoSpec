@@ -1,4 +1,4 @@
-// MultiLangHelper.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// MultiLangHelper.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -47,12 +47,12 @@ int CMLScanType::GetItemCount()
 	case HEAD_TYPE_SE:
 		iMax = MEAS_PROG_TYPE_SE_MAX;
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case HEAD_TYPE_COMPEASE:
 		iMax = MEAS_PROG_TYPE_COMPEASE_MAX;
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 #if 0
 	case HEAD_TYPE_IRSE:
 		iMax = MEAS_PROG_TYPE_IRSE_MAX;
@@ -62,7 +62,7 @@ int CMLScanType::GetItemCount()
 		iMax = MEAS_PROG_TYPE_MS_MAX;
 		break;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 	case HEAD_TYPE_4PP:
 		iMax = MEAS_PROG_TYPE_4PP_MAX;
 		break;
@@ -98,12 +98,12 @@ CString& CMLScanType::GetItemText(int index)
 		case HEAD_TYPE_SE:
 			pszItem = MEAS_PROG_TYPE_SE_ITEM_ENU;
 			break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 		case HEAD_TYPE_COMPEASE:
 			pszItem = MEAS_PROG_TYPE_COMPEASE_ITEM_ENU;
 			break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 #if 0
 		case HEAD_TYPE_IRSE:
 			pszItem = MEAS_PROG_TYPE_IRSE_ITEM_ENU;
@@ -113,7 +113,7 @@ CString& CMLScanType::GetItemText(int index)
 			pszItem = MEAS_PROG_TYPE_MS_ITEM_ENU;
 			break;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 		case HEAD_TYPE_4PP:
 			pszItem = MEAS_PROG_TYPE_4PP_ITEM_ENU;
 			break;
@@ -136,12 +136,12 @@ CString& CMLScanType::GetItemText(int index)
 		case HEAD_TYPE_SE:
 			pszItem = MEAS_PROG_TYPE_SE_ITEM_JPN;
 			break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 		case HEAD_TYPE_COMPEASE:
 			pszItem = MEAS_PROG_TYPE_COMPEASE_ITEM_JPN;
 			break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 #if 0
 		case HEAD_TYPE_IRSE:
 			pszItem = MEAS_PROG_TYPE_IRSE_ITEM_JPN;
@@ -151,7 +151,7 @@ CString& CMLScanType::GetItemText(int index)
 			pszItem = MEAS_PROG_TYPE_MS_ITEM_JPN;
 			break;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 		case HEAD_TYPE_4PP:
 			pszItem = MEAS_PROG_TYPE_4PP_ITEM_JPN;
 			break;

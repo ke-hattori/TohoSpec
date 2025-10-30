@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "../../INC/Globals.hxx"
 #include "../../INC/ConfigFile.hxx"
@@ -6,11 +6,11 @@
 #include "CurveFitting.hpp"
 
 #define CALIBFILEMAXLINE				  MAXDATANUM
-/* modified 2024.01.08 hmenjo CCD ARRAY �ǉ� ---------- { ---------- */
+/* modified 2024.01.08 hmenjo CCD ARRAY ’Ç‰Á ---------- { ---------- */
 //#define CCD_WCAL_MAX					  (6)
-/* modified 2024.01.08 hmenjo CCD ARRAY �ǉ� ----------              */
+/* modified 2024.01.08 hmenjo CCD ARRAY ’Ç‰Á ----------              */
 #define CCD_WCAL_MAX					  (7)
-/* modified 2024.01.08 hmenjo CCD ARRAY �ǉ� ---------- } ---------- */
+/* modified 2024.01.08 hmenjo CCD ARRAY ’Ç‰Á ---------- } ---------- */
 
 class CSrMeasure
 {

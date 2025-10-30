@@ -1,4 +1,4 @@
-// SystemView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SystemView.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -53,7 +53,7 @@ BEGIN_MESSAGE_MAP(CSystemView, CNanoUI)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CSystemView f’f
+// CSystemView è¨ºæ–­
 
 #ifdef _DEBUG
 // =========================================================================
@@ -72,7 +72,7 @@ void CSystemView::Dump(CDumpContext& dc) const
 #endif //_DEBUG
 
 // =========================================================================
-// CSystemView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSystemView ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -80,13 +80,13 @@ HBRUSH CSystemView::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CNanoUI::OnCtlColor(pDC, pWnd, nCtlColor);
 
-	// TODO: ‚±‚ÌˆÊ’u‚Å DC ‚ÌƒAƒgƒŠƒrƒ…[ƒg‚ð•ÏX‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã§ DC ã®ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã‚’å¤‰æ›´ã—ã¦ãã ã•ã„
 
-	// TODO: ƒfƒtƒHƒ‹ƒg‚Ìƒuƒ‰ƒV‚ª–]‚Ý‚Ì‚à‚Ì‚Å‚È‚¢ê‡‚É‚ÍAˆá‚¤ƒuƒ‰ƒV‚ð•Ô‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ–ãƒ©ã‚·ãŒæœ›ã¿ã®ã‚‚ã®ã§ãªã„å ´åˆã«ã¯ã€é•ã†ãƒ–ãƒ©ã‚·ã‚’è¿”ã—ã¦ãã ã•ã„
 
 	switch(nCtlColor){
 	case CTLCOLOR_DLG:
-		///// ”wŒiF /////
+		///// èƒŒæ™¯è‰² /////
 		ControlColor(pDC, &m_Brush_BackColor, BLACK_COLOR);
 		return m_Brush_BackColor;
 		break;
@@ -104,16 +104,16 @@ void CSystemView::ControlColor(CDC* pDC, CBrush* pBrush, COLORREF Color)
 	pDC->SetBkColor(Color);
 	pBrush->CreateSolidBrush(Color);
 }
-/* added 2015.04.05 hmenjo FWXGA ‘Î‰ž2 ---------- { ---------- */
+/* added 2015.04.05 hmenjo FWXGA å¯¾å¿œ2 ---------- { ---------- */
 void CSystemView::OnInitialUpdate()
 {
 	CNanoUI::OnInitialUpdate();
 
-	// TODO: ‚±‚ÌˆÊ’u‚ÉŒÅ—L‚Ìˆ—‚ð’Ç‰Á‚·‚é‚©A‚Ü‚½‚ÍŠî–{ƒNƒ‰ƒX‚ðŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«å›ºæœ‰ã®å‡¦ç†ã‚’è¿½åŠ ã™ã‚‹ã‹ã€ã¾ãŸã¯åŸºæœ¬ã‚¯ãƒ©ã‚¹ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
 	RECT l_rectDesktop;
 	this->GetDesktopWindow()->GetClientRect(&l_rectDesktop);
 	if ((g_lModelType == MODEL_T3100) && (l_rectDesktop.bottom < 1024)) {
 		this->SetScrollSizes(MM_TEXT, CSize(0, 0));
 	}
 }
-/* added 2015.04.05 hmenjo FWXGA ‘Î‰ž2 ---------- } ---------- */
+/* added 2015.04.05 hmenjo FWXGA å¯¾å¿œ2 ---------- } ---------- */

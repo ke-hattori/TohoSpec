@@ -1,4 +1,4 @@
-// MotCfg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// MotCfg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -13,14 +13,14 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 typedef struct MOT_AXIS_DATAtag {
-	WORD	wHctlPort;		// HCTL ƒAƒhƒŒƒX
-	WORD	wHomePort;		// Œ´“_ƒZƒ“ƒTƒAƒhƒŒƒX
-	WORD	wHomeIntPort;	// Œ´“_ƒZƒ“ƒTŠ„žƒAƒhƒŒƒX
-	WORD	wXstopPort;		// ’âŽ~Žw—ßƒAƒhƒŒƒX
-	BYTE	byHomeMask;		// Œ´“_ƒZƒ“ƒTƒrƒbƒgˆÊ’u
-	BYTE	byHomeIntMask;	// Œ´“_ƒZƒ“ƒTŠ„žƒrƒbƒg
-	BYTE	byXstopMask;	// ’âŽ~Žw—ßƒrƒbƒg
-	BYTE	byUnused;		// –¢Žg—p
+	WORD	wHctlPort;		// HCTL ã‚¢ãƒ‰ãƒ¬ã‚¹
+	WORD	wHomePort;		// åŽŸç‚¹ã‚»ãƒ³ã‚µã‚¢ãƒ‰ãƒ¬ã‚¹
+	WORD	wHomeIntPort;	// åŽŸç‚¹ã‚»ãƒ³ã‚µå‰²è¾¼ã‚¢ãƒ‰ãƒ¬ã‚¹
+	WORD	wXstopPort;		// åœæ­¢æŒ‡ä»¤ã‚¢ãƒ‰ãƒ¬ã‚¹
+	BYTE	byHomeMask;		// åŽŸç‚¹ã‚»ãƒ³ã‚µãƒ“ãƒƒãƒˆä½ç½®
+	BYTE	byHomeIntMask;	// åŽŸç‚¹ã‚»ãƒ³ã‚µå‰²è¾¼ãƒ“ãƒƒãƒˆ
+	BYTE	byXstopMask;	// åœæ­¢æŒ‡ä»¤ãƒ“ãƒƒãƒˆ
+	BYTE	byUnused;		// æœªä½¿ç”¨
 } MOT_AXIS_DATA;
 
 static MOT_AXIS_DATA axis_mot_data[8];
@@ -30,7 +30,7 @@ char szAxisName[8][10];
 static char szCfgName[12] = "mot_cfg";
 
 /////////////////////////////////////////////////////////////////////////////
-// CMotCfg ƒ_ƒCƒAƒƒO
+// CMotCfg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 
 CMotCfg::CMotCfg(CWnd* pParent /*=NULL*/)
@@ -212,7 +212,7 @@ BEGIN_MESSAGE_MAP(CMotCfg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CMotCfg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CMotCfg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 BOOL CMotCfg::Create(CWnd *pWnd)
 {
@@ -229,7 +229,7 @@ BOOL CMotCfg::Create(CWnd *pWnd)
 
 void CMotCfg::PostNcDestroy()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉŒÅ—L‚Ìˆ—‚ð’Ç‰Á‚·‚é‚©A‚Ü‚½‚ÍŠî–{ƒNƒ‰ƒX‚ðŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«å›ºæœ‰ã®å‡¦ç†ã‚’è¿½åŠ ã™ã‚‹ã‹ã€ã¾ãŸã¯åŸºæœ¬ã‚¯ãƒ©ã‚¹ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
 
 	((CMotSysCfgDlg*) m_pParent)->m_chkMotCfg = FALSE;
 	((CButton*) (((CMotSysCfgDlg*) m_pParent)->GetDlgItem(IDC_CHK_MOTCFG)))->SetCheck(0);
@@ -243,7 +243,7 @@ void CMotCfg::PostNcDestroy()
 
 void CMotCfg::OnClose()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚·‚é‚©‚Ü‚½‚ÍƒfƒtƒHƒ‹ƒg‚Ìˆ—‚ðŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã™ã‚‹ã‹ã¾ãŸã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å‡¦ç†ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
 
 	if (m_pParent != NULL) {
 		DestroyWindow();
@@ -257,9 +257,9 @@ int CMotCfg::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	if (CDialog::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
-	// TODO: ‚±‚ÌˆÊ’u‚ÉŒÅ—L‚Ìì¬—pƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«å›ºæœ‰ã®ä½œæˆç”¨ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
-	// ƒƒCƒ“ƒEƒBƒ“ƒhƒE‚ÌƒAƒCƒRƒ“‚ðÝ’è
+	// ãƒ¡ã‚¤ãƒ³ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¨­å®š
 	SetIcon(((CMotSysCfgDlg*) m_pParent)->m_hMainIcon, TRUE);
 	SetIcon(((CMotSysCfgDlg*) m_pParent)->m_hMainIcon, FALSE);
 
@@ -278,44 +278,44 @@ void CMotCfg::OnCancel()
 
 void CMotCfg::OnBtnLoad()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«é€šçŸ¥ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	int		fd;
 	char	szPathName[128];
 	int		i, j;
 	char	l_cText[255];
 
-	/* Windows ƒfƒBƒŒƒNƒgƒŠ‚ÌƒpƒX‚ðŽæ“¾ */
+	/* Windows ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ãƒ‘ã‚¹ã‚’å–å¾— */
 	GetWindowsDirectory(szPathName, 128);
 	lstrcat(szPathName, "\\");
 	lstrcat(szPathName, szCfgName);
 	lstrcat(szPathName, ".dat");
 
 	if ((fd = _lopen(szPathName, OF_READ)) >= 0) {
-		/* ƒtƒ@ƒCƒ‹umot_cfg.datvƒI[ƒvƒ“o—ˆ‚½*/
-		/* motion_base_port[0],[1]‚ðÝ’è */
+		/* ãƒ•ã‚¡ã‚¤ãƒ«ã€Œmot_cfg.datã€ã‚ªãƒ¼ãƒ—ãƒ³å‡ºæ¥ãŸ*/
+		/* motion_base_port[0],[1]ã‚’è¨­å®š */
 		_lread(fd, (LPSTR) motion_base_port, 2 * sizeof(WORD));
-		/* Ž²” alloc_axis ‚ðÝ’è */
+		/* è»¸æ•° alloc_axis ã‚’è¨­å®š */
 		_lread(fd, (LPSTR) &alloc_axis, sizeof(short));
-		/* Ž²–ˆ‚Ìƒf[ƒ^“Ço‚µ */
+		/* è»¸æ¯Žã®ãƒ‡ãƒ¼ã‚¿èª­å‡ºã— */
 		for (i = 0; i < alloc_axis; i++) {
-			/* Ž²–¼‚ð“Ço‚·[‚W•¶Žš](BIGX ‚È‚Ç) */
+			/* è»¸åã‚’èª­å‡ºã™[ï¼˜æ–‡å­—](BIGX ãªã©) */
 			_lread(fd, (LPSTR) szAxisName[i], 8);
-			/* Ž²–¼‚ÌI’[‚É 0x00 ‚ð“ü‚ê‚é */
+			/* è»¸åã®çµ‚ç«¯ã« 0x00 ã‚’å…¥ã‚Œã‚‹ */
 			for (j = 0; j < 8; j++) {
 				char c;
 				if ((c = szAxisName[i][j]) == ' ' || c == '\0')
 				   break;
 			}
 			szAxisName[i][j] = 0;
-			/* Ž²ƒf[ƒ^‚ð“Ço‚· */
+			/* è»¸ãƒ‡ãƒ¼ã‚¿ã‚’èª­å‡ºã™ */
 			_lread(fd, (LPSTR) &axis_mot_data[i], sizeof(MOT_AXIS_DATA));
 		}
 		_lclose(fd);
-		// ƒf[ƒ^•\Ž¦
+		// ãƒ‡ãƒ¼ã‚¿è¡¨ç¤º
 		DispData();
 	} else {
-		// ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“ƒGƒ‰[
+		// ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³ã‚¨ãƒ©ãƒ¼
 		sprintf(l_cText, "Failed to open(read) file[%s]", szPathName);
 		::MessageBox(NULL, l_cText, "Motion Config Error", MB_OK | MB_SYSTEMMODAL);
 	}
@@ -323,46 +323,46 @@ void CMotCfg::OnBtnLoad()
 
 void CMotCfg::OnBtnSave()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«é€šçŸ¥ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	int		fd;
 	char	szPathName[128];
 	int		i;
 	char	l_cText[255];
 
-	/* Windows ƒfƒBƒŒƒNƒgƒŠ‚ÌƒpƒX‚ðŽæ“¾ */
+	/* Windows ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ãƒ‘ã‚¹ã‚’å–å¾— */
 	GetWindowsDirectory(szPathName, 128);
 	lstrcat(szPathName, "\\");
 	lstrcat(szPathName, szCfgName);
 	lstrcat(szPathName, ".dat");
 
-	// ƒf[ƒ^Žæ“¾
+	// ãƒ‡ãƒ¼ã‚¿å–å¾—
 	GetData();
 
 	if ((fd = _lcreat(szPathName, 0)) >= 0) {
-		/* ƒtƒ@ƒCƒ‹umot_cfg.datv‚ªì¬o—ˆ‚½ */
-		/* motion_base_port[0],[1] ‚ð‘ž‚Ý */
+		/* ãƒ•ã‚¡ã‚¤ãƒ«ã€Œmot_cfg.datã€ãŒä½œæˆå‡ºæ¥ãŸ */
+		/* motion_base_port[0],[1] ã‚’æ›¸è¾¼ã¿ */
 		_lwrite(fd, (LPSTR) motion_base_port, 2 * sizeof(WORD));
-		/* Ž²”‚ð‘ž‚Ý */
+		/* è»¸æ•°ã‚’æ›¸è¾¼ã¿ */
 		_lwrite(fd, (LPSTR) &alloc_axis, sizeof(short));
-		/* Ž²–ˆ‚Ì‘ž‚Ý */
+		/* è»¸æ¯Žã®æ›¸è¾¼ã¿ */
 		for (i = 0; i < alloc_axis; i++) {
-			/* Ž²–¼‚ð‘ž‚Ý */
+			/* è»¸åã‚’æ›¸è¾¼ã¿ */
 			_lwrite(fd, (LPSTR) szAxisName[i], 8);
-			/* Ž²ƒf[ƒ^‚ð‘ž‚Ý */
+			/* è»¸ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸è¾¼ã¿ */
 			_lwrite(fd, (LPSTR) &axis_mot_data[i], sizeof(MOT_AXIS_DATA));
 		}
 		_lclose(fd);
-		// ƒf[ƒ^•\Ž¦
+		// ãƒ‡ãƒ¼ã‚¿è¡¨ç¤º
 		DispData();
 	} else {
-		// ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“ƒGƒ‰[
+		// ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³ã‚¨ãƒ©ãƒ¼
 		sprintf(l_cText, "Failed to open(write) file[%s]", szPathName);
 		::MessageBox(NULL, l_cText, "Motion Config Error", MB_OK | MB_SYSTEMMODAL);
 	}
 }
 
-// ƒf[ƒ^‚ð•\Ž¦
+// ãƒ‡ãƒ¼ã‚¿ã‚’è¡¨ç¤º
 void CMotCfg::DispData()
 {
 	m_BaseAddr1.Format("%04x", motion_base_port[0]);
@@ -441,11 +441,11 @@ void CMotCfg::DispData()
 	m_UnusedXFast.Format("%04x", axis_mot_data[6].byUnused);
 	m_UnusedY.Format(	 "%04x", axis_mot_data[7].byUnused);
 
-	// XV
+	// æ›´æ–°
 	UpdateData(FALSE);
 }
 
-// ƒf[ƒ^Žæ“¾
+// ãƒ‡ãƒ¼ã‚¿å–å¾—
 void CMotCfg::GetData()
 {
 	UpdateData(TRUE);
@@ -531,11 +531,11 @@ BOOL CMotCfg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// TODO: ‚±‚ÌˆÊ’u‚É‰Šú‰»‚Ì•â‘«ˆ—‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«åˆæœŸåŒ–ã®è£œè¶³å‡¦ç†ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
-	// Å‰‚Éƒ[ƒh‚µ‚Ä‚¨‚­
+	// æœ€åˆã«ãƒ­ãƒ¼ãƒ‰ã—ã¦ãŠã
 	OnBtnLoad();
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ðÝ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-				  // —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+				  // ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }

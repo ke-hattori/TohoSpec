@@ -1,4 +1,4 @@
-// VacuumChangeDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// VacuumChangeDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -19,7 +19,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CVacuumChangeDlg ƒ_ƒCƒAƒƒO                                             //
+// CVacuumChangeDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°                                             //
 //                                                                         //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -29,7 +29,7 @@ CVacuumChangeDlg::CVacuumChangeDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CVacuumChangeDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CVacuumChangeDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_INIT
 }
 
@@ -39,7 +39,7 @@ void CVacuumChangeDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CVacuumChangeDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_MAP
 
 	DDX_Control(pDX, IDC_VACUUM_ON_BUTTON, m_VacuumOnButton);
@@ -57,7 +57,7 @@ BEGIN_MESSAGE_MAP(CVacuumChangeDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CVacuumChangeDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CVacuumChangeDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -73,8 +73,8 @@ BOOL CVacuumChangeDlg::OnInitDialog()
 	m_VacuumOffButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_VacuumOffButton.DrawFlatFocus(TRUE);
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-				  // —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+				  // ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -88,19 +88,19 @@ void CVacuumChangeDlg::OnVacuumOnButton()
 	CString strMsg;
 	//Saiki 20090601 Add <-----
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	//ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒhƒ`ƒFƒbƒN(2²“¯“®ì§ŒÀ)
-	if( nexioIsEngineerMaintenanceSwitch()==ON )// “Œ•üƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	//ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ãƒã‚§ãƒƒã‚¯(2è»¸åŒæ™‚å‹•ä½œåˆ¶é™)
+	if( nexioIsEngineerMaintenanceSwitch()==ON )// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰
 	{
-		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh‘g‚İ‡‚í‚¹ƒGƒ‰[
-		/*“Œ•üƒƒ“ƒeƒ‚[ƒh‚Ì‚ÍA•K‚¸ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh(L)‚Æ‚È‚é
-		  ‚±‚Ìê‡A2²“¯“®ì‰Â”\ */
+		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰çµ„ã¿åˆã‚ã›ã‚¨ãƒ©ãƒ¼
+		/*æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒ¢ãƒ¼ãƒ‰ã®æ™‚ã¯ã€å¿…ãšãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(L)ã¨ãªã‚‹
+		  ã“ã®å ´åˆã€2è»¸åŒæ™‚å‹•ä½œå¯èƒ½ */
 	}
-	else //“Œ•üƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒhˆÈŠO
+	else //æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ä»¥å¤–
 	{
 	}
 
-	// ŠeI/Oƒ`ƒFƒbƒN
+	// å„I/Oãƒã‚§ãƒƒã‚¯
 	/*//Saiki 20090520 Change ----->*/
 	if(pDoc->IsInterLock() == TRUE){return;}
 	/*//Saiki 20090520 Change <-----*/
@@ -109,33 +109,33 @@ void CVacuumChangeDlg::OnVacuumOnButton()
 		LoadStringML(IDS_LIFTER_NOT_LOWER, strMsg, "Sample Lifter is not Lowest Position.");
 		pDoc->MessageStringIf_Set(strMsg);
 		return;
-	}  // ƒsƒ“‰º’[ŠO‚ê
+	}  // ãƒ”ãƒ³ä¸‹ç«¯å¤–ã‚Œ
 	if( nexioIsWorkGuideClose() 	!= OFF) {
 		LoadStringML(IDS_CLAMP_NOT_CLOSED, strMsg, "Work Guide is not Close Position.");
 		pDoc->MessageStringIf_Set(strMsg);
 		return;
-	}  // ƒ[ƒNƒKƒCƒhCloseˆÊ’u
+	}  // ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰Closeä½ç½®
 	if( nexioIsWorkGuideOpen()		!= ON ) {
 		LoadStringML(IDS_CLAMP_NOT_OPEND, strMsg, "Work Guide is not Open Position.");
 		pDoc->MessageStringIf_Set(strMsg);
 		return;
-	}  // ƒ[ƒNƒKƒCƒhOpenˆÊ’u
+	}  // ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰Openä½ç½®
 	//Saiki 20090601 Change <-----
 
-	//ActuateFlagƒ`ƒFƒbƒN
+	//ActuateFlagãƒã‚§ãƒƒã‚¯
 	//Saiki 20090601 Change ----->
 	if(pDoc->ActuateFlagsGet(ACTUATE_PIN)){
 		LoadStringML(IDS_LIFTER_WORKING, strMsg, "Sample Lifter is moving.");
 		pDoc->MessageStringIf_Set(strMsg);
 		return;
-	} //ƒŠƒtƒ^[‚ª“®ì’†‚Å‚·
+	} //ãƒªãƒ•ã‚¿ãƒ¼ãŒå‹•ä½œä¸­ã§ã™
 	if(pDoc->ActuateFlagsGet(ACTUATE_WORKGUIDE)){
 		LoadStringML(IDS_CLAMP_WORKING, strMsg, "Work Guide is moving.");
 		pDoc->MessageStringIf_Set(strMsg);
 		return;
-	} //ƒ[ƒNƒKƒCƒh‚ª“®ì’†‚Å‚·
+	} //ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰ãŒå‹•ä½œä¸­ã§ã™
 	//Saiki 20090601 Change <-----
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 
 	nexifVacuumOn(NULL);
@@ -152,19 +152,19 @@ void CVacuumChangeDlg::OnVacuumOffButton()
 	CString strMsg;
 	//Saiki 20090601 Add <-----
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	//ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒhƒ`ƒFƒbƒN(2²“¯“®ì§ŒÀ)
-	if( nexioIsEngineerMaintenanceSwitch()==ON )// “Œ•üƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	//ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ãƒã‚§ãƒƒã‚¯(2è»¸åŒæ™‚å‹•ä½œåˆ¶é™)
+	if( nexioIsEngineerMaintenanceSwitch()==ON )// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰
 	{
-		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh‘g‚İ‡‚í‚¹ƒGƒ‰[
-		/*“Œ•üƒƒ“ƒeƒ‚[ƒh‚Ì‚ÍA•K‚¸ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh(L)‚Æ‚È‚é
-		  ‚±‚Ìê‡A2²“¯“®ì‰Â”\ */
+		if( nexioIsMaintenanceSwitch() != OFF ) {AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn); return;} //ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰çµ„ã¿åˆã‚ã›ã‚¨ãƒ©ãƒ¼
+		/*æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒ¢ãƒ¼ãƒ‰ã®æ™‚ã¯ã€å¿…ãšãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(L)ã¨ãªã‚‹
+		  ã“ã®å ´åˆã€2è»¸åŒæ™‚å‹•ä½œå¯èƒ½ */
 	}
-	else //“Œ•üƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒhˆÈŠO
+	else //æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ä»¥å¤–
 	{
 	}
 
-	// ŠeI/Oƒ`ƒFƒbƒN
+	// å„I/Oãƒã‚§ãƒƒã‚¯
 	/*//Saiki 20090520 Change ----->*/
 	if(pDoc->IsInterLock() == TRUE){return;}
 	/*//Saiki 20090520 Change <-----*/
@@ -173,29 +173,29 @@ void CVacuumChangeDlg::OnVacuumOffButton()
 		LoadStringML(IDS_CLAMP_NOT_CLOSED, strMsg, "Work Guide is not Close Position.");
 		pDoc->MessageStringIf_Set(strMsg);
 		return;
-	}  // ƒ[ƒNƒKƒCƒhCloseˆÊ’u
+	}  // ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰Closeä½ç½®
 	if( nexioIsWorkGuideOpen()		!= ON ) {
 		LoadStringML(IDS_CLAMP_NOT_OPEND, strMsg, "Work Guide is not Open Position.");
 		pDoc->MessageStringIf_Set(strMsg);
 		return;
-	}  // ƒ[ƒNƒKƒCƒhOpenˆÊ’u
+	}  // ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰Openä½ç½®
 
 	//Saiki 20090601 Change <-----
 
-	//ActuateFlagƒ`ƒFƒbƒN
+	//ActuateFlagãƒã‚§ãƒƒã‚¯
 	//Saiki 20090601 Change ----->
 	if(pDoc->ActuateFlagsGet(ACTUATE_PIN)){
 		LoadStringML(IDS_LIFTER_WORKING, strMsg, "Sample Lifter is moving.");
 		pDoc->MessageStringIf_Set(strMsg);
 		return;
-	} //ƒŠƒtƒ^[‚ª“®ì’†‚Å‚·
+	} //ãƒªãƒ•ã‚¿ãƒ¼ãŒå‹•ä½œä¸­ã§ã™
 	if(pDoc->ActuateFlagsGet(ACTUATE_WORKGUIDE)){
 		LoadStringML(IDS_CLAMP_WORKING, strMsg, "Work Guide is moving.");
 		pDoc->MessageStringIf_Set(strMsg);
 		return;
-	} //ƒ[ƒNƒKƒCƒh‚ª“®ì’†‚Å‚·
+	} //ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰ãŒå‹•ä½œä¸­ã§ã™
 	//Saiki 20090601 Change <-----
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
 
 
 	nexifVacuumOff(NULL);

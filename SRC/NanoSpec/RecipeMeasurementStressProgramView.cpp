@@ -1,4 +1,4 @@
-
+﻿
 // RecipeMeasurementStressProgramView.cpp : �C���v�������e�[�V���� �t�@�C��
 //
 

@@ -1,4 +1,4 @@
-
+﻿
 #ifndef SIMPLECTYPES_H_INC
 #define SIMPLECTYPES_H_INC
 

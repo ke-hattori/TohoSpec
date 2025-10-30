@@ -1,4 +1,4 @@
-// DebugDlg.cpp : ÉCÉìÉvÉäÉÅÉìÉeÅ[ÉVÉáÉì ÉtÉ@ÉCÉã
+Ôªø// DebugDlg.cpp : „Ç§„É≥„Éó„É™„É°„É≥„ÉÜ„Éº„Ç∑„Éß„É≥ „Éï„Ç°„Ç§„É´
 //
 
 #include "stdafx.h"
@@ -24,7 +24,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CDebugDlg É_ÉCÉAÉçÉO                                                    //
+// CDebugDlg „ÉÄ„Ç§„Ç¢„É≠„Ç∞                                                    //
 //                                                                         //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -79,7 +79,7 @@ BEGIN_MESSAGE_MAP(CDebugDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CDebugDlg ÉÅÉbÉZÅ[ÉW ÉnÉìÉhÉâ                                           //
+// CDebugDlg „É°„ÉÉ„Çª„Éº„Ç∏ „Éè„É≥„Éâ„É©                                           //
 //                                                                         //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -116,8 +116,8 @@ BOOL CDebugDlg::OnInitDialog()
 
 	SetTimer(REFRESH_TIMER_ID, REFRESH_TIMER_ELAPSE, NULL);
 
-	return TRUE;	// ÉRÉìÉgÉçÅ[ÉãÇ…ÉtÉHÅ[ÉJÉXÇê›íËÇµÇ»Ç¢Ç∆Ç´ÅAñﬂÇËílÇÕ TRUE Ç∆Ç»ÇËÇ‹Ç∑
-					// ó·äO: OCX ÉvÉçÉpÉeÉB ÉyÅ[ÉWÇÃñﬂÇËílÇÕ FALSE Ç∆Ç»ÇËÇ‹Ç∑
+	return TRUE;	// „Ç≥„É≥„Éà„É≠„Éº„É´„Å´„Éï„Ç©„Éº„Ç´„Çπ„ÇíË®≠ÂÆö„Åó„Å™„ÅÑ„Å®„Åç„ÄÅÊàª„ÇäÂÄ§„ÅØ TRUE „Å®„Å™„Çä„Åæ„Åô
+					// ‰æãÂ§ñ: OCX „Éó„É≠„Éë„ÉÜ„Ç£ „Éö„Éº„Ç∏„ÅÆÊàª„ÇäÂÄ§„ÅØ FALSE „Å®„Å™„Çä„Åæ„Åô
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -133,7 +133,7 @@ void CDebugDlg::OnSendMeasurementData()
 {
 	//m_pView = ((CView*)((CMainFrame*) AfxGetApp()->m_pMainWnd)->m_wndSplitter2.GetPane(0, 0));
 	//((CMeasurementTabView*) m_pView)->PostMessage(WM_MEAS_COMP_EVENT, m_iPoint, 0);
-	(CMainFrame*)AfxGetMainWnd()->PostMessage(WM_MEAS_COMP_EVENT, m_iPoint, 0); // MainFrameÇ÷ë™íËÉ|ÉCÉìÉgâÒêîÇWParam
+	(CMainFrame*)AfxGetMainWnd()->PostMessage(WM_MEAS_COMP_EVENT, m_iPoint, 0); // MainFrame„Å∏Ê∏¨ÂÆö„Éù„Ç§„É≥„ÉàÂõûÊï∞„ÇíWParam
 
 	m_iPoint++;
 }
@@ -292,9 +292,9 @@ void CDebugDlg::OnDebNexioMonitor()
 //
 void CDebugDlg::OnHibinoDebug1()
 {
-	// TODO: Ç±ÇÃà íuÇ…ÉRÉìÉgÉçÅ[Éãí ímÉnÉìÉhÉâópÇÃÉRÅ[ÉhÇí«â¡ÇµÇƒÇ≠ÇæÇ≥Ç¢
+	// TODO: „Åì„ÅÆ‰ΩçÁΩÆ„Å´„Ç≥„É≥„Éà„É≠„Éº„É´ÈÄöÁü•„Éè„É≥„Éâ„É©Áî®„ÅÆ„Ç≥„Éº„Éâ„ÇíËøΩÂä†„Åó„Å¶„Åè„Å†„Åï„ÅÑ
 
-	(CMainFrame*)AfxGetMainWnd()->PostMessage(WM_CHIF_MOVE_SETPOS_END, m_iPoint, 0); // MainFrameÇ÷
+	(CMainFrame*)AfxGetMainWnd()->PostMessage(WM_CHIF_MOVE_SETPOS_END, m_iPoint, 0); // MainFrame„Å∏
 
 }
 
@@ -323,7 +323,7 @@ void CDebugDlg::OnDebMesSend()
 	SetDlgItemText(IDC_DEB_SEND_MES_COUNT, szBuf);
 
 	CMainFrame* m_pMainFrame = (CMainFrame *)AfxGetMainWnd();
-	m_pMainFrame->PostMessage(WM_DEB_MESSAGE, m_count, 0); // MainFrameÇ÷
+	m_pMainFrame->PostMessage(WM_DEB_MESSAGE, m_count, 0); // MainFrame„Å∏
 }
 
 /////////////////////////////////////////////////////////////////////////////

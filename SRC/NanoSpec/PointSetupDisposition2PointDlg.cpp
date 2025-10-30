@@ -1,4 +1,4 @@
-// PointSetupDisposition2PointDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// PointSetupDisposition2PointDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -19,14 +19,14 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CPointSetupDisposition2PointDlg ƒ_ƒCƒAƒƒO
+// CPointSetupDisposition2PointDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 
 CPointSetupDisposition2PointDlg::CPointSetupDisposition2PointDlg(int iNumScans, double dSampleSizeX, double dSampleSizeY, int nOrgPos,CWnd* pParent /*=NULL*/)
 	: CDialog(CPointSetupDisposition2PointDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CPointSetupDisposition2PointDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_INIT
 
 	m_lStartPointX1 = m_lStartPointY1 =0;
@@ -45,7 +45,7 @@ void CPointSetupDisposition2PointDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CPointSetupDisposition2PointDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_MAP
 
 	DDX_Control(pDX, IDC_DISPOSITON_GRID, m_DispositionGrid);
@@ -57,12 +57,12 @@ void CPointSetupDisposition2PointDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CPointSetupDisposition2PointDlg, CDialog)
 	//{{AFX_MSG_MAP(CPointSetupDisposition2PointDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CPointSetupDisposition2PointDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CPointSetupDisposition2PointDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 BOOL CPointSetupDisposition2PointDlg::OnInitDialog()
 {
@@ -105,15 +105,15 @@ BOOL CPointSetupDisposition2PointDlg::OnInitDialog()
 	m_DispositionGrid2.SetItemState(1, 1, GVIS_SELECTED);
 	m_DispositionGrid2.SetFocusCell(1, 1);
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
 //
 void CPointSetupDisposition2PointDlg::OnOK()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚É‚»‚Ì‘¼‚ÌŒŸØ—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãã®ä»–ã®æ¤œè¨¼ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 	CComboBox* pCombo = (CComboBox*)GetDlgItem(IDC_DRAW_SHAPED);
 
 	if(!CheckData()){
@@ -128,7 +128,7 @@ void CPointSetupDisposition2PointDlg::OnOK()
 //
 void CPointSetupDisposition2PointDlg::OnCancel()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚É“Á•Ê‚ÈŒãˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ã“ã®ä½ç½®ã«ç‰¹åˆ¥ãªå¾Œå‡¦ç†ã‚’è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 
 	CDialog::OnCancel();
 }
@@ -190,10 +190,10 @@ BOOL CPointSetupDisposition2PointDlg::DispositionGrid_Init()
 		"Count",
 	};
 	char* ColItem_JPN[]={
-		"²",
-		"ŠJnˆÊ’u (mm)",
-		"ŠÔŠu (mm)",
-		"ƒ|ƒCƒ“ƒg”",
+		"è»¸",
+		"é–‹å§‹ä½ç½® (mm)",
+		"é–“éš” (mm)",
+		"ãƒã‚¤ãƒ³ãƒˆæ•°",
 	};
 
 	char* RowItem[]={
@@ -325,9 +325,9 @@ BOOL CPointSetupDisposition2PointDlg::DispositionGrid2_Init()
 		"Pitch (mm)",
 	};
 	char* ColItem_JPN[]={
-		"²",
-		"ŠJnˆÊ’u (mm)",
-		"ŠÔŠu (mm)",
+		"è»¸",
+		"é–‹å§‹ä½ç½® (mm)",
+		"é–“éš” (mm)",
 	};
 
 	char* RowItem[]={
@@ -462,33 +462,33 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 		return FALSE;
 	}
 
-	// ƒOƒŠƒbƒh‚Ìó‘Ô‚ğæ“¾
-	// X²‚Ìn“_‚ªu‹óv‚Ì‚Í”²‚¯‚é
+	// ã‚°ãƒªãƒƒãƒ‰ã®çŠ¶æ…‹ã‚’å–å¾—
+	// Xè»¸ã®å§‹ç‚¹ãŒã€Œç©ºã€ã®æ™‚ã¯æŠœã‘ã‚‹
 	strBuff = m_DispositionGrid.GetItemText(1, 1);
 	if (strlen(strBuff)==0){
 		return FALSE;
 	}
-	// Y²‚Ìn“_‚ªu‹óv‚Ì‚Í”²‚¯‚é
+	// Yè»¸ã®å§‹ç‚¹ãŒã€Œç©ºã€ã®æ™‚ã¯æŠœã‘ã‚‹
 	strBuff = m_DispositionGrid.GetItemText(2, 1);
 	if (strlen(strBuff)==0){
 		return FALSE;
 	}
-	// X²‚ÌŠÔŠu‚ªu‹óv‚Ì‚Í”²‚¯‚é
+	// Xè»¸ã®é–“éš”ãŒã€Œç©ºã€ã®æ™‚ã¯æŠœã‘ã‚‹
 	strBuff = m_DispositionGrid.GetItemText(1, 2);
 	if (strlen(strBuff)==0) {
 		return FALSE;
 	}
-	// Y²‚ÌŠÔŠu‚ªu‹óv‚Ì‚Í”²‚¯‚é
+	// Yè»¸ã®é–“éš”ãŒã€Œç©ºã€ã®æ™‚ã¯æŠœã‘ã‚‹
 	strBuff = m_DispositionGrid.GetItemText(2, 2);
 	if (strlen(strBuff)==0){
 		return FALSE;
 	}
-	// X²‚Ìƒ|ƒCƒ“ƒg”‚ªu‹óv‚Ü‚½‚Íu0ˆÈ‰ºv‚Ì‚Í”²‚¯‚é
+	// Xè»¸ã®ãƒã‚¤ãƒ³ãƒˆæ•°ãŒã€Œç©ºã€ã¾ãŸã¯ã€Œ0ä»¥ä¸‹ã€ã®æ™‚ã¯æŠœã‘ã‚‹
 	strBuff = m_DispositionGrid.GetItemText(1, 3);
 	if ((strlen(strBuff)==0) || (atoi(strBuff) <=0)){
 		return FALSE;
 	}
-	// Y²‚Ìƒ|ƒCƒ“ƒg”‚ªlŠp”z’u‚Åu‹óv‚Ü‚½‚Íu0ˆÈ‰ºv‚Ì‚Í”²‚¯‚é
+	// Yè»¸ã®ãƒã‚¤ãƒ³ãƒˆæ•°ãŒå››è§’é…ç½®ã§ã€Œç©ºã€ã¾ãŸã¯ã€Œ0ä»¥ä¸‹ã€ã®æ™‚ã¯æŠœã‘ã‚‹
 	strBuff = m_DispositionGrid.GetItemText(2, 3);
 	if (pCombo->GetCurSel() == STAGE_DRAW_SHAPED_RECTANGLE){
 		if ((strlen(strBuff)==0)  || (atoi(strBuff) <=0)) {
@@ -496,33 +496,33 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 		}
 	}
 
-	// X²‚Ìn“_‚ªu‹óv‚Ì‚Í”²‚¯‚é
+	// Xè»¸ã®å§‹ç‚¹ãŒã€Œç©ºã€ã®æ™‚ã¯æŠœã‘ã‚‹
 	strBuff = m_DispositionGrid2.GetItemText(1, 1);
 	if (strlen(strBuff)==0){
 		return FALSE;
 	}
-	// Y²‚Ìn“_‚ªu‹óv‚Ì‚Í”²‚¯‚é
+	// Yè»¸ã®å§‹ç‚¹ãŒã€Œç©ºã€ã®æ™‚ã¯æŠœã‘ã‚‹
 	strBuff = m_DispositionGrid2.GetItemText(2, 1);
 	if (strlen(strBuff)==0){
 		return FALSE;
 	}
-	// X²‚ÌŠÔŠu‚ªu‹óv‚Ì‚Í”²‚¯‚é
+	// Xè»¸ã®é–“éš”ãŒã€Œç©ºã€ã®æ™‚ã¯æŠœã‘ã‚‹
 	strBuff = m_DispositionGrid2.GetItemText(1, 2);
 	if (strlen(strBuff)==0) {
 		return FALSE;
 	}
-	// Y²‚ÌŠÔŠu‚ªu‹óv‚Ì‚Í”²‚¯‚é
+	// Yè»¸ã®é–“éš”ãŒã€Œç©ºã€ã®æ™‚ã¯æŠœã‘ã‚‹
 	strBuff = m_DispositionGrid2.GetItemText(2, 2);
 	if (strlen(strBuff)==0){
 		return FALSE;
 	}
 #if 0
-	// X²‚Ìƒ|ƒCƒ“ƒg”‚ªu‹óv‚Ü‚½‚Íu0ˆÈ‰ºv‚Ì‚Í”²‚¯‚é
+	// Xè»¸ã®ãƒã‚¤ãƒ³ãƒˆæ•°ãŒã€Œç©ºã€ã¾ãŸã¯ã€Œ0ä»¥ä¸‹ã€ã®æ™‚ã¯æŠœã‘ã‚‹
 	strBuff = m_DispositionGrid2.GetItemText(1, 3);
 	if ((strlen(strBuff)==0) || (atoi(strBuff) <=0)){
 		return FALSE;
 	}
-	// Y²‚Ìƒ|ƒCƒ“ƒg”‚ªlŠp”z’u‚Åu‹óv‚Ü‚½‚Íu0ˆÈ‰ºv‚Ì‚Í”²‚¯‚é
+	// Yè»¸ã®ãƒã‚¤ãƒ³ãƒˆæ•°ãŒå››è§’é…ç½®ã§ã€Œç©ºã€ã¾ãŸã¯ã€Œ0ä»¥ä¸‹ã€ã®æ™‚ã¯æŠœã‘ã‚‹
 	strBuff = m_DispositionGrid2.GetItemText(2, 3);
 	if (pCombo->GetCurSel() == STAGE_DRAW_SHAPED_RECTANGLE){
 		if ((strlen(strBuff)==0)  || (atoi(strBuff) <=0)) {
@@ -533,11 +533,11 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 
 	// StartPoint X1
 	dValueBuff = atof(m_DispositionGrid.GetItemText(1, 1)) * MICROMETRE ;
-	//Œ´“_ˆÊ’u‘Î‰
+	//åŸç‚¹ä½ç½®å¯¾å¿œ
 	if(!IsPosInStageSizeX(dValueBuff)){
 		LoadStringML(IDS_OUT_SIZE_LOCATION_X, l_strBuffer, "Out of the Size Location of X.\n(%.3lf - %.3lf)");
 		LoadStringML(IDS_TITLE_POINT_SETUP_DISPOSITION, l_strTitle, "POINT SETUP DISPOSITION");
-		//Œ´“_ˆÊ’u‘Î‰
+		//åŸç‚¹ä½ç½®å¯¾å¿œ
 		long lMin,lMax;
 		GetPosRangeX(&lMin,&lMax);
 		sprintf(szBuff, l_strBuffer, lMin, lMax);
@@ -548,11 +548,11 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 
 	// StartPoint Y1
 	dValueBuff = atof(m_DispositionGrid.GetItemText(2, 1)) * MICROMETRE ;
-	//Œ´“_ˆÊ’u‘Î‰
+	//åŸç‚¹ä½ç½®å¯¾å¿œ
 	if(!IsPosInStageSizeY(dValueBuff)){
 		LoadStringML(IDS_OUT_SIZE_LOCATION_Y, l_strBuffer, "Out of the Size Location of Y.\n(%.3lf - %.3lf)");
 		LoadStringML(IDS_TITLE_POINT_SETUP_DISPOSITION, l_strTitle, "POINT SETUP DISPOSITION");
-		//Œ´“_ˆÊ’u‘Î‰
+		//åŸç‚¹ä½ç½®å¯¾å¿œ
 		long lMin,lMax;
 		GetPosRangeY(&lMin,&lMax);
 		sprintf(szBuff, l_strBuffer, lMin, lMax);
@@ -563,11 +563,11 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 
 	// StartPoint X2
 	dValueBuff = atof(m_DispositionGrid2.GetItemText(1, 1)) * MICROMETRE ;
-	//Œ´“_ˆÊ’u‘Î‰
+	//åŸç‚¹ä½ç½®å¯¾å¿œ
 	if(!IsPosInStageSizeX(dValueBuff)){
 		LoadStringML(IDS_OUT_SIZE_LOCATION_X, l_strBuffer, "Out of the Size Location of X.\n(%.3lf - %.3lf)");
 		LoadStringML(IDS_TITLE_POINT_SETUP_DISPOSITION, l_strTitle, "POINT SETUP DISPOSITION");
-		//Œ´“_ˆÊ’u‘Î‰
+		//åŸç‚¹ä½ç½®å¯¾å¿œ
 		long lMin,lMax;
 		GetPosRangeX(&lMin,&lMax);
 		sprintf(szBuff, l_strBuffer, lMin, lMax);
@@ -578,11 +578,11 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 
 	// StartPoint Y2
 	dValueBuff = atof(m_DispositionGrid2.GetItemText(2, 1)) * MICROMETRE ;
-	//Œ´“_ˆÊ’u‘Î‰
+	//åŸç‚¹ä½ç½®å¯¾å¿œ
 	if(!IsPosInStageSizeY(dValueBuff)){
 		LoadStringML(IDS_OUT_SIZE_LOCATION_Y, l_strBuffer, "Out of the Size Location of Y.\n(%.3lf - %.3lf)");
 		LoadStringML(IDS_TITLE_POINT_SETUP_DISPOSITION, l_strTitle, "POINT SETUP DISPOSITION");
-		//Œ´“_ˆÊ’u‘Î‰
+		//åŸç‚¹ä½ç½®å¯¾å¿œ
 		long lMin,lMax;
 		GetPosRangeY(&lMin,&lMax);
 		sprintf(szBuff, l_strBuffer, lMin, lMax);
@@ -593,11 +593,11 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 
 	// Pitch X1
 	dValueBuff = atof(m_DispositionGrid.GetItemText(1, 2)) * MICROMETRE ;
-	//Œ´“_ˆÊ’u‘Î‰
+	//åŸç‚¹ä½ç½®å¯¾å¿œ
 	if(!IsPosInStageSizeX(dValueBuff)){
 		LoadStringML(IDS_OUT_PITCH_RANGE_X, l_strBuffer, "Out of the Pitch Range of X.\n(%.3lf - %.3lf)");
 		LoadStringML(IDS_TITLE_POINT_SETUP_DISPOSITION, l_strTitle, "POINT SETUP DISPOSITION");
-		//Œ´“_ˆÊ’u‘Î‰
+		//åŸç‚¹ä½ç½®å¯¾å¿œ
 		long lMin,lMax;
 		GetPosRangeX(&lMin,&lMax);
 		sprintf(szBuff, l_strBuffer, lMin, lMax);
@@ -608,11 +608,11 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 
 	// Pitch Y1
 	dValueBuff = atof(m_DispositionGrid.GetItemText(2, 2)) * MICROMETRE ;
-	//Œ´“_ˆÊ’u‘Î‰
+	//åŸç‚¹ä½ç½®å¯¾å¿œ
 	if(!IsPosInStageSizeY(dValueBuff)){
 		LoadStringML(IDS_OUT_PITCH_RANGE_Y, l_strBuffer, "Out of the Pitch Range of Y.\n(%.3lf - %.3lf)");
 		LoadStringML(IDS_TITLE_POINT_SETUP_DISPOSITION, l_strTitle, "POINT SETUP DISPOSITION");
-		//Œ´“_ˆÊ’u‘Î‰
+		//åŸç‚¹ä½ç½®å¯¾å¿œ
 		long lMin,lMax;
 		GetPosRangeY(&lMin,&lMax);
 		sprintf(szBuff, l_strBuffer, lMin, lMax);
@@ -623,11 +623,11 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 
 	// Pitch X2
 	dValueBuff = atof(m_DispositionGrid2.GetItemText(1, 2)) * MICROMETRE ;
-	//Œ´“_ˆÊ’u‘Î‰
+	//åŸç‚¹ä½ç½®å¯¾å¿œ
 	if(!IsPosInStageSizeX(dValueBuff)){
 		LoadStringML(IDS_OUT_PITCH_RANGE_X, l_strBuffer, "Out of the Pitch Range of X.\n(%.3lf - %.3lf)");
 		LoadStringML(IDS_TITLE_POINT_SETUP_DISPOSITION, l_strTitle, "POINT SETUP DISPOSITION");
-		//Œ´“_ˆÊ’u‘Î‰
+		//åŸç‚¹ä½ç½®å¯¾å¿œ
 		long lMin,lMax;
 		GetPosRangeX(&lMin,&lMax);
 		sprintf(szBuff, l_strBuffer, lMin, lMax);
@@ -638,11 +638,11 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 
 	// Pitch Y2
 	dValueBuff = atof(m_DispositionGrid2.GetItemText(2, 2)) * MICROMETRE ;
-	//Œ´“_ˆÊ’u‘Î‰
+	//åŸç‚¹ä½ç½®å¯¾å¿œ
 	if(!IsPosInStageSizeY(dValueBuff)){
 		LoadStringML(IDS_OUT_PITCH_RANGE_Y, l_strBuffer, "Out of the Pitch Range of Y.\n(%.3lf - %.3lf)");
 		LoadStringML(IDS_TITLE_POINT_SETUP_DISPOSITION, l_strTitle, "POINT SETUP DISPOSITION");
-		//Œ´“_ˆÊ’u‘Î‰
+		//åŸç‚¹ä½ç½®å¯¾å¿œ
 		long lMin,lMax;
 		GetPosRangeY(&lMin,&lMax);
 		sprintf(szBuff, l_strBuffer, lMin, lMax);
@@ -654,10 +654,10 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 	// Count X
 	dValueBuff = atof(m_DispositionGrid.GetItemText(1, 1)) * MICROMETRE ;
 	strBuff = m_DispositionGrid.GetItemText(1, 3);
-	//“¯ˆêÀ•W‚ÌŒJ•Ô‚µİ’è‰Â”\‚É‚µ‚½
+	//åŒä¸€åº§æ¨™ã®ç¹°è¿”ã—è¨­å®šå¯èƒ½ã«ã—ãŸ
 	if ( m_lPitchX1 != 0 ){
 		lMax=0;
-		//Œ´“_ˆÊ’u‘Î‰
+		//åŸç‚¹ä½ç½®å¯¾å¿œ
 		while ( IsPosInStageSizeX((dValueBuff + (lMax * m_lPitchX1))))
 			lMax++;
 		if(CheckMinMaxInt(strBuff, 1, lMax) != CHECK_DATA_OK){
@@ -666,7 +666,7 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 	}
 	if ( m_lPitchX2 != 0 ){
 		lMax=0;
-		//Œ´“_ˆÊ’u‘Î‰
+		//åŸç‚¹ä½ç½®å¯¾å¿œ
 		while ( IsPosInStageSizeX((dValueBuff + (lMax * m_lPitchX2))))
 			lMax++;
 		if(CheckMinMaxInt(strBuff, 1, lMax) != CHECK_DATA_OK){
@@ -676,14 +676,14 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 	m_iCountX = atoi(strBuff);
 
 	// Count Y
-	//Lineƒ‚[ƒh‚Í m_iCountX‚ÅŒvZi’Ç‰Áƒ|ƒCƒ“ƒg”ŒvZ‚Ì‚½‚ß"1"ŒÅ’è‚Æ‚·‚éj
+	//Lineãƒ¢ãƒ¼ãƒ‰ã¯ m_iCountXã§è¨ˆç®—ï¼ˆè¿½åŠ ãƒã‚¤ãƒ³ãƒˆæ•°è¨ˆç®—ã®ãŸã‚"1"å›ºå®šã¨ã™ã‚‹ï¼‰
 	dValueBuff = atof(m_DispositionGrid.GetItemText(2, 1)) * MICROMETRE ;
 	if(pCombo->GetCurSel() == STAGE_DRAW_SHAPED_RECTANGLE){
 		strBuff = m_DispositionGrid.GetItemText(2, 3);
 
 		if ( m_lPitchY1 != 0 ){
 			lMax=0;
-			//Œ´“_ˆÊ’u‘Î‰
+			//åŸç‚¹ä½ç½®å¯¾å¿œ
 			while ( IsPosInStageSizeY((dValueBuff + (lMax * m_lPitchY1))))
 				lMax++;
 			if(CheckMinMaxInt(strBuff, 1, lMax) != CHECK_DATA_OK){
@@ -692,7 +692,7 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 		}
 		if ( m_lPitchY2 != 0 ){
 			lMax=0;
-			//Œ´“_ˆÊ’u‘Î‰
+			//åŸç‚¹ä½ç½®å¯¾å¿œ
 			while ( IsPosInStageSizeY((dValueBuff + (lMax * m_lPitchY2))))
 				lMax++;
 			if(CheckMinMaxInt(strBuff, 1, lMax) != CHECK_DATA_OK){
@@ -705,7 +705,7 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 		m_iCountY = 1;
 		if ( m_lPitchY1 != 0 ){
 			lMax=0;
-			//Œ´“_ˆÊ’u‘Î‰
+			//åŸç‚¹ä½ç½®å¯¾å¿œ
 			while ( IsPosInStageSizeY((dValueBuff + (lMax * m_lPitchY1))))
 				lMax++;
 
@@ -717,7 +717,7 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 		}
 		if ( m_lPitchY2 != 0 ){
 			lMax=0;
-			//Œ´“_ˆÊ’u‘Î‰
+			//åŸç‚¹ä½ç½®å¯¾å¿œ
 			while ( IsPosInStageSizeY((dValueBuff + (lMax * m_lPitchY2))))
 				lMax++;
 
@@ -729,7 +729,7 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 		}
 	}
 
-	//Lineƒ‚[ƒh‚Ìê‡ ƒJƒEƒ“ƒg”‚ÍX‚ª—LŒøAY‚Í–³Œø
+	//Lineãƒ¢ãƒ¼ãƒ‰ã®å ´åˆ ã‚«ã‚¦ãƒ³ãƒˆæ•°ã¯XãŒæœ‰åŠ¹ã€Yã¯ç„¡åŠ¹
 	if(pCombo->GetCurSel() ==	STAGE_DRAW_SHAPED_LINE){
 		if(m_iCountX > (SCAN_POINT_MAX - m_iNumScans)){
 			LoadStringML(IDS_MAXIMUM_NUMBER_CAN_REGISTERED, l_strBuffer, "The Maximum Number which can be Registered is %d.");
@@ -741,7 +741,7 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 	}
 
 	if(pCombo->GetCurSel() == STAGE_DRAW_SHAPED_RECTANGLE){
-	//RectAngleƒ‚[ƒh‚Ìê‡A‘ƒ|ƒCƒ“ƒg”‚ªÅ‘å‚ğ‰z‚¦‚È‚¢‚æ‚¤‚É‚·‚é
+	//RectAngleãƒ¢ãƒ¼ãƒ‰ã®å ´åˆã€ç·ãƒã‚¤ãƒ³ãƒˆæ•°ãŒæœ€å¤§ã‚’è¶Šãˆãªã„ã‚ˆã†ã«ã™ã‚‹
 		if(m_iCountX * m_iCountY > (SCAN_POINT_MAX - m_iNumScans)){
 			LoadStringML(IDS_MAXIMUM_NUMBER_CAN_REGISTERED, l_strBuffer, "The Maximum Number which can be Registered is %d.");
 			LoadStringML(IDS_TITLE_POINT_SETUP_DISPOSITION, l_strTitle, "POINT SETUP DISPOSITION");
@@ -754,7 +754,7 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 
 }
 
-//Œ´“_ˆÊ’u‘Î‰
+//åŸç‚¹ä½ç½®å¯¾å¿œ
 BOOL CPointSetupDisposition2PointDlg::IsPosInStageSizeX(double dPos)
 {
 //	int		OrgPos;		// 1:Center, 2:Top Left, 3:Botton Left, 4:Botton Right, 5:Top Right

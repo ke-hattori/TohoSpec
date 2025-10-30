@@ -1,31 +1,31 @@
-// Pattern.h
+ï»¿// Pattern.h
 //
 //////////////////////////////////////////////////////////////////////
 #pragma once
 
 BOOL LoadPointList(SITE_PATTERN* pPoint, WORD* wNumScans, LPCSTR pszFileName);
-BOOL LoadPointList2(SITE_PATTERN* pPoint, WORD* wNumScans, LPCSTR pszFilePath);		// “ü—ÍFƒtƒ@ƒCƒ‹ƒpƒX—p
+BOOL LoadPointList2(SITE_PATTERN* pPoint, WORD* wNumScans, LPCSTR pszFilePath);		// å…¥åŠ›ï¼šãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ç”¨
 BOOL SavePointList(const SITE_PATTERN* pPoint, WORD wNumScans, LPCSTR pszFileName);
-BOOL SavePointList2(const SITE_PATTERN* pPoint, WORD wNumScans, LPCSTR pszFilePath);		// “ü—ÍFƒtƒ@ƒCƒ‹ƒpƒX—p
+BOOL SavePointList2(const SITE_PATTERN* pPoint, WORD wNumScans, LPCSTR pszFilePath);		// å…¥åŠ›ï¼šãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ç”¨
 
 void MakePatternFilePath(LPSTR pszFilePath, LPCSTR pszFileName);
-/* modified 2009.07.01 hmenjo ƒCƒ[ƒWƒtƒ@ƒCƒ‹Šg’£q .spn ---------- { ---------- */
+/* modified 2009.07.01 hmenjo ã‚¤ãƒ¡ãƒ¼ã‚¸ãƒ•ã‚¡ã‚¤ãƒ«æ‹¡å¼µå­ .spn ---------- { ---------- */
 //void MakePatternImageFilePath(LPSTR pszFilePath, LPCSTR pszFileName, int iLens);
-/* modified 2009.07.01 hmenjo ƒCƒ[ƒWƒtƒ@ƒCƒ‹Šg’£q .spn ----------			  */
+/* modified 2009.07.01 hmenjo ã‚¤ãƒ¡ãƒ¼ã‚¸ãƒ•ã‚¡ã‚¤ãƒ«æ‹¡å¼µå­ .spn ----------			  */
 void MakePatternImageFilePath(LPTSTR ptszFilePath, LPCTSTR ptszFileName);
-/* modified 2009.07.01 hmenjo ƒCƒ[ƒWƒtƒ@ƒCƒ‹Šg’£q .spn ---------- } ---------- */
+/* modified 2009.07.01 hmenjo ã‚¤ãƒ¡ãƒ¼ã‚¸ãƒ•ã‚¡ã‚¤ãƒ«æ‹¡å¼µå­ .spn ---------- } ---------- */
 void GetPatternFileInfo(LPCSTR pszFilePath, LPSTR pszFileName, int* iLens);
 BOOL ExistPatternFilePath(LPCSTR pszFilePath, SYSTEMTIME* lpLastWriteSystemTime);
-/* added 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Ç‚İ/‘‚İ‹@”\’Ç‰Á ---------- { ---------- */
+/* added 2009.06.22 hmenjo SPR ã‚ªãƒ•ã‚»ãƒƒãƒˆèª­è¾¼ã¿/æ›¸è¾¼ã¿æ©Ÿèƒ½è¿½åŠ  ---------- { ---------- */
 BOOL SetSubInfo(LPCTSTR ptszPatName, LPCSPR_SUB_INFO pPatSubInfo);
 BOOL GetSubInfo(LPCTSTR ptszPatName, LPSPR_SUB_INFO pPatSubInfo);
 BOOL RemoveSubInfo(LPCTSTR ptszPatName);
-/* added 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Ç‚İ/‘‚İ‹@”\’Ç‰Á ---------- } ---------- */
+/* added 2009.06.22 hmenjo SPR ã‚ªãƒ•ã‚»ãƒƒãƒˆèª­è¾¼ã¿/æ›¸è¾¼ã¿æ©Ÿèƒ½è¿½åŠ  ---------- } ---------- */
 
-/* added 2009.07.01 hmenjo PatternFile ‘Š‘ÎƒpƒX‘Î‰ ---------- { ---------- */
-extern TCHAR g_tszProcDir[_MAX_PATH];			/* ŒÄo‚µƒvƒƒZƒX‚ÌƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
-extern TCHAR g_tszBaseDir[_MAX_PATH];			/* Šî€ƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
-/* added 2009.07.01 hmenjo PatternFile ‘Š‘ÎƒpƒX‘Î‰ ---------- } ---------- */
+/* added 2009.07.01 hmenjo PatternFile ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ---------- { ---------- */
+extern TCHAR g_tszProcDir[_MAX_PATH];			/* å‘¼å‡ºã—ãƒ—ãƒ­ã‚»ã‚¹ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª('\'ä»˜ã)*/
+extern TCHAR g_tszBaseDir[_MAX_PATH];			/* åŸºæº–ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª('\'ä»˜ã)*/
+/* added 2009.07.01 hmenjo PatternFile ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ---------- } ---------- */
 
 //2009.12.10 bagus Recipe Backup --{--
 BOOL SetBackupPath(LPCTSTR lpszBackupPath,BOOL bUse);

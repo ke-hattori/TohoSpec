@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "../../INC/Common.hxx"
 #include "../../INC/ConfigFile.hxx"
 #include "../../INC/SharedMemory.h"

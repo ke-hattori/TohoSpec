@@ -1,4 +1,4 @@
-#ifndef UDSHL_INCLUDE_H_INC_
+﻿#ifndef UDSHL_INCLUDE_H_INC_
 #define UDSHL_INCLUDE_H_INC_
 
 #pragma warning( push )

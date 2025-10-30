@@ -1,4 +1,4 @@
-// UserSettingOperationSrSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// UserSettingOperationSrSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -27,7 +27,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // #########################################################################
-// CUserSettingOperationSrSettingDlg ƒ_ƒCƒAƒƒO
+// CUserSettingOperationSrSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // #########################################################################
 
 // =========================================================================
@@ -75,7 +75,7 @@ BEGIN_MESSAGE_MAP(CUserSettingOperationSrSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CUserSettingOperationSrSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CUserSettingOperationSrSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -86,13 +86,13 @@ BOOL CUserSettingOperationSrSettingDlg::OnInitDialog()
 	///// Load System Config File /////
 	ConfigFile_GetNanoSpecIni(&m_SrConfig, CONFIG_FILE_SR_CONFIG);
 
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	if(g_lModelType == MODEL_T3100){
 		m_PatternRecSettingButton.ShowWindow(SW_HIDE);
 		m_ReferencePositionSettingButton.ShowWindow(SW_HIDE);
 	}
 	else{
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 		///// Pattern Rec Setting Button /////
 		m_PatternRecSettingButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT,
 			BUTTON_COLORING, BUTTON_NORMAL_COLOR);
@@ -102,9 +102,9 @@ BOOL CUserSettingOperationSrSettingDlg::OnInitDialog()
 		m_ReferencePositionSettingButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT,
 			BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 		m_ReferencePositionSettingButton.DrawFlatFocus(TRUE);
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 
 	///// Recipe Default Value Setting Button /////
 	m_RecipeDefaultValueSettingButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT,
@@ -116,14 +116,14 @@ BOOL CUserSettingOperationSrSettingDlg::OnInitDialog()
 		BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_FigureFormatSettingButton.DrawFlatFocus(TRUE);
 
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	if(g_lModelType == MODEL_T3100){
 		m_FocusRetryTimesSettingButton.ShowWindow(SW_HIDE);
 		m_DeleteSitePRImageButton.ShowWindow(SW_HIDE);
 		m_TransmittanceSettingButton.ShowWindow(SW_HIDE);
 	}
 	else{
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 		///// Focus Retry Times Setting Button /////
 		if(m_SrConfig.bAutoFocus){
 			m_FocusRetryTimesSettingButton.ShowWindow(SW_SHOWDEFAULT);
@@ -139,24 +139,24 @@ BOOL CUserSettingOperationSrSettingDlg::OnInitDialog()
 		m_DeleteSitePRImageButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT,
 			BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 		m_DeleteSitePRImageButton.DrawFlatFocus(TRUE);
-//		// ‚Ü‚¾•\¦‚³‚¹‚È‚¢
+//		// ã¾ã è¡¨ç¤ºã•ã›ãªã„
 //		m_DeleteSitePRImageButton.ShowWindow(SW_HIDE);
-// 2009.11.24 bagus SR C³ --{--
+// 2009.11.24 bagus SR ä¿®æ­£ --{--
 		SYSTEM_CONFIG	SystemConfig;
 
 		ConfigFile_GetNanoSpecIni(&SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 
-		//2009.12.07 bagus C³ --{--
+		//2009.12.07 bagus ä¿®æ­£ --{--
 		//if (SystemConfig.nPRMethod > 0 && !SystemConfig.bSitePatternRec) {
 		if ((SystemConfig.nPRMethod > 0 && !SystemConfig.bSitePatternRec)
 		|| SystemConfig.nPRMethod == 0
 		) {
-		//2009.12.07 bagus C³ --}--
+		//2009.12.07 bagus ä¿®æ­£ --}--
 			m_DeleteSitePRImageButton.ShowWindow(SW_HIDE);
 		} else {
 			m_DeleteSitePRImageButton.ShowWindow(SW_SHOW);
 		}
-// 2009.11.24 bagus SR C³ --}--
+// 2009.11.24 bagus SR ä¿®æ­£ --}--
 
 // 2009.09.30 bagus Gantry --{--
 		m_TransmittanceSettingButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT,
@@ -174,14 +174,14 @@ BOOL CUserSettingOperationSrSettingDlg::OnInitDialog()
 			m_TransmittanceSettingButton.ShowWindow(SW_HIDE);
 		}
 // 2010.01.06 bagus Gantry --}--
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 
 	SetTimer(1, 50, NULL);
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
@@ -276,7 +276,7 @@ BOOL CUserSettingOperationSrSettingDlg::ShowSettingDlg(CDialog* pDlg)
 		return FALSE;
 	}
 
-	// ‰E‚ÌƒEƒBƒ“ƒhƒE‚ğUser Setting‰æ–Ê‚É–ß‚·
+	// å³ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’User Settingç”»é¢ã«æˆ»ã™
 	pMainFrame->ChangeExeWnd(USERCONF_WND);
 
 	return ( pDlg->DoModal() == IDOK );
@@ -307,12 +307,12 @@ HBRUSH CUserSettingOperationSrSettingDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT 
 {
 	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
 
-	// TODO: ‚±‚ÌˆÊ’u‚Å DC ‚ÌƒAƒgƒŠƒrƒ…[ƒg‚ğ•ÏX‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã§ DC ã®ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã‚’å¤‰æ›´ã—ã¦ãã ã•ã„
 
 	BOOL sbNexMntSw = nexioIsMaintenanceSwitch();
 	BOOL sbNexEngiMntSw = nexioIsEngineerMaintenanceSwitch();
 
-	if( pWnd == this ) // ©•ª©g‚ğ•`‰æ‚·‚é‚Æ‚«‚Í
+	if( pWnd == this ) // è‡ªåˆ†è‡ªèº«ã‚’æç”»ã™ã‚‹ã¨ãã¯
 	{
 		if((sbNexMntSw == OFF)||(sbNexEngiMntSw == ON))
 		{
@@ -320,13 +320,13 @@ HBRUSH CUserSettingOperationSrSettingDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT 
 		}
 	}
 
-	// TODO: ƒfƒtƒHƒ‹ƒg‚Ìƒuƒ‰ƒV‚ª–]‚İ‚Ì‚à‚Ì‚Å‚È‚¢ê‡‚É‚ÍAˆá‚¤ƒuƒ‰ƒV‚ğ•Ô‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ–ãƒ©ã‚·ãŒæœ›ã¿ã®ã‚‚ã®ã§ãªã„å ´åˆã«ã¯ã€é•ã†ãƒ–ãƒ©ã‚·ã‚’è¿”ã—ã¦ãã ã•ã„
 	return hbr;
 }
 
 void CUserSettingOperationSrSettingDlg::OnTimer(UINT nIDEvent)
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚·‚é‚©‚Ü‚½‚ÍƒfƒtƒHƒ‹ƒg‚Ìˆ—‚ğŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã™ã‚‹ã‹ã¾ãŸã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å‡¦ç†ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
 
 	static BOOL sbNexMntSw = nexioIsMaintenanceSwitch();
 	static BOOL sbNexMntSwOld = TRUE;
@@ -338,10 +338,10 @@ void CUserSettingOperationSrSettingDlg::OnTimer(UINT nIDEvent)
 
 	if((sbNexMntSw != sbNexMntSwOld)||(sbNexEngiMntSw != sbNexEngiMntSwOld))
 	{
-		Invalidate(TRUE); //OnCtlColor()‚Ìˆ—‚ğ‚³‚¹‚éˆ×‚ÉCall
+		Invalidate(TRUE); //OnCtlColor()ã®å‡¦ç†ã‚’ã•ã›ã‚‹ç‚ºã«Call
 	}
-	sbNexMntSwOld = sbNexMntSw; //‘O‰ñ’l‘Š·‚¦
-	sbNexEngiMntSwOld = sbNexEngiMntSw; //‘O‰ñ’l‘Š·‚¦
+	sbNexMntSwOld = sbNexMntSw; //å‰å›å€¤æ›¸æ›ãˆ
+	sbNexEngiMntSwOld = sbNexEngiMntSw; //å‰å›å€¤æ›¸æ›ãˆ
 
 	CDialog::OnTimer(nIDEvent);
 }
@@ -349,7 +349,7 @@ void CUserSettingOperationSrSettingDlg::OnTimer(UINT nIDEvent)
 // 2009.09.30 bagus Gantry --{--
 void CUserSettingOperationSrSettingDlg::OnTransmittanceSettingButton()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«é€šçŸ¥ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	CSrTransmittanceSettingDlg dlg;
 

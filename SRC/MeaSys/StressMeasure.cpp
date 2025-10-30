@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include <math.h>
 #include <process.h>	/* _beginthread, _endthread */
 #include "../../INC/common.hxx"
@@ -148,14 +148,14 @@ UINT CStressMeasure::ThreadProc()
 		STATE_MAX,
 	};
 
-	// ƒXƒe[ƒWˆÚ“®‚âM†ŒŸo‚ª‚ª³í‚Å‚È‚¢ê‡Aƒ^ƒCƒ€ƒAƒEƒgƒGƒ‰[
+	// ã‚¹ãƒ†ãƒ¼ã‚¸ç§»å‹•ã‚„ä¿¡å·æ¤œå‡ºãŒãŒæ­£å¸¸ã§ãªã„å ´åˆã€ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã‚¨ãƒ©ãƒ¼
 	CTimer timer;
 	timer.Restart(STRESS_MEAS_TIMEOUT);
 
 	m_bRun = TRUE;
 	int iStep = STATE_INIT;
 
-	// ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“
+	// ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
 	if ( bHwSimulation ) {
 		iStep = STATE_MEAS;
 	}
@@ -172,7 +172,7 @@ UINT CStressMeasure::ThreadProc()
 				iStep = STATE_ABEND;
 				break;
 			}
-			if ( !nexioIsStressUnitAlarm() ) {	// BÚ“_ ref.3-68 o—Í‚ÍN.C.Ú“_‚Å‚·BOFFŽž‚É’Z—AONŽž‚ÉŠJ•ú‚Æ‚È‚è‚Ü‚·B
+			if ( !nexioIsStressUnitAlarm() ) {	// BæŽ¥ç‚¹ ref.3-68 å‡ºåŠ›ã¯N.C.æŽ¥ç‚¹ã§ã™ã€‚OFFæ™‚ã«çŸ­çµ¡ã€ONæ™‚ã«é–‹æ”¾ã¨ãªã‚Šã¾ã™ã€‚
 				pLogFile->Logging("Detect Stress Unit Alarm.");
 				iStep = STATE_ABEND;
 				break;
@@ -227,8 +227,8 @@ UINT CStressMeasure::ThreadProc()
 	}
 
 // 2009.10.07 K.Matsuo Bug Fix -->
-// InitDataStrage()‚ÅƒŠƒ^[ƒ“FALSE‚³‚ê‚Ä‚µ‚Ü‚¤‘Î‰žB
-// StartDataStrage()‚ðCall‚µ‚½‚çA•K‚¸StopDataStrage()‚ðCall‚·‚é‚±‚ÆI
+// InitDataStrage()ã§ãƒªã‚¿ãƒ¼ãƒ³FALSEã•ã‚Œã¦ã—ã¾ã†å¯¾å¿œã€‚
+// StartDataStrage()ã‚’Callã—ãŸã‚‰ã€å¿…ãšStopDataStrage()ã‚’Callã™ã‚‹ã“ã¨ï¼
 	if ( iStep == STATE_STOP )
 		StopDataStrage();
 // 2009.10.07 K.Matsuo Bug Fix -->
@@ -286,7 +286,7 @@ BOOL CStressMeasure::OutputDataStrage()
 	int iState = 0;
 	int iData = 0;
 
-	// ­‚µ‘Ò‚½‚È‚¢‚ÆAƒXƒgƒŒƒXƒ†ƒjƒbƒg‚Ìƒf[ƒ^Žæ“¾”‚ª­‚È‚¢
+	// å°‘ã—å¾…ãŸãªã„ã¨ã€ã‚¹ãƒˆãƒ¬ã‚¹ãƒ¦ãƒ‹ãƒƒãƒˆã®ãƒ‡ãƒ¼ã‚¿å–å¾—æ•°ãŒå°‘ãªã„
 	::Sleep(1000);
 
 	if ( !StatusInfoDataStrage(iState, iData) ) {
@@ -382,7 +382,7 @@ BOOL CStressMeasure::PanelLockOff()
 
 // --------------------------------------------------------------------
 // Send
-BOOL CStressMeasure::Send(LPCTSTR pszCmd)			// ¦”Ä—pƒRƒ}ƒ“ƒh
+BOOL CStressMeasure::Send(LPCTSTR pszCmd)			// â€»æ±Žç”¨ã‚³ãƒžãƒ³ãƒ‰
 {
 	return m_pStressHead->Send(pszCmd);
 }

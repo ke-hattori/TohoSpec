@@ -1,5 +1,5 @@
-/////////////////////////////////////////////////////////////////////////////
-// StatusBarEx.h : �w�b�_�[ �t�@�C��
+﻿/////////////////////////////////////////////////////////////////////////////
+// StatusBarEx.h : ヘッダー ファイル
 //
 
 /////////////////////////////////////////////////////////////////////////////
@@ -10,11 +10,11 @@ class CStatusBarEx : public CStatusBar
 public:
 	typedef struct
 	{
-		int				nIndex;			// �y�C���̍��[����̃C���f�b�N�X.
-		UINT			uStrId;			// �y�C���̕�����ID.
-		COLORREF		TextColor;		// �y�C���̃e�L�X�g�F.
-		COLORREF		BackColor;		// �y�C���̔w�i�F.
-		CString			sText;			// �y�C���̃e�L�X�g.
+		int				nIndex;			// ペインの左端からのインデックス.
+		UINT			uStrId;			// ペインの文字列ID.
+		COLORREF		TextColor;		// ペインのテキスト色.
+		COLORREF		BackColor;		// ペインの背景色.
+		CString			sText;			// ペインのテキスト.
 	}	PANE_DATA;
 
 				CStatusBarEx();

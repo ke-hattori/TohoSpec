@@ -1,4 +1,4 @@
-// SrHeadSerial.cpp : Defines the SrHeadSerial routines.
+﻿// SrHeadSerial.cpp : Defines the SrHeadSerial routines.
 //
 
 #include "stdafx.h"

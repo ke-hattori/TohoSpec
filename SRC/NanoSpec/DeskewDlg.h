@@ -1,25 +1,25 @@
-#if !defined(AFX_DESKEWDLG_H__7A53405E_9370_4F3E_81EB_3844C875C1F5__INCLUDED_)
+ï»¿#if !defined(AFX_DESKEWDLG_H__7A53405E_9370_4F3E_81EB_3844C875C1F5__INCLUDED_)
 #define AFX_DESKEWDLG_H__7A53405E_9370_4F3E_81EB_3844C875C1F5__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// DeskewDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// DeskewDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 #include "..\\..\\INC\\PatRec.hxx"
 #include "ColorStatic.h"
 
 // ##########################################################################
-// CDeskewDlg ƒ_ƒCƒAƒƒO
+// CDeskewDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // ##########################################################################
 
 class CDeskewDlg : public CDialog
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
-	CDeskewDlg(STAGE_PROG_INFO_HDR* pStageProgInfoHdr, CWnd* pParent = NULL); // •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CDeskewDlg(STAGE_PROG_INFO_HDR* pStageProgInfoHdr, CWnd* pParent = NULL); // æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CDeskewDlg)
 	enum { IDD = IDD_DESKEW_DLG };
 	//}}AFX_DATA
@@ -44,20 +44,20 @@ public:
 	CShadeButtonST m_OkButton;
 	CShadeButtonST m_CancelButton;
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CDeskewDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 	void DDX_CustomLocText(CDataExchange* pDX, int nIDC, long& value);
 	void DDV_CustomComboExecutionModeCheck(CDataExchange* pDX);
 	void DDV_CustomComboFailOptionCheck(CDataExchange* pDX);
 	void DDV_CustomAutoDeskewLensCheck(CDataExchange* pDX);
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CDeskewDlg)
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
@@ -86,6 +86,6 @@ private:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_DESKEWDLG_H__7A53405E_9370_4F3E_81EB_3844C875C1F5__INCLUDED_)

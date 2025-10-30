@@ -1,4 +1,4 @@
-
+﻿
 #ifndef _FILTERLOADER_H_INC_
 #define _FILTERLOADER_H_INC_
 

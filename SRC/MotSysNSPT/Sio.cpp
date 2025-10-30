@@ -1,4 +1,4 @@
-// Sio.cpp: implementation of the CSio class.
+ï»¿// Sio.cpp: implementation of the CSio class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -15,7 +15,7 @@ static char THIS_FILE[]=__FILE__;
 
 extern CLogFile *g_pComLogFile;
 
-CRITICAL_SECTION	g_CritSec_COM;	// ƒNƒŠƒeƒBƒJƒ‹ƒZƒNƒVƒ‡ƒ“
+CRITICAL_SECTION	g_CritSec_COM;	// ã‚¯ãƒªãƒ†ã‚£ã‚«ãƒ«ã‚»ã‚¯ã‚·ãƒ§ãƒ³
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
@@ -23,16 +23,16 @@ CRITICAL_SECTION	g_CritSec_COM;	// ƒNƒŠƒeƒBƒJƒ‹ƒZƒNƒVƒ‡ƒ“
 
 CSio::CSio(int Channel)
 {
-	// COM ƒ|[ƒg”Ô†
+	// COM ãƒãƒ¼ãƒˆç•ªå·
 	m_ChannelNo = Channel;
 	sprintf(m_sChannelNo, "\\\\.\\COM%d", m_ChannelNo);
-	// ƒnƒ“ƒhƒ‹‚ğ–³Œø‚É‚µ‚Ä‚¨‚­
+	// ãƒãƒ³ãƒ‰ãƒ«ã‚’ç„¡åŠ¹ã«ã—ã¦ãŠã
 	m_Handle = INVALID_HANDLE_VALUE;
-	// óMƒoƒbƒtƒ@‚ğƒNƒŠƒA
+	// å—ä¿¡ãƒãƒƒãƒ•ã‚¡ã‚’ã‚¯ãƒªã‚¢
 	memset(m_Buff, 0, sizeof(m_Buff));
-	// óM”‚ğƒNƒŠƒA
+	// å—ä¿¡æ•°ã‚’ã‚¯ãƒªã‚¢
 	m_Index = 0;
-	// ƒNƒŠƒeƒBƒJƒ‹ƒZƒNƒVƒ‡ƒ“‚ğ’è‹`
+	// ã‚¯ãƒªãƒ†ã‚£ã‚«ãƒ«ã‚»ã‚¯ã‚·ãƒ§ãƒ³ã‚’å®šç¾©
 	InitializeCriticalSection(&g_CritSec_COM);
 
 	m_Indicate_Send = FALSE;
@@ -42,9 +42,9 @@ CSio::CSio(int Channel)
 
 CSio::~CSio()
 {
-	// ƒNƒŠƒeƒBƒJƒ‹ƒZƒNƒVƒ‡ƒ“‚ğŠJ•ú
-	EnterCriticalSection(&g_CritSec_COM);	// æ“¾‚³‚ê‚½‚Ü‚Ü‚©‚à’m‚ê‚È‚¢‚Ì‚Å‘Ò‚Â
-	LeaveCriticalSection(&g_CritSec_COM);	// ŠJ•ú‚·‚é
+	// ã‚¯ãƒªãƒ†ã‚£ã‚«ãƒ«ã‚»ã‚¯ã‚·ãƒ§ãƒ³ã‚’é–‹æ”¾
+	EnterCriticalSection(&g_CritSec_COM);	// å–å¾—ã•ã‚ŒãŸã¾ã¾ã‹ã‚‚çŸ¥ã‚Œãªã„ã®ã§å¾…ã¤
+	LeaveCriticalSection(&g_CritSec_COM);	// é–‹æ”¾ã™ã‚‹
 	DeleteCriticalSection(&g_CritSec_COM);
 
 	if (m_Handle != FALSE) {
@@ -52,18 +52,18 @@ CSio::~CSio()
 	}
 }
 
-// ƒ|[ƒg‚Ì‰Šú‰»
+// ãƒãƒ¼ãƒˆã®åˆæœŸåŒ–
 int CSio::Initialize(		int BaudRate,
 							int ByteSize,
 							int Parity,
 							int StopBits
 						)
 {
-	// COM ƒ|[ƒg‚ğƒI[ƒvƒ“
+	// COM ãƒãƒ¼ãƒˆã‚’ã‚ªãƒ¼ãƒ—ãƒ³
 	m_Handle = CreateFile(
 							m_sChannelNo,
-							GENERIC_READ | GENERIC_WRITE,	// ƒAƒNƒZƒXƒ‚[ƒhFReadWrite
-							0,	// ‹¤—Lƒ‚[ƒhF‹¤—L‚È‚µ
+							GENERIC_READ | GENERIC_WRITE,	// ã‚¢ã‚¯ã‚»ã‚¹ãƒ¢ãƒ¼ãƒ‰ï¼šReadWrite
+							0,	// å…±æœ‰ãƒ¢ãƒ¼ãƒ‰ï¼šå…±æœ‰ãªã—
 							NULL,
 							OPEN_EXISTING,
 							FILE_ATTRIBUTE_NORMAL,
@@ -71,7 +71,7 @@ int CSio::Initialize(		int BaudRate,
 						);
 
 	if (m_Handle == INVALID_HANDLE_VALUE) {
-		// ƒI[ƒvƒ“¸”s
+		// ã‚ªãƒ¼ãƒ—ãƒ³å¤±æ•—
 		m_Handle = NULL;
 		return FALSE;
 	}
@@ -81,25 +81,25 @@ int CSio::Initialize(		int BaudRate,
 	m_Parity = Parity;
 	m_StopBits = StopBits;
 
-	// ƒfƒoƒCƒX§ŒäƒuƒƒbƒN‚ğİ’è
+	// ãƒ‡ãƒã‚¤ã‚¹åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ã‚’è¨­å®š
 	DCB dcb;
-	dcb.DCBlength = sizeof(DCB);	// ƒfƒoƒCƒX§ŒäƒuƒƒbƒN‚ÌƒoƒCƒg”
-	GetCommState(m_Handle, &dcb);	// Œ»İ‚Ìİ’è‚ğæ“¾
+	dcb.DCBlength = sizeof(DCB);	// ãƒ‡ãƒã‚¤ã‚¹åˆ¶å¾¡ãƒ–ãƒ­ãƒƒã‚¯ã®ãƒã‚¤ãƒˆæ•°
+	GetCommState(m_Handle, &dcb);	// ç¾åœ¨ã®è¨­å®šã‚’å–å¾—
 
-	dcb.BaudRate = BaudRate;	// ƒ{[ƒŒ[ƒg
+	dcb.BaudRate = BaudRate;	// ãƒœãƒ¼ãƒ¬ãƒ¼ãƒˆ
 	dcb.ByteSize = ByteSize;	// 8bit or 7bit
-	dcb.Parity	 = Parity;		// ƒpƒŠƒeƒB
-	dcb.StopBits = StopBits;	// ƒXƒgƒbƒvƒrƒbƒg
+	dcb.Parity	 = Parity;		// ãƒ‘ãƒªãƒ†ã‚£
+	dcb.StopBits = StopBits;	// ã‚¹ãƒˆãƒƒãƒ—ãƒ“ãƒƒãƒˆ
 	dcb.fOutxDsrFlow = 0;
-	dcb.fDtrControl = DTR_CONTROL_ENABLE;	// DTR ‚Íí‚É ON
+	dcb.fDtrControl = DTR_CONTROL_ENABLE;	// DTR ã¯å¸¸ã« ON
 	dcb.fOutxCtsFlow = 0;
-	dcb.fRtsControl = RTS_CONTROL_ENABLE;	// RTS ‚Íí‚É ON
+	dcb.fRtsControl = RTS_CONTROL_ENABLE;	// RTS ã¯å¸¸ã« ON
 	dcb.fInX = 0;
 	dcb.fOutX = 0;
 
-	BOOL ret = SetCommState(m_Handle, &dcb);	// ‘Š·‚¦
+	BOOL ret = SetCommState(m_Handle, &dcb);	// æ›¸æ›ãˆ
 
-	// ƒ^ƒCƒ€ƒAƒEƒg‚ğİ’è(ƒ^ƒCƒ€ƒAƒEƒg‚Íİ’è‚µ‚È‚¢)
+	// ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã‚’è¨­å®š(ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã¯è¨­å®šã—ãªã„)
 	m_CommTimeOuts.ReadIntervalTimeout = 0;
 	m_CommTimeOuts.ReadTotalTimeoutMultiplier = 0;
 	m_CommTimeOuts.ReadTotalTimeoutConstant = 0;
@@ -110,41 +110,41 @@ int CSio::Initialize(		int BaudRate,
 	return TRUE;
 }
 
-// ‘—Mˆ—
+// é€ä¿¡å‡¦ç†
 int CSio::SioSendData(char *buff, int len)
 {
 	DWORD writesize;
-	char SendBuff[256];	// ‘—Mƒoƒbƒtƒ@
+	char SendBuff[256];	// é€ä¿¡ãƒãƒƒãƒ•ã‚¡
 
 	if (m_Handle == NULL) return 0;
 
-	EnterCriticalSection(&g_CritSec_COM);	// ƒNƒŠƒeƒBƒJƒ‹ƒZƒNƒVƒ‡ƒ“æ“¾
+	EnterCriticalSection(&g_CritSec_COM);	// ã‚¯ãƒªãƒ†ã‚£ã‚«ãƒ«ã‚»ã‚¯ã‚·ãƒ§ãƒ³å–å¾—
 
-	// ‘—Mƒoƒbƒtƒ@‚ğ‚OƒNƒŠƒA
+	// é€ä¿¡ãƒãƒƒãƒ•ã‚¡ã‚’ï¼ã‚¯ãƒªã‚¢
 	memset(SendBuff, 0, sizeof(SendBuff));
 
-	// ‘—Mƒf[ƒ^’·‚ª -1 ‚È‚çƒoƒbƒtƒ@’·‚ğ‘—Mƒf[ƒ^’·‚É‚·‚é
+	// é€ä¿¡ãƒ‡ãƒ¼ã‚¿é•·ãŒ -1 ãªã‚‰ãƒãƒƒãƒ•ã‚¡é•·ã‚’é€ä¿¡ãƒ‡ãƒ¼ã‚¿é•·ã«ã™ã‚‹
 	if (len == -1) {
 		len = strlen(buff);
 	}
-	// ƒoƒbƒtƒ@‚©‚ç‘—Mƒoƒbƒtƒ@‚ÉƒRƒs[
+	// ãƒãƒƒãƒ•ã‚¡ã‹ã‚‰é€ä¿¡ãƒãƒƒãƒ•ã‚¡ã«ã‚³ãƒ”ãƒ¼
 	memcpy(SendBuff, buff, len);
 
-	// ‘—M‚·‚é
+	// é€ä¿¡ã™ã‚‹
 	if (WriteFile(m_Handle, SendBuff, len, &writesize, NULL) == 0) {
-		// ‘—M¸”s
-		LeaveCriticalSection(&g_CritSec_COM);	// ƒNƒŠƒeƒBƒJƒ‹ƒZƒNƒVƒ‡ƒ“ŠJ•ú
+		// é€ä¿¡å¤±æ•—
+		LeaveCriticalSection(&g_CritSec_COM);	// ã‚¯ãƒªãƒ†ã‚£ã‚«ãƒ«ã‚»ã‚¯ã‚·ãƒ§ãƒ³é–‹æ”¾
 		return -1;
 	}
 
-	LeaveCriticalSection(&g_CritSec_COM);	// ƒNƒŠƒeƒBƒJƒ‹ƒZƒNƒVƒ‡ƒ“ŠJ•ú
+	LeaveCriticalSection(&g_CritSec_COM);	// ã‚¯ãƒªãƒ†ã‚£ã‚«ãƒ«ã‚»ã‚¯ã‚·ãƒ§ãƒ³é–‹æ”¾
 	return (int) writesize;
 }
 
-// ƒ`ƒFƒbƒNƒTƒ€‚ğŒvZ
+// ãƒã‚§ãƒƒã‚¯ã‚µãƒ ã‚’è¨ˆç®—
 unsigned char CSio::CalcCheckSum(
-									char *data,	// ƒf[ƒ^‚Ìƒ|ƒCƒ“ƒ^(NULL ‚ÅI’[)
-									short mode	// ƒ‚[ƒhF1=add, 2=xor, 3=7bit add, 4=7bit xor
+									char *data,	// ãƒ‡ãƒ¼ã‚¿ã®ãƒã‚¤ãƒ³ã‚¿(NULL ã§çµ‚ç«¯)
+									short mode	// ãƒ¢ãƒ¼ãƒ‰ï¼š1=add, 2=xor, 3=7bit add, 4=7bit xor
 								)
 {
 	unsigned char	l_sum = 0;
@@ -169,49 +169,49 @@ unsigned char CSio::CalcCheckSum(
 	return l_sum;
 }
 
-// ƒRƒ}ƒ“ƒh’ÊM
+// ã‚³ãƒãƒ³ãƒ‰é€šä¿¡
 //int CSio::CommCommand(char *Send, char *Recv)
 int CSio::CommCommand(char *Send, char *Recv, DWORD *Length)
 {
 	int		l_prc = 0;
-	int		l_rc = 0;					// Œ‹‰Ê
-	char	l_sendbuf[BUFSIZE] = "";	// ‘—Mƒoƒbƒtƒ@
-	char	l_recvbuf[BUFSIZE] = "";	// óMƒoƒbƒtƒ@
-	char	l_recvdat[BUFSIZE] = "";	// óMƒf[ƒ^
-	DWORD	dwErrors;					// ƒGƒ‰[î•ñ
-	COMSTAT	ComStat;					// ƒfƒoƒCƒX‚Ìó‘Ô
-	DWORD	dwReadCount;				// “Ço‚µ‚½ƒoƒCƒg”
-//	DWORD	EvtMask;					// ”­¶ƒCƒxƒ“ƒg
-	unsigned char	l_rcvtmp;			// óM‚µ‚½‚PƒoƒCƒgƒf[ƒ^
-	int		l_SendLen;					// ‘—MƒoƒCƒg”
-	unsigned char	l_Sum;				// ƒ`ƒFƒbƒNƒTƒ€
-	BOOL	l_SendCancel = FALSE;		// ƒLƒƒƒ“ƒZƒ‹‘—Mƒtƒ‰ƒO
-	BOOL	l_RecvOne = TRUE;			// ‚PƒoƒCƒg–ÚóMƒtƒ‰ƒO
+	int		l_rc = 0;					// çµæœ
+	char	l_sendbuf[BUFSIZE] = "";	// é€ä¿¡ãƒãƒƒãƒ•ã‚¡
+	char	l_recvbuf[BUFSIZE] = "";	// å—ä¿¡ãƒãƒƒãƒ•ã‚¡
+	char	l_recvdat[BUFSIZE] = "";	// å—ä¿¡ãƒ‡ãƒ¼ã‚¿
+	DWORD	dwErrors;					// ã‚¨ãƒ©ãƒ¼æƒ…å ±
+	COMSTAT	ComStat;					// ãƒ‡ãƒã‚¤ã‚¹ã®çŠ¶æ…‹
+	DWORD	dwReadCount;				// èª­å‡ºã—ãŸãƒã‚¤ãƒˆæ•°
+//	DWORD	EvtMask;					// ç™ºç”Ÿã‚¤ãƒ™ãƒ³ãƒˆ
+	unsigned char	l_rcvtmp;			// å—ä¿¡ã—ãŸï¼‘ãƒã‚¤ãƒˆãƒ‡ãƒ¼ã‚¿
+	int		l_SendLen;					// é€ä¿¡ãƒã‚¤ãƒˆæ•°
+	unsigned char	l_Sum;				// ãƒã‚§ãƒƒã‚¯ã‚µãƒ 
+	BOOL	l_SendCancel = FALSE;		// ã‚­ãƒ£ãƒ³ã‚»ãƒ«é€ä¿¡ãƒ•ãƒ©ã‚°
+	BOOL	l_RecvOne = TRUE;			// ï¼‘ãƒã‚¤ãƒˆç›®å—ä¿¡ãƒ•ãƒ©ã‚°
 	int 	i = 0;
-	DWORD	l_RecvLen = 0;				// óMƒoƒCƒg”
+	DWORD	l_RecvLen = 0;				// å—ä¿¡ãƒã‚¤ãƒˆæ•°
 #ifdef COM_TIMEOUT_MODE	//-------------------------------------------------------------------------
-	DWORD	l_dwTimeoutPeriod = 100;	// ƒ^ƒCƒ€ƒAƒEƒgÅ¬’l[ms]
+	DWORD	l_dwTimeoutPeriod = 100;	// ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆæœ€å°å€¤[ms]
 #endif
 
-	EnterCriticalSection(&g_CritSec_COM);	// ƒNƒŠƒeƒBƒJƒ‹ƒZƒNƒVƒ‡ƒ“æ“¾
+	EnterCriticalSection(&g_CritSec_COM);	// ã‚¯ãƒªãƒ†ã‚£ã‚«ãƒ«ã‚»ã‚¯ã‚·ãƒ§ãƒ³å–å¾—
 
 #ifdef COM_TIMEOUT_MODE	//-------------------------------------------------------------------------
-	m_dwTimeoutCount = 0;		// ƒ^ƒCƒ€ƒAƒEƒgƒJƒEƒ“ƒg
+	m_dwTimeoutCount = 0;		// ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã‚«ã‚¦ãƒ³ãƒˆ
 #endif
 
 	while (l_rc == 0) {
 		switch (l_prc) {
-		case 0:		// Šù‚ÉóM‚µ‚Ä‚¢‚½ƒf[ƒ^‚ª‚ ‚ê‚Î“Ç‚İÌ‚Ä‚é
+		case 0:		// æ—¢ã«å—ä¿¡ã—ã¦ã„ãŸãƒ‡ãƒ¼ã‚¿ãŒã‚ã‚Œã°èª­ã¿æ¨ã¦ã‚‹
 			m_CommTimeOuts.ReadTotalTimeoutConstant = 0;
 			SetCommTimeouts(m_Handle, &m_CommTimeOuts);
 			if (ClearCommError(m_Handle, &dwErrors, &ComStat) == 0) {
-				// ŠÖ”¸”s
+				// é–¢æ•°å¤±æ•—
 				l_rc = MSC_PRE_CHECK_FAIL;
 			} else {
 				if (ComStat.cbInQue != 0) {
-					// óMƒf[ƒ^‚ª‚ ‚ê‚Î“Ç‚İÌ‚Ä
+					// å—ä¿¡ãƒ‡ãƒ¼ã‚¿ãŒã‚ã‚Œã°èª­ã¿æ¨ã¦
 					if (ReadFile(m_Handle, &l_recvbuf, ComStat.cbInQue, &dwReadCount, NULL) == 0) {
-						// ŠÖ”¸”s
+						// é–¢æ•°å¤±æ•—
 						l_rc = MSC_PRE_READ_FAIL;
 					} else {
 						l_prc = 1;
@@ -221,25 +221,25 @@ int CSio::CommCommand(char *Send, char *Recv, DWORD *Length)
 				}
 			}
 			break;
-		case 1:		// ƒRƒ}ƒ“ƒh‘—M
-//			SetCommMask(m_Handle, EV_RXCHAR);	// ŠÄ‹ƒCƒxƒ“ƒg‚ğİ’èF1•¶šóM
-			l_Sum = CalcCheckSum(Send, 1);	// ƒ`ƒFƒbƒNƒTƒ€ŒvZ
+		case 1:		// ã‚³ãƒãƒ³ãƒ‰é€ä¿¡
+//			SetCommMask(m_Handle, EV_RXCHAR);	// ç›£è¦–ã‚¤ãƒ™ãƒ³ãƒˆã‚’è¨­å®šï¼š1æ–‡å­—å—ä¿¡
+			l_Sum = CalcCheckSum(Send, 1);	// ãƒã‚§ãƒƒã‚¯ã‚µãƒ è¨ˆç®—
 			strcpy(l_sendbuf, Send);
 			l_SendLen = strlen(l_sendbuf);
-			l_sendbuf[l_SendLen] = COM_SO;	// ‘—MƒfƒŠƒ~ƒ^‚ğ’Ç‰Á
-			// ‘—M
+			l_sendbuf[l_SendLen] = COM_SO;	// é€ä¿¡ãƒ‡ãƒªãƒŸã‚¿ã‚’è¿½åŠ 
+			// é€ä¿¡
 //			CommLogging(l_sendbuf, 0);
 			CommLogging(l_sendbuf, 0, l_SendLen + 1);
 			if (SioSendData(l_sendbuf, l_SendLen + 1) == -1) {
-				// ‘—M¸”s
+				// é€ä¿¡å¤±æ•—
 				l_rc = MSC_COMMAND_SEND_FAIL;
 			} else {
 				l_prc = 2;
 			}
 m_Indicate_Send = TRUE;
 			break;
-		case 2:		// Šm”FƒR[ƒh‚Ü‚¿(ƒ`ƒFƒbƒNƒTƒ€[1byte]‚ğóM)
-			// ‚PƒoƒCƒgóMƒ^ƒCƒ€ƒAƒEƒg ReadTotalTimeoutConstant + ReadTotalTimeoutMultiplier * 1byte
+		case 2:		// ç¢ºèªã‚³ãƒ¼ãƒ‰ã¾ã¡(ãƒã‚§ãƒƒã‚¯ã‚µãƒ [1byte]ã‚’å—ä¿¡)
+			// ï¼‘ãƒã‚¤ãƒˆå—ä¿¡ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆ ReadTotalTimeoutConstant + ReadTotalTimeoutMultiplier * 1byte
 #ifdef COM_TIMEOUT_MODE	//-------------------------------------------------------------------------
 			m_CommTimeOuts.ReadTotalTimeoutConstant = l_dwTimeoutPeriod;
 			m_dwTimeoutCount = R1TIMEOUT / l_dwTimeoutPeriod;
@@ -252,11 +252,11 @@ m_Indicate_Send = TRUE;
 READ_RETRY1:
 #endif
 			if (ReadFile(m_Handle, &l_recvbuf, 1, &dwReadCount, NULL) == 0) {
-				// ŠÖ”¸”s
+				// é–¢æ•°å¤±æ•—
 				l_rc = MSC_READ_FAIL;
 			} else {
 				if (dwReadCount == 0) {
-					// ‚PƒoƒCƒgóMƒ^ƒCƒ€ƒAƒEƒg
+					// ï¼‘ãƒã‚¤ãƒˆå—ä¿¡ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆ
 #ifdef COM_TIMEOUT_MODE	//-------------------------------------------------------------------------
 					if (0 != m_dwTimeoutCount) {
 						m_dwTimeoutCount--;
@@ -272,20 +272,20 @@ m_Indicate_Recv = TRUE;
 					l_rcvtmp = l_recvbuf[0]; l_recvbuf[1] = 0x00;
 //					CommLogging(l_recvbuf, 1);
 					CommLogging(l_recvbuf, 1, 1);
-					// ‚PƒoƒCƒgˆÈãóM‚µ‚Ä‚¢‚È‚¢‚©ƒ`ƒFƒbƒN
+					// ï¼‘ãƒã‚¤ãƒˆä»¥ä¸Šå—ä¿¡ã—ã¦ã„ãªã„ã‹ãƒã‚§ãƒƒã‚¯
 					m_CommTimeOuts.ReadTotalTimeoutConstant = 0;
 					SetCommTimeouts(m_Handle, &m_CommTimeOuts);
 					if (ClearCommError(m_Handle, &dwErrors, &ComStat) == 0) {
-						// ŠÖ”¸”s
+						// é–¢æ•°å¤±æ•—
 						l_rc = MSC_CONFIRM_CHECK_FAIL;
 					} else {
 						if (ComStat.cbInQue != 0) {
-							// óMƒf[ƒ^‚ª‚ ‚ê‚Î“Ç‚İÌ‚ÄC•s³ƒf[ƒ^óM‚Æ‚È‚é
+							// å—ä¿¡ãƒ‡ãƒ¼ã‚¿ãŒã‚ã‚Œã°èª­ã¿æ¨ã¦ï¼Œä¸æ­£ãƒ‡ãƒ¼ã‚¿å—ä¿¡ã¨ãªã‚‹
 							if (ReadFile(m_Handle, &l_recvbuf, ComStat.cbInQue, &dwReadCount, NULL) == 0) {
-								// ŠÖ”¸”s
+								// é–¢æ•°å¤±æ•—
 								l_rc = MSC_CONFIRM_READ_FAIL;
 							} else {
-								// •s³ƒf[ƒ^‚ğóM
+								// ä¸æ­£ãƒ‡ãƒ¼ã‚¿ã‚’å—ä¿¡
 m_Indicate_Recv = TRUE;
 								l_rc = MSC_CONFIRM_FORMAT_ERROR;
 								l_SendCancel = TRUE;
@@ -295,7 +295,7 @@ m_Indicate_Recv = TRUE;
 							}
 						} else {
 							if (l_Sum != l_rcvtmp) {
-								// ƒ`ƒFƒbƒNƒTƒ€ƒGƒ‰[
+								// ãƒã‚§ãƒƒã‚¯ã‚µãƒ ã‚¨ãƒ©ãƒ¼
 								l_rc = MSC_CONFIRM_SUM_ERROR;
 								l_SendCancel = TRUE;
 							} else {
@@ -306,20 +306,20 @@ m_Indicate_Recv = TRUE;
 				}
 			}
 			break;
-		case 3:		// ÀsƒR[ƒh‚ğ‘—M(cr)
+		case 3:		// å®Ÿè¡Œã‚³ãƒ¼ãƒ‰ã‚’é€ä¿¡(cr)
 			l_sendbuf[0] = COM_CR; l_sendbuf[1] = 0x00;
 //			CommLogging(l_sendbuf, 0);
 			CommLogging(l_sendbuf, 0, 1);
 			if (SioSendData(l_sendbuf, 1) == -1) {
-				// ‘—M¸”s
+				// é€ä¿¡å¤±æ•—
 				l_rc = MSC_GO_COMMAND_FAIL;
 			} else {
 				l_prc = 4;
 			}
 m_Indicate_Send = TRUE;
 			break;
-		case 4:		// ‰“šƒf[ƒ^‚ğóM
-			// ‘½ƒoƒCƒgóMƒ^ƒCƒ€ƒAƒEƒg ReadTotalTimeoutConstant + ReadTotalTimeoutMultiplier * 1byte
+		case 4:		// å¿œç­”ãƒ‡ãƒ¼ã‚¿ã‚’å—ä¿¡
+			// å¤šãƒã‚¤ãƒˆå—ä¿¡ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆ ReadTotalTimeoutConstant + ReadTotalTimeoutMultiplier * 1byte
 #ifdef COM_TIMEOUT_MODE	//-------------------------------------------------------------------------
 			m_CommTimeOuts.ReadTotalTimeoutConstant = l_dwTimeoutPeriod;
 			m_dwTimeoutCount = R1TIMEOUT / l_dwTimeoutPeriod;
@@ -332,17 +332,17 @@ m_Indicate_Send = TRUE;
 //			memset(l_recvbuf, 0x00, sizeof(l_recvbuf));
 //			while (l_rcvtmp != COM_ACK) {
 			while (1) {
-				// ACK óM‚Ü‚Åƒ‹[ƒv
+				// ACK å—ä¿¡ã¾ã§ãƒ«ãƒ¼ãƒ—
 #ifdef COM_TIMEOUT_MODE	//-------------------------------------------------------------------------
 READ_RETRY2:
 #endif
 				if (ReadFile(m_Handle, &l_recvbuf, 1, &dwReadCount, NULL) == 0) {
-					// ŠÖ”¸”s
+					// é–¢æ•°å¤±æ•—
 					l_rc = MSC_RESPONSE_READ_FAIL;
 					break;
 				} else {
 					if (dwReadCount == 0) {
-						// óMƒ^ƒCƒ€ƒAƒEƒg
+						// å—ä¿¡ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆ
 #ifdef COM_TIMEOUT_MODE	//-------------------------------------------------------------------------
 						if (0 != m_dwTimeoutCount) {
 							m_dwTimeoutCount--;
@@ -357,26 +357,26 @@ READ_RETRY2:
 					} else {
 m_Indicate_Recv = TRUE;
 						if ((i == 0) && (l_recvbuf[0] == COM_BEL)) {
-							// ‚PƒoƒCƒg–Ú‚ª BEL ‚È‚ç’†’f
+							// ï¼‘ãƒã‚¤ãƒˆç›®ãŒ BEL ãªã‚‰ä¸­æ–­
 							l_rc = MSC_RESPONSE_BEL;
 //							l_RecvOne = FALSE;
 							l_recvbuf[1] = 0x00;
 //							CommLogging(l_recvbuf, 1);
 							CommLogging(l_recvbuf, 1, 1);
-							// c‚è‚Ìƒf[ƒ^‚ª‚ ‚ê‚Î“Ç‚İÌ‚Ä‚é
+							// æ®‹ã‚Šã®ãƒ‡ãƒ¼ã‚¿ãŒã‚ã‚Œã°èª­ã¿æ¨ã¦ã‚‹
 							m_CommTimeOuts.ReadTotalTimeoutConstant = 0;
 							SetCommTimeouts(m_Handle, &m_CommTimeOuts);
 							if (ClearCommError(m_Handle, &dwErrors, &ComStat) == 0) {
-								// ŠÖ”¸”s
+								// é–¢æ•°å¤±æ•—
 								l_rc = MSC_RESPONSE_BEL_CHECK_FAIL;
 							} else {
 								if (ComStat.cbInQue != 0) {
-									// óMƒf[ƒ^‚ª‚ ‚ê‚Î“Ç‚İÌ‚Ä
+									// å—ä¿¡ãƒ‡ãƒ¼ã‚¿ãŒã‚ã‚Œã°èª­ã¿æ¨ã¦
 									if (ReadFile(m_Handle, &l_recvbuf, ComStat.cbInQue, &dwReadCount, NULL) == 0) {
-										// ŠÖ”¸”s
+										// é–¢æ•°å¤±æ•—
 										l_rc = MSC_RESPONSE_BEL_CHKREAD_FAIL;
 									} else {
-										// •s³ƒf[ƒ^‚ğóM
+										// ä¸æ­£ãƒ‡ãƒ¼ã‚¿ã‚’å—ä¿¡
 m_Indicate_Recv = TRUE;
 										l_rc = MSC_RESPONSE_BEL_FORMAT_ERROR;
 										l_SendCancel = TRUE;
@@ -388,22 +388,22 @@ m_Indicate_Recv = TRUE;
 							}
 							break;
 						} else if ((i == 0) && (l_recvbuf[0] == COM_ACK)) {
-							// ‚PƒoƒCƒg–Ú‚ª ACK ‚È‚çI—¹
+							// ï¼‘ãƒã‚¤ãƒˆç›®ãŒ ACK ãªã‚‰çµ‚äº†
 //							l_RecvOne = FALSE;
 							l_rcvtmp = l_recvbuf[0];
 							l_recvdat[i++] = l_rcvtmp;
-							l_recvdat[i] = 0x00;	// –ˆ‰ñCI’[‚ğ‘‚Ş
+							l_recvdat[i] = 0x00;	// æ¯å›ï¼Œçµ‚ç«¯ã‚’æ›¸è¾¼ã‚€
 							break;
 						} else {
 							l_rcvtmp = l_recvbuf[0];
 							l_recvdat[i++] = l_rcvtmp;
-							l_recvdat[i] = 0x00;	// –ˆ‰ñCI’[‚ğ‘‚Ş
+							l_recvdat[i] = 0x00;	// æ¯å›ï¼Œçµ‚ç«¯ã‚’æ›¸è¾¼ã‚€
 							if ((BUFSIZE - 1) < i) {
 								l_rc = MSC_RESPONSE_OVERFLOW;
 								break;
 							}
 							if ((4 <= i) && (l_recvdat[i - 3] == COM_CR) && (l_rcvtmp == COM_ACK)) {
-								// ACK ‚ğ³‹K‚ÌˆÊ’u‚Å”F¯‚Ì‚½‚ßI—¹
+								// ACK ã‚’æ­£è¦ã®ä½ç½®ã§èªè­˜ã®ãŸã‚çµ‚äº†
 								break;
 							}
 						}
@@ -411,17 +411,17 @@ m_Indicate_Recv = TRUE;
 				}
 			}
 			if (l_rcvtmp == COM_ACK) {
-				// c‚è‚PƒoƒCƒg‚ğóM(ƒ`ƒFƒbƒNƒTƒ€)
+				// æ®‹ã‚Šï¼‘ãƒã‚¤ãƒˆã‚’å—ä¿¡(ãƒã‚§ãƒƒã‚¯ã‚µãƒ )
 #ifdef COM_TIMEOUT_MODE	//-------------------------------------------------------------------------
 				m_dwTimeoutCount = R1TIMEOUT / l_dwTimeoutPeriod;
 READ_RETRY3:
 #endif
 				if (ReadFile(m_Handle, &l_recvbuf, 1, &dwReadCount, NULL) == 0) {
-					// ŠÖ”¸”s
+					// é–¢æ•°å¤±æ•—
 					l_rc = MSC_RESPONSE_SUM_READ_FAIL;
 				} else {
 					if (dwReadCount == 0) {
-						// ‚PƒoƒCƒgóMƒ^ƒCƒ€ƒAƒEƒg
+						// ï¼‘ãƒã‚¤ãƒˆå—ä¿¡ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆ
 #ifdef COM_TIMEOUT_MODE	//-------------------------------------------------------------------------
 						if (0 != m_dwTimeoutCount) {
 							m_dwTimeoutCount--;
@@ -436,23 +436,23 @@ READ_RETRY3:
 m_Indicate_Recv = TRUE;
 						l_rcvtmp = l_recvbuf[0];
 						l_recvdat[i++] = l_rcvtmp;
-						l_recvdat[i] = 0x00;	// I’[‚ğ’Ç‰Á
+						l_recvdat[i] = 0x00;	// çµ‚ç«¯ã‚’è¿½åŠ 
 //						CommLogging(l_recvdat, strlen(l_recvdat));
 						CommLogging(l_recvdat, 1, i);
-						// ‚±‚êˆÈ~óM‚µ‚Ä‚¢‚È‚¢‚©ƒ`ƒFƒbƒN
+						// ã“ã‚Œä»¥é™å—ä¿¡ã—ã¦ã„ãªã„ã‹ãƒã‚§ãƒƒã‚¯
 						m_CommTimeOuts.ReadTotalTimeoutConstant = 0;
 						SetCommTimeouts(m_Handle, &m_CommTimeOuts);
 						if (ClearCommError(m_Handle, &dwErrors, &ComStat) == 0) {
-							// ŠÖ”¸”s
+							// é–¢æ•°å¤±æ•—
 							l_rc = MSC_RESPONSE_SUM_CHECK_FAIL;
 						} else {
 							if (ComStat.cbInQue != 0) {
-								// óMƒf[ƒ^‚ª‚ ‚ê‚Î“Ç‚İÌ‚Ä
+								// å—ä¿¡ãƒ‡ãƒ¼ã‚¿ãŒã‚ã‚Œã°èª­ã¿æ¨ã¦
 								if (ReadFile(m_Handle, &l_recvbuf, ComStat.cbInQue, &dwReadCount, NULL) == 0) {
-									// ŠÖ”¸”s
+									// é–¢æ•°å¤±æ•—
 									l_rc = MSC_RESPONSE_SUM_CHKREAD_FAIL;
 								} else {
-									// •s³ƒf[ƒ^‚ğóM
+									// ä¸æ­£ãƒ‡ãƒ¼ã‚¿ã‚’å—ä¿¡
 m_Indicate_Recv = TRUE;
 									l_rc = MSC_RESPONSE_SUM_FORMAT_ERROR;
 									l_SendCancel = TRUE;
@@ -462,11 +462,11 @@ m_Indicate_Recv = TRUE;
 								}
 							} else {
 								if (l_Sum != l_rcvtmp) {
-									// ƒ`ƒFƒbƒNƒTƒ€ƒGƒ‰[
+									// ãƒã‚§ãƒƒã‚¯ã‚µãƒ ã‚¨ãƒ©ãƒ¼
 									l_rc = MSC_RESPONSE_SUM_ERROR;
 									l_SendCancel = TRUE;
 								} else {
-									// ’ÊM¬Œ÷
+									// é€šä¿¡æˆåŠŸ
 									l_rc = MSC_COMM_OK;
 								}
 							}
@@ -485,7 +485,7 @@ m_Indicate_Recv = TRUE;
 		}
 	}
 
-	// ƒLƒƒƒ“ƒZƒ‹‘—M
+	// ã‚­ãƒ£ãƒ³ã‚»ãƒ«é€ä¿¡
 	if (l_SendCancel == TRUE) {
 		l_SendCancel = FALSE;
 		l_sendbuf[0] = COM_CAN; l_sendbuf[1] = 0x00;
@@ -493,11 +493,11 @@ m_Indicate_Recv = TRUE;
 		CommLogging(l_sendbuf, 0, 1);
 m_Indicate_Send = TRUE;
 		if (SioSendData(l_sendbuf, 1) == -1) {
-			// ‘—M¸”s
+			// é€ä¿¡å¤±æ•—
 			l_rc |= MSC_CANSEL_SEND_FAIL;
 		} else {
-			// ƒLƒƒƒ“ƒZƒ‹óM‘Ò‚¿
-			// ‚PƒoƒCƒgóMƒ^ƒCƒ€ƒAƒEƒg ReadTotalTimeoutConstant + ReadTotalTimeoutMultiplier * 1byte
+			// ã‚­ãƒ£ãƒ³ã‚»ãƒ«å—ä¿¡å¾…ã¡
+			// ï¼‘ãƒã‚¤ãƒˆå—ä¿¡ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆ ReadTotalTimeoutConstant + ReadTotalTimeoutMultiplier * 1byte
 #ifdef COM_TIMEOUT_MODE	//-------------------------------------------------------------------------
 			m_CommTimeOuts.ReadTotalTimeoutConstant = l_dwTimeoutPeriod;
 			m_dwTimeoutCount = R1TIMEOUT / l_dwTimeoutPeriod;
@@ -509,11 +509,11 @@ m_Indicate_Send = TRUE;
 READ_RETRY4:
 #endif
 			if (ReadFile(m_Handle, &l_recvbuf, 1, &dwReadCount, NULL) == 0) {
-				// ŠÖ”¸”s
+				// é–¢æ•°å¤±æ•—
 				l_rc |= MSC_CANCEL_READ_FAIL;
 			} else {
 				if (dwReadCount == 0) {
-					// ‚PƒoƒCƒgóMƒ^ƒCƒ€ƒAƒEƒg
+					// ï¼‘ãƒã‚¤ãƒˆå—ä¿¡ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆ
 #ifdef COM_TIMEOUT_MODE	//-------------------------------------------------------------------------
 					if (0 != m_dwTimeoutCount) {
 						m_dwTimeoutCount--;
@@ -529,20 +529,20 @@ m_Indicate_Recv = TRUE;
 					l_recvbuf[1] = 0x00;
 //					CommLogging(l_recvbuf, 1);
 					CommLogging(l_recvbuf, 1, 1);
-					// ‚PƒoƒCƒgˆÈãóM‚µ‚Ä‚¢‚È‚¢‚©ƒ`ƒFƒbƒN
+					// ï¼‘ãƒã‚¤ãƒˆä»¥ä¸Šå—ä¿¡ã—ã¦ã„ãªã„ã‹ãƒã‚§ãƒƒã‚¯
 					m_CommTimeOuts.ReadTotalTimeoutConstant = 0;
 					SetCommTimeouts(m_Handle, &m_CommTimeOuts);
 					if (ClearCommError(m_Handle, &dwErrors, &ComStat) == 0) {
-						// ŠÖ”¸”s
+						// é–¢æ•°å¤±æ•—
 						l_rc = MSC_CANCEL_CHECK_FAIL;
 					} else {
 						if (ComStat.cbInQue != 0) {
-							// óMƒf[ƒ^‚ª‚ ‚ê‚Î“Ç‚İÌ‚ÄC•s³ƒf[ƒ^óM‚Æ‚È‚é
+							// å—ä¿¡ãƒ‡ãƒ¼ã‚¿ãŒã‚ã‚Œã°èª­ã¿æ¨ã¦ï¼Œä¸æ­£ãƒ‡ãƒ¼ã‚¿å—ä¿¡ã¨ãªã‚‹
 							if (ReadFile(m_Handle, &l_recvbuf, ComStat.cbInQue, &dwReadCount, NULL) == 0) {
-								// ŠÖ”¸”s
+								// é–¢æ•°å¤±æ•—
 								l_rc = MSC_CANCEL_CHKREAD_FAIL;
 							} else {
-								// •s³ƒf[ƒ^‚ğóM
+								// ä¸æ­£ãƒ‡ãƒ¼ã‚¿ã‚’å—ä¿¡
 m_Indicate_Recv = TRUE;
 								l_rc = MSC_CANCEL_FORMAT_ERROR;
 								l_recvbuf[dwReadCount] = 0x00;
@@ -551,10 +551,10 @@ m_Indicate_Recv = TRUE;
 							}
 						} else {
 							if (COM_CAN != l_rcvtmp) {
-								// ƒLƒƒƒ“ƒZƒ‹‚Å‚È‚©‚Á‚½
+								// ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã§ãªã‹ã£ãŸ
 								l_rc = MSC_CANCEL_NOT_CANCELCODE;
 							} else {
-								;	// ƒLƒƒƒ“ƒZƒ‹óM¬Œ÷
+								;	// ã‚­ãƒ£ãƒ³ã‚»ãƒ«å—ä¿¡æˆåŠŸ
 							}
 						}
 					}
@@ -563,9 +563,9 @@ m_Indicate_Recv = TRUE;
 		}
 	}
 
-	// óMƒf[ƒ^ƒRƒs[
+	// å—ä¿¡ãƒ‡ãƒ¼ã‚¿ã‚³ãƒ”ãƒ¼
 	if (l_recvdat[0] != 0x00) {
-		// óMƒf[ƒ^‚ª‚PƒoƒCƒg‚Å‚à‚ ‚ê‚ÎƒRƒs[‚µ‚Ä‚¨‚­
+		// å—ä¿¡ãƒ‡ãƒ¼ã‚¿ãŒï¼‘ãƒã‚¤ãƒˆã§ã‚‚ã‚ã‚Œã°ã‚³ãƒ”ãƒ¼ã—ã¦ãŠã
 //		strcpy(Recv, l_recvdat);
 		memcpy(Recv, l_recvdat, i);
 		Recv[i] = 0x00;
@@ -574,15 +574,15 @@ m_Indicate_Recv = TRUE;
 		*Length = 0;
 	}
 
-	LeaveCriticalSection(&g_CritSec_COM);	// ƒNƒŠƒeƒBƒJƒ‹ƒZƒNƒVƒ‡ƒ“ŠJ•ú
+	LeaveCriticalSection(&g_CritSec_COM);	// ã‚¯ãƒªãƒ†ã‚£ã‚«ãƒ«ã‚»ã‚¯ã‚·ãƒ§ãƒ³é–‹æ”¾
 	return l_rc;
 }
 
-// ’ÊMƒƒO
+// é€šä¿¡ãƒ­ã‚°
 void CSio::CommLogging(
-					   char *LogData,	// ƒf[ƒ^
-					   int Dir,			// 0F‘—MC1FóM
-					   DWORD Length		// ƒf[ƒ^’·
+					   char *LogData,	// ãƒ‡ãƒ¼ã‚¿
+					   int Dir,			// 0ï¼šé€ä¿¡ï¼Œ1ï¼šå—ä¿¡
+					   DWORD Length		// ãƒ‡ãƒ¼ã‚¿é•·
 					   )
 {
 	char	l_LogBuff[1024];
@@ -590,35 +590,35 @@ void CSio::CommLogging(
 
 	l_LogBuff[0] = 0x00; l_cBuff[0] = 0x00;
 
-	// “ú•tC‚ğİ’è
+	// æ—¥ä»˜ï¼Œæ™‚åˆ»ã‚’è¨­å®š
 	g_pComLogFile->AddTime(l_LogBuff, 2);
-	// •ûŒü‚ğİ’è
+	// æ–¹å‘ã‚’è¨­å®š
 	if (Dir == 0) {
 		strcat(l_LogBuff, " PC -> CTRL : ");
 	} else {
 		strcat(l_LogBuff, " PC <- CTRL : ");
 	}
-	// ƒoƒCƒiƒŠ‚ğ HEX ‚É•ÏŠ·
+	// ãƒã‚¤ãƒŠãƒªã‚’ HEX ã«å¤‰æ›
 //	g_pComLogFile->ConvBinToHex(LogData, l_cBuff);
 	g_pComLogFile->ConvBinToHex(LogData, l_cBuff, Length);
 	strcat(l_LogBuff, l_cBuff);
-	// ƒƒO‘‚«‚İ
+	// ãƒ­ã‚°æ›¸ãè¾¼ã¿
 	if (m_LogEnable == TRUE) {
 		g_pComLogFile->Logging(l_LogBuff);
 	}
 }
 
-// ƒƒO‚ğƒNƒŠƒA
+// ãƒ­ã‚°ã‚’ã‚¯ãƒªã‚¢
 void CSio::ClearLog()
 {
 	BOOL	l_Enable;
 
-	// ƒƒO‚ğƒfƒBƒZ[ƒuƒ‹‚É‚µ‚Ä‚¨‚¢‚ÄƒNƒŠƒA
+	// ãƒ­ã‚°ã‚’ãƒ‡ã‚£ã‚»ãƒ¼ãƒ–ãƒ«ã«ã—ã¦ãŠã„ã¦ã‚¯ãƒªã‚¢
 	l_Enable = m_LogEnable;
 	if (l_Enable == TRUE) {
-		EnterCriticalSection(&g_CritSec_COM);	// ƒNƒŠƒeƒBƒJƒ‹ƒZƒNƒVƒ‡ƒ“æ“¾
+		EnterCriticalSection(&g_CritSec_COM);	// ã‚¯ãƒªãƒ†ã‚£ã‚«ãƒ«ã‚»ã‚¯ã‚·ãƒ§ãƒ³å–å¾—
 		m_LogEnable = FALSE;
-		LeaveCriticalSection(&g_CritSec_COM);	// ƒNƒŠƒeƒBƒJƒ‹ƒZƒNƒVƒ‡ƒ“ŠJ•ú
+		LeaveCriticalSection(&g_CritSec_COM);	// ã‚¯ãƒªãƒ†ã‚£ã‚«ãƒ«ã‚»ã‚¯ã‚·ãƒ§ãƒ³é–‹æ”¾
 	}
 
 	g_pComLogFile->ClearLog();

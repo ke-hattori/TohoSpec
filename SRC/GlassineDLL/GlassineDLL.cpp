@@ -1,4 +1,4 @@
-// GlassineDLL.cpp : DLL ƒAƒvƒŠƒP[ƒVƒ‡ƒ“—p‚ÌƒGƒ“ƒgƒŠ ƒ|ƒCƒ“ƒg‚ğ’è‹`‚µ‚Ü‚·B
+ï»¿// GlassineDLL.cpp : DLL ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ç”¨ã®ã‚¨ãƒ³ãƒˆãƒª ãƒã‚¤ãƒ³ãƒˆã‚’å®šç¾©ã—ã¾ã™ã€‚
 //
 #define _WIN32_WINNT 0x0400
 #include "stdafx.h"
@@ -34,12 +34,12 @@ LRESULT LowLevelKeyboardProc(INT nCode, WPARAM wParam, LPARAM lParam)
 				switch (pkbdllhook->vkCode)
 				{
 					case VK_LSHIFT:
-					case VK_RSHIFT:				//Shift ƒL[
+					case VK_RSHIFT:				//Shift ã‚­ãƒ¼
 					{
 						fHandled = TRUE;
 						break;
 					}
-					case VK_TAB:				//Alt + Tab ƒL[
+					case VK_TAB:				//Alt + Tab ã‚­ãƒ¼
 					{
 						if (pkbdllhook->flags & LLKHF_ALTDOWN)
 						{
@@ -47,7 +47,7 @@ LRESULT LowLevelKeyboardProc(INT nCode, WPARAM wParam, LPARAM lParam)
 						}
 						break;
 					}
-					case VK_ESCAPE:				//Esc ƒL[
+					case VK_ESCAPE:				//Esc ã‚­ãƒ¼
 					{
 						if (pkbdllhook->flags & LLKHF_ALTDOWN)
 						{
@@ -55,7 +55,7 @@ LRESULT LowLevelKeyboardProc(INT nCode, WPARAM wParam, LPARAM lParam)
 						}
 						break;
 					}
-					case VK_F4:					//Alt+F4 ƒL[
+					case VK_F4:					//Alt+F4 ã‚­ãƒ¼
 					{
 						if (pkbdllhook->flags & LLKHF_ALTDOWN)
 						{
@@ -63,7 +63,7 @@ LRESULT LowLevelKeyboardProc(INT nCode, WPARAM wParam, LPARAM lParam)
 						}
 						break;
 					}
-//					  case VK_F6:					//Alt+F6‚ÅLockI—¹
+//					  case VK_F6:					//Alt+F6ã§Lockçµ‚äº†
 //					  {
 //						HWND hWndLock = ::FindWindow(NULL, "InterLock");
 //						if(hWndLock)
@@ -145,7 +145,7 @@ BOOL KeyLock::Release()
 		//::MessageBox(NULL, "Release", "GlassineDLL", MB_ICONWARNING);
 	}
 
-	//Taskbar‚ğ—LŒø‚É–ß‚·
+	//Taskbarã‚’æœ‰åŠ¹ã«æˆ»ã™
 	KeyLock::Disable(ALL,FALSE,FALSE);
 	return bRes;
 }
@@ -161,7 +161,7 @@ void KeyLock::Disable(DWORD dwFlags, BOOL bDisable, BOOL bBeep)
 		 RegCreateKey(HKCU, KEY_DisableTaskMgr, &hk);
 
 	  if (bDisable)
-	  { //disable TaskManagerF set policy = 1
+	  { //disable TaskManagerï¼š set policy = 1
 		 DWORD val=1;
 		 RegSetValueEx(hk, VAL_DisableTaskMgr, NULL,
 			REG_DWORD, (BYTE*)&val, sizeof(val));

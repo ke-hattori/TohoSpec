@@ -1,4 +1,4 @@
-// ViewScreenDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// ViewScreenDlg.cpp : インプリメンテーション ファイル
 //
 
 #include "stdafx.h"
@@ -13,7 +13,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // ##########################################################################
-// CViewScreenDlg �_�C�A���O
+// CViewScreenDlg ダイアログ
 // ##########################################################################
 
 // ==========================================================================
@@ -43,7 +43,7 @@ BEGIN_MESSAGE_MAP(CViewScreenDlg, CDialog)
 END_MESSAGE_MAP()
 
 // ==========================================================================
-// CViewScreenDlg ���b�Z�[�W �n���h��
+// CViewScreenDlg メッセージ ハンドラ
 
 // ==========================================================================
 //
@@ -53,7 +53,7 @@ BOOL CViewScreenDlg::OnInitDialog()
 
 	OVLYMULTIWND ovlymw = { m_hWnd };
 	GetDlgItem(IDC_VIDEO_SCREEN)->GetClientRect(&ovlymw.rc);
-	// �N���C�A���g�G�b�W���E���g�p���̃��W�b�N
+	// クライアントエッジ境界線使用時のロジック
 	OffsetRect(&ovlymw.rc, GetSystemMetrics(SM_CXEDGE), GetSystemMetrics(SM_CYEDGE));
 	OverlaySetMultipleWindow(&ovlymw);
 
@@ -61,8 +61,8 @@ BOOL CViewScreenDlg::OnInitDialog()
 	m_OkButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_OkButton.DrawFlatFocus(TRUE);
 
-	return TRUE;	// �R���g���[���Ƀt�H�[�J�X��ݒ肵�Ȃ��Ƃ��A�߂�l�� TRUE �ƂȂ�܂�
-					// ��O: OCX �v���p�e�B �y�[�W�̖߂�l�� FALSE �ƂȂ�܂�
+	return TRUE;	// コントロールにフォーカスを設定しないとき、戻り値は TRUE となります
+					// 例外: OCX プロパティ ページの戻り値は FALSE となります
 }
 
 // ==========================================================================

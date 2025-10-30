@@ -1,4 +1,4 @@
-/** CODE ********************************************************
+ï»¿/** CODE ********************************************************
  *                    Copyright (C) 1993 by Tencor Instruments
  *  ................. Source Code Control System (PVCS) keywords
  *
@@ -18,23 +18,23 @@
  *  .....$Log: /ORCA3.2.2J/src/motsys/MOTFILE.C $
 //
 //  7     02/01/16 15:43 Hmenjo
-//  “ú–{ŒêƒRƒƒ“ƒg‚ð’Ç‰ÁD
+//  æ—¥æœ¬èªžã‚³ãƒ¡ãƒ³ãƒˆã‚’è¿½åŠ ï¼Ž
 //
 //  6     02/01/16 15:36 Hmenjo
-//  “ú–{ŒêƒRƒƒ“ƒg‚ð’Ç‰ÁD
+//  æ—¥æœ¬èªžã‚³ãƒ¡ãƒ³ãƒˆã‚’è¿½åŠ ï¼Ž
 //
 //  5     02/01/16 13:25 Hmenjo
-//  “ú–{ŒêƒRƒƒ“ƒg‚ð’Ç‰ÁD
+//  æ—¥æœ¬èªžã‚³ãƒ¡ãƒ³ãƒˆã‚’è¿½åŠ ï¼Ž
 //
 //  4     02/01/11 17:03 Hmenjo
-//  “ú–{ŒêƒRƒƒ“ƒg‚ð’Ç‰ÁD
+//  æ—¥æœ¬èªžã‚³ãƒ¡ãƒ³ãƒˆã‚’è¿½åŠ ï¼Ž
 //
 //  2     01/03/05 14:22 Hmenjo
-//  $NoKeywords: $‚ð’Ç‰ÁD
-//  ƒR[ƒh“à‚Ìƒo[ƒWƒ‡ƒ“î•ñ‚ðŒ³‚É–ß‚·D
+//  $NoKeywords: $ã‚’è¿½åŠ ï¼Ž
+//  ã‚³ãƒ¼ãƒ‰å†…ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ã‚’å…ƒã«æˆ»ã™ï¼Ž
 //
 //  1     00/11/01 9:22a Hmenjo
-//  orca3.2.2‚Ì³íƒRƒ“ƒpƒCƒ‹‚Ì‚½‚ßD
+//  orca3.2.2ã®æ­£å¸¸ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã®ãŸã‚ï¼Ž
 //
 //  $NoKeywords: $
 //
@@ -54,12 +54,12 @@
  ***************************************************************/
 //static char ORCA_PVCSID[] = "$Header:   O:/orca/src/motsys/vcs/motfile.cv_   1.4   17 Apr 1996 09:45:14   RLAMB  $";
 
-// «’Ç‰Á by hmenjo
+// â†“è¿½åŠ  by hmenjo
 #include <windows.h>
 #include "..\UPI_IRQDLL\tohoiodllexp.h"
 #include <MotsysMsg.h>
 #include <windowsx.h>
-// ª’Ç‰Á by hmenjo
+// â†‘è¿½åŠ  by hmenjo
 
 #include "motglob.h"
 //#include <stdlib.h>
@@ -86,7 +86,7 @@ extern WORD motion_base_port[2];
 
 
 /*
- *	Ž²–ˆ‚Ìƒ‚[ƒVƒ‡ƒ“ƒpƒ‰ƒƒ^‘ž‚Ý
+ *	è»¸æ¯Žã®ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³ãƒ‘ãƒ©ãƒ¡ã‚¿æ›¸è¾¼ã¿
  */
 void WriteAxis(short axis)
 {
@@ -95,24 +95,24 @@ void WriteAxis(short axis)
 	LPMOT_DEF_PARAMS lpDef = &(axis_default_data[axis]);
 	LPMOT_PARAMS lpMot = &(mot_data[axis]);
 
-	/* Windows ƒfƒBƒŒƒNƒgƒŠ‚ÌƒpƒX‚ðŽæ“¾ */
+	/* Windows ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ãƒ‘ã‚¹ã‚’å–å¾— */
 	GetWindowsDirectory(szPathName, 128);
 	lstrcat(szPathName, "\\");
-	lstrcat(szPathName, szAxisName[axis]);	/* ReadConfig()‚Å“Ço‚µ‚½’l */
+	lstrcat(szPathName, szAxisName[axis]);	/* ReadConfig()ã§èª­å‡ºã—ãŸå€¤ */
 	lstrcat(szPathName, ".dat");
 
 	if ((fd = _lcreat(szPathName, 0)) >= 0) {
-		/* ƒtƒ@ƒCƒ‹uŽ²–¼.datv‚ªì¬o—ˆ‚½ */
-		/* ƒ‚[ƒVƒ‡ƒ“ƒpƒ‰ƒƒ^‚ð‘ž‚Ý */
+		/* ãƒ•ã‚¡ã‚¤ãƒ«ã€Œè»¸å.datã€ãŒä½œæˆå‡ºæ¥ãŸ */
+		/* ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³ãƒ‘ãƒ©ãƒ¡ã‚¿ã‚’æ›¸è¾¼ã¿ */
 		_lwrite(fd, (LPSTR) lpMot, sizeof(MOT_PARAMS));
-		/* ƒ‚[ƒVƒ‡ƒ“ƒfƒtƒHƒ‹ƒgƒpƒ‰ƒƒ^‚ð‘ž‚Ý */
+		/* ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ‘ãƒ©ãƒ¡ã‚¿ã‚’æ›¸è¾¼ã¿ */
 		_lwrite(fd, (LPSTR) lpDef, sizeof(MOT_DEF_PARAMS));
 		_lclose(fd);
 	}
 }
 
 /*
- *	Ž²–ˆ‚Ìƒ‚[ƒVƒ‡ƒ“ƒpƒ‰ƒƒ^‚ð“Ço‚µ
+ *	è»¸æ¯Žã®ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³ãƒ‘ãƒ©ãƒ¡ã‚¿ã‚’èª­å‡ºã—
  */
 BOOL ReadAxis(short axis)
 {
@@ -122,33 +122,33 @@ BOOL ReadAxis(short axis)
 	LPMOT_PARAMS		lpMot = &(mot_data[axis]);
 	BOOL		l_rc = TRUE;
 
-	/* Windows ƒfƒBƒŒƒNƒgƒŠ‚ÌƒpƒX‚ðŽæ“¾ */
+	/* Windows ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ãƒ‘ã‚¹ã‚’å–å¾— */
 	GetWindowsDirectory(szPathName, 128);
 	lstrcat(szPathName, "\\");
-	lstrcat(szPathName, szAxisName[axis]);	/* ReadConfig()‚Å“Ço‚µ‚½’l */
+	lstrcat(szPathName, szAxisName[axis]);	/* ReadConfig()ã§èª­å‡ºã—ãŸå€¤ */
 	lstrcat(szPathName, ".dat");
 
 	if ((fd = _lopen (szPathName, OF_READ)) >= 0) {
-		/* ƒtƒ@ƒCƒ‹uŽ²–¼.datv‚ªƒI[ƒvƒ“o—ˆ‚½ */
-		/* ƒ‚[ƒVƒ‡ƒ“ƒpƒ‰ƒƒ^‚ð“Ço‚µ */
+		/* ãƒ•ã‚¡ã‚¤ãƒ«ã€Œè»¸å.datã€ãŒã‚ªãƒ¼ãƒ—ãƒ³å‡ºæ¥ãŸ */
+		/* ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³ãƒ‘ãƒ©ãƒ¡ã‚¿ã‚’èª­å‡ºã— */
 		_lread(fd, (LPSTR) lpMot, sizeof(MOT_PARAMS));
-		/* ƒ‚[ƒVƒ‡ƒ“ƒfƒtƒHƒ‹ƒgƒpƒ‰ƒƒ^‚ð“Ço‚µ */
+		/* ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ‘ãƒ©ãƒ¡ã‚¿ã‚’èª­å‡ºã— */
 		_lread(fd, (LPSTR) lpDef, sizeof(MOT_DEF_PARAMS));
-		/* ƒ‚[ƒVƒ‡ƒ“ƒfƒtƒHƒ‹ƒgƒpƒ‰ƒƒ^“à‚Éƒ‚[ƒVƒ‡ƒ“ƒpƒ‰ƒƒ^‚ÌƒAƒhƒŒƒX‚ðƒZƒbƒg */
+		/* ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ‘ãƒ©ãƒ¡ã‚¿å†…ã«ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³ãƒ‘ãƒ©ãƒ¡ã‚¿ã®ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’ã‚»ãƒƒãƒˆ */
 		lpDef->lpDefaultMotParams = lpMot;
 		_lclose(fd);
 	} else {
-		// ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“ƒGƒ‰[
+		// ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³ã‚¨ãƒ©ãƒ¼
 		l_rc = FALSE;
 	}
-	/* ˜A‘±ƒJƒEƒ“ƒg‚Ì‚µ‚«‚¢’l‚ðƒZƒbƒg */
+	/* é€£ç¶šã‚«ã‚¦ãƒ³ãƒˆã®ã—ãã„å€¤ã‚’ã‚»ãƒƒãƒˆ */
 	lpMot->byPwmFilterCount = pwm_filter_count;
 
 	return l_rc;
 }
 
 /*
- *	mot_cfg.dat ‚É‘ž‚Þ
+ *	mot_cfg.dat ã«æ›¸è¾¼ã‚€
  */
 void WriteConfig(void)
 {
@@ -156,23 +156,23 @@ void WriteConfig(void)
 	char	szPathName[128];
 	int		i;
 
-	/* Windows ƒfƒBƒŒƒNƒgƒŠ‚ÌƒpƒX‚ðŽæ“¾ */
+	/* Windows ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ãƒ‘ã‚¹ã‚’å–å¾— */
 	GetWindowsDirectory(szPathName, 128);
 	lstrcat(szPathName, "\\");
-	lstrcat(szPathName, szCfgName);	/* umot_cfgv‚±‚Ìƒtƒ@ƒCƒ‹‚Ìã•û‚É‚ ‚é */
+	lstrcat(szPathName, szCfgName);	/* ã€Œmot_cfgã€ã“ã®ãƒ•ã‚¡ã‚¤ãƒ«ã®ä¸Šæ–¹ã«ã‚ã‚‹ */
 	lstrcat(szPathName, ".dat");
 
 	if ((fd = _lcreat(szPathName, 0)) >= 0) {
-		/* ƒtƒ@ƒCƒ‹umot_cfg.datv‚ªì¬o—ˆ‚½ */
-		/* motion_base_port[0],[1] ‚ð‘ž‚Ý */
+		/* ãƒ•ã‚¡ã‚¤ãƒ«ã€Œmot_cfg.datã€ãŒä½œæˆå‡ºæ¥ãŸ */
+		/* motion_base_port[0],[1] ã‚’æ›¸è¾¼ã¿ */
 		_lwrite(fd, (LPSTR) motion_base_port, 2 * sizeof(WORD));
-		/* Ž²”‚ð‘ž‚Ý */
+		/* è»¸æ•°ã‚’æ›¸è¾¼ã¿ */
 		_lwrite(fd, (LPSTR) &alloc_axis, sizeof(short));
-		/* Ž²–ˆ‚Ì‘ž‚Ý */
+		/* è»¸æ¯Žã®æ›¸è¾¼ã¿ */
 		for (i = 0; i < alloc_axis; i++) {
-			/* Ž²–¼‚ð‘ž‚Ý */
+			/* è»¸åã‚’æ›¸è¾¼ã¿ */
 			_lwrite(fd, (LPSTR) szAxisName[i], 8);
-			/* Ž²ƒf[ƒ^‚ð‘ž‚Ý */
+			/* è»¸ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸è¾¼ã¿ */
 			_lwrite(fd, (LPSTR) &axis_mot_data[i], sizeof(MOT_AXIS_DATA));
 		}
 		_lclose(fd);
@@ -180,7 +180,7 @@ void WriteConfig(void)
 }
 
 /*
- *	mot_cfg.dat ‚ð“Ço‚·
+ *	mot_cfg.dat ã‚’èª­å‡ºã™
  */
 int ReadConfig(void)
 {
@@ -188,35 +188,35 @@ int ReadConfig(void)
 	char	szPathName[128];
 	int		i, j;
 
-	/* Windows ƒfƒBƒŒƒNƒgƒŠ‚ÌƒpƒX‚ðŽæ“¾ */
+	/* Windows ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ãƒ‘ã‚¹ã‚’å–å¾— */
 	GetWindowsDirectory(szPathName, 128);
 	lstrcat(szPathName, "\\");
-	lstrcat(szPathName, szCfgName);	/* umot_cfgv‚±‚Ìƒtƒ@ƒCƒ‹‚Ìã•û‚É‚ ‚é */
+	lstrcat(szPathName, szCfgName);	/* ã€Œmot_cfgã€ã“ã®ãƒ•ã‚¡ã‚¤ãƒ«ã®ä¸Šæ–¹ã«ã‚ã‚‹ */
 	lstrcat(szPathName, ".dat");
 
 	if ((fd = _lopen(szPathName, OF_READ)) >= 0) {
-		/* ƒtƒ@ƒCƒ‹umot_cfg.datvƒI[ƒvƒ“o—ˆ‚½*/
-		/* motion_base_port[0],[1]‚ðÝ’è */
+		/* ãƒ•ã‚¡ã‚¤ãƒ«ã€Œmot_cfg.datã€ã‚ªãƒ¼ãƒ—ãƒ³å‡ºæ¥ãŸ*/
+		/* motion_base_port[0],[1]ã‚’è¨­å®š */
 		_lread(fd, (LPSTR) motion_base_port, 2 * sizeof(WORD));
-		/* Ž²” alloc_axis ‚ðÝ’è */
+		/* è»¸æ•° alloc_axis ã‚’è¨­å®š */
 		_lread(fd, (LPSTR) &alloc_axis, sizeof(short));
-		/* Ž²–ˆ‚Ìƒf[ƒ^“Ço‚µ */
+		/* è»¸æ¯Žã®ãƒ‡ãƒ¼ã‚¿èª­å‡ºã— */
 		for (i = 0; i < alloc_axis; i++) {
-			/* Ž²–¼‚ð“Ço‚·[‚W•¶Žš](BIGX ‚È‚Ç) */
+			/* è»¸åã‚’èª­å‡ºã™[ï¼˜æ–‡å­—](BIGX ãªã©) */
 			_lread(fd, (LPSTR) szAxisName[i], 8);
-			/* Ž²–¼‚ÌI’[‚É 0x00 ‚ð“ü‚ê‚é */
+			/* è»¸åã®çµ‚ç«¯ã« 0x00 ã‚’å…¥ã‚Œã‚‹ */
 			for (j = 0; j < 8; j++) {
 				char c;
 				if ((c = szAxisName[i][j]) == ' ' || c == '\0')
 				   break;
 			}
 			szAxisName[i][j] = 0;
-			/* Ž²ƒf[ƒ^‚ð“Ço‚· */
+			/* è»¸ãƒ‡ãƒ¼ã‚¿ã‚’èª­å‡ºã™ */
 			_lread(fd, (LPSTR) &axis_mot_data[i], sizeof(MOT_AXIS_DATA));
 		}
 		_lclose(fd);
 	} else {
-		// ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“ƒGƒ‰[
+		// ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³ã‚¨ãƒ©ãƒ¼
 		alloc_axis = 0;
 	}
 
@@ -225,7 +225,7 @@ int ReadConfig(void)
 
 /*
  *	setup axis
- *	Ž²‚ðƒZƒbƒgƒAƒbƒv
+ *	è»¸ã‚’ã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ—
  */
 int ConfigureAxes(void)
 {
@@ -233,34 +233,34 @@ int ConfigureAxes(void)
 	LPMOT_DEF_PARAMS lpDef;
 	LPMOT_PARAMS lpMot;
 
-	// Win32 ”Å‚Å‚Í–¢Žg—p
-	/* ƒ‚[ƒVƒ‡ƒ“Š„žƒxƒNƒ^
-	 *		Š„ž”Ô†‚ª‚WˆÈ‰º	Š„ž”Ô†{0x08
-	 *					’´		Š„ž”Ô†{0x68
-	 * ƒ‚[ƒVƒ‡ƒ“Š„žƒ}ƒXƒNƒrƒbƒg_b7_________________________________b0_
-	 *		Š„ž”Ô†‚ª‚WˆÈ‰º	|__8_|__7_|__6_|__5_|__4_|__3_|__2_|__1_|
-	 *					’´		|_16_|_15_|_14_|_13_|_12_|_11_|_10_|__9_|
-	 * ƒ‚[ƒVƒ‡ƒ“Š„žƒ}ƒXƒNƒŒƒWƒXƒ^(8259)
-	 *		Š„ž”Ô†‚ª‚WˆÈ‰º	0x21
-	 *					’´		0xa1
+	// Win32 ç‰ˆã§ã¯æœªä½¿ç”¨
+	/* ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³å‰²è¾¼ãƒ™ã‚¯ã‚¿
+	 *		å‰²è¾¼ç•ªå·ãŒï¼˜ä»¥ä¸‹	å‰²è¾¼ç•ªå·ï¼‹0x08
+	 *					è¶…		å‰²è¾¼ç•ªå·ï¼‹0x68
+	 * ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³å‰²è¾¼ãƒžã‚¹ã‚¯ãƒ“ãƒƒãƒˆ_b7_________________________________b0_
+	 *		å‰²è¾¼ç•ªå·ãŒï¼˜ä»¥ä¸‹	|__8_|__7_|__6_|__5_|__4_|__3_|__2_|__1_|
+	 *					è¶…		|_16_|_15_|_14_|_13_|_12_|_11_|_10_|__9_|
+	 * ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³å‰²è¾¼ãƒžã‚¹ã‚¯ãƒ¬ã‚¸ã‚¹ã‚¿(8259)
+	 *		å‰²è¾¼ç•ªå·ãŒï¼˜ä»¥ä¸‹	0x21
+	 *					è¶…		0xa1
 	 */
 	MOTION_INT_VECTOR = (wIrq > 8) ? wIrq + 0x70 - 0x08 : wIrq + 0x08;
-	// Win32 ”Å‚Å‚Í–¢Žg—p
-	/* ƒ‚[ƒVƒ‡ƒ“Š„žƒ}ƒXƒNƒrƒbƒg */
+	// Win32 ç‰ˆã§ã¯æœªä½¿ç”¨
+	/* ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³å‰²è¾¼ãƒžã‚¹ã‚¯ãƒ“ãƒƒãƒˆ */
 	MOTION_INT_MASK = (wIrq > 8) ? 1 << (wIrq - 8) : 1 << wIrq;
-	// Win32 ”Å‚Å‚Í–¢Žg—p
-	/* ƒ‚[ƒVƒ‡ƒ“Š„žƒ}ƒXƒNƒŒƒWƒXƒ^(8259) */
+	// Win32 ç‰ˆã§ã¯æœªä½¿ç”¨
+	/* ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³å‰²è¾¼ãƒžã‚¹ã‚¯ãƒ¬ã‚¸ã‚¹ã‚¿(8259) */
 	MOTION_INT_8259_MASK_REG = (wIrq > 8) ? 0xA1 : 0x21;
 
-	// 8255,8253,8259CŠeŽ²‚Ìƒ‚[ƒVƒ‡ƒ“ƒf[ƒ^‚ð‰Šú‰»Cƒ‚[ƒVƒ‡ƒ“Š„ž‚ð‰Šú‰»
+	// 8255,8253,8259ï¼Œå„è»¸ã®ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³ãƒ‡ãƒ¼ã‚¿ã‚’åˆæœŸåŒ–ï¼Œãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³å‰²è¾¼ã‚’åˆæœŸåŒ–
 	motion_initialize_data(0);
 	for (i = 0; i < alloc_axis; i++) {
-		// Ž²–ˆ‚É HCTL “™‚Ì§ŒäƒAƒhƒŒƒXî•ñ‚ðÝ’è
+		// è»¸æ¯Žã« HCTL ç­‰ã®åˆ¶å¾¡ã‚¢ãƒ‰ãƒ¬ã‚¹æƒ…å ±ã‚’è¨­å®š
 		motion_add_axis((short) i, &axis_mot_data[i]);
 
-		lpDef = &(axis_default_data[i]);	/* ƒ‚[ƒVƒ‡ƒ“ƒfƒtƒHƒ‹ƒgƒpƒ‰ƒƒ^ */
-		lpMot = &(mot_data[i]);				/* ƒ‚[ƒVƒ‡ƒ“ƒpƒ‰ƒƒ^ */
-		// ƒ‚[ƒ^ƒVƒXƒeƒ€‰Šú‰»
+		lpDef = &(axis_default_data[i]);	/* ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ‘ãƒ©ãƒ¡ã‚¿ */
+		lpMot = &(mot_data[i]);				/* ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³ãƒ‘ãƒ©ãƒ¡ã‚¿ */
+		// ãƒ¢ãƒ¼ã‚¿ã‚·ã‚¹ãƒ†ãƒ åˆæœŸåŒ–
 		motion_initialize((short) i, lpDef, lpMot);
 	}
 	return alloc_axis;
@@ -280,7 +280,7 @@ static int nChoice;
 #define wid(id) GetDlgItem (hdlg, id)
 
 /*
- *	ˆÈ‰º‚Í windowsx.h ‚Å’è‹`‚³‚ê‚Ä‚¢‚éD
+ *	ä»¥ä¸‹ã¯ windowsx.h ã§å®šç¾©ã•ã‚Œã¦ã„ã‚‹ï¼Ž
  *	Static_SetText() -> SetWindowText()
  *	Static_GetText() -> GetWindowText()
  */
@@ -434,7 +434,7 @@ static BOOL Config_InitDialog(
 	return TRUE;
 }
 
-// ‚±‚ÌŠÖ”‚Í Win32 ”Å‚Å‚Í–¢Žg—p‚É‚È‚Á‚½
+// ã“ã®é–¢æ•°ã¯ Win32 ç‰ˆã§ã¯æœªä½¿ç”¨ã«ãªã£ãŸ
 static void Config_Command(
 		HWND hdlg,
 		int id,
@@ -481,7 +481,7 @@ static void Config_Command(
 }
 
 
-#if 0	// «ˆÈ‰º‚Í•s—v
+#if 0	// â†“ä»¥ä¸‹ã¯ä¸è¦
 BOOL _export CALLBACK ConfigDlg(
 		HWND hdlg,
 		UINT msg,
@@ -509,7 +509,7 @@ void DisplayConfiguration(HWND hwndParent)
 	extern HINSTANCE hInstLib;
 	DialogBox (hInstLib, "CONFIG", hwndParent, ConfigDlg);
 }
-#endif	// ªˆÈã‚Í•s—v
+#endif	// â†‘ä»¥ä¸Šã¯ä¸è¦
 
 
 

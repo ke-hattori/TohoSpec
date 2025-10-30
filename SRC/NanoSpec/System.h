@@ -1,4 +1,4 @@
-//	System.h
+ï»¿//	System.h
 
 #ifndef _SYSTEM_H_
 #define _SYSTEM_H_
@@ -78,30 +78,30 @@
 // Define																   //
 //																		   //
 /////////////////////////////////////////////////////////////////////////////
-//#define CHIEF_USE_SLEEP		// Chief‚Ìƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh‚ÅSleep‚ð“ü‚ê‚éê‡‚Í—LŒø‚É‚·‚é
+//#define CHIEF_USE_SLEEP		// Chiefã®ãƒãƒ¼ãƒ‰ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ãƒˆãƒ¢ãƒ¼ãƒ‰ã§Sleepã‚’å…¥ã‚Œã‚‹å ´åˆã¯æœ‰åŠ¹ã«ã™ã‚‹
 
 /////////////////////////////////////////////////////////////////////////////
 // Nanosepc Version Definition
 #define SOFT_VERSION					"Ver.2.3.0"
-/* added 2016.05.12 hmenjo 6500/TS3100 •Ê version ---------- { ---------- */
+/* added 2016.05.12 hmenjo 6500/TS3100 åˆ¥ version ---------- { ---------- */
 #define SOFT_VERSION_TS3100				"Ver.1.11.17"
-/* added 2016.05.12 hmenjo 6500/TS3100 •Ê version ---------- } ---------- */
+/* added 2016.05.12 hmenjo 6500/TS3100 åˆ¥ version ---------- } ---------- */
 
-/* added 2015.04.05 hmenjo FWXGA ‘Î‰ž2 ---------- { ---------- */
-#define	SPLTR_SHRSCRL	/* •ªŠ„ƒEƒBƒ“ƒhƒE‚Ì‹¤—LƒXƒNƒ[ƒ‹ƒ‚[ƒh	*/
-/* added 2015.04.05 hmenjo FWXGA ‘Î‰ž2 ---------- } ---------- */
+/* added 2015.04.05 hmenjo FWXGA å¯¾å¿œ2 ---------- { ---------- */
+#define	SPLTR_SHRSCRL	/* åˆ†å‰²ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®å…±æœ‰ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒ¢ãƒ¼ãƒ‰	*/
+/* added 2015.04.05 hmenjo FWXGA å¯¾å¿œ2 ---------- } ---------- */
 /////////////////////////////////////////////////////////////////////////////
 // Window Message Definition
 /*
-// WM”Ô†Š„“–•\
+// WMç•ªå·å‰²å½“è¡¨
 	WM_NANOEXE		(WM_APP + 0x0000)		// 2009.03.26 NanoSpec.exe
 	WM_KEYHOOK	  	(WM_APP + 0x0100)		// 2009.03.26 KeyHook
 	WM_USER_NEX		(WM_APP + 0x0200)		// 2009.03.26 Nextra
-	WM_MEAS			(WM_APP + 0x0300)		// 2009.03.26 MeaSysi‘ª’èE‰ðÍŠÖ˜Aj
-	WM_PIFCOMM		(WM_APP + 0x0400)		// 2009.03.26 PifiãˆÊ’ÊMj
-	WM_ALARMIF		(WM_APP + 0x0500)		// 2009.03.26 ƒAƒ‰[ƒ€ˆ—
-	WM_DESKEWSEQ	(WM_APP + 0x0600)		// 2009.03.26 ƒfƒXƒLƒ…[
-	WM_SITEPT		(WM_APP + 0x0700)		// 2009.05.28 ƒTƒCƒgƒpƒ^[ƒ“
+	WM_MEAS			(WM_APP + 0x0300)		// 2009.03.26 MeaSysï¼ˆæ¸¬å®šãƒ»è§£æžé–¢é€£ï¼‰
+	WM_PIFCOMM		(WM_APP + 0x0400)		// 2009.03.26 Pifï¼ˆä¸Šä½é€šä¿¡ï¼‰
+	WM_ALARMIF		(WM_APP + 0x0500)		// 2009.03.26 ã‚¢ãƒ©ãƒ¼ãƒ å‡¦ç†
+	WM_DESKEWSEQ	(WM_APP + 0x0600)		// 2009.03.26 ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼
+	WM_SITEPT		(WM_APP + 0x0700)		// 2009.05.28 ã‚µã‚¤ãƒˆãƒ‘ã‚¿ãƒ¼ãƒ³
 	WM_TITLE		(WM_APP + 0x0800)		// 2009.12.14 NanoSpecTitle
 */
 
@@ -125,84 +125,84 @@
 #define WM_DO_PAUSE 								(WM_NANOEXE + 0x32)
 #define WM_DO_RESUME								(WM_NANOEXE + 0x33)
 #define WM_SELLENSCHANGE							(WM_NANOEXE + 0x40)
-// 2009.11.16 K.Matsuo ƒwƒbƒhƒIƒtƒZƒbƒg‘Î‰ž -->
+// 2009.11.16 K.Matsuo ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆå¯¾å¿œ -->
 #define WM_SELHEADTYPECHANGE						(WM_NANOEXE + 0x41)
-// 2009.11.16 K.Matsuo ƒwƒbƒhƒIƒtƒZƒbƒg‘Î‰ž <--
+// 2009.11.16 K.Matsuo ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆå¯¾å¿œ <--
 // 2013.02.22 bagus Substrate thickness setting -->
 #define WM_SELSUBTHICKCHANGE						(WM_NANOEXE + 0x42)
 // 2013.02.22 bagus Substrate thickness setting <--
-#define WM_LINE_SELECT_CHANGE						(WM_NANOEXE + 0x50) //wparam: ƒ`ƒFƒbƒNó‘Ô, lparam: –¢Žg—p
-#define WM_NANO_MEASURE_GRAPH_CALIBRATION_COMP		(WM_NANOEXE + 0x51) //ƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“Z³’lÝ’èŠ®—¹
-#define WM_CHIF_HEARTBEAT							(WM_NANOEXE + 0x52) // Chief “®ì’†•\Ž¦—p
-#define WM_CHIF_SETTIME_FAIL						(WM_NANOEXE + 0x53) // ŽžÝ’èŽ¸”s
-#define WM_CHIF_RECV_PIFCMD 						(WM_NANOEXE + 0x54) // Pif ƒRƒ}ƒ“ƒhŽóM‚ð’Ê’m
-#define WM_CHIF_UPDATESTATESDLG 					(WM_NANOEXE + 0x55) // ƒXƒe[ƒ^ƒXƒ‚ƒjƒ^XV
-#define WM_CHIF_SENDTRACEDATA						(WM_NANOEXE + 0x56) // ƒgƒŒ[ƒXƒf[ƒ^•ñ(‘—M)
-#define WM_NANO_MEASURE_GRAPH_CALIBRATION_SET		(WM_NANOEXE + 0x57) //wparam: Ý’èƒ|ƒCƒ“ƒg, lparam: –¢Žg—p	ƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“Z³’l1ƒ|ƒCƒ“ƒgÝ’èŠ®—¹
+#define WM_LINE_SELECT_CHANGE						(WM_NANOEXE + 0x50) //wparam: ãƒã‚§ãƒƒã‚¯çŠ¶æ…‹, lparam: æœªä½¿ç”¨
+#define WM_NANO_MEASURE_GRAPH_CALIBRATION_COMP		(WM_NANOEXE + 0x51) //ã‚­ãƒ£ãƒªãƒ–ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³æ ¡æ­£å€¤è¨­å®šå®Œäº†
+#define WM_CHIF_HEARTBEAT							(WM_NANOEXE + 0x52) // Chief å‹•ä½œä¸­è¡¨ç¤ºç”¨
+#define WM_CHIF_SETTIME_FAIL						(WM_NANOEXE + 0x53) // æ™‚åˆ»è¨­å®šå¤±æ•—
+#define WM_CHIF_RECV_PIFCMD 						(WM_NANOEXE + 0x54) // Pif ã‚³ãƒžãƒ³ãƒ‰å—ä¿¡ã‚’é€šçŸ¥
+#define WM_CHIF_UPDATESTATESDLG 					(WM_NANOEXE + 0x55) // ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒ¢ãƒ‹ã‚¿æ›´æ–°
+#define WM_CHIF_SENDTRACEDATA						(WM_NANOEXE + 0x56) // ãƒˆãƒ¬ãƒ¼ã‚¹ãƒ‡ãƒ¼ã‚¿å ±å‘Š(é€ä¿¡)
+#define WM_NANO_MEASURE_GRAPH_CALIBRATION_SET		(WM_NANOEXE + 0x57) //wparam: è¨­å®šãƒã‚¤ãƒ³ãƒˆ, lparam: æœªä½¿ç”¨	ã‚­ãƒ£ãƒªãƒ–ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³æ ¡æ­£å€¤1ãƒã‚¤ãƒ³ãƒˆè¨­å®šå®Œäº†
 
-#define WM_CHIF_PIFDIREFRESH						(WM_NANOEXE + 0x58) // Pif DI ƒŠƒtƒŒƒbƒVƒ…
-#define WM_CHIF_EQRUNCHECK							(WM_NANOEXE + 0x59) // EQ “®ì’†ƒ`ƒFƒbƒN
-#define WM_CHIF_REPORTALARM 						(WM_NANOEXE + 0x5a) // Chief —pŠeŽíƒAƒ‰[ƒ€ˆ——p
-#define WM_CHIF_ERROR_NOTIFY						(WM_NANOEXE + 0x5b) // Chief ƒGƒ‰[’Ê’m—p(CMainFrame ‚Ö)
-#define WM_CHIF_MOVE_SETPOS 						(WM_NANOEXE + 0x5c) // ”Ä—pƒ|ƒWƒVƒ‡ƒ“ˆÚ“®Žw—ß(Pif ‚©‚ç)
-#define WM_DISP_MOVE_SETPOS 						(WM_NANOEXE + 0x5d) // ”Ä—pƒ|ƒWƒVƒ‡ƒ“ˆÚ“®Žw—ß(‰æ–Ê‚©‚ç)
-#define WM_CHIF_MOVE_SETPOS_END 					(WM_NANOEXE + 0x5e) // ”Ä—pƒ|ƒWƒVƒ‡ƒ“ˆÚ“®Š®—¹(‰æ–Ê‚Ö)
-#define WM_CHIF_STAGE_STOP							(WM_NANOEXE + 0x5f) // ƒXƒe[ƒW’âŽ~ŒŸo
-#define WM_DISP_VACUUM_ONOFF						(WM_NANOEXE + 0x60) // ƒoƒLƒ…[ƒ€ON/OFFŽw—ß(‰æ–Ê‚©‚ç)
-#define WM_CHIF_VACUUM_END							(WM_NANOEXE + 0x61) // ƒoƒLƒ…[ƒ€Žw—ßŠ®—¹(‰æ–Ê‚Ö)
-#define WM_CHIF_SET_RECIPE							(WM_NANOEXE + 0x62) // ’…HƒŒƒVƒs’Ê’mFChief WM_COPYDATA ƒnƒ“ƒhƒ‰ ¨ Chief ƒŒƒVƒsÝ’èƒnƒ“ƒhƒ‰
-#define WM_CHIF_AF_POPUP							(WM_NANOEXE + 0x63) // AF ƒ|ƒbƒvƒAƒbƒvŽw—ß
-#define WM_DISP_AF_POPUP_END						(WM_NANOEXE + 0x64) // AF ƒ|ƒbƒvƒAƒbƒvI—¹
-//#define	WM_MEAS_RECVDATA							(WM_NANOEXE + 0x65) // ƒf[ƒ^ŽóMŠJŽn	ref.MeaSys.hxx
-#define WM_CHIF_1POINT_END							(WM_NANOEXE + 0x66) // ‚Pƒ|ƒCƒ“ƒg‘ª’èI—¹
-#define WM_DATA_1POINT_END							(WM_NANOEXE + 0x67) // ‚Pƒ|ƒCƒ“ƒg‘ª’èI—¹‰ž“š
-#define WM_CHIF_MEAS_END							(WM_NANOEXE + 0x68) // ‚P–‡‘ª’èI—¹
-#define WM_DATA_MEAS_END							(WM_NANOEXE + 0x69) // ‚P–‡‘ª’èI—¹‰ž“š
-#define WM_DISP_START_AAF							(WM_NANOEXE + 0x6a) // AAF ŠJŽn
-#define WM_DISP_START_SEQ							(WM_NANOEXE + 0x6b) // ƒV[ƒPƒ“ƒX‘ª’èŠJŽn
-#define WM_DISP_START_1POINT						(WM_NANOEXE + 0x6c) // ‚Pƒ|ƒCƒ“ƒg‘ª’èŠJŽn
-#define WM_DISP_PAUSE_SEQ							(WM_NANOEXE + 0x6d) // ‘ª’èƒ|[ƒYƒ{ƒ^ƒ“
-#define WM_DISP_RESUME_SEQ							(WM_NANOEXE + 0x6e) // ‘ª’èƒŒƒWƒ…[ƒ€ƒ{ƒ^ƒ“
-#define WM_DISP_CANCEL_SEQ							(WM_NANOEXE + 0x6f) // ‘ª’èƒLƒƒƒ“ƒZƒ‹ƒ{ƒ^ƒ“
-#define WM_CHIF_AAF_END 							(WM_NANOEXE + 0x70) // AAFI—¹(‰æ–Ê‚Ö)
-#define WM_DISP_START_SRREF 						(WM_NANOEXE + 0x71) // ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èŠJŽn(‰æ–Ê‚©‚ç)
-#define WM_CHIF_SRREF_END							(WM_NANOEXE + 0x72) // ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èI—¹(‰æ–Ê‚Ö)
-#define WM_CHIF_SHOWSW								(WM_NANOEXE + 0x73) // Chiefƒ_ƒCƒAƒƒO•\Ž¦§Œä
-#define WM_CHIF_RESET_ALARM 						(WM_NANOEXE + 0x74) // ˆÙíƒŠƒZƒbƒg
-#define WM_CHIF_MEAS_START							(WM_NANOEXE + 0x75) // ‚P–‡‘ª’èŠJŽn(ƒV[ƒPƒ“ƒX‘ª’èŠJŽn)
-#define WM_CHIF_NOTIFY_MEAS_PAUSE					(WM_NANOEXE + 0x76) // ‘ª’èƒ|[ƒY‚ð’Ê’m
+#define WM_CHIF_PIFDIREFRESH						(WM_NANOEXE + 0x58) // Pif DI ãƒªãƒ•ãƒ¬ãƒƒã‚·ãƒ¥
+#define WM_CHIF_EQRUNCHECK							(WM_NANOEXE + 0x59) // EQ å‹•ä½œä¸­ãƒã‚§ãƒƒã‚¯
+#define WM_CHIF_REPORTALARM 						(WM_NANOEXE + 0x5a) // Chief ç”¨å„ç¨®ã‚¢ãƒ©ãƒ¼ãƒ å‡¦ç†ç”¨
+#define WM_CHIF_ERROR_NOTIFY						(WM_NANOEXE + 0x5b) // Chief ã‚¨ãƒ©ãƒ¼é€šçŸ¥ç”¨(CMainFrame ã¸)
+#define WM_CHIF_MOVE_SETPOS 						(WM_NANOEXE + 0x5c) // æ±Žç”¨ãƒã‚¸ã‚·ãƒ§ãƒ³ç§»å‹•æŒ‡ä»¤(Pif ã‹ã‚‰)
+#define WM_DISP_MOVE_SETPOS 						(WM_NANOEXE + 0x5d) // æ±Žç”¨ãƒã‚¸ã‚·ãƒ§ãƒ³ç§»å‹•æŒ‡ä»¤(ç”»é¢ã‹ã‚‰)
+#define WM_CHIF_MOVE_SETPOS_END 					(WM_NANOEXE + 0x5e) // æ±Žç”¨ãƒã‚¸ã‚·ãƒ§ãƒ³ç§»å‹•å®Œäº†(ç”»é¢ã¸)
+#define WM_CHIF_STAGE_STOP							(WM_NANOEXE + 0x5f) // ã‚¹ãƒ†ãƒ¼ã‚¸åœæ­¢æ¤œå‡º
+#define WM_DISP_VACUUM_ONOFF						(WM_NANOEXE + 0x60) // ãƒã‚­ãƒ¥ãƒ¼ãƒ ON/OFFæŒ‡ä»¤(ç”»é¢ã‹ã‚‰)
+#define WM_CHIF_VACUUM_END							(WM_NANOEXE + 0x61) // ãƒã‚­ãƒ¥ãƒ¼ãƒ æŒ‡ä»¤å®Œäº†(ç”»é¢ã¸)
+#define WM_CHIF_SET_RECIPE							(WM_NANOEXE + 0x62) // ç€å·¥ãƒ¬ã‚·ãƒ”é€šçŸ¥ï¼šChief WM_COPYDATA ãƒãƒ³ãƒ‰ãƒ© â†’ Chief ãƒ¬ã‚·ãƒ”è¨­å®šãƒãƒ³ãƒ‰ãƒ©
+#define WM_CHIF_AF_POPUP							(WM_NANOEXE + 0x63) // AF ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—æŒ‡ä»¤
+#define WM_DISP_AF_POPUP_END						(WM_NANOEXE + 0x64) // AF ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—çµ‚äº†
+//#define	WM_MEAS_RECVDATA							(WM_NANOEXE + 0x65) // ãƒ‡ãƒ¼ã‚¿å—ä¿¡é–‹å§‹	ref.MeaSys.hxx
+#define WM_CHIF_1POINT_END							(WM_NANOEXE + 0x66) // ï¼‘ãƒã‚¤ãƒ³ãƒˆæ¸¬å®šçµ‚äº†
+#define WM_DATA_1POINT_END							(WM_NANOEXE + 0x67) // ï¼‘ãƒã‚¤ãƒ³ãƒˆæ¸¬å®šçµ‚äº†å¿œç­”
+#define WM_CHIF_MEAS_END							(WM_NANOEXE + 0x68) // ï¼‘æžšæ¸¬å®šçµ‚äº†
+#define WM_DATA_MEAS_END							(WM_NANOEXE + 0x69) // ï¼‘æžšæ¸¬å®šçµ‚äº†å¿œç­”
+#define WM_DISP_START_AAF							(WM_NANOEXE + 0x6a) // AAF é–‹å§‹
+#define WM_DISP_START_SEQ							(WM_NANOEXE + 0x6b) // ã‚·ãƒ¼ã‚±ãƒ³ã‚¹æ¸¬å®šé–‹å§‹
+#define WM_DISP_START_1POINT						(WM_NANOEXE + 0x6c) // ï¼‘ãƒã‚¤ãƒ³ãƒˆæ¸¬å®šé–‹å§‹
+#define WM_DISP_PAUSE_SEQ							(WM_NANOEXE + 0x6d) // æ¸¬å®šãƒãƒ¼ã‚ºãƒœã‚¿ãƒ³
+#define WM_DISP_RESUME_SEQ							(WM_NANOEXE + 0x6e) // æ¸¬å®šãƒ¬ã‚¸ãƒ¥ãƒ¼ãƒ ãƒœã‚¿ãƒ³
+#define WM_DISP_CANCEL_SEQ							(WM_NANOEXE + 0x6f) // æ¸¬å®šã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒœã‚¿ãƒ³
+#define WM_CHIF_AAF_END 							(WM_NANOEXE + 0x70) // AAFçµ‚äº†(ç”»é¢ã¸)
+#define WM_DISP_START_SRREF 						(WM_NANOEXE + 0x71) // ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šé–‹å§‹(ç”»é¢ã‹ã‚‰)
+#define WM_CHIF_SRREF_END							(WM_NANOEXE + 0x72) // ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šçµ‚äº†(ç”»é¢ã¸)
+#define WM_CHIF_SHOWSW								(WM_NANOEXE + 0x73) // Chiefãƒ€ã‚¤ã‚¢ãƒ­ã‚°è¡¨ç¤ºåˆ¶å¾¡
+#define WM_CHIF_RESET_ALARM 						(WM_NANOEXE + 0x74) // ç•°å¸¸ãƒªã‚»ãƒƒãƒˆ
+#define WM_CHIF_MEAS_START							(WM_NANOEXE + 0x75) // ï¼‘æžšæ¸¬å®šé–‹å§‹(ã‚·ãƒ¼ã‚±ãƒ³ã‚¹æ¸¬å®šé–‹å§‹)
+#define WM_CHIF_NOTIFY_MEAS_PAUSE					(WM_NANOEXE + 0x76) // æ¸¬å®šãƒãƒ¼ã‚ºã‚’é€šçŸ¥
 // 2009.07.29 K.Matsuo -->
-#define WM_MANUALSITE_POPUP_END						(WM_NANOEXE + 0x77) // ƒ}ƒjƒ…ƒAƒ‹ƒTƒCƒgƒpƒ^[ƒ“ƒ|ƒbƒvƒAƒbƒvI—¹
+#define WM_MANUALSITE_POPUP_END						(WM_NANOEXE + 0x77) // ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ã‚µã‚¤ãƒˆãƒ‘ã‚¿ãƒ¼ãƒ³ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—çµ‚äº†
 // 2009.07.29 K.Matsuo <--
-/* added 2009.07.24 hmenjo ƒXƒgƒŒƒX ƒEƒBƒ“ƒhƒEƒƒbƒZ[ƒW’Ç‰Á ---------- { ---------- */
-#define	WM_CHIF_LINE_START							(WM_NANOEXE + 0x78) /* Stress ƒ‰ƒCƒ““®ìŠJŽn	*/
-//#define	WM_MEAS_LINE_END							(WM_NANOEXE + 0x79) /* Stress ‚Pƒ‰ƒCƒ“‘ª’èŠ®—¹(‘ª’èƒ‚ƒWƒ…[ƒ‹‚ª”­s)	 WPARAM  =0:³íI—¹ ‚0:ˆÙíI—¹ */	ref.MeaSys.hxx
-#define	WM_CHIF_LINE_END							(WM_NANOEXE + 0x7a) /* Stress ‚Pƒ‰ƒCƒ“‘ª’èŠ®—¹(‰æ–Ê/ƒf[ƒ^ˆ—ƒ‚ƒWƒ…[ƒ‹‚Ö)	*/
-#define	WM_DATA_LINE_END							(WM_NANOEXE + 0x7b) /* Stress ‚Pƒ‰ƒCƒ“ƒf[ƒ^ˆ—Š®—¹(‰æ–Ê/ƒf[ƒ^ˆ—ƒ‚ƒWƒ…[ƒ‹‚ª”­s)	*/
-#define	WM_CHIF_STRS_MEAS_END						(WM_NANOEXE + 0x7c) /* Stress ‚P–‡‘ª’èI—¹	*/
-#define	WM_DATA_STRS_MEAS_END						(WM_NANOEXE + 0x7d) /* Stress ‚P–‡‘ª’èI—¹‰ž“š(‰æ–Ê/ƒf[ƒ^ˆ—ƒ‚ƒWƒ…[ƒ‹‚ª”­s)	*/
-/* added 2009.07.24 hmenjo ƒXƒgƒŒƒX ƒEƒBƒ“ƒhƒEƒƒbƒZ[ƒW’Ç‰Á ---------- } ---------- */
+/* added 2009.07.24 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹ ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¿½åŠ  ---------- { ---------- */
+#define	WM_CHIF_LINE_START							(WM_NANOEXE + 0x78) /* Stress ãƒ©ã‚¤ãƒ³å‹•ä½œé–‹å§‹	*/
+//#define	WM_MEAS_LINE_END							(WM_NANOEXE + 0x79) /* Stress ï¼‘ãƒ©ã‚¤ãƒ³æ¸¬å®šå®Œäº†(æ¸¬å®šãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ãŒç™ºè¡Œ)	 WPARAM  =0:æ­£å¸¸çµ‚äº† â‰ 0:ç•°å¸¸çµ‚äº† */	ref.MeaSys.hxx
+#define	WM_CHIF_LINE_END							(WM_NANOEXE + 0x7a) /* Stress ï¼‘ãƒ©ã‚¤ãƒ³æ¸¬å®šå®Œäº†(ç”»é¢/ãƒ‡ãƒ¼ã‚¿å‡¦ç†ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã¸)	*/
+#define	WM_DATA_LINE_END							(WM_NANOEXE + 0x7b) /* Stress ï¼‘ãƒ©ã‚¤ãƒ³ãƒ‡ãƒ¼ã‚¿å‡¦ç†å®Œäº†(ç”»é¢/ãƒ‡ãƒ¼ã‚¿å‡¦ç†ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ãŒç™ºè¡Œ)	*/
+#define	WM_CHIF_STRS_MEAS_END						(WM_NANOEXE + 0x7c) /* Stress ï¼‘æžšæ¸¬å®šçµ‚äº†	*/
+#define	WM_DATA_STRS_MEAS_END						(WM_NANOEXE + 0x7d) /* Stress ï¼‘æžšæ¸¬å®šçµ‚äº†å¿œç­”(ç”»é¢/ãƒ‡ãƒ¼ã‚¿å‡¦ç†ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ãŒç™ºè¡Œ)	*/
+/* added 2009.07.24 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹ ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¿½åŠ  ---------- } ---------- */
 // 2009.10.28 bagus 2point-distance --{--
-#define WM_CHIF_DISTANCE_POPUP						(WM_NANOEXE + 0x7e) // 2“_ŠÔ‹——£ PointTeaching‰æ–Ê‚Ìƒ|ƒbƒvƒAƒbƒv—v‹
-#define WM_DISP_DISTANCE_POPUP_END					(WM_NANOEXE + 0x7f) // 2“_ŠÔ‹——£ PointTeaching‰æ–Ê‚Ìƒ|ƒbƒvƒAƒbƒvI—¹’Ê’m
+#define WM_CHIF_DISTANCE_POPUP						(WM_NANOEXE + 0x7e) // 2ç‚¹é–“è·é›¢ PointTeachingç”»é¢ã®ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—è¦æ±‚
+#define WM_DISP_DISTANCE_POPUP_END					(WM_NANOEXE + 0x7f) // 2ç‚¹é–“è·é›¢ PointTeachingç”»é¢ã®ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—çµ‚äº†é€šçŸ¥
 // 2009.10.28 bagus 2point-distance --}--
 // 2009.11.03 bagus MS --{--
-#define WM_CHIF_MS_POPUP							(WM_NANOEXE + 0x80)	// Œ°”÷‹¾‘ª’è PointTeaching‰æ–Ê‚Ìƒ|ƒbƒvƒAƒbƒv—v‹
-#define WM_DISP_MS_POPUP_END						(WM_NANOEXE + 0x81)	// Œ°”÷‹¾‘ª’è PointTeaching‰æ–Ê‚Ìƒ|ƒbƒvƒAƒbƒvI—¹’Ê’m
+#define WM_CHIF_MS_POPUP							(WM_NANOEXE + 0x80)	// é¡•å¾®é¡æ¸¬å®š PointTeachingç”»é¢ã®ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—è¦æ±‚
+#define WM_DISP_MS_POPUP_END						(WM_NANOEXE + 0x81)	// é¡•å¾®é¡æ¸¬å®š PointTeachingç”»é¢ã®ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—çµ‚äº†é€šçŸ¥
 // 2009.11.03 bagus MS --}--
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) -->
-#define WM_DISP_CONFIRM_POPUP 						(WM_NANOEXE + 0x82) // T3100 ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èˆÊ’uƒ†[ƒUŠm”F—v‹
-#define WM_DISP_CONFIRM_POPUP_END					(WM_NANOEXE + 0x83) // T3100 ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èˆÊ’uƒ†[ƒUŠm”FŒ‹‰Ê’Ê’m
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) <--
-// bagus 2014.01.10 Add(Stage None‘Î‰ž) -->
-#define WM_PIF_REPORT_SI_REF_COMP					(WM_NANOEXE + 0x84) // Stage None‘Î‰ž ƒŠƒtƒ@ƒ“ƒŒƒ“ƒXŽæ“¾Š®—¹•ñ
-#define WM_PIF_REPORT_DARK_REF_COMP					(WM_NANOEXE + 0x85) // Stage None‘Î‰ž ƒ_[ƒNƒŠƒtƒ@ƒ“ƒŒƒ“ƒXŽæ“¾Š®—¹•ñ
-// bagus 2014.01.10 Add(Stage None‘Î‰ž) <--
-// WM_COPYDATA ‚ÅŽg‚¤Ž¯•Ê”Ô†(dwData)‚ð’è‹`‚µ‚Ü‚·
-#define WMCD_CHIF_RECIPE_NOTIFY 					1	// Pif ‚©‚ç‚Ì’…HƒŒƒVƒs’Ê’mFChief ŽóMƒXƒŒƒbƒh¨ Chief ƒ_ƒCƒAƒƒO
-#define WMCD_CHIF_SET_RECIPE						2	// ’…HƒŒƒVƒsŽwŽ¦FChief ƒ_ƒCƒAƒƒO ¨ ‰æ–Êƒ‚ƒWƒ…[ƒ‹
-#define WMCD_CHIF_1POINT_END						3	// ‚Pƒ|ƒCƒ“ƒg‘ª’èI—¹FChief ¨ ƒf[ƒ^ˆ—ƒ‚ƒWƒ…[ƒ‹
-#define WMCD_CHIF_MEAS_START						4	// ‚P–‡‘ª’èŠJŽn(ƒV[ƒPƒ“ƒX‘ª’èŠJŽn)FChief ¨ ƒf[ƒ^ˆ—ƒ‚ƒWƒ…[ƒ‹
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
+#define WM_DISP_CONFIRM_POPUP 						(WM_NANOEXE + 0x82) // T3100 ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šä½ç½®ãƒ¦ãƒ¼ã‚¶ç¢ºèªè¦æ±‚
+#define WM_DISP_CONFIRM_POPUP_END					(WM_NANOEXE + 0x83) // T3100 ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šä½ç½®ãƒ¦ãƒ¼ã‚¶ç¢ºèªçµæžœé€šçŸ¥
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
+// bagus 2014.01.10 Add(Stage Noneå¯¾å¿œ) -->
+#define WM_PIF_REPORT_SI_REF_COMP					(WM_NANOEXE + 0x84) // Stage Noneå¯¾å¿œ ãƒªãƒ•ã‚¡ãƒ³ãƒ¬ãƒ³ã‚¹å–å¾—å®Œäº†å ±å‘Š
+#define WM_PIF_REPORT_DARK_REF_COMP					(WM_NANOEXE + 0x85) // Stage Noneå¯¾å¿œ ãƒ€ãƒ¼ã‚¯ãƒªãƒ•ã‚¡ãƒ³ãƒ¬ãƒ³ã‚¹å–å¾—å®Œäº†å ±å‘Š
+// bagus 2014.01.10 Add(Stage Noneå¯¾å¿œ) <--
+// WM_COPYDATA ã§ä½¿ã†è­˜åˆ¥ç•ªå·(dwData)ã‚’å®šç¾©ã—ã¾ã™
+#define WMCD_CHIF_RECIPE_NOTIFY 					1	// Pif ã‹ã‚‰ã®ç€å·¥ãƒ¬ã‚·ãƒ”é€šçŸ¥ï¼šChief å—ä¿¡ã‚¹ãƒ¬ãƒƒãƒ‰â†’ Chief ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
+#define WMCD_CHIF_SET_RECIPE						2	// ç€å·¥ãƒ¬ã‚·ãƒ”æŒ‡ç¤ºï¼šChief ãƒ€ã‚¤ã‚¢ãƒ­ã‚° â†’ ç”»é¢ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«
+#define WMCD_CHIF_1POINT_END						3	// ï¼‘ãƒã‚¤ãƒ³ãƒˆæ¸¬å®šçµ‚äº†ï¼šChief â†’ ãƒ‡ãƒ¼ã‚¿å‡¦ç†ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«
+#define WMCD_CHIF_MEAS_START						4	// ï¼‘æžšæ¸¬å®šé–‹å§‹(ã‚·ãƒ¼ã‚±ãƒ³ã‚¹æ¸¬å®šé–‹å§‹)ï¼šChief â†’ ãƒ‡ãƒ¼ã‚¿å‡¦ç†ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«
 
 #define WM_PROCESS_INIT 							(WM_NANOEXE + 0xA0)
 #define WM_UNIT_INIT_RETRY							(WM_NANOEXE + 0xA1)
@@ -225,25 +225,25 @@
 #define WM_DISPMENU_VACUUM							(WM_NANOEXE + 0xBE) //
 #define WM_DISPMENU_REFERENCE						(WM_NANOEXE + 0xBF) //
 
-#define WM_TESTMODE_ONEPOINT_END					(WM_NANOEXE + 0xC0) // ƒeƒXƒgƒ‚[ƒh1ƒ|ƒCƒ“ƒg‘ª’èI—¹’Ê’m(TestMeasurementDlg‚Ö’Ê’m)
-#define WM_TESTMODE_REF_END 						(WM_NANOEXE + 0xC1) // ƒeƒXƒgƒ‚[ƒhƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èI—¹’Ê’m(TestMeasurementDlg‚Ö’Ê’m)
+#define WM_TESTMODE_ONEPOINT_END					(WM_NANOEXE + 0xC0) // ãƒ†ã‚¹ãƒˆãƒ¢ãƒ¼ãƒ‰1ãƒã‚¤ãƒ³ãƒˆæ¸¬å®šçµ‚äº†é€šçŸ¥(TestMeasurementDlgã¸é€šçŸ¥)
+#define WM_TESTMODE_REF_END 						(WM_NANOEXE + 0xC1) // ãƒ†ã‚¹ãƒˆãƒ¢ãƒ¼ãƒ‰ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šçµ‚äº†é€šçŸ¥(TestMeasurementDlgã¸é€šçŸ¥)
 
 #define WM_JOYSTICK 								(WM_NANOEXE + 0xD0)
 #define WM_JOYSTICK_NG								(WM_NANOEXE + 0xD1)
 
 #define WM_MESSAGE_SHOW 							(WM_NANOEXE + 0xE0)
 
-#define WM_DEB_MESSAGE								(WM_NANOEXE + 0xF0) // ƒfƒoƒbƒN—p
+#define WM_DEB_MESSAGE								(WM_NANOEXE + 0xF0) // ãƒ‡ãƒãƒƒã‚¯ç”¨
 
 /////////////////////////////////////////////////////////////////////////////
 // Window Message Definition
 // (0x0600 - 0x06FF)
 #define WM_DESKEWSEQ								(WM_APP + 0x0600)
-#define WM_DESKEWSEQ_DESKEWMANUAL_START 			(WM_DESKEWSEQ + 0x00)	// ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[ŠJŽn
-#define WM_DESKEWSEQ_DESKEWMANUAL_SITE1_OK			(WM_DESKEWSEQ + 0x01)	// ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[I—¹ => DESKEWMANUAL SITE2‚Ö
-#define WM_DESKEWSEQ_DESKEWMANUAL_SITE2_OK			(WM_DESKEWSEQ + 0x02)	// ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[I—¹ => DESKEW OK
-#define WM_DESKEWSEQ_DESKEWMANUAL_CANCEL			(WM_DESKEWSEQ + 0x03)	// ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[I—¹ => ƒŒƒVƒsI—¹
-#define WM_DESKEWSEQ_DESKEWMANUAL_NONE				(WM_DESKEWSEQ + 0x04)	// ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[I—¹ => DESKEW‚È‚µ‚Åˆ—‘±s
+#define WM_DESKEWSEQ_DESKEWMANUAL_START 			(WM_DESKEWSEQ + 0x00)	// ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼é–‹å§‹
+#define WM_DESKEWSEQ_DESKEWMANUAL_SITE1_OK			(WM_DESKEWSEQ + 0x01)	// ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼çµ‚äº† => DESKEWMANUAL SITE2ã¸
+#define WM_DESKEWSEQ_DESKEWMANUAL_SITE2_OK			(WM_DESKEWSEQ + 0x02)	// ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼çµ‚äº† => DESKEW OK
+#define WM_DESKEWSEQ_DESKEWMANUAL_CANCEL			(WM_DESKEWSEQ + 0x03)	// ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼çµ‚äº† => ãƒ¬ã‚·ãƒ”çµ‚äº†
+#define WM_DESKEWSEQ_DESKEWMANUAL_NONE				(WM_DESKEWSEQ + 0x04)	// ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼çµ‚äº† => DESKEWãªã—ã§å‡¦ç†ç¶šè¡Œ
 
 /////////////////////////////////////////////////////////////////////////////
 // Window Message Definition
@@ -254,10 +254,10 @@
 
 // 2009.05.16 myanagida -->
 //#define WM_SITEPTSEQ
-#define WM_SITEPTSEQ_SITEPTMANUAL_START 			(WM_SITEPT + 0x10)	// ƒ}ƒjƒ…ƒAƒ‹ƒTƒCƒgƒpƒ^[ƒ“ŠJŽn
-#define WM_SITEPTSEQ_SITEPTMANUAL_OK				(WM_SITEPT + 0x11)	// ƒ}ƒjƒ…ƒAƒ‹ƒTƒCƒgƒpƒ^[ƒ“I—¹
-#define WM_SITEPTSEQ_SITEPTMANUAL_CANCEL			(WM_SITEPT + 0x12)	// ƒ}ƒjƒ…ƒAƒ‹ƒTƒCƒgƒpƒ^[ƒ“I—¹ => ƒŒƒVƒsI—¹
-#define WM_SITEPTSEQ_SITEPTMANUAL_NONE				(WM_SITEPT + 0x13)	// ƒ}ƒjƒ…ƒAƒ‹ƒTƒCƒgƒpƒ^[ƒ“I—¹ => ƒTƒCƒgƒpƒ^[ƒ“‚È‚µ‚Åˆ—‘±s
+#define WM_SITEPTSEQ_SITEPTMANUAL_START 			(WM_SITEPT + 0x10)	// ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ã‚µã‚¤ãƒˆãƒ‘ã‚¿ãƒ¼ãƒ³é–‹å§‹
+#define WM_SITEPTSEQ_SITEPTMANUAL_OK				(WM_SITEPT + 0x11)	// ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ã‚µã‚¤ãƒˆãƒ‘ã‚¿ãƒ¼ãƒ³çµ‚äº†
+#define WM_SITEPTSEQ_SITEPTMANUAL_CANCEL			(WM_SITEPT + 0x12)	// ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ã‚µã‚¤ãƒˆãƒ‘ã‚¿ãƒ¼ãƒ³çµ‚äº† => ãƒ¬ã‚·ãƒ”çµ‚äº†
+#define WM_SITEPTSEQ_SITEPTMANUAL_NONE				(WM_SITEPT + 0x13)	// ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ã‚µã‚¤ãƒˆãƒ‘ã‚¿ãƒ¼ãƒ³çµ‚äº† => ã‚µã‚¤ãƒˆãƒ‘ã‚¿ãƒ¼ãƒ³ãªã—ã§å‡¦ç†ç¶šè¡Œ
 // 2009.05.16 myanagida <--
 
 /////////////////////////////////////////////////////////////////////////////
@@ -266,9 +266,9 @@
 #define MIN_TARGET_WAVELENGTH			380
 // 2009.05.15 k-matsuo -->
 //#define MAX_TARGET_WAVELENGTH			800
-#define MAX_TARGET_WAVELENGTH			850			// ƒXƒ‚[ƒ‹ƒXƒ|ƒbƒg‘Î‰žB’Êí‚ÌÅ‘å’l‚Æ‚¢‚¦‚ÎA‚±‚¿‚ç‚ðŽg—p‚·‚é
-#define MAX_TARGET_WAVELENGTH_800		800			// ‰æ–Ê•\Ž¦“™‚ÅA800nm‚Ü‚Å‚É‚µ‚Ä‚¨‚«‚½‚¢ê‡‚È‚ÇA
-													// ˆÈ‘O‚Æ‚ÌŒÝŠ·«‚ðl—¶‚·‚éÛ‚ÉŽg—p‚·‚é
+#define MAX_TARGET_WAVELENGTH			850			// ã‚¹ãƒ¢ãƒ¼ãƒ«ã‚¹ãƒãƒƒãƒˆå¯¾å¿œã€‚é€šå¸¸ã®æœ€å¤§å€¤ã¨ã„ãˆã°ã€ã“ã¡ã‚‰ã‚’ä½¿ç”¨ã™ã‚‹
+#define MAX_TARGET_WAVELENGTH_800		800			// ç”»é¢è¡¨ç¤ºç­‰ã§ã€800nmã¾ã§ã«ã—ã¦ãŠããŸã„å ´åˆãªã©ã€
+													// ä»¥å‰ã¨ã®äº’æ›æ€§ã‚’è€ƒæ…®ã™ã‚‹éš›ã«ä½¿ç”¨ã™ã‚‹
 // 2009.05.15 k-matsuo <--
 #define MIN_ENHANCED_UV_WAVELENGTH		200
 #define MIN_FILM_THICKNESS				1			//um
@@ -278,7 +278,7 @@
 #define MIN_GAMMA						0.1
 #define MAX_GAMMA						10.0
 #define MIN_LIFE_TIME					1.0
-#define MAX_LIFE_TIME					10080.0 	//•b
+#define MAX_LIFE_TIME					10080.0 	//ç§’
 #define CALC_TYPE_ITEM_MAX				2
 
 // Config Setting Parameters
@@ -316,30 +316,30 @@
 // 2009.09.28 bagus gantry --}--
 
 //SetNanoOffsetCoordinate Mode Parameters
-#define GENERAL_MODE					0		//ƒ[ƒh/”Ä—pƒ|ƒWƒVƒ‡ƒ“ƒ‚[ƒh F X,Y ‚Ì‚Ý
-#define MEASURESEQUENCE_MODE			1		//‘ª’èƒ|ƒCƒ“ƒgƒ‚[ƒh F X,Y,Z,ƒƒCƒ“ƒŒƒVƒs–¼
-#define REFERENCESEQUENCE_MODE			2		//ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èÀ•Wƒ‚[ƒh F X,Y,Z
-#define LENSSELECT_MODE 				10		//ƒŒƒ“ƒYŠÔƒIƒtƒZƒbƒg•â³À•Wƒ‚[ƒh F X,Y,Z
+#define GENERAL_MODE					0		//ãƒ­ãƒ¼ãƒ‰/æ±Žç”¨ãƒã‚¸ã‚·ãƒ§ãƒ³ãƒ¢ãƒ¼ãƒ‰ ï¼š X,Y ã®ã¿
+#define MEASURESEQUENCE_MODE			1		//æ¸¬å®šãƒã‚¤ãƒ³ãƒˆãƒ¢ãƒ¼ãƒ‰ ï¼š X,Y,Z,ãƒ¡ã‚¤ãƒ³ãƒ¬ã‚·ãƒ”å
+#define REFERENCESEQUENCE_MODE			2		//ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šåº§æ¨™ãƒ¢ãƒ¼ãƒ‰ ï¼š X,Y,Z
+#define LENSSELECT_MODE 				10		//ãƒ¬ãƒ³ã‚ºé–“ã‚ªãƒ•ã‚»ãƒƒãƒˆè£œæ­£åº§æ¨™ãƒ¢ãƒ¼ãƒ‰ ï¼š X,Y,Z
 
-/* added 2015.06.01 hmenjo XMP •\Ž¦/”ñ•\Ž¦‚Q ---------- { ---------- */
-/*	XMP •\Ž¦ƒ`ƒFƒbƒN—pƒ^ƒCƒ}’è‹`	*/
+/* added 2015.06.01 hmenjo XMP è¡¨ç¤º/éžè¡¨ç¤ºï¼’ ---------- { ---------- */
+/*	XMP è¡¨ç¤ºãƒã‚§ãƒƒã‚¯ç”¨ã‚¿ã‚¤ãƒžå®šç¾©	*/
 #define	TMR_CHKXMPSHOW_ID	101
 #define	TMR_CHKXMPSHOW_TIME	500
-/* added 2015.06.01 hmenjo XMP •\Ž¦/”ñ•\Ž¦‚Q ---------- } ---------- */
+/* added 2015.06.01 hmenjo XMP è¡¨ç¤º/éžè¡¨ç¤ºï¼’ ---------- } ---------- */
 
 /////////////////////////////////////////////////////////////////////////////
 // Other Definition
 #define TIME_FORMAT 					"%H:%M:%S"			// time format
 
 /////////////////////////////////////////////////////////////////////////////
-// Toolbar‚Ì‚‚³
+// Toolbarã®é«˜ã•
 #define TOOLBAR_HEIGHT					(20)
 
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ä¿®æ­£ --{--
 /////////////////////////////////////////////////////////////////////////////
-// Section ‚ÌÅ’á‹——£
+// Section ã®æœ€ä½Žè·é›¢
 #define	SECTION_MIN_RANGE				(100 * MICROMETRE)
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ä¿®æ­£ --}--
 
 /////////////////////////////////////////////////////////////////////////////
 // Color Definition
@@ -368,7 +368,7 @@
 #define PURPLE_COLOR					RGB(153,  0,153)
 
 /////////////////////////////////////////////////////////////////////////////
-// ƒ{ƒ^ƒ“‚ÌŠOŠÏ•ÏX‚Ìƒpƒ‰ƒ[ƒ^‚Ì’è‹`
+// ãƒœã‚¿ãƒ³ã®å¤–è¦³å¤‰æ›´ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å®šç¾©
 #define BUTTON_NORMAL_SHADEID			CShadeButtonST::SHS_HBUMP
 #define BUTTON_RADIO_SHADEID			CShadeButtonST::SHS_HARDBUMP
 #define BUTTON_GRANULARITY				(5)
@@ -390,9 +390,9 @@
 
 /////////////////////////////////////////////////////////////////////////////
 // System Reserve
-#define SYSTEM_RECIPE_BEGINNING_CHAR	'_' 	// ƒAƒ“ƒ_[ƒo[‚©‚çŽn‚Ü‚éƒŒƒVƒs–¼‚ÍAƒVƒXƒeƒ€—˜—p
+#define SYSTEM_RECIPE_BEGINNING_CHAR	'_' 	// ã‚¢ãƒ³ãƒ€ãƒ¼ãƒãƒ¼ã‹ã‚‰å§‹ã¾ã‚‹ãƒ¬ã‚·ãƒ”åã¯ã€ã‚·ã‚¹ãƒ†ãƒ åˆ©ç”¨
 
-#define TESTMODE_TEMP_RECIPE_NAME		"TestMode"						// ƒeƒXƒgƒ‚[ƒh—p‚ÌˆêŽžì¬ƒŒƒVƒs–¼(iSYSTEM_RECIPE_BEGINNING_CHARj‚ðÚ“ªŒê‚É‚µ‚Ä—˜—p‚·‚é)
+#define TESTMODE_TEMP_RECIPE_NAME		"TestMode"						// ãƒ†ã‚¹ãƒˆãƒ¢ãƒ¼ãƒ‰ç”¨ã®ä¸€æ™‚ä½œæˆãƒ¬ã‚·ãƒ”å(ï¼ˆSYSTEM_RECIPE_BEGINNING_CHARï¼‰ã‚’æŽ¥é ­èªžã«ã—ã¦åˆ©ç”¨ã™ã‚‹)
 
 //Saiki 20091211 Add ----->
 // ==========================================================================
@@ -406,16 +406,16 @@
 //#define ON								(1)
 //#define OFF								(0)
 
-/* added 2014.11.22 hmenjo Fit Žw”•\Ž¦(2) ---------- { ---------- */
+/* added 2014.11.22 hmenjo Fit æŒ‡æ•°è¡¨ç¤º(2) ---------- { ---------- */
 /////////////////////////////////////////////////////////////////////////////
-//	FIT ’l‚Ì•\Ž¦Žd—l(scout Žg—pŽž)
-//		0 : ¬”“_ˆÈ‰º‚UŒ…  (VC Œ¾Œê‚Ì•W€Žd—l)
-//		1 : ‰¼”•”‚RŒ…CŽw”•”‚RŒ…  (VC Œ¾Œê‚Ì•W€Žd—l)
-//		2 : ‰¼”•”‚QŒ…CŽw”•”‚RŒ…  (VC Œ¾Œê‚Ì•W€Žd—l)
-//		3 : ‰¼”•”‚QŒ…CŽw”•”‚QŒ…  (log10 ‚ðŽg‚Á‚Ä•ª‰ð•\Ž¦DŒvŽZŒë·‚ª•sˆÀ)
-//		ã‹LˆÈŠOF0 ‚Æ“¯‚¶
+//	FIT å€¤ã®è¡¨ç¤ºä»•æ§˜(scout ä½¿ç”¨æ™‚)
+//		0 : å°æ•°ç‚¹ä»¥ä¸‹ï¼–æ¡  (VC è¨€èªžã®æ¨™æº–ä»•æ§˜)
+//		1 : ä»®æ•°éƒ¨ï¼“æ¡ï¼ŒæŒ‡æ•°éƒ¨ï¼“æ¡  (VC è¨€èªžã®æ¨™æº–ä»•æ§˜)
+//		2 : ä»®æ•°éƒ¨ï¼’æ¡ï¼ŒæŒ‡æ•°éƒ¨ï¼“æ¡  (VC è¨€èªžã®æ¨™æº–ä»•æ§˜)
+//		3 : ä»®æ•°éƒ¨ï¼’æ¡ï¼ŒæŒ‡æ•°éƒ¨ï¼’æ¡  (log10 ã‚’ä½¿ã£ã¦åˆ†è§£è¡¨ç¤ºï¼Žè¨ˆç®—èª¤å·®ãŒä¸å®‰)
+//		ä¸Šè¨˜ä»¥å¤–ï¼š0 ã¨åŒã˜
 #define	FIT_DISP_SCOUT	3
-/* added 2014.11.22 hmenjo Fit Žw”•\Ž¦(2) ---------- } ---------- */
+/* added 2014.11.22 hmenjo Fit æŒ‡æ•°è¡¨ç¤º(2) ---------- } ---------- */
 
 /////////////////////////////////////////////////////////////////////////////
 // Structure															   //
@@ -425,34 +425,34 @@ struct ONE_POINT_DATA
 {
 	BOOL Valid;
 	STAGE_COORD_XYZ xyz;
-	AF_VALID	afValid;												// AF VALIDƒf[ƒ^
-	char szAfP502[2+1]; 												// P502‘—M—p
-	char szShowAfValid[SHOW_AF_VALID_LEN+1];							// ‘ª’èŒ‹‰Ê•\Ž¦‰æ–Ê‚ÌFOCUS€–Ú—p
-	double dData[ADAPRESULT_COLS_MAX];									// Colƒf[ƒ^(AF‚æ‚è‚àŒã‚ë‚Ìƒf[ƒ^)
+	AF_VALID	afValid;												// AF VALIDãƒ‡ãƒ¼ã‚¿
+	char szAfP502[2+1]; 												// P502é€ä¿¡ç”¨
+	char szShowAfValid[SHOW_AF_VALID_LEN+1];							// æ¸¬å®šçµæžœè¡¨ç¤ºç”»é¢ã®FOCUSé …ç›®ç”¨
+	double dData[ADAPRESULT_COLS_MAX];									// Colãƒ‡ãƒ¼ã‚¿(AFã‚ˆã‚Šã‚‚å¾Œã‚ã®ãƒ‡ãƒ¼ã‚¿)
 // 2009.09.30 K.Matsuo CommentOut -->
-//	double dAnalysisData[SCANDATA_POINT_MAX];							// ”½ŽË—¦ƒf[ƒ^(379`799ŠÔ‚ðŽg—pB‚»‚êˆÈŠO‚Íí‚É0)
-//	double dAnalysisGenData[SCANDATA_POINT_MAX];						// Xmp‚©‚ç‚ÌGenData(379`799ŠÔ‚ðŽg—pB‚»‚êˆÈŠO‚Íí‚É0)
+//	double dAnalysisData[SCANDATA_POINT_MAX];							// åå°„çŽ‡ãƒ‡ãƒ¼ã‚¿(379ã€œ799é–“ã‚’ä½¿ç”¨ã€‚ãã‚Œä»¥å¤–ã¯å¸¸ã«0)
+//	double dAnalysisGenData[SCANDATA_POINT_MAX];						// Xmpã‹ã‚‰ã®GenData(379ã€œ799é–“ã‚’ä½¿ç”¨ã€‚ãã‚Œä»¥å¤–ã¯å¸¸ã«0)
 // 2009.09.30 K.Matsuo CommentOut <--
 };
-/* added 2009.07.23 hmenjo ƒXƒgƒŒƒX ƒ‰ƒCƒ“” ’è‹`‚Q ---------- { ---------- */
+/* added 2009.07.23 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹ ãƒ©ã‚¤ãƒ³æ•° å®šç¾©ï¼’ ---------- { ---------- */
 // 2009.08.05 K.Matsuo CommentOut -->
-//struct STRESSRESULT {				/* ƒRƒR‚Íƒ_ƒ~[‚Å‚·D		*/
-//	long dummy;						/*	 u‘ª’èƒ‚ƒWƒ…[ƒ‹v‚Å	*/
-//};									/*		 ’è‹`‚³‚ê‚Ä‚¢‚Ü‚·D	*/
+//struct STRESSRESULT {				/* ã‚³ã‚³ã¯ãƒ€ãƒŸãƒ¼ã§ã™ï¼Ž		*/
+//	long dummy;						/*	 ã€Œæ¸¬å®šãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã€ã§	*/
+//};									/*		 å®šç¾©ã•ã‚Œã¦ã„ã¾ã™ï¼Ž	*/
 // 2009.08.05 K.Matsuo CommentOut <--
-/* ƒXƒgƒŒƒX—p‘ª’èŒ‹‰Êƒf[ƒ^\‘¢*/
+/* ã‚¹ãƒˆãƒ¬ã‚¹ç”¨æ¸¬å®šçµæžœãƒ‡ãƒ¼ã‚¿æ§‹é€ */
 struct ONE_LINE_DATA_STRESS {
-	STRESSRESULT		StressResult;					/* ‚Pƒ‰ƒCƒ“‘ª’èŒ‹‰Ê	*/
-	STRESS_SECTION_POS	SecPos[STRESS_SECTIONS_MAX];	/* ƒZƒNƒVƒ‡ƒ“ˆÊ’uî•ñ ’è‹`	*/
+	STRESSRESULT		StressResult;					/* ï¼‘ãƒ©ã‚¤ãƒ³æ¸¬å®šçµæžœ	*/
+	STRESS_SECTION_POS	SecPos[STRESS_SECTIONS_MAX];	/* ã‚»ã‚¯ã‚·ãƒ§ãƒ³ä½ç½®æƒ…å ± å®šç¾©	*/
 };
-/* added 2009.07.23 hmenjo ƒXƒgƒŒƒX ƒ‰ƒCƒ“” ’è‹`‚Q ---------- } ---------- */
+/* added 2009.07.23 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹ ãƒ©ã‚¤ãƒ³æ•° å®šç¾©ï¼’ ---------- } ---------- */
 
 
 struct TEST_MODE_MEASRCP_CONDITION
 {
-	int 			iLens;				// ‘ª’èƒŒƒ“ƒY
-	WORD			wOpticsFilterType;	// ŒõŠwƒtƒBƒ‹ƒ^
-	double			dIntegTime; 		// ‘ª’èŽžŠÔ
+	int 			iLens;				// æ¸¬å®šãƒ¬ãƒ³ã‚º
+	WORD			wOpticsFilterType;	// å…‰å­¦ãƒ•ã‚£ãƒ«ã‚¿
+	double			dIntegTime; 		// æ¸¬å®šæ™‚é–“
 	WORD wStart;
 	WORD wEnd;
 };
@@ -462,9 +462,9 @@ struct TEST_MODE_MEASRCP_CONDITION
 // struct TEST_MODE_DATA
 // {
 // 	TEST_MODE_MEASRCP_CONDITION MeasRcpCon;
-// 	double dScanSampleData[SCANDATA_POINT_MAX]; 						//(379`799ŠÔ‚ðŽg—pB‚»‚êˆÈŠO‚Íí‚É0)
-// 	double dScan1stReferenceData[SCANDATA_POINT_MAX];					//(379`799ŠÔ‚ðŽg—pB‚»‚êˆÈŠO‚Íí‚É0)
-// 	double dScanDark_T1Data[SCANDATA_POINT_MAX];						//(379`799ŠÔ‚ðŽg—pB‚»‚êˆÈŠO‚Íí‚É0)
+// 	double dScanSampleData[SCANDATA_POINT_MAX]; 						//(379ã€œ799é–“ã‚’ä½¿ç”¨ã€‚ãã‚Œä»¥å¤–ã¯å¸¸ã«0)
+// 	double dScan1stReferenceData[SCANDATA_POINT_MAX];					//(379ã€œ799é–“ã‚’ä½¿ç”¨ã€‚ãã‚Œä»¥å¤–ã¯å¸¸ã«0)
+// 	double dScanDark_T1Data[SCANDATA_POINT_MAX];						//(379ã€œ799é–“ã‚’ä½¿ç”¨ã€‚ãã‚Œä»¥å¤–ã¯å¸¸ã«0)
 // };
 #else
 struct TEST_MODE_DATA
@@ -473,9 +473,9 @@ struct TEST_MODE_DATA
 	double dMinTargetWave;
 	double dMaxTargetWave;
 	double dWavelengthStep;
-	double dScanSampleData[SCANDATA_POINT_MAX]; 				 // ”g’·‚©‚ç”z—ñƒCƒ“ƒfƒbƒNƒX‚ð‹‚ß‚é (”g’· - dMinTargetWave) / dWavelengthStep
-	double dScan1stReferenceData[SCANDATA_POINT_MAX];			 // ”g’·‚©‚ç”z—ñƒCƒ“ƒfƒbƒNƒX‚ð‹‚ß‚é (”g’· - dMinTargetWave) / dWavelengthStep
-	double dScanDark_T1Data[SCANDATA_POINT_MAX];				 // ”g’·‚©‚ç”z—ñƒCƒ“ƒfƒbƒNƒX‚ð‹‚ß‚é (”g’· - dMinTargetWave) / dWavelengthStep
+	double dScanSampleData[SCANDATA_POINT_MAX]; 				 // æ³¢é•·ã‹ã‚‰é…åˆ—ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’æ±‚ã‚ã‚‹ (æ³¢é•· - dMinTargetWave) / dWavelengthStep
+	double dScan1stReferenceData[SCANDATA_POINT_MAX];			 // æ³¢é•·ã‹ã‚‰é…åˆ—ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’æ±‚ã‚ã‚‹ (æ³¢é•· - dMinTargetWave) / dWavelengthStep
+	double dScanDark_T1Data[SCANDATA_POINT_MAX];				 // æ³¢é•·ã‹ã‚‰é…åˆ—ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’æ±‚ã‚ã‚‹ (æ³¢é•· - dMinTargetWave) / dWavelengthStep
 	// helper function.
 	double GetScanSampleData(double dWavelength)
 	{
@@ -607,7 +607,7 @@ struct STATISTICS
 struct RCP_DATA
 {
 
-	char szRecipeName[RECIPE_NAME_LEN + 1]; 							// ƒƒCƒ“ƒŒƒVƒs–¼
+	char szRecipeName[RECIPE_NAME_LEN + 1]; 							// ãƒ¡ã‚¤ãƒ³ãƒ¬ã‚·ãƒ”å
 	//	MAIN_RCP_INFO_HDR hdr;
 	MAIN_RCP_INFO MainRcpInfo;
 	MEAS_PROG_INFO MeasProgInfo;
@@ -622,59 +622,59 @@ struct RCP_DATA
 
 struct MEASURED_DATA
 {
-	RCP_DATA rcp_data;													// ƒŒƒVƒsƒf[ƒ^‚È‚Ç
+	RCP_DATA rcp_data;													// ãƒ¬ã‚·ãƒ”ãƒ‡ãƒ¼ã‚¿ãªã©
 
-	char szUserId[MAX_PATH + 1];										// ƒ†[ƒUID
-	SYSTEMTIME syStartDateTime; 										// ‘ª’èŠJŽn“úŽž(datƒtƒ@ƒCƒ‹Ši”[Žž‚É•ª‰ð‚·‚é‚±‚Æ)
-	SYSTEMTIME syEndDateTime;											// ‘ª’èI—¹“úŽž(datƒtƒ@ƒCƒ‹Ši”[Žž‚É•ª‰ð‚·‚é‚±‚Æ)
-	char szSampleId[SAMPLE_ID_LEN + 1]; 								// ƒTƒ“ƒvƒ‹ID(HOST‚æ‚èŽwŽ¦)
+	char szUserId[MAX_PATH + 1];										// ãƒ¦ãƒ¼ã‚¶ID
+	SYSTEMTIME syStartDateTime; 										// æ¸¬å®šé–‹å§‹æ—¥æ™‚(datãƒ•ã‚¡ã‚¤ãƒ«æ ¼ç´æ™‚ã«åˆ†è§£ã™ã‚‹ã“ã¨)
+	SYSTEMTIME syEndDateTime;											// æ¸¬å®šçµ‚äº†æ—¥æ™‚(datãƒ•ã‚¡ã‚¤ãƒ«æ ¼ç´æ™‚ã«åˆ†è§£ã™ã‚‹ã“ã¨)
+	char szSampleId[SAMPLE_ID_LEN + 1]; 								// ã‚µãƒ³ãƒ—ãƒ«ID(HOSTã‚ˆã‚ŠæŒ‡ç¤º)
 	//2009.10.13 bagus RS --{--
-	//ƒƒbƒgID’Ç‰Á
-	char szLotId[LOT_ID_LEN + 1];										// ƒƒbƒgIDiRS‚Ì‚Ý•K{j
+	//ãƒ­ãƒƒãƒˆIDè¿½åŠ 
+	char szLotId[LOT_ID_LEN + 1];										// ãƒ­ãƒƒãƒˆIDï¼ˆRSã®ã¿å¿…é ˆï¼‰
 	//2009.10.13 bagus RS --}--
-	char szUnit[DISP_UNIT_NAME_LEN + 1];								// ‘ª’èŒ‹‰Ê’PˆÊ–¼
-	int iUnit;															// ‘ª’èŒ‹‰Ê’PˆÊINDEX
-	int iMeasureNum;													// ‘ª’èƒ|ƒCƒ“ƒg”
+	char szUnit[DISP_UNIT_NAME_LEN + 1];								// æ¸¬å®šçµæžœå˜ä½å
+	int iUnit;															// æ¸¬å®šçµæžœå˜ä½INDEX
+	int iMeasureNum;													// æ¸¬å®šãƒã‚¤ãƒ³ãƒˆæ•°
 
-	char szTitleXyz[3][ADAPRESULTSTRINGLENMAX + 1]; 					// ƒOƒŠƒbƒh‚Ìƒ^ƒCƒgƒ‹(X,Y,Z)
-	char szTitleAf[AF_HEADER_LEN + 1];									// ƒOƒŠƒbƒh‚Ìƒ^ƒCƒgƒ‹(AF)
-	char szLabel[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1];		// ƒOƒŠƒbƒh‚Ìƒ^ƒCƒgƒ‹ ©X,Y,Z,AF‚ÍŠÜ‚Ü‚¸
-	char szDispLabel[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1];	//‰æ–Ê•\Ž¦(ƒf[ƒ^•Û‘¶)—pƒ^ƒCƒgƒ‹ ©X,Y,Z,AF‚ÍŠÜ‚Ü‚¸
-	char szLabelOri[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1];	// DDEŽóM‚Ìƒ^ƒCƒgƒ‹ ©X,Y,Z,AF‚ÍŠÜ‚Ü‚¸
+	char szTitleXyz[3][ADAPRESULTSTRINGLENMAX + 1]; 					// ã‚°ãƒªãƒƒãƒ‰ã®ã‚¿ã‚¤ãƒˆãƒ«(X,Y,Z)
+	char szTitleAf[AF_HEADER_LEN + 1];									// ã‚°ãƒªãƒƒãƒ‰ã®ã‚¿ã‚¤ãƒˆãƒ«(AF)
+	char szLabel[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1];		// ã‚°ãƒªãƒƒãƒ‰ã®ã‚¿ã‚¤ãƒˆãƒ« â†X,Y,Z,AFã¯å«ã¾ãš
+	char szDispLabel[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1];	//ç”»é¢è¡¨ç¤º(ãƒ‡ãƒ¼ã‚¿ä¿å­˜)ç”¨ã‚¿ã‚¤ãƒˆãƒ« â†X,Y,Z,AFã¯å«ã¾ãš
+	char szLabelOri[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1];	// DDEå—ä¿¡ã®ã‚¿ã‚¤ãƒˆãƒ« â†X,Y,Z,AFã¯å«ã¾ãš
 
 	BOOL bLabelFlag;
 
-	int iLabelCount;													// ƒOƒŠƒbƒh‚Ìƒ^ƒCƒgƒ‹” ©X,Y,Z,AF‚ÍŠÜ‚Ü‚¸
-	int iDispLabelCount;			// ƒOƒŠƒbƒh‚Ìƒ^ƒCƒgƒ‹”(‰æ–Ê•\Ž¦E•Û‘¶—p) ©X,Y,Z,AF‚ÍŠÜ‚Ü‚¸
-	ONE_POINT_DATA OnePointData[SCAN_POINT_MAX];						// 1ƒ|ƒCƒ“ƒg•ª‚Ì‘ª’èƒf[ƒ^
-	STATISTICS Statistics[ADAPRESULT_COLS_MAX]; 						// “Œvƒf[ƒ^
-	int iStatisticsValidPointCount; 									//“Œvƒf[ƒ^—LŒøPoint”(“Œvƒf[ƒ^‚É‰Á‚¦‚éPoint”)
-	TEST_MODE_DATA TestModeData[TESTDATA_POINT_MAX];					// ƒeƒXƒgƒ‚[ƒh—pƒf[ƒ^
+	int iLabelCount;													// ã‚°ãƒªãƒƒãƒ‰ã®ã‚¿ã‚¤ãƒˆãƒ«æ•° â†X,Y,Z,AFã¯å«ã¾ãš
+	int iDispLabelCount;			// ã‚°ãƒªãƒƒãƒ‰ã®ã‚¿ã‚¤ãƒˆãƒ«æ•°(ç”»é¢è¡¨ç¤ºãƒ»ä¿å­˜ç”¨) â†X,Y,Z,AFã¯å«ã¾ãš
+	ONE_POINT_DATA OnePointData[SCAN_POINT_MAX];						// 1ãƒã‚¤ãƒ³ãƒˆåˆ†ã®æ¸¬å®šãƒ‡ãƒ¼ã‚¿
+	STATISTICS Statistics[ADAPRESULT_COLS_MAX]; 						// çµ±è¨ˆãƒ‡ãƒ¼ã‚¿
+	int iStatisticsValidPointCount; 									//çµ±è¨ˆãƒ‡ãƒ¼ã‚¿æœ‰åŠ¹Pointæ•°(çµ±è¨ˆãƒ‡ãƒ¼ã‚¿ã«åŠ ãˆã‚‹Pointæ•°)
+	TEST_MODE_DATA TestModeData[TESTDATA_POINT_MAX];					// ãƒ†ã‚¹ãƒˆãƒ¢ãƒ¼ãƒ‰ç”¨ãƒ‡ãƒ¼ã‚¿
 
-	int iSetPointCount; 												// Ši”[Ïƒ|ƒCƒ“ƒg”
-																		// (==—LŒøƒf[ƒ^ƒ|ƒCƒ“ƒg”)c‚±‚Ì”’l•ª‚Ü‚Å‚ª—LŒøƒf[ƒ^‚Æ‚È‚é‚æ‚¤‚É‹Lq‚·‚é‚±‚ÆI)
-	int iShowCompletionPointList;										//‰æ–Ê‚É•\Ž¦Ï‚Ý‚Ìƒ|ƒCƒ“ƒg”(List—p)
-	int iShowCompletionPointGraph;										//‰æ–Ê‚É•\Ž¦Ï‚Ý‚Ìƒ|ƒCƒ“ƒg”(Graph—p)
+	int iSetPointCount; 												// æ ¼ç´æ¸ˆãƒã‚¤ãƒ³ãƒˆæ•°
+																		// (==æœ‰åŠ¹ãƒ‡ãƒ¼ã‚¿ãƒã‚¤ãƒ³ãƒˆæ•°)â€¦ã“ã®æ•°å€¤åˆ†ã¾ã§ãŒæœ‰åŠ¹ãƒ‡ãƒ¼ã‚¿ã¨ãªã‚‹ã‚ˆã†ã«è¨˜è¿°ã™ã‚‹ã“ã¨ï¼)
+	int iShowCompletionPointList;										//ç”»é¢ã«è¡¨ç¤ºæ¸ˆã¿ã®ãƒã‚¤ãƒ³ãƒˆæ•°(Listç”¨)
+	int iShowCompletionPointGraph;										//ç”»é¢ã«è¡¨ç¤ºæ¸ˆã¿ã®ãƒã‚¤ãƒ³ãƒˆæ•°(Graphç”¨)
 
 	//2009.08.17 bagus stress --{--
-	BOOL			StressDataValid[STRESS_LINES_MAX];					// ‘ª’èˆ—‚ÌI‚í‚Á‚½ƒf[ƒ^‚ªŠi”[‚³‚ê‚Ä‚¢‚é‚©‚Ìƒtƒ‰ƒO
-	BOOL			StressDataRef[STRESS_LINES_MAX];					// ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’è‚©‚Ç‚¤‚©
-	STRESSRESULT	StressData[STRESS_LINES_MAX];						//‚Pƒ‰ƒCƒ“•ª‚ÌƒXƒgƒŒƒX‘ª’èƒf[ƒ^
-	int iShowCompletionStressLineList;									// ‰æ–Ê‚É•\Ž¦Ï‚Ý‚Ìƒ‰ƒCƒ“”(List—p)
-	int iShowCompletionStressLineGraph;									// ‰æ–Ê‚É•\Ž¦Ï‚Ý‚Ìƒ‰ƒCƒ“”(Graph—p)
-	STATISTICS		StressLineStatistics[STRESS_LINES_MAX];				// ƒXƒgƒŒƒXƒf[ƒ^‚Ì‘ª’è“Œvî•ñ
-	STATISTICS		StressStatistics;									// ‘Sƒ‰ƒCƒ“‡Œv‚Ì“Œvî•ñ
+	BOOL			StressDataValid[STRESS_LINES_MAX];					// æ¸¬å®šå‡¦ç†ã®çµ‚ã‚ã£ãŸãƒ‡ãƒ¼ã‚¿ãŒæ ¼ç´ã•ã‚Œã¦ã„ã‚‹ã‹ã®ãƒ•ãƒ©ã‚°
+	BOOL			StressDataRef[STRESS_LINES_MAX];					// ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šã‹ã©ã†ã‹
+	STRESSRESULT	StressData[STRESS_LINES_MAX];						//ï¼‘ãƒ©ã‚¤ãƒ³åˆ†ã®ã‚¹ãƒˆãƒ¬ã‚¹æ¸¬å®šãƒ‡ãƒ¼ã‚¿
+	int iShowCompletionStressLineList;									// ç”»é¢ã«è¡¨ç¤ºæ¸ˆã¿ã®ãƒ©ã‚¤ãƒ³æ•°(Listç”¨)
+	int iShowCompletionStressLineGraph;									// ç”»é¢ã«è¡¨ç¤ºæ¸ˆã¿ã®ãƒ©ã‚¤ãƒ³æ•°(Graphç”¨)
+	STATISTICS		StressLineStatistics[STRESS_LINES_MAX];				// ã‚¹ãƒˆãƒ¬ã‚¹ãƒ‡ãƒ¼ã‚¿ã®æ¸¬å®šçµ±è¨ˆæƒ…å ±
+	STATISTICS		StressStatistics;									// å…¨ãƒ©ã‚¤ãƒ³åˆè¨ˆã®çµ±è¨ˆæƒ…å ±
 	//2009.08.17 bagus stress --}--
 
 	//2009.10.28 bagus stress --{--
-	STAGE_COORD		LastDistancePoint;									// 2“_ŠÔ‹——£‚ÌÅIÝ’èÀ•W
+	STAGE_COORD		LastDistancePoint;									// 2ç‚¹é–“è·é›¢ã®æœ€çµ‚è¨­å®šåº§æ¨™
 	//2009.10.28 bagus stress --}--
 
 	//2009.11.04 bagus CA --{--
-	CTARESULT		ContactAngleData[SCAN_POINT_MAX];					// CA‘ª’èŒ‹‰Êƒf[ƒ^•Û‘¶
+	CTARESULT		ContactAngleData[SCAN_POINT_MAX];					// CAæ¸¬å®šçµæžœãƒ‡ãƒ¼ã‚¿ä¿å­˜
 	//2009.11.04 bagus CA --}--
 	//2009.11.10 bagus RS --{--
-	RESISTRESULT	ResistData[SCAN_POINT_MAX];							// ’ïR‘ª’èƒf[ƒ^•Û‘¶
+	RESISTRESULT	ResistData[SCAN_POINT_MAX];							// æŠµæŠ—æ¸¬å®šãƒ‡ãƒ¼ã‚¿ä¿å­˜
 	//2009.11.10 bagus RS --}--
 
 };
@@ -693,12 +693,12 @@ typedef struct{
 //Saiki 20091211 Add <-----
 
 //2009.09.15 bagus se --{--
-//SE‚Ì¶ƒf[ƒ^1ŒÂ•ª‚Ì\‘¢‘Ì
+//SEã®ç”Ÿãƒ‡ãƒ¼ã‚¿1å€‹åˆ†ã®æ§‹é€ ä½“
 typedef struct {
-	BOOL bEb;															//Eb‚ª‘¶Ý‚·‚é‚©‚Ç‚¤‚©
-	BOOL bValidModelData;												//ƒ‚ƒfƒ‹ƒf[ƒ^‚É“ü‚Á‚Ä‚¢‚é’l‚ª—LŒø‚È’l‚©‚Ç‚¤‚©
-	double dWaveLength;													//‘ª’è”g’·[nm]
-	double dLightInputAngle;											//SEŒõŒ¹“üŽËŠp“x[deg]
+	BOOL bEb;															//EbãŒå­˜åœ¨ã™ã‚‹ã‹ã©ã†ã‹
+	BOOL bValidModelData;												//ãƒ¢ãƒ‡ãƒ«ãƒ‡ãƒ¼ã‚¿ã«å…¥ã£ã¦ã„ã‚‹å€¤ãŒæœ‰åŠ¹ãªå€¤ã‹ã©ã†ã‹
+	double dWaveLength;													//æ¸¬å®šæ³¢é•·[nm]
+	double dLightInputAngle;											//SEå…‰æºå…¥å°„è§’åº¦[deg]
 	double dPsi;														//Psi
 	double dDelta;														//Delta
 	double dPsiModel;													//
@@ -708,7 +708,7 @@ typedef struct {
 	double dPsiSDModel;													// Psi S.D
 	double dDeltaSDModel;												// Delta S.D
 } SE_RAW_ONE_DATA;
-//typedef CArray<SE_RAW_ONE_DATA,SE_RAW_ONE_DATA&>	CSERawDataList;		//ƒf[ƒ^“Ç‚Ýo‚µŽž‚Ì•Û‘¶List
+//typedef CArray<SE_RAW_ONE_DATA,SE_RAW_ONE_DATA&>	CSERawDataList;		//ãƒ‡ãƒ¼ã‚¿èª­ã¿å‡ºã—æ™‚ã®ä¿å­˜List
 typedef CMap<double,double&,SE_RAW_ONE_DATA,SE_RAW_ONE_DATA&> CSERawDataList;
 
 /////////////////////////////////////////////////////////////////////////////
@@ -744,12 +744,12 @@ _EXTERN CFileRetentionPeriod*			g_pFileRetentionPeriod[FILE_RETENTION_MAX];
 //																		   //
 /////////////////////////////////////////////////////////////////////////////
 
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 // ==========================================================================
 // Application Name Type
 // ==========================================================================
 _EXTERN long	g_lAppNameType;
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 
 // ==========================================================================
 // Path
@@ -780,9 +780,9 @@ _EXTERN char	g_szData_MeasurementData_Dir[MAX_PATH]; 						// #define DATA_MEASU
 _EXTERN char	g_szData_Meas_Dat_Temp_Copy_Dir[MAX_PATH];						// #define MEAS_DAT_TEMP_COPY_PASS
 _EXTERN char	g_szData_Measured_Data_Temp_Dir[MAX_PATH];						// #define MEASURED_DATA_TEMP_DIR
 _EXTERN char	g_szData_Ref_Dir[MAX_PATH]; 									// #define REF_DIR
-/* added 2009.07.31 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(9) ---------- { ---------- */
+/* added 2009.07.31 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (9) ---------- { ---------- */
 _EXTERN char	g_szData_StressRef_Dir[MAX_PATH];									  // #define REF_DIR
-/* added 2009.07.31 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(9) ---------- } ---------- */
+/* added 2009.07.31 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (9) ---------- } ---------- */
 _EXTERN char	g_szLog_Pr_Dir[MAX_PATH];										// #define PR_DIR
 //_EXTERN char	g_szDb_Pattern_Img_Temp_Dir[MAX_PATH];							// #define PATTERN_IMG_TEMP
 //_EXTERN char	g_szDb_Pattern_Img_1_Dir[MAX_PATH]; 							// #define PATTERN_IMG_1
@@ -815,44 +815,44 @@ _EXTERN long	g_lHWEdgeSizeY;
 _EXTERN long	g_lHWOriginOffsetX;
 _EXTERN long	g_lHWOriginOffsetY;
 
-// added hmenjo 2009.05.12 ˆÙíŽžƒTƒCƒNƒ‹ƒXƒgƒbƒv‹–‰Âƒtƒ‰ƒO’Ç‰Á ---------- { ----------
+// added hmenjo 2009.05.12 ç•°å¸¸æ™‚ã‚µã‚¤ã‚¯ãƒ«ã‚¹ãƒˆãƒƒãƒ—è¨±å¯ãƒ•ãƒ©ã‚°è¿½åŠ  ---------- { ----------
 // --------------------------------------------------------------------------
-// EQ ƒƒ“ƒeƒiƒ“ƒX
+// EQ ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
 _EXTERN BOOL	g_bIL_CycleStop;
-// added hmenjo 2009.05.12 ˆÙíŽžƒTƒCƒNƒ‹ƒXƒgƒbƒv‹–‰Âƒtƒ‰ƒO’Ç‰Á ---------- } ----------
-// added hmenjo 2009.05.12 ƒhƒAŠJŒŸo‹–‰Âƒtƒ‰ƒO’Ç‰Á ---------- { ----------
+// added hmenjo 2009.05.12 ç•°å¸¸æ™‚ã‚µã‚¤ã‚¯ãƒ«ã‚¹ãƒˆãƒƒãƒ—è¨±å¯ãƒ•ãƒ©ã‚°è¿½åŠ  ---------- } ----------
+// added hmenjo 2009.05.12 ãƒ‰ã‚¢é–‹æ¤œå‡ºè¨±å¯ãƒ•ãƒ©ã‚°è¿½åŠ  ---------- { ----------
 _EXTERN BOOL	g_bIL_DoorOpen;
-// added hmenjo 2009.05.12 ƒhƒAŠJŒŸo‹–‰Âƒtƒ‰ƒO’Ç‰Á ---------- } ----------
-// added hmenjo 2009.05.12 ‘¬“x•ÏX‹–‰Âƒtƒ‰ƒO’Ç‰Á ---------- { ----------
+// added hmenjo 2009.05.12 ãƒ‰ã‚¢é–‹æ¤œå‡ºè¨±å¯ãƒ•ãƒ©ã‚°è¿½åŠ  ---------- } ----------
+// added hmenjo 2009.05.12 é€Ÿåº¦å¤‰æ›´è¨±å¯ãƒ•ãƒ©ã‚°è¿½åŠ  ---------- { ----------
 _EXTERN BOOL	g_bIL_SpeedDown;
-// added hmenjo 2009.05.12 ‘¬“x•ÏX‹–‰Âƒtƒ‰ƒO’Ç‰Á ---------- } ----------
-/* added 2009.05.26 hmenjo ‘•’u“dŒ¹ƒIƒto—Í‚Ì—LŒø/–³ŒøƒXƒCƒbƒ`’Ç‰Á ---------- { ---------- */
+// added hmenjo 2009.05.12 é€Ÿåº¦å¤‰æ›´è¨±å¯ãƒ•ãƒ©ã‚°è¿½åŠ  ---------- } ----------
+/* added 2009.05.26 hmenjo è£…ç½®é›»æºã‚ªãƒ•å‡ºåŠ›ã®æœ‰åŠ¹/ç„¡åŠ¹ã‚¹ã‚¤ãƒƒãƒè¿½åŠ  ---------- { ---------- */
 _EXTERN BOOL	g_bIL_EQPowerOff;
-/* added 2009.05.26 hmenjo ‘•’u“dŒ¹ƒIƒto—Í‚Ì—LŒø/–³ŒøƒXƒCƒbƒ`’Ç‰Á ---------- } ---------- */
-/* added 2009.06.02 hmenjo ƒhƒAŠJ‚Å‘ª’èƒ|[ƒY ---------- { ---------- */
+/* added 2009.05.26 hmenjo è£…ç½®é›»æºã‚ªãƒ•å‡ºåŠ›ã®æœ‰åŠ¹/ç„¡åŠ¹ã‚¹ã‚¤ãƒƒãƒè¿½åŠ  ---------- } ---------- */
+/* added 2009.06.02 hmenjo ãƒ‰ã‚¢é–‹ã§æ¸¬å®šãƒãƒ¼ã‚º ---------- { ---------- */
 _EXTERN BOOL	g_bIL_DoorOpenPause;
-/* added 2009.06.02 hmenjo ƒhƒAŠJ‚Å‘ª’èƒ|[ƒY ---------- } ---------- */
+/* added 2009.06.02 hmenjo ãƒ‰ã‚¢é–‹ã§æ¸¬å®šãƒãƒ¼ã‚º ---------- } ---------- */
 /* added 2013.06.04 hmenjo SubCon PwrOFF ---------- { ---------- */
 // --------------------------------------------------------------------------
-// ƒTƒuƒRƒ““dŒ¹Ä“Š“ü
+// ã‚µãƒ–ã‚³ãƒ³é›»æºå†æŠ•å…¥
 _EXTERN long	g_lSBCPwr_OffTime;
 _EXTERN long	g_lSBCPwr_WaitAfterOn;
 /* added 2013.06.04 hmenjo SubCon PwrOFF ---------- } ---------- */
 
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 // --------------------------------------------------------------------------
-// ƒ‚ƒfƒ‹ƒ^ƒCƒv
+// ãƒ¢ãƒ‡ãƒ«ã‚¿ã‚¤ãƒ—
 _EXTERN long	g_lModelType;
 // --------------------------------------------------------------------------
-// ƒrƒfƒI•\Ž¦
+// ãƒ“ãƒ‡ã‚ªè¡¨ç¤º
 _EXTERN long	g_lOVideoEnable;
-/* added 2015.12.03 hmenjo ƒJƒƒ‰ƒrƒfƒIƒtƒH[ƒ}ƒbƒgÝ’è‰» ---------- { ---------- */
+/* added 2015.12.03 hmenjo ã‚«ãƒ¡ãƒ©ãƒ“ãƒ‡ã‚ªãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆè¨­å®šåŒ– ---------- { ---------- */
 _EXTERN char	g_szVideoFmtSize[128];
-/* added 2015.12.03 hmenjo ƒJƒƒ‰ƒrƒfƒIƒtƒH[ƒ}ƒbƒgÝ’è‰» ---------- } ---------- */
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+/* added 2015.12.03 hmenjo ã‚«ãƒ¡ãƒ©ãƒ“ãƒ‡ã‚ªãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆè¨­å®šåŒ– ---------- } ---------- */
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 /* added 2014.05.22 hmenjo get Xmp Type ---------- { ---------- */
 // --------------------------------------------------------------------------
-// XMP ƒ^ƒCƒv
+// XMP ã‚¿ã‚¤ãƒ—
 _EXTERN long	g_lXmpType;		/*	0 : jaw_adap.exe[WVASE]
 									1 : SC_adap.exe[scout]
 								*/
@@ -864,7 +864,7 @@ _EXTERN long	g_lXmpType;		/*	0 : jaw_adap.exe[WVASE]
 /////////////////////////////////////////////////////////////////////////////
 _EXTERN PROCESS_INFORMATION g_ProcessInfo;
 // ==========================================================================
-// Capture Board‚ÌÝ’è
+// Capture Boardã®è¨­å®š
 enum CAPTURE_BORAD
 {
 	CAPTURE_BOARD_NONE = 0,
@@ -878,9 +878,9 @@ const LPCSTR g_lpszCaptureBoard[] = {
 };
 
 // matsuhisa 20091209 modified >>>
-// INC\Globals.hxx“à‚Å’è‹`
+// INC\Globals.hxxå†…ã§å®šç¾©
 // ==========================================================================
-// Pattern Method (Image Board)‚ÌÝ’è
+// Pattern Method (Image Board)ã®è¨­å®š
 #if 0
 enum PR_METHOD
 {
@@ -908,15 +908,15 @@ const LPCSTR g_lpszLanguage[] = {
 };
 
 // ==========================================================================
-// ƒXƒe[ƒWƒ^ƒCƒv‚ÌÝ’è
+// ã‚¹ãƒ†ãƒ¼ã‚¸ã‚¿ã‚¤ãƒ—ã®è¨­å®š
 enum STAGE_TYPE
 {
 	STAGE_TYPE_NONE = 0,
 	STAGE_TYPE_TOHO,
 	STAGE_TYPE_NTN,
-// added hmenjo 2009.05.15 V Stage.dll ‘Î‰ž ---------- { ----------
-	STAGE_TYPE_SPT,		// ƒ\ƒfƒBƒbƒNƒXƒe[ƒW
-// added hmenjo 2009.05.15 V Stage.dll ‘Î‰ž ---------- } ----------
+// added hmenjo 2009.05.15 æ–° Stage.dll å¯¾å¿œ ---------- { ----------
+	STAGE_TYPE_SPT,		// ã‚½ãƒ‡ã‚£ãƒƒã‚¯ã‚¹ãƒ†ãƒ¼ã‚¸
+// added hmenjo 2009.05.15 æ–° Stage.dll å¯¾å¿œ ---------- } ----------
 	STAGE_TYPE_MAX,
 };
 
@@ -924,13 +924,13 @@ const LPCSTR g_lpszStageType[] = {
 	"None",
 	"TOHO",
 	"NTN",
-// added hmenjo 2009.05.15 V Stage.dll ‘Î‰ž ---------- { ----------
-	"SPT",		// ƒ\ƒfƒBƒbƒNƒXƒe[ƒW
-// added hmenjo 2009.05.15 V Stage.dll ‘Î‰ž ---------- } ----------
+// added hmenjo 2009.05.15 æ–° Stage.dll å¯¾å¿œ ---------- { ----------
+	"SPT",		// ã‚½ãƒ‡ã‚£ãƒƒã‚¯ã‚¹ãƒ†ãƒ¼ã‚¸
+// added hmenjo 2009.05.15 æ–° Stage.dll å¯¾å¿œ ---------- } ----------
 };
 
 // ==========================================================================
-// ƒXƒe[ƒW‚Ì’†S(ƒTƒuƒRƒ“‚Ì’†S)
+// ã‚¹ãƒ†ãƒ¼ã‚¸ã®ä¸­å¿ƒ(ã‚µãƒ–ã‚³ãƒ³ã®ä¸­å¿ƒ)
 enum STAGE_ORIGINAL_POSITION
 {
 	STAGE_ORIGINAL_POSITION_CENTER = 0,
@@ -950,7 +950,7 @@ const LPCSTR g_lpszStageOriginalPosition[] = {
 };
 
 // ==========================================================================
-// œk‘ä‚ÌÝ’è
+// é™¤éœ‡å°ã®è¨­å®š
 enum VIBRATION_CONTROL_UNIT
 {
 	VIBRATION_CONTROL_UNIT_NONE = 0,
@@ -964,7 +964,7 @@ const LPCSTR g_lpszVibrationControlUnit[] = {
 };
 
 // ==========================================================================
-// Sample Lifter(ƒAƒ‰ƒCƒƒ“ƒgƒsƒ“)‚ÌÝ’è
+// Sample Lifter(ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆãƒ”ãƒ³)ã®è¨­å®š
 enum SAMPLE_LIFTER
 {
 	SAMPLE_LIFTER_NONE = 0,
@@ -980,7 +980,7 @@ const LPCSTR g_lpszSampleLifter[] = {
 };
 
 // ==========================================================================
-// ƒoƒLƒ…[ƒ€ƒ^ƒCƒv‚ÌÝ’è
+// ãƒã‚­ãƒ¥ãƒ¼ãƒ ã‚¿ã‚¤ãƒ—ã®è¨­å®š
 enum VACUUM_TYPE
 {
 	VACUUM_TYPE_NONE = 0,
@@ -995,9 +995,9 @@ const LPCSTR g_lpszVacuumType[] = {
 	"Type2",
 };
 
-// 2009.10.29 bagus Jog ’Ç‰ÁC³ --{--
+// 2009.10.29 bagus Jog è¿½åŠ ä¿®æ­£ --{--
 // ==========================================================================
-// ƒoƒLƒ…[ƒ€ƒ^ƒCƒv‚ÌÝ’è
+// ãƒã‚­ãƒ¥ãƒ¼ãƒ ã‚¿ã‚¤ãƒ—ã®è¨­å®š
 enum JOYSTICK_TYPE
 {
 	JOYSTICK_TYPE_NONE = 0,
@@ -1011,10 +1011,10 @@ const LPCSTR g_lpszJoystickType[] = {
 	"XY",
 	"XYZ",
 };
-// 2009.10.29 bagus Jog ’Ç‰ÁC³ --}--
+// 2009.10.29 bagus Jog è¿½åŠ ä¿®æ­£ --}--
 
 // ==========================================================================
-// ƒTƒuƒRƒ“‚Ìƒiƒ“ƒo[‚ÌÝ’è
+// ã‚µãƒ–ã‚³ãƒ³ã®ãƒŠãƒ³ãƒãƒ¼ã®è¨­å®š
 /*enum SUB_CONTROLLER_NUMBER
 {
 	SUB_CONTROLLER_NUMBER_1 = 0,
@@ -1027,7 +1027,7 @@ const LPCSTR g_lpszSubControllerNumber[] = {
 */
 
 // ==========================================================================
-// ƒVƒOƒiƒ‹ƒ^ƒ[‚ÌÝ’è
+// ã‚·ã‚°ãƒŠãƒ«ã‚¿ãƒ¯ãƒ¼ã®è¨­å®š
 enum SIGNAL_TOWER_LIGHT
 {
 	SIGNAL_TOWER_LIGHT_OFF,
@@ -1059,7 +1059,7 @@ const LPCSTR g_lpszSignalTowerBuzzer[] = {
 };
 
 // ==========================================================================
-// SR‚Ìƒwƒbƒhƒ^ƒCƒv‚ÌÝ’è
+// SRã®ãƒ˜ãƒƒãƒ‰ã‚¿ã‚¤ãƒ—ã®è¨­å®š
 enum SR_HEAD_TYPE
 {
 	SR_HEAD_TYPE_NONE = 0,
@@ -1081,7 +1081,7 @@ const LPCSTR g_lpszSrHeadType[] = {
 };
 
 // ==========================================================================
-// SR‚ÌƒwƒbƒhƒCƒ“ƒ^[ƒtƒFƒCƒX‚ÌÝ’è
+// SRã®ãƒ˜ãƒƒãƒ‰ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã®è¨­å®š
 enum SR_HEAD_INTERFACE
 {
 	SR_HEAD_INTERFACE_NONE = 0,
@@ -1098,7 +1098,7 @@ const LPCSTR g_lpszSrHeadInterface[] = {
 
 // 2014.04.04 bagus wavelength step added -->
 // ==========================================================================
-// SR ”g’·ƒXƒeƒbƒv‚ÌÝ’è
+// SR æ³¢é•·ã‚¹ãƒ†ãƒƒãƒ—ã®è¨­å®š
 enum SR_WAVELENGTH_STEP
 {
 	SR_WAVELENGTH_STEP_1_NM = 0,
@@ -1113,7 +1113,7 @@ const LPCSTR g_lpszSrWavelengthStep[] = {
 // 2014.04.04 bagus wavelength step added <--
 
 // ==========================================================================
-// SR‚Ìƒ^[ƒŒƒbƒg‚ÌÝ’è
+// SRã®ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆã®è¨­å®š
 enum SR_TURRET_NAME
 {
 	SR_TURRET_NONE = 0,
@@ -1130,7 +1130,7 @@ const LPCSTR g_lpszSrTurret[] = {
 };
 
 // ==========================================================================
-// ‘ª’èƒf[ƒ^‚ðíœ‚·‚éŠúŠÔ‚ÌÝ’è
+// æ¸¬å®šãƒ‡ãƒ¼ã‚¿ã‚’å‰Šé™¤ã™ã‚‹æœŸé–“ã®è¨­å®š
 enum DELETE_DATA_PERIOD
 {
 	DELETE_DATA_PERIOD_NONE = 0,
@@ -1151,19 +1151,19 @@ enum DELETE_DATA_PERIOD
 // Kojika 20090528 Change
 const LPCSTR g_lpszDeleteDataPeriod_JPN[] =
 {
-	"ŠúŒÀ–³‚µ",
-	"1 ƒ–ŒŽ",
-	"3 ƒ–ŒŽ",
-	"6 ƒ–ŒŽ",
-	"1 ”N",
-	"1.5 ”N",
-	"2 ”N",
-	"2.5 ”N",
-	"3 ”N",
-	"3.5 ”N",
-	"4 ”N",
-	"4.5 ”N",
-	"5 ”N",
+	"æœŸé™ç„¡ã—",
+	"1 ãƒ¶æœˆ",
+	"3 ãƒ¶æœˆ",
+	"6 ãƒ¶æœˆ",
+	"1 å¹´",
+	"1.5 å¹´",
+	"2 å¹´",
+	"2.5 å¹´",
+	"3 å¹´",
+	"3.5 å¹´",
+	"4 å¹´",
+	"4.5 å¹´",
+	"5 å¹´",
 };
 const LPCSTR g_lpszDeleteDataPeriod_ENU[] =
 {
@@ -1185,8 +1185,8 @@ const LPCSTR g_lpszDeleteDataPeriod_ENU[] =
 
 // ==========================================================================
 // User Setting pattern Rec Num Layer
-// User Setting‚ÌSR‚Ìƒpƒ^[ƒ“”FŽ¯‚Ìƒpƒ^[ƒ“‚ð’T‚·‚½‚ß‚É
-// ‚Ç‚Ì‚­‚ç‚¢Žü‚è‚ðŒŸõ‚·‚é‚©‚ðÝ’è
+// User Settingã®SRã®ãƒ‘ã‚¿ãƒ¼ãƒ³èªè­˜ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’æŽ¢ã™ãŸã‚ã«
+// ã©ã®ãã‚‰ã„å‘¨ã‚Šã‚’æ¤œç´¢ã™ã‚‹ã‹ã‚’è¨­å®š
 enum SR_USER_SETTING_PATTERN_REC_NUM_LAYERS
 {
 	SR_USER_SETTING_PATTERN_REC_NUM_LAYERS_NONE = 0,
@@ -1199,11 +1199,11 @@ enum SR_USER_SETTING_PATTERN_REC_NUM_LAYERS
 
 // Kojika 20090528 Change
 const LPCSTR g_lpszSrUserSettingPatternRecNumLayers_JPN[] = {
-	"–³‚µ",
-	"1 (8 ƒTƒCƒg)",
-	"2 (24 ƒTƒCƒg)",
-	"3 (48 ƒTƒCƒg)",
-	"4 (80 ƒTƒCƒg)",
+	"ç„¡ã—",
+	"1 (8 ã‚µã‚¤ãƒˆ)",
+	"2 (24 ã‚µã‚¤ãƒˆ)",
+	"3 (48 ã‚µã‚¤ãƒˆ)",
+	"4 (80 ã‚µã‚¤ãƒˆ)",
 };
 const LPCSTR g_lpszSrUserSettingPatternRecNumLayers_ENU[] = {
 	"None",
@@ -1213,12 +1213,12 @@ const LPCSTR g_lpszSrUserSettingPatternRecNumLayers_ENU[] = {
 	"4 (80 Sites)",
 };
 #define PATREC_LAYERS_STR_INIT_ENU { "None", "1 (8 Sites)", "2 (24 Sites)", "3 (48 Sites)", "4 (80 Sites)" }
-#define PATREC_LAYERS_STR_INIT_JPN { "–³‚µ", "1 (8 ƒTƒCƒg)", "2 (24 ƒTƒCƒg)", "3 (48 ƒTƒCƒg)", "4 (80 ƒTƒCƒg)" }
+#define PATREC_LAYERS_STR_INIT_JPN { "ç„¡ã—", "1 (8 ã‚µã‚¤ãƒˆ)", "2 (24 ã‚µã‚¤ãƒˆ)", "3 (48 ã‚µã‚¤ãƒˆ)", "4 (80 ã‚µã‚¤ãƒˆ)" }
 // Kojika 20090527 Change End
 
 
 // ==========================================================================
-// ‘ª’èŒ‹‰Ê‚ÌƒtƒH[ƒ}ƒbƒg(¬”“_‘æ‰½ˆÊ‚Ü‚Å—LŒø‚É‚·‚é‚©)‚ÌÝ’è
+// æ¸¬å®šçµæžœã®ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆ(å°æ•°ç‚¹ç¬¬ä½•ä½ã¾ã§æœ‰åŠ¹ã«ã™ã‚‹ã‹)ã®è¨­å®š
 enum FIGURE_FORMAT
 {
 	FIGURE_FORMAT_0 = 0,
@@ -1240,7 +1240,7 @@ const LPCSTR g_lpszFigureFormat[] = {
 #define FIGURE_FORMAT_STR_INIT { "#", "#.#", "#.##", "#.###", "#.####" }
 
 // ==========================================================================
-// ‘ª’èŒ‹‰Ê‚Ì’PˆÊ‚ÌÝ’è
+// æ¸¬å®šçµæžœã®å˜ä½ã®è¨­å®š
 enum FIGURE_UNIT_SR_THICKNESS
 {
 	FIGURE_UNIT_SR_THICKNESS_MICRON =0,
@@ -1263,7 +1263,7 @@ const LPCSTR g_lpszFigureUnitSrThickness[] = {
 
 //2009.09.07 bagus se --{--
 // ==========================================================================
-// ‘ª’èŒ‹‰Ê‚Ì’PˆÊ‚ÌÝ’è
+// æ¸¬å®šçµæžœã®å˜ä½ã®è¨­å®š
 enum FIGURE_UNIT_SE_THICKNESS
 {
 	FIGURE_UNIT_SE_THICKNESS_ANGSTROM = 0,
@@ -1280,7 +1280,7 @@ const LPCSTR g_lpszFigureUnitSeThickness[] = {
 //2009.09.07 bagus se --}--
 
 // ==========================================================================
-// SampleÝ’è‚ÌSample Shape
+// Sampleè¨­å®šã®Sample Shape
 enum SAMPLE_SHAPE
 {
 	SAMPLE_SHAPE_RECTANGLE = 0,
@@ -1291,15 +1291,15 @@ const LPCSTR g_lpszSampleShape_ENU[] = {
 	"Rectangle",
 };
 const LPCSTR g_lpszSampleShape_JPN[] = {
-	"‹éŒ`",
+	"çŸ©å½¢",
 };
 #define SAMPLE_SHAPE_STR_INIT_ENU { "Rectangle" }
-#define SAMPLE_SHAPE_STR_INIT_JPN { "‹éŒ`" }
+#define SAMPLE_SHAPE_STR_INIT_JPN { "çŸ©å½¢" }
 // Kojika 20090528 Change End
 
 // ==========================================================================
 // Lens Maginification
-// k-matsuo ƒwƒbƒh‚²‚Æ‚ÉƒŒƒ“ƒYÝ’è‚ª‚ ‚é‚Ì‚ÅAˆÓ–¡‚ª‚È‚¢B20080229
+// k-matsuo ãƒ˜ãƒƒãƒ‰ã”ã¨ã«ãƒ¬ãƒ³ã‚ºè¨­å®šãŒã‚ã‚‹ã®ã§ã€æ„å‘³ãŒãªã„ã€‚20080229
 //enum LENS_MAGNIFICATION
 //{
 //	LENS_5 = 0,
@@ -1323,10 +1323,10 @@ enum VIEW_WINDOW_MEASUREMENT_TYPE
 	VIEW_WINDOW_MEAS_TYPE_SR_REFLECTANCE = 0,
 	VIEW_WINDOW_MEAS_TYPE_SR_TRANSMITTANCE,
 	VIEW_WINDOW_MEAS_TYPE_SE,
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 //	VIEW_WINDOW_MEAS_TYPE_IRSE,
 	VIEW_WINDOW_MEAS_TYPE_MS,
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 	VIEW_WINDOW_MEAS_TYPE_VIEW,
 	VIEW_WINDOW_MEAS_TYPE_MAX,
 };
@@ -1338,55 +1338,55 @@ const LPCSTR g_szViewWindowMeasurementTypeItem_ENU[] = {
 	"SR Transmittance",
 };
 const LPCSTR g_szViewWindowMeasurementTypeItem_JPN[] = {
-	"SR ”½ŽË—¦",
-	"ƒrƒ…[",
-	"SR “§‰ß—¦",
+	"SR åå°„çŽ‡",
+	"ãƒ“ãƒ¥ãƒ¼",
+	"SR é€éŽçŽ‡",
 };
 // 2009.12.04 K.Matsuo Change <--
 
 // ==========================================================================
-// Stage Motion (enum‚ªGlobals.hxx“à‚Å’è‹`‚µ‚Ä‚ ‚é)
+// Stage Motion (enumãŒGlobals.hxxå†…ã§å®šç¾©ã—ã¦ã‚ã‚‹)
 const LPCSTR g_lpszStageMotion[] = {
 	//"High",
 	//"Middle",
 	//"Low",
-	"‚‘¬",
-	"’†‘¬",
-	"’á‘¬",
-	"ƒWƒ‡ƒO(’á)",
-	"ƒWƒ‡ƒO(’†)",
-	"ƒWƒ‡ƒO(‚)",
+	"é«˜é€Ÿ",
+	"ä¸­é€Ÿ",
+	"ä½Žé€Ÿ",
+	"ã‚¸ãƒ§ã‚°(ä½Ž)",
+	"ã‚¸ãƒ§ã‚°(ä¸­)",
+	"ã‚¸ãƒ§ã‚°(é«˜)",
 };
 /*
 //#define MOTION_MODE_STR_INIT { "LOW", "MID", "HIGH"}
-#define MOTION_MODE_STR_INIT { "’á‘¬", "’†‘¬", "‚‘¬"}
-#define MOTION_MODE_STAGE_STR_INIT { "’á‘¬", "’†‘¬", "‚‘¬", "ƒWƒ‡ƒO(’á)", "ƒWƒ‡ƒO(’†)", "ƒWƒ‡ƒO(‚)" }
-#define MOTION_MODE_ELEVATOR_STR_INIT { "’á‘¬", "’†‘¬", "‚‘¬", "ƒWƒ‡ƒO" }
+#define MOTION_MODE_STR_INIT { "ä½Žé€Ÿ", "ä¸­é€Ÿ", "é«˜é€Ÿ"}
+#define MOTION_MODE_STAGE_STR_INIT { "ä½Žé€Ÿ", "ä¸­é€Ÿ", "é«˜é€Ÿ", "ã‚¸ãƒ§ã‚°(ä½Ž)", "ã‚¸ãƒ§ã‚°(ä¸­)", "ã‚¸ãƒ§ã‚°(é«˜)" }
+#define MOTION_MODE_ELEVATOR_STR_INIT { "ä½Žé€Ÿ", "ä¸­é€Ÿ", "é«˜é€Ÿ", "ã‚¸ãƒ§ã‚°" }
 // 2009.05.28 K.Matsuo SPT -->
 //#define MOTION_MODE_STR_INIT { "LOW", "MID", "HIGH", "JOG(L)", "JOG(M)", "JOG(H)" }
-//#define MOTION_MODE_STAGE_STR_INIT { "’á‘¬", "’†‘¬", "‚‘¬", "ƒWƒ‡ƒO(’á)", "ƒWƒ‡ƒO(’†)", "ƒWƒ‡ƒO(‚)" }
-//#define MOTION_MODE_ELEVATOR_STR_INIT { "ƒWƒ‡ƒO(’á)", "ƒWƒ‡ƒO(’†)", "ƒWƒ‡ƒO(‚)"}
+//#define MOTION_MODE_STAGE_STR_INIT { "ä½Žé€Ÿ", "ä¸­é€Ÿ", "é«˜é€Ÿ", "ã‚¸ãƒ§ã‚°(ä½Ž)", "ã‚¸ãƒ§ã‚°(ä¸­)", "ã‚¸ãƒ§ã‚°(é«˜)" }
+//#define MOTION_MODE_ELEVATOR_STR_INIT { "ã‚¸ãƒ§ã‚°(ä½Ž)", "ã‚¸ãƒ§ã‚°(ä¸­)", "ã‚¸ãƒ§ã‚°(é«˜)"}
 // 2009.05.28 K.Matsuo SPT <--
 */
 const LPCSTR g_lpszStageMotion_JPN[] = {
-	"‚‘¬",
-	"’†‘¬",
-	"’á‘¬",
+	"é«˜é€Ÿ",
+	"ä¸­é€Ÿ",
+	"ä½Žé€Ÿ",
 };
 const LPCSTR g_lpszStageMotion_ENU[] = {
 	"Fast",
 	"Middle",
 	"Low",
 };
-#define MOTION_MODE_STR_INIT_JPN { "’á‘¬", "’†‘¬", "‚‘¬", "ƒWƒ‡ƒO(’á)", "ƒWƒ‡ƒO(’†)", "ƒWƒ‡ƒO(‚)" }
+#define MOTION_MODE_STR_INIT_JPN { "ä½Žé€Ÿ", "ä¸­é€Ÿ", "é«˜é€Ÿ", "ã‚¸ãƒ§ã‚°(ä½Ž)", "ã‚¸ãƒ§ã‚°(ä¸­)", "ã‚¸ãƒ§ã‚°(é«˜)" }
 #define MOTION_MODE_STR_INIT_ENU { "LOW", "MID", "FAST", "JOG(LOW)", "JOG(MIDDLE)", "JOG(FAST)" }
-#define MOTION_MODE_STAGE_STR_INIT_JPN { "’á‘¬", "’†‘¬", "‚‘¬", "ƒWƒ‡ƒO(’á)", "ƒWƒ‡ƒO(’†)", "ƒWƒ‡ƒO(‚)" }
+#define MOTION_MODE_STAGE_STR_INIT_JPN { "ä½Žé€Ÿ", "ä¸­é€Ÿ", "é«˜é€Ÿ", "ã‚¸ãƒ§ã‚°(ä½Ž)", "ã‚¸ãƒ§ã‚°(ä¸­)", "ã‚¸ãƒ§ã‚°(é«˜)" }
 #define MOTION_MODE_STAGE_STR_INIT_ENU { "LOW", "MIDDLE", "FAST", "JOG(LOW)", "JOG(MIDDLE)", "JOG(FAST)" }
-#define MOTION_MODE_ELEVATOR_STR_INIT_JPN { "ƒWƒ‡ƒO(’á)", "ƒWƒ‡ƒO(’†)", "ƒWƒ‡ƒO(‚)" }
+#define MOTION_MODE_ELEVATOR_STR_INIT_JPN { "ã‚¸ãƒ§ã‚°(ä½Ž)", "ã‚¸ãƒ§ã‚°(ä¸­)", "ã‚¸ãƒ§ã‚°(é«˜)" }
 #define MOTION_MODE_ELEVATOR_STR_INIT_ENU { "JOG(LOW)", "JOG(MIDDLE)", "JOG(FAST)" }
 
 // ==========================================================================
-// Correct Angle (enum‚ªConfigFile.hxx“à‚Å’è‹`‚µ‚Ä‚ ‚é
+// Correct Angle (enumãŒConfigFile.hxxå†…ã§å®šç¾©ã—ã¦ã‚ã‚‹
 const LPCSTR g_lpszCorrectAngle[] = {
 	"0",
 	"90",
@@ -1394,13 +1394,13 @@ const LPCSTR g_lpszCorrectAngle[] = {
 };
 
 // ==========================================================================
-// User Account‚ÌƒAƒJƒEƒ“ƒgƒŒƒxƒ‹‚ÌÝ’è
-//(enum‚ªGlobals.hxx“à‚Å’è‹`‚µ‚Ä‚ ‚é)
+// User Accountã®ã‚¢ã‚«ã‚¦ãƒ³ãƒˆãƒ¬ãƒ™ãƒ«ã®è¨­å®š
+//(enumãŒGlobals.hxxå†…ã§å®šç¾©ã—ã¦ã‚ã‚‹)
 // Kojika 20090528 Change
 const LPCSTR g_lpszAccountLevel_JPN[] = {
-	"ŠÇ—ŽÒ",
-	"ƒGƒ“ƒWƒjƒA",
-	"ƒIƒyƒŒ[ƒ^",
+	"ç®¡ç†è€…",
+	"ã‚¨ãƒ³ã‚¸ãƒ‹ã‚¢",
+	"ã‚ªãƒšãƒ¬ãƒ¼ã‚¿",
 };
 const LPCSTR g_lpszAccountLevel_ENU[] = {
 	"Administrator",
@@ -1408,11 +1408,11 @@ const LPCSTR g_lpszAccountLevel_ENU[] = {
 	"Operator",
 };
 #define ACCOUNT_LEVEL_STR_INIT_ENU { "Administrator", "Engineer", "Operator" }
-#define ACCOUNT_LEVEL_STR_INIT_JPN { "ŠÇ—ŽÒ", "ƒGƒ“ƒWƒjƒA", "ƒIƒyƒŒ[ƒ^" }
+#define ACCOUNT_LEVEL_STR_INIT_JPN { "ç®¡ç†è€…", "ã‚¨ãƒ³ã‚¸ãƒ‹ã‚¢", "ã‚ªãƒšãƒ¬ãƒ¼ã‚¿" }
 // Kojika 20090528 Change End
 
 // ==========================================================================
-// MainRecipe‚ÌPoint Manual Adjustment‚ÌÝ’è
+// MainRecipeã®Point Manual Adjustmentã®è¨­å®š
 enum POINT_MANUAL_ADJUSTMENT
 {
 	POINT_MANUAL_ADJUSTMENT_NONE = 0,
@@ -1428,16 +1428,16 @@ const LPCSTR g_lpszPointManualAdjustment_ENU[] = {
 	"All Point(Manual Adjustment)",
 };
 const LPCSTR g_lpszPointManualAdjustment_JPN[] = {
-	"•â³‚µ‚È‚¢",
-//	  "Å‰‚Ì‘ª’èŽž‚Ì‚Ý•â³",
-//	  "‘S‚Ä‚Ì‘ª’è“_‚ð•â³(ƒXƒe[ƒWƒvƒƒOƒ‰ƒ€’PˆÊ‚Å•â³)",
-//	  "‘S‚Ä‚Ì‘ª’è“_‚ð•â³(Še“_“Æ—§‚Å•â³)",
-	"‘ª’è“_‚ðŽè“®•â³",
+	"è£œæ­£ã—ãªã„",
+//	  "æœ€åˆã®æ¸¬å®šæ™‚ã®ã¿è£œæ­£",
+//	  "å…¨ã¦ã®æ¸¬å®šç‚¹ã‚’è£œæ­£(ã‚¹ãƒ†ãƒ¼ã‚¸ãƒ—ãƒ­ã‚°ãƒ©ãƒ å˜ä½ã§è£œæ­£)",
+//	  "å…¨ã¦ã®æ¸¬å®šç‚¹ã‚’è£œæ­£(å„ç‚¹ç‹¬ç«‹ã§è£œæ­£)",
+	"æ¸¬å®šç‚¹ã‚’æ‰‹å‹•è£œæ­£",
 //Saiki 20090527 Change <-----
 };
 
 // ==========================================================================
-// MainRecipe‚ÌSampleID Input‚ÌÝ’è
+// MainRecipeã®SampleID Inputã®è¨­å®š
 /*enum SAMPLE_ID_INPUT
 {
 	SAMPLE_ID_INPUT_NONE = 0,
@@ -1454,7 +1454,7 @@ const LPCSTR g_lpszSampleIdInput[] = {
 */
 
 // ==========================================================================
-// MainRecipe‚ÌSR‚Ìê‡‚ÌƒtƒH[ƒJƒX‚ÌÝ’è
+// MainRecipeã®SRã®å ´åˆã®ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã®è¨­å®š
 enum SR_FOCUS
 {
 	SR_FOCUS_NONE = 0,
@@ -1469,22 +1469,22 @@ const LPCSTR g_lpszSrFocus_ENU[] = {
 	"All Measurement Points",
 };
 const LPCSTR g_lpszSrFocus_JPN[] = {
-	"ƒtƒH[ƒJƒX‚µ‚È‚¢",
-	"Å‰‚Ì‘ª’è“_‚Ì‚Ýs‚¤",
-	"‘S‚Ä‚Ì‘ª’è“_‚Ås‚¤",
+	"ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã—ãªã„",
+	"æœ€åˆã®æ¸¬å®šç‚¹ã®ã¿è¡Œã†",
+	"å…¨ã¦ã®æ¸¬å®šç‚¹ã§è¡Œã†",
 };
 //Saiki 20090527 Change <-----
 
 // ==========================================================================
-// MainRecipe‚ÌSR‚Ìê‡‚ÌƒtƒH[ƒJƒXŽ¸”sŽž‚ÌÝ’è
+// MainRecipeã®SRã®å ´åˆã®ãƒ•ã‚©ãƒ¼ã‚«ã‚¹å¤±æ•—æ™‚ã®è¨­å®š
 enum AFOCUS_FAIL_OPTION
 {
-	AFOCUS_FAIL_OPTION_AUTO_RETRY_MANUAL_FOCUS = 0, 	// ‹K’è‰ñ”ƒŠƒgƒ‰ƒC + Manual Deskew‚ÉˆÚs‚·‚é
-	AFOCUS_FAIL_OPTION_AUTO_RETRY_PROCEED,				// ‹K’è‰ñ”ƒŠƒgƒ‰ƒC + ‚»‚Ì‚Ü‚Ü‘ª’è
-	AFOCUS_FAIL_OPTION_AUTO_RETRY_CANCEL_RECIPE,		// ‹K’è‰ñ”ƒŠƒgƒ‰ƒC + ‘ª’è‚Ís‚í‚¸CƒŒƒVƒsI—¹
-	AFOCUS_FAIL_OPTION_MANUAL_FOCUS,					// Manual Deskew‚ÉˆÚs‚·‚é
-	AFOCUS_FAIL_OPTION_PROCEED, 						// ‚»‚Ì‚Ü‚Ü‘ª’è
-	AFOCUS_FAIL_OPTION_CANCEL_RECIPE,					// ‘ª’è‚Ís‚í‚¸CƒŒƒVƒsI—¹
+	AFOCUS_FAIL_OPTION_AUTO_RETRY_MANUAL_FOCUS = 0, 	// è¦å®šå›žæ•°ãƒªãƒˆãƒ©ã‚¤ + Manual Deskewã«ç§»è¡Œã™ã‚‹
+	AFOCUS_FAIL_OPTION_AUTO_RETRY_PROCEED,				// è¦å®šå›žæ•°ãƒªãƒˆãƒ©ã‚¤ + ãã®ã¾ã¾æ¸¬å®š
+	AFOCUS_FAIL_OPTION_AUTO_RETRY_CANCEL_RECIPE,		// è¦å®šå›žæ•°ãƒªãƒˆãƒ©ã‚¤ + æ¸¬å®šã¯è¡Œã‚ãšï¼Œãƒ¬ã‚·ãƒ”çµ‚äº†
+	AFOCUS_FAIL_OPTION_MANUAL_FOCUS,					// Manual Deskewã«ç§»è¡Œã™ã‚‹
+	AFOCUS_FAIL_OPTION_PROCEED, 						// ãã®ã¾ã¾æ¸¬å®š
+	AFOCUS_FAIL_OPTION_CANCEL_RECIPE,					// æ¸¬å®šã¯è¡Œã‚ãšï¼Œãƒ¬ã‚·ãƒ”çµ‚äº†
 	AFOCUS_FAIL_OPTION_MAX,
 };
 
@@ -1498,20 +1498,20 @@ const LPCSTR g_lpszSrFocusIfFail_ENU[] = {
 	"Cancel Recipe"
 };
 const LPCSTR g_lpszSrFocusIfFail_JPN[] = {
-	"Ž©“®ƒŠƒgƒ‰ƒC + Žè“®ƒtƒH[ƒJƒX",
-	"Ž©“®ƒŠƒgƒ‰ƒC + ‹­§‘ª’è",
-	"Ž©“®ƒŠƒgƒ‰ƒC + ƒŒƒVƒsƒLƒƒƒ“ƒZƒ‹",
-	"Žè“®ƒtƒH[ƒJƒX",
-	"‹­§‘ª’è",
-	"ƒŒƒVƒsƒLƒƒƒ“ƒZƒ‹"
+	"è‡ªå‹•ãƒªãƒˆãƒ©ã‚¤ + æ‰‹å‹•ãƒ•ã‚©ãƒ¼ã‚«ã‚¹",
+	"è‡ªå‹•ãƒªãƒˆãƒ©ã‚¤ + å¼·åˆ¶æ¸¬å®š",
+	"è‡ªå‹•ãƒªãƒˆãƒ©ã‚¤ + ãƒ¬ã‚·ãƒ”ã‚­ãƒ£ãƒ³ã‚»ãƒ«",
+	"æ‰‹å‹•ãƒ•ã‚©ãƒ¼ã‚«ã‚¹",
+	"å¼·åˆ¶æ¸¬å®š",
+	"ãƒ¬ã‚·ãƒ”ã‚­ãƒ£ãƒ³ã‚»ãƒ«"
 };
 //Saiki 20090527 Change <-----
 // ==========================================================================
-// MainRecipe‚ÌSR‚Ìê‡‚ÌƒtƒH[ƒJƒXŽ¸”s‚Ìƒf[ƒ^‚Ì—LŒø«‚ÌÝ’è
+// MainRecipeã®SRã®å ´åˆã®ãƒ•ã‚©ãƒ¼ã‚«ã‚¹å¤±æ•—ã®ãƒ‡ãƒ¼ã‚¿ã®æœ‰åŠ¹æ€§ã®è¨­å®š
 enum FANAL_FOCUS_FAIL_DATA_VALID_OPTION
 {
-	FANAL_FOCUS_FAIL_DATA_VALID_OPTION_VALID = 0,		// ÅI“I‚ÉƒtƒH[ƒJƒX‚ªŽ¸”s‚Å‚ ‚Á‚½ŽžA‘ª’èƒf[ƒ^‚ð—LŒø‚Æ‚·‚éi“Œvƒf[ƒ^‚É‰Á‚¦‚éj
-	FANAL_FOCUS_FAIL_DATA_VALID_OPTION_INVALID, 		// ÅI“I‚ÉƒtƒH[ƒJƒX‚ªŽ¸”s‚Å‚ ‚Á‚½ŽžA‘ª’èƒf[ƒ^‚ð–³Œø‚Æ‚·‚éi“Œvƒf[ƒ^‚É‰Á‚¦‚È‚¢j
+	FANAL_FOCUS_FAIL_DATA_VALID_OPTION_VALID = 0,		// æœ€çµ‚çš„ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãŒå¤±æ•—ã§ã‚ã£ãŸæ™‚ã€æ¸¬å®šãƒ‡ãƒ¼ã‚¿ã‚’æœ‰åŠ¹ã¨ã™ã‚‹ï¼ˆçµ±è¨ˆãƒ‡ãƒ¼ã‚¿ã«åŠ ãˆã‚‹ï¼‰
+	FANAL_FOCUS_FAIL_DATA_VALID_OPTION_INVALID, 		// æœ€çµ‚çš„ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãŒå¤±æ•—ã§ã‚ã£ãŸæ™‚ã€æ¸¬å®šãƒ‡ãƒ¼ã‚¿ã‚’ç„¡åŠ¹ã¨ã™ã‚‹ï¼ˆçµ±è¨ˆãƒ‡ãƒ¼ã‚¿ã«åŠ ãˆãªã„ï¼‰
 	FANAL_FOCUS_FAIL_DATA_VALID_OPTION_MAX,
 };
 
@@ -1521,12 +1521,12 @@ const LPCSTR g_lpszSrFocusIfFailDataValid_ENU[] = {
 	"Invalid",
 };
 const LPCSTR g_lpszSrFocusIfFailDataValid_JPN[] = {
-	"ŠÜ‚Þ",
-	"ŠÜ‚Ü‚È‚¢",
+	"å«ã‚€",
+	"å«ã¾ãªã„",
 };
 //Saiki 20090527 Change <-----
 // ==========================================================================
-// MainRecipe‚ÌSR‚Ìê‡‚ÌƒfƒtƒHƒ‹ƒgƒfƒBƒXƒvƒŒƒC‚ÌÝ’è
+// MainRecipeã®SRã®å ´åˆã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ã®è¨­å®š
 enum SR_DEFAULT_DISPLAY
 {
 	SR_DEFAULT_DISPLAY_LIST = 0,
@@ -1542,13 +1542,13 @@ const LPCSTR g_lpszSrDefaultDisplay_ENU[] = {
 	//"Disable",
 };
 const LPCSTR g_lpszSrDefaultDisplay_JPN[] = {
-	"ƒŠƒXƒg",
-	"ƒOƒ‰ƒt",
+	"ãƒªã‚¹ãƒˆ",
+	"ã‚°ãƒ©ãƒ•",
 	//"Disable",
 };
 //Saiki 20090527 Change <-----
 // ==========================================================================
-// Recalibration Program‚Ì’PˆÊ‚ÌÝ’è
+// Recalibration Programã®å˜ä½ã®è¨­å®š
 enum RECALIBRATION_PROGRAM_UNIT
 {
 	RECALIBRATION_PROGRAM_UNIT_NONE = 0,
@@ -1560,7 +1560,7 @@ enum RECALIBRATION_PROGRAM_UNIT
 
 // Kojika 20090528 Change
 const LPCSTR g_lpszRecalibrationProgramUnit_JPN[] = {
-	"–³‚µ",
+	"ç„¡ã—",
 	"A",
 	"nm",
 	"%",
@@ -1587,7 +1587,7 @@ const LPCSTR g_lpszStressRecalibrationProgramUnit_ENU[] = {
 };
 //2009.09.01 bagus stress --}--
 
-//2009.09.02 bagus se SE‹@”\’Ç‰Á --{--
+//2009.09.02 bagus se SEæ©Ÿèƒ½è¿½åŠ  --{--
 enum SE_RECALIBRATION_PROGRAM_UNIT
 {
 	SE_RECALIBRATION_PROGRAM_UNIT_NONE = 0,
@@ -1598,7 +1598,7 @@ enum SE_RECALIBRATION_PROGRAM_UNIT
 };
 
 const LPCSTR g_lpszSeRecalibrationProgramUnit_JPN[] = {
-	"–³‚µ",
+	"ç„¡ã—",
 	"A",
 	"nm",
 	"eV",
@@ -1609,9 +1609,9 @@ const LPCSTR g_lpszSeRecalibrationProgramUnit_ENU[] = {
 	"nm",
 	"eV",
 };
-//2009.09.02 bagus se SE‹@”\’Ç‰Á --}--
+//2009.09.02 bagus se SEæ©Ÿèƒ½è¿½åŠ  --}--
 
-// 2009.10.08 bagus CTA ’Ç‰Á --{--
+// 2009.10.08 bagus CTA è¿½åŠ  --{--
 enum CTA_RECALIBRATION_PROGRAM_UNIT
 {
 	CTA_RECALIBRATION_PROGRAM_UNIT_DEGREE = 0,
@@ -1624,9 +1624,9 @@ const LPCSTR g_lpszCTARecalibrationProgramUnit_JPN[] = {
 const LPCSTR g_lpszCTARecalibrationProgramUnit_ENU[] = {
 	"deg",
 };
-// 2009.10.08 bagus CTA ’Ç‰Á --}--
+// 2009.10.08 bagus CTA è¿½åŠ  --}--
 
-// 2009.10.13 bagus Gantry C³ --{--
+// 2009.10.13 bagus Gantry ä¿®æ­£ --{--
 enum GANTRY_RECALIBRATION_PROGRAM_UNIT
 {
 	GANTRY_RECALIBRATION_PROGRAM_UNIT_PERCENT = 0,
@@ -1639,15 +1639,15 @@ const LPCSTR g_lpszGantryRecalibrationProgramUnit_JPN[] = {
 const LPCSTR g_lpszGantryRecalibrationProgramUnit_ENU[] = {
 	"%",
 };
-// 2009.10.13 bagus Gantry C³ --}--
+// 2009.10.13 bagus Gantry ä¿®æ­£ --}--
 
 // ==========================================================================
-// Deskew Mode (enum‚ªGlobals.hxx“à‚Å’è‹`‚µ‚Ä‚ ‚é)
+// Deskew Mode (enumãŒGlobals.hxxå†…ã§å®šç¾©ã—ã¦ã‚ã‚‹)
 // Kojika 20090528 Change
 const LPCSTR g_lpszDeskewMode_JPN[] = {
-	"ƒfƒXƒLƒ…[‚ðŽg—p‚µ‚È‚¢",
-	"ƒpƒ^[ƒ“”FŽ¯ ƒfƒXƒLƒ…[",
-	"ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[",
+	"ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼ã‚’ä½¿ç”¨ã—ãªã„",
+	"ãƒ‘ã‚¿ãƒ¼ãƒ³èªè­˜ ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼",
+	"ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼",
 };
 const LPCSTR g_lpszDeskewMode_ENU[] = {
 	"No Deskew",
@@ -1657,7 +1657,7 @@ const LPCSTR g_lpszDeskewMode_ENU[] = {
 // Kojika 20090528 Change End
 
 // ==========================================================================
-// Deskew Fail Option (enum‚ªGlobals.hxx“à‚Å’è‹`‚µ‚Ä‚ ‚é)
+// Deskew Fail Option (enumãŒGlobals.hxxå†…ã§å®šç¾©ã—ã¦ã‚ã‚‹)
 // Kojika 20090528 Change
 const LPCSTR g_lpszDeskewFailOption_JPN[] = {
 	//"Proceed Measurement",
@@ -1667,13 +1667,13 @@ const LPCSTR g_lpszDeskewFailOption_JPN[] = {
 	//"Proceed Measurement With Point Manual Measurement",
 // 2009.04.10 K.Matsuo Add <--
 // 2009.04.10 K.Matsuo Change -->
-//	"‘ª’èŠJŽn",
-	"‹­§‘ª’è",
+//	"æ¸¬å®šé–‹å§‹",
+	"å¼·åˆ¶æ¸¬å®š",
 // 2009.04.10 K.Matsuo Change <--
-	"ƒŒƒVƒsƒLƒƒƒ“ƒZƒ‹",
-	"ƒ}ƒjƒ…ƒAƒ‹ƒfƒXƒLƒ…[",
+	"ãƒ¬ã‚·ãƒ”ã‚­ãƒ£ãƒ³ã‚»ãƒ«",
+	"ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼",
 // 2009.04.10 K.Matsuo Add -->
-	"ˆÊ’u•â³•t‚«‘ª’èiPMA‚ðŽg—pj",
+	"ä½ç½®è£œæ­£ä»˜ãæ¸¬å®šï¼ˆPMAã‚’ä½¿ç”¨ï¼‰",
 // 2009.04.10 K.Matsuo Add -->
 };
 const LPCSTR g_lpszDeskewFailOption_ENU[] = {
@@ -1684,7 +1684,7 @@ const LPCSTR g_lpszDeskewFailOption_ENU[] = {
 	//"Proceed Measurement With Point Manual Measurement",
 // 2009.04.10 K.Matsuo Add <--
 // 2009.04.10 K.Matsuo Change -->
-//	"‘ª’èŠJŽn",
+//	"æ¸¬å®šé–‹å§‹",
 	"Proceed Measurement",
 // 2009.04.10 K.Matsuo Change <--
 	"Cancel Recipe",
@@ -1696,25 +1696,25 @@ const LPCSTR g_lpszDeskewFailOption_ENU[] = {
 // Kojika 20090528 Change End
 
 // ==========================================================================
-// ”’l“ü—Í‚ÅƒXƒe[ƒWˆÚ“®‚ðs‚¤‚Æ‚«‚Ìâ‘ÎˆÚ“®‚©‘Š‘ÎˆÚ“®‚ÌÝ’è
+// æ•°å€¤å…¥åŠ›ã§ã‚¹ãƒ†ãƒ¼ã‚¸ç§»å‹•ã‚’è¡Œã†ã¨ãã®çµ¶å¯¾ç§»å‹•ã‹ç›¸å¯¾ç§»å‹•ã®è¨­å®š
 enum SPECIFY_COORDINATE
 {
 	SPECIFY_COORDINATE_STAGE = 0,
 	SPECIFY_COORDINATE_SAMPLE,
-//	SPECIFY_COORDINATE_INCREMENT,	// ¡‰ñ‚ÍŽg‚í‚È‚¢‚Ì‚Åíœ‚µ‚Ä‚¨‚­
+//	SPECIFY_COORDINATE_INCREMENT,	// ä»Šå›žã¯ä½¿ã‚ãªã„ã®ã§å‰Šé™¤ã—ã¦ãŠã
 	SPECIFY_COORDINATE_MAX,
 };
 
 //Kojika 20090528 Change
 const LPCSTR g_lpszSpecifyCoordinate_JPN[] = {
-	"ƒXƒe[ƒWÀ•W",
-	"ƒTƒ“ƒvƒ‹À•W",
-//	"Increment",					// ¡‰ñ‚ÍŽg‚í‚È‚¢‚Ì‚Åíœ‚µ‚Ä‚¨‚­
+	"ã‚¹ãƒ†ãƒ¼ã‚¸åº§æ¨™",
+	"ã‚µãƒ³ãƒ—ãƒ«åº§æ¨™",
+//	"Increment",					// ä»Šå›žã¯ä½¿ã‚ãªã„ã®ã§å‰Šé™¤ã—ã¦ãŠã
 };
 const LPCSTR g_lpszSpecifyCoordinate_ENU[] = {
 	"Stage Coordinate",
 	"Sample Coordiinate",
-//	"Increment",					// ¡‰ñ‚ÍŽg‚í‚È‚¢‚Ì‚Åíœ‚µ‚Ä‚¨‚­
+//	"Increment",					// ä»Šå›žã¯ä½¿ã‚ãªã„ã®ã§å‰Šé™¤ã—ã¦ãŠã
 };
 // Kojika 20090528 Change End
 
@@ -1731,8 +1731,8 @@ const LPSTR HOST_MODE_DISP_ENU[] = {
 	"REMOTE",
 } ;
 const LPSTR HOST_MODE_DISP_JPN[] = {
-	"ƒ[ƒJƒ‹",
-	"ƒŠƒ‚[ƒg",
+	"ãƒ­ãƒ¼ã‚«ãƒ«",
+	"ãƒªãƒ¢ãƒ¼ãƒˆ",
 } ;
 //Saiki 20090527 Change <-----
 
@@ -1760,8 +1760,8 @@ enum VACUUM_SENSOR
 
 // Kojika 20090528 Change
 const LPSTR VACUUM_SENSOR_DISP_JPN[] = {
-	"ƒoƒLƒ…[ƒ€ ƒIƒt",
-	"ƒoƒLƒ…[ƒ€ ƒIƒ“",
+	"ãƒã‚­ãƒ¥ãƒ¼ãƒ  ã‚ªãƒ•",
+	"ãƒã‚­ãƒ¥ãƒ¼ãƒ  ã‚ªãƒ³",
 } ;
 const LPSTR VACUUM_SENSOR_DISP_ENU[] = {
 	"VACUUM OFF",
@@ -1789,8 +1789,8 @@ enum GLASS_SENSOR
 
 // Kojika 20090528 Change
 const LPSTR SAMPLE_SENSOR_DISP_JPN[] = {
-	"ƒTƒ“ƒvƒ‹ –³",
-	"ƒTƒ“ƒvƒ‹ —L",
+	"ã‚µãƒ³ãƒ—ãƒ« ç„¡",
+	"ã‚µãƒ³ãƒ—ãƒ« æœ‰",
 } ;
 const LPSTR SAMPLE_SENSOR_DISP_ENU[] = {
 	"SAMPLE NONE",
@@ -1818,19 +1818,19 @@ enum LOAD_POSITION_SENSOR
 
 //Kojika 20090528 Change
 const LPSTR LOAD_POSITION_SENSOR_DISP_JPN[] = {
-/* modified 2009.07.03 hmenjo ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“•¶Žš ---------- { ---------- */
-//	"ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“ŠO",
-/* modified 2009.07.03 hmenjo ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“•¶Žš ----------			   */
-	"ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“",
-/* modified 2009.07.03 hmenjo ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“•¶Žš ---------- } ---------- */
-	"ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“",
+/* modified 2009.07.03 hmenjo ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³æ–‡å­— ---------- { ---------- */
+//	"ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³å¤–",
+/* modified 2009.07.03 hmenjo ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³æ–‡å­— ----------			   */
+	"ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³",
+/* modified 2009.07.03 hmenjo ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³æ–‡å­— ---------- } ---------- */
+	"ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³",
 };
 const LPSTR LOAD_POSITION_SENSOR_DISP_ENU[] = {
-/* modified 2009.07.03 hmenjo ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“•¶Žš ---------- { ---------- */
+/* modified 2009.07.03 hmenjo ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³æ–‡å­— ---------- { ---------- */
 //	"NO LOAD POS.",
-/* modified 2009.07.03 hmenjo ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“•¶Žš ----------			   */
+/* modified 2009.07.03 hmenjo ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³æ–‡å­— ----------			   */
 	"LOAD POSITION",
-/* modified 2009.07.03 hmenjo ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“•¶Žš ---------- } ---------- */
+/* modified 2009.07.03 hmenjo ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³æ–‡å­— ---------- } ---------- */
 	"LOAD POSITION",
 };
 // Kojika 20090528 Change End
@@ -1868,12 +1868,12 @@ const LPSTR PROCESS_STATUS_DISP_ENU[] = {
 	"COMPLETE",
 } ;
 const LPSTR PROCESS_STATUS_DISP_JPN[] = {
-	"‰Šú‰»’†",
-	"ƒ_ƒEƒ“",
-	"ƒEƒFƒCƒg",
-	"ƒvƒƒZƒX’†",
-	"ƒAƒ{[ƒg",
-	"ƒRƒ“ƒvƒŠ[ƒg",
+	"åˆæœŸåŒ–ä¸­",
+	"ãƒ€ã‚¦ãƒ³",
+	"ã‚¦ã‚§ã‚¤ãƒˆ",
+	"ãƒ—ãƒ­ã‚»ã‚¹ä¸­",
+	"ã‚¢ãƒœãƒ¼ãƒˆ",
+	"ã‚³ãƒ³ãƒ—ãƒªãƒ¼ãƒˆ",
 } ;
 
 //Saiki 20090527 Change <-----
@@ -1899,8 +1899,8 @@ const LPSTR ALARM_STATUS_DISP_ENU[] = {
 	"ALARM",
 } ;
 const LPSTR ALARM_STATUS_DISP_JPN[] = {
-	"ˆÙí",
-	"ˆÙí",
+	"ç•°å¸¸",
+	"ç•°å¸¸",
 } ;
 
 //Saiki 20090527 Change <-----
@@ -1921,8 +1921,8 @@ const LPSTR WARNING_STATUS_DISP_ENU[] = {
 	"WARNING",
 } ;
 const LPSTR WARNING_STATUS_DISP_JPN[] = {
-	"Œx",
-	"Œx",
+	"è­¦å‘Š",
+	"è­¦å‘Š",
 } ;
 //Saiki 20090527 Change <-----
 const COLORREF WARNING_STATUS_COLOR[] = {
@@ -1967,7 +1967,7 @@ enum RECIPE_SETTING_MODE
 
 // ==========================================================================
 // Recipe Save / Discard
-//ƒŒƒVƒs(ƒvƒƒOƒ‰ƒ€)‚ÌI—¹C•Û‘¶‚·‚é‚©‚»‚Ì‚Ü‚ÜI—¹‚·‚é‚©‚ðŒˆ‚ß‚é•Ï”‚Ì’è‹`
+//ãƒ¬ã‚·ãƒ”(ãƒ—ãƒ­ã‚°ãƒ©ãƒ )ã®çµ‚äº†ï¼Œä¿å­˜ã™ã‚‹ã‹ãã®ã¾ã¾çµ‚äº†ã™ã‚‹ã‹ã‚’æ±ºã‚ã‚‹å¤‰æ•°ã®å®šç¾©
 enum{
 	MODIFIED_SAVE = 0,
 	MODIFIED_DISCARD,
@@ -1975,7 +1975,7 @@ enum{
 
 // ==========================================================================
 // Save As
-// SaveAsDlg‚Å‚Ç‚ÌƒŒƒVƒs(ƒvƒƒOƒ‰ƒ€)‚ÌSaveAs‚È‚Ì‚©‚ðŒˆ‚ß‚é•Ï”‚Ì’è‹`
+// SaveAsDlgã§ã©ã®ãƒ¬ã‚·ãƒ”(ãƒ—ãƒ­ã‚°ãƒ©ãƒ )ã®SaveAsãªã®ã‹ã‚’æ±ºã‚ã‚‹å¤‰æ•°ã®å®šç¾©
 enum{
 	SAVE_AS_MAIN_RECIPE = 0,
 	SAVE_AS_MULTI_RECIPE,
@@ -2014,7 +2014,7 @@ enum OPERATION_PANEL
 enum EXE_WND
 {
 	MEAS_WND,										// Measurement
-	MANUAL_RECIPE_WND,								// ‘ª’è‰æ–Ê(ZAxisOffsetŽž)
+	MANUAL_RECIPE_WND,								// æ¸¬å®šç”»é¢(ZAxisOffsetæ™‚)
 	MANUAL_MEAS_WND,								// Manual Measurement
 	RECIPE_MAIN_LIST_WND,							// Main Recipe List
 	RECIPE_MULTI_LIST_WND,							// Multi Recipe List
@@ -2024,13 +2024,13 @@ enum EXE_WND
 	RECIPE_POINT_DESKEW_LIST_WND,					// Point Deskew Program List
 	RECIPE_MAIN_SR_WND, 							// Recipe Setting Main SR
 	RECIPE_MAIN_SE_WND, 							// Recipe Setting Main SE
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	RECIPE_MAIN_COMPEASE_WND, 						// Recipe Setting Main COMPEASE
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 //	RECIPE_MAIN_IRSE_WND,							// Recipe Setting Main IRSE
 	RECIPE_MAIN_MS_WND,								// Recipe Setting Main MicroScope
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 	RECIPE_MAIN_STRESS_WND, 						// Recipe Setting Main STRESS
 	RECIPE_MAIN_4PP_WND,							// Recipe Setting Main 4PP
 	RECIPE_MAIN_CTA_WND,							// Recipe Setting Main CTA
@@ -2045,19 +2045,19 @@ enum EXE_WND
 	RECIPE_MEAS_SR_CIE_TRANSMITTANCE_WND,			// Recipe Setting Measurement Program SR Transmittance CIE
 	RECIPE_MEAS_SR_OD_WND,							// Recipe Setting Measurement Program SR Optical Density
 	RECIPE_MEAS_SE_THICKNESS_WND,					// Recipe Setting Measurement Program SE Thickness
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	RECIPE_MEAS_COMPEASE_THICKNESS_WND, 			// Recipe Setting Measurement Program CompleteEASE Thickness
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 //	RECIPE_MEAS_IRSE_THICKNESS_WND, 				// Recipe Setting Measurement Program IRSE Thickness
 	RECIPE_MEAS_MS_WND,								// Recipe Setting Measurement Program Micro Scope
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 	RECIPE_MEAS_STRESS_WND, 						// Recipe Setting Measurement Program STRESS
 	RECIPE_MEAS_4PP_WND,							// Recipe Setting Measurement Program 4PP
 	RECIPE_MEAS_CTA_WND,							// Recipe Setting Measurement Program ContactAngle
-	// 2009.10.13 bagus Distance ’Ç‰Á --{--
+	// 2009.10.13 bagus Distance è¿½åŠ  --{--
 	RECIPE_MEAS_SR_DISTANCE_WND,					// Recipe Setting Measurement Program Distance
-	// 2009.10.13 bagus Distance ’Ç‰Á --}--
+	// 2009.10.13 bagus Distance è¿½åŠ  --}--
 	RECIPE_STAGE_WND,								// Recipe Setting Stage Program
 	//2009.08.25 bagus stress --{--
 	RECIPE_STAGE_STRESS_WND,						// Recipe Setting Stage Program STRESS
@@ -2065,64 +2065,64 @@ enum EXE_WND
 	// 2009.10.02 bagus Gantry --{--
 	RECIPE_STAGE_GANTRY_WND,						// Recipe Setting Stage Program Gantry
 	// 2009.10.02 bagus Gantry --}--
-	// 2009.10.13 bagus Distance ’Ç‰Á --{--
+	// 2009.10.13 bagus Distance è¿½åŠ  --{--
 	RECIPE_STAGE_SR_DISTANCE_WND,					// Recipe Setting Stage Program Distance
-	// 2009.10.13 bagus Distance ’Ç‰Á --}--
+	// 2009.10.13 bagus Distance è¿½åŠ  --}--
 	RECIPE_RECALIBRATION_WND,						// Recipe Setting Recalibration Program
 	RECIPE_POINT_DESKEW_WND,						// Recipe Setting Point Deskew Program
 	DATA_LIST_WND,									// Data List
 	DATA_SR_WND,									// Data SR Review
 	DATA_SE_WND,									// Data SE Review
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 //	DATA_IRSE_WND,									// Data IRSE Review
 	DATA_MS_WND,									// Data MS Review
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 	DATA_STRESS_WND,								// Data STRESS Review
 	DATA_4PP_WND,									// Data 4PP Review
 	DATA_CONTACT_ANGLE_WND, 						// Data CTA Review
 	USERCONF_WND,									// User Setting Wnd
-	USERCONF_DEF_MAIN_RECIPE_WND,					// SR‚ÌMainRecipe‚ÌƒfƒtƒHƒ‹ƒg’lÝ’è
-	USERCONF_DEF_SR_THICKNESS_WND,					// SR‚ÌThickness‘ª’è‚ÌƒfƒtƒHƒ‹ƒg’lÝ’è
-	USERCONF_DEF_SR_REFLECTANCE_WND,				// SR‚ÌReflectance‘ª’è‚ÌƒfƒtƒHƒ‹ƒg’lÝ’è
-	USERCONF_DEF_SR_TRANSMITTANCE_WND,				// SR‚ÌTransmittance‘ª’è‚ÌƒfƒtƒHƒ‹ƒg’lÝ’è
-	USERCONF_DEF_SR_CIE_REFLECTANCE_WND,			// SR‚ÌReflectance CIE‘ª’è‚ÌƒfƒtƒHƒ‹ƒg’lÝ’è
-	USERCONF_DEF_SR_CIE_TRANSMITTANCE_WND,			// SR‚ÌTransmittance CIE‘ª’è‚ÌƒfƒtƒHƒ‹ƒg’lÝ’è
-	USERCONF_DEF_SR_OD_WND, 						// SR‚ÌOptical Density‘ª’è‚ÌƒfƒtƒHƒ‹ƒg’lÝ’è
-	USERCONF_DEF_SR_STRESS_WND, 					// SR‚ÌStress‘ª’è‚ÌƒfƒtƒHƒ‹ƒg’lÝ’è
-	USERCONF_DEF_SR_4PP_WND,						// SR‚Ì4PP‘ª’è‚ÌƒfƒtƒHƒ‹ƒg’lÝ’è
-	USERCONF_DEF_SR_CTA_WND,						// SR‚ÌContactAngle‘ª’è‚ÌƒfƒtƒHƒ‹ƒg’lÝ’è
+	USERCONF_DEF_MAIN_RECIPE_WND,					// SRã®MainRecipeã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®š
+	USERCONF_DEF_SR_THICKNESS_WND,					// SRã®Thicknessæ¸¬å®šã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®š
+	USERCONF_DEF_SR_REFLECTANCE_WND,				// SRã®Reflectanceæ¸¬å®šã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®š
+	USERCONF_DEF_SR_TRANSMITTANCE_WND,				// SRã®Transmittanceæ¸¬å®šã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®š
+	USERCONF_DEF_SR_CIE_REFLECTANCE_WND,			// SRã®Reflectance CIEæ¸¬å®šã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®š
+	USERCONF_DEF_SR_CIE_TRANSMITTANCE_WND,			// SRã®Transmittance CIEæ¸¬å®šã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®š
+	USERCONF_DEF_SR_OD_WND, 						// SRã®Optical Densityæ¸¬å®šã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®š
+	USERCONF_DEF_SR_STRESS_WND, 					// SRã®Stressæ¸¬å®šã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®š
+	USERCONF_DEF_SR_4PP_WND,						// SRã®4PPæ¸¬å®šã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®š
+	USERCONF_DEF_SR_CTA_WND,						// SRã®ContactAngleæ¸¬å®šã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®š
 	//2009.09.07 bagus se --{--
-	USERCONF_DEF_SE_THICKNESS_WND,					// SE‚ÌThickness‘ª’è‚ÌƒfƒtƒHƒ‹ƒg’lÝ’è
+	USERCONF_DEF_SE_THICKNESS_WND,					// SEã®Thicknessæ¸¬å®šã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®š
 	//2009.09.07 bagus se --}--
 	// 2009.09.29 bagus SE --{--
-	USERCONF_DEF_SE_MAIN_RECIPE_WND,				// SE‚ÌMainRecipe‚ÌƒfƒtƒHƒ‹ƒg’lÝ’è
+	USERCONF_DEF_SE_MAIN_RECIPE_WND,				// SEã®MainRecipeã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®š
 	// 2009.09.29 bagus SE --}--
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
-	USERCONF_DEF_COMPEASE_THICKNESS_WND,			// CompleteEASE‚ÌThickness‘ª’è‚ÌƒfƒtƒHƒ‹ƒg’lÝ’è
-	USERCONF_DEF_COMPEASE_MAIN_RECIPE_WND,			// CompleteEASE‚ÌMainRecipe‚ÌƒfƒtƒHƒ‹ƒg’lÝ’è
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-	// 2009.10.08 bagus CTA ’Ç‰Á --{--
-	USERCONF_DEF_CTA_MAIN_RECIPE_WND,				// ContactAngle‚ÌMainRecipe‚ÌƒfƒtƒHƒ‹ƒg’lÝ’è
-	USERCONF_DEF_CTA_WND,							// ContactAngle‘ª’è‚ÌƒfƒtƒHƒ‹ƒg’lÝ’è
-	// 2009.10.08 bagus CTA ’Ç‰Á --}--
-	// 2009.10.13 bagus Distance ’Ç‰Á --{--
-	USERCONF_DEF_SR_DISTANCE_WND,					// SR‚ÌDistance‘ª’è‚ÌƒfƒtƒHƒ‹ƒg’lÝ’è
-	// 2009.10.13 bagus Distance ’Ç‰Á --}--
-	//2009.10.20 bagus MS ’Ç‰Á --{--
-	USERCONF_DEF_MS_MAIN_RECIPE_WND,				// MicroScope‚ÌMainRecipe‚ÌƒfƒtƒHƒ‹ƒg’lÝ’è
-	USERCONF_DEF_MS_WND,							// MicroScope‘ª’è‚ÌƒfƒtƒHƒ‹ƒg’lÝ’è
-	//2009.10.20 bagus MS ’Ç‰Á --}--
-	//2009.10.21 bagus Stress ’Ç‰Á --{--
-	USERCONF_DEF_STRESS_MAIN_RECIPE_WND,			// Stress‚ÌMainRecipe‚ÌƒfƒtƒHƒ‹ƒg’lÝ’è
-	USERCONF_DEF_STRESS_WND,						// Stress‘ª’è‚ÌƒfƒtƒHƒ‹ƒg’lÝ’è
-	//2009.10.21 bagus Stress ’Ç‰Á --}--
-	// 2009.11.04 bagus RS ’Ç‰Á --{--
-	USERCONF_DEF_4PP_MAIN_RECIPE_WND,				// Resistance‚ÌMainRecipe‚ÌƒfƒtƒHƒ‹ƒg’lÝ’è
-	USERCONF_DEF_4PP_WND,							// Resistance‘ª’è‚ÌƒfƒtƒHƒ‹ƒg’lÝ’è
-	// 2009.11.04 bagus RS ’Ç‰Á --}--
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
+	USERCONF_DEF_COMPEASE_THICKNESS_WND,			// CompleteEASEã®Thicknessæ¸¬å®šã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®š
+	USERCONF_DEF_COMPEASE_MAIN_RECIPE_WND,			// CompleteEASEã®MainRecipeã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®š
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+	// 2009.10.08 bagus CTA è¿½åŠ  --{--
+	USERCONF_DEF_CTA_MAIN_RECIPE_WND,				// ContactAngleã®MainRecipeã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®š
+	USERCONF_DEF_CTA_WND,							// ContactAngleæ¸¬å®šã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®š
+	// 2009.10.08 bagus CTA è¿½åŠ  --}--
+	// 2009.10.13 bagus Distance è¿½åŠ  --{--
+	USERCONF_DEF_SR_DISTANCE_WND,					// SRã®Distanceæ¸¬å®šã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®š
+	// 2009.10.13 bagus Distance è¿½åŠ  --}--
+	//2009.10.20 bagus MS è¿½åŠ  --{--
+	USERCONF_DEF_MS_MAIN_RECIPE_WND,				// MicroScopeã®MainRecipeã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®š
+	USERCONF_DEF_MS_WND,							// MicroScopeæ¸¬å®šã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®š
+	//2009.10.20 bagus MS è¿½åŠ  --}--
+	//2009.10.21 bagus Stress è¿½åŠ  --{--
+	USERCONF_DEF_STRESS_MAIN_RECIPE_WND,			// Stressã®MainRecipeã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®š
+	USERCONF_DEF_STRESS_WND,						// Stressæ¸¬å®šã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®š
+	//2009.10.21 bagus Stress è¿½åŠ  --}--
+	// 2009.11.04 bagus RS è¿½åŠ  --{--
+	USERCONF_DEF_4PP_MAIN_RECIPE_WND,				// Resistanceã®MainRecipeã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®š
+	USERCONF_DEF_4PP_WND,							// Resistanceæ¸¬å®šã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®š
+	// 2009.11.04 bagus RS è¿½åŠ  --}--
 	MAINTE_WND, 									// Maintenance Wnd
 	SYSCONF_WND,									// System Wnd
-	SYSCONF_Z_AXIS_OFFSET_MEAS_WND, 				// ‘ª’è‰æ–Ê(ZAxisOffsetŽž)
+	SYSCONF_Z_AXIS_OFFSET_MEAS_WND, 				// æ¸¬å®šç”»é¢(ZAxisOffsetæ™‚)
 	ALARM_HISTORY_LIST_WND, 						// Alarm History List
 	MANUAL_MEAS_FORM_WND,							// Manual Measurement Form
 	EXE_WND_MAX,
@@ -2130,21 +2130,21 @@ enum EXE_WND
 
 // ==========================================================================
 // SR Measurement Type
-// (enum‚ªGlobals.hxx“à‚Å’è‹`‚µ‚Ä‚ ‚é)
+// (enumãŒGlobals.hxxå†…ã§å®šç¾©ã—ã¦ã‚ã‚‹)
 //Kojika 20090528 Change
 const LPCSTR MEAS_PROG_TYPE_SR_ITEM_JPN[] = {
-	"–ŒŒú‘ª’è (n,k)",
-	"”½ŽË—¦‘ª’è",
-	"“§‰ß—¦‘ª’è",
+	"è†œåŽšæ¸¬å®š (n,k)",
+	"åå°„çŽ‡æ¸¬å®š",
+	"é€éŽçŽ‡æ¸¬å®š",
 // 2009.09.03 K.Matsuo -->
-	"“§‰ß—¦‘ª’è (ƒKƒ“ƒgƒŠ[j",
+	"é€éŽçŽ‡æ¸¬å®š (ã‚¬ãƒ³ãƒˆãƒªãƒ¼ï¼‰",
 // 2009.09.03 K.Matsuo <--
-// 2009.10.09 bagus ‚Q“_ŠÔ --{--
-	"2“_ŠÔ‹——£‘ª’è",
-// 2009.10.09 bagus ‚Q“_ŠÔ --}--
-	"F“x‘ª’è (”½ŽË—¦)",
-	"F“x‘ª’è (“§‰ß—¦)",
-	"ŒõŠw”Z“x‘ª’è",
+// 2009.10.09 bagus ï¼’ç‚¹é–“ --{--
+	"2ç‚¹é–“è·é›¢æ¸¬å®š",
+// 2009.10.09 bagus ï¼’ç‚¹é–“ --}--
+	"è‰²åº¦æ¸¬å®š (åå°„çŽ‡)",
+	"è‰²åº¦æ¸¬å®š (é€éŽçŽ‡)",
+	"å…‰å­¦æ¿ƒåº¦æ¸¬å®š",
 };
 const LPCSTR MEAS_PROG_TYPE_SR_ITEM_ENU[] = {
 	"Thickness (n,k)",
@@ -2153,9 +2153,9 @@ const LPCSTR MEAS_PROG_TYPE_SR_ITEM_ENU[] = {
 // 2009.09.03 K.Matsuo -->
 	"Transmittance (Gantry)",
 // 2009.09.03 K.Matsuo <--
-// 2009.10.09 bagus ‚Q“_ŠÔ --{--
+// 2009.10.09 bagus ï¼’ç‚¹é–“ --{--
 	"Distance",
-// 2009.10.09 bagus ‚Q“_ŠÔ --}--
+// 2009.10.09 bagus ï¼’ç‚¹é–“ --}--
 	"Chromaticity (Reflectance)",
 	"Chromaticity (Transmittance)",
 	"Optical Density",
@@ -2164,165 +2164,165 @@ const LPCSTR MEAS_PROG_TYPE_SR_ITEM_ENU[] = {
 
 // ==========================================================================
 // SE Measurement Type
-// (enum‚ªGlobals.hxx“à‚Å’è‹`‚µ‚Ä‚ ‚é)
+// (enumãŒGlobals.hxxå†…ã§å®šç¾©ã—ã¦ã‚ã‚‹)
 // Kojika 20090528 Change
 const LPCSTR MEAS_PROG_TYPE_SE_ITEM_JPN[] = {
-//2009.10.21 bagus Stress C³ --{--
-//	"–ŒŒú‘ª’è",
-	"–ŒŒú‘ª’è (n,k,Eg)",
-//2009.10.21 bagus Stress C³ --}--
+//2009.10.21 bagus Stress ä¿®æ­£ --{--
+//	"è†œåŽšæ¸¬å®š",
+	"è†œåŽšæ¸¬å®š (n,k,Eg)",
+//2009.10.21 bagus Stress ä¿®æ­£ --}--
 // 2009.09.25 K.Matsuo delete -->
-//	"ŒõŠw’è”(n,k)‘ª’è",
-//	"”½ŽË—¦,“§‰ß—¦ŒvŽZ(%T, %R)",
-//	"ŒõŠw‘e‚³‘ª’è",
-//	"¬Ýƒ}ƒeƒŠƒAƒ‹‚Ì‹Ãk",
-//	"ŒõŠwƒoƒ“ƒhƒMƒƒƒbƒva-Si‘ª’è",
-//	"LTPS—pŒ‹»‰»“xŠÖ˜Aƒpƒ‰ƒ[ƒ^‘ª’è",
+//	"å…‰å­¦å®šæ•°(n,k)æ¸¬å®š",
+//	"åå°„çŽ‡,é€éŽçŽ‡è¨ˆç®—(%T, %R)",
+//	"å…‰å­¦ç²—ã•æ¸¬å®š",
+//	"æ··åœ¨ãƒžãƒ†ãƒªã‚¢ãƒ«ã®å‡ç¸®",
+//	"å…‰å­¦ãƒãƒ³ãƒ‰ã‚®ãƒ£ãƒƒãƒ—a-Siæ¸¬å®š",
+//	"LTPSç”¨çµæ™¶åŒ–åº¦é–¢é€£ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿æ¸¬å®š",
 // 2009.09.25 K.Matsuo delete <--
 };
 const LPCSTR MEAS_PROG_TYPE_SE_ITEM_ENU[] = {
-//2009.10.21 bagus Stress C³ --{--
+//2009.10.21 bagus Stress ä¿®æ­£ --{--
 //	"Thickness",
 	"Thickness (n,k,Eg)",
-//2009.10.21 bagus Stress C³ --}--
+//2009.10.21 bagus Stress ä¿®æ­£ --}--
 // 2009.09.25 K.Matsuo delete -->
-//	"ŒõŠw’è”(n,k)‘ª’è",
-//	"”½ŽË—¦,“§‰ß—¦ŒvŽZ(%T, %R)",
-//	"ŒõŠw‘e‚³‘ª’è",
-//	"¬Ýƒ}ƒeƒŠƒAƒ‹‚Ì‹Ãk",
-//	"ŒõŠwƒoƒ“ƒhƒMƒƒƒbƒva-Si‘ª’è",
-//	"LTPS—pŒ‹»‰»“xŠÖ˜Aƒpƒ‰ƒ[ƒ^‘ª’è",
+//	"å…‰å­¦å®šæ•°(n,k)æ¸¬å®š",
+//	"åå°„çŽ‡,é€éŽçŽ‡è¨ˆç®—(%T, %R)",
+//	"å…‰å­¦ç²—ã•æ¸¬å®š",
+//	"æ··åœ¨ãƒžãƒ†ãƒªã‚¢ãƒ«ã®å‡ç¸®",
+//	"å…‰å­¦ãƒãƒ³ãƒ‰ã‚®ãƒ£ãƒƒãƒ—a-Siæ¸¬å®š",
+//	"LTPSç”¨çµæ™¶åŒ–åº¦é–¢é€£ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿æ¸¬å®š",
 // 2009.09.25 K.Matsuo delete <--
 };
 // Kojika 20090528 Change End
 
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 #if 0
 // ==========================================================================
 // IRSE Measurement Type
-// (enum‚ªGlobals.hxx“à‚Å’è‹`‚µ‚Ä‚ ‚é)
+// (enumãŒGlobals.hxxå†…ã§å®šç¾©ã—ã¦ã‚ã‚‹)
 // Kojika 20090528 Change
 const LPCSTR MEAS_PROG_TYPE_IRSE_ITEM_JPN[] = {
-	"–ŒŒú‘ª’è",
-	"ŒõŠw’è”(n,k)‘ª’è",
-	"”½ŽË—¦,“§‰ß—¦ŒvŽZ(%T, %R)",
-	"ŒõŠw‘e‚³‘ª’è",
-	"¬Ýƒ}ƒeƒŠƒAƒ‹‚Ì‹Ãk",
-	"ŒõŠwƒoƒ“ƒhƒMƒƒƒbƒva-Si‘ª’è",
-	"LTPS—pŒ‹»‰»“xŠÖ˜Aƒpƒ‰ƒ[ƒ^‘ª’è",
+	"è†œåŽšæ¸¬å®š",
+	"å…‰å­¦å®šæ•°(n,k)æ¸¬å®š",
+	"åå°„çŽ‡,é€éŽçŽ‡è¨ˆç®—(%T, %R)",
+	"å…‰å­¦ç²—ã•æ¸¬å®š",
+	"æ··åœ¨ãƒžãƒ†ãƒªã‚¢ãƒ«ã®å‡ç¸®",
+	"å…‰å­¦ãƒãƒ³ãƒ‰ã‚®ãƒ£ãƒƒãƒ—a-Siæ¸¬å®š",
+	"LTPSç”¨çµæ™¶åŒ–åº¦é–¢é€£ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿æ¸¬å®š",
 };
 const LPCSTR MEAS_PROG_TYPE_IRSE_ITEM_ENU[] = {
-	"–ŒŒú‘ª’è",
-	"ŒõŠw’è”(n,k)‘ª’è",
-	"”½ŽË—¦,“§‰ß—¦ŒvŽZ(%T, %R)",
-	"ŒõŠw‘e‚³‘ª’è",
-	"¬Ýƒ}ƒeƒŠƒAƒ‹‚Ì‹Ãk",
-	"ŒõŠwƒoƒ“ƒhƒMƒƒƒbƒva-Si‘ª’è",
-	"LTPS—pŒ‹»‰»“xŠÖ˜Aƒpƒ‰ƒ[ƒ^‘ª’è",
+	"è†œåŽšæ¸¬å®š",
+	"å…‰å­¦å®šæ•°(n,k)æ¸¬å®š",
+	"åå°„çŽ‡,é€éŽçŽ‡è¨ˆç®—(%T, %R)",
+	"å…‰å­¦ç²—ã•æ¸¬å®š",
+	"æ··åœ¨ãƒžãƒ†ãƒªã‚¢ãƒ«ã®å‡ç¸®",
+	"å…‰å­¦ãƒãƒ³ãƒ‰ã‚®ãƒ£ãƒƒãƒ—a-Siæ¸¬å®š",
+	"LTPSç”¨çµæ™¶åŒ–åº¦é–¢é€£ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿æ¸¬å®š",
 };
 // Kojika 20090528 Change End
 #else
 const LPCSTR MEAS_PROG_TYPE_MS_ITEM_JPN[] = {
-//2009.10.21 bagus MS ’Ç‰ÁC³ --{--
-//	"Œ°”÷‹¾",
-	"ƒ}ƒCƒNƒƒXƒR[ƒv‘ª’è",
-//2009.10.21 bagus MS ’Ç‰ÁC³ --}--
+//2009.10.21 bagus MS è¿½åŠ ä¿®æ­£ --{--
+//	"é¡•å¾®é¡",
+	"ãƒžã‚¤ã‚¯ãƒ­ã‚¹ã‚³ãƒ¼ãƒ—æ¸¬å®š",
+//2009.10.21 bagus MS è¿½åŠ ä¿®æ­£ --}--
 };
 const LPCSTR MEAS_PROG_TYPE_MS_ITEM_ENU[] = {
 	"Micro Scope",
 };
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 
 
 // ==========================================================================
 // ContactAngle Measurement Type
-// (enum‚ªGlobals.hxx“à‚Å’è‹`‚µ‚Ä‚ ‚é)
+// (enumãŒGlobals.hxxå†…ã§å®šç¾©ã—ã¦ã‚ã‚‹)
 // Kojika 20090528 Change
 
 const LPCSTR MEAS_PROG_TYPE_CONTACT_ANGLE_ITEM_JPN[] = {
-	"ƒRƒ“ƒ^ƒNƒgƒAƒ“ƒOƒ‹‘ª’è",
+	"ã‚³ãƒ³ã‚¿ã‚¯ãƒˆã‚¢ãƒ³ã‚°ãƒ«æ¸¬å®š",
 };
 const LPCSTR MEAS_PROG_TYPE_CONTACT_ANGLE_ITEM_ENU[] = {
-//2009.10.21 bagus Stress C³ --{--
+//2009.10.21 bagus Stress ä¿®æ­£ --{--
 //	"Contact Angle Measurement",
 	"Contact Angle",
-//2009.10.21 bagus Stress C³ --}--
+//2009.10.21 bagus Stress ä¿®æ­£ --}--
 };
 // Kojika 20090528 Change End
 
 // ==========================================================================
 // Resistance Measurement Type
-// (enum‚ªGlobals.hxx“à‚Å’è‹`‚µ‚Ä‚ ‚é)
+// (enumãŒGlobals.hxxå†…ã§å®šç¾©ã—ã¦ã‚ã‚‹)
 // Kojika 20090528 Change
 const LPCSTR MEAS_PROG_TYPE_4PP_ITEM_JPN[] = {
-//2009.10.21 bagus Stress C³ --{--
-//	"ƒV[ƒg’ïR‘ª’è",
-	"ƒV[ƒg’ïR",
-//2009.10.21 bagus Stress C³ --}--
+//2009.10.21 bagus Stress ä¿®æ­£ --{--
+//	"ã‚·ãƒ¼ãƒˆæŠµæŠ—æ¸¬å®š",
+	"ã‚·ãƒ¼ãƒˆæŠµæŠ—",
+//2009.10.21 bagus Stress ä¿®æ­£ --}--
 };
 const LPCSTR MEAS_PROG_TYPE_4PP_ITEM_ENU[] = {
-//2009.10.21 bagus Stress C³ --{--
+//2009.10.21 bagus Stress ä¿®æ­£ --{--
 //	"Sheet Resistance Measurement",
 	"Sheet Resistance",
-//2009.10.21 bagus Stress C³ --}--
+//2009.10.21 bagus Stress ä¿®æ­£ --}--
 };
 // Kojika 20090528 Change End
 
 // ==========================================================================
 // STRESS Measurement Type
-// (enum‚ªGlobals.hxx“à‚Å’è‹`‚µ‚Ä‚ ‚é)
+// (enumãŒGlobals.hxxå†…ã§å®šç¾©ã—ã¦ã‚ã‚‹)
 // Kojika 20090528 Change
 const LPCSTR MEAS_PROG_TYPE_STRESS_ITEM_JPN[] = {
-	"‰ž—Í‘ª’è",
+	"å¿œåŠ›æ¸¬å®š",
 };
 const LPCSTR MEAS_PROG_TYPE_STRESS_ITEM_ENU[] = {
-//2009.10.21 bagus Stress C³ --{--
+//2009.10.21 bagus Stress ä¿®æ­£ --{--
 //	"STRESS Measurement",
 	"Stress",
-//2009.10.21 bagus Stress C³ --}--
+//2009.10.21 bagus Stress ä¿®æ­£ --}--
 };// Kojika 20090528 Change End
 
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 // ==========================================================================
 // CompEASE Measurement Type
-// (enum‚ªGlobals.hxx“à‚Å’è‹`‚µ‚Ä‚ ‚é)
+// (enumãŒGlobals.hxxå†…ã§å®šç¾©ã—ã¦ã‚ã‚‹)
 const LPCSTR MEAS_PROG_TYPE_COMPEASE_ITEM_JPN[] = {
-	"–ŒŒú‘ª’è (n,k,Eg)",
+	"è†œåŽšæ¸¬å®š (n,k,Eg)",
 };
 const LPCSTR MEAS_PROG_TYPE_COMPEASE_ITEM_ENU[] = {
 	"Thickness (n,k,Eg)",
 };
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 
 // ==========================================================================
 // Head Type
-// (enum‚ªGlobals.hxx“à‚Å’è‹`‚µ‚Ä‚ ‚é)
+// (enumãŒGlobals.hxxå†…ã§å®šç¾©ã—ã¦ã‚ã‚‹)
 const LPCSTR HEAD_TYPE_ITEM[] = {
 	"SR",
 	"SE",
 	"IRSE",
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.11.04 bagus RS è¿½åŠ  --{--
 //	"4PP",
 	"RESISTANCE",
-// 2009.11.04 bagus RS ’Ç‰Á --}--
-//2009.10.21 bagus CA ’Ç‰ÁC³ --{--
-//2009.12.07 bagus CA C³ --{--
+// 2009.11.04 bagus RS è¿½åŠ  --}--
+//2009.10.21 bagus CA è¿½åŠ ä¿®æ­£ --{--
+//2009.12.07 bagus CA ä¿®æ­£ --{--
 //	"CTA",
 //	"CA",
 	"CONTACT ANGLE",
-//2009.12.07 bagus CA C³ --}--
-//2009.10.21 bagus CA ’Ç‰ÁC³ --}--
+//2009.12.07 bagus CA ä¿®æ­£ --}--
+//2009.10.21 bagus CA è¿½åŠ ä¿®æ­£ --}--
 	"STRESS",
-// 2009.10.19 bagus MS ’Ç‰Á --{--
-// 2009.12.07 bagus MS •ÏX --{--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
+// 2009.12.07 bagus MS å¤‰æ›´ --{--
 //	"MS",
 	"MICRO SCOPE",
-// 2009.12.07 bagus MS •ÏX --}--
-// 2009.10.19 bagus MS ’Ç‰Á --}--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2009.12.07 bagus MS å¤‰æ›´ --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	"EASE",
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 };
 
 // 2009.12.09 bagus --{--
@@ -2334,16 +2334,16 @@ const LPCSTR HEAD_TYPE_ITEM_SHORT[] = {
 	"CA",
 	"STRESS",
 	"MS",
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	"EASE",
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 };
 // 2009.12.09 bagus --}--
 
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --{--
+// 2009.10.09 bagus StagePGM å…±é€šåŒ– --{--
 // ==========================================================================
 // StagePGM Type
-// (enum‚ªGlobals.hxx“à‚Å’è‹`‚µ‚Ä‚ ‚é)
+// (enumãŒGlobals.hxxå†…ã§å®šç¾©ã—ã¦ã‚ã‚‹)
 /*
 const LPCSTR STAGE_PGM_TYPE_ITEM[] = {
 	"STANDARD",
@@ -2352,7 +2352,7 @@ const LPCSTR STAGE_PGM_TYPE_ITEM[] = {
 	"2 Point Distance",
 };
 */
-//2009.12.07 bagus C³ --{--
+//2009.12.07 bagus ä¿®æ­£ --{--
 const LPCSTR STAGE_PGM_TYPE_ITEM_ENU[] = {
 	"STANDARD",
 	"STRESS",
@@ -2360,30 +2360,30 @@ const LPCSTR STAGE_PGM_TYPE_ITEM_ENU[] = {
 	"2 Point Distance",
 };
 const LPCSTR STAGE_PGM_TYPE_ITEM_JPN[] = {
-	_T("•W€"),
-	_T("‰ž—Í"),
-	_T("ƒKƒ“ƒgƒŠ[“§‰ß—¦"),
-	_T("2“_ŠÔ‹——£"),
+	_T("æ¨™æº–"),
+	_T("å¿œåŠ›"),
+	_T("ã‚¬ãƒ³ãƒˆãƒªãƒ¼é€éŽçŽ‡"),
+	_T("2ç‚¹é–“è·é›¢"),
 };
-//2009.12.07 bagus C³ --}--
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --}--
+//2009.12.07 bagus ä¿®æ­£ --}--
+// 2009.10.09 bagus StagePGM å…±é€šåŒ– --}--
 
 // ==========================================================================
 // Optical Filter Type
-// (enum‚ªGlobals.hxx“à‚Å’è‹`‚µ‚Ä‚ ‚é)
+// (enumãŒGlobals.hxxå†…ã§å®šç¾©ã—ã¦ã‚ã‚‹)
 //	Kojika 20090528 Change
 
 const LPCSTR OPTICAL_FILTER_TYPE_ITEM_JPN[] = {
-	"ƒtƒBƒ‹ƒ^–³",
-	"ƒI[ƒvƒ“", 				// –¼Ì‚ðuNonev‚©‚çuOpenv‚É•ÏX
-	"ƒ_[ƒN",
-	"ƒCƒGƒ[ƒtƒBƒ‹ƒ^", 	// POS1
-	"ƒIƒŒƒ“ƒWƒtƒBƒ‹ƒ^", 	// POS2
+	"ãƒ•ã‚£ãƒ«ã‚¿ç„¡",
+	"ã‚ªãƒ¼ãƒ—ãƒ³", 				// åç§°ã‚’ã€ŒNoneã€ã‹ã‚‰ã€ŒOpenã€ã«å¤‰æ›´
+	"ãƒ€ãƒ¼ã‚¯",
+	"ã‚¤ã‚¨ãƒ­ãƒ¼ãƒ•ã‚£ãƒ«ã‚¿", 	// POS1
+	"ã‚ªãƒ¬ãƒ³ã‚¸ãƒ•ã‚£ãƒ«ã‚¿", 	// POS2
 	"Pos3",
 };
 const LPCSTR OPTICAL_FILTER_TYPE_ITEM_ENU[] = {
 	"Unknown",
-	"Open", 				// –¼Ì‚ðuNonev‚©‚çuOpenv‚É•ÏX
+	"Open", 				// åç§°ã‚’ã€ŒNoneã€ã‹ã‚‰ã€ŒOpenã€ã«å¤‰æ›´
 	"Dark",
 	"Yellow Filter",		// POS1
 	"Orange Filter",		// POS2
@@ -2393,7 +2393,7 @@ const LPCSTR OPTICAL_FILTER_TYPE_ITEM_ENU[] = {
 
 // ==========================================================================
 // Color System Type
-//(enum‚ªGlobals.hxx“à‚Å’è‹`‚µ‚Ä‚ ‚é)
+//(enumãŒGlobals.hxxå†…ã§å®šç¾©ã—ã¦ã‚ã‚‹)
 const LPCSTR COLORSYSTEMS_TYPE_ITEM[] = {
 	"NTSC",
 	"PAL_SECAM",
@@ -2405,8 +2405,8 @@ const LPCSTR COLORSYSTEMS_TYPE_ITEM[] = {
 };
 
 // ==========================================================================
-// ‘ª’èŒ‹‰Ê‚Ì’PˆÊ‚ÌÝ’è
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// æ¸¬å®šçµæžœã®å˜ä½ã®è¨­å®š
+// 2009.11.04 bagus RS è¿½åŠ  --{--
 #if 0
 enum RESISTANCE_UNIT_4PP
 {
@@ -2440,7 +2440,7 @@ const LPCSTR RESISTANCE_UNIT_ITEM[] = {
 	"A",
 };
 #endif
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS è¿½åŠ  --}--
 
 // ==========================================================================
 // Voltage
@@ -2457,20 +2457,20 @@ const LPCSTR RESISTANCE_LIMIT_VOLTAGE_ITEM[] = {
 };
 
 // ==========================================================================
-// ƒI[ƒgƒtƒH[ƒJƒX”»’èƒŠƒXƒg €–Ú–¼
+// ã‚ªãƒ¼ãƒˆãƒ•ã‚©ãƒ¼ã‚«ã‚¹åˆ¤å®šãƒªã‚¹ãƒˆ é …ç›®å
 const LPCSTR MEAS_LIST_AF_CHECK_ITEM[] = {
 	"Focus",
 };
 
 // ==========================================================================
-// Thickness(n,k)‘ª’èŒ‹‰ÊƒŠƒXƒg €–Ú–¼
+// Thickness(n,k)æ¸¬å®šçµæžœãƒªã‚¹ãƒˆ é …ç›®å
 const LPCSTR MEAS_LIST_THICK_ITEM[] = {
 	"Thickness",
 	"Fit",
 };
 
 // ==========================================================================
-// CIE‘ª’èŒ‹‰ÊƒŠƒXƒg €–Ú–¼
+// CIEæ¸¬å®šçµæžœãƒªã‚¹ãƒˆ é …ç›®å
 const LPCSTR MEAS_LIST_CIE_ITEM[] = {
 	"CIE_X",
 	"CIE_Y",
@@ -2490,7 +2490,7 @@ const LPCSTR MEAS_LIST_CIE_ITEM[] = {
 };
 
 // ==========================================================================
-// ‘ª’èƒ|ƒWƒVƒ‡ƒ“ˆÊ’uŒ‹‰Ê €–Ú–¼
+// æ¸¬å®šãƒã‚¸ã‚·ãƒ§ãƒ³ä½ç½®çµæžœ é …ç›®å
 const LPCSTR MEAS_LIST_POSITION_ITEM[] = {
 	"No.",
 	"X",
@@ -2507,7 +2507,7 @@ const LPCSTR MEAS_LIST_DISTANCE_POSITION_ITEM[] = {
 //2009.11.26 bagus 2point-distance --}--
 // 2009.08.21 bagus stress --{--
 // ==========================================================================
-// ‘ª’èƒ|ƒWƒVƒ‡ƒ“ˆÊ’uŒ‹‰Ê €–Ú–¼(ƒXƒgƒŒƒX‘ª’è—p)
+// æ¸¬å®šãƒã‚¸ã‚·ãƒ§ãƒ³ä½ç½®çµæžœ é …ç›®å(ã‚¹ãƒˆãƒ¬ã‚¹æ¸¬å®šç”¨)
 const LPCSTR MEAS_LIST_STRESS_POSITION_ITEM[] = {
 	"No.",
 	"X-Sta[mm]",
@@ -2522,7 +2522,7 @@ const LPCSTR MEAS_LIST_STRESS_POSITION_ITEM[] = {
 
 // 2009.11.04 bagus CA --{--
 // ==========================================================================
-// ‘ª’èƒ|ƒWƒVƒ‡ƒ“ˆÊ’uŒ‹‰Ê €–Ú–¼(ƒRƒ“ƒ^ƒNƒgƒAƒ“ƒOƒ‹‘ª’è—p)
+// æ¸¬å®šãƒã‚¸ã‚·ãƒ§ãƒ³ä½ç½®çµæžœ é …ç›®å(ã‚³ãƒ³ã‚¿ã‚¯ãƒˆã‚¢ãƒ³ã‚°ãƒ«æ¸¬å®šç”¨)
 const LPCSTR MEAS_LIST_CA_ITEM[] = {
 	"CA[deg]",
 	"Rad[um]",
@@ -2531,7 +2531,7 @@ const LPCSTR MEAS_LIST_CA_ITEM[] = {
 // 2009.11.04 bagus CA --}--
 // 2009.11.04 bagus RS --{--
 // ==========================================================================
-// ‘ª’èƒ|ƒWƒVƒ‡ƒ“ˆÊ’uŒ‹‰Ê €–Ú–¼(ƒRƒ“ƒ^ƒNƒgƒAƒ“ƒOƒ‹‘ª’è—p)
+// æ¸¬å®šãƒã‚¸ã‚·ãƒ§ãƒ³ä½ç½®çµæžœ é …ç›®å(ã‚³ãƒ³ã‚¿ã‚¯ãƒˆã‚¢ãƒ³ã‚°ãƒ«æ¸¬å®šç”¨)
 const LPCSTR MEAS_LIST_RS_ITEM[] = {
 	"RS[OHM]",
 	"SurRes",
@@ -2541,7 +2541,7 @@ const LPCSTR MEAS_LIST_RS_ITEM[] = {
 // 2009.11.04 bagus RS --}--
 
 // ==========================================================================
-// ‘ª’èƒpƒ‰ƒ[ƒ^€–Ú–¼
+// æ¸¬å®šãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿é …ç›®å
 // Kojika 20090528 Change
 const LPCSTR MEAS_LIST_PARAM_ITEM_JPN[] = {
 	"Max",
@@ -2559,8 +2559,8 @@ const LPCSTR MEAS_LIST_PARAM_ITEM_ENU[] = {
 };// Kojika 20090528 Change End
 
 // ==========================================================================
-// ƒeƒXƒgƒ‚[ƒh‘ª’èŒ‹‰Ê—pƒwƒbƒ_[€–Ú–¼(ŒŸ’mðŒ‚Ì‚Ý)
-//¦‚±‚±‚Ì€–Ú–¼‚Í‰pŒêŒÅ’è(“ú–{Œê‰»•s—v)
+// ãƒ†ã‚¹ãƒˆãƒ¢ãƒ¼ãƒ‰æ¸¬å®šçµæžœç”¨ãƒ˜ãƒƒãƒ€ãƒ¼é …ç›®å(æ¤œçŸ¥æ¡ä»¶ã®ã¿)
+//â€»ã“ã“ã®é …ç›®åã¯è‹±èªžå›ºå®š(æ—¥æœ¬èªžåŒ–ä¸è¦)
 const LPCSTR TEST_MODE_CON_ITEM[] = {
 	"Lens",
 	"Filter",
@@ -2570,8 +2570,8 @@ const LPCSTR TEST_MODE_CON_ITEM[] = {
 	//Saiki 20090610 Change <-----
 };
 //2010.01.11 bagus GTR --{--
-//Gantry“§‰ß—¦‚ÌƒeƒXƒgƒ‚[ƒhƒwƒbƒ_
-//¦‚±‚±‚Ì€–Ú–¼‚Í‰pŒêŒÅ’è(“ú–{Œê‰»•s—v)
+//Gantryé€éŽçŽ‡ã®ãƒ†ã‚¹ãƒˆãƒ¢ãƒ¼ãƒ‰ãƒ˜ãƒƒãƒ€
+//â€»ã“ã“ã®é …ç›®åã¯è‹±èªžå›ºå®š(æ—¥æœ¬èªžåŒ–ä¸è¦)
 const LPCSTR TEST_MODE_SR_GANTRY_CON_ITEM[] = {
 	"Lens",
 	"Integ.[sec]",
@@ -2593,7 +2593,7 @@ enum MEASUREMENT_STATES
 
 
 // ==========================================================================
-// Measurement Data Save ‚Ì•û–@
+// Measurement Data Save ã®æ–¹æ³•
 enum
 {
 	MEASUREMENT_EXIT_SAVE = 0,
@@ -2605,7 +2605,7 @@ enum
 
 
 // ==========================================================================
-// RecipeƒXƒe[ƒWƒvƒƒOƒ‰ƒ€•`‰æ}Œ`
+// Recipeã‚¹ãƒ†ãƒ¼ã‚¸ãƒ—ãƒ­ã‚°ãƒ©ãƒ æç”»å›³å½¢
 enum STAGE_DRAW_SHAPED
 {
 	STAGE_DRAW_SHAPED_RECTANGLE = 0,
@@ -2615,8 +2615,8 @@ enum STAGE_DRAW_SHAPED
 
 //	Kojika 20090528 Change
 const LPCSTR STAGE_DRAW_SHAPED_ITEM_JPN[] = {
-	"ƒ{ƒbƒNƒX",
-	"ƒ‰ƒCƒ“",
+	"ãƒœãƒƒã‚¯ã‚¹",
+	"ãƒ©ã‚¤ãƒ³",
 };
 const LPCSTR STAGE_DRAW_SHAPED_ITEM_ENU[] = {
 	"Rectangle",
@@ -2637,14 +2637,14 @@ const LPSTR LOG_ON_STATUS_DISP_ENU[] = {
 	"LOG ON",
 } ;
 const LPSTR LOG_ON_STATUS_DISP_JPN[] = {
-	"ƒƒOƒIƒt",
-	"ƒƒOƒIƒ“",
+	"ãƒ­ã‚°ã‚ªãƒ•",
+	"ãƒ­ã‚°ã‚ªãƒ³",
 } ;
 //Saiki 20090527 Change <-----
 
 
 // ==========================================================================
-//MeasurementOperationView“à‚Ìƒ{ƒ^ƒ“—LŒø/–³Œø‚ÌØ‘Ö‚¦—p
+//MeasurementOperationViewå†…ã®ãƒœã‚¿ãƒ³æœ‰åŠ¹/ç„¡åŠ¹ã®åˆ‡æ›¿ãˆç”¨
 enum SAMPLE_BUTTONENABLE
 {
 	HANDLER_LOAD_POSITION_S = 0,
@@ -2658,22 +2658,22 @@ enum SAMPLE_BUTTONENABLE
 };
 
 // ==========================================================================
-//‘ª’è’†Ì‘ª’èI—¹ Žž‚Ìƒ{ƒ^ƒ“—LŒø/–³Œø‚ÌØ‘Ö‚¦—p
-//ƒV[ƒPƒ“ƒX‘ª’è—p(ƒŠƒƒWƒƒ[ŠÜ‚Þ), ƒ}ƒjƒ…ƒAƒ‹‘ª’è, ƒeƒXƒgƒ‚[ƒhŠJŽn
+//æ¸¬å®šä¸­â‡”æ¸¬å®šçµ‚äº† æ™‚ã®ãƒœã‚¿ãƒ³æœ‰åŠ¹/ç„¡åŠ¹ã®åˆ‡æ›¿ãˆç”¨
+//ã‚·ãƒ¼ã‚±ãƒ³ã‚¹æ¸¬å®šç”¨(ãƒªãƒ¡ã‚¸ãƒ£ãƒ¼å«ã‚€), ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«æ¸¬å®š, ãƒ†ã‚¹ãƒˆãƒ¢ãƒ¼ãƒ‰é–‹å§‹
 enum
 {
-	MEASUREMENT_SEQ_S = 0,		//ƒŠƒƒWƒƒ[ƒƒ“ƒgŠÜ‚Þ
-	MEASUREMENT_SEQ_E,			//ƒŠƒƒWƒƒ[ƒƒ“ƒgŠÜ‚Þ
+	MEASUREMENT_SEQ_S = 0,		//ãƒªãƒ¡ã‚¸ãƒ£ãƒ¼ãƒ¡ãƒ³ãƒˆå«ã‚€
+	MEASUREMENT_SEQ_E,			//ãƒªãƒ¡ã‚¸ãƒ£ãƒ¼ãƒ¡ãƒ³ãƒˆå«ã‚€
 	MEASUREMENT_MANUALMEASURE_S,
 	MEASUREMENT_MANUALMEASURE_E,
 	MEASUREMENT_MANUALMEASURE_COMP,
 	MEASUREMENT_TEST_S,
 	MEASUREMENT_TEST_E,
-// 2009.10.30 bagus 2“_ŠÔ C³ --{--
+// 2009.10.30 bagus 2ç‚¹é–“ ä¿®æ­£ --{--
 	MEASUREMENT_MANUAL_DISTANCE_S,
 	MEASUREMENT_MANUAL_DISTANCE_E,
 	MEASUREMENT_MANUAL_DISTANCE_COMP,
-// 2009.10.30 bagus 2“_ŠÔ C³ --}--
+// 2009.10.30 bagus 2ç‚¹é–“ ä¿®æ­£ --}--
 	MEAS_TAB_VIEW_CREATE,
 	MEAS_TAB_VIEW_DELETE,
 	MANU_MEAS_FORM_CREATE,
@@ -2681,49 +2681,49 @@ enum
 };
 
 
-//AF VALIDî•ñ(‘ª’èŒ‹‰Ê‰æ–Ê•\Ž¦—p)
+//AF VALIDæƒ…å ±(æ¸¬å®šçµæžœç”»é¢è¡¨ç¤ºç”¨)
 const LPCSTR g_lpszAfValidResultShow[] = {
-// 2009.10.23 bagus Stress C³ --{--
-//	"-----", //ƒI[ƒgƒtƒH[ƒJƒX‚È‚µ
-	"  ---", //ƒI[ƒgƒtƒH[ƒJƒX‚È‚µ
-// 2009.10.23 bagus Stress C³ --}--
-	"G(AF)", //ƒI[ƒgƒtƒH[ƒJƒX³í(Auto Focus Good)
-	"N(AF)", //ƒI[ƒgƒtƒH[ƒJƒXˆÙí(Auto Focus NG)
-	"G(MZ)", //Zƒ}ƒjƒ…ƒAƒ‹‘€ìƒAƒŠ(¬Œ÷orŽ¸”s‚ÌŠT”OƒiƒV)(Manual Z move Good)
-	"G(MF)", //ƒ}ƒjƒ…ƒAƒ‹ƒtƒH[ƒJƒX‘€ì¬Œ÷(Manual Focus Good)
-	"N(MF)", //ƒ}ƒjƒ…ƒAƒ‹ƒtƒH[ƒJƒX‘€ìŽ¸”s(Manual Focus NG)
-	"C(MC)", //ƒ|ƒbƒvƒAƒbƒv¨ƒLƒƒƒ“ƒZƒ‹(Manual Cancel)
-	"C(AC)", //ƒŒƒVƒsI—¹(Auto Cancel)
-	"-(--)", //‘z’èŠO
+// 2009.10.23 bagus Stress ä¿®æ­£ --{--
+//	"-----", //ã‚ªãƒ¼ãƒˆãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãªã—
+	"  ---", //ã‚ªãƒ¼ãƒˆãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãªã—
+// 2009.10.23 bagus Stress ä¿®æ­£ --}--
+	"G(AF)", //ã‚ªãƒ¼ãƒˆãƒ•ã‚©ãƒ¼ã‚«ã‚¹æ­£å¸¸(Auto Focus Good)
+	"N(AF)", //ã‚ªãƒ¼ãƒˆãƒ•ã‚©ãƒ¼ã‚«ã‚¹ç•°å¸¸(Auto Focus NG)
+	"G(MZ)", //Zãƒžãƒ‹ãƒ¥ã‚¢ãƒ«æ“ä½œã‚¢ãƒª(æˆåŠŸorå¤±æ•—ã®æ¦‚å¿µãƒŠã‚·)(Manual Z move Good)
+	"G(MF)", //ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹æ“ä½œæˆåŠŸ(Manual Focus Good)
+	"N(MF)", //ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹æ“ä½œå¤±æ•—(Manual Focus NG)
+	"C(MC)", //ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—â†’ã‚­ãƒ£ãƒ³ã‚»ãƒ«(Manual Cancel)
+	"C(AC)", //ãƒ¬ã‚·ãƒ”çµ‚äº†(Auto Cancel)
+	"-(--)", //æƒ³å®šå¤–
 };
 
-//AF VALIDî•ñ(1ƒ|ƒCƒ“ƒg‘ª’èI—¹‰ž“šŽžãˆÊ‚Ö‘—M—p)
+//AF VALIDæƒ…å ±(1ãƒã‚¤ãƒ³ãƒˆæ¸¬å®šçµ‚äº†å¿œç­”æ™‚ä¸Šä½ã¸é€ä¿¡ç”¨)
 const LPCSTR g_lpszAfValidResultP502[] = {
-	"NO", //ƒI[ƒgƒtƒH[ƒJƒX‚È‚µ
-	"AF", //ƒI[ƒgƒtƒH[ƒJƒX³í(Auto Focus Good)
-	"NG", //ƒI[ƒgƒtƒH[ƒJƒXˆÙí(Auto Focus NG)
-	"MZ", //Zƒ}ƒjƒ…ƒAƒ‹‘€ìƒAƒŠ(¬Œ÷orŽ¸”s‚ÌŠT”OƒiƒV)(Manual Z move Good)
-	"MF", //ƒ}ƒjƒ…ƒAƒ‹ƒtƒH[ƒJƒX‘€ì¬Œ÷(Manual Focus Good)
-	"NG", //ƒ}ƒjƒ…ƒAƒ‹ƒtƒH[ƒJƒX‘€ìŽ¸”s(Manual Focus NG)
-	"MC", //ƒ|ƒbƒvƒAƒbƒv¨ƒLƒƒƒ“ƒZƒ‹(Manual Cancel)
-	"AC", //ƒŒƒVƒsI—¹(Auto Cancel)
-	"NG", //‘z’èŠO
+	"NO", //ã‚ªãƒ¼ãƒˆãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãªã—
+	"AF", //ã‚ªãƒ¼ãƒˆãƒ•ã‚©ãƒ¼ã‚«ã‚¹æ­£å¸¸(Auto Focus Good)
+	"NG", //ã‚ªãƒ¼ãƒˆãƒ•ã‚©ãƒ¼ã‚«ã‚¹ç•°å¸¸(Auto Focus NG)
+	"MZ", //Zãƒžãƒ‹ãƒ¥ã‚¢ãƒ«æ“ä½œã‚¢ãƒª(æˆåŠŸorå¤±æ•—ã®æ¦‚å¿µãƒŠã‚·)(Manual Z move Good)
+	"MF", //ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹æ“ä½œæˆåŠŸ(Manual Focus Good)
+	"NG", //ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹æ“ä½œå¤±æ•—(Manual Focus NG)
+	"MC", //ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—â†’ã‚­ãƒ£ãƒ³ã‚»ãƒ«(Manual Cancel)
+	"AC", //ãƒ¬ã‚·ãƒ”çµ‚äº†(Auto Cancel)
+	"NG", //æƒ³å®šå¤–
 };
 
 
 // ==========================================================================
-//’PˆÊŒ…”•\Ž¦’²®(Žå‚ÉThick—p)(g_dUnitConvert[]‚Æ‘Î‰ž)
+//å˜ä½æ¡æ•°è¡¨ç¤ºèª¿æ•´(ä¸»ã«Thickç”¨)(g_dUnitConvert[]ã¨å¯¾å¿œ)
 const LPCSTR g_lpszThickUnitDecimalPoint[] = {
 	".5", //um
 	".2", //nm
 	".1", //A
-/* added 2017.04.15 hmenjo ®”•\Ž¦‰» ---------- { ---------- */
-	".0", /* ®”•”‚Ì‚Ý	*/
-/* added 2017.04.15 hmenjo ®”•\Ž¦‰» ---------- } ---------- */
+/* added 2017.04.15 hmenjo æ•´æ•°è¡¨ç¤ºåŒ– ---------- { ---------- */
+	".0", /* æ•´æ•°éƒ¨ã®ã¿	*/
+/* added 2017.04.15 hmenjo æ•´æ•°è¡¨ç¤ºåŒ– ---------- } ---------- */
 };
 
 // ==========================================================================
-//’PˆÊ•ÏXŒW”(‘ª’èŒ‹‰Ê•\Ž¦—p)(g_lpszFormat[]Eg_lpszThickUnitDecimalPoint[]‚Æ‘Î‰ž)
+//å˜ä½å¤‰æ›´ä¿‚æ•°(æ¸¬å®šçµæžœè¡¨ç¤ºç”¨)(g_lpszFormat[]ãƒ»g_lpszThickUnitDecimalPoint[]ã¨å¯¾å¿œ)
 const double g_dUnitConvert[] = {
 	0.001, //um
 	1,	   //nm
@@ -2735,14 +2735,14 @@ const double g_dUnitConvert[] = {
 
 
 // ==========================================================================
-//•\Ž¦’PˆÊ(XYZ—p)(g_lpszXyzDecimalPoint[]Eg_dXyzUnitConvertCoefficient[]‚Æ‘Î‰ž)
+//è¡¨ç¤ºå˜ä½(XYZç”¨)(g_lpszXyzDecimalPoint[]ãƒ»g_dXyzUnitConvertCoefficient[]ã¨å¯¾å¿œ)
 const LPCSTR g_lpszXyzUnit[] = {
-	"[mm]", //mm (©ŒÅ’è(ƒVƒƒ[ƒvŽd—l))
+	"[mm]", //mm (â†å›ºå®š(ã‚·ãƒ£ãƒ¼ãƒ—ä»•æ§˜))
 	"[um]", //um
 };
 
 // ==========================================================================
-//’PˆÊŒ…”’²®(XYZ—p)(g_dXyzUnitConvertCoefficient[]‚Æ‘Î‰ž)
+//å˜ä½æ¡æ•°èª¿æ•´(XYZç”¨)(g_dXyzUnitConvertCoefficient[]ã¨å¯¾å¿œ)
 const LPCSTR g_lpszXyzDecimalPoint[] = {
 	".3",	//mm
 	".0",	//um
@@ -2750,7 +2750,7 @@ const LPCSTR g_lpszXyzDecimalPoint[] = {
 
 //#define MICROMETRE (1000L)
 // ==========================================================================
-//’PˆÊ•ÏXŒW”(XYZ—p)(g_lpszXyzDecimalPoint[]‚Æ‘Î‰ž)
+//å˜ä½å¤‰æ›´ä¿‚æ•°(XYZç”¨)(g_lpszXyzDecimalPoint[]ã¨å¯¾å¿œ)
 const double g_dXyzUnitConvertCoefficient[] = {
 //	0.001, //mm
 (double)1/MICROMETRE, //mm
@@ -2758,13 +2758,13 @@ const double g_dXyzUnitConvertCoefficient[] = {
 };
 
 // ==========================================================================
-//’PˆÊŒ…”’²®(”Ä—p)
+//å˜ä½æ¡æ•°èª¿æ•´(æ±Žç”¨)
 const LPCSTR g_lpszDecimalPoint[] = {
 	".0",	//-
 	".1",	//-
-	".2",	//%’lŒn, FIT
+	".2",	//%å€¤ç³», FIT
 	".3",	//-
-	".4",	//N,K’lŒn
+	".4",	//N,Kå€¤ç³»
 /* added 2014.05.22 hmenjo scout fit .6f ---------- { ---------- */
 	".5",	//-
 	".6",	//FIT for scout
@@ -2774,94 +2774,94 @@ const LPCSTR g_lpszDecimalPoint[] = {
 
 
 // ==========================================================================
-//‘ª’èƒ‚[ƒh
+//æ¸¬å®šãƒ¢ãƒ¼ãƒ‰
 enum{
-	MEASMODE_NOT_MEASURE = 0,	//‘ª’è’†‚Å‚È‚¢(‘ª’èŒ‹‰Ê‰æ–Ê‚ÌWAITŽž‚ÍŠÜ‚Ü‚È‚¢)
-	MEASMODE_SEQ_OR_REMEASURE,	//’Êí‘ª’èorƒŠƒƒWƒƒ[
-	MEASMODE_MANUALMEASURE, 	//ƒ}ƒjƒ…ƒAƒ‹‘ª’è
-	MEASMODE_TEST,				//ƒeƒXƒgƒ‚[ƒh
+	MEASMODE_NOT_MEASURE = 0,	//æ¸¬å®šä¸­ã§ãªã„(æ¸¬å®šçµæžœç”»é¢ã®WAITæ™‚ã¯å«ã¾ãªã„)
+	MEASMODE_SEQ_OR_REMEASURE,	//é€šå¸¸æ¸¬å®šorãƒªãƒ¡ã‚¸ãƒ£ãƒ¼
+	MEASMODE_MANUALMEASURE, 	//ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«æ¸¬å®š
+	MEASMODE_TEST,				//ãƒ†ã‚¹ãƒˆãƒ¢ãƒ¼ãƒ‰
 //Saiki 20130123 add --->
-	MEASMODE_REFERENCE,			//ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èƒ‚[ƒh
+	MEASMODE_REFERENCE,			//ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šãƒ¢ãƒ¼ãƒ‰
 //Saiki 20130123 add <---
 };
 
 
 // ==========================================================================
-//ƒV[ƒPƒ“ƒX‘ª’èƒ‚[ƒh‚Ìó‘Ô(ƒV[ƒPƒ“ƒX‘ª’èƒ‚[ƒhê—p)
+//ã‚·ãƒ¼ã‚±ãƒ³ã‚¹æ¸¬å®šãƒ¢ãƒ¼ãƒ‰ã®çŠ¶æ…‹(ã‚·ãƒ¼ã‚±ãƒ³ã‚¹æ¸¬å®šãƒ¢ãƒ¼ãƒ‰å°‚ç”¨)
 enum{
-	SEQ_NOT_MEASURE = 0,	//‘ª’è’†‚Å‚È‚¢(‘ª’èŒ‹‰Ê‰æ–Ê‚ÌWAITŽžŠÜ‚Þ)
-	SEQ_ON_NORMALMEASURE,	 //’Êí‘ª’è’†
-	SEQ_ON_REMEASURE,		//ƒŠƒƒWƒƒ[’†
+	SEQ_NOT_MEASURE = 0,	//æ¸¬å®šä¸­ã§ãªã„(æ¸¬å®šçµæžœç”»é¢ã®WAITæ™‚å«ã‚€)
+	SEQ_ON_NORMALMEASURE,	 //é€šå¸¸æ¸¬å®šä¸­
+	SEQ_ON_REMEASURE,		//ãƒªãƒ¡ã‚¸ãƒ£ãƒ¼ä¸­
 };
 
 
 // ==========================================================================
-//ƒ}ƒjƒ…ƒAƒ‹‘ª’èƒ‚[ƒh‚Ìó‘Ô(ƒ}ƒjƒ…ƒAƒ‹‘ª’èƒ‚[ƒhê—p)
+//ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«æ¸¬å®šãƒ¢ãƒ¼ãƒ‰ã®çŠ¶æ…‹(ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«æ¸¬å®šãƒ¢ãƒ¼ãƒ‰å°‚ç”¨)
 enum{
-	MANUMODE_INIT = 0,		//ƒ}ƒjƒ…ƒAƒ‹ƒ‚[ƒh‹N“®’¼Œã(ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’è’†ŠÜ‚Þ)(‘ª’è‚ðˆê‰ñ‚à‚â‚Á‚Ä‚¢‚È‚¢ó‘Ô)
-	MANUMODE_ON_MEASURE,	//‘ª’è’†(1‰ñ–Ú‚Ì‘ª’è‰Ÿ‚µ‚½Žž`[‘ª’èŠ®—¹]‚ð‰Ÿ‚·‘O‚Ü‚Å‚ÌŠÔ)
-	MANUMODE_MEAS_COMP, 	//‘ª’èI—¹([‘ª’èŠ®—¹]‰Ÿ‰ºŒã)
-	MANUMODE_NOT,			//ƒ}ƒjƒ…ƒAƒ‹‘ª’èƒ‚[ƒh‚Å‚È‚¢
+	MANUMODE_INIT = 0,		//ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ¢ãƒ¼ãƒ‰èµ·å‹•ç›´å¾Œ(ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šä¸­å«ã‚€)(æ¸¬å®šã‚’ä¸€å›žã‚‚ã‚„ã£ã¦ã„ãªã„çŠ¶æ…‹)
+	MANUMODE_ON_MEASURE,	//æ¸¬å®šä¸­(1å›žç›®ã®æ¸¬å®šæŠ¼ã—ãŸæ™‚ã€œ[æ¸¬å®šå®Œäº†]ã‚’æŠ¼ã™å‰ã¾ã§ã®é–“)
+	MANUMODE_MEAS_COMP, 	//æ¸¬å®šçµ‚äº†([æ¸¬å®šå®Œäº†]æŠ¼ä¸‹å¾Œ)
+	MANUMODE_NOT,			//ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«æ¸¬å®šãƒ¢ãƒ¼ãƒ‰ã§ãªã„
 };
 
 
 // ==========================================================================
-//ƒeƒXƒgƒ‚[ƒh‚Ìó‘Ô(ƒeƒXƒgƒ‚[ƒhê—p)
+//ãƒ†ã‚¹ãƒˆãƒ¢ãƒ¼ãƒ‰ã®çŠ¶æ…‹(ãƒ†ã‚¹ãƒˆãƒ¢ãƒ¼ãƒ‰å°‚ç”¨)
 enum{
-	TESTMODE_INIT = 0,				//ƒeƒXƒgƒ‚[ƒh‹N“®’¼Œã
-	TESTMODE_CONDITION_CANGE_EDIT,	//Žæž‚ÝðŒ(Detector Condition)•ÒW’†
+	TESTMODE_INIT = 0,				//ãƒ†ã‚¹ãƒˆãƒ¢ãƒ¼ãƒ‰èµ·å‹•ç›´å¾Œ
+	TESTMODE_CONDITION_CANGE_EDIT,	//å–è¾¼ã¿æ¡ä»¶(Detector Condition)ç·¨é›†ä¸­
 	TESTMODE_CONDITION_CANGE,		//
-	TESTMODE_CONDITION_CANGE_AFTER, //Žæž‚ÝðŒ(Detector Condition)•ÏXŒã
-	TESTMODE_MEAS_AFTER,			//‘ª’èŒã
-	TESTMODE_REF_AFTER, 			//ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èŒã
+	TESTMODE_CONDITION_CANGE_AFTER, //å–è¾¼ã¿æ¡ä»¶(Detector Condition)å¤‰æ›´å¾Œ
+	TESTMODE_MEAS_AFTER,			//æ¸¬å®šå¾Œ
+	TESTMODE_REF_AFTER, 			//ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šå¾Œ
 };
 
 
 // ==========================================================================
-//CMeasurementGraphDlgƒNƒ‰ƒX—p“r
+//CMeasurementGraphDlgã‚¯ãƒ©ã‚¹ç”¨é€”
 enum{
-	GRAPHDLG_MODE_SEQ = 0,		//’Êí‘ª’è—p(ƒŠƒƒWƒƒ[ŠÜ‚Þ)
-	GRAPHDLG_MODE_MANUAL,		//ƒ}ƒjƒ…ƒAƒ‹‘ª’è—p
-	GRAPHDLG_MODE_TEST_NOMAL,	//ƒeƒXƒgƒ‚[ƒh—p(’Êíƒf[ƒ^)
-	GRAPHDLG_MODE_TEST_RAW, 	//ƒeƒXƒgƒ‚[ƒh—p(RAWƒf[ƒ^)
+	GRAPHDLG_MODE_SEQ = 0,		//é€šå¸¸æ¸¬å®šç”¨(ãƒªãƒ¡ã‚¸ãƒ£ãƒ¼å«ã‚€)
+	GRAPHDLG_MODE_MANUAL,		//ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«æ¸¬å®šç”¨
+	GRAPHDLG_MODE_TEST_NOMAL,	//ãƒ†ã‚¹ãƒˆãƒ¢ãƒ¼ãƒ‰ç”¨(é€šå¸¸ãƒ‡ãƒ¼ã‚¿)
+	GRAPHDLG_MODE_TEST_RAW, 	//ãƒ†ã‚¹ãƒˆãƒ¢ãƒ¼ãƒ‰ç”¨(RAWãƒ‡ãƒ¼ã‚¿)
 };
 
 
 // ==========================================================================
-//‰ŠúÝ’è‚Ì•Û‘¶–¼‚ªd•¡‚µ‚½Žž‚Ì“®ì”»’èƒtƒ‰ƒO—p(ƒŠƒ‚[ƒgŽž‚Ì‚ÝŽg—p)
+//åˆæœŸè¨­å®šã®ä¿å­˜åãŒé‡è¤‡ã—ãŸæ™‚ã®å‹•ä½œåˆ¤å®šãƒ•ãƒ©ã‚°ç”¨(ãƒªãƒ¢ãƒ¼ãƒˆæ™‚ã®ã¿ä½¿ç”¨)
 enum
 {
-	SAVEOVERLAP_SAVE = 0,	//ã‘‚«•Û‘¶(SAVE)
-	SAVEOVERLAP_NOSAVE, 	//•Û‘¶‚µ‚È‚¢(CANCEL)
-	SAVEOVERLAP_SAVEAS, 	//–¼‘O‚ð•t‚¯‚Ä•Û‘¶(SAVE AS)
+	SAVEOVERLAP_SAVE = 0,	//ä¸Šæ›¸ãä¿å­˜(SAVE)
+	SAVEOVERLAP_NOSAVE, 	//ä¿å­˜ã—ãªã„(CANCEL)
+	SAVEOVERLAP_SAVEAS, 	//åå‰ã‚’ä»˜ã‘ã¦ä¿å­˜(SAVE AS)
 };
 
 
 // ==========================================================================
-// “®ì’†ƒtƒ‰ƒOŒQ‚ÌƒAƒNƒZƒX—pŽ¯•Ê’è”
-// CNanoSpecDoc::ActuateFlagsSet()CCNanoSpecDoc::ActuateFlagsGet() ŠÖ”‚ÅŽg‚¢‚Ü‚·D
+// å‹•ä½œä¸­ãƒ•ãƒ©ã‚°ç¾¤ã®ã‚¢ã‚¯ã‚»ã‚¹ç”¨è­˜åˆ¥å®šæ•°
+// CNanoSpecDoc::ActuateFlagsSet()ï¼ŒCNanoSpecDoc::ActuateFlagsGet() é–¢æ•°ã§ä½¿ã„ã¾ã™ï¼Ž
 enum ACTUATE_FLAGS_SEL
 {
-#if 0	// ƒrƒbƒgŠ„•t‚É•ÏX‚µ‚Ü‚·
-	ACTUATE_XYSTAGE = 0,	// XY ƒXƒe[ƒW
-	ACTUATE_ZAXIS,			// Z Ž²
-	ACTUATE_PIN,			// ƒsƒ“
-	ACTUATE_SHUTTER,		// ƒVƒƒƒbƒ^
-	ACTUATE_WORKGUIDE,		// ƒ[ƒNƒKƒCƒh
-	ACTUATE_MAX,			// (Žg—p‹ÖŽ~)
-#else	// ƒrƒbƒgŠ„•t‚É•ÏX‚µ‚Ü‚·
-	ACTUATE_NON 		= 0x00000000,	// ‚È‚µ
-	ACTUATE_XYSTAGE 	= 0x00000001,	// XY ƒXƒe[ƒW
-	ACTUATE_ZAXIS		= 0x00000002,	// Z Ž²
-	ACTUATE_PIN 		= 0x00000004,	// ƒsƒ“
-	ACTUATE_SHUTTER 	= 0x00000008,	// ƒVƒƒƒbƒ^
-	ACTUATE_WORKGUIDE	= 0x00000010,	// ƒ[ƒNƒKƒCƒh
-	ACTUATE_TURRET		= 0x00000020,	// ƒ^[ƒŒƒbƒg
-// 2009.11.02 bagus MS ’Ç‰Á --{--
-	ACTUATE_MICROSCOPE	= 0x00000040,	// Œ°”÷‹¾
-// 2009.11.02 bagus MS ’Ç‰Á --}--
-	ACTUATE_MAX 		= 0xffffffff,	// (Žg—p‹ÖŽ~)
-#endif	// ƒrƒbƒgŠ„•t‚É•ÏX‚µ‚Ü‚·
+#if 0	// ãƒ“ãƒƒãƒˆå‰²ä»˜ã«å¤‰æ›´ã—ã¾ã™
+	ACTUATE_XYSTAGE = 0,	// XY ã‚¹ãƒ†ãƒ¼ã‚¸
+	ACTUATE_ZAXIS,			// Z è»¸
+	ACTUATE_PIN,			// ãƒ”ãƒ³
+	ACTUATE_SHUTTER,		// ã‚·ãƒ£ãƒƒã‚¿
+	ACTUATE_WORKGUIDE,		// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰
+	ACTUATE_MAX,			// (ä½¿ç”¨ç¦æ­¢)
+#else	// ãƒ“ãƒƒãƒˆå‰²ä»˜ã«å¤‰æ›´ã—ã¾ã™
+	ACTUATE_NON 		= 0x00000000,	// ãªã—
+	ACTUATE_XYSTAGE 	= 0x00000001,	// XY ã‚¹ãƒ†ãƒ¼ã‚¸
+	ACTUATE_ZAXIS		= 0x00000002,	// Z è»¸
+	ACTUATE_PIN 		= 0x00000004,	// ãƒ”ãƒ³
+	ACTUATE_SHUTTER 	= 0x00000008,	// ã‚·ãƒ£ãƒƒã‚¿
+	ACTUATE_WORKGUIDE	= 0x00000010,	// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰
+	ACTUATE_TURRET		= 0x00000020,	// ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆ
+// 2009.11.02 bagus MS è¿½åŠ  --{--
+	ACTUATE_MICROSCOPE	= 0x00000040,	// é¡•å¾®é¡
+// 2009.11.02 bagus MS è¿½åŠ  --}--
+	ACTUATE_MAX 		= 0xffffffff,	// (ä½¿ç”¨ç¦æ­¢)
+#endif	// ãƒ“ãƒƒãƒˆå‰²ä»˜ã«å¤‰æ›´ã—ã¾ã™
 };
 
 enum ACTUATE_MODE_SEL
@@ -2869,10 +2869,10 @@ enum ACTUATE_MODE_SEL
 	ACTUATE_MODE_A = 0, 	// Mode A
 	ACTUATE_MODE_B, 		// Mode B
 	ACTUATE_MODE_C, 		// Mode C
-	ACTUATE_MODE_MAX,		// (Žg—p‹ÖŽ~)
+	ACTUATE_MODE_MAX,		// (ä½¿ç”¨ç¦æ­¢)
 };
 
-// ‰æ–ÊƒXƒe[ƒ^ƒX(ƒ‚[ƒh)‚Ì‰æ–Ê•\Ž¦—p•¶Žš—ñ’è‹`
+// ç”»é¢ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹(ãƒ¢ãƒ¼ãƒ‰)ã®ç”»é¢è¡¨ç¤ºç”¨æ–‡å­—åˆ—å®šç¾©
 // 2010.01.19 K.Matsuo -->
 ////Saiki 20090527 Change ----->
 //const LPSTR DISPMODE_STATUS_DISP_ENU[] = {
@@ -2884,41 +2884,41 @@ enum ACTUATE_MODE_SEL
 //	_T("System Setting"),
 //} ;
 //const LPSTR DISPMODE_STATUS_DISP_JPN[] = {
-//	_T("‘ª’è"),
-//	_T("ƒŒƒVƒs"),
-//	_T("ƒf[ƒ^"),
-//	_T("ƒ†[ƒUÝ’è"),
-//	_T("ƒƒ“ƒeƒiƒ“ƒX"),
-//	_T("ƒVƒXƒeƒ€Ý’è"),
+//	_T("æ¸¬å®š"),
+//	_T("ãƒ¬ã‚·ãƒ”"),
+//	_T("ãƒ‡ãƒ¼ã‚¿"),
+//	_T("ãƒ¦ãƒ¼ã‚¶è¨­å®š"),
+//	_T("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹"),
+//	_T("ã‚·ã‚¹ãƒ†ãƒ è¨­å®š"),
 //} ;
 //
 ////Saiki 20090527 Change <-----
 const LPSTR DISPMODE_STATUS_DISP_ENU[] = {
 	_T("Measurement"),
-	_T("Data"),					// Data‚ÍA‘¶Ý‚µ‚È‚¢
+	_T("Data"),					// Dataã¯ã€å­˜åœ¨ã—ãªã„
 	_T("Recipe"),
-	_T("Alarm"),				// Alarm‚ÍA‘¶Ý‚µ‚È‚¢
+	_T("Alarm"),				// Alarmã¯ã€å­˜åœ¨ã—ãªã„
 	_T("User Setting"),
 	_T("Maintenance"),
 	_T("System Setting"),
 	_T("Manu Measurement"),
 } ;
 const LPSTR DISPMODE_STATUS_DISP_JPN[] = {
-	_T("‘ª’è"),
-	_T("ƒf[ƒ^"),				// ƒf[ƒ^‚ÍA‘¶Ý‚µ‚È‚¢
-	_T("ƒŒƒVƒs"),
-	_T("ƒAƒ‰[ƒ€"),				// ƒAƒ‰[ƒ€‚ÍA‘¶Ý‚µ‚È‚¢
-	_T("ƒ†[ƒUÝ’è"),
-	_T("ƒƒ“ƒeƒiƒ“ƒX"),
-	_T("ƒVƒXƒeƒ€Ý’è"),
-	_T("Žè“®‘ª’è"),
+	_T("æ¸¬å®š"),
+	_T("ãƒ‡ãƒ¼ã‚¿"),				// ãƒ‡ãƒ¼ã‚¿ã¯ã€å­˜åœ¨ã—ãªã„
+	_T("ãƒ¬ã‚·ãƒ”"),
+	_T("ã‚¢ãƒ©ãƒ¼ãƒ "),				// ã‚¢ãƒ©ãƒ¼ãƒ ã¯ã€å­˜åœ¨ã—ãªã„
+	_T("ãƒ¦ãƒ¼ã‚¶è¨­å®š"),
+	_T("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹"),
+	_T("ã‚·ã‚¹ãƒ†ãƒ è¨­å®š"),
+	_T("æ‰‹å‹•æ¸¬å®š"),
 } ;
 // 2010.01.19 K.Matsuo -->
 
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.11.04 bagus RS è¿½åŠ  --{--
 // ==========================================================================
 // Probe Type
-// (enum‚ªGlobals.hxx“à‚Å’è‹`‚µ‚Ä‚ ‚é)
+// (enumãŒGlobals.hxxå†…ã§å®šç¾©ã—ã¦ã‚ã‚‹)
 const LPCSTR PROBE_TYPE_ITEM[] = {
 	"ASP",			// 0
 	"ESP",			// 1
@@ -2931,7 +2931,7 @@ const LPCSTR PROBE_TYPE_ITEM[] = {
 	"",				// 8
 	"EXT",			// 9
 };
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS è¿½åŠ  --}--
 
 
 // ==========================================================================
@@ -2961,24 +2961,24 @@ enum NEXTRA_EXE
 };
 
 // ==========================================================================
-// ƒƒ“ƒeƒiƒ“ƒXiZ³j’è”
+// ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼ˆæ ¡æ­£ï¼‰å®šæ•°
 enum MAINTENANCE_DAYS
 {
-	DAYS_90 = 0,			// 90“ú
-	DAYS_180,				// 180“ú
-	DAYS_270,				// 270“ú
-	DAYS_365,				// 365“ú
-	DAYS_MAX,				// (Žg—p‹ÖŽ~)
+	DAYS_90 = 0,			// 90æ—¥
+	DAYS_180,				// 180æ—¥
+	DAYS_270,				// 270æ—¥
+	DAYS_365,				// 365æ—¥
+	DAYS_MAX,				// (ä½¿ç”¨ç¦æ­¢)
 };
 //Saiki 20090410 Change ----->
 
 //#define MAINTENANCE_DAYS_STR { "90days", "180days", "270days", "365days" }
-//#define MAINTENANCE_DAYS_STR { "90“ú", "180“ú", "270“ú", "365“ú" }
-#define MAINTENANCE_DAYS_STR_JPN { "90“ú", "180“ú", "270“ú", "365“ú" }
+//#define MAINTENANCE_DAYS_STR { "90æ—¥", "180æ—¥", "270æ—¥", "365æ—¥" }
+#define MAINTENANCE_DAYS_STR_JPN { "90æ—¥", "180æ—¥", "270æ—¥", "365æ—¥" }
 #define MAINTENANCE_DAYS_STR_ENU { "90days", "180days", "270days", "365days" }
 // Kojika 20090528 Change End
 // ==========================================================================
-// ƒƒ“ƒeƒiƒ“ƒXiLampj’è”
+// ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ï¼ˆLampï¼‰å®šæ•°
 enum MAINTENANCE_LIFETIME
 {
 	HOURS_500 = 0,			// 500h
@@ -2987,15 +2987,15 @@ enum MAINTENANCE_LIFETIME
 	HOURS_2000, 			// 2000h
 	HOURS_2500, 			// 2500h
 	HOURS_3000, 			// 3000h
-	HOURS_MAX,				// (Žg—p‹ÖŽ~)
+	HOURS_MAX,				// (ä½¿ç”¨ç¦æ­¢)
 };
 
 // Kojika 20090528 Change
 //#define MAINTENANCE_LIFETIME_STR { "500h", "1000h", "1500h", "2000h", "2500h", "3000h" }
-//#define MAINTENANCE_LIFETIME_STR { "500ŽžŠÔ", "1000ŽžŠÔ", "1500ŽžŠÔ", "2000ŽžŠÔ", "2500ŽžŠÔ", "3000ŽžŠÔ" }
+//#define MAINTENANCE_LIFETIME_STR { "500æ™‚é–“", "1000æ™‚é–“", "1500æ™‚é–“", "2000æ™‚é–“", "2500æ™‚é–“", "3000æ™‚é–“" }
 //Saiki 20090410 Change <-----
 
-#define MAINTENANCE_LIFETIME_STR_JPN { "500ŽžŠÔ", "1000ŽžŠÔ", "1500ŽžŠÔ", "2000ŽžŠÔ", "2500ŽžŠÔ", "3000ŽžŠÔ" }
+#define MAINTENANCE_LIFETIME_STR_JPN { "500æ™‚é–“", "1000æ™‚é–“", "1500æ™‚é–“", "2000æ™‚é–“", "2500æ™‚é–“", "3000æ™‚é–“" }
 #define MAINTENANCE_LIFETIME_STR_ENU { "500h", "1000h", "1500h", "2000h", "2500h", "3000h" }
 // Kojika 20090528 Change End
 #define MAINTENANCE_LIFETIME_INIT { 500L, 1000L, 1500L, 2000L, 2500L, 3000L }
@@ -3004,8 +3004,8 @@ enum MAINTENANCE_LIFETIME
 // JoyStick Mode
 enum
 {
-	JOY_SOFT_MODE = 0,		// ƒ\ƒtƒgJoyƒ‚[ƒh
-	JOY_HARD_MODE,			// ƒn[ƒhJoyƒ‚[ƒh
+	JOY_SOFT_MODE = 0,		// ã‚½ãƒ•ãƒˆJoyãƒ¢ãƒ¼ãƒ‰
+	JOY_HARD_MODE,			// ãƒãƒ¼ãƒ‰Joyãƒ¢ãƒ¼ãƒ‰
 	JOY_MODE_MAX,
 };
 
@@ -3014,7 +3014,7 @@ enum
 //																		   //
 /////////////////////////////////////////////////////////////////////////////
 
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 /////////////////////////////////////////////////////////////////////////////
 // ResourceLoadLibrary
 #ifdef _MASTER_
@@ -3074,7 +3074,7 @@ void LoadStringML_org(int nID, CString& strBuffer, LPCTSTR lpszDefault)
 #else
 extern void LoadStringML_org(int nID, CString& strBuffer, LPCTSTR lpszDefault);
 #endif
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 
 /////////////////////////////////////////////////////////////////////////////
 // CListCtrl List_FindItem
@@ -3399,8 +3399,8 @@ inline void ToTimeStr3( time_t tTime, char* szTime )
 // SitePattern Mode
 // Kojika 20090528 Change
 const LPCSTR g_lpszSitePatternMode_JPN[] = {
-	"ƒTƒCƒg•â³‚ðŽg—p‚µ‚È‚¢",
-	"ƒTƒCƒg•â³‚ðŽg—p‚·‚é",
+	"ã‚µã‚¤ãƒˆè£œæ­£ã‚’ä½¿ç”¨ã—ãªã„",
+	"ã‚µã‚¤ãƒˆè£œæ­£ã‚’ä½¿ç”¨ã™ã‚‹",
 };
 const LPCSTR g_lpszSitePatternMode_ENU[] = {
 	"No Site Pattern Rec.",
@@ -3411,11 +3411,11 @@ const LPCSTR g_lpszSitePatternMode_ENU[] = {
 // SitePattern Fail Option
 // Kojika 20090528 Change
 const LPCSTR g_lpszSitePatternFailOption_JPN[] = {
-	"‹­§‘ª’è",
-	"ƒŒƒVƒsƒLƒƒƒ“ƒZƒ‹",
-	"ƒ}ƒjƒ…ƒAƒ‹ˆÊ’uŒˆ‚ß",
-	"‘OƒXƒeƒbƒvˆÊ’u‚Å‚Ì‹­§‘ª’è",
-	"‘OƒXƒeƒbƒvˆÊ’u‚Å‚Ìƒ}ƒjƒ…ƒAƒ‹ˆÊ’uŒˆ‚ß",
+	"å¼·åˆ¶æ¸¬å®š",
+	"ãƒ¬ã‚·ãƒ”ã‚­ãƒ£ãƒ³ã‚»ãƒ«",
+	"ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ä½ç½®æ±ºã‚",
+	"å‰ã‚¹ãƒ†ãƒƒãƒ—ä½ç½®ã§ã®å¼·åˆ¶æ¸¬å®š",
+	"å‰ã‚¹ãƒ†ãƒƒãƒ—ä½ç½®ã§ã®ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ä½ç½®æ±ºã‚",
 };
 const LPCSTR g_lpszSitePatternFailOption_ENU[] = {
 	"Proceed Measurement",
@@ -3430,10 +3430,10 @@ const LPCSTR g_lpszSitePatternFailOption_ENU[] = {
 // ==========================================================================
 // MotionDlg Pos Button Text
 const LPCSTR g_lpszMotionPos_JPN[] = {
-	"ƒ|ƒWƒVƒ‡ƒ“1",
-	"ƒ|ƒWƒVƒ‡ƒ“2",
-	"ƒ|ƒWƒVƒ‡ƒ“3",
-	"ƒ|ƒWƒVƒ‡ƒ“4",
+	"ãƒã‚¸ã‚·ãƒ§ãƒ³1",
+	"ãƒã‚¸ã‚·ãƒ§ãƒ³2",
+	"ãƒã‚¸ã‚·ãƒ§ãƒ³3",
+	"ãƒã‚¸ã‚·ãƒ§ãƒ³4",
 };
 
 const LPCSTR g_lpszMotionPos_ENU[] = {
@@ -3443,11 +3443,11 @@ const LPCSTR g_lpszMotionPos_ENU[] = {
 	"Maintenance4",
 };
 // 2009.12.08 bagus --}--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 // ==========================================================================
 // RecipeMainSrView CompEASE Recalib Items
 const LPCSTR g_lpszCompEASERecalibItem_JPN[] = {
-	"–³‚µ",
+	"ç„¡ã—",
 	"Thick1",
 	"Thick2",
 	"Thick3",
@@ -3517,5 +3517,5 @@ const LPCSTR g_lpszCompEASERecalibItem_ENU[] = {
 	"Eg7",
 	"Eg8",
 };
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 #endif	// _SYSTEM_H_

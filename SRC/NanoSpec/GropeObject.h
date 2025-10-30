@@ -1,4 +1,4 @@
-// GropeObject.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+ï»¿// GropeObject.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #pragma once

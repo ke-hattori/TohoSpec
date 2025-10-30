@@ -1,23 +1,23 @@
-#if !defined(AFX_POINTSETUPDISPOSITIONDLG_H__0E47BF02_6B75_4F92_AF77_8D8341C7FA04__INCLUDED_)
+ï»¿#if !defined(AFX_POINTSETUPDISPOSITIONDLG_H__0E47BF02_6B75_4F92_AF77_8D8341C7FA04__INCLUDED_)
 #define AFX_POINTSETUPDISPOSITIONDLG_H__0E47BF02_6B75_4F92_AF77_8D8341C7FA04__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// PointSetupDispositionDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// PointSetupDispositionDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 // ##########################################################################
-// CPointSetupDispositionDlg ƒ_ƒCƒAƒƒO
+// CPointSetupDispositionDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // ##########################################################################
 
 class CPointSetupDispositionDlg : public CDialog
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
-	CPointSetupDispositionDlg(int iNumScans = 0, double dSampleSizeX = 0, double dSampleSizeY = 0, int nOrgPos = 0,CWnd* pParent = NULL);	// •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CPointSetupDispositionDlg(int iNumScans = 0, double dSampleSizeX = 0, double dSampleSizeY = 0, int nOrgPos = 0,CWnd* pParent = NULL);	// æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CPointSetupDispositionDlg)
 	enum { IDD = IDD_POINT_SETUP_DISPOSITION_DLG };
 	//}}AFX_DATA
@@ -46,24 +46,24 @@ public:
 	BOOL CheckData(CGridCtrl* pGrid);
 
 	//2009.09.30 bagus se --{--
-	//Œ´“_ˆÊ’u‘Î‰
+	//åŸç‚¹ä½ç½®å¯¾å¿œ
 	BOOL IsPosInStageSizeX(double dPos);
 	BOOL IsPosInStageSizeY(double dPos);
 	void GetPosRangeX(long *pMin,long *pMax);
 	void GetPosRangeY(long *pMin,long *pMax);
 	//2009.09.30 bagus se --}--
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CPointSetupDispositionDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CPointSetupDispositionDlg)
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
@@ -73,6 +73,6 @@ protected:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_POINTSETUPDISPOSITIONDLG_H__0E47BF02_6B75_4F92_AF77_8D8341C7FA04__INCLUDED_)

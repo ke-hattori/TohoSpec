@@ -1,4 +1,4 @@
-// RestartDlg.cpp : implementation file
+ï»¿// RestartDlg.cpp : implementation file
 //
 
 #include "stdafx.h"
@@ -90,7 +90,7 @@ BOOL CRestartDlg::OnInitDialog()
 
 void CRestartDlg::OnPaint() 
 {
-	CPaintDC dc(this); // •`‰æ—p‚ÌƒfƒoƒCƒX ƒRƒ“ƒeƒLƒXƒg
+	CPaintDC dc(this); // æç”»ç”¨ã®ãƒ‡ãƒã‚¤ã‚¹ ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
 	DoColorText();
 
 }
@@ -120,8 +120,8 @@ void CRestartDlg::DoColorText()
 	SetTextColor(hdc, (COLORREF)m_Color);
 	TextOut(hdc, 5, 0, "A Fatal System Error Occurred.", 30);
 
-	SelectObject(hdc, hFontOld);		// ƒtƒHƒ“ƒgƒIƒuƒWƒFƒNƒg‚ðŒ³‚É–ß‚·
-	DeleteObject(hFont);				// ƒtƒHƒ“ƒgƒIƒuƒWƒFƒNƒg‚Ì‰ð•ú
+	SelectObject(hdc, hFontOld);		// ãƒ•ã‚©ãƒ³ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å…ƒã«æˆ»ã™
+	DeleteObject(hFont);				// ãƒ•ã‚©ãƒ³ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®è§£æ”¾
 	::EndPaint(GetDlgItem(IDC_STATIC_MSG)->GetSafeHwnd(), &ps);
 
 

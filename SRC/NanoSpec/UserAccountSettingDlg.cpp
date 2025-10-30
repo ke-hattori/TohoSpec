@@ -1,4 +1,4 @@
-// UserAccountSettingDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// UserAccountSettingDlg.cpp : �C���v�������e�[�V���� �t�@�C��
 //
 
 #include "stdafx.h"

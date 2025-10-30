@@ -1,4 +1,4 @@
-
+﻿
 #ifndef FRAMETYPEINFO_H_INC_
 #define FRAMETYPEINFO_H_INC_
 

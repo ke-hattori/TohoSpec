@@ -1,4 +1,4 @@
-// SystemOperationCommonSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SystemOperationCommonSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -31,7 +31,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // #########################################################################
-// CSystemOperationCommonSettingDlg ƒ_ƒCƒAƒƒO
+// CSystemOperationCommonSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // #########################################################################
 
 // =========================================================================
@@ -90,14 +90,14 @@ BEGIN_MESSAGE_MAP(CSystemOperationCommonSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CSystemOperationCommonSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSystemOperationCommonSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
 BOOL CSystemOperationCommonSettingDlg::OnInitDialog()
 {
 // 2013.02.15 bagus Substrate thickness setting -->
-// 	//–¢‘Î‰ž‹@”\HIDE
+// 	//æœªå¯¾å¿œæ©Ÿèƒ½HIDE
 // 	GetDlgItem(IDC_FOCUS_CONFIGURATION_SETTING_BUTTON)->ShowWindow(SW_HIDE);
 // 2013.02.15 bagus Substrate thickness setting <--
 	//Saiki 20090527 Delete ---->
@@ -105,15 +105,15 @@ BOOL CSystemOperationCommonSettingDlg::OnInitDialog()
 	//Saiki 20090527 Delete <----
 	CDialog::OnInitDialog();
 
-	// TODO: ‚±‚ÌˆÊ’u‚É‰Šú‰»‚Ì•â‘«ˆ—‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«åˆæœŸåŒ–ã®è£œè¶³å‡¦ç†ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
-	//ƒ{ƒ^ƒ“Œni”z’uA•\Ž¦—L–³AF“™j‚ÌƒCƒjƒVƒƒƒ‹ˆ—
+	//ãƒœã‚¿ãƒ³ç³»ï¼ˆé…ç½®ã€è¡¨ç¤ºæœ‰ç„¡ã€è‰²ç­‰ï¼‰ã®ã‚¤ãƒ‹ã‚·ãƒ£ãƒ«å‡¦ç†
 	InitButton();
 
 	SetTimer(1, 50, NULL);
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ðÝ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
@@ -194,8 +194,8 @@ void CSystemOperationCommonSettingDlg::OnEdgeAlignerSettingButton()
 //
 void CSystemOperationCommonSettingDlg::OnZAxisOffsetSettingButton()
 {
-	// ƒwƒbƒh‚ÍSR, SE, IRSE‚Ì‡‚ÅŒˆ‚ß‚Ä‚µ‚Ü‚¤
-	// ’Êí‚Ì‘ª’è‚Æ“¯‚¶ˆ—‚ðs‚¢CZ_AxisData.datCZ_AxisData.txt‚ðì¬‚·‚é
+	// ãƒ˜ãƒƒãƒ‰ã¯SR, SE, IRSEã®é †ã§æ±ºã‚ã¦ã—ã¾ã†
+	// é€šå¸¸ã®æ¸¬å®šã¨åŒã˜å‡¦ç†ã‚’è¡Œã„ï¼ŒZ_AxisData.datï¼ŒZ_AxisData.txtã‚’ä½œæˆã™ã‚‹
 
 	CZAxisOffsetSettingDlg dlg;
 	if ( ShowSettingDlg(&dlg) ) {
@@ -235,7 +235,7 @@ void CSystemOperationCommonSettingDlg::OnSignalTowerSettingButton()
 //
 BOOL CSystemOperationCommonSettingDlg::PreTranslateMessage(MSG* pMsg)
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉŒÅ—L‚Ìˆ—‚ð’Ç‰Á‚·‚é‚©A‚Ü‚½‚ÍŠî–{ƒNƒ‰ƒX‚ðŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«å›ºæœ‰ã®å‡¦ç†ã‚’è¿½åŠ ã™ã‚‹ã‹ã€ã¾ãŸã¯åŸºæœ¬ã‚¯ãƒ©ã‚¹ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
 	switch(pMsg->message){
 	case WM_KEYDOWN:
 		if(pMsg->wParam == VK_ESCAPE)
@@ -285,7 +285,7 @@ void CSystemOperationCommonSettingDlg::InitButton()
 		BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_SystemConfigurationSettingButton.DrawFlatFocus(TRUE);
 
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	if(g_lModelType == MODEL_T3100){
 		m_StageCoordinateSettingButton.ShowWindow(SW_HIDE);
 		m_OriginalPositionSettingButton.ShowWindow(SW_HIDE);
@@ -295,7 +295,7 @@ void CSystemOperationCommonSettingDlg::InitButton()
 		m_SubstrateThicknessSettingListButton.ShowWindow(SW_HIDE);
 	}
 	else{
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 		///// Stage Coordinate Setting Button /////
 		m_StageCoordinateSettingButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT,
 			BUTTON_COLORING, BUTTON_NORMAL_COLOR);
@@ -327,9 +327,9 @@ void CSystemOperationCommonSettingDlg::InitButton()
 			BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 		m_SubstrateThicknessSettingListButton.DrawFlatFocus(TRUE);
 // 2013.02.15 bagus Substrate thickness setting <--
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 
 	///// Edge Aligner Setting Button /////
 	m_EdgeAlignerSettingButton.ShowWindow(SW_HIDE);
@@ -337,13 +337,13 @@ void CSystemOperationCommonSettingDlg::InitButton()
 	//	BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	//m_EdgeAlignerSettingButton.DrawFlatFocus(TRUE);
 
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	if(g_lModelType == MODEL_T3100){
 		m_ZAxisOffsetSettingButton.ShowWindow(SW_HIDE);
 		m_HostSettingButton.ShowWindow(SW_HIDE);
 	}
 	else{
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 		///// ZAxis Offset Setting Button /////
 		m_ZAxisOffsetSettingButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT,
 			BUTTON_COLORING, BUTTON_NORMAL_COLOR);
@@ -359,9 +359,9 @@ void CSystemOperationCommonSettingDlg::InitButton()
 		else{
 			m_HostSettingButton.ShowWindow(SW_HIDE);
 		}
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 
 	///// Com Setting Button /////
 	m_ComSettingButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT,
@@ -379,33 +379,33 @@ void CSystemOperationCommonSettingDlg::InitButton()
 		m_SignalTowerSettingButton.ShowWindow(SW_HIDE);
 	}
 
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	if(g_lModelType == MODEL_T3100){
 		m_JogDirectionSettingButton.ShowWindow(SW_HIDE);
 	}
 	else{
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 // 2013.01.11 bagus jog direction -->
 		///// Jog Direction Setting Button /////
 		m_JogDirectionSettingButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT,
 			BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 		m_JogDirectionSettingButton.DrawFlatFocus(TRUE);
 // 2013.01.11 bagus jog direction -->
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 }
 
 HBRUSH CSystemOperationCommonSettingDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
 
-	// TODO: ‚±‚ÌˆÊ’u‚Å DC ‚ÌƒAƒgƒŠƒrƒ…[ƒg‚ð•ÏX‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã§ DC ã®ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã‚’å¤‰æ›´ã—ã¦ãã ã•ã„
 
 	BOOL sbNexMntSw = nexioIsMaintenanceSwitch();
 	BOOL sbNexEngiMntSw = nexioIsEngineerMaintenanceSwitch();
 
-	if( pWnd == this ) // Ž©•ªŽ©g‚ð•`‰æ‚·‚é‚Æ‚«‚Í
+	if( pWnd == this ) // è‡ªåˆ†è‡ªèº«ã‚’æç”»ã™ã‚‹ã¨ãã¯
 	{
 		if((sbNexMntSw == OFF)||(sbNexEngiMntSw == ON))
 		{
@@ -413,13 +413,13 @@ HBRUSH CSystemOperationCommonSettingDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT n
 		}
 	}
 
-	// TODO: ƒfƒtƒHƒ‹ƒg‚Ìƒuƒ‰ƒV‚ª–]‚Ý‚Ì‚à‚Ì‚Å‚È‚¢ê‡‚É‚ÍAˆá‚¤ƒuƒ‰ƒV‚ð•Ô‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ–ãƒ©ã‚·ãŒæœ›ã¿ã®ã‚‚ã®ã§ãªã„å ´åˆã«ã¯ã€é•ã†ãƒ–ãƒ©ã‚·ã‚’è¿”ã—ã¦ãã ã•ã„
 	return hbr;
 }
 
 void CSystemOperationCommonSettingDlg::OnTimer(UINT nIDEvent)
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚·‚é‚©‚Ü‚½‚ÍƒfƒtƒHƒ‹ƒg‚Ìˆ—‚ðŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã™ã‚‹ã‹ã¾ãŸã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å‡¦ç†ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
 
 	static BOOL sbNexMntSw = nexioIsMaintenanceSwitch();
 	static BOOL sbNexMntSwOld = TRUE;
@@ -431,10 +431,10 @@ void CSystemOperationCommonSettingDlg::OnTimer(UINT nIDEvent)
 
 	if((sbNexMntSw != sbNexMntSwOld)||(sbNexEngiMntSw != sbNexEngiMntSwOld))
 	{
-		Invalidate(TRUE); //OnCtlColor()‚Ìˆ—‚ð‚³‚¹‚éˆ×‚ÉCall
+		Invalidate(TRUE); //OnCtlColor()ã®å‡¦ç†ã‚’ã•ã›ã‚‹ç‚ºã«Call
 	}
-	sbNexMntSwOld = sbNexMntSw; //‘O‰ñ’l‘Š·‚¦
-	sbNexEngiMntSwOld = sbNexEngiMntSw; //‘O‰ñ’l‘Š·‚¦
+	sbNexMntSwOld = sbNexMntSw; //å‰å›žå€¤æ›¸æ›ãˆ
+	sbNexEngiMntSwOld = sbNexEngiMntSw; //å‰å›žå€¤æ›¸æ›ãˆ
 
 	CDialog::OnTimer(nIDEvent);
 }

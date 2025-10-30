@@ -1,4 +1,4 @@
-// TerminatorDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+ï»¿// TerminatorDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #if !defined(AFX_TERMINATORDLG_H__C30A490B_E7A9_4DE4_B1FC_58D9FA611325__INCLUDED_)
@@ -9,13 +9,13 @@
 #endif // _MSC_VER > 1000
 
 /////////////////////////////////////////////////////////////////////////////
-// CTerminatorDlg ƒ_ƒCƒAƒƒO
+// CTerminatorDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 class CTerminatorDlg : public CDialog
 {
-// \’z
+// æ§‹ç¯‰
 public:
-	CTerminatorDlg(CWnd* pParent = NULL);	// •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CTerminatorDlg(CWnd* pParent = NULL);	// æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
 	void ListViewInit();
 	void ListViewInsert();
@@ -31,7 +31,7 @@ public:
 	long	SaveDDD[100];
 	int		MaxNum;
 
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 protected:
 	void GetRootDirPath();
 	void MakeProcessResetPath();
@@ -49,25 +49,25 @@ protected:
 	CString m_strNanoSpecDebugExeFilePath;
 
 public:
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CTerminatorDlg)
 	enum { IDD = IDD_TERMINATOR_DIALOG };
 	CListCtrl	m_List;
 	//}}AFX_DATA
 
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ð¶¬‚µ‚Ü‚·B
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CTerminatorDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ‚ÌƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã®ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	HICON m_hIcon;
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒžãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CTerminatorDlg)
 	virtual BOOL OnInitDialog();
 	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
@@ -86,6 +86,6 @@ protected:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ð‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_TERMINATORDLG_H__C30A490B_E7A9_4DE4_B1FC_58D9FA611325__INCLUDED_)

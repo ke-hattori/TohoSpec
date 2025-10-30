@@ -1,10 +1,10 @@
-#pragma once
+ï»¿#pragma once
 
-// RecipeMeasurementCompEASEThicknessProgramView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// RecipeMeasurementCompEASEThicknessProgramView.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 // ##########################################################################
-// CRecipeMeasurementCompEASEThicknessProgramView ƒtƒH[ƒ€ ƒrƒ…[
+// CRecipeMeasurementCompEASEThicknessProgramView ãƒ•ã‚©ãƒ¼ãƒ  ãƒ“ãƒ¥ãƒ¼
 // ##########################################################################
 
 #ifndef __AFXEXT_H__
@@ -18,11 +18,11 @@
 class CRecipeMeasurementCompEASEThicknessProgramView : public CNanoRecipeUI
 {
 protected:
-	CRecipeMeasurementCompEASEThicknessProgramView();			// “®“I¶¬‚Ég—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CRecipeMeasurementCompEASEThicknessProgramView();			// å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	virtual ~CRecipeMeasurementCompEASEThicknessProgramView();
 	DECLARE_DYNCREATE(CRecipeMeasurementCompEASEThicknessProgramView)
 
-// ƒtƒH[ƒ€ ƒf[ƒ^
+// ãƒ•ã‚©ãƒ¼ãƒ  ãƒ‡ãƒ¼ã‚¿
 protected:
 	//{{AFX_DATA(CRecipeMeasurementCompEASEThicknessProgramView)
 	enum { IDD = IDD_RECIPE_MEASUREMENT_COMPEASE_THICKNESS_PROGRAM_FORM };
@@ -30,16 +30,16 @@ protected:
 	CToolBar m_wndToolBar;
 	CColorStatic m_stcProgName;
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CRecipeMeasurementCompEASEThicknessProgramView)
 	public:
 	virtual void OnInitialUpdate();
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	virtual void LoadRecipeData();
 	virtual BOOL CheckData();
@@ -48,7 +48,7 @@ protected:
 	virtual BOOL IsAccessPrivilege();
 	virtual int SaveAsDlgInfo();
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CRecipeMeasurementCompEASEThicknessProgramView)
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()

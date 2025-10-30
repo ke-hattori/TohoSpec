@@ -1,4 +1,4 @@
-
+﻿
 #ifndef _FILTERDLL_H_INC_
 #define _FILTERDLL_H_INC_
 

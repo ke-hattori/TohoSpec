@@ -1,14 +1,14 @@
-#if !defined(AFX_RECIPESTAGEPROGRAMVIEW_H__9F714F32_CA93_431F_8D3A_1D881C8552B6__INCLUDED_)
+ï»¿#if !defined(AFX_RECIPESTAGEPROGRAMVIEW_H__9F714F32_CA93_431F_8D3A_1D881C8552B6__INCLUDED_)
 #define AFX_RECIPESTAGEPROGRAMVIEW_H__9F714F32_CA93_431F_8D3A_1D881C8552B6__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// RecipeStageProgramView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// RecipeStageProgramView.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 // ##########################################################################
-// CRecipeStageProgramView ƒtƒH[ƒ€ ƒrƒ…[
+// CRecipeStageProgramView ãƒ•ã‚©ãƒ¼ãƒ  ãƒ“ãƒ¥ãƒ¼
 // ##########################################################################
 
 #ifndef __AFXEXT_H__
@@ -17,16 +17,16 @@
 
 #include "NanoRecipeUI.h"
 #include "ColorStatic.h"
-#include "NanoGraphLib.h"	//Ü‚êüEƒ}ƒbƒsƒ“ƒOƒOƒ‰ƒt—p
+#include "NanoGraphLib.h"	//æŠ˜ã‚Œç·šãƒ»ãƒãƒƒãƒ”ãƒ³ã‚°ã‚°ãƒ©ãƒ•ç”¨
 #include "RecipeStageProgramMeasurementPointGrid.h"
 
 class CRecipeStageProgramView : public CNanoRecipeUI
 {
 protected:
-	CRecipeStageProgramView();			// “®“I¶¬‚Ég—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CRecipeStageProgramView();			// å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	DECLARE_DYNCREATE(CRecipeStageProgramView)
 
-// ƒtƒH[ƒ€ ƒf[ƒ^
+// ãƒ•ã‚©ãƒ¼ãƒ  ãƒ‡ãƒ¼ã‚¿
 public:
 	//{{AFX_DATA(CRecipeStageProgramView)
 	enum { IDD = IDD_RECIPE_STAGE_PROGRAM_FORM };
@@ -79,17 +79,17 @@ protected:
 	long RotateXyAxisDir(long lDir);
 // 2013.01.17 bagus rotate xy view <--
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CRecipeStageProgramView)
 	public:
 	virtual void OnInitialUpdate();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	virtual ~CRecipeStageProgramView();
 	virtual BOOL IsDataChanged();
@@ -103,7 +103,7 @@ protected:
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CRecipeStageProgramView)
 	afx_msg void OnDispositionButton();
 	afx_msg void OnTeachingButton();
@@ -154,16 +154,16 @@ private:
 	SITE_PATTERN	m_SitePoint[SCAN_POINT_MAX];
 	SITE_PATTERN	m_OldSitePoint[SCAN_POINT_MAX];
 
-// 2009.10.24 bagus 2“_ŠÔ C³ --{--
+// 2009.10.24 bagus 2ç‚¹é–“ ä¿®æ­£ --{--
 	BOOL	CheckValidPointX(long lPointX);
 	BOOL	CheckValidPointY(long lPointY);
-// 2009.10.24 bagus 2“_ŠÔ C³ --}--
+// 2009.10.24 bagus 2ç‚¹é–“ ä¿®æ­£ --}--
 
 	CMainFrame* m_pMainFrame;
 	CNanoSpecDoc* m_pDoc;
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_RECIPESTAGEPROGRAMVIEW_H__9F714F32_CA93_431F_8D3A_1D881C8552B6__INCLUDED_)

@@ -1,14 +1,14 @@
-#if !defined(AFX_RECIPEDISTANCESTAGEPROGRAMVIEW_H__49AF6761_082B_48A6_8BBE_F256A9051D8B__INCLUDED_)
+ï»¿#if !defined(AFX_RECIPEDISTANCESTAGEPROGRAMVIEW_H__49AF6761_082B_48A6_8BBE_F256A9051D8B__INCLUDED_)
 #define AFX_RECIPEDISTANCESTAGEPROGRAMVIEW_H__49AF6761_082B_48A6_8BBE_F256A9051D8B__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// RecipeDistanceStageProgramView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// RecipeDistanceStageProgramView.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 /////////////////////////////////////////////////////////////////////////////
-// CRecipeDistanceStageProgramView ƒtƒH[ƒ€ ƒrƒ…[
+// CRecipeDistanceStageProgramView ãƒ•ã‚©ãƒ¼ãƒ  ãƒ“ãƒ¥ãƒ¼
 
 #ifndef __AFXEXT_H__
 #include <afxext.h>
@@ -16,26 +16,26 @@
 
 #include "NanoRecipeUI.h"
 #include "ColorStatic.h"
-#include "NanoGraphLib.h"	//Ü‚êüEƒ}ƒbƒsƒ“ƒOƒOƒ‰ƒt—p
+#include "NanoGraphLib.h"	//æŠ˜ã‚Œç·šãƒ»ãƒãƒƒãƒ”ãƒ³ã‚°ã‚°ãƒ©ãƒ•ç”¨
 #include "RecipeStageProgramMeasurementPointGrid.h"
 
 class CRecipeDistanceStageProgramView : public CNanoRecipeUI
 {
 protected:
-	CRecipeDistanceStageProgramView();			 // “®“I¶¬‚Ég—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CRecipeDistanceStageProgramView();			 // å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	DECLARE_DYNCREATE(CRecipeDistanceStageProgramView)
 
-// ƒtƒH[ƒ€ ƒf[ƒ^
+// ãƒ•ã‚©ãƒ¼ãƒ  ãƒ‡ãƒ¼ã‚¿
 public:
 	//{{AFX_DATA(CRecipeDistanceStageProgramView)
 	enum { IDD = IDD_RECIPE_STAGE_DISTANCE_PROGRAM_FORM };
 	CNanoPointGraph	m_SamplePointGraph;
 	//}}AFX_DATA
 
-// ƒAƒgƒŠƒrƒ…[ƒg
+// ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 public:
 
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 
 protected:
@@ -77,17 +77,17 @@ protected:
 	void SamplePointGraph_DataSet();
 	void SamplePointGraph_Init();
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CRecipeDistanceStageProgramView)
 	public:
 	virtual void OnInitialUpdate();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	virtual ~CRecipeDistanceStageProgramView();
 	virtual BOOL IsDataChanged();
@@ -101,7 +101,7 @@ protected:
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CRecipeDistanceStageProgramView)
 	afx_msg void OnDispositionButton();
 	afx_msg void OnTeachingButton();
@@ -148,10 +148,10 @@ private:
 
 	int	m_nSysVScrollWidth;
 
-// 2009.10.24 bagus 2“_ŠÔ C³ --{--
+// 2009.10.24 bagus 2ç‚¹é–“ ä¿®æ­£ --{--
 	BOOL	CheckValidPointX(long lPointX);
 	BOOL	CheckValidPointY(long lPointY);
-// 2009.10.24 bagus 2“_ŠÔ C³ --}--
+// 2009.10.24 bagus 2ç‚¹é–“ ä¿®æ­£ --}--
 
 	CMainFrame* m_pMainFrame;
 	CNanoSpecDoc* m_pDoc;
@@ -160,6 +160,6 @@ private:
 /////////////////////////////////////////////////////////////////////////////
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_RECIPEDISTANCESTAGEPROGRAMVIEW_H__49AF6761_082B_48A6_8BBE_F256A9051D8B__INCLUDED_)

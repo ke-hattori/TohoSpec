@@ -1,4 +1,4 @@
-// EventThread.cpp : implementation file
+ï»¿// EventThread.cpp : implementation file
 //
 
 #include "stdafx.h"
@@ -88,10 +88,10 @@ int CEventThread::Run()
 	DWORD nNumberOfBytesRead;
 	int iState;
 
-	// NanoSpec/AFT‚Ö‚Ì‘—MƒXƒe[ƒ^ƒX
+	// NanoSpec/AFTã¸ã®é€ä¿¡ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
 	enum { STATE_SENDMAIL, STATE_WAITRECVMAIL };
 
-	// óMƒƒbƒZ[ƒW‚ÌƒŒƒ“ƒOƒXî•ñ
+	// å—ä¿¡ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ãƒ¬ãƒ³ã‚°ã‚¹æƒ…å ±
 	const int nEnqLen		  	= CPifMessage::ENQLEN;
 	const int nMessageLenLen  	= CPifMessage::MESSAGELENLEN;
 	const int nCommandLen 		= CPifMessage::COMMANDLEN;
@@ -109,7 +109,7 @@ int CEventThread::Run()
 
 	while ( !m_bShutDown )
 	{
-		// CIM/PC‚©‚ç‚ÌóMƒRƒ}ƒ“ƒh‚ğNanoSpec/AFT‚Ö“]‘—ˆ—‚·‚éiP9xx‚Íœ‚­j
+		// CIM/PCã‹ã‚‰ã®å—ä¿¡ã‚³ãƒãƒ³ãƒ‰ã‚’NanoSpec/AFTã¸è»¢é€å‡¦ç†ã™ã‚‹ï¼ˆP9xxã¯é™¤ãï¼‰
 		if ( !m_bProcess ) {
 			GetEvent();
 			iState = STATE_SENDMAIL;
@@ -117,30 +117,30 @@ int CEventThread::Run()
 
 		if ( m_bProcess ) {
 			_tcscpy(pszRecvBuff, m_pEventCurr->GetItemRecvCommandId());
-// 2009.06.02 K.Matsuo ‘•’u‰æ–Ê‘€ìƒCƒ“ƒ^[ƒƒbƒN‹@”\’Ç‰Á -->
+// 2009.06.02 K.Matsuo è£…ç½®ç”»é¢æ“ä½œã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ©Ÿèƒ½è¿½åŠ  -->
 			if ( _tcscmp(pszRecvBuff, _T("P105")) == 0 ||
 				 _tcscmp(pszRecvBuff, _T("P106")) == 0 ||
-// 2009.06.02 K.Matsuo ‘•’u‰æ–Ê‘€ìƒCƒ“ƒ^[ƒƒbƒN‹@”\’Ç‰Á <--
+// 2009.06.02 K.Matsuo è£…ç½®ç”»é¢æ“ä½œã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ©Ÿèƒ½è¿½åŠ  <--
 				 _tcscmp(pszRecvBuff, _T("P201")) == 0 ||
 			 	 _tcscmp(pszRecvBuff, _T("P302")) == 0 ||
 			 	 _tcscmp(pszRecvBuff, _T("P303")) == 0 ||
 			 	 _tcscmp(pszRecvBuff, _T("P306")) == 0 ||
 			 	 _tcscmp(pszRecvBuff, _T("P308")) == 0 ||
-// 2009.09.10 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^Šm”F‹@”\’Ç‰Á -->
+// 2009.09.10 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ç¢ºèªæ©Ÿèƒ½è¿½åŠ  -->
 			 	 _tcscmp(pszRecvBuff, _T("P310")) == 0 ||
-// 2009.09.10 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^Šm”F‹@”\’Ç‰Á <--
+// 2009.09.10 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ç¢ºèªæ©Ÿèƒ½è¿½åŠ  <--
 			 	 _tcscmp(pszRecvBuff, _T("P401")) == 0 ||
-// 2009.09.10 K.Matsuo “§‰ß—¦ƒŠƒtƒ@ƒŒƒ“ƒXiƒKƒ“ƒgƒŠ[jæ“¾‹@”\’Ç‰Á -->
+// 2009.09.10 K.Matsuo é€éç‡ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ï¼ˆã‚¬ãƒ³ãƒˆãƒªãƒ¼ï¼‰å–å¾—æ©Ÿèƒ½è¿½åŠ  -->
 			 	 _tcscmp(pszRecvBuff, _T("P411")) == 0 ||
-// 2009.09.10 K.Matsuo “§‰ß—¦ƒŠƒtƒ@ƒŒƒ“ƒXiƒKƒ“ƒgƒŠ[jæ“¾‹@”\’Ç‰Á <--
+// 2009.09.10 K.Matsuo é€éç‡ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ï¼ˆã‚¬ãƒ³ãƒˆãƒªãƒ¼ï¼‰å–å¾—æ©Ÿèƒ½è¿½åŠ  <--
   				 _tcscmp(pszRecvBuff, _T("P501")) == 0 ||
-// 2009.09.10 K.Matsuo “§‰ß—¦ƒŠƒtƒ@ƒŒƒ“ƒXiƒKƒ“ƒgƒŠ[jæ“¾‹@”\’Ç‰Á -->
+// 2009.09.10 K.Matsuo é€éç‡ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ï¼ˆã‚¬ãƒ³ãƒˆãƒªãƒ¼ï¼‰å–å¾—æ©Ÿèƒ½è¿½åŠ  -->
   				 _tcscmp(pszRecvBuff, _T("P511")) == 0 ||
-// 2009.09.10 K.Matsuo “§‰ß—¦ƒŠƒtƒ@ƒŒƒ“ƒXiƒKƒ“ƒgƒŠ[jæ“¾‹@”\’Ç‰Á <--
-// 2014.01.07 bagus Add(Stage None‘Î‰) -->
+// 2009.09.10 K.Matsuo é€éç‡ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ï¼ˆã‚¬ãƒ³ãƒˆãƒªãƒ¼ï¼‰å–å¾—æ©Ÿèƒ½è¿½åŠ  <--
+// 2014.01.07 bagus Add(Stage Noneå¯¾å¿œ) -->
   				 _tcscmp(pszRecvBuff, _T("P514")) == 0 ||
   				 _tcscmp(pszRecvBuff, _T("P516")) == 0 ||
-// 2014.01.07 bagus Add(Stage None‘Î‰) <--
+// 2014.01.07 bagus Add(Stage Noneå¯¾å¿œ) <--
 		  		 _tcscmp(pszRecvBuff, _T("P601")) == 0 ||
 			  	 _tcscmp(pszRecvBuff, _T("P602")) == 0 ||
   				 _tcscmp(pszRecvBuff, _T("P603")) == 0 ||
@@ -178,36 +178,36 @@ int CEventThread::Run()
 			}
 		}
 
-		// NanoSpec/AFT‚©‚ç‚Ì•ÔMƒRƒ}ƒ“ƒh or ƒCƒxƒ“ƒg•ñ‚ğCIM/PC‚Ö“]‘—ˆ—‚·‚é
+		// NanoSpec/AFTã‹ã‚‰ã®è¿”ä¿¡ã‚³ãƒãƒ³ãƒ‰ or ã‚¤ãƒ™ãƒ³ãƒˆå ±å‘Šã‚’CIM/PCã¸è»¢é€å‡¦ç†ã™ã‚‹
 		if ( m_mailslot.Recieve(pszRecvBuff, &nNumberOfBytesRead) ) {
 			_tcsncpy(szCommandId, &pszRecvBuff[nMessagePos], nCommandLen);
 			szCommandId[nCommandLen] = _TCHAR('\0');
 //			pifMailslotLogFile.Logging(MakeLogText(_T("Recv"), szCommandId));
 
-// 2009.06.02 K.Matsuo ‘•’u‰æ–Ê‘€ìƒCƒ“ƒ^[ƒƒbƒN‹@”\’Ç‰Á -->
+// 2009.06.02 K.Matsuo è£…ç½®ç”»é¢æ“ä½œã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ©Ÿèƒ½è¿½åŠ  -->
 			if ( _tcsncmp(&pszRecvBuff[nMessagePos], _T("S105"), nCommandLen) == 0 ||
 				 _tcsncmp(&pszRecvBuff[nMessagePos], _T("S106"), nCommandLen) == 0 ||
-// 2009.06.02 K.Matsuo ‘•’u‰æ–Ê‘€ìƒCƒ“ƒ^[ƒƒbƒN‹@”\’Ç‰Á <--
+// 2009.06.02 K.Matsuo è£…ç½®ç”»é¢æ“ä½œã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ©Ÿèƒ½è¿½åŠ  <--
 				 _tcsncmp(&pszRecvBuff[nMessagePos], _T("S201"), nCommandLen) == 0 ||
 				 _tcsncmp(&pszRecvBuff[nMessagePos], _T("S302"), nCommandLen) == 0 ||
 				 _tcsncmp(&pszRecvBuff[nMessagePos], _T("S303"), nCommandLen) == 0 ||
 				 _tcsncmp(&pszRecvBuff[nMessagePos], _T("S306"), nCommandLen) == 0 ||
 				 _tcsncmp(&pszRecvBuff[nMessagePos], _T("S308"), nCommandLen) == 0 ||
-// 2009.09.10 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^Šm”F‹@”\’Ç‰Á -->
+// 2009.09.10 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ç¢ºèªæ©Ÿèƒ½è¿½åŠ  -->
 				 _tcsncmp(&pszRecvBuff[nMessagePos], _T("S310"), nCommandLen) == 0 ||
-// 2009.09.10 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^Šm”F‹@”\’Ç‰Á -->
+// 2009.09.10 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ç¢ºèªæ©Ÿèƒ½è¿½åŠ  -->
 				 _tcsncmp(&pszRecvBuff[nMessagePos], _T("S401"), nCommandLen) == 0 ||
-// 2009.09.10 K.Matsuo “§‰ß—¦ƒŠƒtƒ@ƒŒƒ“ƒXiƒKƒ“ƒgƒŠ[jæ“¾‹@”\’Ç‰Á -->
+// 2009.09.10 K.Matsuo é€éç‡ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ï¼ˆã‚¬ãƒ³ãƒˆãƒªãƒ¼ï¼‰å–å¾—æ©Ÿèƒ½è¿½åŠ  -->
 				 _tcsncmp(&pszRecvBuff[nMessagePos], _T("S411"), nCommandLen) == 0 ||
-// 2009.09.10 K.Matsuo “§‰ß—¦ƒŠƒtƒ@ƒŒƒ“ƒXiƒKƒ“ƒgƒŠ[jæ“¾‹@”\’Ç‰Á <--
+// 2009.09.10 K.Matsuo é€éç‡ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ï¼ˆã‚¬ãƒ³ãƒˆãƒªãƒ¼ï¼‰å–å¾—æ©Ÿèƒ½è¿½åŠ  <--
 				 _tcsncmp(&pszRecvBuff[nMessagePos], _T("S501"), nCommandLen) == 0 ||
-// 2009.09.10 K.Matsuo “§‰ß—¦ƒŠƒtƒ@ƒŒƒ“ƒXiƒKƒ“ƒgƒŠ[jæ“¾‹@”\’Ç‰Á -->
+// 2009.09.10 K.Matsuo é€éç‡ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ï¼ˆã‚¬ãƒ³ãƒˆãƒªãƒ¼ï¼‰å–å¾—æ©Ÿèƒ½è¿½åŠ  -->
 				 _tcsncmp(&pszRecvBuff[nMessagePos], _T("S511"), nCommandLen) == 0 ||
-// 2009.09.10 K.Matsuo “§‰ß—¦ƒŠƒtƒ@ƒŒƒ“ƒXiƒKƒ“ƒgƒŠ[jæ“¾‹@”\’Ç‰Á <--
-// 2014.01.07 bagus Add(Stage None‘Î‰) -->
+// 2009.09.10 K.Matsuo é€éç‡ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ï¼ˆã‚¬ãƒ³ãƒˆãƒªãƒ¼ï¼‰å–å¾—æ©Ÿèƒ½è¿½åŠ  <--
+// 2014.01.07 bagus Add(Stage Noneå¯¾å¿œ) -->
 				 _tcsncmp(&pszRecvBuff[nMessagePos], _T("S514"), nCommandLen) == 0 ||
 				 _tcsncmp(&pszRecvBuff[nMessagePos], _T("S516"), nCommandLen) == 0 ||
-// 2014.01.07 bagus Add(Stage None‘Î‰) <--
+// 2014.01.07 bagus Add(Stage Noneå¯¾å¿œ) <--
 				 _tcsncmp(&pszRecvBuff[nMessagePos], _T("S601"), nCommandLen) == 0 ||
 				 _tcsncmp(&pszRecvBuff[nMessagePos], _T("S602"), nCommandLen) == 0 ||
 				 _tcsncmp(&pszRecvBuff[nMessagePos], _T("S603"), nCommandLen) == 0 ||

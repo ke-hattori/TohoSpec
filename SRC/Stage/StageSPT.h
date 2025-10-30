@@ -1,4 +1,4 @@
-#if !defined( _STAGESPT_H_ )
+ï»¿#if !defined( _STAGESPT_H_ )
 #define _STAGESPT_H_
 
 enum EXE_SWITCH {
@@ -14,7 +14,7 @@ typedef struct {
 } SOFTLIMIT;
 
 //===========================================================================
-// class : CStageSPT ƒ\ƒfƒBƒbƒNƒXƒe[ƒWƒNƒ‰ƒX
+// class : CStageSPT ã‚½ãƒ‡ã‚£ãƒƒã‚¯ã‚¹ãƒ†ãƒ¼ã‚¸ã‚¯ãƒ©ã‚¹
 //===========================================================================
 class CStageSPT : public CStageNTN
 {
@@ -44,7 +44,7 @@ private:
 	int MotSys_WaitMotionAxis(LPVOID pParams);
 	UINT MonitorThreadProcSPT(void);
 
-private:		// ŠO•”ŠÖ”‚Ìˆ—’è‹`
+private:		// å¤–éƒ¨é–¢æ•°ã®å‡¦ç†å®šç¾©
 	BOOL m_bIsInitializedStageSTD;
 	CRITICAL_SECTION m_csInquirePos;
 	virtual BOOL Initialize(void);
@@ -69,7 +69,7 @@ private:		// ŠO•”ŠÖ”‚Ìˆ—’è‹`
 	virtual void SetLocalSpeed(double x, double y);
 	virtual void EnableSpeedLimit(void);
 	virtual void DisableSpeedLimit(void);
-	// ˆÈ‰º‚Í SPT —p‚ÉV‹K’Ç‰Á‚Å‚·D
+	// ä»¥ä¸‹ã¯ SPT ç”¨ã«æ–°è¦è¿½åŠ ã§ã™ï¼
 	virtual void ShowMotSys(BOOL bShow);
 	virtual int EnableJoystickSPT(BOOL bEnable = TRUE, int iSpeedSel = 1);
 	virtual int StageStopAxis(WORD wAxis);

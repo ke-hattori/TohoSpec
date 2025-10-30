@@ -1,4 +1,4 @@
-// AxisDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// AxisDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -38,8 +38,8 @@ typedef struct MOT_DEF_PARAMStag {
 	BYTE	byUnused;			// needed for alignment
 	LONG	lMinusLimit;
 	LONG	lPlusLimit;			// from Home
-// BOOL ‚Í int ‚Å’è‹`‚³‚ê‚Ä‚¢‚é
-// Win32 ‚Å‚Í int ‚Í 32 ƒrƒbƒg‚È‚Ì‚Å 16 ƒrƒbƒg‚É•ÏX‚·‚é
+// BOOL ã¯ int ã§å®šç¾©ã•ã‚Œã¦ã„ã‚‹
+// Win32 ã§ã¯ int ã¯ 32 ãƒ“ãƒƒãƒˆãªã®ã§ 16 ãƒ“ãƒƒãƒˆã«å¤‰æ›´ã™ã‚‹
 	short	bInvertedSense;		// true -> motions & positions inverted
 	short	bForwardForHome;	// true -> go forward to home if home sensor is
 //	BOOL	bInvertedSense;		// true -> motions & positions inverted
@@ -61,7 +61,7 @@ extern char szAxisName[8][10];
 static const BYTE pwm_filter_count = 4;
 
 /////////////////////////////////////////////////////////////////////////////
-// CAxisDlg ƒ_ƒCƒAƒƒO
+// CAxisDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 
 CAxisDlg::CAxisDlg(CWnd* pParent /*=NULL*/)
@@ -135,7 +135,7 @@ BEGIN_MESSAGE_MAP(CAxisDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CAxisDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CAxisDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 BOOL CAxisDlg::Create(CWnd *pWnd, int AxisNo)
 {
@@ -162,7 +162,7 @@ BOOL CAxisDlg::Create(CWnd *pWnd, int AxisNo)
 
 void CAxisDlg::OnClose()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚·‚é‚©‚Ü‚½‚ÍƒfƒtƒHƒ‹ƒg‚Ìˆ—‚ðŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã™ã‚‹ã‹ã¾ãŸã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å‡¦ç†ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
 
 	if (m_pParent != NULL) {
 		DestroyWindow();
@@ -176,9 +176,9 @@ int CAxisDlg::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	if (CDialog::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
-	// TODO: ‚±‚ÌˆÊ’u‚ÉŒÅ—L‚Ìì¬—pƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«å›ºæœ‰ã®ä½œæˆç”¨ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
-	// ƒƒCƒ“ƒEƒBƒ“ƒhƒE‚ÌƒAƒCƒRƒ“‚ðÝ’è
+	// ãƒ¡ã‚¤ãƒ³ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¨­å®š
 	SetIcon(((CMotSysCfgDlg*) m_pParent)->m_hMainIcon, TRUE);
 	SetIcon(((CMotSysCfgDlg*) m_pParent)->m_hMainIcon, FALSE);
 
@@ -187,7 +187,7 @@ int CAxisDlg::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 void CAxisDlg::PostNcDestroy()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉŒÅ—L‚Ìˆ—‚ð’Ç‰Á‚·‚é‚©A‚Ü‚½‚ÍŠî–{ƒNƒ‰ƒX‚ðŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«å›ºæœ‰ã®å‡¦ç†ã‚’è¿½åŠ ã™ã‚‹ã‹ã€ã¾ãŸã¯åŸºæœ¬ã‚¯ãƒ©ã‚¹ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
 
 	switch (m_AxisNo) {
 	case 0:
@@ -244,7 +244,7 @@ void CAxisDlg::OnCancel()
 
 void CAxisDlg::OnBtnLoad()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«é€šçŸ¥ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	short	l_axis = m_AxisNo;
 	int		fd;
@@ -253,36 +253,36 @@ void CAxisDlg::OnBtnLoad()
 	LPMOT_PARAMS		lpMot = &(mot_data[l_axis]);
 	char	l_cText[255];
 
-	/* Windows ƒfƒBƒŒƒNƒgƒŠ‚ÌƒpƒX‚ðŽæ“¾ */
+	/* Windows ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ãƒ‘ã‚¹ã‚’å–å¾— */
 	GetWindowsDirectory(szPathName, 128);
 	lstrcat(szPathName, "\\");
-	lstrcat(szPathName, szAxisName[l_axis]);	/* ReadConfig()‚Å“Ço‚µ‚½’l */
+	lstrcat(szPathName, szAxisName[l_axis]);	/* ReadConfig()ã§èª­å‡ºã—ãŸå€¤ */
 	lstrcat(szPathName, ".dat");
 
 	if ((fd = _lopen (szPathName, OF_READ)) >= 0) {
-		/* ƒtƒ@ƒCƒ‹uŽ²–¼.datv‚ªƒI[ƒvƒ“o—ˆ‚½ */
-		/* ƒ‚[ƒVƒ‡ƒ“ƒpƒ‰ƒƒ^‚ð“Ço‚µ */
+		/* ãƒ•ã‚¡ã‚¤ãƒ«ã€Œè»¸å.datã€ãŒã‚ªãƒ¼ãƒ—ãƒ³å‡ºæ¥ãŸ */
+		/* ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³ãƒ‘ãƒ©ãƒ¡ã‚¿ã‚’èª­å‡ºã— */
 		_lread(fd, (LPSTR) lpMot, sizeof(MOT_PARAMS));
-		/* ƒ‚[ƒVƒ‡ƒ“ƒfƒtƒHƒ‹ƒgƒpƒ‰ƒƒ^‚ð“Ço‚µ */
+		/* ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ‘ãƒ©ãƒ¡ã‚¿ã‚’èª­å‡ºã— */
 		_lread(fd, (LPSTR) lpDef, sizeof(MOT_DEF_PARAMS));
-		/* ƒ‚[ƒVƒ‡ƒ“ƒfƒtƒHƒ‹ƒgƒpƒ‰ƒƒ^“à‚Éƒ‚[ƒVƒ‡ƒ“ƒpƒ‰ƒƒ^‚ÌƒAƒhƒŒƒX‚ðƒZƒbƒg */
+		/* ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ‘ãƒ©ãƒ¡ã‚¿å†…ã«ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³ãƒ‘ãƒ©ãƒ¡ã‚¿ã®ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’ã‚»ãƒƒãƒˆ */
 		lpDef->lpDefaultMotParams = lpMot;
 		_lclose(fd);
-		// ƒf[ƒ^•\Ž¦
+		// ãƒ‡ãƒ¼ã‚¿è¡¨ç¤º
 		DispData();
 	} else {
-		// ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“ƒGƒ‰[
+		// ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³ã‚¨ãƒ©ãƒ¼
 		sprintf(l_cText, "Failed to open(read) file[%s]", szPathName);
 		::MessageBox(NULL, l_cText, "Motion Config Error", MB_OK | MB_SYSTEMMODAL);
 	}
-	/* ˜A‘±ƒJƒEƒ“ƒg‚Ì‚µ‚«‚¢’l‚ðƒZƒbƒg */
+	/* é€£ç¶šã‚«ã‚¦ãƒ³ãƒˆã®ã—ãã„å€¤ã‚’ã‚»ãƒƒãƒˆ */
 	lpMot->byPwmFilterCount = pwm_filter_count;
 
 }
 
 void CAxisDlg::OnBtnSave()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«é€šçŸ¥ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	short	l_axis = m_AxisNo;
 	int fd;
@@ -291,31 +291,31 @@ void CAxisDlg::OnBtnSave()
 	LPMOT_PARAMS lpMot = &(mot_data[l_axis]);
 	char	l_cText[255];
 
-	/* Windows ƒfƒBƒŒƒNƒgƒŠ‚ÌƒpƒX‚ðŽæ“¾ */
+	/* Windows ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ãƒ‘ã‚¹ã‚’å–å¾— */
 	GetWindowsDirectory(szPathName, 128);
 	lstrcat(szPathName, "\\");
-	lstrcat(szPathName, szAxisName[l_axis]);	/* ReadConfig()‚Å“Ço‚µ‚½’l */
+	lstrcat(szPathName, szAxisName[l_axis]);	/* ReadConfig()ã§èª­å‡ºã—ãŸå€¤ */
 	lstrcat(szPathName, ".dat");
 
-	// ƒf[ƒ^Žæ“¾
+	// ãƒ‡ãƒ¼ã‚¿å–å¾—
 	GetData();
 	if ((fd = _lcreat(szPathName, 0)) >= 0) {
-		/* ƒtƒ@ƒCƒ‹uŽ²–¼.datv‚ªì¬o—ˆ‚½ */
-		/* ƒ‚[ƒVƒ‡ƒ“ƒpƒ‰ƒƒ^‚ð‘ž‚Ý */
+		/* ãƒ•ã‚¡ã‚¤ãƒ«ã€Œè»¸å.datã€ãŒä½œæˆå‡ºæ¥ãŸ */
+		/* ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³ãƒ‘ãƒ©ãƒ¡ã‚¿ã‚’æ›¸è¾¼ã¿ */
 		_lwrite(fd, (LPSTR) lpMot, sizeof(MOT_PARAMS));
-		/* ƒ‚[ƒVƒ‡ƒ“ƒfƒtƒHƒ‹ƒgƒpƒ‰ƒƒ^‚ð‘ž‚Ý */
+		/* ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ‘ãƒ©ãƒ¡ã‚¿ã‚’æ›¸è¾¼ã¿ */
 		_lwrite(fd, (LPSTR) lpDef, sizeof(MOT_DEF_PARAMS));
 		_lclose(fd);
-		// ƒf[ƒ^•\Ž¦
+		// ãƒ‡ãƒ¼ã‚¿è¡¨ç¤º
 		DispData();
 	} else {
-		// ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“ƒGƒ‰[
+		// ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³ã‚¨ãƒ©ãƒ¼
 		sprintf(l_cText, "Failed to open(read) file[%s]", szPathName);
 		::MessageBox(NULL, l_cText, "Motion Config Error", MB_OK | MB_SYSTEMMODAL);
 	}
 }
 
-// ƒf[ƒ^•\Ž¦
+// ãƒ‡ãƒ¼ã‚¿è¡¨ç¤º
 void CAxisDlg::DispData()
 {
 	// Motion Parameter
@@ -344,11 +344,11 @@ void CAxisDlg::DispData()
 	m_HomeAccel 	   = axis_default_data[m_AxisNo].nHomeAccel;
 	m_DefaultMotParams.Format("%08x", axis_default_data[m_AxisNo].lpDefaultMotParams);
 
-	// XV
+	// æ›´æ–°
 	UpdateData(FALSE);
 }
 
-// ƒf[ƒ^Žæ“¾
+// ãƒ‡ãƒ¼ã‚¿å–å¾—
 void CAxisDlg::GetData()
 {
 	UpdateData(TRUE);
@@ -384,11 +384,11 @@ BOOL CAxisDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// TODO: ‚±‚ÌˆÊ’u‚É‰Šú‰»‚Ì•â‘«ˆ—‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«åˆæœŸåŒ–ã®è£œè¶³å‡¦ç†ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
-	// Å‰‚Éƒ[ƒh‚µ‚Ä‚¨‚­
+	// æœ€åˆã«ãƒ­ãƒ¼ãƒ‰ã—ã¦ãŠã
 	OnBtnLoad();
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ðÝ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-				  // —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+				  // ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }

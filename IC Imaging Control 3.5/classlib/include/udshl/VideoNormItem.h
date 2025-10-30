@@ -1,4 +1,4 @@
-// VideoNormItem.h: interface for the VideoNormItem class.
+﻿// VideoNormItem.h: interface for the VideoNormItem class.
 //
 //////////////////////////////////////////////////////////////////////
 

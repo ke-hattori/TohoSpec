@@ -1,4 +1,4 @@
-// ConfirmDlg.cpp : implementation
+Ôªø// ConfirmDlg.cpp : implementation
 //
 
 #include "stdafx.h"
@@ -273,8 +273,8 @@ void CConfirmDlg::FontCreation()
 										//	"MS Sans Serif"
 										//	"Arial"
 										//	"batangche" (Hangul)
-										//	"MS ÉSÉVÉbÉN"
-										//	"MS PÉSÉVÉbÉN"
+										//	"MS „Ç¥„Ç∑„ÉÉ„ÇØ"
+										//	"MS P„Ç¥„Ç∑„ÉÉ„ÇØ"
 										//	"MS UI Gothic"
 										//	"Times New Roman"
 	);

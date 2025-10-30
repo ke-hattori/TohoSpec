@@ -1,4 +1,4 @@
-// SeHeadSock.cpp : Defines the SeHeadSock routines.
+ï»¿// SeHeadSock.cpp : Defines the SeHeadSock routines.
 //
 
 #include "stdafx.h"
@@ -55,7 +55,7 @@ BOOL CSeHeadSock::InitInstance()
 		strncpy(g_szMsgBoxCaption, g_lpszAppPrefix4[g_lAppNameType], 4);
 	}
 
-	// SE WVASE32 ‹N“®
+	// SE WVASE32 èµ·å‹•
 	if ( ::FindWindow(NULL, WVASE_TITLE) == NULL )	{
 		STARTUPINFO si;
 		PROCESS_INFORMATION pi;
@@ -76,11 +76,11 @@ BOOL CSeHeadSock::InitInstance()
 		::CloseHandle( pi.hThread );
 
 
-		// SE WVASE32‚ª³í‹N“®‚µ‚½‚©ƒ`ƒFƒbƒN
+		// SE WVASE32ãŒæ­£å¸¸èµ·å‹•ã—ãŸã‹ãƒã‚§ãƒƒã‚¯
 		timer.Restart(10);
 		while ( ::FindWindow(NULL, WVASE_TITLE) == NULL )	{
 			if ( timer.IsTimeout() ) {
-				// WVASE32‰“šƒ^ƒCƒ€ƒAƒEƒgƒGƒ‰[
+				// WVASE32å¿œç­”ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã‚¨ãƒ©ãƒ¼
 				MyMessageBox(NULL, pMojiretsu->LoadString(IDS_STRING32), g_szMsgBoxCaption, MB_OK | MB_ICONSTOP);
 				return FALSE;
 			}
@@ -123,7 +123,7 @@ void CSeHeadSock::ExitInstance()
 	TCHAR szRecvBuff[BUFFER_LEN];
 
 	if ( m_sock != INVALID_SOCKET ) {
-		CloseShutter();						// –ß‚è’l‚ÍAŒ©‚È‚¢
+		CloseShutter();						// æˆ»ã‚Šå€¤ã¯ã€è¦‹ãªã„
 
 		if ( !SendCommand(WVASE_HIDE) )
 			goto Finally;
@@ -141,7 +141,7 @@ void CSeHeadSock::ExitInstance()
 	}
 
 Finally:
-	// ’ÊM‚ÅƒVƒƒƒbƒgƒ_ƒEƒ“‚Å‚«‚È‚¢ê‡‚Ìl—¶
+	// é€šä¿¡ã§ã‚·ãƒ£ãƒƒãƒˆãƒ€ã‚¦ãƒ³ã§ããªã„å ´åˆã®è€ƒæ…®
 	HWND hWndWvase;
 	if ( (hWndWvase = ::FindWindow(NULL, WVASE_TITLE)) != NULL ) {
 		::PostMessage(hWndWvase, WM_SYSCOMMAND, SC_CLOSE, 0L);
@@ -163,7 +163,7 @@ BOOL CSeHeadSock::GetVersion(LPTSTR pszVersion)
 		return FALSE;
 	if ( !RecvData(szRecvBuff) )
 		return FALSE;
-//	if ( !CheckCmdAndStatusCode(WVASE_GETVER, szRecvBuff) )		// •s—v
+//	if ( !CheckCmdAndStatusCode(WVASE_GETVER, szRecvBuff) )		// ä¸è¦
 //		return FALSE;
 
 	strcpy(pszVersion, szRecvBuff);
@@ -345,7 +345,7 @@ BOOL CSeHeadSock::InitWVase()
 		return FALSE;
 	if ( !RecvData(szRecvBuff) )
 		return FALSE;
-//	if ( !CheckCmdAndStatusCode(WVASE_HWSTAT, szRecvBuff) )		// •s—v
+//	if ( !CheckCmdAndStatusCode(WVASE_HWSTAT, szRecvBuff) )		// ä¸è¦
 //		return FALSE;
 
 	return TRUE;

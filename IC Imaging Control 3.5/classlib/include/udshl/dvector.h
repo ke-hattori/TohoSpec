@@ -1,4 +1,4 @@
-
+﻿
 #ifndef DVECTOR_H_INC_
 #define DVECTOR_H_INC_
 

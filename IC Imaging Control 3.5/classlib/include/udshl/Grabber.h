@@ -1,4 +1,4 @@
-// Grabber.h: interface for the Grabber class.
+﻿// Grabber.h: interface for the Grabber class.
 //
 //////////////////////////////////////////////////////////////////////
 

@@ -1,4 +1,4 @@
-// NanoListUI.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// NanoListUI.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -72,7 +72,7 @@ BEGIN_MESSAGE_MAP(CNanoRecipeListUI, CNanoListUI)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// ‰Šú‰æ–Ê•ÒW
+// åˆæœŸç”»é¢ç·¨é›†
 void CNanoRecipeListUI::OnInitialUpdate()
 {
 	CNanoListUI::OnInitialUpdate();
@@ -85,7 +85,7 @@ void CNanoRecipeListUI::OnInitialUpdate()
 		| CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
 		!m_wndToolBar.LoadToolBar(IDR_LIST_BAR)){
 		TRACE0("Failed to create toolbar\n");
-		return; 	// ì¬‚É¸”s
+		return; 	// ä½œæˆã«å¤±æ•—
 	}
 
 	RECT rect;
@@ -103,7 +103,7 @@ void CNanoRecipeListUI::OnInitialUpdate()
 }
 
 // =========================================================================
-// ƒc[ƒ‹ƒo[‚Ì•\¦E”ñ•\¦
+// ãƒ„ãƒ¼ãƒ«ãƒãƒ¼ã®è¡¨ç¤ºãƒ»éè¡¨ç¤º
 void CNanoRecipeListUI::LayoutToolBar()
 {
 	CMainFrame* pMainFrame = (CMainFrame *)AfxGetMainWnd();
@@ -115,7 +115,7 @@ void CNanoRecipeListUI::LayoutToolBar()
 }
 
 // =========================================================================
-// ƒƒjƒ…[‚âƒ{ƒ^ƒ“‚ÌV‹Kì¬‚©‚çŒÄ‚Î‚ê‚½‚Ìˆ—
+// ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚„ãƒœã‚¿ãƒ³ã®æ–°è¦ä½œæˆã‹ã‚‰å‘¼ã°ã‚ŒãŸæ™‚ã®å‡¦ç†
 void CNanoRecipeListUI::OnNew()
 {
 	//Saiki 20090528 Add ----->
@@ -136,7 +136,7 @@ void CNanoRecipeListUI::OnNew()
 }
 
 // =========================================================================
-// ƒƒjƒ…[‚âƒ{ƒ^ƒ“‚Ìíœ‚©‚çŒÄ‚Î‚ê‚½‚Ìˆ—
+// ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚„ãƒœã‚¿ãƒ³ã®å‰Šé™¤ã‹ã‚‰å‘¼ã°ã‚ŒãŸæ™‚ã®å‡¦ç†
 void CNanoRecipeListUI::OnDelete()
 {
 // Kojika 20090526 Add
@@ -148,7 +148,7 @@ void CNanoRecipeListUI::OnDelete()
 	int iListCount;
 	int iIndex;
 
-	// ƒŠƒXƒg‚Ì‘I‘ğsæ“¾
+	// ãƒªã‚¹ãƒˆã®é¸æŠè¡Œå–å¾—
 	iIndex = CNanoListUI::rfListCtrl().GetSelectionMark();
 	if ( iIndex == -1 )
 		return;
@@ -167,7 +167,7 @@ void CNanoRecipeListUI::OnDelete()
 	CNanoListUI::rfListCtrl().GetItemText(iIndex, 1, szName, sizeof(szName));
 // Kojika 20090526 Change
 //	sprintf(szMessage, "Do you want to Delete \"%s\"?", szName);
-//	sprintf(szMessage, "\"%s\"‚ğíœ‚µ‚Ü‚·‚©H", szName);
+//	sprintf(szMessage, "\"%s\"ã‚’å‰Šé™¤ã—ã¾ã™ã‹ï¼Ÿ", szName);
 	LoadStringML(IDS_WANT_DELETE, strBuffer, "Do you want to Delete ""%s""?");
 	sprintf(szMessage, strBuffer, szName);
 // Kojika 20090526 Change End
@@ -181,10 +181,10 @@ void CNanoRecipeListUI::OnDelete()
 	{
 		iListCount = CNanoListUI::rfListCtrl().GetItemCount();
 		List_DataSet();
-/* added 2015.06.01 hmenjo ƒŠƒXƒgíœŒãƒ\[ƒg ---------- { ---------- */
+/* added 2015.06.01 hmenjo ãƒªã‚¹ãƒˆå‰Šé™¤å¾Œã‚½ãƒ¼ãƒˆ ---------- { ---------- */
 		CNanoListUI::SortColumn(1);
 		CNanoListUI::SortColumn(1);
-/* added 2015.06.01 hmenjo ƒŠƒXƒgíœŒãƒ\[ƒg ---------- } ---------- */
+/* added 2015.06.01 hmenjo ãƒªã‚¹ãƒˆå‰Šé™¤å¾Œã‚½ãƒ¼ãƒˆ ---------- } ---------- */
 
 		if( iIndex == iListCount - 1 )
 			iIndex--;
@@ -195,53 +195,53 @@ void CNanoRecipeListUI::OnDelete()
 }
 
 // =========================================================================
-// ƒNƒŠƒbƒNA‰½‚à‚µ‚È‚¢
+// ã‚¯ãƒªãƒƒã‚¯æ™‚ã€ä½•ã‚‚ã—ãªã„
 void CNanoRecipeListUI::OnClickRecipeMainList(NMHDR* pNMHDR, LRESULT* pResult)
 {
 	*pResult = 0;
 }
 
 // =========================================================================
-// ƒ_ƒuƒ‹ƒNƒŠƒbƒN‚ÅƒŒƒVƒs‘I‘ğ‚³‚ê‚½ê‡AƒŒƒVƒs•ÒW‚ğŒÄo‚·
+// ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯ã§ãƒ¬ã‚·ãƒ”é¸æŠã•ã‚ŒãŸå ´åˆã€ãƒ¬ã‚·ãƒ”ç·¨é›†ã‚’å‘¼å‡ºã™
 void CNanoRecipeListUI::OnDblclkRecipeMainList(NMHDR* pNMHDR, LRESULT* pResult)
 {
 	CMainFrame* pMainFrame = (CMainFrame *)AfxGetMainWnd();
 	if ( pMainFrame->GetCurrOperationPanel() == OP_RECIPE_SETTING )
 		RecipeEntry(FALSE);
-/* added 2015.04.12 hmenjo ƒ_ƒuƒ‹ƒNƒŠƒbƒNè“®‘ª’è ---------- { ---------- */
+/* added 2015.04.12 hmenjo ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯æ‰‹å‹•æ¸¬å®š ---------- { ---------- */
 	if (g_lModelType == MODEL_T3100) {
 		if (pMainFrame->GetCurrOperationPanel() == OP_MEASUREMENT) {
-			/* è“®‘ª’è‚É“ü‚è‚Ü‚·D	*/
+			/* æ‰‹å‹•æ¸¬å®šã«å…¥ã‚Šã¾ã™ï¼	*/
 			pMainFrame->m_wndSplitter1.GetPane(1, 0)->PostMessage(WM_DISPMENU_MANUAL_MEASUREMENT, (WPARAM) WM_DISPMENU_MANUAL_MEASUREMENT, 0);
 		}
 	}
-/* added 2015.04.12 hmenjo ƒ_ƒuƒ‹ƒNƒŠƒbƒNè“®‘ª’è ---------- } ---------- */
+/* added 2015.04.12 hmenjo ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯æ‰‹å‹•æ¸¬å®š ---------- } ---------- */
 
 	*pResult = 0;
 }
 
 
 // =========================================================================
-// ƒGƒ“ƒ^[ƒL[‚ÅƒŒƒVƒs‘I‘ğ‚³‚ê‚½ê‡AƒŒƒVƒs•ÒW‚ğŒÄo‚·
+// ã‚¨ãƒ³ã‚¿ãƒ¼ã‚­ãƒ¼ã§ãƒ¬ã‚·ãƒ”é¸æŠã•ã‚ŒãŸå ´åˆã€ãƒ¬ã‚·ãƒ”ç·¨é›†ã‚’å‘¼å‡ºã™
 LRESULT CNanoRecipeListUI::OnReturnRecipeMainList(WPARAM wparam, LPARAM lparam)
 {
 	CMainFrame* pMainFrame = (CMainFrame *)AfxGetMainWnd();
 	if ( pMainFrame->GetCurrOperationPanel() == OP_RECIPE_SETTING )
 		RecipeEntry(FALSE);
-/* added 2015.04.12 hmenjo ƒ_ƒuƒ‹ƒNƒŠƒbƒNè“®‘ª’è ---------- { ---------- */
+/* added 2015.04.12 hmenjo ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯æ‰‹å‹•æ¸¬å®š ---------- { ---------- */
 	if (g_lModelType == MODEL_T3100) {
 		if (pMainFrame->GetCurrOperationPanel() == OP_MEASUREMENT) {
-			/* è“®‘ª’è‚É“ü‚è‚Ü‚·D	*/
+			/* æ‰‹å‹•æ¸¬å®šã«å…¥ã‚Šã¾ã™ï¼	*/
 			pMainFrame->m_wndSplitter1.GetPane(1, 0)->PostMessage(WM_DISPMENU_MANUAL_MEASUREMENT, (WPARAM) WM_DISPMENU_MANUAL_MEASUREMENT, 0);
 		}
 	}
-/* added 2015.04.12 hmenjo ƒ_ƒuƒ‹ƒNƒŠƒbƒNè“®‘ª’è ---------- } ---------- */
+/* added 2015.04.12 hmenjo ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯æ‰‹å‹•æ¸¬å®š ---------- } ---------- */
 
 	return 0L;
 }
 
 // =========================================================================
-// ƒŒƒVƒs–¼‚©‚çAƒŠƒXƒgã‚Å‘I‘ğó‘Ô‚ÉƒZƒbƒg‚µ‚Ä‚¨‚­
+// ãƒ¬ã‚·ãƒ”åã‹ã‚‰ã€ãƒªã‚¹ãƒˆä¸Šã§é¸æŠçŠ¶æ…‹ã«ã‚»ãƒƒãƒˆã—ã¦ãŠã
 int CNanoRecipeListUI::SetCursorPosition(int iCol, LPCTSTR psz)
 {
 	char Buff[256];
@@ -271,38 +271,38 @@ int CNanoRecipeListUI::SetCursorPosition(int iCol, LPCTSTR psz)
 	return retv;
 }
 // =========================================================================
-// ƒŠƒXƒgã‚É‘I‘ğ‚³‚ê‚½ƒŒƒVƒs‚ª‚ ‚é‚©
+// ãƒªã‚¹ãƒˆä¸Šã«é¸æŠã•ã‚ŒãŸãƒ¬ã‚·ãƒ”ãŒã‚ã‚‹ã‹
 BOOL CNanoRecipeListUI::CheckSelectRecipe()
 {
 	return CNanoListUI::rfListCtrl().GetSelectionMark() != -1;
 }
 
 // =========================================================================
-// ƒŠƒXƒg‚Ìƒwƒbƒ_•”ì¬
+// ãƒªã‚¹ãƒˆã®ãƒ˜ãƒƒãƒ€éƒ¨ä½œæˆ
 void CNanoRecipeListUI::List_HeaderSet()
 {
-	// ƒTƒuƒNƒ‰ƒX‚Å’è‹`
+	// ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã§å®šç¾©
 }
 
 // =========================================================================
-// ƒŠƒXƒg‚Ìƒf[ƒ^•”ì¬
+// ãƒªã‚¹ãƒˆã®ãƒ‡ãƒ¼ã‚¿éƒ¨ä½œæˆ
 void CNanoRecipeListUI::List_DataSet()
 {
-	// ƒTƒuƒNƒ‰ƒX‚Å’è‹`
+	// ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã§å®šç¾©
 }
 
 // =========================================================================
-// ƒŒƒVƒs“o˜^‚Ü‚½‚Í•ÒW
+// ãƒ¬ã‚·ãƒ”ç™»éŒ²ã¾ãŸã¯ç·¨é›†
 void CNanoRecipeListUI::RecipeEntry(BOOL bNew)
 {
-	// ƒTƒuƒNƒ‰ƒX‚Å’è‹`
+	// ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã§å®šç¾©
 }
 
 // =========================================================================
-// ƒŒƒVƒsíœ
+// ãƒ¬ã‚·ãƒ”å‰Šé™¤
 BOOL CNanoRecipeListUI::DeleteRecipeData(LPCTSTR pszRecipeName)
 {
-	// ƒTƒuƒNƒ‰ƒX‚Å’è‹`
+	// ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã§å®šç¾©
 	return FALSE;
 }
 
@@ -310,7 +310,7 @@ BOOL CNanoRecipeListUI::DeleteRecipeData(LPCTSTR pszRecipeName)
 // User Access Privilege
 BOOL CNanoRecipeListUI::IsAccessPrivilege()
 {
-	// ƒTƒuƒNƒ‰ƒX‚Å’è‹`
+	// ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã§å®šç¾©
 	return TRUE;
 }
 
@@ -318,22 +318,22 @@ BOOL CNanoRecipeListUI::IsAccessPrivilege()
 //
 void CNanoRecipeListUI::OnUpdateNew(CCmdUI* pCmdUI)
 {
-/* modified 2016.08.05 hmenjo ƒŒƒVƒs•ÒW menu ƒoƒO ---------- { ---------- */
+/* modified 2016.08.05 hmenjo ãƒ¬ã‚·ãƒ”ç·¨é›† menu ãƒã‚° ---------- { ---------- */
 //	pCmdUI->Enable(IsAccessPrivilege());
-/* modified 2016.08.05 hmenjo ƒŒƒVƒs•ÒW menu ƒoƒO ----------              */
+/* modified 2016.08.05 hmenjo ãƒ¬ã‚·ãƒ”ç·¨é›† menu ãƒã‚° ----------              */
 	BOOL l_bRc = FALSE;
-	/* ƒ†[ƒU‚ÌÀsŒ ƒ`ƒFƒbƒN	*/
+	/* ãƒ¦ãƒ¼ã‚¶ã®å®Ÿè¡Œæ¨©ãƒã‚§ãƒƒã‚¯	*/
 	l_bRc = IsAccessPrivilege();
 	if (FALSE != l_bRc) {
-		/* Às‰Â”\	*/
+		/* å®Ÿè¡Œå¯èƒ½	*/
 		int l_iItemCount = m_lstCtrl.GetItemCount();
 		if (RCP_PGM_NUM_MAX <= l_iItemCount) {
-			/* ƒŠƒXƒg‚ÌÅ‘å”‚É’B‚µ‚Ä‚¢‚é‚Ì‚Å’Ç‰Á•s‰Â”\	*/
+			/* ãƒªã‚¹ãƒˆã®æœ€å¤§æ•°ã«é”ã—ã¦ã„ã‚‹ã®ã§è¿½åŠ ä¸å¯èƒ½	*/
 			l_bRc = FALSE;
 		}
 	}
 	pCmdUI->Enable(l_bRc);
-/* modified 2016.08.05 hmenjo ƒŒƒVƒs•ÒW menu ƒoƒO ---------- } ---------- */
+/* modified 2016.08.05 hmenjo ãƒ¬ã‚·ãƒ”ç·¨é›† menu ãƒã‚° ---------- } ---------- */
 
 }
 
@@ -341,20 +341,20 @@ void CNanoRecipeListUI::OnUpdateNew(CCmdUI* pCmdUI)
 //
 void CNanoRecipeListUI::OnUpdateDelete(CCmdUI* pCmdUI)
 {
-/* modified 2016.08.05 hmenjo ƒŒƒVƒs•ÒW menu ƒoƒO ---------- { ---------- */
+/* modified 2016.08.05 hmenjo ãƒ¬ã‚·ãƒ”ç·¨é›† menu ãƒã‚° ---------- { ---------- */
 //	pCmdUI->Enable(IsAccessPrivilege());
-/* modified 2016.08.05 hmenjo ƒŒƒVƒs•ÒW menu ƒoƒO ----------              */
+/* modified 2016.08.05 hmenjo ãƒ¬ã‚·ãƒ”ç·¨é›† menu ãƒã‚° ----------              */
 	BOOL l_bRc = FALSE;
-	/* ƒ†[ƒU‚ÌÀsŒ ƒ`ƒFƒbƒN	*/
+	/* ãƒ¦ãƒ¼ã‚¶ã®å®Ÿè¡Œæ¨©ãƒã‚§ãƒƒã‚¯	*/
 	l_bRc = IsAccessPrivilege();
 	if (FALSE != l_bRc) {
-		/* Às‰Â”\	*/
+		/* å®Ÿè¡Œå¯èƒ½	*/
 		UINT l_uiSelectedCount = m_lstCtrl.GetSelectedCount();
 		if (1 != l_uiSelectedCount) {
-			/* ‘I‘ğs‚ª–³‚¢C‚ ‚é‚¢‚ÍC•¡”‚È‚Ì‚ÅÀs•s‰Â”\	*/
+			/* é¸æŠè¡ŒãŒç„¡ã„ï¼Œã‚ã‚‹ã„ã¯ï¼Œè¤‡æ•°ãªã®ã§å®Ÿè¡Œä¸å¯èƒ½	*/
 			l_bRc = FALSE;
 		}
 	}
 	pCmdUI->Enable(l_bRc);
-/* modified 2016.08.05 hmenjo ƒŒƒVƒs•ÒW menu ƒoƒO ---------- } ---------- */
+/* modified 2016.08.05 hmenjo ãƒ¬ã‚·ãƒ”ç·¨é›† menu ãƒã‚° ---------- } ---------- */
 }

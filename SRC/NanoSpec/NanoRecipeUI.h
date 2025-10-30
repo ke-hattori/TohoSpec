@@ -1,4 +1,4 @@
-// NanoRecipeUI.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+ï»¿// NanoRecipeUI.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #pragma once
@@ -28,26 +28,26 @@ public:
 	CNanoRecipeUI(UINT nIDTemplate);
 	virtual ~CNanoRecipeUI();
 	virtual BOOL Exit();
-/* added 2016.08.12 hmenjo ƒŒƒVƒs•ÒW menu ƒoƒO2 ---------- { ---------- */
-	virtual BOOL IsAccessPrivilege()=0;	// ”h¶ƒNƒ‰ƒX‚Å’è‹`
-/* added 2016.08.12 hmenjo ƒŒƒVƒs•ÒW menu ƒoƒO2 ---------- } ---------- */
+/* added 2016.08.12 hmenjo ãƒ¬ã‚·ãƒ”ç·¨é›† menu ãƒã‚°2 ---------- { ---------- */
+	virtual BOOL IsAccessPrivilege()=0;	// æ´¾ç”Ÿã‚¯ãƒ©ã‚¹ã§å®šç¾©
+/* added 2016.08.12 hmenjo ãƒ¬ã‚·ãƒ”ç·¨é›† menu ãƒã‚°2 ---------- } ---------- */
 
 protected:
 	virtual BOOL Save();
 	virtual BOOL SaveAs();
 	virtual void Discard();
-	virtual BOOL CheckData()=0;			// ”h¶ƒNƒ‰ƒX‚Å’è‹`
-	virtual BOOL IsDataChanged()=0;		// ”h¶ƒNƒ‰ƒX‚Å’è‹`
-	virtual BOOL SaveRecipeData()=0;	// ”h¶ƒNƒ‰ƒX‚Å’è‹`
-/* deleted 2016.08.12 hmenjo ƒŒƒVƒs•ÒW menu ƒoƒO2 ---------- { ---------- */
-//	virtual BOOL IsAccessPrivilege()=0;	// ”h¶ƒNƒ‰ƒX‚Å’è‹`
-/* deleted 2016.08.12 hmenjo ƒŒƒVƒs•ÒW menu ƒoƒO2 ---------- } ---------- */
-	virtual int SaveAsDlgInfo()=0;		// ”h¶ƒNƒ‰ƒX‚Å’è‹`
-/* added 2015.04.24 hmenjo Ref File íœ1 ---------- { ---------- */
+	virtual BOOL CheckData()=0;			// æ´¾ç”Ÿã‚¯ãƒ©ã‚¹ã§å®šç¾©
+	virtual BOOL IsDataChanged()=0;		// æ´¾ç”Ÿã‚¯ãƒ©ã‚¹ã§å®šç¾©
+	virtual BOOL SaveRecipeData()=0;	// æ´¾ç”Ÿã‚¯ãƒ©ã‚¹ã§å®šç¾©
+/* deleted 2016.08.12 hmenjo ãƒ¬ã‚·ãƒ”ç·¨é›† menu ãƒã‚°2 ---------- { ---------- */
+//	virtual BOOL IsAccessPrivilege()=0;	// æ´¾ç”Ÿã‚¯ãƒ©ã‚¹ã§å®šç¾©
+/* deleted 2016.08.12 hmenjo ãƒ¬ã‚·ãƒ”ç·¨é›† menu ãƒã‚°2 ---------- } ---------- */
+	virtual int SaveAsDlgInfo()=0;		// æ´¾ç”Ÿã‚¯ãƒ©ã‚¹ã§å®šç¾©
+/* added 2015.04.24 hmenjo Ref File å‰Šé™¤1 ---------- { ---------- */
 	virtual void DelRefFileByUseMeasPgm(LPCTSTR ptszMeasPgmName);
-/* added 2015.04.24 hmenjo Ref File íœ1 ---------- } ---------- */
+/* added 2015.04.24 hmenjo Ref File å‰Šé™¤1 ---------- } ---------- */
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CNanoRecipeUI)
 	afx_msg void OnSave();
 	afx_msg void OnSaveAs();

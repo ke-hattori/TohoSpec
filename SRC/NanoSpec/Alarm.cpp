@@ -1,4 +1,4 @@
-// Alarm.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// Alarm.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -70,7 +70,7 @@ CAlarm::~CAlarm()
 //
 BOOL CAlarm::InitInstance()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒXƒŒƒbƒh’PˆÊ‚Ì‰Šú‰»ƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ã“ã®ä½ç½®ã«ã‚¹ãƒ¬ãƒƒãƒ‰å˜ä½ã®åˆæœŸåŒ–ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 	return TRUE;
 }
 
@@ -78,7 +78,7 @@ BOOL CAlarm::InitInstance()
 //
 int CAlarm::ExitInstance()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒXƒŒƒbƒh’PˆÊ‚Ì‰Šú‰»ƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ã“ã®ä½ç½®ã«ã‚¹ãƒ¬ãƒƒãƒ‰å˜ä½ã®åˆæœŸåŒ–ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 	return CWinThread::ExitInstance();
 }
 
@@ -86,12 +86,12 @@ int CAlarm::ExitInstance()
 //
 BEGIN_MESSAGE_MAP(CAlarm, CWinThread)
 	//{{AFX_MSG_MAP(CAlarm)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã—ã¾ã™ã€‚
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CAlarm ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CAlarm ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -107,7 +107,7 @@ int CAlarm::Run()
 		Sleep(100);
 	}
 
-// AfxBeginThread‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚Ì‚ÅAfxEndThread‚ÅI—¹‚·‚é
+// AfxBeginThreadã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã®ã§AfxEndThreadã§çµ‚äº†ã™ã‚‹
 //	ExitThread(0);
 	AfxEndThread(0);
 
@@ -123,9 +123,9 @@ void CAlarm::AlarmListLoading()
 	CString sBuff;
 	char szFilePath[MAX_PATH];
 
-// K.Matsuo 2009.08.03 Œ¾Œê•ÊƒAƒ‰[ƒ€ƒŠƒXƒg“Ç‚İ -->
-	// ver 2.1.0 or higher EEEƒRƒ“ƒtƒBƒO‚ÌŒ¾Œêw’è‚É‚æ‚èAAlarmList_E.ini or AlarmList_J.ini‚ğ“Ç‚İ‚Ş
-	// less than ver 2.1.0 EEEAlarmList.ini‚ğ“Ç‚İ‚Ş‚±‚Æ‚É‚È‚é
+// K.Matsuo 2009.08.03 è¨€èªåˆ¥ã‚¢ãƒ©ãƒ¼ãƒ ãƒªã‚¹ãƒˆèª­è¾¼ã¿ -->
+	// ver 2.1.0 or higher ãƒ»ãƒ»ãƒ»ã‚³ãƒ³ãƒ•ã‚£ã‚°ã®è¨€èªæŒ‡å®šã«ã‚ˆã‚Šã€AlarmList_E.ini or AlarmList_J.iniã‚’èª­ã¿è¾¼ã‚€
+	// less than ver 2.1.0 ãƒ»ãƒ»ãƒ»AlarmList.iniã‚’èª­ã¿è¾¼ã‚€ã“ã¨ã«ãªã‚‹
 	SYSTEM_CONFIG l_SystemConfig;
 	ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 
@@ -142,7 +142,7 @@ void CAlarm::AlarmListLoading()
 			return;
 		}
 	}
-// K.Matsuo 2009.08.03 Œ¾Œê•ÊƒAƒ‰[ƒ€ƒŠƒXƒg“Ç‚İ <--
+// K.Matsuo 2009.08.03 è¨€èªåˆ¥ã‚¢ãƒ©ãƒ¼ãƒ ãƒªã‚¹ãƒˆèª­è¾¼ã¿ <--
 
 	while(File.ReadString(sBuff) && m_AlarmMax < ALARM_LIST_MAX){
 

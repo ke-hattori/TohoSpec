@@ -1,42 +1,42 @@
-#if !defined(AFX_NANOLINESELECT_H__5D5F54C7_D960_461F_82DB_650C1B9818F3__INCLUDED_)
+ï»¿#if !defined(AFX_NANOLINESELECT_H__5D5F54C7_D960_461F_82DB_650C1B9818F3__INCLUDED_)
 #define AFX_NANOLINESELECT_H__5D5F54C7_D960_461F_82DB_650C1B9818F3__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// NanoLineSelect.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// NanoLineSelect.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
-#include <afxwin.h> 		// MFC ‚ÌƒRƒA‚¨‚æ‚Ñ•W€ƒRƒ“ƒ|[ƒlƒ“ƒg
-#include <afxext.h> 		// MFC ‚ÌŠg’£•”•ª
-#include <afxdisp.h>		// MFC ‚ÌƒI[ƒgƒ[ƒVƒ‡ƒ“ ƒNƒ‰ƒX
+#include <afxwin.h> 		// MFC ã®ã‚³ã‚¢ãŠã‚ˆã³æ¨™æº–ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
+#include <afxext.h> 		// MFC ã®æ‹¡å¼µéƒ¨åˆ†
+#include <afxdisp.h>		// MFC ã®ã‚ªãƒ¼ãƒˆãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ ã‚¯ãƒ©ã‚¹
 
-//CheckBox—p ’è”
+//CheckBoxç”¨ å®šæ•°
 #define CHECK_BOX_WIDTH			(12)
 #define GUIDE_LINE_LENGTH		(24)
 #define CHECK_BOX_OFFSET		(2)
 
 /////////////////////////////////////////////////////////////////////////////
-// CNanoLineSelect ƒEƒBƒ“ƒhƒE
+// CNanoLineSelect ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
 
 class CNanoLineSelect : public CButton
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
 	CNanoLineSelect();
 
-// ƒAƒgƒŠƒrƒ…[ƒg
+// ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 public:
 	void SetDisplaySetting(COLORREF BackColor,COLORREF LineColor,int PenStyle);
 
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CNanoLineSelect)
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 	SIZE GetIdealDispSize();
 	void SetCheck(int nChecked);
@@ -45,7 +45,7 @@ public:
 	virtual ~CNanoLineSelect();
 
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 protected:
 	//{{AFX_MSG(CNanoLineSelect)
 	afx_msg void OnClicked();
@@ -69,6 +69,6 @@ private:
 /////////////////////////////////////////////////////////////////////////////
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_NANOLINESELECT_H__5D5F54C7_D960_461F_82DB_650C1B9818F3__INCLUDED_)

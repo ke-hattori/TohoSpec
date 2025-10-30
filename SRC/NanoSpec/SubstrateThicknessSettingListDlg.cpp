@@ -1,4 +1,4 @@
-// SubstrateThicknessSettingListDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SubstrateThicknessSettingListDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -15,7 +15,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CSubstrateThicknessSettingListDlg ƒ_ƒCƒAƒƒO
+// CSubstrateThicknessSettingListDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 
 CSubstrateThicknessSettingListDlg::CSubstrateThicknessSettingListDlg(CWnd* pParent /*=NULL*/)
@@ -56,7 +56,7 @@ BEGIN_MESSAGE_MAP(CSubstrateThicknessSettingListDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CSubstrateThicknessSettingListDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSubstrateThicknessSettingListDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 BOOL CSubstrateThicknessSettingListDlg::OnInitDialog() 
 {
@@ -104,8 +104,8 @@ BOOL CSubstrateThicknessSettingListDlg::OnInitDialog()
 
 	UpDate(FALSE);
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-	              // —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+	              // ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
@@ -124,8 +124,8 @@ void CSubstrateThicknessSettingListDlg::SubstrateThicknessList_Init()
 
 	LPTSTR pszItemJPN[] = {
 		"No.",
-		"”ÂŒú",
-		"–³Œø—Ìˆæ",
+		"æ¿åš",
+		"ç„¡åŠ¹é ˜åŸŸ",
 	};
 	LPTSTR pszItemENU[] = {
 		"No.",
@@ -175,8 +175,8 @@ void CSubstrateThicknessSettingListDlg::ReferenceThicknessList_Init()
 
 	LPTSTR pszItemJPN[] = {
 		"No.",
-		"”ÂŒú",
-		"–³Œø—Ìˆæ",
+		"æ¿åš",
+		"ç„¡åŠ¹é ˜åŸŸ",
 	};
 	LPTSTR pszItemENU[] = {
 		"No.",
@@ -262,13 +262,13 @@ void CSubstrateThicknessSettingListDlg::UpdateListCtrl(CNanoListCtrl* pListCtrl,
 void CSubstrateThicknessSettingListDlg::UpDate(BOOL bValid)
 {
 	if(bValid){
-		//\‘¢‘Ì‚Öƒf[ƒ^‚ğƒZƒbƒg‚·‚é‚Ì‚ÍAŒÂ•Ê“ü—Íƒ_ƒCƒAƒƒO‰æ–Ê‚Å‚Ì“ü—ÍŠ®—¹“_
+		//æ§‹é€ ä½“ã¸ãƒ‡ãƒ¼ã‚¿ã‚’ã‚»ãƒƒãƒˆã™ã‚‹ã®ã¯ã€å€‹åˆ¥å…¥åŠ›ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ç”»é¢ã§ã®å…¥åŠ›å®Œäº†æ™‚ç‚¹
 	}
 	else{
-		//\‘¢‘Ì‚É‚ ‚éƒf[ƒ^‚ğ‰æ–Ê‚ÉƒZƒbƒg‚·‚é
-		UpdateListCtrl(&m_ReferenceThicknessListCtrl, 0);				// Index 0‚ÍAƒŠƒtƒ@ƒŒƒ“ƒX‚Ì”ÂŒú
+		//æ§‹é€ ä½“ã«ã‚ã‚‹ãƒ‡ãƒ¼ã‚¿ã‚’ç”»é¢ã«ã‚»ãƒƒãƒˆã™ã‚‹
+		UpdateListCtrl(&m_ReferenceThicknessListCtrl, 0);				// Index 0ã¯ã€ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã®æ¿åš
 
-		for (int i = 1; i < SUBSTRATE_THICKNESS_MAX; i++) {				// Index 1ˆÈ~‚ÍAƒTƒ“ƒvƒ‹‚Ì”ÂŒú
+		for (int i = 1; i < SUBSTRATE_THICKNESS_MAX; i++) {				// Index 1ä»¥é™ã¯ã€ã‚µãƒ³ãƒ—ãƒ«ã®æ¿åš
 			UpdateListCtrl(&m_SubstrateThicknessListCtrl, i);
 		}
 	}
@@ -319,11 +319,11 @@ void CSubstrateThicknessSettingListDlg::EditSubstrateThickness()
 
 	iSelectedIndex = m_SubstrateThicknessListCtrl.GetSelectionMark();
 	if (iSelectedIndex < 0) {
-		// ‘I‘ğ‚³‚ê‚Ä‚¢‚È‚¢
+		// é¸æŠã•ã‚Œã¦ã„ãªã„
 		return;
 	}
 
-	// Index 0:ƒŠƒtƒ@ƒŒƒ“ƒX•ª‚ÌƒYƒŒ‚ğ‰ÁZ‚µ‚Ä‚¨‚­
+	// Index 0:ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹åˆ†ã®ã‚ºãƒ¬ã‚’åŠ ç®—ã—ã¦ãŠã
 	ConfigDataIndex = iSelectedIndex + 1;
 
 	CSubstrateThicknessSettingDlg dlg(FALSE);
@@ -334,12 +334,12 @@ void CSubstrateThicknessSettingListDlg::EditSubstrateThickness()
 	}
 
 	if(dlg.DoModal() == IDOK){
-		// iniƒtƒ@ƒCƒ‹‚É•Û‘¶
+		// iniãƒ•ã‚¡ã‚¤ãƒ«ã«ä¿å­˜
 		m_SubstrateThicknessTable.SubstrateThickness[ConfigDataIndex] = dlg.m_SubstrateThickness;
 		ConfigFile_SetNanoSpecIni(&m_SubstrateThicknessTable, CONFIG_FILE_SUBSTRATE_THICKNESS_CONFIG);
 		ConfigFile_SaveNanoSpecIni(SUBSTRATE_THICKNESS_INI_FILE);
 
-		// ‰æ–Ê•\¦XV
+		// ç”»é¢è¡¨ç¤ºæ›´æ–°
 		dTemp = MicroToMilli(m_SubstrateThicknessTable.SubstrateThickness[ConfigDataIndex].dThickness);
 		strBuffer.Format("%.2lf", dTemp);
 		m_SubstrateThicknessListCtrl.SetItemText(iSelectedIndex, 1, strBuffer);
@@ -365,7 +365,7 @@ void CSubstrateThicknessSettingListDlg::OnDeleteButton()
 
 	SelectedIndex = m_SubstrateThicknessListCtrl.GetSelectionMark();
 	if (SelectedIndex < 0) {
-		// ‘I‘ğ‚³‚ê‚Ä‚¢‚È‚¢
+		// é¸æŠã•ã‚Œã¦ã„ãªã„
 		return;
 	}
 
@@ -388,17 +388,17 @@ void CSubstrateThicknessSettingListDlg::OnDeleteButton()
 		return;
 	}
 
-	// Index 0:ƒŠƒtƒ@ƒŒƒ“ƒX•ª‚ÌƒYƒŒ‚ğ‰ÁZ‚µ‚Ä‚¨‚­
+	// Index 0:ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹åˆ†ã®ã‚ºãƒ¬ã‚’åŠ ç®—ã—ã¦ãŠã
 	ConfigDataIndex = SelectedIndex + 1;
 
-	// iniƒtƒ@ƒCƒ‹‘‚«‚İ
+	// iniãƒ•ã‚¡ã‚¤ãƒ«æ›¸ãè¾¼ã¿
 	SUBSTRATE_THICKNESS substrateThickness;
 	::ZeroMemory(&substrateThickness, sizeof(substrateThickness));
 	m_SubstrateThicknessTable.SubstrateThickness[ConfigDataIndex] = substrateThickness;
 	ConfigFile_SetNanoSpecIni(&m_SubstrateThicknessTable, CONFIG_FILE_SUBSTRATE_THICKNESS_CONFIG);
 	ConfigFile_SaveNanoSpecIni(SUBSTRATE_THICKNESS_INI_FILE);
 
-	// ‰æ–Ê•\¦XV
+	// ç”»é¢è¡¨ç¤ºæ›´æ–°
 	m_SubstrateThicknessListCtrl.SetItemText(SelectedIndex, 1, _T("-"));
 	m_SubstrateThicknessListCtrl.SetItemText(SelectedIndex, 2, _T("-"));
 }
@@ -426,12 +426,12 @@ void CSubstrateThicknessSettingListDlg::EditReferenceThickness()
 	}
 
 	if(dlg.DoModal() == IDOK){
-		// iniƒtƒ@ƒCƒ‹‚É•Û‘¶
+		// iniãƒ•ã‚¡ã‚¤ãƒ«ã«ä¿å­˜
 		m_SubstrateThicknessTable.SubstrateThickness[0] = dlg.m_SubstrateThickness;
 		ConfigFile_SetNanoSpecIni(&m_SubstrateThicknessTable, CONFIG_FILE_SUBSTRATE_THICKNESS_CONFIG);
 		ConfigFile_SaveNanoSpecIni(SUBSTRATE_THICKNESS_INI_FILE);
 
-		// ‰æ–Ê•\¦XV
+		// ç”»é¢è¡¨ç¤ºæ›´æ–°
 		dTemp = MicroToMilli(m_SubstrateThicknessTable.SubstrateThickness[0].dThickness);
 		strBuffer.Format("%.2lf", dTemp);
 		m_ReferenceThicknessListCtrl.SetItemText(0, 1, strBuffer);
@@ -471,14 +471,14 @@ void CSubstrateThicknessSettingListDlg::OnReferenceDeleteButton()
 		return;
 	}
 
-	// iniƒtƒ@ƒCƒ‹‘‚«‚İ
+	// iniãƒ•ã‚¡ã‚¤ãƒ«æ›¸ãè¾¼ã¿
 	SUBSTRATE_THICKNESS substrateThickness;
 	::ZeroMemory(&substrateThickness, sizeof(substrateThickness));
 	m_SubstrateThicknessTable.SubstrateThickness[0] = substrateThickness;
 	ConfigFile_SetNanoSpecIni(&m_SubstrateThicknessTable, CONFIG_FILE_SUBSTRATE_THICKNESS_CONFIG);
 	ConfigFile_SaveNanoSpecIni(SUBSTRATE_THICKNESS_INI_FILE);
 
-	// ‰æ–Ê•\¦XV
+	// ç”»é¢è¡¨ç¤ºæ›´æ–°
 	m_ReferenceThicknessListCtrl.SetItemText(0, 1, _T("-"));
 	m_ReferenceThicknessListCtrl.SetItemText(0, 2, _T("-"));
 }

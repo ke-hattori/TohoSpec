@@ -1,4 +1,4 @@
-// DeskewSeqWnd.cpp : implementation file
+ï»¿// DeskewSeqWnd.cpp : implementation file
 //
 
 #include "stdafx.h"
@@ -38,7 +38,7 @@ int CDeskewManualSeqWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	if (CWnd::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
-// 2009.06.11 K.Matsuo ƒ|[ƒY‘Î‰ -->
+// 2009.06.11 K.Matsuo ãƒãƒ¼ã‚ºå¯¾å¿œ -->
 	while ( 1 ) {
 		if ( ((CDeskewSeq*)AfxGetThread())->m_bShutDown )
 			break;
@@ -57,7 +57,7 @@ int CDeskewManualSeqWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		// DeskewSiteManual 1
 		((CMainFrame*) (((CChiefView*) ((CDeskewSeq*)AfxGetThread())->m_pChiefView)->m_pcMainFrame))->PostMessage(WM_DESKEWSEQ_DESKEWMANUAL_START, 0L, 0L);
 	}
-// 2009.06.11 K.Matsuo ƒ|[ƒY‘Î‰ <--
+// 2009.06.11 K.Matsuo ãƒãƒ¼ã‚ºå¯¾å¿œ <--
 
 	return 0;
 }
@@ -78,7 +78,7 @@ LRESULT CDeskewManualSeqWnd::OnDeskewManualSite1OkEnd(WPARAM wParam, LPARAM lPar
 	((CDeskewSeq*)AfxGetThread())->MatchLoc[0].lX = (long)wParam;
 	((CDeskewSeq*)AfxGetThread())->MatchLoc[0].lY = (long)lParam;
 
-// 2009.06.11 K.Matsuo ƒ|[ƒY‘Î‰ -->
+// 2009.06.11 K.Matsuo ãƒãƒ¼ã‚ºå¯¾å¿œ -->
 	while ( 1 ) {
 		if ( ((CDeskewSeq*)AfxGetThread())->m_bShutDown )
 			break;
@@ -97,7 +97,7 @@ LRESULT CDeskewManualSeqWnd::OnDeskewManualSite1OkEnd(WPARAM wParam, LPARAM lPar
 		// DeskewSiteManual 2
 		((CMainFrame*) (((CChiefView*) ((CDeskewSeq*)AfxGetThread())->m_pChiefView)->m_pcMainFrame))->PostMessage(WM_DESKEWSEQ_DESKEWMANUAL_START, 1L, 0L);
 	}
-// 2009.06.11 K.Matsuo ƒ|[ƒY‘Î‰ <--
+// 2009.06.11 K.Matsuo ãƒãƒ¼ã‚ºå¯¾å¿œ <--
 
 	return 0L;
 }
@@ -113,7 +113,7 @@ LRESULT CDeskewManualSeqWnd::OnDeskewManualSite2OkEnd(WPARAM wParam, LPARAM lPar
 
 	((CDeskewSeq*)AfxGetThread())->m_iEvent = EV_DSKW_MANU_OK;
 
-	// DeskewŒvZ‚ÍAƒ}ƒVƒ“À•W‚Ås‚¤
+	// Deskewè¨ˆç®—ã¯ã€ãƒã‚·ãƒ³åº§æ¨™ã§è¡Œã†
 	STAGE_COORD DeskewSiteLoc1, DeskewSiteLoc2, MatchLoc1, MatchLoc2;
 	DeskewSiteLoc1 = ((CDeskewSeq*)AfxGetThread())->m_pStageProgInfoHdr->DeskewSiteManual[0].Loc;
 	DeskewSiteLoc2 = ((CDeskewSeq*)AfxGetThread())->m_pStageProgInfoHdr->DeskewSiteManual[1].Loc;
@@ -130,7 +130,7 @@ LRESULT CDeskewManualSeqWnd::OnDeskewManualSite2OkEnd(WPARAM wParam, LPARAM lPar
 			  MatchLoc1,
 			  MatchLoc2);
 
-	// Deskew Manual I‚í‚è
+	// Deskew Manual çµ‚ã‚ã‚Š
 	PostMessage(WM_CLOSE, 0L, 0L);
 
 	return 0L;
@@ -144,7 +144,7 @@ LRESULT CDeskewManualSeqWnd::OnDeskewManualCancelEnd(WPARAM wParam, LPARAM lPara
 
 	((CDeskewSeq*)AfxGetThread())->m_iEvent = EV_DSKW_MANU_CANCEL;
 
-	// Deskew Manual I‚í‚è
+	// Deskew Manual çµ‚ã‚ã‚Š
 	PostMessage(WM_CLOSE, 0L, 0L);
 
 	return 0L;
@@ -158,7 +158,7 @@ LRESULT CDeskewManualSeqWnd::OnDeskewManualNoneEnd(WPARAM wParam, LPARAM lParam)
 
 	((CDeskewSeq*)AfxGetThread())->m_iEvent = EV_DSKW_MANU_NONE;
 
-	// Deskew Manual I‚í‚è
+	// Deskew Manual çµ‚ã‚ã‚Š
 	PostMessage(WM_CLOSE, 0L, 0L);
 
 	return 0L;

@@ -1,4 +1,4 @@
-// GridCellCheck.cpp : implementation file
+﻿// GridCellCheck.cpp : implementation file
 //
 // MFC Grid Control - Main grid cell class
 //

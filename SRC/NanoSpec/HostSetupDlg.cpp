@@ -1,4 +1,4 @@
-// HostSetupDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// HostSetupDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -13,7 +13,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CHostSetupDlg ƒ_ƒCƒAƒƒO
+// CHostSetupDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 
 CHostSetupDlg::CHostSetupDlg(CWnd* pParent /*=NULL*/)
@@ -43,7 +43,7 @@ BEGIN_MESSAGE_MAP(CHostSetupDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CHostSetupDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CHostSetupDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 BOOL CHostSetupDlg::OnInitDialog()
 {

@@ -1,4 +1,4 @@
-// SrAutoFocusRetryTimesDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SrAutoFocusRetryTimesDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -13,7 +13,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// SrAutoFocusRetryTimesDlg ƒ_ƒCƒAƒƒO
+// SrAutoFocusRetryTimesDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 
 SrAutoFocusRetryTimesDlg::SrAutoFocusRetryTimesDlg(CWnd* pParent /*=NULL*/)
@@ -42,7 +42,7 @@ BEGIN_MESSAGE_MAP(SrAutoFocusRetryTimesDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// SrAutoFocusRetryTimesDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// SrAutoFocusRetryTimesDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 void SrAutoFocusRetryTimesDlg::OnOK()
 {
 	UpdateData(TRUE);

@@ -1,4 +1,4 @@
-#if !defined( _OVERLAYDIALOG_H_ )
+ï»¿#if !defined( _OVERLAYDIALOG_H_ )
 #define _OVERLAYDIALOG_H_
 
 #if _MSC_VER > 1000
@@ -49,7 +49,7 @@
 #endif
 #define STAGE_MAP_OFFSET_Y		(20)
 
-#define SAMPLE_MAX		100 				// b’è‚Å‚P‚O‚O‚É‚µ‚Ä‚¨‚­
+#define SAMPLE_MAX		100 				// æš«å®šã§ï¼‘ï¼ï¼ã«ã—ã¦ãŠã
 
 // ##########################################################################
 // class : COverlayDialog
@@ -83,13 +83,13 @@ public:
 	long m_lTeachPosX, m_lTeachPosY; // fot StageConfig stage offset
 // 2013.01.22 bagus stage origin offset <--
 	BOOL m_StagePositionSetting;
-// 2009.11.16 K.Matsuo ƒwƒbƒhƒIƒtƒZƒbƒg‘Î‰ -->
+// 2009.11.16 K.Matsuo ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆå¯¾å¿œ -->
 	BOOL m_bOriginalPositionSetting;
-// 2009.11.16 K.Matsuo ƒwƒbƒhƒIƒtƒZƒbƒg‘Î‰ <--
+// 2009.11.16 K.Matsuo ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆå¯¾å¿œ <--
 	double m_dXPixelToMicron, m_dYPixelToMicron;
-/* added 2009.12.09 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- { ---------- */
+/* added 2009.12.09 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ(è¿½åŠ æ”¹é€ ) ---------- { ---------- */
 	BOOL m_bProgress1PMeas;
-/* added 2009.12.09 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- } ---------- */
+/* added 2009.12.09 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ(è¿½åŠ æ”¹é€ ) ---------- } ---------- */
 
 	template<class T>
 	void GetTeachPos(T* pPos) { ::CopyMemory(pPos, &m_CurrPos, sizeof(T)); }
@@ -105,7 +105,7 @@ public:
 		return;
 	}
 
-	BOOL m_joyContinue;				// TRUE‚Ìê‡‚ÍA‘O‚Ìó‘Ô‚ğˆø‚«Œp‚®
+	BOOL m_joyContinue;				// TRUEã®å ´åˆã¯ã€å‰ã®çŠ¶æ…‹ã‚’å¼•ãç¶™ã
 
 // 2010.01.07 bagus Gantry --{--
 	BOOL	m_bGantry;
@@ -178,9 +178,9 @@ protected:
 	afx_msg void OnCapture();
 	afx_msg void OnSpecifyCoord();
 	afx_msg void OnJogSetting();
-/* deleted 2009.06.15 hmenjo ƒ†[ƒU’è‹`ƒƒbƒZ[ƒWƒnƒ“ƒhƒ‰ IF C³ ---------- { ---------- */
+/* deleted 2009.06.15 hmenjo ãƒ¦ãƒ¼ã‚¶å®šç¾©ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒãƒ³ãƒ‰ãƒ© IF ä¿®æ­£ ---------- { ---------- */
 //	afx_msg void OnJoyStick();
-/* deleted 2009.06.15 hmenjo ƒ†[ƒU’è‹`ƒƒbƒZ[ƒWƒnƒ“ƒhƒ‰ IF C³ ---------- } ---------- */
+/* deleted 2009.06.15 hmenjo ãƒ¦ãƒ¼ã‚¶å®šç¾©ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒãƒ³ãƒ‰ãƒ© IF ä¿®æ­£ ---------- } ---------- */
 	afx_msg void OnShowWindow(BOOL bShow, UINT nStatus);
 // INS 2009.07.06 by kawamura
 	afx_msg void OnStageMove();
@@ -203,13 +203,13 @@ protected:
 	LRESULT OnDoStageMove(WPARAM, LPARAM);
 	LRESULT OnStageMoveDone(WPARAM, LPARAM);
 	LRESULT OnDoElevatorMove(WPARAM, LPARAM);
-/* added 2009.06.15 hmenjo ƒ†[ƒU’è‹`ƒƒbƒZ[ƒWƒnƒ“ƒhƒ‰ IF C³ ---------- { ---------- */
+/* added 2009.06.15 hmenjo ãƒ¦ãƒ¼ã‚¶å®šç¾©ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒãƒ³ãƒ‰ãƒ© IF ä¿®æ­£ ---------- { ---------- */
 	LRESULT OnJoyStick(WPARAM, LPARAM);
-/* added 2009.06.15 hmenjo ƒ†[ƒU’è‹`ƒƒbƒZ[ƒWƒnƒ“ƒhƒ‰ IF C³ ---------- } ---------- */
+/* added 2009.06.15 hmenjo ãƒ¦ãƒ¼ã‚¶å®šç¾©ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒãƒ³ãƒ‰ãƒ© IF ä¿®æ­£ ---------- } ---------- */
 
 	DECLARE_MESSAGE_MAP()
 
-	//2010.01.07 bagus Šg’£ƒEƒBƒ“ƒhƒEƒXƒ^ƒCƒ‹‚ğƒZƒbƒg‚Å‚«‚é‚æ‚¤‚ÉC³ --{--
+	//2010.01.07 bagus æ‹¡å¼µã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚¹ã‚¿ã‚¤ãƒ«ã‚’ã‚»ãƒƒãƒˆã§ãã‚‹ã‚ˆã†ã«ä¿®æ­£ --{--
 	//void CreateDialogItem(LPCTSTR lpClassName, LPCTSTR lpszCaption, DWORD dwStyle, RECT rect, UINT nID);
 	void CreateDialogItem(LPCTSTR lpClassName, LPCTSTR lpszCaption, DWORD dwStyle, RECT rect, UINT nID,DWORD dwStyleEx = 0);
 	//2010.01.07 bagus --}--
@@ -228,9 +228,9 @@ protected:
 	void DrawDashLine(short Axis, int Start, short Inc, short Length, int Bound, int OtherAxisVal, int iEmptySpace, CDC *pDC );
 	void DrawOneLine(short Axis, int Start, int End, int OtherAxisVal, CDC *pDC);
 	void UpdateStagePosMarker(void);
-// 2009.05.27 K.Matsuo ƒ_ƒuƒ‹ƒoƒbƒtƒ@ƒŠƒ“ƒO -->
+// 2009.05.27 K.Matsuo ãƒ€ãƒ–ãƒ«ãƒãƒƒãƒ•ã‚¡ãƒªãƒ³ã‚° -->
 	void CreateStageMapBackBuffer();
-// 2009.05.27 K.Matsuo ƒ_ƒuƒ‹ƒoƒbƒtƒ@ƒŠƒ“ƒO <--
+// 2009.05.27 K.Matsuo ãƒ€ãƒ–ãƒ«ãƒãƒƒãƒ•ã‚¡ãƒªãƒ³ã‚° <--
 
 	void ClientToStage(LPPOINT lpPoint, STAGE_COORD* pStage);
 // 2013.01.09 bagus -->
@@ -240,9 +240,9 @@ protected:
 	void MicronToPixel(STAGE_COORD* pLogical, LPPOINT lpPoint);
 	virtual void Refresh(void);
 	virtual void ButtonEnableCheck(void);
-// 2009.06.05 K.Matsuo ƒhƒAƒCƒ“ƒ^[ƒƒbƒNŒŸo‚ÌJoyStick–³Œø‰» -->
+// 2009.06.05 K.Matsuo ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¤œå‡ºæ™‚ã®JoyStickç„¡åŠ¹åŒ– -->
 	void JoyStickEnableCheck(void);
-// 2009.06.05 K.Matsuo ƒhƒAƒCƒ“ƒ^[ƒƒbƒNŒŸo‚ÌJoyStick–³Œø‰» <--
+// 2009.06.05 K.Matsuo ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¤œå‡ºæ™‚ã®JoyStickç„¡åŠ¹åŒ– <--
 // 2013.01.09 bagus -->
 	void ToClientXyStageCoord(STAGE_COORD* lpPoint);
 	void ToXyAxisCoord(STAGE_COORD* lpPoint);
@@ -373,23 +373,23 @@ private:
 	long m_lDrawStartSamplePosY;
 	long m_lDrawEndSamplePosY;
 
-	CPoint	m_lCenterPos;					// ƒIƒtƒZƒbƒg‚µ‚½’†SÀ•Wi‘ÎƒXƒe[ƒWj
-	CPoint	m_lAbsolutePos; 				// ƒIƒtƒZƒbƒg‚µ‚½’†SÀ•Wi‘ÎƒEƒBƒ“ƒhj
+	CPoint	m_lCenterPos;					// ã‚ªãƒ•ã‚»ãƒƒãƒˆã—ãŸä¸­å¿ƒåº§æ¨™ï¼ˆå¯¾ã‚¹ãƒ†ãƒ¼ã‚¸ï¼‰
+	CPoint	m_lAbsolutePos; 				// ã‚ªãƒ•ã‚»ãƒƒãƒˆã—ãŸä¸­å¿ƒåº§æ¨™ï¼ˆå¯¾ã‚¦ã‚£ãƒ³ãƒ‰ï¼‰
 
 	STAGE_CONFIG m_StageConfig;
 	SYSTEM_CONFIG m_SystemConfig;
 
-	int		m_nSampleMode;					// 0:w’è‚È‚µ, 1:w’è‚ ‚è
+	int		m_nSampleMode;					// 0:æŒ‡å®šãªã—, 1:æŒ‡å®šã‚ã‚Š
 	int		m_iSampleMax;
 	char	m_sSampleName[SAMPLE_MAX][RECIPE_NAME_LEN + 1];
 
-// 2009.05.26 K.Matsuo ƒ_ƒuƒ‹ƒoƒbƒtƒ@ƒŠƒ“ƒO -->
+// 2009.05.26 K.Matsuo ãƒ€ãƒ–ãƒ«ãƒãƒƒãƒ•ã‚¡ãƒªãƒ³ã‚° -->
 	CDC* m_bbDC;
 	CBitmap* m_bbBitmap;
-// 2009.05.26 K.Matsuo ƒ_ƒuƒ‹ƒoƒbƒtƒ@ƒŠƒ“ƒO <--
-/* added 2009.12.02 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(‰æ–Ê) ---------- { ---------- */
+// 2009.05.26 K.Matsuo ãƒ€ãƒ–ãƒ«ãƒãƒƒãƒ•ã‚¡ãƒªãƒ³ã‚° <--
+/* added 2009.12.02 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ(ç”»é¢) ---------- { ---------- */
 	STAGE_COORD_XYZ m_HeadOffset;
-/* added 2009.12.02 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(‰æ–Ê) ---------- } ---------- */
+/* added 2009.12.02 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ(ç”»é¢) ---------- } ---------- */
 
 // 2010.01.21 bagus Gantry --{--
 	CScanDataGraphDlg	m_ScanDataGraphDlg;

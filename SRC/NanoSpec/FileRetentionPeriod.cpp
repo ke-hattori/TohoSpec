@@ -1,4 +1,4 @@
-// FileRetentionPeriod.cpp : implementation file
+﻿// FileRetentionPeriod.cpp : implementation file
 //
 
 #include "stdafx.h"
@@ -258,7 +258,7 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
     CFileFind FindDir;
 
 
-	// �I����e����N���擾
+	// ï¿½Iï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½æ“¾
 	typedef struct _PERIODSEARCH {
 		int nSelect;
 		int iYear;
@@ -282,11 +282,11 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 		{ DELETE_DATA_PERIOD_FIVE_YEARS,		5,	0	},
 	};
 
-	//���݂̎��Ԃ��擾
+	//ï¿½ï¿½ï¿½İ‚Ì�ï¿½ï¿½Ô‚ï¿½ï¿½æ“¾
 	SYSTEMTIME systemTime;
 	::GetLocalTime(&systemTime);
 
-	// ���ݓ��t����̍폜�N��
+	// ï¿½ï¿½ï¿½İ“ï¿½ï¿½tï¿½ï¿½ï¿½ï¿½Ì�í�œï¿½Nï¿½ï¿½
 	int iDeleteYear;
 	int iDeleteMonth;
 	if ( (int)systemTime.wMonth > PeriodSearchTable[m_iDeleteDataPeriod].iMonth ) {
@@ -299,7 +299,7 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 	}
 
 
-	//�^�C���X�p���̌v�Z
+	//ï¿½^ï¿½Cï¿½ï¿½ï¿½Xï¿½pï¿½ï¿½ï¿½ÌŒvï¿½Z
 	CTimeSpan ts = CTime(systemTime.wYear, systemTime.wMonth, systemTime.wDay, 0, 0, 0) - CTime(iDeleteYear, iDeleteMonth, systemTime.wDay, 0, 0, 0);
 
 	CTimeSpan timeSpan( static_cast<LONG>(ts.GetDays()),
@@ -307,13 +307,13 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 					0,	//Minute
 					0); //Sec
 
-	//�폜���Ԃ��ݒ�Ȃ��A�������͐ݒ肳��Ă��鍀�ڈȏ�łȂ����m�F
+	//ï¿½í�œï¿½ï¿½ï¿½Ô‚ï¿½ï¿½İ’ï¿½È‚ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í�İ’è‚³ï¿½ï¿½Ä‚ï¿½ï¿½é�€ï¿½ÚˆÈ�ï¿½Å‚È‚ï¿½ï¿½ï¿½ï¿½mï¿½F
 	if(m_iDeleteDataPeriod > PeriodSearchTable[0].nSelect && DELETE_DATA_PERIOD_MAX > m_iDeleteDataPeriod){
 //		bEnable = TRUE;
 //	}
 //
 //	switch(*m_pProcess){
-//	case 0://Process�̊J�n
+//	case 0://Processï¿½ÌŠJï¿½n
 //		//if(bEnable == TRUE){
 //			if(m_szPath[0] != '\0'){
 //				*m_pProcess = 100;
@@ -323,7 +323,7 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 //		break;
 //
 //	case 100:
-//		//�t�@�C���̌���
+//		//ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ÌŒï¿½ï¿½ï¿½
 //		sWildCard.Format("%s*.*", m_szPath);
 //        try{
 //			m_bLoop = m_Finder.FindFile(sWildCard);
@@ -336,7 +336,7 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 //        }
 //
 //		if(m_bLoop == 0){
-//			//�t�@�C�����Ȃ�
+//			//ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 //			*m_pProcess = 9000;
 //			break;
 //		}
@@ -363,13 +363,13 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 //		if(m_Finder.IsDots()) break;
 //		if(m_Finder.IsDirectory()) break;
 ////		if(m_Finder.IsDirectory()){
-////			//Stress����f�[�^�f�B���N�g�����A�l�쐬�f�B���N�g���̏ꍇ
+////			//Stressï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Â�lï¿½ì�¬ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½Ì�ê�‡
 ////			*m_pProcess = 1000;
 ////			 break;
 ////		}
 //
 //		strcpy(m_szFilePath, m_Finder.GetFilePath());
-//		_tsplitpath(m_szFilePath, szDrive, szDirName, szFileName, szExtension); //�p�X�𕪉�
+//		_tsplitpath(m_szFilePath, szDrive, szDirName, szFileName, szExtension); //ï¿½pï¿½Xï¿½ğ•ª‰ï¿½
 //		if(strcmp(szExtension, DAT_EXT) != 0) break;
 //
 //		retv = m_Finder.GetLastWriteTime(FileTime);
@@ -379,33 +379,33 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 //		sFileTimeString = FileTime.Format("%Y%m%d%H%M%S");
 //		iFileTime = _atoi64(sFileTimeString.GetBuffer(0));
 //		if(iFileTime < m_iLimitTime){
-//			//���������t�@�C�����ۊǊ������߂��Ă���
+//			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ÛŠÇŠï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
 //			*m_pProcess = 300;
 //			break;
 //		}
 //
 //        if(m_bLoop == 0){
-//			//�t�@�C�����Ȃ�
+//			//ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 //			*m_pProcess = 9000;
 //			break;
 //		}
 //		break;
-//	//���������t�@�C���ɑΉ�����f�B���N�g�������݂��邩
+//	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½É‘Î‰ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½ï¿½é‚©
 //	case 300:
 //		sFileTitle = m_Finder.GetFileTitle();
 //		sPathName.Format("%s%s", m_szPath, sFileTitle);
 //		if(FileOrDirExists(sPathName) == FALSE){
-//			//�Ή�����f�B���N�g�������݂��Ȃ�
+//			//ï¿½Î‰ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½ï¿½È‚ï¿½
 //			*m_pProcess = 400;
 //		}
 //		else{
-//			//�Ή�����f�B���N�g�������݂���
+//			//ï¿½Î‰ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½ï¿½ï¿½
 //            strcpy(m_szNextPath, sPathName);
 //			*m_pProcess = 500;
 //		}
 //	break;
 //
-//	//�Ή�����f�B���N�g�����Ȃ��ꍇ�폜����(4PP, CTA����f�[�^) �������� �f�B���N�g���폜��̑���f�[�^
+//	//ï¿½Î‰ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ê�‡ï¿½í�œï¿½ï¿½ï¿½ï¿½(4PP, CTAï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½í�œï¿½ï¿½Ì‘ï¿½ï¿½ï¿½fï¿½[ï¿½^
 //	case 400:
 //        ::DeleteFile(m_szFilePath);
 //		if(m_bLoop == FALSE){
@@ -415,7 +415,7 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 //		*m_pProcess = 200;
 //	break;
 //
-//	//�Ή�����f�B���N�g��������ꍇ�A�܂��f�B���N�g���̒��̃t�@�C����S�č폜����(SR, SE, 2Point Distance����f�[�^)
+//	//ï¿½Î‰ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê�‡ï¿½Aï¿½Ü‚ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½Ì’ï¿½ï¿½Ìƒtï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½Sï¿½Ä�í�œï¿½ï¿½ï¿½ï¿½(SR, SE, 2Point Distanceï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^)
 //	case 500:
 //		if(DeleteAllData(m_szNextPath) == FALSE){
 //			*m_pProcess = 8000;
@@ -425,7 +425,7 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 //		}
 //	break;
 //
-//	//�f�B���N�g�����̃f�[�^���������̂ŁA��f�B���N�g�ł���Ώ���
+//	//ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Ìƒfï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Å�Aï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½Å‚ï¿½ï¿½ï¿½Î�ï¿½ï¿½ï¿½
 //	case 600:
 //		if(CheckDirectory(m_szNextPath)){
 //			::RemoveDirectory(m_szNextPath);
@@ -436,7 +436,7 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 //		}
 //	break;
 //
-//	//�K�w���������
+//	//ï¿½Kï¿½wï¿½ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½ï¿½ï¿½
 //	case 700:
 //        strPath.Format("%s", m_szNextPath);
 //		iBackSlash = strPath.ReverseFind('\\');
@@ -450,14 +450,14 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 //		}
 //	break;
 //
-//	///// StressData���������f�B���N�g�����A�l�쐬�t�H���_ /////
+//	///// StressDataï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Â�lï¿½ì�¬ï¿½tï¿½Hï¿½ï¿½ï¿½_ /////
 //	case 1000:
 //		if(CheckStressResultDir(m_Finder.GetFilePath())){
-//			// Stress����̌��ʃf�[�^�f�B���N�g��
+//			// Stressï¿½ï¿½ï¿½ï¿½ÌŒï¿½ï¿½Êƒfï¿½[ï¿½^ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½
 //			*m_pProcess = 2000;
 //		}
 //		else{
-//			// �l�쐬�̃f�B���N�g��
+//			// ï¿½Â�lï¿½ì�¬ï¿½Ìƒfï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½
 //			*m_pProcess = 3000;
 //		}
 //	break;
@@ -481,7 +481,7 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 //		break;
 //    }
 		switch(*m_pProcess){
-		case 0://Process�̊J�n
+		case 0://Processï¿½ÌŠJï¿½n
 			//if(bEnable == TRUE){
 				if(m_szPath[0] != '\0'){
 					*m_pProcess = 100;
@@ -491,7 +491,7 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 			break;
 
 		case 100:
-			//�t�@�C���̌���
+			//ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ÌŒï¿½ï¿½ï¿½
 			sWildCard.Format("%s*.*", m_szPath);
 	        try{
 				m_bLoop = m_Finder.FindFile(sWildCard);
@@ -505,7 +505,7 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 	        }
 
 			if(m_bLoop == 0){
-				//�t�@�C�����Ȃ�
+				//ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 				*m_pProcess = 9000;
 				break;
 			}
@@ -533,7 +533,7 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 			if(m_Finder.IsDots()) break;
 			if(m_Finder.IsDirectory()) break;
 	//		if(m_Finder.IsDirectory()){
-	//			//Stress����f�[�^�f�B���N�g�����A�l�쐬�f�B���N�g���̏ꍇ
+	//			//Stressï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Â�lï¿½ì�¬ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½Ì�ê�‡
 	//			*m_pProcess = 1000;
 	//			 break;
 	//		}
@@ -545,7 +545,7 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 
 
 			strcpy(m_szFilePath, m_Finder.GetFilePath());
-			_tsplitpath(m_szFilePath, szDrive, szDirName, szFileName, szExtension); //�p�X�𕪉�
+			_tsplitpath(m_szFilePath, szDrive, szDirName, szFileName, szExtension); //ï¿½pï¿½Xï¿½ğ•ª‰ï¿½
 			if(strcmp(szExtension, DAT_EXT) != 0) break;
 
 			retv = m_Finder.GetLastWriteTime(FileTime);
@@ -555,33 +555,33 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 			sFileTimeString = FileTime.Format("%Y%m%d%H%M%S");
 			iFileTime = _atoi64(sFileTimeString.GetBuffer(0));
 			if(iFileTime < m_iLimitTime){
-				//���������t�@�C�����ۊǊ������߂��Ă���
+				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ÛŠÇŠï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
 				*m_pProcess = 300;
 				break;
 			}
 
 	        if(m_bLoop == 0){
-				//�t�@�C�����Ȃ�
+				//ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 				*m_pProcess = 9000;
 				break;
 			}
 			break;
-		//���������t�@�C���ɑΉ�����f�B���N�g�������݂��邩
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½É‘Î‰ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½ï¿½é‚©
 		case 300:
 			sFileTitle = m_Finder.GetFileTitle();
 			sPathName.Format("%s%s", m_szPath, sFileTitle);
 			if(FileOrDirExists(sPathName) == FALSE){
-				//�Ή�����f�B���N�g�������݂��Ȃ�
+				//ï¿½Î‰ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½ï¿½È‚ï¿½
 				*m_pProcess = 400;
 			}
 			else{
-				//�Ή�����f�B���N�g�������݂���
+				//ï¿½Î‰ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½ï¿½ï¿½
 	            strcpy(m_szNextPath, sPathName);
 				*m_pProcess = 500;
 			}
 		break;
 
-		//�Ή�����f�B���N�g�����Ȃ��ꍇ�폜����(4PP, CTA����f�[�^) �������� �f�B���N�g���폜��̑���f�[�^
+		//ï¿½Î‰ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ê�‡ï¿½í�œï¿½ï¿½ï¿½ï¿½(4PP, CTAï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½í�œï¿½ï¿½Ì‘ï¿½ï¿½ï¿½fï¿½[ï¿½^
 		case 400:
             sprintf(szBuff, "[PROCESS_DirCheck] Delete File %s", m_szFilePath);
 			FileRetentionLogging(szBuff);
@@ -593,7 +593,7 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 			*m_pProcess = 200;
 		break;
 
-		//�Ή�����f�B���N�g��������ꍇ�A�܂��f�B���N�g���̒��̃t�@�C����S�č폜����(SR, SE, 2Point Distance����f�[�^)
+		//ï¿½Î‰ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê�‡ï¿½Aï¿½Ü‚ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½Ì’ï¿½ï¿½Ìƒtï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½Sï¿½Ä�í�œï¿½ï¿½ï¿½ï¿½(SR, SE, 2Point Distanceï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^)
 		case 500:
 			if(DeleteAllData(m_szNextPath) == FALSE){
 				*m_pProcess = 8000;
@@ -603,7 +603,7 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 			}
 		break;
 
-		//�f�B���N�g�����̃f�[�^���������̂ŁA��f�B���N�g�ł���Ώ���
+		//ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Ìƒfï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Å�Aï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½Å‚ï¿½ï¿½ï¿½Î�ï¿½ï¿½ï¿½
 		case 600:
 			if(CheckDirectory(m_szNextPath)){
 	            sprintf(szBuff, "[PROCESS_DirCheck] Remove Directory %s", m_szNextPath);
@@ -616,7 +616,7 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 			}
 		break;
 
-		//�K�w���������
+		//ï¿½Kï¿½wï¿½ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½ï¿½ï¿½
 		case 700:
 	        strPath.Format("%s", m_szNextPath);
 			iBackSlash = strPath.ReverseFind('\\');
@@ -630,14 +630,14 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 			}
 		break;
 
-		///// StressData���������f�B���N�g�����A�l�쐬�t�H���_ /////
+		///// StressDataï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Â�lï¿½ì�¬ï¿½tï¿½Hï¿½ï¿½ï¿½_ /////
 		case 1000:
 			if(CheckStressResultDir(m_Finder.GetFilePath())){
-				// Stress����̌��ʃf�[�^�f�B���N�g��
+				// Stressï¿½ï¿½ï¿½ï¿½ÌŒï¿½ï¿½Êƒfï¿½[ï¿½^ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½
 				*m_pProcess = 2000;
 			}
 			else{
-				// �l�쐬�̃f�B���N�g��
+				// ï¿½Â�lï¿½ì�¬ï¿½Ìƒfï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½
 				*m_pProcess = 3000;
 			}
 		break;
@@ -666,7 +666,7 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 }
 
 // ==========================================================================
-//�t�@�C�����݃`�F�b�N
+//ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½İƒ`ï¿½Fï¿½bï¿½N
 // ==========================================================================
 BOOL CFileRetentionPeriod::FileOrDirExists(LPCTSTR pszFileName)
 {
@@ -674,10 +674,10 @@ BOOL CFileRetentionPeriod::FileOrDirExists(LPCTSTR pszFileName)
 }
 
 // ==========================================================================
-// �֐����FBOOL DeleteDirectory(LPCTSTR lpPathName)
-// ���@���FlpPathName�@�폜����f�B���N�g���̃p�X����������NULL�ŏI��镶����B
-// �߂�l�F�֐�����������ƁA0�ȊO�̒l���Ԃ�A�֐������s����ƁA0���Ԃ�܂��B
-// ���@���F�f�B���N�g�����ۂ��ƍ폜����B
+// ï¿½Ö�ï¿½ï¿½ï¿½ï¿½FBOOL DeleteDirectory(LPCTSTR lpPathName)
+// ï¿½ï¿½ï¿½@ï¿½ï¿½ï¿½FlpPathNameï¿½@ï¿½í�œï¿½ï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½Ìƒpï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½NULLï¿½Å�Iï¿½ï¿½é•¶ï¿½ï¿½ï¿½ï¿½B
+// ï¿½ß‚ï¿½lï¿½Fï¿½Ö�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ�A0ï¿½ÈŠOï¿½Ì’lï¿½ï¿½ï¿½Ô‚ï¿½Aï¿½Ö�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½Æ�A0ï¿½ï¿½ï¿½Ô‚ï¿½Ü‚ï¿½ï¿½B
+// ï¿½ï¿½ï¿½@ï¿½ï¿½ï¿½Fï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Û‚ï¿½ï¿½Æ�í�œï¿½ï¿½ï¿½ï¿½B
 // ==========================================================================
 BOOL CFileRetentionPeriod::DeleteDirectory(LPCTSTR lpPathName)
 {
@@ -691,21 +691,21 @@ BOOL CFileRetentionPeriod::DeleteDirectory(LPCTSTR lpPathName)
 		while(i){
 			i = fnd.FindNextFile();
 
-			// �t�@�C������"."��".."�̏ꍇ�͎�������
+			// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"."ï¿½ï¿½".."ï¿½Ì�ê�‡ï¿½Í�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if(fnd.IsDots())
 				continue;
 
-			// �폜����t�@�C�����擾
-			// GetFilePath()�ɂ̓o�O�����萳�m�Ɏ擾�ł��Ȃ��ꍇ������̂Ŏg��Ȃ�
+			// ï¿½í�œï¿½ï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
+			// GetFilePath()ï¿½É‚Íƒoï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½è�³ï¿½mï¿½É�æ“¾ï¿½Å‚ï¿½ï¿½È‚ï¿½ï¿½ê�‡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Å�gï¿½ï¿½È‚ï¿½
 			CString strDeleteFile = lpPathName;
 			strDeleteFile.TrimRight('\\');
 			strDeleteFile += _T("\\") + fnd.GetFileName();
 
-			// �t�H���_�������ꍇ�A�ċA�Ăяo���ł��̃t�H���_���폜
+			// ï¿½tï¿½Hï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê�‡ï¿½Aï¿½Ä‹Aï¿½Ä‚Ñ�oï¿½ï¿½ï¿½Å‚ï¿½ï¿½Ìƒtï¿½Hï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½í�œ
 			if(fnd.IsDirectory())
 				DeleteDirectory(strDeleteFile);
 
-			// �t�@�C���̍폜
+			// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ì�í�œ
 			else{
 	            sprintf(szBuff, "[DeleteDirectory] Delete File %s", (LPCSTR)strDeleteFile);
 				FileRetentionLogging(szBuff);
@@ -714,7 +714,7 @@ BOOL CFileRetentionPeriod::DeleteDirectory(LPCTSTR lpPathName)
 		}
 		fnd.Close();
 
-		// �t�H���_�̍폜
+		// ï¿½tï¿½Hï¿½ï¿½ï¿½_ï¿½Ì�í�œ
         sprintf(szBuff, "[DeleteDirectory] Remove Directory %s", lpPathName);
 		FileRetentionLogging(szBuff);
 		return ::RemoveDirectory(lpPathName);
@@ -723,10 +723,10 @@ BOOL CFileRetentionPeriod::DeleteDirectory(LPCTSTR lpPathName)
 }
 
 // ==========================================================================
-// �֐����FBOOL DeleteAllData(LPCTSTR lpPathName)
-// ���@���FlpPathName�@�폜����f�B���N�g���̃p�X����������NULL�ŏI��镶����B
-// �߂�l�F�֐�����������ƁA0�ȊO�̒l���Ԃ�A�֐������s����ƁA0���Ԃ�܂��B
-// ���@���FlpPathName�Ŏw�肵���f�B���N�g���̒��̃t�@�C����S�ď���
+// ï¿½Ö�ï¿½ï¿½ï¿½ï¿½FBOOL DeleteAllData(LPCTSTR lpPathName)
+// ï¿½ï¿½ï¿½@ï¿½ï¿½ï¿½FlpPathNameï¿½@ï¿½í�œï¿½ï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½Ìƒpï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½NULLï¿½Å�Iï¿½ï¿½é•¶ï¿½ï¿½ï¿½ï¿½B
+// ï¿½ß‚ï¿½lï¿½Fï¿½Ö�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ�A0ï¿½ÈŠOï¿½Ì’lï¿½ï¿½ï¿½Ô‚ï¿½Aï¿½Ö�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½Æ�A0ï¿½ï¿½ï¿½Ô‚ï¿½Ü‚ï¿½ï¿½B
+// ï¿½ï¿½ï¿½@ï¿½ï¿½ï¿½FlpPathNameï¿½Å�wï¿½è‚µï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½Ì’ï¿½ï¿½Ìƒtï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½Sï¿½Ä�ï¿½ï¿½ï¿½
 // ==========================================================================
 BOOL CFileRetentionPeriod::DeleteAllData(LPCTSTR lpPathName)
 {
@@ -740,21 +740,21 @@ BOOL CFileRetentionPeriod::DeleteAllData(LPCTSTR lpPathName)
 		while(i){
 			i = fnd.FindNextFile();
 
-			// �t�@�C������"."��".."�̏ꍇ�͎�������
+			// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"."ï¿½ï¿½".."ï¿½Ì�ê�‡ï¿½Í�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if(fnd.IsDots())
 				continue;
 
-			// �폜����t�@�C�����擾
-			// GetFilePath()�ɂ̓o�O�����萳�m�Ɏ擾�ł��Ȃ��ꍇ������̂Ŏg��Ȃ�
+			// ï¿½í�œï¿½ï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
+			// GetFilePath()ï¿½É‚Íƒoï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½è�³ï¿½mï¿½É�æ“¾ï¿½Å‚ï¿½ï¿½È‚ï¿½ï¿½ê�‡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Å�gï¿½ï¿½È‚ï¿½
 			CString strDeleteFile = lpPathName;
 			strDeleteFile.TrimRight('\\');
 			strDeleteFile += _T("\\") + fnd.GetFileName();
 
-			// �t�H���_�������ꍇ�A��������
+			// ï¿½tï¿½Hï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê�‡ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if(fnd.IsDirectory())
 				continue;
 
-			// �t�@�C���̍폜
+			// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ì�í�œ
 			else{
 	            sprintf(szBuff, "[DeleteAllData] Delete File %s", (LPCSTR)strDeleteFile);
 				FileRetentionLogging(szBuff);
@@ -768,10 +768,10 @@ BOOL CFileRetentionPeriod::DeleteAllData(LPCTSTR lpPathName)
 }
 
 // ==========================================================================
-// �֐����FBOOL CheckDirectory(LPCTSTR lpPathName)
-// ���@���FlpPathName�@�폜����f�B���N�g���̃p�X����������NULL�ŏI��镶����B
-// �߂�l�F�֐�����������ƁA0�ȊO�̒l���Ԃ�A�֐������s����ƁA0���Ԃ�܂��B
-// ���@���FlpPathName�Ŏw�肵���f�B���N�g���̒��Ƀt�@�C����f�B���N�g�������݂��邩�m�F
+// ï¿½Ö�ï¿½ï¿½ï¿½ï¿½FBOOL CheckDirectory(LPCTSTR lpPathName)
+// ï¿½ï¿½ï¿½@ï¿½ï¿½ï¿½FlpPathNameï¿½@ï¿½í�œï¿½ï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½Ìƒpï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½NULLï¿½Å�Iï¿½ï¿½é•¶ï¿½ï¿½ï¿½ï¿½B
+// ï¿½ß‚ï¿½lï¿½Fï¿½Ö�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ�A0ï¿½ÈŠOï¿½Ì’lï¿½ï¿½ï¿½Ô‚ï¿½Aï¿½Ö�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½Æ�A0ï¿½ï¿½ï¿½Ô‚ï¿½Ü‚ï¿½ï¿½B
+// ï¿½ï¿½ï¿½@ï¿½ï¿½ï¿½FlpPathNameï¿½Å�wï¿½è‚µï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½Ì’ï¿½ï¿½Éƒtï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½ï¿½é‚©ï¿½mï¿½F
 // ==========================================================================
 BOOL CFileRetentionPeriod::CheckDirectory(LPCTSTR lpPathName)
 {
@@ -788,18 +788,18 @@ BOOL CFileRetentionPeriod::CheckDirectory(LPCTSTR lpPathName)
 		while(i){
 			i = fnd.FindNextFile();
 
-			// �t�@�C������"."��".."�̏ꍇ�͎�������
+			// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"."ï¿½ï¿½".."ï¿½Ì�ê�‡ï¿½Í�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if(fnd.IsDots())
 				continue;
 
 			if(fnd.IsDirectory()){
-				// �t�H���_����������
+				// ï¿½tï¿½Hï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½ï¿½ï¿½
                     strcpy(m_szNextPath, fnd.GetFilePath());
                     bRet = FALSE;
 					break;
 			}
 			else{
-				//�t�@�C������������
+				//ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½ï¿½ï¿½
 	            sprintf(szBuff, "[CheckDirectory] Delete File %s", (LPCSTR)fnd.GetFilePath());
 				FileRetentionLogging(szBuff);
 				bRet = ::DeleteFile(fnd.GetFilePath());
@@ -812,10 +812,10 @@ BOOL CFileRetentionPeriod::CheckDirectory(LPCTSTR lpPathName)
 }
 
 // ==========================================================================
-// �֐����FBOOL CheckStressResultDir(LPCTSTR lpPathName)
-// ���@���FlpPathName�@�폜����f�B���N�g���̃p�X����������NULL�ŏI��镶����B
-// �߂�l�F�֐�����������ƁA0�ȊO�̒l���Ԃ�A�֐������s����ƁA0���Ԃ�܂��B
-// ���@���FlpPathName�Ŏw�肵���f�B���N�g���̒��Ƀt�@�C����f�B���N�g�������݂��邩�m�F
+// ï¿½Ö�ï¿½ï¿½ï¿½ï¿½FBOOL CheckStressResultDir(LPCTSTR lpPathName)
+// ï¿½ï¿½ï¿½@ï¿½ï¿½ï¿½FlpPathNameï¿½@ï¿½í�œï¿½ï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½Ìƒpï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½NULLï¿½Å�Iï¿½ï¿½é•¶ï¿½ï¿½ï¿½ï¿½B
+// ï¿½ß‚ï¿½lï¿½Fï¿½Ö�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ�A0ï¿½ÈŠOï¿½Ì’lï¿½ï¿½ï¿½Ô‚ï¿½Aï¿½Ö�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½Æ�A0ï¿½ï¿½ï¿½Ô‚ï¿½Ü‚ï¿½ï¿½B
+// ï¿½ï¿½ï¿½@ï¿½ï¿½ï¿½FlpPathNameï¿½Å�wï¿½è‚µï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½Ì’ï¿½ï¿½Éƒtï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½ï¿½é‚©ï¿½mï¿½F
 // ==========================================================================
 BOOL CFileRetentionPeriod::CheckStressResultDir(LPCTSTR lpPathName)
 {
@@ -835,21 +835,21 @@ BOOL CFileRetentionPeriod::CheckStressResultDir(LPCTSTR lpPathName)
 	if(fnd.FindFile(strPathName, 0)){
 		do{
 			bFileEnd = fnd.FindNextFile();
-			csFilePath = fnd.GetFilePath(); //�t�@�C���p�X�擾
-			// "." , ".."�𖳎�
+			csFilePath = fnd.GetFilePath(); //ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½pï¿½Xï¿½æ“¾
+			// "." , ".."ï¿½ğ–³�ï¿½
 			if(fnd.IsDots()){
 				continue;
 			}
 
-			//�������ʂ̔���
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê‚Ì”ï¿½ï¿½ï¿½
 			if(fnd.IsDirectory()){
 				continue;
 			}
 
 			strcpy(szFilePath, csFilePath);
-			_tsplitpath(szFilePath, szDrive, szDirName, szFileName, szExtension); //�p�X�𕪉�
+			_tsplitpath(szFilePath, szDrive, szDirName, szFileName, szExtension); //ï¿½pï¿½Xï¿½ğ•ª‰ï¿½
 			if(strcmp(szFileName, STRESS_REFERENCE_NAME)==0){
-				//�t�@�C������%StressReference%�̏ꍇ�͈ȍ~�̏��������Ȃ�
+				//ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%StressReference%ï¿½Ì�ê�‡ï¿½ÍˆÈ�~ï¿½Ì�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 				bStressData = TRUE;
 				break;
 			}

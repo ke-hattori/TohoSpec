@@ -1,27 +1,27 @@
-#pragma once
+ï»¿#pragma once
 
 BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType);
 BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType);
 BOOL LoadMainRecipeList(MULTI_RCP_MAIN_RCP_LIST* pMainRcpList, WORD wNumMainRecipe, LPCSTR lpszName);
 BOOL SaveMainRecipeList(const MULTI_RCP_MAIN_RCP_LIST* pMainRcpList, WORD wNumMainRecipe, LPCSTR lpszName);
 BOOL LoadPointList(STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFileName);
-BOOL LoadPointList2(STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePath);		// “ü—ÍFƒtƒ@ƒCƒ‹ƒpƒX—p
-// 2009.10.15 bagus Distance ’Ç‰Á --{--
+BOOL LoadPointList2(STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePath);		// å…¥åŠ›ï¼šãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ç”¨
+// 2009.10.15 bagus Distance è¿½åŠ  --{--
 BOOL Load2PointList(STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFileName);
-BOOL Load2PointList2(STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePath);		// “ü—ÍFƒtƒ@ƒCƒ‹ƒpƒX—p
-// 2009.10.15 bagus Distance ’Ç‰Á --}--
+BOOL Load2PointList2(STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePath);		// å…¥åŠ›ï¼šãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ç”¨
+// 2009.10.15 bagus Distance è¿½åŠ  --}--
 BOOL SavePointList(const STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFileName);
-// 2010.03.09 bagus Recipe Backup C³ --{--
-//BOOL SavePointList2(const STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePath);		// “ü—ÍFƒtƒ@ƒCƒ‹ƒpƒX—p
-BOOL SavePointList2(const STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePath, BOOL bDoBackup = TRUE);		// “ü—ÍFƒtƒ@ƒCƒ‹ƒpƒX—p
-// 2010.03.09 bagus Recipe Backup C³ --}--
-// 2009.10.15 bagus Distance ’Ç‰Á --{--
+// 2010.03.09 bagus Recipe Backup ä¿®æ­£ --{--
+//BOOL SavePointList2(const STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePath);		// å…¥åŠ›ï¼šãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ç”¨
+BOOL SavePointList2(const STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePath, BOOL bDoBackup = TRUE);		// å…¥åŠ›ï¼šãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ç”¨
+// 2010.03.09 bagus Recipe Backup ä¿®æ­£ --}--
+// 2009.10.15 bagus Distance è¿½åŠ  --{--
 BOOL Save2PointList(const STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFileName);
-// 2010.03.09 bagus Recipe Backup C³ --{--
-//BOOL Save2PointList2(const STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePath);		// “ü—ÍFƒtƒ@ƒCƒ‹ƒpƒX—p
-BOOL Save2PointList2(const STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePath, BOOL bDoBackup = TRUE);		// “ü—ÍFƒtƒ@ƒCƒ‹ƒpƒX—p
-// 2010.03.09 bagus Recipe Backup C³ --}--
-// 2009.10.15 bagus Distance ’Ç‰Á --}--
+// 2010.03.09 bagus Recipe Backup ä¿®æ­£ --{--
+//BOOL Save2PointList2(const STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePath);		// å…¥åŠ›ï¼šãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ç”¨
+BOOL Save2PointList2(const STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePath, BOOL bDoBackup = TRUE);		// å…¥åŠ›ï¼šãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ç”¨
+// 2010.03.09 bagus Recipe Backup ä¿®æ­£ --}--
+// 2009.10.15 bagus Distance è¿½åŠ  --}--
 BOOL MakeRecipeFilePath(LPSTR pszFilePath, LPCSTR pszFileName, int iType);
 BOOL DeleteRecipe(LPCSTR pszFileName, int iType);
 BOOL ExistRecipe(LPCSTR pszFileName, SYSTEMTIME* lpLastWriteSystemTime, int iType);
@@ -30,7 +30,7 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszMainRcpName, int = 0);
 BOOL LoadHeadTypeAndScanType(int* piType, LPCSTR pszFilePathName);
 BOOL LoadHeadTypeAndScanType2(int* piType, LPCSTR pszFilePath);
 BOOL SaveHeadTypeAndScanType(int iType, LPCSTR pszFileName);
-BOOL SaveHeadTypeAndScanType2(int iType, LPCSTR pszFilePath);						// “ü—ÍFƒtƒ@ƒCƒ‹ƒpƒX—p
+BOOL SaveHeadTypeAndScanType2(int iType, LPCSTR pszFilePath);						// å…¥åŠ›ï¼šãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ç”¨
 void ClearMemory();
 BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType);
 

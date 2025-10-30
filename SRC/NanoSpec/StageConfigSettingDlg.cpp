@@ -1,4 +1,4 @@
-// StageConfigSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// StageConfigSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -12,8 +12,8 @@
 #include "StageConfigSettingDlg.h"
 #include "..\\..\\INC\\StageInt.hxx"
 
-// NanoSpec.iniƒtƒ@ƒCƒ‹
-//#define INISECTION_STAGESIZE			_T("STAGESIZE")//HWS‚ÌƒTƒuƒRƒ“‚©‚ç‚Ìƒf[ƒ^“Ç‚İ‚İ‚Ì‘ã‚í‚è
+// NanoSpec.iniãƒ•ã‚¡ã‚¤ãƒ«
+//#define INISECTION_STAGESIZE			_T("STAGESIZE")//HWSæ™‚ã®ã‚µãƒ–ã‚³ãƒ³ã‹ã‚‰ã®ãƒ‡ãƒ¼ã‚¿èª­ã¿è¾¼ã¿ã®ä»£ã‚ã‚Š
 //#define INIKEY_HWSTAGESIMULATIN			_T("HWStageSimulation")
 //#define INIKEY_HWS_STAGESIZEX 		_T("StageSizeX")
 //#define INIKEY_HWS_STAGESIZEY 		_T("StageSizeY")
@@ -22,7 +22,7 @@
 //#define INIKEY_HWS_STAGEORIGINOFFSETX _T("OriginOffsetX")
 //#define INIKEY_HWS_STAGEORIGINOFFSETY _T("OriginOffsetY")
 
-//ƒTƒuƒRƒ“ƒXƒe[ƒWİ’è‰Â”\ƒTƒCƒY
+//ã‚µãƒ–ã‚³ãƒ³ã‚¹ãƒ†ãƒ¼ã‚¸è¨­å®šå¯èƒ½ã‚µã‚¤ã‚º
 #define SUBCON_STAGE_MAX_SIZE	(99999)
 #define SUBCON_STAGE_MIN_SIZE	(0)
 
@@ -33,26 +33,26 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 static UINT StageMachineOriginPos_ID[] = {
-	IDC_MACHINE_ORG_POS_1,	// ’†S
-	IDC_MACHINE_ORG_POS_2,	// ¶ã
-	IDC_MACHINE_ORG_POS_3,	// ¶‰º
-	IDC_MACHINE_ORG_POS_4,	// ‰E‰º
-	IDC_MACHINE_ORG_POS_5,	// ‰Eã
+	IDC_MACHINE_ORG_POS_1,	// ä¸­å¿ƒ
+	IDC_MACHINE_ORG_POS_2,	// å·¦ä¸Š
+	IDC_MACHINE_ORG_POS_3,	// å·¦ä¸‹
+	IDC_MACHINE_ORG_POS_4,	// å³ä¸‹
+	IDC_MACHINE_ORG_POS_5,	// å³ä¸Š
 };
 
 static UINT StageOriginPos_ID[] = {
-	IDC_ORG_POS_1,	// ’†S
-	IDC_ORG_POS_2,	// ¶ã
-	IDC_ORG_POS_3,	// ¶‰º
-	IDC_ORG_POS_4,	// ‰E‰º
-	IDC_ORG_POS_5,	// ‰Eã
+	IDC_ORG_POS_1,	// ä¸­å¿ƒ
+	IDC_ORG_POS_2,	// å·¦ä¸Š
+	IDC_ORG_POS_3,	// å·¦ä¸‹
+	IDC_ORG_POS_4,	// å³ä¸‹
+	IDC_ORG_POS_5,	// å³ä¸Š
 };
 
 static UINT StageCoordDir_ID[] = {
-	IDC_DIR_1,		// ‰E
-	IDC_DIR_2,		// ã
-	IDC_DIR_3,		// ¶
-	IDC_DIR_4,		// ‰º
+	IDC_DIR_1,		// å³
+	IDC_DIR_2,		// ä¸Š
+	IDC_DIR_3,		// å·¦
+	IDC_DIR_4,		// ä¸‹
 };
 
 static LPCTSTR StageCoordDir_Item[] = {
@@ -66,7 +66,7 @@ static int STAGE_COORD_DIR_ITEM_MAX = sizeof(StageCoordDir_Item) / sizeof(StageC
 
 
 // #########################################################################
-// CStageConfigSettingDlg ƒ_ƒCƒAƒƒO
+// CStageConfigSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // #########################################################################
 
 // =========================================================================
@@ -121,7 +121,7 @@ BEGIN_MESSAGE_MAP(CStageConfigSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CStageConfigSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CStageConfigSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -131,14 +131,14 @@ BOOL CStageConfigSettingDlg::OnInitDialog()
 	CString l_strBuffer, l_strTitle;
 	// Kojika 20090603 Add End
 
-	//Saiki 20091120 Delete <Teaching‚©‚çƒIƒtƒZƒbƒgˆÊ’u‚ğæ“¾> ----->
-	////–¢‘Î‰‹@”\disable
+	//Saiki 20091120 Delete <Teachingã‹ã‚‰ã‚ªãƒ•ã‚»ãƒƒãƒˆä½ç½®ã‚’å–å¾—> ----->
+	////æœªå¯¾å¿œæ©Ÿèƒ½disable
 	//GetDlgItem(IDC_TEACHING_BUTTON)->ShowWindow(SW_HIDE);
-	//Saiki 20091120 Delete <Teaching‚©‚çƒIƒtƒZƒbƒgˆÊ’u‚ğæ“¾> <-----
+	//Saiki 20091120 Delete <Teachingã‹ã‚‰ã‚ªãƒ•ã‚»ãƒƒãƒˆä½ç½®ã‚’å–å¾—> <-----
 
 	///// Load Stage Coordinate /////
 	ConfigFile_GetNanoSpecIni(&m_StageConfig, CONFIG_FILE_STAGE_CONFIG);
-/* added hmenjo 2009.05.20 SPT ƒXƒe[ƒW—pİ’è‘Î‰ -------- { -------- */
+/* added hmenjo 2009.05.20 SPT ã‚¹ãƒ†ãƒ¼ã‚¸ç”¨è¨­å®šå¯¾å¿œ -------- { -------- */
 	//Saiki 20091210 Change ----->
 	//SYSTEM_CONFIG l_SystemConfig;
 	//ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
@@ -163,12 +163,12 @@ BOOL CStageConfigSettingDlg::OnInitDialog()
 		l_strDlgStr = l_strBuffer;
 		// Kojika 20090603 Change End
 		SetDlgItemText(IDC_STATIC_STGOFFSET, l_strDlgStr);
-/* added 2011.11.14 hmenjo [‚U]StageCfg‰æ–Ê ---------- { ---------- */
+/* added 2011.11.14 hmenjo [ï¼–]StageCfgç”»é¢ ---------- { ---------- */
 	} else {
 		this->GetDlgItem(IDC_SET_MACHINE_ORIGIN_BUTTON)->EnableWindow(FALSE);
-/* added 2011.11.14 hmenjo [‚U]StageCfg‰æ–Ê ---------- } ---------- */
+/* added 2011.11.14 hmenjo [ï¼–]StageCfgç”»é¢ ---------- } ---------- */
 	}
-/* added hmenjo 2009.05.20 SPT ƒXƒe[ƒW—pİ’è‘Î‰ -------- } -------- */
+/* added hmenjo 2009.05.20 SPT ã‚¹ãƒ†ãƒ¼ã‚¸ç”¨è¨­å®šå¯¾å¿œ -------- } -------- */
 
 	CDialog::OnInitDialog();
 
@@ -198,12 +198,12 @@ BOOL CStageConfigSettingDlg::OnInitDialog()
 	TCHAR szBuff[256];
 	EEPROMDATA pEEPromData;
 	CString strBuffer;
-	long lStageSizeX;	//ƒXƒe[ƒWƒTƒCƒY‚ğó‚¯æ‚éiS28j
-	long lStageSizeY;	//ƒXƒe[ƒWƒTƒCƒY‚ğó‚¯æ‚éiS29j
-	long lEdgeSizeX;	//ƒXƒe[ƒWƒTƒCƒY‚ğó‚¯æ‚éiS36j
-	long lEdgeSizeY;	//ƒXƒe[ƒWƒTƒCƒY‚ğó‚¯æ‚éiS37j
-	long lOffsetX;		//ƒXƒe[ƒWƒTƒCƒY‚ğó‚¯æ‚éiS40j
-	long lOffsetY;		//ƒXƒe[ƒWƒTƒCƒY‚ğó‚¯æ‚éiS41j
+	long lStageSizeX;	//ã‚¹ãƒ†ãƒ¼ã‚¸ã‚µã‚¤ã‚ºã‚’å—ã‘å–ã‚‹ï¼ˆS28ï¼‰
+	long lStageSizeY;	//ã‚¹ãƒ†ãƒ¼ã‚¸ã‚µã‚¤ã‚ºã‚’å—ã‘å–ã‚‹ï¼ˆS29ï¼‰
+	long lEdgeSizeX;	//ã‚¹ãƒ†ãƒ¼ã‚¸ã‚µã‚¤ã‚ºã‚’å—ã‘å–ã‚‹ï¼ˆS36ï¼‰
+	long lEdgeSizeY;	//ã‚¹ãƒ†ãƒ¼ã‚¸ã‚µã‚¤ã‚ºã‚’å—ã‘å–ã‚‹ï¼ˆS37ï¼‰
+	long lOffsetX;		//ã‚¹ãƒ†ãƒ¼ã‚¸ã‚µã‚¤ã‚ºã‚’å—ã‘å–ã‚‹ï¼ˆS40ï¼‰
+	long lOffsetY;		//ã‚¹ãƒ†ãƒ¼ã‚¸ã‚µã‚¤ã‚ºã‚’å—ã‘å–ã‚‹ï¼ˆS41ï¼‰
 	//Saiki 20091113 Add ----->
 	long lMachineOriginUp;		//(P509)
 	long lMachineOriginDown;	//(P510)
@@ -220,13 +220,13 @@ BOOL CStageConfigSettingDlg::OnInitDialog()
 	//	  lOffsetX = g_lHWOriginOffsetX;
 	//	  lOffsetY = g_lHWOriginOffsetY;
 	//}
-	if(g_bHWS && STAGE_TYPE_SPT == ml_SystemConfig.nStageType){/*ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“ƒ‚[ƒh@‚©‚Â@ƒXƒe[ƒW‚ªSPT*/
+	if(g_bHWS && STAGE_TYPE_SPT == ml_SystemConfig.nStageType){/*ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ãƒ¢ãƒ¼ãƒ‰ã€€ã‹ã¤ã€€ã‚¹ãƒ†ãƒ¼ã‚¸ãŒSPT*/
 
 		lStageSizeX = static_cast<long>(m_StageConfig.Size.dX);
 		lStageSizeY = static_cast<long>(m_StageConfig.Size.dY);
 	}
-	else if(g_bHWStageSimulation && STAGE_TYPE_SPT != ml_SystemConfig.nStageType){/*ƒXƒe[ƒWƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“ƒ‚[ƒh@‚©‚Â@ƒXƒe[ƒW‚ªTOHO‚©NTN*/
-			/*ƒTƒuƒRƒ“‘Î‰‚É—vŠm”F‚·‚é‚±‚Æ*/
+	else if(g_bHWStageSimulation && STAGE_TYPE_SPT != ml_SystemConfig.nStageType){/*ã‚¹ãƒ†ãƒ¼ã‚¸ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ãƒ¢ãƒ¼ãƒ‰ã€€ã‹ã¤ã€€ã‚¹ãƒ†ãƒ¼ã‚¸ãŒTOHOã‹NTN*/
+			/*ã‚µãƒ–ã‚³ãƒ³å¯¾å¿œæ™‚ã«è¦ç¢ºèªã™ã‚‹ã“ã¨*/
 			lStageSizeX = g_lHWStageSizeX / (MICROMETRE / 10);
 			lStageSizeY = g_lHWStageSizeY / (MICROMETRE / 10);
 			lEdgeSizeX = g_lHWEdgeSizeX / (MICROMETRE / 10);
@@ -238,7 +238,7 @@ BOOL CStageConfigSettingDlg::OnInitDialog()
 	else{
 		StageGetEEPromData(&pEEPromData);
 
-/* modified hmenjo 2009.05.20 SPT ƒXƒe[ƒW—pİ’è‘Î‰ -------- { -------- */
+/* modified hmenjo 2009.05.20 SPT ã‚¹ãƒ†ãƒ¼ã‚¸ç”¨è¨­å®šå¯¾å¿œ -------- { -------- */
 //		if ((pEEPromData.AutoStage.Size.x <= 0) || (pEEPromData.AutoStage.Size.y <= 0)
 //			|| (pEEPromData.AutoStage.Edge.x < 0) || (pEEPromData.AutoStage.Edge.y < 0)
 //			|| (pEEPromData.AutoStage.Origin.lX < 0) || (pEEPromData.AutoStage.Origin.lY < 0)){
@@ -246,14 +246,14 @@ BOOL CStageConfigSettingDlg::OnInitDialog()
 //			MessageBox(szBuff, "STAGE CONFIG", MB_OK | MB_ICONSTOP);
 //			return TRUE;
 //		}
-/* modified hmenjo 2009.05.20 SPT ƒXƒe[ƒW—pİ’è‘Î‰ --------			 */
+/* modified hmenjo 2009.05.20 SPT ã‚¹ãƒ†ãƒ¼ã‚¸ç”¨è¨­å®šå¯¾å¿œ --------			 */
 		BOOL l_bRet = StageGetStageSize(&lStageSizeX, &lStageSizeY);
 		BOOL l_bRet2 = StageGetOrgLoc(&lOffsetX, &lOffsetY);
 		//Saiki 20091210 Change ----->
 		//if (STAGE_TYPE_SPT == l_SystemConfig.nStageType) {
 		if (STAGE_TYPE_SPT == ml_SystemConfig.nStageType) {
 		//Saiki 20091210 Change <-----
-			/* ƒXƒe[ƒWƒ^ƒCƒv‚ÍCSPT */
+			/* ã‚¹ãƒ†ãƒ¼ã‚¸ã‚¿ã‚¤ãƒ—ã¯ï¼ŒSPT */
 			if (
 				(FALSE == l_bRet)
 			 || (FALSE == l_bRet2)
@@ -273,14 +273,14 @@ BOOL CStageConfigSettingDlg::OnInitDialog()
 			lEdgeSizeX = 0;
 			lEdgeSizeY = 0;
 			//Saiki 20091113 Add ----->
-			/*SPTƒpƒ‰ƒ[ƒ^‚©‚çASPT‰Ò“®”ÍˆÍ‚ğŒvZ*/
+			/*SPTãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‹ã‚‰ã€SPTç¨¼å‹•ç¯„å›²ã‚’è¨ˆç®—*/
 			lMachineOriginLeft = (lOffsetX * (-1));
 			lMachineOriginDown = (lOffsetY * (-1));
 			lMachineOriginRight = (lOffsetX * (-1)) + lStageSizeX;
 			lMachineOriginUp = (lOffsetY * (-1)) + lStageSizeY;
 			//Saiki 20091113 Add <-----
 		} else {
-			/* ƒXƒe[ƒWƒ^ƒCƒv‚ÍCTOHO ‚ ‚é‚¢‚Í NTN */
+			/* ã‚¹ãƒ†ãƒ¼ã‚¸ã‚¿ã‚¤ãƒ—ã¯ï¼ŒTOHO ã‚ã‚‹ã„ã¯ NTN */
 			if (
 				(FALSE == l_bRet)
 			 || (FALSE == l_bRet2)
@@ -302,24 +302,24 @@ BOOL CStageConfigSettingDlg::OnInitDialog()
 			lStageSizeY *= (MICROMETRE / 10);
 			lEdgeSizeX = pEEPromData.AutoStage.Edge.x * (MICROMETRE / 10);
 			lEdgeSizeY = pEEPromData.AutoStage.Edge.y * (MICROMETRE / 10);
-			/*ƒXƒe[ƒWƒTƒCƒY‚ÆƒIƒtƒZƒbƒg‚©‚çA‰Ò“®”ÍˆÍ‚ğŒvZ*/
+			/*ã‚¹ãƒ†ãƒ¼ã‚¸ã‚µã‚¤ã‚ºã¨ã‚ªãƒ•ã‚»ãƒƒãƒˆã‹ã‚‰ã€ç¨¼å‹•ç¯„å›²ã‚’è¨ˆç®—*/
 			lMachineOriginLeft = (lOffsetX * (-1));
 			lMachineOriginDown = (lOffsetY * (-1));
 			lMachineOriginRight = (lOffsetX * (-1)) + lStageSizeX;
 			lMachineOriginUp = (lOffsetY * (-1)) + lStageSizeY;
 			//Saiki 20091113 Add <-----
 		}
-/* modified hmenjo 2009.05.20 SPT ƒXƒe[ƒW—pİ’è‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 SPT ã‚¹ãƒ†ãƒ¼ã‚¸ç”¨è¨­å®šå¯¾å¿œ -------- } -------- */
 
 		// Stage Size X,Y /////
 		((CEdit*)GetDlgItem(IDC_SAMPLE_SIZE_X))->SetReadOnly();
 		((CEdit*)GetDlgItem(IDC_SAMPLE_SIZE_Y))->SetReadOnly();
 
-/* modified 2009.07.16 hmenjo SPT ƒXƒe[ƒW EDGE “ü—Í‰Â”\‰» ---------- { ---------- */
+/* modified 2009.07.16 hmenjo SPT ã‚¹ãƒ†ãƒ¼ã‚¸ EDGE å…¥åŠ›å¯èƒ½åŒ– ---------- { ---------- */
 //		// Stage Edge X,Y /////
 //		((CEdit*)GetDlgItem(IDC_STAGE_EDGE_X))->SetReadOnly();
 //		((CEdit*)GetDlgItem(IDC_STAGE_EDGE_Y))->SetReadOnly();
-/* modified 2009.07.16 hmenjo SPT ƒXƒe[ƒW EDGE “ü—Í‰Â”\‰» ----------			   */
+/* modified 2009.07.16 hmenjo SPT ã‚¹ãƒ†ãƒ¼ã‚¸ EDGE å…¥åŠ›å¯èƒ½åŒ– ----------			   */
 		// Stage Edge X,Y /////
 		//Saiki 20091210 Change ----->
 		//if (STAGE_TYPE_SPT != l_SystemConfig.nStageType) {
@@ -328,15 +328,15 @@ BOOL CStageConfigSettingDlg::OnInitDialog()
 			((CEdit*)GetDlgItem(IDC_STAGE_EDGE_X))->SetReadOnly();
 			((CEdit*)GetDlgItem(IDC_STAGE_EDGE_Y))->SetReadOnly();
 		}
-/* modified 2009.07.16 hmenjo SPT ƒXƒe[ƒW EDGE “ü—Í‰Â”\‰» ---------- } ---------- */
+/* modified 2009.07.16 hmenjo SPT ã‚¹ãƒ†ãƒ¼ã‚¸ EDGE å…¥åŠ›å¯èƒ½åŒ– ---------- } ---------- */
 
-//Saiki 20091113 Delete <Stage ConfigC³‚É‚æ‚è“ü—Í‰Â”\‚É‚·‚é> ----->
+//Saiki 20091113 Delete <Stage Configä¿®æ­£ã«ã‚ˆã‚Šå…¥åŠ›å¯èƒ½ã«ã™ã‚‹> ----->
 		// Stage Offset X,Y /////
 		//((CEdit*)GetDlgItem(IDC_ORIGIN_X))->SetReadOnly();
 		//((CEdit*)GetDlgItem(IDC_ORIGIN_Y))->SetReadOnly();
 //Saiki 20091113 Delete <-----
 
-//Saiki 20091113 Change <Stage ConfigC³‚É‚æ‚è‘•’u‰Ò“®”ÍˆÍ‚ğ•\¦> ----->
+//Saiki 20091113 Change <Stage Configä¿®æ­£ã«ã‚ˆã‚Šè£…ç½®ç¨¼å‹•ç¯„å›²ã‚’è¡¨ç¤º> ----->
 		// Stage Max Coordnate X,Y /////
 		//((CEdit*)GetDlgItem(IDC_COORD_LEFT_UP))->SetReadOnly();
 		//((CEdit*)GetDlgItem(IDC_COORD_LEFT_DOWN))->SetReadOnly();
@@ -348,10 +348,10 @@ BOOL CStageConfigSettingDlg::OnInitDialog()
 		((CEdit*)GetDlgItem(IDC_EDIT_MACHIN_ORIGIN_DOWN))->SetReadOnly();
 //Saiki 20091113 Change <-----
 
-/* deleted 2009.07.16 hmenjo SPT ƒXƒe[ƒW EDGE “ü—Í‰Â”\‰» ---------- { ---------- */
-///* added hmenjo 2009.05.20 SPT ƒXƒe[ƒW—pİ’è‘Î‰ -------- { -------- */
+/* deleted 2009.07.16 hmenjo SPT ã‚¹ãƒ†ãƒ¼ã‚¸ EDGE å…¥åŠ›å¯èƒ½åŒ– ---------- { ---------- */
+///* added hmenjo 2009.05.20 SPT ã‚¹ãƒ†ãƒ¼ã‚¸ç”¨è¨­å®šå¯¾å¿œ -------- { -------- */
 //		if (STAGE_TYPE_SPT == l_SystemConfig.nStageType) {
-//			/* ƒXƒe[ƒWƒ^ƒCƒv‚ÍCSPT */
+//			/* ã‚¹ãƒ†ãƒ¼ã‚¸ã‚¿ã‚¤ãƒ—ã¯ï¼ŒSPT */
 //			GetDlgItem(IDC_STAGE_EDGE_X)->EnableWindow(FALSE);
 //			GetDlgItem(IDC_STAGE_EDGE_Y)->EnableWindow(FALSE);
 //			GetDlgItem(IDC_STATIC_EDGEGRP)->EnableWindow(FALSE);
@@ -359,20 +359,20 @@ BOOL CStageConfigSettingDlg::OnInitDialog()
 //			GetDlgItem(IDC_STATIC_EDGE_Y)->EnableWindow(FALSE);
 //			GetDlgItem(IDC_STATIC_EDGESIZE)->EnableWindow(FALSE);
 //		}
-///* added hmenjo 2009.05.20 SPT ƒXƒe[ƒW—pİ’è‘Î‰ -------- } -------- */
-/* deleted 2009.07.16 hmenjo SPT ƒXƒe[ƒW EDGE “ü—Í‰Â”\‰» ---------- } ---------- */
+///* added hmenjo 2009.05.20 SPT ã‚¹ãƒ†ãƒ¼ã‚¸ç”¨è¨­å®šå¯¾å¿œ -------- } -------- */
+/* deleted 2009.07.16 hmenjo SPT ã‚¹ãƒ†ãƒ¼ã‚¸ EDGE å…¥åŠ›å¯èƒ½åŒ– ---------- } ---------- */
 
-/* deleted hmenjo 2009.05.20 SPT ƒXƒe[ƒW—pİ’è‘Î‰ -------- { -------- */
+/* deleted hmenjo 2009.05.20 SPT ã‚¹ãƒ†ãƒ¼ã‚¸ç”¨è¨­å®šå¯¾å¿œ -------- { -------- */
 //		lStageSizeX = pEEPromData.AutoStage.Size.x;
 //		lStageSizeY = pEEPromData.AutoStage.Size.y;
 //		lEdgeSizeX =  pEEPromData.AutoStage.Edge.x;
 //		lEdgeSizeY =  pEEPromData.AutoStage.Edge.y;
 //		lOffsetX =	pEEPromData.AutoStage.Origin.lX;
 //		lOffsetY =	pEEPromData.AutoStage.Origin.lY;
-/* deleted hmenjo 2009.05.20 SPT ƒXƒe[ƒW—pİ’è‘Î‰ -------- } -------- */
+/* deleted hmenjo 2009.05.20 SPT ã‚¹ãƒ†ãƒ¼ã‚¸ç”¨è¨­å®šå¯¾å¿œ -------- } -------- */
 	}
 
-/* modified hmenjo 2009.05.20 SPT ƒXƒe[ƒW—pİ’è‘Î‰ -------- { -------- */
+/* modified hmenjo 2009.05.20 SPT ã‚¹ãƒ†ãƒ¼ã‚¸ç”¨è¨­å®šå¯¾å¿œ -------- { -------- */
 //	strBuffer.Format("%d", lStageSizeX * (MICROMETRE / 10));		// convert nm to um
 //	SetDlgItemText(IDC_SAMPLE_SIZE_X, strBuffer);
 //	strBuffer.Format("%d", lStageSizeY * (MICROMETRE / 10));		// convert nm to um
@@ -382,18 +382,18 @@ BOOL CStageConfigSettingDlg::OnInitDialog()
 //	SetDlgItemText(IDC_STAGE_EDGE_X, strBuffer);
 //	strBuffer.Format("%d", lEdgeSizeY * (MICROMETRE / 10)); 	// convert nm to um
 //	SetDlgItemText(IDC_STAGE_EDGE_Y, strBuffer);
-/* modified hmenjo 2009.05.20 SPT ƒXƒe[ƒW—pİ’è‘Î‰ --------			 */
+/* modified hmenjo 2009.05.20 SPT ã‚¹ãƒ†ãƒ¼ã‚¸ç”¨è¨­å®šå¯¾å¿œ --------			 */
 	strBuffer.Format("%d", lStageSizeX);	// um
 	SetDlgItemText(IDC_SAMPLE_SIZE_X, strBuffer);
 	strBuffer.Format("%d", lStageSizeY);	// um
 	SetDlgItemText(IDC_SAMPLE_SIZE_Y, strBuffer);
 
-//Saiki 20091113 Chage <Stage Offset, Edge Size, ‰Ò“®”ÍˆÍ‚Íƒtƒ@ƒCƒ‹‚©‚ç“Ç‚İo‚·>----->
+//Saiki 20091113 Chage <Stage Offset, Edge Size, ç¨¼å‹•ç¯„å›²ã¯ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰èª­ã¿å‡ºã™>----->
 //	strBuffer.Format("%d", lEdgeSizeX); 	// um
 //	SetDlgItemText(IDC_STAGE_EDGE_X, strBuffer);
 //	strBuffer.Format("%d", lEdgeSizeY); 	// um
 //	SetDlgItemText(IDC_STAGE_EDGE_Y, strBuffer);
-///* modified hmenjo 2009.05.20 SPT ƒXƒe[ƒW—pİ’è‘Î‰ -------- } -------- */
+///* modified hmenjo 2009.05.20 SPT ã‚¹ãƒ†ãƒ¼ã‚¸ç”¨è¨­å®šå¯¾å¿œ -------- } -------- */
 //
 //	strBuffer.Format("%d", lOffsetX );		// um
 //	SetDlgItemText(IDC_ORIGIN_X, strBuffer);
@@ -457,16 +457,16 @@ BOOL CStageConfigSettingDlg::OnInitDialog()
 	SetDlgItemText(IDC_COORD_RIGHT, strBuffer);
 
 
-//Saiki 20091113 Chage <Stage Offset, Edge Size, ‰Ò“®”ÍˆÍ‚Íƒtƒ@ƒCƒ‹‚©‚ç“Ç‚İo‚·><-----
+//Saiki 20091113 Chage <Stage Offset, Edge Size, ç¨¼å‹•ç¯„å›²ã¯ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰èª­ã¿å‡ºã™><-----
 
 	UpdateData(TRUE);
 	SetCoordRange();
-/* added 2009.07.16 hmenjo SPT ƒXƒe[ƒW EDGE “ü—Í‰Â”\‰» ---------- { ---------- */
+/* added 2009.07.16 hmenjo SPT ã‚¹ãƒ†ãƒ¼ã‚¸ EDGE å…¥åŠ›å¯èƒ½åŒ– ---------- { ---------- */
 	this->GetDlgItem(IDOK)->EnableWindow(TRUE);
-/* added 2009.07.16 hmenjo SPT ƒXƒe[ƒW EDGE “ü—Í‰Â”\‰» ---------- } ---------- */
+/* added 2009.07.16 hmenjo SPT ã‚¹ãƒ†ãƒ¼ã‚¸ EDGE å…¥åŠ›å¯èƒ½åŒ– ---------- } ---------- */
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
@@ -515,8 +515,8 @@ void CStageConfigSettingDlg::OnTeachingButton()
 
 // =========================================================================
 //Saiki 20091113 Change ----->
-//// OnStageOrgPosRadioButton ƒXƒe[ƒWŒ´“_‚Ìƒ‰ƒWƒIƒ{ƒ^ƒ“ƒ`ƒFƒbƒN Œ´“_À•W‚Ì–ÚˆÀ’l‚ğİ’è‚·‚é
-// OnStageOrgPosRadioButton ƒTƒ“ƒvƒ‹Œ´“_‚Ìƒ‰ƒWƒIƒ{ƒ^ƒ“ƒ`ƒFƒbƒN
+//// OnStageOrgPosRadioButton ã‚¹ãƒ†ãƒ¼ã‚¸åŸç‚¹ã®ãƒ©ã‚¸ã‚ªãƒœã‚¿ãƒ³ãƒã‚§ãƒƒã‚¯ åŸç‚¹åº§æ¨™ã®ç›®å®‰å€¤ã‚’è¨­å®šã™ã‚‹
+// OnStageOrgPosRadioButton ã‚µãƒ³ãƒ—ãƒ«åŸç‚¹ã®ãƒ©ã‚¸ã‚ªãƒœã‚¿ãƒ³ãƒã‚§ãƒƒã‚¯
 void CStageConfigSettingDlg::OnStageOrgPosRadioButton(UINT nID)
 {
 // 2009.05.25 K.Matsuo StageConfigSetting SPT <--
@@ -528,18 +528,18 @@ void CStageConfigSettingDlg::OnStageOrgPosRadioButton(UINT nID)
 
 	if(IDC_ORG_POS_1 <= nID && nID <=IDC_ORG_POS_5){
 		m_StageConfig.OrgPos = nID - IDC_ORG_POS_1 + 1;
-//Saiki 20091113 Delete <ƒTƒ“ƒvƒ‹Œ´“_‚Íİ’è‚Ì‚İ‚Æ‚·‚é>----->
+//Saiki 20091113 Delete <ã‚µãƒ³ãƒ—ãƒ«åŸç‚¹ã¯è¨­å®šã®ã¿ã¨ã™ã‚‹>----->
 //		UpdateData(TRUE);
 //		SetCoordRange();
-//Saiki 20091113 Delete <ƒTƒ“ƒvƒ‹Œ´“_‚Íİ’è‚Ì‚İ‚Æ‚·‚é><-----
-/* added 2009.07.16 hmenjo SPT ƒXƒe[ƒW EDGE “ü—Í‰Â”\‰» ---------- { ---------- */
+//Saiki 20091113 Delete <ã‚µãƒ³ãƒ—ãƒ«åŸç‚¹ã¯è¨­å®šã®ã¿ã¨ã™ã‚‹><-----
+/* added 2009.07.16 hmenjo SPT ã‚¹ãƒ†ãƒ¼ã‚¸ EDGE å…¥åŠ›å¯èƒ½åŒ– ---------- { ---------- */
 		this->GetDlgItem(IDOK)->EnableWindow(TRUE);
-/* added 2009.07.16 hmenjo SPT ƒXƒe[ƒW EDGE “ü—Í‰Â”\‰» ---------- } ---------- */
+/* added 2009.07.16 hmenjo SPT ã‚¹ãƒ†ãƒ¼ã‚¸ EDGE å…¥åŠ›å¯èƒ½åŒ– ---------- } ---------- */
 	}
 }
 
 // =========================================================================
-// OnStageCoordDirComboBox ƒXƒe[ƒWÀ•W‚Ì•ûŒüİ’è
+// OnStageCoordDirComboBox ã‚¹ãƒ†ãƒ¼ã‚¸åº§æ¨™ã®æ–¹å‘è¨­å®š
 void CStageConfigSettingDlg::OnStageCoordDirComboBox(UINT nID)
 {
 	CString strBuffer;
@@ -558,16 +558,16 @@ void CStageConfigSettingDlg::InitRadio_StageOrgPos()
 {
 // 2009.05.25 K.Matsuo StageConfigSetting SPT -->
 
-	// StageConfigSetting‚Ìm_StageConfig.Origin‚Ìæˆµ‚¢‚É‚Â‚¢‚Äà–¾‚µ‚Ä‚¨‚­
-	//	 C³‘OFMachineOrgSensorLoc iƒ‰ƒWƒIƒ{ƒ^ƒ“‚Å¶‰º‚È‚Ç‚ğw’èj‚ÌŠî€ˆÊ’u‚©‚ç‚ÌƒIƒtƒZƒbƒg’lBŠî€ˆÊ’u‚É‚æ‚èAƒIƒtƒZƒbƒg’l‚Ì‰ÁZEŒ¸Z‚ğs‚¤
-	//	 C³ŒãFMachineOrgSensorLoc‚ÍA”p~B¶‰ºŠî€iŒÅ’èj‚Æ‚µAƒ}ƒV[ƒ“ƒXƒe[ƒWŒ´“_ƒƒP[ƒVƒ‡ƒ“‚ÌÀ•WˆÊ’u‚Æ‚µ‚Ä—˜—p‚·‚é
+	// StageConfigSettingã®m_StageConfig.Originã®å–æ‰±ã„ã«ã¤ã„ã¦èª¬æ˜ã—ã¦ãŠã
+	//	 ä¿®æ­£å‰ï¼šMachineOrgSensorLoc ï¼ˆãƒ©ã‚¸ã‚ªãƒœã‚¿ãƒ³ã§å·¦ä¸‹ãªã©ã‚’æŒ‡å®šï¼‰ã®åŸºæº–ä½ç½®ã‹ã‚‰ã®ã‚ªãƒ•ã‚»ãƒƒãƒˆå€¤ã€‚åŸºæº–ä½ç½®ã«ã‚ˆã‚Šã€ã‚ªãƒ•ã‚»ãƒƒãƒˆå€¤ã®åŠ ç®—ãƒ»æ¸›ç®—ã‚’è¡Œã†
+	//	 ä¿®æ­£å¾Œï¼šMachineOrgSensorLocã¯ã€å»ƒæ­¢ã€‚å·¦ä¸‹åŸºæº–ï¼ˆå›ºå®šï¼‰ã¨ã—ã€ãƒã‚·ãƒ¼ãƒ³ã‚¹ãƒ†ãƒ¼ã‚¸åŸç‚¹ãƒ­ã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®åº§æ¨™ä½ç½®ã¨ã—ã¦åˆ©ç”¨ã™ã‚‹
 
 //	CheckDlgButton(StageMachineOriginPos_ID[m_StageConfig.MachineOrgSensorLoc - 1], BST_CHECKED);
 	CheckDlgButton(IDC_MACHINE_ORG_POS_3, BST_CHECKED);
 
 // 2009.05.25 K.Matsuo StageConfigSetting SPT <--
 
-	//ƒXƒe[ƒWŒ´“_‚©‚çƒTƒ“ƒvƒ‹Œ´“_‚É‹@”\‚ğ•ÏX
+	//ã‚¹ãƒ†ãƒ¼ã‚¸åŸç‚¹ã‹ã‚‰ã‚µãƒ³ãƒ—ãƒ«åŸç‚¹ã«æ©Ÿèƒ½ã‚’å¤‰æ›´
 	CheckDlgButton(StageOriginPos_ID[m_StageConfig.OrgPos - 1], BST_CHECKED);
 	UpdateData(TRUE);
 }
@@ -660,7 +660,7 @@ BOOL CStageConfigSettingDlg::CheckData()
 	///// StageCoordinate Direction /////
 	for ( int i = 0; i < STAGE_COORD_DIR_COMBO_MAX; i++ ) {
 		GetDlgItemText(StageCoordDir_ID[i], strBuffer);
-		///// +X‚ª‚Q‚ÂˆÈã‚È‚¢‚©Šm”F /////
+		///// +XãŒï¼’ã¤ä»¥ä¸Šãªã„ã‹ç¢ºèª /////
 		if ( strBuffer == StageCoordDir_Item[1] ) {
 			if ( !bDirectX ) {
 				bDirectX = TRUE;
@@ -676,7 +676,7 @@ BOOL CStageConfigSettingDlg::CheckData()
 			}
 		}
 
-		///// +Y‚ª‚Q‚ÂˆÈã‚È‚¢‚©Šm”F /////
+		///// +YãŒï¼’ã¤ä»¥ä¸Šãªã„ã‹ç¢ºèª /////
 		if ( strBuffer == StageCoordDir_Item[2] ) {
 			if ( !bDirectY ) {
 				bDirectY = TRUE;
@@ -693,7 +693,7 @@ BOOL CStageConfigSettingDlg::CheckData()
 		}
 	}
 
-	///// +X +Y ‚ª‘¶İ‚µ‚È‚¢ /////
+	///// +X +Y ãŒå­˜åœ¨ã—ãªã„ /////
 	if ( !bDirectX && !bDirectY ) {
 		// Kojika 20090603 Change
 		//MessageBox("Please Setup +X and +Y", "STAGE CONFIG", MB_OK | MB_ICONSTOP);
@@ -704,7 +704,7 @@ BOOL CStageConfigSettingDlg::CheckData()
 		return FALSE;
 	}
 
-	///// +X +Y ‚ª‘Î‚Å‚È‚¢ /////
+	///// +X +Y ãŒå¯¾ã§ãªã„ /////
 	if ( !bDirectX ) {
 		// Kojika 20090603 Change
 		//MessageBox("Please Setup +X.", "STAGE CONFIG", MB_OK | MB_ICONSTOP);
@@ -724,7 +724,7 @@ BOOL CStageConfigSettingDlg::CheckData()
 		return FALSE;
 	}
 
-	///// X,Y‚Ì•ûŒü‚ªˆê’¼ü‚Å‚È‚¢‚±‚Æ /////
+	///// X,Yã®æ–¹å‘ãŒä¸€ç›´ç·šã§ãªã„ã“ã¨ /////
 	if ( (m_StageConfig.Dir.X + m_StageConfig.Dir.Y) % 2 == 0 ) {
 		// Kojika 20090603 Change
 		//MessageBox("Please Correct.", "STAGE CONFIG", MB_OK | MB_ICONSTOP);
@@ -780,15 +780,15 @@ BOOL CStageConfigSettingDlg::CheckData()
 	//	  return FALSE;
 	//}
 	if(!(g_bHWS && STAGE_TYPE_SPT == ml_SystemConfig.nStageType)){
-/* modified 2011.11.14 hmenjo [‚U]StageCfg‰æ–Ê ---------- { ---------- */
+/* modified 2011.11.14 hmenjo [ï¼–]StageCfgç”»é¢ ---------- { ---------- */
 //		if ( ( lValue < SUBCON_STAGE_MIN_SIZE * (MICROMETRE / 10) ) || ( SUBCON_STAGE_MAX_SIZE * (MICROMETRE / 10) < lValue  ) || lMachineOriginUp < lValue) {
-/* modified 2011.11.14 hmenjo [‚U]StageCfg‰æ–Ê ----------              */
+/* modified 2011.11.14 hmenjo [ï¼–]StageCfgç”»é¢ ----------              */
 		if ((lValue < SUBCON_STAGE_MIN_SIZE * (MICROMETRE / 10)) ||
 			(SUBCON_STAGE_MAX_SIZE * (MICROMETRE / 10) < lValue) ||
 			(m_StageConfig.StageMaxCoord.dUpY < 0) ||
 			((STAGE_TYPE_SPT == ml_SystemConfig.nStageType) && (lMachineOriginUp < lValue))
 		) {
-/* modified 2011.11.14 hmenjo [‚U]StageCfg‰æ–Ê ---------- } ---------- */
+/* modified 2011.11.14 hmenjo [ï¼–]StageCfgç”»é¢ ---------- } ---------- */
 			// Kojika 20090603 Change
 			//MessageBox("Stage Max Coord Up Size is out of Range.", "STAGE CONFIG", MB_OK | MB_ICONSTOP);
 			LoadStringML(IDS_COORD_UP_SIZE_OUT_RANGE, l_strBuffer, "Stage Max Coord Up Size is out of Range.");
@@ -817,9 +817,9 @@ BOOL CStageConfigSettingDlg::CheckData()
 	//	  return FALSE;
 	//}
 	if(!(g_bHWS && STAGE_TYPE_SPT == ml_SystemConfig.nStageType)){
-/* modified 2011.11.14 hmenjo [‚U]StageCfg‰æ–Ê ---------- { ---------- */
+/* modified 2011.11.14 hmenjo [ï¼–]StageCfgç”»é¢ ---------- { ---------- */
 //		if ( ( lValue > SUBCON_STAGE_MIN_SIZE * (MICROMETRE / 10) ) || ( SUBCON_STAGE_MAX_SIZE * (MICROMETRE / 10) < lValue  ) || lMachineOriginDown > lValue) {
-/* modified 2011.11.14 hmenjo [‚U]StageCfg‰æ–Ê ----------              */
+/* modified 2011.11.14 hmenjo [ï¼–]StageCfgç”»é¢ ----------              */
 		lMachineOriginDown = labs(lMachineOriginDown);
 		lValue = labs(lValue);
 		if ((lValue < SUBCON_STAGE_MIN_SIZE * (MICROMETRE / 10)) ||
@@ -827,7 +827,7 @@ BOOL CStageConfigSettingDlg::CheckData()
 			(0 <= m_StageConfig.StageMaxCoord.dDownY) ||
 			((STAGE_TYPE_SPT == ml_SystemConfig.nStageType) && (lMachineOriginDown < lValue))
 		) {
-/* modified 2011.11.14 hmenjo [‚U]StageCfg‰æ–Ê ---------- } ---------- */
+/* modified 2011.11.14 hmenjo [ï¼–]StageCfgç”»é¢ ---------- } ---------- */
 			// Kojika 20090603 Change
 			//MessageBox("Stage Max Coord Up Size is out of Range.", "STAGE CONFIG", MB_OK | MB_ICONSTOP);
 			LoadStringML(IDS_COORD_DOWN_SIZE_OUT_RANGE, l_strBuffer, "Stage Max Coord Down Size is out of Range.");
@@ -856,15 +856,15 @@ BOOL CStageConfigSettingDlg::CheckData()
 	//	  return FALSE;
 	//}
 	if(!(g_bHWS && STAGE_TYPE_SPT == ml_SystemConfig.nStageType)){
-/* modified 2011.11.14 hmenjo [‚U]StageCfg‰æ–Ê ---------- { ---------- */
+/* modified 2011.11.14 hmenjo [ï¼–]StageCfgç”»é¢ ---------- { ---------- */
 //		if ( ( lValue < SUBCON_STAGE_MIN_SIZE * (MICROMETRE / 10) ) || ( SUBCON_STAGE_MAX_SIZE * (MICROMETRE / 10) < lValue  ) || lMachineOriginRight < lValue) {
-/* modified 2011.11.14 hmenjo [‚U]StageCfg‰æ–Ê ----------              */
+/* modified 2011.11.14 hmenjo [ï¼–]StageCfgç”»é¢ ----------              */
 		if ((lValue < SUBCON_STAGE_MIN_SIZE * (MICROMETRE / 10)) ||
 			(SUBCON_STAGE_MAX_SIZE * (MICROMETRE / 10) < lValue) ||
 			(m_StageConfig.StageMaxCoord.dRightX < 0) ||
 			((STAGE_TYPE_SPT == ml_SystemConfig.nStageType) && (lMachineOriginRight < lValue))
 		) {
-/* modified 2011.11.14 hmenjo [‚U]StageCfg‰æ–Ê ---------- } ---------- */
+/* modified 2011.11.14 hmenjo [ï¼–]StageCfgç”»é¢ ---------- } ---------- */
 			// Kojika 20090603 Change
 			//MessageBox("Stage Max Coord Right Size is out of Range.", "STAGE CONFIG", MB_OK | MB_ICONSTOP);
 			LoadStringML(IDS_COORD_RIGHT_SIZE_OUT_RANGE, l_strBuffer, "Stage Max Coord Right Size is out of Range.");
@@ -893,9 +893,9 @@ BOOL CStageConfigSettingDlg::CheckData()
 	//	  return FALSE;
 	//}
 	if(!(g_bHWS && STAGE_TYPE_SPT == ml_SystemConfig.nStageType)){
-/* modified 2011.11.14 hmenjo [‚U]StageCfg‰æ–Ê ---------- { ---------- */
+/* modified 2011.11.14 hmenjo [ï¼–]StageCfgç”»é¢ ---------- { ---------- */
 //		if ( ( lValue > SUBCON_STAGE_MIN_SIZE * (MICROMETRE / 10) ) || ( SUBCON_STAGE_MAX_SIZE * (MICROMETRE / 10) < lValue  ) || lMachineOriginLeft > lValue) {
-/* modified 2011.11.14 hmenjo [‚U]StageCfg‰æ–Ê ----------              */
+/* modified 2011.11.14 hmenjo [ï¼–]StageCfgç”»é¢ ----------              */
 		lMachineOriginLeft = labs(lMachineOriginLeft);
 		lValue = labs(lValue);
 		if ((lValue < SUBCON_STAGE_MIN_SIZE * (MICROMETRE / 10)) ||
@@ -903,7 +903,7 @@ BOOL CStageConfigSettingDlg::CheckData()
 			(0 <= m_StageConfig.StageMaxCoord.dLeftX) ||
 			((STAGE_TYPE_SPT == ml_SystemConfig.nStageType) && (lMachineOriginLeft < lValue))
 		) {
-/* modified 2011.11.14 hmenjo [‚U]StageCfg‰æ–Ê ---------- } ---------- */
+/* modified 2011.11.14 hmenjo [ï¼–]StageCfgç”»é¢ ---------- } ---------- */
 			// Kojika 20090603 Change
 			//MessageBox("Stage Max Coord Left Size is out of Range.", "STAGE CONFIG", MB_OK | MB_ICONSTOP);
 			LoadStringML(IDS_COORD_LEFT_SIZE_OUT_RANGE, l_strBuffer, "Stage Max Coord Left Size is out of Range.");
@@ -919,7 +919,7 @@ BOOL CStageConfigSettingDlg::CheckData()
 	///// Stage Edge X /////
 	lValue = static_cast<long>(m_StageConfig.Edge.dX);
 	//Saiki 20091113 Change ----->
-	///*Edge‚Ì”ÍˆÍ‚Í‰Ò“®”ÍˆÍ‚æ‚è¬‚³‚¢‚±‚Æ*/
+	///*Edgeã®ç¯„å›²ã¯ç¨¼å‹•ç¯„å›²ã‚ˆã‚Šå°ã•ã„ã“ã¨*/
 	//if ( ( lValue < SUBCON_STAGE_MIN_SIZE * (MICROMETRE / 10) ) || ( m_StageConfig.Size.dX < lValue ) ) {
 	if ( ( lValue < SUBCON_STAGE_MIN_SIZE * (MICROMETRE / 10) ) || ( abs(m_StageConfig.StageMaxCoord.dLeftX) < lValue ) || ( abs(m_StageConfig.StageMaxCoord.dRightX) < lValue )) {
 	//Saiki 20091113 Change <-----
@@ -936,7 +936,7 @@ BOOL CStageConfigSettingDlg::CheckData()
 	///// Stage Edge Y /////
 	lValue = static_cast<long>(m_StageConfig.Edge.dY);
 	//Saiki 20091113 Change ----->
-	///*Edge‚Ì”ÍˆÍ‚Í‰Ò“®”ÍˆÍ‚æ‚è¬‚³‚¢‚±‚Æ*/
+	///*Edgeã®ç¯„å›²ã¯ç¨¼å‹•ç¯„å›²ã‚ˆã‚Šå°ã•ã„ã“ã¨*/
 	//if ( ( lValue < SUBCON_STAGE_MIN_SIZE * (MICROMETRE / 10) ) || ( m_StageConfig.Size.dY < lValue ) ) {
 	if ( ( lValue < SUBCON_STAGE_MIN_SIZE * (MICROMETRE / 10) ) || ( abs(m_StageConfig.StageMaxCoord.dUpY) < lValue ) || ( abs(m_StageConfig.StageMaxCoord.dDownY) < lValue )) {
 	//Saiki 20091113 Change <-----
@@ -953,7 +953,7 @@ BOOL CStageConfigSettingDlg::CheckData()
 	///// Stage Origin X /////
 	lValue = m_StageConfig.Origin.lX;
 	//Saiki 20091113 Change ---->
-	///*ƒXƒe[ƒWƒIƒtƒZƒbƒg‚ÍA‰Ò“®”ÍˆÍ‚©‚çEdge•ª“à‘¤“à‚É‘¶İ‚µ‚È‚¯‚ê‚Î‚È‚ç‚È‚¢*/
+	///*ã‚¹ãƒ†ãƒ¼ã‚¸ã‚ªãƒ•ã‚»ãƒƒãƒˆã¯ã€ç¨¼å‹•ç¯„å›²ã‹ã‚‰Edgeåˆ†å†…å´å†…ã«å­˜åœ¨ã—ãªã‘ã‚Œã°ãªã‚‰ãªã„*/
 	//if ( ( lValue < ( SUBCON_STAGE_MIN_SIZE * (MICROMETRE / 10) + m_StageConfig.Edge.dX ) ) || ( (m_StageConfig.Size.dX - m_StageConfig.Edge.dX ) < lValue ) ) {
 	if ( (m_StageConfig.StageMaxCoord.dLeftX + m_StageConfig.Edge.dX > lValue) || (m_StageConfig.StageMaxCoord.dRightX - m_StageConfig.Edge.dX < lValue)) {
 		// Kojika 20090603 Change
@@ -968,7 +968,7 @@ BOOL CStageConfigSettingDlg::CheckData()
 
 	///// Stage Origin Y /////
 	lValue = m_StageConfig.Origin.lY;
-	///*ƒXƒe[ƒWƒIƒtƒZƒbƒg‚ÍA‰Ò“®”ÍˆÍ‚©‚çEdge•ª“à‘¤“à‚É‘¶İ‚µ‚È‚¯‚ê‚Î‚È‚ç‚È‚¢*/
+	///*ã‚¹ãƒ†ãƒ¼ã‚¸ã‚ªãƒ•ã‚»ãƒƒãƒˆã¯ã€ç¨¼å‹•ç¯„å›²ã‹ã‚‰Edgeåˆ†å†…å´å†…ã«å­˜åœ¨ã—ãªã‘ã‚Œã°ãªã‚‰ãªã„*/
 //	  if ( ( lValue < ( SUBCON_STAGE_MIN_SIZE * (MICROMETRE / 10) + m_StageConfig.Edge.dY ) ) || ( (m_StageConfig.Size.dY - m_StageConfig.Edge.dY ) < lValue ) ) {
 	if ( (m_StageConfig.StageMaxCoord.dDownY + m_StageConfig.Edge.dY > lValue) || (m_StageConfig.StageMaxCoord.dUpY - m_StageConfig.Edge.dY < lValue)) {
 		// Kojika 20090603 Change
@@ -985,7 +985,7 @@ BOOL CStageConfigSettingDlg::CheckData()
 }
 
 // =========================================================================
-// SetCoordRange İ’è‰Â”\¥•\”ÍˆÍ‚ğİ’è
+// SetCoordRange è¨­å®šå¯èƒ½æ˜¯è¡¨ç¯„å›²ã‚’è¨­å®š
 void CStageConfigSettingDlg::SetCoordRange()
 {
 	CString strBuffer1;
@@ -994,20 +994,20 @@ void CStageConfigSettingDlg::SetCoordRange()
 	CString strBuffer4;
 
 //Saiki 20091113 Change ----->
-//ƒXƒe[ƒW‚Í‘S‚ÄAƒZƒ“ƒ^[’†S‚Ål‚¦‚é‚½‚ßAŒ´“_ˆÊ’u‚ÉŠÖŒW‚È‚­Å‘åƒXƒgƒ[ƒN‚ğ“ü‚ê‚é
+//ã‚¹ãƒ†ãƒ¼ã‚¸ã¯å…¨ã¦ã€ã‚»ãƒ³ã‚¿ãƒ¼ä¸­å¿ƒã§è€ƒãˆã‚‹ãŸã‚ã€åŸç‚¹ä½ç½®ã«é–¢ä¿‚ãªãæœ€å¤§ã‚¹ãƒˆãƒ­ãƒ¼ã‚¯ã‚’å…¥ã‚Œã‚‹
 
 //	switch ( m_StageConfig.OrgPos ) {
-//	case 1: // ’†S
+//	case 1: // ä¸­å¿ƒ
 //		m_StageConfig.StageMaxCoord.dLeftX = (-(m_StageConfig.Origin.lX) + m_StageConfig.Edge.dX);
 //		m_StageConfig.StageMaxCoord.dRightX = (m_StageConfig.Size.dX - m_StageConfig.Origin.lX - m_StageConfig.Edge.dX );
 //		m_StageConfig.StageMaxCoord.dUpY = (m_StageConfig.Size.dY - m_StageConfig.Origin.lY - m_StageConfig.Edge.dY);
 //		m_StageConfig.StageMaxCoord.dDownY = (-(m_StageConfig.Origin.lY) + m_StageConfig.Edge.dY);
 //
 //		break;
-//	case 2: // ¶ã
-//	case 3: // ¶‰º
-//	case 4: // ‰E‰º
-//	case 5: // ‰Eã
+//	case 2: // å·¦ä¸Š
+//	case 3: // å·¦ä¸‹
+//	case 4: // å³ä¸‹
+//	case 5: // å³ä¸Š
 //		break;
 //	}
 //	strBuffer1.Format("( %.0f , %.0f )", m_StageConfig.StageMaxCoord.dLeftX, m_StageConfig.StageMaxCoord.dUpY );
@@ -1031,7 +1031,7 @@ void CStageConfigSettingDlg::SetCoordRange()
 //Saiki 20091113 Change <-----
 }
 
-/* added 2009.07.16 hmenjo SPT ƒXƒe[ƒW EDGE “ü—Í‰Â”\‰» ---------- { ---------- */
+/* added 2009.07.16 hmenjo SPT ã‚¹ãƒ†ãƒ¼ã‚¸ EDGE å…¥åŠ›å¯èƒ½åŒ– ---------- { ---------- */
 void CStageConfigSettingDlg::OnChangeStageEdgeX()
 {
 	// TODO: If this is a RICHEDIT control, the control will not
@@ -1041,7 +1041,7 @@ void CStageConfigSettingDlg::OnChangeStageEdgeX()
 
 	// TODO: Add your control notification handler code here
 	//Saiki 20091210 Delete ----->
-	/*ƒXƒe[ƒWÀ•W‚Ìd—l•ÏX‚É‚æ‚èAEdge‚ğ•ÏX‚µ‚Ä‚àƒXƒgƒ[ƒN’l‚ğÁ‚³‚È‚¢*/
+	/*ã‚¹ãƒ†ãƒ¼ã‚¸åº§æ¨™ã®ä»•æ§˜å¤‰æ›´ã«ã‚ˆã‚Šã€Edgeã‚’å¤‰æ›´ã—ã¦ã‚‚ã‚¹ãƒˆãƒ­ãƒ¼ã‚¯å€¤ã‚’æ¶ˆã•ãªã„*/
 	//this->SetDlgItemText(IDC_COORD_LEFT_UP,	  _T(""));
 	//this->SetDlgItemText(IDC_COORD_LEFT_DOWN,   _T(""));
 	//this->SetDlgItemText(IDC_COORD_RIGHT_UP,	  _T(""));
@@ -1064,7 +1064,7 @@ void CStageConfigSettingDlg::OnChangeStageEdgeY()
 	//this->GetDlgItem(IDOK)->EnableWindow(FALSE);
 	//Saiki 20091210 Delete <-----
 }
-/* added 2009.07.16 hmenjo SPT ƒXƒe[ƒW EDGE “ü—Í‰Â”\‰» ---------- } ---------- */
+/* added 2009.07.16 hmenjo SPT ã‚¹ãƒ†ãƒ¼ã‚¸ EDGE å…¥åŠ›å¯èƒ½åŒ– ---------- } ---------- */
 
 void CStageConfigSettingDlg::OnSetMachineOriginButton()
 {

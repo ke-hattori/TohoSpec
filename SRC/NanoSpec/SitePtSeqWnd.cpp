@@ -1,4 +1,4 @@
-// SitePtSeqWnd.cpp : implementation file
+Ôªø// SitePtSeqWnd.cpp : implementation file
 //
 
 #include "stdafx.h"
@@ -55,7 +55,7 @@ LRESULT CSitePtManualSeqWnd::OnSitePtManualOkEnd(WPARAM wParam, LPARAM lParam)
 
 	((CSitePtSeq*)AfxGetThread())->m_iEvent = EV_SR1P_SITEPR_MANU_OK;
 
-	/* SitePt Manual èIÇÌÇË */
+	/* SitePt Manual ÁµÇ„Çè„Çä */
 	PostMessage(WM_CLOSE, 0L, 0L);
 
 	return 0L;
@@ -69,7 +69,7 @@ LRESULT CSitePtManualSeqWnd::OnSitePtManualCancelEnd(WPARAM wParam, LPARAM lPara
 
 	((CSitePtSeq*)AfxGetThread())->m_iEvent = EV_SR1P_SITEPR_MANU_CANCEL;
 
-	/* SitePt Manual èIÇÌÇË */
+	/* SitePt Manual ÁµÇ„Çè„Çä */
 	PostMessage(WM_CLOSE, 0L, 0L);
 
 	return 0L;
@@ -83,10 +83,10 @@ LRESULT CSitePtManualSeqWnd::OnSitePtManualNoneEnd(WPARAM wParam, LPARAM lParam)
 
 	((CSitePtSeq*)AfxGetThread())->m_iEvent = EV_SR1P_SITEPR_MANU_CANCEL;
 
-// myan àÍâûÉLÉÉÉìÉZÉãÇëóÇÈÇÊÇ§Ç…Ç∑ÇÈÇ™ é¿éøÇÃämîFÇ™ïKóvÅiÇ»ÇÒÇÃÉ{É^Éì(Event)Ç…ä÷òAÇµÇƒÇ¢ÇÈÇÃÇ© óvämîFÅj
+// myan ‰∏ÄÂøú„Ç≠„É£„É≥„Çª„É´„ÇíÈÄÅ„Çã„Çà„ÅÜ„Å´„Åô„Çã„Åå ÂÆüË≥™„ÅÆÁ¢∫Ë™ç„ÅåÂøÖË¶ÅÔºà„Å™„Çì„ÅÆ„Éú„Çø„É≥(Event)„Å´Èñ¢ÈÄ£„Åó„Å¶„ÅÑ„Çã„ÅÆ„Åã Ë¶ÅÁ¢∫Ë™çÔºâ
 //	((CSitePtSeq*)AfxGetThread())->m_iEvent = EV_SR1P_SITEPR_MANU_NONE;
 
-	// SitePt Manual èIÇÌÇË
+	// SitePt Manual ÁµÇ„Çè„Çä
 	PostMessage(WM_CLOSE, 0L, 0L);
 
 	return 0L;

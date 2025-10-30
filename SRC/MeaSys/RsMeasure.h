@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "../../INC/Globals.hxx"
 #include "../../INC/ConfigFile.hxx"

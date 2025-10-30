@@ -1,4 +1,4 @@
-// RecipeStageProgramListView.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// RecipeStageProgramListView.cpp : �C���v�������e�[�V���� �t�@�C��
 //
 
 #include "stdafx.h"

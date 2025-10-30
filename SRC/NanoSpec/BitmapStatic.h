@@ -1,4 +1,4 @@
-#ifndef _BITMAPSTATIC_H_
+ï»¿#ifndef _BITMAPSTATIC_H_
 #define _BITMAPSTATIC_H_
 
 #if _MSC_VER > 1000
@@ -10,7 +10,7 @@
 // ##########################################################################
 class CBitmapStatic : public CStatic
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
 	CBitmapStatic();
 
@@ -18,7 +18,7 @@ public:
 	//{{AFX_VIRTUAL(CClockST)
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 	virtual ~CBitmapStatic();
 
@@ -52,6 +52,6 @@ private:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_BITMAPSTATIC_H__22341131_66CF_4286_B4F3_EBACCFE9C008__INCLUDED_)

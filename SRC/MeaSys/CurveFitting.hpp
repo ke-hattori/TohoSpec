@@ -1,14 +1,14 @@
-#pragma once
+ï»¿#pragma once
 
 #include <math.h>
 
 //#define MAXDATANUM						(512)
 #define MAXDATANUM						  (512 * 10)
-/* modified 2024.01.08 hmenjo CCD ARRAY ’Ç‰Á ---------- { ---------- */
-//#define MAXCOEF 						  (7)		// n-1Ÿ®
-/* modified 2024.01.08 hmenjo CCD ARRAY ’Ç‰Á ----------              */
-#define MAXCOEF 						  (8)		// n-1Ÿ®
-/* modified 2024.01.08 hmenjo CCD ARRAY ’Ç‰Á ---------- } ---------- */
+/* modified 2024.01.08 hmenjo CCD ARRAY è¿½åŠ  ---------- { ---------- */
+//#define MAXCOEF 						  (7)		// n-1æ¬¡å¼
+/* modified 2024.01.08 hmenjo CCD ARRAY è¿½åŠ  ----------              */
+#define MAXCOEF 						  (8)		// n-1æ¬¡å¼
+/* modified 2024.01.08 hmenjo CCD ARRAY è¿½åŠ  ---------- } ---------- */
 
 typedef struct _CURVEFITTINGST{
 	int datanum;
@@ -16,35 +16,35 @@ typedef struct _CURVEFITTINGST{
 	double value[MAXDATANUM];
 } CURVEFITTINGST, *LPCURVEFITTINGST, CCDCALIB, *LPCCDCALIB;
 
-/* ‰ñ‹A‹ß—‹Èü‚ÌŒvZ */
-	// ‰º‹L‚ğWeb‚È‚Ç‚ÅŒŸõ‚µ‚Ä‚­‚¾‚³‚¢
-	//	 Å¬‚Qæ–@A‚Ÿ‘½€®AƒKƒEƒX‚ÌÁ‹–@
-	//	 [XL97]‹ß—‹Èüu‘½€®‹ß—‹Èüv‚É‚Â‚¢‚Ä http://support.microsoft.com/kb/405463/ja
+/* å›å¸°è¿‘ä¼¼æ›²ç·šã®è¨ˆç®— */
+	// ä¸‹è¨˜ã‚’Webãªã©ã§æ¤œç´¢ã—ã¦ãã ã•ã„
+	//	 æœ€å°ï¼’ä¹—æ³•ã€ï½æ¬¡å¤šé …å¼ã€ã‚¬ã‚¦ã‚¹ã®æ¶ˆå»æ³•
+	//	 [XL97]è¿‘ä¼¼æ›²ç·šã€Œå¤šé …å¼è¿‘ä¼¼æ›²ç·šã€ã«ã¤ã„ã¦ http://support.microsoft.com/kb/405463/ja
 
-	// ƒXƒgƒŒƒX‚Å‚Ì—˜—piÅ‘å6Ÿ® y = ax^6 + bx^5 + cx^4 + dx^3 + ex^2 + fx + gj
-	// 7ƒ|ƒCƒ“ƒg‚Ì–ŒŒú‘ª’èŒ‹‰Ê‚©‚ç‚Ìƒ}ƒbƒsƒ“ƒO
+	// ã‚¹ãƒˆãƒ¬ã‚¹ã§ã®åˆ©ç”¨ï¼ˆæœ€å¤§6æ¬¡å¼ y = ax^6 + bx^5 + cx^4 + dx^3 + ex^2 + fx + gï¼‰
+	// 7ãƒã‚¤ãƒ³ãƒˆã®è†œåšæ¸¬å®šçµæœã‹ã‚‰ã®ãƒãƒƒãƒ”ãƒ³ã‚°
 
 
-	// Sr–ŒŒú‘ª’è‚Å‚Ì—˜—piÅ‘å5Ÿ®j
-	// SrƒwƒbƒhEccdƒ|ƒWƒVƒ‡ƒ“‚Ìƒ}ƒbƒsƒ“ƒO
-	// ƒfƒBƒeƒNƒ^‚Æg—p”g’·ŠÔ‚Ìƒf[ƒ^‚Ì•ÏŠ·‚ğs‚¤‚½‚ß‚ÌA•ÏŠ·®‚Ì\’z
-	// Å‘å5Ÿ®‚ğì¬‚µA‚»‚ÌŒW”‚ğm_dCoefficient(i)‚É‘ã“ü‚µ‚Ä‚¢‚é
+	// Srè†œåšæ¸¬å®šã§ã®åˆ©ç”¨ï¼ˆæœ€å¤§5æ¬¡å¼ï¼‰
+	// Srãƒ˜ãƒƒãƒ‰ãƒ»ccdãƒã‚¸ã‚·ãƒ§ãƒ³ã®ãƒãƒƒãƒ”ãƒ³ã‚°
+	// ãƒ‡ã‚£ãƒ†ã‚¯ã‚¿ã¨ä½¿ç”¨æ³¢é•·é–“ã®ãƒ‡ãƒ¼ã‚¿ã®å¤‰æ›ã‚’è¡Œã†ãŸã‚ã®ã€å¤‰æ›å¼ã®æ§‹ç¯‰
+	// æœ€å¤§5æ¬¡å¼ã‚’ä½œæˆã—ã€ãã®ä¿‚æ•°ã‚’m_dCoefficient(i)ã«ä»£å…¥ã—ã¦ã„ã‚‹
 
 class CCurveFitting
 {
 public:
 	enum { COEF1 = 1,
-		   COEF2 = 2,		// 1Ÿ‰ñ‹A
+		   COEF2 = 2,		// 1æ¬¡å›å¸°
 		   COEF3 = 3,
 		   COEF4 = 4,
 		   COEF5 = 5,
 		   COEF6 = 6,
-/* modified 2024.01.08 hmenjo CCD ARRAY ’Ç‰Á ---------- { ---------- */
+/* modified 2024.01.08 hmenjo CCD ARRAY è¿½åŠ  ---------- { ---------- */
 //		   COEF7 = 7, };
-/* modified 2024.01.08 hmenjo CCD ARRAY ’Ç‰Á ----------              */
+/* modified 2024.01.08 hmenjo CCD ARRAY è¿½åŠ  ----------              */
 		   COEF7 = 7,
 		   COEF8 = 8, };
-/* modified 2024.01.08 hmenjo CCD ARRAY ’Ç‰Á ---------- } ---------- */
+/* modified 2024.01.08 hmenjo CCD ARRAY è¿½åŠ  ---------- } ---------- */
 
 	CCurveFitting(int nMaxCoef = MAXCOEF) : m_nMaxCoef(nMaxCoef)
 	{
@@ -62,26 +62,26 @@ public:
 	{
 		int p, q;
 
-		// n-1Ÿ®‚Ì‹ß—‹Èü‚ğ‹‚ß‚é‚Ì‚Å‚·‚©IH
+		// n-1æ¬¡å¼ã®è¿‘ä¼¼æ›²ç·šã‚’æ±‚ã‚ã‚‹ã®ã§ã™ã‹ï¼ï¼Ÿ
 		if ( param.datanum > m_nMaxCoef )
 			p = m_nMaxCoef;
 		else
 			p = param.datanum;
 		q = p + 1;
 
-		// s—ñƒe[ƒuƒ‹‚Ìì¬
+		// è¡Œåˆ—ãƒ†ãƒ¼ãƒ–ãƒ«ã®ä½œæˆ
 		AllocMatrix(p, q);
 
-		// s—ñƒe[ƒuƒ‹‚Ìƒf[ƒ^‰Šú‰»
+		// è¡Œåˆ—ãƒ†ãƒ¼ãƒ–ãƒ«ã®ãƒ‡ãƒ¼ã‚¿åˆæœŸåŒ–
 		InitMatrix(p, q, param);
 
-		// ƒKƒEƒX‚ÌÁ‹–@iGaussian eliminationj
+		// ã‚¬ã‚¦ã‚¹ã®æ¶ˆå»æ³•ï¼ˆGaussian eliminationï¼‰
 		Eliminate(p, q);
 
-		// “±o‚µ‚½ŒW”‚ğƒƒ“ƒo[•Ï”‚É‘ã“ü‚µ‚Ä‚¨‚­
+		// å°å‡ºã—ãŸä¿‚æ•°ã‚’ãƒ¡ãƒ³ãƒãƒ¼å¤‰æ•°ã«ä»£å…¥ã—ã¦ãŠã
 		Substitute(p, q);
 
-		// s—ñƒe[ƒuƒ‹‚Ì”jŠü
+		// è¡Œåˆ—ãƒ†ãƒ¼ãƒ–ãƒ«ã®ç ´æ£„
 		FreeMatrix(p);
 
 		return TRUE;
@@ -89,7 +89,7 @@ public:
 
 	double GetFitValue(double dX)
 	{
-//		// 6Ÿ®‚Ìê‡A‰º‹L‚ÌŒvZ“à—e‚Æ“¯‚¶
+//		// 6æ¬¡å¼ã®å ´åˆã€ä¸‹è¨˜ã®è¨ˆç®—å†…å®¹ã¨åŒã˜
 //		// y = ax^6 + bx^5 + cx^4 + dx^3 + ex^2 + fx + g
 //		double dSum = 0.0;
 //		dSum += m_dCoefficient[6] * pow(dX, 6);

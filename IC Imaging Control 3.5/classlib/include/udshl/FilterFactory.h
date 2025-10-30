@@ -1,4 +1,4 @@
-
+﻿
 #ifndef _FILTERFACTORY_H_INC_
 #define _FILTERFACTORY_H_INC_
 

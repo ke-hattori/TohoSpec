@@ -1,30 +1,30 @@
-#if !defined(AFX_SITEPATTERNEDITDLG_H__F296AB64_F0CB_4C9B_8383_2E63251E2546__INCLUDED_)
+﻿#if !defined(AFX_SITEPATTERNEDITDLG_H__F296AB64_F0CB_4C9B_8383_2E63251E2546__INCLUDED_)
 #define AFX_SITEPATTERNEDITDLG_H__F296AB64_F0CB_4C9B_8383_2E63251E2546__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// SitePatternEditDlg.h : �w�b�_�[ �t�@�C��
+// SitePatternEditDlg.h : ï¿½wï¿½bï¿½_ï¿½[ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 #include "NanoListCtrl.h"
 #include "ColorStatic.h"
 #include "BitmapStatic.h"
 
 /////////////////////////////////////////////////////////////////////////////
-// CSitePatternEditDlg �_�C�A���O
+// CSitePatternEditDlg ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½O
 
 class CSitePatternEditDlg : public CDialog
 {
-// �R���X�g���N�V����
+// ï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½Vï¿½ï¿½ï¿½ï¿½
 public:
-	CSitePatternEditDlg(CWnd* pParent = NULL);	 // �W���̃R���X�g���N�^
+	CSitePatternEditDlg(CWnd* pParent = NULL);	 // ï¿½Wï¿½ï¿½ï¿½ÌƒRï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^
 	~CSitePatternEditDlg();
 	static int CALLBACK CompareFunc(LPARAM lParam1, LPARAM lParam2, LPARAM lParamSort);
 
-// �_�C�A���O �f�[�^
+// ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½O ï¿½fï¿½[ï¿½^
 	//{{AFX_DATA(CSitePatternEditDlg)
 	enum { IDD = IDD_SITE_PATTERN_EDIT_DLG };
-		// ����: ClassWizard �͂��̈ʒu�Ƀf�[�^ �����o��ǉ����܂��B
+		// ï¿½ï¿½ï¿½ï¿½: ClassWizard ï¿½Í‚ï¿½ï¿½ÌˆÊ’uï¿½Éƒfï¿½[ï¿½^ ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	//}}AFX_DATA
 
 	CBitmapStatic m_stcSitePrImg;
@@ -41,17 +41,17 @@ public:
 	CString m_SelectName;
 	SPR_SUB_INFO m_pPatSubInfo;
 
-// �I�[�o�[���C�h
-	// ClassWizard �͉��z�֐��̃I�[�o�[���C�h�𐶐����܂��B
+// ï¿½Iï¿½[ï¿½oï¿½[ï¿½ï¿½ï¿½Cï¿½h
+	// ClassWizard ï¿½Í‰ï¿½ï¿½zï¿½Ö�ï¿½ï¿½ÌƒIï¿½[ï¿½oï¿½[ï¿½ï¿½ï¿½Cï¿½hï¿½ğ�¶�ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	//{{AFX_VIRTUAL(CSitePatternEditDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV �T�|�[�g
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ï¿½Tï¿½|ï¿½[ï¿½g
 	//}}AFX_VIRTUAL
 
-// �C���v�������e�[�V����
+// ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
 protected:
 
-	// �������ꂽ���b�Z�[�W �}�b�v�֐�
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½}ï¿½bï¿½vï¿½Ö�ï¿½
 	//{{AFX_MSG(CSitePatternEditDlg)
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
@@ -89,6 +89,6 @@ private:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ �͑O�s�̒��O�ɒǉ��̐錾��}�����܂��B
+// Microsoft Visual C++ ï¿½Í‘Oï¿½sï¿½Ì’ï¿½ï¿½Oï¿½É’Ç‰ï¿½ï¿½Ì�éŒ¾ï¿½ï¿½}ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 
 #endif // !defined(AFX_SITEPATTERNEDITDLG_H__F296AB64_F0CB_4C9B_8383_2E63251E2546__INCLUDED_)

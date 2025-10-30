@@ -1,4 +1,4 @@
-// CNanoListCtrl.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// CNanoListCtrl.cpp : �C���v�������e�[�V���� �t�@�C��
 //
 
 #include "stdafx.h"

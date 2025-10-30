@@ -1,4 +1,4 @@
-#if !defined(_COLORSTATIC_H_)
+﻿#if !defined(_COLORSTATIC_H_)
 #define _COLORSTATIC_H_
 
 #if _MSC_VER > 1000

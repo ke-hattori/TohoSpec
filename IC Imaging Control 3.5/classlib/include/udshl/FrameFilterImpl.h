@@ -1,4 +1,4 @@
-
+﻿
 #ifndef FRAMEFILTERIMPL_H_INC_
 #define FRAMEFILTERIMPL_H_INC_
 

@@ -1,4 +1,4 @@
-#if !defined(AFX_MAILTHREAD_H__9AF210DD_A3A8_4DBC_85B8_9FBCEEFF8BFE__INCLUDED_)
+ï»¿#if !defined(AFX_MAILTHREAD_H__9AF210DD_A3A8_4DBC_85B8_9FBCEEFF8BFE__INCLUDED_)
 #define AFX_MAILTHREAD_H__9AF210DD_A3A8_4DBC_85B8_9FBCEEFF8BFE__INCLUDED_
 
 #if _MSC_VER > 1000
@@ -76,30 +76,30 @@ protected:
 	}
 
 	void EventProcess(LPCTSTR pszRecvCommandId);
-// 2009.06.02 K.Matsuo ‘•’u‰æ–Ê‘€ìƒCƒ“ƒ^[ƒƒbƒN‹@”\’Ç‰Á -->
+// 2009.06.02 K.Matsuo è£…ç½®ç”»é¢æ“ä½œã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ©Ÿèƒ½è¿½åŠ  -->
 	void EventProcessP105();
 	void EventProcessP106();
-// 2009.06.02 K.Matsuo ‘•’u‰æ–Ê‘€ìƒCƒ“ƒ^[ƒƒbƒN‹@”\’Ç‰Á <--
+// 2009.06.02 K.Matsuo è£…ç½®ç”»é¢æ“ä½œã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ©Ÿèƒ½è¿½åŠ  <--
 	void EventProcessP201();
 	void EventProcessP302();
 	void EventProcessP303();
 	void EventProcessP306();
 	void EventProcessP308();
-// 2009.09.10 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^Šm”F‹@”\’Ç‰Á -->
+// 2009.09.10 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ç¢ºèªæ©Ÿèƒ½è¿½åŠ  -->
 	void EventProcessP310();
-// 2009.09.10 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^Šm”F‹@”\’Ç‰Á <--
+// 2009.09.10 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ç¢ºèªæ©Ÿèƒ½è¿½åŠ  <--
 	void EventProcessP401();
-// 2009.10.29 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾‹@”\’Ç‰Á -->
+// 2009.10.29 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—æ©Ÿèƒ½è¿½åŠ  -->
 	void EventProcessP411();
-// 2009.10.29 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾‹@”\’Ç‰Á <--
+// 2009.10.29 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—æ©Ÿèƒ½è¿½åŠ  <--
 	void EventProcessP501();
-// 2009.10.29 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾‹@”\’Ç‰Á -->
+// 2009.10.29 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—æ©Ÿèƒ½è¿½åŠ  -->
 	void EventProcessP511();
-// 2009.10.29 K.Matsuo ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾‹@”\’Ç‰Á <--
-// 2014.01.07 bagus Add(Stage None‘Î‰) -->
+// 2009.10.29 K.Matsuo ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—æ©Ÿèƒ½è¿½åŠ  <--
+// 2014.01.07 bagus Add(Stage Noneå¯¾å¿œ) -->
 	void EventProcessP514();
 	void EventProcessP516();
-// 2014.01.07 bagus Add(Stage None‘Î‰) <--
+// 2014.01.07 bagus Add(Stage Noneå¯¾å¿œ) <--
 	void EventProcessP601();
 	void EventProcessP602();
 	void EventProcessP603();

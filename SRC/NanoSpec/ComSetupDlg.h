@@ -1,4 +1,4 @@
-// ComSetupDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+ï»¿// ComSetupDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #pragma once
@@ -6,34 +6,34 @@
 #include "ComSetupGridCtrl.h"
 
 /////////////////////////////////////////////////////////////////////////////
-// CComSetupDlg ƒ_ƒCƒAƒƒO
+// CComSetupDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 class CComSetupDlg : public CDialog
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
-	CComSetupDlg(CWnd* pParent = NULL);   // •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CComSetupDlg(CWnd* pParent = NULL);   // æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	virtual ~CComSetupDlg();
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CComSetupDlg)
 	enum { IDD = IDD_SYSTEM_COM_SETUP_DLG };
 	//}}AFX_DATA
 	CShadeButtonST m_OkButton;
 	CShadeButtonST m_CancelButton;
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ð¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CComSetupDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	BOOL UpdateComPortData(int iRow, LPCTSTR pszHeadName, COM_PORT* pComPort, BOOL bSaveAndValidate = TRUE);
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒžãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CComSetupDlg)
 	virtual void OnOK();
 	virtual BOOL OnInitDialog();
@@ -47,7 +47,7 @@ private:
 
 	CComSetupGridCtrl m_ComGridCtrl;
 
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	CString m_strMsgBoxCaption;
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 };

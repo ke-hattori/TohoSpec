@@ -1,4 +1,4 @@
-// ComSetupGridCtrl.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+ï»¿// ComSetupGridCtrl.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #pragma once

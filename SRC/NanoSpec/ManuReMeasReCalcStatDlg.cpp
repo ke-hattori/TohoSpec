@@ -1,4 +1,4 @@
-// ManuReMeasReCalcStatDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// ManuReMeasReCalcStatDlg.cpp : インプリメンテーション ファイル
 //
 
 #include "stdafx.h"
@@ -32,7 +32,7 @@ static int lg_iID[16] = {
 	};
 
 /////////////////////////////////////////////////////////////////////////////
-// CManuReMeasReCalcStatDlg �_�C�A���O
+// CManuReMeasReCalcStatDlg ダイアログ
 
 
 CManuReMeasReCalcStatDlg::CManuReMeasReCalcStatDlg(CWnd* pParent /*=NULL*/)
@@ -69,13 +69,13 @@ BEGIN_MESSAGE_MAP(CManuReMeasReCalcStatDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CManuReMeasReCalcStatDlg ���b�Z�[�W �n���h��
+// CManuReMeasReCalcStatDlg メッセージ ハンドラ
 
 BOOL CManuReMeasReCalcStatDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// TODO: ���̈ʒu�ɏ������̕⑫������ǉ����Ă�������
+	// TODO: この位置に初期化の補足処理を追加してください
 
 	m_wSelectNo = 0xffff;
 	CString l_strClickLine;
@@ -89,7 +89,7 @@ BOOL CManuReMeasReCalcStatDlg::OnInitDialog()
 			if (0 != (m_wEnableSelect & l_wBitPos)) {
 				this->GetDlgItem(lg_iID[i])->EnableWindow(TRUE);
 				if (FALSE == l_bDefFirst) {
-					/* �ŏ��̃C�l�[�u���w��̂݃I����Ԃɂ��܂��D	*/
+					/* 最初のイネーブル指定のみオン状態にします．	*/
 					l_bDefFirst = TRUE;
 					((CButton*) (this->GetDlgItem(lg_iID[i])))->SetCheck(1);
 					this->SetRunButtonText(i + 1);
@@ -100,36 +100,36 @@ BOOL CManuReMeasReCalcStatDlg::OnInitDialog()
 		}
 	}
 
-	return TRUE;  // �R���g���[���Ƀt�H�[�J�X��ݒ肵�Ȃ��Ƃ��A�߂�l�� TRUE �ƂȂ�܂�
-	              // ��O: OCX �v���p�e�B �y�[�W�̖߂�l�� FALSE �ƂȂ�܂�
+	return TRUE;  // コントロールにフォーカスを設定しないとき、戻り値は TRUE となります
+	              // 例外: OCX プロパティ ページの戻り値は FALSE となります
 }
 
 void CManuReMeasReCalcStatDlg::OnOK()
 {
-	// TODO: ���̈ʒu�ɂ��̑��̌��ؗp�̃R�[�h��ǉ����Ă�������
+	// TODO: この位置にその他の検証用のコードを追加してください
 
-	/* "���^�[��"�L�[�ŏI������̂�������邽�ߍ폜	*/
+	/* "リターン"キーで終了するのを回避するため削除	*/
 //	CDialog::OnOK();
 }
 
 void CManuReMeasReCalcStatDlg::OnCancel()
 {
-	// TODO: ���̈ʒu�ɓ��ʂȌ㏈����ǉ����Ă��������B
+	// TODO: この位置に特別な後処理を追加してください。
 
-	/* "ESC"�L�[�ŏI������̂�������邽�ߍ폜	*/
+	/* "ESC"キーで終了するのを回避するため削除	*/
 //	CDialog::OnCancel();
 }
 
 void CManuReMeasReCalcStatDlg::OnClose()
 {
-	// TODO: ���̈ʒu�Ƀ��b�Z�[�W �n���h���p�̃R�[�h��ǉ����邩�܂��̓f�t�H���g�̏������Ăяo���Ă�������
+	// TODO: この位置にメッセージ ハンドラ用のコードを追加するかまたはデフォルトの処理を呼び出してください
 
 	CDialog::OnClose();
 }
 
 void CManuReMeasReCalcStatDlg::OnBtnMRCS_Run()
 {
-	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
+	// TODO: この位置にコントロール通知ハンドラ用のコードを追加してください
 
 	CString l_strConfirm;
 	LoadStringML(IDS_MRCS_CONFIRM, l_strConfirm, "Are you sure ??");
@@ -142,7 +142,7 @@ void CManuReMeasReCalcStatDlg::OnBtnMRCS_Run()
 	for (int i = 0; i < (sizeof(lg_iID) / sizeof(lg_iID[0])); i++) {
 		if (-1 != lg_iID[i]) {
 			if (0 != ((CButton*) (this->GetDlgItem(lg_iID[i])))->GetCheck()) {
-				/* �ŏ��̃I���̂ݎ擾���܂��D	*/
+				/* 最初のオンのみ取得します．	*/
 				m_wSelectNo = i + 1;
 				break;
 			}
@@ -154,56 +154,56 @@ void CManuReMeasReCalcStatDlg::OnBtnMRCS_Run()
 
 void CManuReMeasReCalcStatDlg::OnBtnMRCS_Cancel()
 {
-	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
+	// TODO: この位置にコントロール通知ハンドラ用のコードを追加してください
 
 	CDialog::OnCancel();
 }
 
 void CManuReMeasReCalcStatDlg::OnRadioMRCS_1()
 {
-	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
+	// TODO: この位置にコントロール通知ハンドラ用のコードを追加してください
 
 	this->SetRunButtonText(1);
 }
 
 void CManuReMeasReCalcStatDlg::OnRadioMRCS_2()
 {
-	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
+	// TODO: この位置にコントロール通知ハンドラ用のコードを追加してください
 
 	this->SetRunButtonText(2);
 }
 
 void CManuReMeasReCalcStatDlg::OnRadioMRCS_3()
 {
-	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
+	// TODO: この位置にコントロール通知ハンドラ用のコードを追加してください
 
 	this->SetRunButtonText(3);
 }
 
 void CManuReMeasReCalcStatDlg::OnRadioMRCS_4()
 {
-	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
+	// TODO: この位置にコントロール通知ハンドラ用のコードを追加してください
 
 	this->SetRunButtonText(4);
 }
 
 void CManuReMeasReCalcStatDlg::OnRadioMRCS_5()
 {
-	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
+	// TODO: この位置にコントロール通知ハンドラ用のコードを追加してください
 
 	this->SetRunButtonText(5);
 }
 
 void CManuReMeasReCalcStatDlg::OnRadioMRCS_13()
 {
-	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
+	// TODO: この位置にコントロール通知ハンドラ用のコードを追加してください
 
 	this->SetRunButtonText(13);
 }
 
 void CManuReMeasReCalcStatDlg::OnRadioMRCS_14()
 {
-	// TODO: ���̈ʒu�ɃR���g���[���ʒm�n���h���p�̃R�[�h��ǉ����Ă�������
+	// TODO: この位置にコントロール通知ハンドラ用のコードを追加してください
 
 	this->SetRunButtonText(14);
 }

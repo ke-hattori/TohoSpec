@@ -1,4 +1,4 @@
-// NanoSpecView.cpp : CNanoSpecView ƒNƒ‰ƒX‚Ì“®ì‚Ì’è‹`‚ğs‚¢‚Ü‚·B
+ï»¿// NanoSpecView.cpp : CNanoSpecView ã‚¯ãƒ©ã‚¹ã®å‹•ä½œã®å®šç¾©ã‚’è¡Œã„ã¾ã™ã€‚
 //
 
 #include "stdafx.h"
@@ -26,14 +26,14 @@ IMPLEMENT_DYNCREATE(CNanoSpecView, CNanoUI)
 BEGIN_MESSAGE_MAP(CNanoSpecView, CNanoUI)
 	//{{AFX_MSG_MAP(CNanoSpecView)
 	//}}AFX_MSG_MAP
-	// •W€ˆóüƒRƒ}ƒ“ƒh
+	// æ¨™æº–å°åˆ·ã‚³ãƒãƒ³ãƒ‰
 	ON_COMMAND(ID_FILE_PRINT, OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, OnFilePrintPreview)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CNanoSpecView ƒNƒ‰ƒX‚Ì\’z/Á–Å
+// CNanoSpecView ã‚¯ãƒ©ã‚¹ã®æ§‹ç¯‰/æ¶ˆæ»…
 
 // =========================================================================
 //
@@ -63,8 +63,8 @@ void CNanoSpecView::DoDataExchange(CDataExchange* pDX)
 //
 BOOL CNanoSpecView::PreCreateWindow(CREATESTRUCT& cs)
 {
-	// TODO: ‚±‚ÌˆÊ’u‚Å CREATESTRUCT cs ‚ğC³‚µ‚Ä Window ƒNƒ‰ƒX‚Ü‚½‚ÍƒXƒ^ƒCƒ‹‚ğ
-	//	C³‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ã“ã®ä½ç½®ã§ CREATESTRUCT cs ã‚’ä¿®æ­£ã—ã¦ Window ã‚¯ãƒ©ã‚¹ã¾ãŸã¯ã‚¹ã‚¿ã‚¤ãƒ«ã‚’
+	//	ä¿®æ­£ã—ã¦ãã ã•ã„ã€‚
 
 	return CNanoUI::PreCreateWindow(cs);
 }
@@ -80,13 +80,13 @@ void CNanoSpecView::OnInitialUpdate()
 }
 
 // =========================================================================
-// CNanoSpecView ƒNƒ‰ƒX‚Ìˆóü
+// CNanoSpecView ã‚¯ãƒ©ã‚¹ã®å°åˆ·
 
 // =========================================================================
 //
 BOOL CNanoSpecView::OnPreparePrinting(CPrintInfo* pInfo)
 {
-	// ƒfƒtƒHƒ‹ƒg‚Ìˆóü€”õ
+	// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å°åˆ·æº–å‚™
 	return DoPreparePrinting(pInfo);
 }
 
@@ -94,25 +94,25 @@ BOOL CNanoSpecView::OnPreparePrinting(CPrintInfo* pInfo)
 //
 void CNanoSpecView::OnBeginPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
 {
-	// TODO: ˆóü‘O‚Ì“Á•Ê‚È‰Šú‰»ˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: å°åˆ·å‰ã®ç‰¹åˆ¥ãªåˆæœŸåŒ–å‡¦ç†ã‚’è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 }
 
 // =========================================================================
 //
 void CNanoSpecView::OnEndPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
 {
-	// TODO: ˆóüŒã‚ÌŒãˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: å°åˆ·å¾Œã®å¾Œå‡¦ç†ã‚’è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 }
 
 // =========================================================================
 //
 void CNanoSpecView::OnPrint(CDC* pDC, CPrintInfo* /*pInfo*/)
 {
-	// TODO: ˆóü—p‚ÌƒR[ƒh‚ğ‚±‚±‚É’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: å°åˆ·ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’ã“ã“ã«è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 }
 
 // =========================================================================
-// CNanoSpecView ƒNƒ‰ƒX‚Ìf’f
+// CNanoSpecView ã‚¯ãƒ©ã‚¹ã®è¨ºæ–­
 
 #ifdef _DEBUG
 // =========================================================================
@@ -131,7 +131,7 @@ void CNanoSpecView::Dump(CDumpContext& dc) const
 
 // =========================================================================
 //
-CNanoSpecDoc* CNanoSpecView::GetDocument() // ”ñƒfƒoƒbƒO ƒo[ƒWƒ‡ƒ“‚ÍƒCƒ“ƒ‰ƒCƒ“‚Å‚·B
+CNanoSpecDoc* CNanoSpecView::GetDocument() // éãƒ‡ãƒãƒƒã‚° ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã¯ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³ã§ã™ã€‚
 {
 	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CNanoSpecDoc)));
 	return (CNanoSpecDoc*)m_pDocument;
@@ -139,4 +139,4 @@ CNanoSpecDoc* CNanoSpecView::GetDocument() // ”ñƒfƒoƒbƒO ƒo[ƒWƒ‡ƒ“‚ÍƒCƒ“ƒ‰ƒCƒ“‚
 #endif //_DEBUG
 
 // =========================================================================
-// CNanoSpecView ƒNƒ‰ƒX‚ÌƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CNanoSpecView ã‚¯ãƒ©ã‚¹ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©

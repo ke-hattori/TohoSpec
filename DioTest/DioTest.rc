@@ -1,4 +1,4 @@
-//Microsoft Developer Studio generated resource script.
+Ôªø//Microsoft Developer Studio generated resource script.
 //
 #include "resource.h"
 
@@ -75,8 +75,8 @@ IDR_MAINFRAME           ICON    DISCARDABLE     "res\\DioTest.ico"
 
 IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "DioTestÇÃ ﬁ∞ºﬁÆ›èÓïÒ"
-FONT 9, "ÇlÇr ÇoÉSÉVÉbÉN"
+CAPTION "DioTest√á√É¬†Ô¨Å‚àû¬∫Ô¨Å√Ü‚Ä∫√®√ì√Ø√í"
+FONT 9, "√ál√ár √áo√âS√âV√âb√âN"
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
     LTEXT           "DioTest Version 1.0",IDC_STATIC,40,10,119,8,SS_NOPREFIX
@@ -88,10 +88,10 @@ IDD_DIOTEST_DIALOG DIALOGEX 0, 0, 320, 200
 STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "DioTest"
-FONT 9, "ÇlÇr ÇoÉSÉVÉbÉN"
+FONT 9, "√ál√ár √áo√âS√âV√âb√âN"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,260,7,50,14
-    PUSHBUTTON      "∑¨›æŸ",IDCANCEL,260,23,50,14
+    PUSHBUTTON      "‚àë¬®‚Ä∫√¶≈∏",IDCANCEL,260,23,50,14
     PUSHBUTTON      "Initialize",IDC_INITIAL,7,7,50,14
     PUSHBUTTON      "Upper",IDC_UPPER,7,80,50,14
     PUSHBUTTON      "Shutter Open",IDC_SHUTTER_OPEN,70,45,50,14
@@ -134,13 +134,13 @@ BEGIN
         BLOCK "041104B0"
         BEGIN
             VALUE "CompanyName", "\0"
-            VALUE "FileDescription", "DioTest MFC ±Ãﬂÿπ∞ºÆ›\0"
+            VALUE "FileDescription", "DioTest MFC ¬±√ÉÔ¨Ç√øœÄ‚àû¬∫√Ü‚Ä∫\0"
             VALUE "FileVersion", "1, 0, 0, 1\0"
             VALUE "InternalName", "DioTest\0"
             VALUE "LegalCopyright", "Copyright (C) 2008\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "DioTest.EXE\0"
-            VALUE "ProductName", "DioTest ±Ãﬂÿπ∞ºÆ›\0"
+            VALUE "ProductName", "DioTest ¬±√ÉÔ¨Ç√øœÄ‚àû¬∫√Ü‚Ä∫\0"
             VALUE "ProductVersion", "1, 0, 0, 1\0"
         END
     END
@@ -187,7 +187,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_ABOUTBOX            "DioTest ÇÃ ﬁ∞ºﬁÆ›èÓïÒ(&A)..."
+    IDS_ABOUTBOX            "DioTest √á√É¬†Ô¨Å‚àû¬∫Ô¨Å√Ü‚Ä∫√®√ì√Ø√í(&A)..."
 END
 
 #endif    // Japanese resources

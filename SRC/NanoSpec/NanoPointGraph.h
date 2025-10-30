@@ -1,14 +1,14 @@
-#if !defined(AFX_NANOPOINTGRAPH_H__D2641646_8B5F_4981_BDF7_B40B8E2F85A8__INCLUDED_)
+ï»¿#if !defined(AFX_NANOPOINTGRAPH_H__D2641646_8B5F_4981_BDF7_B40B8E2F85A8__INCLUDED_)
 #define AFX_NANOPOINTGRAPH_H__D2641646_8B5F_4981_BDF7_B40B8E2F85A8__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// NanoPointGraph.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// NanoPointGraph.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
-#include <afxwin.h> 		// MFC ‚ÌƒRƒA‚¨‚æ‚Ñ•W€ƒRƒ“ƒ|[ƒlƒ“ƒg
-#include <afxext.h> 		// MFC ‚ÌŠg’£•”•ª
-#include <afxdisp.h>		// MFC ‚ÌƒI[ƒgƒ[ƒVƒ‡ƒ“ ƒNƒ‰ƒX
+#include <afxwin.h> 		// MFC ã®ã‚³ã‚¢ãŠã‚ˆã³æ¨™æº–ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
+#include <afxext.h> 		// MFC ã®æ‹¡å¼µéƒ¨åˆ†
+#include <afxdisp.h>		// MFC ã®ã‚ªãƒ¼ãƒˆãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ ã‚¯ãƒ©ã‚¹
 
 #include "Globals.hxx"
 
@@ -16,34 +16,34 @@
 #define NANO_POINT_MAP_EDGE_WIDTH	(0)	//(2)
 
 //2009.09.10 bagus stress --{--
-//#define	NANO_POINT_MAP_LINE_WIDTH	(1)				// Line(Section)‚Ìü•
-#define	NANO_POINT_MAP_LINE_WIDTH	(3)				// Line(Section)‚Ìü•
+//#define	NANO_POINT_MAP_LINE_WIDTH	(1)				// Line(Section)ã®ç·šå¹…
+#define	NANO_POINT_MAP_LINE_WIDTH	(3)				// Line(Section)ã®ç·šå¹…
 //2009.09.10 bagus stress --}--
 
-// 2009.10.15 bagus Distance ’Ç‰Á --{--
-#define	NANO_POINT_MAP_DISTANCE_LINE_WIDTH	(2)		// Line(Distance)‚Ìü•
-// 2009.10.15 bagus Distance ’Ç‰Á --}--
+// 2009.10.15 bagus Distance è¿½åŠ  --{--
+#define	NANO_POINT_MAP_DISTANCE_LINE_WIDTH	(2)		// Line(Distance)ã®ç·šå¹…
+// 2009.10.15 bagus Distance è¿½åŠ  --}--
 
 #define NANO_POINT_MAP_CROESS_MARK_LENGTH	(5)
 #define NANO_POINT_MAP_CROESS_MARK_WIDTH	(3)
 
 #define MAX_POINT_MAP_SECTION_MAX		(STRESS_SECTIONS_MAX)
 #define MAX_POINT_MAP_LINE_MAX			(STRESS_LINES_MAX)
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ä¿®æ­£ --{--
 //#define MAX_POINT_MAP_PIN_MAX			(STRESS_PINS_MAX)
 #define MAX_POINT_MAP_PIN_MAX			(STRESS_PINS_MAX * STRESS_LINES_MAX)
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ä¿®æ­£ --}--
 
 /////////////////////////////////////////////////////////////////////////////
-// CNanoPointGraph ƒEƒBƒ“ƒhƒE
+// CNanoPointGraph ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
 
 class CNanoPointGraph : public CButton
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
 	CNanoPointGraph();
 
-// ƒAƒgƒŠƒrƒ…[ƒg
+// ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 public:
 	typedef enum {
 		NOT_MEASURED = 0,
@@ -61,72 +61,72 @@ public:
 		SECTION_STATUS_MAX = 5
 	} SectionStatus;
 	typedef enum {
-		EDGE_UPPER = 0,							//‰e‚ÌF (Top & Left)
-		EDGE_LOWER = 1,							//‰e‚ÌF (Bottom & Right)
+		EDGE_UPPER = 0,							//å½±ã®è‰² (Top & Left)
+		EDGE_LOWER = 1,							//å½±ã®è‰² (Bottom & Right)
 		EDGE_MAX = 2,							//
 	} EdgeStatus;
 	typedef struct {
-		//Sampleƒpƒlƒ‹ƒTƒCƒY[um]
-		double	SampleSizeX;					//ƒpƒlƒ‹‚Ì‰¡• (ƒOƒ‰ƒtÅ‘å’l)
-		double	SampleSizeY;					//ƒpƒlƒ‹‚Ìc• (ƒOƒ‰ƒtÅ‘å’l)
+		//Sampleãƒ‘ãƒãƒ«ã‚µã‚¤ã‚º[um]
+		double	SampleSizeX;					//ãƒ‘ãƒãƒ«ã®æ¨ªå¹… (ã‚°ãƒ©ãƒ•æœ€å¤§å€¤)
+		double	SampleSizeY;					//ãƒ‘ãƒãƒ«ã®ç¸¦å¹… (ã‚°ãƒ©ãƒ•æœ€å¤§å€¤)
 		//
-		COLORREF	StatusColor[STATUS_MAX];				//ƒXƒe[ƒ^ƒX‚ÌF
-		COLORREF	SectionStatusColor[SECTION_STATUS_MAX];	//ƒXƒe[ƒ^ƒX‚ÌF(Line/Section)
-		COLORREF	EdgeColor[EDGE_MAX];					//ƒOƒ‰ƒt‚Ì‰æ‚èF
-		COLORREF	BackColor;								//”wŒiF
-		COLORREF	PinColor;								//ƒsƒ“‚ÌF
-		// 2009.10.14 bagus Distance ’Ç‰Á --{--
-		COLORREF	DistanceStartColor;						//2“_ŠÔ‚Ìn“_‚Ì‚ÌF
-		COLORREF	DistanceEndColor;						//2“_ŠÔ‚ÌI“_‚ÌF
-		COLORREF	DistanceLineColor;						//2“_ŠÔ‚Ìü‚ÌF
-		// 2009.10.14 bagus Distance ’Ç‰Á --}--
+		COLORREF	StatusColor[STATUS_MAX];				//ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã®è‰²
+		COLORREF	SectionStatusColor[SECTION_STATUS_MAX];	//ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã®è‰²(Line/Section)
+		COLORREF	EdgeColor[EDGE_MAX];					//ã‚°ãƒ©ãƒ•ã®ç¸å–ã‚Šè‰²
+		COLORREF	BackColor;								//èƒŒæ™¯è‰²
+		COLORREF	PinColor;								//ãƒ”ãƒ³ã®è‰²
+		// 2009.10.14 bagus Distance è¿½åŠ  --{--
+		COLORREF	DistanceStartColor;						//2ç‚¹é–“ã®å§‹ç‚¹ã®ã®è‰²
+		COLORREF	DistanceEndColor;						//2ç‚¹é–“ã®çµ‚ç‚¹ã®è‰²
+		COLORREF	DistanceLineColor;						//2ç‚¹é–“ã®ç·šã®è‰²
+		// 2009.10.14 bagus Distance è¿½åŠ  --}--
 		// 2013.01.09 bagus -->
-		COLORREF	OriginColor;							//Œ´“_‚ÌF
+		COLORREF	OriginColor;							//åŸç‚¹ã®è‰²
 		// 2013.01.09 bagus <--
 	} GraphConfig;
 	typedef struct {
-		long DataX;								//Àƒf[ƒ^
-		long DataY;								//Àƒf[ƒ^
-		PointStatus	Status;						//À•WƒXƒe[ƒ^ƒX
+		long DataX;								//å®Ÿãƒ‡ãƒ¼ã‚¿
+		long DataY;								//å®Ÿãƒ‡ãƒ¼ã‚¿
+		PointStatus	Status;						//åº§æ¨™ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
 		BOOL NeedRedraw;
 	} PointData;
 
 	//2009.09.10 bagus stress --{--
 	typedef struct {
-		long DataX;								//Àƒf[ƒ^
-		long DataY;								//Àƒf[ƒ^
+		long DataX;								//å®Ÿãƒ‡ãƒ¼ã‚¿
+		long DataY;								//å®Ÿãƒ‡ãƒ¼ã‚¿
 		BOOL NeedRedraw;
 	} PinData;
 	//2009.09.10 bagus stress --}--
 
 	typedef struct {
-		long StartX;							//Àƒf[ƒ^
-		long StartY;							//Àƒf[ƒ^
-		long EndX;								//Àƒf[ƒ^
-		long EndY;								//Àƒf[ƒ^
-		SectionStatus	Status;					//À•WƒXƒe[ƒ^ƒX
+		long StartX;							//å®Ÿãƒ‡ãƒ¼ã‚¿
+		long StartY;							//å®Ÿãƒ‡ãƒ¼ã‚¿
+		long EndX;								//å®Ÿãƒ‡ãƒ¼ã‚¿
+		long EndY;								//å®Ÿãƒ‡ãƒ¼ã‚¿
+		SectionStatus	Status;					//åº§æ¨™ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
 		//2009.08.30 -->
-		int SourceLineNo;						//Œ³ƒ‰ƒCƒ“No
-		int SourceSectionNo;					//Œ³ƒZƒNƒVƒ‡ƒ“No
+		int SourceLineNo;						//å…ƒãƒ©ã‚¤ãƒ³No
+		int SourceSectionNo;					//å…ƒã‚»ã‚¯ã‚·ãƒ§ãƒ³No
 		//2009.08.30 <--
 		BOOL NeedRedraw;
 	} LSData;
 
-	// 2009.10.14 bagus Distance ’Ç‰Á --{--
+	// 2009.10.14 bagus Distance è¿½åŠ  --{--
 	typedef struct {
-		long DataX;								//Àƒf[ƒ^
-		long DataY;								//Àƒf[ƒ^
+		long DataX;								//å®Ÿãƒ‡ãƒ¼ã‚¿
+		long DataY;								//å®Ÿãƒ‡ãƒ¼ã‚¿
 	} DistanceData;
-	// 2009.10.14 bagus Distance ’Ç‰Á --}--
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+	// 2009.10.14 bagus Distance è¿½åŠ  --}--
+// ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CNanoPointGraph)
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 	void Select(int nPoint);
 	void Finish(int nPoint);
@@ -141,7 +141,7 @@ public:
 	virtual void DrawItem(LPDRAWITEMSTRUCT lpDIS);
 	virtual ~CNanoPointGraph();
 
-	//@@@ bagus stress ‘ª’èƒ|ƒCƒ“ƒgƒOƒ‰ƒt‘Î‰ --{--
+	//@@@ bagus stress æ¸¬å®šãƒã‚¤ãƒ³ãƒˆã‚°ãƒ©ãƒ•å¯¾å¿œ --{--
 	void SetLineStatusMode(BOOL bMode);
 	BOOL GetLineStatusMode();
 	void AddLineData(LSData *pData);
@@ -156,19 +156,19 @@ public:
 	void FinishSectionByLSNo(int nLineNo,int nSectionNo = 0);
 	void MeasureSectionByLSNo(int nLineNo,int nSectionNo = 0);
 	BOOL IsValidLSNo(int nLineNo,int nSectionNo = 0);
-	//@@@ bagus stress ‘ª’èƒ|ƒCƒ“ƒgƒOƒ‰ƒt‘Î‰ --}--
+	//@@@ bagus stress æ¸¬å®šãƒã‚¤ãƒ³ãƒˆã‚°ãƒ©ãƒ•å¯¾å¿œ --}--
 
 	// 2009.09.10 bagus stress --{--
-	// ƒXƒgƒŒƒXƒsƒ“•\¦‘Î‰
+	// ã‚¹ãƒˆãƒ¬ã‚¹ãƒ”ãƒ³è¡¨ç¤ºå¯¾å¿œ
 	void ResetPin();
 	void AddPinData(long x,long y);
 	// 2009.09.10 bagus stress --}--
 
-	// 2009.10.14 bagus Distance ’Ç‰Á --{--
+	// 2009.10.14 bagus Distance è¿½åŠ  --{--
 	void SetDistanceMode(BOOL bMode);
 	BOOL GetDistanceMode();
 	void SelectDistance(int nNo);
-	// 2009.10.14 bagus Distance ’Ç‰Á --}--
+	// 2009.10.14 bagus Distance è¿½åŠ  --}--
 
 // 2009.09.11 bagus stress --{--
 	void ResetAll();
@@ -178,10 +178,10 @@ public:
 	void SetOriginPointData(long x,long y);
 	// 2013.01.09 bagus <--
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 protected:
 	//{{AFX_MSG(CNanoPointGraph)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒƒ“ƒoŠÖ”‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 		afx_msg void OnSize(UINT nType, int cx, int cy);
 		afx_msg void OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized);
 	//}}AFX_MSG
@@ -204,9 +204,9 @@ private:
 	void DrawNotMeasuredPoints(CDC *pDC,double dblRateX,double dblRateY);
 	void DrawMeasuringPoints(CDC *pDC,double dblRateX,double dblRateY);
 	void DrawSelectedPoint(CDC *pDC,double dblRateX,double dblRateY);
-	// 2009.10.14 bagus Distance ’Ç‰Á --{--
+	// 2009.10.14 bagus Distance è¿½åŠ  --{--
 	void Draw2PointDistance(CDC *pDC,double dblRateX,double dblRateY);
-	// 2009.10.14 bagus Distance ’Ç‰Á --}--
+	// 2009.10.14 bagus Distance è¿½åŠ  --}--
 	void DrawEdge(CDC *pDC,RECT *pScreenSize);
 
 	void DrawPointDot(CDC *pDC,int nX,int nY);
@@ -215,39 +215,39 @@ private:
 	void DrawItemMain(LPDRAWITEMSTRUCT lpDIS);
 	void ReDraw();
 
-	GraphConfig	m_Config;									//ƒOƒ‰ƒt—Ìˆæƒf[ƒ^
-	PointData	m_PointData[NANO_POINT_MAP_DATA_MAX];		//À•Wƒf[ƒ^
-	int			m_PointNum;									//—LŒøƒ|ƒCƒ“ƒg” ( = ÀÛ‚Ì”z—ñÅ‘å’l)
-	int			m_SelectedPoint;							//Œ»İ‘I‘ğ‚³‚ê‚Ä‚¢‚éÀ•Wƒf[ƒ^‚Ì”z—ñ”Ô† (-1‚Í‘I‘ğ–³‚µ)
+	GraphConfig	m_Config;									//ã‚°ãƒ©ãƒ•é ˜åŸŸãƒ‡ãƒ¼ã‚¿
+	PointData	m_PointData[NANO_POINT_MAP_DATA_MAX];		//åº§æ¨™ãƒ‡ãƒ¼ã‚¿
+	int			m_PointNum;									//æœ‰åŠ¹ãƒã‚¤ãƒ³ãƒˆæ•° ( = å®Ÿéš›ã®é…åˆ—æœ€å¤§å€¤)
+	int			m_SelectedPoint;							//ç¾åœ¨é¸æŠã•ã‚Œã¦ã„ã‚‹åº§æ¨™ãƒ‡ãƒ¼ã‚¿ã®é…åˆ—ç•ªå· (-1ã¯é¸æŠç„¡ã—)
 	//BackBuffer
 	CDC					*m_bbDC;
 	CBitmap				*m_bbBitmap;
 	BOOL				m_bbOK;
 
-	//@@@ bagus stress ‘ª’èƒ|ƒCƒ“ƒgƒOƒ‰ƒt‘Î‰ --{--
+	//@@@ bagus stress æ¸¬å®šãƒã‚¤ãƒ³ãƒˆã‚°ãƒ©ãƒ•å¯¾å¿œ --{--
 	BOOL				m_bLSStatusMode;
-	LSData				m_LSData[MAX_POINT_MAP_LINE_MAX * MAX_POINT_MAP_SECTION_MAX];		//À•Wƒf[ƒ^
-	int					m_LSNum;									//—LŒøƒ|ƒCƒ“ƒg” ( = ÀÛ‚Ì”z—ñÅ‘å’l)
-	int					m_SelectedLS;							//Œ»İ‘I‘ğ‚³‚ê‚Ä‚¢‚éÀ•Wƒf[ƒ^‚Ì”z—ñ”Ô† (-1‚Í‘I‘ğ–³‚µ)
-	//@@@ bagus stress ‘ª’èƒ|ƒCƒ“ƒgƒOƒ‰ƒt‘Î‰ --}--
+	LSData				m_LSData[MAX_POINT_MAP_LINE_MAX * MAX_POINT_MAP_SECTION_MAX];		//åº§æ¨™ãƒ‡ãƒ¼ã‚¿
+	int					m_LSNum;									//æœ‰åŠ¹ãƒã‚¤ãƒ³ãƒˆæ•° ( = å®Ÿéš›ã®é…åˆ—æœ€å¤§å€¤)
+	int					m_SelectedLS;							//ç¾åœ¨é¸æŠã•ã‚Œã¦ã„ã‚‹åº§æ¨™ãƒ‡ãƒ¼ã‚¿ã®é…åˆ—ç•ªå· (-1ã¯é¸æŠç„¡ã—)
+	//@@@ bagus stress æ¸¬å®šãƒã‚¤ãƒ³ãƒˆã‚°ãƒ©ãƒ•å¯¾å¿œ --}--
 	//2009.09.10 bagus stress --{--
 	PinData				m_PinData[MAX_POINT_MAP_PIN_MAX];
 	int					m_PinNum;
 	//2009.09.10 bagus stress --}--
 
-	// 2009.10.14 bagus Distance ’Ç‰Á --{--
+	// 2009.10.14 bagus Distance è¿½åŠ  --{--
 	BOOL				m_bDistanceMode;
 	int					m_SelectedDistance;
-	// 2009.10.14 bagus Distance ’Ç‰Á --}--
+	// 2009.10.14 bagus Distance è¿½åŠ  --}--
 
 	//2013.01.09 bagus -->
-	PointData			m_OriginPointData;					//Œ´“_À•Wƒf[ƒ^
+	PointData			m_OriginPointData;					//åŸç‚¹åº§æ¨™ãƒ‡ãƒ¼ã‚¿
 	//2013.01.09 bagus <--
 };
 
 /////////////////////////////////////////////////////////////////////////////
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_NANOPOINTGRAPH_H__D2641646_8B5F_4981_BDF7_B40B8E2F85A8__INCLUDED_)

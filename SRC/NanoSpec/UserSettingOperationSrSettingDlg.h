@@ -1,23 +1,23 @@
-#if !defined(AFX_USERSETTINGOPERATIONSRSETTINGDLG_H__94CF4FE1_2403_4E52_A8E7_67457D859AF6__INCLUDED_)
+ï»¿#if !defined(AFX_USERSETTINGOPERATIONSRSETTINGDLG_H__94CF4FE1_2403_4E52_A8E7_67457D859AF6__INCLUDED_)
 #define AFX_USERSETTINGOPERATIONSRSETTINGDLG_H__94CF4FE1_2403_4E52_A8E7_67457D859AF6__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// UserSettingOperationSrSettingDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// UserSettingOperationSrSettingDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 // ##########################################################################
-// CUserSettingOperationSrSettingDlg ƒ_ƒCƒAƒƒO
+// CUserSettingOperationSrSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // ##########################################################################
 
 class CUserSettingOperationSrSettingDlg : public CDialog
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
-	CUserSettingOperationSrSettingDlg(CWnd* pParent = NULL);	// •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CUserSettingOperationSrSettingDlg(CWnd* pParent = NULL);	// æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CUserSettingOperationSrSettingDlg)
 	enum { IDD = IDD_USER_SETTING_OPERATION_SR_DLG };
 	//}}AFX_DATA
@@ -35,19 +35,19 @@ protected:
 
 	SR_CONFIG m_SrConfig;
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CUserSettingOperationSrSettingDlg)
 	public:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CUserSettingOperationSrSettingDlg)
 	afx_msg void OnPatternRecSettingButton();
 	afx_msg void OnReferencePositionSettingButton();
@@ -67,6 +67,6 @@ protected:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_USERSETTINGOPERATIONSRSETTINGDLG_H__94CF4FE1_2403_4E52_A8E7_67457D859AF6__INCLUDED_)

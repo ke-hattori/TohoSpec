@@ -1,4 +1,4 @@
-// SrFilterSettingDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// SrFilterSettingDlg.cpp : インプリメンテーション ファイル
 //
 
 #include "stdafx.h"
@@ -16,28 +16,28 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 
-// �t�B���^���g�p���邩�ǂ����̃`�F�b�N�{�b�N�X��ID
+// フィルタを使用するかどうかのチェックボックスのID
 int CheckFilterEnable_IDs[] = {
 	IDC_CHECK_FILTER1_ENABLE,
 	IDC_CHECK_FILTER2_ENABLE,
 	IDC_CHECK_FILTER3_ENABLE,
 };
 
-// �t�B���^�̖��O����͂���G�f�B�b�g�{�b�N�X��ID
+// フィルタの名前を入力するエディットボックスのID
 int EditFilterName_IDs[] = {
 	IDC_FILTER1_NAME,
 	IDC_FILTER2_NAME,
 	IDC_FILTER3_NAME,
 };
 
-// �t�B���^�̔g���͈͂̊J�n�g������͂���G�f�B�b�g�{�b�N�X��ID
+// フィルタの波長範囲の開始波長を入力するエディットボックスのID
 int EditFilterWavelengthStart_IDs[] = {
 	IDC_FILTER1_WAVELENGTH_START,
 	IDC_FILTER2_WAVELENGTH_START,
 	IDC_FILTER3_WAVELENGTH_START,
 };
 
-// �t�B���^�̔g���͈͂̏I���g������͂���G�f�B�b�g�{�b�N�X��ID
+// フィルタの波長範囲の終了波長を入力するエディットボックスのID
 int EditFilterWavelengthEnd_IDs[] = {
 	IDC_FILTER1_WAVELENGTH_END,
 	IDC_FILTER2_WAVELENGTH_END,
@@ -45,7 +45,7 @@ int EditFilterWavelengthEnd_IDs[] = {
 };
 
 // #########################################################################
-// CSrFilterSettingDlg �_�C�A���O
+// CSrFilterSettingDlg ダイアログ
 // #########################################################################
 
 // =========================================================================
@@ -54,7 +54,7 @@ CSrFilterSettingDlg::CSrFilterSettingDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CSrFilterSettingDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CSrFilterSettingDlg)
-		// ���� - ClassWizard �͂��̈ʒu�Ƀ}�b�s���O�p�̃}�N����ǉ��܂��͍폜���܂��B
+		// メモ - ClassWizard はこの位置にマッピング用のマクロを追加または削除します。
 	//}}AFX_DATA_INIT
 }
 
@@ -64,7 +64,7 @@ void CSrFilterSettingDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CSrFilterSettingDlg)
-		// ���� - ClassWizard �͂��̈ʒu�Ƀ}�b�s���O�p�̃}�N����ǉ��܂��͍폜���܂��B
+		// メモ - ClassWizard はこの位置にマッピング用のマクロを追加または削除します。
 	//}}AFX_DATA_MAP
 
 	DDX_Control(pDX, IDOK, m_OkButton);
@@ -82,7 +82,7 @@ BEGIN_MESSAGE_MAP(CSrFilterSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CSrFilterSettingDlg ���b�Z�[�W �n���h��
+// CSrFilterSettingDlg メッセージ ハンドラ
 
 // =========================================================================
 //
@@ -106,8 +106,8 @@ BOOL CSrFilterSettingDlg::OnInitDialog()
 
 	OnCheckFilterEnable();
 
-	return TRUE;	// �R���g���[���Ƀt�H�[�J�X��ݒ肵�Ȃ��Ƃ��A�߂�l�� TRUE �ƂȂ�܂�
-					// ��O: OCX �v���p�e�B �y�[�W�̖߂�l�� FALSE �ƂȂ�܂�
+	return TRUE;	// コントロールにフォーカスを設定しないとき、戻り値は TRUE となります
+					// 例外: OCX プロパティ ページの戻り値は FALSE となります
 }
 
 // =========================================================================
@@ -130,9 +130,9 @@ void CSrFilterSettingDlg::OnOK()
 	if (nIndex < 0) {
 		// OPEN
 	} else if (nIndex >= SR_FILTER_MAX) {
-		// ���������t�B���^�����ُ�
+		// そもそもフィルタ数が異常
 	} else {
-		// ���g�p�t�B���^��I�����Ă���Ȃ�ݒ�ύX
+		// 未使用フィルタを選択しているなら設定変更
 		if (!m_SrFilter[nIndex].bEnable) {
 			SrConfig.wDefaultMeasFilter = 1;
 			ConfigFile_SetNanoSpecIni(&SrConfig, CONFIG_FILE_SR_CONFIG);

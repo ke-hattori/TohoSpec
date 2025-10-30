@@ -1,4 +1,4 @@
-// GlassineDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// GlassineDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -26,15 +26,15 @@ int Rate=5;
 SETLAYER	*SetLayeredWindowAttributes;
 
 /////////////////////////////////////////////////////////////////////////////
-// CGlassineDlg ƒ_ƒCƒAƒƒO
+// CGlassineDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 CGlassineDlg::CGlassineDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CGlassineDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CGlassineDlg)
-		// ƒƒ‚: ‚±‚ÌˆÊ’u‚É ClassWizard ‚É‚æ‚Á‚Äƒƒ“ƒo‚Ì‰Šú‰»‚ª’Ç‰Á‚³‚ê‚Ü‚·B
+		// ãƒ¡ãƒ¢: ã“ã®ä½ç½®ã« ClassWizard ã«ã‚ˆã£ã¦ãƒ¡ãƒ³ãƒã®åˆæœŸåŒ–ãŒè¿½åŠ ã•ã‚Œã¾ã™ã€‚
 	//}}AFX_DATA_INIT
-	// ƒƒ‚: LoadIcon ‚Í Win32 ‚Ì DestroyIcon ‚ÌƒTƒuƒV[ƒPƒ“ƒX‚ð—v‹‚µ‚Ü‚¹‚ñB
+	// ãƒ¡ãƒ¢: LoadIcon ã¯ Win32 ã® DestroyIcon ã®ã‚µãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚’è¦æ±‚ã—ã¾ã›ã‚“ã€‚
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
@@ -42,7 +42,7 @@ void CGlassineDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CGlassineDlg)
-		// ƒƒ‚: ‚±‚ÌêŠ‚É‚Í ClassWizard ‚É‚æ‚Á‚Ä DDX ‚Æ DDV ‚ÌŒÄ‚Ño‚µ‚ª’Ç‰Á‚³‚ê‚Ü‚·B
+		// ãƒ¡ãƒ¢: ã“ã®å ´æ‰€ã«ã¯ ClassWizard ã«ã‚ˆã£ã¦ DDX ã¨ DDV ã®å‘¼ã³å‡ºã—ãŒè¿½åŠ ã•ã‚Œã¾ã™ã€‚
 	//}}AFX_DATA_MAP
 }
 
@@ -54,18 +54,18 @@ BEGIN_MESSAGE_MAP(CGlassineDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CGlassineDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CGlassineDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 BOOL CGlassineDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
-	// ƒEƒBƒ“ƒhƒE‚ðÅ‘O–Ê‚É‚·‚é
+	// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’æœ€å‰é¢ã«ã™ã‚‹
 	SetWindowPos(&wndTopMost, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE);
 
-	// ‚±‚Ìƒ_ƒCƒAƒƒO—p‚ÌƒAƒCƒRƒ“‚ðÝ’è‚µ‚Ü‚·BƒtƒŒ[ƒ€ƒ[ƒN‚ÍƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌƒƒCƒ“
-	// ƒEƒBƒ“ƒhƒE‚ªƒ_ƒCƒAƒƒO‚Å‚È‚¢Žž‚ÍŽ©“®“I‚ÉÝ’è‚µ‚Ü‚¹‚ñB
-	SetIcon(m_hIcon, TRUE);			// ‘å‚«‚¢ƒAƒCƒRƒ“‚ðÝ’è
-	SetIcon(m_hIcon, FALSE);		// ¬‚³‚¢ƒAƒCƒRƒ“‚ðÝ’è
+	// ã“ã®ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ç”¨ã®ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¨­å®šã—ã¾ã™ã€‚ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã¯ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ãƒ¡ã‚¤ãƒ³
+	// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãŒãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã§ãªã„æ™‚ã¯è‡ªå‹•çš„ã«è¨­å®šã—ã¾ã›ã‚“ã€‚
+	SetIcon(m_hIcon, TRUE);			// å¤§ãã„ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¨­å®š
+	SetIcon(m_hIcon, FALSE);		// å°ã•ã„ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¨­å®š
 
 //////////////////////////////////////////////////////////////
 	if(OnShowcmdline())
@@ -81,22 +81,22 @@ BOOL CGlassineDlg::OnInitDialog()
 	}
 //////////////////////////////////////////////////////////////
 
-	return TRUE;  // TRUE ‚ð•Ô‚·‚ÆƒRƒ“ƒgƒ[ƒ‹‚ÉÝ’è‚µ‚½ƒtƒH[ƒJƒX‚ÍŽ¸‚í‚ê‚Ü‚¹‚ñB
+	return TRUE;  // TRUE ã‚’è¿”ã™ã¨ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«è¨­å®šã—ãŸãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã¯å¤±ã‚ã‚Œã¾ã›ã‚“ã€‚
 }
 
-// ‚à‚µƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚ÉÅ¬‰»ƒ{ƒ^ƒ“‚ð’Ç‰Á‚·‚é‚È‚ç‚ÎAƒAƒCƒRƒ“‚ð•`‰æ‚·‚é
-// ƒR[ƒh‚ðˆÈ‰º‚É‹Lq‚·‚é•K—v‚ª‚ ‚è‚Ü‚·BMFC ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Í document/view
-// ƒ‚ƒfƒ‹‚ðŽg‚Á‚Ä‚¢‚é‚Ì‚ÅA‚±‚Ìˆ—‚ÍƒtƒŒ[ƒ€ƒ[ƒN‚É‚æ‚èŽ©“®“I‚Éˆ—‚³‚ê‚Ü‚·B
+// ã‚‚ã—ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒœãƒƒã‚¯ã‚¹ã«æœ€å°åŒ–ãƒœã‚¿ãƒ³ã‚’è¿½åŠ ã™ã‚‹ãªã‚‰ã°ã€ã‚¢ã‚¤ã‚³ãƒ³ã‚’æç”»ã™ã‚‹
+// ã‚³ãƒ¼ãƒ‰ã‚’ä»¥ä¸‹ã«è¨˜è¿°ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚MFC ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã¯ document/view
+// ãƒ¢ãƒ‡ãƒ«ã‚’ä½¿ã£ã¦ã„ã‚‹ã®ã§ã€ã“ã®å‡¦ç†ã¯ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã«ã‚ˆã‚Šè‡ªå‹•çš„ã«å‡¦ç†ã•ã‚Œã¾ã™ã€‚
 
 void CGlassineDlg::OnPaint()
 {
 	if (IsIconic())
 	{
-		CPaintDC dc(this); // •`‰æ—p‚ÌƒfƒoƒCƒX ƒRƒ“ƒeƒLƒXƒg
+		CPaintDC dc(this); // æç”»ç”¨ã®ãƒ‡ãƒã‚¤ã‚¹ ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
 
 		SendMessage(WM_ICONERASEBKGND, (WPARAM) dc.GetSafeHdc(), 0);
 
-		// ƒNƒ‰ƒCƒAƒ“ƒg‚Ì‹éŒ`—Ìˆæ“à‚Ì’†‰›
+		// ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆã®çŸ©å½¢é ˜åŸŸå†…ã®ä¸­å¤®
 		int cxIcon = GetSystemMetrics(SM_CXICON);
 		int cyIcon = GetSystemMetrics(SM_CYICON);
 		CRect rect;
@@ -104,7 +104,7 @@ void CGlassineDlg::OnPaint()
 		int x = (rect.Width() - cxIcon + 1) / 2;
 		int y = (rect.Height() - cyIcon + 1) / 2;
 
-		// ƒAƒCƒRƒ“‚ð•`‰æ‚µ‚Ü‚·B
+		// ã‚¢ã‚¤ã‚³ãƒ³ã‚’æç”»ã—ã¾ã™ã€‚
 		dc.DrawIcon(x, y, m_hIcon);
 	}
 	else
@@ -113,8 +113,8 @@ void CGlassineDlg::OnPaint()
 	}
 }
 
-// ƒVƒXƒeƒ€‚ÍAƒ†[ƒU[‚ªÅ¬‰»ƒEƒBƒ“ƒhƒE‚ðƒhƒ‰ƒbƒO‚µ‚Ä‚¢‚éŠÔA
-// ƒJ[ƒ\ƒ‹‚ð•\Ž¦‚·‚é‚½‚ß‚É‚±‚±‚ðŒÄ‚Ño‚µ‚Ü‚·B
+// ã‚·ã‚¹ãƒ†ãƒ ã¯ã€ãƒ¦ãƒ¼ã‚¶ãƒ¼ãŒæœ€å°åŒ–ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’ãƒ‰ãƒ©ãƒƒã‚°ã—ã¦ã„ã‚‹é–“ã€
+// ã‚«ãƒ¼ã‚½ãƒ«ã‚’è¡¨ç¤ºã™ã‚‹ãŸã‚ã«ã“ã“ã‚’å‘¼ã³å‡ºã—ã¾ã™ã€‚
 HCURSOR CGlassineDlg::OnQueryDragIcon()
 {
 	return (HCURSOR) m_hIcon;
@@ -128,7 +128,7 @@ BOOL CGlassineDlg::SetLayered(HWND hWnd,int Pos)
 
 	hDllInst = LoadLibrary("user32.dll");
 	if( hDllInst == NULL ){
-//		MessageBox( "USER32.DLL‚ª“Ç‚Ýž‚ß‚Ü‚¹‚ñ‚Å‚µ‚½B","Error", MB_OK|MB_ICONSTOP );
+//		MessageBox( "USER32.DLLãŒèª­ã¿è¾¼ã‚ã¾ã›ã‚“ã§ã—ãŸã€‚","Error", MB_OK|MB_ICONSTOP );
 //		return( FALSE );
 		ASSERT(FALSE);
 	}
@@ -136,7 +136,7 @@ BOOL CGlassineDlg::SetLayered(HWND hWnd,int Pos)
 	SetLayeredWindowAttributes =
 		(SETLAYER *)GetProcAddress( hDllInst, "SetLayeredWindowAttributes" );
 	if( SetLayeredWindowAttributes == NULL ){
-//		MessageBox( "SetLayeredWindowAttributes()ŠÖ”‚Ìƒ|ƒCƒ“ƒ^‚ªŽæ“¾‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½BWindows2000‚Å‚Í‚È‚¢‰Â”\«‚ª‚ ‚è‚Ü‚·B","Error", MB_OK );
+//		MessageBox( "SetLayeredWindowAttributes()é–¢æ•°ã®ãƒã‚¤ãƒ³ã‚¿ãŒå–å¾—ã§ãã¾ã›ã‚“ã§ã—ãŸã€‚Windows2000ã§ã¯ãªã„å¯èƒ½æ€§ãŒã‚ã‚Šã¾ã™ã€‚","Error", MB_OK );
 //		return( FALSE );
 		ASSERT(FALSE);
 	}
@@ -217,9 +217,9 @@ void CGlassineDlg::OnCancel()
 	TT.Release();
 
 // 2009.06.08 K.Matsuo -->
-	// Screen Interlock‚ðALT+F6‚ÅA’†‰›‚Ìƒ_ƒCƒAƒƒO‚ªÁ‚¦‚¸‚ÉŽc‚Á‚Ä‚µ‚Ü‚¤‚±‚Æ‚Ö‚Ì‘Î‰ž
-	// Findwindow‚Ì–¼‘OŒŸõ‚Å‚ÍA‘å•¶ŽšE¬•¶Žš‚Í‹æ•Ê‚³‚ê‚È‚¢‚Ì‚ÅA
-	// “¯–¼‚¾‚Á‚½GlassineDlg–¼‚ð•ÏX‚µ‚Ü‚µ‚½
+	// Screen Interlockã‚’ALT+F6ã§ã€ä¸­å¤®ã®ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãŒæ¶ˆãˆãšã«æ®‹ã£ã¦ã—ã¾ã†ã“ã¨ã¸ã®å¯¾å¿œ
+	// Findwindowã®åå‰æ¤œç´¢ã§ã¯ã€å¤§æ–‡å­—ãƒ»å°æ–‡å­—ã¯åŒºåˆ¥ã•ã‚Œãªã„ã®ã§ã€
+	// åŒåã ã£ãŸGlassineDlgåã‚’å¤‰æ›´ã—ã¾ã—ãŸ
 	CWnd* pWnd = CWnd::FindWindow(NULL, "INTERLOCK");
 	if ( pWnd )
 		pWnd->ShowWindow(SW_HIDE);

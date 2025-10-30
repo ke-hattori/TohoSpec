@@ -1,4 +1,4 @@
-/** CODE ********************************************************
+ï»¿/** CODE ********************************************************
  *                        Copyright (C) 1993 by Tencor Instruments
  *  ................. Source Code Control System (PVCS) keywords
  *
@@ -18,14 +18,14 @@
  *  .....$Log: /ORCA3.2.2J/src/motsys/MOTION.C $
 //
 //  11    02/01/16 15:36 Hmenjo
-//  “ú–{ŒêƒRƒƒ“ƒg‚ğ’Ç‰ÁD
+//  æ—¥æœ¬èªã‚³ãƒ¡ãƒ³ãƒˆã‚’è¿½åŠ ï¼
 //
 //  2     01/03/05 14:23 Hmenjo
-//  $NoKeywords: $‚ğ’Ç‰ÁD
-//  ƒR[ƒh“à‚Ìƒo[ƒWƒ‡ƒ“î•ñ‚ğŒ³‚É–ß‚·D
+//  $NoKeywords: $ã‚’è¿½åŠ ï¼
+//  ã‚³ãƒ¼ãƒ‰å†…ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ã‚’å…ƒã«æˆ»ã™ï¼
 //
 //  1     00/11/01 9:22a Hmenjo
-//  orca3.2.2‚Ì³íƒRƒ“ƒpƒCƒ‹‚Ì‚½‚ßD
+//  orca3.2.2ã®æ­£å¸¸ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã®ãŸã‚ï¼
 //
 //  $NoKeywords: $
 //
@@ -51,10 +51,10 @@ static void	local_emergency_stop(short axis);
 
 
 static long  get_current_position(
-		short axis		/* ²w’è	‚O(AXIS_BIG_X)	FBigX
-									‚P(AXIS_BIG_Y)	FBigY
-									‚Q(AXIS_Z)		FZ
-									‚S(AXIS_T)		FT	*/
+		short axis		/* è»¸æŒ‡å®š	ï¼(AXIS_BIG_X)	ï¼šBigX
+									ï¼‘(AXIS_BIG_Y)	ï¼šBigY
+									ï¼’(AXIS_Z)		ï¼šZ
+									ï¼”(AXIS_T)		ï¼šT	*/
 	)
 {
 	long	position;
@@ -102,7 +102,7 @@ void  send_motion_message(
 	}
 }
 
-// ƒRƒ}ƒ“ƒh‚ğÀs‰Â”\‚©‚Ç‚¤‚©ƒ`ƒFƒbƒN
+// ã‚³ãƒãƒ³ãƒ‰ã‚’å®Ÿè¡Œå¯èƒ½ã‹ã©ã†ã‹ãƒã‚§ãƒƒã‚¯
 static int	motion_command_valid(
 		short axis
 	)
@@ -124,10 +124,10 @@ static int	motion_command_valid(
 }
 
 static void  local_emergency_stop(
-		short axis		/* ²w’è	‚O(AXIS_BIG_X)	FBigX
-									‚P(AXIS_BIG_Y)	FBigY
-									‚Q(AXIS_Z)		FZ
-									‚S(AXIS_T)		FT	*/
+		short axis		/* è»¸æŒ‡å®š	ï¼(AXIS_BIG_X)	ï¼šBigX
+									ï¼‘(AXIS_BIG_Y)	ï¼šBigY
+									ï¼’(AXIS_Z)		ï¼šZ
+									ï¼”(AXIS_T)		ï¼šT	*/
 	)
 {
 	switch (axis) {
@@ -143,11 +143,11 @@ static void  local_emergency_stop(
 }
 
 int motion_set_response_window(
-		short axis,		/* ²w’è	‚O(AXIS_BIG_X)	FBigX
-									‚P(AXIS_BIG_Y)	FBigY
-									‚Q(AXIS_Z)		FZ
-									‚S(AXIS_T)		FT
-									-1(AXIS_ALL)	F‘S²	*/
+		short axis,		/* è»¸æŒ‡å®š	ï¼(AXIS_BIG_X)	ï¼šBigX
+									ï¼‘(AXIS_BIG_Y)	ï¼šBigY
+									ï¼’(AXIS_Z)		ï¼šZ
+									ï¼”(AXIS_T)		ï¼šT
+									-1(AXIS_ALL)	ï¼šå…¨è»¸	*/
 		HWND hWnd
 	)
 {
@@ -198,10 +198,10 @@ int motion_set_response_window(
 }
 
 int  motion_is_stopped(
-		short axis		/* ²w’è	‚O(AXIS_BIG_X)	FBigX
-									‚P(AXIS_BIG_Y)	FBigY
-									‚Q(AXIS_Z)		FZ
-									‚S(AXIS_T)		FT	*/
+		short axis		/* è»¸æŒ‡å®š	ï¼(AXIS_BIG_X)	ï¼šBigX
+									ï¼‘(AXIS_BIG_Y)	ï¼šBigY
+									ï¼’(AXIS_Z)		ï¼šZ
+									ï¼”(AXIS_T)		ï¼šT	*/
 	)
 {
 	if (0 != CC_IsJoyMode()) {
@@ -255,11 +255,11 @@ int motion_set_joymode(int iMode, int iSpeedSel)
 }
 
 int motion_emergency_stop(
-		short axis		/* ²w’è	‚O(AXIS_BIG_X)	FBigX
-									‚P(AXIS_BIG_Y)	FBigY
-									‚Q(AXIS_Z)		FZ
-									‚S(AXIS_T)		FT
-									-1(AXIS_ALL)	F‘S²	*/
+		short axis		/* è»¸æŒ‡å®š	ï¼(AXIS_BIG_X)	ï¼šBigX
+									ï¼‘(AXIS_BIG_Y)	ï¼šBigY
+									ï¼’(AXIS_Z)		ï¼šZ
+									ï¼”(AXIS_T)		ï¼šT
+									-1(AXIS_ALL)	ï¼šå…¨è»¸	*/
 	)
 {
 	int i;
@@ -272,7 +272,7 @@ int motion_emergency_stop(
 		if (0 == motion_data[axis].bEnable) {
 			return MS_PARAMETER_ERROR;
 		} else {
-			// ’â~Œnˆ—‚È‚Ì‚ÅƒRƒ}ƒ“ƒhƒ`ƒFƒbƒN‚Í‚µ‚Ä‚¢‚Ü‚¹‚ñD
+			// åœæ­¢ç³»å‡¦ç†ãªã®ã§ã‚³ãƒãƒ³ãƒ‰ãƒã‚§ãƒƒã‚¯ã¯ã—ã¦ã„ã¾ã›ã‚“ï¼
 			local_emergency_stop(axis);
 		}
 		break;
@@ -284,7 +284,7 @@ int motion_emergency_stop(
 			case AXIS_Z:
 			case AXIS_T:
 				if (0 != motion_data[i].bEnable) {
-					// ’â~Œnˆ—‚È‚Ì‚ÅƒRƒ}ƒ“ƒhƒ`ƒFƒbƒN‚Í‚µ‚Ä‚¢‚Ü‚¹‚ñD
+					// åœæ­¢ç³»å‡¦ç†ãªã®ã§ã‚³ãƒãƒ³ãƒ‰ãƒã‚§ãƒƒã‚¯ã¯ã—ã¦ã„ã¾ã›ã‚“ï¼
 					local_emergency_stop((short) i);
 				}
 				break;
@@ -301,12 +301,12 @@ int motion_emergency_stop(
 
 
 int motion_move_at_speed(
-		short axis,		/* ²w’è	‚O(AXIS_BIG_X)	FBigX
-									‚P(AXIS_BIG_Y)	FBigY
-									‚Q(AXIS_Z)		FZ
-									‚S(AXIS_T)		FT	*/
+		short axis,		/* è»¸æŒ‡å®š	ï¼(AXIS_BIG_X)	ï¼šBigX
+									ï¼‘(AXIS_BIG_Y)	ï¼šBigY
+									ï¼’(AXIS_Z)		ï¼šZ
+									ï¼”(AXIS_T)		ï¼šT	*/
 		short velocity
-//		VEL_MODE mode	// –¢g—p[2009.03.18]
+//		VEL_MODE mode	// æœªä½¿ç”¨[2009.03.18]
 	)
 {
 	switch (axis) {
@@ -317,12 +317,12 @@ int motion_move_at_speed(
 		if (0 == motion_data[axis].bEnable) {
 			return MS_PARAMETER_ERROR;
 		} else {
-			// ƒRƒ}ƒ“ƒhÀs‰Â”\‚©‚Ç‚¤‚©ƒ`ƒFƒbƒN
+			// ã‚³ãƒãƒ³ãƒ‰å®Ÿè¡Œå¯èƒ½ã‹ã©ã†ã‹ãƒã‚§ãƒƒã‚¯
 			int mot_status = motion_command_valid(axis);
 			if (
 				(mot_status == MS_NO_ERROR)
 				) {
-				// ƒGƒ‰[‚È‚µC‚©CƒT[ƒ{ˆÚ“®’†‚ÅƒrƒW[‚È‚ç
+				// ã‚¨ãƒ©ãƒ¼ãªã—ï¼Œã‹ï¼Œã‚µãƒ¼ãƒœç§»å‹•ä¸­ã§ãƒ“ã‚¸ãƒ¼ãªã‚‰
 				if (0 != motion_data[axis].bInvertedSense) {
 					velocity = -velocity;
 				}
@@ -338,10 +338,10 @@ int motion_move_at_speed(
 }
 
 int motion_move_at_speed_to_dest(
-		short axis,		/* ²w’è	‚O(AXIS_BIG_X)	FBigX
-									‚P(AXIS_BIG_Y)	FBigY
-									‚Q(AXIS_Z)		FZ
-									‚S(AXIS_T)		FT	*/
+		short axis,		/* è»¸æŒ‡å®š	ï¼(AXIS_BIG_X)	ï¼šBigX
+									ï¼‘(AXIS_BIG_Y)	ï¼šBigY
+									ï¼’(AXIS_Z)		ï¼šZ
+									ï¼”(AXIS_T)		ï¼šT	*/
 		long  destination,
 		short velocity
 	)
@@ -354,12 +354,12 @@ int motion_move_at_speed_to_dest(
 		if (0 == motion_data[axis].bEnable) {
 			return MS_PARAMETER_ERROR;
 		} else {
-			// ƒRƒ}ƒ“ƒhÀs‰Â”\‚©‚Ç‚¤‚©ƒ`ƒFƒbƒN
+			// ã‚³ãƒãƒ³ãƒ‰å®Ÿè¡Œå¯èƒ½ã‹ã©ã†ã‹ãƒã‚§ãƒƒã‚¯
 			int mot_status = motion_command_valid(axis);
 			if (
 				(mot_status == MS_NO_ERROR)
 				) {
-				// ƒGƒ‰[‚È‚µ
+				// ã‚¨ãƒ©ãƒ¼ãªã—
 				if (0 != motion_data[axis].bInvertedSense) {
 					destination = -destination;
 				}
@@ -375,10 +375,10 @@ int motion_move_at_speed_to_dest(
 }
 
 int motion_move_to_position(
-		short axis,		/* ²w’è	‚O(AXIS_BIG_X)	FBigX
-									‚P(AXIS_BIG_Y)	FBigY
-									‚Q(AXIS_Z)		FZ
-									‚S(AXIS_T)		FT	*/
+		short axis,		/* è»¸æŒ‡å®š	ï¼(AXIS_BIG_X)	ï¼šBigX
+									ï¼‘(AXIS_BIG_Y)	ï¼šBigY
+									ï¼’(AXIS_Z)		ï¼šZ
+									ï¼”(AXIS_T)		ï¼šT	*/
 		long position,
 		short velocity
 	)
@@ -391,12 +391,12 @@ int motion_move_to_position(
 		if (0 == motion_data[axis].bEnable) {
 			return MS_PARAMETER_ERROR;
 		} else {
-			// ƒRƒ}ƒ“ƒhÀs‰Â”\‚©‚Ç‚¤‚©ƒ`ƒFƒbƒN
+			// ã‚³ãƒãƒ³ãƒ‰å®Ÿè¡Œå¯èƒ½ã‹ã©ã†ã‹ãƒã‚§ãƒƒã‚¯
 			int mot_status = motion_command_valid(axis);
 			if (
 				(mot_status == MS_NO_ERROR)
 				) {
-				// ƒGƒ‰[‚È‚µ
+				// ã‚¨ãƒ©ãƒ¼ãªã—
 				if (0 != motion_data[axis].bInvertedSense) {
 					position = -position;
 				}
@@ -412,10 +412,10 @@ int motion_move_to_position(
 }
 
 long motion_get_position(
-		short axis		/* ²w’è	‚O(AXIS_BIG_X)	FBigX
-									‚P(AXIS_BIG_Y)	FBigY
-									‚Q(AXIS_Z)		FZ
-									‚S(AXIS_T)		FT	*/
+		short axis		/* è»¸æŒ‡å®š	ï¼(AXIS_BIG_X)	ï¼šBigX
+									ï¼‘(AXIS_BIG_Y)	ï¼šBigY
+									ï¼’(AXIS_Z)		ï¼šZ
+									ï¼”(AXIS_T)		ï¼šT	*/
 	)
 {
 	switch (axis) {
@@ -440,10 +440,10 @@ long motion_get_position(
 }
 
 int motion_go_home(
-		short axis		/* ²w’è	‚O(AXIS_BIG_X)	FBigX
-									‚P(AXIS_BIG_Y)	FBigY
-									‚Q(AXIS_Z)		FZ
-									‚S(AXIS_T)		FT	*/
+		short axis		/* è»¸æŒ‡å®š	ï¼(AXIS_BIG_X)	ï¼šBigX
+									ï¼‘(AXIS_BIG_Y)	ï¼šBigY
+									ï¼’(AXIS_Z)		ï¼šZ
+									ï¼”(AXIS_T)		ï¼šT	*/
 	)
 {
 	int mot_status;
@@ -474,12 +474,12 @@ int motion_go_home(
 	return MS_NO_ERROR;
 }
 
-// ²‚Ì HP ‚Æ‚µ‚ÄV‚µ‚¢˜_—’l‚ğƒZƒbƒg‚·‚éD
+// è»¸ã® HP ã¨ã—ã¦æ–°ã—ã„è«–ç†å€¤ã‚’ã‚»ãƒƒãƒˆã™ã‚‹ï¼
 int motion_set_soft_home(
-		short axis,		/* ²w’è	‚O(AXIS_BIG_X)	FBigX
-									‚P(AXIS_BIG_Y)	FBigY
-									‚Q(AXIS_Z)		FZ
-									‚S(AXIS_T)		FT	*/
+		short axis,		/* è»¸æŒ‡å®š	ï¼(AXIS_BIG_X)	ï¼šBigX
+									ï¼‘(AXIS_BIG_Y)	ï¼šBigY
+									ï¼’(AXIS_Z)		ï¼šZ
+									ï¼”(AXIS_T)		ï¼šT	*/
 		long  soft_home
 	)
 {
@@ -491,7 +491,7 @@ int motion_set_soft_home(
 		if (0 == motion_data[axis].bEnable) {
 			return MS_PARAMETER_ERROR;
 		} else {
-			// ƒRƒ}ƒ“ƒhÀs‰Â”\‚©‚Ç‚¤‚©ƒ`ƒFƒbƒN
+			// ã‚³ãƒãƒ³ãƒ‰å®Ÿè¡Œå¯èƒ½ã‹ã©ã†ã‹ãƒã‚§ãƒƒã‚¯
 			int mot_status = motion_command_valid(axis);
 			if (
 				(mot_status == MS_NO_ERROR)
@@ -512,13 +512,13 @@ int motion_set_soft_home(
 }
 
 /*
- *	Å‚‘¬“x‚ğæ“¾
+ *	æœ€é«˜é€Ÿåº¦ã‚’å–å¾—
  */
 int motion_get_maxspeed(
-		short axis		/* ²w’è	‚O(AXIS_BIG_X)	FBigX
-									‚P(AXIS_BIG_Y)	FBigY
-									‚Q(AXIS_Z)		FZ
-									‚S(AXIS_T)		FT	*/
+		short axis		/* è»¸æŒ‡å®š	ï¼(AXIS_BIG_X)	ï¼šBigX
+									ï¼‘(AXIS_BIG_Y)	ï¼šBigY
+									ï¼’(AXIS_Z)		ï¼šZ
+									ï¼”(AXIS_T)		ï¼šT	*/
 	)
 {
 	switch (axis) {
@@ -541,13 +541,13 @@ int motion_get_maxspeed(
 }
 
 /*
- *	²‚Ì‰Ò“®”ÍˆÍ(‹——£)‚ğæ“¾
+ *	è»¸ã®ç¨¼å‹•ç¯„å›²(è·é›¢)ã‚’å–å¾—
  */
 int motion_get_motionsize(
-		short axis		/* ²w’è	‚O(AXIS_BIG_X)	FBigX
-									‚P(AXIS_BIG_Y)	FBigY
-									‚Q(AXIS_Z)		FZ
-									‚S(AXIS_T)		FT	*/
+		short axis		/* è»¸æŒ‡å®š	ï¼(AXIS_BIG_X)	ï¼šBigX
+									ï¼‘(AXIS_BIG_Y)	ï¼šBigY
+									ï¼’(AXIS_Z)		ï¼šZ
+									ï¼”(AXIS_T)		ï¼šT	*/
 	)
 {
 	switch (axis) {
@@ -570,13 +570,13 @@ int motion_get_motionsize(
 }
 
 /*
- *	²‚Ì“dqƒMƒA‚ğæ“¾
+ *	è»¸ã®é›»å­ã‚®ã‚¢ã‚’å–å¾—
  */
 int motion_get_electronicgear(
-		short axis		/* ²w’è	‚O(AXIS_BIG_X)	FBigX
-									‚P(AXIS_BIG_Y)	FBigY
-									‚Q(AXIS_Z)		FZ
-									‚S(AXIS_T)		FT	*/
+		short axis		/* è»¸æŒ‡å®š	ï¼(AXIS_BIG_X)	ï¼šBigX
+									ï¼‘(AXIS_BIG_Y)	ï¼šBigY
+									ï¼’(AXIS_Z)		ï¼šZ
+									ï¼”(AXIS_T)		ï¼šT	*/
 	)
 {
 	switch (axis) {
@@ -597,15 +597,15 @@ int motion_get_electronicgear(
 }
 
 /*
- *	²‚Ìƒ\ƒtƒgƒŠƒ~ƒbƒg{‘¤‚ğæ“¾
+ *	è»¸ã®ã‚½ãƒ•ãƒˆãƒªãƒŸãƒƒãƒˆï¼‹å´ã‚’å–å¾—
  */
 int motion_get_softlimit(
-		short axis,		/* ²w’è	‚O(AXIS_BIG_X)	FBigX
-									‚P(AXIS_BIG_Y)	FBigY
-									‚Q(AXIS_Z)		FZ
-									‚S(AXIS_T)		FT	*/
-		short signflag	/* •„†		…‚OF{‘¤æ“¾
-									ƒ‚OF|‘¤æ“¾*/
+		short axis,		/* è»¸æŒ‡å®š	ï¼(AXIS_BIG_X)	ï¼šBigX
+									ï¼‘(AXIS_BIG_Y)	ï¼šBigY
+									ï¼’(AXIS_Z)		ï¼šZ
+									ï¼”(AXIS_T)		ï¼šT	*/
+		short signflag	/* ç¬¦å·		â‰¦ï¼ï¼šï¼‹å´å–å¾—
+									ï¼œï¼ï¼šâˆ’å´å–å¾—*/
 	)
 {
 	switch (axis) {
@@ -628,11 +628,11 @@ int motion_get_softlimit(
 }
 
 /*
- *	ƒWƒ‡ƒCƒXƒeƒBƒbƒN‚Ì‘¬“x‚ğİ’è‚µ‚Ü‚·D
+ *	ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ã®é€Ÿåº¦ã‚’è¨­å®šã—ã¾ã™ï¼
  */
 int motion_set_joyspeed(
-		short axis,		/* ²w’è	‚O(AXIS_BIG_X)	FBigX
-									‚P(AXIS_BIG_Y)	FBigY*/
+		short axis,		/* è»¸æŒ‡å®š	ï¼(AXIS_BIG_X)	ï¼šBigX
+									ï¼‘(AXIS_BIG_Y)	ï¼šBigY*/
 		int iSpeedSel,
 		short velocity
 	)
@@ -657,7 +657,7 @@ int motion_set_joyspeed(
 }
 
 /*
- *	İ’è‚É‚æ‚é²(BigX/BigY)‚Ì“ü‘Ö‚¦
+ *	è¨­å®šã«ã‚ˆã‚‹è»¸(BigX/BigY)ã®å…¥æ›¿ãˆ
  */
 short ConvAxis(short sAxis_org)
 {
@@ -688,7 +688,7 @@ short ConvAxis(short sAxis_org)
 }
 
 /*
- *	motion_data ‚ğ‰Šú‰»
+ *	motion_data ã‚’åˆæœŸåŒ–
  */
 void InitMotionData(void)
 {
@@ -703,27 +703,27 @@ void InitMotionData(void)
 		motion_data[i].soft_home = 0;
 	}
 
-	// X ²‚Í•K‚¸g—p
+	// X è»¸ã¯å¿…ãšä½¿ç”¨
 	motion_data[AXIS_BIG_X].bEnable = TRUE;
-	// Y ²‚Í•K‚¸g—p
+	// Y è»¸ã¯å¿…ãšä½¿ç”¨
 	motion_data[AXIS_BIG_Y].bEnable = TRUE;
-	// Z ²‚Ìg—pw’è‚ğİ’è
+	// Z è»¸ã®ä½¿ç”¨æŒ‡å®šã‚’è¨­å®š
 	GetPrivateProfileString(_T("Axis"), _T("EnableAxisZ"), _T("0"), l_tszText, sizeof(l_tszText), SERVO_INI);
 	motion_data[AXIS_Z].bEnable = (0 == _tcscmp(l_tszText, _T("1")))? TRUE : FALSE;
-	// T ²‚Ìg—pw’è‚ğİ’è
+	// T è»¸ã®ä½¿ç”¨æŒ‡å®šã‚’è¨­å®š
 	GetPrivateProfileString(_T("Axis"), _T("EnableAxisT"), _T("0"), l_tszText, sizeof(l_tszText), SERVO_INI);
 	motion_data[AXIS_T].bEnable = (0 == _tcscmp(l_tszText, _T("1")))? TRUE : FALSE;
 
-	// X ²‚ÌˆÚ“®•ûŒü”½“]‚ğİ’è
+	// X è»¸ã®ç§»å‹•æ–¹å‘åè»¢ã‚’è¨­å®š
 	GetPrivateProfileString(_T("Axis"), _T("InvertedSenseX"), _T("0"), l_tszText, sizeof(l_tszText), SERVO_INI);
 	motion_data[AXIS_BIG_X].bInvertedSense = (0 == _tcscmp(l_tszText, _T("1")))? TRUE : FALSE;
-	// Y ²‚ÌˆÚ“®•ûŒü”½“]‚ğİ’è
+	// Y è»¸ã®ç§»å‹•æ–¹å‘åè»¢ã‚’è¨­å®š
 	GetPrivateProfileString(_T("Axis"), _T("InvertedSenseY"), _T("0"), l_tszText, sizeof(l_tszText), SERVO_INI);
 	motion_data[AXIS_BIG_Y].bInvertedSense = (0 == _tcscmp(l_tszText, _T("1")))? TRUE : FALSE;
-	// Z ²‚ÌˆÚ“®•ûŒü”½“]‚ğİ’è
+	// Z è»¸ã®ç§»å‹•æ–¹å‘åè»¢ã‚’è¨­å®š
 	GetPrivateProfileString(_T("Axis"), _T("InvertedSenseZ"), _T("0"), l_tszText, sizeof(l_tszText), SERVO_INI);
 	motion_data[AXIS_Z].bInvertedSense = (0 == _tcscmp(l_tszText, _T("1")))? TRUE : FALSE;
-	// T ²‚ÌˆÚ“®•ûŒü”½“]‚ğİ’è
+	// T è»¸ã®ç§»å‹•æ–¹å‘åè»¢ã‚’è¨­å®š
 	GetPrivateProfileString(_T("Axis"), _T("InvertedSenseT"), _T("0"), l_tszText, sizeof(l_tszText), SERVO_INI);
 	motion_data[AXIS_T].bInvertedSense = (0 == _tcscmp(l_tszText, _T("1")))? TRUE : FALSE;
 }

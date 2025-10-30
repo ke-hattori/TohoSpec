@@ -1,10 +1,10 @@
-#if !defined(AFX_TESTMEASUREMENTGANTRYDLG_H__B84DD2CB_1670_4A80_88E8_248F4BBB0C55__INCLUDED_)
+ï»¿#if !defined(AFX_TESTMEASUREMENTGANTRYDLG_H__B84DD2CB_1670_4A80_88E8_248F4BBB0C55__INCLUDED_)
 #define AFX_TESTMEASUREMENTGANTRYDLG_H__B84DD2CB_1670_4A80_88E8_248F4BBB0C55__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// TestMeasurementGantryDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// TestMeasurementGantryDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 #include "GridCtrl.h"
 #include "BtnST.h"
@@ -15,15 +15,15 @@
 class CMeasurementGraphDlg2;
 
 /////////////////////////////////////////////////////////////////////////////
-// CTestMeasurementGantryDlg ƒ_ƒCƒAƒƒO
+// CTestMeasurementGantryDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 class CTestMeasurementGantryDlg : public CDialog
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
-	CTestMeasurementGantryDlg(CWnd* pParent = NULL);   // •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CTestMeasurementGantryDlg(CWnd* pParent = NULL);   // æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CTestMeasurementGantryDlg)
 	enum { IDD = IDD_TEST_MEASUREMENT_GANTRY_DLG };
 	CShadeButtonST	m_ReferenceButton;
@@ -45,35 +45,35 @@ public:
 	CShadeButtonST m_CancelButton;
 
 	int m_iConditionFlg;
-	int m_iConditionFlgOld;	//‘O‰ñ’l
+	int m_iConditionFlgOld;	//å‰å›å€¤
 	int m_iProcessStatus;
-	int m_iProcessStatusOld; //‘O‰ñ’l
+	int m_iProcessStatusOld; //å‰å›å€¤
 	BOOL m_AfExecuteFlg;
-	BOOL m_AfExecuteFlgOld; //‘O‰ñ’l
+	BOOL m_AfExecuteFlgOld; //å‰å›å€¤
 	int m_iAlarmStatus;
-	int m_iAlarmStatusOld; //‘O‰ñ’l
+	int m_iAlarmStatusOld; //å‰å›å€¤
 
-	// ŠO•”‚Æ‚Ìˆø“n‚µ•Ï”
+	// å¤–éƒ¨ã¨ã®å¼•æ¸¡ã—å¤‰æ•°
 	CString m_strLens;
 	CString m_strOpticalFilter;
 	double	m_dIntegTime;
 	WORD	m_wStart;
 	WORD	m_wEnd;
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CTestMeasurementGantryDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
 	virtual void OnCancel();
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CTestMeasurementGantryDlg)
 	afx_msg void OnDestroy();
 	afx_msg void OnSelchangeMeasurementTab(NMHDR* pNMHDR, LRESULT* pResult);
@@ -127,6 +127,6 @@ private:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_TESTMEASUREMENTGANTRYDLG_H__B84DD2CB_1670_4A80_88E8_248F4BBB0C55__INCLUDED_)

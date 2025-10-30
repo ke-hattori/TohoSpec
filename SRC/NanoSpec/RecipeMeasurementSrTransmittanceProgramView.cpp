@@ -1,4 +1,4 @@
-// RecipeMeasurementSrTransmittanceProgramView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// RecipeMeasurementSrTransmittanceProgramView.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -48,15 +48,15 @@ void CRecipeMeasurementSrTransmittanceProgramView::LoadRecipeData()
 
 	switch ( m_nOpenMode )
 	{
-	case modeNew:				// ƒŒƒVƒsV‹Kì¬
-	case modeDefaultSetting:	// ƒRƒ“ƒtƒBƒO‰æ–Ê‚©‚ç‘JˆÚ‚µ‚Ä‚«‚½ƒP[ƒX
+	case modeNew:				// ãƒ¬ã‚·ãƒ”æ–°è¦ä½œæˆ
+	case modeDefaultSetting:	// ã‚³ãƒ³ãƒ•ã‚£ã‚°ç”»é¢ã‹ã‚‰é·ç§»ã—ã¦ããŸã‚±ãƒ¼ã‚¹
 		if ( !RecipeFile_LoadRecipe(&m_ReflecMeas, SR_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_SR_TRANSMITTANCE) ) {
 			m_ReflecMeas.ScanParams.hdr.wHeadType = HEAD_TYPE_SR;
 			m_ReflecMeas.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_SR_TRANSMITTANCE;
 		}
 		break;
-	default:					// ƒŒƒVƒsƒƒCƒ“ƒŠƒXƒg‰æ–Ê‚©‚ç‘JˆÚ‚µ‚Ä‚«‚½ƒP[ƒX
-		if ( !RecipeFile_LoadRecipe(&m_ReflecMeas, m_szRecipeName, RECIPE_FILE_MEASUREMENT_PROGRAM) ) { 		// RECIPE_FILE_MEASUREMENT_PROGRAM ‚Å³‚µ‚¢‚ç‚µ‚¢...
+	default:					// ãƒ¬ã‚·ãƒ”ãƒ¡ã‚¤ãƒ³ãƒªã‚¹ãƒˆç”»é¢ã‹ã‚‰é·ç§»ã—ã¦ããŸã‚±ãƒ¼ã‚¹
+		if ( !RecipeFile_LoadRecipe(&m_ReflecMeas, m_szRecipeName, RECIPE_FILE_MEASUREMENT_PROGRAM) ) { 		// RECIPE_FILE_MEASUREMENT_PROGRAM ã§æ­£ã—ã„ã‚‰ã—ã„...
 			m_nOpenMode = modeNew;
 			if ( !RecipeFile_LoadRecipe(&m_ReflecMeas, SR_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_SR_TRANSMITTANCE) ) {
 				m_ReflecMeas.ScanParams.hdr.wHeadType = HEAD_TYPE_SR;
@@ -74,12 +74,12 @@ void CRecipeMeasurementSrTransmittanceProgramView::LoadRecipeData()
 		strcpy(m_ReflecMeas.hdr.szName, l_strBuffer);
 // Kojika 20090529 Change End
 	}
-	//2009.12.21 bagus C³ --{--
-	//b’è‘Îô
+	//2009.12.21 bagus ä¿®æ­£ --{--
+	//æš«å®šå¯¾ç­–
 // 2010.01.06 bagus Gantry --{--
 //	GetDlgItem(IDC_TEST_BUTTON)->ShowWindow(SW_HIDE);
 // 2010.01.06 bagus Gantry --}--
-	//2009.12.21 bagus C³ --}--
+	//2009.12.21 bagus ä¿®æ­£ --}--
 }
 
 // =========================================================================
@@ -105,7 +105,7 @@ BOOL CRecipeMeasurementSrTransmittanceProgramView::SaveRecipeData()
 			return FALSE;
 		break;
 	default:
-		// V‚µ‚¢ƒŒƒVƒs–¼‚ğİ’èiSave, SaveAsŒ“—pj
+		// æ–°ã—ã„ãƒ¬ã‚·ãƒ”åã‚’è¨­å®šï¼ˆSave, SaveAså…¼ç”¨ï¼‰
 		strcpy(m_ReflecMeas.hdr.szName, m_szRecipeName);
 		if ( !RecipeFile_SaveRecipe(&m_ReflecMeas, m_szRecipeName, RECIPE_FILE_SR_TRANSMITTANCE) )
 			return FALSE;

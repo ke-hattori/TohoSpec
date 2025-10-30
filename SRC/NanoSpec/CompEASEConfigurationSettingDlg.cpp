@@ -1,4 +1,4 @@
-// CompEASEConfigurationSettingDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// CompEASEConfigurationSettingDlg.cpp : インプリメンテーション ファイル
 //
 
 #include "stdafx.h"
@@ -12,14 +12,14 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CCompEASEConfigurationSettingDlg �_�C�A���O
+// CCompEASEConfigurationSettingDlg ダイアログ
 
 
 CCompEASEConfigurationSettingDlg::CCompEASEConfigurationSettingDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CCompEASEConfigurationSettingDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CCompEASEConfigurationSettingDlg)
-		// ���� - ClassWizard �͂��̈ʒu�Ƀ}�b�s���O�p�̃}�N����ǉ��܂��͍폜���܂��B
+		// メモ - ClassWizard はこの位置にマッピング用のマクロを追加または削除します。
 	//}}AFX_DATA_INIT
 }
 
@@ -28,7 +28,7 @@ void CCompEASEConfigurationSettingDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CCompEASEConfigurationSettingDlg)
-		// ���� - ClassWizard �͂��̈ʒu�Ƀ}�b�s���O�p�̃}�N����ǉ��܂��͍폜���܂��B
+		// メモ - ClassWizard はこの位置にマッピング用のマクロを追加または削除します。
 	//}}AFX_DATA_MAP
 
 	DDX_Control(pDX, IDOK, m_OkButton);
@@ -42,7 +42,7 @@ BEGIN_MESSAGE_MAP(CCompEASEConfigurationSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CCompEASEConfigurationSettingDlg ���b�Z�[�W �n���h��
+// CCompEASEConfigurationSettingDlg メッセージ ハンドラ
 
 BOOL CCompEASEConfigurationSettingDlg::OnInitDialog()
 {
@@ -61,7 +61,7 @@ BOOL CCompEASEConfigurationSettingDlg::OnInitDialog()
 	m_CancelButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_CancelButton.DrawFlatFocus(TRUE);
 
-	// 0-9999�܂ł̓��͐���
+	// 0-9999までの入力制限
 	((CEdit*)GetDlgItem(IDC_EASE_ANALYZE_TIMEOUT_EDIT))->SetLimitText(4);
 	GetDlgItem(IDC_EASE_ANALYZE_TIMEOUT_EDIT)->ModifyStyle(0, ES_NUMBER);
 
@@ -69,8 +69,8 @@ BOOL CCompEASEConfigurationSettingDlg::OnInitDialog()
 	strBuffer.Format("%d", m_CompEaseConfig.nAnalyzeTimeout);
 	SetDlgItemText(IDC_EASE_ANALYZE_TIMEOUT_EDIT, strBuffer);
 
-	return TRUE;  // �R���g���[���Ƀt�H�[�J�X��ݒ肵�Ȃ��Ƃ��A�߂�l�� TRUE �ƂȂ�܂�
-				  // ��O: OCX �v���p�e�B �y�[�W�̖߂�l�� FALSE �ƂȂ�܂�
+	return TRUE;  // コントロールにフォーカスを設定しないとき、戻り値は TRUE となります
+				  // 例外: OCX プロパティ ページの戻り値は FALSE となります
 }
 
 /////////////////////////////////////////////////////////////////////////////

@@ -1,4 +1,4 @@
-// GeneralPositionSettingDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// GeneralPositionSettingDlg.cpp : インプリメンテーション ファイル
 //
 
 #include "stdafx.h"
@@ -24,7 +24,7 @@ static char THIS_FILE[] = __FILE__;
 //#define GENERALPOSITIONSETTING_MESSAGE		"GENERAL POSITION SETTING"
 
 // #########################################################################
-// CGeneralPositionSettingDlg �_�C�A���O
+// CGeneralPositionSettingDlg ダイアログ
 // #########################################################################
 
 // =========================================================================
@@ -63,7 +63,7 @@ BEGIN_MESSAGE_MAP(CGeneralPositionSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CGeneralPositionSettingDlg ���b�Z�[�W �n���h��
+// CGeneralPositionSettingDlg メッセージ ハンドラ
 
 // =========================================================================
 //
@@ -100,13 +100,13 @@ BOOL CGeneralPositionSettingDlg::OnInitDialog()
 	///// Control Initialize /////
 	InitCombo_GeneralPosNo();
 
-	// �R�����g����������
+	// コメント文字数制限
 	((CEdit*)GetDlgItem(IDC_GENERAL_POSITION_COMMENT))->SetLimitText(GENERAL_POSITION_COMMENT_LEN);
 
 	UpdateData(FALSE);
 
-	return TRUE;	// �R���g���[���Ƀt�H�[�J�X��ݒ肵�Ȃ��Ƃ��A�߂�l�� TRUE �ƂȂ�܂�
-					// ��O: OCX �v���p�e�B �y�[�W�̖߂�l�� FALSE �ƂȂ�܂�
+	return TRUE;	// コントロールにフォーカスを設定しないとき、戻り値は TRUE となります
+					// 例外: OCX プロパティ ページの戻り値は FALSE となります
 }
 
 // =========================================================================
@@ -127,7 +127,7 @@ void CGeneralPositionSettingDlg::OnOK()
 //
 void CGeneralPositionSettingDlg::OnCancel()
 {
-	// TODO: ���̈ʒu�ɓ��ʂȌ㏈����ǉ����Ă��������B
+	// TODO: この位置に特別な後処理を追加してください。
 
 	CDialog::OnCancel();
 }
@@ -136,8 +136,8 @@ void CGeneralPositionSettingDlg::OnCancel()
 //
 void CGeneralPositionSettingDlg::OnSelchangeGeneralPositionNo()
 {
-	UpdateData();			// No�؂�ւ��O�̏����擾����
-	UpdateData(FALSE);		// No�؂�ւ���̏��ɂĉ�ʍX�V����
+	UpdateData();			// No切り替え前の情報を取得する
+	UpdateData(FALSE);		// No切り替え後の情報にて画面更新する
 }
 
 // =========================================================================

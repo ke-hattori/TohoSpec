@@ -1,4 +1,4 @@
-// ChifRcvMailThread.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// ChifRcvMailThread.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -13,15 +13,15 @@
 #include "ChifTransiSeq.h"
 #include "NanoSpecDoc.h"
 //#include "MainFrm.h"
-/* added 2009.08.03 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(12) ---------- { ---------- */
+/* added 2009.08.03 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (12) ---------- { ---------- */
 #include "ChifTransiStress.h"
-/* added 2009.08.03 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(12) ---------- } ---------- */
-/* added 2009.08.07 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(35) ---------- { ---------- */
+/* added 2009.08.03 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (12) ---------- } ---------- */
+/* added 2009.08.07 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (35) ---------- { ---------- */
 #include "ChiefPFuncs.h"
-/* added 2009.08.07 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(35) ---------- } ---------- */
-/* added 2009.10.29 hmenjo CTA Seq CTAILPI ƒ`ƒFƒbƒN ---------- { ---------- */
+/* added 2009.08.07 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (35) ---------- } ---------- */
+/* added 2009.10.29 hmenjo CTA Seq CTAILPI ãƒã‚§ãƒƒã‚¯ ---------- { ---------- */
 #include "..\\..\\inc\\NEXIOBASE.HXX"
-/* added 2009.10.29 hmenjo CTA Seq CTAILPI ƒ`ƒFƒbƒN ---------- } ---------- */
+/* added 2009.10.29 hmenjo CTA Seq CTAILPI ãƒã‚§ãƒƒã‚¯ ---------- } ---------- */
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -46,13 +46,13 @@ CChiefRcvMailThread::~CChiefRcvMailThread()
 
 BOOL CChiefRcvMailThread::InitInstance()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒXƒŒƒbƒh’PˆÊ‚Ì‰Šú‰»ƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ã“ã®ä½ç½®ã«ã‚¹ãƒ¬ãƒƒãƒ‰å˜ä½ã®åˆæœŸåŒ–ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 
 	TRACE(_T("CChiefRcvMailThread::InitInstance() \n"));
 	((CChiefView*) m_pcChiefView)->LogChief(_T("Started  CChiefRcvMailThread."));
 
 	m_bShutDown = FALSE;
-//	m_bAutoDelete = FALSE;			// ƒXƒŒƒbƒh‹N“®ˆ—‚ÉˆÚ“®(‚»‚Ì•û‚ª”»‚è‚â‚·‚¢‚Ì‚Å)
+//	m_bAutoDelete = FALSE;			// ã‚¹ãƒ¬ãƒƒãƒ‰èµ·å‹•å‡¦ç†ã«ç§»å‹•(ãã®æ–¹ãŒåˆ¤ã‚Šã‚„ã™ã„ã®ã§)
 	m_mailslot.Create(MAILSLOT_CHIEF);
 	m_strRcvCmd = "";
 
@@ -61,7 +61,7 @@ BOOL CChiefRcvMailThread::InitInstance()
 
 int CChiefRcvMailThread::ExitInstance()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒXƒŒƒbƒh’PˆÊ‚Ì‰Šú‰»ƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ã“ã®ä½ç½®ã«ã‚¹ãƒ¬ãƒƒãƒ‰å˜ä½ã®åˆæœŸåŒ–ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 
 	TRACE(_T("CChiefRcvMailThread::ExitInstance() \n"));
 	((CChiefView*) m_pcChiefView)->LogChief(_T("Ended    CChiefRcvMailThread."));
@@ -71,19 +71,19 @@ int CChiefRcvMailThread::ExitInstance()
 
 BEGIN_MESSAGE_MAP(CChiefRcvMailThread, CWinThread)
 	//{{AFX_MSG_MAP(CChiefRcvMailThread)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ð’Ç‰Á‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒžãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒžã‚¯ãƒ­ã‚’è¿½åŠ ã—ã¾ã™ã€‚
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CChiefRcvMailThread ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CChiefRcvMailThread ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 /*
- *	ƒXƒŒƒbƒhƒ‹[ƒv
+ *	ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ«ãƒ¼ãƒ—
  */
 int CChiefRcvMailThread::Run()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉŒÅ—L‚Ìˆ—‚ð’Ç‰Á‚·‚é‚©A‚Ü‚½‚ÍŠî–{ƒNƒ‰ƒX‚ðŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«å›ºæœ‰ã®å‡¦ç†ã‚’è¿½åŠ ã™ã‚‹ã‹ã€ã¾ãŸã¯åŸºæœ¬ã‚¯ãƒ©ã‚¹ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
 
 	TRACE(_T("CChiefRcvMailThread::Run() \n"));
 
@@ -97,55 +97,55 @@ int CChiefRcvMailThread::Run()
 			((CChiefView*) m_pcChiefView)->LogChief(l_szRecvBuff);
 			CString l_strRcvCmd = l_szRecvBuff;
 			m_strRcvCmd = l_strRcvCmd;
-			m_pcChiefView->PostMessage(WM_CHIF_RECV_PIFCMD, 0, 0);		// Pif ƒRƒ}ƒ“ƒhŽóM‚ð’Ê’m
+			m_pcChiefView->PostMessage(WM_CHIF_RECV_PIFCMD, 0, 0);		// Pif ã‚³ãƒžãƒ³ãƒ‰å—ä¿¡ã‚’é€šçŸ¥
 			if (		l_strRcvCmd == PIFCOMM_P201) {
-				EventProcessP201();						// Žž‡‚í‚¹—v‹
+				EventProcessP201();						// æ™‚åˆ»åˆã‚ã›è¦æ±‚
 // 2009.02.05 K.Matsuo delete -->
 //			} else if ( l_strRcvCmd == PIFCOMM_P306) {
-//				EventProcessP306();						// ƒgƒŒ[ƒXƒf[ƒ^‚ÌŽæ“¾—v‹
+//				EventProcessP306();						// ãƒˆãƒ¬ãƒ¼ã‚¹ãƒ‡ãƒ¼ã‚¿ã®å–å¾—è¦æ±‚
 // 2009.02.05 K.Matsuo delete <--
 			} else if ( l_strRcvCmd == PIFCOMM_P401) {
-				EventProcessP401();						// ’…HƒŒƒVƒsŽwŽ¦—v‹
-/* added 2009.09.10 hmenjo P411 ƒRƒ}ƒ“ƒh’Ç‰Á ---------- { ---------- */
+				EventProcessP401();						// ç€å·¥ãƒ¬ã‚·ãƒ”æŒ‡ç¤ºè¦æ±‚
+/* added 2009.09.10 hmenjo P411 ã‚³ãƒžãƒ³ãƒ‰è¿½åŠ  ---------- { ---------- */
 			} else if ( l_strRcvCmd == PIFCOMM_P411) {
-				EventProcessP411();						// ’…HƒŒƒVƒsŽwŽ¦—v‹
-/* added 2009.09.10 hmenjo P411 ƒRƒ}ƒ“ƒh’Ç‰Á ---------- } ---------- */
+				EventProcessP411();						// ç€å·¥ãƒ¬ã‚·ãƒ”æŒ‡ç¤ºè¦æ±‚
+/* added 2009.09.10 hmenjo P411 ã‚³ãƒžãƒ³ãƒ‰è¿½åŠ  ---------- } ---------- */
 			} else if ( l_strRcvCmd == PIFCOMM_P501) {
-				EventProcessP501();						// ‘ª’èŠJŽnŽwŽ¦—v‹
-/* added 2009.09.10 hmenjo P511 ƒRƒ}ƒ“ƒh’Ç‰Á ---------- { ---------- */
+				EventProcessP501();						// æ¸¬å®šé–‹å§‹æŒ‡ç¤ºè¦æ±‚
+/* added 2009.09.10 hmenjo P511 ã‚³ãƒžãƒ³ãƒ‰è¿½åŠ  ---------- { ---------- */
 			} else if ( l_strRcvCmd == PIFCOMM_P511) {
-				EventProcessP511();						// ‘ª’èŠJŽnŽwŽ¦—v‹
-/* added 2009.09.10 hmenjo P511 ƒRƒ}ƒ“ƒh’Ç‰Á ---------- } ---------- */
-// 2014.01.07 bagus Add(Stage None‘Î‰ž) -->
+				EventProcessP511();						// æ¸¬å®šé–‹å§‹æŒ‡ç¤ºè¦æ±‚
+/* added 2009.09.10 hmenjo P511 ã‚³ãƒžãƒ³ãƒ‰è¿½åŠ  ---------- } ---------- */
+// 2014.01.07 bagus Add(Stage Noneå¯¾å¿œ) -->
 			} else if ( l_strRcvCmd == PIFCOMM_P514) {
-				EventProcessP514();						// Si ƒŠƒtƒ@ƒŒƒ“ƒXŽæ“¾ŠJŽnŽwŽ¦—v‹
+				EventProcessP514();						// Si ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—é–‹å§‹æŒ‡ç¤ºè¦æ±‚
 			} else if ( l_strRcvCmd == PIFCOMM_P516) {
-				EventProcessP516();						// Dark ƒŠƒtƒ@ƒŒƒ“ƒXŽæ“¾ŠJŽnŽwŽ¦—v‹
-// 2014.01.07 bagus Add(Stage None‘Î‰ž) <--
+				EventProcessP516();						// Dark ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—é–‹å§‹æŒ‡ç¤ºè¦æ±‚
+// 2014.01.07 bagus Add(Stage Noneå¯¾å¿œ) <--
 			} else if ( l_strRcvCmd == PIFCOMM_P601) {
-				EventProcessP601();						// ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“ˆÚsŽwŽ¦—v‹
+				EventProcessP601();						// ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³ç§»è¡ŒæŒ‡ç¤ºè¦æ±‚
 			} else if ( l_strRcvCmd == PIFCOMM_P602) {
-				EventProcessP602();						// ”Ä—pƒ|ƒWƒVƒ‡ƒ“ˆÚsŽwŽ¦—v‹
+				EventProcessP602();						// æ±Žç”¨ãƒã‚¸ã‚·ãƒ§ãƒ³ç§»è¡ŒæŒ‡ç¤ºè¦æ±‚
 			} else if ( l_strRcvCmd == PIFCOMM_P603) {
-				EventProcessToNextra(603);				// ƒoƒLƒ…[ƒ€ ON ŽwŽ¦—v‹
+				EventProcessToNextra(603);				// ãƒã‚­ãƒ¥ãƒ¼ãƒ  ON æŒ‡ç¤ºè¦æ±‚
 			} else if ( l_strRcvCmd == PIFCOMM_P604) {
-				EventProcessToNextra(604);				// ƒoƒLƒ…[ƒ€ OFF ŽwŽ¦—v‹
+				EventProcessToNextra(604);				// ãƒã‚­ãƒ¥ãƒ¼ãƒ  OFF æŒ‡ç¤ºè¦æ±‚
 			} else if ( l_strRcvCmd == PIFCOMM_P605) {
-				EventProcessToNextra(605);				// ƒAƒ‰ƒCƒƒ“ƒg LOAD ŽwŽ¦—v‹
+				EventProcessToNextra(605);				// ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ LOAD æŒ‡ç¤ºè¦æ±‚
 			} else if ( l_strRcvCmd == PIFCOMM_P606) {
-				EventProcessToNextra(606);				// ƒAƒ‰ƒCƒƒ“ƒg UNLOAD ŽwŽ¦—v‹
+				EventProcessToNextra(606);				// ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ UNLOAD æŒ‡ç¤ºè¦æ±‚
 			} else if ( l_strRcvCmd == PIFCOMM_P607) {
-				EventProcessToNextra(607);				// PINUP ŽwŽ¦—v‹
+				EventProcessToNextra(607);				// PINUP æŒ‡ç¤ºè¦æ±‚
 			} else if ( l_strRcvCmd == PIFCOMM_P608) {
-				EventProcessToNextra(608);				// PINDOWN ŽwŽ¦—v‹
+				EventProcessToNextra(608);				// PINDOWN æŒ‡ç¤ºè¦æ±‚
 			} else if ( l_strRcvCmd == PIFCOMM_P609) {
-				EventProcessToNextra(609);				// ƒVƒƒƒbƒ^ OPEN ŽwŽ¦—v‹
+				EventProcessToNextra(609);				// ã‚·ãƒ£ãƒƒã‚¿ OPEN æŒ‡ç¤ºè¦æ±‚
 			} else if ( l_strRcvCmd == PIFCOMM_P610) {
-				EventProcessToNextra(610);				// ƒVƒƒƒbƒ^ CLOSE ŽwŽ¦—v‹
+				EventProcessToNextra(610);				// ã‚·ãƒ£ãƒƒã‚¿ CLOSE æŒ‡ç¤ºè¦æ±‚
 			} else if ( l_strRcvCmd == PIFCOMM_P611) {
-				EventProcessP611();						// ‘ª’èƒLƒƒƒ“ƒZƒ‹ŽwŽ¦—v‹
+				EventProcessP611();						// æ¸¬å®šã‚­ãƒ£ãƒ³ã‚»ãƒ«æŒ‡ç¤ºè¦æ±‚
 			} else {
-				// Pif ‘¤‚Åƒ`ƒFƒbƒNŒãC‚±‚ÌƒXƒŒƒbƒh‚É“n‚³‚ê‚é‚Ì‚ÅƒRƒR‚É‚Í—ˆ‚È‚¢‚Í‚¸EEE
+				// Pif å´ã§ãƒã‚§ãƒƒã‚¯å¾Œï¼Œã“ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã«æ¸¡ã•ã‚Œã‚‹ã®ã§ã‚³ã‚³ã«ã¯æ¥ãªã„ã¯ãšãƒ»ãƒ»ãƒ»
 				ASSERT(FALSE);
 			}
 		}
@@ -158,7 +158,7 @@ int CChiefRcvMailThread::Run()
 }
 
 /*
- *	ƒXƒŒƒbƒhI—¹‚³‚¹‚é
+ *	ã‚¹ãƒ¬ãƒƒãƒ‰çµ‚äº†ã•ã›ã‚‹
  */
 void CChiefRcvMailThread::ShutDown()
 {
@@ -166,14 +166,14 @@ void CChiefRcvMailThread::ShutDown()
 }
 
 /*
- *	Pif ‚©‚çŽóM‚µ‚½ƒRƒ}ƒ“ƒh‚ð•Ô‚·
+ *	Pif ã‹ã‚‰å—ä¿¡ã—ãŸã‚³ãƒžãƒ³ãƒ‰ã‚’è¿”ã™
  */
 CString CChiefRcvMailThread::GetPifRcvCmd()
 {
 	CString	l_strRc;
 	TCHAR	l_szTemp[8] = "";
 
-	// —áŠOˆ—‚ð‘‚«‚½‚­‚È‚©‚Á‚½‚Ì‚ÅCˆê’UCŒ^•ÏŠ·‚µ‚Ä‚Ü‚·D
+	// ä¾‹å¤–å‡¦ç†ã‚’æ›¸ããŸããªã‹ã£ãŸã®ã§ï¼Œä¸€æ—¦ï¼Œåž‹å¤‰æ›ã—ã¦ã¾ã™ï¼Ž
 	_tcsncpy(l_szTemp, m_strRcvCmd, 4);
 	l_strRc = l_szTemp;
 
@@ -181,52 +181,52 @@ CString CChiefRcvMailThread::GetPifRcvCmd()
 }
 
 /*
- *	ƒRƒ}ƒ“ƒh–ˆ‚Ìˆ—ŠÖ”ŒQ ---------------------------------------------------
+ *	ã‚³ãƒžãƒ³ãƒ‰æ¯Žã®å‡¦ç†é–¢æ•°ç¾¤ ---------------------------------------------------
  */
-// Nextra ŽwŽ¦ê—pƒRƒ}ƒ“ƒhˆ—
+// Nextra æŒ‡ç¤ºå°‚ç”¨ã‚³ãƒžãƒ³ãƒ‰å‡¦ç†
 void CChiefRcvMailThread::EventProcessToNextra(
-		DWORD dwCmdCode		// Pxxx ‚Ì xxx ‚ð”’l‚ÅŽw’è‚µ‚Ü‚·D
+		DWORD dwCmdCode		// Pxxx ã® xxx ã‚’æ•°å€¤ã§æŒ‡å®šã—ã¾ã™ï¼Ž
 	)
 {
-	// Å‰‚ÉƒCƒ“ƒ^ƒƒbƒN
+	// æœ€åˆã«ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯
 	DWORD l_dwEMO = ((CChiefView*) m_pcChiefView)->CheckDIO_IsEMO();
 	if (0 != l_dwEMO) {
-/* modified 2009.08.18 hmenjo ƒZ[ƒtƒeƒBƒvƒ‰ƒOˆ—’Ç‰Á ---------- { ---------- */
-//		PifComm_DoStateDone(60 + l_dwEMO);	// EMOCƒhƒAƒCƒ“ƒ^ƒƒbƒNC‘•’uƒpƒ[ƒIƒt
-/* modified 2009.08.18 hmenjo ƒZ[ƒtƒeƒBƒvƒ‰ƒOˆ—’Ç‰Á ----------			   */
+/* modified 2009.08.18 hmenjo ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°å‡¦ç†è¿½åŠ  ---------- { ---------- */
+//		PifComm_DoStateDone(60 + l_dwEMO);	// EMOï¼Œãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ï¼Œè£…ç½®ãƒ‘ãƒ¯ãƒ¼ã‚ªãƒ•
+/* modified 2009.08.18 hmenjo ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°å‡¦ç†è¿½åŠ  ----------			   */
 		if (ALID_SafetyPlugOpen != l_dwEMO) {
-			PifComm_DoStateDone(60 + l_dwEMO);	/* EMOCƒhƒAƒCƒ“ƒ^ƒƒbƒNC‘•’uƒpƒ[ƒIƒt	*/
+			PifComm_DoStateDone(60 + l_dwEMO);	/* EMOï¼Œãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ï¼Œè£…ç½®ãƒ‘ãƒ¯ãƒ¼ã‚ªãƒ•	*/
 		} else {
-			PifComm_DoStateDone(69);	/* ƒZ[ƒtƒeƒBƒvƒ‰ƒO	*/
+			PifComm_DoStateDone(69);	/* ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°	*/
 		}
-/* modified 2009.08.18 hmenjo ƒZ[ƒtƒeƒBƒvƒ‰ƒOˆ—’Ç‰Á ---------- } ---------- */
+/* modified 2009.08.18 hmenjo ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°å‡¦ç†è¿½åŠ  ---------- } ---------- */
 		return;
 	}
 	if ((610 == dwCmdCode) && (0 != ((CChiefView*) m_pcChiefView)->CheckDIO_IsRobotArmON())) {
-		PifComm_DoStateDone(64);	// ƒƒ{ƒbƒgƒA[ƒ€ŒŸo‚Å‚ÍCƒVƒƒƒbƒ^•Â‚Í‹ÖŽ~
+		PifComm_DoStateDone(64);	// ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ æ¤œå‡ºã§ã¯ï¼Œã‚·ãƒ£ãƒƒã‚¿é–‰ã¯ç¦æ­¢
 		return;
 	}
 	if (
 		(0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bTHMaintenanceSW)
 	 && ((0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bShutterClose) || (0 != ((CChiefView*) m_pcChiefView)->m_DiInfo.bShutterOpen))
 	) {
-		// “Œ•üƒƒ“ƒe‚ªƒIƒt‚ÅC‚©‚ÂCƒVƒƒƒbƒ^ CLOSE ‚ªƒIƒtC‚©CƒVƒƒƒbƒ^ OPEN ‚ªƒIƒ“ ‚Ìê‡
+		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãŒã‚ªãƒ•ã§ï¼Œã‹ã¤ï¼Œã‚·ãƒ£ãƒƒã‚¿ CLOSE ãŒã‚ªãƒ•ï¼Œã‹ï¼Œã‚·ãƒ£ãƒƒã‚¿ OPEN ãŒã‚ªãƒ³ ã®å ´åˆ
 		switch (dwCmdCode) {
-		case 603:	// ƒoƒLƒ…[ƒ€ ON ŽwŽ¦—v‹
-		case 604:	// ƒoƒLƒ…[ƒ€ OFF ŽwŽ¦—v‹
-		case 605:	// ƒAƒ‰ƒCƒƒ“ƒg LOAD ŽwŽ¦—v‹
-		case 606:	// ƒAƒ‰ƒCƒƒ“ƒg UNLOAD ŽwŽ¦—v‹
-		case 607:	// PINUP ŽwŽ¦—v‹
-		case 608:	// PINDOWN ŽwŽ¦—v‹
-/* modified 2009.11.27 hmenjo Pif ƒsƒ“&ƒVƒƒƒbƒ^ “¯Žž“®ì ---------- { ---------- */
+		case 603:	// ãƒã‚­ãƒ¥ãƒ¼ãƒ  ON æŒ‡ç¤ºè¦æ±‚
+		case 604:	// ãƒã‚­ãƒ¥ãƒ¼ãƒ  OFF æŒ‡ç¤ºè¦æ±‚
+		case 605:	// ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ LOAD æŒ‡ç¤ºè¦æ±‚
+		case 606:	// ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ UNLOAD æŒ‡ç¤ºè¦æ±‚
+		case 607:	// PINUP æŒ‡ç¤ºè¦æ±‚
+		case 608:	// PINDOWN æŒ‡ç¤ºè¦æ±‚
+/* modified 2009.11.27 hmenjo Pif ãƒ”ãƒ³&ã‚·ãƒ£ãƒƒã‚¿ åŒæ™‚å‹•ä½œ ---------- { ---------- */
 //			PifComm_DoStateDone(67);
 //			return;
-/* modified 2009.11.27 hmenjo Pif ƒsƒ“&ƒVƒƒƒbƒ^ “¯Žž“®ì ---------- 			 */
+/* modified 2009.11.27 hmenjo Pif ãƒ”ãƒ³&ã‚·ãƒ£ãƒƒã‚¿ åŒæ™‚å‹•ä½œ ---------- 			 */
 			if (0 == ((CChiefView*) m_pcChiefView)->m_DioIgnoreSW.bPinShutterILInvalid) {
 				PifComm_DoStateDone(67);
 				return;
 			}
-/* modified 2009.11.27 hmenjo Pif ƒsƒ“&ƒVƒƒƒbƒ^ “¯Žž“®ì ---------- } ---------- */
+/* modified 2009.11.27 hmenjo Pif ãƒ”ãƒ³&ã‚·ãƒ£ãƒƒã‚¿ åŒæ™‚å‹•ä½œ ---------- } ---------- */
 			break;
 		default:
 			break;
@@ -234,120 +234,120 @@ void CChiefRcvMailThread::EventProcessToNextra(
 	}
 	int l_iProcStatus = ((CChiefView*) m_pcChiefView)->ProcStatusGet();
 	if ((PROCESS_WAIT != l_iProcStatus) && (PROCESS_DOWN != l_iProcStatus)) {
-		PifComm_DoStateDone(32);	// WaitCDown ˆÈŠO‚¾‚Á‚½
+		PifComm_DoStateDone(32);	// Waitï¼ŒDown ä»¥å¤–ã ã£ãŸ
 		return;
 	}
-/* modified 2009.11.27 hmenjo Pif ƒsƒ“&ƒVƒƒƒbƒ^ “¯Žž“®ì ---------- { ---------- */
-//#if 0	// ƒ^[ƒŒƒbƒg“®ì’†‚ðƒtƒ‰ƒO‚É’Ç‰Á‚µ‚½‚½‚ßCƒ^[ƒŒƒbƒg‚ÍœŠO
+/* modified 2009.11.27 hmenjo Pif ãƒ”ãƒ³&ã‚·ãƒ£ãƒƒã‚¿ åŒæ™‚å‹•ä½œ ---------- { ---------- */
+//#if 0	// ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆå‹•ä½œä¸­ã‚’ãƒ•ãƒ©ã‚°ã«è¿½åŠ ã—ãŸãŸã‚ï¼Œã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆã¯é™¤å¤–
 //	if (0 != ((CNanoSpecDoc*) ((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc)->ActuateFlagsGetAll()) {
-//#else	// ƒ^[ƒŒƒbƒg“®ì’†‚ðƒtƒ‰ƒO‚É’Ç‰Á‚µ‚½‚½‚ßCƒ^[ƒŒƒbƒg‚ÍœŠO
+//#else	// ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆå‹•ä½œä¸­ã‚’ãƒ•ãƒ©ã‚°ã«è¿½åŠ ã—ãŸãŸã‚ï¼Œã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆã¯é™¤å¤–
 //	DWORD l_dwActFlags = ACTUATE_XYSTAGE | ACTUATE_ZAXIS | ACTUATE_PIN | ACTUATE_SHUTTER | ACTUATE_WORKGUIDE;
 //	if (0 != (l_dwActFlags & ((CNanoSpecDoc*) ((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc)->ActuateFlagsGetAll())) {
-//#endif	// ƒ^[ƒŒƒbƒg“®ì’†‚ðƒtƒ‰ƒO‚É’Ç‰Á‚µ‚½‚½‚ßCƒ^[ƒŒƒbƒg‚ÍœŠO
-/* modified 2009.11.27 hmenjo Pif ƒsƒ“&ƒVƒƒƒbƒ^ “¯Žž“®ì ---------- 			 */
+//#endif	// ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆå‹•ä½œä¸­ã‚’ãƒ•ãƒ©ã‚°ã«è¿½åŠ ã—ãŸãŸã‚ï¼Œã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆã¯é™¤å¤–
+/* modified 2009.11.27 hmenjo Pif ãƒ”ãƒ³&ã‚·ãƒ£ãƒƒã‚¿ åŒæ™‚å‹•ä½œ ---------- 			 */
 	DWORD l_dwActFlags = ACTUATE_XYSTAGE | ACTUATE_ZAXIS;
 	if (0 == ((CChiefView*) m_pcChiefView)->m_DioIgnoreSW.bPinShutterILInvalid) {
 		l_dwActFlags |= ACTUATE_PIN | ACTUATE_SHUTTER | ACTUATE_WORKGUIDE;
 	}
 	if (0 != (l_dwActFlags & ((CNanoSpecDoc*) ((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc)->ActuateFlagsGetAll())) {
-/* modified 2009.11.27 hmenjo Pif ƒsƒ“&ƒVƒƒƒbƒ^ “¯Žž“®ì ---------- } ---------- */
-		PifComm_DoStateDone(41);	// “®ì’†ƒtƒ‰ƒO‚ªƒIƒ“‚¾‚Á‚½
+/* modified 2009.11.27 hmenjo Pif ãƒ”ãƒ³&ã‚·ãƒ£ãƒƒã‚¿ åŒæ™‚å‹•ä½œ ---------- } ---------- */
+		PifComm_DoStateDone(41);	// å‹•ä½œä¸­ãƒ•ãƒ©ã‚°ãŒã‚ªãƒ³ã ã£ãŸ
 		return;
 	}
 	int l_iDispStatus = ((CNanoSpecDoc*) (((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc))->GetDispStatus();
 	if ((MAIN_MENU_MEASUREMENT != l_iDispStatus) && (MAIN_MENU_DATA != l_iDispStatus)) {
-		PifComm_DoStateDone(51);	// ‰æ–Êƒ‚[ƒh‚ªu‘ª’èƒ‚[ƒhv‚©uƒf[ƒ^ƒ‚[ƒhv‚Å‚È‚©‚Á‚½
+		PifComm_DoStateDone(51);	// ç”»é¢ãƒ¢ãƒ¼ãƒ‰ãŒã€Œæ¸¬å®šãƒ¢ãƒ¼ãƒ‰ã€ã‹ã€Œãƒ‡ãƒ¼ã‚¿ãƒ¢ãƒ¼ãƒ‰ã€ã§ãªã‹ã£ãŸ
 		return;
 	}
-/* added 2009.10.29 hmenjo CTA Seq CTAILPI ƒ`ƒFƒbƒN ---------- { ---------- */
+/* added 2009.10.29 hmenjo CTA Seq CTAILPI ãƒã‚§ãƒƒã‚¯ ---------- { ---------- */
 	if (0 == ((CChiefView*) m_pcChiefView)->IsCtaILPI()) {
 		switch (dwCmdCode) {
-		case 605:	/* ƒAƒ‰ƒCƒƒ“ƒg LOAD ŽwŽ¦—v‹	*/
-		case 606:	/* ƒAƒ‰ƒCƒƒ“ƒg UNLOAD ŽwŽ¦—v‹	*/
-		case 607:	/* PINUP ŽwŽ¦—v‹	*/
-		case 608:	/* PINDOWN ŽwŽ¦—v‹	*/
-			PifComm_DoStateDone(72);	/* CTAILPI ‚ªƒIƒt	*/
+		case 605:	/* ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ LOAD æŒ‡ç¤ºè¦æ±‚	*/
+		case 606:	/* ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ UNLOAD æŒ‡ç¤ºè¦æ±‚	*/
+		case 607:	/* PINUP æŒ‡ç¤ºè¦æ±‚	*/
+		case 608:	/* PINDOWN æŒ‡ç¤ºè¦æ±‚	*/
+			PifComm_DoStateDone(72);	/* CTAILPI ãŒã‚ªãƒ•	*/
 			return;
 			break;
 		default:
 			break;
 		}
 	}
-/* added 2009.10.29 hmenjo CTA Seq CTAILPI ƒ`ƒFƒbƒN ---------- } ---------- */
-/* added 2009.11.06 K.Matsuo RS Seq Head Position ƒ`ƒFƒbƒN ---------- { ---------- */
+/* added 2009.10.29 hmenjo CTA Seq CTAILPI ãƒã‚§ãƒƒã‚¯ ---------- } ---------- */
+/* added 2009.11.06 K.Matsuo RS Seq Head Position ãƒã‚§ãƒƒã‚¯ ---------- { ---------- */
 	int iResistStatus = ((CChiefView*) m_pcChiefView)->CheckResistIL();
 	if (0 != iResistStatus) {
 		int iAckCode = 74 + iResistStatus - 1;		// 74,75,76
 		switch (dwCmdCode) {
-		case 605:	/* ƒAƒ‰ƒCƒƒ“ƒg LOAD ŽwŽ¦—v‹	*/
-		case 606:	/* ƒAƒ‰ƒCƒƒ“ƒg UNLOAD ŽwŽ¦—v‹	*/
-		case 607:	/* PINUP ŽwŽ¦—v‹	*/
-		case 608:	/* PINDOWN ŽwŽ¦—v‹	*/
-			PifComm_DoStateDone(iAckCode);	/* Resistã¸’[ƒZƒ“ƒT[ ‚ªƒIƒt	*/
+		case 605:	/* ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ LOAD æŒ‡ç¤ºè¦æ±‚	*/
+		case 606:	/* ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ UNLOAD æŒ‡ç¤ºè¦æ±‚	*/
+		case 607:	/* PINUP æŒ‡ç¤ºè¦æ±‚	*/
+		case 608:	/* PINDOWN æŒ‡ç¤ºè¦æ±‚	*/
+			PifComm_DoStateDone(iAckCode);	/* Resistä¸Šæ˜‡ç«¯ã‚»ãƒ³ã‚µãƒ¼ ãŒã‚ªãƒ•	*/
 			return;
 			break;
 		default:
 			break;
 		}
 	}
-/* added 2009.11.06 K.Matsuo RS Seq Head Position ƒ`ƒFƒbƒN ---------- } ---------- */
-// 2009.11.12 bagus MS ‰º’[ˆÊ’u2ƒ`ƒFƒbƒN --{--
+/* added 2009.11.06 K.Matsuo RS Seq Head Position ãƒã‚§ãƒƒã‚¯ ---------- } ---------- */
+// 2009.11.12 bagus MS ä¸‹ç«¯ä½ç½®2ãƒã‚§ãƒƒã‚¯ --{--
 	if (0 == ((CChiefView*) m_pcChiefView)->IsMSILPI()) {
 		switch (dwCmdCode) {
-		case 605:	/* ƒAƒ‰ƒCƒƒ“ƒg LOAD ŽwŽ¦—v‹	*/
-		case 606:	/* ƒAƒ‰ƒCƒƒ“ƒg UNLOAD ŽwŽ¦—v‹	*/
-		case 607:	/* PINUP ŽwŽ¦—v‹	*/
-		case 608:	/* PINDOWN ŽwŽ¦—v‹	*/
-			PifComm_DoStateDone(77);	/* ‰º’[ˆÊ’u‚QƒZƒ“ƒT[ON*/
+		case 605:	/* ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ LOAD æŒ‡ç¤ºè¦æ±‚	*/
+		case 606:	/* ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ UNLOAD æŒ‡ç¤ºè¦æ±‚	*/
+		case 607:	/* PINUP æŒ‡ç¤ºè¦æ±‚	*/
+		case 608:	/* PINDOWN æŒ‡ç¤ºè¦æ±‚	*/
+			PifComm_DoStateDone(77);	/* ä¸‹ç«¯ä½ç½®ï¼’ã‚»ãƒ³ã‚µãƒ¼ON*/
 			return;
 			break;
 		default:
 			break;
 		}
 	}
-// 2009.11.12 bagus MS ‰º’[ˆÊ’u2ƒ`ƒFƒbƒN --}--
+// 2009.11.12 bagus MS ä¸‹ç«¯ä½ç½®2ãƒã‚§ãƒƒã‚¯ --}--
 	if (0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bMaintenanceSW) {
-		// ƒƒ“ƒeƒiƒ“ƒX SW ‚ªƒIƒ“Žž‚ÍEEE
+		// ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ SW ãŒã‚ªãƒ³æ™‚ã¯ãƒ»ãƒ»ãƒ»
 		if (609 == dwCmdCode) {
-			PifComm_DoStateDone(42);	// ƒVƒƒƒbƒ^ŠJ‚Í‹ÖŽ~
+			PifComm_DoStateDone(42);	// ã‚·ãƒ£ãƒƒã‚¿é–‹ã¯ç¦æ­¢
 			return;
 		}
 		if (0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bTHMaintenanceSW) {
-			// ‚³‚ç‚ÉC“Œ•üƒƒ“ƒe SW ‚ªƒIƒt‚Ìê‡EEE
+			// ã•ã‚‰ã«ï¼Œæ±æœ‹ãƒ¡ãƒ³ãƒ† SW ãŒã‚ªãƒ•ã®å ´åˆãƒ»ãƒ»ãƒ»
 			if (605 == dwCmdCode) {
-				PifComm_DoStateDone(43);	// ƒAƒ‰ƒCƒƒ“ƒg LOAD ‚Í‹ÖŽ~
+				PifComm_DoStateDone(43);	// ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ LOAD ã¯ç¦æ­¢
 				return;
 			}
 			if (606 == dwCmdCode) {
-				PifComm_DoStateDone(43);	// ƒAƒ‰ƒCƒƒ“ƒg UNLOAD ‚Í‹ÖŽ~
+				PifComm_DoStateDone(43);	// ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ UNLOAD ã¯ç¦æ­¢
 				return;
 			}
 		}
 	}
 	if (0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bLoadPos) {
-		// ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“‚Å‚È‚¢ê‡EEE
+		// ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³ã§ãªã„å ´åˆãƒ»ãƒ»ãƒ»
 		if ((605 == dwCmdCode) || (606 == dwCmdCode)) {
-			// ƒAƒ‰ƒCƒƒ“ƒgƒ[ƒh/ƒAƒ“ƒ[ƒh‚Í‹ÖŽ~
-			PifComm_DoStateDone(44);	// ƒAƒ‰ƒCƒƒ“ƒg LOAD/UNLOAD ‚Í‹ÖŽ~
+			// ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆãƒ­ãƒ¼ãƒ‰/ã‚¢ãƒ³ãƒ­ãƒ¼ãƒ‰ã¯ç¦æ­¢
+			PifComm_DoStateDone(44);	// ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ LOAD/UNLOAD ã¯ç¦æ­¢
 			return;
 		}
 	}
 
-/* added 2010.05.21 hmenjo Nextra ŽwŽ¦‘O‚É³í‰ž“š‚·‚é ---------- { ---------- */
-	PifComm_DoStateDone(0);	/* ³í‰ž“š‘—M	*/
-	::Sleep(500);	/* 0.5s ‘Ò‚¿‚Ü‚·D	*/
-/* added 2010.05.21 hmenjo Nextra ŽwŽ¦‘O‚É³í‰ž“š‚·‚é ---------- } ---------- */
+/* added 2010.05.21 hmenjo Nextra æŒ‡ç¤ºå‰ã«æ­£å¸¸å¿œç­”ã™ã‚‹ ---------- { ---------- */
+	PifComm_DoStateDone(0);	/* æ­£å¸¸å¿œç­”é€ä¿¡	*/
+	::Sleep(500);	/* 0.5s å¾…ã¡ã¾ã™ï¼Ž	*/
+/* added 2010.05.21 hmenjo Nextra æŒ‡ç¤ºå‰ã«æ­£å¸¸å¿œç­”ã™ã‚‹ ---------- } ---------- */
 	int		l_iResult = 0;
 	BOOL	l_bNexResult;
 	switch (dwCmdCode) {
-	case 603:	l_bNexResult = nexifVacuumOn(m_pcChiefView->m_hWnd);		break;	// ƒoƒLƒ…[ƒ€ ON ŽwŽ¦—v‹
-	case 604:	l_bNexResult = nexifVacuumOff(m_pcChiefView->m_hWnd);		break;	// ƒoƒLƒ…[ƒ€ OFF ŽwŽ¦—v‹
-	case 605:	l_bNexResult = nexifLoad(m_pcChiefView->m_hWnd);			break;	// ƒAƒ‰ƒCƒƒ“ƒg LOAD ŽwŽ¦—v‹
-	case 606:	l_bNexResult = nexifUnload(m_pcChiefView->m_hWnd);			break;	// ƒAƒ‰ƒCƒƒ“ƒg UNLOAD ŽwŽ¦—v‹
-	case 607:	l_bNexResult = nexifMoveToUpper(m_pcChiefView->m_hWnd);		break;	// PINUP ŽwŽ¦—v‹
-	case 608:	l_bNexResult = nexifMoveToLower(m_pcChiefView->m_hWnd);		break;	// PINDOWN ŽwŽ¦—v‹
-	case 609:	l_bNexResult = nexifOpenShutter(m_pcChiefView->m_hWnd);		break;	// ƒVƒƒƒbƒ^ OPEN ŽwŽ¦—v‹
-	case 610:	l_bNexResult = nexifCloseShutter(m_pcChiefView->m_hWnd);	break;	// ƒVƒƒƒbƒ^ CLOSE ŽwŽ¦—v‹
+	case 603:	l_bNexResult = nexifVacuumOn(m_pcChiefView->m_hWnd);		break;	// ãƒã‚­ãƒ¥ãƒ¼ãƒ  ON æŒ‡ç¤ºè¦æ±‚
+	case 604:	l_bNexResult = nexifVacuumOff(m_pcChiefView->m_hWnd);		break;	// ãƒã‚­ãƒ¥ãƒ¼ãƒ  OFF æŒ‡ç¤ºè¦æ±‚
+	case 605:	l_bNexResult = nexifLoad(m_pcChiefView->m_hWnd);			break;	// ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ LOAD æŒ‡ç¤ºè¦æ±‚
+	case 606:	l_bNexResult = nexifUnload(m_pcChiefView->m_hWnd);			break;	// ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ UNLOAD æŒ‡ç¤ºè¦æ±‚
+	case 607:	l_bNexResult = nexifMoveToUpper(m_pcChiefView->m_hWnd);		break;	// PINUP æŒ‡ç¤ºè¦æ±‚
+	case 608:	l_bNexResult = nexifMoveToLower(m_pcChiefView->m_hWnd);		break;	// PINDOWN æŒ‡ç¤ºè¦æ±‚
+	case 609:	l_bNexResult = nexifOpenShutter(m_pcChiefView->m_hWnd);		break;	// ã‚·ãƒ£ãƒƒã‚¿ OPEN æŒ‡ç¤ºè¦æ±‚
+	case 610:	l_bNexResult = nexifCloseShutter(m_pcChiefView->m_hWnd);	break;	// ã‚·ãƒ£ãƒƒã‚¿ CLOSE æŒ‡ç¤ºè¦æ±‚
 	default:
 		l_iResult = -1;
 		break;
@@ -355,7 +355,7 @@ void CChiefRcvMailThread::EventProcessToNextra(
 	if (-1 != l_iResult) {
 		if (0 != l_bNexResult) {
 			l_iResult = 0;
-			// “®ì’†ƒtƒ‰ƒO‚ðƒIƒ“
+			// å‹•ä½œä¸­ãƒ•ãƒ©ã‚°ã‚’ã‚ªãƒ³
 			switch (dwCmdCode) {
 			case 605:
 			case 606:
@@ -375,7 +375,7 @@ void CChiefRcvMailThread::EventProcessToNextra(
 			}
 		} else {
 			l_iResult = 1;
-/* added 2010.05.21 hmenjo Nextra ŽwŽ¦‘O‚É³í‰ž“š‚·‚é ---------- { ---------- */
+/* added 2010.05.21 hmenjo Nextra æŒ‡ç¤ºå‰ã«æ­£å¸¸å¿œç­”ã™ã‚‹ ---------- { ---------- */
 			switch(dwCmdCode) {
 			case 605:	PifComm_AlignmentLoadResultReport(l_iResult);	break;
 			case 606:	PifComm_AlignmentUnloadResultReport(l_iResult);	break;
@@ -384,237 +384,237 @@ void CChiefRcvMailThread::EventProcessToNextra(
 			case 609:	PifComm_ShutterOpenResultReport(l_iResult);		break;
 			case 610:	PifComm_ShutterCloseResultReport(l_iResult);	break;
 			}
-/* added 2010.05.21 hmenjo Nextra ŽwŽ¦‘O‚É³í‰ž“š‚·‚é ---------- } ---------- */
+/* added 2010.05.21 hmenjo Nextra æŒ‡ç¤ºå‰ã«æ­£å¸¸å¿œç­”ã™ã‚‹ ---------- } ---------- */
 		}
-/* deleted 2010.05.21 hmenjo Nextra ŽwŽ¦‘O‚É³í‰ž“š‚·‚é ---------- { ---------- */
-//		PifComm_DoStateDone(l_iResult);	// ‰ž“š‘—M
-/* deleted 2010.05.21 hmenjo Nextra ŽwŽ¦‘O‚É³í‰ž“š‚·‚é ---------- } ---------- */
+/* deleted 2010.05.21 hmenjo Nextra æŒ‡ç¤ºå‰ã«æ­£å¸¸å¿œç­”ã™ã‚‹ ---------- { ---------- */
+//		PifComm_DoStateDone(l_iResult);	// å¿œç­”é€ä¿¡
+/* deleted 2010.05.21 hmenjo Nextra æŒ‡ç¤ºå‰ã«æ­£å¸¸å¿œç­”ã™ã‚‹ ---------- } ---------- */
 	} else {
-		// Chief ‚Ì‘Î Nextra —p‚Æ‚µ‚Ä–¢’è‹`ƒRƒ}ƒ“ƒh‚ÅƒR[ƒ‹‚³‚ê‚½ê‡‚ÍƒRƒR‚É—ˆ‚Ü‚·D
-		// 2008.09.18(Thu) Œ»Ý‚ÌŽd—l‚Å‚Í•ñ’m‚Ì•K—v‚Í‚ ‚è‚Ü‚¹‚ñD
+		// Chief ã®å¯¾ Nextra ç”¨ã¨ã—ã¦æœªå®šç¾©ã‚³ãƒžãƒ³ãƒ‰ã§ã‚³ãƒ¼ãƒ«ã•ã‚ŒãŸå ´åˆã¯ã‚³ã‚³ã«æ¥ã¾ã™ï¼Ž
+		// 2008.09.18(Thu) ç¾åœ¨ã®ä»•æ§˜ã§ã¯å ±çŸ¥ã®å¿…è¦ã¯ã‚ã‚Šã¾ã›ã‚“ï¼Ž
 		m_pcChiefView->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_MSGBOX, CHRANFY_NOTIFY_ON), MAKEWORD(2, CHRAMSG_OK)), MAKELPARAM(16, 0));
 	}
 
 }
 
-//	Žž‡‚í‚¹—v‹
+//	æ™‚åˆ»åˆã‚ã›è¦æ±‚
 void CChiefRcvMailThread::EventProcessP201()
 {
 	SYSTEMTIME l_systemTime;
-	PifComm_GetSetTime(&l_systemTime);	// Žw’èŽž‚ðŽæ“¾
+	PifComm_GetSetTime(&l_systemTime);	// æŒ‡å®šæ™‚åˆ»ã‚’å–å¾—
 
-	// ƒVƒXƒeƒ€Žž‚ðÝ’è
-	//		Administrator ‚Å‚ÌŽÀs‚ð‘z’è‚µ‚Ä‚¢‚Ü‚·‚Ì‚ÅC
-	//		ƒZƒLƒ…ƒŠƒeƒB“ÁŒ ‚Ì•ÏX‚Í‚µ‚Ä‚¢‚Ü‚¹‚ñD
+	// ã‚·ã‚¹ãƒ†ãƒ æ™‚åˆ»ã‚’è¨­å®š
+	//		Administrator ã§ã®å®Ÿè¡Œã‚’æƒ³å®šã—ã¦ã„ã¾ã™ã®ã§ï¼Œ
+	//		ã‚»ã‚­ãƒ¥ãƒªãƒ†ã‚£ç‰¹æ¨©ã®å¤‰æ›´ã¯ã—ã¦ã„ã¾ã›ã‚“ï¼Ž
 	int l_iResult;
 	if (0 == SetLocalTime(&l_systemTime)) {
-		// Ý’èŽ¸”s
+		// è¨­å®šå¤±æ•—
 		l_iResult = 1;
 //		m_pParent->PostMessage(WM_CHIF_SETTIME_FAIL, 0, 0);
-			/*	Pif ‚©‚ç‚ÌŽwŽ¦‚ÅˆÙíŽž‚Í Pif ‚ÉˆÙíƒXƒe[ƒ^ƒX‚Å•Ô‚·‚Ì‚Å
-			 *	ƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚È‚Ç‚Ì•\Ž¦‚Í•s—v‚Æ‚µ‚Ä‚¢‚Ü‚·D	*/
+			/*	Pif ã‹ã‚‰ã®æŒ‡ç¤ºã§ç•°å¸¸æ™‚ã¯ Pif ã«ç•°å¸¸ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã§è¿”ã™ã®ã§
+			 *	ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒœãƒƒã‚¯ã‚¹ãªã©ã®è¡¨ç¤ºã¯ä¸è¦ã¨ã—ã¦ã„ã¾ã™ï¼Ž	*/
 	} else {
 		l_iResult = 0;
 	}
-	PifComm_DoStateDone(l_iResult);	// ‰ž“š‘—M
+	PifComm_DoStateDone(l_iResult);	// å¿œç­”é€ä¿¡
 }
 
 // 2009.02.05 K.Matsuo delete -->
-////	ƒgƒŒ[ƒXƒf[ƒ^‚ÌŽæ“¾—v‹
+////	ãƒˆãƒ¬ãƒ¼ã‚¹ãƒ‡ãƒ¼ã‚¿ã®å–å¾—è¦æ±‚
 //void CChiefRcvMailThread::EventProcessP306()
 //{
-//	// ƒgƒŒ[ƒXƒf[ƒ^‘—M—v‹
+//	// ãƒˆãƒ¬ãƒ¼ã‚¹ãƒ‡ãƒ¼ã‚¿é€ä¿¡è¦æ±‚
 //	m_pcChiefView->PostMessage(WM_CHIF_SENDTRACEDATA, 0, 0);
-//	PifComm_DoStateDone(0);	// ‰ž“š‘—M
+//	PifComm_DoStateDone(0);	// å¿œç­”é€ä¿¡
 //}
 // 2009.02.05 K.Matsuo delete <--
 
-//	’…HƒŒƒVƒsŽwŽ¦—v‹
-/* modified 2009.09.10 hmenjo P411 ƒRƒ}ƒ“ƒh’Ç‰Á ---------- { ---------- */
+//	ç€å·¥ãƒ¬ã‚·ãƒ”æŒ‡ç¤ºè¦æ±‚
+/* modified 2009.09.10 hmenjo P411 ã‚³ãƒžãƒ³ãƒ‰è¿½åŠ  ---------- { ---------- */
 //void CChiefRcvMailThread::EventProcessP401()
-/* modified 2009.09.10 hmenjo P411 ƒRƒ}ƒ“ƒh’Ç‰Á ----------				*/
+/* modified 2009.09.10 hmenjo P411 ã‚³ãƒžãƒ³ãƒ‰è¿½åŠ  ----------				*/
 void CChiefRcvMailThread::EventProcessP401(BOOL bGTRRefer/* = FALSE*/)
-/* modified 2009.09.10 hmenjo P411 ƒRƒ}ƒ“ƒh’Ç‰Á ---------- } ---------- */
+/* modified 2009.09.10 hmenjo P411 ã‚³ãƒžãƒ³ãƒ‰è¿½åŠ  ---------- } ---------- */
 {
-	// Å‰‚ÉƒCƒ“ƒ^ƒƒbƒN
+	// æœ€åˆã«ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯
 	if (HOST_REMOTE != ((CNanoSpecDoc*) (((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc))->GetHostMode()) {
-		PifComm_DoStateDone(20);	// ƒŠƒ‚[ƒg‚Å‚È‚©‚Á‚½
+		PifComm_DoStateDone(20);	// ãƒªãƒ¢ãƒ¼ãƒˆã§ãªã‹ã£ãŸ
 		return;
 	}
 	int l_iProcStatus = ((CChiefView*) m_pcChiefView)->ProcStatusGet();
 	if ((PROCESS_WAIT != l_iProcStatus) && (PROCESS_DOWN != l_iProcStatus)) {
-		PifComm_DoStateDone(32);	// WaitCDown ˆÈŠO‚¾‚Á‚½
+		PifComm_DoStateDone(32);	// Waitï¼ŒDown ä»¥å¤–ã ã£ãŸ
 		return;
 	}
 	int l_iDispStatus = ((CNanoSpecDoc*) (((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc))->GetDispStatus();
 	if ((MAIN_MENU_MEASUREMENT != l_iDispStatus) && (MAIN_MENU_DATA != l_iDispStatus)) {
-		PifComm_DoStateDone(51);	// ‰æ–Êƒ‚[ƒh‚ªu‘ª’èƒ‚[ƒhv‚©uƒf[ƒ^ƒ‚[ƒhv‚Å‚È‚©‚Á‚½
+		PifComm_DoStateDone(51);	// ç”»é¢ãƒ¢ãƒ¼ãƒ‰ãŒã€Œæ¸¬å®šãƒ¢ãƒ¼ãƒ‰ã€ã‹ã€Œãƒ‡ãƒ¼ã‚¿ãƒ¢ãƒ¼ãƒ‰ã€ã§ãªã‹ã£ãŸ
 		return;
 	}
 
-	// Pif ‚©‚çƒŒƒVƒs–¼‚ðŽæ“¾
+	// Pif ã‹ã‚‰ãƒ¬ã‚·ãƒ”åã‚’å–å¾—
 	TCHAR l_szRecipeName[RECIPE_NAME_LEN + 1];
 	PifComm_GetRecipeName(l_szRecipeName);
 
-	// Žw’è‚³‚ê‚½ƒŒƒVƒs‚ª‘¶Ý‚·‚é‚©Šm”F
+	// æŒ‡å®šã•ã‚ŒãŸãƒ¬ã‚·ãƒ”ãŒå­˜åœ¨ã™ã‚‹ã‹ç¢ºèª
 	BOOL l_bRecipeExist = FALSE;
 	MAIN_RCP_INFO l_MainRcpInfo;
 	l_bRecipeExist = RecipeFile_LoadRecipe(&l_MainRcpInfo, l_szRecipeName, RECIPE_FILE_MAIN_RECIPE);
-	/*		‚±‚±‚ÍƒXƒŒƒbƒh“à‚È‚Ì‚ÅŽžŠÔ‚Ì‚©‚©‚éƒtƒ@ƒCƒ‹ƒAƒNƒZƒX‚Í‚µ‚È‚¢•û‚ª‚æ‚¢‚Å‚·‚ªC
-	 *		‚±‚±‚Å Pif ‚Ö‚Ì‰ž“š‚ð•Ô‚·‚×‚«‚È‚Ì‚ÅC‚±‚±‚ÅƒŒƒVƒs‚ðƒtƒ@ƒCƒ‹‚©‚çŒŸõ‚µ‚Ä‚¢‚Ü‚·D	*/
+	/*		ã“ã“ã¯ã‚¹ãƒ¬ãƒƒãƒ‰å†…ãªã®ã§æ™‚é–“ã®ã‹ã‹ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹ã¯ã—ãªã„æ–¹ãŒã‚ˆã„ã§ã™ãŒï¼Œ
+	 *		ã“ã“ã§ Pif ã¸ã®å¿œç­”ã‚’è¿”ã™ã¹ããªã®ã§ï¼Œã“ã“ã§ãƒ¬ã‚·ãƒ”ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰æ¤œç´¢ã—ã¦ã„ã¾ã™ï¼Ž	*/
 	if (0 != l_bRecipeExist) {
-		// Žw’è‚³‚ê‚½ƒŒƒVƒs‚ª‚ ‚Á‚½
-/* added 2009.09.10 hmenjo P411 ƒRƒ}ƒ“ƒh’Ç‰Á ---------- { ---------- */
+		// æŒ‡å®šã•ã‚ŒãŸãƒ¬ã‚·ãƒ”ãŒã‚ã£ãŸ
+/* added 2009.09.10 hmenjo P411 ã‚³ãƒžãƒ³ãƒ‰è¿½åŠ  ---------- { ---------- */
 		MEAS_PROG_INFO l_MeasProgInfo;
 		if (0 == RecipeFile_LoadRecipe(&l_MeasProgInfo, l_MainRcpInfo.MainRcpParam.hdr.szMeas, RECIPE_FILE_MEASUREMENT_PROGRAM)) {
-			/* ‘ª’èƒvƒƒOƒ‰ƒ€‚Ì“Çž‚ÝˆÙí‚Å‚·D	*/
-			PifComm_DoStateDone(1);	// ˆÙí‰ž“š‘—M
+			/* æ¸¬å®šãƒ—ãƒ­ã‚°ãƒ©ãƒ ã®èª­è¾¼ã¿ç•°å¸¸ã§ã™ï¼Ž	*/
+			PifComm_DoStateDone(1);	// ç•°å¸¸å¿œç­”é€ä¿¡
 		} else
-/* added 2009.09.10 hmenjo P411 ƒRƒ}ƒ“ƒh’Ç‰Á ---------- } ---------- */
+/* added 2009.09.10 hmenjo P411 ã‚³ãƒžãƒ³ãƒ‰è¿½åŠ  ---------- } ---------- */
 		if (0 == ((CChiefView*) m_pcChiefView)->HeadTypeCheck(l_MainRcpInfo.MainRcpParam.hdr.wHeadType)) {
-			// ƒwƒbƒhƒ^ƒCƒv‚ª–³Œø‚Å‚·D
-			PifComm_DoStateDone(61);	// ˆÙí‰ž“š‘—M
-/* deleted 2009.12.25 hmenjo P511 •Êƒwƒbƒh‘Î‰ž C³ ---------- { ---------- */
-///* added 2009.09.10 hmenjo P411 ƒRƒ}ƒ“ƒh’Ç‰Á ---------- { ---------- */
+			// ãƒ˜ãƒƒãƒ‰ã‚¿ã‚¤ãƒ—ãŒç„¡åŠ¹ã§ã™ï¼Ž
+			PifComm_DoStateDone(61);	// ç•°å¸¸å¿œç­”é€ä¿¡
+/* deleted 2009.12.25 hmenjo P511 åˆ¥ãƒ˜ãƒƒãƒ‰å¯¾å¿œ ä¿®æ­£ ---------- { ---------- */
+///* added 2009.09.10 hmenjo P411 ã‚³ãƒžãƒ³ãƒ‰è¿½åŠ  ---------- { ---------- */
 //		} else if ((TRUE == bGTRRefer)
 //				&& ((HEAD_TYPE_SR != l_MeasProgInfo.ScanParams.hdr.wHeadType)
 //				 || (MEAS_PROG_TYPE_SR_TRANSMITTANCE_G != l_MeasProgInfo.ScanParams.hdr.wScanType))) {
 //// 2009.12.24 K.Matsuo -->
-////			/* ƒKƒ“ƒgƒŠ“§‰ß—¦ƒŠƒtƒ@ƒŒƒ“ƒX—pƒŒƒVƒs‚È‚Ì‚ÉCSR ƒwƒbƒh‚Å‚È‚¢‚©CƒXƒLƒƒƒ“ƒ^ƒCƒv‚ªƒKƒ“ƒgƒŠ‚Å‚È‚¢D	*/
-////			PifComm_DoStateDone(61);	// ˆÙí‰ž“š‘—M
-//			/* ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh‚ÅCGTR ˆÈŠO‚ÍC
-//				‰½‚à‚¹‚¸³íŠ®—¹‚ðŒ©‚¹‚©‚¯‚Ü‚·D	*/
+////			/* ã‚¬ãƒ³ãƒˆãƒªé€éŽçŽ‡ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ç”¨ãƒ¬ã‚·ãƒ”ãªã®ã«ï¼ŒSR ãƒ˜ãƒƒãƒ‰ã§ãªã„ã‹ï¼Œã‚¹ã‚­ãƒ£ãƒ³ã‚¿ã‚¤ãƒ—ãŒã‚¬ãƒ³ãƒˆãƒªã§ãªã„ï¼Ž	*/
+////			PifComm_DoStateDone(61);	// ç•°å¸¸å¿œç­”é€ä¿¡
+//			/* ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ã§ï¼ŒGTR ä»¥å¤–ã¯ï¼Œ
+//				ä½•ã‚‚ã›ãšæ­£å¸¸å®Œäº†ã‚’è¦‹ã›ã‹ã‘ã¾ã™ï¼Ž	*/
 //			((CChiefView*) m_pcChiefView)->m_bGotRecipeFromPif = TRUE;
-//			PifComm_DoStateDone(0);	/* ³í‰ž“š	*/
+//			PifComm_DoStateDone(0);	/* æ­£å¸¸å¿œç­”	*/
 //// 2009.12.24 K.Matsuo <--
-///* added 2009.09.10 hmenjo P411 ƒRƒ}ƒ“ƒh’Ç‰Á ---------- } ---------- */
-/* deleted 2009.12.25 hmenjo P511 •Êƒwƒbƒh‘Î‰ž C³ ---------- } ---------- */
+///* added 2009.09.10 hmenjo P411 ã‚³ãƒžãƒ³ãƒ‰è¿½åŠ  ---------- } ---------- */
+/* deleted 2009.12.25 hmenjo P511 åˆ¥ãƒ˜ãƒƒãƒ‰å¯¾å¿œ ä¿®æ­£ ---------- } ---------- */
 		} else {
-			// ƒwƒbƒhƒ^ƒCƒv‚ª—LŒø
-/* deleted 2009.09.10 hmenjo P401 ƒZƒbƒgŒ‹‰Êƒ`ƒFƒbƒN’Ç‰Á ---------- { ---------- */
-//			PifComm_DoStateDone(0);	// ³í‰ž“š‘—M
+			// ãƒ˜ãƒƒãƒ‰ã‚¿ã‚¤ãƒ—ãŒæœ‰åŠ¹
+/* deleted 2009.09.10 hmenjo P401 ã‚»ãƒƒãƒˆçµæžœãƒã‚§ãƒƒã‚¯è¿½åŠ  ---------- { ---------- */
+//			PifComm_DoStateDone(0);	// æ­£å¸¸å¿œç­”é€ä¿¡
 //			((CChiefView*) m_pcChiefView)->m_bGotRecipeFromPif = TRUE;
-/* deleted 2009.09.10 hmenjo P401 ƒZƒbƒgŒ‹‰Êƒ`ƒFƒbƒN’Ç‰Á ---------- } ---------- */
-			// Chief ƒ_ƒCƒAƒƒO‚É’Ê’m
+/* deleted 2009.09.10 hmenjo P401 ã‚»ãƒƒãƒˆçµæžœãƒã‚§ãƒƒã‚¯è¿½åŠ  ---------- } ---------- */
+			// Chief ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã«é€šçŸ¥
 			COPYDATASTRUCT l_CopyData;
 			l_CopyData.dwData = WMCD_CHIF_RECIPE_NOTIFY;
 			l_CopyData.cbData = sizeof(l_szRecipeName);
 			l_CopyData.lpData = l_szRecipeName;
-/* modified 2009.09.10 hmenjo P401 ƒZƒbƒgŒ‹‰Êƒ`ƒFƒbƒN’Ç‰Á ---------- { ---------- */
-//			m_pcChiefView->SendMessage(WM_COPYDATA, 0, (LPARAM) &l_CopyData);	// ƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹‚Í‚O‚É‚µ‚Ä‚¢‚Ü‚·D
-/* modified 2009.09.10 hmenjo P401 ƒZƒbƒgŒ‹‰Êƒ`ƒFƒbƒN’Ç‰Á ----------			  */
-			BOOL l_bRet = m_pcChiefView->SendMessage(WM_COPYDATA, 0, (LPARAM) &l_CopyData);	// ƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹‚Í‚O‚É‚µ‚Ä‚¢‚Ü‚·D
+/* modified 2009.09.10 hmenjo P401 ã‚»ãƒƒãƒˆçµæžœãƒã‚§ãƒƒã‚¯è¿½åŠ  ---------- { ---------- */
+//			m_pcChiefView->SendMessage(WM_COPYDATA, 0, (LPARAM) &l_CopyData);	// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«ã¯ï¼ã«ã—ã¦ã„ã¾ã™ï¼Ž
+/* modified 2009.09.10 hmenjo P401 ã‚»ãƒƒãƒˆçµæžœãƒã‚§ãƒƒã‚¯è¿½åŠ  ----------			  */
+			BOOL l_bRet = m_pcChiefView->SendMessage(WM_COPYDATA, 0, (LPARAM) &l_CopyData);	// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«ã¯ï¼ã«ã—ã¦ã„ã¾ã™ï¼Ž
 			if (1 == l_bRet) {
 				((CChiefView*) m_pcChiefView)->m_bGotRecipeFromPif = TRUE;
-				PifComm_DoStateDone(0);	// ³í‰ž“š‘—M
+				PifComm_DoStateDone(0);	// æ­£å¸¸å¿œç­”é€ä¿¡
 			} else {
-				/* ƒŒƒVƒs‚ð’Ê’mo—ˆ‚Ü‚¹‚ñ‚Å‚µ‚½D	*/
-				PifComm_DoStateDone(1);	// ˆÙí‰ž“š‘—M
+				/* ãƒ¬ã‚·ãƒ”ã‚’é€šçŸ¥å‡ºæ¥ã¾ã›ã‚“ã§ã—ãŸï¼Ž	*/
+				PifComm_DoStateDone(1);	// ç•°å¸¸å¿œç­”é€ä¿¡
 			}
-/* modified 2009.09.10 hmenjo P401 ƒZƒbƒgŒ‹‰Êƒ`ƒFƒbƒN’Ç‰Á ---------- } ---------- */
+/* modified 2009.09.10 hmenjo P401 ã‚»ãƒƒãƒˆçµæžœãƒã‚§ãƒƒã‚¯è¿½åŠ  ---------- } ---------- */
 		}
 	} else {
-		// Žw’è‚³‚ê‚½ƒŒƒVƒs‚ª–³‚©‚Á‚½
-		PifComm_DoStateDone(1);	// ˆÙí‰ž“š‘—M
+		// æŒ‡å®šã•ã‚ŒãŸãƒ¬ã‚·ãƒ”ãŒç„¡ã‹ã£ãŸ
+		PifComm_DoStateDone(1);	// ç•°å¸¸å¿œç­”é€ä¿¡
 	}
 }
 
-/* added 2009.09.10 hmenjo P411 ƒRƒ}ƒ“ƒh’Ç‰Á ---------- { ---------- */
-/*	’…HƒŒƒVƒsŽwŽ¦—v‹F“§‰ß—¦ƒŠƒtƒ@ƒŒƒ“ƒX—p	*/
-/*		Œ»ó‚ÍƒKƒ“ƒgƒŠ“§‰ß—¦‚É‚Ì‚ÝŽg‚Á‚Ä‚¢‚Ü‚·D
- *		’Êí“§‰ß—¦‚ÌŽd—l‚ª–¢Œˆ’è‚Ì‚½‚ß‚Å‚·D	*/
+/* added 2009.09.10 hmenjo P411 ã‚³ãƒžãƒ³ãƒ‰è¿½åŠ  ---------- { ---------- */
+/*	ç€å·¥ãƒ¬ã‚·ãƒ”æŒ‡ç¤ºè¦æ±‚ï¼šé€éŽçŽ‡ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ç”¨	*/
+/*		ç¾çŠ¶ã¯ã‚¬ãƒ³ãƒˆãƒªé€éŽçŽ‡ã«ã®ã¿ä½¿ã£ã¦ã„ã¾ã™ï¼Ž
+ *		é€šå¸¸é€éŽçŽ‡ã®ä»•æ§˜ãŒæœªæ±ºå®šã®ãŸã‚ã§ã™ï¼Ž	*/
 void CChiefRcvMailThread::EventProcessP411()
 {
 	EventProcessP401(TRUE);
 }
-/* added 2009.09.10 hmenjo P411 ƒRƒ}ƒ“ƒh’Ç‰Á ---------- } ---------- */
+/* added 2009.09.10 hmenjo P411 ã‚³ãƒžãƒ³ãƒ‰è¿½åŠ  ---------- } ---------- */
 
-//	‘ª’èŠJŽnŽwŽ¦—v‹
-/* modified 2009.09.10 hmenjo P511 ƒRƒ}ƒ“ƒh’Ç‰Á ---------- { ---------- */
+//	æ¸¬å®šé–‹å§‹æŒ‡ç¤ºè¦æ±‚
+/* modified 2009.09.10 hmenjo P511 ã‚³ãƒžãƒ³ãƒ‰è¿½åŠ  ---------- { ---------- */
 //void CChiefRcvMailThread::EventProcessP501()
-/* modified 2009.09.10 hmenjo P511 ƒRƒ}ƒ“ƒh’Ç‰Á ----------				*/
+/* modified 2009.09.10 hmenjo P511 ã‚³ãƒžãƒ³ãƒ‰è¿½åŠ  ----------				*/
 void CChiefRcvMailThread::EventProcessP501(BOOL bReferMode/* = FALSE*/)
-/* modified 2009.09.10 hmenjo P511 ƒRƒ}ƒ“ƒh’Ç‰Á ---------- } ---------- */
+/* modified 2009.09.10 hmenjo P511 ã‚³ãƒžãƒ³ãƒ‰è¿½åŠ  ---------- } ---------- */
 {
-	// Å‰‚ÉƒCƒ“ƒ^ƒƒbƒN
+	// æœ€åˆã«ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯
 	DWORD l_dwEMO = ((CChiefView*) m_pcChiefView)->CheckDIO_IsEMO();
 	if (0 != l_dwEMO) {
-/* modified 2009.08.18 hmenjo ƒZ[ƒtƒeƒBƒvƒ‰ƒOˆ—’Ç‰Á ---------- { ---------- */
-//		PifComm_DoStateDone(60 + l_dwEMO);	// EMOCƒhƒAƒCƒ“ƒ^ƒƒbƒNC‘•’uƒpƒ[ƒIƒt
-/* modified 2009.08.18 hmenjo ƒZ[ƒtƒeƒBƒvƒ‰ƒOˆ—’Ç‰Á ----------			   */
+/* modified 2009.08.18 hmenjo ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°å‡¦ç†è¿½åŠ  ---------- { ---------- */
+//		PifComm_DoStateDone(60 + l_dwEMO);	// EMOï¼Œãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ï¼Œè£…ç½®ãƒ‘ãƒ¯ãƒ¼ã‚ªãƒ•
+/* modified 2009.08.18 hmenjo ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°å‡¦ç†è¿½åŠ  ----------			   */
 		if (ALID_SafetyPlugOpen != l_dwEMO) {
-			PifComm_DoStateDone(60 + l_dwEMO);	/* EMOCƒhƒAƒCƒ“ƒ^ƒƒbƒNC‘•’uƒpƒ[ƒIƒt	*/
+			PifComm_DoStateDone(60 + l_dwEMO);	/* EMOï¼Œãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ï¼Œè£…ç½®ãƒ‘ãƒ¯ãƒ¼ã‚ªãƒ•	*/
 		} else {
-			PifComm_DoStateDone(69);	/* ƒZ[ƒtƒeƒBƒvƒ‰ƒO	*/
+			PifComm_DoStateDone(69);	/* ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°	*/
 		}
-/* modified 2009.08.18 hmenjo ƒZ[ƒtƒeƒBƒvƒ‰ƒOˆ—’Ç‰Á ---------- } ---------- */
+/* modified 2009.08.18 hmenjo ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°å‡¦ç†è¿½åŠ  ---------- } ---------- */
 		return;
 	}
 	if (0 != ((CChiefView*) m_pcChiefView)->CheckDIO_IsRobotArmON()) {
-		PifComm_DoStateDone(64);	// ƒƒ{ƒbƒgƒA[ƒ€ŒŸo
+		PifComm_DoStateDone(64);	// ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ æ¤œå‡º
 		return;
 	}
 	if (0 != ((CChiefView*) m_pcChiefView)->CheckDIO_IsPinDownOFF()) {
-		PifComm_DoStateDone(65);	// ƒsƒ“ƒ_ƒEƒ“‚ªƒIƒt
+		PifComm_DoStateDone(65);	// ãƒ”ãƒ³ãƒ€ã‚¦ãƒ³ãŒã‚ªãƒ•
 		return;
 	}
 	if (0 != ((CChiefView*) m_pcChiefView)->CheckDIO_IsAirPressureLowON()) {
-		PifComm_DoStateDone(66);	// ƒGƒAˆ³—Í’á‰º‚ªƒIƒt
+		PifComm_DoStateDone(66);	// ã‚¨ã‚¢åœ§åŠ›ä½Žä¸‹ãŒã‚ªãƒ•
 		return;
 	}
 	if ((0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bShutterClose) || (0 != ((CChiefView*) m_pcChiefView)->m_DiInfo.bShutterOpen)) {
-		PifComm_DoStateDone(67);	// ƒVƒƒƒbƒ^ CLOSE ‚ªƒIƒtC‚©CƒVƒƒƒbƒ^ OPEN ‚ªƒIƒ“
+		PifComm_DoStateDone(67);	// ã‚·ãƒ£ãƒƒã‚¿ CLOSE ãŒã‚ªãƒ•ï¼Œã‹ï¼Œã‚·ãƒ£ãƒƒã‚¿ OPEN ãŒã‚ªãƒ³
 		return;
 	}
-/* added 2009.10.29 hmenjo CTA Seq CTAILPI ƒ`ƒFƒbƒN ---------- { ---------- */
+/* added 2009.10.29 hmenjo CTA Seq CTAILPI ãƒã‚§ãƒƒã‚¯ ---------- { ---------- */
 	if (0 == ((CChiefView*) m_pcChiefView)->IsCtaILPI()) {
-		PifComm_DoStateDone(72);	/* CTAILPI ‚ªƒIƒt	*/
+		PifComm_DoStateDone(72);	/* CTAILPI ãŒã‚ªãƒ•	*/
 		return;
 	}
-/* added 2009.10.29 hmenjo CTA Seq CTAILPI ƒ`ƒFƒbƒN ---------- } ---------- */
-/* added 2009.11.06 K.Matsuo RS Seq Head Position ƒ`ƒFƒbƒN ---------- { ---------- */
+/* added 2009.10.29 hmenjo CTA Seq CTAILPI ãƒã‚§ãƒƒã‚¯ ---------- } ---------- */
+/* added 2009.11.06 K.Matsuo RS Seq Head Position ãƒã‚§ãƒƒã‚¯ ---------- { ---------- */
 	int iResistStatus = ((CChiefView*) m_pcChiefView)->CheckResistIL();
 	if (0 != iResistStatus) {
 		int iAckCode = 74 + iResistStatus - 1;		// 74,75,76
-		PifComm_DoStateDone(iAckCode);	/* Resistã¸’[ƒZƒ“ƒT[ ‚ªƒIƒt	*/
+		PifComm_DoStateDone(iAckCode);	/* Resistä¸Šæ˜‡ç«¯ã‚»ãƒ³ã‚µãƒ¼ ãŒã‚ªãƒ•	*/
 		return;
 	}
-// 2009.11.12 bagus MS ‰º’[ˆÊ’u2ƒ`ƒFƒbƒN --{--
+// 2009.11.12 bagus MS ä¸‹ç«¯ä½ç½®2ãƒã‚§ãƒƒã‚¯ --{--
 	if (0 == ((CChiefView*) m_pcChiefView)->IsMSILPI()) {
-		PifComm_DoStateDone(77);	/* ‰º’[ˆÊ’u‚QƒZƒ“ƒT[ON*/
+		PifComm_DoStateDone(77);	/* ä¸‹ç«¯ä½ç½®ï¼’ã‚»ãƒ³ã‚µãƒ¼ON*/
 		return;
 	}
-// 2009.11.12 bagus MS ‰º’[ˆÊ’u2ƒ`ƒFƒbƒN --}--
-/* added 2009.11.06 K.Matsuo RS Seq Head Position ƒ`ƒFƒbƒN ---------- } ---------- */
+// 2009.11.12 bagus MS ä¸‹ç«¯ä½ç½®2ãƒã‚§ãƒƒã‚¯ --}--
+/* added 2009.11.06 K.Matsuo RS Seq Head Position ãƒã‚§ãƒƒã‚¯ ---------- } ---------- */
 	if (HOST_REMOTE != ((CNanoSpecDoc*) (((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc))->GetHostMode()) {
-		PifComm_DoStateDone(20);	// ƒŠƒ‚[ƒg‚Å‚È‚©‚Á‚½
+		PifComm_DoStateDone(20);	// ãƒªãƒ¢ãƒ¼ãƒˆã§ãªã‹ã£ãŸ
 		return;
 	}
 	int l_iProcStatus = ((CChiefView*) m_pcChiefView)->ProcStatusGet();
 	if (PROCESS_WAIT != l_iProcStatus) {
-		PifComm_DoStateDone(33);	// Wait ˆÈŠO‚¾‚Á‚½
+		PifComm_DoStateDone(33);	// Wait ä»¥å¤–ã ã£ãŸ
 		return;
 	}
 	if (0 != ((CNanoSpecDoc*) ((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc)->ActuateFlagsGetAll()) {
-		PifComm_DoStateDone(41);	// “®ì’†ƒtƒ‰ƒO‚ªƒIƒ“‚¾‚Á‚½
+		PifComm_DoStateDone(41);	// å‹•ä½œä¸­ãƒ•ãƒ©ã‚°ãŒã‚ªãƒ³ã ã£ãŸ
 		return;
 	}
 	int l_iDispStatus = ((CNanoSpecDoc*) (((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc))->GetDispStatus();
 	if ((MAIN_MENU_MEASUREMENT != l_iDispStatus) && (MAIN_MENU_DATA != l_iDispStatus)) {
-		PifComm_DoStateDone(51);	// ‰æ–Êƒ‚[ƒh‚ªu‘ª’èƒ‚[ƒhv‚©uƒf[ƒ^ƒ‚[ƒhv‚Å‚È‚©‚Á‚½
+		PifComm_DoStateDone(51);	// ç”»é¢ãƒ¢ãƒ¼ãƒ‰ãŒã€Œæ¸¬å®šãƒ¢ãƒ¼ãƒ‰ã€ã‹ã€Œãƒ‡ãƒ¼ã‚¿ãƒ¢ãƒ¼ãƒ‰ã€ã§ãªã‹ã£ãŸ
 		return;
 	}
 	if (0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bMaintenanceSW) {
-		// ƒƒ“ƒeƒiƒ“ƒX SW ‚ªƒIƒ“Žž‚ÍEEE
+		// ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ SW ãŒã‚ªãƒ³æ™‚ã¯ãƒ»ãƒ»ãƒ»
 		if (0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bTHMaintenanceSW) {
-			PifComm_DoStateDone(43);	// ‚³‚ç‚ÉC“Œ•üƒƒ“ƒe SW ‚ªƒIƒt‚Ìê‡C‹ÖŽ~
+			PifComm_DoStateDone(43);	// ã•ã‚‰ã«ï¼Œæ±æœ‹ãƒ¡ãƒ³ãƒ† SW ãŒã‚ªãƒ•ã®å ´åˆï¼Œç¦æ­¢
 			return;
 		}
-#if 1	// ƒƒ“ƒe‚Å‚È‚­C“Œ•üƒƒ“ƒe‚Ìê‡‚É“®ì‹ÖŽ~‚É‚µ‚Ü‚·
+#if 1	// ãƒ¡ãƒ³ãƒ†ã§ãªãï¼Œæ±æœ‹ãƒ¡ãƒ³ãƒ†ã®å ´åˆã«å‹•ä½œç¦æ­¢ã«ã—ã¾ã™
 	} else {
-		// ƒƒ“ƒeƒiƒ“ƒX SW ‚ªƒIƒtŽž‚ÍEEE
+		// ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ SW ãŒã‚ªãƒ•æ™‚ã¯ãƒ»ãƒ»ãƒ»
 		if (0 != ((CChiefView*) m_pcChiefView)->m_DiInfo.bTHMaintenanceSW) {
-			// “Œ•üƒƒ“ƒe SW ‚ªƒIƒ“‚Ìê‡C‹ÖŽ~
+			// æ±æœ‹ãƒ¡ãƒ³ãƒ† SW ãŒã‚ªãƒ³ã®å ´åˆï¼Œç¦æ­¢
 			PifComm_DoStateDone(43);
 			return;
 		}
@@ -622,17 +622,17 @@ void CChiefRcvMailThread::EventProcessP501(BOOL bReferMode/* = FALSE*/)
 	}
 
 	if (0 == ((CChiefView*) m_pcChiefView)->m_bGotRecipeFromPif) {
-		// ƒŒƒVƒs‚ðŽóM‚µ‚Ä‚¢‚Ü‚¹‚ñD
-		PifComm_DoStateDone(7);	// ˆÙí‰ž“š‘—M
+		// ãƒ¬ã‚·ãƒ”ã‚’å—ä¿¡ã—ã¦ã„ã¾ã›ã‚“ï¼Ž
+		PifComm_DoStateDone(7);	// ç•°å¸¸å¿œç­”é€ä¿¡
 	} else {
-		// Pif ‚©‚çƒTƒ“ƒvƒ‹ ID ‚ðŽæ“¾
+		// Pif ã‹ã‚‰ã‚µãƒ³ãƒ—ãƒ« ID ã‚’å–å¾—
 		TCHAR l_szSampleId[SAMPLE_ID_LEN + 2];
 		PifComm_GetSampleId(l_szSampleId);
-		// ƒTƒ“ƒvƒ‹ ID ‚Ì•¶Žš”‚ðƒ`ƒFƒbƒN(”ÍˆÍF1`32)
+		// ã‚µãƒ³ãƒ—ãƒ« ID ã®æ–‡å­—æ•°ã‚’ãƒã‚§ãƒƒã‚¯(ç¯„å›²ï¼š1ã€œ32)
 		DWORD l_dwIdLen = _tcslen(l_szSampleId);
-/* added 2009.09.10 hmenjo P511 ƒTƒ“ƒvƒ‹ ID ƒXƒy[ƒX‰» ---------- { ---------- */
+/* added 2009.09.10 hmenjo P511 ã‚µãƒ³ãƒ—ãƒ« ID ã‚¹ãƒšãƒ¼ã‚¹åŒ– ---------- { ---------- */
 		if ((TRUE == bReferMode) && (0 == l_dwIdLen)) {
-			/* ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh‚Ìê‡‚ÉCƒTƒ“ƒvƒ‹ ID ‚ª null ‚È‚çƒXƒy[ƒX‚Å–„‚ß‚Ü‚·D	*/
+			/* ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ã®å ´åˆã«ï¼Œã‚µãƒ³ãƒ—ãƒ« ID ãŒ null ãªã‚‰ã‚¹ãƒšãƒ¼ã‚¹ã§åŸ‹ã‚ã¾ã™ï¼Ž	*/
 			memset(l_szSampleId, 0, sizeof(l_szSampleId));
 //			_tcsnset(l_szSampleId, _T(' '), SAMPLE_ID_LEN);
 			for (int i = 0; i < SAMPLE_ID_LEN; i++) {
@@ -640,15 +640,15 @@ void CChiefRcvMailThread::EventProcessP501(BOOL bReferMode/* = FALSE*/)
 			}
 			l_dwIdLen = _tcslen(l_szSampleId);
 		}
-/* added 2009.09.10 hmenjo P511 ƒTƒ“ƒvƒ‹ ID ƒXƒy[ƒX‰» ---------- } ---------- */
-/* added 2009.10.29 hmenjo CTA ƒƒbƒg ID ‘Î‰ž ---------- { ---------- */
-		/* Pif ‚©‚çƒƒbƒg ID ‚ðŽæ“¾‚µ‚Ü‚·D	*/
+/* added 2009.09.10 hmenjo P511 ã‚µãƒ³ãƒ—ãƒ« ID ã‚¹ãƒšãƒ¼ã‚¹åŒ– ---------- } ---------- */
+/* added 2009.10.29 hmenjo CTA ãƒ­ãƒƒãƒˆ ID å¯¾å¿œ ---------- { ---------- */
+		/* Pif ã‹ã‚‰ãƒ­ãƒƒãƒˆ ID ã‚’å–å¾—ã—ã¾ã™ï¼Ž	*/
 		TCHAR l_szLotId[LOT_ID_LEN + 2];
 		PifComm_GetLotId(l_szLotId);
-		/* ƒƒbƒg ID ‚Ì•¶Žš”‚ðƒ`ƒFƒbƒN(”ÍˆÍF1`32)	*/
+		/* ãƒ­ãƒƒãƒˆ ID ã®æ–‡å­—æ•°ã‚’ãƒã‚§ãƒƒã‚¯(ç¯„å›²ï¼š1ã€œ32)	*/
 		DWORD l_dwLotIdLen = _tcslen(l_szLotId);
 		if ((TRUE == bReferMode) && (0 == l_dwLotIdLen)) {
-			/* ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh‚Ìê‡‚ÉCƒƒbƒg ID ‚ª null ‚È‚çƒXƒy[ƒX‚Å–„‚ß‚Ü‚·D	*/
+			/* ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ã®å ´åˆã«ï¼Œãƒ­ãƒƒãƒˆ ID ãŒ null ãªã‚‰ã‚¹ãƒšãƒ¼ã‚¹ã§åŸ‹ã‚ã¾ã™ï¼Ž	*/
 			memset(l_szLotId, 0, sizeof(l_szLotId));
 			_tcsnset(l_szLotId, _T(' '), LOT_ID_LEN);
 //			for (int i = 0; i < SAMPLE_ID_LEN; i++) {
@@ -657,251 +657,251 @@ void CChiefRcvMailThread::EventProcessP501(BOOL bReferMode/* = FALSE*/)
 			l_dwLotIdLen = _tcslen(l_szLotId);
 		}
 		if ((l_dwLotIdLen < 0) || (LOT_ID_LEN < l_dwLotIdLen)) {
-			/* ƒƒbƒg ID ‚Ì•¶Žš”‚ª”ÍˆÍŠOF1`32	*/
-			PifComm_DoStateDone(6);	// ˆÙí‰ž“š‘—M
+			/* ãƒ­ãƒƒãƒˆ ID ã®æ–‡å­—æ•°ãŒç¯„å›²å¤–ï¼š1ã€œ32	*/
+			PifComm_DoStateDone(6);	// ç•°å¸¸å¿œç­”é€ä¿¡
 		} else
-/* added 2009.10.29 hmenjo CTA ƒƒbƒg ID ‘Î‰ž ---------- } ---------- */
+/* added 2009.10.29 hmenjo CTA ãƒ­ãƒƒãƒˆ ID å¯¾å¿œ ---------- } ---------- */
 		if ((l_dwIdLen < 1) || (SAMPLE_ID_LEN < l_dwIdLen)) {
-			// ƒTƒ“ƒvƒ‹ ID ‚Ì•¶Žš”‚ª”ÍˆÍŠOF1`32
-			PifComm_DoStateDone(6);	// ˆÙí‰ž“š‘—M
+			// ã‚µãƒ³ãƒ—ãƒ« ID ã®æ–‡å­—æ•°ãŒç¯„å›²å¤–ï¼š1ã€œ32
+			PifComm_DoStateDone(6);	// ç•°å¸¸å¿œç­”é€ä¿¡
 		} else {
-			// ƒTƒ“ƒvƒ‹ ID ‚ð•Û‘¶
+			// ã‚µãƒ³ãƒ—ãƒ« ID ã‚’ä¿å­˜
 			_tcscpy(((CChiefView*) m_pcChiefView)->m_szSampleID, l_szSampleId);
-/* added 2009.10.29 hmenjo CTA ƒƒbƒg ID ‘Î‰ž ---------- { ---------- */
-			/* ƒƒbƒg ID ‚ð•Û‘¶	*/
+/* added 2009.10.29 hmenjo CTA ãƒ­ãƒƒãƒˆ ID å¯¾å¿œ ---------- { ---------- */
+			/* ãƒ­ãƒƒãƒˆ ID ã‚’ä¿å­˜	*/
 			_tcscpy(((CChiefView*) m_pcChiefView)->m_szLotID, l_szLotId);
-/* added 2009.10.29 hmenjo CTA ƒƒbƒg ID ‘Î‰ž ---------- } ---------- */
-			// ƒƒCƒ“ƒŒƒVƒs‚ð“Çž‚Ý
+/* added 2009.10.29 hmenjo CTA ãƒ­ãƒƒãƒˆ ID å¯¾å¿œ ---------- } ---------- */
+			// ãƒ¡ã‚¤ãƒ³ãƒ¬ã‚·ãƒ”ã‚’èª­è¾¼ã¿
 			TCHAR l_szMainRcpName[256];
 			((CChiefView*) m_pcChiefView)->GetCurrentMainRecipeName(l_szMainRcpName);
 			DWORD l_Result = ((CChiefView*) m_pcChiefView)->RecipesGet(l_szMainRcpName, 0);
 			if (0 != l_Result) {
-				// ƒŒƒVƒs“Çž‚ÝˆÙí
-				PifComm_DoStateDone(l_Result);	// ˆÙí‰ž“š‘—M
+				// ãƒ¬ã‚·ãƒ”èª­è¾¼ã¿ç•°å¸¸
+				PifComm_DoStateDone(l_Result);	// ç•°å¸¸å¿œç­”é€ä¿¡
 			} else {
-/* modified 2009.08.03 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(12) ---------- { ---------- */
-//#ifdef CHIEF_REMEASURE_ON	// ƒŠƒƒWƒƒ[‘Î‰ž 20081225
+/* modified 2009.08.03 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (12) ---------- { ---------- */
+//#ifdef CHIEF_REMEASURE_ON	// ãƒªãƒ¡ã‚¸ãƒ£ãƒ¼å¯¾å¿œ 20081225
 //				LPSTAGE_PROG_INFO_HDR l_pStageProgInfoHdr = (LPSTAGE_PROG_INFO_HDR) ((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pStageProgInfoHdr;
-//				// --> Pif ‚ª‘Î‰ž‚·‚é‚Ü‚Å‰¼‚ÅC‘ª’è‚·‚é/‚µ‚È‚¢ ƒtƒ‰ƒO‚ðƒZƒbƒg‚µ‚Ü‚·
+//				// --> Pif ãŒå¯¾å¿œã™ã‚‹ã¾ã§ä»®ã§ï¼Œæ¸¬å®šã™ã‚‹/ã—ãªã„ ãƒ•ãƒ©ã‚°ã‚’ã‚»ãƒƒãƒˆã—ã¾ã™
 //				{
 //					for (int i = 0; i < l_pStageProgInfoHdr->wNumScans; i++) {
 //						((CNanoSpecDoc*) ((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc)->m_bDoPointMeasFlag[i] = TRUE;
 //					}
 //				}
-//				// <-- Pif ‚ª‘Î‰ž‚·‚é‚Ü‚Å‰¼‚ÅC‘ª’è‚·‚é/‚µ‚È‚¢ ƒtƒ‰ƒO‚ðƒZƒbƒg‚µ‚Ü‚·
+//				// <-- Pif ãŒå¯¾å¿œã™ã‚‹ã¾ã§ä»®ã§ï¼Œæ¸¬å®šã™ã‚‹/ã—ãªã„ ãƒ•ãƒ©ã‚°ã‚’ã‚»ãƒƒãƒˆã—ã¾ã™
 //				DWORD l_dwSearchStartNo = 1;
 //				if (l_pStageProgInfoHdr->wNumScans < ((CChiefView*) m_pcChiefView)->GetNextPointNo(&l_dwSearchStartNo)) {
-//					// ‘ª’è‚·‚é/‚µ‚È‚¢ ƒtƒ‰ƒO‚ª‚·‚×‚Äu‚µ‚È‚¢v‚É‚È‚Á‚Ä‚Ü‚·
-//					PifComm_DoStateDone(68);	// ˆÙí‰ž“š‘—M
+//					// æ¸¬å®šã™ã‚‹/ã—ãªã„ ãƒ•ãƒ©ã‚°ãŒã™ã¹ã¦ã€Œã—ãªã„ã€ã«ãªã£ã¦ã¾ã™
+//					PifComm_DoStateDone(68);	// ç•°å¸¸å¿œç­”é€ä¿¡
 //				} else {
-//					// ƒV[ƒPƒ“ƒXƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ð‹N“® ---------------------------------
+//					// ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’èµ·å‹• ---------------------------------
 //					if (false == ((CChiefTransiMaster*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiMaster)->IsIdle()) {
-//						// ƒ}ƒXƒ^ ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ªƒrƒW[‚Å‚µ‚½
-//						PifComm_DoStateDone(9);	// ˆÙí‰ž“š‘—M
+//						// ãƒžã‚¹ã‚¿ ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãŒãƒ“ã‚¸ãƒ¼ã§ã—ãŸ
+//						PifComm_DoStateDone(9);	// ç•°å¸¸å¿œç­”é€ä¿¡
 //					} else if (false == ((CChiefTransiSeq*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq)->IsIdle()) {
-//						// ƒV[ƒPƒ“ƒX‘ª’è ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ªƒrƒW[‚Å‚µ‚½
-//						PifComm_DoStateDone(10);	// ˆÙí‰ž“š‘—M
+//						// ã‚·ãƒ¼ã‚±ãƒ³ã‚¹æ¸¬å®š ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãŒãƒ“ã‚¸ãƒ¼ã§ã—ãŸ
+//						PifComm_DoStateDone(10);	// ç•°å¸¸å¿œç­”é€ä¿¡
 //					} else {
-//						// ‘ª’èŠJŽn
+//						// æ¸¬å®šé–‹å§‹
 //						((CChiefTransiMaster*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiMaster)->TransiEvent(EV_MAS_DO_PIFSEQ, 0);
-//						PifComm_DoStateDone(0);	// ‰ž“š‘—M
+//						PifComm_DoStateDone(0);	// å¿œç­”é€ä¿¡
 //					}
 //				}
 //#else
-//				// ƒV[ƒPƒ“ƒXƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ð‹N“® ---------------------------------
+//				// ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’èµ·å‹• ---------------------------------
 //				if (false == ((CChiefTransiMaster*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiMaster)->IsIdle()) {
-//					// ƒ}ƒXƒ^ ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ªƒrƒW[‚Å‚µ‚½
-//					PifComm_DoStateDone(9);	// ˆÙí‰ž“š‘—M
+//					// ãƒžã‚¹ã‚¿ ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãŒãƒ“ã‚¸ãƒ¼ã§ã—ãŸ
+//					PifComm_DoStateDone(9);	// ç•°å¸¸å¿œç­”é€ä¿¡
 //				} else if (false == ((CChiefTransiSeq*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq)->IsIdle()) {
-//					// ƒV[ƒPƒ“ƒX‘ª’è ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ªƒrƒW[‚Å‚µ‚½
-//					PifComm_DoStateDone(10);	// ˆÙí‰ž“š‘—M
+//					// ã‚·ãƒ¼ã‚±ãƒ³ã‚¹æ¸¬å®š ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãŒãƒ“ã‚¸ãƒ¼ã§ã—ãŸ
+//					PifComm_DoStateDone(10);	// ç•°å¸¸å¿œç­”é€ä¿¡
 //				} else {
-//					// ‘ª’èŠJŽn
+//					// æ¸¬å®šé–‹å§‹
 //					((CChiefTransiMaster*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiMaster)->TransiEvent(EV_MAS_DO_PIFSEQ);
-//					PifComm_DoStateDone(0);	// ‰ž“š‘—M
+//					PifComm_DoStateDone(0);	// å¿œç­”é€ä¿¡
 //				}
 //#endif
-/* modified 2009.08.03 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(12) ----------			   */
-/* added 2009.09.10 hmenjo P511 ƒRƒ}ƒ“ƒh’Ç‰Á ---------- { ---------- */
+/* modified 2009.08.03 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (12) ----------			   */
+/* added 2009.09.10 hmenjo P511 ã‚³ãƒžãƒ³ãƒ‰è¿½åŠ  ---------- { ---------- */
 				LPMEAS_PROG_INFO l_pMeasProgInfo = (LPMEAS_PROG_INFO) ((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pMeasProgInfo;
-/* added 2009.09.10 hmenjo P511 ƒRƒ}ƒ“ƒh’Ç‰Á ---------- } ---------- */
+/* added 2009.09.10 hmenjo P511 ã‚³ãƒžãƒ³ãƒ‰è¿½åŠ  ---------- } ---------- */
 				LPSTAGE_PROG_INFO_HDR l_pStageProgInfoHdr = (LPSTAGE_PROG_INFO_HDR) ((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pStageProgInfoHdr;
-				// --> Pif ‚ª‘Î‰ž‚·‚é‚Ü‚Å‰¼‚ÅC‘ª’è‚·‚é/‚µ‚È‚¢ ƒtƒ‰ƒO‚ðƒZƒbƒg‚µ‚Ü‚·
+				// --> Pif ãŒå¯¾å¿œã™ã‚‹ã¾ã§ä»®ã§ï¼Œæ¸¬å®šã™ã‚‹/ã—ãªã„ ãƒ•ãƒ©ã‚°ã‚’ã‚»ãƒƒãƒˆã—ã¾ã™
 				{
 					for (int i = 0; i < l_pStageProgInfoHdr->wNumScans; i++) {
 						((CNanoSpecDoc*) ((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc)->m_bDoPointMeasFlag[i] = TRUE;
 					}
 				}
-				// <-- Pif ‚ª‘Î‰ž‚·‚é‚Ü‚Å‰¼‚ÅC‘ª’è‚·‚é/‚µ‚È‚¢ ƒtƒ‰ƒO‚ðƒZƒbƒg‚µ‚Ü‚·
+				// <-- Pif ãŒå¯¾å¿œã™ã‚‹ã¾ã§ä»®ã§ï¼Œæ¸¬å®šã™ã‚‹/ã—ãªã„ ãƒ•ãƒ©ã‚°ã‚’ã‚»ãƒƒãƒˆã—ã¾ã™
 				DWORD l_dwSearchStartNo = 1;
 				if (l_pStageProgInfoHdr->wNumScans < ((CChiefView*) m_pcChiefView)->GetNextPointNo(&l_dwSearchStartNo)) {
-					// ‘ª’è‚·‚é/‚µ‚È‚¢ ƒtƒ‰ƒO‚ª‚·‚×‚Äu‚µ‚È‚¢v‚É‚È‚Á‚Ä‚Ü‚·
-					PifComm_DoStateDone(68);	// ˆÙí‰ž“š‘—M
+					// æ¸¬å®šã™ã‚‹/ã—ãªã„ ãƒ•ãƒ©ã‚°ãŒã™ã¹ã¦ã€Œã—ãªã„ã€ã«ãªã£ã¦ã¾ã™
+					PifComm_DoStateDone(68);	// ç•°å¸¸å¿œç­”é€ä¿¡
 // 2009.12.24 K.Matsuo Delete -->
-///* added 2009.09.10 hmenjo P511 ƒRƒ}ƒ“ƒh’Ç‰Á ---------- { ---------- */
+///* added 2009.09.10 hmenjo P511 ã‚³ãƒžãƒ³ãƒ‰è¿½åŠ  ---------- { ---------- */
 //				} else if ((TRUE == bReferMode)
 //						&& ((HEAD_TYPE_SR != l_pMeasProgInfo->ScanParams.hdr.wHeadType)
 //						 || (MEAS_PROG_TYPE_SR_TRANSMITTANCE_G != l_pMeasProgInfo->ScanParams.hdr.wScanType))) {
-//					/* ƒKƒ“ƒgƒŠ“§‰ß—¦ƒŠƒtƒ@ƒŒƒ“ƒX‚È‚Ì‚ÉCSR ƒwƒbƒh‚Å‚È‚¢‚©CƒXƒLƒƒƒ“ƒ^ƒCƒv‚ªƒKƒ“ƒgƒŠ‚Å‚È‚¢D	*/
-//					PifComm_DoStateDone(61);	// ˆÙí‰ž“š‘—M
-///* added 2009.09.10 hmenjo P511 ƒRƒ}ƒ“ƒh’Ç‰Á ---------- } ---------- */
+//					/* ã‚¬ãƒ³ãƒˆãƒªé€éŽçŽ‡ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãªã®ã«ï¼ŒSR ãƒ˜ãƒƒãƒ‰ã§ãªã„ã‹ï¼Œã‚¹ã‚­ãƒ£ãƒ³ã‚¿ã‚¤ãƒ—ãŒã‚¬ãƒ³ãƒˆãƒªã§ãªã„ï¼Ž	*/
+//					PifComm_DoStateDone(61);	// ç•°å¸¸å¿œç­”é€ä¿¡
+///* added 2009.09.10 hmenjo P511 ã‚³ãƒžãƒ³ãƒ‰è¿½åŠ  ---------- } ---------- */
 // 2009.12.24 K.Matsuo Delete <--
-/* added 2009.09.11 hmenjo ‘ª’è‘OƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^Šm”F ---------- { ---------- */
+/* added 2009.09.11 hmenjo æ¸¬å®šå‰ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ç¢ºèª ---------- { ---------- */
 				} else if ((FALSE == bReferMode)
 						&& (HEAD_TYPE_SR == l_pMeasProgInfo->ScanParams.hdr.wHeadType)
 						&& (MEAS_PROG_TYPE_SR_TRANSMITTANCE_G == l_pMeasProgInfo->ScanParams.hdr.wScanType)
 						&& (1 == ((CChiefView*) m_pcChiefView)->CheckReferenceData(	l_szMainRcpName,
 																					l_pMeasProgInfo->Ref.hdr.dLifeTime,
 																					l_pMeasProgInfo->Ref2nd.bMeasure))) {
-					/* ƒKƒ“ƒgƒŠ“§‰ß—¦‘ª’è‚ÅCƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^ˆÙí
-						(ƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^ƒtƒ@ƒCƒ‹‚ª‘¶Ý‚µ‚È‚¢)	*/
-					PifComm_DoStateDone(70);	// ˆÙí‰ž“š‘—M
-/* added 2009.09.11 hmenjo ‘ª’è‘OƒŠƒtƒ@ƒŒƒ“ƒXƒf[ƒ^Šm”F ---------- } ---------- */
-/* added 2009.09.11 hmenjo ‘ª’è‘OƒKƒ“ƒgƒŠ“§‰ß—¦ƒ‰ƒ“ƒvŠm”F ---------- { ---------- */
+					/* ã‚¬ãƒ³ãƒˆãƒªé€éŽçŽ‡æ¸¬å®šã§ï¼Œãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ç•°å¸¸
+						(ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„)	*/
+					PifComm_DoStateDone(70);	// ç•°å¸¸å¿œç­”é€ä¿¡
+/* added 2009.09.11 hmenjo æ¸¬å®šå‰ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ç¢ºèª ---------- } ---------- */
+/* added 2009.09.11 hmenjo æ¸¬å®šå‰ã‚¬ãƒ³ãƒˆãƒªé€éŽçŽ‡ãƒ©ãƒ³ãƒ—ç¢ºèª ---------- { ---------- */
 				} else if ((HEAD_TYPE_SR == l_pMeasProgInfo->ScanParams.hdr.wHeadType)
 						&& (MEAS_PROG_TYPE_SR_TRANSMITTANCE_G == l_pMeasProgInfo->ScanParams.hdr.wScanType)
 						&& (TRUE != ((CNanoSpecDoc*) ((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc)->IsGTRLampOn())) {
-					/* ƒKƒ“ƒgƒŠ“§‰ß—¦‘ª’è(ƒŠƒtƒ@ƒŒƒ“ƒXŠÜ‚Þ)‚ÅCƒKƒ“ƒgƒŠ“§‰ß—¦—pƒnƒƒQƒ“ƒ‰ƒ“ƒv‚ªƒIƒt	*/
-					PifComm_DoStateDone(71);	// ˆÙí‰ž“š‘—M
-/* added 2009.09.11 hmenjo ‘ª’è‘OƒKƒ“ƒgƒŠ“§‰ß—¦ƒ‰ƒ“ƒvŠm”F ---------- } ---------- */
-/* added 2009.10.30 hmenjo P511 •Êƒwƒbƒh‘Î‰ž ---------- { ---------- */
+					/* ã‚¬ãƒ³ãƒˆãƒªé€éŽçŽ‡æ¸¬å®š(ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å«ã‚€)ã§ï¼Œã‚¬ãƒ³ãƒˆãƒªé€éŽçŽ‡ç”¨ãƒãƒ­ã‚²ãƒ³ãƒ©ãƒ³ãƒ—ãŒã‚ªãƒ•	*/
+					PifComm_DoStateDone(71);	// ç•°å¸¸å¿œç­”é€ä¿¡
+/* added 2009.09.11 hmenjo æ¸¬å®šå‰ã‚¬ãƒ³ãƒˆãƒªé€éŽçŽ‡ãƒ©ãƒ³ãƒ—ç¢ºèª ---------- } ---------- */
+/* added 2009.10.30 hmenjo P511 åˆ¥ãƒ˜ãƒƒãƒ‰å¯¾å¿œ ---------- { ---------- */
 				} else if ((TRUE == bReferMode)
 						&& (0 == (	(HEAD_TYPE_SR == l_pMeasProgInfo->ScanParams.hdr.wHeadType)
 								&& (MEAS_PROG_TYPE_SR_TRANSMITTANCE_G == l_pMeasProgInfo->ScanParams.hdr.wScanType)))) {
-					/* ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh‚ÅCGTR ˆÈŠO‚ÍC
-						‰½‚à‚¹‚¸³íŠ®—¹‚ðŒ©‚¹‚©‚¯‚Ü‚·D	*/
-					PifComm_DoStateDone(0);	/* ³í‰ž“š	*/
-					PifComm_CompleteReferenceAllPointsReport(0);	/* Š®—¹‘—M	*/
-/* added 2009.10.30 hmenjo P511 •Êƒwƒbƒh‘Î‰ž ---------- } ---------- */
+					/* ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ã§ï¼ŒGTR ä»¥å¤–ã¯ï¼Œ
+						ä½•ã‚‚ã›ãšæ­£å¸¸å®Œäº†ã‚’è¦‹ã›ã‹ã‘ã¾ã™ï¼Ž	*/
+					PifComm_DoStateDone(0);	/* æ­£å¸¸å¿œç­”	*/
+					PifComm_CompleteReferenceAllPointsReport(0);	/* å®Œäº†é€ä¿¡	*/
+/* added 2009.10.30 hmenjo P511 åˆ¥ãƒ˜ãƒƒãƒ‰å¯¾å¿œ ---------- } ---------- */
 				} else {
 					CHIEF_PFUNCS l_ChiefPFuncs;
 					if (0 == PFC_FuncSet((CChiefView*) m_pcChiefView, &l_ChiefPFuncs, 0)) {
-						/* ƒwƒbƒhƒ^ƒCƒvˆÙí	*/
-						PifComm_DoStateDone(1);	/* ˆÙí‰ž“š‘—M	*/
+						/* ãƒ˜ãƒƒãƒ‰ã‚¿ã‚¤ãƒ—ç•°å¸¸	*/
+						PifComm_DoStateDone(1);	/* ç•°å¸¸å¿œç­”é€ä¿¡	*/
 						return;
 					}
-					/* ƒV[ƒPƒ“ƒXƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ð‹N“® --------------------------------- */
+					/* ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’èµ·å‹• --------------------------------- */
 					if (false == ((CChiefTransiMaster*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiMaster)->IsIdle()) {
-						/* ƒ}ƒXƒ^ ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ªƒrƒW[‚Å‚µ‚½	*/
-/* added 2012.01.23 hmenjo [‚V]ŸŽèƒAƒ{[ƒg‘Îô ---------- { ---------- */
+						/* ãƒžã‚¹ã‚¿ ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãŒãƒ“ã‚¸ãƒ¼ã§ã—ãŸ	*/
+/* added 2012.01.23 hmenjo [ï¼—]å‹æ‰‹ã‚¢ãƒœãƒ¼ãƒˆå¯¾ç­– ---------- { ---------- */
 						((CChiefView*) m_pcChiefView)->LogChief(_T("CChiefRcvMailThread::EventProcessP501() - Master Seq is busy."));
-/* added 2012.01.23 hmenjo [‚V]ŸŽèƒAƒ{[ƒg‘Îô ---------- } ---------- */
-						PifComm_DoStateDone(9);	/* ˆÙí‰ž“š‘—M	*/
+/* added 2012.01.23 hmenjo [ï¼—]å‹æ‰‹ã‚¢ãƒœãƒ¼ãƒˆå¯¾ç­– ---------- } ---------- */
+						PifComm_DoStateDone(9);	/* ç•°å¸¸å¿œç­”é€ä¿¡	*/
 					} else if (false == (*l_ChiefPFuncs.IsIdle)((CChiefView*) m_pcChiefView)) {
-						/* ‘ª’è ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ªƒrƒW[‚Å‚µ‚½	*/
-/* added 2012.01.23 hmenjo [‚V]ŸŽèƒAƒ{[ƒg‘Îô ---------- { ---------- */
+						/* æ¸¬å®š ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãŒãƒ“ã‚¸ãƒ¼ã§ã—ãŸ	*/
+/* added 2012.01.23 hmenjo [ï¼—]å‹æ‰‹ã‚¢ãƒœãƒ¼ãƒˆå¯¾ç­– ---------- { ---------- */
 						((CChiefView*) m_pcChiefView)->LogChief(_T("CChiefRcvMailThread::EventProcessP501() - SR or Stress Seq is busy."));
-/* added 2012.01.23 hmenjo [‚V]ŸŽèƒAƒ{[ƒg‘Îô ---------- } ---------- */
-						PifComm_DoStateDone(10);	/* ˆÙí‰ž“š‘—M	*/
+/* added 2012.01.23 hmenjo [ï¼—]å‹æ‰‹ã‚¢ãƒœãƒ¼ãƒˆå¯¾ç­– ---------- } ---------- */
+						PifComm_DoStateDone(10);	/* ç•°å¸¸å¿œç­”é€ä¿¡	*/
 					} else {
-						/* ‘ª’èŠJŽn	*/
-/* modified 2009.09.10 hmenjo P511 ƒRƒ}ƒ“ƒh’Ç‰Á ---------- { ---------- */
+						/* æ¸¬å®šé–‹å§‹	*/
+/* modified 2009.09.10 hmenjo P511 ã‚³ãƒžãƒ³ãƒ‰è¿½åŠ  ---------- { ---------- */
 //						((CChiefTransiMaster*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiMaster)->TransiEvent(EV_MAS_DO_PIFSEQ, 0);
-/* modified 2009.09.10 hmenjo P511 ƒRƒ}ƒ“ƒh’Ç‰Á ----------				*/
+/* modified 2009.09.10 hmenjo P511 ã‚³ãƒžãƒ³ãƒ‰è¿½åŠ  ----------				*/
 						((CChiefTransiMaster*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiMaster)->TransiEvent(EV_MAS_DO_PIFSEQ, (cEventParams*) MAKELONG(0, bReferMode));
-/* modified 2009.09.10 hmenjo P511 ƒRƒ}ƒ“ƒh’Ç‰Á ---------- } ---------- */
-						PifComm_DoStateDone(0);	/* ‰ž“š‘—M	*/
+/* modified 2009.09.10 hmenjo P511 ã‚³ãƒžãƒ³ãƒ‰è¿½åŠ  ---------- } ---------- */
+						PifComm_DoStateDone(0);	/* å¿œç­”é€ä¿¡	*/
 					}
 				}
-/* modified 2009.08.03 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(12) ---------- } ---------- */
+/* modified 2009.08.03 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (12) ---------- } ---------- */
 			}
 		}
 	}
 }
 
-/* added 2009.09.10 hmenjo P511 ƒRƒ}ƒ“ƒh’Ç‰Á ---------- { ---------- */
-/*	‘ª’èŠJŽnŽwŽ¦—v‹F“§‰ß—¦—p	*/
-/*		Œ»ó‚ÍƒKƒ“ƒgƒŠ“§‰ß—¦‚É‚Ì‚ÝŽg‚Á‚Ä‚¢‚Ü‚·D
- *		’Êí“§‰ß—¦‚ÌŽd—l‚ª–¢Œˆ’è‚Ì‚½‚ß‚Å‚·D	*/
+/* added 2009.09.10 hmenjo P511 ã‚³ãƒžãƒ³ãƒ‰è¿½åŠ  ---------- { ---------- */
+/*	æ¸¬å®šé–‹å§‹æŒ‡ç¤ºè¦æ±‚ï¼šé€éŽçŽ‡ç”¨	*/
+/*		ç¾çŠ¶ã¯ã‚¬ãƒ³ãƒˆãƒªé€éŽçŽ‡ã«ã®ã¿ä½¿ã£ã¦ã„ã¾ã™ï¼Ž
+ *		é€šå¸¸é€éŽçŽ‡ã®ä»•æ§˜ãŒæœªæ±ºå®šã®ãŸã‚ã§ã™ï¼Ž	*/
 void CChiefRcvMailThread::EventProcessP511()
 {
-	EventProcessP501(TRUE);	/* ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh‚Å‹N“®	*/
+	EventProcessP501(TRUE);	/* ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ã§èµ·å‹•	*/
 }
-/* added 2009.09.10 hmenjo P511 ƒRƒ}ƒ“ƒh’Ç‰Á ---------- } ---------- */
+/* added 2009.09.10 hmenjo P511 ã‚³ãƒžãƒ³ãƒ‰è¿½åŠ  ---------- } ---------- */
 
-// 2014.01.07 bagus Add(Stage None‘Î‰ž) -->
-// Si ƒŠƒtƒ@ƒŒƒ“ƒXŽæ“¾ŠJŽnŽwŽ¦—v‹
+// 2014.01.07 bagus Add(Stage Noneå¯¾å¿œ) -->
+// Si ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—é–‹å§‹æŒ‡ç¤ºè¦æ±‚
 void CChiefRcvMailThread::EventProcessP514()
 {
-	// Å‰‚ÉƒCƒ“ƒ^ƒƒbƒN
+	// æœ€åˆã«ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯
 	DWORD l_dwEMO = ((CChiefView*) m_pcChiefView)->CheckDIO_IsEMO();
 	if (0 != l_dwEMO) {
-/* modified 2009.08.18 hmenjo ƒZ[ƒtƒeƒBƒvƒ‰ƒOˆ—’Ç‰Á ---------- { ---------- */
-//		PifComm_DoStateDone(60 + l_dwEMO);	// EMOCƒhƒAƒCƒ“ƒ^ƒƒbƒNC‘•’uƒpƒ[ƒIƒt
-/* modified 2009.08.18 hmenjo ƒZ[ƒtƒeƒBƒvƒ‰ƒOˆ—’Ç‰Á ----------			   */
+/* modified 2009.08.18 hmenjo ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°å‡¦ç†è¿½åŠ  ---------- { ---------- */
+//		PifComm_DoStateDone(60 + l_dwEMO);	// EMOï¼Œãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ï¼Œè£…ç½®ãƒ‘ãƒ¯ãƒ¼ã‚ªãƒ•
+/* modified 2009.08.18 hmenjo ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°å‡¦ç†è¿½åŠ  ----------			   */
 		if (ALID_SafetyPlugOpen != l_dwEMO) {
-			PifComm_DoStateDone(60 + l_dwEMO);	/* EMOCƒhƒAƒCƒ“ƒ^ƒƒbƒNC‘•’uƒpƒ[ƒIƒt	*/
+			PifComm_DoStateDone(60 + l_dwEMO);	/* EMOï¼Œãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ï¼Œè£…ç½®ãƒ‘ãƒ¯ãƒ¼ã‚ªãƒ•	*/
 		} else {
-			PifComm_DoStateDone(69);	/* ƒZ[ƒtƒeƒBƒvƒ‰ƒO	*/
+			PifComm_DoStateDone(69);	/* ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°	*/
 		}
-/* modified 2009.08.18 hmenjo ƒZ[ƒtƒeƒBƒvƒ‰ƒOˆ—’Ç‰Á ---------- } ---------- */
+/* modified 2009.08.18 hmenjo ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°å‡¦ç†è¿½åŠ  ---------- } ---------- */
 		return;
 	}
 	if (0 != ((CChiefView*) m_pcChiefView)->CheckDIO_IsRobotArmON()) {
-		PifComm_DoStateDone(64);	// ƒƒ{ƒbƒgƒA[ƒ€ŒŸo
+		PifComm_DoStateDone(64);	// ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ æ¤œå‡º
 		return;
 	}
 	if (0 != ((CChiefView*) m_pcChiefView)->CheckDIO_IsPinDownOFF()) {
-		PifComm_DoStateDone(65);	// ƒsƒ“ƒ_ƒEƒ“‚ªƒIƒt
+		PifComm_DoStateDone(65);	// ãƒ”ãƒ³ãƒ€ã‚¦ãƒ³ãŒã‚ªãƒ•
 		return;
 	}
 	if (0 != ((CChiefView*) m_pcChiefView)->CheckDIO_IsAirPressureLowON()) {
-		PifComm_DoStateDone(66);	// ƒGƒAˆ³—Í’á‰º‚ªƒIƒt
+		PifComm_DoStateDone(66);	// ã‚¨ã‚¢åœ§åŠ›ä½Žä¸‹ãŒã‚ªãƒ•
 		return;
 	}
 	if ((0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bShutterClose) || (0 != ((CChiefView*) m_pcChiefView)->m_DiInfo.bShutterOpen)) {
-		PifComm_DoStateDone(67);	// ƒVƒƒƒbƒ^ CLOSE ‚ªƒIƒtC‚©CƒVƒƒƒbƒ^ OPEN ‚ªƒIƒ“
+		PifComm_DoStateDone(67);	// ã‚·ãƒ£ãƒƒã‚¿ CLOSE ãŒã‚ªãƒ•ï¼Œã‹ï¼Œã‚·ãƒ£ãƒƒã‚¿ OPEN ãŒã‚ªãƒ³
 		return;
 	}
-/* added 2009.10.29 hmenjo CTA Seq CTAILPI ƒ`ƒFƒbƒN ---------- { ---------- */
+/* added 2009.10.29 hmenjo CTA Seq CTAILPI ãƒã‚§ãƒƒã‚¯ ---------- { ---------- */
 	if (0 == ((CChiefView*) m_pcChiefView)->IsCtaILPI()) {
-		PifComm_DoStateDone(72);	/* CTAILPI ‚ªƒIƒt	*/
+		PifComm_DoStateDone(72);	/* CTAILPI ãŒã‚ªãƒ•	*/
 		return;
 	}
-/* added 2009.10.29 hmenjo CTA Seq CTAILPI ƒ`ƒFƒbƒN ---------- } ---------- */
-/* added 2009.11.06 K.Matsuo RS Seq Head Position ƒ`ƒFƒbƒN ---------- { ---------- */
+/* added 2009.10.29 hmenjo CTA Seq CTAILPI ãƒã‚§ãƒƒã‚¯ ---------- } ---------- */
+/* added 2009.11.06 K.Matsuo RS Seq Head Position ãƒã‚§ãƒƒã‚¯ ---------- { ---------- */
 	int iResistStatus = ((CChiefView*) m_pcChiefView)->CheckResistIL();
 	if (0 != iResistStatus) {
 		int iAckCode = 74 + iResistStatus - 1;		// 74,75,76
-		PifComm_DoStateDone(iAckCode);	/* Resistã¸’[ƒZƒ“ƒT[ ‚ªƒIƒt	*/
+		PifComm_DoStateDone(iAckCode);	/* Resistä¸Šæ˜‡ç«¯ã‚»ãƒ³ã‚µãƒ¼ ãŒã‚ªãƒ•	*/
 		return;
 	}
-// 2009.11.12 bagus MS ‰º’[ˆÊ’u2ƒ`ƒFƒbƒN --{--
+// 2009.11.12 bagus MS ä¸‹ç«¯ä½ç½®2ãƒã‚§ãƒƒã‚¯ --{--
 	if (0 == ((CChiefView*) m_pcChiefView)->IsMSILPI()) {
-		PifComm_DoStateDone(77);	/* ‰º’[ˆÊ’u‚QƒZƒ“ƒT[ON*/
+		PifComm_DoStateDone(77);	/* ä¸‹ç«¯ä½ç½®ï¼’ã‚»ãƒ³ã‚µãƒ¼ON*/
 		return;
 	}
-// 2009.11.12 bagus MS ‰º’[ˆÊ’u2ƒ`ƒFƒbƒN --}--
-/* added 2009.11.06 K.Matsuo RS Seq Head Position ƒ`ƒFƒbƒN ---------- } ---------- */
+// 2009.11.12 bagus MS ä¸‹ç«¯ä½ç½®2ãƒã‚§ãƒƒã‚¯ --}--
+/* added 2009.11.06 K.Matsuo RS Seq Head Position ãƒã‚§ãƒƒã‚¯ ---------- } ---------- */
 	if (HOST_REMOTE != ((CNanoSpecDoc*) (((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc))->GetHostMode()) {
-		PifComm_DoStateDone(20);	// ƒŠƒ‚[ƒg‚Å‚È‚©‚Á‚½
+		PifComm_DoStateDone(20);	// ãƒªãƒ¢ãƒ¼ãƒˆã§ãªã‹ã£ãŸ
 		return;
 	}
 	int l_iProcStatus = ((CChiefView*) m_pcChiefView)->ProcStatusGet();
 	if (PROCESS_WAIT != l_iProcStatus) {
-		PifComm_DoStateDone(33);	// Wait ˆÈŠO‚¾‚Á‚½
+		PifComm_DoStateDone(33);	// Wait ä»¥å¤–ã ã£ãŸ
 		return;
 	}
 	if (0 != ((CNanoSpecDoc*) ((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc)->ActuateFlagsGetAll()) {
-		PifComm_DoStateDone(41);	// “®ì’†ƒtƒ‰ƒO‚ªƒIƒ“‚¾‚Á‚½
+		PifComm_DoStateDone(41);	// å‹•ä½œä¸­ãƒ•ãƒ©ã‚°ãŒã‚ªãƒ³ã ã£ãŸ
 		return;
 	}
 	int l_iDispStatus = ((CNanoSpecDoc*) (((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc))->GetDispStatus();
 	if ((MAIN_MENU_MEASUREMENT != l_iDispStatus) && (MAIN_MENU_DATA != l_iDispStatus)) {
-		PifComm_DoStateDone(51);	// ‰æ–Êƒ‚[ƒh‚ªu‘ª’èƒ‚[ƒhv‚©uƒf[ƒ^ƒ‚[ƒhv‚Å‚È‚©‚Á‚½
+		PifComm_DoStateDone(51);	// ç”»é¢ãƒ¢ãƒ¼ãƒ‰ãŒã€Œæ¸¬å®šãƒ¢ãƒ¼ãƒ‰ã€ã‹ã€Œãƒ‡ãƒ¼ã‚¿ãƒ¢ãƒ¼ãƒ‰ã€ã§ãªã‹ã£ãŸ
 		return;
 	}
 	if (0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bMaintenanceSW) {
-		// ƒƒ“ƒeƒiƒ“ƒX SW ‚ªƒIƒ“Žž‚ÍEEE
+		// ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ SW ãŒã‚ªãƒ³æ™‚ã¯ãƒ»ãƒ»ãƒ»
 		if (0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bTHMaintenanceSW) {
-			PifComm_DoStateDone(43);	// ‚³‚ç‚ÉC“Œ•üƒƒ“ƒe SW ‚ªƒIƒt‚Ìê‡C‹ÖŽ~
+			PifComm_DoStateDone(43);	// ã•ã‚‰ã«ï¼Œæ±æœ‹ãƒ¡ãƒ³ãƒ† SW ãŒã‚ªãƒ•ã®å ´åˆï¼Œç¦æ­¢
 			return;
 		}
-#if 1	// ƒƒ“ƒe‚Å‚È‚­C“Œ•üƒƒ“ƒe‚Ìê‡‚É“®ì‹ÖŽ~‚É‚µ‚Ü‚·
+#if 1	// ãƒ¡ãƒ³ãƒ†ã§ãªãï¼Œæ±æœ‹ãƒ¡ãƒ³ãƒ†ã®å ´åˆã«å‹•ä½œç¦æ­¢ã«ã—ã¾ã™
 	} else {
-		// ƒƒ“ƒeƒiƒ“ƒX SW ‚ªƒIƒtŽž‚ÍEEE
+		// ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ SW ãŒã‚ªãƒ•æ™‚ã¯ãƒ»ãƒ»ãƒ»
 		if (0 != ((CChiefView*) m_pcChiefView)->m_DiInfo.bTHMaintenanceSW) {
-			// “Œ•üƒƒ“ƒe SW ‚ªƒIƒ“‚Ìê‡C‹ÖŽ~
+			// æ±æœ‹ãƒ¡ãƒ³ãƒ† SW ãŒã‚ªãƒ³ã®å ´åˆï¼Œç¦æ­¢
 			PifComm_DoStateDone(43);
 			return;
 		}
@@ -909,96 +909,96 @@ void CChiefRcvMailThread::EventProcessP514()
 	}
 
 	if (0 == ((CChiefView*) m_pcChiefView)->m_bGotRecipeFromPif) {
-		// ƒŒƒVƒs‚ðŽóM‚µ‚Ä‚¢‚Ü‚¹‚ñD
-		PifComm_DoStateDone(7);	// ˆÙí‰ž“š‘—M
+		// ãƒ¬ã‚·ãƒ”ã‚’å—ä¿¡ã—ã¦ã„ã¾ã›ã‚“ï¼Ž
+		PifComm_DoStateDone(7);	// ç•°å¸¸å¿œç­”é€ä¿¡
 	} else {
 		((CChiefTransiMaster*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiMaster)->TransiEvent(EV_MAS_DO_STDREF, 0);
-		PifComm_DoStateDone(0);	/* ‰ž“š‘—M	*/
+		PifComm_DoStateDone(0);	/* å¿œç­”é€ä¿¡	*/
 	}
 }
 
-// Dark ƒŠƒtƒ@ƒŒƒ“ƒXŽæ“¾ŠJŽnŽwŽ¦—v‹
+// Dark ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—é–‹å§‹æŒ‡ç¤ºè¦æ±‚
 void CChiefRcvMailThread::EventProcessP516()
 {
-	// Å‰‚ÉƒCƒ“ƒ^ƒƒbƒN
+	// æœ€åˆã«ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯
 	DWORD l_dwEMO = ((CChiefView*) m_pcChiefView)->CheckDIO_IsEMO();
 	if (0 != l_dwEMO) {
-/* modified 2009.08.18 hmenjo ƒZ[ƒtƒeƒBƒvƒ‰ƒOˆ—’Ç‰Á ---------- { ---------- */
-//		PifComm_DoStateDone(60 + l_dwEMO);	// EMOCƒhƒAƒCƒ“ƒ^ƒƒbƒNC‘•’uƒpƒ[ƒIƒt
-/* modified 2009.08.18 hmenjo ƒZ[ƒtƒeƒBƒvƒ‰ƒOˆ—’Ç‰Á ----------			   */
+/* modified 2009.08.18 hmenjo ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°å‡¦ç†è¿½åŠ  ---------- { ---------- */
+//		PifComm_DoStateDone(60 + l_dwEMO);	// EMOï¼Œãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ï¼Œè£…ç½®ãƒ‘ãƒ¯ãƒ¼ã‚ªãƒ•
+/* modified 2009.08.18 hmenjo ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°å‡¦ç†è¿½åŠ  ----------			   */
 		if (ALID_SafetyPlugOpen != l_dwEMO) {
-			PifComm_DoStateDone(60 + l_dwEMO);	/* EMOCƒhƒAƒCƒ“ƒ^ƒƒbƒNC‘•’uƒpƒ[ƒIƒt	*/
+			PifComm_DoStateDone(60 + l_dwEMO);	/* EMOï¼Œãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ï¼Œè£…ç½®ãƒ‘ãƒ¯ãƒ¼ã‚ªãƒ•	*/
 		} else {
-			PifComm_DoStateDone(69);	/* ƒZ[ƒtƒeƒBƒvƒ‰ƒO	*/
+			PifComm_DoStateDone(69);	/* ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°	*/
 		}
-/* modified 2009.08.18 hmenjo ƒZ[ƒtƒeƒBƒvƒ‰ƒOˆ—’Ç‰Á ---------- } ---------- */
+/* modified 2009.08.18 hmenjo ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°å‡¦ç†è¿½åŠ  ---------- } ---------- */
 		return;
 	}
 	if (0 != ((CChiefView*) m_pcChiefView)->CheckDIO_IsRobotArmON()) {
-		PifComm_DoStateDone(64);	// ƒƒ{ƒbƒgƒA[ƒ€ŒŸo
+		PifComm_DoStateDone(64);	// ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ æ¤œå‡º
 		return;
 	}
 	if (0 != ((CChiefView*) m_pcChiefView)->CheckDIO_IsPinDownOFF()) {
-		PifComm_DoStateDone(65);	// ƒsƒ“ƒ_ƒEƒ“‚ªƒIƒt
+		PifComm_DoStateDone(65);	// ãƒ”ãƒ³ãƒ€ã‚¦ãƒ³ãŒã‚ªãƒ•
 		return;
 	}
 	if (0 != ((CChiefView*) m_pcChiefView)->CheckDIO_IsAirPressureLowON()) {
-		PifComm_DoStateDone(66);	// ƒGƒAˆ³—Í’á‰º‚ªƒIƒt
+		PifComm_DoStateDone(66);	// ã‚¨ã‚¢åœ§åŠ›ä½Žä¸‹ãŒã‚ªãƒ•
 		return;
 	}
 	if ((0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bShutterClose) || (0 != ((CChiefView*) m_pcChiefView)->m_DiInfo.bShutterOpen)) {
-		PifComm_DoStateDone(67);	// ƒVƒƒƒbƒ^ CLOSE ‚ªƒIƒtC‚©CƒVƒƒƒbƒ^ OPEN ‚ªƒIƒ“
+		PifComm_DoStateDone(67);	// ã‚·ãƒ£ãƒƒã‚¿ CLOSE ãŒã‚ªãƒ•ï¼Œã‹ï¼Œã‚·ãƒ£ãƒƒã‚¿ OPEN ãŒã‚ªãƒ³
 		return;
 	}
-/* added 2009.10.29 hmenjo CTA Seq CTAILPI ƒ`ƒFƒbƒN ---------- { ---------- */
+/* added 2009.10.29 hmenjo CTA Seq CTAILPI ãƒã‚§ãƒƒã‚¯ ---------- { ---------- */
 	if (0 == ((CChiefView*) m_pcChiefView)->IsCtaILPI()) {
-		PifComm_DoStateDone(72);	/* CTAILPI ‚ªƒIƒt	*/
+		PifComm_DoStateDone(72);	/* CTAILPI ãŒã‚ªãƒ•	*/
 		return;
 	}
-/* added 2009.10.29 hmenjo CTA Seq CTAILPI ƒ`ƒFƒbƒN ---------- } ---------- */
-/* added 2009.11.06 K.Matsuo RS Seq Head Position ƒ`ƒFƒbƒN ---------- { ---------- */
+/* added 2009.10.29 hmenjo CTA Seq CTAILPI ãƒã‚§ãƒƒã‚¯ ---------- } ---------- */
+/* added 2009.11.06 K.Matsuo RS Seq Head Position ãƒã‚§ãƒƒã‚¯ ---------- { ---------- */
 	int iResistStatus = ((CChiefView*) m_pcChiefView)->CheckResistIL();
 	if (0 != iResistStatus) {
 		int iAckCode = 74 + iResistStatus - 1;		// 74,75,76
-		PifComm_DoStateDone(iAckCode);	/* Resistã¸’[ƒZƒ“ƒT[ ‚ªƒIƒt	*/
+		PifComm_DoStateDone(iAckCode);	/* Resistä¸Šæ˜‡ç«¯ã‚»ãƒ³ã‚µãƒ¼ ãŒã‚ªãƒ•	*/
 		return;
 	}
-// 2009.11.12 bagus MS ‰º’[ˆÊ’u2ƒ`ƒFƒbƒN --{--
+// 2009.11.12 bagus MS ä¸‹ç«¯ä½ç½®2ãƒã‚§ãƒƒã‚¯ --{--
 	if (0 == ((CChiefView*) m_pcChiefView)->IsMSILPI()) {
-		PifComm_DoStateDone(77);	/* ‰º’[ˆÊ’u‚QƒZƒ“ƒT[ON*/
+		PifComm_DoStateDone(77);	/* ä¸‹ç«¯ä½ç½®ï¼’ã‚»ãƒ³ã‚µãƒ¼ON*/
 		return;
 	}
-// 2009.11.12 bagus MS ‰º’[ˆÊ’u2ƒ`ƒFƒbƒN --}--
-/* added 2009.11.06 K.Matsuo RS Seq Head Position ƒ`ƒFƒbƒN ---------- } ---------- */
+// 2009.11.12 bagus MS ä¸‹ç«¯ä½ç½®2ãƒã‚§ãƒƒã‚¯ --}--
+/* added 2009.11.06 K.Matsuo RS Seq Head Position ãƒã‚§ãƒƒã‚¯ ---------- } ---------- */
 	if (HOST_REMOTE != ((CNanoSpecDoc*) (((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc))->GetHostMode()) {
-		PifComm_DoStateDone(20);	// ƒŠƒ‚[ƒg‚Å‚È‚©‚Á‚½
+		PifComm_DoStateDone(20);	// ãƒªãƒ¢ãƒ¼ãƒˆã§ãªã‹ã£ãŸ
 		return;
 	}
 	int l_iProcStatus = ((CChiefView*) m_pcChiefView)->ProcStatusGet();
 	if (PROCESS_WAIT != l_iProcStatus) {
-		PifComm_DoStateDone(33);	// Wait ˆÈŠO‚¾‚Á‚½
+		PifComm_DoStateDone(33);	// Wait ä»¥å¤–ã ã£ãŸ
 		return;
 	}
 	if (0 != ((CNanoSpecDoc*) ((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc)->ActuateFlagsGetAll()) {
-		PifComm_DoStateDone(41);	// “®ì’†ƒtƒ‰ƒO‚ªƒIƒ“‚¾‚Á‚½
+		PifComm_DoStateDone(41);	// å‹•ä½œä¸­ãƒ•ãƒ©ã‚°ãŒã‚ªãƒ³ã ã£ãŸ
 		return;
 	}
 	int l_iDispStatus = ((CNanoSpecDoc*) (((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc))->GetDispStatus();
 	if ((MAIN_MENU_MEASUREMENT != l_iDispStatus) && (MAIN_MENU_DATA != l_iDispStatus)) {
-		PifComm_DoStateDone(51);	// ‰æ–Êƒ‚[ƒh‚ªu‘ª’èƒ‚[ƒhv‚©uƒf[ƒ^ƒ‚[ƒhv‚Å‚È‚©‚Á‚½
+		PifComm_DoStateDone(51);	// ç”»é¢ãƒ¢ãƒ¼ãƒ‰ãŒã€Œæ¸¬å®šãƒ¢ãƒ¼ãƒ‰ã€ã‹ã€Œãƒ‡ãƒ¼ã‚¿ãƒ¢ãƒ¼ãƒ‰ã€ã§ãªã‹ã£ãŸ
 		return;
 	}
 	if (0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bMaintenanceSW) {
-		// ƒƒ“ƒeƒiƒ“ƒX SW ‚ªƒIƒ“Žž‚ÍEEE
+		// ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ SW ãŒã‚ªãƒ³æ™‚ã¯ãƒ»ãƒ»ãƒ»
 		if (0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bTHMaintenanceSW) {
-			PifComm_DoStateDone(43);	// ‚³‚ç‚ÉC“Œ•üƒƒ“ƒe SW ‚ªƒIƒt‚Ìê‡C‹ÖŽ~
+			PifComm_DoStateDone(43);	// ã•ã‚‰ã«ï¼Œæ±æœ‹ãƒ¡ãƒ³ãƒ† SW ãŒã‚ªãƒ•ã®å ´åˆï¼Œç¦æ­¢
 			return;
 		}
-#if 1	// ƒƒ“ƒe‚Å‚È‚­C“Œ•üƒƒ“ƒe‚Ìê‡‚É“®ì‹ÖŽ~‚É‚µ‚Ü‚·
+#if 1	// ãƒ¡ãƒ³ãƒ†ã§ãªãï¼Œæ±æœ‹ãƒ¡ãƒ³ãƒ†ã®å ´åˆã«å‹•ä½œç¦æ­¢ã«ã—ã¾ã™
 	} else {
-		// ƒƒ“ƒeƒiƒ“ƒX SW ‚ªƒIƒtŽž‚ÍEEE
+		// ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ SW ãŒã‚ªãƒ•æ™‚ã¯ãƒ»ãƒ»ãƒ»
 		if (0 != ((CChiefView*) m_pcChiefView)->m_DiInfo.bTHMaintenanceSW) {
-			// “Œ•üƒƒ“ƒe SW ‚ªƒIƒ“‚Ìê‡C‹ÖŽ~
+			// æ±æœ‹ãƒ¡ãƒ³ãƒ† SW ãŒã‚ªãƒ³ã®å ´åˆï¼Œç¦æ­¢
 			PifComm_DoStateDone(43);
 			return;
 		}
@@ -1006,73 +1006,73 @@ void CChiefRcvMailThread::EventProcessP516()
 	}
 
 	if (0 == ((CChiefView*) m_pcChiefView)->m_bGotRecipeFromPif) {
-		// ƒŒƒVƒs‚ðŽóM‚µ‚Ä‚¢‚Ü‚¹‚ñD
-		PifComm_DoStateDone(7);	// ˆÙí‰ž“š‘—M
+		// ãƒ¬ã‚·ãƒ”ã‚’å—ä¿¡ã—ã¦ã„ã¾ã›ã‚“ï¼Ž
+		PifComm_DoStateDone(7);	// ç•°å¸¸å¿œç­”é€ä¿¡
 	} else {
 		((CChiefTransiMaster*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiMaster)->TransiEvent(EV_MAS_DO_DRKREF, 0);
-		PifComm_DoStateDone(0);	/* ‰ž“š‘—M	*/
+		PifComm_DoStateDone(0);	/* å¿œç­”é€ä¿¡	*/
 	}
 }
-// 2014.01.07 bagus Add(Stage None‘Î‰ž) <--
+// 2014.01.07 bagus Add(Stage Noneå¯¾å¿œ) <--
 
-//	ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“ˆÚsŽwŽ¦—v‹
+//	ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³ç§»è¡ŒæŒ‡ç¤ºè¦æ±‚
 void CChiefRcvMailThread::EventProcessP601()
 {
-	// Å‰‚ÉƒCƒ“ƒ^ƒƒbƒN
+	// æœ€åˆã«ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯
 	DWORD l_dwEMO = ((CChiefView*) m_pcChiefView)->CheckDIO_IsEMO();
 	if (0 != l_dwEMO) {
-/* modified 2009.08.18 hmenjo ƒZ[ƒtƒeƒBƒvƒ‰ƒOˆ—’Ç‰Á ---------- { ---------- */
-//		PifComm_DoStateDone(60 + l_dwEMO);	// EMOCƒhƒAƒCƒ“ƒ^ƒƒbƒNC‘•’uƒpƒ[ƒIƒt
-/* modified 2009.08.18 hmenjo ƒZ[ƒtƒeƒBƒvƒ‰ƒOˆ—’Ç‰Á ----------			   */
+/* modified 2009.08.18 hmenjo ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°å‡¦ç†è¿½åŠ  ---------- { ---------- */
+//		PifComm_DoStateDone(60 + l_dwEMO);	// EMOï¼Œãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ï¼Œè£…ç½®ãƒ‘ãƒ¯ãƒ¼ã‚ªãƒ•
+/* modified 2009.08.18 hmenjo ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°å‡¦ç†è¿½åŠ  ----------			   */
 		if (ALID_SafetyPlugOpen != l_dwEMO) {
-			PifComm_DoStateDone(60 + l_dwEMO);	/* EMOCƒhƒAƒCƒ“ƒ^ƒƒbƒNC‘•’uƒpƒ[ƒIƒt	*/
+			PifComm_DoStateDone(60 + l_dwEMO);	/* EMOï¼Œãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ï¼Œè£…ç½®ãƒ‘ãƒ¯ãƒ¼ã‚ªãƒ•	*/
 		} else {
-			PifComm_DoStateDone(69);	/* ƒZ[ƒtƒeƒBƒvƒ‰ƒO	*/
+			PifComm_DoStateDone(69);	/* ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°	*/
 		}
-/* modified 2009.08.18 hmenjo ƒZ[ƒtƒeƒBƒvƒ‰ƒOˆ—’Ç‰Á ---------- } ---------- */
+/* modified 2009.08.18 hmenjo ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°å‡¦ç†è¿½åŠ  ---------- } ---------- */
 		return;
 	}
 	if (0 != ((CChiefView*) m_pcChiefView)->CheckDIO_IsRobotArmON()) {
-		PifComm_DoStateDone(64);	// ƒƒ{ƒbƒgƒA[ƒ€ŒŸo
+		PifComm_DoStateDone(64);	// ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ æ¤œå‡º
 		return;
 	}
 	if (0 != ((CChiefView*) m_pcChiefView)->CheckDIO_IsPinDownOFF()) {
-		PifComm_DoStateDone(65);	// ƒsƒ“ƒ_ƒEƒ“‚ªƒIƒt
+		PifComm_DoStateDone(65);	// ãƒ”ãƒ³ãƒ€ã‚¦ãƒ³ãŒã‚ªãƒ•
 		return;
 	}
 	if (0 != ((CChiefView*) m_pcChiefView)->CheckDIO_IsAirPressureLowON()) {
-		PifComm_DoStateDone(66);	// ƒGƒAˆ³—Í’á‰º‚ªƒIƒt
+		PifComm_DoStateDone(66);	// ã‚¨ã‚¢åœ§åŠ›ä½Žä¸‹ãŒã‚ªãƒ•
 		return;
 	}
 	if (
 		(0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bTHMaintenanceSW)
 	 && ((0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bShutterClose) || (0 != ((CChiefView*) m_pcChiefView)->m_DiInfo.bShutterOpen))
 	) {
-		PifComm_DoStateDone(67);	// “Œ•üƒƒ“ƒe‚ªƒIƒt‚ÅC‚©‚ÂCƒVƒƒƒbƒ^ CLOSE ‚ªƒIƒtC‚©CƒVƒƒƒbƒ^ OPEN ‚ªƒIƒ“
+		PifComm_DoStateDone(67);	// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãŒã‚ªãƒ•ã§ï¼Œã‹ã¤ï¼Œã‚·ãƒ£ãƒƒã‚¿ CLOSE ãŒã‚ªãƒ•ï¼Œã‹ï¼Œã‚·ãƒ£ãƒƒã‚¿ OPEN ãŒã‚ªãƒ³
 		return;
 	}
-/* added 2009.10.29 hmenjo CTA Seq CTAILPI ƒ`ƒFƒbƒN ---------- { ---------- */
+/* added 2009.10.29 hmenjo CTA Seq CTAILPI ãƒã‚§ãƒƒã‚¯ ---------- { ---------- */
 	if (0 == ((CChiefView*) m_pcChiefView)->IsCtaILPI()) {
-		PifComm_DoStateDone(72);	/* CTAILPI ‚ªƒIƒt	*/
+		PifComm_DoStateDone(72);	/* CTAILPI ãŒã‚ªãƒ•	*/
 		return;
 	}
-/* added 2009.10.29 hmenjo CTA Seq CTAILPI ƒ`ƒFƒbƒN ---------- } ---------- */
-/* added 2009.11.06 K.Matsuo RS Seq Head Position ƒ`ƒFƒbƒN ---------- { ---------- */
+/* added 2009.10.29 hmenjo CTA Seq CTAILPI ãƒã‚§ãƒƒã‚¯ ---------- } ---------- */
+/* added 2009.11.06 K.Matsuo RS Seq Head Position ãƒã‚§ãƒƒã‚¯ ---------- { ---------- */
 	int iResistStatus = ((CChiefView*) m_pcChiefView)->CheckResistIL();
 	if (0 != iResistStatus) {
 		int iAckCode = 74 + iResistStatus - 1;		// 74,75,76
-		PifComm_DoStateDone(iAckCode);	/* Resistã¸’[ƒZƒ“ƒT[ ‚ªƒIƒt	*/
+		PifComm_DoStateDone(iAckCode);	/* Resistä¸Šæ˜‡ç«¯ã‚»ãƒ³ã‚µãƒ¼ ãŒã‚ªãƒ•	*/
 		return;
 	}
-/* added 2009.11.06 K.Matsuo RS Seq Head Position ƒ`ƒFƒbƒN ---------- } ---------- */
-// 2009.11.12 bagus MS ‰º’[ˆÊ’u2ƒ`ƒFƒbƒN --{--
+/* added 2009.11.06 K.Matsuo RS Seq Head Position ãƒã‚§ãƒƒã‚¯ ---------- } ---------- */
+// 2009.11.12 bagus MS ä¸‹ç«¯ä½ç½®2ãƒã‚§ãƒƒã‚¯ --{--
 	if (0 == ((CChiefView*) m_pcChiefView)->IsMSILPI()) {
-		PifComm_DoStateDone(77);	/* ‰º’[ˆÊ’u‚QƒZƒ“ƒT[ON*/
+		PifComm_DoStateDone(77);	/* ä¸‹ç«¯ä½ç½®ï¼’ã‚»ãƒ³ã‚µãƒ¼ON*/
 		return;
 	}
-// 2009.11.12 bagus MS ‰º’[ˆÊ’u2ƒ`ƒFƒbƒN --}--
+// 2009.11.12 bagus MS ä¸‹ç«¯ä½ç½®2ãƒã‚§ãƒƒã‚¯ --}--
 	int l_iProcStatus = ((CChiefView*) m_pcChiefView)->ProcStatusGet();
-// hmenjo 2009.01.22 Complete@‚Å‚à‹–‰Â‚·‚é
+// hmenjo 2009.01.22 Completeã€€ã§ã‚‚è¨±å¯ã™ã‚‹
 //	if ((PROCESS_WAIT != l_iProcStatus) && (PROCESS_DOWN != l_iProcStatus)) {
 	if (
 		(PROCESS_WAIT != l_iProcStatus)
@@ -1080,188 +1080,188 @@ void CChiefRcvMailThread::EventProcessP601()
 	 && (PROCESS_COMP != l_iProcStatus)
 	 && (PROCESS_ABRT != l_iProcStatus)
 	) {
-		PifComm_DoStateDone(32);	// WaitCDown ˆÈŠO‚¾‚Á‚½
+		PifComm_DoStateDone(32);	// Waitï¼ŒDown ä»¥å¤–ã ã£ãŸ
 		return;
 	}
-#if 0	// ƒ^[ƒŒƒbƒg“®ì’†‚ðƒtƒ‰ƒO‚É’Ç‰Á‚µ‚½‚½‚ßCƒ^[ƒŒƒbƒg‚ÍœŠO
+#if 0	// ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆå‹•ä½œä¸­ã‚’ãƒ•ãƒ©ã‚°ã«è¿½åŠ ã—ãŸãŸã‚ï¼Œã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆã¯é™¤å¤–
 	if (0 != ((CNanoSpecDoc*) ((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc)->ActuateFlagsGetAll()) {
-#else	// ƒ^[ƒŒƒbƒg“®ì’†‚ðƒtƒ‰ƒO‚É’Ç‰Á‚µ‚½‚½‚ßCƒ^[ƒŒƒbƒg‚ÍœŠO
+#else	// ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆå‹•ä½œä¸­ã‚’ãƒ•ãƒ©ã‚°ã«è¿½åŠ ã—ãŸãŸã‚ï¼Œã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆã¯é™¤å¤–
 	DWORD l_dwActFlags = ACTUATE_XYSTAGE | ACTUATE_ZAXIS | ACTUATE_PIN | ACTUATE_SHUTTER | ACTUATE_WORKGUIDE;
 	if (0 != (l_dwActFlags & ((CNanoSpecDoc*) ((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc)->ActuateFlagsGetAll())) {
-#endif	// ƒ^[ƒŒƒbƒg“®ì’†‚ðƒtƒ‰ƒO‚É’Ç‰Á‚µ‚½‚½‚ßCƒ^[ƒŒƒbƒg‚ÍœŠO
-		PifComm_DoStateDone(41);	// “®ì’†ƒtƒ‰ƒO‚ªƒIƒ“‚¾‚Á‚½
+#endif	// ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆå‹•ä½œä¸­ã‚’ãƒ•ãƒ©ã‚°ã«è¿½åŠ ã—ãŸãŸã‚ï¼Œã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆã¯é™¤å¤–
+		PifComm_DoStateDone(41);	// å‹•ä½œä¸­ãƒ•ãƒ©ã‚°ãŒã‚ªãƒ³ã ã£ãŸ
 		return;
 	}
 	int l_iDispStatus = ((CNanoSpecDoc*) (((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc))->GetDispStatus();
 	if ((MAIN_MENU_MEASUREMENT != l_iDispStatus) && (MAIN_MENU_DATA != l_iDispStatus)) {
-		PifComm_DoStateDone(51);	// ‰æ–Êƒ‚[ƒh‚ªu‘ª’èƒ‚[ƒhv‚©uƒf[ƒ^ƒ‚[ƒhv‚Å‚È‚©‚Á‚½
+		PifComm_DoStateDone(51);	// ç”»é¢ãƒ¢ãƒ¼ãƒ‰ãŒã€Œæ¸¬å®šãƒ¢ãƒ¼ãƒ‰ã€ã‹ã€Œãƒ‡ãƒ¼ã‚¿ãƒ¢ãƒ¼ãƒ‰ã€ã§ãªã‹ã£ãŸ
 		return;
 	}
 	if (0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bMaintenanceSW) {
-		// ƒƒ“ƒeƒiƒ“ƒX SW ‚ªƒIƒ“Žž‚ÍEEE
+		// ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ SW ãŒã‚ªãƒ³æ™‚ã¯ãƒ»ãƒ»ãƒ»
 		if (0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bTHMaintenanceSW) {
-			PifComm_DoStateDone(43);	// ‚³‚ç‚ÉC“Œ•üƒƒ“ƒe SW ‚ªƒIƒt‚Ìê‡C‹ÖŽ~
+			PifComm_DoStateDone(43);	// ã•ã‚‰ã«ï¼Œæ±æœ‹ãƒ¡ãƒ³ãƒ† SW ãŒã‚ªãƒ•ã®å ´åˆï¼Œç¦æ­¢
 			return;
 		}
-#if 1	// ƒƒ“ƒe‚Å‚È‚­C“Œ•üƒƒ“ƒe‚Ìê‡‚É“®ì‹ÖŽ~‚É‚µ‚Ü‚·
+#if 1	// ãƒ¡ãƒ³ãƒ†ã§ãªãï¼Œæ±æœ‹ãƒ¡ãƒ³ãƒ†ã®å ´åˆã«å‹•ä½œç¦æ­¢ã«ã—ã¾ã™
 	} else {
-		// ƒƒ“ƒeƒiƒ“ƒX SW ‚ªƒIƒtŽž‚ÍEEE
+		// ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ SW ãŒã‚ªãƒ•æ™‚ã¯ãƒ»ãƒ»ãƒ»
 		if (0 != ((CChiefView*) m_pcChiefView)->m_DiInfo.bTHMaintenanceSW) {
-			// “Œ•üƒƒ“ƒe SW ‚ªƒIƒ“‚Ìê‡C‹ÖŽ~
+			// æ±æœ‹ãƒ¡ãƒ³ãƒ† SW ãŒã‚ªãƒ³ã®å ´åˆï¼Œç¦æ­¢
 			PifComm_DoStateDone(43);
 			return;
 		}
 #endif
 	}
 
-	double l_dSubstrateSizeX, l_dSubstrateSizeY;	// Šî”ÂƒTƒCƒY
-	// Pif ‚©‚çŠî”ÂƒTƒCƒY‚ðŽæ“¾
+	double l_dSubstrateSizeX, l_dSubstrateSizeY;	// åŸºæ¿ã‚µã‚¤ã‚º
+	// Pif ã‹ã‚‰åŸºæ¿ã‚µã‚¤ã‚ºã‚’å–å¾—
 	PifComm_GetSampleSize(&l_dSubstrateSizeX, &l_dSubstrateSizeY);
-	// Nextra ‚ÉÝ’è
+	// Nextra ã«è¨­å®š
 	BOOL l_bNexResult = nexifSetSampleSize(l_dSubstrateSizeX, l_dSubstrateSizeY);
 	if (0 == l_bNexResult) {
-		PifComm_DoStateDone(1);	// ˆÙí‰ž“š‘—M(ƒZƒbƒgo—ˆ‚Ü‚¹‚ñ‚Å‚µ‚½(Nextra ‚©‚çˆÙí(FALSE)‰ž“š))
+		PifComm_DoStateDone(1);	// ç•°å¸¸å¿œç­”é€ä¿¡(ã‚»ãƒƒãƒˆå‡ºæ¥ã¾ã›ã‚“ã§ã—ãŸ(Nextra ã‹ã‚‰ç•°å¸¸(FALSE)å¿œç­”))
 	} else {
-		// ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“ˆÚ“®ˆ—
-		PifComm_DoStateDone(0);	// ³í‰ž“š‘—M
+		// ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³ç§»å‹•å‡¦ç†
+		PifComm_DoStateDone(0);	// æ­£å¸¸å¿œç­”é€ä¿¡
 		m_pcChiefView->PostMessage(WM_CHIF_MOVE_SETPOS, 0, 0);
 	}
 }
 
-//	”Ä—pƒ|ƒWƒVƒ‡ƒ“ˆÚsŽwŽ¦—v‹
+//	æ±Žç”¨ãƒã‚¸ã‚·ãƒ§ãƒ³ç§»è¡ŒæŒ‡ç¤ºè¦æ±‚
 void CChiefRcvMailThread::EventProcessP602()
 {
-	// Å‰‚ÉƒCƒ“ƒ^ƒƒbƒN
+	// æœ€åˆã«ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯
 	DWORD l_dwEMO = ((CChiefView*) m_pcChiefView)->CheckDIO_IsEMO();
 	if (0 != l_dwEMO) {
-/* modified 2009.08.18 hmenjo ƒZ[ƒtƒeƒBƒvƒ‰ƒOˆ—’Ç‰Á ---------- { ---------- */
-//		PifComm_DoStateDone(60 + l_dwEMO);	// EMOCƒhƒAƒCƒ“ƒ^ƒƒbƒNC‘•’uƒpƒ[ƒIƒt
-/* modified 2009.08.18 hmenjo ƒZ[ƒtƒeƒBƒvƒ‰ƒOˆ—’Ç‰Á ----------			   */
+/* modified 2009.08.18 hmenjo ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°å‡¦ç†è¿½åŠ  ---------- { ---------- */
+//		PifComm_DoStateDone(60 + l_dwEMO);	// EMOï¼Œãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ï¼Œè£…ç½®ãƒ‘ãƒ¯ãƒ¼ã‚ªãƒ•
+/* modified 2009.08.18 hmenjo ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°å‡¦ç†è¿½åŠ  ----------			   */
 		if (ALID_SafetyPlugOpen != l_dwEMO) {
-			PifComm_DoStateDone(60 + l_dwEMO);	/* EMOCƒhƒAƒCƒ“ƒ^ƒƒbƒNC‘•’uƒpƒ[ƒIƒt	*/
+			PifComm_DoStateDone(60 + l_dwEMO);	/* EMOï¼Œãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ï¼Œè£…ç½®ãƒ‘ãƒ¯ãƒ¼ã‚ªãƒ•	*/
 		} else {
-			PifComm_DoStateDone(69);	/* ƒZ[ƒtƒeƒBƒvƒ‰ƒO	*/
+			PifComm_DoStateDone(69);	/* ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°	*/
 		}
-/* modified 2009.08.18 hmenjo ƒZ[ƒtƒeƒBƒvƒ‰ƒOˆ—’Ç‰Á ---------- } ---------- */
+/* modified 2009.08.18 hmenjo ã‚»ãƒ¼ãƒ•ãƒ†ã‚£ãƒ—ãƒ©ã‚°å‡¦ç†è¿½åŠ  ---------- } ---------- */
 		return;
 	}
 	if (0 != ((CChiefView*) m_pcChiefView)->CheckDIO_IsRobotArmON()) {
-		PifComm_DoStateDone(64);	// ƒƒ{ƒbƒgƒA[ƒ€ŒŸo
+		PifComm_DoStateDone(64);	// ãƒ­ãƒœãƒƒãƒˆã‚¢ãƒ¼ãƒ æ¤œå‡º
 		return;
 	}
 	if (0 != ((CChiefView*) m_pcChiefView)->CheckDIO_IsPinDownOFF()) {
-		PifComm_DoStateDone(65);	// ƒsƒ“ƒ_ƒEƒ“‚ªƒIƒt
+		PifComm_DoStateDone(65);	// ãƒ”ãƒ³ãƒ€ã‚¦ãƒ³ãŒã‚ªãƒ•
 		return;
 	}
 	if (0 != ((CChiefView*) m_pcChiefView)->CheckDIO_IsAirPressureLowON()) {
-		PifComm_DoStateDone(66);	// ƒGƒAˆ³—Í’á‰º‚ªƒIƒt
+		PifComm_DoStateDone(66);	// ã‚¨ã‚¢åœ§åŠ›ä½Žä¸‹ãŒã‚ªãƒ•
 		return;
 	}
 	if (
 		(0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bTHMaintenanceSW)
 	 && ((0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bShutterClose) || (0 != ((CChiefView*) m_pcChiefView)->m_DiInfo.bShutterOpen))
 	) {
-		PifComm_DoStateDone(67);	// “Œ•üƒƒ“ƒe‚ªƒIƒt‚ÅC‚©‚ÂCƒVƒƒƒbƒ^ CLOSE ‚ªƒIƒtC‚©CƒVƒƒƒbƒ^ OPEN ‚ªƒIƒ“
+		PifComm_DoStateDone(67);	// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãŒã‚ªãƒ•ã§ï¼Œã‹ã¤ï¼Œã‚·ãƒ£ãƒƒã‚¿ CLOSE ãŒã‚ªãƒ•ï¼Œã‹ï¼Œã‚·ãƒ£ãƒƒã‚¿ OPEN ãŒã‚ªãƒ³
 		return;
 	}
-/* added 2009.10.29 hmenjo CTA Seq CTAILPI ƒ`ƒFƒbƒN ---------- { ---------- */
+/* added 2009.10.29 hmenjo CTA Seq CTAILPI ãƒã‚§ãƒƒã‚¯ ---------- { ---------- */
 	if (0 == ((CChiefView*) m_pcChiefView)->IsCtaILPI()) {
-		PifComm_DoStateDone(72);	/* CTAILPI ‚ªƒIƒt	*/
+		PifComm_DoStateDone(72);	/* CTAILPI ãŒã‚ªãƒ•	*/
 		return;
 	}
-/* added 2009.10.29 hmenjo CTA Seq CTAILPI ƒ`ƒFƒbƒN ---------- } ---------- */
-/* added 2009.11.06 K.Matsuo RS Seq Head Position ƒ`ƒFƒbƒN ---------- { ---------- */
+/* added 2009.10.29 hmenjo CTA Seq CTAILPI ãƒã‚§ãƒƒã‚¯ ---------- } ---------- */
+/* added 2009.11.06 K.Matsuo RS Seq Head Position ãƒã‚§ãƒƒã‚¯ ---------- { ---------- */
 	int iResistStatus = ((CChiefView*) m_pcChiefView)->CheckResistIL();
 	if (0 != iResistStatus) {
 		int iAckCode = 74 + iResistStatus - 1;		// 74,75,76
-		PifComm_DoStateDone(iAckCode);	/* Resistã¸’[ƒZƒ“ƒT[ ‚ªƒIƒt	*/
+		PifComm_DoStateDone(iAckCode);	/* Resistä¸Šæ˜‡ç«¯ã‚»ãƒ³ã‚µãƒ¼ ãŒã‚ªãƒ•	*/
 		return;
 	}
-/* added 2009.11.06 K.Matsuo RS Seq Head Position ƒ`ƒFƒbƒN ---------- } ---------- */
-// 2009.11.12 bagus MS ‰º’[ˆÊ’u2ƒ`ƒFƒbƒN --{--
+/* added 2009.11.06 K.Matsuo RS Seq Head Position ãƒã‚§ãƒƒã‚¯ ---------- } ---------- */
+// 2009.11.12 bagus MS ä¸‹ç«¯ä½ç½®2ãƒã‚§ãƒƒã‚¯ --{--
 	if (0 == ((CChiefView*) m_pcChiefView)->IsMSILPI()) {
-		PifComm_DoStateDone(77);	/* ‰º’[ˆÊ’u‚QƒZƒ“ƒT[ON*/
+		PifComm_DoStateDone(77);	/* ä¸‹ç«¯ä½ç½®ï¼’ã‚»ãƒ³ã‚µãƒ¼ON*/
 		return;
 	}
-// 2009.11.12 bagus MS ‰º’[ˆÊ’u2ƒ`ƒFƒbƒN --}--
+// 2009.11.12 bagus MS ä¸‹ç«¯ä½ç½®2ãƒã‚§ãƒƒã‚¯ --}--
 	int l_iProcStatus = ((CChiefView*) m_pcChiefView)->ProcStatusGet();
 	if ((PROCESS_WAIT != l_iProcStatus) && (PROCESS_DOWN != l_iProcStatus)) {
-		PifComm_DoStateDone(32);	// WaitCDown ˆÈŠO‚¾‚Á‚½
+		PifComm_DoStateDone(32);	// Waitï¼ŒDown ä»¥å¤–ã ã£ãŸ
 		return;
 	}
-#if 0	// ƒ^[ƒŒƒbƒg“®ì’†‚ðƒtƒ‰ƒO‚É’Ç‰Á‚µ‚½‚½‚ßCƒ^[ƒŒƒbƒg‚ÍœŠO
+#if 0	// ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆå‹•ä½œä¸­ã‚’ãƒ•ãƒ©ã‚°ã«è¿½åŠ ã—ãŸãŸã‚ï¼Œã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆã¯é™¤å¤–
 	if (0 != ((CNanoSpecDoc*) ((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc)->ActuateFlagsGetAll()) {
-#else	// ƒ^[ƒŒƒbƒg“®ì’†‚ðƒtƒ‰ƒO‚É’Ç‰Á‚µ‚½‚½‚ßCƒ^[ƒŒƒbƒg‚ÍœŠO
+#else	// ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆå‹•ä½œä¸­ã‚’ãƒ•ãƒ©ã‚°ã«è¿½åŠ ã—ãŸãŸã‚ï¼Œã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆã¯é™¤å¤–
 	DWORD l_dwActFlags = ACTUATE_XYSTAGE | ACTUATE_ZAXIS | ACTUATE_PIN | ACTUATE_SHUTTER | ACTUATE_WORKGUIDE;
 	if (0 != (l_dwActFlags & ((CNanoSpecDoc*) ((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc)->ActuateFlagsGetAll())) {
-#endif	// ƒ^[ƒŒƒbƒg“®ì’†‚ðƒtƒ‰ƒO‚É’Ç‰Á‚µ‚½‚½‚ßCƒ^[ƒŒƒbƒg‚ÍœŠO
-		PifComm_DoStateDone(41);	// “®ì’†ƒtƒ‰ƒO‚ªƒIƒ“‚¾‚Á‚½
+#endif	// ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆå‹•ä½œä¸­ã‚’ãƒ•ãƒ©ã‚°ã«è¿½åŠ ã—ãŸãŸã‚ï¼Œã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆã¯é™¤å¤–
+		PifComm_DoStateDone(41);	// å‹•ä½œä¸­ãƒ•ãƒ©ã‚°ãŒã‚ªãƒ³ã ã£ãŸ
 		return;
 	}
 	int l_iDispStatus = ((CNanoSpecDoc*) (((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc))->GetDispStatus();
 	if ((MAIN_MENU_MEASUREMENT != l_iDispStatus) && (MAIN_MENU_DATA != l_iDispStatus)) {
-		PifComm_DoStateDone(51);	// ‰æ–Êƒ‚[ƒh‚ªu‘ª’èƒ‚[ƒhv‚©uƒf[ƒ^ƒ‚[ƒhv‚Å‚È‚©‚Á‚½
+		PifComm_DoStateDone(51);	// ç”»é¢ãƒ¢ãƒ¼ãƒ‰ãŒã€Œæ¸¬å®šãƒ¢ãƒ¼ãƒ‰ã€ã‹ã€Œãƒ‡ãƒ¼ã‚¿ãƒ¢ãƒ¼ãƒ‰ã€ã§ãªã‹ã£ãŸ
 		return;
 	}
 	if (0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bMaintenanceSW) {
-		// ƒƒ“ƒeƒiƒ“ƒX SW ‚ªƒIƒ“Žž‚ÍEEE
+		// ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ SW ãŒã‚ªãƒ³æ™‚ã¯ãƒ»ãƒ»ãƒ»
 		if (0 == ((CChiefView*) m_pcChiefView)->m_DiInfo.bTHMaintenanceSW) {
-			PifComm_DoStateDone(43);	// ‚³‚ç‚ÉC“Œ•üƒƒ“ƒe SW ‚ªƒIƒt‚Ìê‡C‹ÖŽ~
+			PifComm_DoStateDone(43);	// ã•ã‚‰ã«ï¼Œæ±æœ‹ãƒ¡ãƒ³ãƒ† SW ãŒã‚ªãƒ•ã®å ´åˆï¼Œç¦æ­¢
 			return;
 		}
-#if 1	// ƒƒ“ƒe‚Å‚È‚­C“Œ•üƒƒ“ƒe‚Ìê‡‚É“®ì‹ÖŽ~‚É‚µ‚Ü‚·
+#if 1	// ãƒ¡ãƒ³ãƒ†ã§ãªãï¼Œæ±æœ‹ãƒ¡ãƒ³ãƒ†ã®å ´åˆã«å‹•ä½œç¦æ­¢ã«ã—ã¾ã™
 	} else {
-		// ƒƒ“ƒeƒiƒ“ƒX SW ‚ªƒIƒtŽž‚ÍEEE
+		// ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ SW ãŒã‚ªãƒ•æ™‚ã¯ãƒ»ãƒ»ãƒ»
 		if (0 != ((CChiefView*) m_pcChiefView)->m_DiInfo.bTHMaintenanceSW) {
-			// “Œ•üƒƒ“ƒe SW ‚ªƒIƒ“‚Ìê‡C‹ÖŽ~
+			// æ±æœ‹ãƒ¡ãƒ³ãƒ† SW ãŒã‚ªãƒ³ã®å ´åˆï¼Œç¦æ­¢
 			PifComm_DoStateDone(43);
 			return;
 		}
 #endif
 	}
 
-	// ”Ä—pƒ|ƒWƒVƒ‡ƒ“ˆÊ’u”Ô†‚ðŽæ“¾
+	// æ±Žç”¨ãƒã‚¸ã‚·ãƒ§ãƒ³ä½ç½®ç•ªå·ã‚’å–å¾—
 	int l_iMovePosId;
 	l_iMovePosId = PifComm_GetMovePosId();
 	if ((l_iMovePosId < 1) || (GENERAL_POSITION_MAX < l_iMovePosId)) {
-		// ”ÍˆÍ(1`GENERAL_POSITION_MAX)ŠOƒGƒ‰[
-		PifComm_DoStateDone(1);	// ˆÙí‰ž“š‘—M
+		// ç¯„å›²(1ã€œGENERAL_POSITION_MAX)å¤–ã‚¨ãƒ©ãƒ¼
+		PifComm_DoStateDone(1);	// ç•°å¸¸å¿œç­”é€ä¿¡
 	} else {
-		PifComm_DoStateDone(0);	// ³í‰ž“š‘—M
+		PifComm_DoStateDone(0);	// æ­£å¸¸å¿œç­”é€ä¿¡
 		m_pcChiefView->PostMessage(WM_CHIF_MOVE_SETPOS, (WPARAM) l_iMovePosId, 0);
 	}
 }
 
-//	‘ª’èƒLƒƒƒ“ƒZƒ‹ŽwŽ¦—v‹
+//	æ¸¬å®šã‚­ãƒ£ãƒ³ã‚»ãƒ«æŒ‡ç¤ºè¦æ±‚
 void CChiefRcvMailThread::EventProcessP611()
 {
 	if (HOST_REMOTE != ((CNanoSpecDoc*) (((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc))->GetHostMode()) {
-		PifComm_DoStateDone(20);	// ƒŠƒ‚[ƒg‚Å‚È‚¢
+		PifComm_DoStateDone(20);	// ãƒªãƒ¢ãƒ¼ãƒˆã§ãªã„
 	} else if (PROCESS_PROC != ((CChiefView*) m_pcChiefView)->ProcStatusGet()) {
-		PifComm_DoStateDone(31);	// Processing ‚Å‚È‚¢
+		PifComm_DoStateDone(31);	// Processing ã§ãªã„
 	} else {
-/* modified 2009.08.03 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(12) ---------- { ---------- */
+/* modified 2009.08.03 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (12) ---------- { ---------- */
 //		if (false == ((CChiefTransiSeq*) (((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq))->IsIdle()) {
-//			// ƒLƒƒƒ“ƒZƒ‹ƒCƒxƒ“ƒg‚ð”­s
+//			// ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã‚¤ãƒ™ãƒ³ãƒˆã‚’ç™ºè¡Œ
 //			((CChiefTransiSeq*) (((CChiefView*) m_pcChiefView)->m_pcChiefTransiSeq))->TransiEvent(EV_SEQ_CANCEL);
-//			((CChiefView*) m_pcChiefView)->m_bReqCancelComplete = TRUE;	// ‘ª’èƒLƒƒƒ“ƒZƒ‹Š®—¹•ñŽw—ß—L‚è
-//			PifComm_DoStateDone(0);	// ³í‰ž“š‘—M
-/* modified 2009.08.03 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(12) ----------			   */
+//			((CChiefView*) m_pcChiefView)->m_bReqCancelComplete = TRUE;	// æ¸¬å®šã‚­ãƒ£ãƒ³ã‚»ãƒ«å®Œäº†å ±å‘ŠæŒ‡ä»¤æœ‰ã‚Š
+//			PifComm_DoStateDone(0);	// æ­£å¸¸å¿œç­”é€ä¿¡
+/* modified 2009.08.03 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (12) ----------			   */
 		CHIEF_PFUNCS l_ChiefPFuncs;
 		if (0 == PFC_FuncSet((CChiefView*) m_pcChiefView, &l_ChiefPFuncs, 0)) {
-			/* ƒwƒbƒhƒ^ƒCƒvˆÙí	*/
-			PifComm_DoStateDone(1);	/* ˆÙí‰ž“š‘—M	*/
+			/* ãƒ˜ãƒƒãƒ‰ã‚¿ã‚¤ãƒ—ç•°å¸¸	*/
+			PifComm_DoStateDone(1);	/* ç•°å¸¸å¿œç­”é€ä¿¡	*/
 			return;
 		}
 		if (false == (*l_ChiefPFuncs.IsIdle)((CChiefView*) m_pcChiefView)) {
-			/* ƒLƒƒƒ“ƒZƒ‹ƒCƒxƒ“ƒg‚ð”­s	*/
+			/* ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã‚¤ãƒ™ãƒ³ãƒˆã‚’ç™ºè¡Œ	*/
 			(*l_ChiefPFuncs.TransiEvent)((CChiefView*) m_pcChiefView, l_ChiefPFuncs.Event.iCANCEL, 0);
-			((CChiefView*) m_pcChiefView)->m_bReqCancelComplete = TRUE;	/* ‘ª’èƒLƒƒƒ“ƒZƒ‹Š®—¹•ñŽw—ß—L‚è	*/
-			PifComm_DoStateDone(0);	/* ³í‰ž“š‘—M	*/
-/* modified 2009.08.03 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(12) ---------- } ---------- */
+			((CChiefView*) m_pcChiefView)->m_bReqCancelComplete = TRUE;	/* æ¸¬å®šã‚­ãƒ£ãƒ³ã‚»ãƒ«å®Œäº†å ±å‘ŠæŒ‡ä»¤æœ‰ã‚Š	*/
+			PifComm_DoStateDone(0);	/* æ­£å¸¸å¿œç­”é€ä¿¡	*/
+/* modified 2009.08.03 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (12) ---------- } ---------- */
 		} else {
-			// ƒV[ƒPƒ“ƒX‘ª’èƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ªŽÀs’†‚Å‚È‚©‚Á‚½
-			PifComm_DoStateDone(1);	// ˆÙí‰ž“š‘—M
+			// ã‚·ãƒ¼ã‚±ãƒ³ã‚¹æ¸¬å®šãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãŒå®Ÿè¡Œä¸­ã§ãªã‹ã£ãŸ
+			PifComm_DoStateDone(1);	// ç•°å¸¸å¿œç­”é€ä¿¡
 		}
 	}
 }

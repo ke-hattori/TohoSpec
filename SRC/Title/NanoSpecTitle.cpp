@@ -1,4 +1,4 @@
-// NanoSpecTitle.cpp : �A�v���P�[�V�����p�N���X�̒�`���s���܂��B
+﻿// NanoSpecTitle.cpp : �A�v���P�[�V�����p�N���X�̒�`���s���܂��B
 //
 
 #include "stdafx.h"

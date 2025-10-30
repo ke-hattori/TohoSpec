@@ -1,4 +1,4 @@
-// Pattern.cpp
+ï»¿// Pattern.cpp
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -14,7 +14,7 @@ static char THIS_FILE[]=__FILE__;
 #endif
 
 
-// ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚é‚©‚ğŠm”F‚·‚éŠÖ”i‘¶İ‚·‚éê‡A‚ ‚í‚¹‚ÄÅIXV“ú‚ğİ’è‚·‚éj
+// ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã‹ã‚’ç¢ºèªã™ã‚‹é–¢æ•°ï¼ˆå­˜åœ¨ã™ã‚‹å ´åˆã€ã‚ã‚ã›ã¦æœ€çµ‚æ›´æ–°æ—¥æ™‚ã‚’è¨­å®šã™ã‚‹ï¼‰
 BOOL FILEEXIST(LPCTSTR pszFileName, SYSTEMTIME* lpLastWriteSystemTime)
 {
 	WIN32_FILE_ATTRIBUTE_DATA win32Data;
@@ -27,13 +27,13 @@ BOOL FILEEXIST(LPCTSTR pszFileName, SYSTEMTIME* lpLastWriteSystemTime)
 	return TRUE;
 }
 
-// PatternFile‚ÌStageProgram‚ÌƒZƒNƒVƒ‡ƒ“–¼
+// PatternFileã®StageProgramã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³å
 char g_lpszPatternFileStageProgramSection[] = "StageProgram";
 
-// PatternFile‚ÌStageProgram‚Ìƒ|ƒCƒ“ƒg”
+// PatternFileã®StageProgramã®ãƒã‚¤ãƒ³ãƒˆæ•°
 char g_lpszPatternFileStageProgramPointNum[] = "NumScans";
 
-// PatternFile‚ÌPoint‚ÌƒŠƒXƒg‚ÌƒZƒNƒVƒ‡ƒ“–¼
+// PatternFileã®Pointã®ãƒªã‚¹ãƒˆã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³å
 char g_lpszPatternFilePointListSection[] = "Point";
 
 //2009.12.10 bagus Recipe Backup --{--
@@ -43,32 +43,32 @@ BOOL g_bUseBackup;
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : LoadPointList
-// Purpose	  : PatternFile‚Ìƒpƒ^[ƒ“ƒŠƒXƒg‚Ì“Ç‚İ‚İ
-// Parameters : pPoint		---> SITE_PATTERN‚Ì”z—ñ
-//				pNumScans	---> “Ç‚İ‚Ş‘ª’èƒ|ƒCƒ“ƒg”
-//				pszFileName ---> ƒtƒ@ƒCƒ‹–¼
+// Purpose	  : PatternFileã®ãƒ‘ã‚¿ãƒ¼ãƒ³ãƒªã‚¹ãƒˆã®èª­ã¿è¾¼ã¿
+// Parameters : pPoint		---> SITE_PATTERNã®é…åˆ—
+//				pNumScans	---> èª­ã¿è¾¼ã‚€æ¸¬å®šãƒã‚¤ãƒ³ãƒˆæ•°
+//				pszFileName ---> ãƒ•ã‚¡ã‚¤ãƒ«å
 //
-// Returns	  : TRUE  ---> “Ç‚İ‚İ¬Œ÷
-//				FALSE ---> “Ç‚İ‚İ¸”s
+// Returns	  : TRUE  ---> èª­ã¿è¾¼ã¿æˆåŠŸ
+//				FALSE ---> èª­ã¿è¾¼ã¿å¤±æ•—
 BOOL LoadPointList(SITE_PATTERN* pPoint, WORD* pNumScans, LPCSTR pszFileName)
 {
 	char szFilePath[_MAX_PATH];
 	MakePatternFilePath(szFilePath, pszFileName);
-//	sprintf(szFilePath, DB_PATTERN_DIR "%s" PATTERN_EXT, pszFileName);		// ƒXƒe[ƒWPGM
+//	sprintf(szFilePath, DB_PATTERN_DIR "%s" PATTERN_EXT, pszFileName);		// ã‚¹ãƒ†ãƒ¼ã‚¸PGM
 	return LoadPointList2(pPoint, pNumScans, szFilePath);
 }
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : LoadPointList2
-// Purpose	  : PatternFile‚Ìƒpƒ^[ƒ“ƒŠƒXƒg‚Ì“Ç‚İ‚İ
-// Parameters : pPoint	  ---> SITE_PATTERN‚Ì”z—ñ
-//				pNumScans ---> “Ç‚İ‚Ş‘ª’èƒ|ƒCƒ“ƒg”
-//								NULL‚ğw’è‚³‚ê‚½ê‡‚Íƒtƒ@ƒCƒ‹“à‚É
-//								“o˜^‚³‚ê‚Ä‚¢‚é‘ª’èƒ|ƒCƒ“ƒg”
-//				pszFilePath ---> ƒtƒ@ƒCƒ‹ƒpƒX–¼
+// Purpose	  : PatternFileã®ãƒ‘ã‚¿ãƒ¼ãƒ³ãƒªã‚¹ãƒˆã®èª­ã¿è¾¼ã¿
+// Parameters : pPoint	  ---> SITE_PATTERNã®é…åˆ—
+//				pNumScans ---> èª­ã¿è¾¼ã‚€æ¸¬å®šãƒã‚¤ãƒ³ãƒˆæ•°
+//								NULLã‚’æŒ‡å®šã•ã‚ŒãŸå ´åˆã¯ãƒ•ã‚¡ã‚¤ãƒ«å†…ã«
+//								ç™»éŒ²ã•ã‚Œã¦ã„ã‚‹æ¸¬å®šãƒã‚¤ãƒ³ãƒˆæ•°
+//				pszFilePath ---> ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹å
 //
-// Returns	  : TRUE  ---> “Ç‚İ‚İ¬Œ÷
-//				FALSE ---> “Ç‚İ‚İ¸”s
+// Returns	  : TRUE  ---> èª­ã¿è¾¼ã¿æˆåŠŸ
+//				FALSE ---> èª­ã¿è¾¼ã¿å¤±æ•—
 BOOL LoadPointList2(SITE_PATTERN* pPoint, WORD* pNumScans, LPCSTR pszFilePath)
 {
 	CHAR	szBuf[RECIPE_COMMENT_LEN + 1];
@@ -78,14 +78,14 @@ BOOL LoadPointList2(SITE_PATTERN* pPoint, WORD* pNumScans, LPCSTR pszFilePath)
 	int		pos1, pos2;
 	SYSTEMTIME lastWriteSystemTime;
 
-	// ƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢ê‡
+	// ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„å ´åˆ
 	if ( !FILEEXIST(pszFilePath, &lastWriteSystemTime) )
 		return FALSE;
 
 	TRY
 	{
 		if( *pNumScans == NULL ){
-			// “Ç‚İ‚İ”‚ªw’è‚³‚ê‚Ä‚¢‚È‚¢ê‡
+			// èª­ã¿è¾¼ã¿æ•°ãŒæŒ‡å®šã•ã‚Œã¦ã„ãªã„å ´åˆ
 			memset( szBuf, '\0', sizeof(szBuf) );
 			::GetPrivateProfileString((LPCTSTR)g_lpszPatternFileStageProgramSection,
 									(LPCTSTR)g_lpszPatternFileStageProgramPointNum,
@@ -96,7 +96,7 @@ BOOL LoadPointList2(SITE_PATTERN* pPoint, WORD* pNumScans, LPCSTR pszFilePath)
 			*pNumScans = (WORD)atoi(szBuf);
 		}
 		CStdioFile file(pszFilePath, CFile::modeRead);
-		// ƒZƒNƒVƒ‡ƒ“[Point]‚ğ’T‚·
+		// ã‚»ã‚¯ã‚·ãƒ§ãƒ³[Point]ã‚’æ¢ã™
 		memset( szSection, '\0', sizeof(szSection) );
 		sprintf( szSection, "[%s]", g_lpszPatternFilePointListSection );
 		while(file.ReadString(strBuff)){
@@ -165,13 +165,13 @@ BOOL LoadPointList2(SITE_PATTERN* pPoint, WORD* pNumScans, LPCSTR pszFilePath)
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : SavePointList
-// Purpose	  : PatternFile‚Ìƒpƒ^[ƒ“ƒŠƒXƒg‚Ì•Û‘¶
-// Parameters : pPoint		---> SITE_PATTERN‚Ì”z—ñ
-//				wNumScans	---> •Û‘¶‚·‚é‘ª’èƒ|ƒCƒ“ƒg”
-//				pszFileName ---> ƒtƒ@ƒCƒ‹–¼
+// Purpose	  : PatternFileã®ãƒ‘ã‚¿ãƒ¼ãƒ³ãƒªã‚¹ãƒˆã®ä¿å­˜
+// Parameters : pPoint		---> SITE_PATTERNã®é…åˆ—
+//				wNumScans	---> ä¿å­˜ã™ã‚‹æ¸¬å®šãƒã‚¤ãƒ³ãƒˆæ•°
+//				pszFileName ---> ãƒ•ã‚¡ã‚¤ãƒ«å
 //
-// Returns	  : TRUE  ---> •Û‘¶¬Œ÷
-//				FALSE ---> •Û‘¶¸”s
+// Returns	  : TRUE  ---> ä¿å­˜æˆåŠŸ
+//				FALSE ---> ä¿å­˜å¤±æ•—
 BOOL SavePointList(const SITE_PATTERN* pPoint, WORD wNumScans, LPCSTR pszFileName)
 {
 	char szFilePath[_MAX_PATH];
@@ -182,42 +182,42 @@ BOOL SavePointList(const SITE_PATTERN* pPoint, WORD wNumScans, LPCSTR pszFileNam
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : SavePointList2
-// Purpose	  : PatternFile‚Ìƒpƒ^[ƒ“ƒŠƒXƒg‚Ì•Û‘¶
-// Parameters : pPoint		---> SITE_PATTERN‚Ì”z—ñ
-//				wNumScans	---> •Û‘¶‚·‚é‘ª’èƒ|ƒCƒ“ƒg”
-//				pszFilePath ---> ƒtƒ@ƒCƒ‹ƒpƒX–¼
+// Purpose	  : PatternFileã®ãƒ‘ã‚¿ãƒ¼ãƒ³ãƒªã‚¹ãƒˆã®ä¿å­˜
+// Parameters : pPoint		---> SITE_PATTERNã®é…åˆ—
+//				wNumScans	---> ä¿å­˜ã™ã‚‹æ¸¬å®šãƒã‚¤ãƒ³ãƒˆæ•°
+//				pszFilePath ---> ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹å
 //
-// Returns	  : TRUE  ---> •Û‘¶¬Œ÷
-//				FALSE ---> •Û‘¶¸”s
+// Returns	  : TRUE  ---> ä¿å­˜æˆåŠŸ
+//				FALSE ---> ä¿å­˜å¤±æ•—
 BOOL SavePointList2(const SITE_PATTERN* pPoint, WORD wNumScans, LPCSTR pszFilePath)
 {
 	SYSTEMTIME lastWriteSystemTime;
 	char Buff[256];
 	TRY
 	{
-		// ƒ|ƒCƒ“ƒg”‚ğƒ`ƒFƒbƒN‚·‚é
+		// ãƒã‚¤ãƒ³ãƒˆæ•°ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹
 		if( wNumScans == NULL ) return FALSE;
 
-		// ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éê‡‚Ííœ‚·‚é
+		// ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹å ´åˆã¯å‰Šé™¤ã™ã‚‹
 		if ( FILEEXIST(pszFilePath, &lastWriteSystemTime) )
 			::DeleteFile(pszFilePath);
 
 		CStdioFile file(pszFilePath, CFile::modeWrite | CFile::modeCreate | CFile::modeNoTruncate);
 		file.SeekToEnd();
 
-		// ƒZƒNƒVƒ‡ƒ“–¼[StageProgram]‚ğ‘‚«‚Ş
+		// ã‚»ã‚¯ã‚·ãƒ§ãƒ³å[StageProgram]ã‚’æ›¸ãè¾¼ã‚€
 		sprintf(Buff, "[%s]\n", g_lpszPatternFileStageProgramSection);
 		file.WriteString(Buff);
 
-		// ƒ|ƒCƒ“ƒg”‚ğ‘‚«‚Ş
+		// ãƒã‚¤ãƒ³ãƒˆæ•°ã‚’æ›¸ãè¾¼ã‚€
 		sprintf(Buff, "%s=%d\n", g_lpszPatternFileStageProgramPointNum, wNumScans);
 		file.WriteString(Buff);
 
-		// ƒZƒNƒVƒ‡ƒ“–¼[Point]‚ğ‘‚«‚Ş
+		// ã‚»ã‚¯ã‚·ãƒ§ãƒ³å[Point]ã‚’æ›¸ãè¾¼ã‚€
 		sprintf(Buff, "[%s]\n", g_lpszPatternFilePointListSection);
 		file.WriteString(Buff);
 
-		// ƒ|ƒCƒ“ƒg‚ğ‘‚«‚Ş
+		// ãƒã‚¤ãƒ³ãƒˆã‚’æ›¸ãè¾¼ã‚€
 		for(int i = 0; i < (int)wNumScans; i++){
 			sprintf(Buff, "%d:%d,%d,%s,%d,%d,%s,%d\n" , i + 1
 												, (pPoint + i)->bEnable
@@ -245,50 +245,50 @@ BOOL SavePointList2(const SITE_PATTERN* pPoint, WORD wNumScans, LPCSTR pszFilePa
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : MakePatternFilePath
-// Purpose	  : ƒtƒ@ƒCƒ‹–¼‚ÆƒŒƒVƒsƒ^ƒCƒv‚©‚çƒtƒ@ƒCƒ‹ƒpƒX–¼‚ğ¶¬
-// Parameters : pszFilePath ---> ƒtƒ@ƒCƒ‹ƒpƒX–¼
-//				pszFileName ---> ƒtƒ@ƒCƒ‹–¼
-//				iType		---> ‚Ç‚Ìƒtƒ@ƒCƒ‹(MainReicpe“™)‚È‚Ì‚©‚ğŒˆ‚ß‚é•Ï”
-//				iOption1 ---> ƒIƒvƒVƒ‡ƒ“ƒf[ƒ^‚P
+// Purpose	  : ãƒ•ã‚¡ã‚¤ãƒ«åã¨ãƒ¬ã‚·ãƒ”ã‚¿ã‚¤ãƒ—ã‹ã‚‰ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹åã‚’ç”Ÿæˆ
+// Parameters : pszFilePath ---> ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹å
+//				pszFileName ---> ãƒ•ã‚¡ã‚¤ãƒ«å
+//				iType		---> ã©ã®ãƒ•ã‚¡ã‚¤ãƒ«(MainReicpeç­‰)ãªã®ã‹ã‚’æ±ºã‚ã‚‹å¤‰æ•°
+//				iOption1 ---> ã‚ªãƒ—ã‚·ãƒ§ãƒ³ãƒ‡ãƒ¼ã‚¿ï¼‘
 //
 void MakePatternFilePath(LPSTR pszFilePath, LPCSTR pszFileName)
 {
-/* modified 2009.07.01 hmenjo PatternFile ‘Š‘ÎƒpƒX‘Î‰ ---------- { ---------- */
+/* modified 2009.07.01 hmenjo PatternFile ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ---------- { ---------- */
 //	sprintf(pszFilePath, DB_PATTERN_DIR "%s" PATTERN_EXT, pszFileName);
-/* modified 2009.07.01 hmenjo PatternFile ‘Š‘ÎƒpƒX‘Î‰ ----------			   */
+/* modified 2009.07.01 hmenjo PatternFile ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ----------			   */
 	_stprintf(pszFilePath, _T("%s%s%s%s"), g_tszProcDir, _T(DB_PATTERN_DIR), pszFileName, _T(PATTERN_EXT));
-/* modified 2009.07.01 hmenjo PatternFile ‘Š‘ÎƒpƒX‘Î‰ ---------- } ---------- */
+/* modified 2009.07.01 hmenjo PatternFile ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ---------- } ---------- */
 }
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : MakePatternImageFilePath
-// Purpose	  : ƒtƒ@ƒCƒ‹–¼‚ÆƒŒƒVƒsƒ^ƒCƒv‚©‚çƒtƒ@ƒCƒ‹ƒpƒX–¼‚ğ¶¬
-// Parameters : pszFilePath ---> ƒtƒ@ƒCƒ‹ƒpƒX–¼
-//				pszFileName ---> ƒtƒ@ƒCƒ‹–¼
-//				iOption1 ---> ƒIƒvƒVƒ‡ƒ“ƒf[ƒ^‚P
+// Purpose	  : ãƒ•ã‚¡ã‚¤ãƒ«åã¨ãƒ¬ã‚·ãƒ”ã‚¿ã‚¤ãƒ—ã‹ã‚‰ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹åã‚’ç”Ÿæˆ
+// Parameters : pszFilePath ---> ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹å
+//				pszFileName ---> ãƒ•ã‚¡ã‚¤ãƒ«å
+//				iOption1 ---> ã‚ªãƒ—ã‚·ãƒ§ãƒ³ãƒ‡ãƒ¼ã‚¿ï¼‘
 //
-/* modified 2009.07.01 hmenjo ƒCƒ[ƒWƒtƒ@ƒCƒ‹Šg’£q .spn ---------- { ---------- */
+/* modified 2009.07.01 hmenjo ã‚¤ãƒ¡ãƒ¼ã‚¸ãƒ•ã‚¡ã‚¤ãƒ«æ‹¡å¼µå­ .spn ---------- { ---------- */
 //void MakePatternImageFilePath(LPSTR pszFilePath, LPCSTR pszFileName, int iLens)
 //{
 //	sprintf(pszFilePath, DB_PATTERN_IMG_DIR "%s.SP%d" , pszFileName, iLens);
 //}
-/* modified 2009.07.01 hmenjo ƒCƒ[ƒWƒtƒ@ƒCƒ‹Šg’£q .spn ----------			  */
+/* modified 2009.07.01 hmenjo ã‚¤ãƒ¡ãƒ¼ã‚¸ãƒ•ã‚¡ã‚¤ãƒ«æ‹¡å¼µå­ .spn ----------			  */
 void MakePatternImageFilePath(LPTSTR ptszFilePath, LPCTSTR ptszFileName)
 {
-/* modified 2009.07.01 hmenjo PatternFile ‘Š‘ÎƒpƒX‘Î‰ ---------- { ---------- */
+/* modified 2009.07.01 hmenjo PatternFile ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ---------- { ---------- */
 //	_stprintf(ptszFilePath, DB_PATTERN_IMG_DIR _T("%s%s") , ptszFileName, _T(PATTERN_IMAGE_EXT));
-/* modified 2009.07.01 hmenjo PatternFile ‘Š‘ÎƒpƒX‘Î‰ ----------			   */
+/* modified 2009.07.01 hmenjo PatternFile ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ----------			   */
 	_stprintf(ptszFilePath, _T("%s%s%s%s") , g_tszProcDir, _T(DB_PATTERN_IMG_DIR), ptszFileName, _T(PATTERN_IMAGE_EXT));
-/* modified 2009.07.01 hmenjo PatternFile ‘Š‘ÎƒpƒX‘Î‰ ---------- } ---------- */
+/* modified 2009.07.01 hmenjo PatternFile ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ---------- } ---------- */
 }
-/* modified 2009.07.01 hmenjo ƒCƒ[ƒWƒtƒ@ƒCƒ‹Šg’£q .spn ---------- } ---------- */
+/* modified 2009.07.01 hmenjo ã‚¤ãƒ¡ãƒ¼ã‚¸ãƒ•ã‚¡ã‚¤ãƒ«æ‹¡å¼µå­ .spn ---------- } ---------- */
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : GetPatternFileInfo
-// Purpose	  : ƒtƒ@ƒCƒ‹ƒpƒX–¼‚©‚çƒtƒ@ƒCƒ‹–¼‚ÆƒŒƒ“ƒY”{—¦‚ğ¶¬
-// Parameters : pszFilePath ---> ƒtƒ@ƒCƒ‹ƒpƒX–¼
-//				pszFileName ---> ƒtƒ@ƒCƒ‹–¼
-//				iLens ---> ƒŒƒ“ƒY”{—¦
+// Purpose	  : ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹åã‹ã‚‰ãƒ•ã‚¡ã‚¤ãƒ«åã¨ãƒ¬ãƒ³ã‚ºå€ç‡ã‚’ç”Ÿæˆ
+// Parameters : pszFilePath ---> ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹å
+//				pszFileName ---> ãƒ•ã‚¡ã‚¤ãƒ«å
+//				iLens ---> ãƒ¬ãƒ³ã‚ºå€ç‡
 //
 void GetPatternFileInfo(LPCSTR pszFilePath, LPSTR pszFileName, int* iLens)
 {
@@ -304,43 +304,43 @@ void GetPatternFileInfo(LPCSTR pszFilePath, LPSTR pszFileName, int* iLens)
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : ExistPatternFilePath
-// Purpose	  : ƒtƒ@ƒCƒ‹ƒpƒX–¼‚ª‘¶İ‚·‚é‚©‚ğŠm”F
-// Parameters : pszFilePath ---> ƒtƒ@ƒCƒ‹ƒpƒX–¼
-//				lpLastWriteSystemTime ---> ƒtƒ@ƒCƒ‹‚ÌÅIXV“ú
+// Purpose	  : ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹åãŒå­˜åœ¨ã™ã‚‹ã‹ã‚’ç¢ºèª
+// Parameters : pszFilePath ---> ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹å
+//				lpLastWriteSystemTime ---> ãƒ•ã‚¡ã‚¤ãƒ«ã®æœ€çµ‚æ›´æ–°æ—¥æ™‚
 //
-// Returns	  : TRUE  ---> ‘¶İ‚·‚é
-//				FALSE ---> ‘¶İ‚µ‚È‚¢
+// Returns	  : TRUE  ---> å­˜åœ¨ã™ã‚‹
+//				FALSE ---> å­˜åœ¨ã—ãªã„
 BOOL ExistPatternFilePath(LPCSTR pszFilePath, SYSTEMTIME* lpLastWriteSystemTime)
 {
 	return FILEEXIST(pszFilePath, lpLastWriteSystemTime);
 }
 
-/* added 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Ç‚İ/‘‚İ‹@”\’Ç‰Á ---------- { ---------- */
-#define	SPR_PROF_SECTION	_T("SPR_INF")	/* SPR ƒpƒ^[ƒ“î•ñƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“–¼ */
-#define	SPR_PROF_KEY_X		_T("OffsetX")	/* SPT ƒIƒtƒZƒbƒg X ²’l‚ÌƒL[–¼ */
-#define	SPR_PROF_KEY_Y		_T("OffsetY")	/* SPT ƒIƒtƒZƒbƒg Y ²’l‚ÌƒL[–¼ */
-#define	SPR_PROF_KEY_LENS	_T("Lens")		/* SPT ƒŒƒ“ƒYî•ñ‚ÌƒL[–¼ */
+/* added 2009.06.22 hmenjo SPR ã‚ªãƒ•ã‚»ãƒƒãƒˆèª­è¾¼ã¿/æ›¸è¾¼ã¿æ©Ÿèƒ½è¿½åŠ  ---------- { ---------- */
+#define	SPR_PROF_SECTION	_T("SPR_INF")	/* SPR ãƒ‘ã‚¿ãƒ¼ãƒ³æƒ…å ±ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³å */
+#define	SPR_PROF_KEY_X		_T("OffsetX")	/* SPT ã‚ªãƒ•ã‚»ãƒƒãƒˆ X è»¸å€¤ã®ã‚­ãƒ¼å */
+#define	SPR_PROF_KEY_Y		_T("OffsetY")	/* SPT ã‚ªãƒ•ã‚»ãƒƒãƒˆ Y è»¸å€¤ã®ã‚­ãƒ¼å */
+#define	SPR_PROF_KEY_LENS	_T("Lens")		/* SPT ãƒ¬ãƒ³ã‚ºæƒ…å ±ã®ã‚­ãƒ¼å */
 /////////////////////////////////////////////////////////////////////////////
 /* Name 	  : SetSubInfo
-// Purpose	  : SPR ƒpƒ^[ƒ“ƒTƒuî•ñ‚ğƒtƒ@ƒCƒ‹‚É‘‚İ‚Ü‚·D
-// Parameters : LPCTSTR ptszPattern			---> ƒpƒ^[ƒ“–¼
-//				LPCSPR_SUB_INFO pPatSubInfo	---> ƒTƒuî•ñ
+// Purpose	  : SPR ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚µãƒ–æƒ…å ±ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸è¾¼ã¿ã¾ã™ï¼
+// Parameters : LPCTSTR ptszPattern			---> ãƒ‘ã‚¿ãƒ¼ãƒ³å
+//				LPCSPR_SUB_INFO pPatSubInfo	---> ã‚µãƒ–æƒ…å ±
 //
-// Returns	  : TRUE  ---> ‘‚İ¬Œ÷
-//				FALSE ---> ‘‚İ¸”s									*/
+// Returns	  : TRUE  ---> æ›¸è¾¼ã¿æˆåŠŸ
+//				FALSE ---> æ›¸è¾¼ã¿å¤±æ•—									*/
 BOOL SetSubInfo(LPCTSTR ptszPatName, LPCSPR_SUB_INFO pPatSubInfo)
 {
-	/* ƒpƒ^[ƒ“ƒTƒuî•ñƒtƒ@ƒCƒ‹ƒpƒX‚ğì¬ */
+	/* ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚µãƒ–æƒ…å ±ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã‚’ä½œæˆ */
 	if (0 == _tcscmp(ptszPatName, _T(""))) {
 		return FALSE;
 	}
 	TCHAR l_tszFilePath[_MAX_PATH];
-/* modified 2009.07.01 hmenjo PatternFile ‘Š‘ÎƒpƒX‘Î‰ ---------- { ---------- */
+/* modified 2009.07.01 hmenjo PatternFile ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ---------- { ---------- */
 //	_stprintf(l_tszFilePath, _T("%s%s.dat"), _T(DB_PATTERN_DIR), ptszPatName);
-/* modified 2009.07.01 hmenjo PatternFile ‘Š‘ÎƒpƒX‘Î‰ ----------			   */
+/* modified 2009.07.01 hmenjo PatternFile ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ----------			   */
 	_stprintf(l_tszFilePath, _T("%s%s%s.dat"), g_tszProcDir, _T(DB_PATTERN_DIR), ptszPatName);
-/* modified 2009.07.01 hmenjo PatternFile ‘Š‘ÎƒpƒX‘Î‰ ---------- } ---------- */
-	/* ‘‚İ */
+/* modified 2009.07.01 hmenjo PatternFile ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ---------- } ---------- */
+	/* æ›¸è¾¼ã¿ */
 	TCHAR l_tszTemp[64];
 	BOOL l_bRet;
 	l_bRet = ::WritePrivateProfileString(SPR_PROF_SECTION, SPR_PROF_KEY_X, _ltot(pPatSubInfo->ptOffset.x, l_tszTemp, 10), l_tszFilePath);
@@ -360,26 +360,26 @@ BOOL SetSubInfo(LPCTSTR ptszPatName, LPCSPR_SUB_INFO pPatSubInfo)
 }
 /////////////////////////////////////////////////////////////////////////////
 /* Name 	  : GetSubInfo
-// Purpose	  : SPR ƒpƒ^[ƒ“ƒTƒuî•ñ‚ğƒtƒ@ƒCƒ‹‚É‘‚İ‚Ü‚·D
-// Parameters : LPCTSTR ptszPattern		---> ƒpƒ^[ƒ“–¼
-//				LPCSPR_SUB_INFO pPatSubInfo	---> ƒTƒuî•ñ
+// Purpose	  : SPR ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚µãƒ–æƒ…å ±ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸è¾¼ã¿ã¾ã™ï¼
+// Parameters : LPCTSTR ptszPattern		---> ãƒ‘ã‚¿ãƒ¼ãƒ³å
+//				LPCSPR_SUB_INFO pPatSubInfo	---> ã‚µãƒ–æƒ…å ±
 //
-// Returns	  : TRUE  ---> “Ç‚İ¬Œ÷
-//				FALSE ---> “Ç‚İ¸”s									*/
+// Returns	  : TRUE  ---> èª­è¾¼ã¿æˆåŠŸ
+//				FALSE ---> èª­è¾¼ã¿å¤±æ•—									*/
 BOOL GetSubInfo(LPCTSTR ptszPatName, LPSPR_SUB_INFO pPatSubInfo)
 {
 	BOOL l_bRet = TRUE;
-	/* ƒpƒ^[ƒ“ƒTƒuî•ñƒtƒ@ƒCƒ‹ƒpƒX‚ğì¬ */
+	/* ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚µãƒ–æƒ…å ±ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã‚’ä½œæˆ */
 	if (0 == _tcscmp(ptszPatName, _T(""))) {
 		l_bRet = FALSE;
 	}
 	TCHAR l_tszFilePath[_MAX_PATH];
-/* modified 2009.07.01 hmenjo PatternFile ‘Š‘ÎƒpƒX‘Î‰ ---------- { ---------- */
+/* modified 2009.07.01 hmenjo PatternFile ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ---------- { ---------- */
 //	_stprintf(l_tszFilePath, _T("%s%s.dat"), _T(DB_PATTERN_DIR), ptszPatName);
-/* modified 2009.07.01 hmenjo PatternFile ‘Š‘ÎƒpƒX‘Î‰ ----------			   */
+/* modified 2009.07.01 hmenjo PatternFile ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ----------			   */
 	_stprintf(l_tszFilePath, _T("%s%s%s.dat"), g_tszProcDir, _T(DB_PATTERN_DIR), ptszPatName);
-/* modified 2009.07.01 hmenjo PatternFile ‘Š‘ÎƒpƒX‘Î‰ ---------- } ---------- */
-	/* “Ç‚İ */
+/* modified 2009.07.01 hmenjo PatternFile ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ---------- } ---------- */
+	/* èª­è¾¼ã¿ */
 	UINT l_uiX;
 	if (TRUE == l_bRet) {
 		if ((0 == (l_uiX = ::GetPrivateProfileInt(SPR_PROF_SECTION, SPR_PROF_KEY_X, 0, l_tszFilePath)))
@@ -416,24 +416,24 @@ BOOL GetSubInfo(LPCTSTR ptszPatName, LPSPR_SUB_INFO pPatSubInfo)
 }
 /////////////////////////////////////////////////////////////////////////////
 /* Name 	  : RemoveSubInfo
-// Purpose	  : SPR ƒpƒ^[ƒ“ƒTƒuî•ñƒtƒ@ƒCƒ‹‚ğíœ‚µ‚Ü‚·D
-// Parameters : LPCTSTR ptszPattern ---> ƒpƒ^[ƒ“–¼
+// Purpose	  : SPR ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚µãƒ–æƒ…å ±ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤ã—ã¾ã™ï¼
+// Parameters : LPCTSTR ptszPattern ---> ãƒ‘ã‚¿ãƒ¼ãƒ³å
 //
-// Returns	  : TRUE  ---> íœ¬Œ÷
-//				FALSE ---> íœ¸”s									*/
+// Returns	  : TRUE  ---> å‰Šé™¤æˆåŠŸ
+//				FALSE ---> å‰Šé™¤å¤±æ•—									*/
 BOOL RemoveSubInfo(LPCTSTR ptszPatName)
 {
-	/* ƒpƒ^[ƒ“ƒTƒuî•ñƒtƒ@ƒCƒ‹ƒpƒX‚ğì¬ */
+	/* ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚µãƒ–æƒ…å ±ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã‚’ä½œæˆ */
 	if (0 == _tcscmp(ptszPatName, _T(""))) {
 		return FALSE;
 	}
 	TCHAR l_tszFilePath[_MAX_PATH];
-/* modified 2009.07.01 hmenjo PatternFile ‘Š‘ÎƒpƒX‘Î‰ ---------- { ---------- */
+/* modified 2009.07.01 hmenjo PatternFile ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ---------- { ---------- */
 //	_stprintf(l_tszFilePath, _T("%s%s.dat"), _T(DB_PATTERN_DIR), ptszPatName);
-/* modified 2009.07.01 hmenjo PatternFile ‘Š‘ÎƒpƒX‘Î‰ ----------			   */
+/* modified 2009.07.01 hmenjo PatternFile ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ----------			   */
 	_stprintf(l_tszFilePath, _T("%s%s%s.dat"), g_tszProcDir, _T(DB_PATTERN_DIR), ptszPatName);
-/* modified 2009.07.01 hmenjo PatternFile ‘Š‘ÎƒpƒX‘Î‰ ---------- } ---------- */
-	/* íœ */
+/* modified 2009.07.01 hmenjo PatternFile ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ---------- } ---------- */
+	/* å‰Šé™¤ */
 	int l_iRet = _tremove(l_tszFilePath);
 	if (0 != l_iRet) {
 		return FALSE;
@@ -441,13 +441,13 @@ BOOL RemoveSubInfo(LPCTSTR ptszPatName)
 
 	return TRUE;
 }
-/* added 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Ç‚İ/‘‚İ‹@”\’Ç‰Á ---------- } ---------- */
+/* added 2009.06.22 hmenjo SPR ã‚ªãƒ•ã‚»ãƒƒãƒˆèª­è¾¼ã¿/æ›¸è¾¼ã¿æ©Ÿèƒ½è¿½åŠ  ---------- } ---------- */
 // 2009.12.10 bagus Recipe Backup --{--
 // ==========================================================================
-// ŠÖ”–¼FBOOL DeleteDirectory(LPCTSTR lpPathName)
-// ˆø@”FlpPathName@íœ‚·‚éƒfƒBƒŒƒNƒgƒŠ‚ÌƒpƒX–¼‚ª“ü‚Á‚½NULL‚ÅI‚í‚é•¶š—ñB
-// –ß‚è’lFŠÖ”‚ª¬Œ÷‚·‚é‚ÆA0ˆÈŠO‚Ì’l‚ª•Ô‚èAŠÖ”‚ª¸”s‚·‚é‚ÆA0‚ª•Ô‚è‚Ü‚·B
-// ‰ğ@àFƒfƒBƒŒƒNƒgƒŠ‚ğŠÛ‚²‚Æíœ‚·‚éB
+// é–¢æ•°åï¼šBOOL DeleteDirectory(LPCTSTR lpPathName)
+// å¼•ã€€æ•°ï¼šlpPathNameã€€å‰Šé™¤ã™ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ãƒ‘ã‚¹åãŒå…¥ã£ãŸNULLã§çµ‚ã‚ã‚‹æ–‡å­—åˆ—ã€‚
+// æˆ»ã‚Šå€¤ï¼šé–¢æ•°ãŒæˆåŠŸã™ã‚‹ã¨ã€0ä»¥å¤–ã®å€¤ãŒè¿”ã‚Šã€é–¢æ•°ãŒå¤±æ•—ã™ã‚‹ã¨ã€0ãŒè¿”ã‚Šã¾ã™ã€‚
+// è§£ã€€èª¬ï¼šãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ä¸¸ã”ã¨å‰Šé™¤ã™ã‚‹ã€‚
 static BOOL DeleteDirectory(LPCTSTR lpPathName)
 {
 	CFileFind fnd;
@@ -459,27 +459,27 @@ static BOOL DeleteDirectory(LPCTSTR lpPathName)
 		while(i){
 			i = fnd.FindNextFile();
 
-			// ƒtƒ@ƒCƒ‹–¼‚ª"."‚©".."‚Ìê‡‚ÍŸ‚ğŒŸõ
+			// ãƒ•ã‚¡ã‚¤ãƒ«åãŒ"."ã‹".."ã®å ´åˆã¯æ¬¡ã‚’æ¤œç´¢
 			if(fnd.IsDots())
 				continue;
 
-			// íœ‚·‚éƒtƒ@ƒCƒ‹–¼æ“¾
-			// GetFilePath()‚É‚ÍƒoƒO‚ª‚ ‚è³Šm‚Éæ“¾‚Å‚«‚È‚¢ê‡‚ª‚ ‚é‚Ì‚Åg‚í‚È‚¢
+			// å‰Šé™¤ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«åå–å¾—
+			// GetFilePath()ã«ã¯ãƒã‚°ãŒã‚ã‚Šæ­£ç¢ºã«å–å¾—ã§ããªã„å ´åˆãŒã‚ã‚‹ã®ã§ä½¿ã‚ãªã„
 			CString strDeleteFile = lpPathName;
 			strDeleteFile.TrimRight('\\');
 			strDeleteFile += _T("\\") + fnd.GetFileName();
 
-			// ƒtƒHƒ‹ƒ_‚¾‚Á‚½ê‡AÄ‹AŒÄ‚Ño‚µ‚Å‚»‚ÌƒtƒHƒ‹ƒ_‚ğíœ
+			// ãƒ•ã‚©ãƒ«ãƒ€ã ã£ãŸå ´åˆã€å†å¸°å‘¼ã³å‡ºã—ã§ãã®ãƒ•ã‚©ãƒ«ãƒ€ã‚’å‰Šé™¤
 			if(fnd.IsDirectory())
 				DeleteDirectory(strDeleteFile);
 
-			// ƒtƒ@ƒCƒ‹‚Ìíœ
+			// ãƒ•ã‚¡ã‚¤ãƒ«ã®å‰Šé™¤
 			else
 				::DeleteFile(strDeleteFile);
 		}
 		fnd.Close();
 
-		// ƒtƒHƒ‹ƒ_‚Ìíœ
+		// ãƒ•ã‚©ãƒ«ãƒ€ã®å‰Šé™¤
 		return ::RemoveDirectory(lpPathName);
 	}
 	return FALSE;
@@ -490,8 +490,8 @@ static BOOL CopyDirectory(LPCTSTR lpszSource,LPCTSTR lpszDest)
 	char szFrom[MAX_PATH];
 	char szTo[MAX_PATH];
 
-	_fullpath(szFrom, (const char *)lpszSource, sizeof(szFrom)); //â‘ÎƒpƒX‚É•ÏŠ·
-	_fullpath(szTo, (const char *)lpszDest, sizeof(szTo)); //â‘ÎƒpƒX‚É•ÏŠ·
+	_fullpath(szFrom, (const char *)lpszSource, sizeof(szFrom)); //çµ¶å¯¾ãƒ‘ã‚¹ã«å¤‰æ›
+	_fullpath(szTo, (const char *)lpszDest, sizeof(szTo)); //çµ¶å¯¾ãƒ‘ã‚¹ã«å¤‰æ›
 
 	ZeroMemory(&tSHFile, sizeof(SHFILEOPSTRUCT));
 
@@ -500,17 +500,17 @@ static BOOL CopyDirectory(LPCTSTR lpszSource,LPCTSTR lpszDest)
 
 	tSHFile.hwnd = NULL;
 	tSHFile.wFunc = FO_COPY;
-	//2009.12.17 bagus C³ --{--
+	//2009.12.17 bagus ä¿®æ­£ --{--
 	//tSHFile.fFlags = FOF_SILENT | FOF_NOCONFIRMMKDIR | FOF_NOERRORUI | FOF_SIMPLEPROGRESS ;
 	tSHFile.fFlags = FOF_NOCONFIRMMKDIR | FOF_NOERRORUI ;
-	//2009.12.17 bagus C³ --}--
+	//2009.12.17 bagus ä¿®æ­£ --}--
 
 	tSHFile.fAnyOperationsAborted = TRUE;
 	tSHFile.hNameMappings = NULL;
-	//2009.12.17 bagus C³ --{--
+	//2009.12.17 bagus ä¿®æ­£ --{--
 	//tSHFile.lpszProgressTitle = NULL;
 	tSHFile.lpszProgressTitle = "Copy";
-	//2009.12.17 bagus C³ --}--
+	//2009.12.17 bagus ä¿®æ­£ --}--
 
 	from += "0";
 	to += "0";
@@ -520,7 +520,7 @@ static BOOL CopyDirectory(LPCTSTR lpszSource,LPCTSTR lpszDest)
 	tSHFile.pFrom = (LPCTSTR)from;
 	tSHFile.pTo = (LPCTSTR)to;
 
-	return SHFileOperation( &tSHFile ); // Às
+	return SHFileOperation( &tSHFile ); // å®Ÿè¡Œ
 }
 static int MakeDirectory(char* lpszDir)
 {
@@ -536,7 +536,7 @@ static int MakeDirectory(char* lpszDir)
 	if((iRet = CreateDirectory(lpszDir, &sa)) == TRUE)
 		return 1;
 	else{
-		//Šù‚É‘¶İ‚µ‚Ä‚¢‚éê‡‚É‚Í‚»‚±‚ÅOK‚Æ‚·‚é
+		//æ—¢ã«å­˜åœ¨ã—ã¦ã„ã‚‹å ´åˆã«ã¯ãã“ã§OKã¨ã™ã‚‹
 		if(GetLastError() == ERROR_ALREADY_EXISTS){
 			return 1;
 		}
@@ -559,7 +559,7 @@ static int MakeDirectory(char* lpszDir)
 		if(iRet){
 			return 1;
 		}else{
-			//Šù‚É‘¶İ‚µ‚Ä‚¢‚éê‡‚É‚Í‚»‚±‚ÅOK‚Æ‚·‚é
+			//æ—¢ã«å­˜åœ¨ã—ã¦ã„ã‚‹å ´åˆã«ã¯ãã“ã§OKã¨ã™ã‚‹
 			if(GetLastError() == ERROR_ALREADY_EXISTS){
 				return 1;
 			}
@@ -590,14 +590,14 @@ BOOL BackupRecipe(LPCTSTR lpszSourcePath)
 
 	_splitpath(lpszSourcePath,szDrive,szDir,szFile,szExt);
 	if(g_bUseBackup){
-		//DB\‚©‚ç‚ÌƒfƒBƒŒƒNƒgƒŠƒpƒX‚ğæ“¾
+		//DB\ã‹ã‚‰ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãƒ‘ã‚¹ã‚’å–å¾—
 		pSubDirPos = strstr(szDir,DB_DIR);
 		if(pSubDirPos == NULL){
 			pSubDirPos = ".";
 		}else{
 			pSubDirPos = pSubDirPos + strlen(DB_DIR);
 		}
-		//ƒoƒbƒNƒAƒbƒvæ‚ÌƒfƒBƒŒƒNƒgƒŠ‚ğì¬‚µ‚Ä‚¨‚­
+		//ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—å…ˆã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ä½œæˆã—ã¦ãŠã
 		wsprintf(szToPath,"%s\\%s\\%s",g_szBackupPath,DB_DIR_NAME,pSubDirPos);
 		//2009.12.25 bagus Recipe Backup --{--
 		DeleteDirectory(szToPath);
@@ -628,14 +628,14 @@ BOOL DeleteBackupRecipe(LPCTSTR lpszSourcePath)
 
 	_splitpath(lpszSourcePath,szDrive,szDir,szFile,szExt);
 	if(g_bUseBackup){
-		//DB\‚©‚ç‚ÌƒfƒBƒŒƒNƒgƒŠƒpƒX‚ğæ“¾
+		//DB\ã‹ã‚‰ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãƒ‘ã‚¹ã‚’å–å¾—
 		pSubDirPos = strstr(szDir,DB_DIR);
 		if(pSubDirPos == NULL){
 			pSubDirPos = ".";
 		}else{
 			pSubDirPos = pSubDirPos + strlen(DB_DIR);
 		}
-		//íœ‚·‚é
+		//å‰Šé™¤ã™ã‚‹
 		wsprintf(szToPath,"%s\\%s\\%s\\%s%s",g_szBackupPath,DB_DIR_NAME,pSubDirPos,szFile,szExt);
 		bRet = DeleteFile(szToPath);
 	}

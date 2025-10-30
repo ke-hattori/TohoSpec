@@ -1,4 +1,4 @@
-// SaveModifiedDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SaveModifiedDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -13,7 +13,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // #########################################################################
-// CSaveModifiedDlg ƒ_ƒCƒAƒƒO
+// CSaveModifiedDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // #########################################################################
 
 // =========================================================================
@@ -49,7 +49,7 @@ BEGIN_MESSAGE_MAP(CSaveModifiedDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CSaveModifiedDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSaveModifiedDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -69,7 +69,7 @@ BOOL CSaveModifiedDlg::OnInitDialog()
 
 	//m_strModified += "\nhas been modified.";
 	//Saiki 20090527 Change ----->
-	//m_strModified += "\n‚Í•ÏX‚³‚ê‚Ä‚¢‚Ü‚·";
+	//m_strModified += "\nã¯å¤‰æ›´ã•ã‚Œã¦ã„ã¾ã™";
 	LoadStringML(IDS_HAS_MODIFIED, strBuffer, "\nhas been modified.");
 	m_strModified += strBuffer;
 	//Saiki 20090527 Change <-----
@@ -77,8 +77,8 @@ BOOL CSaveModifiedDlg::OnInitDialog()
 
 	CheckDlgButton(IDC_RADIO_SAVE, BST_CHECKED);
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================

@@ -1,7 +1,7 @@
-
-// ‰Šú‰»ƒf[ƒ^
+ï»¿
+// åˆæœŸåŒ–ãƒ‡ãƒ¼ã‚¿
 typedef struct {
-	int		P501;	// ƒtƒ@[ƒ€ƒEƒFƒA‹@”\ ƒXƒgƒ[ƒNƒŠƒ~ƒbƒg X+ [count]
+	int		P501;	// ãƒ•ã‚¡ãƒ¼ãƒ ã‚¦ã‚§ã‚¢æ©Ÿèƒ½ ã‚¹ãƒˆãƒ­ãƒ¼ã‚¯ãƒªãƒŸãƒƒãƒˆ X+ [count]
 	int		P502;	//                                       X-
 	int		P503;	//                                       Y+
 	int		P504;	//                                       Y-
@@ -9,7 +9,7 @@ typedef struct {
 	int		P506;	//                                       Z+
 	int		P507;	//                                       T+
 	int		P508;	//                                       T-
-	int		P509;	// ƒ\ƒtƒgƒEƒFƒA‹@”\ ƒXƒgƒ[ƒNƒŠƒ~ƒbƒg X+ [count]
+	int		P509;	// ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢æ©Ÿèƒ½ ã‚¹ãƒˆãƒ­ãƒ¼ã‚¯ãƒªãƒŸãƒƒãƒˆ X+ [count]
 	int		P510;	//                                     X-
 	int		P511;	//                                     Y+
 	int		P512;	//                                     Y-
@@ -17,59 +17,59 @@ typedef struct {
 	int		P514;	//                                     Z-
 	int		P515;	//                                     T+
 	int		P516;	//                                     T-
-	int		P517;	// ”ñí’â~ Œ¸‘¬ŠÔ X [0.001count/msec2]
+	int		P517;	// éå¸¸åœæ­¢ æ¸›é€Ÿæ™‚é–“ X [0.001count/msec2]
 	int		P518;	//                   Y
 	int		P519;	//                   Z
 	int		P520;	//                   T
-	int		P521;	// ”ñí’â~ Abort¨Kill ƒEƒFƒCƒgŠÔ
-	int		P522;	// ƒCƒ“ƒ|ƒWƒVƒ‡ƒ“ƒoƒ“ƒh X [1/16count]
+	int		P521;	// éå¸¸åœæ­¢ Abortâ†’Kill ã‚¦ã‚§ã‚¤ãƒˆæ™‚é–“
+	int		P522;	// ã‚¤ãƒ³ãƒã‚¸ã‚·ãƒ§ãƒ³ãƒãƒ³ãƒ‰ X [1/16count]
 	int		P523;	//                      Y
 	int		P524;	//                      Z
 	int		P525;	//                      T
-	int		P526;	// ƒCƒ“ƒ|ƒWƒVƒ‡ƒ“ƒtƒBƒ‹ƒ^” X [ƒTƒCƒNƒ‹]
+	int		P526;	// ã‚¤ãƒ³ãƒã‚¸ã‚·ãƒ§ãƒ³ãƒ•ã‚£ãƒ«ã‚¿æ•° X [ã‚µã‚¤ã‚¯ãƒ«]
 	int		P527;	//                          Y
 	int		P528;	//                          Z
 	int		P529;	//                          T
-	int		P530;	// Å‚‰Á‘¬“x X [0.001count/msec2]
+	int		P530;	// æœ€é«˜åŠ é€Ÿåº¦ X [0.001count/msec2]
 	int		P531;	//            Y
 	int		P532;	//            Z
 	int		P533;	//            T
-	int		P534;	// ˆÊ’uŒˆ‚ß Å‚‘¬“x X [count/msec]
+	int		P534;	// ä½ç½®æ±ºã‚æ™‚ æœ€é«˜é€Ÿåº¦ X [count/msec]
 	int		P535;	//                     Y
 	int		P536;	//                     Z
 	int		P537;	//                     T
-	int		P538;	// Œ´“_ƒIƒtƒZƒbƒg X [count]
+	int		P538;	// åŸç‚¹ã‚ªãƒ•ã‚»ãƒƒãƒˆ X [count]
 	int		P539;	//                Y
 	int		P540;	//                Z
 	int		P541;	//                T
-	int		P542;	// Œ´“_•œ‹AÀs ƒXƒgƒ[ƒNƒŠƒ~ƒbƒg T+ [count]
+	int		P542;	// åŸç‚¹å¾©å¸°å®Ÿè¡Œæ™‚ ã‚¹ãƒˆãƒ­ãƒ¼ã‚¯ãƒªãƒŸãƒƒãƒˆ T+ [count]
 	int		P543;	//                                   T-
-	int		P544;	// ƒCƒ“ƒ|ƒWƒVƒ‡ƒ“2ƒoƒ“ƒh X [1/16count]
+	int		P544;	// ã‚¤ãƒ³ãƒã‚¸ã‚·ãƒ§ãƒ³2ãƒãƒ³ãƒ‰ X [1/16count]
 	int		P545;	//                       Y
 	int		P546;	//                       Z
 	int		P547;	//                       T
-	int		P548;	// ƒCƒ“ƒ|ƒWƒVƒ‡ƒ“2ƒtƒBƒ‹ƒ^” X [ƒTƒCƒNƒ‹]
+	int		P548;	// ã‚¤ãƒ³ãƒã‚¸ã‚·ãƒ§ãƒ³2ãƒ•ã‚£ãƒ«ã‚¿æ•° X [ã‚µã‚¤ã‚¯ãƒ«]
 	int		P549;	//                           Y
 	int		P550;	//                           Z
 	int		P551;	//                           T
-	int		P552;	// ’â~–½—ß Œ¸‘¬ŠÔŒvZƒ‚[ƒh X²
-	int		P553;	// ’â~–½—ß Œ¸‘¬“x X²
-	int		P554;	// ’â~–½—ß Œ¸‘¬ŠÔŒvZƒ‚[ƒh Y²
-	int		P555;	// ’â~–½—ß Œ¸‘¬“x Y²
-	int		P556;	// ’â~–½—ß Œ¸‘¬ŠÔŒvZƒ‚[ƒh Z²
-	int		P557;	// ’â~–½—ß Œ¸‘¬“x Z²
-	int		P558;	// ’â~–½—ß Œ¸‘¬ŠÔŒvZƒ‚[ƒh T²
-	int		P559;	// ’â~–½—ß Œ¸‘¬“x T²
-	int		P560;	// Œ´“_•œ‹A - ƒŠƒ~ƒbƒg ‘¬“xŒW” X²
-	int		P561;	// Œ´“_•œ‹A - ƒŠƒ~ƒbƒg ˆÚ“®‹——£ X²
-	int		P562;	// Œ´“_•œ‹A - ƒŠƒ~ƒbƒg ‘¬“xŒW” Y²
-	int		P563;	// Œ´“_•œ‹A - ƒŠƒ~ƒbƒg ˆÚ“®‹——£ Y²
-	int		P564;	// (ƒVƒXƒeƒ€—\–ñ)
-	int		P565;	// Œ´“_•œ‹A Œ¸‘¬ŠÔ Y²
-	int		P566;	// Œ´“_•œ‹A Y² YS²ƒT[ƒ`ƒ‚[ƒh
-	int		P567;	// Œ´“_•œ‹A Y² YS²ˆÚ“®‹——£
-	int		P568;	// Œ´“_•œ‹A Y² YS²Œ´“_ˆÊ’u
-	int		P569;	// Œ´“_•œ‹A Y² YS²•â³ ˆÀ‘S•ÛŒì’l
+	int		P552;	// åœæ­¢å‘½ä»¤æ™‚ æ¸›é€Ÿæ™‚é–“è¨ˆç®—ãƒ¢ãƒ¼ãƒ‰ Xè»¸
+	int		P553;	// åœæ­¢å‘½ä»¤æ™‚ æ¸›é€Ÿåº¦ Xè»¸
+	int		P554;	// åœæ­¢å‘½ä»¤æ™‚ æ¸›é€Ÿæ™‚é–“è¨ˆç®—ãƒ¢ãƒ¼ãƒ‰ Yè»¸
+	int		P555;	// åœæ­¢å‘½ä»¤æ™‚ æ¸›é€Ÿåº¦ Yè»¸
+	int		P556;	// åœæ­¢å‘½ä»¤æ™‚ æ¸›é€Ÿæ™‚é–“è¨ˆç®—ãƒ¢ãƒ¼ãƒ‰ Zè»¸
+	int		P557;	// åœæ­¢å‘½ä»¤æ™‚ æ¸›é€Ÿåº¦ Zè»¸
+	int		P558;	// åœæ­¢å‘½ä»¤æ™‚ æ¸›é€Ÿæ™‚é–“è¨ˆç®—ãƒ¢ãƒ¼ãƒ‰ Tè»¸
+	int		P559;	// åœæ­¢å‘½ä»¤æ™‚ æ¸›é€Ÿåº¦ Tè»¸
+	int		P560;	// åŸç‚¹å¾©å¸° - ãƒªãƒŸãƒƒãƒˆæ™‚ é€Ÿåº¦ä¿‚æ•° Xè»¸
+	int		P561;	// åŸç‚¹å¾©å¸° - ãƒªãƒŸãƒƒãƒˆæ™‚ ç§»å‹•è·é›¢ Xè»¸
+	int		P562;	// åŸç‚¹å¾©å¸° - ãƒªãƒŸãƒƒãƒˆæ™‚ é€Ÿåº¦ä¿‚æ•° Yè»¸
+	int		P563;	// åŸç‚¹å¾©å¸° - ãƒªãƒŸãƒƒãƒˆæ™‚ ç§»å‹•è·é›¢ Yè»¸
+	int		P564;	// (ã‚·ã‚¹ãƒ†ãƒ äºˆç´„)
+	int		P565;	// åŸç‚¹å¾©å¸°æ™‚ æ¸›é€Ÿæ™‚é–“ Yè»¸
+	int		P566;	// åŸç‚¹å¾©å¸° Yè»¸ YSè»¸ã‚µãƒ¼ãƒãƒ¢ãƒ¼ãƒ‰
+	int		P567;	// åŸç‚¹å¾©å¸° Yè»¸ YSè»¸ç§»å‹•è·é›¢
+	int		P568;	// åŸç‚¹å¾©å¸° Yè»¸ YSè»¸åŸç‚¹ä½ç½®
+	int		P569;	// åŸç‚¹å¾©å¸° Yè»¸ YSè»¸è£œæ­£ å®‰å…¨ä¿è­·å€¤
 	int		P570;
 	int		P571;
 	int		P572;
@@ -80,19 +80,19 @@ typedef struct {
 	int		P577;
 	int		P578;
 	int		P579;
-	int		P580;	// ƒWƒ‡ƒCƒXƒeƒBƒbƒN X² ‰Á‘¬ŠÔ
-	int		P581;	// ƒWƒ‡ƒCƒXƒeƒBƒbƒN X² Sš‰Á‘¬ŠÔ
-	int		P582;	// ƒWƒ‡ƒCƒXƒeƒBƒbƒN X² “®ì‘¬“x‚P
-	int		P583;	// ƒWƒ‡ƒCƒXƒeƒBƒbƒN X² “®ì‘¬“x‚Q
-	int		P584;	// ƒWƒ‡ƒCƒXƒeƒBƒbƒN X² “®ì‘¬“x‚R
-	int		P585;	// ƒWƒ‡ƒCƒXƒeƒBƒbƒN Y² ‰Á‘¬ŠÔ
-	int		P586;	// ƒWƒ‡ƒCƒXƒeƒBƒbƒN Y² Sš‰Á‘¬ŠÔ
-	int		P587;	// ƒWƒ‡ƒCƒXƒeƒBƒbƒN Y² “®ì‘¬“x‚P
-	int		P588;	// ƒWƒ‡ƒCƒXƒeƒBƒbƒN Y² “®ì‘¬“x‚Q
-	int		P589;	// ƒWƒ‡ƒCƒXƒeƒBƒbƒN Y² “®ì‘¬“x‚R
-	int		P590;	// ƒWƒ‡ƒCƒXƒeƒBƒbƒN X² “®ì•ûŒü‘I‘ğ
-	int		P591;	// ƒWƒ‡ƒCƒXƒeƒBƒbƒN Y² “®ì•ûŒü‘I‘ğ
-	int		P592;	// ƒWƒ‡ƒCƒXƒeƒBƒbƒN XY² “ü‘Ö‚¦
+	int		P580;	// ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯æ™‚ Xè»¸ åŠ é€Ÿæ™‚é–“
+	int		P581;	// ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯æ™‚ Xè»¸ Så­—åŠ é€Ÿæ™‚é–“
+	int		P582;	// ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯æ™‚ Xè»¸ å‹•ä½œé€Ÿåº¦ï¼‘
+	int		P583;	// ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯æ™‚ Xè»¸ å‹•ä½œé€Ÿåº¦ï¼’
+	int		P584;	// ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯æ™‚ Xè»¸ å‹•ä½œé€Ÿåº¦ï¼“
+	int		P585;	// ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯æ™‚ Yè»¸ åŠ é€Ÿæ™‚é–“
+	int		P586;	// ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯æ™‚ Yè»¸ Så­—åŠ é€Ÿæ™‚é–“
+	int		P587;	// ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯æ™‚ Yè»¸ å‹•ä½œé€Ÿåº¦ï¼‘
+	int		P588;	// ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯æ™‚ Yè»¸ å‹•ä½œé€Ÿåº¦ï¼’
+	int		P589;	// ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯æ™‚ Yè»¸ å‹•ä½œé€Ÿåº¦ï¼“
+	int		P590;	// ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯æ™‚ Xè»¸ å‹•ä½œæ–¹å‘é¸æŠ
+	int		P591;	// ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯æ™‚ Yè»¸ å‹•ä½œæ–¹å‘é¸æŠ
+	int		P592;	// ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯æ™‚ XYè»¸ å…¥æ›¿ãˆ
 	int		P593;
 	int		P594;
 	int		P595;
@@ -103,7 +103,7 @@ typedef struct {
 } CC_INITDATA_COMMON;
 
 typedef struct {
-	int		P600;	// X ² Fetal Following Error Limit (I111) [1/16count]
+	int		P600;	// X è»¸ Fetal Following Error Limit (I111) [1/16count]
 	int		P601;	//      Warning Following Error Limit (I112) [1/16count]
 	int		P602;	//      PID Proportional Gain(I130)
 	int		P603;	//      PID Derivative Gain(I131)
@@ -127,11 +127,11 @@ typedef struct {
 	int		P621;	//      Gain2 Friction Feedforward
 	int		P622;	//      Gain2 Deadband Gain Factor
 	int		P623;	//      Gain2 Deadband Gain Size
-	int		P624;	//		Œ´“_•œ‹A Deadband Gain Size
+	int		P624;	//		åŸç‚¹å¾©å¸°æ™‚ Deadband Gain Size
 } CC_INITDATA_X;
 
 typedef struct {
-	int		P625;	// YM ² Fetal Following Error Limit [1/16count]
+	int		P625;	// YM è»¸ Fetal Following Error Limit [1/16count]
 	int		P626;	//       Warning Following Error Limit [1/16count]
 	int		P627;	//       PID Proportional Gain
 	int		P628;	//       PID Derivative Gain
@@ -155,11 +155,11 @@ typedef struct {
 	int		P646;	//       Gain2 Friction Feedforward
 	int		P647;	//       Gain2 Deadband Gain Factor
 	int		P648;	//       Gain2 Deadband Gain Size
-	int		P649;	//		 Œ´“_•œ‹A Deadband Gain Size
+	int		P649;	//		 åŸç‚¹å¾©å¸°æ™‚ Deadband Gain Size
 } CC_INITDATA_Y1;
 
 typedef struct {
-	int		P650;	// YS ² Fetal Following Error Limit [1/16count]
+	int		P650;	// YS è»¸ Fetal Following Error Limit [1/16count]
 	int		P651;	//       Warning Following Error Limit [1/16count]
 	int		P652;	//       PID Proportional Gain
 	int		P653;	//       PID Derivative Gain
@@ -183,11 +183,11 @@ typedef struct {
 	int		P671;	//       Gain2 Friction Feedforward
 	int		P672;	//       Gain2 Deadband Gain Factor
 	int		P673;	//       Gain2 Deadband Gain Size
-	int		P674;	//		 Œ´“_•œ‹A Deadband Gain Size
+	int		P674;	//		 åŸç‚¹å¾©å¸°æ™‚ Deadband Gain Size
 } CC_INITDATA_Y2;
 
 typedef struct {
-	int		P675;	// Z ² Fetal Following Error Limit [1/16count]
+	int		P675;	// Z è»¸ Fetal Following Error Limit [1/16count]
 	int		P676;	//      Warning Following Error Limit [1/16count]
 	int		P677;	//      PID Proportional Gain
 	int		P678;	//      PID Derivative Gain
@@ -215,7 +215,7 @@ typedef struct {
 } CC_INITDATA_Z;
 
 typedef struct {
-	int		P700;	// T ² Fetal Following Error Limit [1/16count]
+	int		P700;	// T è»¸ Fetal Following Error Limit [1/16count]
 	int		P701;	//      Warning Following Error Limit [1/16count]
 	int		P702;	//      PID Proportional Gain
 	int		P703;	//      PID Derivative Gain
@@ -265,10 +265,10 @@ typedef struct {
 	int		P747;
 	int		P748;
 	int		P749;
-	int		P750;	// X ² w—ß•ª‰ğ”\•ÏŠ·ŒW”•ªq
-	int		P751;	// X ² w—ß•ª‰ğ”\•ÏŠ·ŒW”•ª•ê
-	int		P752;	// Y ² w—ß•ª‰ğ”\•ÏŠ·ŒW”•ªq
-	int		P753;	// Y ² w—ß•ª‰ğ”\•ÏŠ·ŒW”•ª•ê
+	int		P750;	// X è»¸ æŒ‡ä»¤åˆ†è§£èƒ½å¤‰æ›ä¿‚æ•°åˆ†å­
+	int		P751;	// X è»¸ æŒ‡ä»¤åˆ†è§£èƒ½å¤‰æ›ä¿‚æ•°åˆ†æ¯
+	int		P752;	// Y è»¸ æŒ‡ä»¤åˆ†è§£èƒ½å¤‰æ›ä¿‚æ•°åˆ†å­
+	int		P753;	// Y è»¸ æŒ‡ä»¤åˆ†è§£èƒ½å¤‰æ›ä¿‚æ•°åˆ†æ¯
 	int		P754;
 	int		P755;
 	int		P756;

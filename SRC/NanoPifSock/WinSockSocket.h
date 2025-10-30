@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "stdafx.h"
 #include <process.h>	/* _beginthread, _endthread */
@@ -7,7 +7,7 @@
 #define WM_SOCKET_CLOSE 		(WM_USER + 0x0101)
 
 
-// ƒf[ƒ^‘—óM—pƒ\ƒPƒbƒg
+// ãƒ‡ãƒ¼ã‚¿é€å—ä¿¡ç”¨ã‚½ã‚±ãƒƒãƒˆ
 class CWinSockSocket : public CAsyncSocket
 {
 public:
@@ -109,7 +109,7 @@ protected:
 /////////////////////////////////////////////////////////////////////////////
 
 
-// ƒŠƒXƒi[ƒ\ƒPƒbƒgiƒT[ƒo[ƒ\ƒPƒbƒgj
+// ãƒªã‚¹ãƒŠãƒ¼ã‚½ã‚±ãƒƒãƒˆï¼ˆã‚µãƒ¼ãƒãƒ¼ã‚½ã‚±ãƒƒãƒˆï¼‰
 template<class T>
 class CWinSockLstn : public CAsyncSocket
 {

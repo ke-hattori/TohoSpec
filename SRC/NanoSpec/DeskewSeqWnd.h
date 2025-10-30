@@ -1,4 +1,4 @@
-// DeskewSeqWnd.h : header file
+﻿// DeskewSeqWnd.h : header file
 //
 
 #pragma once

@@ -1,4 +1,4 @@
-// SitePatternEditDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// SitePatternEditDlg.cpp : �C���v�������e�[�V���� �t�@�C��
 //
 
 #include "stdafx.h"

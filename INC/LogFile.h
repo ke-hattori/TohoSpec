@@ -1,4 +1,4 @@
-#ifndef __LOG_FILE_H__
+﻿#ifndef __LOG_FILE_H__
 #define __LOG_FILE_H__
 
 #pragma once

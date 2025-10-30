@@ -1,4 +1,4 @@
-// JogSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// JogSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -14,7 +14,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CJogSettingDlg ƒ_ƒCƒAƒƒO
+// CJogSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -91,7 +91,7 @@ void CJogSettingDlg::DDV_CustomZJogDataCheck(CDataExchange* pDX, int& value)
 
 	if ( pDX->m_bSaveAndValidate ) {
 		if ( value < iMin || iMax < value ) {
-			// AfxMessageBox("0.001 ‚©‚ç 10.000 ‚Ü‚Å‚Ì”ÍˆÍ‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B", MB_ICONEXCLAMATION);
+			// AfxMessageBox("0.001 ã‹ã‚‰ 10.000 ã¾ã§ã®ç¯„å›²ã§å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚", MB_ICONEXCLAMATION);
 			//Saiki 20090601 Change ----->
 			//AfxMessageBox("Input range 0.001 ~ 10.000", MB_ICONEXCLAMATION);
 			LoadStringML(IDS_INPUT_RANGE, strBuffer, "Input range 0.001 ~ 10.000");
@@ -110,7 +110,7 @@ BEGIN_MESSAGE_MAP(CJogSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CJogSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CJogSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -132,8 +132,8 @@ BOOL CJogSettingDlg::OnInitDialog()
 	m_CancelButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_CancelButton.DrawFlatFocus(TRUE);
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ðÝ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-				  // —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+				  // ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -166,7 +166,7 @@ void CJogSettingDlg::SetOperationLog(LPCTSTR pszLog)
 {
 	char strmsg[1024];
 
-	// ‘€ìƒƒO‚ðŽæ“¾
+	// æ“ä½œãƒ­ã‚°ã‚’å–å¾—
 	memset( strmsg, 0, sizeof(strmsg));
 	strcpy( strmsg, "[");
 	::GetWindowText(this->m_hWnd, &strmsg[1], 1000);

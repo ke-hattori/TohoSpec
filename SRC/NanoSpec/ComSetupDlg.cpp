@@ -1,4 +1,4 @@
-// ComSetupDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// ComSetupDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -13,7 +13,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CComSetupDlg ƒ_ƒCƒAƒƒO
+// CComSetupDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 
 CComSetupDlg::CComSetupDlg(CWnd* pParent /*=NULL*/)
@@ -21,9 +21,9 @@ CComSetupDlg::CComSetupDlg(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(CComSetupDlg)
 	//}}AFX_DATA_INIT
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	LoadStringML(IDS_TITLE_NANOSPEC, m_strMsgBoxCaption,"NanoSpec");
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 }
 
 CComSetupDlg::~CComSetupDlg()
@@ -47,7 +47,7 @@ BEGIN_MESSAGE_MAP(CComSetupDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CComSetupDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CComSetupDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 //---------------------------------------------------------------------------
 // OnInitDialog
@@ -124,10 +124,10 @@ void CComSetupDlg::OnOK()
 	}
 
 	if ( memcmp(&m_OldComSetting, &m_ComSetting, sizeof(COM_SETTING)) != 0 ) {
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //		int iRtn = MessageBox("OverWrite?", "NanoSpec", MB_YESNOCANCEL | MB_ICONINFORMATION);
 		int iRtn = MessageBox("OverWrite?", m_strMsgBoxCaption, MB_YESNOCANCEL | MB_ICONINFORMATION);
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 		switch ( iRtn ) {
 		case IDYES:
 			ConfigFile_SetNanoSpecIni(&m_ComSetting, CONFIG_FILE_COM);
@@ -165,20 +165,20 @@ BOOL CComSetupDlg::UpdateComPortData(int iRow, LPCTSTR pszHeadName, COM_PORT* pC
 		// ComNo
 		strBuffer = m_ComGridCtrl.GetItemText(iRow, iCol);
 		if ( strBuffer.GetLength() > 5 ) {
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //			MessageBox("Input Text Too Long.", "NanoSpec", MB_OK | MB_ICONEXCLAMATION);
 			MessageBox("Input Text Too Long.", m_strMsgBoxCaption, MB_OK | MB_ICONEXCLAMATION);
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 			m_ComGridCtrl.EnableSelection();
 			m_ComGridCtrl.SetItemState(iRow, iCol, m_ComGridCtrl.GetItemState(iRow, iCol) | GVIS_SELECTED);
 			m_ComGridCtrl.SetFocusCell(iRow, iCol);
 			return FALSE;
 		}
 		if ( strBuffer.Mid(0, 3) != "COM" ) {
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //			MessageBox("Invalid Text.", "NanoSpec", MB_OK | MB_ICONEXCLAMATION);
 			MessageBox("Invalid Text.", m_strMsgBoxCaption, MB_OK | MB_ICONEXCLAMATION);
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 			m_ComGridCtrl.EnableSelection();
 			m_ComGridCtrl.SetItemState(iRow, iCol, m_ComGridCtrl.GetItemState(iRow, iCol) | GVIS_SELECTED);
 			m_ComGridCtrl.SetFocusCell(iRow, iCol);
@@ -186,10 +186,10 @@ BOOL CComSetupDlg::UpdateComPortData(int iRow, LPCTSTR pszHeadName, COM_PORT* pC
 		}
 		int iComNo = atoi(strBuffer.Mid(3));
 		if ( iComNo < 1 ) {
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //			MessageBox("Invalid Com No.", "NanoSpec", MB_OK | MB_ICONEXCLAMATION);
 			MessageBox("Invalid Com No.", m_strMsgBoxCaption, MB_OK | MB_ICONEXCLAMATION);
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 			m_ComGridCtrl.EnableSelection();
 			m_ComGridCtrl.SetItemState(iRow, iCol, m_ComGridCtrl.GetItemState(iRow, iCol) | GVIS_SELECTED);
 			m_ComGridCtrl.SetFocusCell(iRow, iCol);
@@ -200,10 +200,10 @@ BOOL CComSetupDlg::UpdateComPortData(int iRow, LPCTSTR pszHeadName, COM_PORT* pC
 		// BaudRate
 		strBuffer = m_ComGridCtrl.GetItemText(iRow, iCol);
 		if ( strBuffer.GetLength() > 6 ) {
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //			MessageBox("Input Text Too Long.", "NanoSpec", MB_OK | MB_ICONEXCLAMATION);
 			MessageBox("Input Text Too Long.", m_strMsgBoxCaption, MB_OK | MB_ICONEXCLAMATION);
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 			m_ComGridCtrl.EnableSelection();
 			m_ComGridCtrl.SetItemState(iRow, iCol, m_ComGridCtrl.GetItemState(iRow, iCol) | GVIS_SELECTED);
 			m_ComGridCtrl.SetFocusCell(iRow, iCol);
@@ -214,10 +214,10 @@ BOOL CComSetupDlg::UpdateComPortData(int iRow, LPCTSTR pszHeadName, COM_PORT* pC
 		// Parity
 		strBuffer = m_ComGridCtrl.GetItemText(iRow, iCol);
 		if ( strBuffer.GetLength() > 1 ) {
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //			MessageBox("Input Text Too Long.", "NanoSpec", MB_OK | MB_ICONEXCLAMATION);
 			MessageBox("Input Text Too Long.", m_strMsgBoxCaption, MB_OK | MB_ICONEXCLAMATION);
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 			m_ComGridCtrl.EnableSelection();
 			m_ComGridCtrl.SetItemState(iRow, iCol, m_ComGridCtrl.GetItemState(iRow, iCol) | GVIS_SELECTED);
 			m_ComGridCtrl.SetFocusCell(iRow, iCol);
@@ -228,10 +228,10 @@ BOOL CComSetupDlg::UpdateComPortData(int iRow, LPCTSTR pszHeadName, COM_PORT* pC
 		// ByteSize
 		strBuffer = m_ComGridCtrl.GetItemText(iRow, iCol);
 		if ( strBuffer.GetLength() > 1 ) {
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //			MessageBox("Input Text Too Long.", "NanoSpec", MB_OK | MB_ICONEXCLAMATION);
 			MessageBox("Input Text Too Long.", m_strMsgBoxCaption, MB_OK | MB_ICONEXCLAMATION);
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 			m_ComGridCtrl.EnableSelection();
 			m_ComGridCtrl.SetItemState(iRow, iCol, m_ComGridCtrl.GetItemState(iRow, iCol) | GVIS_SELECTED);
 			m_ComGridCtrl.SetFocusCell(iRow, iCol);
@@ -239,10 +239,10 @@ BOOL CComSetupDlg::UpdateComPortData(int iRow, LPCTSTR pszHeadName, COM_PORT* pC
 		}
 		int iByteSize = atoi(strBuffer);
 		if ( iByteSize < 5 || 8 < iByteSize ) {
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //			MessageBox("Invalid ByteSize.", "NanoSpec", MB_OK | MB_ICONEXCLAMATION);
 			MessageBox("Invalid ByteSize.", m_strMsgBoxCaption, MB_OK | MB_ICONEXCLAMATION);
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 			m_ComGridCtrl.EnableSelection();
 			m_ComGridCtrl.SetItemState(iRow, iCol, m_ComGridCtrl.GetItemState(iRow, iCol) | GVIS_SELECTED);
 			m_ComGridCtrl.SetFocusCell(iRow, iCol);
@@ -253,20 +253,20 @@ BOOL CComSetupDlg::UpdateComPortData(int iRow, LPCTSTR pszHeadName, COM_PORT* pC
 		// StopBits
 		strBuffer = m_ComGridCtrl.GetItemText(iRow, iCol);
 		if ( strBuffer.GetLength() > 3 ) {
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //			MessageBox("Input Text Too Long.", "NanoSpec", MB_OK | MB_ICONEXCLAMATION);
 			MessageBox("Input Text Too Long.", m_strMsgBoxCaption, MB_OK | MB_ICONEXCLAMATION);
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 			m_ComGridCtrl.EnableSelection();
 			m_ComGridCtrl.SetItemState(iRow, iCol, m_ComGridCtrl.GetItemState(iRow, iCol) | GVIS_SELECTED);
 			m_ComGridCtrl.SetFocusCell(iRow, iCol);
 			return FALSE;
 		}
 		if ( strBuffer != "1" && strBuffer != "1.5" && strBuffer != "2" ) {
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //			MessageBox("Invalid StopBits.", "NanoSpec", MB_OK | MB_ICONEXCLAMATION);
 			MessageBox("Invalid StopBits.", m_strMsgBoxCaption, MB_OK | MB_ICONEXCLAMATION);
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 			m_ComGridCtrl.EnableSelection();
 			m_ComGridCtrl.SetItemState(iRow, iCol, m_ComGridCtrl.GetItemState(iRow, iCol) | GVIS_SELECTED);
 			m_ComGridCtrl.SetFocusCell(iRow, iCol);

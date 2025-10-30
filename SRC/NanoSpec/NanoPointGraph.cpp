@@ -1,4 +1,4 @@
-// NanoPointGraph.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// NanoPointGraph.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 #include "stdafx.h"
 #include "NanoPointGraph.h"
@@ -31,9 +31,9 @@ CNanoPointGraph::CNanoPointGraph()
 	memset(m_PinData,NULL,sizeof(m_PinData));
 	m_PinNum = NULL;
 
-	// 2009.10.14 bagus Distance ’Ç‰Á --{--
+	// 2009.10.14 bagus Distance è¿½åŠ  --{--
 	m_bDistanceMode = FALSE;
-	// 2009.10.14 bagus Distance ’Ç‰Á --}--
+	// 2009.10.14 bagus Distance è¿½åŠ  --}--
 
 	// 2013.01.09 bagus -->
 	memset(&m_OriginPointData,NULL,sizeof(m_OriginPointData));
@@ -55,14 +55,14 @@ CNanoPointGraph::~CNanoPointGraph()
 
 BEGIN_MESSAGE_MAP(CNanoPointGraph, CButton)
 	//{{AFX_MSG_MAP(CNanoPointGraph)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ð’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒžãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒžã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 		ON_WM_SIZE()
 		ON_WM_ACTIVATE()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CNanoPointGraph ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CNanoPointGraph ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 void CNanoPointGraph::DrawItem(LPDRAWITEMSTRUCT lpDIS)
 {
@@ -168,7 +168,7 @@ void CNanoPointGraph::DrawItemMain(LPDRAWITEMSTRUCT lpDIS){
 	DrawMeasuringPoints(pDC, dblRateX, dblRateY);
 
 
-	// 2009.10.14 bagus Distance ’Ç‰Á --{--
+	// 2009.10.14 bagus Distance è¿½åŠ  --{--
 	//Draw Selected point
 //	DrawSelectedPoint(pDC, dblRateX, dblRateY);
 	if (GetDistanceMode()) {
@@ -178,7 +178,7 @@ void CNanoPointGraph::DrawItemMain(LPDRAWITEMSTRUCT lpDIS){
 		//Draw Selected point
 		DrawSelectedPoint(pDC, dblRateX, dblRateY);
 	}
-	// 2009.10.14 bagus Distance ’Ç‰Á --}--
+	// 2009.10.14 bagus Distance è¿½åŠ  --}--
 
 	//Draw Edge
 	DrawEdge(pDC, cButtonRect);
@@ -298,7 +298,7 @@ BOOL CNanoPointGraph::IsValidPoint(int nPoint)
 }
 
 //--------------------------------------------------
-//		ƒ|ƒCƒ“ƒgƒ}ƒbƒsƒ“ƒOƒOƒ‰ƒt—ÌˆæƒNƒŠƒA
+//		ãƒã‚¤ãƒ³ãƒˆãƒžãƒƒãƒ”ãƒ³ã‚°ã‚°ãƒ©ãƒ•é ˜åŸŸã‚¯ãƒªã‚¢
 //--------------------------------------------------
 void CNanoPointGraph::ClearGraph(CDC *pDC,RECT *pScreenSize)
 {
@@ -312,7 +312,7 @@ void CNanoPointGraph::ClearGraph(CDC *pDC,RECT *pScreenSize)
 }
 
 //--------------------------------------------------
-//		Œ´“_À•W •`‰æ
+//		åŽŸç‚¹åº§æ¨™ æç”»
 //--------------------------------------------------
 void CNanoPointGraph::DrawOriginPoint(CDC *pDC,double dblRateX,double dblRateY)
 {
@@ -333,7 +333,7 @@ void CNanoPointGraph::DrawOriginPoint(CDC *pDC,double dblRateX,double dblRateY)
 }
 
 //--------------------------------------------------
-//		‘ª’èI—¹À•W •`‰æ
+//		æ¸¬å®šçµ‚äº†åº§æ¨™ æç”»
 //--------------------------------------------------
 void CNanoPointGraph::DrawMeasuredPoints(CDC *pDC,double dblRateX,double dblRateY)
 {
@@ -359,7 +359,7 @@ void CNanoPointGraph::DrawMeasuredPoints(CDC *pDC,double dblRateX,double dblRate
 }
 
 //--------------------------------------------------
-//		‘ª’è‘OÀ•W •`‰æ
+//		æ¸¬å®šå‰åº§æ¨™ æç”»
 //--------------------------------------------------
 void CNanoPointGraph::DrawNotMeasuredPoints(CDC *pDC,double dblRateX,double dblRateY)
 {
@@ -385,7 +385,7 @@ void CNanoPointGraph::DrawNotMeasuredPoints(CDC *pDC,double dblRateX,double dblR
 }
 
 //--------------------------------------------------
-//		‘ª’è’†À•W •`‰æ
+//		æ¸¬å®šä¸­åº§æ¨™ æç”»
 //--------------------------------------------------
 void CNanoPointGraph::DrawMeasuringPoints(CDC *pDC,double dblRateX,double dblRateY)
 {
@@ -412,7 +412,7 @@ void CNanoPointGraph::DrawMeasuringPoints(CDC *pDC,double dblRateX,double dblRat
 }
 
 //--------------------------------------------------
-//		‘I‘ðÀ•W •`‰æ
+//		é¸æŠžåº§æ¨™ æç”»
 //--------------------------------------------------
 void CNanoPointGraph::DrawSelectedPoint(CDC *pDC,double dblRateX,double dblRateY)
 {
@@ -437,7 +437,7 @@ void CNanoPointGraph::DrawSelectedPoint(CDC *pDC,double dblRateX,double dblRateY
 }
 
 //--------------------------------------------------
-//		ƒ|ƒCƒ“ƒgƒ}ƒbƒsƒ“ƒOƒOƒ‰ƒt—Ìˆæ‰Žæ‚è
+//		ãƒã‚¤ãƒ³ãƒˆãƒžãƒƒãƒ”ãƒ³ã‚°ã‚°ãƒ©ãƒ•é ˜åŸŸç¸å–ã‚Š
 //--------------------------------------------------
 void CNanoPointGraph::DrawEdge(CDC *pDC,RECT *pScreenSize)
 {
@@ -472,7 +472,7 @@ void CNanoPointGraph::DrawEdge(CDC *pDC,RECT *pScreenSize)
 }
 
 //--------------------------------------------------
-//		‘ª’è“_Fƒhƒbƒg •`‰æ
+//		æ¸¬å®šç‚¹ï¼šãƒ‰ãƒƒãƒˆ æç”»
 //--------------------------------------------------
 void CNanoPointGraph::DrawPointDot(CDC *pDC,int nX,int nY)
 {
@@ -508,7 +508,7 @@ void CNanoPointGraph::DrawPointDot(CDC *pDC,int nX,int nY)
 }
 
 //--------------------------------------------------
-//		‘ª’è“_FƒNƒƒX •`‰æ
+//		æ¸¬å®šç‚¹ï¼šã‚¯ãƒ­ã‚¹ æç”»
 //--------------------------------------------------
 void CNanoPointGraph::DrawPointCross(CDC *pDC,int nX,int nY)
 {
@@ -516,7 +516,7 @@ void CNanoPointGraph::DrawPointCross(CDC *pDC,int nX,int nY)
 	// |
 	pDC->MoveTo(nX, nY - NANO_POINT_MAP_CROESS_MARK_LENGTH);
 	pDC->LineTo(nX, nY + NANO_POINT_MAP_CROESS_MARK_LENGTH + 1);
-	// \
+	// â€•
 	pDC->MoveTo(nX - NANO_POINT_MAP_CROESS_MARK_LENGTH, nY);
 	pDC->LineTo(nX + NANO_POINT_MAP_CROESS_MARK_LENGTH + 1, nY);
 */
@@ -588,7 +588,7 @@ void CNanoPointGraph::OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized)
 	CButton::OnActivate(nState, pWndOther, bMinimized);
 	Invalidate(TRUE);
 }
-//@@@ bagus stress ‘ª’èƒ|ƒCƒ“ƒgƒOƒ‰ƒt‘Î‰ž --}--
+//@@@ bagus stress æ¸¬å®šãƒã‚¤ãƒ³ãƒˆã‚°ãƒ©ãƒ•å¯¾å¿œ --}--
 void CNanoPointGraph::SetLineStatusMode(BOOL bMode)
 {
 	m_bLSStatusMode = bMode;
@@ -724,7 +724,7 @@ void CNanoPointGraph::DrawLines(CDC *pDC, double dblRateX, double dblRateY)
 		pDC->SelectObject(pOldPen);
 	}
 	//2009.08.31 bagus stress --{--
-	//‘I‘ðó‘Ô‚Ì‚à‚Ì‚ÍÅŒã‚É‚à‚¤ˆê“xã‘‚«‚·‚é
+	//é¸æŠžçŠ¶æ…‹ã®ã‚‚ã®ã¯æœ€å¾Œã«ã‚‚ã†ä¸€åº¦ä¸Šæ›¸ãã™ã‚‹
 	if(m_SelectedLS >= 0 && m_SelectedLS < m_LSNum){
 		pOldPen = pDC->SelectObject(&cLinePenSlected);
 		nLineSX = (int)(m_LSData[m_SelectedLS].StartX * dblRateX);
@@ -744,7 +744,7 @@ void CNanoPointGraph::DrawLines(CDC *pDC, double dblRateX, double dblRateY)
 	}
 	//2009.08.31 bagus stress --}--
 }
-//@@@ bagus stress ‘ª’èƒ|ƒCƒ“ƒgƒOƒ‰ƒt‘Î‰ž --}--
+//@@@ bagus stress æ¸¬å®šãƒã‚¤ãƒ³ãƒˆã‚°ãƒ©ãƒ•å¯¾å¿œ --}--
 //2009.08.30 bagus stress --{--
 void CNanoPointGraph::SelectSectionByLSNo(int nLineNo,int nSectionNo /*= 0 */)
 {
@@ -850,7 +850,7 @@ void CNanoPointGraph::ResetAll()
 }
 // 2009.09.11 bagus stress --}--
 
-// 2009.10.14 bagus Distance ’Ç‰Á --{--
+// 2009.10.14 bagus Distance è¿½åŠ  --{--
 void CNanoPointGraph::SetDistanceMode(BOOL bMode)
 {
 	m_bDistanceMode = bMode;
@@ -904,23 +904,23 @@ void CNanoPointGraph::Draw2PointDistance(CDC *pDC,double dblRateX,double dblRate
 	nDrawEX = (int)(m_PointData[m_SelectedDistance + 1].DataX * dblRateX);
 	nDrawEY = (int)(m_PointData[m_SelectedDistance + 1].DataY * dblRateY);
 
-	// ü
+	// ç·š
 	pOldPen = pDC->SelectObject(&cLLinePen);
 	pDC->MoveTo(nDrawSX, nDrawSY);
 	pDC->LineTo(nDrawEX, nDrawEY);
 
-	// Žn“_
+	// å§‹ç‚¹
 	pDC->SelectObject(&cSLinePen);
 	DrawPointCross(pDC, nDrawSX, nDrawSY);
 
-	// I“_
+	// çµ‚ç‚¹
 	pDC->SelectObject(&cELinePen);
 	DrawPointCross(pDC, nDrawEX, nDrawEY);
 
 
 	pDC->SelectObject(pOldPen);
 }
-// 2009.10.14 bagus Distance ’Ç‰Á --}--
+// 2009.10.14 bagus Distance è¿½åŠ  --}--
 
 // 2013.01.09 bagus -->
 void CNanoPointGraph::SetOriginPointData(long x, long y)

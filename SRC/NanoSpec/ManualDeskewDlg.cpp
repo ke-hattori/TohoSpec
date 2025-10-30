@@ -1,4 +1,4 @@
-// ManualDeskewDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// ManualDeskewDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -298,9 +298,9 @@ BEGIN_MESSAGE_MAP(CManualDeskewDlg, COverlayDialog)
 	ON_WM_PAINT()
 	ON_WM_LBUTTONDOWN()
 	//}}AFX_MSG_MAP
-// 2009.06.11 K.Matsuo ƒL[ƒtƒbƒN -->
+// 2009.06.11 K.Matsuo ã‚­ãƒ¼ãƒ•ãƒƒã‚¯ -->
 //	ON_MESSAGE(WM_STAGE_MOVE_DONE, OnStageMoveDone)
-// 2009.06.11 K.Matsuo ƒL[ƒtƒbƒN <--
+// 2009.06.11 K.Matsuo ã‚­ãƒ¼ãƒ•ãƒƒã‚¯ <--
 END_MESSAGE_MAP()
 
 //
@@ -374,10 +374,10 @@ BOOL CManualDeskewDlg::OnInitDialog()
 //	SetCaption("MANUAL DESKEW SETUP");
 //	SetCaption("CLICK CORRECT POSITION");
 	//Saiki 20090410 Change ----->
-	//SetCaption("è“® ŒX‚«•â³İ’è");
-	//SetCaption("ƒ}ƒjƒ…ƒAƒ‹ ƒfƒXƒLƒ…[İ’è");
+	//SetCaption("æ‰‹å‹• å‚¾ãè£œæ­£è¨­å®š");
+	//SetCaption("ãƒãƒ‹ãƒ¥ã‚¢ãƒ« ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼è¨­å®š");
 	//Saiki 20090410 Change <-----
-	//SetMessage("ƒNƒŠƒbƒN‚µ‚ÄˆÊ’u‚ğ‚ ‚í‚¹‚Ä‚­‚¾‚³‚¢");
+	//SetMessage("ã‚¯ãƒªãƒƒã‚¯ã—ã¦ä½ç½®ã‚’ã‚ã‚ã›ã¦ãã ã•ã„");
 	LoadStringML(IDS_MANUAL_DESKEW_SETUP, l_strCap, "MANUAL DESKEW SETUP");
 	LoadStringML(IDS_CLICK_CORRECT_POSITION, l_strMsg, "CLICK CORRECT POSITION");
 	SetCaption(l_strCap);
@@ -388,8 +388,8 @@ BOOL CManualDeskewDlg::OnInitDialog()
 
 	Event(EV_START);
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================

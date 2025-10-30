@@ -1,12 +1,12 @@
-
+ï»¿
 /*
- *	motion_data ‚Ì\‘¢’è‹`
+ *	motion_data ã®æ§‹é€ å®šç¾©
  */
 
 typedef struct {
-	BOOL			bEnable;			// ² —LŒøƒtƒ‰ƒO
-	HWND			hWnd;				// ‰“š‘—Mæ‚ÌƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹
-	BOOL			uninitialized;		// –¢‰Šú‰»ƒtƒ‰ƒO
-	BOOL			bInvertedSense;		// ˆÚ“®•ûŒü”½“]ƒtƒ‰ƒO
-	long			soft_home;			// ƒ\ƒtƒg HP
+	BOOL			bEnable;			// è»¸ æœ‰åŠ¹ãƒ•ãƒ©ã‚°
+	HWND			hWnd;				// å¿œç­”é€ä¿¡å…ˆã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«
+	BOOL			uninitialized;		// æœªåˆæœŸåŒ–ãƒ•ãƒ©ã‚°
+	BOOL			bInvertedSense;		// ç§»å‹•æ–¹å‘åè»¢ãƒ•ãƒ©ã‚°
+	long			soft_home;			// ã‚½ãƒ•ãƒˆ HP
 } MOT_DATA;

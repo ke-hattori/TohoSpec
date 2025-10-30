@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include <math.h>
 #include "../../INC/Common.hxx"
 #include "../../INC/ConfigFile.hxx"
@@ -8,12 +8,12 @@
 
 extern CLogFile* pLogFile;
 extern BOOL bHwSimulation;
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ž MeaSys.dll ---------- { ---------- */
-extern TCHAR g_tszProcDir[_MAX_PATH];		/* ŒÄo‚µƒvƒƒZƒX‚ÌƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
-extern TCHAR g_tszBaseDir[_MAX_PATH];		/* Šî€ƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ MeaSys.dll ---------- { ---------- */
+extern TCHAR g_tszProcDir[_MAX_PATH];		/* å‘¼å‡ºã—ãƒ—ãƒ­ã‚»ã‚¹ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª('\'ä»˜ã)*/
+extern TCHAR g_tszBaseDir[_MAX_PATH];		/* åŸºæº–ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª('\'ä»˜ã)*/
 extern void GetProcBaseDir(LPTSTR ptszProcDir, LPTSTR ptszBaseDir);
 extern void AddAbsPath(LPTSTR ptszPath);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ž MeaSys.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ MeaSys.dll ---------- } ---------- */
 
 // --------------------------------------------------------------------------
 // CSeMeasure
@@ -36,7 +36,7 @@ BOOL CSeMeasure::InitInstance()
 
 	char szVersion[256];
 
-	// SEƒwƒbƒh‚ÌƒCƒ“ƒ^ƒtƒF[ƒX‚ð‘I‘ð‚·‚é
+	// SEãƒ˜ãƒƒãƒ‰ã®ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’é¸æŠžã™ã‚‹
 	if ( bHwSimulation ) {
 		m_pSeHead = new CSeHeadDesktop();
 		pLogFile->Logging("Se Head Type : CSeHeadDesktop");
@@ -46,14 +46,14 @@ BOOL CSeMeasure::InitInstance()
 		pLogFile->Logging("Se Head Type : CSeHeadSock");
 	}
 
-	// SEƒwƒbƒh‚Ì‰Šú‰»
+	// SEãƒ˜ãƒƒãƒ‰ã®åˆæœŸåŒ–
 	if ( !m_pSeHead->InitInstance() ) {
 		pLogFile->Logging("Se Head Initialize Error");
 		pLogFile->Logging(m_pSeHead->GetLastError());
 		return FALSE;
 	}
 
-	// SEƒwƒbƒhi=WVASE32j‚Ìƒo[ƒWƒ‡ƒ“î•ñ‚ÌŽæ“¾
+	// SEãƒ˜ãƒƒãƒ‰ï¼ˆ=WVASE32ï¼‰ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ã®å–å¾—
 	if ( m_pSeHead->GetVersion(szVersion) ) {
 		pLogFile->LoggingV("%s%s", "Se Head Version : ", szVersion);
 	}

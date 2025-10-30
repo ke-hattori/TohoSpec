@@ -1,4 +1,4 @@
-// StressCofigurationSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// StressCofigurationSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -17,14 +17,14 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CStressCofigurationSettingDlg ƒ_ƒCƒAƒƒO
+// CStressCofigurationSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 
 CStressCofigurationSettingDlg::CStressCofigurationSettingDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CStressCofigurationSettingDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CStressCofigurationSettingDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_INIT
 }
 
@@ -33,7 +33,7 @@ void CStressCofigurationSettingDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CStressCofigurationSettingDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_MAP
 
 	DDX_Control(pDX, IDOK, m_OkButton);
@@ -47,11 +47,11 @@ BEGIN_MESSAGE_MAP(CStressCofigurationSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CStressCofigurationSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CStressCofigurationSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 void CStressCofigurationSettingDlg::OnOK()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚É‚»‚Ì‘¼‚ÌŒŸØ—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãã®ä»–ã®æ¤œè¨¼ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 	if (!CheckData())
 		return;
 
@@ -67,7 +67,7 @@ BOOL CStressCofigurationSettingDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// TODO: ‚±‚ÌˆÊ’u‚É‰Šú‰»‚Ì•â‘«ˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«åˆæœŸåŒ–ã®è£œè¶³å‡¦ç†ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	memset(&m_StressConfig, 0, sizeof(m_StressConfig));
 	ConfigFile_GetNanoSpecIni(&m_StressConfig, CONFIG_FILE_STRESS_CONFIG);
@@ -83,8 +83,8 @@ BOOL CStressCofigurationSettingDlg::OnInitDialog()
 	///// Set Data /////
 	UpDate(FALSE);
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 BOOL CStressCofigurationSettingDlg::CheckData()
@@ -195,7 +195,7 @@ void CStressCofigurationSettingDlg::UpDate(BOOL bValid)
 	CString strBuffer;
 
 	if(bValid){
-		//\‘¢‘Ì‚Öƒf[ƒ^‚ğƒZƒbƒg‚·‚é
+		//æ§‹é€ ä½“ã¸ãƒ‡ãƒ¼ã‚¿ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
 		GetDlgItemText(IDC_SAMPLING_INTERVAL_TIME,strBuffer);
 		m_StressConfig.dwSamplingInterval = atol(strBuffer);
 		GetDlgItemText(IDC_DATA_INTEGRATION_INTERVAL,strBuffer);
@@ -219,7 +219,7 @@ void CStressCofigurationSettingDlg::UpDate(BOOL bValid)
 		m_StressConfig.lScanZAxisPosition = atol(strBuffer) * 10;
 // 2009.10.01 bagus Stress --}--
 	}else{
-		//\‘¢‘Ì‚É‚ ‚éƒf[ƒ^‚ğ‰æ–Ê‚ÉƒZƒbƒg‚·‚é
+		//æ§‹é€ ä½“ã«ã‚ã‚‹ãƒ‡ãƒ¼ã‚¿ã‚’ç”»é¢ã«ã‚»ãƒƒãƒˆã™ã‚‹
 		//// Sampling Interval Time(um)
 		strBuffer.Format(_T("%ld"),m_StressConfig.dwSamplingInterval);
 		SetDlgItemText(IDC_SAMPLING_INTERVAL_TIME,strBuffer);

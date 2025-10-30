@@ -1,4 +1,4 @@
-// CompEASEIPAddressSettingDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// CompEASEIPAddressSettingDlg.cpp : インプリメンテーション ファイル
 //
 
 #include "stdafx.h"
@@ -18,7 +18,7 @@ static char THIS_FILE[] = __FILE__;
 #define MSGBOX_CAPTION		"EASE IPADDRESS SETTING"
 
 // #########################################################################
-// CCompEASEIPAddressSettingDlg �_�C�A���O
+// CCompEASEIPAddressSettingDlg ダイアログ
 // #########################################################################
 
 // =========================================================================
@@ -50,7 +50,7 @@ BEGIN_MESSAGE_MAP(CCompEASEIPAddressSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CCompEASEIPAddressSettingDlg ���b�Z�[�W �n���h��
+// CCompEASEIPAddressSettingDlg メッセージ ハンドラ
 
 // =========================================================================
 //
@@ -72,7 +72,7 @@ BOOL CCompEASEIPAddressSettingDlg::OnInitDialog()
 	m_CancelButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_CancelButton.DrawFlatFocus(TRUE);
 
-	// �R�����g����������
+	// コメント文字数制限
 	((CEdit*)GetDlgItem(IDC_COMPEASE_PORT_EDIT))->SetLimitText(5);
 	((CEdit*)GetDlgItem(IDC_COMPEASE_ASYNC_PORT_EDIT))->SetLimitText(5);
 
@@ -91,8 +91,8 @@ BOOL CCompEASEIPAddressSettingDlg::OnInitDialog()
 	strBuffer.Format("%d", m_CompEaseConfig.nAsyncPort);
 	SetDlgItemText(IDC_COMPEASE_ASYNC_PORT_EDIT, strBuffer);
 
-	return TRUE;	// �R���g���[���Ƀt�H�[�J�X��ݒ肵�Ȃ��Ƃ��A�߂�l�� TRUE �ƂȂ�܂�
-					// ��O: OCX �v���p�e�B �y�[�W�̖߂�l�� FALSE �ƂȂ�܂�
+	return TRUE;	// コントロールにフォーカスを設定しないとき、戻り値は TRUE となります
+					// 例外: OCX プロパティ ページの戻り値は FALSE となります
 }
 
 // =========================================================================

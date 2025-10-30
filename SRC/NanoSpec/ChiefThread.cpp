@@ -1,4 +1,4 @@
-// ChiefThread.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// ChiefThread.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -27,14 +27,14 @@ CChiefThread::CChiefThread(CWnd* pParent /*=NULL*/)
 
 	m_pcMainFrame = (CFrameWnd*) pParent;
 
-	//	ƒXƒŒƒbƒh‚Ì‹N“®‘Ò‚¿
+	//	ã‚¹ãƒ¬ãƒƒãƒ‰ã®èµ·å‹•å¾…ã¡
 	BOOL l_bThreadOK = CreateThread();
 	if (0 != this->m_hThread) {
 		CSingleLock	l_SingleLock(&m_cSyncEvent, TRUE);
 	}
 	((CMainFrame*) m_pcMainFrame)->m_pDoc->ChiefLogging(_T("Started  CChiefThread."));
 
-	//	ƒIƒuƒWƒFƒNƒg‚Ì©“®”jŠü‚ğ‹Ö~
+	//	ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®è‡ªå‹•ç ´æ£„ã‚’ç¦æ­¢
 	m_bAutoDelete = FALSE;
 
 }
@@ -43,7 +43,7 @@ CChiefThread::~CChiefThread()
 {
 	TRACE(_T("CChiefThread::~CChiefThread() \n"));
 
-	//	ƒXƒŒƒbƒh‚ÌÁ–Å‘Ò‚¿
+	//	ã‚¹ãƒ¬ãƒƒãƒ‰ã®æ¶ˆæ»…å¾…ã¡
 	if (0 != this->m_hThread) {
 		if (0 == m_bAutoDelete) {
 //			PostThreadMessage(WM_QUIT, 0, 0);
@@ -55,15 +55,15 @@ CChiefThread::~CChiefThread()
 
 BOOL CChiefThread::InitInstance()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒXƒŒƒbƒh’PˆÊ‚Ì‰Šú‰»ƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ã“ã®ä½ç½®ã«ã‚¹ãƒ¬ãƒƒãƒ‰å˜ä½ã®åˆæœŸåŒ–ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 
 	TRACE(_T("CChiefThread::InitInstance() \n"));
 
-	// ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ì‘Ò‚¿‚ğ‰ğœ‚µ‚Ü‚·
-	//		‚Â‚Ü‚èCƒXƒŒƒbƒh‚Ì¶¬‚ÆƒXƒŒƒbƒhƒNƒ‰ƒX‚Ì\’z‚Ì“¯Šú‚ğæ‚Á‚Ä‚¢‚Ü‚·D
+	// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å¾…ã¡ã‚’è§£é™¤ã—ã¾ã™
+	//		ã¤ã¾ã‚Šï¼Œã‚¹ãƒ¬ãƒƒãƒ‰ã®ç”Ÿæˆã¨ã‚¹ãƒ¬ãƒƒãƒ‰ã‚¯ãƒ©ã‚¹ã®æ§‹ç¯‰ã®åŒæœŸã‚’å–ã£ã¦ã„ã¾ã™ï¼
 	m_cSyncEvent.SetEvent();
 
-	// Chief ƒ_ƒCƒAƒƒO‚ğ¶¬
+	// Chief ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’ç”Ÿæˆ
 	m_pMainWnd = new CChiefFrame();
 	CCreateContext context;
 	context.m_pNewViewClass = RUNTIME_CLASS(CChiefView);
@@ -78,7 +78,7 @@ BOOL CChiefThread::InitInstance()
 
 int CChiefThread::ExitInstance()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒXƒŒƒbƒh’PˆÊ‚Ì‰Šú‰»ƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ã“ã®ä½ç½®ã«ã‚¹ãƒ¬ãƒƒãƒ‰å˜ä½ã®åˆæœŸåŒ–ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 
 	TRACE(_T("CChiefThread::ExitInstance() \n"));
 
@@ -87,9 +87,9 @@ int CChiefThread::ExitInstance()
 
 BEGIN_MESSAGE_MAP(CChiefThread, CWinThread)
 	//{{AFX_MSG_MAP(CChiefThread)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã—ã¾ã™ã€‚
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CChiefThread ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CChiefThread ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©

@@ -1,4 +1,4 @@
-// MessageDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// MessageDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -13,14 +13,14 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CMessageDlg ƒ_ƒCƒAƒƒO
+// CMessageDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 
 CMessageDlg::CMessageDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CMessageDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CMessageDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_INIT
 
 	m_MessageMax = 0;
@@ -42,7 +42,7 @@ BEGIN_MESSAGE_MAP(CMessageDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CMessageDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CMessageDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // ==========================================================================
 //
@@ -50,13 +50,13 @@ BOOL CMessageDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	ShowWindow(SW_HIDE);		// ‹N“®‚Í”ñ•\¦
+	ShowWindow(SW_HIDE);		// èµ·å‹•æ™‚ã¯éè¡¨ç¤º
 
-	// StringList‚Ì“Ç‚İ‚İ
+	// StringListã®èª­ã¿è¾¼ã¿
 	MessageListLoading();
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-				  // —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+				  // ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // ==========================================================================
@@ -76,14 +76,14 @@ void CMessageDlg::MessageListLoading()
 	SYSTEM_CONFIG m_SystemConfig;
 	ConfigFile_GetNanoSpecIni(&m_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 
-	if( m_SystemConfig.nLanguage == 1 ){	// “ú–{Œê
+	if( m_SystemConfig.nLanguage == 1 ){	// æ—¥æœ¬èª
 		// recipe data file open
 		sprintf(szFilePath, "%s%s", g_szCfg_Dir, MESSAGE_FILE_NAME_J);
 		if(!File.Open(szFilePath, CFile::modeRead | CFile::typeText)){
 			return;
 		}
 	}
-	else{									// ‰pŒê
+	else{									// è‹±èª
 		// recipe data file open
 		sprintf(szFilePath, "%s%s", g_szCfg_Dir, MESSAGE_FILE_NAME_E);
 		if(!File.Open(szFilePath, CFile::modeRead | CFile::typeText)){

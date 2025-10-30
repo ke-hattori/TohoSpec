@@ -1,4 +1,4 @@
-// DataSearchDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// DataSearchDlg.cpp : インプリメンテーション ファイル
 //
 
 #include "stdafx.h"
@@ -13,7 +13,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // #########################################################################
-// CDataSearchDlg �_�C�A���O
+// CDataSearchDlg ダイアログ
 // #########################################################################
 
 // =========================================================================
@@ -45,7 +45,7 @@ BEGIN_MESSAGE_MAP(CDataSearchDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CDataSearchDlg ���b�Z�[�W �n���h��
+// CDataSearchDlg メッセージ ハンドラ
 
 // =========================================================================
 //
@@ -53,7 +53,7 @@ BOOL CDataSearchDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// TODO: ���̈ʒu�ɏ������̕⑫������ǉ����Ă�������
+	// TODO: この位置に初期化の補足処理を追加してください
 
 	///// Search Button /////
 	m_SearchButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
@@ -63,6 +63,6 @@ BOOL CDataSearchDlg::OnInitDialog()
 	m_CancelButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_CancelButton.DrawFlatFocus(TRUE);
 
-	return TRUE;	// �R���g���[���Ƀt�H�[�J�X��ݒ肵�Ȃ��Ƃ��A�߂�l�� TRUE �ƂȂ�܂�
-					// ��O: OCX �v���p�e�B �y�[�W�̖߂�l�� FALSE �ƂȂ�܂�
+	return TRUE;	// コントロールにフォーカスを設定しないとき、戻り値は TRUE となります
+					// 例外: OCX プロパティ ページの戻り値は FALSE となります
 }

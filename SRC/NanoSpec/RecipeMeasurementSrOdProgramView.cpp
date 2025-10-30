@@ -1,4 +1,4 @@
-// RecipeMeasurementSrOdProgramView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// RecipeMeasurementSrOdProgramView.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -76,7 +76,7 @@ BEGIN_MESSAGE_MAP(CRecipeMeasurementSrOdProgramView, CNanoRecipeUI)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CRecipeMeasurementSrOdProgramView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CRecipeMeasurementSrOdProgramView ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -98,7 +98,7 @@ void CRecipeMeasurementSrOdProgramView::OnInitialUpdate()
 		| CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
 		!m_wndToolBar.LoadToolBar(IDR_EDIT_RECIPE_BAR)){
 		TRACE0("Failed to create toolbar\n");
-		return; 	// ì¬‚É¸”s
+		return; 	// ä½œæˆã«å¤±æ•—
 	}
 
 	GetClientRect(&rect);
@@ -108,7 +108,7 @@ void CRecipeMeasurementSrOdProgramView::OnInitialUpdate()
 	m_stcProgName.SubclassWindow(GetDlgItem(IDC_OD_PROG_NAME)->GetSafeHwnd());
 	m_stcProgName.SetBkColor(WATER_COLOR);
 
-	///// ‘ª’è”½Ë—¦”g’·İ’è /////
+	///// æ¸¬å®šåå°„ç‡æ³¢é•·è¨­å®š /////
 	if (m_ODMeas.ScanParams._SR.iSpecificWavelen[0] != 0){
 		m_strSpecificWavelen[0].Format("%d",m_ODMeas.ScanParams._SR.iSpecificWavelen[0]);
 	}
@@ -138,7 +138,7 @@ void CRecipeMeasurementSrOdProgramView::OnInitialUpdate()
 
 	OnCheckSeconReferenceMeasurement();
 
-	// ƒRƒƒ“ƒg•¶š”§ŒÀ
+	// ã‚³ãƒ¡ãƒ³ãƒˆæ–‡å­—æ•°åˆ¶é™
 	((CEdit*)GetDlgItem(IDC_OD_COMMENT))->SetLimitText(RECIPE_COMMENT_LEN);
 
 	///// Default Recipe Setup /////
@@ -152,7 +152,7 @@ void CRecipeMeasurementSrOdProgramView::OnInitialUpdate()
 }
 
 // =========================================================================
-// ‚Q‚m‚cƒŠƒtƒ@ƒŒƒ“ƒX ƒ`ƒFƒbƒN‘I‘ğ
+// ï¼’ï¼®ï¼¤ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ ãƒã‚§ãƒƒã‚¯é¸æŠæ™‚
 //
 void CRecipeMeasurementSrOdProgramView::OnCheckSeconReferenceMeasurement()
 {
@@ -172,15 +172,15 @@ void CRecipeMeasurementSrOdProgramView::LoadRecipeData()
 
 	switch ( m_nOpenMode )
 	{
-	case modeNew:				// ƒŒƒVƒsV‹Kì¬
-	case modeDefaultSetting:	// ƒRƒ“ƒtƒBƒO‰æ–Ê‚©‚ç‘JˆÚ‚µ‚Ä‚«‚½ƒP[ƒX
+	case modeNew:				// ãƒ¬ã‚·ãƒ”æ–°è¦ä½œæˆ
+	case modeDefaultSetting:	// ã‚³ãƒ³ãƒ•ã‚£ã‚°ç”»é¢ã‹ã‚‰é·ç§»ã—ã¦ããŸã‚±ãƒ¼ã‚¹
 		if ( !RecipeFile_LoadRecipe(&m_ODMeas, SR_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_SR_OPTICAL_DENSITY) ) {
 			m_ODMeas.ScanParams.hdr.wHeadType = HEAD_TYPE_SR;
 			m_ODMeas.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_SR_OPTICAL_DENSITY;
 		}
 		break;
-	default:					// ƒŒƒVƒsƒƒCƒ“ƒŠƒXƒg‰æ–Ê‚©‚ç‘JˆÚ‚µ‚Ä‚«‚½ƒP[ƒX
-		if ( !RecipeFile_LoadRecipe(&m_ODMeas, m_szRecipeName, RECIPE_FILE_MEASUREMENT_PROGRAM) ) { 			// RECIPE_FILE_MEASUREMENT_PROGRAM ‚Å³‚µ‚¢‚ç‚µ‚¢...
+	default:					// ãƒ¬ã‚·ãƒ”ãƒ¡ã‚¤ãƒ³ãƒªã‚¹ãƒˆç”»é¢ã‹ã‚‰é·ç§»ã—ã¦ããŸã‚±ãƒ¼ã‚¹
+		if ( !RecipeFile_LoadRecipe(&m_ODMeas, m_szRecipeName, RECIPE_FILE_MEASUREMENT_PROGRAM) ) { 			// RECIPE_FILE_MEASUREMENT_PROGRAM ã§æ­£ã—ã„ã‚‰ã—ã„...
 			m_nOpenMode = modeNew;
 			if ( !RecipeFile_LoadRecipe(&m_ODMeas, SR_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_SR_OPTICAL_DENSITY) ) {
 				m_ODMeas.ScanParams.hdr.wHeadType = HEAD_TYPE_SR;
@@ -294,8 +294,8 @@ BOOL CRecipeMeasurementSrOdProgramView::CheckData()
 		return FALSE;
 	}
 
-	///// ‘ª’è”½Ë—¦”g’·İ’è /////
-	//‚R‚Â‚Ìİ’è’l‚ÌãˆÊ‚ª–¢İ’è‚Ìê‡‚ÍãˆÊ‚É‹l‚ß‚éB
+	///// æ¸¬å®šåå°„ç‡æ³¢é•·è¨­å®š /////
+	//ï¼“ã¤ã®è¨­å®šå€¤ã®ä¸Šä½ãŒæœªè¨­å®šã®å ´åˆã¯ä¸Šä½ã«è©°ã‚ã‚‹ã€‚
 	m_strSpecificWavelen[0].TrimLeft();
 	m_strSpecificWavelen[0].TrimRight();
 	m_strSpecificWavelen[1].TrimLeft();
@@ -335,7 +335,7 @@ BOOL CRecipeMeasurementSrOdProgramView::CheckData()
 	if (m_strSpecificWavelen[0].IsEmpty() == 0)
 	{
 		iValue = atoi(m_strSpecificWavelen[0]);
-		if ((!CheckTransData(iValue,m_strSpecificWavelen[0])) || (iValue < MIN_TARGET_WAVELENGTH) || (MAX_TARGET_WAVELENGTH < iValue ))/**®”‚ÅAƒ^[ƒQƒbƒg‚ª—LŒø”ÍˆÍ‚Éİ’è‚³‚ê‚Ä‚¢‚é‚©H*/
+		if ((!CheckTransData(iValue,m_strSpecificWavelen[0])) || (iValue < MIN_TARGET_WAVELENGTH) || (MAX_TARGET_WAVELENGTH < iValue ))/**æ•´æ•°ã§ã€ã‚¿ãƒ¼ã‚²ãƒƒãƒˆãŒæœ‰åŠ¹ç¯„å›²ã«è¨­å®šã•ã‚Œã¦ã„ã‚‹ã‹ï¼Ÿ*/
 		{
 // Kojika 20090527 Change
 //			strBuffer.Format("1st Target WaveLength is out of range.\n(%d - %d)", MIN_TARGET_WAVELENGTH, MAX_TARGET_WAVELENGTH);
@@ -352,10 +352,10 @@ BOOL CRecipeMeasurementSrOdProgramView::CheckData()
 	}
 
 	///// 2nd Target WaveLength /////
-	if (m_strSpecificWavelen[1].IsEmpty() == 0)/**ƒ^[ƒQƒbƒg‚ª“ü—Í‚³‚ê‚Ä‚¢‚é‚©H*/
+	if (m_strSpecificWavelen[1].IsEmpty() == 0)/**ã‚¿ãƒ¼ã‚²ãƒƒãƒˆãŒå…¥åŠ›ã•ã‚Œã¦ã„ã‚‹ã‹ï¼Ÿ*/
 	{
 		iValue = atoi(m_strSpecificWavelen[1]);
-		if ((!CheckTransData(iValue,m_strSpecificWavelen[1])) || (iValue < MIN_TARGET_WAVELENGTH) || (MAX_TARGET_WAVELENGTH < iValue ))/**®”‚ÅAƒ^[ƒQƒbƒg‚ª—LŒø”ÍˆÍ‚Éİ’è‚³‚ê‚Ä‚¢‚é‚©H*/
+		if ((!CheckTransData(iValue,m_strSpecificWavelen[1])) || (iValue < MIN_TARGET_WAVELENGTH) || (MAX_TARGET_WAVELENGTH < iValue ))/**æ•´æ•°ã§ã€ã‚¿ãƒ¼ã‚²ãƒƒãƒˆãŒæœ‰åŠ¹ç¯„å›²ã«è¨­å®šã•ã‚Œã¦ã„ã‚‹ã‹ï¼Ÿ*/
 		{
 // Kojika 20090527 Change
 //			strBuffer.Format("2nd Target WaveLength is out of range.\n(%d - %d)", MIN_TARGET_WAVELENGTH, MAX_TARGET_WAVELENGTH);
@@ -375,7 +375,7 @@ BOOL CRecipeMeasurementSrOdProgramView::CheckData()
 	if (m_strSpecificWavelen[2].IsEmpty() == 0)
 	{
 		iValue = atoi(m_strSpecificWavelen[2]);
-		if ((!CheckTransData(iValue,m_strSpecificWavelen[2])) || (iValue < MIN_TARGET_WAVELENGTH) || (MAX_TARGET_WAVELENGTH < iValue ))/**®”‚ÅAƒ^[ƒQƒbƒg‚ª—LŒø”ÍˆÍ‚Éİ’è‚³‚ê‚Ä‚¢‚é‚©H*/
+		if ((!CheckTransData(iValue,m_strSpecificWavelen[2])) || (iValue < MIN_TARGET_WAVELENGTH) || (MAX_TARGET_WAVELENGTH < iValue ))/**æ•´æ•°ã§ã€ã‚¿ãƒ¼ã‚²ãƒƒãƒˆãŒæœ‰åŠ¹ç¯„å›²ã«è¨­å®šã•ã‚Œã¦ã„ã‚‹ã‹ï¼Ÿ*/
 		{
 // Kojika 20090527 Change
 //			strBuffer.Format("3rd Target WaveLength is out of range.\n(%d - %d)", MIN_TARGET_WAVELENGTH, MAX_TARGET_WAVELENGTH);
@@ -521,7 +521,7 @@ BOOL CRecipeMeasurementSrOdProgramView::SaveRecipeData()
 			return FALSE;
 		break;
 	default:
-		// V‚µ‚¢ƒŒƒVƒs–¼‚ğİ’èiSave, SaveAsŒ“—pj
+		// æ–°ã—ã„ãƒ¬ã‚·ãƒ”åã‚’è¨­å®šï¼ˆSave, SaveAså…¼ç”¨ï¼‰
 		strcpy(m_ODMeas.hdr.szName, m_szRecipeName);
 		if ( !RecipeFile_SaveRecipe(&m_ODMeas, m_szRecipeName, RECIPE_FILE_SR_OPTICAL_DENSITY) )
 			return FALSE;
@@ -565,7 +565,7 @@ BOOL CRecipeMeasurementSrOdProgramView::CheckTransData(int iData , CString strDa
 }
 
 // =========================================================================
-// ƒŒƒ“ƒY ƒRƒ“ƒ{‘I‘ğ
+// ãƒ¬ãƒ³ã‚º ã‚³ãƒ³ãƒœé¸æŠæ™‚
 //
 void CRecipeMeasurementSrOdProgramView::OnSelchangeMeasReflLens()
 {
@@ -582,7 +582,7 @@ void CRecipeMeasurementSrOdProgramView::OnSelchangeMeasReflLens()
 
 
 // =========================================================================
-//ƒŒƒ“ƒY ƒRƒ“ƒ{ƒCƒjƒVƒƒƒ‹ˆ—
+//ãƒ¬ãƒ³ã‚º ã‚³ãƒ³ãƒœã‚¤ãƒ‹ã‚·ãƒ£ãƒ«å‡¦ç†
 //
 void CRecipeMeasurementSrOdProgramView::InitCombo_Lens()
 {
@@ -591,10 +591,10 @@ void CRecipeMeasurementSrOdProgramView::InitCombo_Lens()
 
 	int nIndex;
 	for ( int i = 0; i < SR_LENS_MAX; i++ ) {
-// 2009.11.24 bagus SR C³ --{--
+// 2009.11.24 bagus SR ä¿®æ­£ --{--
 //		  if ( m_SrTurret[i].bEnable ) {
 		if ( m_SrTurret[i].bEnable && m_SrTurret[i].bAnalysis ) {
-// 2009.11.24 bagus SR C³ --}--
+// 2009.11.24 bagus SR ä¿®æ­£ --}--
 			nIndex = pCombo->AddString(m_SrTurret[i].szName);
 			pCombo->SetItemData(nIndex, i);
 		}

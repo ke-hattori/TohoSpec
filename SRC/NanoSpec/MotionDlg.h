@@ -1,27 +1,27 @@
-#if !defined(AFX_MOTIONDLG_H__D417222E_2E24_4FF7_8081_EFF9ADFA0C05__INCLUDED_)
+ï»¿#if !defined(AFX_MOTIONDLG_H__D417222E_2E24_4FF7_8081_EFF9ADFA0C05__INCLUDED_)
 #define AFX_MOTIONDLG_H__D417222E_2E24_4FF7_8081_EFF9ADFA0C05__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// MotionDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// MotionDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
-// 2009.11.09 bagus MS C³ --{--
+// 2009.11.09 bagus MS ä¿®æ­£ --{--
 #define CHECK_CYLINDER_TIMER		(10)
-// 2009.11.09 bagus MS C³ --}--
+// 2009.11.09 bagus MS ä¿®æ­£ --}--
 
 // ##########################################################################
-// CMotionDlg ƒ_ƒCƒAƒƒO
+// CMotionDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // ##########################################################################
 
 class CMotionDlg : public CDialog
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
-	CMotionDlg(CWnd* pParent = NULL);	// •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CMotionDlg(CWnd* pParent = NULL);	// æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CMotionDlg)
 	enum { IDD = IDD_MOTION_DLG };
 	//}}AFX_DATA
@@ -40,9 +40,9 @@ public:
 	CShadeButtonST	m_LoadSequenceCancelButton, m_ClampSequenceCancelButton;
 	CShadeButtonST	m_CloseButton;
 	CStatic			m_ctlWarningMessage;
-// 2009.10.29 bagus MS ’Ç‰ÁC³ --{--
+// 2009.10.29 bagus MS è¿½åŠ ä¿®æ­£ --{--
 	CShadeButtonST	m_MSMoveToPosButton, m_MSSTDModeButton, m_MSJogInchingButton;
-// 2009.10.29 bagus MS ’Ç‰ÁC³ --}--
+// 2009.10.29 bagus MS è¿½åŠ ä¿®æ­£ --}--
 
 	CMainFrame* m_pMainFrame;
 	CNanoSpecDoc* m_pDoc;
@@ -50,17 +50,17 @@ public:
 	SYSTEM_CONFIG m_SystemConfig;
 //2009.11.10 bagus MS --}--
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ð¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CMotionDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒžãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CMotionDlg)
 	virtual BOOL OnInitDialog();
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
@@ -111,21 +111,21 @@ private:
 	MAINTENANCE_POSITION m_TempMaintenancePosition[MAINTENANCE_POSITION_MAX];
 	void SetWarningMessageText(int idsno);
 
-// 2009.10.29 bagus MS ’Ç‰ÁC³ --{--
+// 2009.10.29 bagus MS è¿½åŠ ä¿®æ­£ --{--
 	void InitCombo_Lens();
-// 2009.10.29 bagus MS ’Ç‰ÁC³ --}--
+// 2009.10.29 bagus MS è¿½åŠ ä¿®æ­£ --}--
 
-// 2009.11.09 bagus MS C³ --{--
+// 2009.11.09 bagus MS ä¿®æ­£ --{--
 	MS_CONFIG m_MsConfig;
 	int		m_nSelLens;
 	BOOL	m_bMSModeLampFilcker;
-// 2009.11.09 bagus MS C³ --}--
+// 2009.11.09 bagus MS ä¿®æ­£ --}--
 // matsuhisa 2009.12.26 added >>>
 	int		m_nLensSensorItem;
 // matsuhisa 2009.12.26 added <<<
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ð‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_MOTIONDLG_H__D417222E_2E24_4FF7_8081_EFF9ADFA0C05__INCLUDED_)

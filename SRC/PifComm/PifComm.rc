@@ -1,4 +1,4 @@
-//Microsoft Developer Studio generated resource script.
+﻿//Microsoft Developer Studio generated resource script.
 //
 #include "resource.h"
 
@@ -89,7 +89,7 @@ BEGIN
             VALUE "LegalCopyright", "Copyright (C) 2008\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "PifComm.DLL\0"
-            VALUE "ProductName", "PifComm �޲�Я� �ݸ ײ����\0"
+            VALUE "ProductName", "PifComm ÀÞ²ÅÐ¯¸ ØÝ¸ ×²ÌÞ×Ø\0"
             VALUE "ProductVersion", "1, 0, 0, 1\0"
         END
     END

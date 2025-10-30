@@ -1,4 +1,4 @@
-// UserSettingOperationTabView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// UserSettingOperationTabView.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -9,21 +9,21 @@
 //2009.09.03 bagus se --{--
 #include "UserSettingOperationSeSettingDlg.h"
 //2009.09.03 bagus se --}--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 #include "UserSettingOperationCompEASESettingDlg.h"
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.08 bagus CTA ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.08 bagus CTA è¿½åŠ  --{--
 #include "UserSettingOperationCTASettingDlg.h"
-// 2009.10.08 bagus CTA ’Ç‰Á --}--
-//2009.10.20 bagus MS ’Ç‰Á --{--
+// 2009.10.08 bagus CTA è¿½åŠ  --}--
+//2009.10.20 bagus MS è¿½åŠ  --{--
 #include "UserSettingOperationMSSettingDlg.h"
-//2009.10.20 bagus MS ’Ç‰Á --}--
-//2009.10.21 bagus Stress ’Ç‰Á --{--
+//2009.10.20 bagus MS è¿½åŠ  --}--
+//2009.10.21 bagus Stress è¿½åŠ  --{--
 #include "UserSettingOperationStressSettingDlg.h"
-//2009.10.21 bagus Stress ’Ç‰Á --}--
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+//2009.10.21 bagus Stress è¿½åŠ  --}--
+// 2009.11.04 bagus RS è¿½åŠ  --{--
 #include "UserSettingOperationRSSettingDlg.h"
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS è¿½åŠ  --}--
 #include "UserSettingOperationTabView.h"
 
 #ifdef _DEBUG
@@ -54,21 +54,21 @@ CUserSettingOperationTabView::CUserSettingOperationTabView()
 //2009.09.03 bagus se --{--
 	m_pUserSettingOperationSeSettingDlg = NULL;
 //2009.09.03 bagus se --}--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	m_pUserSettingOperationCompEASESettingDlg = NULL;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.08 bagus CTA ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.08 bagus CTA è¿½åŠ  --{--
 	m_pUserSettingOperationCTASettingDlg = NULL;
-// 2009.10.08 bagus CTA ’Ç‰Á --}--
-//2009.10.20 bagus MS ’Ç‰Á --{--
+// 2009.10.08 bagus CTA è¿½åŠ  --}--
+//2009.10.20 bagus MS è¿½åŠ  --{--
 	m_pUserSettingOperationMSSettingDlg = NULL;
-//2009.10.20 bagus MS ’Ç‰Á --}--
-//2009.10.21 bagus Stress ’Ç‰Á --{--
+//2009.10.20 bagus MS è¿½åŠ  --}--
+//2009.10.21 bagus Stress è¿½åŠ  --{--
 	m_pUserSettingOperationStressSettingDlg = NULL;
-//2009.10.21 bagus Stress ’Ç‰Á --}--
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+//2009.10.21 bagus Stress è¿½åŠ  --}--
+// 2009.11.04 bagus RS è¿½åŠ  --{--
 	m_pUserSettingOperationRSSettingDlg = NULL;
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS è¿½åŠ  --}--
 }
 
 // =========================================================================
@@ -76,64 +76,64 @@ CUserSettingOperationTabView::CUserSettingOperationTabView()
 CUserSettingOperationTabView::~CUserSettingOperationTabView()
 {
 	if(m_pUserSettingOperationCommonSettingDlg){
-// ƒfƒXƒgƒ‰ƒNƒg‚Ì’†‚ÅDestroyWindow‚ðŒÄ‚Ño‚³‚È‚¢
+// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ãƒˆã®ä¸­ã§DestroyWindowã‚’å‘¼ã³å‡ºã•ãªã„
 //		m_pUserSettingOperationCommonSettingDlg->DestroyWindow();
 		delete m_pUserSettingOperationCommonSettingDlg;
 		m_pUserSettingOperationCommonSettingDlg = NULL;
 	}
 
 	if(m_pUserSettingOperationSrSettingDlg){
-// ƒfƒXƒgƒ‰ƒNƒg‚Ì’†‚ÅDestroyWindow‚ðŒÄ‚Ño‚³‚È‚¢
+// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ãƒˆã®ä¸­ã§DestroyWindowã‚’å‘¼ã³å‡ºã•ãªã„
 //		m_pUserSettingOperationSrSettingDlg->DestroyWindow();
 		delete m_pUserSettingOperationSrSettingDlg;
 		m_pUserSettingOperationSrSettingDlg = NULL;
 	}
 	//2009.09.03 bagus se --{--
 	if(m_pUserSettingOperationSeSettingDlg){
-// ƒfƒXƒgƒ‰ƒNƒg‚Ì’†‚ÅDestroyWindow‚ðŒÄ‚Ño‚³‚È‚¢
+// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ãƒˆã®ä¸­ã§DestroyWindowã‚’å‘¼ã³å‡ºã•ãªã„
 //		m_pUserSettingOperationSeSettingDlg->DestroyWindow();
 		delete m_pUserSettingOperationSeSettingDlg;
 		m_pUserSettingOperationSeSettingDlg = NULL;
 	}
 	//2009.09.03 bagus se --}--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	if(m_pUserSettingOperationCompEASESettingDlg){
 		delete m_pUserSettingOperationCompEASESettingDlg;
 		m_pUserSettingOperationCompEASESettingDlg = NULL;
 	}
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.08 bagus CTA ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.08 bagus CTA è¿½åŠ  --{--
 	if(m_pUserSettingOperationCTASettingDlg){
-// ƒfƒXƒgƒ‰ƒNƒg‚Ì’†‚ÅDestroyWindow‚ðŒÄ‚Ño‚³‚È‚¢
+// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ãƒˆã®ä¸­ã§DestroyWindowã‚’å‘¼ã³å‡ºã•ãªã„
 //		m_pUserSettingOperationCTASettingDlg->DestroyWindow();
 		delete m_pUserSettingOperationCTASettingDlg;
 		m_pUserSettingOperationCTASettingDlg = NULL;
 	}
-// 2009.10.08 bagus CTA ’Ç‰Á --}--
-//2009.10.20 bagus MS ’Ç‰Á --{--
+// 2009.10.08 bagus CTA è¿½åŠ  --}--
+//2009.10.20 bagus MS è¿½åŠ  --{--
 	if(m_pUserSettingOperationMSSettingDlg){
-// ƒfƒXƒgƒ‰ƒNƒg‚Ì’†‚ÅDestroyWindow‚ðŒÄ‚Ño‚³‚È‚¢
+// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ãƒˆã®ä¸­ã§DestroyWindowã‚’å‘¼ã³å‡ºã•ãªã„
 //		m_pUserSettingOperationMSSettingDlg->DestroyWindow();
 		delete m_pUserSettingOperationMSSettingDlg;
 		m_pUserSettingOperationMSSettingDlg = NULL;
 	}
-//2009.10.20 bagus MS ’Ç‰Á --}--
-//2009.10.21 bagus Stress ’Ç‰Á --{--
+//2009.10.20 bagus MS è¿½åŠ  --}--
+//2009.10.21 bagus Stress è¿½åŠ  --{--
 	if(m_pUserSettingOperationStressSettingDlg){
-// ƒfƒXƒgƒ‰ƒNƒg‚Ì’†‚ÅDestroyWindow‚ðŒÄ‚Ño‚³‚È‚¢
+// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ãƒˆã®ä¸­ã§DestroyWindowã‚’å‘¼ã³å‡ºã•ãªã„
 //		m_pUserSettingOperationStressSettingDlg->DestroyWindow();
 		delete m_pUserSettingOperationStressSettingDlg;
 		m_pUserSettingOperationStressSettingDlg = NULL;
 	}
-//2009.10.21 bagus Stress ’Ç‰Á --}--
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+//2009.10.21 bagus Stress è¿½åŠ  --}--
+// 2009.11.04 bagus RS è¿½åŠ  --{--
 	if(m_pUserSettingOperationRSSettingDlg){
-// ƒfƒXƒgƒ‰ƒNƒg‚Ì’†‚ÅDestroyWindow‚ðŒÄ‚Ño‚³‚È‚¢
+// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ãƒˆã®ä¸­ã§DestroyWindowã‚’å‘¼ã³å‡ºã•ãªã„
 //		m_pUserSettingOperationRSSettingDlg->DestroyWindow();
 		delete m_pUserSettingOperationRSSettingDlg;
 		m_pUserSettingOperationRSSettingDlg = NULL;
 	}
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS è¿½åŠ  --}--
 }
 
 // =========================================================================
@@ -155,7 +155,7 @@ BEGIN_MESSAGE_MAP(CUserSettingOperationTabView, CNanoUI)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CUserSettingOperationTabView f’f
+// CUserSettingOperationTabView è¨ºæ–­
 
 #ifdef _DEBUG
 // =========================================================================
@@ -174,7 +174,7 @@ void CUserSettingOperationTabView::Dump(CDumpContext& dc) const
 #endif //_DEBUG
 
 // =========================================================================
-// CUserSettingOperationTabView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CUserSettingOperationTabView ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -182,7 +182,7 @@ void CUserSettingOperationTabView::OnInitialUpdate()
 {
 	CNanoUI::OnInitialUpdate();
 
-	// TODO: ‚±‚ÌˆÊ’u‚ÉŒÅ—L‚Ìˆ—‚ð’Ç‰Á‚·‚é‚©A‚Ü‚½‚ÍŠî–{ƒNƒ‰ƒX‚ðŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«å›ºæœ‰ã®å‡¦ç†ã‚’è¿½åŠ ã™ã‚‹ã‹ã€ã¾ãŸã¯åŸºæœ¬ã‚¯ãƒ©ã‚¹ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
 	Tab_Init();
 }
 
@@ -208,7 +208,7 @@ void CUserSettingOperationTabView::Tab_Init()
 	// Common
 	// Kojika 20090529 Change
 	//m_UserSettingOperationTab.InsertItem(iTabItemCount, "COMMON");
-	//m_UserSettingOperationTab.InsertItem(iTabItemCount, "‹¤’Ê€–Ú");
+	//m_UserSettingOperationTab.InsertItem(iTabItemCount, "å…±é€šé …ç›®");
 	LoadStringML(IDS_COMMON_TAB, l_strBuffer, "COMMON");
 	m_UserSettingOperationTab.InsertItem(iTabItemCount, l_strBuffer);
 	// Kojika 20090529 Change End
@@ -223,12 +223,12 @@ void CUserSettingOperationTabView::Tab_Init()
 		m_iHeadType[iTabItemCount] = HEAD_TYPE_SR;
 		iTabItemCount++;
 	}
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	if(g_lModelType != MODEL_T3100){
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 		// SE
 		if(HeadType.bSE){
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 			if(HeadType.bCompEASE){
 				LoadStringML(IDS_COMPEASE_TAB, l_strBuffer, "EASE");
 				m_UserSettingOperationTab.InsertItem(iTabItemCount, l_strBuffer);
@@ -242,10 +242,10 @@ void CUserSettingOperationTabView::Tab_Init()
 			// Kojika 20090603 Change End
 			m_iHeadType[iTabItemCount] = HEAD_TYPE_SE;
 			}
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 			iTabItemCount++;
 		}
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 #if 0
 		// IRSE
 		if(HeadType.bIRSE){
@@ -258,15 +258,15 @@ void CUserSettingOperationTabView::Tab_Init()
 			iTabItemCount++;
 		}
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 		// 4PP
 		if(HeadType.bResist){
 			// Kojika 20090603 Change
 			//m_UserSettingOperationTab.InsertItem(iTabItemCount, "4PP");
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.11.04 bagus RS è¿½åŠ  --{--
 //			LoadStringML(IDS_4PP_TAB, l_strBuffer, "4PP");
 			LoadStringML(IDS_4PP_TAB, l_strBuffer, "RS");
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS è¿½åŠ  --}--
 			m_UserSettingOperationTab.InsertItem(iTabItemCount, l_strBuffer);
 			// Kojika 20090603 Change End
 			m_iHeadType[iTabItemCount] = HEAD_TYPE_4PP;
@@ -292,7 +292,7 @@ void CUserSettingOperationTabView::Tab_Init()
 			m_iHeadType[iTabItemCount] = HEAD_TYPE_STRESS;
 			iTabItemCount++;
 		}
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 		// MS
 		if(HeadType.bMS){
 			LoadStringML(IDS_MS_TAB, l_strBuffer, "MS");
@@ -300,13 +300,13 @@ void CUserSettingOperationTabView::Tab_Init()
 			m_iHeadType[iTabItemCount] = HEAD_TYPE_MS;
 			iTabItemCount++;
 		}
-// 2009.10.19 bagus MS ’Ç‰Á --}--
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2009.10.19 bagus MS è¿½åŠ  --}--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 
 	iTabRowCount = m_UserSettingOperationTab.GetRowCount();
-	// ƒ^ƒu‚Ìs”‚É‰ž‚¶‚Äƒ_ƒCƒAƒƒO‚Ì•\Ž¦ˆÊ’u‚ð•ÏX‚·‚é•K—v‚ª‚ ‚é
+	// ã‚¿ãƒ–ã®è¡Œæ•°ã«å¿œã˜ã¦ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®è¡¨ç¤ºä½ç½®ã‚’å¤‰æ›´ã™ã‚‹å¿…è¦ãŒã‚ã‚‹
 	switch(iTabRowCount){
 	case 2:
 		dy = 39;
@@ -320,7 +320,7 @@ void CUserSettingOperationTabView::Tab_Init()
 		break;
 	}
 
-	// Tab ƒŒƒNƒgƒTƒCƒY‚ÌÝ’è
+	// Tab ãƒ¬ã‚¯ãƒˆã‚µã‚¤ã‚ºã®è¨­å®š
 	CRect rc;
 	GetClientRect(rc);
 	m_UserSettingOperationTab.SetWindowPos(&wndTop, 0, 0, rc.Width(), rc.Height(), SWP_NOMOVE | SWP_NOZORDER | SWP_SHOWWINDOW);
@@ -337,9 +337,9 @@ void CUserSettingOperationTabView::Tab_Init()
 		m_pUserSettingOperationSrSettingDlg->Create(CUserSettingOperationSrSettingDlg::IDD, &m_UserSettingOperationTab);
 	}
 	m_pUserSettingOperationSrSettingDlg->SetWindowPos(&wndTop, dx, dy, 0, 0, SWP_NOSIZE | SWP_SHOWWINDOW);
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	if(g_lModelType != MODEL_T3100){
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 		//2009.09.04 bagus se --{--
 		///// SE /////
 		if(m_pUserSettingOperationSeSettingDlg == NULL){
@@ -348,49 +348,49 @@ void CUserSettingOperationTabView::Tab_Init()
 		}
 		m_pUserSettingOperationSeSettingDlg->SetWindowPos(&wndTop, dx, dy, 0, 0, SWP_NOSIZE | SWP_SHOWWINDOW);
 		//2009.09.04 bagus se --}--
-		// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+		// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 		///// CompleteEASE /////
 		if(m_pUserSettingOperationCompEASESettingDlg == NULL){
 			m_pUserSettingOperationCompEASESettingDlg = new CUserSettingOperationCompEASESettingDlg();
 			m_pUserSettingOperationCompEASESettingDlg->Create(CUserSettingOperationCompEASESettingDlg::IDD, &m_UserSettingOperationTab);
 		}
 		m_pUserSettingOperationCompEASESettingDlg->SetWindowPos(&wndTop, dx, dy, 0, 0, SWP_NOSIZE | SWP_SHOWWINDOW);
-		// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-		// 2009.10.08 bagus CTA ’Ç‰Á --{--
+		// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+		// 2009.10.08 bagus CTA è¿½åŠ  --{--
 		///// ContactAngle /////
 		if(m_pUserSettingOperationCTASettingDlg == NULL){
 			m_pUserSettingOperationCTASettingDlg = new CUserSettingOperationCTASettingDlg();
 			m_pUserSettingOperationCTASettingDlg->Create(CUserSettingOperationCTASettingDlg::IDD, &m_UserSettingOperationTab);
 		}
 		m_pUserSettingOperationCTASettingDlg->SetWindowPos(&wndTop, dx, dy, 0, 0, SWP_NOSIZE | SWP_SHOWWINDOW);
-		// 2009.10.08 bagus CTA ’Ç‰Á --}--
-		//2009.10.20 bagus MS ’Ç‰Á --{--
+		// 2009.10.08 bagus CTA è¿½åŠ  --}--
+		//2009.10.20 bagus MS è¿½åŠ  --{--
 		///// MicroScope /////
 		if(m_pUserSettingOperationMSSettingDlg == NULL){
 			m_pUserSettingOperationMSSettingDlg = new CUserSettingOperationMSSettingDlg();
 			m_pUserSettingOperationMSSettingDlg->Create(CUserSettingOperationMSSettingDlg::IDD, &m_UserSettingOperationTab);
 		}
 		m_pUserSettingOperationMSSettingDlg->SetWindowPos(&wndTop, dx, dy, 0, 0, SWP_NOSIZE | SWP_SHOWWINDOW);
-		//2009.10.20 bagus MS ’Ç‰Á --}--
-		//2009.10.21 bagus Stress ’Ç‰Á --{--
+		//2009.10.20 bagus MS è¿½åŠ  --}--
+		//2009.10.21 bagus Stress è¿½åŠ  --{--
 		///// Stress /////
 		if(m_pUserSettingOperationStressSettingDlg == NULL){
 			m_pUserSettingOperationStressSettingDlg = new CUserSettingOperationStressSettingDlg();
 			m_pUserSettingOperationStressSettingDlg->Create(CUserSettingOperationStressSettingDlg::IDD, &m_UserSettingOperationTab);
 		}
 		m_pUserSettingOperationStressSettingDlg->SetWindowPos(&wndTop, dx, dy, 0, 0, SWP_NOSIZE | SWP_SHOWWINDOW);
-		//2009.10.21 bagus Stress ’Ç‰Á --}--
-		// 2009.11.04 bagus RS ’Ç‰Á --{--
+		//2009.10.21 bagus Stress è¿½åŠ  --}--
+		// 2009.11.04 bagus RS è¿½åŠ  --{--
 		///// Resistance /////
 		if(m_pUserSettingOperationRSSettingDlg == NULL){
 			m_pUserSettingOperationRSSettingDlg = new CUserSettingOperationRSSettingDlg();
 			m_pUserSettingOperationRSSettingDlg->Create(CUserSettingOperationRSSettingDlg::IDD, &m_UserSettingOperationTab);
 		}
 		m_pUserSettingOperationRSSettingDlg->SetWindowPos(&wndTop, dx, dy, 0, 0, SWP_NOSIZE | SWP_SHOWWINDOW);
-		// 2009.11.04 bagus RS ’Ç‰Á --}--
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+		// 2009.11.04 bagus RS è¿½åŠ  --}--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 
 	///// Set Current Selection Item /////
 	Index = m_UserSettingOperationTab.SetCurSel(0);
@@ -424,30 +424,30 @@ void CUserSettingOperationTabView::TabChange(int Index)
 	///// Hide All Dialog /////
 	m_pUserSettingOperationCommonSettingDlg->ShowWindow(SW_HIDE);
 	m_pUserSettingOperationSrSettingDlg->ShowWindow(SW_HIDE);
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	if(g_lModelType != MODEL_T3100){
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 //2009.09.03 bagus se --{--
 		m_pUserSettingOperationSeSettingDlg->ShowWindow(SW_HIDE);
 //2009.09.03 bagus se --}--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 		m_pUserSettingOperationCompEASESettingDlg->ShowWindow(SW_HIDE);
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.08 bagus CTA ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.08 bagus CTA è¿½åŠ  --{--
 		m_pUserSettingOperationCTASettingDlg->ShowWindow(SW_HIDE);
-// 2009.10.08 bagus CTA ’Ç‰Á --}--
-//2009.10.20 bagus MS ’Ç‰Á --{--
+// 2009.10.08 bagus CTA è¿½åŠ  --}--
+//2009.10.20 bagus MS è¿½åŠ  --{--
 		m_pUserSettingOperationMSSettingDlg->ShowWindow(SW_HIDE);
-//2009.10.20 bagus MS ’Ç‰Á --}--
-//2009.10.21 bagus Stress ’Ç‰Á --{--
+//2009.10.20 bagus MS è¿½åŠ  --}--
+//2009.10.21 bagus Stress è¿½åŠ  --{--
 		m_pUserSettingOperationStressSettingDlg->ShowWindow(SW_HIDE);
-//2009.10.21 bagus Stress ’Ç‰Á --}--
-//2009.11.09 bagus RS C³ --{--
+//2009.10.21 bagus Stress è¿½åŠ  --}--
+//2009.11.09 bagus RS ä¿®æ­£ --{--
 		m_pUserSettingOperationRSSettingDlg->ShowWindow(SW_HIDE);
-//2009.11.09 bagus RS C³ --}--
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+//2009.11.09 bagus RS ä¿®æ­£ --}--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 
 	///// Show Dialog /////
 	switch(Index){
@@ -470,64 +470,64 @@ void CUserSettingOperationTabView::ShowDialog(int iIndex)
 		break;
 ////2009.09.03 bagus se --{--
 	case HEAD_TYPE_SE:
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //		m_pUserSettingOperationSeSettingDlg->ShowWindow(SW_SHOW);
 		if(g_lModelType != MODEL_T3100){
 			m_pUserSettingOperationSeSettingDlg->ShowWindow(SW_SHOW);
 		}
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 		break;
 //2009.09.03 bagus se --}--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case HEAD_TYPE_COMPEASE:
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //		m_pUserSettingOperationCompEASESettingDlg->ShowWindow(SW_SHOW);
 		if(g_lModelType != MODEL_T3100){
 			m_pUserSettingOperationCompEASESettingDlg->ShowWindow(SW_SHOW);
 		}
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.08 bagus CTA ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.08 bagus CTA è¿½åŠ  --{--
 	case HEAD_TYPE_CTA:
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //		m_pUserSettingOperationCTASettingDlg->ShowWindow(SW_SHOW);
 		if(g_lModelType != MODEL_T3100){
 			m_pUserSettingOperationCTASettingDlg->ShowWindow(SW_SHOW);
 		}
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 		break;
-// 2009.10.08 bagus CTA ’Ç‰Á --}--
-//2009.10.20 bagus MS ’Ç‰Á --{--
+// 2009.10.08 bagus CTA è¿½åŠ  --}--
+//2009.10.20 bagus MS è¿½åŠ  --{--
 	case HEAD_TYPE_MS:
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //		m_pUserSettingOperationMSSettingDlg->ShowWindow(SW_SHOW);
 		if(g_lModelType != MODEL_T3100){
 			m_pUserSettingOperationMSSettingDlg->ShowWindow(SW_SHOW);
 		}
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 		break;
-//2009.10.20 bagus MS ’Ç‰Á --}--
-//2009.10.21 bagus Stress ’Ç‰Á --{--
+//2009.10.20 bagus MS è¿½åŠ  --}--
+//2009.10.21 bagus Stress è¿½åŠ  --{--
 	case HEAD_TYPE_STRESS:
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //		m_pUserSettingOperationStressSettingDlg->ShowWindow(SW_SHOW);
 		if(g_lModelType != MODEL_T3100){
 			m_pUserSettingOperationStressSettingDlg->ShowWindow(SW_SHOW);
 		}
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 		break;
-//2009.10.21 bagus Stress ’Ç‰Á --}--
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+//2009.10.21 bagus Stress è¿½åŠ  --}--
+// 2009.11.04 bagus RS è¿½åŠ  --{--
 	case HEAD_TYPE_4PP:
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //		m_pUserSettingOperationRSSettingDlg->ShowWindow(SW_SHOW);
 		if(g_lModelType != MODEL_T3100){
 			m_pUserSettingOperationRSSettingDlg->ShowWindow(SW_SHOW);
 		}
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 		break;
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS è¿½åŠ  --}--
 	default:
 		break;
 	}

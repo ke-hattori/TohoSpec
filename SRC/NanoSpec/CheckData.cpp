@@ -1,21 +1,21 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "System.h"
 //Saiki 20090527 Add ----->
 #include "resource.h"
 //Saiki 20090527 Add <-----
 /////////////////////////////////////////////////////////////////////////////
 // Name       : CheckMinMaxDouble
-// Purpose    : •¶š—ñ‚ªw’è‚³‚ê‚½”ÍˆÍ‚Ì”’l‚Å‚ ‚é‚©‚ğƒ`ƒFƒbƒN(doubleŒ^)
-//              dMin,dMax‚ª“¯‚¶’l(w’è‚µ‚È‚¢)‚Ìê‡‚Í”ÍˆÍ‚Ìƒ`ƒFƒbƒN‚Í‚µ‚È‚¢
-// Parameters : lpszBuff ---> •¶š—ñ
-//              dMin     ---> Å¬’l
-//              dMax     ---> Å‘å’l
+// Purpose    : æ–‡å­—åˆ—ãŒæŒ‡å®šã•ã‚ŒãŸç¯„å›²ã®æ•°å€¤ã§ã‚ã‚‹ã‹ã‚’ãƒã‚§ãƒƒã‚¯(doubleå‹)
+//              dMin,dMaxãŒåŒã˜å€¤(æŒ‡å®šã—ãªã„)ã®å ´åˆã¯ç¯„å›²ã®ãƒã‚§ãƒƒã‚¯ã¯ã—ãªã„
+// Parameters : lpszBuff ---> æ–‡å­—åˆ—
+//              dMin     ---> æœ€å°å€¤
+//              dMax     ---> æœ€å¤§å€¤
 //
 // Returns    : CHECK_DATA_OK                       ---> OK
-//              CHECK_DATA_STRING_EMPTY             ---> •¶š—ñ‚ª‹ó‚Á‚Û
-//              CHECK_DATA_NO_NUMBER                ---> •¶š—ñ‚ª”’l‚Å‚Í‚È‚¢
-//              CHECK_DATA_OUTSIDE_EFFECTIVE_NUMBER ---> —LŒøŒ…”ŠO(¬”“_‘æ3ˆÊ‚Ü‚Å)
-//              CHECK_DATA_OUTSIDE_RANGE            ---> ”’l‚ª”ÍˆÍŠO
+//              CHECK_DATA_STRING_EMPTY             ---> æ–‡å­—åˆ—ãŒç©ºã£ã½
+//              CHECK_DATA_NO_NUMBER                ---> æ–‡å­—åˆ—ãŒæ•°å€¤ã§ã¯ãªã„
+//              CHECK_DATA_OUTSIDE_EFFECTIVE_NUMBER ---> æœ‰åŠ¹æ¡æ•°å¤–(å°æ•°ç‚¹ç¬¬3ä½ã¾ã§)
+//              CHECK_DATA_OUTSIDE_RANGE            ---> æ•°å€¤ãŒç¯„å›²å¤–
 int CheckMinMaxDouble(char* lpszBuff, double dMin /* = 0 */, double dMax /* = 0 */)
 {
 	char szBuff[256], szMessage[256];
@@ -28,11 +28,11 @@ int CheckMinMaxDouble(char* lpszBuff, double dMin /* = 0 */, double dMax /* = 0 
 
 	_tcscpy(szBuff, lpszBuff);
 	iLen = strlen(szBuff);
-	// •¶š—ñ‚ª‹ó‚Á‚Û‚Ìê‡
+	// æ–‡å­—åˆ—ãŒç©ºã£ã½ã®å ´åˆ
 	if(iLen <= 0){
 //		sprintf(szMessage, "Please enter a number");
 		//Saiki 20090526 Change ----->
-		//sprintf(szMessage, "”’l‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
+		//sprintf(szMessage, "æ•°å€¤ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„");
 		LoadStringML(IDS_ENTER_NUMBER, strBuffer, "Please enter a number");
 		MessageBox(NULL, strBuffer, NULL, MB_OK|MB_ICONSTOP);
 		//Saiki 20090526 Change <-----
@@ -40,18 +40,18 @@ int CheckMinMaxDouble(char* lpszBuff, double dMin /* = 0 */, double dMax /* = 0 
 	}
 
 	while(iIndex < iLen){
-		// ˆê•¶š–ÚC‚à‚µ‚­‚ÍÅŒã‚ªu.v‚Ìê‡
+		// ä¸€æ–‡å­—ç›®ï¼Œã‚‚ã—ãã¯æœ€å¾ŒãŒã€Œ.ã€ã®å ´åˆ
 		if((iIndex == 0 || iIndex == iLen - 1) && szBuff[iIndex] == '.'){
 //			sprintf(szMessage, "Please enter a number");
 			//Saiki 20090526 Change ----->
-			//sprintf(szMessage, "”’l‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
+			//sprintf(szMessage, "æ•°å€¤ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„");
 			LoadStringML(IDS_ENTER_NUMBER, strBuffer, "Please enter a number");
 			MessageBox(NULL, strBuffer, NULL, MB_OK|MB_ICONSTOP);
 			//Saiki 20090526 Change <-----
 			return CHECK_DATA_NO_NUMBER;
 		}
 
-		// ˆê•¶š–Ú‚ªu-v‚Ìê‡‚Í‚»‚Ì‚Ü‚Ü‘±‚¯‚é
+		// ä¸€æ–‡å­—ç›®ãŒã€Œ-ã€ã®å ´åˆã¯ãã®ã¾ã¾ç¶šã‘ã‚‹
 		if(iIndex == 0 && szBuff[iIndex] == '-'){
 			iIndex++;
 			continue;
@@ -73,7 +73,7 @@ int CheckMinMaxDouble(char* lpszBuff, double dMin /* = 0 */, double dMax /* = 0 
 				if(iDecimalCount > 3){
 //					sprintf(szMessage, "Please enter a number in the third place of decimal point");
 					//Saiki 20090526 Change ----->
-					//sprintf(szMessage, "¬”“_‘æ3ˆÊ‚Ü‚Å”’l‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
+					//sprintf(szMessage, "å°æ•°ç‚¹ç¬¬3ä½ã¾ã§æ•°å€¤ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„");
 					LoadStringML(IDS_ENTER_THIRD_DECIMAL_POINT, strBuffer, "Please enter a number in the third place of decimal point");
 					MessageBox(NULL, strBuffer, NULL, MB_OK|MB_ICONSTOP);
 					//Saiki 20090526 Change <-----
@@ -82,11 +82,11 @@ int CheckMinMaxDouble(char* lpszBuff, double dMin /* = 0 */, double dMax /* = 0 
 			}
 			break;
 		case '.':
-			// u.v‚ª“ñŒÂ‚ ‚éê‡
+			// ã€Œ.ã€ãŒäºŒå€‹ã‚ã‚‹å ´åˆ
 			if(bCheckDot){
 //				sprintf(szMessage, "Please enter a number");
 				//Saiki 20090526 Change ----->
-				//sprintf(szMessage, "”’l‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
+				//sprintf(szMessage, "æ•°å€¤ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„");
 				LoadStringML(IDS_ENTER_NUMBER, strBuffer, "Please enter a number");
 				MessageBox(NULL, strBuffer, NULL, MB_OK|MB_ICONSTOP);
 				//Saiki 20090526 Change <-----
@@ -97,7 +97,7 @@ int CheckMinMaxDouble(char* lpszBuff, double dMin /* = 0 */, double dMax /* = 0 
 		default:
 //			sprintf(szMessage, "Please enter a number");
 			//Saiki 20090526 Change ----->
-			//sprintf(szMessage, "”’l‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
+			//sprintf(szMessage, "æ•°å€¤ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„");
 			LoadStringML(IDS_ENTER_NUMBER, strBuffer, "Please enter a number");
 			MessageBox(NULL, strBuffer, NULL, MB_OK|MB_ICONSTOP);
 			//Saiki 20090526 Change <-----
@@ -112,7 +112,7 @@ int CheckMinMaxDouble(char* lpszBuff, double dMin /* = 0 */, double dMax /* = 0 
 		if(dData < dMin || dData > dMax){
 //			sprintf(szMessage, "Please enter a number between %.3lf and %.3lf", dMin, dMax);
 			//Saiki 20090526 Change ----->
-			//sprintf(szMessage, "%.3lf ‚©‚ç %.3lf‚ÌŠÔ‚Å”’l‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢", dMin, dMax);
+			//sprintf(szMessage, "%.3lf ã‹ã‚‰ %.3lfã®é–“ã§æ•°å€¤ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„", dMin, dMax);
 			LoadStringML(IDS_ENTER_NUMBER_BETWEEN_3DOUBLE, strBuffer, "Please enter a number between %.3lf and %.3lf");
 			sprintf(szMessage, strBuffer, dMin, dMax);
 			//Saiki 20090526 Change <-----
@@ -126,17 +126,17 @@ int CheckMinMaxDouble(char* lpszBuff, double dMin /* = 0 */, double dMax /* = 0 
 
 /////////////////////////////////////////////////////////////////////////////
 // Name       : CheckMinMaxDouble
-// Purpose    : •¶š—ñ‚ªw’è‚³‚ê‚½”ÍˆÍ‚Ì”’l‚Å‚ ‚é‚©‚ğƒ`ƒFƒbƒN(doubleŒ^)
-//              dMin,dMax‚ª“¯‚¶’l(w’è‚µ‚È‚¢)‚Ìê‡‚Í”ÍˆÍ‚Ìƒ`ƒFƒbƒN‚Í‚µ‚È‚¢
-// Parameters : strBuff ---> •¶š—ñ
-//              dMin    ---> Å¬’l
-//              dMax    ---> Å‘å’l
+// Purpose    : æ–‡å­—åˆ—ãŒæŒ‡å®šã•ã‚ŒãŸç¯„å›²ã®æ•°å€¤ã§ã‚ã‚‹ã‹ã‚’ãƒã‚§ãƒƒã‚¯(doubleå‹)
+//              dMin,dMaxãŒåŒã˜å€¤(æŒ‡å®šã—ãªã„)ã®å ´åˆã¯ç¯„å›²ã®ãƒã‚§ãƒƒã‚¯ã¯ã—ãªã„
+// Parameters : strBuff ---> æ–‡å­—åˆ—
+//              dMin    ---> æœ€å°å€¤
+//              dMax    ---> æœ€å¤§å€¤
 //
 // Returns    : CHECK_DATA_OK                       ---> OK
-//              CHECK_DATA_STRING_EMPTY             ---> •¶š—ñ‚ª‹ó‚Á‚Û
-//              CHECK_DATA_NO_NUMBER                ---> •¶š—ñ‚ª”’l‚Å‚Í‚È‚¢
-//              CHECK_DATA_OUTSIDE_EFFECTIVE_NUMBER ---> —LŒøŒ…”ŠO(¬”“_‘æ3ˆÊ‚Ü‚Å)
-//              CHECK_DATA_OUTSIDE_RANGE            ---> ”’l‚ª”ÍˆÍŠO
+//              CHECK_DATA_STRING_EMPTY             ---> æ–‡å­—åˆ—ãŒç©ºã£ã½
+//              CHECK_DATA_NO_NUMBER                ---> æ–‡å­—åˆ—ãŒæ•°å€¤ã§ã¯ãªã„
+//              CHECK_DATA_OUTSIDE_EFFECTIVE_NUMBER ---> æœ‰åŠ¹æ¡æ•°å¤–(å°æ•°ç‚¹ç¬¬3ä½ã¾ã§)
+//              CHECK_DATA_OUTSIDE_RANGE            ---> æ•°å€¤ãŒç¯„å›²å¤–
 int CheckMinMaxDouble(CString strBuff, double dMin /* = 0 */, double dMax /* = 0 */)
 {
 	TCHAR szBuffer[256];
@@ -147,16 +147,16 @@ int CheckMinMaxDouble(CString strBuff, double dMin /* = 0 */, double dMax /* = 0
 
 /////////////////////////////////////////////////////////////////////////////
 // Name       : CheckMinMaxLong
-// Purpose    : •¶š—ñ‚ªw’è‚³‚ê‚½”ÍˆÍ‚Ì”’l‚Å‚ ‚é‚©‚ğƒ`ƒFƒbƒN(longŒ^)
-//              lMin,lMax‚ª“¯‚¶’l(w’è‚µ‚È‚¢)‚Ìê‡‚Í”ÍˆÍ‚Ìƒ`ƒFƒbƒN‚Í‚µ‚È‚¢
-// Parameters : lpszBuff ---> •¶š—ñ
-//              lMin     ---> Å¬’l
-//              lMax     ---> Å‘å’l
+// Purpose    : æ–‡å­—åˆ—ãŒæŒ‡å®šã•ã‚ŒãŸç¯„å›²ã®æ•°å€¤ã§ã‚ã‚‹ã‹ã‚’ãƒã‚§ãƒƒã‚¯(longå‹)
+//              lMin,lMaxãŒåŒã˜å€¤(æŒ‡å®šã—ãªã„)ã®å ´åˆã¯ç¯„å›²ã®ãƒã‚§ãƒƒã‚¯ã¯ã—ãªã„
+// Parameters : lpszBuff ---> æ–‡å­—åˆ—
+//              lMin     ---> æœ€å°å€¤
+//              lMax     ---> æœ€å¤§å€¤
 //
 // Returns    : CHECK_DATA_OK            ---> OK
-//              CHECK_DATA_STRING_EMPTY  ---> •¶š—ñ‚ª‹ó‚Á‚Û
-//              CHECK_DATA_NO_NUMBER     ---> •¶š—ñ‚ª”’l‚Å‚Í‚È‚¢
-//              CHECK_DATA_OUTSIDE_RANGE ---> ”’l‚ª”ÍˆÍŠO
+//              CHECK_DATA_STRING_EMPTY  ---> æ–‡å­—åˆ—ãŒç©ºã£ã½
+//              CHECK_DATA_NO_NUMBER     ---> æ–‡å­—åˆ—ãŒæ•°å€¤ã§ã¯ãªã„
+//              CHECK_DATA_OUTSIDE_RANGE ---> æ•°å€¤ãŒç¯„å›²å¤–
 int CheckMinMaxLong(char* lpszBuff, long lMin /* = 0 */, long lMax /* = 0 */)
 {
 	char szBuff[256], szMessage[256];
@@ -168,11 +168,11 @@ int CheckMinMaxLong(char* lpszBuff, long lMin /* = 0 */, long lMax /* = 0 */)
 
 	_tcscpy(szBuff, lpszBuff);
 	iLen = strlen(szBuff);
-	// •¶š—ñ‚ª‹ó‚Á‚Û‚Ìê‡
+	// æ–‡å­—åˆ—ãŒç©ºã£ã½ã®å ´åˆ
 	if(iLen <= 0){
 //		sprintf(szMessage, "Please enter a integer");
 		//Saiki 20090526 Change ----->
-		//sprintf(szMessage, "®”’l‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
+		//sprintf(szMessage, "æ•´æ•°å€¤ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„");
 		LoadStringML(IDS_ENTER_INTEGER, strBuffer, "Please enter a integer");
 		MessageBox(NULL, strBuffer, NULL, MB_OK|MB_ICONSTOP);
 		//Saiki 20090526 Change <-----
@@ -180,7 +180,7 @@ int CheckMinMaxLong(char* lpszBuff, long lMin /* = 0 */, long lMax /* = 0 */)
 	}
 
 	while(iIndex < iLen){
-		// ˆê•¶š–Ú‚ªu-v‚Ìê‡‚Í‚»‚Ì‚Ü‚Ü‘±‚¯‚é
+		// ä¸€æ–‡å­—ç›®ãŒã€Œ-ã€ã®å ´åˆã¯ãã®ã¾ã¾ç¶šã‘ã‚‹
 		if(iIndex == 0 && szBuff[iIndex] == '-'){
 			iIndex++;
 			continue;
@@ -201,7 +201,7 @@ int CheckMinMaxLong(char* lpszBuff, long lMin /* = 0 */, long lMax /* = 0 */)
 		default:
 //			sprintf(szMessage, "Please enter a integer");
 			//Saiki 20090526 Change ----->
-			//sprintf(szMessage, "®”’l‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
+			//sprintf(szMessage, "æ•´æ•°å€¤ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„");
 			LoadStringML(IDS_ENTER_INTEGER, strBuffer, "Please enter a integer");
 			MessageBox(NULL, strBuffer, NULL, MB_OK|MB_ICONSTOP);
 			//Saiki 20090526 Change <-----
@@ -216,7 +216,7 @@ int CheckMinMaxLong(char* lpszBuff, long lMin /* = 0 */, long lMax /* = 0 */)
 		if(lData < lMin || lData > lMax){
 //			sprintf(szMessage, "Please enter a integer between %ld and %ld", lMin, lMax);
 			//Saiki 20090526 Change ----->
-			//sprintf(szMessage, "%ld ‚©‚ç %ld ‚ÌŠÔ‚Ì®”’l‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢", lMin, lMax);
+			//sprintf(szMessage, "%ld ã‹ã‚‰ %ld ã®é–“ã®æ•´æ•°å€¤ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„", lMin, lMax);
 			LoadStringML(IDS_ENTER_NUMBER_BETWEEN_1DOUBLE, strBuffer, "Please enter a integer between %ld and %ld");
 			sprintf(szMessage, strBuffer, lMin, lMax);
 			//Saiki 20090526 Change <-----
@@ -230,16 +230,16 @@ int CheckMinMaxLong(char* lpszBuff, long lMin /* = 0 */, long lMax /* = 0 */)
 
 /////////////////////////////////////////////////////////////////////////////
 // Name       : CheckMinMaxLong
-// Purpose    : •¶š—ñ‚ªw’è‚³‚ê‚½”ÍˆÍ‚Ì”’l‚Å‚ ‚é‚©‚ğƒ`ƒFƒbƒN(longŒ^)
-//              lMin,lMax‚ª“¯‚¶’l(w’è‚µ‚È‚¢)‚Ìê‡‚Í”ÍˆÍ‚Ìƒ`ƒFƒbƒN‚Í‚µ‚È‚¢
-// Parameters : strBuff ---> •¶š—ñ
-//              lMin    ---> Å¬’l
-//              lMax    ---> Å‘å’l
+// Purpose    : æ–‡å­—åˆ—ãŒæŒ‡å®šã•ã‚ŒãŸç¯„å›²ã®æ•°å€¤ã§ã‚ã‚‹ã‹ã‚’ãƒã‚§ãƒƒã‚¯(longå‹)
+//              lMin,lMaxãŒåŒã˜å€¤(æŒ‡å®šã—ãªã„)ã®å ´åˆã¯ç¯„å›²ã®ãƒã‚§ãƒƒã‚¯ã¯ã—ãªã„
+// Parameters : strBuff ---> æ–‡å­—åˆ—
+//              lMin    ---> æœ€å°å€¤
+//              lMax    ---> æœ€å¤§å€¤
 //
 // Returns    : CHECK_DATA_OK            ---> OK
-//              CHECK_DATA_STRING_EMPTY  ---> •¶š—ñ‚ª‹ó‚Á‚Û
-//              CHECK_DATA_NO_NUMBER     ---> •¶š—ñ‚ª”’l‚Å‚Í‚È‚¢
-//              CHECK_DATA_OUTSIDE_RANGE ---> ”’l‚ª”ÍˆÍŠO
+//              CHECK_DATA_STRING_EMPTY  ---> æ–‡å­—åˆ—ãŒç©ºã£ã½
+//              CHECK_DATA_NO_NUMBER     ---> æ–‡å­—åˆ—ãŒæ•°å€¤ã§ã¯ãªã„
+//              CHECK_DATA_OUTSIDE_RANGE ---> æ•°å€¤ãŒç¯„å›²å¤–
 int CheckMinMaxLong(CString strBuff, long lMin /* = 0 */, long lMax /* = 0 */)
 {
 	TCHAR szBuffer[256];
@@ -250,16 +250,16 @@ int CheckMinMaxLong(CString strBuff, long lMin /* = 0 */, long lMax /* = 0 */)
 
 /////////////////////////////////////////////////////////////////////////////
 // Name       : CheckMinMaxInt
-// Purpose    : •¶š—ñ‚ªw’è‚³‚ê‚½”ÍˆÍ‚Ì”’l‚Å‚ ‚é‚©‚ğƒ`ƒFƒbƒN(intŒ^)
-//              iMin,iMax‚ª“¯‚¶’l(w’è‚µ‚È‚¢)‚Ìê‡‚Í”ÍˆÍ‚Ìƒ`ƒFƒbƒN‚Í‚µ‚È‚¢
-// Parameters : lpszBuff ---> •¶š—ñ
-//              iMin     ---> Å¬’l
-//              iMax     ---> Å‘å’l
+// Purpose    : æ–‡å­—åˆ—ãŒæŒ‡å®šã•ã‚ŒãŸç¯„å›²ã®æ•°å€¤ã§ã‚ã‚‹ã‹ã‚’ãƒã‚§ãƒƒã‚¯(intå‹)
+//              iMin,iMaxãŒåŒã˜å€¤(æŒ‡å®šã—ãªã„)ã®å ´åˆã¯ç¯„å›²ã®ãƒã‚§ãƒƒã‚¯ã¯ã—ãªã„
+// Parameters : lpszBuff ---> æ–‡å­—åˆ—
+//              iMin     ---> æœ€å°å€¤
+//              iMax     ---> æœ€å¤§å€¤
 //
 // Returns    : CHECK_DATA_OK            ---> OK
-//              CHECK_DATA_STRING_EMPTY  ---> •¶š—ñ‚ª‹ó‚Á‚Û
-//              CHECK_DATA_NO_NUMBER     ---> •¶š—ñ‚ª”’l‚Å‚Í‚È‚¢
-//              CHECK_DATA_OUTSIDE_RANGE ---> ”’l‚ª”ÍˆÍŠO
+//              CHECK_DATA_STRING_EMPTY  ---> æ–‡å­—åˆ—ãŒç©ºã£ã½
+//              CHECK_DATA_NO_NUMBER     ---> æ–‡å­—åˆ—ãŒæ•°å€¤ã§ã¯ãªã„
+//              CHECK_DATA_OUTSIDE_RANGE ---> æ•°å€¤ãŒç¯„å›²å¤–
 int CheckMinMaxInt(char* lpszBuff, int iMin /* = 0 */, int iMax /* = 0 */)
 {
 	TCHAR szBuffer[256], szMessage[256];
@@ -271,11 +271,11 @@ int CheckMinMaxInt(char* lpszBuff, int iMin /* = 0 */, int iMax /* = 0 */)
 
 	_tcscpy(szBuffer, lpszBuff);
 	iLen = _tcslen(szBuffer);
-	// •¶š—ñ‚ª‹ó‚Á‚Û‚Ìê‡
+	// æ–‡å­—åˆ—ãŒç©ºã£ã½ã®å ´åˆ
 	if(iLen <= 0){
 //		sprintf(szMessage, "Please enter a integer");
 		//Saiki 20090526 Change ----->
-		//sprintf(szMessage, "®”’l‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
+		//sprintf(szMessage, "æ•´æ•°å€¤ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„");
 		LoadStringML(IDS_ENTER_INTEGER, strBuffer, "Please enter a integer");
 		MessageBox(NULL, strBuffer, NULL, MB_OK|MB_ICONSTOP);
 		//Saiki 20090526 Change <-----
@@ -283,7 +283,7 @@ int CheckMinMaxInt(char* lpszBuff, int iMin /* = 0 */, int iMax /* = 0 */)
 	}
 
 	while(iIndex < iLen){
-		// ˆê•¶š–Ú‚ªu-v‚Ìê‡‚Í‚»‚Ì‚Ü‚Ü‘±‚¯‚é
+		// ä¸€æ–‡å­—ç›®ãŒã€Œ-ã€ã®å ´åˆã¯ãã®ã¾ã¾ç¶šã‘ã‚‹
 		if(iIndex == 0 && szBuffer[iIndex] == '-'){
 			iIndex++;
 			continue;
@@ -304,7 +304,7 @@ int CheckMinMaxInt(char* lpszBuff, int iMin /* = 0 */, int iMax /* = 0 */)
 		default:
 //			sprintf(szMessage, "Please enter a integer");
 			//Saiki 20090526 Change ----->
-			//sprintf(szMessage, "®”’l‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
+			//sprintf(szMessage, "æ•´æ•°å€¤ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„");
 			LoadStringML(IDS_ENTER_INTEGER, strBuffer, "Please enter a integer");
 			MessageBox(NULL, strBuffer, NULL, MB_OK|MB_ICONSTOP);
 			//Saiki 20090526 Change <-----
@@ -319,7 +319,7 @@ int CheckMinMaxInt(char* lpszBuff, int iMin /* = 0 */, int iMax /* = 0 */)
 		if(iData < iMin || iData > iMax){
 //			sprintf(szMessage, "Please enter a integer between %d and %d", iMin, iMax);
 			//Saiki 20090526 Change ----->
-			//sprintf(szMessage, "%ld ‚©‚ç %ld ‚ÌŠÔ‚Ì®”’l‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢", lMin, lMax);
+			//sprintf(szMessage, "%ld ã‹ã‚‰ %ld ã®é–“ã®æ•´æ•°å€¤ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„", lMin, lMax);
 			LoadStringML(IDS_ENTER_NUMBER_BETWEEN_1DOUBLE, strBuffer, "Please enter a integer between %ld and %ld");
 			sprintf(szMessage, strBuffer, iMin, iMax);
 			//Saiki 20090526 Change <-----
@@ -333,16 +333,16 @@ int CheckMinMaxInt(char* lpszBuff, int iMin /* = 0 */, int iMax /* = 0 */)
 
 /////////////////////////////////////////////////////////////////////////////
 // Name       : CheckMinMaxInt
-// Purpose    : •¶š—ñ‚ªw’è‚³‚ê‚½”ÍˆÍ‚Ì”’l‚Å‚ ‚é‚©‚ğƒ`ƒFƒbƒN(intŒ^)
-//              iMin,iMax‚ª“¯‚¶’l(w’è‚µ‚È‚¢)‚Ìê‡‚Í”ÍˆÍ‚Ìƒ`ƒFƒbƒN‚Í‚µ‚È‚¢
-// Parameters : strBuff ---> •¶š—ñ
-//              iMin    ---> Å¬’l
-//              iMax    ---> Å‘å’l
+// Purpose    : æ–‡å­—åˆ—ãŒæŒ‡å®šã•ã‚ŒãŸç¯„å›²ã®æ•°å€¤ã§ã‚ã‚‹ã‹ã‚’ãƒã‚§ãƒƒã‚¯(intå‹)
+//              iMin,iMaxãŒåŒã˜å€¤(æŒ‡å®šã—ãªã„)ã®å ´åˆã¯ç¯„å›²ã®ãƒã‚§ãƒƒã‚¯ã¯ã—ãªã„
+// Parameters : strBuff ---> æ–‡å­—åˆ—
+//              iMin    ---> æœ€å°å€¤
+//              iMax    ---> æœ€å¤§å€¤
 //
 // Returns    : CHECK_DATA_OK            ---> OK
-//              CHECK_DATA_STRING_EMPTY  ---> •¶š—ñ‚ª‹ó‚Á‚Û
-//              CHECK_DATA_NO_NUMBER     ---> •¶š—ñ‚ª”’l‚Å‚Í‚È‚¢
-//              CHECK_DATA_OUTSIDE_RANGE ---> ”’l‚ª”ÍˆÍŠO
+//              CHECK_DATA_STRING_EMPTY  ---> æ–‡å­—åˆ—ãŒç©ºã£ã½
+//              CHECK_DATA_NO_NUMBER     ---> æ–‡å­—åˆ—ãŒæ•°å€¤ã§ã¯ãªã„
+//              CHECK_DATA_OUTSIDE_RANGE ---> æ•°å€¤ãŒç¯„å›²å¤–
 int CheckMinMaxInt(CString strBuff, int iMin /* = 0 */, int iMax /* = 0 */)
 {
 	TCHAR szBuffer[256];
@@ -353,11 +353,11 @@ int CheckMinMaxInt(CString strBuff, int iMin /* = 0 */, int iMax /* = 0 */)
 
 /////////////////////////////////////////////////////////////////////////////
 // Name     : CheckName
-// Purpose  : “ü—Í‚µ‚½–¼‘O‚É‹Ö~•¶š‚ª“ü‚Á‚Ä‚¢‚È‚¢‚©‚ğŠm”F
-// Parameters : lpszName ---> –¼‘O
+// Purpose  : å…¥åŠ›ã—ãŸåå‰ã«ç¦æ­¢æ–‡å­—ãŒå…¥ã£ã¦ã„ãªã„ã‹ã‚’ç¢ºèª
+// Parameters : lpszName ---> åå‰
 //
 // Returns  : TRUE  ---> OK
-//              FALSE ---> ‹Ö~•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚é
+//              FALSE ---> ç¦æ­¢æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã‚‹
 BOOL CheckName(char* lpszName, int iLenMax)
 {
 	int iLen = 0;
@@ -367,7 +367,7 @@ BOOL CheckName(char* lpszName, int iLenMax)
 //		}
 
 
-		if(IsDBCSLeadByte(*lpszName) == 0) //æsƒoƒCƒg‚Å‚Í‚È‚¢
+		if(IsDBCSLeadByte(*lpszName) == 0) //å…ˆè¡Œãƒã‚¤ãƒˆã§ã¯ãªã„
 		{
 
 			switch(*lpszName){
@@ -402,9 +402,9 @@ BOOL CheckName(char* lpszName, int iLenMax)
 			}
 
 		}
-		else //æsƒoƒCƒg
+		else //å…ˆè¡Œãƒã‚¤ãƒˆ
 		{
-			//æsƒoƒCƒg‚Ìê‡‚ÍŸ‚Ì•¶š‚à–³‹‚·‚é
+			//å…ˆè¡Œãƒã‚¤ãƒˆã®å ´åˆã¯æ¬¡ã®æ–‡å­—ã‚‚ç„¡è¦–ã™ã‚‹
 			lpszName++;
 			iLen++;
 		}
@@ -422,11 +422,11 @@ BOOL CheckName(char* lpszName, int iLenMax)
 
 /////////////////////////////////////////////////////////////////////////////
 // Name       : CheckName
-// Purpose    : “ü—Í‚µ‚½–¼‘O‚É‹Ö~•¶š‚ª“ü‚Á‚Ä‚¢‚È‚¢‚©‚ğŠm”F
-// Parameters : strName ---> –¼‘O
+// Purpose    : å…¥åŠ›ã—ãŸåå‰ã«ç¦æ­¢æ–‡å­—ãŒå…¥ã£ã¦ã„ãªã„ã‹ã‚’ç¢ºèª
+// Parameters : strName ---> åå‰
 //
 // Returns    : TRUE  ---> OK
-//              FALSE ---> ‹Ö~•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚é
+//              FALSE ---> ç¦æ­¢æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã‚‹
 BOOL CheckName(CString strName, int iLenMax)
 {
 	return CheckName(strName.GetBuffer(0), iLenMax);

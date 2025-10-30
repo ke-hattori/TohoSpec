@@ -1,4 +1,4 @@
-// NanoListUI.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// NanoListUI.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -11,7 +11,7 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-// CallbackŠÖ”
+// Callbacké–¢æ•°
 static int CALLBACK CompareFunc(LPARAM lParam1, LPARAM lParam2, LPARAM lParamSort)
 {
 	CString strBuffer1, strBuffer2;
@@ -78,20 +78,20 @@ void CNanoListUI::OnInitialUpdate()
 	///// List /////
 	List_HeaderSet();
 	List_DataSet();
-/* added 2015.04.05 hmenjo FWXGA ‘Î‰ž2 ---------- { ---------- */
+/* added 2015.04.05 hmenjo FWXGA å¯¾å¿œ2 ---------- { ---------- */
 	RECT l_rectListDlg;	this->GetWindowRect(&l_rectListDlg);
 	RECT l_rectList;	this->GetDlgItem(IDC_MAIN_RECIPE_LIST)->GetWindowRect(&l_rectList);
 	if ((g_lModelType == MODEL_T3100) &&
 		(l_rectListDlg.bottom < l_rectList.bottom)) {
 		this->SetScrollSizes(MM_TEXT, CSize(0, 0));
-		/* ƒ^ƒu‚Ì’ê•Ó‚ðˆÚ“®	*/
+		/* ã‚¿ãƒ–ã®åº•è¾ºã‚’ç§»å‹•	*/
 		this->GetDlgItem(IDC_MAIN_RECIPE_LIST)->SetWindowPos(	0,
 							0, 0,
 							l_rectList.right - l_rectList.left,
 							l_rectListDlg.bottom - l_rectList.top,
 							SWP_NOZORDER | SWP_NOMOVE);
 	}
-/* added 2015.04.05 hmenjo FWXGA ‘Î‰ž2 ---------- } ---------- */
+/* added 2015.04.05 hmenjo FWXGA å¯¾å¿œ2 ---------- } ---------- */
 }
 
 // =========================================================================

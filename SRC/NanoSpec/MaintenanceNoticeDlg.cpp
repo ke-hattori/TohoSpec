@@ -1,4 +1,4 @@
-// MaintenanceNoticeDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// MaintenanceNoticeDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -13,14 +13,14 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CMaintenanceNoticeDlg ƒ_ƒCƒAƒƒO
+// CMaintenanceNoticeDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 
 CMaintenanceNoticeDlg::CMaintenanceNoticeDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CMaintenanceNoticeDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CMaintenanceNoticeDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_INIT
 }
 
@@ -44,13 +44,13 @@ BEGIN_MESSAGE_MAP(CMaintenanceNoticeDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CMaintenanceNoticeDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CMaintenanceNoticeDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 BOOL CMaintenanceNoticeDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// TODO: ‚±‚ÌˆÊ’u‚É‰Šú‰»‚Ì•â‘«ˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«åˆæœŸåŒ–ã®è£œè¶³å‡¦ç†ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	GetDlgItem(IDOK)->ShowWindow(SW_HIDE);
 	GetDlgItem(IDCANCEL)->ShowWindow(SW_HIDE);
@@ -64,8 +64,8 @@ BOOL CMaintenanceNoticeDlg::OnInitDialog()
 	m_Font.CreatePointFontIndirect(&lf);
 	m_stcMntNotice.SetFont(&m_Font);
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-				  // —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+				  // ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 
@@ -145,8 +145,8 @@ void CMaintenanceNoticeDlg::FontCreation()
 										//	"MS Sans Serif"
 										//	"Arial"
 										//	"batangche" (Hangul)
-										//	"MS ƒSƒVƒbƒN"
-										//	"MS PƒSƒVƒbƒN"
+										//	"MS ã‚´ã‚·ãƒƒã‚¯"
+										//	"MS Pã‚´ã‚·ãƒƒã‚¯"
 										//	"MS UI Gothic"
 										//	"Times New Roman"
 	);
@@ -158,16 +158,16 @@ void CMaintenanceNoticeDlg::OnShowWindow(BOOL bShow, UINT nStatus)
 {
 	CDialog::OnShowWindow(bShow, nStatus);
 
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	//Saiki 20090529 Add ----->
 	CString strBuffer;
 	//Saiki 20090529 Add <-----
 	if ( bShow ) {
-		// ’†‰›‚É•\¦
+		// ä¸­å¤®ã«è¡¨ç¤º
 		CenterWindow();
 
-		// ‹‘å‰»‚µ‚Ä•\¦
+		// å·¨å¤§åŒ–ã—ã¦è¡¨ç¤º
 		CRect rect;
 		AfxGetApp()->m_pMainWnd->GetWindowRect(&rect);
 		rect.left += 100;
@@ -179,10 +179,10 @@ void CMaintenanceNoticeDlg::OnShowWindow(BOOL bShow, UINT nStatus)
 
 //		rect.bottom -= 20;
 		m_stcMntNotice.MoveWindow(&rect);
-/* 2009.04.30 •¶Œ¾•ÏXiƒŠƒXƒNƒAƒZƒXƒƒ“ƒgŒã‚Ìw“E‘Î‰j
-		m_stcMntNotice.SetWindowText("‘•’u“à‚Él‚ª‚¢‚Ü‚·"); */
+/* 2009.04.30 æ–‡è¨€å¤‰æ›´ï¼ˆãƒªã‚¹ã‚¯ã‚¢ã‚»ã‚¹ãƒ¡ãƒ³ãƒˆå¾Œã®æŒ‡æ‘˜å¯¾å¿œï¼‰
+		m_stcMntNotice.SetWindowText("è£…ç½®å†…ã«äººãŒã„ã¾ã™"); */
 		//Saiki 20090529 Change ----->
-		//m_stcMntNotice.SetWindowText("‘•’uƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh’†B\nl‚ª‚¢‚é‰Â”\«‚ª‚ ‚è‚Ü‚·B\nŠm”F‚µ‚Ä‚­‚¾‚³‚¢B");
+		//m_stcMntNotice.SetWindowText("è£…ç½®ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰ä¸­ã€‚\näººãŒã„ã‚‹å¯èƒ½æ€§ãŒã‚ã‚Šã¾ã™ã€‚\nç¢ºèªã—ã¦ãã ã•ã„ã€‚");
 		LoadStringML(IDS_EQ_MAINTE_MODE_CHECK, strBuffer, "Equipment Maintenance Mode. \nSome people may be in the Equipment. \nPlease check.");
 		m_stcMntNotice.SetWindowText(strBuffer);
 		//Saiki 20090529 Change <-----
@@ -194,9 +194,9 @@ void CMaintenanceNoticeDlg::OnShowWindow(BOOL bShow, UINT nStatus)
 
 void CMaintenanceNoticeDlg::OnTimer(UINT nIDEvent)
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚·‚é‚©‚Ü‚½‚ÍƒfƒtƒHƒ‹ƒg‚Ìˆ—‚ğŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã™ã‚‹ã‹ã¾ãŸã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å‡¦ç†ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
 
-//ƒ^ƒCƒ}[ˆ—‚È‚µ
+//ã‚¿ã‚¤ãƒãƒ¼å‡¦ç†ãªã—
 
 
 	CDialog::OnTimer(nIDEvent);
@@ -207,7 +207,7 @@ int CMaintenanceNoticeDlg::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	if (CDialog::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
-	// TODO: ‚±‚ÌˆÊ’u‚ÉŒÅ—L‚Ìì¬—pƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«å›ºæœ‰ã®ä½œæˆç”¨ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 
 	return 0;
@@ -227,7 +227,7 @@ BOOL CMaintenanceNoticeDlg::Create(UINT nIDTemplate, CWnd* pParentWnd /*= NULL*/
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// NanoSpecI—¹‚ÌMessageBox‚ª‰B‚ê‚Ä‚µ‚Ü‚¤‚Ì‚ğ‰ñ”ğ‚·‚éˆ×‚Ég—p
+// NanoSpecçµ‚äº†ã®MessageBoxãŒéš ã‚Œã¦ã—ã¾ã†ã®ã‚’å›é¿ã™ã‚‹ç‚ºã«ä½¿ç”¨
 void CMaintenanceNoticeDlg::ChangeTopMost(BOOL bTopMost)
 {
 	if(bTopMost == TRUE)
@@ -261,7 +261,7 @@ void CMaintenanceNoticeDlg::OnCancel()
 //
 void CMaintenanceNoticeDlg::OnClose()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚·‚é‚©‚Ü‚½‚ÍƒfƒtƒHƒ‹ƒg‚Ìˆ—‚ğŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã™ã‚‹ã‹ã¾ãŸã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å‡¦ç†ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
 
 	CDialog::OnClose();
 }

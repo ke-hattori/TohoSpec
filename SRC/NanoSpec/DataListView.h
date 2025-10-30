@@ -1,14 +1,14 @@
-#if !defined(AFX_DATALISTVIEW_H__75EA8A1A_46C0_4AEF_A095_AFC8BF6FFE2C__INCLUDED_)
+ï»¿#if !defined(AFX_DATALISTVIEW_H__75EA8A1A_46C0_4AEF_A095_AFC8BF6FFE2C__INCLUDED_)
 #define AFX_DATALISTVIEW_H__75EA8A1A_46C0_4AEF_A095_AFC8BF6FFE2C__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// DataListView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// DataListView.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 // ##########################################################################
-// CDataListView ƒtƒH[ƒ€ ƒrƒ…[
+// CDataListView ãƒ•ã‚©ãƒ¼ãƒ  ãƒ“ãƒ¥ãƒ¼
 // ##########################################################################
 
 #ifndef __AFXEXT_H__
@@ -20,17 +20,17 @@
 class CDataListView : public CNanoListUI
 {
 protected:
-	CDataListView();			// “®“I¶¬‚Ég—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CDataListView();			// å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	virtual ~CDataListView();
 	DECLARE_DYNCREATE(CDataListView)
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CRecipeMainListView)
 	public:
 	virtual void OnInitialUpdate();
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
 protected:
@@ -39,7 +39,7 @@ protected:
 	virtual void List_HeaderSet();
 	virtual void List_DataSet();
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CDataListView)
 	afx_msg void OnClickDataList(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnDblclkDataList(NMHDR* pNMHDR, LRESULT* pResult);
@@ -53,6 +53,6 @@ private:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_DATALISTVIEW_H__75EA8A1A_46C0_4AEF_A095_AFC8BF6FFE2C__INCLUDED_)

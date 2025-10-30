@@ -1,4 +1,4 @@
-// SrXmpSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SrXmpSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -16,7 +16,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // #########################################################################
-// CSrXmpSettingDlg ƒ_ƒCƒAƒƒO
+// CSrXmpSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // #########################################################################
 
 // =========================================================================
@@ -46,9 +46,9 @@ void CSrXmpSettingDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_DATA_PATH_BUTTON, m_DataPathButton);
 	DDX_Control(pDX, IDC_FITTING_DATA_PATH_BUTTON, m_FittingDataPathButton);
 	DDX_Control(pDX, IDC_WVASE_EXE_PATH_BUTTON, m_WvaseExePathButton);
-/* added 2014.11.25 hmenjo XMP •\Ž¦/”ñ•\Ž¦ ---------- { ---------- */
+/* added 2014.11.25 hmenjo XMP è¡¨ç¤º/éžè¡¨ç¤º ---------- { ---------- */
 	DDX_Control(pDX, IDC_BTN_SHOWXMP, m_BtnShowXmp);
-/* added 2014.11.25 hmenjo XMP •\Ž¦/”ñ•\Ž¦ ---------- } ---------- */
+/* added 2014.11.25 hmenjo XMP è¡¨ç¤º/éžè¡¨ç¤º ---------- } ---------- */
 }
 
 // =========================================================================
@@ -59,17 +59,17 @@ BEGIN_MESSAGE_MAP(CSrXmpSettingDlg, CDialog)
 	ON_BN_CLICKED(IDC_DATA_PATH_BUTTON, OnDataPathButton)
 	ON_BN_CLICKED(IDC_FITTING_DATA_PATH_BUTTON, OnFittingDataPathButton)
 	ON_BN_CLICKED(IDC_WVASE_EXE_PATH_BUTTON, OnWvaseExePathButton)
-/* added 2014.11.25 hmenjo XMP •\Ž¦/”ñ•\Ž¦ ---------- { ---------- */
+/* added 2014.11.25 hmenjo XMP è¡¨ç¤º/éžè¡¨ç¤º ---------- { ---------- */
 	ON_BN_CLICKED(IDC_BTN_SHOWXMP, OnBtnShowXmp)
-/* added 2014.11.25 hmenjo XMP •\Ž¦/”ñ•\Ž¦ ---------- } ---------- */
-/* added 2015.06.01 hmenjo XMP •\Ž¦/”ñ•\Ž¦‚Q ---------- { ---------- */
+/* added 2014.11.25 hmenjo XMP è¡¨ç¤º/éžè¡¨ç¤º ---------- } ---------- */
+/* added 2015.06.01 hmenjo XMP è¡¨ç¤º/éžè¡¨ç¤ºï¼’ ---------- { ---------- */
 	ON_WM_TIMER()
-/* added 2015.06.01 hmenjo XMP •\Ž¦/”ñ•\Ž¦‚Q ---------- } ---------- */
+/* added 2015.06.01 hmenjo XMP è¡¨ç¤º/éžè¡¨ç¤ºï¼’ ---------- } ---------- */
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CSrXmpSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSrXmpSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -104,20 +104,20 @@ BOOL CSrXmpSettingDlg::OnInitDialog()
 	m_WvaseExePathButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_WvaseExePathButton.DrawFlatFocus(TRUE);
 
-	// ƒRƒƒ“ƒg•¶Žš”§ŒÀ
+	// ã‚³ãƒ¡ãƒ³ãƒˆæ–‡å­—æ•°åˆ¶é™
 	((CEdit*)GetDlgItem(IDC_STRATEGY_LIST_PATH))->SetLimitText(255);
 	((CEdit*)GetDlgItem(IDC_DATA_PATH))->SetLimitText(255);
 	((CEdit*)GetDlgItem(IDC_FITTING_DATA_PATH))->SetLimitText(255);
 	((CEdit*)GetDlgItem(IDC_WVASE_EXE_PATH))->SetLimitText(255);
 	((CEdit*)GetDlgItem(IDC_WVASE_WINDOW_TITLE))->SetLimitText(255);
 
-	// ADAPŽg—pŽž@FADAPŒo—R‚ÅWVASE32‚ð—˜—p‚·‚éƒP[ƒXiADAP{WVASE32j‚Ì‘Îˆ
-	// WordŽ‘—¿wNanoSpec–{‘Ì‚ÌXMP SETTING‰æ–Ê‚É‚Â‚¢‚Äi20071130j.docxŽQÆ
+	// ADAPä½¿ç”¨æ™‚ã€€ï¼šADAPçµŒç”±ã§WVASE32ã‚’åˆ©ç”¨ã™ã‚‹ã‚±ãƒ¼ã‚¹ï¼ˆADAPï¼‹WVASE32ï¼‰ã®å¯¾å‡¦
+	// Wordè³‡æ–™ã€ŽNanoSpecæœ¬ä½“ã®XMP SETTINGç”»é¢ã«ã¤ã„ã¦ï¼ˆ20071130ï¼‰.docã€å‚ç…§
 	GetDlgItem(IDC_WVASE_EXE_PATH)->EnableWindow(FALSE);
 	GetDlgItem(IDC_WVASE_EXE_PATH_BUTTON)->EnableWindow(FALSE);
 	GetDlgItem(IDC_WVASE_WINDOW_TITLE)->EnableWindow(FALSE);
 
-/* added 2014.11.25 hmenjo XMP •\Ž¦/”ñ•\Ž¦ ---------- { ---------- */
+/* added 2014.11.25 hmenjo XMP è¡¨ç¤º/éžè¡¨ç¤º ---------- { ---------- */
 	if (1 == g_lXmpType) {
 		BOOL l_bTextShow = TRUE;
 		HWND l_hWnd = ::FindWindow(0, ADAP_WINDOW_NAME);
@@ -130,14 +130,14 @@ BOOL CSrXmpSettingDlg::OnInitDialog()
 		m_BtnShowXmp.DrawFlatFocus(TRUE);
 		this->SetDlgItemText(IDC_BTN_SHOWXMP, (FALSE != l_bTextShow)? _T("Show Xmp") : _T("Hide Xmp"));
 		this->GetDlgItem(IDC_BTN_SHOWXMP)->ShowWindow(SW_SHOW);
-/* added 2015.06.01 hmenjo XMP •\Ž¦/”ñ•\Ž¦‚Q ---------- { ---------- */
+/* added 2015.06.01 hmenjo XMP è¡¨ç¤º/éžè¡¨ç¤ºï¼’ ---------- { ---------- */
 		this->SetTimer(TMR_CHKXMPSHOW_ID, TMR_CHKXMPSHOW_TIME, 0);
-/* added 2015.06.01 hmenjo XMP •\Ž¦/”ñ•\Ž¦‚Q ---------- } ---------- */
+/* added 2015.06.01 hmenjo XMP è¡¨ç¤º/éžè¡¨ç¤ºï¼’ ---------- } ---------- */
 	}
-/* added 2014.11.25 hmenjo XMP •\Ž¦/”ñ•\Ž¦ ---------- } ---------- */
+/* added 2014.11.25 hmenjo XMP è¡¨ç¤º/éžè¡¨ç¤º ---------- } ---------- */
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ðÝ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
@@ -333,7 +333,7 @@ BOOL CSrXmpSettingDlg::CheckData()
 	return TRUE;
 }
 
-/* added 2014.11.25 hmenjo XMP •\Ž¦/”ñ•\Ž¦ ---------- { ---------- */
+/* added 2014.11.25 hmenjo XMP è¡¨ç¤º/éžè¡¨ç¤º ---------- { ---------- */
 void CSrXmpSettingDlg::OnBtnShowXmp()
 {
 	BOOL l_bTextShow = TRUE;
@@ -353,15 +353,15 @@ void CSrXmpSettingDlg::OnBtnShowXmp()
 
 	this->SetDlgItemText(IDC_BTN_SHOWXMP, (FALSE != l_bTextShow)? _T("Show Xmp") : _T("Hide Xmp"));
 }
-/* added 2014.11.25 hmenjo XMP •\Ž¦/”ñ•\Ž¦ ---------- } ---------- */
-/* added 2015.06.01 hmenjo XMP •\Ž¦/”ñ•\Ž¦‚Q ---------- { ---------- */
+/* added 2014.11.25 hmenjo XMP è¡¨ç¤º/éžè¡¨ç¤º ---------- } ---------- */
+/* added 2015.06.01 hmenjo XMP è¡¨ç¤º/éžè¡¨ç¤ºï¼’ ---------- { ---------- */
 void CSrXmpSettingDlg::OnTimer(UINT nIDEvent)
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚·‚é‚©‚Ü‚½‚ÍƒfƒtƒHƒ‹ƒg‚Ìˆ—‚ðŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã™ã‚‹ã‹ã¾ãŸã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å‡¦ç†ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
 
 	switch (nIDEvent) {
 	case TMR_CHKXMPSHOW_ID:
-		{	/* XMP ‚Ì•\Ž¦ó‘Ô‚ðƒ`ƒFƒbƒN‚µCƒ{ƒ^ƒ“•\Ž¦‚ðXV‚µ‚Ü‚·D	*/
+		{	/* XMP ã®è¡¨ç¤ºçŠ¶æ…‹ã‚’ãƒã‚§ãƒƒã‚¯ã—ï¼Œãƒœã‚¿ãƒ³è¡¨ç¤ºã‚’æ›´æ–°ã—ã¾ã™ï¼Ž	*/
 			BOOL l_bTextShow = TRUE;
 			HWND l_hWnd = ::FindWindow(0, ADAP_WINDOW_NAME);
 			if (0 != l_hWnd) {
@@ -376,4 +376,4 @@ void CSrXmpSettingDlg::OnTimer(UINT nIDEvent)
 
 	CDialog::OnTimer(nIDEvent);
 }
-/* added 2015.06.01 hmenjo XMP •\Ž¦/”ñ•\Ž¦‚Q ---------- } ---------- */
+/* added 2015.06.01 hmenjo XMP è¡¨ç¤º/éžè¡¨ç¤ºï¼’ ---------- } ---------- */

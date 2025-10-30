@@ -1,4 +1,4 @@
-//
+﻿//
 //	Class:		CCeXDib
 //
 //	Compiler:	Visual C++

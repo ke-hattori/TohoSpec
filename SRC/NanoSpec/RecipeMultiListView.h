@@ -1,14 +1,14 @@
-#if !defined(AFX_RECIPEMULTILISTVIEW_H__D4E6BC28_3CB6_486B_BBBB_80A74640ABE4__INCLUDED_)
+ï»¿#if !defined(AFX_RECIPEMULTILISTVIEW_H__D4E6BC28_3CB6_486B_BBBB_80A74640ABE4__INCLUDED_)
 #define AFX_RECIPEMULTILISTVIEW_H__D4E6BC28_3CB6_486B_BBBB_80A74640ABE4__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// RecipeMultiListView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// RecipeMultiListView.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 // ##########################################################################
-// CRecipeMultiListView ƒtƒH[ƒ€ ƒrƒ…[
+// CRecipeMultiListView ãƒ•ã‚©ãƒ¼ãƒ  ãƒ“ãƒ¥ãƒ¼
 // ##########################################################################
 
 #ifndef __AFXEXT_H__
@@ -20,7 +20,7 @@
 class CRecipeMultiListView : public CNanoRecipeListUI
 {
 protected:
-	CRecipeMultiListView();			// “®“I¶¬‚Ég—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CRecipeMultiListView();			// å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	virtual ~CRecipeMultiListView();
 	DECLARE_DYNCREATE(CRecipeMultiListView)
 
@@ -41,6 +41,6 @@ private:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_RECIPEMULTILISTVIEW_H__D4E6BC28_3CB6_486B_BBBB_80A74640ABE4__INCLUDED_)

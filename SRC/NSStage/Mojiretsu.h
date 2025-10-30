@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 class CMojiretsu
 {
@@ -24,7 +24,7 @@ public:
 		return *this;
 	}
 
-	// ƒLƒƒƒXƒg
+	// Æ’LÆ’Æ’Æ’XÆ’g
 	operator LPCTSTR() {return m_szBuff;}
 
 private:

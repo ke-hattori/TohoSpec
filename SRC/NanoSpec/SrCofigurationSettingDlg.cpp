@@ -1,4 +1,4 @@
-// SrCofigurationSettingDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// SrCofigurationSettingDlg.cpp : �C���v�������e�[�V���� �t�@�C��
 //
 
 #include "stdafx.h"

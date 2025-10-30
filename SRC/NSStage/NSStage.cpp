@@ -1,4 +1,4 @@
-// NSStage.cpp : Defines the initialization routines for the DLL.
+﻿// NSStage.cpp : Defines the initialization routines for the DLL.
 //
 
 #include "stdafx.h"
@@ -16,10 +16,10 @@
 #define _NSSTAGETDLL_
 #include "../../INC/NSStage.hxx"
 
-// 2013.11.07 Bagus Mod (TohoSpec�Ή�) -->
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) -->
 #define _MASTER_
 #include "System.h"
-// 2013.11.07 Bagus Mod (TohoSpec�Ή�) <--
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) <--
 
 #ifndef _DEBUG
 // Release
@@ -37,7 +37,7 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-// �N���X�|�C���^
+// ï¿½Nï¿½ï¿½ï¿½Xï¿½|ï¿½Cï¿½ï¿½ï¿½^
 CMojiretsu* pMojiretsu;
 
 // variables
@@ -65,25 +65,25 @@ enum STAGE_TYPE
 	STAGE_TYPE_NONE = 0,
 	STAGE_TYPE_TOHO,
 	STAGE_TYPE_NTN,
-	STAGE_TYPE_SPT,		// �\�f�B�b�N�X�e�[�W
+	STAGE_TYPE_SPT,		// ï¿½\ï¿½fï¿½Bï¿½bï¿½Nï¿½Xï¿½eï¿½[ï¿½W
 	STAGE_TYPE_MAX,
 };
 
 
 
-TCHAR g_tszProcDir[_MAX_PATH] = _T("");		/* �ďo���v���Z�X�̃f�B���N�g��('\'�t��)*/
-TCHAR g_tszBaseDir[_MAX_PATH] = _T("");		/* ��f�B���N�g��('\'�t��)*/
+TCHAR g_tszProcDir[_MAX_PATH] = _T("");		/* ï¿½Ä�oï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Zï¿½Xï¿½Ìƒfï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½('\'ï¿½tï¿½ï¿½)*/
+TCHAR g_tszBaseDir[_MAX_PATH] = _T("");		/* ï¿½î�€ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½('\'ï¿½tï¿½ï¿½)*/
 void GetProcBaseDir(
 		LPTSTR ptszProcDir,
 		LPTSTR ptszBaseDir
 	)
 {
 	if (0 == _tcscmp(ptszProcDir, _T(""))) {
-		TCHAR l_tszProcessFName[_MAX_PATH];	/* �ďo���v���Z�X�̃t���p�X*/
+		TCHAR l_tszProcessFName[_MAX_PATH];	/* ï¿½Ä�oï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Zï¿½Xï¿½Ìƒtï¿½ï¿½ï¿½pï¿½X*/
 		::GetModuleFileName(0, l_tszProcessFName, sizeof(l_tszProcessFName));
 		TCHAR l_tszDrive[_MAX_DRIVE];
 		TCHAR l_tszDir[_MAX_DIR];
-// 2013.11.07 Bagus Mod (TohoSpec�Ή�) -->
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) -->
 		TCHAR l_tszFilename[_MAX_FNAME];
 //		_tsplitpath(l_tszProcessFName, l_tszDrive, l_tszDir, 0, 0);
 		_tsplitpath(l_tszProcessFName, l_tszDrive, l_tszDir, l_tszFilename, 0);
@@ -95,7 +95,7 @@ void GetProcBaseDir(
 				break;
 			}
 		}
-// 2013.11.07 Bagus Mod (TohoSpec�Ή�) <--
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) <--
 		_stprintf(ptszProcDir, _T("%s%s"), l_tszDrive, l_tszDir);
 		if (0 != _tcslen(ptszProcDir)) {
 			if (_T('\\') != ptszProcDir[_tcslen(ptszProcDir) - 1]) {
@@ -115,9 +115,9 @@ void GetProcBaseDir(
 }
 
 
-/* added 2014.12.22 hmenjo DLL ���d�N���h�~ ---------- { ---------- */
+/* added 2014.12.22 hmenjo DLL ï¿½ï¿½ï¿½dï¿½Nï¿½ï¿½ï¿½hï¿½~ ---------- { ---------- */
 #include <DllMutex.hxx>
-/* added 2014.12.22 hmenjo DLL ���d�N���h�~ ---------- } ---------- */
+/* added 2014.12.22 hmenjo DLL ï¿½ï¿½ï¿½dï¿½Nï¿½ï¿½ï¿½hï¿½~ ---------- } ---------- */
 extern "C" int APIENTRY
 DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 {
@@ -125,11 +125,11 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 
 	if (dwReason == DLL_PROCESS_ATTACH)
 	{
-/* added 2014.12.22 hmenjo DLL ���d�N���h�~ ---------- { ---------- */
+/* added 2014.12.22 hmenjo DLL ï¿½ï¿½ï¿½dï¿½Nï¿½ï¿½ï¿½hï¿½~ ---------- { ---------- */
 		if (FALSE == DllMutexCreate(_T("NSStage"))) {
 			return TRUE;
 		}
-/* added 2014.12.22 hmenjo DLL ���d�N���h�~ ---------- } ---------- */
+/* added 2014.12.22 hmenjo DLL ï¿½ï¿½ï¿½dï¿½Nï¿½ï¿½ï¿½hï¿½~ ---------- } ---------- */
 		TRACE0("NSSTAGE.DLL Initializing!\n");
 
 		GetProcBaseDir(g_tszProcDir, g_tszBaseDir);
@@ -168,9 +168,9 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 			delete pMojiretsu;
 			pMojiretsu = NULL;
 		}
-/* added 2014.12.22 hmenjo DLL ���d�N���h�~ ---------- { ---------- */
+/* added 2014.12.22 hmenjo DLL ï¿½ï¿½ï¿½dï¿½Nï¿½ï¿½ï¿½hï¿½~ ---------- { ---------- */
 		DllMutexRelease();
-/* added 2014.12.22 hmenjo DLL ���d�N���h�~ ---------- } ---------- */
+/* added 2014.12.22 hmenjo DLL ï¿½ï¿½ï¿½dï¿½Nï¿½ï¿½ï¿½hï¿½~ ---------- } ---------- */
 	}
 	return 1;
 }
@@ -196,23 +196,23 @@ BOOL NSSTAGEAPI NS_StageInitialize()
 
 	pMojiretsu->SetResourceHandle((HINSTANCE) hModule);
 
-	// �X�e�[�W���SPT�i�\�f�B�b�N�X�e�[�W�j
-	// ���W�W���Ƒ��x�ݒ�
+	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½SPTï¿½iï¿½\ï¿½fï¿½Bï¿½bï¿½Nï¿½Xï¿½eï¿½[ï¿½Wï¿½j
+	// ï¿½ï¿½ï¿½Wï¿½Wï¿½ï¿½ï¿½Æ‘ï¿½ï¿½xï¿½İ’ï¿½
 	if (STAGE_TYPE_SPT == nStageType) {
-		/*	���t�B�[�h�o�b�N����\�F156.25[nm]=156250[pm] */
+		/*	ï¿½ï¿½ï¿½tï¿½Bï¿½[ï¿½hï¿½oï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½\ï¿½F156.25[nm]=156250[pm] */
 		LONG64 l_l64FactorBase = 156250;	/* [pm] */
 		long l_lEleGear;
 		StageGetElectronicGear(X, &l_lEleGear);
-		LONG64 l_lEleGearXA = HIWORD(l_lEleGear);	/* A�F���q */
-		LONG64 l_lEleGearXB = LOWORD(l_lEleGear);	/* B�F���� */
+		LONG64 l_lEleGearXA = HIWORD(l_lEleGear);	/* Aï¿½Fï¿½ï¿½ï¿½q */
+		LONG64 l_lEleGearXB = LOWORD(l_lEleGear);	/* Bï¿½Fï¿½ï¿½ï¿½ï¿½ */
 		StageGetElectronicGear(Y, &l_lEleGear);
-		LONG64 l_lEleGearYA = HIWORD(l_lEleGear);	/* A�F���q */
-		LONG64 l_lEleGearYB = LOWORD(l_lEleGear);	/* B�F���� */
-		/* �P�ʂ�Ǐo���܂��D(���l�P�ʂ�[um]�ł�) */
+		LONG64 l_lEleGearYA = HIWORD(l_lEleGear);	/* Aï¿½Fï¿½ï¿½ï¿½q */
+		LONG64 l_lEleGearYB = LOWORD(l_lEleGear);	/* Bï¿½Fï¿½ï¿½ï¿½ï¿½ */
+		/* ï¿½Pï¿½Ê‚ï¿½Ç�oï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D(ï¿½ï¿½ï¿½lï¿½Pï¿½Ê‚ï¿½[um]ï¿½Å‚ï¿½) */
 		TCHAR l_tszTemp[128];
 		double l_dTemp;
 		char szFilePath[MAX_PATH];
-// 2013.11.07 Bagus Mod (TohoSpec�Ή�) -->
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) -->
 //		sprintf(szFilePath, "%s%s%s", g_tszProcDir, CFG_DIR, NANOSPEC_INIFILENAME);
 		CString strFilename;
 
@@ -221,7 +221,7 @@ BOOL NSSTAGEAPI NS_StageInitialize()
 		strFilename.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
 	}
 	sprintf(szFilePath, "%s%s%s", g_tszProcDir, CFG_DIR, (LPCSTR)strFilename);
-// 2013.11.07 Bagus Mod (TohoSpec�Ή�) <--
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) <--
 		::GetPrivateProfileString(_T("StageCoord"), _T("Xunit"), _T("+1.0"), l_tszTemp, sizeof(l_tszTemp), szFilePath);
 		l_dTemp = _tcstod(l_tszTemp, 0);
 		LONG64 l_l64Xunit = (LONG64) l_dTemp * 1000000; /* [pm] */
@@ -238,14 +238,14 @@ BOOL NSSTAGEAPI NS_StageInitialize()
 			) {
 			MessageBox(NULL, pMojiretsu->LoadString(IDS_STAGE_UNIT_PARAM_SET_ERROR), "NanoSpec", MB_OK | MB_ICONSTOP);
 		}
-		// �P�ʌW�����v�Z���܂��D([count/(��L�P��)])
+		// ï¿½Pï¿½ÊŒWï¿½ï¿½ï¿½ï¿½ï¿½vï¿½Zï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D([count/(ï¿½ï¿½Lï¿½Pï¿½ï¿½)])
 		LONG64 l_l64FactorX = (l_l64Xunit * l_lEleGearXB) / (l_l64FactorBase * l_lEleGearXA);
 		LONG64 l_l64FactorY = (l_l64Yunit * l_lEleGearYB) / (l_l64FactorBase * l_lEleGearYA);
 		long l_lFactorX = (long) l_l64FactorX;
 		long l_lFactorY = (long) l_l64FactorY;
 		StageSetFactor(X, l_lFactorX);
 		StageSetFactor(Y, l_lFactorY);
-		// �W�����x��Ǐo���܂��D(�P�ʂ�[(��L�P��)/ms]�ł�)
+		// ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½Ç�oï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D(ï¿½Pï¿½Ê‚ï¿½[(ï¿½ï¿½Lï¿½Pï¿½ï¿½)/ms]ï¿½Å‚ï¿½)
 		::GetPrivateProfileString(_T("StageCoord"), _T("Xspeed"), _T("+400"), l_tszTemp, sizeof(l_tszTemp), szFilePath);
 		l_dTemp = _tcstod(l_tszTemp, 0);
 		lSpeedX = (long) l_dTemp;
@@ -265,20 +265,20 @@ BOOL NSSTAGEAPI NS_StageInitialize()
 	SR_LENS_CENTER_OFFSET srLensOffset;
 	ConfigFile_GetNanoSpecIni(&srLensOffset, CONFIG_FILE_SR_LENS_CENTER_OFFSET);
 
-	// �ŏ��̃w�b�h�^�C�v��ݒ�
-	// �Ƃ肠�����f�t�H���g SR�w�b�h�Ƃ���
+	// ï¿½Å�ï¿½ï¿½Ìƒwï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½ï¿½İ’ï¿½
+	// ï¿½Æ‚è‚ ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½tï¿½Hï¿½ï¿½ï¿½g SRï¿½wï¿½bï¿½hï¿½Æ‚ï¿½ï¿½ï¿½
 	wActiveHeadType = HEAD_TYPE_SR;
 
-	// Turret Backlash ����
+	// Turret Backlash ï¿½ï¿½ï¿½ï¿½
 	StageSelectLens(1);
 	StageSelectLens(0);
 
-	// �ŏ��̃����Y����
+	// ï¿½Å�ï¿½ï¿½Ìƒï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½ï¿½ï¿½
 	StageSelectLens(srLensOffset.iBaseLens);
 	nActiveSrLens = srLensOffset.iBaseLens;
 
 // 2013.02.22 bagus Substrate thickness setting -->
-	iActiveSubstrateThickness = -1;		// ���I��
+	iActiveSubstrateThickness = -1;		// ï¿½ï¿½ï¿½Iï¿½ï¿½
 // 2013.02.22 bagus Substrate thickness setting <--
 
 	return TRUE;
@@ -313,7 +313,7 @@ void NSSTAGEAPI NS_SampleCoordStageGetPos(STAGE_COORD_XYZ* pCoordXyz, const STAG
 
 	NS_StageGetPos(&coordXyz);
 
-	// �I�t�Z�b�g�i�T���v�����W�j�l�����Z����
+	// ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½iï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½jï¿½lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½
 	coordXyz.lX -= pSampleOriginCoordXy->lX;
 	coordXyz.lY -= pSampleOriginCoordXy->lY;
 	*pCoordXyz = coordXyz;
@@ -423,7 +423,7 @@ BOOL NSSTAGEAPI NS_SelectHeadType(WORD wHeadType, BOOL bStageMove)
 		NS_StageMoveRelative(&coord);
 	}
 
-	// ���݂̃w�b�h�^�C�v��ۑ����Ă���
+	// ï¿½ï¿½ï¿½İ‚Ìƒwï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½ï¿½Û‘ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
 	wActiveHeadType = wHeadType;
 
 	return TRUE;
@@ -434,8 +434,8 @@ BOOL NSSTAGEAPI NS_SelectHeadType(WORD wHeadType, BOOL bStageMove)
 // NS_StageSelectLens
 // BOOL NSSTAGEAPI NS_StageSelectLens(UINT nLens)
 // {
-// 	// �����Y�ؑւ��ŃY��������������A�A�T�[�g�����B
-// 	// �ǂ����̃^�C�~���O�ŁAStageSelectLens()�����ڌĂ΂�Ă���\��������
+// 	// ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½Ø‘Ö‚ï¿½ï¿½ÅƒYï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Aï¿½Tï¿½[ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½B
+// 	// ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½Ìƒ^ï¿½Cï¿½~ï¿½ï¿½ï¿½Oï¿½Å�AStageSelectLens()ï¿½ï¿½ï¿½ï¿½ï¿½ÚŒÄ‚Î‚ï¿½Ä‚ï¿½ï¿½ï¿½Â”\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // 	ASSERT(INT_MIN == StageGetCurLens() || nActiveSrLens == (UINT)StageGetCurLens());
 //
 // 	if ( nLens == nActiveSrLens )
@@ -450,21 +450,21 @@ BOOL NSSTAGEAPI NS_SelectHeadType(WORD wHeadType, BOOL bStageMove)
 // 	coordPosXy.lX = -activeLensPosXy.lX + newLensPosXy.lX;
 // 	coordPosXy.lY = -activeLensPosXy.lY + newLensPosXy.lY;
 //
-// 	// �X�e�[�W�I�t�Z�b�g����
+// 	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½ï¿½
 // 	NS_StageMoveRelative(&coordPosXy);
 //
-// 	// ���̃����Y��STAGE.DLL�T�u�R���^�[���b�g�ύX����
+// 	// ï¿½ï¿½ï¿½Ìƒï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½STAGE.DLLï¿½Tï¿½uï¿½Rï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½gï¿½Ï�Xï¿½ï¿½ï¿½ï¿½
 // 	StageSelectLens(nLens);
 //
-// 	// ���݂̃����Y����ۑ����Ă���
+// 	// ï¿½ï¿½ï¿½İ‚Ìƒï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½ï¿½ï¿½Û‘ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
 // 	nActiveSrLens = nLens;
 //
 // 	return TRUE;
 // }
 BOOL NSSTAGEAPI NS_StageSelectLens(UINT nLens)
 {
-	// �����Y�ؑւ��ŃY��������������A�A�T�[�g�����B
-	// �ǂ����̃^�C�~���O�ŁAStageSelectLens()�����ڌĂ΂�Ă���\��������
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½Ø‘Ö‚ï¿½ï¿½ÅƒYï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Aï¿½Tï¿½[ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½B
+	// ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½Ìƒ^ï¿½Cï¿½~ï¿½ï¿½ï¿½Oï¿½Å�AStageSelectLens()ï¿½ï¿½ï¿½ï¿½ï¿½ÚŒÄ‚Î‚ï¿½Ä‚ï¿½ï¿½ï¿½Â”\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	ASSERT(INT_MIN == StageGetCurLens() || nActiveSrLens == (UINT)StageGetCurLens());
 
 	if ( nLens == nActiveSrLens )
@@ -480,17 +480,17 @@ BOOL NSSTAGEAPI NS_StageSelectLens(UINT nLens)
 	coordPosXy.lX = -activeLensPosXyz.lX + newLensPosXyz.lX;
 	coordPosXy.lY = -activeLensPosXyz.lY + newLensPosXyz.lY;
 
-	// �X�e�[�W�I�t�Z�b�g����
+	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½ï¿½
 	NS_StageMoveRelative(&coordPosXy);
 
-	// ���̃����Y��STAGE.DLL�T�u�R���^�[���b�g�ύX����
+	// ï¿½ï¿½ï¿½Ìƒï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½STAGE.DLLï¿½Tï¿½uï¿½Rï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½gï¿½Ï�Xï¿½ï¿½ï¿½ï¿½
 	StageSelectLens(nLens);
 
-	// Z �I�t�Z�b�g
+	// Z ï¿½Iï¿½tï¿½Zï¿½bï¿½g
 	lPosZ = -activeLensPosXyz.lZ + newLensPosXyz.lZ;
 	StageSetZLensOffset(lPosZ);
 
-	// ���݂̃����Y����ۑ����Ă���
+	// ï¿½ï¿½ï¿½İ‚Ìƒï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½ï¿½ï¿½Û‘ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
 	nActiveSrLens = nLens;
 
 	return TRUE;
@@ -501,10 +501,10 @@ BOOL NSSTAGEAPI NS_StageSelectLens(UINT nLens)
 // NS_StageDoAutoFocus
 BOOL NS_StageDoAutoFocus()
 {
-	// AF ���������Y�ؑ֕t��
-	// AF �O�Ɍ��݂̃����Y��Ǐo���C
-	// ���̃����Y�ł� AF �� SystemSR.ini �� AF �p�����Y�̎w�肪����Ă���ꍇ��
-	// AF �O�ɂ��̃����Y�ɐؑւ� AF �I����C�����Y�����ɖ߂��܂��D
+	// AF ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½Ø‘Ö•tï¿½ï¿½
+	// AF ï¿½Oï¿½ÉŒï¿½ï¿½İ‚Ìƒï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½Ç�oï¿½ï¿½ï¿½C
+	// ï¿½ï¿½ï¿½Ìƒï¿½ï¿½ï¿½ï¿½Yï¿½Å‚ï¿½ AF ï¿½ï¿½ SystemSR.ini ï¿½ï¿½ AF ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½Ì�wï¿½è‚ªï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ê�‡ï¿½ï¿½
+	// AF ï¿½Oï¿½É‚ï¿½ï¿½Ìƒï¿½ï¿½ï¿½ï¿½Yï¿½É�Ø‘Ö‚ï¿½ AF ï¿½Iï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½ï¿½ï¿½ï¿½É–ß‚ï¿½ï¿½Ü‚ï¿½ï¿½D
 
 	BOOL bRet;
 
@@ -512,12 +512,12 @@ BOOL NS_StageDoAutoFocus()
 	SR_TURRET srTurret[SR_LENS_MAX];
 	ConfigFile_GetNanoSpecIni(&srTurret, CONFIG_FILE_SR_TURRET);
 
-	// �����Y�� AF �p�ɐؑւ�
-	StageSelectLens(srTurret[nActiveSrLens].iAFLens);	// �����Y�I�t�Z�b�g�ړ��Ȃ��̃����Y�ؑցi���x�d���j
-	// AF ���s
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½ AF ï¿½pï¿½É�Ø‘Ö‚ï¿½
+	StageSelectLens(srTurret[nActiveSrLens].iAFLens);	// ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ú“ï¿½ï¿½È‚ï¿½ï¿½Ìƒï¿½ï¿½ï¿½ï¿½Yï¿½Ø‘Ö�iï¿½ï¿½ï¿½xï¿½dï¿½ï¿½ï¿½j
+	// AF ï¿½ï¿½ï¿½s
 	bRet = StageDoAutoFocus();
-	// �����Y��߂��܂��i�����Y�ؑւ��̃Y�������j
-	StageSelectLens(nActiveSrLens);						// �����Y�I�t�Z�b�g�ړ��Ȃ��̃����Y�ؑցi���x�d���j
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½ß‚ï¿½ï¿½Ü‚ï¿½ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½Ø‘Ö‚ï¿½ï¿½ÌƒYï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½j
+	StageSelectLens(nActiveSrLens);						// ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ú“ï¿½ï¿½È‚ï¿½ï¿½Ìƒï¿½ï¿½ï¿½ï¿½Yï¿½Ø‘Ö�iï¿½ï¿½ï¿½xï¿½dï¿½ï¿½ï¿½j
 
 	return bRet;
 }
@@ -529,11 +529,11 @@ void NSSTAGEAPI NS_ConvertToStageGetPosCoord(STAGE_COORD_XYZ* pCoordXyz)
 	STAGE_COORD_XYZ coordXyz;
 	coordXyz = *pCoordXyz;
 
-	// StageApi���W����StageConfig���W�ɕϊ�
+	// StageApiï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½StageConfigï¿½ï¿½ï¿½Wï¿½É•ÏŠï¿½
 	CStageCoord convCoord(coordXyz.lX, coordXyz.lY);
 	convCoord.ToUiDisplayCoord();
 
-	// �I�t�Z�b�g�i�w�b�h�E�����Y�j�l�����Z����
+	// ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½iï¿½wï¿½bï¿½hï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½jï¿½lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½
 	STAGE_COORD_XYZ headLensOffset;
 	NS_GetCurrOffsetStageCoord(&headLensOffset);
 	convCoord.lX -= headLensOffset.lX;
@@ -566,16 +566,16 @@ void NSSTAGEAPI NS_ConvertToStageMoveCoord(STAGE_COORD_XYZ* pCoordXyz, const STA
 {
 	CStageCoord convCoord(pCoordXyz->lX, pCoordXyz->lY);
 
-	// �I�t�Z�b�g�i�w�b�h�E�����Y�j�l�����Z����
+	// ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½iï¿½wï¿½bï¿½hï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½jï¿½lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½
 	STAGE_COORD_XYZ headLensOffset;
 	NS_GetCurrOffsetStageCoord(&headLensOffset);
 	convCoord.lX += headLensOffset.lX;
 	convCoord.lY += headLensOffset.lY;
 
-	// �I�t�Z�b�g�i�T���v�����W�j�l�����Z����
+	// ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½iï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½jï¿½lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½
 	convCoord += *pSampleOriginCoordXy;
 
-	// StageConfig���W����StageApi���W�ɕϊ�
+	// StageConfigï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½StageApiï¿½ï¿½ï¿½Wï¿½É•ÏŠï¿½
 	convCoord.ToApiCoord();
 
 	pCoordXyz->lX = convCoord.lX;
@@ -665,7 +665,7 @@ void NSSTAGEAPI NS_ConvertToXyAxisCoord(STAGE_COORD* pCoordXy)
 {
 	CStageCoord convCoord(pCoordXy);
 
-	// StageConfig���W����StageApi���W�ɕϊ�
+	// StageConfigï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½StageApiï¿½ï¿½ï¿½Wï¿½É•ÏŠï¿½
 	convCoord.ToApiCoord();
 	*pCoordXy = convCoord;
 }
@@ -744,7 +744,7 @@ void NSSTAGEAPI NS_GetDiffHeadTypeOffset(WORD wHeadType, STAGE_COORD* pCoordXy)
 		return;
 	}
 
-	// �I�t�Z�b�g�i�J�����g�����Z�A�V�����Z�j
+	// ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½iï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½Aï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½j
 	STAGE_COORD_XYZ activeHeadPosXyz;
 	STAGE_COORD_XYZ newHeadPosXyz;
 	STAGE_COORD_XYZ headOffset;
@@ -764,7 +764,7 @@ void NSSTAGEAPI NS_GetDiffHeadTypeOffset(WORD wHeadType, STAGE_COORD* pCoordXy)
 // NS_GetCurrOffsetStageCoord
 // void NSSTAGEAPI NS_GetCurrOffsetStageCoord(STAGE_COORD_XYZ* pCoordXyz)
 // {
-// 	// �w�b�h�I�t�Z�b�g�l��ݒ肷��
+// 	// ï¿½wï¿½bï¿½hï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½lï¿½ï¿½İ’è‚·ï¿½ï¿½
 // 	STAGE_COORD_XYZ headOffset;
 // 	NS_GetCurrHeadTypeOffsetStageCoord(&headOffset);
 // 	pCoordXyz->lX = headOffset.lX;
@@ -778,7 +778,7 @@ void NSSTAGEAPI NS_GetDiffHeadTypeOffset(WORD wHeadType, STAGE_COORD* pCoordXy)
 // }
 void NSSTAGEAPI NS_GetCurrOffsetStageCoord(STAGE_COORD_XYZ* pCoordXyz)
 {
-	// �w�b�h�I�t�Z�b�g�l��ݒ肷��
+	// ï¿½wï¿½bï¿½hï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½lï¿½ï¿½İ’è‚·ï¿½ï¿½
 	STAGE_COORD_XYZ headOffset;
 	NS_GetCurrHeadTypeOffsetStageCoord(&headOffset);
 	pCoordXyz->lX = headOffset.lX;
@@ -807,11 +807,11 @@ void NSSTAGEAPI NS_GetCurrHeadTypeOffsetStageCoord(STAGE_COORD_XYZ* pCoordXyz)
 // NS_GetCurrSrLensOffsetStageCoord
 // void NSSTAGEAPI NS_GetCurrSrLensOffsetStageCoord(STAGE_COORD* pCoord)
 // {
-// //	// Sr�w�b�h�ȊO�ŃR�[��������A�A�T�[�g�𔭐�������B
+// //	// Srï¿½wï¿½bï¿½hï¿½ÈŠOï¿½ÅƒRï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Aï¿½Tï¿½[ï¿½gï¿½ğ”­�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 // //	ASSERT(wActiveHeadType == HEAD_TYPE_SR);
 //
-// 	// �����Y�ؑւ��ŃY��������������A�A�T�[�g�����B
-// 	// �ǂ����̃^�C�~���O�ŁAStageSelectLens()�����ڌĂ΂�Ă���\��������
+// 	// ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½Ø‘Ö‚ï¿½ï¿½ÅƒYï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Aï¿½Tï¿½[ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½B
+// 	// ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½Ìƒ^ï¿½Cï¿½~ï¿½ï¿½ï¿½Oï¿½Å�AStageSelectLens()ï¿½ï¿½ï¿½ï¿½ï¿½ÚŒÄ‚Î‚ï¿½Ä‚ï¿½ï¿½ï¿½Â”\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // //	ASSERT(INT_MIN == StageGetCurLens() || nActiveSrLens == (UINT)StageGetCurLens());
 //
 // 	NS_GetSrLensOffsetCoord(nActiveSrLens, pCoord);
@@ -840,12 +840,12 @@ void NSSTAGEAPI NS_GetHeadTypeCoordLoc(WORD wHeadType, STAGE_COORD_XYZ* pCoordXy
 		coordXyz = headPos.LocSr;
 		break;
 	case HEAD_TYPE_SE:
-// 2013.02.21 bagus CompleteEASE�w�b�h�ǉ� -->
+// 2013.02.21 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 	case HEAD_TYPE_COMPEASE:
-// 2013.02.21 bagus CompleteEASE�w�b�h�ǉ� <--
+// 2013.02.21 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
 		coordXyz = headPos.LocSe;
 		break;
-// 2009.10.19 bagus MS �ǉ� --{--
+// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --{--
 #if 0
 	case HEAD_TYPE_IRSE:
 		coordXyz = headPos.LocIrse;
@@ -855,7 +855,7 @@ void NSSTAGEAPI NS_GetHeadTypeCoordLoc(WORD wHeadType, STAGE_COORD_XYZ* pCoordXy
 		coordXyz = headPos.LocMs;
 		break;
 #endif
-// 2009.10.19 bagus MS �ǉ� --}--
+// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --}--
 	case HEAD_TYPE_4PP:
 		coordXyz = headPos.Loc4PP;
 		break;
@@ -1070,7 +1070,7 @@ BOOL NSSTAGEAPI NS_SelectSubstrateThickness(int iIndex)
 	//
 	StageSetAFInvalidRegion((long)substrateThickness.dInvalidRegion);
 
-	// ���݂̃C���f�b�N�X��ۑ����Ă���
+	// ï¿½ï¿½ï¿½İ‚ÌƒCï¿½ï¿½ï¿½fï¿½bï¿½Nï¿½Xï¿½ï¿½Û‘ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
 	iActiveSubstrateThickness = iIndex;
 
 	return TRUE;

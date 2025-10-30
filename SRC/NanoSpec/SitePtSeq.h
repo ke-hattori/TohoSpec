@@ -1,4 +1,4 @@
-// SitePtSeq.h : header file
+ï»¿// SitePtSeq.h : header file
 //
 
 #pragma once
@@ -25,7 +25,7 @@ protected:
 // Operations
 public:
     virtual ~CSitePtSeq() {}
-	virtual void ShutDown() {};	/* implement‚µ‚È‚¢‚ÆƒRƒ“ƒpƒCƒ‹’Ê‚ç‚È‚¢	*/
+	virtual void ShutDown() {};	/* implementã—ãªã„ã¨ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«é€šã‚‰ãªã„	*/
 
 // Overrides
     //{{AFX_VIRTUAL(CSitePtSeq)
@@ -40,14 +40,14 @@ protected:
 
     ///// Variable /////
 public:
-	CChiefView* m_pChiefView;							/* •Ö—˜‚»‚¤‚È‚Ì‚ÅA‚à‚ç‚Á‚Ä‚¨‚­	*/
-    CChiefTransiSr1Point* m_pChiefTransiSr1Point;		/* Event”­s—p‚ÉA‚à‚ç‚Á‚Ä‚¨‚­	*/
+	CChiefView* m_pChiefView;							/* ä¾¿åˆ©ãã†ãªã®ã§ã€ã‚‚ã‚‰ã£ã¦ãŠã	*/
+    CChiefTransiSr1Point* m_pChiefTransiSr1Point;		/* Eventç™ºè¡Œç”¨ã«ã€ã‚‚ã‚‰ã£ã¦ãŠã	*/
 	LPSTAGE_PROG_INFO_HDR m_pStageProgInfoHdr;
 	LPSITE_PATTERN m_pSitePattern;
 	int m_iEvent;
 
-	STAGE_COORD		MatchLoc[2];		/* ‘ª’èˆÊ’u			*/
-	STAGE_COORD		PrePosition;		/* ƒT[ƒ`ŠJn‘OˆÊ’u	*/
+	STAGE_COORD		MatchLoc[2];		/* æ¸¬å®šä½ç½®			*/
+	STAGE_COORD		PrePosition;		/* ã‚µãƒ¼ãƒé–‹å§‹å‰ä½ç½®	*/
 	
 protected:
     BOOL m_bShutDown;
@@ -110,9 +110,9 @@ protected:
 	char szLogText[1024];
 
 private:
-/* added 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Ç‚İ/‘‚İ‹@”\’Ç‰Á ---------- { ---------- */
+/* added 2009.06.22 hmenjo SPR ã‚ªãƒ•ã‚»ãƒƒãƒˆèª­è¾¼ã¿/æ›¸è¾¼ã¿æ©Ÿèƒ½è¿½åŠ  ---------- { ---------- */
 	SPR_SUB_INFO m_SprSubInfo[SITE_PATTERN_MAX];
-/* added 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Ç‚İ/‘‚İ‹@”\’Ç‰Á ---------- } ---------- */
+/* added 2009.06.22 hmenjo SPR ã‚ªãƒ•ã‚»ãƒƒãƒˆèª­è¾¼ã¿/æ›¸è¾¼ã¿æ©Ÿèƒ½è¿½åŠ  ---------- } ---------- */
 };
 
 

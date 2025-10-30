@@ -1,14 +1,14 @@
-#if !defined(AFX_RECIPEMEASUREMENTSRCIETRANSMITTANCEPROGRAMVIEW_H__D66A7569_094C_4AB4_B86E_6D8E966F828E__INCLUDED_)
+ï»¿#if !defined(AFX_RECIPEMEASUREMENTSRCIETRANSMITTANCEPROGRAMVIEW_H__D66A7569_094C_4AB4_B86E_6D8E966F828E__INCLUDED_)
 #define AFX_RECIPEMEASUREMENTSRCIETRANSMITTANCEPROGRAMVIEW_H__D66A7569_094C_4AB4_B86E_6D8E966F828E__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// RecipeMeasurementSrCieTransmittanceProgramView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// RecipeMeasurementSrCieTransmittanceProgramView.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 // ##########################################################################
-// CRecipeMeasurementSrCieTransmittanceProgramView ƒtƒH[ƒ€ ƒrƒ…[
+// CRecipeMeasurementSrCieTransmittanceProgramView ãƒ•ã‚©ãƒ¼ãƒ  ãƒ“ãƒ¥ãƒ¼
 // ##########################################################################
 
 #ifndef __AFXEXT_H__
@@ -20,10 +20,10 @@
 class CRecipeMeasurementSrCieTransmittanceProgramView : public CRecipeMeasurementSrCieReflectanceProgramView
 {
 protected:
-	CRecipeMeasurementSrCieTransmittanceProgramView();			// “®“I¶¬‚Ég—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CRecipeMeasurementSrCieTransmittanceProgramView();			// å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	DECLARE_DYNCREATE(CRecipeMeasurementSrCieTransmittanceProgramView)
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	virtual ~CRecipeMeasurementSrCieTransmittanceProgramView();
 	virtual void LoadRecipeData();
@@ -31,6 +31,6 @@ protected:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_RECIPEMEASUREMENTSRCIETRANSMITTANCEPROGRAMVIEW_H__D66A7569_094C_4AB4_B86E_6D8E966F828E__INCLUDED_)

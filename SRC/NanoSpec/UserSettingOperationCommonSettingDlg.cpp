@@ -1,4 +1,4 @@
-// UserSettingOperationCommonSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// UserSettingOperationCommonSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -27,7 +27,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // #########################################################################
-// CUserSettingOperationCommonSettingDlg ƒ_ƒCƒAƒƒO
+// CUserSettingOperationCommonSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // #########################################################################
 
 // =========================================================================
@@ -78,13 +78,13 @@ BEGIN_MESSAGE_MAP(CUserSettingOperationCommonSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CUserSettingOperationCommonSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CUserSettingOperationCommonSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
 BOOL CUserSettingOperationCommonSettingDlg::OnInitDialog()
 {
-	//–¢‘Î‰ž‹@”\HIDE
+	//æœªå¯¾å¿œæ©Ÿèƒ½HIDE
 	GetDlgItem(IDC_MANUAL_LOAD_POSITION_SETTING_BUTTON)->ShowWindow(SW_HIDE);
 //	  GetDlgItem(IDC_DELETE_DATA_PERIOD_SETTING_BUTTON)->ShowWindow(SW_HIDE);
 	GetDlgItem(IDC_STAGE_UNIT_SETTING_BUTTON)->ShowWindow(SW_HIDE);
@@ -121,19 +121,19 @@ BOOL CUserSettingOperationCommonSettingDlg::OnInitDialog()
 		BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_StageUnitSettingButton.DrawFlatFocus(TRUE);
 
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	if(g_lModelType == MODEL_T3100){
 		m_MaintenancePositionSettingButton.ShowWindow(SW_HIDE);
 	}
 	else{
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 		///// Maintenance Position Setting Button /////
 		m_MaintenancePositionSettingButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT,
 			BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 		m_MaintenancePositionSettingButton.DrawFlatFocus(TRUE);
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 
 	/////  /////
 	m_MaintenanceDateButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT,
@@ -152,8 +152,8 @@ BOOL CUserSettingOperationCommonSettingDlg::OnInitDialog()
 
 	SetTimer(1, 50, NULL);
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ðÝ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
@@ -282,7 +282,7 @@ BOOL CUserSettingOperationCommonSettingDlg::ShowSettingDlg(CDialog* pDlg)
 		return FALSE;
 	}
 
-	// ‰E‚ÌƒEƒBƒ“ƒhƒE‚ðUser Setting‰æ–Ê‚É–ß‚·
+	// å³ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’User Settingç”»é¢ã«æˆ»ã™
 	pMainFrame->ChangeExeWnd(USERCONF_WND);
 
 	return ( pDlg->DoModal() == IDOK );
@@ -292,12 +292,12 @@ HBRUSH CUserSettingOperationCommonSettingDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, U
 {
 	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
 
-	// TODO: ‚±‚ÌˆÊ’u‚Å DC ‚ÌƒAƒgƒŠƒrƒ…[ƒg‚ð•ÏX‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã§ DC ã®ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã‚’å¤‰æ›´ã—ã¦ãã ã•ã„
 
 	BOOL sbNexMntSw = nexioIsMaintenanceSwitch();
 	BOOL sbNexEngiMntSw = nexioIsEngineerMaintenanceSwitch();
 
-	if( pWnd == this ) // Ž©•ªŽ©g‚ð•`‰æ‚·‚é‚Æ‚«‚Í
+	if( pWnd == this ) // è‡ªåˆ†è‡ªèº«ã‚’æç”»ã™ã‚‹ã¨ãã¯
 	{
 		if((sbNexMntSw == OFF)||(sbNexEngiMntSw == ON))
 		{
@@ -305,13 +305,13 @@ HBRUSH CUserSettingOperationCommonSettingDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, U
 		}
 	}
 
-	// TODO: ƒfƒtƒHƒ‹ƒg‚Ìƒuƒ‰ƒV‚ª–]‚Ý‚Ì‚à‚Ì‚Å‚È‚¢ê‡‚É‚ÍAˆá‚¤ƒuƒ‰ƒV‚ð•Ô‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ–ãƒ©ã‚·ãŒæœ›ã¿ã®ã‚‚ã®ã§ãªã„å ´åˆã«ã¯ã€é•ã†ãƒ–ãƒ©ã‚·ã‚’è¿”ã—ã¦ãã ã•ã„
 	return hbr;
 }
 
 void CUserSettingOperationCommonSettingDlg::OnTimer(UINT nIDEvent)
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚·‚é‚©‚Ü‚½‚ÍƒfƒtƒHƒ‹ƒg‚Ìˆ—‚ðŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã™ã‚‹ã‹ã¾ãŸã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å‡¦ç†ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„
 
 	static BOOL sbNexMntSw = nexioIsMaintenanceSwitch();
 	static BOOL sbNexMntSwOld = TRUE;
@@ -323,10 +323,10 @@ void CUserSettingOperationCommonSettingDlg::OnTimer(UINT nIDEvent)
 
 	if((sbNexMntSw != sbNexMntSwOld)||(sbNexEngiMntSw != sbNexEngiMntSwOld))
 	{
-		Invalidate(TRUE); //OnCtlColor()‚Ìˆ—‚ð‚³‚¹‚éˆ×‚ÉCall
+		Invalidate(TRUE); //OnCtlColor()ã®å‡¦ç†ã‚’ã•ã›ã‚‹ç‚ºã«Call
 	}
-	sbNexMntSwOld = sbNexMntSw; //‘O‰ñ’l‘Š·‚¦
-	sbNexEngiMntSwOld = sbNexEngiMntSw; //‘O‰ñ’l‘Š·‚¦
+	sbNexMntSwOld = sbNexMntSw; //å‰å›žå€¤æ›¸æ›ãˆ
+	sbNexEngiMntSwOld = sbNexEngiMntSw; //å‰å›žå€¤æ›¸æ›ãˆ
 
 	CDialog::OnTimer(nIDEvent);
 }
@@ -334,7 +334,7 @@ void CUserSettingOperationCommonSettingDlg::OnTimer(UINT nIDEvent)
 
 void CUserSettingOperationCommonSettingDlg::OnMaintenanceDateButton()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«é€šçŸ¥ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 	//Saiki 20090609 Add ----->
 	CMainFrame* pMainFrame = (CMainFrame *)AfxGetMainWnd();
 	if ( !pMainFrame->MenuExit() )

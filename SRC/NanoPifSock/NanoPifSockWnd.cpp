@@ -1,4 +1,4 @@
-// NanoPifSockWnd.cpp : implementation file
+﻿// NanoPifSockWnd.cpp : implementation file
 //
 
 #include "stdafx.h"

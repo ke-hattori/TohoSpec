@@ -1,37 +1,37 @@
-#if !defined(AFX_SYSTEMCONFIGURATIONSETTINGDLG_H__57BB9D77_ED44_4B52_AE75_E663DB98D6B9__INCLUDED_)
+ï»¿#if !defined(AFX_SYSTEMCONFIGURATIONSETTINGDLG_H__57BB9D77_ED44_4B52_AE75_E663DB98D6B9__INCLUDED_)
 #define AFX_SYSTEMCONFIGURATIONSETTINGDLG_H__57BB9D77_ED44_4B52_AE75_E663DB98D6B9__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// SystemConfigurationSettingDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// SystemConfigurationSettingDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 // ##########################################################################
-// CSystemConfigurationSettingDlg ƒ_ƒCƒAƒƒO
+// CSystemConfigurationSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // ##########################################################################
 
 class CSystemConfigurationSettingDlg : public CDialog
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
-	CSystemConfigurationSettingDlg(CWnd* pParent = NULL);	// •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CSystemConfigurationSettingDlg(CWnd* pParent = NULL);	// æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
 protected:
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CSystemConfigurationSettingDlg)
 	enum { IDD = IDD_SYSTEM_CONFIGURATION_SETTING_DLG };
 	//}}AFX_DATA
 	CShadeButtonST m_OkButton;
 	CShadeButtonST m_CancelButton;
 
-// ƒI[ƒo[ƒ‰ƒCƒh
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
 	//{{AFX_VIRTUAL(CSystemConfigurationSettingDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	//{{AFX_MSG(CSystemConfigurationSettingDlg)
 	virtual BOOL OnInitDialog();
@@ -59,15 +59,15 @@ private:
 	void InitCombo_StageSampleLifter();
 	void InitCombo_StageVacuumType();
 	void InitCombo_StageCorrectAngle();
-// 2009.10.29 bagus Jog ’Ç‰ÁC³ --{--
+// 2009.10.29 bagus Jog è¿½åŠ ä¿®æ­£ --{--
 	void InitCombo_StageJoystickType();
-// 2009.10.29 bagus Jog ’Ç‰ÁC³ --}--
+// 2009.10.29 bagus Jog è¿½åŠ ä¿®æ­£ --}--
 	BOOL CheckData();
 
 	SYSTEM_CONFIG m_SystemConfig;
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_SYSTEMCONFIGURATIONSETTINGDLG_H__57BB9D77_ED44_4B52_AE75_E663DB98D6B9__INCLUDED_)

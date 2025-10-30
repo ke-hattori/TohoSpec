@@ -1,4 +1,4 @@
-// GridCellNumeric.h: interface for the CGridCellNumeric class.
+﻿// GridCellNumeric.h: interface for the CGridCellNumeric class.
 //
 // Written by Andrew Truckle [ajtruckle@wsatkins.co.uk]
 //

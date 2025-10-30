@@ -1,19 +1,19 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "..\\..\\INC\\Globals.hxx"
 #include "..\\..\\INC\\RecipeFile.hxx"
 #include "Recipe.h"
 
 #define BUFFER_LEN 		(1024)
 
-/* added 2009.07.22 hmenjo ƒXƒgƒŒƒX ƒXƒe[ƒW PGM “Ço’Ç‰Á ---------- { ---------- */
+/* added 2009.07.22 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹ ã‚¹ãƒ†ãƒ¼ã‚¸ PGM èª­å‡ºè¿½åŠ  ---------- { ---------- */
 #include "..\\..\\INC\\ConfigFile.hxx"
 #ifdef _DEBUG
 	#pragma comment(lib, "..\\..\\LIB\\dTnsConfigFile.lib")
 #else
 	#pragma comment(lib, "..\\..\\LIB\\TnsConfigFile.lib")
 #endif
-/* added 2009.07.22 hmenjo ƒXƒgƒŒƒX ƒXƒe[ƒW PGM “Ço’Ç‰Á ---------- } ---------- */
-// ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚é‚©‚ğŠm”F‚·‚éŠÖ”i‘¶İ‚·‚éê‡A‚ ‚í‚¹‚ÄÅIXV“ú‚ğİ’è‚·‚éj
+/* added 2009.07.22 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹ ã‚¹ãƒ†ãƒ¼ã‚¸ PGM èª­å‡ºè¿½åŠ  ---------- } ---------- */
+// ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã‹ã‚’ç¢ºèªã™ã‚‹é–¢æ•°ï¼ˆå­˜åœ¨ã™ã‚‹å ´åˆã€ã‚ã‚ã›ã¦æœ€çµ‚æ›´æ–°æ—¥æ™‚ã‚’è¨­å®šã™ã‚‹ï¼‰
 BOOL FILEEXIST(LPCTSTR pszFileName, SYSTEMTIME* lpLastWriteSystemTime)
 {
 	WIN32_FILE_ATTRIBUTE_DATA win32Data;
@@ -35,9 +35,9 @@ POINT_DESKEW_PROG_INFO g_PointDeskewProgInfo;
 SAMPLEINFO g_SampleInfo;
 USER_ACCOUNT g_UserAccount;
 MEASUREMENT_DATA g_MeasurementData;
-/* added 2009.07.22 hmenjo ƒXƒgƒŒƒX ƒXƒe[ƒW PGM “Ço’Ç‰Á ---------- { ---------- */
+/* added 2009.07.22 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹ ã‚¹ãƒ†ãƒ¼ã‚¸ PGM èª­å‡ºè¿½åŠ  ---------- { ---------- */
 STAGE_PROG_STRESS	lg_StageProgStress;
-/* added 2009.07.22 hmenjo ƒXƒgƒŒƒX ƒXƒe[ƒW PGM “Ço’Ç‰Á ---------- } ---------- */
+/* added 2009.07.22 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹ ã‚¹ãƒ†ãƒ¼ã‚¸ PGM èª­å‡ºè¿½åŠ  ---------- } ---------- */
 //2009.12.10 bagus Recipe Backup --{--
 char g_szBackupPath[MAX_PATH+1];
 BOOL g_bUseBackup;
@@ -49,9 +49,9 @@ STRESS_PARAM_INFO lg_StressParamInfo;
 #define PriorityKey		_T("PRIORITY")
 
 //Saiki 20110208 Add <-----
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.11.04 bagus RS è¿½åŠ  --{--
 // ==========================================================================
-// ‘ª’èŒ‹‰Ê‚Ì’PˆÊ‚Ìİ’è (NanoSpec\System.h ‚Æ“¯‚¶)
+// æ¸¬å®šçµæœã®å˜ä½ã®è¨­å®š (NanoSpec\System.h ã¨åŒã˜)
 enum RESISTANCE_UNIT_4PP
 {
 	RESISTANCE_UNIT_MILL = 0,
@@ -67,9 +67,9 @@ const LPCSTR RESISTANCE_UNIT_ITEM[] = {
 	"nm",
 	"A",
 };
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS è¿½åŠ  --}--
 
-// MainRecipeƒtƒ@ƒCƒ‹‚Ìƒwƒbƒhƒ^ƒCƒv‚ğ“Ç‚İ‚Ş‚½‚ß‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
+// MainRecipeãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ˜ãƒƒãƒ‰ã‚¿ã‚¤ãƒ—ã‚’èª­ã¿è¾¼ã‚€ãŸã‚ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
 const RECIPE_FILE MainRecipeDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -77,7 +77,7 @@ const RECIPE_FILE MainRecipeDesc[] =
 	{"",						"HeadType",					'W',		"0",		&g_MainRcpInfo.MainRcpParam.hdr.wHeadType							},
 };
 
-// SR‚ÌMainRecipeƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
+// SRã®MainRecipeãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
 const RECIPE_FILE SrMainRecipeDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -100,16 +100,16 @@ const RECIPE_FILE SrMainRecipeDesc[] =
 	{"",						"DefaultDisplay",			'I',		"0",		&g_MainRcpInfo.MainRcpParam._SR.nDefaultDisplay						},
 	{"",						"MeasurementReference",		'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam._SR.bMeasRef							},
 	{"",						"ReferenceWithAF",			'b',		"TRUE",		&g_MainRcpInfo.MainRcpParam._SR.bRefWithAF							},
-//2009.09.02 bagus se ‹@”\Šg’£ --{--
+//2009.09.02 bagus se æ©Ÿèƒ½æ‹¡å¼µ --{--
 	{"",						"GraphAutoScale",			'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam.hdr.bGraphAutoScale						},
-//2009.09.02 bagus se ‹@”\Šg’£ --}--
-//2009.12.17 bagus •Û‘¶ƒtƒ@ƒCƒ‹–¼•ÏX --{--
+//2009.09.02 bagus se æ©Ÿèƒ½æ‹¡å¼µ --}--
+//2009.12.17 bagus ä¿å­˜ãƒ•ã‚¡ã‚¤ãƒ«åå¤‰æ›´ --{--
 	{"",						"SaveNameWithDate",			'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam.hdr.bSaveNameWithDate					},
-//2009.12.17 bagus •Û‘¶ƒtƒ@ƒCƒ‹–¼•ÏX --}--
+//2009.12.17 bagus ä¿å­˜ãƒ•ã‚¡ã‚¤ãƒ«åå¤‰æ›´ --}--
 	{"",						"Comment",					'C',		"",			g_MainRcpInfo.hdr.szComment											},
 };
 
-// SE‚ÌMainRecipeƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
+// SEã®MainRecipeãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
 const RECIPE_FILE SeMainRecipeDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -134,17 +134,17 @@ const RECIPE_FILE SeMainRecipeDesc[] =
 	{"",						"MeasurementReference",		'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam._SE.bMeasRef							},
 	{"",						"ReferenceWithAF",			'b',		"TRUE",		&g_MainRcpInfo.MainRcpParam._SE.bRefWithAF							},
 // 2009.09.29 bagus SE --}--
-//2009.09.02 bagus se ‹@”\Šg’£ --{--
+//2009.09.02 bagus se æ©Ÿèƒ½æ‹¡å¼µ --{--
 	{"",						"GraphAutoScale",			'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam.hdr.bGraphAutoScale						},
-//2009.09.02 bagus se ‹@”\Šg’£ --}--
-//2009.12.17 bagus •Û‘¶ƒtƒ@ƒCƒ‹–¼•ÏX --{--
+//2009.09.02 bagus se æ©Ÿèƒ½æ‹¡å¼µ --}--
+//2009.12.17 bagus ä¿å­˜ãƒ•ã‚¡ã‚¤ãƒ«åå¤‰æ›´ --{--
 	{"",						"SaveNameWithDate",			'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam.hdr.bSaveNameWithDate					},
-//2009.12.17 bagus •Û‘¶ƒtƒ@ƒCƒ‹–¼•ÏX --}--
+//2009.12.17 bagus ä¿å­˜ãƒ•ã‚¡ã‚¤ãƒ«åå¤‰æ›´ --}--
 	{"",						"Comment",					'C',		"",			g_MainRcpInfo.hdr.szComment											},
 };
 
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
-// CompleteEASE‚ÌMainRecipeƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
+// CompleteEASEã®MainRecipeãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
 const RECIPE_FILE CompEASEMainRecipeDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -170,11 +170,11 @@ const RECIPE_FILE CompEASEMainRecipeDesc[] =
 	{"",						"SaveNameWithDate",			'b',		"TRUE",		&g_MainRcpInfo.MainRcpParam.hdr.bSaveNameWithDate					},
 	{"",						"Comment",					'C',		"",			g_MainRcpInfo.hdr.szComment											},
 };
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 #if 0
-// IRSE‚ÌMainRecipeƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
+// IRSEã®MainRecipeãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
 const RECIPE_FILE IrseMainRecipeDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -185,13 +185,13 @@ const RECIPE_FILE IrseMainRecipeDesc[] =
 	{"",						"SampleID",					'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam.hdr.bSampleID							},
 	{"",						"SaveMeasurementResult",	'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam.hdr.bSaveMeasResult						},
 	{"",						"SaveOverwrite",			'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam.hdr.bSaveOverwrite						},
-//2009.09.02 bagus se ‹@”\Šg’£ --{--
+//2009.09.02 bagus se æ©Ÿèƒ½æ‹¡å¼µ --{--
 	{"",						"GraphAutoScale",			'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam.hdr.bGraphAutoScale						},
-//2009.09.02 bagus se ‹@”\Šg’£ --}--
+//2009.09.02 bagus se æ©Ÿèƒ½æ‹¡å¼µ --}--
 	{"",						"Comment",					'C',		"",			g_MainRcpInfo.hdr.szComment											},
 };
 #else
-// MS‚ÌMainRecipeƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
+// MSã®MainRecipeãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
 const RECIPE_FILE MicroScopeMainRecipeDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -215,15 +215,15 @@ const RECIPE_FILE MicroScopeMainRecipeDesc[] =
 	{"",						"MeasurementReference",		'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam._MScope.bMeasRef						},
 	{"",						"ReferenceWithAF",			'b',		"TRUE",		&g_MainRcpInfo.MainRcpParam._MScope.bRefWithAF						},
 	{"",						"GraphAutoScale",			'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam.hdr.bGraphAutoScale						},
-//2009.12.17 bagus •Û‘¶ƒtƒ@ƒCƒ‹–¼•ÏX --{--
+//2009.12.17 bagus ä¿å­˜ãƒ•ã‚¡ã‚¤ãƒ«åå¤‰æ›´ --{--
 	{"",						"SaveNameWithDate",			'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam.hdr.bSaveNameWithDate					},
-//2009.12.17 bagus •Û‘¶ƒtƒ@ƒCƒ‹–¼•ÏX --}--
+//2009.12.17 bagus ä¿å­˜ãƒ•ã‚¡ã‚¤ãƒ«åå¤‰æ›´ --}--
 	{"",						"Comment",					'C',		"",			g_MainRcpInfo.hdr.szComment											},
 };
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 
-// 4PP‚ÌMainRecipeƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
+// 4PPã®MainRecipeãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
 const RECIPE_FILE ResistMainRecipeDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -234,11 +234,11 @@ const RECIPE_FILE ResistMainRecipeDesc[] =
 	{"",						"SampleID",					'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam.hdr.bSampleID							},
 	{"",						"SaveMeasurementResult",	'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam.hdr.bSaveMeasResult						},
 	{"",						"SaveOverwrite",			'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam.hdr.bSaveOverwrite						},
-//2009.09.02 bagus se ‹@”\Šg’£ --{--
+//2009.09.02 bagus se æ©Ÿèƒ½æ‹¡å¼µ --{--
 	{"",						"GraphAutoScale",			'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam.hdr.bGraphAutoScale						},
-//2009.09.02 bagus se ‹@”\Šg’£ --}--
+//2009.09.02 bagus se æ©Ÿèƒ½æ‹¡å¼µ --}--
 	{"",						"Comment",					'C',		"",			g_MainRcpInfo.hdr.szComment											},
-//2009.12.07 bagus CTA C³ --{--
+//2009.12.07 bagus CTA ä¿®æ­£ --{--
 	{"",						"ReferenceWithAF",			'b',		"TRUE",		&g_MainRcpInfo.MainRcpParam._RS.bRefWithAF						},
 	{"",						"FirstRecalItem",			'I',		"0",		&g_MainRcpInfo.MainRcpParam._RS.RecalibItem[RECALIB_1]			},
 	{"",						"SecondRecalItem",			'I',		"0",		&g_MainRcpInfo.MainRcpParam._RS.RecalibItem[RECALIB_2]			},
@@ -246,13 +246,13 @@ const RECIPE_FILE ResistMainRecipeDesc[] =
 	{"",						"FirstRecalibration",		'C',		"",			g_MainRcpInfo.MainRcpParam._RS.szRecalib[RECALIB_1]				},
 	{"",						"SecondRecalibration",		'C',		"",			g_MainRcpInfo.MainRcpParam._RS.szRecalib[RECALIB_2]				},
 	{"",						"ThirdRecalibration",		'C',		"",			g_MainRcpInfo.MainRcpParam._RS.szRecalib[RECALIB_3]				},
-//2009.12.07 bagus CTA C³ --}--
-//2009.12.17 bagus •Û‘¶ƒtƒ@ƒCƒ‹–¼•ÏX --{--
+//2009.12.07 bagus CTA ä¿®æ­£ --}--
+//2009.12.17 bagus ä¿å­˜ãƒ•ã‚¡ã‚¤ãƒ«åå¤‰æ›´ --{--
 	{"",						"SaveNameWithDate",			'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam.hdr.bSaveNameWithDate					},
-//2009.12.17 bagus •Û‘¶ƒtƒ@ƒCƒ‹–¼•ÏX --}--
+//2009.12.17 bagus ä¿å­˜ãƒ•ã‚¡ã‚¤ãƒ«åå¤‰æ›´ --}--
 };
 
-// Contact Angle‚ÌMainRecipeƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
+// Contact Angleã®MainRecipeãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
 const RECIPE_FILE ContactAngleMainRecipeDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -264,7 +264,7 @@ const RECIPE_FILE ContactAngleMainRecipeDesc[] =
 	{"",						"SampleID",					'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam.hdr.bSampleID							},
 	{"",						"SaveMeasurementResult",	'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam.hdr.bSaveMeasResult						},
 	{"",						"SaveOverwrite",			'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam.hdr.bSaveOverwrite						},
-// 2009.10.08 bagus CTA ’Ç‰Á --{--
+// 2009.10.08 bagus CTA è¿½åŠ  --{--
 	{"",						"FirstRecalItem",			'I',		"0",		&g_MainRcpInfo.MainRcpParam._CA.RecalibItem[RECALIB_1]				},
 	{"",						"SecondRecalItem",			'I',		"0",		&g_MainRcpInfo.MainRcpParam._CA.RecalibItem[RECALIB_2]				},
 	{"",						"ThirdRecalItem",			'I',		"0",		&g_MainRcpInfo.MainRcpParam._CA.RecalibItem[RECALIB_3]				},
@@ -277,17 +277,17 @@ const RECIPE_FILE ContactAngleMainRecipeDesc[] =
 	{"",						"DefaultDisplay",			'I',		"0",		&g_MainRcpInfo.MainRcpParam._CA.nDefaultDisplay						},
 	{"",						"MeasurementReference",		'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam._CA.bMeasRef							},
 	{"",						"ReferenceWithAF",			'b',		"TRUE",		&g_MainRcpInfo.MainRcpParam._CA.bRefWithAF							},
-// 2009.10.08 bagus CTA ’Ç‰Á --}--
-//2009.09.02 bagus se ‹@”\Šg’£ --{--
+// 2009.10.08 bagus CTA è¿½åŠ  --}--
+//2009.09.02 bagus se æ©Ÿèƒ½æ‹¡å¼µ --{--
 	{"",						"GraphAutoScale",			'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam.hdr.bGraphAutoScale						},
-//2009.09.02 bagus se ‹@”\Šg’£ --}--
+//2009.09.02 bagus se æ©Ÿèƒ½æ‹¡å¼µ --}--
 	{"",						"Comment",					'C',		"",			g_MainRcpInfo.hdr.szComment											},
-//2009.12.17 bagus •Û‘¶ƒtƒ@ƒCƒ‹–¼•ÏX --{--
+//2009.12.17 bagus ä¿å­˜ãƒ•ã‚¡ã‚¤ãƒ«åå¤‰æ›´ --{--
 	{"",						"SaveNameWithDate",			'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam.hdr.bSaveNameWithDate					},
-//2009.12.17 bagus •Û‘¶ƒtƒ@ƒCƒ‹–¼•ÏX --}--
+//2009.12.17 bagus ä¿å­˜ãƒ•ã‚¡ã‚¤ãƒ«åå¤‰æ›´ --}--
 };
 
-// Stress‚ÌMainRecipeƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
+// Stressã®MainRecipeãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
 const RECIPE_FILE StressMainRecipeDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -314,16 +314,16 @@ const RECIPE_FILE StressMainRecipeDesc[] =
 	{"",						"DefaultDisplay",			'I',		"0",		&g_MainRcpInfo.MainRcpParam._SR.nDefaultDisplay						},
 	{"",						"MeasurementReference",		'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam._SR.bMeasRef							},
 	{"",						"ReferenceWithAF",			'b',		"TRUE",		&g_MainRcpInfo.MainRcpParam._SR.bRefWithAF							},
-//2009.09.02 bagus se ‹@”\Šg’£ --{--
+//2009.09.02 bagus se æ©Ÿèƒ½æ‹¡å¼µ --{--
 	{"",						"GraphAutoScale",			'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam.hdr.bGraphAutoScale						},
-//2009.09.02 bagus se ‹@”\Šg’£ --}--
+//2009.09.02 bagus se æ©Ÿèƒ½æ‹¡å¼µ --}--
 	{"",						"Comment",					'C',		"",			g_MainRcpInfo.hdr.szComment											},
-//2009.12.17 bagus •Û‘¶ƒtƒ@ƒCƒ‹–¼•ÏX --{--
+//2009.12.17 bagus ä¿å­˜ãƒ•ã‚¡ã‚¤ãƒ«åå¤‰æ›´ --{--
 	{"",						"SaveNameWithDate",			'b',		"FALSE",	&g_MainRcpInfo.MainRcpParam.hdr.bSaveNameWithDate					},
-//2009.12.17 bagus •Û‘¶ƒtƒ@ƒCƒ‹–¼•ÏX --}--
+//2009.12.17 bagus ä¿å­˜ãƒ•ã‚¡ã‚¤ãƒ«åå¤‰æ›´ --}--
 };
 
-// MultiRecipeƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
+// MultiRecipeãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
 const RECIPE_FILE MultiRecipeDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -332,7 +332,7 @@ const RECIPE_FILE MultiRecipeDesc[] =
 	{"",						"Comment",					'C',		"",			g_MultiRcpInfoHdr.hdr.szComment										},
 };
 
-// MeasurementProgramƒtƒ@ƒCƒ‹‚ÌHeadTypeCScanType‚ğ“Ç‚İ‚Ş‚½‚ß‚ÌƒZƒNƒVƒ‡ƒ“CƒL[DƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
+// MeasurementProgramãƒ•ã‚¡ã‚¤ãƒ«ã®HeadTypeï¼ŒScanTypeã‚’èª­ã¿è¾¼ã‚€ãŸã‚ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
 const RECIPE_FILE MeasurementProgramDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -341,7 +341,7 @@ const RECIPE_FILE MeasurementProgramDesc[] =
 	{"",						"ScanType",					'W',		"0",		&g_MeasProgInfo.ScanParams.hdr.wScanType							},
 };
 
-// SR‚ÌThickness(MeasurementProgram)ƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
+// SRã®Thickness(MeasurementProgram)ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
 const RECIPE_FILE SrThicknessDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -362,7 +362,7 @@ const RECIPE_FILE SrThicknessDesc[] =
 	{"",						"Comment",					'C',		"",			g_MeasProgInfo.hdr.szComment										},
 };
 
-// SR‚ÌReflectance(MeasurementProgram)ƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
+// SRã®Reflectance(MeasurementProgram)ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
 const RECIPE_FILE SrReflectDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -379,14 +379,14 @@ const RECIPE_FILE SrReflectDesc[] =
 	{"",						"Comment",					'C',		"",			g_MeasProgInfo.hdr.szComment										},
 };
 
-// SR‚ÌTransmittance(MeasurementProgram)ƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
+// SRã®Transmittance(MeasurementProgram)ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
 const RECIPE_FILE SrTransmitDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
-// 2009.10.27 bagus Gantry ’Ç‰ÁC³ --{--
+// 2009.10.27 bagus Gantry è¿½åŠ ä¿®æ­£ --{--
 //	{"SrTransmit",				"Lens",						'I',		"0",		&g_MeasProgInfo.ScanParams._SR.iLens								},
 	{"SrGantryTransmit",		"Lens",						'I',		"0",		&g_MeasProgInfo.ScanParams._SR.iLens								},
-// 2009.10.27 bagus Gantry ’Ç‰ÁC³ --}--
+// 2009.10.27 bagus Gantry è¿½åŠ ä¿®æ­£ --}--
 	{"",						"IntegrationTime",			'D',		"1.0",		&g_MeasProgInfo.ScanParams._SR.dIntegTime							},
 	{"",						"OpticalFilter",			'W',		"0",		&g_MeasProgInfo.ScanParams._SR.wOpticsFilterType					},
 	{"",						"EnhancedUvGain",			'b',		"FALSE",	&g_MeasProgInfo.ScanParams._SR.bEnhancedUv							},
@@ -399,7 +399,7 @@ const RECIPE_FILE SrTransmitDesc[] =
 	{"",						"Comment",					'C',		"",			g_MeasProgInfo.hdr.szComment										},
 };
 
-// SR‚ÌReflectanceCIE(MeasurementProgram)ƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
+// SRã®ReflectanceCIE(MeasurementProgram)ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
 const RECIPE_FILE SrReflectCieDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -412,7 +412,7 @@ const RECIPE_FILE SrReflectCieDesc[] =
 	{"",						"Comment",					'C',		"",			g_MeasProgInfo.hdr.szComment										},
 };
 
-// SR‚ÌTransmittanceCIE(MeasurementProgram)ƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
+// SRã®TransmittanceCIE(MeasurementProgram)ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
 const RECIPE_FILE SrTransmitCieDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -425,7 +425,7 @@ const RECIPE_FILE SrTransmitCieDesc[] =
 	{"",						"Comment",					'C',		"",			g_MeasProgInfo.hdr.szComment										},
 };
 
-// SR‚ÌOptical Density(MeasurementProgram)ƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
+// SRã®Optical Density(MeasurementProgram)ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
 const RECIPE_FILE SrOdDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -441,8 +441,8 @@ const RECIPE_FILE SrOdDesc[] =
 	{"",						"Comment",					'C',		"",			g_MeasProgInfo.hdr.szComment										},
 };
 
-// 2009.10.14 bagus Distance ’Ç‰Á --{--
-// SR‚ÌDistance(MeasurementProgram)ƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
+// 2009.10.14 bagus Distance è¿½åŠ  --{--
+// SRã®Distance(MeasurementProgram)ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
 const RECIPE_FILE SrDistanceDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -450,10 +450,10 @@ const RECIPE_FILE SrDistanceDesc[] =
 	{"",						"OpticalFilter",			'W',		"0",		&g_MeasProgInfo.ScanParams._SR.wOpticsFilterType					},
 	{"",						"Comment",					'C',		"",			g_MeasProgInfo.hdr.szComment										},
 };
-// 2009.10.14 bagus Distance ’Ç‰Á --}--
+// 2009.10.14 bagus Distance è¿½åŠ  --}--
 
-// 4PP(MeasurementProgram)ƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 4PP(MeasurementProgram)ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
+// 2009.11.04 bagus RS è¿½åŠ  --{--
 #if 0
 const RECIPE_FILE ResistDesc[] =
 {
@@ -486,15 +486,15 @@ const RECIPE_FILE ResistDesc[] =
 	{"",						"Comment",					'C',		"",			g_MeasProgInfo.hdr.szComment										},
 };
 #endif
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS è¿½åŠ  --}--
 
 // 2009.08.24 bagus stress	--{--
 const RECIPE_FILE StressDesc[] =
 {
 //	Section Name				Key Name					Data Type	Default		Variable Pointer
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ä¿®æ­£ --{--
 //	{"Stress",					"CalculationDataIntereval",	'L',		"10",		&g_MeasProgInfo.ScanParams._SR.dwCalcDataInterval					},
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ä¿®æ­£ --}--
 	{"SrThickness",				"StartWaveLength",			'W',		"400",		&g_MeasProgInfo.ScanParams._SR.WavelenRange.wStart					},
 	{"",						"EndWaveLength",			'W',		"800",		&g_MeasProgInfo.ScanParams._SR.WavelenRange.wEnd					},
 	{"",						"Lens",						'I',		"0",		&g_MeasProgInfo.ScanParams._SR.iLens								},
@@ -514,7 +514,7 @@ const RECIPE_FILE StressDesc[] =
 
 // 2009.08.24 bagus stress	--}--
 
-// 2009.10.08 bagus CTA ’Ç‰Á --{--
+// 2009.10.08 bagus CTA è¿½åŠ  --{--
 const RECIPE_FILE ContactAngleDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -523,10 +523,10 @@ const RECIPE_FILE ContactAngleDesc[] =
 	{"",						"MeasLiquid",				'b',		"FALSE",	&g_MeasProgInfo.ScanParams._CA.bLiquidVolume						},
 	{"",						"Comment",					'C',		"",			g_MeasProgInfo.hdr.szComment										},
 };
-// 2009.10.08 bagus CTA ’Ç‰Á --}--
+// 2009.10.08 bagus CTA è¿½åŠ  --}--
 
 // 2009.09.04 K.Matsuo -->
-// SE(MeasurementProgram)ƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
+// SE(MeasurementProgram)ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
 const RECIPE_FILE SeThicknessDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -541,7 +541,7 @@ const RECIPE_FILE SeThicknessDesc[] =
 };
 // 2009.09.04 K.Matsuo <--
 
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 const RECIPE_FILE CompEASEThicknessDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -551,9 +551,9 @@ const RECIPE_FILE CompEASEThicknessDesc[] =
 	{"",						"CompleteEASE_ResultAutoSave",	'b',	"TRUE",		&g_MeasProgInfo.ScanParams._COMPEASE.bAutoSaveResultInCompEASE		},
 	{"",						"Comment",					'C',		"",			g_MeasProgInfo.hdr.szComment										},
 };
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 
-//2009.10.20 bagus MS ’Ç‰Á --{--
+//2009.10.20 bagus MS è¿½åŠ  --{--
 const RECIPE_FILE MicroScopeDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -562,9 +562,9 @@ const RECIPE_FILE MicroScopeDesc[] =
 	{"",						"MagLensIndex",				'I',		"0",		&g_MeasProgInfo.ScanParams._MScope.iMagLensIndex					},
 	{"",						"Comment",					'C',		"",			g_MeasProgInfo.hdr.szComment										},
 };
-//2009.10.20 bagus MS ’Ç‰Á --}--
+//2009.10.20 bagus MS è¿½åŠ  --}--
 
-// StageProgramƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
+// StageProgramãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
 const RECIPE_FILE StageProgramDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -582,7 +582,7 @@ const RECIPE_FILE StageProgramDesc[] =
 	{"",						 "OriginPosition",				 'I',	 "1",		&g_StageProgInfoHdr.SampleInfo.StageConfig.OrgPos							   },
 	{"",						 "CoordinateDirection_X",		 'I',	 "1",		&g_StageProgInfoHdr.SampleInfo.StageConfig.Dir.X							   },
 	{"",						 "CoordinateDirection_Y",		 'I',	 "2",		&g_StageProgInfoHdr.SampleInfo.StageConfig.Dir.Y							   },
-	//2009.12.03 bagus C³ --{--
+	//2009.12.03 bagus ä¿®æ­£ --{--
 	//{"",						   "Size_X",					   'D',    "900",	  &g_StageProgInfoHdr.SampleInfo.StageConfig.Size.dX							 },
 	//{"",						   "Size_Y",					   'D',    "900",	  &g_StageProgInfoHdr.SampleInfo.StageConfig.Size.dY							 },
 	//{"",						   "Edge_X",					   'D',    "0",		&g_StageProgInfoHdr.SampleInfo.StageConfig.Edge.dX								},
@@ -593,7 +593,7 @@ const RECIPE_FILE StageProgramDesc[] =
 	//{"",						   "StageMaxCoordRight_X",		   'D',    "0", 	  &g_StageProgInfoHdr.SampleInfo.StageConfig.StageMaxCoord.dRightX				 },
 	//{"",						   "StageMaxCoordUp_Y", 		   'D',    "0", 	  &g_StageProgInfoHdr.SampleInfo.StageConfig.StageMaxCoord.dUpY 				 },
 	//{"",						   "StageMaxCoordDown_Y",		   'D',    "0", 	  &g_StageProgInfoHdr.SampleInfo.StageConfig.StageMaxCoord.dDownY				 },
-	//2009.12.03 bagus C³ --}--
+	//2009.12.03 bagus ä¿®æ­£ --}--
 // 2009.12.01 bagus NANOMAP --{--
 	{"",						"HeadType",					'W',		"0",		&g_StageProgInfoHdr.wHeadType										},
 	{"",						"ScanType",					'W',		"0",		&g_StageProgInfoHdr.wScanType										},
@@ -623,7 +623,7 @@ const RECIPE_FILE StageProgramDesc[] =
 //2009.08.31 bagus stress --}--
 };
 
-// RecalibrationProgramƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
+// RecalibrationProgramãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
 const RECIPE_FILE RecalibrationProgramDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -631,10 +631,10 @@ const RECIPE_FILE RecalibrationProgramDesc[] =
 	{"",						"HeadType",					'W',		"0",		&g_RecalibProgInfo.wHeadType										},
 	{"",						"ScanType",					'W',		"0",		&g_RecalibProgInfo.wScanType										},
 	{"",						"Unit",						'W',		"0",		&g_RecalibProgInfo.wUnits											},
-// 2009.09.15 K.Matsuo ƒŒƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‚Ìƒ}ƒCƒiƒX’l“ü—Í‘Î‰ -->
-// ‰Šú’l‚ª-1‚ÍAv2.10–¢–‚Æ‚ÌŒİŠ·«‚Ì‚½‚ßB
+// 2009.09.15 K.Matsuo ãƒ¬ã‚­ãƒ£ãƒªãƒ–ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®ãƒã‚¤ãƒŠã‚¹å€¤å…¥åŠ›å¯¾å¿œ -->
+// åˆæœŸå€¤ãŒ-1ã¯ã€v2.10æœªæº€ã¨ã®äº’æ›æ€§ã®ãŸã‚ã€‚
 	{"",						"EntryNum",					'I',		"-1",		&g_RecalibProgInfo.iEntryNum										},
-// 2009.09.15 K.Matsuo ƒŒƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‚Ìƒ}ƒCƒiƒX’l“ü—Í‘Î‰ <--
+// 2009.09.15 K.Matsuo ãƒ¬ã‚­ãƒ£ãƒªãƒ–ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®ãƒã‚¤ãƒŠã‚¹å€¤å…¥åŠ›å¯¾å¿œ <--
 	{"",						"Actual1",					'D',		"0.0",		&g_RecalibProgInfo.RecalibEntry[0].dActual							},
 	{"",						"Measured1",				'D',		"0.0",		&g_RecalibProgInfo.RecalibEntry[0].dMeasured						},
 	{"",						"Actual2",					'D',		"0.0",		&g_RecalibProgInfo.RecalibEntry[1].dActual							},
@@ -648,7 +648,7 @@ const RECIPE_FILE RecalibrationProgramDesc[] =
 	{"",						"Comment",					'C',		"",			g_RecalibProgInfo.hdr.szComment										},
 };
 
-// PointDeskewProgramƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
+// PointDeskewProgramãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
 const RECIPE_FILE PointDeskewProgramDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -663,7 +663,7 @@ const RECIPE_FILE PointDeskewProgramDesc[] =
 	{"",						"Comment",					'C',		"",			g_PointDeskewProgInfo.hdr.szComment									},
 };
 
-// Sampleƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
+// Sampleãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
 const RECIPE_FILE SampleDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -674,18 +674,18 @@ const RECIPE_FILE SampleDesc[] =
 	{"",						"Size_Y",					'D',		"100000",	&g_SampleInfo.Size.dy/*um*/											},
 	{"",						"Origin_X",					'L',		"0",		&g_SampleInfo.Origin.lX/*um*/										},
 	{"",						"Origin_Y",					'L',		"0",		&g_SampleInfo.Origin.lY	/*um*/										},
-/* added 2009.07.31 hmenjo ƒXƒgƒŒƒX ƒ‰ƒCƒ“” ’è‹`‚R ---------- { ---------- */
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --{--
+/* added 2009.07.31 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹ ãƒ©ã‚¤ãƒ³æ•° å®šç¾©ï¼“ ---------- { ---------- */
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --{--
 //	{"",						"ElasticModulusName",		'C',		"",			g_SampleInfo.tszElasticModulusName									},
 //	{"",						"ElasticModulusValue",		'D',		"0.0",		&g_SampleInfo.dElasticModulusValue									},
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --}--
-/* added 2009.07.31 hmenjo ƒXƒgƒŒƒX ƒ‰ƒCƒ“” ’è‹`‚R ---------- } ---------- */
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --}--
+/* added 2009.07.31 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹ ãƒ©ã‚¤ãƒ³æ•° å®šç¾©ï¼“ ---------- } ---------- */
 // 2009.12.01 bagus NANOMAP --{--
 	{"",						"MachineOrgSensorLoc",			 'I',	 "3",					 &g_SampleInfo.StageConfig.MachineOrgSensorLoc								 },
 	{"",						 "OriginPosition",				 'I',	 "1",					 &g_SampleInfo.StageConfig.OrgPos											 },
 	{"",						 "CoordinateDirection_X",		 'I',	 "1",					 &g_SampleInfo.StageConfig.Dir.X											 },
 	{"",						 "CoordinateDirection_Y",		 'I',	 "2",					 &g_SampleInfo.StageConfig.Dir.Y											 },
-	//2009.12.03 bagus C³ --{--
+	//2009.12.03 bagus ä¿®æ­£ --{--
 	//{"",						   "Size_X",					   'D',    "900",				   &g_SampleInfo.StageConfig.Size.dX										   },
 	//{"",						   "Size_Y",					   'D',    "900",				   &g_SampleInfo.StageConfig.Size.dY										   },
 	//{"",						   "Edge_X",					   'D',    "0",					&g_SampleInfo.StageConfig.Edge.dX										   },
@@ -696,11 +696,11 @@ const RECIPE_FILE SampleDesc[] =
 	//{"",						   "StageMaxCoordRight_X",		   'D',    "0", 				   &g_SampleInfo.StageConfig.StageMaxCoord.dRightX							   },
 	//{"",						   "StageMaxCoordUp_Y", 		   'D',    "0", 				   &g_SampleInfo.StageConfig.StageMaxCoord.dUpY 							   },
 	//{"",						   "StageMaxCoordDown_Y",		   'D',    "0", 				   &g_SampleInfo.StageConfig.StageMaxCoord.dDownY							   },
-	//2009.12.03 bagus C³ --}--
+	//2009.12.03 bagus ä¿®æ­£ --}--
 // 2009.12.01 bagus NANOMAP --{--
 };
 
-// UserAccountƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
+// UserAccountãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
 const RECIPE_FILE UserAccountDesc[] =
 {
 //	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -709,15 +709,15 @@ const RECIPE_FILE UserAccountDesc[] =
 	{"",						"EnablePassword",			'b',		"FALSE",	&g_UserAccount.bEnablePassword										},
 	{"",						"Password",					'C',		"",			&g_UserAccount.szPassword											},
 };
-/* added 2009.07.22 hmenjo ƒXƒgƒŒƒX ƒXƒe[ƒW PGM “Ço’Ç‰Á ---------- { ---------- */
-/* Stage PGM for ƒXƒgƒŒƒX ƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è */
+/* added 2009.07.22 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹ ã‚¹ãƒ†ãƒ¼ã‚¸ PGM èª­å‡ºè¿½åŠ  ---------- { ---------- */
+/* Stage PGM for ã‚¹ãƒˆãƒ¬ã‚¹ ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š */
 DWORD lg_dwDummy;
 #define	LS_VALIDLINEn		_T("ValidLine%d")
 #define	LS_LnSnSCANVALID	_T("L%dS%d_ScanValid")
 #define	LS_LnSnSCANSTART_X	_T("L%dS%d_ScanStart_X")
 #define	LS_LnSnSCANEND_X	_T("L%dS%d_ScanEnd_X")
 #define	LS_LnSnSCANY		_T("L%dS%d_Y")
-/* ˆÈ~‚Ì’è‹`‚Íg‚¢‚Ü‚¹‚ñD(’¼Ú“Ç‚İ‚Ì‚½‚ß‚Å‚·) */
+/* ä»¥é™ã®å®šç¾©ã¯ä½¿ã„ã¾ã›ã‚“ï¼(ç›´æ¥èª­è¾¼ã¿ã®ãŸã‚ã§ã™) */
 const RECIPE_FILE StageProgramStressDesc[] =
 {
 	/*Section Name				Key Name					Data Type	Defaule		Variable Pointer	*/
@@ -730,9 +730,9 @@ const RECIPE_FILE StageProgramStressDesc[] =
 	{"",						LS_LnSnSCANY,				'L',		"0",		&g_UserAccount.szPassword											},
 	{"",						"dmy",						'L',		"9",		&lg_dwDummy															},
 };
-/* added 2009.07.22 hmenjo ƒXƒgƒŒƒX ƒXƒe[ƒW PGM “Ço’Ç‰Á ---------- } ---------- */
+/* added 2009.07.22 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹ ã‚¹ãƒ†ãƒ¼ã‚¸ PGM èª­å‡ºè¿½åŠ  ---------- } ---------- */
 
-//// MeasurementDataƒtƒ@ƒCƒ‹‚ÌƒZƒNƒVƒ‡ƒ“CƒL[CƒfƒtƒHƒ‹ƒgC•Ï”‚Ìİ’è
+//// MeasurementDataãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³ï¼Œã‚­ãƒ¼ï¼Œãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼Œå¤‰æ•°ã®è¨­å®š
 //const RECIPE_FILE MeasurementDataDesc[] =
 //{
 ////	Section Name				Key Name					Data Type	Defaule		Variable Pointer
@@ -751,18 +751,18 @@ const RECIPE_FILE StageProgramStressDesc[] =
 //	{"",						"S.D.",						'D',		"0",		&g_MeasurementData.dSdData											},
 //};
 
-// MultiRecipe‚ÌMainRecipe‚ÌƒŠƒXƒg‚ÌƒZƒNƒVƒ‡ƒ“–¼
+// MultiRecipeã®MainRecipeã®ãƒªã‚¹ãƒˆã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³å
 char g_lpszMultiRcpMainRcpListSection[] = "[MainRecipe]";
-// StageProgram‚ÌPoint‚ÌƒŠƒXƒg‚ÌƒZƒNƒVƒ‡ƒ“–¼
+// StageProgramã®Pointã®ãƒªã‚¹ãƒˆã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³å
 char g_lpszStageProgPointListSection[] = "[Point]";
-//// MeasurementData‚Ì‘ª’èŒ‹‰ÊƒŠƒXƒg‚ÌƒZƒNƒVƒ‡ƒ“–¼
+//// MeasurementDataã®æ¸¬å®šçµæœãƒªã‚¹ãƒˆã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³å
 //char g_lpszMeasurementDataListSection[] = "[MeasurementDataList]";
-//// StatisticsList‚Ì‘ª’èŒ‹‰ÊƒŠƒXƒg‚ÌƒZƒNƒVƒ‡ƒ“–¼
+//// StatisticsListã®æ¸¬å®šçµæœãƒªã‚¹ãƒˆã®ã‚»ã‚¯ã‚·ãƒ§ãƒ³å
 //char g_lpszStatisticsListSection[] = "[StatisticsList]";
 
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- { ---------- */
-extern TCHAR g_tszProcDir[_MAX_PATH];		/* ŒÄo‚µƒvƒƒZƒX‚ÌƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
-extern TCHAR g_tszBaseDir[_MAX_PATH];		/* Šî€ƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- { ---------- */
+extern TCHAR g_tszProcDir[_MAX_PATH];		/* å‘¼å‡ºã—ãƒ—ãƒ­ã‚»ã‚¹ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª('\'ä»˜ã)*/
+extern TCHAR g_tszBaseDir[_MAX_PATH];		/* åŸºæº–ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª('\'ä»˜ã)*/
 extern void GetProcBaseDir(LPTSTR ptszProcDir, LPTSTR ptszBaseDir);
 void AddAbsPath(LPTSTR ptszPath)
 {
@@ -776,16 +776,16 @@ void AddAbsPath(LPTSTR ptszPath)
 		_stprintf(ptszPath, _T("%s%s"), g_tszProcDir, l_tszTempFName);
 	}
 }
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- } ---------- */
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : LoadRecipe
-// Purpose	  : RecipeCProgramCUserAccountCSample‚Ì“Ç‚İ‚İ
-// Parameters : pVoid	 ---> ƒf[ƒ^‚ğ•Û‘¶‚·‚é\‘¢‘Ì‚Ìƒ|ƒCƒ“ƒ^
-//				lpszName ---> ƒtƒ@ƒCƒ‹–¼
-//				iType	 ---> ‚Ç‚Ìƒtƒ@ƒCƒ‹(MainRecipe“™)‚È‚Ì‚©‚ğŒˆ‚ß‚é•Ï”
+// Purpose	  : Recipeï¼ŒProgramï¼ŒUserAccountï¼ŒSampleã®èª­ã¿è¾¼ã¿
+// Parameters : pVoid	 ---> ãƒ‡ãƒ¼ã‚¿ã‚’ä¿å­˜ã™ã‚‹æ§‹é€ ä½“ã®ãƒã‚¤ãƒ³ã‚¿
+//				lpszName ---> ãƒ•ã‚¡ã‚¤ãƒ«å
+//				iType	 ---> ã©ã®ãƒ•ã‚¡ã‚¤ãƒ«(MainRecipeç­‰)ãªã®ã‹ã‚’æ±ºã‚ã‚‹å¤‰æ•°
 //
-// Returns	  : TRUE  ---> “Ç‚İ‚İ¬Œ÷
-//				FALSE ---> “Ç‚İ‚İ¸”s
+// Returns	  : TRUE  ---> èª­ã¿è¾¼ã¿æˆåŠŸ
+//				FALSE ---> èª­ã¿è¾¼ã¿å¤±æ•—
 BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 {
 	int iIndex, iDescCount;
@@ -796,13 +796,13 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 
 	ClearMemory();
 
-	// HeadTypeCScanType‚ğ“Ç‚İ‚Ş
+	// HeadTypeï¼ŒScanTypeã‚’èª­ã¿è¾¼ã‚€
 	if(!LoadHeadTypeAndScanType(&iType, lpszName)){
 			return FALSE;
 	}
 
 	switch(iType){
-	// Recipe SettingŠÖ˜A
+	// Recipe Settingé–¢é€£
 	case RECIPE_FILE_SR_MAIN_RECIPE:
 		iDescCount = sizeof(SrMainRecipeDesc) / sizeof(SrMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
@@ -815,15 +815,15 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		memcpy(pDesc, SeMainRecipeDesc, sizeof(SeMainRecipeDesc));
 		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case RECIPE_FILE_COMPEASE_MAIN_RECIPE:
 		iDescCount = sizeof(CompEASEMainRecipeDesc) / sizeof(CompEASEMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, CompEASEMainRecipeDesc, sizeof(CompEASEMainRecipeDesc));
 		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 #if 0
 	case RECIPE_FILE_IRSE_MAIN_RECIPE:
 		iDescCount = sizeof(IrseMainRecipeDesc) / sizeof(IrseMainRecipeDesc[0]);
@@ -839,7 +839,7 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
 		break;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 	case RECIPE_FILE_4PP_MAIN_RECIPE:
 		iDescCount = sizeof(ResistMainRecipeDesc) / sizeof(ResistMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
@@ -870,11 +870,11 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		memcpy(pDesc, StageProgramDesc, sizeof(StageProgramDesc));
 		sprintf(szFilePath, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, lpszName);
 		break;
-/* added 2009.07.22 hmenjo ƒXƒgƒŒƒX ƒXƒe[ƒW PGM “Ço’Ç‰Á ---------- { ---------- */
+/* added 2009.07.22 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹ ã‚¹ãƒ†ãƒ¼ã‚¸ PGM èª­å‡ºè¿½åŠ  ---------- { ---------- */
 	case RECIPE_FILE_STAGE_PROGRAM_STRESS:
 		sprintf(szFilePath, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, lpszName);
 		break;
-/* added 2009.07.22 hmenjo ƒXƒgƒŒƒX ƒXƒe[ƒW PGM “Ço’Ç‰Á ---------- } ---------- */
+/* added 2009.07.22 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹ ã‚¹ãƒ†ãƒ¼ã‚¸ PGM èª­å‡ºè¿½åŠ  ---------- } ---------- */
 	case RECIPE_FILE_RECALIBRATION_PROGRAM:
 		iDescCount = sizeof(RecalibrationProgramDesc) / sizeof(RecalibrationProgramDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
@@ -931,14 +931,14 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		break;
 // 2009.09.04 K.Matsuo <--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case RECIPE_FILE_COMPEASE_THICKNESS:
 		iDescCount = sizeof(CompEASEThicknessDesc) / sizeof(CompEASEThicknessDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, CompEASEThicknessDesc, sizeof(CompEASEThicknessDesc));
 		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 	//2009.09.01 bagus stress --{--
 	case RECIPE_FILE_STRESS:
 		iDescCount = sizeof(StressDesc) / sizeof(StressDesc[0]);
@@ -947,46 +947,46 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		break;
 	//2009.09.01 bagus stress --}--
-	// 2009.10.07 bagus CTA ’Ç‰Á --{--
+	// 2009.10.07 bagus CTA è¿½åŠ  --{--
 	case RECIPE_FILE_CTA:
 		iDescCount = sizeof(ContactAngleDesc) / sizeof(ContactAngleDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ContactAngleDesc, sizeof(ContactAngleDesc));
 		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		break;
-	// 2009.10.07 bagus CTA ’Ç‰Á --}--
-	// 2009.10.14 bagus Distance ’Ç‰Á --{--
+	// 2009.10.07 bagus CTA è¿½åŠ  --}--
+	// 2009.10.14 bagus Distance è¿½åŠ  --{--
 	case RECIPE_FILE_SR_DISTANCE:
 		iDescCount = sizeof(SrDistanceDesc) / sizeof(SrDistanceDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrDistanceDesc, sizeof(SrDistanceDesc));
 		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		break;
-	// 2009.10.14 bagus Distance ’Ç‰Á --}--
-	//2009.10.20 bagus MS ’Ç‰Á --{--
+	// 2009.10.14 bagus Distance è¿½åŠ  --}--
+	//2009.10.20 bagus MS è¿½åŠ  --{--
 	case RECIPE_FILE_MS:
 		iDescCount = sizeof(MicroScopeDesc) / sizeof(MicroScopeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, MicroScopeDesc, sizeof(MicroScopeDesc));
 		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		break;
-	//2009.10.20 bagus MS ’Ç‰Á --}--
-	// 2009.11.04 bagus RS ’Ç‰Á --{--
+	//2009.10.20 bagus MS è¿½åŠ  --}--
+	// 2009.11.04 bagus RS è¿½åŠ  --{--
 	case RECIPE_FILE_4PP:
 		iDescCount = sizeof(ResistDesc) / sizeof(ResistDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ResistDesc, sizeof(ResistDesc));
 		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		break;
-	// 2009.11.04 bagus RS ’Ç‰Á --}--
-	// User SettingŠÖ˜A (User Account‚Ìİ’è)
+	// 2009.11.04 bagus RS è¿½åŠ  --}--
+	// User Settingé–¢é€£ (User Accountã®è¨­å®š)
 	case RECIPE_FILE_USER_ACCOUNT:
 		iDescCount = sizeof(UserAccountDesc) / sizeof(UserAccountDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, UserAccountDesc, sizeof(UserAccountDesc));
 		sprintf(szFilePath, CFG_USER_USER_ACCOUNT_DIR "%s" DAT_EXT, lpszName);
 		break;
-	// User SettingŠÖ˜A (ƒfƒtƒHƒ‹ƒg’l‚Ìİ’è)
+	// User Settingé–¢é€£ (ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã®è¨­å®š)
 	case RECIPE_FILE_DEF_SR_MAIN_RECIPE:
 		iDescCount = sizeof(SrMainRecipeDesc) / sizeof(SrMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
@@ -1029,14 +1029,14 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		memcpy(pDesc, SrOdDesc, sizeof(SrOdDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
-	// 2009.11.04 bagus RS ’Ç‰Á --{--
+	// 2009.11.04 bagus RS è¿½åŠ  --{--
 	case RECIPE_FILE_DEF_4PP_MAIN_RECIPE:
 		iDescCount = sizeof(ResistMainRecipeDesc) / sizeof(ResistMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ResistMainRecipeDesc, sizeof(ResistMainRecipeDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
-	// 2009.11.04 bagus RS ’Ç‰Á --}--
+	// 2009.11.04 bagus RS è¿½åŠ  --}--
 	case RECIPE_FILE_DEF_4PP:
 		iDescCount = sizeof(ResistDesc) / sizeof(ResistDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
@@ -1073,7 +1073,7 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
 	// 2009.09.29 bagus SE --}--
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case RECIPE_FILE_DEF_COMPEASE_MAIN_RECIPE:
 		iDescCount = sizeof(CompEASEMainRecipeDesc) / sizeof(CompEASEMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
@@ -1086,8 +1086,8 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		memcpy(pDesc, CompEASEThicknessDesc, sizeof(CompEASEThicknessDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-	// 2009.10.07 bagus CTA ’Ç‰Á --{--
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+	// 2009.10.07 bagus CTA è¿½åŠ  --{--
 	case RECIPE_FILE_DEF_CTA_MAIN_RECIPE:
 		iDescCount = sizeof(ContactAngleMainRecipeDesc) / sizeof(ContactAngleMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
@@ -1100,16 +1100,16 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		memcpy(pDesc, ContactAngleDesc, sizeof(ContactAngleDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
-	// 2009.10.07 bagus CTA ’Ç‰Á --}--
-	// 2009.10.14 bagus Distance ’Ç‰Á --{--
+	// 2009.10.07 bagus CTA è¿½åŠ  --}--
+	// 2009.10.14 bagus Distance è¿½åŠ  --{--
 	case RECIPE_FILE_DEF_SR_DISTANCE:
 		iDescCount = sizeof(SrDistanceDesc) / sizeof(SrDistanceDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrDistanceDesc, sizeof(SrDistanceDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
-	// 2009.10.14 bagus Distance ’Ç‰Á --}--
-	//2009.10.20 bagus MS ’Ç‰Á --{--
+	// 2009.10.14 bagus Distance è¿½åŠ  --}--
+	//2009.10.20 bagus MS è¿½åŠ  --{--
 	case RECIPE_FILE_DEF_MS_MAIN_RECIPE:
 		iDescCount = sizeof(MicroScopeMainRecipeDesc) / sizeof(MicroScopeMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
@@ -1122,15 +1122,15 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		memcpy(pDesc, MicroScopeDesc, sizeof(MicroScopeDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
-	//2009.10.20 bagus MS ’Ç‰Á --}--
-	// SystemŠÖ˜A(Sample‚Ìİ’è)
+	//2009.10.20 bagus MS è¿½åŠ  --}--
+	// Systemé–¢é€£(Sampleã®è¨­å®š)
 	case RECIPE_FILE_SAMPLE:
 		iDescCount = sizeof(SampleDesc) / sizeof(SampleDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SampleDesc, sizeof(SampleDesc));
 		sprintf(szFilePath, CFG_SYSTEM_SAMPLE_DIR "%s" DAT_EXT, lpszName);
 		break;
-	// SystemŠÖ˜A(ZAxisOffset‚Ìİ’è)
+	// Systemé–¢é€£(ZAxisOffsetã®è¨­å®š)
 	case RECIPE_FILE_Z_AXIS_OFFSET:
 		switch(g_MainRcpInfo.MainRcpParam.hdr.wHeadType){
 		case HEAD_TYPE_SR:
@@ -1145,15 +1145,15 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 			memcpy(pDesc, SeMainRecipeDesc, sizeof(SeMainRecipeDesc));
 			sprintf(szFilePath, CFG_SYSTEM_DIR "%s" DAT_EXT, lpszName);
 			break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 		case HEAD_TYPE_COMPEASE:
 			iDescCount = sizeof(CompEASEMainRecipeDesc) / sizeof(CompEASEMainRecipeDesc[0]);
 			pDesc = new RECIPE_FILE [iDescCount];
 			memcpy(pDesc, CompEASEMainRecipeDesc, sizeof(CompEASEMainRecipeDesc));
 			sprintf(szFilePath, CFG_SYSTEM_DIR "%s" DAT_EXT, lpszName);
 			break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 #if 0
 		case HEAD_TYPE_IRSE:
 			iDescCount = sizeof(IrseMainRecipeDesc) / sizeof(IrseMainRecipeDesc[0]);
@@ -1169,7 +1169,7 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 			sprintf(szFilePath, CFG_SYSTEM_DIR "%s" DAT_EXT, lpszName);
 			break;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 		default:
 			return FALSE;
 			break;
@@ -1179,11 +1179,11 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		return FALSE;
 		break;
 	}
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- { ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- { ---------- */
 	AddAbsPath(szFilePath);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- } ---------- */
 
-	// ƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢ê‡
+	// ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„å ´åˆ
 	if(!FILEEXIST(szFilePath, &lastWriteSystemTime)){
 		if(pDesc != NULL){
 			delete [] pDesc;
@@ -1191,12 +1191,12 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		}
 		return FALSE;
 	}
-/* added 2009.07.22 hmenjo ƒXƒgƒŒƒX ƒXƒe[ƒW PGM “Ço’Ç‰Á ---------- { ---------- */
+/* added 2009.07.22 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹ ã‚¹ãƒ†ãƒ¼ã‚¸ PGM èª­å‡ºè¿½åŠ  ---------- { ---------- */
 	if (RECIPE_FILE_STAGE_PROGRAM_STRESS == iType) {
 		memset(&lg_StageProgStress, 0, sizeof(lg_StageProgStress));
-		/* ƒXƒgƒŒƒX‚Ì LS ’è‹`‚Ì“Ço‚µ	*/
+		/* ã‚¹ãƒˆãƒ¬ã‚¹ã® LS å®šç¾©ã®èª­å‡ºã—	*/
 		lg_StageProgStress.dwNumLsScans = ::GetPrivateProfileInt(_T("StageProgram"), _T("NumLSScans"), 0, szFilePath);
-/* modified 2009.07.31 hmenjo ƒXƒgƒŒƒX ƒ‰ƒCƒ“” ’è‹`‚R ---------- { ---------- */
+/* modified 2009.07.31 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹ ãƒ©ã‚¤ãƒ³æ•° å®šç¾©ï¼“ ---------- { ---------- */
 //		::GetPrivateProfileString(
 //				_T("StageProgram"),
 //				_T("MaterialElasticModulus"),
@@ -1205,7 +1205,7 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 //				sizeof(lg_StageProgStress.tszMateElastMod),
 //				szFilePath
 //			);
-/* modified 2009.07.31 hmenjo ƒXƒgƒŒƒX ƒ‰ƒCƒ“” ’è‹`‚R ----------			   */
+/* modified 2009.07.31 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹ ãƒ©ã‚¤ãƒ³æ•° å®šç¾©ï¼“ ----------			   */
 		::GetPrivateProfileString(
 				_T("StageProgram"),
 				_T("ElasticModulusName"),
@@ -1224,13 +1224,13 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 				szFilePath
 			);
 		lg_StageProgStress.dElasticModulusValue = _tcstod(l_tszTemp, 0);
-/* modified 2009.07.31 hmenjo ƒXƒgƒŒƒX ƒ‰ƒCƒ“” ’è‹`‚R ---------- } ---------- */
+/* modified 2009.07.31 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹ ãƒ©ã‚¤ãƒ³æ•° å®šç¾©ï¼“ ---------- } ---------- */
 		TCHAR l_tszSec[] = _T("LS");
 		TCHAR l_tszKey[255];
-/* deleted 2009.07.31 hmenjo ƒXƒgƒŒƒX ƒ‰ƒCƒ“” ’è‹`‚R ---------- { ---------- */
+/* deleted 2009.07.31 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹ ãƒ©ã‚¤ãƒ³æ•° å®šç¾©ï¼“ ---------- { ---------- */
 //		TCHAR l_tszTemp[64];
-/* deleted 2009.07.31 hmenjo ƒXƒgƒŒƒX ƒ‰ƒCƒ“” ’è‹`‚R ---------- } ---------- */
-		/* ƒXƒgƒŒƒXİ’è‚ğ“Ço‚µFƒ‰ƒCƒ“”‚Æƒ‰ƒCƒ“–ˆƒZƒNƒVƒ‡ƒ“”	*/
+/* deleted 2009.07.31 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹ ãƒ©ã‚¤ãƒ³æ•° å®šç¾©ï¼“ ---------- } ---------- */
+		/* ã‚¹ãƒˆãƒ¬ã‚¹è¨­å®šã‚’èª­å‡ºã—ï¼šãƒ©ã‚¤ãƒ³æ•°ã¨ãƒ©ã‚¤ãƒ³æ¯ã‚»ã‚¯ã‚·ãƒ§ãƒ³æ•°	*/
 		STRESS_CONFIG l_StressConfig;
 		ConfigFile_GetNanoSpecIni(&l_StressConfig, CONFIG_FILE_STRESS_CONFIG);
 		DWORD l_dwLineNum = l_StressConfig.dwLiftPinNumberOfLine;
@@ -1247,55 +1247,55 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 			}
 		}
 		for (iLine = 0; iLine < l_dwLineNum; iLine++) {
-			/* ƒ‰ƒCƒ“—LŒø/–³Œø‚ğ“Ço‚µ	*/
+			/* ãƒ©ã‚¤ãƒ³æœ‰åŠ¹/ç„¡åŠ¹ã‚’èª­å‡ºã—	*/
 			_stprintf(l_tszKey, LS_VALIDLINEn, iLine + 1);
 			::GetPrivateProfileString(l_tszSec, l_tszKey, _T("FALSE"), l_tszTemp, sizeof(l_tszTemp), szFilePath);
-/* modified 2009.08.18 hmenjo STRESS_LINESECTION íœ ---------- { ---------- */
+/* modified 2009.08.18 hmenjo STRESS_LINESECTION å‰Šé™¤ ---------- { ---------- */
 //			lg_StageProgStress.Line[iLine].LineSec.bValidLine = (0 == _tcscmp(l_tszTemp, _T("TRUE")))? TRUE : FALSE;
-/* modified 2009.08.18 hmenjo STRESS_LINESECTION íœ ----------			  */
+/* modified 2009.08.18 hmenjo STRESS_LINESECTION å‰Šé™¤ ----------			  */
 			lg_StageProgStress.Line[iLine].bValidLine = (0 == _tcscmp(l_tszTemp, _T("TRUE")))? TRUE : FALSE;
-/* modified 2009.08.18 hmenjo STRESS_LINESECTION íœ ---------- } ---------- */
+/* modified 2009.08.18 hmenjo STRESS_LINESECTION å‰Šé™¤ ---------- } ---------- */
 			for (DWORD iSec = 0; iSec < l_dwSectionNum[iLine]; iSec++) {
-				/* ƒZƒNƒVƒ‡ƒ“—LŒø/–³Œø‚ğ“Ço‚µ	*/
+				/* ã‚»ã‚¯ã‚·ãƒ§ãƒ³æœ‰åŠ¹/ç„¡åŠ¹ã‚’èª­å‡ºã—	*/
 				_stprintf(l_tszKey, LS_LnSnSCANVALID, iLine + 1, iSec + 1);
 				::GetPrivateProfileString(l_tszSec, l_tszKey, _T("FALSE"), l_tszTemp, sizeof(l_tszTemp), szFilePath);
 				lg_StageProgStress.Line[iLine].bScanValid[iSec] = (0 == _tcscmp(l_tszTemp, _T("TRUE")))? TRUE : FALSE;
-/* modified 2009.08.18 hmenjo STRESS_LINESECTION íœ ---------- { ---------- */
+/* modified 2009.08.18 hmenjo STRESS_LINESECTION å‰Šé™¤ ---------- { ---------- */
 //				if ((0 != lg_StageProgStress.Line[iLine].LineSec.bValidLine)
-/* modified 2009.08.18 hmenjo STRESS_LINESECTION íœ ----------			  */
+/* modified 2009.08.18 hmenjo STRESS_LINESECTION å‰Šé™¤ ----------			  */
 				if ((0 != lg_StageProgStress.Line[iLine].bValidLine)
-/* modified 2009.08.18 hmenjo STRESS_LINESECTION íœ ---------- } ---------- */
+/* modified 2009.08.18 hmenjo STRESS_LINESECTION å‰Šé™¤ ---------- } ---------- */
 				 && (0 != lg_StageProgStress.Line[iLine].bScanValid[iSec])) {
-					/* ƒZƒNƒVƒ‡ƒ“ˆÊ’u‚ğ“Ço‚µ	*/
-/* modified 2009.08.18 hmenjo STRESS_LINESECTION íœ ---------- { ---------- */
+					/* ã‚»ã‚¯ã‚·ãƒ§ãƒ³ä½ç½®ã‚’èª­å‡ºã—	*/
+/* modified 2009.08.18 hmenjo STRESS_LINESECTION å‰Šé™¤ ---------- { ---------- */
 //					_stprintf(l_tszKey, LS_LnSnSCANSTART_X, iLine + 1, iSec + 1);
 //					lg_StageProgStress.Line[iLine].LineSec.SectPos[iSec].lScanStartPosX = ::GetPrivateProfileInt(l_tszSec, l_tszKey, 0, szFilePath);
 //					_stprintf(l_tszKey, LS_LnSnSCANEND_X, iLine + 1, iSec + 1);
 //					lg_StageProgStress.Line[iLine].LineSec.SectPos[iSec].lScanEndPosX = ::GetPrivateProfileInt(l_tszSec, l_tszKey, 0, szFilePath);
 //					_stprintf(l_tszKey, LS_LnSnSCANY, iLine + 1, iSec + 1);
 //					lg_StageProgStress.Line[iLine].LineSec.SectPos[iSec].lScanPosY = ::GetPrivateProfileInt(l_tszSec, l_tszKey, 0, szFilePath);
-/* modified 2009.08.18 hmenjo STRESS_LINESECTION íœ ----------			  */
+/* modified 2009.08.18 hmenjo STRESS_LINESECTION å‰Šé™¤ ----------			  */
 					_stprintf(l_tszKey, LS_LnSnSCANSTART_X, iLine + 1, iSec + 1);
 					lg_StageProgStress.Line[iLine].SectPos[iSec].lScanStartPosX = ::GetPrivateProfileInt(l_tszSec, l_tszKey, 0, szFilePath);
 					_stprintf(l_tszKey, LS_LnSnSCANEND_X, iLine + 1, iSec + 1);
 					lg_StageProgStress.Line[iLine].SectPos[iSec].lScanEndPosX = ::GetPrivateProfileInt(l_tszSec, l_tszKey, 0, szFilePath);
 					_stprintf(l_tszKey, LS_LnSnSCANY, iLine + 1, iSec + 1);
 					lg_StageProgStress.Line[iLine].SectPos[iSec].lScanPosY = ::GetPrivateProfileInt(l_tszSec, l_tszKey, 0, szFilePath);
-/* modified 2009.08.18 hmenjo STRESS_LINESECTION íœ ---------- } ---------- */
+/* modified 2009.08.18 hmenjo STRESS_LINESECTION å‰Šé™¤ ---------- } ---------- */
 				} else {
-					/* ƒ‰ƒCƒ“–³ŒøC‚ ‚é‚¢‚ÍCƒZƒNƒVƒ‡ƒ“–³Œø	*/
+					/* ãƒ©ã‚¤ãƒ³ç„¡åŠ¹ï¼Œã‚ã‚‹ã„ã¯ï¼Œã‚»ã‚¯ã‚·ãƒ§ãƒ³ç„¡åŠ¹	*/
 					lg_StageProgStress.Line[iLine].bScanValid[iSec] = FALSE;
-// 2009.09.09 bagus stress C³ --{--
+// 2009.09.09 bagus stress ä¿®æ­£ --{--
 #if 0
-/* modified 2009.08.18 hmenjo STRESS_LINESECTION íœ ---------- { ---------- */
+/* modified 2009.08.18 hmenjo STRESS_LINESECTION å‰Šé™¤ ---------- { ---------- */
 //					lg_StageProgStress.Line[iLine].LineSec.SectPos[iSec].lScanStartPosX = 0;
 //					lg_StageProgStress.Line[iLine].LineSec.SectPos[iSec].lScanEndPosX = 0;
 //					lg_StageProgStress.Line[iLine].LineSec.SectPos[iSec].lScanPosY = 0;
-/* modified 2009.08.18 hmenjo STRESS_LINESECTION íœ ----------			  */
+/* modified 2009.08.18 hmenjo STRESS_LINESECTION å‰Šé™¤ ----------			  */
 					lg_StageProgStress.Line[iLine].SectPos[iSec].lScanStartPosX = 0;
 					lg_StageProgStress.Line[iLine].SectPos[iSec].lScanEndPosX = 0;
 					lg_StageProgStress.Line[iLine].SectPos[iSec].lScanPosY = 0;
-/* modified 2009.08.18 hmenjo STRESS_LINESECTION íœ ---------- } ---------- */
+/* modified 2009.08.18 hmenjo STRESS_LINESECTION å‰Šé™¤ ---------- } ---------- */
 #else
 					_stprintf(l_tszKey, LS_LnSnSCANSTART_X, iLine + 1, iSec + 1);
 					lg_StageProgStress.Line[iLine].SectPos[iSec].lScanStartPosX = ::GetPrivateProfileInt(l_tszSec, l_tszKey, 0, szFilePath);
@@ -1304,16 +1304,16 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 					_stprintf(l_tszKey, LS_LnSnSCANY, iLine + 1, iSec + 1);
 					lg_StageProgStress.Line[iLine].SectPos[iSec].lScanPosY = ::GetPrivateProfileInt(l_tszSec, l_tszKey, 0, szFilePath);
 #endif
-// 2009.09.09 bagus stress C³ --}--
+// 2009.09.09 bagus stress ä¿®æ­£ --}--
 				}
 			}
 		}
 		memcpy(pVoid, &lg_StageProgStress, sizeof(STAGE_PROG_STRESS));
 		return TRUE;
 	}
-/* added 2009.07.22 hmenjo ƒXƒgƒŒƒX ƒXƒe[ƒW PGM “Ço’Ç‰Á ---------- } ---------- */
+/* added 2009.07.22 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹ ã‚¹ãƒ†ãƒ¼ã‚¸ PGM èª­å‡ºè¿½åŠ  ---------- } ---------- */
 
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.11.04 bagus RS è¿½åŠ  --{--
 	if ((iType == RECIPE_FILE_4PP) || (iType == RECIPE_FILE_DEF_4PP)) {
 		TCHAR l_tszTemp[64];
 
@@ -1346,9 +1346,9 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 			}
 		}
 	}
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS è¿½åŠ  --}--
 
-	// ƒf[ƒ^‚Ì“Ç‚İ‚İ
+	// ãƒ‡ãƒ¼ã‚¿ã®èª­ã¿è¾¼ã¿
 	for(iIndex = 0; iIndex < iDescCount; iIndex++){
 		// get section name
 		if(strlen((pDesc + iIndex)->section) > 0)
@@ -1403,17 +1403,17 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = NULL;
 	}
 
-	// “Ç‚İ‚ñ‚¾ƒf[ƒ^‚ğƒRƒs[
+	// èª­ã¿è¾¼ã‚“ã ãƒ‡ãƒ¼ã‚¿ã‚’ã‚³ãƒ”ãƒ¼
 	switch(iType){
 	case RECIPE_FILE_SR_MAIN_RECIPE:
 	case RECIPE_FILE_SE_MAIN_RECIPE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case RECIPE_FILE_COMPEASE_MAIN_RECIPE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 //	case RECIPE_FILE_IRSE_MAIN_RECIPE:
 	case RECIPE_FILE_MS_MAIN_RECIPE:
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 	case RECIPE_FILE_4PP_MAIN_RECIPE:
 	case RECIPE_FILE_CTA_MAIN_RECIPE:
 	case RECIPE_FILE_STRESS_MAIN_RECIPE:
@@ -1424,18 +1424,18 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 	// 2009.09.29 bagus SE --{--
 	case RECIPE_FILE_DEF_SE_MAIN_RECIPE:
 	// 2009.09.29 bagus SE --}--
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case RECIPE_FILE_DEF_COMPEASE_MAIN_RECIPE:
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-	// 2009.10.07 bagus CTA ’Ç‰Á --{--
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+	// 2009.10.07 bagus CTA è¿½åŠ  --{--
 	case RECIPE_FILE_DEF_CTA_MAIN_RECIPE:
-	// 2009.10.07 bagus CTA ’Ç‰Á --}--
-	//2009.10.20 bagus MS ’Ç‰Á --{--
+	// 2009.10.07 bagus CTA è¿½åŠ  --}--
+	//2009.10.20 bagus MS è¿½åŠ  --{--
 	case RECIPE_FILE_DEF_MS_MAIN_RECIPE:
-	//2009.10.20 bagus MS ’Ç‰Á --}--
-	// 2009.11.04 bagus RS ’Ç‰Á --{--
+	//2009.10.20 bagus MS è¿½åŠ  --}--
+	// 2009.11.04 bagus RS è¿½åŠ  --{--
 	case RECIPE_FILE_DEF_4PP_MAIN_RECIPE:
-	// 2009.11.04 bagus RS ’Ç‰Á --}--
+	// 2009.11.04 bagus RS è¿½åŠ  --}--
 	case RECIPE_FILE_Z_AXIS_OFFSET:
 		memcpy(pVoid, &g_MainRcpInfo, sizeof(MAIN_RCP_INFO));
 		break;
@@ -1445,11 +1445,11 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 	case RECIPE_FILE_STAGE_PROGRAM:
 		memcpy(pVoid, &g_StageProgInfoHdr, sizeof(STAGE_PROG_INFO_HDR));
 		break;
-/* added 2009.07.22 hmenjo ƒXƒgƒŒƒX ƒXƒe[ƒW PGM “Ço’Ç‰Á ---------- { ---------- */
+/* added 2009.07.22 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹ ã‚¹ãƒ†ãƒ¼ã‚¸ PGM èª­å‡ºè¿½åŠ  ---------- { ---------- */
 	case RECIPE_FILE_STAGE_PROGRAM_STRESS:
 		sprintf(szFilePath, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, lpszName);
 		break;
-/* added 2009.07.22 hmenjo ƒXƒgƒŒƒX ƒXƒe[ƒW PGM “Ço’Ç‰Á ---------- } ---------- */
+/* added 2009.07.22 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹ ã‚¹ãƒ†ãƒ¼ã‚¸ PGM èª­å‡ºè¿½åŠ  ---------- } ---------- */
 	case RECIPE_FILE_RECALIBRATION_PROGRAM:
 		memcpy(pVoid, &g_RecalibProgInfo, sizeof(RECALIB_PROG_INFO));
 		break;
@@ -1465,22 +1465,22 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 // 2009.09.04 K.Matsuo -->
 	case RECIPE_FILE_SE_THICKNESS:
 // 2009.09.04 K.Matsuo <--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case RECIPE_FILE_COMPEASE_THICKNESS:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 	case RECIPE_FILE_4PP:
 	//2009.08.25 bagus stress --{--
 	case RECIPE_FILE_STRESS:
 	//2009.08.25 bagus stress --{--
-	// 2009.10.07 bagus CTA ’Ç‰Á --{--
+	// 2009.10.07 bagus CTA è¿½åŠ  --{--
 	case RECIPE_FILE_CTA:
-	// 2009.10.07 bagus CTA ’Ç‰Á --}--
-	// 2009.10.14 bagus Distance ’Ç‰Á --{--
+	// 2009.10.07 bagus CTA è¿½åŠ  --}--
+	// 2009.10.14 bagus Distance è¿½åŠ  --{--
 	case RECIPE_FILE_SR_DISTANCE:
-	// 2009.10.14 bagus Distance ’Ç‰Á --}--
-	//2009.10.20 bagus MS ’Ç‰Á --{--
+	// 2009.10.14 bagus Distance è¿½åŠ  --}--
+	//2009.10.20 bagus MS è¿½åŠ  --{--
 	case RECIPE_FILE_MS:
-	//2009.10.20 bagus MS ’Ç‰Á --}--
+	//2009.10.20 bagus MS è¿½åŠ  --}--
 	case RECIPE_FILE_DEF_SR_THICKNESS:
 	case RECIPE_FILE_DEF_SR_REFLECTANCE:
 	case RECIPE_FILE_DEF_SR_TRANSMITTANCE:
@@ -1494,18 +1494,18 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 	// 2009.09.29 bagus SE --{--
 	case RECIPE_FILE_DEF_SE_THICKNESS:
 	// 2009.09.29 bagus SE --}--
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case RECIPE_FILE_DEF_COMPEASE_THICKNESS:
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-	// 2009.10.07 bagus CTA ’Ç‰Á --{--
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+	// 2009.10.07 bagus CTA è¿½åŠ  --{--
 	case RECIPE_FILE_DEF_CTA:
-	// 2009.10.07 bagus CTA ’Ç‰Á --}--
-	// 2009.10.14 bagus Distance ’Ç‰Á --{--
+	// 2009.10.07 bagus CTA è¿½åŠ  --}--
+	// 2009.10.14 bagus Distance è¿½åŠ  --{--
 	case RECIPE_FILE_DEF_SR_DISTANCE:
-	// 2009.10.14 bagus Distance ’Ç‰Á --}--
-	//2009.10.20 bagus MS ’Ç‰Á --{--
+	// 2009.10.14 bagus Distance è¿½åŠ  --}--
+	//2009.10.20 bagus MS è¿½åŠ  --{--
 	case RECIPE_FILE_DEF_MS:
-	//2009.10.20 bagus MS ’Ç‰Á --}--
+	//2009.10.20 bagus MS è¿½åŠ  --}--
 		memcpy(pVoid, &g_MeasProgInfo, sizeof(MEAS_PROG_INFO));
 		break;
 	case RECIPE_FILE_SAMPLE:
@@ -1527,13 +1527,13 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : SaveRecipe
-// Purpose	  : RecipeCProgramCUserAccountCSample‚Ì•Û‘¶
-// Parameters : pVoid	 ---> ƒf[ƒ^‚ğ•Û‘¶‚·‚é\‘¢‘Ì‚Ìƒ|ƒCƒ“ƒ^
-//				lpszName ---> ƒtƒ@ƒCƒ‹–¼
-//				iType	 ---> ‚Ç‚Ìƒtƒ@ƒCƒ‹(MainRecipe“™)‚È‚Ì‚©‚ğŒˆ‚ß‚é•Ï”
+// Purpose	  : Recipeï¼ŒProgramï¼ŒUserAccountï¼ŒSampleã®ä¿å­˜
+// Parameters : pVoid	 ---> ãƒ‡ãƒ¼ã‚¿ã‚’ä¿å­˜ã™ã‚‹æ§‹é€ ä½“ã®ãƒã‚¤ãƒ³ã‚¿
+//				lpszName ---> ãƒ•ã‚¡ã‚¤ãƒ«å
+//				iType	 ---> ã©ã®ãƒ•ã‚¡ã‚¤ãƒ«(MainRecipeç­‰)ãªã®ã‹ã‚’æ±ºã‚ã‚‹å¤‰æ•°
 //
-// Returns	  : TRUE  ---> •Û‘¶¬Œ÷
-//				FALSE ---> •Û‘¶¸”s
+// Returns	  : TRUE  ---> ä¿å­˜æˆåŠŸ
+//				FALSE ---> ä¿å­˜å¤±æ•—
 BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 {
 	int iIndex, iDescCount;
@@ -1545,13 +1545,13 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 	ClearMemory();
 
 	switch(iType){
-	// Recipe SettingŠÖ˜A
+	// Recipe Settingé–¢é€£
 	case RECIPE_FILE_SR_MAIN_RECIPE:
 		iDescCount = sizeof(SrMainRecipeDesc) / sizeof(SrMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrMainRecipeDesc, sizeof(SrMainRecipeDesc));
 		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
 	case RECIPE_FILE_SE_MAIN_RECIPE:
@@ -1559,27 +1559,27 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SeMainRecipeDesc, sizeof(SeMainRecipeDesc));
 		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case RECIPE_FILE_COMPEASE_MAIN_RECIPE:
 		iDescCount = sizeof(CompEASEMainRecipeDesc) / sizeof(CompEASEMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, CompEASEMainRecipeDesc, sizeof(CompEASEMainRecipeDesc));
 		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 #if 0
 	case RECIPE_FILE_IRSE_MAIN_RECIPE:
 		iDescCount = sizeof(IrseMainRecipeDesc) / sizeof(IrseMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, IrseMainRecipeDesc, sizeof(IrseMainRecipeDesc));
 		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
 #else
@@ -1588,17 +1588,17 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, MicroScopeMainRecipeDesc, sizeof(MicroScopeMainRecipeDesc));
 		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 	case RECIPE_FILE_4PP_MAIN_RECIPE:
 		iDescCount = sizeof(ResistMainRecipeDesc) / sizeof(ResistMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ResistMainRecipeDesc, sizeof(ResistMainRecipeDesc));
 		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
 	case RECIPE_FILE_CTA_MAIN_RECIPE:
@@ -1606,7 +1606,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ContactAngleMainRecipeDesc, sizeof(ContactAngleMainRecipeDesc));
 		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
 	case RECIPE_FILE_STRESS_MAIN_RECIPE:
@@ -1614,7 +1614,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, StressMainRecipeDesc, sizeof(StressMainRecipeDesc));
 		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
 	case RECIPE_FILE_MULTI_RECIPE:
@@ -1622,7 +1622,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, MultiRecipeDesc, sizeof(MultiRecipeDesc));
 		sprintf(szFilePath, DB_MULTI_RECIPE_DIR "%s" MULTIRECIPE_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MultiRcpInfoHdr, pVoid, sizeof(MULTI_RCP_INFO_HDR));
 		break;
 	case RECIPE_FILE_STAGE_PROGRAM:
@@ -1630,7 +1630,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, StageProgramDesc, sizeof(StageProgramDesc));
 		sprintf(szFilePath, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_StageProgInfoHdr, pVoid, sizeof(STAGE_PROG_INFO_HDR));
 		break;
 //2009.08.31 bagus stress --{--
@@ -1643,7 +1643,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, RecalibrationProgramDesc, sizeof(RecalibrationProgramDesc));
 		sprintf(szFilePath, DB_RECALIBRATION_PROGRAM_DIR "%s" RECALIBPGM_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_RecalibProgInfo, pVoid, sizeof(RECALIB_PROG_INFO));
 		break;
 	case RECIPE_FILE_POINT_DESKEW_PROGRAM:
@@ -1651,7 +1651,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, PointDeskewProgramDesc, sizeof(PointDeskewProgramDesc));
 		sprintf(szFilePath, DB_POINT_DESKEW_PROGRAM_DIR "%s" POINTDESKEWPGM_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_PointDeskewProgInfo, pVoid, sizeof(POINT_DESKEW_PROG_INFO));
 		break;
 	case RECIPE_FILE_SR_THICKNESS:
@@ -1659,7 +1659,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrThicknessDesc, sizeof(SrThicknessDesc));
 		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
 	case RECIPE_FILE_SR_REFLECTANCE:
@@ -1667,7 +1667,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrReflectDesc, sizeof(SrReflectDesc));
 		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
 	case RECIPE_FILE_SR_TRANSMITTANCE:
@@ -1675,7 +1675,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrTransmitDesc, sizeof(SrTransmitDesc));
 		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
 	case RECIPE_FILE_SR_REFLECTANCE_CIE:
@@ -1683,7 +1683,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrReflectCieDesc, sizeof(SrReflectCieDesc));
 		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
 	case RECIPE_FILE_SR_TRANSMITTANCE_CIE:
@@ -1691,7 +1691,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrTransmitCieDesc, sizeof(SrTransmitCieDesc));
 		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
 	case RECIPE_FILE_SR_OPTICAL_DENSITY:
@@ -1699,7 +1699,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrOdDesc, sizeof(SrOdDesc));
 		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
 // 2009.09.04 K.Matsuo -->
@@ -1708,26 +1708,26 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SeThicknessDesc, sizeof(SeThicknessDesc));
 		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
 // 2009.09.04 K.Matsuo <--
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case RECIPE_FILE_COMPEASE_THICKNESS:
 		iDescCount = sizeof(CompEASEThicknessDesc) / sizeof(CompEASEThicknessDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, CompEASEThicknessDesc, sizeof(CompEASEThicknessDesc));
 		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 	case RECIPE_FILE_4PP:
 		iDescCount = sizeof(ResistDesc) / sizeof(ResistDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ResistDesc, sizeof(ResistDesc));
 		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
 	case RECIPE_FILE_STRESS:
@@ -1735,55 +1735,55 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, StressDesc, sizeof(StressDesc));
 		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
-	// 2009.10.07 bagus CTA ’Ç‰Á --{--
+	// 2009.10.07 bagus CTA è¿½åŠ  --{--
 	case RECIPE_FILE_CTA:
 		iDescCount = sizeof(ContactAngleDesc) / sizeof(ContactAngleDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ContactAngleDesc, sizeof(ContactAngleDesc));
 		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
-	// 2009.10.07 bagus CTA ’Ç‰Á --}--
-	// 2009.10.14 bagus Distance ’Ç‰Á --{--
+	// 2009.10.07 bagus CTA è¿½åŠ  --}--
+	// 2009.10.14 bagus Distance è¿½åŠ  --{--
 	case RECIPE_FILE_SR_DISTANCE:
 		iDescCount = sizeof(SrDistanceDesc) / sizeof(SrDistanceDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrDistanceDesc, sizeof(SrDistanceDesc));
 		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
-	// 2009.10.14 bagus Distance ’Ç‰Á --}--
-	//2009.10.20 bagus MS ’Ç‰Á --{--
+	// 2009.10.14 bagus Distance è¿½åŠ  --}--
+	//2009.10.20 bagus MS è¿½åŠ  --{--
 	case RECIPE_FILE_MS:
 		iDescCount = sizeof(MicroScopeDesc) / sizeof(MicroScopeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, MicroScopeDesc, sizeof(MicroScopeDesc));
 		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
-	//2009.10.20 bagus MS ’Ç‰Á --}--
-	// User SettingŠÖ˜A(UserAccount‚Ìİ’è)
+	//2009.10.20 bagus MS è¿½åŠ  --}--
+	// User Settingé–¢é€£(UserAccountã®è¨­å®š)
 	case RECIPE_FILE_USER_ACCOUNT:
 		iDescCount = sizeof(UserAccountDesc) / sizeof(UserAccountDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, UserAccountDesc, sizeof(UserAccountDesc));
 		sprintf(szFilePath, CFG_USER_USER_ACCOUNT_DIR "%s" DAT_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_UserAccount, pVoid, sizeof(USER_ACCOUNT));
 		break;
-	// User SettingŠÖ˜A(ƒfƒtƒHƒ‹ƒg’l‚Ìİ’è)
+	// User Settingé–¢é€£(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã®è¨­å®š)
 	case RECIPE_FILE_DEF_SR_MAIN_RECIPE:
 		iDescCount = sizeof(SrMainRecipeDesc) / sizeof(SrMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrMainRecipeDesc, sizeof(SrMainRecipeDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
 	case RECIPE_FILE_DEF_SR_THICKNESS:
@@ -1791,7 +1791,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrThicknessDesc, sizeof(SrThicknessDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
 	case RECIPE_FILE_DEF_SR_REFLECTANCE:
@@ -1799,7 +1799,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrReflectDesc, sizeof(SrReflectDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
 	case RECIPE_FILE_DEF_SR_TRANSMITTANCE:
@@ -1807,7 +1807,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrTransmitDesc, sizeof(SrTransmitDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
 	case RECIPE_FILE_DEF_SR_REFLECTANCE_CIE:
@@ -1815,7 +1815,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrReflectCieDesc, sizeof(SrReflectCieDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
 	case RECIPE_FILE_DEF_SR_TRANSMITTANCE_CIE:
@@ -1823,7 +1823,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrTransmitCieDesc, sizeof(SrTransmitCieDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
 	case RECIPE_FILE_DEF_SR_OPTICAL_DENSITY:
@@ -1831,25 +1831,25 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrOdDesc, sizeof(SrOdDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
-	// 2009.11.04 bagus RS ’Ç‰Á --{--
+	// 2009.11.04 bagus RS è¿½åŠ  --{--
 	case RECIPE_FILE_DEF_4PP_MAIN_RECIPE:
 		iDescCount = sizeof(ResistMainRecipeDesc) / sizeof(ResistMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ResistMainRecipeDesc, sizeof(ResistMainRecipeDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
-	// 2009.11.04 bagus RS ’Ç‰Á --}--
+	// 2009.11.04 bagus RS è¿½åŠ  --}--
 	case RECIPE_FILE_DEF_4PP:
 		iDescCount = sizeof(ResistDesc) / sizeof(ResistDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ResistDesc, sizeof(ResistDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
 	case RECIPE_FILE_DEF_STRESS:
@@ -1857,7 +1857,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, StressDesc, sizeof(StressDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
 	// 2009.09.29 bagus Stress --{--
@@ -1866,7 +1866,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, StressMainRecipeDesc, sizeof(StressMainRecipeDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
 	// 2009.09.29 bagus Stress --}--
@@ -1876,7 +1876,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SeMainRecipeDesc, sizeof(SeMainRecipeDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
 	case RECIPE_FILE_DEF_SE_THICKNESS:
@@ -1884,17 +1884,17 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SeThicknessDesc, sizeof(SeThicknessDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
 	// 2009.09.29 bagus SE --}--
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case RECIPE_FILE_DEF_COMPEASE_MAIN_RECIPE:
 		iDescCount = sizeof(CompEASEMainRecipeDesc) / sizeof(CompEASEMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, CompEASEMainRecipeDesc, sizeof(CompEASEMainRecipeDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
 	case RECIPE_FILE_DEF_COMPEASE_THICKNESS:
@@ -1902,17 +1902,17 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, CompEASEThicknessDesc, sizeof(CompEASEThicknessDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-	// 2009.10.07 bagus CTA ’Ç‰Á --{--
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+	// 2009.10.07 bagus CTA è¿½åŠ  --{--
 	case RECIPE_FILE_DEF_CTA_MAIN_RECIPE:
 		iDescCount = sizeof(ContactAngleMainRecipeDesc) / sizeof(ContactAngleMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ContactAngleMainRecipeDesc, sizeof(ContactAngleMainRecipeDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
 	case RECIPE_FILE_DEF_CTA:
@@ -1920,27 +1920,27 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ContactAngleDesc, sizeof(ContactAngleDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
-	// 2009.10.07 bagus CTA ’Ç‰Á --}--
-	// 2009.10.14 bagus Distance ’Ç‰Á --{--
+	// 2009.10.07 bagus CTA è¿½åŠ  --}--
+	// 2009.10.14 bagus Distance è¿½åŠ  --{--
 	case RECIPE_FILE_DEF_SR_DISTANCE:
 		iDescCount = sizeof(SrDistanceDesc) / sizeof(SrDistanceDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrDistanceDesc, sizeof(SrDistanceDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
-	// 2009.10.14 bagus Distance ’Ç‰Á --}--
-	//2009.10.20 bagus MS ’Ç‰Á --{--
+	// 2009.10.14 bagus Distance è¿½åŠ  --}--
+	//2009.10.20 bagus MS è¿½åŠ  --{--
 	case RECIPE_FILE_DEF_MS_MAIN_RECIPE:
 		iDescCount = sizeof(MicroScopeMainRecipeDesc) / sizeof(MicroScopeMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, MicroScopeMainRecipeDesc, sizeof(MicroScopeMainRecipeDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
 	case RECIPE_FILE_DEF_MS:
@@ -1948,22 +1948,22 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, MicroScopeDesc, sizeof(MicroScopeDesc));
 		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
-	//2009.10.20 bagus MS ’Ç‰Á --}--
-	// SystemŠÖ˜A(Sample‚Ìİ’è)
+	//2009.10.20 bagus MS è¿½åŠ  --}--
+	// Systemé–¢é€£(Sampleã®è¨­å®š)
 	case RECIPE_FILE_SAMPLE:
 		iDescCount = sizeof(SampleDesc) / sizeof(SampleDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SampleDesc, sizeof(SampleDesc));
 		sprintf(szFilePath, CFG_SYSTEM_SAMPLE_DIR "%s" DAT_EXT, lpszName);
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_SampleInfo, pVoid, sizeof(SAMPLEINFO));
 		break;
-	// SystemŠÖ˜A(ZAxisOffset‚Ìİ’è)
+	// Systemé–¢é€£(ZAxisOffsetã®è¨­å®š)
 	case RECIPE_FILE_Z_AXIS_OFFSET:
-		// •Û‘¶“à—e‚ğƒRƒs[
+		// ä¿å­˜å†…å®¹ã‚’ã‚³ãƒ”ãƒ¼
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		switch(g_MainRcpInfo.MainRcpParam.hdr.wHeadType){
 		case HEAD_TYPE_SR:
@@ -1978,7 +1978,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 			memcpy(pDesc, SeMainRecipeDesc, sizeof(SeMainRecipeDesc));
 			sprintf(szFilePath, CFG_SYSTEM_DIR "%s" DAT_EXT, lpszName);
 			break;
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 #if 0
 		case HEAD_TYPE_IRSE:
 			iDescCount = sizeof(IrseMainRecipeDesc) / sizeof(IrseMainRecipeDesc[0]);
@@ -1994,7 +1994,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 			sprintf(szFilePath, CFG_SYSTEM_DIR "%s" DAT_EXT, lpszName);
 			break;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 		default:
 			return FALSE;
 			break;
@@ -2004,15 +2004,15 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		return FALSE;
 		break;
 	}
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- { ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- { ---------- */
 	AddAbsPath(szFilePath);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- } ---------- */
 
 
 //2009.08.31 bagus stress --{--
 	if (RECIPE_FILE_STAGE_PROGRAM_STRESS == iType) {
 		STAGE_PROG_STRESS *l_pStageProgStress = (STAGE_PROG_STRESS *)pVoid;
-		/* ƒXƒgƒŒƒX‚Ì LS ’è‹`‚Ì“Ço‚µ	*/
+		/* ã‚¹ãƒˆãƒ¬ã‚¹ã® LS å®šç¾©ã®èª­å‡ºã—	*/
 		::WritePrivateProfileString(
 				_T("StageProgram"),
 				_T("ElasticModulusName"),
@@ -2020,17 +2020,17 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 				szFilePath
 			);
 		TCHAR l_tszTemp[64];
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --{--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --{--
 //		_stprintf(l_tszTemp,"%.3f",l_pStageProgStress->dElasticModulusValue);
 		_stprintf(l_tszTemp,"%e",l_pStageProgStress->dElasticModulusValue);
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --}--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --}--
 		::WritePrivateProfileString(
 				_T("StageProgram"),
 				_T("ElasticModulusValue"),
 				l_tszTemp,
 				szFilePath
 			);
-// 2009.09.08 bagus stress C³ --{--
+// 2009.09.08 bagus stress ä¿®æ­£ --{--
 		_stprintf(l_tszTemp,"%ld",l_pStageProgStress->dwNumLsScans);
 		::WritePrivateProfileString(
 				_T("StageProgram"),
@@ -2038,11 +2038,11 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 				l_tszTemp,
 				szFilePath
 			);
-// 2009.09.08 bagus stress C³ --}--
+// 2009.09.08 bagus stress ä¿®æ­£ --}--
 //		lg_StageProgStress.dElasticModulusValue = _tcstod(l_tszTemp, 0);
 		TCHAR l_tszSec[] = _T("LS");
 		TCHAR l_tszKey[255];
-		/* ƒXƒgƒŒƒXİ’è‚ğ“Ço‚µFƒ‰ƒCƒ“”‚Æƒ‰ƒCƒ“–ˆƒZƒNƒVƒ‡ƒ“”	*/
+		/* ã‚¹ãƒˆãƒ¬ã‚¹è¨­å®šã‚’èª­å‡ºã—ï¼šãƒ©ã‚¤ãƒ³æ•°ã¨ãƒ©ã‚¤ãƒ³æ¯ã‚»ã‚¯ã‚·ãƒ§ãƒ³æ•°	*/
 		STRESS_CONFIG l_StressConfig;
 		ConfigFile_GetNanoSpecIni(&l_StressConfig, CONFIG_FILE_STRESS_CONFIG);
 		DWORD l_dwLineNum = l_StressConfig.dwLiftPinNumberOfLine;
@@ -2059,18 +2059,18 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 			}
 		}
 		for (iLine = 0; iLine < l_dwLineNum; iLine++) {
-			/* ƒ‰ƒCƒ“—LŒø/–³Œø‚ğ“Ço‚µ	*/
+			/* ãƒ©ã‚¤ãƒ³æœ‰åŠ¹/ç„¡åŠ¹ã‚’èª­å‡ºã—	*/
 			_stprintf(l_tszKey, LS_VALIDLINEn, iLine + 1);
 			_stprintf(l_tszTemp,_T("%s"),l_pStageProgStress->Line[iLine].bValidLine ? _T("TRUE") : _T("FALSE"));
 			::WritePrivateProfileString(l_tszSec, l_tszKey, l_tszTemp, szFilePath);
 //2009.09.24 bagus stress --{--
-// Line‚ÌValid‚ªFALSE‚Ìê‡‚É‚ÍƒZƒNƒVƒ‡ƒ“‚Ìî•ñ‚ğ‘‚«‚Ü‚È‚¢
+// Lineã®ValidãŒFALSEã®å ´åˆã«ã¯ã‚»ã‚¯ã‚·ãƒ§ãƒ³ã®æƒ…å ±ã‚’æ›¸ãè¾¼ã¾ãªã„
 			for (DWORD iSec = 0; iSec < l_dwSectionNum[iLine]; iSec++) {
 //			for (DWORD iSec = 0; iSec < l_dwSectionNum[iLine] && l_pStageProgStress->Line[iLine].bValidLine ; iSec++) {
 //2009.09.24 bagus stress --}--
-				/* ƒZƒNƒVƒ‡ƒ“—LŒø/–³Œø‚ğ“Ço‚µ	*/
+				/* ã‚»ã‚¯ã‚·ãƒ§ãƒ³æœ‰åŠ¹/ç„¡åŠ¹ã‚’èª­å‡ºã—	*/
 				_stprintf(l_tszKey, LS_LnSnSCANVALID, iLine + 1, iSec + 1);
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ä¿®æ­£ --{--
 //				if ((0 != l_pStageProgStress->Line[iLine].bValidLine)
 //				 && (0 != l_pStageProgStress->Line[iLine].bScanValid[iSec])) {
 				if (0 != l_pStageProgStress->Line[iLine].bValidLine) {
@@ -2079,12 +2079,12 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 					} else {
 						WritePrivateProfileString(l_tszSec, l_tszKey, _T("FALSE"), szFilePath);
 						//2009.09.24 bagus stress --{--
-						//Valid=FALSE‚Ìê‡‚Í‘‚«‚Ü‚È‚¢
+						//Valid=FALSEã®å ´åˆã¯æ›¸ãè¾¼ã¾ãªã„
 						continue;
 						//2009.09.24 bagus stress --}--
 					}
-// 2009.09.10 bagus stress C³ --}--
-					/* ƒZƒNƒVƒ‡ƒ“ˆÊ’u‚ğ“Ço‚µ	*/
+// 2009.09.10 bagus stress ä¿®æ­£ --}--
+					/* ã‚»ã‚¯ã‚·ãƒ§ãƒ³ä½ç½®ã‚’èª­å‡ºã—	*/
 					_stprintf(l_tszKey, LS_LnSnSCANSTART_X, iLine + 1, iSec + 1);
 					_stprintf(l_tszTemp,_T("%ld"),l_pStageProgStress->Line[iLine].SectPos[iSec].lScanStartPosX );
 					WritePrivateProfileString(l_tszSec, l_tszKey,l_tszTemp,szFilePath);
@@ -2095,26 +2095,26 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 					_stprintf(l_tszTemp,_T("%ld"),l_pStageProgStress->Line[iLine].SectPos[iSec].lScanPosY );
 					WritePrivateProfileString(l_tszSec, l_tszKey,l_tszTemp,szFilePath);
 				} else {
-// 2009.09.09 bagus stress C³ --{--
+// 2009.09.09 bagus stress ä¿®æ­£ --{--
 #if 0
 					WritePrivateProfileString(l_tszSec, l_tszKey, _T("FALSE"), szFilePath);
 					WritePrivateProfileString(l_tszSec, l_tszKey,_T("0"),szFilePath);
 					WritePrivateProfileString(l_tszSec, l_tszKey,_T("0"),szFilePath);
 					WritePrivateProfileString(l_tszSec, l_tszKey,_T("0"),szFilePath);
 #else
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ä¿®æ­£ --{--
 //					WritePrivateProfileString(l_tszSec, l_tszKey, _T("FALSE"), szFilePath);
 				 	if (0 != l_pStageProgStress->Line[iLine].bScanValid[iSec]) {
 						WritePrivateProfileString(l_tszSec, l_tszKey, _T("TRUE"), szFilePath);
 					} else {
 						WritePrivateProfileString(l_tszSec, l_tszKey, _T("FALSE"), szFilePath);
 						//2009.09.24 bagus stress --{--
-						//Valid=FALSE‚Ìê‡‚Í‘‚«‚Ü‚È‚¢
+						//Valid=FALSEã®å ´åˆã¯æ›¸ãè¾¼ã¾ãªã„
 						continue;
 						//2009.09.24 bagus stress --}--
 					}
-// 2009.09.10 bagus stress C³ --}--
-					/* ƒZƒNƒVƒ‡ƒ“ˆÊ’u‚ğ“Ço‚µ	*/
+// 2009.09.10 bagus stress ä¿®æ­£ --}--
+					/* ã‚»ã‚¯ã‚·ãƒ§ãƒ³ä½ç½®ã‚’èª­å‡ºã—	*/
 					_stprintf(l_tszKey, LS_LnSnSCANSTART_X, iLine + 1, iSec + 1);
 					_stprintf(l_tszTemp,_T("%ld"),l_pStageProgStress->Line[iLine].SectPos[iSec].lScanStartPosX );
 					WritePrivateProfileString(l_tszSec, l_tszKey,l_tszTemp,szFilePath);
@@ -2125,7 +2125,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 					_stprintf(l_tszTemp,_T("%ld"),l_pStageProgStress->Line[iLine].SectPos[iSec].lScanPosY );
 					WritePrivateProfileString(l_tszSec, l_tszKey,l_tszTemp,szFilePath);
 #endif
-// 2009.09.09 bagus stress C³ --}--
+// 2009.09.09 bagus stress ä¿®æ­£ --}--
 				}
 			}
 		}
@@ -2135,8 +2135,8 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 
 
 
-	// ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éê‡C‚¢‚Á‚½‚ñíœ‚·‚é(‚½‚¾‚µƒfƒtƒHƒ‹ƒg’lİ’è‚Ìê‡‚É‚Ííœ‚µ‚È‚¢)
-//2009.10.20 bagus MS ’Ç‰Á --{--
+	// ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹å ´åˆï¼Œã„ã£ãŸã‚“å‰Šé™¤ã™ã‚‹(ãŸã ã—ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®šã®å ´åˆã«ã¯å‰Šé™¤ã—ãªã„)
+//2009.10.20 bagus MS è¿½åŠ  --{--
 #if 0
 	if(FILEEXIST(szFilePath, &lastWriteSystemTime)		&&
 		(iType != RECIPE_FILE_DEF_SR_MAIN_RECIPE)		&&
@@ -2157,16 +2157,16 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		// 2009.09.29 bagus SE --{--
 		(iType != RECIPE_FILE_DEF_SE_THICKNESS)			&&
 		// 2009.09.29 bagus SE --}--
-		// 2009.10.07 bagus CTA ’Ç‰Á --{--
+		// 2009.10.07 bagus CTA è¿½åŠ  --{--
 //		(iType != RECIPE_FILE_DEF_SE_MAIN_RECIPE)){
 		(iType != RECIPE_FILE_DEF_SE_MAIN_RECIPE)		&&
 		(iType != RECIPE_FILE_DEF_CTA)					&&
-		// 2009.10.14 bagus Distance ’Ç‰Á --{--
+		// 2009.10.14 bagus Distance è¿½åŠ  --{--
 //		(iType != RECIPE_FILE_DEF_CTA_MAIN_RECIPE)){
 		(iType != RECIPE_FILE_DEF_CTA_MAIN_RECIPE)		&&
 		(iType != RECIPE_FILE_DEF_SR_DISTANCE)){
-		// 2009.10.14 bagus Distance ’Ç‰Á --}--
-		// 2009.10.07 bagus CTA ’Ç‰Á --}--
+		// 2009.10.14 bagus Distance è¿½åŠ  --}--
+		// 2009.10.07 bagus CTA è¿½åŠ  --}--
 		::DeleteFile(szFilePath);
 #else
 	if (FILEEXIST(szFilePath, &lastWriteSystemTime)) {
@@ -2179,17 +2179,17 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		case RECIPE_FILE_DEF_SR_TRANSMITTANCE_CIE:
 		case RECIPE_FILE_DEF_SR_OPTICAL_DENSITY:
 		case RECIPE_FILE_DEF_4PP:
-		// 2009.11.04 bagus RS ’Ç‰Á --{--
+		// 2009.11.04 bagus RS è¿½åŠ  --{--
 		case RECIPE_FILE_DEF_4PP_MAIN_RECIPE:
-		// 2009.11.04 bagus RS ’Ç‰Á --}--
+		// 2009.11.04 bagus RS è¿½åŠ  --}--
 		case RECIPE_FILE_DEF_STRESS:
 		case RECIPE_FILE_DEF_STRESS_MAIN_RECIPE:
 		case RECIPE_FILE_DEF_SE_THICKNESS:
 		case RECIPE_FILE_DEF_SE_MAIN_RECIPE:
-		// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+		// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 		case RECIPE_FILE_DEF_COMPEASE_THICKNESS:
 		case RECIPE_FILE_DEF_COMPEASE_MAIN_RECIPE:
-		// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+		// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 		case RECIPE_FILE_DEF_CTA:
 		case RECIPE_FILE_DEF_CTA_MAIN_RECIPE:
 		case RECIPE_FILE_DEF_SR_DISTANCE:
@@ -2201,10 +2201,10 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 			break;
 		}
 #endif
-//2009.10.20 bagus MS ’Ç‰Á --}--
+//2009.10.20 bagus MS è¿½åŠ  --}--
 	}
 
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.11.04 bagus RS è¿½åŠ  --{--
 	if ((iType == RECIPE_FILE_4PP) || (iType == RECIPE_FILE_DEF_4PP)) {
 		TCHAR l_tszTemp[64];
 
@@ -2218,9 +2218,9 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		}
 		WritePrivateProfileString(_T("RS"), _T("RsThickUnit"), l_tszTemp, szFilePath);
 	}
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS è¿½åŠ  --}--
 
-	// NameCHeadTypeCScanType‚ğ‘‚«‚Ş
+	// Nameï¼ŒHeadTypeï¼ŒScanTypeã‚’æ›¸ãè¾¼ã‚€
 	if(!SaveHeadTypeAndScanType(iType, lpszName)){
 		if(pDesc != NULL){
 			delete [] pDesc;
@@ -2288,19 +2288,19 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : LoadMainRecipeList
-// Purpose	  : MultiRecipe‚ÌMainRecipeList‚Ì“Ç‚İ‚İ
-// Parameters : pMainRcpList   ---> MainRecipeList‚Ì”z—ñ
-//				wNumMainRecipe ---> “Ç‚İ‚ŞMainRecipe”
-//				lpszName	   ---> ƒtƒ@ƒCƒ‹–¼
+// Purpose	  : MultiRecipeã®MainRecipeListã®èª­ã¿è¾¼ã¿
+// Parameters : pMainRcpList   ---> MainRecipeListã®é…åˆ—
+//				wNumMainRecipe ---> èª­ã¿è¾¼ã‚€MainRecipeæ•°
+//				lpszName	   ---> ãƒ•ã‚¡ã‚¤ãƒ«å
 //
-// Returns	  : TRUE  ---> “Ç‚İ‚İ¬Œ÷
-//				FALSE ---> “Ç‚İ‚İ¸”s
+// Returns	  : TRUE  ---> èª­ã¿è¾¼ã¿æˆåŠŸ
+//				FALSE ---> èª­ã¿è¾¼ã¿å¤±æ•—
 BOOL LoadMainRecipeList(MULTI_RCP_MAIN_RCP_LIST* pMainRcpList,
 	WORD wNumMainRecipe, LPCSTR lpszName)
 {
 	SYSTEMTIME lastWriteSystemTime;
 
-	// ƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢ê‡
+	// ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„å ´åˆ
 	if(!ExistRecipe(lpszName, &lastWriteSystemTime, RECIPE_FILE_MULTI_RECIPE)){
 		return FALSE;
 	}
@@ -2310,14 +2310,14 @@ BOOL LoadMainRecipeList(MULTI_RCP_MAIN_RCP_LIST* pMainRcpList,
 
 	char szFilePath[_MAX_PATH];
 	sprintf(szFilePath, DB_MULTI_RECIPE_DIR "%s" MULTIRECIPE_EXT, lpszName);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- { ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- { ---------- */
 	AddAbsPath(szFilePath);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- } ---------- */
 
 	TRY
 	{
 		CStdioFile file(szFilePath, CFile::modeRead);
-		// ƒZƒNƒVƒ‡ƒ“‚ÌŒŸõ
+		// ã‚»ã‚¯ã‚·ãƒ§ãƒ³ã®æ¤œç´¢
 		while(file.ReadString(strBuff)){
 			strBuff.Replace('\r', '\0');
 			strBuff.Replace('\n', '\0');
@@ -2352,31 +2352,31 @@ BOOL LoadMainRecipeList(MULTI_RCP_MAIN_RCP_LIST* pMainRcpList,
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : SaveMainRecipeList
-// Purpose	  : MultiRecipe‚ÌMainRecipeList‚Ì•Û‘¶
-// Parameters : pMainRcpList   ---> MainRecipeList‚Ì”z—ñ
-//				wNumMainRecipe ---> •Û‘¶‚·‚éMainRecipe”
-//				lpszName	   ---> ƒtƒ@ƒCƒ‹–¼
+// Purpose	  : MultiRecipeã®MainRecipeListã®ä¿å­˜
+// Parameters : pMainRcpList   ---> MainRecipeListã®é…åˆ—
+//				wNumMainRecipe ---> ä¿å­˜ã™ã‚‹MainRecipeæ•°
+//				lpszName	   ---> ãƒ•ã‚¡ã‚¤ãƒ«å
 //
-// Returns	  : TRUE  ---> •Û‘¶¬Œ÷
-//				FALSE ---> •Û‘¶¸”s
+// Returns	  : TRUE  ---> ä¿å­˜æˆåŠŸ
+//				FALSE ---> ä¿å­˜å¤±æ•—
 BOOL SaveMainRecipeList(const MULTI_RCP_MAIN_RCP_LIST* pMainRcpList,
 	WORD wNumMainRecipe, LPCSTR lpszName)
 {
 	char szFilePath[_MAX_PATH], Buff[256];
 	sprintf(szFilePath, DB_MULTI_RECIPE_DIR "%s" MULTIRECIPE_EXT, lpszName);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- { ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- { ---------- */
 	AddAbsPath(szFilePath);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- } ---------- */
 
 	TRY
 	{
 		CStdioFile file(szFilePath, CFile::modeWrite | CFile::modeCreate | CFile::modeNoTruncate);
 		file.SeekToEnd();
-		// ƒZƒNƒVƒ‡ƒ“–¼‚ğ‘‚«‚Ş
+		// ã‚»ã‚¯ã‚·ãƒ§ãƒ³åã‚’æ›¸ãè¾¼ã‚€
 		sprintf(Buff, "%s\n", g_lpszMultiRcpMainRcpListSection);
 		file.WriteString(Buff);
 
-		// MainRecipe‚Ì–¼‘O‚ğ‘‚«‚Ş
+		// MainRecipeã®åå‰ã‚’æ›¸ãè¾¼ã‚€
 		for ( int i = 0; i < (int)wNumMainRecipe; i++ )
 		{
 			sprintf(Buff, "%s\n", (pMainRcpList + i)->szName);
@@ -2394,32 +2394,32 @@ BOOL SaveMainRecipeList(const MULTI_RCP_MAIN_RCP_LIST* pMainRcpList,
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : LoadPointList
-// Purpose	  : StageProgram‚Ì‘ª’èƒ|ƒCƒ“ƒgƒŠƒXƒg‚Ì“Ç‚İ‚İ
-// Parameters : pPoint		---> STAGE_COORD‚Ì”z—ñ
-//				wNumScans	---> “Ç‚İ‚Ş‘ª’èƒ|ƒCƒ“ƒg”
-//				pszFileName ---> ƒtƒ@ƒCƒ‹–¼
+// Purpose	  : StageProgramã®æ¸¬å®šãƒã‚¤ãƒ³ãƒˆãƒªã‚¹ãƒˆã®èª­ã¿è¾¼ã¿
+// Parameters : pPoint		---> STAGE_COORDã®é…åˆ—
+//				wNumScans	---> èª­ã¿è¾¼ã‚€æ¸¬å®šãƒã‚¤ãƒ³ãƒˆæ•°
+//				pszFileName ---> ãƒ•ã‚¡ã‚¤ãƒ«å
 //
-// Returns	  : TRUE  ---> “Ç‚İ‚İ¬Œ÷
-//				FALSE ---> “Ç‚İ‚İ¸”s
+// Returns	  : TRUE  ---> èª­ã¿è¾¼ã¿æˆåŠŸ
+//				FALSE ---> èª­ã¿è¾¼ã¿å¤±æ•—
 BOOL LoadPointList(STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFileName)
 {
 	char szFilePath[_MAX_PATH];
-	sprintf(szFilePath, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, pszFileName);		// ƒXƒe[ƒWPGM
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- { ---------- */
+	sprintf(szFilePath, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, pszFileName);		// ã‚¹ãƒ†ãƒ¼ã‚¸PGM
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- { ---------- */
 	AddAbsPath(szFilePath);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- } ---------- */
 	return LoadPointList2(pPoint, wNumScans, szFilePath);
 }
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : LoadPointList2
-// Purpose	  : StageProgram‚Ì‘ª’èƒ|ƒCƒ“ƒgƒŠƒXƒg‚Ì“Ç‚İ‚İ
-// Parameters : pPoint	  ---> STAGE_COORD‚Ì”z—ñ
-//				wNumScans ---> “Ç‚İ‚Ş‘ª’èƒ|ƒCƒ“ƒg”
-//				pszFilePath ---> ƒtƒ@ƒCƒ‹ƒpƒX–¼
+// Purpose	  : StageProgramã®æ¸¬å®šãƒã‚¤ãƒ³ãƒˆãƒªã‚¹ãƒˆã®èª­ã¿è¾¼ã¿
+// Parameters : pPoint	  ---> STAGE_COORDã®é…åˆ—
+//				wNumScans ---> èª­ã¿è¾¼ã‚€æ¸¬å®šãƒã‚¤ãƒ³ãƒˆæ•°
+//				pszFilePath ---> ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹å
 //
-// Returns	  : TRUE  ---> “Ç‚İ‚İ¬Œ÷
-//				FALSE ---> “Ç‚İ‚İ¸”s
+// Returns	  : TRUE  ---> èª­ã¿è¾¼ã¿æˆåŠŸ
+//				FALSE ---> èª­ã¿è¾¼ã¿å¤±æ•—
 BOOL LoadPointList2(STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePath)
 {
 	CString strBuff;
@@ -2427,7 +2427,7 @@ BOOL LoadPointList2(STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePath)
 	int i, iColonIndex, iCommaIndex;
 	SYSTEMTIME lastWriteSystemTime;
 
-	// ƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢ê‡
+	// ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„å ´åˆ
 	if ( !FILEEXIST(pszFilePath, &lastWriteSystemTime) )
 		return FALSE;
 
@@ -2478,33 +2478,33 @@ BOOL LoadPointList2(STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePath)
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : SavePointList
-// Purpose	  : StageProgram‚Ì‘ª’èƒ|ƒCƒ“ƒgƒŠƒXƒg‚Ì•Û‘¶
-// Parameters : pPoint		---> STAGE_COORD‚Ì”z—ñ
-//				wNumScans	---> •Û‘¶‚·‚é‘ª’èƒ|ƒCƒ“ƒg”
-//				pszFileName ---> ƒtƒ@ƒCƒ‹–¼
+// Purpose	  : StageProgramã®æ¸¬å®šãƒã‚¤ãƒ³ãƒˆãƒªã‚¹ãƒˆã®ä¿å­˜
+// Parameters : pPoint		---> STAGE_COORDã®é…åˆ—
+//				wNumScans	---> ä¿å­˜ã™ã‚‹æ¸¬å®šãƒã‚¤ãƒ³ãƒˆæ•°
+//				pszFileName ---> ãƒ•ã‚¡ã‚¤ãƒ«å
 //
-// Returns	  : TRUE  ---> •Û‘¶¬Œ÷
-//				FALSE ---> •Û‘¶¸”s
+// Returns	  : TRUE  ---> ä¿å­˜æˆåŠŸ
+//				FALSE ---> ä¿å­˜å¤±æ•—
 BOOL SavePointList(const STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFileName)
 {
 	char szFilePath[_MAX_PATH];
 	sprintf(szFilePath, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, pszFileName);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- { ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- { ---------- */
 	AddAbsPath(szFilePath);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- } ---------- */
 	return SavePointList2(pPoint, wNumScans, szFilePath);
 }
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : SavePointList2
-// Purpose	  : StageProgram‚Ì‘ª’èƒ|ƒCƒ“ƒgƒŠƒXƒg‚Ì•Û‘¶
-// Parameters : pPoint		---> STAGE_COORD‚Ì”z—ñ
-//				wNumScans	---> •Û‘¶‚·‚é‘ª’èƒ|ƒCƒ“ƒg”
-//				pszFilePath ---> ƒtƒ@ƒCƒ‹ƒpƒX–¼
-//				bDoBackup	---> ƒoƒbƒNƒAƒbƒvˆ—‚ğÀs‚·‚é‚©‚Ç‚¤‚©
+// Purpose	  : StageProgramã®æ¸¬å®šãƒã‚¤ãƒ³ãƒˆãƒªã‚¹ãƒˆã®ä¿å­˜
+// Parameters : pPoint		---> STAGE_COORDã®é…åˆ—
+//				wNumScans	---> ä¿å­˜ã™ã‚‹æ¸¬å®šãƒã‚¤ãƒ³ãƒˆæ•°
+//				pszFilePath ---> ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹å
+//				bDoBackup	---> ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—å‡¦ç†ã‚’å®Ÿè¡Œã™ã‚‹ã‹ã©ã†ã‹
 //
-// Returns	  : TRUE  ---> •Û‘¶¬Œ÷
-//				FALSE ---> •Û‘¶¸”s
+// Returns	  : TRUE  ---> ä¿å­˜æˆåŠŸ
+//				FALSE ---> ä¿å­˜å¤±æ•—
 BOOL SavePointList2(const STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePath,BOOL bDoBackup /* = TRUE */)
 {
 	char Buff[256];
@@ -2512,11 +2512,11 @@ BOOL SavePointList2(const STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePat
 	{
 		CStdioFile file(pszFilePath, CFile::modeWrite | CFile::modeCreate | CFile::modeNoTruncate);
 		file.SeekToEnd();
-		// ƒZƒNƒVƒ‡ƒ“–¼‚ğ‘‚«‚Ş
+		// ã‚»ã‚¯ã‚·ãƒ§ãƒ³åã‚’æ›¸ãè¾¼ã‚€
 		sprintf(Buff, "%s\n", g_lpszStageProgPointListSection);
 		file.WriteString(Buff);
 
-		// ƒ|ƒCƒ“ƒg‚ğ‘‚«‚Ş
+		// ãƒã‚¤ãƒ³ãƒˆã‚’æ›¸ãè¾¼ã‚€
 		for(int i = 0; i < (int)wNumScans; i++){
 			sprintf(Buff, "%d:%ld,%ld\n", i + 1, (pPoint + i)->lX, (pPoint + i)->lY);
 			file.WriteString(Buff);
@@ -2531,22 +2531,22 @@ BOOL SavePointList2(const STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePat
 	}
 	END_CATCH
 
-	//2010.03.09 15.24 Recicpe Backup C³ --{--
+	//2010.03.09 15.24 Recicpe Backup ä¿®æ­£ --{--
 	if(bDoBackup){
 		//2009.12.10 bagus Recipe Backup --{--
 		BackupRecipe(pszFilePath);
 		//2009.12.10 bagus Recipe Backup --}--
 	}
-	//2010.03.09 15.24 Recicpe Backup C³ --}--
+	//2010.03.09 15.24 Recicpe Backup ä¿®æ­£ --}--
 
 	return TRUE;
 }
 
-// 2009.10.15 bagus Distance ’Ç‰Á --{--
+// 2009.10.15 bagus Distance è¿½åŠ  --{--
 BOOL Load2PointList(STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFileName)
 {
 	char szFilePath[_MAX_PATH];
-	sprintf(szFilePath, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, pszFileName);		// ƒXƒe[ƒWPGM
+	sprintf(szFilePath, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, pszFileName);		// ã‚¹ãƒ†ãƒ¼ã‚¸PGM
 	AddAbsPath(szFilePath);
 	return Load2PointList2(pPoint, wNumScans, szFilePath);
 }
@@ -2560,7 +2560,7 @@ BOOL Load2PointList2(STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePath)
 
 	int	nIndex;
 
-	// ƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢ê‡
+	// ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„å ´åˆ
 	if ( !FILEEXIST(pszFilePath, &lastWriteSystemTime) )
 		return FALSE;
 
@@ -2625,10 +2625,10 @@ BOOL Save2PointList(const STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFileNam
 }
 
 
-// 2010.03.09 bagus Recipe Backup C³ --{--
+// 2010.03.09 bagus Recipe Backup ä¿®æ­£ --{--
 //BOOL Save2PointList2(const STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePath)
 BOOL Save2PointList2(const STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePath,BOOL bDoBackup /*= TRUE */)
-// 2010.03.09 bagus Recipe Backup C³ --}--
+// 2010.03.09 bagus Recipe Backup ä¿®æ­£ --}--
 {
 	char Buff[256];
 	int	nIndex;
@@ -2637,11 +2637,11 @@ BOOL Save2PointList2(const STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePa
 	{
 		CStdioFile file(pszFilePath, CFile::modeWrite | CFile::modeCreate | CFile::modeNoTruncate);
 		file.SeekToEnd();
-		// ƒZƒNƒVƒ‡ƒ“–¼‚ğ‘‚«‚Ş
+		// ã‚»ã‚¯ã‚·ãƒ§ãƒ³åã‚’æ›¸ãè¾¼ã‚€
 		sprintf(Buff, "%s\n", g_lpszStageProgPointListSection);
 		file.WriteString(Buff);
 
-		// ƒ|ƒCƒ“ƒg‚ğ‘‚«‚Ş
+		// ãƒã‚¤ãƒ³ãƒˆã‚’æ›¸ãè¾¼ã‚€
 		nIndex = 0;
 		for(int i = 0; i < (int)wNumScans; i++){
 			sprintf(Buff, "%d:%ld,%ld,%ld,%ld\n", i + 1, (pPoint + nIndex)->lX, (pPoint + nIndex)->lY, (pPoint + nIndex + 1)->lX, (pPoint + nIndex + 1)->lY);
@@ -2658,26 +2658,26 @@ BOOL Save2PointList2(const STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePa
 	}
 	END_CATCH
 
-	// 2010.03.09 bagus Recipe Backup C³ --}--
+	// 2010.03.09 bagus Recipe Backup ä¿®æ­£ --}--
 	if(bDoBackup){
 		//2009.12.10 bagus Recipe Backup --{--
 		BackupRecipe(pszFilePath);
 		//2009.12.10 bagus Recipe Backup --}--
 	}
-	// 2010.03.09 bagus Recipe Backup C³ --}--
+	// 2010.03.09 bagus Recipe Backup ä¿®æ­£ --}--
 	return TRUE;
 }
-// 2009.10.15 bagus Distance ’Ç‰Á --}--
+// 2009.10.15 bagus Distance è¿½åŠ  --}--
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : MakeRecipeFilePath
-// Purpose	  : ƒtƒ@ƒCƒ‹–¼‚ÆƒŒƒVƒsƒ^ƒCƒv‚©‚çƒtƒ@ƒCƒ‹ƒpƒX–¼‚ğ¶¬
-// Parameters : pszFilePath ---> ƒtƒ@ƒCƒ‹ƒpƒX–¼
-//				pszFileName ---> ƒtƒ@ƒCƒ‹–¼
-//				iType		---> ‚Ç‚Ìƒtƒ@ƒCƒ‹(MainReicpe“™)‚È‚Ì‚©‚ğŒˆ‚ß‚é•Ï”
+// Purpose	  : ãƒ•ã‚¡ã‚¤ãƒ«åã¨ãƒ¬ã‚·ãƒ”ã‚¿ã‚¤ãƒ—ã‹ã‚‰ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹åã‚’ç”Ÿæˆ
+// Parameters : pszFilePath ---> ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹å
+//				pszFileName ---> ãƒ•ã‚¡ã‚¤ãƒ«å
+//				iType		---> ã©ã®ãƒ•ã‚¡ã‚¤ãƒ«(MainReicpeç­‰)ãªã®ã‹ã‚’æ±ºã‚ã‚‹å¤‰æ•°
 //
-// Returns	  : TRUE  ---> ¬Œ÷
-//				FALSE ---> ¸”s
+// Returns	  : TRUE  ---> æˆåŠŸ
+//				FALSE ---> å¤±æ•—
 BOOL MakeRecipeFilePath(LPSTR pszFilePath, LPCSTR pszFileName, int iType)
 {
 	switch(iType)
@@ -2710,21 +2710,21 @@ BOOL MakeRecipeFilePath(LPSTR pszFilePath, LPCSTR pszFileName, int iType)
 		return FALSE;
 		break;
 	}
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- { ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- { ---------- */
 	AddAbsPath(pszFilePath);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- } ---------- */
 
 	return TRUE;
 }
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : DeleteRecipe
-// Purpose	  : RecipeCProgramCUserAccountCSample‚Ìíœ
-// Parameters : pszFileName ---> ƒtƒ@ƒCƒ‹–¼
-//				iType		---> ‚Ç‚Ìƒtƒ@ƒCƒ‹(MainReicpe“™)‚È‚Ì‚©‚ğŒˆ‚ß‚é•Ï”
+// Purpose	  : Recipeï¼ŒProgramï¼ŒUserAccountï¼ŒSampleã®å‰Šé™¤
+// Parameters : pszFileName ---> ãƒ•ã‚¡ã‚¤ãƒ«å
+//				iType		---> ã©ã®ãƒ•ã‚¡ã‚¤ãƒ«(MainReicpeç­‰)ãªã®ã‹ã‚’æ±ºã‚ã‚‹å¤‰æ•°
 //
-// Returns	  : TRUE  ---> íœ¬Œ÷
-//				FALSE ---> íœ¸”s
+// Returns	  : TRUE  ---> å‰Šé™¤æˆåŠŸ
+//				FALSE ---> å‰Šé™¤å¤±æ•—
 BOOL DeleteRecipe(LPCSTR pszFileName, int iType)
 {
 	char szFilePath[_MAX_PATH];
@@ -2740,13 +2740,13 @@ BOOL DeleteRecipe(LPCSTR pszFileName, int iType)
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : ExistRecipe
-// Purpose	  : RecipeCProgramCUserAccountCSample‚ª‘¶İ‚·‚é‚©‚ğŠm”F
-// Parameters : pszFileName ---> ƒtƒ@ƒCƒ‹–¼
-//				lpLastWriteSystemTime ---> ƒtƒ@ƒCƒ‹‚ÌÅIXV“ú
-//				iType		---> ‚Ç‚Ìƒtƒ@ƒCƒ‹(MainRecipe“™)‚È‚Ì‚©‚ğŒˆ‚ß‚é•Ï”
+// Purpose	  : Recipeï¼ŒProgramï¼ŒUserAccountï¼ŒSampleãŒå­˜åœ¨ã™ã‚‹ã‹ã‚’ç¢ºèª
+// Parameters : pszFileName ---> ãƒ•ã‚¡ã‚¤ãƒ«å
+//				lpLastWriteSystemTime ---> ãƒ•ã‚¡ã‚¤ãƒ«ã®æœ€çµ‚æ›´æ–°æ—¥æ™‚
+//				iType		---> ã©ã®ãƒ•ã‚¡ã‚¤ãƒ«(MainRecipeç­‰)ãªã®ã‹ã‚’æ±ºã‚ã‚‹å¤‰æ•°
 //
-// Returns	  : TRUE  ---> ‘¶İ‚·‚é
-//				FALSE ---> ‘¶İ‚µ‚È‚¢
+// Returns	  : TRUE  ---> å­˜åœ¨ã™ã‚‹
+//				FALSE ---> å­˜åœ¨ã—ãªã„
 BOOL ExistRecipe(LPCSTR pszFileName, SYSTEMTIME* lpLastWriteSystemTime, int iType)
 {
 	char szFilePath[_MAX_PATH];
@@ -2759,12 +2759,12 @@ BOOL ExistRecipe(LPCSTR pszFileName, SYSTEMTIME* lpLastWriteSystemTime, int iTyp
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : LoadHeadTypeAndScanType
-// Purpose	  : NameCHeadTypeCScanType‚Ì“Ç‚İ‚İ(MainRecipeCMeasurementProgramŠÖ˜A‚Ì‚İ)
-// Parameters : piType		---> ‚Ç‚Ìƒtƒ@ƒCƒ‹(MainRecipe“™)‚È‚Ì‚©‚ğŒˆ‚ß‚é•Ï”
-//				pszFileName ---> ƒtƒ@ƒCƒ‹–¼
+// Purpose	  : Nameï¼ŒHeadTypeï¼ŒScanTypeã®èª­ã¿è¾¼ã¿(MainRecipeï¼ŒMeasurementProgramé–¢é€£ã®ã¿)
+// Parameters : piType		---> ã©ã®ãƒ•ã‚¡ã‚¤ãƒ«(MainRecipeç­‰)ãªã®ã‹ã‚’æ±ºã‚ã‚‹å¤‰æ•°
+//				pszFileName ---> ãƒ•ã‚¡ã‚¤ãƒ«å
 //
-// Returns	  : TRUE  ---> “Ç‚İ‚İ¬Œ÷
-//				FALSE ---> “Ç‚İ‚İ¸”s
+// Returns	  : TRUE  ---> èª­ã¿è¾¼ã¿æˆåŠŸ
+//				FALSE ---> èª­ã¿è¾¼ã¿å¤±æ•—
 BOOL LoadHeadTypeAndScanType(int* piType, LPCSTR pszFileName)
 {
 	char szFilePath[_MAX_PATH];
@@ -2782,20 +2782,20 @@ BOOL LoadHeadTypeAndScanType(int* piType, LPCSTR pszFileName)
 		break;
 	}
 
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- { ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- { ---------- */
 	AddAbsPath(szFilePath);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- } ---------- */
 	return LoadHeadTypeAndScanType2(piType, szFilePath);
 }
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : LoadHeadTypeAndScanType2
-// Purpose	  : NameCHeadTypeCScanType‚Ì“Ç‚İ‚İ(MainRecipeCMeasurementProgramŠÖ˜A‚Ì‚İ)
-// Parameters : piType		---> ‚Ç‚Ìƒtƒ@ƒCƒ‹(MainRecipe“™)‚È‚Ì‚©‚ğŒˆ‚ß‚é•Ï”
-//				pszFilePath ---> ƒtƒ@ƒCƒ‹ƒpƒX–¼
+// Purpose	  : Nameï¼ŒHeadTypeï¼ŒScanTypeã®èª­ã¿è¾¼ã¿(MainRecipeï¼ŒMeasurementProgramé–¢é€£ã®ã¿)
+// Parameters : piType		---> ã©ã®ãƒ•ã‚¡ã‚¤ãƒ«(MainRecipeç­‰)ãªã®ã‹ã‚’æ±ºã‚ã‚‹å¤‰æ•°
+//				pszFilePath ---> ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹å
 //
-// Returns	  : TRUE  ---> “Ç‚İ‚İ¬Œ÷
-//				FALSE ---> “Ç‚İ‚İ¸”s
+// Returns	  : TRUE  ---> èª­ã¿è¾¼ã¿æˆåŠŸ
+//				FALSE ---> èª­ã¿è¾¼ã¿å¤±æ•—
 BOOL LoadHeadTypeAndScanType2(int* piType, LPCSTR pszFilePath)
 {
 	int iIndex, iDescCount;
@@ -2820,7 +2820,7 @@ BOOL LoadHeadTypeAndScanType2(int* piType, LPCSTR pszFilePath)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, MainRecipeDesc, sizeof(MainRecipeDesc));
 		break;
-	// ƒfƒtƒHƒ‹ƒg’lİ’è(ƒtƒ@ƒCƒ‹‚É‚Í•Û‘¶‚µ‚Ä‚È‚¢‚Ì‚Å’¼Ú“ü‚ê‚Ş)
+	// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®š(ãƒ•ã‚¡ã‚¤ãƒ«ã«ã¯ä¿å­˜ã—ã¦ãªã„ã®ã§ç›´æ¥å…¥ã‚Œè¾¼ã‚€)
 	case RECIPE_FILE_DEF_SR_MAIN_RECIPE:
 		g_MainRcpInfo.MainRcpParam.hdr.wHeadType = HEAD_TYPE_SR;
 		return TRUE;
@@ -2837,10 +2837,10 @@ BOOL LoadHeadTypeAndScanType2(int* piType, LPCSTR pszFilePath)
 		break;
 	case RECIPE_FILE_DEF_SR_TRANSMITTANCE:
 		g_MeasProgInfo.ScanParams.hdr.wHeadType = HEAD_TYPE_SR;
-// 2009.10.27 bagus Gantry ’Ç‰ÁC³ --{--
+// 2009.10.27 bagus Gantry è¿½åŠ ä¿®æ­£ --{--
 //		g_MeasProgInfo.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_SR_TRANSMITTANCE;
 		g_MeasProgInfo.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_SR_TRANSMITTANCE_G;
-// 2009.10.27 bagus Gantry ’Ç‰ÁC³ --}--
+// 2009.10.27 bagus Gantry è¿½åŠ ä¿®æ­£ --}--
 		return TRUE;
 		break;
 	case RECIPE_FILE_DEF_SR_REFLECTANCE_CIE:
@@ -2880,7 +2880,7 @@ BOOL LoadHeadTypeAndScanType2(int* piType, LPCSTR pszFilePath)
 		return TRUE;
 		break;
 // 2009.09.29 bagus SE --}--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case RECIPE_FILE_DEF_COMPEASE_MAIN_RECIPE:
 		g_MainRcpInfo.MainRcpParam.hdr.wHeadType = HEAD_TYPE_COMPEASE;
 		return TRUE;
@@ -2890,8 +2890,8 @@ BOOL LoadHeadTypeAndScanType2(int* piType, LPCSTR pszFilePath)
 		g_MeasProgInfo.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_COMPEASE_THICKNESS;
 		return TRUE;
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.07 bagus CTA ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.07 bagus CTA è¿½åŠ  --{--
 	case RECIPE_FILE_DEF_CTA_MAIN_RECIPE:
 		g_MainRcpInfo.MainRcpParam.hdr.wHeadType = HEAD_TYPE_CTA;
 		return TRUE;
@@ -2901,26 +2901,26 @@ BOOL LoadHeadTypeAndScanType2(int* piType, LPCSTR pszFilePath)
 		g_MeasProgInfo.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_CTA_MEAS;
 		return TRUE;
 		break;
-// 2009.10.07 bagus CTA ’Ç‰Á --}--
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.10.07 bagus CTA è¿½åŠ  --}--
+// 2009.11.04 bagus RS è¿½åŠ  --{--
 	case RECIPE_FILE_DEF_4PP_MAIN_RECIPE:
 		g_MainRcpInfo.MainRcpParam.hdr.wHeadType = HEAD_TYPE_4PP;
 		return TRUE;
 		break;
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS è¿½åŠ  --}--
 	case RECIPE_FILE_DEF_4PP:
 		g_MeasProgInfo.ScanParams.hdr.wHeadType = HEAD_TYPE_4PP;
 		g_MeasProgInfo.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_4PP_MEAS;
 		return TRUE;
 		break;
-// 2009.10.14 bagus Distance ’Ç‰Á --{--
+// 2009.10.14 bagus Distance è¿½åŠ  --{--
 	case RECIPE_FILE_DEF_SR_DISTANCE:
 		g_MeasProgInfo.ScanParams.hdr.wHeadType = HEAD_TYPE_SR;
 		g_MeasProgInfo.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_SR_DISTANCE;
 		return TRUE;
 		break;
-// 2009.10.14 bagus Distance ’Ç‰Á --}--
-//2009.10.20 bagus MS ’Ç‰Á --{--
+// 2009.10.14 bagus Distance è¿½åŠ  --}--
+//2009.10.20 bagus MS è¿½åŠ  --{--
 	case RECIPE_FILE_DEF_MS_MAIN_RECIPE:
 		g_MainRcpInfo.MainRcpParam.hdr.wHeadType = HEAD_TYPE_MS;
 		return TRUE;
@@ -2930,14 +2930,14 @@ BOOL LoadHeadTypeAndScanType2(int* piType, LPCSTR pszFilePath)
 		g_MeasProgInfo.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_MS_MEAS;
 		return TRUE;
 		break;
-//2009.10.20 bagus MS ’Ç‰Á --}--
-	// MainRecipeCMeasurementProgramˆÈŠO‚Íˆ—‚È‚µ
+//2009.10.20 bagus MS è¿½åŠ  --}--
+	// MainRecipeï¼ŒMeasurementProgramä»¥å¤–ã¯å‡¦ç†ãªã—
 	default:
 		return TRUE;
 		break;
 	}
 
-	// ƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢ê‡
+	// ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„å ´åˆ
 	if(!FILEEXIST(pszFilePath, &lastWriteSystemTime)){
 		if(pDesc != NULL){
 			delete [] pDesc;
@@ -2946,7 +2946,7 @@ BOOL LoadHeadTypeAndScanType2(int* piType, LPCSTR pszFilePath)
 		return FALSE;
 	}
 
-	// ƒf[ƒ^‚Ì“Ç‚İ‚İ
+	// ãƒ‡ãƒ¼ã‚¿ã®èª­ã¿è¾¼ã¿
 	for(iIndex = 0; iIndex < iDescCount; iIndex++){
 		// get section name
 		if(strlen((pDesc + iIndex)->section) > 0)
@@ -2988,12 +2988,12 @@ BOOL LoadHeadTypeAndScanType2(int* piType, LPCSTR pszFilePath)
 		case HEAD_TYPE_SE:
 			*piType = RECIPE_FILE_SE_MAIN_RECIPE;
 			break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 		case HEAD_TYPE_COMPEASE:
 			*piType = RECIPE_FILE_COMPEASE_MAIN_RECIPE;
 			break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 #if 0
 		case HEAD_TYPE_IRSE:
 			*piType = RECIPE_FILE_IRSE_MAIN_RECIPE;
@@ -3003,7 +3003,7 @@ BOOL LoadHeadTypeAndScanType2(int* piType, LPCSTR pszFilePath)
 			*piType = RECIPE_FILE_MS_MAIN_RECIPE;
 			break;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 		case HEAD_TYPE_4PP:
 			*piType = RECIPE_FILE_4PP_MAIN_RECIPE;
 			break;
@@ -3029,16 +3029,16 @@ BOOL LoadHeadTypeAndScanType2(int* piType, LPCSTR pszFilePath)
 				*piType = RECIPE_FILE_SR_REFLECTANCE;
 				break;
 			case MEAS_PROG_TYPE_SR_TRANSMITTANCE:
-// 2009.10.27 bagus Gantry ’Ç‰ÁC³ --{--
+// 2009.10.27 bagus Gantry è¿½åŠ ä¿®æ­£ --{--
 			case MEAS_PROG_TYPE_SR_TRANSMITTANCE_G:
-// 2009.10.27 bagus Gantry ’Ç‰ÁC³ --}--
+// 2009.10.27 bagus Gantry è¿½åŠ ä¿®æ­£ --}--
 				*piType = RECIPE_FILE_SR_TRANSMITTANCE;
 				break;
-			// 2009.10.14 bagus Distance ’Ç‰Á --{--
+			// 2009.10.14 bagus Distance è¿½åŠ  --{--
 			case MEAS_PROG_TYPE_SR_DISTANCE:
 				*piType = RECIPE_FILE_SR_DISTANCE;
 				break;
-			// 2009.10.14 bagus Distance ’Ç‰Á --}--
+			// 2009.10.14 bagus Distance è¿½åŠ  --}--
 			case MEAS_PROG_TYPE_SR_REFLECTANCE_CIE:
 				*piType = RECIPE_FILE_SR_REFLECTANCE_CIE;
 				break;
@@ -3065,7 +3065,7 @@ BOOL LoadHeadTypeAndScanType2(int* piType, LPCSTR pszFilePath)
 			}
 			break;
 // 2009.09.04 K.Matsuo <--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 		case HEAD_TYPE_COMPEASE:
 			switch(g_MeasProgInfo.ScanParams.hdr.wScanType){
 			case MEAS_PROG_TYPE_COMPEASE_THICKNESS:
@@ -3076,7 +3076,7 @@ BOOL LoadHeadTypeAndScanType2(int* piType, LPCSTR pszFilePath)
 				break;
 			}
 			break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 		case HEAD_TYPE_4PP:
 			switch(g_MeasProgInfo.ScanParams.hdr.wScanType){
 			case MEAS_PROG_TYPE_4PP_MEAS:
@@ -3091,8 +3091,8 @@ BOOL LoadHeadTypeAndScanType2(int* piType, LPCSTR pszFilePath)
 		case HEAD_TYPE_STRESS:
 			switch(g_MeasProgInfo.ScanParams.hdr.wScanType){
 			case MEAS_PROG_TYPE_STRESS_MEAS:
-				//*piType = RECIPE_FILE_SR_THICKNESS;				////@@@@@@ƒ_ƒ~[I
-				*piType = RECIPE_FILE_STRESS;				////@@@@@@ƒ_ƒ~[I
+				//*piType = RECIPE_FILE_SR_THICKNESS;				////@@@@@@ãƒ€ãƒŸãƒ¼ï¼
+				*piType = RECIPE_FILE_STRESS;				////@@@@@@ãƒ€ãƒŸãƒ¼ï¼
 				break;
 			default:
 				return FALSE;
@@ -3100,7 +3100,7 @@ BOOL LoadHeadTypeAndScanType2(int* piType, LPCSTR pszFilePath)
 			}
 			break;
 		//2009.07.30 bagus stress --}--
-		// 2009.10.07 bagus CTA ’Ç‰Á --{--
+		// 2009.10.07 bagus CTA è¿½åŠ  --{--
 		case HEAD_TYPE_CTA:
 			switch(g_MeasProgInfo.ScanParams.hdr.wScanType){
 			case MEAS_PROG_TYPE_CTA_MEAS:
@@ -3111,8 +3111,8 @@ BOOL LoadHeadTypeAndScanType2(int* piType, LPCSTR pszFilePath)
 				break;
 			}
 			break;
-		// 2009.10.07 bagus CTA ’Ç‰Á --}--
-		//2009.10.20 bagus MS ’Ç‰Á --{--
+		// 2009.10.07 bagus CTA è¿½åŠ  --}--
+		//2009.10.20 bagus MS è¿½åŠ  --{--
 		case HEAD_TYPE_MS:
 			switch(g_MeasProgInfo.ScanParams.hdr.wScanType){
 			case MEAS_PROG_TYPE_MS_MEAS:
@@ -3123,7 +3123,7 @@ BOOL LoadHeadTypeAndScanType2(int* piType, LPCSTR pszFilePath)
 				break;
 			}
 			break;
-		//2009.10.20 bagus MS ’Ç‰Á --}--
+		//2009.10.20 bagus MS è¿½åŠ  --}--
 		default:
 			return FALSE;
 			break;
@@ -3141,12 +3141,12 @@ BOOL LoadHeadTypeAndScanType2(int* piType, LPCSTR pszFilePath)
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : SaveHeadTypeAndScanType
-// Purpose	  : NameCHeadTypeCScanType‚Ì•Û‘¶(MainRecipeCMeasurementProgramŠÖ˜A‚Ì‚İ)
-// Parameters : iType		---> ‚Ç‚Ìƒtƒ@ƒCƒ‹(MainRecipe“™)‚È‚Ì‚©‚ğŒˆ‚ß‚é•Ï”
-//				pszFileName ---> ƒtƒ@ƒCƒ‹–¼
+// Purpose	  : Nameï¼ŒHeadTypeï¼ŒScanTypeã®ä¿å­˜(MainRecipeï¼ŒMeasurementProgramé–¢é€£ã®ã¿)
+// Parameters : iType		---> ã©ã®ãƒ•ã‚¡ã‚¤ãƒ«(MainRecipeç­‰)ãªã®ã‹ã‚’æ±ºã‚ã‚‹å¤‰æ•°
+//				pszFileName ---> ãƒ•ã‚¡ã‚¤ãƒ«å
 //
-// Returns	  : TRUE  ---> •Û‘¶¬Œ÷
-//				FALSE ---> •Û‘¶¸”s
+// Returns	  : TRUE  ---> ä¿å­˜æˆåŠŸ
+//				FALSE ---> ä¿å­˜å¤±æ•—
 BOOL SaveHeadTypeAndScanType(int iType, LPCSTR pszFileName)
 {
 	char szFilePath[_MAX_PATH];
@@ -3154,13 +3154,13 @@ BOOL SaveHeadTypeAndScanType(int iType, LPCSTR pszFileName)
 	switch(iType){
 	case RECIPE_FILE_SR_MAIN_RECIPE:
 	case RECIPE_FILE_SE_MAIN_RECIPE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case RECIPE_FILE_COMPEASE_MAIN_RECIPE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 //	case RECIPE_FILE_IRSE_MAIN_RECIPE:
 	case RECIPE_FILE_MS_MAIN_RECIPE:
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 	case RECIPE_FILE_4PP_MAIN_RECIPE:
 	case RECIPE_FILE_CTA_MAIN_RECIPE:
 	case RECIPE_FILE_STRESS_MAIN_RECIPE:
@@ -3178,44 +3178,44 @@ BOOL SaveHeadTypeAndScanType(int iType, LPCSTR pszFileName)
 // 2009.09.04 K.Matsuo -->
 	case RECIPE_FILE_SE_THICKNESS:
 // 2009.09.04 K.Matsuo <--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case RECIPE_FILE_COMPEASE_THICKNESS:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 	case RECIPE_FILE_4PP:
 	//2009.08.25 bagus stress --{--
 	case RECIPE_FILE_STRESS:
 	//2009.08.25 bagus stress --}--
-	// 2009.10.07 bagus CTA ’Ç‰Á --{--
+	// 2009.10.07 bagus CTA è¿½åŠ  --{--
 	case RECIPE_FILE_CTA:
-	// 2009.10.07 bagus CTA ’Ç‰Á --}--
-	// 2009.10.14 bagus Distance ’Ç‰Á --{--
+	// 2009.10.07 bagus CTA è¿½åŠ  --}--
+	// 2009.10.14 bagus Distance è¿½åŠ  --{--
 	case RECIPE_FILE_SR_DISTANCE:
-	// 2009.10.14 bagus Distance ’Ç‰Á --}--
-	//2009.10.20 bagus MS ’Ç‰Á --{--
+	// 2009.10.14 bagus Distance è¿½åŠ  --}--
+	//2009.10.20 bagus MS è¿½åŠ  --{--
 	case RECIPE_FILE_MS:
-	//2009.10.20 bagus MS ’Ç‰Á --}--
+	//2009.10.20 bagus MS è¿½åŠ  --}--
 		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, pszFileName);
 		break;
-	// MainRecipeCMeasurementProgramˆÈŠO‚Íˆ—‚È‚µ(ƒfƒtƒHƒ‹ƒg’lİ’è‚Ìê‡‚àˆ—‚È‚µ)
+	// MainRecipeï¼ŒMeasurementProgramä»¥å¤–ã¯å‡¦ç†ãªã—(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®šã®å ´åˆã‚‚å‡¦ç†ãªã—)
 	default:
 		return TRUE;
 		break;
 	}
 
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- { ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- { ---------- */
 	AddAbsPath(szFilePath);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- } ---------- */
 	return SaveHeadTypeAndScanType2(iType, szFilePath);
 }
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : SaveHeadTypeAndScanType2
-// Purpose	  : NameCHeadTypeCScanType‚Ì•Û‘¶(MainRecipeCMeasurementProgramŠÖ˜A‚Ì‚İ)
-// Parameters : iType		---> ‚Ç‚Ìƒtƒ@ƒCƒ‹(MainRecipe“™)‚È‚Ì‚©‚ğŒˆ‚ß‚é•Ï”
-//				pszFilePath ---> ƒtƒ@ƒCƒ‹ƒpƒX–¼
+// Purpose	  : Nameï¼ŒHeadTypeï¼ŒScanTypeã®ä¿å­˜(MainRecipeï¼ŒMeasurementProgramé–¢é€£ã®ã¿)
+// Parameters : iType		---> ã©ã®ãƒ•ã‚¡ã‚¤ãƒ«(MainRecipeç­‰)ãªã®ã‹ã‚’æ±ºã‚ã‚‹å¤‰æ•°
+//				pszFilePath ---> ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹å
 //
-// Returns	  : TRUE  ---> •Û‘¶¬Œ÷
-//				FALSE ---> •Û‘¶¸”s
+// Returns	  : TRUE  ---> ä¿å­˜æˆåŠŸ
+//				FALSE ---> ä¿å­˜å¤±æ•—
 BOOL SaveHeadTypeAndScanType2(int iType, LPCSTR pszFilePath)
 {
 	int iDescCount;
@@ -3226,13 +3226,13 @@ BOOL SaveHeadTypeAndScanType2(int iType, LPCSTR pszFilePath)
 	switch(iType){
 	case RECIPE_FILE_SR_MAIN_RECIPE:
 	case RECIPE_FILE_SE_MAIN_RECIPE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case RECIPE_FILE_COMPEASE_MAIN_RECIPE:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 //	case RECIPE_FILE_IRSE_MAIN_RECIPE:
 	case RECIPE_FILE_MS_MAIN_RECIPE:
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 	case RECIPE_FILE_4PP_MAIN_RECIPE:
 	case RECIPE_FILE_CTA_MAIN_RECIPE:
 	case RECIPE_FILE_STRESS_MAIN_RECIPE:
@@ -3254,27 +3254,27 @@ BOOL SaveHeadTypeAndScanType2(int iType, LPCSTR pszFilePath)
 // 2009.09.04 K.Matsuo -->
 	case RECIPE_FILE_SE_THICKNESS:
 // 2009.09.04 K.Matsuo <--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case RECIPE_FILE_COMPEASE_THICKNESS:
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 	case RECIPE_FILE_4PP:
 	//2009.08.25 bagus stress --{--
 	case RECIPE_FILE_STRESS:
 	//2009.08.25 bagus stress --}--
-	// 2009.10.07 bagus CTA ’Ç‰Á --{--
+	// 2009.10.07 bagus CTA è¿½åŠ  --{--
 	case RECIPE_FILE_CTA:
-	// 2009.10.07 bagus CTA ’Ç‰Á --}--
-	// 2009.10.14 bagus Distance ’Ç‰Á --{--
+	// 2009.10.07 bagus CTA è¿½åŠ  --}--
+	// 2009.10.14 bagus Distance è¿½åŠ  --{--
 	case RECIPE_FILE_SR_DISTANCE:
-	// 2009.10.14 bagus Distance ’Ç‰Á --}--
-	//2009.10.20 bagus MS ’Ç‰Á --{--
+	// 2009.10.14 bagus Distance è¿½åŠ  --}--
+	//2009.10.20 bagus MS è¿½åŠ  --{--
 	case RECIPE_FILE_MS:
-	//2009.10.20 bagus MS ’Ç‰Á --}--
+	//2009.10.20 bagus MS è¿½åŠ  --}--
 		iDescCount = sizeof(MeasurementProgramDesc) / sizeof(MeasurementProgramDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, MeasurementProgramDesc, sizeof(MeasurementProgramDesc));
 		break;
-	// MainRecipeCMeasurementProgramˆÈŠO‚Íˆ—‚È‚µ(ƒfƒtƒHƒ‹ƒg’lİ’è‚Ìê‡‚àˆ—‚È‚µ)
+	// MainRecipeï¼ŒMeasurementProgramä»¥å¤–ã¯å‡¦ç†ãªã—(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤è¨­å®šã®å ´åˆã‚‚å‡¦ç†ãªã—)
 	default:
 		return TRUE;
 		break;
@@ -3305,22 +3305,22 @@ BOOL SaveHeadTypeAndScanType2(int iType, LPCSTR pszFilePath)
 									pszFilePath);
 	}
 
-// ”jŠü‚µ–Y‚ê
+// ç ´æ£„ã—å¿˜ã‚Œ
 	if(pDesc != NULL){
 		delete [] pDesc;
 		pDesc = NULL;
 	}
-// ”jŠü‚µ–Y‚ê
+// ç ´æ£„ã—å¿˜ã‚Œ
 
 	return TRUE;
 }
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : ClearMemory
-// Purpose	  : “Ç‚İ‚İ‚Ég—p‚·‚éƒOƒ[ƒoƒ‹•Ï”‚ÌƒNƒŠƒA(‰Šú‰»)
-// Parameters : ‚È‚µ
+// Purpose	  : èª­ã¿è¾¼ã¿ã«ä½¿ç”¨ã™ã‚‹ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°ã®ã‚¯ãƒªã‚¢(åˆæœŸåŒ–)
+// Parameters : ãªã—
 //
-// Returns	  : ‚È‚µ
+// Returns	  : ãªã—
 void ClearMemory()
 {
 	memset(&g_MainRcpInfo, 0, sizeof(MAIN_RCP_INFO));
@@ -3336,12 +3336,12 @@ void ClearMemory()
 
 // =========================================================================
 // Name 	  : SaveCurrRecipeInfo
-// Purpose	  : RecipeCProgramCUserAccountCSample‚Ì•Û‘¶
-// Parameters : pszMainRcpName ---> ƒƒCƒ“ƒŒƒVƒs–¼
-//			  : iMeasType(ƒfƒtƒHƒ‹ƒgˆø”) ---> ‘ª’èƒ^ƒCƒv(ƒ}ƒjƒ…ƒAƒ‹‘ª’è‚©‚»‚¤‚Å‚È‚¢‚©‚ğ¯•Ê‚·‚é‚½‚ß‚Ì‚à‚Ì) (ƒfƒtƒHƒ‹ƒg’l‚Í0)
+// Purpose	  : Recipeï¼ŒProgramï¼ŒUserAccountï¼ŒSampleã®ä¿å­˜
+// Parameters : pszMainRcpName ---> ãƒ¡ã‚¤ãƒ³ãƒ¬ã‚·ãƒ”å
+//			  : iMeasType(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå¼•æ•°) ---> æ¸¬å®šã‚¿ã‚¤ãƒ—(ãƒãƒ‹ãƒ¥ã‚¢ãƒ«æ¸¬å®šã‹ãã†ã§ãªã„ã‹ã‚’è­˜åˆ¥ã™ã‚‹ãŸã‚ã®ã‚‚ã®) (ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã¯0)
 //
-// Returns	  : TRUE  ---> •Û‘¶¬Œ÷
-//				FALSE ---> •Û‘¶¸”s
+// Returns	  : TRUE  ---> ä¿å­˜æˆåŠŸ
+//				FALSE ---> ä¿å­˜å¤±æ•—
 BOOL SaveCurrRecipeInfo(LPCSTR pszMainRcpName, int iMeasType)
 {
 	MAIN_RCP_INFO mainRcpInfo;
@@ -3353,14 +3353,14 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszMainRcpName, int iMeasType)
 	ZeroMemory(point, sizeof(point));
 	char szFilePath[_MAX_PATH];
 	sprintf(szFilePath, MEAS_DAT_TEMP_COPY_PASS "%s" DAT_EXT, pszMainRcpName);
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- { ---------- */
+/* modified 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- { ---------- */
 //	CreateDirectory(MEAS_DAT_TEMP_COPY_PASS, NULL);
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ----------			  */
+/* modified 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ----------			  */
 	AddAbsPath(szFilePath);
 	TCHAR l_tszTempFName[_MAX_PATH];
 	_stprintf(l_tszTempFName, _T("%s") MEAS_DAT_TEMP_COPY_PASS, g_tszProcDir);
 	CreateDirectory(l_tszTempFName, NULL);
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ RecipeFile.dll ---------- } ---------- */
+/* modified 2009.07.07 hmenjo dll ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ RecipeFile.dll ---------- } ---------- */
 //2009.09.17 bagus stress --{--
 	STAGE_PROG_STRESS stressStageProgInfo;
 //2009.09.17 bagus stress --}--
@@ -3381,9 +3381,9 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszMainRcpName, int iMeasType)
 
 	}
 	//2009.09.17 bagus stress --}--
-	if(iMeasType != 1) //ƒ}ƒjƒ…ƒAƒ‹‘ª’èˆÈŠO
+	if(iMeasType != 1) //ãƒãƒ‹ãƒ¥ã‚¢ãƒ«æ¸¬å®šä»¥å¤–
 	{
-		//ƒ}ƒjƒ…ƒAƒ‹‘ª’è‚ÍA[StageProgram][Point]‚Í•s—vB
+		//ãƒãƒ‹ãƒ¥ã‚¢ãƒ«æ¸¬å®šã¯ã€[StageProgram][Point]ã¯ä¸è¦ã€‚
 	// STAGE
 		if ( LoadRecipe(&stageProgInfoHdr, mainRcpInfo.MainRcpParam.hdr.szStage, RECIPE_FILE_STAGE_PROGRAM) )
 			SaveCurrRecipeInfo(mainRcpInfo.MainRcpParam.hdr.szStage, szFilePath, RECIPE_FILE_STAGE_PROGRAM);
@@ -3393,18 +3393,18 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszMainRcpName, int iMeasType)
 		if( stageProgInfoHdr.wHeadType == HEAD_TYPE_SR
 		&&	stageProgInfoHdr.wScanType == SCAN_TYPE_SR_DISTANCE){
 			if ( stageProgInfoHdr.wNumScans && Load2PointList(&point[0], stageProgInfoHdr.wNumScans, mainRcpInfo.MainRcpParam.hdr.szStage) )
-			//2010.03.09 bagus Recipe Backup C³ --{--
-			//SaveCurrRecipeInfo‚Ìê‡‚É‚ÍDBƒtƒHƒ‹ƒ_‚Ö‚ÌƒŒƒVƒs‚Ì•Û‘¶‚Å‚Í‚È‚­Œ‹‰Êƒtƒ@ƒCƒ‹‚Ìì¬‚È‚Ì‚ÅƒoƒbƒNƒAƒbƒvˆ—‚Í“®‚©‚³‚È‚¢
+			//2010.03.09 bagus Recipe Backup ä¿®æ­£ --{--
+			//SaveCurrRecipeInfoã®å ´åˆã«ã¯DBãƒ•ã‚©ãƒ«ãƒ€ã¸ã®ãƒ¬ã‚·ãƒ”ã®ä¿å­˜ã§ã¯ãªãçµæœãƒ•ã‚¡ã‚¤ãƒ«ã®ä½œæˆãªã®ã§ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—å‡¦ç†ã¯å‹•ã‹ã•ãªã„
 			//Save2PointList2(&point[0], stageProgInfoHdr.wNumScans, szFilePath);
 			Save2PointList2(&point[0], stageProgInfoHdr.wNumScans, szFilePath,FALSE);
-			//2010.03.09 bagus Recipe Backup C³ --}--
+			//2010.03.09 bagus Recipe Backup ä¿®æ­£ --}--
 		}else{
 		if ( stageProgInfoHdr.wNumScans && LoadPointList(&point[0], stageProgInfoHdr.wNumScans, mainRcpInfo.MainRcpParam.hdr.szStage) )
-			//2010.03.09 bagus Recipe Backup C³ --{--
-			//SaveCurrRecipeInfo‚Ìê‡‚É‚ÍDBƒtƒHƒ‹ƒ_‚Ö‚ÌƒŒƒVƒs‚Ì•Û‘¶‚Å‚Í‚È‚­Œ‹‰Êƒtƒ@ƒCƒ‹‚Ìì¬‚È‚Ì‚ÅƒoƒbƒNƒAƒbƒvˆ—‚Í“®‚©‚³‚È‚¢
+			//2010.03.09 bagus Recipe Backup ä¿®æ­£ --{--
+			//SaveCurrRecipeInfoã®å ´åˆã«ã¯DBãƒ•ã‚©ãƒ«ãƒ€ã¸ã®ãƒ¬ã‚·ãƒ”ã®ä¿å­˜ã§ã¯ãªãçµæœãƒ•ã‚¡ã‚¤ãƒ«ã®ä½œæˆãªã®ã§ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—å‡¦ç†ã¯å‹•ã‹ã•ãªã„
 			//SavePointList2(&point[0], stageProgInfoHdr.wNumScans, szFilePath);
 			SavePointList2(&point[0], stageProgInfoHdr.wNumScans, szFilePath,FALSE);
-			//2010.03.09 bagus Recipe Backup C³ --}--
+			//2010.03.09 bagus Recipe Backup ä¿®æ­£ --}--
 		}
 		//2009.10.28 bagus 2point-Distance --}--
 	}
@@ -3450,13 +3450,13 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszMainRcpName, int iMeasType)
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : SaveCurrRecipeInfo
-// Purpose	  : RecipeCProgramCUserAccountCSample‚Ì•Û‘¶
-// Parameters : pszRcpName	---> ƒŒƒVƒs–¼
-//				pszFilePath ---> ƒtƒ@ƒCƒ‹ƒpƒX–¼
-//				iType		---> ‚Ç‚Ìƒtƒ@ƒCƒ‹(MainRecipe“™)‚È‚Ì‚©‚ğŒˆ‚ß‚é•Ï”
+// Purpose	  : Recipeï¼ŒProgramï¼ŒUserAccountï¼ŒSampleã®ä¿å­˜
+// Parameters : pszRcpName	---> ãƒ¬ã‚·ãƒ”å
+//				pszFilePath ---> ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹å
+//				iType		---> ã©ã®ãƒ•ã‚¡ã‚¤ãƒ«(MainRecipeç­‰)ãªã®ã‹ã‚’æ±ºã‚ã‚‹å¤‰æ•°
 //
-// Returns	  : TRUE  ---> •Û‘¶¬Œ÷
-//				FALSE ---> •Û‘¶¸”s
+// Returns	  : TRUE  ---> ä¿å­˜æˆåŠŸ
+//				FALSE ---> ä¿å­˜å¤±æ•—
 BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 {
 	int iIndex, iDescCount;
@@ -3466,13 +3466,13 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 	RECIPE_FILE* pDesc = NULL;
 
 	iTypeBuff = iType;
-	// HeadTypeCScanType‚ğ“Ç‚İ‚Ş
+	// HeadTypeï¼ŒScanTypeã‚’èª­ã¿è¾¼ã‚€
 	if(!LoadHeadTypeAndScanType(&iTypeBuff, pszRcpName)){
 		return FALSE;
 	}
 
 	switch(iTypeBuff){
-	// Recipe SettingŠÖ˜A
+	// Recipe Settingé–¢é€£
 	case RECIPE_FILE_SR_MAIN_RECIPE:
 		iDescCount = sizeof(SrMainRecipeDesc) / sizeof(SrMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
@@ -3483,14 +3483,14 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SeMainRecipeDesc, sizeof(SeMainRecipeDesc));
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case RECIPE_FILE_COMPEASE_MAIN_RECIPE:
 		iDescCount = sizeof(CompEASEMainRecipeDesc) / sizeof(CompEASEMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, CompEASEMainRecipeDesc, sizeof(CompEASEMainRecipeDesc));
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 #if 0
 	case RECIPE_FILE_IRSE_MAIN_RECIPE:
 		iDescCount = sizeof(IrseMainRecipeDesc) / sizeof(IrseMainRecipeDesc[0]);
@@ -3504,7 +3504,7 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 		memcpy(pDesc, MicroScopeMainRecipeDesc, sizeof(MicroScopeMainRecipeDesc));
 		break;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 	case RECIPE_FILE_4PP_MAIN_RECIPE:
 		iDescCount = sizeof(ResistMainRecipeDesc) / sizeof(ResistMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
@@ -3583,13 +3583,13 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 		memcpy(pDesc, SeThicknessDesc, sizeof(SeThicknessDesc));
 		break;
 // 2009.09.04 K.Matsuo <--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case RECIPE_FILE_COMPEASE_THICKNESS:
 		iDescCount = sizeof(CompEASEThicknessDesc) / sizeof(CompEASEThicknessDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, CompEASEThicknessDesc, sizeof(CompEASEThicknessDesc));
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 	case RECIPE_FILE_4PP:
 		iDescCount = sizeof(ResistDesc) / sizeof(ResistDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
@@ -3600,27 +3600,27 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ContactAngleDesc, sizeof(ContactAngleDesc));
 		break;
-	// 2009.10.14 bagus Distance ’Ç‰Á --{--
+	// 2009.10.14 bagus Distance è¿½åŠ  --{--
 	case RECIPE_FILE_SR_DISTANCE:
 		iDescCount = sizeof(SrDistanceDesc) / sizeof(SrDistanceDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrDistanceDesc, sizeof(SrDistanceDesc));
 		break;
-	// 2009.10.14 bagus Distance ’Ç‰Á --}--
-	//2009.10.20 bagus MS ’Ç‰Á --{--
+	// 2009.10.14 bagus Distance è¿½åŠ  --}--
+	//2009.10.20 bagus MS è¿½åŠ  --{--
 	case RECIPE_FILE_MS:
 		iDescCount = sizeof(MicroScopeDesc) / sizeof(MicroScopeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, MicroScopeDesc, sizeof(MicroScopeDesc));
 		break;
-	//2009.10.20 bagus MS ’Ç‰Á --}--
-	// User SettingŠÖ˜A(UserAccount‚Ìİ’è)
+	//2009.10.20 bagus MS è¿½åŠ  --}--
+	// User Settingé–¢é€£(UserAccountã®è¨­å®š)
 	case RECIPE_FILE_USER_ACCOUNT:
 		iDescCount = sizeof(UserAccountDesc) / sizeof(UserAccountDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, UserAccountDesc, sizeof(UserAccountDesc));
 		break;
-	// User SettingŠÖ˜A(ƒfƒtƒHƒ‹ƒg’l‚Ìİ’è)
+	// User Settingé–¢é€£(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã®è¨­å®š)
 	case RECIPE_FILE_DEF_SR_MAIN_RECIPE:
 		iDescCount = sizeof(SrMainRecipeDesc) / sizeof(SrMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
@@ -3680,7 +3680,7 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 		memcpy(pDesc, SeThicknessDesc, sizeof(SeThicknessDesc));
 		break;
 	// 2009.09.29 bagus SE --}--
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	case RECIPE_FILE_DEF_COMPEASE_MAIN_RECIPE:
 		iDescCount = sizeof(CompEASEMainRecipeDesc) / sizeof(CompEASEMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
@@ -3691,8 +3691,8 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, CompEASEThicknessDesc, sizeof(CompEASEThicknessDesc));
 		break;
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-	// 2009.10.07 bagus CTA ’Ç‰Á --{--
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+	// 2009.10.07 bagus CTA è¿½åŠ  --{--
 	case RECIPE_FILE_DEF_CTA_MAIN_RECIPE:
 		iDescCount = sizeof(ContactAngleMainRecipeDesc) / sizeof(ContactAngleMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
@@ -3703,27 +3703,27 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ContactAngleDesc, sizeof(ContactAngleDesc));
 		break;
-	// 2009.10.07 bagus CTA ’Ç‰Á --}--
-	// 2009.11.04 bagus RS ’Ç‰Á --{--
+	// 2009.10.07 bagus CTA è¿½åŠ  --}--
+	// 2009.11.04 bagus RS è¿½åŠ  --{--
 	case RECIPE_FILE_DEF_4PP_MAIN_RECIPE:
 		iDescCount = sizeof(ResistMainRecipeDesc) / sizeof(ResistMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ResistMainRecipeDesc, sizeof(ResistMainRecipeDesc));
 		break;
-	// 2009.11.04 bagus RS ’Ç‰Á --}--
+	// 2009.11.04 bagus RS è¿½åŠ  --}--
 	case RECIPE_FILE_DEF_4PP:
 		iDescCount = sizeof(ResistDesc) / sizeof(ResistDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ResistDesc, sizeof(ResistDesc));
 		break;
-	// 2009.10.14 bagus Distance ’Ç‰Á --{--
+	// 2009.10.14 bagus Distance è¿½åŠ  --{--
 	case RECIPE_FILE_DEF_SR_DISTANCE:
 		iDescCount = sizeof(SrDistanceDesc) / sizeof(SrDistanceDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrDistanceDesc, sizeof(SrDistanceDesc));
 		break;
-	// 2009.10.14 bagus Distance ’Ç‰Á --}--
-	//2009.10.20 bagus MS ’Ç‰Á --{--
+	// 2009.10.14 bagus Distance è¿½åŠ  --}--
+	//2009.10.20 bagus MS è¿½åŠ  --{--
 	case RECIPE_FILE_DEF_MS_MAIN_RECIPE:
 		iDescCount = sizeof(MicroScopeMainRecipeDesc) / sizeof(MicroScopeMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
@@ -3734,14 +3734,14 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, MicroScopeDesc, sizeof(MicroScopeDesc));
 		break;
-	//2009.10.20 bagus MS ’Ç‰Á --}--
-	// SystemŠÖ˜A(Sample‚Ìİ’è)
+	//2009.10.20 bagus MS è¿½åŠ  --}--
+	// Systemé–¢é€£(Sampleã®è¨­å®š)
 	case RECIPE_FILE_SAMPLE:
 		iDescCount = sizeof(SampleDesc) / sizeof(SampleDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SampleDesc, sizeof(SampleDesc));
 		break;
-	// SystemŠÖ˜A(ZAxisOffset‚Ìİ’è)
+	// Systemé–¢é€£(ZAxisOffsetã®è¨­å®š)
 	case RECIPE_FILE_Z_AXIS_OFFSET:
 		switch(g_MainRcpInfo.MainRcpParam.hdr.wHeadType){
 		case HEAD_TYPE_SR:
@@ -3754,14 +3754,14 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 			pDesc = new RECIPE_FILE [iDescCount];
 			memcpy(pDesc, SeMainRecipeDesc, sizeof(SeMainRecipeDesc));
 			break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 		case HEAD_TYPE_COMPEASE:
 			iDescCount = sizeof(CompEASEMainRecipeDesc) / sizeof(CompEASEMainRecipeDesc[0]);
 			pDesc = new RECIPE_FILE [iDescCount];
 			memcpy(pDesc, CompEASEMainRecipeDesc, sizeof(CompEASEMainRecipeDesc));
 			break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 #if 0
 		case HEAD_TYPE_IRSE:
 			iDescCount = sizeof(IrseMainRecipeDesc) / sizeof(IrseMainRecipeDesc[0]);
@@ -3775,7 +3775,7 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 			memcpy(pDesc, MicroScopeMainRecipeDesc, sizeof(MicroScopeMainRecipeDesc));
 			break;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
 		default:
 			return FALSE;
 			break;
@@ -3786,7 +3786,7 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 		break;
 	}
 
-	// NameCHeadTypeCScanType‚ğ‘‚«‚Ş
+	// Nameï¼ŒHeadTypeï¼ŒScanTypeã‚’æ›¸ãè¾¼ã‚€
 	if(!SaveHeadTypeAndScanType2(iTypeBuff, pszFilePath)){
 		if(pDesc != NULL){
 			delete [] pDesc;
@@ -3797,7 +3797,7 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 //2009.08.31 bagus stress --{--
 	if (RECIPE_FILE_STAGE_PROGRAM_STRESS == iType) {
 		STAGE_PROG_STRESS *l_pStageProgStress = (STAGE_PROG_STRESS *)&lg_StageProgStress;
-		/* ƒXƒgƒŒƒX‚Ì LS ’è‹`‚Ì“Ço‚µ	*/
+		/* ã‚¹ãƒˆãƒ¬ã‚¹ã® LS å®šç¾©ã®èª­å‡ºã—	*/
 		::WritePrivateProfileString(
 				_T("StageProgram"),
 				_T("ElasticModulusName"),
@@ -3805,17 +3805,17 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 				pszFilePath
 			);
 		TCHAR l_tszTemp[64];
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --{--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --{--
 //		_stprintf(l_tszTemp,"%.3f",l_pStageProgStress->dElasticModulusValue);
 		_stprintf(l_tszTemp,"%e",l_pStageProgStress->dElasticModulusValue);
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --}--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --}--
 		::WritePrivateProfileString(
 				_T("StageProgram"),
 				_T("ElasticModulusValue"),
 				l_tszTemp,
 				pszFilePath
 			);
-// 2009.09.08 bagus stress C³ --{--
+// 2009.09.08 bagus stress ä¿®æ­£ --{--
 		_stprintf(l_tszTemp,"%ld",l_pStageProgStress->dwNumLsScans);
 		::WritePrivateProfileString(
 				_T("StageProgram"),
@@ -3823,11 +3823,11 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 				l_tszTemp,
 				pszFilePath
 			);
-// 2009.09.08 bagus stress C³ --}--
+// 2009.09.08 bagus stress ä¿®æ­£ --}--
 //		lg_StageProgStress.dElasticModulusValue = _tcstod(l_tszTemp, 0);
 		TCHAR l_tszSec[] = _T("LS");
 		TCHAR l_tszKey[255];
-		/* ƒXƒgƒŒƒXİ’è‚ğ“Ço‚µFƒ‰ƒCƒ“”‚Æƒ‰ƒCƒ“–ˆƒZƒNƒVƒ‡ƒ“”	*/
+		/* ã‚¹ãƒˆãƒ¬ã‚¹è¨­å®šã‚’èª­å‡ºã—ï¼šãƒ©ã‚¤ãƒ³æ•°ã¨ãƒ©ã‚¤ãƒ³æ¯ã‚»ã‚¯ã‚·ãƒ§ãƒ³æ•°	*/
 		STRESS_CONFIG l_StressConfig;
 		ConfigFile_GetNanoSpecIni(&l_StressConfig, CONFIG_FILE_STRESS_CONFIG);
 		DWORD l_dwLineNum = l_StressConfig.dwLiftPinNumberOfLine;
@@ -3844,14 +3844,14 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 			}
 		}
 		for (iLine = 0; iLine < l_dwLineNum; iLine++) {
-			/* ƒ‰ƒCƒ“—LŒø/–³Œø‚ğ“Ço‚µ	*/
+			/* ãƒ©ã‚¤ãƒ³æœ‰åŠ¹/ç„¡åŠ¹ã‚’èª­å‡ºã—	*/
 			_stprintf(l_tszKey, LS_VALIDLINEn, iLine + 1);
 			_stprintf(l_tszTemp,_T("%s"),l_pStageProgStress->Line[iLine].bValidLine ? _T("TRUE") : _T("FALSE"));
 			::WritePrivateProfileString(l_tszSec, l_tszKey, l_tszTemp, pszFilePath);
 			for (DWORD iSec = 0; iSec < l_dwSectionNum[iLine]; iSec++) {
-				/* ƒZƒNƒVƒ‡ƒ“—LŒø/–³Œø‚ğ“Ço‚µ	*/
+				/* ã‚»ã‚¯ã‚·ãƒ§ãƒ³æœ‰åŠ¹/ç„¡åŠ¹ã‚’èª­å‡ºã—	*/
 				_stprintf(l_tszKey, LS_LnSnSCANVALID, iLine + 1, iSec + 1);
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ä¿®æ­£ --{--
 //				if ((0 != l_pStageProgStress->Line[iLine].bValidLine)
 //				 && (0 != l_pStageProgStress->Line[iLine].bScanValid[iSec])) {
 				if (0 != l_pStageProgStress->Line[iLine].bValidLine) {
@@ -3863,8 +3863,8 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 						continue;
 // 2009.09.24 bagus stress --}--
 					}
-// 2009.09.10 bagus stress C³ --}--
-					/* ƒZƒNƒVƒ‡ƒ“ˆÊ’u‚ğ“Ço‚µ	*/
+// 2009.09.10 bagus stress ä¿®æ­£ --}--
+					/* ã‚»ã‚¯ã‚·ãƒ§ãƒ³ä½ç½®ã‚’èª­å‡ºã—	*/
 					_stprintf(l_tszKey, LS_LnSnSCANSTART_X, iLine + 1, iSec + 1);
 					_stprintf(l_tszTemp,_T("%ld"),l_pStageProgStress->Line[iLine].SectPos[iSec].lScanStartPosX );
 					WritePrivateProfileString(l_tszSec, l_tszKey,l_tszTemp,pszFilePath);
@@ -3875,14 +3875,14 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 					_stprintf(l_tszTemp,_T("%ld"),l_pStageProgStress->Line[iLine].SectPos[iSec].lScanPosY );
 					WritePrivateProfileString(l_tszSec, l_tszKey,l_tszTemp,pszFilePath);
 				} else {
-// 2009.09.09 bagus stress C³ --{--
+// 2009.09.09 bagus stress ä¿®æ­£ --{--
 #if 0
 					WritePrivateProfileString(l_tszSec, l_tszKey, _T("FALSE"), pszFilePath);
 					WritePrivateProfileString(l_tszSec, l_tszKey,_T("0"),pszFilePath);
 					WritePrivateProfileString(l_tszSec, l_tszKey,_T("0"),pszFilePath);
 					WritePrivateProfileString(l_tszSec, l_tszKey,_T("0"),pszFilePath);
 #else
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ä¿®æ­£ --{--
 //					WritePrivateProfileString(l_tszSec, l_tszKey, _T("FALSE"), szFilePath);
 				 	if (0 != l_pStageProgStress->Line[iLine].bScanValid[iSec]) {
 						WritePrivateProfileString(l_tszSec, l_tszKey, _T("TRUE"), pszFilePath);
@@ -3893,8 +3893,8 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 // 2009.09.24 bagus stress --}--
 
 					}
-// 2009.09.10 bagus stress C³ --}--
-					/* ƒZƒNƒVƒ‡ƒ“ˆÊ’u‚ğ“Ço‚µ	*/
+// 2009.09.10 bagus stress ä¿®æ­£ --}--
+					/* ã‚»ã‚¯ã‚·ãƒ§ãƒ³ä½ç½®ã‚’èª­å‡ºã—	*/
 					_stprintf(l_tszKey, LS_LnSnSCANSTART_X, iLine + 1, iSec + 1);
 					_stprintf(l_tszTemp,_T("%ld"),l_pStageProgStress->Line[iLine].SectPos[iSec].lScanStartPosX );
 					WritePrivateProfileString(l_tszSec, l_tszKey,l_tszTemp,pszFilePath);
@@ -3905,7 +3905,7 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 					_stprintf(l_tszTemp,_T("%ld"),l_pStageProgStress->Line[iLine].SectPos[iSec].lScanPosY );
 					WritePrivateProfileString(l_tszSec, l_tszKey,l_tszTemp,pszFilePath);
 #endif
-// 2009.09.09 bagus stress C³ --}--
+// 2009.09.09 bagus stress ä¿®æ­£ --}--
 				}
 			}
 		}
@@ -4005,7 +4005,7 @@ static int MakeDirectory(char* lpszDir)
 	if((iRet = CreateDirectory(lpszDir, &sa)) == TRUE)
 		return 1;
 	else{
-		//Šù‚É‘¶İ‚µ‚Ä‚¢‚éê‡‚É‚Í‚»‚±‚ÅOK‚Æ‚·‚é
+		//æ—¢ã«å­˜åœ¨ã—ã¦ã„ã‚‹å ´åˆã«ã¯ãã“ã§OKã¨ã™ã‚‹
 		if(GetLastError() == ERROR_ALREADY_EXISTS){
 			return 1;
 		}
@@ -4028,7 +4028,7 @@ static int MakeDirectory(char* lpszDir)
 		if(iRet){
 			return 1;
 		}else{
-			//Šù‚É‘¶İ‚µ‚Ä‚¢‚éê‡‚É‚Í‚»‚±‚ÅOK‚Æ‚·‚é
+			//æ—¢ã«å­˜åœ¨ã—ã¦ã„ã‚‹å ´åˆã«ã¯ãã“ã§OKã¨ã™ã‚‹
 			if(GetLastError() == ERROR_ALREADY_EXISTS){
 				return 1;
 			}
@@ -4038,10 +4038,10 @@ static int MakeDirectory(char* lpszDir)
 	return 0;
 }
 // ==========================================================================
-// ŠÖ”–¼FBOOL DeleteDirectory(LPCTSTR lpPathName)
-// ˆø@”FlpPathName@íœ‚·‚éƒfƒBƒŒƒNƒgƒŠ‚ÌƒpƒX–¼‚ª“ü‚Á‚½NULL‚ÅI‚í‚é•¶š—ñB
-// –ß‚è’lFŠÖ”‚ª¬Œ÷‚·‚é‚ÆA0ˆÈŠO‚Ì’l‚ª•Ô‚èAŠÖ”‚ª¸”s‚·‚é‚ÆA0‚ª•Ô‚è‚Ü‚·B
-// ‰ğ@àFƒfƒBƒŒƒNƒgƒŠ‚ğŠÛ‚²‚Æíœ‚·‚éB
+// é–¢æ•°åï¼šBOOL DeleteDirectory(LPCTSTR lpPathName)
+// å¼•ã€€æ•°ï¼šlpPathNameã€€å‰Šé™¤ã™ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ãƒ‘ã‚¹åãŒå…¥ã£ãŸNULLã§çµ‚ã‚ã‚‹æ–‡å­—åˆ—ã€‚
+// æˆ»ã‚Šå€¤ï¼šé–¢æ•°ãŒæˆåŠŸã™ã‚‹ã¨ã€0ä»¥å¤–ã®å€¤ãŒè¿”ã‚Šã€é–¢æ•°ãŒå¤±æ•—ã™ã‚‹ã¨ã€0ãŒè¿”ã‚Šã¾ã™ã€‚
+// è§£ã€€èª¬ï¼šãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ä¸¸ã”ã¨å‰Šé™¤ã™ã‚‹ã€‚
 BOOL DeleteDirectory(LPCTSTR lpPathName)
 {
 	CFileFind fnd;
@@ -4053,27 +4053,27 @@ BOOL DeleteDirectory(LPCTSTR lpPathName)
 		while(i){
 			i = fnd.FindNextFile();
 
-			// ƒtƒ@ƒCƒ‹–¼‚ª"."‚©".."‚Ìê‡‚ÍŸ‚ğŒŸõ
+			// ãƒ•ã‚¡ã‚¤ãƒ«åãŒ"."ã‹".."ã®å ´åˆã¯æ¬¡ã‚’æ¤œç´¢
 			if(fnd.IsDots())
 				continue;
 
-			// íœ‚·‚éƒtƒ@ƒCƒ‹–¼æ“¾
-			// GetFilePath()‚É‚ÍƒoƒO‚ª‚ ‚è³Šm‚Éæ“¾‚Å‚«‚È‚¢ê‡‚ª‚ ‚é‚Ì‚Åg‚í‚È‚¢
+			// å‰Šé™¤ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«åå–å¾—
+			// GetFilePath()ã«ã¯ãƒã‚°ãŒã‚ã‚Šæ­£ç¢ºã«å–å¾—ã§ããªã„å ´åˆãŒã‚ã‚‹ã®ã§ä½¿ã‚ãªã„
 			CString strDeleteFile = lpPathName;
 			strDeleteFile.TrimRight('\\');
 			strDeleteFile += _T("\\") + fnd.GetFileName();
 
-			// ƒtƒHƒ‹ƒ_‚¾‚Á‚½ê‡AÄ‹AŒÄ‚Ño‚µ‚Å‚»‚ÌƒtƒHƒ‹ƒ_‚ğíœ
+			// ãƒ•ã‚©ãƒ«ãƒ€ã ã£ãŸå ´åˆã€å†å¸°å‘¼ã³å‡ºã—ã§ãã®ãƒ•ã‚©ãƒ«ãƒ€ã‚’å‰Šé™¤
 			if(fnd.IsDirectory())
 				DeleteDirectory(strDeleteFile);
 
-			// ƒtƒ@ƒCƒ‹‚Ìíœ
+			// ãƒ•ã‚¡ã‚¤ãƒ«ã®å‰Šé™¤
 			else
 				::DeleteFile(strDeleteFile);
 		}
 		fnd.Close();
 
-		// ƒtƒHƒ‹ƒ_‚Ìíœ
+		// ãƒ•ã‚©ãƒ«ãƒ€ã®å‰Šé™¤
 		return ::RemoveDirectory(lpPathName);
 	}
 	return FALSE;
@@ -4084,8 +4084,8 @@ static BOOL CopyDirectory(LPCTSTR lpszSource,LPCTSTR lpszDest)
 	char szFrom[MAX_PATH];
 	char szTo[MAX_PATH];
 
-	_fullpath(szFrom, (const char *)lpszSource, sizeof(szFrom)); //â‘ÎƒpƒX‚É•ÏŠ·
-	_fullpath(szTo, (const char *)lpszDest, sizeof(szTo)); //â‘ÎƒpƒX‚É•ÏŠ·
+	_fullpath(szFrom, (const char *)lpszSource, sizeof(szFrom)); //çµ¶å¯¾ãƒ‘ã‚¹ã«å¤‰æ›
+	_fullpath(szTo, (const char *)lpszDest, sizeof(szTo)); //çµ¶å¯¾ãƒ‘ã‚¹ã«å¤‰æ›
 
 	ZeroMemory(&tSHFile, sizeof(SHFILEOPSTRUCT));
 
@@ -4094,17 +4094,17 @@ static BOOL CopyDirectory(LPCTSTR lpszSource,LPCTSTR lpszDest)
 
 	tSHFile.hwnd = NULL;
 	tSHFile.wFunc = FO_COPY;
-	//2009.12.17 bagus C³ --{--
+	//2009.12.17 bagus ä¿®æ­£ --{--
 	//tSHFile.fFlags = FOF_SILENT | FOF_NOCONFIRMMKDIR | FOF_NOERRORUI | FOF_SIMPLEPROGRESS ;
 	tSHFile.fFlags = FOF_NOCONFIRMMKDIR | FOF_NOERRORUI ;
-	//2009.12.17 bagus C³ --}--
+	//2009.12.17 bagus ä¿®æ­£ --}--
 
 	tSHFile.fAnyOperationsAborted = TRUE;
 	tSHFile.hNameMappings = NULL;
-	//2009.12.17 bagus C³ --{--
+	//2009.12.17 bagus ä¿®æ­£ --{--
 	//tSHFile.lpszProgressTitle = NULL;
 	tSHFile.lpszProgressTitle = "Copy";
-	//2009.12.17 bagus C³ --}--
+	//2009.12.17 bagus ä¿®æ­£ --}--
 
 	from += "0";
 	to += "0";
@@ -4114,7 +4114,7 @@ static BOOL CopyDirectory(LPCTSTR lpszSource,LPCTSTR lpszDest)
 	tSHFile.pFrom = (LPCTSTR)from;
 	tSHFile.pTo = (LPCTSTR)to;
 
-	return SHFileOperation( &tSHFile ); // Às
+	return SHFileOperation( &tSHFile ); // å®Ÿè¡Œ
 }
 
 BOOL SetBackupPath(LPCTSTR lpszBackupPath,BOOL bUse)
@@ -4141,13 +4141,13 @@ BOOL BackupRecipe(LPCTSTR lpszSourcePath)
 	if(g_bUseBackup){
 
 		//2010.01.19 bagus Recipe Backup --{--
-		//ƒeƒXƒgƒ‚[ƒh‚ÌƒŒƒVƒs‚ÍƒoƒbƒNƒAƒbƒv‚µ‚È‚¢
+		//ãƒ†ã‚¹ãƒˆãƒ¢ãƒ¼ãƒ‰ã®ãƒ¬ã‚·ãƒ”ã¯ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã—ãªã„
 		if(szFile[0] == '_'){
 			return TRUE;
 		}
 		//2010.01.19 bagus Recipe Backup --}--
 
-		//DB\‚©‚ç‚ÌƒfƒBƒŒƒNƒgƒŠƒpƒX‚ğæ“¾
+		//DB\ã‹ã‚‰ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãƒ‘ã‚¹ã‚’å–å¾—
 		pSubDirPos = strstr(szDir,DB_DIR);
 		if(pSubDirPos == NULL){
 			pSubDirPos = ".";
@@ -4158,12 +4158,12 @@ BOOL BackupRecipe(LPCTSTR lpszSourcePath)
 		wsprintf(szToPath,"%s\\%s",g_szBackupPath,DB_DIR_NAME);
 		DWORD dwRet = GetFileAttributes(szToPath);
 		if(dwRet == (DWORD)-1){
-			//DBƒfƒBƒŒƒNƒgƒŠ‚ª‚È‚¯‚ê‚Îƒtƒ‹ƒoƒbƒNƒAƒbƒv
+			//DBãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒãªã‘ã‚Œã°ãƒ•ãƒ«ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—
 			return BackupAllRecipe();
 
 		}
 		//2009.12.25 bagus Recipe Backup --}--
-		//ƒoƒbƒNƒAƒbƒvæ‚ÌƒfƒBƒŒƒNƒgƒŠ‚ğì¬‚µ‚Ä‚¨‚­
+		//ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—å…ˆã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ä½œæˆã—ã¦ãŠã
 		wsprintf(szToPath,"%s\\%s\\%s",g_szBackupPath,DB_DIR_NAME,pSubDirPos);
 		//2009.12.25 bagus Recipe Backup --{--
 		DeleteDirectory(szToPath);
@@ -4193,14 +4193,14 @@ BOOL DeleteBackupRecipe(LPCTSTR lpszSourcePath)
 
 	_splitpath(lpszSourcePath,szDrive,szDir,szFile,szExt);
 	if(g_bUseBackup){
-		//DB\‚©‚ç‚ÌƒfƒBƒŒƒNƒgƒŠƒpƒX‚ğæ“¾
+		//DB\ã‹ã‚‰ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãƒ‘ã‚¹ã‚’å–å¾—
 		pSubDirPos = strstr(szDir,DB_DIR);
 		if(pSubDirPos == NULL){
 			pSubDirPos = ".";
 		}else{
 			pSubDirPos = pSubDirPos + strlen(DB_DIR);
 		}
-		//íœ‚·‚é
+		//å‰Šé™¤ã™ã‚‹
 		wsprintf(szToPath,"%s\\%s\\%s\\%s%s",g_szBackupPath,DB_DIR_NAME,pSubDirPos,szFile,szExt);
 		bRet = DeleteFile(szToPath);
 	}
@@ -4212,19 +4212,19 @@ BOOL DeleteBackupRecipe(LPCTSTR lpszSourcePath)
 //2009.12.25 bagus Recipe Backup --}--
 BOOL BackupAllRecipe()
 {
-	//DB_DIRˆÈ‰º‚ğw’è‚³‚ê‚½ƒoƒbƒNƒAƒbƒvƒpƒX‚ÉŠÛ‚²‚Æ•Û‘¶‚µ‚Ü‚·B
-	//‚±‚Ì‚ÉA‚à‚Æ‚à‚ÆƒoƒbƒNƒAƒbƒvƒpƒX‚É‘¶İ‚µ‚Ä‚¢‚½ƒtƒHƒ‹ƒ_‚Æƒtƒ@ƒCƒ‹‚Ííœ‚³‚ê‚Ü‚·B
+	//DB_DIRä»¥ä¸‹ã‚’æŒ‡å®šã•ã‚ŒãŸãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ‘ã‚¹ã«ä¸¸ã”ã¨ä¿å­˜ã—ã¾ã™ã€‚
+	//ã“ã®æ™‚ã«ã€ã‚‚ã¨ã‚‚ã¨ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ‘ã‚¹ã«å­˜åœ¨ã—ã¦ã„ãŸãƒ•ã‚©ãƒ«ãƒ€ã¨ãƒ•ã‚¡ã‚¤ãƒ«ã¯å‰Šé™¤ã•ã‚Œã¾ã™ã€‚
 	DWORD dwRet;
 	CString strPath;
 
-	//ƒoƒbƒNƒAƒbƒvƒpƒX‚ªw’è‚³‚ê‚Ä‚¢‚È‚¢‚Ì‚Å‚È‚É‚à‚µ‚È‚¢
+	//ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ‘ã‚¹ãŒæŒ‡å®šã•ã‚Œã¦ã„ãªã„ã®ã§ãªã«ã‚‚ã—ãªã„
 	if(strlen(g_szBackupPath) == 0)
 		return TRUE;
 
 	strPath = g_szBackupPath;
 	strPath += "\\" DB_DIR_NAME;
 
-	//ƒoƒbƒNƒAƒbƒvƒpƒX‚É‘¶İ‚·‚éŠù‘¶‚Ìƒtƒ@ƒCƒ‹‚ÆƒfƒBƒŒƒNƒgƒŠ‚ğíœ‚·‚é
+	//ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ‘ã‚¹ã«å­˜åœ¨ã™ã‚‹æ—¢å­˜ã®ãƒ•ã‚¡ã‚¤ãƒ«ã¨ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’å‰Šé™¤ã™ã‚‹
 	//dwRet = GetFileAttributes(g_szBackupPath);
 	dwRet = GetFileAttributes(strPath.GetBuffer(0));
 	if(dwRet != (DWORD)-1 && (dwRet & FILE_ATTRIBUTE_DIRECTORY) != 0){
@@ -4234,18 +4234,18 @@ BOOL BackupAllRecipe()
 			return FALSE;
 		//2009.12.21 bagus Recipe Backup --}--
 	}
-	//ƒoƒbƒNƒAƒbƒv—p‚ÌƒfƒBƒŒƒNƒgƒŠ‚ğì¬‚·‚é
+	//ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ç”¨ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ä½œæˆã™ã‚‹
 	//if(!MakeDirectory(g_szBackupPath))
 	if(!MakeDirectory(strPath.GetBuffer(0)))
 		return FALSE;
 
-	//‘Sƒtƒ@ƒCƒ‹‚ğƒRƒs[‚·‚é
+	//å…¨ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚³ãƒ”ãƒ¼ã™ã‚‹
 	return CopyDirectory(DB_DIR "*",strPath.GetBuffer(0)) == 0;
 }
 BOOL RestoreAllRecipe()
 {
-	//DB_DIRˆÈ‰º‚Éw’è‚³‚ê‚½ƒoƒbƒNƒAƒbƒvƒpƒX‚©‚çŠÛ‚²‚ÆƒRƒs[‚µ‚Ü‚·
-	//‚±‚Ì‚ÉA‚à‚Æ‚à‚ÆDB_DIR‚É‘¶İ‚µ‚Ä‚¢‚½ƒtƒHƒ‹ƒ_‚Æƒtƒ@ƒCƒ‹‚Ííœ‚³‚ê‚Ü‚·B
+	//DB_DIRä»¥ä¸‹ã«æŒ‡å®šã•ã‚ŒãŸãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ‘ã‚¹ã‹ã‚‰ä¸¸ã”ã¨ã‚³ãƒ”ãƒ¼ã—ã¾ã™
+	//ã“ã®æ™‚ã«ã€ã‚‚ã¨ã‚‚ã¨DB_DIRã«å­˜åœ¨ã—ã¦ã„ãŸãƒ•ã‚©ãƒ«ãƒ€ã¨ãƒ•ã‚¡ã‚¤ãƒ«ã¯å‰Šé™¤ã•ã‚Œã¾ã™ã€‚
 	DWORD dwRet;
 	CString strPath;
 	//2009.12.25 bagus --{--
@@ -4264,20 +4264,20 @@ BOOL RestoreAllRecipe()
 	char *pDirName;
 	//2009.12.25 bagus --}--
 
-	//ƒoƒbƒNƒAƒbƒvƒpƒX‚ªw’è‚³‚ê‚Ä‚¢‚È‚¢‚Ì‚Å‚È‚É‚à‚µ‚È‚¢
+	//ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ‘ã‚¹ãŒæŒ‡å®šã•ã‚Œã¦ã„ãªã„ã®ã§ãªã«ã‚‚ã—ãªã„
 	if(strlen(g_szBackupPath) == 0)
 		return TRUE;
 
 
 	for(int n = 0;n < sizeof(dirNames)/sizeof(dirNames[0]);n++){
 		pDirName = dirNames[n];
-		//‘Sƒtƒ@ƒCƒ‹‚ğƒRƒs[‚·‚é
+		//å…¨ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚³ãƒ”ãƒ¼ã™ã‚‹
 		strPath = g_szBackupPath;
 		strPath = strPath + "\\" DB_DIR_NAME;
 		strPath = strPath + "\\";
 		strPath = strPath + pDirName;
 
-		//ƒRƒs[Œ³‚ÌƒfƒBƒŒƒNƒgƒŠ‚ª‘¶İ‚µ‚È‚¢ê‡‚É‚Í‚È‚É‚à‚µ‚È‚¢
+		//ã‚³ãƒ”ãƒ¼å…ƒã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒå­˜åœ¨ã—ãªã„å ´åˆã«ã¯ãªã«ã‚‚ã—ãªã„
 		dwRet = GetFileAttributes(strPath.GetBuffer(0));
 
 		if(dwRet == (DWORD)-1 || (dwRet & FILE_ATTRIBUTE_DIRECTORY) == 0){
@@ -4285,7 +4285,7 @@ BOOL RestoreAllRecipe()
 			continue;
 		}
 
-		//ƒoƒbƒNƒAƒbƒvƒpƒX‚É‘¶İ‚·‚éŠù‘¶‚Ìƒtƒ@ƒCƒ‹‚ÆƒfƒBƒŒƒNƒgƒŠ‚ğíœ‚·‚é
+		//ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ‘ã‚¹ã«å­˜åœ¨ã™ã‚‹æ—¢å­˜ã®ãƒ•ã‚¡ã‚¤ãƒ«ã¨ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’å‰Šé™¤ã™ã‚‹
 		strTo = DB_DIR;
 		strTo = strTo + "\\";
 		strTo = strTo + pDirName;
@@ -4309,7 +4309,7 @@ BOOL RestoreAllRecipe()
 BOOL SetStressParam(LPVOID pVoid, LPCSTR lpszName, int iType)
 {
 	char szFilePath[_MAX_PATH];
-	/* ‰—Í‘ª’è‚Ìg—p‚·‚é–ŒŒú’l‚Ìƒ^ƒCƒv‚ğæ“¾ */
+	/* å¿œåŠ›æ¸¬å®šã®ä½¿ç”¨ã™ã‚‹è†œåšå€¤ã®ã‚¿ã‚¤ãƒ—ã‚’å–å¾— */
 	TCHAR l_tszSec[64] = StressParamSec;
 	TCHAR l_tszKey[64] = PriorityKey;
 	TCHAR l_tszTemp[64];
@@ -4335,12 +4335,12 @@ BOOL SetStressParam(LPVOID pVoid, LPCSTR lpszName, int iType)
 	AddAbsPath(szFilePath);
 
 	STRESS_PARAM_INFO *l_pStressParamInfo = (STRESS_PARAM_INFO *)pVoid;
-	/* ƒXƒgƒŒƒX‚Ì LS ’è‹`‚Ì‘‚İ	*/
+	/* ã‚¹ãƒˆãƒ¬ã‚¹ã® LS å®šç¾©ã®æ›¸è¾¼ã¿	*/
 	_stprintf(l_tszTemp,_T("%s"),lg_StressParamInfo.bPriority ? _T("TRUE") : _T("FALSE"));
 	if(FALSE == ::WritePrivateProfileString(l_tszSec, l_tszKey, l_tszTemp, szFilePath))
 		return FALSE;
 
-	/* ƒXƒgƒŒƒXİ’è‚ğ“Ço‚µFƒ‰ƒCƒ“”‚Æƒ‰ƒCƒ“–ˆƒZƒNƒVƒ‡ƒ“”	*/
+	/* ã‚¹ãƒˆãƒ¬ã‚¹è¨­å®šã‚’èª­å‡ºã—ï¼šãƒ©ã‚¤ãƒ³æ•°ã¨ãƒ©ã‚¤ãƒ³æ¯ã‚»ã‚¯ã‚·ãƒ§ãƒ³æ•°	*/
 	STRESS_CONFIG l_StressConfig;
 	ConfigFile_GetNanoSpecIni(&l_StressConfig, CONFIG_FILE_STRESS_CONFIG);
 	DWORD l_dwLineNum = l_StressConfig.dwLiftPinNumberOfLine;
@@ -4350,7 +4350,7 @@ BOOL SetStressParam(LPVOID pVoid, LPCSTR lpszName, int iType)
 	DWORD iLine;
 	for (iLine = 0; iLine < l_dwLineNum; iLine++) {
 		for (DWORD iPoint = 0; iPoint < PIN_INTERVAL; iPoint++){
-			/* ƒZƒNƒVƒ‡ƒ“ˆÊ’u‚ğ“Ço‚µ	*/
+			/* ã‚»ã‚¯ã‚·ãƒ§ãƒ³ä½ç½®ã‚’èª­å‡ºã—	*/
 			_stprintf(l_tszKey, LnPtThickness, iLine + 1, iPoint + 1);
 			_stprintf(l_tszTemp,_T("%.3f"),lg_StressParamInfo.Line[iLine].dPtThick[iPoint]);
 			if(0 == WritePrivateProfileString(l_tszSec, l_tszKey,l_tszTemp,szFilePath))
@@ -4383,12 +4383,12 @@ BOOL LoadStressParam(LPVOID pVoid, LPCSTR lpszName, int iType)
 	}
 
 	AddAbsPath(szFilePath);
-	// ƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢ê‡
+	// ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„å ´åˆ
 	if(!FILEEXIST(szFilePath, &lastWriteSystemTime)){
 		return FALSE;
 	}
 
-	/* ‰—Í‘ª’è‚Ìg—p‚·‚é–ŒŒú’l‚Ìƒ^ƒCƒv‚ğæ“¾ */
+	/* å¿œåŠ›æ¸¬å®šã®ä½¿ç”¨ã™ã‚‹è†œåšå€¤ã®ã‚¿ã‚¤ãƒ—ã‚’å–å¾— */
 	TCHAR l_tszSec[64] = StressParamSec;
 	TCHAR l_tszKey[64] = PriorityKey;
 	TCHAR l_tszTemp[64];
@@ -4400,7 +4400,7 @@ BOOL LoadStressParam(LPVOID pVoid, LPCSTR lpszName, int iType)
 
 	//if(lg_StressParamInfo.bPriority == TRUE)
 	//{
-		/* ƒXƒgƒŒƒXİ’è‚ğ“Ço‚µFƒ‰ƒCƒ“”	*/
+		/* ã‚¹ãƒˆãƒ¬ã‚¹è¨­å®šã‚’èª­å‡ºã—ï¼šãƒ©ã‚¤ãƒ³æ•°	*/
 		STRESS_CONFIG l_StressConfig;
 		ConfigFile_GetNanoSpecIni(&l_StressConfig, CONFIG_FILE_STRESS_CONFIG);
 		DWORD l_dwLineNum = l_StressConfig.dwLiftPinNumberOfLine;
@@ -4410,7 +4410,7 @@ BOOL LoadStressParam(LPVOID pVoid, LPCSTR lpszName, int iType)
 		DWORD iLine;
 	for (iLine = 0; iLine < l_dwLineNum; iLine++) {
 			for (DWORD iPoint = 0; iPoint < PIN_INTERVAL; iPoint++) {
-				/* ŒÅ’è–ŒŒú’l‚ğ“Ço‚µ	*/
+				/* å›ºå®šè†œåšå€¤ã‚’èª­å‡ºã—	*/
 				_stprintf(l_tszKey, LnPtThickness, iLine + 1, iPoint + 1);
 				if(0 == ::GetPrivateProfileString(l_tszSec, l_tszKey, _T("0.0"), l_tszTemp, sizeof(l_tszTemp), szFilePath))
 					return FALSE;

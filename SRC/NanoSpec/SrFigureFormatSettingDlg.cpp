@@ -1,4 +1,4 @@
-// SrFigureFormatSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SrFigureFormatSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -16,7 +16,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // #########################################################################
-// SrFigureFormatSettingDlg ƒ_ƒCƒAƒƒO
+// SrFigureFormatSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // #########################################################################
 
 // =========================================================================
@@ -48,13 +48,13 @@ BEGIN_MESSAGE_MAP(SrFigureFormatSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// SrFigureFormatSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// SrFigureFormatSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
 BOOL SrFigureFormatSettingDlg::OnInitDialog()
 {
-	//–¢‘Î‰‹@”\disable
+	//æœªå¯¾å¿œæ©Ÿèƒ½disable
 	GetDlgItem(IDC_THICKNESS_FORMAT)->ShowWindow(SW_HIDE);
 	GetDlgItem(IDC_REFLECTANCE_FORMAT)->ShowWindow(SW_HIDE);
 	GetDlgItem(IDC_TRANSMITTANCE_FORMAT)->ShowWindow(SW_HIDE);
@@ -68,20 +68,20 @@ BOOL SrFigureFormatSettingDlg::OnInitDialog()
 	GetDlgItem(IDC_CHROMATICITY_LABEL)->ShowWindow(SW_HIDE);
 	GetDlgItem(IDC_OPTICALDENSITY_LABEL)->ShowWindow(SW_HIDE);
 
-	///// “®“IƒTƒCƒYE”z’u•ÏX /////
+	///// å‹•çš„ã‚µã‚¤ã‚ºãƒ»é…ç½®å¤‰æ›´ /////
 	GetDlgItem(IDC_UNIT_LABEL)->SetWindowPos(&wndTop,150,10,0,0,SWP_NOSIZE);
 	GetDlgItem(IDC_THICKNESS_UNIT)->SetWindowPos(&wndTop,150,30,0,0,SWP_NOSIZE);
-/* modified 2017.04.15 hmenjo ®”•\¦‰» ---------- { ---------- */
+/* modified 2017.04.15 hmenjo æ•´æ•°è¡¨ç¤ºåŒ– ---------- { ---------- */
 //	GetDlgItem(IDOK)->SetWindowPos(&wndTop,15,65,0,0,SWP_NOSIZE);
 //	GetDlgItem(IDCANCEL)->SetWindowPos(&wndTop,115,65,0,0,SWP_NOSIZE);
 //	SrFigureFormatSettingDlg::SetWindowPos(&wndTop,0,0,230,125,SWP_NOMOVE);
-/* modified 2017.04.15 hmenjo ®”•\¦‰» ----------              */
+/* modified 2017.04.15 hmenjo æ•´æ•°è¡¨ç¤ºåŒ– ----------              */
 	GetDlgItem(IDOK)->SetWindowPos(&wndTop, 15, 95, 0, 0, SWP_NOSIZE);
 	GetDlgItem(IDCANCEL)->SetWindowPos(&wndTop, 115, 95, 0, 0, SWP_NOSIZE);
 	SrFigureFormatSettingDlg::SetWindowPos(&wndTop, 0, 0, 230, 155, SWP_NOMOVE);
-/* modified 2017.04.15 hmenjo ®”•\¦‰» ---------- } ---------- */
-/* added 2017.04.15 hmenjo ®”•\¦‰» ---------- { ---------- */
-	/* u®”•”‚Ì‚İv‚Ì•\¦ˆÊ’u•ÏX	*/
+/* modified 2017.04.15 hmenjo æ•´æ•°è¡¨ç¤ºåŒ– ---------- } ---------- */
+/* added 2017.04.15 hmenjo æ•´æ•°è¡¨ç¤ºåŒ– ---------- { ---------- */
+	/* ã€Œæ•´æ•°éƒ¨ã®ã¿ã€ã®è¡¨ç¤ºä½ç½®å¤‰æ›´	*/
 	RECT l_rectReflectanceLabel;
 	this->GetDlgItem(IDC_REFLECTANCE_LABEL)->GetWindowRect(&l_rectReflectanceLabel);
 	this->ScreenToClient(&l_rectReflectanceLabel);
@@ -89,11 +89,11 @@ BOOL SrFigureFormatSettingDlg::OnInitDialog()
 												l_rectReflectanceLabel.left,
 												l_rectReflectanceLabel.top,
 												0, 0, SWP_NOSIZE);
-/* added 2017.04.15 hmenjo ®”•\¦‰» ---------- } ---------- */
+/* added 2017.04.15 hmenjo æ•´æ•°è¡¨ç¤ºåŒ– ---------- } ---------- */
 
 	CDialog::OnInitDialog();
 
-	// TODO: ‚±‚ÌˆÊ’u‚É‰Šú‰»‚Ì•â‘«ˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«åˆæœŸåŒ–ã®è£œè¶³å‡¦ç†ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	///// OK Button /////
 	m_OkButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
@@ -106,8 +106,8 @@ BOOL SrFigureFormatSettingDlg::OnInitDialog()
 	///// SetData /////
 	ConfigFile_GetNanoSpecIni(&m_SrFigureFormat, CONFIG_FILE_SR_FIGURE_FORMAT);
 	UpDate(FALSE);
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
@@ -156,14 +156,14 @@ void SrFigureFormatSettingDlg::UpDate(BOOL bValid)
 		// Optical Density Format
 		pCombo = (CComboBox *)GetDlgItem(IDC_OPTICAL_DENSITY_FORMAT);
 		m_SrFigureFormat.nOpticalDensityFormat = pCombo->GetCurSel();
-/* added 2017.04.15 hmenjo ®”•\¦‰» ---------- { ---------- */
+/* added 2017.04.15 hmenjo æ•´æ•°è¡¨ç¤ºåŒ– ---------- { ---------- */
 		/* Thickness Integer Only	*/
 		if (0 == ((CButton*) this->GetDlgItem(IDC_CHK_INT_ONLY))->GetCheck()) {
 			m_SrFigureFormat.iThicknessIntOnly = 0;
 		} else {
 			m_SrFigureFormat.iThicknessIntOnly = 1;
 		}
-/* added 2017.04.15 hmenjo ®”•\¦‰» ---------- } ---------- */
+/* added 2017.04.15 hmenjo æ•´æ•°è¡¨ç¤ºåŒ– ---------- } ---------- */
 	}
 	else{
 
@@ -214,13 +214,13 @@ void SrFigureFormatSettingDlg::UpDate(BOOL bValid)
 			pCombo->AddString(g_lpszFigureFormat[i]);
 		}
 		pCombo->SetCurSel(m_SrFigureFormat.nOpticalDensityFormat);
-/* added 2017.04.15 hmenjo ®”•\¦‰» ---------- { ---------- */
+/* added 2017.04.15 hmenjo æ•´æ•°è¡¨ç¤ºåŒ– ---------- { ---------- */
 		/* Thickness Integer Only	*/
 		if (0 == m_SrFigureFormat.iThicknessIntOnly) {
 			((CButton*) this->GetDlgItem(IDC_CHK_INT_ONLY))->SetCheck(0);
 		} else {
 			((CButton*) this->GetDlgItem(IDC_CHK_INT_ONLY))->SetCheck(1);
 		}
-/* added 2017.04.15 hmenjo ®”•\¦‰» ---------- } ---------- */
+/* added 2017.04.15 hmenjo æ•´æ•°è¡¨ç¤ºåŒ– ---------- } ---------- */
 	}
 }

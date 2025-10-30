@@ -1,4 +1,4 @@
-// ManualLoadPositionSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// ManualLoadPositionSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -22,11 +22,11 @@ static char THIS_FILE[] = __FILE__;
 // ==========================================================================
 //#define MANUALLOADPOSITIONSETTING_CAPTION 	"MANUAL LOAD POSITION SETTING"
 //#define MANUALLOADPOSITIONSETTING_MESSAGE 	"MANUAL LOAD POSITION SETTING"
-//#define MANUALLOADPOSITIONSETTING_CAPTION 	  "ƒ}ƒjƒ…ƒAƒ‹ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“Ý’è"
-//#define MANUALLOADPOSITIONSETTING_MESSAGE 	  "ƒ}ƒjƒ…ƒAƒ‹ƒ[ƒhƒ|ƒWƒVƒ‡ƒ“Ý’è"
+//#define MANUALLOADPOSITIONSETTING_CAPTION 	  "ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³è¨­å®š"
+//#define MANUALLOADPOSITIONSETTING_MESSAGE 	  "ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ­ãƒ¼ãƒ‰ãƒã‚¸ã‚·ãƒ§ãƒ³è¨­å®š"
 
 // #########################################################################
-// CManualLoadPositionSettingDlg ƒ_ƒCƒAƒƒO
+// CManualLoadPositionSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // #########################################################################
 
 // =========================================================================
@@ -61,7 +61,7 @@ BEGIN_MESSAGE_MAP(CManualLoadPositionSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CManualLoadPositionSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CManualLoadPositionSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -90,8 +90,8 @@ BOOL CManualLoadPositionSettingDlg::OnInitDialog()
 	m_stcManualLoadPosY.SubclassWindow(GetDlgItem(IDC_MANUAL_LOAD_POSITION_Y)->GetSafeHwnd());
 	m_stcManualLoadPosY.SetBkColor(REFERENCE_COLOR);
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ðÝ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================

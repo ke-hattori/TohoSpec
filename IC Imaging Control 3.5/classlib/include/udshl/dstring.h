@@ -1,4 +1,4 @@
-
+﻿
 #ifndef DSTRING_H_INC_
 #define DSTRING_H_INC_
 

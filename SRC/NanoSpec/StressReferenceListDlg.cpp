@@ -1,4 +1,4 @@
-// StressReferenceListDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// StressReferenceListDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -13,20 +13,20 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CStressReferenceListDlg ƒ_ƒCƒAƒƒO
+// CStressReferenceListDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 
 CStressReferenceListDlg::CStressReferenceListDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CStressReferenceListDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CStressReferenceListDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_INIT
 
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ä¿®æ­£ --{--
 	m_bListMode = FALSE;
 	m_strSampleID = "";
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ä¿®æ­£ --}--
 }
 
 
@@ -34,13 +34,13 @@ void CStressReferenceListDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CStressReferenceListDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_MAP
 	DDX_Control(pDX, IDCANCEL, m_CancelButton);
 	DDX_Control(pDX, IDC_DELETE_REFERENCE_BUTTON, m_DeleteReferenceButton);
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ä¿®æ­£ --{--
 	DDX_Control(pDX, IDOK, m_OkButton);
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ä¿®æ­£ --}--
 
 	DDX_Control(pDX, IDC_REFERENCE_LIST, m_StressReferenceListCtrl);
 }
@@ -54,7 +54,7 @@ BEGIN_MESSAGE_MAP(CStressReferenceListDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CStressReferenceListDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CStressReferenceListDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 BOOL CStressReferenceListDlg::OnInitDialog()
 {
@@ -74,7 +74,7 @@ BOOL CStressReferenceListDlg::OnInitDialog()
 	StressReferenceList_Init();
 	SetStressReferenceListData();
 
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ä¿®æ­£ --{--
 	///// Ok Button /////
 	m_OkButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_OkButton.DrawFlatFocus(TRUE);
@@ -92,15 +92,15 @@ BOOL CStressReferenceListDlg::OnInitDialog()
 		LoadStringML(IDS_REFERENCE_LIST_CLOSE, strBuffer, "CLOSE");
 		SetDlgItemText(IDCANCEL, strBuffer);
 	}
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ä¿®æ­£ --}--
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 void CStressReferenceListDlg::OnDeleteReferenceButton()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«é€šçŸ¥ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	if (!DeleteStressReference()) {
 		// Err:Delete
@@ -111,7 +111,7 @@ void CStressReferenceListDlg::OnDeleteReferenceButton()
 
 void CStressReferenceListDlg::OnCancel()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚É“Á•Ê‚ÈŒãˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ã“ã®ä½ç½®ã«ç‰¹åˆ¥ãªå¾Œå‡¦ç†ã‚’è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 
 	CDialog::OnCancel();
 }
@@ -121,7 +121,7 @@ void CStressReferenceListDlg::StressReferenceList_Init()
 	LV_COLUMN listcol;
 	int ItemMax;
 
-// 2009.10.28 bagus Stress ’Ç‰ÁC³ --{--
+// 2009.10.28 bagus Stress è¿½åŠ ä¿®æ­£ --{--
 #if 0
 	int Width[] = {
 		198,
@@ -130,9 +130,9 @@ void CStressReferenceListDlg::StressReferenceList_Init()
 	};
 
 	LPTSTR pszItemJPN[] = {
-		"ƒTƒ“ƒvƒ‹ID",
-		"ƒŒƒVƒs–¼",
-		"ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾“ú",
+		"ã‚µãƒ³ãƒ—ãƒ«ID",
+		"ãƒ¬ã‚·ãƒ”å",
+		"ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—æ—¥æ™‚",
 	};
 	LPTSTR pszItemENU[] = {
 		"Sample ID",
@@ -146,15 +146,15 @@ void CStressReferenceListDlg::StressReferenceList_Init()
 	};
 
 	LPTSTR pszItemJPN[] = {
-		"ƒTƒ“ƒvƒ‹ID",
-		"ƒŠƒtƒ@ƒŒƒ“ƒXæ“¾“ú",
+		"ã‚µãƒ³ãƒ—ãƒ«ID",
+		"ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹å–å¾—æ—¥æ™‚",
 	};
 	LPTSTR pszItemENU[] = {
 		"Sample ID",
 		"Reference Set Date",
 	};
 #endif
-// 2009.10.28 bagus Stress ’Ç‰ÁC³ --}--
+// 2009.10.28 bagus Stress è¿½åŠ ä¿®æ­£ --}--
 
 	int Fmt[] = { LVCFMT_CENTER, LVCFMT_CENTER, LVCFMT_CENTER };
 
@@ -180,7 +180,7 @@ void CStressReferenceListDlg::StressReferenceList_Init()
 	m_StressReferenceListCtrl.DeleteAllItems();
 }
 
-// 2009.10.28 bagus Stress ’Ç‰ÁC³ --{--
+// 2009.10.28 bagus Stress è¿½åŠ ä¿®æ­£ --{--
 #if 0
 void CStressReferenceListDlg::SetStressReferenceListData()
 {
@@ -192,10 +192,10 @@ void CStressReferenceListDlg::SetStressReferenceListData()
 	CFileFind fnd1;
 	CFileFind fnd2;
 
-//	TCHAR drive[_MAX_DRIVE];		// ƒhƒ‰ƒCƒu
-//	TCHAR dir[_MAX_DIR];			// ƒfƒBƒŒƒNƒgƒŠ–¼
-//	TCHAR fname[_MAX_FNAME];		// ƒtƒ@ƒCƒ‹–¼
-//	TCHAR ext[_MAX_EXT];			// Šg’£q
+//	TCHAR drive[_MAX_DRIVE];		// ãƒ‰ãƒ©ã‚¤ãƒ–
+//	TCHAR dir[_MAX_DIR];			// ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå
+//	TCHAR fname[_MAX_FNAME];		// ãƒ•ã‚¡ã‚¤ãƒ«å
+//	TCHAR ext[_MAX_EXT];			// æ‹¡å¼µå­
 
 	CString	strSampleID;
 	CString	strStressRef;
@@ -223,12 +223,12 @@ void CStressReferenceListDlg::SetStressReferenceListData()
 		while(i){
 			i = fnd1.FindNextFile();
 
-			// ƒtƒ@ƒCƒ‹–¼‚ª"."‚©".."‚Ìê‡‚ÍŸ‚ğŒŸõ
+			// ãƒ•ã‚¡ã‚¤ãƒ«åãŒ"."ã‹".."ã®å ´åˆã¯æ¬¡ã‚’æ¤œç´¢
 			if(fnd1.IsDots())
 				continue;
 
 #if 0
-			// ƒtƒHƒ‹ƒ_‚¾‚Á‚½ê‡AƒTƒ“ƒvƒ‹ID‚Æ‚µ‚Äæ“¾
+			// ãƒ•ã‚©ãƒ«ãƒ€ã ã£ãŸå ´åˆã€ã‚µãƒ³ãƒ—ãƒ«IDã¨ã—ã¦å–å¾—
 			if(fnd1.IsDirectory()){
 				strStressRefPath = fnd1.GetFilePath();
 				strStressRefPath.TrimRight('\\');
@@ -336,7 +336,7 @@ void CStressReferenceListDlg::SetStressReferenceListData()
 		while(i){
 			i = fnd1.FindNextFile();
 
-			// ƒtƒ@ƒCƒ‹–¼‚ª"."‚©".."‚Ìê‡‚ÍŸ‚ğŒŸõ
+			// ãƒ•ã‚¡ã‚¤ãƒ«åãŒ"."ã‹".."ã®å ´åˆã¯æ¬¡ã‚’æ¤œç´¢
 			if(fnd1.IsDots())
 				continue;
 
@@ -369,17 +369,17 @@ void CStressReferenceListDlg::SetStressReferenceListData()
 	}
 }
 #endif
-// 2009.10.28 bagus Stress ’Ç‰ÁC³ --}--
+// 2009.10.28 bagus Stress è¿½åŠ ä¿®æ­£ --}--
 
 BOOL CStressReferenceListDlg::DeleteStressReference()
 {
-	// ‘I‘ğ‚³‚ê‚Ä‚¢‚éƒCƒ“ƒfƒbƒNƒXæ“¾
+	// é¸æŠã•ã‚Œã¦ã„ã‚‹ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹å–å¾—
 	int	nIndex;
 	nIndex = m_StressReferenceListCtrl.GetSelectionMark();
 	if ( nIndex == -1 )
 		return ( FALSE );
 
-	// ƒTƒ“ƒvƒ‹ID–¼Ìæ“¾
+	// ã‚µãƒ³ãƒ—ãƒ«IDåç§°å–å¾—
 	CString	strSampleID;
 	strSampleID = m_StressReferenceListCtrl.GetItemText(nIndex, 0);
 	strSampleID.TrimLeft();
@@ -387,13 +387,13 @@ BOOL CStressReferenceListDlg::DeleteStressReference()
 	if (strSampleID.IsEmpty())
 		return ( FALSE );
 
-	//íœ‚ÌŠm”F
+	//å‰Šé™¤ã®ç¢ºèª
 	////@@
 	CString strMessage;
 	CString strTitle;
-	//ÀÛ‚Í‚èƒ\[ƒX‚©‚çƒƒbƒZ[ƒW‚ğ‚Á‚Ä‚­‚é
+	//å®Ÿéš›ã¯ã‚Šã‚½ãƒ¼ã‚¹ã‹ã‚‰ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æŒã£ã¦ãã‚‹
 	//Saiki 20091214 Change ---->
-//	strMessage = "ƒŠƒtƒ@ƒŒƒ“ƒX‚ğíœ‚µ‚Ä‚æ‚¢‚Å‚·‚©H";
+//	strMessage = "ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã‚’å‰Šé™¤ã—ã¦ã‚ˆã„ã§ã™ã‹ï¼Ÿ";
 //	strTitle = "REFERENCE";
 //	if(MessageBox(strMessage,strTitle,MB_YESNO ) != IDYES){
 //		return FALSE;
@@ -409,7 +409,7 @@ BOOL CStressReferenceListDlg::DeleteStressReference()
 
 
 	CString strPathName;
-	////Data\Ref\StressRef“à‚ÌƒŠƒtƒ@ƒŒƒ“ƒX‚ğíœ
+	////Data\Ref\StressRefå†…ã®ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã‚’å‰Šé™¤
 	strPathName = g_szData_StressRef_Dir;
 	strPathName.TrimRight('\\');
 	strPathName += _T("\\");
@@ -417,16 +417,16 @@ BOOL CStressReferenceListDlg::DeleteStressReference()
 	strPathName += DAT_EXT;
 	DeleteFile(strPathName.GetBuffer(0));
 
-	////RESULTƒfƒBƒŒƒNƒgƒŠ“à‚ÌƒŠƒtƒ@ƒŒƒ“ƒX‚ğ‘Síœ
-	// ƒTƒ“ƒvƒ‹ID‚Ü‚Å‚ÌƒpƒXì¬
+	////RESULTãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå†…ã®ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã‚’å…¨å‰Šé™¤
+	// ã‚µãƒ³ãƒ—ãƒ«IDã¾ã§ã®ãƒ‘ã‚¹ä½œæˆ
 	strPathName = g_szResult_Dir;
 	strPathName.TrimRight('\\');
 	strPathName += _T("\\");
 	strPathName += strSampleID;
-//Saiki 20091217 Delete ----->/*ƒTƒ“ƒvƒ‹ID–¼ƒfƒBƒŒƒNƒgƒŠ[–ˆÁ‚·*/
+//Saiki 20091217 Delete ----->/*ã‚µãƒ³ãƒ—ãƒ«IDåãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãƒ¼æ¯æ¶ˆã™*/
 //	strPathName += _T("\\");
 //
-//	// ƒŠƒtƒ@ƒŒƒ“ƒXDir‚ÆFile‚ÌƒpƒXì¬
+//	// ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹Dirã¨Fileã®ãƒ‘ã‚¹ä½œæˆ
 //	CString strStressRefFile;
 //	CString strStressRefDir;
 //	strStressRefDir = strPathName;
@@ -435,10 +435,10 @@ BOOL CStressReferenceListDlg::DeleteStressReference()
 //	strStressRefFile += DAT_EXT;
 //Saiki 20091217 Delete <-----
 
-	// Diríœ‚Ì‚½‚ß‚Ì€”õ
+	// Dirå‰Šé™¤ã®ãŸã‚ã®æº–å‚™
 	CMainFrame* pMainFrame = (CMainFrame *)AfxGetMainWnd();
 
-	// íœ‚ğs‚¤
+	// å‰Šé™¤ã‚’è¡Œã†
 //Saiki 20091217 Change ----->
 //	int nRetFile, nRetDir;
 //
@@ -456,18 +456,18 @@ BOOL CStressReferenceListDlg::DeleteStressReference()
 	return ( TRUE );
 }
 
-// 2009.10.22 bagus Stress C³ --{--
+// 2009.10.22 bagus Stress ä¿®æ­£ --{--
 void CStressReferenceListDlg::OnOK()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚É‚»‚Ì‘¼‚ÌŒŸØ—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãã®ä»–ã®æ¤œè¨¼ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
-	// ‘I‘ğ‚³‚ê‚Ä‚¢‚éƒCƒ“ƒfƒbƒNƒXæ“¾
+	// é¸æŠã•ã‚Œã¦ã„ã‚‹ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹å–å¾—
 	int	nIndex;
 	nIndex = m_StressReferenceListCtrl.GetSelectionMark();
 	if ( nIndex == -1 )
 		return;
 
-	// ƒTƒ“ƒvƒ‹ID–¼Ìæ“¾
+	// ã‚µãƒ³ãƒ—ãƒ«IDåç§°å–å¾—
 	CString	strSampleID;
 	strSampleID = m_StressReferenceListCtrl.GetItemText(nIndex, 0);
 	strSampleID.TrimLeft();
@@ -479,7 +479,7 @@ void CStressReferenceListDlg::OnOK()
 
 	CDialog::OnOK();
 }
-// 2009.10.22 bagus Stress C³ --}--
+// 2009.10.22 bagus Stress ä¿®æ­£ --}--
 
 // 2009.12.03 K.Matsuo -->
 void CStressReferenceListDlg::OnDblclkReferenceList(NMHDR* pNMHDR, LRESULT* pResult)

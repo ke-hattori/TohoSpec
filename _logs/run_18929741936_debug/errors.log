@@ -1,0 +1,4 @@
+    34>D:\a\TohoSpec\TohoSpec\SRC\NanoSpec\StressLineSectionSettingDlg.cpp(3745,70): error C2059: syntax error: ';' [D:\a\TohoSpec\TohoSpec\SRC\NanoSpec\NanoSpec.vcxproj]
+    34>D:\a\TohoSpec\TohoSpec\SRC\NanoSpec\StressLineSectionSettingDlg.cpp(3745,70): error C2143: syntax error: missing '(' before ';' [D:\a\TohoSpec\TohoSpec\SRC\NanoSpec\NanoSpec.vcxproj]
+    34>D:\a\TohoSpec\TohoSpec\SRC\NanoSpec\StressLineSectionSettingDlg.cpp(3751,70): error C2059: syntax error: ';' [D:\a\TohoSpec\TohoSpec\SRC\NanoSpec\NanoSpec.vcxproj]
+    34>D:\a\TohoSpec\TohoSpec\SRC\NanoSpec\StressLineSectionSettingDlg.cpp(3751,70): error C2143: syntax error: missing '(' before ';' [D:\a\TohoSpec\TohoSpec\SRC\NanoSpec\NanoSpec.vcxproj]

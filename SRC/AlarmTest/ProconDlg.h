@@ -1,4 +1,4 @@
-// ProconDlg.h : �w�b�_�[ �t�@�C��
+﻿// ProconDlg.h : ヘッダー ファイル
 //
 
 #if !defined(AFX_PROCONDLG_H__DEA211EF_4112_4D25_BBED_8C87B4E61712__INCLUDED_)
@@ -9,31 +9,31 @@
 #endif // _MSC_VER > 1000
 
 /////////////////////////////////////////////////////////////////////////////
-// CProconDlg �_�C�A���O
+// CProconDlg ダイアログ
 
 class CProconDlg : public CDialog
 {
-// �\�z
+// 構築
 public:
-	CProconDlg(CWnd* pParent = NULL);	// �W���̃R���X�g���N�^
+	CProconDlg(CWnd* pParent = NULL);	// 標準のコンストラクタ
 
-// �_�C�A���O �f�[�^
+// ダイアログ データ
 	//{{AFX_DATA(CProconDlg)
 	enum { IDD = IDD_PROCON_DIALOG };
-		// ����: ���̈ʒu�� ClassWizard �ɂ���ăf�[�^ �����o���ǉ�����܂��B
+		// メモ: この位置に ClassWizard によってデータ メンバが追加されます。
 	//}}AFX_DATA
 
-	// ClassWizard �͉��z�֐��̃I�[�o�[���C�h�𐶐����܂��B
+	// ClassWizard は仮想関数のオーバーライドを生成します。
 	//{{AFX_VIRTUAL(CProconDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV �̃T�|�[�g
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV のサポート
 	//}}AFX_VIRTUAL
 
-// �C���v�������e�[�V����
+// インプリメンテーション
 protected:
 	HICON m_hIcon;
 
-	// �������ꂽ���b�Z�[�W �}�b�v�֐�
+	// 生成されたメッセージ マップ関数
 	//{{AFX_MSG(CProconDlg)
 	virtual BOOL OnInitDialog();
 	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
@@ -46,6 +46,6 @@ protected:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ �͑O�s�̒��O�ɒǉ��̐錾��}�����܂��B
+// Microsoft Visual C++ は前行の直前に追加の宣言を挿入します。
 
 #endif // !defined(AFX_PROCONDLG_H__DEA211EF_4112_4D25_BBED_8C87B4E61712__INCLUDED_)

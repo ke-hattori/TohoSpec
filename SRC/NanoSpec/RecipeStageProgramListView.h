@@ -1,14 +1,14 @@
-#if !defined(AFX_RECIPESTAGEPROGRAMLISTVIEW_H__C8487174_49F3_40C4_9136_BE143B2F8205__INCLUDED_)
+ï»¿#if !defined(AFX_RECIPESTAGEPROGRAMLISTVIEW_H__C8487174_49F3_40C4_9136_BE143B2F8205__INCLUDED_)
 #define AFX_RECIPESTAGEPROGRAMLISTVIEW_H__C8487174_49F3_40C4_9136_BE143B2F8205__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// RecipeStageProgramListView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// RecipeStageProgramListView.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 /////////////////////////////////////////////////////////////////////////////
-// CRecipeStageProgramListView ƒtƒH[ƒ€ ƒrƒ…[
+// CRecipeStageProgramListView ãƒ•ã‚©ãƒ¼ãƒ  ãƒ“ãƒ¥ãƒ¼
 
 #ifndef __AFXEXT_H__
 #include <afxext.h>
@@ -19,7 +19,7 @@
 class CRecipeStageProgramListView : public CNanoRecipeListUI
 {
 protected:
-	CRecipeStageProgramListView();			 // “®“I¶¬‚Ég—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CRecipeStageProgramListView();			 // å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	virtual ~CRecipeStageProgramListView();
 	DECLARE_DYNCREATE(CRecipeStageProgramListView)
 
@@ -42,6 +42,6 @@ private:
 /////////////////////////////////////////////////////////////////////////////
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_RECIPESTAGEPROGRAMLISTVIEW_H__C8487174_49F3_40C4_9136_BE143B2F8205__INCLUDED_)

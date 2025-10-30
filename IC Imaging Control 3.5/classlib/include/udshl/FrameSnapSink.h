@@ -1,4 +1,4 @@
-
+﻿
 #ifndef FRAMESNAPSINK_H_INC_
 #define FRAMESNAPSINK_H_INC_
 

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 typedef struct _RSMEASSTATUS {
 	TCHAR szMeasStatus[3 + 1];
@@ -128,7 +128,7 @@ public:
 			pRsMeasData->dVolumeResistivity 	= atof(pRsMeasData->szVolumeResistivity);
 			pRsMeasData->dConductivity 			= atof(pRsMeasData->szConductivity);
 			break;
-		case 7: // ƒI[ƒo[ƒŒƒ“ƒW
+		case 7: // ã‚ªãƒ¼ãƒãƒ¼ãƒ¬ãƒ³ã‚¸
 			pRsMeasData->chDataValid = 'O';
 			strcpy(pRsMeasData->szResistance, 			"0.000E+00");
 			strcpy(pRsMeasData->szSurfaceResistivity, 	"0.000E+00");
@@ -139,7 +139,7 @@ public:
 			pRsMeasData->dVolumeResistivity 	= atof(pRsMeasData->szVolumeResistivity);
 			pRsMeasData->dConductivity 			= atof(pRsMeasData->szConductivity);
 			break;
-		case 8: // ƒI[ƒo[ƒ[ƒh
+		case 8: // ã‚ªãƒ¼ãƒãƒ¼ãƒ­ãƒ¼ãƒ‰
 			pRsMeasData->chDataValid = 'L';
 			strcpy(pRsMeasData->szResistance, 			"0.000E+00");
 			strcpy(pRsMeasData->szSurfaceResistivity, 	"0.000E+00");

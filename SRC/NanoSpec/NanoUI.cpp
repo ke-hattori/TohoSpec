@@ -1,4 +1,4 @@
-// NanoUI.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// NanoUI.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -90,8 +90,8 @@ void CNanoUI::FontCreation(int nHeight /*= 12*/)
 										//	"MS Sans Serif"
 										//	"Arial"
 										//	"batangche" (Hangul)
-										//	"MS ƒSƒVƒbƒN"
-										//	"MS PƒSƒVƒbƒN"
+										//	"MS ã‚´ã‚·ãƒƒã‚¯"
+										//	"MS Pã‚´ã‚·ãƒƒã‚¯"
 										//	"MS UI Gothic"
 										//	"Arial"
 										//	"Times New Roman"

@@ -1,4 +1,4 @@
-// PatternFile.cpp : DLL —p‚Ì‰Šú‰»ˆ—‚Ì’è‹`‚ğs‚¢‚Ü‚·B
+ï»¿// PatternFile.cpp : DLL ç”¨ã®åˆæœŸåŒ–å‡¦ç†ã®å®šç¾©ã‚’è¡Œã„ã¾ã™ã€‚
 //
 
 #include "stdafx.h"
@@ -20,47 +20,47 @@ static CRITICAL_SECTION criticalSection;
 
 static AFX_EXTENSION_MODULE PatternFileDLL = { NULL, NULL };
 
-/* added 2009.07.01 hmenjo PatternFile ‘Š‘ÎƒpƒX‘Î‰ ---------- { ---------- */
-TCHAR g_tszProcDir[_MAX_PATH];			/* ŒÄo‚µƒvƒƒZƒX‚ÌƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
-TCHAR g_tszBaseDir[_MAX_PATH];			/* Šî€ƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
-/* added 2009.07.01 hmenjo PatternFile ‘Š‘ÎƒpƒX‘Î‰ ---------- } ---------- */
+/* added 2009.07.01 hmenjo PatternFile ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ---------- { ---------- */
+TCHAR g_tszProcDir[_MAX_PATH];			/* å‘¼å‡ºã—ãƒ—ãƒ­ã‚»ã‚¹ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª('\'ä»˜ã)*/
+TCHAR g_tszBaseDir[_MAX_PATH];			/* åŸºæº–ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª('\'ä»˜ã)*/
+/* added 2009.07.01 hmenjo PatternFile ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ---------- } ---------- */
 
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- { ---------- */
+/* added 2014.12.22 hmenjo DLL å¤šé‡èµ·å‹•é˜²æ­¢ ---------- { ---------- */
 #include <DllMutex.hxx>
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- } ---------- */
+/* added 2014.12.22 hmenjo DLL å¤šé‡èµ·å‹•é˜²æ­¢ ---------- } ---------- */
 extern "C" int APIENTRY
 DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 {
-	// lpReserved ‚ğg‚¤ê‡‚Í‚±‚±‚ğíœ‚µ‚Ä‚­‚¾‚³‚¢
+	// lpReserved ã‚’ä½¿ã†å ´åˆã¯ã“ã“ã‚’å‰Šé™¤ã—ã¦ãã ã•ã„
 	UNREFERENCED_PARAMETER(lpReserved);
 
 	if (dwReason == DLL_PROCESS_ATTACH)
 	{
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- { ---------- */
+/* added 2014.12.22 hmenjo DLL å¤šé‡èµ·å‹•é˜²æ­¢ ---------- { ---------- */
 		if (FALSE == DllMutexCreate(_T("PatternFile"))) {
 			return TRUE;
 		}
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- } ---------- */
+/* added 2014.12.22 hmenjo DLL å¤šé‡èµ·å‹•é˜²æ­¢ ---------- } ---------- */
 		TRACE0("PATTERNFILE.DLL Initializing!\n");
 
-		// Šg’£ DLL ‚ğ‚P‰ñ‚¾‚¯‰Šú‰»‚µ‚Ü‚·B
+		// æ‹¡å¼µ DLL ã‚’ï¼‘å›ã ã‘åˆæœŸåŒ–ã—ã¾ã™ã€‚
 		if (!AfxInitExtensionModule(PatternFileDLL, hInstance))
 			return 0;
 
-		// ‚±‚Ì DLL ‚ğƒŠƒ\[ƒX ƒ`ƒFƒCƒ“‚Ö‘}“ü‚µ‚Ü‚·B
-		// ƒƒ‚: Šg’£ DLL ‚ª MFC ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Å‚Í‚È‚­
-		//	 MFC •W€ DLL (ActiveX ƒRƒ“ƒgƒ[ƒ‹‚Ì‚æ‚¤‚È)
-		//	 ‚ÉˆÃ–Ù“I‚ÉƒŠƒ“ƒN‚³‚ê‚éê‡A‚±‚Ìs‚ğ DllMain
-		//	 ‚©‚çíœ‚µ‚ÄA‚±‚ÌŠg’£ DLL ‚©‚çƒGƒNƒXƒ|[ƒg
-		//	 ‚³‚ê‚½•Ê‚ÌŠÖ”“à‚Ö’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
-		//	 ‚±‚ÌŠg’£ DLL ‚ğg—p‚·‚é•W€ DLL ‚Í‚±‚ÌŠg’£ DLL
-		//	 ‚ğ‰Šú‰»‚·‚é‚½‚ß‚É–¾¦“I‚É‚»‚ÌŠÖ”‚ğŒÄ‚Ño‚µ‚Ü‚·B
-		//	 ‚»‚êˆÈŠO‚Ìê‡‚ÍACDynLinkLibrary ƒIƒuƒWƒFƒNƒg‚Í
-		//	 •W€ DLL ‚ÌƒŠƒ\[ƒX ƒ`ƒFƒCƒ“‚ÖƒAƒ^ƒbƒ`‚³‚ê‚¸A
-		//	 ‚»‚ÌŒ‹‰Êd‘å‚È–â‘è‚Æ‚È‚è‚Ü‚·B
+		// ã“ã® DLL ã‚’ãƒªã‚½ãƒ¼ã‚¹ ãƒã‚§ã‚¤ãƒ³ã¸æŒ¿å…¥ã—ã¾ã™ã€‚
+		// ãƒ¡ãƒ¢: æ‹¡å¼µ DLL ãŒ MFC ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã§ã¯ãªã
+		//	 MFC æ¨™æº– DLL (ActiveX ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®ã‚ˆã†ãª)
+		//	 ã«æš—é»™çš„ã«ãƒªãƒ³ã‚¯ã•ã‚Œã‚‹å ´åˆã€ã“ã®è¡Œã‚’ DllMain
+		//	 ã‹ã‚‰å‰Šé™¤ã—ã¦ã€ã“ã®æ‹¡å¼µ DLL ã‹ã‚‰ã‚¨ã‚¯ã‚¹ãƒãƒ¼ãƒˆ
+		//	 ã•ã‚ŒãŸåˆ¥ã®é–¢æ•°å†…ã¸è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
+		//	 ã“ã®æ‹¡å¼µ DLL ã‚’ä½¿ç”¨ã™ã‚‹æ¨™æº– DLL ã¯ã“ã®æ‹¡å¼µ DLL
+		//	 ã‚’åˆæœŸåŒ–ã™ã‚‹ãŸã‚ã«æ˜ç¤ºçš„ã«ãã®é–¢æ•°ã‚’å‘¼ã³å‡ºã—ã¾ã™ã€‚
+		//	 ãã‚Œä»¥å¤–ã®å ´åˆã¯ã€CDynLinkLibrary ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¯
+		//	 æ¨™æº– DLL ã®ãƒªã‚½ãƒ¼ã‚¹ ãƒã‚§ã‚¤ãƒ³ã¸ã‚¢ã‚¿ãƒƒãƒã•ã‚Œãšã€
+		//	 ãã®çµæœé‡å¤§ãªå•é¡Œã¨ãªã‚Šã¾ã™ã€‚
 
-/* added 2009.07.01 hmenjo PatternFile ‘Š‘ÎƒpƒX‘Î‰ ---------- { ---------- */
-		TCHAR l_tszProcessFName[_MAX_PATH];	/* ŒÄo‚µƒvƒƒZƒX‚Ìƒtƒ‹ƒpƒX*/
+/* added 2009.07.01 hmenjo PatternFile ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ---------- { ---------- */
+		TCHAR l_tszProcessFName[_MAX_PATH];	/* å‘¼å‡ºã—ãƒ—ãƒ­ã‚»ã‚¹ã®ãƒ•ãƒ«ãƒ‘ã‚¹*/
 		::GetModuleFileName(0, l_tszProcessFName, sizeof(l_tszProcessFName));
 		TCHAR l_tszDrive[_MAX_DRIVE];
 		TCHAR l_tszDir[_MAX_DIR];
@@ -77,7 +77,7 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 		if ((0 != _tcslen(g_tszBaseDir)) && (_T('\\') != g_tszBaseDir[_tcslen(g_tszBaseDir) - 1])) {
 			_tcscat(g_tszBaseDir, _T("\\"));
 		}
-/* added 2009.07.01 hmenjo PatternFile ‘Š‘ÎƒpƒX‘Î‰ ---------- } ---------- */
+/* added 2009.07.01 hmenjo PatternFile ç›¸å¯¾ãƒ‘ã‚¹å¯¾å¿œ ---------- } ---------- */
 
 		new CDynLinkLibrary(PatternFileDLL);
 
@@ -86,18 +86,18 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 	else if (dwReason == DLL_PROCESS_DETACH)
 	{
 		TRACE0("PATTERNFILE.DLL Terminating!\n");
-		// ƒfƒXƒgƒ‰ƒNƒ^‚ªŒÄ‚Ño‚³‚ê‚é‘O‚Éƒ‰ƒCƒuƒ‰ƒŠ‚ğI—¹‚µ‚Ü‚·
+		// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãŒå‘¼ã³å‡ºã•ã‚Œã‚‹å‰ã«ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã‚’çµ‚äº†ã—ã¾ã™
 		AfxTermExtensionModule(PatternFileDLL);
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- { ---------- */
+/* added 2014.12.22 hmenjo DLL å¤šé‡èµ·å‹•é˜²æ­¢ ---------- { ---------- */
 		DllMutexRelease();
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- } ---------- */
+/* added 2014.12.22 hmenjo DLL å¤šé‡èµ·å‹•é˜²æ­¢ ---------- } ---------- */
 	}
 	return 1;	// ok
 }
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : PatternFile_Lock
-// Purpose	  : PatternFile‚Ì”r‘¼§ŒäiƒƒbƒNj
+// Purpose	  : PatternFileã®æ’ä»–åˆ¶å¾¡ï¼ˆãƒ­ãƒƒã‚¯ï¼‰
 void PATTERNFILEAPI PatternFile_Lock()
 {
 	::EnterCriticalSection(&criticalSection);
@@ -105,7 +105,7 @@ void PATTERNFILEAPI PatternFile_Lock()
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : PatternFile_Unlock
-// Purpose	  : PatternFile‚Ì”r‘¼§ŒäiƒAƒ“ƒƒbƒNj
+// Purpose	  : PatternFileã®æ’ä»–åˆ¶å¾¡ï¼ˆã‚¢ãƒ³ãƒ­ãƒƒã‚¯ï¼‰
 void PATTERNFILEAPI PatternFile_Unlock()
 {
 	::LeaveCriticalSection(&criticalSection);
@@ -113,13 +113,13 @@ void PATTERNFILEAPI PatternFile_Unlock()
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : PatternFile_LoadPointList
-// Purpose	  : PatternFile‚Ìƒpƒ^[ƒ“ƒŠƒXƒg‚Ì“Ç‚İ‚İ
-// Parameters : pPoint		---> SITE_PATTERN‚Ì”z—ñ
-//				pNumScans	---> “Ç‚İ‚Ş‘ª’èƒ|ƒCƒ“ƒg”
-//				pszFileName ---> ƒtƒ@ƒCƒ‹–¼
+// Purpose	  : PatternFileã®ãƒ‘ã‚¿ãƒ¼ãƒ³ãƒªã‚¹ãƒˆã®èª­ã¿è¾¼ã¿
+// Parameters : pPoint		---> SITE_PATTERNã®é…åˆ—
+//				pNumScans	---> èª­ã¿è¾¼ã‚€æ¸¬å®šãƒã‚¤ãƒ³ãƒˆæ•°
+//				pszFileName ---> ãƒ•ã‚¡ã‚¤ãƒ«å
 //
-// Returns	  : TRUE  ---> “Ç‚İ‚İ¬Œ÷
-//				FALSE ---> “Ç‚İ‚İ¸”s
+// Returns	  : TRUE  ---> èª­ã¿è¾¼ã¿æˆåŠŸ
+//				FALSE ---> èª­ã¿è¾¼ã¿å¤±æ•—
 BOOL PATTERNFILEAPI PatternFile_LoadPointList(SITE_PATTERN* pPoint, WORD* pNumScans,
 	LPCSTR pszFileName)
 {
@@ -132,13 +132,13 @@ BOOL PATTERNFILEAPI PatternFile_LoadPointList(SITE_PATTERN* pPoint, WORD* pNumSc
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : PatternFile_SavePointList
-// Purpose	  : PatternFile‚Ìƒpƒ^[ƒ“ƒŠƒXƒg‚Ì•Û‘¶
-// Parameters : pPoint		---> SITE_PATTERN‚Ì”z—ñ
-//				wNumScans	---> •Û‘¶‚·‚é‘ª’èƒ|ƒCƒ“ƒg”
-//				pszFilePath ---> ƒtƒ@ƒCƒ‹–¼
+// Purpose	  : PatternFileã®ãƒ‘ã‚¿ãƒ¼ãƒ³ãƒªã‚¹ãƒˆã®ä¿å­˜
+// Parameters : pPoint		---> SITE_PATTERNã®é…åˆ—
+//				wNumScans	---> ä¿å­˜ã™ã‚‹æ¸¬å®šãƒã‚¤ãƒ³ãƒˆæ•°
+//				pszFilePath ---> ãƒ•ã‚¡ã‚¤ãƒ«å
 //
-// Returns	  : TRUE  ---> •Û‘¶¬Œ÷
-//				FALSE ---> •Û‘¶¸”s
+// Returns	  : TRUE  ---> ä¿å­˜æˆåŠŸ
+//				FALSE ---> ä¿å­˜å¤±æ•—
 BOOL PATTERNFILEAPI PatternFile_SavePointList(const SITE_PATTERN* pPoint, WORD wNumScans,
 	LPCSTR pszFilePath)
 {
@@ -151,8 +151,8 @@ BOOL PATTERNFILEAPI PatternFile_SavePointList(const SITE_PATTERN* pPoint, WORD w
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : PatternFile_MakePatternFilePath
-// Purpose	  : Patternƒtƒ@ƒCƒ‹‚Ìƒtƒ@ƒCƒ‹ƒpƒX–¼‚ğ¶¬
-// Parameters : lpszName ---> ƒtƒ@ƒCƒ‹–¼
+// Purpose	  : Patternãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹åã‚’ç”Ÿæˆ
+// Parameters : lpszName ---> ãƒ•ã‚¡ã‚¤ãƒ«å
 //
 void PATTERNFILEAPI PatternFile_MakePatternFilePath(LPSTR pszFilePath, LPCSTR pszFileName)
 {
@@ -161,25 +161,25 @@ void PATTERNFILEAPI PatternFile_MakePatternFilePath(LPSTR pszFilePath, LPCSTR ps
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : PatternFile_MakePatternImageFilePath
-// Purpose	  : PatternƒCƒ[ƒWƒtƒ@ƒCƒ‹‚Ìƒtƒ@ƒCƒ‹ƒpƒX–¼‚ğ¶¬
-// Parameters : lpszName ---> ƒtƒ@ƒCƒ‹–¼
+// Purpose	  : Patternã‚¤ãƒ¡ãƒ¼ã‚¸ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹åã‚’ç”Ÿæˆ
+// Parameters : lpszName ---> ãƒ•ã‚¡ã‚¤ãƒ«å
 //
-/* modified 2009.07.01 hmenjo ƒCƒ[ƒWƒtƒ@ƒCƒ‹Šg’£q .spn ---------- { ---------- */
+/* modified 2009.07.01 hmenjo ã‚¤ãƒ¡ãƒ¼ã‚¸ãƒ•ã‚¡ã‚¤ãƒ«æ‹¡å¼µå­ .spn ---------- { ---------- */
 //void PATTERNFILEAPI PatternFile_MakePatternImageFilePath(LPSTR pszFilePath, LPCSTR pszFileName, int iLens)
 //{
 //	MakePatternImageFilePath(pszFilePath, pszFileName, iLens);
 //}
-/* modified 2009.07.01 hmenjo ƒCƒ[ƒWƒtƒ@ƒCƒ‹Šg’£q .spn ----------			  */
+/* modified 2009.07.01 hmenjo ã‚¤ãƒ¡ãƒ¼ã‚¸ãƒ•ã‚¡ã‚¤ãƒ«æ‹¡å¼µå­ .spn ----------			  */
 void PATTERNFILEAPI PatternFile_MakePatternImageFilePath(LPTSTR ptszFilePath, LPCTSTR ptszFileName)
 {
 	MakePatternImageFilePath(ptszFilePath, ptszFileName);
 }
-/* modified 2009.07.01 hmenjo ƒCƒ[ƒWƒtƒ@ƒCƒ‹Šg’£q .spn ---------- } ---------- */
+/* modified 2009.07.01 hmenjo ã‚¤ãƒ¡ãƒ¼ã‚¸ãƒ•ã‚¡ã‚¤ãƒ«æ‹¡å¼µå­ .spn ---------- } ---------- */
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : PatternFile_GetPatternFileInfo
-// Purpose	  : PatternƒCƒ[ƒWƒtƒ@ƒCƒ‹‚Ìƒtƒ@ƒCƒ‹ƒpƒX–¼‚ÆƒŒƒ“ƒY”{—¦‚ğ¶¬
-// Parameters : pszFilePath ---> ƒtƒ@ƒCƒ‹–¼
+// Purpose	  : Patternã‚¤ãƒ¡ãƒ¼ã‚¸ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹åã¨ãƒ¬ãƒ³ã‚ºå€ç‡ã‚’ç”Ÿæˆ
+// Parameters : pszFilePath ---> ãƒ•ã‚¡ã‚¤ãƒ«å
 //
 void PATTERNFILEAPI PatternFile_GetPatternFileInfo(LPCSTR pszFilePath, LPSTR pszFileName, int* iLens)
 {
@@ -188,54 +188,54 @@ void PATTERNFILEAPI PatternFile_GetPatternFileInfo(LPCSTR pszFilePath, LPSTR psz
 
 /////////////////////////////////////////////////////////////////////////////
 // Name 	  : PatternFile_ExistPatternFilePath
-// Purpose	  : ƒtƒ@ƒCƒ‹ƒpƒX–¼‚ª‘¶İ‚·‚é‚©‚ğŠm”F
-// Parameters : pszFilePath ---> ƒtƒ@ƒCƒ‹ƒpƒX–¼
-//				lpLastWriteSystemTime ---> ƒtƒ@ƒCƒ‹‚ÌÅIXV“ú
+// Purpose	  : ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹åãŒå­˜åœ¨ã™ã‚‹ã‹ã‚’ç¢ºèª
+// Parameters : pszFilePath ---> ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹å
+//				lpLastWriteSystemTime ---> ãƒ•ã‚¡ã‚¤ãƒ«ã®æœ€çµ‚æ›´æ–°æ—¥æ™‚
 //
-// Returns	  : TRUE  ---> ‘¶İ‚·‚é
-//				FALSE ---> ‘¶İ‚µ‚È‚¢
+// Returns	  : TRUE  ---> å­˜åœ¨ã™ã‚‹
+//				FALSE ---> å­˜åœ¨ã—ãªã„
 BOOL PATTERNFILEAPI PatternFile_ExistPatternFilePath(LPCSTR pszFilePath, SYSTEMTIME* lpLastWriteSystemTime)
 {
 	return ExistPatternFilePath(pszFilePath, lpLastWriteSystemTime);
 }
 
-/* added 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Ç‚İ/‘‚İ‹@”\’Ç‰Á ---------- { ---------- */
+/* added 2009.06.22 hmenjo SPR ã‚ªãƒ•ã‚»ãƒƒãƒˆèª­è¾¼ã¿/æ›¸è¾¼ã¿æ©Ÿèƒ½è¿½åŠ  ---------- { ---------- */
 /////////////////////////////////////////////////////////////////////////////
 /* Name 	  : PatternFile_SetSubInfo
-// Purpose	  : SPR ƒpƒ^[ƒ“î•ñ‚ğƒtƒ@ƒCƒ‹‚É‘‚İ‚Ü‚·D
-// Parameters : LPCTSTR ptszPattern			---> ƒpƒ^[ƒ“–¼
-//				LPCSPR_SUB_INFO pPatSubInfo	---> ƒTƒuî•ñ
+// Purpose	  : SPR ãƒ‘ã‚¿ãƒ¼ãƒ³æƒ…å ±ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸è¾¼ã¿ã¾ã™ï¼
+// Parameters : LPCTSTR ptszPattern			---> ãƒ‘ã‚¿ãƒ¼ãƒ³å
+//				LPCSPR_SUB_INFO pPatSubInfo	---> ã‚µãƒ–æƒ…å ±
 //
-// Returns	  : TRUE  ---> ‘‚İ¬Œ÷
-//				FALSE ---> ‘‚İ¸”s									*/
+// Returns	  : TRUE  ---> æ›¸è¾¼ã¿æˆåŠŸ
+//				FALSE ---> æ›¸è¾¼ã¿å¤±æ•—									*/
 BOOL PATTERNFILEAPI PatternFile_SetSubInfo(LPCTSTR ptszPatName, LPCSPR_SUB_INFO pPatSubInfo)
 {
 	return SetSubInfo(ptszPatName, pPatSubInfo);
 }
 /////////////////////////////////////////////////////////////////////////////
 /* Name 	  : PatternFile_GetSubInfo
-// Purpose	  : SPR ƒpƒ^[ƒ“î•ñ‚ğƒtƒ@ƒCƒ‹‚É‘‚İ‚Ü‚·D
-// Parameters : LPCTSTR ptszPattern		---> ƒpƒ^[ƒ“–¼
-//				LPCSPR_SUB_INFO pPatSubInfo	---> ƒTƒuî•ñ
+// Purpose	  : SPR ãƒ‘ã‚¿ãƒ¼ãƒ³æƒ…å ±ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸è¾¼ã¿ã¾ã™ï¼
+// Parameters : LPCTSTR ptszPattern		---> ãƒ‘ã‚¿ãƒ¼ãƒ³å
+//				LPCSPR_SUB_INFO pPatSubInfo	---> ã‚µãƒ–æƒ…å ±
 //
-// Returns	  : TRUE  ---> “Ç‚İ¬Œ÷
-//				FALSE ---> “Ç‚İ¸”s									*/
+// Returns	  : TRUE  ---> èª­è¾¼ã¿æˆåŠŸ
+//				FALSE ---> èª­è¾¼ã¿å¤±æ•—									*/
 BOOL PATTERNFILEAPI PatternFile_GetSubInfo(LPCTSTR ptszPatName, LPSPR_SUB_INFO pPatSubInfo)
 {
 	return GetSubInfo(ptszPatName, pPatSubInfo);
 }
 /////////////////////////////////////////////////////////////////////////////
 /* Name 	  : PatternFile_RemoveSubInfo
-// Purpose	  : SPR ƒpƒ^[ƒ“î•ñƒtƒ@ƒCƒ‹‚ğíœ‚µ‚Ü‚·D
-// Parameters : LPCTSTR ptszPattern ---> ƒpƒ^[ƒ“–¼
+// Purpose	  : SPR ãƒ‘ã‚¿ãƒ¼ãƒ³æƒ…å ±ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤ã—ã¾ã™ï¼
+// Parameters : LPCTSTR ptszPattern ---> ãƒ‘ã‚¿ãƒ¼ãƒ³å
 //
-// Returns	  : TRUE  ---> íœ¬Œ÷
-//				FALSE ---> íœ¸”s									*/
+// Returns	  : TRUE  ---> å‰Šé™¤æˆåŠŸ
+//				FALSE ---> å‰Šé™¤å¤±æ•—									*/
 BOOL PATTERNFILEAPI PatternFile_RemoveSubInfo(LPCTSTR ptszPatName)
 {
 	return RemoveSubInfo(ptszPatName);
 }
-/* added 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Ç‚İ/‘‚İ‹@”\’Ç‰Á ---------- } ---------- */
+/* added 2009.06.22 hmenjo SPR ã‚ªãƒ•ã‚»ãƒƒãƒˆèª­è¾¼ã¿/æ›¸è¾¼ã¿æ©Ÿèƒ½è¿½åŠ  ---------- } ---------- */
 // 2009.12.10 bagus Recipe Backup --{--
 BOOL PATTERNFILEAPI PatternFile_SetBackupPath(LPCSTR lpszBackupPath,BOOL bUse)
 {

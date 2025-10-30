@@ -1,4 +1,4 @@
-// UserSettingOperationCompEASESettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// UserSettingOperationCompEASESettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -20,14 +20,14 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CUserSettingOperationCompEASESettingDlg ƒ_ƒCƒAƒƒO
+// CUserSettingOperationCompEASESettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 
 CUserSettingOperationCompEASESettingDlg::CUserSettingOperationCompEASESettingDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CUserSettingOperationCompEASESettingDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CUserSettingOperationCompEASESettingDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_INIT
 }
 
@@ -52,7 +52,7 @@ BEGIN_MESSAGE_MAP(CUserSettingOperationCompEASESettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CUserSettingOperationCompEASESettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CUserSettingOperationCompEASESettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 BOOL CUserSettingOperationCompEASESettingDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
@@ -115,7 +115,7 @@ BOOL CUserSettingOperationCompEASESettingDlg::ShowSettingDlg(CDialog* pDlg)
 		return FALSE;
 	}
 
-	// ‰E‚ÌƒEƒBƒ“ƒhƒE‚ğUser Setting‰æ–Ê‚É–ß‚·
+	// å³ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’User Settingç”»é¢ã«æˆ»ã™
 	pMainFrame->ChangeExeWnd(USERCONF_WND);
 
 	return ( pDlg->DoModal() == IDOK );
@@ -130,7 +130,7 @@ HBRUSH CUserSettingOperationCompEASESettingDlg::OnCtlColor(CDC* pDC, CWnd* pWnd,
 	BOOL sbNexMntSw = nexioIsMaintenanceSwitch();
 	BOOL sbNexEngiMntSw = nexioIsEngineerMaintenanceSwitch();
 
-	if( pWnd == this ) // ©•ª©g‚ğ•`‰æ‚·‚é‚Æ‚«‚Í
+	if( pWnd == this ) // è‡ªåˆ†è‡ªèº«ã‚’æç”»ã™ã‚‹ã¨ãã¯
 	{
 		if((sbNexMntSw == OFF)||(sbNexEngiMntSw == ON))
 		{
@@ -138,7 +138,7 @@ HBRUSH CUserSettingOperationCompEASESettingDlg::OnCtlColor(CDC* pDC, CWnd* pWnd,
 		}
 	}
 
-	// TODO: ƒfƒtƒHƒ‹ƒg‚Ìƒuƒ‰ƒV‚ª–]‚İ‚Ì‚à‚Ì‚Å‚È‚¢ê‡‚É‚ÍAˆá‚¤ƒuƒ‰ƒV‚ğ•Ô‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ–ãƒ©ã‚·ãŒæœ›ã¿ã®ã‚‚ã®ã§ãªã„å ´åˆã«ã¯ã€é•ã†ãƒ–ãƒ©ã‚·ã‚’è¿”ã—ã¦ãã ã•ã„
 	return hbr;
 }
 
@@ -156,10 +156,10 @@ void CUserSettingOperationCompEASESettingDlg::OnTimer(UINT nIDEvent)
 
 	if((sbNexMntSw != sbNexMntSwOld)||(sbNexEngiMntSw != sbNexEngiMntSwOld))
 	{
-		Invalidate(TRUE); //OnCtlColor()‚Ìˆ—‚ğ‚³‚¹‚éˆ×‚ÉCall
+		Invalidate(TRUE); //OnCtlColor()ã®å‡¦ç†ã‚’ã•ã›ã‚‹ç‚ºã«Call
 	}
-	sbNexMntSwOld = sbNexMntSw; //‘O‰ñ’l‘Š·‚¦
-	sbNexEngiMntSwOld = sbNexEngiMntSw; //‘O‰ñ’l‘Š·‚¦
+	sbNexMntSwOld = sbNexMntSw; //å‰å›å€¤æ›¸æ›ãˆ
+	sbNexEngiMntSwOld = sbNexEngiMntSw; //å‰å›å€¤æ›¸æ›ãˆ
 
 	CDialog::OnTimer(nIDEvent);
 }

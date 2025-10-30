@@ -1,4 +1,4 @@
-
+﻿
 #include "stage.h"
 #include "StageSPT.h"
 
@@ -6,27 +6,27 @@
 #include "..\\..\\inc\\MotsysMsg.h"
 #include "..\\..\\inc\\MotSys.h"
 
-#define	TIMEOUT_CREATEPROC		5000L	// [ms]�F�v���Z�X�N���҂� �^�C���A�E�g
-#define	TIMEOUT_MOTSYS_INIT		60000L	// [ms]�FMotSys �����������҂� �^�C���A�E�g
-#define	TIMEOUT_MOTSYS_SRVON	5000L	// [ms]�FMotSys ���������̌��_���A�ł̃T�[�{�I���҂� �^�C���A�E�g
-#define	TIMEOUT_MOTSYS_ORG		600		// [s] �FMotSys ���_���A�����҂� �^�C���A�E�g(���@�Œ������K�v�ł�)
-/* modified 2009.11.11 hmenjo MotSys ���^�C���A�E�g ---------- { ---------- */
-//#define	TIMEOUT_MOTSYS_MOTION	300		// [s] �FMotSys �ʏ�ړ������҂� �^�C���A�E�g(���@�Œ������K�v�ł�)
-/* modified 2009.11.11 hmenjo MotSys ���^�C���A�E�g ----------				*/
-#define	TIMEOUT_MOTSYS_MOTION	600		// [s] �FMotSys �ʏ�ړ������҂� �^�C���A�E�g(���@�Œ������K�v�ł�)
-/* modified 2009.11.11 hmenjo MotSys ���^�C���A�E�g ---------- } ---------- */
+#define	TIMEOUT_CREATEPROC		5000L	// [ms]ï¿½Fï¿½vï¿½ï¿½ï¿½Zï¿½Xï¿½Nï¿½ï¿½ï¿½Ò‚ï¿½ ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g
+#define	TIMEOUT_MOTSYS_INIT		60000L	// [ms]ï¿½FMotSys ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½ ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g
+#define	TIMEOUT_MOTSYS_SRVON	5000L	// [ms]ï¿½FMotSys ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½Å‚ÌƒTï¿½[ï¿½{ï¿½Iï¿½ï¿½ï¿½Ò‚ï¿½ ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g
+#define	TIMEOUT_MOTSYS_ORG		600		// [s] ï¿½FMotSys ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½ ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g(ï¿½ï¿½ï¿½@ï¿½Å’ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Kï¿½vï¿½Å‚ï¿½)
+/* modified 2009.11.11 hmenjo MotSys ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g ---------- { ---------- */
+//#define	TIMEOUT_MOTSYS_MOTION	300		// [s] ï¿½FMotSys ï¿½Ê�ï¿½Ú“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½ ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g(ï¿½ï¿½ï¿½@ï¿½Å’ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Kï¿½vï¿½Å‚ï¿½)
+/* modified 2009.11.11 hmenjo MotSys ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g ----------				*/
+#define	TIMEOUT_MOTSYS_MOTION	600		// [s] ï¿½FMotSys ï¿½Ê�ï¿½Ú“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½ ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g(ï¿½ï¿½ï¿½@ï¿½Å’ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Kï¿½vï¿½Å‚ï¿½)
+/* modified 2009.11.11 hmenjo MotSys ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g ---------- } ---------- */
 
 #define	MOTTSK_WINDOW_NAME	_T("Motion Task")
 #define	MOTSYS_WINDOW_NAME	_T("Motion System Driver")
 #define	MSGBOX_TITLE_STAGE_DLL	_T("Stage.dll")
 
 /* ===========================================================================
- *	�P���֐���`�ł��D
+ *	ï¿½Pï¿½ï¿½ï¿½Ö�ï¿½ï¿½ï¿½`ï¿½Å‚ï¿½ï¿½D
  */
-//	�^�C���A�E�g�`�F�b�N�֐�
+//	ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½`ï¿½Fï¿½bï¿½Nï¿½Ö�ï¿½
 BOOL CheckIsTimeOut(
-		DWORD dwStartTime,	// �J�n����[ms]
-		DWORD dwTimeOut		// �^�C���A�E�g����[ms]
+		DWORD dwStartTime,	// ï¿½Jï¿½nï¿½ï¿½ï¿½ï¿½[ms]
+		DWORD dwTimeOut		// ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½ï¿½[ms]
 	)
 {
 	DWORD l_dwEndTime = ::GetTickCount();
@@ -37,14 +37,14 @@ BOOL CheckIsTimeOut(
 		l_dwElpsTime = l_dwEndTime - dwStartTime;
 	}
 	if (dwTimeOut <= l_dwElpsTime) {
-		// �^�C���A�E�g�ɂ��܂��D
+		// ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½É‚ï¿½ï¿½Ü‚ï¿½ï¿½D
 		return TRUE;
 	} else {
 		return FALSE;
 	}
 }
 
-//	MotSys �֎��ԍ���ϊ�
+//	MotSys ï¿½Ö�ï¿½ï¿½Ô�ï¿½ï¿½ï¿½ÏŠï¿½
 WORD ConvAxisTo(WORD wAxis)
 {
 	WORD l_wAxis;
@@ -63,7 +63,7 @@ WORD ConvAxisTo(WORD wAxis)
 
 	return l_wAxis;
 }
-//	MotSys ���玲�ԍ���ϊ�
+//	MotSys ï¿½ï¿½ï¿½ç�²ï¿½Ô�ï¿½ï¿½ï¿½ÏŠï¿½
 WORD ConvAxisFrom(WORD wAxis)
 {
 	WORD l_wAxis;
@@ -83,7 +83,7 @@ WORD ConvAxisFrom(WORD wAxis)
 	return l_wAxis;
 }
 
-//	�w�葬�x�����[�J�����x���邢�͍ō����x�𒴂��Ȃ��悤�ɂ��܂��D
+//	ï¿½wï¿½è‘¬ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½é‚¢ï¿½Í�Å�ï¿½ï¿½ï¿½ï¿½xï¿½ğ’´‚ï¿½ï¿½È‚ï¿½ï¿½æ‚¤ï¿½É‚ï¿½ï¿½Ü‚ï¿½ï¿½D
 long SpeedAdjustLimit(long lSpeed, long lLocalSpeed, long lMaxSpeed)
 {
 	long l_lSpeed = lSpeed;
@@ -104,13 +104,13 @@ long SpeedAdjustLimit(long lSpeed, long lLocalSpeed, long lMaxSpeed)
 		l_lMaxSpeed *= -1L;
 	}
 	if (0 == l_lSpeed) {
-		// �w�葬�x���O�̏ꍇ�C���[�J�����x�ɂ��܂��D
+		// ï¿½wï¿½è‘¬ï¿½xï¿½ï¿½ï¿½Oï¿½Ì�ê�‡ï¿½Cï¿½ï¿½ï¿½[ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½xï¿½É‚ï¿½ï¿½Ü‚ï¿½ï¿½D
 		l_lSpeed = l_lLocalSpeed;
 		if (0 == l_lSpeed) {
-			// ���[�J�����x���O�̏ꍇ�C�ō����x�ɂ��܂��D
+			// ï¿½ï¿½ï¿½[ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½Oï¿½Ì�ê�‡ï¿½Cï¿½Å�ï¿½ï¿½ï¿½ï¿½xï¿½É‚ï¿½ï¿½Ü‚ï¿½ï¿½D
 			l_lSpeed = l_lMaxSpeed;
 			if (0 == l_lSpeed) {
-				// �ō����x���O�̏ꍇ�C���x�l���P�O�ɂ��܂��D(�����ɂ͗��Ȃ��͂��ł�)
+				// ï¿½Å�ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½Oï¿½Ì�ê�‡ï¿½Cï¿½ï¿½ï¿½xï¿½lï¿½ï¿½ï¿½Pï¿½Oï¿½É‚ï¿½ï¿½Ü‚ï¿½ï¿½D(ï¿½ï¿½ï¿½ï¿½ï¿½É‚Í—ï¿½ï¿½È‚ï¿½ï¿½Í‚ï¿½ï¿½Å‚ï¿½)
 				l_lSpeed = 10;
 			}
 		} else {
@@ -131,14 +131,14 @@ long SpeedAdjustLimit(long lSpeed, long lLocalSpeed, long lMaxSpeed)
 	return l_lSpeed * l_lDir;
 }
 
-//	�w�ߒl����J�E���g�֕ϊ�
+//	ï¿½wï¿½ß’lï¿½ï¿½ï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½Ö•ÏŠï¿½
 long ConvCountFrom(long lValue, long lFactor)
 {
 	long l_lCount = lValue * lFactor;
 
 	return l_lCount;
 }
-//	�w�ߒl�փJ�E���g����ϊ�
+//	ï¿½wï¿½ß’lï¿½ÖƒJï¿½Eï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ÏŠï¿½
 long ConvCountTo(long lCount, long lFactor)
 {
 	LONG64 l_l64Count = lCount;
@@ -150,7 +150,7 @@ long ConvCountTo(long lCount, long lFactor)
 
 	l_l64Value1 = (l_l64Count * l_l64_1000) / l_l64Factor;
 	LONG64 l_l64_500 = (l_l64Value1 < 0)? -500 : 500;
-	l_l64Value2 = (l_l64Value1 + l_l64_500) / l_l64_1000;	// �l�̌ܓ�
+	l_l64Value2 = (l_l64Value1 + l_l64_500) / l_l64_1000;	// ï¿½lï¿½ÌŒÜ“ï¿½
 
 	return static_cast<long>(l_l64Value2);
 }
@@ -158,14 +158,14 @@ long ConvCountTo(long lCount, long lFactor)
 // =========================================================================
 // Class Name :  CStageSPT
 //
-// Description�F Sodick �X�e�[�W���b�p�N���X
-//					Sodick �� XY �X�e�[�W�̐�����s���܂��D
+// Descriptionï¿½F Sodick ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½bï¿½pï¿½Nï¿½ï¿½ï¿½X
+//					Sodick ï¿½ï¿½ XY ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ì�ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D
 //
 // Author:		 hmenjo
 // =========================================================================
 
 // =========================================================================
-//	�R���X�g���N�^ / �f�X�g���N�^
+//	ï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^ / ï¿½fï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^
 CStageSPT::CStageSPT()
 {
 	UINT i;
@@ -179,7 +179,7 @@ CStageSPT::CStageSPT()
 	memset(m_lLocalSpeed, 0, sizeof(m_lLocalSpeed));
 	memset(&m_CurrPosSPT, 0, sizeof(m_CurrPosSPT));
 	for (i = 0; i < 8; i++) {
-		m_lFactor[i] = 1;	// ���W�ϊ��W���͂P�ɂ��Ă����܂��D
+		m_lFactor[i] = 1;	// ï¿½ï¿½ï¿½Wï¿½ÏŠï¿½ï¿½Wï¿½ï¿½ï¿½Í‚Pï¿½É‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D
 	}
 	m_SoftLimitX.Positive = m_SoftLimitX.Negative = 0;
 	m_SoftLimitY.Positive = m_SoftLimitY.Negative = 0;
@@ -187,31 +187,31 @@ CStageSPT::CStageSPT()
 	::InitializeCriticalSection(&m_csInquirePos);
 
 	BOOL l_bResult;
-	// MotTsk ���N��
+	// MotTsk ï¿½ï¿½ï¿½Nï¿½ï¿½
 	l_bResult = MotTskExe(EXE_START);
 	if (0 == l_bResult) {
-		// �N�����s
+		// ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½s
 		::MessageBox(0, _T("CStageSPT\nFailed to start MotTsk.exe."), MSGBOX_TITLE_STAGE_DLL, MB_OK | MB_SYSTEMMODAL);
 	} else {
 		l_bResult = MotSysExe(EXE_START);
 		if (0 == l_bResult) {
-			// �N�����s
+			// ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½s
 			::MessageBox(0, _T("CStageSPT\nFailed to start MotSys.exe."), MSGBOX_TITLE_STAGE_DLL, MB_OK | MB_SYSTEMMODAL);
 		} else {
 			m_hwndMotSys = ::FindWindow(0, MOTSYS_WINDOW_NAME);
 			m_hwndMotTsk = ::FindWindow(0, MOTTSK_WINDOW_NAME);
-#if 0	// ����(�ȉ�)�͕s�v�ɂȂ�܂����D
+#if 0	// ï¿½ï¿½ï¿½ï¿½(ï¿½È‰ï¿½)ï¿½Í•sï¿½vï¿½É‚È‚ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D
 			/*
-			 *	XY �X�e�[�W�ȊO�� STAGETYPE_STD ���g���܂��D
-			 *	���������āCCStageNTN ���K�v�ł��D
+			 *	XY ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÈŠOï¿½ï¿½ STAGETYPE_STD ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D
+			 *	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä�CCStageNTN ï¿½ï¿½ï¿½Kï¿½vï¿½Å‚ï¿½ï¿½D
 			 */
 			m_pStageSTD = new CStageNTN();	/*
-									 			���̃N���X�̃R���X�g���N�^�ł�
-									 			�T�u�R������̃f�[�^�̓Ǐo����
-									 			�s���Ă��܂��D���Ԃ�������܂��D
+									 			ï¿½ï¿½ï¿½ÌƒNï¿½ï¿½ï¿½Xï¿½ÌƒRï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^ï¿½Å‚ï¿½
+									 			ï¿½Tï¿½uï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒfï¿½[ï¿½^ï¿½Ì“Ç�oï¿½ï¿½ï¿½ï¿½
+									 			ï¿½sï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½Dï¿½ï¿½ï¿½Ô‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D
 											 */
 			if (0 == m_pStageSTD) {
-				// �������s
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½s
 				::MessageBox(0, _T("CStageSPT\nFailed to create(new) CStageNTN."), MSGBOX_TITLE_STAGE_DLL, MB_OK | MB_SYSTEMMODAL);
 			}
 #endif
@@ -221,11 +221,11 @@ CStageSPT::CStageSPT()
 }
 CStageSPT::~CStageSPT()
 {
-	// MotSys ���I��
+	// MotSys ï¿½ï¿½ï¿½Iï¿½ï¿½
 	m_hwndMotSys = 0;
 	MotSysExe(EXE_QUIT);
 
-	// MotTsk ���I��
+	// MotTsk ï¿½ï¿½ï¿½Iï¿½ï¿½
 	m_hwndMotTsk = 0;
 	MotTskExe(EXE_QUIT);
 
@@ -240,9 +240,9 @@ CStageSPT::~CStageSPT()
 }
 
 /* ===========================================================================
- *	�ȉ��͐���C���̑��̊֐��ł��D
+ *	ï¿½È‰ï¿½ï¿½Í�ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Ì‘ï¿½ï¿½ÌŠÖ�ï¿½ï¿½Å‚ï¿½ï¿½D
  */
-//	MotTsk �̋N��/�I���̐���
+//	MotTsk ï¿½Ì‹Nï¿½ï¿½/ï¿½Iï¿½ï¿½ï¿½Ì�ï¿½ï¿½ï¿½
 BOOL CStageSPT::MotTskExe(EXE_SWITCH ExeSwitch)
 {
 	HWND l_hWnd;
@@ -263,16 +263,16 @@ BOOL CStageSPT::MotTskExe(EXE_SWITCH ExeSwitch)
 			StartInfo.wShowWindow = SW_HIDE;
 #endif
 			StartInfo.cb = sizeof(StartInfo);
-/* added 2009.07.07 hmenjo dll ���΃p�X�Ή� Stage.dll ---------- { ---------- */
+/* added 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ Stage.dll ---------- { ---------- */
 			TCHAR l_tszExePath[_MAX_PATH];
 			_stprintf(l_tszExePath, _T("%s") BIN_DIR _T("MotTsk.exe"), g_tszProcDir);
-/* added 2009.07.07 hmenjo dll ���΃p�X�Ή� Stage.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ Stage.dll ---------- } ---------- */
 			l_bRet = ::CreateProcess(
-/* modified 2009.07.07 hmenjo dll ���΃p�X�Ή� Stage.dll ---------- { ---------- */
+/* modified 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ Stage.dll ---------- { ---------- */
 //							BIN_DIR _T("\\MotTsk.exe"),
-/* modified 2009.07.07 hmenjo dll ���΃p�X�Ή� Stage.dll ---------- 			 */
+/* modified 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ Stage.dll ---------- 			 */
 							l_tszExePath,
-/* modified 2009.07.07 hmenjo dll ���΃p�X�Ή� Stage.dll ---------- } ---------- */
+/* modified 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ Stage.dll ---------- } ---------- */
 							_T(""),
 							NULL,
 							NULL,
@@ -286,19 +286,19 @@ BOOL CStageSPT::MotTskExe(EXE_SWITCH ExeSwitch)
 			if (0 != l_bRet) {
 				DWORD l_dwStartTime = ::GetTickCount();
 				while (0 == ::FindWindow(0, MOTTSK_WINDOW_NAME)) {
-					// �E�B���h�E�����������܂ő҂��܂��D
-					//	(������Ƌ����Ȃ����ł�)
+					// ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚Å‘Ò‚ï¿½ï¿½Ü‚ï¿½ï¿½D
+					//	(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ‹ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½Å‚ï¿½)
 					::Sleep(100);
-					// �^�C���A�E�g�Ď�
+					// ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Ä�ï¿½
 					if (TRUE == CheckIsTimeOut(l_dwStartTime, TIMEOUT_CREATEPROC)) {
-						// �^�C���A�E�g�ɂ��܂��D
+						// ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½É‚ï¿½ï¿½Ü‚ï¿½ï¿½D
 						l_bRet = FALSE;
 						break;
 					}
 				}
 			}
 		} else {
-			// ���łɋN�����Ă��܂����D
+			// ï¿½ï¿½ï¿½Å‚É‹Nï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D
 			l_bRet = TRUE;
 		}
 		break;
@@ -307,7 +307,7 @@ BOOL CStageSPT::MotTskExe(EXE_SWITCH ExeSwitch)
 		if (l_hWnd != NULL) {
 			l_bRet = ::ShowWindow(l_hWnd, SW_SHOWNORMAL);
 		} else {
-			// �E�B���h�E���Ȃ������D
+			// ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D
 			l_bRet = FALSE;
 		}
 		break;
@@ -315,7 +315,7 @@ BOOL CStageSPT::MotTskExe(EXE_SWITCH ExeSwitch)
 		if (l_hWnd != NULL) {
 			l_bRet = ::ShowWindow(l_hWnd, SW_HIDE);
 		} else {
-			// �E�B���h�E���Ȃ������D
+			// ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D
 			l_bRet = FALSE;
 		}
 		break;
@@ -324,7 +324,7 @@ BOOL CStageSPT::MotTskExe(EXE_SWITCH ExeSwitch)
 		if (l_hWnd != NULL) {
 			l_bRet = ::PostMessage(l_hWnd, WM_CLOSE, NULL, NULL);
 		} else {
-			// �E�B���h�E���Ȃ������D
+			// ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D
 			l_bRet = FALSE;
 		}
 		break;
@@ -336,7 +336,7 @@ BOOL CStageSPT::MotTskExe(EXE_SWITCH ExeSwitch)
 	return l_bRet;
 }
 
-//	MotSys �̋N��/�I���̐���
+//	MotSys ï¿½Ì‹Nï¿½ï¿½/ï¿½Iï¿½ï¿½ï¿½Ì�ï¿½ï¿½ï¿½
 BOOL CStageSPT::MotSysExe(EXE_SWITCH ExeSwitch)
 {
 	HWND l_hWnd;
@@ -353,16 +353,16 @@ BOOL CStageSPT::MotSysExe(EXE_SWITCH ExeSwitch)
 			ZeroMemory(&ProcessInfo,sizeof(ProcessInfo));
 			StartInfo.wShowWindow = SW_SHOWNORMAL;
 			StartInfo.cb = sizeof(StartInfo);
-/* added 2009.07.07 hmenjo dll ���΃p�X�Ή� Stage.dll ---------- { ---------- */
+/* added 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ Stage.dll ---------- { ---------- */
 			TCHAR l_tszExePath[_MAX_PATH];
 			_stprintf(l_tszExePath, _T("%s") BIN_DIR _T("MotSysNSPT.exe"), g_tszProcDir);
-/* added 2009.07.07 hmenjo dll ���΃p�X�Ή� Stage.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ Stage.dll ---------- } ---------- */
 			l_bRet = ::CreateProcess(
-/* modified 2009.07.07 hmenjo dll ���΃p�X�Ή� Stage.dll ---------- { ---------- */
+/* modified 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ Stage.dll ---------- { ---------- */
 //							BIN_DIR _T("\\MotSysNSPT.exe"),
-/* modified 2009.07.07 hmenjo dll ���΃p�X�Ή� Stage.dll ---------- 			 */
+/* modified 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ Stage.dll ---------- 			 */
 							l_tszExePath,
-/* modified 2009.07.07 hmenjo dll ���΃p�X�Ή� Stage.dll ---------- } ---------- */
+/* modified 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ Stage.dll ---------- } ---------- */
 							_T(""),
 							NULL,
 							NULL,
@@ -376,19 +376,19 @@ BOOL CStageSPT::MotSysExe(EXE_SWITCH ExeSwitch)
 			if (0 != l_bRet) {
 				DWORD l_dwStartTime = ::GetTickCount();
 				while (0 == ::FindWindow(0, MOTSYS_WINDOW_NAME)) {
-					// �E�B���h�E�����������܂ő҂��܂��D
-					//	(������Ƌ����Ȃ����ł�)
+					// ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚Å‘Ò‚ï¿½ï¿½Ü‚ï¿½ï¿½D
+					//	(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ‹ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½Å‚ï¿½)
 					::Sleep(100);
-					// �^�C���A�E�g�Ď�
+					// ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Ä�ï¿½
 					if (TRUE == CheckIsTimeOut(l_dwStartTime, TIMEOUT_CREATEPROC)) {
-						// �^�C���A�E�g�ɂ��܂��D
+						// ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½É‚ï¿½ï¿½Ü‚ï¿½ï¿½D
 						l_bRet = FALSE;
 						break;
 					}
 				}
 			}
 		} else {
-			// ���łɋN�����Ă��܂����D
+			// ï¿½ï¿½ï¿½Å‚É‹Nï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D
 			l_bRet = TRUE;
 		}
 		break;
@@ -396,7 +396,7 @@ BOOL CStageSPT::MotSysExe(EXE_SWITCH ExeSwitch)
 		if (l_hWnd != NULL) {
 			l_bRet = ::PostMessage(l_hWnd, WM_CLOSE, NULL, NULL);
 		} else {
-			// �E�B���h�E���Ȃ������D
+			// ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D
 			l_bRet = FALSE;
 		}
 		break;
@@ -408,13 +408,13 @@ BOOL CStageSPT::MotSysExe(EXE_SWITCH ExeSwitch)
 	return l_bRet;
 }
 
-//	StageSTD �̏������m�F
+//	StageSTD ï¿½Ì�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½mï¿½F
 BOOL CStageSPT::IsInitializedStageSTD(void)
 {
 	return m_bIsInitializedStageSTD;
 }
 
-//	���݈ʒu �擾 �X���b�h(���g�p)
+//	ï¿½ï¿½ï¿½İˆÊ’u ï¿½æ“¾ ï¿½Xï¿½ï¿½ï¿½bï¿½h(ï¿½ï¿½ï¿½gï¿½p)
 UINT CStageSPT::MonitorThreadProcSPT(void)
 {
 	while (0 != m_bMonitorRun) {
@@ -425,7 +425,7 @@ UINT CStageSPT::MonitorThreadProcSPT(void)
 	return 0L;
 }
 
-//	���݈ʒu �擾
+//	ï¿½ï¿½ï¿½İˆÊ’u ï¿½æ“¾
 int CStageSPT::InquirePosSPT(void)
 {
 	if (0 == (m_hwndMotSys = ::FindWindow(0, MOTSYS_WINDOW_NAME))) {
@@ -440,24 +440,24 @@ int CStageSPT::InquirePosSPT(void)
 	l_GetPos.lX = MotsysGetPosition(m_hwndMotSys, ConvAxisTo(X));
 	l_GetPos.lY = MotsysGetPosition(m_hwndMotSys, ConvAxisTo(Y));
 	switch (l_GetPos.lX) {
-	case MS_GETPOS_PARAMERROR:		// �p�����^�G���[(MOTDRV_GETPOSITION �p)
+	case MS_GETPOS_PARAMERROR:		// ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Gï¿½ï¿½ï¿½[(MOTDRV_GETPOSITION ï¿½p)
 		return STAGE_ERR_MS_PARAMETER_ERROR;
 		break;
-	case MS_GETPOS_AXIS_UNINIT:		// ��������(MOTDRV_GETPOSITION �p)
+	case MS_GETPOS_AXIS_UNINIT:		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(MOTDRV_GETPOSITION ï¿½p)
 		return STAGE_ERR_MS_AXIS_UNINITIALIZED;
 		break;
-	case MS_GETPOS_AXIS_NOTHOME:	// �����_���A(MOTDRV_GETPOSITION �p)
+	case MS_GETPOS_AXIS_NOTHOME:	// ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½A(MOTDRV_GETPOSITION ï¿½p)
 		return STAGE_ERR_MS_AXIS_NOT_HOME;
 		break;
 	default:
 		switch (l_GetPos.lY) {
-		case MS_GETPOS_PARAMERROR:		// �p�����^�G���[(MOTDRV_GETPOSITION �p)
+		case MS_GETPOS_PARAMERROR:		// ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Gï¿½ï¿½ï¿½[(MOTDRV_GETPOSITION ï¿½p)
 			return STAGE_ERR_MS_PARAMETER_ERROR;
 			break;
-		case MS_GETPOS_AXIS_UNINIT:		// ��������(MOTDRV_GETPOSITION �p)
+		case MS_GETPOS_AXIS_UNINIT:		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(MOTDRV_GETPOSITION ï¿½p)
 			return STAGE_ERR_MS_AXIS_UNINITIALIZED;
 			break;
-		case MS_GETPOS_AXIS_NOTHOME:	// �����_���A(MOTDRV_GETPOSITION �p)
+		case MS_GETPOS_AXIS_NOTHOME:	// ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½A(MOTDRV_GETPOSITION ï¿½p)
 			return STAGE_ERR_MS_AXIS_NOT_HOME;
 			break;
 		default:
@@ -471,8 +471,8 @@ int CStageSPT::InquirePosSPT(void)
 				l_CurrPos.lY = ConvCountTo(m_CurrPosSPT.lY, m_lFactor[Y]);
 				PhysicalToLogical(&l_CurrPos, (STAGE_COORD*) &m_CurrPos);
 //				PhysicalToLogical(&l_GetPos, (STAGE_COORD*) &m_CurrPos);
-				// SPT �ł́CMotSys ���W(��΍��W)�ŊǗ����܂��D
-				//		UI �̍ۂɘ_�����W�ƕϊ����܂��D
+				// SPT ï¿½Å‚Í�CMotSys ï¿½ï¿½ï¿½W(ï¿½ï¿½Î�ï¿½ï¿½W)ï¿½ÅŠÇ—ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D
+				//		UI ï¿½Ì�Û‚É˜_ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Æ•ÏŠï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D
 
 				::LeaveCriticalSection(&m_csInquirePos);
 			}
@@ -485,7 +485,7 @@ int CStageSPT::InquirePosSPT(void)
 	return STAGE_ERR_NONE;
 }
 
-//	MotSys X/Y ���̈ړ������҂� �X���b�h
+//	MotSys X/Y ï¿½ï¿½ï¿½ÌˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½ ï¿½Xï¿½ï¿½ï¿½bï¿½h
 int CStageSPT::MotSys_WaitMotionXY(LPVOID pParams)
 {
 	if (0 == (m_hwndMotSys = ::FindWindow(0, MOTSYS_WINDOW_NAME))) {
@@ -498,45 +498,45 @@ int CStageSPT::MotSys_WaitMotionXY(LPVOID pParams)
 	DWORD l_dwStartTime = ::GetTickCount();
 	while ((TRUE == gc_bInMotionMS[X]) || (TRUE == gc_bInMotionMS[Y])) {
 		::Sleep(100);
-		// �^�C���A�E�g�Ď�
+		// ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Ä�ï¿½
 		if (TRUE == CheckIsTimeOut(l_dwStartTime, l_dwTimuOut)) {
-			// �^�C���A�E�g�ɂ��܂��D
+			// ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½É‚ï¿½ï¿½Ü‚ï¿½ï¿½D
 			l_iRc = STAGE_ERR_MS_MOTION_TIMEOUT;
 			break;
 		}
 	}
 	if (STAGE_ERR_NONE == l_iRc) {
-		// ��~���Ă����ꍇ�C�����~���ǂ����m�F���܂��D
+		// ï¿½ï¿½~ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ê�‡ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½ï¿½ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½mï¿½Fï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D
 		switch (gc_dwMotionStop[X]) {
-		case STAGE_STOP_OK:							// X �� �����~
+		case STAGE_STOP_OK:							// X ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½~
 			switch (gc_dwMotionStop[Y]) {
-			case STAGE_STOP_OK:							// Y �� �����~
+			case STAGE_STOP_OK:							// Y ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½~
 				break;
 			case STAGE_STOP_FORCE:
 				l_iRc = STAGE_ERR_MS_MOTION_FORCE;
-				break;									// Y �� ������~:
+				break;									// Y ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~:
 			case STAGE_STOP_FAIL:
 			default:
 				l_iRc = STAGE_ERR_MS_MOTION_FAIL;
-				break;									// Y �� �ُ��~:
+				break;									// Y ï¿½ï¿½ ï¿½Ù�ï¿½ï¿½~:
 			}
 			break;
-		case STAGE_STOP_FORCE:						// X �� ������~
+		case STAGE_STOP_FORCE:						// X ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~
 			l_iRc = STAGE_ERR_MS_MOTION_FORCE;
 			break;
-		case STAGE_STOP_FAIL:						// X �� �ُ��~
+		case STAGE_STOP_FAIL:						// X ï¿½ï¿½ ï¿½Ù�ï¿½ï¿½~
 		default:
 			l_iRc = STAGE_ERR_MS_MOTION_FAIL;
 			break;
 		}
 	}
-	// �ʒu�擾
+	// ï¿½Ê’uï¿½æ“¾
 	InquirePosSPT();
 
 	return l_iRc;
 }
 
-//	MotSys �w�莲�̈ړ������҂� �X���b�h
+//	MotSys ï¿½wï¿½è�²ï¿½ÌˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½ ï¿½Xï¿½ï¿½ï¿½bï¿½h
 int CStageSPT::MotSys_WaitMotionAxis(LPVOID pParams)
 {
 	if (0 == (m_hwndMotSys = ::FindWindow(0, MOTSYS_WINDOW_NAME))) {
@@ -550,54 +550,54 @@ int CStageSPT::MotSys_WaitMotionAxis(LPVOID pParams)
 	DWORD l_dwStartTime = ::GetTickCount();
 	while (TRUE == gc_bInMotionMS[l_wAxis]) {
 		::Sleep(100);
-		// �^�C���A�E�g�Ď�
+		// ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Ä�ï¿½
 		if (TRUE == CheckIsTimeOut(l_dwStartTime, l_dwTimuOut)) {
-			// �^�C���A�E�g�ɂ��܂��D
+			// ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½É‚ï¿½ï¿½Ü‚ï¿½ï¿½D
 			l_iRc = STAGE_ERR_MS_MOTION_TIMEOUT;
 			break;
 		}
 	}
 	if (STAGE_ERR_NONE == l_iRc) {
-		// ��~���Ă����ꍇ�C�����~���ǂ����m�F���܂��D
+		// ï¿½ï¿½~ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ê�‡ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½ï¿½ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½mï¿½Fï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D
 		switch (gc_dwMotionStop[l_wAxis]) {
-		case STAGE_STOP_OK:					// �����~
+		case STAGE_STOP_OK:					// ï¿½ï¿½ï¿½ï¿½ï¿½~
 			break;
-		case STAGE_STOP_FORCE:				// ������~
+		case STAGE_STOP_FORCE:				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~
 			l_iRc = STAGE_ERR_MS_MOTION_FORCE;
 			break;
-		case STAGE_STOP_FAIL:				// �ُ��~
+		case STAGE_STOP_FAIL:				// ï¿½Ù�ï¿½ï¿½~
 		default:
 			l_iRc = STAGE_ERR_MS_MOTION_FAIL;
 			break;
 		}
 	}
-	// �ʒu�擾
+	// ï¿½Ê’uï¿½æ“¾
 	InquirePosSPT();
 
 	return l_iRc;
 }
 
 /* ===========================================================================
- *	�ȉ��͊O���֐��̎��̂ł��D
+ *	ï¿½È‰ï¿½ï¿½ÍŠOï¿½ï¿½ï¿½Ö�ï¿½ï¿½Ì�ï¿½ï¿½Ì‚Å‚ï¿½ï¿½D
  */
-//	������[StageInitialize()] --------------------------------------------------------------------
+//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[StageInitialize()] --------------------------------------------------------------------
 int CStageSPT::Initialize(void)
 {
 	int l_iRc = STAGE_ERR_NONE;
 	if (STAGE_ERR_NONE == l_iRc) {
-		// �T�u�R�� �̏������������҂�
+		// ï¿½Tï¿½uï¿½Rï¿½ï¿½ ï¿½Ì�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½
 		l_iRc = CStageNTN::Execute(&CStageNTN::Initialize);
 		m_bIsInitializedStageSTD = (STAGE_ERR_NONE == l_iRc)? TRUE : FALSE;
 	}
 	if (STAGE_ERR_NONE == l_iRc) {
-		// XY �X�e�[�W�������������҂�
+		// XY ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½
 		l_iRc = InitializeStage();
 	}
 
 	return l_iRc;
 }
 
-//	XY �X�e�[�W������[StageInitializeStage()] ----------------------------------------------------
+//	XY ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[StageInitializeStage()] ----------------------------------------------------
 int CStageSPT::InitializeStage(void)
 {
 	if (0 == (m_hwndMotSys = ::FindWindow(0, MOTSYS_WINDOW_NAME))) {
@@ -607,14 +607,14 @@ int CStageSPT::InitializeStage(void)
 
 	int l_iRc = STAGE_ERR_NONE;
 	if (STAGE_ERR_NONE == l_iRc) {
-		// MotSys �̏����������҂�
+		// MotSys ï¿½Ì�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½
 		if (STAGE_ERR_NONE == (l_iRc = CStageNTN::Execute(&CStageNTN::InitializeStage_WaitMotSysInit))) {
-			// MotSys �̏�����������
+			// MotSys ï¿½Ì�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			m_bMotSysInitialized = TRUE;
 		}
 	}
 	if (STAGE_ERR_NONE == l_iRc) {
-		// X ���̌��_���A���N��
+		// X ï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Nï¿½ï¿½
 #if 0
 		int l_iMSRet;
 		gc_bInMotionMS[X] = TRUE;
@@ -635,7 +635,7 @@ int CStageSPT::InitializeStage(void)
 		DWORD l_dwStartTime = ::GetTickCount();
 		while ((FALSE == l_bServoOn) && (STAGE_ERR_NONE == l_iRc)) {
 			if (TRUE == CheckIsTimeOut(l_dwStartTime, TIMEOUT_MOTSYS_SRVON)) {
-				// �^�C���A�E�g�ɂ��܂��D
+				// ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½É‚ï¿½ï¿½Ü‚ï¿½ï¿½D
 				l_iRc = STAGE_ERR_MS_NOT_SERVO_ON;
 				break;
 			}
@@ -665,7 +665,7 @@ int CStageSPT::InitializeStage(void)
 #endif
 	}
 	if (STAGE_ERR_NONE == l_iRc) {
-		// Y ���̌��_���A���N��
+		// Y ï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Nï¿½ï¿½
 		int l_iMSRet;
 		gc_bInMotionMS[Y] = TRUE;
 		if (MS_NO_ERROR != (l_iMSRet = MotsysGoHome(m_hwndMotSys, ConvAxisTo(Y)))) {
@@ -682,15 +682,15 @@ int CStageSPT::InitializeStage(void)
 		}
 	}
 	if (STAGE_ERR_NONE == l_iRc) {
-		// X/Y ���̌��_���A�̊����҂�
+		// X/Y ï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½ÌŠï¿½ï¿½ï¿½ï¿½Ò‚ï¿½
 		l_iRc = CStageNTN::Execute(&CStageNTN::MotSys_WaitMotionXY, (LPVOID) MAKELONG(0, TIMEOUT_MOTSYS_ORG));
 	}
 	if (STAGE_ERR_NONE == l_iRc) {
-		// X/Y ���̍ō����x���擾(�����ϐ��ɂ̂ݎ擾�̂��߃p�����^���w�肵�Ă��܂���)
+		// X/Y ï¿½ï¿½ï¿½Ì�Å�ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½æ“¾(ï¿½ï¿½ï¿½ï¿½ï¿½Ï�ï¿½ï¿½É‚Ì‚İ�æ“¾ï¿½Ì‚ï¿½ï¿½ßƒpï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½wï¿½è‚µï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½)
 		l_iRc = GetMaxStageSpeed(0, 0);
 	}
 	if (STAGE_ERR_NONE == l_iRc) {
-		// X ���� SoftHP ��ݒ肵�܂��D
+		// X ï¿½ï¿½ï¿½ï¿½ SoftHP ï¿½ï¿½İ’è‚µï¿½Ü‚ï¿½ï¿½D
 		int l_iMSRet;
 		if (MS_NO_ERROR != (l_iMSRet = MotsysSetSoftHome(m_hwndMotSys, ConvAxisTo(X), m_lSoftHP[X]))) {
 			switch(l_iMSRet) {
@@ -703,7 +703,7 @@ int CStageSPT::InitializeStage(void)
 		}
 	}
 	if (STAGE_ERR_NONE == l_iRc) {
-		// Y ���� SoftHP ��ݒ肵�܂��D
+		// Y ï¿½ï¿½ï¿½ï¿½ SoftHP ï¿½ï¿½İ’è‚µï¿½Ü‚ï¿½ï¿½D
 		int l_iMSRet;
 		if (MS_NO_ERROR != (l_iMSRet = MotsysSetSoftHome(m_hwndMotSys, ConvAxisTo(Y), m_lSoftHP[Y]))) {
 			switch(l_iMSRet) {
@@ -716,7 +716,7 @@ int CStageSPT::InitializeStage(void)
 		}
 	}
 	if (STAGE_ERR_NONE == l_iRc) {
-		// X ���̃\�t�g���~�b�g���擾
+		// X ï¿½ï¿½ï¿½Ìƒ\ï¿½tï¿½gï¿½ï¿½ï¿½~ï¿½bï¿½gï¿½ï¿½ï¿½æ“¾
 		long l_lSoftLimitXP = MotsysGetSoftLimit(m_hwndMotSys, ConvAxisTo(X), 1);
 		long l_lSoftLimitXN = MotsysGetSoftLimit(m_hwndMotSys, ConvAxisTo(X), -1);
 		switch (l_lSoftLimitXP) {
@@ -735,7 +735,7 @@ int CStageSPT::InitializeStage(void)
 		}
 	}
 	if (STAGE_ERR_NONE == l_iRc) {
-		// Y ���̃\�t�g���~�b�g���擾
+		// Y ï¿½ï¿½ï¿½Ìƒ\ï¿½tï¿½gï¿½ï¿½ï¿½~ï¿½bï¿½gï¿½ï¿½ï¿½æ“¾
 		long l_lSoftLimitYP = MotsysGetSoftLimit(m_hwndMotSys, ConvAxisTo(Y), 1);
 		long l_lSoftLimitYN = MotsysGetSoftLimit(m_hwndMotSys, ConvAxisTo(Y), -1);
 		switch (l_lSoftLimitYP) {
@@ -755,17 +755,17 @@ int CStageSPT::InitializeStage(void)
 	}
 	if (STAGE_ERR_NONE == l_iRc) {
 		m_bEnableStage = TRUE;
-		// X/Y �̈ʒu�擾�̃|�[�����O���J�n���܂��D
+		// X/Y ï¿½ÌˆÊ’uï¿½æ“¾ï¿½Ìƒ|ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½Jï¿½nï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D
 		BeginMonitor();
-/* added 2009.05.26 hmenjo XY ���ݒl�擾 ---------- { ---------- */
+/* added 2009.05.26 hmenjo XY ï¿½ï¿½ï¿½İ’lï¿½æ“¾ ---------- { ---------- */
 		::Sleep(1000);
 		InquirePosSPT();
-/* added 2009.05.26 hmenjo XY ���ݒl�擾 ---------- } ---------- */
+/* added 2009.05.26 hmenjo XY ï¿½ï¿½ï¿½İ’lï¿½æ“¾ ---------- } ---------- */
 	}
 
 	return l_iRc;
 }
-//	������[StageInitializeStage()]�p MotSys �̏����������҂� �X���b�h
+//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[StageInitializeStage()]ï¿½p MotSys ï¿½Ì�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½ ï¿½Xï¿½ï¿½ï¿½bï¿½h
 #define	MS_INIT_ALLAXIS
 int CStageSPT::InitializeStage_WaitMotSysInit(LPVOID)
 {
@@ -786,20 +786,20 @@ int CStageSPT::InitializeStage_WaitMotSysInit(LPVOID)
 #else
 	while (TRUE != l_bMotSysInitialized) {
 #endif
-		// �^�C���A�E�g�Ď�
+		// ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½Ä�ï¿½
 		if (TRUE == CheckIsTimeOut(l_dwStartTime, TIMEOUT_MOTSYS_INIT)) {
-			// �^�C���A�E�g�ɂ��܂��D
+			// ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½É‚ï¿½ï¿½Ü‚ï¿½ï¿½D
 			break;
 		}
 
 #ifndef MS_INIT_ALLAXIS
-		// X ���̏������`�F�b�N
+		// X ï¿½ï¿½ï¿½Ì�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N
 		if (TRUE != l_bMotSysInitialized_X) {
 			if (MS_NO_ERROR == MotsysSetWindow(m_hwndMotSys, ConvAxisTo(X), m_hwndMotTsk)) {
 				l_bMotSysInitialized_X = TRUE;
 			}
 		}
-		// Y ���̏������`�F�b�N
+		// Y ï¿½ï¿½ï¿½Ì�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N
 		if (TRUE != l_bMotSysInitialized_Y) {
 			if (MS_NO_ERROR == MotsysSetWindow(m_hwndMotSys, ConvAxisTo(Y), m_hwndMotTsk)) {
 				l_bMotSysInitialized_Y = TRUE;
@@ -826,7 +826,7 @@ int CStageSPT::InitializeStage_WaitMotSysInit(LPVOID)
 	return l_iRc;
 }
 
-//	XY �X�e�[�W���쒆�X�e�[�^�X[StageIsIdle()] ---------------------------------------------------
+//	XY ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ì’†ï¿½Xï¿½eï¿½[ï¿½^ï¿½X[StageIsIdle()] ---------------------------------------------------
 int CStageSPT::IsIdle(void)
 {
 	if (0 == (m_hwndMotSys = ::FindWindow(0, MOTSYS_WINDOW_NAME))) {
@@ -844,43 +844,43 @@ int CStageSPT::IsIdle(void)
 	return FALSE;
 }
 
-//	��Έʒu�ړ�(�w�莲)[StageMoveAbsolute()] ----------------------------------------------------
+//	ï¿½ï¿½ÎˆÊ’uï¿½Ú“ï¿½(ï¿½wï¿½è�²)[StageMoveAbsolute()] ----------------------------------------------------
 int CStageSPT::MoveAbsolute(WORD wAxis, long lPos)
 {
 	return MoveAbsoluteEx(wAxis, lPos, TRUE);
 }
 
-//	��Έʒu�ړ�(XY��)[StageMoveAbsolute()] ------------------------------------------------------
+//	ï¿½ï¿½ÎˆÊ’uï¿½Ú“ï¿½(XYï¿½ï¿½)[StageMoveAbsolute()] ------------------------------------------------------
 int CStageSPT::MoveAbsolute(STAGE_COORD* pPos)
 {
 	return MoveAbsoluteEx(pPos, TRUE);
 }
 
-//	��Έʒu�ړ�(�w�莲�F�E�F�C�g����t��)[StageMoveAbsoluteEx()] --------------------------------
+//	ï¿½ï¿½ÎˆÊ’uï¿½Ú“ï¿½(ï¿½wï¿½è�²ï¿½Fï¿½Eï¿½Fï¿½Cï¿½gï¿½ï¿½ï¿½ï¿½tï¿½ï¿½)[StageMoveAbsoluteEx()] --------------------------------
 int CStageSPT::MoveAbsoluteEx(WORD wAxis, long lPos, BOOL bWait/*=TRUE*/)
 {
 	return MoveAbsoluteAtSpeedEx(wAxis, lPos, 0.0, bWait);
 }
 
-//	��Έʒu�ړ�(XY���F�E�F�C�g����t��)[StageMoveAbsoluteEx()] ----------------------------------
+//	ï¿½ï¿½ÎˆÊ’uï¿½Ú“ï¿½(XYï¿½ï¿½ï¿½Fï¿½Eï¿½Fï¿½Cï¿½gï¿½ï¿½ï¿½ï¿½tï¿½ï¿½)[StageMoveAbsoluteEx()] ----------------------------------
 int CStageSPT::MoveAbsoluteEx(STAGE_COORD* pPos, BOOL bWait/*=TRUE*/)
 {
 	return MoveAbsoluteAtSpeedEx(pPos, 0.0, bWait);
 }
 
-//	���Έʒu�ړ�(�w�莲�F�E�F�C�g����t��)[StageMoveRelative()] ----------------------------------
+//	ï¿½ï¿½ï¿½ÎˆÊ’uï¿½Ú“ï¿½(ï¿½wï¿½è�²ï¿½Fï¿½Eï¿½Fï¿½Cï¿½gï¿½ï¿½ï¿½ï¿½tï¿½ï¿½)[StageMoveRelative()] ----------------------------------
 int CStageSPT::MoveRelative(WORD wAxis, long lPos, BOOL bWait/*=TRUE*/)
 {
 	return MoveRelativeAtSpeed(wAxis, lPos, 0.0, bWait);
 }
 
-//	���Έʒu�ړ�(XY���F�E�F�C�g����t��)[StageMoveRelative()] ------------------------------------
+//	ï¿½ï¿½ï¿½ÎˆÊ’uï¿½Ú“ï¿½(XYï¿½ï¿½ï¿½Fï¿½Eï¿½Fï¿½Cï¿½gï¿½ï¿½ï¿½ï¿½tï¿½ï¿½)[StageMoveRelative()] ------------------------------------
 int CStageSPT::MoveRelative(STAGE_COORD* pPos, BOOL bWait/*=TRUE*/)
 {
 	return MoveRelativeAtSpeed(pPos, 0.0, bWait);
 }
 
-//	XY �X�e�[�W���~[StageStop()] ---------------------------------------------------------------
+//	XY ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½~[StageStop()] ---------------------------------------------------------------
 int CStageSPT::StageStop(void)
 {
 	if (0 == (m_hwndMotSys = ::FindWindow(0, MOTSYS_WINDOW_NAME))) {
@@ -905,10 +905,10 @@ int CStageSPT::StageStop(void)
 }
 
 #ifdef _DISABLETHREADSPOS
-//	���݈ʒu�擾(XY��)[StageGetPos()] ------------------------------------------------------------
+//	ï¿½ï¿½ï¿½İˆÊ’uï¿½æ“¾(XYï¿½ï¿½)[StageGetPos()] ------------------------------------------------------------
 int CStageSPT::GetPos(STAGE_COORD* pPos)
 {
-	// �_�����W�ɕϊ����܂��D
+	// ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½É•ÏŠï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D
 #if 0
 	STAGE_COORD l_Pos;
 	PhysicalToLogical(&m_CurrPos, &l_Pos);
@@ -923,7 +923,7 @@ int CStageSPT::GetPos(STAGE_COORD* pPos)
 	return STAGE_ERR_NONE;
 }
 
-//	���݈ʒu�擾(XYZ��)[StageGetPos()] -----------------------------------------------------------
+//	ï¿½ï¿½ï¿½İˆÊ’uï¿½æ“¾(XYZï¿½ï¿½)[StageGetPos()] -----------------------------------------------------------
 int CStageSPT::GetPos(STAGE_COORD_XYZ* pPos)
 {
 	int l_iRc = STAGE_ERR_NONE;
@@ -939,7 +939,7 @@ int CStageSPT::GetPos(STAGE_COORD_XYZ* pPos)
 	return l_iRc;
 }
 
-//	���݈ʒu�擾(�w��(XY)��)[StageGetPos()] ------------------------------------------------------
+//	ï¿½ï¿½ï¿½İˆÊ’uï¿½æ“¾(ï¿½wï¿½ï¿½(XY)ï¿½ï¿½)[StageGetPos()] ------------------------------------------------------
 int CStageSPT::GetPos(WORD wAxis, long* pPos)
 {
 	int l_iRc = STAGE_ERR_NONE;
@@ -965,13 +965,13 @@ int CStageSPT::GetPos(WORD wAxis, long* pPos)
 }
 #endif
 
-//	���x�ړ�(�w�葬�x�Ń��~�b�g�܂ňړ�)[StageMoveAtSpeed()] -------------------------------------
+//	ï¿½ï¿½ï¿½xï¿½Ú“ï¿½(ï¿½wï¿½è‘¬ï¿½xï¿½Åƒï¿½ï¿½~ï¿½bï¿½gï¿½Ü‚ÅˆÚ“ï¿½)[StageMoveAtSpeed()] -------------------------------------
 int CStageSPT::MoveAtSpeed(WORD wAxis, double dSpeed)
 {
 	return MoveAtSpeedEx(wAxis, dSpeed, TRUE);
 }
 
-//	�X�e�[�W�̃T�C�Y���擾[StageGetStageSize()] --------------------------------------------------
+//	ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÌƒTï¿½Cï¿½Yï¿½ï¿½ï¿½æ“¾[StageGetStageSize()] --------------------------------------------------
 int CStageSPT::GetStageSize(long* pStageSizeX, long* pStageSizeY)
 {
 	if (0 == (m_hwndMotSys = ::FindWindow(0, MOTSYS_WINDOW_NAME))) {
@@ -1009,7 +1009,7 @@ int CStageSPT::GetStageSize(long* pStageSizeX, long* pStageSizeY)
 	return l_iRc;
 }
 
-//	���_�ʒu���擾[StageGetOriginPos()] ----------------------------------------------------------
+//	ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½ï¿½ï¿½æ“¾[StageGetOriginPos()] ----------------------------------------------------------
 int CStageSPT::GetOriginPos(STAGE_COORD* pPos)
 {
 	if (0 == (m_hwndMotSys = ::FindWindow(0, MOTSYS_WINDOW_NAME))) {
@@ -1028,7 +1028,7 @@ int CStageSPT::GetOriginPos(STAGE_COORD* pPos)
 	return STAGE_ERR_NONE;
 }
 
-//	XY �X�e�[�W�̍ō����x���擾[StageGetMaxStageSpeed()] -----------------------------------------
+//	XY ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ì�Å�ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½æ“¾[StageGetMaxStageSpeed()] -----------------------------------------
 int CStageSPT::GetMaxStageSpeed(double* x, double* y)
 {
 	if (0 == (m_hwndMotSys = ::FindWindow(0, MOTSYS_WINDOW_NAME))) {
@@ -1066,7 +1066,7 @@ int CStageSPT::GetMaxStageSpeed(double* x, double* y)
 	return l_iRc;
 }
 
-//	XY �X�e�[�W�̑��x��ݒ�[StageSetLocalSpeed()] ------------------------------------------------
+//	XY ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ì‘ï¿½ï¿½xï¿½ï¿½İ’ï¿½[StageSetLocalSpeed()] ------------------------------------------------
 void CStageSPT::SetLocalSpeed(double x, double y)
 {
 	long l_LocalSpeedX = static_cast<long>(x);
@@ -1078,25 +1078,25 @@ void CStageSPT::SetLocalSpeed(double x, double y)
 	return;
 }
 
-//	���x���~�b�^�ݒ�[StageEnableSpeedLimit()] ----------------------------------------------------
+//	ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½~ï¿½bï¿½^ï¿½İ’ï¿½[StageEnableSpeedLimit()] ----------------------------------------------------
 void CStageSPT::EnableSpeedLimit(void)
 {
-	// �܂��������ł��D???????????????????????????????????????????????????????????????????????????
-	//		�H���Ɣ[���̖��Ŗ������̂܂܂Ƃ��܂��D[2009.04.20(Mon)]
+	// ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½D???????????????????????????????????????????????????????????????????????????
+	//		ï¿½Hï¿½ï¿½ï¿½Æ”[ï¿½ï¿½ï¿½Ì–ï¿½ï¿½Å–ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Ü‚Ü‚Æ‚ï¿½ï¿½Ü‚ï¿½ï¿½D[2009.04.20(Mon)]
 
 	return;
 }
 
-//	���x���~�b�^����[StageDisableSpeedLimit()] ---------------------------------------------------
+//	ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½~ï¿½bï¿½^ï¿½ï¿½ï¿½ï¿½[StageDisableSpeedLimit()] ---------------------------------------------------
 void CStageSPT::DisableSpeedLimit(void)
 {
-	// �܂��������ł��D???????????????????????????????????????????????????????????????????????????
-	//		�H���Ɣ[���̖��Ŗ������̂܂܂Ƃ��܂��D[2009.04.20(Mon)]
+	// ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½D???????????????????????????????????????????????????????????????????????????
+	//		ï¿½Hï¿½ï¿½ï¿½Æ”[ï¿½ï¿½ï¿½Ì–ï¿½ï¿½Å–ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Ü‚Ü‚Æ‚ï¿½ï¿½Ü‚ï¿½ï¿½D[2009.04.20(Mon)]
 
 	return;
 }
 
-//	MotSys �̕\��/��\��[StageShowMotSys()] ------------------------------------------------------
+//	MotSys ï¿½Ì•\ï¿½ï¿½/ï¿½ï¿½\ï¿½ï¿½[StageShowMotSys()] ------------------------------------------------------
 void CStageSPT::ShowMotSys(BOOL bShow)
 {
 	if (0 == (m_hwndMotSys = ::FindWindow(0, MOTSYS_WINDOW_NAME))) {
@@ -1104,13 +1104,13 @@ void CStageSPT::ShowMotSys(BOOL bShow)
 		return;
 	}
 	if (0 == bShow) {
-		::PostMessage(m_hwndMotSys, MOTDRV_HIDEINDOW, 0, 0);	// ��\��
+		::PostMessage(m_hwndMotSys, MOTDRV_HIDEINDOW, 0, 0);	// ï¿½ï¿½\ï¿½ï¿½
 	} else {
-		::PostMessage(m_hwndMotSys, MOTDRV_SHOWINDOW, 0, 0);	// �\��
+		::PostMessage(m_hwndMotSys, MOTDRV_SHOWINDOW, 0, 0);	// ï¿½\ï¿½ï¿½
 	}
 }
 
-//	�W���C�X�e�B�b�N �L���E����[StageEnableJoyStickSPT()] ----------------------------------------
+//	ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½N ï¿½Lï¿½ï¿½ï¿½Eï¿½ï¿½ï¿½ï¿½[StageEnableJoyStickSPT()] ----------------------------------------
 int CStageSPT::EnableJoystickSPT(BOOL bEnable/*=TRUE*/, int iSpeedSel/*=1*/)
 {
 	if (0 == (m_hwndMotSys = ::FindWindow(0, MOTSYS_WINDOW_NAME))) {
@@ -1138,7 +1138,7 @@ int CStageSPT::EnableJoystickSPT(BOOL bEnable/*=TRUE*/, int iSpeedSel/*=1*/)
 	return l_iRc;
 }
 
-//	X/Y �����~[StageStopAxis()] ----------------------------------------------------------------
+//	X/Y ï¿½ï¿½ï¿½ï¿½ï¿½~[StageStopAxis()] ----------------------------------------------------------------
 int CStageSPT::StageStopAxis(WORD wAxis)
 {
 	if (0 == (m_hwndMotSys = ::FindWindow(0, MOTSYS_WINDOW_NAME))) {
@@ -1172,7 +1172,7 @@ int CStageSPT::StageStopAxis(WORD wAxis)
 	return l_iRc;
 }
 
-//	XY �����쒆�X�e�[�^�X[StageIsAxisIdle()] -----------------------------------------------------
+//	XY ï¿½ï¿½ï¿½ï¿½ï¿½ì’†ï¿½Xï¿½eï¿½[ï¿½^ï¿½X[StageIsAxisIdle()] -----------------------------------------------------
 BOOL CStageSPT::IsAxisIdle(WORD wAxis)
 {
 	if (0 == (m_hwndMotSys = ::FindWindow(0, MOTSYS_WINDOW_NAME))) {
@@ -1188,7 +1188,7 @@ BOOL CStageSPT::IsAxisIdle(WORD wAxis)
 	return FALSE;
 }
 
-//	��Έʒu�w�葬�x�ړ�(�w�莲�F�E�F�C�g����t��)[StageMoveAbsoluteAtSpeedEx()] -----------------
+//	ï¿½ï¿½ÎˆÊ’uï¿½wï¿½è‘¬ï¿½xï¿½Ú“ï¿½(ï¿½wï¿½è�²ï¿½Fï¿½Eï¿½Fï¿½Cï¿½gï¿½ï¿½ï¿½ï¿½tï¿½ï¿½)[StageMoveAbsoluteAtSpeedEx()] -----------------
 int CStageSPT::MoveAbsoluteAtSpeedEx(WORD wAxis, long lPos, double dSpeed, BOOL bWait/*=TRUE*/)
 {
 	if (0 == (m_hwndMotSys = ::FindWindow(0, MOTSYS_WINDOW_NAME))) {
@@ -1199,14 +1199,14 @@ int CStageSPT::MoveAbsoluteAtSpeedEx(WORD wAxis, long lPos, double dSpeed, BOOL 
 		return STAGE_ERR_MS_AXIS_UNINITIALIZED;
 	}
 
-	STAGE_COORD l_AdjEvPos;		// Z �␳�p
+	STAGE_COORD l_AdjEvPos;		// Z ï¿½â�³ï¿½p
 	int l_iRc = STAGE_ERR_NONE;
 	switch (wAxis) {
 	case X:
 	case Y:
 		{
-			// �w��ʒu���΍��W�ɕϊ�
-			l_iRc = InquirePosSPT();	// ���W��(���߂�)�擾
+			// ï¿½wï¿½ï¿½Ê’uï¿½ï¿½ï¿½Î�ï¿½ï¿½Wï¿½É•ÏŠï¿½
+			l_iRc = InquirePosSPT();	// ï¿½ï¿½ï¿½Wï¿½ï¿½(ï¿½ï¿½ï¿½ß‚ï¿½)ï¿½æ“¾
 			if (STAGE_ERR_NONE == l_iRc) {
 				STAGE_COORD l_LogicalPos;
 				if (X == wAxis) {
@@ -1217,8 +1217,8 @@ int CStageSPT::MoveAbsoluteAtSpeedEx(WORD wAxis, long lPos, double dSpeed, BOOL 
 					l_LogicalPos.lY = lPos;
 				}
 				STAGE_COORD l_PhysicalPos;
-				LogicalToPhysical(&l_LogicalPos, &l_PhysicalPos);				// ��΍��W�ɕϊ�
-				l_AdjEvPos.lX = l_PhysicalPos.lX; l_AdjEvPos.lY = l_PhysicalPos.lY;		// Z �␳�p
+				LogicalToPhysical(&l_LogicalPos, &l_PhysicalPos);				// ï¿½ï¿½Î�ï¿½ï¿½Wï¿½É•ÏŠï¿½
+				l_AdjEvPos.lX = l_PhysicalPos.lX; l_AdjEvPos.lY = l_PhysicalPos.lY;		// Z ï¿½â�³ï¿½p
 				long l_lPhysicalPos;
 				if (X == wAxis) {
 					l_lPhysicalPos = l_PhysicalPos.lX;
@@ -1226,10 +1226,10 @@ int CStageSPT::MoveAbsoluteAtSpeedEx(WORD wAxis, long lPos, double dSpeed, BOOL 
 					l_lPhysicalPos = l_PhysicalPos.lY;
 				}
 			l_lPhysicalPos = ConvCountFrom(l_lPhysicalPos, m_lFactor[wAxis]);
-			// ���x�̐ݒ�
+			// ï¿½ï¿½ï¿½xï¿½Ì�İ’ï¿½
 			long l_lSpeed = ConvCountFrom(static_cast<long>(dSpeed), m_lFactor[wAxis]);
 				l_lSpeed = SpeedAdjustLimit(l_lSpeed, m_lLocalSpeed[wAxis], m_lMaxSpeed[wAxis]);
-				// �ړ��w��
+				// ï¿½Ú“ï¿½ï¿½wï¿½ï¿½
 				gc_bInMotionMS[wAxis] = TRUE;
 				int l_iMSRet = MotsysMoveToPosition(m_hwndMotSys, ConvAxisTo(wAxis), l_lPhysicalPos, l_lSpeed);
 				if (MS_NO_ERROR != l_iMSRet) {
@@ -1255,9 +1255,9 @@ int CStageSPT::MoveAbsoluteAtSpeedEx(WORD wAxis, long lPos, double dSpeed, BOOL 
 		break;
 	}
 	if (STAGE_ERR_NONE == l_iRc) {
-		AdjustElevator(FALSE, &l_AdjEvPos);		// Z �␳
+		AdjustElevator(FALSE, &l_AdjEvPos);		// Z ï¿½â�³
 		if (TRUE == bWait) {
-			// �ړ�������҂��܂��D
+			// ï¿½Ú“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½ï¿½Ü‚ï¿½ï¿½D
 			l_iRc = CStageNTN::Execute(&CStageNTN::MotSys_WaitMotionAxis, (LPVOID) MAKELONG(MAKEWORD(wAxis, 1), TIMEOUT_MOTSYS_MOTION));
 		}
 	}
@@ -1265,7 +1265,7 @@ int CStageSPT::MoveAbsoluteAtSpeedEx(WORD wAxis, long lPos, double dSpeed, BOOL 
 	return l_iRc;
 }
 
-//	��Έʒu�w�葬�x�ړ�(XY���F�E�F�C�g����t��)[StageMoveAbsoluteAtSpeedEx()] -------------------
+//	ï¿½ï¿½ÎˆÊ’uï¿½wï¿½è‘¬ï¿½xï¿½Ú“ï¿½(XYï¿½ï¿½ï¿½Fï¿½Eï¿½Fï¿½Cï¿½gï¿½ï¿½ï¿½ï¿½tï¿½ï¿½)[StageMoveAbsoluteAtSpeedEx()] -------------------
 int CStageSPT::MoveAbsoluteAtSpeedEx(STAGE_COORD* pPos, double dSpeed, BOOL bWait/*=TRUE*/)
 {
 	if (0 == (m_hwndMotSys = ::FindWindow(0, MOTSYS_WINDOW_NAME))) {
@@ -1276,14 +1276,14 @@ int CStageSPT::MoveAbsoluteAtSpeedEx(STAGE_COORD* pPos, double dSpeed, BOOL bWai
 		return STAGE_ERR_MS_AXIS_UNINITIALIZED;
 	}
 
-	// �w��ʒu���΍��W�ɕϊ�
-	STAGE_COORD l_AdjEvPos;		// Z �␳�p
+	// ï¿½wï¿½ï¿½Ê’uï¿½ï¿½ï¿½Î�ï¿½ï¿½Wï¿½É•ÏŠï¿½
+	STAGE_COORD l_AdjEvPos;		// Z ï¿½â�³ï¿½p
 	STAGE_COORD l_PhysicalPos;
-	LogicalToPhysical(pPos, &l_PhysicalPos);				// ��΍��W�ɕϊ�
-	l_AdjEvPos.lX = l_PhysicalPos.lX; l_AdjEvPos.lY = l_PhysicalPos.lY;		// Z �␳�p
+	LogicalToPhysical(pPos, &l_PhysicalPos);				// ï¿½ï¿½Î�ï¿½ï¿½Wï¿½É•ÏŠï¿½
+	l_AdjEvPos.lX = l_PhysicalPos.lX; l_AdjEvPos.lY = l_PhysicalPos.lY;		// Z ï¿½â�³ï¿½p
 	l_PhysicalPos.lX = ConvCountFrom(l_PhysicalPos.lX, m_lFactor[X]);
 	l_PhysicalPos.lY = ConvCountFrom(l_PhysicalPos.lY, m_lFactor[Y]);
-	// ���x�̐ݒ�
+	// ï¿½ï¿½ï¿½xï¿½Ì�İ’ï¿½
 	long l_lSpeedX = ConvCountFrom(static_cast<long>(dSpeed), m_lFactor[X]);
 	long l_lSpeedY = ConvCountFrom(static_cast<long>(dSpeed), m_lFactor[Y]);
 	l_lSpeedX = SpeedAdjustLimit(l_lSpeedX, m_lLocalSpeed[X], m_lMaxSpeed[X]);
@@ -1328,9 +1328,9 @@ int CStageSPT::MoveAbsoluteAtSpeedEx(STAGE_COORD* pPos, double dSpeed, BOOL bWai
 		}
 	}
 	if (STAGE_ERR_NONE == l_iRc) {
-		AdjustElevator(FALSE, &l_AdjEvPos);		// Z �␳
+		AdjustElevator(FALSE, &l_AdjEvPos);		// Z ï¿½â�³
 		if (TRUE == bWait) {
-			// �ړ�������҂��܂��D
+			// ï¿½Ú“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½ï¿½Ü‚ï¿½ï¿½D
 			l_iRc = CStageNTN::Execute(&CStageNTN::MotSys_WaitMotionXY, (LPVOID) MAKELONG(MAKEWORD(0, 0), TIMEOUT_MOTSYS_MOTION));
 		}
 	}
@@ -1338,7 +1338,7 @@ int CStageSPT::MoveAbsoluteAtSpeedEx(STAGE_COORD* pPos, double dSpeed, BOOL bWai
 	return l_iRc;
 }
 
-//	���Έʒu�w�葬�x�ړ�(�w�莲�F�E�F�C�g����t��)[StageMoveRelativeAtSpeed()] -------------------
+//	ï¿½ï¿½ï¿½ÎˆÊ’uï¿½wï¿½è‘¬ï¿½xï¿½Ú“ï¿½(ï¿½wï¿½è�²ï¿½Fï¿½Eï¿½Fï¿½Cï¿½gï¿½ï¿½ï¿½ï¿½tï¿½ï¿½)[StageMoveRelativeAtSpeed()] -------------------
 int CStageSPT::MoveRelativeAtSpeed(WORD wAxis, long lPos, double dSpeed, BOOL bWait/*=TRUE*/)
 {
 	if (0 == (m_hwndMotSys = ::FindWindow(0, MOTSYS_WINDOW_NAME))) {
@@ -1354,8 +1354,8 @@ int CStageSPT::MoveRelativeAtSpeed(WORD wAxis, long lPos, double dSpeed, BOOL bW
 	case X:
 	case Y:
 		{
-			// ��΍��W��_�����W�ɕϊ����ăI�t�Z�b�g�����Z
-			l_iRc = InquirePosSPT();	// ���W��(���߂�)�擾
+			// ï¿½ï¿½Î�ï¿½ï¿½Wï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½É•ÏŠï¿½ï¿½ï¿½ï¿½ÄƒIï¿½tï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Z
+			l_iRc = InquirePosSPT();	// ï¿½ï¿½ï¿½Wï¿½ï¿½(ï¿½ï¿½ï¿½ß‚ï¿½)ï¿½æ“¾
 			if (STAGE_ERR_NONE == l_iRc) {
 				long l_lLogicalPos;
 				if (X == wAxis) {
@@ -1363,7 +1363,7 @@ int CStageSPT::MoveRelativeAtSpeed(WORD wAxis, long lPos, double dSpeed, BOOL bW
 				} else {
 					l_lLogicalPos = m_CurrPos.lY + lPos;
 				}
-				// �ړ��w��
+				// ï¿½Ú“ï¿½ï¿½wï¿½ï¿½
 				l_iRc = MoveAbsoluteAtSpeedEx(wAxis, l_lLogicalPos, dSpeed, bWait);
 			}
 		}
@@ -1376,7 +1376,7 @@ int CStageSPT::MoveRelativeAtSpeed(WORD wAxis, long lPos, double dSpeed, BOOL bW
 	return l_iRc;
 }
 
-//	���Έʒu�w�葬�x�ړ�(XY���F�E�F�C�g����t��)[StageMoveRelativeAtSpeed()] ---------------------
+//	ï¿½ï¿½ï¿½ÎˆÊ’uï¿½wï¿½è‘¬ï¿½xï¿½Ú“ï¿½(XYï¿½ï¿½ï¿½Fï¿½Eï¿½Fï¿½Cï¿½gï¿½ï¿½ï¿½ï¿½tï¿½ï¿½)[StageMoveRelativeAtSpeed()] ---------------------
 int CStageSPT::MoveRelativeAtSpeed(STAGE_COORD* pPos, double dSpeed, BOOL bWait/*=TRUE*/)
 {
 	if (0 == (m_hwndMotSys = ::FindWindow(0, MOTSYS_WINDOW_NAME))) {
@@ -1387,8 +1387,8 @@ int CStageSPT::MoveRelativeAtSpeed(STAGE_COORD* pPos, double dSpeed, BOOL bWait/
 		return STAGE_ERR_MS_AXIS_UNINITIALIZED;
 	}
 
-	// ��΍��W��_�����W�ɕϊ����ăI�t�Z�b�g�����Z
-	int l_iRc = InquirePosSPT();	// ���W��(���߂�)�擾
+	// ï¿½ï¿½Î�ï¿½ï¿½Wï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½É•ÏŠï¿½ï¿½ï¿½ï¿½ÄƒIï¿½tï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Z
+	int l_iRc = InquirePosSPT();	// ï¿½ï¿½ï¿½Wï¿½ï¿½(ï¿½ï¿½ï¿½ß‚ï¿½)ï¿½æ“¾
 	if (STAGE_ERR_NONE == l_iRc) {
 		STAGE_COORD l_LogicalPos;
 		l_LogicalPos.lX = m_CurrPos.lX + pPos->lX;
@@ -1399,7 +1399,7 @@ int CStageSPT::MoveRelativeAtSpeed(STAGE_COORD* pPos, double dSpeed, BOOL bWait/
 	return l_iRc;
 }
 
-//	SPT �p �W���C�X�e�B�b�N��Ԏ擾[StageGetJoystickSPT()] ----------------------------------------
+//	SPT ï¿½p ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½ï¿½Ô�æ“¾[StageGetJoystickSPT()] ----------------------------------------
 BOOL CStageSPT::GetJoyStickSPT(void)
 {
 	if (0 == (m_hwndMotSys = ::FindWindow(0, MOTSYS_WINDOW_NAME))) {
@@ -1424,7 +1424,7 @@ BOOL CStageSPT::GetJoyStickSPT(void)
 	return l_bRet;
 }
 
-//	�w�葬�x�ړ�(�w�莲�F�E�F�C�g����t��)[StageMoveAtSpeedEx()] ----------------------------------
+//	ï¿½wï¿½è‘¬ï¿½xï¿½Ú“ï¿½(ï¿½wï¿½è�²ï¿½Fï¿½Eï¿½Fï¿½Cï¿½gï¿½ï¿½ï¿½ï¿½tï¿½ï¿½)[StageMoveAtSpeedEx()] ----------------------------------
 int CStageSPT::MoveAtSpeedEx(WORD wAxis, double dSpeed, BOOL bWait/*=TRUE*/)
 {
 	if (0 == (m_hwndMotSys = ::FindWindow(0, MOTSYS_WINDOW_NAME))) {
@@ -1440,10 +1440,10 @@ int CStageSPT::MoveAtSpeedEx(WORD wAxis, double dSpeed, BOOL bWait/*=TRUE*/)
 	case X:
 	case Y:
 		{
-		// ���x�̐ݒ�
+		// ï¿½ï¿½ï¿½xï¿½Ì�İ’ï¿½
 		long l_lSpeed = ConvCountFrom(static_cast<long>(dSpeed), m_lFactor[wAxis]);
 			l_lSpeed = SpeedAdjustLimit(l_lSpeed, m_lLocalSpeed[wAxis], m_lMaxSpeed[wAxis]);
-			// �ړ��w��
+			// ï¿½Ú“ï¿½ï¿½wï¿½ï¿½
 			gc_bInMotionMS[wAxis] = TRUE;
 			int l_iMSRet = MotsysMoveAtSpeed(m_hwndMotSys, ConvAxisTo(wAxis), l_lSpeed, 0);
 			if (MS_NO_ERROR != l_iMSRet) {
@@ -1469,7 +1469,7 @@ int CStageSPT::MoveAtSpeedEx(WORD wAxis, double dSpeed, BOOL bWait/*=TRUE*/)
 	}
 	if (STAGE_ERR_NONE == l_iRc) {
 		if (TRUE == bWait) {
-			// �ړ�������҂��܂��D
+			// ï¿½Ú“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½ï¿½Ü‚ï¿½ï¿½D
 			l_iRc = CStageNTN::Execute(&CStageNTN::MotSys_WaitMotionAxis, (LPVOID) MAKELONG(MAKEWORD(wAxis, 1), TIMEOUT_MOTSYS_MOTION));
 		}
 	}
@@ -1477,12 +1477,12 @@ int CStageSPT::MoveAtSpeedEx(WORD wAxis, double dSpeed, BOOL bWait/*=TRUE*/)
 	return l_iRc;
 }
 
-//	SPT �p ���̓d�q�M�A���擾[StageGetElectronicGear()] -------------------------------------------
-//		(����FLOWORD(*plEleGearAB)�C���q�FHIWORD(*plEleGearAB)
-//		�������f�[�^()�Őݒ肳�ꂽ���e�ł��D
-//		�����ł͐ݒ�o���܂��񂪁C�ݒ�͈͂́F
-//			����F�K�薳��
-//			�����F1/32 �܂�
+//	SPT ï¿½p ï¿½ï¿½ï¿½Ì“dï¿½qï¿½Mï¿½Aï¿½ï¿½ï¿½æ“¾[StageGetElectronicGear()] -------------------------------------------
+//		(ï¿½ï¿½ï¿½ï¿½FLOWORD(*plEleGearAB)ï¿½Cï¿½ï¿½ï¿½qï¿½FHIWORD(*plEleGearAB)
+//		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^()ï¿½Å�İ’è‚³ï¿½ê‚½ï¿½ï¿½ï¿½eï¿½Å‚ï¿½ï¿½D
+//		ï¿½ï¿½ï¿½ï¿½ï¿½Å‚Í�İ’ï¿½oï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ñ‚ª�Cï¿½İ’ï¿½ÍˆÍ‚Í�F
+//			ï¿½ï¿½ï¿½ï¿½Fï¿½Kï¿½è–³ï¿½ï¿½
+//			ï¿½ï¿½ï¿½ï¿½ï¿½F1/32 ï¿½Ü‚ï¿½
 BOOL CStageSPT::GetElectronicGear(WORD wAxis, long* plEleGearAB)
 {
 	if (0 == (m_hwndMotSys = ::FindWindow(0, MOTSYS_WINDOW_NAME))) {
@@ -1505,17 +1505,17 @@ BOOL CStageSPT::GetElectronicGear(WORD wAxis, long* plEleGearAB)
 	return l_bRet;
 }
 
-/* ���̒P�ʕϊ��W����ݒ�
- *		lFactor[count/�w�ߒP��]
- *			������ SPT �X�e�[�W�̓d�q�M�A��Ō��܂�܂��D
- *			SPT �X�e�[�W�̎��t�B�[�h�o�b�N����\�� 156.25[nm]�Ȃ̂ŁC
- *			�d�q�M�A�䂪 8/25 �̏ꍇ�C���L�̎w�ߕ���\�ɂȂ�܂��D
+/* ï¿½ï¿½ï¿½Ì’Pï¿½Ê•ÏŠï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½İ’ï¿½
+ *		lFactor[count/ï¿½wï¿½ß’Pï¿½ï¿½]
+ *			ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ SPT ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ì“dï¿½qï¿½Mï¿½Aï¿½ï¿½ÅŒï¿½ï¿½Ü‚ï¿½Ü‚ï¿½ï¿½D
+ *			SPT ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ì�ï¿½ï¿½tï¿½Bï¿½[ï¿½hï¿½oï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ 156.25[nm]ï¿½È‚Ì‚Å�C
+ *			ï¿½dï¿½qï¿½Mï¿½Aï¿½ä‚ª 8/25 ï¿½Ì�ê�‡ï¿½Cï¿½ï¿½ï¿½Lï¿½Ì�wï¿½ß•ï¿½ï¿½ï¿½\ï¿½É‚È‚ï¿½Ü‚ï¿½ï¿½D
  *				0.050[um/count]
- *			�d�q�M�A��� SPT �X�e�[�W�̏������f�[�^�Őݒ肳��܂��D
- *			�l�����F
- *				�w�ߕ���\�� 0.050[um/count]�̏ꍇ�F
- *					�w�ߒP�ʂ�[um]�ɂ���ꍇ�C20[count/�w�ߒP��]�ł��D
- *					�w�ߒP�ʂ�[0.1um]�ɂ���ꍇ�C2[count/�w�ߒP��]�ł��D*/
+ *			ï¿½dï¿½qï¿½Mï¿½Aï¿½ï¿½ï¿½ SPT ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ì�ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½Å�İ’è‚³ï¿½ï¿½Ü‚ï¿½ï¿½D
+ *			ï¿½lï¿½ï¿½ï¿½ï¿½ï¿½F
+ *				ï¿½wï¿½ß•ï¿½ï¿½ï¿½\ï¿½ï¿½ 0.050[um/count]ï¿½Ì�ê�‡ï¿½F
+ *					ï¿½wï¿½ß’Pï¿½Ê‚ï¿½[um]ï¿½É‚ï¿½ï¿½ï¿½ê�‡ï¿½C20[count/ï¿½wï¿½ß’Pï¿½ï¿½]ï¿½Å‚ï¿½ï¿½D
+ *					ï¿½wï¿½ß’Pï¿½Ê‚ï¿½[0.1um]ï¿½É‚ï¿½ï¿½ï¿½ê�‡ï¿½C2[count/ï¿½wï¿½ß’Pï¿½ï¿½]ï¿½Å‚ï¿½ï¿½D*/
 BOOL CStageSPT::SetFactor(WORD wAxis, long lFactor)
 {
 	BOOL l_bRc = TRUE;
@@ -1532,8 +1532,8 @@ BOOL CStageSPT::SetFactor(WORD wAxis, long lFactor)
 	return l_bRc;
 }
 
-/* �X�e�[�W�̌��_�ʒu�I�t�Z�b�g���擾
-		�X�e�[�W�́|�������[���猴�_(�O�_)�܂ł̋����ł��D */
+/* ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÌŒï¿½ï¿½_ï¿½Ê’uï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½æ“¾
+		ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ì�|ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½çŒ´ï¿½_(ï¿½Oï¿½_)ï¿½Ü‚Å‚Ì‹ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½D */
 int CStageSPT::GetOrgLoc(long* plStageOrgLocX, long* plStageOrgLocY)
 {
 	if (0 == (m_hwndMotSys = ::FindWindow(0, MOTSYS_WINDOW_NAME))) {
@@ -1556,17 +1556,17 @@ int CStageSPT::GetOrgLoc(long* plStageOrgLocX, long* plStageOrgLocY)
 	}
 	if (STAGE_ERR_NONE == l_iRc) {
 		if (m_lFactor[X] < 0) {
-			// �t�]
+			// ï¿½tï¿½]
 			*plStageOrgLocX = l_StageSize.lX - l_OrgPos.lX;
 		} else {
-			// ���]
+			// ï¿½ï¿½ï¿½]
 			*plStageOrgLocX = l_OrgPos.lX;
 		}
 		if (m_lFactor[Y] < 0) {
-			// �t�]
+			// ï¿½tï¿½]
 			*plStageOrgLocY = l_StageSize.lY - l_OrgPos.lY;
 		} else {
-			// ���]
+			// ï¿½ï¿½ï¿½]
 			*plStageOrgLocY = l_OrgPos.lY;
 		}
 	}
@@ -1574,7 +1574,7 @@ int CStageSPT::GetOrgLoc(long* plStageOrgLocX, long* plStageOrgLocY)
 	return STAGE_ERR_NONE;
 }
 
-/* �W���C�X�e�B�b�N�̑��x��ݒ� */
+/* ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½Ì‘ï¿½ï¿½xï¿½ï¿½İ’ï¿½ */
 int CStageSPT::SetJoyStickSpeedSPT(WORD wAxis, int iSpeedSel, double dSpeed)
 {
 	if (0 == (m_hwndMotSys = ::FindWindow(0, MOTSYS_WINDOW_NAME))) {
@@ -1590,7 +1590,7 @@ int CStageSPT::SetJoyStickSpeedSPT(WORD wAxis, int iSpeedSel, double dSpeed)
 	case X:
 	case Y:
 		{
-		// ���x�̐ݒ�
+		// ï¿½ï¿½ï¿½xï¿½Ì�İ’ï¿½
 		long l_lSpeed = ConvCountFrom(static_cast<long>(dSpeed), m_lFactor[wAxis]);
 			l_lSpeed = SpeedAdjustLimit(l_lSpeed, m_lLocalSpeed[wAxis], m_lMaxSpeed[wAxis]);
 			int l_iMSRet = MotsysSetJoySpeed(m_hwndMotSys, ConvAxisTo(wAxis), iSpeedSel, l_lSpeed);

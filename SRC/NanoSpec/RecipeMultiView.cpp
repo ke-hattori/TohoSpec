@@ -1,4 +1,4 @@
-// RecipeMultiView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// RecipeMultiView.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -78,7 +78,7 @@ BEGIN_MESSAGE_MAP(CRecipeMultiView, CNanoRecipeUI)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CRecipeMultiView f’f
+// CRecipeMultiView è¨ºæ–­
 
 #ifdef _DEBUG
 // =========================================================================
@@ -97,7 +97,7 @@ void CRecipeMultiView::Dump(CDumpContext& dc) const
 #endif //_DEBUG
 
 // =========================================================================
-// CRecipeMultiView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CRecipeMultiView ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -114,7 +114,7 @@ void CRecipeMultiView::OnInitialUpdate()
 		| CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
 		!m_wndToolBar.LoadToolBar(IDR_EDIT_RECIPE_BAR)){
 		TRACE0("Failed to create toolbar\n");
-		return;		// ì¬‚É¸”s
+		return;		// ä½œæˆã«å¤±æ•—
 	}
 
 	GetClientRect(&rect);
@@ -143,7 +143,7 @@ void CRecipeMultiView::OnInitialUpdate()
 	///// Set Data /////
 	SetData();
 
-	// ƒRƒƒ“ƒg•¶š”§ŒÀ
+	// ã‚³ãƒ¡ãƒ³ãƒˆæ–‡å­—æ•°åˆ¶é™
 	((CEdit*)GetDlgItem(IDC_COMMENT))->SetLimitText(RECIPE_COMMENT_LEN);
 }
 
@@ -320,7 +320,7 @@ void CRecipeMultiView::MainRecipeList_DataSet()
 		memset(&MeasProgInfo, 0, sizeof(MeasProgInfo));
 
 		///// Load Main Recipe /////
-		// ƒtƒ@ƒCƒ‹–¼‚ğæ“¾
+		// ãƒ•ã‚¡ã‚¤ãƒ«åã‚’å–å¾—
 		strMainRecipeName = Finder.GetFileTitle();
 		if ( strMainRecipeName[0] == SYSTEM_RECIPE_BEGINNING_CHAR )
 			continue;
@@ -415,7 +415,7 @@ void CRecipeMultiView::MultiRecipeList_DataSet()
 //
 void CRecipeMultiView::LoadRecipeData()
 {
-	// V‹Kì¬‚Ìê‡
+	// æ–°è¦ä½œæˆã®å ´åˆ
 	if ( m_nOpenMode == modeNew ) {
 		;
 	}
@@ -503,7 +503,7 @@ void CRecipeMultiView::UpDate()
 //
 BOOL CRecipeMultiView::SaveRecipeData()
 {
-	// V‚µ‚¢ƒŒƒVƒs–¼‚ğİ’èiSave, SaveAsŒ“—pj
+	// æ–°ã—ã„ãƒ¬ã‚·ãƒ”åã‚’è¨­å®šï¼ˆSave, SaveAså…¼ç”¨ï¼‰
 	strcpy(m_MultiRcpInfoHdr.hdr.szName, m_szRecipeName);
 	if ( !RecipeFile_SaveRecipe(&m_MultiRcpInfoHdr, m_MultiRcpInfoHdr.hdr.szName, RECIPE_FILE_MULTI_RECIPE) )
 		return FALSE;

@@ -1,4 +1,4 @@
-// SystemConfigurationSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SystemConfigurationSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -16,7 +16,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // #########################################################################
-// CSystemConfigurationSettingDlg ƒ_ƒCƒAƒƒO
+// CSystemConfigurationSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // #########################################################################
 
 // =========================================================================
@@ -41,10 +41,10 @@ void CSystemConfigurationSettingDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_CHECK_HEAD_TYPE_4PP, m_SystemConfig.HeadType.bResist);
 	DDX_Check(pDX, IDC_CHECK_HEAD_TYPE_CONTACT_ANGLE, m_SystemConfig.HeadType.bCTA);
 	DDX_Check(pDX, IDC_CHECK_HEAD_TYPE_STRESS, m_SystemConfig.HeadType.bStress);
-// 2009.10.17 bagus MS ’Ç‰Á --{--
+// 2009.10.17 bagus MS è¿½åŠ  --{--
 //	DDX_Check(pDX, IDC_CHECK_HEAD_TYPE_IRSE, m_SystemConfig.HeadType.bIRSE);
 	DDX_Check(pDX, IDC_CHECK_HEAD_TYPE_MS, m_SystemConfig.HeadType.bMS);
-// 2009.10.17 bagus MS ’Ç‰Á --}--
+// 2009.10.17 bagus MS è¿½åŠ  --}--
 	DDX_Check(pDX, IDC_CHECK_VIBRATION_DOWN_SENSOR, m_SystemConfig.bVibrationDownSensor);
 	DDX_Check(pDX, IDC_CHECK_GLASS_EXISTENCE, m_SystemConfig.bSampleExistenceSensor);
 	DDX_Check(pDX, IDC_CHECK_SAMPLE_PATTERN_REC, m_SystemConfig.bSamplePatternRec);
@@ -57,14 +57,14 @@ void CSystemConfigurationSettingDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_CHECK_SAMPLE_ALIGNER, m_SystemConfig.bSampleAligner);
 	DDX_Control(pDX, IDOK, m_OkButton);
 	DDX_Control(pDX, IDCANCEL, m_CancelButton);
-/* added 2009.06.16 hmenjo Loading Shutter Žg—p—L–³’Ç‰Á ---------- { ---------- */
+/* added 2009.06.16 hmenjo Loading Shutter ä½¿ç”¨æœ‰ç„¡è¿½åŠ  ---------- { ---------- */
 	DDX_Check(pDX, IDC_CHECK_LOADING_SHUTTER, m_SystemConfig.bUseLoadingShutter);
-/* added 2009.06.16 hmenjo Loading Shutter Žg—p—L–³’Ç‰Á ---------- } ---------- */
-/* deleted 2009.07.03 hmenjo Seq ‘ª’èŽžƒtƒBƒ‹ƒ^ŒÅ’è‹@”\ ’ù³ ---------- { ---------- */
-///* added 2009.07.02 hmenjo Seq ‘ª’èŽžƒtƒBƒ‹ƒ^ŒÅ’è‹@”\ ---------- { ---------- */
+/* added 2009.06.16 hmenjo Loading Shutter ä½¿ç”¨æœ‰ç„¡è¿½åŠ  ---------- } ---------- */
+/* deleted 2009.07.03 hmenjo Seq æ¸¬å®šæ™‚ãƒ•ã‚£ãƒ«ã‚¿å›ºå®šæ©Ÿèƒ½ è¨‚æ­£ ---------- { ---------- */
+///* added 2009.07.02 hmenjo Seq æ¸¬å®šæ™‚ãƒ•ã‚£ãƒ«ã‚¿å›ºå®šæ©Ÿèƒ½ ---------- { ---------- */
 //	DDX_Check(pDX, IDC_CHK_USEOPTFILTERAF, m_SystemConfig.bUseOptFilterMeasPgmAF);
-///* added 2009.07.02 hmenjo Seq ‘ª’èŽžƒtƒBƒ‹ƒ^ŒÅ’è‹@”\ ---------- } ---------- */
-/* deleted 2009.07.03 hmenjo Seq ‘ª’èŽžƒtƒBƒ‹ƒ^ŒÅ’è‹@”\ ’ù³ ---------- } ---------- */
+///* added 2009.07.02 hmenjo Seq æ¸¬å®šæ™‚ãƒ•ã‚£ãƒ«ã‚¿å›ºå®šæ©Ÿèƒ½ ---------- } ---------- */
+/* deleted 2009.07.03 hmenjo Seq æ¸¬å®šæ™‚ãƒ•ã‚£ãƒ«ã‚¿å›ºå®šæ©Ÿèƒ½ è¨‚æ­£ ---------- } ---------- */
 // 2009.12.10 bagus Recipe Backup --{--
 	DDX_Check(pDX, IDC_CHECK_BACKUP, m_SystemConfig.bBackup);
 // 2009.12.10 bagus Recipe Backup --}--
@@ -90,21 +90,21 @@ BEGIN_MESSAGE_MAP(CSystemConfigurationSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CSystemConfigurationSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSystemConfigurationSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
 BOOL CSystemConfigurationSettingDlg::OnInitDialog()
 {
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	if(g_lModelType == MODEL_T3100){
 		m_SystemConfig.HeadType.bSR = TRUE;
 		GetDlgItem(IDC_CHECK_HEAD_TYPE_SR)->EnableWindow(FALSE);
 	}
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 
-	//–¢‘Î‰ž‹@”\disable
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+	//æœªå¯¾å¿œæ©Ÿèƒ½disable
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	if(g_lModelType == MODEL_T3100){
 		GetDlgItem(IDC_CHECK_HEAD_TYPE_SE)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_STATIC_COMPLETE_EASE)->ShowWindow(SW_HIDE);
@@ -124,29 +124,29 @@ BOOL CSystemConfigurationSettingDlg::OnInitDialog()
 		GetDlgItem(IDC_CHECK_DISABLE_NEXTRA)->ShowWindow(SW_HIDE);
 	}
 	else{
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
-		//2009.09.02 bagus se SE‹@”\’Ç‰Á --{--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
+		//2009.09.02 bagus se SEæ©Ÿèƒ½è¿½åŠ  --{--
 		//GetDlgItem(IDC_CHECK_HEAD_TYPE_SE)->EnableWindow(FALSE);
 		GetDlgItem(IDC_CHECK_HEAD_TYPE_SE)->EnableWindow(TRUE);
-		//2009.09.02 bagus se SE‹@”\’Ç‰Á --}--
-		// 2009.11.04 bagus RS ’Ç‰Á --{--
+		//2009.09.02 bagus se SEæ©Ÿèƒ½è¿½åŠ  --}--
+		// 2009.11.04 bagus RS è¿½åŠ  --{--
 		//GetDlgItem(IDC_CHECK_HEAD_TYPE_4PP)->EnableWindow(FALSE);
 		GetDlgItem(IDC_CHECK_HEAD_TYPE_4PP)->EnableWindow(TRUE);
-		// 2009.11.04 bagus RS ’Ç‰Á --}--
+		// 2009.11.04 bagus RS è¿½åŠ  --}--
 		// 2009.10.07 bagus CTA --{--
 		//GetDlgItem(IDC_CHECK_HEAD_TYPE_CONTACT_ANGLE)->EnableWindow(FALSE);
 		GetDlgItem(IDC_CHECK_HEAD_TYPE_CONTACT_ANGLE)->EnableWindow(TRUE);
 		// 2009.10.07 bagus CTA --}--
-		//@@@ bagus stress ƒXƒgƒŒƒX‹@”\’Ç‰Á --{--
+		//@@@ bagus stress ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ  --{--
 		GetDlgItem(IDC_CHECK_HEAD_TYPE_STRESS)->EnableWindow(TRUE);
-		//@@@ bagus stress ƒXƒgƒŒƒX‹@”\’Ç‰Á --}--
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+		//@@@ bagus stress ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ  --}--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 	// Okabe Change 2009.05.30 ----->
 	//GetDlgItem(IDC_CHECK_SITE_PATTERN_REC)->EnableWindow(FALSE);
 	// Okabe Change 2009.05.30 <-----
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	if(g_lModelType == MODEL_T3100){
 		GetDlgItem(IDC_CHECK_HEAD_TYPE_MS)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_CHECK_SIGNAL_TOWER)->ShowWindow(SW_HIDE);
@@ -179,11 +179,11 @@ BOOL CSystemConfigurationSettingDlg::OnInitDialog()
 		GetDlgItem(IDC_VACUUM_TIMEOUT)->ShowWindow(SW_HIDE);
 	}
 	else{
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
-// 2009.10.17 bagus MS ’Ç‰Á --{--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
+// 2009.10.17 bagus MS è¿½åŠ  --{--
 //		GetDlgItem(IDC_CHECK_HEAD_TYPE_IRSE)->EnableWindow(FALSE);
 		GetDlgItem(IDC_CHECK_HEAD_TYPE_MS)->EnableWindow(TRUE);
-// 2009.10.17 bagus MS ’Ç‰Á --}--
+// 2009.10.17 bagus MS è¿½åŠ  --}--
 		GetDlgItem(IDC_CHECK_SIGNAL_TOWER)->EnableWindow(FALSE);
 		GetDlgItem(IDC_CHECK_MULTI_RECIPE)->EnableWindow(FALSE);
 		GetDlgItem(IDC_CORRECT_ANGLE)->EnableWindow(FALSE);
@@ -196,9 +196,9 @@ BOOL CSystemConfigurationSettingDlg::OnInitDialog()
 		GetDlgItem(IDC_CHECK_SAMPLE_ALIGNER)->EnableWindow(FALSE);
 		GetDlgItem(IDC_VACUUM_TYPE)->EnableWindow(FALSE);
 		GetDlgItem(IDC_VACUUM_TIMEOUT)->EnableWindow(FALSE);
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 
 
 	///// Load System Config File /////
@@ -215,9 +215,9 @@ BOOL CSystemConfigurationSettingDlg::OnInitDialog()
 	InitCombo_StageSampleLifter();
 	InitCombo_StageVacuumType();
 	InitCombo_StageCorrectAngle();
-// 2009.10.29 bagus Jog ’Ç‰ÁC³ --{--
+// 2009.10.29 bagus Jog è¿½åŠ ä¿®æ­£ --{--
 	InitCombo_StageJoystickType();
-// 2009.10.29 bagus Jog ’Ç‰ÁC³ --}--
+// 2009.10.29 bagus Jog è¿½åŠ ä¿®æ­£ --}--
 
 	///// OK Button /////
 	m_OkButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
@@ -227,8 +227,8 @@ BOOL CSystemConfigurationSettingDlg::OnInitDialog()
 	m_CancelButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_CancelButton.DrawFlatFocus(TRUE);
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ðÝ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
@@ -242,7 +242,7 @@ void CSystemConfigurationSettingDlg::OnOK()
 	///// Save /////
 	if(!CheckData()) return;
 
-// 2009.10.17 bagus MS ’Ç‰Á --{--
+// 2009.10.17 bagus MS è¿½åŠ  --{--
 #if 0
 	if ( !m_SystemConfig.HeadType.bCTA && !m_SystemConfig.HeadType.bStress &&
 			!m_SystemConfig.HeadType.bSR && !m_SystemConfig.HeadType.bSE				&&
@@ -252,7 +252,7 @@ void CSystemConfigurationSettingDlg::OnOK()
 			!m_SystemConfig.HeadType.bSR && !m_SystemConfig.HeadType.bSE &&
 			!m_SystemConfig.HeadType.bMS && !m_SystemConfig.HeadType.bResist ) {
 #endif
-// 2009.10.17 bagus MS ’Ç‰Á --}--
+// 2009.10.17 bagus MS è¿½åŠ  --}--
 		// Kojika 20090603 Change
 		//if ( MessageBox("Although the Head Type is not Select, do it Save ?",
 		//			"SYSTEM CONFIG SETTING", MB_OKCANCEL | MB_ICONINFORMATION) == IDCANCEL) {
@@ -283,28 +283,28 @@ void CSystemConfigurationSettingDlg::OnSelchangePRMethod()
 {
 	m_SystemConfig.nPRMethod = ((CComboBox*)GetDlgItem(IDC_PR_METHOD))->GetCurSel();
 	if (m_SystemConfig.nPRMethod != 0){
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 		if(g_lModelType != MODEL_T3100){
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 			GetDlgItem(IDC_CHECK_SAMPLE_PATTERN_REC)->EnableWindow(TRUE);
 			// Okabe Change 2009.05.30 ----->
 			GetDlgItem(IDC_CHECK_SITE_PATTERN_REC)->EnableWindow(TRUE);
 			// Okabe Change 2009.05.30 <-----
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 		}
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 	}
 	else{
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 		if(g_lModelType != MODEL_T3100){
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 			GetDlgItem(IDC_CHECK_SAMPLE_PATTERN_REC)->EnableWindow(FALSE);
 			// Okabe Change 2009.05.30 ----->
 			GetDlgItem(IDC_CHECK_SITE_PATTERN_REC)->EnableWindow(FALSE);
 			// Okabe Change 2009.05.30 <-----
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 		}
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 	}
 }
 
@@ -362,21 +362,21 @@ void CSystemConfigurationSettingDlg::OnSelchangeCorrectAngle()
 	}
 }
 
-// 2009.10.29 bagus Jog ’Ç‰ÁC³ --{--
+// 2009.10.29 bagus Jog è¿½åŠ ä¿®æ­£ --{--
 void CSystemConfigurationSettingDlg::OnSelchangeJoystickType()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«é€šçŸ¥ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 	m_SystemConfig.nJoystickType = ((CComboBox*)GetDlgItem(IDC_JOYSTICK_TYPE))->GetCurSel();
 }
-// 2009.10.29 bagus Jog ’Ç‰ÁC³ --}--
+// 2009.10.29 bagus Jog è¿½åŠ ä¿®æ­£ --}--
 
 // =========================================================================
 //
 void CSystemConfigurationSettingDlg::InitCombo_CaptureBoard()
 {
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	if(g_lModelType != MODEL_T3100){
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 		CComboBox* pCombo;
 		pCombo = (CComboBox*)GetDlgItem(IDC_CAPTURE_BOARD);
 		pCombo->ResetContent();
@@ -384,18 +384,18 @@ void CSystemConfigurationSettingDlg::InitCombo_CaptureBoard()
 			pCombo->AddString(g_lpszCaptureBoard[i]);
 		}
 		pCombo->SetCurSel(m_SystemConfig.nCaptureBoard);
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 }
 
 // =========================================================================
 //
 void CSystemConfigurationSettingDlg::InitCombo_PRMethod()
 {
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	if(g_lModelType != MODEL_T3100){
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 		CComboBox* pCombo;
 		pCombo = (CComboBox*)GetDlgItem(IDC_PR_METHOD);
 		pCombo->ResetContent();
@@ -407,9 +407,9 @@ void CSystemConfigurationSettingDlg::InitCombo_PRMethod()
 		BOOL bEnable = ( m_SystemConfig.nPRMethod != PR_METHOD_NONE );
 		GetDlgItem(IDC_CHECK_SAMPLE_PATTERN_REC)->EnableWindow(bEnable);
 		GetDlgItem(IDC_CHECK_SITE_PATTERN_REC)->EnableWindow(bEnable);
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 }
 
 // =========================================================================
@@ -429,9 +429,9 @@ void CSystemConfigurationSettingDlg::InitCombo_Language()
 //
 void CSystemConfigurationSettingDlg::InitCombo_StageType()
 {
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	if(g_lModelType != MODEL_T3100){
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 		CComboBox* pCombo;
 		pCombo = (CComboBox*)GetDlgItem(IDC_STAGE_TYPE);
 		pCombo->ResetContent();
@@ -439,9 +439,9 @@ void CSystemConfigurationSettingDlg::InitCombo_StageType()
 			pCombo->AddString(g_lpszStageType[i]);
 		}
 		pCombo->SetCurSel(m_SystemConfig.nStageType);
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 }
 
 // =========================================================================
@@ -510,12 +510,12 @@ void CSystemConfigurationSettingDlg::InitCombo_StageCorrectAngle()
 	}
 }
 
-// 2009.10.29 bagus Jog ’Ç‰ÁC³ --{--
+// 2009.10.29 bagus Jog è¿½åŠ ä¿®æ­£ --{--
 void CSystemConfigurationSettingDlg::InitCombo_StageJoystickType()
 {
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	if(g_lModelType != MODEL_T3100){
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 		CComboBox* pCombo;
 		pCombo = (CComboBox*)GetDlgItem(IDC_JOYSTICK_TYPE);
 		pCombo->ResetContent();
@@ -523,11 +523,11 @@ void CSystemConfigurationSettingDlg::InitCombo_StageJoystickType()
 			pCombo->AddString(g_lpszJoystickType[i]);
 		}
 		pCombo->SetCurSel(m_SystemConfig.nJoystickType);
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	}
-// 2013.11.08 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Add (TohoSpecå¯¾å¿œ) <--
 }
-// 2009.10.29 bagus Jog ’Ç‰ÁC³ --}--
+// 2009.10.29 bagus Jog è¿½åŠ ä¿®æ­£ --}--
 
 // =========================================================================
 //
@@ -544,9 +544,9 @@ BOOL CSystemConfigurationSettingDlg::CheckData()
 	CString strBuffer;
 
 	///// Stage Vacuum Timeout /////
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 	if(g_lModelType != MODEL_T3100){
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 		iValue = m_SystemConfig.iVacuumTimeout;
 		if(!(iValue >= MIN_VACCUM_TIMEOUT && iValue <= MAX_VACCUM_TIMEOUT)){
 			// Kojika 20090603 Change
@@ -561,7 +561,7 @@ BOOL CSystemConfigurationSettingDlg::CheckData()
 			return FALSE;
 		}
 	}
-// 2013.11.08 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.08 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 
 	///// Capture Board /////
 	iValue = m_SystemConfig.nCaptureBoard;

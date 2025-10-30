@@ -1,4 +1,4 @@
-// VideoCaptureDeviceItem.h: interface for the VideoCaptureDeviceItem class.
+﻿// VideoCaptureDeviceItem.h: interface for the VideoCaptureDeviceItem class.
 //
 //////////////////////////////////////////////////////////////////////
 

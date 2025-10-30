@@ -1,4 +1,4 @@
-// RecipePointDeskewProgramView.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// RecipePointDeskewProgramView.cpp : �C���v�������e�[�V���� �t�@�C��
 //
 
 #include "stdafx.h"

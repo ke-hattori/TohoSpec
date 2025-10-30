@@ -1,12 +1,12 @@
-
+ï»¿
 /*
- *	Šeíƒtƒ@ƒCƒ‹–¼‚Ì’è‹` ‚Æ ini ƒtƒ@ƒCƒ‹‚Ì“à—e’è‹`
+ *	å„ç¨®ãƒ•ã‚¡ã‚¤ãƒ«åã®å®šç¾© ã¨ ini ãƒ•ã‚¡ã‚¤ãƒ«ã®å†…å®¹å®šç¾©
  */
 
 #define	MOT_INI	_T("..\\cfg\\MotSysDef.ini")
-#define	COM_LOG_FILE	_T("MSComLog")	// ƒfƒtƒHƒ‹ƒg‚Ì’ÊMƒƒOƒtƒ@ƒCƒ‹–¼
+#define	COM_LOG_FILE	_T("MSComLog")	// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®é€šä¿¡ãƒ­ã‚°ãƒ•ã‚¡ã‚¤ãƒ«å
 #define	SERVO_INI	_T("..\\cfg\\Servo.ini")
 #define	ALARM_LOG	_T("..\\log\\MotSysAlarm")
-/* added 2009.12.14 hmenjo MotSys DIO ƒƒO’Ç‰Á ---------- { ---------- */
+/* added 2009.12.14 hmenjo MotSys DIO ãƒ­ã‚°è¿½åŠ  ---------- { ---------- */
 #define	MS_DIO_LOG	_T("..\\log\\MotSysDIO")
-/* added 2009.12.14 hmenjo MotSys DIO ƒƒO’Ç‰Á ---------- } ---------- */
+/* added 2009.12.14 hmenjo MotSys DIO ãƒ­ã‚°è¿½åŠ  ---------- } ---------- */

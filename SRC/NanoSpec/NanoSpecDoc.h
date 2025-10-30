@@ -1,5 +1,5 @@
-/////////////////////////////////////////////////////////////////////////////
-// NanoSpecDoc.h : CNanoSpecDoc ƒNƒ‰ƒX‚ÌéŒ¾‚¨‚æ‚ÑƒCƒ“ƒ^[ƒtƒFƒCƒX‚Ì’è‹`   //
+ï»¿/////////////////////////////////////////////////////////////////////////////
+// NanoSpecDoc.h : CNanoSpecDoc ã‚¯ãƒ©ã‚¹ã®å®£è¨€ãŠã‚ˆã³ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã®å®šç¾©   //
 //																		   //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -55,20 +55,20 @@ typedef struct{
 }ALARM_HIS;
 
 /*
- *	“®ì’†ƒtƒ‰ƒOŒQ‚Ì\‘¢‘Ì
+ *	å‹•ä½œä¸­ãƒ•ãƒ©ã‚°ç¾¤ã®æ§‹é€ ä½“
  */
 typedef struct {
-	BOOL	bXYStage;		// XY ƒXƒe[ƒW
-	BOOL	bZAxis; 		// Z ²
-	BOOL	bPin;			// ƒsƒ“
-	BOOL	bShutter;		// ƒVƒƒƒbƒ^
-	BOOL	bWorkGuide; 	// ƒ[ƒNƒKƒCƒh
-	BOOL	bTurret;		// ƒ^[ƒŒƒbƒg
+	BOOL	bXYStage;		// XY ã‚¹ãƒ†ãƒ¼ã‚¸
+	BOOL	bZAxis; 		// Z è»¸
+	BOOL	bPin;			// ãƒ”ãƒ³
+	BOOL	bShutter;		// ã‚·ãƒ£ãƒƒã‚¿
+	BOOL	bWorkGuide; 	// ãƒ¯ãƒ¼ã‚¯ã‚¬ã‚¤ãƒ‰
+	BOOL	bTurret;		// ã‚¿ãƒ¼ãƒ¬ãƒƒãƒˆ
 // 2009.08.28 K.Matsuo -->
-	BOOL	bHead;			// ƒwƒbƒh
+	BOOL	bHead;			// ãƒ˜ãƒƒãƒ‰
 // 2009.08.28 K.Matsuo <--
 // 2009.11.10 bagus MS --{--
-	BOOL	bMS;			// Œ°”÷‹¾
+	BOOL	bMS;			// é¡•å¾®é¡
 // 2009.11.10 bagus MS --}--
 } ACTUATE_FLAGS;
 
@@ -76,14 +76,14 @@ typedef struct {
 //
 class CNanoSpecDoc : public CDocument
 {
-protected: // ƒVƒŠƒAƒ‰ƒCƒY‹@”\‚Ì‚İ‚©‚çì¬‚µ‚Ü‚·B
+protected: // ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºæ©Ÿèƒ½ã®ã¿ã‹ã‚‰ä½œæˆã—ã¾ã™ã€‚
 	CNanoSpecDoc();
 	DECLARE_DYNCREATE(CNanoSpecDoc)
 
-// ƒAƒgƒŠƒrƒ…[ƒg
+// ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 public:
 
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 	///// Variable //////////////////////////////////////////////////////////
 	CLogFile m_OperationLogFile;
@@ -101,69 +101,69 @@ public:
 	int m_iWarningStatus;
 	int m_iDispStatus;
 	BOOL m_iInitFinished;
-	BOOL m_bJoyStickSelectEnabled;		// Œ»İ‚Ìƒn[ƒhJoyStick‹–‰Â^‹Ö~‚Ìó‘Ô
-/* added 2009.12.02 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(‰æ–Ê) ---------- { ---------- */
+	BOOL m_bJoyStickSelectEnabled;		// ç¾åœ¨ã®ãƒãƒ¼ãƒ‰JoyStickè¨±å¯ï¼ç¦æ­¢ã®çŠ¶æ…‹
+/* added 2009.12.02 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ(ç”»é¢) ---------- { ---------- */
 	long m_lZ_AF;
-/* added 2009.12.02 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(‰æ–Ê) ---------- } ---------- */
+/* added 2009.12.02 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ(ç”»é¢) ---------- } ---------- */
 
 	///// User /////
 	USER_ACCOUNT m_User;
 
 	MAINTENANCE_DATE m_gMaintenanceDate;
 	MAINTENANCE_LAMP m_gMaintenanceLamp;
-	COleDateTimeSpan m_gPassageHour;		// Œo‰ßŠÔ
+	COleDateTimeSpan m_gPassageHour;		// çµŒéæ™‚é–“
 
 private:
 	MEASURED_DATA* m_pMeasureddata;
-	int m_iLastMeasPoint;		//ÅI‘ª’è“_(’Êí‘ª’è:‘ª’èƒ|ƒCƒ“ƒg”, ƒŠƒƒWƒƒ[ƒ‚[ƒh:Ä‘ª’èƒ|ƒCƒ“ƒg‚Ìˆê”Ô‘å‚«‚¢“_)
-	int m_iCurrentSetPoint; //ˆê”ÔÅŒã‚Éƒf[ƒ^‚ğŠi”[(‘Š·‚¦)‚µ‚½ƒ|ƒCƒ“ƒg”Ô†(’Êí‘ª’è‚ÍGetStoreCount()‚Å“¾‚ç‚ê‚é’l‚Æ“¯‚¶)
-	int m_iSeqMeasMode; //ƒV[ƒPƒ“ƒX‘ª’èƒ‚[ƒh(‘ª’è’†‚Å‚È‚¢/’Êí‘ª’è’†/ƒŠƒƒWƒƒ[’†)
-	int m_iMeasMode;	//‘ª’èƒ‚[ƒh(‘ª’è’†‚Å‚È‚¢/’Êí‘ª’è’†orƒŠƒƒWƒƒ[’†/ƒ}ƒjƒ…ƒAƒ‹‘ª’è’†/ƒeƒXƒgƒ‚[ƒh’†)
-	int m_iManuMeasMode;	//ƒ}ƒjƒ…ƒAƒ‹‘ª’èƒ‚[ƒh‚Ìó‘Ô
-	int m_iReMeasNumScans;	//ƒŠƒƒWƒƒ[‚Ì‘ª’èƒ|ƒCƒ“ƒg”
-	int m_iReMeasurePointCnt; //ƒŠƒƒWƒƒ[‚Ì‘ª’èÏƒ|ƒCƒ“ƒg”
-	BOOL m_bPauseFlg;	//ƒ|[ƒY”»’èƒtƒ‰ƒO(TRUE:ƒ|[ƒY FALSE:‚»‚êˆÈŠO)
+	int m_iLastMeasPoint;		//æœ€çµ‚æ¸¬å®šç‚¹(é€šå¸¸æ¸¬å®šæ™‚:æ¸¬å®šãƒã‚¤ãƒ³ãƒˆæ•°, ãƒªãƒ¡ã‚¸ãƒ£ãƒ¼ãƒ¢ãƒ¼ãƒ‰æ™‚:å†æ¸¬å®šãƒã‚¤ãƒ³ãƒˆã®ä¸€ç•ªå¤§ãã„ç‚¹)
+	int m_iCurrentSetPoint; //ä¸€ç•ªæœ€å¾Œã«ãƒ‡ãƒ¼ã‚¿ã‚’æ ¼ç´(æ›¸æ›ãˆ)ã—ãŸãƒã‚¤ãƒ³ãƒˆç•ªå·(é€šå¸¸æ¸¬å®šæ™‚ã¯GetStoreCount()ã§å¾—ã‚‰ã‚Œã‚‹å€¤ã¨åŒã˜)
+	int m_iSeqMeasMode; //ã‚·ãƒ¼ã‚±ãƒ³ã‚¹æ¸¬å®šãƒ¢ãƒ¼ãƒ‰(æ¸¬å®šä¸­ã§ãªã„/é€šå¸¸æ¸¬å®šä¸­/ãƒªãƒ¡ã‚¸ãƒ£ãƒ¼ä¸­)
+	int m_iMeasMode;	//æ¸¬å®šãƒ¢ãƒ¼ãƒ‰(æ¸¬å®šä¸­ã§ãªã„/é€šå¸¸æ¸¬å®šä¸­orãƒªãƒ¡ã‚¸ãƒ£ãƒ¼ä¸­/ãƒãƒ‹ãƒ¥ã‚¢ãƒ«æ¸¬å®šä¸­/ãƒ†ã‚¹ãƒˆãƒ¢ãƒ¼ãƒ‰ä¸­)
+	int m_iManuMeasMode;	//ãƒãƒ‹ãƒ¥ã‚¢ãƒ«æ¸¬å®šãƒ¢ãƒ¼ãƒ‰ã®çŠ¶æ…‹
+	int m_iReMeasNumScans;	//ãƒªãƒ¡ã‚¸ãƒ£ãƒ¼æ™‚ã®æ¸¬å®šãƒã‚¤ãƒ³ãƒˆæ•°
+	int m_iReMeasurePointCnt; //ãƒªãƒ¡ã‚¸ãƒ£ãƒ¼æ™‚ã®æ¸¬å®šæ¸ˆãƒã‚¤ãƒ³ãƒˆæ•°
+	BOOL m_bPauseFlg;	//ãƒãƒ¼ã‚ºåˆ¤å®šãƒ•ãƒ©ã‚°(TRUE:ãƒãƒ¼ã‚º FALSE:ãã‚Œä»¥å¤–)
 	// 2009.08.17 bagus stress --{--
-	int m_iLastMeasStressLine;			//ƒXƒgƒŒƒX‘ª’è‚ÌÅI‘ª’èƒXƒgƒŒƒXƒ‰ƒCƒ“
-	int m_iCurrentSetStressLine;		//ˆê”ÔÅŒã‚Éƒf[ƒ^‚ğŠi”[‚µ‚½ƒXƒgƒŒƒXƒ‰ƒCƒ“
+	int m_iLastMeasStressLine;			//ã‚¹ãƒˆãƒ¬ã‚¹æ¸¬å®šã®æœ€çµ‚æ¸¬å®šã‚¹ãƒˆãƒ¬ã‚¹ãƒ©ã‚¤ãƒ³
+	int m_iCurrentSetStressLine;		//ä¸€ç•ªæœ€å¾Œã«ãƒ‡ãƒ¼ã‚¿ã‚’æ ¼ç´ã—ãŸã‚¹ãƒˆãƒ¬ã‚¹ãƒ©ã‚¤ãƒ³
 	int m_iCurrentMeasStressLine;
 	// 2009.08.17 bagus stress --{--
 
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 	BOOL m_bSetSampleIdFromUI;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 
 public:
 	char m_szName[RECIPE_NAME_LEN + 1];
 
 	///// Function //////////////////////////////////////////////////////////
-/* added 2014.11.22 hmenjo Fit w”•\¦(2) ---------- { ---------- */
+/* added 2014.11.22 hmenjo Fit æŒ‡æ•°è¡¨ç¤º(2) ---------- { ---------- */
 	long GetExpDouble(double dData);
-/* added 2014.11.22 hmenjo Fit w”•\¦(2) ---------- } ---------- */
-/* added 2009.09.10 hmenjo ƒKƒ“ƒgƒŠ“§‰ß—¦—pƒ‰ƒ“ƒvƒ`ƒFƒbƒN ---------- { ---------- */
+/* added 2014.11.22 hmenjo Fit æŒ‡æ•°è¡¨ç¤º(2) ---------- } ---------- */
+/* added 2009.09.10 hmenjo ã‚¬ãƒ³ãƒˆãƒªé€éç‡ç”¨ãƒ©ãƒ³ãƒ—ãƒã‚§ãƒƒã‚¯ ---------- { ---------- */
 	BOOL IsGTRLampOn(void);
-/* added 2009.09.10 hmenjo ƒKƒ“ƒgƒŠ“§‰ß—¦—pƒ‰ƒ“ƒvƒ`ƒFƒbƒN ---------- } ---------- */
-/* added 2009.09.07 hmenjo “§‰ß—¦ ƒ‰ƒ“ƒv§Œä ---------- { ---------- */
+/* added 2009.09.10 hmenjo ã‚¬ãƒ³ãƒˆãƒªé€éç‡ç”¨ãƒ©ãƒ³ãƒ—ãƒã‚§ãƒƒã‚¯ ---------- } ---------- */
+/* added 2009.09.07 hmenjo é€éç‡ ãƒ©ãƒ³ãƒ—åˆ¶å¾¡ ---------- { ---------- */
 	BOOL SetTransmittanceLamp(WORD wFilter = FILTER_DARK);
-/* added 2009.09.07 hmenjo “§‰ß—¦ ƒ‰ƒ“ƒv§Œä ---------- } ---------- */
-/* added 2009.07.31 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(3) ---------- { ---------- */
+/* added 2009.09.07 hmenjo é€éç‡ ãƒ©ãƒ³ãƒ—åˆ¶å¾¡ ---------- } ---------- */
+/* added 2009.07.31 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (3) ---------- { ---------- */
 	BOOL HepaOnOff(BOOL bOn, char* pcHepaAlarmLevel = 0);
-/* added 2009.07.31 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(3) ---------- } ---------- */
-/* added 2009.07.30 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(4) ---------- { ---------- */
+/* added 2009.07.31 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (3) ---------- } ---------- */
+/* added 2009.07.30 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (4) ---------- { ---------- */
 	BOOL GetAlarmInf(int iAlId, int* piAlCd, char* pcLevel, TCHAR* ptszAlText, int iTextBufLen);
-/* added 2009.07.30 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(4) ---------- } ---------- */
-/* added 2009.07.23 hmenjo ƒXƒLƒƒƒ“ƒ^ƒCƒvƒ`ƒFƒbƒNŠÖ”’Ç‰Á ---------- { ---------- */
+/* added 2009.07.30 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (4) ---------- } ---------- */
+/* added 2009.07.23 hmenjo ã‚¹ã‚­ãƒ£ãƒ³ã‚¿ã‚¤ãƒ—ãƒã‚§ãƒƒã‚¯é–¢æ•°è¿½åŠ  ---------- { ---------- */
 	BOOL IsValidScanType(WORD wScanType, WORD wHeadType);
-/* added 2009.07.23 hmenjo ƒXƒLƒƒƒ“ƒ^ƒCƒvƒ`ƒFƒbƒNŠÖ”’Ç‰Á ---------- } ---------- */
-/* added 2009.07.23 hmenjo ƒwƒbƒhƒ^ƒCƒvƒ`ƒFƒbƒNŠÖ”’Ç‰Á ---------- { ---------- */
+/* added 2009.07.23 hmenjo ã‚¹ã‚­ãƒ£ãƒ³ã‚¿ã‚¤ãƒ—ãƒã‚§ãƒƒã‚¯é–¢æ•°è¿½åŠ  ---------- } ---------- */
+/* added 2009.07.23 hmenjo ãƒ˜ãƒƒãƒ‰ã‚¿ã‚¤ãƒ—ãƒã‚§ãƒƒã‚¯é–¢æ•°è¿½åŠ  ---------- { ---------- */
 	BOOL IsValidHeadType(WORD wHeadType);
-/* added 2009.07.23 hmenjo ƒwƒbƒhƒ^ƒCƒvƒ`ƒFƒbƒNŠÖ”’Ç‰Á ---------- } ---------- */
-/* added hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
+/* added 2009.07.23 hmenjo ãƒ˜ãƒƒãƒ‰ã‚¿ã‚¤ãƒ—ãƒã‚§ãƒƒã‚¯é–¢æ•°è¿½åŠ  ---------- } ---------- */
+/* added hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- { -------- */
 	BOOL Rap_IsDoorInterlock();
-/* added hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
-/* added hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- { -------- */
+/* added hmenjo 2009.05.20 ãƒ‰ã‚¢ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç„¡åŠ¹åŒ–å¯¾å¿œ -------- } -------- */
+/* added hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- { -------- */
 	BOOL Rap_IsAirPressureLowON(BOOL bIgnore = 0);
-/* added hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- } -------- */
+/* added hmenjo 2009.05.20 ã‚¨ã‚¢åœ§åŠ›ä½ä¸‹æ¤œå‡ºã®ãƒ©ãƒƒãƒ‘é–¢æ•° -------- } -------- */
 	void StageSpeedLimiter(BOOL bLimiter);
 // hmenjo ChiefLog -->
 	void ChiefLogging(TCHAR* pszLogText);
@@ -178,33 +178,33 @@ public:
 	//Saiki 20100517 Add ----->
 	void FileRetentionLogging(char* lpszLogText);
 	//Saiki 20100517 Add <-----
-    /* modified hmenjo 2009.05.20 SPT —p JoyStick ‘Î‰ -------- { -------- */
-//	/* ƒWƒ‡ƒCƒXƒeƒBƒbƒNØ‘Ö—p */
+    /* modified hmenjo 2009.05.20 SPT ç”¨ JoyStick å¯¾å¿œ -------- { -------- */
+//	/* ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯åˆ‡æ›¿ç”¨ */
 //	BOOL ChangeJoyStick(BOOL flag);
-/* modified hmenjo 2009.05.20 SPT —p JoyStick ‘Î‰ -------- 		   */
-	/* ƒWƒ‡ƒCƒXƒeƒBƒbƒNØ‘Ö—p */
+/* modified hmenjo 2009.05.20 SPT ç”¨ JoyStick å¯¾å¿œ -------- 		   */
+	/* ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯åˆ‡æ›¿ç”¨ */
 	BOOL ChangeJoyStick(BOOL flag, int iSpeedSel = 3);
-/* modified hmenjo 2009.05.20 SPT —p JoyStick ‘Î‰ -------- } -------- */
-//	// “®ì”»’èŠÖ”
+/* modified hmenjo 2009.05.20 SPT ç”¨ JoyStick å¯¾å¿œ -------- } -------- */
+//	// å‹•ä½œåˆ¤å®šé–¢æ•°
 //	BOOL ActuateEnableCheck(ACTUATE_FLAGS_SEL ActFgSel, ACTUATE_MODE_SEL ActMode);
-	// ƒƒbƒZ[ƒW‚ğƒZƒbƒg‚·‚é
+	// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
 	//Saiki 20090530 Change ----->
 	//void MessageIf_Set(int m_MsgID);
 	void MessageStringIf_Set(CString strBuffer);
 	//Saiki 20090530 Change <-----
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --{--
+// 2009.10.09 bagus StagePGM å…±é€šåŒ– --{--
 	int GetStagePGM(int nHeadType, int nScanType);
 	int GetStagePGMItem(int nHeadType, int nScanType);
 	BOOL IsValidStagePGM(int nHeadType, int nScanType, int nStagePGMType);
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --}--
+// 2009.10.09 bagus StagePGM å…±é€šåŒ– --}--
 
 	void InitMeasData(void);
 	void GetMeasDataAll(MEASURED_DATA* meadat);
 	void SetMeasDataAll(MEASURED_DATA* meadat);
 	void GetRcpData(RCP_DATA* rcp_data);
 	void SetRcpData(RCP_DATA* rcp_data);
-	BOOL GetOnePointAndStatistics(ONE_POINT_DATA *OnePointData, STATISTICS *Statistics, int iPoint); //”ñ„§
-	BOOL SetOnePointAndStatistics(ONE_POINT_DATA *OnePointData, STATISTICS *Statistics, int iPoint); //”ñ„§
+	BOOL GetOnePointAndStatistics(ONE_POINT_DATA *OnePointData, STATISTICS *Statistics, int iPoint); //éæ¨å¥¨
+	BOOL SetOnePointAndStatistics(ONE_POINT_DATA *OnePointData, STATISTICS *Statistics, int iPoint); //éæ¨å¥¨
 	BOOL GetOnePointData(ONE_POINT_DATA *OnePointData, int iPoint);
 	BOOL SetOnePointData(ONE_POINT_DATA *OnePointData, int iPoint);
 	BOOL SetTestModeData(TEST_MODE_DATA *TestModeData, int iPoint);
@@ -260,7 +260,7 @@ public:
 	void GetSampleId(char szSampleId[SAMPLE_ID_LEN + 1]);
 	void SetSampleId(char szSampleId[SAMPLE_ID_LEN + 1]);
 	//2009.10.13 bagus 4PP --{--
-	//ƒƒbƒgID’Ç‰Á
+	//ãƒ­ãƒƒãƒˆIDè¿½åŠ 
 	void GetLotId(char szLotID[LOT_ID_LEN + 1]);
 	void SetLotId(char szLotID[LOT_ID_LEN + 1]);
 	//2009.10.13 bagus 4PP --}--
@@ -327,19 +327,19 @@ public:
 	BOOL GetInitFinished(){ return m_iInitFinished; };
 	/*//Saiki 20090520 Add ----->*/
 	BOOL IsInterLock(void);
-	//2009.12.25 bagus C³ --{--
+	//2009.12.25 bagus ä¿®æ­£ --{--
 	BOOL IsInterLockForMScope(void);
-	//2009.12.25 bagus C³ --}--
-/* modified 2009.08.20 hmenjo Pin Aling ˆÊ’u—LŒø‰» ---------- { ---------- */
+	//2009.12.25 bagus ä¿®æ­£ --}--
+/* modified 2009.08.20 hmenjo Pin Aling ä½ç½®æœ‰åŠ¹åŒ– ---------- { ---------- */
 //	BOOL CheckUnitStatus(void);
-/* modified 2009.08.20 hmenjo Pin Aling ˆÊ’u—LŒø‰» ----------			   */
+/* modified 2009.08.20 hmenjo Pin Aling ä½ç½®æœ‰åŠ¹åŒ– ----------			   */
 	BOOL CheckUnitStatus(BOOL bEnablePinAlign = FALSE);
-/* modified 2009.08.20 hmenjo Pin Aling ˆÊ’u—LŒø‰» ---------- } ---------- */
+/* modified 2009.08.20 hmenjo Pin Aling ä½ç½®æœ‰åŠ¹åŒ– ---------- } ---------- */
 	BOOL CheckActiveFlag(void);
 	/*//Saiki 20090520 Add <-----*/
 
-	BOOL JoyStickChangeDisable();		// ƒn[ƒhJoy‚ğˆê“I‚É‹Ö~‚É‚·‚é
-	BOOL JoyStickStatusRestore();		// ƒn[ƒhJoy‚Ìó‘Ô‚ğŒ³‚É–ß‚·
+	BOOL JoyStickChangeDisable();		// ãƒãƒ¼ãƒ‰Joyã‚’ä¸€æ™‚çš„ã«ç¦æ­¢ã«ã™ã‚‹
+	BOOL JoyStickStatusRestore();		// ãƒãƒ¼ãƒ‰Joyã®çŠ¶æ…‹ã‚’å…ƒã«æˆ»ã™
 
 	///// Alarm History /////
 	void AlarmHis_Restore(char* Path, char* filename,int LogMax,int HisMax);
@@ -380,19 +380,19 @@ public:
 	void SetWarningStatus(int Status){ m_iWarningStatus = Status; };
 	int GetWarningStatus(){ return m_iWarningStatus; };
 
-	///// ‰æ–ÊƒXƒe[ƒ^ƒX /////
+	///// ç”»é¢ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ /////
 	void SetDispStatus(int Status) { m_iDispStatus = Status ;};
 	int GetDispStatus(){ return m_iDispStatus; };
 
-	///// PatRec “®ì’†ƒtƒ‰ƒO /////
+	///// PatRec å‹•ä½œä¸­ãƒ•ãƒ©ã‚° /////
 	void SetPatRecFlag(BOOL bFlag);
 	BOOL GetPatRecFlag(void);
 
-	///// JoyStickØ‘Ö‹–‰Â^‹Ö~ /////
+	///// JoyStickåˆ‡æ›¿è¨±å¯ï¼ç¦æ­¢ /////
 	void SetJoyStickSelectEnabled(BOOL bFlg) { m_bJoyStickSelectEnabled = bFlg; };
 	BOOL GetJoyStickSelectEnabled() { return m_bJoyStickSelectEnabled; };
 
-	///// ƒƒ“ƒeƒiƒ“ƒXƒf[ƒ^ /////
+	///// ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãƒ‡ãƒ¼ã‚¿ /////
 	void SetMaintenanceDate(MAINTENANCE_DATE m_pMaintenanceDate){ m_gMaintenanceDate = m_pMaintenanceDate; };
 	MAINTENANCE_DATE GetMaintenanceDate(){ return m_gMaintenanceDate; };
 	void SetMaintenanceLamp(MAINTENANCE_LAMP m_pMaintenanceLamp){ m_gMaintenanceLamp = m_pMaintenanceLamp; };
@@ -401,32 +401,32 @@ public:
 	double GetPassageHour(){ return m_gPassageHour.m_span; };
 
 	//2009.11.04 bagus CA --{--
-	//è“®‘ª’è‚Ì€”õ/Œãn––ˆ—
+	//æ‰‹å‹•æ¸¬å®šæ™‚ã®æº–å‚™/å¾Œå§‹æœ«å‡¦ç†
 	BOOL PrepareManualCAMeasure();
 	BOOL CleanupManualCAMeasure();
 	//2009.11.04 bagus CA --}--
 
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	void SetSampleIdFromUI(BOOL bSet);
 	BOOL IsSetSampleIdFromUI();
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
 
-//ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+//ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CNanoSpecDoc)
 	public:
 	virtual BOOL OnNewDocument();
 	virtual void Serialize(CArchive& ar);
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 	BOOL m_bDoPointMeasFlag[SCAN_POINT_MAX];
 // 2009.02.05 K.Matsuo delete -->
-//	UINT GetTraceDataPeriod(void) {return 0; /* ƒ_ƒ~[ƒŠƒ^[ƒ“‚Å‚· */};
+//	UINT GetTraceDataPeriod(void) {return 0; /* ãƒ€ãƒŸãƒ¼ãƒªã‚¿ãƒ¼ãƒ³ã§ã™ */};
 // 2009.02.05 K.Matsuo delete <--
 
-	///// “®ì’†ƒtƒ‰ƒOŒQƒAƒNƒZƒXŠÖ” /////
+	///// å‹•ä½œä¸­ãƒ•ãƒ©ã‚°ç¾¤ã‚¢ã‚¯ã‚»ã‚¹é–¢æ•° /////
 
 	DWORD CNanoSpecDoc::ActuateFlagsGetAll();
 
@@ -440,7 +440,7 @@ public:
 
 protected:
 
-// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 protected:
 	//{{AFX_MSG(CNanoSpecDoc)
 	//}}AFX_MSG
@@ -452,7 +452,7 @@ private:
 	ACTUATE_FLAGS m_ActuateFlags;
 	BOOL m_bPatRecFlag;
 
-	// ƒWƒ‡ƒCƒXƒeƒBƒbƒNØ‘Ö‚¦—p
+	// ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯åˆ‡æ›¿ãˆç”¨
 	BOOL m_ActualJoyStickFlag;
 //Saiki 20100517 Add ----->
 	CLogFile m_FRetentionLogFile;
@@ -463,6 +463,6 @@ private:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_NANOSPECDOC_H__0D7A1318_6079_48DF_BA64_850B8EACFF94__INCLUDED_)

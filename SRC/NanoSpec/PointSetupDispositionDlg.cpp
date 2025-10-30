@@ -1,4 +1,4 @@
-// PointSetupDispositionDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// PointSetupDispositionDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -19,7 +19,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // #########################################################################
-// CPointSetupDispositionDlg ƒ_ƒCƒAƒƒO
+// CPointSetupDispositionDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // #########################################################################
 
 // =========================================================================
@@ -61,7 +61,7 @@ BEGIN_MESSAGE_MAP(CPointSetupDispositionDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CPointSetupDispositionDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CPointSetupDispositionDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -106,15 +106,15 @@ BOOL CPointSetupDispositionDlg::OnInitDialog()
 	///// SetCur Cell //////
 	pGrid->SetItemState(1, 1, GVIS_SELECTED);
 	pGrid->SetFocusCell(1, 1);
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
 //
 void CPointSetupDispositionDlg::OnOK()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚É‚»‚Ì‘¼‚ÌŒŸØ—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ãã®ä»–ã®æ¤œè¨¼ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 	CComboBox* pCombo = (CComboBox*)GetDlgItem(IDC_DRAW_SHAPED);
 
 	if(!CheckData(&m_DispositionGrid)){
@@ -129,7 +129,7 @@ void CPointSetupDispositionDlg::OnOK()
 //
 void CPointSetupDispositionDlg::OnCancel()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚É“Á•Ê‚ÈŒãˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ã“ã®ä½ç½®ã«ç‰¹åˆ¥ãªå¾Œå‡¦ç†ã‚’è¿½åŠ ã—ã¦ãã ã•ã„ã€‚
 
 	CDialog::OnCancel();
 }
@@ -192,10 +192,10 @@ BOOL CPointSetupDispositionDlg::DispositionGrid_Init(CGridCtrl* pGrid)
 ////	  "Start (mm)",
 ////	  "Pitch (mm)",
 ////	  "Count",
-//		  "²",
-//		  "ŠJnˆÊ’u (mm)",
-//		  "ŠÔŠu (mm)",
-//		  "ƒ|ƒCƒ“ƒg”",
+//		  "è»¸",
+//		  "é–‹å§‹ä½ç½® (mm)",
+//		  "é–“éš” (mm)",
+//		  "ãƒã‚¤ãƒ³ãƒˆæ•°",
 //	  };
 	char* ColItem_ENU[]={
 	  "Coord",
@@ -204,10 +204,10 @@ BOOL CPointSetupDispositionDlg::DispositionGrid_Init(CGridCtrl* pGrid)
 	  "Count",
 	};
 	char* ColItem_JPN[]={
-		"²",
-		"ŠJnˆÊ’u (mm)",
-		"ŠÔŠu (mm)",
-		"ƒ|ƒCƒ“ƒg”",
+		"è»¸",
+		"é–‹å§‹ä½ç½® (mm)",
+		"é–“éš” (mm)",
+		"ãƒã‚¤ãƒ³ãƒˆæ•°",
 	};
 
 	//Saiki 20090529 Change <-----
@@ -349,7 +349,7 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 	if(pCombo->GetCurSel() == CB_ERR){
 		// Kojika 20090601 Change
 //		MessageBox("Draw Shaped is empty.", "POINT SETUP", MB_OK | MB_ICONSTOP);
-//		MessageBox("•`‰æ}Œ`‚ª‘I‚Î‚ê‚Ä‚¢‚Ü‚¹‚ñ", "POINT SETUP", MB_OK | MB_ICONSTOP);
+//		MessageBox("æç”»å›³å½¢ãŒé¸ã°ã‚Œã¦ã„ã¾ã›ã‚“", "POINT SETUP", MB_OK | MB_ICONSTOP);
 		LoadStringML(IDS_DRAW_SHAPED_EMPTY, l_strBuffer, "Draw Shaped is empty.");
 		LoadStringML(IDS_TITLE_POINT_SETUP, l_strTitle, "POINT SETUP");
 		MessageBox(l_strBuffer, l_strTitle, MB_OK | MB_ICONSTOP);
@@ -357,36 +357,36 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 		return FALSE;
 	}
 
-	// ƒOƒŠƒbƒh‚Ìó‘Ô‚ğæ“¾
+	// ã‚°ãƒªãƒƒãƒ‰ã®çŠ¶æ…‹ã‚’å–å¾—
 //OkabeAdd20090319--->
-	// X²‚Ìn“_‚ªu‹óv‚Ì‚Í”²‚¯‚é
+	// Xè»¸ã®å§‹ç‚¹ãŒã€Œç©ºã€ã®æ™‚ã¯æŠœã‘ã‚‹
 	strBuff = pGrid->GetItemText(1, 1);
 	if (strlen(strBuff)==0){
 		return FALSE;
 	}
-	// Y²‚Ìn“_‚ªu‹óv‚Ì‚Í”²‚¯‚é
+	// Yè»¸ã®å§‹ç‚¹ãŒã€Œç©ºã€ã®æ™‚ã¯æŠœã‘ã‚‹
 	strBuff = pGrid->GetItemText(2, 1);
 	if (strlen(strBuff)==0){
 		return FALSE;
 	}
-	// X²‚ÌŠÔŠu‚ªu‹óv‚Ì‚Í”²‚¯‚é
+	// Xè»¸ã®é–“éš”ãŒã€Œç©ºã€ã®æ™‚ã¯æŠœã‘ã‚‹
 	strBuff = pGrid->GetItemText(1, 2);
 	if (strlen(strBuff)==0) {
 		return FALSE;
 	}
-	// Y²‚ÌŠÔŠu‚ªu‹óv‚Ì‚Í”²‚¯‚é
+	// Yè»¸ã®é–“éš”ãŒã€Œç©ºã€ã®æ™‚ã¯æŠœã‘ã‚‹
 	strBuff = pGrid->GetItemText(2, 2);
 	if (strlen(strBuff)==0){
 		return FALSE;
 	}
-	// X²‚Ìƒ|ƒCƒ“ƒg”‚ªu‹óv‚Ü‚½‚Íu0ˆÈ‰ºv‚Ì‚Í”²‚¯‚é
+	// Xè»¸ã®ãƒã‚¤ãƒ³ãƒˆæ•°ãŒã€Œç©ºã€ã¾ãŸã¯ã€Œ0ä»¥ä¸‹ã€ã®æ™‚ã¯æŠœã‘ã‚‹
 	//OkabeCorrection20090612--->
 	strBuff = pGrid->GetItemText(1, 3);
 	if ((strlen(strBuff)==0) || (atoi(strBuff) <=0)){
 		return FALSE;
 	}
 	//OkabeCorrection20090612<---
-	// Y²‚Ìƒ|ƒCƒ“ƒg”‚ªlŠp”z’u‚Åu‹óv‚Ü‚½‚Íu0ˆÈ‰ºv‚Ì‚Í”²‚¯‚é
+	// Yè»¸ã®ãƒã‚¤ãƒ³ãƒˆæ•°ãŒå››è§’é…ç½®ã§ã€Œç©ºã€ã¾ãŸã¯ã€Œ0ä»¥ä¸‹ã€ã®æ™‚ã¯æŠœã‘ã‚‹
 	strBuff = pGrid->GetItemText(2, 3);
 	//OkabeCorrection20090612--->
 	if (pCombo->GetCurSel() == STAGE_DRAW_SHAPED_RECTANGLE){
@@ -400,18 +400,18 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 	// StartPoint X
 	dValueBuff = atof(pGrid->GetItemText(1, 1)) * MICROMETRE ;
 	//2009.09.30 bagus se --{--
-	//Œ´“_ˆÊ’u‘Î‰
+	//åŸç‚¹ä½ç½®å¯¾å¿œ
 	//if(fabs(dValueBuff) > (m_dSampleSizeX/2)){
 	if(!IsPosInStageSizeX(dValueBuff)){
 	//2009.09.30 bagus se --}--
 		// Kojika 20090601 Change
 //		sprintf(szBuff, "Out of the Size Location of X.\n(%.3lf - %.3lf)", -(m_dSampleSizeX/2) / MICROMETRE, (m_dSampleSizeX/2) / MICROMETRE);
-//		sprintf(szBuff, "X‚ÌˆÊ’uÀ•W‚ªƒTƒCƒY‚ÌŠO‚É‚ ‚è‚Ü‚·.\n(%.3lf - %.3lf)", -(m_dSampleSizeX/2) / MICROMETRE, (m_dSampleSizeX/2) / MICROMETRE);
+//		sprintf(szBuff, "Xã®ä½ç½®åº§æ¨™ãŒã‚µã‚¤ã‚ºã®å¤–ã«ã‚ã‚Šã¾ã™.\n(%.3lf - %.3lf)", -(m_dSampleSizeX/2) / MICROMETRE, (m_dSampleSizeX/2) / MICROMETRE);
 //		MessageBox(szBuff, "POINT SETUP DISPOSITION", MB_OK|MB_ICONSTOP);
 		LoadStringML(IDS_OUT_SIZE_LOCATION_X, l_strBuffer, "Out of the Size Location of X.\n(%.3lf - %.3lf)");
 		LoadStringML(IDS_TITLE_POINT_SETUP_DISPOSITION, l_strTitle, "POINT SETUP DISPOSITION");
 		//2009.09.30 bagus se --{--
-		//Œ´“_ˆÊ’u‘Î‰
+		//åŸç‚¹ä½ç½®å¯¾å¿œ
 		long lMin,lMax;
 		GetPosRangeX(&lMin,&lMax);
 		//sprintf(szBuff, l_strBuffer, -(m_dSampleSizeX/2) / MICROMETRE, (m_dSampleSizeX/2) / MICROMETRE);
@@ -426,18 +426,18 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 	// StartPoint Y
 	dValueBuff = atof(pGrid->GetItemText(2, 1)) * MICROMETRE ;
 	//2009.09.30 bagus se --{--
-	//Œ´“_ˆÊ’u‘Î‰
+	//åŸç‚¹ä½ç½®å¯¾å¿œ
 	//if(fabs(dValueBuff) > (m_dSampleSizeY/2)){
 	if(!IsPosInStageSizeY(dValueBuff)){
 	//2009.09.30 bagus se --}--
 		// Kojika 20090601 Change
 //		sprintf(szBuff, "Out of the Size Location of Y.\n(%.3lf - %.3lf)", -(m_dSampleSizeY/2) / MICROMETRE, (m_dSampleSizeY/2) / MICROMETRE );
-//		sprintf(szBuff, "‚x‚ÌˆÊ’uÀ•W‚ªƒTƒCƒY‚ÌŠO‚É‚ ‚è‚Ü‚·.\n(%.3lf - %.3lf)", -(m_dSampleSizeY/2) / MICROMETRE, (m_dSampleSizeY/2) / MICROMETRE );
+//		sprintf(szBuff, "ï¼¹ã®ä½ç½®åº§æ¨™ãŒã‚µã‚¤ã‚ºã®å¤–ã«ã‚ã‚Šã¾ã™.\n(%.3lf - %.3lf)", -(m_dSampleSizeY/2) / MICROMETRE, (m_dSampleSizeY/2) / MICROMETRE );
 //		MessageBox(szBuff, "POINT SETUP DISPOSITION", MB_OK|MB_ICONSTOP);
 		LoadStringML(IDS_OUT_SIZE_LOCATION_Y, l_strBuffer, "Out of the Size Location of Y.\n(%.3lf - %.3lf)");
 		LoadStringML(IDS_TITLE_POINT_SETUP_DISPOSITION, l_strTitle, "POINT SETUP DISPOSITION");
 		//2009.09.30 bagus se --{--
-		//Œ´“_ˆÊ’u‘Î‰
+		//åŸç‚¹ä½ç½®å¯¾å¿œ
 		long lMin,lMax;
 		GetPosRangeY(&lMin,&lMax);
 		//sprintf(szBuff, l_strBuffer, -(m_dSampleSizeY/2) / MICROMETRE, (m_dSampleSizeY/2) / MICROMETRE );
@@ -453,7 +453,7 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 	// Pitch X
 	dValueBuff = atof(pGrid->GetItemText(1, 2)) * MICROMETRE ;
 
-//“¯ˆêÀ•W‚ÌŒJ•Ô‚µİ’è‰Â”\‚É‚µ‚½
+//åŒä¸€åº§æ¨™ã®ç¹°è¿”ã—è¨­å®šå¯èƒ½ã«ã—ãŸ
 //OkabeDelete20090612--->
 //	//OkabeAdd20090319--->
 //		if(dValueBuff == 0){
@@ -463,18 +463,18 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 //OkabeDelete20090612<---
 
 	//2009.09.30 bagus se --{--
-	//Œ´“_ˆÊ’u‘Î‰
+	//åŸç‚¹ä½ç½®å¯¾å¿œ
 	//if(fabs(dValueBuff) > (m_dSampleSizeX/2)){
 	if(!IsPosInStageSizeX(dValueBuff)){
 	//2009.09.30 bagus se --}--
 		// Kojika 20090601 Change
 //		sprintf(szBuff, "Out of the Pitch Range of X.\n(%.3lf - %.3lf)", -(m_dSampleSizeX/2) / MICROMETRE,(m_dSampleSizeX/2) / MICROMETRE);
-//		sprintf(szBuff, "‚w‚Ì”ÍˆÍ‚ªAƒsƒbƒ`‚ÌŠO‚É‚ ‚è‚Ü‚·.\n(%.3lf - %.3lf)", -(m_dSampleSizeX/2) / MICROMETRE,(m_dSampleSizeX/2) / MICROMETRE);
+//		sprintf(szBuff, "ï¼¸ã®ç¯„å›²ãŒã€ãƒ”ãƒƒãƒã®å¤–ã«ã‚ã‚Šã¾ã™.\n(%.3lf - %.3lf)", -(m_dSampleSizeX/2) / MICROMETRE,(m_dSampleSizeX/2) / MICROMETRE);
 //		MessageBox(szBuff, "POINT SETUP DISPOSITION", MB_OK|MB_ICONSTOP);
 		LoadStringML(IDS_OUT_PITCH_RANGE_X, l_strBuffer, "Out of the Pitch Range of X.\n(%.3lf - %.3lf)");
 		LoadStringML(IDS_TITLE_POINT_SETUP_DISPOSITION, l_strTitle, "POINT SETUP DISPOSITION");
 		//2009.09.30 bagus se --{--
-		//Œ´“_ˆÊ’u‘Î‰
+		//åŸç‚¹ä½ç½®å¯¾å¿œ
 		long lMin,lMax;
 		GetPosRangeX(&lMin,&lMax);
 		//sprintf(szBuff, l_strBuffer, -(m_dSampleSizeX/2) / MICROMETRE, (m_dSampleSizeX/2) / MICROMETRE);
@@ -490,7 +490,7 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 	dValueBuff = atof(pGrid->GetItemText(2, 2)) * MICROMETRE ;
 
 //OkabeDelete20090612--->
-//“¯ˆêÀ•W‚ÌŒJ•Ô‚µİ’è‰Â”\‚É‚µ‚½
+//åŒä¸€åº§æ¨™ã®ç¹°è¿”ã—è¨­å®šå¯èƒ½ã«ã—ãŸ
 //	//OkabeAdd20090319--->
 //		if(dValueBuff == 0){
 //			return FALSE;
@@ -499,18 +499,18 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 //OkabeDelete20090612<---
 
 	//2009.09.30 bagus se --{--
-	//Œ´“_ˆÊ’u‘Î‰
+	//åŸç‚¹ä½ç½®å¯¾å¿œ
 	//if(fabs(dValueBuff) > (m_dSampleSizeY/2)){
 	if(!IsPosInStageSizeY(dValueBuff)){
 	//2009.09.30 bagus se --}--
 		// Kojika 20090601 Change
 //		sprintf(szBuff, "Out of the Pitch Range of Y.\n(%.3lf - %.3lf)", -(m_dSampleSizeY/2) / MICROMETRE, (m_dSampleSizeY/2) / MICROMETRE);
-//		sprintf(szBuff, "‚x‚Ì”ÍˆÍ‚ªAƒsƒbƒ`‚ÌŠO‚É‚ ‚è‚Ü‚·..\n(%.3lf - %.3lf)", -(m_dSampleSizeY/2) / MICROMETRE, (m_dSampleSizeY/2) / MICROMETRE);
+//		sprintf(szBuff, "ï¼¹ã®ç¯„å›²ãŒã€ãƒ”ãƒƒãƒã®å¤–ã«ã‚ã‚Šã¾ã™..\n(%.3lf - %.3lf)", -(m_dSampleSizeY/2) / MICROMETRE, (m_dSampleSizeY/2) / MICROMETRE);
 //		MessageBox(szBuff, "POINT SETUP DISPOSITION", MB_OK|MB_ICONSTOP);
 		LoadStringML(IDS_OUT_PITCH_RANGE_Y, l_strBuffer, "Out of the Pitch Range of Y.\n(%.3lf - %.3lf)");
 		LoadStringML(IDS_TITLE_POINT_SETUP_DISPOSITION, l_strTitle, "POINT SETUP DISPOSITION");
 		//2009.09.30 bagus se --{--
-		//Œ´“_ˆÊ’u‘Î‰
+		//åŸç‚¹ä½ç½®å¯¾å¿œ
 		long lMin,lMax;
 		GetPosRangeY(&lMin,&lMax);
 		//sprintf(szBuff, l_strBuffer, -(m_dSampleSizeY/2) / MICROMETRE, (m_dSampleSizeY/2) / MICROMETRE );
@@ -527,11 +527,11 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 	strBuff = pGrid->GetItemText(1, 3);
 
 //OkabeChange20090612--->
-//“¯ˆêÀ•W‚ÌŒJ•Ô‚µİ’è‰Â”\‚É‚µ‚½
+//åŒä¸€åº§æ¨™ã®ç¹°è¿”ã—è¨­å®šå¯èƒ½ã«ã—ãŸ
 	if ( m_lPitchX != 0 ){
 		lMax=0;
 		//2009.09.30 bagus sr --{--
-		//Œ´“_ˆÊ’u‘Î‰
+		//åŸç‚¹ä½ç½®å¯¾å¿œ
 		//while ( fabs((dValueBuff + (lMax * m_lPitchX))) <= m_dSampleSizeX/2 )
 		while ( IsPosInStageSizeX((dValueBuff + (lMax * m_lPitchX))))
 			lMax++;
@@ -543,7 +543,7 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 	m_iCountX = atoi(strBuff);
 
 	// Count Y
-	//Lineƒ‚[ƒh‚Í m_iCountX‚ÅŒvZi’Ç‰Áƒ|ƒCƒ“ƒg”ŒvZ‚Ì‚½‚ß"1"ŒÅ’è‚Æ‚·‚éj
+	//Lineãƒ¢ãƒ¼ãƒ‰ã¯ m_iCountXã§è¨ˆç®—ï¼ˆè¿½åŠ ãƒã‚¤ãƒ³ãƒˆæ•°è¨ˆç®—ã®ãŸã‚"1"å›ºå®šã¨ã™ã‚‹ï¼‰
 	dValueBuff = atof(pGrid->GetItemText(2, 1)) * MICROMETRE ;
 	if(pCombo->GetCurSel() == STAGE_DRAW_SHAPED_RECTANGLE){
 		strBuff = pGrid->GetItemText(2, 3);
@@ -551,7 +551,7 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 		if ( m_lPitchY != 0 ){
 			lMax=0;
 			//2009.09.30 bagus sr --{--
-			//Œ´“_ˆÊ’u‘Î‰
+			//åŸç‚¹ä½ç½®å¯¾å¿œ
 			//while ( fabs((dValueBuff + (lMax * m_lPitchY))) <= m_dSampleSizeY/2 )
 			while ( IsPosInStageSizeY((dValueBuff + (lMax * m_lPitchY))))
 				lMax++;
@@ -567,7 +567,7 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 		if ( m_lPitchY != 0 ){
 			lMax=0;
 			//2009.09.30 bagus sr --{--
-			//Œ´“_ˆÊ’u‘Î‰
+			//åŸç‚¹ä½ç½®å¯¾å¿œ
 			//while ( fabs((dValueBuff + (lMax * m_lPitchY))) <= m_dSampleSizeY/2 )
 			while ( IsPosInStageSizeY((dValueBuff + (lMax * m_lPitchY))))
 				lMax++;
@@ -582,7 +582,7 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 	}
 //OkabeAdd20090612<---
 
-	//Lineƒ‚[ƒh‚Ìê‡ ƒJƒEƒ“ƒg”‚ÍX‚ª—LŒøAY‚Í–³Œø
+	//Lineãƒ¢ãƒ¼ãƒ‰ã®å ´åˆ ã‚«ã‚¦ãƒ³ãƒˆæ•°ã¯XãŒæœ‰åŠ¹ã€Yã¯ç„¡åŠ¹
 	if(pCombo->GetCurSel() ==	STAGE_DRAW_SHAPED_LINE){
 		/*if(m_iCountX != m_iCountY){
 			MessageBox("Please enter a same integer in count", "POINT SETUP DISPOSITION", MB_OK|MB_ICONSTOP);
@@ -591,7 +591,7 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 		if(m_iCountX > (SCAN_POINT_MAX - m_iNumScans)){
 			// Kojika 20090601 Change
 //			sprintf(szBuff, "The Maximum Number which can be Registered is %d.", SCAN_POINT_MAX);
-//			sprintf(szBuff, "Å‘å“o˜^”‚Í%d‚Å‚·.", SCAN_POINT_MAX);
+//			sprintf(szBuff, "æœ€å¤§ç™»éŒ²æ•°ã¯%dã§ã™.", SCAN_POINT_MAX);
 //			MessageBox(szBuff, "POINT SETUP DISPOSITION", MB_OK|MB_ICONSTOP);
 			LoadStringML(IDS_MAXIMUM_NUMBER_CAN_REGISTERED, l_strBuffer, "The Maximum Number which can be Registered is %d.");
 			LoadStringML(IDS_TITLE_POINT_SETUP_DISPOSITION, l_strTitle, "POINT SETUP DISPOSITION");
@@ -603,11 +603,11 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 	}
 
 	if(pCombo->GetCurSel() == STAGE_DRAW_SHAPED_RECTANGLE){
-	//RectAngleƒ‚[ƒh‚Ìê‡A‘ƒ|ƒCƒ“ƒg”‚ªÅ‘å‚ğ‰z‚¦‚È‚¢‚æ‚¤‚É‚·‚é
+	//RectAngleãƒ¢ãƒ¼ãƒ‰ã®å ´åˆã€ç·ãƒã‚¤ãƒ³ãƒˆæ•°ãŒæœ€å¤§ã‚’è¶Šãˆãªã„ã‚ˆã†ã«ã™ã‚‹
 		if(m_iCountX * m_iCountY > (SCAN_POINT_MAX - m_iNumScans)){
 			// Kojika 20090601 Change
 //			sprintf(szBuff, "The Maximum Number which can be Registered is %d.", SCAN_POINT_MAX);
-//			sprintf(szBuff, "Å‘å“o˜^”‚Í%d‚Å‚·.", SCAN_POINT_MAX);
+//			sprintf(szBuff, "æœ€å¤§ç™»éŒ²æ•°ã¯%dã§ã™.", SCAN_POINT_MAX);
 //			MessageBox(szBuff, "POINT SETUP DISPOSITION", MB_OK|MB_ICONSTOP);
 			LoadStringML(IDS_MAXIMUM_NUMBER_CAN_REGISTERED, l_strBuffer, "The Maximum Number which can be Registered is %d.");
 			LoadStringML(IDS_TITLE_POINT_SETUP_DISPOSITION, l_strTitle, "POINT SETUP DISPOSITION");
@@ -622,7 +622,7 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 }
 
 //2009.09.30 bagus se --{--
-//Œ´“_ˆÊ’u‘Î‰
+//åŸç‚¹ä½ç½®å¯¾å¿œ
 BOOL CPointSetupDispositionDlg::IsPosInStageSizeX(double dPos)
 {
 //	int		OrgPos;		// 1:Center, 2:Top Left, 3:Botton Left, 4:Botton Right, 5:Top Right

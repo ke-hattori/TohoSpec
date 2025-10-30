@@ -1,25 +1,25 @@
-#if !defined(AFX_AUTOFOCUSSETTINGDLG_H__8FD26CF4_973A_4783_B7A7_63BAE57EB35C__INCLUDED_)
+ï»¿#if !defined(AFX_AUTOFOCUSSETTINGDLG_H__8FD26CF4_973A_4783_B7A7_63BAE57EB35C__INCLUDED_)
 #define AFX_AUTOFOCUSSETTINGDLG_H__8FD26CF4_973A_4783_B7A7_63BAE57EB35C__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// AutoFocusSettingDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// AutoFocusSettingDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 /////////////////////////////////////////////////////////////////////////////
-// CAutoFocusSettingDlg ƒ_ƒCƒAƒƒO
+// CAutoFocusSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 class CAutoFocusSettingDlg : public COverlayDialog
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
-	CAutoFocusSettingDlg(CWnd* pParent = NULL);   // •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CAutoFocusSettingDlg(CWnd* pParent = NULL);   // æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CAutoFocusSettingDlg)
 	enum { IDD = IDD_OVERLAY_DLG };
-		// ƒƒ‚: ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒf[ƒ^ ƒƒ“ƒo‚ğ’Ç‰Á‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢: ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒ‡ãƒ¼ã‚¿ ãƒ¡ãƒ³ãƒã‚’è¿½åŠ ã—ã¾ã™ã€‚
 	//}}AFX_DATA
 
 public:
@@ -29,24 +29,24 @@ public:
 
 	CBrush m_Brush_Position_X;
 	CBrush m_Brush_Position_Y;
-//2009.09.24 bagus stress ‹@”\’Ç‰Á --{--
+//2009.09.24 bagus stress æ©Ÿèƒ½è¿½åŠ  --{--
 	CBrush m_Brush_Position_Z;
 	CShadeButtonST m_SettingPointButton;
 
-	STAGE_PROG_INFO_HDR m_StageProgInfoHdr;		// STAGE_PROG_INFO_HDR\‘¢‘Ì
-//2009.09.24 bagus stress ‹@”\’Ç‰Á --}--
+	STAGE_PROG_INFO_HDR m_StageProgInfoHdr;		// STAGE_PROG_INFO_HDRæ§‹é€ ä½“
+//2009.09.24 bagus stress æ©Ÿèƒ½è¿½åŠ  --}--
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CAutoFocusSettingDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CAutoFocusSettingDlg)
 	afx_msg BOOL OnInitDialog();
 	afx_msg void OnOK();
@@ -57,15 +57,15 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 private:
-//2009.09.24 bagus stress ‹@”\’Ç‰Á --{--
+//2009.09.24 bagus stress æ©Ÿèƒ½è¿½åŠ  --{--
 	void SetPointData();
 
-	WORD m_wHeadType;															// ƒwƒbƒhƒ^ƒCƒv
-//2009.09.24 bagus stress ‹@”\’Ç‰Á --}--
+	WORD m_wHeadType;															// ãƒ˜ãƒƒãƒ‰ã‚¿ã‚¤ãƒ—
+//2009.09.24 bagus stress æ©Ÿèƒ½è¿½åŠ  --}--
 
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_AUTOFOCUSSETTINGDLG_H__8FD26CF4_973A_4783_B7A7_63BAE57EB35C__INCLUDED_)

@@ -1,4 +1,4 @@
-// Procon.h : PROCON �A�v���P�[�V�����̃��C�� �w�b�_�[ �t�@�C���ł��B
+﻿// Procon.h : PROCON アプリケーションのメイン ヘッダー ファイルです。
 //
 
 #if !defined(AFX_PROCON_H__3671929E_8DEE_487B_B8B1_663322D16CF3__INCLUDED_)
@@ -12,11 +12,11 @@
 	#error include 'stdafx.h' before including this file for PCH
 #endif
 
-#include "resource.h"		// ���C�� �V���{��
+#include "resource.h"		// メイン シンボル
 
 /////////////////////////////////////////////////////////////////////////////
 // CProconApp:
-// ���̃N���X�̓���̒�`�Ɋւ��Ă� Procon.cpp �t�@�C�����Q�Ƃ��Ă��������B
+// このクラスの動作の定義に関しては Procon.cpp ファイルを参照してください。
 //
 
 class CProconApp : public CWinApp
@@ -24,14 +24,14 @@ class CProconApp : public CWinApp
 public:
 	CProconApp();
 
-// �I�[�o�[���C�h
-	// ClassWizard �͉��z�֐��̃I�[�o�[���C�h�𐶐����܂��B
+// オーバーライド
+	// ClassWizard は仮想関数のオーバーライドを生成します。
 	//{{AFX_VIRTUAL(CProconApp)
 	public:
 	virtual BOOL InitInstance();
 	//}}AFX_VIRTUAL
 
-// �C���v�������e�[�V����
+// インプリメンテーション
 
 	//{{AFX_MSG(CProconApp)
 	//}}AFX_MSG
@@ -42,6 +42,6 @@ public:
 /////////////////////////////////////////////////////////////////////////////
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ �͑O�s�̒��O�ɒǉ��̐錾��}�����܂��B
+// Microsoft Visual C++ は前行の直前に追加の宣言を挿入します。
 
 #endif // !defined(AFX_PROCON_H__3671929E_8DEE_487B_B8B1_663322D16CF3__INCLUDED_)

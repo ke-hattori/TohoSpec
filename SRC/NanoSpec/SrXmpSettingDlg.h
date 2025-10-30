@@ -1,24 +1,24 @@
-#if !defined(AFX_SRXMPSETTINGDLG_H__2EAC0FE9_83C2_408A_9587_B467A885B5A6__INCLUDED_)
+ï»¿#if !defined(AFX_SRXMPSETTINGDLG_H__2EAC0FE9_83C2_408A_9587_B467A885B5A6__INCLUDED_)
 #define AFX_SRXMPSETTINGDLG_H__2EAC0FE9_83C2_408A_9587_B467A885B5A6__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// SrXmpSettingDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// SrXmpSettingDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 // ##########################################################################
-// CSrXmpSettingDlg ƒ_ƒCƒAƒƒO
+// CSrXmpSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // ##########################################################################
 
 class CSrXmpSettingDlg : public CDialog
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
-	CSrXmpSettingDlg(CWnd* pParent = NULL);	// •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CSrXmpSettingDlg(CWnd* pParent = NULL);	// æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
 protected:
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CSrXmpSettingDlg)
 	enum { IDD = IDD_SR_XMP_SETTING_DLG };
 	//}}AFX_DATA
@@ -28,21 +28,21 @@ protected:
 	CShadeButtonST m_DataPathButton;
 	CShadeButtonST m_FittingDataPathButton;
 	CShadeButtonST m_WvaseExePathButton;
-/* added 2014.11.25 hmenjo XMP •\¦/”ñ•\¦ ---------- { ---------- */
+/* added 2014.11.25 hmenjo XMP è¡¨ç¤º/éè¡¨ç¤º ---------- { ---------- */
 	CShadeButtonST m_BtnShowXmp;
-/* added 2014.11.25 hmenjo XMP •\¦/”ñ•\¦ ---------- } ---------- */
+/* added 2014.11.25 hmenjo XMP è¡¨ç¤º/éè¡¨ç¤º ---------- } ---------- */
 
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CSrXmpSettingDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CSrXmpSettingDlg)
 	afx_msg void OnStrategyListPathButton();
 	afx_msg void OnDataPathButton();
@@ -50,12 +50,12 @@ protected:
 	afx_msg void OnWvaseExePathButton();
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
-/* added 2014.11.25 hmenjo XMP •\¦/”ñ•\¦ ---------- { ---------- */
+/* added 2014.11.25 hmenjo XMP è¡¨ç¤º/éè¡¨ç¤º ---------- { ---------- */
 	afx_msg void OnBtnShowXmp();
-/* added 2014.11.25 hmenjo XMP •\¦/”ñ•\¦ ---------- } ---------- */
-/* added 2015.06.01 hmenjo XMP •\¦/”ñ•\¦‚Q ---------- { ---------- */
+/* added 2014.11.25 hmenjo XMP è¡¨ç¤º/éè¡¨ç¤º ---------- } ---------- */
+/* added 2015.06.01 hmenjo XMP è¡¨ç¤º/éè¡¨ç¤ºï¼’ ---------- { ---------- */
 	afx_msg void OnTimer(UINT nIDEvent);
-/* added 2015.06.01 hmenjo XMP •\¦/”ñ•\¦‚Q ---------- } ---------- */
+/* added 2015.06.01 hmenjo XMP è¡¨ç¤º/éè¡¨ç¤ºï¼’ ---------- } ---------- */
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
@@ -66,6 +66,6 @@ private:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_SRXMPSETTINGDLG_H__2EAC0FE9_83C2_408A_9587_B467A885B5A6__INCLUDED_)

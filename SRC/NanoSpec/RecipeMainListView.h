@@ -1,14 +1,14 @@
-#if !defined(AFX_RECIPEMAINLISTVIEW_H__FE4783F3_FC74_4A77_B3B4_E5BE054B216C__INCLUDED_)
+ï»¿#if !defined(AFX_RECIPEMAINLISTVIEW_H__FE4783F3_FC74_4A77_B3B4_E5BE054B216C__INCLUDED_)
 #define AFX_RECIPEMAINLISTVIEW_H__FE4783F3_FC74_4A77_B3B4_E5BE054B216C__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// RecipeMainListView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// RecipeMainListView.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 // ##########################################################################
-// CRecipeMainListView ƒtƒH[ƒ€ ƒrƒ…[
+// CRecipeMainListView ãƒ•ã‚©ãƒ¼ãƒ  ãƒ“ãƒ¥ãƒ¼
 // ##########################################################################
 
 #ifndef __AFXEXT_H__
@@ -20,7 +20,7 @@
 class CRecipeMainListView : public CNanoRecipeListUI
 {
 protected:
-	CRecipeMainListView();			// “®“I¶¬‚Ég—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CRecipeMainListView();			// å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	virtual ~CRecipeMainListView();
 	DECLARE_DYNCREATE(CRecipeMainListView)
 
@@ -47,6 +47,6 @@ private:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_RECIPEMAINLISTVIEW_H__FE4783F3_FC74_4A77_B3B4_E5BE054B216C__INCLUDED_)

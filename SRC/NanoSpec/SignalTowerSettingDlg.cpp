@@ -1,4 +1,4 @@
-// SignalTowerSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SignalTowerSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -16,7 +16,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // #########################################################################
-// CSignalTowerSettingDlg ƒ_ƒCƒAƒƒO
+// CSignalTowerSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // #########################################################################
 
 // =========================================================================
@@ -71,7 +71,7 @@ BEGIN_MESSAGE_MAP(CSignalTowerSettingDlg, CDialog)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CSignalTowerSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSignalTowerSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -124,8 +124,8 @@ BOOL CSignalTowerSettingDlg::OnInitDialog()
 	InitCombo_SignalTowerLight(IDC_ALARM_GREEN, m_SignalTower.Alarm.iGreen);
 	InitCombo_SignalTowerBuzzer(IDC_ALARM_BUZZER, m_SignalTower.Alarm.iBuzzer);
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
@@ -147,7 +147,7 @@ void CSignalTowerSettingDlg::OnOK()
 void CSignalTowerSettingDlg::OnInitializeTestButton()
 {
 	UpdateData();
-	// signal tower ‚ÌŒÄ‚Ño‚µ
+	// signal tower ã®å‘¼ã³å‡ºã—
 }
 
 // =========================================================================
@@ -155,7 +155,7 @@ void CSignalTowerSettingDlg::OnInitializeTestButton()
 void CSignalTowerSettingDlg::OnIdleTestButton()
 {
 	UpdateData();
-	// signal tower ‚ÌŒÄ‚Ño‚µ
+	// signal tower ã®å‘¼ã³å‡ºã—
 }
 
 // =========================================================================
@@ -163,7 +163,7 @@ void CSignalTowerSettingDlg::OnIdleTestButton()
 void CSignalTowerSettingDlg::OnRunTestButton()
 {
 	UpdateData();
-	// signal tower ‚ÌŒÄ‚Ño‚µ
+	// signal tower ã®å‘¼ã³å‡ºã—
 }
 
 // =========================================================================
@@ -171,7 +171,7 @@ void CSignalTowerSettingDlg::OnRunTestButton()
 void CSignalTowerSettingDlg::OnAlarmTestButton()
 {
 	UpdateData();
-	// signal tower ‚ÌŒÄ‚Ño‚µ
+	// signal tower ã®å‘¼ã³å‡ºã—
 }
 
 // =========================================================================

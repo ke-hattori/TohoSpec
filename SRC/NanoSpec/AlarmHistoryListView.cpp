@@ -1,4 +1,4 @@
-// AlarmHistoryListView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// AlarmHistoryListView.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -59,7 +59,7 @@ BEGIN_MESSAGE_MAP(CAlarmHistoryListView, CNanoListUI)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CAlarmHistoryListView f’f
+// CAlarmHistoryListView è¨ºæ–­
 
 #ifdef _DEBUG
 
@@ -79,7 +79,7 @@ void CAlarmHistoryListView::Dump(CDumpContext& dc) const
 #endif //_DEBUG
 
 /////////////////////////////////////////////////////////////////////////////
-// CAlarmHistoryListView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰                               //
+// CAlarmHistoryListView ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©                               //
 //                                                                         //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -90,7 +90,7 @@ int CAlarmHistoryListView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	if (CNanoListUI::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
-	// TODO: ‚±‚ÌˆÊ’u‚ÉŒÅ—L‚Ìì¬—pƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«å›ºæœ‰ã®ä½œæˆç”¨ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 
 	m_pMainFrame = (CMainFrame *)AfxGetMainWnd();
 	m_pDoc = (CNanoSpecDoc*)m_pMainFrame->GetActiveDocument();
@@ -150,12 +150,12 @@ void CAlarmHistoryListView::List_HeaderSet()
 ////	  "ID",
 ////	  "Alarm",
 //		  "",
-//		  "“ú•t",
-//		  "ŠÔ",
-//		  "ƒŒƒxƒ‹",
-//		  "ƒZƒbƒg",
+//		  "æ—¥ä»˜",
+//		  "æ™‚é–“",
+//		  "ãƒ¬ãƒ™ãƒ«",
+//		  "ã‚»ãƒƒãƒˆ",
 //		"ID",
-//		  "ƒAƒ‰[ƒ€“à—e",
+//		  "ã‚¢ãƒ©ãƒ¼ãƒ å†…å®¹",
 //	  };
 	LPTSTR Item_ENU[] = {
 	  "",
@@ -168,12 +168,12 @@ void CAlarmHistoryListView::List_HeaderSet()
 	};
 	LPTSTR Item_JPN[] = {
 		"",
-		"“ú•t",
-		"ŠÔ",
-		"ƒŒƒxƒ‹",
-		"ƒZƒbƒg",
+		"æ—¥ä»˜",
+		"æ™‚é–“",
+		"ãƒ¬ãƒ™ãƒ«",
+		"ã‚»ãƒƒãƒˆ",
 		"ID",
-		"ƒAƒ‰[ƒ€“à—e",
+		"ã‚¢ãƒ©ãƒ¼ãƒ å†…å®¹",
 	};
 
 //Saiki 20090527 Change <-----

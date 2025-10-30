@@ -1,4 +1,4 @@
-// SampleSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// SampleSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -25,8 +25,8 @@ static char THIS_FILE[] = __FILE__;
 // ==========================================================================
 //#define SAMPLESETTING_CAPTION		"SAMPLE SETTING"
 //#define SAMPLESETTING_MESSAGE		"SAMPLE SETTING"
-//#define SAMPLESETTING_CAPTION       "ƒTƒ“ƒvƒ‹İ’è"
-//#define SAMPLESETTING_MESSAGE       "ƒTƒ“ƒvƒ‹İ’è"
+//#define SAMPLESETTING_CAPTION       "ã‚µãƒ³ãƒ—ãƒ«è¨­å®š"
+//#define SAMPLESETTING_MESSAGE       "ã‚µãƒ³ãƒ—ãƒ«è¨­å®š"
 
 // 2013.01.09 bagus -->
 #define DIR_UNKNOWN    (0)
@@ -38,7 +38,7 @@ static char THIS_FILE[] = __FILE__;
 // 2013.01.09 bagus <--
 
 // #########################################################################
-// CSampleSettingDlg ƒ_ƒCƒAƒƒO
+// CSampleSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // #########################################################################
 
 // =========================================================================
@@ -77,14 +77,14 @@ BEGIN_MESSAGE_MAP(CSampleSettingDlg, CDialog)
 	//{{AFX_MSG_MAP(CSampleSettingDlg)
 	ON_BN_CLICKED(IDC_TEACHING_BUTTON, OnTeachingButton)
 	ON_CBN_SELCHANGE(IDC_SAMPLE_SHAPE, OnSelchangeSampleShape)
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --{--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --{--
 //	ON_CBN_SELCHANGE(IDC_MATERIAL_ELASTIC_MODULUS, OnSelchangeMaterialElasticModulus)
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --}--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --}--
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CSampleSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CSampleSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 // =========================================================================
 //
@@ -95,7 +95,7 @@ BOOL CSampleSettingDlg::OnInitDialog()
 
 	CDialog::OnInitDialog();
 
-	// ƒRƒƒ“ƒg•¶š”§ŒÀ
+	// ã‚³ãƒ¡ãƒ³ãƒˆæ–‡å­—æ•°åˆ¶é™
 	((CEdit*)GetDlgItem(IDC_SAMPLE_NAME))->SetLimitText(RECIPE_NAME_LEN);
 
 	///// Ok Button /////
@@ -110,20 +110,20 @@ BOOL CSampleSettingDlg::OnInitDialog()
 	m_TeachingButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_TeachingButton.DrawFlatFocus(TRUE);
 
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --{--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --{--
 #if 0
 	// 2009.08.26 bagus stress --{--
 	memset(&m_ElasticTable, 0, sizeof(m_ElasticTable));
 	ConfigFile_GetNanoSpecIni(&m_ElasticTable, CONFIG_FILE_STRESS_MODULUS_CONFIG);
 #endif
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --}--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --}--
 	ConfigFile_GetNanoSpecIni(&m_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 	// 2009.08.26 bagus stress --}--
 
 	///// Initialize /////
 	InitCombo_SampleShape();
 
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --{--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --{--
 #if 0
 	// 2009.08.26 bagus stress --{--
 	InitCombo_MaterialElasticModulus();
@@ -136,10 +136,10 @@ BOOL CSampleSettingDlg::OnInitDialog()
 	}
 	// 2009.08.26 bagus stress --}--
 #endif
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --}--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --}--
 
-	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+					// ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 // =========================================================================
@@ -173,7 +173,7 @@ void CSampleSettingDlg::OnTeachingButton()
 	dlgOverlay.m_lX = m_SampleInfo.Origin.lX;
 	dlgOverlay.m_lY = m_SampleInfo.Origin.lY;
 
-	//SampleƒZƒbƒg
+	//Sampleã‚»ãƒƒãƒˆ
 	dlgOverlay.SetFileName(m_SampleInfo.szName);
 	dlgOverlay.SetSampleMode(1);
 	//Saiki 20090603 Change ----->
@@ -230,7 +230,7 @@ void CSampleSettingDlg::InitCombo_SampleShape()
 
 // =========================================================================
 //
-// 2013.01.22 bagus Œ´“_—LŒø”ÍˆÍ“àEƒTƒ“ƒvƒ‹ƒTƒCƒYƒI[ƒo[‡˜‚Åƒ`ƒFƒbƒN‚·‚é‚æ‚¤‚É•ÏX
+// 2013.01.22 bagus åŸç‚¹æœ‰åŠ¹ç¯„å›²å†…ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚µã‚¤ã‚ºã‚ªãƒ¼ãƒãƒ¼é †åºã§ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã‚ˆã†ã«å¤‰æ›´
 BOOL CSampleSettingDlg::CheckData()
 {
 	if(UpdateData(TRUE) == FALSE) return FALSE;
@@ -248,7 +248,7 @@ BOOL CSampleSettingDlg::CheckData()
 	SR_LENS_CENTER_OFFSET zeroLensOffset;
 
 	ConfigFile_GetNanoSpecIni(&currLensOffset, CONFIG_FILE_SR_LENS_CENTER_OFFSET);
-	ConfigFile_GetNanoSpecIni(&m_StageConfig, CONFIG_FILE_STAGE_CONFIG);			// QÆ‚Ì‚İ
+	ConfigFile_GetNanoSpecIni(&m_StageConfig, CONFIG_FILE_STAGE_CONFIG);			// å‚ç…§ã®ã¿
 
 	STAGE_COORD coordLeftTop;
 	STAGE_COORD coordRightBottom;
@@ -267,14 +267,14 @@ BOOL CSampleSettingDlg::CheckData()
 	coordRightBottom.lX = static_cast<long>(m_StageConfig.StageMaxCoord.dRightX - m_StageConfig.Edge.dX);
 	coordRightBottom.lY = static_cast<long>(m_StageConfig.StageMaxCoord.dDownY + m_StageConfig.Edge.dY);
 
-	// Œ»İ‚ÌƒŒƒ“ƒYOffsetî•ñÁ‹iÀ•W•ÏŠ·‚ÉƒŒƒ“ƒYƒIƒtƒZƒbƒg‚ğ‰Á–¡‚µ‚È‚¢j
+	// ç¾åœ¨ã®ãƒ¬ãƒ³ã‚ºOffsetæƒ…å ±æ¶ˆå»ï¼ˆåº§æ¨™å¤‰æ›ã«ãƒ¬ãƒ³ã‚ºã‚ªãƒ•ã‚»ãƒƒãƒˆã‚’åŠ å‘³ã—ãªã„ï¼‰
 	::ZeroMemory(&zeroLensOffset, sizeof(zeroLensOffset));
 	ConfigFile_SetNanoSpecIni(&zeroLensOffset, CONFIG_FILE_SR_LENS_CENTER_OFFSET);
 
 	NS_ConvertToStageGetPosCoord(&coordLeftTop);
 	NS_ConvertToStageGetPosCoord(&coordRightBottom);
 
-	// Œ»İ‚ÌƒŒƒ“ƒYOffset•œŒ³
+	// ç¾åœ¨ã®ãƒ¬ãƒ³ã‚ºOffsetå¾©å…ƒ
 	ConfigFile_SetNanoSpecIni(&currLensOffset, CONFIG_FILE_SR_LENS_CENTER_OFFSET);
 
 	///// Sample Origin X /////
@@ -283,7 +283,7 @@ BOOL CSampleSettingDlg::CheckData()
 	if(( m_SampleInfo.Origin.lX < lStageXEdgeMin ) || ( lStageXEdgeMax < m_SampleInfo.Origin.lX )){
 		//Saiki 20090603 Change ----->
 		//MessageBox("X axis origin coordinate is out of range the stage.", "SAMPLE SETTING", MB_OK|MB_ICONSTOP);
-		//MessageBox("‚w²‚ÌŒ´“_À•W‚ªƒXƒe[ƒW‚Ì”ÍˆÍŠO‚Éİ’è‚³‚ê‚Ä‚¢‚Ü‚·", "SAMPLE SETTING", MB_OK|MB_ICONSTOP);
+		//MessageBox("ï¼¸è»¸ã®åŸç‚¹åº§æ¨™ãŒã‚¹ãƒ†ãƒ¼ã‚¸ã®ç¯„å›²å¤–ã«è¨­å®šã•ã‚Œã¦ã„ã¾ã™", "SAMPLE SETTING", MB_OK|MB_ICONSTOP);
 		LoadStringML(IDS_X_AXIS_ORIGIN_OUT_RANGE, strMsg, "X axis origin coordinate is out of range the stage.");
 		MessageBox(strMsg, strTitle, MB_OK|MB_ICONSTOP);
 		//Saiki 20090603 Change <-----
@@ -297,7 +297,7 @@ BOOL CSampleSettingDlg::CheckData()
 	if(( m_SampleInfo.Origin.lY < lStageYEdgeMin ) || ( lStageYEdgeMax < m_SampleInfo.Origin.lY )){
 		//Saiki 20090603 Change ----->
 		//MessageBox("Y axis origin coordinate is out of range the stage.", "SAMPLE SETTING", MB_OK|MB_ICONSTOP);
-		//MessageBox("‚x²‚ÌŒ´“_À•W‚ªƒXƒe[ƒW‚Ì”ÍˆÍŠO‚Éİ’è‚³‚ê‚Ä‚¢‚Ü‚·", "SAMPLE SETTING", MB_OK|MB_ICONSTOP);
+		//MessageBox("ï¼¹è»¸ã®åŸç‚¹åº§æ¨™ãŒã‚¹ãƒ†ãƒ¼ã‚¸ã®ç¯„å›²å¤–ã«è¨­å®šã•ã‚Œã¦ã„ã¾ã™", "SAMPLE SETTING", MB_OK|MB_ICONSTOP);
 		LoadStringML(IDS_Y_AXIS_ORIGIN_OUT_RANGE, strMsg, "Y axis origin coordinate is out of range the stage.");
 		MessageBox(strMsg, strTitle, MB_OK|MB_ICONSTOP);
 		//Saiki 20090603 Change <-----
@@ -305,17 +305,17 @@ BOOL CSampleSettingDlg::CheckData()
 		return FALSE;
 	}
 
-	///// ƒXƒe[ƒWŒ´“_Îß¼Ş¼®İ‚É‚æ‚é—LŒøƒGƒŠƒAƒ`ƒFƒbƒN /////
-	//	  Œ»sƒZƒ“ƒ^[’†S‚Ì‚İ‚É‘Î‰
+	///// ã‚¹ãƒ†ãƒ¼ã‚¸åŸç‚¹ï¾ï¾Ÿï½¼ï¾ï½¼ï½®ï¾ã«ã‚ˆã‚‹æœ‰åŠ¹ã‚¨ãƒªã‚¢ãƒã‚§ãƒƒã‚¯ /////
+	//	  ç¾è¡Œã‚»ãƒ³ã‚¿ãƒ¼ä¸­å¿ƒã®ã¿ã«å¯¾å¿œ
 // 2009.12.08 bagus --{--
 #if 0
 // 	switch ( m_StageConfig.OrgPos ) {
-// 	case 1: // ’†S
-// 		///// Sample Origin X + Sample Size X@—LŒøƒGƒŠƒAƒ`ƒFƒbƒN/////
+// 	case 1: // ä¸­å¿ƒ
+// 		///// Sample Origin X + Sample Size Xã€€æœ‰åŠ¹ã‚¨ãƒªã‚¢ãƒã‚§ãƒƒã‚¯/////
 // 		if( (( m_SampleInfo.Origin.lX - (m_SampleInfo.Size.dx / 2)) < min(coordLeftTop.lX, coordRightBottom.lX) ) || ( max(coordLeftTop.lX, coordRightBottom.lX) < (m_SampleInfo.Origin.lX + (m_SampleInfo.Size.dx / 2))) ){
 // 			//Saiki 20090603 Change ----->
 // 			//MessageBox("X axis origin coordinate is out of range the stage.", "SAMPLE SETTING", MB_OK|MB_ICONSTOP);
-// 			//MessageBox("‚w²‚ÌŒ´“_À•W‚ªƒXƒe[ƒW‚Ì”ÍˆÍŠO‚Éİ’è‚³‚ê‚Ä‚¢‚Ü‚·", "SAMPLE SETTING", MB_OK|MB_ICONSTOP);
+// 			//MessageBox("ï¼¸è»¸ã®åŸç‚¹åº§æ¨™ãŒã‚¹ãƒ†ãƒ¼ã‚¸ã®ç¯„å›²å¤–ã«è¨­å®šã•ã‚Œã¦ã„ã¾ã™", "SAMPLE SETTING", MB_OK|MB_ICONSTOP);
 // 			LoadStringML(IDS_X_AXIS_ORIGIN_OUT_RANGE, strMsg, "X axis origin coordinate is out of range the stage.");
 // 			MessageBox(strMsg, strTitle, MB_OK|MB_ICONSTOP);
 // 			//Saiki 20090603 Change <-----
@@ -323,11 +323,11 @@ BOOL CSampleSettingDlg::CheckData()
 // 			return FALSE;
 // 		}
 //
-// 		///// Sample Origin Y + Sample Size Y@—LŒøƒGƒŠƒAƒ`ƒFƒbƒN/////
+// 		///// Sample Origin Y + Sample Size Yã€€æœ‰åŠ¹ã‚¨ãƒªã‚¢ãƒã‚§ãƒƒã‚¯/////
 // 		if( (( m_SampleInfo.Origin.lY - (m_SampleInfo.Size.dy / 2)) < min(coordLeftTop.lY, coordRightBottom.lY) ) || ( max(coordLeftTop.lY, coordRightBottom.lY) < (m_SampleInfo.Origin.lY + (m_SampleInfo.Size.dy / 2))) ){
 // 			//Saiki 20090603 Change ----->
 // 			//MessageBox("Y axis origin coordinate is out of range the stage.", "SAMPLE SETTING", MB_OK|MB_ICONSTOP);
-// 			//MessageBox("‚x²‚ÌŒ´“_À•W‚ªƒXƒe[ƒW‚Ì”ÍˆÍŠO‚Éİ’è‚³‚ê‚Ä‚¢‚Ü‚·", "SAMPLE SETTING", MB_OK|MB_ICONSTOP);
+// 			//MessageBox("ï¼¹è»¸ã®åŸç‚¹åº§æ¨™ãŒã‚¹ãƒ†ãƒ¼ã‚¸ã®ç¯„å›²å¤–ã«è¨­å®šã•ã‚Œã¦ã„ã¾ã™", "SAMPLE SETTING", MB_OK|MB_ICONSTOP);
 // 			LoadStringML(IDS_Y_AXIS_ORIGIN_OUT_RANGE, strMsg, "Y axis origin coordinate is out of range the stage.");
 // 			MessageBox(strMsg, strTitle, MB_OK|MB_ICONSTOP);
 // 			//Saiki 20090603 Change <-----
@@ -336,30 +336,30 @@ BOOL CSampleSettingDlg::CheckData()
 // 		}
 // 		break;
 //
-// 	case 2: // ¶ã
-// 	case 3: // ¶‰º
-// 	case 4: // ‰E‰º
-// 	case 5: // ‰Eã
+// 	case 2: // å·¦ä¸Š
+// 	case 3: // å·¦ä¸‹
+// 	case 4: // å³ä¸‹
+// 	case 5: // å³ä¸Š
 // 		break;
 // 	}
 #else
 	switch ( m_StageConfig.OrgPos ) {
-	case 1: // ’†S
+	case 1: // ä¸­å¿ƒ
 	default:
-		///// Sample Origin X + Sample Size X@—LŒøƒGƒŠƒAƒ`ƒFƒbƒN/////
+		///// Sample Origin X + Sample Size Xã€€æœ‰åŠ¹ã‚¨ãƒªã‚¢ãƒã‚§ãƒƒã‚¯/////
 		lStageXEdgeMin = min(coordLeftTop.lX, coordRightBottom.lX);
 		lStageXEdgeMax = max(coordLeftTop.lX, coordRightBottom.lX);
 		lSampleXEdgeMin = static_cast<long>(m_SampleInfo.Origin.lX - (m_SampleInfo.Size.dx / 2));
 		lSampleXEdgeMax = static_cast<long>(m_SampleInfo.Origin.lX + (m_SampleInfo.Size.dx / 2));
 
-		///// Sample Origin Y + Sample Size Y@—LŒøƒGƒŠƒAƒ`ƒFƒbƒN/////
+		///// Sample Origin Y + Sample Size Yã€€æœ‰åŠ¹ã‚¨ãƒªã‚¢ãƒã‚§ãƒƒã‚¯/////
 		lStageYEdgeMin = min(coordLeftTop.lY, coordRightBottom.lY);
 		lStageYEdgeMax = max(coordLeftTop.lY, coordRightBottom.lY);
 		lSampleYEdgeMin = static_cast<long>(m_SampleInfo.Origin.lY - (m_SampleInfo.Size.dy / 2));
 		lSampleYEdgeMax = static_cast<long>(m_SampleInfo.Origin.lY + (m_SampleInfo.Size.dy / 2));
 		break;
-	case 2: // ¶ã
-		///// Sample Origin X + Sample Size X@—LŒøƒGƒŠƒAƒ`ƒFƒbƒN/////
+	case 2: // å·¦ä¸Š
+		///// Sample Origin X + Sample Size Xã€€æœ‰åŠ¹ã‚¨ãƒªã‚¢ãƒã‚§ãƒƒã‚¯/////
 		lStageXEdgeMin = min(coordLeftTop.lX, coordRightBottom.lX);
 		lStageXEdgeMax = max(coordLeftTop.lX, coordRightBottom.lX);
 		if ( m_StageConfig.Dir.X == DIR_RIGHT ||
@@ -372,7 +372,7 @@ BOOL CSampleSettingDlg::CheckData()
 			lSampleXEdgeMax = m_SampleInfo.Origin.lX;
 		}
 
-		///// Sample Origin Y + Sample Size Y@—LŒøƒGƒŠƒAƒ`ƒFƒbƒN/////
+		///// Sample Origin Y + Sample Size Yã€€æœ‰åŠ¹ã‚¨ãƒªã‚¢ãƒã‚§ãƒƒã‚¯/////
 		lStageYEdgeMin = min(coordLeftTop.lY, coordRightBottom.lY);
 		lStageYEdgeMax = max(coordLeftTop.lY, coordRightBottom.lY);
 		if ( m_StageConfig.Dir.Y == DIR_RIGHT ||
@@ -385,8 +385,8 @@ BOOL CSampleSettingDlg::CheckData()
 			lSampleYEdgeMax = m_SampleInfo.Origin.lY;
 		}
 		break;
-	case 3: // ¶‰º
-		///// Sample Origin X + Sample Size X@—LŒøƒGƒŠƒAƒ`ƒFƒbƒN/////
+	case 3: // å·¦ä¸‹
+		///// Sample Origin X + Sample Size Xã€€æœ‰åŠ¹ã‚¨ãƒªã‚¢ãƒã‚§ãƒƒã‚¯/////
 		lStageXEdgeMin = min(coordLeftTop.lX, coordRightBottom.lX);
 		lStageXEdgeMax = max(coordLeftTop.lX, coordRightBottom.lX);
 		if ( m_StageConfig.Dir.X == DIR_RIGHT ||
@@ -399,7 +399,7 @@ BOOL CSampleSettingDlg::CheckData()
 			lSampleXEdgeMax = m_SampleInfo.Origin.lX;
 		}
 
-		///// Sample Origin Y + Sample Size Y@—LŒøƒGƒŠƒAƒ`ƒFƒbƒN/////
+		///// Sample Origin Y + Sample Size Yã€€æœ‰åŠ¹ã‚¨ãƒªã‚¢ãƒã‚§ãƒƒã‚¯/////
 		lStageYEdgeMin = min(coordLeftTop.lY, coordRightBottom.lY);
 		lStageYEdgeMax = max(coordLeftTop.lY, coordRightBottom.lY);
 		if ( m_StageConfig.Dir.Y == DIR_RIGHT ||
@@ -412,8 +412,8 @@ BOOL CSampleSettingDlg::CheckData()
 			lSampleYEdgeMax = m_SampleInfo.Origin.lY;
 		}
 		break;
-	case 4: // ‰E‰º
-		///// Sample Origin X + Sample Size X@—LŒøƒGƒŠƒAƒ`ƒFƒbƒN/////
+	case 4: // å³ä¸‹
+		///// Sample Origin X + Sample Size Xã€€æœ‰åŠ¹ã‚¨ãƒªã‚¢ãƒã‚§ãƒƒã‚¯/////
 		lStageXEdgeMin = min(coordLeftTop.lX, coordRightBottom.lX);
 		lStageXEdgeMax = max(coordLeftTop.lX, coordRightBottom.lX);
 		if ( m_StageConfig.Dir.X == DIR_LEFT ||
@@ -426,7 +426,7 @@ BOOL CSampleSettingDlg::CheckData()
 			lSampleXEdgeMax = m_SampleInfo.Origin.lX;
 		}
 
-		///// Sample Origin Y + Sample Size Y@—LŒøƒGƒŠƒAƒ`ƒFƒbƒN/////
+		///// Sample Origin Y + Sample Size Yã€€æœ‰åŠ¹ã‚¨ãƒªã‚¢ãƒã‚§ãƒƒã‚¯/////
 		lStageYEdgeMin = min(coordLeftTop.lY, coordRightBottom.lY);
 		lStageYEdgeMax = max(coordLeftTop.lY, coordRightBottom.lY);
 		if ( m_StageConfig.Dir.Y == DIR_LEFT ||
@@ -439,8 +439,8 @@ BOOL CSampleSettingDlg::CheckData()
 			lSampleYEdgeMax = m_SampleInfo.Origin.lY;
 		}
 		break;
-	case 5: // ‰Eã
-		///// Sample Origin X + Sample Size X@—LŒøƒGƒŠƒAƒ`ƒFƒbƒN/////
+	case 5: // å³ä¸Š
+		///// Sample Origin X + Sample Size Xã€€æœ‰åŠ¹ã‚¨ãƒªã‚¢ãƒã‚§ãƒƒã‚¯/////
 		lStageXEdgeMin = min(coordLeftTop.lX, coordRightBottom.lX);
 		lStageXEdgeMax = max(coordLeftTop.lX, coordRightBottom.lX);
 		if ( m_StageConfig.Dir.X == DIR_LEFT ||
@@ -453,7 +453,7 @@ BOOL CSampleSettingDlg::CheckData()
 			lSampleXEdgeMax = m_SampleInfo.Origin.lX;
 		}
 
-		///// Sample Origin Y + Sample Size Y@—LŒøƒGƒŠƒAƒ`ƒFƒbƒN/////
+		///// Sample Origin Y + Sample Size Yã€€æœ‰åŠ¹ã‚¨ãƒªã‚¢ãƒã‚§ãƒƒã‚¯/////
 		lStageYEdgeMin = min(coordLeftTop.lY, coordRightBottom.lY);
 		lStageYEdgeMax = max(coordLeftTop.lY, coordRightBottom.lY);
 		if ( m_StageConfig.Dir.Y == DIR_LEFT ||
@@ -484,7 +484,7 @@ BOOL CSampleSettingDlg::CheckData()
 	}
 #endif
 
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --{--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --{--
 #if 0
 // 	// 2009.08.26 bagus stress --{--
 // 	///// Material Elastic Modulus /////
@@ -494,18 +494,18 @@ BOOL CSampleSettingDlg::CheckData()
 //
 // 		int nIndex = pCombo->GetCurSel();
 // 		if (nIndex < 0) {
-// // 2009.09.09 bagus stress StringTableg—p --{--
+// // 2009.09.09 bagus stress StringTableä½¿ç”¨ --{--
 // //			AfxMessageBox("Err:Material Elastic Modulus");
 // 			CString	strBuffer;
 // 			LoadStringML(IDS_STRESS_SELECT_MATERIAL_ELASTIC_MODULUS, strBuffer, "Please select material elastic modulus.");
 // 			AfxMessageBox(strBuffer);
-// // 2009.09.09 bagus stress StringTableg—p --}--
+// // 2009.09.09 bagus stress StringTableä½¿ç”¨ --}--
 // 			return FALSE;
 // 		}
 // 	}
 // 	// 2009.08.26 bagus stress --}--
 #endif
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --}--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --}--
 
 	// 2013.01.09 bagus -->
 // 	dStageSizeX = (m_StageConfig.Size.dX) - 2*(m_StageConfig.Edge.dX);
@@ -529,7 +529,7 @@ BOOL CSampleSettingDlg::CheckData()
 	if ( strlen(m_SampleInfo.szName) == 0 ) {
 		//MessageBox("Please Enter a Name", "SAMPLE SETTING", MB_OK|MB_ICONSTOP);
 		//Saiki 20090603 Change ----->
-		//MessageBox("–¼‘O‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢", "SAMPLE SETTING", MB_OK|MB_ICONSTOP);
+		//MessageBox("åå‰ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„", "SAMPLE SETTING", MB_OK|MB_ICONSTOP);
 		LoadStringML(IDS_ENTER_A_NAME, strMsg, "Please Enter a Name");
 		MessageBox(strMsg, strTitle, MB_OK|MB_ICONSTOP);
 		//Saiki 20090603 Change <-----
@@ -542,7 +542,7 @@ BOOL CSampleSettingDlg::CheckData()
 	if(iValue < 0){
 		//MessageBox("Please Select a Sample Shape", "SAMPLE SETTIN", MB_OK|MB_ICONSTOP);
 		//Saiki 20090603 Change ----->
-		//MessageBox("ƒTƒ“ƒvƒ‹‚ÌŒ`ó‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢", "SAMPLE SETTIN", MB_OK|MB_ICONSTOP);
+		//MessageBox("ã‚µãƒ³ãƒ—ãƒ«ã®å½¢çŠ¶ã‚’é¸æŠã—ã¦ãã ã•ã„", "SAMPLE SETTIN", MB_OK|MB_ICONSTOP);
 		LoadStringML(IDS_SELECT_SAMPLE_SHAPE, strMsg, "Please Select a Sample Shape");
 		MessageBox(strMsg, strTitle, MB_OK|MB_ICONSTOP);
 		//Saiki 20090603 Change <-----
@@ -554,7 +554,7 @@ BOOL CSampleSettingDlg::CheckData()
 	if(!(dValue >= MIN_FILM_THICKNESS  &&  dValue <= MAX_FILM_THICKNESS)){
 		//Saiki 20090603 Change ----->
 		//strBuffer.Format("Sample thickness is out of range.\n(%d - %d)", MIN_FILM_THICKNESS, MAX_FILM_THICKNESS);
-		//strBuffer.Format("ƒTƒ“ƒvƒ‹‚Ì–ŒŒú‚ª”ÍˆÍŠO‚Éİ’è‚³‚ê‚Ä‚¢‚Ü‚·\n(%d - %d)", MIN_FILM_THICKNESS, MAX_FILM_THICKNESS);
+		//strBuffer.Format("ã‚µãƒ³ãƒ—ãƒ«ã®è†œåšãŒç¯„å›²å¤–ã«è¨­å®šã•ã‚Œã¦ã„ã¾ã™\n(%d - %d)", MIN_FILM_THICKNESS, MAX_FILM_THICKNESS);
 		//MessageBox(strBuffer, "SAMPLE SETTING", MB_OK|MB_ICONSTOP);
 		LoadStringML(IDS_SAMPLE_THICKNESS_OUT_RANGE, strMsg, "Sample thickness is out of range.\n(%d - %d)");
 		strBuffer.Format(strMsg, MIN_FILM_THICKNESS, MAX_FILM_THICKNESS);
@@ -568,7 +568,7 @@ BOOL CSampleSettingDlg::CheckData()
 	if( dStageSizeX < m_SampleInfo.Size.dx ){
 		//Saiki 20090603 Change ----->
 		//MessageBox("X size is out of range the stage.", "SAMPLE SETTING", MB_OK|MB_ICONSTOP);
-		//MessageBox("‚w²‘¤‚ÌƒTƒ“ƒvƒ‹ƒTƒCƒY‚ªƒXƒe[ƒW‚Ì”ÍˆÍŠO‚Éİ’è‚³‚ê‚Ä‚¢‚Ü‚·", "SAMPLE SETTING", MB_OK|MB_ICONSTOP);
+		//MessageBox("ï¼¸è»¸å´ã®ã‚µãƒ³ãƒ—ãƒ«ã‚µã‚¤ã‚ºãŒã‚¹ãƒ†ãƒ¼ã‚¸ã®ç¯„å›²å¤–ã«è¨­å®šã•ã‚Œã¦ã„ã¾ã™", "SAMPLE SETTING", MB_OK|MB_ICONSTOP);
 		LoadStringML(IDS_XSIZE_STAGE_OUT_RANGE, strMsg, "X size is out of range the stage.");
 		MessageBox(strMsg, strTitle, MB_OK|MB_ICONSTOP);
 		//Saiki 20090603 Change <-----
@@ -580,7 +580,7 @@ BOOL CSampleSettingDlg::CheckData()
 	if( dStageSizeY < m_SampleInfo.Size.dy ){
 		//Saiki 20090603 Change ----->
 		//MessageBox("Y size is out of range the stage.", "SAMPLE SETTING", MB_OK|MB_ICONSTOP);
-		//MessageBox("‚x²‘¤‚ÌƒTƒ“ƒvƒ‹ƒTƒCƒY‚ªƒXƒe[ƒW‚Ì”ÍˆÍŠO‚Éİ’è‚³‚ê‚Ä‚¢‚Ü‚·", "SAMPLE SETTING", MB_OK|MB_ICONSTOP);
+		//MessageBox("ï¼¹è»¸å´ã®ã‚µãƒ³ãƒ—ãƒ«ã‚µã‚¤ã‚ºãŒã‚¹ãƒ†ãƒ¼ã‚¸ã®ç¯„å›²å¤–ã«è¨­å®šã•ã‚Œã¦ã„ã¾ã™", "SAMPLE SETTING", MB_OK|MB_ICONSTOP);
 		LoadStringML(IDS_YSIZE_STAGE_OUT_RANGE, strMsg, "Y size is out of range the stage.");
 		MessageBox(strMsg, strTitle, MB_OK|MB_ICONSTOP);
 		//Saiki 20090603 Change <-----
@@ -591,7 +591,7 @@ BOOL CSampleSettingDlg::CheckData()
 	return TRUE;
 }
 
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --{--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --{--
 #if 0
 // 2009.08.26 bagus stress --{--
 void CSampleSettingDlg::InitCombo_MaterialElasticModulus()
@@ -615,7 +615,7 @@ void CSampleSettingDlg::InitCombo_MaterialElasticModulus()
 
 void CSampleSettingDlg::OnSelchangeMaterialElasticModulus()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã«ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«é€šçŸ¥ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
 	CComboBox* pCombo;
 	pCombo = (CComboBox*)GetDlgItem(IDC_MATERIAL_ELASTIC_MODULUS);
 
@@ -626,4 +626,4 @@ void CSampleSettingDlg::OnSelchangeMaterialElasticModulus()
 }
 // 2009.08.26 bagus stress --}--
 #endif
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --}--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --}--

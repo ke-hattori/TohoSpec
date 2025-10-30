@@ -1,4 +1,4 @@
-// RecipeMultiListView.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// RecipeMultiListView.cpp : �C���v�������e�[�V���� �t�@�C��
 //
 
 #include "stdafx.h"

@@ -1,46 +1,46 @@
-#if !defined(AFX_MOTDATASETUPDLG_H__32E76E8D_26BE_4A56_9B97_0087A3BFC5AA__INCLUDED_)
+﻿#if !defined(AFX_MOTDATASETUPDLG_H__32E76E8D_26BE_4A56_9B97_0087A3BFC5AA__INCLUDED_)
 #define AFX_MOTDATASETUPDLG_H__32E76E8D_26BE_4A56_9B97_0087A3BFC5AA__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// MotDataSetupDlg.h : �w�b�_�[ �t�@�C��
+// MotDataSetupDlg.h : ヘッダー ファイル
 //
 
 /////////////////////////////////////////////////////////////////////////////
-// CMotDataSetupDlg �_�C�A���O
+// CMotDataSetupDlg ダイアログ
 
 class CMotDataSetupDlg : public CDialog
 {
-// �R���X�g���N�V����
+// コンストラクション
 public:
-	CMotDataSetupDlg(CWnd* pParent = NULL);   // �W���̃R���X�g���N�^
+	CMotDataSetupDlg(CWnd* pParent = NULL);   // 標準のコンストラクタ
 
-// �_�C�A���O �f�[�^
+// ダイアログ データ
 	//{{AFX_DATA(CMotDataSetupDlg)
 	enum { IDD = IDD_MOTION_DATA_SETUP_DLG };
-		// ����: ClassWizard �͂��̈ʒu�Ƀf�[�^ �����o��ǉ����܂��B
+		// メモ: ClassWizard はこの位置にデータ メンバを追加します。
 	//}}AFX_DATA
 
 
-// �I�[�o�[���C�h
-	// ClassWizard �͉��z�֐��̃I�[�o�[���C�h�𐶐����܂��B
+// オーバーライド
+	// ClassWizard は仮想関数のオーバーライドを生成します。
 	//{{AFX_VIRTUAL(CMotDataSetupDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV �T�|�[�g
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV サポート
 	//}}AFX_VIRTUAL
 
-// �C���v�������e�[�V����
+// インプリメンテーション
 protected:
 
-	// �������ꂽ���b�Z�[�W �}�b�v�֐�
+	// 生成されたメッセージ マップ関数
 	//{{AFX_MSG(CMotDataSetupDlg)
-		// ����: ClassWizard �͂��̈ʒu�Ƀ����o�֐���ǉ����܂��B
+		// メモ: ClassWizard はこの位置にメンバ関数を追加します。
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ �͑O�s�̒��O�ɒǉ��̐錾��}�����܂��B
+// Microsoft Visual C++ は前行の直前に追加の宣言を挿入します。
 
 #endif // !defined(AFX_MOTDATASETUPDLG_H__32E76E8D_26BE_4A56_9B97_0087A3BFC5AA__INCLUDED_)

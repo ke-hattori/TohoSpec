@@ -1,4 +1,4 @@
-
+﻿
 #ifndef SMART_COM_H_INC_
 #define SMART_COM_H_INC_
 

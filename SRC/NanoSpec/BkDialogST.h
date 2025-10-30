@@ -1,4 +1,4 @@
-//
+﻿//
 //	Class:		CBkDialogST
 //
 //	Compiler:	Visual C++

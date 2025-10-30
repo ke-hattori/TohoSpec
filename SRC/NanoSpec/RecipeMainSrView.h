@@ -1,14 +1,14 @@
-#if !defined(AFX_RECIPEMAINSRVIEW_H__11723BD0_0DEA_427E_AD85_81D1977E868B__INCLUDED_)
+ï»¿#if !defined(AFX_RECIPEMAINSRVIEW_H__11723BD0_0DEA_427E_AD85_81D1977E868B__INCLUDED_)
 #define AFX_RECIPEMAINSRVIEW_H__11723BD0_0DEA_427E_AD85_81D1977E868B__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// RecipeMainSrView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// RecipeMainSrView.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 // ##########################################################################
-// CRecipeMainSrView ƒtƒH[ƒ€ ƒrƒ…[
+// CRecipeMainSrView ãƒ•ã‚©ãƒ¼ãƒ  ãƒ“ãƒ¥ãƒ¼
 // ##########################################################################
 
 #ifndef __AFXEXT_H__
@@ -18,16 +18,16 @@
 #include "NanoRecipeUI.h"
 #include "ColorStatic.h"
 #include "NanoPointGraph.h"
-#include "NanoGraphLib.h"	//Ü‚êüEƒ}ƒbƒsƒ“ƒOƒOƒ‰ƒt—p
+#include "NanoGraphLib.h"	//æŠ˜ã‚Œç·šãƒ»ãƒãƒƒãƒ”ãƒ³ã‚°ã‚°ãƒ©ãƒ•ç”¨
 
 class CRecipeMainSrView : public CNanoRecipeUI
 {
 protected:
-	CRecipeMainSrView();			// “®“I¶¬‚Ég—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CRecipeMainSrView();			// å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	virtual ~CRecipeMainSrView();
 	DECLARE_DYNCREATE(CRecipeMainSrView)
 
-// ƒtƒH[ƒ€ ƒf[ƒ^
+// ãƒ•ã‚©ãƒ¼ãƒ  ãƒ‡ãƒ¼ã‚¿
 protected:
 	//{{AFX_DATA(CRecipeMainSrView)
 	enum { IDD = IDD_RECIPE_MAIN_SR_FORM };
@@ -56,26 +56,26 @@ protected:
 	SYSTEM_CONFIG m_SystemConfig;
 	SR_CONFIG m_SrConfig;
 
-	//2009.09.02 bagus se ‹@”\Šg’£ --{--
+	//2009.09.02 bagus se æ©Ÿèƒ½æ‹¡å¼µ --{--
 	CString m_strStageHeadType;
 	CColorStatic m_stcStageHeadType;
 	CNanoPointGraph	m_SamplePointGraph;
-	//2009.09.02 bagus se ‹@”\Šg’£ --}--
+	//2009.09.02 bagus se æ©Ÿèƒ½æ‹¡å¼µ --}--
 
 //Saiki 20110207 Add ----->
 	CShadeButtonST m_ThickSettingButton;
 //Saiki 20110207 Add <-----
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CRecipeMainSrView)
 	public:
 	virtual void OnInitialUpdate();
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	virtual void LoadRecipeData();
 	virtual BOOL CheckData();
@@ -84,7 +84,7 @@ protected:
 	virtual BOOL IsAccessPrivilege();
 	virtual int SaveAsDlgInfo();
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CRecipeMainSrView)
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void OnPaint();
@@ -129,7 +129,7 @@ protected:
 	BOOL CheckInputValueLong(CString strVal, long *lValue);
 	BOOL CheckInputValueDouble(CString strVal, double *dValue);
 //Saiki 20110201 Add <-----
-//2009.09.02 bagus se ‹@”\Šg’£ --{--
+//2009.09.02 bagus se æ©Ÿèƒ½æ‹¡å¼µ --{--
 	void SamplePointGraph_Init();
 	void SamplePointGraph_DataSet();
 // 2013.01.17 bagus rotate xy view -->
@@ -143,23 +143,23 @@ protected:
 // 2013.01.09 bagus -->
 //	void DrawOriginMaker(int Origin);
 // 2013.01.09 bagus <--
-//2009.09.02 bagus se ‹@”\Šg’£ --}--
+//2009.09.02 bagus se æ©Ÿèƒ½æ‹¡å¼µ --}--
 
 public:
 	//2009.08.28 bagus stress --{--
-	//V‹Kì¬‚ÌHEAD TYPE‹æ•Ê—p‚Ìˆ×‚Ì•Ï”
+	//æ–°è¦ä½œæˆæ™‚ã®HEAD TYPEåŒºåˆ¥ç”¨ã®ç‚ºã®å¤‰æ•°
 	int m_iNewHeadType;
 	//2009.08.28 bagus stress --}--
 
-//2009.09.02 bagus se ‹@”\Šg’£ --{--
+//2009.09.02 bagus se æ©Ÿèƒ½æ‹¡å¼µ --{--
 protected:
 	STAGE_CONFIG		m_StageConfig;
 	STRESS_CONFIG		m_StressConfig;
 	STAGE_PROG_INFO_HDR m_StageProgInfoHdr;
-// 2009.10.28 bagus 2“_ŠÔ --{--
+// 2009.10.28 bagus 2ç‚¹é–“ --{--
 //	STAGE_COORD			m_ScanPoint[SCAN_POINT_MAX];
 	STAGE_COORD			m_ScanPoint[SCAN_POINT_MAX * 2];
-// 2009.10.28 bagus 2“_ŠÔ --}--
+// 2009.10.28 bagus 2ç‚¹é–“ --}--
 	STAGE_PROG_STRESS	m_StageStressProg;
 //Saiki 20110215 Add ----->
 	STRESS_PARAM_INFO	m_StressParamInfo;
@@ -173,7 +173,7 @@ private:
 	double m_dDrawEndStagePosX;
 	double m_dDrawStartStagePosY;
 	double m_dDrawEndStagePosY;
-//2009.09.02 bagus se ‹@”\Šg’£ --}--
+//2009.09.02 bagus se æ©Ÿèƒ½æ‹¡å¼µ --}--
 
 // 2009.10.02 bagus Gantry --{--
 	WORD	m_SRScanType;
@@ -183,6 +183,6 @@ private:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_RECIPEMAINSRVIEW_H__11723BD0_0DEA_427E_AD85_81D1977E868B__INCLUDED_)

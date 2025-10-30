@@ -1,15 +1,15 @@
-#if !defined(AFX_MOTIONCOMBOBOX_H__401EBC8C_AAC5_48D1_B996_03601C391263__INCLUDED_)
+ï»¿#if !defined(AFX_MOTIONCOMBOBOX_H__401EBC8C_AAC5_48D1_B996_03601C391263__INCLUDED_)
 #define AFX_MOTIONCOMBOBOX_H__401EBC8C_AAC5_48D1_B996_03601C391263__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// MotionComboBox.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// MotionComboBox.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 #include <list>
 
 /////////////////////////////////////////////////////////////////////////////
-// CMotionComboBox ƒEƒBƒ“ƒhƒE
+// CMotionComboBox ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
 class CTypeComboBox : public CComboBox
 {
 public:
@@ -28,9 +28,9 @@ protected:
 
 public:
 	static std::list<HWND> m_hWndList;
-/* added 2009.12.09 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- { ---------- */
+/* added 2009.12.09 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ(è¿½åŠ æ”¹é€ ) ---------- { ---------- */
 	BOOL m_bSelChanged;
-/* added 2009.12.09 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- } ---------- */
+/* added 2009.12.09 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰ã§å‹•ä½œ(è¿½åŠ æ”¹é€ ) ---------- } ---------- */
 
 private:
    	HEAD_TYPE_CONFIG m_HeadType;
@@ -155,6 +155,6 @@ public:
 /////////////////////////////////////////////////////////////////////////////
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_MOTIONCOMBOBOX_H__401EBC8C_AAC5_48D1_B996_03601C391263__INCLUDED_)

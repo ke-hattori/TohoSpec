@@ -1,4 +1,4 @@
-// ScanDataGraphDlg.cpp : �C���v�������e�[�V���� �t�@�C��
+﻿// ScanDataGraphDlg.cpp : インプリメンテーション ファイル
 //
 
 #include "stdafx.h"
@@ -17,7 +17,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CScanDataGraphDlg �_�C�A���O
+// CScanDataGraphDlg ダイアログ
 
 
 CScanDataGraphDlg::CScanDataGraphDlg(CWnd* pParent /*=NULL*/)
@@ -62,7 +62,7 @@ BEGIN_MESSAGE_MAP(CScanDataGraphDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CScanDataGraphDlg ���b�Z�[�W �n���h��
+// CScanDataGraphDlg メッセージ ハンドラ
 // =========================================================================
 //
 BOOL CScanDataGraphDlg::OnInitDialog()
@@ -92,8 +92,8 @@ BOOL CScanDataGraphDlg::OnInitDialog()
 //	ScanData();
 // 2010.01.21 bagus Gantry --}--
 
-	return TRUE;	// �R���g���[���Ƀt�H�[�J�X��ݒ肵�Ȃ��Ƃ��A�߂�l�� TRUE �ƂȂ�܂�
-					// ��O: OCX �v���p�e�B �y�[�W�̖߂�l�� FALSE �ƂȂ�܂�
+	return TRUE;	// コントロールにフォーカスを設定しないとき、戻り値は TRUE となります
+					// 例外: OCX プロパティ ページの戻り値は FALSE となります
 }
 
 // =========================================================================
@@ -111,14 +111,14 @@ void CScanDataGraphDlg::ScanDataGraph_Init()
 	l_strBuffer = "SPECTRUM GRAPH";
 	strcpy(tGraphConfig.UpperTitle, l_strBuffer);
 	strcpy(tGraphConfig.LowerTitle,"");
-	tGraphConfig.CanvasMargin = 7;	//�O���t�`��]��
+	tGraphConfig.CanvasMargin = 7;	//グラフ描画余白
 
-///// �g���͈͂̐ݒ� /////
+///// 波長範囲の設定 /////
 //	LoadStringML(IDS_LIGHT_INTENSITY_TITLE, l_strBuffer, "Light Intensity");
-// 2010.01.29 bagus Gantry �C�� --{--
+// 2010.01.29 bagus Gantry 修正 --{--
 //	l_strBuffer = "Transmittance Light Intensity";
 	l_strBuffer = "Light Intensity";
-// 2010.01.29 bagus Gantry �C�� --}--
+// 2010.01.29 bagus Gantry 修正 --}--
 	strcpy(tGraphConfig.Y_AxisTitle, l_strBuffer);
 //	LoadStringML(IDS_ARRAY_PIXEL, l_strBuffer, "Array Pixel [dot]");
 	l_strBuffer = "Wavelength [nm]";
@@ -161,12 +161,12 @@ void CScanDataGraphDlg::ScanDataGraph_Init()
 	tGraphConfig.UnitTextColor = RGB(0x00,0x00,0x00);
 	tGraphConfig.SelectingCalibrationColor= RGB(0xFF, 0x00, 0x00);
 	tGraphConfig.SelectedCalibrationColor = RGB(0x00, 0xFF, 0x00);
-	//2010.02.01 bagus �C�� --{--
+	//2010.02.01 bagus 修正 --{--
 	//tGraphConfig.UseCalibration = TRUE;
 	//tGraphConfig.CalibrationLineNum = 7;
 	tGraphConfig.UseCalibration = FALSE;
 	tGraphConfig.CalibrationLineNum = 0;
-	//2010.02.01 bagus �C�� --}--
+	//2010.02.01 bagus 修正 --}--
 	m_pScanDataGraph->SetGraphConfig(tGraphConfig);
 
 
@@ -216,11 +216,11 @@ void CScanDataGraphDlg::ScanDataGraph_Init()
 		tLineConfig.DataIndex = i;
 		if (i==0) {
 			tLineConfig.Color = BLUE_COLOR;
-			// =PS_SOLID:����
-			// PS_DASH:�j��
-			// PS_DOT:�_��
-			// PS_DASHDOT:�P�_����
-			// PS_DASHDOTDOT:�Q�_����
+			// =PS_SOLID:実線
+			// PS_DASH:破線
+			// PS_DOT:点線
+			// PS_DASHDOT:１点鎖線
+			// PS_DASHDOTDOT:２点鎖線
 			tLineConfig.PenStyle = PS_SOLID;
 		}
 		else {
@@ -308,8 +308,8 @@ void CScanDataGraphDlg::ScanDataGrid_Init()
 
 	///// Font Initialize /////
 	LOGFONT LogFont;
-	GetFont()->GetLogFont(&LogFont);//�_�C�A���O�̃t�H���g�擾
-	//m_Font.GetLogFont(&LogFont);//�r���[�̃t�H���g�擾
+	GetFont()->GetLogFont(&LogFont);//ダイアログのフォント取得
+	//m_Font.GetLogFont(&LogFont);//ビューのフォント取得
 
 	for ( row = 0; row < m_ScanDataGrid.GetRowCount(); row++ )
 		for ( col = 0; col < m_ScanDataGrid.GetColumnCount(); col++ )

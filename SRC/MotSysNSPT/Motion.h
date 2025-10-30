@@ -1,6 +1,6 @@
-
+﻿
 /*
- *	Motion.c �̊O����`
+ *	Motion.c ‚ÌŠO•”’è‹`
  */
 
 #ifdef MOTION_EXT_ON

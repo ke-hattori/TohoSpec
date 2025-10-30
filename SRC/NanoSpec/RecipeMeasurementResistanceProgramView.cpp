@@ -1,4 +1,4 @@
-// RecipeMeasurementResistanceProgramView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// RecipeMeasurementResistanceProgramView.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -59,7 +59,7 @@ void CRecipeMeasurementResistanceProgramView::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_RESISTANCE_PROG_NAME, m_ResisMeas.hdr.szName, RECIPE_NAME_LEN + 1);
 	DDX_Text(pDX, IDC_FILM_THICKNESS, m_ResisMeas.ScanParams._RS.dThickness);
 	DDX_Text(pDX, IDC_RCF, m_ResisMeas.ScanParams._RS.dRsCorrectFactor);
-	DDX_Text(pDX, IDC_MEASUREMENT_TIME, m_ResisMeas.ScanParams._RS.dScanTime);					// m_ResisMeas.ScanParams._RS.dScanTime —vŒŸ“¢BComboBox‚ÌƒCƒ“ƒfƒbƒNƒX‚æ‚èAÀ‚Ì’l‚ğ‚à‚Â‚×‚«‚Å‚ÍH
+	DDX_Text(pDX, IDC_MEASUREMENT_TIME, m_ResisMeas.ScanParams._RS.dScanTime);					// m_ResisMeas.ScanParams._RS.dScanTime è¦æ¤œè¨ã€‚ComboBoxã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚ˆã‚Šã€å®Ÿã®å€¤ã‚’ã‚‚ã¤ã¹ãã§ã¯ï¼Ÿ
 	DDX_Text(pDX, IDC_RESISTANCE_COMMENT, m_ResisMeas.hdr.szComment, RECIPE_COMMENT_LEN + 1);
 }
 
@@ -73,7 +73,7 @@ BEGIN_MESSAGE_MAP(CRecipeMeasurementResistanceProgramView, CNanoRecipeUI)
 END_MESSAGE_MAP()
 
 // =========================================================================
-// CRecipeMeasurementResistanceProgramView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CRecipeMeasurementResistanceProgramView ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 //
 // =========================================================================
 //
@@ -90,7 +90,7 @@ void CRecipeMeasurementResistanceProgramView::OnInitialUpdate()
 		| CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
 		!m_wndToolBar.LoadToolBar(IDR_EDIT_RECIPE_BAR)){
 		TRACE0("Failed to create toolbar\n");
-		return;		// ì¬‚É¸”s
+		return;		// ä½œæˆã«å¤±æ•—
 	}
 
 	GetClientRect(&rect);
@@ -105,7 +105,7 @@ void CRecipeMeasurementResistanceProgramView::OnInitialUpdate()
 	InitCombo_LimitVoltage();
 	InitCombo_StartRange();
 
-	// ƒRƒƒ“ƒg•¶š”§ŒÀ
+	// ã‚³ãƒ¡ãƒ³ãƒˆæ–‡å­—æ•°åˆ¶é™
 	((CEdit*)GetDlgItem(IDC_RESISTANCE_COMMENT))->SetLimitText(RECIPE_COMMENT_LEN);
 
 	///// Default Recipe Setup /////
@@ -150,15 +150,15 @@ void CRecipeMeasurementResistanceProgramView::LoadRecipeData()
 {
 	switch ( m_nOpenMode )
 	{
-	case modeNew:				// ƒŒƒVƒsV‹Kì¬
-	case modeDefaultSetting:	// ƒRƒ“ƒtƒBƒO‰æ–Ê‚©‚ç‘JˆÚ‚µ‚Ä‚«‚½ƒP[ƒX
+	case modeNew:				// ãƒ¬ã‚·ãƒ”æ–°è¦ä½œæˆ
+	case modeDefaultSetting:	// ã‚³ãƒ³ãƒ•ã‚£ã‚°ç”»é¢ã‹ã‚‰é·ç§»ã—ã¦ããŸã‚±ãƒ¼ã‚¹
 		if ( !RecipeFile_LoadRecipe(&m_ResisMeas, RES_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_4PP) ) {
 			m_ResisMeas.ScanParams.hdr.wHeadType = HEAD_TYPE_4PP;
 			m_ResisMeas.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_4PP_MEAS;
 		}
 		break;
-	default:					// ƒŒƒVƒsƒƒCƒ“ƒŠƒXƒg‰æ–Ê‚©‚ç‘JˆÚ‚µ‚Ä‚«‚½ƒP[ƒX
-		if ( !RecipeFile_LoadRecipe(&m_ResisMeas, m_szRecipeName, RECIPE_FILE_MEASUREMENT_PROGRAM) ) {			// RECIPE_FILE_MEASUREMENT_PROGRAM ‚Å³‚µ‚¢‚ç‚µ‚¢...
+	default:					// ãƒ¬ã‚·ãƒ”ãƒ¡ã‚¤ãƒ³ãƒªã‚¹ãƒˆç”»é¢ã‹ã‚‰é·ç§»ã—ã¦ããŸã‚±ãƒ¼ã‚¹
+		if ( !RecipeFile_LoadRecipe(&m_ResisMeas, m_szRecipeName, RECIPE_FILE_MEASUREMENT_PROGRAM) ) {			// RECIPE_FILE_MEASUREMENT_PROGRAM ã§æ­£ã—ã„ã‚‰ã—ã„...
 			m_nOpenMode = modeNew;
 			if ( !RecipeFile_LoadRecipe(&m_ResisMeas, RES_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_4PP) ) {
 				m_ResisMeas.ScanParams.hdr.wHeadType = HEAD_TYPE_4PP;
@@ -230,12 +230,12 @@ void CRecipeMeasurementResistanceProgramView::InitCombo_StartRange()
 	pCombo->ResetContent();
 
 	CString strBuffer;
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.11.04 bagus RS è¿½åŠ  --{--
 //	for ( int i = 7; i > (-4); i-- ) {
 //		strBuffer.Format("%d", i);
 	for ( int i = -3; i < 8; i++ ) {
 		strBuffer.Format("%+d", i);
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS è¿½åŠ  --}--
 		pCombo->AddString(strBuffer);
 	}
 
@@ -361,10 +361,10 @@ BOOL CRecipeMeasurementResistanceProgramView::IsDataChanged()
 {
 	UpdateData(TRUE);
 
-// 2009.11.05 bagus RS ’Ç‰Á --{--
+// 2009.11.05 bagus RS è¿½åŠ  --{--
 //	return memcpy(&m_OldResisMeas, &m_ResisMeas, sizeof(MEAS_PROG_INFO)) != 0;
 	return memcmp(&m_OldResisMeas, &m_ResisMeas, sizeof(MEAS_PROG_INFO)) != 0;
-// 2009.11.05 bagus RS ’Ç‰Á --}--
+// 2009.11.05 bagus RS è¿½åŠ  --}--
 }
 
 // =========================================================================
@@ -388,7 +388,7 @@ BOOL CRecipeMeasurementResistanceProgramView::SaveRecipeData()
 			return FALSE;
 		break;
 	default:
-		// V‚µ‚¢ƒŒƒVƒs–¼‚ğİ’èiSave, SaveAsŒ“—pj
+		// æ–°ã—ã„ãƒ¬ã‚·ãƒ”åã‚’è¨­å®šï¼ˆSave, SaveAså…¼ç”¨ï¼‰
 		strcpy(m_ResisMeas.hdr.szName, m_szRecipeName);
 		if ( !RecipeFile_SaveRecipe(&m_ResisMeas, m_szRecipeName, RECIPE_FILE_4PP) )
 			return FALSE;

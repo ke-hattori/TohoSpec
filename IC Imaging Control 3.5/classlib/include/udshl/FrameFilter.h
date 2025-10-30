@@ -1,4 +1,4 @@
-
+﻿
 #ifndef FRAMEFILTER_H_INC_
 #define FRAMEFILTER_H_INC_
 

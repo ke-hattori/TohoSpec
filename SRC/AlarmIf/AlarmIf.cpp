@@ -1,4 +1,4 @@
-// AlarmIf.cpp : DLL �p�̏����������̒�`���s���܂��B
+﻿// AlarmIf.cpp : DLL 用の初期化処理の定義を行います。
 //
 
 #include "stdafx.h"
@@ -17,11 +17,11 @@ static char THIS_FILE[] = __FILE__;
 
 static AFX_EXTENSION_MODULE AlarmIfDLL = { NULL, NULL };
 
-#pragma data_seg("Shared")		// �����̓Z�N�V������(�C��)
+#pragma data_seg("Shared")		// ここはセクション名(任意)
 HWND g_hWnd = 0;
 #pragma data_seg()
 
-#pragma comment(linker, "/Section:Shared,RWS") // �����J�I�v�V�����ݒ�
+#pragma comment(linker, "/Section:Shared,RWS") // リンカオプション設定
 
 /////////////////////////////////////////////////////////////////////////////
 // Variable                                                                //
@@ -37,50 +37,50 @@ HWND g_hWnd = 0;
 
 /////////////////////////////////////////////////////////////////////////////
 // DllMain
-/* added 2014.12.22 hmenjo DLL ���d�N���h�~ ---------- { ---------- */
+/* added 2014.12.22 hmenjo DLL 多重起動防止 ---------- { ---------- */
 #include <DllMutex.hxx>
-/* added 2014.12.22 hmenjo DLL ���d�N���h�~ ---------- } ---------- */
+/* added 2014.12.22 hmenjo DLL 多重起動防止 ---------- } ---------- */
 extern "C" int APIENTRY
 DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 {
-	// lpReserved ���g���ꍇ�͂������폜���Ă�������
+	// lpReserved を使う場合はここを削除してください
 	UNREFERENCED_PARAMETER(lpReserved);
 
 	if (dwReason == DLL_PROCESS_ATTACH)
 	{
-/* added 2014.12.22 hmenjo DLL ���d�N���h�~ ---------- { ---------- */
+/* added 2014.12.22 hmenjo DLL 多重起動防止 ---------- { ---------- */
 		if (FALSE == DllMutexCreate(_T("AlarmIf"))) {
 			return TRUE;
 		}
-/* added 2014.12.22 hmenjo DLL ���d�N���h�~ ---------- } ---------- */
+/* added 2014.12.22 hmenjo DLL 多重起動防止 ---------- } ---------- */
 		TRACE0("ALARMIF.DLL Initializing!\n");
 
-		// �g�� DLL ���P�񂾂����������܂��B
+		// 拡張 DLL を１回だけ初期化します。
 		if (!AfxInitExtensionModule(AlarmIfDLL, hInstance))
 			return 0;
 
-		// ���� DLL �����\�[�X �`�F�C���֑}�����܂��B
-		// ����: �g�� DLL �� MFC �A�v���P�[�V�����ł͂Ȃ�
-		//	 MFC �W�� DLL (ActiveX �R���g���[���̂悤��)
-		//	 �ɈÖٓI�Ƀ����N�����ꍇ�A���̍s�� DllMain
-		//	 ����폜���āA���̊g�� DLL ����G�N�X�|�[�g
-		//	 ���ꂽ�ʂ̊֐����֒ǉ����Ă��������B
-		//	 ���̊g�� DLL ���g�p����W�� DLL �͂��̊g�� DLL
-		//	 �����������邽�߂ɖ����I�ɂ��̊֐����Ăяo���܂��B
-		//	 ����ȊO�̏ꍇ�́ACDynLinkLibrary �I�u�W�F�N�g��
-		//	 �W�� DLL �̃��\�[�X �`�F�C���փA�^�b�`���ꂸ�A
-		//	 ���̌��ʏd��Ȗ��ƂȂ�܂��B
+		// この DLL をリソース チェインへ挿入します。
+		// メモ: 拡張 DLL が MFC アプリケーションではなく
+		//	 MFC 標準 DLL (ActiveX コントロールのような)
+		//	 に暗黙的にリンクされる場合、この行を DllMain
+		//	 から削除して、この拡張 DLL からエクスポート
+		//	 された別の関数内へ追加してください。
+		//	 この拡張 DLL を使用する標準 DLL はこの拡張 DLL
+		//	 を初期化するために明示的にその関数を呼び出します。
+		//	 それ以外の場合は、CDynLinkLibrary オブジェクトは
+		//	 標準 DLL のリソース チェインへアタッチされず、
+		//	 その結果重大な問題となります。
 
 		new CDynLinkLibrary(AlarmIfDLL);
 	}
 	else if (dwReason == DLL_PROCESS_DETACH)
 	{
 		TRACE0("ALARMIF.DLL Terminating!\n");
-		// �f�X�g���N�^���Ăяo�����O�Ƀ��C�u�������I�����܂�
+		// デストラクタが呼び出される前にライブラリを終了します
 		AfxTermExtensionModule(AlarmIfDLL);
-/* added 2014.12.22 hmenjo DLL ���d�N���h�~ ---------- { ---------- */
+/* added 2014.12.22 hmenjo DLL 多重起動防止 ---------- { ---------- */
 		DllMutexRelease();
-/* added 2014.12.22 hmenjo DLL ���d�N���h�~ ---------- } ---------- */
+/* added 2014.12.22 hmenjo DLL 多重起動防止 ---------- } ---------- */
 	}
 	return 1;	// ok
 }

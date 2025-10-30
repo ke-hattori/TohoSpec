@@ -1,4 +1,4 @@
-#if !defined(AFX_CTACTRL_H__D58029DF_132B_4B1C_805E_F41DF6198581__INCLUDED_)
+ï»¿#if !defined(AFX_CTACTRL_H__D58029DF_132B_4B1C_805E_F41DF6198581__INCLUDED_)
 #define AFX_CTACTRL_H__D58029DF_132B_4B1C_805E_F41DF6198581__INCLUDED_
 
 #if _MSC_VER > 1000
@@ -7,119 +7,119 @@
 // CtaCtrl.h : header file
 //
 
-#include <afxmt.h>	// CEvent ‚Æ CSingleLock ‚Å•K—v‚Å‚·
+#include <afxmt.h>	// CEvent ã¨ CSingleLock ã§å¿…è¦ã§ã™
 
 /*
- *	ƒ}ƒNƒ’è‹`
+ *	ãƒžã‚¯ãƒ­å®šç¾©
  */
-/* ƒV[ƒPƒ“ƒXƒpƒ^[ƒ“	*/
+/* ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ãƒ‘ã‚¿ãƒ¼ãƒ³	*/
 enum SEQ_PATTERN {
-	SEQPTN_NONE = 0,	/* –³‚µ	*/
-	SEQPTN_INIT,		/* ‰Šú‰»	*/
-	SEQPTN_SETINF,		/* î•ñÝ’è	*/
-	SEQPTN_MEASSTA,		/* ‘ª’èŠJŽn	*/
-	SEQPTN_MEASEND,		/* ‘ª’èI—¹	*/
-	SEQPTN_GETSTAT,		/* ó‘ÔŽæ“¾	*/
+	SEQPTN_NONE = 0,	/* ç„¡ã—	*/
+	SEQPTN_INIT,		/* åˆæœŸåŒ–	*/
+	SEQPTN_SETINF,		/* æƒ…å ±è¨­å®š	*/
+	SEQPTN_MEASSTA,		/* æ¸¬å®šé–‹å§‹	*/
+	SEQPTN_MEASEND,		/* æ¸¬å®šçµ‚äº†	*/
+	SEQPTN_GETSTAT,		/* çŠ¶æ…‹å–å¾—	*/
 	SEQPTN_MAX,
 };
-/* ƒGƒ‰[’è‹`	*/
-#define	CTACTL_ERR_DATANONE		(-101)	/* 01:ƒf[ƒ^‚Í‚ ‚è‚Ü‚¹‚ñD	*/
-#define	CTACTL_ERR_DATAFORMAT	(-102)	/* 02:ƒf[ƒ^(ƒtƒH[ƒ}ƒbƒg)ƒGƒ‰[	*/
-#define	CTACTL_ERR_PKTCMD		(-103)	/* 03:ƒpƒPƒbƒg/ƒRƒ}ƒ“ƒh ®‡«ƒGƒ‰[	(–¢Žg—p)*/
-#define	CTACTL_ERR_PARAMERR		(-104)	/* 04:ƒpƒ‰ƒƒ^ƒGƒ‰[	*/
-#define	CTACTL_ERR_EQBUSY		(-105)	/* 05:‘ª’èó‘Ô‚ª‘Ò‹@’†‚Å‚È‚¢	*/
-#define	CTACTL_ERR_EQERR		(-106)	/* 06:‘•’uó‘Ô‚ªƒGƒ‰[	*/
-#define	CTACTL_ERR_TIMEOUT		(-107)	/* 07:ƒ^ƒCƒ€ƒAƒEƒg	*/
-#define CTACTL_ERR_ILPO			(-108)	/* 08:PO ƒCƒ“ƒ^ƒƒbƒNˆÙí	*/
-#define CTACTL_ERR_ILPI			(-109)	/* 09:PI ƒCƒ“ƒ^ƒƒbƒNˆÙí	*/
-#define CTACTL_ERR_FORCEEND		(-110)	/* 10:ƒV[ƒPƒ“ƒX‹­§I—¹	*/
-#define	CTACTL_ERR_RECALIB		(-111)	/* 11:ƒŠƒLƒƒƒŠƒuƒGƒ‰[	*/
-/* CTA ƒ†ƒjƒbƒg ƒGƒ‰[ƒR[ƒh	*/
-#define	CTACTL_ERCD_RST				(000)	/* 01:ƒGƒ‰[ƒŠƒZƒbƒg	*/
-#define	CTACTL_ERCD_HEAD			(100)	/* 02:ƒwƒbƒ_ƒGƒ‰[	*/
-#define	CTACTL_ERCD_CMD				(101)	/* 03:ƒRƒ}ƒ“ƒhƒGƒ‰[	*/
-#define	CTACTL_ERCD_SUM				(102)	/* 04:ƒ`ƒFƒbƒNƒTƒ€ƒGƒ‰[	*/
-#define	CTACTL_ERCD_LEN				(103)	/* 05:ŽóMƒf[ƒ^’·ƒGƒ‰[	*/
-#define	CTACTL_ERCD_IL				(200)	/* 06:ƒCƒ“ƒ^ƒƒbƒNƒGƒ‰[	*/
-#define	CTACTL_ERCD_CTRLR			(201)	/* 07:ƒRƒ“ƒgƒ[ƒ‰ƒGƒ‰[	*/
-#define	CTACTL_ERCD_NO_MEAS			(300)	/* 08:‘ª’è“®ì•s‰ÂƒGƒ‰[	*/
-#define	CTACTL_ERCD_MEASING			(301)	/* 09:‘ª’è’†ƒGƒ‰[	*/
-#define	CTACTL_ERCD_NO_OPE			(302)	/* 10:‘€ì•s‰ÂƒGƒ‰[	*/
-#define	CTACTL_ERCD_UNSAVE			(303)	/* 11:–¢ƒZ[ƒuƒf[ƒ^—L‚èƒGƒ‰[	*/
-#define	CTACTL_ERCD_MODE			(304)	/* 12:ƒ‚[ƒhŽw’èƒGƒ‰[	*/
-#define	CTACTL_ERCD_DUP_ID			(306)	/* 13:ID d•¡ƒGƒ‰[	*/
-#define	CTACTL_ERCD_SET_VALUE		(307)	/* 14:Ý’è’lƒGƒ‰[	*/
-#define	CTACTL_ERCD_PWR				(210)	/* 15:“dŒ¹ó‘Ô•Ï‰»ƒGƒ‰[	*/
-#define	CTACTL_ERCD_Z_CTRLR_COM		(212)	/* 16:Z Ž²ƒRƒ“ƒgƒ[ƒ‰’ÊMƒGƒ‰[	*/
-#define	CTACTL_ERCD_GENDROP			(213)	/* 17:‰t“Hì¬ƒGƒ‰[	*/
-#define	CTACTL_ERCD_HOST_COM		(214)	/* 18:ƒzƒXƒg’ÊMƒGƒ‰[	*/
-#define	CTACTL_ERCD_MOVE_TIMEOUT	(215)	/* 19:Žw’è“®ìƒ^ƒCƒ€ƒAƒEƒgƒGƒ‰[	*/
-#define	CTACTL_ERCD_ORG				(216)	/* 20:Œ´“_•œ‹AƒGƒ‰[	*/
-#define	CTACTL_ERCD_Z_CTRLR			(220)	/* 21:Z Ž²ƒRƒ“ƒgƒ[ƒ‰ƒGƒ‰[	*/
-#define	CTACTL_ERCD_PLC_COM			(222)	/* 22:PLC ’ÊMƒGƒ‰[	*/
+/* ã‚¨ãƒ©ãƒ¼å®šç¾©	*/
+#define	CTACTL_ERR_DATANONE		(-101)	/* 01:ãƒ‡ãƒ¼ã‚¿ã¯ã‚ã‚Šã¾ã›ã‚“ï¼Ž	*/
+#define	CTACTL_ERR_DATAFORMAT	(-102)	/* 02:ãƒ‡ãƒ¼ã‚¿(ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆ)ã‚¨ãƒ©ãƒ¼	*/
+#define	CTACTL_ERR_PKTCMD		(-103)	/* 03:ãƒ‘ã‚±ãƒƒãƒˆ/ã‚³ãƒžãƒ³ãƒ‰ æ•´åˆæ€§ã‚¨ãƒ©ãƒ¼	(æœªä½¿ç”¨)*/
+#define	CTACTL_ERR_PARAMERR		(-104)	/* 04:ãƒ‘ãƒ©ãƒ¡ã‚¿ã‚¨ãƒ©ãƒ¼	*/
+#define	CTACTL_ERR_EQBUSY		(-105)	/* 05:æ¸¬å®šçŠ¶æ…‹ãŒå¾…æ©Ÿä¸­ã§ãªã„	*/
+#define	CTACTL_ERR_EQERR		(-106)	/* 06:è£…ç½®çŠ¶æ…‹ãŒã‚¨ãƒ©ãƒ¼	*/
+#define	CTACTL_ERR_TIMEOUT		(-107)	/* 07:ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆ	*/
+#define CTACTL_ERR_ILPO			(-108)	/* 08:PO ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç•°å¸¸	*/
+#define CTACTL_ERR_ILPI			(-109)	/* 09:PI ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ç•°å¸¸	*/
+#define CTACTL_ERR_FORCEEND		(-110)	/* 10:ã‚·ãƒ¼ã‚±ãƒ³ã‚¹å¼·åˆ¶çµ‚äº†	*/
+#define	CTACTL_ERR_RECALIB		(-111)	/* 11:ãƒªã‚­ãƒ£ãƒªãƒ–ã‚¨ãƒ©ãƒ¼	*/
+/* CTA ãƒ¦ãƒ‹ãƒƒãƒˆ ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰	*/
+#define	CTACTL_ERCD_RST				(000)	/* 01:ã‚¨ãƒ©ãƒ¼ãƒªã‚»ãƒƒãƒˆ	*/
+#define	CTACTL_ERCD_HEAD			(100)	/* 02:ãƒ˜ãƒƒãƒ€ã‚¨ãƒ©ãƒ¼	*/
+#define	CTACTL_ERCD_CMD				(101)	/* 03:ã‚³ãƒžãƒ³ãƒ‰ã‚¨ãƒ©ãƒ¼	*/
+#define	CTACTL_ERCD_SUM				(102)	/* 04:ãƒã‚§ãƒƒã‚¯ã‚µãƒ ã‚¨ãƒ©ãƒ¼	*/
+#define	CTACTL_ERCD_LEN				(103)	/* 05:å—ä¿¡ãƒ‡ãƒ¼ã‚¿é•·ã‚¨ãƒ©ãƒ¼	*/
+#define	CTACTL_ERCD_IL				(200)	/* 06:ã‚¤ãƒ³ã‚¿ãƒ­ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼	*/
+#define	CTACTL_ERCD_CTRLR			(201)	/* 07:ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ã‚¨ãƒ©ãƒ¼	*/
+#define	CTACTL_ERCD_NO_MEAS			(300)	/* 08:æ¸¬å®šå‹•ä½œä¸å¯ã‚¨ãƒ©ãƒ¼	*/
+#define	CTACTL_ERCD_MEASING			(301)	/* 09:æ¸¬å®šä¸­ã‚¨ãƒ©ãƒ¼	*/
+#define	CTACTL_ERCD_NO_OPE			(302)	/* 10:æ“ä½œä¸å¯ã‚¨ãƒ©ãƒ¼	*/
+#define	CTACTL_ERCD_UNSAVE			(303)	/* 11:æœªã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿æœ‰ã‚Šã‚¨ãƒ©ãƒ¼	*/
+#define	CTACTL_ERCD_MODE			(304)	/* 12:ãƒ¢ãƒ¼ãƒ‰æŒ‡å®šã‚¨ãƒ©ãƒ¼	*/
+#define	CTACTL_ERCD_DUP_ID			(306)	/* 13:ID é‡è¤‡ã‚¨ãƒ©ãƒ¼	*/
+#define	CTACTL_ERCD_SET_VALUE		(307)	/* 14:è¨­å®šå€¤ã‚¨ãƒ©ãƒ¼	*/
+#define	CTACTL_ERCD_PWR				(210)	/* 15:é›»æºçŠ¶æ…‹å¤‰åŒ–ã‚¨ãƒ©ãƒ¼	*/
+#define	CTACTL_ERCD_Z_CTRLR_COM		(212)	/* 16:Z è»¸ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©é€šä¿¡ã‚¨ãƒ©ãƒ¼	*/
+#define	CTACTL_ERCD_GENDROP			(213)	/* 17:æ¶²æ»´ä½œæˆã‚¨ãƒ©ãƒ¼	*/
+#define	CTACTL_ERCD_HOST_COM		(214)	/* 18:ãƒ›ã‚¹ãƒˆé€šä¿¡ã‚¨ãƒ©ãƒ¼	*/
+#define	CTACTL_ERCD_MOVE_TIMEOUT	(215)	/* 19:æŒ‡å®šå‹•ä½œã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã‚¨ãƒ©ãƒ¼	*/
+#define	CTACTL_ERCD_ORG				(216)	/* 20:åŽŸç‚¹å¾©å¸°ã‚¨ãƒ©ãƒ¼	*/
+#define	CTACTL_ERCD_Z_CTRLR			(220)	/* 21:Z è»¸ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ã‚¨ãƒ©ãƒ¼	*/
+#define	CTACTL_ERCD_PLC_COM			(222)	/* 22:PLC é€šä¿¡ã‚¨ãƒ©ãƒ¼	*/
 
 
 /*
- *	\‘¢‘Ì’è‹`
+ *	æ§‹é€ ä½“å®šç¾©
  */
-typedef struct {			/* ŠeƒV[ƒPƒ“ƒX‚Ö‚ÌŽóM’Ê’m --------------------*/
-	BOOL	bRecved;			/* ŽóM—L‚è	*/
-	BOOL	bAnaed;				/* ‰ðÍÏ‚Ý•‰ž“šÏ‚Ý(ƒCƒxƒ“ƒg‚Ìê‡‚Ì‚Ý)	*/
-	int		iRslt;				/* ‰ðÍŒ‹‰Ê	*/
-	DWORD	dwErrCode;			/* ƒGƒ‰[”­¶ƒCƒxƒ“ƒgƒR[ƒh	*/
-	LPDWORD	pdwPktCode;			/* ƒpƒPƒbƒg ƒR[ƒh	*/
-	LPDWORD	pdwCmdCode;			/* ƒRƒ}ƒ“ƒh/ƒCƒxƒ“ƒg ƒR[ƒh	*/
-	LPCSTR	pszRcvData;			/* ƒf[ƒ^	*/
+typedef struct {			/* å„ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã¸ã®å—ä¿¡é€šçŸ¥ --------------------*/
+	BOOL	bRecved;			/* å—ä¿¡æœ‰ã‚Š	*/
+	BOOL	bAnaed;				/* è§£æžæ¸ˆã¿ï¼†å¿œç­”æ¸ˆã¿(ã‚¤ãƒ™ãƒ³ãƒˆã®å ´åˆã®ã¿)	*/
+	int		iRslt;				/* è§£æžçµæžœ	*/
+	DWORD	dwErrCode;			/* ã‚¨ãƒ©ãƒ¼ç™ºç”Ÿã‚¤ãƒ™ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰	*/
+	LPDWORD	pdwPktCode;			/* ãƒ‘ã‚±ãƒƒãƒˆ ã‚³ãƒ¼ãƒ‰	*/
+	LPDWORD	pdwCmdCode;			/* ã‚³ãƒžãƒ³ãƒ‰/ã‚¤ãƒ™ãƒ³ãƒˆ ã‚³ãƒ¼ãƒ‰	*/
+	LPCSTR	pszRcvData;			/* ãƒ‡ãƒ¼ã‚¿	*/
 } CTARCVDATA, *LPCTARCVDATA;
-/* ƒf[ƒ^•”‚Ì\‘¢ ----------------------------------------------------------*/
+/* ãƒ‡ãƒ¼ã‚¿éƒ¨ã®æ§‹é€  ----------------------------------------------------------*/
 typedef union {
-	struct {				/* ƒGƒ‰[ƒŒƒXƒ|ƒ“ƒX -------------------*/
-		DWORD	dwErrRes;	/* ƒGƒ‰[ƒR[ƒh	*/
+	struct {				/* ã‚¨ãƒ©ãƒ¼ãƒ¬ã‚¹ãƒãƒ³ã‚¹ -------------------*/
+		DWORD	dwErrRes;	/* ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰	*/
 	} ResERR;
-	struct {				/* STA ƒRƒ}ƒ“ƒh -----------------------*/
-		DWORD	dwZState;	/* Z Ž²ˆÊ’u		1FŒ´“_ˆÊ’u
-											2F‘Ò‹@ˆÊ’u
-											3F‚»‚Ì‘¼‚ÌˆÊ’u	*/
-		DWORD	dwStatus1;	/* ‘ª’èó‘Ô		1F‘ª’è’†
-											2F‘Ò‹@’†
-											3F‘€ì•s‰Â	*/
-		DWORD	dwStatus2;	/* ‘•’uó‘Ô		1FƒGƒ‰[–³‚µ
-											3FƒwƒbƒhƒGƒ‰[
-											4F’ÊMˆÙí	*/
+	struct {				/* STA ã‚³ãƒžãƒ³ãƒ‰ -----------------------*/
+		DWORD	dwZState;	/* Z è»¸ä½ç½®		1ï¼šåŽŸç‚¹ä½ç½®
+											2ï¼šå¾…æ©Ÿä½ç½®
+											3ï¼šãã®ä»–ã®ä½ç½®	*/
+		DWORD	dwStatus1;	/* æ¸¬å®šçŠ¶æ…‹		1ï¼šæ¸¬å®šä¸­
+											2ï¼šå¾…æ©Ÿä¸­
+											3ï¼šæ“ä½œä¸å¯	*/
+		DWORD	dwStatus2;	/* è£…ç½®çŠ¶æ…‹		1ï¼šã‚¨ãƒ©ãƒ¼ç„¡ã—
+											3ï¼šãƒ˜ãƒƒãƒ‰ã‚¨ãƒ©ãƒ¼
+											4ï¼šé€šä¿¡ç•°å¸¸	*/
 	} CmdSTA;
-	struct {				/* REP ƒCƒxƒ“ƒg -----------------------*/
-		DWORD	dwErrCode;	/* ƒGƒ‰[ƒR[ƒh*/
+	struct {				/* REP ã‚¤ãƒ™ãƒ³ãƒˆ -----------------------*/
+		DWORD	dwErrCode;	/* ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰*/
 	} EvtREP;
-	struct {				/* CMP ƒCƒxƒ“ƒg -----------------------*/
-		int		iPointNo;	/* ƒ|ƒCƒ“ƒg No.	*/
-		int		iCAngle;	/* ÚGŠp[0.1degree]	*/
-		int		iRadius;	/* ”¼Œa[0.1um]	*/
-		int		iLiquid;	/* ‰t—Ê[0.01uL]	*/
+	struct {				/* CMP ã‚¤ãƒ™ãƒ³ãƒˆ -----------------------*/
+		int		iPointNo;	/* ãƒã‚¤ãƒ³ãƒˆ No.	*/
+		int		iCAngle;	/* æŽ¥è§¦è§’[0.1degree]	*/
+		int		iRadius;	/* åŠå¾„[0.1um]	*/
+		int		iLiquid;	/* æ¶²é‡[0.01uL]	*/
 	} EvtCMP;
 } CTADATAINF, *LPCTADATAINF;
 typedef const CTADATAINF *LPCCTADATAINF;
-typedef struct {			/* ‘ª’èî•ñ ------------------------------------*/
-	int		iCtaMode;			/* ‘ª’èƒ‚[ƒh	*/
-	char	szCstID[80 + 2];	/* ƒJƒZƒbƒg ID	FASCII 80 •¶Žš	*/
-	char	szSampleID[80 + 2];	/* Šî”Â ID		FASCII 80 •¶Žš	*/
-	DWORD	dwThick;			/* Šî”ÂŒú‚Ýî•ñ[0.1mm]C”ÍˆÍ(0.0`10.0mm)	*/
-	TCHAR	tszRecalibCA[64];	/* ƒŠƒLƒƒƒŠƒu PGM –¼	*/
-	TCHAR	tszRecalibRad[64];	/* ƒŠƒLƒƒƒŠƒu PGM –¼	*/
+typedef struct {			/* æ¸¬å®šæƒ…å ± ------------------------------------*/
+	int		iCtaMode;			/* æ¸¬å®šãƒ¢ãƒ¼ãƒ‰	*/
+	char	szCstID[80 + 2];	/* ã‚«ã‚»ãƒƒãƒˆ ID	ï¼šASCII 80 æ–‡å­—	*/
+	char	szSampleID[80 + 2];	/* åŸºæ¿ ID		ï¼šASCII 80 æ–‡å­—	*/
+	DWORD	dwThick;			/* åŸºæ¿åŽšã¿æƒ…å ±[0.1mm]ï¼Œç¯„å›²(0.0ã€œ10.0mm)	*/
+	TCHAR	tszRecalibCA[64];	/* ãƒªã‚­ãƒ£ãƒªãƒ– PGM å	*/
+	TCHAR	tszRecalibRad[64];	/* ãƒªã‚­ãƒ£ãƒªãƒ– PGM å	*/
 } CTAMEASINF, *LPCTAMEASINF;
 typedef const CTAMEASINF *LPCCTAMEASINF;
-typedef struct {			/* ‘ª’è”Ô† ------------------------------------*/
-	int		i_ScanCnt;			/* ‘ª’è”Ô†	*/
-	long	lScanX;				/* ‘ª’èÀ•W X	*/
-	long	lScanY;				/* ‘ª’èÀ•W Y	*/
-	long	lScanZ;				/* ‘ª’èÀ•W Z	*/
-	/* ‘ª’èƒf[ƒ^	*/
+typedef struct {			/* æ¸¬å®šç•ªå· ------------------------------------*/
+	int		i_ScanCnt;			/* æ¸¬å®šç•ªå·	*/
+	long	lScanX;				/* æ¸¬å®šåº§æ¨™ X	*/
+	long	lScanY;				/* æ¸¬å®šåº§æ¨™ Y	*/
+	long	lScanZ;				/* æ¸¬å®šåº§æ¨™ Z	*/
+	/* æ¸¬å®šãƒ‡ãƒ¼ã‚¿	*/
 } CTAMEASDATA, *LPCTAMEASDATA;
 typedef const CTAMEASDATA *LPCCTAMEASDATA;
-typedef struct {			/* ‚Pƒ|ƒCƒ“ƒgƒf[ƒ^ ----------------------------*/
-	int		iPointNo;	/* ƒ|ƒCƒ“ƒg No.	*/
-	double	dCAngle;	/* ÚGŠp[degree]	*/
-	double	dRadius;	/* ”¼Œa[um]	*/
-	double	dLiquid;	/* ‰t—Ê[uL]	*/
+typedef struct {			/* ï¼‘ãƒã‚¤ãƒ³ãƒˆãƒ‡ãƒ¼ã‚¿ ----------------------------*/
+	int		iPointNo;	/* ãƒã‚¤ãƒ³ãƒˆ No.	*/
+	double	dCAngle;	/* æŽ¥è§¦è§’[degree]	*/
+	double	dRadius;	/* åŠå¾„[um]	*/
+	double	dLiquid;	/* æ¶²é‡[uL]	*/
 } CTAPOINTDATA, *LPCTAPOINTDATA;
 typedef const CTAPOINTDATA *LPCCTAPOINTDATA;
 
@@ -178,15 +178,15 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 private:
-/* added 2011.02.03 hmenjo CTA PO ŒãƒfƒBƒŒƒC ---------- { ---------- */
+/* added 2011.02.03 hmenjo CTA PO å¾Œãƒ‡ã‚£ãƒ¬ã‚¤ ---------- { ---------- */
 	UINT m_uiDelay_ILPO;
-/* added 2011.02.03 hmenjo CTA PO ŒãƒfƒBƒŒƒC ---------- } ---------- */
-/* added 2010.07.15 hmenjo PO ƒIƒ“‚Å RST ƒRƒ}ƒ“ƒh‘Î‰ž ---------- { ---------- */
+/* added 2011.02.03 hmenjo CTA PO å¾Œãƒ‡ã‚£ãƒ¬ã‚¤ ---------- } ---------- */
+/* added 2010.07.15 hmenjo PO ã‚ªãƒ³ã§ RST ã‚³ãƒžãƒ³ãƒ‰å¯¾å¿œ ---------- { ---------- */
 	BOOL m_bErrRep;
-/* added 2010.07.15 hmenjo PO ƒIƒ“‚Å RST ƒRƒ}ƒ“ƒh‘Î‰ž ---------- } ---------- */
-/* added 2010.09.09 hmenjo CTA PO/PI ƒnƒ“ƒhƒVƒF[ƒN ---------- { ---------- */
+/* added 2010.07.15 hmenjo PO ã‚ªãƒ³ã§ RST ã‚³ãƒžãƒ³ãƒ‰å¯¾å¿œ ---------- } ---------- */
+/* added 2010.09.09 hmenjo CTA PO/PI ãƒãƒ³ãƒ‰ã‚·ã‚§ãƒ¼ã‚¯ ---------- { ---------- */
 	UINT m_uiTimeout_ILPI;
-/* added 2010.09.09 hmenjo CTA PO/PI ƒnƒ“ƒhƒVƒF[ƒN ---------- } ---------- */
+/* added 2010.09.09 hmenjo CTA PO/PI ãƒãƒ³ãƒ‰ã‚·ã‚§ãƒ¼ã‚¯ ---------- } ---------- */
 	UINT m_uiTimeout_MPE_Wait;
 	UINT m_uiTimeout_Retry;
 	UINT m_uiTimeout_ILPO;

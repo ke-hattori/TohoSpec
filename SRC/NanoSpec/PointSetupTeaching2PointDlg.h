@@ -1,30 +1,30 @@
-#if !defined(AFX_POINTSETUPTEACHING2POINTDLG_H__8C1C5805_7BA7_4074_A118_8042E47BF972__INCLUDED_)
+ï»¿#if !defined(AFX_POINTSETUPTEACHING2POINTDLG_H__8C1C5805_7BA7_4074_A118_8042E47BF972__INCLUDED_)
 #define AFX_POINTSETUPTEACHING2POINTDLG_H__8C1C5805_7BA7_4074_A118_8042E47BF972__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// PointSetupTeaching2PointDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// PointSetupTeaching2PointDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 /////////////////////////////////////////////////////////////////////////////
-// CPointSetupTeaching2PointDlg ƒ_ƒCƒAƒƒO
+// CPointSetupTeaching2PointDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 class CPointSetupTeaching2PointDlg : public COverlayDialog
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
-	CPointSetupTeaching2PointDlg(CWnd* pParent = NULL);   // •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CPointSetupTeaching2PointDlg(CWnd* pParent = NULL);   // æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
-// 2009.10.24 bagus 2“_ŠÔ C³ --{--
+// 2009.10.24 bagus 2ç‚¹é–“ ä¿®æ­£ --{--
 //	BOOL	m_bTeachingMode;
-// 2009.10.24 bagus 2“_ŠÔ C³ --}--
+// 2009.10.24 bagus 2ç‚¹é–“ ä¿®æ­£ --}--
 
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CPointSetupTeaching2PointDlg)
 	enum { IDD = IDD_POINT_SETUP_TEACHING_2POINT_DLG };
-		// ƒƒ‚: ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒf[ƒ^ ƒƒ“ƒo‚ğ’Ç‰Á‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢: ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒ‡ãƒ¼ã‚¿ ãƒ¡ãƒ³ãƒã‚’è¿½åŠ ã—ã¾ã™ã€‚
 	//}}AFX_DATA
 
 public:
@@ -43,23 +43,23 @@ public:
 	long m_lX;
 	long m_lY;
 	long m_lZ;
-	int m_iNumScans;								// Teaching‚³‚ê‚Ä‚¢‚éƒ|ƒCƒ“ƒg”
-	STAGE_PROG_INFO_HDR m_StageProgInfoHdr;			// STAGE_PROG_INFO_HDR\‘¢‘Ì
-	STAGE_COORD m_ScanPoint[SCAN_POINT_MAX * 2];	// Teachingƒ|ƒCƒ“ƒg
+	int m_iNumScans;								// Teachingã•ã‚Œã¦ã„ã‚‹ãƒã‚¤ãƒ³ãƒˆæ•°
+	STAGE_PROG_INFO_HDR m_StageProgInfoHdr;			// STAGE_PROG_INFO_HDRæ§‹é€ ä½“
+	STAGE_COORD m_ScanPoint[SCAN_POINT_MAX * 2];	// Teachingãƒã‚¤ãƒ³ãƒˆ
 
 	int m_iProcessStatusOld;
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CPointSetupTeaching2PointDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CPointSetupTeaching2PointDlg)
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
@@ -81,21 +81,21 @@ private:
 	void SetPointData();
 	void SoftJoyStickXyzEnable(BOOL bEnable);
 
-	int	m_iCurrPoint;						// Œ»İİ’è‚µ‚æ‚¤‚Æ‚µ‚Ä‚¢‚éƒ|ƒCƒ“ƒg
+	int	m_iCurrPoint;						// ç¾åœ¨è¨­å®šã—ã‚ˆã†ã¨ã—ã¦ã„ã‚‹ãƒã‚¤ãƒ³ãƒˆ
 	int	m_iCurrIndex;
-// 2009.10.24 bagus 2“_ŠÔ C³ --{--
+// 2009.10.24 bagus 2ç‚¹é–“ ä¿®æ­£ --{--
 	int	m_iMaxIndex;
 
 	int		m_iPosX;
 	int		m_iPosY;
-// 2009.10.24 bagus 2“_ŠÔ C³ --}--
+// 2009.10.24 bagus 2ç‚¹é–“ ä¿®æ­£ --}--
 
-// 2009.10.28 bagus 2“_ŠÔ C³ --{--
+// 2009.10.28 bagus 2ç‚¹é–“ ä¿®æ­£ --{--
 	BOOL	m_b2nd;
-// 2009.10.28 bagus 2“_ŠÔ C³ --}--
+// 2009.10.28 bagus 2ç‚¹é–“ ä¿®æ­£ --}--
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_POINTSETUPTEACHING2POINTDLG_H__8C1C5805_7BA7_4074_A118_8042E47BF972__INCLUDED_)

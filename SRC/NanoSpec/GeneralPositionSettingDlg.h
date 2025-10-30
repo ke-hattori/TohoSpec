@@ -1,4 +1,4 @@
-#if !defined(AFX_GENERALPOSITIONSETTINGDLG_H__58DCDA12_3562_4CEC_ADD7_D1DA857C120E__INCLUDED_)
+ï»¿#if !defined(AFX_GENERALPOSITIONSETTINGDLG_H__58DCDA12_3562_4CEC_ADD7_D1DA857C120E__INCLUDED_)
 #define AFX_GENERALPOSITIONSETTINGDLG_H__58DCDA12_3562_4CEC_ADD7_D1DA857C120E__INCLUDED_
 
 #if _MSC_VER > 1000
@@ -7,21 +7,21 @@
 
 #include "ColorStatic.h"
 
-// GeneralPositionSettingDlg.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// GeneralPositionSettingDlg.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 // ##########################################################################
-// CGeneralPositionSettingDlg ƒ_ƒCƒAƒƒO
+// CGeneralPositionSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 // ##########################################################################
 
 class CGeneralPositionSettingDlg : public CDialog
 {
-// ƒRƒ“ƒXƒgƒ‰ƒNƒVƒ‡ƒ“
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚·ãƒ§ãƒ³
 public:
-	CGeneralPositionSettingDlg(CWnd* pParent = NULL);	// •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CGeneralPositionSettingDlg(CWnd* pParent = NULL);	// æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 
 protected:
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
 	//{{AFX_DATA(CGeneralPositionSettingDlg)
 	enum { IDD = IDD_GENERAL_POSITION_SETTING_DLG };
 	//}}AFX_DATA
@@ -31,17 +31,17 @@ protected:
 	CColorStatic m_stcGeneralPosX;
 	CColorStatic m_stcGeneralPosY;
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CGeneralPositionSettingDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CGeneralPositionSettingDlg)
 	virtual void OnOK();
 	virtual void OnCancel();
@@ -61,6 +61,6 @@ private:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_GENERALPOSITIONSETTINGDLG_H__58DCDA12_3562_4CEC_ADD7_D1DA857C120E__INCLUDED_)

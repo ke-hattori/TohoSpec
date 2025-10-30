@@ -1,4 +1,4 @@
-// Terminator.h : TERMINATOR ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌƒƒCƒ“ ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹‚Å‚·B
+ï»¿// Terminator.h : TERMINATOR ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ãƒ¡ã‚¤ãƒ³ ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«ã§ã™ã€‚
 //
 
 #if !defined(AFX_TERMINATOR_H__80603DD4_45CB_41E3_9837_D2A33AABE374__INCLUDED_)
@@ -12,25 +12,25 @@
 	#error include 'stdafx.h' before including this file for PCH
 #endif
 
-#include "resource.h"		// ƒƒCƒ“ ƒVƒ“ƒ{ƒ‹
+#include "resource.h"		// ãƒ¡ã‚¤ãƒ³ ã‚·ãƒ³ãƒœãƒ«
 
 /////////////////////////////////////////////////////////////////////////////
 // CTerminatorApp:
-// ‚±‚ÌƒNƒ‰ƒX‚Ì“®ì‚Ì’è‹`‚ÉŠÖ‚µ‚Ä‚Í Terminator.cpp ƒtƒ@ƒCƒ‹‚ğQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+// ã“ã®ã‚¯ãƒ©ã‚¹ã®å‹•ä½œã®å®šç¾©ã«é–¢ã—ã¦ã¯ Terminator.cpp ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
 //
 
 class CTerminatorApp : public CWinApp
 {
 public:
 	CTerminatorApp();
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CTerminatorApp)
 	public:
 	virtual BOOL InitInstance();
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 
 	//{{AFX_MSG(CTerminatorApp)
 	//}}AFX_MSG
@@ -41,6 +41,6 @@ public:
 /////////////////////////////////////////////////////////////////////////////
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_TERMINATOR_H__80603DD4_45CB_41E3_9837_D2A33AABE374__INCLUDED_)

@@ -1,4 +1,4 @@
-#if !defined(AFX_CHIFTRANSISTRESS_H__BF38E61A_F1AB_4369_A5EA_CFB1C06FA103__INCLUDED_)
+ï»¿#if !defined(AFX_CHIFTRANSISTRESS_H__BF38E61A_F1AB_4369_A5EA_CFB1C06FA103__INCLUDED_)
 #define AFX_CHIFTRANSISTRESS_H__BF38E61A_F1AB_4369_A5EA_CFB1C06FA103__INCLUDED_
 
 #if _MSC_VER > 1000
@@ -7,44 +7,44 @@
 // ChifTransiStress.h : header file
 //
 
-#include <afxmt.h>	/* CEvent ‚Æ CSingleLock ‚Å•K—v‚Å‚·	*/
+#include <afxmt.h>	/* CEvent ã¨ CSingleLock ã§å¿…è¦ã§ã™	*/
 
 /*--------------------------------------------------------------------------//
-//	ó‘Ô’è‹`
+//	çŠ¶æ…‹å®šç¾©
 //--------------------------------------------------------------------------*/
 #define	_ST_STRS_DISP(x)	_T(#x)
 #define	ST_STRS_DISP(x)		_ST_STRS_DISP(x)
 #define	ST_STRS_(x)			ST_STRS_##x
-/* ó‘Ô‚Ì–¼Ì‚ğ’è‹`¨
- *		‚±‚±‚ğ’Ç‰Áíœ‚µ‚½ê‡‚Í ST_xxx_n ‚Ì”Ô†‚É‘Î‰‚µ‚½
- *		‰º‹L‚Ì ST_xxx_n ‚Æ ST_xxx_DISP_n ‚à‡‚í‚¹‚Ä‚­‚¾‚³‚¢D*/
-#define	ST_STRS_0		ST_STRS_(INIT)			/* ‰Šúó‘Ô															*/
-#define	ST_STRS_1		ST_STRS_(IDLE)			/* ƒAƒCƒhƒ‹															*/
-#define	ST_STRS_2		ST_STRS_(START)			/* ƒŠƒtƒ@ƒŒƒ“ƒX or À‘ª’è ”»’è			(WAIT ó‘Ô–³‚µ)				*/
-#define	ST_STRS_3		ST_STRS_(SRMEAS)		/* SR ‘ª’èƒV[ƒPƒ“ƒXŠJn & Š®—¹‘Ò‚¿		(WAIT ó‘Ô–³‚µ‚Ìê‡—L‚è)	*/
-#define	ST_STRS_4		ST_STRS_(SRMEAS_DONE)	/* SR ‘ª’èƒV[ƒPƒ“ƒXŠ®—¹ˆ—			(WAIT ó‘Ô–³‚µ)				*/
-#define	ST_STRS_5		ST_STRS_(PRELDPOS)		/* ‘ª’è‘O ƒ[ƒh Pos Š®—¹‘Ò‚¿			(WAIT ó‘Ô–³‚µ‚Ìê‡—L‚è)	*/
-#define	ST_STRS_6		ST_STRS_(PINALIGN)		/* ƒsƒ“ ƒAƒ‰ƒCƒƒ“ƒg‘Ò‚¿				(WAIT ó‘Ô–³‚µ‚Ìê‡—L‚è)	*/
-#define	ST_STRS_7		ST_STRS_(LMVSTAPOS)		/* ƒ‰ƒCƒ““®ìŠJnˆÊ’u ˆÚ“® & Š®—¹‘Ò‚¿	(WAIT ó‘Ô–³‚µ‚Ìê‡—L‚è)	*/
-#define	ST_STRS_8		ST_STRS_(LMVENDPOS)		/* ƒ‰ƒCƒ““®ìI—¹ˆÊ’u ˆÚ“® & Š®—¹‘Ò‚¿	(WAIT ó‘Ô–³‚µ‚Ìê‡—L‚è)	*/
-#define	ST_STRS_9		ST_STRS_(COMPLDPOS)		/* Š®—¹Œã ƒ[ƒh Pos Š®—¹‘Ò‚¿			(WAIT ó‘Ô–³‚µ‚Ìê‡—L‚è)	*/
-#define	ST_STRS_10		ST_STRS_(PINDOWNCOMP)	/* Š®—¹Œã ƒsƒ“ ƒ_ƒEƒ“ & Complete ‘Ò‚¿	(WAIT ó‘Ô–³‚µ‚Ìê‡—L‚è)	*/
-#define	ST_STRS_11		ST_STRS_(COMPLETEDELAY)	/* Complete ŠÔ‘Ò‚¿					(WAIT ó‘Ô–³‚µ)				*/
-#define	ST_STRS_12		ST_STRS_(WAITABORT)		/* Abort ’â~‘Ò‚¿						(WAIT ó‘Ô–³‚µ)				*/
-#define	ST_STRS_13		ST_STRS_(ABORTLDPOS)	/* Abort Œã ƒ[ƒh Pos Š®—¹‘Ò‚¿			(WAIT ó‘Ô–³‚µ‚Ìê‡—L‚è)	*/
-#define	ST_STRS_14		ST_STRS_(ABORTPINDOWN)	/* Abort Œã ƒsƒ“ ƒ_ƒEƒ“‘Ò‚¿				(WAIT ó‘Ô–³‚µ‚Ìê‡—L‚è)	*/
-#define	ST_STRS_15		ST_STRS_(ABORTDELAY)	/* Abort ŠÔ‘Ò‚¿						(WAIT ó‘Ô–³‚µ)				*/
-#define	ST_STRS_16		ST_STRS_(PAUSE)			/* ƒ|[ƒY‰ğœ‘Ò‚¿						(WAIT ó‘Ô–³‚µ‚Ìê‡—L‚è)	*/
-#define	ST_STRS_17		ST_STRS_(PRE_RESUME)	/* ƒŒƒWƒ…[ƒ€‘Oˆ—						(WAIT ó‘Ô–³‚µ)				*/
-/* ó‘Ô‚Ì–¼Ì‚ğ’è‹`©	*/
+/* çŠ¶æ…‹ã®åç§°ã‚’å®šç¾©â†’
+ *		ã“ã“ã‚’è¿½åŠ å‰Šé™¤ã—ãŸå ´åˆã¯ ST_xxx_n ã®ç•ªå·ã«å¯¾å¿œã—ãŸ
+ *		ä¸‹è¨˜ã® ST_xxx_n ã¨ ST_xxx_DISP_n ã‚‚åˆã‚ã›ã¦ãã ã•ã„ï¼*/
+#define	ST_STRS_0		ST_STRS_(INIT)			/* åˆæœŸçŠ¶æ…‹															*/
+#define	ST_STRS_1		ST_STRS_(IDLE)			/* ã‚¢ã‚¤ãƒ‰ãƒ«															*/
+#define	ST_STRS_2		ST_STRS_(START)			/* ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ or å®Ÿæ¸¬å®š åˆ¤å®š			(WAIT çŠ¶æ…‹ç„¡ã—)				*/
+#define	ST_STRS_3		ST_STRS_(SRMEAS)		/* SR æ¸¬å®šã‚·ãƒ¼ã‚±ãƒ³ã‚¹é–‹å§‹ & å®Œäº†å¾…ã¡		(WAIT çŠ¶æ…‹ç„¡ã—ã®å ´åˆæœ‰ã‚Š)	*/
+#define	ST_STRS_4		ST_STRS_(SRMEAS_DONE)	/* SR æ¸¬å®šã‚·ãƒ¼ã‚±ãƒ³ã‚¹å®Œäº†å‡¦ç†			(WAIT çŠ¶æ…‹ç„¡ã—)				*/
+#define	ST_STRS_5		ST_STRS_(PRELDPOS)		/* æ¸¬å®šå‰ ãƒ­ãƒ¼ãƒ‰ Pos å®Œäº†å¾…ã¡			(WAIT çŠ¶æ…‹ç„¡ã—ã®å ´åˆæœ‰ã‚Š)	*/
+#define	ST_STRS_6		ST_STRS_(PINALIGN)		/* ãƒ”ãƒ³ ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆå¾…ã¡				(WAIT çŠ¶æ…‹ç„¡ã—ã®å ´åˆæœ‰ã‚Š)	*/
+#define	ST_STRS_7		ST_STRS_(LMVSTAPOS)		/* ãƒ©ã‚¤ãƒ³å‹•ä½œé–‹å§‹ä½ç½® ç§»å‹• & å®Œäº†å¾…ã¡	(WAIT çŠ¶æ…‹ç„¡ã—ã®å ´åˆæœ‰ã‚Š)	*/
+#define	ST_STRS_8		ST_STRS_(LMVENDPOS)		/* ãƒ©ã‚¤ãƒ³å‹•ä½œçµ‚äº†ä½ç½® ç§»å‹• & å®Œäº†å¾…ã¡	(WAIT çŠ¶æ…‹ç„¡ã—ã®å ´åˆæœ‰ã‚Š)	*/
+#define	ST_STRS_9		ST_STRS_(COMPLDPOS)		/* å®Œäº†å¾Œ ãƒ­ãƒ¼ãƒ‰ Pos å®Œäº†å¾…ã¡			(WAIT çŠ¶æ…‹ç„¡ã—ã®å ´åˆæœ‰ã‚Š)	*/
+#define	ST_STRS_10		ST_STRS_(PINDOWNCOMP)	/* å®Œäº†å¾Œ ãƒ”ãƒ³ ãƒ€ã‚¦ãƒ³ & Complete å¾…ã¡	(WAIT çŠ¶æ…‹ç„¡ã—ã®å ´åˆæœ‰ã‚Š)	*/
+#define	ST_STRS_11		ST_STRS_(COMPLETEDELAY)	/* Complete æ™‚é–“å¾…ã¡					(WAIT çŠ¶æ…‹ç„¡ã—)				*/
+#define	ST_STRS_12		ST_STRS_(WAITABORT)		/* Abort åœæ­¢å¾…ã¡						(WAIT çŠ¶æ…‹ç„¡ã—)				*/
+#define	ST_STRS_13		ST_STRS_(ABORTLDPOS)	/* Abort å¾Œ ãƒ­ãƒ¼ãƒ‰ Pos å®Œäº†å¾…ã¡			(WAIT çŠ¶æ…‹ç„¡ã—ã®å ´åˆæœ‰ã‚Š)	*/
+#define	ST_STRS_14		ST_STRS_(ABORTPINDOWN)	/* Abort å¾Œ ãƒ”ãƒ³ ãƒ€ã‚¦ãƒ³å¾…ã¡				(WAIT çŠ¶æ…‹ç„¡ã—ã®å ´åˆæœ‰ã‚Š)	*/
+#define	ST_STRS_15		ST_STRS_(ABORTDELAY)	/* Abort æ™‚é–“å¾…ã¡						(WAIT çŠ¶æ…‹ç„¡ã—)				*/
+#define	ST_STRS_16		ST_STRS_(PAUSE)			/* ãƒãƒ¼ã‚ºè§£é™¤å¾…ã¡						(WAIT çŠ¶æ…‹ç„¡ã—ã®å ´åˆæœ‰ã‚Š)	*/
+#define	ST_STRS_17		ST_STRS_(PRE_RESUME)	/* ãƒ¬ã‚¸ãƒ¥ãƒ¼ãƒ å‰å‡¦ç†						(WAIT çŠ¶æ…‹ç„¡ã—)				*/
+/* çŠ¶æ…‹ã®åç§°ã‚’å®šç¾©â†	*/
 enum STATES_STRS
 {
-	/* \’z‚Í‚O‚É‚È‚Á‚Ä‚¢‚Ü‚·D
-	 * ‚Ì‚ÅCÅ‰‚Í‚O‚Æ‚µ‚Ä’è‹`‚³‚ê‚½ó‘Ô‚Å‚·D
-	 * ‚µ‚©‚µC‚O‚Ìó‘Ô‚É‘Î‰‚·‚éŠÖ”‚Í©“®“I‚ÉÀs‚³‚ê‚Ü‚¹‚ñ‚Ì‚ÅC
-	 * •K—v‚ª‚ ‚ê‚Î InitInstance() ‚È‚Ç‚©‚çÀs‚·‚é•K—v‚ª‚ ‚è‚Ü‚·D*/
+	/* æ§‹ç¯‰æ™‚ã¯ï¼ã«ãªã£ã¦ã„ã¾ã™ï¼
+	 * ã®ã§ï¼Œæœ€åˆã¯ï¼ã¨ã—ã¦å®šç¾©ã•ã‚ŒãŸçŠ¶æ…‹ã§ã™ï¼
+	 * ã—ã‹ã—ï¼Œï¼ã®çŠ¶æ…‹ã«å¯¾å¿œã™ã‚‹é–¢æ•°ã¯è‡ªå‹•çš„ã«å®Ÿè¡Œã•ã‚Œã¾ã›ã‚“ã®ã§ï¼Œ
+	 * å¿…è¦ãŒã‚ã‚Œã° InitInstance() ãªã©ã‹ã‚‰å®Ÿè¡Œã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼*/
 
-	/* ‚±‚±‚ğ•ÏX‚µ‚½ê‡‚Í’¼Œã‚É‚ ‚éƒXƒe[ƒ^ƒX•¶š—ñ‚Ì’è‹`‚à‡‚í‚¹‚Ä‚­‚¾‚³‚¢D	*/
+	/* ã“ã“ã‚’å¤‰æ›´ã—ãŸå ´åˆã¯ç›´å¾Œã«ã‚ã‚‹ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹æ–‡å­—åˆ—ã®å®šç¾©ã‚‚åˆã‚ã›ã¦ãã ã•ã„ï¼	*/
 
 	ST_STRS_0 = 0,
 	ST_STRS_1,
@@ -87,72 +87,72 @@ const LPSTR STATES_STRS_DISP[] = {
 };
 
 /*--------------------------------------------------------------------------//
- *	ƒCƒxƒ“ƒg’è‹`
+ *	ã‚¤ãƒ™ãƒ³ãƒˆå®šç¾©
  *--------------------------------------------------------------------------*/
 enum EVENTS_STRS
 {
-	EV_STRS_DO_INIT = 0,		/* ‰Šú‰»ŠJn	*/
-	EV_STRS_INIT_DONE,			/* ‰Šú‰»I—¹	*/
-	EV_STRS_IDLE,				/* ƒAƒCƒhƒ‹‚Ö	*/
-	EV_STRS_START,				/* ŠJnw—ß	*/
-	EV_STRS_MODE_REF,			/* ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh	*/
-	EV_STRS_MODE_MEAS,			/* À‘ª’èƒ‚[ƒh	*/
-	EV_STRS_SRMEAS_DONE,		/* SR ‘ª’èŠ®—¹*/
-	EV_STRS_LDPOS_DONE,			/* ƒ[ƒh POS ˆÚ“®Š®—¹	*/
-	EV_STRS_PIN_DONE,			/* ƒsƒ“Š®—¹	*/
-	EV_STRS_LINEMOVE_DONE,		/* ƒ‰ƒCƒ““®ìˆÚ“®Š®—¹	*/
-	EV_STRS_HEPA_STOP,			/* HEPA ’â~	*/
-	EV_STRS_TO_LMENDPOS,		/* ƒ‰ƒCƒ“I—¹ˆÊ’uˆÚ“®‚Ö	*/
-	EV_STRS_LINEMEAS_DONE,		/* ‚Pƒ‰ƒCƒ“‘ª’èŠ®—¹	*/
-	EV_STRS_LINEDATA_DONE,		/* ‚Pƒ‰ƒCƒ“ƒf[ƒ^ˆ—Š®—¹‰“š	*/
-	EV_STRS_LINE_NEXT,			/* Ÿƒ‰ƒCƒ“‚Ö	*/
-	EV_STRS_LINE_ALLDONE,		/* ‘Sƒ‰ƒCƒ“I—¹	*/
+	EV_STRS_DO_INIT = 0,		/* åˆæœŸåŒ–é–‹å§‹	*/
+	EV_STRS_INIT_DONE,			/* åˆæœŸåŒ–çµ‚äº†	*/
+	EV_STRS_IDLE,				/* ã‚¢ã‚¤ãƒ‰ãƒ«ã¸	*/
+	EV_STRS_START,				/* é–‹å§‹æŒ‡ä»¤	*/
+	EV_STRS_MODE_REF,			/* ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰	*/
+	EV_STRS_MODE_MEAS,			/* å®Ÿæ¸¬å®šãƒ¢ãƒ¼ãƒ‰	*/
+	EV_STRS_SRMEAS_DONE,		/* SR æ¸¬å®šå®Œäº†*/
+	EV_STRS_LDPOS_DONE,			/* ãƒ­ãƒ¼ãƒ‰ POS ç§»å‹•å®Œäº†	*/
+	EV_STRS_PIN_DONE,			/* ãƒ”ãƒ³å®Œäº†	*/
+	EV_STRS_LINEMOVE_DONE,		/* ãƒ©ã‚¤ãƒ³å‹•ä½œç§»å‹•å®Œäº†	*/
+	EV_STRS_HEPA_STOP,			/* HEPA åœæ­¢	*/
+	EV_STRS_TO_LMENDPOS,		/* ãƒ©ã‚¤ãƒ³çµ‚äº†ä½ç½®ç§»å‹•ã¸	*/
+	EV_STRS_LINEMEAS_DONE,		/* ï¼‘ãƒ©ã‚¤ãƒ³æ¸¬å®šå®Œäº†	*/
+	EV_STRS_LINEDATA_DONE,		/* ï¼‘ãƒ©ã‚¤ãƒ³ãƒ‡ãƒ¼ã‚¿å‡¦ç†å®Œäº†å¿œç­”	*/
+	EV_STRS_LINE_NEXT,			/* æ¬¡ãƒ©ã‚¤ãƒ³ã¸	*/
+	EV_STRS_LINE_ALLDONE,		/* å…¨ãƒ©ã‚¤ãƒ³çµ‚äº†	*/
 	EV_STRS_COMPLETE,			/* Complete	*/
-	EV_STRS_PINCMP_DONE,		/* ƒsƒ“ƒ_ƒEƒ“CComplete ¬—§	*/
-	EV_STRS_COMPLETE_DONE,		/* Complete ƒ^ƒCƒ€ƒAƒbƒv	*/
-	EV_STRS_CANCEL,				/* ƒLƒƒƒ“ƒZƒ‹	*/
-	EV_STRS_CANCEL_DONE,		/* ƒLƒƒƒ“ƒZƒ‹Š®—¹	*/
-	EV_STRS_ABORT_DONE,			/* Abort ƒ^ƒCƒ€ƒAƒbƒv	*/
-	EV_STRS_PAUSE,				/* ƒ|[ƒY	*/
-	EV_STRS_RESUME,				/* ƒŒƒWƒ…[ƒ€	*/
-	EV_STRS_RSM_SRMEAS,			/* ƒŒƒWƒ…[ƒ€FSR ‘ª’è’†	*/
-	EV_STRS_RSM_SRMEASED,		/* ƒŒƒWƒ…[ƒ€FSR ‘ª’èÏ	*/
-	EV_STRS_RSM_PRELDPOS,		/* ƒŒƒWƒ…[ƒ€F‘ª’è‘O ƒ[ƒh Pos ˆÚ“®’†	*/
-	EV_STRS_RSM_PINALIGN,		/* ƒŒƒWƒ…[ƒ€Fƒsƒ“ ƒAƒ‰ƒCƒƒ“ƒg	*/
-	EV_STRS_RSM_LMVSTAPOS,		/* ƒŒƒWƒ…[ƒ€Fƒ‰ƒCƒ““®ìŠJnˆÊ’u	*/
-	EV_STRS_RSM_LMVENDPOS,		/* ƒŒƒWƒ…[ƒ€Fƒ‰ƒCƒ““®ìI—¹ˆÊ’u	*/
+	EV_STRS_PINCMP_DONE,		/* ãƒ”ãƒ³ãƒ€ã‚¦ãƒ³ï¼ŒComplete æˆç«‹	*/
+	EV_STRS_COMPLETE_DONE,		/* Complete ã‚¿ã‚¤ãƒ ã‚¢ãƒƒãƒ—	*/
+	EV_STRS_CANCEL,				/* ã‚­ãƒ£ãƒ³ã‚»ãƒ«	*/
+	EV_STRS_CANCEL_DONE,		/* ã‚­ãƒ£ãƒ³ã‚»ãƒ«å®Œäº†	*/
+	EV_STRS_ABORT_DONE,			/* Abort ã‚¿ã‚¤ãƒ ã‚¢ãƒƒãƒ—	*/
+	EV_STRS_PAUSE,				/* ãƒãƒ¼ã‚º	*/
+	EV_STRS_RESUME,				/* ãƒ¬ã‚¸ãƒ¥ãƒ¼ãƒ 	*/
+	EV_STRS_RSM_SRMEAS,			/* ãƒ¬ã‚¸ãƒ¥ãƒ¼ãƒ ï¼šSR æ¸¬å®šä¸­	*/
+	EV_STRS_RSM_SRMEASED,		/* ãƒ¬ã‚¸ãƒ¥ãƒ¼ãƒ ï¼šSR æ¸¬å®šæ¸ˆ	*/
+	EV_STRS_RSM_PRELDPOS,		/* ãƒ¬ã‚¸ãƒ¥ãƒ¼ãƒ ï¼šæ¸¬å®šå‰ ãƒ­ãƒ¼ãƒ‰ Pos ç§»å‹•ä¸­	*/
+	EV_STRS_RSM_PINALIGN,		/* ãƒ¬ã‚¸ãƒ¥ãƒ¼ãƒ ï¼šãƒ”ãƒ³ ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆ	*/
+	EV_STRS_RSM_LMVSTAPOS,		/* ãƒ¬ã‚¸ãƒ¥ãƒ¼ãƒ ï¼šãƒ©ã‚¤ãƒ³å‹•ä½œé–‹å§‹ä½ç½®	*/
+	EV_STRS_RSM_LMVENDPOS,		/* ãƒ¬ã‚¸ãƒ¥ãƒ¼ãƒ ï¼šãƒ©ã‚¤ãƒ³å‹•ä½œçµ‚äº†ä½ç½®	*/
 //Saiki 20110308 Add ----->
-	EV_STRS_MODE_FIX_MEAS,		/* À‘ª’èƒ‚[ƒh(ŒÅ’è–ŒŒú’lg—p)		*/
+	EV_STRS_MODE_FIX_MEAS,		/* å®Ÿæ¸¬å®šãƒ¢ãƒ¼ãƒ‰(å›ºå®šè†œåšå€¤ä½¿ç”¨)		*/
 //Saiki 20110308 Add <-----
 };
 
 /*
- *	ƒ}ƒNƒ’è‹`
+ *	ãƒã‚¯ãƒ­å®šç¾©
  */
-/* ƒV[ƒPƒ“ƒX‘ª’èI—¹ƒXƒe[ƒ^ƒX	*/
-#define	TR_STRS_OK				0			// ƒV[ƒPƒ“ƒX‘ª’è OKD									*/
-#define	TR_STRS_TRSEQ_BUSY		0xffff0702	/* ƒV[ƒPƒ“ƒX‘ª’è ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ªƒrƒW[‚Å‚µ‚½			*/
-#define	TR_STRS_HEPASTP_FAIL	0xffff0711	/* HEPA ’â~ˆÙí‚Å‚µ‚½D								*/
-#define	TR_STRS_HEPASTA_FAIL	0xffff0712	/* HEPA ŠJnˆÙí‚Å‚µ‚½D								*/
-#define	TR_STRS_NO_HLDPOS		0xffff0714	/* ƒnƒ“ƒhƒ‰ ƒ[ƒh ƒ|ƒWƒVƒ‡ƒ“‚Å‚Í–³‚©‚Á‚½D				*/
-#define	TR_STRS_PINMOVE_FAIL	0xffff0715	/* ƒsƒ““®ì‚É¸”s‚µ‚Ü‚µ‚½D								*/
-#define	TR_STRS_NO_PIN_ALIGN	0xffff0716	/* ƒsƒ“‚ªƒAƒ‰ƒCƒƒ“ƒgˆÊ’u‚Å‚È‚©‚Á‚½D					*/
-#define	TR_STRS_NO_ZPOS			0xffff0717	/* ƒXƒgƒŒƒX—p Z ²ˆÊ’u‚Å‚È‚©‚Á‚½D						*/
-#define	TR_STRS_MEASPRE_FAIL	0xffff0721	/* ‘ª’èƒ‚ƒWƒ…[ƒ‹€”õ‚ÅˆÙíD							*/
-#define	TR_STRS_MEASSTA_FAIL	0xffff0722	/* ‘ª’èƒ‚ƒWƒ…[ƒ‹‚ÅŠJnƒGƒ‰[D							*/
-#define	TR_STRS_MEASEND_ERR		0xffff0723	/* ‘ª’èƒ‚ƒWƒ…[ƒ‹‚ÅˆÙíŠ®—¹D							*/
-#define	TR_STRS_HLDPOSMOVE_FAIL	0xffff0731	/* ƒnƒ“ƒhƒ‰ ƒ[ƒh ƒ|ƒWƒVƒ‡ƒ“‚Ö‚ÌˆÚ“®‚Å¸”s‚µ‚Ü‚µ‚½D	*/
-#define	TR_STRS_LINEMOVE_FAIL	0xffff0732	/* ƒ‰ƒCƒ““®ìŠJn ¸”s									*/
-#define	TR_STRS_ZMOVE_FAIL		0xffff0733	/* Z ²ˆÚ“®ŠJn¸”s										*/
-/* added 2009.08.21 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(51) ---------- { ---------- */
-#define	TR_STRS_NOSECTION		0xffff0734	/* —LŒø‚ÈƒZƒNƒVƒ‡ƒ“‚ª‚ ‚è‚Ü‚¹‚ñD						*/
-/* added 2009.08.21 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(51) ---------- } ---------- */
+/* ã‚·ãƒ¼ã‚±ãƒ³ã‚¹æ¸¬å®šçµ‚äº†ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹	*/
+#define	TR_STRS_OK				0			// ã‚·ãƒ¼ã‚±ãƒ³ã‚¹æ¸¬å®š OKï¼									*/
+#define	TR_STRS_TRSEQ_BUSY		0xffff0702	/* ã‚·ãƒ¼ã‚±ãƒ³ã‚¹æ¸¬å®š ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãŒãƒ“ã‚¸ãƒ¼ã§ã—ãŸ			*/
+#define	TR_STRS_HEPASTP_FAIL	0xffff0711	/* HEPA åœæ­¢ç•°å¸¸ã§ã—ãŸï¼								*/
+#define	TR_STRS_HEPASTA_FAIL	0xffff0712	/* HEPA é–‹å§‹ç•°å¸¸ã§ã—ãŸï¼								*/
+#define	TR_STRS_NO_HLDPOS		0xffff0714	/* ãƒãƒ³ãƒ‰ãƒ© ãƒ­ãƒ¼ãƒ‰ ãƒã‚¸ã‚·ãƒ§ãƒ³ã§ã¯ç„¡ã‹ã£ãŸï¼				*/
+#define	TR_STRS_PINMOVE_FAIL	0xffff0715	/* ãƒ”ãƒ³å‹•ä½œã«å¤±æ•—ã—ã¾ã—ãŸï¼								*/
+#define	TR_STRS_NO_PIN_ALIGN	0xffff0716	/* ãƒ”ãƒ³ãŒã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆä½ç½®ã§ãªã‹ã£ãŸï¼					*/
+#define	TR_STRS_NO_ZPOS			0xffff0717	/* ã‚¹ãƒˆãƒ¬ã‚¹ç”¨ Z è»¸ä½ç½®ã§ãªã‹ã£ãŸï¼						*/
+#define	TR_STRS_MEASPRE_FAIL	0xffff0721	/* æ¸¬å®šãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«æº–å‚™ã§ç•°å¸¸ï¼							*/
+#define	TR_STRS_MEASSTA_FAIL	0xffff0722	/* æ¸¬å®šãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã§é–‹å§‹ã‚¨ãƒ©ãƒ¼ï¼							*/
+#define	TR_STRS_MEASEND_ERR		0xffff0723	/* æ¸¬å®šãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã§ç•°å¸¸å®Œäº†ï¼							*/
+#define	TR_STRS_HLDPOSMOVE_FAIL	0xffff0731	/* ãƒãƒ³ãƒ‰ãƒ© ãƒ­ãƒ¼ãƒ‰ ãƒã‚¸ã‚·ãƒ§ãƒ³ã¸ã®ç§»å‹•ã§å¤±æ•—ã—ã¾ã—ãŸï¼	*/
+#define	TR_STRS_LINEMOVE_FAIL	0xffff0732	/* ãƒ©ã‚¤ãƒ³å‹•ä½œé–‹å§‹ å¤±æ•—									*/
+#define	TR_STRS_ZMOVE_FAIL		0xffff0733	/* Z è»¸ç§»å‹•é–‹å§‹å¤±æ•—										*/
+/* added 2009.08.21 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (51) ---------- { ---------- */
+#define	TR_STRS_NOSECTION		0xffff0734	/* æœ‰åŠ¹ãªã‚»ã‚¯ã‚·ãƒ§ãƒ³ãŒã‚ã‚Šã¾ã›ã‚“ï¼						*/
+/* added 2009.08.21 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (51) ---------- } ---------- */
 
-/* ƒ|[ƒY’†‚Ìó‘Ô‹L‰¯	*/
+/* ãƒãƒ¼ã‚ºä¸­ã®çŠ¶æ…‹è¨˜æ†¶	*/
 typedef struct {
-	DWORD	dwSrMeasuring;		/* SR ƒV[ƒPƒ“ƒX‘ª’è’†ƒtƒ‰ƒO		*/
-	DWORD	dwPreLoadingPos;	/* ‘ª’è‘O ƒ[ƒh Pos ˆÚ“®’†ƒtƒ‰ƒO	*/
-	DWORD	dwPinAligning;		/* ƒsƒ“ ƒAƒ‰ƒCƒƒ“ƒg“®ì’†ƒtƒ‰ƒO	*/
+	DWORD	dwSrMeasuring;		/* SR ã‚·ãƒ¼ã‚±ãƒ³ã‚¹æ¸¬å®šä¸­ãƒ•ãƒ©ã‚°		*/
+	DWORD	dwPreLoadingPos;	/* æ¸¬å®šå‰ ãƒ­ãƒ¼ãƒ‰ Pos ç§»å‹•ä¸­ãƒ•ãƒ©ã‚°	*/
+	DWORD	dwPinAligning;		/* ãƒ”ãƒ³ ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆå‹•ä½œä¸­ãƒ•ãƒ©ã‚°	*/
 } STRS_PAUSE_STAT;
 
 /////////////////////////////////////////////////////////////////////////////
@@ -170,7 +170,7 @@ public:
 
 // Operations
 public:
-	bool IsPinAligningHWS();	/* added 2009.08.20 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(46) */
+	bool IsPinAligningHWS();	/* added 2009.08.20 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (46) */
 	bool IsMeasuring();
 	DWORD GetCurrentLineNo();
 	bool IsPauseSeq();
@@ -193,7 +193,7 @@ public:
 protected:
 	virtual ~CChiefTransiStress();
 
-	/* ó‘Ô•Ê‚Ìˆ—ŠÖ”	*/
+	/* çŠ¶æ…‹åˆ¥ã®å‡¦ç†é–¢æ•°	*/
 	void enter_ST_STRS_INIT(const cEventParams* const pEvParams = 0);			/*	0 */
 	void enter_ST_STRS_IDLE(const cEventParams* const pEvParams = 0);			/*	1 */
 	void enter_ST_STRS_START(const cEventParams* const pEvParams = 0);			/*	2 */
@@ -226,21 +226,21 @@ protected:
 	DECLARE_MESSAGE_MAP()
 private:
 	BOOL MoveToLdPos();
-	BOOL m_bPinAligning;			/* ƒsƒ“‚ÌƒAƒ‰ƒCƒƒ“ƒgˆÊ’u’†(HWS —p)	*//* added 2009.08.20 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(46) */
-	BOOL m_bMeasStress;				/* ƒXƒgƒŒƒX‘ª’è’†	*/
-	STRS_PAUSE_STAT m_PauseStat;	/* ƒ|[ƒY’†‚Ìó‘Ô‹L‰¯	*/
-	BOOL m_bPause;					/* ƒ|[ƒYw—ß	*/
-	int m_iPausePreState;			/* ƒŒƒWƒ…[ƒ€‘Oó‘Ô‹L‰¯	*/
-	BOOL m_bPreMoving;				/* æsˆÚ“®’†	*/
-	BOOL m_bCancel;					/* ƒLƒƒƒ“ƒZƒ‹w—ß	*/
-	DWORD m_iCancelStat;			/* ƒLƒƒƒ“ƒZƒ‹ ƒXƒe[ƒ^ƒX	*/
-	BOOL m_bCompleted;				/* ‚P–‡‘ª’èI—¹‰“š ‹L‰¯	*/
-	DWORD m_dwLineMoveToStartPos;	/* 0FˆÚ“®‘OC1:ˆÚ“®’†C2FˆÚ“®Ï	*/
-	DWORD m_dwLineMoveToEndPos;		/* 0FˆÚ“®‘OC1:ˆÚ“®’†C2FˆÚ“®Ï	*/
-	BOOL m_bHepaStopped;			/* HEPA ’â~ ‹L‰¯	*/
-	DWORD m_dwLineNo;				/* ƒ‰ƒCƒ“”Ô†(1`)	*/
-	DWORD m_dwParentTransi;			/* ŒÄo‚µŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“	*/
-	int	m_iMeasMode;				/* ‘ª’èƒ‚[ƒh  0FƒŠƒtƒ@ƒŒƒ“ƒXC1FÀ‘ª’è	*/
+	BOOL m_bPinAligning;			/* ãƒ”ãƒ³ã®ã‚¢ãƒ©ã‚¤ãƒ¡ãƒ³ãƒˆä½ç½®ä¸­(HWS ç”¨)	*//* added 2009.08.20 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (46) */
+	BOOL m_bMeasStress;				/* ã‚¹ãƒˆãƒ¬ã‚¹æ¸¬å®šä¸­	*/
+	STRS_PAUSE_STAT m_PauseStat;	/* ãƒãƒ¼ã‚ºä¸­ã®çŠ¶æ…‹è¨˜æ†¶	*/
+	BOOL m_bPause;					/* ãƒãƒ¼ã‚ºæŒ‡ä»¤	*/
+	int m_iPausePreState;			/* ãƒ¬ã‚¸ãƒ¥ãƒ¼ãƒ å‰çŠ¶æ…‹è¨˜æ†¶	*/
+	BOOL m_bPreMoving;				/* å…ˆè¡Œç§»å‹•ä¸­	*/
+	BOOL m_bCancel;					/* ã‚­ãƒ£ãƒ³ã‚»ãƒ«æŒ‡ä»¤	*/
+	DWORD m_iCancelStat;			/* ã‚­ãƒ£ãƒ³ã‚»ãƒ« ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹	*/
+	BOOL m_bCompleted;				/* ï¼‘æšæ¸¬å®šçµ‚äº†å¿œç­” è¨˜æ†¶	*/
+	DWORD m_dwLineMoveToStartPos;	/* 0ï¼šç§»å‹•å‰ï¼Œ1:ç§»å‹•ä¸­ï¼Œ2ï¼šç§»å‹•æ¸ˆ	*/
+	DWORD m_dwLineMoveToEndPos;		/* 0ï¼šç§»å‹•å‰ï¼Œ1:ç§»å‹•ä¸­ï¼Œ2ï¼šç§»å‹•æ¸ˆ	*/
+	BOOL m_bHepaStopped;			/* HEPA åœæ­¢ è¨˜æ†¶	*/
+	DWORD m_dwLineNo;				/* ãƒ©ã‚¤ãƒ³ç•ªå·(1ã€œ)	*/
+	DWORD m_dwParentTransi;			/* å‘¼å‡ºã—å…ƒãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³	*/
+	int	m_iMeasMode;				/* æ¸¬å®šãƒ¢ãƒ¼ãƒ‰  0ï¼šãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ï¼Œ1ï¼šå®Ÿæ¸¬å®š	*/
 	CView* m_pcChiefView;
 	CEvent m_cSyncEvent;
 };

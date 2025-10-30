@@ -1,4 +1,4 @@
-// ChiefView.cpp : Cve[V t@C
+﻿// ChiefView.cpp : Cve[V t@C
 //
 
 #include "stdafx.h"
@@ -9,7 +9,7 @@
 #include "ChiefView.h"
 #include <NEXIF.HXX>
 #include <PIFCOMM.HXX>
-//#include <NEXIO.HXX>		hmenjo gp֎~
+//#include <NEXIO.HXX>		hmenjo gp÷é~
 #include <NEXIOBASE.HXX>
 #include "ChifTransiAF.h"
 #include "ChifTransiDeskew.h"
@@ -25,13 +25,13 @@
 //Saiki 20090602 Add ----->
 #include "resource.h"
 //Saiki 20090602 Add <-----
-/* added 2009.07.30 hmenjo XgX@\ǉ(2) ---------- { ---------- */
+/* added 2009.07.30 hmenjo XgX@\«â(2) ---------- { ---------- */
 #include "ChifTransiStress.h"
-/* added 2009.07.30 hmenjo XgX@\ǉ(2) ---------- } ---------- */
-/* added 2009.08.07 hmenjo XgX@\ǉ(35) ---------- { ---------- */
+/* added 2009.07.30 hmenjo XgX@\«â(2) ---------- } ---------- */
+/* added 2009.08.07 hmenjo XgX@\«â(35) ---------- { ---------- */
 #define	CHIEF_PFUNCS_MAS
 #include "ChiefPFuncs.h"
-/* added 2009.08.07 hmenjo XgX@\ǉ(35) ---------- } ---------- */
+/* added 2009.08.07 hmenjo XgX@\«â(35) ---------- } ---------- */
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -40,12 +40,12 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /*
- *	ChiefExport.h ɏo悢`
+ *	ChiefExport.h …èoÊÇ¢`
  */
 #if 0
-#define	CHIEF_INI	_T(".\\Chief.ini")	// Chief pݒt@C
-#define	CHIEF_DLG_CAPTION	_T("Chief Monitor")	// Chief _CAÕLvV
-// eA[񍐗p`
+#define	CHIEF_INI	_T(".\\Chief.ini")	// Chief p›ít@C
+#define	CHIEF_DLG_CAPTION	_T("Chief Monitor")	// Chief _CAOÃÉLvV
+// eA[Òçêóp`
 #endif
 
 /*
@@ -58,12 +58,12 @@ enum CHIEF_TIMER_ID {
 	ID_TIMER_50MS_PERIOD,		// 50ms  ^C} ID
 	ID_TIMER_10MS_PERIOD,		// 10ms  ^C} ID
 // 2009.02.05 K.Matsuo delete -->
-//	ID_TIMER_TRACEDATA,			// g[Xf[^񍐃^C} ID
+//	ID_TIMER_TRACEDATA,			// g[Xf[^ÒçêÉ^C} ID
 // 2009.02.05 K.Matsuo delete <--
 	ID_TIMER_EQPWOFF,			// udItVbg^C} ID
-/* added 2009.07.31 hmenjo XgX@\ǉ(3) ---------- { ---------- */
-	ID_TIMER_HEPASTOP,			/* HEPA ~҂^C} ID	*/
-/* added 2009.07.31 hmenjo XgX@\ǉ(3) ---------- } ---------- */
+/* added 2009.07.31 hmenjo XgX@\«â(3) ---------- { ---------- */
+	ID_TIMER_HEPASTOP,			/* HEPA ~“Ç^C} ID	*/
+/* added 2009.07.31 hmenjo XgX@\«â(3) ---------- } ---------- */
 };
 #define	ID_MMTIMER_5MS_PERIOD	0		// 5ms	 ^C}(}`fBA^C}) ID
 #define	TIMER_1S_PERIOD			1000	// 1s	 ^C}l[ms]
@@ -73,24 +73,24 @@ enum CHIEF_TIMER_ID {
 #define	TIMER_50MS_PERIOD		100		// 50ms  ^C}l[ms]
 #define	TIMER_20MS_PERIOD		100		// 20ms  ^C}l[ms]
 #define	TIMER_10MS_PERIOD		100		// 10ms  ^C}l[ms]
-#define	TIMER_5MS_PERIOD		100		// 5ms	^C}l[ms](}`fBA^C}ł̂ݎg͂)
+#define	TIMER_5MS_PERIOD		100		// 5ms	^C}l[ms](}`fBA^C}≈ÇÃÇ›égÕÇ)
 
 //#define	TIMER_50MS_PERIOD		50		// 50ms  ^C}l[ms]
 //#define	TIMER_20MS_PERIOD		20		// 20ms  ^C}l[ms]
 //#define	TIMER_10MS_PERIOD		10		// 10ms  ^C}l[ms]
-//#define	TIMER_5MS_PERIOD		5		// 5ms	^C}l[ms](}`fBA^C}ł̂ݎg͂)
+//#define	TIMER_5MS_PERIOD		5		// 5ms	^C}l[ms](}`fBA^C}≈ÇÃÇ›égÕÇ)
 //<--------------------------------
 
 /*
  *	[JO[o`
  */
-/* modified 2009.12.09 hmenjo  Seq ͎wwbhœ(ǉ) ---------- { ---------- */
+/* modified 2009.12.09 hmenjo  Seq Õéwwbh≈ì(«â) ---------- { ---------- */
 //CChiefView*	g_pcChiefView;	// static pNX|C^
-/* modified 2009.12.09 hmenjo  Seq ͎wwbhœ(ǉ) ----------				*/
+/* modified 2009.12.09 hmenjo  Seq Õéwwbh≈ì(«â) ----------				*/
 CChiefView*	g_pcChiefView = 0;	/* static pNX|C^	*/
-/* modified 2009.12.09 hmenjo  Seq ͎wwbhœ(ǉ) ---------- } ---------- */
+/* modified 2009.12.09 hmenjo  Seq Õéwwbh≈ì(«â) ---------- } ---------- */
 
-// ԑp֐Q
+// ‘ëp÷êQ
 static LONGLONG lg_llFrequency = 0;
 static LONGLONG lg_llStartCount = 0;
 static LONGLONG lg_llDelta = 0;
@@ -124,17 +124,17 @@ CChiefView::CChiefView()
 	: CFormView(CChiefView::IDD)
 {
 	//{{AFX_DATA_INIT(CChiefView)
-		//  - ClassWizard ͂̈ʒuɃ}bsOp̃}Nǉ܂͍폜܂B
+		//  - ClassWizard ÕÇÃà íu…É}bsOpÃÉ}N«â‹ÇÕçÌèú‹ÇB
 	//}}AFX_DATA_INIT
 
 	TRACE(_T("CChiefView::CChiefView() \n"));
 
-	m_pcMainFrame = (CFrameWnd*) AfxGetApp()->m_pMainWnd;						// CMainFrame ̃|C^ۑ
-	m_pcNanoSpecDoc = ((CMainFrame*) m_pcMainFrame)->m_pDoc;		// CNanoSpecDoc ̃|C^ۑ
+	m_pcMainFrame = (CFrameWnd*) AfxGetApp()->m_pMainWnd;						// CMainFrame ÃÉ|C^€ë
+	m_pcNanoSpecDoc = ((CMainFrame*) m_pcMainFrame)->m_pDoc;		// CNanoSpecDoc ÃÉ|C^€ë
 
 	LogChief(_T("Started  Chief Dialog."));
 
-/* added 2009.12.09 hmenjo  Seq ͎wwbhœ(ǉ) ---------- { ---------- */
+/* added 2009.12.09 hmenjo  Seq Õéwwbh≈ì(«â) ---------- { ---------- */
 	m_pcChiefTransiAF = 0;
 	m_pcChiefTransiDeskew = 0;
 	m_pcChiefTransiMaster = 0;
@@ -142,24 +142,24 @@ CChiefView::CChiefView()
 	m_pcChiefTransiSr1Point = 0;
 	m_pcChiefTransiSrRefer = 0;
 	m_pcChiefTransiStress = 0;
-/* added 2009.12.09 hmenjo  Seq ͎wwbhœ(ǉ) ---------- } ---------- */
+/* added 2009.12.09 hmenjo  Seq Õéwwbh≈ì(«â) ---------- } ---------- */
 	g_pcChiefView = this;		// static p CChiefView NX|C^
 /* added 2013.02.01 hmenjo PreAF ---------- { ---------- */
 	m_lPreAFafterPreMove = 0;
 /* added 2013.02.01 hmenjo PreAF ---------- } ---------- */
 
-	// Vsp擾
+	// VspÊìæ
 	RecipesMalloc(TRUE);
 
 //	BOOL l_bRet = Create(CChiefView::IDD, 0);
-//	// _CAOŏɃ^XNo[ɓ悤ɂD	// KvɂȂ܂(2008.12.15 ̃T[o\[X)
-//	ModifyStyleEx(0, WS_EX_APPWINDOW, SWP_DRAWFRAME);	//svǎcĂ܂D
+//	// _CAO≈è…É^XNo[…ìÊÇ§…ÇD	// Kv…Ç»Ç‹Ç(2008.12.15 ÃÉT[o\[X)
+//	ModifyStyleEx(0, WS_EX_APPWINDOW, SWP_DRAWFRAME);	//sv«écƒÇ‹ÇD
 }
 
 void CChiefView::DoDataExchange(CDataExchange* pDX)
 {
 	//{{AFX_DATA_MAP(CChiefView)
-		//  - ClassWizard ͂̈ʒuɃ}bsOp̃}Nǉ܂͍폜܂B
+		//  - ClassWizard ÕÇÃà íu…É}bsOpÃÉ}N«â‹ÇÕçÌèú‹ÇB
 	//}}AFX_DATA_MAP
 
 	DDX_Control(pDX, IDC_BTN_HIDE, m_HideButton);
@@ -209,11 +209,11 @@ BEGIN_MESSAGE_MAP(CChiefView, CFormView)
 	ON_MESSAGE(WM_DISP_START_SRREF, OnStartSrRefer)
 	ON_MESSAGE(WM_CHIF_SHOWSW, OnDlgShowSW)
 	ON_MESSAGE(WM_CHIF_RESET_ALARM, OnResetAlarm)
-/* added 2009.08.05 hmenjo XgX@\ǉ(25) ---------- { ---------- */
+/* added 2009.08.05 hmenjo XgX@\«â(25) ---------- { ---------- */
 	ON_MESSAGE(WM_MEAS_LINE_END, OnMeasLineEnd)
 	ON_MESSAGE(WM_DATA_LINE_END, OnDataLineEnd)
 	ON_MESSAGE(WM_DATA_STRS_MEAS_END, OnDataStressMeasEnd)
-/* added 2009.08.05 hmenjo XgX@\ǉ(25) ---------- } ---------- */
+/* added 2009.08.05 hmenjo XgX@\«â(25) ---------- } ---------- */
 //2009.10.29 bagus 2point-distance --{--
 	ON_MESSAGE(WM_DISP_DISTANCE_POPUP_END, OnDistancePopupEnd)
 //2009.10.29 bagus 2point-distance --}--
@@ -223,13 +223,13 @@ BEGIN_MESSAGE_MAP(CChiefView, CFormView)
 //2009.11.03 bagus MS --{--
 	ON_MESSAGE(WM_DISP_MS_POPUP_END, OnMSPopupEnd)
 //2009.11.03 bagus MS --}--
-// 2013.02.01 bagus CompleteEASEwbhǉ -->
+// 2013.02.01 bagus CompleteEASEwbh«â -->
 	ON_MESSAGE(WM_MEAS_COMPEASE_STATUS, OnMeasCompEASEStatus)
 	ON_MESSAGE(WM_MEAS_COMPEASE_ERROR, OnMeasCompEASEError)
-// 2013.02.01 bagus CompleteEASEwbhǉ <--
-// 2013.11.07 Bagus Add (TohoSpecΉ) -->
+// 2013.02.01 bagus CompleteEASEwbh«â <--
+// 2013.11.07 Bagus Add (TohoSpecŒâ) -->
 	ON_MESSAGE(WM_DISP_CONFIRM_POPUP_END, OnConfirmPopupEnd)
-// 2013.11.07 Bagus Add (TohoSpecΉ) <--
+// 2013.11.07 Bagus Add (TohoSpecŒâ) <--
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -252,16 +252,16 @@ int CChiefView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	if (CFormView::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
-	// TODO: ̈ʒuɏ̕⑫ǉĂ
+	// TODO: Ãà íu…èÃï‚ë´«âƒÇ
 
-	return 0;  // Rg[ɃtH[JXݒ肵ȂƂA߂l TRUE ƂȂ܂
-				  // O: OCX vpeB y[W̖߂l FALSE ƂȂ܂
+	return 0;  // Rg[…ÉtH[JX›íËÇµ»Ç∆ÇAﬂÇl TRUE ∆Ç»Ç‹Ç
+				  // O: OCX vpeB y[WÃñﬂÇl FALSE ∆Ç»Ç‹Ç
 }
 
 /*
  *	}`fBA^C} CallBack nh
- *			"WM_TIMER"|XgĂ񂾂ǁEEE(₱Ȃ̂ŁEEE)
- *			"WinMM.lib" NȂĂgǁCǂŃNĂ܂HH
+ *			"WM_TIMER"|XgƒÇÒÇæÇ«ÅEEE(‚Ç±»ÇÃÇ≈ÅEEE)
+ *			"WinMM.lib" N»ÇƒÇg«ÅC«Ç≈ÉNƒÇ‹ÇHH
  */
 UINT CChiefView::m_uiMMTimerID[16] = {0};
 static UINT lg_uiMMTimer10msCounter = 0;
@@ -275,7 +275,7 @@ void CALLBACK CChiefView::MMTimerProc(UINT uTimerID, UINT uMsg, DWORD dwUser, DW
 	if (uTimerID == m_uiMMTimerID[ID_MMTIMER_5MS_PERIOD]) {
 #if 0
 		{
-			// fobOpł
+			// fobOp≈Ç
 			static int l_iTmp = 0;
 			l_iTmp++;
 			if ((10000 / TIMER_5MS_PERIOD) < l_iTmp) {
@@ -283,64 +283,64 @@ void CALLBACK CChiefView::MMTimerProc(UINT uTimerID, UINT uMsg, DWORD dwUser, DW
 			}
 		}
 #endif
-		// RR 5ms (100ms ɂꂽ by Kawashima 2008.12.01)-----------------------------------------------
-		// 쒆ُ̈͂`FbN
+		// RR 5ms (100ms …ÇÍÇΩ by Kawashima 2008.12.01)-----------------------------------------------
+		// ÏíÜÃàŸèÕÇ`FbN
 		if ((PROCESS_INIT != g_pcChiefView->ProcStatusGet()) && (0 != lg_uiRunFlag)) {
 			g_pcChiefView->CheckDIO_Running();
 		}
-		// Nextra  DI 擾
+		// Nextra  DI Êìæ
 		g_pcChiefView->GetDiInfo(&(g_pcChiefView->m_DiInfo));
 
-#if 0		// (100ms ɂꂽ by Kawashima 2008.12.01 ̂ō폜Ă܂)
+#if 0		// (100ms …ÇÍÇΩ by Kawashima 2008.12.01 ÃÇ≈çÌèúƒÇ‹Ç)
 		// RR 10ms ----------------------------------------------
 		if (TIMER_10MS_PERIOD / TIMER_5MS_PERIOD < lg_uiMMTimer10msCounter++) {
 			lg_uiMMTimer10msCounter = 0;
-			// ̉珈ǉĂ
+			// ÃâÁèà«âƒÇ
 #endif
 
-			// DIO ĎJn^C}(A[ñEBhEオ܂ł̑҂)
+			// DIO ƒéJn^C}(A[nÃÉEBhE„Ç™‹Ç≈ÇÃë“Ç)
 			if (0 != lg_uiRunFlagCount) {
 				lg_uiRunFlagCount--;
 				if (0 == lg_uiRunFlagCount) {
 					lg_uiRunFlag = TRUE;
 				}
 			}
-#if 0		// (100ms ɂꂽ by Kawashima 2008.12.01 ̂ō폜Ă܂)
+#if 0		// (100ms …ÇÍÇΩ by Kawashima 2008.12.01 ÃÇ≈çÌèúƒÇ‹Ç)
 		}
 #endif
-#if 0		// (100ms ɂꂽ by Kawashima 2008.12.01 ̂ō폜Ă܂)
+#if 0		// (100ms …ÇÍÇΩ by Kawashima 2008.12.01 ÃÇ≈çÌèúƒÇ‹Ç)
 		// RR 20ms ----------------------------------------------
 		if (TIMER_20MS_PERIOD / TIMER_5MS_PERIOD < lg_uiMMTimer20msCounter++) {
 			lg_uiMMTimer20msCounter = 0;
-			// ̉珈ǉĂ
+			// ÃâÁèà«âƒÇ
 		}
 		// RR 50ms ----------------------------------------------
 		if (TIMER_50MS_PERIOD / TIMER_5MS_PERIOD < lg_uiMMTimer50msCounter++) {
 			lg_uiMMTimer50msCounter = 0;
-			// ̉珈ǉĂ
+			// ÃâÁèà«âƒÇ
 		}
 #endif
 	}
 }
 
 /*
- *	MFC ̃^C} bZ[Wnh
+ *	MFC ÃÉ^C} bZ[Wnh
  */
 void CChiefView::OnTimer(UINT nIDEvent)
 {
-	// TODO: ̈ʒuɃbZ[W nhp̃R[hǉ邩܂̓ftHg̏ĂяoĂ
+	// TODO: Ãà íu…ÉbZ[W nhpÃÉR[h«âÈÇ©‹ÇÕÉftHgÃèƒÇ—èoƒÇ
 
 	switch (nIDEvent) {
-/* added 2009.07.31 hmenjo XgX@\ǉ(3) ---------- { ---------- */
+/* added 2009.07.31 hmenjo XgX@\«â(3) ---------- { ---------- */
 	case ID_TIMER_HEPASTOP:
 		if (0 == this->KillTimer(ID_TIMER_HEPASTOP)) {
-			/* ^C}Cxg폜s	*/
+			/* ^C}CxgÌèús	*/
 			this->LogChief(CHIEF_REP_ALARM_MSGTEXT[38]);
 			this->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_MSGBOX, CHRANFY_NOTIFY_ON), MAKEWORD(1, CHRAMSG_YESNO)), MAKELPARAM(38, 0));
 		}
 		((CChiefTransiStress*) m_pcChiefTransiStress)->TransiEvent(EV_STRS_HEPA_STOP, (cEventParams*) EV_STRS_HEPA_STOP);
 		break;
-/* added 2009.07.31 hmenjo XgX@\ǉ(3) ---------- } ---------- */
+/* added 2009.07.31 hmenjo XgX@\«â(3) ---------- } ---------- */
 	case ID_TIMER_1S_PERIOD:		// 1s ^C}
 /* added 2013.06.04 hmenjo Chief KillTimer() ---------- { ---------- */
 		this->KillTimer(ID_TIMER_1S_PERIOD);
@@ -356,15 +356,15 @@ void CChiefView::OnTimer(UINT nIDEvent)
 /* added 2013.06.04 hmenjo Chief KillTimer() ---------- } ---------- */
 		PostMessage(WM_CHIF_UPDATESTATESDLG, 0, 0);
 		IsStageIdle();
-		// ud͂̃ItĎ
+		// udÕÇÃÉItƒé
 		{
 			if (0 != m_bCheckEqPowerOFF) {
 				if (0 == m_DiInfo.bEQPower) {
-					// ud͂It܂D
-					nexioEquipmentPowerOFF(FALSE);	// udIto͂It܂D
+					// udÕÇIt‹ÇD
+					nexioEquipmentPowerOFF(FALSE);	// udItoÕÇIt‹ÇD
 					if (2 != m_bCheckEqPowerOFF) {
 						if (0 == KillTimer(ID_TIMER_EQPWOFF)) {
-							// ^C}Cxg폜s
+							// ^C}CxgÌèús
 							LogChief(CHIEF_REP_ALARM_MSGTEXT[35]);
 							PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_MSGBOX, CHRANFY_NOTIFY_ON), MAKEWORD(1, CHRAMSG_YESNO)), MAKELPARAM(35, 0));
 						}
@@ -377,7 +377,7 @@ void CChiefView::OnTimer(UINT nIDEvent)
 		/* AF seq ACh`FbN	*/
 		if (2 == (m_lPreAFafterPreMove & 0x7fffffff)) {
 			if (true == ((CChiefTransiAF*) m_pcChiefTransiAF)->IsIdle()) {
-				/* AF seq AChłD	*/
+				/* AF seq ACh≈ÇD	*/
 				if (0 == (m_lPreAFafterPreMove & 0x80000000)) {
 					/* AF 	*/
 					this->LogChief(_T("PreAF - AF Success. (m_lPreAFafterPreMove = 3) EV_SEQ_POINT_MOVE_DONE"));
@@ -395,13 +395,13 @@ void CChiefView::OnTimer(UINT nIDEvent)
 		this->SetTimer(ID_TIMER_100MS_PERIOD, TIMER_100MS_PERIOD, 0);
 /* added 2013.06.04 hmenjo Chief KillTimer() ---------- } ---------- */
 		break;
-	case ID_TIMER_50MS_PERIOD:		// 50ms ^C}(100ms ɂꂽ by Kawashima 2008.12.01)
+	case ID_TIMER_50MS_PERIOD:		// 50ms ^C}(100ms …ÇÍÇΩ by Kawashima 2008.12.01)
 /* added 2013.06.04 hmenjo Chief KillTimer() ---------- { ---------- */
 		this->KillTimer(ID_TIMER_50MS_PERIOD);
 		this->SetTimer(ID_TIMER_50MS_PERIOD, TIMER_50MS_PERIOD, 0);
 /* added 2013.06.04 hmenjo Chief KillTimer() ---------- } ---------- */
 		break;
-	case ID_TIMER_10MS_PERIOD:		// 10ms ^C}(100ms ɂꂽ by Kawashima 2008.12.01)
+	case ID_TIMER_10MS_PERIOD:		// 10ms ^C}(100ms …ÇÍÇΩ by Kawashima 2008.12.01)
 /* added 2013.06.04 hmenjo Chief KillTimer() ---------- { ---------- */
 		this->KillTimer(ID_TIMER_10MS_PERIOD);
 /* added 2013.06.04 hmenjo Chief KillTimer() ---------- } ---------- */
@@ -413,13 +413,13 @@ void CChiefView::OnTimer(UINT nIDEvent)
 		break;
 	case ID_TIMER_HIDEDLG:			// _CAO\^C}
 		if (0 == KillTimer(ID_TIMER_HIDEDLG)) {
-			// ^C}Cxg폜s
+			// ^C}CxgÌèús
 			LogChief(CHIEF_REP_ALARM_MSGTEXT[3]);
 			PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_MSGBOX, CHRANFY_NOTIFY_ON), MAKEWORD(1, CHRAMSG_YESNO)), MAKELPARAM(3, 0));
 		}
 		switch (m_DlgShowSW.dwShowSWprc) {
 		case 0:
-			GetParentFrame()->ShowWindow(SW_SHOWMINIMIZED);	// UŏĂ
+			GetParentFrame()->ShowWindow(SW_SHOWMINIMIZED);	// U≈èƒÇ
 			m_DlgShowSW.dwShowSWprc = 1;
 			if (ID_TIMER_HIDEDLG != SetTimer(ID_TIMER_HIDEDLG, 500, 0)) {
 				// ^C}Ns
@@ -449,14 +449,14 @@ void CChiefView::OnTimer(UINT nIDEvent)
 		}
 		break;
 // 2009.02.05 K.Matsuo delete -->
-//	case ID_TIMER_TRACEDATA:		// g[Xf[^莞(M)^C}
+//	case ID_TIMER_TRACEDATA:		// g[Xf[^Ëéû(M)^C}
 //		if (0 == KillTimer(ID_TIMER_TRACEDATA)) {
-//			// ^C}Cxg폜s
+//			// ^C}CxgÌèús
 //			LogChief(CHIEF_REP_ALARM_MSGTEXT[1]);
 //			PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_MSGBOX, CHRANFY_NOTIFY_ON), MAKEWORD(1, CHRAMSG_YESNO)), MAKELPARAM(1, 0));
 //			//
 //		}
-//		// g[Xf[^莞M^C}N
+//		// g[Xf[^ËéûM^C}N
 //		if (0 != (m_uiTraceDataPeriod = ((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetTraceDataPeriod())) {
 //			// g[Xf[^(M)
 //			OnSendTraceData(0, 0);
@@ -467,20 +467,20 @@ void CChiefView::OnTimer(UINT nIDEvent)
 //				PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_MSGBOX, CHRANFY_NOTIFY_ON), MAKEWORD(1, CHRAMSG_YESNO)), MAKELPARAM(0, 0));
 //			}
 //		} else {
-//			// ݒ肪OɂȂĂ̂Œ莞~
+//			// ›íËÇ™O…Ç»ÇƒÇÃÇ≈íËéû~
 //			m_bTraceDataTimer = FALSE;
 //		}
 //		break;
 // 2009.02.05 K.Matsuo delete <--
-	case ID_TIMER_EQPWOFF:		// udIt͊Ď^C}
-		// ud͂Ȃ̂ŁCudItF
-//		nexioEquipmentPowerOFF(FALSE);		ŜߑudIt͉܂D
-//		m_bCheckEqPowerOFF = 0;			ĎtOIt܂D
-		m_bCheckEqPowerOFF = 2;		// ^CAEgςɂ܂D
+	case ID_TIMER_EQPWOFF:		// udItÕäƒé^C}
+		// udÕÇ»ÇÃÇ≈ÅCudItF
+//		nexioEquipmentPowerOFF(FALSE);		SÃÇﬂëudItÕâ‹ÇD
+//		m_bCheckEqPowerOFF = 0;			ƒétOIt‹ÇD
+		m_bCheckEqPowerOFF = 2;		// ^CAEgœÇ…Ç‹ÇD
 		// A[Zbg
 		PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_OFF), MAKEWORD(1, CHRAMSG_OK)), MAKELPARAM(0, ALID_EquipmentPowerOffControlError));
 		if (0 == KillTimer(ID_TIMER_EQPWOFF)) {
-			// ^C}Cxg폜s
+			// ^C}CxgÌèús
 			LogChief(CHIEF_REP_ALARM_MSGTEXT[35]);
 			PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_MSGBOX, CHRANFY_NOTIFY_ON), MAKEWORD(1, CHRAMSG_YESNO)), MAKELPARAM(35, 0));
 		}
@@ -491,7 +491,7 @@ void CChiefView::OnTimer(UINT nIDEvent)
 }
 
 /*
- *	Chief 쒆\ bZ[Wnh
+ *	Chief ÏíÜ\ bZ[Wnh
  */
 LRESULT CChiefView::OnHeartBeat(WPARAM wparam, LPARAM lparam)
 {
@@ -509,9 +509,9 @@ LRESULT CChiefView::OnHeartBeat(WPARAM wparam, LPARAM lparam)
 	((CChiefTransiSrRefer*) m_pcChiefTransiSrRefer)->HeartBeatPulse();
 
 // 2009.02.05 K.Matsuo delete -->
-//	// g[Xf[^莞M^C}N
+//	// g[Xf[^ËéûM^C}N
 //	if (0 == m_bTraceDataTimer) {
-//		// 莞~ĂƂ̂݃`FbN܂D
+//		// Ëéû~ƒÇ∆ÇÃÇ›É`FbN‹ÇD
 //		if (0 != (m_uiTraceDataPeriod = ((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetTraceDataPeriod())) {
 //			if (0 == StartTimerTraceData(m_uiTraceDataPeriod)) {
 //				// ^C}Ns
@@ -533,9 +533,9 @@ LRESULT CChiefView::OnHeartBeat(WPARAM wparam, LPARAM lparam)
  */
 void CChiefView::OnCancel()
 {
-	// TODO: ̈ʒuɓʂȌ㏈ǉĂB
+	// TODO: Ãà íu…ì Ç»å„èà«âƒÇB
 
-	// u~v{^uESCvL[Ń_CAOIȂ悤ɃRgɂ
+	// u~v{^uESCvL[≈É_CAOI»ÇÊÇ§…ÉRg…Ç
 //	CDialog::OnCancel();
 }
 
@@ -544,31 +544,31 @@ void CChiefView::OnCancel()
  */
 void CChiefView::OnBtnHide()
 {
-	// TODO: ̈ʒuɃRg[ʒmnhp̃R[hǉĂ
+	// TODO: Ãà íu…ÉRg[ ímnhpÃÉR[h«âƒÇ
 
-	KillTimer(ID_TIMER_HIDEDLG);	// _CAO\fBC^C}Ă
+	KillTimer(ID_TIMER_HIDEDLG);	// _CAO\fBC^C}ƒÇ
 	m_DlgShowSW.dwType = 0;
 	GetParentFrame()->ShowWindow(SW_HIDE);
 }
 
 /*
- *	uTopv{^(̓`FbN{bNX) bZ[Wnh
+ *	uTopv{^(ÕÉ`FbN{bNX) bZ[Wnh
  */
 void CChiefView::OnChkTop()
 {
-	// TODO: ̈ʒuɃRg[ʒmnhp̃R[hǉĂ
+	// TODO: Ãà íu…ÉRg[ ímnhpÃÉR[h«âƒÇ
 
 	if (0 == ((CButton*) GetDlgItem(IDC_CHK_TOP))->GetCheck()) {
-		// őOʂ
+		// ≈ëO Ç
 		GetParentFrame()->SetWindowPos(&wndNoTopMost, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE);
 	} else {
-		// őOʂɂ
+		// ≈ëO Ç…Ç
 		GetParentFrame()->SetWindowPos(&wndTopMost, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE);
 	}
 }
 
 /*
- *	Nextra ̉()bZ[WWnh
+ *	Nextra Ãâ()bZ[WWnh
  */
 LRESULT CChiefView::OnNextraResponse(WPARAM wparam, LPARAM lparam)
 {
@@ -578,32 +578,32 @@ LRESULT CChiefView::OnNextraResponse(WPARAM wparam, LPARAM lparam)
 	LogChief_WinMsg(_T("WM_NEX_RESPONSE"), wparam, lparam);
 
 	if ((0 != m_bVacuumOnFromDisp) && (nexVacuumOn == l_dwDeviceCode)) {
-		// oL[ ON 䂪ʂ̎w߂̏ꍇ
+		// oL[ ON ‰Ç™ ÇÃéwﬂÇÃèÍçá
 		m_pcMainFrame->PostMessage(WM_CHIF_VACUUM_END, (WPARAM) l_iResult, 0);
 		m_bVacuumOnFromDisp = FALSE;
 	} else if ((0 != m_bVacuumOffFromDisp) && (nexVacuumOff == l_dwDeviceCode)) {
-		// oL[ OFF 䂪ʂ̎w߂̏ꍇ
+		// oL[ OFF ‰Ç™ ÇÃéwﬂÇÃèÍçá
 		m_pcMainFrame->PostMessage(WM_CHIF_VACUUM_END, (WPARAM) l_iResult, 0);
 		m_bVacuumOffFromDisp = FALSE;
 	} else {
-/* modified 2009.08.06 hmenjo XgX@\ǉ(28) ---------- { ---------- */
+/* modified 2009.08.06 hmenjo XgX@\«â(28) ---------- { ---------- */
 //		if ((nexMoveToUpper == l_dwDeviceCode) || (nexMoveToLower == l_dwDeviceCode)) {
-/* modified 2009.08.06 hmenjo XgX@\ǉ(28) ----------			   */
+/* modified 2009.08.06 hmenjo XgX@\«â(28) ----------			   */
 		if ((nexMoveToUpper == l_dwDeviceCode) || (nexMoveToLower == l_dwDeviceCode) || (nexMoveToAlignment == l_dwDeviceCode)) {
-/* modified 2009.08.06 hmenjo XgX@\ǉ(28) ---------- } ---------- */
-			ActuateFlagsSet(ACTUATE_PIN, FALSE);			// 쒆tO(s)It
+/* modified 2009.08.06 hmenjo XgX@\«â(28) ---------- } ---------- */
+			ActuateFlagsSet(ACTUATE_PIN, FALSE);			// ÏíÜtO(s)It
 		}
 		if ((nexOpenShutter == l_dwDeviceCode) || (nexCloseShutter == l_dwDeviceCode)) {
-			ActuateFlagsSet(ACTUATE_SHUTTER, FALSE);		// 쒆tO(Vb^)It
+			ActuateFlagsSet(ACTUATE_SHUTTER, FALSE);		// ÏíÜtO(Vb^)It
 		}
 		if ((nexLoad == l_dwDeviceCode) || (nexUnload == l_dwDeviceCode)) {
-			ActuateFlagsSet(ACTUATE_PIN, FALSE);			// 쒆tO(s)It
-			ActuateFlagsSet(ACTUATE_WORKGUIDE, FALSE);	// 쒆tO([NKCh)It
+			ActuateFlagsSet(ACTUATE_PIN, FALSE);			// ÏíÜtO(s)It
+			ActuateFlagsSet(ACTUATE_WORKGUIDE, FALSE);	// ÏíÜtO([NKCh)It
 		}
 		switch (l_dwDeviceCode) {
-/* modified 2009.10.06 hmenjo Stress nexifLoad ɕύX ---------- { ---------- */
+/* modified 2009.10.06 hmenjo Stress nexifLoad …ïœçX ---------- { ---------- */
 //		case nexLoad:			PifComm_AlignmentLoadResultReport(l_iResult);	break;	// ACg Load
-/* modified 2009.10.06 hmenjo Stress nexifLoad ɕύX ----------			  */
+/* modified 2009.10.06 hmenjo Stress nexifLoad …ïœçX ----------			  */
 		case nexLoad:																	/* ACg Load	*/
 			if (0 == m_dwPinMoveState) {
 // 2010.02.16 K.Matsuo Bug fix -->
@@ -615,7 +615,7 @@ LRESULT CChiefView::OnNextraResponse(WPARAM wparam, LPARAM lparam)
 				int l_iEvent;
 				int l_iErrCode;
 				if (0 != l_iResult) {
-					/* ُ	*/
+					/* Ÿè	*/
 					l_iEvent = EV_STRS_CANCEL;
 					l_iErrCode = TR_STRS_PINMOVE_FAIL;
 					((CChiefTransiStress*) m_pcChiefTransiStress)->TransiEvent(l_iEvent, (cEventParams*) l_iErrCode);
@@ -627,24 +627,24 @@ LRESULT CChiefView::OnNextraResponse(WPARAM wparam, LPARAM lparam)
 // 2010.02.16 K.Matsuo Bug fix -->
 			break;
 // 2010.02.16 K.Matsuo Bug fix <--
-/* modified 2009.10.06 hmenjo Stress nexifLoad ɕύX ---------- } ---------- */
+/* modified 2009.10.06 hmenjo Stress nexifLoad …ïœçX ---------- } ---------- */
 		case nexUnload:			PifComm_AlignmentUnloadResultReport(l_iResult);	break;	// ACg Unload
-		case nexMoveToUpper:	PifComm_PinUpResultReport(l_iResult);			break;	// s㏸[ړ
-/* modified 2009.10.06 hmenjo Stress nexifLoad ɕύX ---------- { ---------- */
-///* deleted 2009.08.03 hmenjo XgX@\ǉ(17) ---------- { ---------- */
-////		case nexMoveToLower:	PifComm_PinDownResultReport(l_iResult);			break;	// s~[ړ
-///* deleted 2009.08.03 hmenjo XgX@\ǉ(17) ---------- } ---------- */
-/* modified 2009.10.06 hmenjo Stress nexifLoad ɕύX ----------			  */
-		case nexMoveToLower:	PifComm_PinDownResultReport(l_iResult);			break;	// s~[ړ
-/* modified 2009.10.06 hmenjo Stress nexifLoad ɕύX ---------- } ---------- */
+		case nexMoveToUpper:	PifComm_PinUpResultReport(l_iResult);			break;	// s„è∏[⁄ì
+/* modified 2009.10.06 hmenjo Stress nexifLoad …ïœçX ---------- { ---------- */
+///* deleted 2009.08.03 hmenjo XgX@\«â(17) ---------- { ---------- */
+////		case nexMoveToLower:	PifComm_PinDownResultReport(l_iResult);			break;	// s~[⁄ì
+///* deleted 2009.08.03 hmenjo XgX@\«â(17) ---------- } ---------- */
+/* modified 2009.10.06 hmenjo Stress nexifLoad …ïœçX ----------			  */
+		case nexMoveToLower:	PifComm_PinDownResultReport(l_iResult);			break;	// s~[⁄ì
+/* modified 2009.10.06 hmenjo Stress nexifLoad …ïœçX ---------- } ---------- */
 		case nexOpenShutter:	PifComm_ShutterOpenResultReport(l_iResult);		break;	// Vb^ Open
 		case nexCloseShutter:	PifComm_ShutterCloseResultReport(l_iResult);	break;	// Vb^ Close
 		case nexVacuumOn:		PifComm_VaccumOnResultReport(l_iResult);		break;	// oL[ ON
 		case nexVacuumOff:		PifComm_VaccumOffResultReport(l_iResult);		break;	// oL[ OFF
-/* modified 2009.10.06 hmenjo Stress nexifLoad ɕύX ---------- { ---------- */
-///* added 2009.08.03 hmenjo XgX@\ǉ(17) ---------- { ---------- */
-//		case nexMoveToLower:															/* s~[ړ	*/
-//		case nexMoveToAlignment:														/* sACgʒuړ	*/
+/* modified 2009.10.06 hmenjo Stress nexifLoad …ïœçX ---------- { ---------- */
+///* added 2009.08.03 hmenjo XgX@\«â(17) ---------- { ---------- */
+//		case nexMoveToLower:															/* s~[⁄ì	*/
+//		case nexMoveToAlignment:														/* sACg íu⁄ì	*/
 //			if (0 == m_dwPinMoveState) {
 //				if (nexMoveToLower == l_dwDeviceCode) {
 //					PifComm_PinDownResultReport(l_iResult);
@@ -657,7 +657,7 @@ LRESULT CChiefView::OnNextraResponse(WPARAM wparam, LPARAM lparam)
 ////				if (0 == l_iResult) {
 //				if (0 != l_iResult) {
 //// 2009.08.21 K.Matsuo <--
-//					/* ُ	*/
+//					/* Ÿè	*/
 //					l_iEvent = EV_STRS_CANCEL;
 //					l_iErrCode = TR_STRS_PINMOVE_FAIL;
 //// 2009.08.22 K.Matsuo -->
@@ -676,9 +676,9 @@ LRESULT CChiefView::OnNextraResponse(WPARAM wparam, LPARAM lparam)
 //// 2009.08.22 K.Matsuo <--
 //			}
 //			break;
-///* added 2009.08.03 hmenjo XgX@\ǉ(17) ---------- } ---------- */
-/* modified 2009.10.06 hmenjo Stress nexifLoad ɕύX ----------			  */
-		case nexMoveToAlignment:														/* sACgʒuړ	*/
+///* added 2009.08.03 hmenjo XgX@\«â(17) ---------- } ---------- */
+/* modified 2009.10.06 hmenjo Stress nexifLoad …ïœçX ----------			  */
+		case nexMoveToAlignment:														/* sACg íu⁄ì	*/
 			if (0 == m_dwPinMoveState) {
 				if (nexMoveToLower == l_dwDeviceCode) {
 					PifComm_PinDownResultReport(l_iResult);
@@ -688,7 +688,7 @@ LRESULT CChiefView::OnNextraResponse(WPARAM wparam, LPARAM lparam)
 				int l_iEvent;
 				int l_iErrCode;
 				if (0 != l_iResult) {
-					/* ُ	*/
+					/* Ÿè	*/
 					l_iEvent = EV_STRS_CANCEL;
 					l_iErrCode = TR_STRS_PINMOVE_FAIL;
 					((CChiefTransiStress*) m_pcChiefTransiStress)->TransiEvent(l_iEvent, (cEventParams*) l_iErrCode);
@@ -698,17 +698,17 @@ LRESULT CChiefView::OnNextraResponse(WPARAM wparam, LPARAM lparam)
 				}
 			}
 			break;
-/* modified 2009.10.06 hmenjo Stress nexifLoad ɕύX ---------- } ---------- */
-		case nexInitialize:																// (HHHۗ)
+/* modified 2009.10.06 hmenjo Stress nexifLoad …ïœçX ---------- } ---------- */
+		case nexInitialize:																// (HHH€ó)
 		case nexReturnToOrigin:															// s_AC[NKChJ
-/* deleted 2009.08.03 hmenjo XgX@\ǉ(17) ---------- { ---------- */
-//		case nexMoveToAlignment:														// sACgʒuړ
-/* deleted 2009.08.03 hmenjo XgX@\ǉ(17) ---------- } ---------- */
+/* deleted 2009.08.03 hmenjo XgX@\«â(17) ---------- { ---------- */
+//		case nexMoveToAlignment:														// sACg íu⁄ì
+/* deleted 2009.08.03 hmenjo XgX@\«â(17) ---------- } ---------- */
 		case nexOpenWorkGuide:															// [NKChJ
 		case nexCloseWorkGuide:															// [NKCh
 		default:
-			/*	(2008.09.03)C̎w߂́CChief ͔s܂D
-				āCbZ[WĂCĂ܂D	*/
+			/*	(2008.09.03)CÃéwﬂÇÕÅCChief Õîs‹ÇD
+				ƒÅCbZ[WƒÇCƒÇ‹ÇD	*/
 			LogChief(_T("Last Nextra Response was invalid."));
 			break;
 		}
@@ -719,7 +719,7 @@ LRESULT CChiefView::OnNextraResponse(WPARAM wparam, LPARAM lparam)
 
 /*
  *	Pif R}hM\ bZ[Wnh
- *		擪̃R}hR[hS_CAOɕ\܂D
+ *		Êì™ÃÉR}hR[hS_CAO…ï\‹ÇD
  */
 LRESULT CChiefView::OnDispRecvPifCmd(WPARAM wparam, LPARAM lparam)
 {
@@ -733,10 +733,10 @@ LRESULT CChiefView::OnDispRecvPifCmd(WPARAM wparam, LPARAM lparam)
 }
 
 /*
- *	_CAÕXe[^Xj^XV bZ[Wnh
+ *	_CAOÃÉXe[^Xj^XV bZ[Wnh
  *		EXe[^X
- *		EʃXe[^X([h)
- *		E쒆tO
+ *		E ÉXe[^X([h)
+ *		EÏíÜtO
  *		EPR tO
  *		EegWV
  *		EeW[
@@ -746,37 +746,37 @@ LRESULT CChiefView::OnUpdateStatesOnDlg(WPARAM wparam, LPARAM lparam)
 	//Saiki 20090527 Change ----->
 	//// Xe[^X ------------------------------------------------------
 	//SetDlgItemText(IDC_STATIC_PRCSTS, PROCESS_STATUS_DISP[((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetProcessStatus()]);
-	//// ʃXe[^X([h) ----------------------------------------------
+	////  ÉXe[^X([h) ----------------------------------------------
 	//SetDlgItemText(IDC_STATIC_DSPSTS, DISPMODE_STATUS_DISP[((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetDispStatus()]);
 	SYSTEM_CONFIG l_SystemConfig;
 	ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 	if(l_SystemConfig.nLanguage == 0){
 		// Xe[^X ------------------------------------------------------
 		SetDlgItemText(IDC_STATIC_PRCSTS, PROCESS_STATUS_DISP_ENU[((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetProcessStatus()]);
-		// ʃXe[^X([h) ----------------------------------------------
+		//  ÉXe[^X([h) ----------------------------------------------
 		SetDlgItemText(IDC_STATIC_DSPSTS, DISPMODE_STATUS_DISP_ENU[((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetDispStatus()]);
 	}
 	else{
 		// Xe[^X ------------------------------------------------------
 		SetDlgItemText(IDC_STATIC_PRCSTS, PROCESS_STATUS_DISP_JPN[((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetProcessStatus()]);
-		// ʃXe[^X([h) ----------------------------------------------
+		//  ÉXe[^X([h) ----------------------------------------------
 		SetDlgItemText(IDC_STATIC_DSPSTS, DISPMODE_STATUS_DISP_JPN[((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetDispStatus()]);
 	}
 
 	//Saiki 20090527 Change <-----
-	// 쒆tO --------------------------------------------------------
+	// ÏíÜtO --------------------------------------------------------
 	SetDlgItemText(IDC_STATIC_ACTXY,	(0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_XYSTAGE))? _T("ON") : _T("OFF"));
 	SetDlgItemText(IDC_STATIC_ACTZ,		(0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_ZAXIS))? _T("ON") : _T("OFF"));
 	SetDlgItemText(IDC_STATIC_ACTPIN,	(0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_PIN))? _T("ON") : _T("OFF"));
 	SetDlgItemText(IDC_STATIC_ACTSHUT,	(0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_SHUTTER))? _T("ON") : _T("OFF"));
 	SetDlgItemText(IDC_STATIC_ACTWG,	(0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_WORKGUIDE))? _T("ON") : _T("OFF"));
 	SetDlgItemText(IDC_STATIC_ACTTRET,	(0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_TURRET))? _T("ON") : _T("OFF"));
-	//2009.11.10 bagus MS --{-- ǉꂽ쒆tO̕\
+	//2009.11.10 bagus MS --{-- «âÍÇΩÏíÜtOÃï\
 // 2009.11.24 K.Matsuo Delete -->
 //	SetDlgItemText(IDC_STATIC_ACTHEAD,	(0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_HEAD))? _T("ON") : _T("OFF"));
 // 2009.11.24 K.Matsuo Delete <--
 	SetDlgItemText(IDC_STATIC_ACTMS,	(0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_MICROSCOPE))? _T("ON") : _T("OFF"));
-	//2009.11.10 bagus MS --}-- ǉꂽ쒆tO̕\
+	//2009.11.10 bagus MS --}-- «âÍÇΩÏíÜtOÃï\
 
 	// PR tO ---------------------------------------------------------
 	SetDlgItemText(IDC_STATIC_PRSTS,	(0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetPatRecFlag())? _T("ON") : _T("OFF"));
@@ -793,14 +793,14 @@ LRESULT CChiefView::OnUpdateStatesOnDlg(WPARAM wparam, LPARAM lparam)
 	SetDlgItemText(IDC_STATIC_TRAAF, STATES_AAF_DISP[((CChiefTransiAF*) m_pcChiefTransiAF)->GetCurrentState()]);
 	// SR P|Cg gWV
 	SetDlgItemText(IDC_STATIC_TRSR1POINT, STATES_SR_1POINT_DISP[((CChiefTransiSr1Point*) m_pcChiefTransiSr1Point)->GetCurrentState()]);
-/* added 2009.08.06 hmenjo XgX@\ǉ(27) ---------- { ---------- */
+/* added 2009.08.06 hmenjo XgX@\«â(27) ---------- { ---------- */
 	// XgX V[PX gWV
 	SetDlgItemText(IDC_STATIC_TRSTRS, STATES_STRS_DISP[((CChiefTransiStress*) m_pcChiefTransiStress)->GetCurrentState()]);
-/* added 2009.08.06 hmenjo XgX@\ǉ(27) ---------- } ---------- */
+/* added 2009.08.06 hmenjo XgX@\«â(27) ---------- } ---------- */
 	// eW[ ----------------------------------------------------
 	// Xe[WW[
 	SetDlgItemText(IDC_STATIC_MODSTAGE, (0 == m_dwModuleState_Stage)? _T("Uninitialize") : _T("Initialized"));
-	// SR 胂W[
+	// SR ËÉÇW[
 	SetDlgItemText(IDC_STATIC_MODSRMEAS, (0 == m_dwModuleState_SR_Meas)? _T("Uninitialize") : _T("Initialized"));
 	// Pif W[
 	SetDlgItemText(IDC_STATIC_MODPIF, (0 == m_dwModuleState_Pif)? _T("Uninitialize") : _T("Initialized"));
@@ -820,16 +820,16 @@ LRESULT CChiefView::OnUpdateStatesOnDlg(WPARAM wparam, LPARAM lparam)
 	SetDlgItemText(IDC_STATIC_TRSR1POINT_HB, l_strTmp);
 	l_strTmp.Format("%02X", ((CChiefTransiSrRefer*) m_pcChiefTransiSrRefer)->m_dwHeartBeat & 0x000000ff);
 	SetDlgItemText(IDC_STATIC_TRSRREFER_HB, l_strTmp);
-/* added 2009.05.27 hmenjo SPT A[̌o ---------- { ---------- */
+/* added 2009.05.27 hmenjo SPT A[Ãåo ---------- { ---------- */
 	SPTAlarmDetector();
-/* added 2009.05.27 hmenjo SPT A[̌o ---------- } ---------- */
+/* added 2009.05.27 hmenjo SPT A[Ãåo ---------- } ---------- */
 
 	return 0L;
 }
 
 // 2009.02.05 K.Matsuo delete -->
 ///*
-// *	g[Xf[^莞(M)p^C} X^[g֐
+// *	g[Xf[^Ëéû(M)p^C} X^[g÷ê
 // */
 //BOOL CChiefView::StartTimerTraceData(UINT uiTraceDataPeriod)
 //{
@@ -849,7 +849,7 @@ LRESULT CChiefView::OnUpdateStatesOnDlg(WPARAM wparam, LPARAM lparam)
 //{
 //	PifComm_TraceDataReport();
 //		/*
-//		 *	̊֐́C܂Cł̂ŁCύX̉\܂D
+//		 *	Ãä÷êÕÅC‹ÇC≈ÇÃÇ≈ÅCœçXÃâ¬î\‹ÇD
 //		 */
 //
 //	return 0L;
@@ -857,36 +857,36 @@ LRESULT CChiefView::OnUpdateStatesOnDlg(WPARAM wparam, LPARAM lparam)
 // 2009.02.05 K.Matsuo delete <--
 
 /*
- *	DI ()擾
- *		Nextra IO 擾܂
+ *	DI ()Êìæ
+ *		Nextra IO Êìæ‹Ç
  */
 void CChiefView::GetDiInfo(CHIEF_DI_INFO* pDiInfo)
 {
 	pDiInfo->bEMOStop			= nexioIsEmergencyStop();
-/* added 2009.08.17 hmenjo Z[teBvOǉ ---------- { ---------- */
+/* added 2009.08.17 hmenjo Z[teBvO«â ---------- { ---------- */
 	pDiInfo->bSafetyPlug		= nexioIsSafetyPlug();
-/* added 2009.08.17 hmenjo Z[teBvOǉ ---------- } ---------- */
+/* added 2009.08.17 hmenjo Z[teBvO«â ---------- } ---------- */
 	pDiInfo->bDoorInterlock		= nexioIsDoorInterlock();
 	pDiInfo->bEQPower			= nexioIsEquipmentPower();
-//	pDiInfo->bAlignmentPowerOn	= TRUE;	//nexioGetInpDataPtr()->AlignmentPowerOn;	͍폜܂(2008.10.27)D
+//	pDiInfo->bAlignmentPowerOn	= TRUE;	//nexioGetInpDataPtr()->AlignmentPowerOn;	ÕçÌèú‹Ç(2008.10.27)D
 	pDiInfo->bMaintenanceSW		= nexioIsMaintenanceSwitch();
 	pDiInfo->bTHMaintenanceSW	= nexioIsEngineerMaintenanceSwitch();
-/* modified hmenjo 2009.05.20 GA͒ቺõbp֐ -------- { -------- */
+/* modified hmenjo 2009.05.20 GAÕí·â∫oÃÉbp÷ê -------- { -------- */
 //	pDiInfo->bAirPressureLow	= nexioIsAirPressureLevelLow();
-/* modified hmenjo 2009.05.20 GA͒ቺõbp֐ -------- 		   */
+/* modified hmenjo 2009.05.20 GAÕí·â∫oÃÉbp÷ê -------- 		   */
 	pDiInfo->bAirPressureLow	= ((CNanoSpecDoc*) m_pcNanoSpecDoc)->Rap_IsAirPressureLowON();
-/* modified hmenjo 2009.05.20 GA͒ቺõbp֐ -------- } -------- */
+/* modified hmenjo 2009.05.20 GAÕí·â∫oÃÉbp÷ê -------- } -------- */
 	pDiInfo->bGlassExist		= nexioIsGlassExist();
 	pDiInfo->bLoadPos			= nexioIsStageLoadPos();
 	pDiInfo->bShutterOpen		= nexioIsShutterOpen();
 	pDiInfo->bShutterClose		= nexioIsShutterClose();
 	pDiInfo->bRobotArm			= nexioIsRobotArmDetect();
 	pDiInfo->bVacuumPressure1	= nexioIsVacuumOn();
-//	pDiInfo->bVacuumPressure2	= nexioIsVacuumOn();		͍폜܂(2008.10.27)D
+//	pDiInfo->bVacuumPressure2	= nexioIsVacuumOn();		ÕçÌèú‹Ç(2008.10.27)D
 	pDiInfo->bPinUp				= nexioIsPinUpperPos();
-/* modified 2009.08.20 hmenjo XgX@\ǉ(46) ---------- { ---------- */
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ---------- { ---------- */
 //	pDiInfo->bPinDown			= nexioIsPinDownPos();
-/* modified 2009.08.20 hmenjo XgX@\ǉ(46) ----------			   */
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ----------			   */
 	if ((0 != this->IsHWS()) && (0 != m_pcChiefTransiStress)) {
 		if (true == ((CChiefTransiStress*) m_pcChiefTransiStress)->IsPinAligningHWS()) {
 			pDiInfo->bPinDown		= nexioIsPinAlignmentPos();
@@ -899,7 +899,7 @@ void CChiefView::GetDiInfo(CHIEF_DI_INFO* pDiInfo)
 		pDiInfo->bPinDown		= nexioIsPinDownPos();
 		pDiInfo->bPinAlign		= nexioIsPinAlignmentPos();
 	}
-/* modified 2009.08.20 hmenjo XgX@\ǉ(46) ---------- } ---------- */
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ---------- } ---------- */
 	pDiInfo->bWorkGuideOpen		= nexioIsWorkGuideOpen();
 	pDiInfo->bWorkGuideClose	= nexioIsWorkGuideClose();
 
@@ -922,7 +922,7 @@ void CChiefView::GetDiInfo(CHIEF_DI_INFO* pDiInfo)
 
 /*
  *	Pif DI tbV bZ[Wnh
- *		DI  Pif ̋LGA(vZXXe[^X񍐗pt@C}bsO)ɃZbg܂D
+ *		DI  Pif ÃãLGA(vZXXe[^XÒçêópt@C}bsO)…ÉZbg‹ÇD
  */
 LRESULT CChiefView::OnPifDiRefresh(WPARAM wparam, LPARAM lparam)
 {
@@ -935,13 +935,13 @@ LRESULT CChiefView::OnPifDiRefresh(WPARAM wparam, LPARAM lparam)
 	PifComm_GetEqMonitorPtr()->iPinDown			= m_DiInfo.bPinDown;
 	PifComm_GetEqMonitorPtr()->iArmSensor		= m_DiInfo.bRobotArm;
 	PifComm_GetEqMonitorPtr()->iDoorInterlock	= m_DiInfo.bDoorInterlock;
-//	PifComm_GetEqMonitorPtr()->iVaccumOn2		= m_DiInfo.bVacuumPressure2;	͍폜܂(2008.10.27)
+//	PifComm_GetEqMonitorPtr()->iVaccumOn2		= m_DiInfo.bVacuumPressure2;	ÕçÌèú‹Ç(2008.10.27)
 
 	return 0L;
 }
 
 /*
- *	EQ 쒆`FbN bZ[Wnh
+ *	EQ ÏíÜ`FbN bZ[Wnh
  */
 LRESULT CChiefView::OnEQRunCheck(WPARAM wparam, LPARAM lparam)
 {
@@ -959,7 +959,7 @@ LRESULT CChiefView::OnEQRunCheck(WPARAM wparam, LPARAM lparam)
 		break;
 	}
 	if (FALSE == l_bEQRun) {
-		// 쒆tO`FbN
+		// ÏíÜtO`FbN
 		if (0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGetAll()) {
 			l_bEQRun = TRUE;
 		}
@@ -974,20 +974,20 @@ LRESULT CChiefView::OnEQRunCheck(WPARAM wparam, LPARAM lparam)
 
 	if ((0 != m_DiInfo.bMaintenanceSW)
 	 && (0 == m_DiInfo.bTHMaintenanceSW)) {
-		// e SW ItCCe SW ItĈƂ̓I܂D
-		// ܂Cʏ탂[ĥƂłD
-		// A̓쒆͋It͂܂D
+		// e SW ItC¬ÅCe SW ItCÃÇ∆ÇÕÉI‹ÇD
+		// ¬Ç‹ÇC èÌÉÇ[hÃÇ∆Ç≈ÇD
+		// AÃìÏíÜÕãItÕÇ‹ÇD
 		if (PROCESS_INIT != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetProcessStatus()) {
 			l_bEQRun = FALSE;
 		}
 	}
 
 	if (0 == m_DiInfo.bEQPower) {
-		// udItȂ̂ŃI܂D
+		// udIt»ÇÃÇ≈ÉI‹ÇD
 		l_bEQRun = FALSE;
 	}
 	if (m_bEQRunPrev != l_bEQRun) {
-		// EQ 쒆̏Ԃɕω̂ EQ 쒆o͂ݒ
+		// EQ ÏíÜÃè‘Ç…ïœâÃÇ EQ ÏíÜoÕÇ›í
 		nexioEquipmentStatusRun(l_bEQRun);
 		m_bEQRunPrev = l_bEQRun;
 	}
@@ -1042,7 +1042,7 @@ DWORD CChiefView::TransitionsStart()
 		LogChief(_T("Failed to start CChiefTransiSeq."));
 		l_dwRc = 2;
 	}
-/* added 2009.07.30 hmenjo XgX@\ǉ(2) ---------- { ---------- */
+/* added 2009.07.30 hmenjo XgX@\«â(2) ---------- { ---------- */
 	// XgX gWV XbhN
 	LogChief(_T("Requested to start CChiefTransiStress."));
 	m_pcChiefTransiStress = new CChiefTransiStress((CWnd*) this);
@@ -1051,7 +1051,7 @@ DWORD CChiefView::TransitionsStart()
 		LogChief(_T("Failed to start CChiefTransiStress."));
 		l_dwRc = 2;
 	}
-/* added 2009.07.30 hmenjo XgX@\ǉ(2) ---------- } ---------- */
+/* added 2009.07.30 hmenjo XgX@\«â(2) ---------- } ---------- */
 	// }X^ gWV XbhN
 	LogChief(_T("Requested to start CChiefTransiMaster."));
 	m_pcChiefTransiMaster = new CChiefTransiMaster((CWnd*) this);
@@ -1097,7 +1097,7 @@ void CChiefView::TransitionsEnd()
 		m_pcChiefTransiSr1Point = 0;
 		LogChief(_T("Deleted  CChiefTransiSr1Point."));
 	}
-/* added 2009.07.30 hmenjo XgX@\ǉ(2) ---------- { ---------- */
+/* added 2009.07.30 hmenjo XgX@\«â(2) ---------- { ---------- */
 	// V[PX gWV XbhI
 	if (0 != m_pcChiefTransiStress) {
 		LogChief(_T("Deleting CChiefTransiStress..."));
@@ -1105,7 +1105,7 @@ void CChiefView::TransitionsEnd()
 		m_pcChiefTransiStress = 0;
 		LogChief(_T("Deleted  CChiefTransiStress."));
 	}
-/* added 2009.07.30 hmenjo XgX@\ǉ(2) ---------- } ---------- */
+/* added 2009.07.30 hmenjo XgX@\«â(2) ---------- } ---------- */
 	// V[PX gWV XbhI
 	if (0 != m_pcChiefTransiSeq) {
 		LogChief(_T("Deleting CChiefTransiSeq..."));
@@ -1124,22 +1124,22 @@ void CChiefView::TransitionsEnd()
 /*
  *	eA[p bZ[Wnh
  */
-/*			p^(`"ChiefExports.h"ɂ܂)
+/*			p^(`"ChiefExports.h"…Ç‹Ç)
  *				wparam
- *						[P]FLOBYTE(LOWORD(wparam))	񍐕@
- *															bZ[W{bNX̕\̂
- *															A[񍐂̂
+ *						[P]FLOBYTE(LOWORD(wparam))	Òçêï@
+ *															bZ[W{bNXÃï\ÃÇ
+ *															A[ÒçêÇÃÇ
  *															
- *						[Q]FHIBYTE(LOWORD(wparam))	eʒm(CMainFrame)
- *															Ȃ
- *															(̌̏͐eł)
- *						[R]FLOBYTE(HIWORD(wparam))	bZ[W{bNX̃^Cgԍ
- *						[S]FHIBYTE(HIWORD(wparam))	bZ[W{bNX̃{^\
+ *						[Q]FHIBYTE(LOWORD(wparam))	e ím(CMainFrame)
+ *															»Ç
+ *															(ÃåÃèÕêe≈Ç)
+ *						[R]FLOBYTE(HIWORD(wparam))	bZ[W{bNXÃÉ^Cg‘ç
+ *						[S]FHIBYTE(HIWORD(wparam))	bZ[W{bNXÃÉ{^\
  *															OK
- *															YES/NO(YES ̏ꍇ͐eʒm̃AvIp^ TRUE ɂ)
+ *															YES/NO(YES ÃèÍçáÕêe ímÃÉAvIp^ TRUE …Ç)
  *				lparam
- *						[T]FLOWORD(lparam)			bZ[W{bNX̃eLXgԍ
- *						[U]FHIWORD(lparam)			A[񍐂 ALID
+ *						[T]FLOWORD(lparam)			bZ[W{bNXÃÉeLXg‘ç
+ *						[U]FHIWORD(lparam)			A[ÒçêÇ ALID
  *			w@
  *				PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD([P], [Q]), MAKEWORD([R], [S])), MAKELPARAM([T], [U]));
  */
@@ -1153,13 +1153,13 @@ LRESULT CChiefView::OnReportAlarms(WPARAM wparam, LPARAM lparam)
 		DWORD l_dwMsgTextNo = LOWORD(lparam);
 		DWORD l_dwALID = HIWORD(lparam);
 
-/* added 2009.11.06 hmenjo CTA A[Zbgُ탊Zbg ---------- { ---------- */
+/* added 2009.11.06 hmenjo CTA A[ZbgŸèÌÉäZbg ---------- { ---------- */
 		switch (l_dwALID) {
 		case ALID_CTA_Setinf:
 			this->CtaReset(1);
 			break;
 		}
-/* added 2009.11.06 hmenjo CTA A[Zbgُ탊Zbg ---------- } ---------- */
+/* added 2009.11.06 hmenjo CTA A[ZbgŸèÌÉäZbg ---------- } ---------- */
 
 		// A[ ------------------------------------------------------
 //		if ((CHRAMTD_BOTH == l_dwMethod) || (CHRAMTD_REP_ALARM == l_dwMethod)) {
@@ -1170,7 +1170,7 @@ LRESULT CChiefView::OnReportAlarms(WPARAM wparam, LPARAM lparam)
 		DWORD l_dwNotifyCode = 0;
 //		if ((CHRAMTD_BOTH == l_dwMethod) || (CHRAMTD_MSGBOX == l_dwMethod)) {
 		if (0 != (0x00000001 & l_dwMethod)) {
-			// bZ[W{bNX̃{^`쐬
+			// bZ[W{bNXÃÉ{^`Ïê¨
 //			UINT l_uiType = MB_ICONSTOP;
 			UINT l_uiType = MB_ICONERROR;
 //			UINT l_uiType = MB_ICONHAND;
@@ -1198,7 +1198,7 @@ LRESULT CChiefView::OnReportAlarms(WPARAM wparam, LPARAM lparam)
 				break;
 			}
 		}
-		// eʒm ------------------------------------------------------------
+		// e ím ------------------------------------------------------------
 		if (CHRANFY_NOTIFY_ON == l_dwNotify) {
 			m_pcMainFrame->PostMessage(WM_CHIF_ERROR_NOTIFY, (WPARAM) l_dwNotifyCode, 0);
 		}
@@ -1208,7 +1208,7 @@ LRESULT CChiefView::OnReportAlarms(WPARAM wparam, LPARAM lparam)
 }
 
 /*
- *	ėp|WVړw(Pif ) bZ[Wnh
+ *	ƒóp|WV⁄ìw(Pif ) bZ[Wnh
  */
 LRESULT CChiefView::OnMoveSetPosFromPif(WPARAM wparam, LPARAM lparam)
 {
@@ -1221,25 +1221,25 @@ LRESULT CChiefView::OnMoveSetPosFromPif(WPARAM wparam, LPARAM lparam)
 	long l_dwMovePosId = (long) wparam;
 
 	if ((l_dwMovePosId < 0) || (GENERAL_POSITION_MAX < l_dwMovePosId)) {
-		// ͈͊Oł
-		//	ɂ͉͂܂D
+		// ÕàÕäO≈Ç
+		//	…ÇÕâÕÇ‹ÇD
 		LogChief(_T("WM_CHIF_MOVE_SETPOS : Position No. was out of range."));
 	} else {
 		if (0 == l_dwMovePosId) {
 			// nh [h |WV
 			ConfigFile_GetNanoSpecIni(&l_SetPosition, CONFIG_FILE_HANDLER_LOAD_POSITION);
 		} else if ((1 <= l_dwMovePosId) && (l_dwMovePosId <= GENERAL_POSITION_MAX)) {
-			// ėp |WV
+			// ƒóp |WV
 			GENERAL_POSITION l_GeneralPosition[GENERAL_POSITION_MAX];
 			ConfigFile_GetNanoSpecIni(l_GeneralPosition, CONFIG_FILE_GENERAL_POSITION);
 			l_SetPosition = l_GeneralPosition[l_dwMovePosId - 1].Loc;
 		}
-		// Xe[Wړ
+		// Xe[W⁄ì
 #ifndef CHIEF_STAGE_ON
 		{
-//	StageMoveAbsoluteEx() ܂ŗLłD
+//	StageMoveAbsoluteEx() ‹Ç≈óL≈ÇD
 			if (0 == ((CMainFrame*) m_pcMainFrame)->HardwareSimulation()) {
-				ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		// 쒆tO(XY Xe[W)I
+				ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		// ÏíÜtO(XY Xe[W)I
 				if (0 == l_dwMovePosId) {
 					//Saiki 20090602 Change ----->
 					//m_pcMainFrame->SetMessageText(IDS_CHIF_HLDPOS_MOVING);  // Status Bar
@@ -1256,12 +1256,12 @@ LRESULT CChiefView::OnMoveSetPosFromPif(WPARAM wparam, LPARAM lparam)
 			}
 		}
 #endif
-/* added 2009.11.26 hmenjo  Seq ͎wwbhœ ---------- { ---------- */
-		/* SR wbhɂ܂D	*/
+/* added 2009.11.26 hmenjo  Seq Õéwwbh≈ì ---------- { ---------- */
+		/* SR wbh…Ç‹ÇD	*/
 		this->SelectHead(HEAD_TYPE_SR, FALSE);
-/* added 2009.11.26 hmenjo  Seq ͎wwbhœ ---------- } ---------- */
+/* added 2009.11.26 hmenjo  Seq Õéwwbh≈ì ---------- } ---------- */
 		if (0 != ((CMainFrame*) m_pcMainFrame)->HardwareSimulation()) {
-			// n[hV~[g[h̏ꍇ
+			// n[hV~[g[hÃèÍçá
 			if (0 == l_dwMovePosId) {
 				//Saiki 20090602 Change ----->
 				//m_pcMainFrame->SetMessageText(IDS_CHIF_HWS_HLDPOS_MOVING);  // Status Bar
@@ -1275,11 +1275,11 @@ LRESULT CChiefView::OnMoveSetPosFromPif(WPARAM wparam, LPARAM lparam)
 				//Saiki 20090602 Change ----->
 				//m_pcMainFrame->SetMessageText(IDS_CHIF_HWS_HLDPOS_MOVED);   // Status Bar
 				LoadStringML(IDS_CHIF_HWS_HLDPOS_MOVED, strMsg, " ");
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- { ---------- */
 				m_pcMainFrame->SetMessageText(IDS_CHIF_HWS_HLDPOS_MOVED);	// Status Bar
-#else						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ----------			   */
+#else						/* modified 2009.08.05 hmenjo bZ[W\»Ç ----------			   */
 				m_pcMainFrame->SetMessageText(_T(" "));	// Status Bar
-#endif						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- } ---------- */
 				//Saiki 20090602 Change <-----
 			} else {
 				//Saiki 20090602 Change ----->
@@ -1294,46 +1294,46 @@ LRESULT CChiefView::OnMoveSetPosFromPif(WPARAM wparam, LPARAM lparam)
 				//Saiki 20090602 Change ----->
 				//m_pcMainFrame->SetMessageText(IDS_CHIF_HWS_GENPOS_MOVED);   // Status Bar
 				LoadStringML(IDS_CHIF_HWS_GENPOS_MOVED, strMsg, " ");
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- { ---------- */
 				m_pcMainFrame->SetMessageText(IDS_CHIF_HWS_GENPOS_MOVED);	// Status Bar
-#else						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ----------			   */
+#else						/* modified 2009.08.05 hmenjo bZ[W\»Ç ----------			   */
 				m_pcMainFrame->SetMessageText(_T(" "));	// Status Bar
-#endif						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- } ---------- */
 				//Saiki 20090602 Change <-----
 			}
 		} else
 #ifndef CHIEF_STAGE_ON
-		NS_ConvertToStageMoveCoord(&l_SetPosition);					// ␳
-//		if (0 == StageMoveAbsoluteEx(&l_SetPosition, CHIEF_STGMVABS_MODE)) {		Stage.dll Ή܂ł͉Ľďo@ɂȂ܂D
+		NS_ConvertToStageMoveCoord(&l_SetPosition);					// ‚ê≥
+//		if (0 == StageMoveAbsoluteEx(&l_SetPosition, CHIEF_STGMVABS_MODE)) {		Stage.dll Œâ‹Ç≈ÇÕâLÃåƒèo@…Ç»Ç‹ÇD
 		if (0 == StageMoveAbsolute(&l_SetPosition)) {
 #else
 		if (0 == NS_StageMoveAbsoluteEx(&l_SetPosition)) {
 #endif
 			// s
 			if (0 == l_dwMovePosId) {
-				// Xe[WړJns(StageMoveAbsolute())
+				// Xe[W⁄ìJns(StageMoveAbsolute())
 				PifComm_LoadPositionMovementResultReport(2);
 			} else {
-				// Xe[WړJns(StageMoveAbsolute())
+				// Xe[W⁄ìJns(StageMoveAbsolute())
 				PifComm_GeneralPurposePositionMovementResultReport(2);
 			}
 #ifndef CHIEF_STAGE_ON
 			{
-//	StageMoveAbsoluteEx() ܂ŗLłD
-				ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		// 쒆tO(XY Xe[W)It
+//	StageMoveAbsoluteEx() ‹Ç≈óL≈ÇD
+				ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		// ÏíÜtO(XY Xe[W)It
 			}
 #endif
 		} else {
 			// 
 			if (0 == l_dwMovePosId) {
-				m_dwStageMoveState = 2;			// nh [h |WV ړ
+				m_dwStageMoveState = 2;			// nh [h |WV ⁄ì
 				//Saiki 20090602 Change ----->
 				//m_pcMainFrame->SetMessageText(IDS_CHIF_HLDPOS_MOVING);  // Status Bar
 				LoadStringML(IDS_CHIF_HLDPOS_MOVING, strMsg, "Moving Load Position...");
 				m_pcMainFrame->SetMessageText(strMsg);	// Status Bar
 				//Saiki 20090602 Change <-----
 			} else {
-				m_dwStageMoveState = 3;			// ėp |WV ړ
+				m_dwStageMoveState = 3;			// ƒóp |WV ⁄ì
 				//Saiki 20090602 Change ----->
 				//m_pcMainFrame->SetMessageText(IDS_CHIF_GENPOS_MOVING);  // Status Bar
 				LoadStringML(IDS_CHIF_GENPOS_MOVING, strMsg, "Moving General Position...");
@@ -1341,7 +1341,7 @@ LRESULT CChiefView::OnMoveSetPosFromPif(WPARAM wparam, LPARAM lparam)
 				//Saiki 20090602 Change <-----
 			}
 #ifdef CHIEF_STAGE_ON
-				ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		// 쒆tO(XY Xe[W)I
+				ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		// ÏíÜtO(XY Xe[W)I
 #endif
 		}
 	}
@@ -1350,7 +1350,7 @@ LRESULT CChiefView::OnMoveSetPosFromPif(WPARAM wparam, LPARAM lparam)
 }
 
 /*
- *	ėp|WVړw(ʂ) bZ[Wnh
+ *	ƒóp|WV⁄ìw( Ç) bZ[Wnh
  */
 LRESULT CChiefView::OnMoveSetPosFromDisp(WPARAM wparam, LPARAM lparam)
 {
@@ -1377,7 +1377,7 @@ LRESULT CChiefView::OnMoveSetPosFromDisp(WPARAM wparam, LPARAM lparam)
 		return 0L;
 	}
 	if (0 != CheckDIO_IsAirPressureLowON()) {
-		// GA͒ቺI
+		// GAÕí·â∫I
 		m_pcMainFrame->PostMessage(WM_CHIF_MOVE_SETPOS_END, (WPARAM) 36, 0);
 		return 0L;
 	}
@@ -1385,7 +1385,7 @@ LRESULT CChiefView::OnMoveSetPosFromDisp(WPARAM wparam, LPARAM lparam)
 		(0 == m_DiInfo.bTHMaintenanceSW)
 	 && ((0 == m_DiInfo.bShutterClose) || (0 != m_DiInfo.bShutterOpen))
 	) {
-		// eItŁCCVb^ CLOSE ItCCVb^ OPEN I
+		// eIt≈ÅC¬ÅCVb^ CLOSE ItCCVb^ OPEN I
 		m_pcMainFrame->PostMessage(WM_CHIF_MOVE_SETPOS_END, (WPARAM) 37, 0);
 		return 0L;
 	}
@@ -1400,19 +1400,19 @@ LRESULT CChiefView::OnMoveSetPosFromDisp(WPARAM wparam, LPARAM lparam)
 	int iResistStatus = this->CheckResistIL();
 	if (0 != iResistStatus) {
 		if (1 == iResistStatus) {
-			/* v[u㏸[ZT[ It	*/
+			/* v[u„è∏[ZT[ It	*/
 			m_pcMainFrame->PostMessage(WM_CHIF_MOVE_SETPOS_END, (WPARAM) 52, 0);
 		} else if (2 == iResistStatus) {
-			/* v[u㏸[E~[ZT[ I	*/
+			/* v[u„è∏[E~[ZT[ I	*/
 			m_pcMainFrame->PostMessage(WM_CHIF_MOVE_SETPOS_END, (WPARAM) 53, 0);
 		} else {
-			/* v[u㏸[E~[ZT[ It	*/
+			/* v[u„è∏[E~[ZT[ It	*/
 			m_pcMainFrame->PostMessage(WM_CHIF_MOVE_SETPOS_END, (WPARAM) 54, 0);
 		}
 		return 0L;
 	}
 	//2009.11.12 bagus MS --{--
-	//[ʒuQ̃C^[bNmF
+	//[ íuQÃÉC^[bNmF
 	if (0 == this->IsMSILPI()) {
 		/* CTAILPI It	*/
 		m_pcMainFrame->PostMessage(WM_CHIF_MOVE_SETPOS_END, (WPARAM) 55, 0);
@@ -1421,43 +1421,43 @@ LRESULT CChiefView::OnMoveSetPosFromDisp(WPARAM wparam, LPARAM lparam)
 	//2009.11.12 bagus MS --}--
 /* added 2009.11.06 K.Matsuo RS Seq Head Position `FbN ---------- } ---------- */
 	if (HOST_LOCAL != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetHostMode()) {
-		// [JłȂ
+		// [J≈Ç»Ç
 		m_pcMainFrame->PostMessage(WM_CHIF_MOVE_SETPOS_END, (WPARAM) 2, 0);
 		return 0L;
 	}
-#if 0	// ^[bg쒆tOɒǉ߁C^[bg͏O
+#if 0	// ^[bgÏíÜtO…í«âﬂÅC^[bgÕèO
 	if (0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGetAll()) {
-#else	// ^[bg쒆tOɒǉ߁C^[bg͏O
+#else	// ^[bgÏíÜtO…í«âﬂÅC^[bgÕèO
 	DWORD l_dwActFlags = ACTUATE_XYSTAGE | ACTUATE_ZAXIS | ACTUATE_PIN | ACTUATE_SHUTTER | ACTUATE_WORKGUIDE;
 	if (0 != (l_dwActFlags & ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGetAll())) {
-#endif	// ^[bg쒆tOɒǉ߁C^[bg͏O
-		// 쒆tOI
+#endif	// ^[bgÏíÜtO…í«âﬂÅC^[bgÕèO
+		// ÏíÜtOI
 		m_pcMainFrame->PostMessage(WM_CHIF_MOVE_SETPOS_END, (WPARAM) 6, 0);
 		return 0L;
 	}
 	int l_iProcStatus = ProcStatusGet();
 	if ((PROCESS_WAIT != l_iProcStatus) && (PROCESS_DOWN != l_iProcStatus)) {
-		// WaitCDown ȊO
+		// WaitCDown »äO
 		m_pcMainFrame->PostMessage(WM_CHIF_MOVE_SETPOS_END, (WPARAM) 8, 0);
 		return 0L;
 	}
 	if (MAIN_MENU_DATA == ((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetDispStatus()) {
-		// ʃ[huf[^[hv
+		//  É[huf[^[hv
 		m_pcMainFrame->PostMessage(WM_CHIF_MOVE_SETPOS_END, (WPARAM) 11, 0);
 		return 0L;
 	}
 	if (0 == m_DiInfo.bMaintenanceSW) {
-		// eiX SW ÍEEE
+		// eiX SW IÕÅEEE
 		if (0 == m_DiInfo.bTHMaintenanceSW) {
-			// ɁCe SW It̏ꍇC֎~
+			// …ÅCe SW ItÃèÍçáC÷é~
 			m_pcMainFrame->PostMessage(WM_CHIF_MOVE_SETPOS_END, (WPARAM) 15, 0);
 			return 0L;
 		}
-#if 1	// ełȂCȅꍇɓ֎~ɂ܂
+#if 1	// e≈Ç»ÇCeÃèÍçá…ì÷é~…Ç‹Ç
 	} else {
-		// eiX SW It́EEE
+		// eiX SW ItÕÅEEE
 		if (0 != m_DiInfo.bTHMaintenanceSW) {
-			// e SW ȈꍇC֎~
+			// e SW IÃèÍçáC÷é~
 			m_pcMainFrame->PostMessage(WM_CHIF_MOVE_SETPOS_END, (WPARAM) 15, 0);
 			return 0L;
 		}
@@ -1468,7 +1468,7 @@ LRESULT CChiefView::OnMoveSetPosFromDisp(WPARAM wparam, LPARAM lparam)
 	long l_dwMovePosId = (long) wparam;
 
 	if ((l_dwMovePosId < -1) || (GENERAL_POSITION_MAX < l_dwMovePosId)) {
-		// ͈(-1`GENERAL_POSITION_MAX)OG[
+		// Õà(-1`GENERAL_POSITION_MAX)OG[
 		m_pcMainFrame->PostMessage(WM_CHIF_MOVE_SETPOS_END, (WPARAM) 1, 0);
 		LogChief(_T("WM_DISP_MOVE_SETPOS : Position No. was out of range."));
 	} else {
@@ -1479,17 +1479,17 @@ LRESULT CChiefView::OnMoveSetPosFromDisp(WPARAM wparam, LPARAM lparam)
 			// nh [h |WV
 			ConfigFile_GetNanoSpecIni(&l_SetPosition, CONFIG_FILE_HANDLER_LOAD_POSITION);
 		} else if (( 1<= l_dwMovePosId) && (l_dwMovePosId <= GENERAL_POSITION_MAX)) {
-			// ėp |WV
+			// ƒóp |WV
 			GENERAL_POSITION l_GeneralPosition[GENERAL_POSITION_MAX];
 			ConfigFile_GetNanoSpecIni(l_GeneralPosition, CONFIG_FILE_GENERAL_POSITION);
 			l_SetPosition = l_GeneralPosition[l_dwMovePosId - 1].Loc;
 		}
-		// Xe[Wړ ---------------------------------
+		// Xe[W⁄ì ---------------------------------
 #ifndef CHIEF_STAGE_ON
 		{
-//	StageMoveAbsoluteEx() ܂ŗLłD
+//	StageMoveAbsoluteEx() ‹Ç≈óL≈ÇD
 			if (0 == ((CMainFrame*) m_pcMainFrame)->HardwareSimulation()) {
-				ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		// 쒆tO(XY Xe[W)I
+				ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		// ÏíÜtO(XY Xe[W)I
 				if (-1 == l_dwMovePosId) {
 					//Saiki 20090602 Change ----->
 					//m_pcMainFrame->SetMessageText(IDS_CHIF_MLDPOS_MOVING);  // Status Bar
@@ -1512,12 +1512,12 @@ LRESULT CChiefView::OnMoveSetPosFromDisp(WPARAM wparam, LPARAM lparam)
 			}
 		}
 #endif
-/* added 2009.11.26 hmenjo  Seq ͎wwbhœ ---------- { ---------- */
-		/* SR wbhɂ܂D	*/
+/* added 2009.11.26 hmenjo  Seq Õéwwbh≈ì ---------- { ---------- */
+		/* SR wbh…Ç‹ÇD	*/
 		this->SelectHead(HEAD_TYPE_SR, FALSE);
-/* added 2009.11.26 hmenjo  Seq ͎wwbhœ ---------- } ---------- */
+/* added 2009.11.26 hmenjo  Seq Õéwwbh≈ì ---------- } ---------- */
 		if (0 != ((CMainFrame*) m_pcMainFrame)->HardwareSimulation()) {
-			// n[hV~[g[h̏ꍇ
+			// n[hV~[g[hÃèÍçá
 			if (-1 == l_dwMovePosId) {
 				//Saiki 20090602 Change ----->
 				//m_pcMainFrame->SetMessageText(IDS_CHIF_HWS_MLDPOS_MOVING);  // Status Bar
@@ -1530,11 +1530,11 @@ LRESULT CChiefView::OnMoveSetPosFromDisp(WPARAM wparam, LPARAM lparam)
 				//Saiki 20090602 Change ----->
 				//m_pcMainFrame->SetMessageText(IDS_CHIF_HWS_MLDPOS_MOVED);   // Status Bar
 				LoadStringML(IDS_CHIF_HWS_MLDPOS_MOVED, strMsg, " ");
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- { ---------- */
 				m_pcMainFrame->SetMessageText(strMsg);	 // Status Bar
-#else						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ----------			   */
+#else						/* modified 2009.08.05 hmenjo bZ[W\»Ç ----------			   */
 				m_pcMainFrame->SetMessageText(_T(" "));   // Status Bar
-#endif						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- } ---------- */
 				//Saiki 20090602 Change <-----
 			} else if (0 == l_dwMovePosId) {
 				//Saiki 20090602 Change ----->
@@ -1548,11 +1548,11 @@ LRESULT CChiefView::OnMoveSetPosFromDisp(WPARAM wparam, LPARAM lparam)
 				//Saiki 20090602 Change ----->
 				//m_pcMainFrame->SetMessageText(IDS_CHIF_HWS_HLDPOS_MOVED);   // Status Bar
 				LoadStringML(IDS_CHIF_HWS_HLDPOS_MOVED, strMsg, " ");
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- { ---------- */
 				m_pcMainFrame->SetMessageText(strMsg);	 // Status Bar
-#else						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ----------			   */
+#else						/* modified 2009.08.05 hmenjo bZ[W\»Ç ----------			   */
 				m_pcMainFrame->SetMessageText(_T(" "));   // Status Bar
-#endif						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- } ---------- */
 				//Saiki 20090602 Change <-----
 			} else {
 				//Saiki 20090602 Change ----->
@@ -1566,18 +1566,18 @@ LRESULT CChiefView::OnMoveSetPosFromDisp(WPARAM wparam, LPARAM lparam)
 				//Saiki 20090602 Change ----->
 				//m_pcMainFrame->SetMessageText(IDS_CHIF_HWS_GENPOS_MOVED);   // Status Bar
 				LoadStringML(IDS_CHIF_HWS_GENPOS_MOVED, strMsg, " ");
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- { ---------- */
 				m_pcMainFrame->SetMessageText(strMsg);	 // Status Bar
-#else						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ----------			   */
+#else						/* modified 2009.08.05 hmenjo bZ[W\»Ç ----------			   */
 				m_pcMainFrame->SetMessageText(_T(" "));   // Status Bar
-#endif						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- } ---------- */
 				//Saiki 20090602 Change <-----
 			}
 			m_pcMainFrame->PostMessage(WM_CHIF_MOVE_SETPOS_END, 0, 0);
 		} else
 #ifndef CHIEF_STAGE_ON
 		NS_ConvertToStageMoveCoord(&l_SetPosition);
-//		if (0 == StageMoveAbsoluteEx(&l_SetPosition, CHIEF_STGMVABS_MODE)) {		Stage.dll Ή܂ł͉Ľďo@ɂȂ܂D
+//		if (0 == StageMoveAbsoluteEx(&l_SetPosition, CHIEF_STGMVABS_MODE)) {		Stage.dll Œâ‹Ç≈ÇÕâLÃåƒèo@…Ç»Ç‹ÇD
 		if (0 == StageMoveAbsolute(&l_SetPosition)) {
 #else
 		if (0 == NS_StageMoveAbsoluteEx(&l_SetPosition)) {
@@ -1585,29 +1585,29 @@ LRESULT CChiefView::OnMoveSetPosFromDisp(WPARAM wparam, LPARAM lparam)
 			// s
 #ifndef CHIEF_STAGE_ON
 			{
-//	StageMoveAbsoluteEx() ܂ŗLłD
-				ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		// 쒆tO(XY Xe[W)It
+//	StageMoveAbsoluteEx() ‹Ç≈óL≈ÇD
+				ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		// ÏíÜtO(XY Xe[W)It
 			}
 #endif
 			m_pcMainFrame->PostMessage(WM_CHIF_MOVE_SETPOS_END, (WPARAM) 1, 0);
 		} else {
 			// 
 			if (-1 == l_dwMovePosId) {
-				m_dwStageMoveState = 11;		// ʃ}jA [h |WV ړ
+				m_dwStageMoveState = 11;		//  É}jA [h |WV ⁄ì
 				//Saiki 20090602 Change ----->
 				//m_pcMainFrame->SetMessageText(IDS_CHIF_MLDPOS_MOVING);  // Status Bar
 				LoadStringML(IDS_CHIF_MLDPOS_MOVING, strMsg, "Moving Manual Load Position...");
 				m_pcMainFrame->SetMessageText(strMsg);	// Status Bar
 				//Saiki 20090602 Change <-----
 			} else if (0 == l_dwMovePosId) {
-				m_dwStageMoveState = 12;		// ʃnh [h |WV ړ
+				m_dwStageMoveState = 12;		//  Énh [h |WV ⁄ì
 				//Saiki 20090602 Change ----->
 				//m_pcMainFrame->SetMessageText(IDS_CHIF_HLDPOS_MOVING);  // Status Bar
 				LoadStringML(IDS_CHIF_HLDPOS_MOVING, strMsg, "Moving Load Position...");
 				m_pcMainFrame->SetMessageText(strMsg);	// Status Bar
 				//Saiki 20090602 Change <-----
 			} else {
-				m_dwStageMoveState = 13;		// ʔėp |WV ړ
+				m_dwStageMoveState = 13;		//  îƒóp |WV ⁄ì
 				//Saiki 20090602 Change ----->
 				//m_pcMainFrame->SetMessageText(IDS_CHIF_MLDPOS_MOVING);  // Status Bar
 				LoadStringML(IDS_CHIF_MLDPOS_MOVING, strMsg, "Moving Manual Load Position...");
@@ -1615,7 +1615,7 @@ LRESULT CChiefView::OnMoveSetPosFromDisp(WPARAM wparam, LPARAM lparam)
 				//Saiki 20090602 Change <-----
 			}
 #ifdef CHIEF_STAGE_ON
-			ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		// 쒆tO(XY Xe[W)I
+			ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);		// ÏíÜtO(XY Xe[W)I
 #endif
 		}
 	}
@@ -1624,12 +1624,12 @@ LRESULT CChiefView::OnMoveSetPosFromDisp(WPARAM wparam, LPARAM lparam)
 }
 
 /*
- *	Xe[W̒~ԂmF
- *		^C}ȂǂŃ|[Oɂ邱
+ *	Xe[WÃí~‘ÇmF
+ *		^C}»Ç«Ç≈É|[O…ÇÈÇ±
  */
 void CChiefView::IsStageIdle()
 {
-	// Xe[WɈړw߂oĂ鎞̂
+	// Xe[W…à⁄ìwﬂÇoƒÇÈéûÃÇ
 	if (0 != m_dwStageMoveState) {
 #ifndef CHIEF_STAGE_ON
 		if (0 != StageIsIdle()) {
@@ -1642,9 +1642,9 @@ void CChiefView::IsStageIdle()
 			_stprintf(l_tszLog, _T("Detected Stage stopping (m_dwStageMoveState = %d). Notify WM_CHIF_STAGE_STOP."), m_dwStageMoveState);
 			this->LogChief(l_tszLog);
 /* added 2009.11.04 hmenjo Xe[W~oO ---------- } ---------- */
-			StageStop();			// ߂l͖Ă܂
+			StageStop();			// ﬂÇlÕñƒÇ‹Ç
 			PostMessage(WM_CHIF_STAGE_STOP, 0, 0);
-			ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		// 쒆tO(XY Xe[W)It
+			ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		// ÏíÜtO(XY Xe[W)It
 		}
 	}
 }
@@ -1658,50 +1658,50 @@ LRESULT CChiefView::OnStageStop(WPARAM wparam, LPARAM lparam)
 	CString strMsg;
 	//Saiki 20090602 Add <-----
 
-	// Xe[WɈړw߂oĂ鎞̂
+	// Xe[W…à⁄ìwﬂÇoƒÇÈéûÃÇ
 	switch (m_dwStageMoveState) {
-	case 2:		// Pif nh [h |WV ړ
-		// Pif nh [h |WV ړ 
+	case 2:		// Pif nh [h |WV ⁄ì
+		// Pif nh [h |WV ⁄ì 
 		//Saiki 20090602 Change ----->
 		//m_pcMainFrame->SetMessageText(IDS_CHIF_HLDPOS_MOVED);   // Status Bar
 		LoadStringML(IDS_CHIF_HLDPOS_MOVED, strMsg, " ");
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- { ---------- */
 		m_pcMainFrame->SetMessageText(strMsg);	 // Status Bar
-#else						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ----------			   */
+#else						/* modified 2009.08.05 hmenjo bZ[W\»Ç ----------			   */
 		m_pcMainFrame->SetMessageText(_T(" "));   // Status Bar
-#endif						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- } ---------- */
 		//Saiki 20090602 Change <-----
 		LogChief(_T("Detected Pif-Load position move stopping."));
 		PifComm_LoadPositionMovementResultReport(0);
 		break;
-	case 3:		// Pif ėp |WV ړ
-		// Pif ėp |WV ړ 
+	case 3:		// Pif ƒóp |WV ⁄ì
+		// Pif ƒóp |WV ⁄ì 
 		//Saiki 20090602 Change ----->
 		//m_pcMainFrame->SetMessageText(IDS_CHIF_GENPOS_MOVED);   // Status Bar
 		LoadStringML(IDS_CHIF_GENPOS_MOVED, strMsg, " ");
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- { ---------- */
 		m_pcMainFrame->SetMessageText(strMsg);	 // Status Bar
-#else						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ----------			   */
+#else						/* modified 2009.08.05 hmenjo bZ[W\»Ç ----------			   */
 		m_pcMainFrame->SetMessageText(_T(" "));   // Status Bar
-#endif						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- } ---------- */
 		//Saiki 20090602 Change <-----
 		LogChief(_T("Detected Pif-General position move stopping."));
 		PifComm_GeneralPurposePositionMovementResultReport(0);
 		break;
-	case 11:	//  }jA [h |WV ړ
-	case 12:	//  nh [h |WV ړ
-	case 13:	//  ėp |WV ړ
-		//  }jA/[h/ėp |WVړ 
+	case 11:	//  }jA [h |WV ⁄ì
+	case 12:	//  nh [h |WV ⁄ì
+	case 13:	//  ƒóp |WV ⁄ì
+		//  }jA/[h/ƒóp |WV⁄ì 
 		switch (m_dwStageMoveState) {
 		case 11:
 			//Saiki 20090602 Change ----->
 			//m_pcMainFrame->SetMessageText(IDS_CHIF_MLDPOS_MOVED);   // Status Bar
 			LoadStringML(IDS_CHIF_MLDPOS_MOVED, strMsg, " ");
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- { ---------- */
 			m_pcMainFrame->SetMessageText(strMsg);	 // Status Bar
-#else						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ----------			   */
+#else						/* modified 2009.08.05 hmenjo bZ[W\»Ç ----------			   */
 			m_pcMainFrame->SetMessageText(_T(" "));   // Status Bar
-#endif						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- } ---------- */
 			//Saiki 20090602 Change <-----
 			LogChief(_T("Detected Disp-Man position move stopping."));
 			break;
@@ -1709,11 +1709,11 @@ LRESULT CChiefView::OnStageStop(WPARAM wparam, LPARAM lparam)
 			//Saiki 20090602 Change ----->
 			//m_pcMainFrame->SetMessageText(IDS_CHIF_HLDPOS_MOVED);   // Status Bar
 			LoadStringML(IDS_CHIF_HLDPOS_MOVED, strMsg, " ");
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- { ---------- */
 			m_pcMainFrame->SetMessageText(strMsg);	 // Status Bar
-#else						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ----------			   */
+#else						/* modified 2009.08.05 hmenjo bZ[W\»Ç ----------			   */
 			m_pcMainFrame->SetMessageText(_T(" "));   // Status Bar
-#endif						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- } ---------- */
 			//Saiki 20090602 Change <-----
 			LogChief(_T("Detected Disp-Load position move stopping."));
 			break;
@@ -1722,81 +1722,81 @@ LRESULT CChiefView::OnStageStop(WPARAM wparam, LPARAM lparam)
 			//Saiki 20090602 Change ----->
 			//m_pcMainFrame->SetMessageText(IDS_CHIF_GENPOS_MOVED);   // Status Bar
 			LoadStringML(IDS_CHIF_GENPOS_MOVED, strMsg, " ");
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- { ---------- */
 			m_pcMainFrame->SetMessageText(strMsg);	 // Status Bar
-#else						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ----------			   */
+#else						/* modified 2009.08.05 hmenjo bZ[W\»Ç ----------			   */
 			m_pcMainFrame->SetMessageText(_T(" "));   // Status Bar
-#endif						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- } ---------- */
 			//Saiki 20090602 Change <-----
 			LogChief(_T("Detected Disp-General position move stopping."));
 			break;
 		}
 		m_pcMainFrame->PostMessage(WM_CHIF_MOVE_SETPOS_END, (WPARAM) 0, 0);
 		break;
-	case 21:	// SR t@X (m[})t@Xʒu ړ
-		// ړ
+	case 21:	// SR t@X (m[})t@X íu ⁄ì
+		// ⁄ì
 		//Saiki 20090602 Change ----->
 		//m_pcMainFrame->SetMessageText(IDS_CHIF_SREF_N_STAGE_MOVED); // Status Bar
 		LoadStringML(IDS_CHIF_SREF_N_STAGE_MOVED, strMsg, "Reference Measurement:(Normal)Reference Measuremnt Position(XY) Move Complete");
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- { ---------- */
 		m_pcMainFrame->SetMessageText(strMsg); // Status Bar
-#else						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ----------			   */
+#else						/* modified 2009.08.05 hmenjo bZ[W\»Ç ----------			   */
 		m_pcMainFrame->SetMessageText(_T(" ")); // Status Bar
-#endif						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- } ---------- */
 		//Saiki 20090602 Change <-----
 		LogChief(_T("Detected SR (Normal) Reference position move stopping."));
-		WaitTimeBeforeMeas(0);		// JnÕwbhh҂(2008.12.18 ǉ)̎擾
+		WaitTimeBeforeMeas(0);		// JnOÃÉwbhh“Ç(2008.12.18 «â)ÃéÊìæ
 		((CChiefTransiSrRefer*) m_pcChiefTransiSrRefer)->TransiEvent(EV_SREF_N_MOVE_DONE);
 		break;
-	case 22:	// SR t@X _[Nt@Xʒu ړ
-		// ړ
+	case 22:	// SR t@X _[Nt@X íu ⁄ì
+		// ⁄ì
 		//Saiki 20090602 Change ----->
 		//m_pcMainFrame->SetMessageText(IDS_CHIF_SREF_D_STAGE_MOVED); // Status Bar
 		LoadStringML(IDS_CHIF_SREF_D_STAGE_MOVED, strMsg, "Reference Measurement:Dark Reference Measuremnt Position(XY) Move Complete");
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- { ---------- */
 		m_pcMainFrame->SetMessageText(strMsg); // Status Bar
-#else						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ----------			   */
+#else						/* modified 2009.08.05 hmenjo bZ[W\»Ç ----------			   */
 		m_pcMainFrame->SetMessageText(_T(" ")); // Status Bar
-#endif						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- } ---------- */
 		//Saiki 20090602 Change <-----
 		LogChief(_T("Detected SR Dark Reference position move stopping."));
-		WaitTimeBeforeMeas(0);		// JnÕwbhh҂(2008.12.18 ǉ)̎擾
+		WaitTimeBeforeMeas(0);		// JnOÃÉwbhh“Ç(2008.12.18 «â)ÃéÊìæ
 		((CChiefTransiSrRefer*) m_pcChiefTransiSrRefer)->TransiEvent(EV_SREF_D_MOVE_DONE);
 		break;
-	case 31:	// V[PXʒu ړ
-	case 32:	// V[PXʒu sړ
-		// ړ
+	case 31:	// V[PX íu ⁄ì
+	case 32:	// V[PX íu s⁄ì
+		// ⁄ì
 /* added 2013.02.01 hmenjo PreAF ---------- { ---------- */
 	  if (32 != m_dwStageMoveState) {
-		/* sړ̓Xe[^Xo[\͂ȂD	*/
+		/* s⁄ìÕÉXe[^Xo[\ÕÇ»ÇD	*/
 /* added 2013.02.01 hmenjo PreAF ---------- } ---------- */
 		//Saiki 20090602 Change ----->
 		//m_pcMainFrame->SetMessageText(IDS_CHIF_SEQ_STAGE_MOVED);	  // Status Bar
 		LoadStringML(IDS_CHIF_SEQ_STAGE_MOVED, strMsg, "Sequence Measurement:Measurement Position(XY)Complete");
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- { ---------- */
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- { ---------- */
 		m_pcMainFrame->SetMessageText(strMsg);	  // Status Bar
-#else						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ----------			   */
+#else						/* modified 2009.08.05 hmenjo bZ[W\»Ç ----------			   */
 		m_pcMainFrame->SetMessageText(_T(" "));    // Status Bar
-#endif						/* modified 2009.08.05 hmenjo bZ[W\Ȃ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo bZ[W\»Ç ---------- } ---------- */
 		//Saiki 20090602 Change <-----
 /* added 2013.02.01 hmenjo PreAF ---------- { ---------- */
 	  }
 /* added 2013.02.01 hmenjo PreAF ---------- } ---------- */
 		LogChief(_T("Detected SEQ position move stopping."));
-		WaitTimeBeforeMeas(0);		// JnÕwbhh҂(2008.12.18 ǉ)̎擾
+		WaitTimeBeforeMeas(0);		// JnOÃÉwbhh“Ç(2008.12.18 «â)ÃéÊìæ
 /* modified 2013.02.01 hmenjo PreAF ---------- { ---------- */
 //		((CChiefTransiSeq*) m_pcChiefTransiSeq)->TransiEvent(EV_SEQ_POINT_MOVE_DONE);
 /* modified 2013.02.01 hmenjo PreAF ----------              */
 		if ((32 == m_dwStageMoveState) && (1 == m_lPreAFafterPreMove)) {
 			if (FALSE != this->IsBusyTransi(3, 7)) {
 				this->LogChief(_T("PreAF - AF Seq is busy."));
-				/* AF gWVrW[łD	*/
+				/* AF gWVrW[≈ÇD	*/
 				m_lPreAFafterPreMove = 0;
-				/* Pre AF ͍s܂D	*/
+				/* Pre AF Õçs‹ÇD	*/
 			} else {
 				/* tB^ I[v	*/
 				if (0 == MEAS_SrHead_ChangeCcdShutter(FILTER_OPEN)) {
-					// ُ펞ł܂D
+					// ŸèÌéû≈Ç‹ÇD
 					this->LogChief(_T("PreAF - Failed to MEAS_SrHead_ChangeCcdShutter()."));
 				}
 				this->WaitTimeBeforeMeas(1);
@@ -1809,22 +1809,22 @@ LRESULT CChiefView::OnStageStop(WPARAM wparam, LPARAM lparam)
 		}
 /* modified 2013.02.01 hmenjo PreAF ---------- } ---------- */
 		break;
-/* added 2009.08.03 hmenjo XgX@\ǉ(17) ---------- { ---------- */
-	case 72:	/* XgX Seq nh [h |WV ړ	*/
+/* added 2009.08.03 hmenjo XgX@\«â(17) ---------- { ---------- */
+	case 72:	/* XgX Seq nh [h |WV ⁄ì	*/
 		LoadStringML(IDS_CHIF_HLDPOS_MOVED, strMsg, " ");
 		m_pcMainFrame->SetMessageText(strMsg);	 // Status Bar
 		LogChief(_T("Detected Stress-Load position move stopping."));
 		((CChiefTransiStress*) m_pcChiefTransiStress)->TransiEvent(EV_STRS_LDPOS_DONE);
 		break;
-/* added 2009.08.03 hmenjo XgX@\ǉ(17) ---------- } ---------- */
-/* added 2009.08.03 hmenjo XgX@\ǉ(18) ---------- { ---------- */
-	case 73:	/* XgX Seq C ړ	*/
+/* added 2009.08.03 hmenjo XgX@\«â(17) ---------- } ---------- */
+/* added 2009.08.03 hmenjo XgX@\«â(18) ---------- { ---------- */
+	case 73:	/* XgX Seq C ⁄ì	*/
 		LoadStringML(IDS_CHIF_HLDPOS_MOVED, strMsg, " ");
 		m_pcMainFrame->SetMessageText(strMsg);	 // Status Bar
 		LogChief(_T("Detected Stress-Line move stopping."));
 		((CChiefTransiStress*) m_pcChiefTransiStress)->TransiEvent(EV_STRS_LINEMOVE_DONE, (cEventParams*) EV_STRS_LINEMOVE_DONE);
 		break;
-/* added 2009.08.03 hmenjo XgX@\ǉ(18) ---------- } ---------- */
+/* added 2009.08.03 hmenjo XgX@\«â(18) ---------- } ---------- */
 	default:
 		break;
 	}
@@ -1844,19 +1844,19 @@ LRESULT CChiefView::OnVacuumFromDisp(WPARAM wparam, LPARAM lparam)
 
 	// C^bN
 	if (HOST_LOCAL != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetHostMode()) {
-		// [JłȂ
+		// [J≈Ç»Ç
 		m_pcMainFrame->PostMessage(WM_CHIF_VACUUM_END, (WPARAM) 2, 0);
 		return 0L;
 	}
 	int l_iProcStatus = ProcStatusGet();
 	if ((PROCESS_WAIT != l_iProcStatus) && (PROCESS_DOWN != l_iProcStatus)) {
-		// WaitCDown ȊO
+		// WaitCDown »äO
 		m_pcMainFrame->PostMessage(WM_CHIF_VACUUM_END, (WPARAM) 8, 0);
 		return 0L;
 	}
 	int l_iDispStatus = ((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetDispStatus();
 	if ((MAIN_MENU_DATA == l_iDispStatus) || (MAIN_MENU_USER_SETTING == l_iDispStatus)) {
-		// ʃ[huf[^[hvu[Uݒ胂[hv
+		//  É[huf[^[hvu[U›íËÉÇ[hv
 		m_pcMainFrame->PostMessage(WM_CHIF_VACUUM_END, (WPARAM) 14, 0);
 		return 0L;
 	}
@@ -1864,7 +1864,7 @@ LRESULT CChiefView::OnVacuumFromDisp(WPARAM wparam, LPARAM lparam)
 		(0 == m_DiInfo.bTHMaintenanceSW)
 	 && ((0 == m_DiInfo.bShutterClose) || (0 != m_DiInfo.bShutterOpen))
 	) {
-		// eItŁCCVb^ CLOSE ItCCVb^ OPEN I
+		// eIt≈ÅC¬ÅCVb^ CLOSE ItCCVb^ OPEN I
 		m_pcMainFrame->PostMessage(WM_CHIF_VACUUM_END, (WPARAM) 37, 0);
 		return 0L;
 	}
@@ -1896,11 +1896,11 @@ LRESULT CChiefView::OnVacuumFromDisp(WPARAM wparam, LPARAM lparam)
  */
 BOOL CChiefView::OnCopyData(CWnd* pWnd, COPYDATASTRUCT* pCopyDataStruct)
 {
-	// TODO: ̈ʒuɃbZ[W nhp̃R[hǉ邩܂̓ftHg̏ĂяoĂ
+	// TODO: Ãà íu…ÉbZ[W nhpÃÉR[h«âÈÇ©‹ÇÕÉftHgÃèƒÇ—èoƒÇ
 
 // 2009.03.19 k-matsuo change --->
 //	switch (pCopyDataStruct->dwData) {
-//	case WMCD_CHIF_RECIPE_NOTIFY:	// Pif ̒HVsʒm
+//	case WMCD_CHIF_RECIPE_NOTIFY:	// Pif ÃíHVs ím
 //		DWORD l_dwLength;
 //		if (sizeof(m_szMainRecipeName) < pCopyDataStruct->cbData) {
 //			l_dwLength = sizeof(m_szMainRecipeName);
@@ -1909,7 +1909,7 @@ BOOL CChiefView::OnCopyData(CWnd* pWnd, COPYDATASTRUCT* pCopyDataStruct)
 //		}
 //		memcpy(m_szMainRecipeName, pCopyDataStruct->lpData, l_dwLength);
 //		m_szMainRecipeName[RECIPE_NAME_LEN] = 0;
-//		this->PostMessage(WM_CHIF_SET_RECIPE, 0, 0);	// Jn̕ǂ܂D
+//		this->PostMessage(WM_CHIF_SET_RECIPE, 0, 0);	// JnÃï«Ç‹ÇD
 //		return 1;
 //		break;
 //	default:
@@ -1919,7 +1919,7 @@ BOOL CChiefView::OnCopyData(CWnd* pWnd, COPYDATASTRUCT* pCopyDataStruct)
 	DWORD l_dwLength;
 
 	switch (pCopyDataStruct->dwData) {
-	case WMCD_CHIF_RECIPE_NOTIFY:	// Pif ̒HVsʒm
+	case WMCD_CHIF_RECIPE_NOTIFY:	// Pif ÃíHVs ím
 		if (RECIPE_NAME_LEN < pCopyDataStruct->cbData) {
 			l_dwLength = RECIPE_NAME_LEN;
 		} else {
@@ -1927,7 +1927,7 @@ BOOL CChiefView::OnCopyData(CWnd* pWnd, COPYDATASTRUCT* pCopyDataStruct)
 		}
 		memcpy(m_szMainRecipeName, pCopyDataStruct->lpData, l_dwLength);
 		m_szMainRecipeName[l_dwLength] = 0;
-		this->PostMessage(WM_CHIF_SET_RECIPE, 0, 0);	// Jn̕ǂ܂D
+		this->PostMessage(WM_CHIF_SET_RECIPE, 0, 0);	// JnÃï«Ç‹ÇD
 		return 1;
 		break;
 	default:
@@ -1939,8 +1939,8 @@ BOOL CChiefView::OnCopyData(CWnd* pWnd, COPYDATASTRUCT* pCopyDataStruct)
 }
 
 /*
- *	Vsݒ bZ[Wnh
- *		Pif ʒmꂽHVsʃW[ɒʒm܂D
+ *	Vs›í bZ[Wnh
+ *		Pif  ímÍÇΩHVs ÉW[…í ím‹ÇD
  */
 LRESULT CChiefView::OnSetRecipe(WPARAM wparam, LPARAM lparam)
 {
@@ -1948,7 +1948,7 @@ LRESULT CChiefView::OnSetRecipe(WPARAM wparam, LPARAM lparam)
 	_stprintf(l_tszLogText, _T("Notifyed Recipe(%s) from Pif to Dis."), m_szMainRecipeName);
 	LogChief(l_tszLogText);
 
-	// ʃW[ɒʒm
+	//  ÉW[…í ím
 	COPYDATASTRUCT l_CopyData;
 	l_CopyData.dwData = WMCD_CHIF_SET_RECIPE;
 	l_CopyData.cbData = RECIPE_NAME_LEN + 1;
@@ -1960,7 +1960,7 @@ LRESULT CChiefView::OnSetRecipe(WPARAM wparam, LPARAM lparam)
 
 /*
  *	AF |bvAbvI bZ[Wnh
- *		ʂ AF ̃|bvAbvID
+ *		 Ç AF ÃÉ|bvAbvID
  */
 LRESULT CChiefView::OnAFPopupEnd(WPARAM wparam, LPARAM lparam)
 {
@@ -1980,7 +1980,7 @@ LRESULT CChiefView::OnAFPopupEnd(WPARAM wparam, LPARAM lparam)
 		((CChiefTransiAF*) m_pcChiefTransiAF)->TransiEvent(EV_AAF_POPUP_CANCEL, (cEventParams*) lparam);
 		break;
 	default:
-		// ܂D
+		// ‹ÇD
 		break;
 	}
 
@@ -1989,7 +1989,7 @@ LRESULT CChiefView::OnAFPopupEnd(WPARAM wparam, LPARAM lparam)
 
 /*
  *	}jATCgp^[ |bvAbvI bZ[Wnh
- *		ʂ }jATCgp^[ ̃|bvAbvID
+ *		 Ç }jATCgp^[ ÃÉ|bvAbvID
  */
 LRESULT CChiefView::OnManualSitePtPopupEnd(WPARAM wparam, LPARAM lparam)
 {
@@ -2000,7 +2000,7 @@ LRESULT CChiefView::OnManualSitePtPopupEnd(WPARAM wparam, LPARAM lparam)
 	switch (wparam) {
 	//Saiki 20090728 Add ----->
 	case 1:		//Manual Site PR AF
-		l_pAFValid->ucResultPopup = 2;		// (OK){^
+		l_pAFValid->ucResultPopup = 2;		// ¬Ç(OK){^
 		l_pAFValid->bit1ManuXY		= (0 == LOBYTE(LOWORD(lparam)))? 0 : 1;
 		l_pAFValid->bit1ManuZ		= (0 == HIBYTE(LOWORD(lparam)))? 0 : 1;
 		l_pAFValid->bit1ManuAF		= (0 == LOBYTE(HIWORD(lparam)))? 0 : 1;
@@ -2031,7 +2031,7 @@ LRESULT CChiefView::OnManualSitePtPopupEnd(WPARAM wparam, LPARAM lparam)
 		break;
 	//Saiki 20090728 Add <-----
 	default:
-		// ܂D
+		// ‹ÇD
 		break;
 	}
 
@@ -2039,7 +2039,7 @@ LRESULT CChiefView::OnManualSitePtPopupEnd(WPARAM wparam, LPARAM lparam)
 }
 
 /*
- *	JgCVs擾܂D
+ *	JgCVsÊìæ‹ÇD
  */
 void CChiefView::GetCurrentMainRecipeName(TCHAR *pszCurrentMainRecipeName)
 {
@@ -2048,31 +2048,31 @@ void CChiefView::GetCurrentMainRecipeName(TCHAR *pszCurrentMainRecipeName)
 
 /*
  *	f[^MJn bZ[Wnh
- *		胂W[ CCD f[^MCsړ\ɂȂʒm
+ *		ËÉÇW[ CCD f[^MCs⁄ì¬î\…Ç»Ç ím
  */
 LRESULT CChiefView::OnMeasRecvData(WPARAM wparam, LPARAM lparam)
 {
 	LogChief_WinMsg(_T("WM_MEAS_RECVDATA (PreMove)"), wparam, lparam);
 
-/* modified 2009.08.06 hmenjo XgX@\ǉ(28) ---------- { ---------- */
+/* modified 2009.08.06 hmenjo XgX@\«â(28) ---------- { ---------- */
 //	((CChiefTransiSeq*) m_pcChiefTransiSeq)->PreMove();
-/* modified 2009.08.06 hmenjo XgX@\ǉ(28) ----------			   */
+/* modified 2009.08.06 hmenjo XgX@\«â(28) ----------			   */
 	if (false == ((CChiefTransiSeq*) m_pcChiefTransiSeq)->IsIdle()) {
 		((CChiefTransiSeq*) m_pcChiefTransiSeq)->PreMove();
 	} else if (false == ((CChiefTransiStress*) m_pcChiefTransiStress)->IsIdle()) {
 		((CChiefTransiStress*) m_pcChiefTransiStress)->PreMove();
 	}
-/* modified 2009.08.06 hmenjo XgX@\ǉ(28) ---------- } ---------- */
+/* modified 2009.08.06 hmenjo XgX@\«â(28) ---------- } ---------- */
 
 	return 0L;
 }
 
 /*
- *	e탌VsǍ݂܂
+ *	eÌÉåVs«ç›Ç‹Ç
  */
 DWORD CChiefView::RecipesGet(
 		TCHAR *pszMainRecipName,	// CVs
-		DWORD dwMode				// 0FXe[WvO܂߂C0F܂߂Ȃ
+		DWORD dwMode				// 0FXe[WvO‹ÇﬂÇC0F‹ÇﬂÇ»Ç
 	)
 {
 	int i;
@@ -2080,14 +2080,14 @@ DWORD CChiefView::RecipesGet(
 	// CVs
 	LPMAIN_RCP_INFO l_pMainRcpInfo = (LPMAIN_RCP_INFO) m_ChiefRecipes.pMainRcpInfo;
 	if (0 == RecipeFile_LoadRecipe(l_pMainRcpInfo, pszMainRecipName, RECIPE_FILE_MAIN_RECIPE)) {
-		// CVsǍُ݈
+		// CVs«ç›àŸè
 		return 1;
 	}
-/* added 2009.08.03 hmenjo XgX@\ǉ(13) ---------- { ---------- */
+/* added 2009.08.03 hmenjo XgX@\«â(13) ---------- { ---------- */
 	WORD l_wHeadTypeMainRcp = l_pMainRcpInfo->MainRcpParam.hdr.wHeadType;
 	if (HEAD_TYPE_STRESS == l_wHeadTypeMainRcp) {
 		if (0 == l_pMainRcpInfo->MainRcpParam.hdr.bSampleID) {
-			/* CVsǍُ݈(Tv ID gpɂȂĂȂ)	*/
+			/* CVs«ç›àŸè(Tv ID gp…Ç»ÇƒÇ»Ç)	*/
 			return 1;
 		}
 //Saiki 20110311 Add ----->
@@ -2097,53 +2097,53 @@ DWORD CChiefView::RecipesGet(
 		}
 //Saiki 20110311 Add <-----
 	}
-/* added 2009.08.03 hmenjo XgX@\ǉ(13) ---------- } ---------- */
+/* added 2009.08.03 hmenjo XgX@\«â(13) ---------- } ---------- */
 	// vO
 	LPMEAS_PROG_INFO l_pMeasProgInfo = (LPMEAS_PROG_INFO) m_ChiefRecipes.pMeasProgInfo;
 	if (0 == RecipeFile_LoadRecipe(l_pMeasProgInfo, l_pMainRcpInfo->MainRcpParam.hdr.szMeas, RECIPE_FILE_MEASUREMENT_PROGRAM)) {
-		// vOǍُ݈
+		// vO«ç›àŸè
 		return 2;
 	} else {
-/* added 2009.08.03 hmenjo XgX@\ǉ(13) ---------- { ---------- */
+/* added 2009.08.03 hmenjo XgX@\«â(13) ---------- { ---------- */
 		if (l_wHeadTypeMainRcp != l_pMeasProgInfo->ScanParams.hdr.wHeadType) {
-			/* vOǍُ݈(wbh^Cvsv)	*/
+			/* vO«ç›àŸè(wbh^Cvsv)	*/
 			return 2;
 		}
 		if (0 == ((CNanoSpecDoc*) m_pcNanoSpecDoc)->IsValidScanType(l_pMeasProgInfo->ScanParams.hdr.wScanType, l_wHeadTypeMainRcp)) {
-			/* vOǍُ݈(wbh^CvƃXL^Cvsv)	*/
+			/* vO«ç›àŸè(wbh^Cv∆ÉXL^Cvsv)	*/
 			return 2;
 		}
-/* added 2009.08.03 hmenjo XgX@\ǉ(13) ---------- } ---------- */
-		// Vssǉ
+/* added 2009.08.03 hmenjo XgX@\«â(13) ---------- } ---------- */
+		// Vss«â
 		switch (l_pMeasProgInfo->ScanParams.hdr.wScanType) {
-		case MEAS_PROG_TYPE_SR_REFLECTANCE_CIE:		// ːFx
-		case MEAS_PROG_TYPE_SR_TRANSMITTANCE_CIE:	// ߐFx
+		case MEAS_PROG_TYPE_SR_REFLECTANCE_CIE:		// ÀêFx
+		case MEAS_PROG_TYPE_SR_TRANSMITTANCE_CIE:	// ﬂêFx
 		case MEAS_PROG_TYPE_SR_OPTICAL_DENSITY:		// wZx
 			l_pMeasProgInfo->ScanParams._SR.WavelenRange.wStart = CIE_MINWAVE;
 			l_pMeasProgInfo->ScanParams._SR.WavelenRange.wEnd = CIE_MAXWAVE;
 			break;
 		default:
-			// ܂D
+			// ‹ÇD
 			break;
 		}
 	}
 
-/* modified 2009.11.20 hmenjo CTA Stage PGM Ǎ ---------- { ---------- */
-///* added 2009.10.29 hmenjo CTA Seq API ǉ ---------- { ---------- */
-//	/* Xe[WvOǍ	*/
-//		/*	CTA ̊݂擾Ȃ΂ȂȂ߁CuXe[WvO܂߂ȂvݒłC
-//			RRŁCXe[WvOǍ݂܂D	*/
+/* modified 2009.11.20 hmenjo CTA Stage PGM «ç ---------- { ---------- */
+///* added 2009.10.29 hmenjo CTA Seq API «â ---------- { ---------- */
+//	/* Xe[WvO«ç	*/
+//		/*	CTA Ãä¬å›ÇÊìæ»ÇŒÇ»Ç»ÇﬂÅCuXe[WvO‹ÇﬂÇ»Çv›í≈ÇC
+//			RR≈ÅCXe[WvO«ç›Ç‹ÇD	*/
 //	LPSTAGE_PROG_INFO_HDR l_pStageProgInfoHdr = (LPSTAGE_PROG_INFO_HDR) m_ChiefRecipes.pStageProgInfoHdr;
 //	BOOL l_bStgPgmValid = RecipeFile_LoadRecipe(l_pStageProgInfoHdr, l_pMainRcpInfo->MainRcpParam.hdr.szStage, RECIPE_FILE_STAGE_PROGRAM);
 //	if (0 == l_bStgPgmValid) {
-//		/* Xe[WvOǍُ݈	*/
+//		/* Xe[WvO«ç›àŸè	*/
 //		return 3;
 //	}
-///* added 2009.10.29 hmenjo CTA Seq API ǉ ---------- } ---------- */
-/* modified 2009.11.20 hmenjo CTA Stage PGM Ǎ ----------			   */
+///* added 2009.10.29 hmenjo CTA Seq API «â ---------- } ---------- */
+/* modified 2009.11.20 hmenjo CTA Stage PGM «ç ----------			   */
 	LPSTAGE_PROG_INFO_HDR l_pStageProgInfoHdr = (LPSTAGE_PROG_INFO_HDR) m_ChiefRecipes.pStageProgInfoHdr;
 
-// 2014.01.07 bagus Add(Stage NoneΉ) -->
+// 2014.01.07 bagus Add(Stage NoneŒâ) -->
 	SYSTEM_CONFIG l_SystemConfig;
 	ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 
@@ -2152,56 +2152,56 @@ DWORD CChiefView::RecipesGet(
 		l_pStageProgInfoHdr->wNumScans = 1;
 		return 0;
 	}
-// 2014.01.07 bagus Add(Stage NoneΉ) <--
+// 2014.01.07 bagus Add(Stage NoneŒâ) <--
 
 	if (HEAD_TYPE_CTA == l_wHeadTypeMainRcp) {
-		/* RRł CTA ̏ꍇ̂݃Xe[WvOǍ	*/
-		/*	CTA ̊݂擾Ȃ΂ȂȂ߁CuXe[WvO܂߂ȂvݒłC
-			RRŁCXe[WvOǍ݂܂D	*/
+		/* RR≈Ç CTA ÃèÍçáÃÇ›ÉXe[WvO«ç	*/
+		/*	CTA Ãä¬å›ÇÊìæ»ÇŒÇ»Ç»ÇﬂÅCuXe[WvO‹ÇﬂÇ»Çv›í≈ÇC
+			RR≈ÅCXe[WvO«ç›Ç‹ÇD	*/
 		BOOL l_bStgPgmValid = RecipeFile_LoadRecipe(l_pStageProgInfoHdr, l_pMainRcpInfo->MainRcpParam.hdr.szStage, RECIPE_FILE_STAGE_PROGRAM);
 		if (0 == l_bStgPgmValid) {
-			/* Xe[WvOǍُ݈	*/
+			/* Xe[WvO«ç›àŸè	*/
 			return 3;
 		}
 	}
-/* modified 2009.11.20 hmenjo CTA Stage PGM Ǎ ---------- } ---------- */
+/* modified 2009.11.20 hmenjo CTA Stage PGM «ç ---------- } ---------- */
 
 	switch (dwMode) {
 	case 0:
 		{
 			// Xe[WvO
-/* modified 2009.11.20 hmenjo CTA Stage PGM Ǎ ---------- { ---------- */
-/* deleted 2009.10.29 hmenjo CTA Seq API ǉ ---------- { ---------- */
+/* modified 2009.11.20 hmenjo CTA Stage PGM «ç ---------- { ---------- */
+/* deleted 2009.10.29 hmenjo CTA Seq API «â ---------- { ---------- */
 //			LPSTAGE_PROG_INFO_HDR l_pStageProgInfoHdr = (LPSTAGE_PROG_INFO_HDR) m_ChiefRecipes.pStageProgInfoHdr;
 //			if (0 == RecipeFile_LoadRecipe(l_pStageProgInfoHdr, l_pMainRcpInfo->MainRcpParam.hdr.szStage, RECIPE_FILE_STAGE_PROGRAM)) {
-//				// Xe[WvOǍُ݈
+//				// Xe[WvO«ç›àŸè
 //				return 3;
 //			}
-/* deleted 2009.10.29 hmenjo CTA Seq API ǉ ---------- } ---------- */
-/* modified 2009.11.20 hmenjo CTA Stage PGM Ǎ ----------			   */
+/* deleted 2009.10.29 hmenjo CTA Seq API «â ---------- } ---------- */
+/* modified 2009.11.20 hmenjo CTA Stage PGM «ç ----------			   */
 			if (HEAD_TYPE_CTA != l_wHeadTypeMainRcp) {
-				/* CTA ȊȌꍇ̂݃RRŃXe[WvOǍ	*/
+				/* CTA »äOÃèÍçáÃÇ›ÉRR≈ÉXe[WvO«ç	*/
 				if (0 == RecipeFile_LoadRecipe(l_pStageProgInfoHdr, l_pMainRcpInfo->MainRcpParam.hdr.szStage, RECIPE_FILE_STAGE_PROGRAM)) {
-					// Xe[WvOǍُ݈
+					// Xe[WvO«ç›àŸè
 					return 3;
 				}
 			}
-/* modified 2009.11.20 hmenjo CTA Stage PGM Ǎ ---------- } ---------- */
-/* added 2009.10.15 hmenjo Stage PGM ʉΉ wbh^Cv ---------- { ---------- */
-			/* wbh^Cvϊ
-				Xe[WvÕwbh^Cv STD(=99) ̏ꍇ
-				CVs̃wbh^Cvϊe[uɂ΁C
-				Xe[WvÕwbh^CvCVs̃wbh^Cv
-				u܂D	*/
+/* modified 2009.11.20 hmenjo CTA Stage PGM «ç ---------- } ---------- */
+/* added 2009.10.15 hmenjo Stage PGM  âŒâ wbh^Cv ---------- { ---------- */
+			/* wbh^Cvœä
+				Xe[WvOÃÉwbh^Cv STD(=99) ÃèÍçá
+				CVsÃÉwbh^Cvœäe[u…ÇŒÅC
+				Xe[WvOÃÉwbh^CvCVsÃÉwbh^Cv
+				u‹ÇD	*/
 			if (99 == l_pStageProgInfoHdr->wHeadType) {
-/* modified 2009.11.20 hmenjo Stage PGM wbh^CvϊP ---------- { ---------- */
+/* modified 2009.11.20 hmenjo Stage PGM wbh^CvœäP ---------- { ---------- */
 //				for (int l_i = 0; l_i < 99; l_i++) {
 //					if (l_wHeadTypeMainRcp == HEADTYPE_STD_TBL[l_i]) {
 //						l_pStageProgInfoHdr->wHeadType = l_wHeadTypeMainRcp;
 //						break;
 //					}
 //				}
-/* modified 2009.11.20 hmenjo Stage PGM wbh^CvϊP ---------- 			 */
+/* modified 2009.11.20 hmenjo Stage PGM wbh^CvœäP ---------- 			 */
 				int l_i = 0;
 // 2013.02.06 bagus bug fix -->
 //				while (-1 != HEADTYPE_STD_TBL[l_i]) {
@@ -2213,51 +2213,51 @@ DWORD CChiefView::RecipesGet(
 					}
 					l_i++;
 				}
-/* modified 2009.11.20 hmenjo Stage PGM wbh^CvϊP ---------- } ---------- */
+/* modified 2009.11.20 hmenjo Stage PGM wbh^CvœäP ---------- } ---------- */
 			}
-/* added 2009.10.15 hmenjo Stage PGM ʉΉ wbh^Cv ---------- } ---------- */
-/* added 2009.08.03 hmenjo XgX@\ǉ(13) ---------- { ---------- */
+/* added 2009.10.15 hmenjo Stage PGM  âŒâ wbh^Cv ---------- } ---------- */
+/* added 2009.08.03 hmenjo XgX@\«â(13) ---------- { ---------- */
 			if (l_wHeadTypeMainRcp != l_pStageProgInfoHdr->wHeadType) {
-				/* Xe[WvOǍُ݈(wbh^Cvsv)	*/
+				/* Xe[WvO«ç›àŸè(wbh^Cvsv)	*/
 				return 3;
 			} else if (HEAD_TYPE_STRESS == l_wHeadTypeMainRcp) {
-				/* XgXwbhȂ̂ŁCXe[W PGM Ǐo	*/
+				/* XgXwbh»ÇÃÇ≈ÅCXe[W PGM «èo	*/
 				LPSTAGE_PROG_STRESS l_pStageProgStress = (LPSTAGE_PROG_STRESS) m_ChiefRecipes.pStageProgStress;
 				if (0 == RecipeFile_LoadRecipe(l_pStageProgStress, l_pMainRcpInfo->MainRcpParam.hdr.szStage, RECIPE_FILE_STAGE_PROGRAM_STRESS)) {
-					/* Xe[WvOǍُ݈(XgXp)	*/
+					/* Xe[WvO«ç›àŸè(XgXp)	*/
 					return 3;
 				}
 			}
-/* added 2009.08.03 hmenjo XgX@\ǉ(13) ---------- } ---------- */
+/* added 2009.08.03 hmenjo XgX@\«â(13) ---------- } ---------- */
 			// SEQ |Cg
 			LPSTAGE_COORD l_pScanPoint = (LPSTAGE_COORD) m_ChiefRecipes.pScanPoint;
 			if ((l_pStageProgInfoHdr->wNumScans <= 0) || (SCAN_POINT_MAX < l_pStageProgInfoHdr->wNumScans)) {
-				// SEQ |Cgݒُ
+				// SEQ |Cg›íŸè
 				return 4;
 			//2009.10.28 bagus 2point-distance -->
 			} else if (l_pStageProgInfoHdr->wHeadType == HEAD_TYPE_SR && l_pStageProgInfoHdr->wScanType == SCAN_TYPE_SR_DISTANCE){
 				if(0 == RecipeFile_Load2PointList(l_pScanPoint, l_pStageProgInfoHdr->wNumScans, l_pMainRcpInfo->MainRcpParam.hdr.szStage)) {
-				// SEQ |CgǍُ݈
+				// SEQ |Cg«ç›àŸè
 				LogChief(_T("Failed to StagePoint RecipeFile_Load2PointList() error."));
 				return 5;
 				}
 			} else if (0 == RecipeFile_LoadPointList(l_pScanPoint, l_pStageProgInfoHdr->wNumScans, l_pMainRcpInfo->MainRcpParam.hdr.szStage)) {
 			//2009.10.28 bagus 2point-distance <--
-				// SEQ |CgǍُ݈
+				// SEQ |Cg«ç›àŸè
 				LogChief(_T("Failed to StagePoint RecipeFile_LoadPointList() error."));
 				return 5;
 			} else {
-				// Qƕ@́C(l_pScanPoint[0]).lX Ȋ
+				// Q∆ï@ÕÅC(l_pScanPoint[0]).lX »ä
 			}
-/* added 2009.11.20 hmenjo CTA 1000 |Cg܂łŐ튮 ---------- { ---------- */
+/* added 2009.11.20 hmenjo CTA 1000 |Cg‹Ç≈Ç≈êÌäÆ ---------- { ---------- */
 			if (HEAD_TYPE_CTA == l_wHeadTypeMainRcp) {
-				/* CTA wbh̏ꍇ́C	*/
+				/* CTA wbhÃèÍçáÕÅC	*/
 				if (SCAN_POINT_CTA_MAX < l_pStageProgInfoHdr->wNumScans) {
-					/* |Cg̏𐧌܂D	*/
+					/* |CgÃèêßå‹ÇD	*/
 					l_pStageProgInfoHdr->wNumScans = SCAN_POINT_CTA_MAX;
 				}
 			}
-/* added 2009.11.20 hmenjo CTA 1000 |Cg܂łŐ튮 ---------- } ---------- */
+/* added 2009.11.20 hmenjo CTA 1000 |Cg‹Ç≈Ç≈êÌäÆ ---------- } ---------- */
 
 // 2009.06.11 K.Matsuo -->
 
@@ -2265,24 +2265,24 @@ DWORD CChiefView::RecipesGet(
 			SYSTEM_CONFIG *l_SystemConfig = &(((CMainFrame*)m_pcMainFrame)->m_SystemConfig);
 			ConfigFile_GetNanoSpecIni(l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 			if (l_SystemConfig->nPRMethod <= 0 || l_SystemConfig->bSamplePatternRec != TRUE) {
-				// Deskew{Ȃ
+				// Deskew{»Ç
 				;
 			} else {
-				//	 Deskew{邩H Xe[Wofl擾
+				//	 Deskew{ÈÇ©H Xe[WoflÊìæ
 				char szFilePath[MAX_PATH];
 				switch(l_pStageProgInfoHdr->nDeskewMode) {
 				case DESKEW_MODE_PATTERN_DESKEW:
-					// DeskewImage̓o^mF
+					// DeskewImageÃìo^mF
 					_stprintf(szFilePath, "%s%s.D1", g_szDb_Deskew_Img_Dir, l_pStageProgInfoHdr->hdr.szName);
 					if ( ::GetFileAttributes(szFilePath) == 0xffffffff ) {
-						// Ǎُ݈
+						// «ç›àŸè
 						LogChief(_T("Failed to Deskew Image 1 error."));
 						return 3;
 					}
 					break;
 					_stprintf(szFilePath, "%s%s.D2", g_szDb_Deskew_Img_Dir, l_pStageProgInfoHdr->hdr.szName);
 					if ( ::GetFileAttributes(szFilePath) == 0xffffffff ) {
-						// Ǎُ݈
+						// «ç›àŸè
 						LogChief(_T("Failed to Deskew Image 2 error."));
 						return 3;
 					}
@@ -2303,23 +2303,23 @@ DWORD CChiefView::RecipesGet(
 //			if (l_SystemConfig->bSitePatternRec != TRUE) {
 			if (l_SystemConfig->nPRMethod <= 0 || l_SystemConfig->bSitePatternRec != TRUE) {
 // 2009.06.10 K.Matsuo <--
-				// TCgp^[{Ȃ
+				// TCgp^[{»Ç
 				;
 			} else {
-				//	 TCgp^[{邩H Xe[Wofl擾
+				//	 TCgp^[{ÈÇ©H Xe[WoflÊìæ
 				LPSITE_PATTERN l_pSitePattern = (LPSITE_PATTERN) m_ChiefRecipes.pSitePattern;
 				switch(l_pStageProgInfoHdr->nSitePatternMode) {
 				case SITE_PR_MODE_USE_PR:					// correct with use pattern recognition
 					// TCgp^[ e[u
 					if (0 == PatternFile_LoadPointList(l_pSitePattern, &l_pStageProgInfoHdr->wNumScans, l_pMainRcpInfo->MainRcpParam.hdr.szStage)) {
-						// SitePR` Ǎُ݈
+						// SitePR` «ç›àŸè
 						LogChief(_T("Failed to SitePr PatternFile_LoadPointList() error."));
 						return 3;
 					} else {
-						// Qƕ@́C(l_pSitePattern[0]).xxxx Ȋ
-/* added 2009.06.22 hmenjo SPR ItZbgǍ/݋@\ǉ ---------- { ---------- */
-						/* p^[C[Wt@C̑݊mF
-							ƁCp^[Tut@C̑݊mF	*/
+						// Q∆ï@ÕÅC(l_pSitePattern[0]).xxxx »ä
+/* added 2009.06.22 hmenjo SPR ItZbg«ç/›ã@\«â ---------- { ---------- */
+						/* p^[C[Wt@CÃë›ämF
+							∆ÅCp^[Tut@CÃë›ämF	*/
 						/* p^[W */
 						TCHAR (*l_ptszPatName)[RECIPE_NAME_LEN + 1] = 0;
 						int l_iPatCount = 0;
@@ -2327,11 +2327,11 @@ DWORD CChiefView::RecipesGet(
 						for (int i = 0; i < l_pStageProgInfoHdr->wNumScans; i++) {
 							for (int j = 0; j < SITE_PATTERN_MAX; j++) {
 								if (0 != _tcscmp(l_pSitePattern[i].PatternInfo[j].szSitePatternName, _T(""))) {
-									/* p^[̓o^D */
+									/* p^[Ãìo^D */
 									if (0 == l_ptszPatName) {
 										/* o^ */
 										if (0 == (l_ptszPatName = (TCHAR(*)[RECIPE_NAME_LEN + 1]) malloc(sizeof(*l_ptszPatName)))) {
-											/* 擾s */
+											/* Êìæs */
 											LogChief(_T("Failed to allocate memory(s) in RecipesGet()."));
 											return 3;
 										}
@@ -2343,10 +2343,10 @@ DWORD CChiefView::RecipesGet(
 											}
 										}
 										if (l_iPatCount <= k) {
-											/* ʂ̃p^[𔭌 */
+											/*  ÇÃÉp^[î≠å */
 											l_pVoid = realloc(l_ptszPatName, sizeof(*l_ptszPatName) * (l_iPatCount + 1));
 											if (0 == l_pVoid) {
-												/* Ď擾s */
+												/* ƒéÊìæs */
 												LogChief(_T("Failed to re-allocate memory(s) in RecipesGet()."));
 												free(l_ptszPatName);
 												return 3;
@@ -2358,7 +2358,7 @@ DWORD CChiefView::RecipesGet(
 								}
 							}
 						}
-						/* p^[C[Wt@CƃTut@C̑݊mF	*/
+						/* p^[C[Wt@C∆ÉTut@CÃë›ämF	*/
 						TCHAR l_tszSprImgPath[_MAX_PATH];
 						BOOL l_bErr = FALSE;
 						SPR_SUB_INFO l_PatSubInfoDmy;
@@ -2366,12 +2366,12 @@ DWORD CChiefView::RecipesGet(
 //							PatternFile_MakePatternImageFilePath(l_tszSprImgPath, l_ptszPatName[i], 0);
 							PatternFile_MakePatternImageFilePath(l_tszSprImgPath, l_ptszPatName[i]);
 							if (-1 == ::GetFileAttributes(l_tszSprImgPath)) {
-								/* C[Wt@C݂Ȃ\܂D */
+								/* C[Wt@C›Ç»Ç¬î\‹ÇD */
 								LogChief(_T("Failed to read Site PR image file(s) in RecipesGet()."));
 								l_bErr = TRUE;
 								break;
 							} else if (FALSE == PatternFile_GetSubInfo(l_ptszPatName[i], &l_PatSubInfoDmy)) {
-								/* Tut@C݂Ȃ\܂D */
+								/* Tut@C›Ç»Ç¬î\‹ÇD */
 								LogChief(_T("Failed to read Site PR sub-info file(s) in RecipesGet()."));
 								l_bErr = TRUE;
 								break;
@@ -2381,7 +2381,7 @@ DWORD CChiefView::RecipesGet(
 						if (TRUE == l_bErr) {
 							return 3;
 						}
-/* added 2009.06.22 hmenjo SPR ItZbgǍ/݋@\ǉ ---------- } ---------- */
+/* added 2009.06.22 hmenjo SPR ItZbg«ç/›ã@\«â ---------- } ---------- */
 					}
 					break;
 
@@ -2397,7 +2397,7 @@ DWORD CChiefView::RecipesGet(
 		break;
 	case 1:
 	default:
-		// ܂D
+		// ‹ÇD
 		break;
 	}
 
@@ -2405,45 +2405,45 @@ DWORD CChiefView::RecipesGet(
 }
 
 /*
- *	e탌Vsp̃̎擾ƊJs܂
+ *	eÌÉåVspÃÉÃéÊìæ∆äJs‹Ç
  */
 void CChiefView::RecipesMalloc(BOOL bAlloc)
 {
 	if (0 != bAlloc) {
-		// 擾 ---------------------------------------------------------------
+		// Êìæ ---------------------------------------------------------------
 		DWORD l_dwMsgCode = 0;
 		// CVs
 		if (0 == (m_ChiefRecipes.pMainRcpInfo = new MAIN_RCP_INFO)) {
-			l_dwMsgCode = 24;	// 擾s
+			l_dwMsgCode = 24;	// Êìæs
 		}
 		// vO
 		if (0 == (m_ChiefRecipes.pMeasProgInfo = new MEAS_PROG_INFO)) {
-			l_dwMsgCode = 25;	// 擾s
+			l_dwMsgCode = 25;	// Êìæs
 		}
 		// Xe[WvO
 		if (0 == (m_ChiefRecipes.pStageProgInfoHdr = new STAGE_PROG_INFO_HDR)) {
-			l_dwMsgCode = 26;	// 擾s
+			l_dwMsgCode = 26;	// Êìæs
 		}
 		// SEQ |Cg
 		if (0 == (m_ChiefRecipes.pScanPoint = new STAGE_COORD[SCAN_POINT_MAX])) {
-			l_dwMsgCode = 27;	// 擾s
+			l_dwMsgCode = 27;	// Êìæs
 		}
 // 2009.05.17 myanagida -->
 		// TCgp^[ e[u
 		if (0 == (m_ChiefRecipes.pSitePattern = new SITE_PATTERN[SCAN_POINT_MAX])) {
-			l_dwMsgCode = 36;	// 擾s
+			l_dwMsgCode = 36;	// Êìæs
 		}
 // 2009.05.17 myanagida <--
-/* added 2009.08.03 hmenjo XgX@\ǉ(13) ---------- { ---------- */
+/* added 2009.08.03 hmenjo XgX@\«â(13) ---------- { ---------- */
 		/* Xe[WvO XgXp	*/
 		if (0 == (m_ChiefRecipes.pStageProgStress = new STAGE_PROG_STRESS)) {
-			l_dwMsgCode = 26;	/* 擾s	*/
+			l_dwMsgCode = 26;	/* Êìæs	*/
 		}
-/* added 2009.08.03 hmenjo XgX@\ǉ(13) ---------- } ---------- */
+/* added 2009.08.03 hmenjo XgX@\«â(13) ---------- } ---------- */
 //Saiki 20110308 Add ----->
 		// CVs XgXp p[^
 		if (0 == (m_ChiefRecipes.pStressParamInfo = new STRESS_PARAM_INFO)) {
-			l_dwMsgCode = 24;	// 擾s
+			l_dwMsgCode = 24;	// Êìæs
 		}
 //Saiki 20110308 Add <-----
 		if (0 != l_dwMsgCode) {
@@ -2464,18 +2464,18 @@ void CChiefView::RecipesMalloc(BOOL bAlloc)
 		if (0 != m_ChiefRecipes.pStageProgInfoHdr) {
 			delete m_ChiefRecipes.pStageProgInfoHdr;
 		}
-/* added 2009.08.03 hmenjo XgX@\ǉ(13) ---------- { ---------- */
+/* added 2009.08.03 hmenjo XgX@\«â(13) ---------- { ---------- */
 		/* Xe[WvO XgXp	*/
 		if (0 != m_ChiefRecipes.pStageProgStress) {
 			delete m_ChiefRecipes.pStageProgStress;
 		}
-/* added 2009.08.03 hmenjo XgX@\ǉ(13) ---------- } ---------- */
-		// SEQ |Cg (8 bytes ~ ő|CgF2008.09.30 )
+/* added 2009.08.03 hmenjo XgX@\«â(13) ---------- } ---------- */
+		// SEQ |Cg (8 bytes ~ ≈ë|CgF2008.09.30 )
 		if (0 != m_ChiefRecipes.pScanPoint) {
 			delete m_ChiefRecipes.pScanPoint;
 		}
 // 2009.05.17 myanagida -->
-		// TCgp^[ e[u (62 bytes ~ ő|CgF2009.05.17 )
+		// TCgp^[ e[u (62 bytes ~ ≈ë|CgF2009.05.17 )
 		if (0 != m_ChiefRecipes.pSitePattern) {
 			delete m_ChiefRecipes.pSitePattern;
 		}
@@ -2490,7 +2490,7 @@ void CChiefView::RecipesMalloc(BOOL bAlloc)
 
 /*
  *	P|CgI bZ[Wnh
- *		f[^W[łP|Cgf[^̏D
+ *		f[^W[≈ÇP|Cgf[^ÃèD
  */
 LRESULT CChiefView::OnData1PointEnd(WPARAM wparam, LPARAM lparam)
 {
@@ -2503,7 +2503,7 @@ LRESULT CChiefView::OnData1PointEnd(WPARAM wparam, LPARAM lparam)
 
 /*
  *	PI bZ[Wnh
- *		f[^W[łPf[^̏D
+ *		f[^W[≈ÇPf[^ÃèD
  */
 LRESULT CChiefView::OnDataMeasEnd(WPARAM wparam, LPARAM lparam)
 {
@@ -2515,7 +2515,7 @@ LRESULT CChiefView::OnDataMeasEnd(WPARAM wparam, LPARAM lparam)
 }
 
 /*
- *	Y(^[bg)ݒ肵܂
+ *	Y(^[bg)›íËÇµ‹Ç
  */
 BOOL CChiefView::SelectLens(UINT uiLens)
 {
@@ -2532,9 +2532,9 @@ BOOL CChiefView::SelectLens(UINT uiLens)
 	return l_bRc;
 }
 
-/* added 2009.11.26 hmenjo  Seq ͎wwbhœ ---------- { ---------- */
+/* added 2009.11.26 hmenjo  Seq Õéwwbh≈ì ---------- { ---------- */
 /*
- *	wbhݒ肵܂
+ *	wbh›íËÇµ‹Ç
  */
 BOOL CChiefView::SelectHead(WORD wHeadType, BOOL bStageMove)
 {
@@ -2554,7 +2554,7 @@ BOOL CChiefView::SelectHead(WORD wHeadType, BOOL bStageMove)
 
 	return l_bRc;
 }
-/* added 2009.11.26 hmenjo  Seq ͎wwbhœ ---------- } ---------- */
+/* added 2009.11.26 hmenjo  Seq Õéwwbh≈ì ---------- } ---------- */
 
 // 2013.02.22 bagus Substrate thickness setting -->
 BOOL CChiefView::SelectSubstrateThickIndex(int iIndex)
@@ -2615,13 +2615,13 @@ LRESULT CChiefView::OnStartAAF(WPARAM wparam, LPARAM lparam)
 		return 35;	// s_EIt
 	}
 	if (0 != CheckDIO_IsAirPressureLowON()) {
-		return 36;	// GA͒ቺI
+		return 36;	// GAÕí·â∫I
 	}
 	if (
 		(0 == m_DiInfo.bTHMaintenanceSW)
 	 && ((0 == m_DiInfo.bShutterClose) || (0 != m_DiInfo.bShutterOpen))
 	) {
-		return 37;		// eItŁCCVb^ CLOSE ItCCVb^ OPEN I
+		return 37;		// eIt≈ÅC¬ÅCVb^ CLOSE ItCCVb^ OPEN I
 	}
 /* added 2009.10.29 hmenjo CTA Seq CTAILPI `FbN ---------- { ---------- */
 	if (0 == this->IsCtaILPI()) {
@@ -2635,33 +2635,33 @@ LRESULT CChiefView::OnStartAAF(WPARAM wparam, LPARAM lparam)
 		return lCode;
 	}
 /* added 2009.11.06 K.Matsuo RS Seq Head Position `FbN ---------- { ---------- */
-// 2009.11.12 bagus MS [ʒuQ`FbN --{--
+// 2009.11.12 bagus MS [ íuQ`FbN --{--
 	if( 0 == this->IsMSILPI()){
-		return 55;		//[ʒuQ̃ZT[ONĂ
+		return 55;		//[ íuQÃÉZT[ONƒÇ
 	}
-// 2009.11.12 bagus MS [ʒuQ`FbN --}--
+// 2009.11.12 bagus MS [ íuQ`FbN --}--
 	if (HOST_LOCAL != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetHostMode()) {
-		return 2L;		// [JłȂ
+		return 2L;		// [J≈Ç»Ç
 	}
 	int l_iProcStatus = ProcStatusGet();
 	if ((PROCESS_WAIT != l_iProcStatus) && (PROCESS_DOWN != l_iProcStatus)) {
-		return 8L;		// WaitCDown ȊO
+		return 8L;		// WaitCDown »äO
 	}
 	int l_iDispStatus = ((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetDispStatus();
 	if (MAIN_MENU_DATA == l_iDispStatus) {
-		return 11L;		// ʃ[huf[^[hv
+		return 11L;		//  É[huf[^[hv
 	}
 	if ((MAIN_MENU_USER_SETTING == l_iDispStatus) && (0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGetAll())) {
-		return 12L;		// ʃ[hu[Uݒ胂[hv̏ꍇɁC쒆tOׂăItłȂ
+		return 12L;		//  É[hu[U›íËÉÇ[hvÃèÍçá…ÅCÏíÜtO◊ÇƒÉIt≈Ç»Ç
 	}
-#if 0	// ^[bg쒆tOɒǉ߁C^[bg܂߂܂
+#if 0	// ^[bgÏíÜtO…í«âﬂÅC^[bg‹ÇﬂÇ‹Ç
 	if (((MAIN_MENU_MEASUREMENT == l_iDispStatus) || (MAIN_MENU_RECIPE_SETTING == l_iDispStatus))
 	 && (0 != (0x00000016 & ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGetAll()))) {
-#else	// ^[bg쒆tOɒǉ߁C^[bg܂߂܂
+#else	// ^[bgÏíÜtO…í«âﬂÅC^[bg‹ÇﬂÇ‹Ç
 	if (((MAIN_MENU_MEASUREMENT == l_iDispStatus) || (MAIN_MENU_RECIPE_SETTING == l_iDispStatus))
 	 && (0 != ((ACTUATE_ZAXIS | ACTUATE_PIN | ACTUATE_WORKGUIDE | ACTUATE_TURRET) & ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGetAll()))) {
-#endif	// ^[bg쒆tOɒǉ߁C^[bg܂߂܂
-		return 13L;		// ʃ[hu胂[hvuVs[hv̏ꍇɓ쒆tOŁuXY Xe[WvƁuVb^vȊOɃI
+#endif	// ^[bgÏíÜtO…í«âﬂÅC^[bg‹ÇﬂÇ‹Ç
+		return 13L;		//  É[huËÉÇ[hvuVs[hvÃèÍçá…ìÏíÜtO≈ÅuXY Xe[Wv∆ÅuVb^v»äO…ÉI
 	}
 
 	((CChiefTransiMaster*) m_pcChiefTransiMaster)->TransiEvent(EV_MAS_DO_UIAAF);
@@ -2670,19 +2670,19 @@ LRESULT CChiefView::OnStartAAF(WPARAM wparam, LPARAM lparam)
 }
 
 /*
- *	ʂ̃V[PXJn bZ[Wnh
+ *	 ÇÃÉV[PXJn bZ[Wnh
  */
 LRESULT CChiefView::OnStartDispSeq(WPARAM wparam, LPARAM lparam)
-/* added 2009.09.09 hmenjo Rgǉ ---------- { ---------- */
+/* added 2009.09.09 hmenjo Rg«â ---------- { ---------- */
 /*				LOWORD(lparam)FW[[h
-/*									OFʏ탂[h
-/*									OFW[[h(t@XƃfXL[)
+/*									OF èÌÉÇ[h
+/*									OFW[[h(t@X∆ÉfXL[)
 /*				HIWORD(lparam)FPMA w
-/*									OFCVsʂ
+/*									OFCVs Ç
 /*									PFPMA 
 /*									QFPMA L(S_)
-/*									RFCVsʂ
-/* added 2009.09.09 hmenjo Rgǉ ---------- } ---------- */
+/*									RFCVs Ç
+/* added 2009.09.09 hmenjo Rg«â ---------- } ---------- */
 {
 	LogChief_WinMsg(_T("WM_DISP_START_SEQ"), wparam, lparam);
 
@@ -2698,7 +2698,7 @@ LRESULT CChiefView::OnStartDispSeq(WPARAM wparam, LPARAM lparam)
 		return 35;		// s_EIt
 	}
 	if (0 != CheckDIO_IsAirPressureLowON()) {
-		return 36;		// GA͒ቺI
+		return 36;		// GAÕí·â∫I
 	}
 	if ((0 == m_DiInfo.bShutterClose) || (0 != m_DiInfo.bShutterOpen)) {
 		return 37;		// Vb^ CLOSE ItCCVb^ OPEN I
@@ -2715,49 +2715,49 @@ LRESULT CChiefView::OnStartDispSeq(WPARAM wparam, LPARAM lparam)
 		return lCode;
 	}
 /* added 2009.11.06 K.Matsuo RS Seq Head Position `FbN ---------- { ---------- */
-// 2009.11.12 bagus MS [ʒuQ`FbN --{--
+// 2009.11.12 bagus MS [ íuQ`FbN --{--
 	if( 0 == this->IsMSILPI()){
-		return 55;		//[ʒuQ̃ZT[ONĂ
+		return 55;		//[ íuQÃÉZT[ONƒÇ
 	}
-// 2009.11.12 bagus MS [ʒuQ`FbN --}--
+// 2009.11.12 bagus MS [ íuQ`FbN --}--
 	if (HOST_LOCAL != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetHostMode()) {
-		return 2L;		// [JłȂ
+		return 2L;		// [J≈Ç»Ç
 	}
 	if (PROCESS_WAIT != ProcStatusGet()) {
-		return 5L;		// Wait łȂ
+		return 5L;		// Wait ≈Ç»Ç
 	}
 	if (0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGetAll()) {
-		return 6L;		// 쒆tOI
+		return 6L;		// ÏíÜtOI
 	}
 	if (MAIN_MENU_MEASUREMENT != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetDispStatus()) {
-		return 7L;		// ʃ[hu胂[hvłȂ
+		return 7L;		//  É[huËÉÇ[hv≈Ç»Ç
 	}
 	if (0 == m_DiInfo.bMaintenanceSW) {
-		// eiX SW ÍEEE
+		// eiX SW IÕÅEEE
 		if (0 == m_DiInfo.bTHMaintenanceSW) {
-			// ɁCe SW It̏ꍇC֎~
+			// …ÅCe SW ItÃèÍçáC÷é~
 			return 15;
 		}
-#if 1	// ełȂCȅꍇɓ֎~ɂ܂
+#if 1	// e≈Ç»ÇCeÃèÍçá…ì÷é~…Ç‹Ç
 	} else {
-		// eiX SW It́EEE
+		// eiX SW ItÕÅEEE
 		if (0 != m_DiInfo.bTHMaintenanceSW) {
-			// e SW ȈꍇC֎~
+			// e SW IÃèÍçáC÷é~
 			return 15;
 		}
 #endif
 	}
 
 	m_bGotRecipeFromPif = FALSE;
-	// Vs擾
+	// VsÊìæ
 	_tcscpy(m_szMainRecipeName, (TCHAR*) wparam);
-	//		wparam  CMainFrame CCVs̃|C^ZbgĂ͂łD
+	//		wparam  CMainFrame CCVsÃÉ|C^ZbgƒÇÕÇ≈ÇD
 	if (0 != RecipesGetCheck(m_szMainRecipeName, 0)) {
-		// VsǍُ݈Ȃ̂ŁC܂D
+		// Vs«ç›àŸè»ÇÃÇ≈ÅC‹ÇD
 	} else {
 		LPMAIN_RCP_INFO l_pMainRcpInfo = (LPMAIN_RCP_INFO) m_ChiefRecipes.pMainRcpInfo;
 		if (0 == HeadTypeCheck(l_pMainRcpInfo->MainRcpParam.hdr.wHeadType)) {
-			// wbh^CvłD
+			// wbh^Cv≈ÇD
 			return 16;
 		} else {
 /* added 2009.09.11 hmenjo Ot@Xf[^mF ---------- { ---------- */
@@ -2767,20 +2767,20 @@ LRESULT CChiefView::OnStartDispSeq(WPARAM wparam, LPARAM lparam)
 			 && (0 != this->CheckReferenceData(	m_szMainRecipeName,
 													l_pMeasProgInfo->Ref.hdr.dLifeTime,
 													l_pMeasProgInfo->Ref2nd.bMeasure))) {
-				/* KgߗŁCt@Xf[^ُ
-					(t@Xf[^t@C݂ȂC܂́CLO)	*/
+				/* Kgﬂó≈ÅCt@Xf[^Ÿè
+					(t@Xf[^t@C›Ç»ÇC‹ÇÕÅCLO)	*/
 				return 48;
 			}
 /* added 2009.09.11 hmenjo Ot@Xf[^mF ---------- } ---------- */
-/* added 2009.09.11 hmenjo OKgߗvmF ---------- { ---------- */
+/* added 2009.09.11 hmenjo OKgﬂóvmF ---------- { ---------- */
 			if ((HEAD_TYPE_SR == l_pMeasProgInfo->ScanParams.hdr.wHeadType)
 			 && (MEAS_PROG_TYPE_SR_TRANSMITTANCE_G == l_pMeasProgInfo->ScanParams.hdr.wScanType)
 			 && (TRUE != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->IsGTRLampOn())) {
-				/* KgߗŁCKgߗpnQvIt	*/
+				/* Kgﬂó≈ÅCKgﬂópnQvIt	*/
 				return 49;
 			}
-/* added 2009.09.11 hmenjo OKgߗvmF ---------- } ---------- */
-#ifdef CHIEF_REMEASURE_ON	// W[Ή 20081225
+/* added 2009.09.11 hmenjo OKgﬂóvmF ---------- } ---------- */
+#ifdef CHIEF_REMEASURE_ON	// W[Œâ 20081225
 			LPSTAGE_PROG_INFO_HDR l_pStageProgInfoHdr = (LPSTAGE_PROG_INFO_HDR) m_ChiefRecipes.pStageProgInfoHdr;
 			DWORD l_dwSearchStartNo = 1;
 			//2009.11.12 bagus 2point-distance --{--
@@ -2792,18 +2792,18 @@ LRESULT CChiefView::OnStartDispSeq(WPARAM wparam, LPARAM lparam)
 //			if (l_pStageProgInfoHdr->wNumScans < GetNextPointNo(&l_dwSearchStartNo)) {
 			if (wNumScans < GetNextPointNo(&l_dwSearchStartNo)) {
 			//2009.11.12 bagus 2point-distance --}--
-				// 肷/Ȃ tOׂāuȂvɂȂĂ܂
+				// ËÇ∑/»Ç tO◊ÇƒÅu»Çv…Ç»ÇƒÇ‹Ç
 				return 38;
 			} else {
-				// Tv ID "0x0dC0x00"Ă(ʑœ͂Ă邽)
+				// Tv ID "0x0dC0x00"ƒÇ( ë≈ìÕÇƒÇÈÇΩ)
 				m_szSampleID[0] = 0x000d;
 				m_szSampleID[1] = 0x0000;
-/* added 2009.10.29 hmenjo CTA bg ID Ή ---------- { ---------- */
-				/* bg ID "0x0dC0x00"Ă(ʑœ͂Ă邽)	*/
+/* added 2009.10.29 hmenjo CTA bg ID Œâ ---------- { ---------- */
+				/* bg ID "0x0dC0x00"ƒÇ( ë≈ìÕÇƒÇÈÇΩ)	*/
 				m_szLotID[0] = 0x000d; m_szLotID[1] = 0x0000;
-/* added 2009.10.29 hmenjo CTA bg ID Ή ---------- } ---------- */
+/* added 2009.10.29 hmenjo CTA bg ID Œâ ---------- } ---------- */
 				// V[PXJn -----------------------------------------
-				// PMA w(Kv΃Vs܂)
+				// PMA w(KvŒÉVs‹Ç)
 				switch (HIWORD(lparam)) {
 				case 1:		// PMA 
 					((LPMAIN_RCP_INFO) m_ChiefRecipes.pMainRcpInfo)->MainRcpParam.hdr.nPointManualAdjustment = POINT_MANUAL_ADJUSTMENT_NONE;
@@ -2811,24 +2811,24 @@ LRESULT CChiefView::OnStartDispSeq(WPARAM wparam, LPARAM lparam)
 				case 2:		// PMA L(S_)
 					((LPMAIN_RCP_INFO) m_ChiefRecipes.pMainRcpInfo)->MainRcpParam.hdr.nPointManualAdjustment = POINT_MANUAL_ADJUSTMENT_ALL_POINT_EVERY_ADJUSTMENT;
 					break;
-				case 0:		// CVsʂ
-				default:	// CVsʂ
-					// CVsʂł̂ŃVs͕ύX܂D
+				case 0:		// CVs Ç
+				default:	// CVs Ç
+					// CVs Ç≈ÇÃÇ≈ÉVsÕïœçX‹ÇD
 					break;
 				}
-/* added 2009.11.30 hmenjo  Seq ͎wwbh()œ ---------- { ---------- */
+/* added 2009.11.30 hmenjo  Seq Õéwwbh()≈ì ---------- { ---------- */
 				if (POINT_MANUAL_ADJUSTMENT_NONE != l_pMainRcpInfo->MainRcpParam.hdr.nPointManualAdjustment) {
-					/* MS wbhȊO PMA L̏ꍇ AF(1|Cgڂ)ɐݒ肵܂D	*/
+					/* MS wbh»äO PMA LÃèÍçá AF(1|Cg⁄Ç)…ê›íËÇµ‹ÇD	*/
 					switch (l_pMainRcpInfo->MainRcpParam.hdr.wHeadType) {
 					case HEAD_TYPE_SR:
 					case HEAD_TYPE_STRESS:	l_pMainRcpInfo->MainRcpParam._SR.nFocus = 1;
 											l_pMainRcpInfo->MainRcpParam._SR.nAutoFocusFailOption = AFOCUS_FAIL_OPTION_PROCEED;	break;
 					case HEAD_TYPE_SE:		l_pMainRcpInfo->MainRcpParam._SE.nFocus = 1;
 											l_pMainRcpInfo->MainRcpParam._SE.nAutoFocusFailOption = AFOCUS_FAIL_OPTION_PROCEED;	break;
-// 2013.02.01 bagus CompleteEASEwbhǉ -->
+// 2013.02.01 bagus CompleteEASEwbh«â -->
 					case HEAD_TYPE_COMPEASE:l_pMainRcpInfo->MainRcpParam._COMPEASE.nFocus = 1;
 											l_pMainRcpInfo->MainRcpParam._COMPEASE.nAutoFocusFailOption = AFOCUS_FAIL_OPTION_PROCEED;	break;
-// 2013.02.01 bagus CompleteEASEwbhǉ <--
+// 2013.02.01 bagus CompleteEASEwbh«â <--
 					case HEAD_TYPE_4PP:		l_pMainRcpInfo->MainRcpParam._RS.nFocus = 1;
 											l_pMainRcpInfo->MainRcpParam._RS.nAutoFocusFailOption = AFOCUS_FAIL_OPTION_PROCEED;	break;
 					case HEAD_TYPE_CTA:		l_pMainRcpInfo->MainRcpParam._CA.nFocus = 1;
@@ -2838,15 +2838,15 @@ LRESULT CChiefView::OnStartDispSeq(WPARAM wparam, LPARAM lparam)
 						break;
 					}
 				}
-/* added 2009.11.30 hmenjo  Seq ͎wwbh()œ ---------- } ---------- */
-/* modified 2009.09.10 hmenjo P511 R}hǉ ---------- { ---------- */
+/* added 2009.11.30 hmenjo  Seq Õéwwbh()≈ì ---------- } ---------- */
+/* modified 2009.09.10 hmenjo P511 R}h«â ---------- { ---------- */
 //				((CChiefTransiMaster*) m_pcChiefTransiMaster)->TransiEvent(EV_MAS_DO_UISEQ, (cEventParams*) LOWORD(lparam));
-/* modified 2009.09.10 hmenjo P511 R}hǉ ----------				*/
+/* modified 2009.09.10 hmenjo P511 R}h«â ----------				*/
 				((CChiefTransiMaster*) m_pcChiefTransiMaster)->TransiEvent(EV_MAS_DO_UISEQ, (cEventParams*) MAKELONG(LOWORD(lparam), 0));
-/* modified 2009.09.10 hmenjo P511 R}hǉ ---------- } ---------- */
+/* modified 2009.09.10 hmenjo P511 R}h«â ---------- } ---------- */
 			}
 #else
-			// Tv ID "0x0dC0x00"Ă(ʑœ͂Ă邽)
+			// Tv ID "0x0dC0x00"ƒÇ( ë≈ìÕÇƒÇÈÇΩ)
 			m_szSampleID[0] = 0x000d;
 			m_szSampleID[1] = 0x0000;
 			// V[PXJn
@@ -2859,7 +2859,7 @@ LRESULT CChiefView::OnStartDispSeq(WPARAM wparam, LPARAM lparam)
 }
 
 /*
- *	ʂ̂P|CgJn bZ[Wnh
+ *	 ÇÃÇP|CgJn bZ[Wnh
  */
 LRESULT CChiefView::OnStart1Point(WPARAM wparam, LPARAM lparam)
 {
@@ -2877,7 +2877,7 @@ LRESULT CChiefView::OnStart1Point(WPARAM wparam, LPARAM lparam)
 		return 35;	// s_EIt
 	}
 	if (0 != CheckDIO_IsAirPressureLowON()) {
-		return 36;	// GA͒ቺI
+		return 36;	// GAÕí·â∫I
 	}
 	if ((0 == m_DiInfo.bShutterClose) || (0 != m_DiInfo.bShutterOpen)) {
 		return 37;		// Vb^ CLOSE ItCCVb^ OPEN I
@@ -2887,11 +2887,11 @@ LRESULT CChiefView::OnStart1Point(WPARAM wparam, LPARAM lparam)
 		return 50;	/* CTAILPI It	*/
 	}
 /* added 2009.10.29 hmenjo CTA Seq CTAILPI `FbN ---------- } ---------- */
-// 2009.11.12 bagus MS [ʒuQ`FbN --{--
+// 2009.11.12 bagus MS [ íuQ`FbN --{--
 	if( 0 == this->IsMSILPI()){
-		return 55;		//[ʒuQ̃ZT[ONĂ
+		return 55;		//[ íuQÃÉZT[ONƒÇ
 	}
-// 2009.11.12 bagus MS [ʒuQ`FbN --}--
+// 2009.11.12 bagus MS [ íuQ`FbN --}--
 /* added 2009.11.06 K.Matsuo RS Seq Head Position `FbN ---------- { ---------- */
 	int iResistStatus = this->CheckResistIL();
 	if (0 != iResistStatus) {
@@ -2900,22 +2900,22 @@ LRESULT CChiefView::OnStart1Point(WPARAM wparam, LPARAM lparam)
 	}
 /* added 2009.11.06 K.Matsuo RS Seq Head Position `FbN ---------- { ---------- */
 	if (HOST_LOCAL != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetHostMode()) {
-		return 2L;		// [JłȂ
+		return 2L;		// [J≈Ç»Ç
 	}
 	if (0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGetAll()) {
-		return 6L;		// 쒆tOI
+		return 6L;		// ÏíÜtOI
 	}
 //	int l_iProcStatus = ProcStatusGet();
 //	if ((PROCESS_WAIT != l_iProcStatus) && (PROCESS_DOWN != l_iProcStatus)) {
-//		return 8L;		// WaitCDown ȊO
+//		return 8L;		// WaitCDown »äO
 //	}
 	int l_iDispStatus = ((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetDispStatus();
 // modified hmenjo 2009.01.25 ---- { ----
 //	if ((MAIN_MENU_MEASUREMENT != l_iDispStatus) && (MAIN_MENU_RECIPE_SETTING != l_iDispStatus)) {
-//		return 9L;		// ʃ[hu胂[hvuVs[hvłȂ
+//		return 9L;		//  É[huËÉÇ[hvuVs[hv≈Ç»Ç
 //	}
 //	if ((MAIN_MENU_MEASUREMENT == l_iDispStatus) && (PROCESS_WAIT != l_iProcStatus)) {
-//		return 10L;		// ʃ[hu胂[hv̏ꍇ Wait ԂłȂ
+//		return 10L;		//  É[huËÉÇ[hvÃèÍçá Wait ‘Ç≈Ç»Ç
 //	}
 // modified hmenjo 2009.01.25 ----
 	if (
@@ -2923,34 +2923,34 @@ LRESULT CChiefView::OnStart1Point(WPARAM wparam, LPARAM lparam)
 	 && (MAIN_MENU_MANUAL_MEASUREMENT != l_iDispStatus)
 	 && (MAIN_MENU_RECIPE_SETTING != l_iDispStatus)
 		) {
-		return 9L;		// ʃ[hu胂[hvu}jA胂[hvuVs[hvłȂ
+		return 9L;		//  É[huËÉÇ[hvu}jAËÉÇ[hvuVs[hv≈Ç»Ç
 	}
 //	if (
 //		((MAIN_MENU_MEASUREMENT == l_iDispStatus) || (MAIN_MENU_MANUAL_MEASUREMENT == l_iDispStatus))
 //	 && (PROCESS_WAIT != l_iProcStatus)
 //		) {
-//		return 10L;		// ʃ[hu胂[hvu}jA胂[hv̏ꍇ Wait ԂłȂ
+//		return 10L;		//  É[huËÉÇ[hvu}jAËÉÇ[hvÃèÍçá Wait ‘Ç≈Ç»Ç
 //	}
 // modified hmenjo 2009.01.25 ----	----
 
 	m_bGotRecipeFromPif = FALSE;
-	// Vs擾
+	// VsÊìæ
 	_tcscpy(m_szMainRecipeName, (TCHAR*) wparam);
-	//		wparam  CMainFrame CCVs̃|C^ZbgĂ͂łD
+	//		wparam  CMainFrame CCVsÃÉ|C^ZbgƒÇÕÇ≈ÇD
 	if (0 != RecipesGetCheck(m_szMainRecipeName, 1)) {
-		// VsǍُ݈Ȃ̂ŁC܂D
+		// Vs«ç›àŸè»ÇÃÇ≈ÅC‹ÇD
 	} else {
 		LPMAIN_RCP_INFO l_pMainRcpInfo = (LPMAIN_RCP_INFO) m_ChiefRecipes.pMainRcpInfo;
 		if (0 == HeadTypeCheck(l_pMainRcpInfo->MainRcpParam.hdr.wHeadType)) {
-			// wbh^CvłD
+			// wbh^Cv≈ÇD
 			return 16;
 		} else {
 /* modified 2009.11.27 hmenjo GTR P|Cgt@X ---------- { ---------- */
-///* modified 2009.11.27 hmenjo P|Cgő|Cgԍ ---------- { ---------- */
+///* modified 2009.11.27 hmenjo P|Cg≈ë|Cg‘ç ---------- { ---------- */
 ////			((CChiefTransiMaster*) m_pcChiefTransiMaster)->TransiEvent(EV_MAS_DO_UI1POINT);
-///* modified 2009.11.27 hmenjo P|Cgő|Cgԍ ---------- 			 */
+///* modified 2009.11.27 hmenjo P|Cg≈ë|Cg‘ç ---------- 			 */
 //			((CChiefTransiMaster*) m_pcChiefTransiMaster)->TransiEvent(EV_MAS_DO_UI1POINT, (cEventParams*) LOWORD(lparam));
-///* modified 2009.11.27 hmenjo P|Cgő|Cgԍ ---------- } ---------- */
+///* modified 2009.11.27 hmenjo P|Cg≈ë|Cg‘ç ---------- } ---------- */
 /* modified 2009.11.27 hmenjo GTR P|Cgt@X ---------- 			 */
 			((CChiefTransiMaster*) m_pcChiefTransiMaster)->TransiEvent(EV_MAS_DO_UI1POINT, (cEventParams*) MAKELONG(LOWORD(lparam), 0));
 /* modified 2009.11.27 hmenjo GTR P|Cgt@X ---------- } ---------- */
@@ -2961,7 +2961,7 @@ LRESULT CChiefView::OnStart1Point(WPARAM wparam, LPARAM lparam)
 }
 
 /*
- *	ʂ̃t@XJn bZ[Wnh
+ *	 ÇÃÉt@XJn bZ[Wnh
  */
 LRESULT CChiefView::OnStartSrRefer(WPARAM wparam, LPARAM lparam)
 {
@@ -2979,7 +2979,7 @@ LRESULT CChiefView::OnStartSrRefer(WPARAM wparam, LPARAM lparam)
 		return 35;	// s_EIt
 	}
 	if (0 != CheckDIO_IsAirPressureLowON()) {
-		return 36;	// GA͒ቺI
+		return 36;	// GAÕí·â∫I
 	}
 	if ((0 == m_DiInfo.bShutterClose) || (0 != m_DiInfo.bShutterOpen)) {
 		return 37;		// Vb^ CLOSE ItCCVb^ OPEN I
@@ -2989,11 +2989,11 @@ LRESULT CChiefView::OnStartSrRefer(WPARAM wparam, LPARAM lparam)
 		return 50;	/* CTAILPI It	*/
 	}
 /* added 2009.11.06 K.Matsuo RS Seq Head Position `FbN ---------- { ---------- */
-// 2009.11.12 bagus MS [ʒuQ`FbN --{--
+// 2009.11.12 bagus MS [ íuQ`FbN --{--
 	if( 0 == this->IsMSILPI()){
-		return 55;		//[ʒuQ̃ZT[ONĂ
+		return 55;		//[ íuQÃÉZT[ONƒÇ
 	}
-// 2009.11.12 bagus MS [ʒuQ`FbN --}--
+// 2009.11.12 bagus MS [ íuQ`FbN --}--
 	int iResistStatus = this->CheckResistIL();
 	if (0 != iResistStatus) {
 		LONG lCode = 52 + iResistStatus - 1;		// 52,53,54
@@ -3002,22 +3002,22 @@ LRESULT CChiefView::OnStartSrRefer(WPARAM wparam, LPARAM lparam)
 /* added 2009.11.06 K.Matsuo RS Seq Head Position `FbN ---------- { ---------- */
 /* added 2009.10.29 hmenjo CTA Seq CTAILPI `FbN ---------- } ---------- */
 	if (HOST_LOCAL != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetHostMode()) {
-		return 2L;		// [JłȂ
+		return 2L;		// [J≈Ç»Ç
 	}
 	if (0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGetAll()) {
-		return 6L;		// 쒆tOI
+		return 6L;		// ÏíÜtOI
 	}
 //	int l_iProcStatus = ProcStatusGet();
 //	if ((PROCESS_WAIT != l_iProcStatus) && (PROCESS_DOWN != l_iProcStatus)) {
-//		return 8L;		// WaitCDown ȊO
+//		return 8L;		// WaitCDown »äO
 //	}
 	int l_iDispStatus = ((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetDispStatus();
 // modified hmenjo 2009.01.25 ---- { ----
 //	if ((MAIN_MENU_MEASUREMENT != l_iDispStatus) && (MAIN_MENU_RECIPE_SETTING != l_iDispStatus)) {
-//		return 9L;		// ʃ[hu胂[hvuVs[hvłȂ
+//		return 9L;		//  É[huËÉÇ[hvuVs[hv≈Ç»Ç
 //	}
 //	if ((MAIN_MENU_MEASUREMENT == l_iDispStatus) && (PROCESS_WAIT != l_iProcStatus)) {
-//		return 10L;		// ʃ[hu胂[hv̏ꍇ Wait ԂłȂ
+//		return 10L;		//  É[huËÉÇ[hvÃèÍçá Wait ‘Ç≈Ç»Ç
 //	}
 // modified hmenjo 2009.01.25 ----
 	if (
@@ -3025,39 +3025,39 @@ LRESULT CChiefView::OnStartSrRefer(WPARAM wparam, LPARAM lparam)
 	 && (MAIN_MENU_MANUAL_MEASUREMENT != l_iDispStatus)
 	 && (MAIN_MENU_RECIPE_SETTING != l_iDispStatus)
 		) {
-		return 9L;		// ʃ[hu胂[hvu}jA胂[hvuVs[hvłȂ
+		return 9L;		//  É[huËÉÇ[hvu}jAËÉÇ[hvuVs[hv≈Ç»Ç
 	}
 //	if (
 //		((MAIN_MENU_MEASUREMENT == l_iDispStatus) || (MAIN_MENU_MANUAL_MEASUREMENT == l_iDispStatus))
 //	 && (PROCESS_WAIT != l_iProcStatus)
 //		) {
-//		return 10L;		// ʃ[hu胂[hvu}jA胂[hv̏ꍇ Wait ԂłȂ
+//		return 10L;		//  É[huËÉÇ[hvu}jAËÉÇ[hvÃèÍçá Wait ‘Ç≈Ç»Ç
 //	}
 // modified hmenjo 2009.01.25 ----	----
 	if (0 == m_DiInfo.bMaintenanceSW) {
-		// eiX SW ÍEEE
+		// eiX SW IÕÅEEE
 		if (0 == m_DiInfo.bTHMaintenanceSW) {
-			// ɁCe SW It̏ꍇC֎~
+			// …ÅCe SW ItÃèÍçáC÷é~
 			return 15;
 		}
-#if 1	// ełȂCȅꍇɓ֎~ɂ܂
+#if 1	// e≈Ç»ÇCeÃèÍçá…ì÷é~…Ç‹Ç
 	} else {
-		// eiX SW It́EEE
+		// eiX SW ItÕÅEEE
 		if (0 != m_DiInfo.bTHMaintenanceSW) {
-			// e SW ȈꍇC֎~
+			// e SW IÃèÍçáC÷é~
 			return 15;
 		}
 #endif
 	}
 
 	m_bGotRecipeFromPif = FALSE;
-	// Vs擾
+	// VsÊìæ
 	_tcscpy(m_szMainRecipeName, (TCHAR*) wparam);
-	//		wparam  CMainFrame CCVs̃|C^ZbgĂ͂łD
+	//		wparam  CMainFrame CCVsÃÉ|C^ZbgƒÇÕÇ≈ÇD
 /* modified 2009.11.27 hmenjo GTR P|Cgt@X ---------- { ---------- */
 //	if (0 != RecipesGetCheck(m_szMainRecipeName, 1)) {
 /* modified 2009.11.27 hmenjo GTR P|Cgt@X ---------- 			 */
-	/* wbhƃXL^CvmF̂߁CXe[WvOœǍ݁D	*/
+	/* wbh∆ÉXL^CvmFÃÇﬂÅCXe[WvO≈ì«ç›ÅD	*/
 	DWORD l_dwMode = 1;
 	if (0 == RecipesGetCheck(m_szMainRecipeName, 1)) {
 		LPMEAS_PROG_INFO l_pMeasProgInfo = (LPMEAS_PROG_INFO) m_ChiefRecipes.pMeasProgInfo;
@@ -3070,71 +3070,71 @@ LRESULT CChiefView::OnStartSrRefer(WPARAM wparam, LPARAM lparam)
 	}
 	if (0 != RecipesGetCheck(m_szMainRecipeName, l_dwMode)) {
 /* modified 2009.11.27 hmenjo GTR P|Cgt@X ---------- } ---------- */
-		// VsǍُ݈Ȃ̂ŁC܂D
+		// Vs«ç›àŸè»ÇÃÇ≈ÅC‹ÇD
 	} else {
-/* added 2009.09.11 hmenjo ʂKgߗN ---------- { ---------- */
+/* added 2009.09.11 hmenjo  ÇKgﬂóN ---------- { ---------- */
 		LPMEAS_PROG_INFO l_pMeasProgInfo = (LPMEAS_PROG_INFO) m_ChiefRecipes.pMeasProgInfo;
 		if ((HEAD_TYPE_SR == l_pMeasProgInfo->ScanParams.hdr.wHeadType)
 			&& (MEAS_PROG_TYPE_SR_TRANSMITTANCE_G == l_pMeasProgInfo->ScanParams.hdr.wScanType)) {
-			/* Kgߗt@XȂ̂ŃXe[WvO܂߂ăVsǂݒ܂D	*/
+			/* Kgﬂót@X»ÇÃÇ≈ÉXe[WvO‹ÇﬂÇƒÉVs«Ç›í‹ÇD	*/
 /* modified 2009.11.27 hmenjo GTR P|Cgt@X ---------- { ---------- */
 //			if (0 != RecipesGetCheck(m_szMainRecipeName, 0)) {
-//				/* VsǍُ݈Ȃ̂ŁC܂D	*/
+//				/* Vs«ç›àŸè»ÇÃÇ≈ÅC‹ÇD	*/
 //				return 0L;
 //			}
 /* modified 2009.11.27 hmenjo GTR P|Cgt@X ---------- 			 */
 			if (0 == LOWORD(lparam)) {
-				/* GTR ʏ탊t@X(S|Cg)̏ꍇ̂	*/
+				/* GTR  èÌÉät@X(S|Cg)ÃèÍçáÃÇ	*/
 				if (0 != RecipesGetCheck(m_szMainRecipeName, 0)) {
-					/* VsǍُ݈Ȃ̂ŁC܂D	*/
+					/* Vs«ç›àŸè»ÇÃÇ≈ÅC‹ÇD	*/
 					return 0L;
 				}
 			}
 /* modified 2009.11.27 hmenjo GTR P|Cgt@X ---------- } ---------- */
 		}
-/* added 2009.09.11 hmenjo ʂKgߗN ---------- } ---------- */
+/* added 2009.09.11 hmenjo  ÇKgﬂóN ---------- } ---------- */
 		LPMAIN_RCP_INFO l_pMainRcpInfo = (LPMAIN_RCP_INFO) m_ChiefRecipes.pMainRcpInfo;
 		if (0 == HeadTypeCheck(l_pMainRcpInfo->MainRcpParam.hdr.wHeadType)) {
-			// wbh^CvłD
+			// wbh^Cv≈ÇD
 			return 16;
 		} else {
-/* added 2009.11.30 hmenjo  Seq ͎wwbh()œ ---------- { ---------- */
-			/* PMA ݒ͖ɂ܂D	*/
+/* added 2009.11.30 hmenjo  Seq Õéwwbh()≈ì ---------- { ---------- */
+			/* PMA ›íÕñ…Ç‹ÇD	*/
 			l_pMainRcpInfo->MainRcpParam.hdr.nPointManualAdjustment = POINT_MANUAL_ADJUSTMENT_NONE;
-/* added 2009.11.30 hmenjo  Seq ͎wwbh()œ ---------- } ---------- */
-/* added 2009.09.11 hmenjo OKgߗvmF ---------- { ---------- */
+/* added 2009.11.30 hmenjo  Seq Õéwwbh()≈ì ---------- } ---------- */
+/* added 2009.09.11 hmenjo OKgﬂóvmF ---------- { ---------- */
 //			LPMEAS_PROG_INFO l_pMeasProgInfo = (LPMEAS_PROG_INFO) m_ChiefRecipes.pMeasProgInfo;
 			if ((HEAD_TYPE_SR == l_pMeasProgInfo->ScanParams.hdr.wHeadType)
 			 && (MEAS_PROG_TYPE_SR_TRANSMITTANCE_G == l_pMeasProgInfo->ScanParams.hdr.wScanType)
 			 && (TRUE != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->IsGTRLampOn())) {
-				/* Kgߗt@XŁCKgߗpnQvIt	*/
+				/* Kgﬂót@X≈ÅCKgﬂópnQvIt	*/
 				return 49;
 			}
-/* added 2009.09.11 hmenjo OKgߗvmF ---------- } ---------- */
-/* modified 2009.09.11 hmenjo ʂKgߗN ---------- { ---------- */
+/* added 2009.09.11 hmenjo OKgﬂóvmF ---------- } ---------- */
+/* modified 2009.09.11 hmenjo  ÇKgﬂóN ---------- { ---------- */
 //			((CChiefTransiMaster*) m_pcChiefTransiMaster)->TransiEvent(EV_MAS_DO_UISREF);
-/* modified 2009.09.11 hmenjo ʂKgߗN ---------- 			 */
+/* modified 2009.09.11 hmenjo  ÇKgﬂóN ---------- 			 */
 			if ((HEAD_TYPE_SR == l_pMeasProgInfo->ScanParams.hdr.wHeadType)
 			 && (MEAS_PROG_TYPE_SR_TRANSMITTANCE_G == l_pMeasProgInfo->ScanParams.hdr.wScanType)) {
-				/* SR Kgߗt@X	*/
-				/* 肷/Ȃ tOׂăZbg܂D	*/
+				/* SR Kgﬂót@X	*/
+				/* ËÇ∑/»Ç tO◊ÇƒÉZbg‹ÇD	*/
 				LPSTAGE_PROG_INFO_HDR l_pStageProgInfoHdr = (LPSTAGE_PROG_INFO_HDR) m_ChiefRecipes.pStageProgInfoHdr;
 				for (int i = 0; i < l_pStageProgInfoHdr->wNumScans; i++) {
 					((CNanoSpecDoc*) m_pcNanoSpecDoc)->m_bDoPointMeasFlag[i] = TRUE;
 				}
-				/* Tv ID "0x0dC0x00"Ă(ʑœ͂Ă邽)	*/
+				/* Tv ID "0x0dC0x00"ƒÇ( ë≈ìÕÇƒÇÈÇΩ)	*/
 				m_szSampleID[0] = 0x000d;
 				m_szSampleID[1] = 0x0000;
-/* added 2009.10.29 hmenjo CTA bg ID Ή ---------- { ---------- */
-				/* bg ID "0x0dC0x00"Ă(ʑœ͂Ă邽)	*/
+/* added 2009.10.29 hmenjo CTA bg ID Œâ ---------- { ---------- */
+				/* bg ID "0x0dC0x00"ƒÇ( ë≈ìÕÇƒÇÈÇΩ)	*/
 				m_szLotID[0] = 0x000d; m_szLotID[1] = 0x0000;
-/* added 2009.10.29 hmenjo CTA bg ID Ή ---------- } ---------- */
-				/* t@X[hŋN܂D	*/
+/* added 2009.10.29 hmenjo CTA bg ID Œâ ---------- } ---------- */
+				/* t@X[h≈ãN‹ÇD	*/
 /* modified 2009.11.27 hmenjo GTR P|Cgt@X ---------- { ---------- */
 //				((CChiefTransiMaster*) m_pcChiefTransiMaster)->TransiEvent(EV_MAS_DO_UISEQ, (cEventParams*) MAKELONG(0, TRUE));
 /* modified 2009.11.27 hmenjo GTR P|Cgt@X ---------- 			 */
 				if (0 == LOWORD(lparam)) {
-					/* GTR ʏ탊t@X(S|Cg)	*/
+					/* GTR  èÌÉät@X(S|Cg)	*/
 					((CChiefTransiMaster*) m_pcChiefTransiMaster)->TransiEvent(EV_MAS_DO_UISEQ, (cEventParams*) MAKELONG(0, TRUE));
 				} else {
 					/* GTR P|Cg t@X	*/
@@ -3143,20 +3143,20 @@ LRESULT CChiefView::OnStartSrRefer(WPARAM wparam, LPARAM lparam)
 /* modified 2009.11.27 hmenjo GTR P|Cgt@X ---------- } ---------- */
 			} else {
 				/*	SR t@X
-				 *	SR ʏ퓧ߗt@X
+				 *	SR  èÌìßﬂót@X
 				 */
 				((CChiefTransiMaster*) m_pcChiefTransiMaster)->TransiEvent(EV_MAS_DO_UISREF);
 			}
-/* modified 2009.09.11 hmenjo ʂKgߗN ---------- } ---------- */
+/* modified 2009.09.11 hmenjo  ÇKgﬂóN ---------- } ---------- */
 		}
 	}
 
 	return 0L;
 }
 
-// 2013.11.07 Bagus Add (TohoSpecΉ) -->
+// 2013.11.07 Bagus Add (TohoSpecŒâ) -->
 /*
- *	mFʌʃbZ[Wnh
+ *	mF å ÉbZ[Wnh
  */
 LRESULT CChiefView::OnConfirmPopupEnd(WPARAM wparam, LPARAM lparam)
 {
@@ -3200,11 +3200,11 @@ LRESULT CChiefView::OnConfirmPopupEnd(WPARAM wparam, LPARAM lparam)
 
 	return 0L;
 }
-// 2013.11.07 Bagus Add (TohoSpecΉ) <--
+// 2013.11.07 Bagus Add (TohoSpecŒâ) <--
 
 /*
- *	e탌VsǍ݃G[`FbN܂
- *		Ǎُ݈̕młD
+ *	eÌÉåVs«ç›ÉG[`FbN‹Ç
+ *		«ç›àŸèÃïm≈ÇD
  */
 DWORD CChiefView::RecipesGetCheck(TCHAR *pszMainRecipeName, DWORD dwMode)
 {
@@ -3217,27 +3217,27 @@ DWORD CChiefView::RecipesGetCheck(TCHAR *pszMainRecipeName, DWORD dwMode)
 	switch (l_dwResult) {
 	case 0:		// 
 		break;
-	case 1:		// CVsǍُ݈
+	case 1:		// CVs«ç›àŸè
 		l_dwMsgTextCode = 28;
 		l_dwALID = ALID_MainRecipeReadError;
 		break;
-	case 2:		// vOǍُ݈
+	case 2:		// vO«ç›àŸè
 		l_dwMsgTextCode = 29;
 		l_dwALID = ALID_MeasurementProgramReadError;
 		break;
-	case 3:		// Xe[WvOǍُ݈
+	case 3:		// Xe[WvO«ç›àŸè
 		l_dwMsgTextCode = 30;
 		l_dwALID = ALID_StageProgramReadError;
 		break;
-	case 4:		// SEQ |Cgݒُ
+	case 4:		// SEQ |Cg›íŸè
 		l_dwMsgTextCode = 31;
 		l_dwALID = ALID_SequenceMeasurementPointsSettingError;
 		break;
-	case 5:		// SEQ |CgǍُ݈
+	case 5:		// SEQ |Cg«ç›àŸè
 		l_dwMsgTextCode = 32;
 		l_dwALID = ALID_SequenceMeasurementPointReadError;
 		break;
-	default:	// ̑`ُ̈
+	default:	// Ãë`ÃàŸè
 		l_dwMsgTextCode = 33;
 		l_dwALID = ALID_RecipeReadError;
 		break;
@@ -3260,77 +3260,77 @@ LRESULT CChiefView::OnSeqPause(WPARAM wparam, LPARAM lparam)
 	// C^bN
 	DWORD l_dwEMO = CheckDIO_IsEMO();
 	if (0 != l_dwEMO) {
-/* modified 2009.08.17 hmenjo Z[teBvOǉ ---------- { ---------- */
-///* modified 2009.06.02 hmenjo hAJő|[Y ---------- { ---------- */
+/* modified 2009.08.17 hmenjo Z[teBvO«â ---------- { ---------- */
+///* modified 2009.06.02 hmenjo hAJ≈ë|[Y ---------- { ---------- */
 ////		return 30 + l_dwEMO;	// EMOChAC^bNCup[It
-///* modified 2009.06.02 hmenjo hAJő|[Y ----------			   */
+///* modified 2009.06.02 hmenjo hAJ≈ë|[Y ----------			   */
 //		if (ALID_DoorOpen != l_dwEMO) {
 //			return 30 + l_dwEMO;	// EMOChAC^bNCup[It
 //		}
-///* modified 2009.06.02 hmenjo hAJő|[Y ---------- } ---------- */
-/* modified 2009.08.17 hmenjo Z[teBvOǉ ----------			   */
+///* modified 2009.06.02 hmenjo hAJ≈ë|[Y ---------- } ---------- */
+/* modified 2009.08.17 hmenjo Z[teBvO«â ----------			   */
 		if ((ALID_DoorOpen != l_dwEMO) && (ALID_SafetyPlugOpen != l_dwEMO)) {
 			return 30 + l_dwEMO;	// EMOChAC^bNCup[It
 		}
-/* modified 2009.08.17 hmenjo Z[teBvOǉ ---------- } ---------- */
+/* modified 2009.08.17 hmenjo Z[teBvO«â ---------- } ---------- */
 	}
 	if (0 != CheckDIO_IsRobotArmON()) {
 		return 34;	// {bgA[o
 	}
 	if (0 != CheckDIO_IsPinDownOFF()) {
-/* modified 2009.08.07 hmenjo XgX@\ǉ(37) ---------- { ---------- */
+/* modified 2009.08.07 hmenjo XgX@\«â(37) ---------- { ---------- */
 //		return 35;	// s_EIt
-/* modified 2009.08.07 hmenjo XgX@\ǉ(37) ----------			   */
+/* modified 2009.08.07 hmenjo XgX@\«â(37) ----------			   */
 		if (false == ((CChiefTransiStress*) m_pcChiefTransiStress)->IsIdle()) {
-/* modified 2009.08.20 hmenjo XgX@\ǉ(46) ---------- { ---------- */
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ---------- { ---------- */
 //			if ((0 == m_DiInfo.bPinDown) && (0 != nexioIsPinAlignmentPos()) && (0 == m_DiInfo.bPinUp)) {
-/* modified 2009.08.20 hmenjo XgX@\ǉ(46) ----------			   */
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ----------			   */
 			if ((0 == m_DiInfo.bPinDown) && (0 != m_DiInfo.bPinAlign) && (0 == m_DiInfo.bPinUp)) {
-/* modified 2009.08.20 hmenjo XgX@\ǉ(46) ---------- } ---------- */
-				;	/* sԈʒuZT݂̂I OK łD	*/
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ---------- } ---------- */
+				;	/* s‘à íuZTÃÇ›ÇI OK ≈ÇD	*/
 			} else {
-				return 35;	/* sԈʒuZTIt	*/
+				return 35;	/* s‘à íuZTIt	*/
 			}
 		} else {
 			return 35;	/* s_EIt	*/
 		}
-/* modified 2009.08.07 hmenjo XgX@\ǉ(37) ---------- } ---------- */
+/* modified 2009.08.07 hmenjo XgX@\«â(37) ---------- } ---------- */
 	}
 	if (HOST_LOCAL != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetHostMode()) {
-		return 2L;		// [JłȂ
+		return 2L;		// [J≈Ç»Ç
 	}
-/* modified 2009.08.07 hmenjo XgX@\ǉ(35) ---------- { ---------- */
+/* modified 2009.08.07 hmenjo XgX@\«â(35) ---------- { ---------- */
 //	if ((PROCESS_PROC != ProcStatusGet())
 //	 || (true == ((CChiefTransiSeq*) m_pcChiefTransiSeq)->IsIdle())) {
-//		return 3L;		// Processing łȂ
+//		return 3L;		// Processing ≈Ç»Ç
 //	}
-/* modified 2009.08.07 hmenjo XgX@\ǉ(35) ----------			   */
+/* modified 2009.08.07 hmenjo XgX@\«â(35) ----------			   */
 	CHIEF_PFUNCS l_ChiefPFuncs;
 	if (0 == PFC_FuncSet(this, &l_ChiefPFuncs, 0)) {
-		return 16L;	/* wbh^Cvُ	*/
+		return 16L;	/* wbh^CvŸè	*/
 	}
 	if ((PROCESS_PROC != ProcStatusGet())
 	 || (true == PFC_IsIdleAll(this))) {
-		return 3L;		// Processing łȂ
+		return 3L;		// Processing ≈Ç»Ç
 	}
-/* modified 2009.08.07 hmenjo XgX@\ǉ(35) ---------- } ---------- */
+/* modified 2009.08.07 hmenjo XgX@\«â(35) ---------- } ---------- */
 	int l_iDispStatus = ((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetDispStatus();
 	if ((MAIN_MENU_MEASUREMENT != l_iDispStatus) && (MAIN_MENU_DATA != l_iDispStatus)) {
-		return 4L;		// ʃ[hu胂[hvuf[^[hvłȂ
+		return 4L;		//  É[huËÉÇ[hvuf[^[hv≈Ç»Ç
 	}
 
-/* modified 2009.08.07 hmenjo XgX@\ǉ(35) ---------- { ---------- */
+/* modified 2009.08.07 hmenjo XgX@\«â(35) ---------- { ---------- */
 //	((CChiefTransiSeq*) m_pcChiefTransiSeq)->TransiEvent(EV_SEQ_PAUSE);
-/* modified 2009.08.07 hmenjo XgX@\ǉ(35) ----------			   */
-	/* |[YCxg𔭍s	*/
+/* modified 2009.08.07 hmenjo XgX@\«â(35) ----------			   */
+	/* |[YCxgî≠çs	*/
 	(*l_ChiefPFuncs.TransiEvent)(this, l_ChiefPFuncs.Event.iPAUSE, 0);
-/* modified 2009.08.07 hmenjo XgX@\ǉ(35) ---------- } ---------- */
+/* modified 2009.08.07 hmenjo XgX@\«â(35) ---------- } ---------- */
 
 	return 0L;
 }
 
 /*
- *	背W[{^ bZ[Wnh
+ *	ËÉåW[{^ bZ[Wnh
  */
 LRESULT CChiefView::OnSeqResume(WPARAM wparam, LPARAM lparam)
 {
@@ -3345,23 +3345,23 @@ LRESULT CChiefView::OnSeqResume(WPARAM wparam, LPARAM lparam)
 		return 34;	// {bgA[o
 	}
 	if (0 != CheckDIO_IsPinDownOFF()) {
-/* modified 2009.08.07 hmenjo XgX@\ǉ(37) ---------- { ---------- */
+/* modified 2009.08.07 hmenjo XgX@\«â(37) ---------- { ---------- */
 //		return 35;	// s_EIt
-/* modified 2009.08.07 hmenjo XgX@\ǉ(37) ----------			   */
+/* modified 2009.08.07 hmenjo XgX@\«â(37) ----------			   */
 		if (false == ((CChiefTransiStress*) m_pcChiefTransiStress)->IsIdle()) {
-/* modified 2009.08.20 hmenjo XgX@\ǉ(46) ---------- { ---------- */
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ---------- { ---------- */
 //			if ((0 == m_DiInfo.bPinDown) && (0 != nexioIsPinAlignmentPos()) && (0 == m_DiInfo.bPinUp)) {
-/* modified 2009.08.20 hmenjo XgX@\ǉ(46) ----------			   */
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ----------			   */
 			if ((0 == m_DiInfo.bPinDown) && (0 != m_DiInfo.bPinAlign) && (0 == m_DiInfo.bPinUp)) {
-/* modified 2009.08.20 hmenjo XgX@\ǉ(46) ---------- } ---------- */
-				;	/* sԈʒuZT݂̂I OK łD	*/
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ---------- } ---------- */
+				;	/* s‘à íuZTÃÇ›ÇI OK ≈ÇD	*/
 			} else {
-				return 35;	/* sԈʒuZTIt	*/
+				return 35;	/* s‘à íuZTIt	*/
 			}
 		} else {
 			return 35;	/* s_EIt	*/
 		}
-/* modified 2009.08.07 hmenjo XgX@\ǉ(37) ---------- } ---------- */
+/* modified 2009.08.07 hmenjo XgX@\«â(37) ---------- } ---------- */
 	}
 /* added 2009.10.29 hmenjo CTA Seq CTAILPI `FbN ---------- { ---------- */
 	if (0 == this->IsCtaILPI()) {
@@ -3374,51 +3374,51 @@ LRESULT CChiefView::OnSeqResume(WPARAM wparam, LPARAM lparam)
 		return lCode;
 	}
 /* added 2009.11.06 K.Matsuo RS Seq Head Position `FbN ---------- { ---------- */
-// 2009.11.12 bagus MS [ʒuQ`FbN --{--
+// 2009.11.12 bagus MS [ íuQ`FbN --{--
 	if( 0 == this->IsMSILPI()){
-		return 55;		//[ʒuQ̃ZT[ONĂ
+		return 55;		//[ íuQÃÉZT[ONƒÇ
 	}
-// 2009.11.12 bagus MS [ʒuQ`FbN --}--
+// 2009.11.12 bagus MS [ íuQ`FbN --}--
 /* added 2009.10.29 hmenjo CTA Seq CTAILPI `FbN ---------- } ---------- */
-/* deleted 2009.06.02 hmenjo hAJő|[Y ---------- { ---------- */
+/* deleted 2009.06.02 hmenjo hAJ≈ë|[Y ---------- { ---------- */
 //	if (HOST_LOCAL != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetHostMode()) {
-//		return 2L;		// [JłȂ
+//		return 2L;		// [J≈Ç»Ç
 //	}
-/* deleted 2009.06.02 hmenjo hAJő|[Y ---------- } ---------- */
-/* modified 2009.08.07 hmenjo XgX@\ǉ(35) ---------- { ---------- */
+/* deleted 2009.06.02 hmenjo hAJ≈ë|[Y ---------- } ---------- */
+/* modified 2009.08.07 hmenjo XgX@\«â(35) ---------- { ---------- */
 //	if ((PROCESS_PROC != ProcStatusGet())
 //	 || (true == ((CChiefTransiSeq*) m_pcChiefTransiSeq)->IsIdle())) {
-//		return 3L;		// Processing łȂ
+//		return 3L;		// Processing ≈Ç»Ç
 //	}
-/* modified 2009.08.07 hmenjo XgX@\ǉ(35) ----------			   */
+/* modified 2009.08.07 hmenjo XgX@\«â(35) ----------			   */
 	CHIEF_PFUNCS l_ChiefPFuncs;
 	if (0 == PFC_FuncSet(this, &l_ChiefPFuncs, 0)) {
-		return 16L;	/* wbh^Cvُ	*/
+		return 16L;	/* wbh^CvŸè	*/
 	}
 	if ((PROCESS_PROC != ProcStatusGet())
 	 || (true == PFC_IsIdleAll(this))) {
-		return 3L;		// Processing łȂ
+		return 3L;		// Processing ≈Ç»Ç
 	}
-/* modified 2009.08.07 hmenjo XgX@\ǉ(35) ---------- } ---------- */
+/* modified 2009.08.07 hmenjo XgX@\«â(35) ---------- } ---------- */
 	int l_iDispStatus = ((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetDispStatus();
 	if ((MAIN_MENU_MEASUREMENT != l_iDispStatus) && (MAIN_MENU_DATA != l_iDispStatus)) {
-		return 4L;		// ʃ[hu胂[hvuf[^[hvłȂ
+		return 4L;		//  É[huËÉÇ[hvuf[^[hv≈Ç»Ç
 	}
-/* modified 2009.08.07 hmenjo XgX@\ǉ(35) ---------- { ---------- */
-///* added 2009.06.08 hmenjo |[YO Resume s΍ ---------- { ---------- */
-//	/* V[PX肪|[Y̏ꍇ̂݃W[\łD */
+/* modified 2009.08.07 hmenjo XgX@\«â(35) ---------- { ---------- */
+///* added 2009.06.08 hmenjo |[YO Resume sÔçáŒç ---------- { ---------- */
+//	/* V[PXËÇ™|[YÃèÍçáÃÇ›ÉW[¬î\≈ÇD */
 //	if (ST_SEQ_PAUSE != ((CChiefTransiSeq*) m_pcChiefTransiSeq)->GetCurrentState()) {
-//		return -2L;		/* |[YÕW[w߂łD */
+//		return -2L;		/* |[YOÃÉW[wﬂÇ≈ÇD */
 //	}
-///* added 2009.06.08 hmenjo |[YO Resume s΍ ---------- } ---------- */
+///* added 2009.06.08 hmenjo |[YO Resume sÔçáŒç ---------- } ---------- */
 //
 //	((CChiefTransiSeq*) m_pcChiefTransiSeq)->TransiEvent(EV_SEQ_RESUME);
-/* modified 2009.08.07 hmenjo XgX@\ǉ(35) ----------			   */
+/* modified 2009.08.07 hmenjo XgX@\«â(35) ----------			   */
 	if (l_ChiefPFuncs.State.iPAUSE != (*l_ChiefPFuncs.GetCurrentState)(this)) {
-		return -2L;		/* |[YÕW[w߂łD */
+		return -2L;		/* |[YOÃÉW[wﬂÇ≈ÇD */
 	}
 	(*l_ChiefPFuncs.TransiEvent)(this, l_ChiefPFuncs.Event.iRESUME, 0);
-/* modified 2009.08.07 hmenjo XgX@\ǉ(35) ---------- } ---------- */
+/* modified 2009.08.07 hmenjo XgX@\«â(35) ---------- } ---------- */
 
 	return 0L;
 }
@@ -3431,61 +3431,61 @@ LRESULT CChiefView::OnSeqCancel(WPARAM wparam, LPARAM lparam)
 	LogChief_WinMsg(_T("WM_DISP_CANCEL_SEQ"), wparam, lparam);
 
 	// C^bN
-#if 0	// hmenjo [g Pif 瑪蒆łʂ̑LZ͎t܂D
+#if 0	// hmenjo [g Pif Áë™ËíÜ≈Ç ÇÃëLZÕét‹ÇD
 	if (HOST_LOCAL != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetHostMode()) {
-		return 2L;		// [JłȂ
+		return 2L;		// [J≈Ç»Ç
 	}
 #endif
-/* modified 2009.08.06 hmenjo XgX@\ǉ(32) ---------- { ---------- */
+/* modified 2009.08.06 hmenjo XgX@\«â(32) ---------- { ---------- */
 //	if ((PROCESS_PROC != ProcStatusGet())
 //	 || (true == ((CChiefTransiSeq*) m_pcChiefTransiSeq)->IsIdle())) {
-//		return 3L;		// Processing łȂ
+//		return 3L;		// Processing ≈Ç»Ç
 //	}
-/* modified 2009.08.06 hmenjo XgX@\ǉ(32) ----------			   */
+/* modified 2009.08.06 hmenjo XgX@\«â(32) ----------			   */
 	CHIEF_PFUNCS l_ChiefPFuncs;
 	if (0 == PFC_FuncSet(this, &l_ChiefPFuncs, 0)) {
-		return 16L;	/* wbh^Cvُ	*/
+		return 16L;	/* wbh^CvŸè	*/
 	}
 	if ((PROCESS_PROC != ProcStatusGet())
 	 || (true == PFC_IsIdleAll(this))) {
-		return 3L;		// Processing łȂ
+		return 3L;		// Processing ≈Ç»Ç
 	}
-/* modified 2009.08.06 hmenjo XgX@\ǉ(32) ---------- } ---------- */
-#if 0	// hmenjo ʂ̃LZ͂łt܂
+/* modified 2009.08.06 hmenjo XgX@\«â(32) ---------- } ---------- */
+#if 0	// hmenjo  ÇÃÉLZÕÇ¬Ç≈Çt‹Ç
 	int l_iDispStatus = ((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetDispStatus();
 	if ((MAIN_MENU_MEASUREMENT != l_iDispStatus) && (MAIN_MENU_DATA != l_iDispStatus)) {
-		return 4L;		// ʃ[hu胂[hvuf[^[hvłȂ
+		return 4L;		//  É[huËÉÇ[hvuf[^[hv≈Ç»Ç
 	}
 #endif
 
-/* modified 2009.08.06 hmenjo XgX@\ǉ(32) ---------- { ---------- */
+/* modified 2009.08.06 hmenjo XgX@\«â(32) ---------- { ---------- */
 //	if (false == ((CChiefTransiSeq*) m_pcChiefTransiSeq)->IsIdle()) {
-//		// LZCxg𔭍s
+//		// LZCxgî≠çs
 //		((CChiefTransiSeq*) m_pcChiefTransiSeq)->TransiEvent(EV_SEQ_CANCEL);
-//		m_bReqCancelComplete = TRUE;	// LZ񍐎wߗL
+//		m_bReqCancelComplete = TRUE;	// LZÒçêéwﬂóL
 //		// LZ{^
 //		PifComm_PressMeasureCancelButtonReport();
 //		return 0L;
 //	} else {
 //		return 17L;		// V[PXgWVACh
 //	}
-/* modified 2009.08.06 hmenjo XgX@\ǉ(32) ----------			   */
+/* modified 2009.08.06 hmenjo XgX@\«â(32) ----------			   */
 	if (false == (*l_ChiefPFuncs.IsIdle)(this)) {
-		// LZCxg𔭍s
+		// LZCxgî≠çs
 		(*l_ChiefPFuncs.TransiEvent)(this, l_ChiefPFuncs.Event.iCANCEL, 0);
-		m_bReqCancelComplete = TRUE;	// LZ񍐎wߗL
+		m_bReqCancelComplete = TRUE;	// LZÒçêéwﬂóL
 		// LZ{^
 		PifComm_PressMeasureCancelButtonReport();
 		return 0L;
 	} else {
 		return 17L;		// V[PXgWVACh
 	}
-/* modified 2009.08.06 hmenjo XgX@\ǉ(32) ---------- } ---------- */
+/* modified 2009.08.06 hmenjo XgX@\«â(32) ---------- } ---------- */
 }
 
 /*
  *	LZ
- *		LZ̊ Pif ɕ񍐂܂D
+ *		LZÃä Pif …ïÒçêÇ‹ÇD
  */
 void CChiefView::ReportCancelComplete(int iResult)
 {
@@ -3497,20 +3497,20 @@ void CChiefView::ReportCancelComplete(int iResult)
 
 /*
  *	vZXXe[^XZbg
- *		Chief ȉ̃W[̃ANZX(R[h)ȒPɂ邽߂Ƀbv܂
+ *		Chief »âÃÉW[ÃÉANZX(R[h)»íP…ÇÈÇΩﬂÇ…Ébv‹Ç
  */
 void CChiefView::ProcStatusSet(int iStatus)
 {
-	// Xe[^X̕ω𐧌܂
+	// Xe[^XÃïœâêßå‹Ç
 // modified hmenjo 2009.01.23 ---- { ----
 //	if (PROCESS_DOWN == ProcStatusGet()) {
-//		// DOWN ԂꍇEEE
+//		// DOWN ‘ÇÍçáEEE
 //		switch (iStatus) {
 //		case PROCESS_PROC:
 //		case PROCESS_COMP:
 //		case PROCESS_ABRT:
 //		case PROCESS_WAIT:
-//			return;			// ܂D
+//			return;			// ‹ÇD
 //			break;
 //		default:
 //			break;
@@ -3518,10 +3518,10 @@ void CChiefView::ProcStatusSet(int iStatus)
 // modified hmenjo 2009.01.23 ----
 	if ((PROCESS_DOWN == ProcStatusGet()) || (PROCESS_INIT == ProcStatusGet())) {
 // modified hmenjo 2009.01.23 ---- } ----
-		// DOWN or INIT ԂꍇEEE
-		return;			// ܂D
+		// DOWN or INIT ‘ÇÍçáEEE
+		return;			// ‹ÇD
 	}
-	// Xe[^XɕύXꍇ́C܂D
+	// Xe[^X…ïœçXÍçáÕÅC‹ÇD
 	if (iStatus == ProcStatusGet()) {
 		return;
 	}
@@ -3544,8 +3544,8 @@ void CChiefView::ProcStatusSet(int iStatus)
 }
 
 /*
- *	vZXXe[^X擾
- *		Chief ȉ̃W[̃ANZX(R[h)ȒPɂ邽߂Ƀbv܂
+ *	vZXXe[^XÊìæ
+ *		Chief »âÃÉW[ÃÉANZX(R[h)»íP…ÇÈÇΩﬂÇ…Ébv‹Ç
  */
 int CChiefView::ProcStatusGet()
 {
@@ -3553,24 +3553,24 @@ int CChiefView::ProcStatusGet()
 }
 
 /*
- *	쒆tOZbg܂
- *		Chief ȉ̃W[̃ANZX(R[h)ȒPɂ邽߂Ƀbv܂
+ *	ÏíÜtOZbg‹Ç
+ *		Chief »âÃÉW[ÃÉANZX(R[h)»íP…ÇÈÇΩﬂÇ…Ébv‹Ç
  */
 void CChiefView::ActuateFlagsSet(ACTUATE_FLAGS_SEL ActFgSel, BOOL bFlag)
 {
 	((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsSet(ActFgSel, bFlag);
 }
 
-/* modified 2009.07.23 hmenjo wbh^Cv`FbN֐ύX ---------- { ---------- */
+/* modified 2009.07.23 hmenjo wbh^Cv`FbN÷êœçX ---------- { ---------- */
 ///*
-// *	wbh^Cv`FbN܂
-// *		2008.10.27 ݂ SR ̂ݗLłD
+// *	wbh^Cv`FbN‹Ç
+// *		2008.10.27 ›Ç SR ÃÇ›óL≈ÇD
 // */
 //BOOL CChiefView::HeadTypeCheck(WORD wHeadType)
 //{
 //	BOOL l_bRc;
 //
-//	// wbh^Cṽ`FbN
+//	// wbh^CvÃÉ`FbN
 //	switch (wHeadType) {
 //	case HEAD_TYPE_SR:
 //		l_bRc = TRUE;
@@ -3587,15 +3587,15 @@ void CChiefView::ActuateFlagsSet(ACTUATE_FLAGS_SEL ActFgSel, BOOL bFlag)
 //
 //	return l_bRc;
 //}
-/* modified 2009.07.23 hmenjo wbh^Cv`FbN֐ύX ----------			   */
+/* modified 2009.07.23 hmenjo wbh^Cv`FbN÷êœçX ----------			   */
 /*
- *	wbh^Cv`FbN܂
+ *	wbh^Cv`FbN‹Ç
  */
 BOOL CChiefView::HeadTypeCheck(WORD wHeadType)
 {
 	return ((CNanoSpecDoc*) m_pcNanoSpecDoc)->IsValidHeadType(wHeadType);
 }
-/* modified 2009.07.23 hmenjo wbh^Cv`FbN֐ύX ---------- } ---------- */
+/* modified 2009.07.23 hmenjo wbh^Cv`FbN÷êœçX ---------- } ---------- */
 
 /*
  *	Chief_CAO\ bZ[Wnh
@@ -3616,11 +3616,11 @@ LRESULT CChiefView::OnDlgShowSW(WPARAM wparam, LPARAM lparam)
 }
 
 /*
- *	DIO ͂`FbN | ~n̓͂`FbN
+ *	DIO ÕÇ`FbN | ~nÃìÕÇ`FbN
  *			EMO					FALSE
  *			hAC^bN	FALSE
  *			up[It		FALSE
- *		o܂D
+ *		o‹ÇD
  */
 DWORD CChiefView::CheckDIO_IsEMO()
 {
@@ -3628,18 +3628,18 @@ DWORD CChiefView::CheckDIO_IsEMO()
 
 	if (0 == m_DiInfo.bEMOStop) {
 		l_dwRc = ALID_EMOSwitchOn;
-/* added 2009.08.17 hmenjo Z[teBvOǉ ---------- { ---------- */
+/* added 2009.08.17 hmenjo Z[teBvO«â ---------- { ---------- */
 	} else if ((0 == m_DiInfo.bSafetyPlug) && (0 == m_DiInfo.bTHMaintenanceSW)) {
 		l_dwRc = ALID_SafetyPlugOpen;
-/* added 2009.08.17 hmenjo Z[teBvOǉ ---------- } ---------- */
+/* added 2009.08.17 hmenjo Z[teBvO«â ---------- } ---------- */
 	} else if ((0 == m_DiInfo.bDoorInterlock) && (0 == m_DiInfo.bTHMaintenanceSW)) {
 		l_dwRc = ALID_DoorOpen;
-// added hmenjo 2009.05.12 hAJotOǉ ---------- { ----------
-		// eŁChAJo֎~̂Ƃُ͈ɂ܂D
+// added hmenjo 2009.05.12 hAJo¬ÉtO«â ---------- { ----------
+		// e≈ÅChAJo÷é~ÃÇ∆ÇÕàŸè…Ç‹ÇD
 		if ((0 == m_DiInfo.bMaintenanceSW) && (FALSE == g_bIL_DoorOpen)) {
 			l_dwRc = 0;
 		}
-// added hmenjo 2009.05.12 hAJotOǉ ---------- } ----------
+// added hmenjo 2009.05.12 hAJo¬ÉtO«â ---------- } ----------
 	} else if (0 == m_DiInfo.bEQPower) {
 		l_dwRc = ALID_EquipmentPowerOff;
 	} else {
@@ -3650,7 +3650,7 @@ DWORD CChiefView::CheckDIO_IsEMO()
 }
 
 /*
- *	DIO ͂`FbN | {bgA[ o
+ *	DIO ÕÇ`FbN | {bgA[ o
  */
 BOOL CChiefView::CheckDIO_IsRobotArmON()
 {
@@ -3666,7 +3666,7 @@ BOOL CChiefView::CheckDIO_IsRobotArmON()
 }
 
 /*
- *	DIO ͂`FbN | s_E o
+ *	DIO ÕÇ`FbN | s_E o
  */
 BOOL CChiefView::CheckDIO_IsPinDownOFF()
 {
@@ -3677,22 +3677,22 @@ BOOL CChiefView::CheckDIO_IsPinDownOFF()
 	if (0 == m_DiInfo.bPinDown) {
 		return TRUE;		// s~[ZTIt
 	}
-/* modified 2009.08.20 hmenjo XgX@\ǉ(46) ---------- { ---------- */
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ---------- { ---------- */
 //	if (0 != nexioIsPinAlignmentPos()) {
-/* modified 2009.08.20 hmenjo XgX@\ǉ(46) ----------			   */
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ----------			   */
 	if (0 != m_DiInfo.bPinAlign) {
-/* modified 2009.08.20 hmenjo XgX@\ǉ(46) ---------- } ---------- */
-		return TRUE;		// sԈʒuZTI
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ---------- } ---------- */
+		return TRUE;		// s‘à íuZTI
 	}
 	if (0 != m_DiInfo.bPinUp) {
-		return TRUE;		// s㏸[ZTI
+		return TRUE;		// s„è∏[ZTI
 	}
 
 	return FALSE;
 }
 
 /*
- *	DIO ͂`FbN | GA͒ቺ o
+ *	DIO ÕÇ`FbN | GAÕí·â∫ o
  */
 BOOL CChiefView::CheckDIO_IsAirPressureLowON()
 {
@@ -3709,7 +3709,7 @@ BOOL CChiefView::CheckDIO_IsAirPressureLowON()
 
 // 2013.01.10 bagus stage driver alarm io -->
 /*
- * DIO ͂`FbN | X1A[o
+ * DIO ÕÇ`FbN | X1A[o
  *  0x0000: No Error
  *  0x1000: Stage Alarm Error
  *  0x0100: Alarm bit 0 On
@@ -3744,7 +3744,7 @@ int CChiefView::CheckDIO_IsX1AxisAlarm()
 }
 
 /*
- * DIO ͂`FbN | X2A[o
+ * DIO ÕÇ`FbN | X2A[o
  *  0x0000: No Error
  *  0x1000: Stage Alarm Error
  *  0x0100: Alarm bit 0 On
@@ -3779,7 +3779,7 @@ int CChiefView::CheckDIO_IsX2AxisAlarm()
 }
 
 /*
- * DIO ͂`FbN | YA[o
+ * DIO ÕÇ`FbN | YA[o
  *  0x0000: No Error
  *  0x1000: Stage Alarm Error
  *  0x0100: Alarm bit 0 On
@@ -3816,25 +3816,25 @@ int CChiefView::CheckDIO_IsYAxisAlarm()
 // 2013.01.10 bagus stage driver alarm io <--
 
 /*
- *	ُ탊Zbgw bZ[Wnh
- *		ʂȂǂُ̈(A[)Zbgł
+ *	ŸèÌÉäZbgw bZ[Wnh
+ *		 Ç»Ç«ÇÃàŸè(A[)Zbg≈Ç
  */
 LRESULT CChiefView::OnResetAlarm(WPARAM wparam, LPARAM lparam)
 {
 	LogChief_WinMsg(_T("WM_CHIF_RESET_ALARM"), wparam, lparam);
 
-/* added 2009.11.06 hmenjo CTA A[Zbgُ탊Zbg ---------- { ---------- */
+/* added 2009.11.06 hmenjo CTA A[ZbgŸèÌÉäZbg ---------- { ---------- */
 	this->CtaReset(2);	/* CTA Zbg	*/
-/* added 2009.11.06 hmenjo CTA A[Zbgُ탊Zbg ---------- } ---------- */
+/* added 2009.11.06 hmenjo CTA A[ZbgŸèÌÉäZbg ---------- } ---------- */
 
 /* modified 2009.06.02 hmenjo _EA[Zbg ---------- { ---------- */
 ////	if (PROCESS_DOWN == ProcStatusGet()) {
-////		// Down Ԃ̏ꍇ̂ݎs܂
+////		// Down ‘ÇÃèÍçáÃÇ›és‹Ç
 //	if ((0 != ((CMainFrame*) m_pcMainFrame)->HardwareSimulation()) && (PROCESS_DOWN == ProcStatusGet())) {
 /* modified 2009.06.02 hmenjo _EA[Zbg ---------- 			 */
 	if (PROCESS_DOWN == ProcStatusGet()) {
 /* modified 2009.06.02 hmenjo _EA[Zbg ---------- } ---------- */
-		// n[hV~[g[hŁCDown Ԃ̏ꍇ̂ݎs܂
+		// n[hV~[g[h≈ÅCDown ‘ÇÃèÍçáÃÇ›és‹Ç
 		// A[LtOZbg
 		if (0 != m_AlarmFlags.bAirPressureLowOn)	{m_AlarmFlags.bAirPressureLowOn		= FALSE;	AlarmIf_Reset(ALID_AirPressureDown);}
 		if (0 != m_AlarmFlags.bMaintenanceSWOn)		{m_AlarmFlags.bMaintenanceSWOn		= FALSE;	AlarmIf_Reset(ALID_MaintenanceSwitchOn);}
@@ -3843,13 +3843,13 @@ LRESULT CChiefView::OnResetAlarm(WPARAM wparam, LPARAM lparam)
 		if (0 != m_AlarmFlags.bVacuumPressure1Off)	{m_AlarmFlags.bVacuumPressure1Off	= FALSE;	AlarmIf_Reset(ALID_VacuumSensorOff);}
 		if (0 != m_AlarmFlags.bWorkGuideOpenOff)	{m_AlarmFlags.bWorkGuideOpenOff		= FALSE;	AlarmIf_Reset(ALID_WorkGuideOpenSensorOff);}
 		if (0 != m_AlarmFlags.bShutterCloseOff)		{m_AlarmFlags.bShutterCloseOff		= FALSE;	AlarmIf_Reset(ALID_ShutterCloseError);}
-/* 2009.08.20 K.Matsuo ALID `ύX ---------- { ---------- */
-///* added 2009.08.17 hmenjo XgX@\ǉ(37) ---------- { ---------- */
+/* 2009.08.20 K.Matsuo ALID `œçX ---------- { ---------- */
+///* added 2009.08.17 hmenjo XgX@\«â(37) ---------- { ---------- */
 //		if (0 != m_AlarmFlags.bRetractZPosOff)		{m_AlarmFlags.bRetractZPosOff		= FALSE;	AlarmIf_Reset(ZPOSOFF_ALID);}
-///* added 2009.08.17 hmenjo XgX@\ǉ(37) ---------- } ---------- */
-/* 2009.08.20 K.Matsuo ALID `ύX ----------			   */
+///* added 2009.08.17 hmenjo XgX@\«â(37) ---------- } ---------- */
+/* 2009.08.20 K.Matsuo ALID `œçX ----------			   */
 		if (0 != m_AlarmFlags.bRetractZPosOff)		{m_AlarmFlags.bRetractZPosOff		= FALSE;	AlarmIf_Reset(ALID_Z_PositionRetractFailed);}
-/* 2009.08.20 K.Matsuo ALID `ύX ---------- } ---------- */
+/* 2009.08.20 K.Matsuo ALID `œçX ---------- } ---------- */
 // 2013.01.10 bagus stage driver alarm io -->
 		if (0 != m_AlarmFlags.bStageAlarmOn)		{m_AlarmFlags.bStageAlarmOn			= FALSE;	AlarmIf_Reset(ALID_StageError);}
 		if (0 != m_AlarmFlags.bStageOverTravelOn)	{m_AlarmFlags.bStageOverTravelOn	= FALSE;	AlarmIf_Reset(ALID_StageOverTravelError);}
@@ -3858,57 +3858,57 @@ LRESULT CChiefView::OnResetAlarm(WPARAM wparam, LPARAM lparam)
 
 		DWORD l_dwEMO = CheckDIO_IsEMO();
 		if (0 != l_dwEMO) {
-			// Down Ԃ𑱍s
-			ProcStatusSet(PROCESS_DOWN);	// Ô Down Zbg
+			// Down ‘Çë±çs
+			ProcStatusSet(PROCESS_DOWN);	// OÃÇ Down Zbg
 			switch (l_dwEMO) {
 			case ALID_EMOSwitchOn:		// EMO
 				if (0 != m_AlarmFlags.bDoorInterlockOn)	{m_AlarmFlags.bDoorInterlockOn	= FALSE;	AlarmIf_Reset(ALID_DoorOpen);}
 				if (0 != m_AlarmFlags.bEQPowerOn)		{m_AlarmFlags.bEQPowerOn		= FALSE;	AlarmIf_Reset(ALID_EquipmentPowerOff);}
-/* added 2009.08.17 hmenjo Z[teBvOǉ ---------- { ---------- */
+/* added 2009.08.17 hmenjo Z[teBvO«â ---------- { ---------- */
 				if (0 != m_AlarmFlags.bSafetyPlugOn)	{m_AlarmFlags.bSafetyPlugOn		= FALSE;	AlarmIf_Reset(ALID_SafetyPlugOpen);}
-/* added 2009.08.17 hmenjo Z[teBvOǉ ---------- } ---------- */
-				// A[ʒm
+/* added 2009.08.17 hmenjo Z[teBvO«â ---------- } ---------- */
+				// A[ ím
 				PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_OFF), MAKEWORD(1, CHRAMSG_OK)), MAKELPARAM(0, ALID_EMOSwitchOn));
 				break;
 			case ALID_DoorOpen:		// hAC^bN
 				if (0 != m_AlarmFlags.bEMOStopOn)		{m_AlarmFlags.bEMOStopOn		= FALSE;	AlarmIf_Reset(ALID_EMOSwitchOn);}
 				if (0 != m_AlarmFlags.bEQPowerOn)		{m_AlarmFlags.bEQPowerOn		= FALSE;	AlarmIf_Reset(ALID_EquipmentPowerOff);}
-/* added 2009.08.17 hmenjo Z[teBvOǉ ---------- { ---------- */
+/* added 2009.08.17 hmenjo Z[teBvO«â ---------- { ---------- */
 				if (0 != m_AlarmFlags.bSafetyPlugOn)	{m_AlarmFlags.bSafetyPlugOn		= FALSE;	AlarmIf_Reset(ALID_SafetyPlugOpen);}
-/* added 2009.08.17 hmenjo Z[teBvOǉ ---------- } ---------- */
-				// A[ʒm
+/* added 2009.08.17 hmenjo Z[teBvO«â ---------- } ---------- */
+				// A[ ím
 				PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_OFF), MAKEWORD(1, CHRAMSG_OK)), MAKELPARAM(0, ALID_DoorOpen));
 				break;
 			case ALID_EquipmentPowerOff:		// up[It
 				if (0 != m_AlarmFlags.bEMOStopOn)		{m_AlarmFlags.bEMOStopOn		= FALSE;	AlarmIf_Reset(ALID_EMOSwitchOn);}
 				if (0 != m_AlarmFlags.bDoorInterlockOn)	{m_AlarmFlags.bDoorInterlockOn	= FALSE;	AlarmIf_Reset(ALID_DoorOpen);}
-/* added 2009.08.17 hmenjo Z[teBvOǉ ---------- { ---------- */
+/* added 2009.08.17 hmenjo Z[teBvO«â ---------- { ---------- */
 				if (0 != m_AlarmFlags.bSafetyPlugOn)	{m_AlarmFlags.bSafetyPlugOn		= FALSE;	AlarmIf_Reset(ALID_SafetyPlugOpen);}
-/* added 2009.08.17 hmenjo Z[teBvOǉ ---------- } ---------- */
-				// A[ʒm
+/* added 2009.08.17 hmenjo Z[teBvO«â ---------- } ---------- */
+				// A[ ím
 				PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_OFF), MAKEWORD(1, CHRAMSG_OK)), MAKELPARAM(0, ALID_EquipmentPowerOff));
 				break;
-/* added 2009.08.17 hmenjo Z[teBvOǉ ---------- { ---------- */
+/* added 2009.08.17 hmenjo Z[teBvO«â ---------- { ---------- */
 			case ALID_SafetyPlugOpen:		/* Z[teBvO	*/
 				if (0 != m_AlarmFlags.bEMOStopOn)		{m_AlarmFlags.bEMOStopOn		= FALSE;	AlarmIf_Reset(ALID_EMOSwitchOn);}
 				if (0 != m_AlarmFlags.bDoorInterlockOn)	{m_AlarmFlags.bDoorInterlockOn	= FALSE;	AlarmIf_Reset(ALID_DoorOpen);}
 				if (0 != m_AlarmFlags.bEQPowerOn)		{m_AlarmFlags.bEQPowerOn		= FALSE;	AlarmIf_Reset(ALID_EquipmentPowerOff);}
-				/* A[ʒm	*/
+				/* A[ ím	*/
 				PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_OFF), MAKEWORD(1, CHRAMSG_OK)), MAKELPARAM(0, ALID_SafetyPlugOpen));
 				break;
-/* added 2009.08.17 hmenjo Z[teBvOǉ ---------- } ---------- */
+/* added 2009.08.17 hmenjo Z[teBvO«â ---------- } ---------- */
 			default:
-				// ܂D
+				// ‹ÇD
 				break;
 			}
 		} else {
 			if (0 != m_AlarmFlags.bEMOStopOn)		{m_AlarmFlags.bEMOStopOn		= FALSE;	AlarmIf_Reset(ALID_EMOSwitchOn);}
 			if (0 != m_AlarmFlags.bDoorInterlockOn)	{m_AlarmFlags.bDoorInterlockOn	= FALSE;	AlarmIf_Reset(ALID_DoorOpen);}
 			if (0 != m_AlarmFlags.bEQPowerOn)		{m_AlarmFlags.bEQPowerOn		= FALSE;	AlarmIf_Reset(ALID_EquipmentPowerOff);}
-/* added 2009.08.17 hmenjo Z[teBvOǉ ---------- { ---------- */
+/* added 2009.08.17 hmenjo Z[teBvO«â ---------- { ---------- */
 			if (0 != m_AlarmFlags.bSafetyPlugOn)	{m_AlarmFlags.bSafetyPlugOn		= FALSE;	AlarmIf_Reset(ALID_SafetyPlugOpen);}
-/* added 2009.08.17 hmenjo Z[teBvOǉ ---------- } ---------- */
-			// Wait ɂ܂D
+/* added 2009.08.17 hmenjo Z[teBvO«â ---------- } ---------- */
+			// Wait …Ç‹ÇD
 			((CNanoSpecDoc*) m_pcNanoSpecDoc)->SetProcessStatus(PROCESS_WAIT);
 			TCHAR l_tszLogText[256];
 			//Saiki 20090527 Change ----->
@@ -3934,9 +3934,9 @@ LRESULT CChiefView::OnResetAlarm(WPARAM wparam, LPARAM lparam)
 		if (0 != m_AlarmFlags.bVacuumPressure1Off)	{m_AlarmFlags.bVacuumPressure1Off	= FALSE;}
 		if (0 != m_AlarmFlags.bWorkGuideOpenOff)	{m_AlarmFlags.bWorkGuideOpenOff		= FALSE;}
 		if (0 != m_AlarmFlags.bShutterCloseOff)		{m_AlarmFlags.bShutterCloseOff		= FALSE;}
-/* added 2009.08.17 hmenjo XgX@\ǉ(37) ---------- { ---------- */
+/* added 2009.08.17 hmenjo XgX@\«â(37) ---------- { ---------- */
 		if (0 != m_AlarmFlags.bRetractZPosOff)		{m_AlarmFlags.bRetractZPosOff		= FALSE;}
-/* added 2009.08.17 hmenjo XgX@\ǉ(37) ---------- } ---------- */
+/* added 2009.08.17 hmenjo XgX@\«â(37) ---------- } ---------- */
 // 2013.01.10 bagus stage driver alarm io -->
 		if (0 != m_AlarmFlags.bStageAlarmOn)		{m_AlarmFlags.bStageAlarmOn			= FALSE;}
 		if (0 != m_AlarmFlags.bStageOverTravelOn)	{m_AlarmFlags.bStageOverTravelOn	= FALSE;}
@@ -3949,8 +3949,8 @@ LRESULT CChiefView::OnResetAlarm(WPARAM wparam, LPARAM lparam)
 }
 
 /*
- *	DIO ͂`FbN | 쒆ُ̈͂`FbN
- *		ُ͂łΒ~s܂D
+ *	DIO ÕÇ`FbN | ÏíÜÃàŸèÕÇ`FbN
+ *		ŸèÕÇ≈ÇŒí~s‹ÇD
  */
 void CChiefView::CheckDIO_Running()
 {
@@ -3966,16 +3966,16 @@ void CChiefView::CheckDIO_Running()
 	BOOL l_bMaintenanceSWOnDetected = ((0 != m_DiInfo.bMaintenanceSW) && (0 == nexioIsMaintenanceSwitch()))? TRUE : FALSE;
 	// eiX SW It L->H
 	BOOL l_bMaintenanceSWOffDetected = ((0 == m_DiInfo.bMaintenanceSW) && (0 != nexioIsMaintenanceSwitch()))? TRUE : FALSE;
-	// GA͒ቺ L->H
+	// GAÕí·â∫ L->H
 	BOOL l_bAirPressureLowDetected;
 	if (0 != m_DioIgnoreSW.bAirPressureLow) {
 		l_bAirPressureLowDetected = FALSE;
 	} else {
-/* modified hmenjo 2009.05.20 GA͒ቺõbp֐ -------- { -------- */
+/* modified hmenjo 2009.05.20 GAÕí·â∫oÃÉbp÷ê -------- { -------- */
 //		l_bAirPressureLowDetected = ((0 == m_DiInfo.bAirPressureLow) && (0 != nexioIsAirPressureLevelLow()))? TRUE : FALSE;
-/* modified hmenjo 2009.05.20 GA͒ቺõbp֐ -------- 		   */
+/* modified hmenjo 2009.05.20 GAÕí·â∫oÃÉbp÷ê -------- 		   */
 		l_bAirPressureLowDetected = ((0 == m_DiInfo.bAirPressureLow) && (0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->Rap_IsAirPressureLowON()))? TRUE : FALSE;
-/* modified hmenjo 2009.05.20 GA͒ቺõbp֐ -------- } -------- */
+/* modified hmenjo 2009.05.20 GAÕí·â∫oÃÉbp÷ê -------- } -------- */
 	}
 	// oL[ZTPIt H->L
 	BOOL l_bVacuumPressure1OffDetected = ((0 != m_DiInfo.bVacuumPressure1) && (0 == nexioIsVacuumOn()))? TRUE : FALSE;
@@ -3992,27 +3992,27 @@ void CChiefView::CheckDIO_Running()
 		}
 	}
 	ls_bPinDownOffPrev = CheckDIO_IsPinDownOFF();
-/* added 2009.08.17 hmenjo XgX@\ǉ(37) ---------- { ---------- */
+/* added 2009.08.17 hmenjo XgX@\«â(37) ---------- { ---------- */
 	if ((true == ((CChiefTransiSeq*) m_pcChiefTransiSeq)->IsIdle()) && (false == ((CChiefTransiStress*) m_pcChiefTransiStress)->IsIdle())) {
-		/* XgXV[PX݂̂́CsC~[C邢́CACgʒuȊO NG łD	*/
+		/* XgXV[PXÃÇ›ÇÕÅCsC~[CÈÇ¢ÕÅCACg íu»äO NG ≈ÇD	*/
 		if (
-			(0 != m_DiInfo.bPinUp)											/* ㏸[I	*/
-/* modified 2009.08.20 hmenjo XgX@\ǉ(46) ---------- { ---------- */
-//		 || ((0 != m_DiInfo.bPinDown) && (0 != nexioIsPinAlignmentPos()))	/* ~[ƃACgʒu̗I	*/
-/* modified 2009.08.20 hmenjo XgX@\ǉ(46) ----------			   */
-		 || ((0 != m_DiInfo.bPinDown) && (0 != m_DiInfo.bPinAlign))	/* ~[ƃACgʒu̗I	*/
-/* modified 2009.08.20 hmenjo XgX@\ǉ(46) ---------- } ---------- */
+			(0 != m_DiInfo.bPinUp)											/* „è∏[I	*/
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ---------- { ---------- */
+//		 || ((0 != m_DiInfo.bPinDown) && (0 != nexioIsPinAlignmentPos()))	/* ~[∆ÉACg íuÃóI	*/
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ----------			   */
+		 || ((0 != m_DiInfo.bPinDown) && (0 != m_DiInfo.bPinAlign))	/* ~[∆ÉACg íuÃóI	*/
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ---------- } ---------- */
 			) {
 			l_bPinDownOffDetected = TRUE;
 		} else {
 			if (true == ((CChiefTransiStress*) m_pcChiefTransiStress)->IsMeasuring()) {
-				/* XgX蒆	*/
-/* modified 2009.08.20 hmenjo XgX@\ǉ(46) ---------- { ---------- */
+				/* XgXËíÜ	*/
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ---------- { ---------- */
 //				if ((0 == m_DiInfo.bPinUp) && (0 != nexioIsPinAlignmentPos()) && (0 == m_DiInfo.bPinDown)) {
-/* modified 2009.08.20 hmenjo XgX@\ǉ(46) ----------			   */
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ----------			   */
 				if ((0 == m_DiInfo.bPinUp) && (0 != m_DiInfo.bPinAlign) && (0 == m_DiInfo.bPinDown)) {
-/* modified 2009.08.20 hmenjo XgX@\ǉ(46) ---------- } ---------- */
-					/* ㏸[ItCCACgʒuIC~[ItCȂُłȂ	*/
+/* modified 2009.08.20 hmenjo XgX@\«â(46) ---------- } ---------- */
+					/* „è∏[ItC¬ÅCACg íuIC~[ItC»ÇŸè≈Ç»Ç	*/
 					l_bPinDownOffDetected = FALSE;
 				} else {
 					l_bPinDownOffDetected = TRUE;
@@ -4022,7 +4022,7 @@ void CChiefView::CheckDIO_Running()
 			}
 		}
 	}
-/* added 2009.08.17 hmenjo XgX@\ǉ(37) ---------- } ---------- */
+/* added 2009.08.17 hmenjo XgX@\«â(37) ---------- } ---------- */
 	// [NKChJIt H->L
 //	BOOL l_bWorkGuideOpenOffDetected = ((0 != m_DiInfo.bWorkGuideOpen) && (0 == nexioIsWorkGuideOpen()))? TRUE : FALSE;
 	BOOL l_bWorkGuideOpenOffDetected;
@@ -4034,7 +4034,7 @@ void CChiefView::CheckDIO_Running()
 		l_bWorkGuideOpenOffDetected = FALSE;
 	}
 	ls_bWorkGuideOpenOffPrev = l_bResult;
-	// Vb^It H->L
+	// Vb^¬ÉIt H->L
 //	BOOL l_bShutterCloseOffDetected = ((0 != m_DiInfo.bShutterClose) && (0 == nexioIsShutterClose()))? TRUE : FALSE;
 	BOOL l_bShutterCloseOffDetected;
 	static BOOL ls_bShutterCloseOffPrev = FALSE;
@@ -4048,222 +4048,222 @@ void CChiefView::CheckDIO_Running()
 
 	// Xe[Wx -------------------------------------------------------
 	if (0 != l_bMaintenanceSWOnDetected) {
-		// eiX[hɂȂ
-// modified hmenjo 2009.05.12 xύXtOǉ ---------- { ----------
+		// eiX[h…Ç»Ç
+// modified hmenjo 2009.05.12 xœçX¬ÉtO«â ---------- { ----------
 //		// x
 //		StageEnableSpeedLimit();
-// modified hmenjo 2009.05.12 xύXtOǉ ----------
+// modified hmenjo 2009.05.12 xœçX¬ÉtO«â ----------
 		if (TRUE == g_bIL_SpeedDown) {
 			// x
 			StageEnableSpeedLimit();
 		}
-// modified hmenjo 2009.05.12 xύXtOǉ ---------- } ----------
+// modified hmenjo 2009.05.12 xœçX¬ÉtO«â ---------- } ----------
 //		if (0 == m_bSpeedLimiterOFF) {
 //			// x[hZbg
 //			((CNanoSpecDoc*) m_pcNanoSpecDoc)->StageSpeedLimiter(TRUE);
 //		}
 	}
 	if (0 != l_bMaintenanceSWOffDetected) {
-		// eiX[hłȂȂ
-		// xȂ
+		// eiX[h≈Ç»Ç»Ç
+		// x»Ç
 		StageDisableSpeedLimit();
 //		// x[hZbg
 //		((CNanoSpecDoc*) m_pcNanoSpecDoc)->StageSpeedLimiter(FALSE);
 	}
 
-/* added 2009.08.04 hmenjo 蒆ȊOhAJXe[W~ ---------- { ---------- */
-	/* 蒆ȊOŃhAJȂCXe[W~܂D	*/
+/* added 2009.08.04 hmenjo ËíÜ»äOhAJXe[W~ ---------- { ---------- */
+	/* ËíÜ»äO≈ÉhAJ»ÇCXe[W~‹ÇD	*/
 	if ((true == ((CChiefTransiSeq*) m_pcChiefTransiSeq)->IsIdle())
 	 && (true == ((CChiefTransiStress*) m_pcChiefTransiStress)->IsIdle())) {
-		/* V[PX肪AChłD	 */
+		/* V[PXËÇ™ACh≈ÇD	 */
 		if ((0 == m_DiInfo.bDoorInterlock) && (0 == m_DiInfo.bTHMaintenanceSW)) {
 			/* hAJ oD	*/
 			if ((0 == m_DiInfo.bMaintenanceSW) && (FALSE == g_bIL_DoorOpen)) {
-				;	/* eŁChAJo֎~̂Ƃ͊JƔF܂D	*/
+				;	/* e≈ÅChAJo÷é~ÃÇ∆ÇÕäJ∆îF‹ÇD	*/
 			} else {
-				/* {ɌoD	*/
+				/* {…åoD	*/
 				if (0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_XYSTAGE)) {
-					/* XY Xe[W쒆łD	*/
+					/* XY Xe[WÏíÜ≈ÇD	*/
 					StageStop();
-					ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);	/* 쒆tO(XY Xe[W)It	*/
+					ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);	/* ÏíÜtO(XY Xe[W)It	*/
 					AlarmIf_Set(ALID_DoorOpen);		/* hAJ	*/
 				}
 			}
 		}
-/* added 2009.10.30 hmenjo CTA CTAILPI 펞`FbN ---------- { ---------- */
+/* added 2009.10.30 hmenjo CTA CTAILPI Ìéû`FbN ---------- { ---------- */
 		if (0 == this->IsCtaILPI()) {
 			/* CTAILPI Ito	*/
 			BOOL l_bXYStg = ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_XYSTAGE);
 			BOOL l_bEV = ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_ZAXIS);
 			if ((0 != l_bXYStg) || (0 != l_bEV)) {
 				AlarmIf_Set(ALID_CTA_IL_PI_On);		/* CTA IL PI Ito	*/
-/* added 2009.11.06 hmenjo CTA A[Zbgُ탊Zbg ---------- { ---------- */
+/* added 2009.11.06 hmenjo CTA A[ZbgŸèÌÉäZbg ---------- { ---------- */
 				this->CtaReset(1);
-/* added 2009.11.06 hmenjo CTA A[Zbgُ탊Zbg ---------- } ---------- */
+/* added 2009.11.06 hmenjo CTA A[ZbgŸèÌÉäZbg ---------- } ---------- */
 				if (0 != l_bXYStg) {
 					StageStop();
-					ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);	/* 쒆tO(XY Xe[W)It	*/
+					ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);	/* ÏíÜtO(XY Xe[W)It	*/
 				}
 				if (0 != l_bEV) {
-					StageAbortAutoFocus();	/* ߂l͖Ă܂	*/
-					StageElevatorStop();	/* ߂l͖Ă܂	*/
-					ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);			/* 쒆tO(Z )It	*/
+					StageAbortAutoFocus();	/* ﬂÇlÕñƒÇ‹Ç	*/
+					StageElevatorStop();	/* ﬂÇlÕñƒÇ‹Ç	*/
+					ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);			/* ÏíÜtO(Z )It	*/
 				}
 			}
 		}
-/* added 2009.10.30 hmenjo CTA CTAILPI 펞`FbN ---------- } ---------- */
-/* added 2009.11.06 K.Matsuo RS Seq Head Position 펞`FbN ---------- { ---------- */
+/* added 2009.10.30 hmenjo CTA CTAILPI Ìéû`FbN ---------- } ---------- */
+/* added 2009.11.06 K.Matsuo RS Seq Head Position Ìéû`FbN ---------- { ---------- */
 		int iResistStatus = this->CheckResistIL();
 		if (0 != iResistStatus) {
-			/* ResistIL ُ팟o	*/
+			/* ResistIL ŸèÌåüo	*/
 			BOOL l_bXYStg = ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_XYSTAGE);
 			BOOL l_bEV = ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_ZAXIS);
 			if ((0 != l_bXYStg) || (0 != l_bEV)) {
 				if (1 == iResistStatus) {
 					AlarmIf_Set(ALID_ResistUpperPositionSensorOff);		/* Resist IL Ito	*/
 				} else {
-					AlarmIf_Set(ALID_ResistUpperPositionSensorError);	/* Resist IL ُ팟o	*/
+					AlarmIf_Set(ALID_ResistUpperPositionSensorError);	/* Resist IL ŸèÌåüo	*/
 				}
 				if (0 != l_bXYStg) {
 					StageStop();
-					ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);	/* 쒆tO(XY Xe[W)It	*/
+					ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);	/* ÏíÜtO(XY Xe[W)It	*/
 				}
 				if (0 != l_bEV) {
-					StageAbortAutoFocus();	/* ߂l͖Ă܂	*/
-					StageElevatorStop();	/* ߂l͖Ă܂	*/
-					ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);			/* 쒆tO(Z )It	*/
+					StageAbortAutoFocus();	/* ﬂÇlÕñƒÇ‹Ç	*/
+					StageElevatorStop();	/* ﬂÇlÕñƒÇ‹Ç	*/
+					ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);			/* ÏíÜtO(Z )It	*/
 				}
 			}
 		}
-/* added 2009.11.06 K.Matsuo RS Seq Head Position 펞`FbN ---------- } ---------- */
-// 2009.11.12 bagus MS [ʒuQ`FbN --{--
+/* added 2009.11.06 K.Matsuo RS Seq Head Position Ìéû`FbN ---------- } ---------- */
+// 2009.11.12 bagus MS [ íuQ`FbN --{--
 		if( 0 == this->IsMSILPI()){
-			//[ʒuQ̃ZT[ONo
+			//[ íuQÃÉZT[ONo
 			BOOL l_bXYStg = ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_XYSTAGE);
 			BOOL l_bEV = ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_ZAXIS);
 			if ((0 != l_bXYStg) || (0 != l_bEV)) {
 				AlarmIf_Set(ALID_MS_IL_POS_ERROR);		/* CTA IL PI Ito	*/
 				if (0 != l_bXYStg) {
 					StageStop();
-					ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);	/* 쒆tO(XY Xe[W)It	*/
+					ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);	/* ÏíÜtO(XY Xe[W)It	*/
 				}
 				if (0 != l_bEV) {
-					StageAbortAutoFocus();	/* ߂l͖Ă܂	*/
-					StageElevatorStop();	/* ߂l͖Ă܂	*/
-					ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);			/* 쒆tO(Z )It	*/
+					StageAbortAutoFocus();	/* ﬂÇlÕñƒÇ‹Ç	*/
+					StageElevatorStop();	/* ﬂÇlÕñƒÇ‹Ç	*/
+					ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);			/* ÏíÜtO(Z )It	*/
 				}
 			}
 		}
-// 2009.11.12 bagus MS [ʒuQ`FbN --}--
+// 2009.11.12 bagus MS [ íuQ`FbN --}--
 	} else {
-/* added 2009.10.30 hmenjo CTA CTAILPI 펞`FbN ---------- { ---------- */
-		/* V[PXŃAChȊO܂D	*/
+/* added 2009.10.30 hmenjo CTA CTAILPI Ìéû`FbN ---------- { ---------- */
+		/* V[PX≈ÉACh»äO‹ÇD	*/
 		if (0 == this->IsCtaILPI()) {
 			/* CTAILPI Ito	*/
 			BOOL l_bXYStg = ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_XYSTAGE);
 			BOOL l_bEV = ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_ZAXIS);
 			if ((0 != l_bXYStg) || (0 != l_bEV)) {
 				AlarmIf_Set(ALID_CTA_IL_PI_On);	/* CTA IL PI Ito	*/
-/* added 2009.11.06 hmenjo CTA A[Zbgُ탊Zbg ---------- { ---------- */
+/* added 2009.11.06 hmenjo CTA A[ZbgŸèÌÉäZbg ---------- { ---------- */
 				this->CtaReset(1);
-/* added 2009.11.06 hmenjo CTA A[Zbgُ탊Zbg ---------- } ---------- */
-				EqPowerOffPulse();				/* udIt|o̓I	*/
-				StopAxisAllEMO();				/* n̑~w߂𔭍s	*/
+/* added 2009.11.06 hmenjo CTA A[ZbgŸèÌÉäZbg ---------- } ---------- */
+				EqPowerOffPulse();				/* udIt|oÕÉI	*/
+				StopAxisAllEMO();				/* nÃë~wﬂÇî≠çs	*/
 				CancelSeqForAlarm();			/* LZs	*/
-				ProcStatusSet(PROCESS_DOWN);	/*  DOWN Ԃɂ	*/
+				ProcStatusSet(PROCESS_DOWN);	/*  DOWN ‘Ç…Ç	*/
 			}
 		}
-/* added 2009.10.30 hmenjo CTA CTAILPI 펞`FbN ---------- } ---------- */
-/* added 2009.11.06 K.Matsuo RS Seq Head Position 펞`FbN ---------- { ---------- */
-		/* V[PXŃAChȊO܂D	*/
+/* added 2009.10.30 hmenjo CTA CTAILPI Ìéû`FbN ---------- } ---------- */
+/* added 2009.11.06 K.Matsuo RS Seq Head Position Ìéû`FbN ---------- { ---------- */
+		/* V[PX≈ÉACh»äO‹ÇD	*/
 		int iResistStatus = this->CheckResistIL();
 		if (0 != iResistStatus) {
-			/* ResistIL ُ팟o	*/
+			/* ResistIL ŸèÌåüo	*/
 			BOOL l_bXYStg = ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_XYSTAGE);
 			BOOL l_bEV = ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_ZAXIS);
 			if ((0 != l_bXYStg) || (0 != l_bEV)) {
 				if (1 == iResistStatus) {
 					AlarmIf_Set(ALID_ResistUpperPositionSensorOff);		/* Resist IL Ito	*/
 				} else {
-					AlarmIf_Set(ALID_ResistUpperPositionSensorError);	/* Resist IL ُ팟o	*/
+					AlarmIf_Set(ALID_ResistUpperPositionSensorError);	/* Resist IL ŸèÌåüo	*/
 				}
-				EqPowerOffPulse();				/* udIt|o̓I	*/
-				StopAxisAllEMO();				/* n̑~w߂𔭍s	*/
+				EqPowerOffPulse();				/* udIt|oÕÉI	*/
+				StopAxisAllEMO();				/* nÃë~wﬂÇî≠çs	*/
 				CancelSeqForAlarm();			/* LZs	*/
-				ProcStatusSet(PROCESS_DOWN);	/*  DOWN Ԃɂ	*/
+				ProcStatusSet(PROCESS_DOWN);	/*  DOWN ‘Ç…Ç	*/
 			}
 		}
-/* added 2009.11.06 K.Matsuo RS Seq Head Position 펞`FbN ---------- } ---------- */
-// 2009.11.12 bagus MS [ʒuQ`FbN --{--
+/* added 2009.11.06 K.Matsuo RS Seq Head Position Ìéû`FbN ---------- } ---------- */
+// 2009.11.12 bagus MS [ íuQ`FbN --{--
 		if( 0 == this->IsMSILPI()){
-			//[ʒuQ̃ZT[ONo
+			//[ íuQÃÉZT[ONo
 			BOOL l_bXYStg = ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_XYSTAGE);
 			BOOL l_bEV = ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_ZAXIS);
 			if ((0 != l_bXYStg) || (0 != l_bEV)) {
 				AlarmIf_Set(ALID_MS_IL_POS_ERROR);		/* CTA IL PI Ito	*/
 				if (0 != l_bXYStg) {
 					StageStop();
-					ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);	/* 쒆tO(XY Xe[W)It	*/
+					ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);	/* ÏíÜtO(XY Xe[W)It	*/
 				}
 				if (0 != l_bEV) {
-					StageAbortAutoFocus();	/* ߂l͖Ă܂	*/
-					StageElevatorStop();	/* ߂l͖Ă܂	*/
-					ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);			/* 쒆tO(Z )It	*/
+					StageAbortAutoFocus();	/* ﬂÇlÕñƒÇ‹Ç	*/
+					StageElevatorStop();	/* ﬂÇlÕñƒÇ‹Ç	*/
+					ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);			/* ÏíÜtO(Z )It	*/
 				}
 			}
 		}
-// 2009.11.12 bagus MS [ʒuQ`FbN --}--
+// 2009.11.12 bagus MS [ íuQ`FbN --}--
 	}
-/* added 2009.08.04 hmenjo 蒆ȊOhAJXe[W~ ---------- } ---------- */
+/* added 2009.08.04 hmenjo ËíÜ»äOhAJXe[W~ ---------- } ---------- */
 
-	// 쒆 DI `FbN -------------------------------------------------------------------------------------------
-	// ً}~ -------------------------------------------------------------------------------
+	// ÏíÜ DI `FbN -------------------------------------------------------------------------------------------
+	// Ÿã}~ -------------------------------------------------------------------------------
 	// EMOChAC^bNCup[It o -----------------------------
-/* modified 2009.08.17 hmenjo Z[teBvOǉ ---------- { ---------- */
+/* modified 2009.08.17 hmenjo Z[teBvO«â ---------- { ---------- */
 //	if ((0 == m_AlarmFlags.bEMOStopOn) || (0 == m_AlarmFlags.bDoorInterlockOn) || (0 == m_AlarmFlags.bEQPowerOn)) {
-/* modified 2009.08.17 hmenjo Z[teBvOǉ ----------			   */
+/* modified 2009.08.17 hmenjo Z[teBvO«â ----------			   */
 	if ((0 == m_AlarmFlags.bEMOStopOn) || (0 == m_AlarmFlags.bDoorInterlockOn) || (0 == m_AlarmFlags.bEQPowerOn) || (0 == m_AlarmFlags.bSafetyPlugOn)) {
-/* modified 2009.08.17 hmenjo Z[teBvOǉ ---------- } ---------- */
+/* modified 2009.08.17 hmenjo Z[teBvO«â ---------- } ---------- */
 		DWORD l_dwResult;
 		if (0 != (l_dwResult = CheckDIO_IsEMO())) {
-//			// n̑~w߂𔭍s
+//			// nÃë~wﬂÇî≠çs
 //			StopAxisAllEMO();
 //			// LZs
 //			CancelSeqForAlarm();
-//			//  DOWN Ԃɂ
+//			//  DOWN ‘Ç…Ç
 //			ProcStatusSet(PROCESS_DOWN);
-			// A[ʒm
+			// A[ ím
 			switch (l_dwResult) {
 			case ALID_EMOSwitchOn:		// EMO
 				if (0 == m_AlarmFlags.bEMOStopOn) {
 					m_AlarmFlags.bEMOStopOn = TRUE;
-					// udIt|o̓I
+					// udIt|oÕÉI
 					EqPowerOffPulse();
-					// n̑~w߂𔭍s
+					// nÃë~wﬂÇî≠çs
 					StopAxisAllEMO();
 					// LZs
 					CancelSeqForAlarm();
-					//  DOWN Ԃɂ
+					//  DOWN ‘Ç…Ç
 					ProcStatusSet(PROCESS_DOWN);
 					PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_OFF), MAKEWORD(1, CHRAMSG_OK)), MAKELPARAM(0, ALID_EMOSwitchOn));
 				}
 				break;
 			case ALID_DoorOpen:		// hAC^bN
-/* added 2009.06.02 hmenjo hAJő|[Y ---------- { ---------- */
+/* added 2009.06.02 hmenjo hAJ≈ë|[Y ---------- { ---------- */
 				if (TRUE == g_bIL_DoorOpenPause) {
 					SentMeasPauseCheck(1);
 					break;
 				}
-/* added 2009.06.02 hmenjo hAJő|[Y ---------- } ---------- */
+/* added 2009.06.02 hmenjo hAJ≈ë|[Y ---------- } ---------- */
 				if (0 == m_AlarmFlags.bDoorInterlockOn) {
 					m_AlarmFlags.bDoorInterlockOn = TRUE;
-					// udIt|o̓I
+					// udIt|oÕÉI
 					EqPowerOffPulse();
-					// n̑~w߂𔭍s
+					// nÃë~wﬂÇî≠çs
 					StopAxisAllEMO();
 					// LZs
 					CancelSeqForAlarm();
-					//  DOWN Ԃɂ
+					//  DOWN ‘Ç…Ç
 					ProcStatusSet(PROCESS_DOWN);
 					PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_OFF), MAKEWORD(1, CHRAMSG_OK)), MAKELPARAM(0, ALID_DoorOpen));
 				}
@@ -4271,71 +4271,71 @@ void CChiefView::CheckDIO_Running()
 			case ALID_EquipmentPowerOff:	// up[It
 				if (0 == m_AlarmFlags.bEQPowerOn) {
 					m_AlarmFlags.bEQPowerOn = TRUE;
-//					// udIt|o̓I		up[Ito͑udIto͕͂svłD
+//					// udIt|oÕÉI		up[ItoÕëudItoÕÇÕïsv≈ÇD
 //					EqPowerOffPulse();
-					// n̑~w߂𔭍s
+					// nÃë~wﬂÇî≠çs
 					StopAxisAllEMO();
 					// LZs
 					CancelSeqForAlarm();
-					//  DOWN Ԃɂ
+					//  DOWN ‘Ç…Ç
 					ProcStatusSet(PROCESS_DOWN);
 					PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_OFF), MAKEWORD(1, CHRAMSG_OK)), MAKELPARAM(0, ALID_EquipmentPowerOff));
 				}
 				break;
-/* added 2009.08.17 hmenjo Z[teBvOǉ ---------- { ---------- */
+/* added 2009.08.17 hmenjo Z[teBvO«â ---------- { ---------- */
 			case ALID_SafetyPlugOpen:		/* Z[teBvO	*/
 				if (0 == m_AlarmFlags.bSafetyPlugOn) {
 					m_AlarmFlags.bSafetyPlugOn = TRUE;
-					// udIt|o̓I
+					// udIt|oÕÉI
 					EqPowerOffPulse();
-					// n̑~w߂𔭍s
+					// nÃë~wﬂÇî≠çs
 					StopAxisAllEMO();
 					// LZs
 					CancelSeqForAlarm();
-					//  DOWN Ԃɂ
+					//  DOWN ‘Ç…Ç
 					ProcStatusSet(PROCESS_DOWN);
 					PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_OFF), MAKEWORD(1, CHRAMSG_OK)), MAKELPARAM(0, ALID_SafetyPlugOpen));
 				}
 				break;
-/* added 2009.08.17 hmenjo Z[teBvOǉ ---------- } ---------- */
-			default:	// ܂
+/* added 2009.08.17 hmenjo Z[teBvO«â ---------- } ---------- */
+			default:	// ‹Ç
 				break;
 			}
 		}
 	}
-/* added 2009.08.17 hmenjo XgX@\ǉ(37) ---------- { ---------- */
-	/* XgX蒆Ȃ Z ޔʒu`FbN	*/
+/* added 2009.08.17 hmenjo XgX@\«â(37) ---------- { ---------- */
+	/* XgXËíÜ»Ç Z ﬁî íu`FbN	*/
 	if (true == ((CChiefTransiStress*) m_pcChiefTransiStress)->IsMeasuring()) {
 		if (0 == nexioIsRetractPosZ()) {
-			// udIt|o̓I
+			// udIt|oÕÉI
 			EqPowerOffPulse();
-			// n̑~w߂𔭍s
+			// nÃë~wﬂÇî≠çs
 			StopAxisAllEMO();
 			// LZs
 			CancelSeqForAlarm();
-			//  DOWN Ԃɂ
+			//  DOWN ‘Ç…Ç
 			ProcStatusSet(PROCESS_DOWN);
-/* 2009.08.20 K.Matsuo ALID `ύX ---------- { ---------- */
+/* 2009.08.20 K.Matsuo ALID `œçX ---------- { ---------- */
 //				PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_OFF), MAKEWORD(1, CHRAMSG_OK)), MAKELPARAM(0, ZPOSOFF_ALID));
-/* 2009.08.20 K.Matsuo ALID `ύX ----------			   */
+/* 2009.08.20 K.Matsuo ALID `œçX ----------			   */
 			if (0 == m_AlarmFlags.bRetractZPosOff) {
-				// A[ʒm
+				// A[ ím
 				m_AlarmFlags.bRetractZPosOff = TRUE;
 				PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_OFF), MAKEWORD(1, CHRAMSG_OK)), MAKELPARAM(0, ALID_Z_PositionRetractFailed));
-/* 2009.08.20 K.Matsuo ALID `ύX ---------- } ---------- */
+/* 2009.08.20 K.Matsuo ALID `œçX ---------- } ---------- */
 			}
 		}
 	}
-/* added 2009.08.17 hmenjo XgX@\ǉ(37) ---------- } ---------- */
+/* added 2009.08.17 hmenjo XgX@\«â(37) ---------- } ---------- */
 	// {bgA[ICs_EItC[NKChJIt o ------------
-#if 0		// V[vdlŃVb^J̌oǉ
+#if 0		// V[vdl≈ÉVb^JÃåo«â
 	if ((0 == m_AlarmFlags.bRobotArmOn) || (0 == m_AlarmFlags.bPinDownOff) || (0 == m_AlarmFlags.bWorkGuideOpenOff)) {
 		if ((0 != l_bRobotArmOnDetected) || (0 != l_bPinDownOffDetected) || (0 != l_bWorkGuideOpenOffDetected)) {
 #else
 	if ((0 == m_AlarmFlags.bRobotArmOn) || (0 == m_AlarmFlags.bPinDownOff) || (0 == m_AlarmFlags.bWorkGuideOpenOff) || (0 == m_AlarmFlags.bShutterCloseOff)) {
-/* modified 2009.10.06 hmenjo Stress nexifLoad ɕύX ---------- { ---------- */
+/* modified 2009.10.06 hmenjo Stress nexifLoad …ïœçX ---------- { ---------- */
 //		if ((0 != l_bRobotArmOnDetected) || (0 != l_bPinDownOffDetected) || (0 != l_bWorkGuideOpenOffDetected) || (0 != l_bShutterCloseOffDetected)) {
-/* modified 2009.10.06 hmenjo Stress nexifLoad ɕύX ----------			  */
+/* modified 2009.10.06 hmenjo Stress nexifLoad …ïœçX ----------			  */
 		if (
 			(0 != l_bRobotArmOnDetected)
 		 || (0 != l_bPinDownOffDetected)
@@ -4343,22 +4343,22 @@ void CChiefView::CheckDIO_Running()
 		 										&& (ST_STRS_ABORTPINDOWN != ((CChiefTransiStress*) m_pcChiefTransiStress)->GetCurrentState()))
 		 || (0 != l_bShutterCloseOffDetected)
 			) {
-/* modified 2009.10.06 hmenjo Stress nexifLoad ɕύX ---------- } ---------- */
+/* modified 2009.10.06 hmenjo Stress nexifLoad …ïœçX ---------- } ---------- */
 #endif
 			if (
 				(PROCESS_PROC == ProcStatusGet())											// Processing
-			 || (0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_XYSTAGE))	// XY Xe[W쒆
-			 || (0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_ZAXIS))	// Z 쒆
+			 || (0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_XYSTAGE))	// XY Xe[WÏíÜ
+			 || (0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_ZAXIS))	// Z ÏíÜ
 				) {
-				// udIt|o̓I
+				// udIt|oÕÉI
 				EqPowerOffPulse();
-				// n̑~w߂𔭍s
+				// nÃë~wﬂÇî≠çs
 				StopAxisAllEMO();
 				// LZs
 				CancelSeqForAlarm();
-				//  DOWN Ԃɂ
+				//  DOWN ‘Ç…Ç
 				ProcStatusSet(PROCESS_DOWN);
-				// A[ʒm
+				// A[ ím
 				if ((0 == m_AlarmFlags.bRobotArmOn) && (0 != l_bRobotArmOnDetected)) {
 					m_AlarmFlags.bRobotArmOn = TRUE;
 					PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_OFF), MAKEWORD(1, CHRAMSG_OK)), MAKELPARAM(0, ALID_RobotArmDetected));
@@ -4381,42 +4381,42 @@ void CChiefView::CheckDIO_Running()
 	// TCN~ ---------------------------------------------------------------------------
 	// eiX SW I o ----------------------------------------------
 	if (0 == m_AlarmFlags.bMaintenanceSWOn) {
-// modified hmenjo 2009.05.12 ُ펞TCNXgbvtOǉ ---------- { ----------
+// modified hmenjo 2009.05.12 ŸèÌéûTCNXgbv¬ÉtO«â ---------- { ----------
 //		if (0 != l_bMaintenanceSWOnDetected) {
-// modified hmenjo 2009.05.12 ُ펞TCNXgbvtOǉ ----------
+// modified hmenjo 2009.05.12 ŸèÌéûTCNXgbv¬ÉtO«â ----------
 		if ((0 != l_bMaintenanceSWOnDetected) && (TRUE == g_bIL_CycleStop)) {
-// modified hmenjo 2009.05.12 ُ펞TCNXgbvtOǉ ---------- } ----------
+// modified hmenjo 2009.05.12 ŸèÌéûTCNXgbv¬ÉtO«â ---------- } ----------
 			if (
 				(0 == m_DiInfo.bTHMaintenanceSW)											// e SW It
 			 && (
 					(PROCESS_PROC == ProcStatusGet())											// Processing
-				 || (0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_XYSTAGE))	// XY Xe[W쒆
-				 || (0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_ZAXIS))	// Z 쒆
+				 || (0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_XYSTAGE))	// XY Xe[WÏíÜ
+				 || (0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_ZAXIS))	// Z ÏíÜ
 				)
 				) {
-				// n̑~w߂𔭍s
+				// nÃë~wﬂÇî≠çs
 				StopAxisAllEMO();
 				// LZs
 				CancelSeqForAlarm();
-				// A[ʒm
+				// A[ ím
 				m_AlarmFlags.bMaintenanceSWOn = TRUE;
 				PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_OFF), MAKEWORD(1, CHRAMSG_OK)), MAKELPARAM(0, ALID_MaintenanceSwitchOn));
 			}
 		}
 	}
-	// GA͒ቺ o ----------------------------------------------
+	// GAÕí·â∫ o ----------------------------------------------
 	if (0 == m_AlarmFlags.bAirPressureLowOn) {
 		if (0 != l_bAirPressureLowDetected) {
 			if (
 				(PROCESS_PROC == ProcStatusGet())											// Processing
-			 || (0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_XYSTAGE))	// XY Xe[W쒆
-			 || (0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_ZAXIS))	// Z 쒆
+			 || (0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_XYSTAGE))	// XY Xe[WÏíÜ
+			 || (0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_ZAXIS))	// Z ÏíÜ
 				) {
-				// n̑~w߂𔭍s
+				// nÃë~wﬂÇî≠çs
 				StopAxisAllEMO();
 				// LZs
 				CancelSeqForAlarm();
-				// A[ʒm
+				// A[ ím
 				m_AlarmFlags.bAirPressureLowOn = TRUE;
 				PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_OFF), MAKEWORD(1, CHRAMSG_OK)), MAKELPARAM(0, ALID_AirPressureDown));
 			}
@@ -4424,19 +4424,19 @@ void CChiefView::CheckDIO_Running()
 	}
 	// oL[ZTP It o ----------------------------------------------
 	if (0 == m_AlarmFlags.bVacuumPressure1Off) {
-/* modified 2009.10.06 hmenjo Stress nexifLoad ɕύX ---------- { ---------- */
+/* modified 2009.10.06 hmenjo Stress nexifLoad …ïœçX ---------- { ---------- */
 //		if (0 != l_bVacuumPressure1OffDetected) {
-/* modified 2009.10.06 hmenjo Stress nexifLoad ɕύX ----------			  */
+/* modified 2009.10.06 hmenjo Stress nexifLoad …ïœçX ----------			  */
 		if ((0 != l_bVacuumPressure1OffDetected) && (ST_STRS_PINALIGN != ((CChiefTransiStress*) m_pcChiefTransiStress)->GetCurrentState())) {
-/* modified 2009.10.06 hmenjo Stress nexifLoad ɕύX ---------- } ---------- */
+/* modified 2009.10.06 hmenjo Stress nexifLoad …ïœçX ---------- } ---------- */
 			if (
 				(PROCESS_PROC == ProcStatusGet())											// Processing
 				) {
-				// n̑~w߂𔭍s
+				// nÃë~wﬂÇî≠çs
 				StopAxisAllEMO();
 				// LZs
 				CancelSeqForAlarm();
-				// A[ʒm
+				// A[ ím
 				m_AlarmFlags.bVacuumPressure1Off = TRUE;
 				PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_OFF), MAKEWORD(1, CHRAMSG_OK)), MAKELPARAM(0, ALID_VacuumSensorOff));
 			}
@@ -4451,7 +4451,7 @@ void CChiefView::CheckDIO_Running()
 
 	if (0 == m_AlarmFlags.bStageAlarmOn) {
 		bError = FALSE;
-		if( iDioX1AxisAlarm != 0x0000 && // G[Ȃ
+		if( iDioX1AxisAlarm != 0x0000 && // G[»Ç
 			iDioX1AxisAlarm != 0x0100 && // I[o[gx
 			iDioX1AxisAlarm != 0x0010 && // Xe[W`
 			iDioX1AxisAlarm != 0x0001 )  // Xe[W`
@@ -4460,7 +4460,7 @@ void CChiefView::CheckDIO_Running()
 			OutputStageError(iDioX1AxisAlarm, 0);
 		}
 
-		if( iDioX2AxisAlarm != 0x0000 && // G[Ȃ
+		if( iDioX2AxisAlarm != 0x0000 && // G[»Ç
 			iDioX2AxisAlarm != 0x0100 && // I[o[gx
 			iDioX2AxisAlarm != 0x0010 && // Xe[W`
 			iDioX2AxisAlarm != 0x0001 )  // Xe[W`
@@ -4469,7 +4469,7 @@ void CChiefView::CheckDIO_Running()
 			OutputStageError(iDioX2AxisAlarm, 1);
 		}
 
-		if( iDioYAxisAlarm != 0x0000 && // G[Ȃ
+		if( iDioYAxisAlarm != 0x0000 && // G[»Ç
 			iDioYAxisAlarm != 0x0100 && // I[o[gx
 			iDioYAxisAlarm != 0x0010 && // Xe[W`
 			iDioYAxisAlarm != 0x0001 )  // Xe[W`
@@ -4481,18 +4481,18 @@ void CChiefView::CheckDIO_Running()
 		if (bError == TRUE) {
 // 			if (
 // 				(PROCESS_PROC == ProcStatusGet())											// Processing
-// 				|| (0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_XYSTAGE))	// XY Xe[W쒆
-// 				|| (0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_ZAXIS))	// Z 쒆
+// 				|| (0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_XYSTAGE))	// XY Xe[WÏíÜ
+// 				|| (0 != ((CNanoSpecDoc*) m_pcNanoSpecDoc)->ActuateFlagsGet(ACTUATE_ZAXIS))	// Z ÏíÜ
 // 				) {
-				// udIt|o̓I
+				// udIt|oÕÉI
 				EqPowerOffPulse();
-				// n̑~w߂𔭍s
+				// nÃë~wﬂÇî≠çs
 				StopAxisAllEMO();
 				// LZs
 				CancelSeqForAlarm();
-				//  DOWN Ԃɂ
+				//  DOWN ‘Ç…Ç
 				ProcStatusSet(PROCESS_DOWN);
-				// A[ʒm
+				// A[ ím
 				m_AlarmFlags.bStageAlarmOn = TRUE;
 				PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_OFF), MAKEWORD(1, CHRAMSG_OK)), MAKELPARAM(0, ALID_StageError));
 //			}
@@ -4522,7 +4522,7 @@ void CChiefView::CheckDIO_Running()
 		if (bError == TRUE) {
 			// LZs
 			CancelSeqForAlarm();
-			// A[ʒm
+			// A[ ím
 			m_AlarmFlags.bStageOverTravelOn = TRUE;
 			PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_OFF), MAKEWORD(1, CHRAMSG_OK)), MAKELPARAM(0, ALID_StageOverTravelError));
 		}
@@ -4554,7 +4554,7 @@ void CChiefView::CheckDIO_Running()
 		if (bError == TRUE) {
 			// LZs
 			CancelSeqForAlarm();
-			// A[ʒm
+			// A[ ím
 			m_AlarmFlags.bStageUnknownOn = TRUE;
 			PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_OFF), MAKEWORD(1, CHRAMSG_OK)), MAKELPARAM(0, ALID_StageUnknownError));
 		}
@@ -4634,70 +4634,70 @@ void CChiefView::OutputStageError(int iDioAxisAlarm, int iAxis)
 }
 
 /*
- *	n̑~w
+ *	nÃë~w
  */
 void CChiefView::StopAxisAllEMO()
 {
 	// XY ~
-	StageStop();			// ߂l͖Ă܂
-	ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		// 쒆tO(XY Xe[W)It
+	StageStop();			// ﬂÇlÕñƒÇ‹Ç
+	ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);		// ÏíÜtO(XY Xe[W)It
 	// AF ~
-	StageAbortAutoFocus();	// ߂l͖Ă܂
+	StageAbortAutoFocus();	// ﬂÇlÕñƒÇ‹Ç
 	// Z ~
-	StageElevatorStop();	// ߂l͖Ă܂
-	ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);			// 쒆tO(Z )It
+	StageElevatorStop();	// ﬂÇlÕñƒÇ‹Ç
+	ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);			// ÏíÜtO(Z )It
 }
 
 /*
- *	A[̃V[PX LZ
+ *	A[ÃÉV[PX LZ
  */
 void CChiefView::CancelSeqForAlarm()
 {
-/* modified 2009.08.07 hmenjo XgX@\ǉ(37) ---------- { ---------- */
+/* modified 2009.08.07 hmenjo XgX@\«â(37) ---------- { ---------- */
 //	if ((PROCESS_PROC == ProcStatusGet()) && (false == ((CChiefTransiSeq*) m_pcChiefTransiSeq)->IsIdle())) {
-//		// Processing ŃV[PX肪 IDLE ȊȌꍇ
+//		// Processing ≈ÉV[PXËÇ™ IDLE »äOÃèÍçá
 //		((CChiefTransiSeq*) m_pcChiefTransiSeq)->TransiEvent(EV_SEQ_CANCEL);
 //	}
-/* modified 2009.08.07 hmenjo XgX@\ǉ(37) ----------			   */
+/* modified 2009.08.07 hmenjo XgX@\«â(37) ----------			   */
 	if (PROCESS_PROC == ProcStatusGet()) {
 		/* Processing 	*/
 		CHIEF_PFUNCS l_ChiefPFuncs;
 		if (0 != PFC_FuncSet(this, &l_ChiefPFuncs, 0)) {
 			if (false == (*l_ChiefPFuncs.IsIdle)(this)) {
-				/* V[PX肪 IDLE ȊȌꍇ	*/
+				/* V[PXËÇ™ IDLE »äOÃèÍçá	*/
 				(*l_ChiefPFuncs.TransiEvent)(this, l_ChiefPFuncs.Event.iCANCEL, 0);
 			}
 		}
 	}
-/* modified 2009.08.07 hmenjo XgX@\ǉ(37) ---------- } ---------- */
+/* modified 2009.08.07 hmenjo XgX@\«â(37) ---------- } ---------- */
 }
 
 /*
- *	(AF)JnÕwbhh҂
+ *	(AF)JnOÃÉwbhh“Ç
  */
 void CChiefView::WaitTimeBeforeMeas(
-		DWORD dwMode	// 0FJn擾C1Fԑ҂
+		DWORD dwMode	// 0FJnÊìæC1F‘ë“Ç
 	)
 {
 	if (0 == ((CMainFrame*) m_pcMainFrame)->HardwareSimulation()) {
-		// @̏ꍇ̂ݎ{
+		// @ÃèÍçáÃÇ›é{
 		switch (dwMode) {
 		case 0:
 			m_WaitMeasTime.dwStartTime = ::GetTickCount();
 			break;
 		default:
 			if (0 != m_WaitMeasTime.dwWaitTimeSetting) {
-				// ݒlȌꍇ̂ݏ܂
+				// ›ílOÃèÍçáÃÇ›è‹Ç
 				DWORD l_dwDeltaTime;
 				m_WaitMeasTime.dwEndTime = ::GetTickCount();
 				if (m_WaitMeasTime.dwStartTime <= m_WaitMeasTime.dwEndTime) {
 					l_dwDeltaTime = m_WaitMeasTime.dwEndTime - m_WaitMeasTime.dwStartTime;
 				} else {
-					// GetTickCount() ̃JE^I[ot[Ăꍇ
+					// GetTickCount() ÃÉJE^I[ot[ƒÇÍçá
 					l_dwDeltaTime = (0xffffffff - m_WaitMeasTime.dwStartTime) + m_WaitMeasTime.dwEndTime;
 				}
 				if (l_dwDeltaTime < m_WaitMeasTime.dwWaitTimeSetting) {
-					// ݒl̎c莞ԂX[v܂
+					// ›ílÃécËéû‘ÇX[v‹Ç
 #if 0
 					::Sleep(m_WaitMeasTime.dwWaitTimeSetting - l_dwDeltaTime);
 #else
@@ -4714,10 +4714,10 @@ void CChiefView::WaitTimeBeforeMeas(
 }
 
 /*
- *	́u肷vɂȂĂ鑪|Cgԍ擾܂
+ *	ÃÅuËÇ∑v…Ç»ÇƒÇÈë™|Cg‘çÊìæ‹Ç
  */
 DWORD CChiefView::GetNextPointNo(
-		DWORD *pdwPointNo	// Jnԍ
+		DWORD *pdwPointNo	// Jn‘ç
 	)
 {
 	int i;
@@ -4736,12 +4736,12 @@ DWORD CChiefView::GetNextPointNo(
 
 	return i;
 }
-/* added 2009.08.03 hmenjo XgX@\ǉ(18) ---------- { ---------- */
+/* added 2009.08.03 hmenjo XgX@\«â(18) ---------- { ---------- */
 /*
- *	w肳ꂽJnԍuLvɂȂĂ鑪胉Cԍ擾܂
+ *	wËÇ≥ÍÇΩJn‘çuLv…Ç»ÇƒÇÈë™ËÉâC‘çÊìæ‹Ç
  */
 DWORD CChiefView::GetNextLineNo(
-		DWORD *pdwLineNo	// Jnԍ
+		DWORD *pdwLineNo	// Jn‘ç
 	)
 {
 	int i;
@@ -4758,11 +4758,11 @@ DWORD CChiefView::GetNextLineNo(
 	}
 	LPSTAGE_PROG_STRESS l_pStageProgStress = (LPSTAGE_PROG_STRESS) m_ChiefRecipes.pStageProgStress;
 	for (i = *pdwLineNo; i <= l_iMaxLine; i++) {
-/* modified 2009.08.18 hmenjo STRESS_LINESECTION 폜 ---------- { ---------- */
+/* modified 2009.08.18 hmenjo STRESS_LINESECTION Ìèú ---------- { ---------- */
 //		if (0 != l_pStageProgStress->Line[i - 1].LineSec.bValidLine) {
-/* modified 2009.08.18 hmenjo STRESS_LINESECTION 폜 ----------			  */
+/* modified 2009.08.18 hmenjo STRESS_LINESECTION Ìèú ----------			  */
 		if (0 != l_pStageProgStress->Line[i - 1].bValidLine) {
-/* modified 2009.08.18 hmenjo STRESS_LINESECTION 폜 ---------- } ---------- */
+/* modified 2009.08.18 hmenjo STRESS_LINESECTION Ìèú ---------- } ---------- */
 			break;
 		}
 	}
@@ -4771,10 +4771,10 @@ DWORD CChiefView::GetNextLineNo(
 
 	return i;
 }
-/* added 2009.08.03 hmenjo XgX@\ǉ(18) ---------- } ---------- */
+/* added 2009.08.03 hmenjo XgX@\«â(18) ---------- } ---------- */
 
 /*
- *	Ot@C֐ - CNanoSpecDoc::ChiefLogging() ̃bp֐
+ *	Ot@C÷ê - CNanoSpecDoc::ChiefLogging() ÃÉbp÷ê
  */
 void CChiefView::LogChief(TCHAR *pszLogText)
 {
@@ -4784,7 +4784,7 @@ void CChiefView::LogChief(TCHAR *pszLogText)
 }
 
 /*
- *	Ot@C֐ - bZ[WMp
+ *	Ot@C÷ê - bZ[WMp
  */
 void CChiefView::LogChief_WinMsg(TCHAR* ptszMsgName, WPARAM wparam, LPARAM lparam)
 {
@@ -4794,7 +4794,7 @@ void CChiefView::LogChief_WinMsg(TCHAR* ptszMsgName, WPARAM wparam, LPARAM lpara
 }
 
 /*
- *	Ot@C֐ - gWVp
+ *	Ot@C÷ê - gWVp
  */
 void CChiefView::LogChief_Transi(TCHAR* ptszTransiState, DWORD dwParam)
 {
@@ -4805,7 +4805,7 @@ void CChiefView::LogChief_Transi(TCHAR* ptszTransiState, DWORD dwParam)
 
 // 2013.01.10 bagus stage driver alarm io -->
 /*
- *	Ot@C֐ - CNanoSpecDoc::StageErrorLogging() ̃bp֐
+ *	Ot@C÷ê - CNanoSpecDoc::StageErrorLogging() ÃÉbp÷ê
  */
 void CChiefView::LogStageError(TCHAR *pszLogText)
 {
@@ -4820,15 +4820,15 @@ void CChiefView::LogStageError(TCHAR *pszLogText)
  */
 void CChiefView::EqPowerOffPulse()
 {
-/* added 2009.05.26 hmenjo udIto̗͂L/XCb`ǉ ---------- { ---------- */
+/* added 2009.05.26 hmenjo udItoÕÇÃóL/XCb`«â ---------- { ---------- */
 	if (0 == g_bIL_EQPowerOff) {
 		return;
 	}
-/* added 2009.05.26 hmenjo udIto̗͂L/XCb`ǉ ---------- } ---------- */
+/* added 2009.05.26 hmenjo udItoÕÇÃóL/XCb`«â ---------- } ---------- */
 	// udItFo
 	nexioEquipmentPowerOFF(TRUE);
-	m_bCheckEqPowerOFF = 1;		// ĎtOZbg(Ďɂ)
-	// ͊Ď^C}N
+	m_bCheckEqPowerOFF = 1;		// ƒétOZbg(ƒé…Ç)
+	// Õäƒé^C}N
 	if (ID_TIMER_EQPWOFF != SetTimer(ID_TIMER_EQPWOFF, TIMER_EQPWOFF_TIMEOUT, 0)) {
 		// ^C}Ns
 		LogChief(CHIEF_REP_ALARM_MSGTEXT[34]);
@@ -4840,16 +4840,16 @@ void CChiefView::EqPowerOffPulse()
 
 
 // hmenjo 20090109 - DI }jA ----- --->
-//	fobÔ߂ɁCNextra  DIO j^Őݒ肷
-//	}jA͂ƃpX[h("toho"Œ)CƁC
-//	Kv DI Iɓ͂܂D
+//	fobOÃÇﬂÇ…ÅCNextra  DIO j^≈ê›íËÇ∑
+//	}jAÕÇ∆ÉpX[h("toho"≈í)C∆ÅC
+//	Kv DI I…ìÕÇ‹ÇD
 HANDLE lg_hEvFoundControl;
 HWND lg_hwndFoundControl;
 struct {
 	TCHAR tszJPN[128];
 	TCHAR tszENU[128];
 } lg_DiName[] = {
-	_T("ً}~"),					_T("Emergency Stop"),		// 101
+	_T("Ÿã}~"),					_T("Emergency Stop"),		// 101
 	_T("hAC^[bN"),		_T("Door Interlock"),		// 102
 	_T("ud"),					_T("Eq Power"),				// 103
 	_T("eiXXCb`"),		_T("Maintenance SW"),		// 104
@@ -4898,9 +4898,9 @@ BOOL CALLBACK EnumChildProc_SearchControl(HWND hWnd, LPARAM lParam)
 	TCHAR l_tszGotText[256];
 	::GetWindowText(hWnd, l_tszGotText, sizeof(l_tszGotText));
 	if (0 == _tcscmp(l_tszGotText, l_tszSearchTextJ)) {
-		// 
+		// ¬Ç
 	} else if (0 == _tcscmp(l_tszGotText, l_tszSearchTextE)) {
-		// 
+		// ¬Ç
 	} else {
 		return TRUE;
 	}
@@ -4911,20 +4911,20 @@ BOOL CALLBACK EnumChildProc_SearchControl(HWND hWnd, LPARAM lParam)
 }
 void CChiefView::OnBtnTest()
 {
-	// TODO: ̈ʒuɃRg[ʒmnhp̃R[hǉĂ
+	// TODO: Ãà íu…ÉRg[ ímnhpÃÉR[h«âƒÇ
 
-	// uNexI/O j^[vT܂D
+	// uNexI/O j^[vT‹ÇD
 	HWND l_hwndNexIoMonitor = 0;
 	BOOL l_bFind = FALSE;
 	{
 		for (int i = 0; i < 180; i++) {
 			l_hwndNexIoMonitor = ::FindWindow(0, _T("NexI/O j^["));
 			if (0 != l_hwndNexIoMonitor) {
-				l_bFind = TRUE; break;	// 
+				l_bFind = TRUE; break;	// ¬Ç
 			} else {
 				l_hwndNexIoMonitor = ::FindWindow(0, _T("NexI/O Monitor"));
 				if (0 != l_hwndNexIoMonitor) {
-					l_bFind = TRUE; break;	// 
+					l_bFind = TRUE; break;	// ¬Ç
 				}
 			}
 			::Sleep(1000);
@@ -4935,26 +4935,26 @@ void CChiefView::OnBtnTest()
 		::MessageBox(m_hWnd, _T("Cannot found DIO Monitor Dialog."), _T("DIO Monitor Auto Manual Input"), MB_OK | MB_ICONERROR | MB_APPLMODAL);
 		return;
 	}
-	// u}jÁv`FbN{bNXT܂D
+	// u}jAÕÅv`FbN{bNXT‹ÇD
 	lg_hEvFoundControl = ::CreateEvent(0, TRUE, FALSE, 0);		// oCxg
 	EnumChildWindows(l_hwndNexIoMonitor, EnumChildProc_SearchControl, 1);
 	if (WAIT_OBJECT_0 != ::WaitForSingleObject(lg_hEvFoundControl, 2000)) {
-		// CxgȂ
+		// Cxg»Ç
 		return;
 	}
 	::PostMessage(lg_hwndFoundControl, BM_CLICK, 0, 0);
-	// upX[h̊mFv_CAOT܂D
+	// upX[hÃämFv_CAOT‹ÇD
 	HWND l_hwndPassWord = 0;
 	l_bFind = FALSE;
 	{
 		for (int i = 0; i < 1800; i++) {
-			l_hwndPassWord = ::FindWindow(0, _T("pX[h̊mF"));
+			l_hwndPassWord = ::FindWindow(0, _T("pX[hÃämF"));
 			if (0 != l_hwndPassWord) {
-				l_bFind = TRUE; break;	// 
+				l_bFind = TRUE; break;	// ¬Ç
 			} else {
 				l_hwndPassWord = ::FindWindow(0, _T("Password"));
 				if (0 != l_hwndPassWord) {
-					l_bFind = TRUE; break;	// 
+					l_bFind = TRUE; break;	// ¬Ç
 				}
 			}
 			::Sleep(100);
@@ -4969,7 +4969,7 @@ void CChiefView::OnBtnTest()
 	BOOL l_bRc = ::ResetEvent(lg_hEvFoundControl);
 	EnumChildWindows(l_hwndPassWord, EnumChildProc_SearchControl, 2);
 	if (WAIT_OBJECT_0 != ::WaitForSingleObject(lg_hEvFoundControl, 2000)) {
-		// CxgȂ
+		// Cxg»Ç
 		return;
 	}
 	::SendMessage(lg_hwndFoundControl, WM_SETTEXT, 0, (LPARAM) _T("toho"));
@@ -4977,7 +4977,7 @@ void CChiefView::OnBtnTest()
 	l_bRc = ::ResetEvent(lg_hEvFoundControl);
 	EnumChildWindows(l_hwndPassWord, EnumChildProc_SearchControl, 3);
 	if (WAIT_OBJECT_0 != ::WaitForSingleObject(lg_hEvFoundControl, 2000)) {
-		// CxgȂ
+		// Cxg»Ç
 		return;
 	}
 	::PostMessage(lg_hwndFoundControl, BM_CLICK, 0, 0);
@@ -4988,7 +4988,7 @@ void CChiefView::OnBtnTest()
 			l_bRc = ::ResetEvent(lg_hEvFoundControl);
 			EnumChildWindows(l_hwndNexIoMonitor, EnumChildProc_SearchControl, l_dwCounter + 101);
 			if (WAIT_OBJECT_0 != ::WaitForSingleObject(lg_hEvFoundControl, 2000)) {
-				// CxgȂ
+				// Cxg»Ç
 				return;
 			}
 			::PostMessage(lg_hwndFoundControl, BM_CLICK, 0, 0);
@@ -5001,7 +5001,7 @@ void CChiefView::OnBtnTest()
 
 void CChiefView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
 {
-	// TODO: ̈ʒuɌŗL̏ǉ邩A܂͊{NXĂяoĂ
+	// TODO: Ãà íu…å≈óLÃè«âÈÇ©A‹ÇÕä{NXƒÇ—èoƒÇ
 }
 
 void CChiefView::OnInitialUpdate()
@@ -5013,10 +5013,10 @@ void CChiefView::OnInitialUpdate()
 
 	LogChief(_T("Started  CChiefView::OnInitialUpdate()."));
 
-	// Chief _CAÕLvVݒ
+	// Chief _CAOÃÉLvV›í
 	SetWindowText(CHIEF_DLG_CAPTION);
 
-	// ϐ ------------------------------------------------------------
+	// œê ------------------------------------------------------------
 	m_dwHeartBeatCnt = 0;
 // 2009.02.05 K.Matsuo delete -->
 //	m_uiTraceDataPeriod = 0;
@@ -5024,9 +5024,9 @@ void CChiefView::OnInitialUpdate()
 // 2009.02.05 K.Matsuo delete <--
 	m_bEQRunPrev = FALSE;
 	m_dwStageMoveState = 0;
-/* added 2009.08.03 hmenjo XgX@\ǉ(17) ---------- { ---------- */
+/* added 2009.08.03 hmenjo XgX@\«â(17) ---------- { ---------- */
 	m_dwPinMoveState = 0;
-/* added 2009.08.03 hmenjo XgX@\ǉ(17) ---------- } ---------- */
+/* added 2009.08.03 hmenjo XgX@\«â(17) ---------- } ---------- */
 	m_bVacuumOnFromDisp = FALSE;
 	m_bVacuumOffFromDisp = FALSE;
 	memset(m_szMainRecipeName, 0, sizeof(m_szMainRecipeName));
@@ -5040,16 +5040,16 @@ void CChiefView::OnInitialUpdate()
 	memset(&m_AlarmFlags, 0, sizeof(ALARM_FLAGS));
 	memset(&m_WaitMeasTime, 0, sizeof(WAIT_MEAS_TIME));
 	m_bCheckEqPowerOFF = 0;
-/* added 2009.08.20 hmenjo XgX@\ǉ(46) ---------- { ---------- */
+/* added 2009.08.20 hmenjo XgX@\«â(46) ---------- { ---------- */
 	m_pcChiefTransiStress = 0;
-/* added 2009.08.20 hmenjo XgX@\ǉ(46) ---------- } ---------- */
+/* added 2009.08.20 hmenjo XgX@\«â(46) ---------- } ---------- */
 
-/* added 2009.10.30 hmenjo CTA CTAILPI 펞`FbN ---------- { ---------- */
+/* added 2009.10.30 hmenjo CTA CTAILPI Ìéû`FbN ---------- { ---------- */
 	/* wbhRtBORs[	*/
 	SYSTEM_CONFIG l_SystemConfig;
 	ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 	memcpy(&m_EnableHead, &l_SystemConfig.HeadType, sizeof(HEAD_TYPE_CONFIG));
-/* added 2009.10.30 hmenjo CTA CTAILPI 펞`FbN ---------- } ---------- */
+/* added 2009.10.30 hmenjo CTA CTAILPI Ìéû`FbN ---------- } ---------- */
 
 
 	///// HIDE Button /////
@@ -5064,8 +5064,8 @@ void CChiefView::OnInitialUpdate()
 	m_TestButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_TestButton.DrawFlatFocus(TRUE);
 
-	// ݒt@CǍ ----------------------------------------------------
-	// ݒt@CǍ - uforTESTv{^̗L/ IDC_BTN_TEST
+	// ›ít@C«ç ----------------------------------------------------
+	// ›ít@C«ç - uforTESTv{^ÃóL/ IDC_BTN_TEST
 	char szFilePath[MAX_PATH];
 	sprintf(szFilePath, "%s%s", g_szCfg_Dir, CHIEF_INI);
 	BOOL l_bforTESTBtn = GetPrivateProfileInt(_T("ForTest"), _T("forTESTBtn"), 0, szFilePath);
@@ -5074,7 +5074,7 @@ void CChiefView::OnInitialUpdate()
 	} else {
 		GetDlgItem(IDC_BTN_TEST)->ShowWindow(SW_SHOW);
 	}
-	// ݒt@CǍ - ͖XCb` - {bgA[ o
+	// ›ít@C«ç - ÕñXCb` - {bgA[ o
 	sprintf(szFilePath, "%s%s", g_szCfg_Dir, CHIEF_INI);
 	m_DioIgnoreSW.bRobotArm = GetPrivateProfileInt(_T("DioIgnoreSW"), _T("RobotArm"), 0, szFilePath);
 	if (0 == m_DioIgnoreSW.bRobotArm) {
@@ -5082,7 +5082,7 @@ void CChiefView::OnInitialUpdate()
 	} else {
 		m_DioIgnoreSW.bRobotArm = TRUE;
 	}
-	// ݒt@CǍ - ͖XCb` - s_E o
+	// ›ít@C«ç - ÕñXCb` - s_E o
 	sprintf(szFilePath, "%s%s", g_szCfg_Dir, CHIEF_INI);
 	m_DioIgnoreSW.bPinDown = GetPrivateProfileInt(_T("DioIgnoreSW"), _T("PinDown"), 0, szFilePath);
 	if (0 == m_DioIgnoreSW.bPinDown) {
@@ -5090,7 +5090,7 @@ void CChiefView::OnInitialUpdate()
 	} else {
 		m_DioIgnoreSW.bPinDown = TRUE;
 	}
-	// ݒt@CǍ - ͖XCb` - GA͒ቺ o
+	// ›ít@C«ç - ÕñXCb` - GAÕí·â∫ o
 	sprintf(szFilePath, "%s%s", g_szCfg_Dir, CHIEF_INI);
 	m_DioIgnoreSW.bAirPressureLow = GetPrivateProfileInt(_T("DioIgnoreSW"), _T("AirPressureLow"), 0, szFilePath);
 	if (0 == m_DioIgnoreSW.bAirPressureLow) {
@@ -5099,11 +5099,11 @@ void CChiefView::OnInitialUpdate()
 		m_DioIgnoreSW.bAirPressureLow = TRUE;
 	}
 /* added 2009.11.27 hmenjo Pif s&Vb^  ---------- { ---------- */
-	/* ݒt@CǍ - sVb^	*/
-// 2013.11.07 Bagus Mod (TohoSpecΉ) -->
+	/* ›ít@C«ç - sVb^	*/
+// 2013.11.07 Bagus Mod (TohoSpecŒâ) -->
 //	sprintf(szFilePath, "%s%s", g_szCfg_Dir, NANOSPEC_INIFILENAME);
 	_tcscpy(szFilePath, AfxGetApp()->m_pszProfileName);
-// 2013.11.07 Bagus Mod (TohoSpecΉ) <--
+// 2013.11.07 Bagus Mod (TohoSpecŒâ) <--
 	m_DioIgnoreSW.bPinShutterILInvalid = GetPrivateProfileInt(_T("DioIgnoreSW"), _T("PinShutterILInvalid"), 0, szFilePath);
 	if (1 == m_DioIgnoreSW.bPinShutterILInvalid) {
 		m_DioIgnoreSW.bPinShutterILInvalid = TRUE;
@@ -5111,44 +5111,44 @@ void CChiefView::OnInitialUpdate()
 		m_DioIgnoreSW.bPinShutterILInvalid = FALSE;
 	}
 /* added 2009.11.27 hmenjo Pif s&Vb^  ---------- } ---------- */
-	// ݒt@CǍ - ړxݒ
-// 2013.11.07 Bagus Mod (TohoSpecΉ) -->
+	// ›ít@C«ç - ⁄ìx›í
+// 2013.11.07 Bagus Mod (TohoSpecŒâ) -->
 //	sprintf(szFilePath, "%s%s", g_szCfg_Dir, NANOSPEC_INIFILENAME);
 	_tcscpy(szFilePath, AfxGetApp()->m_pszProfileName);
-// 2013.11.07 Bagus Mod (TohoSpecΉ) <--
+// 2013.11.07 Bagus Mod (TohoSpecŒâ) <--
 	m_bSpeedLimiterOFF = GetPrivateProfileInt(_T("SpeedLimit"), _T("LimiterOFF"), 0, szFilePath);
 	if (0 == m_bSpeedLimiterOFF) {
 		m_bSpeedLimiterOFF = FALSE;
 	} else {
 		m_bSpeedLimiterOFF = TRUE;
 	}
-	// ݒt@CǍ - SEQ sړtO
-// 2013.11.07 Bagus Mod (TohoSpecΉ) -->
+	// ›ít@C«ç - SEQ s⁄ìtO
+// 2013.11.07 Bagus Mod (TohoSpecŒâ) -->
 //	sprintf(szFilePath, "%s%s", g_szCfg_Dir, NANOSPEC_INIFILENAME);
 	_tcscpy(szFilePath, AfxGetApp()->m_pszProfileName);
-// 2013.11.07 Bagus Mod (TohoSpecΉ) <--
+// 2013.11.07 Bagus Mod (TohoSpecŒâ) <--
 	m_bPreMoveSW = GetPrivateProfileInt(_T("PreMove"), _T("PreMoveSW"), 0, szFilePath);
 	if (0 == m_bPreMoveSW) {
 		m_bPreMoveSW = FALSE;
 	} else {
 		m_bPreMoveSW = TRUE;
 	}
-	// ݒt@CǍ - O҂
-// 2013.11.07 Bagus Mod (TohoSpecΉ) -->
+	// ›ít@C«ç - O“Ç
+// 2013.11.07 Bagus Mod (TohoSpecŒâ) -->
 //	sprintf(szFilePath, "%s%s", g_szCfg_Dir, NANOSPEC_INIFILENAME);
 	_tcscpy(szFilePath, AfxGetApp()->m_pszProfileName);
-// 2013.11.07 Bagus Mod (TohoSpecΉ) <--
+// 2013.11.07 Bagus Mod (TohoSpecŒâ) <--
 	m_WaitMeasTime.dwWaitTimeSetting = GetPrivateProfileInt(_T("PreMove"), _T("WaitMeasTime"), 0, szFilePath);
 	if (10000 < m_WaitMeasTime.dwWaitTimeSetting) {
 		m_WaitMeasTime.dwWaitTimeSetting = 10000;
 	}
-	// ݒt@CǍ - _CAO\@
+	// ›ít@C«ç - _CAO\@
 	sprintf(szFilePath, "%s%s", g_szCfg_Dir, CHIEF_INI);
 	m_DlgShowSW.dwType = GetPrivateProfileInt(_T("ShowSW"), _T("Type"), 0, szFilePath);
 	if (2 < m_DlgShowSW.dwType) {
 		m_DlgShowSW.dwType = 0;
 	}
-	// ݒt@CǍ - _CAO\fBC [s]
+	// ›ít@C«ç - _CAO\fBC [s]
 	sprintf(szFilePath, "%s%s", g_szCfg_Dir, CHIEF_INI);
 	m_DlgShowSW.dwDelay = GetPrivateProfileInt(_T("ShowSW"), _T("Delay"), 5, szFilePath);
 	if (m_DlgShowSW.dwDelay < 2) {
@@ -5167,31 +5167,31 @@ void CChiefView::OnInitialUpdate()
 		}
 	}
 
-#if 0		// ̏ NanoSpec.exe ɏIoȂ߁CX MainFrame ɖ߂܂ --------------------
+#if 0		// Ãè NanoSpec.exe …èIo»ÇﬂÅCX MainFrame …ñﬂÇ‹Ç --------------------
 //	// NextraIO  ------------------------------------------------------
 //	m_dwModuleState_Nextra = 0;	// (Uninitialize)
 //	if (0 != nexifInitialize(this->m_hWnd)) {
 //		m_dwModuleState_Nextra = 1;	// (Initialized)
 //	}
-#endif		// ̏ NanoSpec.exe ɏIoȂ߁CX MainFrame ɖ߂܂ --------------------
-#if 0	// hmenjo NEXIOBASE.HXX ɕς̂ŕsv
+#endif		// Ãè NanoSpec.exe …èIo»ÇﬂÅCX MainFrame …ñﬂÇ‹Ç --------------------
+#if 0	// hmenjo NEXIOBASE.HXX …ïœÇÃÇ≈ïsv
 //	m_dwModuleState_Nextra = 0;	// (Uninitialize)
 //	if (0 != nexioInitialize(this->m_hWnd)) {
 //		m_dwModuleState_Nextra = 1;	// (Initialized)
 //	}
-#endif 	// hmenjo NEXIOBASE.HXX ɕς̂ŕsv
+#endif 	// hmenjo NEXIOBASE.HXX …ïœÇÃÇ≈ïsv
 
-#if 0		// ̏ NanoSpec.exe ɏIoȂ߁CX MainFrame ɖ߂܂ --------------------
-//	// Pif ̏ -----------------------------------------------------------
+#if 0		// Ãè NanoSpec.exe …èIo»ÇﬂÅCX MainFrame …ñﬂÇ‹Ç --------------------
+//	// Pif Ãè -----------------------------------------------------------
 //	m_dwModuleState_Pif = 0;	// (Uninitialize)
 //	PifComm_Init();
 //	m_dwModuleState_Pif = 1;	// (Initialized)
-#endif		// ̏ NanoSpec.exe ɏIoȂ߁CX MainFrame ɖ߂܂ --------------------
-	//  DI l擾ċLGA(vZXXe[^X񍐗pt@C}bsO)ɏlƂăZbg܂D
+#endif		// Ãè NanoSpec.exe …èIo»ÇﬂÅCX MainFrame …ñﬂÇ‹Ç --------------------
+	//  DI lÊìæƒãLGA(vZXXe[^XÒçêópt@C}bsO)…èl∆ÇƒÉZbg‹ÇD
 	GetDiInfo(&m_DiInfo);
 	OnPifDiRefresh(0, 0);
 
-	// ^C}nݒ ----------------------------------------------------------
+	// ^C}n›í ----------------------------------------------------------
 	// }`fBA ^C}N
 	if (0 == (m_uiMMTimerID[ID_MMTIMER_5MS_PERIOD] = ::timeSetEvent(TIMER_5MS_PERIOD, 1, MMTimerProc, (DWORD) m_hWnd, TIME_PERIODIC))) {
 		// ^C}Ns
@@ -5224,7 +5224,7 @@ void CChiefView::OnInitialUpdate()
 	}
 
 // 2009.02.05 K.Matsuo delete -->
-//	// g[Xf[^莞M^C}N
+//	// g[Xf[^ËéûM^C}N
 //	if (0 != (m_uiTraceDataPeriod = ((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetTraceDataPeriod())) {
 //		if (0 == StartTimerTraceData(m_uiTraceDataPeriod)) {
 //			// ^C}Ns
@@ -5237,7 +5237,7 @@ void CChiefView::OnInitialUpdate()
 //	}
 // 2009.02.05 K.Matsuo delete <--
 
-	// [MXbh̋N ----------------------------------------------
+	// [MXbhÃãN ----------------------------------------------
 	LogChief(_T("Requested to start CChiefRcvMailThread."));
 	m_pcChiefRcvMailThread = (CChiefRcvMailThread*) AfxBeginThread(
 														RUNTIME_CLASS(CChiefRcvMailThread),
@@ -5247,9 +5247,9 @@ void CChiefView::OnInitialUpdate()
 														0
 													);
 	if (0 != m_pcChiefRcvMailThread) {
-		// ɂ̓Xbh̏̏(KvȂ)Ă
-		m_pcChiefRcvMailThread->m_bAutoDelete = FALSE;							// XbhIɃIuWFNgIɔjȂݒłD
-		((CChiefRcvMailThread*) m_pcChiefRcvMailThread)->m_pcChiefView = this;	// e()NXXbhɓnĂ
+		// …ÇÕÉXbhÃèÃè(Kv»Ç)ƒÇ
+		m_pcChiefRcvMailThread->m_bAutoDelete = FALSE;							// XbhI…ÉIuWFNgI…îj»Ç›í≈ÇD
+		((CChiefRcvMailThread*) m_pcChiefRcvMailThread)->m_pcChiefView = this;	// e()NXXbh…ìnƒÇ
 		// XbhN
 		m_pcChiefRcvMailThread->ResumeThread();
 	} else {
@@ -5258,35 +5258,35 @@ void CChiefView::OnInitialUpdate()
 		PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_MSGBOX, CHRANFY_NOTIFY_ON), MAKEWORD(1, CHRAMSG_YESNO)), MAKELPARAM(10, 0));
 	}
 
-	// egWV Xbh̋N ----------------------------------------------
-	m_hEvTrMaster = ::CreateEvent(0, TRUE, FALSE, 0);	// }X^gWVXbh̏҂p
+	// egWV XbhÃãN ----------------------------------------------
+	m_hEvTrMaster = ::CreateEvent(0, TRUE, FALSE, 0);	// }X^gWVXbhÃè“Çp
 	DWORD l_dwTransi;
 	if (0 != (l_dwTransi = TransitionsStart())) {
 		// egWV XbhNs
 		LogChief(CHIEF_REP_ALARM_MSGTEXT[l_dwTransi + 3]);
 		PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_MSGBOX, CHRANFY_NOTIFY_ON), MAKEWORD(1, CHRAMSG_YESNO)), MAKELPARAM(l_dwTransi + 3, 0));
 	}
-	// }X^gWV̏҂ -----------------------------------------
+	// }X^gWVÃè“Ç -----------------------------------------
 	if (0 == m_hEvTrMaster) {
-		// Cxg쐬s
+		// CxgÏê¨s
 		LogChief(CHIEF_REP_ALARM_MSGTEXT[17]);
 		PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_MSGBOX, CHRANFY_NOTIFY_ON), MAKEWORD(1, CHRAMSG_YESNO)), MAKELPARAM(17, 0));
 	} else {
-		// CHIEF_TRMAS_INIT_TIME[ms] ҂
+		// CHIEF_TRMAS_INIT_TIME[ms] “Ç
 		if (WAIT_OBJECT_0 != ::WaitForSingleObject(m_hEvTrMaster, CHIEF_TRMAS_INIT_TIME)) {
-			// ^CAEg܂(}X^gWV̏܂ł)D
+			// ^CAEg‹Ç(}X^gWVÃè‹Ç≈Ç)D
 			LogChief(CHIEF_REP_ALARM_MSGTEXT[18]);
 			PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_MSGBOX, CHRANFY_NOTIFY_ON), MAKEWORD(1, CHRAMSG_YESNO)), MAKELPARAM(18, 0));
 		}
 	}
 
-	// DIO ĎJn^C}(A[ñEBhEオ܂ł̑҂)
-	lg_uiRunFlagCount = 5000 / TIMER_10MS_PERIOD;	// DIO ĎJn^C} 5[s]
+	// DIO ƒéJn^C}(A[nÃÉEBhE„Ç™‹Ç≈ÇÃë“Ç)
+	lg_uiRunFlagCount = 5000 / TIMER_10MS_PERIOD;	// DIO ƒéJn^C} 5[s]
 
-	// 胂W[փEBhEbZ[WMp Chief ̃EBhEnhʒm
+	// ËÉÇW[÷ÉEBhEbZ[WMp Chief ÃÉEBhEnh ím
 	MEAS_SetNotifyWnd(m_hWnd);
 
-// ̃Xe[Wx MainFram Ɉړ܂D
+// ÃÉXe[Wx MainFram …à⁄ì‹ÇD
 //	// ()Xe[Wx
 //	if (0 == m_DiInfo.bMaintenanceSW) {
 //		if (0 == m_bSpeedLimiterOFF) {
@@ -5305,29 +5305,29 @@ void CChiefView::OnInitialUpdate()
 
 void CChiefView::PrepareToDestroy()
 {
-	// TODO: ̈ʒuɌŗL̏ǉ邩A܂͊{NXĂяoĂ
+	// TODO: Ãà íu…å≈óLÃè«âÈÇ©A‹ÇÕä{NXƒÇ—èoƒÇ
 	LogChief(_T("Ending   Chief Dialog..."));
 
 	TRACE(_T("CChiefView::PostNcDestroy() \n"));
 
-	// EQ 쒆o͂It܂D
+	// EQ ÏíÜoÕÇIt‹ÇD
 	nexioEquipmentStatusRun(FALSE);
-// modified hmenjo 2009.05.12 xύXtOǉ ---------- { ----------
-//	// ~b^LɂďI܂D
+// modified hmenjo 2009.05.12 xœçX¬ÉtO«â ---------- { ----------
+//	// ~b^L…ÇƒèI‹ÇD
 //	StageEnableSpeedLimit();
-// modified hmenjo 2009.05.12 xύXtOǉ ----------
+// modified hmenjo 2009.05.12 xœçX¬ÉtO«â ----------
 	if (TRUE == g_bIL_SpeedDown) {
-		// ~b^LɂďI܂D
+		// ~b^L…ÇƒèI‹ÇD
 		StageEnableSpeedLimit();
 	}
-// modified hmenjo 2009.05.12 xύXtOǉ ---------- } ----------
+// modified hmenjo 2009.05.12 xœçX¬ÉtO«â ---------- } ----------
 
-/* added 2009.08.04 hmenjo 蒆ȊOhAJXe[W~ ---------- { ---------- */
-	// }`fBA^C}폜 ---------------------------------------------
+/* added 2009.08.04 hmenjo ËíÜ»äOhAJXe[W~ ---------- { ---------- */
+	// }`fBA^C}Ìèú ---------------------------------------------
 	::timeKillEvent(m_uiMMTimerID[ID_MMTIMER_5MS_PERIOD]);
-/* added 2009.08.04 hmenjo 蒆ȊOhAJXe[W~ ---------- } ---------- */
+/* added 2009.08.04 hmenjo ËíÜ»äOhAJXe[W~ ---------- } ---------- */
 
-	// [MXbȟn ---------------------------------------------
+	// [MXbhÃån ---------------------------------------------
 	if (0 != m_pcChiefRcvMailThread) {
 		LogChief(_T("Deleting CChiefRcvMailThread..."));
 		((CChiefRcvMailThread*) m_pcChiefRcvMailThread)->ShutDown();
@@ -5338,34 +5338,34 @@ void CChiefView::PrepareToDestroy()
 	}
 
 	// }X^gWVI ---------------------------------------------
-	// }X^gWV̏I҂
+	// }X^gWVÃèI“Ç
 	::ResetEvent(m_hEvTrMaster);
 	// }X^gWVI
 	((CChiefTransiMaster*) m_pcChiefTransiMaster)->TransiEvent(EV_MAS_END);
 	if (0 != m_hEvTrMaster) {
-		// CHIEF_TRMAS_END_TIME[ms] ҂
+		// CHIEF_TRMAS_END_TIME[ms] “Ç
 		if (WAIT_OBJECT_0 != ::WaitForSingleObject(m_hEvTrMaster, CHIEF_TRMAS_END_TIME)) {
-			// ^CAEg܂(}X^gWV̏I܂ł)D
+			// ^CAEg‹Ç(}X^gWVÃèI‹Ç≈Ç)D
 //			PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_MSGBOX, CHRANFY_NOTIFY_ON), MAKEWORD(1, CHRAMSG_YESNO)), MAKELPARAM(18, 0));
 			LogChief(CHIEF_REP_ALARM_MSGTITLE[1]);
 			::MessageBox(0, CHIEF_REP_ALARM_MSGTEXT[23], CHIEF_REP_ALARM_MSGTITLE[1], MB_OK | MB_SYSTEMMODAL | MB_ICONERROR);
 		}
 	}
 
-	// egWVXbȟn ---------------------------------------
+	// egWVXbhÃån ---------------------------------------
 	TransitionsEnd();
 
-/* deleted 2009.08.04 hmenjo 蒆ȊOhAJXe[W~ ---------- { ---------- */
-//	// }`fBA^C}폜 ---------------------------------------------
+/* deleted 2009.08.04 hmenjo ËíÜ»äOhAJXe[W~ ---------- { ---------- */
+//	// }`fBA^C}Ìèú ---------------------------------------------
 //	::timeKillEvent(m_uiMMTimerID[ID_MMTIMER_5MS_PERIOD]);
-/* deleted 2009.08.04 hmenjo 蒆ȊOhAJXe[W~ ---------- } ---------- */
+/* deleted 2009.08.04 hmenjo ËíÜ»äOhAJXe[W~ ---------- } ---------- */
 
 	// NextraIO I --------------------------------------------------------
-//	nexioExitInstance();	hmenjo NEXIOBASE.HXX ɕς̂ŕsv
+//	nexioExitInstance();	hmenjo NEXIOBASE.HXX …ïœÇÃÇ≈ïsv
 	m_dwModuleState_Nextra = 9;	// I(Terminated)
 
-	// Pif ̏ -----------------------------------------------------------
-	//		Pif ̏I͕svłD
+	// Pif Ãè -----------------------------------------------------------
+	//		Pif ÃèIÕïsv≈ÇD
 
 	// Vsp
 	RecipesMalloc(FALSE);
@@ -5374,68 +5374,68 @@ void CChiefView::PrepareToDestroy()
 	g_pcChiefView = NULL;
 }
 
-/* added 2009.05.27 hmenjo SPT A[̌o ---------- { ---------- */
+/* added 2009.05.27 hmenjo SPT A[Ãåo ---------- { ---------- */
 void CChiefView::SPTAlarmDetector(void)
 {
 // 2009.08.20 K.Matsuo ALID change (Ref. alarmIf.hxx) -->
-	// ALID_SptAlarmStartNo	1020	// A[R[hJnԍ
+	// ALID_SptAlarmStartNo	1020	// A[R[hJn‘ç
 	switch (StageGetMotSysErr(TRUE)) {
 	case 0:												break;	// G[
 	case 1:		AlarmIf_Set(ALID_SptAlarmStartNo + 0);	break;	// WD G[											ALID_SptStageWdError
-	case 2:		AlarmIf_Set(ALID_SptAlarmStartNo + 1);	break;	// u[gȂ̃bZ[W 						ALID_SptStageNeedRebootPc
+	case 2:		AlarmIf_Set(ALID_SptAlarmStartNo + 1);	break;	// u[g»ÇÃÉbZ[W 						ALID_SptStageNeedRebootPc
 	case 3:		AlarmIf_Set(ALID_SptAlarmStartNo + 2);	break;	// A[ 										ALID_SptStageAlarm
-	case 4:		AlarmIf_Set(ALID_SptAlarmStartNo + 3);	break;	// tOOɂȂȂ					ALID_SptStageInitCompFlagNotZero
+	case 4:		AlarmIf_Set(ALID_SptAlarmStartNo + 3);	break;	// tOO…Ç»Ç»Ç					ALID_SptStageInitCompFlagNotZero
 	case 5:		AlarmIf_Set(ALID_SptAlarmStartNo + 4);	break;	// DIO G[											ALID_SptStageDioError
-	case 6:		AlarmIf_Set(ALID_SptAlarmStartNo + 5);	break;	// T[{IG[(IȂ/ItȂ)		ALID_SptStageServoOnError
-	case 7:		AlarmIf_Set(ALID_SptAlarmStartNo + 6);	break;	// ~(T[{IG[(IĂȂ))		ALID_SptStageEmergencyStop
-	case 111:	AlarmIf_Set(ALID_SptAlarmStartNo + 7);	break;	// ʐM(Read)VXeG[ 						ALID_SptStageCommRead_SystemError
-	case 112:	AlarmIf_Set(ALID_SptAlarmStartNo + 8);	break;	// ʐM(Read)gCAEgP						ALID_SptStageCommRead_RetryOut1
-	case 113:	AlarmIf_Set(ALID_SptAlarmStartNo + 9);	break;	// ʐM(Read)gCAEgQ						ALID_SptStageCommRead_RetryOut2
-	case 121:	AlarmIf_Set(ALID_SptAlarmStartNo + 10);	break;	// ʐM(Read2)VXeG[						ALID_SptStageCommRead2_SystemError
-	case 122:	AlarmIf_Set(ALID_SptAlarmStartNo + 11);	break;	// ʐM(Read2)gCAEgP						ALID_SptStageCommRead2_RetryOut1
-	case 123:	AlarmIf_Set(ALID_SptAlarmStartNo + 12);	break;	// ʐM(Read2)gCAEgQ						ALID_SptStageCommRead2_RetryOut2
-	case 131:	AlarmIf_Set(ALID_SptAlarmStartNo + 13);	break;	// ʐM(Write)VXeG[						ALID_SptStageCommWrite_SystemError
-	case 132:	AlarmIf_Set(ALID_SptAlarmStartNo + 14);	break;	// ʐM(Write)gCAEg						ALID_SptStageCommWrite_RetryOut
+	case 6:		AlarmIf_Set(ALID_SptAlarmStartNo + 5);	break;	// T[{IG[(I»Ç/It»Ç)		ALID_SptStageServoOnError
+	case 7:		AlarmIf_Set(ALID_SptAlarmStartNo + 6);	break;	// ~(T[{IG[(IƒÇ»Ç))		ALID_SptStageEmergencyStop
+	case 111:	AlarmIf_Set(ALID_SptAlarmStartNo + 7);	break;	//  êM(Read)VXeG[ 						ALID_SptStageCommRead_SystemError
+	case 112:	AlarmIf_Set(ALID_SptAlarmStartNo + 8);	break;	//  êM(Read)gCAEgP						ALID_SptStageCommRead_RetryOut1
+	case 113:	AlarmIf_Set(ALID_SptAlarmStartNo + 9);	break;	//  êM(Read)gCAEgQ						ALID_SptStageCommRead_RetryOut2
+	case 121:	AlarmIf_Set(ALID_SptAlarmStartNo + 10);	break;	//  êM(Read2)VXeG[						ALID_SptStageCommRead2_SystemError
+	case 122:	AlarmIf_Set(ALID_SptAlarmStartNo + 11);	break;	//  êM(Read2)gCAEgP						ALID_SptStageCommRead2_RetryOut1
+	case 123:	AlarmIf_Set(ALID_SptAlarmStartNo + 12);	break;	//  êM(Read2)gCAEgQ						ALID_SptStageCommRead2_RetryOut2
+	case 131:	AlarmIf_Set(ALID_SptAlarmStartNo + 13);	break;	//  êM(Write)VXeG[						ALID_SptStageCommWrite_SystemError
+	case 132:	AlarmIf_Set(ALID_SptAlarmStartNo + 14);	break;	//  êM(Write)gCAEg						ALID_SptStageCommWrite_RetryOut
 /* added 2009.11.11 hmenjo MotSys ^CAEg ---------- { ---------- */
-	case 23:	AlarmIf_Set(ALID_SptAlarmStartNo + 16);	break;	/* ړ^CAEg 	  MM_TIMEOUT				ALID_SptStageMotionTimeout	*/
+	case 23:	AlarmIf_Set(ALID_SptAlarmStartNo + 16);	break;	/* ⁄ì^CAEg 	  MM_TIMEOUT				ALID_SptStageMotionTimeout	*/
 /* added 2009.11.11 hmenjo MotSys ^CAEg ---------- } ---------- */
 	default:	AlarmIf_Set(ALID_SptAlarmStartNo + 15);	break;	// `G[ 										ALID_SptStageNotDefinedError
 // 2009.08.20 K.Matsuo ALID change <--
 	}
 }
-/* added 2009.05.27 hmenjo SPT A[̌o ---------- } ---------- */
+/* added 2009.05.27 hmenjo SPT A[Ãåo ---------- } ---------- */
 
-/* added 2009.06.02 hmenjo hAJő|[Y ---------- { ---------- */
+/* added 2009.06.02 hmenjo hAJ≈ë|[Y ---------- { ---------- */
 /*
- *	|[YʃW[ɒʒm
+ *	|[Y ÉW[…í ím
  */
 void CChiefView::SentMeasPause(int iReason, BOOL bRelease/* = FALSE*/)
 	/*	int iReason		|[YR
 	 *	BOOL bRelease	TRUEF|[Y	*/
 {
-/* added 2009.06.09 hmenjo ُ펞|[Y Oǉ ---------- { ---------- */
+/* added 2009.06.09 hmenjo ŸèÌéû|[Y O«â ---------- { ---------- */
 	TCHAR l_tszLogMsg[256];
 	_stprintf(l_tszLogMsg, _T("Notify WM_CHIF_NOTIFY_MEAS_PAUSE (WPARAM = 0x%08x, LPARAM = 0x%08x)"), iReason, bRelease);
 	LogChief(l_tszLogMsg);
-/* added 2009.06.09 hmenjo ُ펞|[Y Oǉ ---------- } ---------- */
+/* added 2009.06.09 hmenjo ŸèÌéû|[Y O«â ---------- } ---------- */
 	((CMainFrame*) m_pcMainFrame)->PostMessage(WM_CHIF_NOTIFY_MEAS_PAUSE, (WPARAM) iReason, (LPARAM) bRelease);
 }
-/* added 2009.06.02 hmenjo hAJő|[Y ---------- } ---------- */
+/* added 2009.06.02 hmenjo hAJ≈ë|[Y ---------- } ---------- */
 
-/* added 2009.06.02 hmenjo hAJő|[Y ---------- { ---------- */
+/* added 2009.06.02 hmenjo hAJ≈ë|[Y ---------- { ---------- */
 /*
- *	|[YʃW[ɒʒm
+ *	|[Y ÉW[…í ím
  */
 void CChiefView::SentMeasPauseCheck(int iReason)
 {
-/* modified 2009.08.07 hmenjo XgX@\ǉ(37) ---------- { ---------- */
+/* modified 2009.08.07 hmenjo XgX@\«â(37) ---------- { ---------- */
 //	if (
 //		(PROCESS_PROC == ProcStatusGet())
 //	 && (false == ((CChiefTransiSeq*) m_pcChiefTransiSeq)->IsIdle())
 //	 && (ST_SEQ_PAUSE != ((CChiefTransiSeq*) m_pcChiefTransiSeq)->GetCurrentState())
 //	 && (false == ((CChiefTransiSeq*) m_pcChiefTransiSeq)->IsPauseSeq())
 //		) {
-//		// Processing ŁCV[PX肪 IDLE ƃ|[YȊȌꍇ
+//		// Processing ≈ÅCV[PXËÇ™ IDLE ∆É|[Y»äOÃèÍçá
 //		DWORD l_dwCurrPointNo = ((CChiefTransiSeq*) m_pcChiefTransiSeq)->GetCurrentPointNo();
 //		LPSTAGE_PROG_INFO_HDR l_pStageProgInfoHdr = (LPSTAGE_PROG_INFO_HDR) (m_ChiefRecipes.pStageProgInfoHdr);
 //		DWORD l_dwNextPointNo = l_dwCurrPointNo + 1;
@@ -5443,15 +5443,15 @@ void CChiefView::SentMeasPauseCheck(int iReason)
 //			(l_dwCurrPointNo < l_pStageProgInfoHdr->wNumScans)
 //		 && (GetNextPointNo(&l_dwNextPointNo) <= l_pStageProgInfoHdr->wNumScans)
 //			) {
-//			// ŏI|CgȊOȂ|[Y܂D
+//			// ≈èI|Cg»äO»Ç|[Y‹ÇD
 //			((CChiefTransiSeq*) m_pcChiefTransiSeq)->TransiEvent(EV_SEQ_PAUSE);	// |[Y
-//			// |[Yʒm
+//			// |[Y ím
 //			SentMeasPause(iReason);
 //		}
 //	}
-/* modified 2009.08.07 hmenjo XgX@\ǉ(37) ----------			   */
+/* modified 2009.08.07 hmenjo XgX@\«â(37) ----------			   */
 	if (PROCESS_PROC == ProcStatusGet()) {
-		/* Processing ̏ꍇ̂	*/
+		/* Processing ÃèÍçáÃÇ	*/
 		CHIEF_PFUNCS l_ChiefPFuncs;
 		WORD l_wHeadType;
 		if (0 != PFC_FuncSet(this, &l_ChiefPFuncs, &l_wHeadType)) {
@@ -5460,7 +5460,7 @@ void CChiefView::SentMeasPauseCheck(int iReason)
 			 && (l_ChiefPFuncs.State.iPAUSE != (*l_ChiefPFuncs.GetCurrentState)(this))
 			 && (false == (*l_ChiefPFuncs.IsPauseSeq)(this))
 				) {
-				/* V[PX肪 IDLE ƃ|[YȊȌꍇ	*/
+				/* V[PXËÇ™ IDLE ∆É|[Y»äOÃèÍçá	*/
 				BOOL l_bDoPause = FALSE;
 				switch (l_wHeadType) {
 				case HEAD_TYPE_SR:
@@ -5492,28 +5492,28 @@ void CChiefView::SentMeasPauseCheck(int iReason)
 					break;
 				}
 				if (TRUE == l_bDoPause) {
-					// ŏI|CgȊOȂ|[Y܂D
+					// ≈èI|Cg»äO»Ç|[Y‹ÇD
 					(*l_ChiefPFuncs.TransiEvent)(this, l_ChiefPFuncs.Event.iPAUSE, 0);	/* |[Y	*/
-					// |[Yʒm
+					// |[Y ím
 					this->SentMeasPause(iReason);
 				}
 			}
 		}
 	}
-/* modified 2009.08.07 hmenjo XgX@\ǉ(37) ---------- } ---------- */
+/* modified 2009.08.07 hmenjo XgX@\«â(37) ---------- } ---------- */
 }
-/* added 2009.06.02 hmenjo hAJő|[Y ---------- } ---------- */
-/* added 2009.07.30 hmenjo XgX@\ǉ(3) ---------- { ---------- */
+/* added 2009.06.02 hmenjo hAJ≈ë|[Y ---------- } ---------- */
+/* added 2009.07.30 hmenjo XgX@\«â(3) ---------- { ---------- */
 /*
- *	HEPA I/It𐧌
+ *	HEPA I/Itêßå
  */
 BOOL CChiefView::HepaOnOff(BOOL bOn, char* pcHepaAlarmLevel/*= 0*/)
 {
 	STRESS_CONFIG l_StressConfig;
 	ConfigFile_GetNanoSpecIni(&l_StressConfig, CONFIG_FILE_STRESS_CONFIG);
-	l_StressConfig.dwScanStartWaitTime;	/* HEPA ҂[s]	*/
+	l_StressConfig.dwScanStartWaitTime;	/* HEPA “Ç[s]	*/
 	if (0 == l_StressConfig.dwScanStartWaitTime) {
-		/* ҂ԂO[s]Ȃ̂ HEPA 䂵ȂD	*/
+		/* “Ç‘ÇO[s]»ÇÃÇ HEPA ‰Çµ»ÇD	*/
 		if (FALSE == bOn) {
 			((CChiefTransiStress*) m_pcChiefTransiStress)->TransiEvent(EV_STRS_HEPA_STOP, (cEventParams*) EV_STRS_HEPA_STOP);
 		}
@@ -5524,7 +5524,7 @@ BOOL CChiefView::HepaOnOff(BOOL bOn, char* pcHepaAlarmLevel/*= 0*/)
 	BOOL l_bRet = ((CNanoSpecDoc*) m_pcNanoSpecDoc)->HepaOnOff(bOn, pcHepaAlarmLevel);
 
 	if ((TRUE == l_bRet) && (FALSE == bOn)) {
-		/* HEPA Itw߂ŐIȂ̂ŁC҂^C}Jn	*/
+		/* HEPA ItwﬂÇ≈êI»ÇÃÇ≈ÅC“Ç^C}Jn	*/
 		if (ID_TIMER_HEPASTOP != this->SetTimer(ID_TIMER_HEPASTOP, l_StressConfig.dwScanStartWaitTime * 1000, 0)) {
 			/* ^C}Ns	*/
 			((CChiefTransiStress*) m_pcChiefTransiStress)->TransiEvent(EV_STRS_HEPA_STOP, (cEventParams*) EV_STRS_HEPA_STOP);
@@ -5535,11 +5535,11 @@ BOOL CChiefView::HepaOnOff(BOOL bOn, char* pcHepaAlarmLevel/*= 0*/)
 
 	return l_bRet;
 }
-/* added 2009.07.30 hmenjo XgX@\ǉ(3) ---------- } ---------- */
-/* added 2009.08.05 hmenjo XgX@\ǉ(25) ---------- { ---------- */
+/* added 2009.07.30 hmenjo XgX@\«â(3) ---------- } ---------- */
+/* added 2009.08.05 hmenjo XgX@\«â(25) ---------- { ---------- */
 /*
- *	PC芮 bZ[Wnh (XgXp)
- *		胂W[łPCf[^̎擾D
+ *	PCËäÆ bZ[Wnh (XgXp)
+ *		ËÉÇW[≈ÇPCf[^ÃéÊìæD
  */
 LRESULT CChiefView::OnMeasLineEnd(WPARAM wparam, LPARAM lparam)
 {
@@ -5551,7 +5551,7 @@ LRESULT CChiefView::OnMeasLineEnd(WPARAM wparam, LPARAM lparam)
 }
 /*
  *	PCf[^() bZ[Wnh (XgXp)
- *		f[^W[łPCf[^̏D
+ *		f[^W[≈ÇPCf[^ÃèD
  */
 LRESULT CChiefView::OnDataLineEnd(WPARAM wparam, LPARAM lparam)
 {
@@ -5563,7 +5563,7 @@ LRESULT CChiefView::OnDataLineEnd(WPARAM wparam, LPARAM lparam)
 }
 /*
  *	PI bZ[Wnh (XgXp)
- *		f[^W[łPf[^̏D
+ *		f[^W[≈ÇPf[^ÃèD
  */
 LRESULT CChiefView::OnDataStressMeasEnd(WPARAM wparam, LPARAM lparam)
 {
@@ -5573,22 +5573,22 @@ LRESULT CChiefView::OnDataStressMeasEnd(WPARAM wparam, LPARAM lparam)
 
 	return 0L;
 }
-/* added 2009.08.05 hmenjo XgX@\ǉ(25) ---------- } ---------- */
-/* added 2009.08.06 hmenjo XgX@\ǉ(31) ---------- { ---------- */
+/* added 2009.08.05 hmenjo XgX@\«â(25) ---------- } ---------- */
+/* added 2009.08.06 hmenjo XgX@\«â(31) ---------- { ---------- */
 BOOL CChiefView::IsHWS()
 {
 	return ((CMainFrame*) m_pcMainFrame)->HardwareSimulation();
 }
-/* added 2009.08.06 hmenjo XgX@\ǉ(31) ---------- } ---------- */
+/* added 2009.08.06 hmenjo XgX@\«â(31) ---------- } ---------- */
 
-/* added 2009.08.25 hmenjo SE vtB^֐ ---------- { ---------- */
+/* added 2009.08.25 hmenjo SE vtB^÷ê ---------- { ---------- */
 /*
  *	vtB^q
  */
-#define	LFR_LOG	1	/* 1FOo͂	*/
+#define	LFR_LOG	1	/* 1FOoÕÇ	*/
 BOOL CChiefView::LampFilterR(
-		WORD wFilter,	/* dlɂ	ftHgF0	*/
-		WORD wMode		/* dlɂ	ftHgF0	*/
+		WORD wFilter,	/* dl…Ç	ftHgF0	*/
+		WORD wMode		/* dl…Ç	ftHgF0	*/
 	)
 {
 	BOOL l_bRet = TRUE;
@@ -5596,28 +5596,28 @@ BOOL CChiefView::LampFilterR(
 	WORD l_wMode = wMode;
 
 /* modified 2009.11.20 hmenjo GTR v Close ---------- { ---------- */
-/*		Rg폜܂D(ɂ̂)	*/
-///* added 2009.09.14 hmenjo LampFilterR() Oǉ ---------- { ---------- */
+/*		RgÌèú‹ÇD(…ÇÃÇ)	*/
+///* added 2009.09.14 hmenjo LampFilterR() O«â ---------- { ---------- */
 //	BOOL l_bLogWR = (LFR_LOG)? TRUE : FALSE;
-///* added 2009.09.14 hmenjo LampFilterR() Oǉ ---------- } ---------- */
+///* added 2009.09.14 hmenjo LampFilterR() O«â ---------- } ---------- */
 //
 //	switch (l_wMode) {
-///* modified 2009.09.07 hmenjo ߗ v ---------- { ---------- */
-////	case 1:	/* SE wbh̏ꍇ --------------------------------------------------------*/
-////	case 2:	/* SE wbhŒʏ탂[h̏ꍇ --------------------------------------------*/
+///* modified 2009.09.07 hmenjo ﬂó v ---------- { ---------- */
+////	case 1:	/* SE wbhÃèÍçá --------------------------------------------------------*/
+////	case 2:	/* SE wbh≈í èÌÉÇ[hÃèÍçá --------------------------------------------*/
 ////		if (0 != m_ChiefRecipes.pMeasProgInfo) {
 ////			if (HEAD_TYPE_SE == ((LPMEAS_PROG_INFO) m_ChiefRecipes.pMeasProgInfo)->ScanParams.hdr.wHeadType) {
 ////				/* SE wbh	*/
-/////* modified 2009.09.01 hmenjo SE \̒ǉ(12) ---------- { ---------- */
+/////* modified 2009.09.01 hmenjo SE \Ãí«â(12) ---------- { ---------- */
 //////				SE_CONFIG l_SeConfig;
 //////				ConfigFile_GetNanoSpecIni(&l_SeConfig, CONFIG_FILE_SE_CONFIG);
 //////				if ((1 == l_wMode) || ((2 == l_wMode) && (FALSE == l_SeConfig.bDoNotMoveShutter))) {
-/////* modified 2009.09.01 hmenjo SE \̒ǉ(12) ----------				*/
+/////* modified 2009.09.01 hmenjo SE \Ãí«â(12) ----------				*/
 ////				SE_SETTING l_SeSetting;
 ////				ConfigFile_GetNanoSpecIni(&l_SeSetting, CONFIG_FILE_SE_SETTING);
 ////				if ((1 == l_wMode) || ((2 == l_wMode) && (FALSE == l_SeSetting.bDoNotMoveShutter))) {
-/////* modified 2009.09.01 hmenjo SE \̒ǉ(12) ---------- } ---------- */
-////					/* [hPC[hQŒʏ탂[h̏ꍇ̂ݎs܂D	*/
+/////* modified 2009.09.01 hmenjo SE \Ãí«â(12) ---------- } ---------- */
+////					/* [hPC[hQ≈í èÌÉÇ[hÃèÍçáÃÇ›és‹ÇD	*/
 ////					switch (l_wFilter) {
 ////					case FILTER_OPEN:
 ////						MEAS_SrHead_ChangeCcdShutter(FILTER_DARK);
@@ -5636,9 +5636,9 @@ BOOL CChiefView::LampFilterR(
 ////				}
 ////			}
 ////		}
-///* modified 2009.09.07 hmenjo ߗ v ----------			  */
-//	case 1:	/* Ŏs -----------------------------------------------------------*/
-//	case 2:	/* ʏ탂[h̏ꍇ̂ݎs -----------------------------------------------*/
+///* modified 2009.09.07 hmenjo ﬂó v ----------			  */
+//	case 1:	/* ≈és -----------------------------------------------------------*/
+//	case 2:	/*  èÌÉÇ[hÃèÍçáÃÇ›és -----------------------------------------------*/
 //		if (0 != m_ChiefRecipes.pMeasProgInfo) {
 //			WORD l_wHeadType = ((LPMEAS_PROG_INFO) m_ChiefRecipes.pMeasProgInfo)->ScanParams.hdr.wHeadType;
 //			switch (l_wHeadType) {
@@ -5668,20 +5668,20 @@ BOOL CChiefView::LampFilterR(
 //					SE_SETTING l_SeSetting;
 //					ConfigFile_GetNanoSpecIni(&l_SeSetting, CONFIG_FILE_SE_SETTING);
 //					if ((1 == l_wMode) || ((2 == l_wMode) && (FALSE == l_SeSetting.bDoNotMoveShutter))) {
-//						/* [hPC[hQŒʏ탂[h̏ꍇ̂ݎs܂D	*/
+//						/* [hPC[hQ≈í èÌÉÇ[hÃèÍçáÃÇ›és‹ÇD	*/
 //						switch (l_wFilter) {
 //						case FILTER_OPEN:
-///* modified 2009.09.14 hmenjo LampFilterR SR ͑ PGM ݒl ---------- { ---------- */
-/////* modified 2009.09.14 hmenjo SE  SR v OPEN ł悢 ---------- { ---------- */
+///* modified 2009.09.14 hmenjo LampFilterR SR Õë PGM ›íl ---------- { ---------- */
+/////* modified 2009.09.14 hmenjo SE  SR v OPEN ≈ÇÊÇ¢ ---------- { ---------- */
 //////							MEAS_SrHead_ChangeCcdShutter(FILTER_DARK);
-/////* modified 2009.09.14 hmenjo SE  SR v OPEN ł悢 ----------				*/
+/////* modified 2009.09.14 hmenjo SE  SR v OPEN ≈ÇÊÇ¢ ----------				*/
 ////							MEAS_SrHead_ChangeCcdShutter(FILTER_OPEN);
 /////*hdebdeb*/this->LogChief(_T("@@@@@@@@@@ - SR  : FILTER_OPEN-1,2"));
-/////* modified 2009.09.14 hmenjo SE  SR v OPEN ł悢 ---------- } ---------- */
-///* modified 2009.09.14 hmenjo LampFilterR SR ͑ PGM ݒl ---------- 			 */
+/////* modified 2009.09.14 hmenjo SE  SR v OPEN ≈ÇÊÇ¢ ---------- } ---------- */
+///* modified 2009.09.14 hmenjo LampFilterR SR Õë PGM ›íl ---------- 			 */
 //							MEAS_SrHead_ChangeCcdShutter(((LPMEAS_PROG_INFO) m_ChiefRecipes.pMeasProgInfo)->ScanParams._SE.wOpticsFilterType);
 //							if (0 != l_bLogWR) {this->LogChief(_T("@@@@@@@@@@ - SR  : FILTER_OPEN-1,2"));}
-///* modified 2009.09.14 hmenjo LampFilterR SR ͑ PGM ݒl ---------- } ---------- */
+///* modified 2009.09.14 hmenjo LampFilterR SR Õë PGM ›íl ---------- } ---------- */
 //							MEAS_SeHead_OpenLampShutter();
 //							if (0 != l_bLogWR) {this->LogChief(_T("@@@@@@@@@@ - SE  : FILTER_OPEN-1,2"));}
 //							break;
@@ -5689,13 +5689,13 @@ BOOL CChiefView::LampFilterR(
 //						default:
 //							MEAS_SeHead_CloseLampShutter();
 //							if (0 != l_bLogWR) {this->LogChief(_T("@@@@@@@@@@ - SE  : FILTER_DARK-1,2"));}
-///* modified 2009.09.14 hmenjo LampFilterR SR ͑ PGM ݒl ---------- { ---------- */
+///* modified 2009.09.14 hmenjo LampFilterR SR Õë PGM ›íl ---------- { ---------- */
 ////							MEAS_SrHead_ChangeCcdShutter(FILTER_OPEN);
 /////*hdebdeb*/this->LogChief(_T("@@@@@@@@@@ - SR  : FILTER_OPEN-1,2"));
-///* modified 2009.09.14 hmenjo LampFilterR SR ͑ PGM ݒl ---------- 			 */
+///* modified 2009.09.14 hmenjo LampFilterR SR Õë PGM ›íl ---------- 			 */
 //							MEAS_SrHead_ChangeCcdShutter(((LPMEAS_PROG_INFO) m_ChiefRecipes.pMeasProgInfo)->ScanParams._SE.wOpticsFilterType);
 //							if (0 != l_bLogWR) {this->LogChief(_T("@@@@@@@@@@ - SR  : FILTER_OPEN-1,2"));}
-///* modified 2009.09.14 hmenjo LampFilterR SR ͑ PGM ݒl ---------- } ---------- */
+///* modified 2009.09.14 hmenjo LampFilterR SR Õë PGM ›íl ---------- } ---------- */
 //							break;
 //						}
 //					}
@@ -5706,18 +5706,18 @@ BOOL CChiefView::LampFilterR(
 //					WORD l_wScanType = ((LPMEAS_PROG_INFO) m_ChiefRecipes.pMeasProgInfo)->ScanParams.hdr.wScanType;
 //					if ((MEAS_PROG_TYPE_SR_TRANSMITTANCE == l_wScanType)
 //					 || (MEAS_PROG_TYPE_SR_TRANSMITTANCE_G == l_wScanType)) {
-//						/* SR wbhœߗ̏ꍇ	*/
+//						/* SR wbh≈ìﬂóÃèÍçá	*/
 //						SR_TRANSMIT l_SrTransmittance;
 //						ConfigFile_GetNanoSpecIni(&l_SrTransmittance, CONFIG_FILE_SR_TRANSMIT);
 //						if ((1 == l_wMode) || ((2 == l_wMode) && (FALSE == l_SrTransmittance.bDoNotCheckMeasPoint))) {
-//							/* [hPC[hQŒʏ탂[h̏ꍇ̂ݎs܂D	*/
+//							/* [hPC[hQ≈í èÌÉÇ[hÃèÍçáÃÇ›és‹ÇD	*/
 //							switch (l_wFilter) {
 //							case FILTER_OPEN:
 //								MEAS_SrHead_ChangeCcdShutter(FILTER_DARK);
 //								if (0 != l_bLogWR) {this->LogChief(_T("@@@@@@@@@@ - SR  : FILTER_DARK-1,2"));}
-///* modified 2009.09.09 hmenjo ߗ v REF(W) ---------- { ---------- */
+///* modified 2009.09.09 hmenjo ﬂó v REF(W) ---------- { ---------- */
 ////								((CNanoSpecDoc*) m_pcNanoSpecDoc)->SetTransmittanceLamp(FILTER_OPEN);
-///* modified 2009.09.09 hmenjo ߗ v REF(W) ----------			  */
+///* modified 2009.09.09 hmenjo ﬂó v REF(W) ----------			  */
 //								if (MEAS_PROG_TYPE_SR_TRANSMITTANCE == l_wScanType) {
 //									MEAS_SrHead_OpenTransShutter();
 //									if (0 != l_bLogWR) {this->LogChief(_T("@@@@@@@@@@ - TR  : FILTER_OPEN-1,2"));}
@@ -5725,19 +5725,19 @@ BOOL CChiefView::LampFilterR(
 //									((CNanoSpecDoc*) m_pcNanoSpecDoc)->SetTransmittanceLamp(FILTER_OPEN);
 //									if (0 != l_bLogWR) {this->LogChief(_T("@@@@@@@@@@ - GTR : FILTER_OPEN-1,2"));}
 //								}
-///* modified 2009.09.09 hmenjo ߗ v REF(W) ---------- } ---------- */
+///* modified 2009.09.09 hmenjo ﬂó v REF(W) ---------- } ---------- */
 //								break;
 //							case FILTER_DARK:
 //							default:
-///* modified 2009.09.14 hmenjo LampFilterR SR ͑ PGM ݒl ---------- { ---------- */
+///* modified 2009.09.14 hmenjo LampFilterR SR Õë PGM ›íl ---------- { ---------- */
 ////								MEAS_SrHead_ChangeCcdShutter(FILTER_OPEN);
-///* modified 2009.09.14 hmenjo LampFilterR SR ͑ PGM ݒl ---------- 			 */
+///* modified 2009.09.14 hmenjo LampFilterR SR Õë PGM ›íl ---------- 			 */
 //								MEAS_SrHead_ChangeCcdShutter(((LPMEAS_PROG_INFO) m_ChiefRecipes.pMeasProgInfo)->ScanParams._SR.wOpticsFilterType);
-///* modified 2009.09.14 hmenjo LampFilterR SR ͑ PGM ݒl ---------- } ---------- */
+///* modified 2009.09.14 hmenjo LampFilterR SR Õë PGM ›íl ---------- } ---------- */
 //								if (0 != l_bLogWR) {this->LogChief(_T("@@@@@@@@@@ - SR  : FILTER_OPEN-1,2"));}
-///* modified 2009.09.09 hmenjo ߗ v REF(W) ---------- { ---------- */
+///* modified 2009.09.09 hmenjo ﬂó v REF(W) ---------- { ---------- */
 ////								((CNanoSpecDoc*) m_pcNanoSpecDoc)->SetTransmittanceLamp(FILTER_DARK);
-///* modified 2009.09.09 hmenjo ߗ v REF(W) ----------			  */
+///* modified 2009.09.09 hmenjo ﬂó v REF(W) ----------			  */
 //								if (MEAS_PROG_TYPE_SR_TRANSMITTANCE == l_wScanType) {
 //									MEAS_SrHead_CloseTransShutter();
 //									if (0 != l_bLogWR) {this->LogChief(_T("@@@@@@@@@@ - TR  : FILTER_DARK-1,2"));}
@@ -5745,7 +5745,7 @@ BOOL CChiefView::LampFilterR(
 //									((CNanoSpecDoc*) m_pcNanoSpecDoc)->SetTransmittanceLamp(FILTER_DARK);
 //									if (0 != l_bLogWR) {this->LogChief(_T("@@@@@@@@@@ - GTR : FILTER_DARK-1,2"));}
 //								}
-///* modified 2009.09.09 hmenjo ߗ v REF(W) ---------- } ---------- */
+///* modified 2009.09.09 hmenjo ﬂó v REF(W) ---------- } ---------- */
 //								break;
 //							}
 //						}
@@ -5753,26 +5753,26 @@ BOOL CChiefView::LampFilterR(
 //				}
 //				break;
 //			default:
-//				/* ܂D	*/
+//				/* ‹ÇD	*/
 //				break;
 //			}
 //		}
-///* modified 2009.09.07 hmenjo ߗ v ---------- } ---------- */
+///* modified 2009.09.07 hmenjo ﬂó v ---------- } ---------- */
 //		break;
-///* added 2009.09.08 hmenjo ߗ v REF(W) ---------- { ---------- */
-//	case 3:	/* ƂŎw肳ꂽԂɂ -----------------------------------*/
+///* added 2009.09.08 hmenjo ﬂó v REF(W) ---------- { ---------- */
+//	case 3:	/* ∆Ç≈éwËÇ≥ÍÇΩ‘Ç…Ç -----------------------------------*/
 //		if (0 != m_ChiefRecipes.pMeasProgInfo) {
 //			WORD l_wHeadType = ((LPMEAS_PROG_INFO) m_ChiefRecipes.pMeasProgInfo)->ScanParams.hdr.wHeadType;
 //			switch (l_wHeadType) {
 //			case HEAD_TYPE_SE:
 //				switch (l_wFilter) {
 //				case FILTER_OPEN:
-///* modified 2009.09.14 hmenjo LampFilterR SR ͑ PGM ݒl ---------- { ---------- */
+///* modified 2009.09.14 hmenjo LampFilterR SR Õë PGM ›íl ---------- { ---------- */
 ////					MEAS_SrHead_ChangeCcdShutter(FILTER_OPEN);
-///* modified 2009.09.14 hmenjo LampFilterR SR ͑ PGM ݒl ---------- 			 */
+///* modified 2009.09.14 hmenjo LampFilterR SR Õë PGM ›íl ---------- 			 */
 //					MEAS_SrHead_ChangeCcdShutter(((LPMEAS_PROG_INFO) m_ChiefRecipes.pMeasProgInfo)->ScanParams._SE.wOpticsFilterType);
 //					if (0 != l_bLogWR) {this->LogChief(_T("@@@@@@@@@@ - SR  : FILTER_OPEN-3"));}
-///* modified 2009.09.14 hmenjo LampFilterR SR ͑ PGM ݒl ---------- } ---------- */
+///* modified 2009.09.14 hmenjo LampFilterR SR Õë PGM ›íl ---------- } ---------- */
 //					MEAS_SeHead_OpenLampShutter();
 //					if (0 != l_bLogWR) {this->LogChief(_T("@@@@@@@@@@ - SE  : FILTER_OPEN-3"));}
 //					break;
@@ -5790,18 +5790,18 @@ BOOL CChiefView::LampFilterR(
 //					WORD l_wScanType = ((LPMEAS_PROG_INFO) m_ChiefRecipes.pMeasProgInfo)->ScanParams.hdr.wScanType;
 //					if ((MEAS_PROG_TYPE_SR_TRANSMITTANCE == l_wScanType)
 //					 || (MEAS_PROG_TYPE_SR_TRANSMITTANCE_G == l_wScanType)) {
-//						/* SR wbhœߗ̏ꍇ	*/
+//						/* SR wbh≈ìﬂóÃèÍçá	*/
 //						switch (l_wFilter) {
 //						case FILTER_OPEN:
-///* modified 2009.09.14 hmenjo LampFilterR SR ͑ PGM ݒl ---------- { ---------- */
+///* modified 2009.09.14 hmenjo LampFilterR SR Õë PGM ›íl ---------- { ---------- */
 ////							MEAS_SrHead_ChangeCcdShutter(FILTER_OPEN);
-///* modified 2009.09.14 hmenjo LampFilterR SR ͑ PGM ݒl ---------- 			 */
+///* modified 2009.09.14 hmenjo LampFilterR SR Õë PGM ›íl ---------- 			 */
 //							MEAS_SrHead_ChangeCcdShutter(((LPMEAS_PROG_INFO) m_ChiefRecipes.pMeasProgInfo)->ScanParams._SR.wOpticsFilterType);
-///* modified 2009.09.14 hmenjo LampFilterR SR ͑ PGM ݒl ---------- } ---------- */
+///* modified 2009.09.14 hmenjo LampFilterR SR Õë PGM ›íl ---------- } ---------- */
 //							if (0 != l_bLogWR) {this->LogChief(_T("@@@@@@@@@@ - SR  : FILTER_OPEN-3"));}
-///* modified 2009.09.09 hmenjo ߗ v REF(W) ---------- { ---------- */
+///* modified 2009.09.09 hmenjo ﬂó v REF(W) ---------- { ---------- */
 ////							((CNanoSpecDoc*) m_pcNanoSpecDoc)->SetTransmittanceLamp(FILTER_OPEN);
-///* modified 2009.09.09 hmenjo ߗ v REF(W) ----------			  */
+///* modified 2009.09.09 hmenjo ﬂó v REF(W) ----------			  */
 //							if (MEAS_PROG_TYPE_SR_TRANSMITTANCE == l_wScanType) {
 //								MEAS_SrHead_OpenTransShutter();
 //								if (0 != l_bLogWR) {this->LogChief(_T("@@@@@@@@@@ - TR  : FILTER_OPEN-3"));}
@@ -5809,15 +5809,15 @@ BOOL CChiefView::LampFilterR(
 //								((CNanoSpecDoc*) m_pcNanoSpecDoc)->SetTransmittanceLamp(FILTER_OPEN);
 //								if (0 != l_bLogWR) {this->LogChief(_T("@@@@@@@@@@ - GTR : FILTER_OPEN-3"));}
 //							}
-///* modified 2009.09.09 hmenjo ߗ v REF(W) ---------- } ---------- */
+///* modified 2009.09.09 hmenjo ﬂó v REF(W) ---------- } ---------- */
 //							break;
 //						case FILTER_DARK:
 //						default:
 //							MEAS_SrHead_ChangeCcdShutter(FILTER_DARK);
 //							if (0 != l_bLogWR) {this->LogChief(_T("@@@@@@@@@@ - SR  : FILTER_DARK-3"));}
-///* modified 2009.09.09 hmenjo ߗ v REF(W) ---------- { ---------- */
+///* modified 2009.09.09 hmenjo ﬂó v REF(W) ---------- { ---------- */
 ////							((CNanoSpecDoc*) m_pcNanoSpecDoc)->SetTransmittanceLamp(FILTER_DARK);
-///* modified 2009.09.09 hmenjo ߗ v REF(W) ----------			  */
+///* modified 2009.09.09 hmenjo ﬂó v REF(W) ----------			  */
 //							if (MEAS_PROG_TYPE_SR_TRANSMITTANCE == l_wScanType) {
 //								MEAS_SrHead_CloseTransShutter();
 //								if (0 != l_bLogWR) {this->LogChief(_T("@@@@@@@@@@ - TR  : FILTER_DARK-3"));}
@@ -5825,37 +5825,37 @@ BOOL CChiefView::LampFilterR(
 //								((CNanoSpecDoc*) m_pcNanoSpecDoc)->SetTransmittanceLamp(FILTER_DARK);
 //								if (0 != l_bLogWR) {this->LogChief(_T("@@@@@@@@@@ - GTR : FILTER_DARK-3"));}
 //							}
-///* modified 2009.09.09 hmenjo ߗ v REF(W) ---------- } ---------- */
+///* modified 2009.09.09 hmenjo ﬂó v REF(W) ---------- } ---------- */
 //							break;
 //						}
 //					}
 //				}
 //				break;
 //			default:
-//				/* ܂D	*/
+//				/* ‹ÇD	*/
 //				break;
 //			}
 //		}
 //		break;
-///* added 2009.09.08 hmenjo ߗ v REF(W) ---------- } ---------- */
+///* added 2009.09.08 hmenjo ﬂó v REF(W) ---------- } ---------- */
 //	default:
-//		/* ܂D	*/
+//		/* ‹ÇD	*/
 //		break;
 //	}
 /* modified 2009.11.20 hmenjo GTR v Close ----------			   */
-// 2013.11.07 Bagus Add (TohoSpecΉ) -->
+// 2013.11.07 Bagus Add (TohoSpecŒâ) -->
 	if(g_lModelType == MODEL_T3100){
-		// I[gtB^[͎sɏI
+		// I[gtB^[Õés…èI
 		return l_bRet;
 	}
-// 2013.11.07 Bagus Add (TohoSpecΉ) <--
+// 2013.11.07 Bagus Add (TohoSpecŒâ) <--
 
 	BOOL l_bLogWR = (LFR_LOG)? TRUE : FALSE;
 	BOOL l_bGTRLampOK = TRUE;
 
 	switch (l_wMode) {
-	case 1:	/* Ŏs -----------------------------------------------------------*/
-	case 2:	/* ʏ탂[h̏ꍇ̂ݎs -----------------------------------------------*/
+	case 1:	/* ≈és -----------------------------------------------------------*/
+	case 2:	/*  èÌÉÇ[hÃèÍçáÃÇ›és -----------------------------------------------*/
 		if (0 != m_ChiefRecipes.pMeasProgInfo) {
 			WORD l_wHeadType = ((LPMEAS_PROG_INFO) m_ChiefRecipes.pMeasProgInfo)->ScanParams.hdr.wHeadType;
 			switch (l_wHeadType) {
@@ -5879,7 +5879,7 @@ BOOL CChiefView::LampFilterR(
 					SE_SETTING l_SeSetting;
 					ConfigFile_GetNanoSpecIni(&l_SeSetting, CONFIG_FILE_SE_SETTING);
 					if ((1 == l_wMode) || ((2 == l_wMode) && (FALSE == l_SeSetting.bDoNotMoveShutter))) {
-						/* [hPC[hQŒʏ탂[h̏ꍇ̂ݎs܂D	*/
+						/* [hPC[hQ≈í èÌÉÇ[hÃèÍçáÃÇ›és‹ÇD	*/
 						switch (l_wFilter) {
 						case FILTER_OPEN:
 							MEAS_SrHead_ChangeCcdShutter(((LPMEAS_PROG_INFO) m_ChiefRecipes.pMeasProgInfo)->ScanParams._SE.wOpticsFilterType);
@@ -5898,14 +5898,14 @@ BOOL CChiefView::LampFilterR(
 					}
 				}
 				break;
-// 2013.02.01 bagus CompleteEASEwbhǉ -->
+// 2013.02.01 bagus CompleteEASEwbh«â -->
 			case HEAD_TYPE_COMPEASE:
 				{
 					if( ((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetDispStatus() == MAIN_MENU_MANUAL_MEASUREMENT ){
 						COMPEASE_SETTING l_EASESetting;
 						ConfigFile_GetNanoSpecIni(&l_EASESetting, CONFIG_FILE_COMPEASE_SETTING);
 						if ((1 == l_wMode) || ((2 == l_wMode) && (FALSE == l_EASESetting.bDoNotMoveShutter))) {
-							/* [hPC[hQŒʏ탂[h̏ꍇ̂ݎs܂D	*/
+							/* [hPC[hQ≈í èÌÉÇ[hÃèÍçáÃÇ›és‹ÇD	*/
 							switch (l_wFilter) {
 							case FILTER_OPEN:
 // 								MEAS_SrHead_ChangeCcdShutter(((LPMEAS_PROG_INFO) m_ChiefRecipes.pMeasProgInfo)->ScanParams._COMPEASE.wOpticsFilterType);
@@ -5925,17 +5925,17 @@ BOOL CChiefView::LampFilterR(
 					}
 				}
 				break;
-// 2013.02.01 bagus CompleteEASEwbhǉ <--
+// 2013.02.01 bagus CompleteEASEwbh«â <--
 			case HEAD_TYPE_SR:
 				{
 					WORD l_wScanType = ((LPMEAS_PROG_INFO) m_ChiefRecipes.pMeasProgInfo)->ScanParams.hdr.wScanType;
 					if ((MEAS_PROG_TYPE_SR_TRANSMITTANCE == l_wScanType)
 					 || (MEAS_PROG_TYPE_SR_TRANSMITTANCE_G == l_wScanType)) {
-						/* SR wbhœߗ̏ꍇ	*/
+						/* SR wbh≈ìﬂóÃèÍçá	*/
 						SR_TRANSMIT l_SrTransmittance;
 						ConfigFile_GetNanoSpecIni(&l_SrTransmittance, CONFIG_FILE_SR_TRANSMIT);
 						if ((1 == l_wMode) || ((2 == l_wMode) && (FALSE == l_SrTransmittance.bDoNotCheckMeasPoint))) {
-							/* [hPC[hQŒʏ탂[h̏ꍇ̂ݎs܂D	*/
+							/* [hPC[hQ≈í èÌÉÇ[hÃèÍçáÃÇ›és‹ÇD	*/
 							switch (l_wFilter) {
 							case FILTER_OPEN:
 								MEAS_SrHead_ChangeCcdShutter(FILTER_DARK);
@@ -5966,12 +5966,12 @@ BOOL CChiefView::LampFilterR(
 				}
 				break;
 			default:
-				/* ܂D	*/
+				/* ‹ÇD	*/
 				break;
 			}
 		}
 		break;
-	case 3:	/* ƂŎw肳ꂽԂɂ -----------------------------------*/
+	case 3:	/* ∆Ç≈éwËÇ≥ÍÇΩ‘Ç…Ç -----------------------------------*/
 		if (0 != m_ChiefRecipes.pMeasProgInfo) {
 			WORD l_wHeadType = ((LPMEAS_PROG_INFO) m_ChiefRecipes.pMeasProgInfo)->ScanParams.hdr.wHeadType;
 			switch (l_wHeadType) {
@@ -5992,7 +5992,7 @@ BOOL CChiefView::LampFilterR(
 					break;
 				}
 				break;
-// 2013.02.01 bagus CompleteEASEwbhǉ -->
+// 2013.02.01 bagus CompleteEASEwbh«â -->
 			case HEAD_TYPE_COMPEASE:
 				if( ((CNanoSpecDoc*) m_pcNanoSpecDoc)->GetDispStatus() == MAIN_MENU_MANUAL_MEASUREMENT ){
 					switch (l_wFilter) {
@@ -6012,13 +6012,13 @@ BOOL CChiefView::LampFilterR(
 					}
 				}
 				break;
-// 2013.02.01 bagus CompleteEASEwbhǉ <--
+// 2013.02.01 bagus CompleteEASEwbh«â <--
 			case HEAD_TYPE_SR:
 				{
 					WORD l_wScanType = ((LPMEAS_PROG_INFO) m_ChiefRecipes.pMeasProgInfo)->ScanParams.hdr.wScanType;
 					if ((MEAS_PROG_TYPE_SR_TRANSMITTANCE == l_wScanType)
 					 || (MEAS_PROG_TYPE_SR_TRANSMITTANCE_G == l_wScanType)) {
-						/* SR wbhœߗ̏ꍇ	*/
+						/* SR wbh≈ìﬂóÃèÍçá	*/
 						switch (l_wFilter) {
 						case FILTER_OPEN:
 							MEAS_SrHead_ChangeCcdShutter(((LPMEAS_PROG_INFO) m_ChiefRecipes.pMeasProgInfo)->ScanParams._SR.wOpticsFilterType);
@@ -6048,13 +6048,13 @@ BOOL CChiefView::LampFilterR(
 				}
 				break;
 			default:
-				/* ܂D	*/
+				/* ‹ÇD	*/
 				break;
 			}
 		}
 		break;
 	default:
-		/* ܂D	*/
+		/* ‹ÇD	*/
 		break;
 	}
 
@@ -6062,7 +6062,7 @@ BOOL CChiefView::LampFilterR(
 //	if (TRUE != l_bGTRLampOK) {
 /* modified 2009.11.24 hmenjo GTR vG[oC ----------			   */
 	if ((FILTER_OPEN == l_wFilter) && (TRUE != l_bGTRLampOK)) {
-		/* I[vw߂̂Ƃ̂݌o܂D	*/
+		/* I[vwﬂÇÃÇ∆ÇÃÇ›åo‹ÇD	*/
 /* modified 2009.11.24 hmenjo GTR vG[oC ---------- } ---------- */
 		/* GTR vG[	*/
 		if (0 == ((CMainFrame*) m_pcMainFrame)->HardwareSimulation()) {
@@ -6073,10 +6073,10 @@ BOOL CChiefView::LampFilterR(
 
 	return l_bRet;
 }
-/* added 2009.08.25 hmenjo SE vtB^֐ ---------- } ---------- */
-/* added 2009.09.07 hmenjo  PGM YǏo ---------- { ---------- */
+/* added 2009.08.25 hmenjo SE vtB^÷ê ---------- } ---------- */
+/* added 2009.09.07 hmenjo  PGM Y«èo ---------- { ---------- */
 /*
- *	wbh̑ PGM 烌YݒlǏo܂D
+ *	wbhÃë PGM ÁÉåY›íl«èo‹ÇD
  */
 int CChiefView::GetMeasLens(WORD wHeadType/* = HEAD_TYPE_SR*/)
 {
@@ -6085,21 +6085,21 @@ int CChiefView::GetMeasLens(WORD wHeadType/* = HEAD_TYPE_SR*/)
 	LPMEAS_PROG_INFO l_pMeasProgInfo = (LPMEAS_PROG_INFO) m_ChiefRecipes.pMeasProgInfo;
 
 	if (0 == l_pMeasProgInfo) {
-		return 0;	/* Vsݒ	*/
+		return 0;	/* Vs›í	*/
 	}
 
 	switch (wHeadType) {
 	case HEAD_TYPE_SE:		l_iLens = l_pMeasProgInfo->ScanParams._SE.iLens;	break;
-// 2013.02.01 bagus CompleteEASEwbhǉ -->
+// 2013.02.01 bagus CompleteEASEwbh«â -->
 	case HEAD_TYPE_COMPEASE:l_iLens = l_pMeasProgInfo->ScanParams._COMPEASE.iLens;	break;
-// 2013.02.01 bagus CompleteEASEwbhǉ <--
-// 2009.10.19 bagus MS ǉ --{--
+// 2013.02.01 bagus CompleteEASEwbh«â <--
+// 2009.10.19 bagus MS «â --{--
 //	case HEAD_TYPE_IRSE:	l_iLens = l_pMeasProgInfo->ScanParams._IR.iLens;	break;
 	case HEAD_TYPE_MS:		l_iLens = l_pMeasProgInfo->ScanParams._MScope.iLens;	break;
-// 2009.10.19 bagus MS ǉ --}--
+// 2009.10.19 bagus MS «â --}--
 	case HEAD_TYPE_4PP:		l_iLens = l_pMeasProgInfo->ScanParams._RS.iLens;	break;
 	case HEAD_TYPE_CTA:		l_iLens = l_pMeasProgInfo->ScanParams._CA.iLens;	break;
-	/* ȉ̓ftHgł SR Ǐo܂D	*/
+	/* »âÕÉftHg≈Ç SR «èo‹ÇD	*/
 	case HEAD_TYPE_SR:
 	case HEAD_TYPE_STRESS:
 	default:				l_iLens = l_pMeasProgInfo->ScanParams._SR.iLens;	break;
@@ -6107,10 +6107,10 @@ int CChiefView::GetMeasLens(WORD wHeadType/* = HEAD_TYPE_SR*/)
 
 	return l_iLens;
 }
-/* added 2009.09.07 hmenjo  PGM YǏo ---------- } ---------- */
-/* added 2009.09.07 hmenjo  PGM tB^Ǐo ---------- { ---------- */
+/* added 2009.09.07 hmenjo  PGM Y«èo ---------- } ---------- */
+/* added 2009.09.07 hmenjo  PGM tB^«èo ---------- { ---------- */
 /*
- *	wbh̑ PGM tB^ݒlǏo܂D
+ *	wbhÃë PGM tB^›íl«èo‹ÇD
  */
 WORD CChiefView::GetMeasFilter(WORD wHeadType/* = HEAD_TYPE_SR*/)
 {
@@ -6119,78 +6119,78 @@ WORD CChiefView::GetMeasFilter(WORD wHeadType/* = HEAD_TYPE_SR*/)
 	LPMEAS_PROG_INFO l_pMeasProgInfo = (LPMEAS_PROG_INFO) m_ChiefRecipes.pMeasProgInfo;
 
 	if (0 == l_pMeasProgInfo) {
-		return FILTER_OPEN;	/* Vsݒ	*/
+		return FILTER_OPEN;	/* Vs›í	*/
 	}
 
 	switch (wHeadType) {
 	case HEAD_TYPE_SE:		l_wFilter = l_pMeasProgInfo->ScanParams._SE.wOpticsFilterType;	break;
-// 2013.02.01 bagus CompleteEASEwbhǉ -->
+// 2013.02.01 bagus CompleteEASEwbh«â -->
 	case HEAD_TYPE_COMPEASE:l_wFilter = l_pMeasProgInfo->ScanParams._COMPEASE.wOpticsFilterType;	break;
-// 2013.02.01 bagus CompleteEASEwbhǉ <--
-// 2009.10.19 bagus MS ǉ --{--
+// 2013.02.01 bagus CompleteEASEwbh«â <--
+// 2009.10.19 bagus MS «â --{--
 //	case HEAD_TYPE_IRSE:	l_wFilter = l_pMeasProgInfo->ScanParams._IR.wOpticsFilterType;	break;
 	case HEAD_TYPE_MS:		l_wFilter = l_pMeasProgInfo->ScanParams._MScope.wOpticsFilterType;	break;
-// 2009.10.19 bagus MS ǉ --}--
+// 2009.10.19 bagus MS «â --}--
 	case HEAD_TYPE_4PP:		l_wFilter = l_pMeasProgInfo->ScanParams._RS.wOpticsFilterType;	break;
 	case HEAD_TYPE_CTA:		l_wFilter = l_pMeasProgInfo->ScanParams._CA.wOpticsFilterType;	break;
-	/* ȉ̓ftHgł SR Ǐo܂D	*/
+	/* »âÕÉftHg≈Ç SR «èo‹ÇD	*/
 	case HEAD_TYPE_SR:
 	case HEAD_TYPE_STRESS:
 	default:				l_wFilter = l_pMeasProgInfo->ScanParams._SR.wOpticsFilterType;	break;
 	}
 
-/* added 2009.11.30 hmenjo  Seq ͎wwbh()œ ---------- { ---------- */
-	/*	@PGM@OĂ܂ꍇAO͎dl゠肦Ȃ̂ŁA
-		FILTER_OPEN@ɂĕԂ܂D	*/
+/* added 2009.11.30 hmenjo  Seq Õéwwbh()≈ì ---------- { ---------- */
+	/*	@PGM@OƒÇ‹ÇÍçáAOÕédl„Ç†ËÇ¶»ÇÃÇ≈ÅA
+		FILTER_OPEN@…Çƒï‘Ç‹ÇD	*/
 	if (0 == l_wFilter) {
 		l_wFilter = FILTER_OPEN;
 	}
-/* added 2009.11.30 hmenjo  Seq ͎wwbh()œ ---------- } ---------- */
+/* added 2009.11.30 hmenjo  Seq Õéwwbh()≈ì ---------- } ---------- */
 
 	return l_wFilter;
 }
-/* added 2009.09.07 hmenjo  PGM tB^Ǐo ---------- } ---------- */
-/* added 2009.09.10 hmenjo t@Xf[^`FbN֐ǉ ---------- { ---------- */
+/* added 2009.09.07 hmenjo  PGM tB^«èo ---------- } ---------- */
+/* added 2009.09.10 hmenjo t@Xf[^`FbN÷ê«â ---------- { ---------- */
 /*
- *	t@Xf[^`FbN܂D
- *		߂lF0FLCCf[^t@C݂
- *				2FLOCCf[^t@C݂
- *				1Ff[^t@C݂Ȃ
+ *	t@Xf[^`FbN‹ÇD
+ *		ﬂÇlF0FLC¬ÅCf[^t@C›Ç
+ *				2FLOC¬ÅCf[^t@C›Ç
+ *				1Ff[^t@C›Ç»Ç
  */
 int CChiefView::CheckReferenceData(TCHAR* ptszMainRcpName, double dLifeTime, BOOL bRef2ndMeasure/* = FALSE*/)
 {
-	/* t@Xf[^t@C݂̑ƗL`FbN܂D	*/
+	/* t@Xf[^ÓèÄt@CÃë›Ç∆óL`FbN‹ÇD	*/
 	int l_iRet = MEAS_CheckRefFileElapsedTimeOut(ptszMainRcpName, dLifeTime);
 	switch (l_iRet) {
-	case 0:		/* LCCt@C݂	*/
+	case 0:		/* LC¬ÅCÓèÄt@C›Ç	*/
 		break;
-	case 2:		/* LOCCt@C݂	*/
+	case 2:		/* LOC¬ÅCÓèÄt@C›Ç	*/
 		break;
-	case 1:		/* t@C݂Ȃ	*/
-	default:	/* ُ̑̈	*/
-		l_iRet = 1;		/* t@C݂Ȃ	*/
+	case 1:		/* ÓèÄt@C›Ç»Ç	*/
+	default:	/* ÃëÃàŸè	*/
+		l_iRet = 1;		/* ÓèÄt@C›Ç»Ç	*/
 		break;
 	}
 
-	/* ZJht@Xgꍇ	*/
+	/* ZJht@XgÍçá	*/
 	if ((1 != l_iRet) && (TRUE == bRef2ndMeasure)) {
-		/* t@C݂ꍇ́CZJht@X̃f[^t@C̑݊mF܂D	*/
+		/* ÓèÄt@C›ÇÍçáÕÅCZJht@XÃÉf[^t@CÃë›ämF‹ÇD	*/
 		if ((0 == MEAS_Is2ndRefT1FileExist(ptszMainRcpName))
 		 || (0 == MEAS_Is2ndRefT2FileExist(ptszMainRcpName))) {
-			/* f[^t@C(uZJh t@X T1 f[^v܂́uZJh t@X T2 f[^v)	*/
-			l_iRet = 1;		/* ZJht@Xt@C݂Ȃ	*/
+			/* f[^t@C(uZJh t@X T1 f[^v‹ÇÕÅuZJh t@X T2 f[^v)	*/
+			l_iRet = 1;		/* ZJht@Xt@C›Ç»Ç	*/
 		}
 	}
 
 	return l_iRet;
 }
-/* added 2009.09.10 hmenjo t@Xf[^`FbN֐ǉ ---------- } ---------- */
+/* added 2009.09.10 hmenjo t@Xf[^`FbN÷ê«â ---------- } ---------- */
 
-/* added 2009.09.29 hmenjo Head  Main Rcp Inf Ǐo ---------- { ---------- */
+/* added 2009.09.29 hmenjo Head  Main Rcp Inf «èo ---------- { ---------- */
 /*
- *	wbh̃CVsǏo܂D
- *		߂lF0F
- *				1Fs(p^ُ)
+ *	wbhÃÉCVs«èo‹ÇD
+ *		ﬂÇlF0F
+ *				1Fs(p^Ÿè)
  */
 BOOL CChiefView::GetMainRcpInfHead(LPMAIN_RCP_INFO pMainRcpInfo, WORD wHeadType, LPHEAD_MAIN_RCP_INFO pHeadMainRcpInf)
 {
@@ -6206,13 +6206,13 @@ BOOL CChiefView::GetMainRcpInfHead(LPMAIN_RCP_INFO pMainRcpInfo, WORD wHeadType,
 		pHeadMainRcpInf->nFocus = pMainRcpInfo->MainRcpParam._SE.nFocus;
 		pHeadMainRcpInf->nAutoFocusFailOption = pMainRcpInfo->MainRcpParam._SE.nAutoFocusFailOption;
 		break;
-// 2013.02.01 bagus CompleteEASEwbhǉ -->
+// 2013.02.01 bagus CompleteEASEwbh«â -->
 	case HEAD_TYPE_COMPEASE:
 		pHeadMainRcpInf->nFocus = pMainRcpInfo->MainRcpParam._COMPEASE.nFocus;
 		pHeadMainRcpInf->nAutoFocusFailOption = pMainRcpInfo->MainRcpParam._COMPEASE.nAutoFocusFailOption;
 		break;
-// 2013.02.01 bagus CompleteEASEwbhǉ <--
-// 2009.10.19 bagus MS ǉ --{--
+// 2013.02.01 bagus CompleteEASEwbh«â <--
+// 2009.10.19 bagus MS «â --{--
 #if 0
 	case HEAD_TYPE_IRSE:
 		pHeadMainRcpInf->nFocus = pMainRcpInfo->MainRcpParam._IR.nFocus;
@@ -6224,7 +6224,7 @@ BOOL CChiefView::GetMainRcpInfHead(LPMAIN_RCP_INFO pMainRcpInfo, WORD wHeadType,
 		pHeadMainRcpInf->nAutoFocusFailOption = pMainRcpInfo->MainRcpParam._MScope.nAutoFocusFailOption;
 		break;
 #endif
-// 2009.10.19 bagus MS ǉ --}--
+// 2009.10.19 bagus MS «â --}--
 	case HEAD_TYPE_4PP:
 		pHeadMainRcpInf->nFocus = pMainRcpInfo->MainRcpParam._RS.nFocus;
 		pHeadMainRcpInf->nAutoFocusFailOption = pMainRcpInfo->MainRcpParam._RS.nAutoFocusFailOption;
@@ -6242,7 +6242,7 @@ BOOL CChiefView::GetMainRcpInfHead(LPMAIN_RCP_INFO pMainRcpInfo, WORD wHeadType,
 
 	return l_bRet;
 }
-/* added 2009.09.29 hmenjo Head  Main Rcp Inf Ǐo ---------- } ---------- */
+/* added 2009.09.29 hmenjo Head  Main Rcp Inf «èo ---------- } ---------- */
 //2009.10.28 bagus 2ponit-distance --{--
 LRESULT CChiefView::OnDistancePopupEnd(WPARAM wparam, LPARAM lparam)
 {
@@ -6255,13 +6255,13 @@ LRESULT CChiefView::OnDistancePopupEnd(WPARAM wparam, LPARAM lparam)
 	case 1:		// 
 		((CChiefTransiSr1Point*) m_pcChiefTransiSr1Point)->TransiEvent(EV_SR1P_MEAS_DONE, (cEventParams*) lparam);
 		break;
-	case 2:		// IDLE֖߂ă_CNgɏI
+	case 2:		// IDLE÷ñﬂÇƒÉ_CNg…èI
 	case 3:		//
 		((CChiefTransiSr1Point*) m_pcChiefTransiSr1Point)->TransiEvent(EV_SR1P_IDLE, (cEventParams*) lparam);
 		//((CChiefTransiMaster*) m_pcChiefTransiMaster)->TransiEvent(EV_MAS_UI1POINT_DONE, (cEventParams*) lparam);
 		break;
 	default:
-		// ܂D
+		// ‹ÇD
 		break;
 	}
 
@@ -6271,7 +6271,7 @@ LRESULT CChiefView::OnDistancePopupEnd(WPARAM wparam, LPARAM lparam)
 
 /* added 2009.10.29 hmenjo CTA Seq CTAILPI `FbN ---------- { ---------- */
 /*
- *	CTA jbg IL M`FbN܂D
+ *	CTA jbg IL M`FbN‹ÇD
  *		TRUE FI
  *		FALSEFIt
  */
@@ -6282,7 +6282,7 @@ BOOL CChiefView::IsCtaILPI()
 	if (0 == this->m_EnableHead.bCTA) {
 		l_bRet = TRUE;
 	} else {
-		/* CTA L̏ꍇ	*/
+		/* CTA LÃèÍçá	*/
 		if (0 == nexioIsCA_Interlock()) {
 			l_bRet = FALSE;
 		} else {
@@ -6296,7 +6296,7 @@ BOOL CChiefView::IsCtaILPI()
 
 // 2009.11.12 bagus MS --{--
 /*
- *	MS jbg IL M`FbN܂D([MQOFFĂNGjB
+ *	MS jbg IL M`FbN‹ÇD([MQOFFƒÇNGjB
  *		TRUE FI
  *		FALSEFIt
  */
@@ -6307,7 +6307,7 @@ BOOL CChiefView::IsMSILPI()
 	if (0 == this->m_EnableHead.bMS) {
 		l_bRet = TRUE;
 	} else {
-		/* MS L̏ꍇ	*/
+		/* MS LÃèÍçá	*/
 		if (0 == nexioIsMS_LowerPos2()) {
 			l_bRet = FALSE;
 		} else {
@@ -6321,7 +6321,7 @@ BOOL CChiefView::IsMSILPI()
 
 /* added 2009.11.06 K.Matsuo RS Seq Head Position `FbN ---------- { ---------- */
 /*
- *	RS jbg IL M`FbN܂D
+ *	RS jbg IL M`FbN‹ÇD
  *		TRUE FI
  *		FALSEFIt
  */
@@ -6339,7 +6339,7 @@ int CChiefView::CheckResistIL()
 	if (0 == this->m_EnableHead.bResist) {
 		l_iRet = NO_ERR;
 	} else {
-		/* Resit L̏ꍇ	*/
+		/* Resit LÃèÍçá	*/
 		// Upper	Lower
 		// 1		0		OK
 		// 1		1		NG(Critical)
@@ -6364,9 +6364,9 @@ int CChiefView::CheckResistIL()
 
 /* added 2009.10.30 hmenjo CTA A[nh ---------- { ---------- */
 /*
- *	CTA jbg̃A[܂D
+ *	CTA jbgÃÉA[‹ÇD
  *		LOWORD(wparam)FA[ ID		[100 ` 169  70 ]
- *		HIWORD(wparam)FA[x	[0FxC0Fُ]
+ *		HIWORD(wparam)FA[x	[0FxC0FŸè]
  */
 LRESULT CChiefView::OnMeasAlarmCTA(WPARAM wparam, LPARAM lparam)
 {
@@ -6379,7 +6379,7 @@ LRESULT CChiefView::OnMeasAlarmCTA(WPARAM wparam, LPARAM lparam)
 
 /* added 2009.11.06 hmenjo CTA CTA G[ Abort ---------- { ---------- */
 	if (0 != l_dwAlarmLevel) {
-		/* d̏ Abort ɂ܂D	*/
+		/* dÃè Abort …Ç‹ÇD	*/
 		if (0 != this->m_EnableHead.bCTA) {
 			this->CancelSeqForAlarm();
 		}
@@ -6401,28 +6401,28 @@ LRESULT CChiefView::OnMSPopupEnd(WPARAM wparam, LPARAM lparam)
 	case 1:		// 
 		((CChiefTransiSr1Point*) m_pcChiefTransiSr1Point)->TransiEvent(EV_SR1P_MEAS_DONE, (cEventParams*) lparam);
 		break;
-	case 2:		// IDLE֖߂ă_CNgɏI
+	case 2:		// IDLE÷ñﬂÇƒÉ_CNg…èI
 	case 3:		//
 		((CChiefTransiSr1Point*) m_pcChiefTransiSr1Point)->TransiEvent(EV_SR1P_IDLE, (cEventParams*) lparam);
 		break;
 	default:
-		// ܂D
+		// ‹ÇD
 		break;
 	}
 	return 0L;
 }
 //2009.11.03 bagus MS --}--
 
-/* added 2009.11.06 hmenjo CTA A[Zbgُ탊Zbg ---------- { ---------- */
+/* added 2009.11.06 hmenjo CTA A[ZbgŸèÌÉäZbg ---------- { ---------- */
 /*
  *	CTA Zbg
  *		  FDWORD dwMode
- *					0FCTA A[擾
+ *					0FCTA A[Êìæ
  *					1FCTA A[Zbg
- *					ȊOFCTA A[NACCTA jbgZbg
- *		߂lF
- *					0FCTA A[ł͂܂
- *					ȊOFCTA A[ł
+ *					»äOFCTA A[NACCTA jbgZbg
+ *		ﬂÇlF
+ *					0FCTA A[≈ÇÕÇ‹Ç
+ *					»äOFCTA A[≈Ç
  */
 int CChiefView::CtaReset(DWORD dwMode/* = 0*/)
 {
@@ -6430,8 +6430,8 @@ int CChiefView::CtaReset(DWORD dwMode/* = 0*/)
 
 	if (0 != this->m_EnableHead.bCTA) {
 		switch (dwMode) {
-		case 0:		/* CTA A[擾	*/
-			/* ̃[hɏ͂܂D	*/
+		case 0:		/* CTA A[Êìæ	*/
+			/* ÃÉ[h…èÕÇ‹ÇD	*/
 			break;
 		case 1:		/* CTA A[Zbg	*/
 			ls_bCTAAlarm = TRUE;
@@ -6441,17 +6441,17 @@ int CChiefView::CtaReset(DWORD dwMode/* = 0*/)
 				long l_lCtaStatus;
 				BOOL l_bRslt = MEAS_CtaGetStatus(&l_lCtaStatus);
 				if (0 != l_bRslt) {
-					/* 擾튮	*/
+					/* ÊìæÌäÆ	*/
 					int l_iHead		= LOBYTE(LOWORD(l_lCtaStatus));	/* wbh	*/
-					int l_iStatus1	= HIBYTE(LOWORD(l_lCtaStatus));	/* ԂP	*/
-					int l_iStatus2	= LOBYTE(HIWORD(l_lCtaStatus));	/* ԂQ	*/
+					int l_iStatus1	= HIBYTE(LOWORD(l_lCtaStatus));	/* ‘ÇP	*/
+					int l_iStatus2	= LOBYTE(HIWORD(l_lCtaStatus));	/* ‘ÇQ	*/
 					int l_iReserve	= HIBYTE(HIWORD(l_lCtaStatus));	/* (gp)	*/
 					if (((1 != l_iHead) && (2 != l_iHead))
 					 || (2 != l_iStatus1)
 					 || (1 != l_iStatus2)) {
-						/*	wbhu_ʒuFPvƁuҋ@ʒuFQvȊȌꍇC
-							ԂPuҋ@FQvȊȌꍇC
-							ԂQuPFG[vvȊȌꍇ	*/
+						/*	wbhu_ íuFPv∆Åu“ã@ íuFQv»äOÃèÍçáC
+							‘ÇPu“ã@FQv»äOÃèÍçáC
+							‘ÇQuPFG[vv»äOÃèÍçá	*/
 						l_bRslt = MEAS_CtaForceEnd();
 						if (0 != l_bRslt) {
 							ls_bCTAAlarm = FALSE;
@@ -6469,9 +6469,9 @@ int CChiefView::CtaReset(DWORD dwMode/* = 0*/)
 
 	return l_iRet;
 }
-/* added 2009.11.06 hmenjo CTA A[Zbgُ탊Zbg ---------- } ---------- */
+/* added 2009.11.06 hmenjo CTA A[ZbgŸèÌÉäZbg ---------- } ---------- */
 
-/* added 2012.01.23 hmenjo [V]A{[g΍ ---------- { ---------- */
+/* added 2012.01.23 hmenjo [V]A{[gŒç ---------- { ---------- */
 void CChiefView::PostTransiEvent(CWinThread* pcThread, UINT uiMsg, TCHAR* ptszMsg, BYTE byTransiKind, WPARAM wParam, LPARAM lParam)
 {
 	CString l_strMsg;
@@ -6485,7 +6485,7 @@ void CChiefView::PostTransiEvent(CWinThread* pcThread, UINT uiMsg, TCHAR* ptszMs
 			/* sO	*/
 			this->LogChief((LPTSTR) ((LPCTSTR) l_strMsg));
 		}
-		::Sleep(CHIEF_TREVENT_RETRY_INTERVAL);	/* gCԊu	*/
+		::Sleep(CHIEF_TREVENT_RETRY_INTERVAL);	/* gC‘äu	*/
 	}
 	if (FALSE == l_bRslt) {
 		/* gCAEg	*/
@@ -6520,9 +6520,9 @@ BOOL CChiefView::IsBusyTransi(BYTE byTransiKindDst, BYTE byTransiKindSrc)
 			break;
 		}
 		if (CHIEF_CHECK_BUSY_TIME < (::GetTickCount() - l_dwTimeSta)) {
-			/* ^CAEgF莞Ԍo߂ĂrW[łD	*/
+			/* ^CAEgFËéû‘åoﬂÇƒÇrW[≈ÇD	*/
 			l_bBusy = TRUE;
-			/* V[PXŃEFCgŃAChɑJڂԂȂ狭ACh	*/
+			/* V[PX≈ÉEFCg≈ÉACh…ëJ⁄Ç‘Ç»ÇÁã≠ACh	*/
 			BOOL l_bIdleReq = FALSE;
 			switch (byTransiKindDst) {
 			case 4:	switch (((CChiefTransiDeskew*) m_pcChiefTransiDeskew)->GetCurrentState()) {
@@ -6565,7 +6565,7 @@ BOOL CChiefView::IsBusyTransi(BYTE byTransiKindDst, BYTE byTransiKindSrc)
 						break;
 					}
 					if (CHIEF_CHECK_BUSY_TIME < (::GetTickCount() - l_dwTimeSta)) {
-						/* ^CAEgF莞Ԍo߂ĂrW[łD	*/
+						/* ^CAEgFËéû‘åoﬂÇƒÇrW[≈ÇD	*/
 						l_bBusy = TRUE;
 						break;
 					} else {
@@ -6586,11 +6586,11 @@ BOOL CChiefView::IsBusyTransi(BYTE byTransiKindDst, BYTE byTransiKindSrc)
 
 	return l_bBusy;
 }
-/* added 2012.01.23 hmenjo [V]A{[g΍ ---------- } ---------- */
+/* added 2012.01.23 hmenjo [V]A{[gŒç ---------- } ---------- */
 
-// 2013.02.01 bagus CompleteEASEwbhǉ -->
+// 2013.02.01 bagus CompleteEASEwbh«â -->
 //
-//	CompEASȄԃXe[^X܂D
+//	CompEASEÃè‘ÉXe[^X‹ÇD
 //
 LRESULT CChiefView::OnMeasCompEASEStatus(WPARAM wparam, LPARAM lparam)
 {
@@ -6619,7 +6619,7 @@ LRESULT CChiefView::OnMeasCompEASEStatus(WPARAM wparam, LPARAM lparam)
 	case EASE_STATUS_HARDWARE_NOT_CALIB:
 		l_dwALID = 196;
 		break;
-	// A[ǉAOnMeasCompEASEError()֐ŎgpĂA[ԍɒӂĂ
+	// A[«âAOnMeasCompEASEError()÷ê≈égpƒÇA[‘ç…í”ÇƒÇ
 	default:
 		return 0L;
 	}
@@ -6632,7 +6632,7 @@ LRESULT CChiefView::OnMeasCompEASEStatus(WPARAM wparam, LPARAM lparam)
 }
 
 //
-//	CompEASẼG[܂D
+//	CompEASEÃÉG[‹ÇD
 //
 LRESULT CChiefView::OnMeasCompEASEError(WPARAM wparam, LPARAM lparam)
 {
@@ -6643,7 +6643,7 @@ LRESULT CChiefView::OnMeasCompEASEError(WPARAM wparam, LPARAM lparam)
 	case EASE_ERROR_RUN_RECIPE_NOT_FOUND:
 		l_dwALID = 197;
 		break;
-	// A[ǉAOnMeasCompEASEStatus()֐ŎgpĂA[ԍɒӂĂ
+	// A[«âAOnMeasCompEASEStatus()÷ê≈égpƒÇA[‘ç…í”ÇƒÇ
 	default:
 		// ASSERT(FALSE);
 		return 0L;
@@ -6651,8 +6651,8 @@ LRESULT CChiefView::OnMeasCompEASEError(WPARAM wparam, LPARAM lparam)
 
 	LogChief_WinMsg(_T("WM_MEAS_COMPEASE_ERROR"), wparam, lparam);
 
-//	AlarmIf_Set(l_dwALID);	// 2013.02.25 ProconւłȂ߁AbRgAEg
+//	AlarmIf_Set(l_dwALID);	// 2013.02.25 Procon÷Ç≈Ç»ÇﬂÅAbRgAEg
 
 	return 0L;
 }
-// 2013.02.01 bagus CompleteEASEwbhǉ <--
+// 2013.02.01 bagus CompleteEASEwbh«â <--

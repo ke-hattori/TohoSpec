@@ -1,64 +1,64 @@
-#if !defined(AFX_CHIFTRANSISR1POINT_H__44228793_B4D9_4104_BE5A_A9C693AC1349__INCLUDED_)
+ï»¿#if !defined(AFX_CHIFTRANSISR1POINT_H__44228793_B4D9_4104_BE5A_A9C693AC1349__INCLUDED_)
 #define AFX_CHIFTRANSISR1POINT_H__44228793_B4D9_4104_BE5A_A9C693AC1349__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// ChifTransiSr1Point.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// ChifTransiSr1Point.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
-#include <afxmt.h>	// CEvent ‚Æ CSingleLock ‚Å•K—v‚Å‚·
+#include <afxmt.h>	// CEvent ã¨ CSingleLock ã§å¿…è¦ã§ã™
 #include "DdeClient.hxx"
 
 class CSitePtSeq;
 
 //--------------------------------------------------------------------------//
-//	ó‘Ô’è‹`
+//	çŠ¶æ…‹å®šç¾©
 //--------------------------------------------------------------------------//
 #define	_ST_SR1P_DISP(x)	_T(#x)
 #define	ST_SR1P_DISP(x)	_ST_SR1P_DISP(x)
 #define	ST_SR1P_(x)		ST_SR1P_##x
-// ó‘Ô‚Ì–¼Ì‚ð’è‹`¨
-//		‚±‚±‚ð’Ç‰Áíœ‚µ‚½ê‡‚Í ST_xxx_n ‚Ì”Ô†‚É‘Î‰ž‚µ‚½
-//		‰º‹L‚Ì ST_xxx_n ‚Æ ST_xxx_DISP_n ‚à‡‚í‚¹‚Ä‚­‚¾‚³‚¢D
-#define	ST_SR1P_0		ST_SR1P_(INIT)			// ‰Šúó‘Ô
-#define	ST_SR1P_1		ST_SR1P_(IDLE)			// ƒAƒCƒhƒ‹
+// çŠ¶æ…‹ã®åç§°ã‚’å®šç¾©â†’
+//		ã“ã“ã‚’è¿½åŠ å‰Šé™¤ã—ãŸå ´åˆã¯ ST_xxx_n ã®ç•ªå·ã«å¯¾å¿œã—ãŸ
+//		ä¸‹è¨˜ã® ST_xxx_n ã¨ ST_xxx_DISP_n ã‚‚åˆã‚ã›ã¦ãã ã•ã„ï¼Ž
+#define	ST_SR1P_0		ST_SR1P_(INIT)			// åˆæœŸçŠ¶æ…‹
+#define	ST_SR1P_1		ST_SR1P_(IDLE)			// ã‚¢ã‚¤ãƒ‰ãƒ«
 // 2009.05.11 K.Matsuo SitePR -->
-#define	ST_SR1P_2		ST_SR1P_(SITEPR_START)					// SitePR ŠJŽnˆ—‘O							(WAIT ó‘Ô–³‚µ)
-#define	ST_SR1P_3		ST_SR1P_(SITEPR_AUTO)					// SitePR ƒI[ƒgŠ®—¹‘Ò‚¿
-#define	ST_SR1P_4		ST_SR1P_(SITEPR_AUTO_OK)				// SitePR ƒI[ƒg OK Š®—¹						(WAIT ó‘Ô–³‚µ)
-#define	ST_SR1P_5		ST_SR1P_(SITEPR_AUTO_PROCEED)			// SitePR ƒI[ƒgŽ¸”s‚Ì‚Ü‚Ü‘±s					(WAIT ó‘Ô–³‚µ)
-#define	ST_SR1P_6		ST_SR1P_(SITEPR_AUTO_PROCEED_PRESTEP)	// SitePR ƒI[ƒgŽ¸”s‚Ì‚Ü‚Ü‘±si‘OƒXƒeƒbƒvˆÊ’uj(WAIT ó‘Ô–³‚µ)
-#define	ST_SR1P_7		ST_SR1P_(SITEPR_AUTO_CANCEL)			// SitePR ƒI[ƒgƒŒƒVƒsI—¹						(WAIT ó‘Ô–³‚µ)
-#define	ST_SR1P_8		ST_SR1P_(SITEPR_MANU)					// SitePR ƒ}ƒjƒ…ƒAƒ‹Š®—¹‘Ò‚¿
-#define	ST_SR1P_9		ST_SR1P_(SITEPR_MANU_OK)				// SitePR ƒ}ƒjƒ…ƒAƒ‹ OK Š®—¹					(WAIT ó‘Ô–³‚µ)
-#define	ST_SR1P_10		ST_SR1P_(SITEPR_MANU_CANCEL)			// SitePR ƒ}ƒjƒ…ƒAƒ‹ƒŒƒVƒsI—¹					(WAIT ó‘Ô–³‚µ)
-#define	ST_SR1P_11		ST_SR1P_(SITEPR_PREP_MEAS)				// SitePR I—¹ ¨ ‘ª’è‘O‚Ì€”õˆ—				(WAIT ó‘Ô–³‚µ)
+#define	ST_SR1P_2		ST_SR1P_(SITEPR_START)					// SitePR é–‹å§‹å‡¦ç†å‰							(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_SR1P_3		ST_SR1P_(SITEPR_AUTO)					// SitePR ã‚ªãƒ¼ãƒˆå®Œäº†å¾…ã¡
+#define	ST_SR1P_4		ST_SR1P_(SITEPR_AUTO_OK)				// SitePR ã‚ªãƒ¼ãƒˆ OK å®Œäº†						(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_SR1P_5		ST_SR1P_(SITEPR_AUTO_PROCEED)			// SitePR ã‚ªãƒ¼ãƒˆå¤±æ•—ã®ã¾ã¾ç¶šè¡Œ					(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_SR1P_6		ST_SR1P_(SITEPR_AUTO_PROCEED_PRESTEP)	// SitePR ã‚ªãƒ¼ãƒˆå¤±æ•—ã®ã¾ã¾ç¶šè¡Œï¼ˆå‰ã‚¹ãƒ†ãƒƒãƒ—ä½ç½®ï¼‰(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_SR1P_7		ST_SR1P_(SITEPR_AUTO_CANCEL)			// SitePR ã‚ªãƒ¼ãƒˆãƒ¬ã‚·ãƒ”çµ‚äº†						(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_SR1P_8		ST_SR1P_(SITEPR_MANU)					// SitePR ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«å®Œäº†å¾…ã¡
+#define	ST_SR1P_9		ST_SR1P_(SITEPR_MANU_OK)				// SitePR ãƒžãƒ‹ãƒ¥ã‚¢ãƒ« OK å®Œäº†					(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_SR1P_10		ST_SR1P_(SITEPR_MANU_CANCEL)			// SitePR ãƒžãƒ‹ãƒ¥ã‚¢ãƒ«ãƒ¬ã‚·ãƒ”çµ‚äº†					(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_SR1P_11		ST_SR1P_(SITEPR_PREP_MEAS)				// SitePR çµ‚äº† â†’ æ¸¬å®šå‰ã®æº–å‚™å‡¦ç†				(WAIT çŠ¶æ…‹ç„¡ã—)
 // 2009.05.11 K.Matsuo SitePR <--
-#define	ST_SR1P_12		ST_SR1P_(ZMOVE)			// ‘ª’èƒ|ƒCƒ“ƒg‚yŽ²ˆÚ“®Š®—¹‘Ò‚¿	(WAIT ó‘Ô–³‚µ)
-#define	ST_SR1P_13		ST_SR1P_(AF)			// AF Š®—¹‘Ò‚¿					(WAIT ó‘Ô–³‚µ‚Ìê‡—L‚è)
-#define	ST_SR1P_14		ST_SR1P_(AF_DONE)		// AF Š®—¹						(WAIT ó‘Ô–³‚µ)
-#define	ST_SR1P_15		ST_SR1P_(MEAS)			// ‘ª’èŠ®—¹‘Ò‚¿					(WAIT ó‘Ô–³‚µ)
-#define	ST_SR1P_16		ST_SR1P_(ANA)			// ‘ª’èƒf[ƒ^ˆ—Š®—¹‘Ò‚¿
-#define	ST_SR1P_17		ST_SR1P_(ANA_DONE)		// ‘ª’èƒf[ƒ^ˆ—Š®—¹			(WAIT ó‘Ô–³‚µ)
+#define	ST_SR1P_12		ST_SR1P_(ZMOVE)			// æ¸¬å®šãƒã‚¤ãƒ³ãƒˆï¼ºè»¸ç§»å‹•å®Œäº†å¾…ã¡	(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_SR1P_13		ST_SR1P_(AF)			// AF å®Œäº†å¾…ã¡					(WAIT çŠ¶æ…‹ç„¡ã—ã®å ´åˆæœ‰ã‚Š)
+#define	ST_SR1P_14		ST_SR1P_(AF_DONE)		// AF å®Œäº†						(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_SR1P_15		ST_SR1P_(MEAS)			// æ¸¬å®šå®Œäº†å¾…ã¡					(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_SR1P_16		ST_SR1P_(ANA)			// æ¸¬å®šãƒ‡ãƒ¼ã‚¿å‡¦ç†å®Œäº†å¾…ã¡
+#define	ST_SR1P_17		ST_SR1P_(ANA_DONE)		// æ¸¬å®šãƒ‡ãƒ¼ã‚¿å‡¦ç†å®Œäº†			(WAIT çŠ¶æ…‹ç„¡ã—)
 //2009.10.28 bagus 2point-distance --{--
-#define ST_SR1P_18		ST_SR1P_(DISTANCE)			// 2“_ŠÔ‹——£‘ª’è
-#define ST_SR1P_19		ST_SR1P_(DISTANCE_CANCEL)	// 2“_ŠÔ‹——£‘ª’èƒLƒƒƒ“ƒZƒ‹
+#define ST_SR1P_18		ST_SR1P_(DISTANCE)			// 2ç‚¹é–“è·é›¢æ¸¬å®š
+#define ST_SR1P_19		ST_SR1P_(DISTANCE_CANCEL)	// 2ç‚¹é–“è·é›¢æ¸¬å®šã‚­ãƒ£ãƒ³ã‚»ãƒ«
 //2009.10.28 bagus 2point-distance --}--
 //2009.10.31 bagus MS --{--
-#define ST_SR1P_20		ST_SR1P_(MS)				// Œ°”÷‹¾‘ª’è
-#define ST_SR1P_21		ST_SR1P_(MS_CANCEL)			// Œ°”÷‹¾‘ª’è
-#define ST_SR1P_22		ST_SR1P_(MS_DONE)			// Œ°”÷‹¾‘ª’è
+#define ST_SR1P_20		ST_SR1P_(MS)				// é¡•å¾®é¡æ¸¬å®š
+#define ST_SR1P_21		ST_SR1P_(MS_CANCEL)			// é¡•å¾®é¡æ¸¬å®š
+#define ST_SR1P_22		ST_SR1P_(MS_DONE)			// é¡•å¾®é¡æ¸¬å®š
 //2009.10.31 bagus MS --}--
-// ó‘Ô‚Ì–¼Ì‚ð’è‹`©
+// çŠ¶æ…‹ã®åç§°ã‚’å®šç¾©â†
 enum STATES_SR_1POINT
 {
-	// \’zŽž‚Í‚O‚É‚È‚Á‚Ä‚¢‚Ü‚·D
-	// ‚Ì‚ÅCÅ‰‚Í‚O‚Æ‚µ‚Ä’è‹`‚³‚ê‚½ó‘Ô‚Å‚·D
-	// ‚µ‚©‚µC‚O‚Ìó‘Ô‚É‘Î‰ž‚·‚éŠÖ”‚ÍŽ©“®“I‚ÉŽÀs‚³‚ê‚Ü‚¹‚ñ‚Ì‚ÅC
-	// •K—v‚ª‚ ‚ê‚Î InitInstance() ‚È‚Ç‚©‚çŽÀs‚·‚é•K—v‚ª‚ ‚è‚Ü‚·D
+	// æ§‹ç¯‰æ™‚ã¯ï¼ã«ãªã£ã¦ã„ã¾ã™ï¼Ž
+	// ã®ã§ï¼Œæœ€åˆã¯ï¼ã¨ã—ã¦å®šç¾©ã•ã‚ŒãŸçŠ¶æ…‹ã§ã™ï¼Ž
+	// ã—ã‹ã—ï¼Œï¼ã®çŠ¶æ…‹ã«å¯¾å¿œã™ã‚‹é–¢æ•°ã¯è‡ªå‹•çš„ã«å®Ÿè¡Œã•ã‚Œã¾ã›ã‚“ã®ã§ï¼Œ
+	// å¿…è¦ãŒã‚ã‚Œã° InitInstance() ãªã©ã‹ã‚‰å®Ÿè¡Œã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼Ž
 
-	// ‚±‚±‚ð•ÏX‚µ‚½ê‡‚Í’¼Œã‚É‚ ‚éƒXƒe[ƒ^ƒX•¶Žš—ñ‚Ì’è‹`‚à‡‚í‚¹‚Ä‚­‚¾‚³‚¢D
+	// ã“ã“ã‚’å¤‰æ›´ã—ãŸå ´åˆã¯ç›´å¾Œã«ã‚ã‚‹ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹æ–‡å­—åˆ—ã®å®šç¾©ã‚‚åˆã‚ã›ã¦ãã ã•ã„ï¼Ž
 
 	ST_SR1P_0 = 0,
 	ST_SR1P_1,
@@ -123,14 +123,14 @@ const LPSTR STATES_SR_1POINT_DISP[] = {
 } ;
 
 //--------------------------------------------------------------------------//
-//	ƒCƒxƒ“ƒg’è‹`
+//	ã‚¤ãƒ™ãƒ³ãƒˆå®šç¾©
 //--------------------------------------------------------------------------//
 enum EVENTS_SR_1POINT
 {
-	EV_SR1P_DO_INIT = 0,		// ‰Šú‰»ŠJŽn
-	EV_SR1P_INIT_DONE,			// ‰Šú‰»I—¹
+	EV_SR1P_DO_INIT = 0,		// åˆæœŸåŒ–é–‹å§‹
+	EV_SR1P_INIT_DONE,			// åˆæœŸåŒ–çµ‚äº†
 // 2009.05.11 K.Matsuo SitePR -->
-	EV_SR1P_SITEPR_NONE,		// SitePR Žg—p‚È‚µ‚Ìê‡‚ÌƒCƒxƒ“ƒg
+	EV_SR1P_SITEPR_NONE,		// SitePR ä½¿ç”¨ãªã—ã®å ´åˆã®ã‚¤ãƒ™ãƒ³ãƒˆ
 	EV_SR1P_SITEPR_AUTO,
 	EV_SR1P_SITEPR_AUTO_OK,
 	EV_SR1P_SITEPR_PREP_MEAS,
@@ -141,94 +141,94 @@ enum EVENTS_SR_1POINT
 	EV_SR1P_SITEPR_MANU_OK,
 	EV_SR1P_SITEPR_MANU_CANCEL,
 // 2009.05.11 K.Matsuo SitePR <--
-	EV_SR1P_IDLE,				// ƒAƒCƒhƒ‹‚Ö
-	EV_SR1P_START,				// ŠJŽn
-	EV_SR1P_ZMOVE_DONE,			// ‘ª’èˆÊ’u‚yˆÚ“®Š®—¹
-	EV_SR1P_ZMOVE_FAIL,			// ‘ª’èˆÊ’u‚yˆÚ“®ŠJŽnŽ¸”s
-	EV_SR1P_MEAS_START,			// ‘ª’èŠJŽn
-	EV_SR1P_MEAS_ERR,			// ‘ª’èƒGƒ‰[
-	EV_SR1P_ANA_ERR,			// ‰ðÍƒGƒ‰[
-	EV_SR1P_MEAS_DONE,			// ‘ª’èŠ®—¹
-	EV_SR1P_AF_START,			// AF ŠJŽn
-	EV_SR1P_AF_DONE,			// AF Š®—¹
+	EV_SR1P_IDLE,				// ã‚¢ã‚¤ãƒ‰ãƒ«ã¸
+	EV_SR1P_START,				// é–‹å§‹
+	EV_SR1P_ZMOVE_DONE,			// æ¸¬å®šä½ç½®ï¼ºç§»å‹•å®Œäº†
+	EV_SR1P_ZMOVE_FAIL,			// æ¸¬å®šä½ç½®ï¼ºç§»å‹•é–‹å§‹å¤±æ•—
+	EV_SR1P_MEAS_START,			// æ¸¬å®šé–‹å§‹
+	EV_SR1P_MEAS_ERR,			// æ¸¬å®šã‚¨ãƒ©ãƒ¼
+	EV_SR1P_ANA_ERR,			// è§£æžã‚¨ãƒ©ãƒ¼
+	EV_SR1P_MEAS_DONE,			// æ¸¬å®šå®Œäº†
+	EV_SR1P_AF_START,			// AF é–‹å§‹
+	EV_SR1P_AF_DONE,			// AF å®Œäº†
 	EV_SR1P_AF_OK,				// AF OK
 	EV_SR1P_AF_NG,				// AF NG
-	EV_SR1P_ANA_DONE,			// ƒf[ƒ^ˆ—Š®—¹
+	EV_SR1P_ANA_DONE,			// ãƒ‡ãƒ¼ã‚¿å‡¦ç†å®Œäº†
 //2009.10.28 bagus 2point-distance
-	EV_SR1P_DISTANCE,			// 2“_ŠÔ‹——£‘ª’èŠJŽn
+	EV_SR1P_DISTANCE,			// 2ç‚¹é–“è·é›¢æ¸¬å®šé–‹å§‹
 //2009.10.28 bagus 2point-dsitance
 //2009.11.03 bagus MS --{--
-	EV_SR1P_MS,					// Œ°”÷‹¾‘ª’è
-	EV_SR1P_MS_NO_ANA,			// Œ°”÷‹¾‘ª’è
+	EV_SR1P_MS,					// é¡•å¾®é¡æ¸¬å®š
+	EV_SR1P_MS_NO_ANA,			// é¡•å¾®é¡æ¸¬å®š
 //2009.11.03 bagus MS --}--
 };
 
 /*
- *	ƒ}ƒNƒ’è‹`
+ *	ãƒžã‚¯ãƒ­å®šç¾©
  */
-// ‚Pƒ|ƒCƒ“ƒg‘ª’èI—¹ƒXƒe[ƒ^ƒX
-#define	TR_SR1P_TRAAF_BUSY		0xffff0605	// AF ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ªƒrƒW[‚Å‚µ‚½
-#define	TR_SR1P_ZMOVE_FAIL		0xffff0611	// Z Ž²ˆÚ“®ŠJŽnŽ¸”s
-/* added 2009.09.01 hmenjo SE ƒwƒbƒhƒIƒtƒZƒbƒg‘Î‰ž(10) ---------- { ---------- */
-#define	TR_SR1P_XYMOVE_FAIL		0xffff0612	// XY Ž²ˆÚ“®ŠJŽnŽ¸”s
-/* added 2009.09.01 hmenjo SE ƒwƒbƒhƒIƒtƒZƒbƒg‘Î‰ž(10) ---------- } ---------- */
-#define	TR_SR1P_MEAS_ERR		0xffff0621	// ‘ª’èƒGƒ‰[
-#define	TR_SR1P_ANA_ERR			0xffff0622	// ‰ðÍƒGƒ‰[
-// ƒŠƒtƒ@ƒŒƒ“ƒX‘ª’èˆÊ’u
+// ï¼‘ãƒã‚¤ãƒ³ãƒˆæ¸¬å®šçµ‚äº†ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
+#define	TR_SR1P_TRAAF_BUSY		0xffff0605	// AF ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ãŒãƒ“ã‚¸ãƒ¼ã§ã—ãŸ
+#define	TR_SR1P_ZMOVE_FAIL		0xffff0611	// Z è»¸ç§»å‹•é–‹å§‹å¤±æ•—
+/* added 2009.09.01 hmenjo SE ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆå¯¾å¿œ(10) ---------- { ---------- */
+#define	TR_SR1P_XYMOVE_FAIL		0xffff0612	// XY è»¸ç§»å‹•é–‹å§‹å¤±æ•—
+/* added 2009.09.01 hmenjo SE ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆå¯¾å¿œ(10) ---------- } ---------- */
+#define	TR_SR1P_MEAS_ERR		0xffff0621	// æ¸¬å®šã‚¨ãƒ©ãƒ¼
+#define	TR_SR1P_ANA_ERR			0xffff0622	// è§£æžã‚¨ãƒ©ãƒ¼
+// ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹æ¸¬å®šä½ç½®
 
 // 2009.08.18 K.Matsuo -->
 typedef STAGE_COORD_XYZ 		MEASPOS;
 // 2009.08.18 K.Matsuo <--
 
 /////////////////////////////////////////////////////////////////////////////
-// CChiefTransiSr1Point ƒXƒŒƒbƒh
+// CChiefTransiSr1Point ã‚¹ãƒ¬ãƒƒãƒ‰
 
 class CChiefTransiSr1Point : public CWinThread, public cActive
 {
 	DECLARE_DYNCREATE(CChiefTransiSr1Point)
 public:
-	CChiefTransiSr1Point(CWnd* pParent = NULL);	// “®“I¶¬‚ÉŽg—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CChiefTransiSr1Point(CWnd* pParent = NULL);	// å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 protected:
 
-// ƒAƒgƒŠƒrƒ…[ƒg
+// ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 public:
 
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
 public:
-/* added 2009.11.30 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh(‰ü)‚Å“®ì ---------- { ---------- */
+/* added 2009.11.30 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰(æ”¹)ã§å‹•ä½œ ---------- { ---------- */
 	long m_lZ_AF;
-/* added 2009.11.30 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh(‰ü)‚Å“®ì ---------- } ---------- */
-/* added 2009.09.01 hmenjo SE ƒwƒbƒhƒIƒtƒZƒbƒg‘Î‰ž(10) ---------- { ---------- */
+/* added 2009.11.30 hmenjo æ¸¬å®š Seq ã¯æŒ‡å®šãƒ˜ãƒƒãƒ‰(æ”¹)ã§å‹•ä½œ ---------- } ---------- */
+/* added 2009.09.01 hmenjo SE ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆå¯¾å¿œ(10) ---------- { ---------- */
 	BOOL IsPointManualAdjust(DWORD dwPointNo);
-/* added 2009.09.01 hmenjo SE ƒwƒbƒhƒIƒtƒZƒbƒg‘Î‰ž(10) ---------- } ---------- */
+/* added 2009.09.01 hmenjo SE ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆå¯¾å¿œ(10) ---------- } ---------- */
 	DWORD m_dwHeartBeat;
 	void HeartBeatPulse(void);
 	void CancelSr1Point(void);
 // 2009.05.11 K.Matsuo SitePR -->
 	BOOL IsCurrLensEqualsRecipeLens(void);
 // 2009.05.11 K.Matsuo SitePR <--
-	MEASPOS m_MeasPosXYZ;	// ‘ª’èˆÊ’u ‹L‰¯
-	MEASPOS m_MeasPosbufXYZ;	// ‘ª’èˆÊ’u ‹L‰¯‘Oƒoƒbƒtƒ@
+	MEASPOS m_MeasPosXYZ;	// æ¸¬å®šä½ç½® è¨˜æ†¶
+	MEASPOS m_MeasPosbufXYZ;	// æ¸¬å®šä½ç½® è¨˜æ†¶å‰ãƒãƒƒãƒ•ã‚¡
 	//Saiki 20090724 Add ----->
-	DWORD m_dwAFValid; //Private‚æ‚èˆÚs
+	DWORD m_dwAFValid; //Privateã‚ˆã‚Šç§»è¡Œ
 	//Saiki 20090724 Add <-----
 	void TransiEvent(const int iEventNo, const cEventParams* const pEvParams = 0);
 	int GetCurrentState(void);
 	bool IsIdle();
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ð¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CChiefTransiSr1Point)
 	public:
 	virtual BOOL InitInstance();
 	virtual int ExitInstance();
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	virtual ~CChiefTransiSr1Point();
 
-	// ó‘Ô•Ê‚Ìˆ—ŠÖ”
+	// çŠ¶æ…‹åˆ¥ã®å‡¦ç†é–¢æ•°
 	void enter_ST_SR1P_INIT(const cEventParams* const pEvParams = 0);
 	void enter_ST_SR1P_IDLE(const cEventParams* const pEvParams = 0);
 // 2009.05.11 K.Matsuo SitePR -->
@@ -261,9 +261,9 @@ protected:
 
 	DECLARE_STATEPROC_MAP(CChiefTransiSr1Point);
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒžãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CChiefTransiSr1Point)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒƒ“ƒoŠÖ”‚ð’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_MSG
 
 	afx_msg void OnTransiEvent(WPARAM wparam, LPARAM lparam);
@@ -271,16 +271,16 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 private:
-/* added 2009.09.10 hmenjo “§‰ß—¦ Seq ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh(17) ---------- { ---------- */
+/* added 2009.09.10 hmenjo é€éŽçŽ‡ Seq ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(17) ---------- { ---------- */
 	MEASMODE_ID m_enMeasMode;
-/* added 2009.09.10 hmenjo “§‰ß—¦ Seq ƒŠƒtƒ@ƒŒƒ“ƒXƒ‚[ƒh(17) ---------- } ---------- */
+/* added 2009.09.10 hmenjo é€éŽçŽ‡ Seq ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ¢ãƒ¼ãƒ‰(17) ---------- } ---------- */
 	BOOL m_bCancelReq;
 	void GetMeasPosXYZ(MEASPOS *pMeasPosXYZ);
-/* deleted 2009.09.01 hmenjo SE ƒwƒbƒhƒIƒtƒZƒbƒg‘Î‰ž(10) ---------- { ---------- */
+/* deleted 2009.09.01 hmenjo SE ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆå¯¾å¿œ(10) ---------- { ---------- */
 //	BOOL IsPointManualAdjust(DWORD dwPointNo);
-/* deleted 2009.09.01 hmenjo SE ƒwƒbƒhƒIƒtƒZƒbƒg‘Î‰ž(10) ---------- } ---------- */
+/* deleted 2009.09.01 hmenjo SE ãƒ˜ãƒƒãƒ‰ã‚ªãƒ•ã‚»ãƒƒãƒˆå¯¾å¿œ(10) ---------- } ---------- */
 	//Saiki 20090724 Delete ----->
-	//DWORD m_dwAFValid; //Public‚ÖˆÚs
+	//DWORD m_dwAFValid; //Publicã¸ç§»è¡Œ
 	//Saiki 20090724 Delete <-----
 	void NotifyComplete(const cEventParams *const pEvParams);
 	DWORD m_dwPointNo;
@@ -296,6 +296,6 @@ private:
 /////////////////////////////////////////////////////////////////////////////
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ð‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_CHIFTRANSISR1POINT_H__44228793_B4D9_4104_BE5A_A9C693AC1349__INCLUDED_)

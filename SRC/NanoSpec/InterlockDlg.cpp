@@ -1,4 +1,4 @@
-// CInterlockDlg.cpp : implementation file
+﻿// CInterlockDlg.cpp : implementation file
 //
 
 #include "stdafx.h"

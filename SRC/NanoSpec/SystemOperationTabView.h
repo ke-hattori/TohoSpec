@@ -1,34 +1,34 @@
-#if !defined(AFX_SYSTEMOPERATIONTABVIEW_H__9D738A6D_2932_41EA_B9BD_9F397D101D33__INCLUDED_)
+ï»¿#if !defined(AFX_SYSTEMOPERATIONTABVIEW_H__9D738A6D_2932_41EA_B9BD_9F397D101D33__INCLUDED_)
 #define AFX_SYSTEMOPERATIONTABVIEW_H__9D738A6D_2932_41EA_B9BD_9F397D101D33__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// SystemOperationTabView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// SystemOperationTabView.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 class CSystemOperationCommonSettingDlg;
 class CSystemOperationSrSettingDlg;
 class CSystemOperationStressSettingDlg;
-//2009.09.02 bagus se SE‹@”\’Ç‰Á --{--
+//2009.09.02 bagus se SEæ©Ÿèƒ½è¿½åŠ  --{--
 class CSystemOperationSeSettingDlg;
-//2009.09.02 bagus se SE‹@”\’Ç‰Á --}--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+//2009.09.02 bagus se SEæ©Ÿèƒ½è¿½åŠ  --}--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 class CSystemOperationCompEASESettingDlg;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.07 bagus CTA ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2009.10.07 bagus CTA è¿½åŠ  --{--
 class CSystemOperationCTASettingDlg;
-// 2009.10.07 bagus CTA ’Ç‰Á --}--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2009.10.07 bagus CTA è¿½åŠ  --}--
+// 2009.10.19 bagus MS è¿½åŠ  --{--
 class CSystemOperationMsSettingDlg;
-// 2009.10.19 bagus MS ’Ç‰Á --}--
-// 2009.11.04 bagus RS ’Ç‰Á --{--
+// 2009.10.19 bagus MS è¿½åŠ  --}--
+// 2009.11.04 bagus RS è¿½åŠ  --{--
 class CSystemOperationRSSettingDlg;
-// 2009.11.04 bagus RS ’Ç‰Á --}--
+// 2009.11.04 bagus RS è¿½åŠ  --}--
 
 
 // ##########################################################################
-// CSystemOperationTabView ƒtƒH[ƒ€ ƒrƒ…[
+// CSystemOperationTabView ãƒ•ã‚©ãƒ¼ãƒ  ãƒ“ãƒ¥ãƒ¼
 // ##########################################################################
 
 #ifndef __AFXEXT_H__
@@ -40,56 +40,56 @@ class CSystemOperationRSSettingDlg;
 class CSystemOperationTabView : public CNanoUI
 {
 protected:
-	CSystemOperationTabView();			// “®“I¶¬‚ÉŽg—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CSystemOperationTabView();			// å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	DECLARE_DYNCREATE(CSystemOperationTabView)
 
-// ƒtƒH[ƒ€ ƒf[ƒ^
+// ãƒ•ã‚©ãƒ¼ãƒ  ãƒ‡ãƒ¼ã‚¿
 public:
 	//{{AFX_DATA(CSystemOperationTabView)
 	enum { IDD = IDD_SYSTEM_OPERATION_TAB_FORM };
-		// ƒƒ‚: ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒf[ƒ^ƒƒ“ƒo‚ð’Ç‰Á‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢: ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒ‡ãƒ¼ã‚¿ãƒ¡ãƒ³ãƒã‚’è¿½åŠ ã—ã¾ã™ã€‚
 	//}}AFX_DATA
 
-// ƒAƒgƒŠƒrƒ…[ƒg
+// ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 public:
 
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 	int m_iHeadType[HEAD_TYPE_MAX + 1];
 	CTabCtrl m_SystemOperationTab;
 	CSystemOperationCommonSettingDlg* m_pSystemOperationCommonSettingDlg;
 	CSystemOperationSrSettingDlg* m_pSystemOperationSrSettingDlg;
 	CSystemOperationStressSettingDlg* m_pSystemOperationStressSettingDlg;
-	//2009.09.02 bagus se SE‹@”\’Ç‰Á --{--
+	//2009.09.02 bagus se SEæ©Ÿèƒ½è¿½åŠ  --{--
 	CSystemOperationSeSettingDlg* m_pSystemOperationSeSettingDlg;
-	//2009.09.02 bagus se SE‹@”\’Ç‰Á --}--
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+	//2009.09.02 bagus se SEæ©Ÿèƒ½è¿½åŠ  --}--
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	CSystemOperationCompEASESettingDlg* m_pSystemOperationCompEASESettingDlg;
-	// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-	// 2009.10.07 bagus CTA ’Ç‰Á --{--
+	// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+	// 2009.10.07 bagus CTA è¿½åŠ  --{--
 	CSystemOperationCTASettingDlg* m_pSystemOperationCTASettingDlg;
-	// 2009.10.07 bagus CTA ’Ç‰Á --}--
-	// 2009.10.19 bagus MS ’Ç‰Á --{--
+	// 2009.10.07 bagus CTA è¿½åŠ  --}--
+	// 2009.10.19 bagus MS è¿½åŠ  --{--
 	CSystemOperationMsSettingDlg* m_pSystemOperationMsSettingDlg;
-	// 2009.10.19 bagus MS ’Ç‰Á --}--
-	// 2009.11.04 bagus RS ’Ç‰Á --{--
+	// 2009.10.19 bagus MS è¿½åŠ  --}--
+	// 2009.11.04 bagus RS è¿½åŠ  --{--
 	CSystemOperationRSSettingDlg* m_pSystemOperationRSSettingDlg;
-	// 2009.11.04 bagus RS ’Ç‰Á --}--
+	// 2009.11.04 bagus RS è¿½åŠ  --}--
 
 	void Tab_Init();
 	void TabChange(int Index);
 	void ShowDialog(int iIndex);
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ð¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CSystemOperationTabView)
 	public:
 	virtual void OnInitialUpdate();
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	virtual ~CSystemOperationTabView();
 #ifdef _DEBUG
@@ -97,7 +97,7 @@ protected:
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒžãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CSystemOperationTabView)
 	afx_msg void OnSelchangeSystemOperationTab(NMHDR* pNMHDR, LRESULT* pResult);
 	//}}AFX_MSG
@@ -105,6 +105,6 @@ protected:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ð‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_SYSTEMOPERATIONTABVIEW_H__9D738A6D_2932_41EA_B9BD_9F397D101D33__INCLUDED_)

@@ -1,14 +1,14 @@
-#if !defined(AFX_RECIPESTRESSSTAGEPROGRAMVIEW_H__6EBAB248_4CD5_43AB_91E7_8EEB1848EDC1__INCLUDED_)
+ï»¿#if !defined(AFX_RECIPESTRESSSTAGEPROGRAMVIEW_H__6EBAB248_4CD5_43AB_91E7_8EEB1848EDC1__INCLUDED_)
 #define AFX_RECIPESTRESSSTAGEPROGRAMVIEW_H__6EBAB248_4CD5_43AB_91E7_8EEB1848EDC1__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// RecipeStressStageProgramView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// RecipeStressStageProgramView.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 /////////////////////////////////////////////////////////////////////////////
-// CRecipeStressStageProgramView ƒtƒH[ƒ€ ƒrƒ…[
+// CRecipeStressStageProgramView ãƒ•ã‚©ãƒ¼ãƒ  ãƒ“ãƒ¥ãƒ¼
 
 #ifndef __AFXEXT_H__
 #include <afxext.h>
@@ -16,16 +16,16 @@
 
 #include "NanoRecipeUI.h"
 #include "ColorStatic.h"
-#include "NanoGraphLib.h"	//Ü‚êüEƒ}ƒbƒsƒ“ƒOƒOƒ‰ƒt—p
+#include "NanoGraphLib.h"	//æŠ˜ã‚Œç·šãƒ»ãƒãƒƒãƒ”ãƒ³ã‚°ã‚°ãƒ©ãƒ•ç”¨
 #include "RecipeStageProgramMeasurementPointGrid.h"
 
 class CRecipeStressStageProgramView : public CNanoRecipeUI
 {
 protected:
-	CRecipeStressStageProgramView();		   // “®“I¶¬‚Ég—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CRecipeStressStageProgramView();		   // å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	DECLARE_DYNCREATE(CRecipeStressStageProgramView)
 
-// ƒtƒH[ƒ€ ƒf[ƒ^
+// ãƒ•ã‚©ãƒ¼ãƒ  ãƒ‡ãƒ¼ã‚¿
 public:
 	//{{AFX_DATA(CRecipeStressStageProgramView)
 	enum { IDD = IDD_RECIPE_STAGE_STRESS_PROGRAM_FORM };
@@ -41,9 +41,9 @@ public:
 	CColorStatic m_stcSampleSizeY;
 	CColorStatic m_stcSampleOriginX;
 	CColorStatic m_stcSampleOriginY;
-// 2009.09.04 bagus stress ƒfƒXƒLƒ…[íœ --{--
+// 2009.09.04 bagus stress ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼å‰Šé™¤ --{--
 //	CColorStatic m_stcDeskewMode;
-// 2009.09.04 bagus stress ƒfƒXƒLƒ…[íœ --}--
+// 2009.09.04 bagus stress ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼å‰Šé™¤ --}--
 	CRecipeStageProgramMeasurementPointGrid m_MeasurementPointGrid;
 	CRecipeStageProgramMeasurementPointGrid m_MeasurementPointGrid2;
 
@@ -51,30 +51,30 @@ public:
 	CShadeButtonST m_AllClearButton;
 	CShadeButtonST m_TeachingButton;
 	CShadeButtonST m_RedrawPointButton;
-// 2009.09.04 bagus stress ƒfƒXƒLƒ…[íœ --{--
+// 2009.09.04 bagus stress ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼å‰Šé™¤ --{--
 //	CShadeButtonST m_DeskewButton;
-// 2009.09.04 bagus stress ƒfƒXƒLƒ…[íœ --}--
+// 2009.09.04 bagus stress ãƒ‡ã‚¹ã‚­ãƒ¥ãƒ¼å‰Šé™¤ --}--
 
 
-// ƒAƒgƒŠƒrƒ…[ƒg
+// ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 public:
 
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CRecipeStressStageProgramView)
 	public:
 	virtual void OnInitialUpdate();
-	// 2009.09.04 bagus stress Esc·°ˆ— --{--
+	// 2009.09.04 bagus stress Escï½·ï½°å‡¦ç† --{--
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	// 2009.09.04 bagus stress Esc·°ˆ— --}--
+	// 2009.09.04 bagus stress Escï½·ï½°å‡¦ç† --}--
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ã‚µãƒãƒ¼ãƒˆ
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	virtual ~CRecipeStressStageProgramView();
 	virtual BOOL IsDataChanged();
@@ -88,7 +88,7 @@ protected:
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CRecipeStressStageProgramView)
 	afx_msg void OnAllcheckButton();
 	afx_msg void OnAllClearButton();
@@ -115,13 +115,13 @@ protected:
 	void SamplePointGraph_Init();
 
 private:
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ä¿®æ­£ --{--
 	BOOL LoadScanPoint();
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ä¿®æ­£ --}--
 	BOOL CheckMeasurementLineSectionData();
-// 2009.09.07 bagus stress Line/Section”C³ --{--
+// 2009.09.07 bagus stress Line/Sectionæ•°ä¿®æ­£ --{--
 	WORD CheckLineSectionNum();
-// 2009.09.07 bagus stress Line/Section”C³ --}--
+// 2009.09.07 bagus stress Line/Sectionæ•°ä¿®æ­£ --}--
 	SYSTEM_CONFIG		m_SystemConfig;
 	STAGE_PROG_INFO_HDR m_StageProgInfoHdr;
 	STAGE_PROG_INFO_HDR m_OldStageProgInfoHdr;
@@ -168,7 +168,7 @@ private:
 	SITE_PATTERN	m_OldSitePoint[SCAN_POINT_MAX];
 
 	//2009.09.01 bagus stress --{--
-	//ƒOƒŠƒbƒhã‚Éƒ`ƒFƒbƒNƒ{ƒbƒNƒX‚ğ’u‚­‚½‚ß‚Ìˆ—
+	//ã‚°ãƒªãƒƒãƒ‰ä¸Šã«ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ã‚’ç½®ããŸã‚ã®å‡¦ç†
 	//struct {
 	//	CGridCtrl *Grid;
 	//	CButton *CheckBox[STRESS_LINES_MAX*STRESS_SECTIONS_MAX];
@@ -177,19 +177,19 @@ private:
 	//void ClearLSValidCheckBox();
 	//2009.09.01 bagus stress --}--
 
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ä¿®æ­£ --{--
 	BOOL	m_bFirst;
 	BOOL	m_bUseLine[STRESS_LINES_MAX];
-// 2009.09.10 bagus stress C³ --}--
+// 2009.09.10 bagus stress ä¿®æ­£ --}--
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridä¿®æ­£ --{--
 	int	m_nSysVScrollWidth;
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridä¿®æ­£ --}--
 
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --{--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --{--
 	STRESS_ELASTIC_TABLE	m_ElasticTable;
 	void InitCombo_MaterialElasticModulus();
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --}--
+// 2009.11.09 bagus Stress è¿½åŠ å¤‰æ›´ --}--
 
 	CMainFrame* m_pMainFrame;
 	CNanoSpecDoc* m_pDoc;
@@ -198,6 +198,6 @@ private:
 /////////////////////////////////////////////////////////////////////////////
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_RECIPESTRESSSTAGEPROGRAMVIEW_H__6EBAB248_4CD5_43AB_91E7_8EEB1848EDC1__INCLUDED_)

@@ -1,4 +1,4 @@
-const TCHAR* ls_pszHWSMsg[] = {
+﻿const TCHAR* ls_pszHWSMsg[] = {
 //		"abcde0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789",
 		"                                                                                                         ",
 		"     H           H    W     W     W     SSSSSSSSSSS                                                      ",

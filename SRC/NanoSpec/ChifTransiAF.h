@@ -1,40 +1,40 @@
-#if !defined(AFX_CHIFTRANSIAF_H__44228793_B4D9_4104_BE5A_A9C693AC1349__INCLUDED_)
+ï»¿#if !defined(AFX_CHIFTRANSIAF_H__44228793_B4D9_4104_BE5A_A9C693AC1349__INCLUDED_)
 #define AFX_CHIFTRANSIAF_H__44228793_B4D9_4104_BE5A_A9C693AC1349__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// ChifTransiAF.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// ChifTransiAF.h : ãƒ˜ãƒƒãƒ€ãƒ¼ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
-#include <afxmt.h>	// CEvent ‚Æ CSingleLock ‚Å•K—v‚Å‚·
+#include <afxmt.h>	// CEvent ã¨ CSingleLock ã§å¿…è¦ã§ã™
 
 //--------------------------------------------------------------------------//
-//	ó‘Ô’è‹`
+//	çŠ¶æ…‹å®šç¾©
 //--------------------------------------------------------------------------//
 #define	_ST_AAF_DISP(x)	_T(#x)
 #define	ST_AAF_DISP(x)	_ST_AAF_DISP(x)
 #define	ST_AAF_(x)		ST_AAF_##x
-// ó‘Ô‚Ì–¼Ì‚ð’è‹`¨
-//		‚±‚±‚ð’Ç‰Áíœ‚µ‚½ê‡‚Í ST_xxx_n ‚Ì”Ô†‚É‘Î‰ž‚µ‚½
-//		‰º‹L‚Ì ST_xxx_n ‚Æ ST_xxx_DISP_n ‚à‡‚í‚¹‚Ä‚­‚¾‚³‚¢D
-#define	ST_AAF_0		ST_AAF_(INIT)			// ‰Šúó‘Ô
-#define	ST_AAF_1		ST_AAF_(IDLE)			// ƒAƒCƒhƒ‹
-#define	ST_AAF_2		ST_AAF_(AF)				// AF Š®—¹‘Ò‚¿							(WAIT ó‘Ô–³‚µ)
-#define	ST_AAF_3		ST_AAF_(POPUP)			// ƒ|ƒbƒvƒAƒbƒvI—¹‘Ò‚¿
-#define	ST_AAF_4		ST_AAF_(POPUP_RETRY)	// ƒ|ƒbƒvƒAƒbƒvI—¹ƒŠƒgƒ‰ƒCƒ{ƒ^ƒ“		(WAIT ó‘Ô–³‚µ)
-#define	ST_AAF_5		ST_AAF_(POPUP_IGNORE)	// ƒ|ƒbƒvƒAƒbƒvI—¹ AF –³Ž‹ƒ{ƒ^ƒ“		(WAIT ó‘Ô–³‚µ)
-#define	ST_AAF_6		ST_AAF_(POPUP_SKIP)		// ƒ|ƒbƒvƒAƒbƒvI—¹ƒXƒLƒbƒvƒ{ƒ^ƒ“		(WAIT ó‘Ô–³‚µ)
-#define	ST_AAF_7		ST_AAF_(POPUP_CANCEL)	// ƒ|ƒbƒvƒAƒbƒvI—¹ƒLƒƒƒ“ƒZƒ‹ƒ{ƒ^ƒ“		(WAIT ó‘Ô–³‚µ)
-// ó‘Ô‚Ì–¼Ì‚ð’è‹`©
+// çŠ¶æ…‹ã®åç§°ã‚’å®šç¾©â†’
+//		ã“ã“ã‚’è¿½åŠ å‰Šé™¤ã—ãŸå ´åˆã¯ ST_xxx_n ã®ç•ªå·ã«å¯¾å¿œã—ãŸ
+//		ä¸‹è¨˜ã® ST_xxx_n ã¨ ST_xxx_DISP_n ã‚‚åˆã‚ã›ã¦ãã ã•ã„ï¼Ž
+#define	ST_AAF_0		ST_AAF_(INIT)			// åˆæœŸçŠ¶æ…‹
+#define	ST_AAF_1		ST_AAF_(IDLE)			// ã‚¢ã‚¤ãƒ‰ãƒ«
+#define	ST_AAF_2		ST_AAF_(AF)				// AF å®Œäº†å¾…ã¡							(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_AAF_3		ST_AAF_(POPUP)			// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—çµ‚äº†å¾…ã¡
+#define	ST_AAF_4		ST_AAF_(POPUP_RETRY)	// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—çµ‚äº†ãƒªãƒˆãƒ©ã‚¤ãƒœã‚¿ãƒ³		(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_AAF_5		ST_AAF_(POPUP_IGNORE)	// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—çµ‚äº† AF ç„¡è¦–ãƒœã‚¿ãƒ³		(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_AAF_6		ST_AAF_(POPUP_SKIP)		// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—çµ‚äº†ã‚¹ã‚­ãƒƒãƒ—ãƒœã‚¿ãƒ³		(WAIT çŠ¶æ…‹ç„¡ã—)
+#define	ST_AAF_7		ST_AAF_(POPUP_CANCEL)	// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—çµ‚äº†ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒœã‚¿ãƒ³		(WAIT çŠ¶æ…‹ç„¡ã—)
+// çŠ¶æ…‹ã®åç§°ã‚’å®šç¾©â†
 enum STATES_AAF
 {
-	// \’zŽž‚Í‚O‚É‚È‚Á‚Ä‚¢‚Ü‚·D
-	// ‚Ì‚ÅCÅ‰‚Í‚O‚Æ‚µ‚Ä’è‹`‚³‚ê‚½ó‘Ô‚Å‚·D
-	// ‚µ‚©‚µC‚O‚Ìó‘Ô‚É‘Î‰ž‚·‚éŠÖ”‚ÍŽ©“®“I‚ÉŽÀs‚³‚ê‚Ü‚¹‚ñ‚Ì‚ÅC
-	// •K—v‚ª‚ ‚ê‚Î InitInstance() ‚È‚Ç‚©‚çŽÀs‚·‚é•K—v‚ª‚ ‚è‚Ü‚·D
+	// æ§‹ç¯‰æ™‚ã¯ï¼ã«ãªã£ã¦ã„ã¾ã™ï¼Ž
+	// ã®ã§ï¼Œæœ€åˆã¯ï¼ã¨ã—ã¦å®šç¾©ã•ã‚ŒãŸçŠ¶æ…‹ã§ã™ï¼Ž
+	// ã—ã‹ã—ï¼Œï¼ã®çŠ¶æ…‹ã«å¯¾å¿œã™ã‚‹é–¢æ•°ã¯è‡ªå‹•çš„ã«å®Ÿè¡Œã•ã‚Œã¾ã›ã‚“ã®ã§ï¼Œ
+	// å¿…è¦ãŒã‚ã‚Œã° InitInstance() ãªã©ã‹ã‚‰å®Ÿè¡Œã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼Ž
 
-	// ‚±‚±‚ð•ÏX‚µ‚½ê‡‚Í’¼Œã‚É‚ ‚éƒXƒe[ƒ^ƒX•¶Žš—ñ‚Ì’è‹`‚à‡‚í‚¹‚Ä‚­‚¾‚³‚¢D
+	// ã“ã“ã‚’å¤‰æ›´ã—ãŸå ´åˆã¯ç›´å¾Œã«ã‚ã‚‹ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹æ–‡å­—åˆ—ã®å®šç¾©ã‚‚åˆã‚ã›ã¦ãã ã•ã„ï¼Ž
 
 	ST_AAF_0 = 0,
 	ST_AAF_1,
@@ -57,39 +57,39 @@ const LPSTR STATES_AAF_DISP[] = {
 };
 
 //--------------------------------------------------------------------------//
-//	ƒCƒxƒ“ƒg’è‹`
+//	ã‚¤ãƒ™ãƒ³ãƒˆå®šç¾©
 //--------------------------------------------------------------------------//
 enum EVENTS_AAF
 {
-	EV_AAF_DO_INIT = 0,			// ‰Šú‰»ŠJŽn
-	EV_AAF_INIT_DONE,			// ‰Šú‰»I—¹
-	EV_AAF_IDLE,				// ƒAƒCƒhƒ‹‚Ö
-	EV_AAF_START,				// ƒI[ƒgƒtƒH[ƒJƒXŠJŽn
+	EV_AAF_DO_INIT = 0,			// åˆæœŸåŒ–é–‹å§‹
+	EV_AAF_INIT_DONE,			// åˆæœŸåŒ–çµ‚äº†
+	EV_AAF_IDLE,				// ã‚¢ã‚¤ãƒ‰ãƒ«ã¸
+	EV_AAF_START,				// ã‚ªãƒ¼ãƒˆãƒ•ã‚©ãƒ¼ã‚«ã‚¹é–‹å§‹
 	EV_AAF_OK,					// AF OK
-	EV_AAF_RO_PROCEED,			// AF NG ƒŠƒgƒ‰ƒCƒI[ƒoŽ©“®‹­§‘ª’è
-	EV_AAF_RO_SKIP,				// AF NG ƒŠƒgƒ‰ƒCƒI[ƒoŽ©“®ƒXƒLƒbƒv
-	EV_AAF_RO_CANCEL,			// AF NG ƒŠƒgƒ‰ƒCƒI[ƒoƒLƒƒƒ“ƒZƒ‹
-	EV_AAF_RO_POPUP,			// AF NG ƒŠƒgƒ‰ƒCƒI[ƒoƒ|ƒbƒvƒAƒbƒv
-	EV_AAF_POPUP_RETRY,			// ƒ|ƒbƒvƒAƒbƒv ƒŠƒgƒ‰ƒCƒ{ƒ^ƒ“
-	EV_AAF_POPUP_IGNORE,		// ƒ|ƒbƒvƒAƒbƒv AF –³Ž‹ƒ{ƒ^ƒ“
-	EV_AAF_POPUP_SKIP,			// ƒ|ƒbƒvƒAƒbƒv ƒXƒLƒbƒvƒ{ƒ^ƒ“
-	EV_AAF_POPUP_CANCEL,		// ƒ|ƒbƒvƒAƒbƒv ƒLƒƒƒ“ƒZƒ‹ƒ{ƒ^ƒ“
+	EV_AAF_RO_PROCEED,			// AF NG ãƒªãƒˆãƒ©ã‚¤ã‚ªãƒ¼ãƒè‡ªå‹•å¼·åˆ¶æ¸¬å®š
+	EV_AAF_RO_SKIP,				// AF NG ãƒªãƒˆãƒ©ã‚¤ã‚ªãƒ¼ãƒè‡ªå‹•ã‚¹ã‚­ãƒƒãƒ—
+	EV_AAF_RO_CANCEL,			// AF NG ãƒªãƒˆãƒ©ã‚¤ã‚ªãƒ¼ãƒã‚­ãƒ£ãƒ³ã‚»ãƒ«
+	EV_AAF_RO_POPUP,			// AF NG ãƒªãƒˆãƒ©ã‚¤ã‚ªãƒ¼ãƒãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—
+	EV_AAF_POPUP_RETRY,			// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ— ãƒªãƒˆãƒ©ã‚¤ãƒœã‚¿ãƒ³
+	EV_AAF_POPUP_IGNORE,		// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ— AF ç„¡è¦–ãƒœã‚¿ãƒ³
+	EV_AAF_POPUP_SKIP,			// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ— ã‚¹ã‚­ãƒƒãƒ—ãƒœã‚¿ãƒ³
+	EV_AAF_POPUP_CANCEL,		// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ— ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒœã‚¿ãƒ³
 };
 
 /////////////////////////////////////////////////////////////////////////////
-// CChiefTransiAF ƒXƒŒƒbƒh
+// CChiefTransiAF ã‚¹ãƒ¬ãƒƒãƒ‰
 
 class CChiefTransiAF : public CWinThread, public cActive
 {
 	DECLARE_DYNCREATE(CChiefTransiAF)
 public:
-	CChiefTransiAF(CWnd* pParent = NULL);	// “®“I¶¬‚ÉŽg—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	CChiefTransiAF(CWnd* pParent = NULL);	// å‹•çš„ç”Ÿæˆã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 protected:
 
-// ƒAƒgƒŠƒrƒ…[ƒg
+// ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 public:
 
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 	DWORD m_dwHeartBeat;
 	void HeartBeatPulse(void);
@@ -98,19 +98,19 @@ public:
 	int GetCurrentState(void);
 	bool IsIdle();
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ð¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CChiefTransiAF)
 	public:
 	virtual BOOL InitInstance();
 	virtual int ExitInstance();
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
 	virtual ~CChiefTransiAF();
 
-	// ó‘Ô•Ê‚Ìˆ—ŠÖ”
+	// çŠ¶æ…‹åˆ¥ã®å‡¦ç†é–¢æ•°
 	void enter_ST_AAF_INIT(const cEventParams* const pEvParams = 0);
 	void enter_ST_AAF_IDLE(const cEventParams* const pEvParams = 0);
 	void enter_ST_AAF_AF(const cEventParams* const pEvParams = 0);
@@ -122,9 +122,9 @@ protected:
 
 	DECLARE_STATEPROC_MAP(CChiefTransiAF);
 
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒžãƒƒãƒ—é–¢æ•°
 	//{{AFX_MSG(CChiefTransiAF)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒƒ“ƒoŠÖ”‚ð’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒ¡ãƒ³ãƒé–¢æ•°ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_MSG
 
 	afx_msg void OnTransiEvent(WPARAM wparam, LPARAM lparam);
@@ -144,6 +144,6 @@ private:
 /////////////////////////////////////////////////////////////////////////////
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ð‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ã¯å‰è¡Œã®ç›´å‰ã«è¿½åŠ ã®å®£è¨€ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
 
 #endif // !defined(AFX_CHIFTRANSIAF_H__44228793_B4D9_4104_BE5A_A9C693AC1349__INCLUDED_)

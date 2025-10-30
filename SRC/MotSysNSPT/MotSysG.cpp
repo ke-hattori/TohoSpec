@@ -1,4 +1,4 @@
-// MotSys.cpp : �A�v���P�[�V�����p�N���X�̒�`���s���܂��B
+﻿// MotSys.cpp : �A�v���P�[�V�����p�N���X�̒�`���s���܂��B
 //
 
 #include "stdafx.h"

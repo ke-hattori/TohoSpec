@@ -1,4 +1,4 @@
-// AnalogChannelItem.h: interface for the AnalogChannelItem class.
+﻿// AnalogChannelItem.h: interface for the AnalogChannelItem class.
 //
 //////////////////////////////////////////////////////////////////////
 

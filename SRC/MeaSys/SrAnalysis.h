@@ -1,11 +1,11 @@
-#pragma once
+ï»¿#pragma once
 
 #define NMMAX					   (1000)
 
 #include "DdeClient.hxx"
 
 #if 0
-// CIE’è‹`ƒf[ƒ^
+// CIEå®šç¾©ãƒ‡ãƒ¼ã‚¿
 typedef struct _CIE_xyzdata{
 	//'cieLambda  As Double    '380nm to 780 nm
 	double xbar;
@@ -32,9 +32,9 @@ typedef struct _CIE_RESULT_ITEMS{
 	double cieStarU;
 	double cieStarV;
 
-	double cieTempXn;	 //'ŒvZtempiƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‚Ì‚½‚ßtemp‚àƒOƒ[ƒoƒ‹‰»‚ª•K—vj
-	double cieTempYn;	 //'ŒvZtempiƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‚Ì‚½‚ßtemp‚àƒOƒ[ƒoƒ‹‰»‚ª•K—vj
-	double cieTempZn;	 //'ŒvZtempiƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‚Ì‚½‚ßtemp‚àƒOƒ[ƒoƒ‹‰»‚ª•K—vj
+	double cieTempXn;	 //'è¨ˆç®—tempï¼ˆãƒªã‚­ãƒ£ãƒªãƒ–ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®ãŸã‚tempã‚‚ã‚°ãƒ­ãƒ¼ãƒãƒ«åŒ–ãŒå¿…è¦ï¼‰
+	double cieTempYn;	 //'è¨ˆç®—tempï¼ˆãƒªã‚­ãƒ£ãƒªãƒ–ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®ãŸã‚tempã‚‚ã‚°ãƒ­ãƒ¼ãƒãƒ«åŒ–ãŒå¿…è¦ï¼‰
+	double cieTempZn;	 //'è¨ˆç®—tempï¼ˆãƒªã‚­ãƒ£ãƒªãƒ–ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®ãŸã‚tempã‚‚ã‚°ãƒ­ãƒ¼ãƒãƒ«åŒ–ãŒå¿…è¦ï¼‰
 
 	_CIE_RESULT_ITEMS::_CIE_RESULT_ITEMS(){ZeroMemory(this, sizeof(_CIE_RESULT_ITEMS));}
 } CIE_RESULT_ITEMS, *PCIE_RESULT_ITEMS;
@@ -54,9 +54,9 @@ public:
 	BOOL ComputeRate(ANALYSISDATA* pAnalysisData, const SCANDATA scanData[], const MEAS_PROG_INFO* pMeasProgInfo);
 	void ComputeCIEpart1(const MEAS_PROG_INFO* pMeasProgInfo, const SCANDATA scanData[]);
 	void ComputeCIEpart2();
-/* added 2016.02.24 hmenjo ƒoƒbƒ`ˆ— ---------- { ---------- */
+/* added 2016.02.24 hmenjo ãƒãƒƒãƒå‡¦ç† ---------- { ---------- */
 	BOOL CopyAft2AdapFileSpecified(double dWavelengthStep, double dXmpAngle, LPCTSTR ptszFullPath = _T("C:\\WVASE32\\Adap\\aft2adap.dat"));
-/* added 2016.02.24 hmenjo ƒoƒbƒ`ˆ— ---------- } ---------- */
+/* added 2016.02.24 hmenjo ãƒãƒƒãƒå‡¦ç† ---------- } ---------- */
 
 protected:
 	BOOL Readsio2File(const MEAS_PROG_INFO* pMeasProgInfo);

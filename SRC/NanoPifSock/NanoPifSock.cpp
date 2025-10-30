@@ -1,4 +1,4 @@
-// NanoPifSock.cpp : Defines the class behaviors for the application.
+ï»¿// NanoPifSock.cpp : Defines the class behaviors for the application.
 //
 
 #include "stdafx.h"
@@ -42,13 +42,13 @@ CNanoPifSockApp theApp;
 
 BOOL CNanoPifSockApp::InitInstance()
 {
-	// ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Ì“ñd‹N“®–hŽ~
+	// ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®äºŒé‡èµ·å‹•é˜²æ­¢
 	::CreateMutex(NULL, TRUE, m_pszExeName);
 	if ( ::GetLastError() == ERROR_ALREADY_EXISTS ) {
 		return FALSE;
 	}
 
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 	g_lAppNameType = APP_NAME_NANO; // default application name
 	for(int i = 0; i < APP_NAME_MAX; i++){
 		if(_tcsncmp(m_pszExeName, g_lpszAppPrefix4[i], 4) == 0){
@@ -56,7 +56,7 @@ BOOL CNanoPifSockApp::InitInstance()
 			break;
 		}
 	}
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 
 	if (!AfxSocketInit())
 	{

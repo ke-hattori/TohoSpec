@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "../../INC/ConfigFile.hxx"
 #include "ScanRange.h"
 

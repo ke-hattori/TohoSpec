@@ -1,4 +1,4 @@
-// AutoFocusSettingDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// AutoFocusSettingDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -20,23 +20,23 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CAutoFocusSettingDlg ƒ_ƒCƒAƒƒO
+// CAutoFocusSettingDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 
 CAutoFocusSettingDlg::CAutoFocusSettingDlg(CWnd* pParent /*=NULL*/)
 	: COverlayDialog(CAutoFocusSettingDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CAutoFocusSettingDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_INIT
 
-//2009.09.24 bagus stress ‹@”\’Ç‰Á --{--
+//2009.09.24 bagus stress æ©Ÿèƒ½è¿½åŠ  --{--
 	m_lX = 0;
 	m_lY = 0;
 	m_lZ = 0;
 
 	m_wHeadType = HEAD_TYPE_SR;
-//2009.09.24 bagus stress ‹@”\’Ç‰Á --}--
+//2009.09.24 bagus stress æ©Ÿèƒ½è¿½åŠ  --}--
 }
 
 
@@ -44,7 +44,7 @@ void CAutoFocusSettingDlg::DoDataExchange(CDataExchange* pDX)
 {
 	COverlayDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CAutoFocusSettingDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ãƒ¡ãƒ¢ - ClassWizard ã¯ã“ã®ä½ç½®ã«ãƒãƒƒãƒ”ãƒ³ã‚°ç”¨ã®ãƒã‚¯ãƒ­ã‚’è¿½åŠ ã¾ãŸã¯å‰Šé™¤ã—ã¾ã™ã€‚
 	//}}AFX_DATA_MAP
 	DDX_Control(pDX, IDC_SETTING_POINT_BUTTON, m_SettingPointButton);
 }
@@ -58,7 +58,7 @@ BEGIN_MESSAGE_MAP(CAutoFocusSettingDlg, COverlayDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CAutoFocusSettingDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CAutoFocusSettingDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 //                                                                         //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -85,8 +85,8 @@ BOOL CAutoFocusSettingDlg::OnInitDialog()
 
 	//Saiki 20091016 Add <-----
 
-//2009.09.24 bagus stress ‹@”\’Ç‰Á --{--
-	//SampleƒZƒbƒg
+//2009.09.24 bagus stress æ©Ÿèƒ½è¿½åŠ  --{--
+	//Sampleã‚»ãƒƒãƒˆ
 	SetFileName(m_StageProgInfoHdr.SampleInfo.szName);
 	SetSampleMode(1);
 
@@ -104,10 +104,10 @@ BOOL CAutoFocusSettingDlg::OnInitDialog()
 //	RCP_DATA rcp_data;
 //	m_pDoc->GetRcpData(&rcp_data);
 //	m_wHeadType = rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType;
-//2009.09.24 bagus stress ‹@”\’Ç‰Á --}--
+//2009.09.24 bagus stress æ©Ÿèƒ½è¿½åŠ  --}--
 	COverlayDialog::OnInitDialog();
 
-//2009.09.24 bagus stress ‹@”\’Ç‰Á --{--
+//2009.09.24 bagus stress æ©Ÿèƒ½è¿½åŠ  --{--
 	///// SettingPoint Button /////
 	m_SettingPointButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_SettingPointButton.DrawFlatFocus(TRUE);
@@ -141,43 +141,43 @@ BOOL CAutoFocusSettingDlg::OnInitDialog()
 		GetDlgItem(IDC_POSITION_Z)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_SETTING_POINT_BUTTON)->ShowWindow(SW_HIDE);
 	}
-//2009.09.24 bagus stress ‹@”\’Ç‰Á --}--
+//2009.09.24 bagus stress æ©Ÿèƒ½è¿½åŠ  --}--
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-				  // —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„ã¨ãã€æˆ»ã‚Šå€¤ã¯ TRUE ã¨ãªã‚Šã¾ã™
+				  // ä¾‹å¤–: OCX ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ ãƒšãƒ¼ã‚¸ã®æˆ»ã‚Šå€¤ã¯ FALSE ã¨ãªã‚Šã¾ã™
 }
 
 /////////////////////////////////////////////////////////////////////////////
 //
 void CAutoFocusSettingDlg::OnOK()
 {
-//2009.09.24 bagus stress ‹@”\’Ç‰Á --{--
+//2009.09.24 bagus stress æ©Ÿèƒ½è¿½åŠ  --{--
 	CString strMsg, strTitle;
 
 	if (m_wHeadType == HEAD_TYPE_STRESS) {
-		// Y²‚Ìƒ`ƒFƒbƒN‚ğs‚¤
+		// Yè»¸ã®ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†
 		NS_StageGetPos(&m_CurrPos);
 		if (m_lY != m_CurrPos.lY) {
-			// Y²‚ÌˆÚ“®‚Í‹Ö~
+			// Yè»¸ã®ç§»å‹•ã¯ç¦æ­¢
 			LoadStringML(IDS_OVERLAY_MOVE_Y_AXIS, strMsg, "The value of Y axis has been changed.");
 			LoadStringML(IDS_TITLE_WARNING, strTitle, "WARNING");
 			MessageBox(strMsg, strTitle, MB_OK);
 			return;
 		}
 	} else {
-		// Y²‚Ìƒ`ƒFƒbƒN‚Í•s—v
+		// Yè»¸ã®ãƒã‚§ãƒƒã‚¯ã¯ä¸è¦
 	}
-//2009.09.24 bagus stress ‹@”\’Ç‰Á --}--
+//2009.09.24 bagus stress æ©Ÿèƒ½è¿½åŠ  --}--
 
 	COverlayDialog::OnOK();
 
-	//ƒ`[ƒt‚ÖƒƒbƒZ[ƒW‚ğ“Š‚°‚é
+	//ãƒãƒ¼ãƒ•ã¸ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æŠ•ã’ã‚‹
 	HWND l_hChiefDlg = ::FindWindow(0, CHIEF_DLG_CAPTION);
 	if (0 != l_hChiefDlg) {
-		// AFƒ|ƒbƒvƒAƒbƒvI—¹‰“š
+		// AFãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—çµ‚äº†å¿œç­”
 		::PostMessage(l_hChiefDlg, WM_DISP_AF_POPUP_END, 1, MAKELPARAM(MAKEWORD(m_XY_ButtonUseHistry,m_Z_ButtonUseHistry),MAKEWORD(m_AutoFocusUseHistry,m_AutoFocusResult)));
 	} else {
-		//ƒGƒ‰[ˆ—‹Lq‚·‚é‚±‚ÆI
+		//ã‚¨ãƒ©ãƒ¼å‡¦ç†è¨˜è¿°ã™ã‚‹ã“ã¨ï¼
 	}
 }
 
@@ -187,44 +187,44 @@ void CAutoFocusSettingDlg::OnCancel()
 {
 	COverlayDialog::OnCancel();
 
-	//ƒ`[ƒt‚ÖƒƒbƒZ[ƒW‚ğ“Š‚°‚é
+	//ãƒãƒ¼ãƒ•ã¸ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æŠ•ã’ã‚‹
 	HWND l_hChiefDlg = ::FindWindow(0, CHIEF_DLG_CAPTION);
 	if (0 != l_hChiefDlg) {
-		// AFƒ|ƒbƒvƒAƒbƒvI—¹‰“š
+		// AFãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—çµ‚äº†å¿œç­”
 		::PostMessage(l_hChiefDlg, WM_DISP_AF_POPUP_END, 3, MAKELPARAM(MAKEWORD(m_XY_ButtonUseHistry,m_Z_ButtonUseHistry),MAKEWORD(m_AutoFocusUseHistry,m_AutoFocusResult)));
 	} else {
-		//ƒGƒ‰[ˆ—‹Lq‚·‚é‚±‚ÆI
+		//ã‚¨ãƒ©ãƒ¼å‡¦ç†è¨˜è¿°ã™ã‚‹ã“ã¨ï¼
 	}
 }
 
 void CAutoFocusSettingDlg::OnSettingPointButton()
 {
-// 2010.02.02 K.Matsuo PIN UPPER ƒCƒ“ƒ^[ƒƒbƒNƒ`ƒFƒbƒN˜R‚ê‘Î‰ -->
+// 2010.02.02 K.Matsuo PIN UPPER ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ãƒã‚§ãƒƒã‚¯æ¼ã‚Œå¯¾å¿œ -->
 	CString strMsg;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;} // ƒƒ“ƒeƒiƒ“ƒXˆÙí
+	// â–¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–¼
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// æ±æœ‹ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;} // ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ç•°å¸¸
 	}
-	else{												// ’Êí“®ì
+	else{												// é€šå¸¸å‹•ä½œ
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
+	// å„I/Oãƒã‚§ãƒƒã‚¯
 	if(m_pDoc->IsInterLock() == TRUE){return;}
-	if( nexioIsMovo2Alarm() 	!= OFF){	AlarmIf_Set(ALID_StageError);	return;} // MOVOƒAƒ‰[ƒ€ 				‚k
+	if( nexioIsMovo2Alarm() 	!= OFF){	AlarmIf_Set(ALID_StageError);	return;} // MOVOã‚¢ãƒ©ãƒ¼ãƒ  				ï¼ï¼¬
 	if(m_pDoc->CheckUnitStatus() == TRUE){return;}
 
-	// ƒVƒƒƒbƒ^[ˆÈŠO‚ª“®‚¢‚Ä‚¢‚½‚ç“®ì‹Ö~
+	// ã‚·ãƒ£ãƒƒã‚¿ãƒ¼ä»¥å¤–ãŒå‹•ã„ã¦ã„ãŸã‚‰å‹•ä½œç¦æ­¢
 	if( m_pMainFrame->GetJoyStickMode()==0 ){
 		if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 			LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 			m_pDoc->MessageStringIf_Set(strMsg);
 			return;
-		}	// ƒXƒe[ƒW“®ì’†
+		}	// ã‚¹ãƒ†ãƒ¼ã‚¸å‹•ä½œä¸­
 	}
 	if(m_pDoc->CheckActiveFlag() == TRUE){return;}
 
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
-// 2010.02.02 K.Matsuo PIN UPPER ƒCƒ“ƒ^[ƒƒbƒNƒ`ƒFƒbƒN˜R‚ê‘Î‰ <--
+	// â–²ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯æ¡ä»¶â–²
+// 2010.02.02 K.Matsuo PIN UPPER ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ­ãƒƒã‚¯ãƒã‚§ãƒƒã‚¯æ¼ã‚Œå¯¾å¿œ <--
 
 // 2009.12.02 K.Matsuo SampleOrigin -->
 	SAMPLEINFO sampleInfo;
@@ -248,7 +248,7 @@ HBRUSH CAutoFocusSettingDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = COverlayDialog::OnCtlColor(pDC, pWnd, nCtlColor);
 
-	// TODO: ‚±‚ÌˆÊ’u‚Å DC ‚ÌƒAƒgƒŠƒrƒ…[ƒg‚ğ•ÏX‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ã“ã®ä½ç½®ã§ DC ã®ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã‚’å¤‰æ›´ã—ã¦ãã ã•ã„
 
 	switch(nCtlColor){
 	case CTLCOLOR_STATIC:
@@ -264,22 +264,22 @@ HBRUSH CAutoFocusSettingDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 			return m_Brush_Position_Y;
 		}
 
-//2009.09.24 bagus stress ‹@”\’Ç‰Á --{--
+//2009.09.24 bagus stress æ©Ÿèƒ½è¿½åŠ  --{--
 		///// Position Z /////
 		if(pWnd->GetSafeHwnd() == GetDlgItem(IDC_POSITION_Z)->GetSafeHwnd()){
 			ControlColor(pDC, &m_Brush_Position_Z, REFERENCE_COLOR);
 			return m_Brush_Position_Z;
 		}
-//2009.09.24 bagus stress ‹@”\’Ç‰Á --}--
+//2009.09.24 bagus stress æ©Ÿèƒ½è¿½åŠ  --}--
 
 		break;
 	}
 
-	// TODO: ƒfƒtƒHƒ‹ƒg‚Ìƒuƒ‰ƒV‚ª–]‚İ‚Ì‚à‚Ì‚Å‚È‚¢ê‡‚É‚ÍAˆá‚¤ƒuƒ‰ƒV‚ğ•Ô‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ–ãƒ©ã‚·ãŒæœ›ã¿ã®ã‚‚ã®ã§ãªã„å ´åˆã«ã¯ã€é•ã†ãƒ–ãƒ©ã‚·ã‚’è¿”ã—ã¦ãã ã•ã„
 	return hbr;
 }
 
-//2009.09.24 bagus stress ‹@”\’Ç‰Á --{--
+//2009.09.24 bagus stress æ©Ÿèƒ½è¿½åŠ  --{--
 void CAutoFocusSettingDlg::SetPointData()
 {
 	CString csPointNo, csX, csY, csZ;
@@ -296,4 +296,4 @@ void CAutoFocusSettingDlg::SetPointData()
 	SetDlgItemText(IDC_POSITION_Z, csZ);
 }
 
-//2009.09.24 bagus stress ‹@”\’Ç‰Á --}--
+//2009.09.24 bagus stress æ©Ÿèƒ½è¿½åŠ  --}--

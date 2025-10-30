@@ -1,4 +1,4 @@
-// ChiefFrame.h : CChiefFrame ƒNƒ‰ƒX‚ÌéŒ¾‚¨‚æ‚ÑƒCƒ“ƒ^[ƒtƒFƒCƒX‚Ì’è‹`‚ð‚µ‚Ü‚·B
+ï»¿// ChiefFrame.h : CChiefFrame ã‚¯ãƒ©ã‚¹ã®å®£è¨€ãŠã‚ˆã³ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã®å®šç¾©ã‚’ã—ã¾ã™ã€‚
 //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -8,25 +8,25 @@ class CChiefFrame : public CFrameWnd
 {
 public:
 	CChiefFrame();
-protected: // ƒVƒŠƒAƒ‰ƒCƒY‹@”\‚Ì‚Ý‚©‚çì¬‚µ‚Ü‚·B
+protected: // ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºæ©Ÿèƒ½ã®ã¿ã‹ã‚‰ä½œæˆã—ã¾ã™ã€‚
 	DECLARE_DYNCREATE(CChiefFrame)
 
-// ƒAƒgƒŠƒrƒ…[ƒg
+// ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ
 public:
 
-// ƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ð¶¬‚µ‚Ü‚·B
+// ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+	// ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	//{{AFX_VIRTUAL(CChiefFrame)
 	public:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
-	virtual BOOL OnCreateClient( LPCREATESTRUCT lpcs, CCreateContext* pContext );/* added 2014.11.21 hmenjo 3100 ƒAƒCƒRƒ“(MAIN)*/
+	virtual BOOL OnCreateClient( LPCREATESTRUCT lpcs, CCreateContext* pContext );/* added 2014.11.21 hmenjo 3100 ã‚¢ã‚¤ã‚³ãƒ³(MAIN)*/
 	//}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 public:
 	virtual ~CChiefFrame();
 #ifdef _DEBUG
@@ -34,11 +34,11 @@ public:
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 
-protected:	// ƒRƒ“ƒgƒ[ƒ‹ ƒo[—pƒƒ“ƒo
+protected:	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ« ãƒãƒ¼ç”¨ãƒ¡ãƒ³ãƒ
 	CStatusBar	m_wndStatusBar;
 	CToolBar	m_wndToolBar;
 
-// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+// ç”Ÿæˆã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒžãƒƒãƒ—é–¢æ•°
 protected:
 	//{{AFX_MSG(CChiefFrame)
 	afx_msg void OnDestroy();
@@ -74,26 +74,26 @@ protected:
 	afx_msg LRESULT OnStartSrRefer(WPARAM wparam, LPARAM lparam);
 	afx_msg LRESULT OnDlgShowSW(WPARAM wparam, LPARAM lparam);
 	afx_msg LRESULT OnResetAlarm(WPARAM wparam, LPARAM lparam);
-/* added 2009.08.05 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(25) ---------- { ---------- */
+/* added 2009.08.05 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (25) ---------- { ---------- */
 	afx_msg LRESULT OnMeasLineEnd(WPARAM wparam, LPARAM lparam);
 	afx_msg LRESULT OnDataLineEnd(WPARAM wparam, LPARAM lparam);
 	afx_msg LRESULT OnDataStressMeasEnd(WPARAM wparam, LPARAM lparam);
-/* added 2009.08.05 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(25) ---------- } ---------- */
+/* added 2009.08.05 hmenjo ã‚¹ãƒˆãƒ¬ã‚¹æ©Ÿèƒ½è¿½åŠ (25) ---------- } ---------- */
 //2009.10.28 bagus 2point-distance --{--
 	afx_msg LRESULT OnDistancePopupEnd(WPARAM wparam, LPARAM lparam);
 //2009.10.28 bagus 2point-distance --}--
-/* added 2009.10.30 hmenjo CTA ƒAƒ‰[ƒ€ƒnƒ“ƒhƒ‰ ---------- { ---------- */
+/* added 2009.10.30 hmenjo CTA ã‚¢ãƒ©ãƒ¼ãƒ ãƒãƒ³ãƒ‰ãƒ© ---------- { ---------- */
 	afx_msg LRESULT OnMeasAlarmCTA(WPARAM wparam, LPARAM lparam);
-/* added 2009.10.30 hmenjo CTA ƒAƒ‰[ƒ€ƒnƒ“ƒhƒ‰ ---------- } ---------- */
+/* added 2009.10.30 hmenjo CTA ã‚¢ãƒ©ãƒ¼ãƒ ãƒãƒ³ãƒ‰ãƒ© ---------- } ---------- */
 //2009.11.03 bagus MS --{--
 	afx_msg LRESULT OnMSPopupEnd(WPARAM wparam, LPARAM lparam);
 //2009.11.03 bagus MS --}--
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  -->
 	afx_msg LRESULT OnMeasCompEASEStatus(WPARAM wparam, LPARAM lparam);
 	afx_msg LRESULT OnMeasCompEASEError(WPARAM wparam, LPARAM lparam);
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.02.01 bagus CompleteEASEãƒ˜ãƒƒãƒ‰è¿½åŠ  <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	afx_msg LRESULT OnConfirmPopupEnd(WPARAM wparam, LPARAM lparam);
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 	DECLARE_MESSAGE_MAP()
 };

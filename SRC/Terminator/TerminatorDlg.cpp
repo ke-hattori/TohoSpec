@@ -1,4 +1,4 @@
-// TerminatorDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+ï»¿// TerminatorDlg.cpp : ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ•ã‚¡ã‚¤ãƒ«
 //
 
 #include "stdafx.h"
@@ -19,25 +19,25 @@ static char THIS_FILE[] = __FILE__;
 
 int     m_Mode;
 /////////////////////////////////////////////////////////////////////////////
-// ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Ìƒo[ƒWƒ‡ƒ“î•ñ‚ÅŽg‚í‚ê‚Ä‚¢‚é CAboutDlg ƒ_ƒCƒAƒƒO
+// ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ã§ä½¿ã‚ã‚Œã¦ã„ã‚‹ CAboutDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 class CAboutDlg : public CDialog
 {
 public:
     CAboutDlg();
 
-// ƒ_ƒCƒAƒƒO ƒf[ƒ^
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚° ãƒ‡ãƒ¼ã‚¿
     //{{AFX_DATA(CAboutDlg)
     enum { IDD = IDD_ABOUTBOX };
     //}}AFX_DATA
 
-    // ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ð¶¬‚µ‚Ü‚·
+    // ClassWizard ã¯ä»®æƒ³é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™
     //{{AFX_VIRTUAL(CAboutDlg)
     protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV ‚ÌƒTƒ|[ƒg
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV ã®ã‚µãƒãƒ¼ãƒˆ
     //}}AFX_VIRTUAL
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ã‚¤ãƒ³ãƒ—ãƒªãƒ¡ãƒ³ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 protected:
     //{{AFX_MSG(CAboutDlg)
     //}}AFX_MSG
@@ -59,26 +59,26 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
     //{{AFX_MSG_MAP(CAboutDlg)
-        // ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰‚ª‚ ‚è‚Ü‚¹‚ñB
+        // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©ãŒã‚ã‚Šã¾ã›ã‚“ã€‚
     //}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CTerminatorDlg ƒ_ƒCƒAƒƒO
+// CTerminatorDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 
 CTerminatorDlg::CTerminatorDlg(CWnd* pParent /*=NULL*/)
     : CDialog(CTerminatorDlg::IDD, pParent)
 {
     //{{AFX_DATA_INIT(CTerminatorDlg)
-        // ƒƒ‚: ‚±‚ÌˆÊ’u‚É ClassWizard ‚É‚æ‚Á‚Äƒƒ“ƒo‚Ì‰Šú‰»‚ª’Ç‰Á‚³‚ê‚Ü‚·B
+        // ãƒ¡ãƒ¢: ã“ã®ä½ç½®ã« ClassWizard ã«ã‚ˆã£ã¦ãƒ¡ãƒ³ãƒã®åˆæœŸåŒ–ãŒè¿½åŠ ã•ã‚Œã¾ã™ã€‚
     //}}AFX_DATA_INIT
     m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	GetRootDirPath();
 	MakeProcessResetPath();
 	MakeBinPath();
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 
     MaxNum = GetList();
 }
@@ -106,15 +106,15 @@ BEGIN_MESSAGE_MAP(CTerminatorDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CTerminatorDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CTerminatorDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 BOOL CTerminatorDlg::OnInitDialog()
 {
     CDialog::OnInitDialog();
 
-    // "ƒo[ƒWƒ‡ƒ“î•ñ..." ƒƒjƒ…[€–Ú‚ðƒVƒXƒeƒ€ ƒƒjƒ…[‚Ö’Ç‰Á‚µ‚Ü‚·B
+    // "ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±..." ãƒ¡ãƒ‹ãƒ¥ãƒ¼é …ç›®ã‚’ã‚·ã‚¹ãƒ†ãƒ  ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã¸è¿½åŠ ã—ã¾ã™ã€‚
 
-    // IDM_ABOUTBOX ‚ÍƒRƒ}ƒ“ƒh ƒƒjƒ…[‚Ì”ÍˆÍ‚Å‚È‚¯‚ê‚Î‚È‚è‚Ü‚¹‚ñB
+    // IDM_ABOUTBOX ã¯ã‚³ãƒžãƒ³ãƒ‰ ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®ç¯„å›²ã§ãªã‘ã‚Œã°ãªã‚Šã¾ã›ã‚“ã€‚
     ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
     ASSERT(IDM_ABOUTBOX < 0xF000);
 
@@ -130,8 +130,8 @@ BOOL CTerminatorDlg::OnInitDialog()
         }
     }
 
-    SetIcon(m_hIcon, TRUE);         // ‘å‚«‚¢ƒAƒCƒRƒ“‚ðÝ’è
-    SetIcon(m_hIcon, FALSE);        // ¬‚³‚¢ƒAƒCƒRƒ“‚ðÝ’è
+    SetIcon(m_hIcon, TRUE);         // å¤§ãã„ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¨­å®š
+    SetIcon(m_hIcon, FALSE);        // å°ã•ã„ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¨­å®š
 
     // *********************************
     m_Mode = 3;
@@ -139,7 +139,7 @@ BOOL CTerminatorDlg::OnInitDialog()
 
     WIN32_FIND_DATA FindData;
 
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
     #ifdef DEBUG
 //  if (FindFirstFile("C:\\Nanospec\\bin\\nanospec.exe", &FindData) != INVALID_HANDLE_VALUE
     if (FindFirstFile(m_strNanoSpecReleaseExeFilePath, &FindData) != INVALID_HANDLE_VALUE
@@ -186,7 +186,7 @@ BOOL CTerminatorDlg::OnInitDialog()
 
         if(OnShowcmdline())OnButton4(); //Show Restart Dialog
     }
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 
     #endif
     else
@@ -196,7 +196,7 @@ BOOL CTerminatorDlg::OnInitDialog()
     return TRUE;
 }
 
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 void CTerminatorDlg::GetRootDirPath()
 {
 	TCHAR szBuff[MAX_PATH];
@@ -225,7 +225,7 @@ void CTerminatorDlg::MakeBinPath()
 	m_strNanoSpecReleaseExeFilePath = m_strCurrentDirectory + GetReleaseBinRelativePath();
 	m_strNanoSpecDebugExeFilePath = m_strCurrentDirectory + GetDebugBinRelativePath();
 }
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 
 void CTerminatorDlg::OnSysCommand(UINT nID, LPARAM lParam)
 {
@@ -240,19 +240,19 @@ void CTerminatorDlg::OnSysCommand(UINT nID, LPARAM lParam)
     }
 }
 
-// ‚à‚µƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚ÉÅ¬‰»ƒ{ƒ^ƒ“‚ð’Ç‰Á‚·‚é‚È‚ç‚ÎAƒAƒCƒRƒ“‚ð•`‰æ‚·‚é
-// ƒR[ƒh‚ðˆÈ‰º‚É‹Lq‚·‚é•K—v‚ª‚ ‚è‚Ü‚·BMFC ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Í document/view
-// ƒ‚ƒfƒ‹‚ðŽg‚Á‚Ä‚¢‚é‚Ì‚ÅA‚±‚Ìˆ—‚ÍƒtƒŒ[ƒ€ƒ[ƒN‚É‚æ‚èŽ©“®“I‚Éˆ—‚³‚ê‚Ü‚·B
+// ã‚‚ã—ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒœãƒƒã‚¯ã‚¹ã«æœ€å°åŒ–ãƒœã‚¿ãƒ³ã‚’è¿½åŠ ã™ã‚‹ãªã‚‰ã°ã€ã‚¢ã‚¤ã‚³ãƒ³ã‚’æç”»ã™ã‚‹
+// ã‚³ãƒ¼ãƒ‰ã‚’ä»¥ä¸‹ã«è¨˜è¿°ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚MFC ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã¯ document/view
+// ãƒ¢ãƒ‡ãƒ«ã‚’ä½¿ã£ã¦ã„ã‚‹ã®ã§ã€ã“ã®å‡¦ç†ã¯ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã«ã‚ˆã‚Šè‡ªå‹•çš„ã«å‡¦ç†ã•ã‚Œã¾ã™ã€‚
 
 void CTerminatorDlg::OnPaint()
 {
     if (IsIconic())
     {
-        CPaintDC dc(this); // •`‰æ—p‚ÌƒfƒoƒCƒX ƒRƒ“ƒeƒLƒXƒg
+        CPaintDC dc(this); // æç”»ç”¨ã®ãƒ‡ãƒã‚¤ã‚¹ ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
 
         SendMessage(WM_ICONERASEBKGND, (WPARAM) dc.GetSafeHdc(), 0);
 
-        // ƒNƒ‰ƒCƒAƒ“ƒg‚Ì‹éŒ`—Ìˆæ“à‚Ì’†‰›
+        // ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆã®çŸ©å½¢é ˜åŸŸå†…ã®ä¸­å¤®
         int cxIcon = GetSystemMetrics(SM_CXICON);
         int cyIcon = GetSystemMetrics(SM_CYICON);
         CRect rect;
@@ -260,7 +260,7 @@ void CTerminatorDlg::OnPaint()
         int x = (rect.Width() - cxIcon + 1) / 2;
         int y = (rect.Height() - cyIcon + 1) / 2;
 
-        // ƒAƒCƒRƒ“‚ð•`‰æ‚µ‚Ü‚·B
+        // ã‚¢ã‚¤ã‚³ãƒ³ã‚’æç”»ã—ã¾ã™ã€‚
         dc.DrawIcon(x, y, m_hIcon);
     }
     else
@@ -277,10 +277,10 @@ HCURSOR CTerminatorDlg::OnQueryDragIcon()
 
 void CTerminatorDlg::OnForceRestart()
 {
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 	CString strBatFilePath;
 	CString strCmdParameters;
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 
     for(int K=0;K<MaxNum;K++) KillProc(DDD[K]);
     char lpPath[255];
@@ -288,7 +288,7 @@ void CTerminatorDlg::OnForceRestart()
 //Saiki 20090604 Change ----->
     WIN32_FIND_DATA FindData;
 
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
     #ifdef DEBUG
 //      if (FindFirstFile("C:\\Nanospec\\bin\\nanospec.exe", &FindData) != INVALID_HANDLE_VALUE
         if (FindFirstFile(m_strNanoSpecReleaseExeFilePath, &FindData) != INVALID_HANDLE_VALUE
@@ -315,7 +315,7 @@ void CTerminatorDlg::OnForceRestart()
 
 	strCmdParameters.Format("/C %s", (LPCTSTR)strBatFilePath);
 	HINSTANCE hInst = ShellExecute(NULL,"open", lpPath, strCmdParameters, NULL, SW_SHOWNORMAL );
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
 
 //Saiki 20090604 Change <-----
     ShowWindow(SW_MINIMIZE);
@@ -378,14 +378,14 @@ BOOL CTerminatorDlg::KillProc(DWORD Pid)
     hProcess = OpenProcess( PROCESS_TERMINATE, 1, Pid );
     if( resuret = (hProcess != 0) )
     {
-        // ƒvƒƒZƒX‚ªKill‚Å‚«‚È‚¢ê‡‚Éfalse
+        // ãƒ—ãƒ­ã‚»ã‚¹ãŒKillã§ããªã„å ´åˆã«false
         resuret = TerminateProcess( hProcess, (UINT)0 );
         CloseHandle( hProcess );
     }
     return resuret;
 }
 
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) -->
 //***********************************
 //  Read ForceRestart.bat
 //***********************************
@@ -423,7 +423,7 @@ CString CTerminatorDlg::GetDebugBinRelativePath()
 
 	return strBuffer;
 }
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Add (TohoSpecå¯¾å¿œ) <--
 
 //***********************************
 //  Read ini file
@@ -433,12 +433,12 @@ int CTerminatorDlg::GetList()
     CStdioFile file;
     CFileStatus status;
     int Count=0;
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) -->
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) -->
 //  if (CFile::GetStatus("C:\\NanoSpec\\Cfg\\ProcessReset\\ProcessList.txt", status) &&
 //      file.Open("C:\\NanoSpec\\Cfg\\ProcessReset\\ProcessList.txt", CFile::modeRead | CFile::typeText))
     if (CFile::GetStatus(m_strProcessListTxtFilePath, status) &&
         file.Open(m_strProcessListTxtFilePath, CFile::modeRead | CFile::typeText))
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
+// 2013.11.07 Bagus Mod (TohoSpecå¯¾å¿œ) <--
     {
         while(file.ReadString(GGG[Count])!=NULL) {Count++;}
         file.Close();
@@ -530,7 +530,7 @@ void CTerminatorDlg::OnCancel()
 
 void CTerminatorDlg::OnDblclkList1(NMHDR* pNMHDR, LRESULT* pResult)
 {
-    // TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+    // TODO: ã“ã®ä½ç½®ã«ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«é€šçŸ¥ãƒãƒ³ãƒ‰ãƒ©ç”¨ã®ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã—ã¦ãã ã•ã„
     int sa = m_List.GetSelectionMark();
     CString ka = m_List.GetItemText(sa,0);
     CString kaa = m_List.GetItemText(sa,1);

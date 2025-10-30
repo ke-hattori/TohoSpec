@@ -1,9 +1,9 @@
-//{{NO_DEPENDENCIES}}
+﻿//{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
 // Used by ALARMIF.RC
 //
 
-// ���̃f�t�H���g�l�͐V�K�I�u�W�F�N�g�p�̒l�ł�
+// 次のデフォルト値は新規オブジェクト用の値です
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS

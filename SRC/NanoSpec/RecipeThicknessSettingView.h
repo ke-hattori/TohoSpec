@@ -1,4 +1,4 @@
-#if !defined(AFX_RECIPETHICKNESSSETTINGVIEW_H__CEA972A0_713A_465A_A84F_5A75382EF20E__INCLUDED_)
+ï»¿#if !defined(AFX_RECIPETHICKNESSSETTINGVIEW_H__CEA972A0_713A_465A_A84F_5A75382EF20E__INCLUDED_)
 #define AFX_RECIPETHICKNESSSETTINGVIEW_H__CEA972A0_713A_465A_A84F_5A75382EF20E__INCLUDED_
 
 #if _MSC_VER > 1000
@@ -10,7 +10,7 @@
 #include "ColorStatic.h"
 #include "GridCtrl.h"
 #include "NanoPointGraph.h"
-#include "NanoGraphLib.h"	//Ü‚êüEƒ}ƒbƒsƒ“ƒOƒOƒ‰ƒt—p
+#include "NanoGraphLib.h"	//æŠ˜ã‚Œç·šãƒ»ãƒãƒƒãƒ”ãƒ³ã‚°ã‚°ãƒ©ãƒ•ç”¨
 
 /////////////////////////////////////////////////////////////////////////////
 // CRecipeThicknessSettingView dialog

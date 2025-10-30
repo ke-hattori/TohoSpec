@@ -1,4 +1,4 @@
-// OverlayBitmap.h: interface for the OverlayBitmap class.
+﻿// OverlayBitmap.h: interface for the OverlayBitmap class.
 //
 //////////////////////////////////////////////////////////////////////
 

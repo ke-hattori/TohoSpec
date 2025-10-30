@@ -1,4 +1,4 @@
-// SrHeadDesktop.cpp : Defines the SrHeadDesktop routines.
+﻿// SrHeadDesktop.cpp : Defines the SrHeadDesktop routines.
 //
 
 #include "stdafx.h"
