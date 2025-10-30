@@ -233,8 +233,8 @@ public:
 	protected:
 		inline string substr (const char* s, string::size_type pos, string::size_type n = string::npos) { return string(s).substr(pos, n); }
 
-		// 16�i������ϊ�
-		long hatol (const char* s, unsigned long n) { return static_cast<short>(hatol(substr(s, 0, n).c_str()); }
+	// 16�i������ϊ�
+	long hatol (const char* s, unsigned long n) { return static_cast<short>(hatol(substr(s, 0, n).c_str())); }
 		long hatol (const char* s)
 		{
 			long retval = 0;
