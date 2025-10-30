@@ -571,7 +571,7 @@ BOOL CPatRecDeskewDlg::PatRecFirstMatch()
 void CPatRecDeskewDlg::MovePatternToCenter(void)
 {
 	STAGE_COORD CenterPos;			// chuck coord of the first point taught
-	CPoint ptResult(m_DeskewResult.XPos, m_DeskewResult.YPos);
+	CPoint ptResult(static_cast<int>(m_DeskewResult.XPos), static_cast<int>(m_DeskewResult.YPos));
 	ptResult.Offset(m_rcOverlay.TopLeft());
 
 	ClientToStage(&ptResult, &CenterPos);	// convert client point to chuck point

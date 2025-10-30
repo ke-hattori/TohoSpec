@@ -302,10 +302,10 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 	//�^�C���X�p���̌v�Z
 	CTimeSpan ts = CTime(systemTime.wYear, systemTime.wMonth, systemTime.wDay, 0, 0, 0) - CTime(iDeleteYear, iDeleteMonth, systemTime.wDay, 0, 0, 0);
 
-	CTimeSpan timeSpan( ts.GetDays(),
-						0,	//Hour
-						0,	//Minute
-						0); //Sec
+	CTimeSpan timeSpan( static_cast<LONG>(ts.GetDays()),
+					0,	//Hour
+					0,	//Minute
+					0); //Sec
 
 	//�폜���Ԃ��ݒ�Ȃ��A�������͐ݒ肳��Ă��鍀�ڈȏ�łȂ����m�F
 	if(m_iDeleteDataPeriod > PeriodSearchTable[0].nSelect && DELETE_DATA_PERIOD_MAX > m_iDeleteDataPeriod){

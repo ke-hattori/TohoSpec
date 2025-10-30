@@ -159,7 +159,7 @@ public:
 	void Finalize (void);
 
 	// ADAX��p�A���[��
-	inline void AlarmSet (unsigned long alid) { nexaxAlarmSet(alid, m_info.curr.axis); }
+	inline void AlarmSet (unsigned long alid) { nexaxAlarmSet(static_cast<unsigned short>(alid), m_info.curr.axis); }
 
 	// ADAX���b�Z�[�W
 	class message_packet : public adax_data_t

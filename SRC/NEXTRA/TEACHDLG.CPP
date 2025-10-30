@@ -198,16 +198,16 @@ BOOL CTeachLocationDlg::PreTranslateMessage(MSG* pMsg)
 		if ( IsDlgButtonChecked(IDC_RADIO_JOG_SPEED) ) {
 			switch ( pMsg->wParam ) {
 			case VK_UP:
-				if ( nexioIsVacuumOff() && nexioIsStageLoadPos() && UpdateData() ) {;
-					CCursor::BeginWaitCursor();
-					nexaxNormalJog(m_axis, m_lJogSpeed);
+			if ( nexioIsVacuumOff() && nexioIsStageLoadPos() && UpdateData() ) {;
+				CCursor::BeginWaitCursor();
+				nexaxNormalJog(m_axis, static_cast<short>(m_lJogSpeed));
 					OperationLogging("TEACH LOCATION - VK_UP Key was pushed.");
 				}
 				return TRUE;
-			case VK_DOWN:
-				if ( nexioIsStageLoadPos() && UpdateData() ) {
-					CCursor::BeginWaitCursor();
-					nexaxNormalJog(m_axis, -m_lJogSpeed);
+		case VK_DOWN:
+			if ( nexioIsStageLoadPos() && UpdateData() ) {
+				CCursor::BeginWaitCursor();
+				nexaxNormalJog(m_axis, static_cast<short>(-m_lJogSpeed));
 					OperationLogging("TEACH LOCATION - VK_DOWN Key was pushed.");
 				}
 				return TRUE;
@@ -370,7 +370,7 @@ void CTeachLocationDlg::OnButtonMotionUp()
 	if ( !nexioIsVacuumOff() || !nexioIsStageLoadPos() || !UpdateData() ) return;
 
 	if ( IsDlgButtonChecked(IDC_RADIO_JOG_SPEED) )
-		nexaxNormalJog(m_axis, m_lJogSpeed);
+		nexaxNormalJog(m_axis, static_cast<short>(m_lJogSpeed));
 	else
 	if ( IsDlgButtonChecked(IDC_RADIO_JOG_DISTANCE) )
 		nexaxPulseJog(m_axis, m_params.ADAX.Resolution * m_lJogDistance);
@@ -384,7 +384,7 @@ void CTeachLocationDlg::OnButtonMotionDown()
 	if ( !nexioIsStageLoadPos() || !UpdateData() ) return;
 
 	if ( IsDlgButtonChecked(IDC_RADIO_JOG_SPEED) )
-		nexaxNormalJog(m_axis, -m_lJogSpeed);
+		nexaxNormalJog(m_axis, static_cast<short>(-m_lJogSpeed));
 	else
 	if ( IsDlgButtonChecked(IDC_RADIO_JOG_DISTANCE) )
 		nexaxPulseJog(m_axis, m_params.ADAX.Resolution * -m_lJogDistance);

@@ -106,9 +106,9 @@ BOOL CJogOperationDlg::PreTranslateMessage(MSG* pMsg)
 			if ( nexioIsVacuumOff() && nexioIsStageLoadPos() && UpdateData() ) {;
 				KillTimer(REFRESH_TIMER_ID);
 				CCursor::BeginWaitCursor();
-				OperationLogging("JOG OPERATION - VK_UP Key was pushed.");
-				EquipmentStatusRun();
-				nexaxNormalJog(m_axis, m_lJogSpeed);
+			OperationLogging("JOG OPERATION - VK_UP Key was pushed.");
+			EquipmentStatusRun();
+			nexaxNormalJog(m_axis, static_cast<short>(m_lJogSpeed));
 				SetTimer(REFRESH_TIMER_ID, REFRESH_TIMER_ELAPSE, NULL);
 			}
 			return TRUE;
@@ -116,9 +116,9 @@ BOOL CJogOperationDlg::PreTranslateMessage(MSG* pMsg)
 			if ( UpdateData() ) {
 				KillTimer(REFRESH_TIMER_ID);
 				CCursor::BeginWaitCursor();
-				OperationLogging("JOG OPERATION - VK_DOWN Key was pushed.");
-				EquipmentStatusRun();
-				nexaxNormalJog(m_axis, -m_lJogSpeed);
+			OperationLogging("JOG OPERATION - VK_DOWN Key was pushed.");
+			EquipmentStatusRun();
+			nexaxNormalJog(m_axis, static_cast<short>(-m_lJogSpeed));
 				SetTimer(REFRESH_TIMER_ID, REFRESH_TIMER_ELAPSE, NULL);
 			}
 			return TRUE;
@@ -266,18 +266,18 @@ LRESULT CJogOperationDlg::OnButtonEvent(WPARAM wParam, LPARAM lParam)
 		case IDC_BUTTON_MOTION_UP:
 			if ( /*nexioIsVacuumOff() && nexioIsStageLoadPos() && */UpdateData() ) {
 				KillTimer(REFRESH_TIMER_ID);
-				OperationLogging("JOG OPERATION - MOTION UP Button was pushed.");
-				CCursor::BeginWaitCursor();
-				nexaxNormalJog(m_axis, m_lJogSpeed);
+			OperationLogging("JOG OPERATION - MOTION UP Button was pushed.");
+			CCursor::BeginWaitCursor();
+			nexaxNormalJog(m_axis, static_cast<short>(m_lJogSpeed));
 				SetTimer(REFRESH_TIMER_ID, REFRESH_TIMER_ELAPSE, NULL);
 			}
 			break;
 		case IDC_BUTTON_MOTION_DOWN:
 			if ( nexioIsStageLoadPos() && UpdateData() ) {
 				KillTimer(REFRESH_TIMER_ID);
-				OperationLogging("JOG OPERATION - MOTION DOWN Button was pushed.");
-				CCursor::BeginWaitCursor();
-				nexaxNormalJog(m_axis, -m_lJogSpeed);
+			OperationLogging("JOG OPERATION - MOTION DOWN Button was pushed.");
+			CCursor::BeginWaitCursor();
+			nexaxNormalJog(m_axis, static_cast<short>(-m_lJogSpeed));
 				SetTimer(REFRESH_TIMER_ID, REFRESH_TIMER_ELAPSE, NULL);
 			}
 			break;
