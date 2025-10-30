@@ -3962,8 +3962,8 @@ CString strMsg;
 	STAGE_COORD coordLeftTop;
 	STAGE_COORD coordRightBottom;
 
-	coordLeftTop.lX = m_StageConfig.StageMaxCoord.dLeftX;
-	coordLeftTop.lY = m_StageConfig.StageMaxCoord.dUpY;
+	coordLeftTop.lX = static_cast<long>(m_StageConfig.StageMaxCoord.dLeftX);
+	coordLeftTop.lY = static_cast<long>(m_StageConfig.StageMaxCoord.dUpY);
 	coordRightBottom.lX = m_StageConfig.StageMaxCoord.dRightX;
 	coordRightBottom.lY = m_StageConfig.StageMaxCoord.dDownY;
 
