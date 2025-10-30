@@ -1393,11 +1393,11 @@ void CRecipeStressStageProgramView::UpDate()
 
 	///// Sample - Origin X /////
 	GetDlgItemText(IDC_SAMPLE_ORIGIN_X, strBuffer);
-	m_StageProgInfoHdr.SampleInfo.Origin.lX = atof(strBuffer) * MICROMETRE;
+	m_StageProgInfoHdr.SampleInfo.Origin.lX = static_cast<long>(atof(strBuffer) * MICROMETRE);
 
 	///// Sample - Origin Y /////
 	GetDlgItemText(IDC_SAMPLE_ORIGIN_Y, strBuffer);
-	m_StageProgInfoHdr.SampleInfo.Origin.lY = atof(strBuffer) * MICROMETRE;
+	m_StageProgInfoHdr.SampleInfo.Origin.lY = static_cast<long>(atof(strBuffer) * MICROMETRE);
 
 	///// Point /////
 	m_iNumScans = 0;
@@ -1410,8 +1410,8 @@ void CRecipeStressStageProgramView::UpDate()
 		strcpy(szGridText, m_MeasurementPointGrid2.GetItemText(i + 1, 1));
 		Valid_X = strlen(szGridText);
 		if ( Valid_X ) {
-			m_ScanPoint[i].lX = atof(szGridText) * MICROMETRE;
-			//m_ScanPoint[i].lX = (strtol(szGridText, &stopstring, 10)) * MICROMETRE;
+			m_ScanPoint[i].lX = static_cast<long>(atof(szGridText) * MICROMETRE);
+			//m_ScanPoint[i].lX = static_cast<long>((strtol(szGridText, &stopstring, 10)) * MICROMETRE);
 
 			///// Refresh X /////
 			strBuffer.Format("%.3lf", ((double)m_ScanPoint[i].lX) / MICROMETRE );
@@ -1422,8 +1422,8 @@ void CRecipeStressStageProgramView::UpDate()
 		strcpy(szGridText, m_MeasurementPointGrid2.GetItemText(i + 1, 2));
 		Valid_Y = strlen(szGridText);
 		if ( Valid_Y ) {
-			m_ScanPoint[i].lY = atof(szGridText) * MICROMETRE;
-			//m_ScanPoint[i].lY = (strtol(szGridText, &stopstring, 10)) * MICROMETRE;
+			m_ScanPoint[i].lY = static_cast<long>(atof(szGridText) * MICROMETRE);
+			//m_ScanPoint[i].lY = static_cast<long>((strtol(szGridText, &stopstring, 10)) * MICROMETRE);
 
 			///// Refresh Y /////
 			strBuffer.Format("%.3lf", ((double)m_ScanPoint[i].lY) / MICROMETRE );
@@ -1799,10 +1799,10 @@ void CRecipeStressStageProgramView::SamplePointGraph_DataSet()
 // 2013.01.09 bagus -->
 	if ( m_StageConfig.Dir.X == DIR_RIGHT ||
 		 m_StageConfig.Dir.X == DIR_LEFT ) {
-		m_SamplePointGraph.SetOriginPointData(dOffSetValueX, dOffSetValueY);
+		m_SamplePointGraph.SetOriginPointData(static_cast<long>(dOffSetValueX), static_cast<long>(dOffSetValueY));
 	}
 	else {
-		m_SamplePointGraph.SetOriginPointData(dOffSetValueY, dOffSetValueX);
+		m_SamplePointGraph.SetOriginPointData(static_cast<long>(dOffSetValueY), static_cast<long>(dOffSetValueX));
 	}
 // 2013.01.09 bagus <--
 
@@ -2000,7 +2000,7 @@ void CRecipeStressStageProgramView::SamplePointGraph_DataSet()
 			break;
 		}
 // 2009.09.07 bagus stress ���_�ʒu�Ή� --}--
-		m_SamplePointGraph.AddPoint(Scan_PointIncOffsetX, Scan_PointIncOffsetY);
+		m_SamplePointGraph.AddPoint(static_cast<long>(Scan_PointIncOffsetX), static_cast<long>(Scan_PointIncOffsetY));
 	}
 
 
@@ -2048,7 +2048,7 @@ void CRecipeStressStageProgramView::OnPaint()
 
 	if((dStageMaxSizeX / dStageMaxSizeY) > ((StageRectRight - StageRectLeft) / (StageRectBottom - StageRectTop))) {
 		lDrawStageSizeX =(StageRectRight - StageRectLeft);
-		lDrawStageSizeY = ((StageRectRight - StageRectLeft) * dStageMaxSizeY / dStageMaxSizeX);
+		lDrawStageSizeY = static_cast<long>(((StageRectRight - StageRectLeft) * dStageMaxSizeY / dStageMaxSizeX));
 
 		m_dDrawStartStagePosX = StageRectLeft;
 		m_dDrawStartStagePosY = StageRectTop + ((StageRectBottom - StageRectTop - lDrawStageSizeY) / 2);
@@ -2056,8 +2056,8 @@ void CRecipeStressStageProgramView::OnPaint()
 		m_dDrawEndStagePosY = m_dDrawStartStagePosY + lDrawStageSizeY;
 	}
 	else{
-		lDrawStageSizeX = ((StageRectBottom - StageRectTop) * dStageMaxSizeX / dStageMaxSizeY);
-		lDrawStageSizeY = (StageRectBottom - StageRectTop);
+		lDrawStageSizeX = static_cast<long>(((StageRectBottom - StageRectTop) * dStageMaxSizeX / dStageMaxSizeY));
+		lDrawStageSizeY = static_cast<long>((StageRectBottom - StageRectTop));
 
 		m_dDrawStartStagePosX = StageRectLeft + ((StageRectRight - StageRectLeft - lDrawStageSizeX) / 2);
 		m_dDrawStartStagePosY = StageRectTop;
@@ -2251,10 +2251,10 @@ void CRecipeStressStageProgramView::DrawSample(CDC* pDC, int iOrg, int DirX, int
 		}
 
 		if ((m_dDrawStartStagePosX <= dleft) && (dright <= m_dDrawEndStagePosX) && (m_dDrawStartStagePosY <= dtop) && (dbottom <= m_dDrawEndStagePosY)){
-			Sampleplacement.rcNormalPosition.left	= Stageplacement.rcNormalPosition.left + dleft;
-			Sampleplacement.rcNormalPosition.right	= Stageplacement.rcNormalPosition.left + dright;
-			Sampleplacement.rcNormalPosition.top	= Stageplacement.rcNormalPosition.top  + dtop;
-			Sampleplacement.rcNormalPosition.bottom = Stageplacement.rcNormalPosition.top  + dbottom;
+			Sampleplacement.rcNormalPosition.left = static_cast<long>(Stageplacement.rcNormalPosition.left + dleft);
+			Sampleplacement.rcNormalPosition.right = static_cast<long>(Stageplacement.rcNormalPosition.left + dright);
+			Sampleplacement.rcNormalPosition.top = static_cast<long>(Stageplacement.rcNormalPosition.top  + dtop);
+			Sampleplacement.rcNormalPosition.bottom = static_cast<long>(Stageplacement.rcNormalPosition.top  + dbottom);
 			//�l�pSample�`��
 			m_SamplePointGraph.SetWindowPlacement(&Sampleplacement);
 			m_SamplePointGraph.ShowWindow(SW_SHOW);

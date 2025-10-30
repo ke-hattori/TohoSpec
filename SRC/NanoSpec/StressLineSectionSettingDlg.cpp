@@ -1048,7 +1048,7 @@ void CStressLineSectionSettingDlg::OnPaint()
 
 	if((dStageSizeX / dStageSizeX) > ((StageRectRight - StageRectLeft) / (StageRectBottom - StageRectTop))) {
 		lDrawStageSizeX =(StageRectRight - StageRectLeft);
-		lDrawStageSizeY = ((StageRectRight - StageRectLeft) * dStageSizeX / dStageSizeX);
+		lDrawStageSizeY = static_cast<long>(((StageRectRight - StageRectLeft) * dStageSizeX / dStageSizeX));
 
 		m_dDrawStartStagePosX = StageRectLeft;
 		m_dDrawStartStagePosY = StageRectTop + ((StageRectBottom - StageRectTop - lDrawStageSizeY) / 2);
@@ -1056,8 +1056,8 @@ void CStressLineSectionSettingDlg::OnPaint()
 		m_dDrawEndStagePosY = m_dDrawStartStagePosY + lDrawStageSizeY;
 	}
 	else{
-		lDrawStageSizeX = ((StageRectBottom - StageRectTop) * dStageSizeX / dStageSizeX);
-		lDrawStageSizeY = (StageRectBottom - StageRectTop);
+		lDrawStageSizeX = static_cast<long>(((StageRectBottom - StageRectTop) * dStageSizeX / dStageSizeX));
+		lDrawStageSizeY = static_cast<long>((StageRectBottom - StageRectTop));
 
 		m_dDrawStartStagePosX = StageRectLeft + ((StageRectRight - StageRectLeft - lDrawStageSizeX) / 2);
 		m_dDrawStartStagePosY = StageRectTop;
@@ -2652,10 +2652,10 @@ void CStressLineSectionSettingDlg::SamplePointGraph_DataSet()
 // 2013.01.09 bagus -->
 	if ( m_StageConfig.Dir.X == DIR_RIGHT ||
 		 m_StageConfig.Dir.X == DIR_LEFT ) {
-		m_SamplePointGraph.SetOriginPointData(dOffSetValueX, dOffSetValueY);
+		m_SamplePointGraph.SetOriginPointData(static_cast<long>(dOffSetValueX), static_cast<long>(dOffSetValueY));
 	}
 	else {
-		m_SamplePointGraph.SetOriginPointData(dOffSetValueY, dOffSetValueX);
+		m_SamplePointGraph.SetOriginPointData(static_cast<long>(dOffSetValueY), static_cast<long>(dOffSetValueX));
 	}
 // 2013.01.09 bagus <--
 
@@ -2781,7 +2781,7 @@ void CStressLineSectionSettingDlg::SamplePointGraph_DataSet()
 
 		for (j=0; j<PIN_INTERVAL; j++) {
 // 2009.09.07 bagus stress ���_�ʒu�Ή� --{--
-//			m_SamplePointGraph.AddPoint((m_StressConfig.Line[i].MeasPos[j].lX + dOffSetValueX), (-(m_StressConfig.Line[i].MeasPos[j].lY - dOffSetValueY)));
+//			m_SamplePointGraph.AddPoint(static_cast<long>((m_StressConfig.Line[i].MeasPos[j].lX + dOffSetValueX)), static_cast<long>((-(m_StressConfig.Line[i].MeasPos[j].lY - dOffSetValueY))));
 			switch (m_StageConfig.Dir.X) {
 			case 1:		// X:��
 			default:
@@ -2814,7 +2814,7 @@ void CStressLineSectionSettingDlg::SamplePointGraph_DataSet()
 				break;
 			}
 
-			m_SamplePointGraph.AddPoint(dPointX, dPointY);
+			m_SamplePointGraph.AddPoint(static_cast<long>(dPointX), static_cast<long>(dPointY));
 // 2009.09.07 bagus stress ���_�ʒu�Ή� --}--
 		}
 	}
@@ -2965,10 +2965,10 @@ void CStressLineSectionSettingDlg::DrawSample(CDC* pDC, int iOrg, int DirX, int 
 		}
 
 		if ((m_dDrawStartStagePosX <= dleft) && (dright <= m_dDrawEndStagePosX) && (m_dDrawStartStagePosY <= dtop) && (dbottom <= m_dDrawEndStagePosY)){
-			Sampleplacement.rcNormalPosition.left	= Stageplacement.rcNormalPosition.left + dleft;
-			Sampleplacement.rcNormalPosition.right	= Stageplacement.rcNormalPosition.left + dright;
-			Sampleplacement.rcNormalPosition.top	= Stageplacement.rcNormalPosition.top  + dtop;
-			Sampleplacement.rcNormalPosition.bottom = Stageplacement.rcNormalPosition.top  + dbottom;
+			Sampleplacement.rcNormalPosition.left = static_cast<long>(Stageplacement.rcNormalPosition.left + dleft);
+			Sampleplacement.rcNormalPosition.right = static_cast<long>(Stageplacement.rcNormalPosition.left + dright);
+			Sampleplacement.rcNormalPosition.top = static_cast<long>(Stageplacement.rcNormalPosition.top  + dtop);
+			Sampleplacement.rcNormalPosition.bottom = static_cast<long>(Stageplacement.rcNormalPosition.top  + dbottom);
 			//�l�pSample�`��
 			m_SamplePointGraph.SetWindowPlacement(&Sampleplacement);
 			m_SamplePointGraph.ShowWindow(SW_SHOW);

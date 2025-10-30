@@ -302,7 +302,7 @@ void CRecipeThicknessSettingView::OnPaint()
 
   if((dStageSizeX / dStageSizeX) > ((StageRectRight - StageRectLeft) / (StageRectBottom - StageRectTop))) {
 	  lDrawStageSizeX =(StageRectRight - StageRectLeft);
-	  lDrawStageSizeY = ((StageRectRight - StageRectLeft) * dStageSizeX / dStageSizeX);
+	  lDrawStageSizeY = static_cast<long>(((StageRectRight - StageRectLeft) * dStageSizeX / dStageSizeX));
 
 	  m_dDrawStartStagePosX = StageRectLeft;
 	  m_dDrawStartStagePosY = StageRectTop + ((StageRectBottom - StageRectTop - lDrawStageSizeY) / 2);
@@ -310,8 +310,8 @@ void CRecipeThicknessSettingView::OnPaint()
 	  m_dDrawEndStagePosY = m_dDrawStartStagePosY + lDrawStageSizeY;
   }
   else{
-	  lDrawStageSizeX = ((StageRectBottom - StageRectTop) * dStageSizeX / dStageSizeX);
-	  lDrawStageSizeY = (StageRectBottom - StageRectTop);
+	  lDrawStageSizeX = static_cast<long>(((StageRectBottom - StageRectTop) * dStageSizeX / dStageSizeX));
+	  lDrawStageSizeY = static_cast<long>((StageRectBottom - StageRectTop));
 
 	  m_dDrawStartStagePosX = StageRectLeft + ((StageRectRight - StageRectLeft - lDrawStageSizeX) / 2);
 	  m_dDrawStartStagePosY = StageRectTop;
@@ -930,10 +930,10 @@ void CRecipeThicknessSettingView::DrawSample(CDC* pDC, int iOrg, int DirX, int D
 		}
 
 	  if ((m_dDrawStartStagePosX <= dleft) && (dright <= m_dDrawEndStagePosX) && (m_dDrawStartStagePosY <= dtop) && (dbottom <= m_dDrawEndStagePosY)){
-		  Sampleplacement.rcNormalPosition.left   = Stageplacement.rcNormalPosition.left + dleft;
-		  Sampleplacement.rcNormalPosition.right  = Stageplacement.rcNormalPosition.left + dright;
-		  Sampleplacement.rcNormalPosition.top	  = Stageplacement.rcNormalPosition.top  + dtop;
-		  Sampleplacement.rcNormalPosition.bottom = Stageplacement.rcNormalPosition.top  + dbottom;
+		  Sampleplacement.rcNormalPosition.left = static_cast<long>(Stageplacement.rcNormalPosition.left + dleft);
+		  Sampleplacement.rcNormalPosition.right = static_cast<long>(Stageplacement.rcNormalPosition.left + dright);
+		  Sampleplacement.rcNormalPosition.top = static_cast<long>(Stageplacement.rcNormalPosition.top  + dtop);
+		  Sampleplacement.rcNormalPosition.bottom = static_cast<long>(Stageplacement.rcNormalPosition.top  + dbottom);
 		  //�l�pSample�`��
 		  m_StageMapGraph.SetWindowPlacement(&Sampleplacement);
 		  m_StageMapGraph.ShowWindow(SW_SHOW);

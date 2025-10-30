@@ -536,11 +536,11 @@ void CRecipeGantryStageProgramView::UpDate()
 
 	///// Sample - Origin X /////
 	GetDlgItemText(IDC_SAMPLE_ORIGIN_X, strBuffer);
-	m_StageProgInfoHdr.SampleInfo.Origin.lX = atof(strBuffer) * MICROMETRE;
+	m_StageProgInfoHdr.SampleInfo.Origin.lX = static_cast<long>(atof(strBuffer) * MICROMETRE);
 
 	///// Sample - Origin Y /////
 	GetDlgItemText(IDC_SAMPLE_ORIGIN_Y, strBuffer);
-	m_StageProgInfoHdr.SampleInfo.Origin.lY = atof(strBuffer) * MICROMETRE;
+	m_StageProgInfoHdr.SampleInfo.Origin.lY = static_cast<long>(atof(strBuffer) * MICROMETRE);
 
 	///// Point Count /////
 	m_StageProgInfoHdr.wNumScans = (WORD)m_iNumScans;
@@ -679,32 +679,32 @@ BOOL CRecipeGantryStageProgramView::CheckData()
 	///// �X�e�[�W�̑傫���Ń��~�b�g�l��ݒ� /////
 	switch ( m_StageConfig.OrgPos ) {
 	case 1: // ���S
-		coordLeftTop.lX = m_StageProgInfoHdr.SampleInfo.Size.dx / 2 * -1;
-		coordLeftTop.lY = m_StageProgInfoHdr.SampleInfo.Size.dy / 2;
+		coordLeftTop.lX = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dx / 2 * -1);
+		coordLeftTop.lY = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dy / 2);
 		coordRightBottom.lX = m_StageProgInfoHdr.SampleInfo.Size.dx / 2;
 		coordRightBottom.lY = m_StageProgInfoHdr.SampleInfo.Size.dy / 2 * -1;
 		break;
 	case 2: // ����
-		coordLeftTop.lX = 0;
-		coordLeftTop.lY = 0;
+		coordLeftTop.lX = static_cast<long>(0);
+		coordLeftTop.lY = static_cast<long>(0);
 		coordRightBottom.lX = m_StageProgInfoHdr.SampleInfo.Size.dx;
 		coordRightBottom.lY = m_StageProgInfoHdr.SampleInfo.Size.dy * -1;
 		break;
 	case 3: // ����
-		coordLeftTop.lX = 0;
-		coordLeftTop.lY = m_StageProgInfoHdr.SampleInfo.Size.dy;
+		coordLeftTop.lX = static_cast<long>(0);
+		coordLeftTop.lY = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dy);
 		coordRightBottom.lX = m_StageProgInfoHdr.SampleInfo.Size.dx;
 		coordRightBottom.lY = 0;
 		break;
 	case 4: // �E��
-		coordLeftTop.lX = m_StageProgInfoHdr.SampleInfo.Size.dx * -1;
-		coordLeftTop.lY = m_StageProgInfoHdr.SampleInfo.Size.dy;
+		coordLeftTop.lX = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dx * -1);
+		coordLeftTop.lY = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dy);
 		coordRightBottom.lX = 0;
 		coordRightBottom.lY = 0;
 		break;
 	case 5: // �E��
-		coordLeftTop.lX = m_StageProgInfoHdr.SampleInfo.Size.dx * -1;
-		coordLeftTop.lY = 0;
+		coordLeftTop.lX = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dx * -1);
+		coordLeftTop.lY = static_cast<long>(0);
 		coordRightBottom.lX = 0;
 		coordRightBottom.lY = m_StageProgInfoHdr.SampleInfo.Size.dy * -1;
 		break;
@@ -786,7 +786,7 @@ void CRecipeGantryStageProgramView::OnPaint()
 
 	if((dStageMaxSizeX / dStageMaxSizeY) > ((StageRectRight - StageRectLeft) / (StageRectBottom - StageRectTop))) {
 		lDrawStageSizeX =(StageRectRight - StageRectLeft);
-		lDrawStageSizeY = ((StageRectRight - StageRectLeft) * dStageMaxSizeY / dStageMaxSizeX);
+		lDrawStageSizeY = static_cast<long>(((StageRectRight - StageRectLeft) * dStageMaxSizeY / dStageMaxSizeX));
 
 		m_dDrawStartStagePosX = StageRectLeft;
 		m_dDrawStartStagePosY = StageRectTop + ((StageRectBottom - StageRectTop - lDrawStageSizeY) / 2);
@@ -794,8 +794,8 @@ void CRecipeGantryStageProgramView::OnPaint()
 		m_dDrawEndStagePosY = m_dDrawStartStagePosY + lDrawStageSizeY;
 	}
 	else{
-		lDrawStageSizeX = ((StageRectBottom - StageRectTop) * dStageMaxSizeX / dStageMaxSizeY);
-		lDrawStageSizeY = (StageRectBottom - StageRectTop);
+		lDrawStageSizeX = static_cast<long>(((StageRectBottom - StageRectTop) * dStageMaxSizeX / dStageMaxSizeY));
+		lDrawStageSizeY = static_cast<long>((StageRectBottom - StageRectTop));
 
 		m_dDrawStartStagePosX = StageRectLeft + ((StageRectRight - StageRectLeft - lDrawStageSizeX) / 2);
 		m_dDrawStartStagePosY = StageRectTop;
@@ -1064,10 +1064,10 @@ void CRecipeGantryStageProgramView::DrawSample(CDC* pDC, int iOrg, int DirX, int
 		}
 
 		if ((m_dDrawStartStagePosX <= dleft) && (dright <= m_dDrawEndStagePosX) && (m_dDrawStartStagePosY <= dtop) && (dbottom <= m_dDrawEndStagePosY)){
-			Sampleplacement.rcNormalPosition.left	= Stageplacement.rcNormalPosition.left + dleft;
-			Sampleplacement.rcNormalPosition.right	= Stageplacement.rcNormalPosition.left + dright;
-			Sampleplacement.rcNormalPosition.top	= Stageplacement.rcNormalPosition.top  + dtop;
-			Sampleplacement.rcNormalPosition.bottom = Stageplacement.rcNormalPosition.top  + dbottom;
+			Sampleplacement.rcNormalPosition.left = static_cast<long>(Stageplacement.rcNormalPosition.left + dleft);
+			Sampleplacement.rcNormalPosition.right = static_cast<long>(Stageplacement.rcNormalPosition.left + dright);
+			Sampleplacement.rcNormalPosition.top = static_cast<long>(Stageplacement.rcNormalPosition.top  + dtop);
+			Sampleplacement.rcNormalPosition.bottom = static_cast<long>(Stageplacement.rcNormalPosition.top  + dbottom);
 			//�l�pSample�`��
 			m_SamplePointGraph.SetWindowPlacement(&Sampleplacement);
 			m_SamplePointGraph.ShowWindow(SW_SHOW);
@@ -1380,10 +1380,10 @@ void CRecipeGantryStageProgramView::SamplePointGraph_DataSet()
 // 2013.01.09 bagus -->
 	if ( m_StageConfig.Dir.X == DIR_RIGHT ||
 		 m_StageConfig.Dir.X == DIR_LEFT ) {
-		m_SamplePointGraph.SetOriginPointData(dOffSetValueX, dOffSetValueY);
+		m_SamplePointGraph.SetOriginPointData(static_cast<long>(dOffSetValueX), static_cast<long>(dOffSetValueY));
 	}
 	else {
-		m_SamplePointGraph.SetOriginPointData(dOffSetValueY, dOffSetValueX);
+		m_SamplePointGraph.SetOriginPointData(static_cast<long>(dOffSetValueY), static_cast<long>(dOffSetValueX));
 	}
 // 2013.01.09 bagus <--
 
@@ -1420,7 +1420,7 @@ void CRecipeGantryStageProgramView::SamplePointGraph_DataSet()
 			Scan_PointIncOffsetY = dOffSetValueY + m_ScanPoint[iPoint].lY;
 			break;
 		}
-		m_SamplePointGraph.AddPoint(Scan_PointIncOffsetX, Scan_PointIncOffsetY);
+		m_SamplePointGraph.AddPoint(static_cast<long>(Scan_PointIncOffsetX), static_cast<long>(Scan_PointIncOffsetY));
 	}
 
 	///// Point Number /////

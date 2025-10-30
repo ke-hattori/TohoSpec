@@ -3952,7 +3952,7 @@ void CRecipeMainSrView::OnPaint()
 
 	if((dStageMaxSizeX / dStageMaxSizeY) > ((StageRectRight - StageRectLeft) / (StageRectBottom - StageRectTop))) {
 		lDrawStageSizeX =(StageRectRight - StageRectLeft);
-		lDrawStageSizeY = ((StageRectRight - StageRectLeft) * dStageMaxSizeY / dStageMaxSizeX);
+		lDrawStageSizeY = static_cast<long>(((StageRectRight - StageRectLeft) * dStageMaxSizeY / dStageMaxSizeX));
 
 		m_dDrawStartStagePosX = StageRectLeft;
 		m_dDrawStartStagePosY = StageRectTop + ((StageRectBottom - StageRectTop - lDrawStageSizeY) / 2);
@@ -3960,8 +3960,8 @@ void CRecipeMainSrView::OnPaint()
 		m_dDrawEndStagePosY = m_dDrawStartStagePosY + lDrawStageSizeY;
 	}
 	else{
-		lDrawStageSizeX = ((StageRectBottom - StageRectTop) * dStageMaxSizeX / dStageMaxSizeY);
-		lDrawStageSizeY = (StageRectBottom - StageRectTop);
+		lDrawStageSizeX = static_cast<long>(((StageRectBottom - StageRectTop) * dStageMaxSizeX / dStageMaxSizeY));
+		lDrawStageSizeY = static_cast<long>((StageRectBottom - StageRectTop));
 
 		m_dDrawStartStagePosX = StageRectLeft + ((StageRectRight - StageRectLeft - lDrawStageSizeX) / 2);
 		m_dDrawStartStagePosY = StageRectTop;
@@ -4754,22 +4754,22 @@ void CRecipeMainSrView::SamplePointGraph_DataSet()
 		dOriginPointDataY = dOffSetValueX;
 	}
 // 2013.01.17 bagus rotate xy view <--
-//	m_SamplePointGraph.SetOriginPointData(dOffSetValueX, dOffSetValueY);
+//	m_SamplePointGraph.SetOriginPointData(static_cast<long>(dOffSetValueX), static_cast<long>(dOffSetValueY));
 	switch ( m_StageConfig.RotateXyView ) {
 	case 0:
 	default:
-		m_SamplePointGraph.SetOriginPointData(dOriginPointDataX, dOriginPointDataY);
+		m_SamplePointGraph.SetOriginPointData(static_cast<long>(dOriginPointDataX), static_cast<long>(dOriginPointDataY));
 		break;
 	case 90:
-		m_SamplePointGraph.SetOriginPointData(dOriginPointDataY, dOriginPointDataX);
+		m_SamplePointGraph.SetOriginPointData(static_cast<long>(dOriginPointDataY), static_cast<long>(dOriginPointDataX));
 		dOffSetValueX = dOriginPointDataY;
 		dOffSetValueY = dOriginPointDataX;
 		break;
 	case 180:
-		m_SamplePointGraph.SetOriginPointData(dOriginPointDataX, dOriginPointDataY);
+		m_SamplePointGraph.SetOriginPointData(static_cast<long>(dOriginPointDataX), static_cast<long>(dOriginPointDataY));
 		break;
 	case 270:
-		m_SamplePointGraph.SetOriginPointData(dOriginPointDataY, dOriginPointDataX);
+		m_SamplePointGraph.SetOriginPointData(static_cast<long>(dOriginPointDataY), static_cast<long>(dOriginPointDataX));
 		dOffSetValueX = dOriginPointDataY;
 		dOffSetValueY = dOriginPointDataX;
 		break;
@@ -4823,7 +4823,7 @@ void CRecipeMainSrView::SamplePointGraph_DataSet()
 			break;
 		}
 // 2009.09.07 bagus stress ���_�ʒu�Ή� --}--
-		m_SamplePointGraph.AddPoint(Scan_PointIncOffsetX, Scan_PointIncOffsetY);
+		m_SamplePointGraph.AddPoint(static_cast<long>(Scan_PointIncOffsetX), static_cast<long>(Scan_PointIncOffsetY));
 	}
 #else
 
@@ -4866,7 +4866,7 @@ void CRecipeMainSrView::SamplePointGraph_DataSet()
 			Scan_PointIncOffsetY = dOffSetValueY + m_ScanPoint[iPoint].lY;
 			break;
 		}
-		m_SamplePointGraph.AddPoint(Scan_PointIncOffsetX, Scan_PointIncOffsetY);
+		m_SamplePointGraph.AddPoint(static_cast<long>(Scan_PointIncOffsetX), static_cast<long>(Scan_PointIncOffsetY));
 	}
 #endif
 // 2009.10.28 bagus 2�_�� --}--
