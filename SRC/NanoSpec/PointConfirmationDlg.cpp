@@ -1,4 +1,4 @@
-// PointConfirmationDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// PointConfirmationDlg.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -23,7 +23,7 @@ static char THIS_FILE[] = __FILE__;
 //Saiki 20110207 Delete <-----
 
 /////////////////////////////////////////////////////////////////////////////
-// CPointConfirmationDlg ƒ_ƒCƒAƒƒO
+// CPointConfirmationDlg ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½O
 /////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////
@@ -32,7 +32,7 @@ CPointConfirmationDlg::CPointConfirmationDlg(CWnd* pParent /*=NULL*/)
 	: COverlayDialog(CPointConfirmationDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CPointConfirmationDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ï¿½ï¿½ï¿½ï¿½ - ClassWizard ï¿½Í‚ï¿½ï¿½ÌˆÊ’uï¿½Éƒ}ï¿½bï¿½sï¿½ï¿½ï¿½Oï¿½pï¿½Ìƒ}ï¿½Nï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½Ü‚ï¿½ï¿½Ííœï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	//}}AFX_DATA_INIT
 
 	m_wHeadType = HEAD_TYPE_SR;
@@ -66,14 +66,14 @@ BEGIN_MESSAGE_MAP(CPointConfirmationDlg, COverlayDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CPointConfirmationDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CPointConfirmationDlg ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 /////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////
 //
 BOOL CPointConfirmationDlg::OnInitDialog()
 {
-	//SampleƒZƒbƒg
+	//Sampleï¿½Zï¿½bï¿½g
 	SetFileName(m_StageProgInfoHdr.SampleInfo.szName);
 	SetSampleMode(1);
 
@@ -91,7 +91,7 @@ BOOL CPointConfirmationDlg::OnInitDialog()
 	m_MoveButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_MoveButton.DrawFlatFocus(TRUE);
 
-	// ‘ª’èƒ|ƒCƒ“ƒg‚ğ•\¦
+	// ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½\ï¿½ï¿½
 	if ((m_nSelectedPoint >= 1) && (m_nSelectedPoint <= m_iNumScans)){
 		m_iCurrPoint = m_nSelectedPoint;
 	} else {
@@ -104,8 +104,8 @@ BOOL CPointConfirmationDlg::OnInitDialog()
 
 	SetTimer(1, 50, NULL);
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Éƒtï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½İ’è‚µï¿½È‚ï¿½ï¿½Æ‚ï¿½ï¿½Aï¿½ß‚ï¿½lï¿½ï¿½ TRUE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
+					// ï¿½ï¿½O: OCX ï¿½vï¿½ï¿½ï¿½pï¿½eï¿½B ï¿½yï¿½[ï¿½Wï¿½Ì–ß‚ï¿½lï¿½ï¿½ FALSE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -120,7 +120,7 @@ void CPointConfirmationDlg::OnOK()
 
 	COverlayDialog::OnOK();
 
-	// TODO: ‚±‚ÌˆÊ’u‚É‚»‚Ì‘¼‚ÌŒŸØ—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½É‚ï¿½ï¿½Ì‘ï¿½ï¿½ÌŒï¿½ï¿½Ø—pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -135,7 +135,7 @@ void CPointConfirmationDlg::OnCancel()
 
 	COverlayDialog::OnCancel();
 
-	// TODO: ‚±‚ÌˆÊ’u‚É“Á•Ê‚ÈŒãˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½É“ï¿½ï¿½Ê‚ÈŒãˆï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -168,21 +168,21 @@ HBRUSH CPointConfirmationDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 //
 void CPointConfirmationDlg::OnTimer(UINT nIDEvent)
 {
-//‰Í‘º‚³‚ñ‚Ö
-//ƒ{ƒ^ƒ“‚Ì—LŒø/–³Œø‚ÌØ‘Ö‚¦‚ğActuateFlags‚ğğŒ‚É‚µ‚Äì¬‚ğ‚¨Šè‚¢‚µ‚Ü‚·B
-#if 0 //ProcessStatus‚ğg‚Á‚Ä‚¢‚é‚Ì‚ÅŠÔˆá‚¢
+//ï¿½Í‘ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//ï¿½{ï¿½^ï¿½ï¿½ï¿½Ì—Lï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ÌØ‘Ö‚ï¿½ï¿½ï¿½ActuateFlagsï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É‚ï¿½ï¿½Äì¬ï¿½ï¿½ï¿½ï¿½ï¿½è‚¢ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
+#if 0 //ProcessStatusï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Ì‚ÅŠÔˆá‚¢
 	int iProcessStatus = m_pDoc->GetProcessStatus();
 
-	//ƒ\ƒtƒgƒWƒ‡ƒCƒXƒeƒBƒbƒN§ŒÀ
+	//ï¿½\ï¿½tï¿½gï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½
 	if(iProcessStatus != m_iProcessStatusOld)
 	{
 		if( iProcessStatus != PROCESS_WAIT )
 		{
-			SoftJoyStickXyzEnable(FALSE); //‘€ì‹Ö~
+			SoftJoyStickXyzEnable(FALSE); //ï¿½ï¿½ï¿½ï¿½Ö~
 		}
 		else
 		{
-			SoftJoyStickXyzEnable(TRUE); //‘€ì‹–‰Â
+			SoftJoyStickXyzEnable(TRUE); //ï¿½ï¿½ï¿½ì‹–ï¿½ï¿½
 		}
 	}
 	m_iProcessStatusOld = iProcessStatus;
@@ -192,7 +192,7 @@ void CPointConfirmationDlg::OnTimer(UINT nIDEvent)
 }
 
 // ==========================================================================
-// NameF		OnNextPointButton
+// Nameï¿½F		OnNextPointButton
 void CPointConfirmationDlg::OnNextPointButton()
 {
 	if (!CheckInputCurrPoint()) {
@@ -210,14 +210,14 @@ void CPointConfirmationDlg::OnNextPointButton()
 		return;
 	}
 
-	// Point‚ª“o˜^‚³‚ê‚Ä‚¢‚éê‡‚É‚Í‚»‚Ìƒ|ƒCƒ“ƒg‚ÉˆÚ“®
+	// Pointï¿½ï¿½ï¿½oï¿½^ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ê‡ï¿½É‚Í‚ï¿½ï¿½Ìƒ|ï¿½Cï¿½ï¿½ï¿½gï¿½ÉˆÚ“ï¿½
 	if(IsDlgButtonChecked(IDC_SYNCHRONOUS_CHECK) == TRUE){
 		OnMoveButton();
 	}
 }
 
 // ==========================================================================
-// NameF		OnPreviousPointButton
+// Nameï¿½F		OnPreviousPointButton
 void CPointConfirmationDlg::OnPreviousPointButton()
 {
 	if (!CheckInputCurrPoint()) {
@@ -235,14 +235,14 @@ void CPointConfirmationDlg::OnPreviousPointButton()
 		return;
 	}
 
-	// ‚»‚Ìƒ|ƒCƒ“ƒg‚ÉˆÚ“®
+	// ï¿½ï¿½ï¿½Ìƒ|ï¿½Cï¿½ï¿½ï¿½gï¿½ÉˆÚ“ï¿½
 	if(IsDlgButtonChecked(IDC_SYNCHRONOUS_CHECK) == TRUE){
 		OnMoveButton();
 	}
 }
 
 // ==========================================================================
-// NameF		SetPointData
+// Nameï¿½F		SetPointData
 void CPointConfirmationDlg::SetPointData()
 {
 	CString csPointNo, csX, csY;
@@ -268,35 +268,35 @@ void CPointConfirmationDlg::SetPointData()
 }
 
 // ==========================================================================
-// NameF		OnMoveButton
+// Nameï¿½F		OnMoveButton
 void CPointConfirmationDlg::OnMoveButton()
 {
-// 2010.02.02 K.Matsuo PIN UPPER ƒCƒ“ƒ^[ƒƒbƒNƒ`ƒFƒbƒN˜R‚ê‘Î‰ -->
+// 2010.02.02 K.Matsuo PIN UPPER ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½`ï¿½Fï¿½bï¿½Nï¿½Rï¿½ï¿½Î‰ï¿½ -->
 	CString strMsg;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;} // ƒƒ“ƒeƒiƒ“ƒXˆÙí
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½X
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;} // ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Ùï¿½
 	}
-	else{												// ’Êí“®ì
+	else{												// ï¿½Êí“®ï¿½ï¿½
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
+	// ï¿½eI/Oï¿½`ï¿½Fï¿½bï¿½N
 	if(m_pDoc->IsInterLock() == TRUE){return;}
-	if( nexioIsMovo2Alarm() 	!= OFF){	AlarmIf_Set(ALID_StageError);	return;} // MOVOƒAƒ‰[ƒ€ 				‚k
+	if( nexioIsMovo2Alarm() 	!= OFF){	AlarmIf_Set(ALID_StageError);	return;} // MOVOï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ 				ï¿½ï¿½ï¿½k
 	if(m_pDoc->CheckUnitStatus() == TRUE){return;}
 
-	// ƒVƒƒƒbƒ^[ˆÈŠO‚ª“®‚¢‚Ä‚¢‚½‚ç“®ì‹Ö~
+	// ï¿½Vï¿½ï¿½ï¿½bï¿½^ï¿½[ï¿½ÈŠOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ç“®ï¿½ï¿½Ö~
 	if( m_pMainFrame->GetJoyStickMode()==0 ){
 		if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 			LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 			m_pDoc->MessageStringIf_Set(strMsg);
 			return;
-		}	// ƒXƒe[ƒW“®ì’†
+		}	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ì’†
 	}
 	if(m_pDoc->CheckActiveFlag() == TRUE){return;}
 
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
-// 2010.02.02 K.Matsuo PIN UPPER ƒCƒ“ƒ^[ƒƒbƒNƒ`ƒFƒbƒN˜R‚ê‘Î‰ <--
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// 2010.02.02 K.Matsuo PIN UPPER ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½`ï¿½Fï¿½bï¿½Nï¿½Rï¿½ï¿½Î‰ï¿½ <--
 
 	if (!CheckInputCurrPoint()) {
 		CString	strBuffer;
@@ -344,7 +344,7 @@ BOOL CPointConfirmationDlg::CheckInputCurrPoint()
 	GetDlgItemText(IDC_POINT_NO, sCurrPoint);
 	dwCurrPoint = strtol(sCurrPoint, NULL, 10);
 
-	if ((dwCurrPoint >= 1) && (dwCurrPoint < m_iNumScans + 1)){
+	if ((dwCurrPoint >= 1) && (dwCurrPoint < static_cast<DWORD>(m_iNumScans + 1))){
 		m_iCurrPoint = dwCurrPoint;
 	} else {
 		// Err
@@ -356,7 +356,7 @@ BOOL CPointConfirmationDlg::CheckInputCurrPoint()
 
 void CPointConfirmationDlg::OnCheckValidPoint()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	m_ValidPoint[m_iCurrPoint -1] = (IsDlgButtonChecked(IDC_VALID_MEASUREMENT_CHECK) == BST_CHECKED);
 }
