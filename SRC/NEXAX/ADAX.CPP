@@ -10,11 +10,11 @@
 
 using namespace nano;
 
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ nexax.dll ---------- { ---------- */
-extern TCHAR g_tszProcDir[_MAX_PATH];		/* ŒÄo‚µƒvƒƒZƒX‚ÌƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
-extern TCHAR g_tszBaseDir[_MAX_PATH];		/* Šî€ƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
+/* added 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ nexax.dll ---------- { ---------- */
+extern TCHAR g_tszProcDir[_MAX_PATH];		/* ï¿½Äoï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Zï¿½Xï¿½Ìƒfï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½('\'ï¿½tï¿½ï¿½)*/
+extern TCHAR g_tszBaseDir[_MAX_PATH];		/* ï¿½î€ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½('\'ï¿½tï¿½ï¿½)*/
 extern void GetProcBaseDir(LPTSTR ptszProcDir, LPTSTR ptszBaseDir);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ nexax.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ nexax.dll ---------- } ---------- */
 // ===========================================================================
 // Constructor/destructor
 // ===========================================================================
@@ -34,12 +34,12 @@ cAdaxServo::cAdaxServo(unsigned short axis)
 	nexiniGetParameter(&m_params);
 
 	char path[MAX_PATH];
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ nexax.dll ---------- { ---------- */
+/* modified 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ nexax.dll ---------- { ---------- */
 //	  sprintf(path, LOG_DIR "NEXAX%02d_.LOG", axis + 1);
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ nexax.dll ---------- 			 */
+/* modified 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ nexax.dll ---------- 			 */
 	GetProcBaseDir(g_tszProcDir, g_tszBaseDir);
 	sprintf(path, "%s" LOG_DIR "NEXAX%02d_.LOG", g_tszProcDir, axis + 1);
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ nexax.dll ---------- } ---------- */
+/* modified 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ nexax.dll ---------- } ---------- */
 	m_lfs.create(path);
 
 	char name[MAX_PATH];
@@ -60,36 +60,36 @@ cAdaxServo::~cAdaxServo(void)
 // ---------------------------------------------------------------------------
 void cAdaxServo::Initialize(void)
 {
-	// ƒVƒ…ƒ~ƒŒ[ƒVƒ‡ƒ“ƒ‚[ƒh”»•Ê
+	// ï¿½Vï¿½ï¿½ï¿½~ï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½
 	if ( IsHardwareSimulation() ) {
-		// ƒVƒ…ƒ~ƒŒ[ƒVƒ‡ƒ“‚Ì•Ï”‰Šú‰»
+		// ï¿½Vï¿½ï¿½ï¿½~ï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì•Ïï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		m_info.initilized  = TRUE;
 		m_info.status	   = IDLE;
 		m_info.established = TRUE;
 	}
 	else
 	if ( !m_Sio.Open(m_params.Sio[m_info.curr.axis]) ) {
-		// ƒVƒŠƒAƒ‹ƒ|[ƒgƒI[ƒvƒ“¸”s
+		// ï¿½Vï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½|ï¿½[ï¿½gï¿½Iï¿½[ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½s
 		AlarmSet(NEXALID_PortInitializeFailure);
 	}
 	else {
 		const int MaxRetries = 3;
 			  int Retries	 = 0;
 		while (1) {
-			// Œ»İ‚ÌƒvƒƒOƒ‰ƒ€ƒ‚[ƒhæ“¾
-			// ’ÊMŠm—§
+			// ï¿½ï¿½ï¿½İ‚Ìƒvï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½æ“¾
+			// ï¿½ÊMï¿½mï¿½ï¿½
 			if ( GetCurrMode() ) {
-				// ƒ‚[ƒh‚ªİ’è‚ÆˆÙ‚È‚éê‡‚ÍÄİ’è
+				// ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½İ’ï¿½ÆˆÙ‚È‚ï¿½ê‡ï¿½ÍÄİ’ï¿½
 				if ( m_mode != m_params.System.Mode ) {
 					if ( SelectMode(m_params.System.Mode) ) {
-						// Äæ“¾
+						// ï¿½Äæ“¾
 						GetCurrMode();
 					}
-					else break; 		// ¸”s!?
+					else break; 		// ï¿½ï¿½ï¿½s!?
 				}
 				switch ( m_mode ) {
-				case FA22_PLS:			// ƒWƒ‡ƒOƒ‚[ƒh‹N“®
-					// ‰Šú‰»Š®—¹
+				case FA22_PLS:			// ï¿½Wï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½[ï¿½hï¿½Nï¿½ï¿½
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					m_info.initilized = TRUE;
 					m_info.status	  = IDLE;
 					break;
@@ -126,7 +126,7 @@ void cAdaxServo::Initialize(void)
 // ---------------------------------------------------------------------------
 void cAdaxServo::Finalize(void)
 {
-	// ƒuƒŒ[ƒL‹y‚ÑƒT[ƒ{ƒIƒt
+	// ï¿½uï¿½ï¿½ï¿½[ï¿½Lï¿½yï¿½ÑƒTï¿½[ï¿½{ï¿½Iï¿½t
 	nexioServoBrakeEx(m_info.curr.axis, OFF);
 	nexioServoOnEx(m_info.curr.axis, OFF);
 
@@ -156,7 +156,7 @@ UINT WINAPI cAdaxServo::ThreadProc(LPVOID lpData)
 // ---------------------------------------------------------------------------
 UINT cAdaxServo::ThreadProc(void)
 {
-	// Ack óMƒXƒŒƒbƒh
+	// Ack ï¿½ï¿½Mï¿½Xï¿½ï¿½ï¿½bï¿½h
 	while ( m_loop ) {
 		if ( m_wbit ) {
 			m_sync.lock();
@@ -233,19 +233,19 @@ BOOL cAdaxServo::WaitAck(message_packet& msg/*=message_packet()*/)
 
 // ---------------------------------------------------------------------------
 // SendMsg
-// ‹@”\F	ƒƒbƒZ[ƒW‘—Mˆ—
-// ˆø”F	msg - ‘—MƒƒbƒZ[ƒW
-//			wbit - Ack óM‘Ò‚¿ƒtƒ‰ƒO
+// ï¿½@ï¿½\ï¿½F	ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ï¿½Mï¿½ï¿½ï¿½ï¿½
+// ï¿½ï¿½ï¿½ï¿½ï¿½F	msg - ï¿½ï¿½ï¿½Mï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W
+//			wbit - Ack ï¿½ï¿½Mï¿½Ò‚ï¿½ï¿½tï¿½ï¿½ï¿½O
 //
-// –ß‚è’lF BOOL - ¬Œ÷
+// ï¿½ß‚ï¿½lï¿½F BOOL - ï¿½ï¿½ï¿½ï¿½
 //
-// Notes:	wbit = FALSE‚Ìê‡‚ÍAck óMƒXƒŒƒbƒh‚É‚ÄAck‘Ò‚¿
+// Notes:	wbit = FALSEï¿½Ìê‡ï¿½ï¿½Ack ï¿½ï¿½Mï¿½Xï¿½ï¿½ï¿½bï¿½hï¿½É‚ï¿½Ackï¿½Ò‚ï¿½
 // ---------------------------------------------------------------------------
 BOOL cAdaxServo::SendMsgWaitAck(message_packet msg, BOOL wbit/*=TRUE*/)
 {
 	BOOL bRet = TRUE;
 
-	// ƒVƒ…ƒ~ƒŒ[ƒVƒ‡ƒ“ƒ‚[ƒh‚Í¬Œ÷
+	// ï¿½Vï¿½ï¿½ï¿½~ï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Íï¿½ï¿½ï¿½
 	if ( IsHardwareSimulation() ) return TRUE;
 
 	m_sync.lock();
@@ -260,13 +260,13 @@ BOOL cAdaxServo::SendMsgWaitAck(message_packet msg, BOOL wbit/*=TRUE*/)
 		goto ERR;
 	}
 
-	// Ack‚ÍóMƒXƒŒƒbƒh‚É‚Ä‘Ò‚Â
+	// Ackï¿½Íï¿½Mï¿½Xï¿½ï¿½ï¿½bï¿½hï¿½É‚Ä‘Ò‚ï¿½
 	if ( !wbit ) {
 		m_wbit = TRUE;
 		goto UNLOCK;
 	}
 
-	// AckóM
+	// Ackï¿½ï¿½M
 	if ( WaitAck(msg) ) goto UNLOCK;
 
 ERR:
@@ -295,8 +295,8 @@ BOOL cAdaxServo::SendMsg(message_packet msg)
 	m_timerT3.set(m_params.ADAX.TimeoutsT3);
 
 	/*
-	  Œ´“_•œ‹AˆÚ“®‚Ìƒ^ƒCƒ€ƒAƒEƒgİ’è
-	  Œ´“_•œ‹A‚ÍŠ®—¹‚Ü‚ÅAck‰“š‚ª–³‚¢
+	  ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½Ú“ï¿½ï¿½ï¿½ï¿½Ìƒ^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½İ’ï¿½
+	  ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ÍŠï¿½ï¿½ï¿½ï¿½Ü‚ï¿½Ackï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	if ( IsMoveToHomePos() ) m_timerT3 = m_params.MotionTimeouts.Homing;
 
@@ -306,7 +306,7 @@ BOOL cAdaxServo::SendMsg(message_packet msg)
 		  << msg
 		  << SPACE;
 
-	// ‘—MƒRƒ}ƒ“ƒh‰ğÍ
+	// ï¿½ï¿½ï¿½Mï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½ï¿½ï¿½
 	switch ( msg.parse_command() ) {
 	case ADAXCMDID_PARAMS_SET_BEGIN:
 		m_lfs << "specified parameter set begin : FA-22";
@@ -332,17 +332,17 @@ BOOL cAdaxServo::SendMsg(message_packet msg)
 		break;
 	case ADAXCMDID_NORMAL_JOG:
 		{
-			// ƒWƒ‡ƒOƒ‚[ƒhê—pˆ—
+			// ï¿½Wï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½pï¿½ï¿½ï¿½ï¿½
 			jog_packet pkt = jog_packet(msg);
 			switch ( pkt.mode() ) {
 			case jog_packet::jogStop:
-				// ƒuƒŒ[ƒL
+				// ï¿½uï¿½ï¿½ï¿½[ï¿½L
 				nexioServoBrakeEx(m_info.curr.axis, OFF);
 				m_info.status = IDLE;
 				break;
 			case jog_packet::jogForward:
 			case jog_packet::jogReverse:
-				// ƒuƒŒ[ƒL‰ğœ
+				// ï¿½uï¿½ï¿½ï¿½[ï¿½Lï¿½ï¿½ï¿½ï¿½
 				nexioServoBrakeEx(m_info.curr.axis, ON);
 				m_info.status = RUN;
 				break;
@@ -403,7 +403,7 @@ BOOL cAdaxServo::SendMsg(message_packet msg)
 		}
 		break;
 	case ADAXCMDID_REMOTE_DATA:
-		// ƒT[ƒ{ƒpƒ‰ƒ[ƒ^İ’è
+		// ï¿½Tï¿½[ï¿½{ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½^ï¿½İ’ï¿½
 		switch ( m_pid.down ) {
 		case eeprom_upper_pos:
 		case eeprom_alignment_pos:
@@ -529,7 +529,7 @@ unsigned long cAdaxServo::ParseCommand(message_packet& msg/*=message_packet()*/)
 {
 	m_wbit = FALSE;
 
-	// BCCƒ`ƒFƒbƒN
+	// BCCï¿½`ï¿½Fï¿½bï¿½N
 	if ( !m_msg.is_match_bcc() ) {
 		m_lfs << nano::arrange
 			  << nano::datetime
@@ -545,7 +545,7 @@ unsigned long cAdaxServo::ParseCommand(message_packet& msg/*=message_packet()*/)
 		  << m_msg
 		  << SPACE;
 
-	// ƒT[ƒ{‰“šƒƒbƒZ[ƒW‰ğÍ
+	// ï¿½Tï¿½[ï¿½{ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ï¿½
 	switch ( m_msg.parse_command() ) {
 	case ADAXCMDID_RESPONSE_OK:
 		m_lfs << "ack";
@@ -558,7 +558,7 @@ unsigned long cAdaxServo::ParseCommand(message_packet& msg/*=message_packet()*/)
 		break;
 	case ADAXCMDID_PARAMS_REFERENCE_BEGIN:
 		if ( params_packet(msg).compare("FA22") == 0 ) {
-			m_mode = static_cast<long>(m_msg.value);
+			m_mode = static_cast<unsigned char>(m_msg.value);
 			m_lfs << "FA-22="
 				  << m_msg.value;
 		}

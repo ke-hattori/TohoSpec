@@ -843,17 +843,17 @@ private:
 		case eeprom_alignment_decel_speed:
 			msg.value = m_motparams.loc.speed[loc_alignment_decel].value;
 			break;
-		case eeprom_teach_accel_decel:
-			msg.low = static_cast<long>(m_motparams.loc.acc * 100.0f);
-			msg.high = static_cast<long>(m_motparams.loc.dec * 100.0f);
-			break;
+	case eeprom_teach_accel_decel:
+		msg.low = static_cast<short>(static_cast<long>(m_motparams.loc.acc * 100.0f));
+		msg.high = static_cast<short>(static_cast<long>(m_motparams.loc.dec * 100.0f));
+		break;
 		case eeprom_home_speed:
 			msg.value = m_motparams.home.speed.value;
 			break;
-		case eeprom_home_accel_decel:
-			msg.low = static_cast<long>(m_motparams.home.acc * 100.0f);
-			msg.high = static_cast<long>(m_motparams.home.dec * 100.0f);
-			break;
+	case eeprom_home_accel_decel:
+		msg.low = static_cast<short>(static_cast<long>(m_motparams.home.acc * 100.0f));
+		msg.high = static_cast<short>(static_cast<long>(m_motparams.home.dec * 100.0f));
+		break;
 		case eeprom_softhome_speed:
 			msg.value = m_motparams.softhome_speed.value;
 			break;
@@ -861,9 +861,9 @@ private:
 //			  msg.value = m_motparams.detect_range;
 			msg.value = 100L;
 			break;
-		case eeprom_jog_speed:
-			msg.high = static_cast<long>(m_motparams.jog_speed.value);
-			break;
+	case eeprom_jog_speed:
+		msg.high = static_cast<short>(static_cast<long>(m_motparams.jog_speed.value));
+		break;
 		}
 		msg.create(ADAXCMDID_REMOTE_DATA);
 		if ( !SendMsgWaitAck(msg) ) return NEXAXERR_COMMUNICATION_FAILURE;
