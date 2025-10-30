@@ -204,7 +204,7 @@ void CRecipeMeasurementStressProgramView::OnSelchangeStressThickOptFilter()
 	int nSelect = pCombo->GetCurSel();
 	if ( nSelect == CB_ERR )
 		return;
-	m_StressMeas.ScanParams._SR.wOpticsFilterType = pCombo->GetItemData(nSelect);
+	m_StressMeas.ScanParams._SR.wOpticsFilterType = static_cast<long>(pCombo->GetItemData(nSelect));
 }
 
 // =========================================================================
@@ -411,14 +411,14 @@ void CRecipeMeasurementStressProgramView::InitCombo_StressThickOpticalFilter()
 				nIndex = 0;
 				pCombo->SetCurSel(nIndex);
 // 2009.12.14 bagus Stress --{--
-				m_StressMeas.ScanParams._SR.wOpticsFilterType = pCombo->GetItemData(0);
+				m_StressMeas.ScanParams._SR.wOpticsFilterType = static_cast<long>(pCombo->GetItemData(0));
 // 2009.12.14 bagus Stress --}--
 			}
 			else{
 				nIndex = 0;
 				pCombo->SetCurSel(nIndex);
 // 2009.12.09 bagus Stress --{--
-				m_StressMeas.ScanParams._SR.wOpticsFilterType = pCombo->GetItemData(0);
+				m_StressMeas.ScanParams._SR.wOpticsFilterType = static_cast<long>(pCombo->GetItemData(0));
 // 2009.12.09 bagus Stress --}--
 				SaveRecipeData();
 				LoadStringML(IDS_OPTICAL_FILTER_ZERO, l_strBuffer, "Invalid for the specified item, Optical filter is saved as an INDEX to 0.");

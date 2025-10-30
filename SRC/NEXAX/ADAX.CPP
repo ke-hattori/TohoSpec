@@ -558,7 +558,7 @@ unsigned long cAdaxServo::ParseCommand(message_packet& msg/*=message_packet()*/)
 		break;
 	case ADAXCMDID_PARAMS_REFERENCE_BEGIN:
 		if ( params_packet(msg).compare("FA22") == 0 ) {
-			m_mode = m_msg.value;
+			m_mode = static_cast<long>(m_msg.value);
 			m_lfs << "FA-22="
 				  << m_msg.value;
 		}

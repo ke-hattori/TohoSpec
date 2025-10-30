@@ -399,7 +399,7 @@ void CSitePtAutoSeq::DoPatRecMatchWithVerify( int iSite,		 // first or second de
 
 	int		GropStep = 0;					// loging count only
 
-	const int PatRecTargetScore= 40.0;
+	const int PatRecTargetScore= static_cast<int>(40.0);
 
 	Delay(STAGE_MOVE_DELAY);
 

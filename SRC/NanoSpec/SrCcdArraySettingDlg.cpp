@@ -200,7 +200,7 @@ void CSrCcdArraySettingDlg::DrawLightIntensityGraph_Init()
 			dLength = sin(3.14*iPixel / 180) *10000+30000;
 			strBuffer.Format("%lf", dLength);
 			if (iIntensityMax < (double)atof(strBuffer))
-				iIntensityMax = (double)atof(strBuffer);
+				iIntensityMax = static_cast<long>((double)atof(strBuffer));
 		}
 		if(iIntensityMax < 1000)
 			iIntensityMax = 1000;
@@ -495,7 +495,7 @@ void CSrCcdArraySettingDlg::OnScanButton()
 
 	//繰返し測定判定（繰返し：チェック時）
 	GetDlgItemText(IDC_CCD_CALIB_SCAN_TIMES, strBuffer);
-	iScanTimes = atof((PCSTR) strBuffer);
+	iScanTimes = static_cast<long>(atof((PCSTR) strBuffer));
 	iScanCount =0;
 	do
 	{

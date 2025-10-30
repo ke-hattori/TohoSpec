@@ -384,10 +384,10 @@ void CPointSetupTeaching2PointDlg::OnApplyButton()
 
 	// X
 	GetDlgItemText(IDC_SAMPLE_X, csBuff);
-	m_ScanPoint[m_iCurrIndex].lX = (double)(atof(csBuff) * MICROMETRE);
+	m_ScanPoint[m_iCurrIndex].lX = static_cast<long>((double)(atof(csBuff) * MICROMETRE));
 	// Y
 	GetDlgItemText(IDC_SAMPLE_Y, csBuff);
-	m_ScanPoint[m_iCurrIndex].lY = (double)(atof(csBuff) * MICROMETRE);
+	m_ScanPoint[m_iCurrIndex].lY = static_cast<long>((double)(atof(csBuff) * MICROMETRE));
 
 // 2009.10.24 bagus 2�_�� �C�� --{--
 //	m_iNumScans = m_iCurrPoint > m_iNumScans ? m_iNumScans + 1 : m_iNumScans;

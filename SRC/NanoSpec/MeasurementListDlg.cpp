@@ -2621,13 +2621,13 @@ void CMeasurementListDlg::PointGraph_DataSet()
 		double dDeltaGraphSize_x = dSampleSize_x * (dGraphSize_y / dSampleSize_y);
 		//�X�y�[�X�̃Z���^�[���킹�p���W�v�Z
 		double dGraphCenterOffset_x = (dGraphSize_x - dDeltaGraphSize_x)/2;
-		placement.rcNormalPosition.left = placement.rcNormalPosition.left + dGraphCenterOffset_x;
-		placement.rcNormalPosition.right = placement.rcNormalPosition.left + dDeltaGraphSize_x;
+		placement.rcNormalPosition.left = static_cast<long>(placement.rcNormalPosition.left + dGraphCenterOffset_x);
+		placement.rcNormalPosition.right = static_cast<long>(placement.rcNormalPosition.left + dDeltaGraphSize_x);
 	}
 	else{
 		//Y�T�C�Y�ݒ�
 		double dDeltaGraphSize_y = dSampleSize_y * (dGraphSize_x / dSampleSize_x);
-		placement.rcNormalPosition.bottom = placement.rcNormalPosition.top + dDeltaGraphSize_y;
+		placement.rcNormalPosition.bottom = static_cast<long>(placement.rcNormalPosition.top + dDeltaGraphSize_y);
 	}
 // 2013.01.09 bagus <--
 	//�ʒu�w��
@@ -2927,40 +2927,40 @@ void CMeasurementListDlg::PointGraph_DataSet()
 						switch (lDirX) {
 						case 1: 	// X:��
 						default:
-							tLineData.StartX = dOffSetValueX + LineInfo.SectPos[nSect].lScanStartPosX;
-							tLineData.EndX = dOffSetValueX + LineInfo.SectPos[nSect].lScanEndPosX;
+							tLineData.StartX = static_cast<long>(dOffSetValueX + LineInfo.SectPos[nSect].lScanStartPosX);
+							tLineData.EndX = static_cast<long>(dOffSetValueX + LineInfo.SectPos[nSect].lScanEndPosX);
 							break;
 						case 2: 	// X:��
-							tLineData.StartY = dOffSetValueX - LineInfo.SectPos[nSect].lScanStartPosX;
-							tLineData.EndY = dOffSetValueX - LineInfo.SectPos[nSect].lScanEndPosX;
+							tLineData.StartY = static_cast<long>(dOffSetValueX - LineInfo.SectPos[nSect].lScanStartPosX);
+							tLineData.EndY = static_cast<long>(dOffSetValueX - LineInfo.SectPos[nSect].lScanEndPosX);
 							break;
 						case 3: 	// X:��
-							tLineData.StartX = dOffSetValueX - LineInfo.SectPos[nSect].lScanStartPosX;
-							tLineData.EndX = dOffSetValueX - LineInfo.SectPos[nSect].lScanEndPosX;
+							tLineData.StartX = static_cast<long>(dOffSetValueX - LineInfo.SectPos[nSect].lScanStartPosX);
+							tLineData.EndX = static_cast<long>(dOffSetValueX - LineInfo.SectPos[nSect].lScanEndPosX);
 							break;
 						case 4: 	// X:��
-							tLineData.StartY = dOffSetValueX + LineInfo.SectPos[nSect].lScanStartPosX;
-							tLineData.EndY = dOffSetValueX + LineInfo.SectPos[nSect].lScanEndPosX;
+							tLineData.StartY = static_cast<long>(dOffSetValueX + LineInfo.SectPos[nSect].lScanStartPosX);
+							tLineData.EndY = static_cast<long>(dOffSetValueX + LineInfo.SectPos[nSect].lScanEndPosX);
 							break;
 						}
 
 						switch (lDirY) {
 						case 1: 	// Y:��
-							tLineData.StartX = dOffSetValueY + LineInfo.SectPos[nSect].lScanPosY;
-							tLineData.EndX = dOffSetValueY + LineInfo.SectPos[nSect].lScanPosY;
+							tLineData.StartX = static_cast<long>(dOffSetValueY + LineInfo.SectPos[nSect].lScanPosY);
+							tLineData.EndX = static_cast<long>(dOffSetValueY + LineInfo.SectPos[nSect].lScanPosY);
 							break;
 						case 2: 	// Y:��
 						default:
-							tLineData.StartY = dOffSetValueY - LineInfo.SectPos[nSect].lScanPosY;
-							tLineData.EndY = dOffSetValueY - LineInfo.SectPos[nSect].lScanPosY;
+							tLineData.StartY = static_cast<long>(dOffSetValueY - LineInfo.SectPos[nSect].lScanPosY);
+							tLineData.EndY = static_cast<long>(dOffSetValueY - LineInfo.SectPos[nSect].lScanPosY);
 							break;
 						case 3: 	// Y:��
-							tLineData.StartX = dOffSetValueY - LineInfo.SectPos[nSect].lScanPosY;
-							tLineData.EndX = dOffSetValueY - LineInfo.SectPos[nSect].lScanPosY;
+							tLineData.StartX = static_cast<long>(dOffSetValueY - LineInfo.SectPos[nSect].lScanPosY);
+							tLineData.EndX = static_cast<long>(dOffSetValueY - LineInfo.SectPos[nSect].lScanPosY);
 							break;
 						case 4: 	// Y:��
-							tLineData.StartY = dOffSetValueY + LineInfo.SectPos[nSect].lScanPosY;
-							tLineData.EndY = dOffSetValueY + LineInfo.SectPos[nSect].lScanPosY;
+							tLineData.StartY = static_cast<long>(dOffSetValueY + LineInfo.SectPos[nSect].lScanPosY);
+							tLineData.EndY = static_cast<long>(dOffSetValueY + LineInfo.SectPos[nSect].lScanPosY);
 							break;
 						}
 // 2009.09.07 bagus stress ���_�ʒu�Ή� --}--

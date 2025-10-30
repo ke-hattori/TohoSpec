@@ -469,7 +469,7 @@ void CChiefTransiAF::enter_ST_AAF_AF(const cEventParams* const pEvParams)
 			if ((1 != m_dwAfMode) && (0 == l_bAF_Success)) {
 				// AF を行った場合のみ(PMA のみでない場合)
 				// リトライオーバをセット
-				l_pAFValid->ucRetry = l_dwRetryCnt - 1;
+				l_pAFValid->ucRetry = static_cast<long>(l_dwRetryCnt - 1);
 			}
 //			if (0 == l_bPopup) {
 			if ((0 == l_bPopup) && ((0 == m_dwAfMode) || ((2 == m_dwAfMode) && (2 != l_dwNGMethod)))) {

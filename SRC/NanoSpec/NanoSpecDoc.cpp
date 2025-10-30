@@ -411,11 +411,11 @@ void CNanoSpecDoc::AlarmHis_Restore(char* Path, char* filename,int LogMax,int Hi
 		}
 
 		file.SeekToEnd();
-		FilePointer = file.GetPosition();
+		FilePointer = static_cast<long>(file.GetPosition());
 
 		///// check the number of terminator /////
 		TerminatorNum = 0;
-		FilePointer = file.Seek(-2 ,CFile::current);
+		FilePointer = static_cast<long>(file.Seek(-2 ,CFile::current));
 		for(i = 0 ; i < 2 ; i++){
 			file.Read(&Character, 1);
 			if(Character == 0x0d || Character == 0x0a){
@@ -427,14 +427,14 @@ void CNanoSpecDoc::AlarmHis_Restore(char* Path, char* filename,int LogMax,int Hi
 		Count = 0;
 		try{
 			while(FilePointer != 0){
-				FilePointer = file.Seek(-2 ,CFile::current);
+				FilePointer = static_cast<long>(file.Seek(-2 ,CFile::current));
 				file.Read(&Character, 1);
 				Count++;
 				if(FilePointer == 0){
 					Count = Count - (TerminatorNum - 1);
-					FilePointer = file.Seek(-1 ,CFile::current);
+					FilePointer = static_cast<long>(file.Seek(-1 ,CFile::current));
 					ReadNum = file.Read(szBuff, Count);
-					FilePointer = file.Seek(-ReadNum ,CFile::current);
+					FilePointer = static_cast<long>(file.Seek(-ReadNum ,CFile::current));
 					szBuff[Count] = '\0';
 
 					AlarmHis_StrToHis(szBuff, &AlarmHis);
@@ -449,7 +449,7 @@ void CNanoSpecDoc::AlarmHis_Restore(char* Path, char* filename,int LogMax,int Hi
 				if(Character == 0x0a){
 					Count = Count - TerminatorNum;
 					ReadNum = file.Read(szBuff,Count);
-					FilePointer = file.Seek(-ReadNum ,CFile::current);
+					FilePointer = static_cast<long>(file.Seek(-ReadNum ,CFile::current));
 					szBuff[Count] = '\0';
 
 					AlarmHis_StrToHis(szBuff, &AlarmHis);

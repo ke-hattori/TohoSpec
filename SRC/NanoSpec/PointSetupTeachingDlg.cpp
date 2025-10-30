@@ -362,9 +362,9 @@ void CPointSetupTeachingDlg::OnApplyButton()
 	switch (m_wHeadType) {
 	case HEAD_TYPE_STRESS:
 		GetDlgItemText(IDC_SAMPLE_X, csBuff);
-		lScanPointX = (double)(atof(csBuff) * MICROMETRE);
+		lScanPointX = static_cast<long>((double)(atof(csBuff) * MICROMETRE));
 		GetDlgItemText(IDC_SAMPLE_Y, csBuff);
-		lScanPointY = (double)(atof(csBuff) * MICROMETRE);
+		lScanPointY = static_cast<long>((double)(atof(csBuff) * MICROMETRE));
 
 		// X���̃`�F�b�N
 		nCheckPoint = nCurrPoint % PIN_INTERVAL;
@@ -416,10 +416,10 @@ void CPointSetupTeachingDlg::OnApplyButton()
 	default:
 		// X
 		GetDlgItemText(IDC_SAMPLE_X, csBuff);
-		m_ScanPoint[nCurrPoint].lX = (double)(atof(csBuff) * MICROMETRE);
+		m_ScanPoint[nCurrPoint].lX = static_cast<long>((double)(atof(csBuff) * MICROMETRE));
 		// Y
 		GetDlgItemText(IDC_SAMPLE_Y, csBuff);
-		m_ScanPoint[nCurrPoint].lY = (double)(atof(csBuff) * MICROMETRE);
+		m_ScanPoint[nCurrPoint].lY = static_cast<long>((double)(atof(csBuff) * MICROMETRE));
 		break;
 	}
 

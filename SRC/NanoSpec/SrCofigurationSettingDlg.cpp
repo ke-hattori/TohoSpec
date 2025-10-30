@@ -416,7 +416,7 @@ void CSrCofigurationSettingDlg::UpDate(BOOL bValid)
 
 		///// DefaultMeasureFilter /////
 		GetDlgItemText(IDC_DEFAULT_MEASUREMENT_FILTER_NO, strBuffer);
-		m_SrConfig.wDefaultMeasFilter = strtol(strBuffer, NULL, 10);
+		m_SrConfig.wDefaultMeasFilter = static_cast<long>(strtol(strBuffer, NULL, 10));
 
 //2009.09.30 bagus SE --{--
 // 2010.01.06 bagus Gantry --{--
@@ -443,11 +443,11 @@ void CSrCofigurationSettingDlg::UpDate(BOOL bValid)
 //			GetDlgItemText(IDC_WAIT_TIME_FOR_SHUTTER_MOVING, strBuffer);
 //			m_SrConfig.wTrShutterMoveWaitTime = (double)(atof((PCSTR) strBuffer)) * MILLI_SEC;
 			if(g_lModelType == MODEL_T3100){
-				m_SrConfig.wTrShutterMoveWaitTime = 0.0;
+				m_SrConfig.wTrShutterMoveWaitTime = static_cast<long>(0.0);
 			}
 			else{
 				GetDlgItemText(IDC_WAIT_TIME_FOR_SHUTTER_MOVING, strBuffer);
-				m_SrConfig.wTrShutterMoveWaitTime = (double)(atof((PCSTR) strBuffer)) * MILLI_SEC;
+				m_SrConfig.wTrShutterMoveWaitTime = static_cast<long>((double)(atof((PCSTR) strBuffer)) * MILLI_SEC);
 			}
 // 2013.11.08 Bagus Mod (TohoSpec�Ή�) <--
 
@@ -471,7 +471,7 @@ void CSrCofigurationSettingDlg::UpDate(BOOL bValid)
 			}
 			else{
 				GetDlgItemText(IDC_NUMBER_OF_A_MEASUREMENT_POINT, strBuffer);
-				m_SrConfig.wGantryNumOfMeasPoint = strtol(strBuffer, NULL, 10);
+				m_SrConfig.wGantryNumOfMeasPoint = static_cast<int>(strtol(strBuffer, NULL, 10));
 			}
 // 2013.11.08 Bagus Mod (TohoSpec�Ή�) <--
 // 2010.01.06 bagus Gantry --{--

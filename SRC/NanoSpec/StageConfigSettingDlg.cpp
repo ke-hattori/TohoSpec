@@ -222,8 +222,8 @@ BOOL CStageConfigSettingDlg::OnInitDialog()
 	//}
 	if(g_bHWS && STAGE_TYPE_SPT == ml_SystemConfig.nStageType){/*シミュレーションモード　かつ　ステージがSPT*/
 
-		lStageSizeX =  m_StageConfig.Size.dX;
-		lStageSizeY =  m_StageConfig.Size.dY;
+		lStageSizeX = static_cast<long>(m_StageConfig.Size.dX);
+		lStageSizeY = static_cast<long>(m_StageConfig.Size.dY);
 	}
 	else if(g_bHWStageSimulation && STAGE_TYPE_SPT != ml_SystemConfig.nStageType){/*ステージシミュレーションモード　かつ　ステージがTOHOかNTN*/
 			/*サブコン対応時に要確認すること*/
@@ -767,7 +767,7 @@ BOOL CStageConfigSettingDlg::CheckData()
 	////// Stage Max Coord Up /////
 	GetDlgItemText(IDC_EDIT_MACHIN_ORIGIN_UP, strBuffer);
 	lMachineOriginUp = atoi(strBuffer);
-	lValue = m_StageConfig.StageMaxCoord.dUpY;
+	lValue = static_cast<long>(m_StageConfig.StageMaxCoord.dUpY);
 	//Saiki 20091210 Change ----->
 	//if ( ( lValue < SUBCON_STAGE_MIN_SIZE * (MICROMETRE / 10) ) || ( SUBCON_STAGE_MAX_SIZE * (MICROMETRE / 10) < lValue  ) || lMachineOriginUp < lValue) {
 	//	  // Kojika 20090603 Change
@@ -804,7 +804,7 @@ BOOL CStageConfigSettingDlg::CheckData()
 	////// Stage Max Coord Down /////
 	GetDlgItemText(IDC_EDIT_MACHIN_ORIGIN_DOWN, strBuffer);
 	lMachineOriginDown = atoi(strBuffer);
-	lValue = m_StageConfig.StageMaxCoord.dDownY;
+	lValue = static_cast<long>(m_StageConfig.StageMaxCoord.dDownY);
 	//Saiki 20091210 Change ----->
 	//if ( ( lValue > SUBCON_STAGE_MIN_SIZE * (MICROMETRE / 10) ) || ( SUBCON_STAGE_MAX_SIZE * (MICROMETRE / 10) < lValue  ) || lMachineOriginDown > lValue) {
 	//	  // Kojika 20090603 Change
@@ -843,7 +843,7 @@ BOOL CStageConfigSettingDlg::CheckData()
 	////// Stage Max Coord Right /////
 	GetDlgItemText(IDC_EDIT_MACHIN_ORIGIN_RIGHT, strBuffer);
 	lMachineOriginRight = atoi(strBuffer);
-	lValue = m_StageConfig.StageMaxCoord.dRightX;
+	lValue = static_cast<long>(m_StageConfig.StageMaxCoord.dRightX);
 	//Saiki 20091210 Change ----->
 	//if ( ( lValue < SUBCON_STAGE_MIN_SIZE * (MICROMETRE / 10) ) || ( SUBCON_STAGE_MAX_SIZE * (MICROMETRE / 10) < lValue  ) || lMachineOriginRight < lValue) {
 	//	  // Kojika 20090603 Change
@@ -880,7 +880,7 @@ BOOL CStageConfigSettingDlg::CheckData()
 	////// Stage Max Coord Left /////
 	GetDlgItemText(IDC_EDIT_MACHIN_ORIGIN_LEFT, strBuffer);
 	lMachineOriginLeft = atoi(strBuffer);
-	lValue = m_StageConfig.StageMaxCoord.dLeftX;
+	lValue = static_cast<long>(m_StageConfig.StageMaxCoord.dLeftX);
 	//Saiki 20091210 Change ----->
 	//if ( ( lValue > SUBCON_STAGE_MIN_SIZE * (MICROMETRE / 10) ) || ( SUBCON_STAGE_MAX_SIZE * (MICROMETRE / 10) < lValue  ) || lMachineOriginLeft > lValue) {
 	//	  // Kojika 20090603 Change
@@ -917,7 +917,7 @@ BOOL CStageConfigSettingDlg::CheckData()
 	//Saiki 20091210 Change <-----
 
 	///// Stage Edge X /////
-	lValue = m_StageConfig.Edge.dX;
+	lValue = static_cast<long>(m_StageConfig.Edge.dX);
 	//Saiki 20091113 Change ----->
 	///*Edgeの範囲は稼動範囲より小さいこと*/
 	//if ( ( lValue < SUBCON_STAGE_MIN_SIZE * (MICROMETRE / 10) ) || ( m_StageConfig.Size.dX < lValue ) ) {
@@ -934,7 +934,7 @@ BOOL CStageConfigSettingDlg::CheckData()
 	}
 
 	///// Stage Edge Y /////
-	lValue = m_StageConfig.Edge.dY;
+	lValue = static_cast<long>(m_StageConfig.Edge.dY);
 	//Saiki 20091113 Change ----->
 	///*Edgeの範囲は稼動範囲より小さいこと*/
 	//if ( ( lValue < SUBCON_STAGE_MIN_SIZE * (MICROMETRE / 10) ) || ( m_StageConfig.Size.dY < lValue ) ) {

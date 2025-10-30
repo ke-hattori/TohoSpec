@@ -1,0 +1,30 @@
+{
+  "targetByCode": null,
+  "targetWarnings": 0,
+  "byFile": null,
+  "targetByFile": null,
+  "byCode": [
+    {
+      "code": "C4477",
+      "count": 202
+    },
+    {
+      "code": "MSB8012",
+      "count": 140
+    },
+    {
+      "code": "C4018",
+      "count": 26
+    },
+    {
+      "code": "C4840",
+      "count": 10
+    },
+    {
+      "code": "C4100",
+      "count": 2
+    }
+  ],
+  "totalWithUnicode": 1688,
+  "total": 380
+}

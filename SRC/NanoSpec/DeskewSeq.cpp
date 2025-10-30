@@ -237,7 +237,7 @@ void CDeskewAutoSeq::DoPatRecMatchWithVerify( int Site, 		// first or second des
 	// The target coverage is the percentage of the total length of the model's active edges found in the occurrence, divided by the total length of edges present within the occurrence's bounding box.
 	// Thus, a target coverage score of 100% means that no extra edges were found. Lower scores indicate that features or edges found in the target (result occurrence) are not present in the model.
 
-	const int PatRecTargetScore= 40.0;
+	const int PatRecTargetScore= static_cast<int>(40.0);
 
 	Delay(STAGE_MOVE_DELAY);
 

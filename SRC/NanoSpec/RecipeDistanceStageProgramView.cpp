@@ -1155,7 +1155,7 @@ void CRecipeDistanceStageProgramView::UpDate()
 		if ( Valid_X1 ) {
 // 2009.10.24 bagus 2�_�� �C�� --{--
 //			m_ScanPoint[nIndex].lX = static_cast<long>(atof(szGridText) * MICROMETRE);
-			lTmp = atof(szGridText) * MICROMETRE;
+			lTmp = static_cast<long>(atof(szGridText) * MICROMETRE);
 			if (!CheckValidPointX(lTmp))
 				break;
 			m_ScanPoint[nIndex].lX = lTmp;
@@ -1168,7 +1168,7 @@ void CRecipeDistanceStageProgramView::UpDate()
 		if ( Valid_Y1 ) {
 // 2009.10.24 bagus 2�_�� �C�� --{--
 //			m_ScanPoint[nIndex].lY = static_cast<long>(atof(szGridText) * MICROMETRE);
-			lTmp = atof(szGridText) * MICROMETRE;
+			lTmp = static_cast<long>(atof(szGridText) * MICROMETRE);
 			if (!CheckValidPointY(lTmp))
 				break;
 			m_ScanPoint[nIndex].lY = lTmp;
@@ -1182,7 +1182,7 @@ void CRecipeDistanceStageProgramView::UpDate()
 		if ( Valid_X2 ) {
 // 2009.10.24 bagus 2�_�� �C�� --{--
 //			m_ScanPoint[nIndex+1].lX = static_cast<long>(atof(szGridText) * MICROMETRE);
-			lTmp = atof(szGridText) * MICROMETRE;
+			lTmp = static_cast<long>(atof(szGridText) * MICROMETRE);
 			if (!CheckValidPointX(lTmp))
 				break;
 			m_ScanPoint[nIndex+1].lX = lTmp;
@@ -1195,7 +1195,7 @@ void CRecipeDistanceStageProgramView::UpDate()
 		if ( Valid_Y2 ) {
 // 2009.10.24 bagus 2�_�� �C�� --{--
 //			m_ScanPoint[nIndex+1].lY = static_cast<long>(atof(szGridText) * MICROMETRE);
-			lTmp = atof(szGridText) * MICROMETRE;
+			lTmp = static_cast<long>(atof(szGridText) * MICROMETRE);
 			if (!CheckValidPointY(lTmp))
 				break;
 			m_ScanPoint[nIndex+1].lY = lTmp;
@@ -1362,19 +1362,19 @@ BOOL CRecipeDistanceStageProgramView::CheckData()
 	case 1: // ���S
 		coordLeftTop.lX = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dx / 2 * -1);
 		coordLeftTop.lY = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dy / 2);
-		coordRightBottom.lX = m_StageProgInfoHdr.SampleInfo.Size.dx / 2;
-		coordRightBottom.lY = m_StageProgInfoHdr.SampleInfo.Size.dy / 2 * -1;
+		coordRightBottom.lX = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dx / 2);
+		coordRightBottom.lY = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dy / 2 * -1);
 		break;
 	case 2: // ����
 		coordLeftTop.lX = static_cast<long>(0);
 		coordLeftTop.lY = static_cast<long>(0);
-		coordRightBottom.lX = m_StageProgInfoHdr.SampleInfo.Size.dx;
-		coordRightBottom.lY = m_StageProgInfoHdr.SampleInfo.Size.dy * -1;
+		coordRightBottom.lX = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dx);
+		coordRightBottom.lY = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dy * -1);
 		break;
 	case 3: // ����
 		coordLeftTop.lX = static_cast<long>(0);
 		coordLeftTop.lY = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dy);
-		coordRightBottom.lX = m_StageProgInfoHdr.SampleInfo.Size.dx;
+		coordRightBottom.lX = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dx);
 		coordRightBottom.lY = 0;
 		break;
 	case 4: // �E��
@@ -1387,7 +1387,7 @@ BOOL CRecipeDistanceStageProgramView::CheckData()
 		coordLeftTop.lX = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dx * -1);
 		coordLeftTop.lY = static_cast<long>(0);
 		coordRightBottom.lX = 0;
-		coordRightBottom.lY = m_StageProgInfoHdr.SampleInfo.Size.dy * -1;
+		coordRightBottom.lY = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dy * -1);
 		break;
 	}
 
@@ -2526,18 +2526,18 @@ BOOL CRecipeDistanceStageProgramView::CheckValidPointX(long lPointX)
 	switch (m_StageConfig.OrgPos) {
 	case 1:		// Center
 	default:
-		lMax = m_StageProgInfoHdr.SampleInfo.Size.dx / 2;
+		lMax = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dx / 2);
 		lMin = -lMax;
 		break;
 	case 2:		// Left & Top
 	case 3:		// Left & Bottom
-		lMax = m_StageProgInfoHdr.SampleInfo.Size.dx;
+		lMax = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dx);
 		lMin = 0;
 		break;
 	case 4:		// Right & Bottom
 	case 5:		// Right & Top
 		lMax = 0;
-		lMin = -m_StageProgInfoHdr.SampleInfo.Size.dx;
+		lMin = static_cast<long>(-m_StageProgInfoHdr.SampleInfo.Size.dx);
 		break;
 	}
 
@@ -2555,17 +2555,17 @@ BOOL CRecipeDistanceStageProgramView::CheckValidPointY(long lPointY)
 	switch (m_StageConfig.OrgPos) {
 	case 1:		// Center
 	default:
-		lMax = m_StageProgInfoHdr.SampleInfo.Size.dy / 2;
+		lMax = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dy / 2);
 		lMin = -lMax;
 		break;
 	case 2:		// Left & Top
 	case 5:		// Right & Top
 		lMax = 0;
-		lMin = -m_StageProgInfoHdr.SampleInfo.Size.dy;
+		lMin = static_cast<long>(-m_StageProgInfoHdr.SampleInfo.Size.dy);
 		break;
 	case 3:		// Left & Bottom
 	case 4:		// Right & Bottom
-		lMax = m_StageProgInfoHdr.SampleInfo.Size.dy;
+		lMax = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dy);
 		lMin = 0;
 		break;
 	}

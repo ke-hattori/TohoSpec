@@ -107,10 +107,10 @@ BOOL CStressCofigurationSettingDlg::CheckData()
 	STAGE_COORD coordLeftTop;
 	STAGE_COORD coordRightBottom;
 
-	coordLeftTop.lX = StageConfig.StageMaxCoord.dLeftX;
-	coordLeftTop.lY = StageConfig.StageMaxCoord.dUpY;
-	coordRightBottom.lX = StageConfig.StageMaxCoord.dRightX;
-	coordRightBottom.lY = StageConfig.StageMaxCoord.dDownY;
+	coordLeftTop.lX = static_cast<long>(StageConfig.StageMaxCoord.dLeftX);
+	coordLeftTop.lY = static_cast<long>(StageConfig.StageMaxCoord.dUpY);
+	coordRightBottom.lX = static_cast<long>(StageConfig.StageMaxCoord.dRightX);
+	coordRightBottom.lY = static_cast<long>(StageConfig.StageMaxCoord.dDownY);
 
 	NS_ConvertToStageGetPosCoord(&coordLeftTop);
 	NS_ConvertToStageGetPosCoord(&coordRightBottom);

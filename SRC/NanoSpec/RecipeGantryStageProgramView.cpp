@@ -681,19 +681,19 @@ BOOL CRecipeGantryStageProgramView::CheckData()
 	case 1: // ���S
 		coordLeftTop.lX = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dx / 2 * -1);
 		coordLeftTop.lY = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dy / 2);
-		coordRightBottom.lX = m_StageProgInfoHdr.SampleInfo.Size.dx / 2;
-		coordRightBottom.lY = m_StageProgInfoHdr.SampleInfo.Size.dy / 2 * -1;
+		coordRightBottom.lX = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dx / 2);
+		coordRightBottom.lY = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dy / 2 * -1);
 		break;
 	case 2: // ����
 		coordLeftTop.lX = static_cast<long>(0);
 		coordLeftTop.lY = static_cast<long>(0);
-		coordRightBottom.lX = m_StageProgInfoHdr.SampleInfo.Size.dx;
-		coordRightBottom.lY = m_StageProgInfoHdr.SampleInfo.Size.dy * -1;
+		coordRightBottom.lX = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dx);
+		coordRightBottom.lY = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dy * -1);
 		break;
 	case 3: // ����
 		coordLeftTop.lX = static_cast<long>(0);
 		coordLeftTop.lY = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dy);
-		coordRightBottom.lX = m_StageProgInfoHdr.SampleInfo.Size.dx;
+		coordRightBottom.lX = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dx);
 		coordRightBottom.lY = 0;
 		break;
 	case 4: // �E��
@@ -706,7 +706,7 @@ BOOL CRecipeGantryStageProgramView::CheckData()
 		coordLeftTop.lX = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dx * -1);
 		coordLeftTop.lY = static_cast<long>(0);
 		coordRightBottom.lX = 0;
-		coordRightBottom.lY = m_StageProgInfoHdr.SampleInfo.Size.dy * -1;
+		coordRightBottom.lY = static_cast<long>(m_StageProgInfoHdr.SampleInfo.Size.dy * -1);
 		break;
 	}
 

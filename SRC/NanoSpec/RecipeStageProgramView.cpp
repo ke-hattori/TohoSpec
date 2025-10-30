@@ -1281,7 +1281,7 @@ void CRecipeStageProgramView::UpDate()
 		if ( Valid_X ) {
 // 2009.10.24 bagus 2�_�� �C�� --{--
 //			m_ScanPoint[i].lX = static_cast<long>(atof(szGridText) * MICROMETRE);
-			lTmp = atof(szGridText) * MICROMETRE;
+			lTmp = static_cast<long>(atof(szGridText) * MICROMETRE);
 			if (!CheckValidPointX(lTmp))
 				break;
 			m_ScanPoint[i].lX = lTmp;
@@ -1299,7 +1299,7 @@ void CRecipeStageProgramView::UpDate()
 		if ( Valid_Y ) {
 // 2009.10.24 bagus 2�_�� �C�� --{--
 //			m_ScanPoint[i].lY = static_cast<long>(atof(szGridText) * MICROMETRE);
-			lTmp = atof(szGridText) * MICROMETRE;
+			lTmp = static_cast<long>(atof(szGridText) * MICROMETRE);
 			if (!CheckValidPointY(lTmp))
 				break;
 			m_ScanPoint[i].lY = lTmp;
@@ -1494,19 +1494,19 @@ BOOL CRecipeStageProgramView::CheckData()
 	case 1: // ���S
 		coordLeftTop.lX = static_cast<long>(dSampleSizeX / 2 * -1);
 		coordLeftTop.lY = static_cast<long>(dSampleSizeY / 2);
-		coordRightBottom.lX = dSampleSizeX / 2;
-		coordRightBottom.lY = dSampleSizeY / 2 * -1;
+		coordRightBottom.lX = static_cast<long>(dSampleSizeX / 2);
+		coordRightBottom.lY = static_cast<long>(dSampleSizeY / 2 * -1);
 		break;
 	case 2: // ����
 		coordLeftTop.lX = static_cast<long>(0);
 		coordLeftTop.lY = static_cast<long>(0);
-		coordRightBottom.lX = dSampleSizeX;
-		coordRightBottom.lY = dSampleSizeY * -1;
+		coordRightBottom.lX = static_cast<long>(dSampleSizeX);
+		coordRightBottom.lY = static_cast<long>(dSampleSizeY * -1);
 		break;
 	case 3: // ����
 		coordLeftTop.lX = static_cast<long>(0);
 		coordLeftTop.lY = static_cast<long>(dSampleSizeY);
-		coordRightBottom.lX = dSampleSizeX;
+		coordRightBottom.lX = static_cast<long>(dSampleSizeX);
 		coordRightBottom.lY = 0;
 		break;
 	case 4: // �E��
@@ -1519,7 +1519,7 @@ BOOL CRecipeStageProgramView::CheckData()
 		coordLeftTop.lX = static_cast<long>(dSampleSizeX * -1);
 		coordLeftTop.lY = static_cast<long>(0);
 		coordRightBottom.lX = 0;
-		coordRightBottom.lY = dSampleSizeY * -1;
+		coordRightBottom.lY = static_cast<long>(dSampleSizeY * -1);
 		break;
 	}
 
@@ -3157,19 +3157,19 @@ BOOL CRecipeStageProgramView::CheckValidPointX(long lPointX)
 	case 1: // ���S
 		coordLeftTop.lX = static_cast<long>(dSampleSizeX / 2 * -1);
 		coordLeftTop.lY = static_cast<long>(dSampleSizeY / 2);
-		coordRightBottom.lX = dSampleSizeX / 2;
-		coordRightBottom.lY = dSampleSizeY / 2 * -1;
+		coordRightBottom.lX = static_cast<long>(dSampleSizeX / 2);
+		coordRightBottom.lY = static_cast<long>(dSampleSizeY / 2 * -1);
 		break;
 	case 2: // ����
 		coordLeftTop.lX = static_cast<long>(0);
 		coordLeftTop.lY = static_cast<long>(0);
-		coordRightBottom.lX = dSampleSizeX;
-		coordRightBottom.lY = dSampleSizeY * -1;
+		coordRightBottom.lX = static_cast<long>(dSampleSizeX);
+		coordRightBottom.lY = static_cast<long>(dSampleSizeY * -1);
 		break;
 	case 3: // ����
 		coordLeftTop.lX = static_cast<long>(0);
 		coordLeftTop.lY = static_cast<long>(dSampleSizeY);
-		coordRightBottom.lX = dSampleSizeX;
+		coordRightBottom.lX = static_cast<long>(dSampleSizeX);
 		coordRightBottom.lY = 0;
 		break;
 	case 4: // �E��
@@ -3182,7 +3182,7 @@ BOOL CRecipeStageProgramView::CheckValidPointX(long lPointX)
 		coordLeftTop.lX = static_cast<long>(dSampleSizeX * -1);
 		coordLeftTop.lY = static_cast<long>(0);
 		coordRightBottom.lX = 0;
-		coordRightBottom.lY = dSampleSizeY * -1;
+		coordRightBottom.lY = static_cast<long>(dSampleSizeY * -1);
 		break;
 	}
 
@@ -3250,19 +3250,19 @@ BOOL CRecipeStageProgramView::CheckValidPointY(long lPointY)
 	case 1: // ���S
 		coordLeftTop.lX = static_cast<long>(dSampleSizeX / 2 * -1);
 		coordLeftTop.lY = static_cast<long>(dSampleSizeY / 2);
-		coordRightBottom.lX = dSampleSizeX / 2;
-		coordRightBottom.lY = dSampleSizeY / 2 * -1;
+		coordRightBottom.lX = static_cast<long>(dSampleSizeX / 2);
+		coordRightBottom.lY = static_cast<long>(dSampleSizeY / 2 * -1);
 		break;
 	case 2: // ����
 		coordLeftTop.lX = static_cast<long>(0);
 		coordLeftTop.lY = static_cast<long>(0);
-		coordRightBottom.lX = dSampleSizeX;
-		coordRightBottom.lY = dSampleSizeY * -1;
+		coordRightBottom.lX = static_cast<long>(dSampleSizeX);
+		coordRightBottom.lY = static_cast<long>(dSampleSizeY * -1);
 		break;
 	case 3: // ����
 		coordLeftTop.lX = static_cast<long>(0);
 		coordLeftTop.lY = static_cast<long>(dSampleSizeY);
-		coordRightBottom.lX = dSampleSizeX;
+		coordRightBottom.lX = static_cast<long>(dSampleSizeX);
 		coordRightBottom.lY = 0;
 		break;
 	case 4: // �E��
@@ -3275,7 +3275,7 @@ BOOL CRecipeStageProgramView::CheckValidPointY(long lPointY)
 		coordLeftTop.lX = static_cast<long>(dSampleSizeX * -1);
 		coordLeftTop.lY = static_cast<long>(0);
 		coordRightBottom.lX = 0;
-		coordRightBottom.lY = dSampleSizeY * -1;
+		coordRightBottom.lY = static_cast<long>(dSampleSizeY * -1);
 		break;
 	}
 

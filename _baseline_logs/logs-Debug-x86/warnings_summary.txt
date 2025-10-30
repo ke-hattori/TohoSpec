@@ -1,0 +1,22 @@
+Warning Analysis Summary
+========================
+
+Total Warnings (excluding Unicode): 370
+Total Warnings (including Unicode): 1678
+
+CRITICAL: Uninitialized/Bounds Warnings: 0
+
+Target Warning Codes:
+
+
+Top 10 Warning Codes (all):
+  C4477: 202
+  MSB8012: 140
+  C4018: 28
+
+
+Top 10 Files with Target Warnings:
+
+
+Top 10 Files (all warnings):
+

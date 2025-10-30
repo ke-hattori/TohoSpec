@@ -334,7 +334,7 @@ void CRecipeMeasurementSrDistanceProgramView::OnSelchangeOptFilter()
 	int nSelect = pCombo->GetCurSel();
 	if ( nSelect == CB_ERR )
 		return;
-	m_DistanceMeas.ScanParams._SR.wOpticsFilterType = pCombo->GetItemData(nSelect);
+	m_DistanceMeas.ScanParams._SR.wOpticsFilterType = static_cast<long>(pCombo->GetItemData(nSelect));
 }
 
 // =========================================================================
@@ -401,14 +401,14 @@ void CRecipeMeasurementSrDistanceProgramView::InitCombo_OpticalFilter()
 				nIndex = 0;
 				pCombo->SetCurSel(nIndex);
 // 2009.12.14 bagus SR --{--
-				m_DistanceMeas.ScanParams._SR.wOpticsFilterType = pCombo->GetItemData(0);
+				m_DistanceMeas.ScanParams._SR.wOpticsFilterType = static_cast<long>(pCombo->GetItemData(0));
 // 2009.12.14 bagus SR --}--
 			}
 			else{
 				nIndex = 0;
 				pCombo->SetCurSel(nIndex);
 // 2009.12.09 bagus SR --{--
-				m_DistanceMeas.ScanParams._SR.wOpticsFilterType = pCombo->GetItemData(0);
+				m_DistanceMeas.ScanParams._SR.wOpticsFilterType = static_cast<long>(pCombo->GetItemData(0));
 // 2009.12.09 bagus SR --}--
 				SaveRecipeData();
 				LoadStringML(IDS_OPTICAL_FILTER_ZERO, l_strBuffer, "Invalid for the specified item, Optical filter is saved as an INDEX to 0.");
