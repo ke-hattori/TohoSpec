@@ -998,11 +998,11 @@ void CRecipeMainSrView::OnSelchangeMeasurementProgram()
 					LoadStringML(IDS_POINT_NAME_NONE, strBuf, "None");
 
 					m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_1] = 0;
-					m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_2] = 0;
-					m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_3] = 0;
-					sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_1], "%s", strBuf);
-					sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_2], "%s", strBuf);
-					sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_3], "%s", strBuf);
+				m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_2] = 0;
+				m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_3] = 0;
+				sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_1], "%s", (LPCSTR)strBuf);
+				sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_2], "%s", (LPCSTR)strBuf);
+				sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_3], "%s", (LPCSTR)strBuf);
 
 					m_MainRcpInfo.MainRcpParam.hdr.nPointManualAdjustment = 0;
 
