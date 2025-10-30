@@ -106,7 +106,7 @@ BOOL CRsMeasure::Measure(const MEAS_PROG_INFO* pMeasProgInfo)
 
 	// Jn
 	iRange = atoi(m_pszRange[pMeasProgInfo->ScanParams._RS.lStartIdx]);
-	iMeasTime = pMeasProgInfo->ScanParams._RS.dScanTime * 1000;
+	iMeasTime = static_cast<int>(pMeasProgInfo->ScanParams._RS.dScanTime * 1000);
 
 	if ( !m_pRsHead->MeasStart() ) {
 		MoveProbeHeadLowerPos(FALSE);
