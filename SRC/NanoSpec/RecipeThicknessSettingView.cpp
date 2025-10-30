@@ -319,7 +319,7 @@ void CRecipeThicknessSettingView::OnPaint()
 	  m_dDrawEndStagePosY = StageRectBottom;
   }
 
-	pDC->Rectangle(CRect(m_dDrawStartStagePosX, m_dDrawStartStagePosY, m_dDrawEndStagePosX, m_dDrawEndStagePosY));
+	pDC->Rectangle(CRect(static_cast<int>(m_dDrawStartStagePosX), static_cast<int>(m_dDrawStartStagePosY), static_cast<int>(m_dDrawEndStagePosX), static_cast<int>(m_dDrawEndStagePosY)));
 
 	pDC->SelectObject(m_oldPen);
 	pDC->SelectObject(m_oldBrush);
@@ -674,10 +674,10 @@ void CRecipeThicknessSettingView::SamplePointGraph_DataSet()
 // 2013.01.09 bagus -->
 	if ( m_StageConfig.Dir.X == DIR_RIGHT ||
 		 m_StageConfig.Dir.X == DIR_LEFT ) {
-		m_StageMapGraph.SetOriginPointData(dOffSetValueX, dOffSetValueY);
+		m_StageMapGraph.SetOriginPointData(static_cast<long>(dOffSetValueX), static_cast<long>(dOffSetValueY));
 	}
 	else {
-		m_StageMapGraph.SetOriginPointData(dOffSetValueY, dOffSetValueX);
+		m_StageMapGraph.SetOriginPointData(static_cast<long>(dOffSetValueY), static_cast<long>(dOffSetValueX));
 	}
 // 2013.01.09 bagus <--
 
@@ -816,7 +816,7 @@ void CRecipeThicknessSettingView::SamplePointGraph_DataSet()
 				dPointY = dOffSetValueY + m_StressConfig.Line[i].MeasPos[iPoint].lY;
 				break;
 			}
-			m_StageMapGraph.AddPoint(dPointX, dPointY);
+			m_StageMapGraph.AddPoint(static_cast<long>(dPointX), static_cast<long>(dPointY));
 		}
 	}
 }
