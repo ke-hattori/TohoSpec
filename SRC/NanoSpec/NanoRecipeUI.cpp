@@ -1,4 +1,4 @@
-// NanoRecipeUI.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// NanoRecipeUI.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -111,7 +111,7 @@ BOOL CNanoRecipeUI::Save()
 
 	if (!CheckData() ) return FALSE;
 
-	if (!IsDataChanged() ) return TRUE; // •ÏX‚È‚µ
+	if (!IsDataChanged() ) return TRUE; // ï¿½ÏXï¿½È‚ï¿½
 
 	return SaveRecipeData();
 }
@@ -141,57 +141,57 @@ BOOL CNanoRecipeUI::SaveAs()
 	CSaveAsDlg dlg(SaveAsDlgInfo());
 	if ( dlg.DoModal() == IDOK ) {
 		nOldOpenMode = m_nOpenMode;
-		m_nOpenMode = modeNew;			// ˆê“I‚ÉV‹Kì¬‚Ìƒ‚[ƒh‚Æ‚·‚é
+		m_nOpenMode = modeNew;			// ï¿½êï¿½Iï¿½ÉVï¿½Kï¿½ì¬ï¿½Ìƒï¿½ï¿½[ï¿½hï¿½Æ‚ï¿½ï¿½ï¿½
 		strcpy(m_szRecipeName, dlg.m_strName);
 		if ( !SaveRecipeData() ) {
 			m_nOpenMode = nOldOpenMode;
 			return FALSE;
 		}
-		m_nOpenMode = modeNormal;		// •Û‘¶¬Œ÷‚µ‚½‚çAƒm[ƒ}ƒ‹ƒ‚[ƒh‚Ö
+		m_nOpenMode = modeNormal;		// ï¿½Û‘ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½mï¿½[ï¿½}ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½
 		((CMainFrame*)AfxGetMainWnd())->SetSelectListName(m_szRecipeName);
 	}
-	return FALSE; // OK,CANCEL			// ƒŒƒVƒsˆê——‰æ–Ê‚Ö‚Í–ß‚ç‚È‚¢
+	return FALSE; // OK,CANCEL			// ï¿½ï¿½ï¿½Vï¿½sï¿½ê——ï¿½ï¿½Ê‚Ö‚Í–ß‚ï¿½È‚ï¿½
 }
 
 // =========================================================================
-// ƒf[ƒ^”jŠü‚ÌCleanUpˆ—
+// ï¿½fï¿½[ï¿½^ï¿½jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½CleanUpï¿½ï¿½ï¿½ï¿½
 void CNanoRecipeUI::Discard()
 {
 }
 
 // =========================================================================//
-//// TRUE	: ƒGƒ‰[‚È‚µ
-//// FALSE : ƒGƒ‰[‚ ‚è
+//// TRUE	: ï¿½Gï¿½ï¿½ï¿½[ï¿½È‚ï¿½
+//// FALSE : ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½
 //BOOL CNanoRecipeUI::CheckData()
 //{
-//	// ƒTƒuƒNƒ‰ƒX‚Å’è‹`
+//	// ï¿½Tï¿½uï¿½Nï¿½ï¿½ï¿½Xï¿½Å’ï¿½`
 //	return TRUE;
 //}
 //
 // =========================================================================//
-//// TRUE	: •ÏX‚ ‚è
-//// FALSE : •ÏX‚È‚µ
+//// TRUE	: ï¿½ÏXï¿½ï¿½ï¿½ï¿½
+//// FALSE : ï¿½ÏXï¿½È‚ï¿½
 //BOOL CNanoRecipeUI::IsDataChanged()
 //{
-//	// ƒTƒuƒNƒ‰ƒX‚Å’è‹`
+//	// ï¿½Tï¿½uï¿½Nï¿½ï¿½ï¿½Xï¿½Å’ï¿½`
 //	return FALSE;
 //}
 //
 // =========================================================================//
-//// TRUE	: •Û‘¶¬Œ÷
-//// FALSE : •Û‘¶¸”s
+//// TRUE	: ï¿½Û‘ï¿½ï¿½ï¿½ï¿½ï¿½
+//// FALSE : ï¿½Û‘ï¿½ï¿½ï¿½ï¿½s
 //BOOL CNanoRecipeUI::SaveRecipeData()
 //{
-//	// ƒTƒuƒNƒ‰ƒX‚Å’è‹`
+//	// ï¿½Tï¿½uï¿½Nï¿½ï¿½ï¿½Xï¿½Å’ï¿½`
 //	return FALSE;
 //}
 //
 // =========================================================================//
-//// TRUE	: ƒAƒNƒZƒX‰Â
-//// FALSE : ƒAƒNƒZƒX•s‰Â
+//// TRUE	: ï¿½Aï¿½Nï¿½Zï¿½Xï¿½ï¿½
+//// FALSE : ï¿½Aï¿½Nï¿½Zï¿½Xï¿½sï¿½ï¿½
 //BOOL CNanoRecipeUI::IsAccessPrivilege()
 //{
-//	// ƒTƒuƒNƒ‰ƒX‚Å’è‹`
+//	// ï¿½Tï¿½uï¿½Nï¿½ï¿½ï¿½Xï¿½Å’ï¿½`
 //	return FALSE;
 //}
 //
@@ -202,26 +202,26 @@ BOOL CNanoRecipeUI::Exit()
 {
 	///// User Access Privilege /////
 	if ( !IsAccessPrivilege() )
-		return TRUE;	// •ÏX‚È‚µˆµ‚¢
+		return TRUE;	// ï¿½ÏXï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	if ( !IsDataChanged() )
-		return TRUE;	// •ÏX‚È‚µ
+		return TRUE;	// ï¿½ÏXï¿½È‚ï¿½
 
-// 2010.01.13 bagus C³ --{--
+// 2010.01.13 bagus ï¿½Cï¿½ï¿½ --{--
 	CString strBuffer;
 
 	LoadStringML(IDS_DEFAULT_VALUE, strBuffer, " DEFAULT VALUE");
-// 2010.01.13 bagus C³ --}--
+// 2010.01.13 bagus ï¿½Cï¿½ï¿½ --}--
 
 	CSaveModifiedDlg dlg;
 	dlg.m_strModified = m_strCaption;
 	switch ( m_nOpenMode )
 	{
 	case modeDefaultSetting:
-// 2010.01.13 bagus C³ --{--
+// 2010.01.13 bagus ï¿½Cï¿½ï¿½ --{--
 //		  dlg.m_strModified += " DEFAULT VALUE";
 		dlg.m_strModified += strBuffer;
-// 2010.01.13 bagus C³ --}--
+// 2010.01.13 bagus ï¿½Cï¿½ï¿½ --}--
 		break;
 	default:
 		break;
@@ -256,7 +256,7 @@ void CNanoRecipeUI::OnUpdateSaveAs(CCmdUI* pCmdUI)
 	pCmdUI->Enable(IsAccessPrivilege());
 }
 
-/* added 2015.04.24 hmenjo Ref File íœ1 ---------- { ---------- */
+/* added 2015.04.24 hmenjo Ref File ï¿½íœ1 ---------- { ---------- */
 void CNanoRecipeUI::DelRefFileByUseMeasPgm(LPCTSTR ptszMeasPgmName)
 {
 	CString l_strSearchPath;
@@ -277,15 +277,15 @@ void CNanoRecipeUI::DelRefFileByUseMeasPgm(LPCTSTR ptszMeasPgmName)
 			(FALSE == l_FindMainRcp.IsDots())
 		) {
 			if (SYSTEM_RECIPE_BEGINNING_CHAR != l_FindMainRcp.GetFileName().GetAt(0)) {
-				/* ƒVƒXƒeƒ€—˜—pƒŒƒVƒs‚Í”ñŠY“–	*/
+				/* ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½Vï¿½sï¿½Í”ï¿½Yï¿½ï¿½	*/
 				if (FALSE != RecipeFile_LoadRecipe(&l_MainRcpInfo, (LPCSTR) l_FindMainRcp.GetFileTitle(), RECIPE_FILE_MAIN_RECIPE)) {
-					if (0 == _tcsicmp(ptszMeasPgmName, l_MainRcpInfo.MainRcpParam.hdr.szMeas)) {
-						/* g‚Á‚Ä‚¢‚Ü‚µ‚½D	*/
-						_stprintf(l_tszRefPath, _T("%s%s%s"), g_szData_Ref_Dir, l_FindMainRcp.GetFileTitle(), DAT_EXT);
+				if (0 == _tcsicmp(ptszMeasPgmName, l_MainRcpInfo.MainRcpParam.hdr.szMeas)) {
+					/* ï¿½gï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½D	*/
+					_stprintf(l_tszRefPath, _T("%s%s%s"), g_szData_Ref_Dir, (LPCTSTR)l_FindMainRcp.GetFileTitle(), DAT_EXT);
 						l_iRcRemove = _tremove(l_tszRefPath);
 						if (0 != l_iRcRemove) {
-							/* íœƒGƒ‰[	*/
-							/* Œ»İˆ—‚Í‚ ‚è‚Ü‚¹‚ñ	*/
+							/* ï¿½íœï¿½Gï¿½ï¿½ï¿½[	*/
+							/* ï¿½ï¿½ï¿½İï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½	*/
 						}
 					}
 				}
@@ -293,4 +293,4 @@ void CNanoRecipeUI::DelRefFileByUseMeasPgm(LPCTSTR ptszMeasPgmName)
 		}
 	}
 }
-/* added 2015.04.24 hmenjo Ref File íœ1 ---------- } ---------- */
+/* added 2015.04.24 hmenjo Ref File ï¿½íœ1 ---------- } ---------- */
