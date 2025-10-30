@@ -108,8 +108,8 @@ CAbstractStage::~CAbstractStage()
 //
 void CAbstractStage::LogicalToPhysical(STAGE_COORD* pSrc, STAGE_COORD* pDst)
 {
-	pDst->lX = cos(rad(m_Params.SystemConfig.dCorrectAngle)) * pSrc->lX + sin(rad(m_Params.SystemConfig.dCorrectAngle)) * pSrc->lY;
-	pDst->lY = cos(rad(m_Params.SystemConfig.dCorrectAngle)) * pSrc->lY - sin(rad(m_Params.SystemConfig.dCorrectAngle)) * pSrc->lX;
+	pDst->lX = static_cast<long>(cos(rad(m_Params.SystemConfig.dCorrectAngle)) * pSrc->lX + sin(rad(m_Params.SystemConfig.dCorrectAngle)) * pSrc->lY);
+	pDst->lY = static_cast<long>(cos(rad(m_Params.SystemConfig.dCorrectAngle)) * pSrc->lY - sin(rad(m_Params.SystemConfig.dCorrectAngle)) * pSrc->lX);
 }
 
 // =========================================================================
@@ -139,8 +139,8 @@ void CAbstractStage::LogicalToPhysical(STAGE_COORD* pPos)
 //
 void CAbstractStage::PhysicalToLogical(STAGE_COORD* pSrc, STAGE_COORD* pDst)
 {
-	pDst->lX = cos(rad(m_Params.SystemConfig.dCorrectAngle)) * pSrc->lX - sin(rad(m_Params.SystemConfig.dCorrectAngle)) * pSrc->lY;
-	pDst->lY = cos(rad(m_Params.SystemConfig.dCorrectAngle)) * pSrc->lY + sin(rad(m_Params.SystemConfig.dCorrectAngle)) * pSrc->lX;
+	pDst->lX = static_cast<long>(cos(rad(m_Params.SystemConfig.dCorrectAngle)) * pSrc->lX - sin(rad(m_Params.SystemConfig.dCorrectAngle)) * pSrc->lY);
+	pDst->lY = static_cast<long>(cos(rad(m_Params.SystemConfig.dCorrectAngle)) * pSrc->lY + sin(rad(m_Params.SystemConfig.dCorrectAngle)) * pSrc->lX);
 }
 
 // =========================================================================
@@ -729,7 +729,7 @@ int CStageNTN::ElevatorMoveEx(LPMOTPARAMSEX lpmpx, BOOL bWait/*TRUE*/)
 	WORD range;
 	int index;
 	for ( index = 0; index < _countof(speeds_table); index++ ) {
-		range = (resolution * speeds_table[index]) / lpmpx->elevator.dz + 0.5;
+		range = static_cast<WORD>((resolution * speeds_table[index]) / lpmpx->elevator.dz + 0.5);
 		if ( range < min_range ) {
 			break;
 		}
@@ -1251,11 +1251,11 @@ int CStageNTN::AdjustElevator(BOOL bZero, STAGE_COORD* pPos/*=NULL*/)
 		long lTemp = 0L;
 		// 2013.02.15 bagus Substrate thickness setting <--
 		if ( !bZero ) {
-			// 2013.02.15 bagus Substrate thickness setting -->
-			//lOffset = long(m_StageMap.InterpolateFromNeighbors(pPos) * 100.0 + 0.5);	 //
-			lTemp = m_StageMap.InterpolateFromNeighbors(pPos) + m_lZLensOffSet + m_lZSubThickOffSet;
-			lOffset = long(lTemp * 100.0 + 0.5);	 //
-			// 2013.02.15 bagus Substrate thickness setting <--
+		// 2013.02.15 bagus Substrate thickness setting -->
+		//lOffset = long(m_StageMap.InterpolateFromNeighbors(pPos) * 100.0 + 0.5);	 //
+		lTemp = static_cast<long>(m_StageMap.InterpolateFromNeighbors(pPos) + m_lZLensOffSet + m_lZSubThickOffSet);
+		lOffset = long(lTemp * 100.0 + 0.5);	 //
+		// 2013.02.15 bagus Substrate thickness setting <--
 		}
 
 		if ( lOffset != lOffsetPrev ) {

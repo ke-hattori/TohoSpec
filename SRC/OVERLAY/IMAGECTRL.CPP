@@ -321,10 +321,10 @@ void CImageCtrl::frameReady(
 					hNewPen = ::CreatePen(PS_SOLID, 3, RGB (255, 0, 0));
 					if ( hNewPen ) {
 						hOldPen = (HPEN) ::SelectObject(hDC, (HGDIOBJ) hNewPen);
-						::MoveToEx(hDC, static_cast<int>((nDestWidth / 2) - 10 * dXRatio), static_cast<int>((nDestHeight / 2) - 10 * dYRatio), NULL);
-						::LineTo(hDC, static_cast<int>((nDestWidth / 2) + 10 * dXRatio), static_cast<int>((nDestHeight / 2)) + 10 * dYRatio);
-						::MoveToEx(hDC, static_cast<int>((nDestWidth / 2) + 10 * dXRatio), static_cast<int>((nDestHeight / 2) - 10 * dYRatio), NULL);
-						::LineTo(hDC, static_cast<int>((nDestWidth / 2) - 10 * dXRatio), static_cast<int>((nDestHeight / 2)) + 10 * dYRatio);
+					::MoveToEx(hDC, static_cast<int>((nDestWidth / 2) - 10 * dXRatio), static_cast<int>((nDestHeight / 2) - 10 * dYRatio), NULL);
+					::LineTo(hDC, static_cast<int>((nDestWidth / 2) + 10 * dXRatio), static_cast<int>((nDestHeight / 2) + 10 * dYRatio));
+					::MoveToEx(hDC, static_cast<int>((nDestWidth / 2) + 10 * dXRatio), static_cast<int>((nDestHeight / 2) - 10 * dYRatio), NULL);
+					::LineTo(hDC, static_cast<int>((nDestWidth / 2) - 10 * dXRatio), static_cast<int>((nDestHeight / 2) + 10 * dYRatio));
 						::SelectObject(hDC, hOldPen);
 						::DeleteObject(hNewPen);
 					}
