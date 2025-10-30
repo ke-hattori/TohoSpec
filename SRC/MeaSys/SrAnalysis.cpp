@@ -9,10 +9,10 @@
 #include "resource.h"
 #include "Mojiretsu.h"
 #include "Xmp.h"
-/* added 2016.02.24 hmenjo ƒoƒbƒ`ˆ— ---------- { ---------- */
+/* added 2016.02.24 hmenjo ï¿½oï¿½bï¿½`ï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
 #include <direct.h>
 #include "System.h"
-/* added 2016.02.24 hmenjo ƒoƒbƒ`ˆ— ---------- } ---------- */
+/* added 2016.02.24 hmenjo ï¿½oï¿½bï¿½`ï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
 
 #if 0
 #define szPathIll			 _T("..\\DATA\\IlluminantTable\\")
@@ -21,12 +21,12 @@
 
 #define REFERENCEMATERIALPATH				_T("..\\CFG\\SYSTEM\\SR_ReferenceMaterial\\")
 
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ---------- { ---------- */
-extern TCHAR g_tszProcDir[_MAX_PATH];		/* ŒÄo‚µƒvƒƒZƒX‚ÌƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
-extern TCHAR g_tszBaseDir[_MAX_PATH];		/* Šî€ƒfƒBƒŒƒNƒgƒŠ('\'•t‚«)*/
+/* added 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ MeaSys.dll ---------- { ---------- */
+extern TCHAR g_tszProcDir[_MAX_PATH];		/* ï¿½Äoï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Zï¿½Xï¿½Ìƒfï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½('\'ï¿½tï¿½ï¿½)*/
+extern TCHAR g_tszBaseDir[_MAX_PATH];		/* ï¿½î€ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½('\'ï¿½tï¿½ï¿½)*/
 extern void GetProcBaseDir(LPTSTR ptszProcDir, LPTSTR ptszBaseDir);
 extern void AddAbsPath(LPTSTR ptszPath);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ MeaSys.dll ---------- } ---------- */
 
 extern CXmp* pXmp;
 extern CMojiretsu* pMojiretsu;
@@ -121,7 +121,7 @@ BOOL CSrAnalysis::ComputeRate(ANALYSISDATA* pAnalysisData, const SCANDATA scanDa
 //	PrintDebug(scanData);
 
 // 2009.10.26 K.Matsuo TR -->
-	/* –ŒŒúE”½Ë—¦ â‘Î’l•ÏŠ·ŒW” */
+	/* ï¿½ï¿½ï¿½ï¿½ï¿½Eï¿½ï¿½ï¿½Ë—ï¿½ ï¿½ï¿½Î’lï¿½ÏŠï¿½ï¿½Wï¿½ï¿½ */
 	if ( wScanType == MEAS_PROG_TYPE_SR_THICKNESS		||
 		 wScanType == MEAS_PROG_TYPE_SR_REFLECTANCE 	||
 		 wScanType == MEAS_PROG_TYPE_SR_REFLECTANCE_CIE )
@@ -169,28 +169,28 @@ BOOL CSrAnalysis::ComputeRate(ANALYSISDATA* pAnalysisData, const SCANDATA scanDa
 		}
 		else
 		{
-			// ‘Š‘Î”½Ë—¦‚ÌZo
+			// ï¿½ï¿½ï¿½Î”ï¿½ï¿½Ë—ï¿½ï¿½ÌZï¿½o
 			ResultData[iIndex] = numer / denom;
-// 2009.05.18 K.Matsuo ƒoƒO‘Î‰ â‘Î”½Ë—¦‚Å100%’´‚¦‚Ä‚¢‚½‚çA100%‚É‚µ‚Ä‚¨‚­‘Î‰ -->
-			// ‚±‚Ì“_‚ÍA‚Ü‚¾‘Š‘Î”½Ë—¦‚Å‚µ‚½‚Ì‚ÅAŒë‚è‚Ì‚½‚ßíœ‚µ‚Ü‚µ‚½BBB
+// 2009.05.18 K.Matsuo ï¿½oï¿½Oï¿½Î‰ï¿½ ï¿½ï¿½Î”ï¿½ï¿½Ë—ï¿½ï¿½ï¿½100%ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½A100%ï¿½É‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½Î‰ï¿½ -->
+			// ï¿½ï¿½ï¿½Ìï¿½ï¿½_ï¿½ÍAï¿½Ü‚ï¿½ï¿½ï¿½ï¿½Î”ï¿½ï¿½Ë—ï¿½ï¿½Å‚ï¿½ï¿½ï¿½ï¿½Ì‚ÅAï¿½ï¿½ï¿½Ì‚ï¿½ï¿½ßíœï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½Bï¿½Bï¿½B
 //			if ( ResultData[i] > 1.0 )
 //				ResultData[i] = 1.0;
-// 2009.05.18 K.Matsuo ƒoƒO‘Î‰ â‘Î”½Ë—¦‚Å100%’´‚¦‚Ä‚¢‚½‚çA100%‚É‚µ‚Ä‚¨‚­‘Î‰ <--
+// 2009.05.18 K.Matsuo ï¿½oï¿½Oï¿½Î‰ï¿½ ï¿½ï¿½Î”ï¿½ï¿½Ë—ï¿½ï¿½ï¿½100%ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½A100%ï¿½É‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½Î‰ï¿½ <--
 		}
-		/* –ŒŒúE”½Ë—¦ â‘Î’l•ÏŠ·ŒW” */
+		/* ï¿½ï¿½ï¿½ï¿½ï¿½Eï¿½ï¿½ï¿½Ë—ï¿½ ï¿½ï¿½Î’lï¿½ÏŠï¿½ï¿½Wï¿½ï¿½ */
 		if ( wScanType == MEAS_PROG_TYPE_SR_THICKNESS		||
 			 wScanType == MEAS_PROG_TYPE_SR_REFLECTANCE 	||
 			 wScanType == MEAS_PROG_TYPE_SR_REFLECTANCE_CIE )
 		{
-			// â‘Î”½Ë—¦‚ÌZo
+			// ï¿½ï¿½Î”ï¿½ï¿½Ë—ï¿½ï¿½ÌZï¿½o
 			ResultData[iIndex] = ResultData[iIndex] * m_RelRefl[(int)p - 1];
-// 2009.05.18 K.Matsuo ƒoƒO‘Î‰ â‘Î”½Ë—¦‚Å100%’´‚¦‚Ä‚¢‚½‚çA100%‚É‚µ‚Ä‚¨‚­‘Î‰ -->
+// 2009.05.18 K.Matsuo ï¿½oï¿½Oï¿½Î‰ï¿½ ï¿½ï¿½Î”ï¿½ï¿½Ë—ï¿½ï¿½ï¿½100%ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½A100%ï¿½É‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½Î‰ï¿½ -->
 			if ( ResultData[iIndex] > 1.0 )
 				ResultData[iIndex] = 1.0;
-// 2009.05.18 K.Matsuo ƒoƒO‘Î‰ â‘Î”½Ë—¦‚Å100%’´‚¦‚Ä‚¢‚½‚çA100%‚É‚µ‚Ä‚¨‚­‘Î‰ <--
+// 2009.05.18 K.Matsuo ï¿½oï¿½Oï¿½Î‰ï¿½ ï¿½ï¿½Î”ï¿½ï¿½Ë—ï¿½ï¿½ï¿½100%ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½A100%ï¿½É‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½Î‰ï¿½ <--
 		}
 #if 0
-//		/* OD’lŒvZ “§‰ß—¦‚©‚çOD’l‚ğŒvZ‚·‚é */
+//		/* ODï¿½lï¿½vï¿½Z ï¿½ï¿½ï¿½ß—ï¿½ï¿½ï¿½ï¿½ï¿½ODï¿½lï¿½ï¿½ï¿½vï¿½Zï¿½ï¿½ï¿½ï¿½ */
 //		if ( wScanType == MEAS_PROG_TYPE_SR_OPTICAL_DENSITY ) {
 //			if ( ResultData[iIndex] == 0.0 )
 //				ResultData[iIndex] = 6.0;
@@ -214,10 +214,10 @@ void CSrAnalysis::ComputeCIEpart1(const MEAS_PROG_INFO* pMeasProgInfo, const SCA
 ///*
 //'====================================================
 //'
-//'   F“x‘ª’è€–ÚŠeíŒvZPart1iXYZ,XnYnZnj
-//'   COD_SdataModiƒf[ƒ^‚©‚çF“x‚ğŒvZ
-//'   ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‹@”\‚Ì‚½‚ß‚É‚Q‚Â‚É•ªŠ„
-//'   Part1‚Å‚ÍuXYZv‹‚ßAƒŠƒLƒƒƒŠƒuŒãAPart2‚É‚Ä•â³Œã‚ÌXYZ‚É‚ÄŒvZ
+//'   ï¿½Fï¿½xï¿½ï¿½ï¿½è€ï¿½ÚŠeï¿½ï¿½vï¿½ZPart1ï¿½iXYZ,XnYnZnï¿½j
+//'   COD_SdataModiï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½Fï¿½xï¿½ï¿½ï¿½vï¿½Z
+//'   ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½@ï¿½\ï¿½Ì‚ï¿½ï¿½ß‚É‚Qï¿½Â‚É•ï¿½ï¿½ï¿½
+//'   Part1ï¿½Å‚ÍuXYZï¿½vï¿½ï¿½ï¿½ßAï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½APart2ï¿½É‚Ä•â³ï¿½ï¿½ï¿½XYZï¿½É‚ÄŒvï¿½Z
 //'
 //'====================================================
 //*/
@@ -225,11 +225,11 @@ void CSrAnalysis::ComputeCIEpart1(const MEAS_PROG_INFO* pMeasProgInfo, const SCA
 //	TRACE(_T("CSrAnalysis::ComputeCIEpart1()\n"));
 //
 //	if ( !ReadIllumiFile(pMeasProgInfo->ScanParams._SR.CIEOptDesc.wIlluminant) ) {
-//		::MessageBox(NULL, _T("CIE ƒCƒ‹ƒ~ƒiƒ“ƒgŒvZ¸”s ReadIllumiFile"), _T("NanoSpec"), MB_OK | MB_ICONERROR);
+//		::MessageBox(NULL, _T("CIE ï¿½Cï¿½ï¿½ï¿½~ï¿½iï¿½ï¿½ï¿½gï¿½vï¿½Zï¿½ï¿½ï¿½s ReadIllumiFile"), _T("NanoSpec"), MB_OK | MB_ICONERROR);
 //		return;
 //	}
 //	if ( !ReadCIECMFFile() ) {
-//		::MessageBox(NULL, _T("CIE ƒCƒ‹ƒ~ƒiƒ“ƒgŒvZ¸”s ReadCIECMFFile"), _T("NanoSpec"), MB_OK | MB_ICONERROR);
+//		::MessageBox(NULL, _T("CIE ï¿½Cï¿½ï¿½ï¿½~ï¿½iï¿½ï¿½ï¿½gï¿½vï¿½Zï¿½ï¿½ï¿½s ReadCIECMFFile"), _T("NanoSpec"), MB_OK | MB_ICONERROR);
 //		return;
 //	}
 //
@@ -268,7 +268,7 @@ void CSrAnalysis::ComputeCIEpart1(const MEAS_PROG_INFO* pMeasProgInfo, const SCA
 //	  CIE_Result.cieTempZn = sumZn * LK;
 //
 ///*
-//'F“x€–Ú‘ª’èŒ‹‰Ê
+//'ï¿½Fï¿½xï¿½ï¿½ï¿½Ú‘ï¿½ï¿½èŒ‹ï¿½ï¿½
 //Type CIE_RESULT_ITEMS
 //	  cieLargeX As Double
 //	  cieLargeY As Double
@@ -287,19 +287,19 @@ void CSrAnalysis::ComputeCIEpart1(const MEAS_PROG_INFO* pMeasProgInfo, const SCA
 //	  cieStarU As Double
 //	  cieStarV As Double
 //
-//	  cieTempXn As Double	 'ŒvZtempiƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‚Ì‚½‚ßtemp‚àƒOƒ[ƒoƒ‹‰»‚ª•K—vj
-//	  cieTempYn As Double	 'ŒvZtempiƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‚Ì‚½‚ßtemp‚àƒOƒ[ƒoƒ‹‰»‚ª•K—vj
-//	  cieTempZn As Double	 'ŒvZtempiƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‚Ì‚½‚ßtemp‚àƒOƒ[ƒoƒ‹‰»‚ª•K—vj
+//	  cieTempXn As Double	 'ï¿½vï¿½Ztempï¿½iï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½ï¿½tempï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½[ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Kï¿½vï¿½j
+//	  cieTempYn As Double	 'ï¿½vï¿½Ztempï¿½iï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½ï¿½tempï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½[ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Kï¿½vï¿½j
+//	  cieTempZn As Double	 'ï¿½vï¿½Ztempï¿½iï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½ï¿½tempï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½[ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Kï¿½vï¿½j
 //End Type
 //Public CIE_Result As CIE_RESULT_ITEMS
 //
 //
 //'====================================================
 //'
-//'   F“x‘ª’è€–ÚŠeíŒvZPart1iXYZ,XnYnZnj
-//'   COD_SdataModiƒf[ƒ^‚©‚çF“x‚ğŒvZ
-//'   ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‹@”\‚Ì‚½‚ß‚É‚Q‚Â‚É•ªŠ„
-//'   Part1‚Å‚ÍuXYZv‹‚ßAƒŠƒLƒƒƒŠƒuŒãAPart2‚É‚Ä•â³Œã‚ÌXYZ‚É‚ÄŒvZ
+//'   ï¿½Fï¿½xï¿½ï¿½ï¿½è€ï¿½ÚŠeï¿½ï¿½vï¿½ZPart1ï¿½iXYZ,XnYnZnï¿½j
+//'   COD_SdataModiï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½Fï¿½xï¿½ï¿½ï¿½vï¿½Z
+//'   ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½@ï¿½\ï¿½Ì‚ï¿½ï¿½ß‚É‚Qï¿½Â‚É•ï¿½ï¿½ï¿½
+//'   Part1ï¿½Å‚ÍuXYZï¿½vï¿½ï¿½ï¿½ßAï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½APart2ï¿½É‚Ä•â³ï¿½ï¿½ï¿½XYZï¿½É‚ÄŒvï¿½Z
 //'
 //'====================================================
 //Public Sub ComputeCIEpart1()
@@ -363,10 +363,10 @@ void CSrAnalysis::ComputeCIEpart2()
 ///*
 //'====================================================
 //'
-//'   F“x‘ª’è€–ÚŠeíŒvZPart2ixyz,Lab,a*b*,u'v',u*v*j
-//'   COD_SdataModiƒf[ƒ^‚©‚çF“x‚ğŒvZ
-//'   ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‹@”\‚Ì‚½‚ß‚É‚Q‚Â‚É•ªŠ„
-//'  Part1‚Å‚ÍuXYZv‹‚ßAƒŠƒLƒƒƒŠƒuŒãAPart2‚É‚Ä•â³Œã‚ÌXYZ‚É‚ÄŒvZ
+//'   ï¿½Fï¿½xï¿½ï¿½ï¿½è€ï¿½ÚŠeï¿½ï¿½vï¿½ZPart2ï¿½ixyz,Lab,a*b*,u'v',u*v*ï¿½j
+//'   COD_SdataModiï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½Fï¿½xï¿½ï¿½ï¿½vï¿½Z
+//'   ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½@ï¿½\ï¿½Ì‚ï¿½ï¿½ß‚É‚Qï¿½Â‚É•ï¿½ï¿½ï¿½
+//'  Part1ï¿½Å‚ÍuXYZï¿½vï¿½ï¿½ï¿½ßAï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½APart2ï¿½É‚Ä•â³ï¿½ï¿½ï¿½XYZï¿½É‚ÄŒvï¿½Z
 //'
 //'====================================================
 //*/
@@ -380,7 +380,7 @@ void CSrAnalysis::ComputeCIEpart2()
 //	  {
 //		  CIE_Result.cieSmallx = CIE_Result.cieLargeX / (CIE_Result.cieLargeX + CIE_Result.cieLargeY + CIE_Result.cieLargeZ);
 //		  CIE_Result.cieSmally = CIE_Result.cieLargeY / (CIE_Result.cieLargeX + CIE_Result.cieLargeY + CIE_Result.cieLargeZ);
-//		  CIE_Result.cieSmallz = CIE_Result.cieLargeZ / (CIE_Result.cieLargeX + CIE_Result.cieLargeY + CIE_Result.cieLargeZ); // Smallz = 1 - Smallx - Smally ‚Æ“¯‚¶
+//		  CIE_Result.cieSmallz = CIE_Result.cieLargeZ / (CIE_Result.cieLargeX + CIE_Result.cieLargeY + CIE_Result.cieLargeZ); // Smallz = 1 - Smallx - Smally ï¿½Æ“ï¿½ï¿½ï¿½
 //	  }
 //
 //	  //'[L,a,b]
@@ -412,7 +412,7 @@ void CSrAnalysis::ComputeCIEpart2()
 //		  CIE_Result.cieDashV = 9.0 * CIE_Result.cieLargeY / (CIE_Result.cieLargeX + 15.0 * CIE_Result.cieLargeY + 3.0 * CIE_Result.cieLargeZ);
 //	  }
 //
-//	  //'[u'n,v'n (Complete refrection)]•\¦‚È‚µ    // Š®‘SŠgU–Ê‚ÅŒvZ‚µ‚½u',v'’l
+//	  //'[u'n,v'n (Complete refrection)]ï¿½\ï¿½ï¿½ï¿½È‚ï¿½    // ï¿½ï¿½ï¿½Sï¿½gï¿½Uï¿½Ê‚ÅŒvï¿½Zï¿½ï¿½ï¿½ï¿½u',v'ï¿½l
 //	  if ( CIE_Result.cieTempXn + 15.0 * CIE_Result.cieTempYn + 3.0 * CIE_Result.cieTempZn != 0 )
 //	  {
 //		  uDn = 4.0 * CIE_Result.cieTempXn / (CIE_Result.cieTempXn + 15.0 * CIE_Result.cieTempYn + 3.0 * CIE_Result.cieTempZn);
@@ -426,10 +426,10 @@ void CSrAnalysis::ComputeCIEpart2()
 ///*
 //'====================================================
 //'
-//'   F“x‘ª’è€–ÚŠeíŒvZPart2ixyz,Lab,a*b*,u'v',u*v*j
-//'   COD_SdataModiƒf[ƒ^‚©‚çF“x‚ğŒvZ
-//'   ƒŠƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‹@”\‚Ì‚½‚ß‚É‚Q‚Â‚É•ªŠ„
-//'  Part1‚Å‚ÍuXYZv‹‚ßAƒŠƒLƒƒƒŠƒuŒãAPart2‚É‚Ä•â³Œã‚ÌXYZ‚É‚ÄŒvZ
+//'   ï¿½Fï¿½xï¿½ï¿½ï¿½è€ï¿½ÚŠeï¿½ï¿½vï¿½ZPart2ï¿½ixyz,Lab,a*b*,u'v',u*v*ï¿½j
+//'   COD_SdataModiï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½Fï¿½xï¿½ï¿½ï¿½vï¿½Z
+//'   ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½@ï¿½\ï¿½Ì‚ï¿½ï¿½ß‚É‚Qï¿½Â‚É•ï¿½ï¿½ï¿½
+//'  Part1ï¿½Å‚ÍuXYZï¿½vï¿½ï¿½ï¿½ßAï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½APart2ï¿½É‚Ä•â³ï¿½ï¿½ï¿½XYZï¿½É‚ÄŒvï¿½Z
 //'
 //'====================================================
 //Public Sub ComputeCIEpart2()
@@ -471,7 +471,7 @@ void CSrAnalysis::ComputeCIEpart2()
 //		  .cieDashV = 9# * .cieLargeY / (.cieLargeX + 15# * .cieLargeY + 3# * .cieLargeZ)
 //	  End If
 //
-//	  '[u'n,v'n (Complete refrection)]•\¦‚È‚µ
+//	  '[u'n,v'n (Complete refrection)]ï¿½\ï¿½ï¿½ï¿½È‚ï¿½
 //	   If (.cieTempXn + 15# * .cieTempYn + 3# * .cieTempZn) <> 0 Then
 //		  uDn = 4# * .cieTempXn / (.cieTempXn + 15# * .cieTempYn + 3# * .cieTempZn)
 //		  vDn = 9# * .cieTempYn / (.cieTempXn + 15# * .cieTempYn + 3# * .cieTempZn)
@@ -516,13 +516,13 @@ BOOL CSrAnalysis::Readsio2File(const MEAS_PROG_INFO* pMeasProgInfo)
 	else {
 		_stprintf(szFilename, _T("%s%s%s"), REFERENCEMATERIALPATH, pMeasProgInfo->Ref2nd.szRefMaterial, ".dat");
 	}
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ---------- { ---------- */
+/* added 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ MeaSys.dll ---------- { ---------- */
 	AddAbsPath(szFilename);
-/* added 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ MeaSys.dll ---------- } ---------- */
+/* added 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ MeaSys.dll ---------- } ---------- */
 
 	if ( (fp = fopen(szFilename, _T("r"))) == NULL ) {
 		TCHAR szBuff[256];
-		_stprintf(szBuff, _T("%s%s"), szFilename, _T("‚ª‚ ‚è‚Ü‚¹‚ñ"));
+		_stprintf(szBuff, _T("%s%s"), szFilename, _T("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½"));
 //		::MessageBox(NULL, szBuff, _T("NanoSpec"), MB_OK | MB_ICONSTOP);
 		return FALSE;
 	}
@@ -562,14 +562,14 @@ BOOL CSrAnalysis::DoXmp(LPTSTR pszXmpDdeText, ANALYSISDATA* pAnalysisData, const
 	if ( !WriteAft2AdapFile(pAnalysisData, pMainRcpInfo, pMeasProgInfo, srXmp.szDataPath) )
 		return FALSE;
 
-	// FITDATAƒRƒ}ƒ“ƒh‘—M
-// 2009.09.14 K.Matsuo NanoSpec6500,9300ƒRƒ}ƒ“ƒh ŒİŠ·‘Î‰ -->
+	// FITDATAï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½ï¿½ï¿½M
+// 2009.09.14 K.Matsuo NanoSpec6500,9300ï¿½Rï¿½}ï¿½ï¿½ï¿½h ï¿½İŠï¿½ï¿½Î‰ï¿½ -->
 //		6500 : strategy
 //		9300 : StratNum
 //	_stprintf(szBuff, _T("FitData(strategy=%02d,)"), atoi(pMeasProgInfo->ScanParams)._SR.XMPDesc.szStrategyEntry);
 	_stprintf(szBuff, _T("FitData(strategy=%02d,StratNum=%02d)"),
 			atoi(pMeasProgInfo->ScanParams._SR.XMPDesc.szStrategyEntry), atoi(pMeasProgInfo->ScanParams._SR.XMPDesc.szStrategyEntry));
-// 2009.09.14 K.Matsuo NanoSpec6500,9300ƒRƒ}ƒ“ƒh ŒİŠ·‘Î‰ <--
+// 2009.09.14 K.Matsuo NanoSpec6500,9300ï¿½Rï¿½}ï¿½ï¿½ï¿½h ï¿½İŠï¿½ï¿½Î‰ï¿½ <--
 
 	// DoXmp
 	if ( !pXmp->DoXmp(pszXmpDdeText, szBuff, pXmpDde) )
@@ -603,19 +603,19 @@ BOOL CSrAnalysis::WriteAft2AdapFile(const ANALYSISDATA* pAnalysisData, const MAI
 	double dWavelengthStep = pAnalysisData->dWavelengthStep;
 // 2014.04.03 bagus wavelength step added <--
 
-	// Configƒtƒ@ƒCƒ‹‚©‚çxmpAngleæ“¾
+	// Configï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½xmpAngleï¿½æ“¾
 	ConfigFile_GetNanoSpecIni(srTurret, CONFIG_FILE_SR_TURRET);
 	dXmpAngle = srTurret[iLens].dXmpAngle;
 
-/* added 2016.02.24 hmenjo ƒoƒbƒ`ˆ— ---------- { ---------- */
+/* added 2016.02.24 hmenjo ï¿½oï¿½bï¿½`ï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
 	if (2 == g_lBatchFlag) {
 		BOOL l_bRslt = FALSE;
 		if (FALSE != this->CopyAft2AdapFileSpecified(dWavelengthStep, dXmpAngle, pszFullPath)) {
 			l_bRslt = TRUE;
-/* added 2016.07.08 hmenjo ƒoƒbƒ`ˆ—2 ---------- { ---------- */
+/* added 2016.07.08 hmenjo ï¿½oï¿½bï¿½`ï¿½ï¿½ï¿½ï¿½2 ---------- { ---------- */
 			if ((pMeasProgInfo->ScanParams.hdr.wScanType == MEAS_PROG_TYPE_SR_REFLECTANCE) ||
 				(pMeasProgInfo->ScanParams.hdr.wScanType == MEAS_PROG_TYPE_SR_REFLECTANCE_CIE)) {
-				/* ”½Ë—¦‚Ìê‡‚Í“à•”•Ï”(pAnalysisData)‚ÉƒZƒbƒg‚µ‚Ü‚·D	*/
+				/* ï¿½ï¿½ï¿½Ë—ï¿½ï¿½Ìê‡ï¿½Í“ï¿½ï¿½ï¿½ï¿½Ïï¿½(pAnalysisData)ï¿½ÉƒZï¿½bï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 				memset((void*) pAnalysisData->dAnalysisReflectanceData, 0, sizeof(pAnalysisData->dAnalysisReflectanceData));
 				if (0 == (fp = fopen(pszFullPath, _T("r")))) {
 					l_bRslt = FALSE;
@@ -633,7 +633,7 @@ BOOL CSrAnalysis::WriteAft2AdapFile(const ANALYSISDATA* pAnalysisData, const MAI
 					while (0 == feof(fp)) {
 						fgets(l_szLine, sizeof(l_szLine) - 1, fp);
 						if (0 != ferror(fp)) {
-							/* ƒGƒ‰[	*/
+							/* ï¿½Gï¿½ï¿½ï¿½[	*/
 							l_bRslt = FALSE;
 							break;
 						}
@@ -659,27 +659,27 @@ BOOL CSrAnalysis::WriteAft2AdapFile(const ANALYSISDATA* pAnalysisData, const MAI
 					fclose(fp);
 					if ((ll_dScanStart < 0) || (ll_dScanEnd < 0)) {
 						l_bRslt = FALSE;
-					} else {
-						int* ll_piScanStart = (int*) &(pAnalysisData->iScanStart);
-						int* ll_piScanEnd = (int*) &(pAnalysisData->iScanEnd);
-						*ll_piScanStart = ll_dScanStart;
-						*ll_piScanEnd = ll_dScanEnd;
-					}
+				} else {
+					int* ll_piScanStart = (int*) &(pAnalysisData->iScanStart);
+					int* ll_piScanEnd = (int*) &(pAnalysisData->iScanEnd);
+					*ll_piScanStart = static_cast<int>(ll_dScanStart);
+					*ll_piScanEnd = static_cast<int>(ll_dScanEnd);
+				}
 				}
 			}
-/* added 2016.07.08 hmenjo ƒoƒbƒ`ˆ—2 ---------- } ---------- */
+/* added 2016.07.08 hmenjo ï¿½oï¿½bï¿½`ï¿½ï¿½ï¿½ï¿½2 ---------- } ---------- */
 		}
-		/* ƒoƒbƒ`—v‹ƒtƒ‰ƒO‚ğƒNƒŠƒA	*/
+		/* ï¿½oï¿½bï¿½`ï¿½vï¿½ï¿½ï¿½tï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½A	*/
 		g_lBatchFlag = 0;
 		return l_bRslt;
 	} else {
-		/* ƒoƒbƒ`—v‹ƒtƒ‰ƒO‚ğƒNƒŠƒA	*/
+		/* ï¿½oï¿½bï¿½`ï¿½vï¿½ï¿½ï¿½tï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½A	*/
 		g_lBatchFlag = 0;
 	}
-/* added 2016.02.24 hmenjo ƒoƒbƒ`ˆ— ---------- } ---------- */
+/* added 2016.02.24 hmenjo ï¿½oï¿½bï¿½`ï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
 
 	if ( (fp = fopen(pszFullPath, _T("w"))) == NULL )  {
-		_stprintf(szBuff, _T("%s%s"), pszFullPath, _T("‚Ìì¬‚É¸”s‚µ‚Ü‚µ‚½"));
+		_stprintf(szBuff, _T("%s%s"), pszFullPath, _T("ï¿½Ìì¬ï¿½Éï¿½ï¿½sï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½"));
 //		::MessageBox(NULL, szBuff, _T("NanoSpec"), MB_OK | MB_ICONERROR);
 		return FALSE;
 	}
@@ -733,7 +733,7 @@ BOOL CSrAnalysis::ReadGenDataFile(ANALYSISDATA* pAnalysisData, LPCTSTR pszFullPa
 // 2014.04.03 bagus wavelength step modified <--
 
 	if ( !file.Open(pszFullPath, CFile::modeRead | CFile::typeText | CFile::shareDenyNone) )  {
-		_stprintf(szBuff, _T("%s%s"), pszFullPath, _T("‚Ì“Ç‚İ‚É¸”s‚µ‚Ü‚µ‚½"));
+		_stprintf(szBuff, _T("%s%s"), pszFullPath, _T("ï¿½Ì“Çï¿½ï¿½İ‚Éï¿½ï¿½sï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½"));
 //		::MessageBox(NULL, szBuff, _T("NanoSpec"), MB_OK | MB_ICONERROR);
 		return FALSE;
 	}
@@ -786,13 +786,13 @@ BOOL CSrAnalysis::ReadIllumiFile(WORD wIlluminant)
 //	  TCHAR szFilename[_MAX_PATH];
 //	  const int nMaxSize = 256;
 //	  TCHAR szLine[nMaxSize];
-//																						   //b’è
+//																						   //ï¿½bï¿½ï¿½
 //	  FILE* fp;
 //
 //	  _stprintf(szFilename, _T("%s%s%s"), szPathIll, ILLUMINANT_TABLE_ITEM[wIlluminant], CIE_EXT);
 //	  if ( (fp = fopen(szFilename, _T("r"))) == NULL ) {
 //		TCHAR szBuff[256];
-//		_stprintf(szBuff, _T("%s%s"), szFilename, _T("‚ª‚ ‚è‚Ü‚¹‚ñ"));
+//		_stprintf(szBuff, _T("%s%s"), szFilename, _T("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½"));
 //		::MessageBox(NULL, szBuff, _T("NanoSpec"), MB_OK | MB_ICONERROR);
 //		  return FALSE;
 //	  }
@@ -830,7 +830,7 @@ BOOL CSrAnalysis::ReadCIECMFFile()
 //'CIE 1931 2-deg XYZ Color Matching Functions for wavelenghts in 1 nm
 //'increments from 380 nm to 780 nm.
 //
-//'CIE 1931 2-deg XYZ Color Matching Functions’è‹`’l”z—ñ
+//'CIE 1931 2-deg XYZ Color Matching Functionsï¿½ï¿½`ï¿½lï¿½zï¿½ï¿½
 //'CIE_CMFdefine(CIE_MINWAVE To CIE_MAXWAVE)
 //'CIE_CMFtable
 //
@@ -855,7 +855,7 @@ BOOL CSrAnalysis::ReadCIECMFFile()
 //	  if ( (fp = fopen(szFilename, _T("r"))) == NULL )
 //	  {
 //		TCHAR szBuff[256];
-//		_stprintf(szBuff, _T("%s%s"), szFilename, _T("‚ª‚ ‚è‚Ü‚¹‚ñ"));
+//		_stprintf(szBuff, _T("%s%s"), szFilename, _T("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½"));
 //		::MessageBox(NULL, szBuff, _T("NanoSpec"), MB_OK | MB_ICONERROR);
 //		  return FALSE;
 //	  }
@@ -886,8 +886,8 @@ BOOL CSrAnalysis::ReadCIECMFFile()
 	return TRUE;
 }
 
-/* added 2016.02.24 hmenjo ƒoƒbƒ`ˆ— ---------- { ---------- */
-/* eƒEƒBƒ“ƒhƒEŒŸõ—p	*/
+/* added 2016.02.24 hmenjo ï¿½oï¿½bï¿½`ï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
+/* ï¿½eï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½p	*/
 BOOL CALLBACK EnumMainWindowProc(HWND hWnd, LPARAM lParam)
 {
 	DWORD l_dwProcID;
@@ -901,18 +901,18 @@ BOOL CALLBACK EnumMainWindowProc(HWND hWnd, LPARAM lParam)
 
 	return TRUE;
 }
-/* MFC ‚Æ“¯‚¶ƒ^ƒCƒv‚Ìƒtƒ@ƒCƒ‹‘I‘ğƒ_ƒCƒAƒƒO•\¦—p	*/
+/* MFC ï¿½Æ“ï¿½ï¿½ï¿½ï¿½^ï¿½Cï¿½vï¿½Ìƒtï¿½@ï¿½Cï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½Oï¿½\ï¿½ï¿½ï¿½p	*/
 UINT CALLBACK OFNHookProcOldStyle(
-	HWND hdlg,		/* ƒ_ƒCƒAƒƒOƒ{ƒbƒNƒXƒEƒBƒ“ƒhƒE‚Ìƒnƒ“ƒhƒ‹	*/
-	UINT uiMsg,		/* ƒƒbƒZ[ƒW¯•Êq	*/
-	WPARAM wParam,	/* ƒƒbƒZ[ƒWƒpƒ‰ƒ[ƒ^	*/
-	LPARAM lParam	/* ƒƒbƒZ[ƒWƒpƒ‰ƒ[ƒ^	*/
+	HWND hdlg,		/* ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½Oï¿½{ï¿½bï¿½Nï¿½Xï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½Ìƒnï¿½ï¿½ï¿½hï¿½ï¿½	*/
+	UINT uiMsg,		/* ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ï¿½Êq	*/
+	WPARAM wParam,	/* ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½pï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½^	*/
+	LPARAM lParam	/* ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½pï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½^	*/
 )
 {
 	switch (uiMsg) {
 	case WM_INITDIALOG:
 		{
-			/* ƒtƒ@ƒCƒ‹‘I‘ğƒ_ƒCƒAƒƒO‚ğƒfƒXƒNƒgƒbƒv‚Ì’†‰›‚É•\¦‚µ‚Ü‚·D	*/
+			/* ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½fï¿½Xï¿½Nï¿½gï¿½bï¿½vï¿½Ì’ï¿½ï¿½ï¿½ï¿½É•\ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 			HWND l_hwndDesktop = ::GetDesktopWindow();
 			RECT l_rectDesktop;
 			::GetWindowRect(l_hwndDesktop, &l_rectDesktop);
@@ -927,13 +927,13 @@ UINT CALLBACK OFNHookProcOldStyle(
 
 	return 0;
 }
-/* ƒtƒ@ƒCƒ‹‘I‘ğƒ_ƒCƒAƒƒO•\¦‚Æ‘I‘ğˆ—	*/
+/* ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½Oï¿½\ï¿½ï¿½ï¿½Æ‘Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 BOOL CSrAnalysis::CopyAft2AdapFileSpecified(double dWavelengthStep, double dXmpAngle, LPCTSTR ptszFullPath/* = _T("C:\\WVASE32\\Adap\\aft2adap.dat")*/)
 {
 	BOOL l_bRc = FALSE;
-	static TCHAR ls_tszAft2AdapPathSrc[MAX_PATH] = _T("");	/* ‘O‰ñ‘I‘ğ‚µ‚½ƒtƒ@ƒCƒ‹‚Ìƒtƒ‹ƒpƒX	*/
+	static TCHAR ls_tszAft2AdapPathSrc[MAX_PATH] = _T("");	/* ï¿½Oï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ìƒtï¿½ï¿½ï¿½pï¿½X	*/
 
-	/* ƒƒCƒ“ƒEƒBƒ“ƒhƒE‚ğæ“¾	*/
+	/* ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½æ“¾	*/
 	HWND l_hwndMainWnd = 0;
 	DWORD l_dwProcID = ::GetCurrentProcessId();
 	if (FALSE == ::EnumWindows(EnumMainWindowProc, (LPARAM) &l_dwProcID)) {
@@ -944,41 +944,41 @@ BOOL CSrAnalysis::CopyAft2AdapFileSpecified(double dWavelengthStep, double dXmpA
 
 	TCHAR l_tszAft2AdapPathSrc[MAX_PATH] = _T("");
 	TCHAR l_tszAft2AdapDir[MAX_PATH] = _T("");
-	/* ‘O‰ñ‘I‘ğ‚µ‚½ƒtƒ@ƒCƒ‹‚Í‘¶İ‚·‚é‚©HH	*/
+	/* ï¿½Oï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Í‘ï¿½ï¿½İ‚ï¿½ï¿½é‚©ï¿½Hï¿½H	*/
 	if (-1 != ::GetFileAttributes(ls_tszAft2AdapPathSrc)) {
-		/* ‚·‚é	*/
+		/* ï¿½ï¿½ï¿½ï¿½	*/
 		_tcscpy(l_tszAft2AdapPathSrc, ls_tszAft2AdapPathSrc);
 	} else {
-		/* ‚µ‚È‚¢	*/
+		/* ï¿½ï¿½ï¿½È‚ï¿½	*/
 		_tcscpy(l_tszAft2AdapPathSrc, _T(""));
-		/* ‘O‰ñ‘I‘ğ‚µ‚½ƒtƒ@ƒCƒ‹‚ÌƒfƒBƒŒƒNƒgƒŠ‚Í‘¶İ‚·‚é‚©HH	*/
+		/* ï¿½Oï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ìƒfï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½Í‘ï¿½ï¿½İ‚ï¿½ï¿½é‚©ï¿½Hï¿½H	*/
 		BOOL l_bDef = FALSE;
 		TCHAR *l_ptszNull;
 		_tcscpy(l_tszAft2AdapDir, ls_tszAft2AdapPathSrc);
 		l_ptszNull = _tcsrchr(l_tszAft2AdapDir, _T('\\'));
 		if (0 == l_ptszNull) {
-			/* ƒpƒX‚É'\'‚ª–³‚¢	*/
+			/* ï¿½pï¿½Xï¿½ï¿½'\'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 			l_bDef = TRUE;
 		} else {
 			*(l_ptszNull + 1) = 0;
 			if (-1 == ::GetFileAttributes(l_tszAft2AdapDir)) {
-				/* ‘¶İ‚µ‚È‚¢	*/
+				/* ï¿½ï¿½ï¿½İ‚ï¿½ï¿½È‚ï¿½	*/
 				l_bDef = TRUE;
 			}
 		}
 		if (FALSE != l_bDef) {
 			l_bDef = FALSE;
-			/* ptszFullPath ‚ÌƒfƒBƒŒƒNƒgƒŠ‚ğg‚¢‚Ü‚·D	*/
+			/* ptszFullPath ï¿½Ìƒfï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 			_tcscpy(l_tszAft2AdapDir, ptszFullPath);
 			l_ptszNull = _tcsrchr(l_tszAft2AdapDir, _T('\\'));
-			/* ptszFullPath ‚ÌƒfƒBƒŒƒNƒgƒŠ‚Í‘¶İ‚·‚é‚©HH	*/
+			/* ptszFullPath ï¿½Ìƒfï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½Í‘ï¿½ï¿½İ‚ï¿½ï¿½é‚©ï¿½Hï¿½H	*/
 			if (0 == l_ptszNull) {
-				/* ƒpƒX‚É'\'‚ª–³‚¢	*/
+				/* ï¿½pï¿½Xï¿½ï¿½'\'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 				l_bDef = TRUE;
 			} else {
 				*(l_ptszNull + 1) = 0;
 				if (-1 == ::GetFileAttributes(l_tszAft2AdapDir)) {
-					/* ‚µ‚È‚¢	*/
+					/* ï¿½ï¿½ï¿½È‚ï¿½	*/
 					l_bDef = TRUE;
 				}
 			}
@@ -988,7 +988,7 @@ BOOL CSrAnalysis::CopyAft2AdapFileSpecified(double dWavelengthStep, double dXmpA
 		}
 	}
 
-	/* ƒRƒ‚ƒ“ƒ_ƒCƒAƒƒO‚É‚æ‚éƒtƒ@ƒCƒ‹‘I‘ğ	*/
+	/* ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½Oï¿½É‚ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Iï¿½ï¿½	*/
 	OPENFILENAME l_OpenFileName;
 	memset(&l_OpenFileName, 0, sizeof(l_OpenFileName));
 	l_OpenFileName.lStructSize = sizeof(OPENFILENAME);
@@ -998,25 +998,25 @@ BOOL CSrAnalysis::CopyAft2AdapFileSpecified(double dWavelengthStep, double dXmpA
 	l_OpenFileName.lpstrFile = l_tszAft2AdapPathSrc;
 	l_OpenFileName.nMaxFile = MAX_PATH;
 	l_OpenFileName.lpstrInitialDir = l_tszAft2AdapDir;
-	l_OpenFileName.lpfnHook = OFNHookProcOldStyle;	/* ƒtƒbƒNƒvƒƒV[ƒWƒƒ	*/
+	l_OpenFileName.lpfnHook = OFNHookProcOldStyle;	/* ï¿½tï¿½bï¿½Nï¿½vï¿½ï¿½ï¿½Vï¿½[ï¿½Wï¿½ï¿½	*/
 	l_OpenFileName.Flags =
-						OFN_FILEMUSTEXIST |		/* ‘¶İ‚·‚éƒpƒX‚Ì‚İ—LŒø	*/
-						OFN_PATHMUSTEXIST |		/* ‘¶İ‚·‚éƒtƒ@ƒCƒ‹‚Ì‚İ—LŒø	*/
-						OFN_NONETWORKBUTTON |	/* ƒlƒbƒgƒ[ƒNƒ{ƒ^ƒ“”ñ•\¦	*/
-						OFN_ENABLEHOOK |		/* ƒtƒbƒNƒvƒƒV[ƒWƒƒ‚ğ—LŒø	*/
-						OFN_EXPLORER |			/* V‚µ‚¢ƒGƒNƒXƒvƒ[ƒ‰ƒXƒ^ƒCƒ‹	*/
+						OFN_FILEMUSTEXIST |		/* ï¿½ï¿½ï¿½İ‚ï¿½ï¿½ï¿½pï¿½Xï¿½Ì‚İ—Lï¿½ï¿½	*/
+						OFN_PATHMUSTEXIST |		/* ï¿½ï¿½ï¿½İ‚ï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ì‚İ—Lï¿½ï¿½	*/
+						OFN_NONETWORKBUTTON |	/* ï¿½lï¿½bï¿½gï¿½ï¿½ï¿½[ï¿½Nï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½	*/
+						OFN_ENABLEHOOK |		/* ï¿½tï¿½bï¿½Nï¿½vï¿½ï¿½ï¿½Vï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½	*/
+						OFN_EXPLORER |			/* ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Gï¿½Nï¿½Xï¿½vï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Xï¿½^ï¿½Cï¿½ï¿½	*/
 						0;
-	/* ƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠ‚ğ•Û‘¶	*/
+	/* ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½gï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½Û‘ï¿½	*/
 	TCHAR l_tszCurrDir[MAX_PATH];
 	_tgetcwd(l_tszCurrDir, MAX_PATH - 1);
 	if (FALSE != ::GetOpenFileName(&l_OpenFileName)) {
-		/* Šm’è	*/
+		/* ï¿½mï¿½ï¿½	*/
 //		::MessageBox(l_hwndMainWnd, l_tszAft2AdapPathSrc, l_tszAft2AdapPathSrc, MB_OK);
-		/* ƒtƒH[ƒ}ƒbƒgƒ`ƒFƒbƒN	*/
+		/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½`ï¿½Fï¿½bï¿½N	*/
 		TCHAR l_tszTargetPath[MAX_PATH];
 		BOOL l_bTempFile = FALSE;
 		if (0 == _tcsicmp(ptszFullPath, l_tszAft2AdapPathSrc)) {
-			/* “¯–¼‚Ìê‡‚Íƒeƒ“ƒ|ƒ‰ƒŠ‚ÉƒRƒs[‚µ‚Ü‚·(_mktemp ‚Íg‚¢‚Ü‚¹‚ñ)D	*/
+			/* ï¿½ï¿½ï¿½ï¿½ï¿½Ìê‡ï¿½Íƒeï¿½ï¿½ï¿½|ï¿½ï¿½ï¿½ï¿½ï¿½ÉƒRï¿½sï¿½[ï¿½ï¿½ï¿½Ü‚ï¿½(_mktemp ï¿½Ígï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½)ï¿½D	*/
 			_tcscpy(l_tszTargetPath, ptszFullPath);
 			_tcscat(l_tszTargetPath, _T("batibati"));
 			::CopyFile(l_tszAft2AdapPathSrc, l_tszTargetPath, FALSE);
@@ -1027,37 +1027,37 @@ BOOL CSrAnalysis::CopyAft2AdapFileSpecified(double dWavelengthStep, double dXmpA
 		long l_lReadErr = 0;
 		FILE *l_pfp;
 		if (0 == (l_pfp = _tfopen(l_tszTargetPath, _T("rt")))) {
-			/* ƒI[ƒvƒ“ƒGƒ‰[	*/
+			/* ï¿½Iï¿½[ï¿½vï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[	*/
 			l_lReadErr = 1;
 		} else {
 			TCHAR l_tszLine[256];
-			/* ‚Ps–ÚF‹ó“Ç‚İ	*/
+			/* ï¿½Pï¿½sï¿½ÚFï¿½ï¿½Ç‚ï¿½	*/
 			if (0 == _fgetts(l_tszLine, 255, l_pfp)) {
-				/* ƒGƒ‰[C‚ ‚é‚¢‚ÍCI’[	*/
+				/* ï¿½Gï¿½ï¿½ï¿½[ï¿½Cï¿½ï¿½ï¿½é‚¢ï¿½ÍCï¿½Iï¿½[	*/
 				l_lReadErr = 2;
 			}
-			/* ‚Qs–ÚF"nm"‚Ì‚Í‚¸	*/
+			/* ï¿½Qï¿½sï¿½ÚF"nm"ï¿½Ì‚Í‚ï¿½	*/
 			else if (0 == _fgetts(l_tszLine, 255, l_pfp)) {
-				/* ƒGƒ‰[C‚ ‚é‚¢‚ÍCI’[	*/
+				/* ï¿½Gï¿½ï¿½ï¿½[ï¿½Cï¿½ï¿½ï¿½é‚¢ï¿½ÍCï¿½Iï¿½[	*/
 				l_lReadErr = 3;
 			}
 			else if (0 != _tcscmp(l_tszLine, _T("nm\n"))) {
-				/* "nm"‚Å‚Í‚È‚©‚Á‚½	*/
+				/* "nm"ï¿½Å‚Í‚È‚ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 				l_lReadErr = 4;
 			}
-			/* ‚Rs–ÚFÅ‰‚Ìƒf[ƒ^	*/
+			/* ï¿½Rï¿½sï¿½ÚFï¿½Åï¿½ï¿½Ìƒfï¿½[ï¿½^	*/
 			else if (0 == _fgetts(l_tszLine, 255, l_pfp)) {
-				/* ƒGƒ‰[C‚ ‚é‚¢‚ÍCI’[	*/
+				/* ï¿½Gï¿½ï¿½ï¿½[ï¿½Cï¿½ï¿½ï¿½é‚¢ï¿½ÍCï¿½Iï¿½[	*/
 				l_lReadErr = 5;
 			} else {
-				/* ƒf[ƒ^sƒŠ[ƒh³í	*/
+				/* ï¿½fï¿½[ï¿½^ï¿½sï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½	*/
 				TCHAR l_tszSymbol[128];
 				TCHAR l_tszWaveLen[128];
 				TCHAR l_tszAngle[128];
 				TCHAR l_tszReflectance[128];
 				_stscanf(l_tszLine, _T("%s %s %s %s"), l_tszSymbol, l_tszWaveLen, l_tszAngle, l_tszReflectance);
 				if (0 != _tcscmp(l_tszSymbol, _T("uR"))) {
-					/* æ“ª‚ª"uR"‚Å‚È‚¢D	*/
+					/* ï¿½æ“ªï¿½ï¿½"uR"ï¿½Å‚È‚ï¿½ï¿½D	*/
 					l_lReadErr = 6;
 				} else {
 					BOOL l_bWaveLenStep0_5 = FALSE;
@@ -1065,18 +1065,18 @@ BOOL CSrAnalysis::CopyAft2AdapFileSpecified(double dWavelengthStep, double dXmpA
 						l_bWaveLenStep0_5 = TRUE;
 					}
 					if ((0.5 == dWavelengthStep) && (FALSE == l_bWaveLenStep0_5)) {
-						/* ƒXƒeƒbƒvƒGƒ‰[	*/
+						/* ï¿½Xï¿½eï¿½bï¿½vï¿½Gï¿½ï¿½ï¿½[	*/
 						l_lReadErr = 7;
 					}
 					if ((1.0 == dWavelengthStep) && (FALSE != l_bWaveLenStep0_5)) {
-						/* ƒXƒeƒbƒvƒGƒ‰[	*/
+						/* ï¿½Xï¿½eï¿½bï¿½vï¿½Gï¿½ï¿½ï¿½[	*/
 						l_lReadErr = 8;
 					}
 				}
 			}
 			fclose(l_pfp);
 			if (0 == l_lReadErr) {
-				/* ³í	*/
+				/* ï¿½ï¿½ï¿½ï¿½	*/
 				_tcscpy(ls_tszAft2AdapPathSrc, l_tszAft2AdapPathSrc);
 				::CopyFile(l_tszAft2AdapPathSrc, ptszFullPath, FALSE);
 				l_bRc = TRUE;
@@ -1084,7 +1084,7 @@ BOOL CSrAnalysis::CopyAft2AdapFileSpecified(double dWavelengthStep, double dXmpA
 				TCHAR l_tszMsg[128];
 				switch (l_lReadErr) {
 				case 1:
-					/* ƒI[ƒvƒ“ ƒGƒ‰[	*/
+					/* ï¿½Iï¿½[ï¿½vï¿½ï¿½ ï¿½Gï¿½ï¿½ï¿½[	*/
 					_tcscpy(l_tszMsg, _T("file open error."));
 					break;
 				case 2:
@@ -1092,16 +1092,16 @@ BOOL CSrAnalysis::CopyAft2AdapFileSpecified(double dWavelengthStep, double dXmpA
 				case 4:
 				case 5:
 				case 6:
-					/* ƒtƒH[ƒ}ƒbƒg ƒGƒ‰[	*/
+					/* ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½g ï¿½Gï¿½ï¿½ï¿½[	*/
 					_tcscpy(l_tszMsg, _T("file format error."));
 					break;
 				case 7:
 				case 8:
-					/* ƒXƒeƒbƒv ƒGƒ‰[	*/
+					/* ï¿½Xï¿½eï¿½bï¿½v ï¿½Gï¿½ï¿½ï¿½[	*/
 					_tcscpy(l_tszMsg, _T("wave length step error."));
 					break;
 				default:
-					/* –¢’è‹` ƒGƒ‰[	*/
+					/* ï¿½ï¿½ï¿½ï¿½` ï¿½Gï¿½ï¿½ï¿½[	*/
 					_tcscpy(l_tszMsg, _T("undefined error."));
 					break;
 				}
@@ -1109,11 +1109,11 @@ BOOL CSrAnalysis::CopyAft2AdapFileSpecified(double dWavelengthStep, double dXmpA
 			}
 		}
 		if (FALSE != l_bTempFile) {
-			/* ƒeƒ“ƒ|ƒ‰ƒŠƒtƒ@ƒCƒ‹íœ	*/
+			/* ï¿½eï¿½ï¿½ï¿½|ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½íœ	*/
 			_tremove(l_tszTargetPath);
 		}
 	} else {
-		/* ƒLƒƒƒ“ƒZƒ‹CƒGƒ‰[	*/
+		/* ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½Cï¿½Gï¿½ï¿½ï¿½[	*/
 		DWORD l_dwErr = ::CommDlgExtendedError();
 		if (0 == l_dwErr) {
 			::MessageBox(l_hwndMainWnd, _T("Batch cancel."), _T("Batch"), MB_OK);
@@ -1123,9 +1123,9 @@ BOOL CSrAnalysis::CopyAft2AdapFileSpecified(double dWavelengthStep, double dXmpA
 			::MessageBox(l_hwndMainWnd, l_tszMsg, _T("Batch"), MB_OK);
 		}
 	}
-	/* ƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠ‚ğ•œ‹A	*/
+	/* ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½gï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ğ•œ‹A	*/
 	_tchdir(l_tszCurrDir);
 
 	return l_bRc;
 }
-/* added 2016.02.24 hmenjo ƒoƒbƒ`ˆ— ---------- } ---------- */
+/* added 2016.02.24 hmenjo ï¿½oï¿½bï¿½`ï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
