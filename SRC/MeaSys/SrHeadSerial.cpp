@@ -79,9 +79,9 @@ BOOL CSrHeadSerial::InitInstance()
 
 	strFilename = NANOSPEC_INIFILENAME;
 	if(g_lAppNameType != APP_NAME_NANO){
-		strFilename.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
-	}
-	_stprintf(l_tszIniPath, _T("%s%s%s"), CFG_DIR, g_tszProcDir, strFilename);
+	strFilename.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
+}
+_stprintf(l_tszIniPath, _T("%s%s%s"), CFG_DIR, g_tszProcDir, (LPCTSTR)strFilename);
 // 2013.11.07 Bagus Mod (TohoSpecΉ) <--
 	iCcdDataTransferModeBinary = ::GetPrivateProfileInt(INISECTION_HEADCOM, INIKEY_CCDDATATRANSFERMODEBINARY, 1, l_tszIniPath);
 /* modified 2009.07.07 hmenjo dll ΃pXΉ MeaSys.dll ---------- } ---------- */
