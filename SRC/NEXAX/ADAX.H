@@ -215,8 +215,8 @@ public:
 		inline void analysis (void) { value = hatol(data, 8); }
 		inline void clear  (void) { value = 0; buffer[0] = NULLCHAR; }
 		inline bool empty  (void) const { return length() == 0; }
-		inline unsigned long parse_command (void) { return hatol(command, 2); }
-		inline unsigned long error (void) { return hatol(data, 2); }
+		inline unsigned long parse_command (void) { return static_cast<short>(hatol(command, 2); }
+		inline unsigned long error (void) { return static_cast<short>(hatol(data, 2); }
 
 		// BCC�v�Z
 		inline unsigned short calc_bcc (void)
@@ -228,13 +228,13 @@ public:
 			return retval;
 		}
 
-		inline bool is_match_bcc (void) { return hatol(bcc, 2) == calc_bcc(); }
+		inline bool is_match_bcc (void) { return static_cast<short>(hatol(bcc, 2) == calc_bcc(); }
 
 	protected:
 		inline string substr (const char* s, string::size_type pos, string::size_type n = string::npos) { return string(s).substr(pos, n); }
 
 		// 16�i������ϊ�
-		long hatol (const char* s, unsigned long n) { return hatol(substr(s, 0, n).c_str()); }
+		long hatol (const char* s, unsigned long n) { return static_cast<short>(hatol(substr(s, 0, n).c_str()); }
 		long hatol (const char* s)
 		{
 			long retval = 0;
@@ -324,8 +324,8 @@ public:
 			if ( speed < 0 ) mode = jogReverse;
 			return message_packet::create(ADAXCMDID_NORMAL_JOG, "%02hX%04hX%02hX", mode, abs(speed), 0);
 		}
-		short speed (void) { return hatol(substr(data, 2, 4).c_str()); }
-		unsigned char mode (void) { return tol(2); }
+		short speed (void) { return static_cast<short>(hatol(substr(data, 2, 4).c_str()); }
+		unsigned char mode (void) { return static_cast<unsigned char>(tol(2)); }
 		const char* c_str (void)
 		{
 			static const char* table [4] = { "stop", "fwd", "rev", "unknown" };
@@ -504,7 +504,7 @@ public:
 		}
 
 		message_packet msg;
-		msg.high = rcmd_softhome;
+		msg.high = static_cast<long>(rcmd_softhome);
 		msg.create(ADAXCMDID_REMOTE_COMMON);
 		if ( !SendMsgWaitAck(msg) ) return NEXAXERR_COMMUNICATION_FAILURE;
 		return WaitForHomeMotionFinished();
@@ -549,14 +549,14 @@ public:
 	inline BOOL MoveToHomePos (void)
 	{
 		message_packet msg;
-		msg.high = rcmd_home;
+		msg.high = static_cast<long>(rcmd_home);
 		msg.create(ADAXCMDID_REMOTE_COMMON);
 		return SendMsgWaitAck(msg);
 	}
 	inline BOOL MoveToSoftHomePos (void)
 	{
 		message_packet msg;
-		msg.high = rcmd_softhome;
+		msg.high = static_cast<long>(rcmd_softhome);
 		msg.create(ADAXCMDID_REMOTE_COMMON);
 		return SendMsgWaitAck(msg);
 	}
@@ -614,7 +614,7 @@ public:
 		}
 #if 0
 		message_packet msg;
-		msg.high = rcmd_motion_stop;
+		msg.high = static_cast<long>(rcmd_motion_stop);
 		msg.create(ADAXCMDID_REMOTE_COMMON);
 #else
 		jog_packet msg;
@@ -646,7 +646,7 @@ public:
 			msg.create(ADAXCMDID_PARAMS_REFERENCE_BEGIN, " d%02d%04hX", 8, 8);
 		}
 		else {
-			msg.high = rcmd_curr_pos;
+			msg.high = static_cast<long>(rcmd_curr_pos);
 			msg.create(ADAXCMDID_REMOTE_COMMON, MAKELONG(0, rcmd_curr_pos));
 		}
 		if ( !SendMsgWaitAck(msg) ) return NEXAXERR_COMMUNICATION_FAILURE;
@@ -708,7 +708,7 @@ protected:
 		_RPTF1(_CRT_WARN, TEXT("cAdaxServo::ThreadProc - Enter Axis%02d\n"), m_info.curr.axis);
 
 		message_packet msg;
-		msg.high = rcmd_home;
+		msg.high = static_cast<long>(rcmd_home);
 		msg.create(ADAXCMDID_REMOTE_COMMON);
 		if ( !SendMsgWaitAck(msg) ) return NEXAXERR_COMMUNICATION_FAILURE;
 
@@ -749,7 +749,7 @@ private:
 	{
 		m_cancel = FALSE;
 		message_packet msg;
-		msg.high = rcmd_teach_loc; msg.low = loc;
+		msg.high = static_cast<long>(rcmd_teach_loc); msg.low = static_cast<long>(loc);
 		msg.create(ADAXCMDID_REMOTE_COMMON);
 		return SendMsgWaitAck(msg, FALSE);
 	}
@@ -803,7 +803,7 @@ private:
 		}
 
 		message_packet msg;
-		msg.high = rcmd_eeprom_data; msg.low = pid;
+		msg.high = static_cast<long>(rcmd_eeprom_data); msg.low = static_cast<long>(pid);
 		msg.create(ADAXCMDID_REMOTE_COMMON);
 		if ( !SendMsgWaitAck(msg) ) return NEXAXERR_COMMUNICATION_FAILURE;
 		return NEXAXERR_NONE;
@@ -821,7 +821,7 @@ private:
 		}
 
 		message_packet msg;
-		msg.high = rcmd_params_item; msg.low = pid;
+		msg.high = static_cast<long>(rcmd_params_item); msg.low = static_cast<long>(pid);
 		msg.create(ADAXCMDID_REMOTE_COMMON);
 		if ( !SendMsgWaitAck(msg) ) return NEXAXERR_COMMUNICATION_FAILURE;
 		switch ( pid ) {
@@ -844,15 +844,15 @@ private:
 			msg.value = m_motparams.loc.speed[loc_alignment_decel].value;
 			break;
 		case eeprom_teach_accel_decel:
-			msg.low  = m_motparams.loc.acc * 100.0f;
-			msg.high = m_motparams.loc.dec * 100.0f;
+			msg.low = static_cast<long>(m_motparams.loc.acc * 100.0f);
+			msg.high = static_cast<long>(m_motparams.loc.dec * 100.0f);
 			break;
 		case eeprom_home_speed:
 			msg.value = m_motparams.home.speed.value;
 			break;
 		case eeprom_home_accel_decel:
-			msg.low  = m_motparams.home.acc * 100.0f;
-			msg.high = m_motparams.home.dec * 100.0f;
+			msg.low = static_cast<long>(m_motparams.home.acc * 100.0f);
+			msg.high = static_cast<long>(m_motparams.home.dec * 100.0f);
 			break;
 		case eeprom_softhome_speed:
 			msg.value = m_motparams.softhome_speed.value;
@@ -862,7 +862,7 @@ private:
 			msg.value = 100L;
 			break;
 		case eeprom_jog_speed:
-			msg.high = m_motparams.jog_speed.value;
+			msg.high = static_cast<long>(m_motparams.jog_speed.value);
 			break;
 		}
 		msg.create(ADAXCMDID_REMOTE_DATA);
