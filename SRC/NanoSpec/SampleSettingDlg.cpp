@@ -262,8 +262,8 @@ BOOL CSampleSettingDlg::CheckData()
 	long lSampleYEdgeMin;
 	long lSampleYEdgeMax;
 
-	coordLeftTop.lX = m_StageConfig.StageMaxCoord.dLeftX + m_StageConfig.Edge.dX;
-	coordLeftTop.lY = m_StageConfig.StageMaxCoord.dUpY - m_StageConfig.Edge.dY;
+	coordLeftTop.lX = static_cast<long>(m_StageConfig.StageMaxCoord.dLeftX + m_StageConfig.Edge.dX);
+	coordLeftTop.lY = static_cast<long>(m_StageConfig.StageMaxCoord.dUpY - m_StageConfig.Edge.dY);
 	coordRightBottom.lX = m_StageConfig.StageMaxCoord.dRightX - m_StageConfig.Edge.dX;
 	coordRightBottom.lY = m_StageConfig.StageMaxCoord.dDownY + m_StageConfig.Edge.dY;
 
