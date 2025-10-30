@@ -226,8 +226,8 @@ void CUserAccountListDlg::UserAccountList_DataSet()
 		::ZeroMemory(&UserAccount, sizeof(UserAccount));
 		::ZeroMemory(szName, sizeof(szName));
 
-		// �t�@�C�������擾
-		sprintf(szName, "%s", Finder.GetFileTitle());
+	// �t�@�C�������擾
+	sprintf(szName, "%s", (LPCSTR)Finder.GetFileTitle());
 		// �ŏI�ύX�������擾
 		Finder.GetLastWriteTime(time);
 		strcpy(szDate, time.Format("%Y.%m.%d %H:%M:%S"));
