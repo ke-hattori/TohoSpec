@@ -2734,8 +2734,8 @@ void CMeasurementGraphDlg::DrawLightIntensityGraph_Init_Stress(int nLine,int nSe
 			tGraphConfig.Y_Origin = 0;
 			tGraphConfig.X_Step = 50;
 		}else{
-			tGraphConfig.X_Max = static_cast<long>(stressStage.Line[nLine].SectPos[nSection].lScanEndPosX / (double)MICROMETRE);
-			tGraphConfig.Y_Max = MAX_GRAPH_STRESS_Y;		//@@@
+		tGraphConfig.X_Max = static_cast<long>(stressStage.Line[nLine].SectPos[nSection].lScanEndPosX / (double)MICROMETRE);
+		tGraphConfig.Y_Max = static_cast<long>(MAX_GRAPH_STRESS_Y);		//@@@
 			tGraphConfig.X_Origin = static_cast<long>(stressStage.Line[nLine].SectPos[nSection].lScanStartPosX / (double)MICROMETRE);
 			tGraphConfig.Y_Origin = static_cast<long>(MIN_GRAPH_STRESS_Y);
 			tGraphConfig.X_Step = (tGraphConfig.X_Max - tGraphConfig.X_Origin) / 5;

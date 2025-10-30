@@ -1,4 +1,4 @@
-// ChifTransiAF.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// ChifTransiAF.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -21,69 +21,69 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /*
- *	ƒ}ƒNƒ’è‹`
+ *	ï¿½}ï¿½Nï¿½ï¿½ï¿½ï¿½`
  */
 
 
 /*
- *	\‘¢‘Ì’è‹`
+ *	ï¿½\ï¿½ï¿½ï¿½Ì’ï¿½`
  */
 
 
 /*
- *	ƒ[ƒJƒ‹ƒOƒ[ƒoƒ‹’è‹`
+ *	ï¿½ï¿½ï¿½[ï¿½Jï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½[ï¿½oï¿½ï¿½ï¿½ï¿½`
  */
-UINT WM_CHIF_TRAF_SETEVENT = RegisterWindowMessage("WM_CHIF_TRAF_SETEVENT");	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“ƒCƒxƒ“ƒg”­s—pƒEƒBƒ“ƒhƒEƒƒbƒZ[ƒW
-UINT WM_CHIF_TRAF_HEARTBEAT = RegisterWindowMessage("WM_CHIF_TRAF_HEARTBEAT");	// HeartBeat ƒEƒBƒ“ƒhƒEƒƒbƒZ[ƒW
+UINT WM_CHIF_TRAF_SETEVENT = RegisterWindowMessage("WM_CHIF_TRAF_SETEVENT");	// ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½ï¿½ï¿½sï¿½pï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W
+UINT WM_CHIF_TRAF_HEARTBEAT = RegisterWindowMessage("WM_CHIF_TRAF_HEARTBEAT");	// HeartBeat ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W
 
 
 // ##########################################################################
-// class CChiefTransiAF : AF ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“
+// class CChiefTransiAF : AF ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½
 // ##########################################################################
 
 // =========================================================================//
-//	ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“ƒe[ƒuƒ‹
+//	ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½uï¿½ï¿½
 // =========================================================================//
 const Transition TransTable_AF[] =
 {
 	//	OldState,				EventId,				NewState
 
-	{	ST_AAF_INIT,			EV_AAF_DO_INIT,			ST_AAF_INIT				},	// ‰Šú‰»ˆ—‚ðŽÀs(‚·‚® EV_AAF_INIT_DONE ‚Å)
-	{	ST_AAF_INIT,			EV_AAF_INIT_DONE,		ST_AAF_IDLE				},	// ‰Šú‰»Š®—¹‚µ‚ÄƒAƒCƒhƒ‹‚Ö
+	{	ST_AAF_INIT,			EV_AAF_DO_INIT,			ST_AAF_INIT				},	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½s(ï¿½ï¿½ï¿½ï¿½ EV_AAF_INIT_DONE ï¿½ï¿½)
+	{	ST_AAF_INIT,			EV_AAF_INIT_DONE,		ST_AAF_IDLE				},	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÄƒAï¿½Cï¿½hï¿½ï¿½ï¿½ï¿½
 
-	{	ST_AAF_IDLE,			EV_AAF_START,			ST_AAF_AF				},	// AF ŽÀs‚µ‚ÄCAF Š®—¹‘Ò‚¿‚Ö
+	{	ST_AAF_IDLE,			EV_AAF_START,			ST_AAF_AF				},	// AF ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ÄCAF ï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½ï¿½ï¿½
 
-	{	ST_AAF_AF,				EV_AAF_OK,				ST_AAF_IDLE				},	// AF OK Š®—¹(‚·‚® EV_AAF_IDLE ‚Å)ƒAƒCƒhƒ‹‚Ö
-	{	ST_AAF_AF,				EV_AAF_RO_PROCEED,		ST_AAF_IDLE				},	// AF NG(Ž©“®‹­§‘ª’è) Š®—¹(‚·‚® EV_AAF_IDLE ‚Å)ƒAƒCƒhƒ‹‚Ö
-	{	ST_AAF_AF,				EV_AAF_RO_SKIP,			ST_AAF_IDLE				},	// AF NG(Ž©“®ƒXƒLƒbƒv) Š®—¹(‚·‚® EV_AAF_IDLE ‚Å)ƒAƒCƒhƒ‹‚Ö
-	{	ST_AAF_AF,				EV_AAF_RO_CANCEL,		ST_AAF_IDLE				},	// AF NG(ƒŒƒVƒsI—¹) Š®—¹(‚·‚® EV_AAF_IDLE ‚Å)ƒAƒCƒhƒ‹‚Ö
-	{	ST_AAF_AF,				EV_AAF_RO_POPUP,		ST_AAF_POPUP			},	// AF NG(ƒ|ƒbƒvƒAƒbƒv) Š®—¹Cƒ|ƒbƒvƒAƒbƒv”­s‚µ‚Äƒ|ƒbƒvƒAƒbƒvI—¹‘Ò‚¿‚Ö
+	{	ST_AAF_AF,				EV_AAF_OK,				ST_AAF_IDLE				},	// AF OK ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ EV_AAF_IDLE ï¿½ï¿½)ï¿½Aï¿½Cï¿½hï¿½ï¿½ï¿½ï¿½
+	{	ST_AAF_AF,				EV_AAF_RO_PROCEED,		ST_AAF_IDLE				},	// AF NG(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ EV_AAF_IDLE ï¿½ï¿½)ï¿½Aï¿½Cï¿½hï¿½ï¿½ï¿½ï¿½
+	{	ST_AAF_AF,				EV_AAF_RO_SKIP,			ST_AAF_IDLE				},	// AF NG(ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½Lï¿½bï¿½v) ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ EV_AAF_IDLE ï¿½ï¿½)ï¿½Aï¿½Cï¿½hï¿½ï¿½ï¿½ï¿½
+	{	ST_AAF_AF,				EV_AAF_RO_CANCEL,		ST_AAF_IDLE				},	// AF NG(ï¿½ï¿½ï¿½Vï¿½sï¿½Iï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ EV_AAF_IDLE ï¿½ï¿½)ï¿½Aï¿½Cï¿½hï¿½ï¿½ï¿½ï¿½
+	{	ST_AAF_AF,				EV_AAF_RO_POPUP,		ST_AAF_POPUP			},	// AF NG(ï¿½|ï¿½bï¿½vï¿½Aï¿½bï¿½v) ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½sï¿½ï¿½ï¿½Äƒ|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½Iï¿½ï¿½ï¿½Ò‚ï¿½ï¿½ï¿½
 
-	{	ST_AAF_POPUP,			EV_AAF_POPUP_RETRY,		ST_AAF_POPUP_RETRY		},	// ƒŠƒgƒ‰ƒCƒ{ƒ^ƒ“(‚·‚® EV_AAF_START ‚Å)
-	{	ST_AAF_POPUP_RETRY,		EV_AAF_START,			ST_AAF_AF				},	// Š®—¹ˆ—ŽÀs‚µ‚Ä AF Š®—¹‘Ò‚¿‚Ö
-	{	ST_AAF_POPUP,			EV_AAF_POPUP_IGNORE,	ST_AAF_POPUP_IGNORE		},	// AF –³Ž‹ƒ{ƒ^ƒ“(‚·‚® EV_AAF_IDLE ‚Å)
-	{	ST_AAF_POPUP_IGNORE,	EV_AAF_IDLE,			ST_AAF_IDLE				},	// Š®—¹ˆ—ŽÀs‚µ‚ÄƒAƒCƒhƒ‹‚Ö
-	{	ST_AAF_POPUP,			EV_AAF_POPUP_SKIP,		ST_AAF_POPUP_SKIP		},	// ƒXƒLƒbƒvƒ{ƒ^ƒ“(‚·‚® EV_AAF_IDLE ‚Å)
-	{	ST_AAF_POPUP_SKIP,		EV_AAF_IDLE,			ST_AAF_IDLE				},	// Š®—¹ˆ—ŽÀs‚µ‚ÄƒAƒCƒhƒ‹‚Ö
-	{	ST_AAF_POPUP,			EV_AAF_POPUP_CANCEL,	ST_AAF_POPUP_CANCEL		},	// ƒLƒƒƒ“ƒZƒ‹ƒ{ƒ^ƒ“(‚·‚® EV_AAF_IDLE ‚Å)
-	{	ST_AAF_POPUP_CANCEL,	EV_AAF_IDLE,			ST_AAF_IDLE				},	// Š®—¹ˆ—ŽÀs‚µ‚ÄƒAƒCƒhƒ‹‚Ö
+	{	ST_AAF_POPUP,			EV_AAF_POPUP_RETRY,		ST_AAF_POPUP_RETRY		},	// ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½{ï¿½^ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ EV_AAF_START ï¿½ï¿½)
+	{	ST_AAF_POPUP_RETRY,		EV_AAF_START,			ST_AAF_AF				},	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ AF ï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½ï¿½ï¿½
+	{	ST_AAF_POPUP,			EV_AAF_POPUP_IGNORE,	ST_AAF_POPUP_IGNORE		},	// AF ï¿½ï¿½ï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ EV_AAF_IDLE ï¿½ï¿½)
+	{	ST_AAF_POPUP_IGNORE,	EV_AAF_IDLE,			ST_AAF_IDLE				},	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ÄƒAï¿½Cï¿½hï¿½ï¿½ï¿½ï¿½
+	{	ST_AAF_POPUP,			EV_AAF_POPUP_SKIP,		ST_AAF_POPUP_SKIP		},	// ï¿½Xï¿½Lï¿½bï¿½vï¿½{ï¿½^ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ EV_AAF_IDLE ï¿½ï¿½)
+	{	ST_AAF_POPUP_SKIP,		EV_AAF_IDLE,			ST_AAF_IDLE				},	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ÄƒAï¿½Cï¿½hï¿½ï¿½ï¿½ï¿½
+	{	ST_AAF_POPUP,			EV_AAF_POPUP_CANCEL,	ST_AAF_POPUP_CANCEL		},	// ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ EV_AAF_IDLE ï¿½ï¿½)
+	{	ST_AAF_POPUP_CANCEL,	EV_AAF_IDLE,			ST_AAF_IDLE				},	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ÄƒAï¿½Cï¿½hï¿½ï¿½ï¿½ï¿½
 
 	// terminate the transition table
 	END_OF_TRANSITION_TABLE
 };
 
 // =========================================================================//
-//	ó‘Ô•Êˆ—ŠÖ”ƒe[ƒuƒ‹
+//	ï¿½ï¿½Ô•Êï¿½ï¿½ï¿½ï¿½Öï¿½ï¿½eï¿½[ï¿½uï¿½ï¿½
 // =========================================================================//
 BEGIN_STATEPROC_MAP(CChiefTransiAF)
 	/*	0 */	ENTER_STATE(ST_AAF_INIT,			enter_ST_AAF_INIT),
 	/*	1 */	ENTER_STATE(ST_AAF_IDLE,			enter_ST_AAF_IDLE),
-	/*	2 */	ENTER_STATE(ST_AAF_AF,				enter_ST_AAF_AF),					// (WAIT ó‘Ô–³‚µ)
+	/*	2 */	ENTER_STATE(ST_AAF_AF,				enter_ST_AAF_AF),					// (WAIT ï¿½ï¿½Ô–ï¿½ï¿½ï¿½)
 	/*	3 */	ENTER_STATE(ST_AAF_POPUP,			enter_ST_AAF_POPUP),
-	/*	4 */	ENTER_STATE(ST_AAF_POPUP_RETRY,		enter_ST_AAF_POPUP_RETRY),			// (WAIT ó‘Ô–³‚µ)
-	/*	5 */	ENTER_STATE(ST_AAF_POPUP_IGNORE,	enter_ST_AAF_POPUP_IGNORE),			// (WAIT ó‘Ô–³‚µ)
-	/*	6 */	ENTER_STATE(ST_AAF_POPUP_SKIP,		enter_ST_AAF_POPUP_SKIP),			// (WAIT ó‘Ô–³‚µ)
-	/*	7 */	ENTER_STATE(ST_AAF_POPUP_CANCEL,	enter_ST_AAF_POPUP_CANCEL),			// (WAIT ó‘Ô–³‚µ)
+	/*	4 */	ENTER_STATE(ST_AAF_POPUP_RETRY,		enter_ST_AAF_POPUP_RETRY),			// (WAIT ï¿½ï¿½Ô–ï¿½ï¿½ï¿½)
+	/*	5 */	ENTER_STATE(ST_AAF_POPUP_IGNORE,	enter_ST_AAF_POPUP_IGNORE),			// (WAIT ï¿½ï¿½Ô–ï¿½ï¿½ï¿½)
+	/*	6 */	ENTER_STATE(ST_AAF_POPUP_SKIP,		enter_ST_AAF_POPUP_SKIP),			// (WAIT ï¿½ï¿½Ô–ï¿½ï¿½ï¿½)
+	/*	7 */	ENTER_STATE(ST_AAF_POPUP_CANCEL,	enter_ST_AAF_POPUP_CANCEL),			// (WAIT ï¿½ï¿½Ô–ï¿½ï¿½ï¿½)
 
 END_STATEPROC_MAP(CChiefTransiAF)
 
@@ -99,14 +99,14 @@ CChiefTransiAF::CChiefTransiAF(CWnd* pParent /*=NULL*/) : cActive(TransTable_AF)
 
 	m_pcChiefView = (CView*) pParent;
 
-	//	ƒXƒŒƒbƒh‚Ì‹N“®‘Ò‚¿
+	//	ï¿½Xï¿½ï¿½ï¿½bï¿½hï¿½Ì‹Nï¿½ï¿½ï¿½Ò‚ï¿½
 	BOOL l_bThreadOK = CreateThread();
 	if (0 != this->m_hThread) {
 		CSingleLock	l_SingleLock(&m_cSyncEvent,TRUE);
 	}
 	((CChiefView*) m_pcChiefView)->LogChief(_T("Started  CChiefTransiAF."));
 
-	//	ƒIƒuƒWƒFƒNƒg‚ÌŽ©“®”jŠü‚ð‹ÖŽ~
+	//	ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ÌŽï¿½ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½ï¿½ï¿½ÖŽ~
 	m_bAutoDelete = FALSE;
 
 }
@@ -115,7 +115,7 @@ CChiefTransiAF::~CChiefTransiAF()
 {
 	TRACE(_T("CChiefTransiAF::~CChiefTransiAF() \n"));
 
-	//	ƒXƒŒƒbƒh‚ÌÁ–Å‘Ò‚¿
+	//	ï¿½Xï¿½ï¿½ï¿½bï¿½hï¿½Ìï¿½ï¿½Å‘Ò‚ï¿½
 	if (0 != this->m_hThread) {
 		if (0 == m_bAutoDelete) {
 			PostThreadMessage(WM_QUIT, 0, 0);
@@ -127,18 +127,18 @@ CChiefTransiAF::~CChiefTransiAF()
 
 BOOL CChiefTransiAF::InitInstance()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒXƒŒƒbƒh’PˆÊ‚Ì‰Šú‰»ƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒXï¿½ï¿½ï¿½bï¿½hï¿½Pï¿½Ê‚Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 
 	TRACE(_T("CChiefTransiAF::InitInstance() \n"));
 
-	// ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ì‘Ò‚¿‚ð‰ðœ‚µ‚Ü‚·
-	//		‚Â‚Ü‚èCƒXƒŒƒbƒh‚Ì¶¬‚ÆƒXƒŒƒbƒhƒNƒ‰ƒX‚Ì\’z‚Ì“¯Šú‚ðŽæ‚Á‚Ä‚¢‚Ü‚·D
+	// ï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^ï¿½Ì‘Ò‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½
+	//		ï¿½Â‚Ü‚ï¿½Cï¿½Xï¿½ï¿½ï¿½bï¿½hï¿½Ìï¿½ï¿½ï¿½ï¿½ÆƒXï¿½ï¿½ï¿½bï¿½hï¿½Nï¿½ï¿½ï¿½Xï¿½Ì\ï¿½zï¿½Ì“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½D
 	m_cSyncEvent.SetEvent();
 
-	// ‰Šúó‘Ôˆ——pƒCƒxƒ“ƒg”­s
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôï¿½ï¿½ï¿½ï¿½pï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½ï¿½ï¿½s
 	TransiEvent(0, 0);
 
-	// •Ï”‰Šú‰»
+	// ï¿½Ïï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	m_dwAFValid = 0;
 	m_dwHeartBeat = 0;
 
@@ -147,7 +147,7 @@ BOOL CChiefTransiAF::InitInstance()
 
 int CChiefTransiAF::ExitInstance()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒXƒŒƒbƒh’PˆÊ‚Ì‰Šú‰»ƒR[ƒh‚ð’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒXï¿½ï¿½ï¿½bï¿½hï¿½Pï¿½Ê‚Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 
 	TRACE(_T("CChiefTransiAF::ExitInstance() \n"));
 
@@ -156,28 +156,28 @@ int CChiefTransiAF::ExitInstance()
 
 BEGIN_MESSAGE_MAP(CChiefTransiAF, CWinThread)
 	//{{AFX_MSG_MAP(CChiefTransiAF)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ð’Ç‰Á‚µ‚Ü‚·B
+		// ï¿½ï¿½ï¿½ï¿½ - ClassWizard ï¿½Í‚ï¿½ï¿½ÌˆÊ’uï¿½Éƒ}ï¿½bï¿½sï¿½ï¿½ï¿½Oï¿½pï¿½Ìƒ}ï¿½Nï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	//}}AFX_MSG_MAP
 	ON_REGISTERED_THREAD_MESSAGE(WM_CHIF_TRAF_SETEVENT, OnTransiEvent)
 	ON_REGISTERED_THREAD_MESSAGE(WM_CHIF_TRAF_HEARTBEAT, OnHeartBeat)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CChiefTransiAF ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CChiefTransiAF ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 
 /*
- *	ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“ƒCƒxƒ“ƒg”­s ƒƒbƒZ[ƒWƒnƒ“ƒhƒ‰
+ *	ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½ï¿½ï¿½s ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
  */
 void CChiefTransiAF::OnTransiEvent(WPARAM wparam, LPARAM lparam)
 {
-	::Sleep(TRANSI_TIME);	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“ŠÔƒ^ƒCƒ~ƒ“ƒO’²®(‚Æ‚è‚ ‚¦‚¸‚¾‚¯‚ÇP‹v‚©‚àEE)
+	::Sleep(TRANSI_TIME);	// ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ôƒ^ï¿½Cï¿½~ï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½(ï¿½Æ‚è‚ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÇPï¿½vï¿½ï¿½ï¿½ï¿½ï¿½Eï¿½E)
 
 	Event((int) wparam, (cEventParams*) lparam);
 
 }
 
 /*
- *	HeartBeat ƒƒbƒZ[ƒWƒnƒ“ƒhƒ‰
+ *	HeartBeat ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
  */
 void CChiefTransiAF::OnHeartBeat(WPARAM wparam, LPARAM lparam)
 {
@@ -186,23 +186,23 @@ void CChiefTransiAF::OnHeartBeat(WPARAM wparam, LPARAM lparam)
 
 
 /****************************************************************************
-	‚»‚Ì‘¼ŠÖ”
+	ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½Öï¿½
 ****************************************************************************/
 
 /*
- *	ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“ƒCƒxƒ“ƒg”­s—pŠÖ”
+ *	ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½ï¿½ï¿½sï¿½pï¿½Öï¿½
  */
 void CChiefTransiAF::TransiEvent(const int iEventNo, const cEventParams *const pEvParams)
 {
-/* modified 2012.01.23 hmenjo [‚V]ŸŽèƒAƒ{[ƒg‘Îô ---------- { ---------- */
+/* modified 2012.01.23 hmenjo [ï¿½V]ï¿½ï¿½ï¿½ï¿½Aï¿½{ï¿½[ï¿½gï¿½Îï¿½ ---------- { ---------- */
 //	PostThreadMessage(WM_CHIF_TRAF_SETEVENT, (WPARAM) iEventNo, (LPARAM) pEvParams);
-/* modified 2012.01.23 hmenjo [‚V]ŸŽèƒAƒ{[ƒg‘Îô ----------              */
+/* modified 2012.01.23 hmenjo [ï¿½V]ï¿½ï¿½ï¿½ï¿½Aï¿½{ï¿½[ï¿½gï¿½Îï¿½ ----------              */
 	((CChiefView*) m_pcChiefView)->PostTransiEvent(this, WM_CHIF_TRAF_SETEVENT, _T("WM_CHIF_TRAF_SETEVENT"), 3, (WPARAM) iEventNo, (LPARAM) pEvParams);
-/* modified 2012.01.23 hmenjo [‚V]ŸŽèƒAƒ{[ƒg‘Îô ---------- } ---------- */
+/* modified 2012.01.23 hmenjo [ï¿½V]ï¿½ï¿½ï¿½ï¿½Aï¿½{ï¿½[ï¿½gï¿½Îï¿½ ---------- } ---------- */
 }
 
 /*
- *	HeartBeat ”­s—pŠÖ”
+ *	HeartBeat ï¿½ï¿½ï¿½sï¿½pï¿½Öï¿½
  */
 void CChiefTransiAF::HeartBeatPulse(void)
 {
@@ -210,9 +210,9 @@ void CChiefTransiAF::HeartBeatPulse(void)
 }
 
 /*
- *	Œ»Ý‚Ìó‘Ô‚ªuƒAƒCƒhƒ‹v‚©‚Ç‚¤‚©‚ðƒ`ƒFƒbƒN
- *		–ß‚è’lF	true	ƒAƒCƒhƒ‹‚Å‚ ‚é
- *					false	ƒAƒCƒhƒ‹‚Å‚È‚¢
+ *	ï¿½ï¿½ï¿½Ý‚Ìï¿½Ô‚ï¿½ï¿½uï¿½Aï¿½Cï¿½hï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N
+ *		ï¿½ß‚ï¿½lï¿½F	true	ï¿½Aï¿½Cï¿½hï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½
+ *					false	ï¿½Aï¿½Cï¿½hï¿½ï¿½ï¿½Å‚È‚ï¿½
  */
 bool CChiefTransiAF::IsIdle()
 {
@@ -228,8 +228,8 @@ bool CChiefTransiAF::IsIdle()
 }
 
 /*
- *	Œ»Ý‚Ìó‘Ô‚ðŽæ“¾
- *		–ß‚è’lF	Œ»Ý‚Ìó‘Ô
+ *	ï¿½ï¿½ï¿½Ý‚Ìï¿½Ô‚ï¿½ï¿½æ“¾
+ *		ï¿½ß‚ï¿½lï¿½F	ï¿½ï¿½ï¿½Ý‚Ìï¿½ï¿½
  */
 int CChiefTransiAF::GetCurrentState()
 {
@@ -237,7 +237,7 @@ int CChiefTransiAF::GetCurrentState()
 }
 
 /*
- *	ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ð’Ê’m
+ *	ï¿½Äoï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÉŠï¿½ï¿½ï¿½ï¿½ï¿½Ê’m
  */
 void CChiefTransiAF::NotifyComplete(const cEventParams *const pEvParams)
 {
@@ -249,7 +249,7 @@ void CChiefTransiAF::NotifyComplete(const cEventParams *const pEvParams)
 	case TRANSI_MASTER_DRK:
 // bagus add 2014.01.10 <--
 	default:
-		// ‰½‚à‚µ‚Ü‚¹‚ñD
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½D
 		break;
 	case TRANSI_MASTER:
 		((CChiefTransiMaster*) ((CChiefView*) m_pcChiefView)->m_pcChiefTransiMaster)->TransiEvent(EV_MAS_UIAAF_DONE, pEvParams);
@@ -272,7 +272,7 @@ void CChiefTransiAF::NotifyComplete(const cEventParams *const pEvParams)
 }
 
 /*
- *	AF ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ðƒLƒƒƒ“ƒZƒ‹I—¹‚³‚¹‚Ü‚·D
+ *	AF ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D
  */
 void CChiefTransiAF::CancelAF()
 {
@@ -280,70 +280,70 @@ void CChiefTransiAF::CancelAF()
 }
 
 //--------------------------------------------------------------------------//
-//	ó‘Ô•Êˆ—ŠÖ”ŒQ
+//	ï¿½ï¿½Ô•Êï¿½ï¿½ï¿½ï¿½Öï¿½ï¿½Q
 //--------------------------------------------------------------------------//
 /*
- *	‰Šúó‘Ô
+ *	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 void CChiefTransiAF::enter_ST_AAF_INIT(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_AAF_DISP[0], (DWORD) pEvParams);
 
-	// ‰Šú‰»ˆ—‚Í‚ ‚è‚Ü‚¹‚ñD
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½D
 }
 
 /*
- *	ƒAƒCƒhƒ‹
+ *	ï¿½Aï¿½Cï¿½hï¿½ï¿½
  */
 void CChiefTransiAF::enter_ST_AAF_IDLE(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_AAF_DISP[1], (DWORD) pEvParams);
 
 	m_bCancelReq = FALSE;
-	// WAIT ó‘Ô‚É‚·‚é‚½‚ßˆ—‚Í‚ ‚è‚Ü‚¹‚ñD
+	// WAIT ï¿½ï¿½Ô‚É‚ï¿½ï¿½é‚½ï¿½ßï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½D
 }
 
 /*
- *	AF Š®—¹‘Ò‚¿(WAIT ó‘Ô–³‚µ)
+ *	AF ï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½(WAIT ï¿½ï¿½Ô–ï¿½ï¿½ï¿½)
  */
 void CChiefTransiAF::enter_ST_AAF_AF(const cEventParams* const pEvParams)
-/* added 2009.09.09 hmenjo ˆø”ƒRƒƒ“ƒg’Ç‰Á ---------- { ---------- */
-/*				LOBYTE(LOWORD(pEvParams))FŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“
-/*				HIWORD(pEvParams)FAF ƒ‚[ƒh
-/*										‚OFAF ‚Ì‚Ý
-/*										‚PFPMA ‚Ì‚Ý
-/*										‚QFAF ‚Æ PMA —¼•û
-/* added 2009.09.09 hmenjo ˆø”ƒRƒƒ“ƒg’Ç‰Á ---------- } ---------- */
+/* added 2009.09.09 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½gï¿½Ç‰ï¿½ ---------- { ---------- */
+/*				LOBYTE(LOWORD(pEvParams))ï¿½Fï¿½Äoï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½
+/*				HIWORD(pEvParams)ï¿½FAF ï¿½ï¿½ï¿½[ï¿½h
+/*										ï¿½Oï¿½FAF ï¿½Ì‚ï¿½
+/*										ï¿½Pï¿½FPMA ï¿½Ì‚ï¿½
+/*										ï¿½Qï¿½FAF ï¿½ï¿½ PMA ï¿½ï¿½ï¿½ï¿½
+/* added 2009.09.09 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½gï¿½Ç‰ï¿½ ---------- } ---------- */
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_AAF_DISP[2], (DWORD) pEvParams);
 
-	// ‚±‚ÌƒuƒƒbƒN‚Í‰¼•Ï”‚Ì’è‹`‚Å‚·¨ -----------------------------------------------------------------------------------------------
-	// AF ŠÖŒW‚ÌÝ’è•Ï”‚ª•s–¾‚È‚½‚ß‚Å‚·D
-//		DWORD	l_dwRetryTime = 0;	// ƒŠƒgƒ‰ƒC‰ñ”Ý’è
-//		BOOL	l_bPopup = FALSE;	// AF ƒGƒ‰[Žž‚Éƒ|ƒbƒvƒAƒbƒv‚·‚é‚©‚Ç‚¤‚©
-//		DWORD	l_dwNGMethod = 0;	// ƒ|ƒbƒvƒAƒbƒv‚µ‚È‚¢ê‡‚ÌI—¹•û–@
-									//		1FƒXƒLƒbƒv
-									//		2F‹­§‘ª’è(ƒvƒƒV[ƒh)(N/A ‚É‚µ‚È‚¢)
-									//		3F‹­§‘ª’è(ƒvƒƒV[ƒh)(N/A ‚É‚·‚é)
-									//		4FƒŒƒVƒsI—¹
-	// ‚±‚ÌƒuƒƒbƒN‚Í‰¼•Ï”‚Ì’è‹`‚Å‚·© -----------------------------------------------------------------------------------------------
-	// ƒŠƒgƒ‰ƒC‰ñ”Ý’è‚ðŽæ“¾
-	DWORD	l_dwRetryTime = 0;	// ƒŠƒgƒ‰ƒC‰ñ”Ý’è
+	// ï¿½ï¿½ï¿½Ìƒuï¿½ï¿½ï¿½bï¿½Nï¿½Í‰ï¿½ï¿½Ïï¿½ï¿½Ì’ï¿½`ï¿½Å‚ï¿½ï¿½ï¿½ -----------------------------------------------------------------------------------------------
+	// AF ï¿½ÖŒWï¿½ÌÝ’ï¿½Ïï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½È‚ï¿½ï¿½ß‚Å‚ï¿½ï¿½D
+//		DWORD	l_dwRetryTime = 0;	// ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½ñ”Ý’ï¿½
+//		BOOL	l_bPopup = FALSE;	// AF ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Éƒ|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½é‚©ï¿½Ç‚ï¿½ï¿½ï¿½
+//		DWORD	l_dwNGMethod = 0;	// ï¿½|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½È‚ï¿½ï¿½ê‡ï¿½ÌIï¿½ï¿½ï¿½ï¿½ï¿½@
+									//		1ï¿½Fï¿½Xï¿½Lï¿½bï¿½v
+									//		2ï¿½Fï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½vï¿½ï¿½ï¿½Vï¿½[ï¿½h)(N/A ï¿½É‚ï¿½ï¿½È‚ï¿½)
+									//		3ï¿½Fï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½vï¿½ï¿½ï¿½Vï¿½[ï¿½h)(N/A ï¿½É‚ï¿½ï¿½ï¿½)
+									//		4ï¿½Fï¿½ï¿½ï¿½Vï¿½sï¿½Iï¿½ï¿½
+	// ï¿½ï¿½ï¿½Ìƒuï¿½ï¿½ï¿½bï¿½Nï¿½Í‰ï¿½ï¿½Ïï¿½ï¿½Ì’ï¿½`ï¿½Å‚ï¿½ï¿½ï¿½ -----------------------------------------------------------------------------------------------
+	// ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½ñ”Ý’ï¿½ï¿½ï¿½æ“¾
+	DWORD	l_dwRetryTime = 0;	// ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½ñ”Ý’ï¿½
 	ConfigFile_GetNanoSpecIni(&l_dwRetryTime, CONFIG_FILE_SR_AUTOFOCUS_RETRY);
-	if (50 < l_dwRetryTime) {	// Å‘åÝ’è’l‚Ì§ŒÀ‚ð‚T‚O‰ñ‚É‚µ‚Ä‚¨‚«‚Ü‚·D
+	if (50 < l_dwRetryTime) {	// ï¿½Å‘ï¿½Ý’ï¿½lï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Tï¿½Oï¿½ï¿½É‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D
 		l_dwRetryTime = 50;
 	}
 	LPMAIN_RCP_INFO l_pMainRcpInfo = (LPMAIN_RCP_INFO) (((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pMainRcpInfo);
-/* added 2009.09.29 hmenjo Head –ˆ Main Rcp Inf “Ço‚µ ---------- { ---------- */
+/* added 2009.09.29 hmenjo Head ï¿½ï¿½ Main Rcp Inf ï¿½Çoï¿½ï¿½ ---------- { ---------- */
 	HEAD_MAIN_RCP_INFO l_HeadMainRcpInf;
 	((CChiefView*) m_pcChiefView)->GetMainRcpInfHead(l_pMainRcpInfo, l_pMainRcpInfo->MainRcpParam.hdr.wHeadType, &l_HeadMainRcpInf);
-/* added 2009.09.29 hmenjo Head –ˆ Main Rcp Inf “Ço‚µ ---------- } ---------- */
-	// ƒŠƒgƒ‰ƒC—L–³‚Ì”»’f
-/* modified 2009.09.29 hmenjo Head –ˆ Main Rcp Inf “Ço‚µ ---------- { ---------- */
+/* added 2009.09.29 hmenjo Head ï¿½ï¿½ Main Rcp Inf ï¿½Çoï¿½ï¿½ ---------- } ---------- */
+	// ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Lï¿½ï¿½ï¿½Ì”ï¿½ï¿½f
+/* modified 2009.09.29 hmenjo Head ï¿½ï¿½ Main Rcp Inf ï¿½Çoï¿½ï¿½ ---------- { ---------- */
 //	switch (l_pMainRcpInfo->MainRcpParam._SR.nAutoFocusFailOption) {
-/* modified 2009.09.29 hmenjo Head –ˆ Main Rcp Inf “Ço‚µ ----------			  */
+/* modified 2009.09.29 hmenjo Head ï¿½ï¿½ Main Rcp Inf ï¿½Çoï¿½ï¿½ ----------			  */
 	switch (l_HeadMainRcpInf.nAutoFocusFailOption) {
-/* modified 2009.09.29 hmenjo Head –ˆ Main Rcp Inf “Ço‚µ ---------- } ---------- */
+/* modified 2009.09.29 hmenjo Head ï¿½ï¿½ Main Rcp Inf ï¿½Çoï¿½ï¿½ ---------- } ---------- */
 	case AFOCUS_FAIL_OPTION_AUTO_RETRY_MANUAL_FOCUS:
 	case AFOCUS_FAIL_OPTION_AUTO_RETRY_PROCEED:
 	case AFOCUS_FAIL_OPTION_AUTO_RETRY_CANCEL_RECIPE:
@@ -352,216 +352,216 @@ void CChiefTransiAF::enter_ST_AAF_AF(const cEventParams* const pEvParams)
 	case AFOCUS_FAIL_OPTION_PROCEED:
 	case AFOCUS_FAIL_OPTION_CANCEL_RECIPE:
 	default:
-		l_dwRetryTime = 0;		// ƒŠƒgƒ‰ƒC–³‚µ‚Æ‚µ‚Ü‚·
+		l_dwRetryTime = 0;		// ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½Ü‚ï¿½
 		break;
 	}
-	// ƒ|ƒbƒvƒAƒbƒvŽw’è‚ðŽæ“¾
+	// ï¿½|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½wï¿½ï¿½ï¿½ï¿½æ“¾
 	BOOL	l_bPopup;
-/* modified 2009.09.29 hmenjo Head –ˆ Main Rcp Inf “Ço‚µ ---------- { ---------- */
+/* modified 2009.09.29 hmenjo Head ï¿½ï¿½ Main Rcp Inf ï¿½Çoï¿½ï¿½ ---------- { ---------- */
 //	switch (l_pMainRcpInfo->MainRcpParam._SR.nAutoFocusFailOption) {
-/* modified 2009.09.29 hmenjo Head –ˆ Main Rcp Inf “Ço‚µ ----------			  */
+/* modified 2009.09.29 hmenjo Head ï¿½ï¿½ Main Rcp Inf ï¿½Çoï¿½ï¿½ ----------			  */
 	switch (l_HeadMainRcpInf.nAutoFocusFailOption) {
-/* modified 2009.09.29 hmenjo Head –ˆ Main Rcp Inf “Ço‚µ ---------- } ---------- */
+/* modified 2009.09.29 hmenjo Head ï¿½ï¿½ Main Rcp Inf ï¿½Çoï¿½ï¿½ ---------- } ---------- */
 	case AFOCUS_FAIL_OPTION_AUTO_RETRY_MANUAL_FOCUS:
 	case AFOCUS_FAIL_OPTION_MANUAL_FOCUS:
-		l_bPopup = TRUE;		// ƒ|ƒbƒvƒAƒbƒv‚·‚é
+		l_bPopup = TRUE;		// ï¿½|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½ï¿½
 		break;
 	case AFOCUS_FAIL_OPTION_AUTO_RETRY_PROCEED:
 	case AFOCUS_FAIL_OPTION_AUTO_RETRY_CANCEL_RECIPE:
 	case AFOCUS_FAIL_OPTION_PROCEED:
 	case AFOCUS_FAIL_OPTION_CANCEL_RECIPE:
 	default:
-		l_bPopup = FALSE;		// ƒ|ƒbƒvƒAƒbƒv‚µ‚È‚¢
+		l_bPopup = FALSE;		// ï¿½|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½È‚ï¿½
 		break;
 	}
-	// I—¹•û–@‚ðŽæ“¾
+	// ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½@ï¿½ï¿½ï¿½æ“¾
 	DWORD	l_dwNGMethod;
-/* modified 2009.09.29 hmenjo Head –ˆ Main Rcp Inf “Ço‚µ ---------- { ---------- */
+/* modified 2009.09.29 hmenjo Head ï¿½ï¿½ Main Rcp Inf ï¿½Çoï¿½ï¿½ ---------- { ---------- */
 //	switch (l_pMainRcpInfo->MainRcpParam._SR.nAutoFocusFailOption) {
-/* modified 2009.09.29 hmenjo Head –ˆ Main Rcp Inf “Ço‚µ ----------			  */
+/* modified 2009.09.29 hmenjo Head ï¿½ï¿½ Main Rcp Inf ï¿½Çoï¿½ï¿½ ----------			  */
 	switch (l_HeadMainRcpInf.nAutoFocusFailOption) {
-/* modified 2009.09.29 hmenjo Head –ˆ Main Rcp Inf “Ço‚µ ---------- } ---------- */
+/* modified 2009.09.29 hmenjo Head ï¿½ï¿½ Main Rcp Inf ï¿½Çoï¿½ï¿½ ---------- } ---------- */
 	case AFOCUS_FAIL_OPTION_AUTO_RETRY_PROCEED:
 	case AFOCUS_FAIL_OPTION_PROCEED:
-		l_dwNGMethod = 2;		// ‹­§‘ª’è(ƒvƒƒV[ƒh)(N/A ‚É‚µ‚È‚¢)
+		l_dwNGMethod = 2;		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½vï¿½ï¿½ï¿½Vï¿½[ï¿½h)(N/A ï¿½É‚ï¿½ï¿½È‚ï¿½)
 		break;
 	case AFOCUS_FAIL_OPTION_AUTO_RETRY_MANUAL_FOCUS:
 	case AFOCUS_FAIL_OPTION_MANUAL_FOCUS:
 	case AFOCUS_FAIL_OPTION_AUTO_RETRY_CANCEL_RECIPE:
 	case AFOCUS_FAIL_OPTION_CANCEL_RECIPE:
 	default:
-		l_dwNGMethod = 4;		// ƒŒƒVƒsI—¹
+		l_dwNGMethod = 4;		// ï¿½ï¿½ï¿½Vï¿½sï¿½Iï¿½ï¿½
 		break;
 	}
 
 	AF_VALID*	l_pAFValid = (AF_VALID*) &m_dwAFValid;
 
-	// ‰‰ñŒÄoŽž‚Í VALID ƒf[ƒ^‚ðƒNƒŠƒA
-/* modified 2009.09.09 hmenjo ˆø”•ÏX ---------- { ---------- */
+	// ï¿½ï¿½ï¿½ï¿½Äoï¿½ï¿½ï¿½ï¿½ VALID ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½A
+/* modified 2009.09.09 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½ÏX ---------- { ---------- */
 //	if (0 != LOWORD(pEvParams)) {
-/* modified 2009.09.09 hmenjo ˆø”•ÏX ----------			   */
+/* modified 2009.09.09 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½ÏX ----------			   */
 	if (0 != LOBYTE(LOWORD(pEvParams))) {
-/* modified 2009.09.09 hmenjo ˆø”•ÏX ---------- } ---------- */
+/* modified 2009.09.09 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½ÏX ---------- } ---------- */
 		m_dwAFValid = 0;
-		// ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ð•Û‘¶
-/* modified 2009.09.09 hmenjo ˆø”•ÏX ---------- { ---------- */
+		// ï¿½Äoï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û‘ï¿½
+/* modified 2009.09.09 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½ÏX ---------- { ---------- */
 //		m_dwParentTransi = LOWORD(pEvParams);
-/* modified 2009.09.09 hmenjo ˆø”•ÏX ----------			   */
+/* modified 2009.09.09 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½ÏX ----------			   */
 		m_dwParentTransi = LOBYTE(LOWORD(pEvParams));
-/* modified 2009.09.09 hmenjo ˆø”•ÏX ---------- } ---------- */
-		// ƒ‚[ƒh‚ð•Û‘¶ (0:AF ‚Ì‚ÝC1:PMA ‚Ì‚ÝC2:AF ‚Æ PMA ‚Ì—¼•û)
+/* modified 2009.09.09 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½ÏX ---------- } ---------- */
+		// ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½Û‘ï¿½ (0:AF ï¿½Ì‚ÝC1:PMA ï¿½Ì‚ÝC2:AF ï¿½ï¿½ PMA ï¿½Ì—ï¿½ï¿½ï¿½)
 		m_dwAfMode = HIWORD(pEvParams);
 	}
 
 	if (0 == ((CMainFrame*) (((CChiefView*) m_pcChiefView)->m_pcMainFrame))->HardwareSimulation()) {
-		// ŽÀ‹@‚Ìê‡ ---------------------------------------------------------
+		// ï¿½ï¿½ï¿½@ï¿½Ìê‡ ---------------------------------------------------------
 		BOOL l_bAF_Success = FALSE;
-		DWORD l_dwRetryCnt = 0;	// ƒŠƒgƒ‰ƒCƒJƒEƒ“ƒ^
+		DWORD l_dwRetryCnt = 0;	// ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Jï¿½Eï¿½ï¿½ï¿½^
 /* added 2013.02.01 hmenjo PreAF ---------- { ---------- */
 		if (3 == ((CChiefView*) m_pcChiefView)->m_lPreAFafterPreMove) {
-			/* ‚·‚Å‚ÉCPreAF ‚Å AF ¬Œ÷‚µ‚Ä‚¢‚é‚Ì‚ÅƒpƒX‚µ‚Ü‚·D*/
+			/* ï¿½ï¿½ï¿½Å‚ÉCPreAF ï¿½ï¿½ AF ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Ì‚Åƒpï¿½Xï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D*/
 			((CChiefView*) m_pcChiefView)->m_lPreAFafterPreMove = 4;
 			l_bAF_Success = TRUE;
 			((CChiefView*) m_pcChiefView)->LogChief(_T("PreAF - Pass AF. (m_lPreAFafterPreMove = 4)"));
 		} else
 /* added 2013.02.01 hmenjo PreAF ---------- } ---------- */
 		if ((1 != m_dwAfMode)) {
-			// PMA ‚Ì‚Ý‚Å‚È‚¢ê‡‚Ì‚Ý AF ‚ðŽÀs‚µ‚Ü‚·
+			// PMA ï¿½Ì‚Ý‚Å‚È‚ï¿½ï¿½ê‡ï¿½Ì‚ï¿½ AF ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½Ü‚ï¿½
 /* added 2013.02.01 hmenjo PreAF ---------- { ---------- */
 			if (1 == ((CChiefView*) m_pcChiefView)->m_lPreAFafterPreMove) {
 				((CChiefView*) m_pcChiefView)->m_lPreAFafterPreMove = 2 | 0x80000000;
-				l_bPopup = FALSE;	/* ƒ|ƒbƒvƒAƒbƒv–³‚µ	*/
+				l_bPopup = FALSE;	/* ï¿½|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½ï¿½	*/
 				((CChiefView*) m_pcChiefView)->LogChief(_T("PreAF - Start AF. (m_lPreAFafterPreMove = 2 | 0x80000000)"));
 			}
 /* added 2013.02.01 hmenjo PreAF ---------- } ---------- */
-/* added 2009.11.26 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì ---------- { ---------- */
-			/* AF ‚Í SR ƒwƒbƒh‚Ås‚¢‚Ü‚·D	*/
+/* added 2009.11.26 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½ÍŽwï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½ ---------- { ---------- */
+			/* AF ï¿½ï¿½ SR ï¿½wï¿½bï¿½hï¿½Åsï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 			((CChiefView*) m_pcChiefView)->SelectHead(HEAD_TYPE_SR, TRUE);
-/* added 2009.11.26 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì ---------- } ---------- */
+/* added 2009.11.26 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½ÍŽwï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½ ---------- } ---------- */
 			do {
-				((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_ZAXIS, TRUE);		// “®ì’†ƒtƒ‰ƒO(Z Ž²)‚ðƒIƒ“
+				((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_ZAXIS, TRUE);		// ï¿½ï¿½ï¿½ì’†ï¿½tï¿½ï¿½ï¿½O(Z ï¿½ï¿½)ï¿½ï¿½ï¿½Iï¿½ï¿½
 				if (0 == NS_StageDoAutoFocus()) {
-					// AF Ž¸”s
+					// AF ï¿½ï¿½ï¿½s
 					l_dwRetryCnt++;
 				} else {
-					// AF ¬Œ÷
+					// AF ï¿½ï¿½ï¿½ï¿½
 					l_bAF_Success = TRUE;
-					((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);		// “®ì’†ƒtƒ‰ƒO(Z Ž²)‚ðƒIƒt
-					break;		// ƒ‹[ƒv‚ð”²‚¯‚Ü‚·
+					((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);		// ï¿½ï¿½ï¿½ì’†ï¿½tï¿½ï¿½ï¿½O(Z ï¿½ï¿½)ï¿½ï¿½ï¿½Iï¿½t
+					break;		// ï¿½ï¿½ï¿½[ï¿½vï¿½ð”²‚ï¿½ï¿½Ü‚ï¿½
 				}
-				((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);		// “®ì’†ƒtƒ‰ƒO(Z Ž²)‚ðƒIƒt
-// ƒLƒƒƒ“ƒZƒ‹‘Î‰ž‰ü‘¢			} while (l_dwRetryCnt <= l_dwRetryTime);
+				((CChiefView*) m_pcChiefView)->ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);		// ï¿½ï¿½ï¿½ì’†ï¿½tï¿½ï¿½ï¿½O(Z ï¿½ï¿½)ï¿½ï¿½ï¿½Iï¿½t
+// ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½Î‰ï¿½ï¿½ï¿½ï¿½ï¿½			} while (l_dwRetryCnt <= l_dwRetryTime);
 			} while ((l_dwRetryCnt <= l_dwRetryTime) && (0 == m_bCancelReq));
 		}
-#if 1	// ƒLƒƒƒ“ƒZƒ‹‘Î‰ž‰ü‘¢
+#if 1	// ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½Î‰ï¿½ï¿½ï¿½ï¿½ï¿½
 		if (0 != m_bCancelReq) {
 			m_bCancelReq = FALSE;
-			// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV -----------------
+			// ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½V -----------------
 			TransiEvent(EV_AAF_RO_CANCEL);
-			// ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ð’Ê’m
-			l_pAFValid->ucResultAF = 5;		// ƒŒƒVƒsI—¹
+			// ï¿½Äoï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÉŠï¿½ï¿½ï¿½ï¿½ï¿½Ê’m
+			l_pAFValid->ucResultAF = 5;		// ï¿½ï¿½ï¿½Vï¿½sï¿½Iï¿½ï¿½
 			NotifyComplete((cEventParams*) m_dwAFValid);
 		} else
 #endif
 //		if (0 == l_bAF_Success) {
 		if ((0 == l_bAF_Success) || (0 != m_dwAfMode)) {
-			// AF Ž¸”sC‚ ‚é‚¢‚ÍCAF ƒ‚[ƒh‚É PMA ‚ª‚ ‚éê‡
+			// AF ï¿½ï¿½ï¿½sï¿½Cï¿½ï¿½ï¿½é‚¢ï¿½ÍCAF ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ PMA ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡
 			if ((1 != m_dwAfMode) && (0 == l_bAF_Success)) {
-				// AF ‚ðs‚Á‚½ê‡‚Ì‚Ý(PMA ‚Ì‚Ý‚Å‚È‚¢ê‡)
-				// ƒŠƒgƒ‰ƒCƒI[ƒo‚ðƒZƒbƒg
-				l_pAFValid->ucRetry = static_cast<long>(l_dwRetryCnt - 1);
+				// AF ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½Ì‚ï¿½(PMA ï¿½Ì‚Ý‚Å‚È‚ï¿½ï¿½ê‡)
+			// ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Iï¿½[ï¿½oï¿½ï¿½ï¿½Zï¿½bï¿½g
+			l_pAFValid->ucRetry = static_cast<BYTE>(l_dwRetryCnt - 1);
 			}
 //			if (0 == l_bPopup) {
 			if ((0 == l_bPopup) && ((0 == m_dwAfMode) || ((2 == m_dwAfMode) && (2 != l_dwNGMethod)))) {
-				// ƒ|ƒbƒvƒAƒbƒv–³‚µŽw’è‚ÅCƒ‚[ƒh‚ª AF ‚Ì‚Ý‚©CAF. ‚Ì‚ÝˆÈŠO‚ÅŽ©“®‹­§‘ª’èˆÈŠO‚Ìê‡
-				// I—¹‚·‚é ---------------------------
-				l_pAFValid->ucResultPopup = 0;	// ƒ|ƒbƒvƒAƒbƒv–³‚µ
+				// ï¿½|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½ï¿½ï¿½wï¿½ï¿½ÅCï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ AF ï¿½Ì‚Ý‚ï¿½ï¿½CAF. ï¿½Ì‚ÝˆÈŠOï¿½ÅŽï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÈŠOï¿½Ìê‡
+				// ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ---------------------------
+				l_pAFValid->ucResultPopup = 0;	// ï¿½|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½ï¿½
 				int l_iEventNext;
 				switch (l_dwNGMethod) {
-				case 1:		// ƒXƒLƒbƒv
-					l_pAFValid->ucResultAF = 3;		// Ž©“®ƒXƒLƒbƒv
+				case 1:		// ï¿½Xï¿½Lï¿½bï¿½v
+					l_pAFValid->ucResultAF = 3;		// ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½Lï¿½bï¿½v
 					l_iEventNext = EV_AAF_RO_SKIP;
 					break;
-				case 2:		// ‹­§‘ª’è(N/A ‚É‚µ‚È‚¢)
-				case 3:		// ‹­§‘ª’è(N/A ‚É‚·‚é)
-					l_pAFValid->ucResultAF = 2;		// Ž©“®‹­§‘ª’è
+				case 2:		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(N/A ï¿½É‚ï¿½ï¿½È‚ï¿½)
+				case 3:		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(N/A ï¿½É‚ï¿½ï¿½ï¿½)
+					l_pAFValid->ucResultAF = 2;		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					l_iEventNext = EV_AAF_RO_PROCEED;
 					break;
-				case 4:		// ƒŒƒVƒsI—¹
+				case 4:		// ï¿½ï¿½ï¿½Vï¿½sï¿½Iï¿½ï¿½
 				default:
-					l_pAFValid->ucResultAF = 5;		// ƒŒƒVƒsI—¹
+					l_pAFValid->ucResultAF = 5;		// ï¿½ï¿½ï¿½Vï¿½sï¿½Iï¿½ï¿½
 					l_iEventNext = EV_AAF_RO_CANCEL;
 					break;
 				}
-				// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV -----------------
+				// ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½V -----------------
 				TransiEvent(l_iEventNext);
-				// ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ð’Ê’m
+				// ï¿½Äoï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÉŠï¿½ï¿½ï¿½ï¿½ï¿½Ê’m
 				NotifyComplete((cEventParams*) m_dwAFValid);
 			} else {
-				// ƒ|ƒbƒvƒAƒbƒv‚·‚é -------------------
-				//		ŽŸ‚Ìƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚Åƒ|ƒbƒvƒAƒbƒvŽw—ß‚ð”­s‚µ‚Ä‚¢‚Ü‚·D
-				// AF Œ‹‰Ê‚ðÝ’è
+				// ï¿½|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½ï¿½ -------------------
+				//		ï¿½ï¿½ï¿½Ìƒgï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Åƒ|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½wï¿½ß‚ð”­sï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½D
+				// AF ï¿½ï¿½ï¿½Ê‚ï¿½Ý’ï¿½
 				if (0 != l_bAF_Success) {
-					// AF ¬Œ÷Žž
-					l_pAFValid->ucResultAF = 1;		// AF ³í
+					// AF ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+					l_pAFValid->ucResultAF = 1;		// AF ï¿½ï¿½ï¿½ï¿½
 				} else {
-					// AF Ž¸”sŽž
+					// AF ï¿½ï¿½ï¿½sï¿½ï¿½
 					if (1 == m_dwAfMode) {
-						// PMA ‚Ì‚Ý‚Ìê‡‚Í AF ‚µ‚Ä‚¢‚È‚¢‚Ì‚Å
-						l_pAFValid->ucResultAF = 0;		// AF –³‚µ
+						// PMA ï¿½Ì‚Ý‚Ìê‡ï¿½ï¿½ AF ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½ï¿½Ì‚ï¿½
+						l_pAFValid->ucResultAF = 0;		// AF ï¿½ï¿½ï¿½ï¿½
 					} else {
 						switch (l_dwNGMethod) {
-						case 2:		// ‹­§‘ª’è(N/A ‚É‚µ‚È‚¢)
-						case 3:		// ‹­§‘ª’è(N/A ‚É‚·‚é)
-							l_pAFValid->ucResultAF = 2;		// Ž©“®‹­§‘ª’è
+						case 2:		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(N/A ï¿½É‚ï¿½ï¿½È‚ï¿½)
+						case 3:		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(N/A ï¿½É‚ï¿½ï¿½ï¿½)
+							l_pAFValid->ucResultAF = 2;		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 							break;
 						default:
-							l_pAFValid->ucResultAF = 4;		// AF Ž¸”s
+							l_pAFValid->ucResultAF = 4;		// AF ï¿½ï¿½ï¿½s
 							break;
 						}
 					}
 				}
-				// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV -----------------
+				// ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½V -----------------
 //				TransiEvent(EV_AAF_RO_POPUP);
 				DWORD l_dwPopupMode;
 				if (0 == l_bPopup) {
-					l_dwPopupMode = 1;			// PMA ‚Ì‚Ý
+					l_dwPopupMode = 1;			// PMA ï¿½Ì‚ï¿½
 				} else if (1 == m_dwAfMode) {
-					l_dwPopupMode = 1;			// PMA ‚Ì‚Ý
+					l_dwPopupMode = 1;			// PMA ï¿½Ì‚ï¿½
 				} else if (0 != m_dwAfMode) {
 					if (0 != l_bAF_Success) {
-						l_dwPopupMode = 1;		// PMA ‚Ì‚Ý
+						l_dwPopupMode = 1;		// PMA ï¿½Ì‚ï¿½
 					} else {
-						l_dwPopupMode = 2;		// AF ‚Æ PMA ‚Ì—¼•û
+						l_dwPopupMode = 2;		// AF ï¿½ï¿½ PMA ï¿½Ì—ï¿½ï¿½ï¿½
 					}
 				} else {
-					l_dwPopupMode = 0;			// AF ‚Ì‚Ý
+					l_dwPopupMode = 0;			// AF ï¿½Ì‚ï¿½
 				}
-				l_pAFValid->bit2PopupKind = (BYTE) l_dwPopupMode;		// ƒ|ƒbƒvƒAƒbƒvŽí—Þ
+				l_pAFValid->bit2PopupKind = (BYTE) l_dwPopupMode;		// ï¿½|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½
 				TransiEvent(EV_AAF_RO_POPUP, (cEventParams*) l_dwPopupMode);
 			}
 		} else {
-			// AF ¬Œ÷ --------------------------------------------------------
-			l_pAFValid->ucResultAF = 1;		// AF ³í
+			// AF ï¿½ï¿½ï¿½ï¿½ --------------------------------------------------------
+			l_pAFValid->ucResultAF = 1;		// AF ï¿½ï¿½ï¿½ï¿½
 /* added 2013.02.01 hmenjo PreAF ---------- { ---------- */
 			if (0 != (((CChiefView*) m_pcChiefView)->m_lPreAFafterPreMove & 0x80000000)) {
 				((CChiefView*) m_pcChiefView)->m_lPreAFafterPreMove &= 0x7fffffff;
 				((CChiefView*) m_pcChiefView)->LogChief(_T("PreAF - m_lPreAFafterPreMove = 2"));
 			}
 /* added 2013.02.01 hmenjo PreAF ---------- } ---------- */
-			// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV ---------------------
+			// ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½V ---------------------
 			TransiEvent(EV_AAF_OK);
-			// ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ð’Ê’m
+			// ï¿½Äoï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÉŠï¿½ï¿½ï¿½ï¿½ï¿½Ê’m
 			NotifyComplete((cEventParams*) m_dwAFValid);
 		}
 	} else {
-		// ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh‚Ìê‡‚Í³íŠ®—¹‚É‚·‚é ---------------------
+		// ï¿½nï¿½[ï¿½hï¿½Vï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½[ï¿½hï¿½Ìê‡ï¿½Íï¿½ï¿½íŠ®ï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½ ---------------------
 #ifdef CHIEF_USE_SLEEP
 		::Sleep(1000);
-/* added 2009.08.20 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(48) ---------- { ---------- */
+/* added 2009.08.20 hmenjo ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½@ï¿½\ï¿½Ç‰ï¿½(48) ---------- { ---------- */
 #else
 		::Sleep(200);
-/* added 2009.08.20 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(48) ---------- } ---------- */
+/* added 2009.08.20 hmenjo ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½@ï¿½\ï¿½Ç‰ï¿½(48) ---------- } ---------- */
 #endif
 		l_pAFValid->ucRetry = 0;
 		l_pAFValid->ucResultAF = 0;
@@ -570,130 +570,130 @@ void CChiefTransiAF::enter_ST_AAF_AF(const cEventParams* const pEvParams)
 		l_pAFValid->bit1ManuZ = 0;
 		l_pAFValid->bit1ManuAF = 0;
 		l_pAFValid->bit1ManuAfRslt = 0;
-		// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV -------------------------
+		// ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½V -------------------------
 		TransiEvent(EV_AAF_OK);
-		// ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ð’Ê’m
+		// ï¿½Äoï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÉŠï¿½ï¿½ï¿½ï¿½ï¿½Ê’m
 		NotifyComplete((cEventParams*) m_dwAFValid);
 	}
 }
 
 /*
- *	ƒ|ƒbƒvƒAƒbƒvI—¹‘Ò‚¿
+ *	ï¿½|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½Iï¿½ï¿½ï¿½Ò‚ï¿½
  */
 void CChiefTransiAF::enter_ST_AAF_POPUP(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_AAF_DISP[3], (DWORD) pEvParams);
 
-	// ƒ|ƒbƒvƒAƒbƒv‚ðƒAƒ‰[ƒ€‚Å’Ê’m‚µ‚Ü‚·D
+	// ï¿½|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Å’Ê’mï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D
 	if (HOST_LOCAL != ((CNanoSpecDoc*) (((CChiefView*) m_pcChiefView)->m_pcNanoSpecDoc))->GetHostMode()) {
 		WORD l_wAlID;
 		switch ((long) pEvParams) {
-		case 0:		l_wAlID = ALID_AutoFocusRequired;			break;	// AF ‚Ì‚Ý
-		case 1:		l_wAlID = ALID_StagePositioningRequired;	break;	// PMA ‚Ì‚Ý
+		case 0:		l_wAlID = ALID_AutoFocusRequired;			break;	// AF ï¿½Ì‚ï¿½
+		case 1:		l_wAlID = ALID_StagePositioningRequired;	break;	// PMA ï¿½Ì‚ï¿½
 		case 2:
-		default:	l_wAlID = ALID_FocusAndPositioningRequired;	break;	// AF ‚Æ PMA ‚Ì—¼•û
+		default:	l_wAlID = ALID_FocusAndPositioningRequired;	break;	// AF ï¿½ï¿½ PMA ï¿½Ì—ï¿½ï¿½ï¿½
 		}
 		((CChiefView*) m_pcChiefView)->PostMessage(WM_CHIF_REPORTALARM, MAKEWPARAM(MAKEWORD(CHRAMTD_REP_ALARM, CHRANFY_NOTIFY_OFF), MAKEWORD(1, CHRAMSG_OK)), MAKELPARAM(0, l_wAlID));
 	}
-/* added 2009.11.26 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì ---------- { ---------- */
-	/* PMA —L‚è‚Ìê‡‚ÅCƒŒƒVƒs‚ª(MS)ƒwƒbƒh‚È‚çC(MS)ƒwƒbƒh‚ÉØ‘Ö‚¦‚Ü‚·D	*/
+/* added 2009.11.26 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½ÍŽwï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½ ---------- { ---------- */
+	/* PMA ï¿½Lï¿½ï¿½Ìê‡ï¿½ÅCï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½(MS)ï¿½wï¿½bï¿½hï¿½È‚ï¿½C(MS)ï¿½wï¿½bï¿½hï¿½ÉØ‘Ö‚ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 	LPMAIN_RCP_INFO l_pMainRcpInfo = (LPMAIN_RCP_INFO) (((CChiefView*) m_pcChiefView)->m_ChiefRecipes.pMainRcpInfo);
 	if ((0 != ((long) pEvParams)) && (HEAD_TYPE_MS == l_pMainRcpInfo->MainRcpParam.hdr.wHeadType)) {
 		if (1 != m_dwAfMode) {
-			/* AF ‚ðŽÀŽ{‚µ‚½ê‡‚Ì‚Ý	*/
+			/* AF ï¿½ï¿½ï¿½ï¿½ï¿½{ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½Ì‚ï¿½	*/
 			((CChiefView*) m_pcChiefView)->SelectHead(l_pMainRcpInfo->MainRcpParam.hdr.wHeadType, TRUE);
 		}
 	}
-/* added 2009.11.26 hmenjo ‘ª’è Seq ‚ÍŽw’èƒwƒbƒh‚Å“®ì ---------- } ---------- */
-	// ƒ|ƒbƒvƒAƒbƒv‚·‚é -------------------
-	// ‰æ–Ê‚Éƒ|ƒbƒvƒAƒbƒvŽw—ßƒƒbƒZ[ƒW‚ð Post ‚·‚é
+/* added 2009.11.26 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½ÍŽwï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½ ---------- } ---------- */
+	// ï¿½|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½ï¿½ -------------------
+	// ï¿½ï¿½Ê‚Éƒ|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½wï¿½ßƒï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ Post ï¿½ï¿½ï¿½ï¿½
 //	((CMainFrame*) (((CChiefView*) m_pcChiefView)->m_pcMainFrame))->PostMessage(WM_CHIF_AF_POPUP, 0, 0);
 //	((CMainFrame*) (((CChiefView*) m_pcChiefView)->m_pcMainFrame))->PostMessage(WM_CHIF_AF_POPUP, (WPARAM) m_dwAfMode, 0);
 	((CMainFrame*) (((CChiefView*) m_pcChiefView)->m_pcMainFrame))->PostMessage(WM_CHIF_AF_POPUP, (WPARAM) pEvParams, 0);
 
-	// WAIT ó‘Ô‚É‚·‚é‚½‚ßƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ðXV‚µ‚Ü‚¹‚ñD
+	// WAIT ï¿½ï¿½Ô‚É‚ï¿½ï¿½é‚½ï¿½ßƒgï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½Vï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½D
 }
 
 /*
- *	ƒ|ƒbƒvƒAƒbƒvI—¹ ƒŠƒgƒ‰ƒCƒ{ƒ^ƒ“(WAIT ó‘Ô–³‚µ)
+ *	ï¿½|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½Iï¿½ï¿½ ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½{ï¿½^ï¿½ï¿½(WAIT ï¿½ï¿½Ô–ï¿½ï¿½ï¿½)
  */
 void CChiefTransiAF::enter_ST_AAF_POPUP_RETRY(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_AAF_DISP[4], (DWORD) pEvParams);
 
 	AF_VALID*	l_pAFValid = (AF_VALID*) &m_dwAFValid;
-	l_pAFValid->ucResultPopup = 1;		// ƒŠƒgƒ‰ƒCƒ{ƒ^ƒ“
+	l_pAFValid->ucResultPopup = 1;		// ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½{ï¿½^ï¿½ï¿½
 	l_pAFValid->bit1ManuXY		= (0 == LOBYTE(LOWORD(pEvParams)))? 0 : 1;
 	l_pAFValid->bit1ManuZ		= (0 == HIBYTE(LOWORD(pEvParams)))? 0 : 1;
 	l_pAFValid->bit1ManuAF		= (0 == LOBYTE(HIWORD(pEvParams)))? 0 : 1;
 	l_pAFValid->bit1ManuAfRslt	= (0 == HIBYTE(HIWORD(pEvParams)))? 0 : 1;
 
-	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV -----------------------------------------------------
+	// ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½V -----------------------------------------------------
 	TransiEvent(EV_AAF_START);
 }
 
 /*
- *	ƒ|ƒbƒvƒAƒbƒvI—¹ AF –³Ž‹ƒ{ƒ^ƒ“(WAIT ó‘Ô–³‚µ)
+ *	ï¿½|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½Iï¿½ï¿½ AF ï¿½ï¿½ï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½(WAIT ï¿½ï¿½Ô–ï¿½ï¿½ï¿½)
  */
 void CChiefTransiAF::enter_ST_AAF_POPUP_IGNORE(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_AAF_DISP[5], (DWORD) pEvParams);
 
 	AF_VALID*	l_pAFValid = (AF_VALID*) &m_dwAFValid;
-	l_pAFValid->ucResultPopup = 2;		// •Â‚¶‚é(OK)ƒ{ƒ^ƒ“
-// ƒRƒR‚Å‚ÍÝ’è‚µ‚Ü‚¹‚ñD	l_pAFValid->ucResultAF = 4;
+	l_pAFValid->ucResultPopup = 2;		// ï¿½Â‚ï¿½ï¿½ï¿½(OK)ï¿½{ï¿½^ï¿½ï¿½
+// ï¿½Rï¿½Rï¿½Å‚ÍÝ’è‚µï¿½Ü‚ï¿½ï¿½ï¿½D	l_pAFValid->ucResultAF = 4;
 	l_pAFValid->bit1ManuXY		= (0 == LOBYTE(LOWORD(pEvParams)))? 0 : 1;
 	l_pAFValid->bit1ManuZ		= (0 == HIBYTE(LOWORD(pEvParams)))? 0 : 1;
 	l_pAFValid->bit1ManuAF		= (0 == LOBYTE(HIWORD(pEvParams)))? 0 : 1;
 	l_pAFValid->bit1ManuAfRslt	= (0 == HIBYTE(HIWORD(pEvParams)))? 0 : 1;
 
-	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV -----------------------------------------------------
+	// ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½V -----------------------------------------------------
 	TransiEvent(EV_AAF_IDLE);
 
-	// ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ð’Ê’m
+	// ï¿½Äoï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÉŠï¿½ï¿½ï¿½ï¿½ï¿½Ê’m
 	NotifyComplete((cEventParams*) m_dwAFValid);
 }
 
 /*
- *	ƒ|ƒbƒvƒAƒbƒvI—¹ ƒXƒLƒbƒvƒ{ƒ^ƒ“(WAIT ó‘Ô–³‚µ)
+ *	ï¿½|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½Iï¿½ï¿½ ï¿½Xï¿½Lï¿½bï¿½vï¿½{ï¿½^ï¿½ï¿½(WAIT ï¿½ï¿½Ô–ï¿½ï¿½ï¿½)
  */
 void CChiefTransiAF::enter_ST_AAF_POPUP_SKIP(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_AAF_DISP[6], (DWORD) pEvParams);
 
 	AF_VALID*	l_pAFValid = (AF_VALID*) &m_dwAFValid;
-	l_pAFValid->ucResultPopup = 3;		// ƒXƒLƒbƒvƒ{ƒ^ƒ“
-// ƒRƒR‚Å‚ÍÝ’è‚µ‚Ü‚¹‚ñD	l_pAFValid->ucResultAF = 4;
+	l_pAFValid->ucResultPopup = 3;		// ï¿½Xï¿½Lï¿½bï¿½vï¿½{ï¿½^ï¿½ï¿½
+// ï¿½Rï¿½Rï¿½Å‚ÍÝ’è‚µï¿½Ü‚ï¿½ï¿½ï¿½D	l_pAFValid->ucResultAF = 4;
 	l_pAFValid->bit1ManuXY		= (0 == LOBYTE(LOWORD(pEvParams)))? 0 : 1;
 	l_pAFValid->bit1ManuZ		= (0 == HIBYTE(LOWORD(pEvParams)))? 0 : 1;
 	l_pAFValid->bit1ManuAF		= (0 == LOBYTE(HIWORD(pEvParams)))? 0 : 1;
 	l_pAFValid->bit1ManuAfRslt	= (0 == HIBYTE(HIWORD(pEvParams)))? 0 : 1;
 
-	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV -----------------------------------------------------
+	// ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½V -----------------------------------------------------
 	TransiEvent(EV_AAF_IDLE);
 
-	// ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ð’Ê’m
+	// ï¿½Äoï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÉŠï¿½ï¿½ï¿½ï¿½ï¿½Ê’m
 	NotifyComplete((cEventParams*) m_dwAFValid);
 }
 
 /*
- *	ƒ|ƒbƒvƒAƒbƒvI—¹ ƒLƒƒƒ“ƒZƒ‹ƒ{ƒ^ƒ“(WAIT ó‘Ô–³‚µ)
+ *	ï¿½|ï¿½bï¿½vï¿½Aï¿½bï¿½vï¿½Iï¿½ï¿½ ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½(WAIT ï¿½ï¿½Ô–ï¿½ï¿½ï¿½)
  */
 void CChiefTransiAF::enter_ST_AAF_POPUP_CANCEL(const cEventParams* const pEvParams)
 {
 	((CChiefView*) m_pcChiefView)->LogChief_Transi(STATES_AAF_DISP[7], (DWORD) pEvParams);
 
 	AF_VALID*	l_pAFValid = (AF_VALID*) &m_dwAFValid;
-	l_pAFValid->ucResultPopup = 4;		// ƒLƒƒƒ“ƒZƒ‹ƒ{ƒ^ƒ“
-// ƒRƒR‚Å‚ÍÝ’è‚µ‚Ü‚¹‚ñD	l_pAFValid->ucResultAF = 4;
+	l_pAFValid->ucResultPopup = 4;		// ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½
+// ï¿½Rï¿½Rï¿½Å‚ÍÝ’è‚µï¿½Ü‚ï¿½ï¿½ï¿½D	l_pAFValid->ucResultAF = 4;
 	l_pAFValid->bit1ManuXY		= (0 == LOBYTE(LOWORD(pEvParams)))? 0 : 1;
 	l_pAFValid->bit1ManuZ		= (0 == HIBYTE(LOWORD(pEvParams)))? 0 : 1;
 	l_pAFValid->bit1ManuAF		= (0 == LOBYTE(HIWORD(pEvParams)))? 0 : 1;
 	l_pAFValid->bit1ManuAfRslt	= (0 == HIBYTE(HIWORD(pEvParams)))? 0 : 1;
 
-	// ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“XV -----------------------------------------------------
+	// ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½V -----------------------------------------------------
 	TransiEvent(EV_AAF_IDLE);
 
-	// ŒÄoŒ³ƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚ÉŠ®—¹‚ð’Ê’m
+	// ï¿½Äoï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÉŠï¿½ï¿½ï¿½ï¿½ï¿½Ê’m
 	NotifyComplete((cEventParams*) m_dwAFValid);
 }
