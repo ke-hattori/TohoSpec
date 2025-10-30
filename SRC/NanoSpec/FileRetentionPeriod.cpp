@@ -707,7 +707,7 @@ BOOL CFileRetentionPeriod::DeleteDirectory(LPCTSTR lpPathName)
 
 			// �t�@�C���̍폜
 			else{
-	            sprintf(szBuff, "[DeleteDirectory] Delete File %s", strDeleteFile);
+	            sprintf(szBuff, "[DeleteDirectory] Delete File %s", (LPCSTR)strDeleteFile);
 				FileRetentionLogging(szBuff);
 				::DeleteFile(strDeleteFile);
 			}
@@ -756,7 +756,7 @@ BOOL CFileRetentionPeriod::DeleteAllData(LPCTSTR lpPathName)
 
 			// �t�@�C���̍폜
 			else{
-	            sprintf(szBuff, "[DeleteAllData] Delete File %s", strDeleteFile);
+	            sprintf(szBuff, "[DeleteAllData] Delete File %s", (LPCSTR)strDeleteFile);
 				FileRetentionLogging(szBuff);
 				::DeleteFile(strDeleteFile);
 			}
@@ -800,7 +800,7 @@ BOOL CFileRetentionPeriod::CheckDirectory(LPCTSTR lpPathName)
 			}
 			else{
 				//�t�@�C������������
-	            sprintf(szBuff, "[CheckDirectory] Delete File %s", fnd.GetFilePath());
+	            sprintf(szBuff, "[CheckDirectory] Delete File %s", (LPCSTR)fnd.GetFilePath());
 				FileRetentionLogging(szBuff);
 				bRet = ::DeleteFile(fnd.GetFilePath());
 			}
