@@ -1,4 +1,4 @@
-﻿#pragma code_page(65001)
+#pragma code_page(65001)
 // Microsoft Visual C++ generated resource script.
 //
 #include "resource.h"
