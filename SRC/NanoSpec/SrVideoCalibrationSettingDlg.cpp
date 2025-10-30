@@ -208,11 +208,11 @@ void CSrVideoCalibrationSettingDlg::LensSetupButton(UINT nID)
 
 	int nMaxCnt = sizeof(Video_LensSetupButton_IDs) / sizeof(Video_LensSetupButton_IDs[0]);
 	UINT nIndex;
-	for ( nIndex = 0; nIndex < nMaxCnt; nIndex++ )
+	for ( nIndex = 0; nIndex < static_cast<UINT>(nMaxCnt); nIndex++ )
 		if ( nID == Video_LensSetupButton_IDs[nIndex] )
 			break;
 
-	ASSERT( nIndex < nMaxCnt );
+	ASSERT( nIndex < static_cast<UINT>(nMaxCnt) );
 
 	CNanoSpecDoc* pDoc = (CNanoSpecDoc*)((CMainFrame*)AfxGetMainWnd())->GetActiveDocument();
 	pDoc->ActuateFlagsSet(ACTUATE_TURRET, TRUE);
