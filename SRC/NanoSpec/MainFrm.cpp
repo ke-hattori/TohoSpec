@@ -2084,9 +2084,9 @@ void CMainFrame::OnMenuData()
 /* modified 2014.05.22 hmenjo �蓮�� NanoMap ----------              */
 		CString l_strNanomapExeName = NANOMAP_EXE_NAME;
 		if (g_lAppNameType == APP_NAME_TOHO) {
-			l_strNanomapExeName.Replace(g_lpszAppPrefix4[0], g_lpszAppPrefix4[1]);
-		}
-		sprintf(szPath, "%s%s", g_szBin_Dir, l_strNanomapExeName);
+		l_strNanomapExeName.Replace(g_lpszAppPrefix4[0], g_lpszAppPrefix4[1]);
+	}
+	sprintf(szPath, "%s%s", g_szBin_Dir, (LPCSTR)l_strNanomapExeName);
 /* modified 2014.05.22 hmenjo �蓮�� NanoMap ---------- } ---------- */
 /* added 2014.11.22 hmenjo TohoRecall �֕ύX ---------- { ---------- */
 		char l_szPathNanoMapOrg[MAX_PATH];
