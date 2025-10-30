@@ -1,4 +1,4 @@
-// RecipeMeasurementSrDistanceProgramView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// RecipeMeasurementSrDistanceProgramView.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -22,7 +22,7 @@ CRecipeMeasurementSrDistanceProgramView::CRecipeMeasurementSrDistanceProgramView
 	: CNanoRecipeUI(CRecipeMeasurementSrDistanceProgramView::IDD)
 {
 	//{{AFX_DATA_INIT(CRecipeMeasurementSrDistanceProgramView)
-		// ƒƒ‚: ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒƒ“ƒo‚Ì‰Šú‰»ˆ—‚ğ’Ç‰Á‚µ‚Ü‚·
+		// ï¿½ï¿½ï¿½ï¿½: ClassWizard ï¿½Í‚ï¿½ï¿½ÌˆÊ’uï¿½Éƒï¿½ï¿½ï¿½ï¿½oï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½
 	//}}AFX_DATA_INIT
 
 	CString l_strBuffer;
@@ -40,9 +40,9 @@ void CRecipeMeasurementSrDistanceProgramView::DoDataExchange(CDataExchange* pDX)
 {
 	CNanoRecipeUI::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CRecipeMeasurementSrDistanceProgramView)
-// 2010.01.07 bagus Distance C³ --{--
+// 2010.01.07 bagus Distance ï¿½Cï¿½ï¿½ --{--
 	DDX_Text(pDX, IDC_COMMENT, m_DistanceMeas.hdr.szComment, RECIPE_COMMENT_LEN + 1);
-// 2010.01.07 bagus Distance C³ --}--
+// 2010.01.07 bagus Distance ï¿½Cï¿½ï¿½ --}--
 	//}}AFX_DATA_MAP
 	DDX_Text(pDX, IDC_DISTANCE_PROG_NAME, m_DistanceMeas.hdr.szName, RECIPE_NAME_LEN + 1);
 	DDX_CBStringExact(pDX, IDC_SR_LENS, m_strLens);
@@ -58,7 +58,7 @@ BEGIN_MESSAGE_MAP(CRecipeMeasurementSrDistanceProgramView, CNanoRecipeUI)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CRecipeMeasurementSrDistanceProgramView f’f
+// CRecipeMeasurementSrDistanceProgramView ï¿½fï¿½f
 
 #ifdef _DEBUG
 void CRecipeMeasurementSrDistanceProgramView::AssertValid() const
@@ -73,7 +73,7 @@ void CRecipeMeasurementSrDistanceProgramView::Dump(CDumpContext& dc) const
 #endif //_DEBUG
 
 /////////////////////////////////////////////////////////////////////////////
-// CRecipeMeasurementSrDistanceProgramView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CRecipeMeasurementSrDistanceProgramView ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 //
 void CRecipeMeasurementSrDistanceProgramView::OnInitialUpdate()
 {
@@ -95,7 +95,7 @@ void CRecipeMeasurementSrDistanceProgramView::OnInitialUpdate()
 		| CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
 		!m_wndToolBar.LoadToolBar(IDR_EDIT_RECIPE_BAR)){
 		TRACE0("Failed to create toolbar\n");
-		return; 	// ì¬‚É¸”s
+		return; 	// ï¿½ì¬ï¿½Éï¿½ï¿½s
 	}
 
 	GetClientRect(&rect);
@@ -109,7 +109,7 @@ void CRecipeMeasurementSrDistanceProgramView::OnInitialUpdate()
 	InitCombo_Lens();
 	InitCombo_OpticalFilter();
 
-	// ƒRƒƒ“ƒg•¶š”§ŒÀ
+	// ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	((CEdit*)GetDlgItem(IDC_COMMENT))->SetLimitText(RECIPE_COMMENT_LEN);
 
 	///// Default Recipe Setup /////
@@ -122,8 +122,8 @@ void CRecipeMeasurementSrDistanceProgramView::OnInitialUpdate()
 
 	if ((IsDataChanged() == TRUE) && (m_nOpenMode == modeNormal))
 	{
-		//ƒXƒgƒ‰ƒeƒWƒB‚ğ‘‚«Š·‚¦‚½ê‡A
-		//ƒŒƒVƒs‚ğ“Ç‚ñ‚¾’l‚Æ‰æ–Ê•\¦’l(ŒõŠwƒtƒBƒ‹ƒ^E”g’·)‚É·‚ª‚Å‚Ä‚µ‚Ü‚¤‚±‚Æ‚ª‚ ‚é‚Ì‚ÅAƒŒƒVƒs‚ğ‹­§“I‚É‘Š·‚¦‚éB
+		//ï¿½Xï¿½gï¿½ï¿½ï¿½eï¿½Wï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½A
+		//ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½Çï¿½ï¿½ñ‚¾’lï¿½Æ‰ï¿½Ê•\ï¿½ï¿½ï¿½l(ï¿½ï¿½ï¿½wï¿½tï¿½Bï¿½ï¿½ï¿½^ï¿½Eï¿½gï¿½ï¿½)ï¿½Éï¿½ï¿½ï¿½ï¿½Å‚Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ÅAï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½Éï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 		SaveRecipeData();
 		LoadStringML(IDS_SAVE_OPTICAL_FILTER_WAVELENG, l_strBuffer, "The optical filter and the wavelength were saved\n by the change in the strategy.");
 		LoadStringML(IDS_TITLE_NANOSPEC, l_strTitle, "NanoSpec");
@@ -139,15 +139,15 @@ void CRecipeMeasurementSrDistanceProgramView::LoadRecipeData()
 
 	switch ( m_nOpenMode )
 	{
-	case modeNew:				// ƒŒƒVƒsV‹Kì¬
-	case modeDefaultSetting:	// ƒRƒ“ƒtƒBƒO‰æ–Ê‚©‚ç‘JˆÚ‚µ‚Ä‚«‚½ƒP[ƒX
+	case modeNew:				// ï¿½ï¿½ï¿½Vï¿½sï¿½Vï¿½Kï¿½ì¬
+	case modeDefaultSetting:	// ï¿½Rï¿½ï¿½ï¿½tï¿½Bï¿½Oï¿½ï¿½Ê‚ï¿½ï¿½ï¿½Jï¿½Ú‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½Pï¿½[ï¿½X
 		if ( !RecipeFile_LoadRecipe(&m_DistanceMeas, SR_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_SR_DISTANCE) ) {
 			m_DistanceMeas.ScanParams.hdr.wHeadType = HEAD_TYPE_SR;
 			m_DistanceMeas.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_SR_DISTANCE;
 		}
 		break;
-	default:					// ƒŒƒVƒsƒƒCƒ“ƒŠƒXƒg‰æ–Ê‚©‚ç‘JˆÚ‚µ‚Ä‚«‚½ƒP[ƒX
-		if ( !RecipeFile_LoadRecipe(&m_DistanceMeas, m_szRecipeName, RECIPE_FILE_MEASUREMENT_PROGRAM) ) {		   // RECIPE_FILE_MEASUREMENT_PROGRAM ‚Å³‚µ‚¢‚ç‚µ‚¢...
+	default:					// ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½Ê‚ï¿½ï¿½ï¿½Jï¿½Ú‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½Pï¿½[ï¿½X
+		if ( !RecipeFile_LoadRecipe(&m_DistanceMeas, m_szRecipeName, RECIPE_FILE_MEASUREMENT_PROGRAM) ) {		   // RECIPE_FILE_MEASUREMENT_PROGRAM ï¿½Åï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç‚µï¿½ï¿½...
 			m_nOpenMode = modeNew;
 			if ( !RecipeFile_LoadRecipe(&m_DistanceMeas, SR_HEAD_DEFAULT_NAME, RECIPE_FILE_DEF_SR_DISTANCE) ) {
 				m_DistanceMeas.ScanParams.hdr.wHeadType = HEAD_TYPE_SR;
@@ -220,7 +220,7 @@ BOOL CRecipeMeasurementSrDistanceProgramView::SaveRecipeData()
 			return FALSE;
 		break;
 	default:
-		// V‚µ‚¢ƒŒƒVƒs–¼‚ğİ’èiSave, SaveAsŒ“—pj
+		// ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½İ’ï¿½iSave, SaveAsï¿½ï¿½ï¿½pï¿½j
 		strcpy(m_DistanceMeas.hdr.szName, m_szRecipeName);
 		if ( !RecipeFile_SaveRecipe(&m_DistanceMeas, m_szRecipeName, RECIPE_FILE_SR_DISTANCE) )
 			return FALSE;
@@ -266,7 +266,7 @@ BOOL CRecipeMeasurementSrDistanceProgramView::CheckTransData(int iData , CString
 }
 
 // =========================================================================
-// ƒŒƒ“ƒY ƒRƒ“ƒ{‘I‘ğ
+// ï¿½ï¿½ï¿½ï¿½ï¿½Y ï¿½Rï¿½ï¿½ï¿½{ï¿½Iï¿½ï¿½ï¿½ï¿½
 //
 void CRecipeMeasurementSrDistanceProgramView::OnSelchangeSrThickLens()
 {
@@ -282,7 +282,7 @@ void CRecipeMeasurementSrDistanceProgramView::OnSelchangeSrThickLens()
 }
 
 // =========================================================================
-//ƒŒƒ“ƒY ƒRƒ“ƒ{ƒCƒjƒVƒƒƒ‹ˆ—
+//ï¿½ï¿½ï¿½ï¿½ï¿½Y ï¿½Rï¿½ï¿½ï¿½{ï¿½Cï¿½jï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //
 void CRecipeMeasurementSrDistanceProgramView::InitCombo_Lens()
 {
@@ -326,7 +326,7 @@ void CRecipeMeasurementSrDistanceProgramView::InitCombo_Lens()
 }
 
 // =========================================================================
-// ƒIƒvƒeƒBƒJƒ‹ƒtƒBƒ‹ƒ^[ ƒRƒ“ƒ{‘I‘ğ
+// ï¿½Iï¿½vï¿½eï¿½Bï¿½Jï¿½ï¿½ï¿½tï¿½Bï¿½ï¿½ï¿½^ï¿½[ ï¿½Rï¿½ï¿½ï¿½{ï¿½Iï¿½ï¿½ï¿½ï¿½
 //
 void CRecipeMeasurementSrDistanceProgramView::OnSelchangeOptFilter()
 {
@@ -334,7 +334,7 @@ void CRecipeMeasurementSrDistanceProgramView::OnSelchangeOptFilter()
 	int nSelect = pCombo->GetCurSel();
 	if ( nSelect == CB_ERR )
 		return;
-	m_DistanceMeas.ScanParams._SR.wOpticsFilterType = static_cast<long>(pCombo->GetItemData(nSelect));
+	m_DistanceMeas.ScanParams._SR.wOpticsFilterType = static_cast<WORD>(pCombo->GetItemData(nSelect));
 }
 
 // =========================================================================
@@ -345,11 +345,11 @@ void CRecipeMeasurementSrDistanceProgramView::InitCombo_OpticalFilter()
 
 	CComboBox* pCombo = (CComboBox*)GetDlgItem(IDC_OPTICAL_FILTER);
 
-	//ƒI[ƒgƒtƒBƒ‹ƒ^‚ ‚è‚Ìê‡
+	//ï¿½Iï¿½[ï¿½gï¿½tï¿½Bï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½ï¿½Ìê‡
 	if (m_SrConfig.bAutoFilter){
-// 2009.10.24 bagus 2“_ŠÔ C³ --{--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
 //		pCombo->EnableWindow(FALSE);
-// 2009.10.24 bagus 2“_ŠÔ C³ --}--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
 		pCombo->ResetContent();
 
 		int nIndex;
@@ -401,14 +401,14 @@ void CRecipeMeasurementSrDistanceProgramView::InitCombo_OpticalFilter()
 				nIndex = 0;
 				pCombo->SetCurSel(nIndex);
 // 2009.12.14 bagus SR --{--
-				m_DistanceMeas.ScanParams._SR.wOpticsFilterType = static_cast<long>(pCombo->GetItemData(0));
+				m_DistanceMeas.ScanParams._SR.wOpticsFilterType = static_cast<WORD>(pCombo->GetItemData(0));
 // 2009.12.14 bagus SR --}--
 			}
 			else{
 				nIndex = 0;
 				pCombo->SetCurSel(nIndex);
 // 2009.12.09 bagus SR --{--
-				m_DistanceMeas.ScanParams._SR.wOpticsFilterType = static_cast<long>(pCombo->GetItemData(0));
+				m_DistanceMeas.ScanParams._SR.wOpticsFilterType = static_cast<WORD>(pCombo->GetItemData(0));
 // 2009.12.09 bagus SR --}--
 				SaveRecipeData();
 				LoadStringML(IDS_OPTICAL_FILTER_ZERO, l_strBuffer, "Invalid for the specified item, Optical filter is saved as an INDEX to 0.");
@@ -418,7 +418,7 @@ void CRecipeMeasurementSrDistanceProgramView::InitCombo_OpticalFilter()
 		}
 	}
 
-	//ƒI[ƒgƒtƒBƒ‹ƒ^‚È‚µ‚Ìê‡
+	//ï¿½Iï¿½[ï¿½gï¿½tï¿½Bï¿½ï¿½ï¿½^ï¿½È‚ï¿½ï¿½Ìê‡
 	else{
 		m_DistanceMeas.ScanParams._SR.wOpticsFilterType = 0;
 		GetDlgItem(IDC_SR_THICK_OPT_FILTER_LABEL)->ShowWindow(SW_HIDE);
@@ -427,21 +427,21 @@ void CRecipeMeasurementSrDistanceProgramView::InitCombo_OpticalFilter()
 }
 
 // =========================================================================
-//ƒ_ƒ~[ƒƒWƒƒ[ƒƒ“ƒgƒvƒƒOƒ‰ƒ€‚ğì¬
+//ï¿½_ï¿½~ï¿½[ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì¬
 BOOL CRecipeMeasurementSrDistanceProgramView::MakeTempSrMeasurementRecipe(LPCTSTR pszRecipeName)
 {
 	return RecipeFile_SaveRecipe(&m_DistanceMeas, pszRecipeName, RECIPE_FILE_SR_DISTANCE);
 }
 
 // =========================================================================
-//ƒ_ƒ~[ƒƒCƒ“ƒvƒƒOƒ‰ƒ€‚ğì¬
+//ï¿½_ï¿½~ï¿½[ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì¬
 BOOL CRecipeMeasurementSrDistanceProgramView::MakeTempSrMainRecipe(LPCTSTR pszRecipeNameMain, LPCTSTR pszRecipeNameMeas)
 {
 	MAIN_RCP_INFO MainRcpInfo_Temp;
 	memset(&MainRcpInfo_Temp, 0, sizeof(MainRcpInfo_Temp));
 
 
-#if 0 //İ’è‚ª•K—v‚È‚ç’Ç‰Á‚·‚é‚±‚Æ
+#if 0 //ï¿½İ’è‚ªï¿½Kï¿½vï¿½È‚ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½é‚±ï¿½ï¿½
 	MainRcpInfo_Temp.hdr.szComment;
 	strcpy(MainRcpInfo_Temp.MainRcpParam.hdr.szStage, "---");
 	strcpy(MainRcpInfo_Temp.MainRcpParam.hdr.szPointDeskew, "---");
@@ -470,11 +470,11 @@ BOOL CRecipeMeasurementSrDistanceProgramView::MakeTempSrMainRecipe(LPCTSTR pszRe
 }
 
 // =========================================================================
-//‰¼ƒŒƒVƒs‚ğNanoSpecDoc‚ÖŠi”[
+//ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½NanoSpecDocï¿½ÖŠiï¿½[
 BOOL CRecipeMeasurementSrDistanceProgramView::TempRecipeDocSet(LPCTSTR pszRecipeName)
 {
-//wƒƒCƒ“ƒŒƒVƒs–¼xwƒƒCƒ“ƒŒƒVƒsxwƒƒWƒƒ[ƒƒ“ƒgƒŒƒVƒsxw•\¦—pƒ‰ƒxƒ‹xw’PˆÊ–¼x‚Ì‚İŠi”[
-//‚¨‚æ‚Ñw‰¼ƒƒWƒƒ[ƒƒ“ƒgƒvƒƒOƒ‰ƒ€‚ÌWave”ÍˆÍxAw‘ª’èí•Êx
+//ï¿½wï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½xï¿½wï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½xï¿½wï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Vï¿½sï¿½xï¿½wï¿½\ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½xï¿½ï¿½ï¿½xï¿½wï¿½Pï¿½Ê–ï¿½ï¿½xï¿½Ì‚İŠiï¿½[
+//ï¿½ï¿½ï¿½ï¿½Ñwï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Waveï¿½ÍˆÍxï¿½Aï¿½wï¿½ï¿½ï¿½ï¿½ï¿½Êx
 
 	CMainFrame* pMainFrame = (CMainFrame*)AfxGetMainWnd();
 	CNanoSpecDoc* pDoc = (CNanoSpecDoc*)pMainFrame->GetActiveDocument();
@@ -482,14 +482,14 @@ BOOL CRecipeMeasurementSrDistanceProgramView::TempRecipeDocSet(LPCTSTR pszRecipe
 	RCP_DATA rcp_data;
 	memset(&rcp_data, 0, sizeof(rcp_data));
 
-	///// ƒƒ‚ƒŠ[‰Šú‰» /////
+	///// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ /////
 	pDoc->InitMeasData();
 
-	//‘ª’èí•Ê
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	rcp_data.MeasProgInfo.ScanParams.hdr.wScanType = MEAS_PROG_TYPE_SR_DISTANCE;
 
 	strcpy(rcp_data.szRecipeName, pszRecipeName);
-	//ƒŒƒVƒsƒ[ƒh•NanoSpecDoc‚Ö‚ÌŠi”[
+	//ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½NanoSpecDocï¿½Ö‚ÌŠiï¿½[
 	BOOL bMain = FALSE;
 	BOOL bMeas = FALSE;
 	bMain = RecipeFile_LoadRecipe(&rcp_data.MainRcpInfo, rcp_data.szRecipeName, RECIPE_FILE_MAIN_RECIPE);
@@ -501,7 +501,7 @@ BOOL CRecipeMeasurementSrDistanceProgramView::TempRecipeDocSet(LPCTSTR pszRecipe
 	pDoc->SetRcpData(&rcp_data);
 
 
-	///// ’PˆÊ–¼æ“¾ /////
+	///// ï¿½Pï¿½Ê–ï¿½ï¿½æ“¾ /////
 	SR_FIGURE_FORMAT SrFigureFormat;
 	char szUnit[MAX_PATH];
 	memset(szUnit, 0, sizeof(szUnit));
@@ -519,8 +519,8 @@ BOOL CRecipeMeasurementSrDistanceProgramView::TempRecipeDocSet(LPCTSTR pszRecipe
 	pDoc->SetUnitIndex(nUnit);
 
 
-	///// ‰æ–Ê•\¦(ƒf[ƒ^•Û‘¶)—pƒ^ƒCƒgƒ‹ /////
-	char szDispLabel[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1];		//‰æ–Ê•\¦(ƒf[ƒ^•Û‘¶)—pƒ^ƒCƒgƒ‹ ©X,Y,Z,AF‚ÍŠÜ‚Ü‚¸
+	///// ï¿½ï¿½Ê•\ï¿½ï¿½(ï¿½fï¿½[ï¿½^ï¿½Û‘ï¿½)ï¿½pï¿½^ï¿½Cï¿½gï¿½ï¿½ /////
+	char szDispLabel[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1];		//ï¿½ï¿½Ê•\ï¿½ï¿½(ï¿½fï¿½[ï¿½^ï¿½Û‘ï¿½)ï¿½pï¿½^ï¿½Cï¿½gï¿½ï¿½ ï¿½ï¿½X,Y,Z,AFï¿½ÍŠÜ‚Ü‚ï¿½
 	int iDispLabelCount;
 	memset(szDispLabel, 0, sizeof(szDispLabel)); //
 
@@ -533,33 +533,33 @@ BOOL CRecipeMeasurementSrDistanceProgramView::TempRecipeDocSet(LPCTSTR pszRecipe
 }
 
 // =========================================================================
-//ƒŒƒVƒs–¼ì¬
+//ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ì¬
 BOOL CRecipeMeasurementSrDistanceProgramView::GetTestModeRecipeName(LPTSTR pszFileName, int iRcpType)
 {
 	CString l_strBuffer, l_strTitle;
 
-	//ŒÅ’è–¼‚ÅƒŒƒVƒs–¼‚ğì‚é
+	//ï¿½Å’è–¼ï¿½Åƒï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	char szRcpName[RECIPE_NAME_LEN + 1];
 	char szRcpNamePath[MAX_PATH + 1];
 
-	sprintf(szRcpName, "%c%s", SYSTEM_RECIPE_BEGINNING_CHAR, TESTMODE_TEMP_RECIPE_NAME); //ì¬ƒŒƒVƒs–¼
+	sprintf(szRcpName, "%c%s", SYSTEM_RECIPE_BEGINNING_CHAR, TESTMODE_TEMP_RECIPE_NAME); //ï¿½ì¬ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½
 
-	//ì¬‚·‚éƒŒƒVƒs–¼‚ªd•¡‚µ‚Ä‚¢‚È‚¢‚©’²‚×‚éˆ×‚ÌƒpƒX‚ğì¬
-	if(iRcpType == SAVE_AS_MAIN_RECIPE) { //ƒƒCƒ“ƒŒƒVƒs
-		sprintf(szRcpNamePath, "%s%s%s", g_szDb_Main_Recipe_Dir, szRcpName, MAINRECIPE_EXT); //d•¡ƒŒƒVƒs–¼ŒŸõ—p
+	//ï¿½ì¬ï¿½ï¿½ï¿½éƒŒï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½dï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×‚ï¿½×‚Ìƒpï¿½Xï¿½ï¿½ï¿½ì¬
+	if(iRcpType == SAVE_AS_MAIN_RECIPE) { //ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½s
+		sprintf(szRcpNamePath, "%s%s%s", g_szDb_Main_Recipe_Dir, szRcpName, MAINRECIPE_EXT); //ï¿½dï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½p
 	}
-	else if(iRcpType == SAVE_AS_MEASUREMENT_PROGRAM) { //ƒƒWƒƒ[ƒƒ“ƒgƒvƒƒOƒ‰ƒ€
-		sprintf(szRcpNamePath, "%s%s%s", g_szDb_Measurement_Program_Dir, szRcpName, MEASUREMENTPGM_EXT); //d•¡ƒŒƒVƒs–¼ŒŸõ—p
+	else if(iRcpType == SAVE_AS_MEASUREMENT_PROGRAM) { //ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½
+		sprintf(szRcpNamePath, "%s%s%s", g_szDb_Measurement_Program_Dir, szRcpName, MEASUREMENTPGM_EXT); //ï¿½dï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½p
 	}
 
-	//ì¬‚µ‚æ‚¤‚Æ‚·‚éƒŒƒVƒs‚Ìd•¡ƒ`ƒFƒbƒN
-	if(FileOrDirExists(szRcpNamePath)==TRUE) //ì¬‚µ‚æ‚¤‚Æ‚µ‚Ä‚¢‚éƒtƒ@ƒCƒ‹–¼‚Éd•¡‚ ‚è
+	//ï¿½ì¬ï¿½ï¿½ï¿½æ‚¤ï¿½Æ‚ï¿½ï¿½éƒŒï¿½Vï¿½sï¿½Ìdï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N
+	if(FileOrDirExists(szRcpNamePath)==TRUE) //ï¿½ì¬ï¿½ï¿½ï¿½æ‚¤ï¿½Æ‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Édï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	{
-		//ƒ\ƒtƒg‹N“®‚É‰¼ƒŒƒVƒs‚ğÁ‚·‚Ì‚ÅA‚±‚±‚É‚Í—ˆ‚È‚¢‚Í‚¸B
+		//ï¿½\ï¿½tï¿½gï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½É‰ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ÅAï¿½ï¿½ï¿½ï¿½ï¿½É‚Í—ï¿½ï¿½È‚ï¿½ï¿½Í‚ï¿½ï¿½B
 		LoadStringML(IDS_CAPTION_SR_TRANSMIT, l_strBuffer, "Temporary recipe for the test mode remains, \nthe test mode cannot be begun.");
 		LoadStringML(IDS_TITLE_NANOSPEC, l_strTitle, "NanoSpec");
 		MessageBox(l_strBuffer, l_strTitle, MB_OK);
-		return FALSE; //ƒtƒ@ƒCƒ‹–¼d•¡(ƒ\ƒtƒg‹N“®A‰¼ƒŒƒVƒsÁ‹ƒ~ƒX)
+		return FALSE; //ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½dï¿½ï¿½(ï¿½\ï¿½tï¿½gï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½X)
 	}
 
 	strcpy(pszFileName, szRcpName);
@@ -567,7 +567,7 @@ BOOL CRecipeMeasurementSrDistanceProgramView::GetTestModeRecipeName(LPTSTR pszFi
 }
 
 // =========================================================================
-//ƒtƒ@ƒCƒ‹‘¶İƒ`ƒFƒbƒN(ƒtƒ@ƒCƒ‹‘¶İ‚ÍTRUE‚ğ•Ô‚·)
+//ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½İƒ`ï¿½Fï¿½bï¿½N(ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½İï¿½ï¿½ï¿½TRUEï¿½ï¿½Ô‚ï¿½)
 BOOL CRecipeMeasurementSrDistanceProgramView::FileOrDirExists(LPCTSTR pszFileName)
 {
 	return (BOOL)( GetFileAttributes(pszFileName) != 0xffffffff );

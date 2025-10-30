@@ -541,7 +541,7 @@ void CTestMeasurementGantryDlg::OnSelchangeSrOptFilter()
 	int nSelect = pCombo->GetCurSel();
 	if ( nSelect == CB_ERR )
 		return;
-	m_Meas.ScanParams._SR.wOpticsFilterType = static_cast<long>(pCombo->GetItemData(nSelect));
+	m_Meas.ScanParams._SR.wOpticsFilterType = static_cast<WORD>(pCombo->GetItemData(nSelect));
 
 	m_iConditionFlg = TESTMODE_CONDITION_CANGE_AFTER;	//�捞�ݏ���(Detector Condition)�ύX��
 

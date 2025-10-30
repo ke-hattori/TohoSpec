@@ -135,8 +135,8 @@ void CShadeButtonST::SetShade(UINT shadeID, BYTE granularity, BYTE highlight, BY
 			for(j = 0; j < sXSize; j++) {
 				x=j-sXSize/2;
 				xs=sXSize/2-d+(y*y*d)/a;
-				if (x>xs) posDst[j]= static_cast<long>(idxmin+(BYTE)(((sXSize-j)*128)/d));
-				if ((x+xs)<0) posDst[j]= static_cast<long>(idxmax-(BYTE)((j*128)/d));
+			if (x>xs) posDst[j]= static_cast<BYTE>(idxmin+(BYTE)(((sXSize-j)*128)/d));
+			if ((x+xs)<0) posDst[j]= static_cast<BYTE>(idxmax-(BYTE)((j*128)/d));
 				posDst[j]+=rand()/grainx2-granularity;
 			}
 			posDst+=bytes;
