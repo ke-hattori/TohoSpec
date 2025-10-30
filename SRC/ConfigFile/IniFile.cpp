@@ -1341,7 +1341,7 @@ void LoadNanoSpecIni(int iIniFile)
 
 // 2009.09.29 bagus SE --{--
 	if (iIniFile == SYSTEM_SR_INI_FILE) {
-		NanoSysData.SrConfig.wTrShutterMoveWaitTime = lg_TrShutterMoveWaitTime * 1000;
+		NanoSysData.SrConfig.wTrShutterMoveWaitTime = static_cast<WORD>(lg_TrShutterMoveWaitTime * 1000);
 	}
 // 2009.09.29 bagus SE --}--
 
@@ -1405,7 +1405,7 @@ void LoadNanoSpecIni(int iIniFile)
 			NanoSysData.SrConfig.dUvGain					= 0.000;
 			NanoSysData.SrConfig.bTransmittance				= FALSE;
 			NanoSysData.SrConfig.iTrUseLensNo				= 0;	// Turret No:1
-			NanoSysData.SrConfig.wTrShutterMoveWaitTime		= 0.000;
+			NanoSysData.SrConfig.wTrShutterMoveWaitTime = static_cast<WORD>(0.000);
 			NanoSysData.SrConfig.bGantryType				= FALSE;
 			NanoSysData.SrConfig.wGantryNumOfMeasPoint		= 1;
 			NanoSysData.SrConfig.bDistance					= FALSE;
