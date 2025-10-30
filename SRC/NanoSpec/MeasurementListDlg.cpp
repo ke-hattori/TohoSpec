@@ -2841,18 +2841,18 @@ void CMeasurementListDlg::PointGraph_DataSet()
 	switch ( m_StageConfig.RotateXyView ) {
 	case 0:
 	default:
-		m_PointGraph.SetOriginPointData(dOriginPointDataX, dOriginPointDataY);
+		m_PointGraph.SetOriginPointData(static_cast<long>(dOriginPointDataX), static_cast<long>(dOriginPointDataY));
 		break;
 	case 90:
-		m_PointGraph.SetOriginPointData(dOriginPointDataY, dOriginPointDataX);
+		m_PointGraph.SetOriginPointData(static_cast<long>(dOriginPointDataY), static_cast<long>(dOriginPointDataX));
 		dOffSetValueX = dOriginPointDataY;
 		dOffSetValueY = dOriginPointDataX;
 		break;
 	case 180:
-		m_PointGraph.SetOriginPointData(dOriginPointDataX, dOriginPointDataY);
+		m_PointGraph.SetOriginPointData(static_cast<long>(dOriginPointDataX), static_cast<long>(dOriginPointDataY));
 		break;
 	case 270:
-		m_PointGraph.SetOriginPointData(dOriginPointDataY, dOriginPointDataX);
+		m_PointGraph.SetOriginPointData(static_cast<long>(dOriginPointDataY), static_cast<long>(dOriginPointDataX));
 		dOffSetValueX = dOriginPointDataY;
 		dOffSetValueY = dOriginPointDataX;
 		break;
@@ -2903,7 +2903,7 @@ void CMeasurementListDlg::PointGraph_DataSet()
 			break;
 		}
 // 2009.09.07 bagus stress ���_�ʒu�Ή� --}--
-		m_PointGraph.AddPoint(Scan_PointIncOffsetX, Scan_PointIncOffsetY);
+		m_PointGraph.AddPoint(static_cast<long>(Scan_PointIncOffsetX), static_cast<long>(Scan_PointIncOffsetY));
 	}
 
 	WORD wHeadType = m_rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType; // �w�b�h�^�C�v
