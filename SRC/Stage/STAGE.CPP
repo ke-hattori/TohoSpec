@@ -791,7 +791,7 @@ int CStageNTN::ElevatorMoveAtSpeed(double dSpeed)
 
 	if ( !IsEnableAutoFocus() ) return STAGE_ERR_INVALID_AUTOFOCUS;
 
-	for ( int index = 0; index < m_nTotalElevatorSpeeds; index++ ) {
+	for ( int index = 0; index < static_cast<int>(m_nTotalElevatorSpeeds); index++ ) {
 		if ( m_pElevatorSpeeds[index] == fabs(dSpeed) ) {
 			index += MSEX_MOVE_Z + (dSpeed < 0 ? m_nTotalElevatorSpeeds : 0);
 			CAuxInt result;
