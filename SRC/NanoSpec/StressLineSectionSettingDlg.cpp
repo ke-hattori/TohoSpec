@@ -3742,13 +3742,13 @@ BOOL CStressLineSectionSettingDlg::SetAllInputData()
 		Item.row = i;
 		Item.col = 1;
 		m_PinListGrid.GetItem(&Item);
-		tmpPinX = static_cast<long>(strtod(Item.strText, NULL) * MICROMETRE;		// �P�ʕϊ�(um->mm)
+		tmpPinX = static_cast<long>(strtod(Item.strText, NULL) * MICROMETRE);		// �P�ʕϊ�(um->mm)
 
 		Item.mask = GVIF_TEXT;
 		Item.row = i;
 		Item.col = 2;
 		m_PinListGrid.GetItem(&Item);
-		tmpPinY = static_cast<long>(strtod(Item.strText, NULL) * MICROMETRE;		// �P�ʕϊ�(um->mm)
+		tmpPinY = static_cast<long>(strtod(Item.strText, NULL) * MICROMETRE);		// �P�ʕϊ�(um->mm)
 
 		PinX[i - PinFixRows] = tmpPinX;
 		PinY[i - PinFixRows] = tmpPinY;
