@@ -1,4 +1,4 @@
-// PointSetupTeaching2PointDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// PointSetupTeaching2PointDlg.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -21,26 +21,26 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CPointSetupTeaching2PointDlg ƒ_ƒCƒAƒƒO
+// CPointSetupTeaching2PointDlg ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½O
 
 CPointSetupTeaching2PointDlg::CPointSetupTeaching2PointDlg(CWnd* pParent /*=NULL*/)
 	: COverlayDialog(CPointSetupTeaching2PointDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CPointSetupTeaching2PointDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ï¿½ï¿½ï¿½ï¿½ - ClassWizard ï¿½Í‚ï¿½ï¿½ÌˆÊ’uï¿½Éƒ}ï¿½bï¿½sï¿½ï¿½ï¿½Oï¿½pï¿½Ìƒ}ï¿½Nï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½Ü‚ï¿½ï¿½Ííœï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	//}}AFX_DATA_INIT
 
 
-// 2009.10.24 bagus 2“_ŠÔ C³ --{--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
 //	m_bTeachingMode = FALSE;
 
 	m_iPosX = 0;
 	m_iPosY = 0;
-// 2009.10.24 bagus 2“_ŠÔ C³ --}--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
 
-// 2009.10.28 bagus 2“_ŠÔ C³ --{--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
 	m_b2nd = FALSE;
-// 2009.10.28 bagus 2“_ŠÔ C³ --}--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -71,14 +71,14 @@ BEGIN_MESSAGE_MAP(CPointSetupTeaching2PointDlg, COverlayDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CPointSetupTeaching2PointDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CPointSetupTeaching2PointDlg ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 /////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////
 //
 BOOL CPointSetupTeaching2PointDlg::OnInitDialog()
 {
-	//SampleƒZƒbƒg
+	//Sampleï¿½Zï¿½bï¿½g
 	SetFileName(m_StageProgInfoHdr.SampleInfo.szName);
 	SetSampleMode(1);
 
@@ -100,11 +100,11 @@ BOOL CPointSetupTeaching2PointDlg::OnInitDialog()
 	m_MoveButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_MoveButton.DrawFlatFocus(TRUE);
 
-	// ‘ª’èƒ|ƒCƒ“ƒg‚ğ•\¦
-// 2009.10.24 bagus 2“_ŠÔ C³ --{--
+	// ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½\ï¿½ï¿½
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
 //	if (m_bTeachingMode) {
 	if (TRUE) {
-// 2009.10.24 bagus 2“_ŠÔ C³ --}--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
 		m_iCurrPoint = m_iNumScans == 0 ? 1 : m_iNumScans + 1;
 		m_iCurrIndex = m_iNumScans == 0 ? 0 : m_iNumScans * 2;
 		m_iMaxIndex = m_iCurrIndex - 1;
@@ -116,10 +116,10 @@ BOOL CPointSetupTeaching2PointDlg::OnInitDialog()
 
 	SetPointData();
 
-// 2009.10.24 bagus 2“_ŠÔ C³ --{--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
 //	if (m_bTeachingMode) {
 	if (TRUE) {
-// 2009.10.24 bagus 2“_ŠÔ C³ --}--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
 		GetDlgItem(IDC_POSITION_2ND)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_POSITION_X2_LABEL)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_POSITION_X2)->ShowWindow(SW_HIDE);
@@ -151,8 +151,8 @@ BOOL CPointSetupTeaching2PointDlg::OnInitDialog()
 
 	SetTimer(1, 50, NULL);
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Éƒtï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½İ’è‚µï¿½È‚ï¿½ï¿½Æ‚ï¿½ï¿½Aï¿½ß‚ï¿½lï¿½ï¿½ TRUE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
+					// ï¿½ï¿½O: OCX ï¿½vï¿½ï¿½ï¿½pï¿½eï¿½B ï¿½yï¿½[ï¿½Wï¿½Ì–ß‚ï¿½lï¿½ï¿½ FALSE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -167,7 +167,7 @@ void CPointSetupTeaching2PointDlg::OnOK()
 
 	COverlayDialog::OnOK();
 
-	// TODO: ‚±‚ÌˆÊ’u‚É‚»‚Ì‘¼‚ÌŒŸØ—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½É‚ï¿½ï¿½Ì‘ï¿½ï¿½ÌŒï¿½ï¿½Ø—pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -176,7 +176,7 @@ void CPointSetupTeaching2PointDlg::OnCancel()
 {
 	COverlayDialog::OnCancel();
 
-	// TODO: ‚±‚ÌˆÊ’u‚É“Á•Ê‚ÈŒãˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½É“ï¿½ï¿½Ê‚ÈŒãˆï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -239,21 +239,21 @@ HBRUSH CPointSetupTeaching2PointDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlC
 //
 void CPointSetupTeaching2PointDlg::OnTimer(UINT nIDEvent)
 {
-//‰Í‘º‚³‚ñ‚Ö
-//ƒ{ƒ^ƒ“‚Ì—LŒø/–³Œø‚ÌØ‘Ö‚¦‚ğActuateFlags‚ğğŒ‚É‚µ‚Äì¬‚ğ‚¨Šè‚¢‚µ‚Ü‚·B
-#if 0 //ProcessStatus‚ğg‚Á‚Ä‚¢‚é‚Ì‚ÅŠÔˆá‚¢
+//ï¿½Í‘ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//ï¿½{ï¿½^ï¿½ï¿½ï¿½Ì—Lï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ÌØ‘Ö‚ï¿½ï¿½ï¿½ActuateFlagsï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É‚ï¿½ï¿½Äì¬ï¿½ï¿½ï¿½ï¿½ï¿½è‚¢ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
+#if 0 //ProcessStatusï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Ì‚ÅŠÔˆá‚¢
 	int iProcessStatus = m_pDoc->GetProcessStatus();
 
-	//ƒ\ƒtƒgƒWƒ‡ƒCƒXƒeƒBƒbƒN§ŒÀ
+	//ï¿½\ï¿½tï¿½gï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½
 	if(iProcessStatus != m_iProcessStatusOld)
 	{
 		if( iProcessStatus != PROCESS_WAIT )
 		{
-			SoftJoyStickXyzEnable(FALSE); //‘€ì‹Ö~
+			SoftJoyStickXyzEnable(FALSE); //ï¿½ï¿½ï¿½ï¿½Ö~
 		}
 		else
 		{
-			SoftJoyStickXyzEnable(TRUE); //‘€ì‹–‰Â
+			SoftJoyStickXyzEnable(TRUE); //ï¿½ï¿½ï¿½ì‹–ï¿½ï¿½
 		}
 	}
 	m_iProcessStatusOld = iProcessStatus;
@@ -263,7 +263,7 @@ void CPointSetupTeaching2PointDlg::OnTimer(UINT nIDEvent)
 }
 
 // ==========================================================================
-// NameF		OnNextPointButton
+// Nameï¿½F		OnNextPointButton
 void CPointSetupTeaching2PointDlg::OnNextPointButton()
 {
 	if (!CheckInputCurrPoint()) {
@@ -273,16 +273,16 @@ void CPointSetupTeaching2PointDlg::OnNextPointButton()
 		return;
 	}
 
-// 2009.10.24 bagus 2“_ŠÔ C³ --{--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
 //	if (m_bTeachingMode) {
 	if (TRUE) {
-// 2009.10.24 bagus 2“_ŠÔ C³ --}--
-// 2009.10.24 bagus 2“_ŠÔ C³ --{--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
 //		if ((m_iCurrPoint >= 1) && (m_iCurrIndex <= m_iNumScans * 2)){
 		if ((m_iCurrPoint >= 1) && (m_iCurrIndex <= m_iMaxIndex)){
-// 2009.10.24 bagus 2“_ŠÔ C³ --}--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
 			m_iCurrIndex++;
-// 2009.10.28 bagus 2“_ŠÔ C³ --{--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
 #if 0
 			if ((m_iCurrIndex % 2) == 0) {
 				m_iCurrPoint++;
@@ -295,7 +295,7 @@ void CPointSetupTeaching2PointDlg::OnNextPointButton()
 				m_b2nd = TRUE;
 			}
 #endif
-// 2009.10.28 bagus 2“_ŠÔ C³ --}--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
 		} else {
 			// Err
 			return;
@@ -311,14 +311,14 @@ void CPointSetupTeaching2PointDlg::OnNextPointButton()
 	}
 	SetPointData();
 
-	// Point‚ª“o˜^‚³‚ê‚Ä‚¢‚éê‡‚É‚Í‚»‚Ìƒ|ƒCƒ“ƒg‚ÉˆÚ“®
+	// Pointï¿½ï¿½ï¿½oï¿½^ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ê‡ï¿½É‚Í‚ï¿½ï¿½Ìƒ|ï¿½Cï¿½ï¿½ï¿½gï¿½ÉˆÚ“ï¿½
 	if(IsDlgButtonChecked(IDC_SYNCHRONOUS_CHECK) == TRUE){
 		OnMoveButton();
 	}
 }
 
 // ==========================================================================
-// NameF		OnPreviousPointButton
+// Nameï¿½F		OnPreviousPointButton
 void CPointSetupTeaching2PointDlg::OnPreviousPointButton()
 {
 	if (!CheckInputCurrPoint()) {
@@ -329,13 +329,13 @@ void CPointSetupTeaching2PointDlg::OnPreviousPointButton()
 	}
 
 
-// 2009.10.24 bagus 2“_ŠÔ C³ --{--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
 //	if (m_bTeachingMode) {
 	if (TRUE) {
-// 2009.10.24 bagus 2“_ŠÔ C³ --}--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
 		if ((m_iCurrIndex > 0) && (m_iCurrPoint <= m_iNumScans + 1)){
 			m_iCurrIndex--;
-// 2009.10.28 bagus 2“_ŠÔ C³ --{--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
 #if 0
 			if ((m_iCurrIndex % 2) != 0) {
 				m_iCurrPoint--;
@@ -348,7 +348,7 @@ void CPointSetupTeaching2PointDlg::OnPreviousPointButton()
 				m_b2nd = FALSE;
 			}
 #endif
-// 2009.10.28 bagus 2“_ŠÔ C³ --}--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
 		} else {
 			// Err
 			return;
@@ -364,14 +364,14 @@ void CPointSetupTeaching2PointDlg::OnPreviousPointButton()
 	}
 	SetPointData();
 
-	// ‚»‚Ìƒ|ƒCƒ“ƒg‚ÉˆÚ“®
+	// ï¿½ï¿½ï¿½Ìƒ|ï¿½Cï¿½ï¿½ï¿½gï¿½ÉˆÚ“ï¿½
 	if(IsDlgButtonChecked(IDC_SYNCHRONOUS_CHECK) == TRUE){
 		OnMoveButton();
 	}
 }
 
 // ==========================================================================
-// NameF		OnApplyButton
+// Nameï¿½F		OnApplyButton
 void CPointSetupTeaching2PointDlg::OnApplyButton()
 {
 	CString csBuff;
@@ -389,33 +389,33 @@ void CPointSetupTeaching2PointDlg::OnApplyButton()
 	GetDlgItemText(IDC_SAMPLE_Y, csBuff);
 	m_ScanPoint[m_iCurrIndex].lY = (double)(atof(csBuff) * MICROMETRE);
 
-// 2009.10.24 bagus 2“_ŠÔ C³ --{--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
 //	m_iNumScans = m_iCurrPoint > m_iNumScans ? m_iNumScans + 1 : m_iNumScans;
 	if ((m_iCurrIndex % 2) == 0) {
-		// 1st‚Ì‚Í‘‚â‚³‚È‚¢
+		// 1stï¿½Ìï¿½ï¿½Í‘ï¿½ï¿½â‚³ï¿½È‚ï¿½
 		m_iMaxIndex++;
 	} else {
-		// 2nd‚Ì‚É‘‚â‚·
+		// 2ndï¿½Ìï¿½ï¿½É‘ï¿½ï¿½â‚·
 //		m_iNumScans = m_iCurrPoint > m_iNumScans ? m_iNumScans + 1 : m_iNumScans;
 		if (m_iCurrPoint > m_iNumScans) {
 			m_iNumScans++;
 			m_iMaxIndex++;
 		}
 	}
-// 2009.10.24 bagus 2“_ŠÔ C³ --}--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
 
-	// Ÿ‚Ìƒ|ƒCƒ“ƒg‚ÌTeaching‚ÉˆÚ“®
+	// ï¿½ï¿½ï¿½Ìƒ|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½Teachingï¿½ÉˆÚ“ï¿½
 	if(IsDlgButtonChecked(IDC_APPLY_NEXT_CHECK) == TRUE){
-// 2009.10.24 bagus 2“_ŠÔ C³ --{--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
 //		if (m_bTeachingMode) {
 		if (TRUE) {
-// 2009.10.24 bagus 2“_ŠÔ C³ --}--
-// 2009.10.24 bagus 2“_ŠÔ C³ --{--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
 //			if ((m_iCurrPoint >= 1) && (m_iCurrIndex <= m_iNumScans * 2)){
 			if ((m_iCurrPoint >= 1) && (m_iCurrIndex <= m_iMaxIndex)){
-// 2009.10.24 bagus 2“_ŠÔ C³ --}--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
 				m_iCurrIndex++;
-// 2009.10.28 bagus 2“_ŠÔ C³ --{--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
 #if 0
 				if ((m_iCurrIndex % 2) == 0) {
 					m_iCurrPoint++;
@@ -428,13 +428,13 @@ void CPointSetupTeaching2PointDlg::OnApplyButton()
 					m_b2nd = TRUE;
 				}
 #endif
-// 2009.10.28 bagus 2“_ŠÔ C³ --}--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
 			} else {
 				// Err
 				return;
 			}
 		} else {
-// 2009.10.24 bagus 2“_ŠÔ C³ --{--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
 #if 0
 			if ((m_iCurrPoint >= 1) && (m_iCurrPoint < m_iNumScans)){
 				m_iCurrIndex += 2;
@@ -444,7 +444,7 @@ void CPointSetupTeaching2PointDlg::OnApplyButton()
 				return;
 			}
 #endif
-// 2009.10.24 bagus 2“_ŠÔ C³ --}--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
 		}
 
 		if (TRUE == this->IsDlgButtonChecked(IDC_SYNCHRONOUS_CHECK)) {
@@ -452,22 +452,22 @@ void CPointSetupTeaching2PointDlg::OnApplyButton()
 		}
 	}
 
-	// ƒ|ƒCƒ“ƒgİ’è
+	// ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½İ’ï¿½
 	SetPointData();
 
 }
 
 // ==========================================================================
-// NameF		SetPointData
+// Nameï¿½F		SetPointData
 void CPointSetupTeaching2PointDlg::SetPointData()
 {
 	CString csPointNo, csX1, csY1, csX2, csY2, csDistance;
 	double	dX, dY, dDistance;
 
-// 2009.10.24 bagus 2“_ŠÔ C³ --{--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
 //	if(m_iCurrPoint == 0 || m_iCurrPoint > m_iNumScans){
 	if(m_iCurrPoint == 0 || m_iCurrIndex > m_iMaxIndex){
-// 2009.10.24 bagus 2“_ŠÔ C³ --}--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
 		csX1.Format("");
 		csY1.Format("");
 		csX2.Format("");
@@ -484,10 +484,10 @@ void CPointSetupTeaching2PointDlg::SetPointData()
 		// Y2
 		csY2.Format("%.3lf", (double)(m_ScanPoint[m_iCurrIndex + 1].lY) / MICROMETRE);
 
-// 2009.10.24 bagus 2“_ŠÔ C³ --{--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
 //		if (!m_bTeachingMode) {
 		if (FALSE) {
-// 2009.10.24 bagus 2“_ŠÔ C³ --}--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
 			dX = ((double)(m_ScanPoint[m_iCurrIndex + 1].lX) / MICROMETRE) - ((double)(m_ScanPoint[m_iCurrIndex].lX) / MICROMETRE);
 			dY = ((double)(m_ScanPoint[m_iCurrIndex + 1].lY) / MICROMETRE) - ((double)(m_ScanPoint[m_iCurrIndex].lY) / MICROMETRE);
 			dDistance = sqrt(pow(dX, 2.0) + pow(dY, 2.0));
@@ -502,10 +502,10 @@ void CPointSetupTeaching2PointDlg::SetPointData()
 	SetDlgItemText(IDC_POSITION_Y1, csY1);
 	SetDlgItemText(IDC_POSITION_X2, csX2);
 	SetDlgItemText(IDC_POSITION_Y2, csY2);
-// 2009.10.24 bagus 2“_ŠÔ C³ --{--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
 //	if (!m_bTeachingMode) {
 	if (FALSE) {
-// 2009.10.24 bagus 2“_ŠÔ C³ --}--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
 		SetDlgItemText(IDC_DISTANCE, csDistance);
 		SetDlgItemText(IDC_POSITION_1ST, "1st");
 		SetDlgItemText(IDC_POSITION_2ND, "2nd");
@@ -519,41 +519,41 @@ void CPointSetupTeaching2PointDlg::SetPointData()
 }
 
 // ==========================================================================
-// NameF		OnMoveButton
+// Nameï¿½F		OnMoveButton
 void CPointSetupTeaching2PointDlg::OnMoveButton()
 {
-// 2010.02.02 K.Matsuo PIN UPPER ƒCƒ“ƒ^[ƒƒbƒNƒ`ƒFƒbƒN˜R‚ê‘Î‰ -->
+// 2010.02.02 K.Matsuo PIN UPPER ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½`ï¿½Fï¿½bï¿½Nï¿½Rï¿½ï¿½Î‰ï¿½ -->
 	CString strMsg;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;} // ƒƒ“ƒeƒiƒ“ƒXˆÙí
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½X
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;} // ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Ùï¿½
 	}
-	else{												// ’Êí“®ì
+	else{												// ï¿½Êí“®ï¿½ï¿½
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
+	// ï¿½eI/Oï¿½`ï¿½Fï¿½bï¿½N
 	if(m_pDoc->IsInterLock() == TRUE){return;}
-	if( nexioIsMovo2Alarm() 	!= OFF){	AlarmIf_Set(ALID_StageError);	return;} // MOVOƒAƒ‰[ƒ€ 				‚k
+	if( nexioIsMovo2Alarm() 	!= OFF){	AlarmIf_Set(ALID_StageError);	return;} // MOVOï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ 				ï¿½ï¿½ï¿½k
 	if(m_pDoc->CheckUnitStatus() == TRUE){return;}
 
-	// ƒVƒƒƒbƒ^[ˆÈŠO‚ª“®‚¢‚Ä‚¢‚½‚ç“®ì‹Ö~
+	// ï¿½Vï¿½ï¿½ï¿½bï¿½^ï¿½[ï¿½ÈŠOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ç“®ï¿½ï¿½Ö~
 	if( m_pMainFrame->GetJoyStickMode()==0 ){
 		if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 			LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 			m_pDoc->MessageStringIf_Set(strMsg);
 			return;
-		}	// ƒXƒe[ƒW“®ì’†
+		}	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ì’†
 	}
 	if(m_pDoc->CheckActiveFlag() == TRUE){return;}
 
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
-// 2010.02.02 K.Matsuo PIN UPPER ƒCƒ“ƒ^[ƒƒbƒNƒ`ƒFƒbƒN˜R‚ê‘Î‰ <--
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// 2010.02.02 K.Matsuo PIN UPPER ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½`ï¿½Fï¿½bï¿½Nï¿½Rï¿½ï¿½Î‰ï¿½ <--
 
 	if(m_iCurrPoint <= m_iNumScans){
 		SetPointData();
 	}
 
-	// Point‚ª“o˜^‚³‚ê‚Ä‚¢‚éê‡‚É‚Í‚»‚Ìƒ|ƒCƒ“ƒg‚ÉˆÚ“®
+	// Pointï¿½ï¿½ï¿½oï¿½^ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ê‡ï¿½É‚Í‚ï¿½ï¿½Ìƒ|ï¿½Cï¿½ï¿½ï¿½gï¿½ÉˆÚ“ï¿½
 	if(m_iCurrPoint <= m_iNumScans){
 		m_pDoc->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);
 		STAGE_COORD sampleCoord;
@@ -588,78 +588,78 @@ void CPointSetupTeaching2PointDlg::SoftJoyStickXyzEnable(BOOL bEnable)
 
 void CPointSetupTeaching2PointDlg::OnHomePositionButton()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
-// 2010.02.03 K.Matsuo PIN UPPER ƒCƒ“ƒ^[ƒƒbƒNƒ`ƒFƒbƒN˜R‚ê‘Î‰ -->
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// 2010.02.03 K.Matsuo PIN UPPER ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½`ï¿½Fï¿½bï¿½Nï¿½Rï¿½ï¿½Î‰ï¿½ -->
 	CString strMsg;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;} // ƒƒ“ƒeƒiƒ“ƒXˆÙí
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½X
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;} // ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Ùï¿½
 	}
-	else{												// ’Êí“®ì
+	else{												// ï¿½Êí“®ï¿½ï¿½
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
+	// ï¿½eI/Oï¿½`ï¿½Fï¿½bï¿½N
 	if(m_pDoc->IsInterLock() == TRUE){return;}
-	if( nexioIsMovo2Alarm() 	!= OFF){	AlarmIf_Set(ALID_StageError);	return;} // MOVOƒAƒ‰[ƒ€ 				‚k
+	if( nexioIsMovo2Alarm() 	!= OFF){	AlarmIf_Set(ALID_StageError);	return;} // MOVOï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ 				ï¿½ï¿½ï¿½k
 	if(m_pDoc->CheckUnitStatus() == TRUE){return;}
 
-	// ƒVƒƒƒbƒ^[ˆÈŠO‚ª“®‚¢‚Ä‚¢‚½‚ç“®ì‹Ö~
+	// ï¿½Vï¿½ï¿½ï¿½bï¿½^ï¿½[ï¿½ÈŠOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ç“®ï¿½ï¿½Ö~
 	if( m_pMainFrame->GetJoyStickMode()==0 ){
 		if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 			LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 			m_pDoc->MessageStringIf_Set(strMsg);
 			return;
-		}	// ƒXƒe[ƒW“®ì’†
+		}	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ì’†
 	}
 	if(m_pDoc->CheckActiveFlag() == TRUE){return;}
 
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
-// 2010.02.03 K.Matsuo PIN UPPER ƒCƒ“ƒ^[ƒƒbƒNƒ`ƒFƒbƒN˜R‚ê‘Î‰ <--
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// 2010.02.03 K.Matsuo PIN UPPER ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½`ï¿½Fï¿½bï¿½Nï¿½Rï¿½ï¿½Î‰ï¿½ <--
 
 	BOOL l_bAF = TRUE;
 	EEPROMDATA l_E2pRomParams;
 	StageGetEEPromData(&l_E2pRomParams);
-	long l_lZPos = l_E2pRomParams.AutoFocus.InitPos;	// Z ²‚Ì‰Šú‰»’â~ˆÊ’u
-	long l_lZPosPpU = l_E2pRomParams.AutoFocus.ppu; // Z ²‚Ì‰Šú‰»’â~ˆÊ’uƒtƒ@ƒNƒ^
+	long l_lZPos = l_E2pRomParams.AutoFocus.InitPos;	// Z ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½Ê’u
+	long l_lZPosPpU = l_E2pRomParams.AutoFocus.ppu; // Z ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½Ê’uï¿½tï¿½@ï¿½Nï¿½^
 
-	// ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh”»’è -------------------------------------------
+	// ï¿½nï¿½[ï¿½hï¿½Vï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½ -------------------------------------------
 	if (0 != m_pMainFrame->HardwareSimulation()) {
-		// ƒn[ƒhƒVƒ~ƒ…ƒŒ[ƒgƒ‚[ƒh‚¾‚Á‚½‚Ì‚ÅC‘ª’èŠ®—¹‘Ò‚¿ ‚Ö
+		// ï¿½nï¿½[ï¿½hï¿½Vï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ÅCï¿½ï¿½ï¿½èŠ®ï¿½ï¿½ï¿½Ò‚ï¿½ ï¿½ï¿½
 	}
 	else {
-		// À‹@‚Ìê‡ ---------------------------------------------------------
-		// AF —v/•s—v”»’è
-		// •s—v
-			// (‘S“_ AF –³‚µ‚Ìê‡)Z ²ˆÚ“®‚ª•K—v‚©ƒ`ƒFƒbƒN
-		// •K—v(d—lã•K—v‚È‚ç)
-		// ‚y²ˆÚ“®
+		// ï¿½ï¿½ï¿½@ï¿½Ìê‡ ---------------------------------------------------------
+		// AF ï¿½v/ï¿½sï¿½vï¿½ï¿½ï¿½ï¿½
+		// ï¿½sï¿½v
+			// (ï¿½Sï¿½_ AF ï¿½ï¿½ï¿½ï¿½ï¿½Ìê‡)Z ï¿½ï¿½ï¿½Ú“ï¿½ï¿½ï¿½ï¿½Kï¿½vï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N
+		// ï¿½Kï¿½v(ï¿½dï¿½lï¿½ï¿½Kï¿½vï¿½È‚ï¿½)
+		// ï¿½yï¿½ï¿½ï¿½Ú“ï¿½
 		//TCHAR l_szMainRcpName[256];
 		//((CChiefView*) m_pcChiefView)->GetCurrentMainRecipeName(l_szMainRcpName);
-		// ‰Šú‰»’â~ˆÊ’u[pulse]‚ğ[0.1um]‚É•ÏŠ·‚µ‚Ü‚·
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½Ê’u[pulse]ï¿½ï¿½[0.1um]ï¿½É•ÏŠï¿½ï¿½ï¿½ï¿½Ü‚ï¿½
 		LONG64 l_l64_Z = ((LONG64) l_lZPos) * ((LONG64) 1000000);
-		l_l64_Z = l_l64_Z / ((LONG64) l_lZPosPpU);	// ‰Šú‰»’â~ˆÊ’u[pulse]€ƒtƒ@ƒNƒ^[pulse/mm]
-		l_l64_Z = l_l64_Z * ((LONG64) 10000);	// [0.1um]‚É•ÏŠ·‚·‚é
+		l_l64_Z = l_l64_Z / ((LONG64) l_lZPosPpU);	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½Ê’u[pulse]ï¿½ï¿½ï¿½tï¿½@ï¿½Nï¿½^[pulse/mm]
+		l_l64_Z = l_l64_Z * ((LONG64) 10000);	// [0.1um]ï¿½É•ÏŠï¿½ï¿½ï¿½ï¿½ï¿½
 		long l_lZ = (long) (l_l64_Z / ((LONG64) 1000000));
 
-		NS_ConvertToStageMoveCoord(&l_lZ);		// •â³
+		NS_ConvertToStageMoveCoord(&l_lZ);		// ï¿½â³
 
-		m_pDoc->ActuateFlagsSet(ACTUATE_ZAXIS, TRUE);		// “®ì’†ƒtƒ‰ƒO(Z ²)‚ğƒIƒ“
+		m_pDoc->ActuateFlagsSet(ACTUATE_ZAXIS, TRUE);		// ï¿½ï¿½ï¿½ì’†ï¿½tï¿½ï¿½ï¿½O(Z ï¿½ï¿½)ï¿½ï¿½ï¿½Iï¿½ï¿½
 #if 0	//----- Kawashima 2008.12.01 ----->
 //				TransiEvent(EV_SR1P_ZMOVE_DONE);
 #else	//----- Kawashima 2008.12.01 -----
 		m_pMainFrame->SetMessageText(IDS_CHIF_SR1P_Z_MOVING);  // Status Bar
 		if (0 == StageElevatorMove(l_lZ)) {
-			// ˆÚ“®ŠJn¸”s
+			// ï¿½Ú“ï¿½ï¿½Jï¿½nï¿½ï¿½ï¿½s
 		} else {
-			// ˆÚ“®Š®—¹
-#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ---------- { ---------- */
+			// ï¿½Ú“ï¿½ï¿½ï¿½ï¿½ï¿½
+#ifndef NO_COMPLETE_MSGTXT	/* modified 2009.08.05 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ ---------- { ---------- */
 			m_pMainFrame->SetMessageText(IDS_CHIF_SR1P_Z_MOVED);   // Status Bar
-#else						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ----------			   */
+#else						/* modified 2009.08.05 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ ----------			   */
 			m_pMainFrame->SetMessageText(_T(" ")); // Status Bar
-#endif						/* modified 2009.08.05 hmenjo Š®—¹ƒƒbƒZ[ƒW•\¦‚µ‚È‚¢ ---------- } ---------- */
+#endif						/* modified 2009.08.05 hmenjo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ ---------- } ---------- */
 		}
 #endif	//----- Kawashima 2008.12.01 <-----
-		m_pDoc->ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);		// “®ì’†ƒtƒ‰ƒO(Z ²)‚ğƒIƒt
+		m_pDoc->ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);		// ï¿½ï¿½ï¿½ì’†ï¿½tï¿½ï¿½ï¿½O(Z ï¿½ï¿½)ï¿½ï¿½ï¿½Iï¿½t
 	}
 }
 
@@ -671,15 +671,15 @@ BOOL CPointSetupTeaching2PointDlg::CheckInputCurrPoint()
 	GetDlgItemText(IDC_POINT_NO, sCurrPoint);
 	dwCurrPoint = strtol(sCurrPoint, NULL, 10);
 
-	if ((dwCurrPoint >= 1) && (dwCurrPoint <= m_iNumScans + 1)){
+	if ((dwCurrPoint >= 1) && (dwCurrPoint <= static_cast<DWORD>(m_iNumScans + 1))){
 		m_iCurrPoint = dwCurrPoint;
-// 2009.10.24 bagus 2“_ŠÔ C³ --{--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
 		m_iCurrIndex = (dwCurrPoint - 1) * 2;
-// 2009.10.24 bagus 2“_ŠÔ C³ --}--
-// 2009.10.28 bagus 2“_ŠÔ C³ --{--
+// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
 		if (m_b2nd)
 			m_iCurrIndex++;
-// 2009.10.28 bagus 2“_ŠÔ C³ --}--
+// 2009.10.28 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
 	} else {
 		// Err
 		return ( FALSE );
@@ -687,12 +687,12 @@ BOOL CPointSetupTeaching2PointDlg::CheckInputCurrPoint()
 
 	return ( TRUE );
 }
-// 2009.11.26 bagus ‘S”Ê C³ --{--
+// 2009.11.26 bagus ï¿½Sï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
 void CPointSetupTeaching2PointDlg::ButtonEnableCheck()
 {
 	COverlayDialog::ButtonEnableCheck();
 
-	//ƒXƒe[ƒWˆÚ“®’†‚ÍˆÚ“®‚³‚¹‚È‚¢
+	//ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ú“ï¿½ï¿½ï¿½ï¿½ÍˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 	BOOL bNextPrevButtonEnable = ( !m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) );
 	GetDlgItem(IDC_NEXT_POINT_BUTTON)->EnableWindow(bNextPrevButtonEnable);
 	GetDlgItem(IDC_PREVIOUS_POINT_BUTTON)->EnableWindow(bNextPrevButtonEnable);
@@ -701,4 +701,4 @@ void CPointSetupTeaching2PointDlg::ButtonEnableCheck()
 	GetDlgItem(IDC_POINT_NO)->EnableWindow(bNextPrevButtonEnable);
 
 }
-// 2009.11.26 bagus ‘S”Ê C³ --}--
+// 2009.11.26 bagus ï¿½Sï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
