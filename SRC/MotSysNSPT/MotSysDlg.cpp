@@ -1127,7 +1127,7 @@ void CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 	switch (l_MsgID) {
 	case 0:
 		if (0 == m_bOnClosing) {
-			static ls_iMsgID_0 = 0;
+			static int ls_iMsgID_0 = 0;
 			if (0 == ls_iMsgID_0) {ls_iMsgID_0 = 1;} else {break;}
 			g_CC_CommAbort = TRUE;
 			l_ret = ::MessageBox(NULL, l_tszText1, MSD_MESSAGEBOX_TITLE,
@@ -1167,7 +1167,7 @@ void CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 		break;
 	default:
 		if (0 == m_bOnClosing) {
-			static ls_iMsgID_def = 0;
+			static int ls_iMsgID_def = 0;
 			if (0 == ls_iMsgID_def) {ls_iMsgID_def = 1;} else {break;}
 			g_CC_CommAbort = TRUE;
 			l_ret = ::MessageBox(NULL, l_tszText1, MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
