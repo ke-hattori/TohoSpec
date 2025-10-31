@@ -44,8 +44,6 @@ BOOL CALLBACK FindWindowProc(HWND hwnd, LPARAM lParam);
 BOOL CMotTskApp::InitInstance ()
 {
 	// allow only one instance of this app
-	if (m_hPrevInstance != NULL)
-		return FALSE;
 
 #ifdef _DEBUG			   // Enable trace flags, output debug Window
 	afxTraceFlags	= 0;
