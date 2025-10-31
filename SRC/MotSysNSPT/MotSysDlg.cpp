@@ -959,7 +959,7 @@ void CMotSysDlg::OnServoInitComp(WPARAM wParam)
 	}
 }
 
-LRESULT CMotSysDlg::OnServoInitComp Msg(WPARAM wParam, LPARAM lParam)
+LRESULT CMotSysDlg::OnServoInitCompMsg(WPARAM wParam, LPARAM lParam)
 {
 	OnServoInitComp(wParam);
 	return 0;
