@@ -1,0 +1,22 @@
+
+#include	"stdafx.h"
+#include	<windows.h>
+#include	"..\\..\\inc\\MotsysMsg.h"
+#include	"MotSysDef.h"
+#include	"MotSysDlg.h"
+#include	"Sio.h"
+#include	"SioDef.h"
+#include	"APIDIO.h"
+#define	MASTER
+#include	"CtrlCmd.h"
+#include	"CtrlCmdInit.h"
+#include	"MotionDef.h"
+#include	"Motion.h"
+
+#include	"FileNameDef.h"
+
+#include	"logfile.h"
+
+extern CSio *g_pCSio;
+
+extern UINT MOTDRV_SHOWALARM;		// 

@@ -470,12 +470,11 @@ void CMotSysDlg::OnBtnAbout()
 	dlgAbout.DoModal();
 }
 
-LRESULT CMotSysDlg::OnBtnHide(WPARAM wParam, LPARAM lParam)
+void CMotSysDlg::OnBtnHide()
 {
 	// TODO: この位置にコントロール通知ハンドラ用のコードを追加してください
 	// ウィンドウ(ダイアログベース)を非表示にする
 	ShowWindow(SW_HIDE);
-	return 0;
 }
 
 LRESULT CMotSysDlg::OnMotsysShowWindow(WPARAM wParam, LPARAM lParam)
@@ -930,7 +929,7 @@ BOOL CMotSysDlg::InitializeCommLog()
 }
 
 // サーボ初期化完了ハンドラ
-LRESULT CMotSysDlg::OnServoInitComp(WPARAM wParam, LPARAM lParam)
+void CMotSysDlg::OnServoInitComp()
 {
 	BOOL l_bRc = (BOOL) wParam;
 
@@ -970,7 +969,7 @@ void CMotSysDlg::ShowAlarm(WORD Mode, WORD Axis, WORD Code1, WORD Code2)
 	PostMessage(MOTDRV_SHOWALARM, l_WParam, l_LParam);
 }
 // アラーム表示メッセージ処理
-LRESULT CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
+void CMotSysDlg::OnShowAlarm()
 {
 	//							 ----Motion System Driver Error----
 	TCHAR	l_tszText0[] = "Alarm\n----------------------------------\n";
