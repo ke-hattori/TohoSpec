@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!--
+    Directory.Build.props
+    - INC / LIB を全プロジェクトへ一括適用
+    - 既存設定は維持（%(...) でマージ）
+    - 対象: Debug/Release × (x86 or Win32)
+    - x64 には影響しません
+  -->
+
+  <PropertyGroup Label="RepoPaths">
+    <!-- SolutionDir が未定義のときは、このファイルの場所を起点に -->
+    <RepoRoot Condition="'$(SolutionDir)'!=''">$(SolutionDir)</RepoRoot>
+    <RepoRoot Condition="'$(SolutionDir)'==''">$(MSBuildThisFileDirectory)</RepoRoot>
+
+    <RepoInc>$(RepoRoot)INC</RepoInc>
+    <RepoLib>$(RepoRoot)LIB</RepoLib>
+  </PropertyGroup>
+
+  <!-- Debug | (x86 or Win32) -->
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug' and ('$(Platform)'=='x86' or '$(Platform)'=='Win32')">
+    <ClCompile>
+      <AdditionalIncludeDirectories>
+        $(RepoInc);
+        $(MSBuildProjectDirectory);
+        %(AdditionalIncludeDirectories)
+      </AdditionalIncludeDirectories>
+      <!-- 必要ならデバッグ情報を /Zi に統一（/ZIとの衝突回避）：
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      -->
+      <!-- 調査用：インクルード探索経路をログに出す場合のみ有効化
+      <ShowIncludes>true</ShowIncludes>
+      -->
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>
+        $(RepoInc);
+        $(MSBuildProjectDirectory);
+        %(AdditionalIncludeDirectories)
+      </AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>
+        $(RepoInc);
+        $(MSBuildProjectDirectory);
+        %(AdditionalIncludeDirectories)
+      </AdditionalIncludeDirectories>
+    </Midl>
+    <Link>
+      <AdditionalLibraryDirectories>
+        $(RepoLib);
+        %(AdditionalLibraryDirectories)
+      </AdditionalLibraryDirectories>
+      <!-- 共通で必ずリンクする .lib があればここに列挙
+      <AdditionalDependencies>foo.lib;bar.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      -->
+    </Link>
+  </ItemDefinitionGroup>
+
+  <!-- Release | (x86 or Win32) -->
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Release' and ('$(Platform)'=='x86' or '$(Platform)'=='Win32')">
+    <ClCompile>
+      <AdditionalIncludeDirectories>
+        $(RepoInc);
+        $(MSBuildProjectDirectory);
+        %(AdditionalIncludeDirectories)
+      </AdditionalIncludeDirectories>
+      <!-- Release の /Zi へ統一が必要なら有効化（任意）
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      -->
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>
+        $(RepoInc);
+        $(MSBuildProjectDirectory);
+        %(AdditionalIncludeDirectories)
+      </AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>
+        $(RepoInc);
+        $(MSBuildProjectDirectory);
+        %(AdditionalIncludeDirectories)
+      </AdditionalIncludeDirectories>
+    </Midl>
+    <Link>
+      <AdditionalLibraryDirectories>
+        $(RepoLib);
+        %(AdditionalLibraryDirectories)
+      </AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+
+</Project>
