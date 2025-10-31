@@ -2,9 +2,9 @@ name: MSBuild (VS2022)
 
 on:
   push:
-    branches: [ feature/vs2022 ]
+    branches: [ feature/VS2022_second ]
   pull_request:
-    branches: [ feature/vs2022 ]
+    branches: [ feature/VS2022_second ]
 
 env:
   SOLUTION_PATH: NANOSPEC.sln
