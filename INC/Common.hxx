@@ -126,11 +126,11 @@ class _stringex : public T
 {
 protected:
 	typedef T					traits_type;
-	typedef T::reference		reference;
-	typedef T::const_reference	const_reference;
-	typedef T::size_type		size_type;
-	typedef T::pointer			pointer;
-	typedef T::const_pointer	const_pointer;
+	typedef typename T::reference		reference;
+	typedef typename T::const_reference	const_reference;
+	typedef typename T::size_type		size_type;
+	typedef typename T::pointer			pointer;
+	typedef typename T::const_pointer	const_pointer;
 public:
 	_stringex() {}
 	_stringex(traits_type val) {
@@ -167,37 +167,37 @@ public:
 		return *this == traits_type(1, rhs);
 	}
 	bool operator==(_stringex str) {
-		return (*this).compare(str) == 0);
+		return (*this).compare(str) == 0;
 	}
 	bool operator<=(const_reference rhs) {
 		return *this <= traits_type(1, rhs);
 	}
 	bool operator<=(_stringex str) {
-		return (*this).compare(str) <= 0);
+		return (*this).compare(str) <= 0;
 	}
 	bool operator>=(const_reference rhs) {
 		return *this >= traits_type(1, rhs);
 	}
 	bool operator>=(_stringex str) {
-		return (*this).compare(str) >= 0);
+		return (*this).compare(str) >= 0;
 	}
 	bool operator!=(const_reference rhs) {
 		return *this != traits_type(1, rhs);
 	}
 	bool operator!=(_stringex str) {
-		return (*this).compare(str) != 0);
+		return (*this).compare(str) != 0;
 	}
 	bool operator<(const_reference rhs) {
 		return *this < traits_type(1, rhs);
 	}
 	bool operator<(_stringex str) {
-		return (*this).compare(str) < 0);
+		return (*this).compare(str) < 0;
 	}
 	bool operator>(const_reference rhs) {
 		return *this > traits_type(1, rhs);
 	}
 	bool operator>(_stringex str) {
-		return (*this).compare(str) > 0);
+		return (*this).compare(str) > 0;
 	}
 	// CString “lØ‚è...
 	traits_type& format(traits_type fmt, ...) {
