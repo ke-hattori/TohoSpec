@@ -6,7 +6,7 @@
 #include <tchar.h>
 #include <string>
 
-const PARAMS_IGNORED = NULL;
+#define PARAMS_IGNORED NULL
 #define END_OF_PROFILE_TABLE   { PARAMS_IGNORED, PARAMS_IGNORED, PARAMS_IGNORED, PARAMS_IGNORED, PARAMS_IGNORED }
 
 template <class T>
