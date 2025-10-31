@@ -470,11 +470,12 @@ void CMotSysDlg::OnBtnAbout()
 	dlgAbout.DoModal();
 }
 
-void CMotSysDlg::OnBtnHide()
+LRESULT CMotSysDlg::OnBtnHide(WPARAM wParam, LPARAM lParam)
 {
 	// TODO: この位置にコントロール通知ハンドラ用のコードを追加してください
 	// ウィンドウ(ダイアログベース)を非表示にする
 	ShowWindow(SW_HIDE);
+	return 0;
 }
 
 LRESULT CMotSysDlg::OnMotsysShowWindow(WPARAM wParam, LPARAM lParam)
@@ -929,7 +930,7 @@ BOOL CMotSysDlg::InitializeCommLog()
 }
 
 // サーボ初期化完了ハンドラ
-void CMotSysDlg::OnServoInitComp(WPARAM wParam, LPARAM lParam)
+LRESULT CMotSysDlg::OnServoInitComp(WPARAM wParam, LPARAM lParam)
 {
 	BOOL l_bRc = (BOOL) wParam;
 
@@ -951,6 +952,7 @@ void CMotSysDlg::OnServoInitComp(WPARAM wParam, LPARAM lParam)
 			break;
 		}
 	}
+	return 0;
 }
 
 // アラーム表示処理
@@ -968,7 +970,7 @@ void CMotSysDlg::ShowAlarm(WORD Mode, WORD Axis, WORD Code1, WORD Code2)
 	PostMessage(MOTDRV_SHOWALARM, l_WParam, l_LParam);
 }
 // アラーム表示メッセージ処理
-void CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
+LRESULT CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 {
 	//							 ----Motion System Driver Error----
 	TCHAR	l_tszText0[] = "Alarm\n----------------------------------\n";
@@ -1165,6 +1167,8 @@ void CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 		break;
 	}
 
+
+	return 0;
 }
 
 // ワードデータを２進数表記の文字列に変換する

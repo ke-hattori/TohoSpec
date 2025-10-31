@@ -80,7 +80,7 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	virtual void OnOK();
 	afx_msg void OnBtnAbout();
-	afx_msg void OnBtnHide();
+	afx_msg LRESULT OnBtnHide(WPARAM wParam, LPARAM lParam);
 	afx_msg void OnTimer(UINT nIDEvent);
 	afx_msg void OnBTNServoOFF();
 	afx_msg void OnClose();
@@ -136,8 +136,8 @@ protected:
 	afx_msg LRESULT OnMotdrv_GetElectronicGear(WPARAM wParam, LPARAM lParam);
 	afx_msg LRESULT OnMotdrv_GetSoftLimit(WPARAM wParam, LPARAM lParam);
 	afx_msg LRESULT OnMotdrv_SetJoySpeed(WPARAM wParam, LPARAM lParam);
-	afx_msg void OnShowAlarm(WPARAM wParam, LPARAM lParam);
-	afx_msg void OnServoInitComp(WPARAM wParam, LPARAM lParam);
+	afx_msg LRESULT OnShowAlarm(WPARAM wParam, LPARAM lParam);
+	afx_msg LRESULT OnServoInitComp(WPARAM wParam, LPARAM lParam);
 	DECLARE_MESSAGE_MAP()
 
 private:
