@@ -591,9 +591,8 @@ private:
 	template <class T>
 	class aux_result
 	{
-	protected:
-		typedef T* pointer;
 	public:
+		typedef T* pointer;
 		aux_result<T>(PCSTR result_buffer) : buffer(result_buffer) {};
 		virtual pointer convert(void) = 0;
 		virtual BOOL is_valid (void) { return FALSE; }

@@ -141,8 +141,8 @@ public:
     virtual ~ cCoord (void);
 
     // ホストイベント結果通知
-	inline PostClientMessage (void) { return PostClientMessage(client.hwnd, client.event, client.result); }
-	inline PostClientMessage (HWND hwnd, WPARAM wp, LPARAM lp = NEXIF_OK)
+	inline BOOL PostClientMessage (void) { return PostClientMessage(client.hwnd, client.event, client.result); }
+	inline BOOL PostClientMessage (HWND hwnd, WPARAM wp, LPARAM lp = NEXIF_OK)
     {
 		m_lfs << arrange << datetime << "EV_ERROR" << std::endl;
         if ( hwnd != NULL ) {
