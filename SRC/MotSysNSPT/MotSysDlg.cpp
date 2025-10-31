@@ -935,7 +935,7 @@ BOOL CMotSysDlg::InitializeCommLog()
 }
 
 // サーボ初期化完了ハンドラ
-void CMotSysDlg::OnServoInitComp()
+void CMotSysDlg::OnServoInitComp(WPARAM wParam)
 {
 	BOOL l_bRc = (BOOL) wParam;
 
@@ -957,12 +957,11 @@ void CMotSysDlg::OnServoInitComp()
 			break;
 		}
 	}
-	return 0;
 }
 
-LRESULT CMotSysDlg::OnServoInitCompMsg(WPARAM wParam, LPARAM lParam)
+LRESULT CMotSysDlg::OnServoInitComp Msg(WPARAM wParam, LPARAM lParam)
 {
-	OnServoInitComp();
+	OnServoInitComp(wParam);
 	return 0;
 }
 
@@ -981,7 +980,7 @@ void CMotSysDlg::ShowAlarm(WORD Mode, WORD Axis, WORD Code1, WORD Code2)
 	PostMessage(MOTDRV_SHOWALARM, l_WParam, l_LParam);
 }
 // アラーム表示メッセージ処理
-void CMotSysDlg::OnShowAlarm()
+void CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 {
 	//							 ----Motion System Driver Error----
 	TCHAR	l_tszText0[] = "Alarm\n----------------------------------\n";
@@ -1179,12 +1178,11 @@ void CMotSysDlg::OnShowAlarm()
 	}
 
 
-	return 0;
 }
 
 LRESULT CMotSysDlg::OnShowAlarmMsg(WPARAM wParam, LPARAM lParam)
 {
-	OnShowAlarm();
+	OnShowAlarm(wParam, lParam);
 	return 0;
 }
 

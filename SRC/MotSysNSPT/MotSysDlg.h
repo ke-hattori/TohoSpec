@@ -137,9 +137,9 @@ protected:
 	afx_msg LRESULT OnMotdrv_GetElectronicGear(WPARAM wParam, LPARAM lParam);
 	afx_msg LRESULT OnMotdrv_GetSoftLimit(WPARAM wParam, LPARAM lParam);
 	afx_msg LRESULT OnMotdrv_SetJoySpeed(WPARAM wParam, LPARAM lParam);
-	afx_msg void OnShowAlarm();
+	afx_msg void OnShowAlarm(WPARAM wParam, LPARAM lParam);
 	afx_msg LRESULT OnShowAlarmMsg(WPARAM wParam, LPARAM lParam);
-	afx_msg void OnServoInitComp();
+	afx_msg void OnServoInitComp(WPARAM wParam);
 	afx_msg LRESULT OnServoInitCompMsg(WPARAM wParam, LPARAM lParam);
 	DECLARE_MESSAGE_MAP()
 
