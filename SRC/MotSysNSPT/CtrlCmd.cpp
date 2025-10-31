@@ -847,6 +847,7 @@ UINT CC_Main_Loop(LPVOID pParam)
 	}
 
 	// DO ‚ğƒNƒŠƒA
+	int i;
 	for (i = 0; i < 32; i++) {
 		CC_DioOutBit(i, 0);
 	}
