@@ -81,6 +81,7 @@ protected:
 	virtual void OnOK();
 	afx_msg void OnBtnAbout();
 	afx_msg void OnBtnHide();
+	afx_msg LRESULT OnBtnHideMsg(WPARAM wParam, LPARAM lParam);
 	afx_msg void OnTimer(UINT nIDEvent);
 	afx_msg void OnBTNServoOFF();
 	afx_msg void OnClose();
@@ -137,7 +138,9 @@ protected:
 	afx_msg LRESULT OnMotdrv_GetSoftLimit(WPARAM wParam, LPARAM lParam);
 	afx_msg LRESULT OnMotdrv_SetJoySpeed(WPARAM wParam, LPARAM lParam);
 	afx_msg void OnShowAlarm();
+	afx_msg LRESULT OnShowAlarmMsg(WPARAM wParam, LPARAM lParam);
 	afx_msg void OnServoInitComp();
+	afx_msg LRESULT OnServoInitCompMsg(WPARAM wParam, LPARAM lParam);
 	DECLARE_MESSAGE_MAP()
 
 private:

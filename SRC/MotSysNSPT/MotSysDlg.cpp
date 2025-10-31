@@ -199,7 +199,7 @@ BEGIN_MESSAGE_MAP(CMotSysDlg, CDialog)
 	ON_BN_CLICKED(IDC_BTN_DPOSP_CLR_T, OnBtnDPosPeakClearT)
 	//}}AFX_MSG_MAP
 	ON_REGISTERED_MESSAGE(MOTDRV_SHOWINDOW, OnMotsysShowWindow)
-	ON_REGISTERED_MESSAGE(MOTDRV_HIDEINDOW, OnBtnHide)
+	ON_REGISTERED_MESSAGE(MOTDRV_HIDEINDOW, OnBtnHideMsg)
 	ON_REGISTERED_MESSAGE(MOTDRV_SETWINDOW, OnMotdrv_Setwindow)
 	ON_REGISTERED_MESSAGE(MOTDRV_SETSOFTHOME, OnMotdrv_Setsofthome)
 	ON_REGISTERED_MESSAGE(MOTDRV_EMERGENCYSTOP, OnMotdrv_Emergencystop)
@@ -216,8 +216,8 @@ BEGIN_MESSAGE_MAP(CMotSysDlg, CDialog)
 	ON_REGISTERED_MESSAGE(MOTDRV_GETELECTRONICGEAR, OnMotdrv_GetElectronicGear)
 	ON_REGISTERED_MESSAGE(MOTDRV_GETSOFTLIMIT, OnMotdrv_GetSoftLimit)
 	ON_REGISTERED_MESSAGE(MOTDRV_SETJOYSPEED, OnMotdrv_SetJoySpeed)
-	ON_REGISTERED_MESSAGE(MOTDRV_SHOWALARM, OnShowAlarm)
-	ON_REGISTERED_MESSAGE(MOTDRV_SRVINITCOMP, OnServoInitComp)
+	ON_REGISTERED_MESSAGE(MOTDRV_SHOWALARM, OnShowAlarmMsg)
+	ON_REGISTERED_MESSAGE(MOTDRV_SRVINITCOMP, OnServoInitCompMsg)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -475,6 +475,12 @@ void CMotSysDlg::OnBtnHide()
 	// TODO: この位置にコントロール通知ハンドラ用のコードを追加してください
 	// ウィンドウ(ダイアログベース)を非表示にする
 	ShowWindow(SW_HIDE);
+}
+
+LRESULT CMotSysDlg::OnBtnHideMsg(WPARAM wParam, LPARAM lParam)
+{
+	OnBtnHide();
+	return 0;
 }
 
 LRESULT CMotSysDlg::OnMotsysShowWindow(WPARAM wParam, LPARAM lParam)
@@ -954,6 +960,12 @@ void CMotSysDlg::OnServoInitComp()
 	return 0;
 }
 
+LRESULT CMotSysDlg::OnServoInitCompMsg(WPARAM wParam, LPARAM lParam)
+{
+	OnServoInitComp();
+	return 0;
+}
+
 // アラーム表示処理
 void CMotSysDlg::ShowAlarm(WORD Mode, WORD Axis, WORD Code1, WORD Code2)
 {
@@ -1167,6 +1179,12 @@ void CMotSysDlg::OnShowAlarm()
 	}
 
 
+	return 0;
+}
+
+LRESULT CMotSysDlg::OnShowAlarmMsg(WPARAM wParam, LPARAM lParam)
+{
+	OnShowAlarm();
 	return 0;
 }
 
