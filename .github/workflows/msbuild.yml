@@ -37,7 +37,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup MSBuild (VS2022)
+      - name: Setup MSBuild (VS2022_second)
         uses: microsoft/setup-msbuild@v2
         with:
           vs-version: '[17.0,18.0)'
