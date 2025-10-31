@@ -721,7 +721,7 @@ private:
 			return (PTSTR) m_szBuffer;
 		}
 		BOOL IsValid(void) { return result.is_valid(); }
-		T::pointer convert() {
+		typename T::pointer convert() {
 			return result.convert();
 		}
 		T* operator->() {

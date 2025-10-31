@@ -727,7 +727,8 @@ int CStageNTN::ElevatorMoveEx(LPMOTPARAMSEX lpmpx, BOOL bWait/*TRUE*/)
 
 	BOOL valid_data = FALSE;
 	WORD range;
-	for ( int index = 0; index < _countof(speeds_table); index++ ) {
+	int index;
+	for ( index = 0; index < _countof(speeds_table); index++ ) {
 		range = (resolution * speeds_table[index]) / lpmpx->elevator.dz + 0.5;
 		if ( range < min_range ) {
 			break;
@@ -955,7 +956,7 @@ EXIT:
 //
 int CStageNTN::DoAutoFocus(void)
 {
-	return Execute(DoAutoFocus);
+	return Execute(&CStageNTN::DoAutoFocus);
 }
 
 int CStageNTN::DoAutoFocus(LPVOID)
@@ -1320,7 +1321,7 @@ int CStageNTN::SelectLens(LPVOID lpData)
 //
 int CStageNTN::Initialize(void)
 {
-	return Execute(Initialize);
+	return Execute(&CStageNTN::Initialize);
 }
 
 int CStageNTN::Initialize(LPVOID)

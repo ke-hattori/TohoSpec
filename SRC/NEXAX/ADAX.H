@@ -299,7 +299,7 @@ public:
 		params_packet (const message_packet* pmsg) : message_packet(pmsg) {}
 
 		int compare (const char* s) { return strcmp(s, substr(data, 0, 4).c_str()); }
-		inline tol (string::size_type n) { return atol(c_str(n).c_str()); }
+		inline long tol (string::size_type n) { return atol(c_str(n).c_str()); }
 	protected:
 		virtual const string c_str (string::size_type n) { return substr(data, 0, n); }
 	};
