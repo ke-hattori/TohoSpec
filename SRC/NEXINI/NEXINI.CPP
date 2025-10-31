@@ -6,8 +6,8 @@
 
 #include <windows.h>
 #define __NEXTRA_INTERNAL
-#include <nexmisc.hxx>
-#include <nexini.hxx>
+#include <NEXMISC.HXX>
+#include <NEXINI.HXX>
 
 using namespace std;
 using namespace nano;

@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include <nexmisc.hxx>
+#include <NEXMISC.HXX>
 #include <profile.hxx>
 
 using namespace nano;

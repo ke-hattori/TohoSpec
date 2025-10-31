@@ -1,6 +1,8 @@
 #if !defined( _COMMON_HXX_ )
 #define _COMMON_HXX_
 
+#define NOMINMAX
+
 #pragma once
 
 #include <windows.h>

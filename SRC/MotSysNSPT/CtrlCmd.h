@@ -132,7 +132,7 @@ _EXTCC	long CC_get_true_position(short axis);
 _EXTCC	void CC_local_emergency_stop(short axis);
 _EXTCC	int CC_motion_set_soft_home(short axis, long soft_home);
 _EXTCC	int CC_motion_move_at_speed(short axis, short velocity);
-_EXTCC	CC_motion_move_to_position(short axis, long position, short velocity);
+_EXTCC	int CC_motion_move_to_position(short axis, long position, short velocity);
 _EXTCC	int CC_motion_move_at_speed_to_dest(short axis, long destination, short velocity);
 _EXTCC	int CC_motion_go_home(short axis);
 _EXTCC	void CC_X_Manager(void);

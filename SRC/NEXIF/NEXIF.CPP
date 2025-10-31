@@ -6,12 +6,12 @@
 
 #include <windows.h>
 #include <alarmif.hxx>
-#include <nexmisc.hxx>
+#include <NEXMISC.HXX>
 #define  __NEXTRA_INTERNAL
 // 2013.11.14 Bagus Add (TohoSpec‘Î‰ž) -->
-#include <nexini.hxx>
+#include <NEXINI.HXX>
 // 2013.11.14 Bagus Add (TohoSpec‘Î‰ž) <--
-#include <nexif.hxx>
+#include <NEXIF.HXX>
 
 #pragma data_seg("Shared")
 double	SampleSizeX = 0.0;
