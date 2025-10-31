@@ -1,10 +1,10 @@
 #include <crtdbg.h>
 #define __NEXTRA_INTERNAL
-#include <nexmisc.hxx>
-#include <nexif.hxx>
-#include <nexiobase.hxx>
-#include <nexini.hxx>
-#include <nexax.hxx>
+#include <NEXMISC.HXX>
+#include <NEXIF.HXX>
+#include <NEXIOBASE.HXX>
+#include <NEXINI.HXX>
+#include <NEXAX.HXX>
 #include "sio.h"
 #include "adax.h"
 

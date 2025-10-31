@@ -3,10 +3,10 @@
 #include <algorithm>
 #include <active.hxx>
 #define __NEXTRA_INTERNAL
-#include <nexmisc.hxx>
-#include <nexini.hxx>
-#include <nexiobase.hxx>
-#include <nexrc.hxx>
+#include <NEXMISC.HXX>
+#include <NEXINI.HXX>
+#include <NEXIOBASE.HXX>
+#include <NEXRC.HXX>
 #include "coord.hpp"
 #include "typeb.hpp"
 

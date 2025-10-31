@@ -2,7 +2,7 @@
 
 #include <crtdbg.h>
 #include <tchar.h>
-#include <nexiobase.hxx>
+#include <NEXIOBASE.HXX>
 #include <string>
 #include "sio.h"
 

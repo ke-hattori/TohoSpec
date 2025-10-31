@@ -10,9 +10,9 @@
 #include <crtdbg.h>
 #include <stdlib.h>
 #include <tchar.h>
-#include <nexini.hxx>
-#include <nexrc.hxx>
-#include <nexui.hxx>
+#include <NEXINI.HXX>
+#include <NEXRC.HXX>
+#include <NEXUI.HXX>
 
 #ifdef _DEBUG
 #pragma comment(lib, "dtnsnexini.lib")

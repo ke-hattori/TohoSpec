@@ -9,9 +9,9 @@
 #include <process.h>
 #include <crtdbg.h>
 #define  __NEXTRA_INTERNAL
-#include <nexiobase.hxx>
-#include <nexrc.hxx>
-#include <nexui.hxx>
+#include <NEXIOBASE.HXX>
+#include <NEXRC.HXX>
+#include <NEXUI.HXX>
 #include "nexio.h"
 #include "nexiotypea.h"
 #include "nexiotypeb.h"

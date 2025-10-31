@@ -7,11 +7,11 @@
 #include <windows.h>
 #include <vector>
 #define __NEXTRA_INTERNAL
-#include <nexmisc.hxx>
-#include <nexif.hxx>
-#include <nexiobase.hxx>
-#include <nexax.hxx>
-#include <nexini.hxx>
+#include <NEXMISC.HXX>
+#include <NEXIF.HXX>
+#include <NEXIOBASE.HXX>
+#include <NEXAX.HXX>
+#include <NEXINI.HXX>
 #include "sio.h"
 #include "adax.h"
 

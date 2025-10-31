@@ -8,10 +8,10 @@
 #include <process.h>
 #include <crtdbg.h>
 #define  __NEXTRA_INTERNAL
-#include <nexiobase.hxx>
-#include <nexax.hxx>
-#include <nexrc.hxx>
-#include <nexproc.hxx>
+#include <NEXIOBASE.HXX>
+#include <NEXAX.HXX>
+#include <NEXRC.HXX>
+#include <NEXPROC.HXX>
 /* added 2009.07.07 hmenjo dll 相対パス対応 nexproc.dll ---------- { ---------- */
 #define	NEXPROC_MAS
 /* added 2009.07.07 hmenjo dll 相対パス対応 nexproc.dll ---------- } ---------- */
