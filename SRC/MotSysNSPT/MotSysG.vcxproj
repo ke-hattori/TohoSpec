@@ -112,7 +112,7 @@
       <OutputFile>../../bin/MotSysNSPT.exe</OutputFile>
       <AdditionalLibraryDirectories>..\UPI_IRQDLL\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>apidio.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
+    <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers></Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
