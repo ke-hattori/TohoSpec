@@ -30,7 +30,7 @@ public:
 // インプリメンテーション
 public:
 	virtual ~CNanoListCtrl();
-	SetViewStyle();
+	void SetViewStyle();
 
 protected:
 	//{{AFX_MSG(CNanoListCtrl)
