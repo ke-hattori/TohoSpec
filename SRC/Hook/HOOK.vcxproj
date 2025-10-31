@@ -156,7 +156,7 @@
   <ItemGroup>
     <ClCompile Include="HOOK.CPP" />
   </ItemGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ItemGroup><ProjectReference Include="../ConfigFile/ConfigFile.vcxproj"><Project>{B8BE460E-F586-44D9-AF14-A8F4989E0018}</Project></ProjectReference></ItemGroup><Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
 </Project>

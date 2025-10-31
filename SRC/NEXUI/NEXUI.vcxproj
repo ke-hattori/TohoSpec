@@ -157,7 +157,7 @@
   <ItemGroup>
     <ClCompile Include="NEXUI.CPP" />
   </ItemGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ItemGroup><ProjectReference Include="../NEXINI/NEXINI.vcxproj"><Project>{61CDB3F0-AC15-4EC4-9710-A6593C0F444F}</Project></ProjectReference></ItemGroup><Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
 </Project>
