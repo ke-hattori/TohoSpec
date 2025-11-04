@@ -1,4 +1,4 @@
-// MainMenuView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// MainMenuView.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -93,7 +93,7 @@ BEGIN_MESSAGE_MAP(CMainMenuView, CNanoUI)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CMainMenuView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CMainMenuView ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -104,40 +104,40 @@ void CMainMenuView::OnInitialUpdate()
 	m_pMainFrame = (CMainFrame *)AfxGetMainWnd();
 	m_pDoc = (CNanoSpecDoc*)m_pMainFrame->GetActiveDocument();
 
-// 2014.01.17 Bagus Add (Stage None‘Î‰) -->
-	//ƒVƒXƒeƒ€ƒRƒ“ƒtƒBƒOİ’è“Ç‚İ‚İ
+// 2014.01.17 Bagus Add (Stage Noneï¿½Î‰ï¿½) -->
+	//ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½tï¿½Bï¿½Oï¿½İ’ï¿½Ç‚İï¿½ï¿½ï¿½
 	ConfigFile_GetNanoSpecIni(&m_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
-// 2014.01.17 Bagus Add (Stage None‘Î‰) <--
+// 2014.01.17 Bagus Add (Stage Noneï¿½Î‰ï¿½) <--
 
 	///// Data Button /////
-// 2013.11.12 Bagus Add (TohoSpec‘Î‰) -->
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) -->
+// 2013.11.12 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
+// 2014.01.17 Bagus Mod (Stage Noneï¿½Î‰ï¿½) -->
 //	if(g_lModelType == MODEL_T3100){
-/* modified 2014.05.22 hmenjo è“® NanoMap ---------- { ---------- */
+/* modified 2014.05.22 hmenjo ï¿½è“®ï¿½ï¿½ NanoMap ---------- { ---------- */
 //	if(m_SystemConfig.nStageType == STAGE_TYPE_NONE){
-/* modified 2014.05.22 hmenjo è“® NanoMap ----------              */
+/* modified 2014.05.22 hmenjo ï¿½è“®ï¿½ï¿½ NanoMap ----------              */
 	if ((m_SystemConfig.nStageType == STAGE_TYPE_NONE) && (g_lModelType != MODEL_T3100)) {
-/* modified 2014.05.22 hmenjo è“® NanoMap ---------- } ---------- */
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) <--
+/* modified 2014.05.22 hmenjo ï¿½è“®ï¿½ï¿½ NanoMap ---------- } ---------- */
+// 2014.01.17 Bagus Mod (Stage Noneï¿½Î‰ï¿½) <--
 		m_MainMenuDataButton.ShowWindow(SW_HIDE);
 	}
 	else{
-// 2013.11.12 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.12 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 		//m_MainMenuDataButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
-		m_MainMenuDataButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_RADIO_OFF_COLOR);	// –¢‘I‘ğƒJƒ‰[
-// 2013.11.12 Bagus Add (TohoSpec‘Î‰) -->
+		m_MainMenuDataButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_RADIO_OFF_COLOR);	// ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½[
+// 2013.11.12 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 	}
-// 2013.11.12 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.12 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 
-/* added 2014.11.21 hmenjo LOCAL ”ñ•\¦ ---------- { ---------- */
+/* added 2014.11.21 hmenjo LOCAL ï¿½ï¿½\ï¿½ï¿½ ---------- { ---------- */
 	if (g_lModelType == MODEL_T3100) {
 		this->GetDlgItem(IDC_HOST_MODE)->ShowWindow(SW_HIDE);
 	}
-/* added 2014.11.21 hmenjo LOCAL ”ñ•\¦ ---------- } ---------- */
+/* added 2014.11.21 hmenjo LOCAL ï¿½ï¿½\ï¿½ï¿½ ---------- } ---------- */
 
 	///// Log On Button /////
 	//m_MainMenuLogOnButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
-	m_MainMenuLogOnButton.SetShade(BUTTON_RADIO_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_RADIO_OFF_COLOR);	// –¢‘I‘ğƒJƒ‰[
+	m_MainMenuLogOnButton.SetShade(BUTTON_RADIO_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_RADIO_OFF_COLOR);	// ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½[
 
 	SelectMainMenuButton(MAIN_MENU_MEASUREMENT);
 
@@ -340,23 +340,23 @@ void CMainMenuView::RefreshDlg(BOOL bInit /* = FALSE */)
 		SetDlgItemText(IDC_USER_NAME, szUserName);
 
 
-		//IDD_MAIN_MENU_FORM“à‚Ì[ƒf[ƒ^]ƒ{ƒ^ƒ“‚Ì—LŒø/–³ŒøØ‘Ö‚¦
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) -->
-// 2013.11.12 Bagus Add (TohoSpec‘Î‰) -->
+		//IDD_MAIN_MENU_FORMï¿½ï¿½ï¿½ï¿½[ï¿½fï¿½[ï¿½^]ï¿½{ï¿½^ï¿½ï¿½ï¿½Ì—Lï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ø‘Ö‚ï¿½
+// 2014.01.17 Bagus Mod (Stage Noneï¿½Î‰ï¿½) -->
+// 2013.11.12 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 //		if(g_lModelType != MODEL_T3100){
-// 2013.11.12 Bagus Add (TohoSpec‘Î‰) <--
-/* modified 2014.05.22 hmenjo è“® NanoMap ---------- { ---------- */
+// 2013.11.12 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
+/* modified 2014.05.22 hmenjo ï¿½è“®ï¿½ï¿½ NanoMap ---------- { ---------- */
 //		if(m_SystemConfig.nStageType != STAGE_TYPE_NONE){
-/* modified 2014.05.22 hmenjo è“® NanoMap ----------              */
+/* modified 2014.05.22 hmenjo ï¿½è“®ï¿½ï¿½ NanoMap ----------              */
 		if ((m_SystemConfig.nStageType != STAGE_TYPE_NONE) || (g_lModelType == MODEL_T3100)) {
-/* modified 2014.05.22 hmenjo è“® NanoMap ---------- } ---------- */
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) <--
+/* modified 2014.05.22 hmenjo ï¿½è“®ï¿½ï¿½ NanoMap ---------- } ---------- */
+// 2014.01.17 Bagus Mod (Stage Noneï¿½Î‰ï¿½) <--
 			CMainFrame* pMainFrame = (CMainFrame*)AfxGetMainWnd();
 			CNanoSpecDoc* pDoc = (CNanoSpecDoc*)pMainFrame->GetActiveDocument();
 			(((CMainFrame*)AfxGetMainWnd())->m_wndSplitter1.GetPane(0, 0))->GetDlgItem(IDC_MAIN_MENU_DATA_BUTTON)->EnableWindow(pDoc->User_Access(ACCESS_DATA));
-// 2013.11.12 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.12 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 		}
-// 2013.11.12 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.12 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 
 	}
 	strcpy(szOld_UserName, szUserName);
@@ -367,7 +367,7 @@ void CMainMenuView::RefreshDlg(BOOL bInit /* = FALSE */)
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// MEASUREMENTADATAARECIPE_SETTINGAALARM_HISTORY‚Ì‚¢‚¸‚ê‚©‚Ìƒ{ƒ^ƒ“‰Ÿ‰º‚Ìˆ—
+// MEASUREMENTï¿½ADATAï¿½ARECIPE_SETTINGï¿½AALARM_HISTORYï¿½Ì‚ï¿½ï¿½ï¿½ï¿½ê‚©ï¿½Ìƒ{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½
 void CMainMenuView::OnMainMenuButton(UINT nID)
 {
 	int iMenu = nID - IDC_MAIN_MENU_MEASUREMENT_BUTTON;
@@ -387,7 +387,7 @@ void CMainMenuView::OnMainMenuButton(UINT nID)
 //		  //Saiki 20090608 Change <-----
 //	  }
 	if((iMenu != MAIN_MENU_RECIPE_SETTING) && ( m_MainMenu == iMenu )){
-			return 0L;
+			return;
 	}
 	else if( iMenu == MAIN_MENU_ALARM_HISTORY){
 		//Do Nothing
@@ -395,13 +395,13 @@ void CMainMenuView::OnMainMenuButton(UINT nID)
 	else{
 		CMainFrame* pMainFrame = (CMainFrame *)AfxGetMainWnd();
 		if ( !pMainFrame->MenuExit() )
-			return 0L;
+			return;
 	}
 	//Saiki 20090410 Change <------
 	//Saiki 20090608 Delete ----->
 //	  CMainFrame* pMainFrame = (CMainFrame *)AfxGetMainWnd();
 //	  if ( !pMainFrame->MenuExit() )
-//		  return 0L;
+//		  return;
 	//Saiki 20090608 Delete <-----
 
 	switch ( iMenu ) {
@@ -418,18 +418,17 @@ void CMainMenuView::OnMainMenuButton(UINT nID)
 		m_pMainFrame->PostMessage(WM_COMMAND, IDM_ALARM, 0L);
 		break;
 	}
-	return 0L;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// LOG ONiLOG OFFjƒ{ƒ^ƒ“‰Ÿ‰º‚Ìˆ—
+// LOG ONï¿½iLOG OFFï¿½jï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½
 void CMainMenuView::OnMainMenuLogOnButton()
 {
 	m_pMainFrame->PostMessage(WM_COMMAND, IDM_LOGON, 0L);
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//@ƒzƒXƒgƒ‚[ƒh•ÏX
+//ï¿½@ï¿½zï¿½Xï¿½gï¿½ï¿½ï¿½[ï¿½hï¿½ÏX
 void CMainMenuView::ChangeHostMode(int iMode)
 {
 	if(m_pDoc->GetHostMode() == iMode) return;
@@ -438,7 +437,7 @@ void CMainMenuView::ChangeHostMode(int iMode)
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// UpdateButtonStatus ƒ{ƒ^ƒ“ƒJƒ‰[‚ğ•ÏX‚·‚é‚½‚ßAƒ{ƒ^ƒ“ƒXƒe[ƒ^ƒX‚ğæ“¾‚·‚é
+// UpdateButtonStatus ï¿½{ï¿½^ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½[ï¿½ï¿½ÏXï¿½ï¿½ï¿½é‚½ï¿½ßAï¿½{ï¿½^ï¿½ï¿½ï¿½Xï¿½eï¿½[ï¿½^ï¿½Xï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½
 void CMainMenuView::UpdateButtonStatus(int iMode)
 {
 	CMap<int, int, int, int> iBtnStatusMap;
@@ -456,27 +455,27 @@ void CMainMenuView::UpdateButtonStatus(int iMode)
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// ƒ{ƒ^ƒ“ƒJƒ‰[‚ğ•`‰æ‚·‚é
+// ï¿½{ï¿½^ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½[ï¿½ï¿½`ï¿½æ‚·ï¿½ï¿½
 void CMainMenuView::SelectMainMenuButton(int Select)
 {
 	m_MainMenu = Select;
 
 	CMap<int, int, CShadeButtonST*, CShadeButtonST*> buttonMap;
 	buttonMap[MAIN_MENU_MEASUREMENT]	= &m_MainMenuMeasurementButton;
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) -->
-// 2013.11.12 Bagus Add (TohoSpec‘Î‰) -->
+// 2014.01.17 Bagus Mod (Stage Noneï¿½Î‰ï¿½) -->
+// 2013.11.12 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 //	if(g_lModelType != MODEL_T3100){
-// 2013.11.12 Bagus Add (TohoSpec‘Î‰) <--
-/* modified 2014.05.22 hmenjo è“® NanoMap ---------- { ---------- */
+// 2013.11.12 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
+/* modified 2014.05.22 hmenjo ï¿½è“®ï¿½ï¿½ NanoMap ---------- { ---------- */
 //	if(m_SystemConfig.nStageType != STAGE_TYPE_NONE){
-/* modified 2014.05.22 hmenjo è“® NanoMap ----------              */
+/* modified 2014.05.22 hmenjo ï¿½è“®ï¿½ï¿½ NanoMap ----------              */
 	if ((m_SystemConfig.nStageType != STAGE_TYPE_NONE) || (g_lModelType == MODEL_T3100)) {
-/* modified 2014.05.22 hmenjo è“® NanoMap ---------- } ---------- */
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) <--
+/* modified 2014.05.22 hmenjo ï¿½è“®ï¿½ï¿½ NanoMap ---------- } ---------- */
+// 2014.01.17 Bagus Mod (Stage Noneï¿½Î‰ï¿½) <--
 		buttonMap[MAIN_MENU_DATA]			= &m_MainMenuDataButton;
-// 2013.11.12 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.12 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 	}
-// 2013.11.12 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.12 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 	buttonMap[MAIN_MENU_RECIPE_SETTING] = &m_MainMenuRecipeSettingButton;
 	buttonMap[MAIN_MENU_ALARM_HISTORY]	= &m_MainMenuAlarmHistoryButton;
 
@@ -487,16 +486,16 @@ void CMainMenuView::SelectMainMenuButton(int Select)
 	while ( pos != NULL ) {
 		buttonMap.GetNextAssoc(pos, key, button);
 		if ( key == Select )
-			button->SetShade(BUTTON_RADIO_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_RADIO_ON_COLOR);	// ‘I‘ğƒJƒ‰[
+			button->SetShade(BUTTON_RADIO_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_RADIO_ON_COLOR);	// ï¿½Iï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½[
 		else
-			button->SetShade(BUTTON_RADIO_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_RADIO_OFF_COLOR);	// –¢‘I‘ğƒJƒ‰[
+			button->SetShade(BUTTON_RADIO_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_RADIO_OFF_COLOR);	// ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½[
 	}
 
 	InvalidateRect(NULL, TRUE);
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// ƒlƒbƒgƒ[ƒNÚ‘±ó‹µ
+// ï¿½lï¿½bï¿½gï¿½ï¿½ï¿½[ï¿½Nï¿½Ú‘ï¿½ï¿½ï¿½
 afx_msg LRESULT CMainMenuView::OnPifCommConnect(WPARAM wp, LPARAM lp)
 {
 	m_pDoc->SetPifCommConnectStatus(wp);
@@ -507,7 +506,7 @@ afx_msg LRESULT CMainMenuView::OnPifCommConnect(WPARAM wp, LPARAM lp)
 //
 void CMainMenuView::OnMainMenuDataButton()
 {
-/* modified 2014.11.22 hmenjo TohoRecall ‚Ö•ÏX ---------- { ---------- */
+/* modified 2014.11.22 hmenjo TohoRecall ï¿½Ö•ÏX ---------- { ---------- */
 //	HWND hWnd;
 //	char szFilePath[MAX_PATH];
 //
@@ -519,15 +518,15 @@ void CMainMenuView::OnMainMenuDataButton()
 //		ZeroMemory(&ProcessInfo,sizeof(ProcessInfo));
 //		StartInfo.wShowWindow = SW_SHOWNORMAL;
 //		StartInfo.cb = sizeof(StartInfo);
-///* modified 2014.05.22 hmenjo è“® NanoMap ---------- { ---------- */
+///* modified 2014.05.22 hmenjo ï¿½è“®ï¿½ï¿½ NanoMap ---------- { ---------- */
 ////		sprintf(szFilePath, "%s%s", g_szBin_Dir, NANOMAP_EXE_NAME);
-///* modified 2014.05.22 hmenjo è“® NanoMap ----------              */
+///* modified 2014.05.22 hmenjo ï¿½è“®ï¿½ï¿½ NanoMap ----------              */
 //		CString l_strNanomapExeName = NANOMAP_EXE_NAME;
 //		if (g_lAppNameType == APP_NAME_TOHO) {
 //			l_strNanomapExeName.Replace(g_lpszAppPrefix4[0], g_lpszAppPrefix4[1]);
 //		}
 //		sprintf(szFilePath, "%s%s", g_szBin_Dir, l_strNanomapExeName);
-///* modified 2014.05.22 hmenjo è“® NanoMap ---------- } ---------- */
+///* modified 2014.05.22 hmenjo ï¿½è“®ï¿½ï¿½ NanoMap ---------- } ---------- */
 //		int ret = CreateProcess(	NULL,
 //									szFilePath, 						// BIN_DIR "\\" NANOMAP_EXE_NAME,
 //									NULL,
@@ -546,7 +545,7 @@ void CMainMenuView::OnMainMenuDataButton()
 //	else{
 //		::SetWindowPos(hWnd, HWND_TOP, 0, 0, 0, 0, SWP_SHOWWINDOW | SWP_NOMOVE | SWP_NOSIZE);
 //	}
-/* modified 2014.11.22 hmenjo TohoRecall ‚Ö•ÏX ----------              */
+/* modified 2014.11.22 hmenjo TohoRecall ï¿½Ö•ÏX ----------              */
 	m_pMainFrame->OnMenuDataFromExt();
-/* modified 2014.11.22 hmenjo TohoRecall ‚Ö•ÏX ---------- } ---------- */
+/* modified 2014.11.22 hmenjo TohoRecall ï¿½Ö•ÏX ---------- } ---------- */
 }
