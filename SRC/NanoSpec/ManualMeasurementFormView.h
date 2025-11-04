@@ -5,7 +5,7 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
-// ManualMeasurementFormView.h : ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹
+// ManualMeasurementFormView.h : ï¿½wï¿½bï¿½_ï¿½[ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #ifndef __AFXEXT_H__
@@ -19,10 +19,10 @@
 #include "MotionComboBox.h"
 #include "ColorStatic.h"
 
-// 2009.11.09 bagus MS C³ --{--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --{--
 #define CHECK_CYLINDER_TIMER		(10)
 #define CYLINDER_MODE_LAMP_TIMER	(11)
-// 2009.11.09 bagus MS C³ --}--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --}--
 
 class CAdditionalMeasurementDlg; //#include "AdditionalMeasurementDlg.h"
 
@@ -30,13 +30,13 @@ class CAdditionalMeasurementDlg; //#include "AdditionalMeasurementDlg.h"
 class CManualMeasurementFormView : public CNanoUI
 {
 protected:
-	CManualMeasurementFormView();			// “®“I¶¬‚Ég—p‚³‚ê‚éƒvƒƒeƒNƒg ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	CManualMeasurementFormView();			// ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½Égï¿½pï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½g ï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^ï¿½B
 	DECLARE_DYNCREATE(CManualMeasurementFormView)
 
-// ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“
+// ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
 	virtual ~CManualMeasurementFormView();
 
-// ƒtƒH[ƒ€ ƒf[ƒ^
+// ï¿½tï¿½Hï¿½[ï¿½ï¿½ ï¿½fï¿½[ï¿½^
 public:
 	//{{AFX_DATA(CManualMeasurementFormView)
 	enum { IDD = IDD_MANUAL_MEASUREMENT_OPERATION_FORM };
@@ -66,39 +66,39 @@ public:
 //Saiki 20090924 Add ----->
 	SR_CONFIG m_SrConfig;
 //Saiki 20090924 Add <-----
-	CAdditionalMeasurementDlg* m_pAddMeasDlgObj; //CAdditionalMeasurementDlg‚ÌƒIƒuƒWƒFƒNƒg‚Ìƒ|ƒCƒ“ƒ^Ši”[—p
+	CAdditionalMeasurementDlg* m_pAddMeasDlgObj; //CAdditionalMeasurementDlgï¿½ÌƒIï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½Ìƒ|ï¿½Cï¿½ï¿½ï¿½^ï¿½iï¿½[ï¿½p
 
 
 	void ClearReference(char* szRecipeName);
-/* modified 2009.12.09 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- { ---------- */
+/* modified 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Íwï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
 //	void ManuMeas(void);
-/* modified 2009.12.09 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ----------				*/
+/* modified 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Íwï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ----------				*/
 	BOOL ManuMeas(void);
-/* modified 2009.12.09 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- } ---------- */
+/* modified 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Íwï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- } ---------- */
 	BOOL GetReferenceManuStart(void);
 	void ButtonEnableChange(int Select);
 	void JoyStickXyEnable(BOOL bEnable);
 //	void SoftJoyStickXyEnable(BOOL bEnable);
-// 2009.06.05 K.Matsuo ƒhƒAƒCƒ“ƒ^[ƒƒbƒNŒŸo‚ÌJoyStick–³Œø‰» -->
+// 2009.06.05 K.Matsuo ï¿½hï¿½Aï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½JoyStickï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -->
 	void JoyStickEnableCheck(void);
-// 2009.06.05 K.Matsuo ƒhƒAƒCƒ“ƒ^[ƒƒbƒNŒŸo‚ÌJoyStick–³Œø‰» <--
+// 2009.06.05 K.Matsuo ï¿½hï¿½Aï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½JoyStickï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ <--
 //Saiki 20090924 Add ----->
 	void SetPointData(SR_REFERENCE_POSITION, int);
 	void Init_SR_XYStageMenu();
 	void Init_SR_Transmittance_StageMenu();
 //Saiki 20090924 Add <-----
 
-// ƒI[ƒo[ƒ‰ƒCƒh
-	// ClassWizard ‚Í‰¼‘zŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğ¶¬‚µ‚Ü‚·B
+// ï¿½Iï¿½[ï¿½oï¿½[ï¿½ï¿½ï¿½Cï¿½h
+	// ClassWizard ï¿½Í‰ï¿½ï¿½zï¿½Öï¿½ï¿½ÌƒIï¿½[ï¿½oï¿½[ï¿½ï¿½ï¿½Cï¿½hï¿½ğ¶ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	//{{AFX_VIRTUAL(CManualMeasurementFormView)
 	virtual void OnInitialUpdate();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ƒTƒ|[ƒg
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ï¿½Tï¿½|ï¿½[ï¿½g
 	//}}AFX_VIRTUAL
 
 
 protected:
-	// ¶¬‚³‚ê‚½ƒƒbƒZ[ƒW ƒ}ƒbƒvŠÖ”
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½}ï¿½bï¿½vï¿½Öï¿½
 	//{{AFX_MSG(CManualMeasurementFormView)
 	afx_msg void OnDestroy();
 	afx_msg void OnMeasurementButton();
@@ -107,23 +107,23 @@ protected:
 	afx_msg void OnExitButton();
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	afx_msg void OnTimer(UINT nIDEvent);
-/* deleted 2009.06.15 hmenjo ƒ†[ƒU’è‹`ƒƒbƒZ[ƒWƒnƒ“ƒhƒ‰ IF C³ ---------- { ---------- */
+/* deleted 2009.06.15 hmenjo ï¿½ï¿½ï¿½[ï¿½Uï¿½ï¿½`ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ IF ï¿½Cï¿½ï¿½ ---------- { ---------- */
 //	afx_msg void OnJoyStick();
-/* deleted 2009.06.15 hmenjo ƒ†[ƒU’è‹`ƒƒbƒZ[ƒWƒnƒ“ƒhƒ‰ IF C³ ---------- } ---------- */
+/* deleted 2009.06.15 hmenjo ï¿½ï¿½ï¿½[ï¿½Uï¿½ï¿½`ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ IF ï¿½Cï¿½ï¿½ ---------- } ---------- */
 	afx_msg void OnSelchangeComboMeasPoint();
 	afx_msg void OnSelendokMicroScopeFocusPosition();
 	//}}AFX_MSG
-	LRESULT OnDoStageMove(WPARAM, LPARAM);
-	LRESULT OnStageMoveDone(WPARAM, LPARAM);
+	afx_msg LRESULT OnDoStageMove(WPARAM, LPARAM);
+	afx_msg LRESULT OnStageMoveDone(WPARAM, LPARAM);
 	afx_msg LRESULT OnManuMeaFormFuncCall(WPARAM wparam, LPARAM lparam);
 	afx_msg LRESULT OnManuModeOnePointEnd(WPARAM wparam, LPARAM lparam);
-/* added 2009.06.15 hmenjo ƒ†[ƒU’è‹`ƒƒbƒZ[ƒWƒnƒ“ƒhƒ‰ IF C³ ---------- { ---------- */
-	LRESULT OnJoyStick(WPARAM, LPARAM);
-/* added 2009.06.15 hmenjo ƒ†[ƒU’è‹`ƒƒbƒZ[ƒWƒnƒ“ƒhƒ‰ IF C³ ---------- } ---------- */
+/* added 2009.06.15 hmenjo ï¿½ï¿½ï¿½[ï¿½Uï¿½ï¿½`ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ IF ï¿½Cï¿½ï¿½ ---------- { ---------- */
+	afx_msg LRESULT OnJoyStick(WPARAM, LPARAM);
+/* added 2009.06.15 hmenjo ï¿½ï¿½ï¿½[ï¿½Uï¿½ï¿½`ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ IF ï¿½Cï¿½ï¿½ ---------- } ---------- */
 
-// 2009.11.09 bagus MS C³ --{--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --{--
 	afx_msg void OnNexResponse(WPARAM wparam, LPARAM lparam);
-// 2009.11.09 bagus MS C³ --}--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --}--
 	DECLARE_MESSAGE_MAP()
 
 	// ----------------------------------------------------------------------
@@ -153,18 +153,18 @@ private:
 	BOOL m_bIsMoveAtSpeed;
 // 2009.05.28 K.Matsuo SPT -->
 
-// 2009.10.30 bagus MS ’Ç‰Á --{--
+// 2009.10.30 bagus MS ï¿½Ç‰ï¿½ --{--
 	void InitCombo_Lens();
-// 2009.10.30 bagus MS ’Ç‰Á --}--
+// 2009.10.30 bagus MS ï¿½Ç‰ï¿½ --}--
 
-// 2009.11.02 bagus MS ’Ç‰Á --{--
+// 2009.11.02 bagus MS ï¿½Ç‰ï¿½ --{--
 	MS_CONFIG m_MsConfig;
 	BOOL m_bMSModeLampFilcker;
-// 2009.11.02 bagus MS ’Ç‰Á --}--
+// 2009.11.02 bagus MS ï¿½Ç‰ï¿½ --}--
 
-// 2009.11.09 bagus MS C³ --{--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --{--
 	int		m_nSelLens;
-// 2009.11.09 bagus MS C³ --}--
+// 2009.11.09 bagus MS ï¿½Cï¿½ï¿½ --}--
 // matsuhisa 2009.12.26 added >>>
 	int		m_nLensSensorItem;
 // matsuhisa 2009.12.26 added <<<
@@ -175,6 +175,6 @@ private:
 };
 
 //{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ ‚Í‘Os‚Ì’¼‘O‚É’Ç‰Á‚ÌéŒ¾‚ğ‘}“ü‚µ‚Ü‚·B
+// Microsoft Visual C++ ï¿½Í‘Oï¿½sï¿½Ì’ï¿½ï¿½Oï¿½É’Ç‰ï¿½ï¿½ÌéŒ¾ï¿½ï¿½}ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 
 #endif // !defined(AFX_MANUALMEASUREMENTFORMVIEW_H__6FC13CEA_2E40_4241_A264_8E4D0429D56C__INCLUDED_)
