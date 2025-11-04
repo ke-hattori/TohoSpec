@@ -132,7 +132,7 @@ protected:
 	afx_msg void OnDestroy();
 	afx_msg void OnMainMenuDataButton();
 	//}}AFX_MSG
-	afx_msg LRESULT OnMainMenuButton(UINT nID);
+	afx_msg void OnMainMenuButton(UINT nID);
 	afx_msg LRESULT OnPifCommConnect(WPARAM wp, LPARAM lp);
 	DECLARE_MESSAGE_MAP()
 };

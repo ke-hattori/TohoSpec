@@ -67,7 +67,7 @@ protected:
 	afx_msg void OnNextPointButton();
 	//}}AFX_MSG
 // 2009.11.09 bagus MS èCê≥ --{--
-	afx_msg void OnNexResponse(WPARAM wparam, LPARAM lparam);
+	afx_msg LRESULT OnNexResponse(WPARAM wparam, LPARAM lparam);
 // 2009.11.09 bagus MS èCê≥ --}--
 	DECLARE_MESSAGE_MAP()
 
