@@ -820,6 +820,7 @@ void CMeasurementProcessView::OnSaveButton()
 
 
 //メニューボタンからの関数コール
+	return 0;
 LRESULT CMeasurementProcessView::OnMeaProcFuncCall(WPARAM wparam, LPARAM lparam)
 {
 	switch(wparam)

@@ -988,6 +988,7 @@ void CManualMeasurementFormView::OnExitButton()
 
 // ==========================================================================
 //
+	return 0;
 LRESULT CManualMeasurementFormView::OnDoStageMove(WPARAM wParam, LPARAM lParam)
 {
 STAGE_COORD Pos;
@@ -1158,6 +1159,7 @@ BOOL result;
 
 // ==========================================================================
 //
+	return 0;
 LRESULT CManualMeasurementFormView::OnStageMoveDone(WPARAM wParam, LPARAM lParam)
 {
 // 2009.05.28 K.Matsuo SPT -->
@@ -1517,6 +1519,7 @@ BOOL CManualMeasurementFormView::GetReferenceManuStart(void)
 
 // ==========================================================================
 // メニューボタンからの関数コール
+	return 0;
 LRESULT CManualMeasurementFormView::OnManuMeaFormFuncCall(WPARAM wparam, LPARAM lparam)
 {
 	switch(wparam)
@@ -1542,6 +1545,7 @@ LRESULT CManualMeasurementFormView::OnManuMeaFormFuncCall(WPARAM wparam, LPARAM 
 
 // ==========================================================================
 //
+	return 0;
 LRESULT CManualMeasurementFormView::OnManuModeOnePointEnd(WPARAM wparam, LPARAM lparam)
 {
 	ButtonEnableChange(MEASUREMENT_MANUALMEASURE_E);
@@ -1736,6 +1740,7 @@ BOOL sbNexEngiMntSw;
 /* modified 2009.06.15 hmenjo ユーザ定義メッセージハンドラ IF 修正 ---------- { ---------- */
 //void CManualMeasurementFormView::OnJoyStick()
 /* modified 2009.06.15 hmenjo ユーザ定義メッセージハンドラ IF 修正 ----------			   */
+	return 0;
 LRESULT CManualMeasurementFormView::OnJoyStick(WPARAM wparam, LPARAM lparam)
 /* modified 2009.06.15 hmenjo ユーザ定義メッセージハンドラ IF 修正 ---------- } ---------- */
 {
