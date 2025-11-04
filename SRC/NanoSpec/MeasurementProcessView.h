@@ -123,7 +123,7 @@ protected:
 // 2009.10.30 bagus MS �ǉ� --}--
 
 // 2009.11.09 bagus MS �C�� --{--
-	afx_msg void OnNexResponse(WPARAM wparam, LPARAM lparam);
+	afx_msg LRESULT OnNexResponse(WPARAM wparam, LPARAM lparam);
 // 2009.11.09 bagus MS �C�� --}--
 	DECLARE_MESSAGE_MAP()
 

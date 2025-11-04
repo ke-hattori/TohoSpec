@@ -1594,7 +1594,7 @@ void CMeasurementProcessView::OnSelendokMicroScopeFocusPosition()
 // 2009.11.02 bagus MS �ǉ� --}--
 
 // 2009.11.09 bagus MS �C�� --{--
-void CMeasurementProcessView::OnNexResponse(WPARAM wparam, LPARAM lparam)
+LRESULT CMeasurementProcessView::OnNexResponse(WPARAM wparam, LPARAM lparam)
 {
 	switch ( wparam ) {
 	case nexRC_MoveToTeachPos:
@@ -1612,6 +1612,7 @@ void CMeasurementProcessView::OnNexResponse(WPARAM wparam, LPARAM lparam)
 	default:
 		break;
 	}
+	return 0;
 }
 // 2009.11.09 bagus MS �C�� --}--
 
