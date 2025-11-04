@@ -973,12 +973,12 @@ void CNanoSpecApp::MakePath()
 
 ///// BIN_DIR /////
 	strcpy(g_szBin_Dir, g_szMyPath);
-	ptr = strchr(BIN_DIR, '\\');
+	ptr = (char*)strchr(BIN_DIR, '\\');
 	if(ptr) strcat(g_szBin_Dir, ptr);
 
 ///// LOG_DIR /////
 	strcpy(g_szLog_Dir, g_szMyPath);
-	ptr = strchr(LOG_DIR, '\\');
+	ptr = (char*)strchr(LOG_DIR, '\\');
 	if(ptr) strcat(g_szLog_Dir, ptr);
 
 	///// PR_DIR /////
@@ -987,7 +987,7 @@ void CNanoSpecApp::MakePath()
 
 ///// CFG_DIR /////
 	strcpy(g_szCfg_Dir, g_szMyPath);
-	ptr = strchr(CFG_DIR, '\\');
+	ptr = (char*)strchr(CFG_DIR, '\\');
 	if(ptr) strcat(g_szCfg_Dir, ptr);
 
 	///// CFG_SYSTEM_DIR /////
@@ -1012,7 +1012,7 @@ void CNanoSpecApp::MakePath()
 
 ///// DB_DIR /////
 	strcpy(g_szDb_Dir, g_szMyPath);
-	ptr = strchr(DB_DIR, '\\');
+	ptr = (char*)strchr(DB_DIR, '\\');
 	if(ptr) strcat(g_szDb_Dir, ptr);
 
 	///// DB_MAIN_RECIPE_DIR /////
@@ -1053,12 +1053,12 @@ void CNanoSpecApp::MakePath()
 
 ///// RESULT_DIR /////
 	strcpy(g_szResult_Dir, g_szMyPath);
-	ptr = strchr(RESULT_DIR, '\\');
+	ptr = (char*)strchr(RESULT_DIR, '\\');
 	if(ptr) strcat(g_szResult_Dir, ptr);
 
 ///// DATA_DIR /////
 	strcpy(g_szData_Dir, g_szMyPath);
-	ptr = strchr(DATA_DIR, '\\');
+	ptr = (char*)strchr(DATA_DIR, '\\');
 	if(ptr) strcat(g_szData_Dir, ptr);
 
 	///// DATA_MEASUREMENTDATA_DIR /////
@@ -1173,7 +1173,7 @@ long CNanoSpecApp::StartUpLogo(long lCmd/* = 0*/)
 	long l_lRc = 0;
 	TCHAR l_tszCaption[256] = SUL_CAPTION;
 	HWND l_hWnd = ::FindWindow(NULL, l_tszCaption);
-	static ls_dwProcessId = 0;
+	static DWORD ls_dwProcessId = 0;
 
 	long l_lCmd = lCmd;
 

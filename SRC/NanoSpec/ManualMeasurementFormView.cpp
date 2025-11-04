@@ -1533,7 +1533,9 @@ LRESULT CManualMeasurementFormView::OnManuMeaFormFuncCall(WPARAM wparam, LPARAM 
 		case WM_DISPMENU_MANUMEAS_EXIT:
 			OnExitButton();
 			break;
-	}
+	
+	return 0;
+}
 	return 0L;
 }
 
@@ -1546,7 +1548,9 @@ LRESULT CManualMeasurementFormView::OnManuModeOnePointEnd(WPARAM wparam, LPARAM 
 	if(m_pAddMeasDlgObj != NULL)
 	{
 		m_pAddMeasDlgObj->PostMessage(WM_TESTMODE_ONEPOINT_END, (WPARAM)0, (LPARAM)0);
-	}
+	
+	return 0;
+}
 
 	return 0L;
 }

@@ -8616,29 +8616,29 @@ BOOL CMainFrame::LoadSERawData(LPCTSTR lpszFilePath,CSERawDataList *pList,BOOL b
 
 		}
 		//ƒf[ƒ^‚ÌŽæ“¾
-		double dWaveLength = _tcstod(aryElem.GetAt(nDataOffset+0).GetBuffer(0),NULL);
+		double dWaveLength = _tcstod(aryElem.GetAt(nDataOffset+0).GetString(),NULL);
 		if(pList->Lookup(dWaveLength,oneRawData)){
 			if(bRawData){
-				oneRawData.dPsi 			= _tcstod(aryElem.GetAt(nDataOffset+2).GetBuffer(0),NULL);
-				oneRawData.dDelta			= _tcstod(aryElem.GetAt(nDataOffset+3).GetBuffer(0),NULL);
-				oneRawData.dPsiSD			= _tcstod(aryElem.GetAt(nDataOffset+4).GetBuffer(0),NULL);
-				oneRawData.dDeltaSD 		= _tcstod(aryElem.GetAt(nDataOffset+5).GetBuffer(0),NULL);
+				oneRawData.dPsi 			= _tcstod(aryElem.GetAt(nDataOffset+2).GetString(),NULL);
+				oneRawData.dDelta			= _tcstod(aryElem.GetAt(nDataOffset+3).GetString(),NULL);
+				oneRawData.dPsiSD			= _tcstod(aryElem.GetAt(nDataOffset+4).GetString(),NULL);
+				oneRawData.dDeltaSD 		= _tcstod(aryElem.GetAt(nDataOffset+5).GetString(),NULL);
 			}else{
 				oneRawData.bValidModelData	= TRUE;
-				oneRawData.dPsiModel		= _tcstod(aryElem.GetAt(nDataOffset+2).GetBuffer(0),NULL);
-				oneRawData.dDeltaModel		= _tcstod(aryElem.GetAt(nDataOffset+3).GetBuffer(0),NULL);
-				oneRawData.dPsiSDModel		= _tcstod(aryElem.GetAt(nDataOffset+4).GetBuffer(0),NULL);
-				oneRawData.dDeltaSDModel	= _tcstod(aryElem.GetAt(nDataOffset+5).GetBuffer(0),NULL);
+				oneRawData.dPsiModel		= _tcstod(aryElem.GetAt(nDataOffset+2).GetString(),NULL);
+				oneRawData.dDeltaModel		= _tcstod(aryElem.GetAt(nDataOffset+3).GetString(),NULL);
+				oneRawData.dPsiSDModel		= _tcstod(aryElem.GetAt(nDataOffset+4).GetString(),NULL);
+				oneRawData.dDeltaSDModel	= _tcstod(aryElem.GetAt(nDataOffset+5).GetString(),NULL);
 			}
 			pList->SetAt(dWaveLength,oneRawData);
 		}else{
 			if(bRawData){
-				oneRawData.dWaveLength		= _tcstod(aryElem.GetAt(nDataOffset+0).GetBuffer(0),NULL);
-				oneRawData.dLightInputAngle = _tcstod(aryElem.GetAt(nDataOffset+1).GetBuffer(0),NULL);
-				oneRawData.dPsi 			= _tcstod(aryElem.GetAt(nDataOffset+2).GetBuffer(0),NULL);
-				oneRawData.dDelta			= _tcstod(aryElem.GetAt(nDataOffset+3).GetBuffer(0),NULL);
-				oneRawData.dPsiSD			= _tcstod(aryElem.GetAt(nDataOffset+4).GetBuffer(0),NULL);
-				oneRawData.dDeltaSD 		= _tcstod(aryElem.GetAt(nDataOffset+5).GetBuffer(0),NULL);
+				oneRawData.dWaveLength		= _tcstod(aryElem.GetAt(nDataOffset+0).GetString(),NULL);
+				oneRawData.dLightInputAngle = _tcstod(aryElem.GetAt(nDataOffset+1).GetString(),NULL);
+				oneRawData.dPsi 			= _tcstod(aryElem.GetAt(nDataOffset+2).GetString(),NULL);
+				oneRawData.dDelta			= _tcstod(aryElem.GetAt(nDataOffset+3).GetString(),NULL);
+				oneRawData.dPsiSD			= _tcstod(aryElem.GetAt(nDataOffset+4).GetString(),NULL);
+				oneRawData.dDeltaSD 		= _tcstod(aryElem.GetAt(nDataOffset+5).GetString(),NULL);
 				pList->SetAt(dWaveLength,oneRawData);
 			}else{
 				//‚È‚É‚à‚µ‚È‚¢

@@ -368,7 +368,7 @@ void CMainMenuView::RefreshDlg(BOOL bInit /* = FALSE */)
 
 /////////////////////////////////////////////////////////////////////////////
 // MEASUREMENT、DATA、RECIPE_SETTING、ALARM_HISTORYのいずれかのボタン押下時の処理
-LRESULT CMainMenuView::OnMainMenuButton(UINT nID)
+void CMainMenuView::OnMainMenuButton(UINT nID)
 {
 	int iMenu = nID - IDC_MAIN_MENU_MEASUREMENT_BUTTON;
 	//Saiki 20090410 Change ----->

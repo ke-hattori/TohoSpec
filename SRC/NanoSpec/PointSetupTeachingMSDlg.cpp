@@ -506,7 +506,7 @@ void CPointSetupTeachingMSDlg::OnSelendokMicroScopeFocusPosition()
 }
 
 // 2009.11.09 bagus MS èCê≥ --{--
-void CPointSetupTeachingMSDlg::OnNexResponse(WPARAM wparam, LPARAM lparam)
+LRESULT CPointSetupTeachingMSDlg::OnNexResponse(WPARAM wparam, LPARAM lparam)
 {
 	switch ( wparam ) {
 	case nexRC_MoveToTeachPos:
@@ -519,6 +519,7 @@ void CPointSetupTeachingMSDlg::OnNexResponse(WPARAM wparam, LPARAM lparam)
 	default:
 		break;
 	}
+	return 0;
 }
 // 2009.11.09 bagus MS èCê≥ --}--
 // 2009.11.26 bagus ëSî  èCê≥ --{--

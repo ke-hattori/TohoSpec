@@ -2971,7 +2971,7 @@ char * CMeasurementTabView::GetFileName( const char *PathName )
 //•¶Žš—ñ––”ö‚Ì•¶Žš '\0' ‚ÌˆÊ’u‚ð•Ô‚·
 char * CMeasurementTabView::strtail( const char *string )
 {
-	return strchr( string, '\0' );
+	return (char*)strchr( string, \'\0\' );
 }//strtail
 
 

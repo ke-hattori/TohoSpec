@@ -844,7 +844,9 @@ LRESULT CMeasurementProcessView::OnMeaProcFuncCall(WPARAM wparam, LPARAM lparam)
 		case WM_DISPMENU_POINT_TEACHING:
 			OnPointTeachingButton();
 			break;
-// 2009.10.30 bagus MS ’Ç‰Á --}--
+// 2009.10.30 bagus MS ’Ç‰Á --
+	return 0;
+}--
 
 	}
 	return 0L;
