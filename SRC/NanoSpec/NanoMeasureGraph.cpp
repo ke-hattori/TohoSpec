@@ -267,8 +267,7 @@ void CNanoMeasureGraph::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 			}
 			Invalidate(FALSE);
 			m_bReDrawGraph = TRUE;
-			return 0;
-}
+		}
 		break;
 	default:
 		break;
@@ -1218,7 +1217,6 @@ void CNanoMeasureGraph::AddLineData(int nLineNo,double dValue)
 
 	Invalidate(FALSE);
 	m_bReDrawGraph = TRUE;
-	return 0;
 }
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -1259,7 +1257,6 @@ void CNanoMeasureGraph::AddLineData(int nLineNo, double dCurrXValue, double dCur
 
 	Invalidate(FALSE);
 	m_bReDrawGraph = TRUE;
-	return 0;
 }
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -1347,7 +1344,7 @@ void CNanoMeasureGraph::Initialize()
 
 
 }
-
+	return 0;
 LRESULT CNanoMeasureGraph::OnLineSelectChange(WPARAM wparam,LPARAM lparam)
 {
 	CString strDebug;
@@ -1355,12 +1352,11 @@ LRESULT CNanoMeasureGraph::OnLineSelectChange(WPARAM wparam,LPARAM lparam)
 
 	nIndex = (int)lparam;
 	if(!IsValidLineNo(nIndex)){
-		return 0;
+		return;
 	}
 	m_LineConfig[nIndex].Visible = ((int)wparam != 0 ? TRUE : FALSE);
 	Invalidate(FALSE);
 	m_bReDrawGraph = TRUE;
-	return 0;
 }
 
 int CNanoMeasureGraph::ArrangeLineSelect(CRect cArea)
@@ -1475,7 +1471,6 @@ void CNanoMeasureGraph::MoveCalibrationLine(int nStep)
 	}
 	Invalidate(FALSE);
 	m_bReDrawGraph = TRUE;
-	return 0;
 }
 
 void CNanoMeasureGraph::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
