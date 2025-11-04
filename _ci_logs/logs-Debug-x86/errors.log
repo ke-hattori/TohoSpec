@@ -1,4 +1,2 @@
-    33>D:\a\TohoSpec\TohoSpec\SRC\NanoSpec\MeasurementProcessView.cpp(127,2): error C2440: 'static_cast': cannot convert from 'void (__thiscall CMeasurementProcessView::* )(WPARAM,LPARAM)' to 'LRESULT (__thiscall CWnd::* )(WPARAM,LPARAM)' [D:\a\TohoSpec\TohoSpec\SRC\NanoSpec\NanoSpec.vcxproj]
-    33>D:\a\TohoSpec\TohoSpec\SRC\NanoSpec\MeasurementProcessView.cpp(99,1): error C2737: '_messageEntries': const object must be initialized [D:\a\TohoSpec\TohoSpec\SRC\NanoSpec\NanoSpec.vcxproj]
-    33>D:\a\TohoSpec\TohoSpec\SRC\NanoSpec\ManualMeasurementFormView.cpp(117,2): error C2440: 'static_cast': cannot convert from 'void (__thiscall CManualMeasurementFormView::* )(WPARAM,LPARAM)' to 'LRESULT (__thiscall CWnd::* )(WPARAM,LPARAM)' [D:\a\TohoSpec\TohoSpec\SRC\NanoSpec\NanoSpec.vcxproj]
-    33>D:\a\TohoSpec\TohoSpec\SRC\NanoSpec\ManualMeasurementFormView.cpp(96,1): error C2737: '_messageEntries': const object must be initialized [D:\a\TohoSpec\TohoSpec\SRC\NanoSpec\NanoSpec.vcxproj]
+    31>nafxcwd.lib(afxglobals.obj) : error LNK2005: "public: virtual __thiscall CMemDC::~CMemDC(void)" (??1CMemDC@@UAE@XZ) already defined in GridCtrl.obj [D:\a\TohoSpec\TohoSpec\SRC\NanoSpec\NanoSpec.vcxproj]
+    31>..\..\BIN_DEB\NanoSpec.exe : fatal error LNK1169: one or more multiply defined symbols found [D:\a\TohoSpec\TohoSpec\SRC\NanoSpec\NanoSpec.vcxproj]

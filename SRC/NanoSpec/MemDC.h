@@ -22,13 +22,14 @@
 //           25 feb 98 - fixed minor assertion bug
 //
 // This class implements a memory Device Context
+// Renamed to CGridMemDC to avoid conflict with MFC's CMemDC
 
-class CMemDC : public CDC
+class CGridMemDC : public CDC
 {
 public:
 
 	// constructor sets up the memory DC
-	CMemDC(CDC* pDC) : CDC()
+	CGridMemDC(CDC* pDC) : CDC()
 	{
 		ASSERT(pDC != NULL);
 
@@ -66,7 +67,7 @@ public:
 	}
 
 	// Destructor copies the contents of the mem DC to the original DC
-	~CMemDC()
+	~CGridMemDC()
 	{
 		if (m_bMemDC)
 		{
@@ -85,10 +86,10 @@ public:
 	}
 
 	// Allow usage as a pointer
-	CMemDC* operator->() {return this;}
+	CGridMemDC* operator->() {return this;}
 
 	// Allow usage as a pointer
-	operator CMemDC*() {return this;}
+	operator CGridMemDC*() {return this;}
 
 private:
 	CBitmap  m_bitmap;		// Offscreen bitmap
