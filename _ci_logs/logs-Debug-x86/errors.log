@@ -1,2 +1,0 @@
-    31>nafxcwd.lib(afxglobals.obj) : error LNK2005: "public: virtual __thiscall CMemDC::~CMemDC(void)" (??1CMemDC@@UAE@XZ) already defined in GridCtrl.obj [D:\a\TohoSpec\TohoSpec\SRC\NanoSpec\NanoSpec.vcxproj]
-    31>..\..\BIN_DEB\NanoSpec.exe : fatal error LNK1169: one or more multiply defined symbols found [D:\a\TohoSpec\TohoSpec\SRC\NanoSpec\NanoSpec.vcxproj]

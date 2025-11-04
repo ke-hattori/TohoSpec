@@ -1051,7 +1051,7 @@ void LoadNanoSpecIni(int iIniFile)
 				/*	保存の関数を改造する場合は，最大ライン数を超えたラインの定義を ini ファイルに
 					書出さないようにしなければならないため，ココと同様な処理にはしないこと．*/
 		TCHAR l_tszKey[256];
-		LPCTSTR l_ptszKeyOrg;
+		LPCTSTR l_ptszKeyOrg = nullptr;
 		if (0 == l_iLineCount) {
 			if ((SYSTEM_STRESS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, LINEnSECNUM))) {
 				l_ptszKeyOrg = (pIniDesc + index)->key;
@@ -1059,7 +1059,9 @@ void LoadNanoSpecIni(int iIniFile)
 			}
 		}
 		if (0 < l_iLineCount) {
+			if (l_ptszKeyOrg) {
 			(pIniDesc + index)->key = l_ptszKeyOrg;
+			}
 			if ((SYSTEM_STRESS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, LINEnSECNUM))) {
 				_stprintf(l_tszKey, LINEnSECNUM, STRESS_LINES_MAX - l_iLineCount + 1);
 				(pIniDesc + index)->key = l_tszKey;
@@ -1072,7 +1074,7 @@ void LoadNanoSpecIni(int iIniFile)
 	//2009.08.27 bagus stress --{--
 	//データが多くなるためこの処理はやめる
 		TCHAR l_tszKey[256];
-		LPCTSTR l_ptszKeyOrg;
+		LPCTSTR l_ptszKeyOrg = nullptr;
 	//2009.08.27 bagus stress --}--
 #endif
 //2009.08.24 bagus stress --{--
@@ -1095,7 +1097,9 @@ void LoadNanoSpecIni(int iIniFile)
 			}
 		}
 		if (0 < l_iTableNameCount) {
+			if (l_ptszKeyOrg) {
 			(pIniDesc + index)->key = l_ptszKeyOrg;
+			}
 // 2009.11.09 bagus Stress 追加変更 --{--
 //			if ((SYSTEM_STRESS_MODULUS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, TABLENAME_N))) {
 			if ((USER_STRESS_MODULUS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, TABLENAME_N))) {
@@ -1121,7 +1125,9 @@ void LoadNanoSpecIni(int iIniFile)
 			}
 		}
 		if (0 < l_iTableValueCount) {
+			if (l_ptszKeyOrg) {
 			(pIniDesc + index)->key = l_ptszKeyOrg;
+			}
 // 2009.11.09 bagus Stress 追加変更 --{--
 //			if ((SYSTEM_STRESS_MODULUS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, TABLEVALUE_N))) {
 			if ((USER_STRESS_MODULUS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, TABLEVALUE_N))) {
@@ -1190,7 +1196,7 @@ void LoadNanoSpecIni(int iIniFile)
 	}
 	else{
 		TCHAR l_tszKey[256];
-		LPCTSTR l_ptszKeyOrg;
+		LPCTSTR l_ptszKeyOrg = nullptr;
 
 		for(index = 0; index < iIniDescCount; index++){
 			// get section name
@@ -1208,7 +1214,9 @@ void LoadNanoSpecIni(int iIniFile)
 					}
 				}
 				if (0 < l_iThicknessCount) {
+					if (l_ptszKeyOrg) {
 					(pIniDesc + index)->key = l_ptszKeyOrg;
+					}
 					if ((SUBSTRATE_THICKNESS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, SUBSTRATE_THICKNESS_N))) {
 						_stprintf(l_tszKey, SUBSTRATE_THICKNESS_N, SUBSTRATE_THICKNESS_MAX - l_iThicknessCount);
 						(pIniDesc + index)->key = l_tszKey;
@@ -1223,7 +1231,9 @@ void LoadNanoSpecIni(int iIniFile)
 					}
 				}
 				if (0 < l_iInvalidRegionCount) {
+					if (l_ptszKeyOrg) {
 					(pIniDesc + index)->key = l_ptszKeyOrg;
+					}
 					if ((SUBSTRATE_THICKNESS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, INVALID_REGION_N))) {
 						_stprintf(l_tszKey, INVALID_REGION_N, SUBSTRATE_THICKNESS_MAX - l_iInvalidRegionCount);
 						(pIniDesc + index)->key = l_tszKey;
@@ -1238,7 +1248,9 @@ void LoadNanoSpecIni(int iIniFile)
 					}
 				}
 				if (0 < l_iUseDataCount) {
+					if (l_ptszKeyOrg) {
 					(pIniDesc + index)->key = l_ptszKeyOrg;
+					}
 					if ((SUBSTRATE_THICKNESS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, USE_DATA_N))) {
 						_stprintf(l_tszKey, USE_DATA_N, SUBSTRATE_THICKNESS_MAX - l_iUseDataCount);
 						(pIniDesc + index)->key = l_tszKey;
@@ -1715,7 +1727,7 @@ void SaveNanoSpecIni(int iIniFile)
 		memset(buff, NULL, sizeof(buff));
 /* added 2009.07.22 hmenjo ストレス ライン数 定義 ---------- { ---------- */
 		TCHAR l_tszKey[256];
-		LPCTSTR l_ptszKeyOrg;
+		LPCTSTR l_ptszKeyOrg = nullptr;
 		if (0 == l_iLineCount) {
 			if ((SYSTEM_STRESS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, LINEnSECNUM))) {
 				l_ptszKeyOrg = (pIniDesc + index)->key;
@@ -1723,7 +1735,9 @@ void SaveNanoSpecIni(int iIniFile)
 			}
 		}
 		if (0 < l_iLineCount) {
+			if (l_ptszKeyOrg) {
 			(pIniDesc + index)->key = l_ptszKeyOrg;
+			}
 			if ((SYSTEM_STRESS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, LINEnSECNUM))) {
 				_stprintf(l_tszKey, LINEnSECNUM, NanoSysData.StressConfig.dwLiftPinNumberOfLine - l_iLineCount + 1);
 				(pIniDesc + index)->key = l_tszKey;
@@ -1733,7 +1747,7 @@ void SaveNanoSpecIni(int iIniFile)
 		}
 #else
 		TCHAR l_tszKey[256];
-		LPCTSTR l_ptszKeyOrg;
+		LPCTSTR l_ptszKeyOrg = nullptr;
 #endif
 /* added 2009.07.22 hmenjo ストレス ライン数 定義 ---------- } ---------- */
 //2009.08.24 bagus stress --{--
@@ -1756,7 +1770,9 @@ void SaveNanoSpecIni(int iIniFile)
 			}
 		}
 		if (0 < l_iTableNameCount) {
+			if (l_ptszKeyOrg) {
 			(pIniDesc + index)->key = l_ptszKeyOrg;
+			}
 // 2009.11.09 bagus Stress 追加変更 --{--
 //			if ((SYSTEM_STRESS_MODULUS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, TABLENAME_N))) {
 			if ((USER_STRESS_MODULUS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, TABLENAME_N))) {
@@ -1782,7 +1798,9 @@ void SaveNanoSpecIni(int iIniFile)
 			}
 		}
 		if (0 < l_iTableValueCount) {
+			if (l_ptszKeyOrg) {
 			(pIniDesc + index)->key = l_ptszKeyOrg;
+			}
 // 2009.11.09 bagus Stress 追加変更 --{--
 //			if ((SYSTEM_STRESS_MODULUS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, TABLEVALUE_N))) {
 			if ((USER_STRESS_MODULUS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, TABLEVALUE_N))) {
@@ -1850,7 +1868,7 @@ void SaveNanoSpecIni(int iIniFile)
 	}
 	else{
 		TCHAR l_tszKey[256];
-		LPCTSTR l_ptszKeyOrg;
+		LPCTSTR l_ptszKeyOrg = nullptr;
 		for(index = 0; index < iIniDescCount; index++){
 			// get section name
 			if (strlen((pIniDesc + index)->section) > 0)
@@ -1866,7 +1884,9 @@ void SaveNanoSpecIni(int iIniFile)
 					}
 				}
 				if (0 < l_iThicknessCount) {
+					if (l_ptszKeyOrg) {
 					(pIniDesc + index)->key = l_ptszKeyOrg;
+					}
 					if ((SUBSTRATE_THICKNESS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, SUBSTRATE_THICKNESS_N))) {
 						_stprintf(l_tszKey, SUBSTRATE_THICKNESS_N, SUBSTRATE_THICKNESS_MAX - l_iThicknessCount);
 						(pIniDesc + index)->key = l_tszKey;
@@ -1881,7 +1901,9 @@ void SaveNanoSpecIni(int iIniFile)
 					}
 				}
 				if (0 < l_iInvalidRegionCount) {
+					if (l_ptszKeyOrg) {
 					(pIniDesc + index)->key = l_ptszKeyOrg;
+					}
 					if ((SUBSTRATE_THICKNESS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, INVALID_REGION_N))) {
 						_stprintf(l_tszKey, INVALID_REGION_N, SUBSTRATE_THICKNESS_MAX - l_iInvalidRegionCount);
 						(pIniDesc + index)->key = l_tszKey;
@@ -1896,7 +1918,9 @@ void SaveNanoSpecIni(int iIniFile)
 					}
 				}
 				if (0 < l_iUseDataCount) {
+					if (l_ptszKeyOrg) {
 					(pIniDesc + index)->key = l_ptszKeyOrg;
+					}
 					if ((SUBSTRATE_THICKNESS_INI_FILE == iIniFile) && (0 == _tcscmp((pIniDesc + index)->key, USE_DATA_N))) {
 						_stprintf(l_tszKey, USE_DATA_N, SUBSTRATE_THICKNESS_MAX - l_iUseDataCount);
 						(pIniDesc + index)->key = l_tszKey;
