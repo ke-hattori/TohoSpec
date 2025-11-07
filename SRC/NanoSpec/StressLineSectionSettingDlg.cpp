@@ -2201,7 +2201,7 @@ BOOL CStressLineSectionSettingDlg::CheckPinData()
 		if (!CheckInputValueDouble(Item.strText, &tmpPin))
 			return ( FALSE );
 
-		tmpPinX = tmpPin * MICROMETRE;
+		tmpPinX = static_cast<long>(tmpPin * MICROMETRE);
 // 2009.09.15 bagus stress �C�� --}--
 
 		Item.mask = GVIF_TEXT;
@@ -2213,7 +2213,7 @@ BOOL CStressLineSectionSettingDlg::CheckPinData()
 		if (!CheckInputValueDouble(Item.strText, &tmpPin))
 			return ( FALSE );
 
-		tmpPinY = tmpPin * MICROMETRE;
+		tmpPinY = static_cast<long>(tmpPin * MICROMETRE);
 // 2009.09.15 bagus stress �C�� --}--
 
 // 2009.09.08 bagus stress ���_�ʒu�Ή� --{--
