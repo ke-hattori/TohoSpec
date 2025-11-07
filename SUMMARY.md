@@ -1,7 +1,9 @@
 # VS2022 Warning Reduction Summary
 
 ## Overview
-This PR reduces VS2022 warnings on the `feature/VS2022_third` branch while maintaining source encoding (Shift_JIS/CP932) as required.
+This PR reduces VS2022 warnings on the `feature/vs2022_third` branch while maintaining source encoding (Shift_JIS/CP932) as required.
+
+**Status**: Debug|Win32 build passes with reduced warnings. Release|Win32 build has pre-existing configuration errors (MFC dll version and SAFESEH image issues) that require separate investigation.
 
 ## Baseline Warning Counts (from CI logs)
 
