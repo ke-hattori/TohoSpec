@@ -1114,7 +1114,7 @@ void CStressLineSectionSettingDlg::OnKillfocusNumberOfLine()
 
 	m_StressConfig.dwLiftPinNumberOfLine = NumOfLine;
 // 2009.09.08 bagus stress èCê≥ --{--
-	for (int i=0; i<STRESS_LINES_MAX; i++) {
+	for (int i=0; i<static_cast<int>(STRESS_LINES_MAX); i++) {
 		if (i<NumOfLine) {
 //			m_StressConfig.Line[i].bValidLine = TRUE;
 		} else {
@@ -1178,7 +1178,7 @@ void CStressLineSectionSettingDlg::SetLineData()
 	}
 	END_CATCH
 
-	for (row=FixRows; row<m_StressConfig.dwLiftPinNumberOfLine+FixRows; row++) {
+	for (row=FixRows; row<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine)+FixRows; row++) {
 		dwTextStyle = DT_CENTER|DT_VCENTER|DT_SINGLELINE;
 		dwTextStyle |= DT_END_ELLIPSIS;
 		Item.mask = GVIF_TEXT|GVIF_FORMAT;
@@ -1256,7 +1256,7 @@ void CStressLineSectionSettingDlg::SetPinData()
 
 // 2009.09.08 bagus stress èCê≥ --{--
 //	for (i=0; i<STRESS_LINES_MAX; i++) {
-	for (i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++) {
+	for (i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++) {
 // 2009.09.08 bagus stress èCê≥ --}--
 		NumOfAllPins += m_StressConfig.Line[i].dwLiftPinNumberOfLn;
 	}
@@ -1297,7 +1297,7 @@ void CStressLineSectionSettingDlg::SetPinData()
 	END_CATCH
 
 	row = FixRows;
-	for(i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++){
+	for(i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++){
 		Rows = m_StressConfig.Line[i].dwLiftPinNumberOfLn;
 
 		for (j=0; j<Rows; j++) {
@@ -1398,7 +1398,7 @@ BOOL CStressLineSectionSettingDlg::CheckLineData()
 
 // 2009.09.17 bagus stress GridèCê≥ --{--
 //	for (row=LineFixRows; row<LineRows; row++) {
-	for (row=LineFixRows; row<m_StressConfig.dwLiftPinNumberOfLine + LineFixRows; row++) {
+	for (row=LineFixRows; row<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine) + LineFixRows; row++) {
 // 2009.09.17 bagus stress GridèCê≥ --}--
 		m_StressConfig.Line[row - LineFixRows].dwLiftPinNumberOfLn = NumOfPin[row - LineFixRows];
 		m_StressConfig.Line[row - LineFixRows].dwSectionNum = NumOfPin[row - LineFixRows] - 1;
@@ -1452,7 +1452,7 @@ void CStressLineSectionSettingDlg::SetLineValidData()
 	END_CATCH
 
 	nLine = 1;
-	for (row=FixRows; row<m_StressConfig.dwLiftPinNumberOfLine+FixRows; row++) {
+	for (row=FixRows; row<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine)+FixRows; row++) {
 		dwTextStyle = DT_CENTER|DT_VCENTER|DT_SINGLELINE;
 		dwTextStyle |= DT_END_ELLIPSIS;
 		Item.mask = GVIF_TEXT|GVIF_FORMAT;
@@ -1715,7 +1715,7 @@ void CStressLineSectionSettingDlg::SetStressMeasurementLineSectionData()
 
 // 2009.09.08 bagus stress èCê≥ --{--
 //	for (i=0; i<STRESS_LINES_MAX; i++) {
-	for (i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++) {
+	for (i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++) {
 // 2009.09.08 bagus stress èCê≥ --}--
 		if ((m_StressConfig.Line[i].dwLiftPinNumberOfLn > 0) && (IsValidLine(i))) {
 //			NumOfSections += (m_StressConfig.Line[i].dwLiftPinNumberOfLn - 1);
@@ -1762,7 +1762,7 @@ void CStressLineSectionSettingDlg::SetStressMeasurementLineSectionData()
 	END_CATCH
 
 	row = FixRows;
-	for(i=FixRows; i<m_StressConfig.dwLiftPinNumberOfLine+FixRows; i++){
+	for(i=FixRows; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine)+FixRows; i++){
 		if (!m_StressConfig.Line[i - FixRows].bValidLine) {
 			continue;
 		}
@@ -1821,7 +1821,7 @@ void CStressLineSectionSettingDlg::SetNecessaryThicknessMeasurementData()
 // 2009.09.11 bagus stress èCê≥ --{--
 	int	NumOfLines = 0;
 
-	for (i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++) {
+	for (i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++) {
 		if (m_StressConfig.Line[i].bValidLine) {
 			NumOfLines++;
 		}
@@ -1868,7 +1868,7 @@ void CStressLineSectionSettingDlg::SetNecessaryThicknessMeasurementData()
 // 2009.09.11 bagus stress èCê≥ --{--
 	int	Row = 0 + FixRows;
 // 2009.09.11 bagus stress èCê≥ --}--
-	for(i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++){
+	for(i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++){
 // 2009.09.11 bagus stress èCê≥ --{--
 		if (!m_StressConfig.Line[i].bValidLine) {
 			continue;
@@ -2115,7 +2115,7 @@ BOOL CStressLineSectionSettingDlg::CheckStressConfig_LineData()
 {
 	int	i;
 
-	for (i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++) {
+	for (i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++) {
 		if ((m_StressConfig.Line[i].dwLiftPinNumberOfLn <= 1) || (m_StressConfig.Line[i].dwLiftPinNumberOfLn > STRESS_PINS_MAX)) {
 			return ( FALSE );
 		}
@@ -2129,7 +2129,7 @@ BOOL CStressLineSectionSettingDlg::CheckStressConfig_PinData()
 	int	i, j;
 	DWORD	Rows;
 
-	for(i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++){
+	for(i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++){
 		Rows = m_StressConfig.Line[i].dwLiftPinNumberOfLn;
 		for (j=0; j<Rows; j++) {
 // 2009.09.08 bagus stress å¥ì_à íuëŒâû --{--
@@ -2181,7 +2181,7 @@ BOOL CStressLineSectionSettingDlg::CheckPinData()
 // 2009.09.17 bagus stress GridèCê≥ --{--
 	int	NumOfAllPins = 0;
 
-	for (i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++) {
+	for (i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++) {
 		NumOfAllPins += m_StressConfig.Line[i].dwLiftPinNumberOfLn;
 	}
 // 2009.09.17 bagus stress GridèCê≥ --}--
@@ -2238,7 +2238,7 @@ BOOL CStressLineSectionSettingDlg::CheckPinData()
 	long	SectionLength;
 
 	Pin = 0;
-	for(i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++){
+	for(i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++){
 		Rows = m_StressConfig.Line[i].dwLiftPinNumberOfLn;
 		for (j=0; j<Rows; j++) {
 			if (j == 0) {
@@ -2256,7 +2256,7 @@ BOOL CStressLineSectionSettingDlg::CheckPinData()
 // 2009.09.14 bagus stress èCê≥ --}--
 
 	Pin = 0;
-	for(i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++){
+	for(i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++){
 		Rows = m_StressConfig.Line[i].dwLiftPinNumberOfLn;
 		for (j=0; j<Rows; j++) {
 			m_StressConfig.Line[i].PinPos[j].lX = PinX[Pin];
@@ -2316,7 +2316,7 @@ void CStressLineSectionSettingDlg::SetDefaultPinData()
 //	}
 // 2009.09.11 bagus stress èCê≥ --}--
 // 2009.09.08 bagus stress å¥ì_à íuëŒâû --}--
-	for(i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++){
+	for(i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++){
 		Rows = m_StressConfig.Line[i].dwLiftPinNumberOfLn;
 
 		if (Rows <= 1) {
@@ -2360,7 +2360,7 @@ void CStressLineSectionSettingDlg::SetDefaultStressMeasurementLineSectionData()
 	int	i ,j;
 	int	Rows;
 
-	for(i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++){
+	for(i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++){
 		Rows = m_StressConfig.Line[i].dwSectionNum;
 		for (j=0; j<Rows; j++) {
 			PinY = m_StressConfig.Line[i].PinPos[j].lY;
@@ -2429,7 +2429,7 @@ void CStressLineSectionSettingDlg::SetDefaultNecessaryThicknessMeasurementData()
 //	}
 // 2009.09.11 bagus stress èCê≥ --}--
 // 2009.09.08 bagus stress å¥ì_à íuëŒâû --}--
-	for(i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++){
+	for(i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++){
 // 2009.09.08 bagus stress å¥ì_à íuëŒâû --{--
 //		PinX = (long)((((m_StressConfig.Size.dx / 2) - m_StressConfig.lInvalidRangeEdge) * 1000 + 500) / 1000);
 //		PinX *= -1;
@@ -2486,7 +2486,7 @@ BOOL CStressLineSectionSettingDlg::CheckLineValidData()
 
 // 2009.09.17 bagus stress GridèCê≥ --{--
 //	for (row=FixRows; row<LineRows; row++) {
-	for (row=FixRows; row<m_StressConfig.dwLiftPinNumberOfLine+FixRows; row++) {
+	for (row=FixRows; row<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine)+FixRows; row++) {
 // 2009.09.17 bagus stress GridèCê≥ --}--
 		Item.mask = GVIF_TEXT;
 		Item.row = row;
@@ -2659,14 +2659,14 @@ void CStressLineSectionSettingDlg::SamplePointGraph_DataSet()
 	}
 // 2013.01.09 bagus <--
 
-	for (i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++) {
+	for (i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++) {
 		if(i >= STRESS_PINS_MAX){
 			break;
 		}
 
 //2009.09.10 bagus stress --{--
 // Pin Data
-		for(j = 0; j<m_StressConfig.Line[i].dwLiftPinNumberOfLn;j++){
+		for(j = 0; j<static_cast<int>(m_StressConfig.Line[i].dwLiftPinNumberOfLn);j++){
 			long lPinX,lPinY;
 			lPinX = lPinY = 0L;
 			switch (m_StageConfig.Dir.X) {
@@ -2772,7 +2772,7 @@ void CStressLineSectionSettingDlg::SamplePointGraph_DataSet()
 // 2009.09.07 bagus stress å¥ì_à íuëŒâû --{--
 	double	dPointX, dPointY;
 // 2009.09.07 bagus stress å¥ì_à íuëŒâû --}--
-	for (i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++) {
+	for (i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++) {
 // 2009.09.11 bagus stress èCê≥ --{--
 		if (!m_StressConfig.Line[i].bValidLine) {
 			continue;
@@ -3053,7 +3053,7 @@ void CStressLineSectionSettingDlg::OnLinesetButton()
 
 	m_StressConfig.dwLiftPinNumberOfLine = NumOfLine;
 // 2009.09.08 bagus stress èCê≥ --{--
-	for (int i=0; i<STRESS_LINES_MAX; i++) {
+	for (int i=0; i<static_cast<int>(STRESS_LINES_MAX); i++) {
 		if (i<NumOfLine) {
 //			m_StressConfig.Line[i].bValidLine = TRUE;
 		} else {
@@ -3441,7 +3441,7 @@ BOOL CStressLineSectionSettingDlg::CheckLineNum()
 // 2009.09.15 bagus stress èCê≥ --}--
 
 // 2009.09.08 bagus stress èCê≥ --{--
-	for (int i=0; i<STRESS_LINES_MAX; i++) {
+	for (int i=0; i<static_cast<int>(STRESS_LINES_MAX); i++) {
 		if (i<NumOfLine) {
 //			m_StressConfig.Line[i].bValidLine = TRUE;
 		} else {
@@ -3591,7 +3591,7 @@ BOOL CStressLineSectionSettingDlg::CheckStressMeasurementLineSectionData()
 
 	long	SectionLength;
 
-	for(i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++){
+	for(i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++){
 		if (!m_StressConfig.Line[i].bValidLine) {
 			continue;
 		}
@@ -3610,7 +3610,7 @@ BOOL CStressLineSectionSettingDlg::CheckNecessaryThicknessMeasurementData()
 {
 	int	i;
 
-	for(i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++){
+	for(i=0; i<static_cast<int>(m_StressConfig.dwLiftPinNumberOfLine); i++){
 		if (!m_StressConfig.Line[i].bValidLine) {
 			continue;
 		}
