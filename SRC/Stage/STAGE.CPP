@@ -22,51 +22,51 @@
 #define PARALEL_INTERFACE
 
 /*
- ƒTƒuƒRƒ“ƒgƒ[ƒ‰[ƒRƒ}ƒ“ƒh
+ ï¿½Tï¿½uï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½[ï¿½Rï¿½}ï¿½ï¿½ï¿½h
 */
 static const TCHAR szMoveStageEx		  = TCHAR('G');
 static const PSTR  szMoveElevatorEx 	  = TEXT("GZ");
 static const PSTR  szLimitSpeedEx		  = TEXT("GL");
 static const TCHAR szGetPosXyz			  = TCHAR('H');
 static const TCHAR szEEPromParam		  = TCHAR('I');
-static const TCHAR szJoystickStatusXy	  = TCHAR('K'); 		// ƒWƒ‡ƒCƒXƒeƒBƒbƒN—LŒøE–³Œø
-static const TCHAR szMoveStageXy		  = TCHAR('M'); 		// XY²ˆÚ“®
-static const TCHAR szMoveStageZ 		  = TCHAR('N'); 		// Z²ˆÚ“®
-static const TCHAR szDoOffsetZ			  = TCHAR('O'); 		// Z²ƒIƒtƒZƒbƒg
-static const TCHAR szGetPosXy			  = TCHAR('P'); 		// ƒXƒe[ƒWŒ»İˆÊ’uæ“¾
-static const TCHAR szEncoderStatusZ 	  = TCHAR('Q'); 		// Z²ƒGƒ“ƒR[ƒ_ó‘Ô
-static const TCHAR szSetExtCounter		  = TCHAR('S'); 		// ŠO•”ƒJƒEƒ“ƒ^İ’è
-static const TCHAR szGetExtCounter		  = TCHAR('T'); 		// ŠO•”ƒJƒEƒ“ƒ^æ“¾
+static const TCHAR szJoystickStatusXy	  = TCHAR('K'); 		// ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½Lï¿½ï¿½ï¿½Eï¿½ï¿½ï¿½ï¿½
+static const TCHAR szMoveStageXy		  = TCHAR('M'); 		// XYï¿½ï¿½ï¿½Ú“ï¿½
+static const TCHAR szMoveStageZ 		  = TCHAR('N'); 		// Zï¿½ï¿½ï¿½Ú“ï¿½
+static const TCHAR szDoOffsetZ			  = TCHAR('O'); 		// Zï¿½ï¿½ï¿½Iï¿½tï¿½Zï¿½bï¿½g
+static const TCHAR szGetPosXy			  = TCHAR('P'); 		// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½İˆÊ’uï¿½æ“¾
+static const TCHAR szEncoderStatusZ 	  = TCHAR('Q'); 		// Zï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½Rï¿½[ï¿½_ï¿½ï¿½ï¿½
+static const TCHAR szSetExtCounter		  = TCHAR('S'); 		// ï¿½Oï¿½ï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½^ï¿½İ’ï¿½
+static const TCHAR szGetExtCounter		  = TCHAR('T'); 		// ï¿½Oï¿½ï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½^ï¿½æ“¾
 // 2013.02.15 bagus Substrate thickness setting -->
-static const TCHAR szAFInvalidRegion	  = TCHAR('U'); 		// AF–³Œø—Ìˆæ
+static const TCHAR szAFInvalidRegion	  = TCHAR('U'); 		// AFï¿½ï¿½ï¿½ï¿½ï¿½Ìˆï¿½
 // 2013.02.15 bagus Substrate thickness setting <--
-static const TCHAR szFirmwareVersion	  = TCHAR('V'); 		// ƒtƒ@[ƒ€ƒEƒFƒA[ƒo[ƒWƒ‡ƒ“æ“¾
-static const TCHAR szSetPosX			  = TCHAR('X'); 		// X²ˆÊ’uİ’è
-static const TCHAR szSetPosY			  = TCHAR('Y'); 		// Y²ˆÊ’uİ’è
-static const TCHAR szSetPosZ			  = TCHAR('Z'); 		// Z²ˆÊ’uİ’è
-static const TCHAR szJoystickStatusZ	  = TCHAR('a'); 		// Z²ƒWƒ‡ƒCƒXƒeƒBƒbƒN—LŒøE–³Œø
-static const TCHAR szInputPort			  = TCHAR('b'); 		// “ü—Íƒ|[ƒg“Ç
-static const TCHAR szOutputPort 		  = TCHAR('c'); 		// o—Íƒ|[ƒgƒZƒbƒgEƒŠƒZƒbƒg
-static const TCHAR szShutterCtrl		  = TCHAR('e'); 		// “d¥•ÙONEOFF
-static const TCHAR szUpDownZ			  = TCHAR('g'); 		// Z²UPEDOWN
-static const TCHAR szTurretPowerOFF 	  = TCHAR('h'); 		// ƒ^[ƒŒƒbƒg“dŒ¹OFF
-static const TCHAR szVacuumCtrl 		  = TCHAR('i'); 		// ƒXƒe[ƒW—pƒoƒ‹ƒuŠJ•Â
-//static const TCHAR sz 					TCHAR('o'); 		// ƒXƒe[ƒWˆÊ’uˆÚ“®ƒtƒ‰ƒO
-static const TCHAR szGetPosZ			  = TCHAR('p'); 		// Z²Œ»İˆÊ’uæ“¾
-static const TCHAR szAutoFocusStatus	  = TCHAR('q'); 		// ƒI[ƒgƒtƒH[ƒJƒX—LŒøE–³Œø
-static const TCHAR szStageStatus		  = TCHAR('r'); 		// ƒXƒe[ƒW—LŒøE–³Œø
-static const TCHAR szHardwareStatus 	  = TCHAR('s'); 		// ƒn[ƒhƒEƒFƒAƒXƒe[ƒ^ƒX
-static const TCHAR szSelectLens 		  = TCHAR('t'); 		// ƒŒƒ“ƒY‘I‘ğ
-static const TCHAR szDoAutoFocus		  = TCHAR('u'); 		// ƒI[ƒgƒtƒH[ƒJƒX
-static const TCHAR szInitAutoFocusTurret  = TCHAR('v'); 		// ƒI[ƒgƒtƒH[ƒJƒXEƒ^[ƒŒƒbƒg‰Šú‰»
-static const TCHAR szInitStage			  = TCHAR('x'); 		// ƒXƒe[ƒW‰Šú‰»
-static const TCHAR szInitTurret 		  = TCHAR('y'); 		// ƒ^[ƒŒƒbƒg‰Šú‰»
-static const TCHAR szInitAutoFocus		  = TCHAR('z'); 		// ƒI[ƒgƒtƒH[ƒJƒX‰Šú‰»
+static const TCHAR szFirmwareVersion	  = TCHAR('V'); 		// ï¿½tï¿½@ï¿½[ï¿½ï¿½ï¿½Eï¿½Fï¿½Aï¿½[ï¿½oï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
+static const TCHAR szSetPosX			  = TCHAR('X'); 		// Xï¿½ï¿½ï¿½Ê’uï¿½İ’ï¿½
+static const TCHAR szSetPosY			  = TCHAR('Y'); 		// Yï¿½ï¿½ï¿½Ê’uï¿½İ’ï¿½
+static const TCHAR szSetPosZ			  = TCHAR('Z'); 		// Zï¿½ï¿½ï¿½Ê’uï¿½İ’ï¿½
+static const TCHAR szJoystickStatusZ	  = TCHAR('a'); 		// Zï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½Lï¿½ï¿½ï¿½Eï¿½ï¿½ï¿½ï¿½
+static const TCHAR szInputPort			  = TCHAR('b'); 		// ï¿½ï¿½ï¿½Íƒ|ï¿½[ï¿½gï¿½Çï¿½
+static const TCHAR szOutputPort 		  = TCHAR('c'); 		// ï¿½oï¿½Íƒ|ï¿½[ï¿½gï¿½Zï¿½bï¿½gï¿½Eï¿½ï¿½ï¿½Zï¿½bï¿½g
+static const TCHAR szShutterCtrl		  = TCHAR('e'); 		// ï¿½dï¿½ï¿½ï¿½ï¿½ONï¿½EOFF
+static const TCHAR szUpDownZ			  = TCHAR('g'); 		// Zï¿½ï¿½UPï¿½EDOWN
+static const TCHAR szTurretPowerOFF 	  = TCHAR('h'); 		// ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½gï¿½dï¿½ï¿½OFF
+static const TCHAR szVacuumCtrl 		  = TCHAR('i'); 		// ï¿½Xï¿½eï¿½[ï¿½Wï¿½pï¿½oï¿½ï¿½ï¿½uï¿½Jï¿½ï¿½
+//static const TCHAR sz 					TCHAR('o'); 		// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ê’uï¿½Ú“ï¿½ï¿½tï¿½ï¿½ï¿½O
+static const TCHAR szGetPosZ			  = TCHAR('p'); 		// Zï¿½ï¿½ï¿½ï¿½ï¿½İˆÊ’uï¿½æ“¾
+static const TCHAR szAutoFocusStatus	  = TCHAR('q'); 		// ï¿½Iï¿½[ï¿½gï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½Lï¿½ï¿½ï¿½Eï¿½ï¿½ï¿½ï¿½
+static const TCHAR szStageStatus		  = TCHAR('r'); 		// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Lï¿½ï¿½ï¿½Eï¿½ï¿½ï¿½ï¿½
+static const TCHAR szHardwareStatus 	  = TCHAR('s'); 		// ï¿½nï¿½[ï¿½hï¿½Eï¿½Fï¿½Aï¿½Xï¿½eï¿½[ï¿½^ï¿½X
+static const TCHAR szSelectLens 		  = TCHAR('t'); 		// ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½Iï¿½ï¿½
+static const TCHAR szDoAutoFocus		  = TCHAR('u'); 		// ï¿½Iï¿½[ï¿½gï¿½tï¿½Hï¿½[ï¿½Jï¿½X
+static const TCHAR szInitAutoFocusTurret  = TCHAR('v'); 		// ï¿½Iï¿½[ï¿½gï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½Eï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+static const TCHAR szInitStage			  = TCHAR('x'); 		// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+static const TCHAR szInitTurret 		  = TCHAR('y'); 		// ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+static const TCHAR szInitAutoFocus		  = TCHAR('z'); 		// ï¿½Iï¿½[ï¿½gï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 // =========================================================================
 // Class Name :  CAbstractStage
 //
-// DescriptionF ƒXƒe[ƒW’ŠÛƒNƒ‰ƒX
+// Descriptionï¿½F ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ÛƒNï¿½ï¿½ï¿½X
 //
 // Author:       T.Matsuhisa
 //
@@ -75,11 +75,11 @@ CAbstractStage::CAbstractStage()
 	: m_bValid(FALSE), m_hMonitorThread(NULL), m_bMonitorRun(FALSE),
 	  m_bAutoFocusInProgress(FALSE), m_bAbortAutoFocus(FALSE),
 	  m_bEnableSpeedLimit(FALSE), m_bDisableSpeedLimit(FALSE),
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ Stage.dll ---------- { ---------- */
+/* modified 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ Stage.dll ---------- { ---------- */
 //		m_LogFile(LOG_DIR, STAGE_LOG_FILE_NAME)
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ Stage.dll ---------- 			 */
+/* modified 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ Stage.dll ---------- 			 */
 	  m_LogFile(g_tszLogDir, STAGE_LOG_FILE_NAME)
-/* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ Stage.dll ---------- } ---------- */
+/* modified 2009.07.07 hmenjo dll ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½Î‰ï¿½ Stage.dll ---------- } ---------- */
 {
 // 2013.02.15 bagus Substrate thickness setting -->
 	m_lZLensOffSet = 0;
@@ -98,10 +98,10 @@ CAbstractStage::~CAbstractStage()
 }
 
 // =========================================================================
-// NameF      LogicalToPhysical
-// PurposeF   ˜_—À•W to •¨—À•W
-// Parameters: pSrc - ˜_—À•W
-//             pDst - •¨—À•W
+// Nameï¿½F      LogicalToPhysical
+// Purposeï¿½F   ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½W to ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½W
+// Parameters: pSrc - ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½W
+//             pDst - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½W
 // Returns:    None
 //
 // Notes:
@@ -113,9 +113,9 @@ void CAbstractStage::LogicalToPhysical(STAGE_COORD* pSrc, STAGE_COORD* pDst)
 }
 
 // =========================================================================
-// NameF      LogicalToPhysical
-// PurposeF   ˜_—À•W to •¨—À•W
-// Parameters: pPos - ˜_—À•W to •¨—À•W
+// Nameï¿½F      LogicalToPhysical
+// Purposeï¿½F   ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½W to ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½W
+// Parameters: pPos - ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½W to ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½W
 //
 // Returns:    None
 //
@@ -129,10 +129,10 @@ void CAbstractStage::LogicalToPhysical(STAGE_COORD* pPos)
 }
 
 // =========================================================================
-// NameF      PhysicalToLogical
-// PurposeF   •¨—À•W to ˜_—À•W
-// Parameters: pSrc - •¨—À•W
-//             pDst - ˜_—À•W
+// Nameï¿½F      PhysicalToLogical
+// Purposeï¿½F   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½W to ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½W
+// Parameters: pSrc - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½W
+//             pDst - ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½W
 // Returns:    None
 //
 // Notes:
@@ -144,10 +144,10 @@ void CAbstractStage::PhysicalToLogical(STAGE_COORD* pSrc, STAGE_COORD* pDst)
 }
 
 // =========================================================================
-// NameF      PhysicalToLogical
-// PurposeF   •¨—À•W to ˜_—À•W
-// Parameters: pSrc - •¨—À•W
-//             pDst - ˜_—À•W
+// Nameï¿½F      PhysicalToLogical
+// Purposeï¿½F   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½W to ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½W
+// Parameters: pSrc - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½W
+//             pDst - ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½W
 // Returns:    None
 //
 // Notes:
@@ -161,7 +161,7 @@ void CAbstractStage::PhysicalToLogical(STAGE_COORD_XYZ* pSrc, STAGE_COORD_XYZ* p
 // =========================================================================
 // Class Name :  CStageNTN
 //
-// DescriptionF NTNƒXƒe[ƒWƒ‰ƒbƒpƒNƒ‰ƒX
+// Descriptionï¿½F NTNï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½bï¿½pï¿½Nï¿½ï¿½ï¿½X
 //
 // Author:       T.Matsuhisa
 // =========================================================================
@@ -238,9 +238,9 @@ CStageNTN::~CStageNTN()
 }
 
 // =========================================================================
-// NameF      ThreadProc
-// PurposeF
-// Parameters: lpData - thisƒ|ƒCƒ“ƒ^
+// Nameï¿½F      ThreadProc
+// Purposeï¿½F
+// Parameters: lpData - thisï¿½|ï¿½Cï¿½ï¿½ï¿½^
 //
 // Returns:    UINT
 //
@@ -255,8 +255,8 @@ UINT WINAPI CStageNTN::ThreadProc(LPVOID lpData)
 }
 
 // =========================================================================
-// NameF      ThreadProc
-// PurposeF   â‘ÎˆÚ“®Š®—¹‘Ò‚¿ƒXƒŒƒbƒh
+// Nameï¿½F      ThreadProc
+// Purposeï¿½F   ï¿½ï¿½ÎˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½ï¿½Xï¿½ï¿½ï¿½bï¿½h
 // Parameters: None
 //
 // Returns:    UINT
@@ -271,8 +271,8 @@ UINT CStageNTN::ThreadProc(PTHREADPARAMS pthrParams)
 }
 
 // =========================================================================
-// NameF      IsStageIdle
-// PurposeF   XYƒXƒe[ƒWƒXƒe[ƒ^ƒX
+// Nameï¿½F      IsStageIdle
+// Purposeï¿½F   XYï¿½Xï¿½eï¿½[ï¿½Wï¿½Xï¿½eï¿½[ï¿½^ï¿½X
 // Parameters: None
 //
 // Returns:    BOOL - TRUE = IDLE
@@ -288,8 +288,8 @@ BOOL CStageNTN::IsStageIdle(void)
 }
 
 // =========================================================================
-// NameF      IsElevatorIdle
-// PurposeF   Elevatorƒe[ƒ^ƒX
+// Nameï¿½F      IsElevatorIdle
+// Purposeï¿½F   Elevatorï¿½eï¿½[ï¿½^ï¿½X
 // Parameters: None
 //
 // Returns:    BOOL - TRUE = IDLE
@@ -305,10 +305,10 @@ BOOL CStageNTN::IsElevatorIdle(void)
 }
 
 // =========================================================================
-// NameF      StageMove
-// PurposeF   ƒXƒe[ƒWˆÚ“®
-// Parameters: pPos - STAGE_COORD\‘¢‘Ì‚Ö‚Ìƒ|ƒCƒ“ƒ^
-//             nMode - ƒ‚[ƒh - 0 =
+// Nameï¿½F      StageMove
+// Purposeï¿½F   ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ú“ï¿½
+// Parameters: pPos - STAGE_COORDï¿½\ï¿½ï¿½ï¿½Ì‚Ö‚Ìƒ|ï¿½Cï¿½ï¿½ï¿½^
+//             nMode - ï¿½ï¿½ï¿½[ï¿½h - 0 =
 //                            - 1 =
 //                            - 2 =
 //                            - 3 =
@@ -316,7 +316,7 @@ BOOL CStageNTN::IsElevatorIdle(void)
 //                            - 5 =
 //                            - 6 =
 //
-// Returns:    int - 0 = ¬Œ÷
+// Returns:    int - 0 = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -360,12 +360,12 @@ int CStageNTN::StageMove(UINT nMode)
 }
 
 // =========================================================================
-// NameF      StageMoveEx
-// PurposeF   ƒXƒe[ƒWˆÚ“®Šg’£”Å
-// Parameters: lpmpx - MOTARAMSEX\‘¢‘Ì‚Ö‚Ìƒ|ƒCƒ“ƒ^
-//             bWait - Š®—¹‘Ò‚¿ƒtƒ‰ƒO
+// Nameï¿½F      StageMoveEx
+// Purposeï¿½F   ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ú“ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½
+// Parameters: lpmpx - MOTARAMSEXï¿½\ï¿½ï¿½ï¿½Ì‚Ö‚Ìƒ|ï¿½Cï¿½ï¿½ï¿½^
+//             bWait - ï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½ï¿½tï¿½ï¿½ï¿½O
 //
-// Returns:    int - 0 = ¬Œ÷
+// Returns:    int - 0 = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -411,12 +411,12 @@ int CStageNTN::StageMoveEx(LPMOTPARAMSEX lpmpx, BOOL bWait/*TRUE*/)
 }
 
 // =========================================================================
-// NameF      MoveAbsolute
-// PurposeF   â‘ÎˆÊ’uˆÚ“®(w’è²)
-// Parameters: wAxis - ˆÚ“®²
-//             lPos  - –Ú•WˆÊ’u
+// Nameï¿½F      MoveAbsolute
+// Purposeï¿½F   ï¿½ï¿½ÎˆÊ’uï¿½Ú“ï¿½(ï¿½wï¿½è²)
+// Parameters: wAxis - ï¿½Ú“ï¿½ï¿½ï¿½
+//             lPos  - ï¿½Ú•Wï¿½Ê’u
 //
-// Returns:    int - 0 = ¬Œ÷
+// Returns:    int - 0 = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -433,12 +433,12 @@ int CStageNTN::MoveAbsolute(WORD wAxis, long lPos)
 }
 
 // =========================================================================
-// NameF      MoveAbsolute
-// PurposeF   â‘ÎˆÊ’uˆÚ“®(w’è²)
-// Parameters: wAxis - ˆÚ“®²
-//             lPos  - –Ú•WˆÊ’u
+// Nameï¿½F      MoveAbsolute
+// Purposeï¿½F   ï¿½ï¿½ÎˆÊ’uï¿½Ú“ï¿½(ï¿½wï¿½è²)
+// Parameters: wAxis - ï¿½Ú“ï¿½ï¿½ï¿½
+//             lPos  - ï¿½Ú•Wï¿½Ê’u
 //
-// Returns:    int - 0 = ¬Œ÷
+// Returns:    int - 0 = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -471,11 +471,11 @@ int CStageNTN::MoveAbsoluteEx(WORD wAxis, long lPos, BOOL bWait/*=TRUE*/)
 }
 
 // =========================================================================
-// NameF      MoveAbsolute
-// PurposeF   â‘ÎˆÊ’uˆÚ“®(XY²)
-// Parameters: pPos - –Ú•WˆÊ’u
+// Nameï¿½F      MoveAbsolute
+// Purposeï¿½F   ï¿½ï¿½ÎˆÊ’uï¿½Ú“ï¿½(XYï¿½ï¿½)
+// Parameters: pPos - ï¿½Ú•Wï¿½Ê’u
 //
-// Returns:    int - 0 = ¬Œ÷
+// Returns:    int - 0 = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -491,11 +491,11 @@ int CStageNTN::MoveAbsolute(STAGE_COORD* pPos)
 }
 
 // =========================================================================
-// NameF      MoveAbsolute
-// PurposeF   â‘ÎˆÊ’uˆÚ“®(XY²)
-// Parameters: pPos - –Ú•WˆÊ’u
+// Nameï¿½F      MoveAbsolute
+// Purposeï¿½F   ï¿½ï¿½ÎˆÊ’uï¿½Ú“ï¿½(XYï¿½ï¿½)
+// Parameters: pPos - ï¿½Ú•Wï¿½Ê’u
 //
-// Returns:    int - 0 = ¬Œ÷
+// Returns:    int - 0 = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -567,12 +567,12 @@ int CStageNTN::MoveRelative(STAGE_COORD* pPos, BOOL bWait/*=TRUE*/)
 }
 
 // =========================================================================
-// NameF      MoveAtSpeed
-// PurposeF   ‘¬“xˆÚ“®
-// Parameters: wAxis  - ˆÚ“®²
-//             dSpeed - –Ú•WƒXƒs[ƒh
+// Nameï¿½F      MoveAtSpeed
+// Purposeï¿½F   ï¿½ï¿½ï¿½xï¿½Ú“ï¿½
+// Parameters: wAxis  - ï¿½Ú“ï¿½ï¿½ï¿½
+//             dSpeed - ï¿½Ú•Wï¿½Xï¿½sï¿½[ï¿½h
 //
-// Returns:    int - 0 = ¬Œ÷
+// Returns:    int - 0 = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -623,11 +623,11 @@ int CStageNTN::StageStop(void)
 }
 
 // =========================================================================
-// NameF      ElevatorMove
-// PurposeF   ƒGƒŒƒx[ƒ^[ˆÚ“®
-// Parameters: lPos - –Ú•WˆÊ’u
+// Nameï¿½F      ElevatorMove
+// Purposeï¿½F   ï¿½Gï¿½ï¿½ï¿½xï¿½[ï¿½^ï¿½[ï¿½Ú“ï¿½
+// Parameters: lPos - ï¿½Ú•Wï¿½Ê’u
 //
-// Returns:    int - 0 = ¬Œ÷
+// Returns:    int - 0 = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -644,19 +644,19 @@ int CStageNTN::ElevatorMove(long lPos)
 		return STAGE_ERR_COMMUNICATION_FAILURE;
 	if ( SendCommand(szMoveStageZ, 0) != STAGE_ERR_NONE )
 		return STAGE_ERR_COMMUNICATION_FAILURE;
-/* added 2009.10.19 hmenjo Z ²—p‚ÉˆÊ’uæ“¾’Ç‰Á ---------- { ---------- */
+/* added 2009.10.19 hmenjo Z ï¿½ï¿½ï¿½pï¿½ÉˆÊ’uï¿½æ“¾ï¿½Ç‰ï¿½ ---------- { ---------- */
 	InquirePos();
-/* added 2009.10.19 hmenjo Z ²—p‚ÉˆÊ’uæ“¾’Ç‰Á ---------- } ---------- */
+/* added 2009.10.19 hmenjo Z ï¿½ï¿½ï¿½pï¿½ÉˆÊ’uï¿½æ“¾ï¿½Ç‰ï¿½ ---------- } ---------- */
 
 	return iRet;
 }
 
 // =========================================================================
-// NameF      ElevatorMoveRelative
-// PurposeF   ƒGƒŒƒx[ƒ^[ˆÚ“®
-// Parameters: lPos - –Ú•WˆÊ’u
+// Nameï¿½F      ElevatorMoveRelative
+// Purposeï¿½F   ï¿½Gï¿½ï¿½ï¿½xï¿½[ï¿½^ï¿½[ï¿½Ú“ï¿½
+// Parameters: lPos - ï¿½Ú•Wï¿½Ê’u
 //
-// Returns:    int - 0 = ¬Œ÷
+// Returns:    int - 0 = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -680,20 +680,20 @@ int CStageNTN::ElevatorMoveRelative(long lPos)
 		return STAGE_ERR_COMMUNICATION_FAILURE;
 	if ( SendCommand(szMoveStageZ, 0) != STAGE_ERR_NONE )
 		return STAGE_ERR_COMMUNICATION_FAILURE;
-/* added 2009.10.19 hmenjo Z ²—p‚ÉˆÊ’uæ“¾’Ç‰Á ---------- { ---------- */
+/* added 2009.10.19 hmenjo Z ï¿½ï¿½ï¿½pï¿½ÉˆÊ’uï¿½æ“¾ï¿½Ç‰ï¿½ ---------- { ---------- */
 	InquirePos();
-/* added 2009.10.19 hmenjo Z ²—p‚ÉˆÊ’uæ“¾’Ç‰Á ---------- } ---------- */
+/* added 2009.10.19 hmenjo Z ï¿½ï¿½ï¿½pï¿½ÉˆÊ’uï¿½æ“¾ï¿½Ç‰ï¿½ ---------- } ---------- */
 
 	return iRet;
 }
 
 // =========================================================================
-// NameF      ElevatorMoveEx
-// PurposeF   ƒGƒŒƒx[ƒ^[ˆÚ“®Šg’£”Å
-// Parameters: lpmpx - MOTARAMSEX\‘¢‘Ì‚Ö‚Ìƒ|ƒCƒ“ƒ^
-//             bWait - Š®—¹‘Ò‚¿ƒtƒ‰ƒO
+// Nameï¿½F      ElevatorMoveEx
+// Purposeï¿½F   ï¿½Gï¿½ï¿½ï¿½xï¿½[ï¿½^ï¿½[ï¿½Ú“ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½
+// Parameters: lpmpx - MOTARAMSEXï¿½\ï¿½ï¿½ï¿½Ì‚Ö‚Ìƒ|ï¿½Cï¿½ï¿½ï¿½^
+//             bWait - ï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½ï¿½tï¿½ï¿½ï¿½O
 //
-// Returns:    int - 0 = ¬Œ÷
+// Returns:    int - 0 = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -770,18 +770,18 @@ int CStageNTN::ElevatorMoveEx(LPMOTPARAMSEX lpmpx, BOOL bWait/*TRUE*/)
 		}
 		ElevatorStop();
 	}
-/* added 2009.10.19 hmenjo Z ²—p‚ÉˆÊ’uæ“¾’Ç‰Á ---------- { ---------- */
+/* added 2009.10.19 hmenjo Z ï¿½ï¿½ï¿½pï¿½ÉˆÊ’uï¿½æ“¾ï¿½Ç‰ï¿½ ---------- { ---------- */
 	InquirePos();
-/* added 2009.10.19 hmenjo Z ²—p‚ÉˆÊ’uæ“¾’Ç‰Á ---------- } ---------- */
+/* added 2009.10.19 hmenjo Z ï¿½ï¿½ï¿½pï¿½ÉˆÊ’uï¿½æ“¾ï¿½Ç‰ï¿½ ---------- } ---------- */
 	return iRet;
 }
 
 // =========================================================================
-// NameF      ElevatorMoveAtSpeed
-// PurposeF   ƒtƒH[ƒJƒX²‘¬“xˆÚ“®
-// Parameters: dSpeed - –Ú•WƒXƒs[ƒh
+// Nameï¿½F      ElevatorMoveAtSpeed
+// Purposeï¿½F   ï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½xï¿½Ú“ï¿½
+// Parameters: dSpeed - ï¿½Ú•Wï¿½Xï¿½sï¿½[ï¿½h
 //
-// Returns:    int - 0 = ¬Œ÷
+// Returns:    int - 0 = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -791,7 +791,7 @@ int CStageNTN::ElevatorMoveAtSpeed(double dSpeed)
 
 	if ( !IsEnableAutoFocus() ) return STAGE_ERR_INVALID_AUTOFOCUS;
 
-	for ( int index = 0; index < m_nTotalElevatorSpeeds; index++ ) {
+	for ( int index = 0; index < static_cast<int>(m_nTotalElevatorSpeeds); index++ ) {
 		if ( m_pElevatorSpeeds[index] == fabs(dSpeed) ) {
 			index += MSEX_MOVE_Z + (dSpeed < 0 ? m_nTotalElevatorSpeeds : 0);
 			CAuxInt result;
@@ -799,9 +799,9 @@ int CStageNTN::ElevatorMoveAtSpeed(double dSpeed)
 				 static_cast<int>(result) != 0 ) {
 				return STAGE_ERR_COMMUNICATION_FAILURE;
 			}
-/* added 2009.10.19 hmenjo Z ²—p‚ÉˆÊ’uæ“¾’Ç‰Á ---------- { ---------- */
+/* added 2009.10.19 hmenjo Z ï¿½ï¿½ï¿½pï¿½ÉˆÊ’uï¿½æ“¾ï¿½Ç‰ï¿½ ---------- { ---------- */
 			InquirePos();
-/* added 2009.10.19 hmenjo Z ²—p‚ÉˆÊ’uæ“¾’Ç‰Á ---------- } ---------- */
+/* added 2009.10.19 hmenjo Z ï¿½ï¿½ï¿½pï¿½ÉˆÊ’uï¿½æ“¾ï¿½Ç‰ï¿½ ---------- } ---------- */
 			return ConvertErrorCode(static_cast<int>(result));
 		}
 	}
@@ -809,11 +809,11 @@ int CStageNTN::ElevatorMoveAtSpeed(double dSpeed)
 }
 
 // =========================================================================
-// NameF      ElevatorMoveAtSpeedEx
-// PurposeF   ƒtƒH[ƒJƒX²‘¬“xˆÚ“®
-// Parameters: dSpeed - –Ú•WƒXƒs[ƒh
+// Nameï¿½F      ElevatorMoveAtSpeedEx
+// Purposeï¿½F   ï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½xï¿½Ú“ï¿½
+// Parameters: dSpeed - ï¿½Ú•Wï¿½Xï¿½sï¿½[ï¿½h
 //
-// Returns:    int - 0 = ¬Œ÷
+// Returns:    int - 0 = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -836,11 +836,11 @@ int CStageNTN::ElevatorStop(void)
 }
 
 // =========================================================================
-// NameF      VacuumCtrl
-// PurposeF   ƒoƒLƒ…[ƒ€§Œä
+// Nameï¿½F      VacuumCtrl
+// Purposeï¿½F   ï¿½oï¿½Lï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // Parameters: bOn - ON/OFF
 //
-// Returns:    int - 0 = ¬Œ÷
+// Returns:    int - 0 = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -851,11 +851,11 @@ int CStageNTN::VacuumCtrl(BOOL bOn)
 
 #define ALIGNER_NONE 0
 // =========================================================================
-// NameF      DoAligner
-// PurposeF   ƒoƒLƒ…[ƒ€§Œä
+// Nameï¿½F      DoAligner
+// Purposeï¿½F   ï¿½oï¿½Lï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // Parameters: bOn - ON/OFF
 //
-// Returns:    int - 0 = ¬Œ÷
+// Returns:    int - 0 = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -885,13 +885,13 @@ int CStageNTN::DoEdgeAligner(STAGE_COORD* pOffset)
 #else
 	if ( m_Params.SystemConfig.dCorrectAngle == DEGREE90 || m_Params.SystemConfig.dCorrectAngle == -DEGREE90 ) {
 #endif
-		if ( (iRet = StageMove(ysensor_x, ysensor_ystart, MS_MOVE_XY)) != STAGE_ERR_NONE )		// ƒXƒLƒƒƒ“ŠJnˆÊ’uˆÚ“®
+		if ( (iRet = StageMove(ysensor_x, ysensor_ystart, MS_MOVE_XY)) != STAGE_ERR_NONE )		// ï¿½Xï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½nï¿½Ê’uï¿½Ú“ï¿½
 			goto EXIT;
-		if ( (iRet = StageMove(ysensor_x, ysensor_yend, MS_SCAN_XSENSOR)) != STAGE_ERR_NONE )	// X²ƒXƒLƒƒƒ“
+		if ( (iRet = StageMove(ysensor_x, ysensor_yend, MS_SCAN_XSENSOR)) != STAGE_ERR_NONE )	// Xï¿½ï¿½ï¿½Xï¿½Lï¿½ï¿½ï¿½ï¿½
 			goto EXIT;
-		if ( (iRet = StageMove(xsensor_xstart, xsensor_y, MS_MOVE_XY)) != STAGE_ERR_NONE )		// ƒXƒLƒƒƒ“ŠJnˆÊ’uˆÚ“®
+		if ( (iRet = StageMove(xsensor_xstart, xsensor_y, MS_MOVE_XY)) != STAGE_ERR_NONE )		// ï¿½Xï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½nï¿½Ê’uï¿½Ú“ï¿½
 			goto EXIT;
-		if ( (iRet = StageMove(xsensor_xend, xsensor_y, MS_SCAN_YSENSOR)) != STAGE_ERR_NONE)	// Y²ƒXƒLƒƒƒ“
+		if ( (iRet = StageMove(xsensor_xend, xsensor_y, MS_SCAN_YSENSOR)) != STAGE_ERR_NONE)	// Yï¿½ï¿½ï¿½Xï¿½Lï¿½ï¿½ï¿½ï¿½
 			goto EXIT;
 
 		if ( (iRet = StageMove(MS_STORE_POS1)) != STAGE_ERR_NONE )
@@ -905,18 +905,18 @@ int CStageNTN::DoEdgeAligner(STAGE_COORD* pOffset)
 		if ( (abs(xsensor_xstart - m_EdgePos[1].lX) < 0.1) ||
 			 (abs(xsensor_xstart - m_EdgePos[0].lX) < 0.1) ||
 			 (abs(ysensor_ystart - m_EdgePos[1].lY) < 0.1) ) {
-			// ƒT[ƒ`¸”s
+			// ï¿½Tï¿½[ï¿½`ï¿½ï¿½ï¿½s
 			bSuccess = FALSE;
 		}
 	}
 	else {
-		if ( (iRet = StageMove(xsensor_xstart, xsensor_y, MS_MOVE_XY)) != STAGE_ERR_NONE )		// ƒXƒLƒƒƒ“ŠJnˆÊ’uˆÚ“®
+		if ( (iRet = StageMove(xsensor_xstart, xsensor_y, MS_MOVE_XY)) != STAGE_ERR_NONE )		// ï¿½Xï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½nï¿½Ê’uï¿½Ú“ï¿½
 			goto EXIT;
-		if ( (iRet = StageMove(xsensor_xend, xsensor_y, MS_SCAN_XSENSOR)) != STAGE_ERR_NONE)	// X²ƒXƒLƒƒƒ“
+		if ( (iRet = StageMove(xsensor_xend, xsensor_y, MS_SCAN_XSENSOR)) != STAGE_ERR_NONE)	// Xï¿½ï¿½ï¿½Xï¿½Lï¿½ï¿½ï¿½ï¿½
 			goto EXIT;
-		if ( (iRet = StageMove(ysensor_x, ysensor_ystart, MS_MOVE_XY)) != STAGE_ERR_NONE )		// ƒXƒLƒƒƒ“ŠJnˆÊ’uˆÚ“®
+		if ( (iRet = StageMove(ysensor_x, ysensor_ystart, MS_MOVE_XY)) != STAGE_ERR_NONE )		// ï¿½Xï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½nï¿½Ê’uï¿½Ú“ï¿½
 			goto EXIT;
-		if ( (iRet = StageMove(ysensor_x, ysensor_yend, MS_SCAN_YSENSOR)) != STAGE_ERR_NONE )	// Y²ƒXƒLƒƒƒ“
+		if ( (iRet = StageMove(ysensor_x, ysensor_yend, MS_SCAN_YSENSOR)) != STAGE_ERR_NONE )	// Yï¿½ï¿½ï¿½Xï¿½Lï¿½ï¿½ï¿½ï¿½
 			goto EXIT;
 
 		if ( (iRet = StageMove(MS_STORE_POS1)) != STAGE_ERR_NONE )
@@ -930,7 +930,7 @@ int CStageNTN::DoEdgeAligner(STAGE_COORD* pOffset)
 		if ( (abs(xsensor_xstart - m_EdgePos[1].lX) < 0.1) ||
 			 (abs(ysensor_ystart - m_EdgePos[1].lY) < 0.1) ||
 			 (abs(ysensor_ystart - m_EdgePos[0].lY) < 0.1) ) {
-			// ƒT[ƒ`¸”s
+			// ï¿½Tï¿½[ï¿½`ï¿½ï¿½ï¿½s
 			bSuccess = FALSE;
 		}
 	}
@@ -946,11 +946,11 @@ EXIT:
 }
 
 // =========================================================================
-// NameF      DoAutoFocus
-// PurposeF   ƒI[ƒgƒtƒH[ƒJƒX
+// Nameï¿½F      DoAutoFocus
+// Purposeï¿½F   ï¿½Iï¿½[ï¿½gï¿½tï¿½Hï¿½[ï¿½Jï¿½X
 // Parameters: None
 //
-// Returns:    int - 0 = ¬Œ÷
+// Returns:    int - 0 = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -977,7 +977,7 @@ int CStageNTN::DoAutoFocus(LPVOID)
 	m_bAbortAutoFocus	   = FALSE;
 	m_bAutoFocusInProgress = FALSE;
 
-	// •Û—¯
+	// ï¿½Û—ï¿½
 	return static_cast<int>(result);
 }
 
@@ -992,11 +992,11 @@ int CStageNTN::AbortAutoFocus(void)
 }
 
 // =========================================================================
-// NameF      HardwareStatusInquire
-// PurposeF   ƒn[ƒgƒEƒFƒAó‘ÔŠm”F
-// Parameters: nID - ƒTƒuƒRƒ}ƒ“ƒhID
+// Nameï¿½F      HardwareStatusInquire
+// Purposeï¿½F   ï¿½nï¿½[ï¿½gï¿½Eï¿½Fï¿½Aï¿½ï¿½ÔŠmï¿½F
+// Parameters: nID - ï¿½Tï¿½uï¿½Rï¿½}ï¿½ï¿½ï¿½hID
 //
-// Returns:    int - 0 = ¬Œ÷
+// Returns:    int - 0 = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -1012,11 +1012,11 @@ int CStageNTN::HardwareStatusInquire(UINT nID)
 	return iRet;
 }
 // =========================================================================
-// NameF      AutoFocusInquire
-// PurposeF   ƒI[ƒgƒtƒH[ƒJƒXó‘ÔŠm”F
+// Nameï¿½F      AutoFocusInquire
+// Purposeï¿½F   ï¿½Iï¿½[ï¿½gï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ÔŠmï¿½F
 // Parameters: None
 //
-// Returns:    int - 0 = ¬Œ÷
+// Returns:    int - 0 = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -1031,11 +1031,11 @@ int CStageNTN::AutoFocusInquire(BOOL bDisable/*=TRUE*/)
 }
 
 // =========================================================================
-// NameF      TurretInquire
-// PurposeF   ƒ^[ƒŒƒbƒgó‘Ô
+// Nameï¿½F      TurretInquire
+// Purposeï¿½F   ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½gï¿½ï¿½ï¿½
 // Parameters: None
 //
-// Returns:    int - 0 = ¬Œ÷
+// Returns:    int - 0 = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -1050,11 +1050,11 @@ int CStageNTN::TurretInquire(BOOL bDisable/*=TRUE*/)
 }
 
 // =========================================================================
-// NameF      StageInquire
-// PurposeF   ƒXƒe[ƒWó‘Ô
+// Nameï¿½F      StageInquire
+// Purposeï¿½F   ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½
 // Parameters: None
 //
-// Returns:    int - 0 = ¬Œ÷
+// Returns:    int - 0 = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -1069,11 +1069,11 @@ int CStageNTN::StageInquire(BOOL bDisable/*=TRUE*/)
 }
 
 // =========================================================================
-// NameF      DisableTurret
-// PurposeF   ƒ^[ƒŒƒbƒg–³Œø
+// Nameï¿½F      DisableTurret
+// Purposeï¿½F   ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½gï¿½ï¿½ï¿½ï¿½
 // Parameters: None
 //
-// Returns:    int - STAGE_ERR_NONE = ¬Œ÷
+// Returns:    int - STAGE_ERR_NONE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -1088,11 +1088,11 @@ int CStageNTN::DisableTurret(void)
 }
 
 // =========================================================================
-// NameF      DisableAutoFocus
-// PurposeF   ƒI[ƒgƒtƒH[ƒJƒX–³Œø
+// Nameï¿½F      DisableAutoFocus
+// Purposeï¿½F   ï¿½Iï¿½[ï¿½gï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ï¿½ï¿½
 // Parameters: None
 //
-// Returns:    int - STAGE_ERR_NONE = ¬Œ÷
+// Returns:    int - STAGE_ERR_NONE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -1107,11 +1107,11 @@ int CStageNTN::DisableAutoFocus(void)
 }
 
 // =========================================================================
-// NameF      DisableStage
-// PurposeF   ƒXƒe[ƒW–³Œø
+// Nameï¿½F      DisableStage
+// Purposeï¿½F   ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½
 // Parameters: None
 //
-// Returns:    int - STAGE_ERR_NONE = ¬Œ÷
+// Returns:    int - STAGE_ERR_NONE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -1126,11 +1126,11 @@ int CStageNTN::DisableStage(void)
 }
 
 // =========================================================================
-// NameF      EnableJoystickMoveElevator
-// PurposeF   ƒWƒ‡ƒCƒXƒeƒBƒbƒNƒGƒŒƒx[ƒ^[ˆÚ“® —LŒøE–³Œø
-// Parameters: bEnable - TRUE = —LŒø
+// Nameï¿½F      EnableJoystickMoveElevator
+// Purposeï¿½F   ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½Gï¿½ï¿½ï¿½xï¿½[ï¿½^ï¿½[ï¿½Ú“ï¿½ ï¿½Lï¿½ï¿½ï¿½Eï¿½ï¿½ï¿½ï¿½
+// Parameters: bEnable - TRUE = ï¿½Lï¿½ï¿½
 //
-// Returns:    int - 0 = ¬Œ÷
+// Returns:    int - 0 = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -1146,11 +1146,11 @@ int CStageNTN::EnableJoystickMoveElevator(BOOL bEnable/*=FALSE*/)
 }
 
 // =========================================================================
-// NameF      DisableJoystick
-// PurposeF   ƒWƒ‡ƒCƒXƒeƒBƒbƒN —LŒøE–³Œø
-// Parameters: bDisable - TRUE = –³Œø
+// Nameï¿½F      DisableJoystick
+// Purposeï¿½F   ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½N ï¿½Lï¿½ï¿½ï¿½Eï¿½ï¿½ï¿½ï¿½
+// Parameters: bDisable - TRUE = ï¿½ï¿½ï¿½ï¿½
 //
-// Returns:    int - 0 = ¬Œ÷
+// Returns:    int - 0 = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -1174,13 +1174,13 @@ int CStageNTN::DisableJoystick(BOOL bDisable/*=TRUE*/)
 }
 
 // =========================================================================
-// NameF      IsDownVibIsol
-// PurposeF   Z²ƒGƒ“ƒR[ƒ_ó‘Ô
+// Nameï¿½F      IsDownVibIsol
+// Purposeï¿½F   Zï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½Rï¿½[ï¿½_ï¿½ï¿½ï¿½
 // Parameters: None
 //
-// Returns:    BOOL - TRUE = ¬Œ÷
+// Returns:    BOOL - TRUE = ï¿½ï¿½ï¿½ï¿½
 //
-// Notes:      “r’†
+// Notes:      ï¿½rï¿½ï¿½
 //
 /*
 BOOL CStageNTN::IsDownVibIsol(void)
@@ -1196,11 +1196,11 @@ BOOL CStageNTN::IsDownVibIsol(void)
 */
 
 // =========================================================================
-// NameF      IsValidZAxisEncoder
-// PurposeF   Z²ƒGƒ“ƒR[ƒ_ó‘Ô
+// Nameï¿½F      IsValidZAxisEncoder
+// Purposeï¿½F   Zï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½Rï¿½[ï¿½_ï¿½ï¿½ï¿½
 // Parameters: None
 //
-// Returns:    BOOL - TRUE = ¬Œ÷
+// Returns:    BOOL - TRUE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -1209,14 +1209,14 @@ BOOL CStageNTN::IsValidZAxisEncoder(void)
 /*
 	if ( m_Params.ZAxis.Enc.bValid ) {
 		CAuxZ result;
-		// Z²ˆÊ’uæ“¾
+		// Zï¿½ï¿½ï¿½Ê’uï¿½æ“¾
 		SendCommand(szGetPosZ, 0, (PTSTR) result);
 		long lPos = *result.convert();
 
-		// óM—pƒoƒbƒtƒ@ƒNƒŠƒA
+		// ï¿½ï¿½Mï¿½pï¿½oï¿½bï¿½tï¿½@ï¿½Nï¿½ï¿½ï¿½A
 		result.clear();
 
-		// Z²ƒGƒ“ƒR[ƒ_’læ“¾
+		// Zï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½Rï¿½[ï¿½_ï¿½lï¿½æ“¾
 		SendCommand(szEncoderStatusZ, 0, (PTSTR) result);
 		double dEnc = (*result.convert() - m_Params.ZAxis.Enc.dOffset) * m_Params.ZAxis.Enc.dDiv + m_Params.ZAxis.Enc.dOffset;
 		if ( abs(lPos - dEnc) >= MIN_ENC ) return FALSE;
@@ -1226,12 +1226,12 @@ BOOL CStageNTN::IsValidZAxisEncoder(void)
 }
 
 // =========================================================================
-// NameF      AdjustElevator
-// PurposeF   ƒXƒe[ƒW•½’R“x’²®
-// Parameters: bZero - 0ˆÊ’u
-//             pPos  - ƒXƒe[ƒWÀ•W
+// Nameï¿½F      AdjustElevator
+// Purposeï¿½F   ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½Rï¿½xï¿½ï¿½ï¿½ï¿½
+// Parameters: bZero - 0ï¿½Ê’u
+//             pPos  - ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½W
 //
-// Returns:    BOOL - TRUE = ¬Œ÷
+// Returns:    BOOL - TRUE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -1267,12 +1267,12 @@ int CStageNTN::AdjustElevator(BOOL bZero, STAGE_COORD* pPos/*=NULL*/)
 }
 
 // =========================================================================
-// NameF      AdjustElevator
-// PurposeF   ƒXƒe[ƒW•½’R“x’²®
-// Parameters: bZero - 0ˆÊ’u
-//             pPos  - ƒXƒe[ƒWÀ•W
+// Nameï¿½F      AdjustElevator
+// Purposeï¿½F   ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½Rï¿½xï¿½ï¿½ï¿½ï¿½
+// Parameters: bZero - 0ï¿½Ê’u
+//             pPos  - ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½W
 //
-// Returns:    BOOL - TRUE = ¬Œ÷
+// Returns:    BOOL - TRUE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -1283,11 +1283,11 @@ int CStageNTN::AdjustElevator(long lOffset)
 }
 
 // =========================================================================
-// NameF      SelectLens
-// PurposeF   ƒŒƒ“ƒY‘I‘ğ
-// Parameters: nSelect - ƒŒƒ“ƒY
+// Nameï¿½F      SelectLens
+// Purposeï¿½F   ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½Iï¿½ï¿½
+// Parameters: nSelect - ï¿½ï¿½ï¿½ï¿½ï¿½Y
 //
-// Returns:    int - 0 = ¬Œ÷
+// Returns:    int - 0 = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -1311,11 +1311,11 @@ int CStageNTN::SelectLens(LPVOID lpData)
 }
 
 // =========================================================================
-// NameF      Initialize
-// PurposeF   ‰Šú‰»
+// Nameï¿½F      Initialize
+// Purposeï¿½F   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // Parameters: None
 //
-// Returns:    int - STAGE_ERR_NONE = ¬Œ÷
+// Returns:    int - STAGE_ERR_NONE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -1359,11 +1359,11 @@ EXIT:
 }
 
 // =========================================================================
-// NameF      InitializeStage
-// PurposeF   ƒXƒe[ƒW‰Šú‰»
+// Nameï¿½F      InitializeStage
+// Purposeï¿½F   ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // Parameters: None
 //
-// Returns:    int - STAGE_ERR_NONE = ¬Œ÷
+// Returns:    int - STAGE_ERR_NONE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -1414,13 +1414,13 @@ int CStageNTN::InitializeStage(void)
 }
 
 // =========================================================================
-// NameF      InitializeAutoFocus
-// PurposeF   ƒI[ƒgƒtƒH[ƒJƒX‰Šú‰»
+// Nameï¿½F      InitializeAutoFocus
+// Purposeï¿½F   ï¿½Iï¿½[ï¿½gï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // Parameters: None
 //
-// Returns:    int - STAGE_ERR_NONE = ¬Œ÷
+// Returns:    int - STAGE_ERR_NONE = ï¿½ï¿½ï¿½ï¿½
 //
-// Notes:      –¢‚¾‰ğÍ•s‰Â”\
+// Notes:      ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í•sï¿½Â”\
 //
 int CStageNTN::InitializeAutoFocus(void)
 {
@@ -1432,7 +1432,7 @@ int CStageNTN::InitializeAutoFocus(void)
 		return iRet;
 	}
 
-	// ƒI[ƒgƒtƒH[ƒJƒXŠm”F
+	// ï¿½Iï¿½[ï¿½gï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½mï¿½F
 	if ( AutoFocusInquire(FALSE) > HWSTCMD_RESULT_AVAILABLE ) {
 		DisableAutoFocus();
 		return STAGE_ERR_AUTOFOCUS_NOT_FOUND;
@@ -1475,13 +1475,13 @@ int CStageNTN::InitializeAutoFocus(void)
 }
 
 // =========================================================================
-// NameF      InitializeTurret
-// PurposeF   ƒ^[ƒŒƒbƒg‰Šú‰»
+// Nameï¿½F      InitializeTurret
+// Purposeï¿½F   ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // Parameters: None
 //
-// Returns:    int - STAGE_ERR_NONE = ¬Œ÷
+// Returns:    int - STAGE_ERR_NONE = ï¿½ï¿½ï¿½ï¿½
 //
-// Notes:      –¢‚¾‰ğÍ•s‰Â”\
+// Notes:      ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í•sï¿½Â”\
 //
 int CStageNTN::InitializeTurret(void)
 {
@@ -1506,13 +1506,13 @@ int CStageNTN::InitializeTurret(void)
 }
 
 // =========================================================================
-// NameF      InitializeAutoFocusTurret
-// PurposeF   ƒI[ƒgƒtƒH[ƒJƒX‹y‚Ñƒ^[ƒŒƒbƒg‰Šú‰»
+// Nameï¿½F      InitializeAutoFocusTurret
+// Purposeï¿½F   ï¿½Iï¿½[ï¿½gï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½yï¿½Ñƒ^ï¿½[ï¿½ï¿½ï¿½bï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // Parameters: None
 //
-// Returns:    int - STAGE_ERR_NONE = ¬Œ÷
+// Returns:    int - STAGE_ERR_NONE = ï¿½ï¿½ï¿½ï¿½
 //
-// Notes:      –¢‚¾‰ğÍ•s‰Â”\
+// Notes:      ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í•sï¿½Â”\
 //
 int CStageNTN::InitializeAutoFocusTurret(void)
 {
@@ -1526,13 +1526,13 @@ int CStageNTN::InitializeAutoFocusTurret(void)
 	}
 
 	UINT uFlags = 0;
-	// ƒI[ƒgƒtƒH[ƒJƒXŠm”F
+	// ï¿½Iï¿½[ï¿½gï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½mï¿½F
 	iRet = AutoFocusInquire(FALSE);
 	if ( iRet >= HWSTCMD_RESULT_RUN  &&
 		 iRet < HWSTCMD_RESULT_SENSORERROR ) {
 		uFlags |= HW_AUTOFOCUS;
 	}
-	// ƒ^[ƒŒƒbƒgŠm”F
+	// ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½gï¿½mï¿½F
 	iRet = TurretInquire(FALSE);
 	if ( iRet >= HWSTCMD_RESULT_RUN  &&
 		 iRet < HWSTCMD_RESULT_SENSORERROR ) {
@@ -1599,14 +1599,14 @@ int CStageNTN::InitializeAutoFocusTurret(void)
 }
 
 // =========================================================================
-// NameF      GetVacuumStatus
-// PurposeF   ‹z’…Šm”F
+// Nameï¿½F      GetVacuumStatus
+// Purposeï¿½F   ï¿½zï¿½ï¿½ï¿½mï¿½F
 // Parameters: None
 //
 // Returns:    int - 0 = ON
 //                   1 = OFF
-//                ˆÈŠO = ƒGƒ‰[
-// Notes:      –¢‚¾‰ğÍ•s‰Â”\
+//                ï¿½ÈŠO = ï¿½Gï¿½ï¿½ï¿½[
+// Notes:      ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í•sï¿½Â”\
 //
 int CStageNTN::GetVacuumStatus(void)
 {
@@ -1615,11 +1615,11 @@ int CStageNTN::GetVacuumStatus(void)
 
 #ifndef _DISABLETHREADSPOS
 // =========================================================================
-// NameF      GetXyPos
-// PurposeF   Œ»İ’læ“¾
+// Nameï¿½F      GetXyPos
+// Purposeï¿½F   ï¿½ï¿½ï¿½İ’lï¿½æ“¾
 // Parameters: None
 //
-// Returns:    int - STAGE_ERR_NONE = ¬Œ÷
+// Returns:    int - STAGE_ERR_NONE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -1632,14 +1632,14 @@ UINT CStageNTN::MonitorThreadProc(void)
 #if 0
 		if ( bFirstTime ) {
 			bFirstTime = FALSE;
-			// XY²
+			// XYï¿½ï¿½
 			CAuxXy resultXy;
 			if ( SendCommand(szGetPosXy, 0, (PTSTR) resultXy) != STAGE_ERR_NONE ) {
 				return STAGE_ERR_COMMUNICATION_FAILURE;
 			}
 			PhysicalToLogical(resultXy.convert(), (STAGE_COORD*) &m_CurrPos);
 
-			// Z²
+			// Zï¿½ï¿½
 			AutoFocusInquire();
 
 			if ( !IsEnableAutoFocus() ) return STAGE_ERR_INVALID_AUTOFOCUS;
@@ -1658,7 +1658,7 @@ UINT CStageNTN::MonitorThreadProc(void)
 			PhysicalToLogical(resultXyz.convert(), &m_CurrPos);
 		}
 #else
-		// ”ñí’â~
+		// ï¿½ï¿½ï¿½ï¿½~
 		if ( emergency.detect(nexioIsEmergencyStop()).is_down() ) {
 			m_bValid = FALSE;
 		}
@@ -1697,7 +1697,7 @@ int CStageNTN::InquirePos(void)
 #if 1	// added hmenjo 20090416 ---------- { -----
 	if (STAGETYPE_SPT != gc_iStageType) {
 #endif	// added hmenjo 20090416 ---------- } -----
-		// XY²
+		// XYï¿½ï¿½
 		CAuxXy resultXy;
 		if ( SendCommand(szGetPosXy, 0, (PTSTR) resultXy) != STAGE_ERR_NONE ) {
 			return STAGE_ERR_COMMUNICATION_FAILURE;
@@ -1712,7 +1712,7 @@ int CStageNTN::InquirePos(void)
 	}
 #endif	// added hmenjo 20090416 ---------- } -----
 
-		// Z²
+		// Zï¿½ï¿½
 		AutoFocusInquire();
 
 		if ( !IsEnableAutoFocus() ) return STAGE_ERR_INVALID_AUTOFOCUS;
@@ -1756,11 +1756,11 @@ int CStageNTN::InquirePos(void)
 
 #else
 // =========================================================================
-// NameF      GetXyPos
-// PurposeF   Œ»İ’læ“¾
-// Parameters: pPos - ˆÊ’uæ“¾ƒoƒbƒtƒ@
+// Nameï¿½F      GetXyPos
+// Purposeï¿½F   ï¿½ï¿½ï¿½İ’lï¿½æ“¾
+// Parameters: pPos - ï¿½Ê’uï¿½æ“¾ï¿½oï¿½bï¿½tï¿½@
 //
-// Returns:    int - STAGE_ERR_NONE = ¬Œ÷
+// Returns:    int - STAGE_ERR_NONE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -1797,12 +1797,12 @@ int CStageNTN::GetPos(STAGE_COORD_XYZ* pPos)
 }
 
 // =========================================================================
-// NameF      GetPos
-// PurposeF   Œ»İ’læ“¾
-// Parameters: wAxis - ²
-//             pPos  - ˆÊ’uæ“¾ƒoƒbƒtƒ@
+// Nameï¿½F      GetPos
+// Purposeï¿½F   ï¿½ï¿½ï¿½İ’lï¿½æ“¾
+// Parameters: wAxis - ï¿½ï¿½
+//             pPos  - ï¿½Ê’uï¿½æ“¾ï¿½oï¿½bï¿½tï¿½@
 //
-// Returns:    int - STAGE_ERR_NONE = ¬Œ÷
+// Returns:    int - STAGE_ERR_NONE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -1824,11 +1824,11 @@ int CStageNTN::GetPos(WORD wAxis, long* pPos)
 }
 
 // =========================================================================
-// NameF      GetElevatorPos
-// PurposeF   ƒGƒŒƒx[ƒ^[Œ»İ’læ“¾
-// Parameters: pPos  - ˆÊ’uæ“¾ƒoƒbƒtƒ@
+// Nameï¿½F      GetElevatorPos
+// Purposeï¿½F   ï¿½Gï¿½ï¿½ï¿½xï¿½[ï¿½^ï¿½[ï¿½ï¿½ï¿½İ’lï¿½æ“¾
+// Parameters: pPos  - ï¿½Ê’uï¿½æ“¾ï¿½oï¿½bï¿½tï¿½@
 //
-// Returns:    int - STAGE_ERR_NONE = ¬Œ÷
+// Returns:    int - STAGE_ERR_NONE = ï¿½ï¿½ï¿½ï¿½
 //
 // Notes:
 //
@@ -1856,10 +1856,10 @@ int CStageNTN::GetElevatorPos(long* pPos)
 #endif // _DISABLETHREADSPOS
 
 // =========================================================================
-// NameF      SetPos
-// PurposeF   w—ßÀ•Wİ’è
-// Parameters: wAxis - ²
-//             lPos  - w—ßÀ•W
+// Nameï¿½F      SetPos
+// Purposeï¿½F   ï¿½wï¿½ßï¿½ï¿½Wï¿½İ’ï¿½
+// Parameters: wAxis - ï¿½ï¿½
+//             lPos  - ï¿½wï¿½ßï¿½ï¿½W
 //
 // Returns:    None
 //
@@ -1884,9 +1884,9 @@ void CStageNTN::SetPos(WORD wAxis, long lPos)
 }
 
 // =========================================================================
-// NameF      SetPos
-// PurposeF   w—ßÀ•Wİ’è
-// Parameters: pPos - w—ßÀ•W
+// Nameï¿½F      SetPos
+// Purposeï¿½F   ï¿½wï¿½ßï¿½ï¿½Wï¿½İ’ï¿½
+// Parameters: pPos - ï¿½wï¿½ßï¿½ï¿½W
 //
 // Returns:    None
 //
@@ -1997,9 +1997,9 @@ int CStageNTN::GetOriginPos(STAGE_COORD* pPos)
 	return STAGE_ERR_NONE;
 }
 
-/* added hmenjo 2009.05.25 SPT ƒXƒe[ƒW—pİ’è‘Î‰ -------- { -------- */
-/* ƒXƒe[ƒW‚ÌŒ´“_ˆÊ’uƒIƒtƒZƒbƒg‚ğæ“¾
-		ƒXƒe[ƒW‚Ì|‘¤•ûŒü’[‚©‚çŒ´“_(‚O“_)‚Ü‚Å‚Ì‹——£‚Å‚·D */
+/* added hmenjo 2009.05.25 SPT ï¿½Xï¿½eï¿½[ï¿½Wï¿½pï¿½İ’ï¿½Î‰ï¿½ -------- { -------- */
+/* ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÌŒï¿½ï¿½_ï¿½Ê’uï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½æ“¾
+		ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ì|ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½çŒ´ï¿½_(ï¿½Oï¿½_)ï¿½Ü‚Å‚Ì‹ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½D */
 int CStageNTN::GetOrgLoc(long* plStageOrgLocX, long* plStageOrgLocY)
 {
 	int l_iRc = STAGE_ERR_NONE;
@@ -2024,40 +2024,40 @@ int CStageNTN::GetOrgLoc(long* plStageOrgLocX, long* plStageOrgLocY)
 		BYTE l_ucXMode1 = LOBYTE(l_wXMode1_2);
 		BYTE l_ucYMode1 = LOBYTE(l_wYMode1_2);
 		if (0 == (l_ucXMode1 & 0x40)) {
-			// 1ƒpƒ‹ƒX•û®‚Ìê‡
+			// 1ï¿½pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½Ìê‡
 			if (0 == (l_ucXMode1 & 0x10)) {
-				// ³“] (DIRM†‚ªL‚Å³“])
+				// ï¿½ï¿½ï¿½] (DIRï¿½Mï¿½ï¿½ï¿½ï¿½Lï¿½Åï¿½ï¿½])
 				*plStageOrgLocX = l_OrgPos.lX;
 			} else {
-				// ‹t“] (DIRM†‚ªL‚Å‹t“])
+				// ï¿½tï¿½] (DIRï¿½Mï¿½ï¿½ï¿½ï¿½Lï¿½Å‹tï¿½])
 				*plStageOrgLocX = l_StageSize.lX - l_OrgPos.lX;
 			}
 		} else {
-			// 2ƒpƒ‹ƒX•û®‚Ìê‡
+			// 2ï¿½pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½Ìê‡
 			if (0 == (l_ucXMode1 & 0x20)) {
-				// ³“] (DIRM†FCWƒpƒ‹ƒXCPULSEM†FCCWƒpƒ‹ƒX)
+				// ï¿½ï¿½ï¿½] (DIRï¿½Mï¿½ï¿½ï¿½FCWï¿½pï¿½ï¿½ï¿½Xï¿½CPULSEï¿½Mï¿½ï¿½ï¿½FCCWï¿½pï¿½ï¿½ï¿½X)
 				*plStageOrgLocX = l_OrgPos.lX;
 			} else {
-				// ‹t“] (DIRM†FCCWƒpƒ‹ƒXCPULSEM†FCWƒpƒ‹ƒX)
+				// ï¿½tï¿½] (DIRï¿½Mï¿½ï¿½ï¿½FCCWï¿½pï¿½ï¿½ï¿½Xï¿½CPULSEï¿½Mï¿½ï¿½ï¿½FCWï¿½pï¿½ï¿½ï¿½X)
 				*plStageOrgLocX = l_StageSize.lX - l_OrgPos.lX;
 			}
 		}
 		if (0 == (l_ucYMode1 & 0x40)) {
-			// 1ƒpƒ‹ƒX•û®‚Ìê‡
+			// 1ï¿½pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½Ìê‡
 			if (0 == (l_ucYMode1 & 0x10)) {
-				// ³“] (DIRM†‚ªL‚Å³“])
+				// ï¿½ï¿½ï¿½] (DIRï¿½Mï¿½ï¿½ï¿½ï¿½Lï¿½Åï¿½ï¿½])
 				*plStageOrgLocY = l_OrgPos.lY;
 			} else {
-				// ‹t“] (DIRM†‚ªL‚Å‹t“])
+				// ï¿½tï¿½] (DIRï¿½Mï¿½ï¿½ï¿½ï¿½Lï¿½Å‹tï¿½])
 				*plStageOrgLocY = l_StageSize.lY - l_OrgPos.lY;
 			}
 		} else {
-			// 2ƒpƒ‹ƒX•û®‚Ìê‡
+			// 2ï¿½pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½Ìê‡
 			if (0 == (l_ucYMode1 & 0x20)) {
-				// ³“] (DIRM†FCWƒpƒ‹ƒXCPULSEM†FCCWƒpƒ‹ƒX)
+				// ï¿½ï¿½ï¿½] (DIRï¿½Mï¿½ï¿½ï¿½FCWï¿½pï¿½ï¿½ï¿½Xï¿½CPULSEï¿½Mï¿½ï¿½ï¿½FCCWï¿½pï¿½ï¿½ï¿½X)
 				*plStageOrgLocY = l_OrgPos.lY;
 			} else {
-				// ‹t“] (DIRM†FCCWƒpƒ‹ƒXCPULSEM†FCWƒpƒ‹ƒX)
+				// ï¿½tï¿½] (DIRï¿½Mï¿½ï¿½ï¿½FCCWï¿½pï¿½ï¿½ï¿½Xï¿½CPULSEï¿½Mï¿½ï¿½ï¿½FCWï¿½pï¿½ï¿½ï¿½X)
 				*plStageOrgLocY = l_StageSize.lY - l_OrgPos.lY;
 			}
 		}
@@ -2065,7 +2065,7 @@ int CStageNTN::GetOrgLoc(long* plStageOrgLocX, long* plStageOrgLocY)
 
 	return l_iRc;
 }
-/* added hmenjo 2009.05.25 SPT ƒXƒe[ƒW—pİ’è‘Î‰ -------- } -------- */
+/* added hmenjo 2009.05.25 SPT ï¿½Xï¿½eï¿½[ï¿½Wï¿½pï¿½İ’ï¿½Î‰ï¿½ -------- } -------- */
 
 int CStageNTN::GetStageSpeed(unsigned short Type, unsigned short Range, double* x, double* y)
 {
@@ -2119,8 +2119,8 @@ void CStageNTN::SetLocalSpeed(double x, double y)
 
 // 2013.02.15 bagus Substrate thickness setting -->
 // =========================================================================
-// NameF      SetZSubThickOffset
-// PurposeF   Z ƒIƒtƒZƒbƒg
+// Nameï¿½F      SetZSubThickOffset
+// Purposeï¿½F   Z ï¿½Iï¿½tï¿½Zï¿½bï¿½g
 // Parameters: lZOffset
 //
 // Returns:    None
@@ -2138,8 +2138,8 @@ void CStageNTN::SetZLensOffset(long lZOffset)
 }
 
 // =========================================================================
-// NameF      SetZSubThickOffset
-// PurposeF   Z ƒIƒtƒZƒbƒg
+// Nameï¿½F      SetZSubThickOffset
+// Purposeï¿½F   Z ï¿½Iï¿½tï¿½Zï¿½bï¿½g
 // Parameters: lZOffset
 //
 // Returns:    None
@@ -2157,8 +2157,8 @@ void CStageNTN::SetZSubThickOffset(long lZOffset)
 }
 
 // =========================================================================
-// NameF      SetAFInvalidRegion
-// PurposeF   ƒI[ƒgƒtƒH[ƒJƒX–³Œø—Ìˆæ
+// Nameï¿½F      SetAFInvalidRegion
+// Purposeï¿½F   ï¿½Iï¿½[ï¿½gï¿½tï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½Ìˆï¿½
 // Parameters: dVal
 //
 // Returns:    None
