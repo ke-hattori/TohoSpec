@@ -26,7 +26,6 @@
         $(MSBuildProjectDirectory);
         %(AdditionalIncludeDirectories)
       </AdditionalIncludeDirectories>
-      <AdditionalOptions>/source-charset:932 /execution-charset:932 %(AdditionalOptions)</AdditionalOptions>
       <!-- 必要ならデバッグ情報を /Zi に統一（/ZIとの衝突回避）：
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       -->
@@ -67,7 +66,6 @@
         $(MSBuildProjectDirectory);
         %(AdditionalIncludeDirectories)
       </AdditionalIncludeDirectories>
-      <AdditionalOptions>/source-charset:932 /execution-charset:932 %(AdditionalOptions)</AdditionalOptions>
       <!-- Release の /Zi へ統一が必要なら有効化（任意）
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       -->
