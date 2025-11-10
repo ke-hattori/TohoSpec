@@ -1636,7 +1636,7 @@ void SaveNanoSpecIni(int iIniFile)
 			if (NanoSysData.StressConfig.Line[nIniStressLine].dwLiftPinNumberOfLn < 1)
 				continue;
 
-			for(nIniStressSection = 0;nIniStressSection < NanoSysData.StressConfig.Line[nIniStressLine].dwLiftPinNumberOfLn - 1;nIniStressSection++){
+			for(nIniStressSection = 0;static_cast<DWORD>(nIniStressSection) < NanoSysData.StressConfig.Line[nIniStressLine].dwLiftPinNumberOfLn - 1;nIniStressSection++){
 // 2009.09.17 bagus SE --}--
 				sprintf(szBuf,"L%dS%d_ScanStart_X",nIniStressLine+1,nIniStressSection+1);
 				wsprintf(buff,"%ld", NanoSysData.StressConfig.Line[nIniStressLine].SectPos[nIniStressSection].lScanStartPosX);
