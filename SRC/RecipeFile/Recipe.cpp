@@ -1391,7 +1391,7 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 			*(WORD*)(pDesc + iIndex)->data = (WORD)atoi(buff);
 			break;
 		case 'C':
-			strcpy((char*)(pDesc + iIndex)->data, buff);
+			strcpy_s((char*)(pDesc + iIndex)->data, 256, buff);
 			break;
 		default:
 			(void*)(pDesc + iIndex)->data = NULL;
@@ -2022,8 +2022,8 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 			);
 		TCHAR l_tszTemp[64];
 // 2009.11.09 bagus Stress ’Ç‰Á•ÏX --{--
-//		_stprintf(l_tszTemp,"%.3f",l_pStageProgStress->dElasticModulusValue);
-		_stprintf(l_tszTemp,"%e",l_pStageProgStress->dElasticModulusValue);
+//		_stprintf_s(l_tszTemp, _countof(l_tszTemp), "%.3f", l_pStageProgStress->dElasticModulusValue);
+		_stprintf_s(l_tszTemp, _countof(l_tszTemp), "%e", l_pStageProgStress->dElasticModulusValue);
 // 2009.11.09 bagus Stress ’Ç‰Á•ÏX --}--
 		::WritePrivateProfileString(
 				_T("StageProgram"),
@@ -2032,7 +2032,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 				szFilePath
 			);
 // 2009.09.08 bagus stress C³ --{--
-		_stprintf(l_tszTemp,"%ld",l_pStageProgStress->dwNumLsScans);
+		_stprintf_s(l_tszTemp, _countof(l_tszTemp), "%ld", l_pStageProgStress->dwNumLsScans);
 		::WritePrivateProfileString(
 				_T("StageProgram"),
 				_T("NumLSScans"),
@@ -2968,7 +2968,7 @@ BOOL LoadHeadTypeAndScanType2(int* piType, LPCSTR pszFilePath)
 			*(WORD*)(pDesc + iIndex)->data = (WORD)atoi(buff);
 			break;
 		case 'C':
-			strcpy((char*)(pDesc + iIndex)->data, buff);
+			strcpy_s((char*)(pDesc + iIndex)->data, 256, buff);
 			break;
 		default:
 			(void*)(pDesc + iIndex)->data = NULL;
@@ -3807,8 +3807,8 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 			);
 		TCHAR l_tszTemp[64];
 // 2009.11.09 bagus Stress ’Ç‰Á•ÏX --{--
-//		_stprintf(l_tszTemp,"%.3f",l_pStageProgStress->dElasticModulusValue);
-		_stprintf(l_tszTemp,"%e",l_pStageProgStress->dElasticModulusValue);
+//		_stprintf_s(l_tszTemp, _countof(l_tszTemp), "%.3f", l_pStageProgStress->dElasticModulusValue);
+		_stprintf_s(l_tszTemp, _countof(l_tszTemp), "%e", l_pStageProgStress->dElasticModulusValue);
 // 2009.11.09 bagus Stress ’Ç‰Á•ÏX --}--
 		::WritePrivateProfileString(
 				_T("StageProgram"),
@@ -3817,7 +3817,7 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 				pszFilePath
 			);
 // 2009.09.08 bagus stress C³ --{--
-		_stprintf(l_tszTemp,"%ld",l_pStageProgStress->dwNumLsScans);
+		_stprintf_s(l_tszTemp, _countof(l_tszTemp), "%ld", l_pStageProgStress->dwNumLsScans);
 		::WritePrivateProfileString(
 				_T("StageProgram"),
 				_T("NumLSScans"),
