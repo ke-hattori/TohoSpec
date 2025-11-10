@@ -2,6 +2,7 @@
 #include "..\\..\\INC\\Globals.hxx"
 #include "..\\..\\INC\\RecipeFile.hxx"
 #include "Recipe.h"
+#include "..\..\INC\ts_secure_crt.h"
 
 #define BUFFER_LEN 		(1024)
 
@@ -771,9 +772,9 @@ void AddAbsPath(LPTSTR ptszPath)
 	GetProcBaseDir(g_tszProcDir, g_tszBaseDir);
 	_tcsncpy(l_tszTempFName, ptszPath, _MAX_PATH + 1);
 	if (_MAX_PATH < (_tcslen(l_tszTempFName) + _tcslen(g_tszProcDir))) {
-		_tcscpy(ptszPath, _T(""));
+		_tcscpy_s(ptszPath, _MAX_PATH, _T(""));
 	} else {
-		_stprintf(ptszPath, _T("%s%s"), g_tszProcDir, l_tszTempFName);
+		_stprintf_s(ptszPath, _MAX_PATH, _T("%s%s"), g_tszProcDir, l_tszTempFName);
 	}
 }
 /* added 2009.07.07 hmenjo dll 相対パス対応 RecipeFile.dll ---------- } ---------- */
@@ -807,20 +808,20 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SrMainRecipeDesc) / sizeof(SrMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrMainRecipeDesc, sizeof(SrMainRecipeDesc));
-		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
 		break;
 	case RECIPE_FILE_SE_MAIN_RECIPE:
 		iDescCount = sizeof(SeMainRecipeDesc) / sizeof(SeMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SeMainRecipeDesc, sizeof(SeMainRecipeDesc));
-		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
 		break;
 // 2013.02.01 bagus CompleteEASEヘッド追加 -->
 	case RECIPE_FILE_COMPEASE_MAIN_RECIPE:
 		iDescCount = sizeof(CompEASEMainRecipeDesc) / sizeof(CompEASEMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, CompEASEMainRecipeDesc, sizeof(CompEASEMainRecipeDesc));
-		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
 		break;
 // 2013.02.01 bagus CompleteEASEヘッド追加 <--
 // 2009.10.19 bagus MS 追加 --{--
@@ -829,14 +830,14 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(IrseMainRecipeDesc) / sizeof(IrseMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, IrseMainRecipeDesc, sizeof(IrseMainRecipeDesc));
-		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
 		break;
 #else
 	case RECIPE_FILE_MS_MAIN_RECIPE:
 		iDescCount = sizeof(MicroScopeMainRecipeDesc) / sizeof(MicroScopeMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, MicroScopeMainRecipeDesc, sizeof(MicroScopeMainRecipeDesc));
-		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
 		break;
 #endif
 // 2009.10.19 bagus MS 追加 --}--
@@ -844,91 +845,91 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(ResistMainRecipeDesc) / sizeof(ResistMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ResistMainRecipeDesc, sizeof(ResistMainRecipeDesc));
-		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
 		break;
 	case RECIPE_FILE_CTA_MAIN_RECIPE:
 		iDescCount = sizeof(ContactAngleMainRecipeDesc) / sizeof(ContactAngleMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ContactAngleMainRecipeDesc, sizeof(ContactAngleMainRecipeDesc));
-		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
 		break;
 	case RECIPE_FILE_STRESS_MAIN_RECIPE:
 		iDescCount = sizeof(StressMainRecipeDesc) / sizeof(StressMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, StressMainRecipeDesc, sizeof(StressMainRecipeDesc));
-		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
 		break;
 	case RECIPE_FILE_MULTI_RECIPE:
 		iDescCount = sizeof(MultiRecipeDesc) / sizeof(MultiRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, MultiRecipeDesc, sizeof(MultiRecipeDesc));
-		sprintf(szFilePath, DB_MULTI_RECIPE_DIR "%s" MULTIRECIPE_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MULTI_RECIPE_DIR "%s" MULTIRECIPE_EXT, lpszName);
 		break;
 	case RECIPE_FILE_STAGE_PROGRAM:
 		iDescCount = sizeof(StageProgramDesc) / sizeof(StageProgramDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, StageProgramDesc, sizeof(StageProgramDesc));
-		sprintf(szFilePath, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, lpszName);
 		break;
 /* added 2009.07.22 hmenjo ストレス ステージ PGM 読出追加 ---------- { ---------- */
 	case RECIPE_FILE_STAGE_PROGRAM_STRESS:
-		sprintf(szFilePath, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, lpszName);
 		break;
 /* added 2009.07.22 hmenjo ストレス ステージ PGM 読出追加 ---------- } ---------- */
 	case RECIPE_FILE_RECALIBRATION_PROGRAM:
 		iDescCount = sizeof(RecalibrationProgramDesc) / sizeof(RecalibrationProgramDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, RecalibrationProgramDesc, sizeof(RecalibrationProgramDesc));
-		sprintf(szFilePath, DB_RECALIBRATION_PROGRAM_DIR "%s" RECALIBPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_RECALIBRATION_PROGRAM_DIR "%s" RECALIBPGM_EXT, lpszName);
 		break;
 	case RECIPE_FILE_POINT_DESKEW_PROGRAM:
 		iDescCount = sizeof(PointDeskewProgramDesc) / sizeof(PointDeskewProgramDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, PointDeskewProgramDesc, sizeof(PointDeskewProgramDesc));
-		sprintf(szFilePath, DB_POINT_DESKEW_PROGRAM_DIR "%s" POINTDESKEWPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_POINT_DESKEW_PROGRAM_DIR "%s" POINTDESKEWPGM_EXT, lpszName);
 		break;
 	case RECIPE_FILE_SR_THICKNESS:
 		iDescCount = sizeof(SrThicknessDesc) / sizeof(SrThicknessDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrThicknessDesc, sizeof(SrThicknessDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		break;
 	case RECIPE_FILE_SR_REFLECTANCE:
 		iDescCount = sizeof(SrReflectDesc) / sizeof(SrReflectDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrReflectDesc, sizeof(SrReflectDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		break;
 	case RECIPE_FILE_SR_TRANSMITTANCE:
 		iDescCount = sizeof(SrTransmitDesc) / sizeof(SrTransmitDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrTransmitDesc, sizeof(SrTransmitDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		break;
 	case RECIPE_FILE_SR_REFLECTANCE_CIE:
 		iDescCount = sizeof(SrReflectCieDesc) / sizeof(SrReflectCieDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrReflectCieDesc, sizeof(SrReflectCieDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		break;
 	case RECIPE_FILE_SR_TRANSMITTANCE_CIE:
 		iDescCount = sizeof(SrTransmitCieDesc) / sizeof(SrTransmitCieDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrTransmitCieDesc, sizeof(SrTransmitCieDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		break;
 	case RECIPE_FILE_SR_OPTICAL_DENSITY:
 		iDescCount = sizeof(SrOdDesc) / sizeof(SrOdDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrOdDesc, sizeof(SrOdDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		break;
 // 2009.09.04 K.Matsuo -->
 	case RECIPE_FILE_SE_THICKNESS:
 		iDescCount = sizeof(SeThicknessDesc) / sizeof(SeThicknessDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SeThicknessDesc, sizeof(SeThicknessDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		break;
 // 2009.09.04 K.Matsuo <--
 // 2013.02.01 bagus CompleteEASEヘッド追加 -->
@@ -936,7 +937,7 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(CompEASEThicknessDesc) / sizeof(CompEASEThicknessDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, CompEASEThicknessDesc, sizeof(CompEASEThicknessDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		break;
 // 2013.02.01 bagus CompleteEASEヘッド追加 <--
 	//2009.09.01 bagus stress --{--
@@ -944,7 +945,7 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(StressDesc) / sizeof(StressDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, StressDesc, sizeof(StressDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		break;
 	//2009.09.01 bagus stress --}--
 	// 2009.10.07 bagus CTA 追加 --{--
@@ -952,7 +953,7 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(ContactAngleDesc) / sizeof(ContactAngleDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ContactAngleDesc, sizeof(ContactAngleDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		break;
 	// 2009.10.07 bagus CTA 追加 --}--
 	// 2009.10.14 bagus Distance 追加 --{--
@@ -960,7 +961,7 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SrDistanceDesc) / sizeof(SrDistanceDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrDistanceDesc, sizeof(SrDistanceDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		break;
 	// 2009.10.14 bagus Distance 追加 --}--
 	//2009.10.20 bagus MS 追加 --{--
@@ -968,7 +969,7 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(MicroScopeDesc) / sizeof(MicroScopeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, MicroScopeDesc, sizeof(MicroScopeDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		break;
 	//2009.10.20 bagus MS 追加 --}--
 	// 2009.11.04 bagus RS 追加 --{--
@@ -976,7 +977,7 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(ResistDesc) / sizeof(ResistDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ResistDesc, sizeof(ResistDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		break;
 	// 2009.11.04 bagus RS 追加 --}--
 	// User Setting関連 (User Accountの設定)
@@ -984,71 +985,71 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(UserAccountDesc) / sizeof(UserAccountDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, UserAccountDesc, sizeof(UserAccountDesc));
-		sprintf(szFilePath, CFG_USER_USER_ACCOUNT_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_USER_ACCOUNT_DIR "%s" DAT_EXT, lpszName);
 		break;
 	// User Setting関連 (デフォルト値の設定)
 	case RECIPE_FILE_DEF_SR_MAIN_RECIPE:
 		iDescCount = sizeof(SrMainRecipeDesc) / sizeof(SrMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrMainRecipeDesc, sizeof(SrMainRecipeDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
 	case RECIPE_FILE_DEF_SR_THICKNESS:
 		iDescCount = sizeof(SrThicknessDesc) / sizeof(SrThicknessDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrThicknessDesc, sizeof(SrThicknessDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
 	case RECIPE_FILE_DEF_SR_REFLECTANCE:
 		iDescCount = sizeof(SrReflectDesc) / sizeof(SrReflectDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrReflectDesc, sizeof(SrReflectDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
 	case RECIPE_FILE_DEF_SR_TRANSMITTANCE:
 		iDescCount = sizeof(SrTransmitDesc) / sizeof(SrTransmitDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrTransmitDesc, sizeof(SrTransmitDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
 	case RECIPE_FILE_DEF_SR_REFLECTANCE_CIE:
 		iDescCount = sizeof(SrReflectCieDesc) / sizeof(SrReflectCieDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrReflectCieDesc, sizeof(SrReflectCieDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
 	case RECIPE_FILE_DEF_SR_TRANSMITTANCE_CIE:
 		iDescCount = sizeof(SrTransmitCieDesc) / sizeof(SrTransmitCieDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrTransmitCieDesc, sizeof(SrTransmitCieDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
 	case RECIPE_FILE_DEF_SR_OPTICAL_DENSITY:
 		iDescCount = sizeof(SrOdDesc) / sizeof(SrOdDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrOdDesc, sizeof(SrOdDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
 	// 2009.11.04 bagus RS 追加 --{--
 	case RECIPE_FILE_DEF_4PP_MAIN_RECIPE:
 		iDescCount = sizeof(ResistMainRecipeDesc) / sizeof(ResistMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ResistMainRecipeDesc, sizeof(ResistMainRecipeDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
 	// 2009.11.04 bagus RS 追加 --}--
 	case RECIPE_FILE_DEF_4PP:
 		iDescCount = sizeof(ResistDesc) / sizeof(ResistDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ResistDesc, sizeof(ResistDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
 	//2009.08.25 bagus stress --{--
 	case RECIPE_FILE_DEF_STRESS:
 		iDescCount = sizeof(StressDesc) / sizeof(StressDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, StressDesc, sizeof(StressDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
 	//2009.08.25 bagus stress --}--
 	// 2009.09.29 bagus Stress --{--
@@ -1056,7 +1057,7 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(StressMainRecipeDesc) / sizeof(StressMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, StressMainRecipeDesc, sizeof(StressMainRecipeDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
 	// 2009.09.29 bagus Stress --}--
 	// 2009.09.29 bagus SE --{--
@@ -1064,13 +1065,13 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SeMainRecipeDesc) / sizeof(SeMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SeMainRecipeDesc, sizeof(SeMainRecipeDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
 	case RECIPE_FILE_DEF_SE_THICKNESS:
 		iDescCount = sizeof(SeThicknessDesc) / sizeof(SeThicknessDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SeThicknessDesc, sizeof(SeThicknessDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
 	// 2009.09.29 bagus SE --}--
 	// 2013.02.01 bagus CompleteEASEヘッド追加 -->
@@ -1078,13 +1079,13 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(CompEASEMainRecipeDesc) / sizeof(CompEASEMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, CompEASEMainRecipeDesc, sizeof(CompEASEMainRecipeDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
 	case RECIPE_FILE_DEF_COMPEASE_THICKNESS:
 		iDescCount = sizeof(CompEASEThicknessDesc) / sizeof(CompEASEThicknessDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, CompEASEThicknessDesc, sizeof(CompEASEThicknessDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
 	// 2013.02.01 bagus CompleteEASEヘッド追加 <--
 	// 2009.10.07 bagus CTA 追加 --{--
@@ -1092,13 +1093,13 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(ContactAngleMainRecipeDesc) / sizeof(ContactAngleMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ContactAngleMainRecipeDesc, sizeof(ContactAngleMainRecipeDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
 	case RECIPE_FILE_DEF_CTA:
 		iDescCount = sizeof(ContactAngleDesc) / sizeof(ContactAngleDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ContactAngleDesc, sizeof(ContactAngleDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
 	// 2009.10.07 bagus CTA 追加 --}--
 	// 2009.10.14 bagus Distance 追加 --{--
@@ -1106,7 +1107,7 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SrDistanceDesc) / sizeof(SrDistanceDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrDistanceDesc, sizeof(SrDistanceDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
 	// 2009.10.14 bagus Distance 追加 --}--
 	//2009.10.20 bagus MS 追加 --{--
@@ -1114,13 +1115,13 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(MicroScopeMainRecipeDesc) / sizeof(MicroScopeMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, MicroScopeMainRecipeDesc, sizeof(MicroScopeMainRecipeDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
 	case RECIPE_FILE_DEF_MS:
 		iDescCount = sizeof(MicroScopeDesc) / sizeof(MicroScopeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, MicroScopeDesc, sizeof(MicroScopeDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
 	//2009.10.20 bagus MS 追加 --}--
 	// System関連(Sampleの設定)
@@ -1128,7 +1129,7 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SampleDesc) / sizeof(SampleDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SampleDesc, sizeof(SampleDesc));
-		sprintf(szFilePath, CFG_SYSTEM_SAMPLE_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_SYSTEM_SAMPLE_DIR "%s" DAT_EXT, lpszName);
 		break;
 	// System関連(ZAxisOffsetの設定)
 	case RECIPE_FILE_Z_AXIS_OFFSET:
@@ -1137,20 +1138,20 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 			iDescCount = sizeof(SrMainRecipeDesc) / sizeof(SrMainRecipeDesc[0]);
 			pDesc = new RECIPE_FILE [iDescCount];
 			memcpy(pDesc, SrMainRecipeDesc, sizeof(SrMainRecipeDesc));
-			sprintf(szFilePath, CFG_SYSTEM_DIR "%s" DAT_EXT, lpszName);
+			sprintf_s(szFilePath, _MAX_PATH, CFG_SYSTEM_DIR "%s" DAT_EXT, lpszName);
 			break;
 		case HEAD_TYPE_SE:
 			iDescCount = sizeof(SeMainRecipeDesc) / sizeof(SeMainRecipeDesc[0]);
 			pDesc = new RECIPE_FILE [iDescCount];
 			memcpy(pDesc, SeMainRecipeDesc, sizeof(SeMainRecipeDesc));
-			sprintf(szFilePath, CFG_SYSTEM_DIR "%s" DAT_EXT, lpszName);
+			sprintf_s(szFilePath, _MAX_PATH, CFG_SYSTEM_DIR "%s" DAT_EXT, lpszName);
 			break;
 // 2013.02.01 bagus CompleteEASEヘッド追加 -->
 		case HEAD_TYPE_COMPEASE:
 			iDescCount = sizeof(CompEASEMainRecipeDesc) / sizeof(CompEASEMainRecipeDesc[0]);
 			pDesc = new RECIPE_FILE [iDescCount];
 			memcpy(pDesc, CompEASEMainRecipeDesc, sizeof(CompEASEMainRecipeDesc));
-			sprintf(szFilePath, CFG_SYSTEM_DIR "%s" DAT_EXT, lpszName);
+			sprintf_s(szFilePath, _MAX_PATH, CFG_SYSTEM_DIR "%s" DAT_EXT, lpszName);
 			break;
 // 2013.02.01 bagus CompleteEASEヘッド追加 <--
 // 2009.10.19 bagus MS 追加 --{--
@@ -1159,14 +1160,14 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 			iDescCount = sizeof(IrseMainRecipeDesc) / sizeof(IrseMainRecipeDesc[0]);
 			pDesc = new RECIPE_FILE [iDescCount];
 			memcpy(pDesc, IrseMainRecipeDesc, sizeof(IrseMainRecipeDesc));
-			sprintf(szFilePath, CFG_SYSTEM_DIR "%s" DAT_EXT, lpszName);
+			sprintf_s(szFilePath, _MAX_PATH, CFG_SYSTEM_DIR "%s" DAT_EXT, lpszName);
 			break;
 #else
 		case HEAD_TYPE_MS:
 			iDescCount = sizeof(MicroScopeMainRecipeDesc) / sizeof(MicroScopeMainRecipeDesc[0]);
 			pDesc = new RECIPE_FILE [iDescCount];
 			memcpy(pDesc, MicroScopeMainRecipeDesc, sizeof(MicroScopeMainRecipeDesc));
-			sprintf(szFilePath, CFG_SYSTEM_DIR "%s" DAT_EXT, lpszName);
+			sprintf_s(szFilePath, _MAX_PATH, CFG_SYSTEM_DIR "%s" DAT_EXT, lpszName);
 			break;
 #endif
 // 2009.10.19 bagus MS 追加 --}--
@@ -1447,7 +1448,7 @@ BOOL LoadRecipe(LPVOID pVoid, LPCSTR lpszName, int iType)
 		break;
 /* added 2009.07.22 hmenjo ストレス ステージ PGM 読出追加 ---------- { ---------- */
 	case RECIPE_FILE_STAGE_PROGRAM_STRESS:
-		sprintf(szFilePath, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, lpszName);
 		break;
 /* added 2009.07.22 hmenjo ストレス ステージ PGM 読出追加 ---------- } ---------- */
 	case RECIPE_FILE_RECALIBRATION_PROGRAM:
@@ -1550,7 +1551,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SrMainRecipeDesc) / sizeof(SrMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrMainRecipeDesc, sizeof(SrMainRecipeDesc));
-		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
@@ -1558,7 +1559,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SeMainRecipeDesc) / sizeof(SeMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SeMainRecipeDesc, sizeof(SeMainRecipeDesc));
-		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
@@ -1567,7 +1568,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(CompEASEMainRecipeDesc) / sizeof(CompEASEMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, CompEASEMainRecipeDesc, sizeof(CompEASEMainRecipeDesc));
-		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
@@ -1578,7 +1579,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(IrseMainRecipeDesc) / sizeof(IrseMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, IrseMainRecipeDesc, sizeof(IrseMainRecipeDesc));
-		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
@@ -1587,7 +1588,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(MicroScopeMainRecipeDesc) / sizeof(MicroScopeMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, MicroScopeMainRecipeDesc, sizeof(MicroScopeMainRecipeDesc));
-		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
@@ -1597,7 +1598,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(ResistMainRecipeDesc) / sizeof(ResistMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ResistMainRecipeDesc, sizeof(ResistMainRecipeDesc));
-		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
@@ -1605,7 +1606,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(ContactAngleMainRecipeDesc) / sizeof(ContactAngleMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ContactAngleMainRecipeDesc, sizeof(ContactAngleMainRecipeDesc));
-		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
@@ -1613,7 +1614,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(StressMainRecipeDesc) / sizeof(StressMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, StressMainRecipeDesc, sizeof(StressMainRecipeDesc));
-		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
@@ -1621,7 +1622,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(MultiRecipeDesc) / sizeof(MultiRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, MultiRecipeDesc, sizeof(MultiRecipeDesc));
-		sprintf(szFilePath, DB_MULTI_RECIPE_DIR "%s" MULTIRECIPE_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MULTI_RECIPE_DIR "%s" MULTIRECIPE_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MultiRcpInfoHdr, pVoid, sizeof(MULTI_RCP_INFO_HDR));
 		break;
@@ -1629,20 +1630,20 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(StageProgramDesc) / sizeof(StageProgramDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, StageProgramDesc, sizeof(StageProgramDesc));
-		sprintf(szFilePath, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_StageProgInfoHdr, pVoid, sizeof(STAGE_PROG_INFO_HDR));
 		break;
 //2009.08.31 bagus stress --{--
 	case RECIPE_FILE_STAGE_PROGRAM_STRESS:
-		sprintf(szFilePath, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, lpszName);
 		break;
 //2009.08.31 bagus stress --}--
 	case RECIPE_FILE_RECALIBRATION_PROGRAM:
 		iDescCount = sizeof(RecalibrationProgramDesc) / sizeof(RecalibrationProgramDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, RecalibrationProgramDesc, sizeof(RecalibrationProgramDesc));
-		sprintf(szFilePath, DB_RECALIBRATION_PROGRAM_DIR "%s" RECALIBPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_RECALIBRATION_PROGRAM_DIR "%s" RECALIBPGM_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_RecalibProgInfo, pVoid, sizeof(RECALIB_PROG_INFO));
 		break;
@@ -1650,7 +1651,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(PointDeskewProgramDesc) / sizeof(PointDeskewProgramDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, PointDeskewProgramDesc, sizeof(PointDeskewProgramDesc));
-		sprintf(szFilePath, DB_POINT_DESKEW_PROGRAM_DIR "%s" POINTDESKEWPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_POINT_DESKEW_PROGRAM_DIR "%s" POINTDESKEWPGM_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_PointDeskewProgInfo, pVoid, sizeof(POINT_DESKEW_PROG_INFO));
 		break;
@@ -1658,7 +1659,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SrThicknessDesc) / sizeof(SrThicknessDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrThicknessDesc, sizeof(SrThicknessDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1666,7 +1667,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SrReflectDesc) / sizeof(SrReflectDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrReflectDesc, sizeof(SrReflectDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1674,7 +1675,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SrTransmitDesc) / sizeof(SrTransmitDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrTransmitDesc, sizeof(SrTransmitDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1682,7 +1683,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SrReflectCieDesc) / sizeof(SrReflectCieDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrReflectCieDesc, sizeof(SrReflectCieDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1690,7 +1691,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SrTransmitCieDesc) / sizeof(SrTransmitCieDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrTransmitCieDesc, sizeof(SrTransmitCieDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1698,7 +1699,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SrOdDesc) / sizeof(SrOdDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrOdDesc, sizeof(SrOdDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1707,7 +1708,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SeThicknessDesc) / sizeof(SeThicknessDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SeThicknessDesc, sizeof(SeThicknessDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1717,7 +1718,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(CompEASEThicknessDesc) / sizeof(CompEASEThicknessDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, CompEASEThicknessDesc, sizeof(CompEASEThicknessDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1726,7 +1727,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(ResistDesc) / sizeof(ResistDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ResistDesc, sizeof(ResistDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1734,7 +1735,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(StressDesc) / sizeof(StressDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, StressDesc, sizeof(StressDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1743,7 +1744,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(ContactAngleDesc) / sizeof(ContactAngleDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ContactAngleDesc, sizeof(ContactAngleDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1753,7 +1754,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SrDistanceDesc) / sizeof(SrDistanceDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrDistanceDesc, sizeof(SrDistanceDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1763,7 +1764,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(MicroScopeDesc) / sizeof(MicroScopeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, MicroScopeDesc, sizeof(MicroScopeDesc));
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1773,7 +1774,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(UserAccountDesc) / sizeof(UserAccountDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, UserAccountDesc, sizeof(UserAccountDesc));
-		sprintf(szFilePath, CFG_USER_USER_ACCOUNT_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_USER_ACCOUNT_DIR "%s" DAT_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_UserAccount, pVoid, sizeof(USER_ACCOUNT));
 		break;
@@ -1782,7 +1783,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SrMainRecipeDesc) / sizeof(SrMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrMainRecipeDesc, sizeof(SrMainRecipeDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
@@ -1790,7 +1791,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SrThicknessDesc) / sizeof(SrThicknessDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrThicknessDesc, sizeof(SrThicknessDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1798,7 +1799,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SrReflectDesc) / sizeof(SrReflectDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrReflectDesc, sizeof(SrReflectDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1806,7 +1807,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SrTransmitDesc) / sizeof(SrTransmitDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrTransmitDesc, sizeof(SrTransmitDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1814,7 +1815,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SrReflectCieDesc) / sizeof(SrReflectCieDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrReflectCieDesc, sizeof(SrReflectCieDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1822,7 +1823,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SrTransmitCieDesc) / sizeof(SrTransmitCieDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrTransmitCieDesc, sizeof(SrTransmitCieDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1830,7 +1831,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SrOdDesc) / sizeof(SrOdDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrOdDesc, sizeof(SrOdDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1839,7 +1840,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(ResistMainRecipeDesc) / sizeof(ResistMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ResistMainRecipeDesc, sizeof(ResistMainRecipeDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
@@ -1848,7 +1849,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(ResistDesc) / sizeof(ResistDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ResistDesc, sizeof(ResistDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1856,7 +1857,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(StressDesc) / sizeof(StressDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, StressDesc, sizeof(StressDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1865,7 +1866,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(StressMainRecipeDesc) / sizeof(StressMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, StressMainRecipeDesc, sizeof(StressMainRecipeDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
@@ -1875,7 +1876,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SeMainRecipeDesc) / sizeof(SeMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SeMainRecipeDesc, sizeof(SeMainRecipeDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
@@ -1883,7 +1884,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SeThicknessDesc) / sizeof(SeThicknessDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SeThicknessDesc, sizeof(SeThicknessDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1893,7 +1894,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(CompEASEMainRecipeDesc) / sizeof(CompEASEMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, CompEASEMainRecipeDesc, sizeof(CompEASEMainRecipeDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
@@ -1901,7 +1902,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(CompEASEThicknessDesc) / sizeof(CompEASEThicknessDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, CompEASEThicknessDesc, sizeof(CompEASEThicknessDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1911,7 +1912,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(ContactAngleMainRecipeDesc) / sizeof(ContactAngleMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ContactAngleMainRecipeDesc, sizeof(ContactAngleMainRecipeDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
@@ -1919,7 +1920,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(ContactAngleDesc) / sizeof(ContactAngleDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, ContactAngleDesc, sizeof(ContactAngleDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1929,7 +1930,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SrDistanceDesc) / sizeof(SrDistanceDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SrDistanceDesc, sizeof(SrDistanceDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1939,7 +1940,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(MicroScopeMainRecipeDesc) / sizeof(MicroScopeMainRecipeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, MicroScopeMainRecipeDesc, sizeof(MicroScopeMainRecipeDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MainRcpInfo, pVoid, sizeof(MAIN_RCP_INFO));
 		break;
@@ -1947,7 +1948,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(MicroScopeDesc) / sizeof(MicroScopeDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, MicroScopeDesc, sizeof(MicroScopeDesc));
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_MeasProgInfo, pVoid, sizeof(MEAS_PROG_INFO));
 		break;
@@ -1957,7 +1958,7 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 		iDescCount = sizeof(SampleDesc) / sizeof(SampleDesc[0]);
 		pDesc = new RECIPE_FILE [iDescCount];
 		memcpy(pDesc, SampleDesc, sizeof(SampleDesc));
-		sprintf(szFilePath, CFG_SYSTEM_SAMPLE_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_SYSTEM_SAMPLE_DIR "%s" DAT_EXT, lpszName);
 		// 保存内容をコピー
 		memcpy(&g_SampleInfo, pVoid, sizeof(SAMPLEINFO));
 		break;
@@ -1970,13 +1971,13 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 			iDescCount = sizeof(SrMainRecipeDesc) / sizeof(SrMainRecipeDesc[0]);
 			pDesc = new RECIPE_FILE [iDescCount];
 			memcpy(pDesc, SrMainRecipeDesc, sizeof(SrMainRecipeDesc));
-			sprintf(szFilePath, CFG_SYSTEM_DIR "%s" DAT_EXT, lpszName);
+			sprintf_s(szFilePath, _MAX_PATH, CFG_SYSTEM_DIR "%s" DAT_EXT, lpszName);
 			break;
 		case HEAD_TYPE_SE:
 			iDescCount = sizeof(SeMainRecipeDesc) / sizeof(SeMainRecipeDesc[0]);
 			pDesc = new RECIPE_FILE [iDescCount];
 			memcpy(pDesc, SeMainRecipeDesc, sizeof(SeMainRecipeDesc));
-			sprintf(szFilePath, CFG_SYSTEM_DIR "%s" DAT_EXT, lpszName);
+			sprintf_s(szFilePath, _MAX_PATH, CFG_SYSTEM_DIR "%s" DAT_EXT, lpszName);
 			break;
 // 2009.10.19 bagus MS 追加 --{--
 #if 0
@@ -1984,14 +1985,14 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 			iDescCount = sizeof(IrseMainRecipeDesc) / sizeof(IrseMainRecipeDesc[0]);
 			pDesc = new RECIPE_FILE [iDescCount];
 			memcpy(pDesc, IrseMainRecipeDesc, sizeof(IrseMainRecipeDesc));
-			sprintf(szFilePath, CFG_SYSTEM_DIR "%s" DAT_EXT, lpszName);
+			sprintf_s(szFilePath, _MAX_PATH, CFG_SYSTEM_DIR "%s" DAT_EXT, lpszName);
 			break;
 #else
 		case HEAD_TYPE_MS:
 			iDescCount = sizeof(MicroScopeMainRecipeDesc) / sizeof(MicroScopeMainRecipeDesc[0]);
 			pDesc = new RECIPE_FILE [iDescCount];
 			memcpy(pDesc, MicroScopeMainRecipeDesc, sizeof(MicroScopeMainRecipeDesc));
-			sprintf(szFilePath, CFG_SYSTEM_DIR "%s" DAT_EXT, lpszName);
+			sprintf_s(szFilePath, _MAX_PATH, CFG_SYSTEM_DIR "%s" DAT_EXT, lpszName);
 			break;
 #endif
 // 2009.10.19 bagus MS 追加 --}--
@@ -2086,13 +2087,13 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 // 2009.09.10 bagus stress 修正 --}--
 					/* セクション位置を読出し	*/
 					_stprintf(l_tszKey, LS_LnSnSCANSTART_X, iLine + 1, iSec + 1);
-					_stprintf(l_tszTemp,_T("%ld"),l_pStageProgStress->Line[iLine].SectPos[iSec].lScanStartPosX );
+					_stprintf_s(l_tszTemp, _countof(l_tszTemp), _T("%ld"), l_pStageProgStress->Line[iLine].SectPos[iSec].lScanStartPosX );
 					WritePrivateProfileString(l_tszSec, l_tszKey,l_tszTemp,szFilePath);
 					_stprintf(l_tszKey, LS_LnSnSCANEND_X, iLine + 1, iSec + 1);
-					_stprintf(l_tszTemp,_T("%ld"),l_pStageProgStress->Line[iLine].SectPos[iSec].lScanEndPosX );
+					_stprintf_s(l_tszTemp, _countof(l_tszTemp), _T("%ld"), l_pStageProgStress->Line[iLine].SectPos[iSec].lScanEndPosX );
 					WritePrivateProfileString(l_tszSec, l_tszKey,l_tszTemp,szFilePath);
 					_stprintf(l_tszKey, LS_LnSnSCANY, iLine + 1, iSec + 1);
-					_stprintf(l_tszTemp,_T("%ld"),l_pStageProgStress->Line[iLine].SectPos[iSec].lScanPosY );
+					_stprintf_s(l_tszTemp, _countof(l_tszTemp), _T("%ld"), l_pStageProgStress->Line[iLine].SectPos[iSec].lScanPosY );
 					WritePrivateProfileString(l_tszSec, l_tszKey,l_tszTemp,szFilePath);
 				} else {
 // 2009.09.09 bagus stress 修正 --{--
@@ -2116,13 +2117,13 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 // 2009.09.10 bagus stress 修正 --}--
 					/* セクション位置を読出し	*/
 					_stprintf(l_tszKey, LS_LnSnSCANSTART_X, iLine + 1, iSec + 1);
-					_stprintf(l_tszTemp,_T("%ld"),l_pStageProgStress->Line[iLine].SectPos[iSec].lScanStartPosX );
+					_stprintf_s(l_tszTemp, _countof(l_tszTemp), _T("%ld"), l_pStageProgStress->Line[iLine].SectPos[iSec].lScanStartPosX );
 					WritePrivateProfileString(l_tszSec, l_tszKey,l_tszTemp,szFilePath);
 					_stprintf(l_tszKey, LS_LnSnSCANEND_X, iLine + 1, iSec + 1);
-					_stprintf(l_tszTemp,_T("%ld"),l_pStageProgStress->Line[iLine].SectPos[iSec].lScanEndPosX );
+					_stprintf_s(l_tszTemp, _countof(l_tszTemp), _T("%ld"), l_pStageProgStress->Line[iLine].SectPos[iSec].lScanEndPosX );
 					WritePrivateProfileString(l_tszSec, l_tszKey,l_tszTemp,szFilePath);
 					_stprintf(l_tszKey, LS_LnSnSCANY, iLine + 1, iSec + 1);
-					_stprintf(l_tszTemp,_T("%ld"),l_pStageProgStress->Line[iLine].SectPos[iSec].lScanPosY );
+					_stprintf_s(l_tszTemp, _countof(l_tszTemp), _T("%ld"), l_pStageProgStress->Line[iLine].SectPos[iSec].lScanPosY );
 					WritePrivateProfileString(l_tszSec, l_tszKey,l_tszTemp,szFilePath);
 #endif
 // 2009.09.09 bagus stress 修正 --}--
@@ -2208,13 +2209,13 @@ BOOL SaveRecipe(LPCVOID pVoid, LPCSTR lpszName, int iType)
 	if ((iType == RECIPE_FILE_4PP) || (iType == RECIPE_FILE_DEF_4PP)) {
 		TCHAR l_tszTemp[64];
 
-		_stprintf(l_tszTemp, _T("%+d"), g_MeasProgInfo.ScanParams._RS.lStartIdx - 3 );
+		_stprintf_s(l_tszTemp, _countof(l_tszTemp), _T("%+d"), g_MeasProgInfo.ScanParams._RS.lStartIdx - 3 );
 		WritePrivateProfileString(_T("RS"), _T("RsStartRange"), l_tszTemp, szFilePath);
 
 		if ((g_MeasProgInfo.ScanParams._RS.wUnits < 0) || (g_MeasProgInfo.ScanParams._RS.wUnits >= RESISTANCE_UNIT_MAX)) {
-			strcpy(l_tszTemp, "");
+			strcpy_s(l_tszTemp, sizeof(l_tszTemp), "");
 		} else {
-			strcpy(l_tszTemp, RESISTANCE_UNIT_ITEM[g_MeasProgInfo.ScanParams._RS.wUnits]);
+			strcpy_s(l_tszTemp, sizeof(l_tszTemp), RESISTANCE_UNIT_ITEM[g_MeasProgInfo.ScanParams._RS.wUnits]);
 		}
 		WritePrivateProfileString(_T("RS"), _T("RsThickUnit"), l_tszTemp, szFilePath);
 	}
@@ -2309,7 +2310,7 @@ BOOL LoadMainRecipeList(MULTI_RCP_MAIN_RCP_LIST* pMainRcpList,
 	BOOL bFind = FALSE;
 
 	char szFilePath[_MAX_PATH];
-	sprintf(szFilePath, DB_MULTI_RECIPE_DIR "%s" MULTIRECIPE_EXT, lpszName);
+	sprintf_s(szFilePath, _MAX_PATH, DB_MULTI_RECIPE_DIR "%s" MULTIRECIPE_EXT, lpszName);
 /* added 2009.07.07 hmenjo dll 相対パス対応 RecipeFile.dll ---------- { ---------- */
 	AddAbsPath(szFilePath);
 /* added 2009.07.07 hmenjo dll 相対パス対応 RecipeFile.dll ---------- } ---------- */
@@ -2363,7 +2364,7 @@ BOOL SaveMainRecipeList(const MULTI_RCP_MAIN_RCP_LIST* pMainRcpList,
 	WORD wNumMainRecipe, LPCSTR lpszName)
 {
 	char szFilePath[_MAX_PATH], Buff[256];
-	sprintf(szFilePath, DB_MULTI_RECIPE_DIR "%s" MULTIRECIPE_EXT, lpszName);
+	sprintf_s(szFilePath, _MAX_PATH, DB_MULTI_RECIPE_DIR "%s" MULTIRECIPE_EXT, lpszName);
 /* added 2009.07.07 hmenjo dll 相対パス対応 RecipeFile.dll ---------- { ---------- */
 	AddAbsPath(szFilePath);
 /* added 2009.07.07 hmenjo dll 相対パス対応 RecipeFile.dll ---------- } ---------- */
@@ -2373,7 +2374,7 @@ BOOL SaveMainRecipeList(const MULTI_RCP_MAIN_RCP_LIST* pMainRcpList,
 		CStdioFile file(szFilePath, CFile::modeWrite | CFile::modeCreate | CFile::modeNoTruncate);
 		file.SeekToEnd();
 		// セクション名を書き込む
-		sprintf(Buff, "%s\n", g_lpszMultiRcpMainRcpListSection);
+		sprintf_s(Buff, sizeof(Buff), "%s\n", g_lpszMultiRcpMainRcpListSection);
 		file.WriteString(Buff);
 
 		// MainRecipeの名前を書き込む
@@ -2404,7 +2405,7 @@ BOOL SaveMainRecipeList(const MULTI_RCP_MAIN_RCP_LIST* pMainRcpList,
 BOOL LoadPointList(STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFileName)
 {
 	char szFilePath[_MAX_PATH];
-	sprintf(szFilePath, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, pszFileName);		// ステージPGM
+	sprintf_s(szFilePath, _MAX_PATH, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, pszFileName);		// ステージPGM
 /* added 2009.07.07 hmenjo dll 相対パス対応 RecipeFile.dll ---------- { ---------- */
 	AddAbsPath(szFilePath);
 /* added 2009.07.07 hmenjo dll 相対パス対応 RecipeFile.dll ---------- } ---------- */
@@ -2488,7 +2489,7 @@ BOOL LoadPointList2(STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePath)
 BOOL SavePointList(const STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFileName)
 {
 	char szFilePath[_MAX_PATH];
-	sprintf(szFilePath, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, pszFileName);
+	sprintf_s(szFilePath, _MAX_PATH, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, pszFileName);
 /* added 2009.07.07 hmenjo dll 相対パス対応 RecipeFile.dll ---------- { ---------- */
 	AddAbsPath(szFilePath);
 /* added 2009.07.07 hmenjo dll 相対パス対応 RecipeFile.dll ---------- } ---------- */
@@ -2513,7 +2514,7 @@ BOOL SavePointList2(const STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePat
 		CStdioFile file(pszFilePath, CFile::modeWrite | CFile::modeCreate | CFile::modeNoTruncate);
 		file.SeekToEnd();
 		// セクション名を書き込む
-		sprintf(Buff, "%s\n", g_lpszStageProgPointListSection);
+		sprintf_s(Buff, sizeof(Buff), "%s\n", g_lpszStageProgPointListSection);
 		file.WriteString(Buff);
 
 		// ポイントを書き込む
@@ -2546,7 +2547,7 @@ BOOL SavePointList2(const STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePat
 BOOL Load2PointList(STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFileName)
 {
 	char szFilePath[_MAX_PATH];
-	sprintf(szFilePath, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, pszFileName);		// ステージPGM
+	sprintf_s(szFilePath, _MAX_PATH, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, pszFileName);		// ステージPGM
 	AddAbsPath(szFilePath);
 	return Load2PointList2(pPoint, wNumScans, szFilePath);
 }
@@ -2619,7 +2620,7 @@ BOOL Load2PointList2(STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePath)
 BOOL Save2PointList(const STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFileName)
 {
 	char szFilePath[_MAX_PATH];
-	sprintf(szFilePath, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, pszFileName);
+	sprintf_s(szFilePath, _MAX_PATH, DB_STAGE_PROGRAM_DIR "%s" STAGEPGM_EXT, pszFileName);
 	AddAbsPath(szFilePath);
 	return Save2PointList2(pPoint, wNumScans, szFilePath);
 }
@@ -2638,7 +2639,7 @@ BOOL Save2PointList2(const STAGE_COORD* pPoint, WORD wNumScans, LPCSTR pszFilePa
 		CStdioFile file(pszFilePath, CFile::modeWrite | CFile::modeCreate | CFile::modeNoTruncate);
 		file.SeekToEnd();
 		// セクション名を書き込む
-		sprintf(Buff, "%s\n", g_lpszStageProgPointListSection);
+		sprintf_s(Buff, sizeof(Buff), "%s\n", g_lpszStageProgPointListSection);
 		file.WriteString(Buff);
 
 		// ポイントを書き込む
@@ -2770,13 +2771,13 @@ BOOL LoadHeadTypeAndScanType(int* piType, LPCSTR pszFileName)
 	char szFilePath[_MAX_PATH];
 	switch(*piType){
 	case RECIPE_FILE_MAIN_RECIPE:
-		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, pszFileName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, pszFileName);
 		break;
 	case RECIPE_FILE_MEASUREMENT_PROGRAM:
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, pszFileName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, pszFileName);
 		break;
 	case RECIPE_FILE_Z_AXIS_OFFSET:
-		sprintf(szFilePath, CFG_SYSTEM_DIR "%s" DAT_EXT, pszFileName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_SYSTEM_DIR "%s" DAT_EXT, pszFileName);
 		break;
 	default:
 		break;
@@ -3164,10 +3165,10 @@ BOOL SaveHeadTypeAndScanType(int iType, LPCSTR pszFileName)
 	case RECIPE_FILE_4PP_MAIN_RECIPE:
 	case RECIPE_FILE_CTA_MAIN_RECIPE:
 	case RECIPE_FILE_STRESS_MAIN_RECIPE:
-		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, pszFileName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, pszFileName);
 		break;
 	case RECIPE_FILE_Z_AXIS_OFFSET:
-		sprintf(szFilePath, CFG_SYSTEM_DIR "%s" DAT_EXT, pszFileName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_SYSTEM_DIR "%s" DAT_EXT, pszFileName);
 		break;
 	case RECIPE_FILE_SR_THICKNESS:
 	case RECIPE_FILE_SR_REFLECTANCE:
@@ -3194,7 +3195,7 @@ BOOL SaveHeadTypeAndScanType(int iType, LPCSTR pszFileName)
 	//2009.10.20 bagus MS 追加 --{--
 	case RECIPE_FILE_MS:
 	//2009.10.20 bagus MS 追加 --}--
-		sprintf(szFilePath, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, pszFileName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MEASUREMENT_PROGRAM_DIR "%s" MEASUREMENTPGM_EXT, pszFileName);
 		break;
 	// MainRecipe，MeasurementProgram以外は処理なし(デフォルト値設定の場合も処理なし)
 	default:
@@ -3352,7 +3353,7 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszMainRcpName, int iMeasType)
 	STAGE_COORD point[SCAN_POINT_MAX];
 	ZeroMemory(point, sizeof(point));
 	char szFilePath[_MAX_PATH];
-	sprintf(szFilePath, MEAS_DAT_TEMP_COPY_PASS "%s" DAT_EXT, pszMainRcpName);
+	sprintf_s(szFilePath, _MAX_PATH, MEAS_DAT_TEMP_COPY_PASS "%s" DAT_EXT, pszMainRcpName);
 /* modified 2009.07.07 hmenjo dll 相対パス対応 RecipeFile.dll ---------- { ---------- */
 //	CreateDirectory(MEAS_DAT_TEMP_COPY_PASS, NULL);
 /* modified 2009.07.07 hmenjo dll 相対パス対応 RecipeFile.dll ----------			  */
@@ -3866,13 +3867,13 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 // 2009.09.10 bagus stress 修正 --}--
 					/* セクション位置を読出し	*/
 					_stprintf(l_tszKey, LS_LnSnSCANSTART_X, iLine + 1, iSec + 1);
-					_stprintf(l_tszTemp,_T("%ld"),l_pStageProgStress->Line[iLine].SectPos[iSec].lScanStartPosX );
+					_stprintf_s(l_tszTemp, _countof(l_tszTemp), _T("%ld"), l_pStageProgStress->Line[iLine].SectPos[iSec].lScanStartPosX );
 					WritePrivateProfileString(l_tszSec, l_tszKey,l_tszTemp,pszFilePath);
 					_stprintf(l_tszKey, LS_LnSnSCANEND_X, iLine + 1, iSec + 1);
-					_stprintf(l_tszTemp,_T("%ld"),l_pStageProgStress->Line[iLine].SectPos[iSec].lScanEndPosX );
+					_stprintf_s(l_tszTemp, _countof(l_tszTemp), _T("%ld"), l_pStageProgStress->Line[iLine].SectPos[iSec].lScanEndPosX );
 					WritePrivateProfileString(l_tszSec, l_tszKey,l_tszTemp,pszFilePath);
 					_stprintf(l_tszKey, LS_LnSnSCANY, iLine + 1, iSec + 1);
-					_stprintf(l_tszTemp,_T("%ld"),l_pStageProgStress->Line[iLine].SectPos[iSec].lScanPosY );
+					_stprintf_s(l_tszTemp, _countof(l_tszTemp), _T("%ld"), l_pStageProgStress->Line[iLine].SectPos[iSec].lScanPosY );
 					WritePrivateProfileString(l_tszSec, l_tszKey,l_tszTemp,pszFilePath);
 				} else {
 // 2009.09.09 bagus stress 修正 --{--
@@ -3896,13 +3897,13 @@ BOOL SaveCurrRecipeInfo(LPCSTR pszRcpName, LPCSTR pszFilePath, int iType)
 // 2009.09.10 bagus stress 修正 --}--
 					/* セクション位置を読出し	*/
 					_stprintf(l_tszKey, LS_LnSnSCANSTART_X, iLine + 1, iSec + 1);
-					_stprintf(l_tszTemp,_T("%ld"),l_pStageProgStress->Line[iLine].SectPos[iSec].lScanStartPosX );
+					_stprintf_s(l_tszTemp, _countof(l_tszTemp), _T("%ld"), l_pStageProgStress->Line[iLine].SectPos[iSec].lScanStartPosX );
 					WritePrivateProfileString(l_tszSec, l_tszKey,l_tszTemp,pszFilePath);
 					_stprintf(l_tszKey, LS_LnSnSCANEND_X, iLine + 1, iSec + 1);
-					_stprintf(l_tszTemp,_T("%ld"),l_pStageProgStress->Line[iLine].SectPos[iSec].lScanEndPosX );
+					_stprintf_s(l_tszTemp, _countof(l_tszTemp), _T("%ld"), l_pStageProgStress->Line[iLine].SectPos[iSec].lScanEndPosX );
 					WritePrivateProfileString(l_tszSec, l_tszKey,l_tszTemp,pszFilePath);
 					_stprintf(l_tszKey, LS_LnSnSCANY, iLine + 1, iSec + 1);
-					_stprintf(l_tszTemp,_T("%ld"),l_pStageProgStress->Line[iLine].SectPos[iSec].lScanPosY );
+					_stprintf_s(l_tszTemp, _countof(l_tszTemp), _T("%ld"), l_pStageProgStress->Line[iLine].SectPos[iSec].lScanPosY );
 					WritePrivateProfileString(l_tszSec, l_tszKey,l_tszTemp,pszFilePath);
 #endif
 // 2009.09.09 bagus stress 修正 --}--
@@ -4019,7 +4020,7 @@ static int MakeDirectory(char* lpszDir)
 	if(i <= 0)
 		return 0;
 
-	strcpy(szBuff, lpszDir);
+	strcpy_s(szBuff, sizeof(szBuff), lpszDir);
 	szBuff[i] = NULL;
 	//if(iRet = MakeDirectory(szBuff))
 	//	return (iRet = CreateDirectory(lpszDir, &sa)) == TRUE ? 1 : 0;
@@ -4155,7 +4156,7 @@ BOOL BackupRecipe(LPCTSTR lpszSourcePath)
 			pSubDirPos = pSubDirPos + strlen(DB_DIR);
 		}
 		//2009.12.25 bagus Recipe Backup --{--
-		wsprintf(szToPath,"%s\\%s",g_szBackupPath,DB_DIR_NAME);
+		wsprintf_s(szToPath, sizeof(szToPath), "%s\\%s", g_szBackupPath,DB_DIR_NAME);
 		DWORD dwRet = GetFileAttributes(szToPath);
 		if(dwRet == (DWORD)-1){
 			//DBディレクトリがなければフルバックアップ
@@ -4164,15 +4165,15 @@ BOOL BackupRecipe(LPCTSTR lpszSourcePath)
 		}
 		//2009.12.25 bagus Recipe Backup --}--
 		//バックアップ先のディレクトリを作成しておく
-		wsprintf(szToPath,"%s\\%s\\%s",g_szBackupPath,DB_DIR_NAME,pSubDirPos);
+		wsprintf_s(szToPath, sizeof(szToPath), "%s\\%s\\%s", g_szBackupPath,DB_DIR_NAME,pSubDirPos);
 		//2009.12.25 bagus Recipe Backup --{--
 		DeleteDirectory(szToPath);
 		//2009.12.25 bagus Recipe Backup --}--
 		MakeDirectory(szToPath);
 //2009.12.25 bagus Recipe Backup --{--
-//		wsprintf(szToPath,"%s\\%s\\%s\\%s%s",g_szBackupPath,DB_DIR_NAME,pSubDirPos,szFile,szExt);
+//		wsprintf_s(szToPath, sizeof(szToPath), "%s\\%s\\%s\\%s%s", g_szBackupPath,DB_DIR_NAME,pSubDirPos,szFile,szExt);
 //		bRet = CopyFile(lpszSourcePath,szToPath,FALSE);
-		wsprintf(szFromPath,"%s\\%s\\%s",szDrive,szDir,"*");
+		wsprintf_s(szFromPath, sizeof(szFromPath), "%s\\%s\\%s", szDrive,szDir,"*");
 		bRet = CopyDirectory(szFromPath,szToPath);
 //2009.12.25 bagus Recipe Backup --}--
 	}
@@ -4201,7 +4202,7 @@ BOOL DeleteBackupRecipe(LPCTSTR lpszSourcePath)
 			pSubDirPos = pSubDirPos + strlen(DB_DIR);
 		}
 		//削除する
-		wsprintf(szToPath,"%s\\%s\\%s\\%s%s",g_szBackupPath,DB_DIR_NAME,pSubDirPos,szFile,szExt);
+		wsprintf_s(szToPath, sizeof(szToPath), "%s\\%s\\%s\\%s%s", g_szBackupPath,DB_DIR_NAME,pSubDirPos,szFile,szExt);
 		bRet = DeleteFile(szToPath);
 	}
 
@@ -4318,12 +4319,12 @@ BOOL SetStressParam(LPVOID pVoid, LPCSTR lpszName, int iType)
 
 	switch(iType){
 	case RECIPE_FILE_STRESS_MAIN_RECIPE:
-		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
 		//memcpy(pVoid, &lg_StressParamInfo, sizeof(STRESS_PARAM_INFO));
 		memcpy(&lg_StressParamInfo, pVoid, sizeof(STRESS_PARAM_INFO));
 		break;
 	case RECIPE_FILE_DEF_STRESS_MAIN_RECIPE:
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		//memcpy(pVoid, &lg_StressParamInfo, sizeof(STRESS_PARAM_INFO));
 		memcpy(&lg_StressParamInfo, pVoid, sizeof(STRESS_PARAM_INFO));
 		break;
@@ -4352,7 +4353,7 @@ BOOL SetStressParam(LPVOID pVoid, LPCSTR lpszName, int iType)
 		for (DWORD iPoint = 0; iPoint < PIN_INTERVAL; iPoint++){
 			/* セクション位置を読出し	*/
 			_stprintf(l_tszKey, LnPtThickness, iLine + 1, iPoint + 1);
-			_stprintf(l_tszTemp,_T("%.3f"),lg_StressParamInfo.Line[iLine].dPtThick[iPoint]);
+			_stprintf_s(l_tszTemp, _countof(l_tszTemp), _T("%.3f"), lg_StressParamInfo.Line[iLine].dPtThick[iPoint]);
 			if(0 == WritePrivateProfileString(l_tszSec, l_tszKey,l_tszTemp,szFilePath))
 				return FALSE;
 		}
@@ -4369,13 +4370,13 @@ BOOL LoadStressParam(LPVOID pVoid, LPCSTR lpszName, int iType)
 	ClearMemory();
 	memset(&lg_StressParamInfo, NULL, sizeof(STRESS_PARAM_INFO));
 
-//	sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+//	sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 	switch(iType){
 	case RECIPE_FILE_STRESS_MAIN_RECIPE:
-		sprintf(szFilePath, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, DB_MAIN_RECIPE_DIR "%s" MAINRECIPE_EXT, lpszName);
 		break;
 	case RECIPE_FILE_DEF_STRESS_MAIN_RECIPE:
-		sprintf(szFilePath, CFG_USER_DIR "%s" DAT_EXT, lpszName);
+		sprintf_s(szFilePath, _MAX_PATH, CFG_USER_DIR "%s" DAT_EXT, lpszName);
 		break;
 	default:
 		return FALSE;
