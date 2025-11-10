@@ -2063,12 +2063,12 @@ void CMainFrame::OnMenuData()
 /* modified 2014.11.22 hmenjo TohoRecall へ変更 ----------              */
 	FINDNANOMAPWIN l_FindNanoMapWin;
 	memset(&l_FindNanoMapWin, 0, sizeof(l_FindNanoMapWin));
-	strcpy(l_FindNanoMapWin.tszFind[0], NANOMAP_WINDOW_NAME_NEW);
+	strcpy_s(l_FindNanoMapWin.tszFind[0], sizeof(l_FindNanoMapWin.tszFind[0]), NANOMAP_WINDOW_NAME_NEW);
 	CString l_strFindWin = NANOMAP_WINDOW_NAME;
 	if (g_lAppNameType == APP_NAME_TOHO) {
 		l_strFindWin.Replace(g_lpszAppPrefix4[0], g_lpszAppPrefix4[1]);
 	}
-	strcpy(l_FindNanoMapWin.tszFind[1], l_strFindWin);
+	strcpy_s(l_FindNanoMapWin.tszFind[1], sizeof(l_FindNanoMapWin.tszFind[1]), l_strFindWin);
 	hWnd = 0;
 	BOOL l_bRc = EnumWindows(EnumWindowsProcNanoMap, (LPARAM) &l_FindNanoMapWin);
 	hWnd = l_FindNanoMapWin.hwndFound;
@@ -2545,7 +2545,7 @@ void CMainFrame::OnAutoFocus()
 				dlg.m_nSampleMode = 1;
 			}
 
-			strcpy(dlg.m_szRecipeName, rcp_data.StageProgInfoHdr.SampleInfo.szName);
+			strcpy_s(dlg.m_szRecipeName, sizeof(dlg.m_szRecipeName), rcp_data.StageProgInfoHdr.SampleInfo.szName);
 // 2009.10.30 bagus Stage-Sample 修正 --}--
 // 2013.02.22 bagus Substrate thickness setting -->
 			if ( dlg.m_nSampleMode != 0 ) {
@@ -4386,7 +4386,7 @@ void CMainFrame::SetSelectListName(LPCTSTR pszName)
 	iIndex = SelectListNameIndex();
 	if ( iIndex == -1 )
 		return;
-	strcpy(m_szSelectListName[iIndex], pszName);
+	strcpy_s(m_szSelectListName[iIndex], sizeof(m_szSelectListName[iIndex]), pszName);
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -4914,12 +4914,12 @@ int CMainFrame::ScanDataLabelGet_COMPEASE(char szLabel[][ADAPRESULTSTRINGLENMAX 
 			char szUnitPlus[ADAPRESULTSTRINGLENMAX + 1];
 			memset(szUnitPlus, 0, sizeof(szUnitPlus));
 			sprintf_s(szUnitPlus, sizeof(szUnitPlus), "%s%s%s", "[", szUnit, "]");
-			strcat(szLabel[i], szUnitPlus);
+			strcat_s(szLabel[i], sizeof(szLabel[i]), szUnitPlus);
 		}
 
 		//『MSE→Fit』の置換
 		if(strcmp(szLabel[i], "MSE") == 0){
-			strcpy(szLabel[i], "Fit");
+			strcpy_s(szLabel[i], sizeof(szLabel[i]), "Fit");
 		}
 	}
 
@@ -6455,7 +6455,7 @@ void  CMainFrame::GetStrategyhead(const char* szStrategyEntry, char szDispLabel[
 				token = strtok(szDdeTextItem, _T(","));
 				for (iHeadCount=0; token != NULL ; iHeadCount++)
 				{
-					strcpy(szDispLabel[iHeadCount], token);
+					strcpy_s(szDispLabel[iHeadCount], sizeof(szDispLabel[iHeadCount]), token);
 					token = strtok(NULL, _T(","));
 				}
 			}
@@ -6478,12 +6478,12 @@ void  CMainFrame::GetStrategyhead(const char* szStrategyEntry, char szDispLabel[
 					char szUnitPlus[ADAPRESULTSTRINGLENMAX + 1];
 					memset(szUnitPlus, 0, sizeof(szUnitPlus));
 					sprintf_s(szUnitPlus, sizeof(szUnitPlus), "%s%s%s", "[", szUnit, "]");
-					strcat(szDispLabel[i], szUnitPlus);
+					strcat_s(szDispLabel[i], sizeof(szDispLabel[i]), szUnitPlus);
 				}
 
 				//『MSE→Fit』の置換
 				if(strcmp(szDispLabel[i], "MSE") == 0){
-					strcpy(szDispLabel[i], "Fit");
+					strcpy_s(szDispLabel[i], sizeof(szDispLabel[i]), "Fit");
 				}
 			}
 
