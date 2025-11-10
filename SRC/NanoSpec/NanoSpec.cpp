@@ -5,6 +5,7 @@
 #define _MASTER_
 #include "System.h"
 #include "NanoSpec.h"
+#include "..\..\INC\ts_secure_crt.h"
 #include "NanoSpecDoc.h"
 #include "MySplitterWnd.h"
 #include "MainFrm.h"
@@ -330,7 +331,7 @@ BOOL CNanoSpecApp::InitInstance()
 			memset(l_tszGetCaption, 0, sizeof(l_tszGetCaption));
 			l_pPrevWnd->GetWindowText(l_tszGetCaption, (sizeof(l_tszGetCaption) / sizeof(TCHAR)) - 1);
 			for (i = 0; i < APP_NAME_MAX; i++) {
-				_stprintf(l_tszCaptionMain, _T("%sSpec -"), g_lpszAppPrefix4[i]);
+				_stprintf_s(l_tszCaptionMain, _countof(l_tszCaptionMain), _T("%sSpec -"), g_lpszAppPrefix4[i]);
 				if (_tcslen(l_tszCaptionMain) < _tcslen(l_tszGetCaption)) {
 					l_tszGetCaption[_tcslen(l_tszCaptionMain)] = 0;
 				}
@@ -468,14 +469,14 @@ BOOL CNanoSpecApp::InitInstance()
 	//The CWinApp destructor will free the memory.
 	char szFilePath[MAX_PATH];
 // 2013.11.07 Bagus Mod (TohoSpec対応) -->
-//	sprintf(szFilePath, "%s%s", g_szCfg_Dir, NANOSPEC_INIFILENAME);
+//	sprintf_s(szFilePath, sizeof(szFilePath), "%s%s", g_szCfg_Dir, NANOSPEC_INIFILENAME);
 	CString strFilename;
 
 	strFilename = NANOSPEC_INIFILENAME;
 	if(g_lAppNameType != APP_NAME_NANO){
 		strBuffer.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
 	}
-	sprintf(szFilePath, "%s%s", g_szCfg_Dir, strFilename);
+	sprintf_s(szFilePath, sizeof(szFilePath), "%s%s", g_szCfg_Dir, strFilename);
 // 2013.11.07 Bagus Mod (TohoSpec対応) <--
 	m_pszProfileName = _tcsdup( szFilePath);
 
@@ -559,7 +560,7 @@ BOOL CNanoSpecApp::InitInstance()
 	ConfigFile_GetNanoSpecIni(&l_srXmp, CONFIG_FILE_SR_XMP);
 	TCHAR l_tszAdapPath[MAX_PATH];
 	if(l_srXmp.szAdapExePath[0] != '\0'){
-		_tcscpy(l_tszAdapPath, l_srXmp.szAdapExePath);
+		_tcscpy_s(l_tszAdapPath, _countof(l_tszAdapPath), l_srXmp.szAdapExePath);
 	}
 	else{
 		_tcscpy(l_tszAdapPath, _T("C:\\WVASE32\\Adap\\jaw_adap.exe"));
@@ -688,14 +689,14 @@ BOOL CAboutDlg::OnInitDialog()
 	char szBuff[100];
 
 /* modified 2016.05.12 hmenjo 6500/TS3100 別 version ---------- { ---------- */
-//	sprintf(szBuff, "%s (%s %s)", SOFT_VERSION, __DATE__, __TIME__);
+//	sprintf_s(szBuff, sizeof(szBuff), "%s (%s %s)", SOFT_VERSION, __DATE__, __TIME__);
 /* modified 2016.05.12 hmenjo 6500/TS3100 別 version ----------              */
 	char l_szVersion[128];
 	switch (g_lModelType) {
-	case MODEL_T3100:	strcpy(l_szVersion, SOFT_VERSION_TS3100);	break;
-	default:			strcpy(l_szVersion, SOFT_VERSION);			break;
+	case MODEL_T3100:	strcpy_s(l_szVersion, sizeof(l_szVersion), SOFT_VERSION_TS3100);	break;
+	default:			strcpy_s(l_szVersion, sizeof(l_szVersion), SOFT_VERSION);			break;
 	}
-	sprintf(szBuff, "%s (%s %s)", l_szVersion, __DATE__, __TIME__);
+	sprintf_s(szBuff, sizeof(szBuff), "%s (%s %s)", l_szVersion, __DATE__, __TIME__);
 /* modified 2016.05.12 hmenjo 6500/TS3100 別 version ---------- } ---------- */
 	SetDlgItemText(IDC_VERSION, szBuff);
 
@@ -763,7 +764,7 @@ void CNanoSpecApp::NextraExe(int Cmd)
 			ZeroMemory(&ProcessInfo,sizeof(ProcessInfo));
 			StartInfo.wShowWindow = SW_SHOWNORMAL;
 			StartInfo.cb = sizeof(StartInfo);
-			sprintf(szFilePath, "%s%s%s", g_szBin_Dir, NEXTRA_EXE_NAME, " /H");
+			sprintf_s(szFilePath, sizeof(szFilePath), "%s%s%s", g_szBin_Dir, NEXTRA_EXE_NAME, " /H");
 			int ret = CreateProcess(	NULL,
 										szFilePath, 					// BIN_DIR "\\" NEXTRA_EXE_NAME " /H",
 										NULL,
@@ -842,7 +843,7 @@ void CNanoSpecApp::NanoSpecTitle(int Cmd, int iParam/*=0*/)
 			StartInfo.wShowWindow = SW_SHOWNORMAL;
 			StartInfo.cb = sizeof(StartInfo);
 // 2013.11.07 Bagus Mod (TohoSpec対応) -->
-//			sprintf(szFilePath, "%s%s", g_szBin_Dir, NANOSPEC_TITLE_EXE_NAME);
+//			sprintf_s(szFilePath, sizeof(szFilePath), "%s%s", g_szBin_Dir, NANOSPEC_TITLE_EXE_NAME);
 			CString strBuffer;
 			strBuffer = NANOSPEC_TITLE_EXE_NAME;
 			if(g_lAppNameType != APP_NAME_NANO){
@@ -967,117 +968,117 @@ void CNanoSpecApp::MakePath()
 	memset(g_szCurPath, 0, sizeof(g_szCurPath));
 	memset(g_szMyPath, 0, sizeof(g_szMyPath));
 	DWORD dRet = GetCurrentDirectory(MAX_PATH, g_szCurPath);
-	strcpy(g_szMyPath, g_szCurPath);
+	strcpy_s(g_szMyPath, sizeof(g_szMyPath), g_szCurPath);
 	ptr = strrchr(g_szMyPath, '\\');
 	if(ptr) *ptr = '\0';
 
 ///// BIN_DIR /////
-	strcpy(g_szBin_Dir, g_szMyPath);
+	strcpy_s(g_szBin_Dir, sizeof(g_szBin_Dir), g_szMyPath);
 	ptr = (char*)strchr(BIN_DIR, '\\');
 	if(ptr) strcat(g_szBin_Dir, ptr);
 
 ///// LOG_DIR /////
-	strcpy(g_szLog_Dir, g_szMyPath);
+	strcpy_s(g_szLog_Dir, sizeof(g_szLog_Dir), g_szMyPath);
 	ptr = (char*)strchr(LOG_DIR, '\\');
 	if(ptr) strcat(g_szLog_Dir, ptr);
 
 	///// PR_DIR /////
-	strcpy(g_szLog_Pr_Dir, g_szLog_Dir);
+	strcpy_s(g_szLog_Pr_Dir, sizeof(g_szLog_Pr_Dir), g_szLog_Dir);
 	strcat(g_szLog_Pr_Dir, "PR\\");
 
 ///// CFG_DIR /////
-	strcpy(g_szCfg_Dir, g_szMyPath);
+	strcpy_s(g_szCfg_Dir, sizeof(g_szCfg_Dir), g_szMyPath);
 	ptr = (char*)strchr(CFG_DIR, '\\');
 	if(ptr) strcat(g_szCfg_Dir, ptr);
 
 	///// CFG_SYSTEM_DIR /////
-	strcpy(g_szCfg_System_Dir, g_szCfg_Dir);
+	strcpy_s(g_szCfg_System_Dir, sizeof(g_szCfg_System_Dir), g_szCfg_Dir);
 	strcat(g_szCfg_System_Dir, "SYSTEM\\");
 
 		///// CFG_SYSTEM_SAMPLE_DIR /////
-	strcpy(g_szCfg_System_Sample_Dir, g_szCfg_System_Dir);
+	strcpy_s(g_szCfg_System_Sample_Dir, sizeof(g_szCfg_System_Sample_Dir), g_szCfg_System_Dir);
 	strcat(g_szCfg_System_Sample_Dir, "SAMPLE\\");
 
 		///// CFG_SYSTEM_SR_REFERENCE_MATERIAL /////
-	strcpy(g_szCfg_System_Sr_Reference_Material_Dir, g_szCfg_System_Dir);
+	strcpy_s(g_szCfg_System_Sr_Reference_Material_Dir, sizeof(g_szCfg_System_Sr_Reference_Material_Dir), g_szCfg_System_Dir);
 	strcat(g_szCfg_System_Sr_Reference_Material_Dir, "SR_ReferenceMaterial\\");
 
 	///// CFG_USER_DIR /////
-	strcpy(g_szCfg_User_Dir, g_szCfg_Dir);
+	strcpy_s(g_szCfg_User_Dir, sizeof(g_szCfg_User_Dir), g_szCfg_Dir);
 	strcat(g_szCfg_User_Dir, "USER\\");
 
 		///// CFG_USER_USER_ACCOUNT_DIR /////
-	strcpy(g_szCfg_User_User_Account_Dir, g_szCfg_User_Dir);
+	strcpy_s(g_szCfg_User_User_Account_Dir, sizeof(g_szCfg_User_User_Account_Dir), g_szCfg_User_Dir);
 	strcat(g_szCfg_User_User_Account_Dir, "USERACCOUNT\\");
 
 ///// DB_DIR /////
-	strcpy(g_szDb_Dir, g_szMyPath);
+	strcpy_s(g_szDb_Dir, sizeof(g_szDb_Dir), g_szMyPath);
 	ptr = (char*)strchr(DB_DIR, '\\');
 	if(ptr) strcat(g_szDb_Dir, ptr);
 
 	///// DB_MAIN_RECIPE_DIR /////
-	strcpy(g_szDb_Main_Recipe_Dir, g_szDb_Dir);
+	strcpy_s(g_szDb_Main_Recipe_Dir, sizeof(g_szDb_Main_Recipe_Dir), g_szDb_Dir);
 	strcat(g_szDb_Main_Recipe_Dir, "MAINRECIPE\\");
 
 	///// DB_MULTI_RECIPE_DIR /////
-	strcpy(g_szDb_Multi_Recipe_Dir, g_szDb_Dir);
+	strcpy_s(g_szDb_Multi_Recipe_Dir, sizeof(g_szDb_Multi_Recipe_Dir), g_szDb_Dir);
 	strcat(g_szDb_Multi_Recipe_Dir, "MULTIRECIPE\\");
 
 	///// DB_MEASUREMENT_PROGRAM_DIR /////
-	strcpy(g_szDb_Measurement_Program_Dir, g_szDb_Dir);
+	strcpy_s(g_szDb_Measurement_Program_Dir, sizeof(g_szDb_Measurement_Program_Dir), g_szDb_Dir);
 	strcat(g_szDb_Measurement_Program_Dir, "MEASUREMENTPGM\\");
 
 	///// DB_STAGE_PROGRAM_DIR /////
-	strcpy(g_szDb_Stage_Program_Dir, g_szDb_Dir);
+	strcpy_s(g_szDb_Stage_Program_Dir, sizeof(g_szDb_Stage_Program_Dir), g_szDb_Dir);
 	strcat(g_szDb_Stage_Program_Dir, "STAGEPGM\\");
 
 	///// DB_DESKEW_IMG_DIR /////
-	strcpy(g_szDb_Deskew_Img_Dir, g_szDb_Dir);
+	strcpy_s(g_szDb_Deskew_Img_Dir, sizeof(g_szDb_Deskew_Img_Dir), g_szDb_Dir);
 	strcat(g_szDb_Deskew_Img_Dir, "DESKEW_IMG\\");
 
 	///// DB_PATTERN_DIR /////
-	strcpy(g_szDb_Pattern_Dir, g_szDb_Dir);
+	strcpy_s(g_szDb_Pattern_Dir, sizeof(g_szDb_Pattern_Dir), g_szDb_Dir);
 	strcat(g_szDb_Pattern_Dir, "PATTERN\\");
 
 	///// DB_PATTERN_IMG_DIR /////
-	strcpy(g_szDb_Pattern_Img_Dir, g_szDb_Dir);
+	strcpy_s(g_szDb_Pattern_Img_Dir, sizeof(g_szDb_Pattern_Img_Dir), g_szDb_Dir);
 	strcat(g_szDb_Pattern_Img_Dir, "PATTERN_IMG\\");
 
 	///// DB_RECALIBRATION_PROGRAM_DIR /////
-	strcpy(g_szDb_Recalibration_Program_Dir, g_szDb_Dir);
+	strcpy_s(g_szDb_Recalibration_Program_Dir, sizeof(g_szDb_Recalibration_Program_Dir), g_szDb_Dir);
 	strcat(g_szDb_Recalibration_Program_Dir, "RECALIBRATIONPGM\\");
 
 	///// DB_POINT_DESKEW_PROGRAM_DIR /////
-	strcpy(g_szDb_Point_Deskew_Program_Dir, g_szDb_Dir);
+	strcpy_s(g_szDb_Point_Deskew_Program_Dir, sizeof(g_szDb_Point_Deskew_Program_Dir), g_szDb_Dir);
 	strcat(g_szDb_Point_Deskew_Program_Dir, "POINTDESKEWPGM\\");
 
 ///// RESULT_DIR /////
-	strcpy(g_szResult_Dir, g_szMyPath);
+	strcpy_s(g_szResult_Dir, sizeof(g_szResult_Dir), g_szMyPath);
 	ptr = (char*)strchr(RESULT_DIR, '\\');
 	if(ptr) strcat(g_szResult_Dir, ptr);
 
 ///// DATA_DIR /////
-	strcpy(g_szData_Dir, g_szMyPath);
+	strcpy_s(g_szData_Dir, sizeof(g_szData_Dir), g_szMyPath);
 	ptr = (char*)strchr(DATA_DIR, '\\');
 	if(ptr) strcat(g_szData_Dir, ptr);
 
 	///// DATA_MEASUREMENTDATA_DIR /////
-	strcpy(g_szData_MeasurementData_Dir, g_szData_Dir);
+	strcpy_s(g_szData_MeasurementData_Dir, sizeof(g_szData_MeasurementData_Dir), g_szData_Dir);
 	strcat(g_szData_MeasurementData_Dir, "MEASUREMENTDATA\\");
 
 	///// MEAS_DAT_TEMP_COPY_PASS /////
-	strcpy(g_szData_Meas_Dat_Temp_Copy_Dir, g_szData_Dir);
+	strcpy_s(g_szData_Meas_Dat_Temp_Copy_Dir, sizeof(g_szData_Meas_Dat_Temp_Copy_Dir), g_szData_Dir);
 	strcat(g_szData_Meas_Dat_Temp_Copy_Dir, "MeasuredDataTemp\\");
 
 	///// MEASURED_DATA_TEMP_DIR /////
-	strcpy(g_szData_Measured_Data_Temp_Dir, g_szData_Dir);
+	strcpy_s(g_szData_Measured_Data_Temp_Dir, sizeof(g_szData_Measured_Data_Temp_Dir), g_szData_Dir);
 	strcat(g_szData_Measured_Data_Temp_Dir, "MeasuredDataTemp\\");
 
 	///// REF_DIR /////
-	strcpy(g_szData_Ref_Dir, g_szData_Dir);
+	strcpy_s(g_szData_Ref_Dir, sizeof(g_szData_Ref_Dir), g_szData_Dir);
 	strcat(g_szData_Ref_Dir, "ref\\");
 /* added 2009.07.31 hmenjo ストレス機能追加(9) ---------- { ---------- */
-	_tcscpy(g_szData_StressRef_Dir, g_szData_Ref_Dir);
+	_tcscpy_s(g_szData_StressRef_Dir, _countof(g_szData_StressRef_Dir), g_szData_Ref_Dir);
 	_tcscat(g_szData_StressRef_Dir, _T("StressRef\\"));
 /* added 2009.07.31 hmenjo ストレス機能追加(9) ---------- } ---------- */
 }
@@ -1094,7 +1095,7 @@ int CNanoSpecApp::SetEnvNanoPath()
 	TCHAR l_tszBaseDrv[_MAX_DRIVE];
 	TCHAR l_tszBaseDir[_MAX_DIR];
 	_tsplitpath(l_tszTemp, l_tszBaseDrv, l_tszBaseDir, 0, 0);
-	_stprintf(l_tszTemp, _T("%s%s.."), l_tszBaseDrv, l_tszBaseDir);
+	_stprintf_s(l_tszTemp, _countof(l_tszTemp), _T("%s%s.."), l_tszBaseDrv, l_tszBaseDir);
 	TCHAR l_tszBasePath[_MAX_PATH];
 	if (0 == _tfullpath(l_tszBasePath, l_tszTemp, sizeof(l_tszBasePath))) {
 		return -2;
@@ -1104,11 +1105,11 @@ int CNanoSpecApp::SetEnvNanoPath()
 	}
 	/* 実行パスを作成します．	*/
 	TCHAR l_tszPathBin[_MAX_PATH];								/* BIN		*/
-	_stprintf(l_tszPathBin, _T("%sBIN"), l_tszBasePath);
+	_stprintf_s(l_tszPathBin, _countof(l_tszPathBin), _T("%sBIN"), l_tszBasePath);
 	TCHAR l_tszPathBinDeb[_MAX_PATH];							/* BIN_DEB	*/
-	_stprintf(l_tszPathBinDeb, _T("%sBIN_DEB"), l_tszBasePath);
+	_stprintf_s(l_tszPathBinDeb, _countof(l_tszPathBinDeb), _T("%sBIN_DEB"), l_tszBasePath);
 	TCHAR l_tszPathDll[_MAX_PATH];								/* DLL		*/
-	_stprintf(l_tszPathDll, _T("%sDLL"), l_tszBasePath);
+	_stprintf_s(l_tszPathDll, _countof(l_tszPathDll), _T("%sDLL"), l_tszBasePath);
 	/* 環境変数の実行パスの文字列サイズを取得します．	*/
 	DWORD l_dwEnvPathReqLen = ::GetEnvironmentVariable(_T("path"), 0, 0);
 	if (0 == l_dwEnvPathReqLen) {
@@ -1134,7 +1135,7 @@ int CNanoSpecApp::SetEnvNanoPath()
 	 || ((0 != l_ptszFind)
 	  && (_T(';') != *(l_ptszFind + _tcslen(l_tszPathBin)))
 	  && (0 != *(l_ptszFind + _tcslen(l_tszPathBin))))) {
-		_tcscat(l_tszAddPath, _T(";")); _tcscat(l_tszAddPath, l_tszPathBin);
+		_tcscat(l_tszAddPath, _T(";")); _tcscat_s(l_tszAddPath, _countof(l_tszAddPath), l_tszPathBin);
 	}
 	_tcslwr(l_tszPathBinDeb);
 	l_ptszFind = _tcsstr(l_ptszEnvPath, l_tszPathBinDeb);
@@ -1142,7 +1143,7 @@ int CNanoSpecApp::SetEnvNanoPath()
 	 || ((0 != l_ptszFind)
 	  && (_T(';') != *(l_ptszFind + _tcslen(l_tszPathBinDeb)))
 	  && (0 != *(l_ptszFind + _tcslen(l_tszPathBinDeb))))) {
-		_tcscat(l_tszAddPath, _T(";")); _tcscat(l_tszAddPath, l_tszPathBinDeb);
+		_tcscat(l_tszAddPath, _T(";")); _tcscat_s(l_tszAddPath, _countof(l_tszAddPath), l_tszPathBinDeb);
 	}
 	_tcslwr(l_tszPathDll);
 	l_ptszFind = _tcsstr(l_ptszEnvPath, l_tszPathDll);
@@ -1150,13 +1151,13 @@ int CNanoSpecApp::SetEnvNanoPath()
 	 || ((0 != l_ptszFind)
 	  && (_T(';') != *(l_ptszFind + _tcslen(l_tszPathDll)))
 	  && (0 != *(l_ptszFind + _tcslen(l_tszPathDll))))) {
-		_tcscat(l_tszAddPath, _T(";")); _tcscat(l_tszAddPath, l_tszPathDll);
+		_tcscat(l_tszAddPath, _T(";")); _tcscat_s(l_tszAddPath, _countof(l_tszAddPath), l_tszPathDll);
 	}
 	if (0 == _tcscmp(l_tszAddPath, _T(""))) {
 		/* すべて存在したので追加がありません．	*/
 	} else {
 		/* 追加がありますので環境変数の実行パスに追加します．	*/
-		_tcscat(l_ptszEnvPath, l_tszAddPath);
+		_tcscat_s(l_ptszEnvPath, _countof(l_ptszEnvPath), l_tszAddPath);
 		::SetEnvironmentVariable(_T("path"), l_ptszEnvPath);
 	}
 
@@ -1187,7 +1188,7 @@ long CNanoSpecApp::StartUpLogo(long lCmd/* = 0*/)
 			l_StartInfo.cb = sizeof(l_StartInfo);
 			l_StartInfo.wShowWindow = SW_SHOWNORMAL;
 			TCHAR l_tszPathExe[MAX_PATH];
-			_stprintf(l_tszPathExe, _T("%s%s.exe"), g_szBin_Dir, l_tszCaption);
+			_stprintf_s(l_tszPathExe, _countof(l_tszPathExe), _T("%s%s.exe"), g_szBin_Dir, l_tszCaption);
 //			TCHAR l_tszParam[] = _T("ANIMATE1 WZOTOPMOST DISPTIME0 RECT-1,550,-1,-1");	/* コマンドライン　パラメタ	*/
 /* modified 2015.04.05 hmenjo FWXGA 対応2 ---------- { ---------- */
 //			TCHAR l_tszParam[] = _T("ANIMATE1 WZOTOPMOST2 DISPTIME0 RECT-1,550,-1,-1");	/* コマンドライン　パラメタ	*/
@@ -1204,7 +1205,7 @@ long CNanoSpecApp::StartUpLogo(long lCmd/* = 0*/)
 /* modified 2015.04.05 hmenjo FWXGA 対応2 ---------- } ---------- */
 			if (0 < _tcslen(l_tszParam)) {
 				_tcscat(l_tszPathExe, _T(" "));
-				_tcscat(l_tszPathExe, l_tszParam);
+				_tcscat_s(l_tszPathExe, _countof(l_tszPathExe), l_tszParam);
 			}
 			BOOL l_bRc = ::CreateProcess(	NULL,
 								l_tszPathExe,
