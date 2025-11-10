@@ -3022,12 +3022,12 @@ HMODULE ResourceLoadLibrary(int langid, LPCTSTR lpszResourceName)
 {
 	TCHAR l_szResourceFullName[_MAX_FNAME];
 
-	_tcscpy(l_szResourceFullName, lpszResourceName);
+	_tcscpy_s(l_szResourceFullName, _MAX_FNAME, lpszResourceName);
 	if(langid == LANGUAGE_ENGLISH){
-		_tcscat(l_szResourceFullName, "RCENU.dll");
+		_tcscat_s(l_szResourceFullName, _MAX_FNAME, "RCENU.dll");
 	}
 	else{
-		_tcscat(l_szResourceFullName, "RCJPN.dll");
+		_tcscat_s(l_szResourceFullName, _MAX_FNAME, "RCJPN.dll");
 	}
 
 	return ::LoadLibrary(l_szResourceFullName);
@@ -3232,7 +3232,7 @@ LPSTR strfloat(LPSTR format, float fdata)
 {
 	static char buff[STRFUNC_BUF_LEN+1];
 
-	sprintf(buff, format, fdata);
+	sprintf_s(buff, STRFUNC_BUF_LEN+1, format, fdata);
 
 	return buff;
 }
@@ -3247,7 +3247,7 @@ LPSTR strint(LPSTR format, int idata)
 {
 	static char buff[STRFUNC_BUF_LEN+1];
 
-	sprintf(buff, format, idata);
+	sprintf_s(buff, STRFUNC_BUF_LEN+1, format, idata);
 
 	return buff;
 }
@@ -3262,7 +3262,7 @@ LPSTR strlong(LPSTR format, long ldata)
 {
 	static char buff[STRFUNC_BUF_LEN+1];
 
-	sprintf(buff, format, ldata);
+	sprintf_s(buff, STRFUNC_BUF_LEN+1, format, ldata);
 
 	return buff;
 }
@@ -3322,7 +3322,7 @@ LPSTR svrdata(LPSTR data, char element, int size, LPSTR last)
 		else
 			buff[count] = data[index++];
 	}
-	strcat(buff, last);
+	strcat_s(buff, STRFUNC_BUF_LEN+1, last);
 
 	return buff;
 }
@@ -3342,7 +3342,7 @@ inline void Checkf(char* pFormat, ...)
 	if(hWnd == NULL)
 		return ;
 	va_start(pArgp, pFormat);
-	vsprintf(Buffer, pFormat, pArgp) ;
+	vsprintf_s(Buffer, MAX_PATH, pFormat, pArgp);
 	TRACE("%s\n",Buffer);
 	Cds.dwData = 0;
 	Cds.lpData = (void *)Buffer;
@@ -3355,8 +3355,10 @@ inline void Checkf(char* pFormat, ...)
 inline void ToTimeStr( time_t tTime, char* szTime )
 {
 	struct tm*		tBlock;
-	tBlock = localtime( &tTime );
-	sprintf( szTime, "%04d%02d%02d%02d%02d%02d",
+	struct tm tBlockData;
+	localtime_s(&tBlockData, &tTime);
+	tBlock = &tBlockData;
+	sprintf_s( szTime, 32, "%04d%02d%02d%02d%02d%02d",
 									(tBlock->tm_year+1900),
 									tBlock->tm_mon+1,
 									tBlock->tm_mday,
@@ -3370,8 +3372,10 @@ inline void ToTimeStr( time_t tTime, char* szTime )
 inline void ToTimeStr2( time_t tTime, char* szTime )
 {
 	struct tm*		tBlock;
-	tBlock = localtime( &tTime );
-	sprintf( szTime, "%02d%02d%02d%02d%02d%02d",
+	struct tm tBlockData;
+	localtime_s(&tBlockData, &tTime);
+	tBlock = &tBlockData;
+	sprintf_s( szTime, 32, "%02d%02d%02d%02d%02d%02d",
 									(tBlock->tm_year+1900) % 100,
 									tBlock->tm_mon+1,
 									tBlock->tm_mday,
@@ -3385,8 +3389,10 @@ inline void ToTimeStr2( time_t tTime, char* szTime )
 inline void ToTimeStr3( time_t tTime, char* szTime )
 {
 	struct tm*		tBlock;
-	tBlock = localtime( &tTime );
-	sprintf( szTime, "%04d.%02d.%02d %02d:%02d:%02d",
+	struct tm tBlockData;
+	localtime_s(&tBlockData, &tTime);
+	tBlock = &tBlockData;
+	sprintf_s( szTime, 32, "%04d.%02d.%02d %02d:%02d:%02d",
 									(tBlock->tm_year+1900),
 									tBlock->tm_mon+1,
 									tBlock->tm_mday,
