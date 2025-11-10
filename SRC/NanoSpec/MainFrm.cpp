@@ -11,6 +11,7 @@
 #include "NanoSpecDoc.h"
 #include "MySplitterWnd.h"
 #include "MainFrm.h"
+#include "..\..\INC\ts_secure_crt.h"
 #include "NanoSpecView.h"
 #include "RecipeMainListView.h"
 #include "MainMenuView.h"
@@ -1027,12 +1028,12 @@ void CMainFrame::OnAppExit()
 // 2013.11.15 Bagus Add (TohoSpec対応) -->
 //		m_pDoc->OperationLogging("NanoSpec Quit - OK Button was pushed.");
 		char szBuff[_MAX_PATH];
-		strcpy(szBuff, "NanoSpec Quit - OK Button was pushed.");
+		strcpy_s(szBuff, sizeof(szBuff), "NanoSpec Quit - OK Button was pushed.");
 		if(g_lAppNameType != APP_NAME_NANO){
 			CString strMsg;
 			strMsg = szBuff;
 			strMsg.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
-			strcpy(szBuff, strMsg);
+			strcpy_s(szBuff, sizeof(szBuff), strMsg);
 		}
 		m_pDoc->OperationLogging(szBuff);
 // 2013.11.15 Bagus Add (TohoSpec対応) <--
@@ -1234,7 +1235,7 @@ LRESULT CMainFrame::OnProcessInit(WPARAM wparam, LPARAM lparam)
 
 	// Start the child process.
 // 2013.11.07 Bagus Mod (TohoSpec対応) -->
-//	sprintf(szPath, "%s%s", g_szBin_Dir, NANOPIFSOCK_EXE_NAME);
+//	sprintf_s(szPath, sizeof(szPath), "%s%s", g_szBin_Dir, NANOPIFSOCK_EXE_NAME);
 	if(g_lModelType != MODEL_T3100){
 		strBuffer1 = NANOPIFSOCK_EXE_NAME;
 		if(g_lAppNameType != APP_NAME_NANO){
@@ -1402,7 +1403,7 @@ LRESULT CMainFrame::OnProcessInit(WPARAM wparam, LPARAM lparam)
 //	ZeroMemory(&StartInfo,sizeof(StartInfo));
 //	ZeroMemory(&ProcessInfo,sizeof(ProcessInfo));
 //
-//    sprintf(szPath, "%s%s", g_szBin_Dir, DIOLOG_EXE_NAME);
+//    sprintf_s(szPath, sizeof(szPath), "%s%s", g_szBin_Dir, DIOLOG_EXE_NAME);
 //	if(!CreateProcess(NULL, szPath, NULL, NULL, FALSE, 0, NULL, NULL, &StartInfo, &ProcessInfo)){
 //		LoadStringML(IDS_NANOPIFSOCK_CREATE_FAILED , strBuffer1, "DioLog CreateProcess failed.");
 //		LoadStringML(IDS_TITLE_NANOSPEC , strBuffer2, "NanoSpec");
@@ -2080,19 +2081,19 @@ void CMainFrame::OnMenuData()
 		StartInfo.wShowWindow = SW_SHOWNORMAL;
 		StartInfo.cb = sizeof(StartInfo);
 /* modified 2014.05.22 hmenjo 手動時 NanoMap ---------- { ---------- */
-//		sprintf(szPath, "%s%s", g_szBin_Dir, NANOMAP_EXE_NAME);
+//		sprintf_s(szPath, sizeof(szPath), "%s%s", g_szBin_Dir, NANOMAP_EXE_NAME);
 /* modified 2014.05.22 hmenjo 手動時 NanoMap ----------              */
 		CString l_strNanomapExeName = NANOMAP_EXE_NAME;
 		if (g_lAppNameType == APP_NAME_TOHO) {
 			l_strNanomapExeName.Replace(g_lpszAppPrefix4[0], g_lpszAppPrefix4[1]);
 		}
-		sprintf(szPath, "%s%s", g_szBin_Dir, l_strNanomapExeName);
+		sprintf_s(szPath, sizeof(szPath), "%s%s", g_szBin_Dir, l_strNanomapExeName);
 /* modified 2014.05.22 hmenjo 手動時 NanoMap ---------- } ---------- */
 /* added 2014.11.22 hmenjo TohoRecall へ変更 ---------- { ---------- */
 		char l_szPathNanoMapOrg[MAX_PATH];
-		strcpy(l_szPathNanoMapOrg, szPath);		/* NanoMap32 版の名前を保存	*/
+		strcpy_s(l_szPathNanoMapOrg, sizeof(l_szPathNanoMapOrg), szPath);		/* NanoMap32 版の名前を保存	*/
 		/* 新 NanoMap32 名	*/
-		sprintf(szPath, "%s%s", g_szBin_Dir, NANOMAP_EXE_NAME_NEW);
+		sprintf_s(szPath, sizeof(szPath), "%s%s", g_szBin_Dir, NANOMAP_EXE_NAME_NEW);
 		DWORD l_dwRc = ::GetFileAttributes(szPath);
 		switch (l_dwRc) {
 		case -1:
@@ -2107,7 +2108,7 @@ void CMainFrame::OnMenuData()
 				break;
 			default:
 				/* 存在しました．	*/
-				strcpy(szPath, l_szPathNanoMapOrg);
+				strcpy_s(szPath, sizeof(szPath), l_szPathNanoMapOrg);
 				break;
 			}
 			break;
@@ -4331,7 +4332,7 @@ void CMainFrame::SetWindowTitle()
 // 2013.11.07 Bagus Mod (TohoSpec対応) -->
 // 	char szBuff[256];
 // 	if(HardwareSimulation()){
-// 		sprintf(szBuff, "%s [HWS]", psz);
+// 		sprintf_s(szBuff, sizeof(szBuff), "%s [HWS]", psz);
 // 		SetWindowText(szBuff);
 // 	}
 // 	else{
@@ -4374,7 +4375,7 @@ void CMainFrame::GetSelectListName(LPTSTR pszName)
 	iIndex = SelectListNameIndex();
 	if ( iIndex == -1 )
 		return;
-	strcpy(pszName, m_szSelectListName[iIndex]);
+	strcpy_s(pszName, sizeof(pszName), m_szSelectListName[iIndex]);
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -4476,14 +4477,14 @@ int CMainFrame::SelectListNameIndex()
 //
 void CMainFrame::GetSelectSampleTypeName(LPTSTR pszName)
 {
-	strcpy(pszName, m_szSampleTypeName);
+	strcpy_s(pszName, sizeof(pszName), m_szSampleTypeName);
 }
 
 /////////////////////////////////////////////////////////////////////////////
 //
 void CMainFrame::SetSelectSampleTypeName(LPCTSTR pszName)
 {
-	strcpy(m_szSampleTypeName, pszName);
+	strcpy_s(m_szSampleTypeName, sizeof(m_szSampleTypeName), pszName);
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -4912,7 +4913,7 @@ int CMainFrame::ScanDataLabelGet_COMPEASE(char szLabel[][ADAPRESULTSTRINGLENMAX 
 		if(strstr(szLabel[i], "Thick") != NULL){
 			char szUnitPlus[ADAPRESULTSTRINGLENMAX + 1];
 			memset(szUnitPlus, 0, sizeof(szUnitPlus));
-			sprintf(szUnitPlus, "%s%s%s", "[", szUnit, "]");
+			sprintf_s(szUnitPlus, sizeof(szUnitPlus), "%s%s%s", "[", szUnit, "]");
 			strcat(szLabel[i], szUnitPlus);
 		}
 
@@ -5161,8 +5162,8 @@ void CMainFrame::MeasPointDatFileTempCopy(int iNowPoint)
 	::CreateDirectory(g_szData_Meas_Dat_Temp_Copy_Dir, NULL);
 
 	//ファイル名に測定ポイント番号を追加
-	sprintf(szDataFilePath, "%s%s_%05d%s", g_szData_Meas_Dat_Temp_Copy_Dir, szXmpDataFileName, iNowPoint, szXmpDataExt);
-	sprintf(szFittingDataFilePath, "%s%s_%05d%s", g_szData_Meas_Dat_Temp_Copy_Dir, szXmpFittingDataFileName, iNowPoint, szXmpFittingDataExt);
+	sprintf_s(szDataFilePath, sizeof(szDataFilePath), "%s%s_%05d%s", g_szData_Meas_Dat_Temp_Copy_Dir, szXmpDataFileName, iNowPoint, szXmpDataExt);
+	sprintf_s(szFittingDataFilePath, sizeof(szFittingDataFilePath), "%s%s_%05d%s", g_szData_Meas_Dat_Temp_Copy_Dir, szXmpFittingDataFileName, iNowPoint, szXmpFittingDataExt);
 
 	::CopyFile(pszXmpDataPath, szDataFilePath, FALSE);				// 既存ファイルがあっても、上書きする
 	if ( rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType == HEAD_TYPE_SR && rcp_data.MeasProgInfo.ScanParams.hdr.wScanType == MEAS_PROG_TYPE_SR_THICKNESS ||
@@ -6068,8 +6069,8 @@ TRACE("[DATA PROCESSING] ucResultAF:%d ucResultPopup:%d bit1ManuXY:%d bit1ManuZ:
 //▲▲▲ 081226 hibino add(TRACE)
 
 	//初期化
-	strcpy(szShowAfValid, g_lpszAfValidResultShow[8]); //"-(--)" 想定外
-	strcpy(szAfP502, g_lpszAfValidResultP502[8]); //"NG" 想定外
+	strcpy_s(szShowAfValid, sizeof(szShowAfValid), g_lpszAfValidResultShow[8]); //"-(--)" 想定外
+	strcpy_s(szAfP502, sizeof(szAfP502), g_lpszAfValidResultP502[8]); //"NG" 想定外
 
 	if((afValid.ucResultAF == (BYTE)0)	//AF無し
 	||(afValid.ucResultAF == (BYTE)1)	//AF成功
@@ -6080,20 +6081,20 @@ TRACE("[DATA PROCESSING] ucResultAF:%d ucResultPopup:%d bit1ManuXY:%d bit1ManuZ:
 		{
 			if(afValid.ucResultAF == (BYTE)0)		//AF無し
 			{
-				strcpy(szShowAfValid, g_lpszAfValidResultShow[0]);	//"-----" オートフォーカスなし
-				strcpy(szAfP502, g_lpszAfValidResultP502[0]);		//"NO"
+				strcpy_s(szShowAfValid, sizeof(szShowAfValid), g_lpszAfValidResultShow[0]);	//"-----" オートフォーカスなし
+				strcpy_s(szAfP502, sizeof(szAfP502), g_lpszAfValidResultP502[0]);		//"NO"
 				return;
 			}
 			else if(afValid.ucResultAF == (BYTE)1)	//AF成功 (←『ポジション補正しない』の条件を省略)
 			{
-				strcpy(szShowAfValid, g_lpszAfValidResultShow[1]);	//"G(AF)" AF正常
-				strcpy(szAfP502, g_lpszAfValidResultP502[1]);		//"AF" AF正常
+				strcpy_s(szShowAfValid, sizeof(szShowAfValid), g_lpszAfValidResultShow[1]);	//"G(AF)" AF正常
+				strcpy_s(szAfP502, sizeof(szAfP502), g_lpszAfValidResultP502[1]);		//"AF" AF正常
 				return;
 			}
 			else if(afValid.ucResultAF == (BYTE)2)	//AF失敗(自動強制測定) (←『ポジション補正しない』の条件を省略)
 			{
-				strcpy(szShowAfValid, g_lpszAfValidResultShow[2]);	//"N(AF)" オートフォーカス異常
-				strcpy(szAfP502, g_lpszAfValidResultP502[2]);		//"NG" オートフォーカス異常
+				strcpy_s(szShowAfValid, sizeof(szShowAfValid), g_lpszAfValidResultShow[2]);	//"N(AF)" オートフォーカス異常
+				strcpy_s(szAfP502, sizeof(szAfP502), g_lpszAfValidResultP502[2]);		//"NG" オートフォーカス異常
 				return;
 			}
 		}
@@ -6101,20 +6102,20 @@ TRACE("[DATA PROCESSING] ucResultAF:%d ucResultPopup:%d bit1ManuXY:%d bit1ManuZ:
 		{
 			if((afValid.bit1ManuZ == 1)&&(afValid.bit1ManuAF == 0)) //Zマニュアル操作アリ かつ AFマニュアル操作ナシ
 			{
-				strcpy(szShowAfValid, g_lpszAfValidResultShow[3]); //"G(MZ)" Zマニュアル操作アリ
-				strcpy(szAfP502, g_lpszAfValidResultP502[3]); //"MZ" Zマニュアル操作アリ
+				strcpy_s(szShowAfValid, sizeof(szShowAfValid), g_lpszAfValidResultShow[3]); //"G(MZ)" Zマニュアル操作アリ
+				strcpy_s(szAfP502, sizeof(szAfP502), g_lpszAfValidResultP502[3]); //"MZ" Zマニュアル操作アリ
 				return;
 			}
 			else if((afValid.bit1ManuZ == 0)&&(afValid.bit1ManuAF == 1)&&(afValid.bit1ManuAfRslt == 0)) //Zマニュアル操作ナシ かつ AFマニュアル操作アリ かつ マニュアルフォーカス操作成功
 			{
-				strcpy(szShowAfValid, g_lpszAfValidResultShow[4]); //"G(MF)" マニュアルフォーカス操作成功
-				strcpy(szAfP502, g_lpszAfValidResultP502[4]); //"MF" マニュアルフォーカス操作成功
+				strcpy_s(szShowAfValid, sizeof(szShowAfValid), g_lpszAfValidResultShow[4]); //"G(MF)" マニュアルフォーカス操作成功
+				strcpy_s(szAfP502, sizeof(szAfP502), g_lpszAfValidResultP502[4]); //"MF" マニュアルフォーカス操作成功
 				return;
 			}
 			else if((afValid.bit1ManuZ == 0)&&(afValid.bit1ManuAF == 1)&&(afValid.bit1ManuAfRslt == 1)) //Zマニュアル操作ナシ かつ AFマニュアル操作アリ かつ マニュアルフォーカス操作失敗
 			{
-				strcpy(szShowAfValid, g_lpszAfValidResultShow[5]); //"N(MF)" マニュアルフォーカス操作失敗
-				strcpy(szAfP502, g_lpszAfValidResultP502[5]); //"NG"
+				strcpy_s(szShowAfValid, sizeof(szShowAfValid), g_lpszAfValidResultShow[5]); //"N(MF)" マニュアルフォーカス操作失敗
+				strcpy_s(szAfP502, sizeof(szAfP502), g_lpszAfValidResultP502[5]); //"NG"
 				return;
 			}
 			else if((afValid.bit1ManuZ == 0)&&(afValid.bit1ManuAF == 0)) //Zマニュアル操作ナシ かつ AFマニュアル操作ナシ
@@ -6124,8 +6125,8 @@ TRACE("[DATA PROCESSING] ucResultAF:%d ucResultPopup:%d bit1ManuXY:%d bit1ManuZ:
 				{
 					if(afValid.bit2PopupKind == (BYTE)1)	//ポイント位置補正画面
 					{
-						strcpy(szShowAfValid, g_lpszAfValidResultShow[0]);	//"-----" オートフォーカスなし
-						strcpy(szAfP502, g_lpszAfValidResultP502[0]);		//"NO"
+						strcpy_s(szShowAfValid, sizeof(szShowAfValid), g_lpszAfValidResultShow[0]);	//"-----" オートフォーカスなし
+						strcpy_s(szAfP502, sizeof(szAfP502), g_lpszAfValidResultP502[0]);		//"NO"
 						return;
 					}
 				}
@@ -6133,8 +6134,8 @@ TRACE("[DATA PROCESSING] ucResultAF:%d ucResultPopup:%d bit1ManuXY:%d bit1ManuZ:
 				{
 					if(afValid.bit2PopupKind == (BYTE)1)	//ポイント位置補正画面
 					{
-						strcpy(szShowAfValid, g_lpszAfValidResultShow[1]); //"G(AF)" AF正常
-						strcpy(szAfP502, g_lpszAfValidResultP502[1]); //"AF" AF正常
+						strcpy_s(szShowAfValid, sizeof(szShowAfValid), g_lpszAfValidResultShow[1]); //"G(AF)" AF正常
+						strcpy_s(szAfP502, sizeof(szAfP502), g_lpszAfValidResultP502[1]); //"AF" AF正常
 						return;
 					}
 				}
@@ -6142,8 +6143,8 @@ TRACE("[DATA PROCESSING] ucResultAF:%d ucResultPopup:%d bit1ManuXY:%d bit1ManuZ:
 				{
 					if(afValid.bit2PopupKind == (BYTE)1)	//ポイント位置補正画面
 					{
-						strcpy(szShowAfValid, g_lpszAfValidResultShow[2]); //"N(AF)" オートフォーカス異常
-						strcpy(szAfP502, g_lpszAfValidResultP502[2]); //"N(AF)" オートフォーカス異常
+						strcpy_s(szShowAfValid, sizeof(szShowAfValid), g_lpszAfValidResultShow[2]); //"N(AF)" オートフォーカス異常
+						strcpy_s(szAfP502, sizeof(szAfP502), g_lpszAfValidResultP502[2]); //"N(AF)" オートフォーカス異常
 						return;
 					}
 				}
@@ -6151,14 +6152,14 @@ TRACE("[DATA PROCESSING] ucResultAF:%d ucResultPopup:%d bit1ManuXY:%d bit1ManuZ:
 				{
 					if(afValid.bit2PopupKind == (BYTE)0)		//フォーカスマニュアル調整画面
 					{
-						strcpy(szShowAfValid, g_lpszAfValidResultShow[2]); //"N(AF)" オートフォーカス異常
-						strcpy(szAfP502, g_lpszAfValidResultP502[2]); //"N(AF)" オートフォーカス異常
+						strcpy_s(szShowAfValid, sizeof(szShowAfValid), g_lpszAfValidResultShow[2]); //"N(AF)" オートフォーカス異常
+						strcpy_s(szAfP502, sizeof(szAfP502), g_lpszAfValidResultP502[2]); //"N(AF)" オートフォーカス異常
 						return;
 					}
 					else if(afValid.bit2PopupKind == (BYTE)2)	//複合画面
 					{
-						strcpy(szShowAfValid, g_lpszAfValidResultShow[2]); //"N(AF)" オートフォーカス異常
-						strcpy(szAfP502, g_lpszAfValidResultP502[2]); //"N(AF)" オートフォーカス異常
+						strcpy_s(szShowAfValid, sizeof(szShowAfValid), g_lpszAfValidResultShow[2]); //"N(AF)" オートフォーカス異常
+						strcpy_s(szAfP502, sizeof(szAfP502), g_lpszAfValidResultP502[2]); //"N(AF)" オートフォーカス異常
 						return;
 					}
 				}
@@ -6168,35 +6169,35 @@ TRACE("[DATA PROCESSING] ucResultAF:%d ucResultPopup:%d bit1ManuXY:%d bit1ManuZ:
 //▼▼▼ debug用 hibino (ソフトリリース直前まで置いておく)
 (CMainFrame*)AfxGetMainWnd()->MessageBox("afValid.bit1ManuZ == 1 )&&(afValid.bit1ManuAF == 1))", "Measurement Data View hibino", MB_OK);
 //▲▲▲ debug用 hibino
-//				  strcpy(szShowAfValid, g_lpszAfValidResultShow[8]); //"-(--)" 想定外
-//				  strcpy(szAfP502, g_lpszAfValidResultP502[8]); //"NG"
+//				  strcpy_s(szShowAfValid, sizeof(szShowAfValid), g_lpszAfValidResultShow[8]); //"-(--)" 想定外
+//				  strcpy_s(szAfP502, sizeof(szAfP502), g_lpszAfValidResultP502[8]); //"NG"
 //				  return;
 			}
 		}
 		else if(afValid.ucResultPopup == 3) //スキップボタン
 		{
-			strcpy(szShowAfValid, g_lpszAfValidResultShow[0]);	//"-----" オートフォーカスなし
-			strcpy(szAfP502, g_lpszAfValidResultP502[0]);		//"NO"
+			strcpy_s(szShowAfValid, sizeof(szShowAfValid), g_lpszAfValidResultShow[0]);	//"-----" オートフォーカスなし
+			strcpy_s(szAfP502, sizeof(szAfP502), g_lpszAfValidResultP502[0]);		//"NO"
 			return;
 		}
 		else if(afValid.ucResultPopup == 4) //キャンセル
 		{
-			strcpy(szShowAfValid, g_lpszAfValidResultShow[6]); //"C(MC)" キャンセル
-			strcpy(szAfP502, g_lpszAfValidResultP502[6]); //"MC" キャンセル
+			strcpy_s(szShowAfValid, sizeof(szShowAfValid), g_lpszAfValidResultShow[6]); //"C(MC)" キャンセル
+			strcpy_s(szAfP502, sizeof(szAfP502), g_lpszAfValidResultP502[6]); //"MC" キャンセル
 			return;
 		}
 
 	}
 	else if(afValid.ucResultAF == (BYTE)3)	//AF失敗(自動スキップ)
 	{
-		strcpy(szShowAfValid, g_lpszAfValidResultShow[0]); //"-----" オートフォーカスなし
-		strcpy(szAfP502, g_lpszAfValidResultP502[0]); //"NO"
+		strcpy_s(szShowAfValid, sizeof(szShowAfValid), g_lpszAfValidResultShow[0]); //"-----" オートフォーカスなし
+		strcpy_s(szAfP502, sizeof(szAfP502), g_lpszAfValidResultP502[0]); //"NO"
 		return;
 	}
 	else if(afValid.ucResultAF == (BYTE)5)	//AF失敗(レシピ終了)
 	{
-		strcpy(szShowAfValid, g_lpszAfValidResultShow[7]); //"C(AC)" レシピ終了
-		strcpy(szAfP502, g_lpszAfValidResultP502[7]); //"AC" レシピ終了
+		strcpy_s(szShowAfValid, sizeof(szShowAfValid), g_lpszAfValidResultShow[7]); //"C(AC)" レシピ終了
+		strcpy_s(szAfP502, sizeof(szAfP502), g_lpszAfValidResultP502[7]); //"AC" レシピ終了
 		return;
 	}
 
@@ -6462,8 +6463,8 @@ void  CMainFrame::GetStrategyhead(const char* szStrategyEntry, char szDispLabel[
 			if(rcp_data.MeasProgInfo.ScanParams._SR.XMPDesc.bAddReflectanceMeasureFlag == TRUE){
 				for(i=0; i<3; i++){
 					if(rcp_data.MeasProgInfo.ScanParams._SR.iSpecificWavelen[i] != 0){
-//						sprintf(szWave, "%s%d%s", "[", rcp_data.MeasProgInfo.ScanParams._SR.iSpecificWavelen[i], "nm]");
-						sprintf(szWave, "%d%s", rcp_data.MeasProgInfo.ScanParams._SR.iSpecificWavelen[i], "nm[%]");
+//						sprintf_s(szWave, sizeof(szWave), "%s%d%s", "[", rcp_data.MeasProgInfo.ScanParams._SR.iSpecificWavelen[i], "nm]");
+						sprintf_s(szWave, sizeof(szWave), "%d%s", rcp_data.MeasProgInfo.ScanParams._SR.iSpecificWavelen[i], "nm[%]");
 						memcpy(szDispLabel[iHeadCount], szWave, sizeof(szWave));
 						iHeadCount++;
 					}
@@ -6476,7 +6477,7 @@ void  CMainFrame::GetStrategyhead(const char* szStrategyEntry, char szDispLabel[
 				if(strstr(szDispLabel[i], "Thick") != NULL){
 					char szUnitPlus[ADAPRESULTSTRINGLENMAX + 1];
 					memset(szUnitPlus, 0, sizeof(szUnitPlus));
-					sprintf(szUnitPlus, "%s%s%s", "[", szUnit, "]");
+					sprintf_s(szUnitPlus, sizeof(szUnitPlus), "%s%s%s", "[", szUnit, "]");
 					strcat(szDispLabel[i], szUnitPlus);
 				}
 
@@ -6495,8 +6496,8 @@ void  CMainFrame::GetStrategyhead(const char* szStrategyEntry, char szDispLabel[
 // 2009.10.26 K.Matsuo <--
 			for(i = 0; i < 3; i++){
 				if(rcp_data.MeasProgInfo.ScanParams._SR.iSpecificWavelen[i] != 0){
-//					sprintf(szWave, "%s%d%s", "[", rcp_data.MeasProgInfo.ScanParams._SR.iSpecificWavelen[i], "nm]");
-					sprintf(szWave, "%d%s", rcp_data.MeasProgInfo.ScanParams._SR.iSpecificWavelen[i], "nm[%]");
+//					sprintf_s(szWave, sizeof(szWave), "%s%d%s", "[", rcp_data.MeasProgInfo.ScanParams._SR.iSpecificWavelen[i], "nm]");
+					sprintf_s(szWave, sizeof(szWave), "%d%s", rcp_data.MeasProgInfo.ScanParams._SR.iSpecificWavelen[i], "nm[%]");
 					memcpy(szDispLabel[iHeadCount], szWave, sizeof(szWave));
 					iHeadCount++;
 				}
@@ -7161,11 +7162,11 @@ void CMainFrame::TestModeTempRcpDelete()
 	memset(szDeleteRcpPathStage, 0, sizeof(szDeleteRcpPathStage));
 	//2010.01.13 bagus GTR --}--
 
-	sprintf(szDeleteRcpPathMain, "%s%c%s%s", g_szDb_Main_Recipe_Dir, SYSTEM_RECIPE_BEGINNING_CHAR, TESTMODE_TEMP_RECIPE_NAME, MAINRECIPE_EXT);
-	sprintf(szDeleteRcpPathMeas, "%s%c%s%s", g_szDb_Measurement_Program_Dir, SYSTEM_RECIPE_BEGINNING_CHAR, TESTMODE_TEMP_RECIPE_NAME, MEASUREMENTPGM_EXT);
-	sprintf(szDeleteRcpPathRef, "%s%c%s%s", g_szData_Ref_Dir, SYSTEM_RECIPE_BEGINNING_CHAR, TESTMODE_TEMP_RECIPE_NAME, DAT_EXT);
+	sprintf_s(szDeleteRcpPathMain, sizeof(szDeleteRcpPathMain), "%s%c%s%s", g_szDb_Main_Recipe_Dir, SYSTEM_RECIPE_BEGINNING_CHAR, TESTMODE_TEMP_RECIPE_NAME, MAINRECIPE_EXT);
+	sprintf_s(szDeleteRcpPathMeas, sizeof(szDeleteRcpPathMeas), "%s%c%s%s", g_szDb_Measurement_Program_Dir, SYSTEM_RECIPE_BEGINNING_CHAR, TESTMODE_TEMP_RECIPE_NAME, MEASUREMENTPGM_EXT);
+	sprintf_s(szDeleteRcpPathRef, sizeof(szDeleteRcpPathRef), "%s%c%s%s", g_szData_Ref_Dir, SYSTEM_RECIPE_BEGINNING_CHAR, TESTMODE_TEMP_RECIPE_NAME, DAT_EXT);
 	//2010.01.13 bagus GTR --{--
-	sprintf(szDeleteRcpPathStage, "%s%c%s%s", g_szDb_Stage_Program_Dir, SYSTEM_RECIPE_BEGINNING_CHAR, TESTMODE_TEMP_RECIPE_NAME, STAGEPGM_EXT);
+	sprintf_s(szDeleteRcpPathStage, sizeof(szDeleteRcpPathStage), "%s%c%s%s", g_szDb_Stage_Program_Dir, SYSTEM_RECIPE_BEGINNING_CHAR, TESTMODE_TEMP_RECIPE_NAME, STAGEPGM_EXT);
 	//2010.01.13 bagus GTR --}--
 
 	DeleteFile( szDeleteRcpPathMain );
@@ -7421,7 +7422,7 @@ void CMainFrame::DeleteOldFile(const SYSTEMTIME stDeleteBaseTime)
 //				continue;
 //			}
 //
-//			strcpy(szFilePath, csFilePath);
+//			strcpy_s(szFilePath, sizeof(szFilePath), csFilePath);
 //			_tsplitpath(szFilePath, szDrive, szDirName, szFileName, szExtension); //パスを分解
 //			if(strcmp(szFileName, STRESS_REFERENCE_NAME)==0){
 //				//ファイル名が%StressReference%の場合は以降の処理をしない
@@ -7447,7 +7448,7 @@ void CMainFrame::DeleteOldFile(const SYSTEMTIME stDeleteBaseTime)
 					continue;
 				}
 
-				strcpy(szFilePath, csFilePath);
+				strcpy_s(szFilePath, sizeof(szFilePath), csFilePath);
 				_tsplitpath(szFilePath, szDrive, szDirName, szFileName, szExtension); //パスを分解
 				if(strcmp(szFileName, STRESS_REFERENCE_NAME)==0){
 					//ファイル名が%StressReference%の場合は以降の処理をしない
@@ -7459,7 +7460,7 @@ void CMainFrame::DeleteOldFile(const SYSTEMTIME stDeleteBaseTime)
 	}
 	catch(CFileException* fe){
             long ErrorCode = fe->m_lOsError;
-            sprintf(szBuff, "(cfChkStressData) %s, ErrorCode = %l", "File Invalid Error", ErrorCode);
+            sprintf_s(szBuff, sizeof(szBuff), "(cfChkStressData) %s, ErrorCode = %l", "File Invalid Error", ErrorCode);
 			g_pFileRetentionPeriod[0]->FileRetentionLogging(szBuff);
 	}
 
@@ -7484,9 +7485,9 @@ void CMainFrame::DeleteOldFile(const SYSTEMTIME stDeleteBaseTime)
 //					continue;
 //				}
 //
-//				strcpy(szFilePath, csFilePath);
+//				strcpy_s(szFilePath, sizeof(szFilePath), csFilePath);
 //				_tsplitpath(szFilePath, szDrive, szDirName, szFileName, szExtension); //パスを分解
-//				sprintf(szRawDataDirPath, "%s%s%s", szDrive, szDirName, szFileName); //.datファイルに対応したRAWデータ格納フォルダのパスを作成
+//				sprintf_s(szRawDataDirPath, sizeof(szRawDataDirPath), "%s%s%s", szDrive, szDirName, szFileName); //.datファイルに対応したRAWデータ格納フォルダのパスを作成
 //
 //				if(strcmp(szExtension, DAT_EXT)!=0){
 //					//拡張子が".dat"でないものは見ない
@@ -7533,9 +7534,9 @@ void CMainFrame::DeleteOldFile(const SYSTEMTIME stDeleteBaseTime)
 						continue;
 					}
 
-					strcpy(szFilePath, csFilePath);
+					strcpy_s(szFilePath, sizeof(szFilePath), csFilePath);
 					_tsplitpath(szFilePath, szDrive, szDirName, szFileName, szExtension); //パスを分解
-					sprintf(szRawDataDirPath, "%s%s%s", szDrive, szDirName, szFileName); //.datファイルに対応したRAWデータ格納フォルダのパスを作成
+					sprintf_s(szRawDataDirPath, sizeof(szRawDataDirPath), "%s%s%s", szDrive, szDirName, szFileName); //.datファイルに対応したRAWデータ格納フォルダのパスを作成
 
 					if(strcmp(szExtension, DAT_EXT)!=0){
 						//拡張子が".dat"でないものは見ない
@@ -7549,11 +7550,11 @@ void CMainFrame::DeleteOldFile(const SYSTEMTIME stDeleteBaseTime)
 					if(ctSearchFileTime < ctDeleteBaseTime){
 						if(FileOrDirExists(szRawDataDirPath)==TRUE){	//RAWデータ入りディレクトリ存在
 							//『.datファイル』および『←に対応したRAWデータ入りフォルダ』がセットで存在する場合削除する。
-							sprintf(szBuff, "%s File Delete(EXIST RAW DATA DIR)", szFilePath);
+							sprintf_s(szBuff, sizeof(szBuff), "%s File Delete(EXIST RAW DATA DIR)", szFilePath);
 							g_pFileRetentionPeriod[0]->FileRetentionLogging(szBuff);
 							DeleteFile(szFilePath);
 
-							sprintf(szBuff, "%s File Delete", szRawDataDirPath);
+							sprintf_s(szBuff, sizeof(szBuff), "%s File Delete", szRawDataDirPath);
 							g_pFileRetentionPeriod[0]->FileRetentionLogging(szBuff);
 							DeleteDirectory(_T(szRawDataDirPath)); //対象ディレクトリを再帰的に削除
 						}
@@ -7571,7 +7572,7 @@ void CMainFrame::DeleteOldFile(const SYSTEMTIME stDeleteBaseTime)
 		}
         catch(CFileException* fe){
             long ErrorCode = fe->m_lOsError;
-            sprintf(szBuff, "(cfFilefind) %s, ErrorCode = %l", "File Invalid Error", ErrorCode);
+            sprintf_s(szBuff, sizeof(szBuff), "(cfFilefind) %s, ErrorCode = %l", "File Invalid Error", ErrorCode);
 			g_pFileRetentionPeriod[0]->FileRetentionLogging(szBuff);
         }
 	}
@@ -7632,7 +7633,7 @@ void CMainFrame::DeleteOldFile(const SYSTEMTIME stDeleteBaseTime)
 		}
         catch(CFileException* fe){
             long ErrorCode = fe->m_lOsError;
-            sprintf(szBuff, "(cfFilefind2) %s, ErrorCode = %l", "File Invalid Error", ErrorCode);
+            sprintf_s(szBuff, sizeof(szBuff), "(cfFilefind2) %s, ErrorCode = %l", "File Invalid Error", ErrorCode);
 			g_pFileRetentionPeriod[0]->FileRetentionLogging(szBuff);
         }
 //Saiki 20100517 Change <-----
@@ -7765,7 +7766,7 @@ LRESULT CMainFrame::OnNotifyMeasPause(WPARAM wparam, LPARAM lparam)
 {
 /* added 2009.06.09 hmenjo 異常時測定ポーズ ログ追加 ---------- { ---------- */
 	TCHAR l_tszLogMsg[256];
-	_stprintf(l_tszLogMsg, _T("Received WM_CHIF_NOTIFY_MEAS_PAUSE (WPARAM = 0x%08x, LPARAM = 0x%08x)"), wparam, lparam);
+	_stprintf_s(l_tszLogMsg, _countof(l_tszLogMsg), _T("Received WM_CHIF_NOTIFY_MEAS_PAUSE (WPARAM = 0x%08x, LPARAM = 0x%08x)"), wparam, lparam);
 	m_pDoc->OperationLogging(l_tszLogMsg);
 /* added 2009.06.09 hmenjo 異常時測定ポーズ ログ追加 ---------- } ---------- */
 	int l_iReason = (int) wparam;		/* ポーズ理由(ポーズ解除時は無効です)	*/
@@ -8082,8 +8083,8 @@ BOOL CMainFrame::OutputStressData(LPCTSTR lpszOutputPath,LPCTSTR lpszRecipeName,
 	char szTo[MAX_PATH+1];
 	char szFrom[MAX_PATH+1];
 	if(bRef){
-		sprintf(szTo,"%s\\%s%s",g_szData_Meas_Dat_Temp_Copy_Dir,STRESS_REFERENCE_NAME,DAT_EXT);
-		sprintf(szFrom,"%s\\%s%s",g_szData_Meas_Dat_Temp_Copy_Dir,lpszRecipeName,DAT_EXT);
+		sprintf_s(szTo, sizeof(szTo), "%s\\%s%s", g_szData_Meas_Dat_Temp_Copy_Dir,STRESS_REFERENCE_NAME,DAT_EXT);
+		sprintf_s(szFrom, sizeof(szFrom), "%s\\%s%s", g_szData_Meas_Dat_Temp_Copy_Dir,lpszRecipeName,DAT_EXT);
 		MoveFileEx(szFrom,szTo,MOVEFILE_REPLACE_EXISTING);
 	}else{
 	}
@@ -8127,7 +8128,7 @@ BOOL CMainFrame::OutputStressRawData(LPCTSTR lpszOutputPath,LPCTSTR lpszRecipeNa
 	int n;
 	for(n = 0;n < STRESS_LINES_MAX;n++){
 		char szKey[1024+1];
-		sprintf(szKey,"Line%dValidScan",n+1);
+		sprintf_s(szKey, sizeof(szKey), "Line%dValidScan", n+1);
 		//[ValidLine]
 		//2009.09.17 bagus stress --{--
 		BOOL bValid = m_pDoc->GetOneStressLineDataValid(n+1);
@@ -8242,10 +8243,10 @@ BOOL CMainFrame::OutputStressLSRawData(LPCTSTR lpszOutputPath,LPCTSTR lpszRecipe
 	char szKeyEndX[1024+1];
 	char szKeyY[1024+1];
 	//[INFO]
-	sprintf(szKeyValid,"L%dS%d_SanValid",nLine,nSection);
-	sprintf(szKeyStartX,"L%dS%d_ScanStart_X",nLine,nSection);
-	sprintf(szKeyEndX,"L%dS%d_ScanEnd_X",nLine,nSection);
-	sprintf(szKeyY,"L%dS%d_Y",nLine,nSection);
+	sprintf_s(szKeyValid, sizeof(szKeyValid), "L%dS%d_SanValid", nLine,nSection);
+	sprintf_s(szKeyStartX, sizeof(szKeyStartX), "L%dS%d_ScanStart_X", nLine,nSection);
+	sprintf_s(szKeyEndX, sizeof(szKeyEndX), "L%dS%d_ScanEnd_X", nLine,nSection);
+	sprintf_s(szKeyY, sizeof(szKeyY), "L%dS%d_Y", nLine,nSection);
 	RECIPE_FILE InfoDesc[] =
 	{
 		//Section Name		Key Name		Data Type	Defaule 	Variable Pointer
@@ -8320,15 +8321,15 @@ BOOL CMainFrame::OutputStressLSRawData(LPCTSTR lpszOutputPath,LPCTSTR lpszRecipe
 	/*
 	char szTo[MAX_PATH+1];
 	if(bRef){
-		sprintf(szTo,"%s\\%s",g_szData_Meas_Dat_Temp_Copy_Dir,STRESS_REFERENCE_NAME);
+		sprintf_s(szTo, sizeof(szTo), "%s\\%s", g_szData_Meas_Dat_Temp_Copy_Dir,STRESS_REFERENCE_NAME);
 		CreateDirectory(szTo,NULL);
 		strBuffer.Format("StressL%dS%dRawData",nLine+1,nSection+1);
-		sprintf(szTo,"%s\\%s\\%s%s",g_szData_Meas_Dat_Temp_Copy_Dir,STRESS_REFERENCE_NAME,strBuffer,DAT_EXT);
+		sprintf_s(szTo, sizeof(szTo), "%s\\%s\\%s%s", g_szData_Meas_Dat_Temp_Copy_Dir,STRESS_REFERENCE_NAME,strBuffer,DAT_EXT);
 		MoveFileEx(strOutputPath,szTo,MOVEFILE_REPLACE_EXISTING);
 	}else{
-		sprintf(szTo,"%s\\%s",g_szData_Meas_Dat_Temp_Copy_Dir,lpszRecipeName);
+		sprintf_s(szTo, sizeof(szTo), "%s\\%s", g_szData_Meas_Dat_Temp_Copy_Dir,lpszRecipeName);
 		CreateDirectory(szTo,NULL);
-		sprintf(szTo,"%s\\%s\\%s%s",g_szData_Meas_Dat_Temp_Copy_Dir,lpszRecipeName,"StressRawData",strBuffer,DAT_EXT);
+		sprintf_s(szTo, sizeof(szTo), "%s\\%s\\%s%s", g_szData_Meas_Dat_Temp_Copy_Dir,lpszRecipeName,"StressRawData",strBuffer,DAT_EXT);
 		MoveFileEx(strOutputPath,szTo,MOVEFILE_REPLACE_EXISTING);
 	}
 	*/
@@ -9051,7 +9052,7 @@ LRESULT CMainFrame::OnConfirmPopup(WPARAM wparam,LPARAM lparam)
 			{
 				case 0:
 					LoadStringML(IDS_EXIST, l_strExist, "Exist");
-					sprintf(szTime,"(%d/%02d/%02d %02d:%02d:%02d)",tmFileTime.tm_year + 1900,tmFileTime.tm_mon + 1,tmFileTime.tm_mday,tmFileTime.tm_hour,tmFileTime.tm_min,tmFileTime.tm_sec);
+					sprintf_s(szTime, sizeof(szTime), "(%d/%02d/%02d %02d:%02d:%02d)", tmFileTime.tm_year + 1900,tmFileTime.tm_mon + 1,tmFileTime.tm_mday,tmFileTime.tm_hour,tmFileTime.tm_min,tmFileTime.tm_sec);
 					l_strExist += szTime;
 					break;
 				case 1:
@@ -9059,7 +9060,7 @@ LRESULT CMainFrame::OnConfirmPopup(WPARAM wparam,LPARAM lparam)
 					break;
 				case 2:
 					LoadStringML(IDS_EXPIRED, l_strExist, "Expired");
-					sprintf(szTime,"(%d/%02d/%02d %02d:%02d:%02d)",tmFileTime.tm_year + 1900,tmFileTime.tm_mon + 1,tmFileTime.tm_mday,tmFileTime.tm_hour,tmFileTime.tm_min,tmFileTime.tm_sec);
+					sprintf_s(szTime, sizeof(szTime), "(%d/%02d/%02d %02d:%02d:%02d)", tmFileTime.tm_year + 1900,tmFileTime.tm_mon + 1,tmFileTime.tm_mday,tmFileTime.tm_hour,tmFileTime.tm_min,tmFileTime.tm_sec);
 					l_strExist += szTime;
 					break;
 				default:
