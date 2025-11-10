@@ -1819,7 +1819,7 @@ void SaveNanoSpecIni(int iIniFile)
 		memset(buff, NULL, sizeof(buff));
 		switch((pIniDesc + index)->type){
 		case 'b':
-			strcpy(buff, (*(BOOL*)(pIniDesc + index)->data)? "TRUE": "FALSE");
+			strcpy_s(buff, sizeof(buff), (*(BOOL*)(pIniDesc + index)->data)? "TRUE": "FALSE");
 			break;
 		case 'B':
 			_itoa(*(BYTE*)(pIniDesc + index)->data, buff, 10);
@@ -1834,23 +1834,23 @@ void SaveNanoSpecIni(int iIniFile)
 			_ltoa(*(long*)(pIniDesc + index)->data, buff, 10);
 			break;
 		case 'F':
-			sprintf(buff, "%.3f", *(float*)(pIniDesc + index)->data);
+			sprintf_s(buff, sizeof(buff), "%.3f", *(float*)(pIniDesc + index)->data);
 			break;
 		case 'D':
-			sprintf(buff, "%.3lf", *(double*)(pIniDesc + index)->data);
+			sprintf_s(buff, sizeof(buff), "%.3lf", *(double*)(pIniDesc + index)->data);
 			break;
 // 2009.05.14 k-matsuo -->
 		case '#':
-			sprintf(buff, "%.10lf", *(double*)(pIniDesc + index)->data);
+			sprintf_s(buff, sizeof(buff), "%.10lf", *(double*)(pIniDesc + index)->data);
 			break;
 // 2009.05.14 k-matsuo <--
 // 2009.09.04 bagus stress e+11ｿｽﾏ更 --{--
 		case 'E':
-			sprintf(buff, "%e", *(double*)(pIniDesc + index)->data);
+			sprintf_s(buff, sizeof(buff), "%e", *(double*)(pIniDesc + index)->data);
 			break;
 // 2009.09.04 bagus stress e+11ｿｽﾏ更 --}--
 		case 'W':
-			sprintf(buff, "%d", *(WORD*)(pIniDesc + index)->data);
+			sprintf_s(buff, sizeof(buff), "%d", *(WORD*)(pIniDesc + index)->data);
 			break;
 		case 'C':
 			strncpy(buff, (char*)(pIniDesc + index)->data, sizeof(buff));
@@ -1934,7 +1934,7 @@ void SaveNanoSpecIni(int iIniFile)
 				memset(buff, NULL, sizeof(buff));
 				switch((pIniDesc + index)->type){
 				case 'b':
-					strcpy(buff, (*(BOOL*)(pIniDesc + index)->data)? "TRUE": "FALSE");
+					strcpy_s(buff, sizeof(buff), (*(BOOL*)(pIniDesc + index)->data)? "TRUE": "FALSE");
 					break;
 				case 'B':
 					_itoa(*(BYTE*)(pIniDesc + index)->data, buff, 10);
@@ -1949,23 +1949,23 @@ void SaveNanoSpecIni(int iIniFile)
 					_ltoa(*(long*)(pIniDesc + index)->data, buff, 10);
 					break;
 				case 'F':
-					sprintf(buff, "%.3f", *(float*)(pIniDesc + index)->data);
+					sprintf_s(buff, sizeof(buff), "%.3f", *(float*)(pIniDesc + index)->data);
 					break;
 				case 'D':
-					sprintf(buff, "%.3lf", *(double*)(pIniDesc + index)->data);
+					sprintf_s(buff, sizeof(buff), "%.3lf", *(double*)(pIniDesc + index)->data);
 					break;
 // 2009.05.14 k-matsuo -->
 				case '#':
-					sprintf(buff, "%.10lf", *(double*)(pIniDesc + index)->data);
+					sprintf_s(buff, sizeof(buff), "%.10lf", *(double*)(pIniDesc + index)->data);
 					break;
 // 2009.05.14 k-matsuo <--
 // 2009.09.04 bagus stress e+11ｿｽﾏ更 --{--
 				case 'E':
-					sprintf(buff, "%e", *(double*)(pIniDesc + index)->data);
+					sprintf_s(buff, sizeof(buff), "%e", *(double*)(pIniDesc + index)->data);
 					break;
 // 2009.09.04 bagus stress e+11ｿｽﾏ更 --}--
 				case 'W':
-					sprintf(buff, "%d", *(WORD*)(pIniDesc + index)->data);
+					sprintf_s(buff, sizeof(buff), "%d", *(WORD*)(pIniDesc + index)->data);
 					break;
 				case 'C':
 					strncpy(buff, (char*)(pIniDesc + index)->data, sizeof(buff));
