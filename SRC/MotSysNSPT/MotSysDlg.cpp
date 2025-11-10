@@ -343,16 +343,16 @@ BOOL CMotSysDlg::OnInitDialog()
 				if (InitializeComm() == TRUE) {
 					char l_tszText[80], l_tszText2[8], l_tszText3[8];
 					switch (m_pSio->m_Parity) {
-					case 0: strcpy(l_tszText2, _T("N")); break;
-					case 1: strcpy(l_tszText2, _T("O")); break;
-					case 2: strcpy(l_tszText2, _T("E")); break;
-					case 3: strcpy(l_tszText2, _T("M")); break;
-					case 4: strcpy(l_tszText2, _T("S")); break;
+					case 0: _tcscpy_s(l_tszText2, _countof(l_tszText2), _T("N")); break;
+					case 1: _tcscpy_s(l_tszText2, _countof(l_tszText2), _T("O")); break;
+					case 2: _tcscpy_s(l_tszText2, _countof(l_tszText2), _T("E")); break;
+					case 3: _tcscpy_s(l_tszText2, _countof(l_tszText2), _T("M")); break;
+					case 4: _tcscpy_s(l_tszText2, _countof(l_tszText2), _T("S")); break;
 					}
 					switch (m_pSio->m_StopBits) {
-					case 0: strcpy(l_tszText3, _T("1")); break;
-					case 1: strcpy(l_tszText3, _T("1.5")); break;
-					case 2: strcpy(l_tszText3, _T("2")); break;
+					case 0: _tcscpy_s(l_tszText3, _countof(l_tszText3), _T("1")); break;
+					case 1: _tcscpy_s(l_tszText3, _countof(l_tszText3), _T("1.5")); break;
+					case 2: _tcscpy_s(l_tszText3, _countof(l_tszText3), _T("2")); break;
 					}
 					_stprintf_s(l_tszText, _countof(l_tszText), _T("%s,%d,%s,%s"), m_pSio->m_sChannelNo, m_pSio->m_BaudRate, l_tszText2, l_tszText3);
 					SetDlgItemText(IDC_STATIC_COMSTAT, l_tszText);
@@ -809,7 +809,7 @@ void CMotSysDlg::ShowLastError(DWORD code, TCHAR *ptszErrMsg)
 			0,
 			NULL
 		);
-	_tcscpy(ptszErrMsg, (char*) lpMsgBuf);
+	_tcscpy_s(ptszErrMsg, 256, (char*) lpMsgBuf);  // Assuming 256 buffer size
 	::LocalFree(lpMsgBuf);
 
 	TCHAR *l_ptszText;
