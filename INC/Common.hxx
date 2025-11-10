@@ -105,7 +105,7 @@ public:
 	inline void GetCurrent(void) { ::GetLocalTime(&m_sysTime); }
 	PCSTR ToChar(void)
 	{
-		_stprintf(m_szText,
+		_stprintf_s(m_szText, 24,
 			"%04d.%02d.%02d %02d:%02d:%02d:%03d",
 			m_sysTime.wYear, m_sysTime.wMonth, m_sysTime.wDay,
 			m_sysTime.wHour, m_sysTime.wMinute, m_sysTime.wSecond, m_sysTime.wMilliseconds);
@@ -364,7 +364,7 @@ public:
 						LPTSTR temp;
 						temp = (LPTSTR)_alloca(max(width, 312 + precision + 6));
 						f = va_arg(args, double);
-						_stprintf( temp, _T( "%*.*f" ), width, precision + 6, f );
+						_stprintf_s( temp, max(width, 312 + precision + 6), _T( "%*.*f" ), width, precision + 6, f );
 						item_len = _tcslen(temp);
 					}
 					break;
