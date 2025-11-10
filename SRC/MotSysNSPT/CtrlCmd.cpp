@@ -41,10 +41,10 @@ BOOL CC_InitServo(LPVOID pParam)
 
 	// Drv No. を表示
 	TCHAR l_tszText[32];
-	_stprintf(l_tszText, _T("%02u"), g_CC_DrvNo);
+	_stprintf_s(l_tszText, _countof(l_tszText), _T("%02u"), g_CC_DrvNo);
 	g_pCMotSysDlg->SetDlgItemText(IDC_STATIC_DRVNO, l_tszText);
 	// Grp No. を表示
-	_stprintf(l_tszText, _T("%02u"), g_CC_GrpNo);
+	_stprintf_s(l_tszText, _countof(l_tszText), _T("%02u"), g_CC_GrpNo);
 	g_pCMotSysDlg->SetDlgItemText(IDC_STATIC_GRPNO, l_tszText);
 
 	int l_ret;
@@ -73,7 +73,7 @@ DWORD CC_Initialize_Controller(void)
 	int		i;
 
 	// モータコントローラの状態を確認
-	strcpy(l_Senddata, "P100");
+	strcpy_s(l_Senddata, sizeof(l_Senddata), "P100");
 	if ((l_result = CC_ReadCommand(l_Senddata, l_Recvdata)) < 0) {
 		return -2;	// システムエラー(状態読出しエラー)
 	} else {
@@ -84,7 +84,7 @@ DWORD CC_Initialize_Controller(void)
 			// 共通データ
 			l_Data = (int*) &CC_InitDataCommon;
 			for (i = 0; i < (sizeof(CC_InitDataCommon) / sizeof(int)); i++) {
-				sprintf(l_Senddata, "P%03u=%d", i + 501, *l_Data++);
+				sprintf_s(l_Senddata, sizeof(l_Senddata), "P%03u=%d", i + 501, *l_Data++);
 				if ((l_result = CC_WriteCommand(l_Senddata, l_Recvdata)) < 0) {
 					return -4;	// システムエラー(共通データ書込み失敗)
 				}
@@ -92,7 +92,7 @@ DWORD CC_Initialize_Controller(void)
 			// X データ
 			l_Data = (int*) &CC_Initdata_X;
 			for (i = 0; i < (sizeof(CC_Initdata_X) / sizeof(int)); i++) {
-				sprintf(l_Senddata, "P%03u=%d", i + 600, *l_Data++);
+				sprintf_s(l_Senddata, sizeof(l_Senddata), "P%03u=%d", i + 600, *l_Data++);
 				if ((l_result = CC_WriteCommand(l_Senddata, l_Recvdata)) < 0) {
 					return -5;	// システムエラー(X データ書込み失敗)
 				}
@@ -100,7 +100,7 @@ DWORD CC_Initialize_Controller(void)
 			// Y1 データ
 			l_Data = (int*) &CC_Initdata_Y1;
 			for (i = 0; i < (sizeof(CC_Initdata_Y1) / sizeof(int)); i++) {
-				sprintf(l_Senddata, "P%03u=%d", i + 625, *l_Data++);
+				sprintf_s(l_Senddata, sizeof(l_Senddata), "P%03u=%d", i + 625, *l_Data++);
 				if ((l_result = CC_WriteCommand(l_Senddata, l_Recvdata)) < 0) {
 					return -6;	// システムエラー(Y1 データ書込み失敗)
 				}
@@ -108,7 +108,7 @@ DWORD CC_Initialize_Controller(void)
 			// Y2 データ
 			l_Data = (int*) &CC_Initdata_Y2;
 			for (i = 0; i < (sizeof(CC_Initdata_Y2) / sizeof(int)); i++) {
-				sprintf(l_Senddata, "P%03u=%d", i + 650, *l_Data++);
+				sprintf_s(l_Senddata, sizeof(l_Senddata), "P%03u=%d", i + 650, *l_Data++);
 				if ((l_result = CC_WriteCommand(l_Senddata, l_Recvdata)) < 0) {
 					return -7;	// システムエラー(Y2 データ書込み失敗)
 				}
@@ -116,7 +116,7 @@ DWORD CC_Initialize_Controller(void)
 			// Z データ
 			l_Data = (int*) &CC_Initdata_Z;
 			for (i = 0; i < (sizeof(CC_Initdata_Z) / sizeof(int)); i++) {
-				sprintf(l_Senddata, "P%03u=%d", i + 675, *l_Data++);
+				sprintf_s(l_Senddata, sizeof(l_Senddata), "P%03u=%d", i + 675, *l_Data++);
 				if ((l_result = CC_WriteCommand(l_Senddata, l_Recvdata)) < 0) {
 					return -8;	// システムエラー(Z データ書込み失敗)
 				}
@@ -124,13 +124,13 @@ DWORD CC_Initialize_Controller(void)
 			// T データ
 			l_Data = (int*) &CC_Initdata_T;
 			for (i = 0; i < (sizeof(CC_Initdata_T) / sizeof(int)); i++) {
-				sprintf(l_Senddata, "P%03u=%d", i + 700, *l_Data++);
+				sprintf_s(l_Senddata, sizeof(l_Senddata), "P%03u=%d", i + 700, *l_Data++);
 				if ((l_result = CC_WriteCommand(l_Senddata, l_Recvdata)) < 0) {
 					return -9;	// システムエラー(T データ書込み失敗)
 				}
 			}
 			// 初期設定値の変更開始
-			strcpy(l_Senddata, "P500=1");
+			strcpy_s(l_Senddata, sizeof(l_Senddata), "P500=1");
 			if ((l_result = CC_WriteCommand(l_Senddata, l_Recvdata)) < 0) {
 				return -10;	// システムエラー(初期設定値の変更開始失敗)
 			}
@@ -138,7 +138,7 @@ DWORD CC_Initialize_Controller(void)
 			int l_Loop = FALSE;
 			DWORD l_StartTime = GetTickCount();
 			DWORD l_CurrentTime, l_DelayTime;
-			strcpy(l_Senddata, "P500");
+			strcpy_s(l_Senddata, sizeof(l_Senddata), "P500");
 			while (l_Loop == FALSE) {
 				if ((l_result = CC_ReadCommand(l_Senddata, l_Recvdata)) < 0) {
 					return -11;	// システムエラー(変更完了読込み失敗)
@@ -191,8 +191,8 @@ BOOL CC_LoadInitData(void)
 	unsigned short	i, ii;
 	BOOL	l_chkOK = TRUE;
 
-	_tcscpy(l_tszFile, CC_INITDATA_PATH);
-	_tcscat(l_tszFile, CC_INITDATA_FILE);
+	_tcscpy_s(l_tszFile, _countof(l_tszFile), CC_INITDATA_PATH);
+	_tcscat_s(l_tszFile, _countof(l_tszFile), CC_INITDATA_FILE);
 	if ((fp = _tfopen(l_tszFile, "r")) != NULL) {
 		ii = 0;
 		while (fgets(l_cBuff, 255, fp) != NULL) {
@@ -237,17 +237,17 @@ BOOL CC_LoadInitData(void)
 		if ((fp = _tfopen(l_tszFile, "w")) != NULL) {
 			memset(CC_InitALL, 0, sizeof(CC_InitALL));
 			for (i = 0; i < (sizeof(CC_InitALL) / sizeof(int)); i++) {
-				sprintf(l_cBuff, "P%03d %d\n", i + 501, CC_InitALL[i]);
+				sprintf_s(l_cBuff, sizeof(l_cBuff), "P%03d %d\n", i + 501, CC_InitALL[i]);
 				fputs(l_cBuff, fp);
 			}
 			fclose(fp);
-			_stprintf(l_tszText, _T("Not found init data template file[%s]."), CC_INITDATA_FILE);
+			_stprintf_s(l_tszText, _countof(l_tszText), _T("Not found init data template file[%s]."), CC_INITDATA_FILE);
 			if (0 == g_pCMotSysDlg->m_bOnClosing) {
 				::MessageBox(NULL, l_tszText, MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
 			}
 		} else {
 			// 雛型も作れなかった
-			_stprintf(l_tszText, _T("Could not create init data template file[%s]."), CC_INITDATA_FILE);
+			_stprintf_s(l_tszText, _countof(l_tszText), _T("Could not create init data template file[%s]."), CC_INITDATA_FILE);
 			if (0 == g_pCMotSysDlg->m_bOnClosing) {
 				::MessageBox(NULL, l_tszText, MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
 			}
@@ -272,7 +272,7 @@ BOOL CC_LoadServoParam(void)
 	FILE	*fp;
 	TCHAR	l_tszText[256];
 
-	_tcscpy(l_tszPathName, SERVOPARAMNAME);
+	_tcscpy_s(l_tszPathName, _countof(l_tszPathName), SERVOPARAMNAME);
 
 	if ((fp = _tfopen(l_tszPathName, "r")) != NULL) {
 		fread(ServoParam, sizeof(ServoParam), 1, fp);
@@ -281,7 +281,7 @@ BOOL CC_LoadServoParam(void)
 	} else {
 		// ファイルが無かった
 		l_rc = FALSE;
-		_stprintf(l_tszText, _T("Could not open Servo Parameter file[%s]."), l_tszPathName);
+		_stprintf_s(l_tszText, _countof(l_tszText), _T("Could not open Servo Parameter file[%s]."), l_tszPathName);
 		if (0 == g_pCMotSysDlg->m_bOnClosing) {
 			::MessageBox(NULL, l_tszText, MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
 		}
@@ -335,7 +335,7 @@ if ((0 == g_CC_ThreadLoop) || (0 != g_CC_CommAbort)) {l_retry = 0; return 0x8000
 		if ((l_result & 0x10000000) != 0) {RETRY_TIMES;
 			// システムエラー発生
 			send_motion_message(-1, 111);	// 通信(Read)システムエラー発生
-			_stprintf(l_tszText, _T("Communication Functions is not work(ReadCommand:0=0x%08x)."), l_result);
+			_stprintf_s(l_tszText, _countof(l_tszText), _T("Communication Functions is not work(ReadCommand:0=0x%08x)."), l_result);
 			if (0 == g_pCMotSysDlg->m_bOnClosing) {
 				::MessageBox(NULL, l_tszText, MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
 			}
@@ -352,7 +352,7 @@ if ((0 == g_CC_ThreadLoop) || (0 != g_CC_CommAbort)) {l_retry = 0; return 0x8000
 					// リトライアウトはシステムエラー
 					send_motion_message(-1, 112);	// 通信(Read)リトライアウト１発生
 					l_result = -1;
-					_stprintf(l_tszText, _T("Communication retry out(ReadCommand:1=0x%08x). Retry times : %d."), l_result, l_iRetryTimes);
+					_stprintf_s(l_tszText, _countof(l_tszText), _T("Communication retry out(ReadCommand:1=0x%08x). Retry times : %d."), l_result, l_iRetryTimes);
 					if (0 == g_pCMotSysDlg->m_bOnClosing) {
 						::MessageBox(NULL, l_tszText, MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
 					}
@@ -385,7 +385,7 @@ if ((0 == g_CC_ThreadLoop) || (0 != g_CC_CommAbort)) {l_retry = 0; return 0x8000
 						// リトライアウトはシステムエラー
 						send_motion_message(-1, 113);	// 通信(Read)リトライアウト２発生
 						l_result = (l_result & 0x8000ffff) | 0xa0000000;
-						_stprintf(l_tszText, _T("Communication retry out(ReadCommand:2=0x%08x). Retry times : %d."), l_result, RETRY_TIMES);
+						_stprintf_s(l_tszText, _countof(l_tszText), _T("Communication retry out(ReadCommand:2=0x%08x). Retry times : %d."), l_result, RETRY_TIMES);
 						if (0 == g_pCMotSysDlg->m_bOnClosing) {
 							::MessageBox(NULL, l_tszText, MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
 						}
@@ -427,7 +427,7 @@ if ((0 == g_CC_ThreadLoop) || (0 != g_CC_CommAbort)) {l_retry = 0; return 0x8000
 		if ((l_result & 0x10000000) != 0) {
 			// システムエラー発生
 			send_motion_message(-1, 121);	// 通信(Read2)システムエラー発生
-			_stprintf(l_tszText, _T("Communication Functions is not work(ReadCommand2:0=0x%08x)."), l_result);
+			_stprintf_s(l_tszText, _countof(l_tszText), _T("Communication Functions is not work(ReadCommand2:0=0x%08x)."), l_result);
 			if (0 == g_pCMotSysDlg->m_bOnClosing) {
 				::MessageBox(NULL, l_tszText, MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
 			}
@@ -439,7 +439,7 @@ if ((0 == g_CC_ThreadLoop) || (0 != g_CC_CommAbort)) {l_retry = 0; return 0x8000
 					// リトライアウトはシステムエラー
 					send_motion_message(-1, 122);	// 通信(Read2)リトライアウト１発生
 					l_result = -1;
-					_stprintf(l_tszText, _T("Communication retry out(ReadCommand2:1=0x%08x). Retry times : %d."), l_result, RETRY_TIMES);
+					_stprintf_s(l_tszText, _countof(l_tszText), _T("Communication retry out(ReadCommand2:1=0x%08x). Retry times : %d."), l_result, RETRY_TIMES);
 					if (0 == g_pCMotSysDlg->m_bOnClosing) {
 						::MessageBox(NULL, l_tszText, MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
 					}
@@ -489,7 +489,7 @@ if ((0 == g_CC_ThreadLoop) || (0 != g_CC_CommAbort)) {l_retry = 0; return 0x8000
 						// リトライアウトはシステムエラー
 						send_motion_message(-1, 123);	// 通信(Read2)リトライアウト２発生
 						l_result = (l_result & 0x8000ffff) | 0xa0000000;
-						_stprintf(l_tszText, _T("Communication retry out(ReadCommand2:2=0x%08x). Retry times : %d."), l_result, RETRY_TIMES);
+						_stprintf_s(l_tszText, _countof(l_tszText), _T("Communication retry out(ReadCommand2:2=0x%08x). Retry times : %d."), l_result, RETRY_TIMES);
 						if (0 == g_pCMotSysDlg->m_bOnClosing) {
 							::MessageBox(NULL, l_tszText, MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
 						}
@@ -520,7 +520,7 @@ if ((0 == g_CC_ThreadLoop) || (0 != g_CC_CommAbort)) {l_retry = 0; return 0x8000
 		if ((l_result & 0x10000000) != 0) {
 			// システムエラー発生
 			send_motion_message(-1, 131);	// 通信(Write)システムエラー発生
-			_stprintf(l_tszText, _T("Communication Functions is not work. (0x%08x)"), l_result);
+			_stprintf_s(l_tszText, _countof(l_tszText), _T("Communication Functions is not work. (0x%08x)"), l_result);
 			if (0 == g_pCMotSysDlg->m_bOnClosing) {
 				::MessageBox(NULL, l_tszText, MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
 			}
@@ -532,7 +532,7 @@ if ((0 == g_CC_ThreadLoop) || (0 != g_CC_CommAbort)) {l_retry = 0; return 0x8000
 					// リトライアウトはシステムエラー
 					send_motion_message(-1, 132);	// 通信(Write)リトライアウト発生
 					l_result = -1;
-					_stprintf(l_tszText, _T("Communication retry out(WriteCommand:1). Retry times : %d."), RETRY_TIMES);
+					_stprintf_s(l_tszText, _countof(l_tszText), _T("Communication retry out(WriteCommand:1). Retry times : %d."), RETRY_TIMES);
 					if (0 == g_pCMotSysDlg->m_bOnClosing) {
 						::MessageBox(NULL, l_tszText, MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
 					}
@@ -1012,7 +1012,7 @@ WORD CC_PollingStatus(void)
 		case CC_AXIS_X:	// X 軸
 		case CC_AXIS_Y:	// YM 軸
 			if (0 != motion_data[CC_CnvAxisFromSPT(l_AxisNo)].bEnable) {
-				sprintf(l_szText1, "P%1u50..%1u59", l_AxisNo + 1, l_AxisNo + 1);
+				sprintf_s(l_szText1, sizeof(l_szText1), "P%1u50..%1u59", l_AxisNo + 1, l_AxisNo + 1);
 				if ((l_result = CC_ReadCommand2(l_szText1, l_Recvdata, 10, l_ReadData)) < 0) {
 					CC_MsgReboot();	return ls_AxisLoop;	// システムエラー
 				}
@@ -1035,7 +1035,7 @@ WORD CC_PollingStatus(void)
 		case CC_AXIS_Z:	// Z 軸
 		case CC_AXIS_T:	// T 軸
 			if (0 != motion_data[CC_CnvAxisFromSPT(l_AxisNo)].bEnable) {
-				sprintf(l_szText1, "P%1u50..%1u57", l_AxisNo + 1, l_AxisNo + 1);
+				sprintf_s(l_szText1, sizeof(l_szText1), "P%1u50..%1u57", l_AxisNo + 1, l_AxisNo + 1);
 				if ((l_result = CC_ReadCommand2(l_szText1, l_Recvdata, 8, l_ReadData)) < 0) {
 					CC_MsgReboot();	return ls_AxisLoop;	// システムエラー
 				}
@@ -2522,7 +2522,7 @@ void CC_DispOthers(void)
 		case CC_AXIS_T:
 			l_sAxis = CC_CnvAxisFromSPT(i);
 			if (0 != motion_data[l_sAxis].bEnable) {
-				_stprintf(l_tszText, _T("%1d"), g_CC_Axis_prc[i]);
+				_stprintf_s(l_tszText, _countof(l_tszText), _T("%1d"), g_CC_Axis_prc[i]);
 				g_pCMotSysDlg->SetDlgItemText(g_iDlgCtrlID[12][l_sAxis], l_tszText);
 			}
 			break;
@@ -2535,12 +2535,12 @@ void CC_DispOthers(void)
 	TCHAR l_tszTempL[32], l_tszTempH[32];
 	g_pCMotSysDlg->CnvWordToBin((WORD) (g_CC_InPort & 0x0000ffff), l_tszTempL, 2);
 	g_pCMotSysDlg->CnvWordToBin((WORD) (g_CC_InPort >> 16), 	   l_tszTempH, 2);
-	_stprintf(l_tszText, _T("%s  %s"), l_tszTempH, l_tszTempL);
+	_stprintf_s(l_tszText, _countof(l_tszText), _T("%s  %s"), l_tszTempH, l_tszTempL);
 	g_pCMotSysDlg->SetDlgItemText(IDC_STATIC_DI, l_tszText);
 	// DO を表示
 	g_pCMotSysDlg->CnvWordToBin((WORD) (g_CC_OutPort & 0x0000ffff), l_tszTempL, 2);
 	g_pCMotSysDlg->CnvWordToBin((WORD) (g_CC_OutPort >> 16),		l_tszTempH, 2);
-	_stprintf(l_tszText, _T("%s  %s"), l_tszTempH, l_tszTempL);
+	_stprintf_s(l_tszText, _countof(l_tszText), _T("%s  %s"), l_tszTempH, l_tszTempL);
 	g_pCMotSysDlg->SetDlgItemText(IDC_STATIC_DO, l_tszText);
 }
 void CC_DispFuncParam(short axis, short Speed, long position)
@@ -2553,11 +2553,11 @@ void CC_DispFuncParam(short axis, short Speed, long position)
 	case CC_AXIS_Y:
 	case CC_AXIS_Z:
 	case CC_AXIS_T:
-		_stprintf(l_tszText, _T("%1d"), g_CC_Axis_pattern[axis]);
+		_stprintf_s(l_tszText, _countof(l_tszText), _T("%1d"), g_CC_Axis_pattern[axis]);
 		g_pCMotSysDlg->SetDlgItemText(g_iDlgCtrlID[11][l_sAxis], l_tszText);
-		_stprintf(l_tszText, _T("%7d"), Speed);
+		_stprintf_s(l_tszText, _countof(l_tszText), _T("%7d"), Speed);
 		g_pCMotSysDlg->SetDlgItemText(g_iDlgCtrlID[14][l_sAxis], l_tszText);
-		_stprintf(l_tszText, _T("%11d"), position);
+		_stprintf_s(l_tszText, _countof(l_tszText), _T("%11d"), position);
 		g_pCMotSysDlg->SetDlgItemText(g_iDlgCtrlID[15][l_sAxis], l_tszText);
 		break;
 	default:
@@ -2578,7 +2578,7 @@ void mmtest(void)
 	char l_Recvdata[255];
 	DWORD	RecvLength;
 
-	strcpy(l_Senddata, "P100");
+	strcpy_s(l_Senddata, sizeof(l_Senddata), "P100");
 	int l_result = g_pCSio->CommCommand(l_Senddata, l_Recvdata, &RecvLength);
 #elif DEB_JOB == 2
 	g_pCMotSysDlg->ShowAlarm(3, 2, 3, 4);
