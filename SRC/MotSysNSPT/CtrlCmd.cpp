@@ -204,7 +204,7 @@ BOOL CC_LoadInitData(void)
 				}
 			}
 			// データを切出し
-			strcpy(l_cBuff2, &(l_cBuff[5]));
+			strcpy_s(l_cBuff2, sizeof(l_cBuff2), &(l_cBuff[5]));
 			// 文字数をチェック
 			if (10 < strlen(l_cBuff2)) {
 				break;
@@ -454,7 +454,7 @@ if ((0 == g_CC_ThreadLoop) || (0 != g_CC_CommAbort)) {l_retry = 0; return 0x8000
 					if (l_pRecvData[i] == COM_CR) {
 						l_Sum = l_pRecvData[i + 1];
 						l_pRecvData[i + 1] = 0x00;
-						strcpy(&((*l_pReadData)[j][0]), &(l_pRecvData[ii]));
+						strcpy_s(&((*l_pReadData)[j][0]), sizeof((*l_pReadData)[j]), &(l_pRecvData[ii]));
 						ii = i + 2;
 						i = i + 1;
 						// サムのチェック
@@ -1614,10 +1614,10 @@ int CC_motion_move_at_speed(short axis, short velocity)
 
 	// コントローラを起動(ABS 移動)
 	g_CC_Axis_mode[axis] = 3;
-	sprintf(l_cCmd[0], "P%1u18=%d", axis + 1, ServoParam[axis].ABS_AccelTimeT);
-	sprintf(l_cCmd[1], "P%1u19=%d", axis + 1, ServoParam[axis].ABS_AccelTimeS);
-	sprintf(l_cCmd[2], "P%1u20=%d", axis + 1, l_Velocity);
-	sprintf(l_cCmd[3], "P%1u21=%d", axis + 1, l_Destination_Pos);
+	sprintf_s(l_cCmd[0], sizeof(l_cCmd[0]), "P%1u18=%d", axis + 1, ServoParam[axis].ABS_AccelTimeT);
+	sprintf_s(l_cCmd[1], sizeof(l_cCmd[1]), "P%1u19=%d", axis + 1, ServoParam[axis].ABS_AccelTimeS);
+	sprintf_s(l_cCmd[2], sizeof(l_cCmd[2]), "P%1u20=%d", axis + 1, l_Velocity);
+	sprintf_s(l_cCmd[3], sizeof(l_cCmd[3]), "P%1u21=%d", axis + 1, l_Destination_Pos);
 	if ((l_result = CC_WriteCommand(l_cCmd[0], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 	if ((l_result = CC_WriteCommand(l_cCmd[1], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 	if ((l_result = CC_WriteCommand(l_cCmd[2], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
@@ -1717,10 +1717,10 @@ int CC_motion_move_to_position(short axis, long position, short velocity)
 	// モードを更新
 	// コントローラを起動(ABS 移動)
 	g_CC_Axis_mode[axis] = 3;
-	sprintf(l_cCmd[0], "P%1u18=%d", axis + 1, l_AccelTimeT);
-	sprintf(l_cCmd[1], "P%1u19=%d", axis + 1, l_AccelTimeS);
-	sprintf(l_cCmd[2], "P%1u20=%d", axis + 1, l_Velocity);
-	sprintf(l_cCmd[3], "P%1u21=%d", axis + 1, l_Destination_Pos);
+	sprintf_s(l_cCmd[0], sizeof(l_cCmd[0]), "P%1u18=%d", axis + 1, l_AccelTimeT);
+	sprintf_s(l_cCmd[1], sizeof(l_cCmd[1]), "P%1u19=%d", axis + 1, l_AccelTimeS);
+	sprintf_s(l_cCmd[2], sizeof(l_cCmd[2]), "P%1u20=%d", axis + 1, l_Velocity);
+	sprintf_s(l_cCmd[3], sizeof(l_cCmd[3]), "P%1u21=%d", axis + 1, l_Destination_Pos);
 	if ((l_result = CC_WriteCommand(l_cCmd[0], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 	if ((l_result = CC_WriteCommand(l_cCmd[1], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 	if ((l_result = CC_WriteCommand(l_cCmd[2], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
@@ -1816,10 +1816,10 @@ int CC_motion_move_at_speed_to_dest(short axis, long destination, short velocity
 	// モードを更新
 	// コントローラを起動(ABS 移動)
 	g_CC_Axis_mode[axis] = 3;
-	sprintf(l_cCmd[0], "P%1u18=%d", axis + 1, l_AccelTimeT);
-	sprintf(l_cCmd[1], "P%1u19=%d", axis + 1, l_AccelTimeS);
-	sprintf(l_cCmd[2], "P%1u20=%d", axis + 1, l_Velocity);
-	sprintf(l_cCmd[3], "P%1u21=%d", axis + 1, l_Destination_Pos);
+	sprintf_s(l_cCmd[0], sizeof(l_cCmd[0]), "P%1u18=%d", axis + 1, l_AccelTimeT);
+	sprintf_s(l_cCmd[1], sizeof(l_cCmd[1]), "P%1u19=%d", axis + 1, l_AccelTimeS);
+	sprintf_s(l_cCmd[2], sizeof(l_cCmd[2]), "P%1u20=%d", axis + 1, l_Velocity);
+	sprintf_s(l_cCmd[3], sizeof(l_cCmd[3]), "P%1u21=%d", axis + 1, l_Destination_Pos);
 	if ((l_result = CC_WriteCommand(l_cCmd[0], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 	if ((l_result = CC_WriteCommand(l_cCmd[1], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 	if ((l_result = CC_WriteCommand(l_cCmd[2], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
@@ -1876,13 +1876,13 @@ int CC_motion_go_home(short axis)
 		// 復帰済 : HP 移動を行う
 		// コントローラを起動(HP 移動)
 		g_CC_Axis_mode[axis] = 2;
-		sprintf(l_cCmd[0], "P%1u13=%d", axis + 1, l_Position);
-		sprintf(l_cCmd[1], "P%1u14=%d", axis + 1, ServoParam[axis].HP_AccelTimeT);
-		sprintf(l_cCmd[2], "P%1u15=%d", axis + 1, ServoParam[axis].HP_AccelTimeS);
-//		sprintf(l_cCmd[3], "P%1u16=%d", axis + 1, ServoParam[axis].HP_Speed);
+		sprintf_s(l_cCmd[0], sizeof(l_cCmd[0]), "P%1u13=%d", axis + 1, l_Position);
+		sprintf_s(l_cCmd[1], sizeof(l_cCmd[1]), "P%1u14=%d", axis + 1, ServoParam[axis].HP_AccelTimeT);
+		sprintf_s(l_cCmd[2], sizeof(l_cCmd[2]), "P%1u15=%d", axis + 1, ServoParam[axis].HP_AccelTimeS);
+//		sprintf_s(l_cCmd[3], sizeof(l_cCmd[3]), "P%1u16=%d", axis + 1, ServoParam[axis].HP_Speed);
 		long l_iSpeed = CC_ConvSpeed_XYT(axis, ServoParam[axis].HP_Speed);
-		sprintf(l_cCmd[3], "P%1u16=%d", axis + 1, l_iSpeed);
-		sprintf(l_cCmd[4], "P%1u17=%d", axis + 1, ServoParam[axis].HP_BaseBand);
+		sprintf_s(l_cCmd[3], sizeof(l_cCmd[3]), "P%1u16=%d", axis + 1, l_iSpeed);
+		sprintf_s(l_cCmd[4], sizeof(l_cCmd[4]), "P%1u17=%d", axis + 1, ServoParam[axis].HP_BaseBand);
 		if ((l_result = CC_WriteCommand(l_cCmd[0], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 		if ((l_result = CC_WriteCommand(l_cCmd[1], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 		if ((l_result = CC_WriteCommand(l_cCmd[2], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
@@ -1908,15 +1908,15 @@ int CC_motion_go_home(short axis)
 			if ((g_CC_Axis_ORG_Req[axis] == FALSE) && ((l_Theta < -486111) || (486111 < l_Theta))) {
 				// INC 移動(30°)を最初に行う
 				g_CC_Axis_mode[axis] = 4;
-				sprintf(l_cCmd[0], "P%1u22=%d", axis + 1, ServoParam[axis].INC_AccelTimeT);
-				sprintf(l_cCmd[1], "P%1u23=%d", axis + 1, ServoParam[axis].INC_AccelTimeS);
-//				sprintf(l_cCmd[2], "P%1u24=%d", axis + 1, ServoParam[axis].INC_Speed);
+				sprintf_s(l_cCmd[0], sizeof(l_cCmd[0]), "P%1u22=%d", axis + 1, ServoParam[axis].INC_AccelTimeT);
+				sprintf_s(l_cCmd[1], sizeof(l_cCmd[1]), "P%1u23=%d", axis + 1, ServoParam[axis].INC_AccelTimeS);
+//				sprintf_s(l_cCmd[2], sizeof(l_cCmd[2]), "P%1u24=%d", axis + 1, ServoParam[axis].INC_Speed);
 				long l_iSpeed = CC_ConvSpeed_XYT(axis, ServoParam[axis].HP_Speed);
-				sprintf(l_cCmd[2], "P%1u24=%d", axis + 1, l_iSpeed);
+				sprintf_s(l_cCmd[2], sizeof(l_cCmd[2]), "P%1u24=%d", axis + 1, l_iSpeed);
 				if (l_Theta < 0) {
-					sprintf(l_cCmd[3], "P%1u25=%s", axis + 1, "83333");
+					sprintf_s(l_cCmd[3], sizeof(l_cCmd[3]), "P%1u25=%s", axis + 1, "83333");
 				} else {
-					sprintf(l_cCmd[3], "P%1u25=%s", axis + 1, "-83333");
+					sprintf_s(l_cCmd[3], sizeof(l_cCmd[3]), "P%1u25=%s", axis + 1, "-83333");
 				}
 				if ((l_result = CC_WriteCommand(l_cCmd[0], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 				if ((l_result = CC_WriteCommand(l_cCmd[1], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
@@ -1925,7 +1925,7 @@ int CC_motion_go_home(short axis)
 				// ゲインを戻す
 				CC_ChangeGain(axis, 0);
 				// INC 移動モードをセット
-				sprintf(l_cCmd[0], "P%1u00=4", axis + 1);
+				sprintf_s(l_cCmd[0], sizeof(l_cCmd[0]), "P%1u00=4", axis + 1);
 				if ((l_result = CC_WriteCommand(l_cCmd[0], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 				// 開始を ON
 				if (CC_DioOutBit(l_RunBit, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;	/* 失敗 */}
@@ -1940,21 +1940,21 @@ int CC_motion_go_home(short axis)
 		// コントローラを起動(原点復帰)
 		g_CC_Axis_mode[axis] = 1;
 //		g_CC_Axis_HP_Req[axis] = TRUE;	// 原点復帰後，HP 移動要求
-		sprintf(l_cCmd[0], "P%1u01=%d", axis + 1, ServoParam[axis].ORG1_AccelTimeT);
-		sprintf(l_cCmd[1], "P%1u02=%d", axis + 1, ServoParam[axis].ORG1_AccelTimeS);
-//		sprintf(l_cCmd[2], "P%1u03=%d", axis + 1, ServoParam[axis].ORG1_Speed);
+		sprintf_s(l_cCmd[0], sizeof(l_cCmd[0]), "P%1u01=%d", axis + 1, ServoParam[axis].ORG1_AccelTimeT);
+		sprintf_s(l_cCmd[1], sizeof(l_cCmd[1]), "P%1u02=%d", axis + 1, ServoParam[axis].ORG1_AccelTimeS);
+//		sprintf_s(l_cCmd[2], sizeof(l_cCmd[2]), "P%1u03=%d", axis + 1, ServoParam[axis].ORG1_Speed);
 		long l_iSpeed = CC_ConvSpeed_XYT(axis, ServoParam[axis].ORG1_Speed);
-		sprintf(l_cCmd[2], "P%1u03=%d", axis + 1, l_iSpeed);
-		sprintf(l_cCmd[3], "P%1u04=%d", axis + 1, ServoParam[axis].ORG2_AccelTimeT);
-		sprintf(l_cCmd[4], "P%1u05=%d", axis + 1, ServoParam[axis].ORG2_AccelTimeS);
-//		sprintf(l_cCmd[5], "P%1u06=%d", axis + 1, ServoParam[axis].ORG2_Speed);
+		sprintf_s(l_cCmd[2], sizeof(l_cCmd[2]), "P%1u03=%d", axis + 1, l_iSpeed);
+		sprintf_s(l_cCmd[3], sizeof(l_cCmd[3]), "P%1u04=%d", axis + 1, ServoParam[axis].ORG2_AccelTimeT);
+		sprintf_s(l_cCmd[4], sizeof(l_cCmd[4]), "P%1u05=%d", axis + 1, ServoParam[axis].ORG2_AccelTimeS);
+//		sprintf_s(l_cCmd[5], sizeof(l_cCmd[5]), "P%1u06=%d", axis + 1, ServoParam[axis].ORG2_Speed);
 		l_iSpeed = CC_ConvSpeed_XYT(axis, ServoParam[axis].ORG2_Speed);
-		sprintf(l_cCmd[5], "P%1u06=%d", axis + 1, l_iSpeed);
-		sprintf(l_cCmd[6], "P%1u07=%d", axis + 1, ServoParam[axis].ORG3_AccelTimeT);
-		sprintf(l_cCmd[7], "P%1u08=%d", axis + 1, ServoParam[axis].ORG3_AccelTimeS);
-//		sprintf(l_cCmd[8], "P%1u09=%d", axis + 1, ServoParam[axis].ORG3_Speed);
+		sprintf_s(l_cCmd[5], sizeof(l_cCmd[5]), "P%1u06=%d", axis + 1, l_iSpeed);
+		sprintf_s(l_cCmd[6], sizeof(l_cCmd[6]), "P%1u07=%d", axis + 1, ServoParam[axis].ORG3_AccelTimeT);
+		sprintf_s(l_cCmd[7], sizeof(l_cCmd[7]), "P%1u08=%d", axis + 1, ServoParam[axis].ORG3_AccelTimeS);
+//		sprintf_s(l_cCmd[8], sizeof(l_cCmd[8]), "P%1u09=%d", axis + 1, ServoParam[axis].ORG3_Speed);
 		l_iSpeed = CC_ConvSpeed_XYT(axis, ServoParam[axis].ORG3_Speed);
-		sprintf(l_cCmd[8], "P%1u09=%d", axis + 1, l_iSpeed);
+		sprintf_s(l_cCmd[8], sizeof(l_cCmd[8]), "P%1u09=%d", axis + 1, l_iSpeed);
 		if ((l_result = CC_WriteCommand(l_cCmd[0], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 		if ((l_result = CC_WriteCommand(l_cCmd[1], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 		if ((l_result = CC_WriteCommand(l_cCmd[2], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
