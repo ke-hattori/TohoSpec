@@ -661,7 +661,7 @@ BOOL CCtaCtrl::InitializeSIO()
 	if(g_lAppNameType != APP_NAME_NANO){
 		strFilename.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
 	}
-	_stprintf(l_tszNanoSpecIni, _T("%s%s%s"), _T(CFG_DIR), g_tszProcDir, strFilename);
+	_stprintf(l_tszNanoSpecIni, _T("%s%s%s"), _T(CFG_DIR), g_tszProcDir, (LPCTSTR)strFilename);
 // 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
 
 	TCHAR l_tszText[255];
