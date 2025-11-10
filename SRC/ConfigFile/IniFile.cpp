@@ -1993,19 +1993,19 @@ void SaveNanoSpecIni(int iIniFile)
 		char szSrIniFilePath[_MAX_PATH];
 		int	nGantryNum;
 
-		sprintf(szSrIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[SYSTEM_SR_INI_FILE]);
+		sprintf_s(szSrIniFilePath, _MAX_PATH, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[SYSTEM_SR_INI_FILE]);
 		nGantryNum = ::GetPrivateProfileInt(_T("CONFIG"), "GantryNumberOfMeasurePoint", 0, szSrIniFilePath);
 
 //		for (i=0; i<MAX_GANTRY_MEAS_POINT_NUM; i++) {
 		for (i=0; i<nGantryNum; i++) {
 			_stprintf_s(l_tszKey, _countof(l_tszKey), "GTR%d_Reference_X", i + 1);
-			_stprintf(l_tszTemp, _T("%ld"), UserData.SrReferencePosition.LocGantryTransmitReference[i].lX);
+			_stprintf_s(l_tszTemp, _countof(l_tszTemp), _T("%ld"), UserData.SrReferencePosition.LocGantryTransmitReference[i].lX);
 			WritePrivateProfileString(_T("REFERENCE POSITION"), l_tszKey, l_tszTemp, szIniFilePath);
 			_stprintf_s(l_tszKey, _countof(l_tszKey), "GTR%d_Reference_Y", i + 1);
-			_stprintf(l_tszTemp, _T("%ld"), UserData.SrReferencePosition.LocGantryTransmitReference[i].lY);
+			_stprintf_s(l_tszTemp, _countof(l_tszTemp), _T("%ld"), UserData.SrReferencePosition.LocGantryTransmitReference[i].lY);
 			WritePrivateProfileString(_T("REFERENCE POSITION"), l_tszKey, l_tszTemp, szIniFilePath);
 			_stprintf_s(l_tszKey, _countof(l_tszKey), "GTR%d_Reference_Z", i + 1);
-			_stprintf(l_tszTemp, _T("%ld"), UserData.SrReferencePosition.LocGantryTransmitReference[i].lZ);
+			_stprintf_s(l_tszTemp, _countof(l_tszTemp), _T("%ld"), UserData.SrReferencePosition.LocGantryTransmitReference[i].lZ);
 			WritePrivateProfileString(_T("REFERENCE POSITION"), l_tszKey, l_tszTemp, szIniFilePath);
 		}
 		for (i=nGantryNum; i<MAX_GANTRY_MEAS_POINT_NUM; i++) {
