@@ -1100,19 +1100,19 @@ void CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 	case 8: 	// 原点復帰 エラー	 原点復帰が行われなかった
 		switch(l_Code1){
 		case MS_PARAMETER_ERROR:
-			_tcscat(l_tszHomeErrorMessage, _T(" Parameter error. "));
+			_tcscat_s(l_tszHomeErrorMessage, _countof(l_tszHomeErrorMessage), _T(" Parameter error. "));
 			break;
 		case MS_AXIS_LOCKED:
-			_tcscat(l_tszHomeErrorMessage, _T(" Axis locked. "));
+			_tcscat_s(l_tszHomeErrorMessage, _countof(l_tszHomeErrorMessage), _T(" Axis locked. "));
 			break;
 		case MS_AXIS_UNINITIALIZED:
-			_tcscat(l_tszHomeErrorMessage, _T(" Uninitialized. "));
+			_tcscat_s(l_tszHomeErrorMessage, _countof(l_tszHomeErrorMessage), _T(" Uninitialized. "));
 			break;
 		case MS_FUNCTION_BUSY:
-			_tcscat(l_tszHomeErrorMessage, _T(" Function busy. "));
+			_tcscat_s(l_tszHomeErrorMessage, _countof(l_tszHomeErrorMessage), _T(" Function busy. "));
 			break;
 		default:
-			_tcscat(l_tszHomeErrorMessage, _T(" Error. "));
+			_tcscat_s(l_tszHomeErrorMessage, _countof(l_tszHomeErrorMessage), _T(" Error. "));
 			break;
 		}
 		_stprintf_s(l_tszText1, _countof(l_tszText1), _T("%sAxis=%d."), l_tszHomeErrorMessage, l_Axis);
@@ -1535,7 +1535,7 @@ void CMotSysDlg::AlarmLogging(TCHAR *ptszAlarmLog)
 
 	// 日付，時刻を設定
 	m_pAlarmLogFile->AddTime(l_tszLogBuff, 2);
-	_tcscat(l_tszLogBuff, _T(" "));
+	_tcscat_s(l_tszLogBuff, _countof(l_tszLogBuff), _T(" "));
 	_tcscat_s(l_tszLogBuff, _countof(l_tszLogBuff), ptszAlarmLog);
 
 	m_pAlarmLogFile->Logging(l_tszLogBuff);
@@ -1564,14 +1564,14 @@ void CMotSysDlg::DioLogging(DWORD dwDi, DWORD dwDo)
 
 	/* 日付，時刻を設定	*/
 	m_pcDioLog->AddTime(l_tszLogBuff, 4);
-	_tcscat(l_tszLogBuff, _T(" "));
+	_tcscat_s(l_tszLogBuff, _countof(l_tszLogBuff), _T(" "));
 
 	_tcscat_s(l_tszLogBuff, _countof(l_tszLogBuff), l_tszDiHData);
-	_tcscat(l_tszLogBuff, _T(" "));
+	_tcscat_s(l_tszLogBuff, _countof(l_tszLogBuff), _T(" "));
 	_tcscat_s(l_tszLogBuff, _countof(l_tszLogBuff), l_tszDiLData);
-	_tcscat(l_tszLogBuff, _T("  "));
+	_tcscat_s(l_tszLogBuff, _countof(l_tszLogBuff), _T("  "));
 	_tcscat_s(l_tszLogBuff, _countof(l_tszLogBuff), l_tszDoHData);
-	_tcscat(l_tszLogBuff, _T(" "));
+	_tcscat_s(l_tszLogBuff, _countof(l_tszLogBuff), _T(" "));
 	_tcscat_s(l_tszLogBuff, _countof(l_tszLogBuff), l_tszDoLData);
 
 	m_pcDioLog->Logging(l_tszLogBuff);
