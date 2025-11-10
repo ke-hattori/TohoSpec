@@ -9,6 +9,7 @@
 #define MotMsgON
 #include "..\\..\\inc\\MotsysMsg.h"
 #include "MotSysDlg.h"
+#include "..\..\INC\ts_secure_crt.h"
 #include "CtrlCmd.h"
 #include "MotionDef.h"
 #include "Motion.h"
@@ -292,7 +293,7 @@ BOOL CMotSysDlg::OnInitDialog()
 		TCHAR l_tszDrive[_MAX_PATH], l_tszDir[_MAX_DIR], l_tszFName[_MAX_FNAME], l_tszExt[_MAX_EXT];
 		TCHAR l_tszFilePath[_MAX_PATH];
 		_tsplitpath(MS_DIO_LOG, l_tszDrive, l_tszDir, l_tszFName, l_tszExt);
-		_stprintf(l_tszFilePath, _T("%s%s"), l_tszDrive, l_tszDir);
+		_stprintf_s(l_tszFilePath, _countof(l_tszFilePath), _T("%s%s"), l_tszDrive, l_tszDir);
 		m_pcDioLog = new CLogFile(l_tszFName);
 		if (0 != m_pcDioLog) {
 			_tcscpy(m_pcDioLog->m_tszLogFilePath, l_tszFilePath);
@@ -312,7 +313,7 @@ BOOL CMotSysDlg::OnInitDialog()
 		TCHAR	l_tszFilePath[_MAX_PATH];
 		_tsplitpath(ALARM_LOG, l_tszDrive, l_tszDir, l_tszFName, l_tszExt);
 		// パスとファイル名を作成
-		_stprintf(l_tszFilePath, _T("%s%s"), l_tszDrive, l_tszDir);
+		_stprintf_s(l_tszFilePath, _countof(l_tszFilePath), _T("%s%s"), l_tszDrive, l_tszDir);
 		m_pAlarmLogFile = new CLogFile(l_tszFName);
 		if (0 != m_pAlarmLogFile) {
 			_tcscpy(m_pAlarmLogFile->m_tszLogFilePath, l_tszFilePath);
@@ -353,7 +354,7 @@ BOOL CMotSysDlg::OnInitDialog()
 					case 1: strcpy(l_tszText3, _T("1.5")); break;
 					case 2: strcpy(l_tszText3, _T("2")); break;
 					}
-					_stprintf(l_tszText, _T("%s,%d,%s,%s"), m_pSio->m_sChannelNo, m_pSio->m_BaudRate, l_tszText2, l_tszText3);
+					_stprintf_s(l_tszText, _countof(l_tszText), _T("%s,%d,%s,%s"), m_pSio->m_sChannelNo, m_pSio->m_BaudRate, l_tszText2, l_tszText3);
 					SetDlgItemText(IDC_STATIC_COMSTAT, l_tszText);
 				} else {
 					m_bInitFailed = TRUE;
@@ -388,7 +389,7 @@ BOOL CMotSysDlg::OnInitDialog()
 		// 優先度の切替え失敗
 		DWORD l_errcode = GetLastError();
 		TCHAR l_tszErrMsg[255]; ShowLastError(l_errcode, l_tszText);
-		_stprintf(l_tszErrMsg, _T("Failed to change process priority.\n%s(0x%08x)"), l_tszText, l_errcode);
+		_stprintf_s(l_tszErrMsg, _countof(l_tszErrMsg), _T("Failed to change process priority.\n%s(0x%08x)"), l_tszText, l_errcode);
 		if (0 == m_bOnClosing) {
 			::MessageBox(NULL, l_tszErrMsg, MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
 		}
@@ -778,19 +779,19 @@ void CMotSysDlg::ChgToPriorityMsg(DWORD code, TCHAR *ptszmsg)
 {
 	switch (code) {
 	case HIGH_PRIORITY_CLASS:
-		_stprintf(ptszmsg, _T("HIGH_PRIORITY_CLASS(0x%08x)"), code);
+		_stprintf_s(ptszmsg, _countof(ptszmsg), _T("HIGH_PRIORITY_CLASS(0x%08x)"), code);
 		break;
 	case IDLE_PRIORITY_CLASS:
-		_stprintf(ptszmsg, _T("IDLE_PRIORITY_CLASS(0x%08x)"), code);
+		_stprintf_s(ptszmsg, _countof(ptszmsg), _T("IDLE_PRIORITY_CLASS(0x%08x)"), code);
 		break;
 	case NORMAL_PRIORITY_CLASS:
-		_stprintf(ptszmsg, _T("NORMAL_PRIORITY_CLASS(0x%08x)"), code);
+		_stprintf_s(ptszmsg, _countof(ptszmsg), _T("NORMAL_PRIORITY_CLASS(0x%08x)"), code);
 		break;
 	case REALTIME_PRIORITY_CLASS:
-		_stprintf(ptszmsg, _T("REALTIME_PRIORITY_CLASS(0x%08x)"), code);
+		_stprintf_s(ptszmsg, _countof(ptszmsg), _T("REALTIME_PRIORITY_CLASS(0x%08x)"), code);
 		break;
 	default:
-		_stprintf(ptszmsg, _T("Undefined(0x%08x)"), code);
+		_stprintf_s(ptszmsg, _countof(ptszmsg), _T("Undefined(0x%08x)"), code);
 		break;
 	}
 }
@@ -860,7 +861,7 @@ BOOL CMotSysDlg::InitializeComm()
 	case 2:	l_StopBits = TWOSTOPBITS; break;
 	}
 	if (m_pSio->Initialize(l_BaudRate, l_ByteSize, l_Parity, l_StopBits) != TRUE) {
-		_stprintf(l_tszText, _T("Communication port COM%01d is invalid."), l_PortCh);
+		_stprintf_s(l_tszText, _countof(l_tszText), _T("Communication port COM%01d is invalid."), l_PortCh);
 		if (0 == m_bOnClosing) {
 			::MessageBox(NULL, l_tszText, MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
 		}
@@ -886,8 +887,8 @@ BOOL CMotSysDlg::InitializeCommLog()
 		l_NoFile = FALSE;
 	} else {
 		if (_tmktemp(l_tsztmpfile) != NULL) {
-			_tcscpy(l_tszFilePath, l_tszText);
-			_tcscat(l_tszText, l_tsztmpfile);
+			_tcscpy_s(l_tszFilePath, _countof(l_tszFilePath), l_tszText);
+			_tcscat_s(l_tszText, _countof(l_tszText), l_tsztmpfile);
 			if ((fp = _tfopen(l_tszText, "w")) != NULL) {
 				fclose(fp);
 				_tremove(l_tszText);
@@ -905,22 +906,22 @@ BOOL CMotSysDlg::InitializeCommLog()
 		TCHAR l_tszDrive[8], l_tszDir[_MAX_PATH], l_tszFName[_MAX_FNAME], l_tszExt[8];
 		_tsplitpath(MOT_INI, l_tszDrive, l_tszDir, l_tszFName, l_tszExt);
 		// パスとファイル名を作成
-		_stprintf(l_tszFilePath, _T("%s%s"), l_tszDrive, l_tszDir);
+		_stprintf_s(l_tszFilePath, _countof(l_tszFilePath), _T("%s%s"), l_tszDrive, l_tszDir);
 	}
 
 	// ログファイル名を取得
 	::GetPrivateProfileString(_T("ComLog"), _T("FileName"), COM_LOG_FILE, l_tszText, sizeof(l_tszText), MOT_INI);
 	if (_tcscmp(l_tszText, COM_LOG_FILE) != 0) {
-		_tcscpy(l_tsztmpfile, l_tszFilePath);
-		_tcscat(l_tsztmpfile, l_tszText);
+		_tcscpy_s(l_tsztmpfile, _countof(l_tsztmpfile), l_tszFilePath);
+		_tcscat_s(l_tsztmpfile, _countof(l_tsztmpfile), l_tszText);
 		if ((fp = _tfopen(l_tsztmpfile, "w")) != NULL) {
 			fclose(fp);
 			_tremove(l_tsztmpfile);
 		} else {
 			// オープン失敗
 			l_NoFile = FALSE;
-			_tcscpy(l_tsztmpfile, l_tszFilePath);
-			_tcscat(l_tsztmpfile, COM_LOG_FILE);
+			_tcscpy_s(l_tsztmpfile, _countof(l_tsztmpfile), l_tszFilePath);
+			_tcscat_s(l_tsztmpfile, _countof(l_tsztmpfile), COM_LOG_FILE);
 		}
 	}
 
@@ -1002,7 +1003,7 @@ void CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 
 	switch (l_Mode) {
 	case 1:		// ステージコントローラの WD エラーが発生
-		_tcscpy(l_tszText1, l_tszText0);
+		_tcscpy_s(l_tszText1, _countof(l_tszText1), l_tszText0);
 		_tcscat(l_tszText1, _T("W.D. Error on Controller.\n"));
 		_tcscat(l_tszText1, _T("End Motion System Driver?\n"));
 		_tcscat(l_tszText1, _T("(then reboot the system)"));
@@ -1011,7 +1012,7 @@ void CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 		_tcscat(tszAlarmLog, _T(" W.D. Error on Controller."));
 		break;
 	case 2:		// システムエラー色々
-		_tcscpy(l_tszText1, l_tszText0);
+		_tcscpy_s(l_tszText1, _countof(l_tszText1), l_tszText0);
 		_tcscat(l_tszText1, _T("System Error.\n"));
 		_tcscat(l_tszText1, _T("End Motion System Driver?\n"));
 		_tcscat(l_tszText1, _T("(then reboot the system)"));
@@ -1031,7 +1032,7 @@ void CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 		default:	_tcscpy(l_tszText2, _T("Undefine"));		break;	// Undefine
 		}
 		CnvWordToBin(l_Code1, l_tszText3, 2);
-		_stprintf(l_tszText1, _T("%sAlarm on Axis[%d] (%s).\nAlarm code : %s"), l_tszText0, l_Axis, l_tszText2, l_tszText3);
+		_stprintf_s(l_tszText1, _countof(l_tszText1), _T("%sAlarm on Axis[%d] (%s).\nAlarm code : %s"), l_tszText0, l_Axis, l_tszText2, l_tszText3);
 		if (l_Axis == AXIS_BIG_Y) {
 			// Y 軸の場合は YS も表示
 /* modified 2010.02.24 hmenjo MotSys Y 軸アラームログ修正 ---------- { ---------- */
@@ -1041,20 +1042,20 @@ void CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 			CnvWordToBin(l_Code2, l_tszText4, 2);
 			_stprintf(l_tszText5, _T("\nAlarm on Axis[%d] (%s).\nAlarm code : %s"), l_Axis, _T("Big YS"), l_tszText4);
 /* modified 2010.02.24 hmenjo MotSys Y 軸アラームログ修正 ---------- } ---------- */
-			_tcscat(l_tszText1, l_tszText5);
+			_tcscat_s(l_tszText1, _countof(l_tszText1), l_tszText5);
 		}
 		l_MsgID = 1;
 		// AlarmLog Message
 		TCHAR tszTemp[256];
 /* modified 2010.02.24 hmenjo MotSys Y 軸アラームログ修正 ---------- { ---------- */
-//		  _stprintf(tszTemp, _T(" Alarm on Axis (%s). Alarm code : %s."), l_tszText2, l_tszText3);
+//		  _stprintf_s(tszTemp, _countof(tszTemp), _T(" Alarm on Axis (%s). Alarm code : %s."), l_tszText2, l_tszText3);
 /* modified 2010.02.24 hmenjo MotSys Y 軸アラームログ修正 ----------			  */
-		_stprintf(tszTemp, _T(" Alarm on Axis (%sYS). Alarm code : %s    %s."), l_tszText2, l_tszText3, l_tszText4);
+		_stprintf_s(tszTemp, _countof(tszTemp), _T(" Alarm on Axis (%sYS). Alarm code : %s    %s."), l_tszText2, l_tszText3, l_tszText4);
 /* modified 2010.02.24 hmenjo MotSys Y 軸アラームログ修正 ---------- } ---------- */
-		_tcscat(tszAlarmLog, tszTemp);
+		_tcscat_s(tszAlarmLog, _countof(tszAlarmLog), tszTemp);
 		break;
 	case 4:		// 初期化完了フラグが０にならなかった
-		_tcscpy(l_tszText1, l_tszText0);
+		_tcscpy_s(l_tszText1, _countof(l_tszText1), l_tszText0);
 		_tcscat(l_tszText1, _T("System Error.\n"));
 		_tcscat(l_tszText1, _T("Not be initialized on Controller.\n"));
 		_tcscat(l_tszText1, _T("End Motion System Driver?\n"));
@@ -1114,7 +1115,7 @@ void CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 			_tcscat(l_tszHomeErrorMessage, _T(" Error. "));
 			break;
 		}
-		_stprintf(l_tszText1, _T("%sAxis=%d."), l_tszHomeErrorMessage, l_Axis);
+		_stprintf_s(l_tszText1, _countof(l_tszText1), _T("%sAxis=%d."), l_tszHomeErrorMessage, l_Axis);
 		l_MsgID = 2;
 		// AlarmLog Message
 		_tcscat(tszAlarmLog, _T(" Axis can not go home."));
@@ -1203,7 +1204,7 @@ void CMotSysDlg::CnvWordToBin(
 	_ltot(WordData, l_tszText1, 2);
 	memset(l_tszText2, 0, sizeof(l_tszText2));
 	memcpy(l_tszText2, _T("0000000000000000"), 16 - strlen(l_tszText1));
-	_tcscat(l_tszText2, l_tszText1);
+	_tcscat_s(l_tszText2, _countof(l_tszText2), l_tszText1);
 	switch (mode) {
 	case 1:
 		_tcscpy(l_tszText1, _T("00000000 00000000"));
@@ -1219,10 +1220,10 @@ void CMotSysDlg::CnvWordToBin(
 		break;
 	case 0:
 	default:
-		_tcscpy(l_tszText1, l_tszText2);
+		_tcscpy_s(l_tszText1, _countof(l_tszText1), l_tszText2);
 		break;
 	}
-	_tcscpy(ptszBinary, l_tszText1);
+	_tcscpy_s(ptszBinary, _countof(ptszBinary), l_tszText1);
 }
 
 BOOL CMotSysDlg::DestroyWindow()
@@ -1306,18 +1307,18 @@ void CMotSysDlg::DispdPos(WORD wAxis, long d_Pos)
 
 	// リアルタイム値を更新
 	m_dPos[0][l_sAxis] = d_Pos;
-	_stprintf(l_tszText, _T("%11d"), m_dPos[0][l_sAxis]);
+	_stprintf_s(l_tszText, _countof(l_tszText), _T("%11d"), m_dPos[0][l_sAxis]);
 	SetDlgItemText(g_iDlgCtrlID[17][l_sAxis], l_tszText);
 	// －側ピーク値を更新
 	if (m_dPos[0][l_sAxis] < m_dPos[1][l_sAxis]) {
 		m_dPos[1][l_sAxis] = m_dPos[0][l_sAxis];
-		_stprintf(l_tszText, _T("%11d"), m_dPos[1][l_sAxis]);
+		_stprintf_s(l_tszText, _countof(l_tszText), _T("%11d"), m_dPos[1][l_sAxis]);
 		SetDlgItemText(g_iDlgCtrlID[19][l_sAxis], l_tszText);
 	}
 	// ＋側ピーク値を更新
 	if (m_dPos[2][l_sAxis] < m_dPos[0][l_sAxis]) {
 		m_dPos[2][l_sAxis] = m_dPos[0][l_sAxis];
-		_stprintf(l_tszText, _T("%11d"), m_dPos[2][l_sAxis]);
+		_stprintf_s(l_tszText, _countof(l_tszText), _T("%11d"), m_dPos[2][l_sAxis]);
 		SetDlgItemText(g_iDlgCtrlID[20][l_sAxis], l_tszText);
 	}
 }
@@ -1535,7 +1536,7 @@ void CMotSysDlg::AlarmLogging(TCHAR *ptszAlarmLog)
 	// 日付，時刻を設定
 	m_pAlarmLogFile->AddTime(l_tszLogBuff, 2);
 	_tcscat(l_tszLogBuff, _T(" "));
-	_tcscat(l_tszLogBuff, ptszAlarmLog);
+	_tcscat_s(l_tszLogBuff, _countof(l_tszLogBuff), ptszAlarmLog);
 
 	m_pAlarmLogFile->Logging(l_tszLogBuff);
 }
@@ -1565,13 +1566,13 @@ void CMotSysDlg::DioLogging(DWORD dwDi, DWORD dwDo)
 	m_pcDioLog->AddTime(l_tszLogBuff, 4);
 	_tcscat(l_tszLogBuff, _T(" "));
 
-	_tcscat(l_tszLogBuff, l_tszDiHData);
+	_tcscat_s(l_tszLogBuff, _countof(l_tszLogBuff), l_tszDiHData);
 	_tcscat(l_tszLogBuff, _T(" "));
-	_tcscat(l_tszLogBuff, l_tszDiLData);
+	_tcscat_s(l_tszLogBuff, _countof(l_tszLogBuff), l_tszDiLData);
 	_tcscat(l_tszLogBuff, _T("  "));
-	_tcscat(l_tszLogBuff, l_tszDoHData);
+	_tcscat_s(l_tszLogBuff, _countof(l_tszLogBuff), l_tszDoHData);
 	_tcscat(l_tszLogBuff, _T(" "));
-	_tcscat(l_tszLogBuff, l_tszDoLData);
+	_tcscat_s(l_tszLogBuff, _countof(l_tszLogBuff), l_tszDoLData);
 
 	m_pcDioLog->Logging(l_tszLogBuff);
 }
