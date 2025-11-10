@@ -1115,8 +1115,8 @@ void CC_PollingAlarm(void)
 					if (i == CC_AXIS_X) {l_SetBit = 0x00000001 << CC_INBIT_ALARM_X;}
 					if (i == CC_AXIS_Y) {l_SetBit = 0x00000001 << CC_INBIT_ALARM_Y;}
 					l_ClearBit = CC_OUTBIT_CLEAR_ALARM;
-					sprintf(l_DetailAddr, "P%1u58", i + 1);
-					sprintf(l_DetailAddr2, "P%1u68", i + 1);
+					sprintf_s(l_DetailAddr, sizeof(l_DetailAddr), "P%1u58", i + 1);
+					sprintf_s(l_DetailAddr2, sizeof(l_DetailAddr2), "P%1u68", i + 1);
 				} else {
 					l_AxisNo = -1;
 				}
@@ -1128,7 +1128,7 @@ void CC_PollingAlarm(void)
 					if (i == CC_AXIS_Z) {l_SetBit = 0x00000001 << CC_INBIT_ALARM_Z;}
 					if (i == CC_AXIS_T) {l_SetBit = 0x00000001 << CC_INBIT_ALARM_T;}
 					l_ClearBit = CC_OUTBIT_CLEAR_ALARM;
-					sprintf(l_DetailAddr, "P%1u56", i + 1);
+					sprintf_s(l_DetailAddr, sizeof(l_DetailAddr), "P%1u56", i + 1);
 				} else {
 					l_AxisNo = -1;
 				}
@@ -1280,7 +1280,7 @@ void CC_X_Manager(void)		// X 軸
 		}
 		break;
 	case 3:		// 動作モードの通常への変化待ち
-		sprintf(l_szCmd, "P%1u50", l_axis + 1);
+		sprintf_s(l_szCmd, sizeof(l_szCmd), "P%1u50", l_axis + 1);
 		if ((l_result = CC_ReadCommand(l_szCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		if (strcmp(l_Recvdata, "0") == 0) {
 			// 開始を OFF
@@ -1288,7 +1288,7 @@ void CC_X_Manager(void)		// X 軸
 				CC_DioError();	return;	// 失敗
 			}
 			// 動作モードを通常へセット
-			sprintf(l_szCmd, "P%1u00=0", l_axis + 1);
+			sprintf_s(l_szCmd, sizeof(l_szCmd), "P%1u00=0", l_axis + 1);
 			if ((l_result = CC_WriteCommand(l_szCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 			g_CC_Axis_prc[l_axis] = 0;
 			send_motion_message(CC_CnvAxisFromSPT(l_axis), MM_DONE);
@@ -1328,7 +1328,7 @@ void CC_Y_Manager(void)		// Y 軸
 		}
 		break;
 	case 3:		// 動作モードの通常への変化待ち
-		sprintf(l_szCmd, "P%1u50", l_axis + 1);
+		sprintf_s(l_szCmd, sizeof(l_szCmd), "P%1u50", l_axis + 1);
 		if ((l_result = CC_ReadCommand(l_szCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		if (strcmp(l_Recvdata, "0") == 0) {
 			// 開始を OFF
@@ -1336,7 +1336,7 @@ void CC_Y_Manager(void)		// Y 軸
 				CC_DioError();	return;	// 失敗
 			}
 			// 動作モードを通常へセット
-			sprintf(l_szCmd, "P%1u00=0", l_axis + 1);
+			sprintf_s(l_szCmd, sizeof(l_szCmd), "P%1u00=0", l_axis + 1);
 			if ((l_result = CC_WriteCommand(l_szCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 			g_CC_Axis_prc[l_axis] = 0;
 			send_motion_message(CC_CnvAxisFromSPT(l_axis), MM_DONE);
@@ -1376,7 +1376,7 @@ void CC_Z_Manager(void)		// Z 軸
 		}
 		break;
 	case 3:		// 動作モードの通常への変化待ち
-		sprintf(l_szCmd, "P%1u50", l_axis + 1);
+		sprintf_s(l_szCmd, sizeof(l_szCmd), "P%1u50", l_axis + 1);
 		if ((l_result = CC_ReadCommand(l_szCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		if (strcmp(l_Recvdata, "0") == 0) {
 			// 開始を OFF
@@ -1384,7 +1384,7 @@ void CC_Z_Manager(void)		// Z 軸
 				CC_DioError();	return;	// 失敗
 			}
 			// 動作モードを通常へセット
-			sprintf(l_szCmd, "P%1u00=0", l_axis + 1);
+			sprintf_s(l_szCmd, sizeof(l_szCmd), "P%1u00=0", l_axis + 1);
 			if ((l_result = CC_WriteCommand(l_szCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 			g_CC_Axis_prc[l_axis] = 0;
 			send_motion_message(CC_CnvAxisFromSPT(l_axis), MM_DONE);
@@ -1424,7 +1424,7 @@ void CC_T_Manager(void)		// T 軸
 		}
 		break;
 	case 3:		// 動作モードの通常への変化待ち
-		sprintf(l_szCmd, "P%1u50", l_axis + 1);
+		sprintf_s(l_szCmd, sizeof(l_szCmd), "P%1u50", l_axis + 1);
 		if ((l_result = CC_ReadCommand(l_szCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		if (strcmp(l_Recvdata, "0") == 0) {
 			// 開始を OFF
@@ -1432,7 +1432,7 @@ void CC_T_Manager(void)		// T 軸
 				CC_DioError();	return;	// 失敗
 			}
 			// 動作モードを通常へセット
-			sprintf(l_szCmd, "P%1u00=0", l_axis + 1);
+			sprintf_s(l_szCmd, sizeof(l_szCmd), "P%1u00=0", l_axis + 1);
 			if ((l_result = CC_WriteCommand(l_szCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 			g_CC_Axis_prc[l_axis] = 0;
 // 以下の if ブロックは理由不明です．hmenjo 2009.03.27
@@ -1468,7 +1468,7 @@ long CC_get_true_position(short axis)
 	case CC_AXIS_Y:
 	case CC_AXIS_Z:
 	case CC_AXIS_T:
-		sprintf(l_CountAddr, "P%1u51", axis + 1);
+		sprintf_s(l_CountAddr, sizeof(l_CountAddr), "P%1u51", axis + 1);
 		break;
 	default:
 		return g_CC_Count[axis];
@@ -1511,7 +1511,7 @@ void CC_local_emergency_stop(short axis)
 		CC_DioError();	return;	// 失敗
 	}
 	// モードをクリア
-	sprintf(l_cMode, "P%1u00=0", axis + 1);
+	sprintf_s(l_cMode, sizeof(l_cMode), "P%1u00=0", axis + 1);
 	if ((l_result = CC_WriteCommand(l_cMode, l_Recvdata)) < 0) {CC_MsgReboot(); return ;}
 	// ゲインを切換え
 	CC_ChangeGain(axis, 1);
@@ -1625,7 +1625,7 @@ int CC_motion_move_at_speed(short axis, short velocity)
 	// ゲインを戻す
 	CC_ChangeGain(axis, 0);
 	// ABS 移動モードをセット
-	sprintf(l_cMode, "P%1u00=3", axis + 1);
+	sprintf_s(l_cMode, sizeof(l_cMode), "P%1u00=3", axis + 1);
 	if ((l_result = CC_WriteCommand(l_cMode, l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 	// 開始を ON
 	if (CC_DioOutBit(l_RunBit, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;	/* 失敗 */}
@@ -1727,7 +1727,7 @@ int CC_motion_move_to_position(short axis, long position, short velocity)
 	if ((l_result = CC_WriteCommand(l_cCmd[3], l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 	// ゲインを戻す
 	CC_ChangeGain(axis, 0);
-	sprintf(l_cMode, "P%1u00=3", axis + 1);
+	sprintf_s(l_cMode, sizeof(l_cMode), "P%1u00=3", axis + 1);
 	if ((l_result = CC_WriteCommand(l_cMode, l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 	// 開始を ON
 	if (CC_DioOutBit(l_RunBit, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;	/* 失敗 */}
@@ -1827,7 +1827,7 @@ int CC_motion_move_at_speed_to_dest(short axis, long destination, short velocity
 	// ゲインを戻す
 	CC_ChangeGain(axis, 0);
 	// ABS 移動モードをセット
-	sprintf(l_cMode, "P%1u00=3", axis + 1);
+	sprintf_s(l_cMode, sizeof(l_cMode), "P%1u00=3", axis + 1);
 	if ((l_result = CC_WriteCommand(l_cMode, l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 	// 開始を ON
 	if (CC_DioOutBit(l_RunBit, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;	/* 失敗 */}
@@ -1891,7 +1891,7 @@ int CC_motion_go_home(short axis)
 		// ゲインを戻す
 		CC_ChangeGain(axis, 0);
 		// HP 移動モードをセット
-		sprintf(l_cMode, "P%1u00=2", axis + 1);
+		sprintf_s(l_cMode, sizeof(l_cMode), "P%1u00=2", axis + 1);
 		if ((l_result = CC_WriteCommand(l_cMode, l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 		// 開始を ON
 		if (CC_DioOutBit(l_RunBit, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;	/* 失敗 */}
@@ -1968,7 +1968,7 @@ int CC_motion_go_home(short axis)
 		// ゲインを戻す
 		CC_ChangeGain(axis, 0);
 		// 原点復帰モードをセット
-		sprintf(l_cMode, "P%1u00=1", axis + 1);
+		sprintf_s(l_cMode, sizeof(l_cMode), "P%1u00=1", axis + 1);
 		if ((l_result = CC_WriteCommand(l_cMode, l_Recvdata)) < 0) {CC_MsgReboot(); return MS_NO_HARDWARE;}
 		// 開始を ON
 		if (CC_DioOutBit(l_RunBit, 1) != 0) {CC_DioError(); return MS_NO_HARDWARE;	/* 失敗 */}
@@ -2605,47 +2605,47 @@ void mmtestORGX(int mode)
 	// パラメタをセット
 	switch (mode) {
 	case 0:
-		sprintf(l_cCmd, "P101=%d", ServoParam[0].ORG1_AccelTimeT);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P101=%d", ServoParam[0].ORG1_AccelTimeT);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P102=%d", ServoParam[0].ORG1_AccelTimeS);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P102=%d", ServoParam[0].ORG1_AccelTimeS);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P103=%d", ServoParam[0].ORG1_Speed);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P103=%d", ServoParam[0].ORG1_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P104=%d", ServoParam[0].ORG2_AccelTimeT);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P104=%d", ServoParam[0].ORG2_AccelTimeT);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P105=%d", ServoParam[0].ORG2_AccelTimeS);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P105=%d", ServoParam[0].ORG2_AccelTimeS);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P106=%d", ServoParam[0].ORG2_Speed);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P106=%d", ServoParam[0].ORG2_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P107=%d", ServoParam[0].ORG3_AccelTimeT);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P107=%d", ServoParam[0].ORG3_AccelTimeT);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P108=%d", ServoParam[0].ORG3_AccelTimeS);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P108=%d", ServoParam[0].ORG3_AccelTimeS);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P109=%d", ServoParam[0].ORG3_Speed);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P109=%d", ServoParam[0].ORG3_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		// 原点復帰モードをセット
 		if ((l_result = CC_WriteCommand("P100=1", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		break;
 	case 1:
 		if ((l_result = CC_WriteCommand("P113=0", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P114=%d", ServoParam[0].HP_AccelTimeT);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P114=%d", ServoParam[0].HP_AccelTimeT);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P115=%d", ServoParam[0].HP_AccelTimeS);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P115=%d", ServoParam[0].HP_AccelTimeS);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P116=%d", ServoParam[0].HP_Speed);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P116=%d", ServoParam[0].HP_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P117=%d", ServoParam[0].HP_BaseBand);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P117=%d", ServoParam[0].HP_BaseBand);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		// HP 移動モードをセット
 		if ((l_result = CC_WriteCommand("P100=2", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		break;
 	case 2:
 	case 21:
-		sprintf(l_cCmd, "P118=%d", ServoParam[0].ABS_AccelTimeT);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P118=%d", ServoParam[0].ABS_AccelTimeT);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P119=%d", ServoParam[0].ABS_AccelTimeS);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P119=%d", ServoParam[0].ABS_AccelTimeS);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P120=%d", ServoParam[0].ABS_Speed);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P120=%d", ServoParam[0].ABS_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		if (mode == 2) {
 			if ((l_result = CC_WriteCommand("P121=28000000", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
@@ -2657,11 +2657,11 @@ void mmtestORGX(int mode)
 		break;
 	case 3:
 	case 31:
-		sprintf(l_cCmd, "P122=%d", ServoParam[0].INC_AccelTimeT);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P122=%d", ServoParam[0].INC_AccelTimeT);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P123=%d", ServoParam[0].INC_AccelTimeS);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P123=%d", ServoParam[0].INC_AccelTimeS);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P124=%d", ServoParam[0].INC_Speed);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P124=%d", ServoParam[0].INC_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		if (mode == 3) {
 			if ((l_result = CC_WriteCommand("P125=2000000", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
@@ -2724,47 +2724,47 @@ void mmtestORGY(int mode)
 	// パラメタをセット
 	switch (mode) {
 	case 0:
-		sprintf(l_cCmd, "P201=%d", ServoParam[1].ORG1_AccelTimeT);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P201=%d", ServoParam[1].ORG1_AccelTimeT);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P202=%d", ServoParam[1].ORG1_AccelTimeS);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P202=%d", ServoParam[1].ORG1_AccelTimeS);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P203=%d", ServoParam[1].ORG1_Speed);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P203=%d", ServoParam[1].ORG1_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P204=%d", ServoParam[1].ORG2_AccelTimeT);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P204=%d", ServoParam[1].ORG2_AccelTimeT);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P205=%d", ServoParam[1].ORG2_AccelTimeS);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P205=%d", ServoParam[1].ORG2_AccelTimeS);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P206=%d", ServoParam[1].ORG2_Speed);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P206=%d", ServoParam[1].ORG2_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P207=%d", ServoParam[1].ORG3_AccelTimeT);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P207=%d", ServoParam[1].ORG3_AccelTimeT);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P208=%d", ServoParam[1].ORG3_AccelTimeS);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P208=%d", ServoParam[1].ORG3_AccelTimeS);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P209=%d", ServoParam[1].ORG3_Speed);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P209=%d", ServoParam[1].ORG3_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		// 原点復帰モードをセット
 		if ((l_result = CC_WriteCommand("P200=1", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		break;
 	case 1:
 		if ((l_result = CC_WriteCommand("P213=0", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P214=%d", ServoParam[1].HP_AccelTimeT);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P214=%d", ServoParam[1].HP_AccelTimeT);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P215=%d", ServoParam[1].HP_AccelTimeS);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P215=%d", ServoParam[1].HP_AccelTimeS);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P216=%d", ServoParam[1].HP_Speed);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P216=%d", ServoParam[1].HP_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P217=%d", ServoParam[1].HP_BaseBand);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P217=%d", ServoParam[1].HP_BaseBand);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		// HP 移動モードをセット
 		if ((l_result = CC_WriteCommand("P200=2", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		break;
 	case 2:
 	case 21:
-		sprintf(l_cCmd, "P218=%d", ServoParam[1].ABS_AccelTimeT);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P218=%d", ServoParam[1].ABS_AccelTimeT);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P219=%d", ServoParam[1].ABS_AccelTimeS);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P219=%d", ServoParam[1].ABS_AccelTimeS);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P220=%d", ServoParam[1].ABS_Speed);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P220=%d", ServoParam[1].ABS_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		if (mode == 2) {
 			if ((l_result = CC_WriteCommand("P221=4000000", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
@@ -2774,11 +2774,11 @@ void mmtestORGY(int mode)
 		// ABS 移動モードをセット
 		if ((l_result = CC_WriteCommand("P200=3", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		break;
-		sprintf(l_cCmd, "P222=%d", ServoParam[1].INC_AccelTimeT);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P222=%d", ServoParam[1].INC_AccelTimeT);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P223=%d", ServoParam[1].INC_AccelTimeS);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P223=%d", ServoParam[1].INC_AccelTimeS);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P224=%d", ServoParam[1].INC_Speed);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P224=%d", ServoParam[1].INC_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		if (mode == 3) {
 			if ((l_result = CC_WriteCommand("P225=8000000", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
@@ -2841,47 +2841,47 @@ void mmtestORGZ(int mode)
 	// パラメタをセット
 	switch (mode) {
 	case 0:
-		sprintf(l_cCmd, "P301=%d", ServoParam[2].ORG1_AccelTimeT);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P301=%d", ServoParam[2].ORG1_AccelTimeT);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P302=%d", ServoParam[2].ORG1_AccelTimeS);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P302=%d", ServoParam[2].ORG1_AccelTimeS);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P303=%d", ServoParam[2].ORG1_Speed);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P303=%d", ServoParam[2].ORG1_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P304=%d", ServoParam[2].ORG2_AccelTimeT);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P304=%d", ServoParam[2].ORG2_AccelTimeT);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P305=%d", ServoParam[2].ORG2_AccelTimeS);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P305=%d", ServoParam[2].ORG2_AccelTimeS);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P306=%d", ServoParam[2].ORG2_Speed);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P306=%d", ServoParam[2].ORG2_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P307=%d", ServoParam[2].ORG3_AccelTimeT);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P307=%d", ServoParam[2].ORG3_AccelTimeT);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P308=%d", ServoParam[2].ORG3_AccelTimeS);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P308=%d", ServoParam[2].ORG3_AccelTimeS);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P309=%d", ServoParam[2].ORG3_Speed);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P309=%d", ServoParam[2].ORG3_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		// 原点復帰モードをセット
 		if ((l_result = CC_WriteCommand("P300=1", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		break;
 	case 1:
 		if ((l_result = CC_WriteCommand("P313=0", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P314=%d", ServoParam[2].HP_AccelTimeT);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P314=%d", ServoParam[2].HP_AccelTimeT);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P315=%d", ServoParam[2].HP_AccelTimeS);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P315=%d", ServoParam[2].HP_AccelTimeS);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P316=%d", ServoParam[2].HP_Speed);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P316=%d", ServoParam[2].HP_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P317=%d", ServoParam[2].HP_BaseBand);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P317=%d", ServoParam[2].HP_BaseBand);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		// HP 移動モードをセット
 		if ((l_result = CC_WriteCommand("P300=2", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		break;
 	case 2:
 	case 21:
-		sprintf(l_cCmd, "P318=%d", ServoParam[2].ABS_AccelTimeT);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P318=%d", ServoParam[2].ABS_AccelTimeT);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P319=%d", ServoParam[2].ABS_AccelTimeS);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P319=%d", ServoParam[2].ABS_AccelTimeS);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P320=%d", ServoParam[2].ABS_Speed);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P320=%d", ServoParam[2].ABS_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		if (mode == 2) {
 			if ((l_result = CC_WriteCommand("P321=0", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
@@ -2893,11 +2893,11 @@ void mmtestORGZ(int mode)
 		break;
 	case 3:
 	case 31:
-		sprintf(l_cCmd, "P322=%d", ServoParam[2].INC_AccelTimeT);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P322=%d", ServoParam[2].INC_AccelTimeT);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P323=%d", ServoParam[2].INC_AccelTimeS);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P323=%d", ServoParam[2].INC_AccelTimeS);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P324=%d", ServoParam[2].INC_Speed);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P324=%d", ServoParam[2].INC_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		if (mode == 3) {
 			if ((l_result = CC_WriteCommand("P325=10000", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
@@ -2960,47 +2960,47 @@ void mmtestORGT(int mode)
 	// パラメタをセット
 	switch (mode) {
 	case 0:
-		sprintf(l_cCmd, "P401=%d", ServoParam[4].ORG1_AccelTimeT);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P401=%d", ServoParam[4].ORG1_AccelTimeT);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P402=%d", ServoParam[4].ORG1_AccelTimeS);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P402=%d", ServoParam[4].ORG1_AccelTimeS);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P403=%d", ServoParam[4].ORG1_Speed);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P403=%d", ServoParam[4].ORG1_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P404=%d", ServoParam[4].ORG2_AccelTimeT);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P404=%d", ServoParam[4].ORG2_AccelTimeT);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P405=%d", ServoParam[4].ORG2_AccelTimeS);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P405=%d", ServoParam[4].ORG2_AccelTimeS);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P406=%d", ServoParam[4].ORG2_Speed);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P406=%d", ServoParam[4].ORG2_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P407=%d", ServoParam[4].ORG3_AccelTimeT);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P407=%d", ServoParam[4].ORG3_AccelTimeT);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P408=%d", ServoParam[4].ORG3_AccelTimeS);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P408=%d", ServoParam[4].ORG3_AccelTimeS);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P409=%d", ServoParam[4].ORG3_Speed);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P409=%d", ServoParam[4].ORG3_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		// 原点復帰モードをセット
 		if ((l_result = CC_WriteCommand("P400=1", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		break;
 	case 1:
 		if ((l_result = CC_WriteCommand("P413=0", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P414=%d", ServoParam[4].HP_AccelTimeT);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P414=%d", ServoParam[4].HP_AccelTimeT);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P415=%d", ServoParam[4].HP_AccelTimeS);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P415=%d", ServoParam[4].HP_AccelTimeS);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P416=%d", ServoParam[4].HP_Speed);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P416=%d", ServoParam[4].HP_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P417=%d", ServoParam[4].HP_BaseBand);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P417=%d", ServoParam[4].HP_BaseBand);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		// HP 移動モードをセット
 		if ((l_result = CC_WriteCommand("P400=2", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		break;
 	case 2:
 	case 21:
-		sprintf(l_cCmd, "P418=%d", ServoParam[4].ABS_AccelTimeT);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P418=%d", ServoParam[4].ABS_AccelTimeT);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P419=%d", ServoParam[4].ABS_AccelTimeS);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P419=%d", ServoParam[4].ABS_AccelTimeS);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P420=%d", ServoParam[4].ABS_Speed);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P420=%d", ServoParam[4].ABS_Speed);
 		if ((l_result = CC_WriteCommand(l_cCmd, l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		if (mode == 2) {
 			if ((l_result = CC_WriteCommand("P421=125000", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
@@ -3012,11 +3012,11 @@ void mmtestORGT(int mode)
 		break;
 	case 3:
 	case 31:
-		sprintf(l_cCmd, "P422=%d", ServoParam[4].INC_AccelTimeT);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P422=%d", ServoParam[4].INC_AccelTimeT);
 		if ((l_result = CC_WriteCommand("P422=500", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P423=%d", ServoParam[4].INC_AccelTimeS);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P423=%d", ServoParam[4].INC_AccelTimeS);
 		if ((l_result = CC_WriteCommand("P423=250", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
-		sprintf(l_cCmd, "P424=%d", ServoParam[4].INC_Speed);
+		sprintf_s(l_cCmd, sizeof(l_cCmd), "P424=%d", ServoParam[4].INC_Speed);
 		if ((l_result = CC_WriteCommand("P424=16", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
 		if (mode == 3) {
 			if ((l_result = CC_WriteCommand("P425=27777", l_Recvdata)) < 0) {CC_MsgReboot(); return;}
