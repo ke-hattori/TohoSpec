@@ -281,7 +281,7 @@ void CNanoRecipeUI::DelRefFileByUseMeasPgm(LPCTSTR ptszMeasPgmName)
 				if (FALSE != RecipeFile_LoadRecipe(&l_MainRcpInfo, (LPCSTR) l_FindMainRcp.GetFileTitle(), RECIPE_FILE_MAIN_RECIPE)) {
 					if (0 == _tcsicmp(ptszMeasPgmName, l_MainRcpInfo.MainRcpParam.hdr.szMeas)) {
 						/* 使っていました．	*/
-						_stprintf(l_tszRefPath, _T("%s%s%s"), g_szData_Ref_Dir, l_FindMainRcp.GetFileTitle(), DAT_EXT);
+						_stprintf(l_tszRefPath, _T("%s%s%s"), g_szData_Ref_Dir, (LPCTSTR)l_FindMainRcp.GetFileTitle(), DAT_EXT);
 						l_iRcRemove = _tremove(l_tszRefPath);
 						if (0 != l_iRcRemove) {
 							/* 削除エラー	*/

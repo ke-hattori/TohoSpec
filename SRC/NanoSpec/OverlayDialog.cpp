@@ -3151,7 +3151,7 @@ void COverlayDialog::GetSampleData()
 				continue;
 
 			// ƒtƒ@ƒCƒ‹–¼‚ðŽæ“¾
-			sprintf(m_sSampleName[m_iSampleMax++], "%s", Finder.GetFileTitle());
+			sprintf(m_sSampleName[m_iSampleMax++], "%s", (LPCTSTR)Finder.GetFileTitle());
 
 		}
 	}
