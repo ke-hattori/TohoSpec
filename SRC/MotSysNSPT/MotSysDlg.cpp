@@ -296,7 +296,7 @@ BOOL CMotSysDlg::OnInitDialog()
 		_stprintf_s(l_tszFilePath, _countof(l_tszFilePath), _T("%s%s"), l_tszDrive, l_tszDir);
 		m_pcDioLog = new CLogFile(l_tszFName);
 		if (0 != m_pcDioLog) {
-			_tcscpy(m_pcDioLog->m_tszLogFilePath, l_tszFilePath);
+			_tcscpy_s(m_pcDioLog->m_tszLogFilePath, _countof(m_pcDioLog->m_tszLogFilePath), l_tszFilePath);
 		} else {
 			::MessageBox(NULL, _T("Failed to create DIO Log class"), MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
 		}
@@ -316,7 +316,7 @@ BOOL CMotSysDlg::OnInitDialog()
 		_stprintf_s(l_tszFilePath, _countof(l_tszFilePath), _T("%s%s"), l_tszDrive, l_tszDir);
 		m_pAlarmLogFile = new CLogFile(l_tszFName);
 		if (0 != m_pAlarmLogFile) {
-			_tcscpy(m_pAlarmLogFile->m_tszLogFilePath, l_tszFilePath);
+			_tcscpy_s(m_pAlarmLogFile->m_tszLogFilePath, _countof(m_pAlarmLogFile->m_tszLogFilePath), l_tszFilePath);
 		} else {
 			::MessageBox(NULL, _T("Failed to create Alarm Log class"), MSD_MESSAGEBOX_TITLE, MB_OK | MB_SYSTEMMODAL);
 		}
@@ -930,7 +930,7 @@ BOOL CMotSysDlg::InitializeCommLog()
 	if (m_pComLogFile == NULL) {
 		return FALSE;
 	}
-	_tcscpy(m_pComLogFile->m_tszLogFilePath, l_tszFilePath);
+	_tcscpy_s(m_pComLogFile->m_tszLogFilePath, _countof(m_pComLogFile->m_tszLogFilePath), l_tszFilePath);
 
 	return TRUE;
 }
@@ -1004,32 +1004,32 @@ void CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 	switch (l_Mode) {
 	case 1:		// ステージコントローラの WD エラーが発生
 		_tcscpy_s(l_tszText1, _countof(l_tszText1), l_tszText0);
-		_tcscat(l_tszText1, _T("W.D. Error on Controller.\n"));
-		_tcscat(l_tszText1, _T("End Motion System Driver?\n"));
-		_tcscat(l_tszText1, _T("(then reboot the system)"));
+		_tcscat_s(l_tszText1, _countof(l_tszText1), _T("W.D. Error on Controller.\n"));
+		_tcscat_s(l_tszText1, _countof(l_tszText1), _T("End Motion System Driver?\n"));
+		_tcscat_s(l_tszText1, _countof(l_tszText1), _T("(then reboot the system)"));
 		l_MsgID = 0;
 		// AlarmLog Message
-		_tcscat(tszAlarmLog, _T(" W.D. Error on Controller."));
+		_tcscat_s(tszAlarmLog, _countof(tszAlarmLog), _T(" W.D. Error on Controller."));
 		break;
 	case 2:		// システムエラー色々
 		_tcscpy_s(l_tszText1, _countof(l_tszText1), l_tszText0);
-		_tcscat(l_tszText1, _T("System Error.\n"));
-		_tcscat(l_tszText1, _T("End Motion System Driver?\n"));
-		_tcscat(l_tszText1, _T("(then reboot the system)"));
+		_tcscat_s(l_tszText1, _countof(l_tszText1), _T("System Error.\n"));
+		_tcscat_s(l_tszText1, _countof(l_tszText1), _T("End Motion System Driver?\n"));
+		_tcscat_s(l_tszText1, _countof(l_tszText1), _T("(then reboot the system)"));
 		l_MsgID = 0;
 		// AlarmLog Message
-		_tcscat(tszAlarmLog, _T(" System Error."));
+		_tcscat_s(tszAlarmLog, _countof(tszAlarmLog), _T(" System Error."));
 		break;
 	case 3:		// 軸アラーム色々
 		switch (l_Axis) {
-		case AXIS_BIG_X:		_tcscpy(l_tszText2, _T("Big X"));			break;	// Big X
-		case AXIS_BIG_Y:		_tcscpy(l_tszText2, _T("Big YM"));			break;	// Big Y
-		case AXIS_Z:			_tcscpy(l_tszText2, _T("Z(Elevator)"));		break;	// Z(Elevator)
-		case AXIS_SLOW_X:		_tcscpy(l_tszText2, _T("X slow"));			break;	// X slow
-		case AXIS_T:			_tcscpy(l_tszText2, _T("Theta"));			break;	// Theta
-		case AXIS_L:			_tcscpy(l_tszText2, _T("Level"));			break;	// Level
-		case AXIS_FAST_X:		_tcscpy(l_tszText2, _T("X fast"));			break;	// X fast
-		default:	_tcscpy(l_tszText2, _T("Undefine"));		break;	// Undefine
+		case AXIS_BIG_X:		_tcscpy_s(l_tszText2, _countof(l_tszText2), _T("Big X"));			break;	// Big X
+		case AXIS_BIG_Y:		_tcscpy_s(l_tszText2, _countof(l_tszText2), _T("Big YM"));			break;	// Big Y
+		case AXIS_Z:			_tcscpy_s(l_tszText2, _countof(l_tszText2), _T("Z(Elevator)"));		break;	// Z(Elevator)
+		case AXIS_SLOW_X:		_tcscpy_s(l_tszText2, _countof(l_tszText2), _T("X slow"));			break;	// X slow
+		case AXIS_T:			_tcscpy_s(l_tszText2, _countof(l_tszText2), _T("Theta"));			break;	// Theta
+		case AXIS_L:			_tcscpy_s(l_tszText2, _countof(l_tszText2), _T("Level"));			break;	// Level
+		case AXIS_FAST_X:		_tcscpy_s(l_tszText2, _countof(l_tszText2), _T("X fast"));			break;	// X fast
+		default:	_tcscpy_s(l_tszText2, _countof(l_tszText2), _T("Undefine"));		break;	// Undefine
 		}
 		CnvWordToBin(l_Code1, l_tszText3, 2);
 		_stprintf_s(l_tszText1, _countof(l_tszText1), _T("%sAlarm on Axis[%d] (%s).\nAlarm code : %s"), l_tszText0, l_Axis, l_tszText2, l_tszText3);
@@ -1056,46 +1056,46 @@ void CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 		break;
 	case 4:		// 初期化完了フラグが０にならなかった
 		_tcscpy_s(l_tszText1, _countof(l_tszText1), l_tszText0);
-		_tcscat(l_tszText1, _T("System Error.\n"));
-		_tcscat(l_tszText1, _T("Not be initialized on Controller.\n"));
-		_tcscat(l_tszText1, _T("End Motion System Driver?\n"));
-		_tcscat(l_tszText1, _T("(then reboot the system)"));
+		_tcscat_s(l_tszText1, _countof(l_tszText1), _T("System Error.\n"));
+		_tcscat_s(l_tszText1, _countof(l_tszText1), _T("Not be initialized on Controller.\n"));
+		_tcscat_s(l_tszText1, _countof(l_tszText1), _T("End Motion System Driver?\n"));
+		_tcscat_s(l_tszText1, _countof(l_tszText1), _T("(then reboot the system)"));
 		l_MsgID = 0;
 		// AlarmLog Message
-		_tcscat(tszAlarmLog, _T(" System Error. Not be Initialized on Controller."));
+		_tcscat_s(tszAlarmLog, _countof(tszAlarmLog), _T(" System Error. Not be Initialized on Controller."));
 		break;
 	case 5:		// DIO エラー
-		_tcscpy(l_tszText1, _T("DIO error.\n----------------------------------\n"));
-		_tcscat(l_tszText1, _T("System Error.\n"));
-		_tcscat(l_tszText1, _T("Not work DIO board.\n"));
-		_tcscat(l_tszText1, _T("End Motion System Driver?\n"));
-		_tcscat(l_tszText1, _T("(then reboot the system)"));
+		_tcscpy_s(l_tszText1, _countof(l_tszText1), _T("DIO error.\n----------------------------------\n"));
+		_tcscat_s(l_tszText1, _countof(l_tszText1), _T("System Error.\n"));
+		_tcscat_s(l_tszText1, _countof(l_tszText1), _T("Not work DIO board.\n"));
+		_tcscat_s(l_tszText1, _countof(l_tszText1), _T("End Motion System Driver?\n"));
+		_tcscat_s(l_tszText1, _countof(l_tszText1), _T("(then reboot the system)"));
 		l_MsgID = 0;
 		// AlarmLog Message
-		_tcscat(tszAlarmLog, _T(" DIO error."));
+		_tcscat_s(tszAlarmLog, _countof(tszAlarmLog), _T(" DIO error."));
 		break;
 	case 6:		// サーボ ON/OFF エラー
-		_tcscpy(l_tszText1, _T("Servo ON/OFF timeout.\n----------------------------------\n"));
-		_tcscat(l_tszText1, _T("System Error.\n"));
+		_tcscpy_s(l_tszText1, _countof(l_tszText1), _T("Servo ON/OFF timeout.\n----------------------------------\n"));
+		_tcscat_s(l_tszText1, _countof(l_tszText1), _T("System Error.\n"));
 		if (l_Code1 == 0) {
-			_tcscat(l_tszText1, _T("Not Servo OFF on Controller.\n"));
+			_tcscat_s(l_tszText1, _countof(l_tszText1), _T("Not Servo OFF on Controller.\n"));
 		} else {
-			_tcscat(l_tszText1, _T("Not Servo ON on Controller.\n"));
+			_tcscat_s(l_tszText1, _countof(l_tszText1), _T("Not Servo ON on Controller.\n"));
 		}
-		_tcscat(l_tszText1, _T("End Motion System Driver?\n"));
-		_tcscat(l_tszText1, _T("(then reboot the system)"));
+		_tcscat_s(l_tszText1, _countof(l_tszText1), _T("End Motion System Driver?\n"));
+		_tcscat_s(l_tszText1, _countof(l_tszText1), _T("(then reboot the system)"));
 		l_MsgID = 0;
 		// AlarmLog Message
-		_tcscat(tszAlarmLog, _T(" Servo ON/OFF timeout."));
+		_tcscat_s(tszAlarmLog, _countof(tszAlarmLog), _T(" Servo ON/OFF timeout."));
 		break;
 	case 7:		// 非常停止 エラー
-		_tcscpy(l_tszText1, _T("EMG error.\n----------------------------------\n"));
-		_tcscat(l_tszText1, _T("EMG button.\n"));
-		_tcscat(l_tszText1, _T("End Motion System Driver?\n"));
-		_tcscat(l_tszText1, _T("(then reboot the system)"));
+		_tcscpy_s(l_tszText1, _countof(l_tszText1), _T("EMG error.\n----------------------------------\n"));
+		_tcscat_s(l_tszText1, _countof(l_tszText1), _T("EMG button.\n"));
+		_tcscat_s(l_tszText1, _countof(l_tszText1), _T("End Motion System Driver?\n"));
+		_tcscat_s(l_tszText1, _countof(l_tszText1), _T("(then reboot the system)"));
 		l_MsgID = 0;
 		// AlarmLog Message
-		_tcscat(tszAlarmLog, _T(" EMG error."));
+		_tcscat_s(tszAlarmLog, _countof(tszAlarmLog), _T(" EMG error."));
 		break;
 	case 8: 	// 原点復帰 エラー	 原点復帰が行われなかった
 		switch(l_Code1){
@@ -1118,7 +1118,7 @@ void CMotSysDlg::OnShowAlarm(WPARAM wParam, LPARAM lParam)
 		_stprintf_s(l_tszText1, _countof(l_tszText1), _T("%sAxis=%d."), l_tszHomeErrorMessage, l_Axis);
 		l_MsgID = 2;
 		// AlarmLog Message
-		_tcscat(tszAlarmLog, _T(" Axis can not go home."));
+		_tcscat_s(tszAlarmLog, _countof(tszAlarmLog), _T(" Axis can not go home."));
 		break;
 	default:
 		break;
@@ -1207,12 +1207,12 @@ void CMotSysDlg::CnvWordToBin(
 	_tcscat_s(l_tszText2, _countof(l_tszText2), l_tszText1);
 	switch (mode) {
 	case 1:
-		_tcscpy(l_tszText1, _T("00000000 00000000"));
+		_tcscpy_s(l_tszText1, _countof(l_tszText1), _T("00000000 00000000"));
 		memcpy(&l_tszText1[0], &l_tszText2[0], 8);
 		memcpy(&l_tszText1[9], &l_tszText2[8], 8);
 		break;
 	case 2:
-		_tcscpy(l_tszText1, _T("0000 0000 0000 0000"));
+		_tcscpy_s(l_tszText1, _countof(l_tszText1), _T("0000 0000 0000 0000"));
 		memcpy(&l_tszText1[0],	&l_tszText2[0],  4);
 		memcpy(&l_tszText1[5],	&l_tszText2[4],  4);
 		memcpy(&l_tszText1[10], &l_tszText2[8],  4);
