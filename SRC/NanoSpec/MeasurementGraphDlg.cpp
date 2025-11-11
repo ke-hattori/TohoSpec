@@ -2233,8 +2233,8 @@ void CMeasurementGraphDlg::DrawLightIntensityGraph_Init_SR()
 	CNanoMeasureGraph::LineConfig tLineConfig;
 	memset(&tGraphConfig,NULL,sizeof(tGraphConfig));
 	tGraphConfig.UseLineSelect = TRUE;
-	strcpy(tGraphConfig.UpperTitle,"SPECTRUM GRAPH");
-	strcpy(tGraphConfig.LowerTitle,"");
+	strcpy_s(tGraphConfig.UpperTitle, _countof(tGraphConfig.UpperTitle), "SPECTRUM GRAPH");
+	strcpy_s(tGraphConfig.LowerTitle, _countof(tGraphConfig.LowerTitle), "");
 	tGraphConfig.CanvasMargin = 7;	//グラフ描画余白
 
 	///// 波長範囲の設定 /////
@@ -2246,7 +2246,7 @@ void CMeasurementGraphDlg::DrawLightIntensityGraph_Init_SR()
 			//Saiki 20090530 Delete ----->
 			//strcpy(tGraphConfig.Y_AxisTitle,"Intensity[%]");
 			//Saiki 20090530 Delete <-----
-			strcpy(tGraphConfig.X_AxisTitle,"Wavelength [nm]");
+			strcpy_s(tGraphConfig.X_AxisTitle, _countof(tGraphConfig.X_AxisTitle), "Wavelength [nm]");
 			tGraphConfig.X_Max = m_iEndWaveLength;
 			if(m_iGraphDlgMode == GRAPHDLG_MODE_TEST_RAW)
 			{
@@ -2278,8 +2278,8 @@ void CMeasurementGraphDlg::DrawLightIntensityGraph_Init_SR()
 
 		case MEAS_PROG_TYPE_SR_REFLECTANCE:
 			strcpy(tGraphConfig.Y_AxisTitle,"Reflective Light Intensity [%]");
-			strcpy(tGraphConfig.X_AxisTitle,"Wavelength [nm]");
-			strcpy(tGraphConfig.UpperTitle,"SPECTRUM GRAPH");
+			strcpy_s(tGraphConfig.X_AxisTitle, _countof(tGraphConfig.X_AxisTitle), "Wavelength [nm]");
+			strcpy_s(tGraphConfig.UpperTitle, _countof(tGraphConfig.UpperTitle), "SPECTRUM GRAPH");
 			tGraphConfig.X_Max = m_iEndWaveLength;
 			if(m_iGraphDlgMode == GRAPHDLG_MODE_TEST_RAW)
 			{
@@ -2321,8 +2321,8 @@ void CMeasurementGraphDlg::DrawLightIntensityGraph_Init_SR()
 				tGraphConfig.Y_Step = 10;
 			}
 			//2010.01.11 bagus GTR --}--
-			strcpy(tGraphConfig.X_AxisTitle,"Wavelength [nm]");
-			strcpy(tGraphConfig.UpperTitle,"SPECTRUM GRAPH");
+			strcpy_s(tGraphConfig.X_AxisTitle, _countof(tGraphConfig.X_AxisTitle), "Wavelength [nm]");
+			strcpy_s(tGraphConfig.UpperTitle, _countof(tGraphConfig.UpperTitle), "SPECTRUM GRAPH");
 			tGraphConfig.X_Max = m_iEndWaveLength;
 			tGraphConfig.X_Origin = m_iStartWaveLength;
 			tGraphConfig.Y_Origin = 0;
@@ -2541,8 +2541,8 @@ void CMeasurementGraphDlg::DrawLightIntensityGraph_Init_SE()
 	CNanoMeasureGraph::LineConfig tLineConfig;
 	memset(&tGraphConfig,NULL,sizeof(tGraphConfig));
 	tGraphConfig.UseLineSelect = TRUE;
-	strcpy(tGraphConfig.UpperTitle,"SPECTRUM GRAPH");
-	strcpy(tGraphConfig.LowerTitle,"");
+	strcpy_s(tGraphConfig.UpperTitle, _countof(tGraphConfig.UpperTitle), "SPECTRUM GRAPH");
+	strcpy_s(tGraphConfig.LowerTitle, _countof(tGraphConfig.LowerTitle), "");
 	tGraphConfig.CanvasMargin = 7;	//グラフ描画余白
 
 	///// 波長範囲の設定 /////
@@ -2637,7 +2637,7 @@ void CMeasurementGraphDlg::DrawLightIntensityGraph_Init_Stress(int nLine,int nSe
 	memset(&tGraphConfig,NULL,sizeof(tGraphConfig));
 	tGraphConfig.UseLineSelect = TRUE;
 	strcpy(tGraphConfig.UpperTitle,"STRESS GRAPH");
-	strcpy(tGraphConfig.LowerTitle,"");
+	strcpy_s(tGraphConfig.LowerTitle, _countof(tGraphConfig.LowerTitle), "");
 	tGraphConfig.CanvasMargin = 7;	//グラフ描画余白
 
 	tGraphConfig.PointNum = 100;	//この値は暫定（実際の表示処理で値がきまる）
