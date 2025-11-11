@@ -100,7 +100,7 @@ BOOL CSrCcdArraySettingDlg::OnInitDialog()
 	//GetDlgItem(IDC_CHECK_CONTINOUS_SCAN)->ShowWindow(SW_HIDE);
 
 	char szBuff[1];
-	sprintf(szBuff, "%d", 1);
+	sprintf_s(szBuff, _countof(szBuff), "%d", 1);
 	SetDlgItemText(IDC_CCD_CALIB_SCAN_TIMES, szBuff);
 
 	ConfigFile_GetNanoSpecIni(&m_SrConfig, CONFIG_FILE_SR_CONFIG);
