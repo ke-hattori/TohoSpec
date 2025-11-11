@@ -221,7 +221,7 @@ BOOL CSrLensCenterOffsetSetingDlg::OnInitDialog()
 		///// ComboBox Initilize /////
 		pCombo = (CComboBox *)GetDlgItem(IDC_BASE_LENS);
 		if(m_SrTurret[i].bEnable){
-			sprintf(szBuff, "%d", i+1);
+			sprintf_s(szBuff, _countof(szBuff), "%d", i+1);
 			pCombo->AddString(szBuff);
 		}
 
@@ -233,13 +233,13 @@ BOOL CSrLensCenterOffsetSetingDlg::OnInitDialog()
 		// Kojika 20090529 Change End
 
 		memset(szBuff, 0, sizeof(szBuff));
-		sprintf(szBuff, "%ld", m_LensOffset.Lens[i].lX - BaseOffsetX);
+		sprintf_s(szBuff, _countof(szBuff), "%ld", m_LensOffset.Lens[i].lX - BaseOffsetX);
 		SetDlgItemText(LensOffsetX_IDs[i], szBuff);
 		memset(szBuff, 0, sizeof(szBuff));
-		sprintf(szBuff, "%ld", m_LensOffset.Lens[i].lY - BaseOffsetY);
+		sprintf_s(szBuff, _countof(szBuff), "%ld", m_LensOffset.Lens[i].lY - BaseOffsetY);
 		SetDlgItemText(LensOffsetY_IDs[i], szBuff);
 		memset(szBuff, 0, sizeof(szBuff));
-		sprintf(szBuff, "%ld", m_LensOffset.Lens[i].lZ - BaseOffsetZ);
+		sprintf_s(szBuff, _countof(szBuff), "%ld", m_LensOffset.Lens[i].lZ - BaseOffsetZ);
 		SetDlgItemText(LensOffsetZ_IDs[i], szBuff);
 
 		// Setupƒ{ƒ^ƒ“‚Ì—LŒø–³Œø
@@ -252,7 +252,7 @@ BOOL CSrLensCenterOffsetSetingDlg::OnInitDialog()
 	for(i = 0; i < pCombo->GetCount(); i ++){
 		pCombo->GetLBText(i, csBuff);
 		memset(szBuff, 0, sizeof(szBuff));
-		sprintf(szBuff, "%d", m_iBaseLens + 1);
+		sprintf_s(szBuff, _countof(szBuff), "%d", m_iBaseLens + 1);
 		if(strcmp(szBuff, csBuff) == 0){
 			pCombo->SetCurSel(i);
 			bLens = TRUE;
@@ -352,26 +352,26 @@ void CSrLensCenterOffsetSetingDlg::OnAllClear()
 		memset(&m_LensOffset, 0, sizeof(SR_LENS_CENTER_OFFSET));
 
 		memset(szBuff, 0, sizeof(szBuff));
-		sprintf(szBuff, "%ld", 0);
+		sprintf_s(szBuff, _countof(szBuff), "%ld", 0);
 		SetDlgItemText(IDC_BASEPOS_X, szBuff);
 		memset(szBuff, 0, sizeof(szBuff));
-		sprintf(szBuff, "%ld", 0);
+		sprintf_s(szBuff, _countof(szBuff), "%ld", 0);
 		SetDlgItemText(IDC_BASEPOS_Y, szBuff);
 		memset(szBuff, 0, sizeof(szBuff));
-		sprintf(szBuff, "%ld", 0);
+		sprintf_s(szBuff, _countof(szBuff), "%ld", 0);
 		SetDlgItemText(IDC_BASEPOS_Z, szBuff);
 
 		for(int i = 0; i < SR_LENS_MAX; i++){
 			memset(szBuff, 0, sizeof(szBuff));
-			sprintf(szBuff, "%ld",	m_LensOffset.Lens[i].lX);
+			sprintf_s(szBuff, _countof(szBuff), "%ld",	m_LensOffset.Lens[i].lX);
 			SetDlgItemText(LensOffsetX_IDs[i], szBuff);
 
 			memset(szBuff, 0, sizeof(szBuff));
-			sprintf(szBuff, "%ld",	m_LensOffset.Lens[i].lY);
+			sprintf_s(szBuff, _countof(szBuff), "%ld",	m_LensOffset.Lens[i].lY);
 			SetDlgItemText(LensOffsetY_IDs[i], szBuff);
 
 			memset(szBuff, 0, sizeof(szBuff));
-			sprintf(szBuff, "%ld",	m_LensOffset.Lens[i].lZ);
+			sprintf_s(szBuff, _countof(szBuff), "%ld",	m_LensOffset.Lens[i].lZ);
 			SetDlgItemText(LensOffsetZ_IDs[i], szBuff);
 		}
 		// Kojika 20090529 Change
@@ -489,13 +489,13 @@ void CSrLensCenterOffsetSetingDlg::OnSelchangeBaseLens()
 	// Kojika 20090529 Add End
 
 	memset(szBuff, 0, sizeof(szBuff));
-	sprintf(szBuff, "%ld", 0);
+	sprintf_s(szBuff, _countof(szBuff), "%ld", 0);
 	SetDlgItemText(IDC_BASEPOS_X, szBuff);
 	memset(szBuff, 0, sizeof(szBuff));
-	sprintf(szBuff, "%ld", 0);
+	sprintf_s(szBuff, _countof(szBuff), "%ld", 0);
 	SetDlgItemText(IDC_BASEPOS_Y, szBuff);
 	memset(szBuff, 0, sizeof(szBuff));
-	sprintf(szBuff, "%ld", 0);
+	sprintf_s(szBuff, _countof(szBuff), "%ld", 0);
 	SetDlgItemText(IDC_BASEPOS_Z, szBuff);
 
 	pCombo = (CComboBox *)GetDlgItem(IDC_BASE_LENS);
@@ -503,7 +503,7 @@ void CSrLensCenterOffsetSetingDlg::OnSelchangeBaseLens()
 
 	for(int i = 0; i < SR_LENS_MAX; i ++){
 		memset(szBuff, 0, sizeof(szBuff));
-		sprintf(szBuff, "%d", i + 1);
+		sprintf_s(szBuff, _countof(szBuff), "%d", i + 1);
 		if(strcmp(szBuff, csBuff) == 0)
 			iLens = i;
 	}
@@ -560,13 +560,13 @@ void CSrLensCenterOffsetSetingDlg::OnLens1SetupButton()
 	if(dlgOverlay.DoModal() == IDOK){
 		if(m_iBaseLens == 0){
 			memset(szBuff, 0, sizeof(szBuff));
-			sprintf(szBuff, "%ld", dlgOverlay.m_lX);
+			sprintf_s(szBuff, _countof(szBuff), "%ld", dlgOverlay.m_lX);
 			SetDlgItemText(IDC_BASEPOS_X, szBuff);
 			memset(szBuff, 0, sizeof(szBuff));
-			sprintf(szBuff, "%ld", dlgOverlay.m_lY);
+			sprintf_s(szBuff, _countof(szBuff), "%ld", dlgOverlay.m_lY);
 			SetDlgItemText(IDC_BASEPOS_Y, szBuff);
 			memset(szBuff, 0, sizeof(szBuff));
-			sprintf(szBuff, "%ld", dlgOverlay.m_lZ);
+			sprintf_s(szBuff, _countof(szBuff), "%ld", dlgOverlay.m_lZ);
 			SetDlgItemText(IDC_BASEPOS_Z, szBuff);
 
 			m_LensOffset.Lens[m_iBaseLens].lX = dlgOverlay.m_lX;
@@ -579,13 +579,13 @@ void CSrLensCenterOffsetSetingDlg::OnLens1SetupButton()
 		lZ = dlgOverlay.m_lZ - m_LensOffset.Lens[m_iBaseLens].lZ;
 
 		memset(szBuff, 0, sizeof(szBuff));
-		sprintf(szBuff, "%ld", lX);
+		sprintf_s(szBuff, _countof(szBuff), "%ld", lX);
 		SetDlgItemText(LensOffsetX_IDs[0], szBuff);
 		memset(szBuff, 0, sizeof(szBuff));
-		sprintf(szBuff, "%ld", lY);
+		sprintf_s(szBuff, _countof(szBuff), "%ld", lY);
 		SetDlgItemText(LensOffsetY_IDs[0], szBuff);
 		memset(szBuff, 0, sizeof(szBuff));
-		sprintf(szBuff, "%ld", lZ);
+		sprintf_s(szBuff, _countof(szBuff), "%ld", lZ);
 		SetDlgItemText(LensOffsetZ_IDs[0], szBuff);
 
 		// Kojika 20090529 Change
@@ -640,13 +640,13 @@ void CSrLensCenterOffsetSetingDlg::OnLens2SetupButton()
 	if(dlgOverlay.DoModal() == IDOK){
 		if(m_iBaseLens == 1){
 			memset(szBuff, 0, sizeof(szBuff));
-			sprintf(szBuff, "%ld", dlgOverlay.m_lX);
+			sprintf_s(szBuff, _countof(szBuff), "%ld", dlgOverlay.m_lX);
 			SetDlgItemText(IDC_BASEPOS_X, szBuff);
 			memset(szBuff, 0, sizeof(szBuff));
-			sprintf(szBuff, "%ld", dlgOverlay.m_lY);
+			sprintf_s(szBuff, _countof(szBuff), "%ld", dlgOverlay.m_lY);
 			SetDlgItemText(IDC_BASEPOS_Y, szBuff);
 			memset(szBuff, 0, sizeof(szBuff));
-			sprintf(szBuff, "%ld", dlgOverlay.m_lZ);
+			sprintf_s(szBuff, _countof(szBuff), "%ld", dlgOverlay.m_lZ);
 			SetDlgItemText(IDC_BASEPOS_Z, szBuff);
 
 			m_LensOffset.Lens[m_iBaseLens].lX = dlgOverlay.m_lX;
@@ -659,13 +659,13 @@ void CSrLensCenterOffsetSetingDlg::OnLens2SetupButton()
 		lZ = dlgOverlay.m_lZ - m_LensOffset.Lens[m_iBaseLens].lZ;
 
 		memset(szBuff, 0, sizeof(szBuff));
-		sprintf(szBuff, "%ld", lX);
+		sprintf_s(szBuff, _countof(szBuff), "%ld", lX);
 		SetDlgItemText(LensOffsetX_IDs[1], szBuff);
 		memset(szBuff, 0, sizeof(szBuff));
-		sprintf(szBuff, "%ld", lY);
+		sprintf_s(szBuff, _countof(szBuff), "%ld", lY);
 		SetDlgItemText(LensOffsetY_IDs[1], szBuff);
 		memset(szBuff, 0, sizeof(szBuff));
-		sprintf(szBuff, "%ld", lZ);
+		sprintf_s(szBuff, _countof(szBuff), "%ld", lZ);
 		SetDlgItemText(LensOffsetZ_IDs[1], szBuff);
 
 		// Kojika 20090529 Change
@@ -720,13 +720,13 @@ void CSrLensCenterOffsetSetingDlg::OnLens3SetupButton()
 	if(dlgOverlay.DoModal() == IDOK){
 		if(m_iBaseLens == 2){
 			memset(szBuff, 0, sizeof(szBuff));
-			sprintf(szBuff, "%ld", dlgOverlay.m_lX);
+			sprintf_s(szBuff, _countof(szBuff), "%ld", dlgOverlay.m_lX);
 			SetDlgItemText(IDC_BASEPOS_X, szBuff);
 			memset(szBuff, 0, sizeof(szBuff));
-			sprintf(szBuff, "%ld", dlgOverlay.m_lY);
+			sprintf_s(szBuff, _countof(szBuff), "%ld", dlgOverlay.m_lY);
 			SetDlgItemText(IDC_BASEPOS_Y, szBuff);
 			memset(szBuff, 0, sizeof(szBuff));
-			sprintf(szBuff, "%ld", dlgOverlay.m_lZ);
+			sprintf_s(szBuff, _countof(szBuff), "%ld", dlgOverlay.m_lZ);
 			SetDlgItemText(IDC_BASEPOS_Z, szBuff);
 
 			m_LensOffset.Lens[m_iBaseLens].lX = dlgOverlay.m_lX;
@@ -739,13 +739,13 @@ void CSrLensCenterOffsetSetingDlg::OnLens3SetupButton()
 		lZ = dlgOverlay.m_lZ - m_LensOffset.Lens[m_iBaseLens].lZ;
 
 		memset(szBuff, 0, sizeof(szBuff));
-		sprintf(szBuff, "%ld", lX);
+		sprintf_s(szBuff, _countof(szBuff), "%ld", lX);
 		SetDlgItemText(LensOffsetX_IDs[2], szBuff);
 		memset(szBuff, 0, sizeof(szBuff));
-		sprintf(szBuff, "%ld", lY);
+		sprintf_s(szBuff, _countof(szBuff), "%ld", lY);
 		SetDlgItemText(LensOffsetY_IDs[2], szBuff);
 		memset(szBuff, 0, sizeof(szBuff));
-		sprintf(szBuff, "%ld", lZ);
+		sprintf_s(szBuff, _countof(szBuff), "%ld", lZ);
 		SetDlgItemText(LensOffsetZ_IDs[2], szBuff);
 
 		// Kojika 20090529 Change
@@ -800,13 +800,13 @@ void CSrLensCenterOffsetSetingDlg::OnLens4SetupButton()
 	if(dlgOverlay.DoModal() == IDOK){
 		if(m_iBaseLens == 3){
 			memset(szBuff, 0, sizeof(szBuff));
-			sprintf(szBuff, "%ld", dlgOverlay.m_lX);
+			sprintf_s(szBuff, _countof(szBuff), "%ld", dlgOverlay.m_lX);
 			SetDlgItemText(IDC_BASEPOS_X, szBuff);
 			memset(szBuff, 0, sizeof(szBuff));
-			sprintf(szBuff, "%ld", dlgOverlay.m_lY);
+			sprintf_s(szBuff, _countof(szBuff), "%ld", dlgOverlay.m_lY);
 			SetDlgItemText(IDC_BASEPOS_Y, szBuff);
 			memset(szBuff, 0, sizeof(szBuff));
-			sprintf(szBuff, "%ld", dlgOverlay.m_lZ);
+			sprintf_s(szBuff, _countof(szBuff), "%ld", dlgOverlay.m_lZ);
 			SetDlgItemText(IDC_BASEPOS_Z, szBuff);
 
 			m_LensOffset.Lens[m_iBaseLens].lX = dlgOverlay.m_lX;
@@ -819,13 +819,13 @@ void CSrLensCenterOffsetSetingDlg::OnLens4SetupButton()
 		lZ = dlgOverlay.m_lZ - m_LensOffset.Lens[m_iBaseLens].lZ;
 
 		memset(szBuff, 0, sizeof(szBuff));
-		sprintf(szBuff, "%ld", lX);
+		sprintf_s(szBuff, _countof(szBuff), "%ld", lX);
 		SetDlgItemText(LensOffsetX_IDs[3], szBuff);
 		memset(szBuff, 0, sizeof(szBuff));
-		sprintf(szBuff, "%ld", lY);
+		sprintf_s(szBuff, _countof(szBuff), "%ld", lY);
 		SetDlgItemText(LensOffsetY_IDs[3], szBuff);
 		memset(szBuff, 0, sizeof(szBuff));
-		sprintf(szBuff, "%ld", lZ);
+		sprintf_s(szBuff, _countof(szBuff), "%ld", lZ);
 		SetDlgItemText(LensOffsetZ_IDs[3], szBuff);
 
 		// Kojika 20090529 Change
