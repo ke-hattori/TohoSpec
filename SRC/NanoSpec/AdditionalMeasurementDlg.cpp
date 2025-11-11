@@ -1,4 +1,4 @@
-// AdditionalMeasurementDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// AdditionalMeasurementDlg.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -12,11 +12,11 @@
 #include "ManualMeasurementFormView.h"
 #include "MeasurementTabView.h"
 #include "..\\..\\INC\\NSStage.hxx"
-/* added 2009.12.09 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- { ---------- */
+/* added 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Íwï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
 #include "ChiefView.h"
 #include "ChifTransiMaster.h"
-extern CChiefView*	g_pcChiefView;	/* static —pƒNƒ‰ƒXƒ|ƒCƒ“ƒ^	*/
-/* added 2009.12.09 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- } ---------- */
+extern CChiefView*	g_pcChiefView;	/* static ï¿½pï¿½Nï¿½ï¿½ï¿½Xï¿½|ï¿½Cï¿½ï¿½ï¿½^	*/
+/* added 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Íwï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- } ---------- */
 
 
 #define ADDIMEAS_ENABLE_CHANGE_TIMER	1
@@ -29,20 +29,20 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CAdditionalMeasurementDlg ƒ_ƒCƒAƒƒO
+// CAdditionalMeasurementDlg ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½O
 
 
 CAdditionalMeasurementDlg::CAdditionalMeasurementDlg(CWnd* pParent /*=NULL*/)
 	: COverlayDialog(CAdditionalMeasurementDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CMultiPositionSettingDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ï¿½ï¿½ï¿½ï¿½ - ClassWizard ï¿½Í‚ï¿½ï¿½ÌˆÊ’uï¿½Éƒ}ï¿½bï¿½sï¿½ï¿½ï¿½Oï¿½pï¿½Ìƒ}ï¿½Nï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½Ü‚ï¿½ï¿½Ííœï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	//}}AFX_DATA_INIT
 
-// 2009.10.30 bagus Stage-Sample C³ --{--
+// 2009.10.30 bagus Stage-Sample ï¿½Cï¿½ï¿½ --{--
 	::ZeroMemory(m_szRecipeName, sizeof(m_szRecipeName));
 	m_nSampleMode = 0;
-// 2009.10.30 bagus Stage-Sample C³ --}--
+// 2009.10.30 bagus Stage-Sample ï¿½Cï¿½ï¿½ --}--
 //2009.11.29 bagus GTR --{--
 	m_bGTR = FALSE;
 //2009.11.29 bagus GTR --}--
@@ -70,7 +70,7 @@ BEGIN_MESSAGE_MAP(CAdditionalMeasurementDlg, COverlayDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CAdditionalMeasurementDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CAdditionalMeasurementDlg ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 //																		   //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -78,17 +78,17 @@ END_MESSAGE_MAP()
 //
 BOOL CAdditionalMeasurementDlg::OnInitDialog()
 {
-// 2009.10.30 bagus Stage-Sample C³ --{--
-	//SampleƒZƒbƒg
+// 2009.10.30 bagus Stage-Sample ï¿½Cï¿½ï¿½ --{--
+	//Sampleï¿½Zï¿½bï¿½g
 	if (m_nSampleMode == 1) {
 		SetFileName(m_szRecipeName);
 	}
 	SetSampleMode(m_nSampleMode);
-// 2009.10.30 bagus Stage-Sample C³ --}--
+// 2009.10.30 bagus Stage-Sample ï¿½Cï¿½ï¿½ --}--
 	SYSTEM_CONFIG SystemConfig;
 	LPCTSTR pszHeader[LANGUAGE_MAX][2] = {
 		{_T("Point No"),_T("Position(mm)")},
-		{_T("ƒ|ƒCƒ“ƒgNo"),_T("ˆÊ’u(mm)")},
+		{_T("ï¿½|ï¿½Cï¿½ï¿½ï¿½gNo"),_T("ï¿½Ê’u(mm)")},
 	};
 	ConfigFile_GetNanoSpecIni(&SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 
@@ -96,7 +96,7 @@ BOOL CAdditionalMeasurementDlg::OnInitDialog()
 
 //	CreateDialogItem("BUTTON", "MEASUREMENT",	BS_PUSHBUTTON,	CRect(CPoint(306,366), CSize(85,28)),	IDC_MEASUREMENT_BUTTON);
 	//Saiki 20090526 Change ----->
-	//CreateDialogItem("BUTTON", "‘ª’è",  BS_PUSHBUTTON,  CRect(CPoint(306,366), CSize(85,28)),   IDC_MEASUREMENT_BUTTON);
+	//CreateDialogItem("BUTTON", "ï¿½ï¿½ï¿½ï¿½",  BS_PUSHBUTTON,  CRect(CPoint(306,366), CSize(85,28)),   IDC_MEASUREMENT_BUTTON);
 	CString strBuffer;
 	LoadStringML(IDS_MEASUREMENT_BUTTON, strBuffer, "MEASUREMENT");
 	CreateDialogItem("BUTTON", strBuffer,  BS_PUSHBUTTON,  CRect(CPoint(306,400), CSize(85,28)),   IDC_MEASUREMENT_BUTTON);
@@ -128,10 +128,10 @@ BOOL CAdditionalMeasurementDlg::OnInitDialog()
 	m_pDoc = (CNanoSpecDoc*)m_pMainFrame->GetActiveDocument();
 // 2010.01.29 bagus Gantry --}--
 
-	//2009.12.11 bagus C³ --{--
+	//2009.12.11 bagus ï¿½Cï¿½ï¿½ --{--
 	CString strSelectCaption;
 	LoadStringML(IDS_MS_COMBO_SELECT_CAPTION,strSelectCaption,"<select>");
-	//2009.12.11 bagus C³ --{--
+	//2009.12.11 bagus ï¿½Cï¿½ï¿½ --{--
 	if(m_bGTR){
 		SR_CONFIG SrConfig;
 		char szMeasPt[10+1];
@@ -140,10 +140,10 @@ BOOL CAdditionalMeasurementDlg::OnInitDialog()
 		ConfigFile_GetNanoSpecIni(&SrConfig, CONFIG_FILE_SR_CONFIG);
 		CComboBox* pCombo = (CComboBox*)GetDlgItem(IDC_COMBO_MEAS_POINT);
 		//pCombo->SetExtendedUI();
-		//2009.12.11 bagus C³ --{--
+		//2009.12.11 bagus ï¿½Cï¿½ï¿½ --{--
 		//pCombo->AddString("<select>");
 		pCombo->AddString(strSelectCaption);
-		//2009.12.11 bagus C³ --}--
+		//2009.12.11 bagus ï¿½Cï¿½ï¿½ --}--
 // 2010.01.29 bagus Gantry --{--
 #if 0
 		for(int iMeasPt =1; iMeasPt <= SrConfig.wGantryNumOfMeasPoint; iMeasPt++){
@@ -162,7 +162,7 @@ BOOL CAdditionalMeasurementDlg::OnInitDialog()
 		m_pDoc->GetRcpData(&rcp_data);
 		::ZeroMemory(tScanPoint, sizeof(tScanPoint));
 
-		strcpy(szRecipeName, rcp_data.MainRcpInfo.MainRcpParam.hdr.szStage);
+		strcpy_s(szRecipeName, sizeof(szRecipeName), rcp_data.MainRcpInfo.MainRcpParam.hdr.szStage);
 
 		ConfigFile_GetNanoSpecIni(&SrReferencePosition, CONFIG_FILE_SR_REFERENCE_POSITION);
 
@@ -196,7 +196,7 @@ BOOL CAdditionalMeasurementDlg::OnInitDialog()
 		GetDlgItemText(IDC_POSITION_X1,strBuffer);
 		strBuffer.Format("%s","Y");
 		GetDlgItemText(IDC_POSITION_Y1,strBuffer);
-		//ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚ğ“¯Šú‚·‚é
+		//ï¿½Rï¿½ï¿½ï¿½{ï¿½{ï¿½bï¿½Nï¿½Xï¿½ğ“¯Šï¿½ï¿½ï¿½ï¿½ï¿½
 		CComboBox *pComboBase;
 		CComboBox* pCombo2;
 		pCombo2 = (CComboBox*)GetDlgItem(IDC_COMBO_MEAS_POINT);
@@ -206,7 +206,7 @@ BOOL CAdditionalMeasurementDlg::OnInitDialog()
 			if(iSelectMeasPt != pCombo2->GetCurSel()){
 				pCombo2->SetCurSel(iSelectMeasPt);
 			}
-			//ƒŠƒtƒ@ƒŒƒ“ƒXƒ|ƒWƒVƒ‡ƒ“‚Ìƒ[ƒh
+			//ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ìƒï¿½ï¿½[ï¿½h
 			SR_REFERENCE_POSITION SrReferencePosition;
 			ConfigFile_GetNanoSpecIni(&SrReferencePosition, CONFIG_FILE_SR_REFERENCE_POSITION);
 
@@ -236,8 +236,8 @@ BOOL CAdditionalMeasurementDlg::OnInitDialog()
 	m_MeasurementButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_MeasurementButton.DrawFlatFocus(TRUE);
 
-#if 0 // CANCELƒ{ƒ^ƒ“‚ğ•œŠˆ‚³‚¹‚½
-	// Cancelƒ{ƒ^ƒ“”ñ•\¦ ‚Æ Okƒ{ƒ^ƒ“ˆÚ“®
+#if 0 // CANCELï¿½{ï¿½^ï¿½ï¿½ï¿½ğ•œŠï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// Cancelï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ ï¿½ï¿½ Okï¿½{ï¿½^ï¿½ï¿½ï¿½Ú“ï¿½
 	GetDlgItem(IDCANCEL)->ShowWindow(SW_HIDE);
 	GetDlgItem(IDCANCEL)->EnableWindow(FALSE);
 
@@ -247,7 +247,7 @@ BOOL CAdditionalMeasurementDlg::OnInitDialog()
 	GetDlgItem(IDOK)->MoveWindow(rect);
 #endif
 
-// 2009.10.29 bagus Jog ’Ç‰ÁC³ --{--
+// 2009.10.29 bagus Jog ï¿½Ç‰ï¿½ï¿½Cï¿½ï¿½ --{--
 
 	if (SystemConfig.nJoystickType == 0) {
 		GetDlgItem(IDC_JOYSTICK1)->ShowWindow(SW_HIDE);
@@ -256,7 +256,7 @@ BOOL CAdditionalMeasurementDlg::OnInitDialog()
 		GetDlgItem(IDC_JOYSTICK1)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_JOYSTICK2)->ShowWindow(SW_SHOW);
 	}
-// 2009.10.29 bagus Jog ’Ç‰ÁC³ --}--
+// 2009.10.29 bagus Jog ï¿½Ç‰ï¿½ï¿½Cï¿½ï¿½ --}--
 
 	m_iProcessStatusOld = -1;
 	m_iManuMeasModeOld = -1;
@@ -264,8 +264,8 @@ BOOL CAdditionalMeasurementDlg::OnInitDialog()
 	SetTimer(ADDIMEAS_ENABLE_CHANGE_TIMER, 50, NULL);
 
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Éƒtï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½İ’è‚µï¿½È‚ï¿½ï¿½Æ‚ï¿½ï¿½Aï¿½ß‚ï¿½lï¿½ï¿½ TRUE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
+					// ï¿½ï¿½O: OCX ï¿½vï¿½ï¿½ï¿½pï¿½eï¿½B ï¿½yï¿½[ï¿½Wï¿½Ì–ß‚ï¿½lï¿½ï¿½ FALSE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -274,7 +274,7 @@ void CAdditionalMeasurementDlg::OnOK()
 {
 	COverlayDialog::OnOK();
 
-	// Œ»İ‚ÌÀ•W‚ğˆø‚«“n‚·
+	// ï¿½ï¿½ï¿½İ‚Ìï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½nï¿½ï¿½
 	m_lX = m_CurrPos.lX;
 	m_lY = m_CurrPos.lY;
 	m_lZ = m_CurrPos.lZ;
@@ -296,12 +296,12 @@ void CAdditionalMeasurementDlg::OnTimer(UINT nIDEvent)
 
 	switch (nIDEvent)
 	{
-		case ADDIMEAS_ENABLE_CHANGE_TIMER:		// 50ms ’èüŠúƒ^ƒCƒ}
+		case ADDIMEAS_ENABLE_CHANGE_TIMER:		// 50ms ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Cï¿½}
 			iProcessStatus = m_pDoc->GetProcessStatus();
 			if(iProcessStatus != m_iProcessStatusOld)
 			{
 
-				if(iProcessStatus == PROCESS_DOWN) //ƒ_ƒEƒ“‚©‚ç‚Ì•œ‹Œ‚Í‘z’èŠO
+				if(iProcessStatus == PROCESS_DOWN) //ï¿½_ï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì•ï¿½ï¿½ï¿½ï¿½Í‘zï¿½ï¿½O
 				{
 					ButtonEnableChange(MEASUREMENT_MANUALMEASURE_E);
 				}
@@ -318,9 +318,9 @@ void CAdditionalMeasurementDlg::OnTimer(UINT nIDEvent)
 
 			}
 			m_iProcessStatusOld = iProcessStatus;
-/* added 2009.12.09 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- { ---------- */
+/* added 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Íwï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
 			this->ButtonEnableCheck();
-/* added 2009.12.09 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- } ---------- */
+/* added 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Íwï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- } ---------- */
 			break;
 	}
 
@@ -328,15 +328,15 @@ void CAdditionalMeasurementDlg::OnTimer(UINT nIDEvent)
 
 	int iManuMeasMode = m_pDoc->GetManuMeasMode();
 
-	//[‘ª’èŠ®—¹]ƒ{ƒ^ƒ“‰Ÿ‰º‚Ìƒ{ƒ^ƒ“§ŒÀˆ—(ƒ}ƒjƒ…ƒAƒ‹‘ª’è‚Ì‚İ)
+	//[ï¿½ï¿½ï¿½èŠ®ï¿½ï¿½]ï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒ{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½èï¿½Ì‚ï¿½)
 	if((m_pDoc->GetMeasMode() == MEASMODE_MANUALMEASURE)&&(iManuMeasMode != m_iManuMeasModeOld))
 	{
-		if(iManuMeasMode == MANUMODE_MEAS_COMP) //[‘ª’èŠ®—¹]‰Ÿ‰º
+		if(iManuMeasMode == MANUMODE_MEAS_COMP) //[ï¿½ï¿½ï¿½èŠ®ï¿½ï¿½]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		{
-			ButtonEnableChange(-1); //-1‚Íswitch•¶‚É‚©‚©‚ç‚È‚¢”š
+			ButtonEnableChange(-1); //-1ï¿½ï¿½switchï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½
 		}
 	}
-	//‘O‰ñ’lXV
+	//ï¿½Oï¿½ï¿½lï¿½Xï¿½V
 	m_iManuMeasModeOld = iManuMeasMode;
 
 
@@ -348,49 +348,49 @@ void CAdditionalMeasurementDlg::OnTimer(UINT nIDEvent)
 //
 void CAdditionalMeasurementDlg::OnMeasurementButton()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚É“Á•Ê‚ÈŒãˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½É“ï¿½ï¿½Ê‚ÈŒãˆï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 
-/* added 2009.11.27 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- { ---------- */
+/* added 2009.11.27 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Íwï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
 	this->m_bProgress1PMeas = TRUE;
-/* added 2009.11.27 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- } ---------- */
+/* added 2009.11.27 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Íwï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- } ---------- */
 
 	COverlayDialog::SetOperationLog("MEASUREMENT Button was push.");
 
-	// ‚±‚±‚É’Ç‰Á‘ª’è‚Ìˆ—‚ğ“ü‚ê‚é
+	// ï¿½ï¿½ï¿½ï¿½ï¿½É’Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	//2009.11.30 bagus --{--
-	//ƒXƒe[ƒWˆÚ“®’†
+	//ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ú“ï¿½ï¿½ï¿½
 	if(m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE)){
 		return;
 	}
 	//2009.11.30 bagus --}--
 
-	//ƒ}ƒjƒ…ƒAƒ‹‘ª’èƒ‚[ƒhİ’è
-	m_pDoc->SetManuMeasMode(MANUMODE_ON_MEASURE); //‘ª’è’†‚Éİ’è
+	//ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½èƒ‚ï¿½[ï¿½hï¿½İ’ï¿½
+	m_pDoc->SetManuMeasMode(MANUMODE_ON_MEASURE); //ï¿½ï¿½ï¿½è’†ï¿½Éİ’ï¿½
 
 
 ///ButtonEnableChange(MEASUREMENT_MANUALMEASURE_S);
 
 
 
-/* modified 2009.11.27 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- { ---------- */
+/* modified 2009.11.27 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Íwï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
 //	m_pMainFrame->m_pManuMeaFormViewObj->ManuMeas();
-/* modified 2009.11.27 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ----------				*/
+/* modified 2009.11.27 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Íwï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ----------				*/
 	if (TRUE != m_pMainFrame->m_pManuMeaFormViewObj->ManuMeas()) {
 		this->m_bProgress1PMeas = FALSE;
 	}
-/* modified 2009.11.27 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- } ---------- */
+/* modified 2009.11.27 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Íwï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- } ---------- */
 }
 
 // ==========================================================================
-//‘ª’è’†Ì‘ª’èI—¹ ‚Ìƒ{ƒ^ƒ“—LŒø/–³Œø‚ÌØ‘Ö‚¦
+//ï¿½ï¿½ï¿½è’†ï¿½Ì‘ï¿½ï¿½ï¿½Iï¿½ï¿½ ï¿½ï¿½ï¿½Ìƒ{ï¿½^ï¿½ï¿½ï¿½Lï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ÌØ‘Ö‚ï¿½
 void CAdditionalMeasurementDlg::ButtonEnableChange(int Select)
 {
 
-	if((m_pDoc->GetMeasMode() == MEASMODE_MANUALMEASURE)&&(m_pDoc->GetManuMeasMode() == MANUMODE_MEAS_COMP)) //ƒ}ƒjƒ…ƒAƒ‹‘ª’è ‚©‚Â [‘ª’èŠ®—¹]‰Ÿ‰º
+	if((m_pDoc->GetMeasMode() == MEASMODE_MANUALMEASURE)&&(m_pDoc->GetManuMeasMode() == MANUMODE_MEAS_COMP)) //ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ [ï¿½ï¿½ï¿½èŠ®ï¿½ï¿½]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	{
-		(((CMainFrame*)AfxGetMainWnd())->m_wndSplitter1.GetPane(1, 0))->GetDlgItem(IDC_MEASUREMENT_BUTTON)->EnableWindow(FALSE);			//[MEASUREMENT]ƒ{ƒ^ƒ“–³Œø
-		(((CMainFrame*)AfxGetMainWnd())->m_wndSplitter1.GetPane(1, 0))->GetDlgItem(IDC_MEASUREMENT_COMPLETE_BUTTON)->EnableWindow(FALSE);	//[MEASUREMENT COMPLETE]ƒ{ƒ^ƒ“–³Œø
-		(((CMainFrame*)AfxGetMainWnd())->m_wndSplitter1.GetPane(1, 0))->GetDlgItem(IDC_EXIT_BUTTON)->EnableWindow(TRUE);					//[EXIT]ƒ{ƒ^ƒ“—LŒø
+		(((CMainFrame*)AfxGetMainWnd())->m_wndSplitter1.GetPane(1, 0))->GetDlgItem(IDC_MEASUREMENT_BUTTON)->EnableWindow(FALSE);			//[MEASUREMENT]ï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		(((CMainFrame*)AfxGetMainWnd())->m_wndSplitter1.GetPane(1, 0))->GetDlgItem(IDC_MEASUREMENT_COMPLETE_BUTTON)->EnableWindow(FALSE);	//[MEASUREMENT COMPLETE]ï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		(((CMainFrame*)AfxGetMainWnd())->m_wndSplitter1.GetPane(1, 0))->GetDlgItem(IDC_EXIT_BUTTON)->EnableWindow(TRUE);					//[EXIT]ï¿½{ï¿½^ï¿½ï¿½ï¿½Lï¿½ï¿½
 		return;
 	}
 
@@ -399,23 +399,23 @@ void CAdditionalMeasurementDlg::ButtonEnableChange(int Select)
 	bIdle = (Select == MEASUREMENT_MANUALMEASURE_E);
 
 
-	GetDlgItem(IDC_AUTO_FOCUS_BUTTON)->EnableWindow(bIdle); 		//[AUTO FOCUS]ƒ{ƒ^ƒ“
-	GetDlgItem(IDC_CAPTURE_BUTTON)->EnableWindow(bIdle);			//[CAPTURE]ƒ{ƒ^ƒ“
-	GetDlgItem(IDC_SPECIFY_COORD_BUTTON)->EnableWindow(bIdle);		//[SPECIFY COORD]ƒ{ƒ^ƒ“
-	GetDlgItem(IDC_JOG_SETTING_BUTTON)->EnableWindow(bIdle);		//[JOG SETTING]ƒ{ƒ^ƒ“
-	GetDlgItem(IDC_MEASUREMENT_BUTTON)->EnableWindow(bIdle);		//[MEASUREMENT]ƒ{ƒ^ƒ“
+	GetDlgItem(IDC_AUTO_FOCUS_BUTTON)->EnableWindow(bIdle); 		//[AUTO FOCUS]ï¿½{ï¿½^ï¿½ï¿½
+	GetDlgItem(IDC_CAPTURE_BUTTON)->EnableWindow(bIdle);			//[CAPTURE]ï¿½{ï¿½^ï¿½ï¿½
+	GetDlgItem(IDC_SPECIFY_COORD_BUTTON)->EnableWindow(bIdle);		//[SPECIFY COORD]ï¿½{ï¿½^ï¿½ï¿½
+	GetDlgItem(IDC_JOG_SETTING_BUTTON)->EnableWindow(bIdle);		//[JOG SETTING]ï¿½{ï¿½^ï¿½ï¿½
+	GetDlgItem(IDC_MEASUREMENT_BUTTON)->EnableWindow(bIdle);		//[MEASUREMENT]ï¿½{ï¿½^ï¿½ï¿½
 
-	GetDlgItem(IDC_STAGE_MOTION_MODE)->EnableWindow(bIdle); 		//MOTION MODE‘I‘ğ
-	GetDlgItem(IDC_ELEV_MOTION_MODE)->EnableWindow(bIdle);			//ELEV MOTION‘I‘ğ
-	GetDlgItem(IDC_HEAD_TYPE)->EnableWindow(bIdle); 				//HEAD TYPE‘I‘ğ
-	GetDlgItem(IDC_LENS_MAGNIFICATION_COMBO)->EnableWindow(bIdle);	//ƒŒƒ“ƒY”{—¦‘I‘ğ
-	GetDlgItem(IDC_MEASUREMENT_TYPE_COMBO)->EnableWindow(bIdle);  //ƒJƒƒ‰‘I‘ğ
+	GetDlgItem(IDC_STAGE_MOTION_MODE)->EnableWindow(bIdle); 		//MOTION MODEï¿½Iï¿½ï¿½
+	GetDlgItem(IDC_ELEV_MOTION_MODE)->EnableWindow(bIdle);			//ELEV MOTIONï¿½Iï¿½ï¿½
+	GetDlgItem(IDC_HEAD_TYPE)->EnableWindow(bIdle); 				//HEAD TYPEï¿½Iï¿½ï¿½
+	GetDlgItem(IDC_LENS_MAGNIFICATION_COMBO)->EnableWindow(bIdle);	//ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½{ï¿½ï¿½ï¿½Iï¿½ï¿½
+	GetDlgItem(IDC_MEASUREMENT_TYPE_COMBO)->EnableWindow(bIdle);  //ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½
 
-	GetDlgItem(IDOK)->EnableWindow(bIdle);							//[OK]ƒ{ƒ^ƒ“
-//	GetDlgItem(IDCANCEL)->EnableWindow(bIdle);						//[CANCEL]ƒ{ƒ^ƒ“
+	GetDlgItem(IDOK)->EnableWindow(bIdle);							//[OK]ï¿½{ï¿½^ï¿½ï¿½
+//	GetDlgItem(IDCANCEL)->EnableWindow(bIdle);						//[CANCEL]ï¿½{ï¿½^ï¿½ï¿½
 
 
-	//ƒWƒ‡ƒCƒXƒeƒBƒbƒNØ‘Ö‚¦(ƒ\ƒtƒgÌƒn[ƒh)ƒ‰ƒWƒIƒ{ƒ^ƒ“
+	//ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½Ø‘Ö‚ï¿½(ï¿½\ï¿½tï¿½gï¿½Ìƒnï¿½[ï¿½h)ï¿½ï¿½ï¿½Wï¿½Iï¿½{ï¿½^ï¿½ï¿½
 	GetDlgItem(IDC_JOYSTICK1)->EnableWindow(bIdle);
 	GetDlgItem(IDC_JOYSTICK2)->EnableWindow(bIdle);
 
@@ -455,19 +455,19 @@ void CAdditionalMeasurementDlg::OnDestroy()
 {
 	COverlayDialog::OnDestroy();
 
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½Éƒï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	m_pMainFrame->m_pManuMeaFormViewObj->m_pAddMeasDlgObj = NULL;
 
 }
 void CAdditionalMeasurementDlg::OnSelchangeComboMeasPoint()
 {
 #if 0
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
-	//ƒXƒe[ƒWƒRƒ“ƒtƒBƒO‚Ìƒ[ƒh
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//ï¿½Xï¿½eï¿½[ï¿½Wï¿½Rï¿½ï¿½ï¿½tï¿½Bï¿½Oï¿½Ìƒï¿½ï¿½[ï¿½h
 	SR_CONFIG SrConfig;
 	ConfigFile_GetNanoSpecIni(&SrConfig, CONFIG_FILE_SR_CONFIG);
 
-	//ƒŠƒtƒ@ƒŒƒ“ƒXƒ|ƒWƒVƒ‡ƒ“‚Ìƒ[ƒh
+	//ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ìƒï¿½ï¿½[ï¿½h
 	SR_REFERENCE_POSITION SrReferencePosition;
 	ConfigFile_GetNanoSpecIni(&SrReferencePosition, CONFIG_FILE_SR_REFERENCE_POSITION);
 
@@ -475,16 +475,16 @@ void CAdditionalMeasurementDlg::OnSelchangeComboMeasPoint()
 	CComboBox* pCombo = (CComboBox*)GetDlgItem(IDC_COMBO_MEAS_POINT);
 	iSelectMeasPt = pCombo->GetCurSel();
 	if(0 < iSelectMeasPt && iSelectMeasPt <= SrConfig.wGantryNumOfMeasPoint){
-		//XYÀ•W‚Ì•\¦‚ğ•ÏX
+		//XYï¿½ï¿½ï¿½Wï¿½Ì•\ï¿½ï¿½ï¿½ï¿½ÏX
 		SetPointData(SrReferencePosition, iSelectMeasPt);
-		//ƒJ[ƒ\ƒ‹”Ô†‚É‘Î‰‚µ‚½ƒXƒe[ƒWˆÊ’u‚ÖˆÚ“®
+		//ï¿½Jï¿½[ï¿½\ï¿½ï¿½ï¿½Ôï¿½ï¿½É‘Î‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ê’uï¿½ÖˆÚ“ï¿½
 		m_pDoc->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);
 		STAGE_COORD sampleCoord;
 		sampleCoord.lX = SrReferencePosition.LocGantryTransmitReference[iSelectMeasPt - 1].lX/* + m_StageProgInfoHdr.SampleInfo.Origin.lX*/;
 		sampleCoord.lY = SrReferencePosition.LocGantryTransmitReference[iSelectMeasPt - 1].lY/* + m_StageProgInfoHdr.SampleInfo.Origin.lY*/;
 		NS_StageMoveAbsolute(&sampleCoord);
 		m_pDoc->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);
-		//ƒ{ƒ^ƒ““™‚Ì–³Œø‰»
+		//ï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½Ì–ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
 #endif
 	CComboBox *pComboBase;
@@ -508,7 +508,7 @@ void CAdditionalMeasurementDlg::OnSelchangeComboMeasPoint()
 		RCP_DATA rcp_data;
 		m_pDoc->GetRcpData(&rcp_data);
 		if(m_bGTR){
-			/* GTR ‚Ìê‡*/
+			/* GTR ï¿½Ìê‡*/
 			TCHAR l_tszGTRpos[32];
 			this->GetDlgItemText(IDC_COMBO_MEAS_POINT, l_tszGTRpos, sizeof(TCHAR) * 32);
 			iSelectMeasPt = _ttol(l_tszGTRpos);
@@ -525,7 +525,7 @@ void CAdditionalMeasurementDlg::OnSelchangeComboMeasPoint()
 		SR_CONFIG SrConfig;
 		ConfigFile_GetNanoSpecIni(&SrConfig, CONFIG_FILE_SR_CONFIG);
 
-		//ƒŠƒtƒ@ƒŒƒ“ƒXƒ|ƒWƒVƒ‡ƒ“‚Ìƒ[ƒh
+		//ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ìƒï¿½ï¿½[ï¿½h
 		SR_REFERENCE_POSITION SrReferencePosition;
 		ConfigFile_GetNanoSpecIni(&SrReferencePosition, CONFIG_FILE_SR_REFERENCE_POSITION);
 
@@ -534,7 +534,7 @@ void CAdditionalMeasurementDlg::OnSelchangeComboMeasPoint()
 }
 
 // ==========================================================================
-// NameF		SetPointData
+// Nameï¿½F		SetPointData
 void CAdditionalMeasurementDlg::SetPointData(SR_REFERENCE_POSITION SrReferencePosition, int iSelectMeasPt)
 {
 	CString csPointNo, csX, csY;
@@ -568,8 +568,8 @@ HBRUSH CAdditionalMeasurementDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColo
 	return hbr;
 }
 
-/* added 2009.12.09 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- { ---------- */
-/* “®ìŒnƒRƒ“ƒgƒ[ƒ‹‚Ì Enable/Disable	*/
+/* added 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Íwï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
+/* ï¿½ï¿½ï¿½ï¿½nï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ Enable/Disable	*/
 void CAdditionalMeasurementDlg::ButtonEnableCheck(void)
 {
 	static bool ls_bTrMasIdlePre = ((CChiefTransiMaster*) g_pcChiefView->m_pcChiefTransiMaster)->IsIdle();
@@ -577,30 +577,30 @@ void CAdditionalMeasurementDlg::ButtonEnableCheck(void)
 		BOOL	l_bCtrlEna;
 		int		l_bCtrlID;
 	} l_MvCtrls[] = {
-		TRUE,	IDC_MEASUREMENT_BUTTON,			/* 01:‘ª’è				*/
-		TRUE,	IDC_HEAD_TYPE,					/* 02:ƒwƒbƒhƒ^ƒCƒv		*/
-		TRUE,	IDC_LENS_MAGNIFICATION_COMBO,	/* 03:ƒŒƒ“ƒY			*/
-		TRUE,	IDC_AUTO_FOCUS_BUTTON,			/* 04:ƒI[ƒgƒtƒH[ƒJƒX	*/
-		TRUE,	IDC_SPECIFY_COORD_BUTTON,		/* 05:À•W“ü—Í			*/
-		TRUE,	IDC_ELEV_UP_BUTTON,				/* 06:Z ² W.D.‹ß		*/
-		TRUE,	IDC_HOME_POSITION_BUTTON,		/* 07:Z ² H.ƒ|ƒWƒVƒ‡ƒ“	*/
-		TRUE,	IDC_ELEV_DOWN_BUTTON,			/* 08:Z ² W.D.‰“		*/
-		TRUE,	IDC_STAGE_UP_BUTTON,			/* 09:XY ª				*/
-		TRUE,	IDC_STAGE_DOWN_BUTTON,			/* 10:XY «				*/
-		TRUE,	IDC_STAGE_RIGHT_BUTTON,			/* 11:XY ¨				*/
-		TRUE,	IDC_STAGE_LEFT_BUTTON,			/* 12:XY ©				*/
-		TRUE,	IDC_JOYSTICK1,					/* 13:ƒ\ƒtƒgƒWƒ‡ƒC		*/
-		TRUE,	IDC_JOYSTICK2,					/* 14:ƒWƒ‡ƒCƒXƒeƒBƒbƒN	*/
+		TRUE,	IDC_MEASUREMENT_BUTTON,			/* 01:ï¿½ï¿½ï¿½ï¿½				*/
+		TRUE,	IDC_HEAD_TYPE,					/* 02:ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½v		*/
+		TRUE,	IDC_LENS_MAGNIFICATION_COMBO,	/* 03:ï¿½ï¿½ï¿½ï¿½ï¿½Y			*/
+		TRUE,	IDC_AUTO_FOCUS_BUTTON,			/* 04:ï¿½Iï¿½[ï¿½gï¿½tï¿½Hï¿½[ï¿½Jï¿½X	*/
+		TRUE,	IDC_SPECIFY_COORD_BUTTON,		/* 05:ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½			*/
+		TRUE,	IDC_ELEV_UP_BUTTON,				/* 06:Z ï¿½ï¿½ W.D.ï¿½ï¿½		*/
+		TRUE,	IDC_HOME_POSITION_BUTTON,		/* 07:Z ï¿½ï¿½ H.ï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½	*/
+		TRUE,	IDC_ELEV_DOWN_BUTTON,			/* 08:Z ï¿½ï¿½ W.D.ï¿½ï¿½		*/
+		TRUE,	IDC_STAGE_UP_BUTTON,			/* 09:XY ï¿½ï¿½				*/
+		TRUE,	IDC_STAGE_DOWN_BUTTON,			/* 10:XY ï¿½ï¿½				*/
+		TRUE,	IDC_STAGE_RIGHT_BUTTON,			/* 11:XY ï¿½ï¿½				*/
+		TRUE,	IDC_STAGE_LEFT_BUTTON,			/* 12:XY ï¿½ï¿½				*/
+		TRUE,	IDC_JOYSTICK1,					/* 13:ï¿½\ï¿½tï¿½gï¿½Wï¿½ï¿½ï¿½C		*/
+		TRUE,	IDC_JOYSTICK2,					/* 14:ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½N	*/
 		TRUE,	IDOK,							/* 15:OK				*/
 		TRUE,	-1,
 	};
 	bool l_bTrMasIdle = ((CChiefTransiMaster*) g_pcChiefView->m_pcChiefTransiMaster)->IsIdle();
 	if (ls_bTrMasIdlePre != l_bTrMasIdle) {
-		/* ‚Pƒ|ƒCƒ“ƒg‘ª’è‚ÌƒAƒCƒhƒ‹ó‘Ô•Ï‰»—L‚è	*/
+		/* ï¿½Pï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ÌƒAï¿½Cï¿½hï¿½ï¿½ï¿½ï¿½Ô•Ï‰ï¿½ï¿½Lï¿½ï¿½	*/
 		ls_bTrMasIdlePre = l_bTrMasIdle;
 		int i = 0;
 		if (true == l_bTrMasIdle) {
-			/* Idle ‚É‚È‚Á‚½D	*/
+			/* Idle ï¿½É‚È‚ï¿½ï¿½ï¿½ï¿½D	*/
 			this->m_bProgress1PMeas = FALSE;
 			while (-1 != l_MvCtrls[i].l_bCtrlID) {
 #if 0
@@ -621,7 +621,7 @@ void CAdditionalMeasurementDlg::ButtonEnableCheck(void)
 				i++;
 			}
 		} else {
-			/* ƒrƒW[‚É‚È‚Á‚½D	*/
+			/* ï¿½rï¿½Wï¿½[ï¿½É‚È‚ï¿½ï¿½ï¿½ï¿½D	*/
 			this->m_bProgress1PMeas = TRUE;
 			while (-1 != l_MvCtrls[i].l_bCtrlID) {
 #if 0
@@ -649,11 +649,11 @@ void CAdditionalMeasurementDlg::ButtonEnableCheck(void)
 			}
 		}
 	} else {
-		/* ‚Pƒ|ƒCƒ“ƒg‘ª’è‚ÌƒAƒCƒhƒ‹ó‘Ô•Ï‰»–³‚µ	*/
+		/* ï¿½Pï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ÌƒAï¿½Cï¿½hï¿½ï¿½ï¿½ï¿½Ô•Ï‰ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 		if (true == l_bTrMasIdle) {
-			/* ƒAƒCƒhƒ‹’†	*/
+			/* ï¿½Aï¿½Cï¿½hï¿½ï¿½ï¿½ï¿½	*/
 			COverlayDialog::ButtonEnableCheck();
 		}
 	}
 }
-/* added 2009.12.09 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- } ---------- */
+/* added 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Íwï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- } ---------- */
