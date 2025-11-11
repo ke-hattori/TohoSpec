@@ -438,7 +438,7 @@ void CRecipeStressStageProgramView::OnAllcheckButton()
 	m_StageStressProg.dwNumLsScans = CheckLineSectionNum();
 
 	TCHAR szBuff[256];
-	sprintf(szBuff, "%d", m_StageStressProg.dwNumLsScans);
+	sprintf_s(szBuff, _countof(szBuff), "%d", m_StageStressProg.dwNumLsScans);
 	SetDlgItemText(IDC_STAGE_PROGRAM_LINE_SECTION, szBuff);
 #else
 	CheckMeasurementLineSectionData();
@@ -470,7 +470,7 @@ void CRecipeStressStageProgramView::OnAllClearButton()
 	m_StageStressProg.dwNumLsScans = CheckLineSectionNum();
 
 	TCHAR szBuff[256];
-	sprintf(szBuff, "%d", m_StageStressProg.dwNumLsScans);
+	sprintf_s(szBuff, _countof(szBuff), "%d", m_StageStressProg.dwNumLsScans);
 	SetDlgItemText(IDC_STAGE_PROGRAM_LINE_SECTION, szBuff);
 #else
 	CheckMeasurementLineSectionData();
@@ -492,7 +492,7 @@ void CRecipeStressStageProgramView::OnTeachingButton()
 
 	if(m_iNumScans >= SCAN_POINT_MAX){
 		LoadStringML(IDS_MAX_NUM_REGISTER, l_strBuffer, "The Maximum Number which can be Registered is %d.");
-		sprintf(szBuff, l_strBuffer, SCAN_POINT_MAX);
+		sprintf_s(szBuff, _countof(szBuff), l_strBuffer, SCAN_POINT_MAX);
 		MessageBox(szBuff, m_strCaption, MB_OK | MB_ICONSTOP);
 		return;
 	}
@@ -1272,23 +1272,23 @@ void CRecipeStressStageProgramView::SetData()
 	}
 
 	///// Sample - Thickness /////
-	sprintf(szBuff, "%.3lf", m_StageProgInfoHdr.SampleInfo.dThickness /MICROMETRE);
+	sprintf_s(szBuff, _countof(szBuff), "%.3lf", m_StageProgInfoHdr.SampleInfo.dThickness /MICROMETRE);
 	SetDlgItemText(IDC_SAMPLE_THICKNESS, szBuff);
 
 	///// Sample - Size X /////
-	sprintf(szBuff, "%.3lf", m_StageProgInfoHdr.SampleInfo.Size.dx /MICROMETRE);
+	sprintf_s(szBuff, _countof(szBuff), "%.3lf", m_StageProgInfoHdr.SampleInfo.Size.dx /MICROMETRE);
 	SetDlgItemText(IDC_SAMPLE_SIZE_X, szBuff);
 
 	///// Sample - Size Y /////
-	sprintf(szBuff, "%.3lf", m_StageProgInfoHdr.SampleInfo.Size.dy /MICROMETRE);
+	sprintf_s(szBuff, _countof(szBuff), "%.3lf", m_StageProgInfoHdr.SampleInfo.Size.dy /MICROMETRE);
 	SetDlgItemText(IDC_SAMPLE_SIZE_Y, szBuff);
 
 	///// Sample - Origin X /////
-	sprintf(szBuff, "%.3lf", ((double)m_StageProgInfoHdr.SampleInfo.Origin.lX /MICROMETRE));
+	sprintf_s(szBuff, _countof(szBuff), "%.3lf", ((double)m_StageProgInfoHdr.SampleInfo.Origin.lX /MICROMETRE));
 	SetDlgItemText(IDC_SAMPLE_ORIGIN_X, szBuff);
 
 	///// Sample - Origin Y /////
-	sprintf(szBuff, "%.3lf", ((double)m_StageProgInfoHdr.SampleInfo.Origin.lY /MICROMETRE));
+	sprintf_s(szBuff, _countof(szBuff), "%.3lf", ((double)m_StageProgInfoHdr.SampleInfo.Origin.lY /MICROMETRE));
 	SetDlgItemText(IDC_SAMPLE_ORIGIN_Y, szBuff);
 
 	///// Line / Section /////
@@ -1299,7 +1299,7 @@ void CRecipeStressStageProgramView::SetData()
 // 2009.09.07 bagus stress Line/SectionêîèCê≥ --}--
 
 	///// Point Number /////
-	sprintf(szBuff, "%d", m_StageStressProg.dwNumLsScans);
+	sprintf_s(szBuff, _countof(szBuff), "%d", m_StageStressProg.dwNumLsScans);
 // 2009.09.07 bagus stress Line/SectionêîèCê≥ --{--
 //	SetDlgItemText(IDC_STAGE_PROGRAM_POINT_NUMBER, szBuff);
 	SetDlgItemText(IDC_STAGE_PROGRAM_LINE_SECTION, szBuff);
@@ -1309,11 +1309,11 @@ void CRecipeStressStageProgramView::SetData()
 	// SAMPLEå¥ì_Ç©ÇÁÇÃëäëŒç¿ïWÇ∆Ç∑ÇÈ
 	for ( int i = 0 ; i < m_iNumScans ; i++ ) {
 		// X
-		sprintf(szBuff, "%.3lf", ((double)m_ScanPoint[i].lX) / MICROMETRE );
+		sprintf_s(szBuff, _countof(szBuff), "%.3lf", ((double)m_ScanPoint[i].lX) / MICROMETRE );
 		m_MeasurementPointGrid2.GridDisp(i + 1, 1, szBuff, DT_RIGHT);
 
 		// Y
-		sprintf(szBuff, "%.3lf", ((double)m_ScanPoint[i].lY) / MICROMETRE );
+		sprintf_s(szBuff, _countof(szBuff), "%.3lf", ((double)m_ScanPoint[i].lY) / MICROMETRE );
 		m_MeasurementPointGrid2.GridDisp(i + 1, 2, szBuff, DT_RIGHT);
 	}
 
@@ -2609,7 +2609,7 @@ BOOL CRecipeStressStageProgramView::CheckMeasurementLineSectionData()
 //	m_StageStressProg.dwNumLsScans = CheckLineSectionNum();
 	m_StageStressProg.dwNumLsScans = lValid;
 	TCHAR szBuff[256];
-	sprintf(szBuff, "%d", m_StageStressProg.dwNumLsScans);
+	sprintf_s(szBuff, _countof(szBuff), "%d", m_StageStressProg.dwNumLsScans);
 	SetDlgItemText(IDC_STAGE_PROGRAM_LINE_SECTION, szBuff);
 
 // 2009.09.10 bagus stress èCê≥ --{--
