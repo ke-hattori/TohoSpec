@@ -1913,7 +1913,7 @@ void BCMenu::DrawCheckMark(CDC* pDC,int x,int y,COLORREF color)
 
 BCMenuData *BCMenu::FindMenuList(UINT nID)
 {
-	for(int i=0;i<=m_MenuList.GetUpperBound();++i){
+	for(INT_PTR i=0;i<=m_MenuList.GetUpperBound();++i){
 		if(m_MenuList[i]->nID==nID && !m_MenuList[i]->syncflag){
 			m_MenuList[i]->syncflag=1;
 			return(m_MenuList[i]);
@@ -1924,13 +1924,13 @@ BCMenuData *BCMenu::FindMenuList(UINT nID)
 
 void BCMenu::InitializeMenuList(int value)
 {
-	for(int i=0;i<=m_MenuList.GetUpperBound();++i)
+	for(INT_PTR i=0;i<=m_MenuList.GetUpperBound();++i)
 		m_MenuList[i]->syncflag=value;
 }
 
 void BCMenu::DeleteMenuList(void)
 {
-	for(int i=0;i<=m_MenuList.GetUpperBound();++i){
+	for(INT_PTR i=0;i<=m_MenuList.GetUpperBound();++i){
 		if(!m_MenuList[i]->syncflag){
 			delete m_MenuList[i];
 		}
