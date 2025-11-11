@@ -113,7 +113,7 @@ CNanoSpecDoc::CNanoSpecDoc()
 		CString strMsg;
 		strMsg = szBuff;
 		strMsg.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
-		strcpy(szBuff, strMsg);
+		strcpy_s(szBuff, sizeof(szBuff), strMsg);
 	}
 // 2013.11.15 Bagus Add (TohoSpec�Ή�) <--
 	OperationLogging(szBuff);
@@ -222,7 +222,7 @@ CNanoSpecDoc::~CNanoSpecDoc()
 		CString strMsg;
 		strMsg = szBuff;
 		strMsg.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
-		strcpy(szBuff, strMsg);
+		strcpy_s(szBuff, sizeof(szBuff), strMsg);
 	}
 // 2013.11.15 Bagus Add (TohoSpec�Ή�) <--
 
@@ -323,7 +323,7 @@ int CNanoSpecDoc::MakeDirectory(char* lpszDir)
 	if(i <= 0)
 		return 0;
 
-	strcpy(szBuff, lpszDir);
+	strcpy_s(szBuff, sizeof(szBuff), lpszDir);
 	szBuff[i] = NULL;
 	if(iRet = MakeDirectory(szBuff))
 		return (iRet = CreateDirectory(lpszDir, &sa)) == TRUE ? 1 : 0;
@@ -338,7 +338,7 @@ void CNanoSpecDoc::AddTime(char* lpszBuff)
 	SYSTEMTIME csTime;
 
 	::GetLocalTime(&csTime);
-	sprintf(lpszBuff, "%04d.%02d.%02d %02d:%02d:%02d.%03d",
+	sprintf_s(lpszBuff, MAX_PATH, "%04d.%02d.%02d %02d:%02d:%02d.%03d",
 		csTime.wYear, csTime.wMonth, csTime.wDay,
 		csTime.wHour, csTime.wMinute, csTime.wSecond,
 		csTime.wMilliseconds);
@@ -405,7 +405,7 @@ void CNanoSpecDoc::AlarmHis_Restore(char* Path, char* filename,int LogMax,int Hi
 	ListCount = 0;
 	for(FileNo = 1 ; FileNo <= LogMax ; FileNo++){
 		///// Log File Saving /////
-		sprintf(FileName, "%s\\%s%03d" LOG_FILE_EXT, Path, filename, FileNo);
+		sprintf_s(FileName, sizeof(FileName), "%s\\%s%03d" LOG_FILE_EXT, Path, filename, FileNo);
 		if(!file.Open(FileName, CFile::modeRead | CFile::typeBinary)){
 			continue;
 		}
