@@ -1,4 +1,4 @@
-// Alarm.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// Alarm.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -70,7 +70,7 @@ CAlarm::~CAlarm()
 //
 BOOL CAlarm::InitInstance()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒXƒŒƒbƒh’PˆÊ‚Ì‰Šú‰»ƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒXï¿½ï¿½ï¿½bï¿½hï¿½Pï¿½Ê‚Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 	return TRUE;
 }
 
@@ -78,7 +78,7 @@ BOOL CAlarm::InitInstance()
 //
 int CAlarm::ExitInstance()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒXƒŒƒbƒh’PˆÊ‚Ì‰Šú‰»ƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒXï¿½ï¿½ï¿½bï¿½hï¿½Pï¿½Ê‚Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 	return CWinThread::ExitInstance();
 }
 
@@ -86,12 +86,12 @@ int CAlarm::ExitInstance()
 //
 BEGIN_MESSAGE_MAP(CAlarm, CWinThread)
 	//{{AFX_MSG_MAP(CAlarm)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ğ’Ç‰Á‚µ‚Ü‚·B
+		// ï¿½ï¿½ï¿½ï¿½ - ClassWizard ï¿½Í‚ï¿½ï¿½ÌˆÊ’uï¿½Éƒ}ï¿½bï¿½sï¿½ï¿½ï¿½Oï¿½pï¿½Ìƒ}ï¿½Nï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CAlarm ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CAlarm ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -107,7 +107,7 @@ int CAlarm::Run()
 		Sleep(100);
 	}
 
-// AfxBeginThread‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚Ì‚ÅAfxEndThread‚ÅI—¹‚·‚é
+// AfxBeginThreadï¿½ÅŒÄ‚Ñoï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Ì‚ï¿½AfxEndThreadï¿½ÅIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //	ExitThread(0);
 	AfxEndThread(0);
 
@@ -123,9 +123,9 @@ void CAlarm::AlarmListLoading()
 	CString sBuff;
 	char szFilePath[MAX_PATH];
 
-// K.Matsuo 2009.08.03 Œ¾Œê•ÊƒAƒ‰[ƒ€ƒŠƒXƒg“Ç‚İ -->
-	// ver 2.1.0 or higher EEEƒRƒ“ƒtƒBƒO‚ÌŒ¾Œêw’è‚É‚æ‚èAAlarmList_E.ini or AlarmList_J.ini‚ğ“Ç‚İ‚Ş
-	// less than ver 2.1.0 EEEAlarmList.ini‚ğ“Ç‚İ‚Ş‚±‚Æ‚É‚È‚é
+// K.Matsuo 2009.08.03 ï¿½ï¿½ï¿½ï¿½ÊƒAï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½gï¿½Çï¿½ï¿½ï¿½ -->
+	// ver 2.1.0 or higher ï¿½Eï¿½Eï¿½Eï¿½Rï¿½ï¿½ï¿½tï¿½Bï¿½Oï¿½ÌŒï¿½ï¿½ï¿½wï¿½ï¿½É‚ï¿½ï¿½AAlarmList_E.ini or AlarmList_J.iniï¿½ï¿½Ç‚İï¿½ï¿½ï¿½
+	// less than ver 2.1.0 ï¿½Eï¿½Eï¿½EAlarmList.iniï¿½ï¿½Ç‚İï¿½ï¿½Ş‚ï¿½ï¿½Æ‚É‚È‚ï¿½
 	SYSTEM_CONFIG l_SystemConfig;
 	ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 
@@ -142,7 +142,7 @@ void CAlarm::AlarmListLoading()
 			return;
 		}
 	}
-// K.Matsuo 2009.08.03 Œ¾Œê•ÊƒAƒ‰[ƒ€ƒŠƒXƒg“Ç‚İ <--
+// K.Matsuo 2009.08.03 ï¿½ï¿½ï¿½ï¿½ÊƒAï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½gï¿½Çï¿½ï¿½ï¿½ <--
 
 	while(File.ReadString(sBuff) && m_AlarmMax < ALARM_LIST_MAX){
 
@@ -170,7 +170,7 @@ void CAlarm::AlarmListLoading()
 
 		///// Text /////
 		pos = sBuff.Find(",", pos) + 1;
-		strcpy(m_AlarmList[m_AlarmMax].Text, sBuff.Mid(pos, 80).GetBuffer(0));
+		strcpy_s(m_AlarmList[m_AlarmMax].Text, sizeof(m_AlarmList[m_AlarmMax].Text), sBuff.Mid(pos, 80).GetBuffer(0));
 
 		///// Next Alarm /////
 		m_AlarmMax++;
@@ -226,22 +226,22 @@ void CAlarm::AlarmOccurrence(int Index)
 	memset(&AlarmHis, 0, sizeof(ALARM_HIS));
 
 	///// Date /////
-	strcpy(AlarmHis.Date, time.Format("%Y.%m.%d").GetBuffer(0));
+	strcpy_s(AlarmHis.Date, sizeof(AlarmHis.Date), time.Format("%Y.%m.%d").GetBuffer(0));
 
 	///// Time /////
-	strcpy(AlarmHis.Time, time.Format("%H:%M:%S").GetBuffer(0));
+	strcpy_s(AlarmHis.Time, sizeof(AlarmHis.Time), time.Format("%H:%M:%S").GetBuffer(0));
 
 	///// Occurrence Time /////
-	strcpy(m_AlarmStatus[Index].OccurrenceTime, time.Format("%Y%m%d%H%M%S").GetBuffer(0));
+	strcpy_s(m_AlarmStatus[Index].OccurrenceTime, sizeof(m_AlarmStatus[Index].OccurrenceTime), time.Format("%Y%m%d%H%M%S").GetBuffer(0));
 
 	///// Level /////
-	strcpy(AlarmHis.Level, (m_AlarmList[Index].Level == 'A') ? "ALARM" : "WARN");
+	strcpy_s(AlarmHis.Level, sizeof(AlarmHis.Level), (m_AlarmList[Index].Level == 'A') ? "ALARM" : "WARN");
 
 	///// Set /////
-	strcpy(AlarmHis.Set, "SET");
+	strcpy_s(AlarmHis.Set, sizeof(AlarmHis.Set), "SET");
 
 	///// ID /////
-	sprintf(AlarmHis.Id, "%04d", m_AlarmList[Index].Id);
+	sprintf_s(AlarmHis.Id, sizeof(AlarmHis.Id), "%04d", m_AlarmList[Index].Id);
 
 	///// Text /////
 	memset(szText, 0, sizeof(szText));
@@ -294,7 +294,7 @@ void CAlarm::AlarmOccurrence(int Index)
 	AlarmData.chAlarmLevel = AlarmHis.Level[0];
 	AlarmData.iAlarmId = m_AlarmList[Index].Id;
 	AlarmData.iAlarmCode = m_AlarmList[Index].Alcd;
-	strcpy(AlarmData.szAlarmMessage, AlarmHis.Text);
+	strcpy_s(AlarmData.szAlarmMessage, sizeof(AlarmData.szAlarmMessage), AlarmHis.Text);
 
 	PifComm_AlarmReport(&AlarmData);
 }
@@ -313,29 +313,29 @@ void CAlarm::AlarmRelease(int Index)
 	memset(&AlarmHis, 0, sizeof(ALARM_HIS));
 
 	///// Date /////
-	strcpy(AlarmHis.Date, time.Format("%Y.%m.%d").GetBuffer(0));
+	strcpy_s(AlarmHis.Date, sizeof(AlarmHis.Date), time.Format("%Y.%m.%d").GetBuffer(0));
 
 	///// Time /////
-	strcpy(AlarmHis.Time, time.Format("%H:%M:%S").GetBuffer(0));
+	strcpy_s(AlarmHis.Time, sizeof(AlarmHis.Time), time.Format("%H:%M:%S").GetBuffer(0));
 
 	///// Occurrence Time /////
-	strcpy(m_AlarmStatus[Index].OccurrenceTime, time.Format("%Y%m%d%H%M%S").GetBuffer(0));
+	strcpy_s(m_AlarmStatus[Index].OccurrenceTime, sizeof(m_AlarmStatus[Index].OccurrenceTime), time.Format("%Y%m%d%H%M%S").GetBuffer(0));
 
 	///// Level /////
-	strcpy(AlarmHis.Level, (m_AlarmList[Index].Level == 'A') ? "ALARM" : "WARN");
+	strcpy_s(AlarmHis.Level, sizeof(AlarmHis.Level), (m_AlarmList[Index].Level == 'A') ? "ALARM" : "WARN");
 
 	///// Set /////
-	strcpy(AlarmHis.Set, "RST");
+	strcpy_s(AlarmHis.Set, sizeof(AlarmHis.Set), "RST");
 
 	///// ID /////
-	sprintf(AlarmHis.Id, "%04d", m_AlarmList[Index].Id);
+	sprintf_s(AlarmHis.Id, sizeof(AlarmHis.Id), "%04d", m_AlarmList[Index].Id);
 
 	///// Text /////
 	memset(szText, 0, sizeof(szText));
-	strcpy(szText, m_AlarmList[Index].Text);
+	strcpy_s(szText, sizeof(szText), m_AlarmList[Index].Text);
 	if(m_AlarmStatus[Index].SubItem[0] != '\0'){
-		strcat(szText, " ");
-		strcat(szText, m_AlarmStatus[Index].SubItem);
+		strcat_s(szText, sizeof(szText), " ");
+		strcat_s(szText, sizeof(szText), m_AlarmStatus[Index].SubItem);
 	}
 	len = strlen(szText);
 	if(len >= ALARM_LOG_TEXT_LEN) len = ALARM_LOG_TEXT_LEN;
@@ -348,7 +348,7 @@ void CAlarm::AlarmRelease(int Index)
 	g_pAlarmLogDlg->AddAlarmHis(-1, &AlarmHis);
 
 	///// Log Text /////
-	sprintf(szLogText, "%s %s [%-5s] <%s> %s %s",
+	sprintf_s(szLogText, sizeof(szLogText), "%s %s [%-5s] <%s> %s %s",
 		AlarmHis.Date,
 		AlarmHis.Time,
 		AlarmHis.Level,
@@ -381,7 +381,7 @@ void CAlarm::AlarmRelease(int Index)
 	AlarmData.chAlarmLevel = AlarmHis.Level[0];
 	AlarmData.iAlarmId = m_AlarmList[Index].Id;
 	AlarmData.iAlarmCode = m_AlarmList[Index].Alcd;
-	strcpy(AlarmData.szAlarmMessage, AlarmHis.Text);
+	strcpy_s(AlarmData.szAlarmMessage, sizeof(AlarmData.szAlarmMessage), AlarmHis.Text);
 
 	PifComm_AlarmReport(&AlarmData);
 }
