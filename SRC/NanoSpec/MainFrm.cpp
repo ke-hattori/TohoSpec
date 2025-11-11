@@ -1027,12 +1027,12 @@ void CMainFrame::OnAppExit()
 // 2013.11.15 Bagus Add (TohoSpec‘Î‰ž) -->
 //		m_pDoc->OperationLogging("NanoSpec Quit - OK Button was pushed.");
 		char szBuff[_MAX_PATH];
-		strcpy(szBuff, "NanoSpec Quit - OK Button was pushed.");
+		strcpy_s(szBuff, _countof(szBuff), "NanoSpec Quit - OK Button was pushed.");
 		if(g_lAppNameType != APP_NAME_NANO){
 			CString strMsg;
 			strMsg = szBuff;
 			strMsg.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
-			strcpy(szBuff, strMsg);
+			strcpy_s(szBuff, _countof(szBuff), strMsg);
 		}
 		m_pDoc->OperationLogging(szBuff);
 // 2013.11.15 Bagus Add (TohoSpec‘Î‰ž) <--
