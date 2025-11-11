@@ -30,9 +30,9 @@ int CheckMinMaxDouble(char* lpszBuff, double dMin /* = 0 */, double dMax /* = 0 
 	iLen = strlen(szBuff);
 	// 文字列が空っぽの場合
 	if(iLen <= 0){
-//		sprintf(szMessage, "Please enter a number");
+//		sprintf_s(szMessage, _countof(szMessage), "Please enter a number");
 		//Saiki 20090526 Change ----->
-		//sprintf(szMessage, "数値を入力してください");
+		//sprintf_s(szMessage, _countof(szMessage), "数値を入力してください");
 		LoadStringML(IDS_ENTER_NUMBER, strBuffer, "Please enter a number");
 		MessageBox(NULL, strBuffer, NULL, MB_OK|MB_ICONSTOP);
 		//Saiki 20090526 Change <-----
@@ -42,9 +42,9 @@ int CheckMinMaxDouble(char* lpszBuff, double dMin /* = 0 */, double dMax /* = 0 
 	while(iIndex < iLen){
 		// 一文字目，もしくは最後が「.」の場合
 		if((iIndex == 0 || iIndex == iLen - 1) && szBuff[iIndex] == '.'){
-//			sprintf(szMessage, "Please enter a number");
+//			sprintf_s(szMessage, _countof(szMessage), "Please enter a number");
 			//Saiki 20090526 Change ----->
-			//sprintf(szMessage, "数値を入力してください");
+			//sprintf_s(szMessage, _countof(szMessage), "数値を入力してください");
 			LoadStringML(IDS_ENTER_NUMBER, strBuffer, "Please enter a number");
 			MessageBox(NULL, strBuffer, NULL, MB_OK|MB_ICONSTOP);
 			//Saiki 20090526 Change <-----
@@ -71,9 +71,9 @@ int CheckMinMaxDouble(char* lpszBuff, double dMin /* = 0 */, double dMax /* = 0 
 			if(bCheckDot){
 				iDecimalCount++;
 				if(iDecimalCount > 3){
-//					sprintf(szMessage, "Please enter a number in the third place of decimal point");
+//					sprintf_s(szMessage, _countof(szMessage), "Please enter a number in the third place of decimal point");
 					//Saiki 20090526 Change ----->
-					//sprintf(szMessage, "小数点第3位まで数値を入力してください");
+					//sprintf_s(szMessage, _countof(szMessage), "小数点第3位まで数値を入力してください");
 					LoadStringML(IDS_ENTER_THIRD_DECIMAL_POINT, strBuffer, "Please enter a number in the third place of decimal point");
 					MessageBox(NULL, strBuffer, NULL, MB_OK|MB_ICONSTOP);
 					//Saiki 20090526 Change <-----
@@ -84,9 +84,9 @@ int CheckMinMaxDouble(char* lpszBuff, double dMin /* = 0 */, double dMax /* = 0 
 		case '.':
 			// 「.」が二個ある場合
 			if(bCheckDot){
-//				sprintf(szMessage, "Please enter a number");
+//				sprintf_s(szMessage, _countof(szMessage), "Please enter a number");
 				//Saiki 20090526 Change ----->
-				//sprintf(szMessage, "数値を入力してください");
+				//sprintf_s(szMessage, _countof(szMessage), "数値を入力してください");
 				LoadStringML(IDS_ENTER_NUMBER, strBuffer, "Please enter a number");
 				MessageBox(NULL, strBuffer, NULL, MB_OK|MB_ICONSTOP);
 				//Saiki 20090526 Change <-----
@@ -95,9 +95,9 @@ int CheckMinMaxDouble(char* lpszBuff, double dMin /* = 0 */, double dMax /* = 0 
 			bCheckDot = TRUE;
 			break;
 		default:
-//			sprintf(szMessage, "Please enter a number");
+//			sprintf_s(szMessage, _countof(szMessage), "Please enter a number");
 			//Saiki 20090526 Change ----->
-			//sprintf(szMessage, "数値を入力してください");
+			//sprintf_s(szMessage, _countof(szMessage), "数値を入力してください");
 			LoadStringML(IDS_ENTER_NUMBER, strBuffer, "Please enter a number");
 			MessageBox(NULL, strBuffer, NULL, MB_OK|MB_ICONSTOP);
 			//Saiki 20090526 Change <-----
@@ -110,11 +110,11 @@ int CheckMinMaxDouble(char* lpszBuff, double dMin /* = 0 */, double dMax /* = 0 
 	if(dMin != dMax){
 		dData = atof(szBuff);
 		if(dData < dMin || dData > dMax){
-//			sprintf(szMessage, "Please enter a number between %.3lf and %.3lf", dMin, dMax);
+//			sprintf_s(szMessage, _countof(szMessage), "Please enter a number between %.3lf and %.3lf", dMin, dMax);
 			//Saiki 20090526 Change ----->
-			//sprintf(szMessage, "%.3lf から %.3lfの間で数値を入力してください", dMin, dMax);
+			//sprintf_s(szMessage, _countof(szMessage), "%.3lf から %.3lfの間で数値を入力してください", dMin, dMax);
 			LoadStringML(IDS_ENTER_NUMBER_BETWEEN_3DOUBLE, strBuffer, "Please enter a number between %.3lf and %.3lf");
-			sprintf(szMessage, strBuffer, dMin, dMax);
+			sprintf_s(szMessage, _countof(szMessage), strBuffer, dMin, dMax);
 			//Saiki 20090526 Change <-----
 			MessageBox(NULL, szMessage, NULL, MB_OK|MB_ICONSTOP);
 			return CHECK_DATA_OUTSIDE_RANGE;
@@ -170,9 +170,9 @@ int CheckMinMaxLong(char* lpszBuff, long lMin /* = 0 */, long lMax /* = 0 */)
 	iLen = strlen(szBuff);
 	// 文字列が空っぽの場合
 	if(iLen <= 0){
-//		sprintf(szMessage, "Please enter a integer");
+//		sprintf_s(szMessage, _countof(szMessage), "Please enter a integer");
 		//Saiki 20090526 Change ----->
-		//sprintf(szMessage, "整数値を入力してください");
+		//sprintf_s(szMessage, _countof(szMessage), "整数値を入力してください");
 		LoadStringML(IDS_ENTER_INTEGER, strBuffer, "Please enter a integer");
 		MessageBox(NULL, strBuffer, NULL, MB_OK|MB_ICONSTOP);
 		//Saiki 20090526 Change <-----
@@ -199,9 +199,9 @@ int CheckMinMaxLong(char* lpszBuff, long lMin /* = 0 */, long lMax /* = 0 */)
 		case '9':
 			break;
 		default:
-//			sprintf(szMessage, "Please enter a integer");
+//			sprintf_s(szMessage, _countof(szMessage), "Please enter a integer");
 			//Saiki 20090526 Change ----->
-			//sprintf(szMessage, "整数値を入力してください");
+			//sprintf_s(szMessage, _countof(szMessage), "整数値を入力してください");
 			LoadStringML(IDS_ENTER_INTEGER, strBuffer, "Please enter a integer");
 			MessageBox(NULL, strBuffer, NULL, MB_OK|MB_ICONSTOP);
 			//Saiki 20090526 Change <-----
@@ -214,11 +214,11 @@ int CheckMinMaxLong(char* lpszBuff, long lMin /* = 0 */, long lMax /* = 0 */)
 	if(lMin != lMax){
 		lData = atol(szBuff);
 		if(lData < lMin || lData > lMax){
-//			sprintf(szMessage, "Please enter a integer between %ld and %ld", lMin, lMax);
+//			sprintf_s(szMessage, _countof(szMessage), "Please enter a integer between %ld and %ld", lMin, lMax);
 			//Saiki 20090526 Change ----->
-			//sprintf(szMessage, "%ld から %ld の間の整数値を入力してください", lMin, lMax);
+			//sprintf_s(szMessage, _countof(szMessage), "%ld から %ld の間の整数値を入力してください", lMin, lMax);
 			LoadStringML(IDS_ENTER_NUMBER_BETWEEN_1DOUBLE, strBuffer, "Please enter a integer between %ld and %ld");
-			sprintf(szMessage, strBuffer, lMin, lMax);
+			sprintf_s(szMessage, _countof(szMessage), strBuffer, lMin, lMax);
 			//Saiki 20090526 Change <-----
 			MessageBox(NULL, szMessage, NULL, MB_OK|MB_ICONSTOP);
 			return CHECK_DATA_OUTSIDE_RANGE;
@@ -273,9 +273,9 @@ int CheckMinMaxInt(char* lpszBuff, int iMin /* = 0 */, int iMax /* = 0 */)
 	iLen = _tcslen(szBuffer);
 	// 文字列が空っぽの場合
 	if(iLen <= 0){
-//		sprintf(szMessage, "Please enter a integer");
+//		sprintf_s(szMessage, _countof(szMessage), "Please enter a integer");
 		//Saiki 20090526 Change ----->
-		//sprintf(szMessage, "整数値を入力してください");
+		//sprintf_s(szMessage, _countof(szMessage), "整数値を入力してください");
 		LoadStringML(IDS_ENTER_INTEGER, strBuffer, "Please enter a integer");
 		MessageBox(NULL, strBuffer, NULL, MB_OK|MB_ICONSTOP);
 		//Saiki 20090526 Change <-----
@@ -302,9 +302,9 @@ int CheckMinMaxInt(char* lpszBuff, int iMin /* = 0 */, int iMax /* = 0 */)
 		case '9':
 			break;
 		default:
-//			sprintf(szMessage, "Please enter a integer");
+//			sprintf_s(szMessage, _countof(szMessage), "Please enter a integer");
 			//Saiki 20090526 Change ----->
-			//sprintf(szMessage, "整数値を入力してください");
+			//sprintf_s(szMessage, _countof(szMessage), "整数値を入力してください");
 			LoadStringML(IDS_ENTER_INTEGER, strBuffer, "Please enter a integer");
 			MessageBox(NULL, strBuffer, NULL, MB_OK|MB_ICONSTOP);
 			//Saiki 20090526 Change <-----
@@ -317,11 +317,11 @@ int CheckMinMaxInt(char* lpszBuff, int iMin /* = 0 */, int iMax /* = 0 */)
 	if(iMin != iMax){
 		iData = atoi(szBuffer);
 		if(iData < iMin || iData > iMax){
-//			sprintf(szMessage, "Please enter a integer between %d and %d", iMin, iMax);
+//			sprintf_s(szMessage, _countof(szMessage), "Please enter a integer between %d and %d", iMin, iMax);
 			//Saiki 20090526 Change ----->
-			//sprintf(szMessage, "%ld から %ld の間の整数値を入力してください", lMin, lMax);
+			//sprintf_s(szMessage, _countof(szMessage), "%ld から %ld の間の整数値を入力してください", lMin, lMax);
 			LoadStringML(IDS_ENTER_NUMBER_BETWEEN_1DOUBLE, strBuffer, "Please enter a integer between %ld and %ld");
-			sprintf(szMessage, strBuffer, iMin, iMax);
+			sprintf_s(szMessage, _countof(szMessage), strBuffer, iMin, iMax);
 			//Saiki 20090526 Change <-----
 			MessageBox(NULL, szMessage, NULL, MB_OK|MB_ICONSTOP);
 			return CHECK_DATA_OUTSIDE_RANGE;
