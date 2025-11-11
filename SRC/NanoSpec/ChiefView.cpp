@@ -4585,46 +4585,46 @@ void CChiefView::OutputStageError(int iDioAxisAlarm, int iAxis)
 		return;
 		break;
 	case 0x1111:
-		sprintf(szMessage, "A.0xx / A.8xx / A.bxx Error (Amp = %s, ErrorCode = 1-111)", szAxisName);
+		sprintf_s(szMessage, _countof(szMessage), "A.0xx / A.8xx / A.bxx Error (Amp = %s, ErrorCode = 1-111)", szAxisName);
 		break;
 	case 0x1011:
-		sprintf(szMessage, "A.100 Error (Amp = %s, ErrorCode = 1-011)", szAxisName);
+		sprintf_s(szMessage, _countof(szMessage), "A.100 Error (Amp = %s, ErrorCode = 1-011)", szAxisName);
 		break;
 	case 0x1001:
-		sprintf(szMessage, "A.3xx / A.dxx Error (Amp = %s, ErrorCode = 1-001)", szAxisName);
+		sprintf_s(szMessage, _countof(szMessage), "A.3xx / A.dxx Error (Amp = %s, ErrorCode = 1-001)", szAxisName);
 		break;
 	case 0x1110:
-		sprintf(szMessage, "A.4xx Error (Amp = %s, ErrorCode = 1-110)", szAxisName);
+		sprintf_s(szMessage, _countof(szMessage), "A.4xx Error (Amp = %s, ErrorCode = 1-110)", szAxisName);
 		break;
 	case 0x1010:
-		sprintf(szMessage, "A.5xx / A.Cxx Error (Amp = %s, ErrorCode = 1-010)", szAxisName);
+		sprintf_s(szMessage, _countof(szMessage), "A.5xx / A.Cxx Error (Amp = %s, ErrorCode = 1-010)", szAxisName);
 		break;
 	case 0x1000:
-		sprintf(szMessage, "A.7xx Error (Amp = %s, ErrorCode = 1-000)", szAxisName);
+		sprintf_s(szMessage, _countof(szMessage), "A.7xx Error (Amp = %s, ErrorCode = 1-000)", szAxisName);
 		break;
 	case 0x1100:
-		sprintf(szMessage, "A.Exx Error (Amp = %s, ErrorCode = 1-100)", szAxisName);
+		sprintf_s(szMessage, _countof(szMessage), "A.Exx Error (Amp = %s, ErrorCode = 1-100)", szAxisName);
 		break;
 	case 0x1101:
-		sprintf(szMessage, "A.F10 Error (Amp = %s, ErrorCode = 1-101)", szAxisName);
+		sprintf_s(szMessage, _countof(szMessage), "A.F10 Error (Amp = %s, ErrorCode = 1-101)", szAxisName);
 		break;
 	case 0x0111:
-		sprintf(szMessage, "A.900 / A.901 Error (Amp = %s, ErrorCode = 0-111)", szAxisName);
+		sprintf_s(szMessage, _countof(szMessage), "A.900 / A.901 Error (Amp = %s, ErrorCode = 0-111)", szAxisName);
 		break;
 	case 0x0011:
-		sprintf(szMessage, "A.910 / A.911 Error (Amp = %s, ErrorCode = 0-011)", szAxisName);
+		sprintf_s(szMessage, _countof(szMessage), "A.910 / A.911 Error (Amp = %s, ErrorCode = 0-011)", szAxisName);
 		break;
 	case 0x0101:
-		sprintf(szMessage, "A.920 / A.921 Error (Amp = %s, ErrorCode = 0-101)", szAxisName);
+		sprintf_s(szMessage, _countof(szMessage), "A.920 / A.921 Error (Amp = %s, ErrorCode = 0-101)", szAxisName);
 		break;
 	case 0x0110:
-		sprintf(szMessage, "A.941Error (Amp = %s, ErrorCode = 0-110)", szAxisName);
+		sprintf_s(szMessage, _countof(szMessage), "A.941Error (Amp = %s, ErrorCode = 0-110)", szAxisName);
 		break;
 	case 0x0100:
-		sprintf(szMessage, "A.9A0 OverTravel (Amp = %s, ErrorCode = 0-100)", szAxisName);
+		sprintf_s(szMessage, _countof(szMessage), "A.9A0 OverTravel (Amp = %s, ErrorCode = 0-100)", szAxisName);
 		break;
 	default:
-		sprintf(szMessage, "Unknown Error (Amp = %s, ErrorCode = 0-001)", szAxisName);
+		sprintf_s(szMessage, _countof(szMessage), "Unknown Error (Amp = %s, ErrorCode = 0-001)", szAxisName);
 		break;
 	}
 
