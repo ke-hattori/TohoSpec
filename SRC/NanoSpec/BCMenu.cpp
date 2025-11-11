@@ -1444,7 +1444,7 @@ BOOL BCMenu::LoadToolbar(UINT nToolBar)
 		imglist.Create(m_iconX,m_iconY,ILC_COLORDDB|ILC_MASK,1,1);
 		if(AddBitmapToImageList(&imglist,nToolBar)){
 			returnflag=TRUE;
-			for(int i=0;i<bar.GetCount();++i){
+			for(INT_PTR i=0;i<bar.GetCount();++i){
 				nID = bar.GetItemID(i);
 				if(nID && GetMenuState(nID, MF_BYCOMMAND)
 					!=0xFFFFFFFF){
@@ -2250,7 +2250,7 @@ void BCMenu::UnSetBitmapBackground(void)
 // Author : Robert Edward Caldecott
 void BCMenu::AddFromToolBar(CToolBar* pToolBar, int nResourceID)
 {
-	for (int i = 0; i < pToolBar->GetCount(); i++) {
+	for (INT_PTR i = 0; i < pToolBar->GetCount(); i++) {
 		UINT nID = pToolBar->GetItemID(i);
 		// See if this toolbar option
 		// appears as a command on this
@@ -2447,7 +2447,7 @@ BOOL BCMenu::RemoveMenu(UINT uiId,UINT nFlags)
 			BCMenu* pSubMenu = (BCMenu*) GetSubMenu(uiId);
 			if(NULL==pSubMenu){
 				UINT uiCommandId = GetMenuItemID(uiId);
-				for(int i=0;i<m_MenuList.GetSize(); i++){
+				for(INT_PTR i=0;i<m_MenuList.GetSize(); i++){
 					if(m_MenuList[i]->nID==uiCommandId){
 						delete m_MenuList.GetAt(i);
 						m_MenuList.RemoveAt(i);
@@ -2510,7 +2510,7 @@ BOOL BCMenu::DeleteMenu(UINT uiId,UINT nFlags)
 			BCMenu* pSubMenu = (BCMenu*) GetSubMenu(uiId);
 			if(NULL==pSubMenu){
 				UINT uiCommandId = GetMenuItemID(uiId);
-				for(int i=0;i<m_MenuList.GetSize(); i++){
+				for(INT_PTR i=0;i<m_MenuList.GetSize(); i++){
 					if(m_MenuList[i]->nID==uiCommandId){
 						delete m_MenuList.GetAt(i);
 						m_MenuList.RemoveAt(i);

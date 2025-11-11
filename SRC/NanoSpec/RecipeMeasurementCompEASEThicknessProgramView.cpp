@@ -169,7 +169,7 @@ void CRecipeMeasurementCompEASEThicknessProgramView::InitCombo_CompEASERecipe()
 	bRet = MEAS_CompEASEHead_ListRecipes(&pListRecipes);
 	if ( bRet ) {
 		if ( pListRecipes != NULL ) {
-			for ( int i = 0; i < pListRecipes->GetSize(); i++ ) {
+			for ( INT_PTR i = 0; i < pListRecipes->GetSize(); i++ ) {
 				strBuffer = pListRecipes->GetAt(i);
 				strBuffer.Replace(".recipe", "");
 				pCombo->AddString(strBuffer);

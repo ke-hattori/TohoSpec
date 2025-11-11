@@ -30,7 +30,7 @@ CStatusBarEx::CStatusBarEx()
 // RETURN  :
 CStatusBarEx::~CStatusBarEx()
 {
-	for(int i=0 ; i<m_Panes.GetSize() ; i++)
+	for(INT_PTR i=0 ; i<m_Panes.GetSize() ; i++)
 		delete m_Panes[i];
 	m_Panes.RemoveAll();
 }
