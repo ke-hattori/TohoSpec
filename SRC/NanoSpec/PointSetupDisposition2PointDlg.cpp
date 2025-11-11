@@ -540,7 +540,7 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 		//原点位置対応
 		long lMin,lMax;
 		GetPosRangeX(&lMin,&lMax);
-		sprintf(szBuff, l_strBuffer, lMin, lMax);
+		sprintf_s(szBuff, _countof(szBuff), l_strBuffer, lMin, lMax);
 		MessageBox(szBuff, l_strTitle, MB_OK|MB_ICONSTOP);
 		return FALSE;
 	}
@@ -555,7 +555,7 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 		//原点位置対応
 		long lMin,lMax;
 		GetPosRangeY(&lMin,&lMax);
-		sprintf(szBuff, l_strBuffer, lMin, lMax);
+		sprintf_s(szBuff, _countof(szBuff), l_strBuffer, lMin, lMax);
 		MessageBox(szBuff, l_strTitle, MB_OK|MB_ICONSTOP);
 		return FALSE;
 	}
@@ -570,7 +570,7 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 		//原点位置対応
 		long lMin,lMax;
 		GetPosRangeX(&lMin,&lMax);
-		sprintf(szBuff, l_strBuffer, lMin, lMax);
+		sprintf_s(szBuff, _countof(szBuff), l_strBuffer, lMin, lMax);
 		MessageBox(szBuff, l_strTitle, MB_OK|MB_ICONSTOP);
 		return FALSE;
 	}
@@ -585,7 +585,7 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 		//原点位置対応
 		long lMin,lMax;
 		GetPosRangeY(&lMin,&lMax);
-		sprintf(szBuff, l_strBuffer, lMin, lMax);
+		sprintf_s(szBuff, _countof(szBuff), l_strBuffer, lMin, lMax);
 		MessageBox(szBuff, l_strTitle, MB_OK|MB_ICONSTOP);
 		return FALSE;
 	}
@@ -600,7 +600,7 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 		//原点位置対応
 		long lMin,lMax;
 		GetPosRangeX(&lMin,&lMax);
-		sprintf(szBuff, l_strBuffer, lMin, lMax);
+		sprintf_s(szBuff, _countof(szBuff), l_strBuffer, lMin, lMax);
 		MessageBox(szBuff, l_strTitle, MB_OK|MB_ICONSTOP);
 		return FALSE;
 	}
@@ -615,7 +615,7 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 		//原点位置対応
 		long lMin,lMax;
 		GetPosRangeY(&lMin,&lMax);
-		sprintf(szBuff, l_strBuffer, lMin, lMax);
+		sprintf_s(szBuff, _countof(szBuff), l_strBuffer, lMin, lMax);
 		MessageBox(szBuff, l_strTitle, MB_OK|MB_ICONSTOP);
 		return FALSE;
 	}
@@ -630,7 +630,7 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 		//原点位置対応
 		long lMin,lMax;
 		GetPosRangeX(&lMin,&lMax);
-		sprintf(szBuff, l_strBuffer, lMin, lMax);
+		sprintf_s(szBuff, _countof(szBuff), l_strBuffer, lMin, lMax);
 		MessageBox(szBuff, l_strTitle, MB_OK|MB_ICONSTOP);
 		return FALSE;
 	}
@@ -645,7 +645,7 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 		//原点位置対応
 		long lMin,lMax;
 		GetPosRangeY(&lMin,&lMax);
-		sprintf(szBuff, l_strBuffer, lMin, lMax);
+		sprintf_s(szBuff, _countof(szBuff), l_strBuffer, lMin, lMax);
 		MessageBox(szBuff, l_strTitle, MB_OK|MB_ICONSTOP);
 		return FALSE;
 	}
@@ -734,7 +734,7 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 		if(m_iCountX > (SCAN_POINT_MAX - m_iNumScans)){
 			LoadStringML(IDS_MAXIMUM_NUMBER_CAN_REGISTERED, l_strBuffer, "The Maximum Number which can be Registered is %d.");
 			LoadStringML(IDS_TITLE_POINT_SETUP_DISPOSITION, l_strTitle, "POINT SETUP DISPOSITION");
-			sprintf(szBuff, l_strBuffer, SCAN_POINT_MAX);
+			sprintf_s(szBuff, _countof(szBuff), l_strBuffer, SCAN_POINT_MAX);
 			MessageBox(szBuff, l_strTitle, MB_OK|MB_ICONSTOP);
 			return FALSE;
 		}
@@ -745,7 +745,7 @@ BOOL CPointSetupDisposition2PointDlg::CheckData()
 		if(m_iCountX * m_iCountY > (SCAN_POINT_MAX - m_iNumScans)){
 			LoadStringML(IDS_MAXIMUM_NUMBER_CAN_REGISTERED, l_strBuffer, "The Maximum Number which can be Registered is %d.");
 			LoadStringML(IDS_TITLE_POINT_SETUP_DISPOSITION, l_strTitle, "POINT SETUP DISPOSITION");
-			sprintf(szBuff, l_strBuffer, SCAN_POINT_MAX);
+			sprintf_s(szBuff, _countof(szBuff), l_strBuffer, SCAN_POINT_MAX);
 			MessageBox(szBuff, l_strTitle, MB_OK|MB_ICONSTOP);
 			return FALSE;
 		}
