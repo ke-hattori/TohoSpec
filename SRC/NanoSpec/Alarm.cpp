@@ -235,10 +235,10 @@ void CAlarm::AlarmOccurrence(int Index)
 	strcpy(m_AlarmStatus[Index].OccurrenceTime, time.Format("%Y%m%d%H%M%S").GetBuffer(0));
 
 	///// Level /////
-	strcpy_s(AlarmHis.Level, _countof(AlarmHis.Level), (m_AlarmList[Index].Level == 'A') ? "ALARM" : "WARN");
+	strcpy(AlarmHis.Level, (m_AlarmList[Index].Level == 'A') ? "ALARM" : "WARN");
 
 	///// Set /////
-	strcpy_s(AlarmHis.Set, _countof(AlarmHis.Set), "SET");
+	strcpy(AlarmHis.Set, "SET");
 
 	///// ID /////
 	sprintf(AlarmHis.Id, "%04d", m_AlarmList[Index].Id);
@@ -322,7 +322,7 @@ void CAlarm::AlarmRelease(int Index)
 	strcpy(m_AlarmStatus[Index].OccurrenceTime, time.Format("%Y%m%d%H%M%S").GetBuffer(0));
 
 	///// Level /////
-	strcpy_s(AlarmHis.Level, _countof(AlarmHis.Level), (m_AlarmList[Index].Level == 'A') ? "ALARM" : "WARN");
+	strcpy(AlarmHis.Level, (m_AlarmList[Index].Level == 'A') ? "ALARM" : "WARN");
 
 	///// Set /////
 	strcpy(AlarmHis.Set, "RST");
