@@ -1,4 +1,4 @@
-// AlarmLogDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// AlarmLogDlg.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -24,7 +24,7 @@ static char THIS_FILE[] = __FILE__;
 #define ALARM_DIALOG_MAX 1000
 
 /////////////////////////////////////////////////////////////////////////////
-// CAlarmLogDlg ƒ_ƒCƒAƒƒO                                                 //
+// CAlarmLogDlg ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½O                                                 //
 //                                                                         //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -34,7 +34,7 @@ CAlarmLogDlg::CAlarmLogDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CAlarmLogDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CAlarmLogDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ð’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ï¿½ï¿½ï¿½ï¿½ - ClassWizard ï¿½Í‚ï¿½ï¿½ÌˆÊ’uï¿½Éƒ}ï¿½bï¿½sï¿½ï¿½ï¿½Oï¿½pï¿½Ìƒ}ï¿½Nï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½Ü‚ï¿½ï¿½Ííœï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	//}}AFX_DATA_INIT
 }
 
@@ -44,7 +44,7 @@ void CAlarmLogDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CAlarmLogDlg)
-		// ƒƒ‚ - ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒ}ƒbƒsƒ“ƒO—p‚Ìƒ}ƒNƒ‚ð’Ç‰Á‚Ü‚½‚Ííœ‚µ‚Ü‚·B
+		// ï¿½ï¿½ï¿½ï¿½ - ClassWizard ï¿½Í‚ï¿½ï¿½ÌˆÊ’uï¿½Éƒ}ï¿½bï¿½sï¿½ï¿½ï¿½Oï¿½pï¿½Ìƒ}ï¿½Nï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½Ü‚ï¿½ï¿½Ííœï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	//}}AFX_DATA_MAP
 	DDX_Control(pDX, IDOK, m_OkButton);
 	DDX_Control(pDX, IDCANCEL, m_CancelButton);
@@ -58,7 +58,7 @@ BEGIN_MESSAGE_MAP(CAlarmLogDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CAlarmLogDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰                                        //
+// CAlarmLogDlg ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½                                        //
 //                                                                         //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -85,8 +85,8 @@ BOOL CAlarmLogDlg::OnInitDialog()
 	/// Restore /////
 	Restore(g_szLog_Dir, ALARM_LOG_NAME, ALARM_LOG_MAX, ALARM_DIALOG_MAX);
 
-	return TRUE;  // ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ðÝ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
-				  // —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
+	return TRUE;  // ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Éƒtï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½Ý’è‚µï¿½È‚ï¿½ï¿½Æ‚ï¿½ï¿½Aï¿½ß‚ï¿½lï¿½ï¿½ TRUE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
+				  // ï¿½ï¿½O: OCX ï¿½vï¿½ï¿½ï¿½pï¿½eï¿½B ï¿½yï¿½[ï¿½Wï¿½Ì–ß‚ï¿½lï¿½ï¿½ FALSE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -123,12 +123,12 @@ void CAlarmLogDlg::InitList()
 ////	  "ID",
 ////	  "Alarm",
 //		"",
-//		  "“ú•t",
-//		  "ŽžŠÔ",
-//		  "ƒŒƒxƒ‹",
-//		  "ƒZƒbƒg",
+//		  "ï¿½ï¿½ï¿½t",
+//		  "ï¿½ï¿½ï¿½ï¿½",
+//		  "ï¿½ï¿½ï¿½xï¿½ï¿½",
+//		  "ï¿½Zï¿½bï¿½g",
 //		"ID",
-//		  "ƒAƒ‰[ƒ€“à—e",
+//		  "ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½e",
 //	  };
 	LPTSTR Item_ENU[] = {
 	  "",
@@ -141,12 +141,12 @@ void CAlarmLogDlg::InitList()
 	};
 	LPTSTR Item_JPN[] = {
 		"",
-		"“ú•t",
-		"ŽžŠÔ",
-		"ƒŒƒxƒ‹",
-		"ƒZƒbƒg",
+		"ï¿½ï¿½ï¿½t",
+		"ï¿½ï¿½ï¿½ï¿½",
+		"ï¿½ï¿½ï¿½xï¿½ï¿½",
+		"ï¿½Zï¿½bï¿½g",
 		"ID",
-		"ƒAƒ‰[ƒ€“à—e",
+		"ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½e",
 	};
 //Saiki 20090527 Change <-----
 
@@ -301,7 +301,7 @@ void CAlarmLogDlg::Restore(char* Path, char* filename,int LogMax,int HisMax)
 		}
 
 		file.SeekToEnd();
-		FilePointer = file.GetPosition();
+		FilePointer = static_cast<long>(file.GetPosition());
 
 		///// check the number of terminator /////
 		TerminatorNum = 0;
