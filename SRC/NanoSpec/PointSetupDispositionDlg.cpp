@@ -405,8 +405,8 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 	if(!IsPosInStageSizeX(dValueBuff)){
 	//2009.09.30 bagus se --}--
 		// Kojika 20090601 Change
-//		sprintf(szBuff, "Out of the Size Location of X.\n(%.3lf - %.3lf)", -(m_dSampleSizeX/2) / MICROMETRE, (m_dSampleSizeX/2) / MICROMETRE);
-//		sprintf(szBuff, "Xの位置座標がサイズの外にあります.\n(%.3lf - %.3lf)", -(m_dSampleSizeX/2) / MICROMETRE, (m_dSampleSizeX/2) / MICROMETRE);
+//		sprintf_s(szBuff, _countof(szBuff), "Out of the Size Location of X.\n(%.3lf - %.3lf)", -(m_dSampleSizeX/2) / MICROMETRE, (m_dSampleSizeX/2) / MICROMETRE);
+//		sprintf_s(szBuff, _countof(szBuff), "Xの位置座標がサイズの外にあります.\n(%.3lf - %.3lf)", -(m_dSampleSizeX/2) / MICROMETRE, (m_dSampleSizeX/2) / MICROMETRE);
 //		MessageBox(szBuff, "POINT SETUP DISPOSITION", MB_OK|MB_ICONSTOP);
 		LoadStringML(IDS_OUT_SIZE_LOCATION_X, l_strBuffer, "Out of the Size Location of X.\n(%.3lf - %.3lf)");
 		LoadStringML(IDS_TITLE_POINT_SETUP_DISPOSITION, l_strTitle, "POINT SETUP DISPOSITION");
@@ -414,8 +414,8 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 		//原点位置対応
 		long lMin,lMax;
 		GetPosRangeX(&lMin,&lMax);
-		//sprintf(szBuff, l_strBuffer, -(m_dSampleSizeX/2) / MICROMETRE, (m_dSampleSizeX/2) / MICROMETRE);
-		sprintf(szBuff, l_strBuffer, lMin, lMax);
+		//sprintf_s(szBuff, _countof(szBuff), l_strBuffer, -(m_dSampleSizeX/2) / MICROMETRE, (m_dSampleSizeX/2) / MICROMETRE);
+		sprintf_s(szBuff, _countof(szBuff), l_strBuffer, lMin, lMax);
 		//2009.09.30 bagus se --}--
 		MessageBox(szBuff, l_strTitle, MB_OK|MB_ICONSTOP);
 		// Kojika 20090601 Change End
@@ -431,8 +431,8 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 	if(!IsPosInStageSizeY(dValueBuff)){
 	//2009.09.30 bagus se --}--
 		// Kojika 20090601 Change
-//		sprintf(szBuff, "Out of the Size Location of Y.\n(%.3lf - %.3lf)", -(m_dSampleSizeY/2) / MICROMETRE, (m_dSampleSizeY/2) / MICROMETRE );
-//		sprintf(szBuff, "Ｙの位置座標がサイズの外にあります.\n(%.3lf - %.3lf)", -(m_dSampleSizeY/2) / MICROMETRE, (m_dSampleSizeY/2) / MICROMETRE );
+//		sprintf_s(szBuff, _countof(szBuff), "Out of the Size Location of Y.\n(%.3lf - %.3lf)", -(m_dSampleSizeY/2) / MICROMETRE, (m_dSampleSizeY/2) / MICROMETRE );
+//		sprintf_s(szBuff, _countof(szBuff), "Ｙの位置座標がサイズの外にあります.\n(%.3lf - %.3lf)", -(m_dSampleSizeY/2) / MICROMETRE, (m_dSampleSizeY/2) / MICROMETRE );
 //		MessageBox(szBuff, "POINT SETUP DISPOSITION", MB_OK|MB_ICONSTOP);
 		LoadStringML(IDS_OUT_SIZE_LOCATION_Y, l_strBuffer, "Out of the Size Location of Y.\n(%.3lf - %.3lf)");
 		LoadStringML(IDS_TITLE_POINT_SETUP_DISPOSITION, l_strTitle, "POINT SETUP DISPOSITION");
@@ -440,8 +440,8 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 		//原点位置対応
 		long lMin,lMax;
 		GetPosRangeY(&lMin,&lMax);
-		//sprintf(szBuff, l_strBuffer, -(m_dSampleSizeY/2) / MICROMETRE, (m_dSampleSizeY/2) / MICROMETRE );
-		sprintf(szBuff, l_strBuffer, lMin, lMax);
+		//sprintf_s(szBuff, _countof(szBuff), l_strBuffer, -(m_dSampleSizeY/2) / MICROMETRE, (m_dSampleSizeY/2) / MICROMETRE );
+		sprintf_s(szBuff, _countof(szBuff), l_strBuffer, lMin, lMax);
 		//2009.09.30 bagus se --}--
 
 		MessageBox(szBuff, l_strTitle, MB_OK|MB_ICONSTOP);
@@ -468,8 +468,8 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 	if(!IsPosInStageSizeX(dValueBuff)){
 	//2009.09.30 bagus se --}--
 		// Kojika 20090601 Change
-//		sprintf(szBuff, "Out of the Pitch Range of X.\n(%.3lf - %.3lf)", -(m_dSampleSizeX/2) / MICROMETRE,(m_dSampleSizeX/2) / MICROMETRE);
-//		sprintf(szBuff, "Ｘの範囲が、ピッチの外にあります.\n(%.3lf - %.3lf)", -(m_dSampleSizeX/2) / MICROMETRE,(m_dSampleSizeX/2) / MICROMETRE);
+//		sprintf_s(szBuff, _countof(szBuff), "Out of the Pitch Range of X.\n(%.3lf - %.3lf)", -(m_dSampleSizeX/2) / MICROMETRE,(m_dSampleSizeX/2) / MICROMETRE);
+//		sprintf_s(szBuff, _countof(szBuff), "Ｘの範囲が、ピッチの外にあります.\n(%.3lf - %.3lf)", -(m_dSampleSizeX/2) / MICROMETRE,(m_dSampleSizeX/2) / MICROMETRE);
 //		MessageBox(szBuff, "POINT SETUP DISPOSITION", MB_OK|MB_ICONSTOP);
 		LoadStringML(IDS_OUT_PITCH_RANGE_X, l_strBuffer, "Out of the Pitch Range of X.\n(%.3lf - %.3lf)");
 		LoadStringML(IDS_TITLE_POINT_SETUP_DISPOSITION, l_strTitle, "POINT SETUP DISPOSITION");
@@ -477,8 +477,8 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 		//原点位置対応
 		long lMin,lMax;
 		GetPosRangeX(&lMin,&lMax);
-		//sprintf(szBuff, l_strBuffer, -(m_dSampleSizeX/2) / MICROMETRE, (m_dSampleSizeX/2) / MICROMETRE);
-		sprintf(szBuff, l_strBuffer, lMin, lMax);
+		//sprintf_s(szBuff, _countof(szBuff), l_strBuffer, -(m_dSampleSizeX/2) / MICROMETRE, (m_dSampleSizeX/2) / MICROMETRE);
+		sprintf_s(szBuff, _countof(szBuff), l_strBuffer, lMin, lMax);
 		//2009.09.30 bagus se --}--
 		MessageBox(szBuff, l_strTitle, MB_OK|MB_ICONSTOP);
 		// Kojika 20090601 Change End
@@ -504,8 +504,8 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 	if(!IsPosInStageSizeY(dValueBuff)){
 	//2009.09.30 bagus se --}--
 		// Kojika 20090601 Change
-//		sprintf(szBuff, "Out of the Pitch Range of Y.\n(%.3lf - %.3lf)", -(m_dSampleSizeY/2) / MICROMETRE, (m_dSampleSizeY/2) / MICROMETRE);
-//		sprintf(szBuff, "Ｙの範囲が、ピッチの外にあります..\n(%.3lf - %.3lf)", -(m_dSampleSizeY/2) / MICROMETRE, (m_dSampleSizeY/2) / MICROMETRE);
+//		sprintf_s(szBuff, _countof(szBuff), "Out of the Pitch Range of Y.\n(%.3lf - %.3lf)", -(m_dSampleSizeY/2) / MICROMETRE, (m_dSampleSizeY/2) / MICROMETRE);
+//		sprintf_s(szBuff, _countof(szBuff), "Ｙの範囲が、ピッチの外にあります..\n(%.3lf - %.3lf)", -(m_dSampleSizeY/2) / MICROMETRE, (m_dSampleSizeY/2) / MICROMETRE);
 //		MessageBox(szBuff, "POINT SETUP DISPOSITION", MB_OK|MB_ICONSTOP);
 		LoadStringML(IDS_OUT_PITCH_RANGE_Y, l_strBuffer, "Out of the Pitch Range of Y.\n(%.3lf - %.3lf)");
 		LoadStringML(IDS_TITLE_POINT_SETUP_DISPOSITION, l_strTitle, "POINT SETUP DISPOSITION");
@@ -513,8 +513,8 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 		//原点位置対応
 		long lMin,lMax;
 		GetPosRangeY(&lMin,&lMax);
-		//sprintf(szBuff, l_strBuffer, -(m_dSampleSizeY/2) / MICROMETRE, (m_dSampleSizeY/2) / MICROMETRE );
-		sprintf(szBuff, l_strBuffer, lMin, lMax);
+		//sprintf_s(szBuff, _countof(szBuff), l_strBuffer, -(m_dSampleSizeY/2) / MICROMETRE, (m_dSampleSizeY/2) / MICROMETRE );
+		sprintf_s(szBuff, _countof(szBuff), l_strBuffer, lMin, lMax);
 		//2009.09.30 bagus se --}--
 		MessageBox(szBuff, l_strTitle, MB_OK|MB_ICONSTOP);
 		// Kojika 20090601 Change End
@@ -590,12 +590,12 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 		}*/
 		if(m_iCountX > (SCAN_POINT_MAX - m_iNumScans)){
 			// Kojika 20090601 Change
-//			sprintf(szBuff, "The Maximum Number which can be Registered is %d.", SCAN_POINT_MAX);
-//			sprintf(szBuff, "最大登録数は%dです.", SCAN_POINT_MAX);
+//			sprintf_s(szBuff, _countof(szBuff), "The Maximum Number which can be Registered is %d.", SCAN_POINT_MAX);
+//			sprintf_s(szBuff, _countof(szBuff), "最大登録数は%dです.", SCAN_POINT_MAX);
 //			MessageBox(szBuff, "POINT SETUP DISPOSITION", MB_OK|MB_ICONSTOP);
 			LoadStringML(IDS_MAXIMUM_NUMBER_CAN_REGISTERED, l_strBuffer, "The Maximum Number which can be Registered is %d.");
 			LoadStringML(IDS_TITLE_POINT_SETUP_DISPOSITION, l_strTitle, "POINT SETUP DISPOSITION");
-			sprintf(szBuff, l_strBuffer, SCAN_POINT_MAX);
+			sprintf_s(szBuff, _countof(szBuff), l_strBuffer, SCAN_POINT_MAX);
 			MessageBox(szBuff, l_strTitle, MB_OK|MB_ICONSTOP);
 			// Kojika 20090601 Change End
 			return FALSE;
@@ -606,12 +606,12 @@ BOOL CPointSetupDispositionDlg::CheckData(CGridCtrl* pGrid)
 	//RectAngleモードの場合、総ポイント数が最大を越えないようにする
 		if(m_iCountX * m_iCountY > (SCAN_POINT_MAX - m_iNumScans)){
 			// Kojika 20090601 Change
-//			sprintf(szBuff, "The Maximum Number which can be Registered is %d.", SCAN_POINT_MAX);
-//			sprintf(szBuff, "最大登録数は%dです.", SCAN_POINT_MAX);
+//			sprintf_s(szBuff, _countof(szBuff), "The Maximum Number which can be Registered is %d.", SCAN_POINT_MAX);
+//			sprintf_s(szBuff, _countof(szBuff), "最大登録数は%dです.", SCAN_POINT_MAX);
 //			MessageBox(szBuff, "POINT SETUP DISPOSITION", MB_OK|MB_ICONSTOP);
 			LoadStringML(IDS_MAXIMUM_NUMBER_CAN_REGISTERED, l_strBuffer, "The Maximum Number which can be Registered is %d.");
 			LoadStringML(IDS_TITLE_POINT_SETUP_DISPOSITION, l_strTitle, "POINT SETUP DISPOSITION");
-			sprintf(szBuff, l_strBuffer, SCAN_POINT_MAX);
+			sprintf_s(szBuff, _countof(szBuff), l_strBuffer, SCAN_POINT_MAX);
 			MessageBox(szBuff, l_strTitle, MB_OK|MB_ICONSTOP);
 			// Kojika 20090601 Change End
 			return FALSE;
