@@ -806,7 +806,7 @@ void CRecipeDistanceStageProgramView::OnDeleteButton()
 	}
 	LoadStringML(IDS_POINT_DATA_NO, strBuffer1, "Is the Point Data of No. ");
 	LoadStringML(IDS_DELETE_POINT_DATA, strBuffer2, " deleted?");
-	sprintf(szBuff, "%s%d%s", strBuffer1, iRow, strBuffer2);
+	sprintf(szBuff, "%s%d%s", (LPCTSTR)strBuffer1, iRow, (LPCTSTR)strBuffer2);
 	if( MessageBox(szBuff, m_strCaption, MB_YESNO | MB_ICONQUESTION) !=IDYES ) {
 		return;
 	}

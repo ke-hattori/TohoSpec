@@ -1332,7 +1332,7 @@ void LoadNanoSpecIni(int iIniFile)
 
 // 2009.09.29 bagus SE --{--
 	if (iIniFile == SYSTEM_SR_INI_FILE) {
-		NanoSysData.SrConfig.wTrShutterMoveWaitTime = lg_TrShutterMoveWaitTime * 1000;
+		NanoSysData.SrConfig.wTrShutterMoveWaitTime = static_cast<WORD>(lg_TrShutterMoveWaitTime * 1000);
 	}
 // 2009.09.29 bagus SE --}--
 
@@ -1396,7 +1396,7 @@ void LoadNanoSpecIni(int iIniFile)
 			NanoSysData.SrConfig.dUvGain					= 0.000;
 			NanoSysData.SrConfig.bTransmittance				= FALSE;
 			NanoSysData.SrConfig.iTrUseLensNo				= 0;	// Turret No:1
-			NanoSysData.SrConfig.wTrShutterMoveWaitTime		= 0.000;
+			NanoSysData.SrConfig.wTrShutterMoveWaitTime		= static_cast<WORD>(0);
 			NanoSysData.SrConfig.bGantryType				= FALSE;
 			NanoSysData.SrConfig.wGantryNumOfMeasPoint		= 1;
 			NanoSysData.SrConfig.bDistance					= FALSE;
@@ -1636,7 +1636,7 @@ void SaveNanoSpecIni(int iIniFile)
 			if (NanoSysData.StressConfig.Line[nIniStressLine].dwLiftPinNumberOfLn < 1)
 				continue;
 
-			for(nIniStressSection = 0;nIniStressSection < NanoSysData.StressConfig.Line[nIniStressLine].dwLiftPinNumberOfLn - 1;nIniStressSection++){
+			for(nIniStressSection = 0;static_cast<DWORD>(nIniStressSection) < NanoSysData.StressConfig.Line[nIniStressLine].dwLiftPinNumberOfLn - 1;nIniStressSection++){
 // 2009.09.17 bagus SE --}--
 				sprintf(szBuf,"L%dS%d_ScanStart_X",nIniStressLine+1,nIniStressSection+1);
 				wsprintf(buff,"%ld", NanoSysData.StressConfig.Line[nIniStressLine].SectPos[nIniStressSection].lScanStartPosX);

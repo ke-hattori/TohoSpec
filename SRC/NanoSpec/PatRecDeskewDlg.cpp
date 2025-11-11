@@ -713,9 +713,9 @@ CString strTitle, strMsg, strGrp, strBuffer;
 		LoadStringML(IDS_SITE_PATTERN_SET, strTitle, "Site Pattern Setting");
 		LoadStringML(IDS_PATTERN_TEACH_RECT, strMsg, "Pattern Teaching Rect");
 		LoadStringML(IDS_SITE_PATTERN_GRP, strGrp, "Site Pattern");
-		sprintf(m_szTitle, "%s",	strTitle);
-		sprintf(m_szMessage, "%s",	strMsg);
-		sprintf(m_szGroup, "%s",	strGrp);
+		sprintf(m_szTitle, "%s",	(LPCTSTR)strTitle);
+		sprintf(m_szMessage, "%s",	(LPCTSTR)strMsg);
+		sprintf(m_szGroup, "%s",	(LPCTSTR)strGrp);
 		//Saiki 20090530 Change <-----
 
 		GetDlgItem(IDC_OFFSET_X_LABEL)->ShowWindow(SW_SHOW);
@@ -733,9 +733,9 @@ CString strTitle, strMsg, strGrp, strBuffer;
 		LoadStringML(IDS_DESKEW_SETTING, strTitle, "Deskew Setting");
 		LoadStringML(IDS_PATTERN_MARK_TEACH_RECT, strMsg, "Pattern Mark Teaching Rect");
 		LoadStringML(IDS_DESKEW_GRP, strGrp, "Deskew");
-		sprintf(m_szTitle, "%s",	strTitle);
-		sprintf(m_szMessage, "%s",	strMsg);
-		sprintf(m_szGroup, "%s",	strGrp);
+		sprintf(m_szTitle, "%s",	(LPCTSTR)strTitle);
+		sprintf(m_szMessage, "%s",	(LPCTSTR)strMsg);
+		sprintf(m_szGroup, "%s",	(LPCTSTR)strGrp);
 		//Saiki 20090530 Change <-----
 
 		GetDlgItem(IDC_OFFSET_X_LABEL)->ShowWindow(SW_HIDE);
