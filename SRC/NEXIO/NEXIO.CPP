@@ -21,9 +21,9 @@
 //Saiki 20130812 Add ----->
 #include "nexiotyped.h"
 //Saiki 20130812 Add <-----
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) -->
 #include "nexiotypee.h"
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) <--
 #pragma comment(lib, "apidio.lib")
 #ifdef _DEBUG
 #pragma comment(lib, "dtnsnexui.lib")
@@ -74,9 +74,9 @@ static UINT idd_TYPE[NEXTRA_TYPE_MAX] =
 //==============================================================================================
 DEFINE_NEXIOPROCTYPE(cDioInterface*, nexioGetDioInterface, (void))
 
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- { ---------- */
+/* added 2014.12.22 hmenjo DLL ï¿½ï¿½ï¿½dï¿½Nï¿½ï¿½ï¿½hï¿½~ ---------- { ---------- */
 #include <DllMutex.hxx>
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- } ---------- */
+/* added 2014.12.22 hmenjo DLL ï¿½ï¿½ï¿½dï¿½Nï¿½ï¿½ï¿½hï¿½~ ---------- } ---------- */
 BOOL APIENTRY DllMain( HANDLE hModule,
 					   DWORD  ul_reason_for_call,
 					   LPVOID lpReserved
@@ -84,11 +84,11 @@ BOOL APIENTRY DllMain( HANDLE hModule,
 {
 	switch ( ul_reason_for_call ) {
 	case DLL_PROCESS_ATTACH:
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- { ---------- */
+/* added 2014.12.22 hmenjo DLL ï¿½ï¿½ï¿½dï¿½Nï¿½ï¿½ï¿½hï¿½~ ---------- { ---------- */
 		if (FALSE == DllMutexCreate(_T("NEXIO"))) {
 			return TRUE;
 		}
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- } ---------- */
+/* added 2014.12.22 hmenjo DLL ï¿½ï¿½ï¿½dï¿½Nï¿½ï¿½ï¿½hï¿½~ ---------- } ---------- */
 		_RPTF0(_CRT_WARN, "NEXIO - DLL_PROCESS_ATTACH\n");
 		if ( hInstance == NULL ) {
 			hInstance = (HINSTANCE) hModule;
@@ -112,11 +112,11 @@ BOOL APIENTRY DllMain( HANDLE hModule,
 			pInterface = new cDioTypeD();
 			break;
 //Saiki 20130812 Add <-----
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) -->
 		case NEXTRA_TYPEE:
 			pInterface = new cDioTypeE();
 			break;
-// 2013.11.07 Bagus Mod (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Mod (TohoSpecï¿½Î‰ï¿½) <--
 		default:
 			_ASSERT(FALSE);
 			break;
@@ -132,9 +132,9 @@ BOOL APIENTRY DllMain( HANDLE hModule,
 			pInterface = NULL;
 		}
 		_RPTF0(_CRT_WARN, "NEXIO - DLL_PROCESS_DETACH\n");
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- { ---------- */
+/* added 2014.12.22 hmenjo DLL ï¿½ï¿½ï¿½dï¿½Nï¿½ï¿½ï¿½hï¿½~ ---------- { ---------- */
 		DllMutexRelease();
-/* added 2014.12.22 hmenjo DLL ‘½d‹N“®–h~ ---------- } ---------- */
+/* added 2014.12.22 hmenjo DLL ï¿½ï¿½ï¿½dï¿½Nï¿½ï¿½ï¿½hï¿½~ ---------- } ---------- */
 		break;
 	}
 	return TRUE;
@@ -152,14 +152,14 @@ BOOL Initialize(HWND hwnd)
 
 		if ( hwndMonitor == NULL ) {
 			if ( Dio.IsValidModule() ) {
-				// ƒƒCƒ“‰æ–Êì¬
+				// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½Êì¬
 				HRSRC hRsrc  = FindResource(Dio.GetModuleHandle(), MAKEINTRESOURCE(IDD_DIO_MONITOR_DIALOG), RT_DIALOG);
 				HGLOBAL hGlobal = LoadResource(Dio.GetModuleHandle(), hRsrc);
 				LPDLGTEMPLATE lpDlgTmp = (LPDLGTEMPLATE) LockResource(hGlobal);
 				hwndMonitor = CreateDialogIndirect(hInstance, lpDlgTmp, NULL, (DLGPROC) DlgProc);
 				UnlockResource(hRsrc);
 				FreeResource(hRsrc);
-				// DI/Oƒ|[ƒgq‰æ–Êì¬
+				// DI/Oï¿½|ï¿½[ï¿½gï¿½qï¿½ï¿½Êì¬
 				InitializeTabCtrl(GetDlgItem(hwndMonitor, IDC_TABCTRL));
 				dwProcessId = GetCurrentProcessId();
 			}
@@ -182,8 +182,8 @@ void InitializeTabCtrl(HWND hwndTab)
 	TCITEM			tcItem;
 	UINT			nID;
 
-	// ‘Š‘ÎƒpƒXİ’è
-	// ‚±‚ê‚ª‘Š‘ÎƒpƒX‚ªİ’è‚³‚ê‚½NEXIO.TXTƒtƒ@ƒCƒ‹‚¾I
+	// ï¿½ï¿½ï¿½Îƒpï¿½Xï¿½İ’ï¿½
+	// ï¿½ï¿½ï¿½ê‚ªï¿½ï¿½ï¿½Îƒpï¿½Xï¿½ï¿½ï¿½İ’è‚³ï¿½ê‚½NEXIO.TXTï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½I
 	process_directory::make(szPath, NEXIO_TXTFILE_NAME);
 
 	for ( nNumberOfPages = 0; nNumberOfPages < Dio.GetNumSlots(); nNumberOfPages++ ) {
@@ -192,7 +192,7 @@ void InitializeTabCtrl(HWND hwndTab)
 		lpDlgTmp = (LPDLGTEMPLATE) LockResource(hGlobal);
 		hwndTabPages[nNumberOfPages] = CreateDialogIndirect(hInstance, lpDlgTmp, hwndMonitor, (DLGPROC) TabProc);
 
-		// ƒ^ƒu‚Ö‘}“ü
+		// ï¿½^ï¿½uï¿½Ö‘}ï¿½ï¿½
 		_stprintf(szAppName, "CN%d", nNumberOfPages + 2);
 		GetPrivateProfileString(
 			szAppName,
@@ -209,9 +209,9 @@ void InitializeTabCtrl(HWND hwndTab)
 		UnlockResource(hRsrc);
 		FreeResource(hRsrc);
 
-		// NEXIO.TXTƒtƒ@ƒCƒ‹‚©‚ç“Ç‚İ‚ñ‚¾ƒeƒLƒXƒg‚ğŠeƒ^ƒu‚Ìƒ{ƒ^ƒ“ƒeƒLƒXƒg‚ÉXV
-		// ƒtƒ@ƒCƒ‹‚ª–³‚©‚Á‚½ê‡‚Í‘z’èŠOI
-		// â‘Î‚É—pˆÓ‚·‚é–
+		// NEXIO.TXTï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç‚İï¿½ï¿½ñ‚¾ƒeï¿½Lï¿½Xï¿½gï¿½ï¿½ï¿½eï¿½^ï¿½uï¿½Ìƒ{ï¿½^ï¿½ï¿½ï¿½eï¿½Lï¿½Xï¿½gï¿½ÉXï¿½V
+		// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½Í‘zï¿½ï¿½Oï¿½I
+		// ï¿½ï¿½Î‚É—pï¿½Ó‚ï¿½ï¿½é–
 		for ( nID = 0L; nID <= NEXIO_DINP_END_CTRLIDS - NEXIO_DINP_START_CTRLIDS; nID++ ) {
 			_stprintf(szKeyName, "CN%d_IN_%02o", nNumberOfPages + 2, nID);
 			GetPrivateProfileString(
@@ -237,7 +237,7 @@ void InitializeTabCtrl(HWND hwndTab)
 			SetDlgItemText(hwndTabPages[nNumberOfPages], nID + NEXIO_DOUT_START_CTRLIDS, szBuffer);
 		}
 	}
-	// ƒ^ƒuq‰æ–Ê‚ÌˆÊ’u’²®
+	// ï¿½^ï¿½uï¿½qï¿½ï¿½Ê‚ÌˆÊ’uï¿½ï¿½ï¿½ï¿½
 	RECT tabRect, itemRect;
 	GetClientRect(hwndTab, &tabRect);
 	TabCtrl_GetItemRect(hwndTab, 0, &itemRect);
@@ -246,9 +246,9 @@ void InitializeTabCtrl(HWND hwndTab)
 	int nXc = tabRect.right - itemRect.left - 1;
 	int nYc = tabRect.bottom - nY - 1;
 
-	// ƒ^ƒu‚P‚Ì‚İ•\¦‚µŒã‚Í”ñ•\¦
+	// ï¿½^ï¿½uï¿½Pï¿½Ì‚İ•\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í”ï¿½\ï¿½ï¿½
 	SetWindowPos(hwndTabPages[0], HWND_TOP, nX, nY, nXc, nYc, SWP_SHOWWINDOW);
-	for ( int index = 1; index < nNumberOfPages; index++ ) {
+	for ( int index = 1; index < static_cast<int>(nNumberOfPages); index++ ) {
 		SetWindowPos(hwndTabPages[index], HWND_TOP, nX, nY, nXc, nYc, SWP_HIDEWINDOW);
 	}
 }
@@ -340,7 +340,7 @@ INT_PTR CALLBACK DlgProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	case WM_NOTIFY:
 		switch ( ((NMHDR*) lParam)->code ) {
 		case TCN_SELCHANGE:
-			// ƒ^ƒu‚ªƒNƒŠƒbƒN‚³‚êŒ»İ‚Æˆá‚¤ê‡‚ÉØ‚è‘Ö‚¦‚é
+			// ï¿½^ï¿½uï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½êŒ»ï¿½İ‚Æˆá‚¤ï¿½ê‡ï¿½ÉØ‚ï¿½Ö‚ï¿½ï¿½ï¿½
 			if ( nCurrentPage != TabCtrl_GetCurSel(GetDlgItem(hwndMonitor, IDC_TABCTRL)) ) {
 				ShowWindow(hwndTabPages[nCurrentPage], SW_HIDE);
 				nCurrentPage = TabCtrl_GetCurSel(GetDlgItem(hwndMonitor, IDC_TABCTRL));
@@ -472,11 +472,11 @@ void CheckDioButton(UINT nIDFirst, UINT nIDLast, BOOL bInput)
 // ---------------------------------------------------------------------------
 BOOL __stdcall nexioInitialize(HWND owner)
 {
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 	if(params.System.Type == NEXTRA_TYPEE){
 		return TRUE;
 	}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 
 	return Initialize(owner);
 }
@@ -494,11 +494,11 @@ NEXIOAPI void __stdcall nexioFinalize(void)
 // ---------------------------------------------------------------------------
 BOOL __stdcall nexioMonitor(int X, int Y)
 {
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 	if(params.System.Type == NEXTRA_TYPEE){
 		return TRUE;
 	}
-// 2013.11.07 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.07 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 
 	if ( hwndMonitor != NULL && IsWindow(hwndMonitor) ) {
 		if ( !IsWindowVisible(hwndMonitor) )

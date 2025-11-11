@@ -2086,7 +2086,7 @@ void CMainFrame::OnMenuData()
 		if (g_lAppNameType == APP_NAME_TOHO) {
 			l_strNanomapExeName.Replace(g_lpszAppPrefix4[0], g_lpszAppPrefix4[1]);
 		}
-		sprintf(szPath, "%s%s", g_szBin_Dir, l_strNanomapExeName);
+		sprintf(szPath, "%s%s", g_szBin_Dir, (LPCTSTR)l_strNanomapExeName);
 /* modified 2014.05.22 hmenjo Žè“®Žž NanoMap ---------- } ---------- */
 /* added 2014.11.22 hmenjo TohoRecall ‚Ö•ÏX ---------- { ---------- */
 		char l_szPathNanoMapOrg[MAX_PATH];
@@ -7459,7 +7459,7 @@ void CMainFrame::DeleteOldFile(const SYSTEMTIME stDeleteBaseTime)
 	}
 	catch(CFileException* fe){
             long ErrorCode = fe->m_lOsError;
-            sprintf(szBuff, "(cfChkStressData) %s, ErrorCode = %l", "File Invalid Error", ErrorCode);
+            sprintf(szBuff, "(cfChkStressData) %s, ErrorCode = %ld", "File Invalid Error", ErrorCode);
 			g_pFileRetentionPeriod[0]->FileRetentionLogging(szBuff);
 	}
 
@@ -7571,7 +7571,7 @@ void CMainFrame::DeleteOldFile(const SYSTEMTIME stDeleteBaseTime)
 		}
         catch(CFileException* fe){
             long ErrorCode = fe->m_lOsError;
-            sprintf(szBuff, "(cfFilefind) %s, ErrorCode = %l", "File Invalid Error", ErrorCode);
+            sprintf(szBuff, "(cfFilefind) %s, ErrorCode = %ld", "File Invalid Error", ErrorCode);
 			g_pFileRetentionPeriod[0]->FileRetentionLogging(szBuff);
         }
 	}
@@ -7632,7 +7632,7 @@ void CMainFrame::DeleteOldFile(const SYSTEMTIME stDeleteBaseTime)
 		}
         catch(CFileException* fe){
             long ErrorCode = fe->m_lOsError;
-            sprintf(szBuff, "(cfFilefind2) %s, ErrorCode = %l", "File Invalid Error", ErrorCode);
+            sprintf(szBuff, "(cfFilefind2) %s, ErrorCode = %ld", "File Invalid Error", ErrorCode);
 			g_pFileRetentionPeriod[0]->FileRetentionLogging(szBuff);
         }
 //Saiki 20100517 Change <-----

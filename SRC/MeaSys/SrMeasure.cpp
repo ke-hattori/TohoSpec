@@ -82,7 +82,7 @@ BOOL CSrMeasure::InitInstance()
 	if(g_lAppNameType != APP_NAME_NANO){
 		strFilename.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
 	}
-	_stprintf(l_tszIniPath, _T("%s%s%s"), CFG_DIR, g_tszProcDir, strFilename);
+	_stprintf(l_tszIniPath, _T("%s%s%s"), CFG_DIR, g_tszProcDir, (LPCTSTR)strFilename);
 // 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
 	::GetPrivateProfileString(INISECTION_CCDDATA, INIKEY_SAVESCANDATALOG, "FALSE", szSaveScanDataLog, sizeof(szSaveScanDataLog), l_tszIniPath);
 /* modified 2009.07.07 hmenjo dll ‘Š‘ÎƒpƒX‘Î‰ž MeaSys.dll ---------- } ---------- */

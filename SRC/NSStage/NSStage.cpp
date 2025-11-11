@@ -220,7 +220,7 @@ BOOL NSSTAGEAPI NS_StageInitialize()
 		if(g_lAppNameType != APP_NAME_NANO){
 			strFilename.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
 		}
-		sprintf(szFilePath, "%s%s%s", g_tszProcDir, CFG_DIR, strFilename);
+		sprintf(szFilePath, "%s%s%s", g_tszProcDir, CFG_DIR, (LPCTSTR)strFilename);
 // 2013.11.07 Bagus Mod (TohoSpec‘Î‰ž) <--
 		::GetPrivateProfileString(_T("StageCoord"), _T("Xunit"), _T("+1.0"), l_tszTemp, sizeof(l_tszTemp), szFilePath);
 		l_dTemp = _tcstod(l_tszTemp, 0);

@@ -17,7 +17,7 @@ static char THIS_FILE[] = __FILE__;
 PCSTR pszWindowTable[] =
 {
 //	"POINT SETUP - TEACHING",
-	"ƒ|ƒCƒ“ƒgƒZƒbƒgƒAƒbƒv - ƒeƒB[ƒ`ƒ“ƒO",
+	"ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Zï¿½bï¿½gï¿½Aï¿½bï¿½v - ï¿½eï¿½Bï¿½[ï¿½`ï¿½ï¿½ï¿½O",
 	NULL,
 };
 // Goto test add <---
@@ -558,7 +558,7 @@ void CButtonST::DrawItem(LPDRAWITEMSTRUCT lpDIS)
 	GetWindowText(sTitle);
 
 	//2009.09.10 bagus stress --{--
-	//ƒ`ƒFƒbƒNƒ{ƒbƒNƒX‚Ì‚Ý‚ð•\Ž¦‚·‚éê‡‚É‚Í‚±‚±‚Å‘‚­B
+	//ï¿½`ï¿½Fï¿½bï¿½Nï¿½{ï¿½bï¿½Nï¿½Xï¿½Ì‚Ý‚ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½É‚Í‚ï¿½ï¿½ï¿½ï¿½Åï¿½ï¿½ï¿½ï¿½B
 	if(!m_csBitmaps[0].hBitmap && !m_csIcons[0].hIcon && sTitle.IsEmpty() && m_bIsCheckBox){
 		int nBS = GetButtonStyle();
 		RECT rcCheck = lpDIS->rcItem;
