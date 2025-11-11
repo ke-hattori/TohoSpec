@@ -553,15 +553,15 @@ int CMeasurementListDlg::SetMeasurementData2()
 ///* modified 2014.10.27 hmenjo Fit 指数表示 %.3e ---------- { ---------- */
 ////							sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[6], "f"); //[.##]固定
 ///* modified 2014.10.27 hmenjo Fit 指数表示 %.3e ----------              */
-//							strcpy(szDecimalPointBuff, "%.3e");
+//							strcpy_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%.3e");
 ///* modified 2014.10.27 hmenjo Fit 指数表示 %.3e ---------- } ---------- */
 /* modified 2014.11.22 hmenjo Fit 指数表示(2) ----------              */
 #if FIT_DISP_SCOUT == 3
-							strcpy(szDecimalPointBuff, "");
+							strcpy_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "");
 #elif FIT_DISP_SCOUT == 2
-							strcpy(szDecimalPointBuff, "%.2e");
+							strcpy_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%.2e");
 #elif FIT_DISP_SCOUT == 1
-							strcpy(szDecimalPointBuff, "%.3e");
+							strcpy_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%.3e");
 #else
 							sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[6], "f");
 #endif
@@ -856,15 +856,15 @@ int CMeasurementListDlg::SetMeasurementData2()
 ///* modified 2014.10.27 hmenjo Fit 指数表示 %.3e ---------- { ---------- */
 ////						sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[6], "f"); //[.##]固定
 ///* modified 2014.10.27 hmenjo Fit 指数表示 %.3e ----------              */
-//						strcpy(szDecimalPointBuff, "%.3e");
+//						strcpy_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%.3e");
 ///* modified 2014.10.27 hmenjo Fit 指数表示 %.3e ---------- } ---------- */
 /* modified 2014.11.22 hmenjo Fit 指数表示(2) ----------              */
 #if FIT_DISP_SCOUT == 3
-						strcpy(szDecimalPointBuff, "");
+						strcpy_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "");
 #elif FIT_DISP_SCOUT == 2
-						strcpy(szDecimalPointBuff, "%.2e");
+						strcpy_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%.2e");
 #elif FIT_DISP_SCOUT == 1
-						strcpy(szDecimalPointBuff, "%.3e");
+						strcpy_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%.3e");
 #else
 						sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[6], "f");
 #endif
@@ -1056,15 +1056,15 @@ int CMeasurementListDlg::SetMeasurementData2()
 ///* modified 2014.10.27 hmenjo Fit 指数表示 %.3e ---------- { ---------- */
 ////						sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[6], "f"); //[.##]固定
 ///* modified 2014.10.27 hmenjo Fit 指数表示 %.3e ----------              */
-//						strcpy(szDecimalPointBuff, "%.3e");
+//						strcpy_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%.3e");
 ///* modified 2014.10.27 hmenjo Fit 指数表示 %.3e ---------- } ---------- */
 /* modified 2014.11.22 hmenjo Fit 指数表示(2) ----------              */
 #if FIT_DISP_SCOUT == 3
-						strcpy(szDecimalPointBuff, "");
+						strcpy_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "");
 #elif FIT_DISP_SCOUT == 2
-						strcpy(szDecimalPointBuff, "%.2e");
+						strcpy_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%.2e");
 #elif FIT_DISP_SCOUT == 1
-						strcpy(szDecimalPointBuff, "%.3e");
+						strcpy_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%.3e");
 #else
 						sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[6], "f"); //[.##]固定
 #endif
