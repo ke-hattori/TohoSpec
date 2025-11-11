@@ -330,7 +330,7 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 //		}
 //        catch(CFileException* fe){
 //            long ErrorCode = fe->m_lOsError;
-//            sprintf(szBuff, "(m_pProcess=100) %s, ErrorCode = %l", "File Invalid Error", ErrorCode);
+//            sprintf_s(szBuff, _countof(szBuff), "(m_pProcess=100) %s, ErrorCode = %l", "File Invalid Error", ErrorCode);
 //			FileRetentionLogging(szBuff);
 //            break;
 //        }
@@ -498,7 +498,7 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 			}
 	        catch(CFileException* fe){
 	            long ErrorCode = fe->m_lOsError;
-	            sprintf(szBuff, "(m_pProcess=100) %s, ErrorCode = %l", "File Invalid Error", ErrorCode);
+	            sprintf_s(szBuff, _countof(szBuff), "(m_pProcess=100) %s, ErrorCode = %l", "File Invalid Error", ErrorCode);
 				FileRetentionLogging(szBuff);
 				*m_pProcess = 8000;
 	            break;
