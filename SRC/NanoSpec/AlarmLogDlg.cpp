@@ -377,7 +377,7 @@ void CAlarmLogDlg::AlarmHis_StrToHis(char* pszStr, ALARM_HIS* pAlarmHis)
 	sBuff = szTemp;
 	sBuff.TrimLeft();
 	sBuff.TrimRight();
-	strcpy_s(pAlarmHis->Date, sizeof(pAlarmHis->Date), sBuff.GetBuffer(0));
+	strcpy(pAlarmHis->Date, sBuff.GetBuffer(0));
 
 	///// Time /////
 	memset(szTemp, 0, sizeof(szTemp));
@@ -385,7 +385,7 @@ void CAlarmLogDlg::AlarmHis_StrToHis(char* pszStr, ALARM_HIS* pAlarmHis)
 	sBuff = szTemp;
 	sBuff.TrimLeft();
 	sBuff.TrimRight();
-	strcpy_s(pAlarmHis->Time, sizeof(pAlarmHis->Time), sBuff.GetBuffer(0));
+	strcpy(pAlarmHis->Time, sBuff.GetBuffer(0));
 
 	///// Level /////
 	memset(szTemp, 0, sizeof(szTemp));
@@ -393,7 +393,7 @@ void CAlarmLogDlg::AlarmHis_StrToHis(char* pszStr, ALARM_HIS* pAlarmHis)
 	sBuff = szTemp;
 	sBuff.TrimLeft();
 	sBuff.TrimRight();
-	strcpy_s(pAlarmHis->Level, sizeof(pAlarmHis->Level), sBuff.GetBuffer(0));
+	strcpy(pAlarmHis->Level, sBuff.GetBuffer(0));
 
 	///// Set /////
 	memset(szTemp, 0, sizeof(szTemp));
@@ -401,7 +401,7 @@ void CAlarmLogDlg::AlarmHis_StrToHis(char* pszStr, ALARM_HIS* pAlarmHis)
 	sBuff = szTemp;
 	sBuff.TrimLeft();
 	sBuff.TrimRight();
-	strcpy_s(pAlarmHis->Set, sizeof(pAlarmHis->Set), sBuff.GetBuffer(0));
+	strcpy(pAlarmHis->Set, sBuff.GetBuffer(0));
 
 	///// ID /////
 	memset(szTemp, 0, sizeof(szTemp));
@@ -409,7 +409,7 @@ void CAlarmLogDlg::AlarmHis_StrToHis(char* pszStr, ALARM_HIS* pAlarmHis)
 	sBuff = szTemp;
 	sBuff.TrimLeft();
 	sBuff.TrimRight();
-	strcpy_s(pAlarmHis->Id, sizeof(pAlarmHis->Id), sBuff.GetBuffer(0));
+	strcpy(pAlarmHis->Id, sBuff.GetBuffer(0));
 
 	///// Text /////
 	memset(szTemp, 0, sizeof(szTemp));
@@ -417,5 +417,5 @@ void CAlarmLogDlg::AlarmHis_StrToHis(char* pszStr, ALARM_HIS* pAlarmHis)
 	sBuff = szTemp;
 	sBuff.TrimLeft();
 	sBuff.TrimRight();
-	strcpy_s(pAlarmHis->Text, sizeof(pAlarmHis->Text), sBuff.GetBuffer(0));
+	strcpy(pAlarmHis->Text, sBuff.GetBuffer(0));
 }
