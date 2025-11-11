@@ -1162,24 +1162,24 @@ void CRecipeStageProgramView::SetData()
 
 	///// Deskew Mode /////
 	// Kojika 20090528 Change
-	//strcpy(szBuff, g_lpszDeskewMode[m_StageProgInfoHdr.nDeskewMode]);
+	//strcpy_s(szBuff, _countof(szBuff), g_lpszDeskewMode[m_StageProgInfoHdr.nDeskewMode]);
 	if(l_SystemConfig.nLanguage == 0){
-		strcpy(szBuff, g_lpszDeskewMode_ENU[m_StageProgInfoHdr.nDeskewMode]);
+		strcpy_s(szBuff, _countof(szBuff), g_lpszDeskewMode_ENU[m_StageProgInfoHdr.nDeskewMode]);
 	}
 	else{
-		strcpy(szBuff, g_lpszDeskewMode_JPN[m_StageProgInfoHdr.nDeskewMode]);
+		strcpy_s(szBuff, _countof(szBuff), g_lpszDeskewMode_JPN[m_StageProgInfoHdr.nDeskewMode]);
 	}
 	// Kojika 20090528 Change End
 	SetDlgItemText(IDC_STAGE_DESKEW_MODE, szBuff);
 
 	///// SitePattern Mode /////
 	// Kojika 20090528 Change
-	//strcpy(szBuff, g_lpszSitePatternMode[m_StageProgInfoHdr.nSitePatternMode]);
+	//strcpy_s(szBuff, _countof(szBuff), g_lpszSitePatternMode[m_StageProgInfoHdr.nSitePatternMode]);
 	if(l_SystemConfig.nLanguage == 0){
-		strcpy(szBuff, g_lpszSitePatternMode_ENU[m_StageProgInfoHdr.nSitePatternMode]);
+		strcpy_s(szBuff, _countof(szBuff), g_lpszSitePatternMode_ENU[m_StageProgInfoHdr.nSitePatternMode]);
 	}
 	else{
-		strcpy(szBuff, g_lpszSitePatternMode_JPN[m_StageProgInfoHdr.nSitePatternMode]);
+		strcpy_s(szBuff, _countof(szBuff), g_lpszSitePatternMode_JPN[m_StageProgInfoHdr.nSitePatternMode]);
 	}
 	// Kojika 20090528 Change End
 	SetDlgItemText(IDC_STAGE_SITEPATTERN_MODE, szBuff);
