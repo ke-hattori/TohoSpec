@@ -372,7 +372,7 @@ void CRecipeStageProgramView::OnDispositionButton()
 		//sprintf(szBuff, "The Maximum Number which can be Registered is %d.", SCAN_POINT_MAX);
 		//sprintf(szBuff, "入力できる最大数は %d です", SCAN_POINT_MAX);
 		LoadStringML(IDS_MAX_NUM_REGISTER, l_strBuffer, "The Maximum Number which can be Registered is %d.");
-		sprintf(szBuff, l_strBuffer, SCAN_POINT_MAX);
+		sprintf_s(szBuff, _countof(szBuff), l_strBuffer, SCAN_POINT_MAX);
 // Kojika 20090527 Change End
 		MessageBox(szBuff, m_strCaption, MB_OK|MB_ICONSTOP);
 		return;
@@ -403,20 +403,20 @@ void CRecipeStageProgramView::OnDispositionButton()
 			m_dPointBuff[2][iAddCount + iCountX - 1] = m_dPointBuff[2][iCountX -1];
 
 			///// X /////
-			sprintf(szBuff, "%.3lf", m_dPointBuff[0][iAddCount + iCountX - 1]);
+			sprintf_s(szBuff, _countof(szBuff), "%.3lf", m_dPointBuff[0][iAddCount + iCountX - 1]);
 			m_MeasurementPointGrid.GridDisp(iAddCount + iCountX, 1, szBuff, DT_RIGHT);
 
 			///// Y /////
-			sprintf(szBuff, "%.3lf", m_dPointBuff[1][iAddCount + iCountX - 1]);
+			sprintf_s(szBuff, _countof(szBuff), "%.3lf", m_dPointBuff[1][iAddCount + iCountX - 1]);
 			m_MeasurementPointGrid.GridDisp(iAddCount + iCountX, 2, szBuff, DT_RIGHT);
 		}
 		for(iCountX = 1; iCountX < iRow; iCountX++){
 			///// X /////
-			sprintf(szBuff, "%.3lf", m_dPointBuff[0][iCountX -1]);
+			sprintf_s(szBuff, _countof(szBuff), "%.3lf", m_dPointBuff[0][iCountX -1]);
 			m_MeasurementPointGrid.GridDisp(iCountX, 1, szBuff, DT_RIGHT);
 
 			///// Y /////
-			sprintf(szBuff, "%.3lf", m_dPointBuff[1][iCountX -1]);
+			sprintf_s(szBuff, _countof(szBuff), "%.3lf", m_dPointBuff[1][iCountX -1]);
 			m_MeasurementPointGrid.GridDisp(iCountX, 2, szBuff, DT_RIGHT);
 		}
 	}
@@ -424,11 +424,11 @@ void CRecipeStageProgramView::OnDispositionButton()
 		//既存データの再描画
 		for(int iSetRow = 0 ; iSetRow < m_iNumScans ; iSetRow++){
 			///// X /////
-			sprintf(szBuff, "%.3lf", m_dPointBuff[0][iSetRow]);
+			sprintf_s(szBuff, _countof(szBuff), "%.3lf", m_dPointBuff[0][iSetRow]);
 			m_MeasurementPointGrid.GridDisp(iSetRow + 1, 1, szBuff, DT_RIGHT);
 
 			///// Y /////
-			sprintf(szBuff, "%.3lf", m_dPointBuff[1][iSetRow]);
+			sprintf_s(szBuff, _countof(szBuff), "%.3lf", m_dPointBuff[1][iSetRow]);
 			m_MeasurementPointGrid.GridDisp(iSetRow + 1, 2, szBuff, DT_RIGHT);
 		}
 	}
@@ -442,11 +442,11 @@ void CRecipeStageProgramView::OnDispositionButton()
 			iAddCount = iRow == -1 ? m_iNumScans: iRow + iCountX - 1;
 
 			///// X /////
-			sprintf(szBuff, "%.3lf", ((double)lX / MICROMETRE) );
+			sprintf_s(szBuff, _countof(szBuff), "%.3lf", ((double)lX / MICROMETRE) );
 			m_MeasurementPointGrid.GridDisp(iAddCount + 1, 1, szBuff, DT_RIGHT);
 
 			///// Y /////
-			sprintf(szBuff, "%.3lf", ((double)lY / MICROMETRE) );
+			sprintf_s(szBuff, _countof(szBuff), "%.3lf", ((double)lY / MICROMETRE) );
 			m_MeasurementPointGrid.GridDisp(iAddCount + 1, 2, szBuff, DT_RIGHT);
 
 			///// Draw Point Mark /////
@@ -473,11 +473,11 @@ void CRecipeStageProgramView::OnDispositionButton()
 					iAddCount = iRow == -1 ? m_iTmpNumScans + iNumCount : iRow + iNumCount - 1;
 
 					///// X /////
-					sprintf(szBuff, "%.3lf", ((double)lX / MICROMETRE ));
+					sprintf_s(szBuff, _countof(szBuff), "%.3lf", ((double)lX / MICROMETRE ));
 					m_MeasurementPointGrid.GridDisp(iAddCount + 1, 1, szBuff, DT_RIGHT);
 
 					///// Y /////
-					sprintf(szBuff, "%.3lf", ((double)lY / MICROMETRE ));
+					sprintf_s(szBuff, _countof(szBuff), "%.3lf", ((double)lY / MICROMETRE ));
 					m_MeasurementPointGrid.GridDisp(iAddCount + 1, 2, szBuff, DT_RIGHT);
 
 					///// Draw Point Mark /////
@@ -495,11 +495,11 @@ void CRecipeStageProgramView::OnDispositionButton()
 					iNumCount = iCountY * dlg.m_iCountX + (dlg.m_iCountX - iCountX -1);
 					iAddCount = iRow == -1 ? m_iTmpNumScans + iNumCount : iRow + iNumCount - 1;
 					///// X /////
-					sprintf(szBuff, "%.3lf", ((double)lX / MICROMETRE) );
+					sprintf_s(szBuff, _countof(szBuff), "%.3lf", ((double)lX / MICROMETRE) );
 					m_MeasurementPointGrid.GridDisp(iAddCount + 1, 1, szBuff, DT_RIGHT);
 
 					///// Y /////
-					sprintf(szBuff, "%.3lf", ((double)lY / MICROMETRE) );
+					sprintf_s(szBuff, _countof(szBuff), "%.3lf", ((double)lY / MICROMETRE) );
 					m_MeasurementPointGrid.GridDisp(iAddCount + 1, 2, szBuff, DT_RIGHT);
 
 					///// Draw Point Mark /////
@@ -541,7 +541,7 @@ void CRecipeStageProgramView::OnTeachingButton()
 		//sprintf(szBuff, "The Maximum Number which can be Registered is %d.", SCAN_POINT_MAX);
 		//sprintf(szBuff, "入力できる最大数は %d です", SCAN_POINT_MAX);
 		LoadStringML(IDS_MAX_NUM_REGISTER, l_strBuffer, "The Maximum Number which can be Registered is %d.");
-		sprintf(szBuff, l_strBuffer, SCAN_POINT_MAX);
+		sprintf_s(szBuff, _countof(szBuff), l_strBuffer, SCAN_POINT_MAX);
 // Kojika 20090527 Change End
 		MessageBox(szBuff, m_strCaption, MB_OK | MB_ICONSTOP);
 		return;
@@ -702,7 +702,7 @@ void CRecipeStageProgramView::OnAddButton()
 		//sprintf(szBuff, "The Maximum Number which can be Registered is %d.", SCAN_POINT_MAX);
 		//sprintf(szBuff, "入力できる最大数は %d です", SCAN_POINT_MAX);
 		LoadStringML(IDS_MAX_NUM_REGISTER, l_strBuffer, "The Maximum Number which can be Registered is %d.");
-		sprintf(szBuff, l_strBuffer, SCAN_POINT_MAX);
+		sprintf_s(szBuff, _countof(szBuff), l_strBuffer, SCAN_POINT_MAX);
 // Kojika 20090527 Change End
 		MessageBox(szBuff, m_strCaption, MB_OK | MB_ICONSTOP);
 		return;
@@ -790,21 +790,21 @@ void CRecipeStageProgramView::OnAddButton()
 
 	///// Refresh /////
 	for(i = 0 ; i < m_iNumScans + 1; i++){
-		sprintf(szBuff, "%.3lf", m_dPointBuff[0][i]);
+		sprintf_s(szBuff, _countof(szBuff), "%.3lf", m_dPointBuff[0][i]);
 		m_MeasurementPointGrid.GridDisp(i + 1, 1, szBuff, DT_RIGHT);
 
-		sprintf(szBuff, "%.3lf", m_dPointBuff[1][i]);
+		sprintf_s(szBuff, _countof(szBuff), "%.3lf", m_dPointBuff[1][i]);
 		m_MeasurementPointGrid.GridDisp(i + 1, 2, szBuff, DT_RIGHT);
 	}
 
 	///// 新規Point追加 /////
 	if(iRow == -1){
 		m_dPointBuff[0][m_iNumScans] = (double)dlg.m_lX / MICROMETRE;;
-		sprintf(szBuff, "%.3lf", m_dPointBuff[0][m_iNumScans]);
+		sprintf_s(szBuff, _countof(szBuff), "%.3lf", m_dPointBuff[0][m_iNumScans]);
 		m_MeasurementPointGrid.GridDisp(m_iNumScans + 1, 1, szBuff, DT_RIGHT);
 
 		m_dPointBuff[1][m_iNumScans] = (double)dlg.m_lY / MICROMETRE;
-		sprintf(szBuff, "%.3lf", m_dPointBuff[1][m_iNumScans]);
+		sprintf_s(szBuff, _countof(szBuff), "%.3lf", m_dPointBuff[1][m_iNumScans]);
 		m_MeasurementPointGrid.GridDisp(m_iNumScans + 1, 2, szBuff, DT_RIGHT);
 
 		m_dPointBuff[2][m_iNumScans] = TRUE;
@@ -860,7 +860,7 @@ void CRecipeStageProgramView::OnDeleteButton()
 	//sprintf(szBuff, "%s%d%s", "No.", iRow, " のポイントデータを削除しますかd?");
 	LoadStringML(IDS_POINT_DATA_NO, strBuffer1, "Is the Point Data of No. ");
 	LoadStringML(IDS_DELETE_POINT_DATA, strBuffer2, " deleted?");
-	sprintf(szBuff, "%s%d%s", strBuffer1, iRow, strBuffer2);
+	sprintf_s(szBuff, _countof(szBuff), "%s%d%s", strBuffer1, iRow, strBuffer2);
 	//Saiki 20090528 Change <-----
 	if( MessageBox(szBuff, m_strCaption, MB_YESNO | MB_ICONQUESTION) !=IDYES ) {
 		return;
@@ -928,10 +928,10 @@ void CRecipeStageProgramView::OnDeleteButton()
 
 	///// Refresh /////
 	for ( i = 0; i < m_iNumScans; i++ ) {
-		sprintf(szBuff, "%.3lf", m_dPointBuff[0][i]);
+		sprintf_s(szBuff, _countof(szBuff), "%.3lf", m_dPointBuff[0][i]);
 		m_MeasurementPointGrid.GridDisp(i + 1, 1, szBuff, DT_RIGHT);
 
-		sprintf(szBuff, "%.3lf", m_dPointBuff[1][i]);
+		sprintf_s(szBuff, _countof(szBuff), "%.3lf", m_dPointBuff[1][i]);
 		m_MeasurementPointGrid.GridDisp(i + 1, 2, szBuff, DT_RIGHT);
 	}
 
@@ -1122,23 +1122,23 @@ void CRecipeStageProgramView::SetData()
 	// Kojika 20090528 Change End
 
 	///// Sample - Thickness /////
-	sprintf(szBuff, "%.3lf", m_StageProgInfoHdr.SampleInfo.dThickness /MICROMETRE);
+	sprintf_s(szBuff, _countof(szBuff), "%.3lf", m_StageProgInfoHdr.SampleInfo.dThickness /MICROMETRE);
 	SetDlgItemText(IDC_SAMPLE_THICKNESS, szBuff);
 
 	///// Sample - Size X /////
-	sprintf(szBuff, "%.3lf", m_StageProgInfoHdr.SampleInfo.Size.dx /MICROMETRE);
+	sprintf_s(szBuff, _countof(szBuff), "%.3lf", m_StageProgInfoHdr.SampleInfo.Size.dx /MICROMETRE);
 	SetDlgItemText(IDC_SAMPLE_SIZE_X, szBuff);
 
 	///// Sample - Size Y /////
-	sprintf(szBuff, "%.3lf", m_StageProgInfoHdr.SampleInfo.Size.dy /MICROMETRE);
+	sprintf_s(szBuff, _countof(szBuff), "%.3lf", m_StageProgInfoHdr.SampleInfo.Size.dy /MICROMETRE);
 	SetDlgItemText(IDC_SAMPLE_SIZE_Y, szBuff);
 
 	///// Sample - Origin X /////
-	sprintf(szBuff, "%.3lf", ((double)m_StageProgInfoHdr.SampleInfo.Origin.lX /MICROMETRE));
+	sprintf_s(szBuff, _countof(szBuff), "%.3lf", ((double)m_StageProgInfoHdr.SampleInfo.Origin.lX /MICROMETRE));
 	SetDlgItemText(IDC_SAMPLE_ORIGIN_X, szBuff);
 
 	///// Sample - Origin Y /////
-	sprintf(szBuff, "%.3lf", ((double)m_StageProgInfoHdr.SampleInfo.Origin.lY /MICROMETRE));
+	sprintf_s(szBuff, _countof(szBuff), "%.3lf", ((double)m_StageProgInfoHdr.SampleInfo.Origin.lY /MICROMETRE));
 	SetDlgItemText(IDC_SAMPLE_ORIGIN_Y, szBuff);
 
 	///// Point Number /////
@@ -1149,11 +1149,11 @@ void CRecipeStageProgramView::SetData()
 	// SAMPLE原点からの相対座標とする
 	for ( int i = 0 ; i < m_iNumScans ; i++ ) {
 		// X
-		sprintf(szBuff, "%.3lf", ((double)m_ScanPoint[i].lX) / MICROMETRE );
+		sprintf_s(szBuff, _countof(szBuff), "%.3lf", ((double)m_ScanPoint[i].lX) / MICROMETRE );
 		m_MeasurementPointGrid.GridDisp(i + 1, 1, szBuff, DT_RIGHT);
 
 		// Y
-		sprintf(szBuff, "%.3lf", ((double)m_ScanPoint[i].lY) / MICROMETRE );
+		sprintf_s(szBuff, _countof(szBuff), "%.3lf", ((double)m_ScanPoint[i].lY) / MICROMETRE );
 		m_MeasurementPointGrid.GridDisp(i + 1, 2, szBuff, DT_RIGHT);
 	}
 
@@ -1533,7 +1533,7 @@ BOOL CRecipeStageProgramView::CheckData()
 			//Saiki 20090528 Change ----->
 			//sprintf(szBuff, "ポイント = %d : X 座標が範囲外です", i + 1);
 			LoadStringML(IDS_X_COORDINATE_OUT_LIMIT, strBuffer, "POINT = %d : X coordinate is out of limit.");
-			sprintf(szBuff, strBuffer, i + 1);
+			sprintf_s(szBuff, _countof(szBuff), strBuffer, i + 1);
 			//Saiki 20090528 Change <-----
 			MessageBox(szBuff, m_strCaption, MB_OK | MB_ICONSTOP);
 			return FALSE;
@@ -1546,7 +1546,7 @@ BOOL CRecipeStageProgramView::CheckData()
 			//Saiki 20090528 Change ----->
 			//sprintf(szBuff, "ポイント = %d : Y 座標が範囲外です", i + 1);
 			LoadStringML(IDS_Y_COORDINATE_OUT_LIMIT, strBuffer, "POINT = %d : Y coordinate is out of limit.");
-			sprintf(szBuff, strBuffer, i + 1);
+			sprintf_s(szBuff, _countof(szBuff), strBuffer, i + 1);
 			//Saiki 20090528 Change <-----
 			MessageBox(szBuff, m_strCaption, MB_OK | MB_ICONSTOP);
 			return FALSE;
