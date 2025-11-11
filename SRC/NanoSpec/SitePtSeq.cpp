@@ -409,7 +409,7 @@ void CSitePtAutoSeq::DoPatRecMatchWithVerify( int iSite,		 // first or second de
 	//Saiki 20090602 Add <-----
 
 /* modified 2009.06.22 hmenjo SPR オフセット読込み/書込み機能追加 ---------- { ---------- */
-//	sprintf(szBuff, "%s%s.SP%d", g_szDb_Pattern_Img_Dir, m_pSitePattern->PatternInfo[iSite].szSitePatternName, m_pSitePattern->PatternInfo[iSite].iLens);
+//	sprintf_s(szBuff, _countof(szBuff), "%s%s.SP%d", g_szDb_Pattern_Img_Dir, m_pSitePattern->PatternInfo[iSite].szSitePatternName, m_pSitePattern->PatternInfo[iSite].iLens);
 // myan File有無確認必要
 /* modified 2009.06.22 hmenjo SPR オフセット読込み/書込み機能追加 ----------			  */
 //	PatternFile_MakePatternImageFilePath(szBuff, m_pSitePattern->PatternInfo[iSite].szSitePatternName, m_SprSubInfo[iSite].iLens);
