@@ -746,13 +746,13 @@ void LoadNanoSpecIni(int iIniFile)
 		iIniDescCount = sizeof(SystemCommonIniDesc) / sizeof(SystemCommonIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SystemCommonIniDesc, sizeof(SystemCommonIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 	case SYSTEM_SR_INI_FILE:
 		iIniDescCount = sizeof(SystemSrIniDesc) / sizeof(SystemSrIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SystemSrIniDesc, sizeof(SystemSrIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 //2009.09.08 bagus se --{--
 //SR用XMPのために定義復活
@@ -762,7 +762,7 @@ void LoadNanoSpecIni(int iIniFile)
 		iIniDescCount = sizeof(SystemSeIniDesc) / sizeof(SystemSeIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SystemSeIniDesc, sizeof(SystemSeIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 ///* added 2009.08.25 hmenjo SE 構造体追加(１) ---------- } ---------- */
 /* deleted 2009.09.01 hmenjo SE 構造体追加(12) ---------- } ---------- */
@@ -772,7 +772,7 @@ void LoadNanoSpecIni(int iIniFile)
 		iIniDescCount = sizeof(SystemMsIniDesc) / sizeof(SystemMsIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SystemMsIniDesc, sizeof(SystemMsIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 // 2009.10.19 bagus MS 追加 --}--
 // 2009.10.30 bagus CA 追加 --{--
@@ -780,7 +780,7 @@ void LoadNanoSpecIni(int iIniFile)
 		iIniDescCount = sizeof(SystemCaIniDesc) / sizeof(SystemCaIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SystemCaIniDesc, sizeof(SystemCaIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 // 2009.10.30 bagus CA 追加 --}--
 // 2009.11.04 bagus RS 追加 --{--
@@ -788,27 +788,27 @@ void LoadNanoSpecIni(int iIniFile)
 		iIniDescCount = sizeof(SystemRsIniDesc) / sizeof(SystemRsIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SystemRsIniDesc, sizeof(SystemRsIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 // 2009.11.04 bagus RS 追加 --}--
 	case USER_SETTING_COMMON_INI_FILE:
 		iIniDescCount = sizeof(UserSettingCommonIniDesc) / sizeof(UserSettingCommonIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, UserSettingCommonIniDesc, sizeof(UserSettingCommonIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 	case USER_SETTING_SR_INI_FILE:
 		iIniDescCount = sizeof(UserSettingSrIniDesc) / sizeof(UserSettingSrIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, UserSettingSrIniDesc, sizeof(UserSettingSrIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 /* added 2009.09.01 hmenjo SE 構造体追加(12) ---------- { ---------- */
 	case USER_SETTING_SE_INI_FILE:
 		iIniDescCount = sizeof(UserSettingSeIniDesc) / sizeof(UserSettingSeIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, UserSettingSeIniDesc, sizeof(UserSettingSeIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 /* added 2009.09.01 hmenjo SE 構造体追加(12) ---------- } ---------- */
 // 2013.02.04 bagus CompleteEASEヘッド追加 -->
@@ -816,7 +816,7 @@ void LoadNanoSpecIni(int iIniFile)
 		iIniDescCount = sizeof(UserSettingCompEASEIniDesc) / sizeof(UserSettingCompEASEIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, UserSettingCompEASEIniDesc, sizeof(UserSettingCompEASEIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 // 2013.02.04 bagus CompleteEASEヘッド追加 <--
 /* added 2009.07.22 hmenjo ストレス ライン数 定義 ---------- { ---------- */
@@ -824,7 +824,7 @@ void LoadNanoSpecIni(int iIniFile)
 		iIniDescCount = sizeof(SystemStressIniDesc) / sizeof(SystemStressIniDesc[0]);
 		pIniDesc = new INIFILE[iIniDescCount];
 		memcpy(pIniDesc, SystemStressIniDesc, sizeof(SystemStressIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 /* added 2009.07.22 hmenjo ストレス ライン数 定義 ---------- } ---------- */
 //2009.08.24 bagus stress --{--
@@ -842,8 +842,8 @@ void LoadNanoSpecIni(int iIniFile)
 		memcpy(pIniDesc, UserStressModulusIniDesc, sizeof(UserStressModulusIniDesc));
 // 2009.11.09 bagus Stress 追加変更 --}--
 		// 2009.11.09 bagus Stress 追加変更 --{--
-		//sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
-		sprintf(szIniFilePath, "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		//sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		// 2009.11.09 bagus Stress 追加変更 --}--
 		break;
 //2009.08.24 bagus stress --}--
@@ -852,7 +852,7 @@ void LoadNanoSpecIni(int iIniFile)
 		iIniDescCount = sizeof(SystemCompEaseIniDesc) / sizeof(SystemCompEaseIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SystemCompEaseIniDesc, sizeof(SystemCompEaseIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 // 2013.02.04 bagus CompleteEASEヘッド追加 <--
 // 2013.02.22 bagus Substrate thickness setting -->
@@ -860,7 +860,7 @@ void LoadNanoSpecIni(int iIniFile)
 		iIniDescCount = sizeof(SubstrateThicknessIniDesc) / sizeof(SubstrateThicknessIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SubstrateThicknessIniDesc, sizeof(SubstrateThicknessIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 // 2013.02.22 bagus Substrate thickness setting <--
 	default:
@@ -1430,13 +1430,13 @@ void SaveNanoSpecIni(int iIniFile)
 		iIniDescCount = sizeof(SystemCommonIniDesc) / sizeof(SystemCommonIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SystemCommonIniDesc, sizeof(SystemCommonIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 	case SYSTEM_SR_INI_FILE:
 		iIniDescCount = sizeof(SystemSrIniDesc) / sizeof(SystemSrIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SystemSrIniDesc, sizeof(SystemSrIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 // 2009.09.29 bagus SE --{--
 		if (iIniFile == SYSTEM_SR_INI_FILE) {
 //			lg_TrShutterMoveWaitTime = (long)((((double)(NanoSysData.SrConfig.wTrShutterMoveWaitTime) / 1000) * 1000 + 500) / 1000);
@@ -1450,7 +1450,7 @@ void SaveNanoSpecIni(int iIniFile)
 		iIniDescCount = sizeof(SystemSeIniDesc) / sizeof(SystemSeIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SystemSeIniDesc, sizeof(SystemSeIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 	//2009.09.07 bagus se --}--
 // 2009.10.19 bagus MS 追加 --{--
@@ -1458,7 +1458,7 @@ void SaveNanoSpecIni(int iIniFile)
 		iIniDescCount = sizeof(SystemMsIniDesc) / sizeof(SystemMsIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SystemMsIniDesc, sizeof(SystemMsIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 // 2009.10.19 bagus MS 追加 --}--
 // 2009.10.30 bagus CA 追加 --{--
@@ -1466,7 +1466,7 @@ void SaveNanoSpecIni(int iIniFile)
 		iIniDescCount = sizeof(SystemCaIniDesc) / sizeof(SystemCaIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SystemCaIniDesc, sizeof(SystemCaIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 // 2009.10.30 bagus CA 追加 --}--
 // 2009.11.04 bagus RS 追加 --{--
@@ -1474,27 +1474,27 @@ void SaveNanoSpecIni(int iIniFile)
 		iIniDescCount = sizeof(SystemRsIniDesc) / sizeof(SystemRsIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SystemRsIniDesc, sizeof(SystemRsIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 // 2009.11.04 bagus RS 追加 --}--
 	case USER_SETTING_COMMON_INI_FILE:
 		iIniDescCount = sizeof(UserSettingCommonIniDesc) / sizeof(UserSettingCommonIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, UserSettingCommonIniDesc, sizeof(UserSettingCommonIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 	case USER_SETTING_SR_INI_FILE:
 		iIniDescCount = sizeof(UserSettingSrIniDesc) / sizeof(UserSettingSrIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, UserSettingSrIniDesc, sizeof(UserSettingSrIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 // 2009.09.19 bagus SE --{--
 	case USER_SETTING_SE_INI_FILE:
 		iIniDescCount = sizeof(UserSettingSeIniDesc) / sizeof(UserSettingSeIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, UserSettingSeIniDesc, sizeof(UserSettingSeIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 // 2009.09.19 bagus SE --}--
 // 2013.02.04 bagus CompleteEASEヘッド追加 -->
@@ -1502,7 +1502,7 @@ void SaveNanoSpecIni(int iIniFile)
 		iIniDescCount = sizeof(UserSettingCompEASEIniDesc) / sizeof(UserSettingCompEASEIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, UserSettingCompEASEIniDesc, sizeof(UserSettingCompEASEIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 // 2013.02.04 bagus CompleteEASEヘッド追加 -->
 	//2009.08.24 bagus --{--
@@ -1510,7 +1510,7 @@ void SaveNanoSpecIni(int iIniFile)
 		iIniDescCount = sizeof(SystemStressIniDesc) / sizeof(SystemStressIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SystemStressIniDesc, sizeof(SystemStressIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		//2009.12.23 bagus stress 修正 --{--
 		//一旦消す処理を入れる。
 		//これはLSの設定の昔の値が残らないようにするためです。
@@ -1531,8 +1531,8 @@ void SaveNanoSpecIni(int iIniFile)
 		memcpy(pIniDesc, UserStressModulusIniDesc, sizeof(UserStressModulusIniDesc));
 // 2009.11.09 bagus Stress 追加変更 --}--
 		// 2009.11.09 bagus Stress 追加変更 --{--
-		//sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
-		sprintf(szIniFilePath, "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		//sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_USER_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		// 2009.11.09 bagus Stress 追加変更 --}--
 		break;
 	//2009.08.24 bagus --}--
@@ -1541,7 +1541,7 @@ void SaveNanoSpecIni(int iIniFile)
 		iIniDescCount = sizeof(SystemCompEaseIniDesc) / sizeof(SystemCompEaseIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SystemCompEaseIniDesc, sizeof(SystemCompEaseIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 // 2013.02.04 bagus CompleteEASEヘッド追加 <--
 // 2013.02.22 bagus Substrate thickness setting -->
@@ -1549,7 +1549,7 @@ void SaveNanoSpecIni(int iIniFile)
 		iIniDescCount = sizeof(SubstrateThicknessIniDesc) / sizeof(SubstrateThicknessIniDesc[0]);
 		pIniDesc = new INIFILE [iIniDescCount];
 		memcpy(pIniDesc, SubstrateThicknessIniDesc, sizeof(SubstrateThicknessIniDesc));
-		sprintf(szIniFilePath, "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
+		sprintf_s(szIniFilePath, _countof(szIniFilePath), "%s%s", CFG_SYSTEM_DIR, g_lpszNanoSpecIniFileName[iIniFile]);
 		break;
 // 2013.02.22 bagus Substrate thickness setting <--
 	default:
