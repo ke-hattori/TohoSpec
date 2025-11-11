@@ -113,7 +113,7 @@ CNanoSpecDoc::CNanoSpecDoc()
 		CString strMsg;
 		strMsg = szBuff;
 		strMsg.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
-		strcpy(szBuff, strMsg);
+		strcpy_s(szBuff, _countof(szBuff), strMsg);
 	}
 // 2013.11.15 Bagus Add (TohoSpec‘Î‰ž) <--
 	OperationLogging(szBuff);
@@ -222,7 +222,7 @@ CNanoSpecDoc::~CNanoSpecDoc()
 		CString strMsg;
 		strMsg = szBuff;
 		strMsg.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
-		strcpy(szBuff, strMsg);
+		strcpy_s(szBuff, _countof(szBuff), strMsg);
 	}
 // 2013.11.15 Bagus Add (TohoSpec‘Î‰ž) <--
 
@@ -323,7 +323,7 @@ int CNanoSpecDoc::MakeDirectory(char* lpszDir)
 	if(i <= 0)
 		return 0;
 
-	strcpy(szBuff, lpszDir);
+	strcpy_s(szBuff, _countof(szBuff), lpszDir);
 	szBuff[i] = NULL;
 	if(iRet = MakeDirectory(szBuff))
 		return (iRet = CreateDirectory(lpszDir, &sa)) == TRUE ? 1 : 0;
