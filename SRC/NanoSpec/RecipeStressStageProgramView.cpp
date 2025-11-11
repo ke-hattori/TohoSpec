@@ -1,4 +1,4 @@
-// RecipeStressStageProgramView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// RecipeStressStageProgramView.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
@@ -18,7 +18,7 @@
 #include "..\\..\\INC\\NexIf.hxx"
 #include "../../INC/NSStage.hxx"
 
-#undef SubclassWindow	// ƒoƒO: C4003: SubclassWindow ƒ}ƒNƒ‚Ìƒpƒ‰ƒ[ƒ^[‚Ì•s‘« http://support.microsoft.com/kb/150076/ja
+#undef SubclassWindow	// ï¿½oï¿½O: C4003: SubclassWindow ï¿½}ï¿½Nï¿½ï¿½ï¿½Ìƒpï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½^ï¿½[ï¿½Ì•sï¿½ï¿½ http://support.microsoft.com/kb/150076/ja
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -34,13 +34,13 @@ static char THIS_FILE[] = __FILE__;
 //#define	PIN_INTERVAL		7
 //Saiki 20110207 Delete <-----
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 #define	DEFAULT_GRID_ROWS			30
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --{--
+// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --{--
 #define	STAGE_PROGRAM_HEAD_TYPE		(5)
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --}--
+// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --}--
 
 // 2013.01.09 bagus -->
 #define DIR_UNKNOWN    (0)
@@ -60,7 +60,7 @@ CRecipeStressStageProgramView::CRecipeStressStageProgramView()
 	: CNanoRecipeUI(CRecipeStressStageProgramView::IDD)
 {
 	//{{AFX_DATA_INIT(CRecipeStressStageProgramView)
-		// ƒƒ‚: ClassWizard ‚Í‚±‚ÌˆÊ’u‚Éƒƒ“ƒo‚Ì‰Šú‰»ˆ—‚ğ’Ç‰Á‚µ‚Ü‚·
+		// ï¿½ï¿½ï¿½ï¿½: ClassWizard ï¿½Í‚ï¿½ï¿½ÌˆÊ’uï¿½Éƒï¿½ï¿½ï¿½ï¿½oï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½
 	//}}AFX_DATA_INIT
 	CString l_strBuffer;
 	LoadStringML(IDS_CAPTION_STAGE_PROGRAM, l_strBuffer, "STAGE PROGRAM");
@@ -72,14 +72,14 @@ CRecipeStressStageProgramView::CRecipeStressStageProgramView()
 	::ZeroMemory(m_SitePoint, sizeof(m_SitePoint));
 	::ZeroMemory(m_OldSitePoint, sizeof(m_OldSitePoint));
 
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --{--
 	m_bFirst = TRUE;
 	memset(m_bUseLine, FALSE, sizeof(m_bUseLine));
-// 2009.09.10 bagus stress C³ --}--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --}--
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 	m_nSysVScrollWidth = GetSystemMetrics(SM_CXVSCROLL);
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 }
 
 CRecipeStressStageProgramView::~CRecipeStressStageProgramView()
@@ -105,16 +105,16 @@ void CRecipeStressStageProgramView::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_SAMPLE_SIZE_Y, m_stcSampleSizeY);
 	DDX_Control(pDX, IDC_SAMPLE_ORIGIN_X, m_stcSampleOriginX);
 	DDX_Control(pDX, IDC_SAMPLE_ORIGIN_Y, m_stcSampleOriginY);
-// 2009.09.04 bagus stress ƒfƒXƒLƒ…[íœ --{--
+// 2009.09.04 bagus stress ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½íœ --{--
 //	DDX_Control(pDX, IDC_STAGE_DESKEW_MODE, m_stcDeskewMode);
-// 2009.09.04 bagus stress ƒfƒXƒLƒ…[íœ --}--
+// 2009.09.04 bagus stress ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½íœ --}--
 	DDX_Control(pDX, IDC_ALLCHECK_BUTTON, m_AllCheckButton);
 	DDX_Control(pDX, IDC_ALL_CLEAR_BUTTON, m_AllClearButton);
 	DDX_Control(pDX, IDC_TEACHING_BUTTON, m_TeachingButton);
 	DDX_Control(pDX, IDC_REDRAW_POINT_MAP, m_RedrawPointButton);
-// 2009.09.04 bagus stress ƒfƒXƒLƒ…[íœ --{--
+// 2009.09.04 bagus stress ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½íœ --{--
 //	DDX_Control(pDX, IDC_DESKEW_BUTTON, m_DeskewButton);
-// 2009.09.04 bagus stress ƒfƒXƒLƒ…[íœ --}--
+// 2009.09.04 bagus stress ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½íœ --}--
 }
 
 
@@ -131,7 +131,7 @@ BEGIN_MESSAGE_MAP(CRecipeStressStageProgramView, CNanoRecipeUI)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CRecipeStressStageProgramView f’f
+// CRecipeStressStageProgramView ï¿½fï¿½f
 
 #ifdef _DEBUG
 void CRecipeStressStageProgramView::AssertValid() const
@@ -149,7 +149,7 @@ BOOL CRecipeStressStageProgramView::IsDataChanged()
 {
 	UpDate();
 
-	//‘ª’èƒ|ƒCƒ“ƒg”‚Ü‚Å‚Å•Ï‰»‚ª‚ ‚Á‚½ê‡‚ÍXV‚³‚ê‚½‚Æ‚İ‚È‚·
+	//ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Ü‚Å‚Å•Ï‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½ÍXï¿½Vï¿½ï¿½ï¿½ê‚½ï¿½Æ‚İ‚È‚ï¿½
 	return ( memcmp(&m_StageProgInfoHdr, &m_OldStageProgInfoHdr, sizeof(m_StageProgInfoHdr)) != 0 ||
 				memcmp(&m_StageStressProg, &m_OldStageStressProg, sizeof(m_StageStressProg)) != 0 ||
 				memcmp(m_ScanPoint, m_OldScanPoint, (sizeof(m_ScanPoint) / SCAN_POINT_MAX * m_StageProgInfoHdr.wNumScans)) != 0 ||
@@ -162,14 +162,14 @@ BOOL CRecipeStressStageProgramView::SaveRecipeData()
 	char szOriginalFilePath[MAX_PATH + 1];
 	char szNewFilePath[MAX_PATH + 1];
 
-	// V‚µ‚¢ƒŒƒVƒs–¼‚ğİ’èiSave, SaveAsŒ“—pj
+	// ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½İ’ï¿½iSave, SaveAsï¿½ï¿½ï¿½pï¿½j
 	strcpy(m_StageProgInfoHdr.hdr.szName, m_szRecipeName);
 
 	if ( strcmp(m_OldStageProgInfoHdr.hdr.szName, m_szRecipeName) != 0 ) {
-		// V‚µ‚¢ƒŒƒVƒs–¼‚ğİ’èiSaveAsê—pj
+		// ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½İ’ï¿½iSaveAsï¿½ï¿½pï¿½j
 
-		// Œ³ƒŒƒVƒs‚Ìƒpƒ^[ƒ“”F¯‰æ‘œ‚ğV‚µ‚¢ƒŒƒVƒs–¼‚Åì¬
-		// iƒpƒ^[ƒ“”F¯‚ª•ÒW“r’†‚©‚à’m‚ê‚È‚¢‚Ì‚ÅAƒŒƒVƒs•ÒW’†‚Ì“à—e‚Åì¬‚·‚éj
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½Ìƒpï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½æ‘œï¿½ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½Åì¬
+		// ï¿½iï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½ï¿½ï¿½ÒWï¿½rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½mï¿½ï¿½È‚ï¿½ï¿½Ì‚ÅAï¿½ï¿½ï¿½Vï¿½sï¿½ÒWï¿½ï¿½ï¿½Ì“ï¿½ï¿½eï¿½Åì¬ï¿½ï¿½ï¿½ï¿½j
 		_stprintf(szOriginalFilePath, "%s%s.D1", g_szDb_Deskew_Img_Dir, m_OldStageProgInfoHdr.hdr.szName);
 		_stprintf(szNewFilePath, "%s%s.D1", g_szDb_Deskew_Img_Dir, m_szRecipeName);
 		::DeleteFile(szNewFilePath);
@@ -179,8 +179,8 @@ BOOL CRecipeStressStageProgramView::SaveRecipeData()
 		::DeleteFile(szNewFilePath);
 		::CopyFile(szOriginalFilePath, szNewFilePath, FALSE);
 
-		// Œ³ƒŒƒVƒs‚Ìƒpƒ^[ƒ“”F¯‰æ‘œi‘Ş”ğj‚Ì–ß‚µ
-		// iƒpƒ^[ƒ“”F¯‚ª•ÒW“r’†‚©‚à’m‚ê‚È‚¢‚Ì‚ÅAƒŒƒVƒs•ÒW‘O‚Ìó‘Ô‚Ü‚Å–ß‚·j
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½Ìƒpï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½æ‘œï¿½iï¿½Ş”ï¿½ï¿½jï¿½Ì–ß‚ï¿½
+		// ï¿½iï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½ï¿½ï¿½ÒWï¿½rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½mï¿½ï¿½È‚ï¿½ï¿½Ì‚ÅAï¿½ï¿½ï¿½Vï¿½sï¿½ÒWï¿½Oï¿½Ìï¿½Ô‚Ü‚Å–ß‚ï¿½ï¿½j
 		_stprintf(szFilePathBackUp, "%s_BackUp.D1", g_szDb_Deskew_Img_Dir);
 		_stprintf(szFilePath, "%s%s.D1", g_szDb_Deskew_Img_Dir, m_OldStageProgInfoHdr.hdr.szName);
 		::CopyFile(szFilePathBackUp, szFilePath, FALSE);
@@ -189,8 +189,8 @@ BOOL CRecipeStressStageProgramView::SaveRecipeData()
 		::CopyFile(szFilePathBackUp, szFilePath, FALSE);
 	}
 
-	// ƒpƒ^[ƒ“”F¯‰æ‘œ‚ÌƒoƒbƒNƒAƒbƒv‚ğì¬
-	// i‚à‚µA‚±‚ÌŒã‚Ì‘€ì‚ÅAƒpƒ^[ƒ“”F¯•ÒWË•Û‘¶ƒLƒƒƒ“ƒZƒ‹‚µ‚½ê‡A‚±‚ÌƒoƒbƒNƒAƒbƒv“_‚Ì“à—e‚Å‘‚«–ß‚·j
+	// ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½æ‘œï¿½Ìƒoï¿½bï¿½Nï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½ì¬
+	// ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ÌŒï¿½Ì‘ï¿½ï¿½ï¿½ÅAï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½ÒWï¿½Ë•Û‘ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½Aï¿½ï¿½ï¿½Ìƒoï¿½bï¿½Nï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½_ï¿½Ì“ï¿½ï¿½eï¿½Åï¿½ï¿½ï¿½ï¿½ß‚ï¿½ï¿½j
 	_stprintf(szFilePath, "%s%s.D1", g_szDb_Deskew_Img_Dir, m_szRecipeName);
 	_stprintf(szFilePathBackUp, "%s_BackUp.D1", g_szDb_Deskew_Img_Dir);
 	::CopyFile(szFilePath, szFilePathBackUp, FALSE);
@@ -217,14 +217,14 @@ BOOL CRecipeStressStageProgramView::SaveRecipeData()
 	ConfigFile_GetNanoSpecIni(&l_UserData,CONFIG_FILE_USER_SETTING);
 	if(l_SystemConfig.bBackup){
 		if(l_UserData.BackupData.bAutoBackup && strlen(l_UserData.BackupData.BackupPath) > 0 ){
-			//©“®ƒoƒbƒNƒAƒbƒv‚ª—LŒø‚È‚Ì‚Å‚±‚±‚Å‰æ‘œƒtƒ@ƒCƒ‹‚ğƒoƒbƒNƒAƒbƒv‚·‚é
+			//ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½bï¿½Nï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½È‚Ì‚Å‚ï¿½ï¿½ï¿½ï¿½Å‰æ‘œï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½oï¿½bï¿½Nï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½ï¿½
 			TCHAR fullPath[MAX_PATH];
 			CString strSourceImage;
 			CString strBackupPath;
 			BOOL bCreateDir = TRUE;
 			_fullpath(fullPath,l_UserData.BackupData.BackupPath,sizeof(fullPath));
 			_tcscat(fullPath,"\\" DB_DIR_NAME "\\" DB_DESKEW_IMG_DIR_NAME "\\" );
-			for(int n = 0;n < strlen(fullPath);n++){
+			for(int n = 0;n < static_cast<int>(strlen(fullPath));n++){
 				if(n > 0 && fullPath[n] == '\\' && fullPath[n-1] != ':'){
 					fullPath[n] = '\0';
 					bCreateDir = CreateDirectory(fullPath,NULL);
@@ -276,16 +276,16 @@ BOOL CRecipeStressStageProgramView::IsAccessPrivilege()
 
 BOOL CRecipeStressStageProgramView::CheckData()
 {
-// 2009.09.16 bagus stress —LŒøƒ‰ƒCƒ“” > 0 --{--
+// 2009.09.16 bagus stress ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ > 0 --{--
 	if (m_StageStressProg.dwNumLsScans < 1) {
 		CString	strBuffer;
 		LoadStringML(IDS_INPUT_MEAS_LINE, strBuffer, "Measurement line is necessary by one.");
 		AfxMessageBox(strBuffer);
 		return ( FALSE );
 	}
-// 2009.09.16 bagus stress —LŒøƒ‰ƒCƒ“” > 0 --}--
+// 2009.09.16 bagus stress ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ > 0 --}--
 
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --{--
+// 2009.11.09 bagus Stress ï¿½Ç‰ï¿½ï¿½ÏX --{--
 	CComboBox* pCombo;
 	pCombo = (CComboBox*)GetDlgItem(IDC_MATERIAL_ELASTIC_MODULUS);
 
@@ -297,7 +297,7 @@ BOOL CRecipeStressStageProgramView::CheckData()
 		AfxMessageBox(strBuffer);
 		return ( FALSE );
 	}
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --}--
+// 2009.11.09 bagus Stress ï¿½Ç‰ï¿½ï¿½ÏX --}--
 
 	return TRUE;
 }
@@ -312,7 +312,7 @@ void CRecipeStressStageProgramView::Discard()
 	char szFilePath[MAX_PATH + 1];
 	char szFilePathBackUp[MAX_PATH + 1];
 
-	// ƒpƒ^[ƒ“”F¯‰æ‘œi‘Ş”ğj‚Ì–ß‚µ
+	// ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½æ‘œï¿½iï¿½Ş”ï¿½ï¿½jï¿½Ì–ß‚ï¿½
 	_stprintf(szFilePathBackUp, "%s_BackUp.D1", g_szDb_Deskew_Img_Dir);
 	_stprintf(szFilePath, "%s%s.D1", g_szDb_Deskew_Img_Dir, m_OldStageProgInfoHdr.hdr.szName);
 	::CopyFile(szFilePathBackUp, szFilePath, FALSE);
@@ -323,7 +323,7 @@ void CRecipeStressStageProgramView::Discard()
 
 
 /////////////////////////////////////////////////////////////////////////////
-// CRecipeStressStageProgramView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CRecipeStressStageProgramView ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 void CRecipeStressStageProgramView::OnInitialUpdate()
 {
 	m_pMainFrame = (CMainFrame*)AfxGetMainWnd();
@@ -331,9 +331,9 @@ void CRecipeStressStageProgramView::OnInitialUpdate()
 
 	///// Load File /////
 	ConfigFile_GetNanoSpecIni(&m_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
-// 2009.09.09 bagus stress C³ --{--
+// 2009.09.09 bagus stress ï¿½Cï¿½ï¿½ --{--
 	memset(&m_StageConfig,NULL,sizeof(m_StageConfig));
-// 2009.09.09 bagus stress C³ --}--
+// 2009.09.09 bagus stress ï¿½Cï¿½ï¿½ --}--
 	ConfigFile_GetNanoSpecIni(&m_StageConfig, CONFIG_FILE_STAGE_CONFIG);
 	memset(&m_StressConfig, 0, sizeof(m_StressConfig));
 	ConfigFile_GetNanoSpecIni(&m_StressConfig, CONFIG_FILE_STRESS_CONFIG);
@@ -357,7 +357,7 @@ void CRecipeStressStageProgramView::OnInitialUpdate()
 		| CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
 		!m_wndEditBar.LoadToolBar(IDR_EDIT_RECIPE_BAR)){
 		TRACE0("Failed to create toolbar\n");
-		return; 	// ì¬‚É¸”s
+		return; 	// ï¿½ì¬ï¿½Éï¿½ï¿½s
 	}
 
 	GetClientRect(&rect);
@@ -375,9 +375,9 @@ void CRecipeStressStageProgramView::OnInitialUpdate()
 	m_stcSampleSizeY.SetBkColor(WATER_COLOR);
 	m_stcSampleOriginX.SetBkColor(WATER_COLOR);
 	m_stcSampleOriginY.SetBkColor(WATER_COLOR);
-// 2009.09.04 bagus stress ƒfƒXƒLƒ…[íœ --{--
+// 2009.09.04 bagus stress ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½íœ --{--
 //	m_stcDeskewMode.SetBkColor(WATER_COLOR);
-// 2009.09.04 bagus stress ƒfƒXƒLƒ…[íœ --}--
+// 2009.09.04 bagus stress ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½íœ --}--
 
 	m_AllCheckButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_AllCheckButton.DrawFlatFocus(TRUE);
@@ -387,17 +387,17 @@ void CRecipeStressStageProgramView::OnInitialUpdate()
 	m_TeachingButton.DrawFlatFocus(TRUE);
 	m_RedrawPointButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 	m_RedrawPointButton.DrawFlatFocus(TRUE);
-// 2009.09.04 bagus stress ƒfƒXƒLƒ…[íœ --{--
+// 2009.09.04 bagus stress ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½íœ --{--
 //	m_DeskewButton.SetShade(BUTTON_NORMAL_SHADEID, BUTTON_GRANULARITY, BUTTON_HIGHLIGHT, BUTTON_COLORING, BUTTON_NORMAL_COLOR);
 //	m_DeskewButton.DrawFlatFocus(TRUE);
-// 2009.09.04 bagus stress ƒfƒXƒLƒ…[íœ --}--
+// 2009.09.04 bagus stress ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½íœ --}--
 
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --{--
+// 2009.11.09 bagus Stress ï¿½Ç‰ï¿½ï¿½ÏX --{--
 	memset(&m_ElasticTable, 0, sizeof(m_ElasticTable));
 	ConfigFile_GetNanoSpecIni(&m_ElasticTable, CONFIG_FILE_STRESS_MODULUS_CONFIG);
 
 	InitCombo_MaterialElasticModulus();
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --}--
+// 2009.11.09 bagus Stress ï¿½Ç‰ï¿½ï¿½ÏX --}--
 
 	///// Measurement Point Grid /////
 	m_SamplePointGraph.SetLineStatusMode(TRUE);
@@ -409,10 +409,10 @@ void CRecipeStressStageProgramView::OnInitialUpdate()
 	SetMeasurementLineSectionData();
 	SetMeasurementPointData();
 
-// 2009.09.09 bagus stress C³ --{--
+// 2009.09.09 bagus stress ï¿½Cï¿½ï¿½ --{--
 //	UpDate();
 	SamplePointGraph_DataSet();
-// 2009.09.09 bagus stress C³ --}--
+// 2009.09.09 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	SetTimer(1,100,NULL);
 }
@@ -420,7 +420,7 @@ void CRecipeStressStageProgramView::OnInitialUpdate()
 
 void CRecipeStressStageProgramView::OnAllcheckButton()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	int	i, j;
 
@@ -433,7 +433,7 @@ void CRecipeStressStageProgramView::OnAllcheckButton()
 //	UpDate();
 	SetMeasurementLineSectionData();
 
-// 2009.09.07 bagus stress Line/Section”C³ --{--
+// 2009.09.07 bagus stress Line/Sectionï¿½ï¿½ï¿½Cï¿½ï¿½ --{--
 #if 0
 	m_StageStressProg.dwNumLsScans = CheckLineSectionNum();
 
@@ -443,7 +443,7 @@ void CRecipeStressStageProgramView::OnAllcheckButton()
 #else
 	CheckMeasurementLineSectionData();
 #endif
-// 2009.09.07 bagus stress Line/Section”C³ --}--
+// 2009.09.07 bagus stress Line/Sectionï¿½ï¿½ï¿½Cï¿½ï¿½ --}--
 //2009.09.15 bagus stress --{--
 	m_SamplePointGraph.Invalidate();
 	Invalidate();
@@ -452,7 +452,7 @@ void CRecipeStressStageProgramView::OnAllcheckButton()
 
 void CRecipeStressStageProgramView::OnAllClearButton()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	int	i, j;
 
@@ -465,7 +465,7 @@ void CRecipeStressStageProgramView::OnAllClearButton()
 //	UpDate();
 	SetMeasurementLineSectionData();
 
-// 2009.09.07 bagus stress Line/Section”C³ --{--
+// 2009.09.07 bagus stress Line/Sectionï¿½ï¿½ï¿½Cï¿½ï¿½ --{--
 #if 0
 	m_StageStressProg.dwNumLsScans = CheckLineSectionNum();
 
@@ -475,7 +475,7 @@ void CRecipeStressStageProgramView::OnAllClearButton()
 #else
 	CheckMeasurementLineSectionData();
 #endif
-// 2009.09.07 bagus stress Line/Section”C³ --}--
+// 2009.09.07 bagus stress Line/Sectionï¿½ï¿½ï¿½Cï¿½ï¿½ --}--
 //2009.09.15 bagus stress --{--
 	m_SamplePointGraph.Invalidate();
 	Invalidate();
@@ -484,7 +484,7 @@ void CRecipeStressStageProgramView::OnAllClearButton()
 
 void CRecipeStressStageProgramView::OnTeachingButton()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	CString l_strBuffer;
 
@@ -497,32 +497,32 @@ void CRecipeStressStageProgramView::OnTeachingButton()
 		return;
 	}
 
-// 2010.02.02 K.Matsuo PIN UPPER ƒCƒ“ƒ^[ƒƒbƒNƒ`ƒFƒbƒN˜R‚ê‘Î‰ -->
+// 2010.02.02 K.Matsuo PIN UPPER ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½`ï¿½Fï¿½bï¿½Nï¿½Rï¿½ï¿½Î‰ï¿½ -->
 	CString strMsg;
 
-	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;} // ƒƒ“ƒeƒiƒ“ƒXˆÙí
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½X
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;} // ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Ùï¿½
 	}
-	else{												// ’Êí“®ì
+	else{												// ï¿½Êí“®ï¿½ï¿½
 	}
-	// ŠeI/Oƒ`ƒFƒbƒN
+	// ï¿½eI/Oï¿½`ï¿½Fï¿½bï¿½N
 	if(m_pDoc->IsInterLock() == TRUE){return;}
-	if( nexioIsMovo2Alarm() 	!= OFF){	AlarmIf_Set(ALID_StageError);	return;} // MOVOƒAƒ‰[ƒ€ 				‚k
+	if( nexioIsMovo2Alarm() 	!= OFF){	AlarmIf_Set(ALID_StageError);	return;} // MOVOï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ 				ï¿½ï¿½ï¿½k
 	if(m_pDoc->CheckUnitStatus() == TRUE){return;}
 
-	// ƒVƒƒƒbƒ^[ˆÈŠO‚ª“®‚¢‚Ä‚¢‚½‚ç“®ì‹Ö~
+	// ï¿½Vï¿½ï¿½ï¿½bï¿½^ï¿½[ï¿½ÈŠOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ç“®ï¿½ï¿½Ö~
 	if( m_pMainFrame->GetJoyStickMode()==0 ){
 		if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 			LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 			m_pDoc->MessageStringIf_Set(strMsg);
 			return;
-		}	// ƒXƒe[ƒW“®ì’†
+		}	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ì’†
 	}
 	if(m_pDoc->CheckActiveFlag() == TRUE){return;}
 
-	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
-// 2010.02.02 K.Matsuo PIN UPPER ƒCƒ“ƒ^[ƒƒbƒNƒ`ƒFƒbƒN˜R‚ê‘Î‰ <--
+	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// 2010.02.02 K.Matsuo PIN UPPER ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½`ï¿½Fï¿½bï¿½Nï¿½Rï¿½ï¿½Î‰ï¿½ <--
 
 	CPointSetupTeachingDlg dlg;
 
@@ -553,13 +553,13 @@ void CRecipeStressStageProgramView::OnTeachingButton()
 	LoadStringML(IDS_POINTSETUPTEACHING_MESSAGE, l_strBuffer, "POINT SETUP - TEACHING");
 	dlg.SetMessage(l_strBuffer);
 
-// 2009.09.14 bagus stress Stress‘Î‰ --{--
+// 2009.09.14 bagus stress Stressï¿½Î‰ï¿½ --{--
 	CCellID celSel = m_MeasurementPointGrid2.GetFocusCell();
 	int	FixRow = 1;
 
 	dlg.m_wHeadType = HEAD_TYPE_STRESS;
 	dlg.m_nSelectedPoint = celSel.row - FixRow + 1;
-// 2009.09.14 bagus stress Stress‘Î‰ --}--
+// 2009.09.14 bagus stress Stressï¿½Î‰ï¿½ --}--
 
 	if(dlg.DoModal() == IDOK){
 		m_iNumScans = dlg.m_iNumScans;
@@ -575,20 +575,20 @@ void CRecipeStressStageProgramView::OnTeachingButton()
 
 void CRecipeStressStageProgramView::OnRedrawPointMap()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --{--
 // debug
 //	UpDate();
-// 2009.09.10 bagus stress C³ --}--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --}--
 	SamplePointGraph_DataSet();
 }
 
-// 2009.09.04 bagus stress ƒfƒXƒLƒ…[íœ --{--
+// 2009.09.04 bagus stress ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½íœ --{--
 /*
 void CRecipeStressStageProgramView::OnDeskewButton()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	CDeskewDlg dlg(&m_StageProgInfoHdr);
 	if( dlg.DoModal() == IDOK ){
@@ -596,24 +596,24 @@ void CRecipeStressStageProgramView::OnDeskewButton()
 	}
 }
 */
-// 2009.09.04 bagus stress ƒfƒXƒLƒ…[íœ --}--
+// 2009.09.04 bagus stress ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½íœ --}--
 
 void CRecipeStressStageProgramView::MeasurementLineSectionListGrid_Init()
 {
 	GV_ITEM Item;
 
-	int iDispCol = 4; //—LŒøCol”
+	int iDispCol = 4; //ï¿½Lï¿½ï¿½Colï¿½ï¿½
 
 	int FixRows = 1;
 	int FixCols = 1;
 	int Cols = iDispCol + FixCols;
 //	int Rows = 100 + FixRows;
 	int Rows = FixRows;
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	int row,col;
 //	int ItemWidth = 70;
 	int	col;
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 	DWORD dwTextStyle;
 
 	char* ColItem_ENU[]={
@@ -665,7 +665,7 @@ void CRecipeStressStageProgramView::MeasurementLineSectionListGrid_Init()
 	}
 	END_CATCH
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 	CWnd* GridBox = GetDlgItem(IDC_MEASUREMENT_LINE_SECTION_GRID);
 	CDC* pDC = GridBox->GetDC();
 	CRect GridRect;
@@ -676,33 +676,33 @@ void CRecipeStressStageProgramView::MeasurementLineSectionListGrid_Init()
 	int	nCellsWidth = GridRect.Width() - m_nSysVScrollWidth;
 	int	nColWidth = nCellsWidth / Cols;
 	int	nFixColWidth = nCellsWidth - (nColWidth * iDispCol);
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	// Row 0 Height
 	m_MeasurementPointGrid.SetRowHeight(0, 18);
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 #if 0
 	// Row 1 -> RowCount Height
 	for(row = 1 ; row < m_MeasurementPointGrid.GetRowCount() ; row++){
 		m_MeasurementPointGrid.SetRowHeight(row, 18);
 	}
 #endif
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	// Col 0 Width
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	m_MeasurementPointGrid.SetColumnWidth(0, 52);	// No.
 	m_MeasurementPointGrid.SetColumnWidth(0, nFixColWidth);	// No.
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	// Col 1 -> ColumnCount Width
 	for (col = 1 ; col < m_MeasurementPointGrid.GetColumnCount(); col++)
 	{
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //		m_MeasurementPointGrid.SetColumnWidth(col, ItemWidth);
 		m_MeasurementPointGrid.SetColumnWidth(col, nColWidth);
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 	}
 
 	///// Title Column /////
@@ -718,7 +718,7 @@ void CRecipeStressStageProgramView::MeasurementLineSectionListGrid_Init()
 		m_MeasurementPointGrid.SetItem(&Item);
 	}
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 #if 0
 	///// Title Row /////
 	dwTextStyle = DT_CENTER|DT_VCENTER|DT_SINGLELINE;
@@ -733,25 +733,25 @@ void CRecipeStressStageProgramView::MeasurementLineSectionListGrid_Init()
 		m_MeasurementPointGrid.SetItem(&Item);
 	}
 #endif
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 }
 
 void CRecipeStressStageProgramView::MeasurementPointListGrid_Init()
 {
 	GV_ITEM Item;
 
-	int iDispCol = 2; //—LŒøCol”
+	int iDispCol = 2; //ï¿½Lï¿½ï¿½Colï¿½ï¿½
 
 	int FixRows = 1;
 	int FixCols = 1;
 	int Cols = iDispCol + FixCols;
 //	int Rows = 100 + FixRows;
 	int Rows = FixRows;
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	int row,col;
 //	int ItemWidth = 70;
 	int	col;
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 	DWORD dwTextStyle;
 
 	char* ColItem_ENU[]={
@@ -799,7 +799,7 @@ void CRecipeStressStageProgramView::MeasurementPointListGrid_Init()
 	}
 	END_CATCH
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 	CWnd* GridBox = GetDlgItem(IDC_MEASUREMENT_POINT_GRID);
 	CDC* pDC = GridBox->GetDC();
 	CRect GridRect;
@@ -810,33 +810,33 @@ void CRecipeStressStageProgramView::MeasurementPointListGrid_Init()
 	int	nCellsWidth = GridRect.Width() - m_nSysVScrollWidth;
 	int	nColWidth = nCellsWidth / Cols;
 	int	nFixColWidth = nCellsWidth - (nColWidth * iDispCol);
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	// Row 0 Height
 	m_MeasurementPointGrid2.SetRowHeight(0, 18);
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 #if 0
 	// Row 1 -> RowCount Height
 	for(row = 1 ; row < m_MeasurementPointGrid2.GetRowCount() ; row++){
 		m_MeasurementPointGrid2.SetRowHeight(row, 18);
 	}
 #endif
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	// Col 0 Width
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	m_MeasurementPointGrid2.SetColumnWidth(0, 45);	// No.
 	m_MeasurementPointGrid2.SetColumnWidth(0, nFixColWidth);	// No.
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	// Col 1 -> ColumnCount Width
 	for (col = 1 ; col < m_MeasurementPointGrid2.GetColumnCount(); col++)
 	{
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //		m_MeasurementPointGrid2.SetColumnWidth(col, ItemWidth);
 		m_MeasurementPointGrid2.SetColumnWidth(col, nColWidth);
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 	}
 
 	///// Title Column /////
@@ -852,7 +852,7 @@ void CRecipeStressStageProgramView::MeasurementPointListGrid_Init()
 		m_MeasurementPointGrid2.SetItem(&Item);
 	}
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 #if 0
 	///// Title Row /////
 	dwTextStyle = DT_CENTER|DT_VCENTER|DT_SINGLELINE;
@@ -867,7 +867,7 @@ void CRecipeStressStageProgramView::MeasurementPointListGrid_Init()
 		m_MeasurementPointGrid2.SetItem(&Item);
 	}
 #endif
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 }
 
 void CRecipeStressStageProgramView::SetMeasurementLineSectionData()
@@ -894,14 +894,14 @@ void CRecipeStressStageProgramView::SetMeasurementLineSectionData()
 
 	TRY{
 		//m_MeasurementPointGrid.SetRowCount(m_StageProgInfoHdr.wNumScans + FixRows);
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //		m_MeasurementPointGrid.SetRowCount(nRowCount + FixRows);
 		if ((nRowCount + FixRows) < DEFAULT_GRID_ROWS) {
 			m_MeasurementPointGrid.SetRowCount(DEFAULT_GRID_ROWS);
 		} else {
 			m_MeasurementPointGrid.SetRowCount(nRowCount + FixRows);
 		}
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 	}
 	CATCH(CMemoryException, e){
 		e->ReportError();
@@ -934,7 +934,7 @@ void CRecipeStressStageProgramView::SetMeasurementLineSectionData()
 			Item.row = j;
 			Item.col = 1;
 			Item.nFormat = dwTextStyle;
-			Item.strText.Format("%.3f", (double)(m_StageStressProg.Line[i - FixRows].SectPos[j - row].lScanStartPosX / MICROMETRE));			// ’PˆÊ•ÏŠ·(um->mm)
+			Item.strText.Format("%.3f", (double)(m_StageStressProg.Line[i - FixRows].SectPos[j - row].lScanStartPosX / MICROMETRE));			// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 			m_MeasurementPointGrid.SetItem(&Item);
 
 			dwTextStyle = DT_RIGHT|DT_VCENTER|DT_SINGLELINE;
@@ -943,7 +943,7 @@ void CRecipeStressStageProgramView::SetMeasurementLineSectionData()
 			Item.row = j;
 			Item.col = 2;
 			Item.nFormat = dwTextStyle;
-			Item.strText.Format("%.3f", (double)(m_StageStressProg.Line[i - FixRows].SectPos[j - row].lScanEndPosX / MICROMETRE));			// ’PˆÊ•ÏŠ·(um->mm)
+			Item.strText.Format("%.3f", (double)(m_StageStressProg.Line[i - FixRows].SectPos[j - row].lScanEndPosX / MICROMETRE));			// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 			m_MeasurementPointGrid.SetItem(&Item);
 
 			dwTextStyle = DT_RIGHT|DT_VCENTER|DT_SINGLELINE;
@@ -952,7 +952,7 @@ void CRecipeStressStageProgramView::SetMeasurementLineSectionData()
 			Item.row = j;
 			Item.col = 3;
 			Item.nFormat = dwTextStyle;
-			Item.strText.Format("%.3f", (double)(m_StageStressProg.Line[i - FixRows].SectPos[j - row].lScanPosY / MICROMETRE));			// ’PˆÊ•ÏŠ·(um->mm)
+			Item.strText.Format("%.3f", (double)(m_StageStressProg.Line[i - FixRows].SectPos[j - row].lScanPosY / MICROMETRE));			// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 			m_MeasurementPointGrid.SetItem(&Item);
 
 			dwTextStyle = DT_CENTER|DT_VCENTER|DT_SINGLELINE;
@@ -999,8 +999,8 @@ void CRecipeStressStageProgramView::SetMeasurementLineSectionData()
 			Item.col = 1;
 			Item.nFormat = dwTextStyle;
 			//2009.09.24 bagus stress --{--
-			//Item.strText.Format("%.3f", (double)(m_StageStressProg.Line[i].SectPos[j].lScanStartPosX / MICROMETRE));			// ’PˆÊ•ÏŠ·(um->mm)
-			Item.strText.Format("%.3f", (double)(m_StressConfig.Line[i].SectPos[j].lScanStartPosX / MICROMETRE));			// ’PˆÊ•ÏŠ·(um->mm)
+			//Item.strText.Format("%.3f", (double)(m_StageStressProg.Line[i].SectPos[j].lScanStartPosX / MICROMETRE));			// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
+			Item.strText.Format("%.3f", (double)(m_StressConfig.Line[i].SectPos[j].lScanStartPosX / MICROMETRE));			// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 			//2009.09.24 bagus stress --}--
 			m_MeasurementPointGrid.SetItem(&Item);
 
@@ -1011,8 +1011,8 @@ void CRecipeStressStageProgramView::SetMeasurementLineSectionData()
 			Item.col = 2;
 			Item.nFormat = dwTextStyle;
 			//2009.09.24 bagus stress --{--
-			//Item.strText.Format("%.3f", (double)(m_StageStressProg.Line[i].SectPos[j].lScanEndPosX / MICROMETRE));			// ’PˆÊ•ÏŠ·(um->mm)
-			Item.strText.Format("%.3f", (double)(m_StressConfig.Line[i].SectPos[j].lScanEndPosX / MICROMETRE));			// ’PˆÊ•ÏŠ·(um->mm)
+			//Item.strText.Format("%.3f", (double)(m_StageStressProg.Line[i].SectPos[j].lScanEndPosX / MICROMETRE));			// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
+			Item.strText.Format("%.3f", (double)(m_StressConfig.Line[i].SectPos[j].lScanEndPosX / MICROMETRE));			// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 			//2009.09.24 bagus stress --}--
 			m_MeasurementPointGrid.SetItem(&Item);
 
@@ -1023,8 +1023,8 @@ void CRecipeStressStageProgramView::SetMeasurementLineSectionData()
 			Item.col = 3;
 			Item.nFormat = dwTextStyle;
 			//2009.09.24 bagus stress --{--
-			//Item.strText.Format("%.3f", (double)(m_StageStressProg.Line[i].SectPos[j].lScanPosY / MICROMETRE));			// ’PˆÊ•ÏŠ·(um->mm)
-			Item.strText.Format("%.3f", (double)(m_StressConfig.Line[i].SectPos[j].lScanPosY / MICROMETRE));			// ’PˆÊ•ÏŠ·(um->mm)
+			//Item.strText.Format("%.3f", (double)(m_StageStressProg.Line[i].SectPos[j].lScanPosY / MICROMETRE));			// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
+			Item.strText.Format("%.3f", (double)(m_StressConfig.Line[i].SectPos[j].lScanPosY / MICROMETRE));			// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 			//2009.09.24 bagus stress --}--
 			m_MeasurementPointGrid.SetItem(&Item);
 
@@ -1051,15 +1051,15 @@ void CRecipeStressStageProgramView::SetMeasurementLineSectionData()
 
 void CRecipeStressStageProgramView::SetMeasurementPointData()
 {
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --{--
 //	MeasurementPointListGrid_Init();
-// 2009.09.10 bagus stress C³ --}--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	GV_ITEM Item;
 
 	int	i ,j;
 
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --{--
 	int		LineNum = 0;
 	BOOL	bUseLine[STRESS_LINES_MAX];
 
@@ -1110,32 +1110,32 @@ void CRecipeStressStageProgramView::SetMeasurementPointData()
 		bOldUseLine[i] = m_bUseLine[i];
 		m_bUseLine[i] = bUseLine[i];
 	}
-// 2009.09.10 bagus stress C³ --}--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --}--
 
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --{--
 	MeasurementPointListGrid_Init();
-// 2009.09.10 bagus stress C³ --}--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	int FixRows = 1;
 	int FixCols = 1;
 	int	nIndex;
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --{--
 	int	nRowIndex;
-// 2009.09.10 bagus stress C³ --}--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --}--
 	DWORD	dwTextStyle;
 
 	TRY{
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --{--
 //		m_MeasurementPointGrid2.SetRowCount((m_StressConfig.dwLiftPinNumberOfLine * PIN_INTERVAL) + FixRows);
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //		m_MeasurementPointGrid2.SetRowCount(LineNum * PIN_INTERVAL + FixRows);
 		if ((LineNum * PIN_INTERVAL + FixRows) < DEFAULT_GRID_ROWS) {
 			m_MeasurementPointGrid2.SetRowCount(DEFAULT_GRID_ROWS);
 		} else {
 			m_MeasurementPointGrid2.SetRowCount(LineNum * PIN_INTERVAL + FixRows);
 		}
-// 2009.09.17 bagus stress GridC³ --}--
-// 2009.09.10 bagus stress C³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --}--
 	}
 	CATCH(CMemoryException, e){
 		e->ReportError();
@@ -1145,34 +1145,34 @@ void CRecipeStressStageProgramView::SetMeasurementPointData()
 	END_CATCH
 
 	nIndex = 0;
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --{--
 	nRowIndex = 0;
 //	for(i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++){
 	int nNewLines = 0;
 	for(i=0; i<STRESS_LINES_MAX; i++){
-// 2009.10.19 bagus Stress C³ --{--
+// 2009.10.19 bagus Stress ï¿½Cï¿½ï¿½ --{--
 #if 0
 		if (!m_StageStressProg.Line[i].bValidLine) {
 			nIndex += PIN_INTERVAL;
 			continue;
 		}
 #endif
-// 2009.10.19 bagus Stress C³ --}--
+// 2009.10.19 bagus Stress ï¿½Cï¿½ï¿½ --}--
 
 		if (!bUseLine[i]) {
 			if(bOldUseLine[i])
 				nIndex += PIN_INTERVAL;
 			continue;
 		}
-// 2009.09.10 bagus stress C³ --}--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --}--
 		for (j=0; j<PIN_INTERVAL; j++) {
 			dwTextStyle = DT_CENTER|DT_VCENTER|DT_SINGLELINE;
 			dwTextStyle |= DT_END_ELLIPSIS;
 			Item.mask = GVIF_TEXT|GVIF_FORMAT;
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --{--
 //			Item.row = j + (i * PIN_INTERVAL) + FixRows;
 			Item.row = nRowIndex + FixRows;
-// 2009.09.10 bagus stress C³ --}--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --}--
 			Item.col = 0;
 			Item.nFormat = dwTextStyle;
 //			Item.strText.Format("L%dP%d", i+1, j+1);
@@ -1183,17 +1183,17 @@ void CRecipeStressStageProgramView::SetMeasurementPointData()
 			dwTextStyle = DT_RIGHT|DT_VCENTER|DT_SINGLELINE;
 			dwTextStyle |= DT_END_ELLIPSIS;
 			Item.mask = GVIF_TEXT|GVIF_FORMAT;
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --{--
 //			Item.row = j + (i * PIN_INTERVAL) + FixRows;
 			Item.row = nRowIndex + FixRows;
-// 2009.09.10 bagus stress C³ --}--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --}--
 			Item.col = 1;
 			Item.nFormat = dwTextStyle;
 			//if(nIndex < m_StageProgInfoHdr.wNumScans){
 			if(bOldUseLine[i]){
-				Item.strText.Format("%.3f", (double)(m_ScanPoint[nIndex].lX / MICROMETRE));		// ’PˆÊ•ÏŠ·(um->mm)
+				Item.strText.Format("%.3f", (double)(m_ScanPoint[nIndex].lX / MICROMETRE));		// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 			}else{
-				//Item.strText.Format("%.3f", (double)(m_ScanPoint[nIndex].lX / MICROMETRE));		// ’PˆÊ•ÏŠ·(um->mm)
+				//Item.strText.Format("%.3f", (double)(m_ScanPoint[nIndex].lX / MICROMETRE));		// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 				Item.strText.Format("%.3f",	(double)(m_StressConfig.Line[i].MeasPos[j].lX / MICROMETRE));
 			}
 			m_MeasurementPointGrid2.SetItem(&Item);
@@ -1201,22 +1201,22 @@ void CRecipeStressStageProgramView::SetMeasurementPointData()
 			dwTextStyle = DT_RIGHT|DT_VCENTER|DT_SINGLELINE;
 			dwTextStyle |= DT_END_ELLIPSIS;
 			Item.mask = GVIF_TEXT|GVIF_FORMAT;
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --{--
 //			Item.row = j + (i * PIN_INTERVAL) + FixRows;
 			Item.row = nRowIndex + FixRows;
-// 2009.09.10 bagus stress C³ --}--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --}--
 			Item.col = 2;
 			Item.nFormat = dwTextStyle;
-			//Item.strText.Format("%.3f", (double)(m_ScanPoint[nIndex].lY / MICROMETRE));		// ’PˆÊ•ÏŠ·(um->mm)
+			//Item.strText.Format("%.3f", (double)(m_ScanPoint[nIndex].lY / MICROMETRE));		// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 			if(bOldUseLine[i]){
-				Item.strText.Format("%.3f", (double)(m_ScanPoint[nIndex].lY / MICROMETRE));		// ’PˆÊ•ÏŠ·(um->mm)
+				Item.strText.Format("%.3f", (double)(m_ScanPoint[nIndex].lY / MICROMETRE));		// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 			}else{
-				//Item.strText.Format("%.3f", (double)(m_ScanPoint[nIndex].lY / MICROMETRE));		// ’PˆÊ•ÏŠ·(um->mm)
+				//Item.strText.Format("%.3f", (double)(m_ScanPoint[nIndex].lY / MICROMETRE));		// ï¿½Pï¿½Ê•ÏŠï¿½(um->mm)
 				Item.strText.Format("%.3f",	(double)(m_StressConfig.Line[i].MeasPos[j].lY / MICROMETRE));
 			}
 			m_MeasurementPointGrid2.SetItem(&Item);
 
-// 2009.09.16 bagus stress C³ --{--
+// 2009.09.16 bagus stress ï¿½Cï¿½ï¿½ --{--
 #if 0
 			nIndex++;
 			if(bOldUseLine[i]){
@@ -1228,23 +1228,23 @@ void CRecipeStressStageProgramView::SetMeasurementPointData()
 				nIndex++;
 			}
 #endif
-// 2009.09.16 bagus stress C³ --}--
+// 2009.09.16 bagus stress ï¿½Cï¿½ï¿½ --}--
 
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --{--
 			nRowIndex++;
-// 2009.09.10 bagus stress C³ --}--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --}--
 		}
 		//if(!bOldUseLine[i]){
 		//	nNewLines++;
 		//}
 	}
 
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --{--
 // debug
 	UpDate();
 
 	SamplePointGraph_DataSet();
-// 2009.09.10 bagus stress C³ --}--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --}--
 }
 
 // ==========================================================================
@@ -1293,20 +1293,20 @@ void CRecipeStressStageProgramView::SetData()
 
 	///// Line / Section /////
 	sprintf(szBuff, "%d", m_StageProgInfoHdr.wNumScans);
-// 2009.09.07 bagus stress Line/Section”C³ --{--
+// 2009.09.07 bagus stress Line/Sectionï¿½ï¿½ï¿½Cï¿½ï¿½ --{--
 //	SetDlgItemText(IDC_STAGE_PROGRAM_LINE_SECTION, szBuff);
 	SetDlgItemText(IDC_STAGE_PROGRAM_POINT_NUMBER, szBuff);
-// 2009.09.07 bagus stress Line/Section”C³ --}--
+// 2009.09.07 bagus stress Line/Sectionï¿½ï¿½ï¿½Cï¿½ï¿½ --}--
 
 	///// Point Number /////
 	sprintf(szBuff, "%d", m_StageStressProg.dwNumLsScans);
-// 2009.09.07 bagus stress Line/Section”C³ --{--
+// 2009.09.07 bagus stress Line/Sectionï¿½ï¿½ï¿½Cï¿½ï¿½ --{--
 //	SetDlgItemText(IDC_STAGE_PROGRAM_POINT_NUMBER, szBuff);
 	SetDlgItemText(IDC_STAGE_PROGRAM_LINE_SECTION, szBuff);
-// 2009.09.07 bagus stress Line/Section”C³ --}--
+// 2009.09.07 bagus stress Line/Sectionï¿½ï¿½ï¿½Cï¿½ï¿½ --}--
 
 	///// Point Coord /////
-	// SAMPLEŒ´“_‚©‚ç‚Ì‘Š‘ÎÀ•W‚Æ‚·‚é
+	// SAMPLEï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½Îï¿½ï¿½Wï¿½Æ‚ï¿½ï¿½ï¿½
 	for ( int i = 0 ; i < m_iNumScans ; i++ ) {
 		// X
 		sprintf(szBuff, "%.3lf", ((double)m_ScanPoint[i].lX) / MICROMETRE );
@@ -1320,7 +1320,7 @@ void CRecipeStressStageProgramView::SetData()
 	///// Comment /////
 	SetDlgItemText(IDC_COMMENT, m_StageProgInfoHdr.hdr.szComment);
 
-// 2009.09.04 bagus stress ƒfƒXƒLƒ…[íœ --{--
+// 2009.09.04 bagus stress ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½íœ --{--
 	///// Deskew Mode /////
 //	if(l_SystemConfig.nLanguage == 0){
 //		strcpy(szBuff, g_lpszDeskewMode_ENU[m_StageProgInfoHdr.nDeskewMode]);
@@ -1329,7 +1329,7 @@ void CRecipeStressStageProgramView::SetData()
 //		strcpy(szBuff, g_lpszDeskewMode_JPN[m_StageProgInfoHdr.nDeskewMode]);
 //	}
 //	SetDlgItemText(IDC_STAGE_DESKEW_MODE, szBuff);
-// 2009.09.04 bagus stress ƒfƒXƒLƒ…[íœ --}--
+// 2009.09.04 bagus stress ï¿½fï¿½Xï¿½Lï¿½ï¿½ï¿½[ï¿½íœ --}--
 }
 
 // ==========================================================================
@@ -1400,9 +1400,9 @@ void CRecipeStressStageProgramView::UpDate()
 
 	///// Point /////
 	m_iNumScans = 0;
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --{--
 //	::ZeroMemory(m_ScanPoint, sizeof(m_ScanPoint));
-// 2009.09.10 bagus stress C³ --}--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --}--
 	for ( i = 0 ; i < SCAN_POINT_MAX ; i++ ) {
 		Valid_X = Valid_Y = 0;
 		///// X /////
@@ -1514,7 +1514,7 @@ BOOL CRecipeStressStageProgramView::LoadRecipeData()
 
 	int	i, j, k;
 
-	// V‹Kì¬‚Ìê‡
+	// ï¿½Vï¿½Kï¿½ì¬ï¿½Ìê‡
 	if ( m_nOpenMode == modeNew ) {
 		///// Get Selected Sample Type	Name /////
 		m_pMainFrame->GetSelectSampleTypeName(szSampleTypeName);
@@ -1551,9 +1551,9 @@ BOOL CRecipeStressStageProgramView::LoadRecipeData()
 			::ZeroMemory(m_SitePoint, sizeof(m_SitePoint));
 		}
 
-// 2009.12.14 bagus NANOMAP ’Ç‰Á --{--
+// 2009.12.14 bagus NANOMAP ï¿½Ç‰ï¿½ --{--
 		m_StageProgInfoHdr.SampleInfo.StageConfig = m_StageConfig;
-// 2009.12.14 bagus NANOMAP ’Ç‰Á --}--
+// 2009.12.14 bagus NANOMAP ï¿½Ç‰ï¿½ --}--
 
 		k = 0;
 		for (i=0; i<STRESS_LINES_MAX; i++) {
@@ -1599,10 +1599,10 @@ BOOL CRecipeStressStageProgramView::LoadRecipeData()
 		}
 
 		///// Measurement Point /////
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //		if ( !RecipeFile_LoadPointList(m_ScanPoint, m_iNumScans, m_szRecipeName) ) {
 		if (!LoadScanPoint()) {
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 			m_nOpenMode = modeNew;
 			::ZeroMemory(&m_StageProgInfoHdr, sizeof(m_StageProgInfoHdr));
 			::ZeroMemory(m_ScanPoint, sizeof(m_ScanPoint));
@@ -1620,7 +1620,7 @@ BOOL CRecipeStressStageProgramView::LoadRecipeData()
 //		if((m_SystemConfig.nPRMethod == 1) && (m_SystemConfig.bSitePatternRec == TRUE)){
 		if((m_SystemConfig.nPRMethod > 0) && (m_SystemConfig.bSitePatternRec == TRUE)){
 // 2009.12.03 K.Matsuo <--
-			/////@ƒTƒCƒgƒpƒ^[ƒ“”F¯‚ ‚è /////
+			/////ï¿½@ï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ /////
 			m_wNumSite = m_iNumScans;
 			if( !PatternFile_LoadPointList(m_SitePoint, &m_wNumSite, m_szRecipeName) ){
 			}
@@ -1641,10 +1641,10 @@ BOOL CRecipeStressStageProgramView::LoadRecipeData()
 		}
 
 		///// Measurement Point /////
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //		if ( !RecipeFile_LoadPointList(m_ScanPoint, m_iNumScans, m_szRecipeName) ) {
 		if (!LoadScanPoint()) {
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 			m_nOpenMode = modeNew;
 			::ZeroMemory(&m_StageProgInfoHdr, sizeof(m_StageProgInfoHdr));
 			::ZeroMemory(m_ScanPoint, sizeof(m_ScanPoint));
@@ -1661,15 +1661,15 @@ BOOL CRecipeStressStageProgramView::LoadRecipeData()
 		strcpy(m_OldStageProgInfoHdr.hdr.szName, strBuffer);
 	}
 
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --{--
+// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --{--
 //	m_StageProgInfoHdr.wHeadType = HEAD_TYPE_STRESS;
 	m_StageProgInfoHdr.wHeadType = STAGE_PROGRAM_HEAD_TYPE;
 	m_StageProgInfoHdr.wScanType = SCAN_TYPE_STRESS;
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --}--
-// 2009.10.13 bagus StagePGM C³ --{--
+// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --}--
+// 2009.10.13 bagus StagePGM ï¿½Cï¿½ï¿½ --{--
 	m_OldStageProgInfoHdr.wHeadType = STAGE_PROGRAM_HEAD_TYPE;
 	m_OldStageProgInfoHdr.wScanType = SCAN_TYPE_STRESS;
-// 2009.10.13 bagus StagePGM C³ --}--
+// 2009.10.13 bagus StagePGM ï¿½Cï¿½ï¿½ --}--
 
 	return TRUE;
 }
@@ -1684,11 +1684,11 @@ void CRecipeStressStageProgramView::SamplePointGraph_Init()
 	m_SamplePointGraph.ShowWindow(SW_HIDE);
 
 	////Point Graph Data Reset
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //	m_SamplePointGraph.Reset();
 //	m_SamplePointGraph.ResetSection();
 	m_SamplePointGraph.ResetAll();
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	////Back Color
 	tConfig.BackColor = WAFER_COLOR;
@@ -1714,22 +1714,22 @@ void CRecipeStressStageProgramView::SamplePointGraph_Init()
 	tConfig.OriginColor = GREEN_COLOR;
 	// 2013.01.09 bagus -->
 
-	////CNanoPointGraphƒNƒ‰ƒX“àƒTƒCƒY(Sample Size)
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+	////CNanoPointGraphï¿½Nï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½Tï¿½Cï¿½Y(Sample Size)
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //	tConfig.SampleSizeX = m_StageProgInfoHdr.SampleInfo.Size.dx;
 //	tConfig.SampleSizeY = m_StageProgInfoHdr.SampleInfo.Size.dy;
 	if (((m_StageConfig.Dir.X == 2) || (m_StageConfig.Dir.X == 4)) && ((m_StageConfig.Dir.Y == 1) || (m_StageConfig.Dir.Y == 3))) {
-		// X<->Y“ü‚ê‘Ö‚¦
+		// X<->Yï¿½ï¿½ï¿½ï¿½Ö‚ï¿½
 		tConfig.SampleSizeY = m_StageProgInfoHdr.SampleInfo.Size.dx;
 		tConfig.SampleSizeX = m_StageProgInfoHdr.SampleInfo.Size.dy;
 	} else if (((m_StageConfig.Dir.X == 1) || (m_StageConfig.Dir.X == 3)) && ((m_StageConfig.Dir.Y == 2) || (m_StageConfig.Dir.Y == 4))) {
-		// X-Y‚»‚Ì‚Ü‚Ü
+		// X-Yï¿½ï¿½ï¿½Ì‚Ü‚ï¿½
 		tConfig.SampleSizeX = m_StageProgInfoHdr.SampleInfo.Size.dx;
 		tConfig.SampleSizeY = m_StageProgInfoHdr.SampleInfo.Size.dy;
 	} else {
-		// –îˆóİ’è‚ª‚¨‚©‚µ‚¢
+		// ï¿½ï¿½ï¿½İ’è‚ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 	m_SamplePointGraph.SetConfig(&tConfig);
 
 	SamplePointGraph_DataSet();
@@ -1740,11 +1740,11 @@ void CRecipeStressStageProgramView::SamplePointGraph_Init()
 void CRecipeStressStageProgramView::SamplePointGraph_DataSet()
 {
 	////Point Graph Data Reset
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //	m_SamplePointGraph.Reset();
 //	m_SamplePointGraph.ResetSection();
 	m_SamplePointGraph.ResetAll();
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	CNanoPointGraph::LSData tLineData;
 
@@ -1752,8 +1752,8 @@ void CRecipeStressStageProgramView::SamplePointGraph_DataSet()
 	int ls_rows;
 
 	////Point Data
-	//ƒZƒ“ƒ^[Œ´“_‚Ìê‡
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+	//ï¿½Zï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½_ï¿½Ìê‡
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //	double dOffSetValueX = (m_StageProgInfoHdr.SampleInfo.Size.dx/2);
 //	double dOffSetValueY = (m_StageProgInfoHdr.SampleInfo.Size.dy/2);
 	double dOffSetValueX;
@@ -1766,34 +1766,34 @@ void CRecipeStressStageProgramView::SamplePointGraph_DataSet()
 		break;
 	case 2:
 		dOffSetValueX = 0;
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //		dOffSetValueY = m_StageProgInfoHdr.SampleInfo.Size.dy;
 		dOffSetValueY = 0;
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		break;
 	case 3:
 		dOffSetValueX = 0;
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //		dOffSetValueY = 0;
 		dOffSetValueY = m_StageProgInfoHdr.SampleInfo.Size.dy;
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		break;
 	case 4:
 		dOffSetValueX = m_StageProgInfoHdr.SampleInfo.Size.dx;
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //		dOffSetValueY = 0;
 		dOffSetValueY = m_StageProgInfoHdr.SampleInfo.Size.dy;
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		break;
 	case 5:
 		dOffSetValueX = m_StageProgInfoHdr.SampleInfo.Size.dx;
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //		dOffSetValueY = m_StageProgInfoHdr.SampleInfo.Size.dy;
 		dOffSetValueY = 0;
-// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		break;
 	}
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 
 // 2013.01.09 bagus -->
 	if ( m_StageConfig.Dir.X == DIR_RIGHT ||
@@ -1805,7 +1805,7 @@ void CRecipeStressStageProgramView::SamplePointGraph_DataSet()
 	}
 // 2013.01.09 bagus <--
 
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 	int nRowCount = 0;
 
 	for(i = 0;i < STRESS_LINES_MAX;i++){
@@ -1814,7 +1814,7 @@ void CRecipeStressStageProgramView::SamplePointGraph_DataSet()
 		}
 		nRowCount += m_StressConfig.Line[i].dwSectionNum;
 	}
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	ls_rows = 1;
 	for (i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++) {
@@ -1828,33 +1828,33 @@ void CRecipeStressStageProgramView::SamplePointGraph_DataSet()
 			long lPinX,lPinY;
 			lPinX = lPinY = 0L;
 			switch (m_StageConfig.Dir.X) {
-			case 1:		// X:¨
+			case 1:		// X:ï¿½ï¿½
 			default:
 				lPinX = dOffSetValueX + m_StressConfig.Line[i].PinPos[j].lX;
 				break;
-			case 2:		// X:ª
+			case 2:		// X:ï¿½ï¿½
 				lPinY = dOffSetValueX - m_StressConfig.Line[i].PinPos[j].lX;
 				break;
-			case 3:		// X:©
+			case 3:		// X:ï¿½ï¿½
 				lPinX = dOffSetValueX - m_StressConfig.Line[i].PinPos[j].lX;
 				break;
-			case 4:		// X:«
+			case 4:		// X:ï¿½ï¿½
 				lPinY = dOffSetValueX + m_StressConfig.Line[i].PinPos[j].lX;
 				break;
 			}
 
 			switch (m_StageConfig.Dir.Y) {
-			case 1:		// Y:¨
+			case 1:		// Y:ï¿½ï¿½
 				lPinX = dOffSetValueY + m_StressConfig.Line[i].PinPos[j].lY;
 				break;
-			case 2:		// Y:ª
+			case 2:		// Y:ï¿½ï¿½
 			default:
 				lPinY = dOffSetValueY - m_StressConfig.Line[i].PinPos[j].lY;
 				break;
-			case 3:		// Y:©
+			case 3:		// Y:ï¿½ï¿½
 				lPinX = dOffSetValueY - m_StressConfig.Line[i].PinPos[j].lY;
 				break;
-			case 4:		// Y:«
+			case 4:		// Y:ï¿½ï¿½
 				lPinY = dOffSetValueY + m_StressConfig.Line[i].PinPos[j].lY;
 				break;
 			}
@@ -1862,13 +1862,13 @@ void CRecipeStressStageProgramView::SamplePointGraph_DataSet()
 		}
 //2009.09.10 bagus stress --}--
 		for (j=0; j<m_StressConfig.Line[i].dwSectionNum; j++) {
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --{--
 //			if (m_StageStressProg.Line[i].bValidLine) {
 //				tLineData.Status = CNanoPointGraph::SECTION_NOT_MEASURED;
 //			} else {
 //				tLineData.Status = CNanoPointGraph::SECTION_NOT_USED;
 //			}
-// 2009.09.10 bagus stress C³ --}--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 			if(j >= STRESS_SECTIONS_MAX){
 				break;
@@ -1880,7 +1880,7 @@ void CRecipeStressStageProgramView::SamplePointGraph_DataSet()
 				//if(m_StageStressProg.Line[i].bValidLine){
 				if(m_StressConfig.Line[i].bValidLine){
 				//2009.09.19 bagus stress --}--
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 #if 0
 					if (((CGridCellCheck *)m_MeasurementPointGrid.GetCell(ls_rows,4))->GetCheck()){
 						tLineData.Status = CNanoPointGraph::SECTION_NOT_MEASURED;
@@ -1898,7 +1898,7 @@ void CRecipeStressStageProgramView::SamplePointGraph_DataSet()
 						tLineData.Status = CNanoPointGraph::SECTION_NOT_USED;
 					}
 #endif
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 					ls_rows++;
 				}else{
 					tLineData.Status = CNanoPointGraph::SECTION_NOT_USED;
@@ -1908,51 +1908,51 @@ void CRecipeStressStageProgramView::SamplePointGraph_DataSet()
 			}
 			//2009.09.15 bagus stress --}--
 
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //			tLineData.StartX = m_StressConfig.Line[i].SectPos[j].lScanStartPosX + dOffSetValueX;
 //			tLineData.StartY = -(m_StressConfig.Line[i].SectPos[j].lScanPosY - dOffSetValueY);
 //			tLineData.EndX = m_StressConfig.Line[i].SectPos[j].lScanEndPosX + dOffSetValueX;
 //			tLineData.EndY = -(m_StressConfig.Line[i].SectPos[j].lScanPosY - dOffSetValueY);
 			switch (m_StageConfig.Dir.X) {
-			case 1:		// X:¨
+			case 1:		// X:ï¿½ï¿½
 			default:
 				tLineData.StartX = dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanStartPosX;
 				tLineData.EndX = dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanEndPosX;
 				break;
-			case 2:		// X:ª
+			case 2:		// X:ï¿½ï¿½
 				tLineData.StartY = dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanStartPosX;
 				tLineData.EndY = dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanEndPosX;
 				break;
-			case 3:		// X:©
+			case 3:		// X:ï¿½ï¿½
 				tLineData.StartX = dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanStartPosX;
 				tLineData.EndX = dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanEndPosX;
 				break;
-			case 4:		// X:«
+			case 4:		// X:ï¿½ï¿½
 				tLineData.StartY = dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanStartPosX;
 				tLineData.EndY = dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanEndPosX;
 				break;
 			}
 
 			switch (m_StageConfig.Dir.Y) {
-			case 1:		// Y:¨
+			case 1:		// Y:ï¿½ï¿½
 				tLineData.StartX = dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				tLineData.EndX = dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				break;
-			case 2:		// Y:ª
+			case 2:		// Y:ï¿½ï¿½
 			default:
 				tLineData.StartY = dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				tLineData.EndY = dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				break;
-			case 3:		// Y:©
+			case 3:		// Y:ï¿½ï¿½
 				tLineData.StartX = dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				tLineData.EndX = dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				break;
-			case 4:		// Y:«
+			case 4:		// Y:ï¿½ï¿½
 				tLineData.StartY = dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				tLineData.EndY = dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY;
 				break;
 			}
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 
 			m_SamplePointGraph.AddLineData(&tLineData);
 		}
@@ -1960,45 +1960,45 @@ void CRecipeStressStageProgramView::SamplePointGraph_DataSet()
 
 	double Scan_PointIncOffsetX,  Scan_PointIncOffsetY;
 	for(int iPoint= 0; iPoint<m_StageProgInfoHdr.wNumScans; iPoint++){
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --{--
 		if (!m_bUseLine)
 			continue;
-// 2009.09.10 bagus stress C³ --}--
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
 //		Scan_PointIncOffsetX = m_ScanPoint[iPoint].lX + dOffSetValueX;
 //		Scan_PointIncOffsetY = -(m_ScanPoint[iPoint].lY - dOffSetValueY);
 		switch (m_StageConfig.Dir.X) {
-		case 1:		// X:¨
+		case 1:		// X:ï¿½ï¿½
 		default:
 			Scan_PointIncOffsetX = dOffSetValueX + m_ScanPoint[iPoint].lX;
 			break;
-		case 2:		// X:ª
+		case 2:		// X:ï¿½ï¿½
 			Scan_PointIncOffsetY = dOffSetValueX - m_ScanPoint[iPoint].lX;
 			break;
-		case 3:		// X:©
+		case 3:		// X:ï¿½ï¿½
 			Scan_PointIncOffsetX = dOffSetValueX - m_ScanPoint[iPoint].lX;
 			break;
-		case 4:		// X:«
+		case 4:		// X:ï¿½ï¿½
 			Scan_PointIncOffsetY = dOffSetValueX + m_ScanPoint[iPoint].lX;
 			break;
 		}
 
 		switch (m_StageConfig.Dir.Y) {
-		case 1:		// Y:¨
+		case 1:		// Y:ï¿½ï¿½
 			Scan_PointIncOffsetX = dOffSetValueY + m_ScanPoint[iPoint].lY;
 			break;
-		case 2:		// Y:ª
+		case 2:		// Y:ï¿½ï¿½
 		default:
 			Scan_PointIncOffsetY = dOffSetValueY - m_ScanPoint[iPoint].lY;
 			break;
-		case 3:		// Y:©
+		case 3:		// Y:ï¿½ï¿½
 			Scan_PointIncOffsetX = dOffSetValueY - m_ScanPoint[iPoint].lY;
 			break;
-		case 4:		// Y:«
+		case 4:		// Y:ï¿½ï¿½
 			Scan_PointIncOffsetY = dOffSetValueY + m_ScanPoint[iPoint].lY;
 			break;
 		}
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		m_SamplePointGraph.AddPoint(Scan_PointIncOffsetX, Scan_PointIncOffsetY);
 	}
 
@@ -2012,9 +2012,9 @@ void CRecipeStressStageProgramView::SamplePointGraph_DataSet()
 
 void CRecipeStressStageProgramView::OnPaint()
 {
-	CPaintDC dc(this); // •`‰æ—p‚ÌƒfƒoƒCƒX ƒRƒ“ƒeƒLƒXƒg
+	CPaintDC dc(this); // ï¿½`ï¿½ï¿½pï¿½Ìƒfï¿½oï¿½Cï¿½X ï¿½Rï¿½ï¿½ï¿½eï¿½Lï¿½Xï¿½g
 
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½Éƒï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	long lDrawStageSizeX, lDrawStageSizeY;
 	CRect StageRect;
@@ -2037,7 +2037,7 @@ void CRecipeStressStageProgramView::OnPaint()
 	long StageRectTop = StageRect.top + STAGE_OFFSET;
 	long StageRectBottom = StageRect.bottom - STAGE_OFFSET;
 
-	///// ƒXƒe[ƒW—LŒø”ÍˆÍ /////
+	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Lï¿½ï¿½ï¿½Íˆï¿½ /////
 // 2009.12.09 bagus --{--
 //	double dStageMaxSizeX = m_StageConfig.Size.dX - (2 * m_StageConfig.Edge.dX);
 //	double dStageMaxSizeY = m_StageConfig.Size.dY - (2 * m_StageConfig.Edge.dY);
@@ -2081,7 +2081,7 @@ void CRecipeStressStageProgramView::OnPaint()
 
 	SamplePointGraph_DataSet();
 
-	// •`‰æ—pƒƒbƒZ[ƒW‚Æ‚µ‚Ä CNanoRecipeUI::OnPaint() ‚ğŒÄ‚Ño‚µ‚Ä‚Í‚¢‚¯‚Ü‚¹‚ñ
+	// ï¿½`ï¿½ï¿½pï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½Æ‚ï¿½ï¿½ï¿½ CNanoRecipeUI::OnPaint() ï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½Ä‚Í‚ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½
 	ReleaseDC(pDC);
 }
 
@@ -2094,7 +2094,7 @@ void CRecipeStressStageProgramView::DrawSample(CDC* pDC, int iOrg, int DirX, int
 	///// Region Map /////
 	GetDlgItem(IDC_MEASUREMENT_MAP)->GetWindowPlacement(&Stageplacement);
 
-	///// ƒXƒe[ƒW—LŒø”ÍˆÍ(•‚¢lŠp‚Í‚±‚ÌƒTƒCƒY‚Å•`‰æ‚³‚ê‚Ä‚¢‚é) /////
+	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Lï¿½ï¿½ï¿½Íˆï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½lï¿½pï¿½Í‚ï¿½ï¿½ÌƒTï¿½Cï¿½Yï¿½Å•`ï¿½æ‚³ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½) /////
 // 2009.12.09 bagus --{--
 //	double dStageMaxSizeX = m_StageConfig.Size.dX - (2 * m_StageConfig.Edge.dX);
 //	double dStageMaxSizeY = m_StageConfig.Size.dY - (2 * m_StageConfig.Edge.dY);
@@ -2116,33 +2116,33 @@ void CRecipeStressStageProgramView::DrawSample(CDC* pDC, int iOrg, int DirX, int
 		dSampleSizeY = m_StageProgInfoHdr.SampleInfo.Size.dx;
 	}
 
-	///// @ƒTƒ“ƒvƒ‹ƒTƒCƒY‚ªƒXƒe[ƒW‚Ì‘å‚«‚³‚Æ‚è¬‚³‚¢‚©ƒ`ƒFƒbƒN /////
+	///// ï¿½@ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Tï¿½Cï¿½Yï¿½ï¿½ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ì‘å‚«ï¿½ï¿½ï¿½Æ‚è¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N /////
 // 	if ((m_StageProgInfoHdr.SampleInfo.Size.dx > dStageMaxSizeX) || (m_StageProgInfoHdr.SampleInfo.Size.dy > dStageMaxSizeY))
 // 		return;
 	if ((dSampleSizeX > dStageMaxSizeX) || (dSampleSizeY > dStageMaxSizeY))
 		return;
 // 2013.01.09 bagus <--
 
-	//ƒXƒe[ƒW‚ÌOrigin Position‚ğƒXƒe[ƒWk¬—¦‚É‡‚í‚¹‚½À•W‚É•ÏŠ·
+	//ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½Origin Positionï¿½ï¿½ï¿½Xï¿½eï¿½[ï¿½Wï¿½kï¿½ï¿½ï¿½ï¿½ï¿½Éï¿½ï¿½í‚¹ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½É•ÏŠï¿½
 
-	///// ƒTƒ“ƒvƒ‹•`‰æƒTƒCƒY‚ÌŒvZiƒXƒe[ƒW•`‰æƒTƒCƒY‘Î‚·‚éƒTƒ“ƒvƒ‹•`‰æƒTƒCƒY‚ğŒvZj /////
+	///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Tï¿½Cï¿½Yï¿½ÌŒvï¿½Zï¿½iï¿½Xï¿½eï¿½[ï¿½Wï¿½`ï¿½ï¿½Tï¿½Cï¿½Yï¿½Î‚ï¿½ï¿½ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Tï¿½Cï¿½Yï¿½ï¿½ï¿½vï¿½Zï¿½j /////
 	double dDrawSampleSizeX =(m_dDrawEndStagePosX - m_dDrawStartStagePosX) * m_StageProgInfoHdr.SampleInfo.Size.dx / dStageMaxSizeX;
 	double dDrawSampleSizeY =(m_dDrawEndStagePosY - m_dDrawStartStagePosY) * m_StageProgInfoHdr.SampleInfo.Size.dy / dStageMaxSizeY;
 
-	///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l /////
+	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½l /////
 	double dTotalOrgOffsetPosX, dTotalOrgOffsetPosY;
 
-	///// ƒTƒ“ƒvƒ‹‚Ì•`‰æˆÊ’u /////
+	///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Ì•`ï¿½ï¿½Ê’u /////
 	double dtop, dbottom, dright, dleft;
 
-	//Sample•`‰æˆÊ’uİ’è
-	//lŠpŒ`óƒTƒ“ƒvƒ‹‚Ì‚İ‘Î‰
+	//Sampleï¿½`ï¿½ï¿½Ê’uï¿½İ’ï¿½
+	//ï¿½lï¿½pï¿½`ï¿½ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Ì‚İ‘Î‰ï¿½
 	switch(m_StageProgInfoHdr.SampleInfo.nShape){
 	case SAMPLE_SHAPE_RECTANGLE:		//Sample shaped RectAngle
 		switch(iOrg){
-		case 1: ///// ƒZƒ“ƒ^[Šî€	//X²F¨+@Y²Fª+‚Ì‚İ‘Î‰
+		case 1: ///// ï¿½Zï¿½ï¿½ï¿½^ï¿½[ï¿½î€	//Xï¿½ï¿½ï¿½Fï¿½ï¿½+ï¿½@Yï¿½ï¿½ï¿½Fï¿½ï¿½+ï¿½Ì‚İ‘Î‰ï¿½
 		default:
-			///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l‚ğŒvZ /////
+			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½lï¿½ï¿½ï¿½vï¿½Z /////
 // 2009.12.09 bagus --{--
 //			dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX - m_StageConfig.Edge.dX) + (m_StageProgInfoHdr.SampleInfo.Origin.lX)) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 //			dTotalOrgOffsetPosY = ((m_StageConfig.Origin.lY - m_StageConfig.Edge.dY) + (m_StageProgInfoHdr.SampleInfo.Origin.lY)) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
@@ -2150,19 +2150,19 @@ void CRecipeStressStageProgramView::DrawSample(CDC* pDC, int iOrg, int DirX, int
 			dTotalOrgOffsetPosY = ((m_StageConfig.Origin.lY) + (m_StageProgInfoHdr.SampleInfo.Origin.lY) - (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1)))) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 // 2009.12.09 bagus --}--
 
-			///// ƒTƒ“ƒvƒ‹•`‰æˆÊ’u‚ğŒvZ /////
-			//¶Šî€
+			///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Ê’uï¿½ï¿½ï¿½vï¿½Z /////
+			//ï¿½ï¿½ï¿½î€
 			dleft	= m_dDrawStartStagePosX + dTotalOrgOffsetPosX - (dDrawSampleSizeX / 2);
 			dright	= dleft + dDrawSampleSizeX;
-			//‰ºŠî€
+			//ï¿½ï¿½ï¿½î€
 			dbottom = m_dDrawEndStagePosY - dTotalOrgOffsetPosY + (dDrawSampleSizeY / 2);
 			dtop	= dbottom - dDrawSampleSizeY;
 			break;
 
 		case 2: /////LeftTop
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
-			///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l‚ğŒvZ /////
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
+			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½lï¿½ï¿½ï¿½vï¿½Z /////
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //			dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX - m_StageConfig.Edge.dX) + (m_SampleInfo.Origin.lX)) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 //			dTotalOrgOffsetPosY = ((m_StageConfig.Origin.lY - m_StageConfig.Edge.dY) + (m_SampleInfo.Origin.lY)) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 // 2009.10.05 bagus SE --{--
@@ -2171,19 +2171,19 @@ void CRecipeStressStageProgramView::DrawSample(CDC* pDC, int iOrg, int DirX, int
 			dTotalOrgOffsetPosX = (m_StageProgInfoHdr.SampleInfo.Origin.lX) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 			dTotalOrgOffsetPosY = (m_StageProgInfoHdr.SampleInfo.Origin.lY) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 // 2009.10.05 bagus SE --}--
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 
-			///// ƒTƒ“ƒvƒ‹•`‰æˆÊ’u‚ğŒvZ /////
+			///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Ê’uï¿½ï¿½ï¿½vï¿½Z /////
 			dleft	= m_dDrawStartStagePosX + 1 + dTotalOrgOffsetPosX;
 			dright	= dleft + dDrawSampleSizeX;
 			dtop = m_dDrawStartStagePosY + 1 + dTotalOrgOffsetPosY;
 			dbottom	= dtop + dDrawSampleSizeY;
 			break;
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		case 3: /////LeftBottom
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
-			///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l‚ğŒvZ /////
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
+			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½lï¿½ï¿½ï¿½vï¿½Z /////
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //			dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX - m_StageConfig.Edge.dX) + (m_SampleInfo.Origin.lX)) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 //			dTotalOrgOffsetPosY = ((m_StageConfig.Origin.lY - m_StageConfig.Edge.dY) + (m_SampleInfo.Origin.lY)) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 // 2009.10.05 bagus SE --{--
@@ -2196,19 +2196,19 @@ void CRecipeStressStageProgramView::DrawSample(CDC* pDC, int iOrg, int DirX, int
 			dTotalOrgOffsetPosY = ((m_StageProgInfoHdr.SampleInfo.Origin.lY - (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1)))) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY);
 // 2009.12.09 bagus --}--
 // 2009.10.05 bagus SE --}--
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 
-			///// ƒTƒ“ƒvƒ‹•`‰æˆÊ’u‚ğŒvZ /////
+			///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Ê’uï¿½ï¿½ï¿½vï¿½Z /////
 			dleft	= m_dDrawStartStagePosX + 1 + dTotalOrgOffsetPosX;
 			dright	= dleft + dDrawSampleSizeX;
 			dbottom = m_dDrawEndStagePosY - 1 - dTotalOrgOffsetPosY;
 			dtop	= dbottom - dDrawSampleSizeY;
 			break;
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		case 4: /////RightBottom
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
-			///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l‚ğŒvZ /////
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
+			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½lï¿½ï¿½ï¿½vï¿½Z /////
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //			dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX - m_StageConfig.Edge.dX) + (m_SampleInfo.Origin.lX)) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 //			dTotalOrgOffsetPosY = ((m_StageConfig.Origin.lY - m_StageConfig.Edge.dY) + (m_SampleInfo.Origin.lY)) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 // 2009.10.05 bagus SE --{--
@@ -2217,19 +2217,19 @@ void CRecipeStressStageProgramView::DrawSample(CDC* pDC, int iOrg, int DirX, int
 			dTotalOrgOffsetPosX = (m_StageProgInfoHdr.SampleInfo.Origin.lX) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 			dTotalOrgOffsetPosY = (m_StageProgInfoHdr.SampleInfo.Origin.lY) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 // 2009.10.05 bagus SE --}--
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 
-			///// ƒTƒ“ƒvƒ‹•`‰æˆÊ’u‚ğŒvZ /////
+			///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Ê’uï¿½ï¿½ï¿½vï¿½Z /////
 			dright	= m_dDrawEndStagePosX - 1 - dTotalOrgOffsetPosX;
 			dleft	= dright - dDrawSampleSizeX;
 			dbottom = m_dDrawEndStagePosY - 1 - dTotalOrgOffsetPosY;
 			dtop	= dbottom - dDrawSampleSizeY;
 			break;
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 		case 5: /////RightTop
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
-			///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l‚ğŒvZ /////
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
+			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½lï¿½ï¿½ï¿½vï¿½Z /////
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 //			dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX - m_StageConfig.Edge.dX) + (m_SampleInfo.Origin.lX)) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 //			dTotalOrgOffsetPosY = ((m_StageConfig.Origin.lY - m_StageConfig.Edge.dY) + (m_SampleInfo.Origin.lY)) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 // 2009.10.05 bagus SE --{--
@@ -2238,14 +2238,14 @@ void CRecipeStressStageProgramView::DrawSample(CDC* pDC, int iOrg, int DirX, int
 			dTotalOrgOffsetPosX = (m_StageProgInfoHdr.SampleInfo.Origin.lX) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 			dTotalOrgOffsetPosY = (m_StageProgInfoHdr.SampleInfo.Origin.lY) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 // 2009.10.05 bagus SE --}--
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 
-			///// ƒTƒ“ƒvƒ‹•`‰æˆÊ’u‚ğŒvZ /////
+			///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Ê’uï¿½ï¿½ï¿½vï¿½Z /////
 			dright	= m_dDrawEndStagePosX - 1 - dTotalOrgOffsetPosX;
 			dleft	= dright - dDrawSampleSizeX;
 			dtop = m_dDrawStartStagePosY + 1 + dTotalOrgOffsetPosY;
 			dbottom	= dtop + dDrawSampleSizeY;
-// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
+// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
 			break;
 		}
 
@@ -2254,7 +2254,7 @@ void CRecipeStressStageProgramView::DrawSample(CDC* pDC, int iOrg, int DirX, int
 			Sampleplacement.rcNormalPosition.right	= Stageplacement.rcNormalPosition.left + dright;
 			Sampleplacement.rcNormalPosition.top	= Stageplacement.rcNormalPosition.top  + dtop;
 			Sampleplacement.rcNormalPosition.bottom = Stageplacement.rcNormalPosition.top  + dbottom;
-			//lŠpSample•`‰æ
+			//ï¿½lï¿½pSampleï¿½`ï¿½ï¿½
 			m_SamplePointGraph.SetWindowPlacement(&Sampleplacement);
 			m_SamplePointGraph.ShowWindow(SW_SHOW);
 		}
@@ -2309,7 +2309,7 @@ void CRecipeStressStageProgramView::DrawAxisCoordinate(int iOrgPos, int DirX, in
 		MessageBox(strBuffer);
 	}
 
-	///// ”wŒiF‚ğ“§–¾‚Éİ’è /////
+	///// ï¿½wï¿½iï¿½Fï¿½ğ“§–ï¿½ï¿½Éİ’ï¿½ /////
 	pDC->SetBkMode(TRANSPARENT);
 
 	///// Draw Center Position /////
@@ -2319,14 +2319,14 @@ void CRecipeStressStageProgramView::DrawAxisCoordinate(int iOrgPos, int DirX, in
 	pDC->SelectObject(&BrushArrow);
 	pDC->SelectObject(&PenArrow);
 	///// Draw Arrows /////
-	if(iOrgPos == 1){ //\š‚ğ•`‚­
+	if(iOrgPos == 1){ //ï¿½\ï¿½ï¿½ï¿½ï¿½`ï¿½ï¿½
 		pDC->MoveTo(CenterPosX - ARROW_LENGTH, CenterPosY);
 		pDC->LineTo(CenterPosX + ARROW_LENGTH, CenterPosY);
 		pDC->MoveTo(CenterPosX, CenterPosY + ARROW_LENGTH);
 		pDC->LineTo(CenterPosX, CenterPosY - ARROW_LENGTH);
 	}
 
-	if(DirX == 1 || DirY == 1){ //‰E•ûŒü
+	if(DirX == 1 || DirY == 1){ //ï¿½Eï¿½ï¿½ï¿½ï¿½
 		pDC->MoveTo(CenterPosX, CenterPosY);
 		pDC->LineTo(CenterPosX + ARROW_LENGTH, CenterPosY);
 		PT[0].x = CenterPosX + ARROW_LENGTH;
@@ -2344,7 +2344,7 @@ void CRecipeStressStageProgramView::DrawAxisCoordinate(int iOrgPos, int DirX, in
 		pDC->TextOut(PT[0].x + 5, PT[0].y - ARROW_SIDE, csBuff);
 	}
 
-	if(DirX == 2 || DirY == 2){ //ã•ûŒü
+	if(DirX == 2 || DirY == 2){ //ï¿½ï¿½ï¿½ï¿½ï¿½
 		pDC->MoveTo(CenterPosX, CenterPosY);
 		pDC->LineTo(CenterPosX, CenterPosY - ARROW_LENGTH);
 		PT[0].x = CenterPosX;
@@ -2362,7 +2362,7 @@ void CRecipeStressStageProgramView::DrawAxisCoordinate(int iOrgPos, int DirX, in
 		pDC->TextOut(PT[0].x - ARROW_SIDE, PT[0].y - 15, csBuff);
 	}
 
-	if(DirX == 3 || DirY == 3){ //¶•ûŒü
+	if(DirX == 3 || DirY == 3){ //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		pDC->MoveTo(CenterPosX, CenterPosY);
 		pDC->LineTo(CenterPosX - ARROW_LENGTH, CenterPosY);
 		PT[0].x = CenterPosX - ARROW_LENGTH;
@@ -2379,7 +2379,7 @@ void CRecipeStressStageProgramView::DrawAxisCoordinate(int iOrgPos, int DirX, in
 			csBuff.Format("%s", "+Y");
 		pDC->TextOut(PT[0].x - 20, PT[0].y - ARROW_SIDE, csBuff);
 	}
-	if(DirX == 4 || DirY == 4){ //‰º•ûŒü
+	if(DirX == 4 || DirY == 4){ //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		pDC->MoveTo(CenterPosX, CenterPosY);
 		pDC->LineTo(CenterPosX, CenterPosY + ARROW_LENGTH);
 		PT[0].x = CenterPosX;
@@ -2425,7 +2425,7 @@ void CRecipeStressStageProgramView::DrawAxisCoordinate(int iOrgPos, int DirX, in
 // 	pDC->SelectObject(&BrushRed);
 // 	pDC->SelectObject(&PenRed);
 //
-// 	///// ƒXƒe[ƒW—LŒø”ÍˆÍ /////
+// 	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Lï¿½ï¿½ï¿½Íˆï¿½ /////
 // 	double dStageMaxSizeX = m_StageConfig.Size.dX - (2 * m_StageConfig.Edge.dX);
 // 	double dStageMaxSizeY = m_StageConfig.Size.dY - (2 * m_StageConfig.Edge.dY);
 //
@@ -2453,10 +2453,10 @@ void CRecipeStressStageProgramView::DrawAxisCoordinate(int iOrgPos, int DirX, in
 // }
 // 2013.01.09 bagus <--
 
-// 2009.09.04 bagus stress Esc·°ˆ— --{--
+// 2009.09.04 bagus stress Escï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ --{--
 BOOL CRecipeStressStageProgramView::PreTranslateMessage(MSG* pMsg)
 {
-	/* ƒƒbƒZ[ƒW‘ÎÛ‚ÌƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹‚©‚çƒRƒ“ƒgƒ[ƒ‹ ID ‚ğæ“¾‚µ‚Ü‚·D	*/
+	/* ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ÎÛ‚ÌƒEï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ ID ï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 	switch(pMsg->message){
 	case WM_KEYDOWN:
 		switch(pMsg->wParam){
@@ -2468,9 +2468,9 @@ BOOL CRecipeStressStageProgramView::PreTranslateMessage(MSG* pMsg)
 
 	return CNanoRecipeUI::PreTranslateMessage(pMsg);
 }
-// 2009.09.04 bagus stress Esc·°ˆ— --}--
+// 2009.09.04 bagus stress Escï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ --}--
 
-// 2009.09.07 bagus stress Line/Section”C³ --{--
+// 2009.09.07 bagus stress Line/Sectionï¿½ï¿½ï¿½Cï¿½ï¿½ --{--
 WORD CRecipeStressStageProgramView::CheckLineSectionNum()
 {
 	WORD	wRet = 0;
@@ -2490,7 +2490,7 @@ WORD CRecipeStressStageProgramView::CheckLineSectionNum()
 		Item.col = 4;
 		//m_MeasurementPointGrid.GetItem(&Item);
 		//bValid = atoi(Item.strText);
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 #if 0
 		bValid = ((CGridCellCheck *)m_MeasurementPointGrid.GetCell(i,4))->GetCheck();
 		if (bValid) {
@@ -2504,17 +2504,17 @@ WORD CRecipeStressStageProgramView::CheckLineSectionNum()
 				wRet++;
 		}
 #endif
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 	}
 
 	return wRet;
 }
-// 2009.09.07 bagus stress Line/Section”C³ --}--
+// 2009.09.07 bagus stress Line/Sectionï¿½ï¿½ï¿½Cï¿½ï¿½ --}--
 
 
 void CRecipeStressStageProgramView::OnTimer(UINT nIDEvent)
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚·‚é‚©‚Ü‚½‚ÍƒfƒtƒHƒ‹ƒg‚Ìˆ—‚ğŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½Éƒï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½é‚©ï¿½Ü‚ï¿½ï¿½Íƒfï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	CheckMeasurementLineSectionData();
 
@@ -2523,12 +2523,12 @@ void CRecipeStressStageProgramView::OnTimer(UINT nIDEvent)
 
 BOOL CRecipeStressStageProgramView::CheckMeasurementLineSectionData()
 {
-// 2009.09.17 bagus stress GridC³ --{--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --{--
 //	int	LineCols, LineRows;
 
 //	LineCols = m_MeasurementPointGrid.GetColumnCount();
 //	LineRows = m_MeasurementPointGrid.GetRowCount();
-// 2009.09.17 bagus stress GridC³ --}--
+// 2009.09.17 bagus stress Gridï¿½Cï¿½ï¿½ --}--
 
 	GV_ITEM Item;
 
@@ -2542,11 +2542,11 @@ BOOL CRecipeStressStageProgramView::CheckMeasurementLineSectionData()
 
 	long	lValid = 0;
 
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --{--
 	long	NumOfSections = 0;
 	BOOL	bUseLine;
 	BOOL	bCheckChanged = FALSE;
-// 2009.09.10 bagus stress C³ --}--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 	int ls_rows = FixRows ;
 	for(i = 0;i < STRESS_LINES_MAX;i++){
@@ -2557,9 +2557,9 @@ BOOL CRecipeStressStageProgramView::CheckMeasurementLineSectionData()
 			continue;
 		}
 
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --{--
 		bUseLine = FALSE;
-// 2009.09.10 bagus stress C³ --}--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --}--
 		for (j=0; j<m_StressConfig.Line[i].dwSectionNum; j++) {
 			Item.mask = GVIF_TEXT;
 			Item.row = ls_rows;
@@ -2592,18 +2592,18 @@ BOOL CRecipeStressStageProgramView::CheckMeasurementLineSectionData()
 //				m_MeasurementPointGrid.SetItem(&Item);
 
 				lValid++;
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --{--
 				bUseLine = TRUE;
-// 2009.09.10 bagus stress C³ --}--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --}--
 			}
 			m_StageStressProg.Line[i].bValidLine = bUseLine;
 
 			ls_rows++;
 		}
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --{--
 		if (bUseLine)
 			NumOfSections++;
-// 2009.09.10 bagus stress C³ --}--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --}--
 	}
 
 //	m_StageStressProg.dwNumLsScans = CheckLineSectionNum();
@@ -2612,7 +2612,7 @@ BOOL CRecipeStressStageProgramView::CheckMeasurementLineSectionData()
 	sprintf(szBuff, "%d", m_StageStressProg.dwNumLsScans);
 	SetDlgItemText(IDC_STAGE_PROGRAM_LINE_SECTION, szBuff);
 
-// 2009.09.10 bagus stress C³ --{--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --{--
 //	m_iNumScans = NumOfSections * PIN_INTERVAL;
 //	m_StageProgInfoHdr.wNumScans = m_iNumScans;
 	m_StageProgInfoHdr.wNumScans = NumOfSections * PIN_INTERVAL;
@@ -2620,10 +2620,10 @@ BOOL CRecipeStressStageProgramView::CheckMeasurementLineSectionData()
 	SetDlgItemText(IDC_STAGE_PROGRAM_POINT_NUMBER, szBuff);
 
 	SetMeasurementPointData();
-// 2009.09.10 bagus stress C³ --}--
+// 2009.09.10 bagus stress ï¿½Cï¿½ï¿½ --}--
 
 // 2009.09.13 bagus stress --{--
-// •\¦‚ğXV
+// ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½V
 	if(bCheckChanged){
 		m_SamplePointGraph.Invalidate();
 		Invalidate();
@@ -2633,7 +2633,7 @@ BOOL CRecipeStressStageProgramView::CheckMeasurementLineSectionData()
 	return ( TRUE );
 }
 
-// 2009.09.11 bagus stress C³ --{--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
 BOOL CRecipeStressStageProgramView::LoadScanPoint()
 {
 	STRESS_CONFIG	StressConfig;
@@ -2724,9 +2724,9 @@ BOOL CRecipeStressStageProgramView::LoadScanPoint()
 
 	return ( TRUE );
 }
-// 2009.09.11 bagus stress C³ --}--
+// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
 
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --{--
+// 2009.11.09 bagus Stress ï¿½Ç‰ï¿½ï¿½ÏX --{--
 void CRecipeStressStageProgramView::InitCombo_MaterialElasticModulus()
 {
 	int	i;
@@ -2745,11 +2745,11 @@ void CRecipeStressStageProgramView::InitCombo_MaterialElasticModulus()
 	int nIndex = pCombo->FindStringExact(-1, strSample);
 	pCombo->SetCurSel(nIndex);
 }
-// 2009.11.09 bagus Stress ’Ç‰Á•ÏX --}--
+// 2009.11.09 bagus Stress ï¿½Ç‰ï¿½ï¿½ÏX --}--
 
 void CRecipeStressStageProgramView::OnSelchangeMaterialElasticModulus()
 {
-	// TODO: ‚±‚ÌˆÊ’u‚ÉƒRƒ“ƒgƒ[ƒ‹’Ê’mƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉƒRï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ê’mï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	CComboBox* pCombo;
 	pCombo = (CComboBox*)GetDlgItem(IDC_MATERIAL_ELASTIC_MODULUS);
 
