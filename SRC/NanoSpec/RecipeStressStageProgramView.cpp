@@ -253,7 +253,7 @@ BOOL CRecipeStressStageProgramView::SaveRecipeData()
 
 	///// Point Number /////
 	TCHAR szBuff[256];
-	sprintf(szBuff, "%d", m_StageProgInfoHdr.wNumScans);
+	sprintf_s(szBuff, _countof(szBuff), "%d", m_StageProgInfoHdr.wNumScans);
 	SetDlgItemText(IDC_STAGE_PROGRAM_POINT_NUMBER, szBuff);
 
 	::CopyMemory(&m_OldStageProgInfoHdr, &m_StageProgInfoHdr, sizeof(STAGE_PROG_INFO_HDR));
@@ -1292,7 +1292,7 @@ void CRecipeStressStageProgramView::SetData()
 	SetDlgItemText(IDC_SAMPLE_ORIGIN_Y, szBuff);
 
 	///// Line / Section /////
-	sprintf(szBuff, "%d", m_StageProgInfoHdr.wNumScans);
+	sprintf_s(szBuff, _countof(szBuff), "%d", m_StageProgInfoHdr.wNumScans);
 // 2009.09.07 bagus stress Line/SectionêîèCê≥ --{--
 //	SetDlgItemText(IDC_STAGE_PROGRAM_LINE_SECTION, szBuff);
 	SetDlgItemText(IDC_STAGE_PROGRAM_POINT_NUMBER, szBuff);
@@ -2005,7 +2005,7 @@ void CRecipeStressStageProgramView::SamplePointGraph_DataSet()
 
 	///// Point Number /////
 	TCHAR szBuff[256];
-	sprintf(szBuff, "%d", m_StageProgInfoHdr.wNumScans);
+	sprintf_s(szBuff, _countof(szBuff), "%d", m_StageProgInfoHdr.wNumScans);
 	SetDlgItemText(IDC_STAGE_PROGRAM_POINT_NUMBER, szBuff);
 }
 
@@ -2616,7 +2616,7 @@ BOOL CRecipeStressStageProgramView::CheckMeasurementLineSectionData()
 //	m_iNumScans = NumOfSections * PIN_INTERVAL;
 //	m_StageProgInfoHdr.wNumScans = m_iNumScans;
 	m_StageProgInfoHdr.wNumScans = NumOfSections * PIN_INTERVAL;
-	sprintf(szBuff, "%d", m_StageProgInfoHdr.wNumScans);
+	sprintf_s(szBuff, _countof(szBuff), "%d", m_StageProgInfoHdr.wNumScans);
 	SetDlgItemText(IDC_STAGE_PROGRAM_POINT_NUMBER, szBuff);
 
 	SetMeasurementPointData();
