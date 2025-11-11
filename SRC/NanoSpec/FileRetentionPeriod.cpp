@@ -355,7 +355,7 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 //		}
 //        catch(CFileException* fe){
 //            long ErrorCode = fe->m_lOsError;
-//            sprintf(szBuff, "(m_pProcess=200) %s, ErrorCode = %l", "File Invalid Error", ErrorCode);
+//            sprintf_s(szBuff, _countof(szBuff), "(m_pProcess=200) %s, ErrorCode = %l", "File Invalid Error", ErrorCode);
 //			FileRetentionLogging(szBuff);
 //            break;
 //        }
@@ -524,7 +524,7 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 			}
 	        catch(CFileException* fe){
 	            long ErrorCode = fe->m_lOsError;
-	            sprintf(szBuff, "(m_pProcess=200) %s, ErrorCode = %l", "File Invalid Error", ErrorCode);
+	            sprintf_s(szBuff, _countof(szBuff), "(m_pProcess=200) %s, ErrorCode = %l", "File Invalid Error", ErrorCode);
 				FileRetentionLogging(szBuff);
 				*m_pProcess = 8000;
 	            break;
@@ -583,7 +583,7 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 
 		//対応するディレクトリがない場合削除する(4PP, CTA測定データ) もしくは ディレクトリ削除後の測定データ
 		case 400:
-            sprintf(szBuff, "[PROCESS_DirCheck] Delete File %s", m_szFilePath);
+            sprintf_s(szBuff, _countof(szBuff), "[PROCESS_DirCheck] Delete File %s", m_szFilePath);
 			FileRetentionLogging(szBuff);
 	        ::DeleteFile(m_szFilePath);
 			if(m_bLoop == FALSE){
@@ -606,7 +606,7 @@ void CFileRetentionPeriod::PROCESS_DirCheck()
 		//ディレクトリ内のデータを消したので、空ディレクトであれば消す
 		case 600:
 			if(CheckDirectory(m_szNextPath)){
-	            sprintf(szBuff, "[PROCESS_DirCheck] Remove Directory %s", m_szNextPath);
+	            sprintf_s(szBuff, _countof(szBuff), "[PROCESS_DirCheck] Remove Directory %s", m_szNextPath);
 				FileRetentionLogging(szBuff);
 				::RemoveDirectory(m_szNextPath);
 				*m_pProcess = 700;
@@ -707,7 +707,7 @@ BOOL CFileRetentionPeriod::DeleteDirectory(LPCTSTR lpPathName)
 
 			// ファイルの削除
 			else{
-	            sprintf(szBuff, "[DeleteDirectory] Delete File %s", strDeleteFile);
+	            sprintf_s(szBuff, _countof(szBuff), "[DeleteDirectory] Delete File %s", strDeleteFile);
 				FileRetentionLogging(szBuff);
 				::DeleteFile(strDeleteFile);
 			}
@@ -715,7 +715,7 @@ BOOL CFileRetentionPeriod::DeleteDirectory(LPCTSTR lpPathName)
 		fnd.Close();
 
 		// フォルダの削除
-        sprintf(szBuff, "[DeleteDirectory] Remove Directory %s", lpPathName);
+        sprintf_s(szBuff, _countof(szBuff), "[DeleteDirectory] Remove Directory %s", lpPathName);
 		FileRetentionLogging(szBuff);
 		return ::RemoveDirectory(lpPathName);
 	}
@@ -756,7 +756,7 @@ BOOL CFileRetentionPeriod::DeleteAllData(LPCTSTR lpPathName)
 
 			// ファイルの削除
 			else{
-	            sprintf(szBuff, "[DeleteAllData] Delete File %s", strDeleteFile);
+	            sprintf_s(szBuff, _countof(szBuff), "[DeleteAllData] Delete File %s", strDeleteFile);
 				FileRetentionLogging(szBuff);
 				::DeleteFile(strDeleteFile);
 			}
@@ -800,7 +800,7 @@ BOOL CFileRetentionPeriod::CheckDirectory(LPCTSTR lpPathName)
 			}
 			else{
 				//ファイルが見つかった
-	            sprintf(szBuff, "[CheckDirectory] Delete File %s", fnd.GetFilePath());
+	            sprintf_s(szBuff, _countof(szBuff), "[CheckDirectory] Delete File %s", fnd.GetFilePath());
 				FileRetentionLogging(szBuff);
 				bRet = ::DeleteFile(fnd.GetFilePath());
 			}
@@ -882,7 +882,7 @@ void CFileRetentionPeriod::ProcessLogTitle_Initialize()
 	memset(m_Process_LogTitle, 0, sizeof(m_Process_LogTitle));
 	strcpy(m_Process_LogTitle, Space);
 	for(i = 0 ; i < m_ProcessChangeMax ; i++){
-		sprintf(szBuff, "  %02d ", i + 1);
+		sprintf_s(szBuff, _countof(szBuff), "  %02d ", i + 1);
 		strcat(m_Process_LogTitle, szBuff);
 	}
 }
@@ -908,7 +908,7 @@ void CFileRetentionPeriod::ProcessLogging()
 	}
 
 	if(Change){
-		sprintf(szBuff, "%04d.%02d.%02d %02d:%02d:%02d.%03d",
+		sprintf_s(szBuff, _countof(szBuff), "%04d.%02d.%02d %02d:%02d:%02d.%03d",
 			systime.wYear,
 			systime.wMonth,
 			systime.wDay,
