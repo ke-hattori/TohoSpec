@@ -974,108 +974,108 @@ void CNanoSpecApp::MakePath()
 ///// BIN_DIR /////
 	strcpy(g_szBin_Dir, g_szMyPath);
 	ptr = (char*)strchr(BIN_DIR, '\\');
-	if(ptr) strcat(g_szBin_Dir, ptr);
+	if(ptr) strcat_s(g_szBin_Dir, _countof(g_szBin_Dir), ptr);
 
 ///// LOG_DIR /////
 	strcpy(g_szLog_Dir, g_szMyPath);
 	ptr = (char*)strchr(LOG_DIR, '\\');
-	if(ptr) strcat(g_szLog_Dir, ptr);
+	if(ptr) strcat_s(g_szLog_Dir, _countof(g_szLog_Dir), ptr);
 
 	///// PR_DIR /////
 	strcpy(g_szLog_Pr_Dir, g_szLog_Dir);
-	strcat(g_szLog_Pr_Dir, "PR\\");
+	strcat_s(g_szLog_Pr_Dir, _countof(g_szLog_Pr_Dir), "PR\\");
 
 ///// CFG_DIR /////
 	strcpy(g_szCfg_Dir, g_szMyPath);
 	ptr = (char*)strchr(CFG_DIR, '\\');
-	if(ptr) strcat(g_szCfg_Dir, ptr);
+	if(ptr) strcat_s(g_szCfg_Dir, _countof(g_szCfg_Dir), ptr);
 
 	///// CFG_SYSTEM_DIR /////
 	strcpy(g_szCfg_System_Dir, g_szCfg_Dir);
-	strcat(g_szCfg_System_Dir, "SYSTEM\\");
+	strcat_s(g_szCfg_System_Dir, _countof(g_szCfg_System_Dir), "SYSTEM\\");
 
 		///// CFG_SYSTEM_SAMPLE_DIR /////
 	strcpy(g_szCfg_System_Sample_Dir, g_szCfg_System_Dir);
-	strcat(g_szCfg_System_Sample_Dir, "SAMPLE\\");
+	strcat_s(g_szCfg_System_Sample_Dir, _countof(g_szCfg_System_Sample_Dir), "SAMPLE\\");
 
 		///// CFG_SYSTEM_SR_REFERENCE_MATERIAL /////
 	strcpy(g_szCfg_System_Sr_Reference_Material_Dir, g_szCfg_System_Dir);
-	strcat(g_szCfg_System_Sr_Reference_Material_Dir, "SR_ReferenceMaterial\\");
+	strcat_s(g_szCfg_System_Sr_Reference_Material_Dir, _countof(g_szCfg_System_Sr_Reference_Material_Dir), "SR_ReferenceMaterial\\");
 
 	///// CFG_USER_DIR /////
 	strcpy(g_szCfg_User_Dir, g_szCfg_Dir);
-	strcat(g_szCfg_User_Dir, "USER\\");
+	strcat_s(g_szCfg_User_Dir, _countof(g_szCfg_User_Dir), "USER\\");
 
 		///// CFG_USER_USER_ACCOUNT_DIR /////
 	strcpy(g_szCfg_User_User_Account_Dir, g_szCfg_User_Dir);
-	strcat(g_szCfg_User_User_Account_Dir, "USERACCOUNT\\");
+	strcat_s(g_szCfg_User_User_Account_Dir, _countof(g_szCfg_User_User_Account_Dir), "USERACCOUNT\\");
 
 ///// DB_DIR /////
 	strcpy(g_szDb_Dir, g_szMyPath);
 	ptr = (char*)strchr(DB_DIR, '\\');
-	if(ptr) strcat(g_szDb_Dir, ptr);
+	if(ptr) strcat_s(g_szDb_Dir, _countof(g_szDb_Dir), ptr);
 
 	///// DB_MAIN_RECIPE_DIR /////
 	strcpy(g_szDb_Main_Recipe_Dir, g_szDb_Dir);
-	strcat(g_szDb_Main_Recipe_Dir, "MAINRECIPE\\");
+	strcat_s(g_szDb_Main_Recipe_Dir, _countof(g_szDb_Main_Recipe_Dir), "MAINRECIPE\\");
 
 	///// DB_MULTI_RECIPE_DIR /////
 	strcpy(g_szDb_Multi_Recipe_Dir, g_szDb_Dir);
-	strcat(g_szDb_Multi_Recipe_Dir, "MULTIRECIPE\\");
+	strcat_s(g_szDb_Multi_Recipe_Dir, _countof(g_szDb_Multi_Recipe_Dir), "MULTIRECIPE\\");
 
 	///// DB_MEASUREMENT_PROGRAM_DIR /////
 	strcpy(g_szDb_Measurement_Program_Dir, g_szDb_Dir);
-	strcat(g_szDb_Measurement_Program_Dir, "MEASUREMENTPGM\\");
+	strcat_s(g_szDb_Measurement_Program_Dir, _countof(g_szDb_Measurement_Program_Dir), "MEASUREMENTPGM\\");
 
 	///// DB_STAGE_PROGRAM_DIR /////
 	strcpy(g_szDb_Stage_Program_Dir, g_szDb_Dir);
-	strcat(g_szDb_Stage_Program_Dir, "STAGEPGM\\");
+	strcat_s(g_szDb_Stage_Program_Dir, _countof(g_szDb_Stage_Program_Dir), "STAGEPGM\\");
 
 	///// DB_DESKEW_IMG_DIR /////
 	strcpy(g_szDb_Deskew_Img_Dir, g_szDb_Dir);
-	strcat(g_szDb_Deskew_Img_Dir, "DESKEW_IMG\\");
+	strcat_s(g_szDb_Deskew_Img_Dir, _countof(g_szDb_Deskew_Img_Dir), "DESKEW_IMG\\");
 
 	///// DB_PATTERN_DIR /////
 	strcpy(g_szDb_Pattern_Dir, g_szDb_Dir);
-	strcat(g_szDb_Pattern_Dir, "PATTERN\\");
+	strcat_s(g_szDb_Pattern_Dir, _countof(g_szDb_Pattern_Dir), "PATTERN\\");
 
 	///// DB_PATTERN_IMG_DIR /////
 	strcpy(g_szDb_Pattern_Img_Dir, g_szDb_Dir);
-	strcat(g_szDb_Pattern_Img_Dir, "PATTERN_IMG\\");
+	strcat_s(g_szDb_Pattern_Img_Dir, _countof(g_szDb_Pattern_Img_Dir), "PATTERN_IMG\\");
 
 	///// DB_RECALIBRATION_PROGRAM_DIR /////
 	strcpy(g_szDb_Recalibration_Program_Dir, g_szDb_Dir);
-	strcat(g_szDb_Recalibration_Program_Dir, "RECALIBRATIONPGM\\");
+	strcat_s(g_szDb_Recalibration_Program_Dir, _countof(g_szDb_Recalibration_Program_Dir), "RECALIBRATIONPGM\\");
 
 	///// DB_POINT_DESKEW_PROGRAM_DIR /////
 	strcpy(g_szDb_Point_Deskew_Program_Dir, g_szDb_Dir);
-	strcat(g_szDb_Point_Deskew_Program_Dir, "POINTDESKEWPGM\\");
+	strcat_s(g_szDb_Point_Deskew_Program_Dir, _countof(g_szDb_Point_Deskew_Program_Dir), "POINTDESKEWPGM\\");
 
 ///// RESULT_DIR /////
 	strcpy(g_szResult_Dir, g_szMyPath);
 	ptr = (char*)strchr(RESULT_DIR, '\\');
-	if(ptr) strcat(g_szResult_Dir, ptr);
+	if(ptr) strcat_s(g_szResult_Dir, _countof(g_szResult_Dir), ptr);
 
 ///// DATA_DIR /////
 	strcpy(g_szData_Dir, g_szMyPath);
 	ptr = (char*)strchr(DATA_DIR, '\\');
-	if(ptr) strcat(g_szData_Dir, ptr);
+	if(ptr) strcat_s(g_szData_Dir, _countof(g_szData_Dir), ptr);
 
 	///// DATA_MEASUREMENTDATA_DIR /////
 	strcpy(g_szData_MeasurementData_Dir, g_szData_Dir);
-	strcat(g_szData_MeasurementData_Dir, "MEASUREMENTDATA\\");
+	strcat_s(g_szData_MeasurementData_Dir, _countof(g_szData_MeasurementData_Dir), "MEASUREMENTDATA\\");
 
 	///// MEAS_DAT_TEMP_COPY_PASS /////
 	strcpy(g_szData_Meas_Dat_Temp_Copy_Dir, g_szData_Dir);
-	strcat(g_szData_Meas_Dat_Temp_Copy_Dir, "MeasuredDataTemp\\");
+	strcat_s(g_szData_Meas_Dat_Temp_Copy_Dir, _countof(g_szData_Meas_Dat_Temp_Copy_Dir), "MeasuredDataTemp\\");
 
 	///// MEASURED_DATA_TEMP_DIR /////
 	strcpy(g_szData_Measured_Data_Temp_Dir, g_szData_Dir);
-	strcat(g_szData_Measured_Data_Temp_Dir, "MeasuredDataTemp\\");
+	strcat_s(g_szData_Measured_Data_Temp_Dir, _countof(g_szData_Measured_Data_Temp_Dir), "MeasuredDataTemp\\");
 
 	///// REF_DIR /////
 	strcpy(g_szData_Ref_Dir, g_szData_Dir);
-	strcat(g_szData_Ref_Dir, "ref\\");
+	strcat_s(g_szData_Ref_Dir, _countof(g_szData_Ref_Dir), "ref\\");
 /* added 2009.07.31 hmenjo ストレス機能追加(9) ---------- { ---------- */
 	_tcscpy(g_szData_StressRef_Dir, g_szData_Ref_Dir);
 	_tcscat(g_szData_StressRef_Dir, _T("StressRef\\"));
