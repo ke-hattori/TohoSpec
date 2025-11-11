@@ -707,15 +707,15 @@ CString strTitle, strMsg, strGrp, strBuffer;
 	switch( m_iMode ){
 	case SITEPR_MODE:
 		//Saiki 20090530 Change ----->
-		//sprintf(m_szTitle, "%s",	"サイトパターン設定");
-		//sprintf(m_szMessage, "%s",	"パターンを囲ってください");
-		//sprintf(m_szGroup, "%s",	"サイトパターン");
+		//sprintf_s(m_szTitle, _countof(m_szTitle), "%s",	"サイトパターン設定");
+		//sprintf_s(m_szMessage, _countof(m_szMessage), "%s",	"パターンを囲ってください");
+		//sprintf_s(m_szGroup, _countof(m_szGroup), "%s",	"サイトパターン");
 		LoadStringML(IDS_SITE_PATTERN_SET, strTitle, "Site Pattern Setting");
 		LoadStringML(IDS_PATTERN_TEACH_RECT, strMsg, "Pattern Teaching Rect");
 		LoadStringML(IDS_SITE_PATTERN_GRP, strGrp, "Site Pattern");
-		sprintf(m_szTitle, "%s",	strTitle);
-		sprintf(m_szMessage, "%s",	strMsg);
-		sprintf(m_szGroup, "%s",	strGrp);
+		sprintf_s(m_szTitle, _countof(m_szTitle), "%s",	strTitle);
+		sprintf_s(m_szMessage, _countof(m_szMessage), "%s",	strMsg);
+		sprintf_s(m_szGroup, _countof(m_szGroup), "%s",	strGrp);
 		//Saiki 20090530 Change <-----
 
 		GetDlgItem(IDC_OFFSET_X_LABEL)->ShowWindow(SW_SHOW);
@@ -727,15 +727,15 @@ CString strTitle, strMsg, strGrp, strBuffer;
 	case DESKEW_MODE:
 	default:
 		//Saiki 20090530 Change ----->
-		//sprintf(m_szTitle, "%s",	"デスキュー設定");
-		//sprintf(m_szMessage, "%s",	"パターンマークを囲ってください");
-		//sprintf(m_szGroup, "%s",	"デスキュー");
+		//sprintf_s(m_szTitle, _countof(m_szTitle), "%s",	"デスキュー設定");
+		//sprintf_s(m_szMessage, _countof(m_szMessage), "%s",	"パターンマークを囲ってください");
+		//sprintf_s(m_szGroup, _countof(m_szGroup), "%s",	"デスキュー");
 		LoadStringML(IDS_DESKEW_SETTING, strTitle, "Deskew Setting");
 		LoadStringML(IDS_PATTERN_MARK_TEACH_RECT, strMsg, "Pattern Mark Teaching Rect");
 		LoadStringML(IDS_DESKEW_GRP, strGrp, "Deskew");
-		sprintf(m_szTitle, "%s",	strTitle);
-		sprintf(m_szMessage, "%s",	strMsg);
-		sprintf(m_szGroup, "%s",	strGrp);
+		sprintf_s(m_szTitle, _countof(m_szTitle), "%s",	strTitle);
+		sprintf_s(m_szMessage, _countof(m_szMessage), "%s",	strMsg);
+		sprintf_s(m_szGroup, _countof(m_szGroup), "%s",	strGrp);
 		//Saiki 20090530 Change <-----
 
 		GetDlgItem(IDC_OFFSET_X_LABEL)->ShowWindow(SW_HIDE);
@@ -886,7 +886,7 @@ void CPatRecDeskewDlg::OnOK()
 		if ( dlg.DoModal() == IDOK ) {
 			// 名前の保存
 			memset(m_szPatternName, '\0', sizeof(m_szPatternName));
-			sprintf(m_szPatternName, "%s", dlg.m_strName);
+			sprintf_s(m_szPatternName, _countof(m_szPatternName), "%s", dlg.m_strName);
 			// ファイルの保存
 			::CopyFile(DESKEW_IMG_TEMP, dlg.m_szFilePath, FALSE);
 
