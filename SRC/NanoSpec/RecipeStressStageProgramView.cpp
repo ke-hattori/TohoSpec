@@ -1323,10 +1323,10 @@ void CRecipeStressStageProgramView::SetData()
 // 2009.09.04 bagus stress デスキュー削除 --{--
 	///// Deskew Mode /////
 //	if(l_SystemConfig.nLanguage == 0){
-//		strcpy(szBuff, g_lpszDeskewMode_ENU[m_StageProgInfoHdr.nDeskewMode]);
+//		strcpy_s(szBuff, _countof(szBuff), g_lpszDeskewMode_ENU[m_StageProgInfoHdr.nDeskewMode]);
 //	}
 //	else{
-//		strcpy(szBuff, g_lpszDeskewMode_JPN[m_StageProgInfoHdr.nDeskewMode]);
+//		strcpy_s(szBuff, _countof(szBuff), g_lpszDeskewMode_JPN[m_StageProgInfoHdr.nDeskewMode]);
 //	}
 //	SetDlgItemText(IDC_STAGE_DESKEW_MODE, szBuff);
 // 2009.09.04 bagus stress デスキュー削除 --}--
