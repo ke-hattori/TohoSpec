@@ -1000,7 +1000,7 @@ void CMeasurementTabView::SaveMeasConRevi2(RECIPE_FILE* pDesc, int iDescCount, L
 		memset(buff, 0, sizeof(buff));
 		switch((pDesc + iIndex)->type){
 		case 'b':
-			strcpy(buff, (*(BOOL*)(pDesc + iIndex)->data)? "TRUE" : "FALSE");
+			strcpy_s(buff, _countof(buff), (*(BOOL*)(pDesc + iIndex)->data)? "TRUE" : "FALSE");
 			break;
 		case 'B':
 			_itoa(*(BYTE*)(pDesc + iIndex)->data, buff, 10);
@@ -1812,15 +1812,15 @@ void CMeasurementTabView::SaveMeasConAdd(LPCTSTR pszMainRcpName)
 ///* modified 2014.10.27 hmenjo Fit 指数表示 %.3e ---------- { ---------- */
 ////						sprintf(szTempFormat, "%s%s%s", "%", g_lpszDecimalPoint[6], "lf"); //[.##]固定
 ///* modified 2014.10.27 hmenjo Fit 指数表示 %.3e ----------              */
-//						strcpy(szTempFormat, "%.3e");
+//						strcpy_s(szTempFormat, _countof(szTempFormat), "%.3e");
 ///* modified 2014.10.27 hmenjo Fit 指数表示 %.3e ---------- } ---------- */
 /* modified 2014.11.22 hmenjo Fit 指数表示(2) ----------              */
 #if FIT_DISP_SCOUT == 3
-						strcpy(szTempFormat, "");
+						strcpy_s(szTempFormat, _countof(szTempFormat), "");
 #elif FIT_DISP_SCOUT == 2
-						strcpy(szTempFormat, "%.2e");
+						strcpy_s(szTempFormat, _countof(szTempFormat), "%.2e");
 #elif FIT_DISP_SCOUT == 1
-						strcpy(szTempFormat, "%.3e");
+						strcpy_s(szTempFormat, _countof(szTempFormat), "%.3e");
 #else
 						sprintf(szTempFormat, "%s%s%s", "%", g_lpszDecimalPoint[6], "lf"); //[.##]固定
 #endif
@@ -2361,15 +2361,15 @@ void CMeasurementTabView::SaveMeasConAdd(LPCTSTR pszMainRcpName)
 ///* modified 2014.10.27 hmenjo Fit 指数表示 %.3e ---------- { ---------- */
 ////					sprintf(szTempFormat, "%s%s%s", "%", g_lpszDecimalPoint[6], "lf");
 ///* modified 2014.10.27 hmenjo Fit 指数表示 %.3e ----------              */
-//					strcpy(szTempFormat, "%.3e");
+//					strcpy_s(szTempFormat, _countof(szTempFormat), "%.3e");
 ///* modified 2014.10.27 hmenjo Fit 指数表示 %.3e ---------- } ---------- */
 /* modified 2014.11.22 hmenjo Fit 指数表示(2) ----------              */
 #if FIT_DISP_SCOUT == 3
-					strcpy(szTempFormat, "");
+					strcpy_s(szTempFormat, _countof(szTempFormat), "");
 #elif FIT_DISP_SCOUT == 2
-					strcpy(szTempFormat, "%.2e");
+					strcpy_s(szTempFormat, _countof(szTempFormat), "%.2e");
 #elif FIT_DISP_SCOUT == 1
-					strcpy(szTempFormat, "%.3e");
+					strcpy_s(szTempFormat, _countof(szTempFormat), "%.3e");
 #else
 					sprintf(szTempFormat, "%s%s%s", "%", g_lpszDecimalPoint[6], "lf");
 #endif
