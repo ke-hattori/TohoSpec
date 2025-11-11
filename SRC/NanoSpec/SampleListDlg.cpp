@@ -304,7 +304,7 @@ void CSampleListDlg::SampleList_DataSet()
 	SAMPLEINFO SampleInfo;
 
 	m_lstCtrl.DeleteAllItems();
-	sprintf(szDirPath, "%s*%s", g_szCfg_System_Sample_Dir, DAT_EXT);
+	sprintf_s(szDirPath, _countof(szDirPath), "%s*%s", g_szCfg_System_Sample_Dir, DAT_EXT);
 	bLoop = Finder.FindFile(szDirPath);
 	while(bLoop){
 		bLoop = Finder.FindNextFile();
@@ -312,10 +312,10 @@ void CSampleListDlg::SampleList_DataSet()
 			continue;
 
 		// ファイル名を取得
-		sprintf(szName, "%s", Finder.GetFileTitle());
+		sprintf_s(szName, _countof(szName), "%s", Finder.GetFileTitle());
 		// 最終変更日時を取得
 		Finder.GetLastWriteTime(time);
-		sprintf(szDate, "%s", time.Format("%Y.%m.%d %H:%M:%S"));
+		sprintf_s(szDate, _countof(szDate), "%s", time.Format("%Y.%m.%d %H:%M:%S"));
 
 		// 2009.08.26 bagus stress --{--
 		//if ( RecipeFile_LoadRecipe(&SampleInfo, szName, RECIPE_FILE_SAMPLE) )
@@ -394,19 +394,19 @@ void CSampleListDlg::SampleList_Add(char* lpszName, int iShape, double dSizeX, d
 
 	///// Size_X /////
 	listitem.iSubItem = 3;
-	sprintf(Buff, "%.0lf", dSizeX);
+	sprintf_s(Buff, _countof(Buff), "%.0lf", dSizeX);
 	listitem.pszText = Buff;
 	m_lstCtrl.SetItem(&listitem);
 
 	///// Size_Y /////
 	listitem.iSubItem = 4;
-	sprintf(Buff, "%.0lf", dSizeY);
+	sprintf_s(Buff, _countof(Buff), "%.0lf", dSizeY);
 	listitem.pszText = Buff;
 	m_lstCtrl.SetItem(&listitem);
 
 	///// Thickness /////
 	listitem.iSubItem = 5;
-	sprintf(Buff, "%.0lf", dThickness);
+	sprintf_s(Buff, _countof(Buff), "%.0lf", dThickness);
 	listitem.pszText = Buff;
 	m_lstCtrl.SetItem(&listitem);
 
@@ -417,7 +417,7 @@ void CSampleListDlg::SampleList_Add(char* lpszName, int iShape, double dSizeX, d
 	//m_lstCtrl.SetItem(&listitem);
 	if (m_SystemConfig.HeadType.bStress) {
 		listitem.iSubItem = 6;
-		sprintf(Buff, "%e", dElasticModulusValue);
+		sprintf_s(Buff, _countof(Buff), "%e", dElasticModulusValue);
 		listitem.pszText = Buff;
 		m_lstCtrl.SetItem(&listitem);
 
@@ -465,10 +465,10 @@ void CSampleListDlg::OnDeleteButton()
 
 	m_lstCtrl.GetItemText(iSelIndex, 1, szName, sizeof(szName));
 	// Kojika 20090529 Change
-	//sprintf(szMessage, "Do you want to Delete \"%s\"?", szName);
-	//sprintf(szMessage, "\"%s\"を削除しますか?", szName);
+	//sprintf_s(szMessage, _countof(szMessage), "Do you want to Delete \"%s\"?", szName);
+	//sprintf_s(szMessage, _countof(szMessage), "\"%s\"を削除しますか?", szName);
 	LoadStringML(IDS_DELETE_SAMPLE_LIST, l_strBuffer, "Do you want to Delete ""%s""?");
-	sprintf(szMessage, l_strBuffer, szName);
+	sprintf_s(szMessage, _countof(szMessage), l_strBuffer, szName);
 	//if ( MessageBox(szMessage, "SAMPLE LIST", MB_OKCANCEL | MB_ICONWARNING | MB_DEFBUTTON2) == IDCANCEL )
 	LoadStringML(IDS_TITLE_SAMPLE_LIST, l_strBuffer, "SAMPLE LIST");
 	if ( MessageBox(szMessage, l_strBuffer, MB_OKCANCEL | MB_ICONWARNING | MB_DEFBUTTON2) == IDCANCEL )
