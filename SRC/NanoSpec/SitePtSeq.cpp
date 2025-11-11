@@ -34,8 +34,8 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-/* ƒŒƒ“ƒYƒIƒtƒZƒbƒg‘Î‰ž	*/
-//#define STAGEMOVE_ORIGINAL		/* Stage.dll‚ÌƒIƒŠƒWƒiƒ‹À•W‚ÅˆÚ“®	*/
+/* ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Î‰ï¿½	*/
+//#define STAGEMOVE_ORIGINAL		/* Stage.dllï¿½ÌƒIï¿½ï¿½ï¿½Wï¿½iï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ÅˆÚ“ï¿½	*/
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -62,7 +62,7 @@ IMPLEMENT_DYNCREATE(CSitePtAutoSeq, CSitePtSeq)
 //
 BOOL CSitePtAutoSeq::InitInstance()
 {
-	/* delete this ‚µ‚Ü‚·	*/
+	/* delete this ï¿½ï¿½ï¿½Ü‚ï¿½	*/
 	m_bAutoDelete = TRUE;
 
 	m_bShutDown = FALSE;
@@ -70,14 +70,14 @@ BOOL CSitePtAutoSeq::InitInstance()
 	::ZeroMemory(SitePtResult, sizeof(SitePtResult));
 	::ZeroMemory(MatchLoc, sizeof(MatchLoc));
 
-	/* ƒRƒ“ƒtƒBƒO“ÇŽæ	*/
+	/* ï¿½Rï¿½ï¿½ï¿½tï¿½Bï¿½Oï¿½ÇŽï¿½	*/
 	ConfigFile_GetNanoSpecIni(m_SrVideoCalib, CONFIG_FILE_SR_VIDEO_CALIBRATION);
 	ConfigFile_GetNanoSpecIni(&m_patternRec, CONFIG_FILE_SR_PATTERN_REC);
 	// 2013.01.09 bagus -->
 	ConfigFile_GetNanoSpecIni(&m_StageConfig, CONFIG_FILE_STAGE_CONFIG);
 	// 2013.01.09 bagus <--
 
-	// SitePR ƒƒOƒtƒ@ƒCƒ‹‚Ì‰Šú‰»
+	// SitePR ï¿½ï¿½ï¿½Oï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½
 	m_SitePtLogFile.Create(	g_szLog_Dir, 								// LOG_DIR,
 						SITEPR_LOG_NAME,
 						SITEPR_LOG_SIZE,
@@ -114,53 +114,53 @@ int CSitePtAutoSeq::Run()
 	BOOL bAutoFocus = false;
 	BOOL bPrePos = false;
 	int  i_LastSite = 0;
-/* added 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- { ---------- */
+/* added 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- { ---------- */
 	STAGE_COORD l_OffsetAdd;
-/* added 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- } ---------- */
+/* added 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- } ---------- */
 
-	/* ƒTƒCƒgƒpƒ^[ƒ“ŠJŽn ‘OˆÊ’uŽæ“¾	*/
-	NS_StageGetPos(&PrePosition);		/* ƒfƒtƒHƒ‹ƒgƒ|ƒWƒVƒ‡ƒ“(‚È‚É‚à‚µ‚È‚©‚Á‚½Žž‚Ìˆ×)	*/
+	/* ï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Jï¿½n ï¿½Oï¿½Ê’uï¿½æ“¾	*/
+	NS_StageGetPos(&PrePosition);		/* ï¿½fï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½|ï¿½Wï¿½Vï¿½ï¿½ï¿½ï¿½(ï¿½È‚É‚ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìˆï¿½)	*/
 
-	/* ƒTƒCƒgƒpƒ^[ƒ“ŽÀsˆ—	*/
+	/* ï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½	*/
 	for ( int iSite = 0; iSite < 2; iSite++ ) {
 		if ( m_bShutDown )
 			break;
 
-		/* ƒTƒCƒgƒpƒ^[ƒ“ ƒpƒ^[ƒ““o˜^ —L–³Šm”F	*/
+		/* ï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½oï¿½^ ï¿½Lï¿½ï¿½ï¿½mï¿½F	*/
 		if(strlen(m_pSitePattern->PatternInfo[iSite].szSitePatternName) == 0){
-			/* ƒpƒ^[ƒ“–¢“o˜^‚ÍƒpƒX	*/
+			/* ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½^ï¿½Íƒpï¿½X	*/
 			continue;
 		}
-/* added 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- { ---------- */
-		/* ƒTƒuî•ñ‚ðŽæ“¾	*/
+/* added 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- { ---------- */
+		/* ï¿½Tï¿½uï¿½ï¿½ï¿½ï¿½ï¿½æ“¾	*/
 		PatternFile_GetSubInfo(m_pSitePattern->PatternInfo[iSite].szSitePatternName, &(m_SprSubInfo[iSite]));
-/* added 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- } ---------- */
+/* added 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- } ---------- */
 
-		sprintf(szLogText,"== Site: %d / Pattern Image: %s / Score:%3.2f%% / Grop:%3.2f%% \0",iSite+1 , m_pSitePattern->PatternInfo[iSite].szSitePatternName, m_patternRec.dLowestMatchScore, m_patternRec.dStopGropingScore);
+		sprintf_s(szLogText, sizeof(szLogText),"== Site: %d / Pattern Image: %s / Score:%3.2f%% / Grop:%3.2f%% \0",iSite+1 , m_pSitePattern->PatternInfo[iSite].szSitePatternName, m_patternRec.dLowestMatchScore, m_patternRec.dStopGropingScore);
 		SitePtLogging(szLogText);
 
-		/* ƒŒƒ“ƒYØ‘Ö	*/
+		/* ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½Ø‘ï¿½	*/
 		((CNanoSpecDoc*) ((m_pChiefView)->m_pcNanoSpecDoc))->ActuateFlagsSet(ACTUATE_TURRET, TRUE);
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- { ---------- */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- { ---------- */
 //		StageSelectLensNotify(m_pSitePattern->PatternInfo[iSite].iLens);
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ----------			  */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ----------			  */
 
 		StageSelectLensNotify(m_SprSubInfo[iSite].iLens);
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- } ---------- */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- } ---------- */
 		((CNanoSpecDoc*) ((m_pChiefView)->m_pcNanoSpecDoc))->ActuateFlagsSet(ACTUATE_TURRET, FALSE);
 
-		/* ƒJƒ‰[ƒtƒBƒ‹ƒ^§Œä(OPEN ‚É‚µ‚Ü‚·)	*/
+		/* ï¿½Jï¿½ï¿½ï¿½[ï¿½tï¿½Bï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½ï¿½(OPEN ï¿½É‚ï¿½ï¿½Ü‚ï¿½)	*/
 		if (0 == MEAS_SrHead_ChangeCcdShutter(FILTER_OPEN)) {
-			/* ˆÙíŽž‚Å‚à–³Ž‹‚µ‚Ü‚·D	*/
+			/* ï¿½ÙíŽžï¿½Å‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 			((CChiefView*) m_pChiefView)->LogChief(_T("Failed to MEAS_SrHead_ChangeCcdShutter() in CSitePtAutoSeq::Run()."));
 		}
 
-/* deleted 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- { ---------- */
-//		/* ƒTƒCƒgƒpƒ^[ƒ“ŠJŽn ‘OˆÊ’uŽæ“¾iŒðŠ·Ï‚Ý‚ÌƒŒƒ“ƒYˆÊ’u‚ð•ÛŽj	*/
+/* deleted 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- { ---------- */
+//		/* ï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Jï¿½n ï¿½Oï¿½Ê’uï¿½æ“¾ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½Ï‚Ý‚Ìƒï¿½ï¿½ï¿½ï¿½Yï¿½Ê’uï¿½ï¿½ÛŽï¿½ï¿½j	*/
 //		NS_StageGetPos(&PrePosition);
-/* deleted 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- } ---------- */
+/* deleted 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- } ---------- */
 
-		/* ‚`‚e	*/
+		/* ï¿½`ï¿½e	*/
 		((CNanoSpecDoc*) ((m_pChiefView)->m_pcNanoSpecDoc))->ActuateFlagsSet(ACTUATE_ZAXIS, TRUE);
 		bAutoFocus = NS_StageDoAutoFocus();
 		((CNanoSpecDoc*) ((m_pChiefView)->m_pcNanoSpecDoc))->ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);
@@ -170,12 +170,12 @@ int CSitePtAutoSeq::Run()
 		AF_VALID*	l_pAFValid = (AF_VALID*) &l_dwAFValid;
 
 		if ( !bAutoFocus ) {
-	   		// AF Ž¸”s
-			l_pAFValid->ucResultAF = (BYTE)2;	  // Ž©“®‹­§‘ª’è
+	   		// AF ï¿½ï¿½ï¿½s
+			l_pAFValid->ucResultAF = (BYTE)2;	  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	   	}
 	   	else {
-			// AF ¬Œ÷
-			l_pAFValid->ucResultAF = (BYTE)1;	  // AF ¬Œ÷
+			// AF ï¿½ï¿½ï¿½ï¿½
+			l_pAFValid->ucResultAF = (BYTE)1;	  // AF ï¿½ï¿½ï¿½ï¿½
 		}
 
 		//Saiki 20090727 Add ----->
@@ -184,67 +184,67 @@ int CSitePtAutoSeq::Run()
 
 		//Saiki 20090723 Change <-----
 
-/* added 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- { ---------- */
-		/* ƒTƒCƒgƒpƒ^[ƒ“ŠJŽn ‘OˆÊ’uŽæ“¾iŒðŠ·Ï‚Ý‚ÌƒŒƒ“ƒYˆÊ’u‚ð•ÛŽj	*/
-		NS_StageGetPos(&PrePosition);		/* ˆÊ’uƒ|[ƒŠƒ“ƒOŠÔŠuŽžŠÔ‘Ò‚¿‚Ì‚½‚ßƒRƒR‚ÖˆÚ“®@*/
-/* added 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- } ---------- */
+/* added 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- { ---------- */
+		/* ï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Jï¿½n ï¿½Oï¿½Ê’uï¿½æ“¾ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½Ï‚Ý‚Ìƒï¿½ï¿½ï¿½ï¿½Yï¿½Ê’uï¿½ï¿½ÛŽï¿½ï¿½j	*/
+		NS_StageGetPos(&PrePosition);		/* ï¿½Ê’uï¿½|ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½ÔŠuï¿½ï¿½ï¿½Ô‘Ò‚ï¿½ï¿½Ì‚ï¿½ï¿½ßƒRï¿½Rï¿½ÖˆÚ“ï¿½ï¿½@*/
+/* added 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- } ---------- */
 		if ( !bAutoFocus )
 			break;
 		if ( m_bShutDown )
 			break;
 
-		/* ƒXƒe[ƒWˆÚ“®‘Ò‚¿ */
+		/* ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ú“ï¿½ï¿½Ò‚ï¿½ */
 		Delay(STAGE_MOVE_DELAY);
 		if ( m_bShutDown )
 			break;
 
-		/* ƒTƒCƒg‚o‚qŽÀs */
+		/* ï¿½Tï¿½Cï¿½gï¿½oï¿½qï¿½ï¿½ï¿½s */
 		i_LastSite = iSite;
 		DoPatRecMatchWithVerify(iSite, &SitePtResult[iSite], &MatchLoc[iSite]);
 		if ( SitePtResult[iSite].Score < m_patternRec.dLowestMatchScore ){ // pat rec is NG
-			/* ƒpƒ^[ƒ“‚ªŒ©‚Â‚©‚ç‚È‚©‚Á‚½‚çA‘¦‚m‚f	*/
+			/* ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½mï¿½f	*/
 			break;
 		}
 	}
 
-	/* ƒTƒCƒgƒpƒ^[ƒ“ˆ—I—¹	*/
+	/* ï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½	*/
 	if ( m_bShutDown ) {
-		/* ƒLƒƒƒ“ƒZƒ‹I—¹	*/
+		/* ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½Iï¿½ï¿½	*/
 		m_iEvent = EV_SR1P_SITEPR_AUTO_CANCEL;
 
-		sprintf(szLogText,"SitePR Cancel End\0");
+		sprintf_s(szLogText, sizeof(szLogText),"SitePR Cancel End\0");
 		SitePtLogging(szLogText);
 	}
 	else {
 		if ( SitePtResult[i_LastSite].Score >= m_patternRec.dLowestMatchScore ) // pat rec is OK
 		{
-			/* ƒTƒCƒgƒpƒ^[ƒ“ˆ—³í	*/
+			/* ï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	*/
 			m_iEvent = EV_SR1P_SITEPR_AUTO_OK;
 
-			sprintf(szLogText,"SitePR OK complete %3.2f%%\0",SitePtResult[i_LastSite].Score );
+			sprintf_s(szLogText, sizeof(szLogText),"SitePR OK complete %3.2f%%\0",SitePtResult[i_LastSite].Score );
 			SitePtLogging(szLogText);
 		}
 		else
 		{
 			switch ( m_pStageProgInfoHdr->nSitePrFailOption )
 			{
-			case SITE_PR_FAIL_OPTION_FORCE:					/* ‹­§‘ª’èi‚»‚Ì‚Ü‚Ü‘ª’èŠJŽnj	*/
+			case SITE_PR_FAIL_OPTION_FORCE:					/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½iï¿½ï¿½ï¿½Ì‚Ü‚Ü‘ï¿½ï¿½ï¿½Jï¿½nï¿½j	*/
 // 2009.05.26 K.Matsuo SitePR -->
 				if(iSite == 0 && !bAutoFocus){
-					/* ƒXƒe[ƒWPGMÀ•W‚Ì‚Ü‚Ü—¯‚Ü‚Á‚Ä‚¢‚½iSitePatternˆ—“à‚ÅAƒXƒe[ƒWˆÚ“®‚µ‚Ä‚¢‚È‚¢j */
-					m_iEvent = EV_SR1P_SITEPR_AUTO_PROCEED;				/* ‹­§‘ª’è(ƒXƒe[ƒWPGMÀ•W‚Ì‚Ü‚Ü—¯‚Ü‚Á‚Ä‚¢‚½)*/
+					/* ï¿½Xï¿½eï¿½[ï¿½WPGMï¿½ï¿½ï¿½Wï¿½Ì‚Ü‚Ü—ï¿½ï¿½Ü‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½iSitePatternï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÅAï¿½Xï¿½eï¿½[ï¿½Wï¿½Ú“ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½ï¿½j */
+					m_iEvent = EV_SR1P_SITEPR_AUTO_PROCEED;				/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½Xï¿½eï¿½[ï¿½WPGMï¿½ï¿½ï¿½Wï¿½Ì‚Ü‚Ü—ï¿½ï¿½Ü‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½)*/
 
-					sprintf(szLogText,"SitePR Force complete %3.2f%% non move \0",SitePtResult[i_LastSite].Score );
+					sprintf_s(szLogText, sizeof(szLogText),"SitePR Force complete %3.2f%% non move \0",SitePtResult[i_LastSite].Score );
 					SitePtLogging(szLogText);
 				}else{
-					/* ƒXƒe[ƒWPGMÀ•W‚ÉˆÚ“®‚·‚é */
+					/* ï¿½Xï¿½eï¿½[ï¿½WPGMï¿½ï¿½ï¿½Wï¿½ÉˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½ */
 
-					// X,Y À•W‚ðŽæ“¾iƒŒƒ“ƒY•ÏX‚µ‚Ä‚¢‚é‰Â”\«‚ª‚ ‚é‚Ì‚ÅAƒŒƒ“ƒYƒIƒtƒZƒbƒg‚ðl—¶‚µ‚½À•W‚ð‹‚ß‚é•K—v‚ ‚èB
-					//				   ‚æ‚Á‚ÄAƒXƒe[ƒWPGM‚ÌÀ•W‚©‚çÄ“xŒvŽZ‚µ‚È‚¨‚·BƒTƒCƒgƒpƒ^[ƒ“ŠJŽn‘O‚ÌƒXƒe[ƒWÀ•W‚Ì—˜—p‚ÍA•s‰ÂIj
+					// X,Y ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½æ“¾ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½ÏXï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Â”\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ÅAï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½Kï¿½vï¿½ï¿½ï¿½ï¿½B
+					//				   ï¿½ï¿½ï¿½ï¿½ÄAï¿½Xï¿½eï¿½[ï¿½WPGMï¿½Ìï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½Ä“xï¿½vï¿½Zï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½Bï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Jï¿½nï¿½Oï¿½ÌƒXï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½Wï¿½Ì—ï¿½ï¿½pï¿½ÍAï¿½sï¿½ÂIï¿½j
 					STAGE_COORD l_ScanPointStage;
 					l_ScanPointStage.lX = ((CChiefTransiSr1Point*) ((CChiefView*) m_pChiefView)->m_pcChiefTransiSr1Point)->m_MeasPosbufXYZ.lX;
 					l_ScanPointStage.lY = ((CChiefTransiSr1Point*) ((CChiefView*) m_pChiefView)->m_pcChiefTransiSr1Point)->m_MeasPosbufXYZ.lY;
-					// •â³
+					// ï¿½â³
 					TCHAR	l_szMainRcpName[256];
 					((CChiefView*) m_pChiefView)->GetCurrentMainRecipeName(l_szMainRcpName);
 // K.Matsuo 2009.09.01 -->
@@ -259,30 +259,30 @@ int CSitePtAutoSeq::Run()
 					NS_SampleCoordStageMoveAbsolute(&l_ScanPointStage, l_szMainRcpName, HEAD_TYPE_SR);
 					((CNanoSpecDoc*) ((m_pChiefView)->m_pcNanoSpecDoc))->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);
 // K.Matsuo 2009.09.01 <--
-					m_iEvent = EV_SR1P_SITEPR_AUTO_PROCEED_PRESTEP;		/* ‹­§‘ª’è(ƒXƒe[ƒWPGMÀ•W‚ÉˆÚ“®‚·‚é)	*/
+					m_iEvent = EV_SR1P_SITEPR_AUTO_PROCEED_PRESTEP;		/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½Xï¿½eï¿½[ï¿½WPGMï¿½ï¿½ï¿½Wï¿½ÉˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½)	*/
 // 2009.05.26 K.Matsuo SitePR <--
 
-					sprintf(szLogText,"SitePR Force complete %3.2f%% orginal position\0",SitePtResult[i_LastSite].Score );
+					sprintf_s(szLogText, sizeof(szLogText),"SitePR Force complete %3.2f%% orginal position\0",SitePtResult[i_LastSite].Score );
 					SitePtLogging(szLogText);
 				}
 				break;
 
-			case SITE_PR_FAIL_OPTION_CANCEL:				/* ‘ª’èƒLƒƒƒ“ƒZƒ‹	*/
+			case SITE_PR_FAIL_OPTION_CANCEL:				/* ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½	*/
 				m_iEvent = EV_SR1P_SITEPR_AUTO_CANCEL;
 
-				sprintf(szLogText,"SitePR Cancel complete %3.2f%%\0",SitePtResult[i_LastSite].Score );
+				sprintf_s(szLogText, sizeof(szLogText),"SitePR Cancel complete %3.2f%%\0",SitePtResult[i_LastSite].Score );
 				SitePtLogging(szLogText);
 				break;
 
-			case SITE_PR_FAIL_OPTION_MANUAL:				/* Œ»ÝˆÊ’u‚Åƒ}ƒjƒ…ƒAƒ‹ƒTƒCƒgƒpƒ^[ƒ“‚ÉˆÚs‚·‚é	*/
-				/* ƒXƒe[ƒWPGMÀ•W‚ÉˆÚ“®‚·‚é */
+			case SITE_PR_FAIL_OPTION_MANUAL:				/* ï¿½ï¿½ï¿½ÝˆÊ’uï¿½Åƒ}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½ÉˆÚsï¿½ï¿½ï¿½ï¿½	*/
+				/* ï¿½Xï¿½eï¿½[ï¿½WPGMï¿½ï¿½ï¿½Wï¿½ÉˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½ */
 
-				// X,Y À•W‚ðŽæ“¾iƒŒƒ“ƒY•ÏX‚µ‚Ä‚¢‚é‰Â”\«‚ª‚ ‚é‚Ì‚ÅAƒŒƒ“ƒYƒIƒtƒZƒbƒg‚ðl—¶‚µ‚½À•W‚ð‹‚ß‚é•K—v‚ ‚èB
-				//				   ‚æ‚Á‚ÄAƒXƒe[ƒWPGM‚ÌÀ•W‚©‚çÄ“xŒvŽZ‚µ‚È‚¨‚·BƒTƒCƒgƒpƒ^[ƒ“ŠJŽn‘O‚ÌƒXƒe[ƒWÀ•W‚Ì—˜—p‚ÍA•s‰ÂIj
+				// X,Y ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½æ“¾ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½ÏXï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Â”\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ÅAï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½Kï¿½vï¿½ï¿½ï¿½ï¿½B
+				//				   ï¿½ï¿½ï¿½ï¿½ÄAï¿½Xï¿½eï¿½[ï¿½WPGMï¿½Ìï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½Ä“xï¿½vï¿½Zï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½Bï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Jï¿½nï¿½Oï¿½ÌƒXï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½Wï¿½Ì—ï¿½ï¿½pï¿½ÍAï¿½sï¿½ÂIï¿½j
 				STAGE_COORD l_ScanPointStage;
 				l_ScanPointStage.lX = ((CChiefTransiSr1Point*) ((CChiefView*) m_pChiefView)->m_pcChiefTransiSr1Point)->m_MeasPosbufXYZ.lX;
 				l_ScanPointStage.lY = ((CChiefTransiSr1Point*) ((CChiefView*) m_pChiefView)->m_pcChiefTransiSr1Point)->m_MeasPosbufXYZ.lY;
-				// •â³
+				// ï¿½â³
 				TCHAR	l_szMainRcpName[256];
 				((CChiefView*) m_pChiefView)->GetCurrentMainRecipeName(l_szMainRcpName);
 // K.Matsuo 2009.09.01 -->
@@ -299,19 +299,19 @@ int CSitePtAutoSeq::Run()
 // K.Matsuo 2009.09.01 <--
 				m_iEvent = EV_SR1P_SITEPR_AUTO_MANU;
 
-				sprintf(szLogText,"SitePR to Manual mode %3.2f%% original position\0",SitePtResult[i_LastSite].Score );
+				sprintf_s(szLogText, sizeof(szLogText),"SitePR to Manual mode %3.2f%% original position\0",SitePtResult[i_LastSite].Score );
 				SitePtLogging(szLogText);
 				break;
 
-			case SITE_PR_FAIL_OPTION_PRE_FORCE:				/* ‹­§‘ª’èi‘O‚ÌˆÊ’u‚Å‘ª’èŠJŽnj	*/
-				/* ‘OˆÊ’u‚ÖˆÚ“® */
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- { ---------- */
+			case SITE_PR_FAIL_OPTION_PRE_FORCE:				/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½iï¿½Oï¿½ÌˆÊ’uï¿½Å‘ï¿½ï¿½ï¿½Jï¿½nï¿½j	*/
+				/* ï¿½Oï¿½Ê’uï¿½ÖˆÚ“ï¿½ */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- { ---------- */
 //				((CNanoSpecDoc*) ((m_pChiefView)->m_pcNanoSpecDoc))->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);
 //				NS_StageMoveAbsolute(&PrePosition);
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ----------			  */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ----------			  */
 				if ((0 != _tcslen(m_pSitePattern->PatternInfo[0].szSitePatternName)) && (1 == i_LastSite)) {
-					/*	ƒpƒ^[ƒ“‚P‚Ì“o˜^‚ª—L‚èCƒpƒ^[ƒ“‚Q‚ÅŽ¸”s‚Ìê‡C
-						ƒpƒ^[ƒ“‚P‚ÌƒIƒtƒZƒbƒg‚ðŽg‚¢‚Ü‚·D */
+					/*	ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Pï¿½Ì“oï¿½^ï¿½ï¿½ï¿½Lï¿½ï¿½Cï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Qï¿½ÅŽï¿½ï¿½sï¿½Ìê‡ï¿½C
+						ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Pï¿½ÌƒIï¿½tï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D */
 					l_OffsetAdd.lX = m_SprSubInfo[0].ptOffset.x;
 					l_OffsetAdd.lY = m_SprSubInfo[0].ptOffset.y;
 					_stprintf(szLogText, _T("SitePR offset : %s, x = %d, y = %d"), m_pSitePattern->PatternInfo[0].szSitePatternName, l_OffsetAdd.lX, l_OffsetAdd.lY);
@@ -324,25 +324,25 @@ int CSitePtAutoSeq::Run()
 				l_OffsetAdd.lY += PrePosition.lY;
 				((CNanoSpecDoc*) ((m_pChiefView)->m_pcNanoSpecDoc))->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);
 				NS_StageMoveAbsolute(&l_OffsetAdd);
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- } ---------- */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- } ---------- */
 				((CNanoSpecDoc*) ((m_pChiefView)->m_pcNanoSpecDoc))->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);
 				Delay(STAGE_MOVE_DELAY);
 
-				m_iEvent = EV_SR1P_SITEPR_AUTO_PROCEED_PRESTEP;		/* ‹­§‘ª’è(ÅIAFŒã ˆÚ“®‚µ‚Ä‚¢‚é)	*/
+				m_iEvent = EV_SR1P_SITEPR_AUTO_PROCEED_PRESTEP;		/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ÅIAFï¿½ï¿½ ï¿½Ú“ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½)	*/
 
-				sprintf(szLogText,"SitePR Force complete %3.2f%% Pre position\0",SitePtResult[i_LastSite].Score );
+				sprintf_s(szLogText, sizeof(szLogText),"SitePR Force complete %3.2f%% Pre position\0",SitePtResult[i_LastSite].Score );
 				SitePtLogging(szLogText);
 				break;
 
-			case SITE_PR_FAIL_OPTION_PRE_MANUAL:			/* ‘O‚ÌˆÊ’u‚Åƒ}ƒjƒ…ƒAƒ‹ƒTƒCƒgƒpƒ^[ƒ“‚ÉˆÚs‚·‚é	*/
-				/* ‘OˆÊ’u‚ÖˆÚ“® */
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- { ---------- */
+			case SITE_PR_FAIL_OPTION_PRE_MANUAL:			/* ï¿½Oï¿½ÌˆÊ’uï¿½Åƒ}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½ÉˆÚsï¿½ï¿½ï¿½ï¿½	*/
+				/* ï¿½Oï¿½Ê’uï¿½ÖˆÚ“ï¿½ */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- { ---------- */
 //				((CNanoSpecDoc*) ((m_pChiefView)->m_pcNanoSpecDoc))->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);
 //				NS_StageMoveAbsolute(&PrePosition);
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ----------			  */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ----------			  */
 				if ((0 != _tcslen(m_pSitePattern->PatternInfo[0].szSitePatternName)) && (1 == i_LastSite)) {
-					/*	ƒpƒ^[ƒ“‚P‚Ì“o˜^‚ª—L‚èCƒpƒ^[ƒ“‚Q‚ÅŽ¸”s‚Ìê‡C
-						ƒpƒ^[ƒ“‚P‚ÌƒIƒtƒZƒbƒg‚ðŽg‚¢‚Ü‚·D */
+					/*	ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Pï¿½Ì“oï¿½^ï¿½ï¿½ï¿½Lï¿½ï¿½Cï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Qï¿½ÅŽï¿½ï¿½sï¿½Ìê‡ï¿½C
+						ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Pï¿½ÌƒIï¿½tï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D */
 					l_OffsetAdd.lX = m_SprSubInfo[0].ptOffset.x;
 					l_OffsetAdd.lY = m_SprSubInfo[0].ptOffset.y;
 					_stprintf(szLogText, _T("SitePR offset : %s, x = %d, y = %d"), m_pSitePattern->PatternInfo[0].szSitePatternName, l_OffsetAdd.lX, l_OffsetAdd.lY);
@@ -355,20 +355,20 @@ int CSitePtAutoSeq::Run()
 				l_OffsetAdd.lY += PrePosition.lY;
 				((CNanoSpecDoc*) ((m_pChiefView)->m_pcNanoSpecDoc))->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);
 				NS_StageMoveAbsolute(&l_OffsetAdd);
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- } ---------- */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- } ---------- */
 				((CNanoSpecDoc*) ((m_pChiefView)->m_pcNanoSpecDoc))->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);
 				Delay(STAGE_MOVE_DELAY);
 
 				m_iEvent = EV_SR1P_SITEPR_AUTO_MANU;
 
-				sprintf(szLogText,"SitePR to Manual mode %3.2f%% Pre position\0",SitePtResult[i_LastSite].Score );
+				sprintf_s(szLogText, sizeof(szLogText),"SitePR to Manual mode %3.2f%% Pre position\0",SitePtResult[i_LastSite].Score );
 				SitePtLogging(szLogText);
 				break;
 			}
 		}
 	}
 
-	sprintf(szLogText,"--------------------------------------------------------------------\0");
+	sprintf_s(szLogText, sizeof(szLogText),"--------------------------------------------------------------------\0");
 	SitePtLogging(szLogText);
 
 	::PostQuitMessage(0);
@@ -408,13 +408,13 @@ void CSitePtAutoSeq::DoPatRecMatchWithVerify( int iSite,		 // first or second de
 	CString strMsg1, strMsg2, strBuffer;
 	//Saiki 20090602 Add <-----
 
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- { ---------- */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- { ---------- */
 //	sprintf(szBuff, "%s%s.SP%d", g_szDb_Pattern_Img_Dir, m_pSitePattern->PatternInfo[iSite].szSitePatternName, m_pSitePattern->PatternInfo[iSite].iLens);
-// myan File—L–³Šm”F•K—v
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ----------			  */
+// myan Fileï¿½Lï¿½ï¿½ï¿½mï¿½Fï¿½Kï¿½v
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ----------			  */
 //	PatternFile_MakePatternImageFilePath(szBuff, m_pSitePattern->PatternInfo[iSite].szSitePatternName, m_SprSubInfo[iSite].iLens);
 	PatternFile_MakePatternImageFilePath(szBuff, m_pSitePattern->PatternInfo[iSite].szSitePatternName);
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- } ---------- */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- } ---------- */
 	PatRecRestoreModel(szBuff);
 
 	// keep track of the site of the highest score
@@ -422,21 +422,21 @@ void CSitePtAutoSeq::DoPatRecMatchWithVerify( int iSite,		 // first or second de
 	STAGE_COORD	bestMatchLoc;
 
 	// do the first match
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- { ---------- */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- { ---------- */
 //	  DoPatternRecMatch(pSitePtResult, pMatchLoc, m_pSitePattern->PatternInfo[iSite].iLens);
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ----------			  */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ----------			  */
 	DoPatternRecMatch(pSitePtResult, pMatchLoc, m_SprSubInfo[iSite].iLens);
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- } ---------- */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- } ---------- */
 
-	sprintf(szLogText,"Pattern Match : Score:%3.2f%%  Target:%3.2f%% \0", pSitePtResult->Score, pSitePtResult->TargetScore);
+	sprintf_s(szLogText, sizeof(szLogText),"Pattern Match : Score:%3.2f%%  Target:%3.2f%% \0", pSitePtResult->Score, pSitePtResult->TargetScore);
 	SitePtLogging(szLogText);
 
 	//Saiki 20090602 Change ----->
-	//sprintf(szLogText, IDS_CHIF_SITEPR_AUTO_ING "Result %3.2f%%\0", pSitePtResult->Score);
+	//	sprintf_s(szLogText, sizeof(szLogText), IDS_CHIF_SITEPR_AUTO_ING "Result %3.2f%%\0", pSitePtResult->Score);
 	LoadStringML(IDS_CHIF_SITEPR_AUTO_ING, strMsg1, "Site Pattern:Auto Site Pattern Executing...");
 	LoadStringML(IDS_RESULT, strMsg2, "Result %3.2f%%");
 	strBuffer = strMsg1 + strMsg2;
-	sprintf(szLogText, strBuffer, pSitePtResult->Score);
+	sprintf_s(szLogText, sizeof(szLogText), strBuffer, pSitePtResult->Score);
 	//Saiki 20090602 Change <-----
 	((CMainFrame*) ((m_pChiefView)->m_pcMainFrame))->SetMessageText(szLogText);	// Status Bar
 
@@ -448,13 +448,13 @@ void CSitePtAutoSeq::DoPatRecMatchWithVerify( int iSite,		 // first or second de
 	if( pSitePtResult->Score < m_patternRec.dStopGropingScore && m_patternRec.nNumLayers > 0)
 	{
 		const int StepGropeLayers[] = { 2, 3, 4 };
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- { ---------- */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- { ---------- */
 //		long DeltaX = long( OVERLAY_CENTER_X * m_SrVideoCalib[m_pSitePattern->PatternInfo[iSite].iLens].dXPixelToMicron * 2 / StepGropeLayers[0] );
 //		long DeltaY = long( OVERLAY_CENTER_Y * m_SrVideoCalib[m_pSitePattern->PatternInfo[iSite].iLens].dYPixelToMicron * 2 / StepGropeLayers[0] );
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ----------			  */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ----------			  */
 		long DeltaX = long( OVERLAY_CENTER_X * m_SrVideoCalib[m_SprSubInfo[iSite].iLens].dXPixelToMicron * 2 / StepGropeLayers[0] );
 		long DeltaY = long( OVERLAY_CENTER_Y * m_SrVideoCalib[m_SprSubInfo[iSite].iLens].dYPixelToMicron * 2 / StepGropeLayers[0] );
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- } ---------- */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- } ---------- */
 
 		short dX, dY;	 // stage translation based on retry site number
 
@@ -482,21 +482,21 @@ void CSitePtAutoSeq::DoPatRecMatchWithVerify( int iSite,		 // first or second de
 				Delay(STAGE_MOVE_DELAY);
 
 				// retry the match at this new site
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- { ---------- */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- { ---------- */
 //				  DoPatternRecMatch(pSitePtResult, pMatchLoc, m_pSitePattern->PatternInfo[iSite].iLens);
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ----------			  */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ----------			  */
 				DoPatternRecMatch(pSitePtResult, pMatchLoc, m_SprSubInfo[iSite].iLens);
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- } ---------- */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- } ---------- */
 
-				sprintf(szLogText,"Pattern Match : Score:%3.2f%%  Target:%3.2f%%  Target Check %d\0", pSitePtResult->Score, pSitePtResult->TargetScore, nRetries);
+				sprintf_s(szLogText, sizeof(szLogText),"Pattern Match : Score:%3.2f%%  Target:%3.2f%%  Target Check %d\0", pSitePtResult->Score, pSitePtResult->TargetScore, nRetries);
 				SitePtLogging(szLogText);
 
 				//Saiki 20090602 Change ----->
-				//sprintf(szLogText, IDS_CHIF_SITEPR_AUTO_ING "Verify Result %3.2f%%  (Best %3.2f%%)\0", pSitePtResult->Score, bestResult.Score);
+				//				sprintf_s(szLogText, sizeof(szLogText), IDS_CHIF_SITEPR_AUTO_ING "Verify Result %3.2f%%  (Best %3.2f%%)\0", pSitePtResult->Score, bestResult.Score);
 				LoadStringML(IDS_CHIF_SITEPR_AUTO_ING, strMsg1, "Site Pattern:Auto Site Pattern Executing...");
 				LoadStringML(IDS_VERIFY_RESULT, strMsg2, "Verify Result %3.2f%%  (Best %3.2f%%)");
 				strBuffer = strMsg1 + strMsg2;
-				sprintf(szLogText, strBuffer , pSitePtResult->Score, bestResult.Score);
+				sprintf_s(szLogText, sizeof(szLogText), strBuffer , pSitePtResult->Score, bestResult.Score);
 				//Saiki 20090602 Change <-----
 				((CMainFrame*) ((m_pChiefView)->m_pcMainFrame))->SetMessageText(szLogText);	// Status Bar
 
@@ -525,22 +525,22 @@ void CSitePtAutoSeq::DoPatRecMatchWithVerify( int iSite,		 // first or second de
 			Delay(STAGE_MOVE_DELAY);		   // wait long enough for stage to settle down
 
 			// retry the match at this new site
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- { ---------- */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- { ---------- */
 //			  DoPatternRecMatch(pSitePtResult, pMatchLoc, m_pSitePattern->PatternInfo[iSite].iLens);
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ----------			  */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ----------			  */
 			DoPatternRecMatch(pSitePtResult, pMatchLoc, m_SprSubInfo[iSite].iLens);
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- } ---------- */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- } ---------- */
 
 			GropStep++;
-			sprintf(szLogText,"Pattern Match : Score:%3.2f%%  Target:%3.2f%%  Grop Position %d\0", pSitePtResult->Score, pSitePtResult->TargetScore, GropStep);
+			sprintf_s(szLogText, sizeof(szLogText),"Pattern Match : Score:%3.2f%%  Target:%3.2f%%  Grop Position %d\0", pSitePtResult->Score, pSitePtResult->TargetScore, GropStep);
 			SitePtLogging(szLogText);
 
 			//Saiki 20090602 Change ----->
-			//sprintf(szLogText, IDS_CHIF_SITEPR_AUTO_ING "Search Result %3.2f%%  (Best %3.2f%%)\0", pSitePtResult->Score, bestResult.Score);
+			//			sprintf_s(szLogText, sizeof(szLogText), IDS_CHIF_SITEPR_AUTO_ING "Search Result %3.2f%%  (Best %3.2f%%)\0", pSitePtResult->Score, bestResult.Score);
 			LoadStringML(IDS_CHIF_SITEPR_AUTO_ING, strMsg1, "Site Pattern:Auto Site Pattern Executing...");
 			LoadStringML(IDS_SEARCH_RESULT, strMsg2, "Search Result %3.2f%%  (Best %3.2f%%)");
 			strBuffer = strMsg1 + strMsg2;
-			sprintf(szLogText, strBuffer, pSitePtResult->Score, bestResult.Score);
+			sprintf_s(szLogText, sizeof(szLogText), strBuffer, pSitePtResult->Score, bestResult.Score);
 			//Saiki 20090602 Change <-----
 			((CMainFrame*) ((m_pChiefView)->m_pcMainFrame))->SetMessageText(szLogText);	// Status Bar
 
@@ -574,21 +574,21 @@ SUCCESS:
 			Delay(STAGE_MOVE_DELAY);
 
 			// retry the match at this new site
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- { ---------- */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- { ---------- */
 //			DoPatternRecMatch(pSitePtResult, pMatchLoc, m_pSitePattern->PatternInfo[iSite].iLens);
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ----------			  */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ----------			  */
 			DoPatternRecMatch(pSitePtResult, pMatchLoc, m_SprSubInfo[iSite].iLens);
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- } ---------- */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- } ---------- */
 
-			sprintf(szLogText,"Pattern Match : Score:%3.2f%%  Target:%3.2f%%  Last Adjust %d\0", pSitePtResult->Score, pSitePtResult->TargetScore, nRetries);
+			sprintf_s(szLogText, sizeof(szLogText),"Pattern Match : Score:%3.2f%%  Target:%3.2f%%  Last Adjust %d\0", pSitePtResult->Score, pSitePtResult->TargetScore, nRetries);
 			SitePtLogging(szLogText);
 
 			//Saiki 20090602 Change ----->
-			//sprintf(szLogText, IDS_CHIF_SITEPR_AUTO_ING "Last Result %3.2f%%  (Best %3.2f%%)\0", pSitePtResult->Score, bestResult.Score);
+			//			sprintf_s(szLogText, sizeof(szLogText), IDS_CHIF_SITEPR_AUTO_ING "Last Result %3.2f%%  (Best %3.2f%%)\0", pSitePtResult->Score, bestResult.Score);
 			LoadStringML(IDS_CHIF_SITEPR_AUTO_ING, strMsg1, "Site Pattern:Auto Site Pattern Executing...");
 			LoadStringML(IDS_LAST_RESULT, strMsg2, "Last Result %3.2f%%  (Best %3.2f%%)");
 			strBuffer = strMsg1 + strMsg2;
-			sprintf(szLogText, strBuffer, pSitePtResult->Score, bestResult.Score);
+			sprintf_s(szLogText, sizeof(szLogText), strBuffer, pSitePtResult->Score, bestResult.Score);
 			//Saiki 20090602 Change <-----
 			((CMainFrame*) ((m_pChiefView)->m_pcMainFrame))->SetMessageText(szLogText);	// Status Bar
 
@@ -597,26 +597,26 @@ SUCCESS:
 
 		if( pSitePtResult->Score < m_patternRec.dLowestMatchScore ) // pat rec is NG !!! why?
 		{
-			sprintf(szLogText,"========= Adjust Match NG       : Score:%3.2f%%  Target:%3.2f%%\0", pSitePtResult->Score, pSitePtResult->TargetScore);
+			sprintf_s(szLogText, sizeof(szLogText),"========= Adjust Match NG       : Score:%3.2f%%  Target:%3.2f%%\0", pSitePtResult->Score, pSitePtResult->TargetScore);
 			SitePtLogging(szLogText);
 
 			*pSitePtResult = bestResult;
 			*pMatchLoc = bestMatchLoc;
 
-			sprintf(szLogText,"          Best Result overwrite : Score:%3.2f%%  Target:%3.2f%%\0", pSitePtResult->Score, pSitePtResult->TargetScore);
+			sprintf_s(szLogText, sizeof(szLogText),"          Best Result overwrite : Score:%3.2f%%  Target:%3.2f%%\0", pSitePtResult->Score, pSitePtResult->TargetScore);
 			SitePtLogging(szLogText);
 
 		}
 
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- { ---------- */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- { ---------- */
 //		((CNanoSpecDoc*) ((m_pChiefView)->m_pcNanoSpecDoc))->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);
 //		NS_StageMoveAbsolute(pMatchLoc);
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ----------			  */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ----------			  */
 		STAGE_COORD l_OffsetAdd;
 		if (0 == iSite) {
-			/* ƒpƒ^[ƒ“‚P‚Ìê‡ */
+			/* ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Pï¿½Ìê‡ */
 			if (0 == _tcslen(m_pSitePattern->PatternInfo[1].szSitePatternName)) {
-				/* ƒpƒ^[ƒ“‚Q‚Ì“o˜^‚ª–³‚¢ê‡ */
+				/* ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Qï¿½Ì“oï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ */
 				l_OffsetAdd.lX = m_SprSubInfo[0].ptOffset.x;
 				l_OffsetAdd.lY = m_SprSubInfo[0].ptOffset.y;
 				_stprintf(szLogText, _T("SitePR offset : %s, x = %d, y = %d"), m_pSitePattern->PatternInfo[0].szSitePatternName, l_OffsetAdd.lX, l_OffsetAdd.lY);
@@ -626,7 +626,7 @@ SUCCESS:
 				l_OffsetAdd.lY = 0;
 			}
 		} else {
-			/* ƒpƒ^[ƒ“‚Q‚Ìê‡ */
+			/* ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Qï¿½Ìê‡ */
 			l_OffsetAdd.lX = m_SprSubInfo[1].ptOffset.x;
 			l_OffsetAdd.lY = m_SprSubInfo[1].ptOffset.y;
 			_stprintf(szLogText, _T("SitePR offset : %s, x = %d, y = %d"), m_pSitePattern->PatternInfo[1].szSitePatternName, l_OffsetAdd.lX, l_OffsetAdd.lY);
@@ -636,7 +636,7 @@ SUCCESS:
 		l_OffsetAdd.lY += pMatchLoc->lY;
 		((CNanoSpecDoc*) ((m_pChiefView)->m_pcNanoSpecDoc))->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);
 		NS_StageMoveAbsolute(&l_OffsetAdd);
-/* modified 2009.06.22 hmenjo SPR ƒIƒtƒZƒbƒg“Çž‚Ý/‘ž‚Ý‹@”\’Ç‰Á ---------- } ---------- */
+/* modified 2009.06.22 hmenjo SPR ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Çï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ý‹@ï¿½\ï¿½Ç‰ï¿½ ---------- } ---------- */
 		((CNanoSpecDoc*) ((m_pChiefView)->m_pcNanoSpecDoc))->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);
 		Delay(STAGE_MOVE_DELAY);
 	}
@@ -737,8 +737,8 @@ long CSitePtAutoSeq::RotateXyAxisDir(long lDir)
 // 2013.01.17 bagus rotate xy view <--
 
 // 2013.01.09 bagus -->
-// ƒNƒ‰ƒCƒAƒ“ƒgƒXƒe[ƒWÀ•WiUI‰æ–Ê—pj‚É•ÏŠ·
-// ƒJƒƒ‰‚ÍAStageConfig‚ÅÝ’è‚³‚ê‚½View•ûŒü‚ÅÝ’u‚³‚ê‚Ä‚¢‚é
+// ï¿½Nï¿½ï¿½ï¿½Cï¿½Aï¿½ï¿½ï¿½gï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½Wï¿½iUIï¿½ï¿½Ê—pï¿½jï¿½É•ÏŠï¿½
+// ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ÍAStageConfigï¿½ÅÝ’è‚³ï¿½ê‚½Viewï¿½ï¿½ï¿½ï¿½ï¿½ÅÝ’uï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
 void CSitePtAutoSeq::ToClientXyStageCoord(STAGE_COORD* lpPoint)
 {
 // 2013.01.17 bagus rotate xy view -->
@@ -897,7 +897,7 @@ IMPLEMENT_DYNCREATE(CSitePtManualSeq, CSitePtSeq)
 //
 BOOL CSitePtManualSeq::InitInstance()
 {
-	/* delete this ‚µ‚Ü‚·	*/
+	/* delete this ï¿½ï¿½ï¿½Ü‚ï¿½	*/
 	m_bAutoDelete = TRUE;
 
 	m_bShutDown = FALSE;
