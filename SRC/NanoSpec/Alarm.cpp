@@ -226,10 +226,10 @@ void CAlarm::AlarmOccurrence(int Index)
 	memset(&AlarmHis, 0, sizeof(ALARM_HIS));
 
 	///// Date /////
-	strcpy_s(AlarmHis.Date, _countof(AlarmHis.Date), time.Format("%Y.%m.%d").GetBuffer(0));
+	strcpy(AlarmHis.Date, time.Format("%Y.%m.%d").GetBuffer(0));
 
 	///// Time /////
-	strcpy_s(AlarmHis.Time, _countof(AlarmHis.Time), time.Format("%H:%M:%S").GetBuffer(0));
+	strcpy(AlarmHis.Time, time.Format("%H:%M:%S").GetBuffer(0));
 
 	///// Occurrence Time /////
 	strcpy(m_AlarmStatus[Index].OccurrenceTime, time.Format("%Y%m%d%H%M%S").GetBuffer(0));
@@ -313,10 +313,10 @@ void CAlarm::AlarmRelease(int Index)
 	memset(&AlarmHis, 0, sizeof(ALARM_HIS));
 
 	///// Date /////
-	strcpy_s(AlarmHis.Date, _countof(AlarmHis.Date), time.Format("%Y.%m.%d").GetBuffer(0));
+	strcpy(AlarmHis.Date, time.Format("%Y.%m.%d").GetBuffer(0));
 
 	///// Time /////
-	strcpy_s(AlarmHis.Time, _countof(AlarmHis.Time), time.Format("%H:%M:%S").GetBuffer(0));
+	strcpy(AlarmHis.Time, time.Format("%H:%M:%S").GetBuffer(0));
 
 	///// Occurrence Time /////
 	strcpy(m_AlarmStatus[Index].OccurrenceTime, time.Format("%Y%m%d%H%M%S").GetBuffer(0));
