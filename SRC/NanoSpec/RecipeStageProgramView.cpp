@@ -1142,7 +1142,7 @@ void CRecipeStageProgramView::SetData()
 	SetDlgItemText(IDC_SAMPLE_ORIGIN_Y, szBuff);
 
 	///// Point Number /////
-	sprintf(szBuff, "%d", m_StageProgInfoHdr.wNumScans);
+	sprintf_s(szBuff, _countof(szBuff), "%d", m_StageProgInfoHdr.wNumScans);
 	SetDlgItemText(IDC_STAGE_PROGRAM_POINT_NUMBER, szBuff);
 
 	///// Point Coord /////
@@ -1430,7 +1430,7 @@ BOOL CRecipeStageProgramView::SaveRecipeData()
 
 	///// Point Number /////
 	TCHAR szBuff[256];
-	sprintf(szBuff, "%d", m_StageProgInfoHdr.wNumScans);
+	sprintf_s(szBuff, _countof(szBuff), "%d", m_StageProgInfoHdr.wNumScans);
 	SetDlgItemText(IDC_STAGE_PROGRAM_POINT_NUMBER, szBuff);
 
 	::CopyMemory(&m_OldStageProgInfoHdr, &m_StageProgInfoHdr, sizeof(STAGE_PROG_INFO_HDR));
@@ -3035,7 +3035,7 @@ void CRecipeStageProgramView::SamplePointGraph_DataSet()
 
 	///// Point Number /////
 	TCHAR szBuff[256];
-	sprintf(szBuff, "%d", m_StageProgInfoHdr.wNumScans);
+	sprintf_s(szBuff, _countof(szBuff), "%d", m_StageProgInfoHdr.wNumScans);
 	SetDlgItemText(IDC_STAGE_PROGRAM_POINT_NUMBER, szBuff);
 }
 
