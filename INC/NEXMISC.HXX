@@ -68,11 +68,11 @@ class process_directory
 		char dir   [_MAX_DIR];
 
 		GetModuleFileName(NULL, temp, sizeof(temp));
-		_splitpath(temp, drive, dir, NULL, NULL);
-		sprintf(path, "%s%s", drive, dir);
+		_splitpath_s(temp, drive, _MAX_DRIVE, dir, _MAX_DIR, NULL, 0, NULL, 0);
+		sprintf_s(path, _countof(path), "%s%s", drive, dir);
 		if ( strlen(path) > 0 ) {
 			if ( path[strlen(path) - 1] != SLASHCHAR ) {
-				strcat(path, SLASH);
+				strcat_s(path, _countof(path), SLASH);
 			}
 		}
 	}
@@ -80,7 +80,7 @@ class process_directory
 public:
 	static void make (char* _s, const char* fname)
 	{
-		static process_directory dummy; sprintf(_s, "%s%s", path, fname); 
+		static process_directory dummy; sprintf_s(_s, _MAX_PATH, "%s%s", path, fname); 
 	}
 	static string make (const char* fname, BOOL _f = TRUE)
 	{
@@ -97,7 +97,7 @@ public:
 		int i;
 		LPSECURITY_ATTRIBUTES p = NULL;
  
-		_splitpath(_s, NULL, temp, NULL, NULL);
+		_splitpath_s(_s, NULL, 0, temp, _MAX_PATH, NULL, 0, NULL, 0);
 
 		if ( CreateDirectory(temp, p) )
 			return retval;
@@ -111,7 +111,7 @@ public:
 		if ( i <= 0 )
 			return FALSE;
 
-		strcpy(dir, temp);
+		strcpy_s(dir, _countof(dir), temp);
 		dir[i] = NULL;
 
 		if ( create(dir) ) {
@@ -141,7 +141,7 @@ public:
 	void operator -= (unsigned long msec) { duration -= msec; }
 	operator char* ()
 	{
-		sprintf(buffer, "%04d.%02d.%02d %02d:%02d:%02d:%03d",
+		sprintf_s(buffer, _countof(buffer), "%04d.%02d.%02d %02d:%02d:%02d:%03d",
 			systime.wYear, systime.wMonth, systime.wDay,
 				systime.wHour, systime.wMinute, systime.wSecond, systime.wMilliseconds);
 		return buffer;
