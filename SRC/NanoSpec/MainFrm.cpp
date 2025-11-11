@@ -1234,13 +1234,13 @@ LRESULT CMainFrame::OnProcessInit(WPARAM wparam, LPARAM lparam)
 
 	// Start the child process.
 // 2013.11.07 Bagus Mod (TohoSpec対応) -->
-//	sprintf(szPath, "%s%s", g_szBin_Dir, NANOPIFSOCK_EXE_NAME);
+//	sprintf_s(szPath, _countof(szPath), "%s%s", g_szBin_Dir, NANOPIFSOCK_EXE_NAME);
 	if(g_lModelType != MODEL_T3100){
 		strBuffer1 = NANOPIFSOCK_EXE_NAME;
 		if(g_lAppNameType != APP_NAME_NANO){
 			strBuffer1.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
 		}
-		sprintf(szPath, "%s%s", g_szBin_Dir, (LPCTSTR)strBuffer1);
+		sprintf_s(szPath, _countof(szPath), "%s%s", g_szBin_Dir, (LPCTSTR)strBuffer1);
 // 2013.11.07 Bagus Mod (TohoSpec対応) <--
 		if(!CreateProcess(NULL, szPath, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi)){
 /* deleted 2009.06.05 hmenjo NanoSpecTitle 消えない対策 ---------- { ---------- */
@@ -1402,7 +1402,7 @@ LRESULT CMainFrame::OnProcessInit(WPARAM wparam, LPARAM lparam)
 //	ZeroMemory(&StartInfo,sizeof(StartInfo));
 //	ZeroMemory(&ProcessInfo,sizeof(ProcessInfo));
 //
-//    sprintf(szPath, "%s%s", g_szBin_Dir, DIOLOG_EXE_NAME);
+//    sprintf_s(szPath, _countof(szPath), "%s%s", g_szBin_Dir, DIOLOG_EXE_NAME);
 //	if(!CreateProcess(NULL, szPath, NULL, NULL, FALSE, 0, NULL, NULL, &StartInfo, &ProcessInfo)){
 //		LoadStringML(IDS_NANOPIFSOCK_CREATE_FAILED , strBuffer1, "DioLog CreateProcess failed.");
 //		LoadStringML(IDS_TITLE_NANOSPEC , strBuffer2, "NanoSpec");
@@ -2080,19 +2080,19 @@ void CMainFrame::OnMenuData()
 		StartInfo.wShowWindow = SW_SHOWNORMAL;
 		StartInfo.cb = sizeof(StartInfo);
 /* modified 2014.05.22 hmenjo 手動時 NanoMap ---------- { ---------- */
-//		sprintf(szPath, "%s%s", g_szBin_Dir, NANOMAP_EXE_NAME);
+//		sprintf_s(szPath, _countof(szPath), "%s%s", g_szBin_Dir, NANOMAP_EXE_NAME);
 /* modified 2014.05.22 hmenjo 手動時 NanoMap ----------              */
 		CString l_strNanomapExeName = NANOMAP_EXE_NAME;
 		if (g_lAppNameType == APP_NAME_TOHO) {
 			l_strNanomapExeName.Replace(g_lpszAppPrefix4[0], g_lpszAppPrefix4[1]);
 		}
-		sprintf(szPath, "%s%s", g_szBin_Dir, l_strNanomapExeName);
+		sprintf_s(szPath, _countof(szPath), "%s%s", g_szBin_Dir, l_strNanomapExeName);
 /* modified 2014.05.22 hmenjo 手動時 NanoMap ---------- } ---------- */
 /* added 2014.11.22 hmenjo TohoRecall へ変更 ---------- { ---------- */
 		char l_szPathNanoMapOrg[MAX_PATH];
 		strcpy(l_szPathNanoMapOrg, szPath);		/* NanoMap32 版の名前を保存	*/
 		/* 新 NanoMap32 名	*/
-		sprintf(szPath, "%s%s", g_szBin_Dir, NANOMAP_EXE_NAME_NEW);
+		sprintf_s(szPath, _countof(szPath), "%s%s", g_szBin_Dir, NANOMAP_EXE_NAME_NEW);
 		DWORD l_dwRc = ::GetFileAttributes(szPath);
 		switch (l_dwRc) {
 		case -1:
@@ -4912,7 +4912,7 @@ int CMainFrame::ScanDataLabelGet_COMPEASE(char szLabel[][ADAPRESULTSTRINGLENMAX 
 		if(strstr(szLabel[i], "Thick") != NULL){
 			char szUnitPlus[ADAPRESULTSTRINGLENMAX + 1];
 			memset(szUnitPlus, 0, sizeof(szUnitPlus));
-			sprintf(szUnitPlus, "%s%s%s", "[", szUnit, "]");
+			sprintf_s(szUnitPlus, _countof(szUnitPlus), "%s%s%s", "[", szUnit, "]");
 			strcat(szLabel[i], szUnitPlus);
 		}
 
@@ -5161,8 +5161,8 @@ void CMainFrame::MeasPointDatFileTempCopy(int iNowPoint)
 	::CreateDirectory(g_szData_Meas_Dat_Temp_Copy_Dir, NULL);
 
 	//ファイル名に測定ポイント番号を追加
-	sprintf(szDataFilePath, "%s%s_%05d%s", g_szData_Meas_Dat_Temp_Copy_Dir, szXmpDataFileName, iNowPoint, szXmpDataExt);
-	sprintf(szFittingDataFilePath, "%s%s_%05d%s", g_szData_Meas_Dat_Temp_Copy_Dir, szXmpFittingDataFileName, iNowPoint, szXmpFittingDataExt);
+	sprintf_s(szDataFilePath, _countof(szDataFilePath), "%s%s_%05d%s", g_szData_Meas_Dat_Temp_Copy_Dir, szXmpDataFileName, iNowPoint, szXmpDataExt);
+	sprintf_s(szFittingDataFilePath, _countof(szFittingDataFilePath), "%s%s_%05d%s", g_szData_Meas_Dat_Temp_Copy_Dir, szXmpFittingDataFileName, iNowPoint, szXmpFittingDataExt);
 
 	::CopyFile(pszXmpDataPath, szDataFilePath, FALSE);				// 既存ファイルがあっても、上書きする
 	if ( rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType == HEAD_TYPE_SR && rcp_data.MeasProgInfo.ScanParams.hdr.wScanType == MEAS_PROG_TYPE_SR_THICKNESS ||
@@ -6462,8 +6462,8 @@ void  CMainFrame::GetStrategyhead(const char* szStrategyEntry, char szDispLabel[
 			if(rcp_data.MeasProgInfo.ScanParams._SR.XMPDesc.bAddReflectanceMeasureFlag == TRUE){
 				for(i=0; i<3; i++){
 					if(rcp_data.MeasProgInfo.ScanParams._SR.iSpecificWavelen[i] != 0){
-//						sprintf(szWave, "%s%d%s", "[", rcp_data.MeasProgInfo.ScanParams._SR.iSpecificWavelen[i], "nm]");
-						sprintf(szWave, "%d%s", rcp_data.MeasProgInfo.ScanParams._SR.iSpecificWavelen[i], "nm[%]");
+//						sprintf_s(szWave, _countof(szWave), "%s%d%s", "[", rcp_data.MeasProgInfo.ScanParams._SR.iSpecificWavelen[i], "nm]");
+						sprintf_s(szWave, _countof(szWave), "%d%s", rcp_data.MeasProgInfo.ScanParams._SR.iSpecificWavelen[i], "nm[%]");
 						memcpy(szDispLabel[iHeadCount], szWave, sizeof(szWave));
 						iHeadCount++;
 					}
@@ -6476,7 +6476,7 @@ void  CMainFrame::GetStrategyhead(const char* szStrategyEntry, char szDispLabel[
 				if(strstr(szDispLabel[i], "Thick") != NULL){
 					char szUnitPlus[ADAPRESULTSTRINGLENMAX + 1];
 					memset(szUnitPlus, 0, sizeof(szUnitPlus));
-					sprintf(szUnitPlus, "%s%s%s", "[", szUnit, "]");
+					sprintf_s(szUnitPlus, _countof(szUnitPlus), "%s%s%s", "[", szUnit, "]");
 					strcat(szDispLabel[i], szUnitPlus);
 				}
 
@@ -6495,8 +6495,8 @@ void  CMainFrame::GetStrategyhead(const char* szStrategyEntry, char szDispLabel[
 // 2009.10.26 K.Matsuo <--
 			for(i = 0; i < 3; i++){
 				if(rcp_data.MeasProgInfo.ScanParams._SR.iSpecificWavelen[i] != 0){
-//					sprintf(szWave, "%s%d%s", "[", rcp_data.MeasProgInfo.ScanParams._SR.iSpecificWavelen[i], "nm]");
-					sprintf(szWave, "%d%s", rcp_data.MeasProgInfo.ScanParams._SR.iSpecificWavelen[i], "nm[%]");
+//					sprintf_s(szWave, _countof(szWave), "%s%d%s", "[", rcp_data.MeasProgInfo.ScanParams._SR.iSpecificWavelen[i], "nm]");
+					sprintf_s(szWave, _countof(szWave), "%d%s", rcp_data.MeasProgInfo.ScanParams._SR.iSpecificWavelen[i], "nm[%]");
 					memcpy(szDispLabel[iHeadCount], szWave, sizeof(szWave));
 					iHeadCount++;
 				}
@@ -7161,7 +7161,7 @@ void CMainFrame::TestModeTempRcpDelete()
 	memset(szDeleteRcpPathStage, 0, sizeof(szDeleteRcpPathStage));
 	//2010.01.13 bagus GTR --}--
 
-	sprintf(szDeleteRcpPathMain, "%s%c%s%s", g_szDb_Main_Recipe_Dir, SYSTEM_RECIPE_BEGINNING_CHAR, TESTMODE_TEMP_RECIPE_NAME, MAINRECIPE_EXT);
+	sprintf_s(szDeleteRcpPathMain, _countof(szDeleteRcpPathMain), "%s%c%s%s", g_szDb_Main_Recipe_Dir, SYSTEM_RECIPE_BEGINNING_CHAR, TESTMODE_TEMP_RECIPE_NAME, MAINRECIPE_EXT);
 	sprintf(szDeleteRcpPathMeas, "%s%c%s%s", g_szDb_Measurement_Program_Dir, SYSTEM_RECIPE_BEGINNING_CHAR, TESTMODE_TEMP_RECIPE_NAME, MEASUREMENTPGM_EXT);
 	sprintf(szDeleteRcpPathRef, "%s%c%s%s", g_szData_Ref_Dir, SYSTEM_RECIPE_BEGINNING_CHAR, TESTMODE_TEMP_RECIPE_NAME, DAT_EXT);
 	//2010.01.13 bagus GTR --{--
