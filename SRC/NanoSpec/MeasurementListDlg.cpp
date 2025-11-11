@@ -43,7 +43,7 @@ static char THIS_FILE[] = __FILE__;
 // 指数表記へ変換する関数（printf書式の%E相当だが、指数部を2桁表示にしたいため自作関数を用意）
 static void ConvertToExpNumber(double dNumber, LPTSTR pszExpNumber)
 {
-	sprintf(pszExpNumber, "%.3E", dNumber);
+	sprintf_s(pszExpNumber, _countof(pszExpNumber), "%.3E", dNumber);
 
 	// Two Digit Exponent
 	pszExpNumber[strlen(pszExpNumber) - 3] = pszExpNumber[strlen(pszExpNumber) - 2];
@@ -473,7 +473,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 			default:
 				//char szXyzFormat[255+1];
 				memset(szXyzFormat, 0, sizeof(szXyzFormat));
-				sprintf(szXyzFormat, "%s%s%s", "%", g_lpszXyzDecimalPoint[0], "lf");
+				sprintf_s(szXyzFormat, _countof(szXyzFormat), "%s%s%s", "%", g_lpszXyzDecimalPoint[0], "lf");
 				///// Point Position X //////
 				iIndex = 0;
 				iIndex++;
@@ -518,12 +518,12 @@ int CMeasurementListDlg::SetMeasurementData2()
 					if(strstr(szDispLabel[i], "Thick") != NULL) //Thick*
 					{
 /* modified 2017.04.15 hmenjo 整数表示化 ---------- { ---------- */
-//						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //選択Unitで変動
+//						sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //選択Unitで変動
 /* modified 2017.04.15 hmenjo 整数表示化 ----------              */
 						if (l_iUnitIndexThickInt < 0) {
-							sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //選択Unitで変動
+							sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //選択Unitで変動
 						} else {
-							sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[l_iUnitIndexThickInt], "f");
+							sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszThickUnitDecimalPoint[l_iUnitIndexThickInt], "f");
 						}
 /* added 2017.04.29 hmenjo 整数表示化 SD 除外 ---------- { ---------- */
 						sprintf(szDecimalPointBuffThickSD, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //選択Unitで変動
@@ -532,26 +532,26 @@ int CMeasurementListDlg::SetMeasurementData2()
 					}
 					else if((szDispLabel[i][0]=='N')||(szDispLabel[i][0]=='K')) //N,K値系
 					{
-						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]固定
+						sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]固定
 					}
 // 2009.11.12 K.Matsuo ADAPの報告項目の制約対応。2個目のN1[XXX],K1[XXX]をのっとり、別項目の値を報告 -->
 					else if(strncmp(szDispLabel[i], "Const", strlen("Const")) == 0 ||
 							strncmp(szDispLabel[i], "Eg", strlen("Eg")) == 0 ||
 							strncmp(szDispLabel[i], "Fraction", strlen("Fraction")) == 0)
 					{
-						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]固定
+						sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]固定
 					}
 // 2009.11.12 K.Matsuo ADAPの報告項目の制約対応。2個目のN1[XXX],K1[XXX]をのっとり、別項目の値を報告 <--
 					else if((strstr(szDispLabel[i], "%") != NULL)||(strstr(szDispLabel[i], "Fit") != NULL)) //%系, Fit
 					{
 /* modified 2014.05.22 hmenjo scout fit .6f ---------- { ---------- */
-//						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]固定
+//						sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]固定
 /* modified 2014.05.22 hmenjo scout fit .6f ----------              */
 						if ((0 != strstr(szDispLabel[i], "Fit")) &&
 							(1 == g_lXmpType)) {
 /* modified 2014.11.22 hmenjo Fit 指数表示(2) ---------- { ---------- */
 ///* modified 2014.10.27 hmenjo Fit 指数表示 %.3e ---------- { ---------- */
-////							sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[6], "f"); //[.##]固定
+////							sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[6], "f"); //[.##]固定
 ///* modified 2014.10.27 hmenjo Fit 指数表示 %.3e ----------              */
 //							strcpy(szDecimalPointBuff, "%.3e");
 ///* modified 2014.10.27 hmenjo Fit 指数表示 %.3e ---------- } ---------- */
@@ -563,17 +563,17 @@ int CMeasurementListDlg::SetMeasurementData2()
 #elif FIT_DISP_SCOUT == 1
 							strcpy(szDecimalPointBuff, "%.3e");
 #else
-							sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[6], "f");
+							sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[6], "f");
 #endif
 /* modified 2014.11.22 hmenjo Fit 指数表示(2) ---------- } ---------- */
 						} else {
-							sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]固定
+							sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]固定
 						}
 /* modified 2014.05.22 hmenjo scout fit .6f ---------- } ---------- */
 					}
 					else //その他
 					{
-						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //選択Unitで変動
+						sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //選択Unitで変動
 					}
 
 					if(strstr(szDispLabel[i], "Thick") != NULL) //ラベル名がThick*
@@ -690,7 +690,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 
 				//char szXyzFormat[255+1];
 				memset(szXyzFormat, 0, sizeof(szXyzFormat));
-				sprintf(szXyzFormat, "%s%s%s", "%", g_lpszXyzDecimalPoint[0], "lf");
+				sprintf_s(szXyzFormat, _countof(szXyzFormat), "%s%s%s", "%", g_lpszXyzDecimalPoint[0], "lf");
 				///// Point Position X (Start)//////
 				iIndex = 0;
 				iIndex++;
@@ -743,7 +743,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 				///// StatisTics /////
 				iCol = 0;
 				for(iCol = 0;iCol < 3;iCol++){
-					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]固定
+					sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]固定
 					strBuffer.Format(szDecimalPointBuff, Statistics[iCol].dMaximum* g_dXyzUnitConvertCoefficient[0]);  //MAX
 					AddStatisticsListGrid_Data(1, iCol+1, strBuffer );
 					strBuffer.Format(szDecimalPointBuff, Statistics[iCol].dMinimum* g_dXyzUnitConvertCoefficient[0]);  //MIN
@@ -765,7 +765,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 		case HEAD_TYPE_STRESS:
 			//Stress ヘッドのデータが来た場合の処理を書く
 			memset(szXyzFormat, 0, sizeof(szXyzFormat));
-			sprintf(szXyzFormat, "%s%s%s", "%", g_lpszXyzDecimalPoint[0], "lf");
+			sprintf_s(szXyzFormat, _countof(szXyzFormat), "%s%s%s", "%", g_lpszXyzDecimalPoint[0], "lf");
 			///// X-Start/X-End/Stress
 			iIndex = 0;
 			AddMeasurementListGrid_Data(iCount, 1+iIndex++, _T("--"));
@@ -821,12 +821,12 @@ int CMeasurementListDlg::SetMeasurementData2()
 				if(strstr(szDispLabel[i], "Thick") != NULL) //Thick*
 				{
 /* modified 2017.04.15 hmenjo 整数表示化 ---------- { ---------- */
-//					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //選択Unitで変動
+//					sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //選択Unitで変動
 /* modified 2017.04.15 hmenjo 整数表示化 ----------              */
 					if (l_iUnitIndexThickInt < 0) {
-						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //選択Unitで変動
+						sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //選択Unitで変動
 					} else {
-						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[l_iUnitIndexThickInt], "f");
+						sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszThickUnitDecimalPoint[l_iUnitIndexThickInt], "f");
 					}
 /* added 2017.04.29 hmenjo 整数表示化 SD 除外 ---------- { ---------- */
 					sprintf(szDecimalPointBuffThickSD, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //選択Unitで変動
@@ -835,26 +835,26 @@ int CMeasurementListDlg::SetMeasurementData2()
 				}
 				else if((szDispLabel[i][0]=='N')||(szDispLabel[i][0]=='K')) //N,K値系
 				{
-					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]固定
+					sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]固定
 				}
 // 2009.11.12 K.Matsuo ADAPの報告項目の制約対応。2個目のN1[XXX],K1[XXX]をのっとり、別項目の値を報告 -->
 				else if(strncmp(szDispLabel[i], "Const", strlen("Const")) == 0 ||
 						strncmp(szDispLabel[i], "Eg", strlen("Eg")) == 0 ||
 						strncmp(szDispLabel[i], "Fraction", strlen("Fraction")) == 0)
 				{
-					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]固定
+					sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]固定
 				}
 // 2009.11.12 K.Matsuo ADAPの報告項目の制約対応。2個目のN1[XXX],K1[XXX]をのっとり、別項目の値を報告 <--
 				else if((strstr(szDispLabel[i], "%") != NULL)||(strstr(szDispLabel[i], "Fit") != NULL)) //%系, Fit
 				{
 /* modified 2014.05.22 hmenjo scout fit .6f ---------- { ---------- */
-//					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]固定
+//					sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]固定
 /* modified 2014.05.22 hmenjo scout fit .6f ----------              */
 					if ((0 != strstr(szDispLabel[i], "Fit")) &&
 						(1 == g_lXmpType)) {
 /* modified 2014.11.22 hmenjo Fit 指数表示(2) ---------- { ---------- */
 ///* modified 2014.10.27 hmenjo Fit 指数表示 %.3e ---------- { ---------- */
-////						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[6], "f"); //[.##]固定
+////						sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[6], "f"); //[.##]固定
 ///* modified 2014.10.27 hmenjo Fit 指数表示 %.3e ----------              */
 //						strcpy(szDecimalPointBuff, "%.3e");
 ///* modified 2014.10.27 hmenjo Fit 指数表示 %.3e ---------- } ---------- */
@@ -866,17 +866,17 @@ int CMeasurementListDlg::SetMeasurementData2()
 #elif FIT_DISP_SCOUT == 1
 						strcpy(szDecimalPointBuff, "%.3e");
 #else
-						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[6], "f");
+						sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[6], "f");
 #endif
 /* modified 2014.11.22 hmenjo Fit 指数表示(2) ---------- } ---------- */
 					} else {
-						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]固定
+						sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]固定
 					}
 /* modified 2014.05.22 hmenjo scout fit .6f ---------- } ---------- */
 				}
 				else //その他
 				{
-					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //選択Unitで変動
+					sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //選択Unitで変動
 				}
 
 				if(strstr(szDispLabel[i], "Thick") != NULL) //ラベル名がThick*
@@ -987,7 +987,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 // 2013.02.01 bagus CompleteEASEヘッド追加 <--
 			//char szXyzFormat[255+1];
 			memset(szXyzFormat, 0, sizeof(szXyzFormat));
-			sprintf(szXyzFormat, "%s%s%s", "%", g_lpszXyzDecimalPoint[0], "lf");
+			sprintf_s(szXyzFormat, _countof(szXyzFormat), "%s%s%s", "%", g_lpszXyzDecimalPoint[0], "lf");
 			///// Point Position X //////
 			iIndex = 0;
 			iIndex++;
@@ -1031,30 +1031,30 @@ int CMeasurementListDlg::SetMeasurementData2()
 				memset(szDecimalPointBuff, 0, sizeof(szDecimalPointBuff));
 				if(strstr(szDispLabel[i], "Thick") != NULL) //Thick*
 				{
-					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //選択Unitで変動
+					sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //選択Unitで変動
 				}
 				else if((szDispLabel[i][0]=='N')||(szDispLabel[i][0]=='K')) //N,K値系
 				{
-					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]固定
+					sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]固定
 				}
 // 2009.11.12 K.Matsuo ADAPの報告項目の制約対応。2個目のN1[XXX],K1[XXX]をのっとり、別項目の値を報告 -->
 				else if(strncmp(szDispLabel[i], "Const", strlen("Const")) == 0 ||
 						strncmp(szDispLabel[i], "Eg", strlen("Eg")) == 0 ||
 						strncmp(szDispLabel[i], "Fraction", strlen("Fraction")) == 0)
 				{
-					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]固定
+					sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[4], "f"); //[.####]固定
 				}
 // 2009.11.12 K.Matsuo ADAPの報告項目の制約対応。2個目のN1[XXX],K1[XXX]をのっとり、別項目の値を報告 <--
 				else if((strstr(szDispLabel[i], "%") != NULL)||(strstr(szDispLabel[i], "Fit") != NULL)) //%系, Fit
 				{
 /* modified 2014.05.22 hmenjo scout fit .6f ---------- { ---------- */
-//					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]固定
+//					sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]固定
 /* modified 2014.05.22 hmenjo scout fit .6f ----------              */
 					if ((0 != strstr(szDispLabel[i], "Fit")) &&
 						(1 == g_lXmpType)) {
 /* modified 2014.11.22 hmenjo Fit 指数表示(2) ---------- { ---------- */
 ///* modified 2014.10.27 hmenjo Fit 指数表示 %.3e ---------- { ---------- */
-////						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[6], "f"); //[.##]固定
+////						sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[6], "f"); //[.##]固定
 ///* modified 2014.10.27 hmenjo Fit 指数表示 %.3e ----------              */
 //						strcpy(szDecimalPointBuff, "%.3e");
 ///* modified 2014.10.27 hmenjo Fit 指数表示 %.3e ---------- } ---------- */
@@ -1066,17 +1066,17 @@ int CMeasurementListDlg::SetMeasurementData2()
 #elif FIT_DISP_SCOUT == 1
 						strcpy(szDecimalPointBuff, "%.3e");
 #else
-						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[6], "f"); //[.##]固定
+						sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[6], "f"); //[.##]固定
 #endif
 /* modified 2014.11.22 hmenjo Fit 指数表示(2) ---------- } ---------- */
 					} else {
-						sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]固定
+						sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]固定
 					}
 /* modified 2014.05.22 hmenjo scout fit .6f ---------- } ---------- */
 				}
 				else //その他
 				{
-					sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //選択Unitで変動
+					sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszThickUnitDecimalPoint[iUnitIndex], "f"); //選択Unitで変動
 				}
 
 				if(strstr(szDispLabel[i], "Thick") != NULL) //ラベル名がThick*
@@ -1179,7 +1179,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 //		case HEAD_TYPE_IRSE:
 		case HEAD_TYPE_MS:
 			memset(szXyzFormat, 0, sizeof(szXyzFormat));
-			sprintf(szXyzFormat, "%s%s%s", "%", g_lpszXyzDecimalPoint[0], "lf");
+			sprintf_s(szXyzFormat, _countof(szXyzFormat), "%s%s%s", "%", g_lpszXyzDecimalPoint[0], "lf");
 			///// Point Position X //////
 			iIndex = 0;
 			iIndex++;
@@ -1196,7 +1196,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 // 2009.11.12 K.Matsuo Resist 指数表示に修正 -->
 		case HEAD_TYPE_4PP:
 			memset(szXyzFormat, 0, sizeof(szXyzFormat));
-			sprintf(szXyzFormat, "%s%s%s", "%", g_lpszXyzDecimalPoint[0], "lf");
+			sprintf_s(szXyzFormat, _countof(szXyzFormat), "%s%s%s", "%", g_lpszXyzDecimalPoint[0], "lf");
 			///// Point Position X //////
 			iIndex = 0;
 			iIndex++;
@@ -1230,7 +1230,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 			iCol = 0;
 			char szBuff[255+1];
 			char szDecimalPointBuff[255+1];
-			sprintf(szDecimalPointBuff, "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]固定
+			sprintf_s(szDecimalPointBuff, _countof(szDecimalPointBuff), "%s%s%s", "%", g_lpszDecimalPoint[2], "f"); //[.##]固定
 
 			bResitValidData = FALSE;
 			//2009.11.17 RS --{--
@@ -1287,7 +1287,7 @@ int CMeasurementListDlg::SetMeasurementData2()
 		//SEからコピー
 			//char szXyzFormat[255+1];
 			memset(szXyzFormat, 0, sizeof(szXyzFormat));
-			sprintf(szXyzFormat, "%s%s%s", "%", g_lpszXyzDecimalPoint[0], "lf");
+			sprintf_s(szXyzFormat, _countof(szXyzFormat), "%s%s%s", "%", g_lpszXyzDecimalPoint[0], "lf");
 			///// Point Position X //////
 			iIndex = 0;
 			iIndex++;
