@@ -72,7 +72,7 @@ public:
 		void add(PCSTR text) {
 			node_t* curr = new node_t;
 			curr->text = new TCHAR[_tcslen(text) + 1];
-			_tcscpy(curr->text, text);
+			_tcscpy_s(curr->text, _tcslen(text) + 1, text);
 			curr->next = head;
 			head = curr;
 		}

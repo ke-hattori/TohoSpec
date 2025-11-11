@@ -14,7 +14,7 @@
 			ASSERT( FALSE );																	\
 		if ( _tcsncmp(&m_pszRequMessage[nPos + VARTYPELEN], #dvname, _tcslen(#dvname)) != 0 )	\
 			ASSERT( FALSE );																	\
-		_tcsncpy(szDvValue, &m_pszRequMessage[nPos + VARTYPELEN + DVNAMELEN], DVVALUELEN);		\
+		_tcsncpy_s(szDvValue, DVVALUELEN + 1, &m_pszRequMessage[nPos + VARTYPELEN + DVNAMELEN], DVVALUELEN);		\
 		szDvValue[DVVALUELEN] = _TCHAR('\0');													\
 		return _ttoi(szDvValue);																\
 	}																							\
@@ -23,11 +23,11 @@
 	{																							\
 		int iLen;																				\
 		stProcessDataSet[idx].chVarType = _TCHAR('I');											\
-		_tcscpy(stProcessDataSet[idx].szDvName, #dvname);										\
+		_tcscpy_s(stProcessDataSet[idx].szDvName, DVNAMELEN + 1, #dvname);										\
 		iLen = _tcslen(stProcessDataSet[idx].szDvName); 										\
 		::FillMemory(&stProcessDataSet[idx].szDvName[iLen], DVNAMELEN - iLen,_TCHAR(' '));		\
 		stProcessDataSet[idx].szDvName[DVNAMELEN] = '\0';										\
-		_stprintf(stProcessDataSet[idx].szDvValue, _T("%d"), i##dvname);						\
+		_stprintf_s(stProcessDataSet[idx].szDvValue, DVVALUELEN + 1, _T("%d"), i##dvname);						\
 		iLen = _tcslen(stProcessDataSet[idx].szDvValue);										\
 		::FillMemory(&stProcessDataSet[idx].szDvValue[iLen], DVVALUELEN - iLen,_TCHAR(' '));	\
 		stProcessDataSet[idx].szDvValue[DVVALUELEN] = '\0'; 									\
@@ -43,7 +43,7 @@
 			ASSERT( FALSE );																	\
 		if ( _tcsncmp(&m_pszRequMessage[nPos + VARTYPELEN], #dvname, _tcslen(#dvname)) != 0 )	\
 			ASSERT( FALSE );																	\
-		_tcsncpy(szDvValue, &m_pszRequMessage[nPos + VARTYPELEN + DVNAMELEN], DVVALUELEN);		\
+		_tcsncpy_s(szDvValue, DVVALUELEN + 1, &m_pszRequMessage[nPos + VARTYPELEN + DVNAMELEN], DVVALUELEN);		\
 		szDvValue[DVVALUELEN] = _TCHAR('\0');													\
 		_tcscpy(psz##dvname, szDvValue);														\
 	}																							\
@@ -52,11 +52,11 @@
 	{																							\
 		int iLen;																				\
 		stProcessDataSet[idx].chVarType = _TCHAR('A');											\
-		_tcscpy(stProcessDataSet[idx].szDvName, #dvname);										\
+		_tcscpy_s(stProcessDataSet[idx].szDvName, DVNAMELEN + 1, #dvname);										\
 		iLen = _tcslen(stProcessDataSet[idx].szDvName); 										\
 		::FillMemory(&stProcessDataSet[idx].szDvName[iLen], DVNAMELEN - iLen,_TCHAR(' '));		\
 		stProcessDataSet[idx].szDvName[DVNAMELEN] = '\0';										\
-		_tcscpy(stProcessDataSet[idx].szDvValue, psz##dvname);									\
+		_tcscpy_s(stProcessDataSet[idx].szDvValue, DVVALUELEN + 1, psz##dvname);									\
 		iLen = _tcslen(stProcessDataSet[idx].szDvValue);										\
 		::FillMemory(&stProcessDataSet[idx].szDvValue[iLen], DVVALUELEN - iLen,_TCHAR(' '));	\
 		stProcessDataSet[idx].szDvValue[DVVALUELEN] = '\0'; 									\
@@ -72,7 +72,7 @@
 			ASSERT( FALSE );																	\
 		if ( _tcsncmp(&m_pszRequMessage[nPos + VARTYPELEN], #dvname, _tcslen(#dvname)) != 0 )	\
 			ASSERT( FALSE );																	\
-		_tcsncpy(szDvValue, &m_pszRequMessage[nPos + VARTYPELEN + DVNAMELEN], DVVALUELEN);		\
+		_tcsncpy_s(szDvValue, DVVALUELEN + 1, &m_pszRequMessage[nPos + VARTYPELEN + DVNAMELEN], DVVALUELEN);		\
 		szDvValue[DVVALUELEN] = _TCHAR('\0');													\
 		return atof(szDvValue); 																\
 	}																							\
@@ -81,13 +81,13 @@
 	{																							\
 		int iLen;																				\
 		stProcessDataSet[idx].chVarType = _TCHAR('D');											\
-		_tcscpy(stProcessDataSet[idx].szDvName, #dvname);										\
+		_tcscpy_s(stProcessDataSet[idx].szDvName, DVNAMELEN + 1, #dvname);										\
 		iLen = _tcslen(stProcessDataSet[idx].szDvName); 										\
 		::FillMemory(&stProcessDataSet[idx].szDvName[iLen], DVNAMELEN - iLen,_TCHAR(' '));		\
 		stProcessDataSet[idx].szDvName[DVNAMELEN] = '\0';										\
 		d##dvname = d##dvname <  99999999.999999 ? d##dvname : 99999999.999999; 				\
 		d##dvname = d##dvname < -99999999.999999 ? -99999999.999999 : d##dvname;				\
-		_stprintf(stProcessDataSet[idx].szDvValue, _T("%lf"), d##dvname);						\
+		_stprintf_s(stProcessDataSet[idx].szDvValue, DVVALUELEN + 1, _T("%lf"), d##dvname);						\
 		iLen = _tcslen(stProcessDataSet[idx].szDvValue);										\
 		::FillMemory(&stProcessDataSet[idx].szDvValue[iLen], DVVALUELEN - iLen,_TCHAR(' '));	\
 		stProcessDataSet[idx].szDvValue[DVVALUELEN] = '\0'; 									\
@@ -126,8 +126,8 @@ public:
 		m_iRecvLength = count;
 		m_pszRequMessage = new TCHAR[count + 1];
 
-		_tcscpy(m_pszRequMessage, pszMessage);
-		_tcsncpy(m_szCommandId, &m_pszRequMessage[ENQLEN + MESSAGELENLEN], COMMANDLEN);
+		_tcscpy_s(m_pszRequMessage, count + 1, pszMessage);
+		_tcsncpy_s(m_szCommandId, COMMANDLEN + 1, &m_pszRequMessage[ENQLEN + MESSAGELENLEN], COMMANDLEN);
 		m_szCommandId[COMMANDLEN] = _TCHAR('\0');
 	}
 
@@ -135,7 +135,7 @@ public:
 
 	int GetItemRecvAck()
 	{
-		_tcsncpy(m_szAckCode, &m_pszRequMessage[ENQLEN + MESSAGELENLEN + COMMANDLEN], ACKLEN);
+		_tcsncpy_s(m_szAckCode, ACKLEN + 1, &m_pszRequMessage[ENQLEN + MESSAGELENLEN + COMMANDLEN], ACKLEN);
 		m_szAckCode[ACKLEN] = _TCHAR('\0');
 		return _ttoi(m_szAckCode);
 	}
@@ -145,18 +145,18 @@ public:
 // Resp Ack
 	void SetItemAckCode(int iCode)
 	{
-		_stprintf(m_szAckCode, _T("%02d"), iCode);
+		_stprintf_s(m_szAckCode, ACKLEN + 1, _T("%02d"), iCode);
 	}
 
 	void SetItemAckCode(LPCTSTR psz)
 	{
-		_tcscpy(m_szAckCode, psz);
+		_tcscpy_s(m_szAckCode, ACKLEN + 1, psz);
 	}
 
 // SendResp
 	void SendResp() 																	// Sxxx
 	{
-		_stprintf(m_szRespMessage, _T("%c%05X%c%s%s%c"), ENQ, COMMANDLEN + ACKLEN, _TCHAR('S'), &m_szCommandId[1], m_szAckCode, CR);
+		_stprintf_s(m_szRespMessage, ENQLEN + MESSAGELENLEN + COMMANDLEN + ACKLEN + CRLEN + 1, _T("%c%05X%c%s%s%c"), ENQ, COMMANDLEN + ACKLEN, _TCHAR('S'), &m_szCommandId[1], m_szAckCode, CR);
 		AddRespMessage();
 	}
 
@@ -166,9 +166,9 @@ protected:
 	{
 		m_pszRequMessage = new TCHAR[ENQLEN + MESSAGELENLEN + COMMANDLEN + count + CRLEN + 1];
 		if ( !pszMsgBody )
-			_stprintf(m_pszRequMessage, _T("%c%05X%s%c"), ENQ, COMMANDLEN, pszCommandId, CR);
+			_stprintf_s(m_pszRequMessage, ENQLEN + MESSAGELENLEN + COMMANDLEN + CRLEN + 1, _T("%c%05X%s%c"), ENQ, COMMANDLEN, pszCommandId, CR);
 		else
-			_stprintf(m_pszRequMessage, _T("%c%05X%s%s%c"), ENQ, COMMANDLEN + count, pszCommandId, pszMsgBody, CR);
+			_stprintf_s(m_pszRequMessage, ENQLEN + MESSAGELENLEN + COMMANDLEN + count + CRLEN + 1, _T("%c%05X%s%s%c"), ENQ, COMMANDLEN + count, pszCommandId, pszMsgBody, CR);
 		AddRequMessage();
 		if ( m_pszRequMessage ) {
 			delete [] m_pszRequMessage;
@@ -278,7 +278,7 @@ public:
 
 	void SetItemDateTime(LPCTSTR pszDateTime)
 	{
-		_tcscpy(m_szSystemTime, pszDateTime);
+		_tcscpy_s(m_szSystemTime, 256, pszDateTime);
 	}
 
 	void SendRequ()
@@ -297,13 +297,13 @@ public:
 		TCHAR szMilliSeconds[] = _T("ccc");
 
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szYear,		 &m_pszRequMessage[nPos], YYYYLEN);   nPos += YYYYLEN;
-		_tcsncpy(szMonth,		 &m_pszRequMessage[nPos], MMLEN);	  nPos += MMLEN;
-		_tcsncpy(szDay, 		 &m_pszRequMessage[nPos], DDLEN);	  nPos += DDLEN;
-		_tcsncpy(szHour,		 &m_pszRequMessage[nPos], HHLEN);	  nPos += HHLEN;
-		_tcsncpy(szMinute,		 &m_pszRequMessage[nPos], MILEN);	  nPos += MILEN;
-		_tcsncpy(szSecond,		 &m_pszRequMessage[nPos], SSLEN);	  nPos += SSLEN;
-		_tcsncpy(szMilliSeconds, &m_pszRequMessage[nPos], CCCLEN);
+		_tcsncpy_s(szYear, 5, &m_pszRequMessage[nPos], YYYYLEN);   nPos += YYYYLEN;
+		_tcsncpy_s(szMonth, 3, &m_pszRequMessage[nPos], MMLEN);	  nPos += MMLEN;
+		_tcsncpy_s(szDay, 3, &m_pszRequMessage[nPos], DDLEN);	  nPos += DDLEN;
+		_tcsncpy_s(szHour, 3, &m_pszRequMessage[nPos], HHLEN);	  nPos += HHLEN;
+		_tcsncpy_s(szMinute, 3, &m_pszRequMessage[nPos], MILEN);	  nPos += MILEN;
+		_tcsncpy_s(szSecond, 3, &m_pszRequMessage[nPos], SSLEN);	  nPos += SSLEN;
+		_tcsncpy_s(szMilliSeconds, 4, &m_pszRequMessage[nPos], CCCLEN);
 
 		::ZeroMemory(lpSystemTime, sizeof(SYSTEMTIME));
 		lpSystemTime->wYear 		= _ttoi(szYear);
@@ -365,7 +365,7 @@ public:
 	void SendRequ()
 	{
 		TCHAR szBuff[256];
-		_stprintf(szBuff, _T("%d%d%d%d%d%d%d%d%d%d%d%d********"), m_iLocalRemote, m_iEqProcessStatus, m_iAlarmStatus, m_iGlassExist, m_iLoadPos, m_iVaccum1, m_iShutterOpen, m_iShutterClose, m_iPinUp, m_iPinDown, m_iArmSensor, m_iDoorInterlock);
+		_stprintf_s(szBuff, 256, _T("%d%d%d%d%d%d%d%d%d%d%d%d********"), m_iLocalRemote, m_iEqProcessStatus, m_iAlarmStatus, m_iGlassExist, m_iLoadPos, m_iVaccum1, m_iShutterOpen, m_iShutterClose, m_iPinUp, m_iPinDown, m_iArmSensor, m_iDoorInterlock);
 		CPifMessage::SendRequ(_T("P301"), szBuff, _tcslen(szBuff));
 	}
 
@@ -476,7 +476,7 @@ public:
 
 	void SetItemKindOfRecipe(int iKindOfRecipe)
 	{
-		_stprintf(m_szKindOfRecipe, _T("%02d"), iKindOfRecipe);
+		_stprintf_s(m_szKindOfRecipe, KINDOFRECIPELEN + 1, _T("%02d"), iKindOfRecipe);
 	}
 
 	void SendRequ()
@@ -488,7 +488,7 @@ public:
 	{
 		TCHAR szBuff[KINDOFRECIPELEN + 1];
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szBuff, &m_pszRequMessage[nPos], KINDOFRECIPELEN);
+		_tcsncpy_s(szBuff, KINDOFRECIPELEN + 1, &m_pszRequMessage[nPos], KINDOFRECIPELEN);
 		return _ttoi(szBuff);
 	}
 
@@ -507,7 +507,7 @@ public:
 
 	void SetItemKindOfRecipe(int iKindOfRecipe)
 	{
-		_stprintf(m_szKindOfRecipe, _T("%02d"), iKindOfRecipe);
+		_stprintf_s(m_szKindOfRecipe, KINDOFRECIPELEN + 1, _T("%02d"), iKindOfRecipe);
 	}
 
 	void SetItemRecipe(LPCTSTR pszRecipeName, const SYSTEMTIME* lpSystemTime)
@@ -549,7 +549,7 @@ public:
 	{
 		TCHAR szBuff[KINDOFRECIPELEN + 1];
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szBuff, &m_pszRequMessage[nPos], KINDOFRECIPELEN);
+		_tcsncpy_s(szBuff, KINDOFRECIPELEN + 1, &m_pszRequMessage[nPos], KINDOFRECIPELEN);
 		return _ttoi(szBuff);
 	}
 
@@ -577,21 +577,21 @@ public:
 
 	void SetItemKindOfRecipe(int iKindOfRecipe)
 	{
-		_stprintf(m_szKindOfRecipe, _T("%02d"), iKindOfRecipe);
+		_stprintf_s(m_szKindOfRecipe, KINDOFRECIPELEN + 1, _T("%02d"), iKindOfRecipe);
 	}
 
 	void SetItemRecipe(TCHAR chRecipeChangeType, LPCTSTR pszRecipeName, const SYSTEMTIME* lpSystemTime)
 	{
 		m_chRecipeChangeType = chRecipeChangeType;
 		sprintf(m_szRecipeName, "%-28.28s", pszRecipeName);
-		_stprintf(m_szRecipeDateTime, _T("%04d%02d%02d%02d%02d%02d"), lpSystemTime->wYear, lpSystemTime->wMonth, lpSystemTime->wDay,
+		_stprintf_s(m_szRecipeDateTime, DATETIMELEN + 1, _T("%04d%02d%02d%02d%02d%02d"), lpSystemTime->wYear, lpSystemTime->wMonth, lpSystemTime->wDay,
 																	  lpSystemTime->wHour, lpSystemTime->wMinute, lpSystemTime->wSecond);
 
 	}
 	void SendRequ()
 	{
 		TCHAR szBuff[256];
-		_stprintf(szBuff, _T("%s%c%s%s"), m_szKindOfRecipe, m_chRecipeChangeType, m_szRecipeName, m_szRecipeDateTime);
+		_stprintf_s(szBuff, 256, _T("%s%c%s%s"), m_szKindOfRecipe, m_chRecipeChangeType, m_szRecipeName, m_szRecipeDateTime);
 		CPifMessage::SendRequ(_T("P305"), szBuff, _tcslen(szBuff));
 	}
 
@@ -599,7 +599,7 @@ public:
 	{
 		TCHAR szBuff[KINDOFRECIPELEN + 1];
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szBuff, &m_pszRequMessage[nPos], KINDOFRECIPELEN);
+		_tcsncpy_s(szBuff, KINDOFRECIPELEN + 1, &m_pszRequMessage[nPos], KINDOFRECIPELEN);
 		return _ttoi(szBuff);
 	}
 
@@ -612,10 +612,10 @@ public:
 	void GetItemRecipeName(LPTSTR pszRecipeName, LPTSTR pszRecipeDateTime) const
 	{
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN + KINDOFRECIPELEN + RECIPECHANGETYPELEN;
-		_tcsncpy(pszRecipeName, &m_pszRequMessage[nPos], RECIPENAMEEXTLEN);
+		_tcsncpy_s(pszRecipeName, RECIPENAMEEXTLEN + 1, &m_pszRequMessage[nPos], RECIPENAMEEXTLEN);
 		pszRecipeName[RECIPENAMEEXTLEN] = _TCHAR('\0');
 		nPos += RECIPENAMEEXTLEN;
-		_tcsncpy(pszRecipeDateTime, &m_pszRequMessage[nPos], DATETIMELEN);
+		_tcsncpy_s(pszRecipeDateTime, DATETIMELEN + 1, &m_pszRequMessage[nPos], DATETIMELEN);
 		pszRecipeDateTime[DATETIMELEN] = _TCHAR('\0');
 	}
 
@@ -813,7 +813,7 @@ public:
 	void SendRequ()
 	{
 		TCHAR szBuff[256];
-		_stprintf(szBuff, _T("%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s"),
+		_stprintf_s(szBuff, 256, _T("%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s"),
 						  m_szSrVisReflectLampLastExchange, m_szSrVisReflectLampElapse, m_szSrVisReflectLampLifeTime,
 						  m_szSrVisTransmitLampLastExchange, m_szSrVisTransmitLampElapse, m_szSrVisTransmitLampLifeTime,
 						  m_szSrUvLampLastExchange, m_szSrUvLampElapse, m_szSrUvLampLifeTime,
@@ -851,12 +851,12 @@ private:
 		TCHAR szSecond[]		= _T("ss");
 
 		int nPos = 0;
-		_tcsncpy(szYear,		&pszSystemTime[nPos], YYYYLEN);   nPos += YYYYLEN;
-		_tcsncpy(szMonth,		&pszSystemTime[nPos], MMLEN);	  nPos += MMLEN;
-		_tcsncpy(szDay, 		&pszSystemTime[nPos], DDLEN);	  nPos += DDLEN;
-		_tcsncpy(szHour,		&pszSystemTime[nPos], HHLEN);	  nPos += HHLEN;
-		_tcsncpy(szMinute,		&pszSystemTime[nPos], MILEN);	  nPos += MILEN;
-		_tcsncpy(szSecond,		&pszSystemTime[nPos], SSLEN);
+		_tcsncpy_s(szYear, 5, &pszSystemTime[nPos], YYYYLEN);   nPos += YYYYLEN;
+		_tcsncpy_s(szMonth, 3, &pszSystemTime[nPos], MMLEN);	  nPos += MMLEN;
+		_tcsncpy_s(szDay, 3, &pszSystemTime[nPos], DDLEN);	  nPos += DDLEN;
+		_tcsncpy_s(szHour, 3, &pszSystemTime[nPos], HHLEN);	  nPos += HHLEN;
+		_tcsncpy_s(szMinute, 3, &pszSystemTime[nPos], MILEN);	  nPos += MILEN;
+		_tcsncpy_s(szSecond, 3, &pszSystemTime[nPos], SSLEN);
 
 		::ZeroMemory(pSystemTime, sizeof(SYSTEMTIME));
 		pSystemTime->wYear		= _ttoi(szYear);
@@ -918,7 +918,7 @@ public:
 		CString strRecipeName;
 
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szRecipeName, &m_pszRequMessage[nPos], RECIPENAMELEN);
+		_tcsncpy_s(szRecipeName, RECIPENAMELEN + 1, &m_pszRequMessage[nPos], RECIPENAMELEN);
 		szRecipeName[RECIPENAMELEN] = _TCHAR('\0');
 
 		strRecipeName = szRecipeName;
@@ -955,7 +955,7 @@ public:
 	void SendRequ()
 	{
 		TCHAR szBuff[256];
-		_stprintf(szBuff, _T("%s%s"), m_szSampleSizeX, m_szSampleSizeY);
+		_stprintf_s(szBuff, 256, _T("%s%s"), m_szSampleSizeX, m_szSampleSizeY);
 		CPifMessage::SendRequ(_T("P309"), szBuff, _tcslen(szBuff));
 	}
 
@@ -963,7 +963,7 @@ public:
 	{
 		TCHAR szBuff[256];
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szBuff, &m_pszRequMessage[nPos], SAMPLESIZEXLEN);
+		_tcsncpy_s(szBuff, SAMPLESIZEXLEN + 1, &m_pszRequMessage[nPos], SAMPLESIZEXLEN);
 		szBuff[SAMPLESIZEXLEN] = _TCHAR('\0');
 		return atof(szBuff);
 	}
@@ -972,7 +972,7 @@ public:
 	{
 		TCHAR szBuff[256];
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN + SAMPLESIZEXLEN;
-		_tcsncpy(szBuff, &m_pszRequMessage[nPos], SAMPLESIZEYLEN);
+		_tcsncpy_s(szBuff, SAMPLESIZEYLEN + 1, &m_pszRequMessage[nPos], SAMPLESIZEYLEN);
 		szBuff[SAMPLESIZEYLEN] = _TCHAR('\0');
 		return atof(szBuff);
 	}
@@ -1006,7 +1006,7 @@ public:
 		CString strRecipeName;
 
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szRecipeName, &m_pszRequMessage[nPos], RECIPENAMELEN);
+		_tcsncpy_s(szRecipeName, RECIPENAMELEN + 1, &m_pszRequMessage[nPos], RECIPENAMELEN);
 		szRecipeName[RECIPENAMELEN] = _TCHAR('\0');
 
 		strRecipeName = szRecipeName;
@@ -1042,7 +1042,7 @@ public:
 		CString strRecipeName;
 
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szRecipeName, &m_pszRequMessage[nPos], RECIPENAMELEN);
+		_tcsncpy_s(szRecipeName, RECIPENAMELEN + 1, &m_pszRequMessage[nPos], RECIPENAMELEN);
 		szRecipeName[RECIPENAMELEN] = _TCHAR('\0');
 		strRecipeName = szRecipeName;
 		strRecipeName.TrimRight();
@@ -1077,7 +1077,7 @@ public:
 		CString strRecipeName;
 
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szRecipeName, &m_pszRequMessage[nPos], RECIPENAMELEN);
+		_tcsncpy_s(szRecipeName, RECIPENAMELEN + 1, &m_pszRequMessage[nPos], RECIPENAMELEN);
 		szRecipeName[RECIPENAMELEN] = _TCHAR('\0');
 		strRecipeName = szRecipeName;
 		strRecipeName.TrimRight();
@@ -1123,7 +1123,7 @@ public:
 		CString strSampleId;
 
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szSampleId, &m_pszRequMessage[nPos], SAMPLEIDLEN);
+		_tcsncpy_s(szSampleId, SAMPLEIDLEN + 1, &m_pszRequMessage[nPos], SAMPLEIDLEN);
 		szSampleId[SAMPLEIDLEN] = _TCHAR('\0');
 		strSampleId = szSampleId;
 		strSampleId.TrimRight();
@@ -1144,7 +1144,7 @@ public:
 			return;
 		}
 
-		_tcsncpy(szLotId, &m_pszRequMessage[nPos], LOTIDLEN);
+		_tcsncpy_s(szLotId, LOTIDLEN + 1, &m_pszRequMessage[nPos], LOTIDLEN);
 		szLotId[LOTIDLEN] = _TCHAR('\0');
 		strLotId = szLotId;
 		strLotId.TrimRight();
@@ -1184,7 +1184,7 @@ public:
 
 	void SetItemFormatId(int iFormatId)
 	{
-		_stprintf(m_szFormatId, _T("%03d"), iFormatId);
+		_stprintf_s(m_szFormatId, FORMATIDLEN + 1, _T("%03d"), iFormatId);
 
 		// 初期値編集
 		switch ( iFormatId ) {
@@ -1413,7 +1413,7 @@ public:
 
 	void SetItemPointNo(int iPointNo)
 	{
-		_stprintf(m_szPointNo, _T("%05d"), iPointNo);
+		_stprintf_s(m_szPointNo, POINTNOLEN + 1, _T("%05d"), iPointNo);
 	}
 
 	void SetItemLineNo(int iLineNo)
@@ -1640,7 +1640,7 @@ public:
 		TCHAR szFormatId[FORMATIDLEN + 1];
 
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szFormatId, &m_pszRequMessage[nPos], FORMATIDLEN);
+		_tcsncpy_s(szFormatId, FORMATIDLEN + 1, &m_pszRequMessage[nPos], FORMATIDLEN);
 		szFormatId[FORMATIDLEN] = _TCHAR('\0');
 		return _ttoi(szFormatId);
 	}
@@ -1650,7 +1650,7 @@ public:
 		TCHAR szPointNo[POINTNOLEN + 1];
 
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN + FORMATIDLEN;
-		_tcsncpy(szPointNo, &m_pszRequMessage[nPos], POINTNOLEN);
+		_tcsncpy_s(szPointNo, POINTNOLEN + 1, &m_pszRequMessage[nPos], POINTNOLEN);
 		szPointNo[POINTNOLEN] = _TCHAR('\0');
 		return _ttoi(szPointNo);
 	}
@@ -1745,7 +1745,7 @@ public:
 
 	void SetItemFormatId(int iFormatId)
 	{
-		_stprintf(m_szFormatId, _T("%03d"), iFormatId);
+		_stprintf_s(m_szFormatId, FORMATIDLEN + 1, _T("%03d"), iFormatId);
 
 		// 初期値編集
 		switch ( iFormatId ) {
@@ -2190,7 +2190,7 @@ public:
 
 	void SetItemPointNo(int iPointNo)
 	{
-		_stprintf(m_szPointNo, _T("%05d"), iPointNo);
+		_stprintf_s(m_szPointNo, POINTNOLEN + 1, _T("%05d"), iPointNo);
 	}
 
 	void SetItemLineNo(int iLineNo)
@@ -2633,7 +2633,7 @@ public:
 		TCHAR szFormatId[FORMATIDLEN + 1];
 
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szFormatId, &m_pszRequMessage[nPos], FORMATIDLEN);
+		_tcsncpy_s(szFormatId, FORMATIDLEN + 1, &m_pszRequMessage[nPos], FORMATIDLEN);
 		szFormatId[FORMATIDLEN] = _TCHAR('\0');
 		return _ttoi(szFormatId);
 	}
@@ -2643,7 +2643,7 @@ public:
 		TCHAR szPointNo[POINTNOLEN + 1];
 
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN + FORMATIDLEN;
-		_tcsncpy(szPointNo, &m_pszRequMessage[nPos], POINTNOLEN);
+		_tcsncpy_s(szPointNo, POINTNOLEN + 1, &m_pszRequMessage[nPos], POINTNOLEN);
 		szPointNo[POINTNOLEN] = _TCHAR('\0');
 		return _ttoi(szPointNo);
 	}
@@ -2745,7 +2745,7 @@ public:
 		CString strSampleId;
 
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szSampleId, &m_pszRequMessage[nPos], SAMPLEIDLEN);
+		_tcsncpy_s(szSampleId, SAMPLEIDLEN + 1, &m_pszRequMessage[nPos], SAMPLEIDLEN);
 		szSampleId[SAMPLEIDLEN] = _TCHAR('\0');
 		strSampleId = szSampleId;
 		strSampleId.TrimRight();
@@ -2766,7 +2766,7 @@ public:
 			return;
 		}
 
-		_tcsncpy(szLotId, &m_pszRequMessage[nPos], LOTIDLEN);
+		_tcsncpy_s(szLotId, LOTIDLEN + 1, &m_pszRequMessage[nPos], LOTIDLEN);
 		szLotId[LOTIDLEN] = _TCHAR('\0');
 		strLotId = szLotId;
 		strLotId.TrimRight();
@@ -2794,7 +2794,7 @@ public:
 
 	void SetItemPointNo(int iPointNo)
 	{
-		_stprintf(m_szPointNo, _T("%05d"), iPointNo);
+		_stprintf_s(m_szPointNo, POINTNOLEN + 1, _T("%05d"), iPointNo);
 	}
 
 	int GetItemFormatId() const
@@ -2802,7 +2802,7 @@ public:
 		TCHAR szFormatId[FORMATIDLEN + 1];
 
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szFormatId, &m_pszRequMessage[nPos], FORMATIDLEN);
+		_tcsncpy_s(szFormatId, FORMATIDLEN + 1, &m_pszRequMessage[nPos], FORMATIDLEN);
 		szFormatId[FORMATIDLEN] = _TCHAR('\0');
 		return _ttoi(szFormatId);
 	}
@@ -2812,7 +2812,7 @@ public:
 		TCHAR szPointNo[POINTNOLEN + 1];
 
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN + FORMATIDLEN;
-		_tcsncpy(szPointNo, &m_pszRequMessage[nPos], POINTNOLEN);
+		_tcsncpy_s(szPointNo, POINTNOLEN + 1, &m_pszRequMessage[nPos], POINTNOLEN);
 		szPointNo[POINTNOLEN] = _TCHAR('\0');
 		return _ttoi(szPointNo);
 	}
@@ -2835,7 +2835,7 @@ private:
 	// for the future.
 	void SetItemFormatId(int iFormatId)
 	{
-		_stprintf(m_szFormatId, _T("%03d"), iFormatId);
+		_stprintf_s(m_szFormatId, FORMATIDLEN + 1, _T("%03d"), iFormatId);
 
 	}
 
@@ -2861,7 +2861,7 @@ public:
 
 	void SetItemPointNo(int iPointNo)
 	{
-		_stprintf(m_szPointNo, _T("%05d"), iPointNo);
+		_stprintf_s(m_szPointNo, POINTNOLEN + 1, _T("%05d"), iPointNo);
 	}
 
 	int GetItemFormatId() const
@@ -2869,7 +2869,7 @@ public:
 		TCHAR szFormatId[FORMATIDLEN + 1];
 
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szFormatId, &m_pszRequMessage[nPos], FORMATIDLEN);
+		_tcsncpy_s(szFormatId, FORMATIDLEN + 1, &m_pszRequMessage[nPos], FORMATIDLEN);
 		szFormatId[FORMATIDLEN] = _TCHAR('\0');
 		return _ttoi(szFormatId);
 	}
@@ -2879,7 +2879,7 @@ public:
 		TCHAR szPointNo[POINTNOLEN + 1];
 
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN + FORMATIDLEN;
-		_tcsncpy(szPointNo, &m_pszRequMessage[nPos], POINTNOLEN);
+		_tcsncpy_s(szPointNo, POINTNOLEN + 1, &m_pszRequMessage[nPos], POINTNOLEN);
 		szPointNo[POINTNOLEN] = _TCHAR('\0');
 		return _ttoi(szPointNo);
 	}
@@ -2902,7 +2902,7 @@ private:
 	// for the future.
 	void SetItemFormatId(int iFormatId)
 	{
-		_stprintf(m_szFormatId, _T("%03d"), iFormatId);
+		_stprintf_s(m_szFormatId, FORMATIDLEN + 1, _T("%03d"), iFormatId);
 	}
 
 private:
@@ -2943,7 +2943,7 @@ public:
 
 	void SetItemReferenceResult(int iReferenceResult)
 	{
-		_stprintf(m_szReferenceResult, _T("%02d"), iReferenceResult);
+		_stprintf_s(m_szReferenceResult, REFERENCERESULTLEN + 1, _T("%02d"), iReferenceResult);
 	}
 
 	void SendRequ()
@@ -2955,7 +2955,7 @@ public:
 	{
 		TCHAR szBuff[256];
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szBuff, &m_pszRequMessage[nPos], REFERENCERESULTLEN);
+		_tcsncpy_s(szBuff, REFERENCERESULTLEN + 1, &m_pszRequMessage[nPos], REFERENCERESULTLEN);
 		szBuff[REFERENCERESULTLEN] = _TCHAR('\0');
 		return _ttoi(szBuff);
 	}
@@ -2984,7 +2984,7 @@ public:
 
 	void SetItemReferenceResult(int iReferenceResult)
 	{
-		_stprintf(m_szReferenceResult, _T("%02d"), iReferenceResult);
+		_stprintf_s(m_szReferenceResult, REFERENCERESULTLEN + 1, _T("%02d"), iReferenceResult);
 	}
 
 	void SendRequ()
@@ -2996,7 +2996,7 @@ public:
 	{
 		TCHAR szBuff[256];
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szBuff, &m_pszRequMessage[nPos], REFERENCERESULTLEN);
+		_tcsncpy_s(szBuff, REFERENCERESULTLEN + 1, &m_pszRequMessage[nPos], REFERENCERESULTLEN);
 		szBuff[REFERENCERESULTLEN] = _TCHAR('\0');
 		return _ttoi(szBuff);
 	}
@@ -3016,18 +3016,18 @@ public:
 
 	void SetItemSampleSizeX(double dX)
 	{
-		_stprintf(m_szSampleSizeX, _T("%.3lf"), dX);
+		_stprintf_s(m_szSampleSizeX, SAMPLESIZEXLEN + 1, _T("%.3lf"), dX);
 	}
 
 	void SetItemSampleSizeY(double dY)
 	{
-		_stprintf(m_szSampleSizeY, _T("%.3lf"), dY);
+		_stprintf_s(m_szSampleSizeY, SAMPLESIZEYLEN + 1, _T("%.3lf"), dY);
 	}
 
 	void SendRequ()
 	{
 		TCHAR szBuff[256];
-		_stprintf(szBuff, _T("%-16.16s%-16.16s"), m_szSampleSizeX, m_szSampleSizeY);
+		_stprintf_s(szBuff, 256, _T("%-16.16s%-16.16s"), m_szSampleSizeX, m_szSampleSizeY);
 		CPifMessage::SendRequ(_T("P601"), szBuff, _tcslen(szBuff));
 	}
 
@@ -3035,7 +3035,7 @@ public:
 	{
 		TCHAR szBuff[256];
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szBuff, &m_pszRequMessage[nPos], SAMPLESIZEXLEN);
+		_tcsncpy_s(szBuff, SAMPLESIZEXLEN + 1, &m_pszRequMessage[nPos], SAMPLESIZEXLEN);
 		szBuff[SAMPLESIZEXLEN] = _TCHAR('\0');
 		return atof(szBuff);
 	}
@@ -3044,7 +3044,7 @@ public:
 	{
 		TCHAR szBuff[256];
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN + SAMPLESIZEXLEN;
-		_tcsncpy(szBuff, &m_pszRequMessage[nPos], SAMPLESIZEYLEN);
+		_tcsncpy_s(szBuff, SAMPLESIZEYLEN + 1, &m_pszRequMessage[nPos], SAMPLESIZEYLEN);
 		szBuff[SAMPLESIZEYLEN] = _TCHAR('\0');
 		return atof(szBuff);
 	}
@@ -3063,7 +3063,7 @@ public:
 
 	void SetItemMovePosId(int iMovePosId)
 	{
-		_stprintf(m_szMovePosId, "%02d", iMovePosId);
+		_stprintf_s(m_szMovePosId, MOVEPOSIDLEN + 1, "%02d", iMovePosId);
 	}
 
 	void SendRequ()
@@ -3075,7 +3075,7 @@ public:
 	{
 		TCHAR szBuff[256];
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szBuff, &m_pszRequMessage[nPos], MOVEPOSIDLEN);
+		_tcsncpy_s(szBuff, MOVEPOSIDLEN + 1, &m_pszRequMessage[nPos], MOVEPOSIDLEN);
 		szBuff[MOVEPOSIDLEN] = _TCHAR('\0');
 		return _ttoi(szBuff);
 	}
@@ -3192,7 +3192,7 @@ public:
 
 	void SetItemMovementResult(int iMovementResult)
 	{
-		_stprintf(m_szMovementResult, _T("%02d"), iMovementResult);
+		_stprintf_s(m_szMovementResult, MOVEMENTRESULTLEN + 1, _T("%02d"), iMovementResult);
 	}
 
 	void SendRequ()
@@ -3204,7 +3204,7 @@ public:
 	{
 		TCHAR szBuff[256];
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szBuff, &m_pszRequMessage[nPos], MOVEMENTRESULTLEN);
+		_tcsncpy_s(szBuff, MOVEMENTRESULTLEN + 1, &m_pszRequMessage[nPos], MOVEMENTRESULTLEN);
 		szBuff[MOVEMENTRESULTLEN] = _TCHAR('\0');
 		return _ttoi(szBuff);
 	}
@@ -3222,7 +3222,7 @@ public:
 
 	void SetItemMovementResult(int iMovementResult)
 	{
-		_stprintf(m_szMovementResult, _T("%02d"), iMovementResult);
+		_stprintf_s(m_szMovementResult, MOVEMENTRESULTLEN + 1, _T("%02d"), iMovementResult);
 	}
 
 	void SendRequ()
@@ -3234,7 +3234,7 @@ public:
 	{
 		TCHAR szBuff[256];
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szBuff, &m_pszRequMessage[nPos], MOVEMENTRESULTLEN);
+		_tcsncpy_s(szBuff, MOVEMENTRESULTLEN + 1, &m_pszRequMessage[nPos], MOVEMENTRESULTLEN);
 		szBuff[MOVEMENTRESULTLEN] = _TCHAR('\0');
 		return _ttoi(szBuff);
 	}
@@ -3252,7 +3252,7 @@ public:
 
 	void SetItemMovementResult(int iMovementResult)
 	{
-		_stprintf(m_szMovementResult, _T("%02d"), iMovementResult);
+		_stprintf_s(m_szMovementResult, MOVEMENTRESULTLEN + 1, _T("%02d"), iMovementResult);
 	}
 
 	void SendRequ()
@@ -3264,7 +3264,7 @@ public:
 	{
 		TCHAR szBuff[256];
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szBuff, &m_pszRequMessage[nPos], MOVEMENTRESULTLEN);
+		_tcsncpy_s(szBuff, MOVEMENTRESULTLEN + 1, &m_pszRequMessage[nPos], MOVEMENTRESULTLEN);
 		szBuff[MOVEMENTRESULTLEN] = _TCHAR('\0');
 		return _ttoi(szBuff);
 	}
@@ -3282,7 +3282,7 @@ public:
 
 	void SetItemMovementResult(int iMovementResult)
 	{
-		_stprintf(m_szMovementResult, _T("%02d"), iMovementResult);
+		_stprintf_s(m_szMovementResult, MOVEMENTRESULTLEN + 1, _T("%02d"), iMovementResult);
 	}
 
 	void SendRequ()
@@ -3294,7 +3294,7 @@ public:
 	{
 		TCHAR szBuff[256];
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szBuff, &m_pszRequMessage[nPos], MOVEMENTRESULTLEN);
+		_tcsncpy_s(szBuff, MOVEMENTRESULTLEN + 1, &m_pszRequMessage[nPos], MOVEMENTRESULTLEN);
 		szBuff[MOVEMENTRESULTLEN] = _TCHAR('\0');
 		return _ttoi(szBuff);
 	}
@@ -3312,7 +3312,7 @@ public:
 
 	void SetItemMovementResult(int iMovementResult)
 	{
-		_stprintf(m_szMovementResult, _T("%02d"), iMovementResult);
+		_stprintf_s(m_szMovementResult, MOVEMENTRESULTLEN + 1, _T("%02d"), iMovementResult);
 	}
 
 	void SendRequ()
@@ -3324,7 +3324,7 @@ public:
 	{
 		TCHAR szBuff[256];
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szBuff, &m_pszRequMessage[nPos], MOVEMENTRESULTLEN);
+		_tcsncpy_s(szBuff, MOVEMENTRESULTLEN + 1, &m_pszRequMessage[nPos], MOVEMENTRESULTLEN);
 		szBuff[MOVEMENTRESULTLEN] = _TCHAR('\0');
 		return _ttoi(szBuff);
 	}
@@ -3342,7 +3342,7 @@ public:
 
 	void SetItemMovementResult(int iMovementResult)
 	{
-		_stprintf(m_szMovementResult, _T("%02d"), iMovementResult);
+		_stprintf_s(m_szMovementResult, MOVEMENTRESULTLEN + 1, _T("%02d"), iMovementResult);
 	}
 
 	void SendRequ()
@@ -3354,7 +3354,7 @@ public:
 	{
 		TCHAR szBuff[256];
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szBuff, &m_pszRequMessage[nPos], MOVEMENTRESULTLEN);
+		_tcsncpy_s(szBuff, MOVEMENTRESULTLEN + 1, &m_pszRequMessage[nPos], MOVEMENTRESULTLEN);
 		szBuff[MOVEMENTRESULTLEN] = _TCHAR('\0');
 		return _ttoi(szBuff);
 	}
@@ -3372,7 +3372,7 @@ public:
 
 	void SetItemMovementResult(int iMovementResult)
 	{
-		_stprintf(m_szMovementResult, _T("%02d"), iMovementResult);
+		_stprintf_s(m_szMovementResult, MOVEMENTRESULTLEN + 1, _T("%02d"), iMovementResult);
 	}
 
 	void SendRequ()
@@ -3384,7 +3384,7 @@ public:
 	{
 		TCHAR szBuff[256];
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szBuff, &m_pszRequMessage[nPos], MOVEMENTRESULTLEN);
+		_tcsncpy_s(szBuff, MOVEMENTRESULTLEN + 1, &m_pszRequMessage[nPos], MOVEMENTRESULTLEN);
 		szBuff[MOVEMENTRESULTLEN] = _TCHAR('\0');
 		return _ttoi(szBuff);
 	}
@@ -3402,7 +3402,7 @@ public:
 
 	void SetItemMovementResult(int iMovementResult)
 	{
-		_stprintf(m_szMovementResult, _T("%02d"), iMovementResult);
+		_stprintf_s(m_szMovementResult, MOVEMENTRESULTLEN + 1, _T("%02d"), iMovementResult);
 	}
 
 	void SendRequ()
@@ -3414,7 +3414,7 @@ public:
 	{
 		TCHAR szBuff[256];
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szBuff, &m_pszRequMessage[nPos], MOVEMENTRESULTLEN);
+		_tcsncpy_s(szBuff, MOVEMENTRESULTLEN + 1, &m_pszRequMessage[nPos], MOVEMENTRESULTLEN);
 		szBuff[MOVEMENTRESULTLEN] = _TCHAR('\0');
 		return _ttoi(szBuff);
 	}
@@ -3432,7 +3432,7 @@ public:
 
 	void SetItemMovementResult(int iMovementResult)
 	{
-		_stprintf(m_szMovementResult, _T("%02d"), iMovementResult);
+		_stprintf_s(m_szMovementResult, MOVEMENTRESULTLEN + 1, _T("%02d"), iMovementResult);
 	}
 
 	void SendRequ()
@@ -3444,7 +3444,7 @@ public:
 	{
 		TCHAR szBuff[256];
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szBuff, &m_pszRequMessage[nPos], MOVEMENTRESULTLEN);
+		_tcsncpy_s(szBuff, MOVEMENTRESULTLEN + 1, &m_pszRequMessage[nPos], MOVEMENTRESULTLEN);
 		szBuff[MOVEMENTRESULTLEN] = _TCHAR('\0');
 		return _ttoi(szBuff);
 	}
@@ -3462,7 +3462,7 @@ public:
 
 	void SetItemMovementResult(int iMovementResult)
 	{
-		_stprintf(m_szMovementResult, _T("%02d"), iMovementResult);
+		_stprintf_s(m_szMovementResult, MOVEMENTRESULTLEN + 1, _T("%02d"), iMovementResult);
 	}
 
 	void SendRequ()
@@ -3474,7 +3474,7 @@ public:
 	{
 		TCHAR szBuff[256];
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szBuff, &m_pszRequMessage[nPos], MOVEMENTRESULTLEN);
+		_tcsncpy_s(szBuff, MOVEMENTRESULTLEN + 1, &m_pszRequMessage[nPos], MOVEMENTRESULTLEN);
 		szBuff[MOVEMENTRESULTLEN] = _TCHAR('\0');
 		return _ttoi(szBuff);
 	}
@@ -3492,7 +3492,7 @@ public:
 
 	void SetItemMovementResult(int iMovementResult)
 	{
-		_stprintf(m_szMovementResult, _T("%02d"), iMovementResult);
+		_stprintf_s(m_szMovementResult, MOVEMENTRESULTLEN + 1, _T("%02d"), iMovementResult);
 	}
 
 	void SendRequ()
@@ -3504,7 +3504,7 @@ public:
 	{
 		TCHAR szBuff[256];
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN;
-		_tcsncpy(szBuff, &m_pszRequMessage[nPos], MOVEMENTRESULTLEN);
+		_tcsncpy_s(szBuff, MOVEMENTRESULTLEN + 1, &m_pszRequMessage[nPos], MOVEMENTRESULTLEN);
 		szBuff[MOVEMENTRESULTLEN] = _TCHAR('\0');
 		return _ttoi(szBuff);
 	}
@@ -3531,12 +3531,12 @@ public:
 
 	void SetItemAlarmCode(int iAlarmCode)
 	{
-		_stprintf(m_szAlarmCode, _T("%04d"), iAlarmCode);
+		_stprintf_s(m_szAlarmCode, ALARMCODELEN + 1, _T("%04d"), iAlarmCode);
 	}
 
 	void SetItemAlarmId(int iAlarmId)
 	{
-		_stprintf(m_szAlarmId, _T("%04d"), iAlarmId);
+		_stprintf_s(m_szAlarmId, ALARMIDLEN + 1, _T("%04d"), iAlarmId);
 	}
 
 	void SetItemAlarmLevel(TCHAR chAlarmLevel)
@@ -3552,7 +3552,7 @@ public:
 	void SendRequ()
 	{
 		TCHAR szBuff[256];
-		_stprintf(szBuff, _T("%c%s%s%c%s"), m_chAlarmEventType, m_szAlarmCode, m_szAlarmId, m_chAlarmLevel, m_szAlarmMessage);
+		_stprintf_s(szBuff, 256, _T("%c%s%s%c%s"), m_chAlarmEventType, m_szAlarmCode, m_szAlarmId, m_chAlarmLevel, m_szAlarmMessage);
 		CPifMessage::SendRequ(_T("P801"), szBuff, _tcslen(szBuff));
 	}
 
@@ -3566,7 +3566,7 @@ public:
 	{
 		TCHAR szBuff[256];
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN + ALARMEVENTTYPELEN;
-		_tcsncpy(szBuff, &m_pszRequMessage[nPos], ALARMCODELEN);
+		_tcsncpy_s(szBuff, ALARMCODELEN + 1, &m_pszRequMessage[nPos], ALARMCODELEN);
 		szBuff[ALARMCODELEN] = _TCHAR('\0');
 		return _ttoi(szBuff);
 
@@ -3576,7 +3576,7 @@ public:
 	{
 		TCHAR szBuff[256];
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN + ALARMEVENTTYPELEN + ALARMCODELEN;
-		_tcsncpy(szBuff, &m_pszRequMessage[nPos], ALARMIDLEN);
+		_tcsncpy_s(szBuff, ALARMIDLEN + 1, &m_pszRequMessage[nPos], ALARMIDLEN);
 		szBuff[ALARMIDLEN] = _TCHAR('\0');
 		return _ttoi(szBuff);
 
@@ -3591,7 +3591,7 @@ public:
 	void GetItemAlarmMessage(LPTSTR pszAlarmMessage) const
 	{
 		int nPos = ENQLEN + MESSAGELENLEN + COMMANDLEN + ALARMEVENTTYPELEN + ALARMCODELEN + ALARMIDLEN + ALARMLEVELLEN;
-		_tcsncpy(pszAlarmMessage, &m_pszRequMessage[nPos], ALARMMESSAGELEN);
+		_tcsncpy_s(pszAlarmMessage, ALARMMESSAGELEN + 1, &m_pszRequMessage[nPos], ALARMMESSAGELEN);
 		pszAlarmMessage[ALARMMESSAGELEN] = _TCHAR('\0');
 	}
 
@@ -3610,13 +3610,13 @@ class CPifMessage901 : public CPifMessage
 public:
 	void SetItemIllegalCommandId(LPCTSTR pszIllegalCommandId)
 	{
-		_tcscpy(m_szRecvCommandId, pszIllegalCommandId);
+		_tcscpy_s(m_szRecvCommandId, COMMANDLEN + 1, pszIllegalCommandId);
 	}
 
 	void Send()
 	{
-		_tcscpy(m_szCommandId, _T("P901"));
-		_stprintf(m_szRespMessage, _T("%c%05X%s%s%c"), ENQ, COMMANDLEN + COMMANDLEN, m_szCommandId, m_szRecvCommandId, CR);
+		_tcscpy_s(m_szCommandId, COMMANDLEN + 1, _T("P901"));
+		_stprintf_s(m_szRespMessage, ENQLEN + MESSAGELENLEN + COMMANDLEN + ACKLEN + CRLEN + 1, _T("%c%05X%s%s%c"), ENQ, COMMANDLEN + COMMANDLEN, m_szCommandId, m_szRecvCommandId, CR);
 		AddP9xxMessage();
 	}
 
@@ -3631,13 +3631,13 @@ class CPifMessage902 : public CPifMessage
 public:
 	void SetItemRecvCommandId(LPCTSTR pszRecvCommandId)
 	{
-		_tcscpy(m_szRecvCommandId, pszRecvCommandId);
+		_tcscpy_s(m_szRecvCommandId, COMMANDLEN + 1, pszRecvCommandId);
 	}
 
 	void Send()
 	{
-		_tcscpy(m_szCommandId, _T("P902"));
-		_stprintf(m_szRespMessage, _T("%c%05X%s%s%c"), ENQ, COMMANDLEN + COMMANDLEN, m_szCommandId, m_szRecvCommandId, CR);
+		_tcscpy_s(m_szCommandId, COMMANDLEN + 1, _T("P902"));
+		_stprintf_s(m_szRespMessage, ENQLEN + MESSAGELENLEN + COMMANDLEN + ACKLEN + CRLEN + 1, _T("%c%05X%s%s%c"), ENQ, COMMANDLEN + COMMANDLEN, m_szCommandId, m_szRecvCommandId, CR);
 		AddP9xxMessage();
 	}
 private:
@@ -3651,13 +3651,13 @@ class CPifMessage903 : public CPifMessage
 public:
 	void SetItemSendCommandId(LPCTSTR pszSendCommandId)
 	{
-		_tcscpy(m_szSendCommandId, pszSendCommandId);
+		_tcscpy_s(m_szSendCommandId, COMMANDLEN + 1, pszSendCommandId);
 	}
 
 	void Send()
 	{
-		_tcscpy(m_szCommandId, _T("P903"));
-		_stprintf(m_szRespMessage, _T("%c%05X%s%s%c"), ENQ, COMMANDLEN + COMMANDLEN, m_szCommandId, m_szSendCommandId, CR);
+		_tcscpy_s(m_szCommandId, COMMANDLEN + 1, _T("P903"));
+		_stprintf_s(m_szRespMessage, ENQLEN + MESSAGELENLEN + COMMANDLEN + ACKLEN + CRLEN + 1, _T("%c%05X%s%s%c"), ENQ, COMMANDLEN + COMMANDLEN, m_szCommandId, m_szSendCommandId, CR);
 		AddP9xxMessage();
 	}
 private:
@@ -3671,13 +3671,13 @@ class CPifMessage904 : public CPifMessage
 public:
 	void SetItemRecvCommandId(LPCTSTR pszRecvCommandId)
 	{
-		_tcscpy(m_szRecvCommandId, pszRecvCommandId);
+		_tcscpy_s(m_szRecvCommandId, COMMANDLEN + 1, pszRecvCommandId);
 	}
 
 	void Send()
 	{
-		_tcscpy(m_szCommandId, _T("P904"));
-		_stprintf(m_szRespMessage, _T("%c%05X%s%s%c"), ENQ, COMMANDLEN + COMMANDLEN, m_szCommandId, m_szRecvCommandId, CR);
+		_tcscpy_s(m_szCommandId, COMMANDLEN + 1, _T("P904"));
+		_stprintf_s(m_szRespMessage, ENQLEN + MESSAGELENLEN + COMMANDLEN + ACKLEN + CRLEN + 1, _T("%c%05X%s%s%c"), ENQ, COMMANDLEN + COMMANDLEN, m_szCommandId, m_szRecvCommandId, CR);
 		AddP9xxMessage();
 	}
 private:
@@ -3691,13 +3691,13 @@ class CPifMessage905 : public CPifMessage
 public:
 	void SetItemRecvCommandId(LPCTSTR pszRecvCommandId)
 	{
-		_tcscpy(m_szRecvCommandId, pszRecvCommandId);
+		_tcscpy_s(m_szRecvCommandId, COMMANDLEN + 1, pszRecvCommandId);
 	}
 
 	void Send()
 	{
-		_tcscpy(m_szCommandId, _T("P905"));
-		_stprintf(m_szRespMessage, _T("%c%05X%s%s%c"), ENQ, COMMANDLEN + COMMANDLEN, m_szCommandId, m_szRecvCommandId, CR);
+		_tcscpy_s(m_szCommandId, COMMANDLEN + 1, _T("P905"));
+		_stprintf_s(m_szRespMessage, ENQLEN + MESSAGELENLEN + COMMANDLEN + ACKLEN + CRLEN + 1, _T("%c%05X%s%s%c"), ENQ, COMMANDLEN + COMMANDLEN, m_szCommandId, m_szRecvCommandId, CR);
 		AddP9xxMessage();
 	}
 private:
@@ -3716,7 +3716,7 @@ public:
 		int count = _tcslen(_T("Hellow World"));
 		m_pszRequMessage = new TCHAR[ENQLEN + MESSAGELENLEN + COMMANDLEN + count + CRLEN + 1];
 		count += 20;	// *****
-		_stprintf(m_pszRequMessage, _T("%c%05X%s%s%c"), ENQ, COMMANDLEN + count, pszCommandId, pszMsgBody, CR);
+		_stprintf_s(m_pszRequMessage, ENQLEN + MESSAGELENLEN + COMMANDLEN + count + CRLEN + 1, _T("%c%05X%s%s%c"), ENQ, COMMANDLEN + count, pszCommandId, pszMsgBody, CR);
 		AddRequMessage();
 	}
 };
@@ -3733,7 +3733,7 @@ public:
 		int count = _tcslen(_T("Hellow World"));
 		m_pszRequMessage = new TCHAR[ENQLEN + MESSAGELENLEN + COMMANDLEN + count + CRLEN + 1];
 		count -= 5; 	// *****
-		_stprintf(m_pszRequMessage, _T("%c%05X%s%s%c"), ENQ, COMMANDLEN + count, pszCommandId, pszMsgBody, CR);
+		_stprintf_s(m_pszRequMessage, ENQLEN + MESSAGELENLEN + COMMANDLEN + count + CRLEN + 1, _T("%c%05X%s%s%c"), ENQ, COMMANDLEN + count, pszCommandId, pszMsgBody, CR);
 		AddRequMessage();
 	}
 };
