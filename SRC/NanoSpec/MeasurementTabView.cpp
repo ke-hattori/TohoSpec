@@ -551,22 +551,22 @@ int CMeasurementTabView::SaveMeasConAddRevi(LPCTSTR pszMainRcpName, int iSaveWay
 				//リモート時はファイル重複を先行判別
 				if(rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType == HEAD_TYPE_STRESS){
 					if(m_pDoc->IsStressRefereneMeasuremnt()){
-						sprintf(szSaveFullFilePath, "%s%s\\%s%s", g_szResult_Dir , szSampleId ,STRESS_REFERENCE_NAME, DAT_EXT); //
-						sprintf(szSaveFullDirPath, "%s%s\\%s", g_szResult_Dir , szSampleId,STRESS_REFERENCE_NAME  );
+						sprintf_s(szSaveFullFilePath, _countof(szSaveFullFilePath), "%s%s\\%s%s", g_szResult_Dir , szSampleId ,STRESS_REFERENCE_NAME, DAT_EXT); //
+						sprintf_s(szSaveFullDirPath, _countof(szSaveFullDirPath), "%s%s\\%s", g_szResult_Dir , szSampleId,STRESS_REFERENCE_NAME  );
 					}else{
 						//2009.10.17 bagus stress --{--
-						//sprintf(szSaveFullFilePath, "%s%s\\%s_%d%s", g_szResult_Dir , szSampleId ,pszMainRcpName, nNextSaveNo, DAT_EXT); //
-						//sprintf(szSaveFullDirPath, "%s%s\\%s_%d", g_szResult_Dir , szSampleId,pszMainRcpName, nNextSaveNo );
-						sprintf(szSaveFullFilePath, "%s%s\\%s_%c%s", g_szResult_Dir , szSampleId ,pszMainRcpName, szCheckLetters[nNextSaveNo], DAT_EXT); //
-						sprintf(szSaveFullDirPath, "%s%s\\%s_%c", g_szResult_Dir , szSampleId,pszMainRcpName, szCheckLetters[nNextSaveNo] );
+						//sprintf_s(szSaveFullFilePath, _countof(szSaveFullFilePath), "%s%s\\%s_%d%s", g_szResult_Dir , szSampleId ,pszMainRcpName, nNextSaveNo, DAT_EXT); //
+						//sprintf_s(szSaveFullDirPath, _countof(szSaveFullDirPath), "%s%s\\%s_%d", g_szResult_Dir , szSampleId,pszMainRcpName, nNextSaveNo );
+						sprintf_s(szSaveFullFilePath, _countof(szSaveFullFilePath), "%s%s\\%s_%c%s", g_szResult_Dir , szSampleId ,pszMainRcpName, szCheckLetters[nNextSaveNo], DAT_EXT); //
+						sprintf_s(szSaveFullDirPath, _countof(szSaveFullDirPath), "%s%s\\%s_%c", g_szResult_Dir , szSampleId,pszMainRcpName, szCheckLetters[nNextSaveNo] );
 						//2009.10.17 bagus stress --{--
 					}
 				}else{
 					//2009.12.17 bagus 保存ファイル名の変更 --{--
 					if(!bSaveNameWithDate){
 						//メインレシピの設定により保存時のディレクトリと結果ファイルに測定開始日時を付け加える
-						sprintf(szSaveFullFilePath, "%s%s%s", g_szResult_Dir , szSampleId , DAT_EXT); //
-						sprintf(szSaveFullDirPath, "%s%s", g_szResult_Dir , szSampleId);
+						sprintf_s(szSaveFullFilePath, _countof(szSaveFullFilePath), "%s%s%s", g_szResult_Dir , szSampleId , DAT_EXT); //
+						sprintf_s(szSaveFullDirPath, _countof(szSaveFullDirPath), "%s%s", g_szResult_Dir , szSampleId);
 					}else{
 						//YYYYMMDD_hhmmss => 15
 						char szNameWithDate[15+1];
@@ -581,8 +581,8 @@ int CMeasurementTabView::SaveMeasConAddRevi(LPCTSTR pszMainRcpName, int iSaveWay
 								syStartDateTime.wMinute,
 								syStartDateTime.wSecond
 							);
-						sprintf(szSaveFullFilePath, "%s%s_%s%s", g_szResult_Dir , szSampleId , szNameWithDate , DAT_EXT); //
-						sprintf(szSaveFullDirPath, "%s%s_%s", g_szResult_Dir , szSampleId , szNameWithDate);
+						sprintf_s(szSaveFullFilePath, _countof(szSaveFullFilePath), "%s%s_%s%s", g_szResult_Dir , szSampleId , szNameWithDate , DAT_EXT); //
+						sprintf_s(szSaveFullDirPath, _countof(szSaveFullDirPath), "%s%s_%s", g_szResult_Dir , szSampleId , szNameWithDate);
 					}
 					//2009.12.17 bagus 保存ファイル名の変更 --}--
 				}
@@ -611,25 +611,25 @@ int CMeasurementTabView::SaveMeasConAddRevi(LPCTSTR pszMainRcpName, int iSaveWay
 // 2009.12.17 bagus Stress --}--
 			{
 				//2009.08.28 bagus stress --{--
-				//sprintf(szSaveFullFilePath, "%s%s%s", g_szResult_Dir , szSampleId , DAT_EXT); //
+				//sprintf_s(szSaveFullFilePath, _countof(szSaveFullFilePath), "%s%s%s", g_szResult_Dir , szSampleId , DAT_EXT); //
 				if(rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType == HEAD_TYPE_STRESS){
 					if(m_pDoc->IsStressRefereneMeasuremnt()){
-						sprintf(szSaveFullFilePath, "%s%s\\%s%s", g_szResult_Dir , szSampleId ,STRESS_REFERENCE_NAME, DAT_EXT); //
-						sprintf(szSaveFullDirPath, "%s%s\\%s", g_szResult_Dir , szSampleId,STRESS_REFERENCE_NAME  );
+						sprintf_s(szSaveFullFilePath, _countof(szSaveFullFilePath), "%s%s\\%s%s", g_szResult_Dir , szSampleId ,STRESS_REFERENCE_NAME, DAT_EXT); //
+						sprintf_s(szSaveFullDirPath, _countof(szSaveFullDirPath), "%s%s\\%s", g_szResult_Dir , szSampleId,STRESS_REFERENCE_NAME  );
 					}else{
 						//2009.10.17 bagus stress --{--
-						//sprintf(szSaveFullFilePath, "%s%s\\%s_%d%s", g_szResult_Dir , szSampleId ,pszMainRcpName, nNextSaveNo, DAT_EXT); //
-						//sprintf(szSaveFullDirPath, "%s%s\\%s_%d", g_szResult_Dir , szSampleId,pszMainRcpName, nNextSaveNo );
-						sprintf(szSaveFullFilePath, "%s%s\\%s_%c%s", g_szResult_Dir , szSampleId ,pszMainRcpName, szCheckLetters[nNextSaveNo], DAT_EXT); //
-						sprintf(szSaveFullDirPath, "%s%s\\%s_%c", g_szResult_Dir , szSampleId,pszMainRcpName, szCheckLetters[nNextSaveNo] );
+						//sprintf_s(szSaveFullFilePath, _countof(szSaveFullFilePath), "%s%s\\%s_%d%s", g_szResult_Dir , szSampleId ,pszMainRcpName, nNextSaveNo, DAT_EXT); //
+						//sprintf_s(szSaveFullDirPath, _countof(szSaveFullDirPath), "%s%s\\%s_%d", g_szResult_Dir , szSampleId,pszMainRcpName, nNextSaveNo );
+						sprintf_s(szSaveFullFilePath, _countof(szSaveFullFilePath), "%s%s\\%s_%c%s", g_szResult_Dir , szSampleId ,pszMainRcpName, szCheckLetters[nNextSaveNo], DAT_EXT); //
+						sprintf_s(szSaveFullDirPath, _countof(szSaveFullDirPath), "%s%s\\%s_%c", g_szResult_Dir , szSampleId,pszMainRcpName, szCheckLetters[nNextSaveNo] );
 						//2009.10.17 bagus stress --{--
 					}
 				}else{
 					//2009.12.17 bagus 保存ファイル名の変更 --{--
 					if(!bSaveNameWithDate){
 						//メインレシピの設定により保存時のディレクトリと結果ファイルに測定開始日時を付け加える
-						sprintf(szSaveFullFilePath, "%s%s%s", g_szResult_Dir , szSampleId , DAT_EXT); //
-						sprintf(szSaveFullDirPath, "%s%s", g_szResult_Dir , szSampleId);
+						sprintf_s(szSaveFullFilePath, _countof(szSaveFullFilePath), "%s%s%s", g_szResult_Dir , szSampleId , DAT_EXT); //
+						sprintf_s(szSaveFullDirPath, _countof(szSaveFullDirPath), "%s%s", g_szResult_Dir , szSampleId);
 					}else{
 						//YYYYMMDD_hhmmss => 15
 						char szNameWithDate[15+1];
@@ -644,8 +644,8 @@ int CMeasurementTabView::SaveMeasConAddRevi(LPCTSTR pszMainRcpName, int iSaveWay
 								syStartDateTime.wMinute,
 								syStartDateTime.wSecond
 							);
-						sprintf(szSaveFullFilePath, "%s%s_%s%s", g_szResult_Dir , szSampleId , szNameWithDate , DAT_EXT); //
-						sprintf(szSaveFullDirPath, "%s%s_%s", g_szResult_Dir , szSampleId , szNameWithDate);
+						sprintf_s(szSaveFullFilePath, _countof(szSaveFullFilePath), "%s%s_%s%s", g_szResult_Dir , szSampleId , szNameWithDate , DAT_EXT); //
+						sprintf_s(szSaveFullDirPath, _countof(szSaveFullDirPath), "%s%s_%s", g_szResult_Dir , szSampleId , szNameWithDate);
 					}
 					//2009.12.17 bagus 保存ファイル名の変更 --}--
 				}
@@ -690,7 +690,7 @@ int CMeasurementTabView::SaveMeasConAddRevi(LPCTSTR pszMainRcpName, int iSaveWay
 	//保存先ファイル名が既に存在していた場合の処理
 	memset(szSaveFullDirPath, 0, sizeof(szSaveFullDirPath));
 	_tsplitpath(szSaveFullFilePath, NULL, szDirName, szDirName2, NULL);
-	sprintf(szSaveFullDirPath, "%s%s", szDirName, szDirName2); //
+	sprintf_s(szSaveFullDirPath, _countof(szSaveFullDirPath), "%s%s", szDirName, szDirName2); //
 	if(( FileOrDirExists(szSaveFullFilePath)==TRUE ) //ファイル重複有り
 	||( FileOrDirExists(szSaveFullDirPath)==TRUE )) //ディレクトリ重複有り
 	{
@@ -781,7 +781,7 @@ int CMeasurementTabView::SaveMeasConAddRevi(LPCTSTR pszMainRcpName, int iSaveWay
 //==========================================================
 //[仮フォルダに一時保存]=====================================
 	//リファレンスファイルコピー
-	sprintf(szRefFilePath, "%s%s%s", g_szData_Ref_Dir, /*szRecipeName*/pszMainRcpName, DAT_EXT);
+	sprintf_s(szRefFilePath, _countof(szRefFilePath), "%s%s%s", g_szData_Ref_Dir, /*szRecipeName*/pszMainRcpName, DAT_EXT);
 	sprintf(szToFilePath, "%s%s%s", g_szData_Measured_Data_Temp_Dir, pszMainRcpName, REFERENCE_EXT); //hibino [仮]測定結果保存時にリファレンスファイル名の拡張子を.refに変更(コピー元は.datのまま)
 	CopyFile(szRefFilePath, szToFilePath, FALSE); 						// 既存ファイルがあっても、上書きする
 
@@ -789,7 +789,7 @@ int CMeasurementTabView::SaveMeasConAddRevi(LPCTSTR pszMainRcpName, int iSaveWay
 	//ストレスのリファレンスがあった場合にそれをコピーする
 	//StressRefRaw.dat -> ref\StressRef\SampleID.dat
 	if(rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType == HEAD_TYPE_STRESS){
-		sprintf(szRefFilePath, "%s%s%s",g_szData_Measured_Data_Temp_Dir ,_T("StressRefRawData"), DAT_EXT);
+		sprintf_s(szRefFilePath, _countof(szRefFilePath), "%s%s%s",g_szData_Measured_Data_Temp_Dir ,_T("StressRefRawData"), DAT_EXT);
 		sprintf(szToFilePath, "%s%s%s", g_szData_StressRef_Dir,szSampleId , DAT_EXT);
 		CopyFile(szRefFilePath, szToFilePath, FALSE);
 	}
@@ -849,7 +849,7 @@ int CMeasurementTabView::SaveMeasConAddRevi(LPCTSTR pszMainRcpName, int iSaveWay
 	//ストレスのリファレンスファイルをコピーする
 	if(rcp_data.MainRcpInfo.MainRcpParam.hdr.wHeadType == HEAD_TYPE_STRESS){
 		if(m_pDoc->IsStressRefereneMeasuremnt()){
-			sprintf(szRefFilePath, "%s%s%s",g_szData_Measured_Data_Temp_Dir,pszMainRcpName, DAT_EXT);
+			sprintf_s(szRefFilePath, _countof(szRefFilePath), "%s%s%s",g_szData_Measured_Data_Temp_Dir,pszMainRcpName, DAT_EXT);
 			//sprintf(szToFilePath, "%s%s%s", g_szData_Measured_Data_Temp_Dir,STRESS_REFERENCE_NAME, DAT_EXT);
 			sprintf(szToFilePath, "%s%s\\%s%s",g_szResult_Dir , szSampleId ,STRESS_REFERENCE_NAME, DAT_EXT);
 			MoveFileEx(szRefFilePath, szToFilePath,MOVEFILE_REPLACE_EXISTING|MOVEFILE_COPY_ALLOWED);
