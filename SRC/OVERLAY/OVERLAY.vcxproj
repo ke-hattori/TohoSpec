@@ -80,7 +80,6 @@
       <Optimization>Disabled</Optimization>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level3</WarningLevel>
-      <MinimalRebuild>true</MinimalRebuild>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;OVERLAY_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../../IC Imaging Control 3.5\classlib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories><AssemblerListingLocation>.\Debug\</AssemblerListingLocation>
