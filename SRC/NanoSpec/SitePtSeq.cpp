@@ -136,7 +136,7 @@ int CSitePtAutoSeq::Run()
 		PatternFile_GetSubInfo(m_pSitePattern->PatternInfo[iSite].szSitePatternName, &(m_SprSubInfo[iSite]));
 /* added 2009.06.22 hmenjo SPR オフセット読込み/書込み機能追加 ---------- } ---------- */
 
-		sprintf(szLogText,"== Site: %d / Pattern Image: %s / Score:%3.2f%% / Grop:%3.2f%% \0",iSite+1 , m_pSitePattern->PatternInfo[iSite].szSitePatternName, m_patternRec.dLowestMatchScore, m_patternRec.dStopGropingScore);
+		sprintf_s(szLogText, _countof(szLogText),"== Site: %d / Pattern Image: %s / Score:%3.2f%% / Grop:%3.2f%% \0",iSite+1 , m_pSitePattern->PatternInfo[iSite].szSitePatternName, m_patternRec.dLowestMatchScore, m_patternRec.dStopGropingScore);
 		SitePtLogging(szLogText);
 
 		/* レンズ切替	*/
@@ -212,7 +212,7 @@ int CSitePtAutoSeq::Run()
 		/* キャンセル終了	*/
 		m_iEvent = EV_SR1P_SITEPR_AUTO_CANCEL;
 
-		sprintf(szLogText,"SitePR Cancel End\0");
+		sprintf_s(szLogText, _countof(szLogText),"SitePR Cancel End\0");
 		SitePtLogging(szLogText);
 	}
 	else {
@@ -221,7 +221,7 @@ int CSitePtAutoSeq::Run()
 			/* サイトパターン処理正常	*/
 			m_iEvent = EV_SR1P_SITEPR_AUTO_OK;
 
-			sprintf(szLogText,"SitePR OK complete %3.2f%%\0",SitePtResult[i_LastSite].Score );
+			sprintf_s(szLogText, _countof(szLogText),"SitePR OK complete %3.2f%%\0",SitePtResult[i_LastSite].Score );
 			SitePtLogging(szLogText);
 		}
 		else
@@ -234,7 +234,7 @@ int CSitePtAutoSeq::Run()
 					/* ステージPGM座標のまま留まっていた（SitePattern処理内で、ステージ移動していない） */
 					m_iEvent = EV_SR1P_SITEPR_AUTO_PROCEED;				/* 強制測定(ステージPGM座標のまま留まっていた)*/
 
-					sprintf(szLogText,"SitePR Force complete %3.2f%% non move \0",SitePtResult[i_LastSite].Score );
+					sprintf_s(szLogText, _countof(szLogText),"SitePR Force complete %3.2f%% non move \0",SitePtResult[i_LastSite].Score );
 					SitePtLogging(szLogText);
 				}else{
 					/* ステージPGM座標に移動する */
@@ -262,7 +262,7 @@ int CSitePtAutoSeq::Run()
 					m_iEvent = EV_SR1P_SITEPR_AUTO_PROCEED_PRESTEP;		/* 強制測定(ステージPGM座標に移動する)	*/
 // 2009.05.26 K.Matsuo SitePR <--
 
-					sprintf(szLogText,"SitePR Force complete %3.2f%% orginal position\0",SitePtResult[i_LastSite].Score );
+					sprintf_s(szLogText, _countof(szLogText),"SitePR Force complete %3.2f%% orginal position\0",SitePtResult[i_LastSite].Score );
 					SitePtLogging(szLogText);
 				}
 				break;
@@ -270,7 +270,7 @@ int CSitePtAutoSeq::Run()
 			case SITE_PR_FAIL_OPTION_CANCEL:				/* 測定キャンセル	*/
 				m_iEvent = EV_SR1P_SITEPR_AUTO_CANCEL;
 
-				sprintf(szLogText,"SitePR Cancel complete %3.2f%%\0",SitePtResult[i_LastSite].Score );
+				sprintf_s(szLogText, _countof(szLogText),"SitePR Cancel complete %3.2f%%\0",SitePtResult[i_LastSite].Score );
 				SitePtLogging(szLogText);
 				break;
 
@@ -299,7 +299,7 @@ int CSitePtAutoSeq::Run()
 // K.Matsuo 2009.09.01 <--
 				m_iEvent = EV_SR1P_SITEPR_AUTO_MANU;
 
-				sprintf(szLogText,"SitePR to Manual mode %3.2f%% original position\0",SitePtResult[i_LastSite].Score );
+				sprintf_s(szLogText, _countof(szLogText),"SitePR to Manual mode %3.2f%% original position\0",SitePtResult[i_LastSite].Score );
 				SitePtLogging(szLogText);
 				break;
 
@@ -330,7 +330,7 @@ int CSitePtAutoSeq::Run()
 
 				m_iEvent = EV_SR1P_SITEPR_AUTO_PROCEED_PRESTEP;		/* 強制測定(最終AF後 移動している)	*/
 
-				sprintf(szLogText,"SitePR Force complete %3.2f%% Pre position\0",SitePtResult[i_LastSite].Score );
+				sprintf_s(szLogText, _countof(szLogText),"SitePR Force complete %3.2f%% Pre position\0",SitePtResult[i_LastSite].Score );
 				SitePtLogging(szLogText);
 				break;
 
@@ -361,14 +361,14 @@ int CSitePtAutoSeq::Run()
 
 				m_iEvent = EV_SR1P_SITEPR_AUTO_MANU;
 
-				sprintf(szLogText,"SitePR to Manual mode %3.2f%% Pre position\0",SitePtResult[i_LastSite].Score );
+				sprintf_s(szLogText, _countof(szLogText),"SitePR to Manual mode %3.2f%% Pre position\0",SitePtResult[i_LastSite].Score );
 				SitePtLogging(szLogText);
 				break;
 			}
 		}
 	}
 
-	sprintf(szLogText,"--------------------------------------------------------------------\0");
+	sprintf_s(szLogText, _countof(szLogText),"--------------------------------------------------------------------\0");
 	SitePtLogging(szLogText);
 
 	::PostQuitMessage(0);
@@ -428,15 +428,15 @@ void CSitePtAutoSeq::DoPatRecMatchWithVerify( int iSite,		 // first or second de
 	DoPatternRecMatch(pSitePtResult, pMatchLoc, m_SprSubInfo[iSite].iLens);
 /* modified 2009.06.22 hmenjo SPR オフセット読込み/書込み機能追加 ---------- } ---------- */
 
-	sprintf(szLogText,"Pattern Match : Score:%3.2f%%  Target:%3.2f%% \0", pSitePtResult->Score, pSitePtResult->TargetScore);
+	sprintf_s(szLogText, _countof(szLogText),"Pattern Match : Score:%3.2f%%  Target:%3.2f%% \0", pSitePtResult->Score, pSitePtResult->TargetScore);
 	SitePtLogging(szLogText);
 
 	//Saiki 20090602 Change ----->
-	//sprintf(szLogText, IDS_CHIF_SITEPR_AUTO_ING "Result %3.2f%%\0", pSitePtResult->Score);
+	//sprintf_s(szLogText, _countof(szLogText), IDS_CHIF_SITEPR_AUTO_ING "Result %3.2f%%\0", pSitePtResult->Score);
 	LoadStringML(IDS_CHIF_SITEPR_AUTO_ING, strMsg1, "Site Pattern:Auto Site Pattern Executing...");
 	LoadStringML(IDS_RESULT, strMsg2, "Result %3.2f%%");
 	strBuffer = strMsg1 + strMsg2;
-	sprintf(szLogText, strBuffer, pSitePtResult->Score);
+	sprintf_s(szLogText, _countof(szLogText), strBuffer, pSitePtResult->Score);
 	//Saiki 20090602 Change <-----
 	((CMainFrame*) ((m_pChiefView)->m_pcMainFrame))->SetMessageText(szLogText);	// Status Bar
 
@@ -488,15 +488,15 @@ void CSitePtAutoSeq::DoPatRecMatchWithVerify( int iSite,		 // first or second de
 				DoPatternRecMatch(pSitePtResult, pMatchLoc, m_SprSubInfo[iSite].iLens);
 /* modified 2009.06.22 hmenjo SPR オフセット読込み/書込み機能追加 ---------- } ---------- */
 
-				sprintf(szLogText,"Pattern Match : Score:%3.2f%%  Target:%3.2f%%  Target Check %d\0", pSitePtResult->Score, pSitePtResult->TargetScore, nRetries);
+				sprintf_s(szLogText, _countof(szLogText),"Pattern Match : Score:%3.2f%%  Target:%3.2f%%  Target Check %d\0", pSitePtResult->Score, pSitePtResult->TargetScore, nRetries);
 				SitePtLogging(szLogText);
 
 				//Saiki 20090602 Change ----->
-				//sprintf(szLogText, IDS_CHIF_SITEPR_AUTO_ING "Verify Result %3.2f%%  (Best %3.2f%%)\0", pSitePtResult->Score, bestResult.Score);
+				//sprintf_s(szLogText, _countof(szLogText), IDS_CHIF_SITEPR_AUTO_ING "Verify Result %3.2f%%  (Best %3.2f%%)\0", pSitePtResult->Score, bestResult.Score);
 				LoadStringML(IDS_CHIF_SITEPR_AUTO_ING, strMsg1, "Site Pattern:Auto Site Pattern Executing...");
 				LoadStringML(IDS_VERIFY_RESULT, strMsg2, "Verify Result %3.2f%%  (Best %3.2f%%)");
 				strBuffer = strMsg1 + strMsg2;
-				sprintf(szLogText, strBuffer , pSitePtResult->Score, bestResult.Score);
+				sprintf_s(szLogText, _countof(szLogText), strBuffer , pSitePtResult->Score, bestResult.Score);
 				//Saiki 20090602 Change <-----
 				((CMainFrame*) ((m_pChiefView)->m_pcMainFrame))->SetMessageText(szLogText);	// Status Bar
 
@@ -532,15 +532,15 @@ void CSitePtAutoSeq::DoPatRecMatchWithVerify( int iSite,		 // first or second de
 /* modified 2009.06.22 hmenjo SPR オフセット読込み/書込み機能追加 ---------- } ---------- */
 
 			GropStep++;
-			sprintf(szLogText,"Pattern Match : Score:%3.2f%%  Target:%3.2f%%  Grop Position %d\0", pSitePtResult->Score, pSitePtResult->TargetScore, GropStep);
+			sprintf_s(szLogText, _countof(szLogText),"Pattern Match : Score:%3.2f%%  Target:%3.2f%%  Grop Position %d\0", pSitePtResult->Score, pSitePtResult->TargetScore, GropStep);
 			SitePtLogging(szLogText);
 
 			//Saiki 20090602 Change ----->
-			//sprintf(szLogText, IDS_CHIF_SITEPR_AUTO_ING "Search Result %3.2f%%  (Best %3.2f%%)\0", pSitePtResult->Score, bestResult.Score);
+			//sprintf_s(szLogText, _countof(szLogText), IDS_CHIF_SITEPR_AUTO_ING "Search Result %3.2f%%  (Best %3.2f%%)\0", pSitePtResult->Score, bestResult.Score);
 			LoadStringML(IDS_CHIF_SITEPR_AUTO_ING, strMsg1, "Site Pattern:Auto Site Pattern Executing...");
 			LoadStringML(IDS_SEARCH_RESULT, strMsg2, "Search Result %3.2f%%  (Best %3.2f%%)");
 			strBuffer = strMsg1 + strMsg2;
-			sprintf(szLogText, strBuffer, pSitePtResult->Score, bestResult.Score);
+			sprintf_s(szLogText, _countof(szLogText), strBuffer, pSitePtResult->Score, bestResult.Score);
 			//Saiki 20090602 Change <-----
 			((CMainFrame*) ((m_pChiefView)->m_pcMainFrame))->SetMessageText(szLogText);	// Status Bar
 
@@ -580,15 +580,15 @@ SUCCESS:
 			DoPatternRecMatch(pSitePtResult, pMatchLoc, m_SprSubInfo[iSite].iLens);
 /* modified 2009.06.22 hmenjo SPR オフセット読込み/書込み機能追加 ---------- } ---------- */
 
-			sprintf(szLogText,"Pattern Match : Score:%3.2f%%  Target:%3.2f%%  Last Adjust %d\0", pSitePtResult->Score, pSitePtResult->TargetScore, nRetries);
+			sprintf_s(szLogText, _countof(szLogText),"Pattern Match : Score:%3.2f%%  Target:%3.2f%%  Last Adjust %d\0", pSitePtResult->Score, pSitePtResult->TargetScore, nRetries);
 			SitePtLogging(szLogText);
 
 			//Saiki 20090602 Change ----->
-			//sprintf(szLogText, IDS_CHIF_SITEPR_AUTO_ING "Last Result %3.2f%%  (Best %3.2f%%)\0", pSitePtResult->Score, bestResult.Score);
+			//sprintf_s(szLogText, _countof(szLogText), IDS_CHIF_SITEPR_AUTO_ING "Last Result %3.2f%%  (Best %3.2f%%)\0", pSitePtResult->Score, bestResult.Score);
 			LoadStringML(IDS_CHIF_SITEPR_AUTO_ING, strMsg1, "Site Pattern:Auto Site Pattern Executing...");
 			LoadStringML(IDS_LAST_RESULT, strMsg2, "Last Result %3.2f%%  (Best %3.2f%%)");
 			strBuffer = strMsg1 + strMsg2;
-			sprintf(szLogText, strBuffer, pSitePtResult->Score, bestResult.Score);
+			sprintf_s(szLogText, _countof(szLogText), strBuffer, pSitePtResult->Score, bestResult.Score);
 			//Saiki 20090602 Change <-----
 			((CMainFrame*) ((m_pChiefView)->m_pcMainFrame))->SetMessageText(szLogText);	// Status Bar
 
@@ -597,13 +597,13 @@ SUCCESS:
 
 		if( pSitePtResult->Score < m_patternRec.dLowestMatchScore ) // pat rec is NG !!! why?
 		{
-			sprintf(szLogText,"========= Adjust Match NG       : Score:%3.2f%%  Target:%3.2f%%\0", pSitePtResult->Score, pSitePtResult->TargetScore);
+			sprintf_s(szLogText, _countof(szLogText),"========= Adjust Match NG       : Score:%3.2f%%  Target:%3.2f%%\0", pSitePtResult->Score, pSitePtResult->TargetScore);
 			SitePtLogging(szLogText);
 
 			*pSitePtResult = bestResult;
 			*pMatchLoc = bestMatchLoc;
 
-			sprintf(szLogText,"          Best Result overwrite : Score:%3.2f%%  Target:%3.2f%%\0", pSitePtResult->Score, pSitePtResult->TargetScore);
+			sprintf_s(szLogText, _countof(szLogText),"          Best Result overwrite : Score:%3.2f%%  Target:%3.2f%%\0", pSitePtResult->Score, pSitePtResult->TargetScore);
 			SitePtLogging(szLogText);
 
 		}
