@@ -251,71 +251,71 @@ BOOL CSrReferencePositionSettingDlg::OnInitDialog()
 	// Dark Reference Position
 	// X
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(SrReferencePosition.LocDarkReference.lX)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(SrReferencePosition.LocDarkReference.lX)/MICROMETRE);
 	SetDlgItemText(IDC_DARK_REFERENCE_POSITION_X, szTemp);
 	// Y
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(SrReferencePosition.LocDarkReference.lY)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(SrReferencePosition.LocDarkReference.lY)/MICROMETRE);
 	SetDlgItemText(IDC_DARK_REFERENCE_POSITION_Y, szTemp);
 	// Z
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(SrReferencePosition.LocDarkReference.lZ)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(SrReferencePosition.LocDarkReference.lZ)/MICROMETRE);
 	SetDlgItemText(IDC_DARK_REFERENCE_POSITION_Z, szTemp);
 
 	// Reflect Reference Position
 	// X
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(SrReferencePosition.LocReflectReference.lX)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(SrReferencePosition.LocReflectReference.lX)/MICROMETRE);
 	SetDlgItemText(IDC_REFLECT_REFERENCE_POSITION_X, szTemp);
 	// Y
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(SrReferencePosition.LocReflectReference.lY)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(SrReferencePosition.LocReflectReference.lY)/MICROMETRE);
 	SetDlgItemText(IDC_REFLECT_REFERENCE_POSITION_Y, szTemp);
 	// Z
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(SrReferencePosition.LocReflectReference.lZ)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(SrReferencePosition.LocReflectReference.lZ)/MICROMETRE);
 	SetDlgItemText(IDC_REFLECT_REFERENCE_POSITION_Z, szTemp);
 
 	// Tramsmit Absolute Reference Position
 	// X
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(SrReferencePosition.LocTransmitAbsoluteReference.lX)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(SrReferencePosition.LocTransmitAbsoluteReference.lX)/MICROMETRE);
 	SetDlgItemText(IDC_TRANSMIT_ABSOLUTE_REFERENCE_POSITION_X, szTemp);
 	// Y
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(SrReferencePosition.LocTransmitAbsoluteReference.lY)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(SrReferencePosition.LocTransmitAbsoluteReference.lY)/MICROMETRE);
 	SetDlgItemText(IDC_TRANSMIT_ABSOLUTE_REFERENCE_POSITION_Y, szTemp);
 	// Z
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(SrReferencePosition.LocTransmitAbsoluteReference.lZ)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(SrReferencePosition.LocTransmitAbsoluteReference.lZ)/MICROMETRE);
 	SetDlgItemText(IDC_TRANSMIT_ABSOLUTE_REFERENCE_POSITION_Z, szTemp);
 
 	// Tramsmit First Reference Position
 	// X
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(SrReferencePosition.LocTransmitFirstReference.lX)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(SrReferencePosition.LocTransmitFirstReference.lX)/MICROMETRE);
 	SetDlgItemText(IDC_TRANSMIT_FIRST_REFERENCE_POSITION_X, szTemp);
 	// Y
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(SrReferencePosition.LocTransmitFirstReference.lY)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(SrReferencePosition.LocTransmitFirstReference.lY)/MICROMETRE);
 	SetDlgItemText(IDC_TRANSMIT_FIRST_REFERENCE_POSITION_Y, szTemp);
 	// Z
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(SrReferencePosition.LocTransmitFirstReference.lZ)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(SrReferencePosition.LocTransmitFirstReference.lZ)/MICROMETRE);
 	SetDlgItemText(IDC_TRANSMIT_FIRST_REFERENCE_POSITION_Z, szTemp);
 
 	// Tramsmit Second Reference Position
 	// X
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(SrReferencePosition.LocTransmitSecondReference.lX)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(SrReferencePosition.LocTransmitSecondReference.lX)/MICROMETRE);
 	SetDlgItemText(IDC_TRANSMIT_SECOND_REFERENCE_POSITION_X, szTemp);
 	// Y
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(SrReferencePosition.LocTransmitSecondReference.lY)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(SrReferencePosition.LocTransmitSecondReference.lY)/MICROMETRE);
 	SetDlgItemText(IDC_TRANSMIT_SECOND_REFERENCE_POSITION_Y, szTemp);
 	// Z
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(SrReferencePosition.LocTransmitSecondReference.lZ)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(SrReferencePosition.LocTransmitSecondReference.lZ)/MICROMETRE);
 	SetDlgItemText(IDC_TRANSMIT_SECOND_REFERENCE_POSITION_Z, szTemp);
 #else
 	memset(&m_SrReferencePosition, 0, sizeof(m_SrReferencePosition));
@@ -458,15 +458,15 @@ void CSrReferencePositionSettingDlg::OnDarkReferenceSetupButton()
 	if(dlgOverlay.DoModal() == IDOK){
 		// X
 		memset(szTemp, 0, sizeof(szTemp));
-		sprintf(szTemp, "%.3lf", (double)(dlgOverlay.m_lX)/MICROMETRE);
+		sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(dlgOverlay.m_lX)/MICROMETRE);
 		SetDlgItemText(IDC_DARK_REFERENCE_POSITION_X, szTemp);
 		// Y
 		memset(szTemp, 0, sizeof(szTemp));
-		sprintf(szTemp, "%.3lf", (double)(dlgOverlay.m_lY)/MICROMETRE);
+		sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(dlgOverlay.m_lY)/MICROMETRE);
 		SetDlgItemText(IDC_DARK_REFERENCE_POSITION_Y, szTemp);
 		// Z
 		memset(szTemp, 0, sizeof(szTemp));
-		sprintf(szTemp, "%.3lf", (double)(dlgOverlay.m_lZ)/MICROMETRE);
+		sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(dlgOverlay.m_lZ)/MICROMETRE);
 		SetDlgItemText(IDC_DARK_REFERENCE_POSITION_Z, szTemp);
 	}
 #else
@@ -535,15 +535,15 @@ void CSrReferencePositionSettingDlg::OnReflectReferenceSetupButton()
 	if(dlgOverlay.DoModal() == IDOK){
 		// X
 		memset(szTemp, 0, sizeof(szTemp));
-		sprintf(szTemp, "%.3lf", (double)(dlgOverlay.m_lX)/MICROMETRE);
+		sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(dlgOverlay.m_lX)/MICROMETRE);
 		SetDlgItemText(IDC_REFLECT_REFERENCE_POSITION_X, szTemp);
 		// Y
 		memset(szTemp, 0, sizeof(szTemp));
-		sprintf(szTemp, "%.3lf", (double)(dlgOverlay.m_lY)/MICROMETRE);
+		sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(dlgOverlay.m_lY)/MICROMETRE);
 		SetDlgItemText(IDC_REFLECT_REFERENCE_POSITION_Y, szTemp);
 		// Z
 		memset(szTemp, 0, sizeof(szTemp));
-		sprintf(szTemp, "%.3lf", (double)(dlgOverlay.m_lZ)/MICROMETRE);
+		sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(dlgOverlay.m_lZ)/MICROMETRE);
 		SetDlgItemText(IDC_REFLECT_REFERENCE_POSITION_Z, szTemp);
 	}
 #else
@@ -613,15 +613,15 @@ void CSrReferencePositionSettingDlg::OnTransmitAbsoluteReferenceSetupButton()
 	if(dlgOverlay.DoModal() == IDOK){
 		// X
 		memset(szTemp, 0, sizeof(szTemp));
-		sprintf(szTemp, "%.3lf", (double)(dlgOverlay.m_lX)/MICROMETRE);
+		sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(dlgOverlay.m_lX)/MICROMETRE);
 		SetDlgItemText(IDC_TRANSMIT_ABSOLUTE_REFERENCE_POSITION_X, szTemp);
 		// Y
 		memset(szTemp, 0, sizeof(szTemp));
-		sprintf(szTemp, "%.3lf", (double)(dlgOverlay.m_lY)/MICROMETRE);
+		sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(dlgOverlay.m_lY)/MICROMETRE);
 		SetDlgItemText(IDC_TRANSMIT_ABSOLUTE_REFERENCE_POSITION_Y, szTemp);
 		// Z
 		memset(szTemp, 0, sizeof(szTemp));
-		sprintf(szTemp, "%.3lf", (double)(dlgOverlay.m_lZ)/MICROMETRE);
+		sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(dlgOverlay.m_lZ)/MICROMETRE);
 		SetDlgItemText(IDC_TRANSMIT_ABSOLUTE_REFERENCE_POSITION_Z, szTemp);
 	}
 #else
@@ -691,15 +691,15 @@ void CSrReferencePositionSettingDlg::OnTransmitFirstReferenceSetupButton()
 	if(dlgOverlay.DoModal() == IDOK){
 		// X
 		memset(szTemp, 0, sizeof(szTemp));
-		sprintf(szTemp, "%.3lf", (double)(dlgOverlay.m_lX)/MICROMETRE);
+		sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(dlgOverlay.m_lX)/MICROMETRE);
 		SetDlgItemText(IDC_TRANSMIT_FIRST_REFERENCE_POSITION_X, szTemp);
 		// Y
 		memset(szTemp, 0, sizeof(szTemp));
-		sprintf(szTemp, "%.3lf", (double)(dlgOverlay.m_lY)/MICROMETRE);
+		sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(dlgOverlay.m_lY)/MICROMETRE);
 		SetDlgItemText(IDC_TRANSMIT_FIRST_REFERENCE_POSITION_Y, szTemp);
 		// Z
 		memset(szTemp, 0, sizeof(szTemp));
-		sprintf(szTemp, "%.3lf", (double)(dlgOverlay.m_lZ)/MICROMETRE);
+		sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(dlgOverlay.m_lZ)/MICROMETRE);
 		SetDlgItemText(IDC_TRANSMIT_FIRST_REFERENCE_POSITION_Z, szTemp);
 	}
 #else
@@ -769,15 +769,15 @@ void CSrReferencePositionSettingDlg::OnTransmitSecondReferenceSetupButton()
 	if(dlgOverlay.DoModal() == IDOK){
 		// X
 		memset(szTemp, 0, sizeof(szTemp));
-		sprintf(szTemp, "%.3lf", (double)(dlgOverlay.m_lX)/MICROMETRE);
+		sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(dlgOverlay.m_lX)/MICROMETRE);
 		SetDlgItemText(IDC_TRANSMIT_SECOND_REFERENCE_POSITION_X, szTemp);
 		// Y
 		memset(szTemp, 0, sizeof(szTemp));
-		sprintf(szTemp, "%.3lf", (double)(dlgOverlay.m_lY)/MICROMETRE);
+		sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(dlgOverlay.m_lY)/MICROMETRE);
 		SetDlgItemText(IDC_TRANSMIT_SECOND_REFERENCE_POSITION_Y, szTemp);
 		// Z
 		memset(szTemp, 0, sizeof(szTemp));
-		sprintf(szTemp, "%.3lf", (double)(dlgOverlay.m_lZ)/MICROMETRE);
+		sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(dlgOverlay.m_lZ)/MICROMETRE);
 		SetDlgItemText(IDC_TRANSMIT_SECOND_REFERENCE_POSITION_Z, szTemp);
 	}
 #else
@@ -868,15 +868,15 @@ void CSrReferencePositionSettingDlg::ShowLocDarkReference()
 
 	// X
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(m_SrReferencePosition.LocDarkReference.lX)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(m_SrReferencePosition.LocDarkReference.lX)/MICROMETRE);
 	SetDlgItemText(IDC_DARK_REFERENCE_POSITION_X, szTemp);
 	// Y
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(m_SrReferencePosition.LocDarkReference.lY)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(m_SrReferencePosition.LocDarkReference.lY)/MICROMETRE);
 	SetDlgItemText(IDC_DARK_REFERENCE_POSITION_Y, szTemp);
 	// Z
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(m_SrReferencePosition.LocDarkReference.lZ)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(m_SrReferencePosition.LocDarkReference.lZ)/MICROMETRE);
 	SetDlgItemText(IDC_DARK_REFERENCE_POSITION_Z, szTemp);
 }
 
@@ -886,15 +886,15 @@ void CSrReferencePositionSettingDlg::ShowLocReflectReference()
 
 	// X
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(m_SrReferencePosition.LocReflectReference.lX)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(m_SrReferencePosition.LocReflectReference.lX)/MICROMETRE);
 	SetDlgItemText(IDC_REFLECT_REFERENCE_POSITION_X, szTemp);
 	// Y
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(m_SrReferencePosition.LocReflectReference.lY)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(m_SrReferencePosition.LocReflectReference.lY)/MICROMETRE);
 	SetDlgItemText(IDC_REFLECT_REFERENCE_POSITION_Y, szTemp);
 	// Z
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(m_SrReferencePosition.LocReflectReference.lZ)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(m_SrReferencePosition.LocReflectReference.lZ)/MICROMETRE);
 	SetDlgItemText(IDC_REFLECT_REFERENCE_POSITION_Z, szTemp);
 }
 
@@ -904,15 +904,15 @@ void CSrReferencePositionSettingDlg::ShowLocTransmitAbsoluteReference()
 
 	// X
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(m_SrReferencePosition.LocTransmitAbsoluteReference.lX)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(m_SrReferencePosition.LocTransmitAbsoluteReference.lX)/MICROMETRE);
 	SetDlgItemText(IDC_TRANSMIT_ABSOLUTE_REFERENCE_POSITION_X, szTemp);
 	// Y
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(m_SrReferencePosition.LocTransmitAbsoluteReference.lY)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(m_SrReferencePosition.LocTransmitAbsoluteReference.lY)/MICROMETRE);
 	SetDlgItemText(IDC_TRANSMIT_ABSOLUTE_REFERENCE_POSITION_Y, szTemp);
 	// Z
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(m_SrReferencePosition.LocTransmitAbsoluteReference.lZ)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(m_SrReferencePosition.LocTransmitAbsoluteReference.lZ)/MICROMETRE);
 	SetDlgItemText(IDC_TRANSMIT_ABSOLUTE_REFERENCE_POSITION_Z, szTemp);
 }
 
@@ -922,15 +922,15 @@ void CSrReferencePositionSettingDlg::ShowLocTransmitFirstReference()
 
 	// X
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(m_SrReferencePosition.LocTransmitFirstReference.lX)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(m_SrReferencePosition.LocTransmitFirstReference.lX)/MICROMETRE);
 	SetDlgItemText(IDC_TRANSMIT_FIRST_REFERENCE_POSITION_X, szTemp);
 	// Y
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(m_SrReferencePosition.LocTransmitFirstReference.lY)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(m_SrReferencePosition.LocTransmitFirstReference.lY)/MICROMETRE);
 	SetDlgItemText(IDC_TRANSMIT_FIRST_REFERENCE_POSITION_Y, szTemp);
 	// Z
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(m_SrReferencePosition.LocTransmitFirstReference.lZ)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(m_SrReferencePosition.LocTransmitFirstReference.lZ)/MICROMETRE);
 	SetDlgItemText(IDC_TRANSMIT_FIRST_REFERENCE_POSITION_Z, szTemp);
 }
 
@@ -940,15 +940,15 @@ void CSrReferencePositionSettingDlg::ShowLocTransmitSecondReference()
 
 	// X
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(m_SrReferencePosition.LocTransmitSecondReference.lX)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(m_SrReferencePosition.LocTransmitSecondReference.lX)/MICROMETRE);
 	SetDlgItemText(IDC_TRANSMIT_SECOND_REFERENCE_POSITION_X, szTemp);
 	// Y
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(m_SrReferencePosition.LocTransmitSecondReference.lY)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(m_SrReferencePosition.LocTransmitSecondReference.lY)/MICROMETRE);
 	SetDlgItemText(IDC_TRANSMIT_SECOND_REFERENCE_POSITION_Y, szTemp);
 	// Z
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(m_SrReferencePosition.LocTransmitSecondReference.lZ)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(m_SrReferencePosition.LocTransmitSecondReference.lZ)/MICROMETRE);
 	SetDlgItemText(IDC_TRANSMIT_SECOND_REFERENCE_POSITION_Z, szTemp);
 }
 
@@ -964,15 +964,15 @@ void CSrReferencePositionSettingDlg::ShowLocGantryTransmitReference(int nIndex)
 
 	// X
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(m_SrReferencePosition.LocGantryTransmitReference[nIndex].lX)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(m_SrReferencePosition.LocGantryTransmitReference[nIndex].lX)/MICROMETRE);
 	SetDlgItemText(IDC_GANTRY_TRANSMIT_REFERENCE_POSITION_X, szTemp);
 	// Y
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(m_SrReferencePosition.LocGantryTransmitReference[nIndex].lY)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(m_SrReferencePosition.LocGantryTransmitReference[nIndex].lY)/MICROMETRE);
 	SetDlgItemText(IDC_GANTRY_TRANSMIT_REFERENCE_POSITION_Y, szTemp);
 	// Z
 	memset(szTemp, 0, sizeof(szTemp));
-	sprintf(szTemp, "%.3lf", (double)(m_SrReferencePosition.LocGantryTransmitReference[nIndex].lZ)/MICROMETRE);
+	sprintf_s(szTemp, _countof(szTemp), "%.3lf", (double)(m_SrReferencePosition.LocGantryTransmitReference[nIndex].lZ)/MICROMETRE);
 	SetDlgItemText(IDC_GANTRY_TRANSMIT_REFERENCE_POSITION_Z, szTemp);
 }
 //2009.09.28 bagus gantry --}--
