@@ -2950,7 +2950,7 @@ void CMeasurementGraphDlg::AddLightIntensityListAndGraph(int iPointIndex)
 			stdioFile.ReadString(strBuffer);
 
 			while ( stdioFile.ReadString(strBuffer) ) {
-				strcpy(szBuff, strBuffer);
+				strcpy_s(szBuff, _countof(szBuff), strBuffer);
 				token = strtok(szBuff, " \t\n");			// uR
 				token = strtok(NULL, " \t\n");				// WaveLength (ex. 380nm)
 // 2014.04.03 bagus wavelength step modified -->
@@ -2997,7 +2997,7 @@ void CMeasurementGraphDlg::AddLightIntensityListAndGraph(int iPointIndex)
 				}
 
 				while ( stdioFile.ReadString(strBuffer) ) {
-					strcpy(szBuff, strBuffer);
+					strcpy_s(szBuff, _countof(szBuff), strBuffer);
 					token = strtok(szBuff, " \t\n");			// uR
 					token = strtok(NULL, " \t\n");				// WaveLength (ex. 380nm)
 // 2014.04.03 bagus wavelength step modified -->
