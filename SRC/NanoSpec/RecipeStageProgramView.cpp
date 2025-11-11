@@ -1,11 +1,11 @@
 // Kawa Memo
-// ï¿½ï¿½2007.1014_ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Íï¿½ï¿½Wï¿½ÏŠï¿½ï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÌŒï¿½Aï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½é–ï¿½B
+// ¡2007.1014_‘ª’èƒ|ƒCƒ“ƒg‚ÍÀ•W•ÏŠ·ƒvƒƒOƒ‰ƒ€‚ğŠ®¬‚ÌŒãAC³‚·‚é–B
 //		void CRecipeStageProgramView::SetData();
 //		void CRecipeStageProgramView::UpDate();
 
 
 
-// RecipeStageProgramView.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
+// RecipeStageProgramView.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
 //
 
 #include "stdafx.h"
@@ -28,7 +28,7 @@
 #include "..\\..\\INC\\NexIf.hxx"
 #include "../../INC/NSStage.hxx"
 
-#undef SubclassWindow	// ï¿½oï¿½O: C4003: SubclassWindow ï¿½}ï¿½Nï¿½ï¿½ï¿½Ìƒpï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½^ï¿½[ï¿½Ì•sï¿½ï¿½ http://support.microsoft.com/kb/150076/ja
+#undef SubclassWindow	// ƒoƒO: C4003: SubclassWindow ƒ}ƒNƒ‚Ìƒpƒ‰ƒ[ƒ^[‚Ì•s‘« http://support.microsoft.com/kb/150076/ja
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -41,15 +41,15 @@ static char THIS_FILE[] = __FILE__;
 #define ELLIPSE_RADIUS		2//4
 
 
-// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --{--
+// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --{--
 #define	STAGE_PROGRAM_HEAD_TYPE		(99)
-// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --}--
+// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --}--
 
 //#define POINTSETUPTEACHING_CAPTION		"POINT SETUP - TEACHING"
 //#define POINTSETUPTEACHING_MESSAGE		"POINT SETUP - TEACHING"
 //Saiki 20090528 Delete ----->
-//#define POINTSETUPTEACHING_CAPTION		"ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½İ’ï¿½ - ï¿½eï¿½Bï¿½[ï¿½`ï¿½ï¿½ï¿½O"
-//#define POINTSETUPTEACHING_MESSAGE		"ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½İ’ï¿½ - ï¿½eï¿½Bï¿½[ï¿½`ï¿½ï¿½ï¿½O"
+//#define POINTSETUPTEACHING_CAPTION		"ƒ|ƒCƒ“ƒgİ’è - ƒeƒB[ƒ`ƒ“ƒO"
+//#define POINTSETUPTEACHING_MESSAGE		"ƒ|ƒCƒ“ƒgİ’è - ƒeƒB[ƒ`ƒ“ƒO"
 //Saiki 20090528 Delete <-----
 
 // 2013.01.09 bagus -->
@@ -82,7 +82,7 @@ CRecipeStageProgramView::CRecipeStageProgramView()
 
 // Kojika 20090527 Change
 	//m_strCaption = "STAGE PROGRAM";
-	//m_strCaption = "ï¿½Xï¿½eï¿½[ï¿½Wï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½";
+	//m_strCaption = "ƒXƒe[ƒWƒvƒƒOƒ‰ƒ€";
 	CString l_strBuffer;
 	LoadStringML(IDS_CAPTION_STAGE_PROGRAM, l_strBuffer, "STAGE PROGRAM");
 	m_strCaption = l_strBuffer;
@@ -154,7 +154,7 @@ BEGIN_MESSAGE_MAP(CRecipeStageProgramView, CNanoRecipeUI)
 END_MESSAGE_MAP()
 
 // ==========================================================================
-// CRecipeStageProgramView ï¿½fï¿½f
+// CRecipeStageProgramView f’f
 
 #ifdef _DEBUG
 // ==========================================================================
@@ -173,7 +173,7 @@ void CRecipeStageProgramView::Dump(CDumpContext& dc) const
 #endif //_DEBUG
 
 // ==========================================================================
-// CRecipeStageProgramView ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
+// CRecipeStageProgramView ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
 
 // ==========================================================================
 //
@@ -186,7 +186,7 @@ void CRecipeStageProgramView::OnInitialUpdate()
 	m_pMainFrame = (CMainFrame *)AfxGetMainWnd();
 	m_pDoc = (CNanoSpecDoc*)m_pMainFrame->GetActiveDocument();
 
-	//ï¿½ï¿½ï¿½Î‰ï¿½ï¿½@ï¿½\HIDE
+	//–¢‘Î‰‹@”\HIDE
 	GetDlgItem(IDC_AXIS_SYNCHRONOUS_CHECK)->ShowWindow(SW_HIDE);
 
 	///// Load File /////
@@ -199,7 +199,7 @@ void CRecipeStageProgramView::OnInitialUpdate()
 		::CopyMemory(m_OldScanPoint, m_ScanPoint, sizeof(m_ScanPoint));
 // Kojika 20090527 Change
 		//MessageBox("Can not open the sample type file.\nReturn to Stage Program List.", m_strCaption, MB_OK | MB_ICONSTOP);
-		//MessageBox("ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½^ï¿½Cï¿½vï¿½Ìƒtï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½Å‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½.\nï¿½Xï¿½eï¿½[ï¿½Wï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½É–ß‚ï¿½ï¿½Ä‰ï¿½ï¿½ï¿½ï¿½ï¿½", m_strCaption, MB_OK | MB_ICONSTOP);
+		//MessageBox("ƒTƒ“ƒvƒ‹ƒ^ƒCƒv‚Ìƒtƒ@ƒCƒ‹‚ğŠJ‚­‚±‚Æ‚ª‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½.\nƒXƒe[ƒWƒvƒƒOƒ‰ƒ€‚É–ß‚Á‚Ä‰º‚³‚¢", m_strCaption, MB_OK | MB_ICONSTOP);
 		LoadStringML(IDS_NOT_OPEN_SAMPLE_TYPE, l_strBuffer, "Can not open the sample type file.\nReturn to Stage Program List.");
 		MessageBox(l_strBuffer, m_strCaption, MB_OK | MB_ICONSTOP);
 // Kojika 20090527 Change End
@@ -215,13 +215,13 @@ void CRecipeStageProgramView::OnInitialUpdate()
 		| CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
 		!m_wndEditBar.LoadToolBar(IDR_EDIT_RECIPE_BAR)){
 		TRACE0("Failed to create toolbar\n");
-		return; 	// ï¿½ì¬ï¿½Éï¿½ï¿½s
+		return; 	// ì¬‚É¸”s
 	}
 
 	GetClientRect(&rect);
 	m_wndEditBar.SetWindowPos(&wndTop, 0, 0, rect.right, TOOLBAR_HEIGHT, SWP_NOMOVE);
 
-	/////ï¿½@Sampleï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½È‚ï¿½ /////
+	/////@Sampleƒpƒ^[ƒ“”F¯‚È‚µ /////
 // 2009.12.03 K.Matsuo -->
 //	if(!((m_SystemConfig.nPRMethod == 1) && (m_SystemConfig.bSamplePatternRec == TRUE))){
 	if((m_SystemConfig.nPRMethod == 0) || (m_SystemConfig.bSamplePatternRec == FALSE)){
@@ -231,7 +231,7 @@ void CRecipeStageProgramView::OnInitialUpdate()
 		GetDlgItem(IDC_DESKEW_GROUP)->ShowWindow(SW_HIDE);
 	}
 
-	/////ï¿½@ï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½È‚ï¿½ /////
+	/////@ƒTƒCƒgƒpƒ^[ƒ“”F¯‚È‚µ /////
 // 2009.12.03 K.Matsuo -->
 //	if(!((m_SystemConfig.nPRMethod == 1) && (m_SystemConfig.bSitePatternRec == TRUE))){
 //2009.12.25 bagus --{--
@@ -302,7 +302,7 @@ void CRecipeStageProgramView::OnInitialUpdate()
 		m_dPointBuff[2][iPoint] = TRUE;
 	}
 
-	// ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// ƒRƒƒ“ƒg•¶š”§ŒÀ
 	((CEdit*)GetDlgItem(IDC_COMMENT))->SetLimitText(RECIPE_COMMENT_LEN);
 
 	char szFilePath[MAX_PATH + 1];
@@ -312,7 +312,7 @@ void CRecipeStageProgramView::OnInitialUpdate()
 // 2009.06.10 K.Matsuo <--
 
 // 2009.06.10 K.Matsuo -->
-	// ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½æ‘œï¿½iï¿½Vï¿½Kï¿½ì¬ï¿½jï¿½Ìê‡ï¿½Ì‚ï¿½ï¿½İíœï¿½iUntitledï¿½Aï¿½^ï¿½Cï¿½gï¿½ï¿½ï¿½È‚ï¿½ï¿½Ì–ï¿½ï¿½Oï¿½Å•Û‘ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½fï¿½[ï¿½^ï¿½j
+	// ƒpƒ^[ƒ“”F¯‰æ‘œiV‹Kì¬j‚Ìê‡‚Ì‚²‚İíœiUntitledAƒ^ƒCƒgƒ‹‚È‚µ‚Ì–¼‘O‚Å•Û‘¶‚³‚ê‚½ƒf[ƒ^j
 	if ( m_nOpenMode == modeNew ) {
 		_stprintf(szFilePathUntitled, "%s%s.D1", g_szDb_Deskew_Img_Dir, m_StageProgInfoHdr.hdr.szName);
 		::DeleteFile(szFilePathUntitled);
@@ -320,7 +320,7 @@ void CRecipeStageProgramView::OnInitialUpdate()
 		::DeleteFile(szFilePathUntitled);
 	}
 
-	// ï¿½fï¿½oï¿½bï¿½Oï¿½ï¿½ï¿½ÉŠgï¿½ï¿½ï¿½qï¿½Ì‚İ‚Ì‚ï¿½ï¿½İƒtï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Ì‚ÅAï¿½Oï¿½Ì‚ï¿½ï¿½ß‚Éíœï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
+	// ƒfƒoƒbƒO’†‚ÉŠg’£q‚Ì‚İ‚Ì‚²‚İƒtƒ@ƒCƒ‹‚ª‚Å‚«‚Ä‚µ‚Ü‚Á‚Ä‚¢‚é‚Ì‚ÅA”O‚Ì‚½‚ß‚Éíœˆ—‚ğ“ü‚ê‚Ä‚¨‚­
 	_stprintf(szFilePathUntitled, "%s.D1", g_szDb_Deskew_Img_Dir);
 	::DeleteFile(szFilePathUntitled);
 	_stprintf(szFilePathUntitled, "%s.D2", g_szDb_Deskew_Img_Dir);
@@ -328,13 +328,13 @@ void CRecipeStageProgramView::OnInitialUpdate()
 
 // 2009.06.10 K.Matsuo <--
 
-	// ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½æ‘œï¿½iï¿½ï¿½ï¿½[ï¿½Nï¿½jï¿½Ì‚ï¿½ï¿½İíœ
+	// ƒpƒ^[ƒ“”F¯‰æ‘œiƒ[ƒNj‚Ì‚²‚İíœ
 	_stprintf(szFilePathBackUp, "%s_BackUp.D1", g_szDb_Deskew_Img_Dir);
 	::DeleteFile(szFilePathBackUp);
 	_stprintf(szFilePathBackUp, "%s_BackUp.D2", g_szDb_Deskew_Img_Dir);
 	::DeleteFile(szFilePathBackUp);
 
-	// ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½æ‘œï¿½Ì‘Ş”ï¿½
+	// ƒpƒ^[ƒ“”F¯‰æ‘œ‚Ì‘Ş”ğ
 	_stprintf(szFilePath, "%s%s.D1", g_szDb_Deskew_Img_Dir, m_StageProgInfoHdr.hdr.szName);
 	_stprintf(szFilePathBackUp, "%s_BackUp.D1", g_szDb_Deskew_Img_Dir);
 	::CopyFile(szFilePath, szFilePathBackUp, FALSE);
@@ -362,7 +362,7 @@ void CRecipeStageProgramView::OnDispositionButton()
 	UpDate();
 
 	//2009.09.30 bagus se --{--
-	//ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½
+	//Œ´“_ˆÊ’u‘Î‰
 	//CPointSetupDispositionDlg dlg(m_iNumScans, m_StageProgInfoHdr.SampleInfo.Size.dx, m_StageProgInfoHdr.SampleInfo.Size.dy);
 	CPointSetupDispositionDlg dlg(m_iNumScans, m_StageProgInfoHdr.SampleInfo.Size.dx, m_StageProgInfoHdr.SampleInfo.Size.dy,m_StageConfig.OrgPos);
 	//2009.09.30 bagus se --}--
@@ -370,7 +370,7 @@ void CRecipeStageProgramView::OnDispositionButton()
 	if(m_iNumScans >= SCAN_POINT_MAX){
 // Kojika 20090527 Change
 		//sprintf(szBuff, "The Maximum Number which can be Registered is %d.", SCAN_POINT_MAX);
-		//sprintf(szBuff, "ï¿½ï¿½ï¿½Í‚Å‚ï¿½ï¿½ï¿½Å‘å”ï¿½ï¿½ %d ï¿½Å‚ï¿½", SCAN_POINT_MAX);
+		//sprintf(szBuff, "“ü—Í‚Å‚«‚éÅ‘å”‚Í %d ‚Å‚·", SCAN_POINT_MAX);
 		LoadStringML(IDS_MAX_NUM_REGISTER, l_strBuffer, "The Maximum Number which can be Registered is %d.");
 		sprintf(szBuff, l_strBuffer, SCAN_POINT_MAX);
 // Kojika 20090527 Change End
@@ -389,7 +389,7 @@ void CRecipeStageProgramView::OnDispositionButton()
 	m_MeasurementPointGrid.GridInit((dlg.m_iCountX * dlg.m_iCountY) + m_iNumScans);
 //	ClearMeasurementPoint();
 
-	//ï¿½rï¿½ï¿½ï¿½É‘}ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½Ìê‡ï¿½Aï¿½}ï¿½ï¿½ï¿½Ê’uï¿½È‰ï¿½ï¿½Ìƒfï¿½[ï¿½^ï¿½ï¿½ï¿½Ú“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//“r’†‚É‘}“ü’Ç‰Á‚Ìê‡A‘}“üˆÊ’uˆÈ‰º‚Ìƒf[ƒ^‚ğˆÚ“®‚³‚¹‚é
 	if(( iRow != -1 ) && ( iRow <= m_iNumScans )){
 		if(dlg.m_iDrawShaped == STAGE_DRAW_SHAPED_LINE){
 			iAddCount = dlg.m_iCountX;
@@ -421,7 +421,7 @@ void CRecipeStageProgramView::OnDispositionButton()
 		}
 	}
 	else{
-		//ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½ÌÄ•`ï¿½ï¿½
+		//Šù‘¶ƒf[ƒ^‚ÌÄ•`‰æ
 		for(int iSetRow = 0 ; iSetRow < m_iNumScans ; iSetRow++){
 			///// X /////
 			sprintf(szBuff, "%.3lf", m_dPointBuff[0][iSetRow]);
@@ -433,7 +433,7 @@ void CRecipeStageProgramView::OnDispositionButton()
 		}
 	}
 
-	//Rowï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Èê‡ï¿½ÍAï¿½ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½ÌŒï¿½Éƒfï¿½[ï¿½^ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
+	//Row‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚Èê‡‚ÍAŠù‘¶ƒf[ƒ^‚ÌŒã‚Éƒf[ƒ^‚ğ’Ç‰Á‚µ‚Ü‚·B
 	if(dlg.m_iDrawShaped == STAGE_DRAW_SHAPED_LINE){
 		for(iCountX = 0; iCountX < dlg.m_iCountX; iCountX++){
 			lX = dlg.m_lStartPointX + dlg.m_lPitchX * iCountX;
@@ -459,17 +459,17 @@ void CRecipeStageProgramView::OnDispositionButton()
 	}
 
 	else{
-		//ï¿½fï¿½[ï¿½^ï¿½Ì’Ç‰ï¿½
+		//ƒf[ƒ^‚Ì’Ç‰Á
 		int m_iTmpNumScans = m_iNumScans;
 		for(iCountY = 0 ; iCountY < dlg.m_iCountY; iCountY++){
 			lY = dlg.m_lStartPointY + dlg.m_lPitchY * iCountY;
-			//ï¿½ï¿½ï¿½ï¿½
+			//¸‡
 			if ((iCountY % 2) == 0){
 				for(iCountX = 0 ; iCountX < dlg.m_iCountX ; iCountX++){
 					lX = dlg.m_lStartPointX + dlg.m_lPitchX * iCountX;
 
 					iNumCount = iCountY * dlg.m_iCountX + iCountX;
-					//ï¿½ÅIï¿½sï¿½É’Ç‰ï¿½ï¿½Fm_iTmpNumScans + iNumCount ï¿½@ï¿½@ï¿½Iï¿½ï¿½ï¿½sï¿½É’Ç‰ï¿½: iRow + iNumCount - 1
+					//ÅIs‚É’Ç‰ÁFm_iTmpNumScans + iNumCount @@‘I‘ğs‚É’Ç‰Á: iRow + iNumCount - 1
 					iAddCount = iRow == -1 ? m_iTmpNumScans + iNumCount : iRow + iNumCount - 1;
 
 					///// X /////
@@ -487,7 +487,7 @@ void CRecipeStageProgramView::OnDispositionButton()
 					m_iNumScans++;
 				}
 			}
-			//ï¿½~ï¿½ï¿½
+			//~‡
 			else{
 				for(iCountX = dlg.m_iCountX -1 ; iCountX >= 0  ; iCountX--){
 					lX = dlg.m_lStartPointX + dlg.m_lPitchX * iCountX;
@@ -539,7 +539,7 @@ void CRecipeStageProgramView::OnTeachingButton()
 	if(m_iNumScans >= SCAN_POINT_MAX){
 // Kojika 20090527 Change
 		//sprintf(szBuff, "The Maximum Number which can be Registered is %d.", SCAN_POINT_MAX);
-		//sprintf(szBuff, "ï¿½ï¿½ï¿½Í‚Å‚ï¿½ï¿½ï¿½Å‘å”ï¿½ï¿½ %d ï¿½Å‚ï¿½", SCAN_POINT_MAX);
+		//sprintf(szBuff, "“ü—Í‚Å‚«‚éÅ‘å”‚Í %d ‚Å‚·", SCAN_POINT_MAX);
 		LoadStringML(IDS_MAX_NUM_REGISTER, l_strBuffer, "The Maximum Number which can be Registered is %d.");
 		sprintf(szBuff, l_strBuffer, SCAN_POINT_MAX);
 // Kojika 20090527 Change End
@@ -547,32 +547,32 @@ void CRecipeStageProgramView::OnTeachingButton()
 		return;
 	}
 
-// 2010.02.02 K.Matsuo PIN UPPER ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½`ï¿½Fï¿½bï¿½Nï¿½Rï¿½ï¿½Î‰ï¿½ -->
+// 2010.02.02 K.Matsuo PIN UPPER ƒCƒ“ƒ^[ƒƒbƒNƒ`ƒFƒbƒN˜R‚ê‘Î‰ -->
 	CString strMsg;
 
-	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½X
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;} // ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Ùï¿½
+	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;} // ƒƒ“ƒeƒiƒ“ƒXˆÙí
 	}
-	else{												// ï¿½Êí“®ï¿½ï¿½
+	else{												// ’Êí“®ì
 	}
-	// ï¿½eI/Oï¿½`ï¿½Fï¿½bï¿½N
+	// ŠeI/Oƒ`ƒFƒbƒN
 	if(m_pDoc->IsInterLock() == TRUE){return;}
-	if( nexioIsMovo2Alarm() 	!= OFF){	AlarmIf_Set(ALID_StageError);	return;} // MOVOï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ 				ï¿½ï¿½ï¿½k
+	if( nexioIsMovo2Alarm() 	!= OFF){	AlarmIf_Set(ALID_StageError);	return;} // MOVOƒAƒ‰[ƒ€ 				‚k
 	if(m_pDoc->CheckUnitStatus() == TRUE){return;}
 
-	// ï¿½Vï¿½ï¿½ï¿½bï¿½^ï¿½[ï¿½ÈŠOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ç“®ï¿½ï¿½Ö~
+	// ƒVƒƒƒbƒ^[ˆÈŠO‚ª“®‚¢‚Ä‚¢‚½‚ç“®ì‹Ö~
 	if( m_pMainFrame->GetJoyStickMode()==0 ){
 		if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 			LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 			m_pDoc->MessageStringIf_Set(strMsg);
 			return;
-		}	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ì’†
+		}	// ƒXƒe[ƒW“®ì’†
 	}
 	if(m_pDoc->CheckActiveFlag() == TRUE){return;}
 
-	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-// 2010.02.02 K.Matsuo PIN UPPER ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½`ï¿½Fï¿½bï¿½Nï¿½Rï¿½ï¿½Î‰ï¿½ <--
+	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+// 2010.02.02 K.Matsuo PIN UPPER ƒCƒ“ƒ^[ƒƒbƒNƒ`ƒFƒbƒN˜R‚ê‘Î‰ <--
 
 	CPointSetupTeachingDlg dlg;
 
@@ -625,7 +625,7 @@ void CRecipeStageProgramView::OnAllClearButton()
 
 // Kojika 20090527 Change
 	//if ( MessageBox("Do you want all clear ?", "ALL CLEAR", MB_ICONQUESTION | MB_OKCANCEL) != IDOK )
-	//if ( MessageBox("ï¿½Sï¿½Ä‚Ì‘ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½ï¿½H", "ï¿½Sï¿½ï¿½ï¿½ï¿½ï¿½mï¿½F", MB_ICONQUESTION | MB_OKCANCEL) != IDOK )
+	//if ( MessageBox("‘S‚Ä‚Ì‘ª’èƒ|ƒCƒ“ƒg‚ğÁ‹‚µ‚Ä‚à‹X‚µ‚¢‚Å‚·‚©H", "‘SÁ‹Šm”F", MB_ICONQUESTION | MB_OKCANCEL) != IDOK )
 	LoadStringML(IDS_CLEAR_ALL_MEASERE_POINT, l_strBuffer, "Do you want all measured point clear ?");
 	LoadStringML(IDS_TITLE_ALL_CANCELLATION, l_strTitle, "ALL CANCELLATION CONFIRMATION");
 	if ( MessageBox(l_strBuffer, l_strTitle, MB_ICONQUESTION | MB_OKCANCEL) != IDOK )
@@ -648,32 +648,32 @@ void CRecipeStageProgramView::OnAllClearButton()
 //
 void CRecipeStageProgramView::OnDeskewButton()
 {
-// 2010.02.02 K.Matsuo PIN UPPER ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½`ï¿½Fï¿½bï¿½Nï¿½Rï¿½ï¿½Î‰ï¿½ -->
+// 2010.02.02 K.Matsuo PIN UPPER ƒCƒ“ƒ^[ƒƒbƒNƒ`ƒFƒbƒN˜R‚ê‘Î‰ -->
 	CString strMsg;
 
-	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½X
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;} // ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Ùï¿½
+	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;} // ƒƒ“ƒeƒiƒ“ƒXˆÙí
 	}
-	else{												// ï¿½Êí“®ï¿½ï¿½
+	else{												// ’Êí“®ì
 	}
-	// ï¿½eI/Oï¿½`ï¿½Fï¿½bï¿½N
+	// ŠeI/Oƒ`ƒFƒbƒN
 	if(m_pDoc->IsInterLock() == TRUE){return;}
-	if( nexioIsMovo2Alarm() 	!= OFF){	AlarmIf_Set(ALID_StageError);	return;} // MOVOï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ 				ï¿½ï¿½ï¿½k
+	if( nexioIsMovo2Alarm() 	!= OFF){	AlarmIf_Set(ALID_StageError);	return;} // MOVOƒAƒ‰[ƒ€ 				‚k
 	if(m_pDoc->CheckUnitStatus() == TRUE){return;}
 
-	// ï¿½Vï¿½ï¿½ï¿½bï¿½^ï¿½[ï¿½ÈŠOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ç“®ï¿½ï¿½Ö~
+	// ƒVƒƒƒbƒ^[ˆÈŠO‚ª“®‚¢‚Ä‚¢‚½‚ç“®ì‹Ö~
 	if( m_pMainFrame->GetJoyStickMode()==0 ){
 		if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 			LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 			m_pDoc->MessageStringIf_Set(strMsg);
 			return;
-		}	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ì’†
+		}	// ƒXƒe[ƒW“®ì’†
 	}
 	if(m_pDoc->CheckActiveFlag() == TRUE){return;}
 
-	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-// 2010.02.02 K.Matsuo PIN UPPER ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½`ï¿½Fï¿½bï¿½Nï¿½Rï¿½ï¿½Î‰ï¿½ <--
+	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+// 2010.02.02 K.Matsuo PIN UPPER ƒCƒ“ƒ^[ƒƒbƒNƒ`ƒFƒbƒN˜R‚ê‘Î‰ <--
 
 	CDeskewDlg dlg(&m_StageProgInfoHdr);
 	if( dlg.DoModal() == IDOK ){
@@ -700,7 +700,7 @@ void CRecipeStageProgramView::OnAddButton()
 	if(m_iNumScans >= SCAN_POINT_MAX){
 // Kojika 20090527 Change
 		//sprintf(szBuff, "The Maximum Number which can be Registered is %d.", SCAN_POINT_MAX);
-		//sprintf(szBuff, "ï¿½ï¿½ï¿½Í‚Å‚ï¿½ï¿½ï¿½Å‘å”ï¿½ï¿½ %d ï¿½Å‚ï¿½", SCAN_POINT_MAX);
+		//sprintf(szBuff, "“ü—Í‚Å‚«‚éÅ‘å”‚Í %d ‚Å‚·", SCAN_POINT_MAX);
 		LoadStringML(IDS_MAX_NUM_REGISTER, l_strBuffer, "The Maximum Number which can be Registered is %d.");
 		sprintf(szBuff, l_strBuffer, SCAN_POINT_MAX);
 // Kojika 20090527 Change End
@@ -797,7 +797,7 @@ void CRecipeStageProgramView::OnAddButton()
 		m_MeasurementPointGrid.GridDisp(i + 1, 2, szBuff, DT_RIGHT);
 	}
 
-	///// ï¿½Vï¿½KPointï¿½Ç‰ï¿½ /////
+	///// V‹KPoint’Ç‰Á /////
 	if(iRow == -1){
 		m_dPointBuff[0][m_iNumScans] = (double)dlg.m_lX / MICROMETRE;;
 		sprintf(szBuff, "%.3lf", m_dPointBuff[0][m_iNumScans]);
@@ -849,7 +849,7 @@ void CRecipeStageProgramView::OnDeleteButton()
 	if(iRow <= 0){
 		//MessageBox("Choose the Data to Delete.", m_strCaption, MB_OK | MB_ICONEXCLAMATION);
 		//Saiki 20090528 Change ----->
-		//MessageBox("ï¿½íœï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½ï¿½Iï¿½ï¿½Å‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", m_strCaption, MB_OK | MB_ICONEXCLAMATION);
+		//MessageBox("íœ‚·‚éƒf[ƒ^‚ğ‘I‚ñ‚Å‚­‚¾‚³‚¢", m_strCaption, MB_OK | MB_ICONEXCLAMATION);
 		LoadStringML(IDS_CHOOSE_DELETE_DATA, strBuffer1, "Choose the Data to Delete.");
 		MessageBox(strBuffer1, m_strCaption, MB_OK | MB_ICONEXCLAMATION);
 		//Saiki 20090528 Change <-----
@@ -857,7 +857,7 @@ void CRecipeStageProgramView::OnDeleteButton()
 	}
 	//sprintf(szBuff, "%s%d%s", "Is the Point Data of No. ", iRow, " deleted?");
 	//Saiki 20090528 Change ----->
-	//sprintf(szBuff, "%s%d%s", "No.", iRow, " ï¿½Ìƒ|ï¿½Cï¿½ï¿½ï¿½gï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½íœï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½d?");
+	//sprintf(szBuff, "%s%d%s", "No.", iRow, " ‚Ìƒ|ƒCƒ“ƒgƒf[ƒ^‚ğíœ‚µ‚Ü‚·‚©d?");
 	LoadStringML(IDS_POINT_DATA_NO, strBuffer1, "Is the Point Data of No. ");
 	LoadStringML(IDS_DELETE_POINT_DATA, strBuffer2, " deleted?");
 	sprintf(szBuff, "%s%d%s", (LPCTSTR)strBuffer1, iRow, (LPCTSTR)strBuffer2);
@@ -973,20 +973,20 @@ BOOL CRecipeStageProgramView::LoadRecipeData()
 	SAMPLEINFO SampleInfo;
 
 // 2009.09.29 bagus SE --{--
-// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --{--
+// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --{--
 //	WORD	wHeadType;
-// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --}--
+// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --}--
 // 2009.09.29 bagus SE --}--
 
-	// ï¿½Vï¿½Kï¿½ì¬ï¿½Ìê‡
+	// V‹Kì¬‚Ìê‡
 	if ( m_nOpenMode == modeNew ) {
 		///// Get Selected Sample Type	Name /////
 		m_pMainFrame->GetSelectSampleTypeName(szSampleTypeName);
 
 // 2009.09.29 bagus SE --{--
-// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --{--
+// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --{--
 //		wHeadType = (WORD)pMainFrame->GetSelectHeadType();
-// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --}--
+// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --}--
 // 2009.09.29 bagus SE --}--
 
 		//	///// Sample /////
@@ -1009,13 +1009,13 @@ BOOL CRecipeStageProgramView::LoadRecipeData()
 		}
 
 // 2009.09.29 bagus SE --{--
-// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --{--
+// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --{--
 //		m_StageProgInfoHdr.wHeadType = wHeadType;
-// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --}--
+// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --}--
 // 2009.09.29 bagus SE --}--
-// 2009.12.14 bagus NANOMAP ï¿½Ç‰ï¿½ --{--
+// 2009.12.14 bagus NANOMAP ’Ç‰Á --{--
 		m_StageProgInfoHdr.SampleInfo.StageConfig = m_StageConfig;
-// 2009.12.14 bagus NANOMAP ï¿½Ç‰ï¿½ --}--
+// 2009.12.14 bagus NANOMAP ’Ç‰Á --}--
 	}
 	else{
 		///// Stage Program Header /////
@@ -1057,7 +1057,7 @@ BOOL CRecipeStageProgramView::LoadRecipeData()
 //		if((m_SystemConfig.nPRMethod == 1) && (m_SystemConfig.bSitePatternRec == TRUE)){
 		if((m_SystemConfig.nPRMethod > 0) && (m_SystemConfig.bSitePatternRec == TRUE)){
 // 2009.12.03 K.Matsuo <--
-			/////ï¿½@ï¿½Tï¿½Cï¿½gï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ /////
+			/////@ƒTƒCƒgƒpƒ^[ƒ“”F¯‚ ‚è /////
 			m_wNumSite = m_iNumScans;
 			if( !PatternFile_LoadPointList(m_SitePoint, &m_wNumSite, m_szRecipeName) ){
 			}
@@ -1067,19 +1067,19 @@ BOOL CRecipeStageProgramView::LoadRecipeData()
 		}
 	}
 
-// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --{--
+// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --{--
 	m_StageProgInfoHdr.wHeadType = STAGE_PROGRAM_HEAD_TYPE;
 	m_StageProgInfoHdr.wScanType = SCAN_TYPE_STANDARD;
-// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --}--
-// 2009.10.13 bagus StagePGM ï¿½Cï¿½ï¿½ --{--
+// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --}--
+// 2009.10.13 bagus StagePGM C³ --{--
 	m_OldStageProgInfoHdr.wHeadType = STAGE_PROGRAM_HEAD_TYPE;
 	m_OldStageProgInfoHdr.wScanType = SCAN_TYPE_STANDARD;
-// 2009.10.13 bagus StagePGM ï¿½Cï¿½ï¿½ --}--
+// 2009.10.13 bagus StagePGM C³ --}--
 
 	if ( m_nOpenMode == modeNew ) {
 		//strcpy(m_StageProgInfoHdr.hdr.szName, "Untitled");
 		//Saiki 20090528 Change ----->
-		//strcpy(m_StageProgInfoHdr.hdr.szName, "ï¿½^ï¿½Cï¿½gï¿½ï¿½ï¿½È‚ï¿½");
+		//strcpy(m_StageProgInfoHdr.hdr.szName, "ƒ^ƒCƒgƒ‹‚È‚µ");
 		CString strBuffer;
 		LoadStringML(IDS_UNTITLE_NAME, strBuffer, "Untitled");
 		strcpy(m_StageProgInfoHdr.hdr.szName, strBuffer);
@@ -1146,7 +1146,7 @@ void CRecipeStageProgramView::SetData()
 	SetDlgItemText(IDC_STAGE_PROGRAM_POINT_NUMBER, szBuff);
 
 	///// Point Coord /////
-	// SAMPLEï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½Îï¿½ï¿½Wï¿½Æ‚ï¿½ï¿½ï¿½
+	// SAMPLEŒ´“_‚©‚ç‚Ì‘Š‘ÎÀ•W‚Æ‚·‚é
 	for ( int i = 0 ; i < m_iNumScans ; i++ ) {
 		// X
 		sprintf(szBuff, "%.3lf", ((double)m_ScanPoint[i].lX) / MICROMETRE );
@@ -1196,9 +1196,9 @@ void CRecipeStageProgramView::UpDate()
 	int Valid_Y;
 	BOOL bShape = FALSE;
 
-// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
+// 2009.10.24 bagus 2“_ŠÔ C³ --{--
 	long lTmp;
-// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
+// 2009.10.24 bagus 2“_ŠÔ C³ --}--
 
 	// Kojika 20090528 Add
 	SYSTEM_CONFIG l_SystemConfig;
@@ -1240,7 +1240,7 @@ void CRecipeStageProgramView::UpDate()
 	if ( !bShape ) {
 		//MessageBox("The Shape not Existing is Inputted.", m_strCaption, MB_OK | MB_ICONSTOP);
 		//Saiki 20090528 Change ----->
-		//MessageBox("ï¿½ï¿½ï¿½İ‚ï¿½ï¿½È‚ï¿½ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½", m_strCaption, MB_OK | MB_ICONSTOP);
+		//MessageBox("‘¶İ‚µ‚È‚¢ƒTƒ“ƒvƒ‹Šî”Â‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚·", m_strCaption, MB_OK | MB_ICONSTOP);
 		CString strBuffer;
 		LoadStringML(IDS_SHAPE_NOT_EXIST_INP, strBuffer, "The Shape not Existing is Inputted.");
 		MessageBox(strBuffer, m_strCaption, MB_OK | MB_ICONSTOP);
@@ -1276,13 +1276,13 @@ void CRecipeStageProgramView::UpDate()
 		strcpy(szGridText, m_MeasurementPointGrid.GetItemText(i + 1, 1));
 		Valid_X = strlen(szGridText);
 		if ( Valid_X ) {
-// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
+// 2009.10.24 bagus 2“_ŠÔ C³ --{--
 //			m_ScanPoint[i].lX = atof(szGridText) * MICROMETRE;
 			lTmp = atof(szGridText) * MICROMETRE;
 			if (!CheckValidPointX(lTmp))
 				break;
 			m_ScanPoint[i].lX = lTmp;
-// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
+// 2009.10.24 bagus 2“_ŠÔ C³ --}--
 			//m_ScanPoint[i].lX = (strtol(szGridText, &stopstring, 10)) * MICROMETRE;
 
 			///// Refresh X /////
@@ -1294,13 +1294,13 @@ void CRecipeStageProgramView::UpDate()
 		strcpy(szGridText, m_MeasurementPointGrid.GetItemText(i + 1, 2));
 		Valid_Y = strlen(szGridText);
 		if ( Valid_Y ) {
-// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
+// 2009.10.24 bagus 2“_ŠÔ C³ --{--
 //			m_ScanPoint[i].lY = atof(szGridText) * MICROMETRE;
 			lTmp = atof(szGridText) * MICROMETRE;
 			if (!CheckValidPointY(lTmp))
 				break;
 			m_ScanPoint[i].lY = lTmp;
-// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
+// 2009.10.24 bagus 2“_ŠÔ C³ --}--
 			//m_ScanPoint[i].lY = (strtol(szGridText, &stopstring, 10)) * MICROMETRE;
 
 			///// Refresh Y /////
@@ -1337,14 +1337,14 @@ BOOL CRecipeStageProgramView::SaveRecipeData()
 	char szOriginalFilePath[MAX_PATH + 1];
 	char szNewFilePath[MAX_PATH + 1];
 
-	// ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½İ’ï¿½iSave, SaveAsï¿½ï¿½ï¿½pï¿½j
+	// V‚µ‚¢ƒŒƒVƒs–¼‚ğİ’èiSave, SaveAsŒ“—pj
 	strcpy(m_StageProgInfoHdr.hdr.szName, m_szRecipeName);
 
 	if ( strcmp(m_OldStageProgInfoHdr.hdr.szName, m_szRecipeName) != 0 ) {
-		// ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½ï¿½İ’ï¿½iSaveAsï¿½ï¿½pï¿½j
+		// V‚µ‚¢ƒŒƒVƒs–¼‚ğİ’èiSaveAsê—pj
 
-		// ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½Ìƒpï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½æ‘œï¿½ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½Åì¬
-		// ï¿½iï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½ï¿½ï¿½ÒWï¿½rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½mï¿½ï¿½È‚ï¿½ï¿½Ì‚ÅAï¿½ï¿½ï¿½Vï¿½sï¿½ÒWï¿½ï¿½ï¿½Ì“ï¿½ï¿½eï¿½Åì¬ï¿½ï¿½ï¿½ï¿½j
+		// Œ³ƒŒƒVƒs‚Ìƒpƒ^[ƒ“”F¯‰æ‘œ‚ğV‚µ‚¢ƒŒƒVƒs–¼‚Åì¬
+		// iƒpƒ^[ƒ“”F¯‚ª•ÒW“r’†‚©‚à’m‚ê‚È‚¢‚Ì‚ÅAƒŒƒVƒs•ÒW’†‚Ì“à—e‚Åì¬‚·‚éj
 		_stprintf(szOriginalFilePath, "%s%s.D1", g_szDb_Deskew_Img_Dir, m_OldStageProgInfoHdr.hdr.szName);
 		_stprintf(szNewFilePath, "%s%s.D1", g_szDb_Deskew_Img_Dir, m_szRecipeName);
 // 2009.06.12 K.Matsuo -->
@@ -1358,8 +1358,8 @@ BOOL CRecipeStageProgramView::SaveRecipeData()
 // 2009.06.12 K.Matsuo <--
 		::CopyFile(szOriginalFilePath, szNewFilePath, FALSE);
 
-		// ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½sï¿½Ìƒpï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½æ‘œï¿½iï¿½Ş”ï¿½ï¿½jï¿½Ì–ß‚ï¿½
-		// ï¿½iï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½ï¿½ï¿½ÒWï¿½rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½mï¿½ï¿½È‚ï¿½ï¿½Ì‚ÅAï¿½ï¿½ï¿½Vï¿½sï¿½ÒWï¿½Oï¿½Ìï¿½Ô‚Ü‚Å–ß‚ï¿½ï¿½j
+		// Œ³ƒŒƒVƒs‚Ìƒpƒ^[ƒ“”F¯‰æ‘œi‘Ş”ğj‚Ì–ß‚µ
+		// iƒpƒ^[ƒ“”F¯‚ª•ÒW“r’†‚©‚à’m‚ê‚È‚¢‚Ì‚ÅAƒŒƒVƒs•ÒW‘O‚Ìó‘Ô‚Ü‚Å–ß‚·j
 		_stprintf(szFilePathBackUp, "%s_BackUp.D1", g_szDb_Deskew_Img_Dir);
 		_stprintf(szFilePath, "%s%s.D1", g_szDb_Deskew_Img_Dir, m_OldStageProgInfoHdr.hdr.szName);
 		::CopyFile(szFilePathBackUp, szFilePath, FALSE);
@@ -1368,8 +1368,8 @@ BOOL CRecipeStageProgramView::SaveRecipeData()
 		::CopyFile(szFilePathBackUp, szFilePath, FALSE);
 	}
 
-	// ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½æ‘œï¿½Ìƒoï¿½bï¿½Nï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½ì¬
-	// ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ÌŒï¿½Ì‘ï¿½ï¿½ï¿½ÅAï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½ÒWï¿½Ë•Û‘ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½Aï¿½ï¿½ï¿½Ìƒoï¿½bï¿½Nï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½_ï¿½Ì“ï¿½ï¿½eï¿½Åï¿½ï¿½ï¿½ï¿½ß‚ï¿½ï¿½j
+	// ƒpƒ^[ƒ“”F¯‰æ‘œ‚ÌƒoƒbƒNƒAƒbƒv‚ğì¬
+	// i‚à‚µA‚±‚ÌŒã‚Ì‘€ì‚ÅAƒpƒ^[ƒ“”F¯•ÒWË•Û‘¶ƒLƒƒƒ“ƒZƒ‹‚µ‚½ê‡A‚±‚ÌƒoƒbƒNƒAƒbƒv“_‚Ì“à—e‚Å‘‚«–ß‚·j
 	_stprintf(szFilePath, "%s%s.D1", g_szDb_Deskew_Img_Dir, m_szRecipeName);
 	_stprintf(szFilePathBackUp, "%s_BackUp.D1", g_szDb_Deskew_Img_Dir);
 	::CopyFile(szFilePath, szFilePathBackUp, FALSE);
@@ -1393,14 +1393,14 @@ BOOL CRecipeStageProgramView::SaveRecipeData()
 	ConfigFile_GetNanoSpecIni(&l_UserData,CONFIG_FILE_USER_SETTING);
 	if(l_SystemConfig.bBackup){
 		if(l_UserData.BackupData.bAutoBackup && strlen(l_UserData.BackupData.BackupPath) > 0 ){
-			//ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½bï¿½Nï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½È‚Ì‚Å‚ï¿½ï¿½ï¿½ï¿½Å‰æ‘œï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½oï¿½bï¿½Nï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½ï¿½
+			//©“®ƒoƒbƒNƒAƒbƒv‚ª—LŒø‚È‚Ì‚Å‚±‚±‚Å‰æ‘œƒtƒ@ƒCƒ‹‚ğƒoƒbƒNƒAƒbƒv‚·‚é
 			TCHAR fullPath[MAX_PATH];
 			CString strSourceImage;
 			CString strBackupPath;
 			BOOL bCreateDir = TRUE;
 			_fullpath(fullPath,l_UserData.BackupData.BackupPath,sizeof(fullPath));
 			_tcscat(fullPath,"\\" DB_DIR_NAME "\\" DB_DESKEW_IMG_DIR_NAME "\\" );
-			for(int n = 0;n < static_cast<int>(strlen(fullPath));n++){
+			for(int n = 0;n < strlen(fullPath);n++){
 				if(n > 0 && fullPath[n] == '\\' && fullPath[n-1] != ':'){
 					fullPath[n] = '\0';
 					bCreateDir = CreateDirectory(fullPath,NULL);
@@ -1468,7 +1468,7 @@ BOOL CRecipeStageProgramView::CheckData()
 	}
 // 2009.06.12 K.Matsuo <--
 
-	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ì‘å‚«ï¿½ï¿½ï¿½Åƒï¿½ï¿½~ï¿½bï¿½gï¿½lï¿½ï¿½İ’ï¿½ /////
+	///// ƒXƒe[ƒW‚Ì‘å‚«‚³‚ÅƒŠƒ~ƒbƒg’l‚ğİ’è /////
 //	dMaxX = (m_StageProgInfoHdr.SampleInfo.Size.dx/2);			// (um)
 //	dMinX = -dMaxX;
 //	dMaxY = (m_StageProgInfoHdr.SampleInfo.Size.dy/2);			// (um)
@@ -1488,31 +1488,31 @@ BOOL CRecipeStageProgramView::CheckData()
 	}
 
 	switch ( m_StageConfig.OrgPos ) {
-	case 1: // ï¿½ï¿½ï¿½S
+	case 1: // ’†S
 		coordLeftTop.lX = dSampleSizeX / 2 * -1;
 		coordLeftTop.lY = dSampleSizeY / 2;
 		coordRightBottom.lX = dSampleSizeX / 2;
 		coordRightBottom.lY = dSampleSizeY / 2 * -1;
 		break;
-	case 2: // ï¿½ï¿½ï¿½ï¿½
+	case 2: // ¶ã
 		coordLeftTop.lX = 0;
 		coordLeftTop.lY = 0;
 		coordRightBottom.lX = dSampleSizeX;
 		coordRightBottom.lY = dSampleSizeY * -1;
 		break;
-	case 3: // ï¿½ï¿½ï¿½ï¿½
+	case 3: // ¶‰º
 		coordLeftTop.lX = 0;
 		coordLeftTop.lY = dSampleSizeY;
 		coordRightBottom.lX = dSampleSizeX;
 		coordRightBottom.lY = 0;
 		break;
-	case 4: // ï¿½Eï¿½ï¿½
+	case 4: // ‰E‰º
 		coordLeftTop.lX = dSampleSizeX * -1;
 		coordLeftTop.lY = dSampleSizeY;
 		coordRightBottom.lX = 0;
 		coordRightBottom.lY = 0;
 		break;
-	case 5: // ï¿½Eï¿½ï¿½
+	case 5: // ‰Eã
 		coordLeftTop.lX = dSampleSizeX * -1;
 		coordLeftTop.lY = 0;
 		coordRightBottom.lX = 0;
@@ -1520,18 +1520,18 @@ BOOL CRecipeStageProgramView::CheckData()
 		break;
 	}
 
-	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Rï¿½ï¿½ï¿½tï¿½Bï¿½Oï¿½Ìï¿½ï¿½İ’ï¿½Æï¿½ï¿½í‚¹ï¿½ï¿½
+	// ƒXƒe[ƒWƒRƒ“ƒtƒBƒO‚Ì²İ’è‚Æ‡‚í‚¹‚é
 	NS_ConvertToStageConfigXyAxis(&coordLeftTop);
 	NS_ConvertToStageConfigXyAxis(&coordRightBottom);
 
-	///// ï¿½Oï¿½ï¿½ï¿½bï¿½hï¿½Ì’lï¿½ï¿½ï¿½æ“¾ /////
+	///// ƒOƒŠƒbƒh‚Ì’l‚ğæ“¾ /////
 	for ( int i = 0; i < m_iNumScans; i++ ) {
 		///// X /////
 //		if ( !(m_ScanPoint[i].lX >= dMinX && m_ScanPoint[i].lX <= dMaxX) ) {
 		if ( !(m_ScanPoint[i].lX >= min(coordLeftTop.lX, coordRightBottom.lX) && m_ScanPoint[i].lX <= max(coordLeftTop.lX, coordRightBottom.lX)) ) {
 			//sprintf(szBuff, "POINT = %d : X coordinate is out of limit.", i + 1);
 			//Saiki 20090528 Change ----->
-			//sprintf(szBuff, "ï¿½|ï¿½Cï¿½ï¿½ï¿½g = %d : X ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ÍˆÍŠOï¿½Å‚ï¿½", i + 1);
+			//sprintf(szBuff, "ƒ|ƒCƒ“ƒg = %d : X À•W‚ª”ÍˆÍŠO‚Å‚·", i + 1);
 			LoadStringML(IDS_X_COORDINATE_OUT_LIMIT, strBuffer, "POINT = %d : X coordinate is out of limit.");
 			sprintf(szBuff, strBuffer, i + 1);
 			//Saiki 20090528 Change <-----
@@ -1544,7 +1544,7 @@ BOOL CRecipeStageProgramView::CheckData()
 		if ( !(m_ScanPoint[i].lY >= min(coordLeftTop.lY, coordRightBottom.lY) && m_ScanPoint[i].lY <= max(coordLeftTop.lY, coordRightBottom.lY)) ) {
 			//sprintf(szBuff, "POINT = %d : Y coordinate is out of limit.", i + 1);
 			//Saiki 20090528 Change ----->
-			//sprintf(szBuff, "ï¿½|ï¿½Cï¿½ï¿½ï¿½g = %d : Y ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ÍˆÍŠOï¿½Å‚ï¿½", i + 1);
+			//sprintf(szBuff, "ƒ|ƒCƒ“ƒg = %d : Y À•W‚ª”ÍˆÍŠO‚Å‚·", i + 1);
 			LoadStringML(IDS_Y_COORDINATE_OUT_LIMIT, strBuffer, "POINT = %d : Y coordinate is out of limit.");
 			sprintf(szBuff, strBuffer, i + 1);
 			//Saiki 20090528 Change <-----
@@ -1562,7 +1562,7 @@ BOOL CRecipeStageProgramView::IsDataChanged()
 {
 	UpDate();
 
-	//ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Ü‚Å‚Å•Ï‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½ÍXï¿½Vï¿½ï¿½ï¿½ê‚½ï¿½Æ‚İ‚È‚ï¿½
+	//‘ª’èƒ|ƒCƒ“ƒg”‚Ü‚Å‚Å•Ï‰»‚ª‚ ‚Á‚½ê‡‚ÍXV‚³‚ê‚½‚Æ‚İ‚È‚·
 	return ( memcmp(&m_StageProgInfoHdr, &m_OldStageProgInfoHdr, sizeof(m_StageProgInfoHdr)) != 0 ||
 				memcmp(m_ScanPoint, m_OldScanPoint, (sizeof(m_ScanPoint) / 10000 * m_StageProgInfoHdr.wNumScans)) != 0 ||
 				memcmp(m_SitePoint, m_OldSitePoint, (sizeof(m_SitePoint) / 10000 * m_StageProgInfoHdr.wNumScans)) != 0 );
@@ -1572,7 +1572,7 @@ BOOL CRecipeStageProgramView::IsDataChanged()
 //
 void CRecipeStageProgramView::OnPaint()
 {
-	CPaintDC dc(this); // ï¿½`ï¿½ï¿½pï¿½Ìƒfï¿½oï¿½Cï¿½X ï¿½Rï¿½ï¿½ï¿½eï¿½Lï¿½Xï¿½g
+	CPaintDC dc(this); // •`‰æ—p‚ÌƒfƒoƒCƒX ƒRƒ“ƒeƒLƒXƒg
 	long lDrawStageSizeX, lDrawStageSizeY;
 	CRect StageRect;
 //	CRect SampleRect;
@@ -1594,7 +1594,7 @@ void CRecipeStageProgramView::OnPaint()
 	long StageRectTop = StageRect.top + STAGE_OFFSET;
 	long StageRectBottom = StageRect.bottom - STAGE_OFFSET;
 
-	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Lï¿½ï¿½ï¿½Íˆï¿½ /////
+	///// ƒXƒe[ƒW—LŒø”ÍˆÍ /////
 //	double dStageMaxSizeX = m_StageConfig.Size.dX - (2 * m_StageConfig.Edge.dX);
 //	double dStageMaxSizeY = m_StageConfig.Size.dY - (2 * m_StageConfig.Edge.dY);
 // 2013.01.17 bagus rotate xy view <--
@@ -1656,12 +1656,12 @@ void CRecipeStageProgramView::OnPaint()
 
 	SamplePointGraph_DataSet();
 
-// ï¿½`ï¿½ï¿½pï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½Æ‚ï¿½ï¿½ï¿½ CNanoRecipeUI::OnPaint() ï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½Ä‚Í‚ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½
+// •`‰æ—pƒƒbƒZ[ƒW‚Æ‚µ‚Ä CNanoRecipeUI::OnPaint() ‚ğŒÄ‚Ño‚µ‚Ä‚Í‚¢‚¯‚Ü‚¹‚ñ
 	ReleaseDC(pDC);
 }
 
 // 2013.01.09 bagus -->
-// ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½iSTAGEAPIï¿½pï¿½jï¿½É•ÏŠï¿½
+// ²À•WiSTAGEAPI—pj‚É•ÏŠ·
 void CRecipeStageProgramView::ToXyAxisCoord(STAGE_COORD* lpPoint)
 {
 	// X: RIGHT
@@ -1740,7 +1740,7 @@ void CRecipeStageProgramView::DrawSample(CDC* pDC, int iOrg, int DirX, int DirY)
 	///// Region Map /////
 	GetDlgItem(IDC_MEASUREMENT_MAP)->GetWindowPlacement(&Stageplacement);
 
-	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Lï¿½ï¿½ï¿½Íˆï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½lï¿½pï¿½Í‚ï¿½ï¿½ÌƒTï¿½Cï¿½Yï¿½Å•`ï¿½æ‚³ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½) /////
+	///// ƒXƒe[ƒW—LŒø”ÍˆÍ(•‚¢lŠp‚Í‚±‚ÌƒTƒCƒY‚Å•`‰æ‚³‚ê‚Ä‚¢‚é) /////
 //	double dStageMaxSizeX = m_StageConfig.Size.dX - (2 * m_StageConfig.Edge.dX);
 //	double dStageMaxSizeY = m_StageConfig.Size.dY - (2 * m_StageConfig.Edge.dY);
 // 2013.01.17 bagus rotate xy view <--
@@ -1796,33 +1796,33 @@ void CRecipeStageProgramView::DrawSample(CDC* pDC, int iOrg, int DirX, int DirY)
 	}
 // 2013.01.17 bagus rotate xy view <--
 
-	///// ï¿½@ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Tï¿½Cï¿½Yï¿½ï¿½ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ì‘å‚«ï¿½ï¿½ï¿½Æ‚è¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N /////
+	///// @ƒTƒ“ƒvƒ‹ƒTƒCƒY‚ªƒXƒe[ƒW‚Ì‘å‚«‚³‚Æ‚è¬‚³‚¢‚©ƒ`ƒFƒbƒN /////
 // 	if ((m_StageProgInfoHdr.SampleInfo.Size.dx > dStageSizeX) || (m_StageProgInfoHdr.SampleInfo.Size.dy > dStageSizeY))
 // 		return;
 	if ((dSampleSizeX > dStageSizeX) || (dSampleSizeY > dStageSizeY))
 		return;
 
-	//ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½Origin Positionï¿½ï¿½ï¿½Xï¿½eï¿½[ï¿½Wï¿½kï¿½ï¿½ï¿½ï¿½ï¿½Éï¿½ï¿½í‚¹ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½É•ÏŠï¿½
+	//ƒXƒe[ƒW‚ÌOrigin Position‚ğƒXƒe[ƒWk¬—¦‚É‡‚í‚¹‚½À•W‚É•ÏŠ·
 
 // 2009.05.25 K.Matsuo StageConfigSetting SPT -->
 
-	// StageConfigSettingï¿½ï¿½m_StageConfig.Originï¿½Ìæˆµï¿½ï¿½ï¿½É‚Â‚ï¿½ï¿½Äï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
+	// StageConfigSetting‚Ìm_StageConfig.Origin‚Ìæˆµ‚¢‚É‚Â‚¢‚Äà–¾‚µ‚Ä‚¨‚­
 
-	//	 ï¿½Cï¿½ï¿½ï¿½Oï¿½FMachineOrgSensorLoc ï¿½iï¿½ï¿½ï¿½Wï¿½Iï¿½{ï¿½^ï¿½ï¿½ï¿½Åï¿½ï¿½ï¿½ï¿½È‚Ç‚ï¿½ï¿½wï¿½ï¿½jï¿½ÌŠî€ï¿½Ê’uï¿½ï¿½ï¿½ï¿½ÌƒIï¿½tï¿½Zï¿½bï¿½gï¿½lï¿½Bï¿½î€ï¿½Ê’uï¿½É‚ï¿½ï¿½Aï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½lï¿½Ì‰ï¿½ï¿½Zï¿½Eï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½sï¿½ï¿½
-	//	 ï¿½Cï¿½ï¿½ï¿½ï¿½FMachineOrgSensorLocï¿½ÍAï¿½pï¿½~ï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½î€ï¿½iï¿½Å’ï¿½jï¿½Æ‚ï¿½ï¿½Aï¿½}ï¿½Vï¿½[ï¿½ï¿½ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Pï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½Wï¿½Ê’uï¿½Æ‚ï¿½ï¿½Ä—ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½
+	//	 C³‘OFMachineOrgSensorLoc iƒ‰ƒWƒIƒ{ƒ^ƒ“‚Å¶‰º‚È‚Ç‚ğw’èj‚ÌŠî€ˆÊ’u‚©‚ç‚ÌƒIƒtƒZƒbƒg’lBŠî€ˆÊ’u‚É‚æ‚èAƒIƒtƒZƒbƒg’l‚Ì‰ÁZEŒ¸Z‚ğs‚¤
+	//	 C³ŒãFMachineOrgSensorLoc‚ÍA”p~B¶‰ºŠî€iŒÅ’èj‚Æ‚µAƒ}ƒV[ƒ“ƒXƒe[ƒWŒ´“_ƒƒP[ƒVƒ‡ƒ“‚ÌÀ•WˆÊ’u‚Æ‚µ‚Ä—˜—p‚·‚é
 // 2009.05.25 K.Matsuo StageConfigSetting SPT <--
 
-	///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Tï¿½Cï¿½Yï¿½ÌŒvï¿½Zï¿½iï¿½Xï¿½eï¿½[ï¿½Wï¿½`ï¿½ï¿½Tï¿½Cï¿½Yï¿½Î‚ï¿½ï¿½ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Tï¿½Cï¿½Yï¿½ï¿½ï¿½vï¿½Zï¿½j /////
+	///// ƒTƒ“ƒvƒ‹•`‰æƒTƒCƒY‚ÌŒvZiƒXƒe[ƒW•`‰æƒTƒCƒY‘Î‚·‚éƒTƒ“ƒvƒ‹•`‰æƒTƒCƒY‚ğŒvZj /////
 // 	double dDrawSampleSizeX =(m_dDrawEndStagePosX - m_dDrawStartStagePosX) * m_StageProgInfoHdr.SampleInfo.Size.dx / dStageMaxSizeX;
 // 	double dDrawSampleSizeY =(m_dDrawEndStagePosY - m_dDrawStartStagePosY) * m_StageProgInfoHdr.SampleInfo.Size.dy / dStageMaxSizeY;
 	double dDrawSampleSizeX =(m_dDrawEndStagePosX - m_dDrawStartStagePosX) * dSampleSizeX / dStageSizeX;
 	double dDrawSampleSizeY =(m_dDrawEndStagePosY - m_dDrawStartStagePosY) * dSampleSizeY / dStageSizeY;
 // 2013.01.09 bagus <--
 
-	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½l /////
+	///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l /////
 	double dTotalOrgOffsetPosX, dTotalOrgOffsetPosY;
 
-	///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Ì•`ï¿½ï¿½Ê’u /////
+	///// ƒTƒ“ƒvƒ‹‚Ì•`‰æˆÊ’u /////
 	double dtop, dbottom, dright, dleft;
 
 // 2013.01.09 bagus -->
@@ -1833,14 +1833,14 @@ void CRecipeStageProgramView::DrawSample(CDC* pDC, int iOrg, int DirX, int DirY)
 	ToXyAxisCoord(&XyAxisCoord);
 // 2013.01.09 bagus <--
 
-	//Sampleï¿½`ï¿½ï¿½Ê’uï¿½İ’ï¿½
-	//ï¿½lï¿½pï¿½`ï¿½ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Ì‚İ‘Î‰ï¿½
+	//Sample•`‰æˆÊ’uİ’è
+	//lŠpŒ`óƒTƒ“ƒvƒ‹‚Ì‚İ‘Î‰
 	switch(m_StageProgInfoHdr.SampleInfo.nShape){
 	case SAMPLE_SHAPE_RECTANGLE:		//Sample shaped RectAngle
 		switch(iOrg){
-		case 1: ///// ï¿½Zï¿½ï¿½ï¿½^ï¿½[ï¿½î€	//Xï¿½ï¿½ï¿½Fï¿½ï¿½+ï¿½@Yï¿½ï¿½ï¿½Fï¿½ï¿½+ï¿½Ì‚İ‘Î‰ï¿½
+		case 1: ///// ƒZƒ“ƒ^[Šî€	//X²F¨+@Y²Fª+‚Ì‚İ‘Î‰
 		default:
-			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½lï¿½ï¿½ï¿½vï¿½Z /////
+			///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l‚ğŒvZ /////
 			//dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX - m_StageConfig.Edge.dX) + (m_StageProgInfoHdr.SampleInfo.Origin.lX)) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 			//dTotalOrgOffsetPosY = ((m_StageConfig.Origin.lY - m_StageConfig.Edge.dY) + (m_StageProgInfoHdr.SampleInfo.Origin.lY)) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 			//dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX - m_StageConfig.Edge.dX) + (m_StageProgInfoHdr.SampleInfo.Origin.lX)) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageSizeX;
@@ -1885,19 +1885,19 @@ void CRecipeStageProgramView::DrawSample(CDC* pDC, int iOrg, int DirX, int DirY)
 // 2013.01.17 bagus rotate xy view <--
 // 2013.01.09 bagus <--
 
-			///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Ê’uï¿½ï¿½ï¿½vï¿½Z /////
-			//ï¿½ï¿½ï¿½î€
+			///// ƒTƒ“ƒvƒ‹•`‰æˆÊ’u‚ğŒvZ /////
+			//¶Šî€
 			dleft	= m_dDrawStartStagePosX + dTotalOrgOffsetPosX - (dDrawSampleSizeX / 2);
 			dright	= dleft + dDrawSampleSizeX;
-			//ï¿½ï¿½ï¿½î€
+			//‰ºŠî€
 			dbottom = m_dDrawEndStagePosY - dTotalOrgOffsetPosY + (dDrawSampleSizeY / 2);
 			dtop	= dbottom - dDrawSampleSizeY;
 			break;
 
 		case 2: /////LeftTop
-// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
-			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½lï¿½ï¿½ï¿½vï¿½Z /////
-// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
+// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+			///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l‚ğŒvZ /////
+// 2009.09.11 bagus stress C³ --{--
 //			dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX - m_StageConfig.Edge.dX) + (m_SampleInfo.Origin.lX)) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 //			dTotalOrgOffsetPosY = ((m_StageConfig.Origin.lY - m_StageConfig.Edge.dY) + (m_SampleInfo.Origin.lY)) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 // 2009.10.05 bagus SE --{--
@@ -1945,15 +1945,15 @@ void CRecipeStageProgramView::DrawSample(CDC* pDC, int iOrg, int DirX, int DirY)
 // 2013.01.17 bagus rotate xy view <--
 // 2013.01.09 bagus <--
 // 2009.10.05 bagus SE --}--
-// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
+// 2009.09.11 bagus stress C³ --}--
 
-			///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Ê’uï¿½ï¿½ï¿½vï¿½Z /////
+			///// ƒTƒ“ƒvƒ‹•`‰æˆÊ’u‚ğŒvZ /////
 // 2013.01.17 bagus rotate xy view -->
 // 			dleft	= m_dDrawStartStagePosX + 1 + dTotalOrgOffsetPosX;
 // 			dright	= dleft + dDrawSampleSizeX;
 // 			dtop = m_dDrawStartStagePosY + 1 + dTotalOrgOffsetPosY;
 // 			dbottom	= dtop + dDrawSampleSizeY;
-			//ï¿½ï¿½ï¿½ãŒ´ï¿½_ï¿½Æ‚È‚ï¿½æ‚¤ï¿½Éï¿½ï¿½ï¿½iï¿½`ï¿½ï¿½Jï¿½nï¿½Ê’uï¿½jï¿½ï¿½ï¿½Zï¿½o
+			//¶ãŒ´“_‚Æ‚È‚é‚æ‚¤‚É¶ãi•`‰æŠJnˆÊ’uj‚ğZo
 			switch ( m_StageConfig.RotateXyView ) {
 			case 0:
 			default:
@@ -1983,11 +1983,11 @@ void CRecipeStageProgramView::DrawSample(CDC* pDC, int iOrg, int DirX, int DirY)
 			}
 // 2013.01.17 bagus rotate xy view <--
 			break;
-// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
+// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
 		case 3: /////LeftBottom
-// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
-			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½lï¿½ï¿½ï¿½vï¿½Z /////
-// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
+// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+			///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l‚ğŒvZ /////
+// 2009.09.11 bagus stress C³ --{--
 //			dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX - m_StageConfig.Edge.dX) + (m_SampleInfo.Origin.lX)) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 //			dTotalOrgOffsetPosY = ((m_StageConfig.Origin.lY - m_StageConfig.Edge.dY) + (m_SampleInfo.Origin.lY)) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 // 2009.10.05 bagus SE --{--
@@ -2035,15 +2035,15 @@ void CRecipeStageProgramView::DrawSample(CDC* pDC, int iOrg, int DirX, int DirY)
 // 2013.01.17 bagus rotate xy view <--
 // 2013.01.09 bagus <--
 // 2009.10.05 bagus SE --}--
-// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
+// 2009.09.11 bagus stress C³ --}--
 
-			///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Ê’uï¿½ï¿½ï¿½vï¿½Z /////
+			///// ƒTƒ“ƒvƒ‹•`‰æˆÊ’u‚ğŒvZ /////
 // 2013.01.17 bagus rotate xy view -->
 // 			dleft	= m_dDrawStartStagePosX + 1 + dTotalOrgOffsetPosX;
 // 			dright	= dleft + dDrawSampleSizeX;// - dTotalOrgOffsetPosX;
 // 			dbottom = m_dDrawEndStagePosY - 1 - dTotalOrgOffsetPosY;
 // 			dtop	= dbottom - dDrawSampleSizeY;// + dTotalOrgOffsetPosY;
-			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½Æ‚È‚ï¿½æ‚¤ï¿½Éï¿½ï¿½ï¿½iï¿½`ï¿½ï¿½Jï¿½nï¿½Ê’uï¿½jï¿½ï¿½ï¿½Zï¿½o
+			//¶‰ºŒ´“_‚Æ‚È‚é‚æ‚¤‚É¶ãi•`‰æŠJnˆÊ’uj‚ğZo
 			switch ( m_StageConfig.RotateXyView ) {
 			case 0:
 			default:
@@ -2073,11 +2073,11 @@ void CRecipeStageProgramView::DrawSample(CDC* pDC, int iOrg, int DirX, int DirY)
 			}
 // 2013.01.17 bagus rotate xy view <--
 			break;
-// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
+// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
 		case 4: /////RightBottom
-// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
-			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½lï¿½ï¿½ï¿½vï¿½Z /////
-// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
+// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+			///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l‚ğŒvZ /////
+// 2009.09.11 bagus stress C³ --{--
 //			dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX - m_StageConfig.Edge.dX) + (m_SampleInfo.Origin.lX)) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 //			dTotalOrgOffsetPosY = ((m_StageConfig.Origin.lY - m_StageConfig.Edge.dY) + (m_SampleInfo.Origin.lY)) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 // 2009.10.05 bagus SE --{--
@@ -2125,15 +2125,15 @@ void CRecipeStageProgramView::DrawSample(CDC* pDC, int iOrg, int DirX, int DirY)
 // 2013.01.17 bagus rotate xy view <--
 // 2013.01.09 bagus <--
 // 2009.10.05 bagus SE --}--
-// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
+// 2009.09.11 bagus stress C³ --}--
 
-			///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Ê’uï¿½ï¿½ï¿½vï¿½Z /////
+			///// ƒTƒ“ƒvƒ‹•`‰æˆÊ’u‚ğŒvZ /////
 // 2013.01.17 bagus rotate xy view -->
 // 			dright	= m_dDrawEndStagePosX - 1 - dTotalOrgOffsetPosX;
 // 			dleft	= dright - dDrawSampleSizeX;
 // 			dbottom = m_dDrawEndStagePosY - 1 - dTotalOrgOffsetPosY;
 // 			dtop	= dbottom - dDrawSampleSizeY;
-			//ï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½Æ‚È‚ï¿½æ‚¤ï¿½Éï¿½ï¿½ï¿½iï¿½`ï¿½ï¿½Jï¿½nï¿½Ê’uï¿½jï¿½ï¿½ï¿½Zï¿½o
+			//‰E‰ºŒ´“_‚Æ‚È‚é‚æ‚¤‚É¶ãi•`‰æŠJnˆÊ’uj‚ğZo
 			switch ( m_StageConfig.RotateXyView ) {
 			case 0:
 			default:
@@ -2163,11 +2163,11 @@ void CRecipeStageProgramView::DrawSample(CDC* pDC, int iOrg, int DirX, int DirY)
 			}
 // 2013.01.17 bagus rotate xy view <--
 			break;
-// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
+// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
 		case 5: /////RightTop
-// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
-			///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÆƒTï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ÌŒï¿½ï¿½_ï¿½Iï¿½tï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½vï¿½lï¿½ï¿½ï¿½vï¿½Z /////
-// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --{--
+// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
+			///// ƒXƒe[ƒW‚ÆƒTƒ“ƒvƒ‹‚ÌŒ´“_ƒIƒtƒZƒbƒg‚Ì‡Œv’l‚ğŒvZ /////
+// 2009.09.11 bagus stress C³ --{--
 //			dTotalOrgOffsetPosX = ((m_StageConfig.Origin.lX - m_StageConfig.Edge.dX) + (m_SampleInfo.Origin.lX)) * (m_dDrawEndStagePosX - m_dDrawStartStagePosX) / dStageMaxSizeX;
 //			dTotalOrgOffsetPosY = ((m_StageConfig.Origin.lY - m_StageConfig.Edge.dY) + (m_SampleInfo.Origin.lY)) * (m_dDrawEndStagePosY - m_dDrawStartStagePosY) / dStageMaxSizeY;
 // 2009.10.05 bagus SE --{--
@@ -2215,15 +2215,15 @@ void CRecipeStageProgramView::DrawSample(CDC* pDC, int iOrg, int DirX, int DirY)
 // 2013.01.17 bagus rotate xy view <--
 // 2013.01.09 bagus <--
 // 2009.10.05 bagus SE --}--
-// 2009.09.11 bagus stress ï¿½Cï¿½ï¿½ --}--
+// 2009.09.11 bagus stress C³ --}--
 
-			///// ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½`ï¿½ï¿½Ê’uï¿½ï¿½ï¿½vï¿½Z /////
+			///// ƒTƒ“ƒvƒ‹•`‰æˆÊ’u‚ğŒvZ /////
 // 2013.01.17 bagus rotate xy view -->
 // 			dright	= m_dDrawEndStagePosX - 1 - dTotalOrgOffsetPosX;
 // 			dleft	= dright - dDrawSampleSizeX;
 // 			dtop = m_dDrawStartStagePosY + 1 + dTotalOrgOffsetPosY;
 // 			dbottom	= dtop + dDrawSampleSizeY;
-			//ï¿½Eï¿½ãŒ´ï¿½_ï¿½Æ‚È‚ï¿½æ‚¤ï¿½Éï¿½ï¿½ï¿½iï¿½`ï¿½ï¿½Jï¿½nï¿½Ê’uï¿½jï¿½ï¿½ï¿½Zï¿½o
+			//‰EãŒ´“_‚Æ‚È‚é‚æ‚¤‚É¶ãi•`‰æŠJnˆÊ’uj‚ğZo
 			switch ( m_StageConfig.RotateXyView ) {
 			case 0:
 			default:
@@ -2252,7 +2252,7 @@ void CRecipeStageProgramView::DrawSample(CDC* pDC, int iOrg, int DirX, int DirY)
 				break;
 			}
 // 2013.01.17 bagus rotate xy view <--
-// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
+// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
 			break;
 		}
 
@@ -2261,7 +2261,7 @@ void CRecipeStageProgramView::DrawSample(CDC* pDC, int iOrg, int DirX, int DirY)
 			Sampleplacement.rcNormalPosition.right	= Stageplacement.rcNormalPosition.left + dright;
 			Sampleplacement.rcNormalPosition.top	= Stageplacement.rcNormalPosition.top  + dtop;
 			Sampleplacement.rcNormalPosition.bottom = Stageplacement.rcNormalPosition.top  + dbottom;
-			//ï¿½lï¿½pSampleï¿½`ï¿½ï¿½
+			//lŠpSample•`‰æ
 			m_SamplePointGraph.SetWindowPlacement(&Sampleplacement);
 			m_SamplePointGraph.ShowWindow(SW_SHOW);
 		}
@@ -2390,7 +2390,7 @@ void CRecipeStageProgramView::DrawAxisCoordinate(int iOrgPos, int DirX, int DirY
 	//Saiki 20090528 Change ----->
 	//if( pDC->SelectObject( CFont::FromHandle((HFONT) GetStockObject(ANSI_FIXED_FONT) ) ) == NULL )
 	//	//MessageBox("Error in SelectObject");
-	//	MessageBox("ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[ï¿½Å‚ï¿½");
+	//	MessageBox("‘I‘ğ‚µ‚½ƒIƒuƒWƒFƒNƒg‚ªƒGƒ‰[‚Å‚·");
 	if( pDC->SelectObject( CFont::FromHandle((HFONT) GetStockObject(ANSI_FIXED_FONT) ) ) == NULL ){
 		//MessageBox("Error in SelectObject");
 		LoadStringML(IDS_ERROR_SELECT_OBJECT, strBuffer, "Error in SelectObject");
@@ -2398,7 +2398,7 @@ void CRecipeStageProgramView::DrawAxisCoordinate(int iOrgPos, int DirX, int DirY
 	}
 	//Saiki 20090528 Change <-----
 
-	///// ï¿½wï¿½iï¿½Fï¿½ğ“§–ï¿½ï¿½Éİ’ï¿½ /////
+	///// ”wŒiF‚ğ“§–¾‚Éİ’è /////
 	pDC->SetBkMode(TRANSPARENT);
 
 	///// Draw Center Position /////
@@ -2414,14 +2414,14 @@ void CRecipeStageProgramView::DrawAxisCoordinate(int iOrgPos, int DirX, int DirY
 // 2013.01.17 bagus rotate xy view <--
 
 	///// Draw Arrows /////
-	if(iOrgPos == 1){ //ï¿½\ï¿½ï¿½ï¿½ï¿½`ï¿½ï¿½
+	if(iOrgPos == 1){ //\š‚ğ•`‚­
 		pDC->MoveTo(CenterPosX - ARROW_LENGTH, CenterPosY);
 		pDC->LineTo(CenterPosX + ARROW_LENGTH, CenterPosY);
 		pDC->MoveTo(CenterPosX, CenterPosY + ARROW_LENGTH);
 		pDC->LineTo(CenterPosX, CenterPosY - ARROW_LENGTH);
 	}
 
-	if(DirX == 1 || DirY == 1){ //ï¿½Eï¿½ï¿½ï¿½ï¿½
+	if(DirX == 1 || DirY == 1){ //‰E•ûŒü
 		pDC->MoveTo(CenterPosX, CenterPosY);
 		pDC->LineTo(CenterPosX + ARROW_LENGTH, CenterPosY);
 		PT[0].x = CenterPosX + ARROW_LENGTH;
@@ -2439,7 +2439,7 @@ void CRecipeStageProgramView::DrawAxisCoordinate(int iOrgPos, int DirX, int DirY
 		pDC->TextOut(PT[0].x + 5, PT[0].y - ARROW_SIDE, csBuff);
 	}
 
-	if(DirX == 2 || DirY == 2){ //ï¿½ï¿½ï¿½ï¿½ï¿½
+	if(DirX == 2 || DirY == 2){ //ã•ûŒü
 		pDC->MoveTo(CenterPosX, CenterPosY);
 		pDC->LineTo(CenterPosX, CenterPosY - ARROW_LENGTH);
 		PT[0].x = CenterPosX;
@@ -2457,7 +2457,7 @@ void CRecipeStageProgramView::DrawAxisCoordinate(int iOrgPos, int DirX, int DirY
 		pDC->TextOut(PT[0].x - ARROW_SIDE, PT[0].y - 15, csBuff);
 	}
 
-	if(DirX == 3 || DirY == 3){ //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	if(DirX == 3 || DirY == 3){ //¶•ûŒü
 		pDC->MoveTo(CenterPosX, CenterPosY);
 		pDC->LineTo(CenterPosX - ARROW_LENGTH, CenterPosY);
 		PT[0].x = CenterPosX - ARROW_LENGTH;
@@ -2474,7 +2474,7 @@ void CRecipeStageProgramView::DrawAxisCoordinate(int iOrgPos, int DirX, int DirY
 			csBuff.Format("%s", "+Y");
 		pDC->TextOut(PT[0].x - 20, PT[0].y - ARROW_SIDE, csBuff);
 	}
-	if(DirX == 4 || DirY == 4){ //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	if(DirX == 4 || DirY == 4){ //‰º•ûŒü
 		pDC->MoveTo(CenterPosX, CenterPosY);
 		pDC->LineTo(CenterPosX, CenterPosY + ARROW_LENGTH);
 		PT[0].x = CenterPosX;
@@ -2520,7 +2520,7 @@ void CRecipeStageProgramView::DrawAxisCoordinate(int iOrgPos, int DirX, int DirY
 // 	pDC->SelectObject(&BrushRed);
 // 	pDC->SelectObject(&PenRed);
 //
-// 	///// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Lï¿½ï¿½ï¿½Íˆï¿½ /////
+// 	///// ƒXƒe[ƒW—LŒø”ÍˆÍ /////
 // 	double dStageMaxSizeX = m_StageConfig.Size.dX - (2 * m_StageConfig.Edge.dX);
 // 	double dStageMaxSizeY = m_StageConfig.Size.dY - (2 * m_StageConfig.Edge.dY);
 //
@@ -2552,7 +2552,7 @@ void CRecipeStageProgramView::DrawAxisCoordinate(int iOrgPos, int DirX, int DirY
 //
 BOOL CRecipeStageProgramView::PreTranslateMessage(MSG* pMsg)
 {
-/* modified 2009.06.16 hmenjo Stage PGM Edit Delete ï¿½Lï¿½[ï¿½sï¿½ï‡ï¿½Îï¿½ ---------- { ---------- */
+/* modified 2009.06.16 hmenjo Stage PGM Edit Delete ƒL[•s‹ï‡‘Îô ---------- { ---------- */
 //	CCellID CellID;
 //	int iRow;
 //
@@ -2568,10 +2568,10 @@ BOOL CRecipeStageProgramView::PreTranslateMessage(MSG* pMsg)
 //			}
 //		}
 //	}
-/* modified 2009.06.16 hmenjo Stage PGM Edit Delete ï¿½Lï¿½[ï¿½sï¿½ï‡ï¿½Îï¿½ ----------			   */
-	/* ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ÎÛ‚ÌƒEï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ ID ï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
+/* modified 2009.06.16 hmenjo Stage PGM Edit Delete ƒL[•s‹ï‡‘Îô ----------			   */
+	/* ƒƒbƒZ[ƒW‘ÎÛ‚ÌƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹‚©‚çƒRƒ“ƒgƒ[ƒ‹ ID ‚ğæ“¾‚µ‚Ü‚·D	*/
 	int l_iCtrlID = ::GetDlgCtrlID(pMsg->hwnd);
-	/* ï¿½Oï¿½ï¿½ï¿½bï¿½hï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ì‚İuDeleteï¿½vï¿½Lï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
+	/* ƒOƒŠƒbƒhƒRƒ“ƒgƒ[ƒ‹‚Ì‚İuDeletevƒL[‚ğˆ—‚µ‚Ü‚·D	*/
 	switch (l_iCtrlID) {
 	case IDC_MEASUREMENT_POINT_GRID:
 		if ((WM_KEYDOWN == pMsg->message) && (VK_DELETE == pMsg->wParam)) {
@@ -2582,7 +2582,7 @@ BOOL CRecipeStageProgramView::PreTranslateMessage(MSG* pMsg)
 		}
 		break;
 	}
-/* modified 2009.06.16 hmenjo Stage PGM Edit Delete ï¿½Lï¿½[ï¿½sï¿½ï‡ï¿½Îï¿½ ---------- } ---------- */
+/* modified 2009.06.16 hmenjo Stage PGM Edit Delete ƒL[•s‹ï‡‘Îô ---------- } ---------- */
 	return CNanoRecipeUI::PreTranslateMessage(pMsg);
 }
 
@@ -2616,7 +2616,7 @@ void CRecipeStageProgramView::OnEndLabelEdit(NMHDR *pNotifyStruct, LRESULT* /*pR
 }
 
 // =========================================================================
-// OnSelChangeing IDC_MEASUREMENT_POINT_GRIDï¿½Iï¿½ï¿½ï¿½sï¿½ÌƒXï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½É‚Â‚ï¿½ï¿½ÄAï¿½}ï¿½bï¿½vï¿½ÌƒXï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½Iï¿½ï¿½Fï¿½Éİ’è‚·ï¿½ï¿½
+// OnSelChangeing IDC_MEASUREMENT_POINT_GRID‘I‘ğs‚ÌƒXƒLƒƒƒ“ƒ|ƒCƒ“ƒg‚É‚Â‚¢‚ÄAƒ}ƒbƒv‚ÌƒXƒLƒƒƒ“ƒ|ƒCƒ“ƒg‚ğ‘I‘ğF‚Éİ’è‚·‚é
 void CRecipeStageProgramView::OnSelChangeing(NMHDR *pNotifyStruct, LRESULT* /*pResult*/)
 {
 	///// Draw SelectPoint /////
@@ -2628,15 +2628,15 @@ void CRecipeStageProgramView::OnSelChangeing(NMHDR *pNotifyStruct, LRESULT* /*pR
 	if ( !m_MeasurementPointGrid.IsValid(CellID) )
 		return;
 
-	//PointGraphï¿½Iï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Fï¿½ÏX
+	//PointGraph‘I‘ğƒ|ƒCƒ“ƒgF•ÏX
 	m_SamplePointGraph.Select(CellID.row-1);
 
-	//ï¿½ï¿½ï¿½İ‚Ì‘Iï¿½ğ’†ƒZï¿½ï¿½
+	//Œ»İ‚Ì‘I‘ğ’†ƒZƒ‹
 	m_CurrentCellID = CellID;
 }
 
 // ==========================================================================
-// OnSelChanged IDC_MEASUREMENT_POINT_GRIDï¿½Iï¿½ï¿½ï¿½sï¿½ÌƒXï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ÒWï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// OnSelChanged IDC_MEASUREMENT_POINT_GRID‘I‘ğs‚ÌƒXƒLƒƒƒ“•ÒWŠ®—¹
 void CRecipeStageProgramView::OnSelChanged(NMHDR *pNotifyStruct, LRESULT* /*pResult*/)
 {
 	/*
@@ -2648,7 +2648,7 @@ void CRecipeStageProgramView::OnSelChanged(NMHDR *pNotifyStruct, LRESULT* /*pRes
 	if ( !m_MeasurementPointGrid.IsValid(CellID) )
 		return;
 
-	//ï¿½ï¿½ï¿½İ‚Ì‘Iï¿½ğ’†ƒZï¿½ï¿½
+	//Œ»İ‚Ì‘I‘ğ’†ƒZƒ‹
 	m_CurrentCellID = CellID;
 	*/
 }
@@ -2662,13 +2662,13 @@ BOOL CRecipeStageProgramView::IsAccessPrivilege()
 }
 
 // =========================================================================
-// ï¿½fï¿½[ï¿½^ï¿½jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½CleanUpï¿½ï¿½ï¿½ï¿½
+// ƒf[ƒ^”jŠü‚ÌCleanUpˆ—
 void CRecipeStageProgramView::Discard()
 {
 	char szFilePath[MAX_PATH + 1];
 	char szFilePathBackUp[MAX_PATH + 1];
 
-	// ï¿½pï¿½^ï¿½[ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½æ‘œï¿½iï¿½Ş”ï¿½ï¿½jï¿½Ì–ß‚ï¿½
+	// ƒpƒ^[ƒ“”F¯‰æ‘œi‘Ş”ğj‚Ì–ß‚µ
 	_stprintf(szFilePathBackUp, "%s_BackUp.D1", g_szDb_Deskew_Img_Dir);
 	_stprintf(szFilePath, "%s%s.D1", g_szDb_Deskew_Img_Dir, m_OldStageProgInfoHdr.hdr.szName);
 	::CopyFile(szFilePathBackUp, szFilePath, FALSE);
@@ -2711,35 +2711,35 @@ void CRecipeStageProgramView::SamplePointGraph_Init()
 	tConfig.OriginColor = GREEN_COLOR;
 	// 2013.01.09 bagus -->
 
-	////CNanoPointGraphï¿½Nï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½Tï¿½Cï¿½Y(Sample Size)
-// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
+	////CNanoPointGraphƒNƒ‰ƒX“àƒTƒCƒY(Sample Size)
+// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
 //	tConfig.SampleSizeX = m_StageProgInfoHdr.SampleInfo.Size.dx;
 //	tConfig.SampleSizeY = m_StageProgInfoHdr.SampleInfo.Size.dy;
 // 	if (((m_StageConfig.Dir.X == 2) || (m_StageConfig.Dir.X == 4)) && ((m_StageConfig.Dir.Y == 1) || (m_StageConfig.Dir.Y == 3))) {
-// 		// X<->Yï¿½ï¿½ï¿½ï¿½Ö‚ï¿½
+// 		// X<->Y“ü‚ê‘Ö‚¦
 // 		tConfig.SampleSizeY = m_StageProgInfoHdr.SampleInfo.Size.dx;
 // 		tConfig.SampleSizeX = m_StageProgInfoHdr.SampleInfo.Size.dy;
 // 	} else if (((m_StageConfig.Dir.X == 1) || (m_StageConfig.Dir.X == 3)) && ((m_StageConfig.Dir.Y == 2) || (m_StageConfig.Dir.Y == 4))) {
-// 		// X-Yï¿½ï¿½ï¿½Ì‚Ü‚ï¿½
+// 		// X-Y‚»‚Ì‚Ü‚Ü
 // 		tConfig.SampleSizeX = m_StageProgInfoHdr.SampleInfo.Size.dx;
 // 		tConfig.SampleSizeY = m_StageProgInfoHdr.SampleInfo.Size.dy;
 // 	} else {
-// 		// ï¿½ï¿½ï¿½İ’è‚ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// 		// –îˆóİ’è‚ª‚¨‚©‚µ‚¢
 // 	}
 // 2013.01.17 bagus rotate xy view -->
 	double dSampleSizeX;
 	double dSampleSizeY;
 
 	if (((m_StageConfig.Dir.X == 2) || (m_StageConfig.Dir.X == 4)) && ((m_StageConfig.Dir.Y == 1) || (m_StageConfig.Dir.Y == 3))) {
-		// X<->Yï¿½ï¿½ï¿½ï¿½Ö‚ï¿½
+		// X<->Y“ü‚ê‘Ö‚¦
 		dSampleSizeY = m_StageProgInfoHdr.SampleInfo.Size.dx;
 		dSampleSizeX = m_StageProgInfoHdr.SampleInfo.Size.dy;
 	} else if (((m_StageConfig.Dir.X == 1) || (m_StageConfig.Dir.X == 3)) && ((m_StageConfig.Dir.Y == 2) || (m_StageConfig.Dir.Y == 4))) {
-		// X-Yï¿½ï¿½ï¿½Ì‚Ü‚ï¿½
+		// X-Y‚»‚Ì‚Ü‚Ü
 		dSampleSizeX = m_StageProgInfoHdr.SampleInfo.Size.dx;
 		dSampleSizeY = m_StageProgInfoHdr.SampleInfo.Size.dy;
 	} else {
-		// ï¿½ï¿½ï¿½İ’è‚ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		// –îˆóİ’è‚ª‚¨‚©‚µ‚¢
 	}
 
 	double dTemp;
@@ -2761,7 +2761,7 @@ void CRecipeStageProgramView::SamplePointGraph_Init()
 	tConfig.SampleSizeY = dSampleSizeY;
 // 2013.01.17 bagus rotate xy view <--
 
-// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
+// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
 	m_SamplePointGraph.SetConfig(&tConfig);
 
 	SamplePointGraph_DataSet();
@@ -2775,8 +2775,8 @@ void CRecipeStageProgramView::SamplePointGraph_DataSet()
 	m_SamplePointGraph.Reset();
 
 	////Point Data
-	//ï¿½Zï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½_ï¿½Ìê‡
-// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
+	//ƒZƒ“ƒ^[Œ´“_‚Ìê‡
+// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
 //	double dOffSetValueX = (m_StageProgInfoHdr.SampleInfo.Size.dx/2);
 //	double dOffSetValueY = (m_StageProgInfoHdr.SampleInfo.Size.dy/2);
 	double dOffSetValueX;
@@ -2803,10 +2803,10 @@ void CRecipeStageProgramView::SamplePointGraph_DataSet()
 	case 2:		// Left & Top
 // 2013.01.17 bagus rotate xy view -->
 // 		dOffSetValueX = 0;
-// // 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
+// // 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
 // //		dOffSetValueY = m_StageProgInfoHdr.SampleInfo.Size.dy;
 // 		dOffSetValueY = 0;
-// 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
+// 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
 		dOffSetValueX = 0;
 		dOffSetValueY = 0;
 		switch ( m_StageConfig.RotateXyView ) {
@@ -2829,10 +2829,10 @@ void CRecipeStageProgramView::SamplePointGraph_DataSet()
 	case 3:		// Left & Bottom
 // 2013.01.17 bagus rotate xy view -->
 //		dOffSetValueX = 0;
-// // 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
+// // 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
 // //		dOffSetValueY = 0;
 // 		dOffSetValueY = m_StageProgInfoHdr.SampleInfo.Size.dy;
-// // 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
+// // 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
 		dOffSetValueX = 0;
 		dOffSetValueY = 0;
 		switch ( m_StageConfig.RotateXyView ) {
@@ -2855,10 +2855,10 @@ void CRecipeStageProgramView::SamplePointGraph_DataSet()
 	case 4:		// Right & Bottom
 // 2013.01.17 bagus rotate xy view -->
 // 		dOffSetValueX = m_StageProgInfoHdr.SampleInfo.Size.dx;
-// // 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
+// // 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
 // //		dOffSetValueY = 0;
 // 		dOffSetValueY = m_StageProgInfoHdr.SampleInfo.Size.dy;
-// // 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
+// // 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
 		dOffSetValueX = 0;
 		dOffSetValueY = 0;
 		switch ( m_StageConfig.RotateXyView ) {
@@ -2882,10 +2882,10 @@ void CRecipeStageProgramView::SamplePointGraph_DataSet()
 	case 5:		// Right & Top
 // 2013.01.17 bagus rotate xy view -->
 // 		dOffSetValueX = m_StageProgInfoHdr.SampleInfo.Size.dx;
-// // 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
+// // 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
 // //		dOffSetValueY = m_StageProgInfoHdr.SampleInfo.Size.dy;
 // 		dOffSetValueY = 0;
-// // 2009.09.08 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
+// // 2009.09.08 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
 		dOffSetValueX = 0;
 		dOffSetValueY = 0;
 		switch ( m_StageConfig.RotateXyView ) {
@@ -2906,7 +2906,7 @@ void CRecipeStageProgramView::SamplePointGraph_DataSet()
 // 2013.01.17 bagus rotate xy view <--
 		break;
 	}
-// 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
+// 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
 
 // 2013.01.09 bagus -->
 	double dOriginPointDataX;
@@ -2958,73 +2958,73 @@ void CRecipeStageProgramView::SamplePointGraph_DataSet()
 
 	for(int iPoint= 0; iPoint<m_StageProgInfoHdr.wNumScans; iPoint++){
 // 2013.01.17 bagus rotate xy view -->
-// // 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --{--
+// // 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --{--
 // //		Scan_PointIncOffsetX = m_ScanPoint[iPoint].lX + dOffSetValueX;
 // //		Scan_PointIncOffsetY = -(m_ScanPoint[iPoint].lY - dOffSetValueY);
 // 		switch (m_StageConfig.Dir.X) {
-// 		case 1:		// X:ï¿½ï¿½
+// 		case 1:		// X:¨
 // 		default:
 // 			Scan_PointIncOffsetX = dOffSetValueX + m_ScanPoint[iPoint].lX;
 // 			break;
-// 		case 2:		// X:ï¿½ï¿½
+// 		case 2:		// X:ª
 // 			Scan_PointIncOffsetY = dOffSetValueX - m_ScanPoint[iPoint].lX;
 // 			break;
-// 		case 3:		// X:ï¿½ï¿½
+// 		case 3:		// X:©
 // 			Scan_PointIncOffsetX = dOffSetValueX - m_ScanPoint[iPoint].lX;
 // 			break;
-// 		case 4:		// X:ï¿½ï¿½
+// 		case 4:		// X:«
 // 			Scan_PointIncOffsetY = dOffSetValueX + m_ScanPoint[iPoint].lX;
 // 			break;
 // 		}
 //
 // 		switch (m_StageConfig.Dir.Y) {
-// 		case 1:		// Y:ï¿½ï¿½
+// 		case 1:		// Y:¨
 // 			Scan_PointIncOffsetX = dOffSetValueY + m_ScanPoint[iPoint].lY;
 // 			break;
-// 		case 2:		// Y:ï¿½ï¿½
+// 		case 2:		// Y:ª
 // 		default:
 // 			Scan_PointIncOffsetY = dOffSetValueY - m_ScanPoint[iPoint].lY;
 // 			break;
-// 		case 3:		// Y:ï¿½ï¿½
+// 		case 3:		// Y:©
 // 			Scan_PointIncOffsetX = dOffSetValueY - m_ScanPoint[iPoint].lY;
 // 			break;
-// 		case 4:		// Y:ï¿½ï¿½
+// 		case 4:		// Y:«
 // 			Scan_PointIncOffsetY = dOffSetValueY + m_ScanPoint[iPoint].lY;
 // 			break;
 // 		}
-// // 2009.09.07 bagus stress ï¿½ï¿½ï¿½_ï¿½Ê’uï¿½Î‰ï¿½ --}--
+// // 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ --}--
 
 		dScanPointX = m_ScanPoint[iPoint].lX;
 		dScanPointY = m_ScanPoint[iPoint].lY;
 
 		switch (lDirX) {
-		case 1:		// X:ï¿½ï¿½
+		case 1:		// X:¨
 		default:
 			Scan_PointIncOffsetX = dOffSetValueX + dScanPointX;
 			break;
-		case 2:		// X:ï¿½ï¿½
+		case 2:		// X:ª
 			Scan_PointIncOffsetY = dOffSetValueX - dScanPointX;
 			break;
-		case 3:		// X:ï¿½ï¿½
+		case 3:		// X:©
 			Scan_PointIncOffsetX = dOffSetValueX - dScanPointX;
 			break;
-		case 4:		// X:ï¿½ï¿½
+		case 4:		// X:«
 			Scan_PointIncOffsetY = dOffSetValueX + dScanPointX;
 			break;
 		}
 
 		switch (lDirY) {
-		case 1:		// Y:ï¿½ï¿½
+		case 1:		// Y:¨
 			Scan_PointIncOffsetX = dOffSetValueY + dScanPointY;
 			break;
-		case 2:		// Y:ï¿½ï¿½
+		case 2:		// Y:ª
 		default:
 			Scan_PointIncOffsetY = dOffSetValueY - dScanPointY;
 			break;
-		case 3:		// Y:ï¿½ï¿½
+		case 3:		// Y:©
 			Scan_PointIncOffsetX = dOffSetValueY - dScanPointY;
 			break;
-		case 4:		// Y:ï¿½ï¿½
+		case 4:		// Y:«
 			Scan_PointIncOffsetY = dOffSetValueY + dScanPointY;
 			break;
 		}
@@ -3057,32 +3057,32 @@ void CRecipeStageProgramView::OnRedrawPointMap()
 
 void CRecipeStageProgramView::OnSitePrSetButton()
 {
-// 2010.02.02 K.Matsuo PIN UPPER ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½`ï¿½Fï¿½bï¿½Nï¿½Rï¿½ï¿½Î‰ï¿½ -->
+// 2010.02.02 K.Matsuo PIN UPPER ƒCƒ“ƒ^[ƒƒbƒNƒ`ƒFƒbƒN˜R‚ê‘Î‰ -->
 	CString strMsg;
 
-	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½X
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;} // ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Ùï¿½
+	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return;} // ƒƒ“ƒeƒiƒ“ƒXˆÙí
 	}
-	else{												// ï¿½Êí“®ï¿½ï¿½
+	else{												// ’Êí“®ì
 	}
-	// ï¿½eI/Oï¿½`ï¿½Fï¿½bï¿½N
+	// ŠeI/Oƒ`ƒFƒbƒN
 	if(m_pDoc->IsInterLock() == TRUE){return;}
-	if( nexioIsMovo2Alarm() 	!= OFF){	AlarmIf_Set(ALID_StageError);	return;} // MOVOï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ 				ï¿½ï¿½ï¿½k
+	if( nexioIsMovo2Alarm() 	!= OFF){	AlarmIf_Set(ALID_StageError);	return;} // MOVOƒAƒ‰[ƒ€ 				‚k
 	if(m_pDoc->CheckUnitStatus() == TRUE){return;}
 
-	// ï¿½Vï¿½ï¿½ï¿½bï¿½^ï¿½[ï¿½ÈŠOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ç“®ï¿½ï¿½Ö~
+	// ƒVƒƒƒbƒ^[ˆÈŠO‚ª“®‚¢‚Ä‚¢‚½‚ç“®ì‹Ö~
 	if( m_pMainFrame->GetJoyStickMode()==0 ){
 		if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 			LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 			m_pDoc->MessageStringIf_Set(strMsg);
 			return;
-		}	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ì’†
+		}	// ƒXƒe[ƒW“®ì’†
 	}
 	if(m_pDoc->CheckActiveFlag() == TRUE){return;}
 
-	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-// 2010.02.02 K.Matsuo PIN UPPER ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½`ï¿½Fï¿½bï¿½Nï¿½Rï¿½ï¿½Î‰ï¿½ <--
+	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
+// 2010.02.02 K.Matsuo PIN UPPER ƒCƒ“ƒ^[ƒƒbƒNƒ`ƒFƒbƒN˜R‚ê‘Î‰ <--
 
 	if ( !CheckData() )
 		return;
@@ -3104,7 +3104,7 @@ void CRecipeStageProgramView::OnSitePrDelButton()
 }
 
 // 2013.01.09 bagus -->
-// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --{--
+// 2009.10.24 bagus 2“_ŠÔ C³ --{--
 BOOL CRecipeStageProgramView::CheckValidPointX(long lPointX)
 {
 // 	long lMax, lMin;
@@ -3151,31 +3151,31 @@ BOOL CRecipeStageProgramView::CheckValidPointX(long lPointX)
 	}
 
 	switch ( m_StageConfig.OrgPos ) {
-	case 1: // ï¿½ï¿½ï¿½S
+	case 1: // ’†S
 		coordLeftTop.lX = dSampleSizeX / 2 * -1;
 		coordLeftTop.lY = dSampleSizeY / 2;
 		coordRightBottom.lX = dSampleSizeX / 2;
 		coordRightBottom.lY = dSampleSizeY / 2 * -1;
 		break;
-	case 2: // ï¿½ï¿½ï¿½ï¿½
+	case 2: // ¶ã
 		coordLeftTop.lX = 0;
 		coordLeftTop.lY = 0;
 		coordRightBottom.lX = dSampleSizeX;
 		coordRightBottom.lY = dSampleSizeY * -1;
 		break;
-	case 3: // ï¿½ï¿½ï¿½ï¿½
+	case 3: // ¶‰º
 		coordLeftTop.lX = 0;
 		coordLeftTop.lY = dSampleSizeY;
 		coordRightBottom.lX = dSampleSizeX;
 		coordRightBottom.lY = 0;
 		break;
-	case 4: // ï¿½Eï¿½ï¿½
+	case 4: // ‰E‰º
 		coordLeftTop.lX = dSampleSizeX * -1;
 		coordLeftTop.lY = dSampleSizeY;
 		coordRightBottom.lX = 0;
 		coordRightBottom.lY = 0;
 		break;
-	case 5: // ï¿½Eï¿½ï¿½
+	case 5: // ‰Eã
 		coordLeftTop.lX = dSampleSizeX * -1;
 		coordLeftTop.lY = 0;
 		coordRightBottom.lX = 0;
@@ -3183,7 +3183,7 @@ BOOL CRecipeStageProgramView::CheckValidPointX(long lPointX)
 		break;
 	}
 
-	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Rï¿½ï¿½ï¿½tï¿½Bï¿½Oï¿½Ìï¿½ï¿½İ’ï¿½Æï¿½ï¿½í‚¹ï¿½ï¿½
+	// ƒXƒe[ƒWƒRƒ“ƒtƒBƒO‚Ì²İ’è‚Æ‡‚í‚¹‚é
 	NS_ConvertToStageConfigXyAxis(&coordLeftTop);
 	NS_ConvertToStageConfigXyAxis(&coordRightBottom);
 
@@ -3244,31 +3244,31 @@ BOOL CRecipeStageProgramView::CheckValidPointY(long lPointY)
 	}
 
 	switch ( m_StageConfig.OrgPos ) {
-	case 1: // ï¿½ï¿½ï¿½S
+	case 1: // ’†S
 		coordLeftTop.lX = dSampleSizeX / 2 * -1;
 		coordLeftTop.lY = dSampleSizeY / 2;
 		coordRightBottom.lX = dSampleSizeX / 2;
 		coordRightBottom.lY = dSampleSizeY / 2 * -1;
 		break;
-	case 2: // ï¿½ï¿½ï¿½ï¿½
+	case 2: // ¶ã
 		coordLeftTop.lX = 0;
 		coordLeftTop.lY = 0;
 		coordRightBottom.lX = dSampleSizeX;
 		coordRightBottom.lY = dSampleSizeY * -1;
 		break;
-	case 3: // ï¿½ï¿½ï¿½ï¿½
+	case 3: // ¶‰º
 		coordLeftTop.lX = 0;
 		coordLeftTop.lY = dSampleSizeY;
 		coordRightBottom.lX = dSampleSizeX;
 		coordRightBottom.lY = 0;
 		break;
-	case 4: // ï¿½Eï¿½ï¿½
+	case 4: // ‰E‰º
 		coordLeftTop.lX = dSampleSizeX * -1;
 		coordLeftTop.lY = dSampleSizeY;
 		coordRightBottom.lX = 0;
 		coordRightBottom.lY = 0;
 		break;
-	case 5: // ï¿½Eï¿½ï¿½
+	case 5: // ‰Eã
 		coordLeftTop.lX = dSampleSizeX * -1;
 		coordLeftTop.lY = 0;
 		coordRightBottom.lX = 0;
@@ -3276,7 +3276,7 @@ BOOL CRecipeStageProgramView::CheckValidPointY(long lPointY)
 		break;
 	}
 
-	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Rï¿½ï¿½ï¿½tï¿½Bï¿½Oï¿½Ìï¿½ï¿½İ’ï¿½Æï¿½ï¿½í‚¹ï¿½ï¿½
+	// ƒXƒe[ƒWƒRƒ“ƒtƒBƒO‚Ì²İ’è‚Æ‡‚í‚¹‚é
 	NS_ConvertToStageConfigXyAxis(&coordLeftTop);
 	NS_ConvertToStageConfigXyAxis(&coordRightBottom);
 
@@ -3290,5 +3290,5 @@ BOOL CRecipeStageProgramView::CheckValidPointY(long lPointY)
 
 	return TRUE;
 }
-// 2009.10.24 bagus 2ï¿½_ï¿½ï¿½ ï¿½Cï¿½ï¿½ --}--
+// 2009.10.24 bagus 2“_ŠÔ C³ --}--
 // 2013.01.09 bagus <--

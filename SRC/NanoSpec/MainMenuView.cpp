@@ -275,7 +275,7 @@ void CMainMenuView::RefreshDlg(BOOL bInit /* = FALSE */)
 	BOOL flag = FALSE;
 	CString sBuff;
 	char szUserName[MAX_PATH];
-	static char szOld_UserName[MAX_PATH] = {static_cast<char>(-1)};
+	static char szOld_UserName[MAX_PATH] = {-1};
 	//Saiki 20090527 Add ----->
 	SYSTEM_CONFIG l_SystemConfig;
 	ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);

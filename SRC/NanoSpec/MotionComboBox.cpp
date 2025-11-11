@@ -1,4 +1,4 @@
-// MotionComboBox.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
+// MotionComboBox.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
 //
 
 #include "stdafx.h"
@@ -24,9 +24,9 @@ std::list<HWND> CTypeComboBox::m_hWndList;
 
 CTypeComboBox::CTypeComboBox()
 {
-/* added 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Íwï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
+/* added 2009.12.09 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- { ---------- */
 	m_bSelChanged = FALSE;
-/* added 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Íwï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- } ---------- */
+/* added 2009.12.09 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- } ---------- */
 }
 
 CTypeComboBox::~CTypeComboBox()
@@ -48,7 +48,7 @@ END_MESSAGE_MAP()
 LRESULT CTypeComboBox::OnSelectHeadTypeNotify(WPARAM wParam, LPARAM lParam)
 {
 	int nHeadType = NS_GetCurrentHeadType();
-	int nCount = static_cast<int>(GetCount());
+	int nCount = GetCount();
 
 	for ( int i = 0; i < nCount; i++ ) {
 		if ( GetItemData(i) == nHeadType ) {
@@ -70,30 +70,30 @@ void CTypeComboBox::PreSubclassWindow()
 	int iSel;
 
 	ConfigFile_GetNanoSpecIni(&m_HeadType, CONFIG_FILE_HEAD_TYPE_CONFIG);
-	// ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½wï¿½bï¿½hï¿½Ì‚İ•\ï¿½ï¿½
+	// ‘I‘ğ‚³‚ê‚Ä‚¢‚éƒwƒbƒh‚Ì‚İ•\¦
 	if(m_HeadType.bSR){
 		iSel = AddString(HEAD_TYPE_ITEM[HEAD_TYPE_SR]);
 		SetItemData(iSel, HEAD_TYPE_SR);
 	}
 	if(m_HeadType.bSE){
-		// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
+		// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
 		if(m_HeadType.bCompEASE) {
 			iSel = AddString(HEAD_TYPE_ITEM[HEAD_TYPE_COMPEASE]);
 		}
 		else {
 		iSel = AddString(HEAD_TYPE_ITEM[HEAD_TYPE_SE]);
 		}
-		// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
+		// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
 		SetItemData(iSel, HEAD_TYPE_SE);
 	}
-// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --{--
+// 2009.10.19 bagus MS ’Ç‰Á --{--
 #if 0
 	if(m_HeadType.bIRSE){
 		iSel = AddString(HEAD_TYPE_ITEM[HEAD_TYPE_IRSE]);
 		SetItemData(iSel, HEAD_TYPE_IRSE);
 	}
 #endif
-// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --}--
+// 2009.10.19 bagus MS ’Ç‰Á --}--
 	if(m_HeadType.bResist){
 		iSel = AddString(HEAD_TYPE_ITEM[HEAD_TYPE_4PP]);
 		SetItemData(iSel, HEAD_TYPE_4PP);
@@ -106,12 +106,12 @@ void CTypeComboBox::PreSubclassWindow()
 		iSel = AddString(HEAD_TYPE_ITEM[HEAD_TYPE_STRESS]);
 		SetItemData(iSel, HEAD_TYPE_STRESS);
 	}
-// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --{--
+// 2009.10.19 bagus MS ’Ç‰Á --{--
 	if(m_HeadType.bMS){
 		iSel = AddString(HEAD_TYPE_ITEM[HEAD_TYPE_MS]);
 		SetItemData(iSel, HEAD_TYPE_MS);
 	}
-// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --}--
+// 2009.10.19 bagus MS ’Ç‰Á --}--
 
 	::PostMessage(m_hWnd, WM_SELHEADTYPECHANGE, 0L, 0L);
 	CComboBox::PreSubclassWindow();
@@ -137,7 +137,7 @@ BOOL CTypeComboBox::PreTranslateMessage(MSG* pMsg)
 			}
 		}
 		else if( pMsg->message == WM_LBUTTONDBLCLK ){
-			// ï¿½_ï¿½uï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ÉŒë“®ï¿½ì‚·ï¿½é–ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Å”rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			// ƒ_ƒuƒ‹ƒNƒŠƒbƒN‚ÉŒë“®ì‚·‚é–‚ª‚ ‚é‚Ì‚Å”rœ‚·‚é
 			return TRUE;
 		}
 	}
@@ -155,34 +155,34 @@ BOOL CTypeComboBox::CheckIL()
 	CMainFrame* m_pMainFrame = (CMainFrame*)AfxGetMainWnd();
 	CNanoSpecDoc* m_pDoc = (CNanoSpecDoc*)m_pMainFrame->GetActiveDocument();
 
-	//ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½Í‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
+	//ƒŠƒ‚[ƒg‚Í‰½‚à‚µ‚È‚¢
 	if(m_pDoc->GetHostMode() == HOST_REMOTE) return FALSE;
 
-	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½X
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return FALSE;}	// ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Ùï¿½
+	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return FALSE;}	// ƒƒ“ƒeƒiƒ“ƒXˆÙí
 	}
-	else{												// ï¿½Êí“®ï¿½ï¿½
-		if( nexioIsMaintenanceSwitch() != ON ){ 	AlarmIf_Set(ALID_MaintenanceSwitchOn); 	return FALSE;}	// ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Eï¿½Xï¿½Cï¿½bï¿½`ï¿½Eï¿½Iï¿½ï¿½
+	else{												// ’Êí“®ì
+		if( nexioIsMaintenanceSwitch() != ON ){ 	AlarmIf_Set(ALID_MaintenanceSwitchOn); 	return FALSE;}	// ƒƒ“ƒeƒiƒ“ƒXEƒXƒCƒbƒ`EƒIƒ“
 	}
-	// ï¿½eI/Oï¿½`ï¿½Fï¿½bï¿½N
+	// ŠeI/Oƒ`ƒFƒbƒN
 	/*//Saiki 20090520 Change ----->*/
 	if(m_pDoc->IsInterLock() == TRUE){return FALSE;}
-	if( nexioIsMovo2Alarm() 	!= OFF){	AlarmIf_Set(ALID_StageError);	return FALSE;}	// MOVOï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ 				ï¿½ï¿½ï¿½k
+	if( nexioIsMovo2Alarm() 	!= OFF){	AlarmIf_Set(ALID_StageError);	return FALSE;}	// MOVOƒAƒ‰[ƒ€ 				‚k
 	if(m_pDoc->CheckUnitStatus() == TRUE){return FALSE;}
 	/*//Saiki 20090520 Change <-----*/
-	// ï¿½Vï¿½ï¿½ï¿½bï¿½^ï¿½[ï¿½ÈŠOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ç“®ï¿½ï¿½Ö~
+	// ƒVƒƒƒbƒ^[ˆÈŠO‚ª“®‚¢‚Ä‚¢‚½‚ç“®ì‹Ö~
 	if( m_pMainFrame->GetJoyStickMode()==0 ){
 		if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 			LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 			m_pDoc->MessageStringIf_Set(strMsg);
 			return FALSE;
-		}	 // ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ì’†
+		}	 // ƒXƒe[ƒW“®ì’†
 	}
 	/*//Saiki 20090520 Change ----->*/
 	if(m_pDoc->CheckActiveFlag() == TRUE){return FALSE;}
 	/*//Saiki 20090520 Change <-----*/
-	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
 
 	return TRUE;
 }
@@ -194,12 +194,12 @@ void CTypeComboBox::OnSelchange()
 	CMainFrame* m_pMainFrame = (CMainFrame*)AfxGetMainWnd();
 	CNanoSpecDoc* m_pDoc = (CNanoSpecDoc*)m_pMainFrame->GetActiveDocument();
 
-	// ï¿½Iï¿½ï¿½ï¿½Jï¿½[ï¿½\ï¿½ï¿½ï¿½Ì“ï¿½ï¿½ï¿½
+	// ‘I‘ğƒJ[ƒ\ƒ‹‚Ì“¯Šú
 	int nSelect = GetCurSel();
 	for ( std::list<HWND>::iterator i = m_hWndList.begin(); i != m_hWndList.end(); i++ )
 //		::PostMessage(*i, WM_SELHEADTYPECHANGE, 0L, 0L);
 		ComboBox_SetCurSel(*i, nSelect);
-	// ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½ÏX
+	// ƒwƒbƒhƒ^ƒCƒv•ÏX
 	int nItemData = GetItemData(nSelect);
 	CCursor::BeginWaitCursor();
 	m_pDoc->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);
@@ -207,11 +207,11 @@ void CTypeComboBox::OnSelchange()
 	m_pDoc->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);
 	CCursor::EndWaitCursor();
 
-	// ï¿½Kï¿½ï¿½JoyStickï¿½Ìï¿½Ô‚ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½
+	// •K‚¸JoyStick‚Ìó‘Ô‚ğ–ß‚·‚±‚Æ
 	m_pDoc->JoyStickStatusRestore();
-/* added 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Íwï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- { ---------- */
+/* added 2009.12.09 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- { ---------- */
 	m_bSelChanged = TRUE;
-/* added 2009.12.09 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Íwï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½) ---------- } ---------- */
+/* added 2009.12.09 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(’Ç‰Á‰ü‘¢) ---------- } ---------- */
 }
 
 // ==========================================================================
@@ -221,7 +221,7 @@ void CTypeComboBox::OnSelendcancel()
 	CMainFrame* m_pMainFrame = (CMainFrame*)AfxGetMainWnd();
 	CNanoSpecDoc* m_pDoc = (CNanoSpecDoc*)m_pMainFrame->GetActiveDocument();
 
-	// ï¿½Kï¿½ï¿½JoyStickï¿½Ìï¿½Ô‚ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½
+	// •K‚¸JoyStick‚Ìó‘Ô‚ğ–ß‚·‚±‚Æ
 	m_pDoc->JoyStickStatusRestore();
 }
 
@@ -280,7 +280,7 @@ void CMotionComboBox::PreSubclassWindow()
 
 	if(l_SystemConfig.nLanguage == 0){
 		PCSTR pszString[] = MOTION_MODE_STAGE_STR_INIT_ENU;
-// 2013.11.08 Bagus Del (TohoSpecï¿½Î‰ï¿½) -->
+// 2013.11.08 Bagus Del (TohoSpec‘Î‰) -->
 //		if(m_SystemConfig1.nStageType == STAGE_TYPE_SPT){
 //			for ( int index = 0; index < STAGE_MOTION_MAX; index++ ){
 //				nIndex = AddString(pszString[index]);
@@ -288,32 +288,32 @@ void CMotionComboBox::PreSubclassWindow()
 //			}
 //		}
 //		else{
-// 2013.11.08 Bagus Del (TohoSpecï¿½Î‰ï¿½) <--
+// 2013.11.08 Bagus Del (TohoSpec‘Î‰) <--
 			for ( int index = 0; index < (STAGE_MOTION_MAX-3); index++ ){
 				nIndex = AddString(pszString[index]);
 				SetItemData(nIndex, index);
 			}
-// 2013.11.08 Bagus Del (TohoSpecï¿½Î‰ï¿½) -->
+// 2013.11.08 Bagus Del (TohoSpec‘Î‰) -->
 //		}
-// 2013.11.08 Bagus Del (TohoSpecï¿½Î‰ï¿½) <--
+// 2013.11.08 Bagus Del (TohoSpec‘Î‰) <--
 	}
 	else{
 		PCSTR pszString[] = MOTION_MODE_STAGE_STR_INIT_JPN;
-// 2013.11.08 Bagus Del (TohoSpecï¿½Î‰ï¿½) -->
+// 2013.11.08 Bagus Del (TohoSpec‘Î‰) -->
 //		if(m_SystemConfig1.nStageType == STAGE_TYPE_SPT){
 //			for ( int index = 0; index < STAGE_MOTION_MAX; index++ ){
 //				nIndex = AddString(pszString[index]);
 //				SetItemData(nIndex, index);
 //			}
 //		}else{
-// 2013.11.08 Bagus Del (TohoSpecï¿½Î‰ï¿½) <--
+// 2013.11.08 Bagus Del (TohoSpec‘Î‰) <--
 			for ( int index = 0; index < (STAGE_MOTION_MAX-3); index++ ){
 				nIndex = AddString(pszString[index]);
 				SetItemData(nIndex, index);
 			}
-// 2013.11.08 Bagus Del (TohoSpecï¿½Î‰ï¿½) -->
+// 2013.11.08 Bagus Del (TohoSpec‘Î‰) -->
 //		}
-// 2013.11.08 Bagus Del (TohoSpecï¿½Î‰ï¿½) <--
+// 2013.11.08 Bagus Del (TohoSpec‘Î‰) <--
 	}
 	// Kojika 20090528 Change End
 
@@ -329,7 +329,7 @@ BOOL CMotionComboBox::PreTranslateMessage(MSG* pMsg)
 			if( !CheckIL() )	return TRUE;
 		}
 		else if( pMsg->message == WM_LBUTTONDBLCLK ){
-			// ï¿½_ï¿½uï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ÉŒë“®ï¿½ì‚·ï¿½é–ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Å”rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			// ƒ_ƒuƒ‹ƒNƒŠƒbƒN‚ÉŒë“®ì‚·‚é–‚ª‚ ‚é‚Ì‚Å”rœ‚·‚é
 			return TRUE;
 		}
 	}
@@ -347,14 +347,14 @@ BOOL CMotionComboBox::CheckIL()
 	CMainFrame* m_pMainFrame = (CMainFrame*)AfxGetMainWnd();
 	CNanoSpecDoc* m_pDoc = (CNanoSpecDoc*)m_pMainFrame->GetActiveDocument();
 
-	//ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½Í‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
+	//ƒŠƒ‚[ƒg‚Í‰½‚à‚µ‚È‚¢
 	if(m_pDoc->GetHostMode() == HOST_REMOTE) return FALSE;
 
-	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½X
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return FALSE;}	// ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Ùï¿½
+	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return FALSE;}	// ƒƒ“ƒeƒiƒ“ƒXˆÙí
 	}
-	else{												// ï¿½Êí“®ï¿½ï¿½
+	else{												// ’Êí“®ì
 	}
 	if( m_pMainFrame->GetJoyStickMode()==0 ){
 		//Saiki 20090531 Change ----->
@@ -362,10 +362,10 @@ BOOL CMotionComboBox::CheckIL()
 			LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 			m_pDoc->MessageStringIf_Set(strMsg);
 			return FALSE;
-		}	 // ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ì’†
+		}	 // ƒXƒe[ƒW“®ì’†
 		//Saiki 20090531 Change <-----
 	}
-	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
 
 	return TRUE;
 }
@@ -450,25 +450,25 @@ void CMotionElevComboBox::PreSubclassWindow()
 
 	if(l_SystemConfig.nLanguage == 0){
 		PCSTR pszString[] = MOTION_MODE_ELEVATOR_STR_INIT_ENU;
-// 2013.11.08 Bagus Del (TohoSpecï¿½Î‰ï¿½) -->
+// 2013.11.08 Bagus Del (TohoSpec‘Î‰) -->
 //		if(m_SystemConfig2.nStageType == STAGE_TYPE_SPT){
 //			for ( int index = 0; index < STAGE_MOTION_MAX-2; index++ ){
 //				nIndex = AddString(pszString[index]);
 //				SetItemData(nIndex, index);
 //	}
 //		}else{
-// 2013.11.08 Bagus Del (TohoSpecï¿½Î‰ï¿½) <--
+// 2013.11.08 Bagus Del (TohoSpec‘Î‰) <--
 			for ( int index = 0; index < (STAGE_MOTION_MAX-3); index++ ){
 				nIndex = AddString(pszString[index]);
 				SetItemData(nIndex, index);
 			}
-// 2013.11.08 Bagus Del (TohoSpecï¿½Î‰ï¿½) -->
+// 2013.11.08 Bagus Del (TohoSpec‘Î‰) -->
 //		}
-// 2013.11.08 Bagus Del (TohoSpecï¿½Î‰ï¿½) <--
+// 2013.11.08 Bagus Del (TohoSpec‘Î‰) <--
 	}
 	else{
 		PCSTR pszString[] = MOTION_MODE_ELEVATOR_STR_INIT_JPN;
-// 2013.11.08 Bagus Del (TohoSpecï¿½Î‰ï¿½) -->
+// 2013.11.08 Bagus Del (TohoSpec‘Î‰) -->
 //		if(m_SystemConfig2.nStageType == STAGE_TYPE_SPT){
 //			for ( int index = 0; index < STAGE_MOTION_MAX-2; index++ ){
 //				nIndex = AddString(pszString[index]);
@@ -476,14 +476,14 @@ void CMotionElevComboBox::PreSubclassWindow()
 //			}
 //		}
 //		else{
-// 2013.11.08 Bagus Del (TohoSpecï¿½Î‰ï¿½) <--
+// 2013.11.08 Bagus Del (TohoSpec‘Î‰) <--
 			for ( int index = 0; index < (STAGE_MOTION_MAX-3); index++ ){
 				nIndex = AddString(pszString[index]);
 				SetItemData(nIndex, index);
 			}
-// 2013.11.08 Bagus Del (TohoSpecï¿½Î‰ï¿½) -->
+// 2013.11.08 Bagus Del (TohoSpec‘Î‰) -->
 //		}
-// 2013.11.08 Bagus Del (TohoSpecï¿½Î‰ï¿½) <--
+// 2013.11.08 Bagus Del (TohoSpec‘Î‰) <--
 	}
 	// Kojika 20090528 Change End
 
@@ -499,7 +499,7 @@ BOOL CMotionElevComboBox::PreTranslateMessage(MSG* pMsg)
 			if( !CheckIL() )	return TRUE;
 		}
 		else if( pMsg->message == WM_LBUTTONDBLCLK ){
-			// ï¿½_ï¿½uï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ÉŒë“®ï¿½ì‚·ï¿½é–ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Å”rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			// ƒ_ƒuƒ‹ƒNƒŠƒbƒN‚ÉŒë“®ì‚·‚é–‚ª‚ ‚é‚Ì‚Å”rœ‚·‚é
 			return TRUE;
 		}
 	}
@@ -515,23 +515,23 @@ BOOL CMotionElevComboBox::CheckIL()
 	//Saiki 20090601 Add ----->
 	CString strMsg;
 	//Saiki 20090601 Add <-----
-	//ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½Í‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
+	//ƒŠƒ‚[ƒg‚Í‰½‚à‚µ‚È‚¢
 	if(m_pDoc->GetHostMode() == HOST_REMOTE) return FALSE;
 
-	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½X
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return FALSE;}	// ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Ùï¿½
+	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return FALSE;}	// ƒƒ“ƒeƒiƒ“ƒXˆÙí
 	}
-	else{												// ï¿½Êí“®ï¿½ï¿½
+	else{												// ’Êí“®ì
 	}
 	//Saiki 20090601 Change ----->
 	if( m_pDoc->ActuateFlagsGet(ACTUATE_ZAXIS) ){
 		LoadStringML(IDS_Z_AXIS_WORKING, strMsg, "Z Axis is moving.");
 		m_pDoc->MessageStringIf_Set(strMsg);
 		return FALSE;
-	}	 // ï¿½yï¿½ï¿½ï¿½ï¿½ï¿½ì’†
+	}	 // ‚y²“®ì’†
 	//Saiki 20090601 Change <-----
-	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
 
 	return TRUE;
 }
@@ -569,7 +569,7 @@ UINT CMotionElevComboBox::GetElevMode()
 std::list<HWND> CJoyStickRadioButton::m_hWndList[JOY_MODE_MAX];
 
 // ==========================================================================
-// ï¿½ï¿½ï¿½ï¿½ï¿½Findexï¿½ï¿½Radioï¿½{ï¿½^ï¿½ï¿½ï¿½ÌƒOï¿½ï¿½ï¿½[ï¿½vï¿½ï¿½ï¿½Ì”Ôï¿½
+// ˆø”Findex‚ÍRadioƒ{ƒ^ƒ“‚ÌƒOƒ‹[ƒv“à‚Ì”Ô†
 // ==========================================================================
 CJoyStickRadioButton::CJoyStickRadioButton(int index)
 {
@@ -614,7 +614,7 @@ BOOL CJoyStickRadioButton::PreTranslateMessage(MSG* pMsg)
 			if( !CheckIL() )			return TRUE;
 		}
 		else if( pMsg->message == WM_LBUTTONDBLCLK ){
-			// ï¿½_ï¿½uï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ÉŒë“®ï¿½ì‚·ï¿½é–ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Å”rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			// ƒ_ƒuƒ‹ƒNƒŠƒbƒN‚ÉŒë“®ì‚·‚é–‚ª‚ ‚é‚Ì‚Å”rœ‚·‚é
 			return TRUE;
 		}
 	}
@@ -628,7 +628,7 @@ BOOL CJoyStickRadioButton::CheckChangeMode()
 	CMainFrame* m_pMainFrame = (CMainFrame*)AfxGetMainWnd();
 	CNanoSpecDoc* m_pDoc = (CNanoSpecDoc*)m_pMainFrame->GetActiveDocument();
 
-	// ï¿½Ø‘Ö‹Ö~ï¿½È‚çˆï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
+	// Ø‘Ö‹Ö~‚È‚çˆ—‚µ‚È‚¢
 	if( !m_pDoc->GetJoyStickSelectEnabled() ) return FALSE;
 
 	return TRUE;
@@ -644,40 +644,40 @@ BOOL CJoyStickRadioButton::CheckIL()
 	CMainFrame* m_pMainFrame = (CMainFrame*)AfxGetMainWnd();
 	CNanoSpecDoc* m_pDoc = (CNanoSpecDoc*)m_pMainFrame->GetActiveDocument();
 
-	//ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½Í‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
+	//ƒŠƒ‚[ƒg‚Í‰½‚à‚µ‚È‚¢
 	if(m_pDoc->GetHostMode() == HOST_REMOTE) return FALSE;
 
-	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½X
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return FALSE;}	// ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Ùï¿½
+	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return FALSE;}	// ƒƒ“ƒeƒiƒ“ƒXˆÙí
 	}
-	else{												// ï¿½Êí“®ï¿½ï¿½
+	else{												// ’Êí“®ì
 	}
-	// ï¿½eI/Oï¿½`ï¿½Fï¿½bï¿½N
+	// ŠeI/Oƒ`ƒFƒbƒN
 	/*//Saiki 20090520 Change ----->*/
 	if(m_pDoc->IsInterLock() == TRUE){return FALSE;}
 	/*//Saiki 20090520 Change <-----*/
-	if( m_pMainFrame->GetJoyStickMode()==0 ){			// ï¿½ï¿½ï¿½İ‚Íƒ\ï¿½tï¿½gï¿½Wï¿½ï¿½ï¿½Cï¿½iï¿½Ëƒnï¿½[ï¿½hï¿½j
+	if( m_pMainFrame->GetJoyStickMode()==0 ){			// Œ»İ‚Íƒ\ƒtƒgƒWƒ‡ƒCiËƒn[ƒhj
 		/*//Saiki 20090520 Change ----->*/
 		if(m_pDoc->CheckUnitStatus() == TRUE){return FALSE;}
 		/*//Saiki 20090520 Change <-----*/
 	}
-	else{												// ï¿½ï¿½ï¿½İ‚Íƒnï¿½[ï¿½hï¿½Wï¿½ï¿½ï¿½Cï¿½iï¿½Ëƒ\ï¿½tï¿½gï¿½j
+	else{												// Œ»İ‚Íƒn[ƒhƒWƒ‡ƒCiËƒ\ƒtƒgj
 	}
-	// ï¿½Vï¿½ï¿½ï¿½bï¿½^ï¿½[ï¿½ÈŠOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ç“®ï¿½ï¿½Ö~
+	// ƒVƒƒƒbƒ^[ˆÈŠO‚ª“®‚¢‚Ä‚¢‚½‚ç“®ì‹Ö~
 	if( m_pMainFrame->GetJoyStickMode()==0 ){
 		//Saiki 20090531 Change ----->
 		if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 			LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 			m_pDoc->MessageStringIf_Set(strMsg);
 			return FALSE;
-		}	 // ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ì’†
+		}	 // ƒXƒe[ƒW“®ì’†
 		//Saiki 20090531 Change <-----
 	}
 	/*//Saiki 20090520 Change ----->*/
 	if(m_pDoc->CheckActiveFlag() == TRUE){return FALSE;}
 	/*//Saiki 20090520 Change <-----*/
-	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
 
 	return TRUE;
 }
@@ -693,19 +693,19 @@ BOOL bJoyStk=FALSE;
 
 	int m_nMode = m_pMainFrame->GetJoyStickMode();
 
-	// ï¿½ÏXï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½Îï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
+	// •ÏX‚ª‚È‚¯‚ê‚Îˆ—‚µ‚È‚¢
 	if( m_nMode == m_nIndex ) return;
 
-	// ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½Ø‘ï¿½
-	if( m_nMode == 0 ){ 								// ï¿½ï¿½ï¿½İ‚Íƒ\ï¿½tï¿½gï¿½Wï¿½ï¿½ï¿½C
-		// ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½
+	// ƒWƒ‡ƒCƒXƒeƒBƒbƒNØ‘Ö
+	if( m_nMode == 0 ){ 								// Œ»İ‚Íƒ\ƒtƒgƒWƒ‡ƒC
+		// ƒWƒ‡ƒCƒXƒeƒBƒbƒN‹–‰Â
 		bJoyStk = m_pDoc->ChangeJoyStick(TRUE);
 		if( bJoyStk ){
 			m_pDoc->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);
 		}
 	}
-	else{												// ï¿½ï¿½ï¿½İ‚Íƒnï¿½[ï¿½hï¿½Wï¿½ï¿½ï¿½C
-		// ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½Ö~
+	else{												// Œ»İ‚Íƒn[ƒhƒWƒ‡ƒC
+		// ƒWƒ‡ƒCƒXƒeƒBƒbƒN‹Ö~
 		bJoyStk = m_pDoc->ChangeJoyStick(FALSE);
 		if( bJoyStk ){
 			m_pDoc->ActuateFlagsSet(ACTUATE_XYSTAGE, FALSE);
@@ -713,26 +713,26 @@ BOOL bJoyStk=FALSE;
 	}
 
 	if( bJoyStk != TRUE ){
-//		MessageBox("ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½Ø‘Öï¿½ï¿½s !!!.", "JOYSTICK", MB_OK|MB_ICONWARNING);
+//		MessageBox("ƒWƒ‡ƒCƒXƒeƒBƒbƒNØ‘Ö¸”s !!!.", "JOYSTICK", MB_OK|MB_ICONWARNING);
 //		GetParent()->PostMessage(WM_JOYSTICK_NG, 0L, 0L);
 // DEL 2009.06.01
 //		AlarmIf_Set(ALID_SubControllerReplayAbnormal);
 // DEL 2009.06.01
-// 2009.08.07 K.Matsuo Bug Fix SPTï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½ï¿½ï¿½ï¿½JOYSTICKï¿½ÏX -->
+// 2009.08.07 K.Matsuo Bug Fix SPTƒXƒe[ƒWŒ¸‘¬’â~’†‚ÉJOYSTICK•ÏX -->
 		GetParent()->PostMessage(WM_JOYSTICK, 0L, 0L);
-// 2009.08.07 K.Matsuo Bug Fix SPTï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½ï¿½ï¿½ï¿½JOYSTICKï¿½ÏX <--
+// 2009.08.07 K.Matsuo Bug Fix SPTƒXƒe[ƒWŒ¸‘¬’â~’†‚ÉJOYSTICK•ÏX <--
 		return;
 	}
 
 
 //	for( int index=0; index<JOY_RADIO_MAX; index++ ){
 	for( int index=0; index<JOY_MODE_MAX; index++ ){
-		// ï¿½ï¿½ï¿½Ì‘Iï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½ï¿½Ìƒ`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½Oï¿½ï¿½
+		// Œ³‚Ì‘I‘ğƒ{ƒ^ƒ“‚Ìƒ`ƒFƒbƒN‚ğŠO‚·
 		if( index == m_nMode ){
 			for ( std::list<HWND>::iterator i = m_hWndList[index].begin(); i != m_hWndList[index].end(); i++ )
 				if( *i != m_hWnd ) ::SendMessage( *i, BM_SETCHECK, BST_UNCHECKED, 0);
 		}
-		// ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½
+		// V‚µ‚¢‘I‘ğƒ{ƒ^ƒ“‚ğƒ`ƒFƒbƒN‚·‚é
 		if( index == m_nIndex ){
 			for ( std::list<HWND>::iterator i = m_hWndList[index].begin(); i != m_hWndList[index].end(); i++ )
 				if( *i != m_hWnd ) ::SendMessage( *i, BM_SETCHECK, BST_CHECKED, 0);
@@ -785,7 +785,7 @@ END_MESSAGE_MAP()
 LRESULT CSubstrateThicknessComboBox::OnSelectSubstrateThicknessNotify(WPARAM wParam, LPARAM lParam)
 {
 	int iIndex = NS_GetCurrentSubstrateThickness();
-	int nCount = static_cast<int>(GetCount());
+	int nCount = GetCount();
 
 	for ( int i = 0; i < nCount; i++ ) {
 		if ( GetItemData(i) == iIndex ) {
@@ -855,7 +855,7 @@ BOOL CSubstrateThicknessComboBox::PreTranslateMessage(MSG* pMsg)
 			if( !CheckIL() )	return TRUE;
 		}
 		else if( pMsg->message == WM_LBUTTONDBLCLK ){
-			// ï¿½_ï¿½uï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ÉŒë“®ï¿½ì‚·ï¿½é–ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Å”rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			// ƒ_ƒuƒ‹ƒNƒŠƒbƒN‚ÉŒë“®ì‚·‚é–‚ª‚ ‚é‚Ì‚Å”rœ‚·‚é
 			return TRUE;
 		}
 	}
@@ -871,23 +871,23 @@ BOOL CSubstrateThicknessComboBox::CheckIL()
 	CMainFrame* m_pMainFrame = (CMainFrame*)AfxGetMainWnd();
 	CNanoSpecDoc* m_pDoc = (CNanoSpecDoc*)m_pMainFrame->GetActiveDocument();
 
-	//ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½Í‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
+	//ƒŠƒ‚[ƒg‚Í‰½‚à‚µ‚È‚¢
 	if(m_pDoc->GetHostMode() == HOST_REMOTE) return FALSE;
 
-	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½X
-		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return FALSE;}	// ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½Ùï¿½
+	// ¥ƒCƒ“ƒ^[ƒƒbƒNğŒ¥
+	if( nexioIsEngineerMaintenanceSwitch()==ON ){		// “Œ•üƒƒ“ƒeƒiƒ“ƒX
+		if( nexioIsMaintenanceSwitch() != OFF ){	AlarmIf_Set(ALID_EngineerMaintenanceSwitchOn);	return FALSE;}	// ƒƒ“ƒeƒiƒ“ƒXˆÙí
 	}
-	else{												// ï¿½Êí“®ï¿½ï¿½
+	else{												// ’Êí“®ì
 	}
 	if( m_pMainFrame->GetJoyStickMode()==0 ){
 		if( m_pDoc->ActuateFlagsGet(ACTUATE_XYSTAGE) ){
 			LoadStringML(IDS_STAGE_WORKING, strMsg, "Stage is moving.");
 			m_pDoc->MessageStringIf_Set(strMsg);
 			return FALSE;
-		}	 // ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ì’†
+		}	 // ƒXƒe[ƒW“®ì’†
 	}
-	// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// £ƒCƒ“ƒ^[ƒƒbƒNğŒ£
 
 	return TRUE;
 }
@@ -899,13 +899,13 @@ void CSubstrateThicknessComboBox::OnSelchange()
 	CMainFrame* m_pMainFrame = (CMainFrame*)AfxGetMainWnd();
 	CNanoSpecDoc* m_pDoc = (CNanoSpecDoc*)m_pMainFrame->GetActiveDocument();
 
-	// ï¿½Iï¿½ï¿½ï¿½Jï¿½[ï¿½\ï¿½ï¿½ï¿½Ì“ï¿½ï¿½ï¿½
+	// ‘I‘ğƒJ[ƒ\ƒ‹‚Ì“¯Šú
 	int nSelect = GetCurSel();
 	for ( std::list<HWND>::iterator i = m_hWndList.begin(); i != m_hWndList.end(); i++ ) {
 		ComboBox_SetCurSel(*i, nSelect);
 	}
 
-	// ï¿½ÂŒï¿½ï¿½oï¿½^
+	// ”ÂŒú“o˜^
 	int nItemData = GetItemData(nSelect);
 	CCursor::BeginWaitCursor();
 	m_pDoc->ActuateFlagsSet(ACTUATE_ZAXIS, TRUE);
