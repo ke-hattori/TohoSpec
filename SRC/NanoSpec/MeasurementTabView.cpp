@@ -1015,13 +1015,13 @@ void CMeasurementTabView::SaveMeasConRevi2(RECIPE_FILE* pDesc, int iDescCount, L
 			_ltoa(*(long*)(pDesc + iIndex)->data, buff, 10);
 			break;
 		case 'F':
-			sprintf(buff, "%.3f", *(float*)(pDesc + iIndex)->data);
+			sprintf_s(buff, _countof(buff), "%.3f", *(float*)(pDesc + iIndex)->data);
 			break;
 		case 'D':
-			sprintf(buff, "%.3lf", *(double*)(pDesc + iIndex)->data);
+			sprintf_s(buff, _countof(buff), "%.3lf", *(double*)(pDesc + iIndex)->data);
 			break;
 		case 'W':
-			sprintf(buff, "%d", *(WORD*)(pDesc + iIndex)->data);
+			sprintf_s(buff, _countof(buff), "%d", *(WORD*)(pDesc + iIndex)->data);
 			break;
 		case 'C':
 //			strncpy(buff, (char*)(pDesc + iIndex)->data, RECIPE_COMMENT_LEN);
