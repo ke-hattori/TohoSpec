@@ -344,7 +344,7 @@ BOOL CPointConfirmationDlg::CheckInputCurrPoint()
 	GetDlgItemText(IDC_POINT_NO, sCurrPoint);
 	dwCurrPoint = strtol(sCurrPoint, NULL, 10);
 
-	if ((dwCurrPoint >= 1) && (dwCurrPoint < m_iNumScans + 1)){
+	if ((dwCurrPoint >= 1) && (dwCurrPoint < (DWORD)(m_iNumScans + 1))){
 		m_iCurrPoint = dwCurrPoint;
 	} else {
 		// Err

@@ -671,7 +671,7 @@ BOOL CPointSetupTeaching2PointDlg::CheckInputCurrPoint()
 	GetDlgItemText(IDC_POINT_NO, sCurrPoint);
 	dwCurrPoint = strtol(sCurrPoint, NULL, 10);
 
-	if ((dwCurrPoint >= 1) && (dwCurrPoint <= m_iNumScans + 1)){
+	if ((dwCurrPoint >= 1) && (dwCurrPoint <= (DWORD)(m_iNumScans + 1))){
 		m_iCurrPoint = dwCurrPoint;
 // 2009.10.24 bagus 2“_ŠÔ C³ --{--
 		m_iCurrIndex = (dwCurrPoint - 1) * 2;

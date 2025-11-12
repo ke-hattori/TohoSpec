@@ -662,7 +662,7 @@ BOOL CPointSetupTeachingDlg::CheckInputCurrPoint()
 
 	switch (m_wHeadType) {
 	case HEAD_TYPE_STRESS:
-		if ((dwCurrPoint >= 1) && (dwCurrPoint < m_iNumScans + 1)){
+		if ((dwCurrPoint >= 1) && (dwCurrPoint < (DWORD)(m_iNumScans + 1))){
 			m_iCurrPoint = dwCurrPoint;
 		} else {
 			// Err
@@ -670,7 +670,7 @@ BOOL CPointSetupTeachingDlg::CheckInputCurrPoint()
 		}
 		break;
 	default:
-		if ((dwCurrPoint >= 1) && (dwCurrPoint <= m_iNumScans + 1)){
+		if ((dwCurrPoint >= 1) && (dwCurrPoint <= (DWORD)(m_iNumScans + 1))){
 			m_iCurrPoint = dwCurrPoint;
 		} else {
 			// Err
