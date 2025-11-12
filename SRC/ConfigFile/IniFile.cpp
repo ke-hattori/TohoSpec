@@ -1572,7 +1572,7 @@ void SaveNanoSpecIni(int iIniFile)
 		int nIniStressSection;
 // 2009.09.17 bagus Stress --{--
 //		for(nIniStressLine = 0;nIniStressLine < STRESS_LINES_MAX;nIniStressLine++){
-		for(nIniStressLine = 0;nIniStressLine < NanoSysData.StressConfig.dwLiftPinNumberOfLine;nIniStressLine++){
+		for(nIniStressLine = 0;(DWORD)nIniStressLine < NanoSysData.StressConfig.dwLiftPinNumberOfLine;nIniStressLine++){
 // 2009.09.17 bagus Stress --}--
 			int nIniStressValidSectionNum = 0;
 			int nIniStressValidPinNum = 0;
@@ -1610,7 +1610,7 @@ void SaveNanoSpecIni(int iIniFile)
 				WritePrivateProfileString(section,szBuf,buff,szIniFilePath);
 			}
 #else
-			for (nIniStressPin=0; nIniStressPin<NanoSysData.StressConfig.Line[nIniStressLine].dwLiftPinNumberOfLn; nIniStressPin++) {
+			for (nIniStressPin=0; (DWORD)nIniStressPin<NanoSysData.StressConfig.Line[nIniStressLine].dwLiftPinNumberOfLn; nIniStressPin++) {
 				sprintf(szBuf,"LiftPinLocL%dPin%d_X",nIniStressLine+1,nIniStressPin+1);
 				wsprintf(buff,"%ld", NanoSysData.StressConfig.Line[nIniStressLine].PinPos[nIniStressPin].lX);
 				WritePrivateProfileString(section,szBuf,buff,szIniFilePath);
@@ -1636,7 +1636,7 @@ void SaveNanoSpecIni(int iIniFile)
 			if (NanoSysData.StressConfig.Line[nIniStressLine].dwLiftPinNumberOfLn < 1)
 				continue;
 
-			for(nIniStressSection = 0;nIniStressSection < NanoSysData.StressConfig.Line[nIniStressLine].dwLiftPinNumberOfLn - 1;nIniStressSection++){
+			for(nIniStressSection = 0;(DWORD)nIniStressSection < NanoSysData.StressConfig.Line[nIniStressLine].dwLiftPinNumberOfLn - 1;nIniStressSection++){
 // 2009.09.17 bagus SE --}--
 				sprintf(szBuf,"L%dS%d_ScanStart_X",nIniStressLine+1,nIniStressSection+1);
 				wsprintf(buff,"%ld", NanoSysData.StressConfig.Line[nIniStressLine].SectPos[nIniStressSection].lScanStartPosX);

@@ -248,7 +248,7 @@ void InitializeTabCtrl(HWND hwndTab)
 
 	// タブ１のみ表示し後は非表示
 	SetWindowPos(hwndTabPages[0], HWND_TOP, nX, nY, nXc, nYc, SWP_SHOWWINDOW);
-	for ( int index = 1; index < nNumberOfPages; index++ ) {
+	for ( int index = 1; (size_t)index < nNumberOfPages; index++ ) {
 		SetWindowPos(hwndTabPages[index], HWND_TOP, nX, nY, nXc, nYc, SWP_HIDEWINDOW);
 	}
 }

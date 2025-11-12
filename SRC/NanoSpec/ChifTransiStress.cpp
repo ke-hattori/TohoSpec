@@ -469,7 +469,7 @@ void CChiefTransiStress::PreMove()
 //																					/*	セクション１の Y 座標を使います．	*/
 ///* modified 2009.08.18 hmenjo STRESS_LINESECTION 削除 ---------- } ---------- */
 /* modified 2009.08.21 hmenjo ストレス機能追加(52) ----------			   */
-					for (int i = 0; i < l_StressConfig.Line[l_dwLineNo - 1].dwSectionNum; i++) {
+					for (int i = 0; (DWORD)i < l_StressConfig.Line[l_dwLineNo - 1].dwSectionNum; i++) {
 						if (0 != l_pStageProgStress->Line[l_dwLineNo - 1].bScanValid[i]) {
 							break;
 						}

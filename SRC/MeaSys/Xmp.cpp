@@ -125,7 +125,7 @@ BOOL CXmp::RunXmp()
 /* modified 2014.11.25 hmenjo XMP 表示/非表示 ---------- } ---------- */
 	char szLowerAdapExePath[MAX_PATH];
 	memset(szLowerAdapExePath, 0, sizeof(szLowerAdapExePath));
-	for(int i = 0; i < strlen(srXmp.szAdapExePath); i++){
+	for(int i = 0; (size_t)i < strlen(srXmp.szAdapExePath); i++){
 		szLowerAdapExePath[i] = tolower(srXmp.szAdapExePath[i]);
 	}
 /* modified 2014.11.25 hmenjo XMP 表示/非表示 ---------- { ---------- */
