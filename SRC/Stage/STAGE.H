@@ -909,13 +909,13 @@ public:
 		}
 
 		if ( _tcscmp(pszCmdID, szLimitSpeedEx) == 0 ) {
-			_stprintf(szBuffer, "%s%04d%c", pszCmdID, Val, CRCHAR);
+			_stprintf(szBuffer, "%s%04d%c", pszCmdID, (int)Val, CRCHAR);
 		}
 		else {
 			switch ( pszCmdID[0] ) {
 			case szMoveStageEx:
 			case szDoOffsetZ:
-				_stprintf(szBuffer, "%s%04d%c", pszCmdID, Val, CRCHAR);
+				_stprintf(szBuffer, "%s%04d%c", pszCmdID, (int)Val, CRCHAR);
 				break;
 			case szOutputPort:
 				// ‚±‚±‚Ì”äŠrŽ®ˆÓ–¡•s–¾
@@ -933,15 +933,15 @@ public:
 			case szGetExtCounter:
 			case szMoveStageXy:
 			case szEEPromParam:
-				_stprintf(szBuffer, "%s%X" CR, pszCmdID, Val);
+				_stprintf(szBuffer, "%s%X" CR, pszCmdID, (unsigned int)Val);
 				break;
 // 2013.02.15 bagus Substrate thickness setting -->
 			case szAFInvalidRegion:
-				_stprintf(szBuffer, "%s%04X" CR, pszCmdID, Val);
+				_stprintf(szBuffer, "%s%04X" CR, pszCmdID, (unsigned int)Val);
 				break;
 // 2013.02.15 bagus Substrate thickness setting <--
 			case szUpDownZ:
-				_stprintf(szBuffer, "%s%02X" CR, pszCmdID, Val);
+				_stprintf(szBuffer, "%s%02X" CR, pszCmdID, (unsigned int)Val);
 				break;
 			case szSetPosZ:
 				_stprintf(szBuffer, "%s%+09.4f" CR, pszCmdID, (double)Val);
@@ -951,7 +951,7 @@ public:
 				_stprintf(szBuffer, "%s%+010.4f" CR, pszCmdID, (double)Val);
 				break;
 			case szSetExtCounter:
-				_stprintf(szBuffer, "%s%+010d" CR, pszCmdID, Val);
+				_stprintf(szBuffer, "%s%+010d" CR, pszCmdID, (int)Val);
 				break;
 			case szDoAutoFocus:
 				_stprintf(szBuffer, "%s" CR, pszCmdID);

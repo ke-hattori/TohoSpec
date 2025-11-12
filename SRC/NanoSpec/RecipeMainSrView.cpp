@@ -499,9 +499,9 @@ void CRecipeMainSrView::OnInitialUpdate()
 		m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_1] = 0;
 		m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_2] = 0;
 		m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_3] = 0;
-		sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_1], "%s", strBuf);
-		sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_2], "%s", strBuf);
-		sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_3], "%s", strBuf);
+		sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_1], "%s", (LPCTSTR)strBuf);
+		sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_2], "%s", (LPCTSTR)strBuf);
+		sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_3], "%s", (LPCTSTR)strBuf);
 		m_MainRcpInfo.MainRcpParam._SR.nFocus = 0;
 		m_MainRcpInfo.MainRcpParam._SR.nAutoFocusFailOption = 0;
 		m_MainRcpInfo.MainRcpParam._SR.nFinalFocusFailDataValidOption = 0;
@@ -543,9 +543,9 @@ void CRecipeMainSrView::OnInitialUpdate()
 		m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_1] = 0;
 		m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_2] = 0;
 		m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_3] = 0;
-		sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_1], "%s", strBuf);
-		sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_2], "%s", strBuf);
-		sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_3], "%s", strBuf);
+		sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_1], "%s", (LPCTSTR)strBuf);
+		sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_2], "%s", (LPCTSTR)strBuf);
+		sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_3], "%s", (LPCTSTR)strBuf);
 		m_MainRcpInfo.MainRcpParam._SR.nFocus = 0;
 		m_MainRcpInfo.MainRcpParam._SR.nAutoFocusFailOption = 0;
 		m_MainRcpInfo.MainRcpParam._SR.nFinalFocusFailDataValidOption = 0;
@@ -1000,9 +1000,9 @@ void CRecipeMainSrView::OnSelchangeMeasurementProgram()
 					m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_1] = 0;
 					m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_2] = 0;
 					m_MainRcpInfo.MainRcpParam._SR.RecalibItem[RECALIB_3] = 0;
-					sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_1], "%s", strBuf);
-					sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_2], "%s", strBuf);
-					sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_3], "%s", strBuf);
+					sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_1], "%s", (LPCTSTR)strBuf);
+					sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_2], "%s", (LPCTSTR)strBuf);
+					sprintf(m_MainRcpInfo.MainRcpParam._SR.szRecalib[RECALIB_3], "%s", (LPCTSTR)strBuf);
 
 					m_MainRcpInfo.MainRcpParam.hdr.nPointManualAdjustment = 0;
 
