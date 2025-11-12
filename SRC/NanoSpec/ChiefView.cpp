@@ -2583,7 +2583,7 @@ BOOL CChiefView::SelectSubstrateThick(double dVal)
 	ActuateFlagsSet(ACTUATE_ZAXIS, FALSE);
 
 	TCHAR l_tszLogText[256];
-	_stprintf(l_tszLogText, _T("Selected Substrate Thickness(=%d), Result(=%d)"), dVal, l_bRc);
+	_stprintf(l_tszLogText, _T("Selected Substrate Thickness(=%d), Result(=%d)"), (int)dVal, l_bRc);
 	LogChief(l_tszLogText);
 
 	if (0 == l_bRc) {

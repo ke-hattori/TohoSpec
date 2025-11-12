@@ -919,6 +919,7 @@ public:
 				break;
 			case szOutputPort:
 				// ‚±‚±‚Ì”äŠrŽ®ˆÓ–¡•s–¾
+				const unsigned int uval = static_cast<unsigned int>(Val);
 				_stprintf(szBuffer, "%s%X%c", pszCmdID, Val, CRCHAR);
 				break;
 			case szJoystickStatusXy:
