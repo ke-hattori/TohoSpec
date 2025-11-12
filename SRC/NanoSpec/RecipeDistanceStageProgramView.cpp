@@ -444,10 +444,10 @@ void CRecipeDistanceStageProgramView::OnDispositionButton()
 	nIndex = 0;
 	for(i = 0 ; i < m_iNumScans + 1; i++){
 		if (( m_dPointBuff[2][nIndex] != FALSE ) && ( m_dPointBuff[2][nIndex+1] != FALSE )) {
-			m_ScanPoint[nIndex].lX = m_dPointBuff[0][nIndex] * MICROMETRE ;
-			m_ScanPoint[nIndex].lY = m_dPointBuff[1][nIndex] * MICROMETRE ;
-			m_ScanPoint[nIndex+1].lX = m_dPointBuff[0][nIndex+1] * MICROMETRE ;
-			m_ScanPoint[nIndex+1].lY = m_dPointBuff[1][nIndex+1] * MICROMETRE ;
+			m_ScanPoint[nIndex].lX = static_cast<float>(m_dPointBuff[0][nIndex] * MICROMETRE );
+			m_ScanPoint[nIndex].lY = static_cast<float>(m_dPointBuff[1][nIndex] * MICROMETRE );
+			m_ScanPoint[nIndex+1].lX = static_cast<float>(m_dPointBuff[0][nIndex+1] * MICROMETRE );
+			m_ScanPoint[nIndex+1].lY = static_cast<float>(m_dPointBuff[1][nIndex+1] * MICROMETRE );
 		}
 
 		nIndex += 2;
@@ -765,10 +765,10 @@ void CRecipeDistanceStageProgramView::OnAddButton()
 	nIndex = 0;
 	for(i = 0 ; i < m_iNumScans + 1; i++){
 		if (( m_dPointBuff[2][nIndex] != FALSE ) && ( m_dPointBuff[2][nIndex+1] != FALSE )) {
-			m_ScanPoint[nIndex].lX = m_dPointBuff[0][nIndex] * MICROMETRE ;
-			m_ScanPoint[nIndex].lY = m_dPointBuff[1][nIndex] * MICROMETRE ;
-			m_ScanPoint[nIndex+1].lX = m_dPointBuff[0][nIndex+1] * MICROMETRE ;
-			m_ScanPoint[nIndex+1].lY = m_dPointBuff[1][nIndex+1] * MICROMETRE ;
+			m_ScanPoint[nIndex].lX = static_cast<float>(m_dPointBuff[0][nIndex] * MICROMETRE );
+			m_ScanPoint[nIndex].lY = static_cast<float>(m_dPointBuff[1][nIndex] * MICROMETRE );
+			m_ScanPoint[nIndex+1].lX = static_cast<float>(m_dPointBuff[0][nIndex+1] * MICROMETRE );
+			m_ScanPoint[nIndex+1].lY = static_cast<float>(m_dPointBuff[1][nIndex+1] * MICROMETRE );
 		}
 
 		nIndex += 2;
@@ -905,10 +905,10 @@ void CRecipeDistanceStageProgramView::OnDeleteButton()
 	nIndex = 0;
 	for(i = 0 ; i < m_iNumScans + 1; i++){
 		if (( m_dPointBuff[2][nIndex] != FALSE ) && ( m_dPointBuff[2][nIndex+1] != FALSE )) {
-			m_ScanPoint[nIndex].lX = m_dPointBuff[0][nIndex] * MICROMETRE ;
-			m_ScanPoint[nIndex].lY = m_dPointBuff[1][nIndex] * MICROMETRE ;
-			m_ScanPoint[nIndex+1].lX = m_dPointBuff[0][nIndex+1] * MICROMETRE ;
-			m_ScanPoint[nIndex+1].lY = m_dPointBuff[1][nIndex+1] * MICROMETRE ;
+			m_ScanPoint[nIndex].lX = static_cast<float>(m_dPointBuff[0][nIndex] * MICROMETRE );
+			m_ScanPoint[nIndex].lY = static_cast<float>(m_dPointBuff[1][nIndex] * MICROMETRE );
+			m_ScanPoint[nIndex+1].lX = static_cast<float>(m_dPointBuff[0][nIndex+1] * MICROMETRE );
+			m_ScanPoint[nIndex+1].lY = static_cast<float>(m_dPointBuff[1][nIndex+1] * MICROMETRE );
 		}
 
 		nIndex += 2;
@@ -1134,11 +1134,11 @@ void CRecipeDistanceStageProgramView::UpDate()
 
 	///// Sample - Origin X /////
 	GetDlgItemText(IDC_SAMPLE_ORIGIN_X, strBuffer);
-	m_StageProgInfoHdr.SampleInfo.Origin.lX = atof(strBuffer) * MICROMETRE;
+	m_StageProgInfoHdr.SampleInfo.Origin.lX = static_cast<float>(atof(strBuffer) * MICROMETRE);
 
 	///// Sample - Origin Y /////
 	GetDlgItemText(IDC_SAMPLE_ORIGIN_Y, strBuffer);
-	m_StageProgInfoHdr.SampleInfo.Origin.lY = atof(strBuffer) * MICROMETRE;
+	m_StageProgInfoHdr.SampleInfo.Origin.lY = static_cast<float>(atof(strBuffer) * MICROMETRE);
 
 	///// Point /////
 	m_iNumScans = 0;
@@ -1152,7 +1152,7 @@ void CRecipeDistanceStageProgramView::UpDate()
 		if ( Valid_X1 ) {
 // 2009.10.24 bagus 2ì_ä‘ èCê≥ --{--
 //			m_ScanPoint[nIndex].lX = atof(szGridText) * MICROMETRE;
-			lTmp = atof(szGridText) * MICROMETRE;
+			lTmp = static_cast<float>(atof(szGridText) * MICROMETRE);
 			if (!CheckValidPointX(lTmp))
 				break;
 			m_ScanPoint[nIndex].lX = lTmp;
@@ -1165,7 +1165,7 @@ void CRecipeDistanceStageProgramView::UpDate()
 		if ( Valid_Y1 ) {
 // 2009.10.24 bagus 2ì_ä‘ èCê≥ --{--
 //			m_ScanPoint[nIndex].lY = atof(szGridText) * MICROMETRE;
-			lTmp = atof(szGridText) * MICROMETRE;
+			lTmp = static_cast<float>(atof(szGridText) * MICROMETRE);
 			if (!CheckValidPointY(lTmp))
 				break;
 			m_ScanPoint[nIndex].lY = lTmp;
@@ -1179,7 +1179,7 @@ void CRecipeDistanceStageProgramView::UpDate()
 		if ( Valid_X2 ) {
 // 2009.10.24 bagus 2ì_ä‘ èCê≥ --{--
 //			m_ScanPoint[nIndex+1].lX = atof(szGridText) * MICROMETRE;
-			lTmp = atof(szGridText) * MICROMETRE;
+			lTmp = static_cast<float>(atof(szGridText) * MICROMETRE);
 			if (!CheckValidPointX(lTmp))
 				break;
 			m_ScanPoint[nIndex+1].lX = lTmp;
@@ -1192,7 +1192,7 @@ void CRecipeDistanceStageProgramView::UpDate()
 		if ( Valid_Y2 ) {
 // 2009.10.24 bagus 2ì_ä‘ èCê≥ --{--
 //			m_ScanPoint[nIndex+1].lY = atof(szGridText) * MICROMETRE;
-			lTmp = atof(szGridText) * MICROMETRE;
+			lTmp = static_cast<float>(atof(szGridText) * MICROMETRE);
 			if (!CheckValidPointY(lTmp))
 				break;
 			m_ScanPoint[nIndex+1].lY = lTmp;
@@ -1357,34 +1357,34 @@ BOOL CRecipeDistanceStageProgramView::CheckData()
 
 	switch ( m_StageConfig.OrgPos ) {
 	case 1: // íÜêS
-		coordLeftTop.lX = m_StageProgInfoHdr.SampleInfo.Size.dx / 2 * -1;
-		coordLeftTop.lY = m_StageProgInfoHdr.SampleInfo.Size.dy / 2;
-		coordRightBottom.lX = m_StageProgInfoHdr.SampleInfo.Size.dx / 2;
-		coordRightBottom.lY = m_StageProgInfoHdr.SampleInfo.Size.dy / 2 * -1;
+		coordLeftTop.lX = static_cast<float>(m_StageProgInfoHdr.SampleInfo.Size.dx / 2 * -1);
+		coordLeftTop.lY = static_cast<float>(m_StageProgInfoHdr.SampleInfo.Size.dy / 2);
+		coordRightBottom.lX = static_cast<float>(m_StageProgInfoHdr.SampleInfo.Size.dx / 2);
+		coordRightBottom.lY = static_cast<float>(m_StageProgInfoHdr.SampleInfo.Size.dy / 2 * -1);
 		break;
 	case 2: // ç∂è„
 		coordLeftTop.lX = 0;
 		coordLeftTop.lY = 0;
-		coordRightBottom.lX = m_StageProgInfoHdr.SampleInfo.Size.dx;
-		coordRightBottom.lY = m_StageProgInfoHdr.SampleInfo.Size.dy * -1;
+		coordRightBottom.lX = static_cast<float>(m_StageProgInfoHdr.SampleInfo.Size.dx);
+		coordRightBottom.lY = static_cast<float>(m_StageProgInfoHdr.SampleInfo.Size.dy * -1);
 		break;
 	case 3: // ç∂â∫
 		coordLeftTop.lX = 0;
-		coordLeftTop.lY = m_StageProgInfoHdr.SampleInfo.Size.dy;
-		coordRightBottom.lX = m_StageProgInfoHdr.SampleInfo.Size.dx;
+		coordLeftTop.lY = static_cast<float>(m_StageProgInfoHdr.SampleInfo.Size.dy);
+		coordRightBottom.lX = static_cast<float>(m_StageProgInfoHdr.SampleInfo.Size.dx);
 		coordRightBottom.lY = 0;
 		break;
 	case 4: // âEâ∫
-		coordLeftTop.lX = m_StageProgInfoHdr.SampleInfo.Size.dx * -1;
-		coordLeftTop.lY = m_StageProgInfoHdr.SampleInfo.Size.dy;
+		coordLeftTop.lX = static_cast<float>(m_StageProgInfoHdr.SampleInfo.Size.dx * -1);
+		coordLeftTop.lY = static_cast<float>(m_StageProgInfoHdr.SampleInfo.Size.dy);
 		coordRightBottom.lX = 0;
 		coordRightBottom.lY = 0;
 		break;
 	case 5: // âEè„
-		coordLeftTop.lX = m_StageProgInfoHdr.SampleInfo.Size.dx * -1;
+		coordLeftTop.lX = static_cast<float>(m_StageProgInfoHdr.SampleInfo.Size.dx * -1);
 		coordLeftTop.lY = 0;
 		coordRightBottom.lX = 0;
-		coordRightBottom.lY = m_StageProgInfoHdr.SampleInfo.Size.dy * -1;
+		coordRightBottom.lY = static_cast<float>(m_StageProgInfoHdr.SampleInfo.Size.dy * -1);
 		break;
 	}
 
@@ -1481,7 +1481,7 @@ void CRecipeDistanceStageProgramView::OnPaint()
 
 	if((dStageMaxSizeX / dStageMaxSizeY) > ((StageRectRight - StageRectLeft) / (StageRectBottom - StageRectTop))) {
 		lDrawStageSizeX =(StageRectRight - StageRectLeft);
-		lDrawStageSizeY = ((StageRectRight - StageRectLeft) * dStageMaxSizeY / dStageMaxSizeX);
+		lDrawStageSizeY = static_cast<float>(((StageRectRight - StageRectLeft) * dStageMaxSizeY / dStageMaxSizeX));
 
 		m_dDrawStartStagePosX = StageRectLeft;
 		m_dDrawStartStagePosY = StageRectTop + ((StageRectBottom - StageRectTop - lDrawStageSizeY) / 2);
@@ -1489,7 +1489,7 @@ void CRecipeDistanceStageProgramView::OnPaint()
 		m_dDrawEndStagePosY = m_dDrawStartStagePosY + lDrawStageSizeY;
 	}
 	else{
-		lDrawStageSizeX = ((StageRectBottom - StageRectTop) * dStageMaxSizeX / dStageMaxSizeY);
+		lDrawStageSizeX = static_cast<float>(((StageRectBottom - StageRectTop) * dStageMaxSizeX / dStageMaxSizeY));
 		lDrawStageSizeY = (StageRectBottom - StageRectTop);
 
 		m_dDrawStartStagePosX = StageRectLeft + ((StageRectRight - StageRectLeft - lDrawStageSizeX) / 2);
@@ -1754,7 +1754,7 @@ void CRecipeDistanceStageProgramView::DrawSample(CDC* pDC, int iOrg, int DirX, i
 			Sampleplacement.rcNormalPosition.left	= Stageplacement.rcNormalPosition.left + dleft;
 			Sampleplacement.rcNormalPosition.right	= Stageplacement.rcNormalPosition.left + dright;
 			Sampleplacement.rcNormalPosition.top	= Stageplacement.rcNormalPosition.top  + dtop;
-			Sampleplacement.rcNormalPosition.bottom = Stageplacement.rcNormalPosition.top  + dbottom;
+			Sampleplacement.rcNormalPosition.bottom = static_cast<float>(Stageplacement.rcNormalPosition.top  + dbottom);
 			//éläpSampleï`âÊ
 			m_SamplePointGraph.SetWindowPlacement(&Sampleplacement);
 			m_SamplePointGraph.ShowWindow(SW_SHOW);
@@ -2523,18 +2523,18 @@ BOOL CRecipeDistanceStageProgramView::CheckValidPointX(long lPointX)
 	switch (m_StageConfig.OrgPos) {
 	case 1:		// Center
 	default:
-		lMax = m_StageProgInfoHdr.SampleInfo.Size.dx / 2;
+		lMax = static_cast<float>(m_StageProgInfoHdr.SampleInfo.Size.dx / 2);
 		lMin = -lMax;
 		break;
 	case 2:		// Left & Top
 	case 3:		// Left & Bottom
-		lMax = m_StageProgInfoHdr.SampleInfo.Size.dx;
+		lMax = static_cast<float>(m_StageProgInfoHdr.SampleInfo.Size.dx);
 		lMin = 0;
 		break;
 	case 4:		// Right & Bottom
 	case 5:		// Right & Top
 		lMax = 0;
-		lMin = -m_StageProgInfoHdr.SampleInfo.Size.dx;
+		lMin = static_cast<float>(-m_StageProgInfoHdr.SampleInfo.Size.dx);
 		break;
 	}
 
@@ -2552,17 +2552,17 @@ BOOL CRecipeDistanceStageProgramView::CheckValidPointY(long lPointY)
 	switch (m_StageConfig.OrgPos) {
 	case 1:		// Center
 	default:
-		lMax = m_StageProgInfoHdr.SampleInfo.Size.dy / 2;
+		lMax = static_cast<float>(m_StageProgInfoHdr.SampleInfo.Size.dy / 2);
 		lMin = -lMax;
 		break;
 	case 2:		// Left & Top
 	case 5:		// Right & Top
 		lMax = 0;
-		lMin = -m_StageProgInfoHdr.SampleInfo.Size.dy;
+		lMin = static_cast<float>(-m_StageProgInfoHdr.SampleInfo.Size.dy);
 		break;
 	case 3:		// Left & Bottom
 	case 4:		// Right & Bottom
-		lMax = m_StageProgInfoHdr.SampleInfo.Size.dy;
+		lMax = static_cast<float>(m_StageProgInfoHdr.SampleInfo.Size.dy);
 		lMin = 0;
 		break;
 	}
