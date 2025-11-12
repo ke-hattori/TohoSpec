@@ -269,9 +269,9 @@ void CMaintenanceDateDlg::OnMaintenanceDataSetButton()
 
 	// ÉfÅ[É^ÇéÊÇËçûÇﬁ
 	GetDlgItemText(IDC_EDIT_MAINTE_DATE, csBuff);
-	sprintf(m_pMaintenanceDate.MaintenanceDate, "%s", csBuff);
+	sprintf(m_pMaintenanceDate.MaintenanceDate, "%s", (LPCTSTR)csBuff);
 	GetDlgItemText(IDC_EDIT_MAINTE_DATE_NEXT, csBuff);
-	sprintf(m_pMaintenanceDate.NextMaintenanceDate, "%s", csBuff);
+	sprintf(m_pMaintenanceDate.NextMaintenanceDate, "%s", (LPCTSTR)csBuff);
 	m_pMaintenanceDate.nDaysSpan = selDays;
 	m_pMaintenanceDate.nAlarmFlag = m_AlarmMainteComboBox.GetCurSel();
 

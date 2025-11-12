@@ -707,7 +707,7 @@ BOOL CFileRetentionPeriod::DeleteDirectory(LPCTSTR lpPathName)
 
 			// ÉtÉ@ÉCÉãÇÃçÌèú
 			else{
-	            sprintf_s(szBuff, _countof(szBuff), "[DeleteDirectory] Delete File %s", strDeleteFile);
+	            sprintf_s(szBuff, _countof(szBuff), "[DeleteDirectory] Delete File %s", (LPCTSTR)strDeleteFile);
 				FileRetentionLogging(szBuff);
 				::DeleteFile(strDeleteFile);
 			}

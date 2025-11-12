@@ -190,7 +190,7 @@ void CRecipeMainListView::List_DataSet()
 		strBuffer = Finder.GetFileTitle();
 		if ( strBuffer[0] == SYSTEM_RECIPE_BEGINNING_CHAR )
 			continue;
-		sprintf(szName, "%s", strBuffer);
+		sprintf(szName, "%s", (LPCTSTR)strBuffer);
 		// ÅI•ÏX“ú‚ğæ“¾
 		Finder.GetLastWriteTime(time);
 		sprintf(szDate, "%s", time.Format("%Y.%m.%d %H:%M:%S"));
