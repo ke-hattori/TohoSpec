@@ -1115,7 +1115,7 @@ void CStressLineSectionSettingDlg::OnKillfocusNumberOfLine()
 	m_StressConfig.dwLiftPinNumberOfLine = NumOfLine;
 // 2009.09.08 bagus stress èCê≥ --{--
 	for (int i=0; i<STRESS_LINES_MAX; i++) {
-		if (i<NumOfLine) {
+		if ((DWORD)i<NumOfLine) {
 //			m_StressConfig.Line[i].bValidLine = TRUE;
 		} else {
 			m_StressConfig.Line[i].bValidLine = FALSE;
@@ -1164,7 +1164,7 @@ void CStressLineSectionSettingDlg::SetLineData()
 	TRY{
 // 2009.09.17 bagus stress GridèCê≥ --{--
 //		m_LineListGrid.SetRowCount(m_StressConfig.dwLiftPinNumberOfLine + FixRows);
-		if ((m_StressConfig.dwLiftPinNumberOfLine + FixRows) < DEFAULT_GRID_ROWS) {
+		if ((int)(m_StressConfig.dwLiftPinNumberOfLine + FixRows) < DEFAULT_GRID_ROWS) {
 			m_LineListGrid.SetRowCount(DEFAULT_GRID_ROWS);
 		} else {
 			m_LineListGrid.SetRowCount(m_StressConfig.dwLiftPinNumberOfLine + FixRows);
@@ -1178,7 +1178,7 @@ void CStressLineSectionSettingDlg::SetLineData()
 	}
 	END_CATCH
 
-	for (row=FixRows; row<m_StressConfig.dwLiftPinNumberOfLine+FixRows; row++) {
+	for (row=FixRows; (DWORD)row<m_StressConfig.dwLiftPinNumberOfLine+FixRows; row++) {
 		dwTextStyle = DT_CENTER|DT_VCENTER|DT_SINGLELINE;
 		dwTextStyle |= DT_END_ELLIPSIS;
 		Item.mask = GVIF_TEXT|GVIF_FORMAT;
