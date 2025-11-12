@@ -566,7 +566,7 @@ void CRecipeThicknessSettingView::Update(STRESS_PARAM_INFO* tempStressInfo)
 	int Row = FIXROWS;
 	int iCount, jCount;
 
-	for(iCount=0; iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
+	for(iCount=0; (DWORD)iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
 		for (jCount=0; jCount<PIN_INTERVAL; jCount++) {
 			Item.mask = GVIF_TEXT|GVIF_FORMAT;
 			Item.row = Row;
@@ -976,7 +976,7 @@ void CRecipeThicknessSettingView::LoadThicknessData()
 	DWORD dwTextStyle;
 
 //	if(m_nOpenMode == modeNew){
-	for(iCount=0; iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
+	for(iCount=0; (DWORD)iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
 		if (!m_StressConfig.Line[iCount].bValidLine) {
 			Row = Row + PIN_INTERVAL;
 			continue;
