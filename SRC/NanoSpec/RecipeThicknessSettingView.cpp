@@ -232,7 +232,7 @@ void CRecipeThicknessSettingView::MeasurementPointForStressListGrid_Init()
 	}
 
 	///// Number Row /////
-	for(iCount=0; iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
+	for(iCount=0; (DWORD)iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
 		if (!m_StressConfig.Line[iCount].bValidLine) {
 			continue;
 		}
@@ -343,7 +343,7 @@ void CRecipeThicknessSettingView::OnButtonThicknessCopy()
 
 	CRecipeThicknessCopyForm RcpThickCpyForm;
 	if(RcpThickCpyForm.DoModal() == IDOK){
-		for(iCount=0; iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
+		for(iCount=0; (DWORD)iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
 			if (!m_StressConfig.Line[iCount].bValidLine) {
 				continue;
 			}
@@ -371,7 +371,7 @@ void CRecipeThicknessSettingView::OnButtonThicknessClear()
 	DWORD dwTextStyle;
 	GV_ITEM Item;
 
-	for(iCount=0; iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
+	for(iCount=0; (DWORD)iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
 		if (!m_StressConfig.Line[iCount].bValidLine) {
 			continue;
 		}
@@ -435,7 +435,7 @@ BOOL CRecipeThicknessSettingView::CheckData()
 	switch(m_nOpenMode)
 	{
 		case modeDefaultSetting:
-			for(iCount=0; iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
+			for(iCount=0; (DWORD)iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
 				for (jCount=0; jCount<PIN_INTERVAL; jCount++) {
 					Item.mask = GVIF_TEXT|GVIF_FORMAT;
 					Item.row = Row;
@@ -472,7 +472,7 @@ BOOL CRecipeThicknessSettingView::CheckData()
 		LoadStringML(IDS_POINT_NAME_NONE, strBuffer, "None");
 
 		if( strlen(m_MainRcpInfo.MainRcpParam.hdr.szStage) == 0 || (strcmp(m_MainRcpInfo.MainRcpParam.hdr.szStage, strBuffer) == 0)){//Stage Program –¢‘I‘ð
-			for(iCount=0; iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
+			for(iCount=0; (DWORD)iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
 				for (jCount=0; jCount<PIN_INTERVAL; jCount++) {
 					Item.mask = GVIF_TEXT|GVIF_FORMAT;
 					Item.row = Row;
@@ -506,7 +506,7 @@ BOOL CRecipeThicknessSettingView::CheckData()
 			}
 		}
 		else{//StageProgram‘I‘ðÏ‚Ý
-			for(iCount=0; iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
+			for(iCount=0; (DWORD)iCount<m_StressConfig.dwLiftPinNumberOfLine; iCount++){
 				for (jCount=0; jCount<PIN_INTERVAL; jCount++) {
 					Item.mask = GVIF_TEXT|GVIF_FORMAT;
 					Item.row = Row;
