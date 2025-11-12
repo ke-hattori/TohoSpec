@@ -122,7 +122,7 @@ void CStressElasticModulusListDlg::UpDate(BOOL bValid)
 	if(bValid){
 		//構造体へデータをセットする
 		m_ElasticTable.uiTableNum = m_ElasticModulusListCtrl.GetItemCount();
-		for (i=0; i<m_ElasticTable.uiTableNum; i++) {
+		for (i=0; (unsigned int)i<m_ElasticTable.uiTableNum; i++) {
 			m_ElasticModulusListCtrl.GetItemText(i, 0, tszText, MATERIAL_NAME_LEN + 1);
 			strcpy(m_ElasticTable.ElasticModulus[i].tszElasticModulusName, tszText);
 
@@ -134,7 +134,7 @@ void CStressElasticModulusListDlg::UpDate(BOOL bValid)
 		}
 	}else{
 		//構造体にあるデータを画面にセットする
-		for (i=0; i<m_ElasticTable.uiTableNum; i++) {
+		for (i=0; (unsigned int)i<m_ElasticTable.uiTableNum; i++) {
 			listitem.iItem = m_ElasticModulusListCtrl.GetItemCount();
 			listitem.mask = LVIF_TEXT;
 

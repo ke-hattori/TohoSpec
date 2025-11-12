@@ -942,7 +942,7 @@ void CChiefTransiStress::enter_ST_STRS_LMVSTAPOS(const cEventParams* const pEvPa
 					break;
 				}
 			}
-			if (l_StressConfig.Line[m_dwLineNo - 1].dwSectionNum <= i) {
+			if (l_StressConfig.Line[m_dwLineNo - 1].dwSectionNum <= (DWORD)i) {
 				TCHAR l_tszLog[128];
 				_stprintf(l_tszLog, _T("No Sections in Line No.%d."), m_dwLineNo);
 				((CChiefView*) m_pcChiefView)->LogChief(l_tszLog);
@@ -1130,7 +1130,7 @@ void CChiefTransiStress::enter_ST_STRS_LMVENDPOS(const cEventParams* const pEvPa
 							break;
 						}
 					}
-					if (l_StressConfig.Line[m_dwLineNo - 1].dwSectionNum <= i) {
+					if (l_StressConfig.Line[m_dwLineNo - 1].dwSectionNum <= (DWORD)i) {
 						TCHAR l_tszLog[128];
 						_stprintf(l_tszLog, _T("No Sections in Line No.%d."), m_dwLineNo);
 						((CChiefView*) m_pcChiefView)->LogChief(l_tszLog);

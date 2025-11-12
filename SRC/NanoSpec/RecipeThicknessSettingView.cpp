@@ -681,7 +681,7 @@ void CRecipeThicknessSettingView::SamplePointGraph_DataSet()
 	}
 // 2013.01.09 bagus <--
 
-	for (i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++) {
+	for (i=0; (DWORD)i<m_StressConfig.dwLiftPinNumberOfLine; i++) {
 		if(i >= STRESS_PINS_MAX){
 			break;
 		}
@@ -723,9 +723,9 @@ void CRecipeThicknessSettingView::SamplePointGraph_DataSet()
 			}
 			m_StageMapGraph.AddPinData(lPinX,lPinY);
 		}*/
-		  for (j=0; j<m_StressConfig.Line[i].dwSectionNum; j++) {
+		  for (j=0; (DWORD)j<m_StressConfig.Line[i].dwSectionNum; j++) {
 
-			if(i >= m_StressConfig.dwLiftPinNumberOfLine){
+			if((DWORD)i >= m_StressConfig.dwLiftPinNumberOfLine){
 				continue;
 			}
 			if(j >= STRESS_SECTIONS_MAX){
@@ -779,7 +779,7 @@ void CRecipeThicknessSettingView::SamplePointGraph_DataSet()
 	}
 
 	double	dPointX, dPointY;
-	for (i=0; i<m_StressConfig.dwLiftPinNumberOfLine; i++) {
+	for (i=0; (DWORD)i<m_StressConfig.dwLiftPinNumberOfLine; i++) {
 		if (!m_StressConfig.Line[i].bValidLine) {
 			continue;
 		}
