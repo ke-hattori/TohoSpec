@@ -917,11 +917,12 @@ public:
 			case szDoOffsetZ:
 				_stprintf(szBuffer, "%s%04d%c", pszCmdID, (int)Val, CRCHAR);
 				break;
-			case szOutputPort:
+			case szOutputPort: {
 				// ‚±‚±‚Ì”äŠrŽ®ˆÓ–¡•s–¾
 				const unsigned int uval = static_cast<unsigned int>(Val);
 				_stprintf(szBuffer, "%s%X%c", pszCmdID, uval, CRCHAR);
 				break;
+			}
 			case szJoystickStatusXy:
 			case szSelectLens:
 			case szAutoFocusStatus:
