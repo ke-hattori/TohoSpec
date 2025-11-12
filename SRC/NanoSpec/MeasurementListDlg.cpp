@@ -43,7 +43,7 @@ static char THIS_FILE[] = __FILE__;
 // 指数表記へ変換する関数（printf書式の%E相当だが、指数部を2桁表示にしたいため自作関数を用意）
 static void ConvertToExpNumber(double dNumber, LPTSTR pszExpNumber)
 {
-	sprintf_s(pszExpNumber, _countof(pszExpNumber), "%.3E", dNumber);
+	sprintf_s(pszExpNumber, 32, "%.3E", dNumber);
 
 	// Two Digit Exponent
 	pszExpNumber[strlen(pszExpNumber) - 3] = pszExpNumber[strlen(pszExpNumber) - 2];
