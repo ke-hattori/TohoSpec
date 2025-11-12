@@ -193,7 +193,7 @@ void CRecipeMainListView::List_DataSet()
 		sprintf(szName, "%s", (LPCTSTR)strBuffer);
 		// ÅI•ÏX“ú‚ğæ“¾
 		Finder.GetLastWriteTime(time);
-		sprintf(szDate, "%s", time.Format("%Y.%m.%d %H:%M:%S"));
+		sprintf(szDate, "%s", (LPCTSTR)time.Format("%Y.%m.%d %H:%M:%S"));
 
 		if(RecipeFile_LoadRecipe(&MainRcpInfo, szName, RECIPE_FILE_MAIN_RECIPE)){
 			// MeasurementProgram‚ªLoad‚Å‚«‚È‚¢‚Æ‚«‚ÍMeasItem‚Í‹ó”’‚Æ‚·‚é

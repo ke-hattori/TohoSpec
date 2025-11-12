@@ -231,7 +231,7 @@ void cMotTskWnd::OnPaint()
 	// Display the raw stage positions and the last message received
 	WORD i;
 	for (i = 0; i < AXIS_NUM; i++) {
-		_stprintf(l_tszStr, _T("[%u]: %11ld,  %s"), i, m_Pos[i], m_strMMessage[i]);
+		_stprintf(l_tszStr, _T("[%u]: %11ld,  %s"), i, m_Pos[i], (LPCTSTR)m_strMMessage[i]);
 		dc.TextOut(CxChar, CyChar * (i + 1), l_tszStr);
 	}
 	_stprintf(l_tszStr, _T("MotSys Com Error : %d"), StageMTGetMotSysComErr());

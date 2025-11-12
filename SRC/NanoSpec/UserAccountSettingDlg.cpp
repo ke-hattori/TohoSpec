@@ -217,7 +217,7 @@ BOOL CUserAccountSettingDlg::CheckData()
 		LoadStringML(IDS_ENTER_USER_NAME_WITHIN, l_strBuffer1, "Please enter a user name within normal-width ");
 		LoadStringML(IDS_ENTER_USER_NAME_NORMAL, l_strBuffer2, " characters (em-size ");
 		LoadStringML(IDS_ENTER_USER_NAME_EMSIZE, l_strBuffer3, " characters)");
-		sprintf(szMsg, "%s%d%s%d%s", l_strBuffer1, USER_NAME_LEN, l_strBuffer2, USER_NAME_LEN/2, l_strBuffer3);
+		sprintf(szMsg, "%s%d%s%d%s", (LPCTSTR)l_strBuffer1, USER_NAME_LEN, (LPCTSTR)l_strBuffer2, USER_NAME_LEN/2, (LPCTSTR)l_strBuffer3);
 		//MessageBox(szMsg, "USER ACCOUNT SETTING", MB_OK|MB_ICONSTOP);
 		LoadStringML(IDS_TITLE_USER_ACCOUNT_SETTING, l_strTitle, "USER ACCOUNT SETTING");
 		MessageBox(szMsg, l_strTitle, MB_OK|MB_ICONSTOP);

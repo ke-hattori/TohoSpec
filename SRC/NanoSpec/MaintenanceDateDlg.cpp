@@ -309,7 +309,7 @@ void CMaintenanceDateDlg::OnLampMaintenanceDataSetButton()
 
 	// データを取り込む
 	GetDlgItemText(IDC_EDIT_LAMP_MAINTE_DATE, csBuff);
-	sprintf(m_pMaintenanceLamp.MaintenanceDate, "%s", csBuff);
+	sprintf(m_pMaintenanceLamp.MaintenanceDate, "%s", (LPCTSTR)csBuff);
 	GetDlgItemText(IDC_EDIT_LAMP_MAINTE_DATE_NEXT, csBuff);
 	m_pPassageHour.m_span = 0;			// カウントをクリアする
 	m_pDoc->SetPassageHour(m_pPassageHour.m_span);

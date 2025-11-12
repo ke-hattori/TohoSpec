@@ -860,7 +860,7 @@ void CRecipeStageProgramView::OnDeleteButton()
 	//sprintf(szBuff, "%s%d%s", "No.", iRow, " のポイントデータを削除しますかd?");
 	LoadStringML(IDS_POINT_DATA_NO, strBuffer1, "Is the Point Data of No. ");
 	LoadStringML(IDS_DELETE_POINT_DATA, strBuffer2, " deleted?");
-	sprintf_s(szBuff, _countof(szBuff), "%s%d%s", strBuffer1, iRow, strBuffer2);
+	sprintf_s(szBuff, _countof(szBuff), "%s%d%s", (LPCTSTR)strBuffer1, iRow, (LPCTSTR)strBuffer2);
 	//Saiki 20090528 Change <-----
 	if( MessageBox(szBuff, m_strCaption, MB_YESNO | MB_ICONQUESTION) !=IDYES ) {
 		return;

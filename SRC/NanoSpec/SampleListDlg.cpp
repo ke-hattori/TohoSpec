@@ -312,10 +312,10 @@ void CSampleListDlg::SampleList_DataSet()
 			continue;
 
 		// ファイル名を取得
-		sprintf_s(szName, _countof(szName), "%s", Finder.GetFileTitle());
+		sprintf_s(szName, _countof(szName), "%s", (LPCTSTR)Finder.GetFileTitle());
 		// 最終変更日時を取得
 		Finder.GetLastWriteTime(time);
-		sprintf_s(szDate, _countof(szDate), "%s", time.Format("%Y.%m.%d %H:%M:%S"));
+		sprintf_s(szDate, _countof(szDate), "%s", (LPCTSTR)time.Format("%Y.%m.%d %H:%M:%S"));
 
 		// 2009.08.26 bagus stress --{--
 		//if ( RecipeFile_LoadRecipe(&SampleInfo, szName, RECIPE_FILE_SAMPLE) )

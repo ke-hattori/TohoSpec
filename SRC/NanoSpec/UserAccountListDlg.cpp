@@ -227,7 +227,7 @@ void CUserAccountListDlg::UserAccountList_DataSet()
 		::ZeroMemory(szName, sizeof(szName));
 
 		// ファイル名を取得
-		sprintf(szName, "%s", Finder.GetFileTitle());
+		sprintf(szName, "%s", (LPCTSTR)Finder.GetFileTitle());
 		// 最終変更日時を取得
 		Finder.GetLastWriteTime(time);
 		strcpy(szDate, time.Format("%Y.%m.%d %H:%M:%S"));

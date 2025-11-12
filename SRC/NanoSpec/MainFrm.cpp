@@ -2086,7 +2086,7 @@ void CMainFrame::OnMenuData()
 		if (g_lAppNameType == APP_NAME_TOHO) {
 			l_strNanomapExeName.Replace(g_lpszAppPrefix4[0], g_lpszAppPrefix4[1]);
 		}
-		sprintf_s(szPath, _countof(szPath), "%s%s", g_szBin_Dir, l_strNanomapExeName);
+		sprintf_s(szPath, _countof(szPath), "%s%s", g_szBin_Dir, (LPCTSTR)l_strNanomapExeName);
 /* modified 2014.05.22 hmenjo éËìÆéû NanoMap ---------- } ---------- */
 /* added 2014.11.22 hmenjo TohoRecall Ç÷ïœçX ---------- { ---------- */
 		char l_szPathNanoMapOrg[MAX_PATH];

@@ -68,7 +68,7 @@ BOOL CSaveNameOverlapDlg::OnInitDialog()
 /*	sprintf(l_szMessage, "%s%s", m_szSpecifiedFileName, "\nこのファイルは既に存在します。 上書きしますか？"); */
 //	sprintf(l_szMessage, "%s%s", m_szSpecifiedFileName, "\nこのファイルは既に存在します。 上書きしますか？\n(保存に数十秒かかる場合があります。)");
 	LoadStringML(IDS_FILE_ALREADY_EXIST, l_strBuffer, "\n already exists, Do you want to replace it?");
-	sprintf(l_szMessage, "%s%s", m_szSpecifiedFileName, l_strBuffer);
+	sprintf(l_szMessage, "%s%s", m_szSpecifiedFileName, (LPCTSTR)l_strBuffer);
 	// Kojika 20090601 Change End
 	GetDlgItem(IDC_SAVE_NAME_OVERLAP_TEXT)->SetWindowText(l_szMessage);
 

@@ -287,7 +287,7 @@ void CSitePatternEditDlg::List_DataSet()
 		// �t�@�C�������擾
 		strBuf = Finder.GetFileTitle();
 
-		sprintf_s(szFilePath, _countof(szFilePath), "%s%s%s", g_szDb_Pattern_Dir, strBuf, DAT_EXT);
+		sprintf_s(szFilePath, _countof(szFilePath), "%s%s%s", g_szDb_Pattern_Dir, (LPCTSTR)strBuf, DAT_EXT);
 		bRet = PatternFile_ExistPatternFilePath(szFilePath, &lastWriteSystemTime);
 		if( bRet ){
 			// �T�u���t�@�C�������݂���ꍇ�̂ݕ\���ΏۂƂ���
@@ -384,7 +384,7 @@ void CSitePatternEditDlg::DispPattern()
 		m_SelectName = rfListCtrl().GetItemText(m_SelectItem-1, 1);
 
 //		PatternFile_MakePatternImageFilePath(szFilePath, m_SelectName, m_SelectLens);
-		sprintf_s(szFilePath, _countof(szFilePath), "%s%s%s", g_szDb_Pattern_Img_Dir, m_SelectName, PATTERN_IMAGE_EXT);
+		sprintf_s(szFilePath, _countof(szFilePath), "%s%s%s", g_szDb_Pattern_Img_Dir, (LPCTSTR)m_SelectName, PATTERN_IMAGE_EXT);
 
 		bRet = PatternFile_ExistPatternFilePath(szFilePath, &lastWriteSystemTime);
 		if( bRet ){
@@ -505,9 +505,9 @@ void CSitePatternEditDlg::OnDeleteButton()
 	if ( MessageBox(strBuffer, strTitle, MB_ICONQUESTION | MB_OKCANCEL) == IDOK ){
 		// �p�^�[����
 		m_SelectName = rfListCtrl().GetItemText(m_SelectItem-1, 1);
-		sprintf_s(szFilePath, _countof(szFilePath), "%s%s%s", g_szDb_Pattern_Img_Dir, m_SelectName, PATTERN_IMAGE_EXT);
+		sprintf_s(szFilePath, _countof(szFilePath), "%s%s%s", g_szDb_Pattern_Img_Dir, (LPCTSTR)m_SelectName, PATTERN_IMAGE_EXT);
 		::DeleteFile(szFilePath);
-		sprintf_s(szFilePath, _countof(szFilePath), "%s%s%s", g_szDb_Pattern_Dir, m_SelectName, DAT_EXT);
+		sprintf_s(szFilePath, _countof(szFilePath), "%s%s%s", g_szDb_Pattern_Dir, (LPCTSTR)m_SelectName, DAT_EXT);
 		::DeleteFile(szFilePath);
 
 		InitialDataSet();
@@ -540,7 +540,7 @@ void CSitePatternEditDlg::OnDeleteAllButton()
 
 			// �t�@�C�������擾
 			strBuf = Finder.GetFileTitle();
-			sprintf_s(szFilePath, _countof(szFilePath), "%s%s%s", g_szDb_Pattern_Img_Dir, strBuf, PATTERN_IMAGE_EXT);
+			sprintf_s(szFilePath, _countof(szFilePath), "%s%s%s", g_szDb_Pattern_Img_Dir, (LPCTSTR)strBuf, PATTERN_IMAGE_EXT);
 			::DeleteFile(szFilePath);
 //			sprintf_s(szFilePath, _countof(szFilePath), "%s%s%s", g_szDb_Pattern_Dir, strBuf, DAT_EXT);
 //			::DeleteFile(szFilePath);
@@ -558,7 +558,7 @@ void CSitePatternEditDlg::OnDeleteAllButton()
 			strBuf = Finder.GetFileTitle();
 //			sprintf_s(szFilePath, _countof(szFilePath), "%s%s%s", g_szDb_Pattern_Img_Dir, strBuf, PATTERN_IMAGE_EXT);
 //			::DeleteFile(szFilePath);
-			sprintf_s(szFilePath, _countof(szFilePath), "%s%s%s", g_szDb_Pattern_Dir, strBuf, DAT_EXT);
+			sprintf_s(szFilePath, _countof(szFilePath), "%s%s%s", g_szDb_Pattern_Dir, (LPCTSTR)strBuf, DAT_EXT);
 			::DeleteFile(szFilePath);
 
 		}

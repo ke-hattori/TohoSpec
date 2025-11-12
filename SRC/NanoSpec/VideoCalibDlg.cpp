@@ -249,7 +249,7 @@ void CVideoCalibDlg::enter_ST_VIDEO_CALIB_DONE(const cEventParams* const evp )
 		LoadStringML(IDS_1PIXELX_1PIXELY1, strBuffer, " 1 Pixel(X) = ");
 		LoadStringML(IDS_1PIXELX_1PIXELY2, strBuffer2, "um\n 1 Pixel(Y) = ");
 		LoadStringML(IDS_1PIXELX_1PIXELY3, strBuffer3, "um");
-		sprintf(szBuff, "%s%G%s%G%s", strBuffer, temp_x, strBuffer2, temp_y, strBuffer3);
+		sprintf(szBuff, "%s%G%s%G%s", (LPCTSTR)strBuffer, temp_x, (LPCTSTR)strBuffer2, temp_y, (LPCTSTR)strBuffer3);
 		//Kojika 20090603 Change End
 	}
 	else
