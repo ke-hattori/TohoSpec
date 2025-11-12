@@ -474,7 +474,7 @@ void CChiefTransiStress::PreMove()
 							break;
 						}
 					}
-					if (l_StressConfig.Line[l_dwLineNo - 1].dwSectionNum <= i) {
+					if (l_StressConfig.Line[l_dwLineNo - 1].dwSectionNum <= (DWORD)i) {
 						TCHAR l_tszLog[128];
 						_stprintf(l_tszLog, _T("No Sections in Line No.%d."), l_dwLineNo);
 						((CChiefView*) m_pcChiefView)->LogChief(l_tszLog);

@@ -4019,7 +4019,7 @@ void CMainFrame::ChangeMenu()
 	UINT nTableCntMax = sizeof(MenuSearchTable) / sizeof(MenuSearchTable[0]);
 	UINT nIDResource = NULL;
 
-	for(int i = 0 ; i < nTableCntMax ; i++ ){
+	for(int i = 0 ; (size_t)i < nTableCntMax ; i++ ){
 		if(pMenuSearch->iCurrMode == m_iCurrMode){
 			if(pMenuSearch->iCurrExeWnd != ANY_EXEWND){
 				if(pMenuSearch->iCurrExeWnd == m_iCurrExeWnd){
@@ -4306,7 +4306,7 @@ void CMainFrame::SetWindowTitle()
 	UINT nTableCntMax = sizeof(TitleSearchTable) / sizeof(TitleSearchTable[0]);
 	LPCTSTR psz = NULL;
 
-	for(int i = 0 ; i < nTableCntMax ; i++ ){
+	for(int i = 0 ; (size_t)i < nTableCntMax ; i++ ){
 		if(pTitleSearch->iCurrExeWnd == m_iCurrExeWnd){
 			if(pTitleSearch->iCurrMode != ANY_MODE){
 				if(pTitleSearch->iCurrMode == m_iCurrMode){
