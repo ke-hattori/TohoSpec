@@ -4903,40 +4903,40 @@ void CRecipeMainSrView::SamplePointGraph_DataSet()
 			switch (lDirX) {
 			case 1: 	// X:Å®
 			default:
-				tLineData.StartX = dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanStartPosX;
-				tLineData.EndX = dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanEndPosX;
+				tLineData.StartX = static_cast<float>(dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanStartPosX);
+				tLineData.EndX = static_cast<float>(dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanEndPosX);
 				break;
 			case 2: 	// X:Å™
-				tLineData.StartY = dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanStartPosX;
-				tLineData.EndY = dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanEndPosX;
+				tLineData.StartY = static_cast<float>(dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanStartPosX);
+				tLineData.EndY = static_cast<float>(dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanEndPosX);
 				break;
 			case 3: 	// X:Å©
-				tLineData.StartX = dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanStartPosX;
-				tLineData.EndX = dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanEndPosX;
+				tLineData.StartX = static_cast<float>(dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanStartPosX);
+				tLineData.EndX = static_cast<float>(dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanEndPosX);
 				break;
 			case 4: 	// X:Å´
-				tLineData.StartY = dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanStartPosX;
-				tLineData.EndY = dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanEndPosX;
+				tLineData.StartY = static_cast<float>(dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanStartPosX);
+				tLineData.EndY = static_cast<float>(dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanEndPosX);
 				break;
 			}
 
 			switch (lDirY) {
 			case 1: 	// Y:Å®
-				tLineData.StartX = dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY;
-				tLineData.EndX = dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY;
+				tLineData.StartX = static_cast<float>(dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY);
+				tLineData.EndX = static_cast<float>(dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY);
 				break;
 			case 2: 	// Y:Å™
 			default:
-				tLineData.StartY = dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY;
-				tLineData.EndY = dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY;
+				tLineData.StartY = static_cast<float>(dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY);
+				tLineData.EndY = static_cast<float>(dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY);
 				break;
 			case 3: 	// Y:Å©
-				tLineData.StartX = dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY;
-				tLineData.EndX = dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY;
+				tLineData.StartX = static_cast<float>(dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY);
+				tLineData.EndX = static_cast<float>(dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY);
 				break;
 			case 4: 	// Y:Å´
-				tLineData.StartY = dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY;
-				tLineData.EndY = dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY;
+				tLineData.StartY = static_cast<float>(dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY);
+				tLineData.EndY = static_cast<float>(dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY);
 				break;
 			}
 // 2009.09.07 bagus stress å¥ì_à íuëŒâû --}--
