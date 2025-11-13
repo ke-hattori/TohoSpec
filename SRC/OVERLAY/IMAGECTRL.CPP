@@ -297,10 +297,10 @@ void CImageCtrl::frameReady(
 				double dYRatio = (double)(double(nDestHeight) / double(nSrcHeight));
 				if ( m_bDrawGoodDeskewSite ) {
 					RECT rc;
-					rc.left   = (nDestWidth  / 2) + (m_DeskewResult.XPos - 15.0) * dXRatio;
-					rc.top	  = (nDestHeight / 2) + (m_DeskewResult.YPos - 15.0) * dYRatio;
-					rc.right  = (nDestWidth  / 2) + (m_DeskewResult.XPos + 15.0) * dXRatio;
-					rc.bottom = (nDestHeight / 2) + (m_DeskewResult.YPos + 15.0) * dYRatio;
+					rc.left   = static_cast<long>((nDestWidth  / 2) + (m_DeskewResult.XPos - 15.0) * dXRatio);
+					rc.top	  = static_cast<long>((nDestHeight / 2) + (m_DeskewResult.YPos - 15.0) * dYRatio);
+					rc.right  = static_cast<long>((nDestWidth  / 2) + (m_DeskewResult.XPos + 15.0) * dXRatio);
+					rc.bottom = static_cast<long>((nDestHeight / 2) + (m_DeskewResult.YPos + 15.0) * dYRatio);
 					hNewPen = ::CreatePen(PS_SOLID, 0, RGB (0, 255, 0));
 					if ( hNewPen ) {
 						hOldPen = (HPEN) ::SelectObject(hDC, (HGDIOBJ) hNewPen);
