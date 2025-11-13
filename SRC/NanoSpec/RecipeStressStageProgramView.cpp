@@ -2615,7 +2615,7 @@ BOOL CRecipeStressStageProgramView::CheckMeasurementLineSectionData()
 // 2009.09.10 bagus stress èCê≥ --{--
 //	m_iNumScans = NumOfSections * PIN_INTERVAL;
 //	m_StageProgInfoHdr.wNumScans = m_iNumScans;
-	m_StageProgInfoHdr.wNumScans = static_cast<long>(NumOfSections * PIN_INTERVAL);
+	m_StageProgInfoHdr.wNumScans = static_cast<float>(static_cast<long>(NumOfSections * PIN_INTERVAL));
 	sprintf_s(szBuff, _countof(szBuff), "%d", m_StageProgInfoHdr.wNumScans);
 	SetDlgItemText(IDC_STAGE_PROGRAM_POINT_NUMBER, szBuff);
 
