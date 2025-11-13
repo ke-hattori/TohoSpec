@@ -467,7 +467,7 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 		}
 		//2010.01.19 bagus --{--
 		else{
-			m_Config.Y_Step = (m_dYMax -m_dYMin) / 10;
+			m_Config.Y_Step = static_cast<long>((m_dYMax -m_dYMin) / 10);
 			if(m_Config.Y_Step > 10){
 				//10�ȏ�ł��ꂠ��1�̈ʂ�؂�̂��������ɕύX����
 				if(m_Config.Y_Step % 10 >= 5){
@@ -482,8 +482,8 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 		//2009.09.11 bagus stress --}--
 		dScaleYMin = m_Config.Y_Origin;
 		dScaleYMax = m_Config.Y_Max;
-		m_Config.Y_Max = m_dYMax;
-		m_Config.Y_Origin = m_dYMin;
+		m_Config.Y_Max = static_cast<long>(m_dYMax);
+		m_Config.Y_Origin = static_cast<long>(m_dYMin);
 	}
 //2009.09.03 bagus se �I�[�g�X�P�[�� --}--
 
@@ -1129,9 +1129,9 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 
 //2009.09.03 bagus se �I�[�g�X�P�[�� --{--
 	if (m_bAutoScaleMode) {
-		m_Config.Y_Origin = dScaleYMin;
-		m_Config.Y_Max = dScaleYMax;
-		m_Config.Y_Step = dScaleYStep;
+		m_Config.Y_Origin = static_cast<long>(dScaleYMin);
+		m_Config.Y_Max = static_cast<long>(dScaleYMax);
+		m_Config.Y_Step = static_cast<long>(dScaleYStep);
 	}
 //2009.09.03 bagus se �I�[�g�X�P�[�� --}--
 }
