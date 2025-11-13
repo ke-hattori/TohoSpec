@@ -2707,16 +2707,16 @@ void CMeasurementGraphDlg::DrawLightIntensityGraph_Init_Stress(int nLine,int nSe
 			tGraphConfig.Y_Origin = 0;
 			tGraphConfig.X_Step = 50000;
 		}else{
-			tGraphConfig.X_Max = lMax / (double)MICROMETRE;
-			tGraphConfig.Y_Max = MAX_GRAPH_DEFL_Y;
-			tGraphConfig.X_Origin = lMin / (double)MICROMETRE;
-			tGraphConfig.Y_Origin = MIN_GRAPH_DEFL_Y;
+			tGraphConfig.X_Max = static_cast<long>(lMax / (double)MICROMETRE);
+			tGraphConfig.Y_Max = static_cast<long>(MAX_GRAPH_DEFL_Y);
+			tGraphConfig.X_Origin = static_cast<long>(lMin / (double)MICROMETRE);
+			tGraphConfig.Y_Origin = static_cast<long>(MIN_GRAPH_DEFL_Y);
 			//tGraphConfig.X_Step = 50000;
 			tGraphConfig.X_Step = (tGraphConfig.X_Max - tGraphConfig.X_Origin) / 5;
 			if(tGraphConfig.X_Step > 20){
 				tGraphConfig.X_Step = tGraphConfig.X_Step - (tGraphConfig.X_Step % 10);
 			}
-			tGraphConfig.Y_Step = (MAX_GRAPH_DEFL_Y - MIN_GRAPH_DEFL_Y) / 10;
+			tGraphConfig.Y_Step = static_cast<long>((MAX_GRAPH_DEFL_Y - MIN_GRAPH_DEFL_Y) / 10);
 		}
 		m_MeasureGraph.SetGraphConfig(tGraphConfig);
 		break;
@@ -2732,15 +2732,15 @@ void CMeasurementGraphDlg::DrawLightIntensityGraph_Init_Stress(int nLine,int nSe
 			tGraphConfig.Y_Origin = 0;
 			tGraphConfig.X_Step = 50;
 		}else{
-			tGraphConfig.X_Max = stressStage.Line[nLine].SectPos[nSection].lScanEndPosX / (double)MICROMETRE;
-			tGraphConfig.Y_Max = MAX_GRAPH_STRESS_Y;		//@@@
-			tGraphConfig.X_Origin = stressStage.Line[nLine].SectPos[nSection].lScanStartPosX / (double)MICROMETRE;
-			tGraphConfig.Y_Origin = MIN_GRAPH_STRESS_Y;
+			tGraphConfig.X_Max = static_cast<long>(stressStage.Line[nLine].SectPos[nSection].lScanEndPosX / (double)MICROMETRE);
+			tGraphConfig.Y_Max = static_cast<long>(MAX_GRAPH_STRESS_Y);		//@@@
+			tGraphConfig.X_Origin = static_cast<long>(stressStage.Line[nLine].SectPos[nSection].lScanStartPosX / (double)MICROMETRE);
+			tGraphConfig.Y_Origin = static_cast<long>(MIN_GRAPH_STRESS_Y);
 			tGraphConfig.X_Step = (tGraphConfig.X_Max - tGraphConfig.X_Origin) / 5;
 			if(tGraphConfig.X_Step > 20){
 				tGraphConfig.X_Step = tGraphConfig.X_Step - (tGraphConfig.X_Step % 10);
 			}
-			tGraphConfig.Y_Step = (MAX_GRAPH_STRESS_Y - MIN_GRAPH_STRESS_Y) / 10;
+			tGraphConfig.Y_Step = static_cast<long>((MAX_GRAPH_STRESS_Y - MIN_GRAPH_STRESS_Y) / 10);
 		}
 		m_MeasureGraph.SetGraphConfig(tGraphConfig);
 		break;
@@ -3439,8 +3439,8 @@ void CMeasurementGraphDlg::AddStressDataListAndGraph(int nLine,int nSection,int 
 		break;
 	case 1:		//Line•ÏˆÊ DeflectionRaw Line‘S‘Ì
 		if(tResult.nDeflectionOccurence[0] > 0){
-			lScanStartPosX = tResult.DeflectionRaw[0][0].dPosum;
-			lScanEndPosX = tResult.DeflectionRaw[0][tResult.nDeflectionOccurence[0]-1].dPosum;
+			lScanStartPosX = static_cast<long>(tResult.DeflectionRaw[0][0].dPosum);
+			lScanEndPosX = static_cast<long>(tResult.DeflectionRaw[0][tResult.nDeflectionOccurence[0]-1].dPosum);
 		}else{
 			lScanStartPosX = 0L;
 			lScanEndPosX = 0L;
@@ -3448,8 +3448,8 @@ void CMeasurementGraphDlg::AddStressDataListAndGraph(int nLine,int nSection,int 
 		{
 			CNanoMeasureGraph::GraphConfig tConfig;
 			m_MeasureGraph.GetGraphConfig(&tConfig);
-			tConfig.X_Origin = lScanStartPosX / (double)MICROMETRE;
-			tConfig.X_Max = lScanEndPosX / (double)MICROMETRE;
+			tConfig.X_Origin = static_cast<long>(lScanStartPosX / (double)MICROMETRE);
+			tConfig.X_Max = static_cast<long>(lScanEndPosX / (double)MICROMETRE);
 			m_MeasureGraph.SetGraphConfig(tConfig);
 		}
 	case 2:		//Line•ÏˆÊ DeflectionRaw Section’PˆÊ
@@ -3938,8 +3938,8 @@ void CMeasurementGraphDlg::OnDispInfo(NMHDR* pNMHDR, LRESULT* pResult)
 					if ( GetCurrentTab() == 1 ) {
 						//Line•ÏˆÊ DeflectionRaw Line‘S‘Ì
 						if(tResult.nDeflectionOccurence[0] > 0){
-							lScanStartPosX = tResult.DeflectionRaw[0][0].dPosum;
-							lScanEndPosX = tResult.DeflectionRaw[0][tResult.nDeflectionOccurence[0]-1].dPosum;
+							lScanStartPosX = static_cast<long>(tResult.DeflectionRaw[0][0].dPosum);
+							lScanEndPosX = static_cast<long>(tResult.DeflectionRaw[0][tResult.nDeflectionOccurence[0]-1].dPosum);
 						}else{
 							lScanStartPosX = 0L;
 							lScanEndPosX = 0L;
