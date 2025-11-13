@@ -917,7 +917,7 @@ void COverlayDialog::Refresh(void)
 		///// X Axis /////
 		//20091109 Change ----->
 		//m_CurrSamplePos.lX = m_CurrPos.lX - m_SampleOriginCoord.lX;
-		m_CurrSamplePos.lX = static_cast<float>(m_CurrPos.lX - m_SampleOriginCoord.lX - (m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))));
+		m_CurrSamplePos.lX = static_cast<long>(m_CurrPos.lX - m_SampleOriginCoord.lX - (m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))));
 		//20091109 Change <-----
 		if(m_CurrSamplePos.lX != m_old_CurrSamplePos.lX){
 			sprintf(szBuff, "%.3lf", (double)(m_CurrSamplePos.lX)/MICROMETRE);
@@ -930,7 +930,7 @@ void COverlayDialog::Refresh(void)
 		///// Y Axis /////
 		//20091109 Change ----->
 		//m_CurrSamplePos.lY = m_CurrPos.lY - m_SampleOriginCoord.lY;
-		m_CurrSamplePos.lY = static_cast<float>(m_CurrPos.lY - m_SampleOriginCoord.lY - (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))));
+		m_CurrSamplePos.lY = static_cast<long>(m_CurrPos.lY - m_SampleOriginCoord.lY - (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))));
 		//20091109 Change <-----
 		if(m_CurrSamplePos.lY != m_old_CurrSamplePos.lY){
 			sprintf(szBuff, "%.3lf", (double)(m_CurrSamplePos.lY)/MICROMETRE);
@@ -1188,26 +1188,26 @@ BOOL result;
 			case 0:
 			default:
 				//左下
-				TeachPos.lX = static_cast<float>((dStageSizeX * xfract / m_rcStage.Width()) + (m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))));
-				TeachPos.lY = static_cast<float>((dStageSizeY * -yfract / m_rcStage.Height()) + (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))));
+				TeachPos.lX = static_cast<long>((dStageSizeX * xfract / m_rcStage.Width()) + (m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))));
+				TeachPos.lY = static_cast<long>((dStageSizeY * -yfract / m_rcStage.Height()) + (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))));
 				break;
 			case 90:
 				//左下には、0度のときの右下
-				TeachPos.lX = static_cast<float>((dStageSizeY * -yfract / m_rcStage.Height()) + (-m_StageConfig.StageMaxCoord.dRightX - (m_StageConfig.Origin.lX * (-1))));
+				TeachPos.lX = static_cast<long>((dStageSizeY * -yfract / m_rcStage.Height()) + (-m_StageConfig.StageMaxCoord.dRightX - (m_StageConfig.Origin.lX * (-1))));
 				TeachPos.lX = TeachPos.lX * -1;
-				TeachPos.lY = static_cast<float>((dStageSizeX * xfract / m_rcStage.Width()) + (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))));
+				TeachPos.lY = static_cast<long>((dStageSizeX * xfract / m_rcStage.Width()) + (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))));
 				break;
 			case 180:
 				//左下には、0度のときの右上
-				TeachPos.lX = static_cast<float>((dStageSizeX * xfract / m_rcStage.Width()) + (-m_StageConfig.StageMaxCoord.dRightX - (m_StageConfig.Origin.lX * (-1))));
+				TeachPos.lX = static_cast<long>((dStageSizeX * xfract / m_rcStage.Width()) + (-m_StageConfig.StageMaxCoord.dRightX - (m_StageConfig.Origin.lX * (-1))));
 				TeachPos.lX = TeachPos.lX * -1;
-				TeachPos.lY = static_cast<float>((dStageSizeY * -yfract / m_rcStage.Height()) + (-m_StageConfig.StageMaxCoord.dUpY - (m_StageConfig.Origin.lY * (-1))));
+				TeachPos.lY = static_cast<long>((dStageSizeY * -yfract / m_rcStage.Height()) + (-m_StageConfig.StageMaxCoord.dUpY - (m_StageConfig.Origin.lY * (-1))));
 				TeachPos.lY = TeachPos.lY * -1;
 				break;
 			case 270:
 				//左下には、0度のときの左上
-				TeachPos.lX = static_cast<float>((dStageSizeY * -yfract / m_rcStage.Height()) + (m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))));
-				TeachPos.lY = static_cast<float>((dStageSizeX * xfract / m_rcStage.Width()) + (-m_StageConfig.StageMaxCoord.dUpY - (m_StageConfig.Origin.lY * (-1))));
+				TeachPos.lX = static_cast<long>((dStageSizeY * -yfract / m_rcStage.Height()) + (m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))));
+				TeachPos.lY = static_cast<long>((dStageSizeX * xfract / m_rcStage.Width()) + (-m_StageConfig.StageMaxCoord.dUpY - (m_StageConfig.Origin.lY * (-1))));
 				TeachPos.lY = TeachPos.lY * -1;
 				break;
 			}
@@ -1458,10 +1458,10 @@ void COverlayDialog::SetupStageMap(void)
 
 	///// ステージ全範囲 /////
 	if((dStageSizeX / dStageSizeY) > ((double)m_iMaxSizeX / (double)m_iMaxSizeY)) {
-		m_iMaxSizeY = static_cast<float>(m_iMaxSizeX * dStageSizeY / dStageSizeX);
+		m_iMaxSizeY = static_cast<long>(m_iMaxSizeX * dStageSizeY / dStageSizeX);
 	}
 	else{
-		m_iMaxSizeX = static_cast<float>(m_iMaxSizeY * dStageSizeX / dStageSizeY);
+		m_iMaxSizeX = static_cast<long>(m_iMaxSizeY * dStageSizeX / dStageSizeY);
 	}
 	m_lDrawStartStagePosX = iPos.x - m_iMaxSizeX;
 	m_lDrawStartStagePosY = iPos.y - m_iMaxSizeY;
@@ -1636,23 +1636,23 @@ void COverlayDialog::DrawCenterMarker(LPCRECT lpRect, CDC* pDC)
 	case 0:
 	default:
 		//左下
-		StageCenterX = static_cast<float>(m_lCenterPos.x + ((m_StageConfig.Origin.lX * (-1)) * x_pixs_um) - ((m_StageConfig.StageMaxCoord.dLeftX - (l_StgCfgOrg.lX * (-1))) * x_pixs_um));
-		StageCenterY = static_cast<float>(m_lCenterPos.y - ((m_StageConfig.Origin.lY * (-1)) * y_pixs_um) + ((m_StageConfig.StageMaxCoord.dDownY - (l_StgCfgOrg.lY * (-1))) * y_pixs_um));
+		StageCenterX = static_cast<long>(m_lCenterPos.x + ((m_StageConfig.Origin.lX * (-1)) * x_pixs_um) - ((m_StageConfig.StageMaxCoord.dLeftX - (l_StgCfgOrg.lX * (-1))) * x_pixs_um));
+		StageCenterY = static_cast<long>(m_lCenterPos.y - ((m_StageConfig.Origin.lY * (-1)) * y_pixs_um) + ((m_StageConfig.StageMaxCoord.dDownY - (l_StgCfgOrg.lY * (-1))) * y_pixs_um));
 		break;
 	case 90:
 		//左下には、0度のときの右下
-		StageCenterX = static_cast<float>(m_lCenterPos.x + ((m_StageConfig.Origin.lY * (-1)) * x_pixs_um) - ((m_StageConfig.StageMaxCoord.dDownY - (l_StgCfgOrg.lY * (-1))) * x_pixs_um));
-		StageCenterY = static_cast<float>(m_lCenterPos.y + ((m_StageConfig.Origin.lX * (-1)) * y_pixs_um) + ((-m_StageConfig.StageMaxCoord.dRightX - (l_StgCfgOrg.lX * (-1))) * y_pixs_um));
+		StageCenterX = static_cast<long>(m_lCenterPos.x + ((m_StageConfig.Origin.lY * (-1)) * x_pixs_um) - ((m_StageConfig.StageMaxCoord.dDownY - (l_StgCfgOrg.lY * (-1))) * x_pixs_um));
+		StageCenterY = static_cast<long>(m_lCenterPos.y + ((m_StageConfig.Origin.lX * (-1)) * y_pixs_um) + ((-m_StageConfig.StageMaxCoord.dRightX - (l_StgCfgOrg.lX * (-1))) * y_pixs_um));
 		break;
 	case 180:
 		//左下には、0度のときの右上
-		StageCenterX = static_cast<float>(m_lCenterPos.x - ((m_StageConfig.Origin.lX * (-1)) * x_pixs_um) - ((-m_StageConfig.StageMaxCoord.dRightX - (l_StgCfgOrg.lX * (-1))) * x_pixs_um));
-		StageCenterY = static_cast<float>(m_lCenterPos.y + ((m_StageConfig.Origin.lY * (-1)) * y_pixs_um) + ((-m_StageConfig.StageMaxCoord.dUpY - (l_StgCfgOrg.lY * (-1))) * y_pixs_um));
+		StageCenterX = static_cast<long>(m_lCenterPos.x - ((m_StageConfig.Origin.lX * (-1)) * x_pixs_um) - ((-m_StageConfig.StageMaxCoord.dRightX - (l_StgCfgOrg.lX * (-1))) * x_pixs_um));
+		StageCenterY = static_cast<long>(m_lCenterPos.y + ((m_StageConfig.Origin.lY * (-1)) * y_pixs_um) + ((-m_StageConfig.StageMaxCoord.dUpY - (l_StgCfgOrg.lY * (-1))) * y_pixs_um));
 		break;
 	case 270:
 		//左下には、0度のときの左上
-		StageCenterX = static_cast<float>(m_lCenterPos.x - ((m_StageConfig.Origin.lY * (-1)) * x_pixs_um) - ((-m_StageConfig.StageMaxCoord.dUpY - (l_StgCfgOrg.lY * (-1))) * x_pixs_um));
-		StageCenterY = static_cast<float>(m_lCenterPos.y - ((m_StageConfig.Origin.lX * (-1)) * y_pixs_um) + ((m_StageConfig.StageMaxCoord.dLeftX - (l_StgCfgOrg.lX * (-1))) * y_pixs_um));
+		StageCenterX = static_cast<long>(m_lCenterPos.x - ((m_StageConfig.Origin.lY * (-1)) * x_pixs_um) - ((-m_StageConfig.StageMaxCoord.dUpY - (l_StgCfgOrg.lY * (-1))) * x_pixs_um));
+		StageCenterY = static_cast<long>(m_lCenterPos.y - ((m_StageConfig.Origin.lX * (-1)) * y_pixs_um) + ((m_StageConfig.StageMaxCoord.dLeftX - (l_StgCfgOrg.lX * (-1))) * y_pixs_um));
 		break;
 	}
 // 2013.01.17 bagus rotate xy view -->
@@ -1779,23 +1779,23 @@ void COverlayDialog::UpdateStagePosMarker ()
 	case 0:
 	default:
 		//左下
-		x = static_cast<float>(x + (int)(coordTemp.lX * x_pixs_um) - ((m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))) * x_pixs_um));
-		y = static_cast<float>(y - (int)(coordTemp.lY * y_pixs_um) + ((m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))) * y_pixs_um)); 
+		x = static_cast<long>(x + (int)(coordTemp.lX * x_pixs_um) - ((m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))) * x_pixs_um));
+		y = static_cast<long>(y - (int)(coordTemp.lY * y_pixs_um) + ((m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))) * y_pixs_um)); 
 		break;
 	case 90:
 		//左下には、0度のときの右下
-		x = static_cast<float>(x + (int)(coordTemp.lY * x_pixs_um) - ((m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))) * x_pixs_um));
-		y = static_cast<float>(y + (int)(coordTemp.lX * y_pixs_um) + ((-m_StageConfig.StageMaxCoord.dRightX - (m_StageConfig.Origin.lX * (-1))) * y_pixs_um));
+		x = static_cast<long>(x + (int)(coordTemp.lY * x_pixs_um) - ((m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))) * x_pixs_um));
+		y = static_cast<long>(y + (int)(coordTemp.lX * y_pixs_um) + ((-m_StageConfig.StageMaxCoord.dRightX - (m_StageConfig.Origin.lX * (-1))) * y_pixs_um));
 		break;
 	case 180:
 		//左下には、0度のときの右上
-		x = static_cast<float>(x - (int)(coordTemp.lX * x_pixs_um) - ((-m_StageConfig.StageMaxCoord.dRightX - (m_StageConfig.Origin.lX * (-1))) * x_pixs_um));
-		y = static_cast<float>(y + (int)(coordTemp.lY * y_pixs_um) + ((-m_StageConfig.StageMaxCoord.dUpY - (m_StageConfig.Origin.lY * (-1))) * y_pixs_um)); 
+		x = static_cast<long>(x - (int)(coordTemp.lX * x_pixs_um) - ((-m_StageConfig.StageMaxCoord.dRightX - (m_StageConfig.Origin.lX * (-1))) * x_pixs_um));
+		y = static_cast<long>(y + (int)(coordTemp.lY * y_pixs_um) + ((-m_StageConfig.StageMaxCoord.dUpY - (m_StageConfig.Origin.lY * (-1))) * y_pixs_um)); 
 		break;
 	case 270:
 		//左下には、0度のときの左上
-		x = static_cast<float>(x - (int)(coordTemp.lY * x_pixs_um) - ((-m_StageConfig.StageMaxCoord.dUpY - (m_StageConfig.Origin.lY * (-1))) * x_pixs_um));
-		y = static_cast<float>(y - (int)(coordTemp.lX * y_pixs_um) + ((m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))) * y_pixs_um));
+		x = static_cast<long>(x - (int)(coordTemp.lY * x_pixs_um) - ((-m_StageConfig.StageMaxCoord.dUpY - (m_StageConfig.Origin.lY * (-1))) * x_pixs_um));
+		y = static_cast<long>(y - (int)(coordTemp.lX * y_pixs_um) + ((m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))) * y_pixs_um));
 		break;
 	}
 // 2013.01.17 bagus rotate xy view <--
@@ -2803,8 +2803,8 @@ BOOL result;
 		case SPECIFY_COORDINATE_SAMPLE:
 
 			if (!(m_nSampleMode ==0)){
-				Position.lX = static_cast<float>(dlg.m_lX + m_SampleOriginCoord.lX + (m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))));
-				Position.lY = static_cast<float>(dlg.m_lY + m_SampleOriginCoord.lY + (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))));
+				Position.lX = static_cast<long>(dlg.m_lX + m_SampleOriginCoord.lX + (m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))));
+				Position.lY = static_cast<long>(dlg.m_lY + m_SampleOriginCoord.lY + (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))));
 				m_pDoc->ActuateFlagsSet(ACTUATE_XYSTAGE, TRUE);
 				if(!m_pMainFrame->HardwareSimulation()){
 					result = NS_StageMoveAbsolute(&Position);
@@ -3186,8 +3186,8 @@ void COverlayDialog::SetupSampleMap(void)
 //			  m_SampleOriginCoord.lX = SampleInfo.Origin.lX;
 //			  m_SampleOriginCoord.lY = SampleInfo.Origin.lY;
 			// 2013.01.09 bagus -->
-			m_SampleOriginCoord.lX = static_cast<float>(SampleInfo.Origin.lX - (m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))));
-			m_SampleOriginCoord.lY = static_cast<float>(SampleInfo.Origin.lY - (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))));
+			m_SampleOriginCoord.lX = static_cast<long>(SampleInfo.Origin.lX - (m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))));
+			m_SampleOriginCoord.lY = static_cast<long>(SampleInfo.Origin.lY - (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))));
 
 			STAGE_COORD XyAxisCoord;
 			STAGE_COORD MapDrawSampleOriginCoord;
@@ -3196,8 +3196,8 @@ void COverlayDialog::SetupSampleMap(void)
 			XyAxisCoord.lY = SampleInfo.Origin.lY;
 			ToXyAxisCoord(&XyAxisCoord);
 
-			MapDrawSampleOriginCoord.lX = static_cast<float>(XyAxisCoord.lX - (m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))));
-			MapDrawSampleOriginCoord.lY = static_cast<float>(XyAxisCoord.lY - (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))));
+			MapDrawSampleOriginCoord.lX = static_cast<long>(XyAxisCoord.lX - (m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))));
+			MapDrawSampleOriginCoord.lY = static_cast<long>(XyAxisCoord.lY - (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))));
 			// 2013.01.09 bagus <--
 			DrawSampleMap(MapDrawSampleOriginCoord.lX, MapDrawSampleOriginCoord.lY);
 		}
@@ -3221,8 +3221,8 @@ void COverlayDialog::SetupSampleMap(void)
 					m_dSampleSizeX	 = SampleInfo.Size.dy;
 					m_dSampleSizeY	 = SampleInfo.Size.dx;
 				}
-				m_SampleOriginCoord.lX = static_cast<float>(SampleInfo.Origin.lX - (m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))));
-				m_SampleOriginCoord.lY = static_cast<float>(SampleInfo.Origin.lY - (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))));
+				m_SampleOriginCoord.lX = static_cast<long>(SampleInfo.Origin.lX - (m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))));
+				m_SampleOriginCoord.lY = static_cast<long>(SampleInfo.Origin.lY - (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))));
 
 				STAGE_COORD XyAxisCoord;
 				STAGE_COORD MapDrawSampleOriginCoord;
@@ -3231,8 +3231,8 @@ void COverlayDialog::SetupSampleMap(void)
 				XyAxisCoord.lY = SampleInfo.Origin.lY;
 				ToXyAxisCoord(&XyAxisCoord);
 
-				MapDrawSampleOriginCoord.lX = static_cast<float>(XyAxisCoord.lX - (m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))));
-				MapDrawSampleOriginCoord.lY = static_cast<float>(XyAxisCoord.lY - (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))));
+				MapDrawSampleOriginCoord.lX = static_cast<long>(XyAxisCoord.lX - (m_StageConfig.StageMaxCoord.dLeftX - (m_StageConfig.Origin.lX * (-1))));
+				MapDrawSampleOriginCoord.lY = static_cast<long>(XyAxisCoord.lY - (m_StageConfig.StageMaxCoord.dDownY - (m_StageConfig.Origin.lY * (-1))));
 				// 2013.01.09 bagus <--
 				DrawSampleMap(MapDrawSampleOriginCoord.lX, MapDrawSampleOriginCoord.lY);
 			}
@@ -3408,12 +3408,12 @@ void COverlayDialog::DrawSampleMap(long lMapDrawSampleOriginCoordX, long lMapDra
 
 	if ( m_StageConfig.RotateXyView == 0 ||
 		 m_StageConfig.RotateXyView == 180 ) {
-		lDrawSampleSizeX = static_cast<float>(m_iMaxSizeX * m_dSampleSizeX / dStageSizeX);
-		lDrawSampleSizeY = static_cast<float>(m_iMaxSizeY * m_dSampleSizeY / dStageSizeY);
+		lDrawSampleSizeX = static_cast<long>(m_iMaxSizeX * m_dSampleSizeX / dStageSizeX);
+		lDrawSampleSizeY = static_cast<long>(m_iMaxSizeY * m_dSampleSizeY / dStageSizeY);
 	}
 	else {
-		lDrawSampleSizeX = static_cast<float>(m_iMaxSizeX * m_dSampleSizeY / dStageSizeY);
-		lDrawSampleSizeY = static_cast<float>(m_iMaxSizeY * m_dSampleSizeX / dStageSizeX);
+		lDrawSampleSizeX = static_cast<long>(m_iMaxSizeX * m_dSampleSizeY / dStageSizeY);
+		lDrawSampleSizeY = static_cast<long>(m_iMaxSizeY * m_dSampleSizeX / dStageSizeX);
 	}
 
 	// ステージ原点からの移動量
@@ -3426,24 +3426,24 @@ void COverlayDialog::DrawSampleMap(long lMapDrawSampleOriginCoordX, long lMapDra
 	switch ( m_StageConfig.RotateXyView ) {
 	case 0:
 	default:
-		lX_Offset = static_cast<float>(m_iMaxSizeX * 2 * (lMapDrawSampleOriginCoordX + m_HeadOffset.lX) / dStageSizeX);
-		lY_Offset = static_cast<float>(m_iMaxSizeY * 2 * (lMapDrawSampleOriginCoordY + m_HeadOffset.lY) / dStageSizeY);
+		lX_Offset = static_cast<long>(m_iMaxSizeX * 2 * (lMapDrawSampleOriginCoordX + m_HeadOffset.lX) / dStageSizeX);
+		lY_Offset = static_cast<long>(m_iMaxSizeY * 2 * (lMapDrawSampleOriginCoordY + m_HeadOffset.lY) / dStageSizeY);
 		break;
 	case 90:
-		lX_Offset = static_cast<float>(m_iMaxSizeX * 2 * (lMapDrawSampleOriginCoordY + m_HeadOffset.lY) / dStageSizeY);
-		lY_Offset = static_cast<float>(m_iMaxSizeY * 2 * (lMapDrawSampleOriginCoordX + m_HeadOffset.lX) / dStageSizeX);
+		lX_Offset = static_cast<long>(m_iMaxSizeX * 2 * (lMapDrawSampleOriginCoordY + m_HeadOffset.lY) / dStageSizeY);
+		lY_Offset = static_cast<long>(m_iMaxSizeY * 2 * (lMapDrawSampleOriginCoordX + m_HeadOffset.lX) / dStageSizeX);
 		lY_Offset = m_iMaxSizeY * 2 - lY_Offset;
 		break;
 	case 180:
-		lX_Offset = static_cast<float>(m_iMaxSizeX * 2 * (lMapDrawSampleOriginCoordX + m_HeadOffset.lX) / dStageSizeX);
+		lX_Offset = static_cast<long>(m_iMaxSizeX * 2 * (lMapDrawSampleOriginCoordX + m_HeadOffset.lX) / dStageSizeX);
 		lX_Offset = m_iMaxSizeX * 2 - lX_Offset;
-		lY_Offset = static_cast<float>(m_iMaxSizeY * 2 * (lMapDrawSampleOriginCoordY + m_HeadOffset.lY) / dStageSizeY);
+		lY_Offset = static_cast<long>(m_iMaxSizeY * 2 * (lMapDrawSampleOriginCoordY + m_HeadOffset.lY) / dStageSizeY);
 		lY_Offset = m_iMaxSizeY * 2 - lY_Offset;
 		break;
 	case 270:
-		lX_Offset = static_cast<float>(m_iMaxSizeX * 2 * (lMapDrawSampleOriginCoordY + m_HeadOffset.lY) / dStageSizeY);
+		lX_Offset = static_cast<long>(m_iMaxSizeX * 2 * (lMapDrawSampleOriginCoordY + m_HeadOffset.lY) / dStageSizeY);
 		lX_Offset = m_iMaxSizeX * 2 - lX_Offset;
-		lY_Offset = static_cast<float>(m_iMaxSizeY * 2 * (lMapDrawSampleOriginCoordX + m_HeadOffset.lX) / dStageSizeX);
+		lY_Offset = static_cast<long>(m_iMaxSizeY * 2 * (lMapDrawSampleOriginCoordX + m_HeadOffset.lX) / dStageSizeX);
 		break;
 	}
 // 2013.01.17 bagus rotate xy view <--
@@ -3962,10 +3962,10 @@ CString strMsg;
 	STAGE_COORD coordLeftTop;
 	STAGE_COORD coordRightBottom;
 
-	coordLeftTop.lX = static_cast<float>(m_StageConfig.StageMaxCoord.dLeftX);
-	coordLeftTop.lY = static_cast<float>(m_StageConfig.StageMaxCoord.dUpY);
-	coordRightBottom.lX = static_cast<float>(m_StageConfig.StageMaxCoord.dRightX);
-	coordRightBottom.lY = static_cast<float>(m_StageConfig.StageMaxCoord.dDownY);
+	coordLeftTop.lX = static_cast<long>(m_StageConfig.StageMaxCoord.dLeftX);
+	coordLeftTop.lY = static_cast<long>(m_StageConfig.StageMaxCoord.dUpY);
+	coordRightBottom.lX = static_cast<long>(m_StageConfig.StageMaxCoord.dRightX);
+	coordRightBottom.lY = static_cast<long>(m_StageConfig.StageMaxCoord.dDownY);
 
 	NS_ConvertToStageGetPosCoord(&coordLeftTop);
 	NS_ConvertToStageGetPosCoord(&coordRightBottom);
