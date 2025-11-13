@@ -262,10 +262,10 @@ BOOL CSampleSettingDlg::CheckData()
 	long lSampleYEdgeMin;
 	long lSampleYEdgeMax;
 
-	coordLeftTop.lX = m_StageConfig.StageMaxCoord.dLeftX + m_StageConfig.Edge.dX;
-	coordLeftTop.lY = m_StageConfig.StageMaxCoord.dUpY - m_StageConfig.Edge.dY;
-	coordRightBottom.lX = m_StageConfig.StageMaxCoord.dRightX - m_StageConfig.Edge.dX;
-	coordRightBottom.lY = m_StageConfig.StageMaxCoord.dDownY + m_StageConfig.Edge.dY;
+	coordLeftTop.lX = static_cast<long>(m_StageConfig.StageMaxCoord.dLeftX + m_StageConfig.Edge.dX);
+	coordLeftTop.lY = static_cast<long>(m_StageConfig.StageMaxCoord.dUpY - m_StageConfig.Edge.dY);
+	coordRightBottom.lX = static_cast<long>(m_StageConfig.StageMaxCoord.dRightX - m_StageConfig.Edge.dX);
+	coordRightBottom.lY = static_cast<long>(m_StageConfig.StageMaxCoord.dDownY + m_StageConfig.Edge.dY);
 
 	// 現在のレンズOffset情報消去（座標変換にレンズオフセットを加味しない）
 	::ZeroMemory(&zeroLensOffset, sizeof(zeroLensOffset));
@@ -349,14 +349,14 @@ BOOL CSampleSettingDlg::CheckData()
 		///// Sample Origin X + Sample Size X　有効エリアチェック/////
 		lStageXEdgeMin = min(coordLeftTop.lX, coordRightBottom.lX);
 		lStageXEdgeMax = max(coordLeftTop.lX, coordRightBottom.lX);
-		lSampleXEdgeMin = m_SampleInfo.Origin.lX - (m_SampleInfo.Size.dx / 2);
-		lSampleXEdgeMax = m_SampleInfo.Origin.lX + (m_SampleInfo.Size.dx / 2);
+		lSampleXEdgeMin = static_cast<long>(m_SampleInfo.Origin.lX - (m_SampleInfo.Size.dx / 2));
+		lSampleXEdgeMax = static_cast<long>(m_SampleInfo.Origin.lX + (m_SampleInfo.Size.dx / 2));
 
 		///// Sample Origin Y + Sample Size Y　有効エリアチェック/////
 		lStageYEdgeMin = min(coordLeftTop.lY, coordRightBottom.lY);
 		lStageYEdgeMax = max(coordLeftTop.lY, coordRightBottom.lY);
-		lSampleYEdgeMin = m_SampleInfo.Origin.lY - (m_SampleInfo.Size.dy / 2);
-		lSampleYEdgeMax = m_SampleInfo.Origin.lY + (m_SampleInfo.Size.dy / 2);
+		lSampleYEdgeMin = static_cast<long>(m_SampleInfo.Origin.lY - (m_SampleInfo.Size.dy / 2));
+		lSampleYEdgeMax = static_cast<long>(m_SampleInfo.Origin.lY + (m_SampleInfo.Size.dy / 2));
 		break;
 	case 2: // 左上
 		///// Sample Origin X + Sample Size X　有効エリアチェック/////
@@ -365,10 +365,10 @@ BOOL CSampleSettingDlg::CheckData()
 		if ( m_StageConfig.Dir.X == DIR_RIGHT ||
 			 m_StageConfig.Dir.X == DIR_BOTTOM ) {
 			lSampleXEdgeMin = m_SampleInfo.Origin.lX;
-			lSampleXEdgeMax = m_SampleInfo.Origin.lX + m_SampleInfo.Size.dx;
+			lSampleXEdgeMax = static_cast<long>(m_SampleInfo.Origin.lX + m_SampleInfo.Size.dx);
 		}
 		else {
-			lSampleXEdgeMin = m_SampleInfo.Origin.lX - m_SampleInfo.Size.dx;
+			lSampleXEdgeMin = static_cast<long>(m_SampleInfo.Origin.lX - m_SampleInfo.Size.dx);
 			lSampleXEdgeMax = m_SampleInfo.Origin.lX;
 		}
 
@@ -378,10 +378,10 @@ BOOL CSampleSettingDlg::CheckData()
 		if ( m_StageConfig.Dir.Y == DIR_RIGHT ||
 			 m_StageConfig.Dir.Y == DIR_BOTTOM ) {
 			lSampleYEdgeMin = m_SampleInfo.Origin.lY;
-			lSampleYEdgeMax = m_SampleInfo.Origin.lY + m_SampleInfo.Size.dy;
+			lSampleYEdgeMax = static_cast<long>(m_SampleInfo.Origin.lY + m_SampleInfo.Size.dy);
 		}
 		else {
-			lSampleYEdgeMin = m_SampleInfo.Origin.lY - m_SampleInfo.Size.dy;
+			lSampleYEdgeMin = static_cast<long>(m_SampleInfo.Origin.lY - m_SampleInfo.Size.dy);
 			lSampleYEdgeMax = m_SampleInfo.Origin.lY;
 		}
 		break;
@@ -392,10 +392,10 @@ BOOL CSampleSettingDlg::CheckData()
 		if ( m_StageConfig.Dir.X == DIR_RIGHT ||
 			 m_StageConfig.Dir.X == DIR_TOP ) {
 			lSampleXEdgeMin = m_SampleInfo.Origin.lX;
-			lSampleXEdgeMax = m_SampleInfo.Origin.lX + m_SampleInfo.Size.dx;
+			lSampleXEdgeMax = static_cast<long>(m_SampleInfo.Origin.lX + m_SampleInfo.Size.dx);
 		}
 		else {
-			lSampleXEdgeMin = m_SampleInfo.Origin.lX - m_SampleInfo.Size.dx;
+			lSampleXEdgeMin = static_cast<long>(m_SampleInfo.Origin.lX - m_SampleInfo.Size.dx);
 			lSampleXEdgeMax = m_SampleInfo.Origin.lX;
 		}
 
@@ -405,10 +405,10 @@ BOOL CSampleSettingDlg::CheckData()
 		if ( m_StageConfig.Dir.Y == DIR_RIGHT ||
 			 m_StageConfig.Dir.Y == DIR_TOP ) {
 			lSampleYEdgeMin = m_SampleInfo.Origin.lY;
-			lSampleYEdgeMax = m_SampleInfo.Origin.lY + m_SampleInfo.Size.dy;
+			lSampleYEdgeMax = static_cast<long>(m_SampleInfo.Origin.lY + m_SampleInfo.Size.dy);
 		}
 		else {
-			lSampleYEdgeMin = m_SampleInfo.Origin.lY - m_SampleInfo.Size.dy;
+			lSampleYEdgeMin = static_cast<long>(m_SampleInfo.Origin.lY - m_SampleInfo.Size.dy);
 			lSampleYEdgeMax = m_SampleInfo.Origin.lY;
 		}
 		break;
@@ -419,10 +419,10 @@ BOOL CSampleSettingDlg::CheckData()
 		if ( m_StageConfig.Dir.X == DIR_LEFT ||
 			 m_StageConfig.Dir.X == DIR_TOP ) {
 			lSampleXEdgeMin = m_SampleInfo.Origin.lX;
-			lSampleXEdgeMax = m_SampleInfo.Origin.lX + m_SampleInfo.Size.dx;
+			lSampleXEdgeMax = static_cast<long>(m_SampleInfo.Origin.lX + m_SampleInfo.Size.dx);
 		}
 		else {
-			lSampleXEdgeMin = m_SampleInfo.Origin.lX - m_SampleInfo.Size.dx;
+			lSampleXEdgeMin = static_cast<long>(m_SampleInfo.Origin.lX - m_SampleInfo.Size.dx);
 			lSampleXEdgeMax = m_SampleInfo.Origin.lX;
 		}
 
@@ -432,10 +432,10 @@ BOOL CSampleSettingDlg::CheckData()
 		if ( m_StageConfig.Dir.Y == DIR_LEFT ||
 			 m_StageConfig.Dir.Y == DIR_TOP ) {
 			lSampleYEdgeMin = m_SampleInfo.Origin.lY;
-			lSampleYEdgeMax = m_SampleInfo.Origin.lY + m_SampleInfo.Size.dy;
+			lSampleYEdgeMax = static_cast<long>(m_SampleInfo.Origin.lY + m_SampleInfo.Size.dy);
 		}
 		else {
-			lSampleYEdgeMin = m_SampleInfo.Origin.lY - m_SampleInfo.Size.dy;
+			lSampleYEdgeMin = static_cast<long>(m_SampleInfo.Origin.lY - m_SampleInfo.Size.dy);
 			lSampleYEdgeMax = m_SampleInfo.Origin.lY;
 		}
 		break;
@@ -446,10 +446,10 @@ BOOL CSampleSettingDlg::CheckData()
 		if ( m_StageConfig.Dir.X == DIR_LEFT ||
 			 m_StageConfig.Dir.X == DIR_BOTTOM ) {
 			lSampleXEdgeMin = m_SampleInfo.Origin.lX;
-			lSampleXEdgeMax = m_SampleInfo.Origin.lX + m_SampleInfo.Size.dx;
+			lSampleXEdgeMax = static_cast<long>(m_SampleInfo.Origin.lX + m_SampleInfo.Size.dx);
 		}
 		else {
-			lSampleXEdgeMin = m_SampleInfo.Origin.lX - m_SampleInfo.Size.dx;
+			lSampleXEdgeMin = static_cast<long>(m_SampleInfo.Origin.lX - m_SampleInfo.Size.dx);
 			lSampleXEdgeMax = m_SampleInfo.Origin.lX;
 		}
 
@@ -459,10 +459,10 @@ BOOL CSampleSettingDlg::CheckData()
 		if ( m_StageConfig.Dir.Y == DIR_LEFT ||
 			 m_StageConfig.Dir.Y == DIR_BOTTOM ) {
 			lSampleYEdgeMin = m_SampleInfo.Origin.lY;
-			lSampleYEdgeMax = m_SampleInfo.Origin.lY + m_SampleInfo.Size.dy;
+			lSampleYEdgeMax = static_cast<long>(m_SampleInfo.Origin.lY + m_SampleInfo.Size.dy);
 		}
 		else {
-			lSampleYEdgeMin = m_SampleInfo.Origin.lY - m_SampleInfo.Size.dy;
+			lSampleYEdgeMin = static_cast<long>(m_SampleInfo.Origin.lY - m_SampleInfo.Size.dy);
 			lSampleYEdgeMax = m_SampleInfo.Origin.lY;
 		}
 		break;
