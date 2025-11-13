@@ -653,28 +653,28 @@ void CPointSetupDispositionDlg::GetPosRangeX(long *pMin,long *pMax)
 {
 	switch(m_nOrgPos){
 	case 1:
-		*pMin = -(m_dSampleSizeX / 2);
-		*pMax = m_dSampleSizeX / 2;
+		*pMin = static_cast<long>(-(m_dSampleSizeX / 2));
+		*pMax = static_cast<long>(m_dSampleSizeX / 2);
 		break;
 	case 2:
 		*pMin = 0;
-		*pMax = m_dSampleSizeX;
+		*pMax = static_cast<long>(m_dSampleSizeX);
 		break;
 	case 3:
 		*pMin = 0;
-		*pMax = m_dSampleSizeX;
+		*pMax = static_cast<long>(m_dSampleSizeX);
 		break;
 	case 4:
 		*pMin = 0;
-		*pMax = m_dSampleSizeX;
+		*pMax = static_cast<long>(m_dSampleSizeX);
 		break;
 	case 5:
 		*pMin = 0;
-		*pMax = m_dSampleSizeX;
+		*pMax = static_cast<long>(m_dSampleSizeX);
 		break;
 	default:
 		*pMin = 0;
-		*pMax = m_dSampleSizeX;
+		*pMax = static_cast<long>(m_dSampleSizeX);
 		break;
 	}
 
@@ -683,28 +683,28 @@ void CPointSetupDispositionDlg::GetPosRangeY(long *pMin,long *pMax)
 {
 	switch(m_nOrgPos){
 	case 1:
-		*pMin = -(m_dSampleSizeY / 2);
-		*pMax = m_dSampleSizeY / 2;
+		*pMin = static_cast<long>(-(m_dSampleSizeY / 2));
+		*pMax = static_cast<long>(m_dSampleSizeY / 2);
 		break;
 	case 2:
 		*pMin = 0;
-		*pMax = m_dSampleSizeY;
+		*pMax = static_cast<long>(m_dSampleSizeY);
 		break;
 	case 3:
 		*pMin = 0;
-		*pMax = m_dSampleSizeY;
+		*pMax = static_cast<long>(m_dSampleSizeY);
 		break;
 	case 4:
 		*pMin = 0;
-		*pMax = m_dSampleSizeY;
+		*pMax = static_cast<long>(m_dSampleSizeY);
 		break;
 	case 5:
 		*pMin = 0;
-		*pMax = m_dSampleSizeY;
+		*pMax = static_cast<long>(m_dSampleSizeY);
 		break;
 	default:
 		*pMin = 0;
-		*pMax = m_dSampleSizeY;
+		*pMax = static_cast<long>(m_dSampleSizeY);
 		break;
 	}
 }
