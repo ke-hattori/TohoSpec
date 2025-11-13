@@ -1392,11 +1392,11 @@ void CRecipeStressStageProgramView::UpDate()
 
 	///// Sample - Origin X /////
 	GetDlgItemText(IDC_SAMPLE_ORIGIN_X, strBuffer);
-	m_StageProgInfoHdr.SampleInfo.Origin.lX = static_cast<float>(atof(strBuffer) * MICROMETRE);
+	m_StageProgInfoHdr.SampleInfo.Origin.lX = static_cast<long>(atof(strBuffer) * MICROMETRE);
 
 	///// Sample - Origin Y /////
 	GetDlgItemText(IDC_SAMPLE_ORIGIN_Y, strBuffer);
-	m_StageProgInfoHdr.SampleInfo.Origin.lY = static_cast<float>(atof(strBuffer) * MICROMETRE);
+	m_StageProgInfoHdr.SampleInfo.Origin.lY = static_cast<long>(atof(strBuffer) * MICROMETRE);
 
 	///// Point /////
 	m_iNumScans = 0;
@@ -1409,7 +1409,7 @@ void CRecipeStressStageProgramView::UpDate()
 		strcpy(szGridText, m_MeasurementPointGrid2.GetItemText(i + 1, 1));
 		Valid_X = strlen(szGridText);
 		if ( Valid_X ) {
-			m_ScanPoint[i].lX = static_cast<float>(atof(szGridText) * MICROMETRE);
+			m_ScanPoint[i].lX = static_cast<long>(atof(szGridText) * MICROMETRE);
 			//m_ScanPoint[i].lX = (strtol(szGridText, &stopstring, 10)) * MICROMETRE;
 
 			///// Refresh X /////
@@ -1421,7 +1421,7 @@ void CRecipeStressStageProgramView::UpDate()
 		strcpy(szGridText, m_MeasurementPointGrid2.GetItemText(i + 1, 2));
 		Valid_Y = strlen(szGridText);
 		if ( Valid_Y ) {
-			m_ScanPoint[i].lY = static_cast<float>(atof(szGridText) * MICROMETRE);
+			m_ScanPoint[i].lY = static_cast<long>(atof(szGridText) * MICROMETRE);
 			//m_ScanPoint[i].lY = (strtol(szGridText, &stopstring, 10)) * MICROMETRE;
 
 			///// Refresh Y /////
@@ -1830,32 +1830,32 @@ void CRecipeStressStageProgramView::SamplePointGraph_DataSet()
 			switch (m_StageConfig.Dir.X) {
 			case 1:		// X:Å®
 			default:
-				lPinX = static_cast<float>(dOffSetValueX + m_StressConfig.Line[i].PinPos[j].lX);
+				lPinX = static_cast<long>(dOffSetValueX + m_StressConfig.Line[i].PinPos[j].lX);
 				break;
 			case 2:		// X:Å™
-				lPinY = static_cast<float>(dOffSetValueX - m_StressConfig.Line[i].PinPos[j].lX);
+				lPinY = static_cast<long>(dOffSetValueX - m_StressConfig.Line[i].PinPos[j].lX);
 				break;
 			case 3:		// X:Å©
-				lPinX = static_cast<float>(dOffSetValueX - m_StressConfig.Line[i].PinPos[j].lX);
+				lPinX = static_cast<long>(dOffSetValueX - m_StressConfig.Line[i].PinPos[j].lX);
 				break;
 			case 4:		// X:Å´
-				lPinY = static_cast<float>(dOffSetValueX + m_StressConfig.Line[i].PinPos[j].lX);
+				lPinY = static_cast<long>(dOffSetValueX + m_StressConfig.Line[i].PinPos[j].lX);
 				break;
 			}
 
 			switch (m_StageConfig.Dir.Y) {
 			case 1:		// Y:Å®
-				lPinX = static_cast<float>(dOffSetValueY + m_StressConfig.Line[i].PinPos[j].lY);
+				lPinX = static_cast<long>(dOffSetValueY + m_StressConfig.Line[i].PinPos[j].lY);
 				break;
 			case 2:		// Y:Å™
 			default:
-				lPinY = static_cast<float>(dOffSetValueY - m_StressConfig.Line[i].PinPos[j].lY);
+				lPinY = static_cast<long>(dOffSetValueY - m_StressConfig.Line[i].PinPos[j].lY);
 				break;
 			case 3:		// Y:Å©
-				lPinX = static_cast<float>(dOffSetValueY - m_StressConfig.Line[i].PinPos[j].lY);
+				lPinX = static_cast<long>(dOffSetValueY - m_StressConfig.Line[i].PinPos[j].lY);
 				break;
 			case 4:		// Y:Å´
-				lPinY = static_cast<float>(dOffSetValueY + m_StressConfig.Line[i].PinPos[j].lY);
+				lPinY = static_cast<long>(dOffSetValueY + m_StressConfig.Line[i].PinPos[j].lY);
 				break;
 			}
 			m_SamplePointGraph.AddPinData(lPinX,lPinY);
@@ -1916,40 +1916,40 @@ void CRecipeStressStageProgramView::SamplePointGraph_DataSet()
 			switch (m_StageConfig.Dir.X) {
 			case 1:		// X:Å®
 			default:
-				tLineData.StartX = static_cast<float>(dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanStartPosX);
-				tLineData.EndX = static_cast<float>(dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanEndPosX);
+				tLineData.StartX = static_cast<long>(dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanStartPosX);
+				tLineData.EndX = static_cast<long>(dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanEndPosX);
 				break;
 			case 2:		// X:Å™
-				tLineData.StartY = static_cast<float>(dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanStartPosX);
-				tLineData.EndY = static_cast<float>(dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanEndPosX);
+				tLineData.StartY = static_cast<long>(dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanStartPosX);
+				tLineData.EndY = static_cast<long>(dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanEndPosX);
 				break;
 			case 3:		// X:Å©
-				tLineData.StartX = static_cast<float>(dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanStartPosX);
-				tLineData.EndX = static_cast<float>(dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanEndPosX);
+				tLineData.StartX = static_cast<long>(dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanStartPosX);
+				tLineData.EndX = static_cast<long>(dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanEndPosX);
 				break;
 			case 4:		// X:Å´
-				tLineData.StartY = static_cast<float>(dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanStartPosX);
-				tLineData.EndY = static_cast<float>(dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanEndPosX);
+				tLineData.StartY = static_cast<long>(dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanStartPosX);
+				tLineData.EndY = static_cast<long>(dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanEndPosX);
 				break;
 			}
 
 			switch (m_StageConfig.Dir.Y) {
 			case 1:		// Y:Å®
-				tLineData.StartX = static_cast<float>(dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY);
-				tLineData.EndX = static_cast<float>(dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY);
+				tLineData.StartX = static_cast<long>(dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY);
+				tLineData.EndX = static_cast<long>(dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY);
 				break;
 			case 2:		// Y:Å™
 			default:
-				tLineData.StartY = static_cast<float>(dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY);
-				tLineData.EndY = static_cast<float>(dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY);
+				tLineData.StartY = static_cast<long>(dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY);
+				tLineData.EndY = static_cast<long>(dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY);
 				break;
 			case 3:		// Y:Å©
-				tLineData.StartX = static_cast<float>(dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY);
-				tLineData.EndX = static_cast<float>(dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY);
+				tLineData.StartX = static_cast<long>(dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY);
+				tLineData.EndX = static_cast<long>(dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY);
 				break;
 			case 4:		// Y:Å´
-				tLineData.StartY = static_cast<float>(dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY);
-				tLineData.EndY = static_cast<float>(dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY);
+				tLineData.StartY = static_cast<long>(dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY);
+				tLineData.EndY = static_cast<long>(dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY);
 				break;
 			}
 // 2009.09.07 bagus stress å¥ì_à íuëŒâû --}--
@@ -2047,7 +2047,7 @@ void CRecipeStressStageProgramView::OnPaint()
 
 	if((dStageMaxSizeX / dStageMaxSizeY) > ((StageRectRight - StageRectLeft) / (StageRectBottom - StageRectTop))) {
 		lDrawStageSizeX =(StageRectRight - StageRectLeft);
-		lDrawStageSizeY = static_cast<float>(((StageRectRight - StageRectLeft) * dStageMaxSizeY / dStageMaxSizeX));
+		lDrawStageSizeY = static_cast<long>(((StageRectRight - StageRectLeft) * dStageMaxSizeY / dStageMaxSizeX));
 
 		m_dDrawStartStagePosX = StageRectLeft;
 		m_dDrawStartStagePosY = StageRectTop + ((StageRectBottom - StageRectTop - lDrawStageSizeY) / 2);
@@ -2055,7 +2055,7 @@ void CRecipeStressStageProgramView::OnPaint()
 		m_dDrawEndStagePosY = m_dDrawStartStagePosY + lDrawStageSizeY;
 	}
 	else{
-		lDrawStageSizeX = static_cast<float>(((StageRectBottom - StageRectTop) * dStageMaxSizeX / dStageMaxSizeY));
+		lDrawStageSizeX = static_cast<long>(((StageRectBottom - StageRectTop) * dStageMaxSizeX / dStageMaxSizeY));
 		lDrawStageSizeY = (StageRectBottom - StageRectTop);
 
 		m_dDrawStartStagePosX = StageRectLeft + ((StageRectRight - StageRectLeft - lDrawStageSizeX) / 2);
@@ -2253,7 +2253,7 @@ void CRecipeStressStageProgramView::DrawSample(CDC* pDC, int iOrg, int DirX, int
 			Sampleplacement.rcNormalPosition.left	= Stageplacement.rcNormalPosition.left + dleft;
 			Sampleplacement.rcNormalPosition.right	= Stageplacement.rcNormalPosition.left + dright;
 			Sampleplacement.rcNormalPosition.top	= Stageplacement.rcNormalPosition.top  + dtop;
-			Sampleplacement.rcNormalPosition.bottom = static_cast<float>(Stageplacement.rcNormalPosition.top  + dbottom);
+			Sampleplacement.rcNormalPosition.bottom = static_cast<long>(Stageplacement.rcNormalPosition.top  + dbottom);
 			//éläpSampleï`âÊ
 			m_SamplePointGraph.SetWindowPlacement(&Sampleplacement);
 			m_SamplePointGraph.ShowWindow(SW_SHOW);
@@ -2615,7 +2615,7 @@ BOOL CRecipeStressStageProgramView::CheckMeasurementLineSectionData()
 // 2009.09.10 bagus stress èCê≥ --{--
 //	m_iNumScans = NumOfSections * PIN_INTERVAL;
 //	m_StageProgInfoHdr.wNumScans = m_iNumScans;
-	m_StageProgInfoHdr.wNumScans = static_cast<float>(NumOfSections * PIN_INTERVAL);
+	m_StageProgInfoHdr.wNumScans = static_cast<long>(NumOfSections * PIN_INTERVAL);
 	sprintf_s(szBuff, _countof(szBuff), "%d", m_StageProgInfoHdr.wNumScans);
 	SetDlgItemText(IDC_STAGE_PROGRAM_POINT_NUMBER, szBuff);
 
