@@ -129,14 +129,14 @@ void CSpecifyCoordinate2PointDlg::OnOK()
 	SetOperationLog("OK Button was push.");
 
 	GetDlgItemText(IDC_COORDINATE_X1, csBuff);
-	m_lX1 = atof(csBuff) * MICROMETRE;
+	m_lX1 = static_cast<long>(atof(csBuff) * MICROMETRE);
 	GetDlgItemText(IDC_COORDINATE_Y1, csBuff);
-	m_lY1 = atof(csBuff) * MICROMETRE;
+	m_lY1 = static_cast<long>(atof(csBuff) * MICROMETRE);
 
 	GetDlgItemText(IDC_COORDINATE_X2, csBuff);
-	m_lX2 = atof(csBuff) * MICROMETRE;
+	m_lX2 = static_cast<long>(atof(csBuff) * MICROMETRE);
 	GetDlgItemText(IDC_COORDINATE_Y2, csBuff);
-	m_lY2 = atof(csBuff) * MICROMETRE;
+	m_lY2 = static_cast<long>(atof(csBuff) * MICROMETRE);
 
 	m_iMoveMode = m_iType;
 	CDialog::OnOK();
@@ -168,34 +168,34 @@ BOOL CSpecifyCoordinate2PointDlg::CheckData()
 
 		switch ( m_StageConfig.OrgPos ) {
 		case 1: // 中心
-			coordLeftTop.lX = m_dSampleSizeX / 2 * -1;
-			coordLeftTop.lY = m_dSampleSizeY / 2;
-			coordRightBottom.lX = m_dSampleSizeX / 2;
-			coordRightBottom.lY = m_dSampleSizeY / 2 * -1;
+			coordLeftTop.lX = static_cast<long>(m_dSampleSizeX / 2 * -1);
+			coordLeftTop.lY = static_cast<long>(m_dSampleSizeY / 2);
+			coordRightBottom.lX = static_cast<long>(m_dSampleSizeX / 2);
+			coordRightBottom.lY = static_cast<long>(m_dSampleSizeY / 2 * -1);
 			break;
 		case 2: // 左上
 			coordLeftTop.lX = 0;
 			coordLeftTop.lY = 0;
-			coordRightBottom.lX = m_dSampleSizeX;
-			coordRightBottom.lY = m_dSampleSizeY * -1;
+			coordRightBottom.lX = static_cast<long>(m_dSampleSizeX);
+			coordRightBottom.lY = static_cast<long>(m_dSampleSizeY * -1);
 			break;
 		case 3: // 左下
 			coordLeftTop.lX = 0;
-			coordLeftTop.lY = m_dSampleSizeY;
-			coordRightBottom.lX = m_dSampleSizeX;
+			coordLeftTop.lY = static_cast<long>(m_dSampleSizeY);
+			coordRightBottom.lX = static_cast<long>(m_dSampleSizeX);
 			coordRightBottom.lY = 0;
 			break;
 		case 4: // 右下
-			coordLeftTop.lX = m_dSampleSizeX * -1;
-			coordLeftTop.lY = m_dSampleSizeY;
+			coordLeftTop.lX = static_cast<long>(m_dSampleSizeX * -1);
+			coordLeftTop.lY = static_cast<long>(m_dSampleSizeY);
 			coordRightBottom.lX = 0;
 			coordRightBottom.lY = 0;
 			break;
 		case 5: // 右上
-			coordLeftTop.lX = m_dSampleSizeX * -1;
+			coordLeftTop.lX = static_cast<long>(m_dSampleSizeX * -1);
 			coordLeftTop.lY = 0;
 			coordRightBottom.lX = 0;
-			coordRightBottom.lY = m_dSampleSizeY * -1;
+			coordRightBottom.lY = static_cast<long>(m_dSampleSizeY * -1);
 			break;
 		}
 
@@ -207,10 +207,10 @@ BOOL CSpecifyCoordinate2PointDlg::CheckData()
 	///// 指定座標が、ステージ稼動範囲であるか
 	case SPECIFY_COORDINATE_STAGE:
 	default:
-		coordLeftTop.lX = m_StageConfig.StageMaxCoord.dLeftX;
-		coordLeftTop.lY = m_StageConfig.StageMaxCoord.dUpY;
-		coordRightBottom.lX = m_StageConfig.StageMaxCoord.dRightX;
-		coordRightBottom.lY = m_StageConfig.StageMaxCoord.dDownY;
+		coordLeftTop.lX = static_cast<long>(m_StageConfig.StageMaxCoord.dLeftX);
+		coordLeftTop.lY = static_cast<long>(m_StageConfig.StageMaxCoord.dUpY);
+		coordRightBottom.lX = static_cast<long>(m_StageConfig.StageMaxCoord.dRightX);
+		coordRightBottom.lY = static_cast<long>(m_StageConfig.StageMaxCoord.dDownY);
 
 		NS_ConvertToStageGetPosCoord(&coordLeftTop);
 		NS_ConvertToStageGetPosCoord(&coordRightBottom);
@@ -224,14 +224,14 @@ BOOL CSpecifyCoordinate2PointDlg::CheckData()
 	if(CheckMinMaxDouble(csBuff, min(coordLeftTop.lX, coordRightBottom.lX) / MICROMETRE, max(coordLeftTop.lX, coordRightBottom.lX) / MICROMETRE) != CHECK_DATA_OK){
 		return FALSE;
 	}
-	lPointX = atof(csBuff) * MICROMETRE;
+	lPointX = static_cast<long>(atof(csBuff) * MICROMETRE);
 
 	///// Y /////
 	GetDlgItemText(IDC_COORDINATE_Y1, csBuff);
 	if(CheckMinMaxDouble(csBuff, min(coordLeftTop.lY, coordRightBottom.lY) / MICROMETRE, max(coordLeftTop.lY, coordRightBottom.lY) / MICROMETRE) != CHECK_DATA_OK){
 		return FALSE;
 	}
-	lPointY = atof(csBuff) * MICROMETRE;
+	lPointY = static_cast<long>(atof(csBuff) * MICROMETRE);
 
 	///// X /////
 	GetDlgItemText(IDC_COORDINATE_X2, csBuff);
@@ -239,14 +239,14 @@ BOOL CSpecifyCoordinate2PointDlg::CheckData()
 	if(CheckMinMaxDouble(csBuff, min(coordLeftTop.lX, coordRightBottom.lX) / MICROMETRE, max(coordLeftTop.lX, coordRightBottom.lX) / MICROMETRE) != CHECK_DATA_OK){
 		return FALSE;
 	}
-	lPointX = atof(csBuff) * MICROMETRE;
+	lPointX = static_cast<long>(atof(csBuff) * MICROMETRE);
 
 	///// Y /////
 	GetDlgItemText(IDC_COORDINATE_Y2, csBuff);
 	if(CheckMinMaxDouble(csBuff, min(coordLeftTop.lY, coordRightBottom.lY) / MICROMETRE, max(coordLeftTop.lY, coordRightBottom.lY) / MICROMETRE) != CHECK_DATA_OK){
 		return FALSE;
 	}
-	lPointY = atof(csBuff) * MICROMETRE;
+	lPointY = static_cast<long>(atof(csBuff) * MICROMETRE);
 
 	return TRUE;
 }
