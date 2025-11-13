@@ -302,7 +302,7 @@ void CRecipeThicknessSettingView::OnPaint()
 
   if((dStageSizeX / dStageSizeX) > ((StageRectRight - StageRectLeft) / (StageRectBottom - StageRectTop))) {
 	  lDrawStageSizeX =(StageRectRight - StageRectLeft);
-	  lDrawStageSizeY = ((StageRectRight - StageRectLeft) * dStageSizeX / dStageSizeX);
+	  lDrawStageSizeY = static_cast<float>(((StageRectRight - StageRectLeft) * dStageSizeX / dStageSizeX));
 
 	  m_dDrawStartStagePosX = StageRectLeft;
 	  m_dDrawStartStagePosY = StageRectTop + ((StageRectBottom - StageRectTop - lDrawStageSizeY) / 2);
@@ -310,7 +310,7 @@ void CRecipeThicknessSettingView::OnPaint()
 	  m_dDrawEndStagePosY = m_dDrawStartStagePosY + lDrawStageSizeY;
   }
   else{
-	  lDrawStageSizeX = ((StageRectBottom - StageRectTop) * dStageSizeX / dStageSizeX);
+	  lDrawStageSizeX = static_cast<float>(((StageRectBottom - StageRectTop) * dStageSizeX / dStageSizeX));
 	  lDrawStageSizeY = (StageRectBottom - StageRectTop);
 
 	  m_dDrawStartStagePosX = StageRectLeft + ((StageRectRight - StageRectLeft - lDrawStageSizeX) / 2);
@@ -737,40 +737,40 @@ void CRecipeThicknessSettingView::SamplePointGraph_DataSet()
 			switch (m_StageConfig.Dir.X) {
 			case 1: 	// X:Å®
 			default:
-				tLineData.StartX = dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanStartPosX;
-				tLineData.EndX = dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanEndPosX;
+				tLineData.StartX = static_cast<float>(dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanStartPosX);
+				tLineData.EndX = static_cast<float>(dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanEndPosX);
 				break;
 			case 2: 	// X:Å™
-				tLineData.StartY = dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanStartPosX;
-				tLineData.EndY = dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanEndPosX;
+				tLineData.StartY = static_cast<float>(dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanStartPosX);
+				tLineData.EndY = static_cast<float>(dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanEndPosX);
 				break;
 			case 3: 	// X:Å©
-				tLineData.StartX = dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanStartPosX;
-				tLineData.EndX = dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanEndPosX;
+				tLineData.StartX = static_cast<float>(dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanStartPosX);
+				tLineData.EndX = static_cast<float>(dOffSetValueX - m_StressConfig.Line[i].SectPos[j].lScanEndPosX);
 				break;
 			case 4: 	// X:Å´
-				tLineData.StartY = dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanStartPosX;
-				tLineData.EndY = dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanEndPosX;
+				tLineData.StartY = static_cast<float>(dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanStartPosX);
+				tLineData.EndY = static_cast<float>(dOffSetValueX + m_StressConfig.Line[i].SectPos[j].lScanEndPosX);
 				break;
 			}
 
 			switch (m_StageConfig.Dir.Y) {
 			case 1: 	// Y:Å®
-				tLineData.StartX = dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY;
-				tLineData.EndX = dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY;
+				tLineData.StartX = static_cast<float>(dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY);
+				tLineData.EndX = static_cast<float>(dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY);
 				break;
 			case 2: 	// Y:Å™
 			default:
-				tLineData.StartY = dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY;
-				tLineData.EndY = dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY;
+				tLineData.StartY = static_cast<float>(dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY);
+				tLineData.EndY = static_cast<float>(dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY);
 				break;
 			case 3: 	// Y:Å©
-				tLineData.StartX = dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY;
-				tLineData.EndX = dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY;
+				tLineData.StartX = static_cast<float>(dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY);
+				tLineData.EndX = static_cast<float>(dOffSetValueY - m_StressConfig.Line[i].SectPos[j].lScanPosY);
 				break;
 			case 4: 	// Y:Å´
-				tLineData.StartY = dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY;
-				tLineData.EndY = dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY;
+				tLineData.StartY = static_cast<float>(dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY);
+				tLineData.EndY = static_cast<float>(dOffSetValueY + m_StressConfig.Line[i].SectPos[j].lScanPosY);
 				break;
 			}
 
@@ -930,10 +930,10 @@ void CRecipeThicknessSettingView::DrawSample(CDC* pDC, int iOrg, int DirX, int D
 		}
 
 	  if ((m_dDrawStartStagePosX <= dleft) && (dright <= m_dDrawEndStagePosX) && (m_dDrawStartStagePosY <= dtop) && (dbottom <= m_dDrawEndStagePosY)){
-		  Sampleplacement.rcNormalPosition.left   = Stageplacement.rcNormalPosition.left + dleft;
-		  Sampleplacement.rcNormalPosition.right  = Stageplacement.rcNormalPosition.left + dright;
-		  Sampleplacement.rcNormalPosition.top	  = Stageplacement.rcNormalPosition.top  + dtop;
-		  Sampleplacement.rcNormalPosition.bottom = Stageplacement.rcNormalPosition.top  + dbottom;
+		  Sampleplacement.rcNormalPosition.left   = static_cast<float>(Stageplacement.rcNormalPosition.left + dleft);
+		  Sampleplacement.rcNormalPosition.right  = static_cast<float>(Stageplacement.rcNormalPosition.left + dright);
+		  Sampleplacement.rcNormalPosition.top	  = static_cast<float>(Stageplacement.rcNormalPosition.top  + dtop);
+		  Sampleplacement.rcNormalPosition.bottom = static_cast<float>(Stageplacement.rcNormalPosition.top  + dbottom);
 		  //éläpSampleï`âÊ
 		  m_StageMapGraph.SetWindowPlacement(&Sampleplacement);
 		  m_StageMapGraph.ShowWindow(SW_SHOW);
