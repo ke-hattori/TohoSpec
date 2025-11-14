@@ -302,7 +302,7 @@ void CRecipeThicknessSettingView::OnPaint()
 
   if((dStageSizeX / dStageSizeX) > ((StageRectRight - StageRectLeft) / (StageRectBottom - StageRectTop))) {
 	  lDrawStageSizeX =(StageRectRight - StageRectLeft);
-	  lDrawStageSizeY = static_cast<float>(((StageRectRight - StageRectLeft) * dStageSizeX / dStageSizeX));
+	  lDrawStageSizeY = static_cast<long>(((StageRectRight - StageRectLeft) * dStageSizeX / dStageSizeX));
 
 	  m_dDrawStartStagePosX = StageRectLeft;
 	  m_dDrawStartStagePosY = StageRectTop + ((StageRectBottom - StageRectTop - lDrawStageSizeY) / 2);
@@ -310,7 +310,7 @@ void CRecipeThicknessSettingView::OnPaint()
 	  m_dDrawEndStagePosY = m_dDrawStartStagePosY + lDrawStageSizeY;
   }
   else{
-	  lDrawStageSizeX = static_cast<float>(((StageRectBottom - StageRectTop) * dStageSizeX / dStageSizeX));
+	  lDrawStageSizeX = static_cast<long>(((StageRectBottom - StageRectTop) * dStageSizeX / dStageSizeX));
 	  lDrawStageSizeY = (StageRectBottom - StageRectTop);
 
 	  m_dDrawStartStagePosX = StageRectLeft + ((StageRectRight - StageRectLeft - lDrawStageSizeX) / 2);
@@ -319,7 +319,7 @@ void CRecipeThicknessSettingView::OnPaint()
 	  m_dDrawEndStagePosY = StageRectBottom;
   }
 
-	pDC->Rectangle(CRect(m_dDrawStartStagePosX, m_dDrawStartStagePosY, m_dDrawEndStagePosX, m_dDrawEndStagePosY));
+	pDC->Rectangle(CRect(static_cast<int>(m_dDrawStartStagePosX), static_cast<int>(m_dDrawStartStagePosY), static_cast<int>(m_dDrawEndStagePosX), static_cast<int>(m_dDrawEndStagePosY)));
 
 	pDC->SelectObject(m_oldPen);
 	pDC->SelectObject(m_oldBrush);
