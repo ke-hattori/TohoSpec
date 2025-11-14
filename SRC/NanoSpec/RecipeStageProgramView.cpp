@@ -1639,7 +1639,7 @@ void CRecipeStageProgramView::OnPaint()
 		m_dDrawEndStagePosY = StageRectBottom;
 	}
 
-	pDC->Rectangle(CRect(m_dDrawStartStagePosX, m_dDrawStartStagePosY, m_dDrawEndStagePosX, m_dDrawEndStagePosY));
+	pDC->Rectangle(CRect(static_cast<int>(m_dDrawStartStagePosX), static_cast<int>(m_dDrawStartStagePosY), static_cast<int>(m_dDrawEndStagePosX), static_cast<int>(m_dDrawEndStagePosY)));
 	pDC->SelectObject(m_oldPen);
 	pDC->SelectObject(m_oldBrush);
 
@@ -3030,7 +3030,7 @@ void CRecipeStageProgramView::SamplePointGraph_DataSet()
 		}
 // 2013.01.17 bagus rotate xy view <--
 
-		m_SamplePointGraph.AddPoint(Scan_PointIncOffsetX, Scan_PointIncOffsetY);
+		m_SamplePointGraph.AddPoint(static_cast<long>(Scan_PointIncOffsetX), static_cast<long>(Scan_PointIncOffsetY));
 	}
 
 	///// Point Number /////
