@@ -815,7 +815,7 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 			//if(m_Config.PointNum <= 1){
 			if(nPointNum <= 1){
 			//2009.09.20 bagus se --}--
-				pDC->MoveTo((m_GraphInfo.GraphArea.left + 0 * m_GraphInfo.RateX), (m_GraphInfo.GraphArea.bottom - 0 * m_GraphInfo.RateY));
+				pDC->MoveTo(static_cast<int>((m_GraphInfo.GraphArea.left + 0 * m_GraphInfo.RateX)), static_cast<int>((m_GraphInfo.GraphArea.bottom - 0 * m_GraphInfo.RateY)));
 			}else{
 				pDC->MoveTo((m_GraphInfo.GraphArea.left + (m_LineXYData[nDataIndex][0].dXValue - m_Config.X_Origin) * m_GraphInfo.RateX), (m_GraphInfo.GraphArea.bottom - (m_LineXYData[nDataIndex][0].dYValue - m_Config.Y_Origin) * m_GraphInfo.RateY));
 			}
