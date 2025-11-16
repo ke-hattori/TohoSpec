@@ -869,7 +869,7 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 				if (j == 0) {
 					dTmp_X_before = dTmp_X;
 					dTmp_Y_before = dTmp_Y;
-					pDC->MoveTo(dTmp_X, dTmp_Y);
+					pDC->MoveTo(static_cast<int>(dTmp_X), static_cast<int>(dTmp_Y));
 
 					continue;
 				}
@@ -878,7 +878,7 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 				if ((dTmp_X_before - dTmp_X) == 0) {
 					dTmp_X_before = dTmp_X;
 					dTmp_Y_before = dTmp_Y;
-					pDC->MoveTo(dTmp_X, dTmp_Y);
+					pDC->MoveTo(static_cast<int>(dTmp_X), static_cast<int>(dTmp_Y));
 					continue;
 				}
 
@@ -899,10 +899,10 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 					//---/-----U
 					//	*
 					//�����I�[�o�[ => ����I�[�o�[
-					pDC->MoveTo(dTmp_X_before, m_GraphInfo.GraphArea.bottom);
+					pDC->MoveTo(static_cast<int>(dTmp_X_before), static_cast<int>(m_GraphInfo.GraphArea.bottom));
 					pDC->LineTo(nDrawPoint_X_bottom, m_GraphInfo.GraphArea.bottom);
 					pDC->MoveTo(nDrawPoint_X_top, m_GraphInfo.GraphArea.top);
-					pDC->LineTo(dTmp_X, m_GraphInfo.GraphArea.top);
+					pDC->LineTo(static_cast<int>(dTmp_X), static_cast<int>(m_GraphInfo.GraphArea.top));
 				} else if ((dTmp_Y_before < m_GraphInfo.GraphArea.top) && (dTmp_Y > m_GraphInfo.GraphArea.bottom)) {
 					//	*
 					//---\-----L
@@ -910,23 +910,23 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 					//-----\---U
 					//		*
 					//����I�[�o�[ => �����I�[�o�[
-					pDC->MoveTo(dTmp_X_before, m_GraphInfo.GraphArea.top);
+					pDC->MoveTo(static_cast<int>(dTmp_X_before), static_cast<int>(m_GraphInfo.GraphArea.top));
 					pDC->LineTo(nDrawPoint_X_top, m_GraphInfo.GraphArea.top);
 					pDC->MoveTo(nDrawPoint_X_bottom, m_GraphInfo.GraphArea.bottom);
- 					pDC->LineTo(dTmp_X, m_GraphInfo.GraphArea.bottom);
+ 					pDC->LineTo(static_cast<int>(dTmp_X), static_cast<int>(m_GraphInfo.GraphArea.bottom));
 				} else if ((dTmp_Y_before > m_GraphInfo.GraphArea.bottom) && (dTmp_Y > m_GraphInfo.GraphArea.bottom)) {
 					//
 					//-------L
 					//	*-*
 					//�����I�[�o�[ => �����I�[�o�[
-					pDC->MoveTo(dTmp_X_before, m_GraphInfo.GraphArea.bottom);
-					pDC->LineTo(dTmp_X, m_GraphInfo.GraphArea.bottom);
+					pDC->MoveTo(static_cast<int>(dTmp_X_before), static_cast<int>(m_GraphInfo.GraphArea.bottom));
+					pDC->LineTo(static_cast<int>(dTmp_X), static_cast<int>(m_GraphInfo.GraphArea.bottom));
 				} else if ((dTmp_Y_before > m_GraphInfo.GraphArea.bottom) && (dTmp_Y <= m_GraphInfo.GraphArea.bottom)) {
 					//	  *
 					//---/---L
 					//	*
 					//�����I�[�o�[ => �O���t�̈��
-					pDC->MoveTo(dTmp_X_before, m_GraphInfo.GraphArea.bottom);
+					pDC->MoveTo(static_cast<int>(dTmp_X_before), static_cast<int>(m_GraphInfo.GraphArea.bottom));
 					pDC->LineTo(nDrawPoint_X_bottom, m_GraphInfo.GraphArea.bottom);
 				} else if ((dTmp_Y_before <= m_GraphInfo.GraphArea.bottom) && (dTmp_Y > m_GraphInfo.GraphArea.bottom)) {
 					//	*
