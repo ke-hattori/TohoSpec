@@ -1735,7 +1735,6 @@ BOOL sbNexEngiMntSw;
 LRESULT CManualMeasurementFormView::OnJoyStick(WPARAM wparam, LPARAM lparam)
 /* modified 2009.06.15 hmenjo ���[�U��`���b�Z�[�W�n���h�� IF �C�� ---------- } ---------- */
 {
-	return 0;
 	// �W���C�X�e�B�b�N�L���^����
 // 2014.01.17 Bagus Mod (Stage None�Ή�) -->
 // 2013.11.08 Bagus Add (TohoSpec�Ή�) -->

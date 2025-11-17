@@ -316,7 +316,7 @@ CGridCtrl::~CGridCtrl()
 		m_TitleTip.DestroyWindow();
 #endif
 
-// ï¿½fï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½gï¿½Ì’ï¿½ï¿½ï¿½DestroyWindowï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½È‚ï¿½
+// ƒfƒXƒgƒ‰ƒNƒg‚Ì’†‚ÅDestroyWindow‚ğŒÄ‚Ño‚³‚È‚¢
 //	DestroyWindow();
 
 #if !defined(GRIDCONTROL_NO_DRAGDROP) || !defined(GRIDCONTROL_NO_CLIPBOARD)
@@ -584,7 +584,7 @@ void CGridCtrl::OnPaint()
 
 	if (m_bDoubleBuffer)	// Use a memory DC to remove flicker
 	{
-		CGridMemDC MemDC(&dc);
+		CMemDC MemDC(&dc);
 		OnDraw(&MemDC);
 	}
 	else					// Draw raw - this helps in debugging vis problems.

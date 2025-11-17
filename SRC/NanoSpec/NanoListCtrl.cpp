@@ -1,4 +1,4 @@
-// CNanoListCtrl.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
+// CNanoListCtrl.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
 //
 
 #include "stdafx.h"
@@ -31,7 +31,7 @@ BEGIN_MESSAGE_MAP(CNanoListCtrl, CListCtrl)
 END_MESSAGE_MAP()
 
 
-void CNanoListCtrl::SetViewStyle()
+CNanoListCtrl::SetViewStyle()
 {
 	///// Font Style /////
 	SetFont(&m_listFont);
@@ -122,8 +122,8 @@ void CNanoListCtrl::FontCreation()
 										//	"MS Sans Serif"
 										//	"Arial"
 										//	"batangche" (Hangul)
-										//	"MS ï¿½Sï¿½Vï¿½bï¿½N"
-										//	"MS Pï¿½Sï¿½Vï¿½bï¿½N"
+										//	"MS ƒSƒVƒbƒN"
+										//	"MS PƒSƒVƒbƒN"
 										//	"MS UI Gothic"
 										//	"Times New Roman"
 	);
