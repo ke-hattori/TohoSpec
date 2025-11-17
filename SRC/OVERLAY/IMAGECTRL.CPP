@@ -267,7 +267,7 @@ void CImageCtrl::frameReady(
 	DWORD				 dwFrameNumber
 	)
 {
-	smart_ptr<BITMAPINFOHEADER> pBmInfHdr = pBuffer->getBitmapInfoHeader();
+	smart_ptr<BITMAPINFOHEADER> pBmInfHdr = static_cast<long>(pBuffer->getBitmapInfoHeader());
 	for ( std::list<OVLYMULTIWND>::iterator first(m_list.begin()), last(m_list.end()); first != last; ++first ) {
 		if ( ::IsWindow( (*first).hwnd ) ) {
 			HDC hDC = ::GetDC( (*first).hwnd );
