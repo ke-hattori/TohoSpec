@@ -1065,7 +1065,7 @@ void CStressLineSectionSettingDlg::OnPaint()
 		m_dDrawEndStagePosY = StageRectBottom;
 	}
 
-	pDC->Rectangle(CRect(m_dDrawStartStagePosX, m_dDrawStartStagePosY, m_dDrawEndStagePosX, m_dDrawEndStagePosY));
+	pDC->Rectangle(CRect(static_cast<int>(m_dDrawStartStagePosX), static_cast<int>(m_dDrawStartStagePosY), static_cast<int>(m_dDrawEndStagePosX), static_cast<int>(m_dDrawEndStagePosY)));
 	pDC->SelectObject(m_oldPen);
 	pDC->SelectObject(m_oldBrush);
 
@@ -2814,7 +2814,7 @@ void CStressLineSectionSettingDlg::SamplePointGraph_DataSet()
 				break;
 			}
 
-			m_SamplePointGraph.AddPoint(dPointX, dPointY);
+			m_SamplePointGraph.AddPoint(static_cast<long>(dPointX), static_cast<long>(dPointY));
 // 2009.09.07 bagus stress Œ´“_ˆÊ’u‘Î‰ž --}--
 		}
 	}
