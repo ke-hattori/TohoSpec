@@ -844,15 +844,15 @@ private:
 			msg.value = m_motparams.loc.speed[loc_alignment_decel].value;
 			break;
 		case eeprom_teach_accel_decel:
-			msg.low  = m_motparams.loc.acc * 100.0f;
-			msg.high = m_motparams.loc.dec * 100.0f;
+			msg.low  = static_cast<short>(m_motparams.loc.acc * 100.0f);
+			msg.high = static_cast<short>(m_motparams.loc.dec * 100.0f);
 			break;
 		case eeprom_home_speed:
 			msg.value = m_motparams.home.speed.value;
 			break;
 		case eeprom_home_accel_decel:
-			msg.low  = m_motparams.home.acc * 100.0f;
-			msg.high = m_motparams.home.dec * 100.0f;
+			msg.low  = static_cast<short>(m_motparams.home.acc * 100.0f);
+			msg.high = static_cast<short>(m_motparams.home.dec * 100.0f);
 			break;
 		case eeprom_softhome_speed:
 			msg.value = m_motparams.softhome_speed.value;
@@ -862,7 +862,7 @@ private:
 			msg.value = 100L;
 			break;
 		case eeprom_jog_speed:
-			msg.high = m_motparams.jog_speed.value;
+			msg.high = static_cast<short>(m_motparams.jog_speed.value);
 			break;
 		}
 		msg.create(ADAXCMDID_REMOTE_DATA);
