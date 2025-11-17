@@ -1999,7 +1999,7 @@ void CRecipeStressStageProgramView::SamplePointGraph_DataSet()
 			break;
 		}
 // 2009.09.07 bagus stress å¥ì_à íuëŒâû --}--
-		m_SamplePointGraph.AddPoint(Scan_PointIncOffsetX, Scan_PointIncOffsetY);
+		m_SamplePointGraph.AddPoint(static_cast<long>(Scan_PointIncOffsetX), static_cast<long>(Scan_PointIncOffsetY));
 	}
 
 
@@ -2064,7 +2064,7 @@ void CRecipeStressStageProgramView::OnPaint()
 		m_dDrawEndStagePosY = StageRectBottom;
 	}
 
-	pDC->Rectangle(CRect(m_dDrawStartStagePosX, m_dDrawStartStagePosY, m_dDrawEndStagePosX, m_dDrawEndStagePosY));
+	pDC->Rectangle(CRect(static_cast<int>(m_dDrawStartStagePosX), static_cast<int>(m_dDrawStartStagePosY), static_cast<int>(m_dDrawEndStagePosX), static_cast<int>(m_dDrawEndStagePosY)));
 	pDC->SelectObject(m_oldPen);
 	pDC->SelectObject(m_oldBrush);
 
@@ -2615,7 +2615,7 @@ BOOL CRecipeStressStageProgramView::CheckMeasurementLineSectionData()
 // 2009.09.10 bagus stress èCê≥ --{--
 //	m_iNumScans = NumOfSections * PIN_INTERVAL;
 //	m_StageProgInfoHdr.wNumScans = m_iNumScans;
-	m_StageProgInfoHdr.wNumScans = static_cast<float>(static_cast<long>(NumOfSections * PIN_INTERVAL));
+	m_StageProgInfoHdr.wNumScans = static_cast<WORD>(static_cast<float>(static_cast<long>(NumOfSections * PIN_INTERVAL)));
 	sprintf_s(szBuff, _countof(szBuff), "%d", m_StageProgInfoHdr.wNumScans);
 	SetDlgItemText(IDC_STAGE_PROGRAM_POINT_NUMBER, szBuff);
 
