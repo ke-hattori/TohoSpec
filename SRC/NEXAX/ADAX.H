@@ -159,7 +159,7 @@ public:
 	void Finalize (void);
 
 	// ADAX専用アラーム
-	inline void AlarmSet (unsigned long alid) { nexaxAlarmSet(alid, m_info.curr.axis); }
+	inline void AlarmSet (unsigned long alid) { nexaxAlarmSet(alid, static_cast<unsigned short>(m_info.curr.axis)); }
 
 	// ADAXメッセージ
 	class message_packet : public adax_data_t
@@ -324,8 +324,8 @@ public:
 			if ( speed < 0 ) mode = jogReverse;
 			return message_packet::create(ADAXCMDID_NORMAL_JOG, "%02hX%04hX%02hX", mode, abs(speed), 0);
 		}
-		short speed (void) { return hatol(substr(data, 2, 4).c_str()); }
-		unsigned char mode (void) { return tol(2); }
+		short speed (void) { return static_cast<short>(hatol(substr(data, 2, 4).c_str()); }
+		unsigned char mode (void) { return static_cast<unsigned char>(tol(2); }
 		const char* c_str (void)
 		{
 			static const char* table [4] = { "stop", "fwd", "rev", "unknown" };
