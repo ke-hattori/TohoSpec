@@ -1498,7 +1498,7 @@ void CRecipeDistanceStageProgramView::OnPaint()
 		m_dDrawEndStagePosY = StageRectBottom;
 	}
 
-	pDC->Rectangle(CRect(m_dDrawStartStagePosX, m_dDrawStartStagePosY, m_dDrawEndStagePosX, m_dDrawEndStagePosY));
+	pDC->Rectangle(CRect(static_cast<int>(m_dDrawStartStagePosX), static_cast<int>(m_dDrawStartStagePosY), static_cast<int>(m_dDrawEndStagePosX), static_cast<int>(m_dDrawEndStagePosY)));
 	pDC->SelectObject(m_oldPen);
 	pDC->SelectObject(m_oldBrush);
 
