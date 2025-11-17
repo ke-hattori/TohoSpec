@@ -1047,14 +1047,14 @@ int CStageSPT::GetMaxStageSpeed(double* x, double* y)
 	case MS_GETPOS_AXIS_UNINIT:	l_iRc = STAGE_ERR_MS_GETPOS_AXIS_UNINIT;	break;
 	default:
 		switch (l_iMaxSpeedY) {
-		case MS_GETPOS_PARAMERROR:	l_iRc = STAGE_ERR_MS_GETPOS_PARAMERROR;		break;
-		case MS_GETPOS_AXIS_UNINIT:	l_iRc = STAGE_ERR_MS_GETPOS_AXIS_UNINIT;	break;
+		case MS_GETPOS_PARAMERROR:	l_iRc = static_cast<long>(STAGE_ERR_MS_GETPOS_PARAMERROR;		break);
+		case MS_GETPOS_AXIS_UNINIT:	l_iRc = static_cast<long>(STAGE_ERR_MS_GETPOS_AXIS_UNINIT;	break);
 		default:
-			m_lMaxSpeed[X] = l_iMaxSpeedX;
+			m_lMaxSpeed[X] = static_cast<long>(l_iMaxSpeedX);
 			if (0 != x) {
-				*x = ConvCountTo(l_iMaxSpeedX, m_lFactor[X]);
+				*x = static_cast<long>(ConvCountTo(l_iMaxSpeedX, m_lFactor[X]));
 			}
-			m_lMaxSpeed[Y] = l_iMaxSpeedY;
+			m_lMaxSpeed[Y] = static_cast<long>(l_iMaxSpeedY);
 			if (0 != y) {
 				*y = ConvCountTo(l_iMaxSpeedY, m_lFactor[Y]);
 			}
