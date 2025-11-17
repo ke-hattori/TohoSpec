@@ -1052,7 +1052,7 @@ void CNanoSpecDoc::SetStartDateTime(SYSTEMTIME* syStartDateTime)
 //	‘ª’èI—¹“úŽž‚ÌŽæ“¾
 void CNanoSpecDoc::GetEndDateTime(SYSTEMTIME* syEndDateTime)
 {
-	*syEndDateTime = m_pMeasureddata->syEndDateTime;
+	*syEndDateTime = static_cast<long>(m_pMeasureddata->syEndDateTime);
 }
 
 /////////////////////////////////////////////////////////////////////////////
