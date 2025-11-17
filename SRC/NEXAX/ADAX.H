@@ -325,7 +325,7 @@ public:
 			return message_packet::create(ADAXCMDID_NORMAL_JOG, "%02hX%04hX%02hX", mode, abs(speed), 0);
 		}
 		short speed (void) { return static_cast<short>(hatol(substr(data, 2, 4).c_str()); }
-		unsigned char mode (void) { return static_cast<unsigned char>(tol(2); }
+		unsigned char mode (void) { return static_cast<unsigned char>(tol(2)); }
 		const char* c_str (void)
 		{
 			static const char* table [4] = { "stop", "fwd", "rev", "unknown" };
