@@ -134,7 +134,7 @@ protected:
 		 return this;
 	}
 	void _outp(unsigned short port, unsigned short dataword) {
-		pfnoutb(_getdev(port), port, dataword);
+		pfnoutb(_getdev(port), port, static_cast<UCHAR>(dataword));
 	}
 	virtual void _setport(unsigned short port) {}
 
