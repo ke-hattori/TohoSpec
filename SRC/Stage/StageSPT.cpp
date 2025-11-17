@@ -1069,11 +1069,11 @@ int CStageSPT::GetMaxStageSpeed(double* x, double* y)
 //	XY ステージの速度を設定[StageSetLocalSpeed()] ------------------------------------------------
 void CStageSPT::SetLocalSpeed(double x, double y)
 {
-	long l_LocalSpeedX = static_cast<long>(static_cast<long>(x));
-	long l_LocalSpeedY = static_cast<long>(static_cast<long>(y));
+	long l_LocalSpeedX = static_cast<long>(x);
+	long l_LocalSpeedY = static_cast<long>(y);
 
-	m_lLocalSpeed[X] = static_cast<long>(ConvCountFrom(l_LocalSpeedX, m_lFactor[X]));
-	m_lLocalSpeed[Y] = static_cast<long>(ConvCountFrom(l_LocalSpeedY, m_lFactor[Y]));
+	m_lLocalSpeed[X] = ConvCountFrom(l_LocalSpeedX, m_lFactor[X]);
+	m_lLocalSpeed[Y] = ConvCountFrom(l_LocalSpeedY, m_lFactor[Y]);
 
 	return;
 }
