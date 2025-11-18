@@ -229,6 +229,7 @@ void cMotTskWnd::OnPaint()
 	UINT CxChar = tm.tmMaxCharWidth;
 
 	// Display the raw stage positions and the last message received
+	int i;
 	for (WORD i = 0; i < AXIS_NUM; i++) {
 		_stprintf(l_tszStr, _T("[%u]: %11ld,  %s"), i, m_Pos[i], m_strMMessage[i]);
 		dc.TextOut(CxChar, CyChar * (i + 1), l_tszStr);

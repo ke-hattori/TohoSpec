@@ -101,6 +101,7 @@ END_MESSAGE_MAP()
 //
 // State-Processing-Table Definitions
 //
+#define ENTER_STATE_NULL	{ NULL, NULL }
 #pragma warning(disable: 4204)
 BEGIN_STATEPROC_MAP(CVideoCalibDlg)
 	ENTER_STATE(ST_INIT, NULL),
