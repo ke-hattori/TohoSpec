@@ -1,4 +1,4 @@
-// NanoSpecDoc.cpp : CNanoSpecDoc ƒNƒ‰ƒX‚Ì“®ì‚Ì’è‹`‚ğs‚¢‚Ü‚·B
+// NanoSpecDoc.cpp : CNanoSpecDoc ï¿½Nï¿½ï¿½ï¿½Xï¿½Ì“ï¿½ï¿½ï¿½Ì’ï¿½`ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 //
 
 #include "stdafx.h"
@@ -11,13 +11,13 @@
 #include "AlarmHistoryListView.h"
 #include "..\\..\\INC\\NexIOBASE.hxx"
 #include "MessageDlg.h"
-/* added 2009.09.08 hmenjo AF ©“®ƒŒƒ“ƒYØ‘Ö‘Î‰ ---------- { ---------- */
+/* added 2009.09.08 hmenjo AF ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½Ø‘Ö‘Î‰ï¿½ ---------- { ---------- */
 #include "NSStage.hxx"
 #include "NanoSpec.h"
-/* added 2009.09.08 hmenjo AF ©“®ƒŒƒ“ƒYØ‘Ö‘Î‰ ---------- } ---------- */
-/* added 2014.11.22 hmenjo Fit w”•\¦(2) ---------- { ---------- */
+/* added 2009.09.08 hmenjo AF ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½Ø‘Ö‘Î‰ï¿½ ---------- } ---------- */
+/* added 2014.11.22 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½(2) ---------- { ---------- */
 #include	<math.h>
-/* added 2014.11.22 hmenjo Fit w”•\¦(2) ---------- } ---------- */
+/* added 2014.11.22 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½(2) ---------- } ---------- */
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -25,7 +25,7 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --{--
+// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --{--
 static struct {
 	int	nHead;
 	int	nScan;
@@ -41,10 +41,10 @@ static struct {
 	{ HEAD_TYPE_SR,		MEAS_PROG_TYPE_SR_DISTANCE,							STAGE_PGM_TYPE_SR_DISTANCE	},
 	{ HEAD_TYPE_SR,		MEAS_PROG_TYPE_SR_OPTICAL_DENSITY,					STAGE_PGM_TYPE_STANDARD		},
 	{ HEAD_TYPE_SE,		MEAS_PROG_TYPE_SE_THICKNESS,						STAGE_PGM_TYPE_STANDARD		},
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 	{ HEAD_TYPE_COMPEASE,MEAS_PROG_TYPE_COMPEASE_THICKNESS,					STAGE_PGM_TYPE_STANDARD		},
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
+// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --{--
 #if 0
 	{ HEAD_TYPE_IRSE,	MEAS_PROG_TYPE_IRSE_THICKNESS,						STAGE_PGM_TYPE_STANDARD		},
 	{ HEAD_TYPE_IRSE,	MEAS_PROG_TYPE_IRSE_OPTICAL_CONSTANT,				STAGE_PGM_TYPE_STANDARD		},
@@ -56,12 +56,12 @@ static struct {
 #else
 	{ HEAD_TYPE_MS,		MEAS_PROG_TYPE_MS_MEAS,								STAGE_PGM_TYPE_STANDARD		},
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --}--
 	{ HEAD_TYPE_4PP,	MEAS_PROG_TYPE_4PP_MEAS,							STAGE_PGM_TYPE_STANDARD		},
 	{ HEAD_TYPE_CTA,	MEAS_PROG_TYPE_CTA_MEAS,							STAGE_PGM_TYPE_STANDARD		},
 	{ HEAD_TYPE_STRESS,	MEAS_PROG_TYPE_STRESS_MEAS,							STAGE_PGM_TYPE_STRESS		},
 };
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --}--
+// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --}--
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -81,7 +81,7 @@ BEGIN_MESSAGE_MAP(CNanoSpecDoc, CDocument)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CNanoSpecDoc ƒNƒ‰ƒX‚Ì\’z/Á–Å
+// CNanoSpecDoc ï¿½Nï¿½ï¿½ï¿½Xï¿½Ì\ï¿½z/ï¿½ï¿½ï¿½ï¿½
 CNanoSpecDoc::CNanoSpecDoc()
 {
 	//Kojika 20090525 Add
@@ -89,7 +89,7 @@ CNanoSpecDoc::CNanoSpecDoc()
 	//Kojika 20090525 Add End
 	char szBuff[100];
 
-	///// ƒfƒBƒŒƒNƒgƒŠ‚ğì¬ /////
+	///// ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ì¬ /////
 	MakeNanospecDir();
 
 	///// OperationLogFile /////
@@ -98,27 +98,27 @@ CNanoSpecDoc::CNanoSpecDoc()
 								OPERATION_LOG_SIZE,
 								OPERATION_LOG_MAX);
 
-/* modified 2016.05.12 hmenjo 6500/TS3100 •Ê version ---------- { ---------- */
+/* modified 2016.05.12 hmenjo 6500/TS3100 ï¿½ï¿½ version ---------- { ---------- */
 //	sprintf(szBuff, "START Nanospec %s (%s %s)", SOFT_VERSION, __DATE__, __TIME__);
-/* modified 2016.05.12 hmenjo 6500/TS3100 •Ê version ----------              */
+/* modified 2016.05.12 hmenjo 6500/TS3100 ï¿½ï¿½ version ----------              */
 	char l_szVersion[128];
 	switch (g_lModelType) {
 	case MODEL_T3100:	strcpy(l_szVersion, SOFT_VERSION_TS3100);	break;
 	default:			strcpy(l_szVersion, SOFT_VERSION);			break;
 	}
 	sprintf(szBuff, "START Nanospec %s (%s %s)", l_szVersion, __DATE__, __TIME__);
-/* modified 2016.05.12 hmenjo 6500/TS3100 •Ê version ---------- } ---------- */
-// 2013.11.15 Bagus Add (TohoSpec‘Î‰) -->
+/* modified 2016.05.12 hmenjo 6500/TS3100 ï¿½ï¿½ version ---------- } ---------- */
+// 2013.11.15 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 	if(g_lAppNameType != APP_NAME_NANO){
 		CString strMsg;
 		strMsg = szBuff;
 		strMsg.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
-		strcpy(szBuff, strMsg);
+		strcpy_s(szBuff, _countof(szBuff), strMsg);
 	}
-// 2013.11.15 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.15 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 	OperationLogging(szBuff);
 // hmenjo ChiefLog -->
-	// Chief ƒƒOƒtƒ@ƒCƒ‹‚Ì‰Šú‰»
+	// Chief ï¿½ï¿½ï¿½Oï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½
 	m_ChiefLogFile.Create(	g_szLog_Dir,								// LOG_DIR,
 						CHIEF_LOG_NAME,
 						CHIEF_LOG_SIZE,
@@ -126,14 +126,14 @@ CNanoSpecDoc::CNanoSpecDoc()
 // hmenjo ChiefLog <--
 
 // 2013.01.10 bagus stage driver alarm io -->
-	// StageError ƒƒOƒtƒ@ƒCƒ‹‚Ì‰Šú‰»
+	// StageError ï¿½ï¿½ï¿½Oï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½
 	m_StageErrorLogFile.Create(	g_szLog_Dir,								// LOG_DIR,
 						STAGE_ERROR_LOG_NAME,
 						STAGE_ERROR_LOG_SIZE,
 						STAGE_ERROR_LOG_MAX);
 // 2013.01.10 bagus stage driver alarm io <--
 
-	///// NanoSpec.ini‚ÌƒOƒ[ƒoƒ‹•Ï”‚Ì‰Šú‰» /////
+	///// NanoSpec.iniï¿½ÌƒOï¿½ï¿½ï¿½[ï¿½oï¿½ï¿½ï¿½Ïï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ /////
 	ConfigFile_LoadAllNanoSpecIni();
 	//Saiki 20090723 Delete ----->
 	//ConfigFile_SaveAllNanoSpecIni();
@@ -155,8 +155,8 @@ CNanoSpecDoc::CNanoSpecDoc()
 	m_iWarningStatus			= WARNING_NON;
 	m_iDispStatus				= MAIN_MENU_MEASUREMENT;
 	m_iInitFinished				= FALSE;
-	m_bJoyStickSelectEnabled	= TRUE;							// Default‚ÍØ‘Ö‹–‰Â
-	memset(m_bDoPointMeasFlag, 0, sizeof(m_bDoPointMeasFlag));	// ƒ|ƒCƒ“ƒg–ˆ‚Ì‘ª’è‚·‚é/‚µ‚È‚¢ƒtƒ‰ƒO
+	m_bJoyStickSelectEnabled	= TRUE;							// Defaultï¿½ÍØ‘Ö‹ï¿½ï¿½ï¿½
+	memset(m_bDoPointMeasFlag, 0, sizeof(m_bDoPointMeasFlag));	// ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Ì‘ï¿½ï¿½è‚·ï¿½ï¿½/ï¿½ï¿½ï¿½È‚ï¿½ï¿½tï¿½ï¿½ï¿½O
 
 	m_bPatRecFlag = FALSE;
 	memset(&m_ActuateFlags, 0, sizeof(ACTUATE_FLAGS));
@@ -166,8 +166,8 @@ CNanoSpecDoc::CNanoSpecDoc()
 
 	m_pMeasureddata = (MEASURED_DATA*)VirtualAlloc(NULL, sizeof(MEASURED_DATA), MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE);
 	if ( !m_pMeasureddata ) {
-//		AfxMessageBox("MEASURED_DATA ƒƒ‚ƒŠŠm•Û¸”s");
-		//AfxMessageBox("‘ª’èƒf[ƒ^ ƒƒ‚ƒŠŠm•Û¸”s");
+//		AfxMessageBox("MEASURED_DATA ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½mï¿½Ûï¿½ï¿½s");
+		//AfxMessageBox("ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½mï¿½Ûï¿½ï¿½s");
 		//Kojika 20090525 Change
 		LoadStringML(IDS_MEASURED_DATA_ALLOC_FAILED , strBuffer, "MEASURED_DATA Memory Alloc failed");
 		AfxMessageBox(strBuffer);
@@ -175,22 +175,22 @@ CNanoSpecDoc::CNanoSpecDoc()
 		return;
 	}
 
-	m_iSeqMeasMode = SEQ_NOT_MEASURE;	//‘ª’è’†‚Å‚È‚¢(‘ª’èŒ‹‰Ê‰æ–Ê‚ÌWAITŠÜ‚Ş)
-	m_iMeasMode = MEASMODE_NOT_MEASURE; //‘ª’è’†‚Å‚È‚¢(‘ª’èŒ‹‰Ê‰æ–Ê‚ÌWAIT‚ÍŠÜ‚Ü‚È‚¢)
-	m_iManuMeasMode = MANUMODE_NOT; 	//ƒ}ƒjƒ…ƒAƒ‹‘ª’èƒ‚[ƒh‚Å‚È‚¢
+	m_iSeqMeasMode = SEQ_NOT_MEASURE;	//ï¿½ï¿½ï¿½è’†ï¿½Å‚È‚ï¿½(ï¿½ï¿½ï¿½èŒ‹ï¿½Ê‰ï¿½Ê‚ï¿½WAITï¿½ï¿½ï¿½Ü‚ï¿½)
+	m_iMeasMode = MEASMODE_NOT_MEASURE; //ï¿½ï¿½ï¿½è’†ï¿½Å‚È‚ï¿½(ï¿½ï¿½ï¿½èŒ‹ï¿½Ê‰ï¿½Ê‚ï¿½WAITï¿½ï¿½ï¿½ÍŠÜ‚Ü‚È‚ï¿½)
+	m_iManuMeasMode = MANUMODE_NOT; 	//ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½èƒ‚ï¿½[ï¿½hï¿½Å‚È‚ï¿½
 
-	m_bPauseFlg = FALSE;   //ƒ|[ƒY”»’èƒtƒ‰ƒO(TRUE:ƒ|[ƒY FALSE:‚»‚êˆÈŠO)
+	m_bPauseFlg = FALSE;   //ï¿½|ï¿½[ï¿½Yï¿½ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½O(TRUE:ï¿½|ï¿½[ï¿½Y FALSE:ï¿½ï¿½ï¿½ï¿½ÈŠO)
 
 	InitMeasData();
 
 	m_ActualJoyStickFlag = FALSE;
-/* added 2009.12.02 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(‰æ–Ê) ---------- { ---------- */
+/* added 2009.12.02 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Íwï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½) ---------- { ---------- */
 	m_lZ_AF = 0x80000000;
-/* added 2009.12.02 hmenjo ‘ª’è Seq ‚Íw’èƒwƒbƒh‚Å“®ì(‰æ–Ê) ---------- } ---------- */
+/* added 2009.12.02 hmenjo ï¿½ï¿½ï¿½ï¿½ Seq ï¿½Íwï¿½ï¿½wï¿½bï¿½hï¿½Å“ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½) ---------- } ---------- */
 
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 	m_bSetSampleIdFromUI = FALSE;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -207,24 +207,24 @@ CNanoSpecDoc::~CNanoSpecDoc()
 	}
 
 	char szBuff[100];
-/* modified 2016.05.12 hmenjo 6500/TS3100 •Ê version ---------- { ---------- */
+/* modified 2016.05.12 hmenjo 6500/TS3100 ï¿½ï¿½ version ---------- { ---------- */
 //	sprintf(szBuff, "END    Nanospec %s (%s %s)", SOFT_VERSION, __DATE__, __TIME__);
-/* modified 2016.05.12 hmenjo 6500/TS3100 •Ê version ----------              */
+/* modified 2016.05.12 hmenjo 6500/TS3100 ï¿½ï¿½ version ----------              */
 	char l_szVersion[128];
 	switch (g_lModelType) {
 	case MODEL_T3100:	strcpy(l_szVersion, SOFT_VERSION_TS3100);	break;
 	default:			strcpy(l_szVersion, SOFT_VERSION);			break;
 	}
 	sprintf(szBuff, "END    Nanospec %s (%s %s)", l_szVersion, __DATE__, __TIME__);
-/* modified 2016.05.12 hmenjo 6500/TS3100 •Ê version ---------- } ---------- */
-// 2013.11.15 Bagus Add (TohoSpec‘Î‰) -->
+/* modified 2016.05.12 hmenjo 6500/TS3100 ï¿½ï¿½ version ---------- } ---------- */
+// 2013.11.15 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 	if(g_lAppNameType != APP_NAME_NANO){
 		CString strMsg;
 		strMsg = szBuff;
 		strMsg.Replace(g_lpszAppPrefix4[APP_NAME_NANO], g_lpszAppPrefix4[g_lAppNameType]);
-		strcpy(szBuff, strMsg);
+		strcpy_s(szBuff, _countof(szBuff), strMsg);
 	}
-// 2013.11.15 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.11.15 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 
 	OperationLogging(szBuff);
 }
@@ -236,26 +236,26 @@ BOOL CNanoSpecDoc::OnNewDocument()
 	if (!CDocument::OnNewDocument())
 		return FALSE;
 
-	// TODO: ‚±‚ÌˆÊ’u‚ÉÄ‰Šú‰»ˆ—‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
-	// (SDI ƒhƒLƒ…ƒƒ“ƒg‚Í‚±‚ÌƒhƒLƒ…ƒƒ“ƒg‚ğÄ—˜—p‚µ‚Ü‚·B)
+	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉÄï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
+	// (SDI ï¿½hï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½Í‚ï¿½ï¿½Ìƒhï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Ä—ï¿½ï¿½pï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B)
 
 	return TRUE;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// CNanoSpecDoc ƒVƒŠƒAƒ‰ƒCƒ[[ƒVƒ‡ƒ“
+// CNanoSpecDoc ï¿½Vï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Cï¿½[ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
 void CNanoSpecDoc::Serialize(CArchive& ar)
 {
 	if (ar.IsStoring()){
-		// TODO: ‚±‚ÌˆÊ’u‚É•Û‘¶—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+		// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½É•Û‘ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 	}
 	else{
-		// TODO: ‚±‚ÌˆÊ’u‚É“Ç‚İ‚İ—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B
+		// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½É“Ç‚İï¿½ï¿½İ—pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 	}
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// CNanoSpecDoc ƒNƒ‰ƒX‚Ìf’f
+// CNanoSpecDoc ï¿½Nï¿½ï¿½ï¿½Xï¿½Ìfï¿½f
 
 #ifdef _DEBUG
 /////////////////////////////////////////////////////////////////////////////
@@ -274,7 +274,7 @@ void CNanoSpecDoc::Dump(CDumpContext& dc) const
 #endif //_DEBUG
 
 /////////////////////////////////////////////////////////////////////////////
-// CNanoSpecDoc ƒRƒ}ƒ“ƒh
+// CNanoSpecDoc ï¿½Rï¿½}ï¿½ï¿½ï¿½h
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -323,7 +323,7 @@ int CNanoSpecDoc::MakeDirectory(char* lpszDir)
 	if(i <= 0)
 		return 0;
 
-	strcpy(szBuff, lpszDir);
+	strcpy_s(szBuff, _countof(szBuff), lpszDir);
 	szBuff[i] = NULL;
 	if(iRet = MakeDirectory(szBuff))
 		return (iRet = CreateDirectory(lpszDir, &sa)) == TRUE ? 1 : 0;
@@ -587,7 +587,7 @@ void CNanoSpecDoc::User_Entry(USER_ACCOUNT User)
 {
 	memcpy(&m_User, &User, sizeof(m_User));
 	//2009.12.10 bagus Recipe backup --{--
-	//ƒ†[ƒU‚ª•ÏX‚³‚ê‚½‚Ì‚ÅƒoƒbƒNƒAƒbƒv‚Ìİ’è‚ğXV‚·‚é
+	//ï¿½ï¿½ï¿½[ï¿½Uï¿½ï¿½ï¿½ÏXï¿½ï¿½ï¿½ê‚½ï¿½Ì‚Åƒoï¿½bï¿½Nï¿½Aï¿½bï¿½vï¿½Ìİ’ï¿½ï¿½ï¿½Xï¿½Vï¿½ï¿½ï¿½ï¿½
 	SYSTEM_CONFIG l_SystemConfig;
 	USER_DATA	 l_UserData;
 	ConfigFile_GetNanoSpecIni(&l_SystemConfig,CONFIG_FILE_SYSTEM_CONFIG);
@@ -596,7 +596,7 @@ void CNanoSpecDoc::User_Entry(USER_ACCOUNT User)
 		RecipeFile_SetBackupPath(l_UserData.BackupData.BackupPath,l_UserData.BackupData.bAutoBackup);
 		PatternFile_SetBackupPath(l_UserData.BackupData.BackupPath,l_UserData.BackupData.bAutoBackup);
 	}else{
-		//ƒoƒbƒNƒAƒbƒv‹@”\‚ª—LŒø‚É‚È‚Á‚Ä‚¢‚È‚¢
+		//ï¿½oï¿½bï¿½Nï¿½Aï¿½bï¿½vï¿½@ï¿½\ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½É‚È‚ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½
 		RecipeFile_SetBackupPath("",FALSE);
 		PatternFile_SetBackupPath("",FALSE);
 	}
@@ -678,7 +678,7 @@ BOOL CNanoSpecDoc::User_Access(int iAccessItem)
 
 
 /////////////////////////////////////////////////////////////////////////////
-//	m_measureddata‚Ì‰Šú‰»
+//	m_measureddataï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½
 void CNanoSpecDoc::InitMeasData(void)
 {
 
@@ -686,12 +686,12 @@ void CNanoSpecDoc::InitMeasData(void)
 	m_iLastMeasPoint = 0;
 	m_iCurrentSetPoint = 0;
 	m_iReMeasNumScans = 0;
-	m_iReMeasurePointCnt = 0; //hibino Šm”F’†
+	m_iReMeasurePointCnt = 0; //hibino ï¿½mï¿½Fï¿½ï¿½
 	//2009.08.17 bagus stress --{--
-	//ƒXƒgƒŒƒXŠÖ˜A’Ç‰Á‰Šú‰»
-	m_iLastMeasStressLine = 0;			//ƒXƒgƒŒƒX‘ª’è‚ÌÅI‘ª’èƒXƒgƒŒƒXƒ‰ƒCƒ“
-	m_iCurrentSetStressLine = 0;		//ˆê”ÔÅŒã‚Éƒf[ƒ^‚ğŠi”[‚µ‚½ƒXƒgƒŒƒXƒ‰ƒCƒ“
-	m_iCurrentMeasStressLine = 0;		//Œ»İ‘ª’è’†‚ÌƒXƒgƒŒƒXƒ‰ƒCƒ“
+	//ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½Ö˜Aï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	m_iLastMeasStressLine = 0;			//ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ÌÅIï¿½ï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½Cï¿½ï¿½
+	m_iCurrentSetStressLine = 0;		//ï¿½ï¿½ÔÅŒï¿½Éƒfï¿½[ï¿½^ï¿½ï¿½ï¿½iï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½Cï¿½ï¿½
+	m_iCurrentMeasStressLine = 0;		//ï¿½ï¿½ï¿½İ‘ï¿½ï¿½è’†ï¿½ÌƒXï¿½gï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½Cï¿½ï¿½
 	//2009.08.17 bagus stress --}--
 
 }
@@ -699,7 +699,7 @@ void CNanoSpecDoc::InitMeasData(void)
 
 
 /////////////////////////////////////////////////////////////////////////////
-//	‘ª’èƒf[ƒ^Ši”[‚·‚é‚à‚Ì‘S‘Ì‚ğæ“¾ (datƒtƒ@ƒCƒ‹ì¬‚Ì‚İg—p)
+//	ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½iï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‘Sï¿½Ì‚ï¿½ï¿½æ“¾ (datï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ì¬ï¿½ï¿½ï¿½Ì‚İgï¿½p)
 void CNanoSpecDoc::GetMeasDataAll(MEASURED_DATA* meadat)
 {
 	*meadat = *m_pMeasureddata;
@@ -707,124 +707,124 @@ void CNanoSpecDoc::GetMeasDataAll(MEASURED_DATA* meadat)
 
 
 /////////////////////////////////////////////////////////////////////////////
-//	‘ª’èƒf[ƒ^Ši”[‚·‚é‚à‚Ì‘S‘Ì‚ğŠi”[@yg—p•s‰Âz
+//	ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½iï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‘Sï¿½Ì‚ï¿½ï¿½iï¿½[ï¿½@ï¿½yï¿½gï¿½pï¿½sï¿½Âz
 void CNanoSpecDoc::SetMeasDataAll(MEASURED_DATA* meadat)
 {
 	*m_pMeasureddata = *meadat;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	ƒŒƒVƒsƒf[ƒ^æ“¾
+//	ï¿½ï¿½ï¿½Vï¿½sï¿½fï¿½[ï¿½^ï¿½æ“¾
 void CNanoSpecDoc::GetRcpData(RCP_DATA* rcp_data)
 {
 	*rcp_data = m_pMeasureddata->rcp_data;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	ƒŒƒVƒsƒf[ƒ^Ši”[
+//	ï¿½ï¿½ï¿½Vï¿½sï¿½fï¿½[ï¿½^ï¿½iï¿½[
 void CNanoSpecDoc::SetRcpData(RCP_DATA* rcp_data)
 {
 	m_pMeasureddata->rcp_data = *rcp_data;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	1ƒ|ƒCƒ“ƒg‘ª’èƒf[ƒ^E“Œvƒf[ƒ^æ“¾ y”ñ„§z
-//ˆø”: 1ƒ|ƒCƒ“ƒg•ª‘ª’èƒf[ƒ^, ‚»‚Ì“_‚Ü‚Å‚Ì“Œvƒf[ƒ^, ‰½ƒ|ƒCƒ“ƒg–Ú‚Ì‘ª’è•ª‚©‚Ìw’è(1ƒ|ƒCƒ“ƒg–Ú1)
+//	1ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½Eï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^ï¿½æ“¾ ï¿½yï¿½ñ„ï¿½ï¿½z
+//ï¿½ï¿½ï¿½ï¿½: 1ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^, ï¿½ï¿½ï¿½Ìï¿½ï¿½_ï¿½Ü‚Å‚Ì“ï¿½ï¿½vï¿½fï¿½[ï¿½^, ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Ú‚Ì‘ï¿½ï¿½è•ªï¿½ï¿½ï¿½Ìwï¿½ï¿½(1ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Úï¿½1)
 BOOL CNanoSpecDoc::GetOnePointAndStatistics(ONE_POINT_DATA *OnePointData, STATISTICS *Statistics, int iPoint)
 {
 	if((iPoint > SCAN_POINT_MAX) || (iPoint < 1 ))
 	{
-		return FALSE; //æ“¾¸”s
+		return FALSE; //ï¿½æ“¾ï¿½ï¿½ï¿½s
 	}
 	*OnePointData = m_pMeasureddata->OnePointData[iPoint - 1];
 	memcpy(&Statistics[0], &m_pMeasureddata->Statistics[0], sizeof(STATISTICS[ADAPRESULT_COLS_MAX]));
-	return TRUE; //æ“¾¬Œ÷
+	return TRUE; //ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	1ƒ|ƒCƒ“ƒg‘ª’èƒf[ƒ^E“Œvƒf[ƒ^Ši”[ y”ñ„§z
-//ˆø”: 1ƒ|ƒCƒ“ƒg•ª‘ª’èƒf[ƒ^, ‚»‚Ì“_‚Ü‚Å‚Ì“Œvƒf[ƒ^, ‰½ƒ|ƒCƒ“ƒg–Ú‚Ì‘ª’è•ª‚©‚Ìw’è(1ƒ|ƒCƒ“ƒg–Ú1)
+//	1ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½Eï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^ï¿½iï¿½[ ï¿½yï¿½ñ„ï¿½ï¿½z
+//ï¿½ï¿½ï¿½ï¿½: 1ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^, ï¿½ï¿½ï¿½Ìï¿½ï¿½_ï¿½Ü‚Å‚Ì“ï¿½ï¿½vï¿½fï¿½[ï¿½^, ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Ú‚Ì‘ï¿½ï¿½è•ªï¿½ï¿½ï¿½Ìwï¿½ï¿½(1ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Úï¿½1)
 BOOL CNanoSpecDoc::SetOnePointAndStatistics(ONE_POINT_DATA *OnePointData, STATISTICS *Statistics, int iPoint)
 {
 	if((iPoint > SCAN_POINT_MAX) || (iPoint < 1 ))
 	{
-		return FALSE; //Ši”[¸”s
+		return FALSE; //ï¿½iï¿½[ï¿½ï¿½ï¿½s
 	}
 	m_pMeasureddata->OnePointData[iPoint - 1] = *OnePointData;
 	memcpy(&m_pMeasureddata->Statistics[0], &Statistics[0], sizeof(STATISTICS[ADAPRESULT_COLS_MAX]));
-	return TRUE; //Ši”[¬Œ÷
+	return TRUE; //ï¿½iï¿½[ï¿½ï¿½ï¿½ï¿½
 }
 
 
 /////////////////////////////////////////////////////////////////////////////
-//	1ƒ|ƒCƒ“ƒg‘ª’èƒf[ƒ^æ“¾ y„§z
-//ˆø”: 1ƒ|ƒCƒ“ƒg•ª‘ª’èƒf[ƒ^, ‰½ƒ|ƒCƒ“ƒg–Ú‚Ì‘ª’è•ª‚©‚Ìw’è(1ƒ|ƒCƒ“ƒg–Ú1)
+//	1ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½æ“¾ ï¿½yï¿½ï¿½ï¿½ï¿½ï¿½z
+//ï¿½ï¿½ï¿½ï¿½: 1ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^, ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Ú‚Ì‘ï¿½ï¿½è•ªï¿½ï¿½ï¿½Ìwï¿½ï¿½(1ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Úï¿½1)
 BOOL CNanoSpecDoc::GetOnePointData(ONE_POINT_DATA *OnePointData, int iPoint)
 {
 	if((iPoint > SCAN_POINT_MAX) || (iPoint < 1 ))
 	{
-		return FALSE; //æ“¾¸”s
+		return FALSE; //ï¿½æ“¾ï¿½ï¿½ï¿½s
 	}
 	*OnePointData = m_pMeasureddata->OnePointData[iPoint - 1];
-	return TRUE; //æ“¾¬Œ÷
+	return TRUE; //ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	1ƒ|ƒCƒ“ƒg‘ª’èƒf[ƒ^Ši”[ y„§z
-//ˆø”: 1ƒ|ƒCƒ“ƒg•ª‘ª’èƒf[ƒ^, ‰½ƒ|ƒCƒ“ƒg–Ú‚Ì‘ª’è•ª‚©‚Ìw’è(1ƒ|ƒCƒ“ƒg–Ú1)
+//	1ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½iï¿½[ ï¿½yï¿½ï¿½ï¿½ï¿½ï¿½z
+//ï¿½ï¿½ï¿½ï¿½: 1ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^, ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Ú‚Ì‘ï¿½ï¿½è•ªï¿½ï¿½ï¿½Ìwï¿½ï¿½(1ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Úï¿½1)
 BOOL CNanoSpecDoc::SetOnePointData(ONE_POINT_DATA *OnePointData, int iPoint)
 {
 	if((iPoint > SCAN_POINT_MAX) || (iPoint < 1 ))
 	{
-		return FALSE; //Ši”[¸”s
+		return FALSE; //ï¿½iï¿½[ï¿½ï¿½ï¿½s
 	}
 	m_pMeasureddata->OnePointData[iPoint - 1] = *OnePointData;
-	return TRUE; //Ši”[¬Œ÷
+	return TRUE; //ï¿½iï¿½[ï¿½ï¿½ï¿½ï¿½
 }
 
 
 /////////////////////////////////////////////////////////////////////////////
-//	ƒeƒXƒgƒ‚[ƒh1ƒ|ƒCƒ“ƒg‘ª’èƒf[ƒ^Ši”[
-//ˆø”: 1ƒ|ƒCƒ“ƒg•ª‘ª’èƒf[ƒ^, ‰½ƒ|ƒCƒ“ƒg–Ú‚Ì‘ª’è•ª‚©‚Ìw’è(1ƒ|ƒCƒ“ƒg–Ú1)
+//	ï¿½eï¿½Xï¿½gï¿½ï¿½ï¿½[ï¿½h1ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½iï¿½[
+//ï¿½ï¿½ï¿½ï¿½: 1ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^, ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Ú‚Ì‘ï¿½ï¿½è•ªï¿½ï¿½ï¿½Ìwï¿½ï¿½(1ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Úï¿½1)
 BOOL CNanoSpecDoc::SetTestModeData(TEST_MODE_DATA *TestModeData, int iPoint)
 {
 	if((iPoint > TESTDATA_POINT_MAX) || (iPoint < 1 ))
 	{
-		return FALSE; //Ši”[¸”s
+		return FALSE; //ï¿½iï¿½[ï¿½ï¿½ï¿½s
 	}
 	m_pMeasureddata->TestModeData[iPoint - 1] = *TestModeData;
-	return TRUE; //Ši”[¬Œ÷
+	return TRUE; //ï¿½iï¿½[ï¿½ï¿½ï¿½ï¿½
 }
 
 
 /////////////////////////////////////////////////////////////////////////////
-//	“Œvƒf[ƒ^æ“¾ y„§z
-//ˆø”: ‚»‚Ì“_‚Ü‚Å‚Ì“Œvƒf[ƒ^
+//	ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^ï¿½æ“¾ ï¿½yï¿½ï¿½ï¿½ï¿½ï¿½z
+//ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½Ìï¿½ï¿½_ï¿½Ü‚Å‚Ì“ï¿½ï¿½vï¿½fï¿½[ï¿½^
 BOOL CNanoSpecDoc::GetStatisticsData(STATISTICS *Statistics)
 {
 	memcpy(&Statistics[0], &m_pMeasureddata->Statistics[0], sizeof(STATISTICS[ADAPRESULT_COLS_MAX]));
-	return TRUE; //æ“¾¬Œ÷
+	return TRUE; //ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	“Œvƒf[ƒ^Ši”[ y„§z
-//ˆø”: ‚»‚Ì“_‚Ü‚Å‚Ì“Œvƒf[ƒ^
+//	ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^ï¿½iï¿½[ ï¿½yï¿½ï¿½ï¿½ï¿½ï¿½z
+//ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½Ìï¿½ï¿½_ï¿½Ü‚Å‚Ì“ï¿½ï¿½vï¿½fï¿½[ï¿½^
 BOOL CNanoSpecDoc::SetStatisticsData(STATISTICS *Statistics)
 {
 	memcpy(&m_pMeasureddata->Statistics[0], &Statistics[0], sizeof(STATISTICS[ADAPRESULT_COLS_MAX]));
-	return TRUE; //Ši”[¬Œ÷
+	return TRUE; //ï¿½iï¿½[ï¿½ï¿½ï¿½ï¿½
 }
 
 
 /////////////////////////////////////////////////////////////////////////////
-//	“Œvƒf[ƒ^—LŒøPoint”(“Œvƒf[ƒ^‚É‰Á‚¦‚éPoint”)æ“¾
+//	ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^ï¿½Lï¿½ï¿½Pointï¿½ï¿½(ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^ï¿½É‰ï¿½ï¿½ï¿½ï¿½ï¿½Pointï¿½ï¿½)ï¿½æ“¾
 int CNanoSpecDoc::GetStatisticsValidPointCount(void)
 {
 	return m_pMeasureddata->iStatisticsValidPointCount;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	“Œvƒf[ƒ^—LŒøPoint”(“Œvƒf[ƒ^‚É‰Á‚¦‚éPoint”)Ši”[
+//	ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^ï¿½Lï¿½ï¿½Pointï¿½ï¿½(ï¿½ï¿½ï¿½vï¿½fï¿½[ï¿½^ï¿½É‰ï¿½ï¿½ï¿½ï¿½ï¿½Pointï¿½ï¿½)ï¿½iï¿½[
 void CNanoSpecDoc::SetStatisticsValidPointCount(int iStatisticsValidPointCount)
 {
 	m_pMeasureddata->iStatisticsValidPointCount = iStatisticsValidPointCount;
@@ -833,14 +833,14 @@ void CNanoSpecDoc::SetStatisticsValidPointCount(int iStatisticsValidPointCount)
 
 // 2009.09.30 K.Matsuo Delete -->
 /////////////////////////////////////////////////////////////////////////////
-//	”½Ë—¦ƒf[ƒ^‚Ìæ“¾i‰ñ”A”g’·380`800j@//Ši”[‚ÍSetOnePointData‚ÅB
+//	ï¿½ï¿½ï¿½Ë—ï¿½ï¿½fï¿½[ï¿½^ï¿½Ìæ“¾ï¿½iï¿½ñ”Aï¿½gï¿½ï¿½380ï¿½`800ï¿½jï¿½@//ï¿½iï¿½[ï¿½ï¿½SetOnePointDataï¿½ÅB
 //double CNanoSpecDoc::NanoSpecDoc_GetAnalysisData(int iCnt, int iWave)
 //{
 //	return m_pMeasureddata->OnePointData[iCnt - 1].dAnalysisData[iWave - 1];
 //}
 //
 /////////////////////////////////////////////////////////////////////////////
-//	Xmp‚©‚ç‚ÌGenData‚Ìæ“¾i‰ñ”A”g’·380`800j@//Ši”[‚ÍSetOnePointData‚ÅB
+//	Xmpï¿½ï¿½ï¿½ï¿½ï¿½GenDataï¿½Ìæ“¾ï¿½iï¿½ñ”Aï¿½gï¿½ï¿½380ï¿½`800ï¿½jï¿½@//ï¿½iï¿½[ï¿½ï¿½SetOnePointDataï¿½ÅB
 //double CNanoSpecDoc::NanoSpecDoc_GetAnalysisGenData(int iCnt, int iWave)
 //{
 //	return m_pMeasureddata->OnePointData[iCnt - 1].dAnalysisGenData[iWave - 1];
@@ -849,8 +849,8 @@ void CNanoSpecDoc::SetStatisticsValidPointCount(int iStatisticsValidPointCount)
 
 // 2014.04.03 bagus wavelength step modified -->
 // /////////////////////////////////////////////////////////////////////////////
-// //	ƒTƒ“ƒvƒ‹ƒf[ƒ^‚Ìæ“¾(ƒeƒXƒgƒ‚[ƒhê—p)
-// //i‰ñ”A”g’·380`800j@//Ši”[‚ÍSetTestModeData‚ÅB
+// //	ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½Ìæ“¾(ï¿½eï¿½Xï¿½gï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½p)
+// //ï¿½iï¿½ñ”Aï¿½gï¿½ï¿½380ï¿½`800ï¿½jï¿½@//ï¿½iï¿½[ï¿½ï¿½SetTestModeDataï¿½ÅB
 // double CNanoSpecDoc::NanoSpecDoc_GetScanSampleData(int iCnt, int iWave)
 // {
 // 	return m_pMeasureddata->TestModeData[iCnt - 1].dScanSampleData[iWave - 1];
@@ -858,8 +858,8 @@ void CNanoSpecDoc::SetStatisticsValidPointCount(int iStatisticsValidPointCount)
 //
 //
 // /////////////////////////////////////////////////////////////////////////////
-// //	ƒŠƒtƒ@ƒŒƒ“ƒX‚Ìæ“¾(ƒeƒXƒgƒ‚[ƒhê—p)
-// //i‰ñ”A”g’·380`800j@//Ši”[‚ÍSetTestModeData‚ÅB
+// //	ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½Ìæ“¾(ï¿½eï¿½Xï¿½gï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½p)
+// //ï¿½iï¿½ñ”Aï¿½gï¿½ï¿½380ï¿½`800ï¿½jï¿½@//ï¿½iï¿½[ï¿½ï¿½SetTestModeDataï¿½ÅB
 // double CNanoSpecDoc::NanoSpecDoc_GetScan1stReferenceData(int iCnt, int iWave)
 // {
 // 	return m_pMeasureddata->TestModeData[iCnt - 1].dScan1stReferenceData[iWave - 1];
@@ -867,15 +867,15 @@ void CNanoSpecDoc::SetStatisticsValidPointCount(int iStatisticsValidPointCount)
 //
 //
 // /////////////////////////////////////////////////////////////////////////////
-// //	ƒŠƒtƒ@ƒŒƒ“ƒX‚Ìæ“¾(ƒeƒXƒgƒ‚[ƒhê—p)
-// //i‰ñ”A”g’·380`800j@//Ši”[‚ÍSetTestModeData‚ÅB
+// //	ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½Ìæ“¾(ï¿½eï¿½Xï¿½gï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½p)
+// //ï¿½iï¿½ñ”Aï¿½gï¿½ï¿½380ï¿½`800ï¿½jï¿½@//ï¿½iï¿½[ï¿½ï¿½SetTestModeDataï¿½ÅB
 // double CNanoSpecDoc::NanoSpecDoc_GetScanDark_T1Data(int iCnt, int iWave)
 // {
 // 	return m_pMeasureddata->TestModeData[iCnt - 1].dScanDark_T1Data[iWave - 1];
 // }
 /////////////////////////////////////////////////////////////////////////////
-//	ƒTƒ“ƒvƒ‹ƒf[ƒ^‚Ìæ“¾(ƒeƒXƒgƒ‚[ƒhê—p)
-//i‰ñ”A”g’·380`800j@//Ši”[‚ÍSetTestModeData‚ÅB
+//	ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½Ìæ“¾(ï¿½eï¿½Xï¿½gï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½p)
+//ï¿½iï¿½ñ”Aï¿½gï¿½ï¿½380ï¿½`800ï¿½jï¿½@//ï¿½iï¿½[ï¿½ï¿½SetTestModeDataï¿½ÅB
 double CNanoSpecDoc::NanoSpecDoc_GetScanSampleData(int iCnt, double dWave)
 {
 	return m_pMeasureddata->TestModeData[iCnt - 1].GetScanSampleData(dWave);
@@ -883,8 +883,8 @@ double CNanoSpecDoc::NanoSpecDoc_GetScanSampleData(int iCnt, double dWave)
 
 
 /////////////////////////////////////////////////////////////////////////////
-//	ƒŠƒtƒ@ƒŒƒ“ƒX‚Ìæ“¾(ƒeƒXƒgƒ‚[ƒhê—p)
-//i‰ñ”A”g’·380`800j@//Ši”[‚ÍSetTestModeData‚ÅB
+//	ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½Ìæ“¾(ï¿½eï¿½Xï¿½gï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½p)
+//ï¿½iï¿½ñ”Aï¿½gï¿½ï¿½380ï¿½`800ï¿½jï¿½@//ï¿½iï¿½[ï¿½ï¿½SetTestModeDataï¿½ÅB
 double CNanoSpecDoc::NanoSpecDoc_GetScan1stReferenceData(int iCnt, double dWave)
 {
 	return m_pMeasureddata->TestModeData[iCnt - 1].GetScan1stReferenceData(dWave);
@@ -892,8 +892,8 @@ double CNanoSpecDoc::NanoSpecDoc_GetScan1stReferenceData(int iCnt, double dWave)
 
 
 /////////////////////////////////////////////////////////////////////////////
-//	ƒŠƒtƒ@ƒŒƒ“ƒX‚Ìæ“¾(ƒeƒXƒgƒ‚[ƒhê—p)
-//i‰ñ”A”g’·380`800j@//Ši”[‚ÍSetTestModeData‚ÅB
+//	ï¿½ï¿½ï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½Ìæ“¾(ï¿½eï¿½Xï¿½gï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½p)
+//ï¿½iï¿½ñ”Aï¿½gï¿½ï¿½380ï¿½`800ï¿½jï¿½@//ï¿½iï¿½[ï¿½ï¿½SetTestModeDataï¿½ÅB
 double CNanoSpecDoc::NanoSpecDoc_GetScanDark_T1Data(int iCnt, double dWave)
 {
 	return m_pMeasureddata->TestModeData[iCnt - 1].GetScanDark_T1Data(dWave);
@@ -902,7 +902,7 @@ double CNanoSpecDoc::NanoSpecDoc_GetScanDark_T1Data(int iCnt, double dWave)
 
 
 /////////////////////////////////////////////////////////////////////////////
-//	ƒeƒXƒgƒ‚[ƒhŒŸ’mğŒæ“¾   //Ši”[‚ÍSetTestModeData‚ÅB
+//	ï¿½eï¿½Xï¿½gï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½mï¿½ï¿½ï¿½ï¿½ï¿½æ“¾   //ï¿½iï¿½[ï¿½ï¿½SetTestModeDataï¿½ÅB
 void CNanoSpecDoc::GetMeasRcpCon(int iCnt, TEST_MODE_MEASRCP_CONDITION* MeasRcpCon)
 {
 	*MeasRcpCon = m_pMeasureddata->TestModeData[iCnt - 1].MeasRcpCon;
@@ -910,14 +910,14 @@ void CNanoSpecDoc::GetMeasRcpCon(int iCnt, TEST_MODE_MEASRCP_CONDITION* MeasRcpC
 
 
 /////////////////////////////////////////////////////////////////////////////
-//	ƒeƒXƒgƒ‚[ƒhƒf[ƒ^æ“¾	 //Ši”[‚ÍSetTestModeData‚ÅB
+//	ï¿½eï¿½Xï¿½gï¿½ï¿½ï¿½[ï¿½hï¿½fï¿½[ï¿½^ï¿½æ“¾	 //ï¿½iï¿½[ï¿½ï¿½SetTestModeDataï¿½ÅB
 void CNanoSpecDoc::GetTestModeData(TEST_MODE_DATA* TestModeData, int iCnt)
 {
 	*TestModeData = m_pMeasureddata->TestModeData[iCnt - 1];
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	dData(ONE_POINT_DATA“à)‚Ìæ“¾ @//Ši”[‚ÍSetOnePointData‚ÅB
+//	dData(ONE_POINT_DATAï¿½ï¿½)ï¿½Ìæ“¾ ï¿½@//ï¿½iï¿½[ï¿½ï¿½SetOnePointDataï¿½ÅB
 void CNanoSpecDoc::GetOnepointDdata(int iPoint, double* dData)
 {
 	memcpy(dData, m_pMeasureddata->OnePointData[iPoint - 1].dData, sizeof(m_pMeasureddata->OnePointData[iPoint - 1].dData) );
@@ -926,11 +926,11 @@ void CNanoSpecDoc::GetOnepointDdata(int iPoint, double* dData)
 
 
 /////////////////////////////////////////////////////////////////////////////
-//	ƒ‰ƒxƒ‹–¼‚È‚Çæ“¾(wX,Y,Zx,wAFx,wThick`x,wThick`‚ÌŒÂ”x)
-void CNanoSpecDoc::GetLabel(char szTitleXyz[3][ADAPRESULTSTRINGLENMAX + 1],  //ƒ‰ƒxƒ‹(X,Y,Z)
-							char szTitleAf[AF_HEADER_LEN + 1],		 //ƒ‰ƒxƒ‹(AF)
-							char szLabel[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1], //ƒ‰ƒxƒ‹(Thick`)
-							int *iLabelCount)			  //wƒ‰ƒxƒ‹(Thick`)x‚ÌŠi”[ŒÂ”
+//	ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½È‚Çæ“¾(ï¿½wX,Y,Zï¿½x,ï¿½wAFï¿½x,ï¿½wThickï¿½`ï¿½x,ï¿½wThickï¿½`ï¿½ÌŒÂï¿½ï¿½x)
+void CNanoSpecDoc::GetLabel(char szTitleXyz[3][ADAPRESULTSTRINGLENMAX + 1],  //ï¿½ï¿½ï¿½xï¿½ï¿½(X,Y,Z)
+							char szTitleAf[AF_HEADER_LEN + 1],		 //ï¿½ï¿½ï¿½xï¿½ï¿½(AF)
+							char szLabel[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1], //ï¿½ï¿½ï¿½xï¿½ï¿½(Thickï¿½`)
+							int *iLabelCount)			  //ï¿½wï¿½ï¿½ï¿½xï¿½ï¿½(Thickï¿½`)ï¿½xï¿½ÌŠiï¿½[ï¿½Âï¿½
 {
 	memcpy(szTitleXyz, m_pMeasureddata->szTitleXyz, sizeof(m_pMeasureddata->szTitleXyz));
 	memcpy(szTitleAf, m_pMeasureddata->szTitleAf, sizeof(m_pMeasureddata->szTitleAf));
@@ -945,12 +945,12 @@ void CNanoSpecDoc::GetLabelOri(char pszLabelOri[][ADAPRESULTSTRINGLENMAX + 1])
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	ƒ‰ƒxƒ‹–¼‚È‚ÇŠi”[(wX,Y,Zx,wAFx,wThick`x,wThick`‚ÌŒÂ”x)
-void CNanoSpecDoc::SetLabel(char szTitleXyz[3][ADAPRESULTSTRINGLENMAX + 1],  //ƒ‰ƒxƒ‹(X,Y,Z)
-							char szTitleAf[AF_HEADER_LEN + 1],		 //ƒ‰ƒxƒ‹(AF)
-							char szLabel[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1], //ƒ‰ƒxƒ‹(Thick`)
-							char szLabelOri[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1], //DDEóM‚Ìƒ‰ƒxƒ‹(Thick`)
-							int iLabelCount)			 //wƒ‰ƒxƒ‹(Thick`)x‚ÌŠi”[ŒÂ”
+//	ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½È‚ÇŠiï¿½[(ï¿½wX,Y,Zï¿½x,ï¿½wAFï¿½x,ï¿½wThickï¿½`ï¿½x,ï¿½wThickï¿½`ï¿½ÌŒÂï¿½ï¿½x)
+void CNanoSpecDoc::SetLabel(char szTitleXyz[3][ADAPRESULTSTRINGLENMAX + 1],  //ï¿½ï¿½ï¿½xï¿½ï¿½(X,Y,Z)
+							char szTitleAf[AF_HEADER_LEN + 1],		 //ï¿½ï¿½ï¿½xï¿½ï¿½(AF)
+							char szLabel[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1], //ï¿½ï¿½ï¿½xï¿½ï¿½(Thickï¿½`)
+							char szLabelOri[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1], //DDEï¿½ï¿½Mï¿½Ìƒï¿½ï¿½xï¿½ï¿½(Thickï¿½`)
+							int iLabelCount)			 //ï¿½wï¿½ï¿½ï¿½xï¿½ï¿½(Thickï¿½`)ï¿½xï¿½ÌŠiï¿½[ï¿½Âï¿½
 {
 	memcpy(m_pMeasureddata->szTitleXyz, szTitleXyz, sizeof(m_pMeasureddata->szTitleXyz));
 	memcpy(m_pMeasureddata->szTitleAf, szTitleAf, sizeof(m_pMeasureddata->szTitleAf));
@@ -961,28 +961,28 @@ void CNanoSpecDoc::SetLabel(char szTitleXyz[3][ADAPRESULTSTRINGLENMAX + 1],  //ƒ
 
 
 /////////////////////////////////////////////////////////////////////////////
-//	‘ª’èŒ‹‰Ê•\¦(•Û‘¶)—pƒ‰ƒxƒ‹–¼‚Ìæ“¾(wThick`x)
+//	ï¿½ï¿½ï¿½èŒ‹ï¿½Ê•\ï¿½ï¿½(ï¿½Û‘ï¿½)ï¿½pï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½Ìæ“¾(ï¿½wThickï¿½`ï¿½x)
 void CNanoSpecDoc::GetDispLabel(char szDispLabel[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1])
 {
 	memcpy(szDispLabel, m_pMeasureddata->szDispLabel, sizeof(m_pMeasureddata->szDispLabel));
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	‘ª’èŒ‹‰Ê•\¦(•Û‘¶)—pƒ‰ƒxƒ‹–¼‚ÌŠi”[(wThick`x)
+//	ï¿½ï¿½ï¿½èŒ‹ï¿½Ê•\ï¿½ï¿½(ï¿½Û‘ï¿½)ï¿½pï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½ÌŠiï¿½[(ï¿½wThickï¿½`ï¿½x)
 void CNanoSpecDoc::SetDispLabel(char szDispLabel[ADAPRESULT_COLS_MAX][ADAPRESULTSTRINGLENMAX + 1])
 {
 	memcpy(m_pMeasureddata->szDispLabel, szDispLabel, sizeof(m_pMeasureddata->szDispLabel));
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	‘ª’èŒ‹‰Ê•\¦(•Û‘¶)—pƒ‰ƒxƒ‹–¼‚ÌŠi”[”æ“¾(wThick`x)
+//	ï¿½ï¿½ï¿½èŒ‹ï¿½Ê•\ï¿½ï¿½(ï¿½Û‘ï¿½)ï¿½pï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½ÌŠiï¿½[ï¿½ï¿½ï¿½æ“¾(ï¿½wThickï¿½`ï¿½x)
 int CNanoSpecDoc::GetDispLabelCount(void)
 {
 	return m_pMeasureddata->iDispLabelCount;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	‘ª’èŒ‹‰Ê•\¦(•Û‘¶)—pƒ‰ƒxƒ‹–¼‚ÌŠi”[”Ši”[(wThick`x)
+//	ï¿½ï¿½ï¿½èŒ‹ï¿½Ê•\ï¿½ï¿½(ï¿½Û‘ï¿½)ï¿½pï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½ÌŠiï¿½[ï¿½ï¿½ï¿½iï¿½[(ï¿½wThickï¿½`ï¿½x)
 void CNanoSpecDoc::SetDispLabelCount(int iDispLabelCount)
 {
 	m_pMeasureddata->iDispLabelCount = iDispLabelCount;
@@ -990,42 +990,42 @@ void CNanoSpecDoc::SetDispLabelCount(int iDispLabelCount)
 
 
 /////////////////////////////////////////////////////////////////////////////
-//	Ši”[ÏŒ”‚Ìæ“¾ (’F‰½ƒ|ƒCƒ“ƒg‘ª’è‚µ‚½‚©‚Ì”)
+//	ï¿½iï¿½[ï¿½ÏŒï¿½ï¿½ï¿½ï¿½Ìæ“¾ (ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½è‚µï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½)
 int CNanoSpecDoc::GetStoreCount(void)
 {
 	return m_pMeasureddata->iSetPointCount;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	Ši”[ÏŒ”‚ÌŠi”[ (’F‰½ƒ|ƒCƒ“ƒg‘ª’è‚µ‚½‚©‚Ì”)
+//	ï¿½iï¿½[ï¿½ÏŒï¿½ï¿½ï¿½ï¿½ÌŠiï¿½[ (ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½è‚µï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½)
 void CNanoSpecDoc::SetStoreCount(int iSetPointCount)
 {
 	m_pMeasureddata->iSetPointCount = iSetPointCount;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	‘ª’èƒ|ƒCƒ“ƒg”‚Ìæ“¾ (’F‰½ƒ|ƒCƒ“ƒg‘ª’è‚·‚é‚©‚Ì”)
+//	ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Ìæ“¾ (ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½è‚·ï¿½é‚©ï¿½Ìï¿½)
 int CNanoSpecDoc::GetMeasurePointCount(void)
 {
 	return m_pMeasureddata->iMeasureNum;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	‘ª’èƒ|ƒCƒ“ƒg”‚ÌŠi”[ (’F‰½ƒ|ƒCƒ“ƒg‘ª’è‚·‚é‚©‚Ì”) ©œ’Ç‰Á•ª‚Ì‘ª’è‚ÉƒCƒ“ƒNƒŠƒƒ“ƒg‚·‚é‚±‚ÆI
+//	ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ÌŠiï¿½[ (ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½è‚·ï¿½é‚©ï¿½Ìï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½èï¿½ÉƒCï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½é‚±ï¿½ÆI
 void CNanoSpecDoc::SetMeasurePointCount(int iMeasureNum)
 {
 	m_pMeasureddata->iMeasureNum = iMeasureNum;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	ƒ†[ƒUID‚Ìæ“¾
+//	ï¿½ï¿½ï¿½[ï¿½UIDï¿½Ìæ“¾
 void CNanoSpecDoc::GetUserId(char szUserId[MAX_PATH + 1])
 {
 	memcpy(szUserId, m_pMeasureddata->szUserId, sizeof(m_pMeasureddata->szUserId));
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	ƒ†[ƒUID‚ÌŠi”[
+//	ï¿½ï¿½ï¿½[ï¿½UIDï¿½ÌŠiï¿½[
 void CNanoSpecDoc::SetUserId(char szUserId[MAX_PATH + 1])
 {
 	memcpy(m_pMeasureddata->szUserId, szUserId, sizeof(m_pMeasureddata->szUserId));
@@ -1034,14 +1034,14 @@ void CNanoSpecDoc::SetUserId(char szUserId[MAX_PATH + 1])
 
 
 /////////////////////////////////////////////////////////////////////////////
-//	‘ª’èŠJn“ú‚Ìæ“¾
+//	ï¿½ï¿½ï¿½ï¿½Jï¿½nï¿½ï¿½ï¿½ï¿½ï¿½Ìæ“¾
 void CNanoSpecDoc::GetStartDateTime(SYSTEMTIME* syStartDateTime)
 {
 	*syStartDateTime = m_pMeasureddata->syStartDateTime;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	‘ª’èŠJn“ú‚ÌŠi”[
+//	ï¿½ï¿½ï¿½ï¿½Jï¿½nï¿½ï¿½ï¿½ï¿½ï¿½ÌŠiï¿½[
 void CNanoSpecDoc::SetStartDateTime(SYSTEMTIME* syStartDateTime)
 {
 	m_pMeasureddata->syStartDateTime = *syStartDateTime;
@@ -1049,14 +1049,14 @@ void CNanoSpecDoc::SetStartDateTime(SYSTEMTIME* syStartDateTime)
 
 
 /////////////////////////////////////////////////////////////////////////////
-//	‘ª’èI—¹“ú‚Ìæ“¾
+//	ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìæ“¾
 void CNanoSpecDoc::GetEndDateTime(SYSTEMTIME* syEndDateTime)
 {
 	*syEndDateTime = m_pMeasureddata->syEndDateTime;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	‘ª’èI—¹“ú‚ÌŠi”[
+//	ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÌŠiï¿½[
 void CNanoSpecDoc::SetEndDateTime(SYSTEMTIME* syEndDateTime)
 {
 	m_pMeasureddata->syEndDateTime = *syEndDateTime;
@@ -1064,46 +1064,46 @@ void CNanoSpecDoc::SetEndDateTime(SYSTEMTIME* syEndDateTime)
 
 
 /////////////////////////////////////////////////////////////////////////////
-//	ƒTƒ“ƒvƒ‹ID‚Ìæ“¾
+//	ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½IDï¿½Ìæ“¾
 void CNanoSpecDoc::GetSampleId(char szSampleId[SAMPLE_ID_LEN + 1])
 {
 	memcpy(szSampleId, m_pMeasureddata->szSampleId, sizeof(m_pMeasureddata->szSampleId));
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	ƒTƒ“ƒvƒ‹ID‚ÌŠi”[
+//	ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½IDï¿½ÌŠiï¿½[
 void CNanoSpecDoc::SetSampleId(char szSampleId[SAMPLE_ID_LEN + 1])
 {
 	memcpy(m_pMeasureddata->szSampleId, szSampleId, sizeof(m_pMeasureddata->szSampleId));
 }
 
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 /////////////////////////////////////////////////////////////////////////////
-//	ƒTƒ“ƒvƒ‹IDƒ_ƒCƒAƒƒO‚©‚ç“ü—Íİ’è‚³‚ê‚½ê‡ATRUE
+//	ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½IDï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Íİ’è‚³ï¿½ê‚½ï¿½ê‡ï¿½ATRUE
 void CNanoSpecDoc::SetSampleIdFromUI(BOOL bSet)
 {
 	m_bSetSampleIdFromUI = bSet;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	ƒTƒ“ƒvƒ‹IDƒ_ƒCƒAƒƒO‚©‚ç“ü—Íİ’è‚³‚ê‚½‚©‚Ç‚¤‚©
+//	ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½IDï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Íİ’è‚³ï¿½ê‚½ï¿½ï¿½ï¿½Ç‚ï¿½ï¿½ï¿½
 BOOL CNanoSpecDoc::IsSetSampleIdFromUI()
 {
 	return m_bSetSampleIdFromUI;
 }
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
 
 //2009.10.13 bagus RS --{--
-//ƒƒbƒgID’Ç‰Á
+//ï¿½ï¿½ï¿½bï¿½gIDï¿½Ç‰ï¿½
 /////////////////////////////////////////////////////////////////////////////
-//	ƒƒbƒgID‚Ìæ“¾
+//	ï¿½ï¿½ï¿½bï¿½gIDï¿½Ìæ“¾
 void CNanoSpecDoc::GetLotId(char szLotId[LOT_ID_LEN + 1])
 {
 	memcpy(szLotId, m_pMeasureddata->szLotId, sizeof(m_pMeasureddata->szLotId));
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	ƒƒbƒgID‚ÌŠi”[
+//	ï¿½ï¿½ï¿½bï¿½gIDï¿½ÌŠiï¿½[
 void CNanoSpecDoc::SetLotId(char szLotId[LOT_ID_LEN + 1])
 {
 	memcpy(m_pMeasureddata->szLotId, szLotId, sizeof(m_pMeasureddata->szLotId));
@@ -1111,14 +1111,14 @@ void CNanoSpecDoc::SetLotId(char szLotId[LOT_ID_LEN + 1])
 //2009.10.13 bagus RS --}--
 
 /////////////////////////////////////////////////////////////////////////////
-//	‘ª’èŒ‹‰Ê’PˆÊ–¼‚Ìæ“¾
+//	ï¿½ï¿½ï¿½èŒ‹ï¿½Ê’Pï¿½Ê–ï¿½ï¿½Ìæ“¾
 void CNanoSpecDoc::GetUnitName(char szUnit[DISP_UNIT_NAME_LEN + 1])
 {
 	memcpy(szUnit, m_pMeasureddata->szUnit, sizeof(m_pMeasureddata->szUnit));
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	‘ª’èŒ‹‰Ê’PˆÊ–¼‚ÌŠi”[
+//	ï¿½ï¿½ï¿½èŒ‹ï¿½Ê’Pï¿½Ê–ï¿½ï¿½ÌŠiï¿½[
 void CNanoSpecDoc::SetUnitName(char szUnit[DISP_UNIT_NAME_LEN + 1])
 {
 	memcpy(m_pMeasureddata->szUnit, szUnit, sizeof(m_pMeasureddata->szUnit));
@@ -1126,14 +1126,14 @@ void CNanoSpecDoc::SetUnitName(char szUnit[DISP_UNIT_NAME_LEN + 1])
 
 
 /////////////////////////////////////////////////////////////////////////////
-//	‘ª’èŒ‹‰Ê’PˆÊindex‚Ìæ“¾
+//	ï¿½ï¿½ï¿½èŒ‹ï¿½Ê’Pï¿½ï¿½indexï¿½Ìæ“¾
 int CNanoSpecDoc::GetUnitIndex(void)
 {
 	return m_pMeasureddata->iUnit;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	‘ª’èŒ‹‰Ê’PˆÊindex‚ÌŠi”[
+//	ï¿½ï¿½ï¿½èŒ‹ï¿½Ê’Pï¿½ï¿½indexï¿½ÌŠiï¿½[
 void CNanoSpecDoc::SetUnitIndex(int iUnit)
 {
 	m_pMeasureddata->iUnit = iUnit;
@@ -1142,28 +1142,28 @@ void CNanoSpecDoc::SetUnitIndex(int iUnit)
 
 
 /////////////////////////////////////////////////////////////////////////////
-//	 //‰æ–Ê‚É•\¦Ï‚İ‚Ìƒ|ƒCƒ“ƒg”‚Ìæ“¾(MeasurementListDlg—p)
+//	 //ï¿½ï¿½Ê‚É•\ï¿½ï¿½ï¿½Ï‚İ‚Ìƒ|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Ìæ“¾(MeasurementListDlgï¿½p)
 int CNanoSpecDoc::GetShowCompPointList(void)
 {
 	return m_pMeasureddata->iShowCompletionPointList;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	 //‰æ–Ê‚É•\¦Ï‚İ‚Ìƒ|ƒCƒ“ƒg”‚ÌŠi”[(MeasurementListDlg—p)
+//	 //ï¿½ï¿½Ê‚É•\ï¿½ï¿½ï¿½Ï‚İ‚Ìƒ|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ÌŠiï¿½[(MeasurementListDlgï¿½p)
 void CNanoSpecDoc::SetShowCompPointList(int iShowCompletionPointList)
 {
 	m_pMeasureddata->iShowCompletionPointList = iShowCompletionPointList;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	 //‰æ–Ê‚É•\¦Ï‚İ‚Ìƒ|ƒCƒ“ƒg”‚Ìæ“¾(MeasurementGraphDlg—p)
+//	 //ï¿½ï¿½Ê‚É•\ï¿½ï¿½ï¿½Ï‚İ‚Ìƒ|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Ìæ“¾(MeasurementGraphDlgï¿½p)
 int CNanoSpecDoc::GetShowCompPointGraph(void)
 {
 	return m_pMeasureddata->iShowCompletionPointGraph;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	 //‰æ–Ê‚É•\¦Ï‚İ‚Ìƒ|ƒCƒ“ƒg”‚ÌŠi”[(MeasurementGraphDlg—p)
+//	 //ï¿½ï¿½Ê‚É•\ï¿½ï¿½ï¿½Ï‚İ‚Ìƒ|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ÌŠiï¿½[(MeasurementGraphDlgï¿½p)
 void CNanoSpecDoc::SetShowCompPointGraph(int iShowCompletionPointGraph)
 {
 	m_pMeasureddata->iShowCompletionPointGraph = iShowCompletionPointGraph;
@@ -1189,20 +1189,20 @@ void CNanoSpecDoc::SetShowCompStressGraph(int iShowCompletionStressLineGraph)
 
 
 /////////////////////////////////////////////////////////////////////////////
-//—\’èÅI‘ª’è“_æ“¾
-//’Êí‘ª’è:‘ª’èƒ|ƒCƒ“ƒg”
-//ƒŠƒƒWƒƒ[ƒ‚[ƒh:Ä‘ª’èƒ|ƒCƒ“ƒg‚Ìˆê”Ô‘å‚«‚¢“_
-//ƒ}ƒjƒ…ƒAƒ‹‘ª’è,ƒeƒXƒgƒ‚[ƒh:‘ª’è’Ç‰Á‚ÉƒCƒ“ƒNƒŠƒƒ“ƒg(©–¢ì¬ hibino)
+//ï¿½\ï¿½ï¿½ÅIï¿½ï¿½ï¿½ï¿½_ï¿½æ“¾
+//ï¿½Êí‘ªï¿½è:ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½
+//ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½:ï¿½Ä‘ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Ìˆï¿½Ô‘å‚«ï¿½ï¿½ï¿½_
+//ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½è,ï¿½eï¿½Xï¿½gï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½:ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Éï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½g(ï¿½ï¿½ï¿½ï¿½ï¿½ì¬ hibino)
 int CNanoSpecDoc::GetLastMeasPoint(void)
 {
 	return m_iLastMeasPoint;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//—\’èÅI‘ª’è“_Ši”[
-//’Êí‘ª’è:‘ª’èƒ|ƒCƒ“ƒg”
-//ƒŠƒƒWƒƒ[ƒ‚[ƒh:Ä‘ª’èƒ|ƒCƒ“ƒg‚Ìˆê”Ô‘å‚«‚¢“_
-//ƒ}ƒjƒ…ƒAƒ‹‘ª’è,ƒeƒXƒgƒ‚[ƒh:‘ª’è’Ç‰Á‚ÉƒCƒ“ƒNƒŠƒƒ“ƒg(©–¢ì¬ hibino)
+//ï¿½\ï¿½ï¿½ÅIï¿½ï¿½ï¿½ï¿½_ï¿½iï¿½[
+//ï¿½Êí‘ªï¿½è:ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½
+//ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½:ï¿½Ä‘ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Ìˆï¿½Ô‘å‚«ï¿½ï¿½ï¿½_
+//ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½è,ï¿½eï¿½Xï¿½gï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½:ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Éï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½g(ï¿½ï¿½ï¿½ï¿½ï¿½ì¬ hibino)
 void CNanoSpecDoc::SetLastMeasPoint(int iLastMeasPoint)
 {
 	m_iLastMeasPoint = iLastMeasPoint;
@@ -1210,16 +1210,16 @@ void CNanoSpecDoc::SetLastMeasPoint(int iLastMeasPoint)
 
 
 /////////////////////////////////////////////////////////////////////////////
-//ˆê”ÔÅŒã‚Éƒf[ƒ^‚ğŠi”[(‘Š·‚¦)‚µ‚½ƒ|ƒCƒ“ƒg”Ô†‚Ìæ“¾
-//(’Êí‘ª’è‚ÍGetStoreCount()‚Å“¾‚ç‚ê‚é’l‚Æ“¯‚¶)
+//ï¿½ï¿½ÔÅŒï¿½Éƒfï¿½[ï¿½^ï¿½ï¿½ï¿½iï¿½[(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Ôï¿½ï¿½Ìæ“¾
+//(ï¿½Êí‘ªï¿½èï¿½ï¿½GetStoreCount()ï¿½Å“ï¿½ï¿½ï¿½ï¿½ï¿½lï¿½Æ“ï¿½ï¿½ï¿½)
 int CNanoSpecDoc::GetCurrentSetPoint(void)
 {
 	return m_iCurrentSetPoint;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//ˆê”ÔÅŒã‚Éƒf[ƒ^‚ğŠi”[(‘Š·‚¦)‚µ‚½ƒ|ƒCƒ“ƒg”Ô†‚ÌŠi”[
-//(’Êí‘ª’è‚ÍGetStoreCount()‚Å“¾‚ç‚ê‚é’l‚Æ“¯‚¶)
+//ï¿½ï¿½ÔÅŒï¿½Éƒfï¿½[ï¿½^ï¿½ï¿½ï¿½iï¿½[(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Ôï¿½ï¿½ÌŠiï¿½[
+//(ï¿½Êí‘ªï¿½èï¿½ï¿½GetStoreCount()ï¿½Å“ï¿½ï¿½ï¿½ï¿½ï¿½lï¿½Æ“ï¿½ï¿½ï¿½)
 void CNanoSpecDoc::SetCurrentSetPoint(int iCurrentSetPoint)
 {
 	m_iCurrentSetPoint = iCurrentSetPoint;
@@ -1227,16 +1227,16 @@ void CNanoSpecDoc::SetCurrentSetPoint(int iCurrentSetPoint)
 
 
 /////////////////////////////////////////////////////////////////////////////
-//ƒV[ƒPƒ“ƒX‘ª’èƒ‚[ƒh‚Ì‘ª’èó‘Ôæ“¾(ƒV[ƒPƒ“ƒX‘ª’è’†‚Ì‚İg—p‰Â(ƒŠƒƒWƒƒ[ŠÜ‚Ş))
-//(‘ª’è’†‚Å‚È‚¢/’Êí‘ª’è’†/ƒŠƒƒWƒƒ[’†)
+//ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½èƒ‚ï¿½[ï¿½hï¿½Ì‘ï¿½ï¿½ï¿½ï¿½Ôæ“¾(ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½è’†ï¿½Ì‚İgï¿½pï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ü‚ï¿½))
+//(ï¿½ï¿½ï¿½è’†ï¿½Å‚È‚ï¿½/ï¿½Êí‘ªï¿½è’†/ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½)
 int CNanoSpecDoc::GetSeqMeasMode(void)
 {
 	return m_iSeqMeasMode;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//ƒV[ƒPƒ“ƒX‘ª’èƒ‚[ƒh‚Ì‘ª’èó‘ÔŠi”[(ƒV[ƒPƒ“ƒX‘ª’è’†‚Ì‚İg—p‰Â(ƒŠƒƒWƒƒ[ŠÜ‚Ş))
-//(‘ª’è’†‚Å‚È‚¢/’Êí‘ª’è’†/ƒŠƒƒWƒƒ[’†)
+//ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½èƒ‚ï¿½[ï¿½hï¿½Ì‘ï¿½ï¿½ï¿½ï¿½ÔŠiï¿½[(ï¿½Vï¿½[ï¿½Pï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½è’†ï¿½Ì‚İgï¿½pï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ü‚ï¿½))
+//(ï¿½ï¿½ï¿½è’†ï¿½Å‚È‚ï¿½/ï¿½Êí‘ªï¿½è’†/ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½)
 void CNanoSpecDoc::SetSeqMeasMode(int iSeqMeasMode)
 {
 	m_iSeqMeasMode = iSeqMeasMode;
@@ -1244,16 +1244,16 @@ void CNanoSpecDoc::SetSeqMeasMode(int iSeqMeasMode)
 
 
 /////////////////////////////////////////////////////////////////////////////
-//‘ª’èƒ‚[ƒhæ“¾
-//(‘ª’è’†‚Å‚È‚¢/’Êí‘ª’è’†orƒŠƒƒWƒƒ[’†/ƒ}ƒjƒ…ƒAƒ‹‘ª’è’†/ƒeƒXƒgƒ‚[ƒh’†)
+//ï¿½ï¿½ï¿½èƒ‚ï¿½[ï¿½hï¿½æ“¾
+//(ï¿½ï¿½ï¿½è’†ï¿½Å‚È‚ï¿½/ï¿½Êí‘ªï¿½è’†orï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½/ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½è’†/ï¿½eï¿½Xï¿½gï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½)
 int CNanoSpecDoc::GetMeasMode(void)
 {
 	return m_iMeasMode;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//‘ª’èƒ‚[ƒhŠi”[
-//(‘ª’è’†‚Å‚È‚¢/’Êí‘ª’è’†orƒŠƒƒWƒƒ[’†/ƒ}ƒjƒ…ƒAƒ‹‘ª’è’†/ƒeƒXƒgƒ‚[ƒh’†)
+//ï¿½ï¿½ï¿½èƒ‚ï¿½[ï¿½hï¿½iï¿½[
+//(ï¿½ï¿½ï¿½è’†ï¿½Å‚È‚ï¿½/ï¿½Êí‘ªï¿½è’†orï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½/ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½è’†/ï¿½eï¿½Xï¿½gï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½)
 void CNanoSpecDoc::SetMeasMode(int iMeasMode)
 {
 	m_iMeasMode = iMeasMode;
@@ -1261,14 +1261,14 @@ void CNanoSpecDoc::SetMeasMode(int iMeasMode)
 
 
 /////////////////////////////////////////////////////////////////////////////
-//ƒ}ƒjƒ…ƒAƒ‹‘ª’èƒ‚[ƒh‚Ìó‘Ô‚ğæ“¾(’Fƒ}ƒjƒ…ƒAƒ‹‘ª’èƒ‚[ƒh’†ˆÈŠO‚Íg—p‚µ‚È‚¢)
+//ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½èƒ‚ï¿½[ï¿½hï¿½Ìï¿½Ô‚ï¿½ï¿½æ“¾(ï¿½ï¿½ï¿½Fï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½èƒ‚ï¿½[ï¿½hï¿½ï¿½ï¿½ÈŠOï¿½Ígï¿½pï¿½ï¿½ï¿½È‚ï¿½)
 int CNanoSpecDoc::GetManuMeasMode(void)
 {
 	return m_iManuMeasMode;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//ƒ}ƒjƒ…ƒAƒ‹‘ª’èƒ‚[ƒh‚Ìó‘Ô‚ğŠi”[(’Fƒ}ƒjƒ…ƒAƒ‹‘ª’èƒ‚[ƒh’†ˆÈŠO‚Íg—p‚µ‚È‚¢)
+//ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½èƒ‚ï¿½[ï¿½hï¿½Ìï¿½Ô‚ï¿½ï¿½iï¿½[(ï¿½ï¿½ï¿½Fï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½èƒ‚ï¿½[ï¿½hï¿½ï¿½ï¿½ÈŠOï¿½Ígï¿½pï¿½ï¿½ï¿½È‚ï¿½)
 void CNanoSpecDoc::SetManuMeasMode(int iManuMeasMode)
 {
 	m_iManuMeasMode = iManuMeasMode;
@@ -1276,14 +1276,14 @@ void CNanoSpecDoc::SetManuMeasMode(int iManuMeasMode)
 
 
 /////////////////////////////////////////////////////////////////////////////
-//ƒŠƒƒWƒƒ[‚Ì‘ª’èƒ|ƒCƒ“ƒg”æ“¾(’F‰½ƒ|ƒCƒ“ƒg‘ª’è‚·‚é‚©‚Ì”)
+//ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½æ“¾(ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½è‚·ï¿½é‚©ï¿½Ìï¿½)
 int CNanoSpecDoc::GetReMeasNumScans(void)
 {
 	return m_iReMeasNumScans;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//ƒŠƒƒWƒƒ[‚Ì‘ª’èƒ|ƒCƒ“ƒg”Ši”[(’F‰½ƒ|ƒCƒ“ƒg‘ª’è‚·‚é‚©‚Ì”)
+//ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½iï¿½[(ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½è‚·ï¿½é‚©ï¿½Ìï¿½)
 void CNanoSpecDoc::SetReMeasNumScans(int iReMeasNumScans)
 {
 	m_iReMeasNumScans = iReMeasNumScans;
@@ -1291,14 +1291,14 @@ void CNanoSpecDoc::SetReMeasNumScans(int iReMeasNumScans)
 
 
 /////////////////////////////////////////////////////////////////////////////
-//ƒŠƒƒWƒƒ[‚Ì‘ª’èÏƒ|ƒCƒ“ƒg”æ“¾(’F‰½ƒ|ƒCƒ“ƒg‘ª’è‚µ‚½‚©‚Ì”)
+//ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½ï¿½Ïƒ|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½æ“¾(ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½è‚µï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½)
 int CNanoSpecDoc::GetReMeasurePointCnt(void)
 {
 	return m_iReMeasurePointCnt;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//ƒŠƒƒWƒƒ[‚Ì‘ª’èÏƒ|ƒCƒ“ƒg”Ši”[(’F‰½ƒ|ƒCƒ“ƒg‘ª’è‚µ‚½‚©‚Ì”)
+//ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½ï¿½Ïƒ|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½iï¿½[(ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½ï¿½è‚µï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½)
 void CNanoSpecDoc::SetReMeasurePointCnt(int iReMeasurePointCnt)
 {
 	m_iReMeasurePointCnt = iReMeasurePointCnt;
@@ -1306,14 +1306,14 @@ void CNanoSpecDoc::SetReMeasurePointCnt(int iReMeasurePointCnt)
 
 
 /////////////////////////////////////////////////////////////////////////////
-//ƒ|[ƒYó‘Ôƒtƒ‰ƒOæ“¾
+//ï¿½|ï¿½[ï¿½Yï¿½ï¿½Ôƒtï¿½ï¿½ï¿½Oï¿½æ“¾
 BOOL CNanoSpecDoc::GetPauseFlg(void)
 {
 	return m_bPauseFlg;
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//ƒ|[ƒYó‘Ôƒtƒ‰ƒOŠi”[
+//ï¿½|ï¿½[ï¿½Yï¿½ï¿½Ôƒtï¿½ï¿½ï¿½Oï¿½iï¿½[
 void CNanoSpecDoc::SetPauseFlg(BOOL bPauseFlg)
 {
 	m_bPauseFlg = bPauseFlg;
@@ -1322,7 +1322,7 @@ void CNanoSpecDoc::SetPauseFlg(BOOL bPauseFlg)
 
 
 /////////////////////////////////////////////////////////////////////////////
-//	PatRec “®ì’†ƒtƒ‰ƒO‚ğƒZƒbƒg‚µ‚Ü‚·
+//	PatRec ï¿½ï¿½ï¿½ì’†ï¿½tï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½Ü‚ï¿½
 void CNanoSpecDoc::SetPatRecFlag(BOOL bFlag)
 {
 	if (0 != bFlag) {
@@ -1334,14 +1334,14 @@ void CNanoSpecDoc::SetPatRecFlag(BOOL bFlag)
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	PatRec “®ì’†ƒtƒ‰ƒO‚ğæ“¾‚µ‚Ü‚·
+//	PatRec ï¿½ï¿½ï¿½ì’†ï¿½tï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½Ü‚ï¿½
 BOOL CNanoSpecDoc::GetPatRecFlag()
 {
 	BOOL	l_bRc;
 
-	/*	m_bPatRecFlag ‚ÍCu0v‚©u1v‚Ì’l‚É‚µ‚©‚È‚è‚Ü‚¹‚ñ‚Ì‚Å
-	 *	u99v‚ğ”äŠr‘ÎÛ’l‚Æ‚·‚é‚±‚Æ‚Å‘‚İ‚ªs‚í‚ê‚È‚¢‚æ‚¤‚É‚µ‚Ä‚¢‚Ü‚·D	*/
-	if (0 != ::InterlockedCompareExchange((PVOID*) &m_bPatRecFlag, (PVOID) 99, (PVOID) 99)) {
+	/*	m_bPatRecFlag ï¿½ÍCï¿½u0ï¿½vï¿½ï¿½ï¿½u1ï¿½vï¿½Ì’lï¿½É‚ï¿½ï¿½ï¿½ï¿½È‚ï¿½Ü‚ï¿½ï¿½ï¿½Ì‚ï¿½
+	 *	ï¿½u99ï¿½vï¿½ï¿½ï¿½rï¿½ÎÛ’lï¿½Æ‚ï¿½ï¿½é‚±ï¿½Æ‚Åï¿½ï¿½ï¿½ï¿½İ‚ï¿½ï¿½sï¿½ï¿½ï¿½È‚ï¿½ï¿½æ‚¤ï¿½É‚ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
+	if (0 != ::InterlockedCompareExchange((LONG volatile*)&m_bPatRecFlag, (LONG)99, (LONG)99)) {
 		l_bRc = TRUE;
 	} else {
 		l_bRc = FALSE;
@@ -1351,12 +1351,12 @@ BOOL CNanoSpecDoc::GetPatRecFlag()
 }
 
 /*
- *	“®ì’†ƒtƒ‰ƒOŒQƒAƒNƒZƒXŠÖ”ŒQ
+ *	ï¿½ï¿½ï¿½ì’†ï¿½tï¿½ï¿½ï¿½Oï¿½Qï¿½Aï¿½Nï¿½Zï¿½Xï¿½Öï¿½ï¿½Q
  */
 /////////////////////////////////////////////////////////////////////////////
-//	“®ì’†ƒtƒ‰ƒO‚ğƒZƒbƒg‚µ‚Ü‚·
+//	ï¿½ï¿½ï¿½ì’†ï¿½tï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½Ü‚ï¿½
 void CNanoSpecDoc::ActuateFlagsSet(
-		ACTUATE_FLAGS_SEL ActFgSel, 	// ¯•Ê’è”(enum ACTUATE_FLAGS_SEL)
+		ACTUATE_FLAGS_SEL ActFgSel, 	// ï¿½ï¿½ï¿½Ê’è”(enum ACTUATE_FLAGS_SEL)
 		BOOL bFlag						// TRUE or FALSE
 	)
 {
@@ -1411,10 +1411,10 @@ void CNanoSpecDoc::ActuateFlagsSet(
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	“®ì’†ƒtƒ‰ƒO‚ğæ“¾‚µ‚Ü‚·
+//	ï¿½ï¿½ï¿½ì’†ï¿½tï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½Ü‚ï¿½
 BOOL CNanoSpecDoc::ActuateFlagsGet(ACTUATE_FLAGS_SEL ActFgSel)
 {
-	BOOL	l_bRc = TRUE;	// –¢’è‹`‚Ìê‡C“®‚©‚È‚¢•ûŒü‚É‚·‚é‚½‚ß TRUE ‚É‚µ‚Ä‚ ‚è‚Ü‚·D
+	BOOL	l_bRc = TRUE;	// ï¿½ï¿½ï¿½ï¿½`ï¿½Ìê‡ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É‚ï¿½ï¿½é‚½ï¿½ï¿½ TRUE ï¿½É‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D
 
 #if 0
 	BOOL*	l_pbActuateFlag = (BOOL*) &m_ActuateFlags;
@@ -1428,44 +1428,44 @@ BOOL CNanoSpecDoc::ActuateFlagsGet(ACTUATE_FLAGS_SEL ActFgSel)
 #else
 	switch (ActFgSel) {
 	case ACTUATE_XYSTAGE:
-		/*	ƒtƒ‰ƒO‚ÍCu0v‚©u1v‚Ì’l‚É‚µ‚©‚È‚è‚Ü‚¹‚ñ‚Ì‚Å
-		 *	u99v‚ğ”äŠr‘ÎÛ’l‚Æ‚·‚é‚±‚Æ‚Å‘‚İ‚ªs‚í‚ê‚È‚¢‚æ‚¤‚É‚µ‚Ä‚¢‚Ü‚·D	*/
-		if (0 != ::InterlockedCompareExchange((PVOID*) &m_ActuateFlags.bXYStage, (PVOID) 99, (PVOID) 99)) {
+		/*	ï¿½tï¿½ï¿½ï¿½Oï¿½ÍCï¿½u0ï¿½vï¿½ï¿½ï¿½u1ï¿½vï¿½Ì’lï¿½É‚ï¿½ï¿½ï¿½ï¿½È‚ï¿½Ü‚ï¿½ï¿½ï¿½Ì‚ï¿½
+		 *	ï¿½u99ï¿½vï¿½ï¿½ï¿½rï¿½ÎÛ’lï¿½Æ‚ï¿½ï¿½é‚±ï¿½Æ‚Åï¿½ï¿½ï¿½ï¿½İ‚ï¿½ï¿½sï¿½ï¿½ï¿½È‚ï¿½ï¿½æ‚¤ï¿½É‚ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
+		if (0 != ::InterlockedCompareExchange((LONG volatile*)&m_ActuateFlags.bXYStage, (LONG)99, (LONG)99)) {
 			l_bRc = TRUE;
 		} else {
 			l_bRc = FALSE;
 		}
 		break;
 	case ACTUATE_ZAXIS:
-		if (0 != ::InterlockedCompareExchange((PVOID*) &m_ActuateFlags.bZAxis, (PVOID) 99, (PVOID) 99)) {
+		if (0 != ::InterlockedCompareExchange((LONG volatile*)&m_ActuateFlags.bZAxis, (LONG)99, (LONG)99)) {
 			l_bRc = TRUE;
 		} else {
 			l_bRc = FALSE;
 		}
 		break;
 	case ACTUATE_PIN:
-		if (0 != ::InterlockedCompareExchange((PVOID*) &m_ActuateFlags.bPin, (PVOID) 99, (PVOID) 99)) {
+		if (0 != ::InterlockedCompareExchange((LONG volatile*)&m_ActuateFlags.bPin, (LONG)99, (LONG)99)) {
 			l_bRc = TRUE;
 		} else {
 			l_bRc = FALSE;
 		}
 		break;
 	case ACTUATE_SHUTTER:
-		if (0 != ::InterlockedCompareExchange((PVOID*) &m_ActuateFlags.bShutter, (PVOID) 99, (PVOID) 99)) {
+		if (0 != ::InterlockedCompareExchange((LONG volatile*)&m_ActuateFlags.bShutter, (LONG)99, (LONG)99)) {
 			l_bRc = TRUE;
 		} else {
 			l_bRc = FALSE;
 		}
 		break;
 	case ACTUATE_WORKGUIDE:
-		if (0 != ::InterlockedCompareExchange((PVOID*) &m_ActuateFlags.bWorkGuide, (PVOID) 99, (PVOID) 99)) {
+		if (0 != ::InterlockedCompareExchange((LONG volatile*)&m_ActuateFlags.bWorkGuide, (LONG)99, (LONG)99)) {
 			l_bRc = TRUE;
 		} else {
 			l_bRc = FALSE;
 		}
 		break;
 	case ACTUATE_TURRET:
-		if (0 != ::InterlockedCompareExchange((PVOID*) &m_ActuateFlags.bTurret, (PVOID) 99, (PVOID) 99)) {
+		if (0 != ::InterlockedCompareExchange((LONG volatile*)&m_ActuateFlags.bTurret, (LONG)99, (LONG)99)) {
 			l_bRc = TRUE;
 		} else {
 			l_bRc = FALSE;
@@ -1473,7 +1473,7 @@ BOOL CNanoSpecDoc::ActuateFlagsGet(ACTUATE_FLAGS_SEL ActFgSel)
 		break;
 // 2009.11.10 bagus MS --{--
 	case ACTUATE_MICROSCOPE:
-		if (0 != ::InterlockedCompareExchange((PVOID*) &m_ActuateFlags.bMS, (PVOID) 99, (PVOID) 99)) {
+		if (0 != ::InterlockedCompareExchange((LONG volatile*)&m_ActuateFlags.bMS, (LONG)99, (LONG)99)) {
 			l_bRc = TRUE;
 		} else {
 			l_bRc = FALSE;
@@ -1489,8 +1489,8 @@ BOOL CNanoSpecDoc::ActuateFlagsGet(ACTUATE_FLAGS_SEL ActFgSel)
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	“®ì’†ƒtƒ‰ƒO‚ğæ“¾‚µ‚Ü‚·
-//		‚Ç‚ê‚©‚P‚Â‚Å‚à TRUE ‚È‚ç TRUE ‚Å•Ô‚µ‚Ü‚·D
+//	ï¿½ï¿½ï¿½ì’†ï¿½tï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½Ü‚ï¿½
+//		ï¿½Ç‚ê‚©ï¿½Pï¿½Â‚Å‚ï¿½ TRUE ï¿½È‚ï¿½ TRUE ï¿½Å•Ô‚ï¿½ï¿½Ü‚ï¿½ï¿½D
 
 DWORD CNanoSpecDoc::ActuateFlagsGetAll()
 {
@@ -1506,26 +1506,26 @@ DWORD CNanoSpecDoc::ActuateFlagsGetAll()
 		}
 	}
 #else
-	if (0 != ::InterlockedCompareExchange((PVOID*) &m_ActuateFlags.bXYStage, (PVOID) 99, (PVOID) 99)) {
+	if (0 != ::InterlockedCompareExchange((LONG volatile*)&m_ActuateFlags.bXYStage, (LONG)99, (LONG)99)) {
 		l_dwRc |= ACTUATE_XYSTAGE;
 	}
-	if (0 != ::InterlockedCompareExchange((PVOID*) &m_ActuateFlags.bZAxis, (PVOID) 99, (PVOID) 99)) {
+	if (0 != ::InterlockedCompareExchange((LONG volatile*)&m_ActuateFlags.bZAxis, (LONG)99, (LONG)99)) {
 		l_dwRc |= ACTUATE_ZAXIS;
 	}
-	if (0 != ::InterlockedCompareExchange((PVOID*) &m_ActuateFlags.bPin, (PVOID) 99, (PVOID) 99)) {
+	if (0 != ::InterlockedCompareExchange((LONG volatile*)&m_ActuateFlags.bPin, (LONG)99, (LONG)99)) {
 		l_dwRc |= ACTUATE_PIN;
 	}
-	if (0 != ::InterlockedCompareExchange((PVOID*) &m_ActuateFlags.bShutter, (PVOID) 99, (PVOID) 99)) {
+	if (0 != ::InterlockedCompareExchange((LONG volatile*)&m_ActuateFlags.bShutter, (LONG)99, (LONG)99)) {
 		l_dwRc |= ACTUATE_SHUTTER;
 	}
-	if (0 != ::InterlockedCompareExchange((PVOID*) &m_ActuateFlags.bWorkGuide, (PVOID) 99, (PVOID) 99)) {
+	if (0 != ::InterlockedCompareExchange((LONG volatile*)&m_ActuateFlags.bWorkGuide, (LONG)99, (LONG)99)) {
 		l_dwRc |= ACTUATE_WORKGUIDE;
 	}
-	if (0 != ::InterlockedCompareExchange((PVOID*) &m_ActuateFlags.bTurret, (PVOID) 99, (PVOID) 99)) {
+	if (0 != ::InterlockedCompareExchange((LONG volatile*)&m_ActuateFlags.bTurret, (LONG)99, (LONG)99)) {
 		l_dwRc |= ACTUATE_TURRET;
 	}
 // 2009.11.10 bagus MS --{--
-	if (0 != ::InterlockedCompareExchange((PVOID*) &m_ActuateFlags.bMS, (PVOID) 99, (PVOID) 99)) {
+	if (0 != ::InterlockedCompareExchange((LONG volatile*)&m_ActuateFlags.bMS, (LONG)99, (LONG)99)) {
 		l_dwRc |= ACTUATE_MICROSCOPE;
 	}
 // 2009.11.10 bagus MS --}--
@@ -1535,23 +1535,23 @@ DWORD CNanoSpecDoc::ActuateFlagsGetAll()
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//	ƒXƒe[ƒW‚ÌˆÚ“®‘¬“x§ŒÀ
+//	ï¿½Xï¿½eï¿½[ï¿½Wï¿½ÌˆÚ“ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½
 void CNanoSpecDoc::StageSpeedLimiter(
-		BOOL bLimiter	// TRUE F‘¬“x§ŒÀ‚µ‚Ü‚·
-						// FALSEF‘¬“x§ŒÀ‚ğ‰ğœ‚µ‚Ü‚·
+		BOOL bLimiter	// TRUE ï¿½Fï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½
+						// FALSEï¿½Fï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½
 	)
 {
 	if (0 == bLimiter) {
-		// §ŒÀ‚ğ‰ğœ‚µ‚Ü‚· ---------------------------------------------------
-		// ‘¬“x§ŒÀƒ‚[ƒh‚ğƒŠƒZƒbƒg
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ ---------------------------------------------------
+		// ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½bï¿½g
 		StageSetLocalSpeed(1, 1);
 	} else {
-		// §ŒÀ‚µ‚Ü‚· ---------------------------------------------------------
-		// ‘¬“x§ŒÀƒ‚[ƒh‚ğƒZƒbƒg
-		double l_dSharpMainteSpdX = 200.0;	// X ²FƒVƒƒ[ƒv‚Ìƒƒ“ƒe‘¬“x
-		double l_dSharpMainteSpdY = 200.0;	// Y ²FƒVƒƒ[ƒv‚Ìƒƒ“ƒe‘¬“x
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ ---------------------------------------------------------
+		// ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Zï¿½bï¿½g
+		double l_dSharpMainteSpdX = 200.0;	// X ï¿½ï¿½ï¿½Fï¿½Vï¿½ï¿½ï¿½[ï¿½vï¿½Ìƒï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½x
+		double l_dSharpMainteSpdY = 200.0;	// Y ï¿½ï¿½ï¿½Fï¿½Vï¿½ï¿½ï¿½[ï¿½vï¿½Ìƒï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½x
 		double l_dMaxSpdX, l_dMaxSpdY;
-		StageGetMaxStageSpeed(&l_dMaxSpdX, &l_dMaxSpdY);	// Stage.dll ‚©‚çÅ‘å‘¬“x‚ğ“Ço‚µ
+		StageGetMaxStageSpeed(&l_dMaxSpdX, &l_dMaxSpdY);	// Stage.dll ï¿½ï¿½ï¿½ï¿½Å‘å‘¬ï¿½xï¿½ï¿½Çoï¿½ï¿½
 		if (l_dMaxSpdX <= 0) {l_dMaxSpdX = l_dSharpMainteSpdX;}
 		if (l_dMaxSpdY <= 0) {l_dMaxSpdY = l_dSharpMainteSpdY;}
 		double l_dSpdRateX = l_dSharpMainteSpdX / l_dMaxSpdX;
@@ -1565,13 +1565,13 @@ void CNanoSpecDoc::StageSpeedLimiter(
 }
 
 // ==========================================================================
-// ƒWƒ‡ƒCƒXƒeƒBƒbƒN‚ÌØ‘Ö‚ğ”r‘¼“I‚Éˆ—‚·‚é
+// ï¿½Wï¿½ï¿½ï¿½Cï¿½Xï¿½eï¿½Bï¿½bï¿½Nï¿½ÌØ‘Ö‚ï¿½rï¿½ï¿½ï¿½Iï¿½Éï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // ==========================================================================
-/* modified hmenjo 2009.05.20 SPT —p JoyStick ‘Î‰ -------- { -------- */
+/* modified hmenjo 2009.05.20 SPT ï¿½p JoyStick ï¿½Î‰ï¿½ -------- { -------- */
 //BOOL CNanoSpecDoc::ChangeJoyStick(BOOL flag)
-/* modified hmenjo 2009.05.20 SPT —p JoyStick ‘Î‰ -------- 		   */
+/* modified hmenjo 2009.05.20 SPT ï¿½p JoyStick ï¿½Î‰ï¿½ -------- 		   */
 BOOL CNanoSpecDoc::ChangeJoyStick(BOOL flag, int iSpeedSel)
-/* modified hmenjo 2009.05.20 SPT —p JoyStick ‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 SPT ï¿½p JoyStick ï¿½Î‰ï¿½ -------- } -------- */
 {
 BOOL bJoyStk = FALSE;
 
@@ -1580,19 +1580,19 @@ BOOL bJoyStk = FALSE;
 
 		CMainFrame* m_pMainFrame = (CMainFrame *)AfxGetMainWnd();
 		if(!m_pMainFrame->HardwareSimulation()){
-/* modified hmenjo 2009.05.20 SPT —p JoyStick ‘Î‰ -------- { -------- */
+/* modified hmenjo 2009.05.20 SPT ï¿½p JoyStick ï¿½Î‰ï¿½ -------- { -------- */
 //			bJoyStk = StageEnableJoyStick(flag);
-/* modified hmenjo 2009.05.20 SPT —p JoyStick ‘Î‰ -------- 		   */
+/* modified hmenjo 2009.05.20 SPT ï¿½p JoyStick ï¿½Î‰ï¿½ -------- 		   */
 			SYSTEM_CONFIG l_SystemConfig;
 			ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 			if (STAGE_TYPE_SPT == l_SystemConfig.nStageType) {
-				/* SPT ƒXƒe[ƒW‚Ìê‡ */
+				/* SPT ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ìê‡ */
 				bJoyStk = StageEnableJoyStickSPT(flag, iSpeedSel);
 			} else {
-				/* TOHOCNTN ƒXƒe[ƒW‚Ìê‡ */
+				/* TOHOï¿½CNTN ï¿½Xï¿½eï¿½[ï¿½Wï¿½Ìê‡ */
 				bJoyStk = StageEnableJoyStick(flag);
 			}
-/* modified hmenjo 2009.05.20 SPT —p JoyStick ‘Î‰ -------- } -------- */
+/* modified hmenjo 2009.05.20 SPT ï¿½p JoyStick ï¿½Î‰ï¿½ -------- } -------- */
 // DEL 2009.06.01
 //			if( !bJoyStk ) AlarmIf_Set(ALID_SubControllerReplayAbnormal);
 // DEL 2009.06.01
@@ -1600,18 +1600,18 @@ BOOL bJoyStk = FALSE;
 		else{
 			bJoyStk = TRUE;
 		}
-// 2009.08.07 K.Matsuo Bug Fix SPTƒXƒe[ƒWŒ¸‘¬’â~’†‚ÉJOYSTICK•ÏX -->
+// 2009.08.07 K.Matsuo Bug Fix SPTï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½ï¿½ï¿½ï¿½JOYSTICKï¿½ÏX -->
 //		ActuateFlagsSet(ACTUATE_XYSTAGE, flag);
 		if ( bJoyStk )
 			ActuateFlagsSet(ACTUATE_XYSTAGE, flag);
-// 2009.08.07 K.Matsuo Bug Fix SPTƒXƒe[ƒWŒ¸‘¬’â~’†‚ÉJOYSTICK•ÏX <--
+// 2009.08.07 K.Matsuo Bug Fix SPTï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½ï¿½ï¿½ï¿½JOYSTICKï¿½ÏX <--
 		m_ActualJoyStickFlag = FALSE;
 	}
 	return bJoyStk;
 }
 //Saiki 20090608 Delete ----->
 // ==========================================================================
-// ŒxƒƒbƒZ[ƒW‚ğ•\¦‚·‚é
+// ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // ==========================================================================
 //void CNanoSpecDoc::MessageIf_Set(int m_MsgID)
 //{
@@ -1622,40 +1622,40 @@ BOOL bJoyStk = FALSE;
 //Saiki 20090608 Delete <-----
 
 /* ==========================================================================
-   ŠeI/O‚ğƒ`ƒFƒbƒN‚·‚é
+   ï¿½eI/Oï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½
    ========================================================================*/
 BOOL CNanoSpecDoc::IsInterLock()
 {
-	if( nexioIsEmergencyStop()		!= ON ) {AlarmIf_Set(ALID_EMOSwitchOn); return TRUE;} /* EMOƒXƒCƒbƒ`EƒIƒ“ */
-/* modified hmenjo 2009.05.20 SPT —p JoyStick ‘Î‰ -------- { -------- */
-//	if( nexioIsDoorInterlock()		!= ON ) {AlarmIf_Set(ALID_DoorOpen); return TRUE;} /* ƒhƒAƒI[ƒvƒ“ */
-/* modified hmenjo 2009.05.20 SPT —p JoyStick ‘Î‰ -------- 		   */
-	if( Rap_IsDoorInterlock()		!= ON ) {AlarmIf_Set(ALID_DoorOpen); return TRUE;} /* ƒhƒAƒI[ƒvƒ“ */
-/* modified hmenjo 2009.05.20 SPT —p JoyStick ‘Î‰ -------- } -------- */
-	if( nexioIsEquipmentPower() 	!= ON ) {AlarmIf_Set(ALID_EquipmentPowerOff); return TRUE;} /* ‘•’u“dŒ¹EƒIƒt */
-/* added 2009.10.30 hmenjo CTA CTAILPI “®ì‘Oƒ`ƒFƒbƒN ---------- { ---------- */
+	if( nexioIsEmergencyStop()		!= ON ) {AlarmIf_Set(ALID_EMOSwitchOn); return TRUE;} /* EMOï¿½Xï¿½Cï¿½bï¿½`ï¿½Eï¿½Iï¿½ï¿½ */
+/* modified hmenjo 2009.05.20 SPT ï¿½p JoyStick ï¿½Î‰ï¿½ -------- { -------- */
+//	if( nexioIsDoorInterlock()		!= ON ) {AlarmIf_Set(ALID_DoorOpen); return TRUE;} /* ï¿½hï¿½Aï¿½Iï¿½[ï¿½vï¿½ï¿½ */
+/* modified hmenjo 2009.05.20 SPT ï¿½p JoyStick ï¿½Î‰ï¿½ -------- 		   */
+	if( Rap_IsDoorInterlock()		!= ON ) {AlarmIf_Set(ALID_DoorOpen); return TRUE;} /* ï¿½hï¿½Aï¿½Iï¿½[ï¿½vï¿½ï¿½ */
+/* modified hmenjo 2009.05.20 SPT ï¿½p JoyStick ï¿½Î‰ï¿½ -------- } -------- */
+	if( nexioIsEquipmentPower() 	!= ON ) {AlarmIf_Set(ALID_EquipmentPowerOff); return TRUE;} /* ï¿½ï¿½ï¿½uï¿½dï¿½ï¿½ï¿½Eï¿½Iï¿½t */
+/* added 2009.10.30 hmenjo CTA CTAILPI ï¿½ï¿½ï¿½ï¿½Oï¿½`ï¿½Fï¿½bï¿½N ---------- { ---------- */
 	if (0 != IsValidHeadType(HEAD_TYPE_CTA)) {
-		/* CTA ‚Ìê‡‚Ì‚İ	*/
-		if (0 == nexioIsCA_Interlock()) {AlarmIf_Set(ALID_CTA_IL_PI_On); return TRUE;}	/* CTAILPI ƒIƒt	*/
+		/* CTA ï¿½Ìê‡ï¿½Ì‚ï¿½	*/
+		if (0 == nexioIsCA_Interlock()) {AlarmIf_Set(ALID_CTA_IL_PI_On); return TRUE;}	/* CTAILPI ï¿½Iï¿½t	*/
 	}
-/* added 2009.10.30 hmenjo CTA CTAILPI “®ì‘Oƒ`ƒFƒbƒN ---------- } ---------- */
+/* added 2009.10.30 hmenjo CTA CTAILPI ï¿½ï¿½ï¿½ï¿½Oï¿½`ï¿½Fï¿½bï¿½N ---------- } ---------- */
 
-/* added 2009.11.06 K.Matsuo Resist “®ì‘Oƒ`ƒFƒbƒN ---------- { ---------- */
+/* added 2009.11.06 K.Matsuo Resist ï¿½ï¿½ï¿½ï¿½Oï¿½`ï¿½Fï¿½bï¿½N ---------- { ---------- */
 	if (0 != IsValidHeadType(HEAD_TYPE_4PP)) {
-		/* Resist ‚Ìê‡‚Ì‚İ	*/
+		/* Resist ï¿½Ìê‡ï¿½Ì‚ï¿½	*/
 		BOOL l_bUpper = nexioIsRS_ProbeHeadUpperPos();
 		BOOL l_bLower = nexioIsRS_ProbeHeadLowerPos();
 		if (0 != l_bUpper && 0 == l_bLower) {
 			;
 		} else if (0 == l_bUpper && 0 != l_bLower) {
-			AlarmIf_Set(ALID_ResistUpperPositionSensorOff);		/* Resist IL ƒIƒtŒŸo	*/
+			AlarmIf_Set(ALID_ResistUpperPositionSensorOff);		/* Resist IL ï¿½Iï¿½tï¿½ï¿½ï¿½o	*/
 			return TRUE;
 		} else {
-			AlarmIf_Set(ALID_ResistUpperPositionSensorError);	/* Resist IL ˆÙíŒŸo	*/
+			AlarmIf_Set(ALID_ResistUpperPositionSensorError);	/* Resist IL ï¿½ÙíŒŸï¿½o	*/
 			return TRUE;
 		}
 	}
-/* added 2009.11.06 K.Matsuo Resist “®ì‘Oƒ`ƒFƒbƒN ---------- } ---------- */
+/* added 2009.11.06 K.Matsuo Resist ï¿½ï¿½ï¿½ï¿½Oï¿½`ï¿½Fï¿½bï¿½N ---------- } ---------- */
 
 // 2009.11.03 bagus MS --{--
 	if(0 != IsValidHeadType(HEAD_TYPE_MS)){
@@ -1666,50 +1666,50 @@ BOOL CNanoSpecDoc::IsInterLock()
 	return FALSE;
 }
 /* ==========================================================================
-   ŠeI/O‚ğƒ`ƒFƒbƒN‚·‚é
+   ï¿½eI/Oï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½
    ========================================================================*/
 BOOL CNanoSpecDoc::IsInterLockForMScope()
 {
-	if( nexioIsEmergencyStop()		!= ON ) {AlarmIf_Set(ALID_EMOSwitchOn); return TRUE;} /* EMOƒXƒCƒbƒ`EƒIƒ“ */
-/* modified hmenjo 2009.05.20 SPT —p JoyStick ‘Î‰ -------- { -------- */
-//	if( nexioIsDoorInterlock()		!= ON ) {AlarmIf_Set(ALID_DoorOpen); return TRUE;} /* ƒhƒAƒI[ƒvƒ“ */
-/* modified hmenjo 2009.05.20 SPT —p JoyStick ‘Î‰ -------- 		   */
-	if( Rap_IsDoorInterlock()		!= ON ) {AlarmIf_Set(ALID_DoorOpen); return TRUE;} /* ƒhƒAƒI[ƒvƒ“ */
-/* modified hmenjo 2009.05.20 SPT —p JoyStick ‘Î‰ -------- } -------- */
-	if( nexioIsEquipmentPower() 	!= ON ) {AlarmIf_Set(ALID_EquipmentPowerOff); return TRUE;} /* ‘•’u“dŒ¹EƒIƒt */
-/* added 2009.10.30 hmenjo CTA CTAILPI “®ì‘Oƒ`ƒFƒbƒN ---------- { ---------- */
+	if( nexioIsEmergencyStop()		!= ON ) {AlarmIf_Set(ALID_EMOSwitchOn); return TRUE;} /* EMOï¿½Xï¿½Cï¿½bï¿½`ï¿½Eï¿½Iï¿½ï¿½ */
+/* modified hmenjo 2009.05.20 SPT ï¿½p JoyStick ï¿½Î‰ï¿½ -------- { -------- */
+//	if( nexioIsDoorInterlock()		!= ON ) {AlarmIf_Set(ALID_DoorOpen); return TRUE;} /* ï¿½hï¿½Aï¿½Iï¿½[ï¿½vï¿½ï¿½ */
+/* modified hmenjo 2009.05.20 SPT ï¿½p JoyStick ï¿½Î‰ï¿½ -------- 		   */
+	if( Rap_IsDoorInterlock()		!= ON ) {AlarmIf_Set(ALID_DoorOpen); return TRUE;} /* ï¿½hï¿½Aï¿½Iï¿½[ï¿½vï¿½ï¿½ */
+/* modified hmenjo 2009.05.20 SPT ï¿½p JoyStick ï¿½Î‰ï¿½ -------- } -------- */
+	if( nexioIsEquipmentPower() 	!= ON ) {AlarmIf_Set(ALID_EquipmentPowerOff); return TRUE;} /* ï¿½ï¿½ï¿½uï¿½dï¿½ï¿½ï¿½Eï¿½Iï¿½t */
+/* added 2009.10.30 hmenjo CTA CTAILPI ï¿½ï¿½ï¿½ï¿½Oï¿½`ï¿½Fï¿½bï¿½N ---------- { ---------- */
 	if (0 != IsValidHeadType(HEAD_TYPE_CTA)) {
-		/* CTA ‚Ìê‡‚Ì‚İ	*/
-		if (0 == nexioIsCA_Interlock()) {AlarmIf_Set(ALID_CTA_IL_PI_On); return TRUE;}	/* CTAILPI ƒIƒt	*/
+		/* CTA ï¿½Ìê‡ï¿½Ì‚ï¿½	*/
+		if (0 == nexioIsCA_Interlock()) {AlarmIf_Set(ALID_CTA_IL_PI_On); return TRUE;}	/* CTAILPI ï¿½Iï¿½t	*/
 	}
-/* added 2009.10.30 hmenjo CTA CTAILPI “®ì‘Oƒ`ƒFƒbƒN ---------- } ---------- */
+/* added 2009.10.30 hmenjo CTA CTAILPI ï¿½ï¿½ï¿½ï¿½Oï¿½`ï¿½Fï¿½bï¿½N ---------- } ---------- */
 
-/* added 2009.11.06 K.Matsuo Resist “®ì‘Oƒ`ƒFƒbƒN ---------- { ---------- */
+/* added 2009.11.06 K.Matsuo Resist ï¿½ï¿½ï¿½ï¿½Oï¿½`ï¿½Fï¿½bï¿½N ---------- { ---------- */
 	if (0 != IsValidHeadType(HEAD_TYPE_4PP)) {
-		/* Resist ‚Ìê‡‚Ì‚İ	*/
+		/* Resist ï¿½Ìê‡ï¿½Ì‚ï¿½	*/
 		BOOL l_bUpper = nexioIsRS_ProbeHeadUpperPos();
 		BOOL l_bLower = nexioIsRS_ProbeHeadLowerPos();
 		if (0 != l_bUpper && 0 == l_bLower) {
 			;
 		} else if (0 == l_bUpper && 0 != l_bLower) {
-			AlarmIf_Set(ALID_ResistUpperPositionSensorOff);		/* Resist IL ƒIƒtŒŸo	*/
+			AlarmIf_Set(ALID_ResistUpperPositionSensorOff);		/* Resist IL ï¿½Iï¿½tï¿½ï¿½ï¿½o	*/
 			return TRUE;
 		} else {
-			AlarmIf_Set(ALID_ResistUpperPositionSensorError);	/* Resist IL ˆÙíŒŸo	*/
+			AlarmIf_Set(ALID_ResistUpperPositionSensorError);	/* Resist IL ï¿½ÙíŒŸï¿½o	*/
 			return TRUE;
 		}
 	}
-/* added 2009.11.06 K.Matsuo Resist “®ì‘Oƒ`ƒFƒbƒN ---------- } ---------- */
+/* added 2009.11.06 K.Matsuo Resist ï¿½ï¿½ï¿½ï¿½Oï¿½`ï¿½Fï¿½bï¿½N ---------- } ---------- */
 
 	return FALSE;
 }
 
 
-/* modified 2009.08.20 hmenjo Pin Aling ˆÊ’u—LŒø‰» ---------- { ---------- */
+/* modified 2009.08.20 hmenjo Pin Aling ï¿½Ê’uï¿½Lï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
 //BOOL CNanoSpecDoc::CheckUnitStatus()
-/* modified 2009.08.20 hmenjo Pin Aling ˆÊ’u—LŒø‰» ----------			   */
+/* modified 2009.08.20 hmenjo Pin Aling ï¿½Ê’uï¿½Lï¿½ï¿½ï¿½ï¿½ ----------			   */
 BOOL CNanoSpecDoc::CheckUnitStatus(BOOL bEnablePinAlign/* = FALSE*/)
-/* modified 2009.08.20 hmenjo Pin Aling ˆÊ’u—LŒø‰» ---------- } ---------- */
+/* modified 2009.08.20 hmenjo Pin Aling ï¿½Ê’uï¿½Lï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
 {
 	//Saiki 20090530 Change ----->
 	CString strMsg;
@@ -1717,28 +1717,28 @@ BOOL CNanoSpecDoc::CheckUnitStatus(BOOL bEnablePinAlign/* = FALSE*/)
 		LoadStringML(IDS_LOADING_SHUTTER_OPEN, strMsg, "Sample Loading Shutter is opened.");
 		MessageStringIf_Set(strMsg);
 		return TRUE;
-	}	// ƒ[ƒfƒBƒ“ƒOƒVƒƒƒbƒ^[•Â’[ŠO‚ê
+	}	// ï¿½ï¿½ï¿½[ï¿½fï¿½Bï¿½ï¿½ï¿½Oï¿½Vï¿½ï¿½ï¿½bï¿½^ï¿½[ï¿½Â’[ï¿½Oï¿½ï¿½
 	if( nexioIsRobotArmDetect() 	!= ON ) {
 		LoadStringML(IDS_DETECT_ROBOT_ARM, strMsg, "Robot Arm is detected.");
 		MessageStringIf_Set(strMsg);
 		return TRUE;
-	}	// ƒƒ{ƒbƒgƒA[ƒ€ŒŸo
-/* modified 2009.08.20 hmenjo Pin Aling ˆÊ’u—LŒø‰» ---------- { ---------- */
+	}	// ï¿½ï¿½ï¿½{ï¿½bï¿½gï¿½Aï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½o
+/* modified 2009.08.20 hmenjo Pin Aling ï¿½Ê’uï¿½Lï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
 //	if( nexioIsPinDownPos() 		!= ON ) {
 //		  LoadStringML(IDS_LIFTER_NOT_LOWER, strMsg, "Sample Lifter is not Lowest Position.");
 //		MessageStringIf_Set(strMsg);
 //		return TRUE;
-//	}	// ƒsƒ“‰º’[ŠO‚ê
-/* modified 2009.08.20 hmenjo Pin Aling ˆÊ’u—LŒø‰» ----------			   */
-	/* ƒsƒ“‰º~’[(AlignˆÊ’u)ŠO‚ê ƒ`ƒFƒbƒN*/
+//	}	// ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½Oï¿½ï¿½
+/* modified 2009.08.20 hmenjo Pin Aling ï¿½Ê’uï¿½Lï¿½ï¿½ï¿½ï¿½ ----------			   */
+	/* ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½[(Alignï¿½Ê’u)ï¿½Oï¿½ï¿½ ï¿½`ï¿½Fï¿½bï¿½N*/
 	if (TRUE != bEnablePinAlign) {
 		if (nexioIsPinDownPos() != ON) {
 			LoadStringML(IDS_LIFTER_NOT_LOWER, strMsg, "Sample Lifter is not Lowest Position.");
 			MessageStringIf_Set(strMsg);
 			return TRUE;
-		}	// ƒsƒ“‰º’[ŠO‚ê
+		}	// ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½Oï¿½ï¿½
 	} else {
-		/* Align ˆÊ’u‚àŠÜ‚ß‚Ü‚·D	*/
+		/* Align ï¿½Ê’uï¿½ï¿½ï¿½Ü‚ß‚Ü‚ï¿½ï¿½D	*/
 		if (
 			(ON == nexioIsPinUpperPos())
 		 || ((ON == nexioIsPinDownPos()) && (ON == nexioIsPinAlignmentPos()))
@@ -1748,17 +1748,17 @@ BOOL CNanoSpecDoc::CheckUnitStatus(BOOL bEnablePinAlign/* = FALSE*/)
 			return TRUE;
 		}
 	}
-/* modified 2009.08.20 hmenjo Pin Aling ˆÊ’u—LŒø‰» ---------- } ---------- */
+/* modified 2009.08.20 hmenjo Pin Aling ï¿½Ê’uï¿½Lï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
 	if( nexioIsWorkGuideClose() 	!= OFF) {
 		LoadStringML(IDS_CLAMP_NOT_CLOSED, strMsg, "Work Guide is not Close Position.");
 		MessageStringIf_Set(strMsg);
 		return TRUE;
-	}	// ƒ[ƒNƒKƒCƒhCloseˆÊ’u
+	}	// ï¿½ï¿½ï¿½[ï¿½Nï¿½Kï¿½Cï¿½hCloseï¿½Ê’u
 	if( nexioIsWorkGuideOpen()		!= ON ) {
 		LoadStringML(IDS_CLAMP_NOT_OPEND, strMsg, "Work Guide is not Open Position.");
 		MessageStringIf_Set(strMsg);
 		return TRUE;
-	}	// ƒ[ƒNƒKƒCƒhOpenˆÊ’u
+	}	// ï¿½ï¿½ï¿½[ï¿½Nï¿½Kï¿½Cï¿½hOpenï¿½Ê’u
 
 	//Saiki 20090530 Change <-----
 
@@ -1767,7 +1767,7 @@ BOOL CNanoSpecDoc::CheckUnitStatus(BOOL bEnablePinAlign/* = FALSE*/)
 }
 
 /* ==========================================================================
-   ŠeActive Flag‚ğƒ`ƒFƒbƒN‚·‚é
+   ï¿½eActive Flagï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½
    ========================================================================*/
 BOOL CNanoSpecDoc::CheckActiveFlag()
 {
@@ -1779,65 +1779,65 @@ BOOL CNanoSpecDoc::CheckActiveFlag()
 		LoadStringML(IDS_Z_AXIS_WORKING, strMsg, "Z Axis is moving.");
 		MessageStringIf_Set(strMsg);
 		return TRUE;
-	} //‚y²‚ª“®ì’†‚Å‚·
+	} //ï¿½yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì’†ï¿½Å‚ï¿½
 	if(ActuateFlagsGet(ACTUATE_PIN))		{
 		LoadStringML(IDS_LIFTER_WORKING, strMsg, "Sample Lifter is moving.");
 		MessageStringIf_Set(strMsg);
 		return TRUE;
-	} //ƒŠƒtƒ^[‚ª“®ì’†‚Å‚·
+	} //ï¿½ï¿½ï¿½tï¿½^ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ì’†ï¿½Å‚ï¿½
 	if(ActuateFlagsGet(ACTUATE_WORKGUIDE))	{
 		LoadStringML(IDS_CLAMP_WORKING, strMsg, "Work Guide is moving.");
 		MessageStringIf_Set(strMsg);
 		return TRUE;
-	} //ƒ[ƒNƒKƒCƒh‚ª“®ì’†‚Å‚·
+	} //ï¿½ï¿½ï¿½[ï¿½Nï¿½Kï¿½Cï¿½hï¿½ï¿½ï¿½ï¿½ï¿½ì’†ï¿½Å‚ï¿½
 	if(ActuateFlagsGet(ACTUATE_TURRET)) 	{
 		LoadStringML(IDS_TURRET_WORKING, strMsg, "Turret is moving.");
 		MessageStringIf_Set(strMsg);
 		return TRUE;
-	} //ƒ^[ƒŒƒbƒg‚ª“®ì’†‚Å‚·
+	} //ï¿½^ï¿½[ï¿½ï¿½ï¿½bï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ì’†ï¿½Å‚ï¿½
 	//Saiki 20090530 Change <-----
 	return FALSE;
 }
 
-/* added hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- { -------- */
+/* added hmenjo 2009.05.20 ï¿½Gï¿½Aï¿½ï¿½ï¿½Í’á‰ºï¿½ï¿½ï¿½oï¿½Ìƒï¿½ï¿½bï¿½pï¿½Öï¿½ -------- { -------- */
 BOOL CNanoSpecDoc::Rap_IsAirPressureLowON(BOOL bIgnore/* = 0*/)
 {
 	BOOL l_bRc = FALSE;
 
-//	BOOL l_bActiveHigh = TRUE;		/* ƒAƒNƒeƒBƒu High */
-	BOOL l_bActiveHigh = FALSE;		/* ƒAƒNƒeƒBƒu Low */
+//	BOOL l_bActiveHigh = TRUE;		/* ï¿½Aï¿½Nï¿½eï¿½Bï¿½u High */
+	BOOL l_bActiveHigh = FALSE;		/* ï¿½Aï¿½Nï¿½eï¿½Bï¿½u Low */
 
-	/* Chief ˆÈŠO‚Å‚Í–³‹‚·‚éd—l‚É‚È‚Á‚½(byì“‡20090521)‚½‚ß
-	   ˆø”‚Ì bIgnore ‚ğŒ©‚Ä‚¢‚Ü‚·(ƒfƒtƒHƒ‹ƒg‚Í–³‹‚µ‚Ü‚¹‚ñ)D
-	   –³‹‚µ‚È‚¢‚È‚çC‚±‚Ì if ƒuƒƒbƒN‚ğíœ‚µ‚Ä‚­‚¾‚³‚¢D */
+	/* Chief ï¿½ÈŠOï¿½Å‚Í–ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½dï¿½lï¿½É‚È‚ï¿½ï¿½ï¿½(byï¿½ì“‡20090521)ï¿½ï¿½ï¿½ï¿½
+	   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ bIgnore ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½(ï¿½fï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½Í–ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½)ï¿½D
+	   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½È‚ï¿½Cï¿½ï¿½ï¿½ï¿½ if ï¿½uï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½íœï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D */
 	if (1 == bIgnore) {
 		return FALSE;
 	}
 
-	/* ƒGƒAˆ³—Í’á‰º‚Ì–³‹ƒtƒ‰ƒOŠm”F(ini ƒtƒ@ƒCƒ‹‚È‚Ç‚©‚ç) */
-	if (0) {	// •K—v‚Å‚ ‚ê‚ÎC‚±‚±‚É–³‹ƒtƒ‰ƒO‚Ì”»’è‚ğ“ü‚ê‚Ä‚­‚¾‚³‚¢D
+	/* ï¿½Gï¿½Aï¿½ï¿½ï¿½Í’á‰ºï¿½Ì–ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½Oï¿½mï¿½F(ini ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½È‚Ç‚ï¿½ï¿½ï¿½) */
+	if (0) {	// ï¿½Kï¿½vï¿½Å‚ï¿½ï¿½ï¿½ÎCï¿½ï¿½ï¿½ï¿½ï¿½É–ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½Oï¿½Ì”ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D
 		return FALSE;
 	}
 
 	if (0 == nexioIsAirPressureLevelLow()) {
-		/* Low ƒŒƒxƒ‹‚Å‚µ‚½D */
+		/* Low ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½ï¿½D */
 		l_bRc = (TRUE == l_bActiveHigh)? FALSE : TRUE;
 	} else {
-		/* High ƒŒƒxƒ‹‚Å‚µ‚½D */
+		/* High ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½ï¿½D */
 		l_bRc = (TRUE == l_bActiveHigh)? TRUE : FALSE;
 	}
 
 	return l_bRc;
 }
-/* added hmenjo 2009.05.20 ƒGƒAˆ³—Í’á‰ºŒŸo‚Ìƒ‰ƒbƒpŠÖ” -------- } -------- */
+/* added hmenjo 2009.05.20 ï¿½Gï¿½Aï¿½ï¿½ï¿½Í’á‰ºï¿½ï¿½ï¿½oï¿½Ìƒï¿½ï¿½bï¿½pï¿½Öï¿½ -------- } -------- */
 
-/* added hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- { -------- */
+/* added hmenjo 2009.05.20 ï¿½hï¿½Aï¿½Cï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î‰ï¿½ -------- { -------- */
 BOOL CNanoSpecDoc::Rap_IsDoorInterlock()
 {
 	BOOL l_bRc;
 
 	if ((0 == nexioIsMaintenanceSwitch()) && (FALSE == g_bIL_DoorOpen)) {
-		// ƒƒ“ƒeƒiƒ“ƒXƒ‚[ƒh‚ÅCŒŸo‹Ö~İ’è‚Ìê‡‚ÍCƒhƒA•Â‚Å•Ô‚µ‚Ü‚·D
+		// ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½iï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½ÅCï¿½ï¿½ï¿½oï¿½Ö~ï¿½İ’ï¿½Ìê‡ï¿½ÍCï¿½hï¿½Aï¿½Â‚Å•Ô‚ï¿½ï¿½Ü‚ï¿½ï¿½D
 		l_bRc = TRUE;
 	} else {
 		l_bRc = nexioIsDoorInterlock();
@@ -1845,7 +1845,7 @@ BOOL CNanoSpecDoc::Rap_IsDoorInterlock()
 
 	return l_bRc;
 }
-/* added hmenjo 2009.05.20 ƒhƒAƒCƒ“ƒ^ƒƒbƒN–³Œø‰»‘Î‰ -------- } -------- */
+/* added hmenjo 2009.05.20 ï¿½hï¿½Aï¿½Cï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î‰ï¿½ -------- } -------- */
 //Saiki 20090530 Add ----->
 void CNanoSpecDoc::MessageStringIf_Set(CString strBuffer)
 {
@@ -1856,49 +1856,49 @@ void CNanoSpecDoc::MessageStringIf_Set(CString strBuffer)
 //Saiki 20090530 Add <-----
 
 // ==========================================================================
-// ƒn[ƒhJoy‚ğˆê“I‚É‹Ö~‚É‚·‚é
+// ï¿½nï¿½[ï¿½hJoyï¿½ï¿½ï¿½êï¿½Iï¿½É‹Ö~ï¿½É‚ï¿½ï¿½ï¿½
 BOOL CNanoSpecDoc::JoyStickChangeDisable()
 {
-// 2013.12.16 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.12.16 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 	BOOL bRet = FALSE;
-// 2013.12.16 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.12.16 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 
 	CMainFrame* m_pMainFrame = (CMainFrame*)AfxGetMainWnd();
 	CNanoSpecDoc* m_pDoc = (CNanoSpecDoc*)m_pMainFrame->GetActiveDocument();
 
-	// JoyStick‚ğØ‘Ö‹Ö~‚É‚·‚é
+	// JoyStickï¿½ï¿½Ø‘Ö‹Ö~ï¿½É‚ï¿½ï¿½ï¿½
 	m_pDoc->SetJoyStickSelectEnabled(FALSE);
 
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) -->
+// 2014.01.17 Bagus Mod (Stage Noneï¿½Î‰ï¿½) -->
 	SYSTEM_CONFIG l_SystemConfig;
 	ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 
-// 2013.12.16 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.12.16 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 //	if(g_lModelType != MODEL_T3100){
-// 2013.12.16 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.12.16 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 	if(l_SystemConfig.nStageType != STAGE_TYPE_NONE){
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) <--
-		// ƒn[ƒhJoyStick‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚½‚ç
+// 2014.01.17 Bagus Mod (Stage Noneï¿½Î‰ï¿½) <--
+		// ï¿½nï¿½[ï¿½hJoyStickï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½
 		if( m_pMainFrame->GetJoyStickMode() == JOY_HARD_MODE ){
-			// JoyStick‚ğˆê“I‚É‹Ö~‚É‚·‚éi’A‚µA“à•”ó‘Ô‚Í•ÏX‚µ‚È‚¢j
+			// JoyStickï¿½ï¿½ï¿½êï¿½Iï¿½É‹Ö~ï¿½É‚ï¿½ï¿½ï¿½iï¿½Aï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô‚Í•ÏXï¿½ï¿½ï¿½È‚ï¿½ï¿½j
 			if( !m_pDoc->ChangeJoyStick(FALSE) ) return FALSE;
 				Sleep(300);
 		}
-// 2013.12.16 Bagus Delete (TohoSpec‘Î‰) -->
+// 2013.12.16 Bagus Delete (TohoSpecï¿½Î‰ï¿½) -->
 //		BOOL bRet = FALSE;
-// 2013.12.16 Bagus Delte (TohoSpec‘Î‰) <--
+// 2013.12.16 Bagus Delte (TohoSpecï¿½Î‰ï¿½) <--
 		if(!g_bHWS){
 			bRet = StageGetJoyStickSPT();
 		}
-// 2013.12.16 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.12.16 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 	}
-// 2013.12.16 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.12.16 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 
 	return bRet == FALSE ? bRet = TRUE : bRet = FALSE;
 }
 
 // ==========================================================================
-// ƒn[ƒhJoy‚Ìó‘Ô‚ğŒ³‚É–ß‚·
+// ï¿½nï¿½[ï¿½hJoyï¿½Ìï¿½Ô‚ï¿½ï¿½ï¿½ï¿½É–ß‚ï¿½
 BOOL CNanoSpecDoc::JoyStickStatusRestore()
 {
 	BOOL bRet = TRUE;
@@ -1906,24 +1906,24 @@ BOOL CNanoSpecDoc::JoyStickStatusRestore()
 
 	CMainFrame* m_pMainFrame = (CMainFrame*)AfxGetMainWnd();
 
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) -->
+// 2014.01.17 Bagus Mod (Stage Noneï¿½Î‰ï¿½) -->
 	SYSTEM_CONFIG l_SystemConfig;
 	ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 
-// 2013.12.16 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.12.16 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 //	if(g_lModelType != MODEL_T3100){
-// 2013.12.16 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.12.16 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 	if(l_SystemConfig.nStageType != STAGE_TYPE_NONE){
-// 2014.01.17 Bagus Mod (Stage None‘Î‰) <--
-		// JoyStick‚Ìƒ‚[ƒh‚ğ–ß‚·
+// 2014.01.17 Bagus Mod (Stage Noneï¿½Î‰ï¿½) <--
+		// JoyStickï¿½Ìƒï¿½ï¿½[ï¿½hï¿½ï¿½ß‚ï¿½
 		if( m_pMainFrame->GetJoyStickMode() == JOY_HARD_MODE ){
-			// ƒn[ƒhJoyStick‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚½‚ç
+			// ï¿½nï¿½[ï¿½hJoyStickï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½
 			if(!g_bHWS){
 				if( !StageGetJoyStickSPT() ){
-					bJoyStk = ChangeJoyStick(TRUE);		// JoyStick‚ğ‹–‰Â‚É‚·‚é
+					bJoyStk = ChangeJoyStick(TRUE);		// JoyStickï¿½ï¿½ï¿½ï¿½ï¿½Â‚É‚ï¿½ï¿½ï¿½
 					Sleep(300);
 					if( !StageGetJoyStickSPT() ){
-						bJoyStk = ChangeJoyStick(TRUE);		// JoyStick‚ğ‹–‰Â‚É‚·‚é
+						bJoyStk = ChangeJoyStick(TRUE);		// JoyStickï¿½ï¿½ï¿½ï¿½ï¿½Â‚É‚ï¿½ï¿½ï¿½
 						Sleep(300);
 						if( !StageGetJoyStickSPT() ){
 							bRet = FALSE;
@@ -1932,42 +1932,42 @@ BOOL CNanoSpecDoc::JoyStickStatusRestore()
 				}
 			}
 			else{
-				bJoyStk = ChangeJoyStick(TRUE);		// JoyStick‚ğ‹–‰Â‚É‚·‚é
+				bJoyStk = ChangeJoyStick(TRUE);		// JoyStickï¿½ï¿½ï¿½ï¿½ï¿½Â‚É‚ï¿½ï¿½ï¿½
 			}
 		}
 		else{
-			// ƒ\ƒtƒgJoyStick‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚½‚ç
-			BOOL bJoyStk = ChangeJoyStick(FALSE);		// JoyStick‚ğ‹Ö~‚É‚·‚é
+			// ï¿½\ï¿½tï¿½gJoyStickï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½
+			BOOL bJoyStk = ChangeJoyStick(FALSE);		// JoyStickï¿½ï¿½ï¿½Ö~ï¿½É‚ï¿½ï¿½ï¿½
 		}
-// 2013.12.16 Bagus Add (TohoSpec‘Î‰) -->
+// 2013.12.16 Bagus Add (TohoSpecï¿½Î‰ï¿½) -->
 	}
-// 2013.12.16 Bagus Add (TohoSpec‘Î‰) <--
+// 2013.12.16 Bagus Add (TohoSpecï¿½Î‰ï¿½) <--
 
-	// JoyStickØ‘Ö‹–‰Â‚É–ß‚·
+	// JoyStickï¿½Ø‘Ö‹ï¿½ï¿½Â‚É–ß‚ï¿½
 	SetJoyStickSelectEnabled(TRUE);
 
 	return bRet;
 }
-/* added 2009.07.23 hmenjo ƒwƒbƒhƒ^ƒCƒvƒ`ƒFƒbƒNŠÖ”’Ç‰Á ---------- { ---------- */
-/*	ƒwƒbƒhƒ^ƒCƒv‚ªƒVƒXƒeƒ€İ’è‚Å—LŒø‚©‚Ç‚¤‚©ƒ`ƒFƒbƒN‚µ‚Ü‚·D	*/
+/* added 2009.07.23 hmenjo ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½`ï¿½Fï¿½bï¿½Nï¿½Öï¿½ï¿½Ç‰ï¿½ ---------- { ---------- */
+/*	ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½ï¿½ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½İ’ï¿½Å—Lï¿½ï¿½ï¿½ï¿½ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D	*/
 BOOL CNanoSpecDoc::IsValidHeadType(WORD wHeadType)
 {
-	/* ƒVƒXƒeƒ€ƒRƒ“ƒtƒBƒO‚©‚çƒwƒbƒh—LŒø/–³Œø‚ğæ“¾	*/
+	/* ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½tï¿½Bï¿½Oï¿½ï¿½ï¿½ï¿½wï¿½bï¿½hï¿½Lï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾	*/
 	SYSTEM_CONFIG l_SystemConfig;
 	ConfigFile_GetNanoSpecIni(&l_SystemConfig, CONFIG_FILE_SYSTEM_CONFIG);
 
 	BOOL l_bValidHead = FALSE;
 	switch (wHeadType) {
 	case HEAD_TYPE_SR:		l_bValidHead = l_SystemConfig.HeadType.bSR;		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 //	case HEAD_TYPE_SE:		l_bValidHead = l_SystemConfig.HeadType.bSE;		break;
 	case HEAD_TYPE_SE:		l_bValidHead = l_SystemConfig.HeadType.bSE && !l_SystemConfig.HeadType.bCompEASE;	break;
 	case HEAD_TYPE_COMPEASE:l_bValidHead = l_SystemConfig.HeadType.bSE && l_SystemConfig.HeadType.bCompEASE;	break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
+// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --{--
 //	case HEAD_TYPE_IRSE:	l_bValidHead = l_SystemConfig.HeadType.bIRSE;	break;
 	case HEAD_TYPE_MS:		l_bValidHead = l_SystemConfig.HeadType.bMS;		break;
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --}--
 	case HEAD_TYPE_4PP:		l_bValidHead = l_SystemConfig.HeadType.bResist;	break;
 	case HEAD_TYPE_CTA:		l_bValidHead = l_SystemConfig.HeadType.bCTA;	break;
 	case HEAD_TYPE_STRESS:	l_bValidHead = l_SystemConfig.HeadType.bStress;	break;
@@ -1978,23 +1978,23 @@ BOOL CNanoSpecDoc::IsValidHeadType(WORD wHeadType)
 
 	return l_bValidHead;
 }
-/* added 2009.07.23 hmenjo ƒwƒbƒhƒ^ƒCƒvƒ`ƒFƒbƒNŠÖ”’Ç‰Á ---------- } ---------- */
-/* added 2009.07.23 hmenjo ƒXƒLƒƒƒ“ƒ^ƒCƒvƒ`ƒFƒbƒNŠÖ”’Ç‰Á ---------- { ---------- */
-/*	ƒXƒLƒƒƒ“ƒ^ƒCƒv‚Æƒwƒbƒhƒ^ƒCƒv‚Ì®‡«‚ğƒ`ƒFƒbƒN‚µ‚Ü‚·D*/
-/*			Šeƒwƒbƒh–ˆ‚É’è‹`‚³‚ê‚Ä‚¢‚éƒXƒLƒƒƒ“ƒ^ƒCƒv‚Í‚·‚×‚Ä‚O‚Ån‚Ü‚Á‚Ä‚¢‚Ü‚·D
- *			‚Â‚Ü‚èC•Ê‚Ìƒwƒbƒh‚ÌƒXƒLƒƒƒ“ƒ^ƒCƒv‚ªİ’è‚³‚ê‚Ä‚¢‚Ä‚à’l‚ª“¯‚¶‚È‚½‚ßC
- *			—LŒø‚Æ‚È‚Á‚Ä‚µ‚Ü‚¤‚±‚Æ‚ª‚ ‚è‚Ü‚·D
- *			‚µ‚©‚µC‚±‚ê‚Í“ü—Í‰æ–Ê‚Å§ŒÀ‚³‚ê‚Ä‚¢‚é‚Í‚¸‚Å‚·‚Ì‚ÅC‘ª’èƒvƒƒOƒ‰ƒ€ƒtƒ@ƒCƒ‹‚ğ
- *			’¼Ú•ÏX‚µ‚È‚¢ŒÀ‚è•s“s‡‚Í‹N‚«‚Ü‚¹‚ñD
- *			ÀÛ‚É‚ÍC‘¼ˆ—‚Ì•ÏX•”•ª‚ª‘½‘å‚È‚½‚ßCƒRƒR‚Å‚Í”ÍˆÍƒ`ƒFƒbƒN‚Ì‚İ‚Æ‚µ‚Ä‚¢‚Ü‚·D*/
+/* added 2009.07.23 hmenjo ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½`ï¿½Fï¿½bï¿½Nï¿½Öï¿½ï¿½Ç‰ï¿½ ---------- } ---------- */
+/* added 2009.07.23 hmenjo ï¿½Xï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Cï¿½vï¿½`ï¿½Fï¿½bï¿½Nï¿½Öï¿½ï¿½Ç‰ï¿½ ---------- { ---------- */
+/*	ï¿½Xï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Cï¿½vï¿½Æƒwï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D*/
+/*			ï¿½eï¿½wï¿½bï¿½hï¿½ï¿½ï¿½É’ï¿½`ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Xï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Cï¿½vï¿½Í‚ï¿½ï¿½×‚Ä‚Oï¿½Ånï¿½Ü‚ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½D
+ *			ï¿½Â‚Ü‚ï¿½Cï¿½Ê‚Ìƒwï¿½bï¿½hï¿½ÌƒXï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Cï¿½vï¿½ï¿½ï¿½İ’è‚³ï¿½ï¿½Ä‚ï¿½ï¿½Ä‚ï¿½ï¿½lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ßC
+ *			ï¿½Lï¿½ï¿½ï¿½Æ‚È‚ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D
+ *			ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½Í“ï¿½ï¿½Í‰ï¿½Ê‚Åï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Å‚ï¿½ï¿½Ì‚ÅCï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½
+ *			ï¿½ï¿½ï¿½Ú•ÏXï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½sï¿½ï¿½ï¿½Í‹Nï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½D
+ *			ï¿½ï¿½ï¿½Û‚É‚ÍCï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì•ÏXï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ßCï¿½Rï¿½Rï¿½Å‚Í”ÍˆÍƒ`ï¿½Fï¿½bï¿½Nï¿½Ì‚İ‚Æ‚ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½D*/
 BOOL CNanoSpecDoc::IsValidScanType(WORD wScanType, WORD wHeadType)
 {
-	/* ‚Ü‚¸ƒwƒbƒhƒ^ƒCƒv‚ğƒ`ƒFƒbƒN‚µ‚Ü‚·D*/
+	/* ï¿½Ü‚ï¿½ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D*/
 	if (0 == IsValidHeadType(wHeadType)) {
 		return FALSE;
 	}
 
-	/* ƒwƒbƒhƒ^ƒCƒv–ˆ‚ÉƒXƒLƒƒƒ“ƒ^ƒCƒv‚ğƒ`ƒFƒbƒN‚µ‚Ü‚·D*/
+	/* ï¿½wï¿½bï¿½hï¿½^ï¿½Cï¿½vï¿½ï¿½ï¿½ÉƒXï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Cï¿½vï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D*/
 	BOOL l_bRet = FALSE;
 	switch (wHeadType) {
 	case HEAD_TYPE_SR:
@@ -2003,12 +2003,12 @@ BOOL CNanoSpecDoc::IsValidScanType(WORD wScanType, WORD wHeadType)
 	case HEAD_TYPE_SE:
 		if ((MEAS_PROG_TYPE_SE_THICKNESS <= wScanType) && (wScanType < MEAS_PROG_TYPE_SE_MAX)) {l_bRet = TRUE;}
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á -->
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ -->
 	case HEAD_TYPE_COMPEASE:
 		if ((MEAS_PROG_TYPE_COMPEASE_THICKNESS <= wScanType) && (wScanType < MEAS_PROG_TYPE_COMPEASE_MAX)) {l_bRet = TRUE;}
 		break;
-// 2013.02.01 bagus CompleteEASEƒwƒbƒh’Ç‰Á <--
-// 2009.10.19 bagus MS ’Ç‰Á --{--
+// 2013.02.01 bagus CompleteEASEï¿½wï¿½bï¿½hï¿½Ç‰ï¿½ <--
+// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --{--
 #if 0
 	case HEAD_TYPE_IRSE:
 		if ((MEAS_PROG_TYPE_IRSE_THICKNESS <= wScanType) && (wScanType < MEAS_PROG_TYPE_IRSE_MAX)) {l_bRet = TRUE;}
@@ -2018,7 +2018,7 @@ BOOL CNanoSpecDoc::IsValidScanType(WORD wScanType, WORD wHeadType)
 		if ((MEAS_PROG_TYPE_MS_MEAS <= wScanType) && (wScanType < MEAS_PROG_TYPE_MS_MAX)) {l_bRet = TRUE;}
 		break;
 #endif
-// 2009.10.19 bagus MS ’Ç‰Á --}--
+// 2009.10.19 bagus MS ï¿½Ç‰ï¿½ --}--
 	case HEAD_TYPE_4PP:
 		if ((MEAS_PROG_TYPE_4PP_MEAS <= wScanType) && (wScanType < MEAS_PROG_TYPE_4PP_MAX)) {l_bRet = TRUE;}
 		break;
@@ -2035,11 +2035,11 @@ BOOL CNanoSpecDoc::IsValidScanType(WORD wScanType, WORD wHeadType)
 
 	return l_bRet;
 }
-/* added 2009.07.23 hmenjo ƒXƒLƒƒƒ“ƒ^ƒCƒvƒ`ƒFƒbƒNŠÖ”’Ç‰Á ---------- } ---------- */
-/* added 2009.07.30 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(4) ---------- { ---------- */
+/* added 2009.07.23 hmenjo ï¿½Xï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Cï¿½vï¿½`ï¿½Fï¿½bï¿½Nï¿½Öï¿½ï¿½Ç‰ï¿½ ---------- } ---------- */
+/* added 2009.07.30 hmenjo ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½@ï¿½\ï¿½Ç‰ï¿½(4) ---------- { ---------- */
 /*
- *	ƒAƒ‰[ƒ€î•ñæ“¾
- *		AlarmList.ini ‚É“o˜^‚³‚ê‚Ä‚¢‚éî•ñ‚ğ“Ço‚µ‚Ü‚·D
+ *	ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
+ *		AlarmList.ini ï¿½É“oï¿½^ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Çoï¿½ï¿½ï¿½Ü‚ï¿½ï¿½D
  */
 BOOL CNanoSpecDoc::GetAlarmInf(int iAlId, int* piAlCd, char* pcLevel, TCHAR* ptszAlText, int iTextBufLen)
 {
@@ -2072,27 +2072,27 @@ BOOL CNanoSpecDoc::GetAlarmInf(int iAlId, int* piAlCd, char* pcLevel, TCHAR* pts
 
 	return l_bRet;
 }
-/* added 2009.07.30 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(4) ---------- } ---------- */
-/* added 2009.07.31 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(3) ---------- { ---------- */
+/* added 2009.07.30 hmenjo ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½@ï¿½\ï¿½Ç‰ï¿½(4) ---------- } ---------- */
+/* added 2009.07.31 hmenjo ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½@ï¿½\ï¿½Ç‰ï¿½(3) ---------- { ---------- */
 /*
- *	HEPA ƒIƒ“/ƒIƒt ƒ‰ƒbƒpŠÖ”
+ *	HEPA ï¿½Iï¿½ï¿½/ï¿½Iï¿½t ï¿½ï¿½ï¿½bï¿½pï¿½Öï¿½
  */
 BOOL CNanoSpecDoc::HepaOnOff(BOOL bOn, char* pcHepaAlarmLevel/*= 0*/)
 {
-	/* HEPA ƒAƒ‰[ƒ€ƒŒƒxƒ‹‚ğæ“¾	*/
+	/* HEPA ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½æ“¾	*/
 	if (0 != pcHepaAlarmLevel) {
 		char l_cLevel;
-/* 2009.08.20 K.Matsuo ALID ’è‹`‚ğ•ÏX ---------- { ---------- */
+/* 2009.08.20 K.Matsuo ALID ï¿½ï¿½`ï¿½ï¿½ÏX ---------- { ---------- */
 //		this->GetAlarmInf(HEPA_ALID, 0, &l_cLevel, 0, 0);
-/* 2009.08.20 K.Matsuo ALID ’è‹`‚ğ•ÏX ----------			   */
+/* 2009.08.20 K.Matsuo ALID ï¿½ï¿½`ï¿½ï¿½ÏX ----------			   */
 		this->GetAlarmInf(ALID_HepaStopFailed, 0, &l_cLevel, 0, 0);
-/* 2009.08.20 K.Matsuo ALID ’è‹`‚ğ•ÏX ---------- } ---------- */
+/* 2009.08.20 K.Matsuo ALID ï¿½ï¿½`ï¿½ï¿½ÏX ---------- } ---------- */
 		*pcHepaAlarmLevel = l_cLevel;
 	}
 
-	/* ƒRƒR‚É NEXTRA ‚ÌŠÖ”‚ª‘‚©‚ê‚éHHH	*/
-	/*	NEXTRA ‚©‚ç‚Ì–ß‚è‚ª“ü‚é	*/
-	/*	NEXTRA ‚©‚ç‚Ì–ß‚è‚ª“ü‚é	*/
+	/* ï¿½Rï¿½Rï¿½ï¿½ NEXTRA ï¿½ÌŠÖï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Hï¿½Hï¿½H	*/
+	/*	NEXTRA ï¿½ï¿½ï¿½ï¿½Ì–ß‚è‚ªï¿½ï¿½ï¿½ï¿½	*/
+	/*	NEXTRA ï¿½ï¿½ï¿½ï¿½Ì–ß‚è‚ªï¿½ï¿½ï¿½ï¿½	*/
 	BOOL l_bRet = FALSE;
 	CTimer timer;
 
@@ -2102,31 +2102,31 @@ BOOL CNanoSpecDoc::HepaOnOff(BOOL bOn, char* pcHepaAlarmLevel/*= 0*/)
 
 	return l_bRet;
 }
-/* added 2009.07.31 hmenjo ƒXƒgƒŒƒX‹@”\’Ç‰Á(3) ---------- } ---------- */
+/* added 2009.07.31 hmenjo ï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½@ï¿½\ï¿½Ç‰ï¿½(3) ---------- } ---------- */
 //2009.08.20 bagus stress --{--
 BOOL CNanoSpecDoc::SetOneStressLineData(STRESSRESULT *OneStressLineData,int iLineNo)
 {
 	if((iLineNo > STRESS_LINES_MAX) || (iLineNo < 1 ))
 	{
-		return FALSE; //Ši”[¸”s
+		return FALSE; //ï¿½iï¿½[ï¿½ï¿½ï¿½s
 	}
 	m_pMeasureddata->StressData[iLineNo - 1] = *OneStressLineData;
-	return TRUE; //Ši”[¬Œ÷
+	return TRUE; //ï¿½iï¿½[ï¿½ï¿½ï¿½ï¿½
 }
 BOOL CNanoSpecDoc::GetOneStressLineData(STRESSRESULT *OneStressLineData,int iLineNo)
 {
 	if((iLineNo > STRESS_LINES_MAX) || (iLineNo < 1 ))
 	{
-		return FALSE; //æ“¾¸”s
+		return FALSE; //ï¿½æ“¾ï¿½ï¿½ï¿½s
 	}
 	*OneStressLineData = m_pMeasureddata->StressData[iLineNo - 1];
-	return TRUE; //æ“¾¬Œ÷
+	return TRUE; //ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½
 }
 BOOL CNanoSpecDoc::GetOneStressLineDataValid(int iLineNo)
 {
 	if((iLineNo > STRESS_LINES_MAX) || (iLineNo < 1 ))
 	{
-		return FALSE; //æ“¾¸”s
+		return FALSE; //ï¿½æ“¾ï¿½ï¿½ï¿½s
 	}
 	return m_pMeasureddata->StressDataValid[iLineNo - 1];
 }
@@ -2134,7 +2134,7 @@ void CNanoSpecDoc::SetOneStressLineDataValid(int iLineNo,BOOL bValid)
 {
 	if((iLineNo > STRESS_LINES_MAX) || (iLineNo < 1 ))
 	{
-		return; //æ“¾¸”s
+		return; //ï¿½æ“¾ï¿½ï¿½ï¿½s
 	}
 	m_pMeasureddata->StressDataValid[iLineNo - 1] = bValid;
 }
@@ -2142,7 +2142,7 @@ BOOL CNanoSpecDoc::GetOneStressLineDataRef(int iLineNo)
 {
 	if((iLineNo > STRESS_LINES_MAX) || (iLineNo < 1 ))
 	{
-		return FALSE; //æ“¾¸”s
+		return FALSE; //ï¿½æ“¾ï¿½ï¿½ï¿½s
 	}
 	return m_pMeasureddata->StressDataRef[iLineNo - 1];
 }
@@ -2150,7 +2150,7 @@ void CNanoSpecDoc::SetOneStressLineDataRef(int iLineNo,BOOL bRef)
 {
 	if((iLineNo > STRESS_LINES_MAX) || (iLineNo < 1 ))
 	{
-		return; //æ“¾¸”s
+		return; //ï¿½æ“¾ï¿½ï¿½ï¿½s
 	}
 	m_pMeasureddata->StressDataRef[iLineNo - 1] = bRef;
 }
@@ -2228,22 +2228,22 @@ void CNanoSpecDoc::SetLastDistancePoint(STAGE_COORD tCoord)
 	m_pMeasureddata->LastDistancePoint = tCoord;
 }
 //2009.10.28 bagus 2point-Distance --}--
-/* added 2009.10.20 hmenjo GTR ƒ‰ƒ“ƒv§ŒäÀ‘• ---------- { ---------- */
-/* added 2009.09.07 hmenjo “§‰ß—¦ ƒ‰ƒ“ƒv§Œä ---------- { ---------- */
+/* added 2009.10.20 hmenjo GTR ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
+/* added 2009.09.07 hmenjo ï¿½ï¿½ï¿½ß—ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
 /*
- *	“§‰ß—¦—pƒ‰ƒ“ƒv§Œä
+ *	ï¿½ï¿½ï¿½ß—ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½
  */
 BOOL CNanoSpecDoc::SetTransmittanceLamp(WORD wFilter/* = FILTER_DARK*/)
 {
-	static WORD ls_wFilterPre = -1;	/* ‰Šú’l	*/
+	static WORD ls_wFilterPre = -1;	/* ï¿½ï¿½ï¿½ï¿½ï¿½l	*/
 	BOOL l_bRet = TRUE;
 	WORD l_wFilter = wFilter;
 
 	if (ls_wFilterPre != l_wFilter) {
-/* deleted 2009.11.20 hmenjo GTR ƒ‰ƒ“ƒv‰Šú‰» Close ---------- { ---------- */
+/* deleted 2009.11.20 hmenjo GTR ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Close ---------- { ---------- */
 //		ls_wFilterPre = l_wFilter;
-/* deleted 2009.11.20 hmenjo GTR ƒ‰ƒ“ƒv‰Šú‰» Close ---------- } ---------- */
-		/* ƒRƒR‚É“§‰ß—¦ƒ‰ƒ“ƒv‚Ì§Œä‚ğ“ü‚ê‚Ä‚­‚¾‚³‚¢D	*/
+/* deleted 2009.11.20 hmenjo GTR ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Close ---------- } ---------- */
+		/* ï¿½Rï¿½Rï¿½É“ï¿½ï¿½ß—ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D	*/
 		switch (l_wFilter) {
 		case FILTER_OPEN:	/* OPEN	*/
 			nexioTransmitLightSource1Shutter(FALSE);
@@ -2257,16 +2257,16 @@ BOOL CNanoSpecDoc::SetTransmittanceLamp(WORD wFilter/* = FILTER_DARK*/)
 			nexioTransmitLightSource3Shutter(TRUE);
 			break;
 		}
-		/* ƒVƒƒƒbƒ^“®ìŠ®—¹‘Ò‚¿	*/
+		/* ï¿½Vï¿½ï¿½ï¿½bï¿½^ï¿½ï¿½ï¿½ìŠ®ï¿½ï¿½ï¿½Ò‚ï¿½	*/
 		SR_CONFIG l_SrConfig;
 		ConfigFile_GetNanoSpecIni(&l_SrConfig, CONFIG_FILE_SR_CONFIG);
-		DWORD l_dwShutterWait = ((DWORD) l_SrConfig.wTrShutterMoveWaitTime) + 10;	/* Œë·•ª‚ğ‰ÁZ	*/
+		DWORD l_dwShutterWait = ((DWORD) l_SrConfig.wTrShutterMoveWaitTime) + 10;	/* ï¿½ë·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Z	*/
 		::Sleep(l_dwShutterWait);
-		/* ³í«ƒ`ƒFƒbƒN	*/
+		/* ï¿½ï¿½ï¿½í«ï¿½`ï¿½Fï¿½bï¿½N	*/
 		BOOL l_bResult1 = nexioIsTransmitLight1Condition();
 		BOOL l_bResult2 = nexioIsTransmitLight2Condition();
 		BOOL l_bResult3 = nexioIsTransmitLight3Condition();
-/* modified 2009.11.24 hmenjo GTR ƒ‰ƒ“ƒvƒGƒ‰[ŒŸoC³ ---------- { ---------- */
+/* modified 2009.11.24 hmenjo GTR ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½oï¿½Cï¿½ï¿½ ---------- { ---------- */
 //		BOOL l_bResultAll = l_bResult1 && l_bResult2 && l_bResult3;
 //		switch (l_wFilter) {
 //		case FILTER_OPEN:	/* OPEN	*/
@@ -2285,7 +2285,7 @@ BOOL CNanoSpecDoc::SetTransmittanceLamp(WORD wFilter/* = FILTER_DARK*/)
 //			}
 //			break;
 //		}
-/* modified 2009.11.24 hmenjo GTR ƒ‰ƒ“ƒvƒGƒ‰[ŒŸoC³ ----------			   */
+/* modified 2009.11.24 hmenjo GTR ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½oï¿½Cï¿½ï¿½ ----------			   */
 		BOOL l_bResultAll = l_bResult1 || l_bResult2 || l_bResult3;
 		switch (l_wFilter) {
 		case FILTER_OPEN:
@@ -2298,24 +2298,24 @@ BOOL CNanoSpecDoc::SetTransmittanceLamp(WORD wFilter/* = FILTER_DARK*/)
 			l_bRet = TRUE;
 			break;
 		}
-/* modified 2009.11.24 hmenjo GTR ƒ‰ƒ“ƒvƒGƒ‰[ŒŸoC³ ---------- } ---------- */
+/* modified 2009.11.24 hmenjo GTR ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½oï¿½Cï¿½ï¿½ ---------- } ---------- */
 	}
 
-/* added 2009.11.20 hmenjo GTR ƒ‰ƒ“ƒv‰Šú‰» Close ---------- { ---------- */
+/* added 2009.11.20 hmenjo GTR ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Close ---------- { ---------- */
 	if (TRUE == l_bRet) {
 		ls_wFilterPre = l_wFilter;
 	}
-/* added 2009.11.20 hmenjo GTR ƒ‰ƒ“ƒv‰Šú‰» Close ---------- } ---------- */
+/* added 2009.11.20 hmenjo GTR ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Close ---------- } ---------- */
 
 	return l_bRet;
 }
-/* added 2009.09.07 hmenjo “§‰ß—¦ ƒ‰ƒ“ƒv§Œä ---------- } ---------- */
-/* added 2009.10.20 hmenjo GTR ƒ‰ƒ“ƒv§ŒäÀ‘• ---------- } ---------- */
+/* added 2009.09.07 hmenjo ï¿½ï¿½ï¿½ß—ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
+/* added 2009.10.20 hmenjo GTR ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
 
-/* added 2009.10.20 hmenjo GTR ƒ‰ƒ“ƒvƒ`ƒFƒbƒNÀ‘• ---------- { ---------- */
-/* added 2009.09.10 hmenjo ƒKƒ“ƒgƒŠ“§‰ß—¦—pƒ‰ƒ“ƒvƒ`ƒFƒbƒN ---------- { ---------- */
+/* added 2009.10.20 hmenjo GTR ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ ---------- { ---------- */
+/* added 2009.09.10 hmenjo ï¿½Kï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ß—ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½vï¿½`ï¿½Fï¿½bï¿½N ---------- { ---------- */
 /*
- *	ƒKƒ“ƒgƒŠ“§‰ß—¦—pƒnƒƒQƒ“ƒ‰ƒ“ƒv ƒIƒ“Šm”F
+ *	ï¿½Kï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ß—ï¿½ï¿½pï¿½nï¿½ï¿½ï¿½Qï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½v ï¿½Iï¿½ï¿½ï¿½mï¿½F
  */
 BOOL CNanoSpecDoc::IsGTRLampOn(void)
 {
@@ -2325,10 +2325,10 @@ BOOL CNanoSpecDoc::IsGTRLampOn(void)
 
 	return l_bLampOn;
 }
-/* added 2009.09.10 hmenjo ƒKƒ“ƒgƒŠ“§‰ß—¦—pƒ‰ƒ“ƒvƒ`ƒFƒbƒN ---------- } ---------- */
-/* added 2009.10.20 hmenjo GTR ƒ‰ƒ“ƒvƒ`ƒFƒbƒNÀ‘• ---------- } ---------- */
+/* added 2009.09.10 hmenjo ï¿½Kï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ß—ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½vï¿½`ï¿½Fï¿½bï¿½N ---------- } ---------- */
+/* added 2009.10.20 hmenjo GTR ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ ---------- } ---------- */
 
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --{--
+// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --{--
 int CNanoSpecDoc::GetStagePGM(int nHeadType, int nScanType)
 {
 	int	nRet = STAGE_PGM_TYPE_STANDARD;
@@ -2358,7 +2358,7 @@ BOOL CNanoSpecDoc::IsValidStagePGM(int nHeadType, int nScanType, int nStagePGMTy
 
 	return bRet;
 }
-// 2009.10.09 bagus StagePGM ‹¤’Ê‰» --}--
+// 2009.10.09 bagus StagePGM ï¿½ï¿½ï¿½Ê‰ï¿½ --}--
 //2009.11.04 bagus CA --{--
 BOOL CNanoSpecDoc::SetOneContactAngleData(CTARESULT *OneCTAResult,int iPoint)
 {
@@ -2402,8 +2402,8 @@ BOOL CNanoSpecDoc::GetOneResistData(RESISTRESULT *OneRESISTResult,int iPoint)
 }
 //2009.11.10 bagus RS --}--
 //2009.11.04 bagus CA --{--
-//è“®‘ª’è‚Ì€”õ/Œãn––ˆ—
-//‚±‚±‚Å‚ÍƒƒbƒgID/ƒJƒZƒbƒgID‚âƒŒƒVƒs‚ÍƒZƒbƒg‚³‚ê‚½Œã‚ÅŒÄ‚Î‚ê‚é‚±‚Æ‚ğ‘z’è‚µ‚Ä‚¢‚é
+//ï¿½è“®ï¿½ï¿½ï¿½èï¿½Ìï¿½ï¿½ï¿½/ï¿½ï¿½nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//ï¿½ï¿½ï¿½ï¿½ï¿½Å‚Íƒï¿½ï¿½bï¿½gID/ï¿½Jï¿½Zï¿½bï¿½gIDï¿½âƒŒï¿½Vï¿½sï¿½ÍƒZï¿½bï¿½gï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ÅŒÄ‚Î‚ï¿½é‚±ï¿½Æ‚ï¿½zï¿½è‚µï¿½Ä‚ï¿½ï¿½ï¿½
 BOOL CNanoSpecDoc::PrepareManualCAMeasure()
 {
 	BOOL bRet;
@@ -2433,7 +2433,7 @@ BOOL CNanoSpecDoc::CleanupManualCAMeasure()
 }
 //2009.11.04 bagus CA --}--
 
-/* added 2014.11.22 hmenjo Fit w”•\¦(2) ---------- { ---------- */
+/* added 2014.11.22 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½(2) ---------- { ---------- */
 long CNanoSpecDoc::GetExpDouble(double dData)
 {
 	double l_dData = dData;
@@ -2444,4 +2444,4 @@ long CNanoSpecDoc::GetExpDouble(double dData)
 
 	return l_iExp;
 }
-/* added 2014.11.22 hmenjo Fit w”•\¦(2) ---------- } ---------- */
+/* added 2014.11.22 hmenjo Fit ï¿½wï¿½ï¿½ï¿½\ï¿½ï¿½(2) ---------- } ---------- */
