@@ -1343,7 +1343,7 @@ LRESULT CNanoMeasureGraph::OnLineSelectChange(WPARAM wparam,LPARAM lparam)
 
 	nIndex = (int)lparam;
 	if(!IsValidLineNo(nIndex)){
-		return;
+		return 0;
 	}
 	m_LineConfig[nIndex].Visible = ((int)wparam != 0 ? TRUE : FALSE);
 	Invalidate(FALSE);
