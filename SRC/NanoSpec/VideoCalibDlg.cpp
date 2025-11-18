@@ -1,4 +1,4 @@
-// VideoCalibDlg.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
+// VideoCalibDlg.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
 //
 
 #include "stdafx.h"
@@ -103,7 +103,7 @@ END_MESSAGE_MAP()
 //
 #pragma warning(disable: 4204)
 BEGIN_STATEPROC_MAP(CVideoCalibDlg)
-	ENTER_STATE_NULL(ST_INIT),
+	ENTER_STATE(ST_INIT, NULL),
 	ENTER_STATE(ST_START,enter_ST_START),
 	ENTER_STATE(ST_STORE_FIRST_SITE, enter_ST_STORE_FIRST_SITE),
 	ENTER_STATE(ST_MOVE_STAGE, enter_ST_MOVE_STAGE),
@@ -328,8 +328,8 @@ BOOL CVideoCalibDlg::OnInitDialog()
 
 	Event(EV_START);
 
-	return TRUE;	// ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Éƒtï¿½Hï¿½[ï¿½Jï¿½Xï¿½ï¿½Ý’è‚µï¿½È‚ï¿½ï¿½Æ‚ï¿½ï¿½Aï¿½ß‚ï¿½lï¿½ï¿½ TRUE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
-					// ï¿½ï¿½O: OCX ï¿½vï¿½ï¿½ï¿½pï¿½eï¿½B ï¿½yï¿½[ï¿½Wï¿½Ì–ß‚ï¿½lï¿½ï¿½ FALSE ï¿½Æ‚È‚ï¿½Ü‚ï¿½
+	return TRUE;	// ƒRƒ“ƒgƒ[ƒ‹‚ÉƒtƒH[ƒJƒX‚ðÝ’è‚µ‚È‚¢‚Æ‚«A–ß‚è’l‚Í TRUE ‚Æ‚È‚è‚Ü‚·
+					// —áŠO: OCX ƒvƒƒpƒeƒB ƒy[ƒW‚Ì–ß‚è’l‚Í FALSE ‚Æ‚È‚è‚Ü‚·
 }
 
 /*---------------------------------------------------------------------------

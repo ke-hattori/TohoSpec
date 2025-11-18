@@ -122,7 +122,7 @@ cMotTskWnd::cMotTskWnd()
 
 cMotTskWnd::~cMotTskWnd()
 {
-//	 StageShutdown();	ï¿½ï¿½ï¿½ï¿½ÈŠï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½Í•sï¿½vï¿½Ì‚Í‚ï¿½
+//	 StageShutdown();	‚±‚ñ‚ÈŠ´‚¶‚Ìˆ—‚Í•s—v‚Ì‚Í‚¸
 }
 
 
@@ -147,46 +147,46 @@ LONG cMotTskWnd::MotionMessage(UINT uiMessage, LONG lParam)
 	short l_sAxis = LOWORD(lParam);
 
 	switch (uiMessage) {
-	case MM_DONE:		// ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½~
+	case MM_DONE:		// ²‚Ì³í’â~
 		StageMTAxisMotionComplete(l_sAxis, 0);
 		m_strMMessage[l_sAxis] = "MM_DONE";
 		break;
-	case MM_STOPPED:	// ï¿½ï¿½ï¿½Ì‹ï¿½ï¿½ï¿½ï¿½ï¿½~(ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Å‚Í‚ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½)
+	case MM_STOPPED:	// ²‚Ì‹­§’â~(ƒGƒ‰[“™‚Å‚Í‚ ‚è‚Ü‚¹‚ñ)
 		StageMTAxisMotionComplete(l_sAxis, 1);
 		m_strMMessage[l_sAxis] = "MM_STOPPED";
 		break;
-	case MM_FAILURE:	// ï¿½ï¿½ï¿½ÌˆÙï¿½Iï¿½ï¿½
+	case MM_FAILURE:	// ²‚ÌˆÙíI—¹
 		StageMTAxisMotionComplete(l_sAxis, 2);
 		m_strMMessage[l_sAxis] = "MM_FAILURE";
 		break;
-/* added 2009.11.11 hmenjo MotSys ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g ---------- { ---------- */
-	case MM_TIMEOUT:	/* ï¿½ï¿½ï¿½Ìï¿½ï¿½ÌˆÚ“ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g	*/
+/* added 2009.11.11 hmenjo MotSys ²ƒ^ƒCƒ€ƒAƒEƒg ---------- { ---------- */
+	case MM_TIMEOUT:	/* ²‚Ì²‚ÌˆÚ“®ƒ^ƒCƒ€ƒAƒEƒg	*/
 		StageMTAxisMotionComplete(l_sAxis, 2);
 		m_strMMessage[l_sAxis] = "MM_TIMEOUT";
 		StageMTSetMotSysErr(uiMessage);
 		break;
-/* added 2009.11.11 hmenjo MotSys ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½g ---------- } ---------- */
-	case 111:	// ï¿½ÊM(Read)ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½
-	case 112:	// ï¿½ÊM(Read)ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Aï¿½Eï¿½gï¿½Pï¿½ï¿½ï¿½ï¿½
-	case 113:	// ï¿½ÊM(Read)ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Aï¿½Eï¿½gï¿½Qï¿½ï¿½ï¿½ï¿½
-	case 121:	// ï¿½ÊM(Read2)ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½
-	case 122:	// ï¿½ÊM(Read2)ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Aï¿½Eï¿½gï¿½Pï¿½ï¿½ï¿½ï¿½
-	case 123:	// ï¿½ÊM(Read2)ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Aï¿½Eï¿½gï¿½Qï¿½ï¿½ï¿½ï¿½
-	case 131:	// ï¿½ÊM(Write)ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½
-	case 132:	// ï¿½ÊM(Write)ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Cï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½ï¿½
+/* added 2009.11.11 hmenjo MotSys ²ƒ^ƒCƒ€ƒAƒEƒg ---------- } ---------- */
+	case 111:	// ’ÊM(Read)ƒVƒXƒeƒ€ƒGƒ‰[”­¶
+	case 112:	// ’ÊM(Read)ƒŠƒgƒ‰ƒCƒAƒEƒg‚P”­¶
+	case 113:	// ’ÊM(Read)ƒŠƒgƒ‰ƒCƒAƒEƒg‚Q”­¶
+	case 121:	// ’ÊM(Read2)ƒVƒXƒeƒ€ƒGƒ‰[”­¶
+	case 122:	// ’ÊM(Read2)ƒŠƒgƒ‰ƒCƒAƒEƒg‚P”­¶
+	case 123:	// ’ÊM(Read2)ƒŠƒgƒ‰ƒCƒAƒEƒg‚Q”­¶
+	case 131:	// ’ÊM(Write)ƒVƒXƒeƒ€ƒGƒ‰[”­¶
+	case 132:	// ’ÊM(Write)ƒŠƒgƒ‰ƒCƒAƒEƒg”­¶
 		StageMTSetMotSysComErr(uiMessage);
 		break;
-	case 1:		// ï¿½Xï¿½eï¿½[ï¿½Wï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ WD ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	case 2:		// ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[ï¿½Fï¿½X
-	case 3:		// ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Fï¿½X
-	case 4:		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½Oï¿½É‚È‚ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½
-	case 5:		// DIO ï¿½Gï¿½ï¿½ï¿½[
-	case 6:		// ï¿½Tï¿½[ï¿½{ ON/OFF ï¿½Gï¿½ï¿½ï¿½[
-	case 7:		// ï¿½ï¿½ï¿½ï¿½~ ï¿½Gï¿½ï¿½ï¿½[
+	case 1:		// ƒXƒe[ƒWƒRƒ“ƒgƒ[ƒ‰‚Ì WD ƒGƒ‰[‚ª”­¶
+	case 2:		// ƒVƒXƒeƒ€ƒGƒ‰[FX
+	case 3:		// ²ƒAƒ‰[ƒ€FX
+	case 4:		// ‰Šú‰»Š®—¹ƒtƒ‰ƒO‚ª‚O‚É‚È‚ç‚È‚©‚Á‚½
+	case 5:		// DIO ƒGƒ‰[
+	case 6:		// ƒT[ƒ{ ON/OFF ƒGƒ‰[
+	case 7:		// ”ñí’â~ ƒGƒ‰[
 		StageMTSetMotSysErr(uiMessage);
 		break;
-	case 8:		// ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½A ï¿½Gï¿½ï¿½ï¿½[	(ï¿½ï¿½ï¿½gï¿½p)
-	default:	// ï¿½ï¿½ï¿½ï¿½`ï¿½Gï¿½ï¿½ï¿½[
+	case 8:		// Œ´“_•œ‹A ƒGƒ‰[	(–¢g—p)
+	default:	// –¢’è‹`ƒGƒ‰[
 		StageMTSetMotSysErr(uiMessage);
 		break;
 	}
@@ -229,8 +229,7 @@ void cMotTskWnd::OnPaint()
 	UINT CxChar = tm.tmMaxCharWidth;
 
 	// Display the raw stage positions and the last message received
-	WORD i;
-	for (i = 0; i < AXIS_NUM; i++) {
+	for (WORD i = 0; i < AXIS_NUM; i++) {
 		_stprintf(l_tszStr, _T("[%u]: %11ld,  %s"), i, m_Pos[i], m_strMMessage[i]);
 		dc.TextOut(CxChar, CyChar * (i + 1), l_tszStr);
 	}
@@ -242,7 +241,7 @@ void cMotTskWnd::OnPaint()
 
 void cMotTskWnd::OnClose()
 {
-	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½Éƒï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½é‚©ï¿½Ü‚ï¿½ï¿½Íƒfï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚·‚é‚©‚Ü‚½‚ÍƒfƒtƒHƒ‹ƒg‚Ìˆ—‚ğŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢
 
 	KillTimer(TIMER1_ID);
 	KillTimer(TIMER2_ID);
@@ -255,9 +254,9 @@ int cMotTskWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	if (CFrameWnd::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
-	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ÉŒÅ—Lï¿½Ìì¬ï¿½pï¿½Rï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// TODO: ‚±‚ÌˆÊ’u‚ÉŒÅ—L‚Ìì¬—pƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
 
-	// ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½Ìƒvï¿½ï¿½ï¿½pï¿½eï¿½Bï¿½ï¿½ï¿½Xï¿½gï¿½Éï¿½ï¿½Êï¿½ï¿½ï¿½Ç‰ï¿½
+	// ƒEƒBƒ“ƒhƒE‚ÌƒvƒƒpƒeƒBƒŠƒXƒg‚É¯•Êî•ñ‚ğ’Ç‰Á
 	::SetProp(m_hWnd, IDENT_CODE, (HANDLE) 1);
 
 	return 0;
@@ -267,8 +266,8 @@ void cMotTskWnd::OnDestroy()
 {
 	CFrameWnd::OnDestroy();
 
-	// TODO: ï¿½ï¿½ï¿½ÌˆÊ’uï¿½Éƒï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½ï¿½pï¿½ÌƒRï¿½[ï¿½hï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// TODO: ‚±‚ÌˆÊ’u‚ÉƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰—p‚ÌƒR[ƒh‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
 
-	// ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½Ìƒvï¿½ï¿½ï¿½pï¿½eï¿½Bï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½ç¯ï¿½Êï¿½ï¿½ï¿½ï¿½íœ
+	// ƒEƒBƒ“ƒhƒE‚ÌƒvƒƒpƒeƒBƒŠƒXƒg‚©‚ç¯•Êî•ñ‚ğíœ
 	::RemoveProp(m_hWnd, IDENT_CODE);
 }
