@@ -1,13 +1,13 @@
-// NanoMeasureGraph.cpp : ƒCƒ“ƒvƒŠƒƒ“ƒe[ƒVƒ‡ƒ“ ƒtƒ@ƒCƒ‹
+// NanoMeasureGraph.cpp : ï¿½Cï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ ï¿½tï¿½@ï¿½Cï¿½ï¿½
 //
 
 #include "stdafx.h"
 #include <math.h>
 #include "System.h"
 #include "NanoMeasureGraph.h"
-//2009.09.03 bagus se ƒI[ƒgƒXƒP[ƒ‹ --{--
+//2009.09.03 bagus se ï¿½Iï¿½[ï¿½gï¿½Xï¿½Pï¿½[ï¿½ï¿½ --{--
 #include <float.h>
-//2009.09.03 bagus se ƒI[ƒgƒXƒP[ƒ‹ --}--
+//2009.09.03 bagus se ï¿½Iï¿½[ï¿½gï¿½Xï¿½Pï¿½[ï¿½ï¿½ --}--
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -42,11 +42,11 @@ CNanoMeasureGraph::CNanoMeasureGraph()
 	// Default Choose Normal Graph
 	m_iGrapgSelectFlg=0;
 
-//2009.09.03 bagus se ƒI[ƒgƒXƒP[ƒ‹ --{--
+//2009.09.03 bagus se ï¿½Iï¿½[ï¿½gï¿½Xï¿½Pï¿½[ï¿½ï¿½ --{--
 	m_bAutoScaleMode = FALSE;
 	m_dYMin = DBL_MAX;
 	m_dYMax = DBL_MIN;
-//2009.09.03 bagus se ƒI[ƒgƒXƒP[ƒ‹ --}--
+//2009.09.03 bagus se ï¿½Iï¿½[ï¿½gï¿½Xï¿½Pï¿½[ï¿½ï¿½ --}--
 }
 
 CNanoMeasureGraph::~CNanoMeasureGraph()
@@ -85,7 +85,7 @@ BEGIN_MESSAGE_MAP(CNanoMeasureGraph, CButton)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CNanoMeasureGraph ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CNanoMeasureGraph ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 
 //------------------------------------------------------------------------
 // DrawItem
@@ -171,7 +171,7 @@ void CNanoMeasureGraph::DrawItemMain(LPDRAWITEMSTRUCT lpDIS)
 	}
 
 
-	//ƒeƒLƒXƒg•`‰æ‚ÌƒTƒCƒY‚ğŒvZ
+	//ï¿½eï¿½Lï¿½Xï¿½gï¿½`ï¿½æï¿½ÌƒTï¿½Cï¿½Yï¿½ï¿½ï¿½vï¿½Z
 	tFontSizeX = GetTextSize(pDC,m_pAxisXFont,m_Config.X_AxisTitle);
 	tFontSizeY = GetTextSize(pDC,m_pAxisYFont,m_Config.Y_AxisTitle);
 	tFontSizeUpperTitle = GetTextSize(pDC,m_pTitleFont,m_Config.UpperTitle);
@@ -280,25 +280,25 @@ void CNanoMeasureGraph::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 //------------------------------------------------------------------------
 void CNanoMeasureGraph::OnLButtonUp(UINT nFlags, CPoint point)
 {
-	long lDataX;			//À‘ª’l
+	long lDataX;			//ï¿½ï¿½ï¿½ï¿½ï¿½l
 	int i;
 	int nPointIndex;
 
 
-	//ƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‚µ‚È‚¢ê‡‚Í‰½‚à‚µ‚È‚¢
+	//ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ê‡ï¿½Í‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 	if(!m_Config.UseCalibration){
 		CButton::OnLButtonUp(nFlags, point);
 		return;
 	}
-	//‚±‚êˆÈãü‚Í’u‚¯‚È‚¢B
+	//ï¿½ï¿½ï¿½ï¿½Èï¿½ï¿½ï¿½Í’uï¿½ï¿½ï¿½È‚ï¿½ï¿½B
 	if(!m_bNowCalibration
 	&& m_CalibrationData.DataNum >= m_Config.CalibrationLineNum){
 		CButton::OnLButtonUp(nFlags, point);
 		return;
 	}
 
-	//Å‹ß–T‚Ìƒf[ƒ^‚É‚ü‚ğˆø‚­
-	//	X•ûŒü‚Ì•`‰æƒGƒŠƒAŠOˆ—
+	//ï¿½Å‹ß–Tï¿½Ìƒfï¿½[ï¿½^ï¿½Éï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//	Xï¿½ï¿½ï¿½ï¿½ï¿½Ì•`ï¿½ï¿½Gï¿½ï¿½ï¿½Aï¿½Oï¿½ï¿½ï¿½ï¿½
 	if (point.x < m_GraphInfo.GraphArea.left) {
 		CButton::OnLButtonUp(nFlags, point);
 		return;
@@ -307,7 +307,7 @@ void CNanoMeasureGraph::OnLButtonUp(UINT nFlags, CPoint point)
 		return;
 	}
 
-	//	Y•ûŒü‚Ì•`‰æƒGƒŠƒAŠOˆ—
+	//	Yï¿½ï¿½ï¿½ï¿½ï¿½Ì•`ï¿½ï¿½Gï¿½ï¿½ï¿½Aï¿½Oï¿½ï¿½ï¿½ï¿½
 	if (point.y < m_GraphInfo.GraphArea.top) {
 		CButton::OnLButtonUp(nFlags, point);
 		return;
@@ -316,14 +316,14 @@ void CNanoMeasureGraph::OnLButtonUp(UINT nFlags, CPoint point)
 		return;
 	}
 
-	//	À‘ª’l‚Ì‹tZ
+	//	ï¿½ï¿½ï¿½ï¿½ï¿½lï¿½Ì‹tï¿½Z
 	if (m_GraphInfo.RateX == 0) {
 		lDataX = 0;
 	} else {
 		lDataX = (long)((double)(point.x - m_GraphInfo.GraphArea.left));// / m_GraphInfo.RateX);
 	}
 
-	//‹ß—’l‚ÌZo
+	//ï¿½ßï¿½ï¿½lï¿½ÌZï¿½o
 	for (i=0; i<m_Config.PointNum; i++) {
 		if (((i * m_GraphInfo.DivX) <= lDataX) && (lDataX < (i * m_GraphInfo.DivX + m_GraphInfo.DivX / 2.0))) {
 			//lDataX = (long)(i * m_GraphInfo.DivX);
@@ -442,7 +442,7 @@ void CNanoMeasureGraph::DrawTitle(CDC *pDC, CString strTitle, RECT *pArea)
 
 void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 {
-//2009.09.03 bagus se ƒI[ƒgƒXƒP[ƒ‹ --{--
+//2009.09.03 bagus se ï¿½Iï¿½[ï¿½gï¿½Xï¿½Pï¿½[ï¿½ï¿½ --{--
 	double	dScaleYMin, dScaleYMax;
 	double	dScaleYStep;
 
@@ -451,13 +451,13 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 		dScaleYStep = m_Config.Y_Step;
 		//2010.01.19 bagus --}--
 		//2009.09.11 bagus stress --{--
-		//AutoScale‚É‚ÍStep‚ğ1/2‚É‚·‚é
+		//AutoScaleï¿½ï¿½ï¿½É‚ï¿½Stepï¿½ï¿½1/2ï¿½É‚ï¿½ï¿½ï¿½
 		if((m_Config.Y_Max - m_Config.Y_Origin) > (m_dYMax - m_dYMin)){
-			//’A‚µ‘S‘Ì‚ÌY²‚Ì”ÍˆÍ‚ª¬‚³‚­‚È‚Á‚½‚Æ‚«‚Ì‚İ
+			//ï¿½Aï¿½ï¿½ï¿½Sï¿½Ì‚ï¿½Yï¿½ï¿½ï¿½Ì”ÍˆÍ‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½Ì‚ï¿½
 			dScaleYStep = m_Config.Y_Step;
 			m_Config.Y_Step = m_Config.Y_Step / 2;
 			if(m_Config.Y_Step > 10){
-				//10ˆÈã‚Å‚ ‚ê‚ ‚Î1‚ÌˆÊ‚ğØ‚è‚Ì‚¢‚¢”š‚É•ÏX‚·‚é
+				//10ï¿½Èï¿½Å‚ï¿½ï¿½ê‚ ï¿½ï¿½1ï¿½ÌˆÊ‚ï¿½Ø‚ï¿½Ì‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É•ÏXï¿½ï¿½ï¿½ï¿½
 				if(m_Config.Y_Step % 10 >= 5){
 					m_Config.Y_Step = (m_Config.Y_Step + 5) - (m_Config.Y_Step % 10);
 				}else{
@@ -469,7 +469,7 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 		else{
 			m_Config.Y_Step = (m_dYMax -m_dYMin) / 10;
 			if(m_Config.Y_Step > 10){
-				//10ˆÈã‚Å‚ ‚ê‚ ‚Î1‚ÌˆÊ‚ğØ‚è‚Ì‚¢‚¢”š‚É•ÏX‚·‚é
+				//10ï¿½Èï¿½Å‚ï¿½ï¿½ê‚ ï¿½ï¿½1ï¿½ÌˆÊ‚ï¿½Ø‚ï¿½Ì‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É•ÏXï¿½ï¿½ï¿½ï¿½
 				if(m_Config.Y_Step % 10 >= 5){
 					m_Config.Y_Step = (m_Config.Y_Step + 5) - (m_Config.Y_Step % 10);
 				}else{
@@ -485,7 +485,7 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 		m_Config.Y_Max = m_dYMax;
 		m_Config.Y_Origin = m_dYMin;
 	}
-//2009.09.03 bagus se ƒI[ƒgƒXƒP[ƒ‹ --}--
+//2009.09.03 bagus se ï¿½Iï¿½[ï¿½gï¿½Xï¿½Pï¿½[ï¿½ï¿½ --}--
 
 	CBrush cGraphColor(m_Config.GraphBackColor);
 	CBrush *pOldBrush;
@@ -579,7 +579,7 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 	}
 
 	//DrawAxis
-	////•â•üiX²j
+	////ï¿½â•ï¿½ï¿½ï¿½iXï¿½ï¿½ï¿½j
 	CPen cLinePen(PS_SOLID, 1, RGB(0x00,0x00,0x00));
 	CPen cFramePen(PS_SOLID, 1, m_Config.GraphBorderColor);
 	CPen cInFramePen(PS_DOT, 1, m_Config.GraphStepLineColor);
@@ -609,7 +609,7 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 	}
 	pDC->SelectObject(pOldPen);
 
-	//•â•üiY²j
+	//ï¿½â•ï¿½ï¿½ï¿½iYï¿½ï¿½ï¿½j
 	dGraphStep_Y = (m_GraphInfo.RateY * (double)m_Config.Y_Step);
 	if (dGraphStep_Y < 1.0) {
 		dGraphStep_Y = 0.0;
@@ -637,19 +637,19 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 	pDC->SelectObject(pOldPen);
 
 
-	//2008.08.27 ˜gü‚ğŠe‡˜‚Íˆê”ÔÅŒã‚ÉˆÚ“®‚·‚é
+	//2008.08.27 ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½ï¿½ï¿½Íˆï¿½ÔÅŒï¿½ÉˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½
 	pOldPen = pDC->SelectObject(&cFramePen);
-	//¶•Ó
+	//ï¿½ï¿½ï¿½ï¿½
 	pDC->MoveTo(m_GraphInfo.GraphArea.left, m_GraphInfo.GraphArea.top);
 	pDC->LineTo(m_GraphInfo.GraphArea.left, m_GraphInfo.GraphArea.bottom);
-	//‰E•Ó
+	//ï¿½Eï¿½ï¿½
 	pDC->MoveTo(m_GraphInfo.GraphArea.right, m_GraphInfo.GraphArea.top);
 	pDC->LineTo(m_GraphInfo.GraphArea.right, m_GraphInfo.GraphArea.bottom);
 
-	//ã•Ó
+	//ï¿½ï¿½ï¿½
 	pDC->MoveTo(m_GraphInfo.GraphArea.left, m_GraphInfo.GraphArea.bottom);
 	pDC->LineTo(m_GraphInfo.GraphArea.right, m_GraphInfo.GraphArea.bottom);
-	//‰º•Ó
+	//ï¿½ï¿½ï¿½ï¿½
 	pDC->MoveTo(m_GraphInfo.GraphArea.left, m_GraphInfo.GraphArea.top);
 	pDC->LineTo(m_GraphInfo.GraphArea.right, m_GraphInfo.GraphArea.top);
 	pDC->SelectObject(pOldPen);
@@ -672,21 +672,21 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 
 			//Move to origin
 			//2009.09.11 bagus --{--
-			//Œ´“_‚ª0ˆÈŠO‚ÌÀ•W‚Ì‚Ì‘Î‰
+			//ï¿½ï¿½ï¿½_ï¿½ï¿½0ï¿½ÈŠOï¿½Ìï¿½ï¿½Wï¿½Ìï¿½ï¿½Ì‘Î‰ï¿½
 			//pDC->MoveTo(0 + m_GraphInfo.GraphArea.left, m_GraphInfo.GraphArea.bottom - (int)(m_LineData[nDataIndex][0] * m_GraphInfo.RateY));
 			pDC->MoveTo(0 + m_GraphInfo.GraphArea.left, m_GraphInfo.GraphArea.bottom - (int)((m_LineData[nDataIndex][0] - m_Config.Y_Origin)* m_GraphInfo.RateY));
 			//2009.09.11 bagus --}--
 			for(j = 0;(j < m_Config.PointNum) && (m_Config.PointNum > 1);j++){
 				nTmp_X = (int)((double)j * m_GraphInfo.DivX) + m_GraphInfo.GraphArea.left;
 				//2009.09.11 bagus --{--
-				//Œ´“_‚ª0ˆÈŠO‚ÌÀ•W‚Ì‚Ì‘Î‰
+				//ï¿½ï¿½ï¿½_ï¿½ï¿½0ï¿½ÈŠOï¿½Ìï¿½ï¿½Wï¿½Ìï¿½ï¿½Ì‘Î‰ï¿½
 				//nTmp_Y = m_GraphInfo.GraphArea.bottom - (int)(m_LineData[nDataIndex][j] * m_GraphInfo.RateY);
 				nTmp_Y = m_GraphInfo.GraphArea.bottom - (int)((m_LineData[nDataIndex][j] - m_Config.Y_Origin) * m_GraphInfo.RateY);
 				//2009.09.11 bagus --}--
 
 				pDC->LineTo(nTmp_X, nTmp_Y);
 
-				//Å‰‚Ì’l (XŒ´“_)
+				//ï¿½Åï¿½ï¿½Ì’l (Xï¿½ï¿½ï¿½_)
 				if (j == 0) {
 					nTmp_X_before = nTmp_X;
 					nTmp_Y_before = nTmp_Y;
@@ -695,7 +695,7 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 					continue;
 				}
 
-				//ŒX‚«‚ª‚È‚¢
+				//ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 				if ((nTmp_X_before - nTmp_X) == 0) {
 					nTmp_X_before = nTmp_X;
 					nTmp_Y_before = nTmp_Y;
@@ -704,23 +704,23 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 					continue;
 				}
 
-				//ŒX‚« => Œğ“_Zo
+				//ï¿½Xï¿½ï¿½ => ï¿½ï¿½_ï¿½Zï¿½o
 				dblA = (double)(nTmp_Y_before - nTmp_Y) / (double)(nTmp_X_before - nTmp_X);
 				dblB = (double)(nTmp_Y - (double)(dblA * nTmp_X));
 				nDrawPoint_X_bottom = (int)((m_GraphInfo.GraphArea.bottom - dblB) / dblA);
 				nDrawPoint_X_top = (int)((m_GraphInfo.GraphArea.top - dblB) / dblA);
 
-				//•`‰æ
-				//	--------L	(ãŒÀü)
-				//	--------U	(‰ºŒÀü)
-				//		*		(¶‘¤F‘O‚Ì“_b‰E‘¤F¡‚Ì“_)
+				//ï¿½`ï¿½ï¿½
+				//	--------L	(ï¿½ï¿½ï¿½ï¿½ï¿½)
+				//	--------U	(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+				//		*		(ï¿½ï¿½ï¿½ï¿½ï¿½Fï¿½Oï¿½Ì“_ï¿½bï¿½Eï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½Ì“_)
 				if ((nTmp_Y_before > m_GraphInfo.GraphArea.bottom) && (nTmp_Y < m_GraphInfo.GraphArea.top)) {
 					//		*
 					//-----/---L
 					//	  /
 					//---/-----U
 					//	*
-					//‰ºŒÀƒI[ƒo[ => ãŒÀƒI[ƒo[
+					//ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[ => ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[
 					pDC->MoveTo(nTmp_X_before, m_GraphInfo.GraphArea.bottom);
 					pDC->LineTo(nDrawPoint_X_bottom, m_GraphInfo.GraphArea.bottom);
 					pDC->MoveTo(nDrawPoint_X_top, m_GraphInfo.GraphArea.top);
@@ -731,7 +731,7 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 					//	  \
 					//-----\---U
 					//		*
-					//ãŒÀƒI[ƒo[ => ‰ºŒÀƒI[ƒo[
+					//ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[ => ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[
 					pDC->MoveTo(nTmp_X_before, m_GraphInfo.GraphArea.top);
 					pDC->LineTo(nDrawPoint_X_top, m_GraphInfo.GraphArea.top);
 					pDC->MoveTo(nDrawPoint_X_bottom, m_GraphInfo.GraphArea.bottom);
@@ -740,48 +740,48 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 					//
 					//-------L
 					//	*-*
-					//‰ºŒÀƒI[ƒo[ => ‰ºŒÀƒI[ƒo[
+					//ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[ => ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[
 					pDC->MoveTo(nTmp_X_before, m_GraphInfo.GraphArea.bottom);
 					pDC->LineTo(nTmp_X, m_GraphInfo.GraphArea.bottom);
 				} else if ((nTmp_Y_before > m_GraphInfo.GraphArea.bottom) && (nTmp_Y <= m_GraphInfo.GraphArea.bottom)) {
 					//	  *
 					//---/---L
 					//	*
-					//‰ºŒÀƒI[ƒo[ => ƒOƒ‰ƒt—Ìˆæ“à
+					//ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[ => ï¿½Oï¿½ï¿½ï¿½tï¿½Ìˆï¿½ï¿½
 					pDC->MoveTo(nTmp_X_before, m_GraphInfo.GraphArea.bottom);
 					pDC->LineTo(nDrawPoint_X_bottom, m_GraphInfo.GraphArea.bottom);
 				} else if ((nTmp_Y_before <= m_GraphInfo.GraphArea.bottom) && (nTmp_Y > m_GraphInfo.GraphArea.bottom)) {
 					//	*
 					//---\---L
 					//	  *
-					//ƒOƒ‰ƒt—Ìˆæ“à => ãŒÀƒI[ƒo[
+					//ï¿½Oï¿½ï¿½ï¿½tï¿½Ìˆï¿½ï¿½ => ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[
 					pDC->MoveTo(nDrawPoint_X_bottom, m_GraphInfo.GraphArea.bottom);
  					pDC->LineTo(nTmp_X, m_GraphInfo.GraphArea.bottom);
 				} else if ((nTmp_Y_before < m_GraphInfo.GraphArea.top) && (nTmp_Y < m_GraphInfo.GraphArea.top)) {
 					//	*-*
 					//-------U
 					//
-					//ãŒÀƒI[ƒo[ => ãŒÀƒI[ƒo[
+					//ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[ => ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[
 					pDC->MoveTo(nTmp_X_before, m_GraphInfo.GraphArea.top);
 					pDC->LineTo(nTmp_X, m_GraphInfo.GraphArea.top);
 				} else if ((nTmp_Y_before >= m_GraphInfo.GraphArea.top) && (nTmp_Y < m_GraphInfo.GraphArea.top)) {
 					//	  *
 					//---/---U
 					//	*
-					//ƒOƒ‰ƒt—Ìˆæ“à => ãŒÀƒI[ƒo[
+					//ï¿½Oï¿½ï¿½ï¿½tï¿½Ìˆï¿½ï¿½ => ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[
 					pDC->MoveTo(nDrawPoint_X_top, m_GraphInfo.GraphArea.top);
 					pDC->LineTo(nTmp_X, m_GraphInfo.GraphArea.top);
 				} else if ((nTmp_Y_before < m_GraphInfo.GraphArea.top) && (nTmp_Y >= m_GraphInfo.GraphArea.top)) {
 					//	*
 					//---\---U
 					//	  *
-					//ãŒÀƒI[ƒo[ => ƒOƒ‰ƒt—Ìˆæ“à
+					//ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[ => ï¿½Oï¿½ï¿½ï¿½tï¿½Ìˆï¿½ï¿½
 					pDC->MoveTo(nTmp_X_before, m_GraphInfo.GraphArea.top);
 					pDC->LineTo(nDrawPoint_X_top, m_GraphInfo.GraphArea.top);
 				}
 
 
-				//’l‚Ì‹L‰¯
+				//ï¿½lï¿½Ì‹Lï¿½ï¿½
 				nTmp_X_before = nTmp_X;
 				nTmp_Y_before = nTmp_Y;
 				pDC->MoveTo(nTmp_X, nTmp_Y);
@@ -808,7 +808,7 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 			int nPointNum = m_LinePointNum[nDataIndex];
 			//2009.09.20 bagus se --}--
 			//Move to origin
-			//Šî“_(0,0)
+			//ï¿½ï¿½_(0,0)
 //2009.09.01 bagus stress --{--
 
 			//2009.09.20 bagus se --{--
@@ -824,29 +824,29 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 			//for(j = 0;(j <= m_Config.PointNum) && (m_Config.PointNum >= 1);j++){
 			for(j = 0;(j <= nPointNum) && (nPointNum >= 1);j++){
 			//2009.09.20 bagus se --}--
-				//I“_(X,Y)‚Ç‚¿‚ç‚©‚ÌÅ‘å•\¦—LŒø’l
+				//ï¿½Iï¿½_(X,Y)ï¿½Ç‚ï¿½ï¿½ç‚©ï¿½ÌÅ‘ï¿½\ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½l
 				//2009.09.20 bagus se --{--
 //				if (j == m_Config.PointNum) {
 				if (j == nPointNum) {
 				//2009.09.20 bagus se --}--
 					if (j == 1) {
-						//ŒX‚«
+						//ï¿½Xï¿½ï¿½
 						dblA = (double)(m_GraphInfo.GraphArea.bottom-dTmp_Y) / (double)(m_GraphInfo.GraphArea.left-dTmp_X);
-						//Ø•Ğ
+						//ï¿½Ø•ï¿½
 						dblB = (double)(dTmp_Y - (double)(dblA * dTmp_X));
 					}
-					//ŒX‚«,Ø•Ğ => Œğ“_Zo
-					//‚w²‰E’[À•W
+					//ï¿½Xï¿½ï¿½,ï¿½Ø•ï¿½ => ï¿½ï¿½_ï¿½Zï¿½o
+					//ï¿½wï¿½ï¿½ï¿½Eï¿½[ï¿½ï¿½ï¿½W
 					dTmp_X = m_GraphInfo.GraphArea.right;
-/* added 2015.12.06 hmenjo ƒOƒ‰ƒtƒoƒOC³ ---------- { ---------- */
+/* added 2015.12.06 hmenjo ï¿½Oï¿½ï¿½ï¿½tï¿½oï¿½Oï¿½Cï¿½ï¿½ ---------- { ---------- */
 					if (2 <= nPointNum) {
 						if (m_LineXYData[nDataIndex][nPointNum - 2].dXValue > m_LineXYData[nDataIndex][nPointNum - 1].dXValue) {
 							dTmp_X = m_GraphInfo.GraphArea.left;
 						}
 					}
-/* added 2015.12.06 hmenjo ƒOƒ‰ƒtƒoƒOC³ ---------- } ---------- */
+/* added 2015.12.06 hmenjo ï¿½Oï¿½ï¿½ï¿½tï¿½oï¿½Oï¿½Cï¿½ï¿½ ---------- } ---------- */
 					dTmp_Y = dblA * dTmp_X + dblB;
-					//X ²‰E’[À•W‚É‚¨‚¢‚ÄA‚x²ã’[À•W‚ğƒI[ƒo[‚µ‚Ä‚¢‚éê‡‚ÍA‚x²ã’[Šî€À•W‚ğ‹‚ß‚é
+					//X ï¿½ï¿½ï¿½Eï¿½[ï¿½ï¿½ï¿½Wï¿½É‚ï¿½ï¿½ï¿½ï¿½ÄAï¿½xï¿½ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ê‡ï¿½ÍAï¿½xï¿½ï¿½ï¿½ï¿½[ï¿½î€ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½
 					if (dTmp_Y<m_GraphInfo.GraphArea.top){
 						dTmp_Y = m_GraphInfo.GraphArea.top;
 						dTmp_X = (dTmp_Y - dblB) / dblA;
@@ -865,7 +865,7 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 
 				pDC->LineTo(dTmp_X, dTmp_Y);
 
-				//İ’è1“_–Ú‚Ì’l
+				//ï¿½İ’ï¿½1ï¿½_ï¿½Ú‚Ì’l
 				if (j == 0) {
 					dTmp_X_before = dTmp_X;
 					dTmp_Y_before = dTmp_Y;
@@ -874,7 +874,7 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 					continue;
 				}
 
-				//ŒX‚«‚ª‚È‚¢
+				//ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
 				if ((dTmp_X_before - dTmp_X) == 0) {
 					dTmp_X_before = dTmp_X;
 					dTmp_Y_before = dTmp_Y;
@@ -882,23 +882,23 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 					continue;
 				}
 
-				//ŒX‚« => Œğ“_Zo
+				//ï¿½Xï¿½ï¿½ => ï¿½ï¿½_ï¿½Zï¿½o
 				dblA = (double)(dTmp_Y_before - dTmp_Y) / (double)(dTmp_X_before - dTmp_X);
 				dblB = (double)(dTmp_Y - (double)(dblA * dTmp_X));
 				nDrawPoint_X_bottom = (int)((m_GraphInfo.GraphArea.bottom - dblB) / dblA);
 				nDrawPoint_X_top = (int)((m_GraphInfo.GraphArea.top - dblB) / dblA);
 
-				//•`‰æ
-				//	--------L	(ãŒÀü)
-				//	--------U	(‰ºŒÀü)
-				//		*		(¶‘¤F‘O‚Ì“_b‰E‘¤F¡‚Ì“_)
+				//ï¿½`ï¿½ï¿½
+				//	--------L	(ï¿½ï¿½ï¿½ï¿½ï¿½)
+				//	--------U	(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+				//		*		(ï¿½ï¿½ï¿½ï¿½ï¿½Fï¿½Oï¿½Ì“_ï¿½bï¿½Eï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½Ì“_)
 				if ((dTmp_Y_before > m_GraphInfo.GraphArea.bottom) && (dTmp_Y < m_GraphInfo.GraphArea.top)) {
 					//		*
 					//-----/---L
 					//	  /
 					//---/-----U
 					//	*
-					//‰ºŒÀƒI[ƒo[ => ãŒÀƒI[ƒo[
+					//ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[ => ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[
 					pDC->MoveTo(dTmp_X_before, m_GraphInfo.GraphArea.bottom);
 					pDC->LineTo(nDrawPoint_X_bottom, m_GraphInfo.GraphArea.bottom);
 					pDC->MoveTo(nDrawPoint_X_top, m_GraphInfo.GraphArea.top);
@@ -909,7 +909,7 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 					//	  \
 					//-----\---U
 					//		*
-					//ãŒÀƒI[ƒo[ => ‰ºŒÀƒI[ƒo[
+					//ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[ => ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[
 					pDC->MoveTo(dTmp_X_before, m_GraphInfo.GraphArea.top);
 					pDC->LineTo(nDrawPoint_X_top, m_GraphInfo.GraphArea.top);
 					pDC->MoveTo(nDrawPoint_X_bottom, m_GraphInfo.GraphArea.bottom);
@@ -918,48 +918,48 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 					//
 					//-------L
 					//	*-*
-					//‰ºŒÀƒI[ƒo[ => ‰ºŒÀƒI[ƒo[
+					//ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[ => ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[
 					pDC->MoveTo(dTmp_X_before, m_GraphInfo.GraphArea.bottom);
 					pDC->LineTo(dTmp_X, m_GraphInfo.GraphArea.bottom);
 				} else if ((dTmp_Y_before > m_GraphInfo.GraphArea.bottom) && (dTmp_Y <= m_GraphInfo.GraphArea.bottom)) {
 					//	  *
 					//---/---L
 					//	*
-					//‰ºŒÀƒI[ƒo[ => ƒOƒ‰ƒt—Ìˆæ“à
+					//ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[ => ï¿½Oï¿½ï¿½ï¿½tï¿½Ìˆï¿½ï¿½
 					pDC->MoveTo(dTmp_X_before, m_GraphInfo.GraphArea.bottom);
 					pDC->LineTo(nDrawPoint_X_bottom, m_GraphInfo.GraphArea.bottom);
 				} else if ((dTmp_Y_before <= m_GraphInfo.GraphArea.bottom) && (dTmp_Y > m_GraphInfo.GraphArea.bottom)) {
 					//	*
 					//---\---L
 					//	  *
-					//ƒOƒ‰ƒt—Ìˆæ“à => ãŒÀƒI[ƒo[
+					//ï¿½Oï¿½ï¿½ï¿½tï¿½Ìˆï¿½ï¿½ => ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[
 					pDC->MoveTo(nDrawPoint_X_bottom, m_GraphInfo.GraphArea.bottom);
  					pDC->LineTo(dTmp_X, m_GraphInfo.GraphArea.bottom);
 				} else if ((dTmp_Y_before < m_GraphInfo.GraphArea.top) && (dTmp_Y < m_GraphInfo.GraphArea.top)) {
 					//	*-*
 					//-------U
 					//
-					//ãŒÀƒI[ƒo[ => ãŒÀƒI[ƒo[
+					//ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[ => ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[
 					pDC->MoveTo(dTmp_X_before, m_GraphInfo.GraphArea.top);
 					pDC->LineTo(dTmp_X, m_GraphInfo.GraphArea.top);
 				} else if ((dTmp_Y_before >= m_GraphInfo.GraphArea.top) && (dTmp_Y < m_GraphInfo.GraphArea.top)) {
 					//	  *
 					//---/---U
 					//	*
-					//ƒOƒ‰ƒt—Ìˆæ“à => ãŒÀƒI[ƒo[
+					//ï¿½Oï¿½ï¿½ï¿½tï¿½Ìˆï¿½ï¿½ => ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[
 					pDC->MoveTo(nDrawPoint_X_top, m_GraphInfo.GraphArea.top);
 					pDC->LineTo(dTmp_X, m_GraphInfo.GraphArea.top);
 				} else if ((dTmp_Y_before < m_GraphInfo.GraphArea.top) && (dTmp_Y >= m_GraphInfo.GraphArea.top)) {
 					//	*
 					//---\---U
 					//	  *
-					//ãŒÀƒI[ƒo[ => ƒOƒ‰ƒt—Ìˆæ“à
+					//ï¿½ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[ => ï¿½Oï¿½ï¿½ï¿½tï¿½Ìˆï¿½ï¿½
 					pDC->MoveTo(dTmp_X_before, m_GraphInfo.GraphArea.top);
 					pDC->LineTo(nDrawPoint_X_top, m_GraphInfo.GraphArea.top);
 				}
 
 
-				//’l‚Ì‹L‰¯
+				//ï¿½lï¿½Ì‹Lï¿½ï¿½
 				dTmp_X_before = dTmp_X;
 				dTmp_Y_before = dTmp_Y;
 				pDC->MoveTo(dTmp_X, dTmp_Y);
@@ -989,7 +989,7 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 			break;
 		}
 
-		//ƒƒ‚ƒŠ•`‰æ
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½ï¿½
 		cMemArea.left = (int)(dIndex - (int)(tSize_X.cx / 2) - 5);
 		cMemArea.top = m_GraphInfo.GraphArea.bottom + 1;
 		cMemArea.right = (int)(dIndex + (int)(tSize_X.cx / 2) + 5);
@@ -999,14 +999,14 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 		if(cMemArea.right >= m_GraphInfo.GraphArea.right)
 			break;
 		//2009.10.17 bagus stress --{--
-		//ƒƒ‚ƒŠ•\¦‚Ì‰ü‘P
-		//“à•”‚Ìƒƒ‚ƒŠ‚Ì•\¦•”•ª‚ªOrigin/Max‚Ìƒƒ‚ƒŠ‚Ì•`‰æˆæ‚Éd‚È‚ç‚È‚¢‚æ‚¤‚É‚·‚éB
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½Ì‰ï¿½ï¿½P
+		//ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì•\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Origin/Maxï¿½Ìƒï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì•`ï¿½ï¿½ï¿½Édï¿½È‚ï¿½È‚ï¿½ï¿½æ‚¤ï¿½É‚ï¿½ï¿½ï¿½B
 		if(cMemArea.left <= m_GraphInfo.GraphArea.left + (int)(tSize_X.cx / 2) + 5){
-			//X_Origin‚Æd‚È‚ç‚È‚¢‚æ‚¤‚ÉB
+			//X_Originï¿½Ædï¿½È‚ï¿½È‚ï¿½ï¿½æ‚¤ï¿½ÉB
 			continue;
 		}
 		if(cMemArea.right >= m_GraphInfo.GraphArea.right - (int)(tSize_X.cx) - 5){
-			//X_Max‚Æd‚È‚ç‚È‚¢‚æ‚¤‚ÉB
+			//X_Maxï¿½Ædï¿½È‚ï¿½È‚ï¿½ï¿½æ‚¤ï¿½ÉB
 			continue;
 		}
 		//2009.10.17 bagus stress --}--
@@ -1016,7 +1016,7 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 		j++;
 	}
 
-	//¶•Ó
+	//ï¿½ï¿½ï¿½ï¿½
 	wsprintf(szMem, "%d", m_Config.X_Origin);
 	strMem = szMem;
 	cMemArea.left = m_GraphInfo.GraphArea.left - (int)(tSize_X.cx / 2) - 5;
@@ -1024,9 +1024,9 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 	cMemArea.right = m_GraphInfo.GraphArea.left + (int)(tSize_X.cx / 2) + 5;
 	cMemArea.bottom = pArea->bottom;
 	pDC->DrawText(strMem, &cMemArea, DT_VCENTER | DT_CENTER | DT_SINGLELINE);
-	//‰E•Ó
+	//ï¿½Eï¿½ï¿½
 	//2009.10.17 bagus stress --{--
-	//ƒƒ‚ƒŠ•\¦‚Ì‰ü‘P
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½Ì‰ï¿½ï¿½P
 	//cMemArea.left = m_GraphInfo.GraphArea.right - (int)(tSize_X.cx / 2) - 5;
 	cMemArea.left = m_GraphInfo.GraphArea.right - (int)(tSize_X.cx) - 5;
 	cMemArea.top = m_GraphInfo.GraphArea.bottom + 1;
@@ -1053,7 +1053,7 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 			break;
 		}
 
-		//ƒƒ‚ƒŠ•`‰æ
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½ï¿½
 		cMemArea.left = pArea->left;
 		cMemArea.top = (int)dIndex - 5;
 		cMemArea.right = m_GraphInfo.GraphArea.left;
@@ -1066,7 +1066,7 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 		j++;
 	}
 
-	//ã•Ó
+	//ï¿½ï¿½ï¿½
 	cMemArea.left = pArea->left;
 	cMemArea.top = pArea->top;
 	cMemArea.right = m_GraphInfo.GraphArea.left;
@@ -1074,7 +1074,7 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 	wsprintf(szMem, "%d ", m_Config.Y_Max);
 	strMem = szMem;
 	pDC->DrawText(strMem, &cMemArea, DT_VCENTER | DT_RIGHT | DT_SINGLELINE);
-	//‰º•Ó
+	//ï¿½ï¿½ï¿½ï¿½
 	cMemArea.left = pArea->left;
 	cMemArea.top = m_GraphInfo.GraphArea.bottom - tSize_Y.cy;
 	cMemArea.right = m_GraphInfo.GraphArea.left;
@@ -1092,12 +1092,12 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 
 
 
-	//ƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“ü
+	//ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if(m_Config.UseCalibration){
 		CPen cSelectedCalibrationPen(PS_SOLID,1,m_Config.SelectedCalibrationColor);
 		pDC->SelectObject(pOldPen);
 		pOldPen = pDC->SelectObject(&cSelectedCalibrationPen);
-		//Šm’èÏ‚İ‚Ìü
+		//ï¿½mï¿½ï¿½Ï‚İ‚Ìï¿½
 		for(i = 0;i < m_CalibrationData.DataNum;i++){
 			if(m_CalibrationData.PointIndex[i] >= 0){
 				pDC->MoveTo((int)((double)m_CalibrationData.PointIndex[i] * m_GraphInfo.DivX ) + m_GraphInfo.GraphArea.left
@@ -1109,7 +1109,7 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 		pDC->SelectObject(pOldPen);
 		CPen cSelectingCalibrationPen(PS_SOLID,1,m_Config.SelectingCalibrationColor);
 		pOldPen = pDC->SelectObject(&cSelectingCalibrationPen);
-		//Œ»İˆÊ’uŒˆ‚ß’†‚Ìü
+		//ï¿½ï¿½ï¿½İˆÊ’uï¿½ï¿½ï¿½ß’ï¿½ï¿½Ìï¿½
 		if(m_bNowCalibration && m_CalibrationData.DataNum >= 0){
 			pDC->MoveTo((int)((double)m_CalibrationData.PointIndex[m_CalibrationData.DataNum ] * m_GraphInfo.DivX ) + m_GraphInfo.GraphArea.left
 				,m_GraphInfo.GraphArea.top);
@@ -1119,13 +1119,13 @@ void CNanoMeasureGraph::DrawGraph(CDC *pDC, RECT *pArea)
 		pDC->SelectObject(pOldPen);
 	}
 
-//2009.09.03 bagus se ƒI[ƒgƒXƒP[ƒ‹ --{--
+//2009.09.03 bagus se ï¿½Iï¿½[ï¿½gï¿½Xï¿½Pï¿½[ï¿½ï¿½ --{--
 	if (m_bAutoScaleMode) {
 		m_Config.Y_Origin = dScaleYMin;
 		m_Config.Y_Max = dScaleYMax;
 		m_Config.Y_Step = dScaleYStep;
 	}
-//2009.09.03 bagus se ƒI[ƒgƒXƒP[ƒ‹ --}--
+//2009.09.03 bagus se ï¿½Iï¿½[ï¿½gï¿½Xï¿½Pï¿½[ï¿½ï¿½ --}--
 }
 
 void CNanoMeasureGraph::CutGraphArea(CDC *pDC, RECT *pArea, RECT *pCutArea)
@@ -1173,16 +1173,16 @@ void CNanoMeasureGraph::ClearGraphData()
 	memset(m_LineData,NULL,sizeof(double) * NANO_MEASURE_MAX_GRAPH_LINE * NANO_MEASURE_MAX_POINT_DATA);
 	memset(m_LinePointNum,NULL,sizeof(m_LinePointNum));
 
-//2009.09.03 bagus se ƒI[ƒgƒXƒP[ƒ‹ --{--
+//2009.09.03 bagus se ï¿½Iï¿½[ï¿½gï¿½Xï¿½Pï¿½[ï¿½ï¿½ --{--
 	m_dYMin = DBL_MAX;
 	m_dYMax = DBL_MIN;
-//2009.09.03 bagus se ƒI[ƒgƒXƒP[ƒ‹ --}--
+//2009.09.03 bagus se ï¿½Iï¿½[ï¿½gï¿½Xï¿½Pï¿½[ï¿½ï¿½ --}--
 }
 
 /////////////////////////////////////////////////////////////////////////////////
-// ƒf[ƒ^‚ğ––”ö‚É’Ç‰Á
+// ï¿½fï¿½[ï¿½^ï¿½ğ––”ï¿½ï¿½É’Ç‰ï¿½
 //	nLineNo: 0 - 9
-//	dValue: ƒf[ƒ^
+//	dValue: ï¿½fï¿½[ï¿½^
 /////////////////////////////////////////////////////////////////////////////////
 void CNanoMeasureGraph::AddLineData(int nLineNo,double dValue)
 {
@@ -1200,12 +1200,12 @@ void CNanoMeasureGraph::AddLineData(int nLineNo,double dValue)
 	m_LinePointNum[nLineNo]++;
 	m_iGrapgSelectFlg = 0;
 
-	//2009.09.03 bagus se ƒI[ƒgƒXƒP[ƒ‹ --{--
+	//2009.09.03 bagus se ï¿½Iï¿½[ï¿½gï¿½Xï¿½Pï¿½[ï¿½ï¿½ --{--
 	if (m_dYMin > dValue)
 		m_dYMin = floor(dValue);
 	if (m_dYMax < dValue)
 		m_dYMax = ceil(dValue);
-	//2009.09.03 bagus se ƒI[ƒgƒXƒP[ƒ‹ --}--
+	//2009.09.03 bagus se ï¿½Iï¿½[ï¿½gï¿½Xï¿½Pï¿½[ï¿½ï¿½ --}--
 
 	Invalidate(FALSE);
 	m_bReDrawGraph = TRUE;
@@ -1213,11 +1213,11 @@ void CNanoMeasureGraph::AddLineData(int nLineNo,double dValue)
 
 /////////////////////////////////////////////////////////////////////////////////
 // 2008-10-10OkabeAdd
-// X²AY²‹¤‚Édouble’l‚ğ‚Á‚½ƒOƒ‰ƒt—p
-// ƒf[ƒ^‚ğ––”ö‚É’Ç‰Á@Å‘åF5000(NANO_MEASURE_MAX_POINT_DATA)
+// Xï¿½ï¿½ï¿½AYï¿½ï¿½ï¿½ï¿½ï¿½ï¿½doubleï¿½lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½tï¿½p
+// ï¿½fï¿½[ï¿½^ï¿½ğ––”ï¿½ï¿½É’Ç‰ï¿½ï¿½@ï¿½Å‘ï¿½F5000(NANO_MEASURE_MAX_POINT_DATA)
 //	nLineNo: 0 - 9
 //	nIndex: 0 - 4999
-//	dXValue , dYValue: ƒf[ƒ^
+//	dXValue , dYValue: ï¿½fï¿½[ï¿½^
 /////////////////////////////////////////////////////////////////////////////////
 void CNanoMeasureGraph::AddLineData(int nLineNo, double dCurrXValue, double dCurrYValue)
 {
@@ -1240,22 +1240,22 @@ void CNanoMeasureGraph::AddLineData(int nLineNo, double dCurrXValue, double dCur
 	m_LinePointNum[nLineNo]++;
 	m_iGrapgSelectFlg = 1;
 
-	//2009.09.03 bagus se ƒI[ƒgƒXƒP[ƒ‹ --{--
+	//2009.09.03 bagus se ï¿½Iï¿½[ï¿½gï¿½Xï¿½Pï¿½[ï¿½ï¿½ --{--
 	if (m_dYMin > dCurrYValue)
 		m_dYMin = floor(dCurrYValue);
 	if (m_dYMax < dCurrYValue)
 		m_dYMax = ceil(dCurrYValue);
-	//2009.09.03 bagus se ƒI[ƒgƒXƒP[ƒ‹ --}--
+	//2009.09.03 bagus se ï¿½Iï¿½[ï¿½gï¿½Xï¿½Pï¿½[ï¿½ï¿½ --}--
 
 	Invalidate(FALSE);
 	m_bReDrawGraph = TRUE;
 }
 
 /////////////////////////////////////////////////////////////////////////////////
-// ƒf[ƒ^‚ÌˆêŠ‡“ü—Í
+// ï¿½fï¿½[ï¿½^ï¿½ÌˆêŠ‡ï¿½ï¿½ï¿½ï¿½
 //	nLineNo: 0 - 9
-//	pValues: ƒf[ƒ^‚Ì”z—ñ
-//	nPointNum: ƒf[ƒ^‚ÌŒÂ”
+//	pValues: ï¿½fï¿½[ï¿½^ï¿½Ì”zï¿½ï¿½
+//	nPointNum: ï¿½fï¿½[ï¿½^ï¿½ÌŒÂï¿½
 /////////////////////////////////////////////////////////////////////////////////
 void CNanoMeasureGraph::AddLineDataAll(int nLineNo,double *pValues,int nPointNum)
 {
@@ -1348,12 +1348,12 @@ LRESULT CNanoMeasureGraph::OnLineSelectChange(WPARAM wparam,LPARAM lparam)
 	m_LineConfig[nIndex].Visible = ((int)wparam != 0 ? TRUE : FALSE);
 	Invalidate(FALSE);
 	m_bReDrawGraph = TRUE;
+	return 0;
 }
 
 int CNanoMeasureGraph::ArrangeLineSelect(CRect cArea)
 {
 	int i;
-	return 0;
 	int nColumnWidth = 0;
 	int nRowHeight = 0;
 	SIZE tSize;
@@ -1445,7 +1445,7 @@ BOOL CNanoMeasureGraph::PreTranslateMessage(MSG *pMsg)
 
 void CNanoMeasureGraph::MoveCalibrationLine(int nStep)
 {
-	//ƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“ƒ‚[ƒh‚Å‚Í‚È‚¢
+	//ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½Å‚Í‚È‚ï¿½
 	if(!m_Config.UseCalibration){
 		return;
 	}
@@ -1550,7 +1550,7 @@ BOOL CNanoMeasureGraph::IsValidLineNo(int nLineNo)
 	return TRUE;
 }
 
-//2009.09.03 bagus se ƒI[ƒgƒXƒP[ƒ‹ --{--
+//2009.09.03 bagus se ï¿½Iï¿½[ï¿½gï¿½Xï¿½Pï¿½[ï¿½ï¿½ --{--
 void CNanoMeasureGraph::SetAutoScaleMode(BOOL bMode)
 {
 	m_bAutoScaleMode = bMode;
@@ -1563,4 +1563,4 @@ BOOL CNanoMeasureGraph::GetAutoScaleMode()
 {
 	return m_bAutoScaleMode;
 }
-//2009.09.03 bagus se ƒI[ƒgƒXƒP[ƒ‹ --}--
+//2009.09.03 bagus se ï¿½Iï¿½[ï¿½gï¿½Xï¿½Pï¿½[ï¿½ï¿½ --}--
