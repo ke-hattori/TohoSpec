@@ -2475,7 +2475,7 @@ void CManualMeasurementFormView::OnSelendokMicroScopeFocusPosition()
 // 2009.11.02 bagus MS í«â¡ --}--
 
 // 2009.11.09 bagus MS èCê≥ --{--
-void CManualMeasurementFormView::OnNexResponse(WPARAM wparam, LPARAM lparam)
+LRESULT CManualMeasurementFormView::OnNexResponse(WPARAM wparam, LPARAM lparam)
 {
 	switch ( wparam ) {
 	case nexRC_MoveToTeachPos:
@@ -2493,5 +2493,6 @@ void CManualMeasurementFormView::OnNexResponse(WPARAM wparam, LPARAM lparam)
 	default:
 		break;
 	}
+	return 0;
 }
 // 2009.11.09 bagus MS èCê≥ --}--

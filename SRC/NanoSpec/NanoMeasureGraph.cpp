@@ -1336,7 +1336,7 @@ void CNanoMeasureGraph::Initialize()
 
 
 }
-void CNanoMeasureGraph::OnLineSelectChange(WPARAM wparam,LPARAM lparam)
+LRESULT CNanoMeasureGraph::OnLineSelectChange(WPARAM wparam,LPARAM lparam)
 {
 	CString strDebug;
 	int nIndex;
@@ -1353,6 +1353,7 @@ void CNanoMeasureGraph::OnLineSelectChange(WPARAM wparam,LPARAM lparam)
 int CNanoMeasureGraph::ArrangeLineSelect(CRect cArea)
 {
 	int i;
+	return 0;
 	int nColumnWidth = 0;
 	int nRowHeight = 0;
 	SIZE tSize;
