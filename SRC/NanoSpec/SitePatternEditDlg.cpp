@@ -346,9 +346,9 @@ void CSitePatternEditDlg::RenumberItem()
 
 // ==========================================================================
 //
-void CSitePatternEditDlg::OnClickPatternList(TBNOTIFY* pTBNOTIFY, LRESULT* /*pResult*/)
+void CSitePatternEditDlg::OnClickPatternList(NMHDR* pNMHDR, LRESULT* /*pResult*/)
 {
-	int nIndex = pTBNOTIFY->iItem;
+	int nIndex = ((TBNOTIFY*)pNMHDR)->iItem;
 
 	m_SelectItem = nIndex + 1;
 	DispPattern();

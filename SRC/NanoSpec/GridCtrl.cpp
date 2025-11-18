@@ -316,7 +316,7 @@ CGridCtrl::~CGridCtrl()
 		m_TitleTip.DestroyWindow();
 #endif
 
-// ï¿½fï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½gï¿½Ì’ï¿½ï¿½ï¿½DestroyWindowï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½È‚ï¿½
+// ƒfƒXƒgƒ‰ƒNƒg‚Ì’†‚ÅDestroyWindow‚ğŒÄ‚Ño‚³‚È‚¢
 //	DestroyWindow();
 
 #if !defined(GRIDCONTROL_NO_DRAGDROP) || !defined(GRIDCONTROL_NO_CLIPBOARD)

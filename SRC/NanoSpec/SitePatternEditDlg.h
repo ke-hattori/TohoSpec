@@ -57,7 +57,7 @@ protected:
 	virtual void OnOK();
 	virtual void OnCancel();
 	afx_msg void OnTimer(UINT nIDEvent);
-	afx_msg void OnClickPatternList(TBNOTIFY* pNMHDR, LRESULT* pResult);
+	afx_msg void OnClickPatternList(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnColumnclickPatternList(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnDeleteButton();
 	afx_msg void OnDeleteAllButton();
