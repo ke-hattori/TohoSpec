@@ -1430,42 +1430,42 @@ BOOL CNanoSpecDoc::ActuateFlagsGet(ACTUATE_FLAGS_SEL ActFgSel)
 	case ACTUATE_XYSTAGE:
 		/*	フラグは，「0」か「1」の値にしかなりませんので
 		 *	「99」を比較対象値とすることで書込みが行われないようにしています．	*/
-		if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bXYStage, (PVOID) 99, (PVOID) 99)) {
+		if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bXYStage, (LONG)99, (LONG)99)) {
 			l_bRc = TRUE;
 		} else {
 			l_bRc = FALSE;
 		}
 		break;
 	case ACTUATE_ZAXIS:
-		if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bZAxis, (PVOID) 99, (PVOID) 99)) {
+		if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bZAxis, (LONG)99, (LONG)99)) {
 			l_bRc = TRUE;
 		} else {
 			l_bRc = FALSE;
 		}
 		break;
 	case ACTUATE_PIN:
-		if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bPin, (PVOID) 99, (PVOID) 99)) {
+		if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bPin, (LONG)99, (LONG)99)) {
 			l_bRc = TRUE;
 		} else {
 			l_bRc = FALSE;
 		}
 		break;
 	case ACTUATE_SHUTTER:
-		if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bShutter, (PVOID) 99, (PVOID) 99)) {
+		if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bShutter, (LONG)99, (LONG)99)) {
 			l_bRc = TRUE;
 		} else {
 			l_bRc = FALSE;
 		}
 		break;
 	case ACTUATE_WORKGUIDE:
-		if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bWorkGuide, (PVOID) 99, (PVOID) 99)) {
+		if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bWorkGuide, (LONG)99, (LONG)99)) {
 			l_bRc = TRUE;
 		} else {
 			l_bRc = FALSE;
 		}
 		break;
 	case ACTUATE_TURRET:
-		if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bTurret, (PVOID) 99, (PVOID) 99)) {
+		if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bTurret, (LONG)99, (LONG)99)) {
 			l_bRc = TRUE;
 		} else {
 			l_bRc = FALSE;
@@ -1473,7 +1473,7 @@ BOOL CNanoSpecDoc::ActuateFlagsGet(ACTUATE_FLAGS_SEL ActFgSel)
 		break;
 // 2009.11.10 bagus MS --{--
 	case ACTUATE_MICROSCOPE:
-		if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bMS, (PVOID) 99, (PVOID) 99)) {
+		if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bMS, (LONG)99, (LONG)99)) {
 			l_bRc = TRUE;
 		} else {
 			l_bRc = FALSE;
@@ -1506,26 +1506,26 @@ DWORD CNanoSpecDoc::ActuateFlagsGetAll()
 		}
 	}
 #else
-	if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bXYStage, (PVOID) 99, (PVOID) 99)) {
+	if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bXYStage, (LONG)99, (LONG)99)) {
 		l_dwRc |= ACTUATE_XYSTAGE;
 	}
-	if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bZAxis, (PVOID) 99, (PVOID) 99)) {
+	if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bZAxis, (LONG)99, (LONG)99)) {
 		l_dwRc |= ACTUATE_ZAXIS;
 	}
-	if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bPin, (PVOID) 99, (PVOID) 99)) {
+	if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bPin, (LONG)99, (LONG)99)) {
 		l_dwRc |= ACTUATE_PIN;
 	}
-	if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bShutter, (PVOID) 99, (PVOID) 99)) {
+	if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bShutter, (LONG)99, (LONG)99)) {
 		l_dwRc |= ACTUATE_SHUTTER;
 	}
-	if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bWorkGuide, (PVOID) 99, (PVOID) 99)) {
+	if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bWorkGuide, (LONG)99, (LONG)99)) {
 		l_dwRc |= ACTUATE_WORKGUIDE;
 	}
-	if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bTurret, (PVOID) 99, (PVOID) 99)) {
+	if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bTurret, (LONG)99, (LONG)99)) {
 		l_dwRc |= ACTUATE_TURRET;
 	}
 // 2009.11.10 bagus MS --{--
-	if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bMS, (PVOID) 99, (PVOID) 99)) {
+	if (0 != ::InterlockedCompareExchange((LONG volatile*) &m_ActuateFlags.bMS, (LONG)99, (LONG)99)) {
 		l_dwRc |= ACTUATE_MICROSCOPE;
 	}
 // 2009.11.10 bagus MS --}--
